@@ -148,6 +148,19 @@ def smoke : IO Unit := do
       changed.elapsed == 5/64 && changed.observations.length == 3)
     let rational := rationalReport (1/2) k
     check s!"rational representative {k}" (rational.failure == none && rational.elapsed == 5/64)
+  let one := Bounded.Driver.startAccounted ⟨1⟩ (1/2) [.command move] fixture.rational 128
+  let many := Bounded.Driver.startAccounted ⟨4⟩ (1/2) [.command move] fixture.rational 128
+  check "early success still charges all configured candidates" (one.2.candidateCells == 1 &&
+    many.2.candidateCells == 4 && match one.1, many.1 with
+      | .ok a, .ok b => a.final == b.final && a.attemptedTicks == 1 && b.attemptedTicks == 1
+      | _, _ => false)
+  let refused := Bounded.Driver.startAccounted ⟨4⟩ (1/2) [.command move] fixture.rational 1
+  check "work refusal retains eager setup" (refused.2.candidateCells == 4 &&
+    match refused.1 with | .ok r => r.failure == some .work && r.attemptedTicks == 0 | _ => false)
+  let nongrid := Bounded.Driver.startAccounted ⟨4⟩ (1/2) word ⟨⟨(1/512,0),(1/2,0)⟩,0⟩ 128
+  check "initial rejection remains cost bearing" (nongrid.2.initialScalarSlots == 5 &&
+    nongrid.2.initialPredicates == 2 && nongrid.2.outputScalarSlots == 0 &&
+    match nongrid.1 with | .error .precision => true | _ => false)
   IO.println "bounded-motion smoke cases passed"
 
 #eval smoke
@@ -157,18 +170,24 @@ def measurements : IO Unit := do
   for tolerance in ([1/4, 1/2] : List ℚ) do
     for k in List.range 4 do
       let before ← IO.monoNanosNow
-      let bounded := boundedReport tolerance k
+      let boundedRun := Bounded.Driver.startAccounted ⟨4⟩ tolerance word (fixture.rational.rotate k) 128
+      let bounded := match boundedRun.1 with
+        | .ok r => r
+        | .error err => Bounded.Driver.stopped (fixture.rotate k) word err
       let boundedSummary := (bounded.failure, bounded.elapsed, Bounded.rational bounded.final.error,
-        bounded.attemptedTicks, bounded.charged, bounded.scalarSlots, bounded.metadataBits, bounded.listCells, bounded.envelope)
+        bounded.attemptedTicks, bounded.charged, bounded.scalarSlots, bounded.metadataBits, bounded.listCells, bounded.envelope,
+        boundedRun.2)
       IO.println s!"bounded tol={tolerance} representative={k}: {repr boundedSummary}"
       let after ← IO.monoNanosNow
       IO.println s!"bounded elapsed_ns_including_render={after-before}"
       let beforeR ← IO.monoNanosNow
-      let rational := rationalReport tolerance k
+      let rationalRun := Bounded.rationalAccounted ⟨4,4096⟩ tolerance word (fixture.rational.rotate k) 128
+      let rational := rationalRun.1
       let rationalSummary := (rational.failure, rational.elapsed, rational.final.error,
         rational.counts.1, rational.charged, Bounded.rationalScalarStorage rational,
         Bounded.rationalMetadataBits rational, Bounded.rationalListCells rational,
-        Bounded.rationalWorkEnvelope rational)
+        Bounded.rationalWorkEnvelope rational,
+        rationalRun.2)
       IO.println s!"rational tol={tolerance} representative={k}: {repr rationalSummary}"
       let afterR ← IO.monoNanosNow
       IO.println s!"rational elapsed_ns_including_render={afterR-beforeR}"

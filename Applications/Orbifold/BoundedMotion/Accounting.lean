@@ -284,4 +284,329 @@ def rationalListCells (r : Numerical.Driver.Report) : Nat :=
     (r.observations.map fun o => match o with | .relabel _ _ => 0 | .command _ _ _ result => result.samples.length).sum
 
 
+/-- Source-level compound tariffs. A candidate cell includes range/map allocation,
+`2^k-1`, and storing that candidate. A schedule slot includes constructing its
+subtick (including exact duration division), allocation, and traversal. A step
+slot includes input conversions, all AST evaluation and guards, packet-bit tests
+where applicable, result construction, and sample/error logging. These tariffs
+are whole source operations, not uniform integer or machine operations. -/
+structure RequestEnvelope where
+  initialScalarSlots : Nat
+  initialPredicates : Nat
+  eventSlots : Nat
+  candidateCells : Nat
+  candidateChecks : Nat
+  scheduleSlots : Nat
+  stepSlots : Nat
+  relabelQuarterTurns : Nat
+  outputScalarSlots : Nat
+  outputListCells : Nat
+  deriving Repr, DecidableEq
+
+/-- Reserve all request events and configured candidates, including unreached
+ones; fuel bounds schedules actually allocated after the reservation check.
+Output traversal charges the complete retained result when one exists. -/
+def requestEnvelope (rounds eventCount fuel scalarSlots listCells : Nat) : RequestEnvelope :=
+  ⟨5, 2, eventCount + 1, rounds * eventCount, (rounds + 1) * eventCount,
+    fuel, fuel, 3 * eventCount, scalarSlots, listCells⟩
+
+namespace Driver
+
+theorem drive_searches_le (limits : Limits) (tolerance : ℚ) (es : List Numerical.Driver.Event)
+    (q : Packet) (fuel index : Nat) :
+    (drive limits tolerance es q fuel index).searches.length ≤ es.length := by
+  induction es generalizing q fuel index with
+  | nil => simp [drive]
+  | cons e es ih =>
+    cases e with
+    | relabel k =>
+      simp only [drive]
+      split
+      · simp [stopped]
+      · have h := ih (q.rotate k.val) (fuel-1) (index+1)
+        simpa only [prepend, List.length_cons] using Nat.le_succ_of_le h
+    | command c =>
+      simp only [drive]
+      split
+      · simp [stopped]
+      · split
+        · simp
+        · rename_i s hs
+          simpa only [List.length_cons] using Nat.succ_le_succ
+            (ih s.execution.final (fuel-(searchInterval limits tolerance fuel c q).charged) (index+1))
+
+/-- The cost-bearing result survives initial conversion or admission failure. -/
+def startAccounted (limits : Limits) (tolerance : ℚ) (events : List Numerical.Driver.Event)
+    (q : Numerical.Packet) (fuel : Nat) : Except Failure Report × RequestEnvelope :=
+  let result := start limits tolerance events q fuel
+  let slots := match result with | .error _ => 0 | .ok r => r.scalarSlots
+  let cells := match result with | .error _ => 0 | .ok r => r.listCells
+  (result, requestEnvelope limits.rounds events.length fuel slots cells)
+
+theorem startAccounted_erases (limits : Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat) :
+    (startAccounted limits tolerance events q fuel).1 = start limits tolerance events q fuel := rfl
+
+/-- Coverage of all actual search calls, allocated schedules, attempted ticks,
+and complete retained-output traversal. A refused candidate allocates no schedule;
+its setup and decision remain charged by candidateCells/candidateChecks. -/
+theorem startAccounted_coverage (limits : Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat)
+    {r : Report} (hr : (startAccounted limits tolerance events q fuel).1 = .ok r) :
+    limits.rounds * r.searches.length ≤ (startAccounted limits tolerance events q fuel).2.candidateCells ∧
+    r.attemptedTicks ≤ (startAccounted limits tolerance events q fuel).2.stepSlots ∧
+    r.charged ≤ (startAccounted limits tolerance events q fuel).2.scheduleSlots ∧
+    (startAccounted limits tolerance events q fuel).2.outputScalarSlots = r.scalarSlots ∧
+    (startAccounted limits tolerance events q fuel).2.outputListCells = r.listCells := by
+  have hr' : start limits tolerance events q fuel = .ok r := hr
+  have bounds : r.searches.length ≤ events.length ∧ r.attemptedTicks ≤ fuel ∧ r.charged ≤ fuel := by
+    unfold start at hr'
+    cases hi : importPacket q with
+    | none => simp [hi] at hr'
+    | some input =>
+      simp only [hi] at hr'
+      split at hr'
+      · cases hr'
+        exact ⟨drive_searches_le _ _ _ _ _ _, (drive_work _ _ _ _ _ _).1.trans
+          (drive_work _ _ _ _ _ _).2, (drive_work _ _ _ _ _ _).2⟩
+      · cases hr'
+  simp only [startAccounted, hr', requestEnvelope]
+  exact ⟨Nat.mul_le_mul_left _ bounds.1, bounds.2.1, bounds.2.2, trivial, trivial⟩
+
+/-- Initial rejection still reserves every initial scalar conversion and both
+compound admission/classification predicates, even when conversion short circuits. -/
+theorem startAccounted_initial (limits : Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat) :
+    (startAccounted limits tolerance events q fuel).2.initialScalarSlots = 5 ∧
+    (startAccounted limits tolerance events q fuel).2.initialPredicates = 2 := ⟨rfl, rfl⟩
+
+end Driver
+
+theorem rational_drive_searches_le (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (es : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel index : Nat) :
+    (Numerical.Driver.drive limits tolerance es q fuel index).searches.length ≤ es.length := by
+  induction es generalizing q fuel index with
+  | nil => simp [Numerical.Driver.drive]
+  | cons e es ih =>
+    cases e with
+    | relabel k =>
+      simp only [Numerical.Driver.drive]
+      split
+      · simp [Numerical.Driver.stopped]
+      · have h := ih (q.rotate k.val) (fuel-1) (index+1)
+        simpa only [Numerical.Driver.prepend, List.length_cons] using Nat.le_succ_of_le h
+    | command c =>
+      simp only [Numerical.Driver.drive]
+      split
+      · simp [Numerical.Driver.stopped]
+      · split
+        · simp
+        · rename_i s hs
+          simpa only [List.length_cons] using Nat.succ_le_succ
+            (ih s.execution.final (fuel-(Numerical.Driver.searchInterval limits tolerance fuel c q).charged) (index+1))
+
+def rationalAccounted (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat) :
+    Numerical.Driver.Report × RequestEnvelope :=
+  let r := Numerical.Driver.drive limits tolerance events q fuel 0
+  (r, requestEnvelope limits.rounds events.length fuel
+    (5 * (r.final :: r.observations.flatMap rationalObservationPackets).length) (rationalListCells r))
+
+theorem rationalAccounted_erases (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat) :
+    (rationalAccounted limits tolerance events q fuel).1 =
+      Numerical.Driver.drive limits tolerance events q fuel 0 := rfl
+
+theorem rationalAccounted_coverage (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (events : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel : Nat) :
+    let a := rationalAccounted limits tolerance events q fuel
+    limits.rounds * a.1.searches.length ≤ a.2.candidateCells ∧
+    a.1.counts.1 ≤ a.2.stepSlots ∧ a.1.charged ≤ a.2.scheduleSlots := by
+  exact ⟨Nat.mul_le_mul_left _ (rational_drive_searches_le _ _ _ _ _ _),
+    (Numerical.Driver.drive_work _ _ _ _ _ _).1.trans (Numerical.Driver.drive_work _ _ _ _ _ _).2,
+    (Numerical.Driver.drive_work _ _ _ _ _ _).2⟩
+
+/-- Actual eager candidate construction has exactly this many cells. Exponentiation
+and subtraction are included in each compound candidate-cell tariff. -/
+theorem candidate_cells (rounds : Nat) :
+    ((List.range rounds).map (fun k => 2^k-1)).length = rounds := by simp
+
+/-- Search visits at most the prepared candidate list. The extra one in the
+request tariff covers either list exhaustion or refusal before execution. -/
+theorem Driver.search_attempts_le (tolerance : ℚ) (c : Tick) (q : Packet)
+    (ns : List Nat) (fuel : Nat) (last : Failure) :
+    (Driver.searchCandidates tolerance c q ns fuel last).attempts.length ≤ ns.length := by
+  induction ns generalizing fuel last with
+  | nil => simp [Driver.searchCandidates]
+  | cons n ns ih =>
+    have h := ih (fuel-(n+2)) .accuracy
+    have h' why := ih (fuel-(n+2)) why
+    simp only [Driver.searchCandidates]
+    split
+    · simp
+    · split
+      · split
+        · simp
+        · simpa only [List.length_cons] using Nat.succ_le_succ h
+      · simpa only [List.length_cons] using Nat.succ_le_succ (h' _)
+
+theorem rational_search_attempts_le (cap : Nat) (tolerance : ℚ) (c : Tick)
+    (q : Numerical.Packet) (ns : List Nat) (fuel : Nat) (last : Numerical.Driver.Failure) :
+    (Numerical.Driver.searchCandidates cap tolerance c q ns fuel last).attempts.length ≤ ns.length := by
+  induction ns generalizing fuel last with
+  | nil => simp [Numerical.Driver.searchCandidates]
+  | cons n ns ih =>
+    have h := ih (fuel-(n+2)) .accuracy
+    have h' why := ih (fuel-(n+2)) why
+    simp only [Numerical.Driver.searchCandidates]
+    split
+    · simp
+    · split
+      · split
+        · simp
+        · simpa only [List.length_cons] using Nat.succ_le_succ h
+      · split
+        · simp
+        · simpa only [List.length_cons] using Nat.succ_le_succ (h' _)
+
+/-- Both drivers commit a prefix, so event dispatch and signed-permutation work
+are bounded by the original request even when a failure leaves a suffix. -/
+theorem Driver.observations_le (limits : Driver.Limits) (tolerance : ℚ)
+    (es : List Numerical.Driver.Event) (q : Packet) (fuel index : Nat) :
+    (Driver.drive limits tolerance es q fuel index).observations.length ≤ es.length := by
+  have h := congrArg List.length (Driver.drive_partition limits tolerance es q fuel index)
+  simp only [List.length_append, List.length_map] at h
+  omega
+
+theorem rational_observations_le (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (es : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel index : Nat) :
+    (Numerical.Driver.drive limits tolerance es q fuel index).observations.length ≤ es.length := by
+  have h := congrArg List.length (Numerical.Driver.drive_partition limits tolerance es q fuel index)
+  simp only [List.length_append, List.length_map] at h
+  omega
+
+def Driver.plannedTicks (logs : List Driver.AttemptLog) : Nat :=
+  (logs.map Driver.AttemptLog.subdivisions).sum
+
+theorem Driver.search_planned_le (tolerance : ℚ) (c : Tick) (q : Packet)
+    (ns : List Nat) (fuel : Nat) (last : Failure) :
+    Driver.plannedTicks (Driver.searchCandidates tolerance c q ns fuel last).attempts ≤
+      (Driver.searchCandidates tolerance c q ns fuel last).charged := by
+  induction ns generalizing fuel last with
+  | nil => simp [Driver.searchCandidates, Driver.plannedTicks]
+  | cons n ns ih =>
+    have h := ih (fuel-(n+2)) .accuracy
+    have h' why := ih (fuel-(n+2)) why
+    simp only [Driver.searchCandidates]
+    split
+    · simp [Driver.plannedTicks]
+    · split
+      · split
+        · simp [Driver.plannedTicks]
+        · simp only [Driver.plannedTicks, List.map_cons, List.sum_cons] at h ⊢; omega
+      · rename_i why hw
+        have H := h' why
+        simp only [Driver.plannedTicks, List.map_cons, List.sum_cons] at H ⊢; omega
+
+def rationalPlannedTicks (logs : List Numerical.Driver.AttemptLog) : Nat :=
+  (logs.map Numerical.Driver.AttemptLog.subdivisions).sum
+
+theorem rational_search_planned_le (cap : Nat) (tolerance : ℚ) (c : Tick)
+    (q : Numerical.Packet) (ns : List Nat) (fuel : Nat) (last : Numerical.Driver.Failure) :
+    rationalPlannedTicks (Numerical.Driver.searchCandidates cap tolerance c q ns fuel last).attempts ≤
+      (Numerical.Driver.searchCandidates cap tolerance c q ns fuel last).charged := by
+  induction ns generalizing fuel last with
+  | nil => simp [Numerical.Driver.searchCandidates, rationalPlannedTicks]
+  | cons n ns ih =>
+    have h := ih (fuel-(n+2)) .accuracy
+    have h' why := ih (fuel-(n+2)) why
+    simp only [Numerical.Driver.searchCandidates]
+    split
+    · simp [rationalPlannedTicks]
+    · split
+      · split
+        · simp [rationalPlannedTicks]
+        · simp only [rationalPlannedTicks, List.map_cons, List.sum_cons] at h ⊢; omega
+      · split
+        · simp [rationalPlannedTicks]
+        · have H := h' (Numerical.Driver.guarded cap (Numerical.Driver.schedule c n) q).failure
+          simp only [rationalPlannedTicks, List.map_cons, List.sum_cons] at H ⊢; omega
+
+/-- Each label is a C4 element; the tariff reserves three quarter turns per event. -/
+def relabelTurns (es : List Numerical.Driver.Event) : Nat :=
+  (es.map (fun e => match e with | .relabel k => k.val | .command _ => 0)).sum
+
+theorem relabelTurns_le (es : List Numerical.Driver.Event) : relabelTurns es ≤ 3 * es.length := by
+  induction es with
+  | nil => simp [relabelTurns]
+  | cons e es ih =>
+    cases e with
+    | command c => simp only [relabelTurns, List.map_cons, List.sum_cons, List.length_cons] at *; omega
+    | relabel k =>
+      have h := k.isLt
+      simp only [relabelTurns, List.map_cons, List.sum_cons, List.length_cons] at *
+      omega
+
+theorem Driver.drive_planned_le (limits : Driver.Limits) (tolerance : ℚ)
+    (es : List Numerical.Driver.Event) (q : Packet) (fuel index : Nat) :
+    (((Driver.drive limits tolerance es q fuel index).searches.map
+      (fun s => Driver.plannedTicks s.2)).sum) ≤
+      (Driver.drive limits tolerance es q fuel index).charged := by
+  induction es generalizing q fuel index with
+  | nil => simp [Driver.drive]
+  | cons e es ih =>
+    cases e with
+    | relabel k =>
+      simp only [Driver.drive]
+      split
+      · simp [Driver.stopped]
+      · have h := ih (q.rotate k.val) (fuel-1) (index+1)
+        simp only [Driver.prepend] at h ⊢
+        omega
+    | command c =>
+      have h := Driver.search_planned_le tolerance c q
+        ((List.range limits.rounds).map (fun k => 2^k-1)) fuel .accuracy
+      change Driver.plannedTicks (Driver.searchInterval limits tolerance fuel c q).attempts ≤
+        (Driver.searchInterval limits tolerance fuel c q).charged at h
+      simp only [Driver.drive]
+      split
+      · simp [Driver.stopped]
+      · split
+        · simpa only [List.map_cons, List.map_nil, List.sum_cons, List.sum_nil, Nat.add_zero] using h
+        · rename_i sel hs
+          have h' := ih sel.execution.final (fuel-(Driver.searchInterval limits tolerance fuel c q).charged) (index+1)
+          simp only [List.map_cons, List.sum_cons] at h' ⊢
+          omega
+
+theorem rational_drive_planned_le (limits : Numerical.Driver.Limits) (tolerance : ℚ)
+    (es : List Numerical.Driver.Event) (q : Numerical.Packet) (fuel index : Nat) :
+    (((Numerical.Driver.drive limits tolerance es q fuel index).searches.map
+      (fun s => rationalPlannedTicks s.2)).sum) ≤
+      (Numerical.Driver.drive limits tolerance es q fuel index).charged := by
+  induction es generalizing q fuel index with
+  | nil => simp [Numerical.Driver.drive]
+  | cons e es ih =>
+    cases e with
+    | relabel k =>
+      simp only [Numerical.Driver.drive]
+      split
+      · simp [Numerical.Driver.stopped]
+      · have h := ih (q.rotate k.val) (fuel-1) (index+1)
+        simp only [Numerical.Driver.prepend] at h ⊢
+        omega
+    | command c =>
+      have h := rational_search_planned_le limits.packetBitLimit tolerance c q
+        ((List.range limits.rounds).map (fun k => 2^k-1)) fuel .accuracy
+      change rationalPlannedTicks (Numerical.Driver.searchInterval limits tolerance fuel c q).attempts ≤
+        (Numerical.Driver.searchInterval limits tolerance fuel c q).charged at h
+      simp only [Numerical.Driver.drive]
+      split
+      · simp [Numerical.Driver.stopped]
+      · split
+        · simpa only [List.map_cons, List.map_nil, List.sum_cons, List.sum_nil, Nat.add_zero] using h
+        · rename_i sel hs
+          have h' := ih sel.execution.final (fuel-(Numerical.Driver.searchInterval limits tolerance fuel c q).charged) (index+1)
+          simp only [List.map_cons, List.sum_cons] at h' ⊢
+          omega
+
 end Orbifold.DiskTransport.Numerical.Bounded
