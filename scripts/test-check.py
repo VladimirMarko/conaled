@@ -7,6 +7,7 @@ import os
 import shutil
 import subprocess
 import tempfile
+import tomllib
 import unittest
 
 
@@ -23,7 +24,10 @@ class FreshVerification(unittest.TestCase):
         (self.root / ".lake").mkdir()
         (self.root / ".lake/packages").symlink_to(ROOT / ".lake/packages")
         (self.root / "lakefile.toml").write_text('name = "fixture"\n[[lean_lib]]\nname = "SquareApplications"\nglobs = ["SquareApplications", "Applications.+", "ProofAudit"]\n')
-        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/project_sources.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
+        config = self.root / "lakefile.toml"
+        policy = tomllib.loads((ROOT / "lakefile.toml").read_text()).get("weakLeanArgs", [])
+        config.write_text('weakLeanArgs = ' + json.dumps(policy) + '\n' + config.read_text())
+        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/project_sources.py", "scripts/verification_status.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
         self.write("Applications.A", "def a : Nat := 1\n")
@@ -539,6 +543,45 @@ run_cmd IO.FS.writeFile "dependent-ran" "yes"
                                 capture_output=True, text=True, timeout=15)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("LEAN override requires --fresh", result.stderr)
+
+    def test_generated_admission_fails_during_compilation(self):
+        # This elaborator produces an admission without a forbidden source token.
+        self.write("Applications.A", '''import Lean
+open Lean Elab Term
+elab "unfinishedProof" : term => return (← Lean.Meta.mkSorry (mkConst ``True) false)
+theorem generated : True := unfinishedProof
+''')
+        for args, fresh in (((), True), ((), False), (("--clean",), False)):
+            with self.subTest(args=args, fresh=fresh):
+                result = self.check(*args, fresh=fresh)
+                self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("declaration uses", result.stdout + result.stderr)
+                self.assertFalse((self.root / "audit-ran").exists())
+        result = subprocess.run(["lake", "--no-cache", "build", "+Applications.A"],
+                                cwd=self.root, capture_output=True, text=True, timeout=45)
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_suppressed_admission_warning_still_fails_real_audit(self):
+        self.write("ProofAudit", (ROOT / "ProofAudit.lean").read_text())
+        self.write("Applications.A", """import Lean
+open Lean Elab Term
+elab "unfinishedProof" : term => return (← Lean.Meta.mkSorry (mkConst ``True) false)
+run_cmd Lean.Elab.Command.modifyScope fun s =>
+  { s with opts := s.opts.setBool (Lean.Name.str `warn "sorry") false }
+theorem generated : True := unfinishedProof
+""")
+        for fresh in (True, False):
+            with self.subTest(fresh=fresh):
+                result = self.check(fresh=fresh)
+                self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("sorryAx", result.stdout + result.stderr)
+
+    def test_ordinary_warning_remains_nonfatal(self):
+        self.write("Applications.A", 'import Lean\nrun_cmd Lean.logWarning "ordinary diagnostic"\ndef a := 1\n')
+        for fresh in (True, False):
+            result = self.check(fresh=fresh)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn("ordinary diagnostic", result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

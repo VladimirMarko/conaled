@@ -7,8 +7,10 @@ import json
 import os
 from pathlib import Path
 import shlex
+import signal
 import subprocess
 import sys
+import time
 import unittest
 
 
@@ -74,6 +76,42 @@ run_cmd do
         return {name: int((self.workspace / f".counts/{name}").read_text())
                 for name in ("A", "B", "C")}
 
+    def status(self):
+        result = subprocess.run([sys.executable, str(ROOT / "scripts/check-candidate.py"),
+                                 "--repo", str(self.root), "--status"],
+                                capture_output=True, text=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        return json.loads(result.stdout)
+
+    def test_status_is_read_only_and_distinguishes_failure_and_unknown(self):
+        state = self.root / ".git/conaled"
+        self.assertEqual(self.status()["outcome"], "not-started")
+        self.assertFalse(state.exists())
+        self.accepted()
+        before = {str(p.relative_to(state)): (p.read_bytes(), p.stat().st_mtime_ns)
+                  for p in state.glob("*") if p.is_file()}
+        status = self.status()
+        self.assertEqual(status["outcome"], "passed")
+        self.assertEqual(status["candidate"], self.git("rev-parse", "HEAD"))
+        self.assertEqual(status["phase"], "complete")
+        self.assertGreaterEqual(status["elapsed_seconds"], 0)
+        after = {str(p.relative_to(state)): (p.read_bytes(), p.stat().st_mtime_ns)
+                 for p in state.glob("*") if p.is_file()}
+        self.assertEqual(before, after)
+        self.fixture.write("Applications.B", "#check nonexistentName\n")
+        bad = self.commit("failing compiler fixture")
+        self.assertNotEqual(self.run_candidate(bad).returncode, 0)
+        self.assertEqual(self.status()["outcome"], "failed")
+        (state / "acceptance-running.json").write_text('{"candidate":"uncertain"}')
+        self.assertEqual(self.status()["outcome"], "unknown")
+        saved = json.loads((state / "acceptance-status.json").read_text())
+        for field in ("phase", "outcome"):
+            with self.subTest(malformed=field):
+                (state / "acceptance-status.json").write_text(json.dumps({**saved, field: []}))
+                self.assertEqual(self.status()["outcome"], "unknown")
+        (state / "acceptance-status.json").write_text("{")
+        self.assertEqual(self.status()["outcome"], "unknown")
+
     def test_warm_and_changed_candidates_retain_unaffected_compilation(self):
         first = self.git("rev-parse", "HEAD")
         self.accepted(first)
@@ -94,6 +132,16 @@ run_cmd do
         foundation = self.commit("change foundation")
         self.accepted(foundation)
         self.assertEqual(self.counts(), {"A": 2, "B": 3, "C": 1})
+
+    def test_diagnostic_policy_change_reuses_compilation(self):
+        config = self.root / "lakefile.toml"
+        enabled = config.read_text()
+        config.write_text(enabled.replace('["-EhasSorry"]', '[]'))
+        self.accepted(self.commit("disable diagnostic severity"))
+        before = self.counts()
+        config.write_text(enabled)
+        self.accepted(self.commit("enable diagnostic severity"))
+        self.assertEqual(self.counts(), before)
 
     def test_clean_candidate_retains_outputs_and_records_its_mode(self):
         candidate = self.git("rev-parse", "HEAD")
@@ -191,6 +239,72 @@ run_cmd do
                 finally:
                     path.unlink()
                     saved.rename(path)
+
+    def test_real_interruption_stops_resistant_process_group_and_recovers(self):
+        first = self.git("rev-parse", "HEAD")
+        self.accepted(first)
+        (self.root / "blocking.py").write_text('''import json, os, signal, subprocess, sys, time
+from pathlib import Path
+sys.path.insert(0, "scripts")
+from verification_status import phase
+phase("building")
+signal.signal(signal.SIGTERM, signal.SIG_IGN)
+signal.signal(signal.SIGINT, signal.SIG_IGN)
+child = subprocess.Popen([sys.executable, "-c", "import signal,time; from pathlib import Path; signal.signal(signal.SIGTERM,signal.SIG_IGN); signal.signal(signal.SIGINT,signal.SIG_IGN); Path('.counts/child-ready').touch(); time.sleep(120)"])
+Path('.counts/processes').write_text(json.dumps([os.getpid(), child.pid]))
+time.sleep(120)
+''')
+        (self.root / "check.sh").write_text("#!/usr/bin/env bash\nexec python3 blocking.py\n")
+        blocked = self.commit("controlled resistant verifier fixture")
+        for sig in (signal.SIGTERM, signal.SIGINT, signal.SIGKILL):
+            with self.subTest(signal=sig):
+                pids = []
+                for name in ("processes", "child-ready"):
+                    (self.workspace / ".counts" / name).unlink(missing_ok=True)
+                process = subprocess.Popen([sys.executable, str(ROOT / "scripts/check-candidate.py"),
+                                            "--repo", str(self.root), blocked],
+                                           stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                try:
+                    deadline = time.monotonic() + 15
+                    while not (self.workspace / ".counts/child-ready").exists():
+                        self.assertIsNone(process.poll(), "wrapper exited before fixture readiness")
+                        self.assertLess(time.monotonic(), deadline, "fixture did not become ready")
+                        time.sleep(.02)
+                    pids = json.loads((self.workspace / ".counts/processes").read_text())
+                    self.assertEqual(self.status()["outcome"], "running")
+                    self.assertEqual(self.status()["candidate"], blocked)
+                    self.assertEqual(self.status()["phase"], "building")
+                    process.send_signal(sig)
+                    if sig == signal.SIGKILL:
+                        process.wait(timeout=5)
+                        # The verifier still holds the inherited lock after the
+                        # controller crashes; recovery cannot race that child.
+                        self.assertEqual(self.status()["outcome"], "running")
+                        self.assertIn("busy", self.run_candidate(first).stderr)
+                        os.killpg(pids[0], signal.SIGKILL)
+                    stdout, stderr = process.communicate(timeout=8)
+                    self.assertNotEqual(process.returncode, 0, stdout + stderr)
+                    for pid in pids:
+                        stat = Path(f"/proc/{pid}/stat")
+                        self.assertTrue(not stat.exists() or stat.read_text().rsplit(")", 1)[1].split()[0] == "Z",
+                                        f"process {pid} still executing after cleanup")
+                    self.assertFalse((self.workspace / ".lake/verification.json").exists())
+                    self.assertEqual(self.status()["outcome"],
+                                     "unknown" if sig == signal.SIGKILL else "interrupted")
+                    result = self.run_candidate(first)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn("interrupted run", result.stderr)
+                finally:
+                    if pids:
+                        try:
+                            os.killpg(pids[0], signal.SIGKILL)
+                        except ProcessLookupError:
+                            pass
+                    if process.poll() is None:
+                        process.kill()
+                    process.communicate(timeout=5)
+                (self.workspace.parent / "acceptance-running.json").unlink()
+                self.accepted(first)
 
 
 if __name__ == "__main__":

@@ -49,6 +49,13 @@ extensions. Python retains scheduling, coverage graph checks and candidate
 receipts, but does not parse Lean source. See the
 [native-source implementation record](research/native-verification-source.md).
 
+Project compilation and audit execution use `-EhasSorry` to reject emitted
+admission diagnostics early. Lake receives this diagnostic policy through
+`weakLeanArgs`, which does not invalidate existing compilation traces. Ordinary
+linter warnings remain nonfatal. Source code can suppress a diagnostic, and
+cached artifacts need not have been compiled with this flag; the exhaustive
+transitive axiom audit remains the acceptance rule in both cases.
+
 Successful builds remain in Lake's normal output directories for later reuse.
 Lake owns incremental scheduling; this wrapper adds no persistent cache. Before
 and after the incremental build, an output-integrity guard compares project
@@ -88,6 +95,26 @@ interruption, inspect `conaled/acceptance-running.json` in the common Git
 directory, stop any surviving verifier/compiler processes, and preserve useful
 logs or edits. Once no process can write there, remove the marker and rerun
 validation. Follow the integrity incident runbook if artifact state is suspect.
+Read the last operational observation without starting a check:
+
+```sh
+python3 scripts/check-candidate.py --status
+```
+
+The JSON reports the candidate, phase, elapsed seconds and outcome. The workspace
+lock distinguishes an active process from an abandoned observation. Outcomes
+include `not-started`, `running`, `passed`, `failed`, `interrupted` and `unknown`.
+Missing or malformed records and unresolved crashes report uncertainty. A live
+observation may change immediately after it is read. `passed` describes the last
+reported command result; use `--verify` to check the acceptance receipt.
+
+On SIGINT or SIGTERM, the wrapper asks its verifier process group to stop, then
+escalates to SIGKILL after two seconds. It removes a check's success receipt and
+retains the interruption marker for inspection. SIGKILL cannot run cleanup; the
+child retains the workspace lock until it exits. Processes that deliberately
+leave the owned process group are outside this cleanup contract. Confirm that
+all owned processes have stopped before resolving an interruption marker.
+
 To retire the workspace, first resolve any interrupted run and preserve edits,
 then use `git worktree remove` on the printed path and remove
 `conaled/acceptance-owner.json`. Its next invocation creates a new cold workspace.
@@ -126,7 +153,8 @@ Choose validation by the effective inputs that changed:
 |---|---|
 | Library definitions or proofs | Guarded incremental build and exhaustive audit. |
 | Audit implementation only | Guarded incremental build and exhaustive audit, plus audit rejection and exhaustive-root regression suites. Record that compiler, dependency, scheduling and integrity inputs are unchanged. |
-| Compiler, Lake configuration or dependency pins | Clean Lake rebuild and exhaustive audit; validate any affected adapters. |
+| Diagnostic severity only, using trace-independent Lake arguments | Guarded incremental build and exhaustive audit, plus real compiler tests for the diagnostic and warm-reuse tests. Record that artifact semantics and all other verification inputs are unchanged. |
+| Compiler, other Lake configuration or dependency pins | Clean Lake rebuild and exhaustive audit; validate any affected adapters. |
 | Retained-build lifecycle only, with compiler commands, dependency scheduling, source-policy and integrity checks unchanged | Clean Lake acceptance followed by incremental reuse, plus public-command regressions covering clean, incremental and reference modes. |
 | Scheduler, source-policy or output-integrity implementation; uncertain compilation boundary; suspected stale artifacts | Independent `--fresh` reference check and applicable public-command regressions. |
 
@@ -212,12 +240,14 @@ development shell and cached dependencies:
 python3 scripts/test-check.py
 python3 scripts/test-check-candidate.py
 python3 scripts/test-proof-audit-roots.py
+python3 scripts/test-warning-summary.py
 ```
 
 The first exercises incremental reuse and invalidation, clean-build retention, repeated auditing, fresh
 compilation, concurrency, ordering, stale artifacts, coverage, and failure exits
 through `check.sh`. The candidate-workspace suite checks retained compilation,
-exact receipts, refusal and failure recovery through the public CLI. The roots
+exact receipts, real signal interruption, process-group cleanup, status observations,
+refusal and failure recovery through the public CLI. The roots
 suite compares the audit's
 exact root set with an independent exhaustive environment scan, including
 private, generated, and current-module declarations. For diagnostics,
@@ -226,6 +256,31 @@ logical roots. The normal audit uses project module metadata to avoid scanning
 unrelated dependency declarations, and Lean's cached transitive axiom summaries.
 Formal refinement proofs for these checks are tracked separately in
 [#43](https://github.com/VladimirMarko/conaled/issues/43).
+
+### Warning summaries
+
+Summarize a saved Lean or Lake build log, optionally comparing another log:
+
+```sh
+python3 scripts/summarize-warnings.py build.log
+python3 scripts/summarize-warnings.py build.log --baseline earlier.log
+```
+
+The JSON groups warning occurrences by module and category, retaining unrecognized
+messages as `other` and unlocated warnings under `<unknown>`. Comparisons report
+count changes, not newly identified diagnostics. Compare logs with equivalent
+coverage and output format: replayed cached warnings and repeated build attempts
+can change counts without changing source warnings. This command is offline and
+does not affect acceptance.
+
+The process fixtures and structured status observations are reusable boundaries
+for the [native tooling work](https://github.com/VladimirMarko/conaled/issues/591).
+A verified controller still needs adapter tests: proofs about observations and
+actions do not establish that an operating-system adapter implements them.
+These helpers add no scheduler or artifact-evidence cache. Composition of verified
+per-artifact audit evidence remains owned by
+[#43](https://github.com/VladimirMarko/conaled/issues/43) and
+[#222](https://github.com/VladimirMarko/conaled/issues/222).
 
 ### Audit performance
 

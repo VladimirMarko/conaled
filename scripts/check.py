@@ -18,6 +18,7 @@ import time
 
 from lake_integrity import guard_outputs, validate_layout
 from project_sources import INFRASTRUCTURE, SOURCE_TREES, inventory
+from verification_status import phase
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,7 +30,7 @@ def compile_modules(modules, dependencies, order, lean, env, output, jobs):
         target = output / source.with_suffix(".olean")
         target.parent.mkdir(parents=True, exist_ok=True)
         started = time.monotonic()
-        result = subprocess.run([lean, "-o", str(target), str(source)],
+        result = subprocess.run([lean, "-EhasSorry", "-o", str(target), str(source)],
                                 cwd=ROOT, env=env, capture_output=True, text=True)
         return result, time.monotonic() - started
 
@@ -179,6 +180,7 @@ def main() -> int:
     env = os.environ.copy()
     env.pop("LEAN_PATH", None)
     if args.verify_candidate:
+        phase("verifying-receipt")
         record = read_record(record_path)
         if record["mode"] != "fresh" and "LEAN" in env:
             raise RuntimeError("LEAN override is incompatible with a Lake build record")
@@ -191,6 +193,7 @@ def main() -> int:
     # A failed new attempt must not leave an older success looking current.
     record_path.unlink(missing_ok=True)
     identity = candidate_identity(args.candidate) if args.candidate else None
+    phase("preflight")
     modules = inventory(ROOT)
     # The pinned Lean parser/lexer owns all interpretation of source text.
     version = compiler_version(args.fresh, env)
@@ -264,20 +267,24 @@ def main() -> int:
             if output.exists():
                 shutil.rmtree(output)
             print("Clean build: discarded project Lake outputs; dependency caches retained.", flush=True)
+        phase("checking-artifacts")
         guard_outputs(ROOT, targets, env, repair=True)
         mode = "clean" if args.clean else "incremental"
         print(f"Building {len(order) - 1} project modules with Lake ({mode}).", flush=True)
+        phase("building")
         build_started = time.monotonic()
         # Explicit module targets avoid library/default-target ambiguity and build
         # every inventoried module, including imports used only by the audit.
         subprocess.run(["lake", "--no-cache", "--rehash", "build", *["+" + n for n in targets]],
                        cwd=ROOT, env=env, check=True)
         print(f"{mode.capitalize()} compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+        phase("checking-artifacts")
         guard_outputs(ROOT, targets, env, repair=False)
+        phase("auditing")
         audit_started = time.monotonic()
         # Run the audit even when Lake reuses all project artifacts. Do not write
         # an olean behind Lake's back or use a cached audit's old success message.
-        subprocess.run(["lake", "env", "lean", str(modules["ProofAudit"].relative_to(ROOT))],
+        subprocess.run(["lake", "env", "lean", "-EhasSorry", str(modules["ProofAudit"].relative_to(ROOT))],
                        cwd=ROOT, env=env, check=True)
         print(f"Proof audit: {time.monotonic() - audit_started:.2f}s", flush=True)
     else:
@@ -286,16 +293,19 @@ def main() -> int:
         with tempfile.TemporaryDirectory(prefix="fresh-check-", dir=ROOT / ".lake") as directory:
             output = Path(directory)
             env["LEAN_PATH"] = os.pathsep.join([str(output), *(str(p) for p in dependency_paths)])
+            phase("building")
             build_started = time.monotonic()
             compile_modules(modules, dependencies, [n for n in order if n != "ProofAudit"],
                             lean, env, output, args.jobs)
             print(f"Fresh compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+            phase("auditing")
             audit_started = time.monotonic()
             source = modules["ProofAudit"].relative_to(ROOT)
-            subprocess.run([lean, "-o", str(output / "ProofAudit.olean"), str(source)],
+            subprocess.run([lean, "-EhasSorry", "-o", str(output / "ProofAudit.olean"), str(source)],
                            cwd=ROOT, env=env, check=True)
             print(f"Proof audit: {time.monotonic() - audit_started:.2f}s", flush=True)
     if identity is not None:
+        phase("recording")
         after = candidate_identity(identity["candidate"])
         after["compiler"] = compiler_version(args.fresh, env)
         if after != identity:

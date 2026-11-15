@@ -1,6 +1,9 @@
 name = "compilingWithSquares"
 version = "0.2.0"
 defaultTargets = ["SquareApplications"]
+# Diagnostic policy does not invalidate already checked compilation artifacts.
+# The exhaustive audit still checks their transitive axioms on every acceptance.
+weakLeanArgs = ["-EhasSorry"]
 
 [[require]]
 name = "mathlib"
