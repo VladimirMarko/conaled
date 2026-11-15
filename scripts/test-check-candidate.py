@@ -292,7 +292,13 @@ time.sleep(120)
                     for pid in pids:
                         stat = Path(f"/proc/{pid}/stat")
                         deadline = time.monotonic() + 2
-                        while stat.exists() and stat.read_text().rsplit(")", 1)[1].split()[0] != "Z":
+                        while True:
+                            try:
+                                state = stat.read_text().rsplit(")", 1)[1].split()[0]
+                            except FileNotFoundError:
+                                break
+                            if state == "Z":
+                                break
                             self.assertLess(time.monotonic(), deadline,
                                             f"process {pid} still executing after cleanup")
                             time.sleep(.01)
