@@ -154,6 +154,7 @@ locate the main ongoing efforts; shared components often serve several of them.
 
 | Effort | Scope and coordination |
 |---|---|
+| Repository tooling | [End-to-end native tooling #591](https://github.com/VladimirMarko/conaled/issues/591), [verification refinement #43](https://github.com/VladimirMarko/conaled/issues/43), and [verified artifact reuse #222](https://github.com/VladimirMarko/conaled/issues/222). |
 | Categorical compilation | [Felix port and completion #8](https://github.com/VladimirMarko/conaled/issues/8). |
 | Internal languages and transport | [Shared language #36](https://github.com/VladimirMarko/conaled/issues/36), [preservation interfaces #235](https://github.com/VladimirMarko/conaled/issues/235), [dependent semantics #289](https://github.com/VladimirMarko/conaled/issues/289), and [reusable theories #290](https://github.com/VladimirMarko/conaled/issues/290). |
 | Construction and observation | [Research direction](docs/research/construction-observation-research-assessment.md), [theory extensions #288](https://github.com/VladimirMarko/conaled/issues/288), and [logical correspondences #200](https://github.com/VladimirMarko/conaled/issues/200). |
