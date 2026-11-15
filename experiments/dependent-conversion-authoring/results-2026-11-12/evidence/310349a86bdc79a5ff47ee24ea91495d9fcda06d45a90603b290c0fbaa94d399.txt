@@ -1,0 +1,17 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/replay-01/Audit.lean"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/replay-01/sources",
+  "environment": {
+    "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/replay-01/modules:/tmp/conaled-wave-20261111/423-trial-stage-round3/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+  },
+  "audit_driver_sha256": "f87c2c340a5dbc656b70d1eb1dee6d9db30b53147a5694ce69d2fcd095aff79a",
+  "inventory_modules": 2949,
+  "status": "prepared, full audit not yet run",
+  "lock": "/tmp/conaled-wave-20261111/build.lock"
+}

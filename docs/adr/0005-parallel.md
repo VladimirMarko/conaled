@@ -170,3 +170,14 @@ all factor trees, and all inputs, rather than just the executable examples.
 All mathematical obligations stated above are supplied as Lean proofs in the
 listed modules.  The runtime and performance limits are deliberate scope
 boundaries, not unproved axioms added to the formal development.
+
+
+## Subsequent measured realization (#245)
+
+[FFT structural costs and local rewrites](../research/fft-structural-costs.md)
+adds a separate exact circuit interpretation without changing the decisions
+above. Structural site counts, retained scalar gates and arithmetic arrivals
+have explicit models. The size16 comparisons include local exact twiddle
+rewrites; they do not reproduce arbitrary floating-point circuit optimization,
+count the original implementation's twiddle exponentiation, or establish a
+parallel runtime. The general semiring correctness hypothesis remains unchanged.

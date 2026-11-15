@@ -1,0 +1,78 @@
+import SquareKit.Internal.DependentJudgments.Templates
+import SquareKit.Internal.DependentJudgments.Sigma.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Stability
+
+namespace GuardedJRetest.CandidateReference
+open SquareKit.Internal.DependentJudgments.Contextual SquareKit.GuardedTheory
+set_option backward.isDefEq.respectTransparency false
+variable {V : Type} {Ω : List (Judgment V)}
+variable {Γ A x T Q p Δ σ : Expression V} {n : Nat}
+variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+
+def inner := Command.reflexivity hx hT hp
+def outer := Command.reflexivity hx hT (inner hx hT hp).typing
+
+def rootMap := hx.rootTail hT
+def rootLeft := (outer hx hT hp).typing.substitute (rootMap hx hT)
+def rootRight := (inner hx hT hp).typing.reflexivitySub (rootMap hx hT)
+def rootBeta := hx.jBeta hT (outer hx hT hp).motiveTyping (rootRight hx hT hp)
+
+theorem selectedRecipe : (outer hx hT hp).expression =
+    j A x T (identity (identity Q p p) (inner hx hT hp).expression (inner hx hT hp).expression)
+      (reflexivity (subTy (identity Q p p) (rootTail A x T))
+        (subTm (inner hx hT hp).expression (rootTail A x T))) := rfl
+
+variable (hσ : Sub (Ω := Ω) Δ (total (pullback T (root A x))) σ)
+def substitutedLeft := (rootLeft hx hT hp).substitute hσ
+def substitutedRight := (rootRight hx hT hp).substitute hσ
+
+def substitutedBeta (hσ : Sub (Ω := Ω) Δ (total (pullback T (root A x))) σ) : Equal (Ω := Ω)
+    (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)
+    (subTm (outer hx hT hp).branch σ) := by
+  have _ := hσ
+  exact Derivation.congruence (T := theory)
+    (Sum.inl SquareKit.Internal.DependentJudgments.Operation.subTm)
+    (args := ![subTm (outer hx hT hp).expression (rootTail A x T), σ])
+    (args' := ![(outer hx hT hp).branch, σ])
+    (Fin.cases (rootBeta hx hT hp) (Fin.cases (.reflexive σ) (fun i => nomatch i)))
+
+def dependentWeakening := ((inner hx hT hp).typing.substitute (rootMap hx hT)).family.weaken
+
+def workedLeft := substitutedLeft hx hT hp (dependentWeakening hx hT hp)
+def workedRight := substitutedRight hx hT hp (dependentWeakening hx hT hp)
+def workedBeta := substitutedBeta hx hT hp (dependentWeakening hx hT hp)
+
+universe u
+variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+include hσ hΩ in
+theorem comparisonSound :
+    (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ =
+    (subTm (outer hx hT hp).branch σ).eval (algebra M) ρ :=
+  interpret (substitutedBeta hx hT hp hσ) M ρ hΩ
+
+include hΩ in
+theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
+    a.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
+  intro a ha
+  obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
+  simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
+
+include hσ hΩ in
+theorem extensionSelected :
+    ((term Δ (subTy (subTy (outer hx hT hp).motive (rootTail A x T)) σ)
+      (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)).inl
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
+    ((subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).inl
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
+      (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ :=
+  ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret
+    (SquareKit.Internal.DependentJudgments.Sigma.retain (substitutedLeft hx hT hp hσ))
+    M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
+    SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
+end GuardedJRetest.CandidateReference

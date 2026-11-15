@@ -1,0 +1,45 @@
+attempts/checks/Attempt02/Source.lean:51:2: error: Tactic `rfl` failed: The left-hand side
+  Examples.IncrementalDependentTrialSpec.run ys (Examples.IncrementalDependentTrialSpec.run xs (Ix.eval n Ix.input))
+is not definitionally equal to the right-hand side
+  Ix.eval (Examples.IncrementalDependentTrialSpec.run xs (Ix.eval n Ix.input)) (generate ys)
+
+xs ys : List Examples.IncrementalDependentTrialSpec.Op
+n : ℕ
+⊢ Examples.IncrementalDependentTrialSpec.run ys (Examples.IncrementalDependentTrialSpec.run xs (Ix.eval n Ix.input)) =
+    Ix.eval (Examples.IncrementalDependentTrialSpec.run xs (Ix.eval n Ix.input)) (generate ys)
+attempts/checks/Attempt02/Source.lean:83:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt02/Source.lean:83:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt02/Source.lean:87:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt02/Source.lean:87:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt02/Source.lean:93:73: error: unsolved goals
+ops : List Examples.IncrementalDependentTrialSpec.Op
+e : Ix
+n : ℕ
+⊢ ⟨Ix.eval n (generate ops e) + 1, ⟨Examples.IncrementalDependentTrialSpec.run ops (Ix.eval n e) + 1, ⋯⟩⟩ =
+    ⟨Examples.IncrementalDependentTrialSpec.run ops (Ix.eval n e) + 1,
+      ⟨Examples.IncrementalDependentTrialSpec.run ops (Ix.eval n e) + 1, ⋯⟩⟩
+attempts/checks/Attempt02/Source.lean:99:62: error: unsolved goals
+xs ys : List Examples.IncrementalDependentTrialSpec.Op
+n : ℕ
+⊢ ⟨Ix.eval n (generate (xs ++ ys)) + 1, ⟨Ix.eval (Ix.eval n (generate xs)) (generate ys) + 1, ⋯⟩⟩ =
+    ⟨Ix.eval (Ix.eval n (generate xs)) (generate ys) + 1, ⟨Ix.eval (Ix.eval n (generate xs)) (generate ys) + 1, ⋯⟩⟩
+attempts/checks/Attempt02/Source.lean:142:47: error: Type mismatch
+  he
+has type
+  Proof
+    (StructuralRule.familyCong Γn N familyB (Projection.fst N familyB (SourcePair.pair e).quote)
+          (s e.quote)).schema.conclusion
+but is expected to have type
+  Proof
+    ((StructuralRule.convert Γn (raw e)
+              (Elimination.instantiate familyB (Projection.fst N familyB (SourcePair.pair e).quote))
+              (resultType e)).schema.premises.get
+      (Fin.succ 0))

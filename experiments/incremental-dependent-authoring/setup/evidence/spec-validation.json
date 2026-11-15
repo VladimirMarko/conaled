@@ -1,0 +1,28 @@
+{
+  "source_sha256": "be586c2ead7e5840892d42be76d84216db143def3c13fae952050d3f4d01c8e9",
+  "command": [
+    "direnv",
+    "exec",
+    ".",
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/Examples/IncrementalDependentTrialSpec.olean",
+    "Examples/IncrementalDependentTrialSpec.lean"
+  ],
+  "handoffs": {
+    "baseline": {
+      "exit": 0,
+      "diagnostics": "none",
+      "elapsed_seconds": null,
+      "note": "Standalone focus check completed before wrapper smoke. Duration was not instrumented."
+    },
+    "candidate": {
+      "exit": 0,
+      "diagnostics": "none",
+      "elapsed_seconds": null,
+      "note": "Standalone focus check completed before wrapper smoke. Duration was not instrumented."
+    }
+  }
+}

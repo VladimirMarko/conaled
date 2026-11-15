@@ -1,0 +1,28 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:151:62: error: unsolved goals
+⊢ (match
+        problem native.toStructuralModel (Value.family inputs.context inputs.family)
+          (Value.term inputs.context inputs.family inputs.point)
+          (Value.telescope (native.pathContext inputs.family inputs.point) inputs.length inputs.tail)
+          (Value.family (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))
+          (Value.term
+            (StructuralModel.Telescope.total native.toStructuralModel
+              (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+                (native.rootSub inputs.family inputs.point)))
+            (native.identity (native.subTy inputs.valueFamily (native.rootTail inputs.family inputs.point inputs.tail))
+              (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail))
+              (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail)))
+            (native.reflexivity
+              (native.subTy inputs.valueFamily (native.rootTail inputs.family inputs.point inputs.tail))
+              (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail)))) with
+      | some p =>
+        pure
+          (Value.term (StructuralModel.Telescope.total native.toStructuralModel p.telescope) p.motive
+            (native.j p.family p.term p.telescope p.motive p.branch))
+      | x => pure Value.invalid).run =
+    Value.term (StructuralModel.Telescope.total native.toStructuralModel inputs.tail) nativeMotive
+      (native.j inputs.family inputs.point inputs.tail nativeMotive
+        (native.reflexivity (native.subTy inputs.valueFamily nativeRoot) (native.subTm inputs.value nativeRoot)))

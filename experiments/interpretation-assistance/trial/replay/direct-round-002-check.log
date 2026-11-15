@@ -1,0 +1,10 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/Replayround002.lean:100:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Resources.bind finalSeed (Resources.run finalStep ?xs)
+in the target expression
+  finalExec xs = (xs.sum, 7 * (1 + 2 * xs.length))
+
+xs : List ℤ
+⊢ finalExec xs = (xs.sum, 7 * (1 + 2 * xs.length))

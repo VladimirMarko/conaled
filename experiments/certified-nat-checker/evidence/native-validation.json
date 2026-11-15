@@ -1,0 +1,3810 @@
+{
+  "complete": true,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "selected": [
+    {
+      "module": "SymbolicWord16Core",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Core.lean",
+      "sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+      "bytes": 2566,
+      "imports": [
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "SymbolicWord16Recurrence",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Recurrence.lean",
+      "sha256": "29a969e114ef7caffcaf42eb0f3349b70c56d517c40f9c76efd534c7b1a446ea",
+      "bytes": 7343,
+      "imports": [
+        "SymbolicWord16Core"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter01.Lists",
+      "member": "project/adwh-lean/ADWH/Chapter01/Lists.lean",
+      "sha256": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0",
+      "bytes": 20583,
+      "imports": [
+        "Std"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter01.Permutations",
+      "member": "project/adwh-lean/ADWH/Chapter01/Permutations.lean",
+      "sha256": "1a95de12dbf6de945bb5fe0785a593bade9da61fb34d8562d784a46d1a50d64b",
+      "bytes": 17480,
+      "imports": [
+        "ADWH.Chapter01.Lists"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.Queens",
+      "member": "project/adwh-lean/ADWH/Chapter15/Queens.lean",
+      "sha256": "a33743f6936503169c71f5e46ef8d8577511360b385cbc18a111a8172ea22e60",
+      "bytes": 11387,
+      "imports": [
+        "ADWH.Chapter01.Permutations"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensVariants",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensVariants.lean",
+      "sha256": "ec3c0599cbd0cab58201f215283babc4ac4987edca24c83977f808765aecb504",
+      "bytes": 12960,
+      "imports": [
+        "ADWH.Chapter15.Queens"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensSearch",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensSearch.lean",
+      "sha256": "5ec0ac30b2d4df556bd25bc0da29827026973e224ac3615ab19705d6842bbe06",
+      "bytes": 7381,
+      "imports": [
+        "ADWH.Chapter15.QueensVariants"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitsPrimitives",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitsPrimitives.lean",
+      "sha256": "15c80d8d531f5a0b7cc52b4ad1d0fb69b14b75734c66430b98175eef761b1df6",
+      "bytes": 23852,
+      "imports": [
+        "SymbolicWord16Recurrence",
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitRepresentation",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitRepresentation.lean",
+      "sha256": "eb261d73bd9de53a8dd493a9772fea3a5580bb6f42ba22dabe81dd1c3eacc918",
+      "bytes": 10751,
+      "imports": [
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitMoves",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitMoves.lean",
+      "sha256": "bed3f9a6d2402446f07b1b51308d0fb5b68b19c453a57be37428fb7228cf5d5f",
+      "bytes": 4778,
+      "imports": [
+        "ADWH.Chapter15.QueensBitRepresentation"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitCounting",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitCounting.lean",
+      "sha256": "3e9d4f4226eeddd9aadd42a9926e7ddecedce7a6c8f2953014c6a33b0f6b2b84",
+      "bytes": 6069,
+      "imports": [
+        "ADWH.Chapter15.QueensBitsPrimitives",
+        "ADWH.Chapter15.QueensBitMoves"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensFastCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensFastCounting.lean",
+      "sha256": "b8bd1e73532ad77520c17e6c68f88e7f7fae3ade7070c7d28b343dd897d18ad0",
+      "bytes": 2408,
+      "imports": [
+        "ADWH.Chapter15.QueensBitCounting"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensNatCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensNatCounting.lean",
+      "sha256": "5c5e7255bc919e27746e7b55bf71c1171fde5e438b8b09b1002fde8525d6a72c",
+      "bytes": 3537,
+      "imports": [
+        "ADWH.Chapter15.QueensFastCounting"
+      ]
+    },
+    {
+      "module": "FiniteFold",
+      "member": "next-iteration/finite-fold-evaluator/source/FiniteFold.lean",
+      "sha256": "25d84a52adca5f4c60163640aee8f31ded88322b8bd98c27f96d1aeb0c8b5d4e",
+      "bytes": 8612,
+      "imports": [
+        "Init"
+      ]
+    },
+    {
+      "module": "FirstOrderNat",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNat.lean",
+      "sha256": "e453954c94771eddda4d21ce52a7befb07093c9117202f886844a3507a02da1b",
+      "bytes": 7348,
+      "imports": [
+        "FiniteFold"
+      ]
+    },
+    {
+      "module": "FirstOrderNatSource",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNatSource.lean",
+      "sha256": "187d06ec3cdd74cce8181e99a25cadf4ed3e302b22b79a48ba5414c81a59aef6",
+      "bytes": 3090,
+      "imports": [
+        "FirstOrderNat",
+        "ADWH.Chapter15.QueensNatCounting"
+      ]
+    },
+    {
+      "module": "FirstOrderNatSourceAudit",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNatSourceAudit.lean",
+      "sha256": "6704cfdb14d1d4d0f1bc0b2431085350577c43f2ba6786ef281cf59a89dc438e",
+      "bytes": 969,
+      "imports": [
+        "FirstOrderNatSource"
+      ]
+    },
+    {
+      "module": "SaturatingUInt64",
+      "member": "next-iteration/uint64-saturating-evaluator/source/SaturatingUInt64.lean",
+      "sha256": "34c0c329d485ab4e17644c5d85535a028a1d57225b24efb1a8a364c9a77cf4b6",
+      "bytes": 3608,
+      "imports": [
+        "Init.Data.UInt.Lemmas",
+        "Init.Omega"
+      ]
+    },
+    {
+      "module": "UInt64MaskOps",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64MaskOps.lean",
+      "sha256": "858b6c93ef1db6d478f5d5fa2d2074dbed35cf4c1dbd4422c40165033e60c964",
+      "bytes": 7230,
+      "imports": [
+        "SaturatingUInt64",
+        "FirstOrderNat",
+        "Init.Data.UInt.Bitwise"
+      ]
+    },
+    {
+      "module": "UInt64SaturatingCount",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64SaturatingCount.lean",
+      "sha256": "1aa51c003d37835050c0aee851a2b164ea881520e4b2cf8c68a167882a173042",
+      "bytes": 9579,
+      "imports": [
+        "UInt64MaskOps"
+      ]
+    },
+    {
+      "module": "UInt64ExactEvaluator",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64ExactEvaluator.lean",
+      "sha256": "4b0ffcd4b7aa67305a6f37893223bfe0f9142ec5ece27d29b1e6e9b70afd50cd",
+      "bytes": 2957,
+      "imports": [
+        "UInt64SaturatingCount"
+      ]
+    },
+    {
+      "module": "UInt64SourceBridge",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64SourceBridge.lean",
+      "sha256": "97359dfe8dc3f9c9571a80260e3995e89a3a84489c381446b496495819618643",
+      "bytes": 1690,
+      "imports": [
+        "UInt64ExactEvaluator",
+        "FirstOrderNatSource"
+      ]
+    },
+    {
+      "module": "UInt64PowerTwoOps",
+      "member": "next-iteration/uint64-power-two-ops/source/UInt64PowerTwoOps.lean",
+      "sha256": "16b6e11fbb9e8a96530aee0c408a4a36321f459be417936156f04b63bcf1500a",
+      "bytes": 2433,
+      "imports": [
+        "UInt64MaskOps"
+      ]
+    },
+    {
+      "module": "UInt64MaskedCount",
+      "member": "next-iteration/uint64-masked-count-lintfix/source/UInt64MaskedCount.lean",
+      "sha256": "ca3cce089bc0f672e85fa1f05057e2ca4a9d6c29d224168b9af258498d63e71d",
+      "bytes": 10798,
+      "imports": [
+        "UInt64SaturatingCount",
+        "UInt64PowerTwoOps"
+      ]
+    },
+    {
+      "module": "UInt64MaskedExact",
+      "member": "next-iteration/uint64-masked-evaluator/source/UInt64MaskedExact.lean",
+      "sha256": "6d013e3eda4c573e3899421326efa03e417710736f97d585d3dceb188bd304e9",
+      "bytes": 3202,
+      "imports": [
+        "UInt64MaskedCount",
+        "UInt64ExactEvaluator"
+      ]
+    },
+    {
+      "module": "UInt64MaskedSource",
+      "member": "next-iteration/uint64-masked-evaluator/source/UInt64MaskedSource.lean",
+      "sha256": "6cc8b4fb8f36efa9669c6eeac22c4d6f7b98a96d1eb5330c807555a34a791174",
+      "bytes": 1761,
+      "imports": [
+        "UInt64MaskedExact",
+        "UInt64SourceBridge"
+      ]
+    },
+    {
+      "module": "FirstRowReflection",
+      "member": "next-iteration/reflection-proof-corrections/source/FirstRowReflection.lean",
+      "sha256": "da7315a78be246379d44b8a96af917f1a6d251ef8a09fc6f966e27367103f1cf",
+      "bytes": 10494,
+      "imports": [
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.List.Nat.Range",
+        "Init.Data.List.Nat.Sum"
+      ]
+    },
+    {
+      "module": "FirstRowReflectionSource",
+      "member": "next-iteration/first-row-reflection/source/FirstRowReflectionSource.lean",
+      "sha256": "8a1e24ec4e3dde9b41a8f8e45af3cb2d5ee0807c1254ce56063d8c599c66ce2e",
+      "bytes": 3898,
+      "imports": [
+        "FirstRowReflection",
+        "UInt64MaskedSource"
+      ]
+    },
+    {
+      "module": "CertifiedNatChecker",
+      "member": "next-iteration/restricted-nat-checker/source/CertifiedNatChecker.lean",
+      "sha256": "d1874a7be774cc9eaff20046141ff15c6d64638b21ce9a39bf29764668bbc9dc",
+      "bytes": 6444,
+      "imports": [
+        "Std.Data.String.ToNat"
+      ]
+    },
+    {
+      "module": "FirstRowReflectionQueensNatChecker",
+      "member": "next-iteration/first-row-reflection-nat-checker/source/FirstRowReflectionQueensNatChecker.lean",
+      "sha256": "73e65a7a17a1fbd3334e26b702330b0b5f46d176499df9b36b65ecbefa7b768b",
+      "bytes": 2653,
+      "imports": [
+        "CertifiedNatChecker",
+        "FirstRowReflectionSource"
+      ]
+    },
+    {
+      "module": "FirstRowReflectionRestrictedNatCheckerMain",
+      "member": "next-iteration/first-row-reflection-nat-checker/source/FirstRowReflectionRestrictedNatCheckerMain.lean",
+      "sha256": "f338410051cc98af5bfdfd148f6ae7cb2df6cbd1254960e127a62fe18a749ace",
+      "bytes": 856,
+      "imports": [
+        "FirstRowReflectionQueensNatChecker"
+      ]
+    }
+  ],
+  "inverse_correspondence": true,
+  "selection": "native",
+  "reflection_correction": true,
+  "candidate": "ce54e975990b909831774fb6e3231cf7d5516a79",
+  "inputs": {
+    "experiments/certified-nat-checker/selection-native.json": "b598c5de2ada122f382354424c68d7143c3453a2aaa359d9328c41893610b3f5",
+    "experiments/certified-nat-checker/reproduce.py": "cbac1a84f37a26fff5a5546630b7a85f74ef5e235a2dd7e322804547ad6c4068",
+    "experiments/certified-nat-checker/CheckerClient.lean": "de9c3ecce44e1dd755c4ecc5da6916e81fcf9a00f4b688ade850c19f5d06e13f",
+    "experiments/relative-graph/reproduce-acceptance.py": "5637c0f69c6282860afac2f9744ae949fe22f9de02426cfb982ef846db57ade2",
+    "experiments/relative-graph/ClosureAudit.lean": "11a59f3e918b863944180db940a741d7c8939f809cafaa040957bce36b15e593",
+    "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+    "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+    "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+    "experiments/certified-nat-checker/native.py": "0fdfaf4b19b34d93181899d1d1990f32b5abdd55d4c324ba6d7486e34e302989"
+  },
+  "compiler": {
+    "path": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b"
+  },
+  "limits": {
+    "virtual_address_gib": 8,
+    "seconds_per_process": 120,
+    "total_seconds": 1200,
+    "compiler_processes": 1,
+    "threads": 1
+  },
+  "native": {
+    "compiler_files": {
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc": "e014a3f9be8b407e19a72e74cf62becf66552deffbaa9639bf9d09164ab2852a",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc.orig": "6054deb6f46848cb4e4b38f0c5929be1294eeb86d94ebea53314332b62044dc6",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__float_float.h": "bde8d423099e3bba501018bdde141cf2edea549ba528733d43dc534694181935",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__float_header_macro.h": "7ee2302b023d41fd787a326059980800594c6e2cbac134b3167947d0025a72d7",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__float_infinity_nan.h": "544272ca97c2ba51fd362d5f35c8d7287e57001e9a8f29d51896b82be253ef72",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg___gnuc_va_list.h": "feca975bfdfb254d17458a8e3d51f8ad6d9bdc9fd6287727f0f8b2fb81fcb0b0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg___va_copy.h": "f0a8d3c963338173f2d57b2cbc209dde38c90536107b15eb0cf78166d4caee1f",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg_header_macro.h": "7b3fbcc442af2508f36bb2dc98d9ad2b8a1f5c0f5333394fb2159c8bd5ecd5b8",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg_va_arg.h": "274c75a1db86f649439aa3bcc1dead4170725e6f803925c3fc38a2e93307afdc",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg_va_copy.h": "bb195f56cb08d4cee6a60bd9f62f34466e8ac4f89f6fed043b044cb2f7ead010",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stdarg_va_list.h": "81c3055f7033e26e7f53705653bc9d69b5202f25c2692e03b3a4f77ff44a7d76",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_header_macro.h": "4cf46e8fbb809df048eecbbd63686fa741da27afa8db4245bd1f61c1fb1611dc",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_max_align_t.h": "3c1e4de47f4f06b35e2c5890d670052e84f716760505ff51b022fc8b21a9400f",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_null.h": "b1d71b08563ab3d2c22a1e4f8ddf4d9a1111c89e9404b859a45c307e8ebc6c69",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_nullptr_t.h": "898b4465c5d3040d27e760e82983a751b1b0cae23ba280b18a1b81451841f9eb",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_offsetof.h": "e5f0f4ff8ff5fc6a1cc8b535f5065f1728eadd2bf1e1401f021f803ec7b4222f",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_ptrdiff_t.h": "b4178a57f3711b7013cba747a72a2f178c29fa9364e77d75b2159754072ced43",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_rsize_t.h": "132339d4f07e852bf2d879bc91c4ccdfcf08c581c7c97f6f3794510e0bdda7bd",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_size_t.h": "d86ddc0238da09b385846ebef814ffc50a44e40cf85d4e3793f485952b7e73ad",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_unreachable.h": "bba07c327f8168f37b266a19aed625e0fa633a25cabef4f54f21faf3df5522b8",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_wchar_t.h": "1900d4998aef3698b06399ed686db0c21e26509b08638a25734fb97ae89b1001",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/__stddef_wint_t.h": "f2ededa38c5454397242aceaefa65b42b292a1b3cc258e7ca6e216f146e51f0d",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/float.h": "0242ed0a0c17fb6c24ef6953c51d02d28eadb067dfa41d7ef59fe230caee3a10",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/limits.h": "6b59cc1b6f86c901bf41ce942b8434530e852eb16e79e6e9287f89441f71efca",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdalign.h": "0375392ce44c0bce9d2dda696b0b2e7129e2e58233e002f532d010c9ac02d27b",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdarg.h": "ce6e43d79dc89b50208ecf259b1ffd519f5a78cd3a2c7fcaac6386f376b89fef",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdatomic.h": "728b690f127fc85faa32b9031e3a0019da92f77db92ca91b749571e45617a9ea",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdbool.h": "48655faf4ebd4ca0af26a1ee8e3e16f8dc68385c9cd550ffb3629320681305b3",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdckdint.h": "808854b229028d66012bef0eb5f7cccb2d9a228edcdc5eb2bc710bc7cea4b25a",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdcountof.h": "f042faf9ae255233e0dbaa5db23e42eaea2d213bd5d19b8d4af642bbfb0bf689",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stddef.h": "b3e62a046ddf28d09eedebe6eb9461cb7060e47cad2c69964b222c4eea10347e",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stddefer.h": "1370dad5543b648efb2c2070b9e66739488fcd36f284632b9ee3f32ac44cafaa",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdint.h": "5e0ab094f39830fafd0ecde083d329c423378ff325142a52700b17773977f6c3",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/clang/stdnoreturn.h": "53912b2e9a149a73fe58d88d6c41e69f49020eab7884c81ebf0b4f3607e96847",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/config.h": "e1abf0687bccdf7496ec031aa6a958aff29c8e7141ff32b62e90934fbe929873",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/lean.h": "eb951e1171d39b828e7ad60aed0b90759598b678bfe58cf85c65a1559c021bf9",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/lean_gmp.h": "f4dd6a073992fa8b9d776e9ff44b70133afdfd68f72823b19d1bfe63b247939d",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/lean_libuv.h": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/mimalloc.h": "ad053de727da9c2e33937f6793305e4027b1a414c9a5ada75c609ccfbd28f3e1",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/include/lean/version.h": "9907fbdb242103decf5c1a1541d6ddc701c8f9b94126b5af7d8a6dfc69200fdf",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a": "4f56ea6173fab54d0d878537a3b0c7fe724ff01d06de78792bf40f02e029e1d3",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/ld-linux-x86.so": "cf102aa2866d69b6b1b6f5195da0031deb7fbae374a0c2f677a1fffc9e01f3f2",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/ld.so": "cf102aa2866d69b6b1b6f5195da0031deb7fbae374a0c2f677a1fffc9e01f3f2",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libc.so": "e256592ceadd9c7c4256e92e845b0899d297d5bd4a6ad932048db5cd5e799e0d",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libc_nonshared.a": "f6a232d070f03e3a6d6adb7d15ffb36fd3aa6d534cf36c23cedf8c303591b363",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libdl.so": "fc529305501bfce8aa9f614c041c936827cefed5c2c533abbb1867d5ebf84a55",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libm.so": "dd9e596df3c48d1805c235fc5b89161c4942dc6641200a813fa75914152d04e9",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libpthread.so": "27ba14f60ea7a4d46579879c87e206de33eaac0ccd130d87e6ef4cb3fa28cf86",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libpthread_nonshared.a": "af44a8974f451cf11d20a1e2acb070dc223d611703354e9c17c58cff33e4c04c",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/librt.so": "542ef722b42111dbeaa9f1f6579b933e7bbf1c95466f4dc3604d7905d657e924",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/glibc/libutil.so": "e659053ca496683d5da0e9d571c7c12cb990239a04f60ff94a8e32e6bc1f46c3",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libInit.a": "8e052110172cff7a05da417bc112cfe9e9e06454bda02270a64fbfd326c9f259",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libInit_shared.so": "7831b707e868cee76c353d26649fbd8981b2f4d7e0329af55bbf4fa9e0c69350",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLake.a": "43521aa2138faaa712a14dcf13cb49a3f0970f368d269fb68e50e1353cf06440",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLake_shared.so": "d68867df340056b40726fde3939a9d2021901cc6944f971dd6a6a778bd9ea25b",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLean.a": "9bf52d31dff9bcaae41d5d33135749c9e9a4c595f4d5a319a4b34c9a54380fb2",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLeanChecker.a": "fb8bb6522834bf6ebc544366aa4fee2a882b1268f6d74b2ac721885a8fdcc30f",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLeanExport.a": "4ffe24823aab0b70c28329b7a3f5b05cfcf120e87d1915ac29c117e181a67282",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLeanIR.a": "1f190fcb9a1f5af391526cbd47ac24a92cc824b94d4753548e9cd3eeb3199a40",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libLeanc.a": "13e9ebccd131835495f62d63a387118a06ad2d6768b6e5ccd156beca5b4a865d",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libStd.a": "2f69e0b6bed4eef60a95cdbdaec4f66cfbafd0a614b29feee38574403b7665e6",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libinitialize_minimal.a": "31e5026b3d16824f7d5c5c30ce41843bf167d262a236978264d4021d1d8538a5",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleancpp.a": "f178f1d5469b3481930e2016a7fb5ed713086ca076fae677c826c48e14429d69",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleanmanifest.a": "3b8db870dbee829b2e34f8ec6a5e68ebf69b5512a42f1d8aabb3aef4e452fddf",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleanrt.a": "5f33785947b6e0338457f5cc7cd72c0da0082192a1265c013b3ab217b5c98c2e",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleanshared.so": "efef27df56f2197139afe12f1a2b63913a05f1aba81ce88824c44100431ed8c4",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleanshared_1.so": "691bf49d9e542a15808fad9d1f8c5df45860166f77efa57961b5335e65a3a0ed",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libleanshared_2.so": "141cbfdb3bc2016cd68e0bebc2e5494818213b462ed985afa6d975d4872fb8ec",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/libmimalloc_paranoid.a": "fc096697861e923a74700ede1408e82b7c6c497488e503100a272c1d1cb84e7f",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libLLVM-23.so": "d156f2240517cf3e363dbe74492491494f74300a2a0513f8606f802dca2f2fbe",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libLLVM.so": "d156f2240517cf3e363dbe74492491494f74300a2a0513f8606f802dca2f2fbe",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libLLVM.so.23.1": "d156f2240517cf3e363dbe74492491494f74300a2a0513f8606f802dca2f2fbe",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libatomic.so": "b2d3f7d9ebf9a0d5dc9caedcb33a43f6ac1b33221ada1f029147d8a66db43c09",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libatomic.so.1": "b2d3f7d9ebf9a0d5dc9caedcb33a43f6ac1b33221ada1f029147d8a66db43c09",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libatomic.so.1.2.0": "b2d3f7d9ebf9a0d5dc9caedcb33a43f6ac1b33221ada1f029147d8a66db43c09",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++.a": "21ec9522439e5f55ed4042c1feaea62d0d81d0002096f0e7ef1eee531e6817fe",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++.so": "9a82146864488c9d491a6e60be5af3ca986a9af57f6057763c5c0a8dda85a66e",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++.so.1": "f074b78d387f3b0db490e3e61289300ee4cf3c4cdb89a7485983e5605cee6c68",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++.so.1.0": "f074b78d387f3b0db490e3e61289300ee4cf3c4cdb89a7485983e5605cee6c68",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++abi.a": "4f13ec2f7a5e8fc0315a6d48964c719abd40f550a03f8e961c1f2f8bb60570b6",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++abi.so": "43ae4baf280de152662d88ed938cef229022900e13457683b6a19ae82fafac66",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++abi.so.1": "43ae4baf280de152662d88ed938cef229022900e13457683b6a19ae82fafac66",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libc++abi.so.1.0": "43ae4baf280de152662d88ed938cef229022900e13457683b6a19ae82fafac66",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libclang-cpp.so": "d7adb9dfd7170742a0dce7773e4ffe5903830b11c2af316908058516017fcc92",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libclang-cpp.so.23.1": "d7adb9dfd7170742a0dce7773e4ffe5903830b11c2af316908058516017fcc92",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libcrypto.a": "75c67cf549d96bf791effd4b6f234d1d04ac402b895c064a532da86046c6408e",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libgcc_s.so": "3f499bb3b14f33c5c321f52015d385c145c7bd4551a66c5fcff4262c833f2d2a",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libgcc_s.so.1": "3f499bb3b14f33c5c321f52015d385c145c7bd4551a66c5fcff4262c833f2d2a",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libgmp.a": "e104f4f49980de8dc81f407ea0a28719ddedeb1da62f27fc6404a31c4587cf8b",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libssl.a": "9214a7eb51574c382cb6a0a7185f8240be35710552b4be8ff6988fd710227ffa",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libunwind.a": "e27091c520e8a9f854a00191863f2e11b55c1f1e6a829407e4b9128f2b9b3826",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libunwind.so": "da12c79a1651232a6c36a2844e01c612d5e002d759401356c5a8ac597f7e2890",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libunwind.so.1": "da12c79a1651232a6c36a2844e01c612d5e002d759401356c5a8ac597f7e2890",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libunwind.so.1.0": "da12c79a1651232a6c36a2844e01c612d5e002d759401356c5a8ac597f7e2890",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libuv.a": "f5b243e37f7ef8087e9bc075401bf799f2ae40fa0fbc17d33d8df641e5d91c40",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libz.so": "d0aeafffcfe309a107a857dfa1f9afd0db90796d32c2b735a3959eccb317f5b4",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libz.so.1": "d0aeafffcfe309a107a857dfa1f9afd0db90796d32c2b735a3959eccb317f5b4",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/libz.so.1.2.11": "d0aeafffcfe309a107a857dfa1f9afd0db90796d32c2b735a3959eccb317f5b4",
+      "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/as": "aed9f3002bf6b61b2699e361d83e985197df59ef695fdf9b1e81f1e412a95339",
+      "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc": "3f2a19bf4f43158e2467cbdb61a6dfe38a051aaf6c6b81932726b8183ffb506f",
+      "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/ld": "323267c4eeb161f87caccf112c83192971f3a53060ef3a81db42c5a7d9372977",
+      "/nix/store/s2f0mfx0iiap9yxmlfvq0psn26jsbind-gcc-15.3.0/libexec/gcc/x86_64-unknown-linux-gnu/15.3.0/cc1": "e2ccf2d3f524d67f6369f7e8fbadec8da1f894e573f7d91afd4bc579af55cdfa"
+    },
+    "cc": "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc",
+    "leanc": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+    "nix_compiler_closure": {
+      "/nix/store/04g5vymcgsnka23cxpl10q679g9yw6hv-pcre2-10.49": {
+        "ca": null,
+        "deriver": "/nix/store/5jrl8lrv8b7sz1zm86jz260applm6zcj-pcre2-10.49.drv",
+        "narHash": "sha256-wSy2cd7eiyPQSPFshtIVIVFe2+7FeGaZoiaPcvc72DU=",
+        "narSize": 2096416,
+        "references": [
+          "/nix/store/04g5vymcgsnka23cxpl10q679g9yw6hv-pcre2-10.49",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211216,
+        "signatures": [
+          "cache.nixos.org-1:dAq9R0Uz5YKRdF22yopEMWdam4mfd0u9GoDrx1OiYreodgyXxFacPLAzNCW9Gx2KUhO/tP6FDgBIlptXFPmwAQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/0vw7gvcazcjqc762x7vg3l31cpx65l7i-gcc-15.3.0-libgcc": {
+        "ca": null,
+        "deriver": "/nix/store/ss9rn8rmcy4h5i7s4v7bswf1br6yfxdz-gcc-15.3.0.drv",
+        "narHash": "sha256-8aeSawLWybYcM/jOKI3x3iCSWJWQNKtWh6zQM3EnYjU=",
+        "narSize": 197752,
+        "references": [],
+        "registrationTime": 1792211211,
+        "signatures": [
+          "cache.nixos.org-1:vBpuYqo6ts6cHcARXy50aiuc53jJmPHa7sFNr+HD7LAwX8hLixX6JcEcmmgfGwauERU7L5N9IERPedsmWTOcAw=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0": {
+        "ca": null,
+        "deriver": "/nix/store/s45y18p0pnwjwz9s18r4550cazzhhgig-gmp-6.3.0.drv",
+        "narHash": "sha256-QGwhQpJPoDlrWYieHutlYVa/nP68fzLsg6i1BFDHuJQ=",
+        "narSize": 739864,
+        "references": [
+          "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211215,
+        "signatures": [
+          "cache.nixos.org-1:Dv51BVpSmmoiCnW19A52ZOqxJ/d2fKXV2k26VXVHUJL5aEo/9I5GR+CBG/+WZZ1ZF1EzwAdno/Kl6gRMWjO1AA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/2gjbrb8nwqf1225n3zhca56s2rxrqqhx-binutils-wrapper-2.46": {
+        "ca": null,
+        "deriver": "/nix/store/lhyghwyrh7gdmsca5jb5xcyf546n4zhh-binutils-wrapper-2.46.drv",
+        "narHash": "sha256-KFLFejKNX+jhQkytFugLrPux5Mc7UEss/4viYKbCxRg=",
+        "narSize": 56632,
+        "references": [
+          "/nix/store/2gjbrb8nwqf1225n3zhca56s2rxrqqhx-binutils-wrapper-2.46",
+          "/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/g2i5zxslx9msaqjy14hdp2af064i9pbv-binutils-2.46",
+          "/nix/store/jnyfsf2mp08d1xyz2m72ic2vz2kcx0sd-bash-5.3p9",
+          "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin",
+          "/nix/store/sr08dm9x0fsa1mrzjrlb3csdcmilsraz-glibc-2.42-100-dev",
+          "/nix/store/vamvnrq8rdxgfqrqky2qlfwwldwkg8mx-expand-response-params"
+        ],
+        "registrationTime": 1792211222,
+        "signatures": [
+          "cache.nixos.org-1:Ts0CLbn61h0IcYAY4D6qjg6PjB5Aua30ZLRV4448pETtcw85V/VsX9P8SA9dMrinfSO2MKBdrCQzCHgLe8EAAw=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/69vxm6ghyd02741nbsnal14f8rj4as2d-isl-0.20": {
+        "ca": null,
+        "deriver": "/nix/store/v09j60px67wqiwj33q7kaw3w8pjmih0i-isl-0.20.drv",
+        "narHash": "sha256-SXsVbWKWmMq00TXTLjn1Hz7xN9Sq7HF6acTEKUYor8E=",
+        "narSize": 2638360,
+        "references": [
+          "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0",
+          "/nix/store/69vxm6ghyd02741nbsnal14f8rj4as2d-isl-0.20",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211217,
+        "signatures": [
+          "cache.nixos.org-1:vHdF3MDXdrlfubKSQb0E2+f+I+fNlR/RHSsdcQypMwayx+TjT8Vcfuc9fobyLLgg0rnaEfU51Xwc+jXotITYBg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2": {
+        "ca": null,
+        "deriver": "/nix/store/4h14gh40cmy92iwbsv9z0rxcchi0c980-zlib-1.3.2.drv",
+        "narHash": "sha256-MlqHh3YOaQbK5SC63dHNW4oKPQF+97j7QPdrfmBMHTY=",
+        "narSize": 132608,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211215,
+        "signatures": [
+          "cache.nixos.org-1:+72sUMJquPhDfwGAByt7OsZudXvKx+m9650mxLvQ/joWYCbZsKhbnbCFL0brAWX/efRXcN2xil0tjpEXYBMZBg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/9licwzbc8pzhrh43vz5wg137gky9anz3-linux-headers-6.18.7": {
+        "ca": null,
+        "deriver": "/nix/store/w376i23z7amwhpjgffq12gs0fad1vphr-linux-headers-6.18.7.drv",
+        "narHash": "sha256-xIRkZIiT//hDCWsVyz7RY3rSoCk8nVbP7B5VRa5hs8s=",
+        "narSize": 7328040,
+        "references": [],
+        "registrationTime": 1792211212,
+        "signatures": [
+          "cache.nixos.org-1:+9inzkVVKLKWzdrf8zr6r3/IQE8aNHT5Z/huUYeQ64J1YJ3itAyyNazavtycv6HQ2qYIYGQN4UQsuAOzUc+JCg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11": {
+        "ca": null,
+        "deriver": "/nix/store/3l7bj57n7b6y0w321f9sfw5rlqq4ik0g-coreutils-9.11.drv",
+        "narHash": "sha256-kdZsQ/asHe3OecMYVdFLzoNBgh+xmsGfKkJQ3jwZyp8=",
+        "narSize": 1806736,
+        "references": [
+          "/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/j7gw09i8msa13fvpv20j98hp6id9k2ql-acl-2.4.0",
+          "/nix/store/xj8g46bl0ps12qw46gi9gacm493m3pff-gmp-with-cxx-6.3.0",
+          "/nix/store/zfsvnb0vxwck1hq55j4900f7rrpm5y9y-attr-2.6.0"
+        ],
+        "registrationTime": 1792211219,
+        "signatures": [
+          "cache.nixos.org-1:j2e9IC/2PNx3USSmWMEMPDA3KbjrI26QzYbjs5RdJUsl5TJU84xB/iSurd+9GDGBwAtDqvV70IAgHZdtIPlqBA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/cqhgy07rpxdwk9kd2qlc3cw4s9ajzm9f-gnugrep-3.12": {
+        "ca": null,
+        "deriver": "/nix/store/i9mqpnsyzq1m1ngy4p53rk5rd8bhz9qv-gnugrep-3.12.drv",
+        "narHash": "sha256-vLqkIFWxOxwkPvhLQtwRoGhxsNiJ0Tvvzg7N3FrfP4Y=",
+        "narSize": 954768,
+        "references": [
+          "/nix/store/04g5vymcgsnka23cxpl10q679g9yw6hv-pcre2-10.49",
+          "/nix/store/cqhgy07rpxdwk9kd2qlc3cw4s9ajzm9f-gnugrep-3.12",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211217,
+        "signatures": [
+          "cache.nixos.org-1:/AIJHfvbayWvY1hNldJEIZqizo4w6s1vVYj+IFkmElDqljLAYBbIbMNdzQ4fCDVKFVb5yEBFUvq+2ixWgM1ZBA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/cws4d1snbysh854az8fh7hfla0z3im3d-mpfr-4.2.2": {
+        "ca": null,
+        "deriver": "/nix/store/2jd6zccdwrcjsmj9d6gdgmxbprd8bvbg-mpfr-4.2.2.drv",
+        "narHash": "sha256-xWahUTeDM6y9TPjn2QQI7qeTtePbKGcMPVTAMrGKxMA=",
+        "narSize": 822600,
+        "references": [
+          "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0",
+          "/nix/store/cws4d1snbysh854az8fh7hfla0z3im3d-mpfr-4.2.2",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211216,
+        "signatures": [
+          "cache.nixos.org-1:Vyh0fp2MfBGGsvaJqPIPDg9hwLGWcRV0Kd51Ga4AcKO2U9wdkzXHHG2+v9bxwxr+o4kyZLqceECAcm9DNMRDCw=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib": {
+        "ca": null,
+        "deriver": "/nix/store/ss9rn8rmcy4h5i7s4v7bswf1br6yfxdz-gcc-15.3.0.drv",
+        "narHash": "sha256-V9UfiOgod8B1bPCAj1knpjHlIpx/u2IajRbmHZ1sriw=",
+        "narSize": 10317392,
+        "references": [
+          "/nix/store/0vw7gvcazcjqc762x7vg3l31cpx65l7i-gcc-15.3.0-libgcc",
+          "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211217,
+        "signatures": [
+          "cache.nixos.org-1:/Zw0pJ7rLpE6X8tWSS4Bt+A4u/RhYwE/scoFCHWQR7WUfXdnzdtTgBXnS2iBMlPYqpgR+J/tnP2WiSz5Be1OBA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0": {
+        "ca": null,
+        "deriver": "/nix/store/xv2y3sfvlgay9nrai47mcnag847pyk6l-gcc-wrapper-15.3.0.drv",
+        "narHash": "sha256-H++szR984cmv7Lu8F8WCskE/IZk9Gw06IEQ6pOk5rL8=",
+        "narSize": 69648,
+        "references": [
+          "/nix/store/2gjbrb8nwqf1225n3zhca56s2rxrqqhx-binutils-wrapper-2.46",
+          "/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11",
+          "/nix/store/cqhgy07rpxdwk9kd2qlc3cw4s9ajzm9f-gnugrep-3.12",
+          "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib",
+          "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/jnyfsf2mp08d1xyz2m72ic2vz2kcx0sd-bash-5.3p9",
+          "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin",
+          "/nix/store/s2f0mfx0iiap9yxmlfvq0psn26jsbind-gcc-15.3.0",
+          "/nix/store/sr08dm9x0fsa1mrzjrlb3csdcmilsraz-glibc-2.42-100-dev",
+          "/nix/store/vamvnrq8rdxgfqrqky2qlfwwldwkg8mx-expand-response-params"
+        ],
+        "registrationTime": 1792211228,
+        "signatures": [
+          "cache.nixos.org-1:LhXvO+m+nIhEhOEf4/vJoQPo+4F/R+dr8zbkoEBj7n8u+eaLzdyoprWzHdtz+lpnHp4DCIBuzNyhZwWLwjycAA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100": {
+        "ca": null,
+        "deriver": "/nix/store/p1csz0bl2pjkix69c89w1pcj58lxq3zi-glibc-2.42-100.drv",
+        "narHash": "sha256-c9VTB0ezSOYH331yInQ5a7N73FFzdKcvzI6Jk9tFNSU=",
+        "narSize": 35073208,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/l1n6wi2lyzglvgzbwzw9n9w2pzkcj41i-xgcc-15.3.0-libgcc",
+          "/nix/store/l5y42bimjvvn8h3v5y40w13vv7y2p3k5-libidn2-2.3.8"
+        ],
+        "registrationTime": 1792211214,
+        "signatures": [
+          "cache.nixos.org-1:r8sc/yqyzdpuNrboCzP2jhMTanfvhQdeIUkm8iNHOoVz/iDVickWUVg5y937gPhpmaIGQtsmlsMpP1oHUVnSDw=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/g2i5zxslx9msaqjy14hdp2af064i9pbv-binutils-2.46": {
+        "ca": null,
+        "deriver": "/nix/store/jflz18gn5s741pirwkfg540kr7clrd81-binutils-2.46.drv",
+        "narHash": "sha256-KWi1BLZOmN4nyVzKQRmRQaS4lMNUj/8NoGpohu/KU7E=",
+        "narSize": 34164200,
+        "references": [
+          "/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2",
+          "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/g2i5zxslx9msaqjy14hdp2af064i9pbv-binutils-2.46",
+          "/nix/store/znsjfmcnjvwvj3ccm7zkhaksg6r2yj8m-binutils-2.46-lib"
+        ],
+        "registrationTime": 1792211222,
+        "signatures": [
+          "cache.nixos.org-1:HXk3QQjOx9gQKvrRbJ0+dHj+etxXZ1S4s5751m4j2nRWPN203TYUR+BdVtWPjdy/Ms2Wfu2ZvJIWXlqlki7sBQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/g6mvl9ns7k52zfv9pcfw3dbh65z3j7id-libunistring-1.4.2": {
+        "ca": null,
+        "deriver": "/nix/store/5619yyfjmswzmq0vn5y69xcdlzv4nj7g-libunistring-1.4.2.drv",
+        "narHash": "sha256-Z6bmPhxtAUNI+KjrT9Ro7yBPC9iEi5TDpdKYFm/EUZE=",
+        "narSize": 2078944,
+        "references": [
+          "/nix/store/g6mvl9ns7k52zfv9pcfw3dbh65z3j7id-libunistring-1.4.2"
+        ],
+        "registrationTime": 1792211212,
+        "signatures": [
+          "cache.nixos.org-1:msVRHQ0u+wNxgdHkLxYKs3saRlLLtk96Z3QFh4+b6+1t0viukc5WsiwXK7uavtCY7vR5YQZNv5KSH2V/UfyUBg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/j7gw09i8msa13fvpv20j98hp6id9k2ql-acl-2.4.0": {
+        "ca": null,
+        "deriver": "/nix/store/6qdkyginmgiq4ing2w0mg7nhh6hwgcir-acl-2.4.0.drv",
+        "narHash": "sha256-W3s+Qy4rBifUsRVGIeV8q+OEbmUNnlkK7JIIm7lUF3c=",
+        "narSize": 137600,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/j7gw09i8msa13fvpv20j98hp6id9k2ql-acl-2.4.0"
+        ],
+        "registrationTime": 1792211214,
+        "signatures": [
+          "cache.nixos.org-1:LMQ75j5hEtrO/Q+vp3u7xWgqF1TxTnK4lyp6fIsulBNUPV+jmFSCyQMGxQcZ4WwzCMqU8yH/oZuuGH+J5nl9BQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/jnyfsf2mp08d1xyz2m72ic2vz2kcx0sd-bash-5.3p9": {
+        "ca": null,
+        "deriver": "/nix/store/f13dw1l416dhsf1gck4wizy79hjvqp9d-bash-5.3p9.drv",
+        "narHash": "sha256-JX2VzBtjxQntP4ZZaPpw1Pr034Ixs9nXqCf8up6WOP4=",
+        "narSize": 1852752,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/jnyfsf2mp08d1xyz2m72ic2vz2kcx0sd-bash-5.3p9"
+        ],
+        "registrationTime": 1792211216,
+        "signatures": [
+          "cache.nixos.org-1:nMwJE55/3vv48I2jnGq/bjEcW0hU5U9DQbHkA5ulGHoY0X8AO1KfuMgjzZHuoEvFF1iEnYFOS36UFyyFWWaQBg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin": {
+        "ca": null,
+        "deriver": "/nix/store/p1csz0bl2pjkix69c89w1pcj58lxq3zi-glibc-2.42-100.drv",
+        "narHash": "sha256-AAvcyreGwJAb7KxF7QbeBdf917MAwMY4ODU9UtJhKLw=",
+        "narSize": 2878352,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin",
+          "/nix/store/l1n6wi2lyzglvgzbwzw9n9w2pzkcj41i-xgcc-15.3.0-libgcc"
+        ],
+        "registrationTime": 1792211216,
+        "signatures": [
+          "cache.nixos.org-1:Ed15uyJydGdjDM0FLuF+Vaco0ktBlBfz778cU6qTftvluf8yIavbsKva7Dtreuq+Op1IXkNkd9GdrVi+iRNKDA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/l1n6wi2lyzglvgzbwzw9n9w2pzkcj41i-xgcc-15.3.0-libgcc": {
+        "ca": null,
+        "deriver": "/nix/store/wsisnqqva71ba5k4x8dipsggdvcjb07x-xgcc-15.3.0.drv",
+        "narHash": "sha256-cMuvHKKZQ7us4kpUA40tNxZpkQQRivt6fWtZHAPVcK8=",
+        "narSize": 197672,
+        "references": [],
+        "registrationTime": 1792211211,
+        "signatures": [
+          "cache.nixos.org-1:v7zp0sDcUMhhu32233fGy57OGV4oS0JHkJqDt/YAKCCMPV2gtHUf7YF6blSoY5F9voNB2bEoemA0i33HlTLDAA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/l5y42bimjvvn8h3v5y40w13vv7y2p3k5-libidn2-2.3.8": {
+        "ca": null,
+        "deriver": "/nix/store/7y9dhcsvg41d8ijzw6s8smcg1mld7fpf-libidn2-2.3.8.drv",
+        "narHash": "sha256-XstAYjw1RHyYPQzyGwj0q8m4COL/mqAalfu9S0+7Ejo=",
+        "narSize": 368176,
+        "references": [
+          "/nix/store/g6mvl9ns7k52zfv9pcfw3dbh65z3j7id-libunistring-1.4.2",
+          "/nix/store/l5y42bimjvvn8h3v5y40w13vv7y2p3k5-libidn2-2.3.8"
+        ],
+        "registrationTime": 1792211212,
+        "signatures": [
+          "cache.nixos.org-1:1zG1UGQ4IZxyT+OZyoVPxvOWw3Qh100H7XazbVLc2lakqRaRhtokbtH6FQJcS72zC4d6NZd0Uzk9z8BC9KNXAw=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/m590d394alyh9kf7a9jk7kk9743rkfdq-libmpc-1.4.0": {
+        "ca": null,
+        "deriver": "/nix/store/bq19mfjn4x4vjhqfprl11q994j3rl5q6-libmpc-1.4.0.drv",
+        "narHash": "sha256-x9GrfchQI/IU7eHPlax2/JBAPOTgebCBdEw0aa/6cBc=",
+        "narSize": 308776,
+        "references": [
+          "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0",
+          "/nix/store/cws4d1snbysh854az8fh7hfla0z3im3d-mpfr-4.2.2",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/m590d394alyh9kf7a9jk7kk9743rkfdq-libmpc-1.4.0"
+        ],
+        "registrationTime": 1792211216,
+        "signatures": [
+          "cache.nixos.org-1:UT/xm06IhYMf8wEgtSUBQw9rCBg8ElGS/fFd+hmsahKDu+TCXl0m6J0h3zPqE9tR5WJOPbjOkpVTtynZY5GcDA=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/s2f0mfx0iiap9yxmlfvq0psn26jsbind-gcc-15.3.0": {
+        "ca": null,
+        "deriver": "/nix/store/ss9rn8rmcy4h5i7s4v7bswf1br6yfxdz-gcc-15.3.0.drv",
+        "narHash": "sha256-7UcgTfeWu7f78kyEG/N/99esCibGHjgSPyCylgqLohA=",
+        "narSize": 277242240,
+        "references": [
+          "/nix/store/1sf1j6c8rbipp4yayll7vy6v4bpwz95y-gmp-6.3.0",
+          "/nix/store/69vxm6ghyd02741nbsnal14f8rj4as2d-isl-0.20",
+          "/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2",
+          "/nix/store/cws4d1snbysh854az8fh7hfla0z3im3d-mpfr-4.2.2",
+          "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/m590d394alyh9kf7a9jk7kk9743rkfdq-libmpc-1.4.0",
+          "/nix/store/s2f0mfx0iiap9yxmlfvq0psn26jsbind-gcc-15.3.0",
+          "/nix/store/sr08dm9x0fsa1mrzjrlb3csdcmilsraz-glibc-2.42-100-dev"
+        ],
+        "registrationTime": 1792211228,
+        "signatures": [
+          "cache.nixos.org-1:iqRocRfyTShel4SBSb5tnyEJBlfKOrEdA29esB9CP1Xt4tlwNbTcCHxJJahKpxv27DQHA6/xoFtVtDp1IFSeAQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/sr08dm9x0fsa1mrzjrlb3csdcmilsraz-glibc-2.42-100-dev": {
+        "ca": null,
+        "deriver": "/nix/store/p1csz0bl2pjkix69c89w1pcj58lxq3zi-glibc-2.42-100.drv",
+        "narHash": "sha256-EnzlaaxTb502NqqIiNPyLjkaBC9VyzVwNSXMxprpofE=",
+        "narSize": 2445272,
+        "references": [
+          "/nix/store/9licwzbc8pzhrh43vz5wg137gky9anz3-linux-headers-6.18.7",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin"
+        ],
+        "registrationTime": 1792211217,
+        "signatures": [
+          "cache.nixos.org-1:I/QacJE76JETmWBkJW34N3PosclUgdg2OHbLDfn/eIYKuk73aFiOyX9rcdgp66Pvhw+adYIqdZodbBRHO3M/Bg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/vamvnrq8rdxgfqrqky2qlfwwldwkg8mx-expand-response-params": {
+        "ca": null,
+        "deriver": "/nix/store/mqz5d7kpr600psl6wv7p3zm25xvi7iiv-expand-response-params.drv",
+        "narHash": "sha256-ieQ1j3Tf+wKFS/+idFXD2OxqL2JxP0enb5JxvgMtOaQ=",
+        "narSize": 16808,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100"
+        ],
+        "registrationTime": 1792211214,
+        "signatures": [
+          "cache.nixos.org-1:EyKr97Ky+oEKKfQ9/1alLQtTT3dKhTGlQZjoPHkiPFyBhYUoGb3gwcNZtddr64kaOjaJjNMY15cQGWxeHf5VAQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/xj8g46bl0ps12qw46gi9gacm493m3pff-gmp-with-cxx-6.3.0": {
+        "ca": null,
+        "deriver": "/nix/store/1bivb8zg4ard4419zkpdh1m4m5w0wrds-gmp-with-cxx-6.3.0.drv",
+        "narHash": "sha256-dfCu3X67+UlRMIHS5BCQHpBAT8W3HOViO2BKmtV0t3A=",
+        "narSize": 783432,
+        "references": [
+          "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/xj8g46bl0ps12qw46gi9gacm493m3pff-gmp-with-cxx-6.3.0"
+        ],
+        "registrationTime": 1792211218,
+        "signatures": [
+          "cache.nixos.org-1:6I8EC8MZlS9vIPeTGVwBxZK6cHjpYG2KB8JmGDQa6nNKOn44u1sDWR8zW8TV65RspvowNTyfaA37aeYbKAcwDQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/zfsvnb0vxwck1hq55j4900f7rrpm5y9y-attr-2.6.0": {
+        "ca": null,
+        "deriver": "/nix/store/8skcqy8js62jn5mcwa3rkmnzwchk7szl-attr-2.6.0.drv",
+        "narHash": "sha256-ZrZ27983uHa/+Sae/SVKZJMlp5hxCoQG33U8G/V4YT8=",
+        "narSize": 90936,
+        "references": [
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/zfsvnb0vxwck1hq55j4900f7rrpm5y9y-attr-2.6.0"
+        ],
+        "registrationTime": 1792211214,
+        "signatures": [
+          "cache.nixos.org-1:9WQWLAFf58xCGPvn9iEB3L5synQFebXSB1RFrpahU1uzD0MKFKie62Zb3JZSZ2RohS+nrNZtuvz9nfkAV6K3CQ=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      },
+      "/nix/store/znsjfmcnjvwvj3ccm7zkhaksg6r2yj8m-binutils-2.46-lib": {
+        "ca": null,
+        "deriver": "/nix/store/jflz18gn5s741pirwkfg540kr7clrd81-binutils-2.46.drv",
+        "narHash": "sha256-L6vuxVl679d9jNQ6SIbXpF+xbi/X8jf3K5aHTzmJhF8=",
+        "narSize": 3018368,
+        "references": [
+          "/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2",
+          "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100",
+          "/nix/store/znsjfmcnjvwvj3ccm7zkhaksg6r2yj8m-binutils-2.46-lib"
+        ],
+        "registrationTime": 1792211217,
+        "signatures": [
+          "cache.nixos.org-1:TopgLod+u9qBw3E7wq5bd6eaAITcqEKV+drYk8/jt5Zp1zwC0yHMif4V/aDE1tMCSwYHwCTTqnfgSxGpFfPVAg=="
+        ],
+        "storeDir": "/nix/store",
+        "ultimate": false,
+        "version": 1
+      }
+    },
+    "environment": {
+      "NIX_PATH": "/home/vlad/.nix-defexpr/channels:nixpkgs=flake:nixpkgs:/nix/var/nix/profiles/per-user/root/channels",
+      "NIX_ENFORCE_NO_NATIVE": "1",
+      "NIX_CFLAGS_COMPILE": " -frandom-seed=ah5vwcwdgz -isystem /nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/include -isystem /nix/store/pqvvkzca5in8kfdz9chymswfwsg4ga6a-curl-8.22.0-dev/include -isystem /nix/store/41r5x5klzq7kdkh9l43glqnkpz2r4hmx-brotli-1.2.0-dev/include -isystem /nix/store/gsfchss5wp40hp0f2yrhk2ri8ys9gh51-krb5-1.22.2-dev/include -isystem /nix/store/6s6ajz3vw48qxnqggp9pih22af5gdc6r-nghttp2-1.69.0-dev/include -isystem /nix/store/wssc1dzk2dc7d4vdym6lrjcifgfk5i6n-nghttp3-1.15.0-dev/include -isystem /nix/store/xzz3cxfj20sajfjrn7dfgkrc70r93cfk-ngtcp2-1.22.1-dev/include -isystem /nix/store/0jvyl9s1c7np1j7zlf995ywpgdkxi555-libidn2-2.3.8-dev/include -isystem /nix/store/7l09089ahshxjx4js3zswqk6azhx6ccq-openssl-3.6.5-dev/include -isystem /nix/store/hlky6hh1qf9m8rf5ax7k5wjd0plq4mas-libpsl-0.21.5-dev/include -isystem /nix/store/7mwhrh8kgxrjn8mzyq2v5n9rcmpzwc91-libssh2-1.11.1-dev/include -isystem /nix/store/2k9dj65vyanlvq863ks3ii7cjx82kfng-zlib-1.3.2-dev/include -isystem /nix/store/1hjg44rywjpc52nnhs1z9iba9vgr2s3n-zstd-1.5.7-dev/include -isystem /nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/include -isystem /nix/store/pqvvkzca5in8kfdz9chymswfwsg4ga6a-curl-8.22.0-dev/include -isystem /nix/store/41r5x5klzq7kdkh9l43glqnkpz2r4hmx-brotli-1.2.0-dev/include -isystem /nix/store/gsfchss5wp40hp0f2yrhk2ri8ys9gh51-krb5-1.22.2-dev/include -isystem /nix/store/6s6ajz3vw48qxnqggp9pih22af5gdc6r-nghttp2-1.69.0-dev/include -isystem /nix/store/wssc1dzk2dc7d4vdym6lrjcifgfk5i6n-nghttp3-1.15.0-dev/include -isystem /nix/store/xzz3cxfj20sajfjrn7dfgkrc70r93cfk-ngtcp2-1.22.1-dev/include -isystem /nix/store/0jvyl9s1c7np1j7zlf995ywpgdkxi555-libidn2-2.3.8-dev/include -isystem /nix/store/7l09089ahshxjx4js3zswqk6azhx6ccq-openssl-3.6.5-dev/include -isystem /nix/store/hlky6hh1qf9m8rf5ax7k5wjd0plq4mas-libpsl-0.21.5-dev/include -isystem /nix/store/7mwhrh8kgxrjn8mzyq2v5n9rcmpzwc91-libssh2-1.11.1-dev/include -isystem /nix/store/2k9dj65vyanlvq863ks3ii7cjx82kfng-zlib-1.3.2-dev/include -isystem /nix/store/1hjg44rywjpc52nnhs1z9iba9vgr2s3n-zstd-1.5.7-dev/include",
+      "NIX_LD_LIBRARY_PATH": "/run/current-system/sw/share/nix-ld/lib",
+      "NIX_LDFLAGS": "-rpath /tmp/conaled-369-orchestration/worker137/outputs/out/lib  -L/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/lib -L/nix/store/g64gr9m6lhzp9aq393yv0sxlr5176jrc-brotli-1.2.0-lib/lib -L/nix/store/yfvrxfh24kxshxsvgic60893sy8h4shc-krb5-1.22.2-lib/lib -L/nix/store/drxakd25lbv35flbk8f01bqq417j9czw-nghttp2-1.69.0-lib/lib -L/nix/store/5s4ahr76fzx3p4z0fyhphskham55nkhb-nghttp3-1.15.0/lib -L/nix/store/k0fby92994cjcmj3npd562dy22qxnwdy-ngtcp2-1.22.1/lib -L/nix/store/l5y42bimjvvn8h3v5y40w13vv7y2p3k5-libidn2-2.3.8/lib -L/nix/store/kysvfcf8d8v26rr32xfqji8ri2lczlqk-openssl-3.6.5/lib -L/nix/store/rcvnjiaywqlx4d6ra1z4z537jpw3jvwy-libpsl-0.21.5/lib -L/nix/store/9csszq0cch2npq0flybqmvkabb1dj3r4-libssh2-1.11.1/lib -L/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2/lib -L/nix/store/7zbzvm0bwa2mh5dp3p5gasix417lysxc-zstd-1.5.7/lib -L/nix/store/q3lhcbjc0bxxiqnhcp2vslmn9mh3f256-curl-8.22.0/lib -L/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/lib -L/nix/store/g64gr9m6lhzp9aq393yv0sxlr5176jrc-brotli-1.2.0-lib/lib -L/nix/store/yfvrxfh24kxshxsvgic60893sy8h4shc-krb5-1.22.2-lib/lib -L/nix/store/drxakd25lbv35flbk8f01bqq417j9czw-nghttp2-1.69.0-lib/lib -L/nix/store/5s4ahr76fzx3p4z0fyhphskham55nkhb-nghttp3-1.15.0/lib -L/nix/store/k0fby92994cjcmj3npd562dy22qxnwdy-ngtcp2-1.22.1/lib -L/nix/store/l5y42bimjvvn8h3v5y40w13vv7y2p3k5-libidn2-2.3.8/lib -L/nix/store/kysvfcf8d8v26rr32xfqji8ri2lczlqk-openssl-3.6.5/lib -L/nix/store/rcvnjiaywqlx4d6ra1z4z537jpw3jvwy-libpsl-0.21.5/lib -L/nix/store/9csszq0cch2npq0flybqmvkabb1dj3r4-libssh2-1.11.1/lib -L/nix/store/6s4wm3zl2y0v5g998n2g88k1zh3vf2pr-zlib-1.3.2/lib -L/nix/store/7zbzvm0bwa2mh5dp3p5gasix417lysxc-zstd-1.5.7/lib -L/nix/store/q3lhcbjc0bxxiqnhcp2vslmn9mh3f256-curl-8.22.0/lib",
+      "NIX_HARDENING_ENABLE": "bindnow format fortify fortify3 libcxxhardeningfast pic relro stackclashprotection stackprotector strictflexarrays1 strictoverflow zerocallusedregs",
+      "NIX_PROFILES": "/run/current-system/sw /nix/var/nix/profiles/default /etc/profiles/per-user/vlad /home/vlad/.local/state/nix/profile /nix/profile /home/vlad/.nix-profile",
+      "NIX_BINTOOLS": "/nix/store/2gjbrb8nwqf1225n3zhca56s2rxrqqhx-binutils-wrapper-2.46",
+      "PATH": "/nix/store/aidjqiqb58j26if2jq5h193dnzdw6dvv-elan-4.2.1/bin:/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin:/nix/store/b1wn5clix1mz4vpfih7x9cnj9qfh7c6h-git-2.54.0/bin:/nix/store/pqvvkzca5in8kfdz9chymswfwsg4ga6a-curl-8.22.0-dev/bin:/nix/store/lqdzp8jnmvdvjs31z9cnf80palsp8sw1-brotli-1.2.0/bin:/nix/store/gsfchss5wp40hp0f2yrhk2ri8ys9gh51-krb5-1.22.2-dev/bin:/nix/store/z8w7vy6k9knakkc6z6jn5nzk6dg968hp-krb5-1.22.2/bin:/nix/store/yslvvfdr3dfdn4wykgf8qh6bdyfyxqcc-nghttp2-1.69.0/bin:/nix/store/iz4j4k1ykgply4lrs5z7371cvmba9i66-libidn2-2.3.8-bin/bin:/nix/store/ndv550fkbmsfvdxax71d4d5d59x4lq80-openssl-3.6.5-bin/bin:/nix/store/rcvnjiaywqlx4d6ra1z4z537jpw3jvwy-libpsl-0.21.5/bin:/nix/store/z8fp2l0b1k64swd0dxpych445wpfcgb0-zstd-1.5.7-bin/bin:/nix/store/7zbzvm0bwa2mh5dp3p5gasix417lysxc-zstd-1.5.7/bin:/nix/store/x5ad8l4zpkg2dldjyqsknlcyypjmp0wp-curl-8.22.0-bin/bin:/nix/store/nv7alwg77k9p5961zvijn60k7kscli76-direnv-2.37.1/bin:/nix/store/jmxrpp9mj5l669s0y4f4rfdh10ln51xj-ripgrep-15.1.0/bin:/nix/store/xdnaya02qicjfdczyjqwy2yl04b8x3pw-patchelf-0.15.2/bin:/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin:/nix/store/s2f0mfx0iiap9yxmlfvq0psn26jsbind-gcc-15.3.0/bin:/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin/bin:/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11/bin:/nix/store/2gjbrb8nwqf1225n3zhca56s2rxrqqhx-binutils-wrapper-2.46/bin:/nix/store/g2i5zxslx9msaqjy14hdp2af064i9pbv-binutils-2.46/bin:/nix/store/bhv6xyvqw6gjs3j488gi1z6wdv18bdpa-coreutils-9.11/bin:/nix/store/nl0wq6d4bpjrxmlax141liq0qr9z87gn-findutils-4.10.0/bin:/nix/store/aqq53g5lgr9n9hxzmbblpfzds5z067ca-diffutils-3.12/bin:/nix/store/0s17nja4n8b63by0nlg1m31mxn2bq1g1-gnused-4.10/bin:/nix/store/cqhgy07rpxdwk9kd2qlc3cw4s9ajzm9f-gnugrep-3.12/bin:/nix/store/xbqis14s3fvckwlayc6vxvglws1v2mcw-gawk-5.4.1/bin:/nix/store/rc7c5al4hdcv0dc42g1jabx2r68l45jq-gnutar-1.35/bin:/nix/store/k1z3ys65nbrdc60975wajrj4xjwaqqm4-gzip-1.14/bin:/nix/store/a7501p1w90nhbln9259viwql8m4mnbx5-bzip2-1.0.8-bin/bin:/nix/store/q5wf35q7dabb5m8mszqjn3d55ff5c1pl-gnumake-4.4.1/bin:/nix/store/jnyfsf2mp08d1xyz2m72ic2vz2kcx0sd-bash-5.3p9/bin:/nix/store/2dcxwfz9n8xpzrnrfgnl0yz7dw0f60gz-patch-2.8/bin:/nix/store/fr31df17rksfki6nv00xq4s5apvqpyhw-xz-5.8.4-bin/bin:/nix/store/24ppwxxymwv6p22ag41mk4vvb79cmr0k-file-5.47/bin:/tmp/conaled-369-orchestration/worker137/.direnv/bin:/nix/store/w6hlkfzz5ah5i18x82igddm8pz3v30zq-codex-0.161.0/codex-path:/home/vlad/.codex/tmp/arg0/codex-arg0rhGXNW:/home/vlad/.codex/tmp/arg0/codex-arg0MJUXYU:/run/wrappers/bin:/home/vlad/.nix-profile/bin:/nix/profile/bin:/home/vlad/.local/state/nix/profile/bin:/etc/profiles/per-user/vlad/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin",
+      "NIX_STORE": "/nix/store",
+      "NIX_USER_PROFILE_DIR": "/nix/var/nix/profiles/per-user/vlad",
+      "NIX_BUILD_CORES": "32",
+      "NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu": "1",
+      "NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu": "1",
+      "NIX_LD": "/run/current-system/sw/share/nix-ld/lib/ld.so",
+      "NIX_CC": "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0",
+      "LEAN_NUM_THREADS": "1",
+      "LEAN_PATH": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output",
+      "LEAN_CC": "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc"
+    },
+    "timing_note": "C generation includes repeated Lean frontend checking.",
+    "executable_sha256": "a529e8f771e71686558520fb0dcd0ee04c9edbc608fe4e1ad4cf56c88d038bc1",
+    "runtime_files": {
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/libm.so.6": "c734423f985c53aa993affea6de2e8fd1d99a9f2074aee9a6447b444abfb585d",
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/libdl.so.2": "5b2a477e8ddb70e6d073030fbe69ff2422c7db9c77598d6248f30a9873bd88e3",
+      "/nix/store/dqj57l1prad38vjrad4bs9d977i4q5zm-gcc-15.3.0-lib/lib/libgcc_s.so.1": "3229a31b1f26283f7e81e2567155e532fbebef55237bff771f0d73a8cf9fe5d1",
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/libpthread.so.0": "582378cbc1ff9f423b8ab99e5a35c1cfac9e6c3ed83410f05b867909bc575076",
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/libc.so.6": "43a0b688667ef6e98cb18870c593b695eb63f4b23a6468b4821cd176b4407633",
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib/ld-linux-x86-64.so.2": "3a6e6f399324848162b0af1b3709889ada1122436d770af3a0d8f7a6df5623f8",
+      "/nix/store/fsd4vbp9zjd9iaicq2fb9lpc1h5j973y-glibc-2.42-100/lib64/ld-linux-x86-64.so.2": "3a6e6f399324848162b0af1b3709889ada1122436d770af3a0d8f7a6df5623f8"
+    },
+    "observations": {
+      "canonical16": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "16",
+          "=",
+          "14772512"
+        ],
+        "exit": 0,
+        "wall_seconds": 4.684420321980724,
+        "peak_child_rss_kib": 19872,
+        "stdout_sha256": "00c334b6639c5b77cbe8286d0c18580e3b95d0b5e0bd04d2ca783ad4c5aea4dc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "canonical0": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "0",
+          "=",
+          "1"
+        ],
+        "exit": 0,
+        "wall_seconds": 0.0019088080152869225,
+        "peak_child_rss_kib": 19888,
+        "stdout_sha256": "21b604852b9f155942ec727b24ccc1248d6f0ef7932e85e88c2eedfdfadd3e81",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "wrong-value": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "0",
+          "=",
+          "2"
+        ],
+        "exit": 1,
+        "wall_seconds": 0.0017833580204751343,
+        "peak_child_rss_kib": 19884,
+        "stdout_sha256": "bf1d2276c19d4964d69524677045b90a28ab63ebf02d8f528c2b8aa87c2f0af0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "wrong-source": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "other.cqueens",
+          "0",
+          "=",
+          "1"
+        ],
+        "exit": 1,
+        "wall_seconds": 0.001743616012390703,
+        "peak_child_rss_kib": 19884,
+        "stdout_sha256": "bf1d2276c19d4964d69524677045b90a28ab63ebf02d8f528c2b8aa87c2f0af0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "wrong-operator": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "0",
+          "==",
+          "1"
+        ],
+        "exit": 1,
+        "wall_seconds": 0.0017952749913092703,
+        "peak_child_rss_kib": 19884,
+        "stdout_sha256": "bf1d2276c19d4964d69524677045b90a28ab63ebf02d8f528c2b8aa87c2f0af0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "noncanonical": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "00",
+          "=",
+          "1"
+        ],
+        "exit": 1,
+        "wall_seconds": 0.0017590659845154732,
+        "peak_child_rss_kib": 19880,
+        "stdout_sha256": "bf1d2276c19d4964d69524677045b90a28ab63ebf02d8f528c2b8aa87c2f0af0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      },
+      "extra-token": {
+        "argv": [
+          "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker",
+          "ADWH.Chapter15.Queens.BitRepresentation.cqueens",
+          "0",
+          "=",
+          "1",
+          "extra"
+        ],
+        "exit": 1,
+        "wall_seconds": 0.0017010839947033674,
+        "peak_child_rss_kib": 19880,
+        "stdout_sha256": "bf1d2276c19d4964d69524677045b90a28ab63ebf02d8f528c2b8aa87c2f0af0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "passed": true
+      }
+    },
+    "timings_seconds": {
+      "generation_with_rechecking": 10.097905549948337,
+      "c_compilation": 7.720184213045286,
+      "link": 0.4741823229996953,
+      "execution_and_controls": 5.077087787038181
+    }
+  },
+  "source_hashes": {
+    "SaturatingUInt64.lean": "34c0c329d485ab4e17644c5d85535a028a1d57225b24efb1a8a364c9a77cf4b6",
+    "UInt64MaskedExact.lean": "6d013e3eda4c573e3899421326efa03e417710736f97d585d3dceb188bd304e9",
+    "UInt64MaskedCount.lean": "ca3cce089bc0f672e85fa1f05057e2ca4a9d6c29d224168b9af258498d63e71d",
+    "CertifiedNatChecker.lean": "d1874a7be774cc9eaff20046141ff15c6d64638b21ce9a39bf29764668bbc9dc",
+    "ClosureAudit.lean": "11a59f3e918b863944180db940a741d7c8939f809cafaa040957bce36b15e593",
+    "UInt64ExactEvaluator.lean": "4b0ffcd4b7aa67305a6f37893223bfe0f9142ec5ece27d29b1e6e9b70afd50cd",
+    "FirstOrderNat.lean": "e453954c94771eddda4d21ce52a7befb07093c9117202f886844a3507a02da1b",
+    "FirstOrderNatSourceAudit.lean": "6704cfdb14d1d4d0f1bc0b2431085350577c43f2ba6786ef281cf59a89dc438e",
+    "SymbolicWord16Core.lean": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+    "FirstRowReflection.lean": "da7315a78be246379d44b8a96af917f1a6d251ef8a09fc6f966e27367103f1cf",
+    "UInt64SourceBridge.lean": "97359dfe8dc3f9c9571a80260e3995e89a3a84489c381446b496495819618643",
+    "UInt64MaskOps.lean": "858b6c93ef1db6d478f5d5fa2d2074dbed35cf4c1dbd4422c40165033e60c964",
+    "FirstRowReflectionSource.lean": "8a1e24ec4e3dde9b41a8f8e45af3cb2d5ee0807c1254ce56063d8c599c66ce2e",
+    "SelectionAudit.lean": "13c6d517c609cec270c0ca08ec707c8d560355df0e0d878ca27dfafa9d8b8959",
+    "UInt64MaskedSource.lean": "6cc8b4fb8f36efa9669c6eeac22c4d6f7b98a96d1eb5330c807555a34a791174",
+    "FirstRowReflectionQueensNatChecker.lean": "73e65a7a17a1fbd3334e26b702330b0b5f46d176499df9b36b65ecbefa7b768b",
+    "UInt64PowerTwoOps.lean": "16b6e11fbb9e8a96530aee0c408a4a36321f459be417936156f04b63bcf1500a",
+    "SymbolicWord16Recurrence.lean": "29a969e114ef7caffcaf42eb0f3349b70c56d517c40f9c76efd534c7b1a446ea",
+    "FirstRowReflectionRestrictedNatCheckerMain.lean": "f338410051cc98af5bfdfd148f6ae7cb2df6cbd1254960e127a62fe18a749ace",
+    "FiniteFold.lean": "25d84a52adca5f4c60163640aee8f31ded88322b8bd98c27f96d1aeb0c8b5d4e",
+    "FirstOrderNatSource.lean": "187d06ec3cdd74cce8181e99a25cadf4ed3e302b22b79a48ba5414c81a59aef6",
+    "UInt64SaturatingCount.lean": "1aa51c003d37835050c0aee851a2b164ea881520e4b2cf8c68a167882a173042",
+    "ADWH/Chapter15/QueensBitCounting.lean": "3e9d4f4226eeddd9aadd42a9926e7ddecedce7a6c8f2953014c6a33b0f6b2b84",
+    "ADWH/Chapter15/QueensVariants.lean": "ec3c0599cbd0cab58201f215283babc4ac4987edca24c83977f808765aecb504",
+    "ADWH/Chapter15/QueensNatCounting.lean": "5c5e7255bc919e27746e7b55bf71c1171fde5e438b8b09b1002fde8525d6a72c",
+    "ADWH/Chapter15/Queens.lean": "a33743f6936503169c71f5e46ef8d8577511360b385cbc18a111a8172ea22e60",
+    "ADWH/Chapter15/QueensFastCounting.lean": "b8bd1e73532ad77520c17e6c68f88e7f7fae3ade7070c7d28b343dd897d18ad0",
+    "ADWH/Chapter15/QueensBitRepresentation.lean": "eb261d73bd9de53a8dd493a9772fea3a5580bb6f42ba22dabe81dd1c3eacc918",
+    "ADWH/Chapter15/QueensBitMoves.lean": "bed3f9a6d2402446f07b1b51308d0fb5b68b19c453a57be37428fb7228cf5d5f",
+    "ADWH/Chapter15/QueensBitsPrimitives.lean": "15c80d8d531f5a0b7cc52b4ad1d0fb69b14b75734c66430b98175eef761b1df6",
+    "ADWH/Chapter15/QueensSearch.lean": "5ec0ac30b2d4df556bd25bc0da29827026973e224ac3615ab19705d6842bbe06",
+    "ADWH/Chapter01/Permutations.lean": "1a95de12dbf6de945bb5fe0785a593bade9da61fb34d8562d784a46d1a50d64b",
+    "ADWH/Chapter01/Lists.lean": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0"
+  },
+  "outputs": {
+    "SymbolicWord16Recurrence.o": "60586cc97aaf49707c38ca1e073ab6587df68b79e41cef03a398f24b8434b7bc",
+    "FirstRowReflection.o": "8d714ac8530630423e87cc12daab708c316717e5926a970779d8f3c4a838c662",
+    "FirstOrderNatSource.c": "b044180ae88f66e1c7ea6eb2070f72a050e644f33dbbab509c6a9350fc326ed1",
+    "UInt64SaturatingCount.o": "a3928815624e01749318759911aed7f414b544338f50d7e3c3ec598cb4797bf9",
+    "UInt64ExactEvaluator.o": "4748f88d6a6cdf3c5102a191b5f9f015c2b21126de528112278af9e7c4734fe0",
+    "UInt64SourceBridge.olean": "bdf8d109e2089ca6defdf96be1763768aee0a99ad6da934b09a06e3263cfe99a",
+    "FirstOrderNatSourceAudit.c": "144cc03547a5ca61913cee0a05cdb1876c9c484ff2667a58250eed152f35666f",
+    "UInt64MaskedExact.o": "7cf125566fc7d01a551d2208a4e342ab0c3daa3776c7b0aed4ef9d1ba1c7c796",
+    "UInt64PowerTwoOps.o": "a0db61fe0fe0d8dbb8e2f8a56c46152a37018b15fd735f807450e26a87639076",
+    "UInt64MaskedCount.olean": "71f609c67fcf0d085457b874c6a4956e666ad427c48e15bfa372a84ce0423561",
+    "FirstRowReflection.c": "0f6ccd98ac5862a88f9c172376934d3dbabe085d1e7431f3daf4cedb70bc4d06",
+    "FirstOrderNatSourceAudit.olean": "f63e97f6552cdcbdcba99b0cb8268b1c692ac8f5fa1f20b16b4199d7ec66687e",
+    "UInt64PowerTwoOps.olean": "8368986412b2b04c45302012de1f3731c22de43745252b0a69aa29362562bd9d",
+    "SaturatingUInt64.o": "1609fec3a0da206f738fe1d4c1f9eaa911e36caffb9cec8738292cbb38d8189e",
+    "FirstOrderNat.o": "ec76a56d965b29a45e72038cbd54b3783748853718e94c5ecaef204e4d57c94d",
+    "UInt64MaskOps.c": "c80c17d5ba4fb74b996d9b97b63035efceaedf6f421faf27f6cd94b71d8c0a6a",
+    "UInt64MaskedSource.o": "7384353112b63fe99397d30ef3d571fe4d0030e87fc8b51bf74726b73e016234",
+    "UInt64MaskOps.olean": "75a68bc879f302aef5c38f1c139ad28efe61413554d9732c32dd8971f32b92ba",
+    "FirstRowReflectionSource.olean": "720d9609c8ff91ea51b53c77a421faa5b537c456a2c738a57f8dde8ceb08f83a",
+    "SymbolicWord16Core.c": "62bf403e4e2089a624bbdc0447ab21b741b8c4fae067aee90f497c93adbd2992",
+    "first-row-reflection-original-queens-checker": "a529e8f771e71686558520fb0dcd0ee04c9edbc608fe4e1ad4cf56c88d038bc1",
+    "FirstOrderNat.olean": "02002dd6fb6277e4d3b0c919ce6215e6d40522609d45e085f2c731d4668eea87",
+    "FirstRowReflection.olean": "f2b75d17611e2b7ddc2d8517f0a026f5a0639f4c74a27f76d9d8a752782decbd",
+    "SymbolicWord16Core.olean": "c33f7fc3a2323dfacc87509f8749e70bcdb523c7c637cf45345dcf14bccd5bc3",
+    "FiniteFold.olean": "0f0128b0ce2b0a55a68150fe5483acad91e26677681d059c7187f4e8b112d53c",
+    "FirstOrderNatSourceAudit.o": "c4c9789db72b6bba6eb9e143d7f54cf4ed23db57d116431ff3e586d28cfb29c9",
+    "FirstRowReflectionSource.o": "f3eb3221d9b2d9660b4399ac45c958a70df8db424c4dad9d9ab522f21229a0d4",
+    "FirstRowReflectionQueensNatChecker.olean": "6f71a99b321d1bada4d70e19bf4fa06548d08d96ea0545c4242a1215dcb9b5ec",
+    "UInt64SourceBridge.c": "4c98898398b78522da7f428b663252004a3f363e3a2d79e7b823b6340a4bc1f3",
+    "UInt64SourceBridge.o": "9775520555706d675d7ec28e28a295c1b53e9f2b9563a4e9a4b08b4400fe3e9c",
+    "UInt64MaskOps.o": "11db1fc5dab83e33d2363ebaa1543d4c911b3e58716a3734d486ce9a2e254f96",
+    "CertifiedNatChecker.c": "403ee5dc8a994234cf798e8e77823ac9ec9032aa33a3ecb595f2c582f3019dff",
+    "SaturatingUInt64.olean": "e0b7c7d5f9ebeb06e929656c27f5def3de365bc6fb1fab926dd58b39173639f6",
+    "UInt64SaturatingCount.c": "b3b027c63b51379fc28122714159c74f222b238084d9cb6855e20552d90a39f5",
+    "UInt64MaskedSource.c": "02b2ae59dc06afe9700b4c799fc3dcb88d227756f0328219b8fdc6932cb15542",
+    "SaturatingUInt64.c": "033b95821a7fe2a9c464a7a5a33f7a2f354fc6ca22702816b068c25e636ec21f",
+    "UInt64PowerTwoOps.c": "b75352fdc4dfbcfc283046533852ca0a144958e6285a01f50b8eae7a2ee402ef",
+    "UInt64SaturatingCount.olean": "89a9258fb4688927a6759c946226a6dd8fafeaee19f3c30925d37d190386ca6e",
+    "FirstRowReflectionRestrictedNatCheckerMain.olean": "1a483c6ce6f7eba8fa14050cba0eaeb5b2e88d2888210409ec33d62ffe7f1cc6",
+    "SelectionAudit.olean": "8221b992176d177bdd5eeb8f4aefeabb9b62e2d0d8676ba96b8e76aabc8d45e1",
+    "ClosureAudit.olean": "09b941a70cd790c3d460efe911621acc5e3a9f08c78d372d25a1d3aaf5065622",
+    "CertifiedNatChecker.o": "ea71fb3eff377dad972f40509dd441a1f548192bdfd195b1d4456d21da756bee",
+    "CertifiedNatChecker.olean": "bb38d17ec2646408287b9394b59fc0448a5dc02d536ca24c3a339f11871ec559",
+    "UInt64MaskedCount.c": "1403da2fa7c4d5177586ff253ccdc81b37fa75d1f700d4ead1c5406261b4091e",
+    "UInt64ExactEvaluator.c": "3bb3175942e4381d5b1e67047c7afa17c69720f21cac4daf38548f6488bc3bde",
+    "FirstRowReflectionRestrictedNatCheckerMain.c": "d77e83ed29a032d30a8dd46dd7825ed72c796ddf486417bfd135f87a69039392",
+    "UInt64ExactEvaluator.olean": "1d7db570238fecb43546eda45a8131d924fdf3d7ebbecab3988490a8ae54723f",
+    "FirstOrderNat.c": "029bd83d1468a87761238fe4464a0a30017494dd7b20ac7cc0e0739455260f2f",
+    "SymbolicWord16Recurrence.c": "5ff39d7d3a0bb7424f213464ab751aed67964b8afa8d73c839488875d714e588",
+    "FirstOrderNatSource.olean": "9abfad479a76226f547279c7561d3dfe2b51cfb609f700f1da5a3262a6e4be3b",
+    "UInt64MaskedCount.o": "ff593187cd16c830497bca8f5b55a47bd7109cecf8a08eae84f18fd44f671b91",
+    "FirstRowReflectionSource.c": "69df45757287998e47763e73291b9654976c99230d25f3edb1d74733f999b521",
+    "FirstRowReflectionRestrictedNatCheckerMain.o": "dbf9285122040d57c9165089911c46193af9ae8b7fae2dc3229d7d7527bfa0ac",
+    "FirstOrderNatSource.o": "5288d4e631b3ba1a0d19fccd60374b00c07ddf32dbbd30001e2e3897c898fa65",
+    "FirstRowReflectionQueensNatChecker.c": "c363d1e41030b2268dc076b2f58c75e5dda056731ec951d9a3e701eb4c58d72c",
+    "SymbolicWord16Recurrence.olean": "853f701852790715c03867e1f3e7e25a95f3153f77500ee6c56dcf6769f27ea9",
+    "SymbolicWord16Core.o": "d3b9ba9d4f39989adaa77778eed122d2636e452c027aaf0ca1fb1cc8370d43b7",
+    "FiniteFold.o": "344610a1084bd4f3aa38725231b65b14c1d08376a88192ea0bf14e36db55dd8d",
+    "UInt64MaskedSource.olean": "9eaf730447aa99b093eb4079e301feffbf7ba668b023e3abd4dc6feac3355446",
+    "FirstRowReflectionQueensNatChecker.o": "370fd00b3b74a6cc4e64082d4c6ee716c98687b0ff1e623a1ed086a8d8c4fe1b",
+    "UInt64MaskedExact.olean": "91a516a250b22bd7667b22eb325f14c9f6a8da57490a471475807851f094922f",
+    "UInt64MaskedExact.c": "e1ffcd8dfc53112764ebb993c17f4d20412dff5f62a70c25380be73a872e4b8f",
+    "FiniteFold.c": "1b9effcdec10fb952db116156428791aa854f5645ee9d0206d6e3a7c2fa35166",
+    "ADWH/Chapter15/QueensSearch.c": "9b17e77ed4c050a51f18a9a12aacd3afde8617f9958fb3775790d91e1821c618",
+    "ADWH/Chapter15/QueensNatCounting.olean": "8ff4f07f176c5717d76f1a48a1a1bcf0a7bf45b3fc570281144bea959050f88c",
+    "ADWH/Chapter15/Queens.olean": "aefa04f0e4e9d16fdf7fc3251647e18ff9669d5ceb4b229c23e50133d2f20d2e",
+    "ADWH/Chapter15/QueensFastCounting.o": "0f6b781674f9df267efe5ffe4f60858cb5301218fbb55ed9edb41eeecd724248",
+    "ADWH/Chapter15/QueensBitRepresentation.olean": "b78d2cf1311a23f38007a728256fcafc3860a9fd98f2eeef7fc5f9a9b6e7f727",
+    "ADWH/Chapter15/QueensNatCounting.o": "97fb1a5531b8b626fb6a398ba6fe3419470fa7ab24b3cec78490162c38390969",
+    "ADWH/Chapter15/QueensBitRepresentation.o": "8d1d14243bf86b71df9048dd7185b02ad3dd977c479e8fcc6cf956525ea7dcb0",
+    "ADWH/Chapter15/QueensFastCounting.c": "2bf489bceae7e7548d20c7758cf4a86ca0c9126c45ed9479ce5ba63640644353",
+    "ADWH/Chapter15/QueensBitMoves.olean": "b275193dfed76477aa53f8e0f59a39417622b76b67746a9a974ee01d0a4cd05d",
+    "ADWH/Chapter15/QueensBitRepresentation.c": "f445ec6970563d5384e80e42e43a9d2245c9fc3a6e7b925791b7dcebb187ac60",
+    "ADWH/Chapter15/QueensVariants.olean": "3fa565c4c95190a0312390aac0268518a2cf2e456de7c3f2287e0ebb531324c4",
+    "ADWH/Chapter15/Queens.o": "cdc3cf2c53698a1826add3569405542620a57b71255795968e5c1c0c086bcdf6",
+    "ADWH/Chapter15/QueensVariants.o": "d1719fb2e3ef0678738cc581ab7dff933e06561bba44f020f4f2c9e170e910c9",
+    "ADWH/Chapter15/Queens.c": "30230620e6154147c631670208f240adfb2eeb24ec3b5bca5ed14dd2f0e1c16f",
+    "ADWH/Chapter15/QueensSearch.olean": "7d41b768b922bb7ad3cc18a5e4062c7a1d88861982387493e4c6287281423e3c",
+    "ADWH/Chapter15/QueensNatCounting.c": "d983a6c1d017e64b8e3a84c445e4c75e01497597d622cfdbfc0a9e8a6caed60f",
+    "ADWH/Chapter15/QueensBitMoves.o": "c5bfcf78a02cb7f9aecfa1fb95cb94c0c11d3b9592a10f886c1bdcb610e9cd27",
+    "ADWH/Chapter15/QueensFastCounting.olean": "bf419f3eba17c7c2f0d68d2012ce56226e97400cb63e9721d10056f13b58a37d",
+    "ADWH/Chapter15/QueensBitsPrimitives.o": "73d2dd85affaa8ff0e07092850d312f33bf4fe11866e610161debe4e1cb6452a",
+    "ADWH/Chapter15/QueensBitCounting.o": "401116107896c89444db041d9735a99195641f0655be0d7516dfad291dcc9866",
+    "ADWH/Chapter15/QueensSearch.o": "9f6d1b4c3f1baf6c8ed888eefe2711b1ac8764f6c09bac6394d5e5a7f6480589",
+    "ADWH/Chapter15/QueensBitCounting.olean": "dec814bcf6825ff1560f3e0828cf3d4886a7717ca0cd175b8d4a55a47706133d",
+    "ADWH/Chapter15/QueensVariants.c": "5a06246651e3c92d0876e4ccd5dcc2677938a7c40829f0c641ff3430aa112666",
+    "ADWH/Chapter15/QueensBitsPrimitives.olean": "7c2c17074140e456df4e42a5d7bb23fb6aa2e0d68dd8537d0391152b0d36b413",
+    "ADWH/Chapter15/QueensBitsPrimitives.c": "0af21bf0e676ed516deab00d460af26937e990edcca81ef5597e8e4b9e6b4ae3",
+    "ADWH/Chapter15/QueensBitMoves.c": "5ee8de2c6a5db6a857654af4443d3503a1da9708caa1f999db8bed4dd64c4b56",
+    "ADWH/Chapter15/QueensBitCounting.c": "e3a63e5aeb2add376f848970c00db7bff45a2f1114f4fae3b0e1a990ed36df79",
+    "ADWH/Chapter01/Lists.o": "2c98714a8845e985cf1a9f95f2a03c4bb12be104ea4537e95a9c19adad8d7b71",
+    "ADWH/Chapter01/Permutations.o": "3befc66cafb1812ad377c0b57f040079bbebca05ad9514bc3a3aeffac1fcabeb",
+    "ADWH/Chapter01/Permutations.c": "79a64c52ba977a0937ce28316004c6c3cbaccd939489e25a5d7b57cb70572bda",
+    "ADWH/Chapter01/Lists.olean": "dff77cd5d1fdaee2980a75acdf11ce6e3f8fb2c5f4eb79bc9562f7371e632457",
+    "ADWH/Chapter01/Permutations.olean": "07588e62c8f7055c4a0c04ddcb4e7f161ad67dda93254471107d814e73ec086d",
+    "ADWH/Chapter01/Lists.c": "c9df2768279ed52dfd2daf8655ff1649d223672ae8b88529a188b91e04b558aa"
+  },
+  "elapsed_seconds": 37.56943805600167,
+  "peak_child_rss_kib": 1586632,
+  "commands": [
+    {
+      "label": "SymbolicWord16Core",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Core.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SymbolicWord16Core.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.17271238900138997,
+      "retained_output_bytes": 469
+    },
+    {
+      "label": "SymbolicWord16Recurrence",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Recurrence.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SymbolicWord16Recurrence.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.284654048999073,
+      "retained_output_bytes": 1616
+    },
+    {
+      "label": "ADWH.Chapter01.Lists",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Lists.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter01/Lists.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.7405899029981811,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter01.Permutations",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Permutations.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter01/Permutations.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5830334410129581,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.Queens",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/Queens.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/Queens.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5818322080012877,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensVariants",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensVariants.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensVariants.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.6296254850167315,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensSearch",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensSearch.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensSearch.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.36970577301690355,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensBitsPrimitives",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitsPrimitives.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitsPrimitives.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.563278747984441,
+      "retained_output_bytes": 719
+    },
+    {
+      "label": "ADWH.Chapter15.QueensBitRepresentation",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitRepresentation.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitRepresentation.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.8179702360066585,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensBitMoves",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitMoves.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitMoves.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3502257879881654,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensBitCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitCounting.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3631464449863415,
+      "retained_output_bytes": 1233
+    },
+    {
+      "label": "ADWH.Chapter15.QueensFastCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensFastCounting.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensFastCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3049212100158911,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ADWH.Chapter15.QueensNatCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensNatCounting.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensNatCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.30010948999552056,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "FiniteFold",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FiniteFold.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FiniteFold.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20232369200675748,
+      "retained_output_bytes": 791
+    },
+    {
+      "label": "FirstOrderNat",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNat.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNat.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2870763840037398,
+      "retained_output_bytes": 866
+    },
+    {
+      "label": "FirstOrderNatSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSource.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNatSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.21439034899231046,
+      "retained_output_bytes": 574
+    },
+    {
+      "label": "FirstOrderNatSourceAudit",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSourceAudit.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNatSourceAudit.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19449167701532133,
+      "retained_output_bytes": 1176
+    },
+    {
+      "label": "SaturatingUInt64",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SaturatingUInt64.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SaturatingUInt64.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.27971712601720355,
+      "retained_output_bytes": 959
+    },
+    {
+      "label": "UInt64MaskOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskOps.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskOps.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2507958210189827,
+      "retained_output_bytes": 1933
+    },
+    {
+      "label": "UInt64SaturatingCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SaturatingCount.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64SaturatingCount.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2785879230068531,
+      "retained_output_bytes": 1085
+    },
+    {
+      "label": "UInt64ExactEvaluator",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64ExactEvaluator.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64ExactEvaluator.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.16474806098267436,
+      "retained_output_bytes": 263
+    },
+    {
+      "label": "UInt64SourceBridge",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SourceBridge.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64SourceBridge.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19379506399855018,
+      "retained_output_bytes": 588
+    },
+    {
+      "label": "UInt64PowerTwoOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64PowerTwoOps.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64PowerTwoOps.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.17039857700001448,
+      "retained_output_bytes": 251
+    },
+    {
+      "label": "UInt64MaskedCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedCount.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedCount.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2852497049898375,
+      "retained_output_bytes": 1462
+    },
+    {
+      "label": "UInt64MaskedExact",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedExact.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedExact.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.15931532898684964,
+      "retained_output_bytes": 532
+    },
+    {
+      "label": "UInt64MaskedSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedSource.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19026141898939386,
+      "retained_output_bytes": 572
+    },
+    {
+      "label": "FirstRowReflection",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflection.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflection.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5364154879935086,
+      "retained_output_bytes": 1266
+    },
+    {
+      "label": "FirstRowReflectionSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionSource.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.24397333900560625,
+      "retained_output_bytes": 417
+    },
+    {
+      "label": "CertifiedNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/CertifiedNatChecker.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/CertifiedNatChecker.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.21977764900657348,
+      "retained_output_bytes": 1128
+    },
+    {
+      "label": "FirstRowReflectionQueensNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionQueensNatChecker.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionQueensNatChecker.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20743559501715936,
+      "retained_output_bytes": 574
+    },
+    {
+      "label": "FirstRowReflectionRestrictedNatCheckerMain",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionRestrictedNatCheckerMain.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionRestrictedNatCheckerMain.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20654624101007357,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "ClosureAudit",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ClosureAudit.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ClosureAudit.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.508560154994484,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "SelectionAudit",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SelectionAudit.olean",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SelectionAudit.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 1.8889416310121305,
+      "retained_output_bytes": 138
+    },
+    {
+      "label": "native-tool-cc1",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc",
+        "-print-prog-name=cc1"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.04004181901109405,
+      "retained_output_bytes": 103
+    },
+    {
+      "label": "native-tool-as",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc",
+        "-print-prog-name=as"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.03560258500510827,
+      "retained_output_bytes": 3
+    },
+    {
+      "label": "native-tool-ld",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0/bin/cc",
+        "-print-prog-name=ld"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.03441989701241255,
+      "retained_output_bytes": 3
+    },
+    {
+      "label": "native-nix-closure-before",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/run/current-system/sw/bin/nix",
+        "path-info",
+        "--json",
+        "--json-format",
+        "1",
+        "--recursive",
+        "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.04731650499161333,
+      "retained_output_bytes": 17286
+    },
+    {
+      "label": "generate-SymbolicWord16Core",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Core.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SymbolicWord16Core.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.17652372899465263,
+      "retained_output_bytes": 469
+    },
+    {
+      "label": "generate-SymbolicWord16Recurrence",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Recurrence.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SymbolicWord16Recurrence.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.25723146300879307,
+      "retained_output_bytes": 1616
+    },
+    {
+      "label": "generate-ADWH.Chapter01.Lists",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Lists.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter01/Lists.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.7147577829891816,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter01.Permutations",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Permutations.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter01/Permutations.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5766496580035891,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.Queens",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/Queens.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/Queens.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5817974740057252,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensVariants",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensVariants.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensVariants.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.6015381060133222,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensSearch",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensSearch.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensSearch.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.36368890199810266,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensBitsPrimitives",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitsPrimitives.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitsPrimitives.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5417231869942043,
+      "retained_output_bytes": 719
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensBitRepresentation",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitRepresentation.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitRepresentation.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.7761738099798094,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensBitMoves",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitMoves.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitMoves.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3349070319964085,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensBitCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitCounting.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensBitCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3695610369904898,
+      "retained_output_bytes": 1233
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensFastCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensFastCounting.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensFastCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.29536585599998944,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-ADWH.Chapter15.QueensNatCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensNatCounting.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/ADWH/Chapter15/QueensNatCounting.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.30447249798453413,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "generate-FiniteFold",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FiniteFold.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FiniteFold.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20311812200816348,
+      "retained_output_bytes": 791
+    },
+    {
+      "label": "generate-FirstOrderNat",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNat.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNat.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.28968109702691436,
+      "retained_output_bytes": 866
+    },
+    {
+      "label": "generate-FirstOrderNatSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSource.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNatSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.1980752449890133,
+      "retained_output_bytes": 574
+    },
+    {
+      "label": "generate-FirstOrderNatSourceAudit",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSourceAudit.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstOrderNatSourceAudit.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19282925501465797,
+      "retained_output_bytes": 1176
+    },
+    {
+      "label": "generate-SaturatingUInt64",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SaturatingUInt64.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/SaturatingUInt64.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.26939552000840195,
+      "retained_output_bytes": 959
+    },
+    {
+      "label": "generate-UInt64MaskOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskOps.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskOps.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.24643791100243106,
+      "retained_output_bytes": 1933
+    },
+    {
+      "label": "generate-UInt64SaturatingCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SaturatingCount.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64SaturatingCount.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2705026989860926,
+      "retained_output_bytes": 1085
+    },
+    {
+      "label": "generate-UInt64ExactEvaluator",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64ExactEvaluator.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64ExactEvaluator.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.15949042802094482,
+      "retained_output_bytes": 263
+    },
+    {
+      "label": "generate-UInt64SourceBridge",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SourceBridge.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64SourceBridge.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20018081099260598,
+      "retained_output_bytes": 588
+    },
+    {
+      "label": "generate-UInt64PowerTwoOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64PowerTwoOps.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64PowerTwoOps.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.1705624439928215,
+      "retained_output_bytes": 251
+    },
+    {
+      "label": "generate-UInt64MaskedCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedCount.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedCount.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2695250239921734,
+      "retained_output_bytes": 1462
+    },
+    {
+      "label": "generate-UInt64MaskedExact",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedExact.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedExact.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.15629407498636283,
+      "retained_output_bytes": 532
+    },
+    {
+      "label": "generate-UInt64MaskedSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedSource.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/UInt64MaskedSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19977077198564075,
+      "retained_output_bytes": 572
+    },
+    {
+      "label": "generate-FirstRowReflection",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflection.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflection.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5272727609844878,
+      "retained_output_bytes": 1266
+    },
+    {
+      "label": "generate-FirstRowReflectionSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionSource.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionSource.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.23556798600475304,
+      "retained_output_bytes": 417
+    },
+    {
+      "label": "generate-CertifiedNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/CertifiedNatChecker.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/CertifiedNatChecker.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.22325638099573553,
+      "retained_output_bytes": 1128
+    },
+    {
+      "label": "generate-FirstRowReflectionQueensNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionQueensNatChecker.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionQueensNatChecker.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19350494700483978,
+      "retained_output_bytes": 574
+    },
+    {
+      "label": "generate-FirstRowReflectionRestrictedNatCheckerMain",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionRestrictedNatCheckerMain.c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source/FirstRowReflectionRestrictedNatCheckerMain.lean"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.19804953699349426,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-SymbolicWord16Core",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Core.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Core.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.18851195799652487,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-SymbolicWord16Recurrence",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Recurrence.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Recurrence.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.0909242460038513,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter01.Lists",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Lists.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Lists.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.8396533359773457,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter01.Permutations",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Permutations.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Permutations.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.4339600969979074,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.Queens",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/Queens.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/Queens.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.466933843010338,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensVariants",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensVariants.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensVariants.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.6266823910118546,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensSearch",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensSearch.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensSearch.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3154309329984244,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensBitsPrimitives",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitsPrimitives.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitsPrimitives.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.18586681701708585,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensBitRepresentation",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitRepresentation.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitRepresentation.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.30985158201656304,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensBitMoves",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitMoves.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitMoves.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.280204175011022,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensBitCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitCounting.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitCounting.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.21432972699403763,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensFastCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensFastCounting.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensFastCounting.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2507043390069157,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-ADWH.Chapter15.QueensNatCounting",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensNatCounting.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensNatCounting.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.3011163800256327,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FiniteFold",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FiniteFold.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FiniteFold.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.15944052301347256,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstOrderNat",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNat.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNat.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.5323266419873107,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstOrderNatSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSource.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSource.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.11581928399391472,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstOrderNatSourceAudit",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSourceAudit.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSourceAudit.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.08640082401689142,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-SaturatingUInt64",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SaturatingUInt64.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SaturatingUInt64.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.09859550697728992,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64MaskOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskOps.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskOps.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.1672389689774718,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64SaturatingCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SaturatingCount.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SaturatingCount.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.20560967299388722,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64ExactEvaluator",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64ExactEvaluator.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64ExactEvaluator.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.1405255900172051,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64SourceBridge",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SourceBridge.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SourceBridge.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.09050944799673744,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64PowerTwoOps",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64PowerTwoOps.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64PowerTwoOps.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.10160128699499182,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64MaskedCount",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedCount.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedCount.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2048425690154545,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64MaskedExact",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedExact.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedExact.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.12589423800818622,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-UInt64MaskedSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedSource.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedSource.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.09469373599858955,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstRowReflection",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflection.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflection.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.2103373589925468,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstRowReflectionSource",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionSource.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionSource.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.12907003299915232,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-CertifiedNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/CertifiedNatChecker.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/CertifiedNatChecker.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.49875305499881506,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstRowReflectionQueensNatChecker",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionQueensNatChecker.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionQueensNatChecker.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.09512350699515082,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "compile-c-FirstRowReflectionRestrictedNatCheckerMain",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "-c",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionRestrictedNatCheckerMain.c",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionRestrictedNatCheckerMain.o"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.1592321450007148,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "native-link",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanc",
+        "-O3",
+        "-Werror",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Core.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SymbolicWord16Recurrence.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Lists.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter01/Permutations.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/Queens.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensVariants.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensSearch.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitsPrimitives.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitRepresentation.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitMoves.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensBitCounting.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensFastCounting.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/ADWH/Chapter15/QueensNatCounting.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FiniteFold.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNat.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSource.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstOrderNatSourceAudit.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/SaturatingUInt64.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskOps.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SaturatingCount.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64ExactEvaluator.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64SourceBridge.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64PowerTwoOps.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedCount.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedExact.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/UInt64MaskedSource.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflection.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionSource.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/CertifiedNatChecker.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionQueensNatChecker.o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/FirstRowReflectionRestrictedNatCheckerMain.o",
+        "-o",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.4741823229996953,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "native-runtime-dependencies",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/kgd806ssw99qaxwiislhfx5dwnc8k893-glibc-2.42-100-bin/bin/ldd",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/output/first-row-reflection-original-queens-checker"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.04659453799831681,
+      "retained_output_bytes": 795
+    },
+    {
+      "label": "execute-canonical16",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-canonical16.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 4.738478377024876,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-canonical0",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-canonical0.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.05743668499053456,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-wrong-value",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-wrong-value.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.05424533298355527,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-wrong-source",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-wrong-source.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.0682030180178117,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-wrong-operator",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-wrong-operator.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.05250195099506527,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-noncanonical",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-noncanonical.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.05181016001733951,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "execute-extra-token",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/native.py",
+        "--observe",
+        "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/native-extra-token.json"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.05441226300899871,
+      "retained_output_bytes": 0
+    },
+    {
+      "label": "native-nix-closure-after",
+      "args": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-369-orchestration/worker137/experiments/certified-nat-checker/reproduce.py",
+        "--exec-limited",
+        "/run/current-system/sw/bin/nix",
+        "path-info",
+        "--json",
+        "--json-format",
+        "1",
+        "--recursive",
+        "/nix/store/dy6j7267wrgjlr2z748sbx83zj16vs3c-gcc-wrapper-15.3.0"
+      ],
+      "cwd": "/tmp/conaled-369-orchestration/evidence137-native/fresh-json/source",
+      "timeout_seconds": 120,
+      "output_cap_bytes": 1048576,
+      "exit": 0,
+      "failure": null,
+      "wall_seconds": 0.04590743500739336,
+      "retained_output_bytes": 17286
+    }
+  ],
+  "audit_output": "Closure audit PASSED: 31 modules, 1338 kernel-safe roots, 0 unsafe runtime declarations; axioms [Quot.sound,\n Classical.choice,\n propext]\n",
+  "proof_compilation_seconds": 10.347104604064953,
+  "audit_seconds": 1.8889416310121305,
+  "runtime_observation": "ACCEPT ADWH.Chapter15.Queens.BitRepresentation.cqueens 16 = 14772512\n",
+  "status_note": "Measured on ce54e975; subsequent documentation-only commit must receive its own exact-candidate fresh receipt.",
+  "preserved_failed_attempts": [
+    {
+      "candidate": "5ed6022",
+      "output": "evidence137-native/fresh-5ed6022",
+      "phase": "native tool inventory",
+      "failure": "Unresolved nix path passed to execv; no native generation or execution",
+      "proof_audit_passed": true
+    },
+    {
+      "candidate": "342acd3",
+      "output": "evidence137-native/fresh-resolved",
+      "phase": "native tool inventory",
+      "failure": "Nix deprecation warning preceding JSON; no native generation or execution",
+      "proof_audit_passed": true
+    }
+  ]
+}

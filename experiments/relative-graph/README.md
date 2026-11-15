@@ -31,3 +31,25 @@ acceptance, translate the native emitter, or provide an unconditional model.
 lemmas. `Lean4LeanAudit.lean` records the selected alternative's clean and
 admitted declarations separately. The observation record is in
 [evidence.txt](evidence.txt).
+
+## Actual emitted-family acceptance (#135)
+
+The [acceptance report](../../docs/research/relative-emitted-acceptance.md) describes
+the checked pure equation for the actual native-emitted family, its exact final
+environment, model conversion, general comparisons, applications and rejection
+controls. This extends the historical assessment above; the cached equation
+remains separately open in #417.
+
+For fresh acceptance, use a clean committed checkout and a new absolute run path:
+
+```sh
+direnv exec /absolute/candidate python3 \
+  /absolute/candidate/experiments/relative-graph/reproduce-acceptance.py \
+  --run-dir /absolute/new-run
+```
+
+This command works from another directory and builds a private upstream/native/
+graph closure before exhaustive audit. `--plan` is inspection only. The older
+`reproduce.sh` and `checkpoint-135` scripts remain historical reproductions and do
+not certify the complete new family. See the report for retained assumptions,
+measurement provenance and the required matching final receipts.

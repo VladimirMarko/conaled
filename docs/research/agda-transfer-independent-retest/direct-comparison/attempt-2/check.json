@@ -1,0 +1,18 @@
+{
+  "purpose": "Post-archive evaluator direct-Lean comparison correction; unchanged statements",
+  "cwd": "/tmp/conaled-108-independent",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean"
+  ],
+  "environment": "direnv exec .",
+  "frozen_base": "2f89f8651843797822efbb7da038311ab3d9f04d",
+  "archive_commit": "e2fc23a6ca342354774a75216c3e792f2a452777",
+  "source_sha256": "10d908dc16bcd0256f6f014b1ae1823c099ab7cb866bd3627fd84396c075fc8f",
+  "started_at": "2026-11-10T03:23:38.067807+00:00",
+  "exit_code": 1,
+  "ended_at": "2026-11-10T03:23:39.154143+00:00",
+  "output_sha256": "29732119d3a7abc58f7238da1aa8638acd9e8b4332b92029ff239cc5776e1908"
+}

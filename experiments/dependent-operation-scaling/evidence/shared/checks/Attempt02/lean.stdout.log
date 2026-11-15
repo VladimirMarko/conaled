@@ -1,0 +1,12 @@
+attempts/checks/Attempt02/Source.lean:42:25: error: Tactic `rfl` failed: The left-hand side
+  List.foldl (fun s k => runTotal k s) (Selector.total n i)
+    (List.flatMap lower (instructions (Op.old (Selector.Op.reflect n))))
+is not definitionally equal to the right-hand side
+  Selector.total n (operate (Op.old (Selector.Op.reflect n)) i)
+
+case old.reflect
+n : ℕ
+i : Position n
+⊢ List.foldl (fun s k => runTotal k s) (Selector.total n i)
+      (List.flatMap lower (instructions (Op.old (Selector.Op.reflect n)))) =
+    Selector.total n (operate (Op.old (Selector.Op.reflect n)) i)

@@ -1,0 +1,263 @@
+{
+  "context": {
+    "catalog": [
+      "direct",
+      "sparse"
+    ],
+    "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+    "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+    "requirements": [
+      65,
+      1000000,
+      0,
+      10000000,
+      10000000
+    ],
+    "site": "tree:tree:prepared-rmq",
+    "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+    "workload": "tree:branching:4:65:1024:0"
+  },
+  "repetitions": 5,
+  "samples": [
+    {
+      "candidate": "direct",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 121790315,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "sparse",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 13027531,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "sparse",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 12993373,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "direct",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 122771059,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "direct",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 128772254,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "sparse",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 12946148,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "sparse",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 12986516,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "direct",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 123228323,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "direct",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 120237878,
+      "repetition": 4,
+      "success": true
+    },
+    {
+      "candidate": "sparse",
+      "context": {
+        "catalog": [
+          "direct",
+          "sparse"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          65,
+          1000000,
+          0,
+          10000000,
+          10000000
+        ],
+        "site": "tree:tree:prepared-rmq",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "tree:branching:4:65:1024:0"
+      },
+      "elapsedNs": 12960233,
+      "repetition": 4,
+      "success": true
+    }
+  ]
+}

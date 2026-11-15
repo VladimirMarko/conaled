@@ -1,0 +1,293 @@
+# Ordinary-groupoid comparison model for #433
+
+The comparison model packages a functor between two groupoids, a natural
+transformation between dependent groupoid families, and compatible sections.
+The family transformation need not be invertible. The existing direct models
+remain unchanged, and both projections preserve their primitive signature,
+structural operations and contextual J.
+
+## Construction and statement review
+
+`ComparisonContext` defines contexts, families, substitutions and sections.
+A section comparison is equality of whole sections, including their action on
+arrows. `ComparisonReindex` and `ComparisonComprehension` construct reindexing,
+comprehension, generic variables and pairing. `ComparisonIdentity` applies the
+component functor to the selected identity arrow. These operations supply all
+fields and laws of `ComparisonStructuralModel`.
+
+`ComparisonPath` identifies the actual path-context map with the map in the
+shared family-comparison square. `ComparisonElimination` uses that square and
+`EquivalenceSquare.eliminate_familyMap`; dependent extension constructs the next
+square through `liftChangingSquare`. `ComparisonTelescope` recurses through
+arbitrary finite structural telescopes and constructs contextual J and beta.
+The final root/tail square and J compatibility are not input model fields.
+
+`ComparisonJProjections` proves that both normalized contractions are those of
+the existing direct models. Its J comparisons include the constructed telescope,
+motive and branch conversions. `ComparisonJSubstitution` derives substitution
+from those projections and the existing direct-model substitution laws, then
+constructs `Comparison.fullModel` and both `ModelMap` projections. Equality of
+two comparison sections follows from their two components.
+
+`ComparisonInterpretation` supplies both `SignatureMap` bundles with proved
+base/fiber laws. The generated-interpreter results from
+[signature-generated-preservation.md](signature-generated-preservation.md)
+therefore apply to every supported derivation, including open contexts,
+substitutions, conversion and arbitrary finite dependent J tails. They do not
+assert naturality of arbitrary model-indexed semantic-code functions.
+
+The equality and HEq statements compare semantic constructions across
+metatheoretic index transports. They do not identify distinct object-language
+paths. The shared categorical theorem remains independent of this packaging;
+a derivation-indexed implementation can still consume it without changing the
+comparison model.
+
+## Universes and the smooth signature
+
+`Comparison.universeSignature` accepts independently sized endpoint
+groupoids and lifts both into one universe. `alignedUniverseSignature` uses
+exactly the existing direct models' lifts when endpoint universe sizes agree.
+The latter avoids replacing a direct model by an equivalent category with a
+different universe-lift representation.
+
+`SmoothQuotientComparison` instantiates this signature with actual parameter
+restriction on all quotient torsors and the natural deformation restriction.
+Its source and target maps land in the unchanged `SmoothQuotientSource.model`
+at the respective parameters. No trivialization or equivalence of the
+restriction functor is assumed. The base/fiber data retain quotient arrows and
+their actual restriction functions.
+
+## Checked applications
+
+`Examples.GroupoidComparison` uses a noninjective, non-full comparison from
+Bool copies of C4 to C4, with a noninvertible primitive fiber map from Bool to
+PUnit. It checks selected C4 arrows, comprehension, reindexing, pairing,
+identity, signature projections and conversion.
+
+`Examples.GroupoidComparisonJ` applies J through two dependent declarations;
+the second is the identity family of the first variable. It checks beta, the
+result's comparison, both direct J projections, arbitrary open substitution,
+and both full model maps. `Examples.GroupoidComparisonInterpretation` maps the
+unchanged `Typed.Authoring.UniversalTransfer.proof` through both projections.
+`Examples.SmoothComparisonInterpretation` repeats that source-proof check for
+arbitrary smooth parameter restriction and checks that the lifted arrow and
+fiber maps are the original quotient/deformation restriction operations.
+
+These are checked specializations of the universal claims, rather than new
+source proofs of the transport-composition endpoints.
+
+## Validation and remaining #433 work
+
+Focused builds passed for `Examples.GroupoidComparisonJ`,
+`Examples.GroupoidComparisonInterpretation`, `SquareKit.SmoothQuotientComparison`
+and `Examples.SmoothComparisonInterpretation`. Selected axiom inspections of
+contextual J, substitution, the full model and both model maps report only
+`propext`, `Classical.choice` and `Quot.sound`. Full fresh validation, exhaustive
+acceptance audit and independent review belong to the enclosing workflow.
+
+This checkpoint constructs the ordinary-groupoid comparison model and proves
+generated smooth parameter identity/composition coherence. Generated descent
+remains open. An arbitrary section at one parameter is not automatically
+parameter-natural. Fixed-cover section transport and gluing parameter-compatible
+local sections are distinct obligations. The
+previous all-torsor deformation, boundary-fiber, classical C4 comparison and
+source-consuming milestones remain in place; full #433 remains open.
+
+## Generated restriction and parameter coherence
+
+`GeneratedComparisonRestriction` extracts functors and family transformations
+between the same generated codes in the two direct models, using proved
+projection equalities to transport indices. `generatedTerm_commutes` is an
+equality of whole sections; `generatedSubstitution_commutes` is an equality of
+whole functors. Both include arrow actions and cover J and conversion.
+
+`ComparisonDiagonal` proves the identity comparison's comprehension,
+reindexing, identity-family and primitive-fiber laws. `ComparisonDiagonalMap`
+constructs its signature map from each direct model. J preservation follows
+through the existing two projection model maps: each composite with the
+diagonal structural map is identity, and the projections jointly reflect
+section equality. The private reflection helper is applied to proved facts;
+callers supply no J assumption. `GeneratedComparisonIdentity` then applies
+generic signature preservation. The extracted context functor equals identity
+on the same context code. The family transformation is HEq to identity because
+its target functor is indexed by that extracted context map.
+
+`ComparisonHorizontal` constructs composition on the existing context, family,
+section and substitution records. `ComparisonHorizontalReindex`,
+`ComparisonHorizontalIdentity`, `ComparisonHorizontalSignature` and
+`ComparisonHorizontalFiber` prove the corresponding operation laws. The
+identity-family law tracks selected arrows through endpoint equality transports;
+the fiber law uses the actual composed base section. Their middle-data
+hypotheses impose no invertibility or faithfulness on either comparison.
+
+`ComparisonCompositionRelations` records horizontal composition as predicates
+on three existing comparisons. It proves closure under comprehension,
+reindexing, identity families and primitive base/fiber families. Retained
+endpoint sections and substitutions determine their full comparison once the
+context/family relation is known. `ComparisonCompositionBinders` proves
+weakening, variable, binder-lift and section-reindexing preservation.
+`ComparisonTelescopeComposition` propagates the relation through arbitrary
+finite dependent telescopes, including total contexts, pullbacks and induced
+total substitutions. These are laws and predicates for the existing model,
+not another source interpretation.
+
+`GeneratedHorizontalEndpoints` constructs equality of the relevant direct
+signature interpretations and applies existing generated projection
+preservation. `GeneratedComparisonComposition` establishes the composition
+invariant by mutual induction over all five generated derivation families.
+It covers path and branch contexts, dependent telescopes and their pullbacks,
+all primitive types, both instantiated elimination forms, generic J, reindexed
+J branches, path-tail substitutions and conversion. Its internal
+`generatedTmType` establishes the family invariant; the public `generatedTm`
+combines this with the already-proved endpoint interpretation to obtain full
+section composition. `generatedSub` similarly obtains whole-substitution
+composition. No new J proof or source rule is introduced. The private
+source-context helper derives a context judgment from existing substitution
+constructors.
+
+`GeneratedComparisonCompositionMaps` converts those relations to normalized
+functor equality and natural-transformation HEq. In
+`SmoothQuotientGeneratedIdentity` and `SmoothQuotientGeneratedComposition`,
+these become `generatedContextMap_id`, `generatedFamilyMap_id`,
+`generatedContextMap_comp` and `generatedFamilyMap_comp`. They quantify over
+all supported generated contexts/families and arbitrary parameter maps. The
+endpoints are the same semantic codes in the unchanged
+`SmoothQuotientSource.model`. Context laws are strict equalities of entire
+functors. Family laws are HEq of entire natural transformations; the context
+laws identify their indexed target functors. No object-language paths are
+identified by these metatheoretic transports.
+
+Statement review checks the full arrow-level conclusion, the absence of
+invertibility assumptions, and the separation between generated codes and
+arbitrary model-indexed functions. `Examples.HorizontalComparison` uses the
+noninvertible selected-C4 fixture, preserves each chosen identity arrow and
+checks a second binder whose identity family depends on the first variable.
+It applies total-context, pullback and induced-substitution composition.
+`Examples.GeneratedComparisonComposition` applies the generated theorem to
+the existing two-binder J caller, its reindexed branch and its whole tail map,
+then specializes normalized smooth context/family composition to that caller.
+The examples supplement the universal induction; they do not establish its
+generality by themselves.
+
+Focused checks use:
+
+```sh
+nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison
+nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonRestriction
+nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonComposition
+```
+
+These pass. Selected axiom checks of the identity/composition constructions and
+applications report only `propext`, `Classical.choice` and `Quot.sound`.
+The two context-aware extensionality helpers now live in `ComparisonReindex`
+for reuse by identity and composition arguments; their proofs are unchanged.
+
+Generated parameter-compatible descent remains a separate obligation.
+Identity/composition coherence and restriction of whole generated sections do
+not themselves construct gluing from compatible local data. Fixed-cover
+section transport, primitive quotient/deformation descent, and their parameter
+base-change comparisons still need to be connected to the generated context,
+family and section constructions. Full #433 remains open.
+
+## Fixed-cover generated equivalences
+
+`ComparisonEquivalence` adds conditional laws to the existing comparison
+operations. A context equivalence and pointwise family equivalences induce an
+equivalence of comprehension, using `GrothendieckEquivalence.extendEquivalence`.
+Identity-family components are equivalences because the component functor is
+fully faithful on actual arrows. Reindexing preserves pointwise equivalence
+for any simultaneous substitution; the substitution need not be invertible.
+`ComparisonTelescopeEquivalence` propagates this condition through arbitrary
+finite dependent tails and their pullbacks.
+
+`GeneratedComparisonEquivalence` proves the context, family and telescope
+invariants jointly by induction on the existing derivations. The hypotheses
+are equivalence of the primitive base functor and bijectivity of each primitive
+set-valued fiber map. `GeneratedEquivalenceMaps` transports the result through
+the established endpoint projection equalities. Its context equivalence has
+exactly `generatedContextMap` as its forward functor; its family theorem proves
+equivalence of every actual `generatedFamilyMap` component. It does not replace
+the endpoints with new interpretations. Existing generated term and
+substitution comparisons supply their commuting squares, including J and
+conversion, without another source rule or elimination proof.
+
+`SmoothQuotientGeneratedDescentEquivalence` instantiates those hypotheses with
+`Descent.descentFunctor`, the actual quotient cocycle groupoid,
+`CocycleDatum.fiberFamily`, and `fiberComparison.inv`. The forward direction is
+local cocycle data to the global quotient interpretation. The right endpoint
+is the unchanged `SmoothQuotientSource.model`; the left is its ordinary-model
+construction instantiated with the cocycle groupoid and compatible local
+deformation family. The universe lifts preserve these direct endpoints.
+
+Statement review checks that the output is categorical equivalence, rather
+than equality of object representations or a bijection of isomorphism classes.
+The selected functor retains arrows. The primitive fiber bijectivity hypothesis
+is justified by actual deformation descent in the smooth application. The
+theorem does not require arbitrary parameter restriction to be an equivalence.
+`Examples.GeneratedDescentEquivalence` applies it to the existing two-binder
+dependent tail, its path reindexing, its J motive, and the concrete fixed-cover
+signature. The interpreted J section uses existing generated comparison.
+A diagonal C4 signature supplies a satisfiable selected-arrow instance, and the
+resulting generated equivalence reflects arrows. The Bool-collapse signature
+is rejected because its primitive fiber map is not injective. These cases
+check use and boundaries; arbitrary finite-tail scope follows from induction.
+
+Focused validation uses `lake build Examples.GeneratedDescentEquivalence`
+inside the Nix shell. Selected axiom inspection covers operation closure,
+the generated induction, normalized and concrete equivalences, and the
+retained example theorems. Full acceptance checks and independent review remain
+with the enclosing workflow.
+
+This checkpoint establishes equivalence between the two specified generated
+interpretations. Identifying the local interpretation with matching local data
+for every generated context remains a separate construction. So do propagation
+of the selected parameter natural-isomorphism squares and gluing of
+parameter-compatible local sections. No generated descent or full #433
+completion follows from the equivalence theorem alone.
+
+## External family modifications
+
+`FamilyModification` records selected natural isomorphisms between the
+component functors of two family maps, with their naturality along every
+base arrow. The naturality equation includes the endpoint transports induced
+by the existing family-map naturality equalities. `totalComponent_naturality`
+combines this equation with the component isomorphism's naturality on fiber
+arrows. Thus `totalIso` is a constructed isomorphism of whole Grothendieck
+functors, not another preservation field supplied by callers.
+
+`ComparisonModification` compares family maps over naturally isomorphic base
+functors. It first transports along the selected base isomorphism, then uses
+the family modification. Its comprehension isomorphism has precisely the
+selected base component, as proved by `Modification.totalIso_base`. Empty
+context, constant base family and primitive set-valued fiber constructors
+are provided. The fiber constructor consumes an actual primitive square;
+it assumes no invertibility or faithfulness of the comparison maps.
+The strict fields of `Comparison.Context`, `Substitution`, `Family` and
+`Section` are unchanged.
+
+Statement review distinguishes a natural isomorphism between component
+functors from equality of those functors, and from an isomorphism of objects
+in the ordinary category `Grpd`. The record retains the additional component
+natural transformations explicitly. Base-arrow naturality is needed to derive
+comprehension naturality; unrelated objectwise isomorphisms would not suffice.
+The resulting comparison makes no assertion that arbitrary maps reflect
+selected arrows.
+
+`Examples.ComparisonModification` uses two functors from the C4 groupoid to
+the codiscrete category on Bool. They choose different objects and are
+naturally isomorphic. Their arrow maps collapse distinct arrows, and the
+primitive Bool-to-singleton fiber map is noninjective. The comprehension extension
+still has a constructed comparison, while its two target objects remain
+unequal. A second dependent fiber example has transport that sends false to
+true along the chosen base isomorphism; it uses the same primitive square and
+comprehension construction. A general application allows arbitrary dependent
+set families. These examples check the bounded interface before J.
+
+Focused validation builds `Examples.ComparisonModification` and inspects the
+axioms of the external constructors, comprehension naturality and examples.
+The root/path contraction counit, J compatibility, vertical-composition and
+whiskering laws, arbitrary-tail closure and full generated induction are not
+implemented in this increment. Matching-data identification and
+parameter-compatible gluing remain separate. The bridge from arbitrary locally
+surjective sheaf maps through their split presentations also remains required;
+the fixed-display milestones do not remove that obligation from #433.

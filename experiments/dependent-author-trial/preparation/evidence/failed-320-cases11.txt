@@ -1,0 +1,82 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:79:4: error: Tactic `rfl` failed: The left-hand side
+  inputs.point.down ⟨PUnit.unit, 3⟩
+is not definitionally equal to the right-hand side
+  3
+
+case refine_1
+⊢ inputs.point.down ⟨PUnit.unit, 3⟩ = 3
+Examples/DependentAuthorTrialCases.lean:77:15: warning: This simp argument is unused:
+  NamedCaller.x
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [native_base_cast, varCode, subTmCode, native, NativeType.model, NativeType.structuralModel,
+    weakenCode]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:77:30: warning: This simp argument is unused:
+  native_base_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.x, varCode, subTmCode, native, NativeType.model, NativeType.structuralModel,
+    weakenCode]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:77:48: warning: This simp argument is unused:
+  varCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.x, native_base_cast, subTmCode, native, NativeType.model, NativeType.structuralModel,
+    weakenCode]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:77:57: warning: This simp argument is unused:
+  subTmCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.x, native_base_cast, varCode, native, NativeType.model, NativeType.structuralModel,
+    weakenCode]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:78:60: warning: This simp argument is unused:
+  weakenCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.x, native_base_cast, varCode, subTmCode, native, NativeType.model,
+    NativeType.structuralModel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:81:44: warning: This simp argument is unused:
+  native_base_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.yAtZ, NamedCaller.moving, NamedCaller.z, BasePoint.weaken, BasePoint.variable,
+    subTmCode, varCode, weakenCode, native, NativeType.model, NativeType.structuralModel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:82:6: warning: This simp argument is unused:
+  subTmCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.yAtZ, NamedCaller.moving, NamedCaller.z, BasePoint.weaken, BasePoint.variable,
+    native_base_cast, varCode, weakenCode, native, NativeType.model, NativeType.structuralModel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:82:17: warning: This simp argument is unused:
+  varCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.yAtZ, NamedCaller.moving, NamedCaller.z, BasePoint.weaken, BasePoint.variable,
+    native_base_cast, subTmCode, weakenCode, native, NativeType.model, NativeType.structuralModel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:82:26: warning: This simp argument is unused:
+  weakenCode
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NamedCaller.yAtZ, NamedCaller.moving, NamedCaller.z, BasePoint.weaken, BasePoint.variable,
+    native_base_cast, subTmCode, varCode, native, NativeType.model, NativeType.structuralModel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

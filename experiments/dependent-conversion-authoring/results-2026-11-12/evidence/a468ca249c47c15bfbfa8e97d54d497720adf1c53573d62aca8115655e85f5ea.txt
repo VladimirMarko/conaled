@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-12T15:46:10.725268+00:00",
+  "monotonic_ns": 171659918780667,
+  "latest_usage_event": [
+    {
+      "timestamp": "2026-11-12T15:46:02.908Z",
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 644627,
+          "cached_input_tokens": 620800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4981,
+          "reasoning_output_tokens": 331,
+          "total_tokens": 649608
+        },
+        "last_token_usage": {
+          "input_tokens": 34442,
+          "cached_input_tokens": 34048,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 137,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 34579
+        },
+        "model_context_window": 258400
+      }
+    }
+  ],
+  "decision": "Scale completed in usable environment; continue same session at frozen repair phase under shared checkpoint. Provider totals are observations, not hard failures. No extension used.",
+  "active_time": "unknown",
+  "interruption": "coordinator handoff wait; no inferred duration"
+}

@@ -1,0 +1,123 @@
+=== FINAL ROUND 5 ===
+=== DeclarationProbe ===
+DECLARATION_JSON {"definition_safety":"not a definition","equations_query":"none","implemented_by":"none","kernel_value":"fun memo a =>\n  let inst := { default := memo };\n  default","kind":"opaque","name":"ConLeche.Expr.hasStrLitGo","related_names":["ConLeche.Expr.hasStrLitGo","ConLeche.Expr.hasStrLitGo._unsafe_rec","ConLeche.Expr.hasStrLitGo.match_3","ConLeche.Expr.hasStrLitGo.match_6","ConLeche.Expr.hasStrLitGo._sparseCasesOn_7","ConLeche.Expr.hasStrLitGo.match_1","ConLeche.Expr.hasStrLitGo._sparseCasesOn_3","ConLeche.Expr.hasStrLitGo._sparseCasesOn_6"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"Lean.DefinitionSafety.safe","equations_query":"some #[`ConLeche.unresolvedConstsErrorL.eq_1]","implemented_by":"none","kernel_value":"fun strOk where_ e =>\n  if (!strOk && (ConLeche.Expr.hasStrLitGo ∅ e).fst) = true then\n    ConLeche.CheckError.notImplemented \"string literals before the String support declarations\"\n  else ConLeche.unresolvedConstsError where_ e","kind":"definition","name":"ConLeche.unresolvedConstsErrorL","related_names":["ConLeche.unresolvedConstsErrorL","ConLeche.unresolvedConstsErrorL.eq_1"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"not a definition","equations_query":"none","implemented_by":"none","kernel_value":"<proof term omitted>","kind":"theorem","name":"ConLeche.Expr.mentionsConstGo_spec","related_names":["ConLeche.Expr.mentionsConstGo_spec"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"Lean.DefinitionSafety.partial","equations_query":"not requested: partial implementation; generation rejected in round 3","implemented_by":"none","kernel_value":"fun memo x =>\n  match x with\n  | ConLeche.Expr.lit (ConLeche.Literal.strVal s) => (true, memo)\n  | ConLeche.Expr.bvar i => (false, memo)\n  | ConLeche.Expr.sort u => (false, memo)\n  | ConLeche.Expr.const n us => (false, memo)\n  | ConLeche.Expr.lit l => (false, memo)\n  | e =>\n    if memo.contains e = true then (false, memo)\n    else\n      let memo := memo.insert e;\n      match e with\n      | ConLeche.Expr.fvar idx ty => ConLeche.Expr.hasStrLitGo._unsafe_rec memo ty\n      | f.app a =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo f with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo a\n      | t.lam b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.forallE b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.letE v b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) =>\n          if r = true then (true, memo)\n          else\n            match ConLeche.Expr.hasStrLitGo._unsafe_rec memo v with\n            | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | ConLeche.Expr.proj structName idx x => ConLeche.Expr.hasStrLitGo._unsafe_rec memo x\n      | x => (false, memo)","kind":"definition","name":"ConLeche.Expr.hasStrLitGo._unsafe_rec","related_names":["ConLeche.Expr.hasStrLitGo._unsafe_rec"],"unsafe":false}
+opaque ConLeche.Expr.hasStrLitGo : Std.HashSet ConLeche.Expr → ConLeche.Expr → Bool × Std.HashSet ConLeche.Expr
+'CachedRejections.missing_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== NormalizationProbe ===
+/tmp/conaled418-54dszqea/NormalizationProbe.lean:14:61: error: unsolved goals
+⊢ (if (Expr.hasStrLitGo ⋯ ⋯).1 = true then
+      CheckError.notImplemented "string literals before the String support declarations"
+    else unresolvedConstsError (toString "value of " ++ toString ⋯) EmittedForwardAcceptance.value) =
+    CheckError.invalid "unknown constant in value of graph_forward"
+
+=== DiagnosticControls ===
+CONTROL actual graph_forward missing Exists.elim: invalid: invalid: unknown constant in value of graph_forward
+CONTROL unsupported string: notImplemented: not implemented yet: string literals before the String support declarations
+CONTROL sorryAx: notImplemented: not implemented yet: use of the sorryAx axiom in probe
+CONTROL ordinary unknown: invalid: invalid: unknown constant in probe
+CONTROL string before sorryAx: notImplemented: not implemented yet: string literals before the String support declarations
+CONTROL supported string bypass: notImplemented: not implemented yet: use of the sorryAx axiom in probe
+Graph artifact audit: 6 safe roots; axioms [Quot.sound, Classical.choice, propext]
+
+=== Historical probe round 1: Startup only: historical package paths absent; no Lean probe ran. ===
+[0mdirenv: loading /tmp/conaled-wave-20261111/worker418/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Traceback (most recent call last):
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 105, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 64, in main
+    raise RuntimeError('historical import paths unavailable; supply a reproduced closure')
+RuntimeError: historical import paths unavailable; supply a reproduced closure
+
+=== Historical probe round 2: Normalization timed out without the historical local mkFEnv cbv rules; not scanner-obstruction evidence. ===
+[0mdirenv: loading /tmp/conaled-wave-20261111/worker418/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Traceback (most recent call last):
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 126, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 119, in main
+    raise RuntimeError('unexpected probe outcome: ' + name)
+RuntimeError: unexpected probe outcome: NormalizationProbe
+=== DeclarationProbe ===
+DECLARATION_JSON {"equations_query":"none","implemented_by":"none","kernel_value":"fun memo a =>\n  let inst := { default := memo };\n  default","kind":"opaque","name":"ConLeche.Expr.hasStrLitGo","related_names":["ConLeche.Expr.hasStrLitGo","ConLeche.Expr.hasStrLitGo._unsafe_rec","ConLeche.Expr.hasStrLitGo.match_3","ConLeche.Expr.hasStrLitGo.match_6","ConLeche.Expr.hasStrLitGo._sparseCasesOn_7","ConLeche.Expr.hasStrLitGo.match_1","ConLeche.Expr.hasStrLitGo._sparseCasesOn_3","ConLeche.Expr.hasStrLitGo._sparseCasesOn_6"],"unsafe":false}
+DECLARATION_JSON {"equations_query":"some #[`ConLeche.unresolvedConstsErrorL.eq_1]","implemented_by":"none","kernel_value":"fun strOk where_ e =>\n  if (!strOk && (ConLeche.Expr.hasStrLitGo ∅ e).fst) = true then\n    ConLeche.CheckError.notImplemented \"string literals before the String support declarations\"\n  else ConLeche.unresolvedConstsError where_ e","kind":"definition","name":"ConLeche.unresolvedConstsErrorL","related_names":["ConLeche.unresolvedConstsErrorL","ConLeche.unresolvedConstsErrorL.eq_1"],"unsafe":false}
+DECLARATION_JSON {"equations_query":"none","implemented_by":"none","kernel_value":"<proof term omitted>","kind":"theorem","name":"ConLeche.Expr.mentionsConstGo_spec","related_names":["ConLeche.Expr.mentionsConstGo_spec"],"unsafe":false}
+opaque ConLeche.Expr.hasStrLitGo : Std.HashSet ConLeche.Expr → ConLeche.Expr → Bool × Std.HashSet ConLeche.Expr
+'CachedRejections.missing_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== NormalizationProbe ===
+/tmp/conaled418-ciiyss2k/NormalizationProbe.lean:13:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+=== Historical probe round 3: Inspecting partial implementation equations caused kernel rejection of generated safe declarations. ===
+[0mdirenv: loading /tmp/conaled-wave-20261111/worker418/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Traceback (most recent call last):
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 126, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 119, in main
+    raise RuntimeError('unexpected probe outcome: ' + name)
+RuntimeError: unexpected probe outcome: DeclarationProbe
+=== DeclarationProbe ===
+DECLARATION_JSON {"equations_query":"none","implemented_by":"none","kernel_value":"fun memo a =>\n  let inst := { default := memo };\n  default","kind":"opaque","name":"ConLeche.Expr.hasStrLitGo","related_names":["ConLeche.Expr.hasStrLitGo","ConLeche.Expr.hasStrLitGo._unsafe_rec","ConLeche.Expr.hasStrLitGo.match_3","ConLeche.Expr.hasStrLitGo.match_6","ConLeche.Expr.hasStrLitGo._sparseCasesOn_7","ConLeche.Expr.hasStrLitGo.match_1","ConLeche.Expr.hasStrLitGo._sparseCasesOn_3","ConLeche.Expr.hasStrLitGo._sparseCasesOn_6"],"unsafe":false}
+DECLARATION_JSON {"equations_query":"some #[`ConLeche.unresolvedConstsErrorL.eq_1]","implemented_by":"none","kernel_value":"fun strOk where_ e =>\n  if (!strOk && (ConLeche.Expr.hasStrLitGo ∅ e).fst) = true then\n    ConLeche.CheckError.notImplemented \"string literals before the String support declarations\"\n  else ConLeche.unresolvedConstsError where_ e","kind":"definition","name":"ConLeche.unresolvedConstsErrorL","related_names":["ConLeche.unresolvedConstsErrorL","ConLeche.unresolvedConstsErrorL.eq_1"],"unsafe":false}
+DECLARATION_JSON {"equations_query":"none","implemented_by":"none","kernel_value":"<proof term omitted>","kind":"theorem","name":"ConLeche.Expr.mentionsConstGo_spec","related_names":["ConLeche.Expr.mentionsConstGo_spec"],"unsafe":false}
+DECLARATION_JSON {"equations_query":"some #[`ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_1, `ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_2,\n  `ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_3, `ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_4,\n  `ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_5, `ConLeche.Expr.hasStrLitGo._unsafe_rec.eq_6]","implemented_by":"none","kernel_value":"fun memo x =>\n  match x with\n  | ConLeche.Expr.lit (ConLeche.Literal.strVal s) => (true, memo)\n  | ConLeche.Expr.bvar i => (false, memo)\n  | ConLeche.Expr.sort u => (false, memo)\n  | ConLeche.Expr.const n us => (false, memo)\n  | ConLeche.Expr.lit l => (false, memo)\n  | e =>\n    if memo.contains e = true then (false, memo)\n    else\n      let memo := memo.insert e;\n      match e with\n      | ConLeche.Expr.fvar idx ty => ConLeche.Expr.hasStrLitGo._unsafe_rec memo ty\n      | f.app a =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo f with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo a\n      | t.lam b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.forallE b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.letE v b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) =>\n          if r = true then (true, memo)\n          else\n            match ConLeche.Expr.hasStrLitGo._unsafe_rec memo v with\n            | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | ConLeche.Expr.proj structName idx x => ConLeche.Expr.hasStrLitGo._unsafe_rec memo x\n      | x => (false, memo)","kind":"definition","name":"ConLeche.Expr.hasStrLitGo._unsafe_rec","related_names":["ConLeche.Expr.hasStrLitGo._unsafe_rec"],"unsafe":false}
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+/tmp/conaled418-4_a6d016/DeclarationProbe.lean:5:0: error: (kernel) invalid declaration, safe declaration must not contain partial declaration 'ConLeche.Expr.hasStrLitGo._unsafe_rec'
+opaque ConLeche.Expr.hasStrLitGo : Std.HashSet ConLeche.Expr → ConLeche.Expr → Bool × Std.HashSet ConLeche.Expr
+'CachedRejections.missing_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== Historical probe round 4: Normalization reached the scanner; runtime controls had a local Lean.Name versus ConLeche.Name constructor error. ===
+[0mdirenv: loading /tmp/conaled-wave-20261111/worker418/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Traceback (most recent call last):
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 126, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/conaled-wave-20261111/worker418/experiments/relative-graph/checkpoint-418-diagnostics/run.py", line 119, in main
+    raise RuntimeError('unexpected probe outcome: ' + name)
+RuntimeError: unexpected probe outcome: DiagnosticControls
+=== DeclarationProbe ===
+DECLARATION_JSON {"definition_safety":"not a definition","equations_query":"none","implemented_by":"none","kernel_value":"fun memo a =>\n  let inst := { default := memo };\n  default","kind":"opaque","name":"ConLeche.Expr.hasStrLitGo","related_names":["ConLeche.Expr.hasStrLitGo","ConLeche.Expr.hasStrLitGo._unsafe_rec","ConLeche.Expr.hasStrLitGo.match_3","ConLeche.Expr.hasStrLitGo.match_6","ConLeche.Expr.hasStrLitGo._sparseCasesOn_7","ConLeche.Expr.hasStrLitGo.match_1","ConLeche.Expr.hasStrLitGo._sparseCasesOn_3","ConLeche.Expr.hasStrLitGo._sparseCasesOn_6"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"Lean.DefinitionSafety.safe","equations_query":"some #[`ConLeche.unresolvedConstsErrorL.eq_1]","implemented_by":"none","kernel_value":"fun strOk where_ e =>\n  if (!strOk && (ConLeche.Expr.hasStrLitGo ∅ e).fst) = true then\n    ConLeche.CheckError.notImplemented \"string literals before the String support declarations\"\n  else ConLeche.unresolvedConstsError where_ e","kind":"definition","name":"ConLeche.unresolvedConstsErrorL","related_names":["ConLeche.unresolvedConstsErrorL","ConLeche.unresolvedConstsErrorL.eq_1"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"not a definition","equations_query":"none","implemented_by":"none","kernel_value":"<proof term omitted>","kind":"theorem","name":"ConLeche.Expr.mentionsConstGo_spec","related_names":["ConLeche.Expr.mentionsConstGo_spec"],"unsafe":false}
+DECLARATION_JSON {"definition_safety":"Lean.DefinitionSafety.partial","equations_query":"not requested: partial implementation; generation rejected in round 3","implemented_by":"none","kernel_value":"fun memo x =>\n  match x with\n  | ConLeche.Expr.lit (ConLeche.Literal.strVal s) => (true, memo)\n  | ConLeche.Expr.bvar i => (false, memo)\n  | ConLeche.Expr.sort u => (false, memo)\n  | ConLeche.Expr.const n us => (false, memo)\n  | ConLeche.Expr.lit l => (false, memo)\n  | e =>\n    if memo.contains e = true then (false, memo)\n    else\n      let memo := memo.insert e;\n      match e with\n      | ConLeche.Expr.fvar idx ty => ConLeche.Expr.hasStrLitGo._unsafe_rec memo ty\n      | f.app a =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo f with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo a\n      | t.lam b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.forallE b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.letE v b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) =>\n          if r = true then (true, memo)\n          else\n            match ConLeche.Expr.hasStrLitGo._unsafe_rec memo v with\n            | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | ConLeche.Expr.proj structName idx x => ConLeche.Expr.hasStrLitGo._unsafe_rec memo x\n      | x => (false, memo)","kind":"definition","name":"ConLeche.Expr.hasStrLitGo._unsafe_rec","related_names":["ConLeche.Expr.hasStrLitGo._unsafe_rec"],"unsafe":false}
+opaque ConLeche.Expr.hasStrLitGo : Std.HashSet ConLeche.Expr → ConLeche.Expr → Bool × Std.HashSet ConLeche.Expr
+'CachedRejections.missing_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+=== NormalizationProbe ===
+/tmp/conaled418-377dd83v/NormalizationProbe.lean:14:61: error: unsolved goals
+⊢ (if (Expr.hasStrLitGo ⋯ ⋯).1 = true then
+      CheckError.notImplemented "string literals before the String support declarations"
+    else unresolvedConstsError (toString "value of " ++ toString ⋯) EmittedForwardAcceptance.value) =
+    CheckError.invalid "unknown constant in value of graph_forward"
+
+=== DiagnosticControls ===
+/tmp/conaled418-377dd83v/DiagnosticControls.lean:25:50: error: Application type mismatch: The argument
+  `missing418
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  Expr.const `missing418
+Graph artifact audit: 6 safe roots; axioms [Quot.sound, Classical.choice, propext]

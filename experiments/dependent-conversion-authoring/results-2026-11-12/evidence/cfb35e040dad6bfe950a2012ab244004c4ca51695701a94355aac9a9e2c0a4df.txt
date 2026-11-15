@@ -1,0 +1,19 @@
+Decision: reject FuncEq newest older; this is not an unresolved attempt to prove it.
+
+The two terms are independent free function variables in context two. newest is
+FVar.top; older is FVar.function FVar.top. Their inferred types coincide, but a
+type equality supplies no equation between distinct free parameters. Neither
+variable contains a beta redex or eta expansion; beta and eta do not authorize
+replacing one independent free head with the other. Congruence and typed
+substitution transport existing equations and do not supply that missing
+parameter equation.
+
+NegativeDraft.lean checks head_types_equal and heads_syntactically_distinct as
+supporting evidence. Syntactic distinctness alone is not a proof of failure of
+FuncEq. No checked inequivalence theorem for FuncEq newest older is claimed;
+this record is the rubric's reasoned rejection, not an optional separating-model
+proof or a Lean proof of HeadTask. No private separating model was accessed.
+
+The independent IndexTask is proved in NegativeDraft.lean: the actual indices
+are structurally unequal (three negations versus one), and DepEq.type would
+contradict that inequality.

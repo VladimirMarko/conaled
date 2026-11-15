@@ -1,5 +1,10 @@
 # Recursion and FRP-adjacent priorities
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 Research and prioritization, 2026-10-28. Local baseline:
 `f06787b2b47ad138e39ebce4674f7941299ba690`. This note recommends future work;
 it adds no formal capability or implementation commitment. “FRP-adjacent” means

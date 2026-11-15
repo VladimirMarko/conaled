@@ -1,0 +1,46 @@
+[0mdirenv: loading /tmp/conaled-362-orchestration/trial358/shared/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+[0mdirenv: loading /tmp/conaled-362-orchestration/trial358/shared/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Init.olean
+/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Init.olean
+/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/Util/CollectAxioms.olean
+/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean/Lean/DeclarationRange.olean
+/tmp/conaled-362-orchestration/trial358/shared/.lake/build/lib/lean/SquareKit/DependentOperation/Lowering.olean
+/tmp/conaled-362-orchestration/trial358/shared/.lake/build/lib/lean/Examples/DependentOperationTrialSpec.olean
+attempts/checks/AuditC/Source.lean:304:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditC/Source.lean:319:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditC/Source.lean:319:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BEq MessageData
+
+Hint: Adding the command `deriving instance BEq for Lean.MessageData` may allow Lean to derive the missing instance.
+attempts/checks/AuditC/Source.lean:305:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditC/Source.lean:311:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd MessageData ℕ MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditC/Source.lean:318:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd MessageData ℕ MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Exit 1; archived at attempts/checks/AuditC

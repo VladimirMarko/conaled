@@ -1,0 +1,29 @@
+{
+  "stage": "C",
+  "start_utc": "2026-11-08T16:46:02.043469+00:00",
+  "end_utc": "2026-11-08T16:48:06.963169+00:00",
+  "snapshot": "attempts/Attempt06.lean",
+  "status": "Lean passed; subject to independent statement review",
+  "wall_seconds": 124.9197,
+  "lock_wait_seconds": 0.00021726801060140133,
+  "check_seconds": 4.218723250989569,
+  "checks": 2,
+  "stop_reason": "early successful checkpoint",
+  "pending": "No known C obligations; tail is reconstructed by selectedPosition then chosen last member, not stored in runtime instructions. Compiler uses actual two-pass macro/word Code representation.",
+  "assistance": "none",
+  "local_laws": "total/distance compression; unary old/rotation/half/compression; old inclusion local meaning",
+  "global_reused": [
+    "emit_sound",
+    "emit_lower",
+    "eval_twice",
+    "compile_meaning"
+  ],
+  "global_adapters": [
+    "three twice-substitution corollaries",
+    "three selected-tail corollaries",
+    "old-selector inclusion preservation"
+  ],
+  "interaction": "retained reflection/padding law and failed reflection/insertion; new wrong-final-position rejection",
+  "source_bytes": 15596,
+  "active_seconds": 124.9194827319894
+}

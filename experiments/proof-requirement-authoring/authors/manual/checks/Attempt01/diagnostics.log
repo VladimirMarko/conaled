@@ -1,0 +1,15 @@
+attempts/checks/Attempt01/Source.lean:13:37: warning: The syntax is now `structure S : Type extends P` rather than `structure S extends P : Type`
+
+Note: The purpose of this change is to accommodate `structure S extends toP : P` syntax for naming parent projections.
+attempts/checks/Attempt01/Source.lean:38:0: warning: Definition `listReversal` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+attempts/checks/Attempt01/Source.lean:41:0: warning: Definition `listOriginalReversal` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+attempts/checks/Attempt01/Source.lean:45:0: warning: Definition `boolReversal` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+attempts/checks/Attempt01/Source.lean:48:0: warning: Definition `boolOriginalReversal` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`

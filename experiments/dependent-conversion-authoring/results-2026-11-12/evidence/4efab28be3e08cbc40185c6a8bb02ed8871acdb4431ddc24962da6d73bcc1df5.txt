@@ -1,0 +1,39 @@
+{
+  "serialization": "Coordinator must acquire existing build lock after current fresh build and already queued slot-1 audit; do not duplicate session 6954",
+  "commands": [
+    {
+      "label": "scale-first",
+      "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "env": {
+        "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules:/tmp/conaled-wave-20261111/423-trial-stage-round3/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+      },
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-scale-first.lean"
+      ],
+      "log": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-scale-first.log",
+      "audit_driver_sha256": "4563a9b5b2e2a0d380986e1a88d64f56739fbbbc0671519a3a7617d6d08494ac",
+      "status": "prepared, not launched"
+    },
+    {
+      "label": "held-first",
+      "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "env": {
+        "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules:/tmp/conaled-wave-20261111/423-trial-stage-round3/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+      },
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-held-first.lean"
+      ],
+      "log": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-held-first.log",
+      "audit_driver_sha256": "b70aed9d58b4e306beb8b7138c0c06f872fb317ec8c5a7255824ac0c1a12799a",
+      "status": "prepared, not launched"
+    }
+  ]
+}

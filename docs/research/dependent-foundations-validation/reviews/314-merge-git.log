@@ -1,0 +1,28 @@
+Updating 9b0a0fe..3484ce5
+Fast-forward
+ Examples/DependentComprehension.lean               |  92 +++++++++++++
+ Examples/DependentStructureBoundary.lean           |  73 ++++++++++
+ Examples/GroupoidComprehensionBoundary.lean        |  58 ++++++++
+ SquareApplications.lean                            |   1 +
+ SquareKit/FamilySquares.lean                       |  45 +++++++
+ .../Internal/PathTransport/Comprehension.lean      | 144 ++++++++++++++++++++
+ .../Internal/PathTransport/DisplayCategory.lean    |  84 ++++++++++++
+ .../Internal/PathTransport/EmptySubstitution.lean  |  33 +++++
+ .../Internal/PathTransport/Representability.lean   |  61 +++++++++
+ SquareKit/RepresentedFamilies.lean                 |  88 ++++++++++++
+ SquareKit/TypeFamilyRepresentation.lean            |  44 ++++++
+ SquareKit/UniformOperations.lean                   |  53 ++++++++
+ docs/research/dependent-structure-audit.md         | 149 +++++++++++++++++++++
+ 13 files changed, 925 insertions(+)
+ create mode 100644 Examples/DependentComprehension.lean
+ create mode 100644 Examples/DependentStructureBoundary.lean
+ create mode 100644 Examples/GroupoidComprehensionBoundary.lean
+ create mode 100644 SquareKit/FamilySquares.lean
+ create mode 100644 SquareKit/Internal/PathTransport/Comprehension.lean
+ create mode 100644 SquareKit/Internal/PathTransport/DisplayCategory.lean
+ create mode 100644 SquareKit/Internal/PathTransport/EmptySubstitution.lean
+ create mode 100644 SquareKit/Internal/PathTransport/Representability.lean
+ create mode 100644 SquareKit/RepresentedFamilies.lean
+ create mode 100644 SquareKit/TypeFamilyRepresentation.lean
+ create mode 100644 SquareKit/UniformOperations.lean
+ create mode 100644 docs/research/dependent-structure-audit.md

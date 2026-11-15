@@ -1,5 +1,4 @@
 import Applications.Optimization.Relations
-import Mathlib.Tactic
 
 /-!
 # Finite evaluation and certificate checking

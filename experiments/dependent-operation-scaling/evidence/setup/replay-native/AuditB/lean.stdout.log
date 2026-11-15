@@ -1,0 +1,33 @@
+attempts/checks/AuditB/Source.lean:122:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditB/Source.lean:137:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditB/Source.lean:137:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BEq MessageData
+
+Hint: Adding the command `deriving instance BEq for Lean.MessageData` may allow Lean to derive the missing instance.
+attempts/checks/AuditB/Source.lean:123:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat MessageData 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  MessageData
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditB/Source.lean:129:17: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd MessageData ℕ MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+attempts/checks/AuditB/Source.lean:136:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HAdd MessageData ℕ MessageData
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

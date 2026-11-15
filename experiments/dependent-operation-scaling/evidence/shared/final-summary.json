@@ -1,0 +1,27 @@
+{
+  "snapshots": {
+    "A": "attempts/Attempt03.lean",
+    "B": "attempts/Attempt04.lean",
+    "C": "attempts/Attempt06.lean",
+    "repair": "attempts/Attempt07.lean"
+  },
+  "total_checks": 7,
+  "total_active_seconds": 361.86036153497685,
+  "total_wall_seconds": 361.861142,
+  "total_check_seconds": 13.791708845965331,
+  "total_lock_wait_seconds": 0.0007804650231264532,
+  "limitations": [
+    "All stage statuses are Lean checks; coordinator replay and independent statement review remain required.",
+    "No inference about asymptotics or general productivity from one author.",
+    "Source typing uses existing indexed Term; emitted Code erases indices and execution theorem restores selected result/bound.",
+    "Two compilation passes are macro emission and executable word lowering, not a second indexed target derivation.",
+    "Selected dependent tail is reconstructed with the chosen last member from each executor result.",
+    "Prior setup/design costs unavailable to author; author setup zero, input reading charged to A.",
+    "Initial timestamp conservatively backdated 30 seconds for first input read; subsequent stage timestamps instrumented."
+  ],
+  "resources": "Pinned copied Lean/Mathlib and allowed frozen closure only; no internet, other agents or mathematical assistance. Model/reasoning metadata not exposed.",
+  "repair_changed_old_declarations": 20,
+  "repair_added_declarations": 5,
+  "per_operation_cost": "Source constructor/meaning, macro and word constructor/emission cases, executor case per backend, primitive correctness case per backend. No new structural induction.",
+  "global_bookkeeping": "one quotation theorem reused; backend whole-term soundness via emit_sound; three general two-substitution corollaries via eval_twice; three dependent-tail corollaries; old inclusion via compile_meaning; independent interactions and concrete clients."
+}

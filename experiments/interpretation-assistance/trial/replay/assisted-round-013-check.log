@@ -1,0 +1,63 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-trial-preparation/replay/assisted/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+REQUIREMENT GeneratedProduct.requirement_0: weight 0 = 0
+REQUIREMENT GeneratedProduct.requirement_1: ∀ (a b : ℕ), weight (a + b) = weight a + weight b
+GeneratedProduct.initial : Resources.Measured ℤ ℕ
+GeneratedProduct.transition : ℤ → ℤ → Resources.Measured ℤ ℕ
+GeneratedProduct.weight : ℕ → ℕ × ℕ
+GeneratedProduct.initial : Resources.Measured ℤ ℕ
+GeneratedProduct.transition : ℤ → ℤ → Resources.Measured ℤ ℕ
+GeneratedProduct.weight : ℕ → ℕ × ℕ
+TRANSPORT_ROOT GeneratedProduct.result
+TRANSPORT_ROOT AssistedH2.product_add
+TRANSPORT_ROOT AssistedH2.final_add
+TRANSPORT_ROOT GeneratedProduct.requirement_1
+TRANSPORT_ROOT GeneratedProduct.certificate_0
+TRANSPORT_ROOT GeneratedProduct.requirement_0
+TRANSPORT_ROOT GeneratedProduct.initial
+TRANSPORT_ROOT GeneratedProduct.transition
+TRANSPORT_ROOT GeneratedProduct.requestPresent
+TRANSPORT_ROOT GeneratedProduct.certificate_1
+TRANSPORT_ROOT AssistedH2.product_zero
+TRANSPORT_ROOT AssistedH2.final_zero
+TRANSPORT_ROOT GeneratedProduct.weight
+TRANSPORT_ROOT GeneratedProduct.hom
+TRANSPORT_ROOT AssistedH2.product_add._proof_1_1
+TRANSPORT_ROOT AssistedH2.final_add._proof_1_1
+TRANSPORT_AUDIT_OK GeneratedProduct.result; local roots: 16
+REQUIREMENT GeneratedFinal.requirement_0: weight 0 = 0
+REQUIREMENT GeneratedFinal.requirement_1: ∀ (a b : ℕ × ℕ), weight (a + b) = weight a + weight b
+GeneratedFinal.initial : Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.transition : ℤ → ℤ → Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.weight : ℕ × ℕ → ℕ
+GeneratedFinal.initial : Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.transition : ℤ → ℤ → Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.weight : ℕ × ℕ → ℕ
+TRANSPORT_ROOT GeneratedProduct.result
+TRANSPORT_ROOT GeneratedFinal.requirement_1
+TRANSPORT_ROOT AssistedH2.product_add
+TRANSPORT_ROOT AssistedH2.final_add
+TRANSPORT_ROOT GeneratedProduct.requirement_1
+TRANSPORT_ROOT GeneratedFinal.requestPresent
+TRANSPORT_ROOT GeneratedFinal.certificate_1
+TRANSPORT_ROOT GeneratedProduct.certificate_0
+TRANSPORT_ROOT GeneratedProduct.requirement_0
+TRANSPORT_ROOT GeneratedFinal.requirement_0
+TRANSPORT_ROOT GeneratedProduct.initial
+TRANSPORT_ROOT GeneratedProduct.transition
+TRANSPORT_ROOT GeneratedProduct.requestPresent
+TRANSPORT_ROOT GeneratedProduct.certificate_1
+TRANSPORT_ROOT AssistedH2.product_zero
+TRANSPORT_ROOT GeneratedFinal.weight
+TRANSPORT_ROOT GeneratedFinal.result
+TRANSPORT_ROOT AssistedH2.final_zero
+TRANSPORT_ROOT GeneratedProduct.weight
+TRANSPORT_ROOT GeneratedFinal.hom
+TRANSPORT_ROOT GeneratedProduct.hom
+TRANSPORT_ROOT GeneratedFinal.initial
+TRANSPORT_ROOT GeneratedFinal.transition
+TRANSPORT_ROOT AssistedH2.product_add._proof_1_1
+TRANSPORT_ROOT AssistedH2.final_add._proof_1_1
+TRANSPORT_ROOT GeneratedFinal.certificate_0
+TRANSPORT_AUDIT_OK GeneratedFinal.result; local roots: 26

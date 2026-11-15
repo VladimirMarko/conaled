@@ -1,0 +1,27 @@
+{
+  "start": "2026-11-05T05:15:22.871407+00:00",
+  "audit": false,
+  "inputs": {
+    "experiments/guarded-j-retest/preparation/BaselineReference.lean": "2d4e31d4e14f0208c0e790c959ef58629da6098d7fb7623a2648c5e4e881286f",
+    "experiments/guarded-j-retest/preparation/CandidateReference.lean": "d5b9a0e4c5ffef55a853599325278582d0a26820d150bb16e697470dd1d8a7ee",
+    "experiments/guarded-j-retest/preparation/NativeCases.lean": "0241b6b1a33681a00ca1bcbef396848d492d03991c1996cb9f8104e220b06776"
+  },
+  "combined_sha256": "4826c38a2528f6f5a0a11f218be8c56dfa040190db036e1343fb5a5c2054cb97",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean"
+  ],
+  "exit": 1,
+  "elapsed_seconds": 1.6446376769999915,
+  "finish": "2026-11-05T05:15:24.516635+00:00",
+  "evidence_sha256": {
+    "BaselineReference.lean.txt": "2d4e31d4e14f0208c0e790c959ef58629da6098d7fb7623a2648c5e4e881286f",
+    "CandidateReference.lean.txt": "d5b9a0e4c5ffef55a853599325278582d0a26820d150bb16e697470dd1d8a7ee",
+    "Combined.lean.txt": "4826c38a2528f6f5a0a11f218be8c56dfa040190db036e1343fb5a5c2054cb97",
+    "NativeCases.lean.txt": "0241b6b1a33681a00ca1bcbef396848d492d03991c1996cb9f8104e220b06776",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "ca06963d0ae039c8237376b05713b2d3478fc163b2123a0c8a5548ff3903d3b2"
+  }
+}

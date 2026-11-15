@@ -1,0 +1,43 @@
+{
+  "acceptance": "pending coordinator declaration/statement/axiom checks",
+  "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+  "elapsed_seconds": 2.0783763750077924,
+  "environment": {
+    "LEAN_PATH": null,
+    "LEAN_SRC_PATH": null,
+    "LEAN_SYSROOT": null
+  },
+  "evidence_sha256": {
+    "Source.lean": "2712087cadff37cdc98af27c00c3fd483e3af46ef247c381271197588623b190",
+    "attempt.json": "853f6156c17cc8a837f76c3f1153c8eb167ef4625416087e4e62f44d50839678",
+    "deps.command.json": "aa9166dd2688cdbfd2ea14e9b26bac215765c9614f478deb747fbbda2f2fbd95",
+    "deps.result.json": "1213013f27e825359c68bf0b9ba1e9629d8ee49c18fdf53f3b857e2538250feb",
+    "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "deps.stdout.log": "caffbf5548a83d79746443c776208d360d8dc39ee4d0d9df91cce8c959fa8694",
+    "imports.json": "1b8165460eacd33660029188cdaed4624dc831bba39e26916d5fb3d54e5bf462",
+    "lean.command.json": "acc15e12b93a26a89aadaded6bffc1bd607e724536acee5dbf60866167973ef0",
+    "lean.result.json": "74f9d14a24c4c88c153eb018a27e1a98b253371fe3cf7e8aafec22a4f4b19849",
+    "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lean.stdout.log": "4fae42763d2279ae1849fa26750a2da2c5f28ccf004220e31b6a647ddcd260fd",
+    "libdir.command.json": "0d0a8434e7d2ba7ec7213e1dd943d12325c47aeae71d3ea51e1cd4aef1577020",
+    "libdir.result.json": "fd57adee25399db86b2710d8f9108bf8bd89c0ba31fcc45ec44f685ae4fc91b1",
+    "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+    "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+  },
+  "exit": 1,
+  "finish": "2026-11-08T16:52:13.370839+00:00",
+  "invocation": [
+    "check_attempt.py",
+    "attempts/AuditC.lean"
+  ],
+  "lean_exit": 1,
+  "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+  "public_inputs_after": "verified",
+  "public_inputs_before": "verified",
+  "schema": 1,
+  "source": "attempts/AuditC.lean",
+  "source_sha256": "2712087cadff37cdc98af27c00c3fd483e3af46ef247c381271197588623b190",
+  "start": "2026-11-08T16:52:11.292399+00:00",
+  "status": "lean-failed"
+}

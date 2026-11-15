@@ -1,0 +1,35 @@
+experiments/guarded-j-retest/preparation/CandidateReference.lean:35:5: error: failed to elaborate eliminator, insufficient number of arguments, expected type:
+  (i : Fin (Signature.arity ?m.44 ?m.50)) → Derivation ?m.45 ?m.47 (Atom.eq (?m.51 i) (?m.52 i))
+experiments/guarded-j-retest/preparation/CandidateReference.lean:35:71: error: Missing cases:
+(Fin.mk _ _)
+experiments/guarded-j-retest/preparation/CandidateReference.lean:35:47: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.reflexive` could not be determined
+
+Hint: Using `Derivation.reflexive would be unambiguous:
+  [apply] `Derivation.reflexive`
+experiments/guarded-j-retest/preparation/CandidateReference.lean:35:15: error: Type mismatch
+  rootBeta hx hT hp
+has type
+  Equal
+    (subTm
+      (j A x T (outer hx hT hp).motive
+        (reflexivity (subTy (inner hx hT hp).motive (rootTail A x (inner hx hT hp).tail))
+          (subTm (inner hx hT hp).expression (rootTail A x (inner hx hT hp).tail))))
+      (rootTail A x T))
+    (reflexivity (subTy (inner hx hT hp).motive (rootTail A x (inner hx hT hp).tail))
+      (subTm (inner hx hT hp).expression (rootTail A x (inner hx hT hp).tail)))
+but is expected to have type
+  ?m.54 0
+experiments/guarded-j-retest/preparation/CandidateReference.lean:41:18: error: Function expected at
+  substitutedBeta hx hT hp
+but this term has type
+  Equal (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) ?m.19) (subTm (outer hx hT hp).branch ?m.19)
+
+Note: Expected a function because this term is being applied to the argument
+  (dependentWeakening hx hT hp)
+experiments/guarded-j-retest/preparation/CandidateReference.lean:52:13: error: Function expected at
+  substitutedBeta hx hT hp
+but this term has type
+  Equal (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) ?m.64) (subTm (outer hx hT hp).branch ?m.64)
+
+Note: Expected a function because this term is being applied to the argument
+  hσ

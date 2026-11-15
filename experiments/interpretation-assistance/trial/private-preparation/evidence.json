@@ -1,0 +1,95 @@
+{
+  "baseline": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "lean_toolchain": "leanprover/lean4:v4.35.0",
+  "private_not_author_handoff": true,
+  "expectations_revised": false,
+  "source_sha256": "dc6bfea3f1ede09a3d6737e051a5d427150d94a3091def486b4f53f3d33f90b9",
+  "hashes": {
+    "checkout/Examples/PrivateReference462.lean": "dc6bfea3f1ede09a3d6737e051a5d427150d94a3091def486b4f53f3d33f90b9",
+    "checkout/PrivateAudit462.lean": "77b32cb52e5d0f2668c09cd4ce3fec2a2bcefd9a9f41c39767a5fece48f99d2f",
+    "checkout/PrivateAuditRun462.lean": "4165d6a01f986991489f048cbe711836abed3f15ec98a9a75a12526d21ab623a",
+    "round01/source.lean": "98239afb11da8463a5bcfc7049f279dc10171072733e7afb713a7b8d2089a1d6",
+    "round01/check.log": "c90f40be7b75b218b2e74ae2094360720dc998d0fed17a1e79110e988cadc4ac",
+    "round02/source.lean": "cd15ce0b606c0c92448583ee0bb0a97c701d52fb6b42c23142e23b881503c334",
+    "round02/check.log": "d59cf0d353a2158e627c8293c40e623f19dfd99522dffb3752317b2292d82ac2",
+    "round03/source.lean": "dc6bfea3f1ede09a3d6737e051a5d427150d94a3091def486b4f53f3d33f90b9",
+    "round03/check.log": "44ac5d98c1d0f1d8791fbc926dee29c7c2caace0c5d16db16c83f0251d5d899a",
+    "audit-final.log": "13d84a2119cc7e765f4660973475a13effbcd8078b854a01f56f4b8b314f6d4a",
+    "audit-helper.log": "15b612bba025337e1027efc5ff3279eaad1f0e3b979ea9bfe8a9b0b355ca2241",
+    "audit.log": "26e5db2ea0a53db9b08db2a7c64d4f5f56d2c183d7b3077d8eec164578474f1b",
+    "audit-adaptation.diff": "d5373c4fdb04b34efec009374db26177bf302524bea43af41ad54dd86fdc1185",
+    "WrongH1.lean": "3087577d20c29a0c79d2512a6a8065fd203121caf41795995290d20a543d6bd8",
+    "WrongH2.lean": "90889ddc376d1d83039abda791845a40a30d9b04b5aec3307f8d8b32fb709d2a",
+    "WrongH1.log": "40c90d1b583d5d9ccd84da1c793700e34e820940f2f05a340d760427c3c07f8d",
+    "WrongH2.log": "d8dbdd39567aa7d8eb03c7eb0be490a3c3839fdc882490a3af456c8c592426a4",
+    "negative-receipts.json": "6da4150d98d5b72cc9375ab6f29ce0a8843a95abca3c63d82973b4652faee98d",
+    "all-audit-roots.txt": "6827f13017c2ed9be251119038b6ac1d82e1bd2e75307e72266e4f63a082a6c5",
+    "reference-audit-roots.txt": "4209e769ef45e7d1564055fe1f2f3727cf1c27bdef6a44da6d07000913ca8d03",
+    "source-policy.log": "82e28c53407c34f804164a59b045cd556973e32ae01f3b74ab99b24437aaa30f",
+    "statement-review.md": "78b6cb2b079974ace70f2663e191e6dba0e8c3a1c2e7f4aa71cd98890ca8e082"
+  },
+  "commands": [
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake build Examples.PrivateReference462",
+      "cwd": "/tmp/conaled-wave-20261111/462-private-reference/checkout",
+      "exit": 1,
+      "log": "round01/check.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake build Examples.PrivateReference462",
+      "cwd": "/tmp/conaled-wave-20261111/462-private-reference/checkout",
+      "exit": 0,
+      "log": "round02/check.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake build Examples.PrivateReference462",
+      "cwd": "/tmp/conaled-wave-20261111/462-private-reference/checkout",
+      "exit": 0,
+      "log": "round03/check.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean PrivateAudit462.lean",
+      "exit": 1,
+      "log": "audit.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean -o .lake/build/lib/lean/PrivateAudit462.olean PrivateAudit462.lean",
+      "exit": 0,
+      "log": "audit-helper.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean PrivateAuditRun462.lean",
+      "exit": 0,
+      "log": "audit-final.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 python3 /tmp/conaled-wave-20261111/462-private-reference/check-negatives.py",
+      "exit": 0,
+      "log": "negative-run.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean --run scripts/lean-source-info.lean /tmp/conaled-wave-20261111/462-private-reference/source-policy-manifest.json",
+      "exit": 0,
+      "log": "source-policy.log"
+    }
+  ],
+  "audit": {
+    "logical_roots": 1139,
+    "theorems": 519,
+    "project_modules": 17,
+    "private_reference_roots": 57,
+    "private_source_declarations": 48,
+    "private_generated_proof_auxiliaries": 9,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "pending": [
+    "independent reference review",
+    "prototype schema/status checks",
+    "protocol and registry freeze"
+  ]
+}

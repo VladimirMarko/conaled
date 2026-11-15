@@ -1,0 +1,166 @@
+{
+  "scope": "Development checkpoint; inherited pinned dependency outputs, not fresh final acceptance.",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "upstream_revision": "8e166ca53cd1f864b63c13cc1d326d38316d00ea",
+  "source_base": "b98c45a09aba3d02c4bb9eb08ccb0141ece26955",
+  "source_identity": "Per-file SHA256 identifies dirty checkpoint sources; committed with this record.",
+  "input_hashes": {
+    "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "experiments/relative-graph/AcceptanceComposition.lean": "6f93258ef824c9c72cbc15973c337c744d71f3ced0369c75765cc1c8c209587f",
+    "experiments/relative-graph/AcceptanceMeasurement.lean": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+    "experiments/relative-graph/AcceptanceStages.lean": "4af4f3f60e138076daa38b2a9920f2d0d98be395bb24a0590a85c8411b9784f3",
+    "experiments/relative-graph/AcceptedGraph.lean": "5cc9b5ccf25b61fb4d57b1cc4fda425f6011a0197e4275e39acc46772bd4fe17",
+    "experiments/relative-graph/AndAcceptanceRoot.lean": "e6523deff92ae8e7483921feb80d2b24b9b6c5f28c921285879b3e0c23bd38c9",
+    "experiments/relative-graph/AndGeneratedRules.lean": "ba8658740da4cd3ca1473497d42e21ce106c9d19919467f92bf970ee6f72c829",
+    "experiments/relative-graph/AndGeneratedType.lean": "4e1ade2a52bccb238c2e2cadfaad2de5b23facb37d473ca9df7c37a16fcf1f6d",
+    "experiments/relative-graph/AndInstallation.lean": "5395b5b569b07937610f3b2349e78eb9aa13670f9e339a165db3228bb732563b",
+    "experiments/relative-graph/AndInstallationTail.lean": "a89021c973844534f076b15778dc3003645abcb98de32648fb130a00b47c3772",
+    "experiments/relative-graph/AndInstallerAcceptance.lean": "fafc136d0363462fb6f25fb7224ba755310f6ead9e534392f6c62e08406ee245",
+    "experiments/relative-graph/AndPositivityStages.lean": "7061ae74e8ec965d4137e145e51567276a755df1fa05e553e7210dc58bf9bffa",
+    "experiments/relative-graph/AndRecursorAcceptance.lean": "320fcbc23de2e074c0562adc6ecf43e82bff4905ee12fff624f371eb66f4942f",
+    "experiments/relative-graph/AndRecursorStages.lean": "d4f8703187b2ef2b4baf66b7dcfd6a7309954eeba0b3c021ed6115cc105f3f1f",
+    "experiments/relative-graph/AndRecursorType.lean": "35b0cdce01462c997fc431930a21a27b0f4dbfd3291dfa8726be24a8d6f86b93",
+    "experiments/relative-graph/ArtifactAudit.lean": "88658915ea3cd75901486bd3f84b788434ddfff50d708b0e08038e4b39d47ee5",
+    "experiments/relative-graph/CheckerReduction.lean": "cfc137ccea88df6367896fa26de0e4686556a8755c0e357364b68d2877a519e5",
+    "experiments/relative-graph/ClosedGraph.lean": "563b92f1c6827d147db930c01101e392440e5140e0a6fe54f33f41aaca828d89",
+    "experiments/relative-graph/ConLecheAudit.lean": "cb106e94387cba0510f1b20f5845b5bfd502baa58efa3023624c722f9cab04a3",
+    "experiments/relative-graph/EmissionEncoding.lean": "e3d5027a699570fbc7e9979cb5e49361c8b5d3ad63fc3e20430f9282a6463db7",
+    "experiments/relative-graph/EmissionSemantics.lean": "3ce423d5cb050f2a6febb2d32f755087f80a585fc42c3f1d2a761ab40d027ad3",
+    "experiments/relative-graph/EmittedClosed.lean": "bb82428d52daf281b01b21971029f594b02b05efd4d7bd2ac9e4df98d780c25e",
+    "experiments/relative-graph/EmittedComparison.lean": "2e48b4b0260cfe57bd960c2bffc399c89a5dc72c2db82c27aeba0e3df729768f",
+    "experiments/relative-graph/EmittedEnvironment.lean": "79329cd923071c05acd11ee223ab92772901a89d94d53cd903d92d3001b19c01",
+    "experiments/relative-graph/EmittedGraph.lean": "431975415f123628f9428d1819e84ac1bd2e69f24c4ce2f3dc6d146a90771574",
+    "experiments/relative-graph/GraphAdapter.lean": "583fab7e82df3921767d16ec10c9d74266794ce6cbba334051c804b809b5eb60",
+    "experiments/relative-graph/GraphChecks.lean": "ffa3e1002059a76fb6accc942ba05cdbac285d5474f2f81a1017abb3e83a2c9e",
+    "experiments/relative-graph/GraphDeclarations.lean": "9498695c615821091b9c14d147b0ae2b8f529c571561148af8af82a7e5700a02",
+    "experiments/relative-graph/GraphEnvironment.lean": "41ce1daefac2623fd74b460891373c99f5f446548bb72ee83d214f97fa204bde",
+    "experiments/relative-graph/Lean4LeanAudit.lean": "89168ba0a2a303762ae511377f7def01629dee77736115665345d3619e3055ab",
+    "experiments/relative-graph/PrimitiveLaws.lean": "4919ee2320372aef70c3ca4a5fb04c916bb32e6a454d1e0be485443472d76ed7",
+    "experiments/relative-graph/RecursorComposition.lean": "7eda7c3e7f16443d376a756311e0af43ca56b46d9b3db33f9cfcecc941289dda"
+  },
+  "command": "direnv exec . flock /tmp/conaled-369-orchestration/build.lock python3 /tmp/conaled-369-orchestration/evidence135/run-module.py AcceptanceMeasurement AndAcceptanceRoot AndInstallation AndInstallationTail AndRecursorType AndRecursorStages RecursorComposition AndGeneratedType AndGeneratedRules AndRecursorAcceptance AndInstallerAcceptance",
+  "lean_invocation": "lean -D Elab.async=false -R <candidate>/experiments/relative-graph -o <private-build>/<Module>.olean <candidate>/experiments/relative-graph/<Module>.lean",
+  "search_path": [
+    "private graph outputs",
+    "private pinned ConLeche .lake/build/lib/lean",
+    "candidate lake env LEAN_PATH (development only)"
+  ],
+  "limits": {
+    "per_module_wall_seconds": 30,
+    "captured_output_bytes": 16384,
+    "max_heartbeats": 1000000
+  },
+  "runs": [
+    {
+      "run_id": "1794203364685175672-AcceptanceMeasurement",
+      "module": "AcceptanceMeasurement",
+      "wall_seconds": 0.5721462939982302,
+      "exit": 0,
+      "source_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "Graph artifact audit: 7 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203365261320102-AndAcceptanceRoot",
+      "module": "AndAcceptanceRoot",
+      "wall_seconds": 0.8236387310025748,
+      "exit": 0,
+      "source_sha256": "e6523deff92ae8e7483921feb80d2b24b9b6c5f28c921285879b3e0c23bd38c9",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "start_generation constructors\ngeneration_ns=8882074; expression_nodes=6964\nkernel_declaration_ns=874619\nrender_ns=1746363; rendered_chars=219; proposition=nestCtors ctx (fueledOps CheckMode.verified 32) indsResult.fst\n    (fun crest => nestPos \u22ef \u22ef ctx \u22ef) [] (ctx.hiAt 0)\n    (List.map Level.param ctx.lps) ctx.params ctx.names holes [(\u22ef, \u22ef)] { } =\n  Except.ok ([\u22ef, \u22ef], post)\nstart_generation root\ngeneration_ns=2448700; expression_nodes=141\nkernel_declaration_ns=227278\nrender_ns=637929; rendered_chars=115; proposition=nestRoot (fueledOps CheckMode.verified 32) indsResult.fst ctx holes\n    ctorResult.fst { } =\n  Except.ok rootResult\nGraph artifact audit: 107 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203366087590018-AndInstallation",
+      "module": "AndInstallation",
+      "wall_seconds": 1.4438008450088091,
+      "exit": 0,
+      "source_sha256": "5395b5b569b07937610f3b2349e78eb9aa13670f9e339a165db3228bb732563b",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "start_generation opened\ngeneration_ns=4870905; expression_nodes=8301\nkernel_declaration_ns=968288\nrender_ns=609100; rendered_chars=55; proposition=openPisAtFvars 2 crest 3 = some ([\u22ef, \u22ef], Expr.fvar \u22ef \u22ef)\nstart_generation defined\ngeneration_ns=20884323; expression_nodes=1555\nkernel_declaration_ns=7073017\nrender_ns=331078; rendered_chars=47; proposition=Expr.allLevelParamsDefined ctx.lps crest = true\nstart_generation fieldSorts\ngeneration_ns=24800060; expression_nodes=63365\nkernel_declaration_ns=2693443\nrender_ns=835184; rendered_chars=150; proposition=checkStructFieldSortsI (fueledOps CheckMode.verified 32) indsResult.fst true\n    false Level.zero 3 fvs [] 2 =\n  Except.ok [Level.zero, Level.zero, \u22ef]\nstart_generation absSorts\ngeneration_ns=11856093; expression_nodes=20078\nkernel_declaration_ns=3314908\nrender_ns=645821; rendered_chars=124; proposition=checkAbsCtorSortsAll (fueledOps CheckMode.verified 32) indsResult.fst ctx\n    ctorResult.fst rootResult.fst =\n  Except.ok ()\nstart_generation positivity\ngeneration_ns=1691646; expression_nodes=139\nkernel_declaration_ns=214034\nrender_ns=793387; rendered_chars=162; proposition=checkBlockPositivity (fueledOps CheckMode.verified 32) indsResult.fst\n    indsResult.fst.find? completed indsResult.snd.fst ctorResult.fst =\n  Except.ok posResult\nnormal_form AndInstallation.classes: generation_ns=142854587; checked_insertions_and_codegen_ns=47356066; result_tree_nodes=401\nstart_generation classes_ok\ngeneration_ns=30638539; expression_nodes=15474385\nkernel_declaration_ns=46075988\nrender_ns=979701; rendered_chars=150; proposition=checkBlockClasses (fueledOps CheckMode.verified 32) (mkFEnv indsResult.fst)\n    completed.toBlockShape ctx.params ctorResult.fst =\n  Except.ok classes\nstart_generation seeds_ok\ngeneration_ns=45264024; expression_nodes=222541712\nkernel_declaration_ns=34439215\nrender_ns=1078314; rendered_chars=151; proposition=nestSeeds (fueledOps CheckMode.verified 32) indsResult.fst ctx\n    (classSeeds ctx holes classes.snd) posResult.snd.snd =\n  Except.ok posResult.snd.snd\nstart_generation pass_ok\ngeneration_ns=3303245; expression_nodes=427\nkernel_declaration_ns=447652\nrender_ns=544405; rendered_chars=91; proposition=checkBlockPass (fueledOps CheckMode.verified 32) eqEnv parts false =\n  Except.ok passResult\nGraph artifact audit: 181 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203367535172167-AndInstallationTail",
+      "module": "AndInstallationTail",
+      "wall_seconds": 0.7579308169952128,
+      "exit": 0,
+      "source_sha256": "a89021c973844534f076b15778dc3003645abcb98de32648fb130a00b47c3772",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndInstallationTail.q: generation_ns=109807617; checked_insertions_and_codegen_ns=37691378; result_tree_nodes=2815\nnormal_form AndInstallationTail.ctorEnv: generation_ns=2626897; checked_insertions_and_codegen_ns=3520845; result_tree_nodes=1219\nstart_generation idx_ok\ngeneration_ns=8006311; expression_nodes=333608\nkernel_declaration_ns=2749911\nrender_ns=1038755; rendered_chars=123; proposition=checkBlockIdxSorts (fueledOps CheckMode.verified 32) q.env\u2081 q.p.toBlockShape\n    (\u22ef.members.zip q.cvTas) =\n  Except.ok [[]]\nstart_generation pins\ngeneration_ns=18876975; expression_nodes=2411113\nkernel_declaration_ns=18119207\nrender_ns=543689; rendered_chars=52; proposition=targetRecPins q.p.toBlockShape andPin = Except.ok ()\nGraph artifact audit: 108 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203368295503031-AndRecursorType",
+      "module": "AndRecursorType",
+      "wall_seconds": 0.772425912990002,
+      "exit": 0,
+      "source_sha256": "35b0cdce01462c997fc431930a21a27b0f4dbfd3291dfa8726be24a8d6f86b93",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndRecursorType.recCv: generation_ns=2736111; checked_insertions_and_codegen_ns=3070461; result_tree_nodes=275\nnormal_form AndRecursorType.inferred: generation_ns=82694696; checked_insertions_and_codegen_ns=67239350; result_tree_nodes=65\nnormal_form AndRecursorType.u: generation_ns=8951914; checked_insertions_and_codegen_ns=2922528; result_tree_nodes=57\nstart_generation infer_ok\ngeneration_ns=611212; expression_nodes=1\nkernel_declaration_ns=77001\nrender_ns=649976; rendered_chars=84; proposition=inferTypeCore CheckMode.verified ctorEnv 32 0 recCv.type =\n  Except.ok (Expr.sort u)\nstart_generation sort_ok\ngeneration_ns=1616547; expression_nodes=1247\nkernel_declaration_ns=346662\nrender_ns=455926; rendered_chars=74; proposition=ensureSortCore CheckMode.verified ctorEnv 32 0 (Expr.sort u) = Except.ok u\nstart_generation constant_ok\ngeneration_ns=12297943; expression_nodes=566055\nkernel_declaration_ns=12025812\nrender_ns=474077; rendered_chars=79; proposition=checkConstantVal (fueledOps CheckMode.verified 32) ctorEnv recCv = Except.ok ()\nstart_generation stream_ok\ngeneration_ns=7653787; expression_nodes=70556\nkernel_declaration_ns=1194773\nrender_ns=693192; rendered_chars=95; proposition=classStreamRecs (fueledOps CheckMode.verified 32) (mkFEnv ctorEnv) \u22ef.recs =\n  Except.ok [recCv]\nGraph artifact audit: 61 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203369070237995-AndRecursorStages",
+      "module": "AndRecursorStages",
+      "wall_seconds": 0.8918375869980082,
+      "exit": 0,
+      "source_sha256": "d4f8703187b2ef2b4baf66b7dcfd6a7309954eeba0b3c021ed6115cc105f3f1f",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndRecursorStages.nfResult: generation_ns=26461374; checked_insertions_and_codegen_ns=8290358; result_tree_nodes=429\nstart_generation nfs_ok\ngeneration_ns=1514819; expression_nodes=1\nkernel_declaration_ns=191305\nrender_ns=1196881; rendered_chars=141; proposition=classesNfs (fueledOps CheckMode.verified 32) ctorEnv q.p.toBlockShape\n    (List.map (fun x => \u22ef) q.cvTas) q.tbl.toList q.cls =\n  Except.ok Ms\nnormal_form AndRecursorStages.ctorResult: generation_ns=72508446; checked_insertions_and_codegen_ns=99463782; result_tree_nodes=321\nstart_generation ctors_ok\ngeneration_ns=1599494; expression_nodes=1\nkernel_declaration_ns=201864\nrender_ns=1058475; rendered_chars=140; proposition=classesCtors (fueledOps CheckMode.verified 32) ctorEnv q.p.toBlockShape\n    (List.map (fun x => \u22ef) q.cvTas) q.rd Ms 0 Ms =\n  Except.ok ctors\nnormal_form AndRecursorStages.formerTys: generation_ns=7969739; checked_insertions_and_codegen_ns=3933165; result_tree_nodes=23\nstart_generation formers_ok\ngeneration_ns=4614373; expression_nodes=3437416\nkernel_declaration_ns=3606071\nrender_ns=751745; rendered_chars=75; proposition=List.mapM (classFormerTy (mkFEnv ctorEnv) q.cvTas) Ms = Except.ok formerTys\nnormal_form AndRecursorStages.pre: generation_ns=31055578; checked_insertions_and_codegen_ns=15696749; result_tree_nodes=221\nstart_generation prefix_ok\ngeneration_ns=10938565; expression_nodes=2377392\nkernel_declaration_ns=14236352\nrender_ns=489311; rendered_chars=27; proposition=g0.prefixBinders = some pre\nGraph artifact audit: 121 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203369964390851-RecursorComposition",
+      "module": "RecursorComposition",
+      "wall_seconds": 0.5994654220121447,
+      "exit": 0,
+      "source_sha256": "7eda7c3e7f16443d376a756311e0af43ca56b46d9b3db33f9cfcecc941289dda",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "Graph artifact audit: 5 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203370566282042-AndGeneratedType",
+      "module": "AndGeneratedType",
+      "wall_seconds": 0.9565239149960689,
+      "exit": 0,
+      "source_sha256": "4e1ade2a52bccb238c2e2cadfaad2de5b23facb37d473ca9df7c37a16fcf1f6d",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndGeneratedType.generated: generation_ns=20688319; checked_insertions_and_codegen_ns=9267789; result_tree_nodes=275\nnormal_form AndGeneratedType.inferred: generation_ns=82434137; checked_insertions_and_codegen_ns=70540435; result_tree_nodes=65\nnormal_form AndGeneratedType.u: generation_ns=8486058; checked_insertions_and_codegen_ns=3063826; result_tree_nodes=57\nstart_generation infer_ok\ngeneration_ns=651145; expression_nodes=1\nkernel_declaration_ns=77384\nrender_ns=682960; rendered_chars=88; proposition=inferTypeCore CheckMode.verified ctorEnv 32 0 generated.type =\n  Except.ok (Expr.sort u)\nstart_generation sort_ok\ngeneration_ns=1748679; expression_nodes=1247\nkernel_declaration_ns=344855\nrender_ns=453829; rendered_chars=74; proposition=ensureSortCore CheckMode.verified ctorEnv 32 0 (Expr.sort u) = Except.ok u\nnormal_form AndGeneratedType.equalResult: generation_ns=12063185; checked_insertions_and_codegen_ns=37629805; result_tree_nodes=7\nstart_generation equal_ok\ngeneration_ns=868675; expression_nodes=1\nkernel_declaration_ns=104693\nrender_ns=700020; rendered_chars=108; proposition=isDefEqCore CheckMode.verified ctorEnv 32 0 AndRecursorType.recCv.type\n    generated.type =\n  Except.ok true\nstart_generation constant_ok\ngeneration_ns=13780809; expression_nodes=566055\nkernel_declaration_ns=12474942\nrender_ns=660331; rendered_chars=90; proposition=classConstOk (fueledOps CheckMode.verified 32) (mkFEnv ctorEnv) generated =\n  Except.ok ()\nstart_generation generated_ty\ngeneration_ns=7470159; expression_nodes=1098334\nkernel_declaration_ns=6404205\nrender_ns=421604; rendered_chars=39; proposition=classGenRecTy g 0 = some generated.type\nstart_generation recType_ok\ngeneration_ns=29421418; expression_nodes=1216924\nkernel_declaration_ns=13961184\nrender_ns=951865; rendered_chars=144; proposition=classRecTyOk (fueledOps CheckMode.verified 32) (mkFEnv ctorEnv) g \u22ef.k\n    (\u22ef.recs.headD default) AndRecursorType.recCv 0 =\n  Except.ok generated\nstart_generation types_ok\ngeneration_ns=8315144; expression_nodes=88079\nkernel_declaration_ns=3554950\nrender_ns=1145803; rendered_chars=143; proposition=classRecTysOk (fueledOps CheckMode.verified 32) (mkFEnv ctorEnv) g \u22ef.k \u22ef.recs\n    [AndRecursorType.recCv] q.rd.recCls =\n  Except.ok [generated]\nGraph artifact audit: 79 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203371525255807-AndGeneratedRules",
+      "module": "AndGeneratedRules",
+      "wall_seconds": 0.9835065049992409,
+      "exit": 0,
+      "source_sha256": "ba8658740da4cd3ca1473497d42e21ce106c9d19919467f92bf970ee6f72c829",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndGeneratedRules.ruleEnv: generation_ns=16462401; checked_insertions_and_codegen_ns=11832524; result_tree_nodes=3389\nnormal_form AndGeneratedRules.rulesResult: generation_ns=134132111; checked_insertions_and_codegen_ns=254280929; result_tree_nodes=1013\nstart_generation rules_ok\ngeneration_ns=1820045; expression_nodes=1\nkernel_declaration_ns=198930\nrender_ns=1323440; rendered_chars=184; proposition=classRecsRulesOk (fueledOps CheckMode.verified 32) StructWalkers.plain\n    (mkFEnv ctorEnv) ruleEnv g (classRecOf \u22ef.recCls [generated, \u22ef]) [generated]\n    q.rd.recCls =\n  Except.ok out\nGraph artifact audit: 98 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203372511153226-AndRecursorAcceptance",
+      "module": "AndRecursorAcceptance",
+      "wall_seconds": 0.5600164179923013,
+      "exit": 0,
+      "source_sha256": "320fcbc23de2e074c0562adc6ecf43e82bff4905ee12fff624f371eb66f4942f",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "start_generation rec_ok\ngeneration_ns=28519996; expression_nodes=305628\nkernel_declaration_ns=2180238\nrender_ns=1520772; rendered_chars=173; proposition=checkBlockRec (fueledOps CheckMode.verified 32) ctorEnv q.p\n    (blockNestedBit \u22ef.toBlockShape q.kinds) q.params q.tbl.toList q.rd q.cls\n    andPin q.cvTas =\n  Except.ok out\nGraph artifact audit: 25 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    },
+    {
+      "run_id": "1794203373073703532-AndInstallerAcceptance",
+      "module": "AndInstallerAcceptance",
+      "wall_seconds": 0.9629828269826248,
+      "exit": 0,
+      "source_sha256": "fafc136d0363462fb6f25fb7224ba755310f6ead9e534392f6c62e08406ee245",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "output": "normal_form AndInstallerAcceptance.recEnv: generation_ns=38718815; checked_insertions_and_codegen_ns=13864120; result_tree_nodes=1817\nstart_generation tables_ok\ngeneration_ns=50132839; expression_nodes=2678456\nkernel_declaration_ns=14582653\nrender_ns=1062902; rendered_chars=87; proposition=checkBlockTables q.p.toBlockShape (\u22ef.members.zip (\u22ef.zip \u22ef)) recEnv =\n  Except.ok andEnv\nstart_generation tail_ok\ngeneration_ns=2005914; expression_nodes=53\nkernel_declaration_ns=187973\nrender_ns=685907; rendered_chars=76; proposition=checkBlockTail (fueledOps CheckMode.verified 32) andPin q = Except.ok andEnv\nstart_generation block_ok\ngeneration_ns=101114428; expression_nodes=976357\nkernel_declaration_ns=25078659\nrender_ns=881517; rendered_chars=84; proposition=checkBlock (fueledOps CheckMode.verified 32) eqEnv andPin parts =\n  Except.ok andEnv\nstart_generation accepted\ngeneration_ns=75031535; expression_nodes=2216477\nkernel_declaration_ns=32179713\nrender_ns=1077639; rendered_chars=127; proposition=checkDecl CheckMode.verified (fueledOps CheckMode.verified 32) [] eqEnv\n    (Declaration.indDecl andPin 2) =\n  Except.ok andEnv\nGraph artifact audit: 177 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    }
+  ],
+  "previous_root_run": {
+    "run_id": "1794202357144968044-AndAcceptanceRoot",
+    "source_commit": "b98c45a09aba3d02c4bb9eb08ccb0141ece26955",
+    "source_hashes": {
+      "experiments/relative-graph/AcceptanceMeasurement.lean": "45b69cb6eb351f9a7982b9e4e76915e549783277df25aad34aacca10d38d771c",
+      "experiments/relative-graph/AndAcceptanceRoot.lean": "e6523deff92ae8e7483921feb80d2b24b9b6c5f28c921285879b3e0c23bd38c9"
+    },
+    "wall_seconds": 0.8404000630252995,
+    "exit": 0,
+    "output": "start_generation constructors\ngeneration_ns=9034523; expression_nodes=6964\nkernel_declaration_ns=955126\nrender_ns=1583780; rendered_chars=219; proposition=nestCtors ctx (fueledOps CheckMode.verified 32) indsResult.fst\n    (fun crest => nestPos \u22ef \u22ef ctx \u22ef) [] (ctx.hiAt 0)\n    (List.map Level.param ctx.lps) ctx.params ctx.names holes [(\u22ef, \u22ef)] { } =\n  Except.ok ([\u22ef, \u22ef], post)\nstart_generation root\ngeneration_ns=2580351; expression_nodes=141\nkernel_declaration_ns=269323\nrender_ns=704991; rendered_chars=115; proposition=nestRoot (fueledOps CheckMode.verified 32) indsResult.fst ctx holes\n    ctorResult.fst { } =\n  Except.ok rootResult\nGraph artifact audit: 107 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "snapshot": "adwh-checkpoint-233",
+  "order": [
+    "SymbolicWord16Core",
+    "SymbolicWord16Recurrence",
+    "ADWH.Chapter01.Lists",
+    "ADWH.Chapter01.Permutations",
+    "ADWH.Chapter15.Queens",
+    "ADWH.Chapter15.QueensVariants",
+    "ADWH.Chapter15.QueensSearch",
+    "ADWH.Chapter15.QueensBitsPrimitives",
+    "ADWH.Chapter15.QueensBitRepresentation",
+    "ADWH.Chapter15.QueensBitMoves",
+    "ADWH.Chapter15.QueensBitCounting",
+    "ADWH.Chapter15.QueensFastCounting",
+    "ADWH.Chapter15.QueensNatCounting",
+    "FiniteFold",
+    "FirstOrderNat",
+    "FirstOrderNatSource",
+    "FirstOrderNatSourceAudit",
+    "CertifiedNatChecker",
+    "QueensNatChecker",
+    "RestrictedNatCheckerMain"
+  ],
+  "sources": [
+    {
+      "module": "SymbolicWord16Core",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Core.lean",
+      "sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+      "imports": [
+        "Init.Data.BitVec.Bitblast"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "SymbolicWord16Recurrence",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Recurrence.lean",
+      "sha256": "29a969e114ef7caffcaf42eb0f3349b70c56d517c40f9c76efd534c7b1a446ea",
+      "imports": [
+        "SymbolicWord16Core"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "ADWH.Chapter01.Lists",
+      "member": "project/adwh-lean/ADWH/Chapter01/Lists.lean",
+      "sha256": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0",
+      "imports": [
+        "Std"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter01.Permutations",
+      "member": "project/adwh-lean/ADWH/Chapter01/Permutations.lean",
+      "sha256": "1a95de12dbf6de945bb5fe0785a593bade9da61fb34d8562d784a46d1a50d64b",
+      "imports": [
+        "ADWH.Chapter01.Lists"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.Queens",
+      "member": "project/adwh-lean/ADWH/Chapter15/Queens.lean",
+      "sha256": "a33743f6936503169c71f5e46ef8d8577511360b385cbc18a111a8172ea22e60",
+      "imports": [
+        "ADWH.Chapter01.Permutations"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensVariants",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensVariants.lean",
+      "sha256": "ec3c0599cbd0cab58201f215283babc4ac4987edca24c83977f808765aecb504",
+      "imports": [
+        "ADWH.Chapter15.Queens"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensSearch",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensSearch.lean",
+      "sha256": "5ec0ac30b2d4df556bd25bc0da29827026973e224ac3615ab19705d6842bbe06",
+      "imports": [
+        "ADWH.Chapter15.QueensVariants"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitsPrimitives",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitsPrimitives.lean",
+      "sha256": "15c80d8d531f5a0b7cc52b4ad1d0fb69b14b75734c66430b98175eef761b1df6",
+      "imports": [
+        "SymbolicWord16Recurrence",
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitRepresentation",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitRepresentation.lean",
+      "sha256": "eb261d73bd9de53a8dd493a9772fea3a5580bb6f42ba22dabe81dd1c3eacc918",
+      "imports": [
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitMoves",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitMoves.lean",
+      "sha256": "bed3f9a6d2402446f07b1b51308d0fb5b68b19c453a57be37428fb7228cf5d5f",
+      "imports": [
+        "ADWH.Chapter15.QueensBitRepresentation"
+      ],
+      "source_kind": "original"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitCounting",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitCounting.lean",
+      "sha256": "3e9d4f4226eeddd9aadd42a9926e7ddecedce7a6c8f2953014c6a33b0f6b2b84",
+      "imports": [
+        "ADWH.Chapter15.QueensBitsPrimitives",
+        "ADWH.Chapter15.QueensBitMoves"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensFastCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensFastCounting.lean",
+      "sha256": "b8bd1e73532ad77520c17e6c68f88e7f7fae3ade7070c7d28b343dd897d18ad0",
+      "imports": [
+        "ADWH.Chapter15.QueensBitCounting"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "ADWH.Chapter15.QueensNatCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensNatCounting.lean",
+      "sha256": "5c5e7255bc919e27746e7b55bf71c1171fde5e438b8b09b1002fde8525d6a72c",
+      "imports": [
+        "ADWH.Chapter15.QueensFastCounting"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "FiniteFold",
+      "member": "next-iteration/finite-fold-evaluator/source/FiniteFold.lean",
+      "sha256": "25d84a52adca5f4c60163640aee8f31ded88322b8bd98c27f96d1aeb0c8b5d4e",
+      "imports": [
+        "Init"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "FirstOrderNat",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNat.lean",
+      "sha256": "e453954c94771eddda4d21ce52a7befb07093c9117202f886844a3507a02da1b",
+      "imports": [
+        "FiniteFold"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "FirstOrderNatSource",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNatSource.lean",
+      "sha256": "187d06ec3cdd74cce8181e99a25cadf4ed3e302b22b79a48ba5414c81a59aef6",
+      "imports": [
+        "FirstOrderNat",
+        "ADWH.Chapter15.QueensNatCounting"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "FirstOrderNatSourceAudit",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNatSourceAudit.lean",
+      "sha256": "6704cfdb14d1d4d0f1bc0b2431085350577c43f2ba6786ef281cf59a89dc438e",
+      "imports": [
+        "FirstOrderNatSource"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "CertifiedNatChecker",
+      "member": "next-iteration/restricted-nat-checker/source/CertifiedNatChecker.lean",
+      "sha256": "d1874a7be774cc9eaff20046141ff15c6d64638b21ce9a39bf29764668bbc9dc",
+      "imports": [
+        "Std.Data.String.ToNat"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "QueensNatChecker",
+      "member": "next-iteration/restricted-nat-checker/source/QueensNatChecker.lean",
+      "sha256": "9fc8716dee7c4362543f6bc6a9f4dee822923c0fb8b0096ecea8e46d689eeeeb",
+      "imports": [
+        "CertifiedNatChecker",
+        "FirstOrderNatSource"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "RestrictedNatCheckerMain",
+      "member": "next-iteration/restricted-nat-checker/source/RestrictedNatCheckerMain.lean",
+      "sha256": "15483541307191d411e452f122899400af8af22347708ef7bc1b73e9ab06a7d6",
+      "imports": [
+        "QueensNatChecker"
+      ],
+      "source_kind": "selected"
+    }
+  ]
+}

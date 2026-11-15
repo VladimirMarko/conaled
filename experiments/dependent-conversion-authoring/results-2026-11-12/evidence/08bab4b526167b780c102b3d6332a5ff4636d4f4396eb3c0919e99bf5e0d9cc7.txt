@@ -1,0 +1,25 @@
+{
+  "phase": "initial",
+  "status": "complete",
+  "proof": "Draft.lean",
+  "theorem": "Examples.ConversionTrial.Initial.task_proof",
+  "obligations": [
+    "source_derivation",
+    "lhs_index",
+    "rhs_index"
+  ],
+  "final_checks": [
+    "compile-002",
+    "policy-002"
+  ],
+  "earlier_attempts": [
+    "policy-001 passed",
+    "compile-001 failed: eta parameter context inference; repaired with explicit Func (widen 1) annotation"
+  ],
+  "general_helpers": [],
+  "assistance": "none",
+  "interruptions": [],
+  "exposures": [],
+  "usage": null,
+  "remaining_work": []
+}

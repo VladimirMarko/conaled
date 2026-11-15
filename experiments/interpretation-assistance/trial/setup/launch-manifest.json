@@ -1,0 +1,55 @@
+{
+  "status": "Frozen launch specification; dispatch requires independent final readiness approval in a separate record.",
+  "prototype": "3b5c9002c9e799b00d01b6f1e0ca0dfe155d465b",
+  "order": [
+    "direct",
+    "assisted"
+  ],
+  "budget": {
+    "minutes": 45,
+    "lean_invocations": 30,
+    "elapsed_exclusions": [],
+    "cpu": 0,
+    "concurrent_author_arms": 1
+  },
+  "model_configuration": "fresh-context agents inheriting same root configuration; exact model/effort/service metadata not exposed and recorded unknown",
+  "arms": {
+    "direct": {
+      "source": "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/direct",
+      "output": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/direct",
+      "state": "/tmp/conaled-wave-20261111/462-trial-preparation/control/direct/state.json",
+      "prompt": "/tmp/conaled-wave-20261111/462-trial-preparation/prompts/direct.md",
+      "prompt_sha256": "cb2081e6b9decb0f3575522525f34a17718d9ffbece7af98e1d942bb226d522a"
+    },
+    "assisted": {
+      "source": "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted",
+      "output": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted",
+      "state": "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+      "prompt": "/tmp/conaled-wave-20261111/462-trial-preparation/prompts/assisted.md",
+      "prompt_sha256": "712412d01e8aabe4a5a65a51f7a0558fdf000ccfb8ad829d5308c8c2c816b513"
+    }
+  },
+  "watchdog": "Root starts pinned runner --watch OUTPUT at dispatch; polls cutoff evidence and interrupts author upon cutoff; completion freezes output and terminates watchdog. Watchdog failure stops arm. State initialized only immediately before dispatch.",
+  "frozen_at": "2026-11-11T18:24:36.995859+00:00",
+  "frozen_evidence": {
+    "/tmp/conaled-wave-20261111/462-trial-preparation/provision-manifest.json": "0d4d194de4f1eb3ecf5e319d0b89395a9e1f4010e779d34bd026b80d1665f142",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/setup-boundary.json": "8beb9e7d69972dee5ec3a6e0d0c4d9e093f32c211d6ed024f353697774f2e0eb",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.diff": "00d5a5979eebba3ea29d23997fad0ee2d0d12c26de680e357fc3a41dcc4b5cd9",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/readiness-evidence.json": "f922bcfcb5c1e38f8bc8943f9272b78a3db382be9e90a31ebba21834fafe756a",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/launch-draft-review.md": "57c28fc1bab26d9042ff055028132bfa0372a73ba4efea65195824e06af203f3",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/common/TaskSetup462.lean": "37d16a6205273b7b9c4a321819fc84e301bb51b095c3a38da57e7a1ef41873a3",
+    "/tmp/conaled-wave-20261111/462-trial-preparation/common/TASKS.md": "0685247f1eafb715bad426750fe6cce7feca9c52c5cb384ae816b1dea3f2b701",
+    "/tmp/conaled-wave-20261111/462-private-reference/evidence.json": "740b424b4e4f1e097f702fce0b7cf997e2eb6f794318e9b24911f412ac3d2ca1",
+    "/tmp/conaled-wave-20261111/462-private-reference/independent-review.md": "8a79305e6972d03084bd0f7e96897284085c7c7d1782046ffba49e8aa57d2288",
+    "/tmp/conaled-wave-20261111/462-private-reference/applicability-evidence.json": "8cb52450a3e5ae88a4d5b77b37c7f802d4696aa81d3802fb966c5d8f5c990931",
+    "/tmp/conaled-wave-20261111/462-private-reference/applicability-review.md": "177b57bf36504f470c7ec582620449e1a905dd2f97e581f0ebdf0bd848682a83",
+    "/tmp/conaled-wave-20261111/462-corrected-verification.json": "2e9adcc9ecca9c881b482eb88e6fa7f9e6dd68d496e4236b9001cd4c4df27a66",
+    "/tmp/conaled-wave-20261111/462-corrected-verify.log": "bf195d5957b75609ffd16caf063fed00eabb7b35d8df0779b5ba35609b6488a8"
+  },
+  "source_snapshots": {
+    "direct": "87e41d08907acb2b2f46df3836e97a934bbc0d34",
+    "assisted": "c986ddd3e4713886802b90ebf4d35bf4f5be60e8"
+  },
+  "dispatch_rule": "Initialize arm state and start its watchdog immediately before fresh-context dispatch. Root records start timestamps, agent identity and watchdog session outside this frozen file. No compiler work concurrent with the author. Direct then assisted; same prompts and preparation regardless of first-arm outcome."
+}

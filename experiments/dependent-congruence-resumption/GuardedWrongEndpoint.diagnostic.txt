@@ -1,0 +1,11 @@
+experiments/dependent-congruence-resumption/GuardedWrongEndpoint.lean.txt:14:36: error: Application type mismatch: The argument
+  hq
+has type
+  TelescopePresentation.Tm Γ (identity A x z) q
+but is expected to have type
+  TelescopePresentation.Tm Γ
+    (identity { A := A, x := x, y := y, p := p, first := hx, second := hy, proof := hp }.A
+      { A := A, x := x, y := y, p := p, first := hx, second := hy, proof := hp }.y z)
+    q
+in the application
+  ThreePaths.mk { A := A, x := x, y := y, p := p, first := hx, second := hy, proof := hp } z w q r hz hw hq

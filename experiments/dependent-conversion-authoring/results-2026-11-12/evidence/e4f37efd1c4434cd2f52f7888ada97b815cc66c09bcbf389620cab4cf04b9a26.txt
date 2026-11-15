@@ -1,0 +1,5 @@
+Recorder setup failed before creating scale-policy-002 or launching Lean.
+Mistyped --context: /tmp/conaled-wave-202611-execution/slot-1/work/context.json
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/conaled-wave-202611-execution/slot-1/work/context.json'
+Failure location: record_attempt.py line 42, context_data = args.context.read_bytes().
+Reported immediately to coordinator. No content read from mistyped path.

@@ -1,0 +1,69 @@
+[0mdirenv: loading /tmp/conaled-314-320/317/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+SquareKit.Internal.DependentJudgments.Sigma.Capability.split_type.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Capability M) {Γ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (C : M.Family (M.extend Γ (S.sigma A B))) :
+  M.subTy (M.subTy C (S.pack A B)) (S.unpack A B) = C
+SquareKit.Internal.DependentJudgments.Sigma.Capability.split_beta.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Capability M) {Γ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (C : M.Family (M.extend Γ (S.sigma A B)))
+  (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))) : M.subTm (S.split A B C d) (S.pack A B) ≍ d
+SquareKit.Internal.DependentJudgments.Sigma.Capability.split_eta.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Capability M) {Γ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (C : M.Family (M.extend Γ (S.sigma A B))) (t : M.Section (M.extend Γ (S.sigma A B)) C) :
+  S.split A B C (M.subTm t (S.pack A B)) = t
+SquareKit.Internal.DependentJudgments.Sigma.Stable.sumMap_comp.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Stable M) {Γ Δ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (σ : M.Substitution Δ Γ) {Θ : M.Context} (τ : M.Substitution Θ Δ) :
+  M.compSub (S.sumMap A B σ) (S.sumMap (M.subTy A σ) (M.subTy B (M.lift A σ)) τ) =
+    M.compSub (S.sumMap A B (M.compSub σ τ)) (M.familyComparison ⋯)
+SquareKit.Internal.DependentJudgments.Sigma.Stable.split_sub.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Stable M) {Γ Δ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (σ : M.Substitution Δ Γ) (C : M.Family (M.extend Γ (S.sigma A B)))
+  (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))) :
+  M.subTm (S.split A B C d) (S.sumMap A B σ) =
+    S.split (M.subTy A σ) (M.subTy B (M.lift A σ)) (M.subTy C (S.sumMap A B σ)) (S.branch A B σ C d)
+SquareKit.Internal.DependentJudgments.Sigma.Stable.pair_sub.{u}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel} (S : Stable M) {Γ Δ : M.Context} (A : M.Family Γ)
+  (B : M.Family (M.extend Γ A)) (a : M.Section Γ A) (b : M.Section Γ (M.subTy B (M.sectionSub A a)))
+  (σ : M.Substitution Δ Γ) :
+  M.subTm (S.pair A B a b) σ ≍ S.pair (M.subTy A σ) (M.subTy B (M.lift A σ)) (M.subTm a σ) (Stable.pairSecond A B a b σ)
+SquareKit.Internal.DependentJudgments.Sigma.Map.split.{u, v}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel}
+  {N : SquareKit.Internal.PathTransport.Typed.StructuralModel} {S : Capability M} {T : Capability N} (F : Map S T)
+  {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A)) (C : M.Family (M.extend Γ (S.sigma A B)))
+  (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))) :
+  F.mapTm (S.split A B C d) ≍
+    T.split (F.family A) (displayFamily F.toStructuralMap A B) (F.motive A B C) (F.branch A B C d)
+SquareKit.Internal.DependentJudgments.Sigma.Map.compose.{u, v, w}
+  {M : SquareKit.Internal.PathTransport.Typed.StructuralModel}
+  {N : SquareKit.Internal.PathTransport.Typed.StructuralModel} {S : Capability M} {T : Capability N}
+  {P : SquareKit.Internal.PathTransport.Typed.StructuralModel} {U : Capability P} (G : Map T U) (F : Map S T) : Map S U
+SquareKit.Internal.DependentJudgments.Sigma.Native.split_compare.{u} (Base : Type u) (Fiber : Base → Type u)
+  {Γ Δ : Type u} {e : Γ ≃ Δ} {A : Γ → Type u} {A' : Δ → Type u}
+  (f : SquareKit.Internal.DependentJudgments.CoherentTypePresentations.FamilyComparison e A A') {B : Sigma A → Type u}
+  {B' : Sigma A' → Type u}
+  (g : SquareKit.Internal.DependentJudgments.CoherentTypePresentations.FamilyComparison f.total B B')
+  {C : Sigma ((Native.capability Base Fiber).sigma A B) → Type u}
+  {D : Sigma ((Native.capability Base Fiber).sigma A' B') → Type u}
+  (m :
+    SquareKit.Internal.DependentJudgments.CoherentTypePresentations.FamilyComparison
+      (Native.sigmaComparison Base Fiber f g).total C D)
+  (d :
+    (SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).Section (Sigma B)
+      ((SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).subTy C
+        ((Native.capability Base Fiber).pack A B))) :
+  m.term ((Native.capability Base Fiber).split A B C d).down =
+    ((Native.capability Base Fiber).split A' B' D (Native.comparedBranch Base Fiber f g m d)).down
+SquareKit.Internal.DependentJudgments.Sigma.Native.FiniteOption.preserves_selected :
+  Native.FiniteOption.motives.term Native.FiniteOption.sourceResult.down = Native.FiniteOption.targetResult.down
+'SquareKit.Internal.DependentJudgments.Sigma.Capability.split_beta' does not depend on any axioms
+'SquareKit.Internal.DependentJudgments.Sigma.Stable.split_sub' does not depend on any axioms
+'SquareKit.Internal.DependentJudgments.Sigma.Map.split' does not depend on any axioms
+'SquareKit.Internal.DependentJudgments.Sigma.Native.FiniteOption.preserves_selected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.Native.FiniteOption.target_selected_some_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

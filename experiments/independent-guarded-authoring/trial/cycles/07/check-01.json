@@ -1,0 +1,16 @@
+{
+  "cycle": 7,
+  "category": "helper writing",
+  "purpose": "Construct source inverse typing and beta; build frozen imports for targeted check",
+  "command": [
+    "lake",
+    "build",
+    "SquareKit.Internal.DependentJudgments.PresentedPath",
+    "SquareKit.Internal.DependentJudgments.PresentedSoundness",
+    "Examples.GuardedLeftConcatenation"
+  ],
+  "started": "2026-11-09T21:29:12.867097+00:00",
+  "exit_code": 0,
+  "seconds": 65.89667682900017,
+  "ended": "2026-11-09T21:30:18.763842+00:00"
+}

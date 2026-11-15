@@ -1,0 +1,75 @@
+attempts/checks/Attempt04/Source.lean:79:7: error(lean.inferDefTypeFailed): Failed to infer type of definition `selectedLeft`
+attempts/checks/Attempt04/Source.lean:80:7: error(lean.inferDefTypeFailed): Failed to infer type of definition `selectedRight`
+attempts/checks/Attempt04/Source.lean:81:7: error(lean.inferDefTypeFailed): Failed to infer type of definition `selectedFamily`
+attempts/checks/Attempt04/Source.lean:83:51: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:84:18: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:84:52: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:94:18: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:95:21: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:96:30: error(lean.unknownIdentifier): Unknown identifier `hx`
+attempts/checks/Attempt04/Source.lean:96:33: error(lean.unknownIdentifier): Unknown identifier `hT`
+attempts/checks/Attempt04/Source.lean:96:36: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:96:39: error(lean.unknownIdentifier): Unknown identifier `hσ`
+attempts/checks/Attempt04/Source.lean:96:2: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+attempts/checks/Attempt04/Source.lean:101:12: error: don't know how to synthesize implicit argument `V`
+  @Atom.inl (Internal.DependentJudgments.signature.sum extraSignature) ?m.11 Sigma.extraSignature
+context:
+V : Type
+Ω : List sorry
+Γ : sorry
+A : sorry
+x : sorry
+T : sorry
+Q : sorry
+p : sorry
+n : ℕ
+hx : Tm sorry sorry sorry
+hT : Tel n (path sorry sorry) sorry
+hp : Tm (total sorry) sorry sorry
+Δ : sorry
+σ : sorry
+hσ : sorry
+⊢ Type ?u.23
+
+Note: Because this declaration's type has been explicitly provided, all parameter types and holes (e.g., `_`) in its header are resolved before its body is processed; information from the declaration body cannot be used to infer what these values should be
+attempts/checks/Attempt04/Source.lean:106:12: error: don't know how to synthesize implicit argument `V`
+  @Atom.inl (Internal.DependentJudgments.signature.sum extraSignature) ?m.11 Sigma.extraSignature
+context:
+V : Type
+Ω : List sorry
+Γ : sorry
+A : sorry
+x : sorry
+T : sorry
+Q : sorry
+p : sorry
+n : ℕ
+hx : Tm sorry sorry sorry
+hT : Tel n (path sorry sorry) sorry
+hp : Tm (total sorry) sorry sorry
+Δ : sorry
+σ : sorry
+hσ : sorry
+⊢ Type ?u.23
+
+Note: Because this declaration's type has been explicitly provided, all parameter types and holes (e.g., `_`) in its header are resolved before its body is processed; information from the declaration body cannot be used to infer what these values should be
+attempts/checks/Attempt04/Source.lean:112:28: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:113:21: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:116:8: warning: declaration uses `sorry`
+attempts/checks/Attempt04/Source.lean:118:5: warning: Variable name `hΩ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hΩ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+attempts/checks/Attempt04/Source.lean:123:2: warning: Unused tactic linter: `exact hΩ b hb` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt04/Source.lean:134:19: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:136:22: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:138:19: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:139:57: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:140:21: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:141:59: error: Invalid argument name `σ` for function
+attempts/checks/Attempt04/Source.lean:144:26: error(lean.unknownIdentifier): Unknown identifier `extensionLeft`
+attempts/checks/Attempt04/Source.lean:144:8: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined

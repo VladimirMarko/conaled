@@ -1,0 +1,140 @@
+[
+  {
+    "name": "RunnerTrue",
+    "expected": "lean-passed",
+    "record": {
+      "acceptance": "pending coordinator declaration/statement/axiom checks",
+      "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+      "elapsed_seconds": 3.408951869001612,
+      "environment": {
+        "LEAN_PATH": null,
+        "LEAN_SRC_PATH": null,
+        "LEAN_SYSROOT": null
+      },
+      "evidence_sha256": {
+        "Source.lean": "7e0474117cf7ab52787b488d20a47e8f4d57dde627d111c0795ced1e8648a830",
+        "attempt.json": "57b28038733c6922cb62cfc25d8e1052e65a61e8e3241ed3f334629c090ecc5f",
+        "deps.command.json": "456685d16fc8b3ff116842948ed5ade50ef5fc342672817cccfb96442faad7e8",
+        "deps.result.json": "951e66fb2ccc8c0268e76b30d344e2b0b9c9a839796b394f8ca7af5e17b44906",
+        "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deps.stdout.log": "577730c07a53c999042073e8c7a3c5525b629d92088997e278d25924141ae572",
+        "imports.json": "b4d5a5e6a3c22eac10bff647092205a4f33cd72c500a6e4f057c403d8cabcfb2",
+        "lean.command.json": "c87f20f4297df5866227412db70627f4f1da8d48ceaf86b86cf83070021ed8ff",
+        "lean.result.json": "97562ea4b27adddcfe876a385591226e78e9517ffb67dfa9fb43ba4ba70ce37e",
+        "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "libdir.command.json": "002c13f478c3096ebdee127629f8a0fd83c7f0a55f3b29345e0ca6424cf3d143",
+        "libdir.result.json": "ee3dc41e0011bbb4022497f518472ef965094e7921961eb5c8db500cb5068d7a",
+        "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+        "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+      },
+      "exit": 0,
+      "finish": "2026-11-08T16:41:04.243027+00:00",
+      "invocation": [
+        "check_attempt.py",
+        "attempts/RunnerTrue.lean"
+      ],
+      "lean_exit": 0,
+      "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+      "public_inputs_after": "verified",
+      "public_inputs_before": "verified",
+      "schema": 1,
+      "source": "attempts/RunnerTrue.lean",
+      "source_sha256": "7e0474117cf7ab52787b488d20a47e8f4d57dde627d111c0795ced1e8648a830",
+      "start": "2026-11-08T16:41:00.834013+00:00",
+      "status": "lean-passed"
+    },
+    "timing": {
+      "schema": 1,
+      "source": "attempts/RunnerTrue.lean",
+      "command": [
+        "direnv",
+        "exec",
+        ".",
+        "python3",
+        "check_attempt.py",
+        "attempts/RunnerTrue.lean"
+      ],
+      "start_utc": "2026-11-08T16:39:00.694023+00:00",
+      "status": "finished",
+      "lock": "/tmp/conaled-362-orchestration/build.lock",
+      "lock_wait_seconds": 120.03850472500199,
+      "exit_code": 0,
+      "finish_utc": "2026-11-08T16:41:04.249660+00:00",
+      "check_seconds": 3.517127725004684,
+      "wall_seconds": 123.55563245000667,
+      "child_maxrss_kib": 1495728,
+      "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+    }
+  },
+  {
+    "name": "RunnerFalse",
+    "expected": "lean-failed",
+    "record": {
+      "acceptance": "pending coordinator declaration/statement/axiom checks",
+      "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+      "elapsed_seconds": 1.5549116990005132,
+      "environment": {
+        "LEAN_PATH": null,
+        "LEAN_SRC_PATH": null,
+        "LEAN_SYSROOT": null
+      },
+      "evidence_sha256": {
+        "Source.lean": "1b4bed744d09126b15647085c6f9ab0d983dcbb495fdb4a356852194afbe4b69",
+        "attempt.json": "e23a7688a28180539c117313c43f07203875d02271678fbbc1fc73051a6f9fbf",
+        "deps.command.json": "3c2028a32df54fe470f3f15428e8e2beb017f9da57a09e21be919326982b93bf",
+        "deps.result.json": "01ebf5504934346eedf013bfe53389c6882bcfb2ff50829c82808d29518bf2f0",
+        "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deps.stdout.log": "577730c07a53c999042073e8c7a3c5525b629d92088997e278d25924141ae572",
+        "imports.json": "b4d5a5e6a3c22eac10bff647092205a4f33cd72c500a6e4f057c403d8cabcfb2",
+        "lean.command.json": "8a42294f29c5ee16a891e18951644ffb654ef9669d8556b4c308ca1b1961d5ec",
+        "lean.result.json": "8bf82bfdd32cec6ab4a18abe9781684903c2abe5ccf728b985f946d69b1997b6",
+        "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lean.stdout.log": "b48a203c3b3d05c776ba6837c147e9382e1b2e06a9b19293a7f471a977315837",
+        "libdir.command.json": "2d681cbeceafc70d7efea7e3891e6c771ceb0550d920d072933f802b284c5934",
+        "libdir.result.json": "a6d100037da7e9a07d294114989f9935319ea61e8c7dbd989d4e768fbf4c8464",
+        "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+        "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+      },
+      "exit": 1,
+      "finish": "2026-11-08T16:41:09.302002+00:00",
+      "invocation": [
+        "check_attempt.py",
+        "attempts/RunnerFalse.lean"
+      ],
+      "lean_exit": 1,
+      "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+      "public_inputs_after": "verified",
+      "public_inputs_before": "verified",
+      "schema": 1,
+      "source": "attempts/RunnerFalse.lean",
+      "source_sha256": "1b4bed744d09126b15647085c6f9ab0d983dcbb495fdb4a356852194afbe4b69",
+      "start": "2026-11-08T16:41:07.747024+00:00",
+      "status": "lean-failed"
+    },
+    "timing": {
+      "schema": 1,
+      "source": "attempts/RunnerFalse.lean",
+      "command": [
+        "direnv",
+        "exec",
+        ".",
+        "python3",
+        "check_attempt.py",
+        "attempts/RunnerFalse.lean"
+      ],
+      "start_utc": "2026-11-08T16:41:04.359922+00:00",
+      "status": "finished",
+      "lock": "/tmp/conaled-362-orchestration/build.lock",
+      "lock_wait_seconds": 3.292562465998344,
+      "exit_code": 1,
+      "finish_utc": "2026-11-08T16:41:09.306365+00:00",
+      "check_seconds": 1.653877413002192,
+      "wall_seconds": 4.946439879000536,
+      "child_maxrss_kib": 1498412,
+      "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+    }
+  }
+]

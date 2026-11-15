@@ -1,0 +1,7 @@
+Decision: reject the proposed equality FuncEq newest older.
+
+The released newest and older are distinct free function variables in the same context: .top and .function .top. Their inferred types agree, but type equality supplies no equality rule identifying free function parameters. Beta and eta eliminate application/lambda structure; they do not identify these distinct free heads. Congruence and typed substitution preserve an equality already established, rather than asserting that arbitrary same-typed variables are equal.
+
+NegativeProof.lean checks that their types agree and their syntax differs. These checks support the diagnosis but are not claimed to prove absence of FuncEq: syntactic inequality alone would not establish that. No checked proof of the optional head inequivalence or HeadTask is supplied, and no positive derivation is asserted. The equality is rejected, not left as an uncertainty report.
+
+The separate IndexTask is proved in Lean: the initial left term has three negations in its index, while bad has one; constructor discrimination proves the indices unequal, and DepEq.type rules out DepEq Initial.lhs bad.

@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-12T15:56:45.277316+00:00",
+  "monotonic_ns": 172294470827940,
+  "context": {
+    "slot": "slot-4",
+    "session": "01a1d073-e844-7d92-80d5-20c487497b85",
+    "route": "direct",
+    "phase": "held-out",
+    "release_sha256": "c4cfddad5be1e2e8f7393bdb1c1cb7aa084b6ab022d51310e0a2df928281d9e0",
+    "environment_sha256": "313b2cd01f7a964c960aaae8a7049707aca7ca8c20505169c86813ae575b432b"
+  },
+  "decision": "Prior submission archived/checked; release only next frozen phase; supplied definition compilation passed",
+  "checkpoint_minutes": 10,
+  "repair_interval": "Shared baseline/change interval starts at repair-baseline-release.json; no reset at change",
+  "output": "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/work/repair-change-output",
+  "sealed_files": [
+    {
+      "path": "sealed/held-out/Examples/ConversionTrial/HeldOut.lean",
+      "sha256": "b556c838109e22902e3a12e1a51111d9a9f96fcf356f60f11afbdadc8b29ab86",
+      "source": "experiments/dependent-conversion-authoring/fixtures/HeldOut.lean",
+      "lines": null
+    }
+  ]
+}

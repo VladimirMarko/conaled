@@ -1,0 +1,8 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:430:2: error: Tactic `rfl` failed: The left-hand side
+  some ((inverseSection (constant C4) base base (labeled n)).obj { as := PUnit.unit }).as
+is not definitionally equal to the right-hand side
+  some (label (-n))
+
+B : C4 ⥤ Type
+n : ZMod 4
+⊢ some ((inverseSection (constant C4) base base (labeled n)).obj { as := PUnit.unit }).as = some (label (-n))

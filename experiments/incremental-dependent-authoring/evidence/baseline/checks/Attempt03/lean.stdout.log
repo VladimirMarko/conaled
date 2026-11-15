@@ -1,0 +1,24 @@
+attempts/checks/Attempt03/Source.lean:82:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt03/Source.lean:82:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt03/Source.lean:86:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt03/Source.lean:86:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt03/Source.lean:92:73: error: unsolved goals
+case e_4
+ops : List Examples.IncrementalDependentTrialSpec.Op
+e : Ix
+n : ℕ
+⊢ ⟨Examples.IncrementalDependentTrialSpec.run ops (Ix.eval n e) + 1, ⋯⟩ ≍
+    ⟨Examples.IncrementalDependentTrialSpec.run ops (Ix.eval n e) + 1, ⋯⟩
+attempts/checks/Attempt03/Source.lean:99:62: error: unsolved goals
+case e_4
+xs ys : List Examples.IncrementalDependentTrialSpec.Op
+n : ℕ
+⊢ ⟨Ix.eval (Ix.eval n (generate xs)) (generate ys) + 1, ⋯⟩ ≍ ⟨Ix.eval (Ix.eval n (generate xs)) (generate ys) + 1, ⋯⟩

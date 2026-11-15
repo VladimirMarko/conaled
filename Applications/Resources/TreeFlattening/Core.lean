@@ -1,5 +1,6 @@
 import Applications.Resources.RandomAccess.CacheCosts
 import Applications.Resources.Measured
+import Applications.Resources.ListAppend
 
 /-! Actual recursive append and explicit pending-stack traversal on shared trees.
 Provenance and statement review: `docs/research/adwh-tree-flattening.md`. -/
@@ -23,17 +24,10 @@ def pending : List (Tree α) → Nat
   | t :: ts => nodes t + pending ts
 
 /-- Ordinary append, with one charge for each copied cell of its first list. -/
-def appendWithCost : List α → List α → List α × Nat
-  | [], ys => (ys, 0)
-  | x :: xs, ys =>
-      let rest := appendWithCost xs ys
-      (x :: rest.1, rest.2 + 1)
+abbrev appendWithCost : List α → List α → List α × Nat := ListAppend.copies
 
 theorem appendWithCost_exact (xs ys : List α) :
-    appendWithCost xs ys = (xs ++ ys, xs.length) := by
-  induction xs with
-  | nil => rfl
-  | cons x xs ih => simp [appendWithCost, ih]
+    appendWithCost xs ys = (xs ++ ys, xs.length) := ListAppend.copies_exact xs ys
 
 /-- The original recursive append traversal, retaining its actual result. -/
 def fromTWithCost : Tree α → List α × Nat

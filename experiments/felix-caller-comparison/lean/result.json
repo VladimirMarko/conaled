@@ -1,0 +1,25 @@
+{
+  "event": "freeze",
+  "time": "2026-11-11T15:25:52.592257+00:00",
+  "completion_time": "2026-11-11T15:25:36.411594+00:00",
+  "reason": "All three task contracts and isolated audit checked in round 5; no further author source edits or checker rounds.",
+  "rounds": 5,
+  "active_seconds_to_success": 376.411594,
+  "excluded_seconds": 0,
+  "sha256": "14251b8e1ad49b4d310ef65da4c766df613410e2599f284513b693d185872669",
+  "first_final": {
+    "task1": [
+      1,
+      2
+    ],
+    "task2": [
+      3,
+      3
+    ],
+    "task3": [
+      4,
+      5
+    ]
+  },
+  "note": "Task 1 final is task1-final.lean; task 2 final is task2-final.lean; task 3/final include copied audit."
+}

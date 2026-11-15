@@ -1,0 +1,53 @@
+# Dynamic arrays: contract and foundations assessment
+
+Retain the two policy boundaries and a shared concrete storage/event implementation. Reuse `Resources.run`, `reweight_run`, and the potential theorems. A new storage typeclass hierarchy is not justified by these two policies: their storage operations are identical and their growth predicates differ. Two small local policy executors using shared copy/grow/write lemmas are also a sound alternative. The choice between those arrangements should depend on the resulting caller obligations, not an assumed need to centralize policy logic.
+
+The strongest retention evidence is that the recovered implementations already separate raw execution, layout refinement, event observations, and amortized accounting. Their two `adds_metered` theorems quantify over every additive list price. Their potential inequalities hold for every raw state. The eager implementation reuses literal storage operations and has independent positive-spare and geometric accounting results. These are substantive contracts to preserve.
+
+## Evidence inspected
+
+Current source is pinned at `e80c51d968925be3809ba3acc3259de7041b504b`. Relevant owners are `Applications/Resources/{Measured,Workload,Potential}.lean`, `Applications/Dijkstra/Store.lean`, `Applications/Resources/Dijkstra/StoreCosts.lean`, `Applications/Sequences/ByteBuffer.lean`, and `Applications/Resources/ByteBuffer.lean`. Consumers inspected include `Examples/ByteBuffer.lean` and `Applications/Resources/RandomAccess/Observation.lean`.
+
+I also inspected recovered primary Lean source at `/tmp/conaled-wave-20261111/458-source/project/adwh-lean/ADWH/Chapter02/`. Below, `Literal` means namespace `ADWH.Chapter02.DynamicArray` in `DynamicArray.lean`; `Eager` means namespace `ADWH.Chapter02.DynamicArrayEager` in `DynamicArrayEager.lean`. Their SHA-256 digests are respectively `a8f9e0bbb49d31a5cc8f4e19dd7fba339d32c5fd0ac52300b3030b8bd0789469` and `d708457628cb6a1fe7d344f14397e15b887568888942c395147138a19c4bfcb4`. These files are external historical inputs, not integrated modules certified by the pinned checkout. I did not independently authenticate their archive provenance or rerun their Lean proofs.
+
+## Storage domain and copy contract
+
+`Literal.State` contains `Array (Option α)` and an unconstrained natural `free`. `copyInto` uses `setIfInBounds`, emits one copy event for every attempted write, and accepts arbitrary input lists, cursors, and destination arrays. `writeFront` similarly uses truncated subtraction and an attempted write. Those operations remain total when `free > capacity`, when capacity is zero, and when a destination index is out of bounds.
+
+`Literal.Layout s xs` separately requires positive capacity and `slots.toList = replicate free none ++ xs.map some`. `layout_size`, `layout_value`, `add_layout`, and `add_inbounds` then establish the intended interpretation. Replacing the raw carrier by `Machine W N` or accepting only `Fin N` indices would discard inputs of the current operations. That is an interface restriction, not a proof simplification preserving the same contract. The finite byte machine also fixes capacity and Boolean payloads and rejects overflowing appends; `Examples.ByteBuffer.zero_capacity` confirms its different zero-capacity behavior.
+
+`Literal.copyInto_layout` preserves arbitrary `pre` and `post` around a window of `none` cells. Preserve that theorem as stated. A useful optional strengthening replaces the `none` window with an arbitrary old window of equal length. This appears derivable by induction from total indexed-update behavior; it needs no new operation or additional stored proof field. It remains a proposed proof, not a checked result here. Bounds belong in the window correctness theorem, not in the raw executor signature. Likewise, ordered arbitrary updates can repeat indices; uniqueness is needed only for a simultaneous-update characterization. `Dijkstra.Store.accum_lookup` already characterizes ordered repeated updates without a `Nodup` premise, while `valuesAt_map_unique` adds that premise for its distinct specialization.
+
+The existing Dijkstra store uses `Vector α n` and `Fin n`; its whole-store `Resources.DijkstraStore.copy_value` does not establish arbitrary copy windows or raw attempted-write behavior. Its `bulkRun_exact` establishes an abstract bill `n + 3*length`, with an explicit disclaimer about native Vector allocation. These are useful mechanisms and precedents, not a dynamic-array replacement.
+
+## Events, arbitrary prices, and grouping
+
+Keep event payloads: allocation size, copy index and optional value, and write index and value. Counts of work, slots allocated, and growths cannot distinguish all additive prices. For example, a price charging only writes at index zero satisfies empty/append laws but cannot generally be reconstructed from work and allocation totals. Ordered events also distinguish traces with the same multiset of operations.
+
+`Resources.Measured` and `Resources.run` require no commutativity. With an additive free list observation, every existing `price : List Event → Nat` satisfying empty/append laws packages directly as an additive monoid homomorphism. `reweight_run` then gives the recovered `adds_metered` contract without another induction. The two price laws define that map's compatibility with the existing observations; they do not require stronger storage laws. A noncommutative target can additionally retain event order. The implementation should use an existing list/free-monoid wrapper rather than invent an algebraic hierarchy.
+
+Retain per-insertion observations at the insertion boundary. A singleton block containing each insertion's event list gives a list of event lists whose flattening recovers the ordered trace; mapping any price over blocks recovers per-insertion bills. Flattening alone generally loses segmentation: `[[a],[b]]` and `[[a,b]]` flatten equally. Therefore the grouped observation cannot be obtained as a general homomorphism from an already flattened trace. Particular event grammars might permit parsing boundaries, but that would be an additional grammar-specific argument, not the generic reweighting law. The smallest solution is a wrapper around the same insertion step, without a second value-producing execution algorithm.
+
+## Hypotheses and potential accounting
+
+Both recovered policies use `potential s = capacity - 2*free` with natural subtraction. Their `add_potential` and `add_allocation_potential` quantify over all raw states, and their `adds_potential` and `adds_allocation_potential` retain both boundary potentials. Preserve that scope. `Resources.run_constant_charge` directly owns the telescoping argument; `initial_potential_matters` already rejects dropping initial stored credit without a premise. The generic owner requires a step law on every state, which the existing array inequalities supply. If a future policy has a law only on an invariant, use a valid-state specialization or a reachable-invariant theorem rather than pretending the raw law is universal.
+
+Arbitrary additive pricing transport is an exact equality, not a promise of constant amortized cost for every price. Index-dependent or value-dependent prices can grow arbitrarily. Keep that distinction explicit. Existing constant-charge theorems cover work and allocation projections; they do not bound every possible tariff.
+
+`Eager.add_spare` and `adds_spare` require both layout and initially positive free space. `Eager.add_balance` and `adds_balance` have the same extra hypothesis. A valid full singleton has capacity one and free zero. Eager growth then copy/write yields capacity two, free zero, work two, and one growth. Its claimed balance without the positive-spare premise would read `2 + 1 + 1 = 1 + 2`, which is false. Layout preservation still holds. This is a paper calculation from the definitions, not an executed Lean fixture. Conversely, eager `adds_capacity_growth` has no layout assumption: capacity equals initial capacity times a power of two even on zero capacity. Do not conflate these theorem domains.
+
+## Discriminating acceptance cases
+
+1. Run the identical insertion prefixes `[1,2,3]` and `[1,2,3,4]` under both policies. Preserve exact ordered events and grouped bills as well as logical reverse-list semantics. The research note's totals distinguish cheaper eager work at length three from cheaper literal work/allocation at length four. Check the totals anew in Lean when porting them.
+2. Copy into a nonempty prefix/window/suffix, including `none` source values; retain the original all-`none` window theorem and separately test the optional arbitrary-old-window strengthening. Run out-of-bounds and overlapping/repeated raw commands without imposing new executor preconditions.
+3. Use capacity zero/free zero: growth emits `.allocate 0`, performs no copy, and attempts index-zero writing. Allocation volume is zero but growth count is one. A compressed allocation-volume observation loses this distinction.
+4. Use a valid full singleton and a malformed cursor exceeding capacity. Demand layout refinement only where its assumptions hold, while retaining raw event, size, and potential identities on both inputs. Include non-power-of-two capacities and the empty command list.
+5. Instantiate additive reweighting with ordinary work, allocated slots, growth count, an index-sensitive price, and an order-preserving list target. Compare per-step bills before flattening and both boundary potentials from a nonempty initial state.
+
+These tests discriminate domain narrowing and observation loss. They do not establish the universal theorems on their own.
+
+## Limits and classification
+
+I found no established defect in the inspected dynamic-array theorem statements. The concerns above are concrete preservation risks for a port or redesign. The fixed byte-buffer machinery does not itself supply dynamic resizing; this is a missing capability, not a defect in its stated fixed-capacity contract. Allocation ownership and native memory/runtime costs remain outside the mathematical array/event execution model, as the byte-buffer `convert` documentation also distinguishes explicitly.
+
+This assessment used source inspection and paper derivation only. No builds, proof audits, runtime tests, target edits, or issue operations were performed. I read no other challenge reports and had no prior involvement in this challenge. The brief and maintained research notes supplied framing; I inspected recovered definitions rather than taking their recommendations as authority. Fresh context does not remove that shared framing, and this assessment provides no model diversity. No claims about the printed book were independently verified.

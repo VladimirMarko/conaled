@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 600" role="img" aria-labelledby="title description" font-family="sans-serif" font-size="15">
+  <title id="title">Finite labelled action diagrams</title>
+  <desc id="description">Directed generator edges, with separate indices for repeated labels.</desc>
+  <rect width="100%" height="100%" fill="#f6f8fa" />
+  <text x="24" y="34" font-size="24" font-weight="bold" fill="#192c3b">Finite labelled action diagrams</text>
+  <text x="24" y="60" fill="#435463">Left actions · Arrowheads show direction · Generator indices remain distinct</text>
+  <defs>
+    <marker id="arrow0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#176b9b" />
+    </marker>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ad3b43" />
+    </marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#88621b" />
+    </marker>
+    <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#663c9e" />
+    </marker>
+  </defs>
+  <g transform="translate(0,0)" data-diagram="c3">
+    <rect x="12" y="82" width="396" height="502" rx="12" fill="white" stroke="#d0d9df" />
+    <text x="30" y="114" font-size="21" font-weight="bold" fill="#192c3b">c3</text>
+    <g class="edge" data-edge-id="0:0" data-source="0" data-target="1" data-generator="0">
+      <title>0:0: 0 → 1; g0 = 1</title>
+      <path d="M 200.00,217.32 Q 171.03,267.50 142.06,317.68" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="171.03" y="267.50" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="1:0" data-source="1" data-target="2" data-generator="0">
+      <title>1:0: 1 → 2; g0 = 1</title>
+      <path d="M 152.06,335.00 Q 210.00,335.00 267.94,335.00" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="210.00" y="335.00" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="2:0" data-source="2" data-target="0" data-generator="0">
+      <title>2:0: 2 → 0; g0 = 1</title>
+      <path d="M 277.94,317.68 Q 248.97,267.50 220.00,217.32" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="248.97" y="267.50" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <circle cx="210.00" cy="200.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="210.00" y="200.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">0</text>
+    <circle cx="132.06" cy="335.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="132.06" y="335.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">1</text>
+    <circle cx="287.94" cy="335.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="287.94" y="335.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">2</text>
+    <text x="30" y="441" fill="#435463">Generator index = group label</text>
+    <text x="30" y="468" fill="#176b9b">g0 = 1</text>
+    <text x="30" y="562" fill="#435463">3 vertices · 3 directed edges</text>
+  </g>
+  <g transform="translate(420,0)" data-diagram="s3-natural">
+    <rect x="12" y="82" width="396" height="502" rx="12" fill="white" stroke="#d0d9df" />
+    <text x="30" y="114" font-size="21" font-weight="bold" fill="#192c3b">s3-natural</text>
+    <g class="edge" data-edge-id="0:0" data-source="0" data-target="1" data-generator="0">
+      <title>0:0: 0 → 1; g0 = [1, 0, 2]</title>
+      <path d="M 215.72,219.16 Q 242.48,308.75 151.52,330.37" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="213.05" y="291.76" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="0:2" data-source="0" data-target="1" data-generator="2">
+      <title>0:2: 0 → 1; g2 = [1, 0, 2]</title>
+      <path d="M 206.33,219.66 Q 194.84,281.25 147.25,321.99" fill="none" stroke="#88621b" stroke-width="2.2" marker-end="url(#arrow2)" />
+      <text x="185.82" y="276.04" text-anchor="middle" dominant-baseline="middle" fill="#88621b" stroke="white" stroke-width="5" paint-order="stroke">g2</text>
+    </g>
+    <g class="edge" data-edge-id="1:0" data-source="1" data-target="0" data-generator="0">
+      <title>1:0: 1 → 0; g0 = [1, 0, 2]</title>
+      <path d="M 135.73,315.34 Q 147.21,253.75 194.81,213.01" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="156.24" y="258.96" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="1:2" data-source="1" data-target="0" data-generator="2">
+      <title>1:2: 1 → 0; g2 = [1, 0, 2]</title>
+      <path d="M 126.33,315.84 Q 99.58,226.25 190.54,204.63" fill="none" stroke="#88621b" stroke-width="2.2" marker-end="url(#arrow2)" />
+      <text x="129.01" y="243.24" text-anchor="middle" dominant-baseline="middle" fill="#88621b" stroke="white" stroke-width="5" paint-order="stroke">g2</text>
+    </g>
+    <g class="edge" data-edge-id="0:1" data-source="0" data-target="0" data-generator="1">
+      <title>0:1: 0 → 0; g1 = [0, 2, 1]</title>
+      <path d="M 198.71,183.49 C 159.75,140.34 260.25,140.34 221.29,183.49" fill="none" stroke="#ad3b43" stroke-width="2.2" marker-end="url(#arrow1)" />
+      <text x="210.00" y="132.00" text-anchor="middle" dominant-baseline="middle" fill="#ad3b43" stroke="white" stroke-width="5" paint-order="stroke">g1</text>
+    </g>
+    <g class="edge" data-edge-id="1:1" data-source="1" data-target="2" data-generator="1">
+      <title>1:1: 1 → 2; g1 = [0, 2, 1]</title>
+      <path d="M 150.92,328.35 Q 210.00,307.50 269.08,328.35" fill="none" stroke="#ad3b43" stroke-width="2.2" marker-end="url(#arrow1)" />
+      <text x="210.00" y="317.92" text-anchor="middle" dominant-baseline="middle" fill="#ad3b43" stroke="white" stroke-width="5" paint-order="stroke">g1</text>
+    </g>
+    <g class="edge" data-edge-id="2:1" data-source="2" data-target="1" data-generator="1">
+      <title>2:1: 2 → 1; g1 = [0, 2, 1]</title>
+      <path d="M 269.08,341.65 Q 210.00,362.50 150.92,341.65" fill="none" stroke="#ad3b43" stroke-width="2.2" marker-end="url(#arrow1)" />
+      <text x="210.00" y="352.08" text-anchor="middle" dominant-baseline="middle" fill="#ad3b43" stroke="white" stroke-width="5" paint-order="stroke">g1</text>
+    </g>
+    <g class="edge" data-edge-id="2:0" data-source="2" data-target="2" data-generator="0">
+      <title>2:0: 2 → 2; g0 = [1, 0, 2]</title>
+      <path d="M 305.72,325.83 C 353.34,292.49 340.95,392.22 302.93,348.24" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="355.42" y="343.38" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="2:2" data-source="2" data-target="2" data-generator="2">
+      <title>2:2: 2 → 2; g2 = [1, 0, 2]</title>
+      <path d="M 306.90,341.36 C 364.00,352.30 283.83,412.89 288.89,354.98" fill="none" stroke="#88621b" stroke-width="2.2" marker-end="url(#arrow2)" />
+      <text x="328.94" y="389.25" text-anchor="middle" dominant-baseline="middle" fill="#88621b" stroke="white" stroke-width="5" paint-order="stroke">g2</text>
+    </g>
+    <circle cx="210.00" cy="200.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="210.00" y="200.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">0</text>
+    <circle cx="132.06" cy="335.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="132.06" y="335.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">1</text>
+    <circle cx="287.94" cy="335.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="287.94" y="335.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">2</text>
+    <text x="30" y="441" fill="#435463">Generator index = group label</text>
+    <text x="30" y="468" fill="#176b9b">g0 = [1,0,2]</text>
+    <text x="30" y="493" fill="#ad3b43">g1 = [0,2,1]</text>
+    <text x="30" y="518" fill="#88621b">g2 = [1,0,2]</text>
+    <text x="30" y="562" fill="#435463">3 vertices · 9 directed edges</text>
+  </g>
+  <g transform="translate(840,0)" data-diagram="s3-trivial">
+    <rect x="12" y="82" width="396" height="502" rx="12" fill="white" stroke="#d0d9df" />
+    <text x="30" y="114" font-size="21" font-weight="bold" fill="#192c3b">s3-trivial</text>
+    <g class="edge" data-edge-id="0:0" data-source="0" data-target="0" data-generator="0">
+      <title>0:0: 0 → 0; g0 = [1, 0, 2]</title>
+      <path d="M 198.71,253.49 C 159.75,210.34 260.25,210.34 221.29,253.49" fill="none" stroke="#176b9b" stroke-width="2.2" marker-end="url(#arrow0)" />
+      <text x="210.00" y="202.00" text-anchor="middle" dominant-baseline="middle" fill="#176b9b" stroke="white" stroke-width="5" paint-order="stroke">g0</text>
+    </g>
+    <g class="edge" data-edge-id="0:1" data-source="0" data-target="0" data-generator="1">
+      <title>0:1: 0 → 0; g1 = [0, 2, 1]</title>
+      <path d="M 229.94,268.47 C 286.79,256.31 236.54,343.35 218.65,288.03" fill="none" stroke="#ad3b43" stroke-width="2.2" marker-end="url(#arrow1)" />
+      <text x="268.89" y="304.00" text-anchor="middle" dominant-baseline="middle" fill="#ad3b43" stroke="white" stroke-width="5" paint-order="stroke">g1</text>
+    </g>
+    <g class="edge" data-edge-id="0:2" data-source="0" data-target="0" data-generator="2">
+      <title>0:2: 0 → 0; g2 = [1, 0, 2]</title>
+      <path d="M 201.35,288.03 C 183.46,343.35 133.21,256.31 190.06,268.47" fill="none" stroke="#88621b" stroke-width="2.2" marker-end="url(#arrow2)" />
+      <text x="151.11" y="304.00" text-anchor="middle" dominant-baseline="middle" fill="#88621b" stroke="white" stroke-width="5" paint-order="stroke">g2</text>
+    </g>
+    <circle cx="210.00" cy="270.00" r="18" fill="#f1f5f8" stroke="#364b5b" stroke-width="1.5" />
+    <text x="210.00" y="270.00" text-anchor="middle" dominant-baseline="middle" fill="#192c3b">*</text>
+    <text x="30" y="441" fill="#435463">Generator index = group label</text>
+    <text x="30" y="468" fill="#176b9b">g0 = [1,0,2]</text>
+    <text x="30" y="493" fill="#ad3b43">g1 = [0,2,1]</text>
+    <text x="30" y="518" fill="#88621b">g2 = [1,0,2]</text>
+    <text x="30" y="562" fill="#435463">1 vertex · 3 directed edges</text>
+  </g>
+</svg>

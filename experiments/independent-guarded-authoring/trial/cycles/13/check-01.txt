@@ -1,0 +1,29 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:14: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:18: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:18: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:271:4: error: Tactic `rfl` failed: The left-hand side
+  M.identity A { down := x } { down := x } = M.subTy (motive A x) (M.rootSub A { down := x })
+is not definitionally equal to the right-hand side
+  M.reflexivity A { down := x } = branch C B A x
+
+case hd
+C : Type u
+inst✝ : Groupoid C
+B : C ⥤ Type u
+G : Grpd
+A : ↑G ⥤ Grpd
+x y : Section A
+p : Section (identityFamily A x y)
+⊢ M.identity A { down := x } { down := x } = M.subTy (motive A x) (M.rootSub A { down := x }) ∧
+    M.reflexivity A { down := x } = branch C B A x
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:296:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,21 @@
+{
+  "worker_commit": "68c85372b1754658786614bf2cc295ea9ec1293a",
+  "system": "Linux-6.18.58-x86_64-with-glibc2.42",
+  "python_version": "3.13.15",
+  "source_sha256": {
+    "Applications/Orbifold/RationalMotion.lean": "5db860fc1695772daaf5ba06d65b667cc5b102c960b4a61dab132d68ee256155",
+    "Applications/Orbifold/CheckedMotion.lean": "d53f2e453e24fc29943f360517354444bbf9eb3eb8ca2a30cfa57a50fdd639e0",
+    "Applications/Orbifold/NumericalExecution.lean": "e3e7fbe78843cda2916325b713230b36ee78d40677c8a66f02141ada70e8d6da",
+    "Applications/Orbifold/MeasuredNumericalExecution.lean": "ca1eddebb90c8469059efdf3df7e0dd65b7fd11c76c10166516fc6b8a2141acf",
+    "Applications/Orbifold/NumericalSymmetry.lean": "4290d1138112eed86922ba9b4bd9f5eee90f9848eaae89cf5499dc4194c2b789",
+    "Examples/NumericalMotion.lean": "057c5989fe89090d730dd2ce167b9713a8b253a846b01dbb4bf22cbf82d9610f",
+    "Examples/MeasuredNumericalMotion.lean": "ad4533ece3a3afcaa9bc9e04942af31fd523b70894c861c77d10a2d74b0e254e",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+  },
+  "probe_sha256": "8b3a6155749264e953a6b68c1205f9ab12f9cb2f725e470c2659e0081cff2ecf",
+  "runner_sha256": "c39346788eeff85713130f10e381d661e3687284331cc67913b420ce30326859",
+  "notes": "Read-only Lean --run of external probe against existing worker artifacts; no candidate-validation claim. Earlier smoke logs include launcher/parser failures; numerical cases begin baseline-move.",
+  "probe_path": "scripts/probes/DiskDriverFeasibility.lean",
+  "runner_note": "Original measured runner hash retained; portable reproduction wrapper is scripts/probes/run-disk-feasibility.py. This is measured input evidence, not candidate validation."
+}

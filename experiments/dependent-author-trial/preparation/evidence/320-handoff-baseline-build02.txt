@@ -1,0 +1,23 @@
+[0mdirenv: loading /tmp/conaled-314-320/authors/baseline/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-314-320/authors/baseline/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-314-320/authors/baseline/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-314-320/authors/baseline/.envrc
+/tmp/conaled-314-320/authors/baseline/lean-toolchain
+/tmp/conaled-314-320/authors/baseline/flake.nix
+/tmp/conaled-314-320/authors/baseline/flake.lock
+[0mdirenv: nix-direnv: Renewed cache
+⚠ [512/521] Built SquareKit.Internal.PathTransport.Syntax (1.6s)
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [513/521] Built SquareKit.Internal.PathTransport.RawContext (631ms)
+✔ [514/521] Built SquareKit.Internal.PathTransport.Model (670ms)
+✔ [515/521] Built SquareKit.Internal.PathTransport.ContextualModel (2.4s)
+⚠ [516/521] Built SquareKit.Internal.PathTransport.Comprehension (654ms)
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [517/521] Built SquareKit.Internal.PathTransport.InterpretationMaps (1.3s)
+✔ [518/521] Built SquareKit.Internal.DependentJudgments.Sigma.Capability (727ms)
+✔ [519/521] Built SquareKit.Internal.DependentJudgments.Sigma.Stability (659ms)
+✔ [520/521] Built SquareKit.Internal.PathTransport.Typed (19s)
+✔ [521/521] Built SquareKit.Internal.PathTransport.Authoring (1.4s)
+Build completed successfully (521 jobs).

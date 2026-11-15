@@ -1,0 +1,74 @@
+{
+  "configuration": {
+    ".envrc": "23922a0701527c0c21030db246d6461cff5264024e6da9f6db66f11362d2855c",
+    "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+    "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+  },
+  "dependency_commits": {
+    "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+    "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+    "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+    "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+    "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+    "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+    "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+  },
+  "dependency_copy": "cp -a --reflink=auto; private files; internal links only",
+  "dependency_internal_links": [
+    ".lake/packages/batteries/docs/README.md"
+  ],
+  "destination": "/tmp/conaled-362-orchestration/trial358/shared",
+  "donor_revision": "2838b20125fc4253f55eb1feb45f069f604175df",
+  "elapsed_seconds": 90.69865489700169,
+  "entrypoints": [
+    "SquareKit.DependentOperation.Lowering",
+    "Examples.DependentOperationTrialSpec"
+  ],
+  "external_imports": [
+    "Mathlib.Data.Fin.Basic",
+    "Mathlib.Data.Fin.Rev"
+  ],
+  "finish": "2026-11-08T16:38:38.092658+00:00",
+  "modules": {
+    "Examples.DependentOperationTrialSpec": "6f93a9c6d83a1986594fdd81d84c3c7dce4955af3d8d8860068e636b6df8973e",
+    "SquareKit.DependentBranchSemantics": "2bcc4c20f3eaf219cdecf0cf3c8b8163d52730a552530aa980125261c877fd49",
+    "SquareKit.DependentBranchTheoryMaps": "d402d862b12d83d93dc023210bfffa9db1a6b16cdf721fd9c93b3773f97f5f21",
+    "SquareKit.DependentOperation.Local": "23b1d60673bf7f4823e59725a47ab0fa9bde74fc4450c87f9b601bfc197cb58d",
+    "SquareKit.DependentOperation.Lowering": "24447c33c062d26872555b73121e9f23077950731e470e1f6b6e7c9f22f9deb9",
+    "SquareKit.DependentOperation.Selector": "3ece2b2cbb4a9a4de1eaf7e9319ede9b67a6ce007096efc5acbe722555d99c00",
+    "SquareKit.DependentOperation.SelectorBase": "ac7c3c1366f52d7b32102c2e968ab3f306a5afad70154ceed0cb350f680b7717",
+    "SquareKit.DependentOperation.Syntax": "872cd0467e8d730960241da5f01156caf5923ec56e034912ff172593b2014d59",
+    "SquareKit.DependentTheoryMaps": "4e2c2659da70f0ac3bc31eabe8ed3d28c7cd5d8bb004bcbac3001a2957479051"
+  },
+  "project_artifacts": {
+    ".lake/build/lib/lean/Examples/DependentOperationTrialSpec.olean": "d2a332c335b050d41489acc0b795da1f09a76bc47cc5159a18a4523cdbe417e3",
+    ".lake/build/lib/lean/Examples/DependentOperationTrialSpec.olean.hash": "0571e4e0ccf49307d0594796062d8ca958b8728f8064820147d168e7d2bf4bca",
+    ".lake/build/lib/lean/SquareKit/DependentBranchSemantics.olean": "994ea6ffbbc9ca502f31bd41ff779ea3b31577d7e9b8a9ff5ab39b27cd7e8a99",
+    ".lake/build/lib/lean/SquareKit/DependentBranchSemantics.olean.hash": "37ef3ba7647ad94cd0eaabc585923d35ebd1101e195740be0751c0deb4876ab6",
+    ".lake/build/lib/lean/SquareKit/DependentBranchTheoryMaps.olean": "4869c98dcdb1e7d36b34e3e7e88f4ce8aaf3e8fdbeee8f6ce2d021fff04c11ff",
+    ".lake/build/lib/lean/SquareKit/DependentBranchTheoryMaps.olean.hash": "f8f23378e80e1569ae59a01389682b5ec766ea70a01b31f06323ab1b6431fe08",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Local.olean": "958c1f359ad95d92561e7c5d716b10497c5e7572833d45c2101fa37ceadf05c4",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Local.olean.hash": "872cda427b376dfee1ba320c96b97829a637c7e386c345049defffbe8ce158d4",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Lowering.olean": "c9961d0e6707fbc7b741ffbb4bd2ec1bcdf7972be7b311d4ba4823f1f12b63cd",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Lowering.olean.hash": "70a12f9c50d9ff63da32e3fb21fe8b02f7b6ebd41582389a67b917fa168f3310",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Selector.olean": "5f2fd73846a099aa314a613bbbf9ccdb0e8041236a9cda6edafdac36f3c4e528",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Selector.olean.hash": "0e143d290d37dfa05d789f60373ae6b2b0275d6e49f45b04af2b166b602da0b9",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/SelectorBase.olean": "62978202cb14cb070065bb907adbe7b8a478a19e86e260f9594d5687683741b8",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/SelectorBase.olean.hash": "3c53207e4cc43b5b6e1407b64b5af258f22e0eb94bdfd6a9e69e2ec016cc81b6",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Syntax.olean": "8a1de02a4b8dcfc4547dd958c93089f8569d33b0f81809e2aebe08fada86f591",
+    ".lake/build/lib/lean/SquareKit/DependentOperation/Syntax.olean.hash": "d53bc4ab3f7d36f40774953bb20685f6f6556cdae4bd755bc920afd187af0857",
+    ".lake/build/lib/lean/SquareKit/DependentTheoryMaps.olean": "2b0518b9c1f87630a3d67785a31126cdd60bf897eac60967f2c39e0a706334be",
+    ".lake/build/lib/lean/SquareKit/DependentTheoryMaps.olean.hash": "66f88ebfc624f28ec5d40aa19ed8336622c1aa1edff14a8fc676da1a5802948c"
+  },
+  "project_history": "not copied",
+  "revision": "2838b20125fc4253f55eb1feb45f069f604175df",
+  "schema": 1,
+  "start": "2026-11-08T16:37:07.394018+00:00",
+  "status": "closure-prepared; public overlay and final freeze pending",
+  "wrapper_sha256": "ba47cd4232067230da4ab65bd6cb5f70f89a4b1f1a77152bfd1aefa2bd2cb6bc"
+}

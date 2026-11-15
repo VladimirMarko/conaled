@@ -1,0 +1,58 @@
+[
+  {
+    "definition_safety": "not a definition",
+    "equations_query": "none",
+    "implemented_by": "none",
+    "kernel_value": "fun memo a =>\n  let inst := { default := memo };\n  default",
+    "kind": "opaque",
+    "name": "ConLeche.Expr.hasStrLitGo",
+    "related_names": [
+      "ConLeche.Expr.hasStrLitGo",
+      "ConLeche.Expr.hasStrLitGo._unsafe_rec",
+      "ConLeche.Expr.hasStrLitGo.match_3",
+      "ConLeche.Expr.hasStrLitGo.match_6",
+      "ConLeche.Expr.hasStrLitGo._sparseCasesOn_7",
+      "ConLeche.Expr.hasStrLitGo.match_1",
+      "ConLeche.Expr.hasStrLitGo._sparseCasesOn_3",
+      "ConLeche.Expr.hasStrLitGo._sparseCasesOn_6"
+    ],
+    "unsafe": false
+  },
+  {
+    "definition_safety": "Lean.DefinitionSafety.safe",
+    "equations_query": "some #[`ConLeche.unresolvedConstsErrorL.eq_1]",
+    "implemented_by": "none",
+    "kernel_value": "fun strOk where_ e =>\n  if (!strOk && (ConLeche.Expr.hasStrLitGo \u2205 e).fst) = true then\n    ConLeche.CheckError.notImplemented \"string literals before the String support declarations\"\n  else ConLeche.unresolvedConstsError where_ e",
+    "kind": "definition",
+    "name": "ConLeche.unresolvedConstsErrorL",
+    "related_names": [
+      "ConLeche.unresolvedConstsErrorL",
+      "ConLeche.unresolvedConstsErrorL.eq_1"
+    ],
+    "unsafe": false
+  },
+  {
+    "definition_safety": "not a definition",
+    "equations_query": "none",
+    "implemented_by": "none",
+    "kernel_value": "<proof term omitted>",
+    "kind": "theorem",
+    "name": "ConLeche.Expr.mentionsConstGo_spec",
+    "related_names": [
+      "ConLeche.Expr.mentionsConstGo_spec"
+    ],
+    "unsafe": false
+  },
+  {
+    "definition_safety": "Lean.DefinitionSafety.partial",
+    "equations_query": "not requested: partial implementation; generation rejected in round 3",
+    "implemented_by": "none",
+    "kernel_value": "fun memo x =>\n  match x with\n  | ConLeche.Expr.lit (ConLeche.Literal.strVal s) => (true, memo)\n  | ConLeche.Expr.bvar i => (false, memo)\n  | ConLeche.Expr.sort u => (false, memo)\n  | ConLeche.Expr.const n us => (false, memo)\n  | ConLeche.Expr.lit l => (false, memo)\n  | e =>\n    if memo.contains e = true then (false, memo)\n    else\n      let memo := memo.insert e;\n      match e with\n      | ConLeche.Expr.fvar idx ty => ConLeche.Expr.hasStrLitGo._unsafe_rec memo ty\n      | f.app a =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo f with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo a\n      | t.lam b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.forallE b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | t.letE v b =>\n        match ConLeche.Expr.hasStrLitGo._unsafe_rec memo t with\n        | (r, memo) =>\n          if r = true then (true, memo)\n          else\n            match ConLeche.Expr.hasStrLitGo._unsafe_rec memo v with\n            | (r, memo) => if r = true then (true, memo) else ConLeche.Expr.hasStrLitGo._unsafe_rec memo b\n      | ConLeche.Expr.proj structName idx x => ConLeche.Expr.hasStrLitGo._unsafe_rec memo x\n      | x => (false, memo)",
+    "kind": "definition",
+    "name": "ConLeche.Expr.hasStrLitGo._unsafe_rec",
+    "related_names": [
+      "ConLeche.Expr.hasStrLitGo._unsafe_rec"
+    ],
+    "unsafe": false
+  }
+]

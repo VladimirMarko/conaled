@@ -1,0 +1,244 @@
+{
+  "slot": 4,
+  "route": "direct",
+  "session_id": "01a1d073-e844-7d92-80d5-20c487497b85",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "provider": "openai",
+  "cli_version": "0.161.0",
+  "exact_serving_revision": null,
+  "final_sources": {
+    "NegativeProof.lean": {
+      "sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+      "bytes": 457,
+      "lines": 16,
+      "nonblank_lines": 13,
+      "selected": true
+    },
+    "Draft.lean": {
+      "sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+      "bytes": 428,
+      "lines": 12,
+      "nonblank_lines": 9,
+      "selected": true
+    },
+    "RepairBefore.lean": {
+      "sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+      "bytes": 400,
+      "lines": 11,
+      "nonblank_lines": 10,
+      "selected": true
+    },
+    "HeldOutProof.lean": {
+      "sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+      "bytes": 547,
+      "lines": 14,
+      "nonblank_lines": 13,
+      "selected": true
+    },
+    "ScaleProof.lean": {
+      "sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+      "bytes": 2239,
+      "lines": 64,
+      "nonblank_lines": 53,
+      "selected": true
+    },
+    "negative-rejection.txt": {
+      "sha256": "0f14e84f50944c0796ec5805afc23eae41c2db37592a3c8a43b82ddcd3ee2d92",
+      "bytes": 1141,
+      "lines": 7,
+      "nonblank_lines": 4,
+      "selected": false
+    },
+    "RepairAfter.lean": {
+      "sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+      "bytes": 437,
+      "lines": 13,
+      "nonblank_lines": 12,
+      "selected": true
+    }
+  },
+  "selected_sources": [
+    "Draft.lean",
+    "ScaleProof.lean",
+    "RepairBefore.lean",
+    "RepairAfter.lean",
+    "NegativeProof.lean",
+    "HeldOutProof.lean"
+  ],
+  "historical_unselected": [],
+  "general_helpers": [
+    "renTypedComp",
+    "liftRenTyped",
+    "expandEq",
+    "sourceEq",
+    "renamedEq",
+    "chainEq",
+    "leftRightEq"
+  ],
+  "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+  "index_control": "checked IndexTask",
+  "attempts": [
+    {
+      "id": "after-compile-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+      "receipt": "423-trial-execution/slot-4/work/after-compile-001/result.json",
+      "tool_seconds": 0.277131566
+    },
+    {
+      "id": "after-policy-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+      "receipt": "423-trial-execution/slot-4/work/after-policy-001/result.json",
+      "tool_seconds": 1.074350756
+    },
+    {
+      "id": "before-compile-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+      "receipt": "423-trial-execution/slot-4/work/before-compile-001/result.json",
+      "tool_seconds": 0.546510028
+    },
+    {
+      "id": "before-policy-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+      "receipt": "423-trial-execution/slot-4/work/before-policy-001/result.json",
+      "tool_seconds": 2.064905869
+    },
+    {
+      "id": "compile-001",
+      "phase": "initial",
+      "status": "check-failed",
+      "exit_code": 1,
+      "kind": "compile",
+      "source_sha256": "2a4cf3b1e493c5eaa098d009843e87501718cf625dd1f8f158f823584bd29a14",
+      "receipt": "423-trial-execution/slot-4/work/compile-001/result.json",
+      "tool_seconds": 0.333187822
+    },
+    {
+      "id": "compile-002",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+      "receipt": "423-trial-execution/slot-4/work/compile-002/result.json",
+      "tool_seconds": 0.538516862
+    },
+    {
+      "id": "heldout-compile-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+      "receipt": "423-trial-execution/slot-4/work/heldout-compile-001/result.json",
+      "tool_seconds": 0.866730621
+    },
+    {
+      "id": "heldout-policy-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+      "receipt": "423-trial-execution/slot-4/work/heldout-policy-001/result.json",
+      "tool_seconds": 1.674303689
+    },
+    {
+      "id": "negative-compile-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+      "receipt": "423-trial-execution/slot-4/work/negative-compile-001/result.json",
+      "tool_seconds": 0.302774052
+    },
+    {
+      "id": "negative-policy-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+      "receipt": "423-trial-execution/slot-4/work/negative-policy-001/result.json",
+      "tool_seconds": 1.025126817
+    },
+    {
+      "id": "policy-001",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+      "receipt": "423-trial-execution/slot-4/work/policy-001/result.json",
+      "tool_seconds": 1.001441722
+    },
+    {
+      "id": "scale-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+      "receipt": "423-trial-execution/slot-4/work/scale-compile-001/result.json",
+      "tool_seconds": 0.290646435
+    },
+    {
+      "id": "scale-policy-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+      "receipt": "423-trial-execution/slot-4/work/scale-policy-001/result.json",
+      "tool_seconds": 1.466959097
+    }
+  ],
+  "failed_recorded_commands": 1,
+  "incomplete_attempts": [],
+  "usage_last_observation": {
+    "timestamp": "2026-11-12T15:57:36.137Z",
+    "type": "token_count",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 1238396,
+        "cached_input_tokens": 1207424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9437,
+        "reasoning_output_tokens": 528,
+        "total_tokens": 1247833
+      },
+      "last_token_usage": {
+        "input_tokens": 50100,
+        "cached_input_tokens": 49920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 56,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 50156
+      },
+      "model_context_window": 258400
+    }
+  },
+  "usage_capture": "423-trial-execution/slot-4/raw-usage-events.json",
+  "active_reasoning_seconds": null,
+  "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+  "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+  "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+  "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+}

@@ -1,0 +1,347 @@
+{
+  "fixture_root": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+  "wrapper_sha256": "ba47cd4232067230da4ab65bd6cb5f70f89a4b1f1a77152bfd1aefa2bd2cb6bc",
+  "duplicate_rejected_unchanged": true,
+  "results": [
+    {
+      "name": "Pass",
+      "exit": 0,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.24097150200032047,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "41b0ca7b41214c8d9a91796e8333574f6ad972c762eb18768d3a527eee0455d4",
+          "attempt.json": "91e4037a5364e0cba99dead19c26de71ccea0296d8f11d1e5d78fbe24c3a9c7e",
+          "deps.command.json": "ea40b3a2d94aa257f160a47fda5c4d8e35c377a5b28594c12acbe29e6dd9d066",
+          "deps.result.json": "ba65c78c9079fb59dd5dcdf2ff71e3a5be64141a4f9e772e51d12d07e53709a9",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "229260f1fae0a806de834485767678ea5d58893ff491edaee9c71217ad9c584e",
+          "imports.json": "13ff532ccd2349ae0d47022ca43ec129ba141bd949a2082cee04f5558b9a03fe",
+          "lean.command.json": "f5928cf271c7c5024a8767c8d5f58f34cf0f1bee70d037252c6e370d6fdbb437",
+          "lean.result.json": "a8fa26d0abadc097d2a632a65820e940eb71957ea3d0eb9db397f4053993e739",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "a408f2770c3fdc99049014f2c9d8dcf955a271ce581c760822391c6123c02a0d",
+          "libdir.result.json": "5f1985612804866a73cb145e10f26b474fce526dc417eafe1ab236ad707bddd5",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 0,
+        "finish": "2026-11-05T05:16:38.471018+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/Pass.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/Pass.lean",
+        "source_sha256": "41b0ca7b41214c8d9a91796e8333574f6ad972c762eb18768d3a527eee0455d4",
+        "start": "2026-11-05T05:16:38.229989+00:00",
+        "status": "lean-passed"
+      }
+    },
+    {
+      "name": "Fail",
+      "exit": 1,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.2698207109970099,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "16ac49bca6c9232a45a9c7914b4cc06627147475aa1af72cf2a346c8984d4f14",
+          "attempt.json": "fe84c9028f2769a51ecce2da32a27efc8e12a7ef6e7b316521da63003680e820",
+          "deps.command.json": "228464a9be6a4c04b55450031a3e31ef2c83838b191699a6c8966ee5cf82bc19",
+          "deps.result.json": "9b61d06dd0643ab8f0123bbcc500dcae112c9c467e0fb8caceee9ba2cfa0a3c5",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "229260f1fae0a806de834485767678ea5d58893ff491edaee9c71217ad9c584e",
+          "imports.json": "13ff532ccd2349ae0d47022ca43ec129ba141bd949a2082cee04f5558b9a03fe",
+          "lean.command.json": "f63ea6953a750f5f46a7e7126be7f2ef4a7ed015949c3c5979746e8f28ae5d5d",
+          "lean.result.json": "24e790f75181b9dd7a2702fd51cfd6491515e5f71053cbf22da0f01720d3adcb",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "bd96cac8fd72e70e59c8211702f4fe0310c36a223e56201661d00007b34422e5",
+          "libdir.command.json": "35ef9b053a939f9bf89f5271a3fb0b16ecffd713e0affb1dcec8efe3292fdf10",
+          "libdir.result.json": "e6c7133fe96b93b412e2cacce5224188d24d977ebf31b376951cfdb7d40dd828",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 1,
+        "finish": "2026-11-05T05:16:38.788132+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/Fail.lean"
+        ],
+        "lean_exit": 1,
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/Fail.lean",
+        "source_sha256": "16ac49bca6c9232a45a9c7914b4cc06627147475aa1af72cf2a346c8984d4f14",
+        "start": "2026-11-05T05:16:38.518257+00:00",
+        "status": "lean-failed"
+      }
+    },
+    {
+      "name": "Import",
+      "exit": 2,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.12009080599818844,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Project import outside frozen allowlist: Forbidden",
+        "evidence_sha256": {
+          "Source.lean": "b7a509fcfaea03e2d4de1c1a20d277aedaf2f5d84129c0cac6c6b43c3bed022f",
+          "attempt.json": "74a6d76d922703ae8ae16fdcd0a2a848eda8a430d14f026d52f75c5ece35a818",
+          "deps.command.json": "9b1bc75df7e7a34a3698d95635f6e49d99bb55058db126f0997a06dbd82ff84a",
+          "deps.result.json": "512bebd1909d3c41d2514aa18a240802664e5be5fea520f346cf6f97f8d0ad60",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "2e8c4fddbff41b3fa6b2710aed22af00337fd29d5edb142fd115087a8e58117d",
+          "libdir.command.json": "a097665da28748920234c93a646eee0ad29b3335f664c7e1f1e2461cb574a2ae",
+          "libdir.result.json": "fcada6c66c4817fd0f23bf1968fde0878a5bee47db43a7c171eec852cd4ce4dd",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 2,
+        "finish": "2026-11-05T05:16:38.931528+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/Import.lean"
+        ],
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/Import.lean",
+        "source_sha256": "b7a509fcfaea03e2d4de1c1a20d277aedaf2f5d84129c0cac6c6b43c3bed022f",
+        "start": "2026-11-05T05:16:38.811374+00:00",
+        "status": "wrapper-rejected"
+      }
+    },
+    {
+      "name": "Mutate",
+      "exit": 2,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.26478118100203574,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Authored source changed during checking",
+        "evidence_sha256": {
+          "Source.lean": "4a3e153887655c62a6b6deb4a7ca77b4018e6409e391f05ab64d2c1714b2a75c",
+          "attempt.json": "1d3f68f71c108a39f07f8248332314aa93ed186d3462674120bad1d4d19e0524",
+          "deps.command.json": "49e842b4aa2f35d711c1633782f50602be6c02b57b4f120a3f48c79e87a0d6e3",
+          "deps.result.json": "becc3703431b9a986d6dfa63c9f551449743a779256532266789af997ebfb575",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "5a89e613c6b7b5ec4a265328f3bb209348ee59d6cb33e4befce5d711f37b4604",
+          "imports.json": "7663460dc051931507337e1e78d0623b05986aaf441b8e6e94a67b61a2f3649b",
+          "lean.command.json": "e0b82ae53e150fbe6a1065db7dea2c752ce5ce8114dd261be172d5ef5e0c21b6",
+          "lean.result.json": "511502439b3b3b28142897e31987f04fdb1c233eb65ba302a51c1cac8c50c404",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "10fee4e2d06f66640782b4e3d0412ed3bfffa3f9448b436c57e6068d54b575e0",
+          "libdir.result.json": "8ecfb77544cc67cd96e70554cc9e50933524f6f9d76476d2373a7b394b840d5a",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 2,
+        "finish": "2026-11-05T05:16:39.222247+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/Mutate.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/Mutate.lean",
+        "source_sha256": "4a3e153887655c62a6b6deb4a7ca77b4018e6409e391f05ab64d2c1714b2a75c",
+        "start": "2026-11-05T05:16:38.957410+00:00",
+        "status": "wrapper-rejected"
+      }
+    },
+    {
+      "name": "MutatePublic",
+      "exit": 2,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.25112543199793436,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Frozen input changed: Support.lean",
+        "evidence_sha256": {
+          "Source.lean": "ebd039a1d29be3fdcd1b2937e8b1a27c89b74663a38dda648513c606c16936bc",
+          "attempt.json": "990ae6f396d551b07b91fe2e188d812eca2ae83f3019b4cc91246fe10a50b028",
+          "deps.command.json": "9f7b68e024f5956951e6f91421423855b8c07a05cc7039ebbdaae7965183db93",
+          "deps.result.json": "22c3623253d079be674478c95169cbc5b0e5c6006f030bf45b002b218824b410",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "5a89e613c6b7b5ec4a265328f3bb209348ee59d6cb33e4befce5d711f37b4604",
+          "imports.json": "7663460dc051931507337e1e78d0623b05986aaf441b8e6e94a67b61a2f3649b",
+          "lean.command.json": "51ef369800adbb2ad5724fd1169ed3de8cc71c48928d256ff9fe53fe25b47a7a",
+          "lean.result.json": "ae181309bab7130663941dcaa74180bcdf124acf21199f44940269921ae72693",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "47963b4218ece5cff6bdbc223a82021f661e9e4539d51ff089c4c4f50b0fb7f4",
+          "libdir.result.json": "db1f297a6779ec15c6f4fa968821bf51135b407a838334218307bc334becb942",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 2,
+        "finish": "2026-11-05T05:16:39.502516+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/MutatePublic.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/MutatePublic.lean",
+        "source_sha256": "ebd039a1d29be3fdcd1b2937e8b1a27c89b74663a38dda648513c606c16936bc",
+        "start": "2026-11-05T05:16:39.251334+00:00",
+        "status": "wrapper-rejected"
+      }
+    },
+    {
+      "name": "Extra",
+      "exit": 2,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.00026983299903804436,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Unlisted public file: surprise.txt",
+        "evidence_sha256": {
+          "Source.lean": "514324a3acb9977b46d74c382b88d70ffebaab9a8bd99cb0cef75354289b03ea",
+          "attempt.json": "95f4977f3370f6cb2f02e8ac7446cf11ed667c9d648fa1d72d33efb3e509f0a1",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 2,
+        "finish": "2026-11-05T05:16:39.533721+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/Extra.lean"
+        ],
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "schema": 1,
+        "source": "attempts/Extra.lean",
+        "source_sha256": "514324a3acb9977b46d74c382b88d70ffebaab9a8bd99cb0cef75354289b03ea",
+        "start": "2026-11-05T05:16:39.533387+00:00",
+        "status": "wrapper-rejected"
+      }
+    },
+    {
+      "name": "BeforeMutation",
+      "exit": 2,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.00013768699864158407,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Frozen input changed: Support.lean",
+        "evidence_sha256": {
+          "Source.lean": "514324a3acb9977b46d74c382b88d70ffebaab9a8bd99cb0cef75354289b03ea",
+          "attempt.json": "ffcdc50a0bbd77016c82e7e0c1432d71070176d65dde2e6f12c7682a5021abd6",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 2,
+        "finish": "2026-11-05T05:16:39.554942+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687/attempts/BeforeMutation.lean"
+        ],
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "schema": 1,
+        "source": "attempts/BeforeMutation.lean",
+        "source_sha256": "514324a3acb9977b46d74c382b88d70ffebaab9a8bd99cb0cef75354289b03ea",
+        "start": "2026-11-05T05:16:39.554745+00:00",
+        "status": "wrapper-rejected"
+      }
+    },
+    {
+      "name": "Interrupted",
+      "exit": 130,
+      "record": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/nix-shell.vr7I63/guarded-j-wrapper-fixture-cpeu1687",
+        "elapsed_seconds": 0.13211748899993836,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "error": "Checking interrupted",
+        "evidence_sha256": {
+          "Source.lean": "17af63530da98f08daf268c8e2e965bbaa345cba0d1f09e1c1d4138a1c330637",
+          "attempt.json": "3e8cfba64fc22163b7b1e5722ffe25ed9d6a1fadd85589764191fef21b448dd0",
+          "deps.command.json": "02d3338b707991352809db847e45f58a4a38616dd6a33ee56e0ac3368a0c44be",
+          "deps.result.json": "71bbf999ee5fad3c8b746023f7a6c69753bcb2af33fa9c522bf2aedb0d217011",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "5a89e613c6b7b5ec4a265328f3bb209348ee59d6cb33e4befce5d711f37b4604",
+          "imports.json": "7663460dc051931507337e1e78d0623b05986aaf441b8e6e94a67b61a2f3649b",
+          "lean.command.json": "ec4d959bb8bfd0ea43ae8aed2160f79a1bbdc14dcdb856c5f8a7d14463a90f31",
+          "lean.result.json": "6aaed59383f4fb23afa943fcfc53ec27e545b642ecffdf85bb5ab3b09a7e108f",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "157fbc0c5271c59273ce66737a004d1674fe417323446f129388e3d280536fe6",
+          "libdir.result.json": "c786695bb5d6c0b751eac5aacf0c1ced25dac3724eeb8b72cf20be9466e6a021",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9"
+        },
+        "exit": 130,
+        "finish": "2026-11-05T05:16:39.710012+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/Interrupted.lean"
+        ],
+        "manifest_sha256": "4a8c39bc02983ad5bd7f862da5989ca80f08fd1de8d471abb7168fdceafa21c9",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/Interrupted.lean",
+        "source_sha256": "17af63530da98f08daf268c8e2e965bbaa345cba0d1f09e1c1d4138a1c330637",
+        "start": "2026-11-05T05:16:39.577830+00:00",
+        "status": "interrupted"
+      }
+    }
+  ]
+}

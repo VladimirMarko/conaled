@@ -1,0 +1,23 @@
+{
+  "phase": "prototype and prospective protocol, before task-registry integration or authors",
+  "baseline": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "files": {
+    "scripts/interpretation-assist.py": "d1eb485fe0cbe19ba8cb9f8dc7eaa03a4a3d5761c08745befd34e7701d292812",
+    "scripts/interpretation-trial-check.py": "bcb24eb8817c871adab3838484e2935d7badc4d82bcb126486c5db58056909bf",
+    "scripts/test-interpretation-assist.py": "6d76a1b373eaeeca9bacc5287acb7356bc919ca3af50ef416da23fd7bad65cb6",
+    "SquareKit/InterpretationAssistance.lean": "c6b26f243f8ff90b8b3075e558c4cd614ffc1f4ada567a4a4cc320eabd27561c",
+    "SquareKit/InterpretationDiagnostics.lean": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+    "experiments/interpretation-assistance/registry.json": "3fd5cff4264df1c3d21478e1745c5f7cd399b8d7eee65c1d33bd92d66f33ad2f",
+    "experiments/interpretation-assistance/README.md": "d551de9e89496f4f440df1e2e0e7823f189d124ecb3e631fb20ecfac8ca1126a",
+    "experiments/interpretation-assistance/protocol.md": "fe06c072b789e7b4985dd43ecef49a0edfcc9a8b8cece032c68fef3060f36d77",
+    "docs/research/interpretation-assistance.md": "abbe3c18781e1c826c6bbfc02663bed26e2f4b478f0c1f8122a0c35c8c1a6ece"
+  },
+  "launch_blockers": [
+    "independent prototype/protocol readiness review",
+    "private applicability check through unchanged templates",
+    "exact task manifest, prompts, allowlists, environment and author paths",
+    "coordinator state/watchdog schedule"
+  ],
+  "tests": "All real CLI/audit and external budget/support cases passed; external log 462-tests-5.log and receipts 462-preparation/tests-5."
+}

@@ -1,0 +1,14 @@
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-substitution-compile-001/source.lean:13:29: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  d = 4 ∨ d ∈ []
+
+case inr.inr
+d : Nat
+h✝ : d = 4 ∨ d ∈ []
+⊢ DepEq (left 1 1 d) (right 1 d) ∧ (left 1 1 d).type = (right 1 d).type
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-substitution-compile-001/source.lean:12:47: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [substitutionSizes, List.mem_cons] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

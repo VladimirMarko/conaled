@@ -1,0 +1,101 @@
+{
+  "route": "H1-full",
+  "started": "2026-11-11T18:29:07.978856+00:00",
+  "checks": [
+    {
+      "phase": "requirements",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/requirements.lean"
+      ],
+      "source_sha256": "ef520eef5fe2669f45501f09c5d3d745a68429419ccef93a00925915c96b938b",
+      "started": "2026-11-11T18:29:08.005393+00:00",
+      "finished": "2026-11-11T18:29:08.922004+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/requirements.log"
+    },
+    {
+      "phase": "certificate_extension",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/certificate_extension.lean"
+      ],
+      "source_sha256": "0f377d44b901f2594285edb4be122ff11e72edc16a77f2582f8934b2ec333439",
+      "started": "2026-11-11T18:29:08.922089+00:00",
+      "finished": "2026-11-11T18:29:09.843653+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/certificate_extension.log"
+    },
+    {
+      "phase": "result",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/result.lean"
+      ],
+      "source_sha256": "5100675f5db97786965020ce3cf9d9969c5abe94014a361a829446e0eb8532e8",
+      "started": "2026-11-11T18:29:09.843728+00:00",
+      "finished": "2026-11-11T18:29:10.765725+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h1-full/result.log"
+    }
+  ],
+  "status": "checked",
+  "registry_sha256": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+  "implementation_sha256": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
+  "checker_source_sha256": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "git_head": "c986ddd3e4713886802b90ebf4d35bf4f5be60e8",
+  "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "request": {
+    "construction": "H1 selected Bool row",
+    "target": "Option Bool full target",
+    "observation": "selected some false code, false witness, full target representation",
+    "imports": [
+      "TaskSetup462"
+    ],
+    "schema": "extension",
+    "data": {
+      "selected": "Tasks462.H1.source",
+      "map": "Tasks462.H1.changeCodes"
+    }
+  },
+  "available_expressions": [
+    "selectedSource.code",
+    "selectedSource.witness",
+    "route.code selectedSource.code",
+    "route.value selectedSource.witness"
+  ],
+  "support_sha256": "aa53674b3fa0c774e61b60b1f4d28e387298fe349f366e002d88e29f98e15a30",
+  "obligations": [
+    {
+      "id": "extension",
+      "requested_type": "SquareKit.DiagonalConstruction.Map.Extension route selectedSource",
+      "declaration": "Requested.requirement_0"
+    }
+  ],
+  "supplied_certificates": {
+    "extension": "AssistedH1.extension"
+  },
+  "retained_expressions": [
+    "result.code",
+    "result.witness"
+  ],
+  "detail": "Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.",
+  "finished": "2026-11-11T18:29:10.765735+00:00"
+}

@@ -1,0 +1,230 @@
+{
+  "native": [
+    {
+      "stage": "A",
+      "original_sha256": "4a27c255e82dc6d63db9f4d8e7bf46504f23c89e5ca7b1abcc12738652745f58",
+      "audit_sha256": "7980d2ed916d757afa6724195c79e8fd3d7be353de8e5d4945e8f6d26c387ef5",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditA.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditA.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:57.415106+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 9.661800868343562e-05,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:51:59.544588+00:00",
+        "check_seconds": 2.129378532001283,
+        "wall_seconds": 2.1294751500099665,
+        "child_maxrss_kib": 1523912,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "B",
+      "original_sha256": "ea47db12ef73292655965246eaeea4b65dc80318fc3e29d65705091a05a67aa8",
+      "audit_sha256": "d48f2390a0aac0072c79d4de3e5159f5ac834aef7dfdadf66362ac0157b3b109",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditB.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditB.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:59.665536+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.00010172900510951877,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:01.793361+00:00",
+        "check_seconds": 2.127719366995734,
+        "wall_seconds": 2.1278210960008437,
+        "child_maxrss_kib": 1535756,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "C",
+      "original_sha256": "d2e107e6436e96a4102b8bf43924bbdd73937cffb139e9c3cdf510d89f5190ff",
+      "audit_sha256": "7fe575cf77cbba44005c07b0da1f7ede57c4f3b4a82092192bc13711faf213b5",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditC.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditC.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:01.906645+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.00013486199895851314,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:04.533140+00:00",
+        "check_seconds": 2.626357203000225,
+        "wall_seconds": 2.6264920649991836,
+        "child_maxrss_kib": 1551936,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "Repair",
+      "original_sha256": "99d5436e97a3c324384342e7c6928971dd89c80ed68d81e1f3b875673ec73a06",
+      "audit_sha256": "1f01a133d77223b869af3db5417d597a095176a4f19128bb9f75369364efe8ce",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditRepair.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditRepair.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:04.650317+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.00010173900227528065,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:06.987679+00:00",
+        "check_seconds": 2.3372575489920564,
+        "wall_seconds": 2.3373592879943317,
+        "child_maxrss_kib": 1550908,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    }
+  ],
+  "shared": [
+    {
+      "stage": "A",
+      "original_sha256": "a17e87345f5ca755680641e0c6fe52d918fead6f971ada25c4bc8772dfdc95f5",
+      "audit_sha256": "2495671e56f4db3ded8cdd9b9d0fc12a0d3fc3e7020b8ccdf1ec81ca4f169a34",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditA.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditA.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:07.099867+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.0001155600039055571,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:08.926121+00:00",
+        "check_seconds": 1.8261339780001435,
+        "wall_seconds": 1.826249538004049,
+        "child_maxrss_kib": 1527536,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "B",
+      "original_sha256": "6d4e4d6e099feeb0f704fff00aae9a458e4e436bbbb5d175c6df6b8b05d697f3",
+      "audit_sha256": "51692b1a363820e59220a76eae8a3e6acc7e0d56a71911d681bda2209628a1c2",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditB.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditB.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:09.036633+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.0001304039906244725,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:11.092885+00:00",
+        "check_seconds": 2.05611700299778,
+        "wall_seconds": 2.0562474069884047,
+        "child_maxrss_kib": 1537068,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "C",
+      "original_sha256": "d682da50727f5dc4aa90357e2c81468ef4ae2c23c18e7c30baaac50dc59dd083",
+      "audit_sha256": "2712087cadff37cdc98af27c00c3fd483e3af46ef247c381271197588623b190",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditC.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditC.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:11.190551+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 8.156598778441548e-05,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:13.375061+00:00",
+        "check_seconds": 2.1844193290016847,
+        "wall_seconds": 2.184500894989469,
+        "child_maxrss_kib": 1557328,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "Repair",
+      "original_sha256": "323653e8c1b28c90e1800d783a5c1f91b79cf8c19282446804658f24d59fec79",
+      "audit_sha256": "afdfdb7a7cdf2dac00d0c46e1742a2f086ec0ab1bc4d1927a62b3d7b387db309",
+      "exit": 1,
+      "timing": {
+        "schema": 1,
+        "source": "attempts/AuditRepair.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/AuditRepair.lean"
+        ],
+        "start_utc": "2026-11-08T16:52:13.482799+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.00012646200775634497,
+        "exit_code": 1,
+        "finish_utc": "2026-11-08T16:52:15.783640+00:00",
+        "check_seconds": 2.3007090089959092,
+        "wall_seconds": 2.3008354710036656,
+        "child_maxrss_kib": 1560656,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "status": "prelaunch; reviewer resolution and smoke receipts required",
+  "author_selection": {
+    "routes": [
+      "lean",
+      "felix"
+    ],
+    "count_per_route": 1,
+    "context": "spawn_agent fork_turns=none",
+    "configuration": "inherit primary agent model and reasoning configuration with no overrides for both authors",
+    "limitation": "The orchestration API does not expose a resolved model/version/effort identity. Record the selection procedure; do not claim reproducibility of an undisclosed model identity or statistical author equivalence.",
+    "delegation": "disabled during independent attempt"
+  },
+  "prompt": "author-prompt.md",
+  "prompt_sha256": "8c86910e3958204d8ee45b68b582d688abdc4c428fd58f16c5467aad37d6a1e5",
+  "access": {
+    "allowed": [
+      "local pinned own-route repository and dependency source",
+      "local file reading/editing",
+      "shell compiler/build invocations",
+      "environment-only messages to coordinator"
+    ],
+    "disallowed": [
+      "web/network research",
+      "other route trial outputs",
+      "delegating implementation or asking other agents for mathematical help",
+      "external assistant tools or generated solutions"
+    ],
+    "network_exception": "coordinator-only dependency provisioning with explicit evidence; author clock exclusion only while otherwise inactive"
+  },
+  "paths": {
+    "lean_baseline": "/tmp/conaled-wave-20261111/25-authors/lean-baseline",
+    "felix_baseline": "/tmp/conaled-wave-20261111/25-authors/felix-baseline",
+    "lean_output": "/tmp/conaled-wave-20261111/25-authors/lean-output",
+    "felix_output": "/tmp/conaled-wave-20261111/25-authors/felix-output",
+    "attempt_logs": "each output directory/attempts.jsonl",
+    "identity_records": "coordinator records agent IDs, exact launch messages and start/end timestamps outside both author-visible output directories"
+  },
+  "launch_gate": [
+    "successful neutral compilation in both pinned environments",
+    "immutable protocol, manifests and exact prompt hash recorded",
+    "25-PROTO-1 and25-PROTO-2 independently resolved",
+    "coordinator records role assignment before sending task; agent ID recorded immediately upon creation"
+  ],
+  "budget": {
+    "feedback_rounds": 60,
+    "active_elapsed_minutes": 180,
+    "accounting": "protocol Budget, stopping and evidence section",
+    "final_reproduction": "frozen-source validation only; any repair is labeled post-trial"
+  }
+}

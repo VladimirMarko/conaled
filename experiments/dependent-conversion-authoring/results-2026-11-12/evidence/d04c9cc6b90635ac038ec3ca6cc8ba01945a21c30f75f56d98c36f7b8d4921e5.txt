@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-12T15:54:36.124431+00:00",
+  "monotonic_ns": 172165317942504,
+  "latest_usage_event": [
+    {
+      "timestamp": "2026-11-12T15:54:33.971Z",
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 687787,
+          "cached_input_tokens": 664576,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5574,
+          "reasoning_output_tokens": 469,
+          "total_tokens": 693361
+        },
+        "last_token_usage": {
+          "input_tokens": 40527,
+          "cached_input_tokens": 40320,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 54,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 40581
+        },
+        "model_context_window": 258400
+      }
+    }
+  ],
+  "decision": "Completed phase in usable environment; next frozen phase may proceed. No extension used. Provider totals reviewed as repeated/cached input observations, not hard failures.",
+  "active_reasoning_time": "unknown",
+  "unobserved_suspension": "unknown"
+}

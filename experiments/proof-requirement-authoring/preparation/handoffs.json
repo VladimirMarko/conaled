@@ -1,0 +1,119 @@
+{
+  "finish": "2026-11-04T20:31:13.059168+00:00",
+  "routes": {
+    "assisted": {
+      "checked_boundary": {
+        "attempts_empty": true,
+        "hashes_match": true,
+        "no_remotes_alternates_or_unreachable_objects": true,
+        "no_shared_package_file_inodes": true,
+        "package_symlinks_stay_inside_handoff": true,
+        "project_outputs": [
+          ".lake/build/ir/Examples/ProofRequirementSupport.c",
+          ".lake/build/ir/Examples/ProofRequirementSupport.c.hash",
+          ".lake/build/ir/Examples/ProofRequirementSupport.setup.json",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.ilean",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.ilean.hash",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.olean",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.olean.hash",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.trace"
+        ],
+        "public_git_clean": true
+      },
+      "copy_command": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/tmp/conaled-291-294/293/.lake/packages",
+        "/tmp/conaled-291-294/handoffs/assisted/.lake/packages"
+      ],
+      "git_remotes": "",
+      "history_count": 1,
+      "manifest": {
+        "base": "d8563a8420196fedff7c875c158d0eeca3403db2",
+        "dependencies": "Git revisions in lake-manifest.json; separate copied package caches; no project outputs copied",
+        "files": {
+          ".envrc": "23922a0701527c0c21030db246d6461cff5264024e6da9f6db66f11362d2855c",
+          ".gitignore": "fa7228e88053bb4a531b28714b49c919ec2b0905244de987e9b6c5cd53c8c48d",
+          "Examples/ProofRequirementSupport.lean": "a8e8a41d1fea5eb32c05f10d6d37080365460696fced2003327c563299d24c5e",
+          "check_attempt.py": "49898301e5bb582974454c1142f7ecf21a509978b8d83a5103dd6c1349eb20d4",
+          "conduct.md": "0689afee4f19c279d453b3ab43f94f84a0690d94136d4a0c938652bcfc98481c",
+          "dependency-ledger.md": "192a95f4b21aecbf5cac1ddfd85e18b2010fa8a065424bf030b12ddf924ad5f8",
+          "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "guidance/architectural-quality.md": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+          "guidance/example-driven-development.md": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+          "guidance/language-direction.md": "9786e8278cdec32839130a072b23cd2ee3d24c9b763c988f8a85725542985f48",
+          "guidance/no-ai-slop.md": "9db419296053ae7406ca069eca62093cb7b52713fc21b7ffa0e5f3ce40e177b5",
+          "guidance/references/ai-writing-detection.md": "c48981e9e58fb686c54dfedc322bb20c1342e5ac5a07525337479cc49fcee5a0",
+          "guidance/worked-example.md": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+          "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "lakefile.toml": "c7c1131a594d0a6cd879fd5a90b86afc0a8fc93b7dea7c5cf6c328e0ee17ea5a",
+          "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "prompt.txt": "c30161ea674b5b127fa22a5f9edae4ae389a7494c655b818cd844bf82746b2d7",
+          "tasks.md": "db13ca0987a83a8585859325a79a2cbfca2a6feb3331ffd24078e4fa7b9e09ad"
+        },
+        "route": "assisted"
+      },
+      "public_head": "0f3ad709639f366f93e8151857d6a860458ae9bb",
+      "root": "/tmp/conaled-291-294/handoffs/assisted"
+    },
+    "manual": {
+      "checked_boundary": {
+        "attempts_empty": true,
+        "hashes_match": true,
+        "no_remotes_alternates_or_unreachable_objects": true,
+        "no_shared_package_file_inodes": true,
+        "package_symlinks_stay_inside_handoff": true,
+        "project_outputs": [
+          ".lake/build/ir/Examples/ProofRequirementSupport.c",
+          ".lake/build/ir/Examples/ProofRequirementSupport.c.hash",
+          ".lake/build/ir/Examples/ProofRequirementSupport.setup.json",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.ilean",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.ilean.hash",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.olean",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.olean.hash",
+          ".lake/build/lib/lean/Examples/ProofRequirementSupport.trace"
+        ],
+        "public_git_clean": true
+      },
+      "copy_command": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/tmp/conaled-291-294/293/.lake/packages",
+        "/tmp/conaled-291-294/handoffs/manual/.lake/packages"
+      ],
+      "git_remotes": "",
+      "history_count": 1,
+      "manifest": {
+        "base": "d8563a8420196fedff7c875c158d0eeca3403db2",
+        "dependencies": "Git revisions in lake-manifest.json; separate copied package caches; no project outputs copied",
+        "files": {
+          ".envrc": "23922a0701527c0c21030db246d6461cff5264024e6da9f6db66f11362d2855c",
+          ".gitignore": "fa7228e88053bb4a531b28714b49c919ec2b0905244de987e9b6c5cd53c8c48d",
+          "Examples/ProofRequirementSupport.lean": "a8e8a41d1fea5eb32c05f10d6d37080365460696fced2003327c563299d24c5e",
+          "check_attempt.py": "49898301e5bb582974454c1142f7ecf21a509978b8d83a5103dd6c1349eb20d4",
+          "conduct.md": "0689afee4f19c279d453b3ab43f94f84a0690d94136d4a0c938652bcfc98481c",
+          "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+          "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+          "guidance/architectural-quality.md": "609c81cd22803888cfc8dafcfb6097f958e8e7c749df16b5156cd179b87835e6",
+          "guidance/example-driven-development.md": "8917dac075cb3c284ffaab90eb8f9ce4ce3345cb923111a9a1c75a7ce0fce89a",
+          "guidance/language-direction.md": "9786e8278cdec32839130a072b23cd2ee3d24c9b763c988f8a85725542985f48",
+          "guidance/no-ai-slop.md": "9db419296053ae7406ca069eca62093cb7b52713fc21b7ffa0e5f3ce40e177b5",
+          "guidance/references/ai-writing-detection.md": "c48981e9e58fb686c54dfedc322bb20c1342e5ac5a07525337479cc49fcee5a0",
+          "guidance/worked-example.md": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+          "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+          "lakefile.toml": "c7c1131a594d0a6cd879fd5a90b86afc0a8fc93b7dea7c5cf6c328e0ee17ea5a",
+          "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+          "prompt.txt": "6b8e93d5387353509531b12f8ab93b701614136f7d9145b40649033b7bfeea3f",
+          "tasks.md": "db13ca0987a83a8585859325a79a2cbfca2a6feb3331ffd24078e4fa7b9e09ad"
+        },
+        "route": "manual"
+      },
+      "public_head": "253cd76a3e1ed7ade1f063a7052a15f0b85fa999",
+      "root": "/tmp/conaled-291-294/handoffs/manual"
+    }
+  },
+  "start": "2026-11-04T20:29:00.571479+00:00"
+}

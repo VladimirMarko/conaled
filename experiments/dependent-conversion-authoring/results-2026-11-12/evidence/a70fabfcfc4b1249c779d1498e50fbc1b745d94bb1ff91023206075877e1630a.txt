@@ -1,0 +1,302 @@
+{
+  "at": "2026-11-12T17:55:06.699282+00:00",
+  "observation": "Queued jobs have no live processes or completion evidence; cause unknown. Completed fresh integration and slot1 audit preserved without rerun.",
+  "files": [
+    {
+      "path": "final-integration-validation/queue-state.json",
+      "sha256": "89498b62dab04828140de5d198de83da5c9455bc51b58a1c01cb9e3729050941"
+    },
+    {
+      "path": "run-final-validation-queue.py",
+      "sha256": "1ada52f347133a50251d86fb027d6a57eb0d20adb876749098b26b66b6646e67"
+    },
+    {
+      "path": "queue-slot3-audit.py",
+      "sha256": "f063707824eb0259cea52cedd7a9fe72ee723292c64aeb70a2633016102c4cc1"
+    },
+    {
+      "path": "queue-slot5-audits.py",
+      "sha256": "58b3b1094b14553f192c47c39163a1c2994831d4f9d9de507a9dbc59e06ebd69"
+    },
+    {
+      "path": "queue-slot4-audit.py",
+      "sha256": "9c3817f17d96cd64403780b7ac630ae55537606fb9ee628cc9840ea4a531b454"
+    },
+    {
+      "path": "queue-slot6-audit.py",
+      "sha256": "7cb3a39a365d6833b0370f95c496d75d77e6af27c0baf7db13b4e4821f74f84c"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/input-correspondence.json",
+      "sha256": "a88d1a68c0ba5f7d76b2046f3dfdf62975b9a4505ce8d834a7ffc9d801be3506"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/copied-artifact-correspondence.json",
+      "sha256": "cde3b538ad7b11f8d5d2294fc3c68212222153c8b70d964309fdab507d59fd7e"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/Audit-scale-first.lean",
+      "sha256": "4563a9b5b2e2a0d380986e1a88d64f56739fbbbc0671519a3a7617d6d08494ac"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/Audit-held-first.lean",
+      "sha256": "b70aed9d58b4e306beb8b7138c0c06f872fb317ec8c5a7255824ac0c1a12799a"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/sources.json",
+      "sha256": "205470f9e8bf292c66087c3a8b3f4843a816d8874c650353a03ca1b416c9a39b"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/inventory.json",
+      "sha256": "eec2babe69a967de652941a434e7f2ba1acbd705007b3a18643643eda0fbfe43"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/complete-source-hashes.json",
+      "sha256": "19df48c501343467ce63c18e17ddcd40d6264acdc544e1821df79898bb83bf57"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/duplicate-helper-correspondence.json",
+      "sha256": "a32f897a53bf6ad6f3b90ff5f6d4f83a2190e4239c4c7686fa318320a550f8d5"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/environment.json",
+      "sha256": "0f71134f5aa4173777ec0f7004b80624526fbf0d426d5437eb46b3a2483bf777"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/focused-results.json",
+      "sha256": "924bbe8bdc6cea9f15fcd7d2b5b9c8550058bd0256c6da2ff141dc2c48e73655"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/output-hashes.json",
+      "sha256": "2c598b9c3033ac24deaff83b5d4cb09970b56fd42002ea7da5f0a4656ad5d634"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/audit-queue.json",
+      "sha256": "4efab28be3e08cbc40185c6a8bb02ed8871acdb4431ddc24962da6d73bcc1df5"
+    },
+    {
+      "path": "423-trial-execution/slot-2/replay-02/policy-input.json",
+      "sha256": "c39a29a7593acb15d3c6efa8a68d66dfd8c25458323664b30838eaf1ae36e16d"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/input-correspondence.json",
+      "sha256": "975a57d60c0211d0951f40f3489edd873f2aa8d16934c7ec3a2c986a2136b646"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/copied-artifact-correspondence.json",
+      "sha256": "8d7eddb7f50712389e8cdde08a5deb5c0adb1ab5febd81b61a3a69c16f436f34"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/Audit.lean",
+      "sha256": "42b15ee4aa9bea459ea14798f2946427589ebc547ba6798cacb948e535ce8edc"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/audit-state.json",
+      "sha256": "bdf66b1b88a1bb2c8159b5e0aa8f29a04ebc149a49313aaecdfdc866fe9d1327"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/sources.json",
+      "sha256": "3c6620a0daf568cbf08b031e350f2e303050b8df3d23eb6010b2c13a1b4da561"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/inventory.json",
+      "sha256": "8b2467ca166112fcc4a0ac071194708eb0c473edbe190468159155b1b7c445a1"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/complete-source-hashes.json",
+      "sha256": "1eae8621717595300f111d408553424ef319bb50677bdb7d97bec68453fd06f3"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/environment.json",
+      "sha256": "be355e30f0d87f6b6d51439e3b04a0d314040a27cb1fac753858141ad3df0593"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/focused-results.json",
+      "sha256": "e1bb54f98cb6db38d63fa4b7a170524392e1e02a9d42bf5f07e7be0d23c039fc"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/output-hashes.json",
+      "sha256": "0f8e8b315fa9747527c398776055fb19a036b9944853c4bfc0b8c1ebed7aa026"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/audit-queue.json",
+      "sha256": "334d86aee015a2981e5e8fff95d3fc1c335cd221a09f0ec2a67a754b5dc43d2d"
+    },
+    {
+      "path": "423-trial-execution/slot-3/replay-01/policy-input.json",
+      "sha256": "eea6a2cc61e222bfd72351a825a1591af0ae7beb5967e8ec8fc1ccfc3c42f305"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/input-correspondence.json",
+      "sha256": "04e8c74e5f0e04d49f05bacebbf2e1b1aca2d78bb27884e1cd64d90a924cd3c9"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/copied-artifact-correspondence.json",
+      "sha256": "5c49d7a51ee418636982a91808ffc76370ee686772f303865861dac084d52c59"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/Audit.lean",
+      "sha256": "f87c2c340a5dbc656b70d1eb1dee6d9db30b53147a5694ce69d2fcd095aff79a"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/audit-state.json",
+      "sha256": "f91807b810c8e1f6cf23af01f1b1882bd816b0c3a32ce102def1e400c4d83cf9"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/sources.json",
+      "sha256": "ba8af4625f191fa06482e877f2529591667699bec8193b8870ad84b03fbbcc51"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/inventory.json",
+      "sha256": "eec2babe69a967de652941a434e7f2ba1acbd705007b3a18643643eda0fbfe43"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/complete-source-hashes.json",
+      "sha256": "607d7443ed326fab7b4369acc80c79ae32b36a3ee1112d850be8e2f113701889"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/environment.json",
+      "sha256": "c4631f4ca60668ac795b8fb4aa293817bd28532dd73731e11fa36dc191c72427"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/focused-results.json",
+      "sha256": "b3c4732ff43d135f06b55397c7d04f9fc4ddf5190e84182298b5b13208ad7969"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/output-hashes.json",
+      "sha256": "01805894334e0185cab1bd612e1a3c234bf66ef0867a144ce0b6d3146998dc1a"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/audit-queue.json",
+      "sha256": "310349a86bdc79a5ff47ee24ea91495d9fcda06d45a90603b290c0fbaa94d399"
+    },
+    {
+      "path": "423-trial-execution/slot-4/replay-01/policy-input.json",
+      "sha256": "f3f5e07cc9d1928af0d7c489b6c1d68ffeabb81843560901d0854565ecc31797"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/input-correspondence.json",
+      "sha256": "122febc75a0afd6881314ff94590d6daa99ea1d10f9e9ac8487b7435630e2414"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-Before.lean",
+      "sha256": "dd3520a21daebf2ecf178c633188e12e7024ed8f59c6d3aca9e8e15c89ded898"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/copied-artifact-correspondence.json",
+      "sha256": "c8db9022ea25e0e1b472f562ff775403ea12ecdd42bcd7039ec5af89b8cc407c"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-Context.lean",
+      "sha256": "a1cbc1c4815cfa317665203e6232b0abd11413f94057858ad416c569105b0155"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/audit-state.json",
+      "sha256": "daa36922798df8d75b6b2926a50fabe4e70abf55f66765cb795ca7b3247a527f"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/sources.json",
+      "sha256": "4b545124e66bd50d11045a9e1edc2ea9bbf44066395483965fc934f6f6768e30"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/inventory.json",
+      "sha256": "613dac680d80d85b6e2fb773f56998c26e6adc054df242d4e8622fe7f5b102cc"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-HeldOutDraft.lean",
+      "sha256": "9d0641988713e3c1edc95cd5c0c8cb3e71cd66ca2f751d0de2b4f749c611fc48"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/complete-source-hashes.json",
+      "sha256": "d25f2602e6beaed81097ee9b04d07b315dd8b357b8a71a6642df815048a160c5"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-Composition.lean",
+      "sha256": "24e2b76b8bfbad3b310a7e1d63b491e5bff686f1b94fcdc71c5950aaf4201acc"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/selection-correspondence.json",
+      "sha256": "2a06b77da02e42be5112599c0f51fecd52704817c290f4e7cd58e1cc16b48ce5"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/environment.json",
+      "sha256": "49219ad1818b207ab5be08936fe9ab25d930010ff38dbb20721b8989288c4e34"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/focused-results.json",
+      "sha256": "6c761d2beabcdfab1888c0c14799f109ecf23e39bd0d6dae6b9466ec63e293e5"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/output-hashes.json",
+      "sha256": "e2a0a959afcb8cd8362de66808abb09563df53637bcc9066cbbc32376affb037"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/origin-results.json",
+      "sha256": "5d3f7556891c7a1a00aa3f9f11f37481d1adefa67c2a547dc028f37d55cf248d"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-After.lean",
+      "sha256": "627210198acd3ff5b712c89318503de52f00fc6e69da3c162f61705b8b0c1f03"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/audit-queue.json",
+      "sha256": "5036bf522340f30ad5bb2dd07516783c475eab503a1fd5255de456bc9581d45f"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/policy-input.json",
+      "sha256": "dfef92659cd515e2202c85d377dc8bc7e0608ff53c5ba45f9925d046b43f8fca"
+    },
+    {
+      "path": "423-trial-execution/slot-5/replay-01/Audit-Substitution.lean",
+      "sha256": "5ced35af8eff6630dc508ad3162326b57975e5ff0b81db285da568f55c4fd430"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/input-correspondence.json",
+      "sha256": "6de333b05f172b8c0c81e526a0efb92a05c5eb94114ed0c12bb45933b2ece58f"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/copied-artifact-correspondence.json",
+      "sha256": "fee6b5d832340a5e33276af9fb4cadb8e8e7381c0aa4b9b7d4612bf63e5e7433"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/Audit.lean",
+      "sha256": "0b9b3c307d4fbddce0c8bed672ebc726547042e658a2407018a9593ec5e94532"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/audit-state.json",
+      "sha256": "2a9b51fbad43b2cfff5c7bd5f1443de74bbbbce0e45c99bbebdd2d6330698fc5"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/sources.json",
+      "sha256": "ee60436f8feab2b7d60e8fe3a10638eed41974a4e2525b9cbc6699407a990fe7"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/inventory.json",
+      "sha256": "c6cc692056b2d5eae2f81ce9a146856e32d39177d2e944c2ad9e735522f671d1"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/complete-source-hashes.json",
+      "sha256": "6c932dd51cdbf64c7b9316b67c0b0c9d70a69c47937e1c209fd3f68d3fad1380"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/environment.json",
+      "sha256": "ca83aa535dc9a8ef1b7d64cb316f13814510e5f8703a16e061a863d5762a3ab5"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/focused-results.json",
+      "sha256": "cef45509c024055f3237fedd9f143b1d7ea25e8b6680a1fcbf3609631552b1a6"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/output-hashes.json",
+      "sha256": "bbb90271a508714babf67de12c9b19b3889dcd3e0d4e6c7f070f4d4ac777e1d5"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/audit-queue.json",
+      "sha256": "dae2ea57a2aa66eea931345d4c758303bc53aff04b87f67c96dca7ccde4a7bc1"
+    },
+    {
+      "path": "423-trial-execution/slot-6/replay-01/policy-input.json",
+      "sha256": "4e0cc2787e4d8ca56addb580e6fb268cc0e8822102badd7b86900b1c105f4399"
+    }
+  ]
+}

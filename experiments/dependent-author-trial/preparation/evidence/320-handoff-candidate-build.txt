@@ -1,0 +1,15 @@
+[0mdirenv: loading /tmp/conaled-314-320/authors/candidate/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-314-320/authors/candidate/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-314-320/authors/candidate/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-314-320/authors/candidate/.envrc
+/tmp/conaled-314-320/authors/candidate/lean-toolchain
+/tmp/conaled-314-320/authors/candidate/flake.nix
+/tmp/conaled-314-320/authors/candidate/flake.lock
+error:
+       … while fetching the input 'git+file:///tmp'
+
+       error: opening Git repository "/tmp": could not find repository at '/tmp' (libgit2 error code = 6)
+[0mdirenv: nix-direnv: Evaluating current devShell failed. Falling back to previous environment!
+[31mdirenv: error command 'lake' not found on PATH '/tmp/conaled-314-320/authors/candidate/.direnv/bin:/run/wrappers/bin:/home/vlad/.nix-profile/bin:/nix/profile/bin:/home/vlad/.local/state/nix/profile/bin:/etc/profiles/per-user/vlad/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin'[0m

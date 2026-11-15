@@ -27,6 +27,14 @@ theorem run_state [Zero C] [Add C] (step : ι → σ → Measured σ C) (is : Li
   | nil => rfl
   | cons i is ih => exact ih _
 
+/-- State-independent observations add in the actual command order. -/
+theorem run_observation [Zero C] [Add C] (step : ι → σ → Measured σ C)
+    (observe : ι → C) (law : ∀ i s, (step i s).2 = observe i)
+    (is : List ι) (s : σ) : (run step is s).2 = (is.map observe).sum := by
+  induction is generalizing s with
+  | nil => rfl
+  | cons i is ih => simp only [run_cons, law, ih, List.map_cons, List.sum_cons]
+
 theorem run_append [AddMonoid C] (step : ι → σ → Measured σ C)
     (is js : List ι) (s : σ) :
     run step (is ++ js) s = bind (run step is s) (run step js) := by

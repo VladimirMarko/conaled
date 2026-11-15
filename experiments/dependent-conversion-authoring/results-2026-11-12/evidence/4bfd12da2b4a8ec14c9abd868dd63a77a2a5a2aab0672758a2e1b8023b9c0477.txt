@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-12T15:18:57.505877+00:00",
+  "monotonic_ns": 170026699394935,
+  "context": {
+    "slot": "slot-1",
+    "session": "01a1d04f-cc08-7081-849e-b12ce4f5a98b",
+    "route": "service",
+    "phase": "repair-change",
+    "release_sha256": "ae6c9f8e22229868a9f50a5d75473af8c86a92fe462a2bda11f9127e6f90f6f0",
+    "environment_sha256": "7cbb85ca9fb19e38d2534a5cfaef1d189cf39452d0abec62f313e7e6a6fc1228"
+  },
+  "repair_interval_start": "repair-baseline-release.json",
+  "output": "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/work/repair-change-output",
+  "decision": "Checkedbaselinepreserved; releasechange, freshoutput andchangedmodulecompiled; noauthorhelperscompiledinoldroot"
+}

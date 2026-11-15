@@ -69,9 +69,12 @@ Both forest wrappers return `some []` for an empty input; both tree wrappers
 return `none`. A singleton tree wrapper takes zero steps and can ignore malformed
 unused edges. No optimum theorem is claimed for those unsupported inputs.
 
-The bounded occurrence helper retains `picks`, its prefix/suffix decomposition,
-and its projected order. `stepsDiscard_same_forests` is equality of the mapped
-forest lists; `stepsDiscard_residual_subset` only relates the residual lists by
+The retained `ForestKruskalSource.Occurrences` interfaces forward to the shared
+`Sequences.Occurrences` primitive and its prefix/suffix and projected-order laws
+in `Applications/Sequences/Occurrences.lean`. Permutation generation and Prim
+use this same ordered operation, including duplicate occurrences; the forest
+module does not import the permutation generator. `stepsDiscard_same_forests`
+is equality of the mapped forest lists; `stepsDiscard_residual_subset` only relates the residual lists by
 sublist. The exact full-state counterexample is retained. It refutes equality
 at the full-state observation, not forest optimality.
 

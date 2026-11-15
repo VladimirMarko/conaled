@@ -1,0 +1,23 @@
+import Examples.TwoFamilySelectedSourceConjugation
+import Examples.TwoFamilyFrozenPathObjects
+import Examples.TwoFamilySelectedPathObservation
+import Examples.FrozenOrdinaryActionEvaluation
+import Examples.FrozenOrdinaryActionSubstitution
+namespace Examples.TwoFamilyFrozenOrdinaryAction
+open SquareKit.Internal.PathTransport HigherInterpretation
+open Examples.TwoFamilyModelData
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.defeqAttrib.useBackward true
+set_option maxRecDepth 3000
+theorem source_identity_fiber_action :
+ TwoFamilySelectedOrdinaryAction.SelectedIdentityFiberAction integerContext integerContext paths :=
+ @TwoFamilySelectedOrdinaryAction.selectedIdentityFiberAction integerContext integerContext paths pathType_subsingleton
+theorem source_conjugation :
+ TwoFamilySelectedOrdinaryAction.SelectedSourceConjugation integerContext integerContext paths :=
+ @TwoFamilySelectedOrdinaryAction.selectedSourceConjugation integerContext integerContext paths pathType_subsingleton
+set_option linter.defProp false in
+def source_conjugation_witness (k : ℤ) :=
+ identitySectionCell_heq paths.family paths.x.down paths.y.down paths.p.down paths.p'.down paths.h.down
+  (Examples.TwoFamilyFrozenPoint.assignedPoint k)
+end Examples.TwoFamilyFrozenOrdinaryAction

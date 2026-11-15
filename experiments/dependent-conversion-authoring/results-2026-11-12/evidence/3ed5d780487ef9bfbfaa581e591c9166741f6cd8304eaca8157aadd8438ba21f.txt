@@ -1,0 +1,19 @@
+from pathlib import Path
+import subprocess,json,datetime,fcntl
+p=Path('/tmp/conaled-wave-20261111');a=p/'validation-queue-interruption-01';results=[]
+for name in ['queue-slot3-audit.py','queue-slot4-audit.py','queue-slot5-audits.py','queue-slot6-audit.py']:
+ assert (p/name).read_bytes()==(a/name).read_bytes()
+ start=datetime.datetime.now(datetime.timezone.utc).isoformat();print('START',name,start,flush=True)
+ with (a/(name+'.log')).open('xb') as log:r=subprocess.run(['python3',str(p/name)],stdout=log,stderr=subprocess.STDOUT)
+ results.append({'script':name,'started_at':start,'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'exit_code':r.returncode});(a/'restart-rest-results.json').write_text(json.dumps(results,indent=2));print('EXIT',name,r.returncode,flush=True)
+ if r.returncode:raise SystemExit(r.returncode)
+out=p/'final-integration-validation-correction-02';out.mkdir(exist_ok=True);repo=p/'integration-final';candidate=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
+with (p/'build.lock').open('a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX)
+ for name,args in [('guarded-check',['--candidate',candidate]),('verify-candidate',['--verify-candidate',candidate])]:
+  start=datetime.datetime.now(datetime.timezone.utc).isoformat();cmd=['taskset','-c','0','./check.sh',*args]
+  with (out/(name+'.log')).open('xb') as log:r=subprocess.run(cmd,cwd=repo,stdout=log,stderr=subprocess.STDOUT)
+  (out/(name+'.json')).write_text(json.dumps({'candidate':candidate,'command':cmd,'cwd':str(repo),'started_at':start,'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'exit_code':r.returncode},indent=2));print(name,r.returncode,flush=True)
+  if r.returncode:raise SystemExit(r.returncode)
+ (out/'verification.json').write_bytes((repo/'.lake/verification.json').read_bytes())
+print('ALL COMPLETED',flush=True)

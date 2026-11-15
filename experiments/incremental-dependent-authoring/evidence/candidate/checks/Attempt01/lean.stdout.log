@@ -1,0 +1,133 @@
+attempts/checks/Attempt01/Source.lean:8:15: error: unexpected token ':='; expected command
+attempts/checks/Attempt01/Source.lean:12:16: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:16:20: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:20:22: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:24:33: error(lean.unknownIdentifier): Unknown identifier `Spec.step`
+attempts/checks/Attempt01/Source.lean:28:33: error(lean.unknownIdentifier): Unknown identifier `Spec.run`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:32:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:35:64: error(lean.unknownIdentifier): Unknown identifier `Spec.run`
+attempts/checks/Attempt01/Source.lean:38:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:44:4: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:45:4: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:46:4: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:48:18: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:49:18: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:52:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:55:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:58:68: error(lean.unknownIdentifier): Unknown identifier `Spec.selected`
+attempts/checks/Attempt01/Source.lean:59:6: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:64:68: error(lean.unknownIdentifier): Unknown identifier `Spec.selected`
+attempts/checks/Attempt01/Source.lean:71:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:74:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:87:6: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:82:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:90:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:94:2: warning: Unused tactic linter: `change selected (Spec.run (xs ++ ys) n) = selected (Spec.run ys (Spec.run xs n))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:95:2: warning: Unused tactic linter: `congr 1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:96:2: warning: Unused tactic linter: `exact List.foldl_append` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:94:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+attempts/checks/Attempt01/Source.lean:95:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+attempts/checks/Attempt01/Source.lean:96:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+attempts/checks/Attempt01/Source.lean:99:34: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:119:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:114:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:120:4: warning: Unused tactic linter: `(cases op) <;> rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:120:17: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+attempts/checks/Attempt01/Source.lean:126:19: error: unsolved goals
+case successor
+σ : SingleV → IndexTerm SingleV
+e : IndexTerm SingleV
+ih : Expr.subst (fun v => (σ v).expression) e.expression = (replace σ e).expression
+⊢ Expr.subst (fun v => (σ v).expression)
+      (DependentPairDeclarations.projection.operation Declaration.s fun i =>
+        Fin.cases (zero e.expression) (fun i => nomatch i) i) =
+    DependentPairDeclarations.projection.operation Declaration.s fun i =>
+      Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) i
+attempts/checks/Attempt01/Source.lean:129:16: error: unsolved goals
+case double
+σ : SingleV → IndexTerm SingleV
+e : IndexTerm SingleV
+ih : Expr.subst (fun v => (σ v).expression) e.expression = (replace σ e).expression
+⊢ Expr.subst (fun v => (σ v).expression)
+      (DependentPairDeclarations.projection.operation Declaration.d fun i =>
+        Fin.cases (zero e.expression) (fun i => nomatch i) i) =
+    DependentPairDeclarations.projection.operation Declaration.d fun i =>
+      Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) i
+attempts/checks/Attempt01/Source.lean:128:41: warning: This simp argument is unused:
+  Expr.subst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, s, DependentPairDeclarations.Projection.s,
+    DependentPairDeclarations.Terms.s, Elimination.subst_zero, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:128:53: warning: This simp argument is unused:
+  Elimination.subst_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, s, DependentPairDeclarations.Projection.s,
+    DependentPairDeclarations.Terms.s, Expr.subst, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:128:77: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, s, DependentPairDeclarations.Projection.s,
+    DependentPairDeclarations.Terms.s, Expr.subst, Elimination.subst_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:131:41: warning: This simp argument is unused:
+  Expr.subst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, d, DependentPairDeclarations.Projection.d,
+    DependentPairDeclarations.Terms.d, Elimination.subst_zero, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:131:53: warning: This simp argument is unused:
+  Elimination.subst_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, d, DependentPairDeclarations.Projection.d,
+    DependentPairDeclarations.Terms.d, Expr.subst, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:131:77: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, d, DependentPairDeclarations.Projection.d,
+    DependentPairDeclarations.Terms.d, Expr.subst, Elimination.subst_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:133:0: error: Invalid name after `end`: Expected `Spec`, but found `IncrementalCompositional`
+
+Hint: If you meant to end the outer scope(s) `IncrementalCompositional`, you must end all the intervening scopes `IncrementalCompositional.Spec`:
+  end IncrementalCompositional.̲S̲p̲e̲c̲

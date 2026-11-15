@@ -1,0 +1,318 @@
+{
+  "slot": 5,
+  "route": "direct",
+  "session_id": "01a1d07a-ac43-75b1-b714-e149e335e082",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "provider": "openai",
+  "cli_version": "0.161.0",
+  "exact_serving_revision": null,
+  "final_sources": {
+    "Substitution.lean": {
+      "sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+      "bytes": 2329,
+      "lines": 64,
+      "nonblank_lines": 57,
+      "selected": true
+    },
+    "Before.lean": {
+      "sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+      "bytes": 625,
+      "lines": 19,
+      "nonblank_lines": 17,
+      "selected": true
+    },
+    "Draft.lean": {
+      "sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+      "bytes": 362,
+      "lines": 11,
+      "nonblank_lines": 9,
+      "selected": true
+    },
+    "HeldOutDraft.lean": {
+      "sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+      "bytes": 2294,
+      "lines": 62,
+      "nonblank_lines": 55,
+      "selected": true
+    },
+    "ScaleDraft.lean": {
+      "sha256": "ea7a8a6479410756c100a5a99b7d1a18153c2f0f223681404a806cfe27365633",
+      "bytes": 2583,
+      "lines": 72,
+      "nonblank_lines": 65,
+      "selected": false
+    },
+    "Composition.lean": {
+      "sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+      "bytes": 2337,
+      "lines": 64,
+      "nonblank_lines": 57,
+      "selected": true
+    },
+    "After.lean": {
+      "sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+      "bytes": 658,
+      "lines": 21,
+      "nonblank_lines": 19,
+      "selected": true
+    },
+    "Context.lean": {
+      "sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+      "bytes": 2319,
+      "lines": 64,
+      "nonblank_lines": 57,
+      "selected": true
+    },
+    "NegativeDraft.lean": {
+      "sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+      "bytes": 521,
+      "lines": 19,
+      "nonblank_lines": 15,
+      "selected": true
+    },
+    "negative-rejection.txt": {
+      "sha256": "cfb35e040dad6bfe950a2012ab244004c4ca51695701a94355aac9a9e2c0a4df",
+      "bytes": 1145,
+      "lines": 19,
+      "nonblank_lines": 16,
+      "selected": false
+    }
+  },
+  "selected_sources": [
+    "Draft.lean",
+    "Composition.lean",
+    "Context.lean",
+    "Substitution.lean",
+    "Before.lean",
+    "After.lean",
+    "NegativeDraft.lean",
+    "HeldOutDraft.lean"
+  ],
+  "historical_unselected": [
+    "ScaleDraft.lean"
+  ],
+  "general_helpers": [
+    "expand_equal",
+    "rename_typed_comp",
+    "liftRen_typed",
+    "renamed_equal",
+    "chain_equal",
+    "left_right_equal"
+  ],
+  "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+  "index_control": "checked IndexTask",
+  "attempts": [
+    {
+      "id": "after-compile-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+      "receipt": "423-trial-execution/slot-5/work/after-compile-001/result.json",
+      "tool_seconds": 0.248416095
+    },
+    {
+      "id": "after-policy-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+      "receipt": "423-trial-execution/slot-5/work/after-policy-001/result.json",
+      "tool_seconds": 1.134293299
+    },
+    {
+      "id": "before-compile-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+      "receipt": "423-trial-execution/slot-5/work/before-compile-001/result.json",
+      "tool_seconds": 0.374328455
+    },
+    {
+      "id": "before-policy-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+      "receipt": "423-trial-execution/slot-5/work/before-policy-001/result.json",
+      "tool_seconds": 0.911580752
+    },
+    {
+      "id": "compile-001",
+      "phase": "initial",
+      "status": "check-failed",
+      "exit_code": 1,
+      "kind": "compile",
+      "source_sha256": "b290076292aefb09d061664da72cf354be7968ab882f34f9204d9d15423ba62f",
+      "receipt": "423-trial-execution/slot-5/work/compile-001/result.json",
+      "tool_seconds": 1.151197435
+    },
+    {
+      "id": "compile-002",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+      "receipt": "423-trial-execution/slot-5/work/compile-002/result.json",
+      "tool_seconds": 0.306669227
+    },
+    {
+      "id": "composition-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+      "receipt": "423-trial-execution/slot-5/work/composition-compile-001/result.json",
+      "tool_seconds": 0.270997233
+    },
+    {
+      "id": "composition-policy-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+      "receipt": "423-trial-execution/slot-5/work/composition-policy-001/result.json",
+      "tool_seconds": 1.319672899
+    },
+    {
+      "id": "context-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+      "receipt": "423-trial-execution/slot-5/work/context-compile-001/result.json",
+      "tool_seconds": 0.246033379
+    },
+    {
+      "id": "context-policy-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+      "receipt": "423-trial-execution/slot-5/work/context-policy-001/result.json",
+      "tool_seconds": 1.027176349
+    },
+    {
+      "id": "held-out-compile-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+      "receipt": "423-trial-execution/slot-5/work/held-out-compile-001/result.json",
+      "tool_seconds": 0.343091235
+    },
+    {
+      "id": "held-out-policy-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+      "receipt": "423-trial-execution/slot-5/work/held-out-policy-001/result.json",
+      "tool_seconds": 0.914308146
+    },
+    {
+      "id": "negative-compile-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+      "receipt": "423-trial-execution/slot-5/work/negative-compile-001/result.json",
+      "tool_seconds": 0.949161315
+    },
+    {
+      "id": "negative-policy-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+      "receipt": "423-trial-execution/slot-5/work/negative-policy-001/result.json",
+      "tool_seconds": 3.168508025
+    },
+    {
+      "id": "policy-001",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+      "receipt": "423-trial-execution/slot-5/work/policy-001/result.json",
+      "tool_seconds": 1.603303402
+    },
+    {
+      "id": "scale-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "ea7a8a6479410756c100a5a99b7d1a18153c2f0f223681404a806cfe27365633",
+      "receipt": "423-trial-execution/slot-5/work/scale-compile-001/result.json",
+      "tool_seconds": 0.288345588
+    },
+    {
+      "id": "substitution-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+      "receipt": "423-trial-execution/slot-5/work/substitution-compile-001/result.json",
+      "tool_seconds": 0.242264605
+    },
+    {
+      "id": "substitution-policy-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+      "receipt": "423-trial-execution/slot-5/work/substitution-policy-001/result.json",
+      "tool_seconds": 1.148579544
+    }
+  ],
+  "failed_recorded_commands": 1,
+  "incomplete_attempts": [],
+  "usage_last_observation": {
+    "timestamp": "2026-11-12T16:04:36.652Z",
+    "type": "token_count",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 1267523,
+        "cached_input_tokens": 1235456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8404,
+        "reasoning_output_tokens": 450,
+        "total_tokens": 1275927
+      },
+      "last_token_usage": {
+        "input_tokens": 49473,
+        "cached_input_tokens": 49280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 63,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 49536
+      },
+      "model_context_window": 258400
+    }
+  },
+  "usage_capture": "423-trial-execution/slot-5/raw-usage-events.json",
+  "active_reasoning_seconds": null,
+  "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+  "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+  "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+  "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+}

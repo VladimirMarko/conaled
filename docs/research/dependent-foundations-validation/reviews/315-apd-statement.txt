@@ -1,0 +1,184 @@
+[0mdirenv: loading /tmp/conaled-314-320/315/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+/tmp/native-check.lean:236:0: warning: Definition `apdEta_comparison` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+def SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.apdEta_comparison.{u} : ∀ {Base : Type u}
+  {Fiber : Base → Type u} {Γ Δ : Type u} {e : Γ ≃ Δ} {A : Γ → Type u} {A' : Δ → Type u}
+  (f : SquareKit.Internal.DependentJudgments.CoherentTypePresentations.FamilyComparison e A A') {B : Sigma A → Type u}
+  {B' : Sigma A' → Type u}
+  (g : SquareKit.Internal.DependentJudgments.CoherentTypePresentations.FamilyComparison f.total B B')
+  (x y z : (γ : Γ) → A γ)
+  (q :
+    (SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).Section Γ
+      ((SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).identity A { down := y }
+        { down := z }))
+  (b :
+    (SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).Section Γ
+      ((SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).subTy B
+        ((SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).sectionSub A { down := x })))
+  (p p' :
+    (SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).Section Γ
+      (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.PathFamily x y))
+  (h :
+    (SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).Section Γ
+      ((SquareKit.Internal.DependentJudgments.NativeType.structuralModel Base Fiber).identity
+        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.PathFamily x y) p p')),
+  (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.apdFamily (f.identityFamily x y)
+          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaFamilyComparison f g x y z q b)
+          p.down p'.down h
+          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaSection x y z q b)).term
+      (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.apdValue
+          (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber)
+          (fun γ => ULift.{u, 0} (PLift (x γ = y γ)))
+          (fun γ =>
+            ULift.{u, 0}
+              (PLift
+                ((SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                        (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A s.fst)
+                        (fun s => B ⟨s.fst.fst, s.snd⟩)
+                        { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y }
+                        { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z }
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedLastPath x y z q)
+                        (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                          (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A s.fst)
+                          (fun s => B ⟨s.fst.fst, s.snd⟩)
+                          { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x }
+                          { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y }
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.variablePath x y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedInput x y b))).down
+                    γ =
+                  (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                        (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A s.fst)
+                        (fun s => B ⟨s.fst.fst, s.snd⟩)
+                        { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x }
+                        { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z }
+                        (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.concatValue
+                          (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A s.fst)
+                          { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x }
+                          { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y }
+                          { down := SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z }
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.variablePath x y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedLastPath x y z q))
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedInput x y b)).down
+                    γ)))
+          { down := p.down } { down := p'.down } h
+          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaSection x y z q b)).down =
+    (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.apdValue
+        (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber)
+        (fun δ => ULift.{u, 0} (PLift (f.term x δ = f.term y δ)))
+        (fun δ =>
+          ULift.{u, 0}
+            (PLift
+              ((SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                      (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A' s.fst)
+                      (fun s => B' ⟨s.fst.fst, s.snd⟩)
+                      {
+                        down :=
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                y).term
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y) }
+                      {
+                        down :=
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                y).term
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z) }
+                      (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.path
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x y)
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y)
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z)
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedLastPath x y z q))
+                      (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                        (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A' s.fst)
+                        (fun s => B' ⟨s.fst.fst, s.snd⟩)
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                  y).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x) }
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                  y).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y) }
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.path
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.variablePath x y))
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.atSection
+                                  (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison
+                                    f x y)
+                                  (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedDependentComparison
+                                    f g x y)
+                                  (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y
+                                    x)).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedInput x y
+                                  b).down })).down
+                  δ =
+                (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.transportValue
+                      (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A' s.fst)
+                      (fun s => B' ⟨s.fst.fst, s.snd⟩)
+                      {
+                        down :=
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                y).term
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x) }
+                      {
+                        down :=
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                y).term
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z) }
+                      (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.concatValue
+                        (SquareKit.Internal.DependentJudgments.NativeType.model Base Fiber) (fun s => A' s.fst)
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                  y).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x) }
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                  y).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y) }
+                        {
+                          down :=
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x
+                                  y).term
+                              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z) }
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.path
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.variablePath x y))
+                        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.path
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f x y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y y)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y z)
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedLastPath x y z q)))
+                      {
+                        down :=
+                          (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.atSection
+                                (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedFamilyComparison f
+                                  x y)
+                                (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedDependentComparison
+                                  f g x y)
+                                (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedPoint x y x)).term
+                            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.liftedInput x y
+                                b).down }).down
+                  δ)))
+        { down := (f.identityFamily x y).term p.down } { down := (f.identityFamily x y).term p'.down }
+        (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.path (f.identityFamily x y) p.down p'.down h)
+        {
+          down :=
+            (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaFamilyComparison f g x y z q
+                  b).term
+              (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaSection x y z q
+                  b).down }).down :=
+fun {Base} {Fiber} {Γ Δ} {e} {A} {A'} f {B} {B'} g x y z q b p p' h =>
+  SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.apd_compare (f.identityFamily x y)
+    (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaFamilyComparison f g x y z q b) p.down
+    p'.down h (SquareKit.Internal.DependentJudgments.NativeDerivedComparisons.selectedEtaSection x y z q b)

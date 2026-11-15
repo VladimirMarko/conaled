@@ -1,4 +1,5 @@
 import SquareKit.WordCoalgebra
+import SquareKit.FinitaryTerm
 
 /-! Finitary derivative templates retain original arguments and their successors.
 Local semantic compatibility yields correctness for arbitrary finite terms.
@@ -7,9 +8,7 @@ namespace SquareKit.CompositionalCoalgebra
 open WordCoalgebra
 universe u v w z d a o
 
-inductive Term (Op : Type u) (arity : Op → Nat) (X : Type v) : Type (max u v)
-  | leaf : X → Term Op arity X
-  | node (op : Op) : (Fin (arity op) → Term Op arity X) → Term Op arity X
+abbrev Term (Op : Type u) (arity : Op → Nat) (X : Type v) := FinitaryTerm Op arity X
 
 variable {Op : Type u} {X : Type v} {Y : Type w} {Z : Type z}
   {D : Type d} {A : Type a} {O : Type o} {arity : Op → Nat}
@@ -26,39 +25,28 @@ theorem run_transport (c : Coalgebra A O X) (d : Coalgebra A O Y)
 
 namespace Term
 
-def bind (f : X → Term Op arity Y) : Term Op arity X → Term Op arity Y
-  | .leaf x => f x
-  | .node op ts => .node op (fun i => bind f (ts i))
+@[match_pattern] abbrev leaf (x : X) : Term Op arity X := FinitaryTerm.leaf x
+@[match_pattern] abbrev node (op : Op) (ts : Fin (arity op) → Term Op arity X) :
+    Term Op arity X := FinitaryTerm.node op ts
 
-def map (f : X → Y) : Term Op arity X → Term Op arity Y := bind (leaf ∘ f)
+abbrev bind (f : X → Term Op arity Y) : Term Op arity X → Term Op arity Y := FinitaryTerm.bind f
+abbrev map (f : X → Y) : Term Op arity X → Term Op arity Y := FinitaryTerm.map f
+abbrev fold (alg : (op : Op) → (Fin (arity op) → D) → D) (f : X → D) :
+    Term Op arity X → D := FinitaryTerm.fold alg f
 
-def fold (alg : (op : Op) → (Fin (arity op) → D) → D) (f : X → D) :
-    Term Op arity X → D
-  | .leaf x => f x
-  | .node op ts => alg op (fun i => fold alg f (ts i))
-
-@[simp] theorem bind_leaf (t : Term Op arity X) : bind leaf t = t := by
-  induction t with
-  | leaf => rfl
-  | node op ts ih => simp only [bind]; congr 1; funext i; exact ih i
+@[simp] theorem bind_leaf (t : Term Op arity X) : bind leaf t = t := FinitaryTerm.bind_leaf t
 
 theorem bind_assoc (t : Term Op arity X) (f : X → Term Op arity Y)
-    (g : Y → Term Op arity Z) : bind g (bind f t) = bind (fun x => bind g (f x)) t := by
-  induction t with
-  | leaf => rfl
-  | node op ts ih => simp only [bind]; congr 1; funext i; exact ih i
+    (g : Y → Term Op arity Z) : bind g (bind f t) = bind (fun x => bind g (f x)) t :=
+  FinitaryTerm.bind_assoc t f g
 
 theorem fold_bind (alg : (op : Op) → (Fin (arity op) → D) → D)
     (f : X → Term Op arity Y) (g : Y → D) (t : Term Op arity X) :
-    fold alg g (bind f t) = fold alg (fun x => fold alg g (f x)) t := by
-  induction t with
-  | leaf => rfl
-  | node op ts ih => simp only [bind, fold]; congr 1; funext i; exact ih i
+    fold alg g (bind f t) = fold alg (fun x => fold alg g (f x)) t :=
+  FinitaryTerm.fold_bind alg f g t
+
 theorem fold_node (f : X → Term Op arity Y) (t : Term Op arity X) :
-    fold Term.node f t = bind f t := by
-  induction t with
-  | leaf => rfl
-  | node op ts ih => simp only [fold, bind]; congr 1; funext i; exact ih i
+    fold Term.node f t = bind f t := FinitaryTerm.fold_node f t
 
 end Term
 
@@ -84,7 +72,7 @@ theorem layer_natural (f : X → Y) (op : Op) (xs : Fin (arity op) → X × B A 
   apply Prod.ext
   · rfl
   · funext a
-    simp only [layer, Term.map, Term.bind_assoc, Function.comp_def, Term.bind]
+    simp only [layer, Term.map, FinitaryTerm.map, FinitaryTerm.bind, FinitaryTerm.bind_assoc, Function.comp_def]
     congr 1
     funext s; cases s <;> rfl
 
@@ -118,7 +106,7 @@ theorem fold_morphism (alg : (op : Op) → (Fin (arity op) → D) → D)
     induction t with
     | leaf x => exact hf.output x
     | node op ts ih =>
-      simp only [Term.fold, output]
+      simp only [Term.fold, FinitaryTerm.fold, output]
       rw [hc.output]
       congr 1; funext i; exact ih i
   refine ⟨ho, ?_⟩
@@ -127,7 +115,7 @@ theorem fold_morphism (alg : (op : Op) → (Fin (arity op) → D) → D)
   induction t with
   | leaf x => exact hf.next x a
   | node op ts ih =>
-    simp only [Term.fold, next, Term.fold_bind]
+    simp only [Term.fold, FinitaryTerm.fold, next, Term.fold_bind]
     rw [hc.next]
     have he : (fun i => (d (Term.fold alg f (ts i))).1) = (fun i => r.output c (ts i)) :=
       funext (fun i => ho (ts i))

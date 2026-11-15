@@ -1,0 +1,36 @@
+experiments/guarded-j-retest/preparation/BaselineReference.lean:20:25: error: Function expected at
+  rawTerm
+but this term has type
+  ?m.19
+
+Note: Expected a function because this term is being applied to the argument
+  (outer hΓ hA hx hT hQ hp).genericTerm
+
+Hint: The identifier `rawTerm` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+experiments/guarded-j-retest/preparation/BaselineReference.lean:23:9: error: Function expected at
+  rawTerm
+but this term has type
+  ?m.19
+
+Note: Expected a function because this term is being applied to the argument
+  (inner hΓ hA hx hT hQ hp).genericTerm
+
+Hint: The identifier `rawTerm` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+experiments/guarded-j-retest/preparation/BaselineReference.lean:24:9: error: Function expected at
+  rawTerm
+but this term has type
+  ?m.19
+
+Note: Expected a function because this term is being applied to the argument
+  (inner hΓ hA hx hT hQ hp).genericTerm
+
+Hint: The identifier `rawTerm` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+experiments/guarded-j-retest/preparation/BaselineReference.lean:25:15: error: Function expected at
+  rawTerm
+but this term has type
+  ?m.19
+
+Note: Expected a function because this term is being applied to the argument
+  (inner hΓ hA hx hT hQ hp).genericTerm
+
+Hint: The identifier `rawTerm` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.

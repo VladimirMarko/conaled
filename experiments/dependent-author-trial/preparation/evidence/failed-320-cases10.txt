@@ -1,0 +1,210 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:76:16: error: Application type mismatch: The argument
+  ⟨2, ?m.39⟩
+has type
+  Fin 4
+but is expected to have type
+  fiberCode
+    (castCode ⋯
+      (subTmCode
+        (castCode ⋯
+          (subTmCode
+            (castCode ⋯
+              (subTmCode
+                (castCode ⋯
+                  (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+                (weakenCode
+                  (extendCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                  (identityCode
+                    (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (varCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))))))
+            (weakenCode
+              (extendCode
+                (extendCode (extendCode emptyCode (baseCode emptyCode))
+                  (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                (identityCode
+                  (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (varCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+              (baseCode
+                (extendCode
+                  (extendCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                  (identityCode
+                    (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (varCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))))))))
+        (weakenCode
+          (extendCode
+            (extendCode
+              (extendCode (extendCode emptyCode (baseCode emptyCode))
+                (baseCode (extendCode emptyCode (baseCode emptyCode))))
+              (identityCode
+                (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                  (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                  (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                (varCode (extendCode emptyCode (baseCode emptyCode))
+                  (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+            (baseCode
+              (extendCode
+                (extendCode (extendCode emptyCode (baseCode emptyCode))
+                  (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                (identityCode
+                  (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (varCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))))))
+          (identityCode
+            (baseCode
+              (extendCode
+                (extendCode
+                  (extendCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                  (identityCode
+                    (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                      (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                    (varCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+                (baseCode
+                  (extendCode
+                    (extendCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                    (identityCode
+                      (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                        (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                          (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                      (subTmCode (castCode NamedCaller.x._proof_1 (varCode emptyCode (baseCode emptyCode)))
+                        (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                          (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                      (varCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode)))))))))
+            NamedCaller.yAtZ.code NamedCaller.z.code))))
+    { Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+      Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1}, extend := fun Γ A => (γ : Γ) × A γ,
+      idSub := fun x => { down := id }, compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+      subTy := fun {Γ Δ} A σ => A ∘ σ.down, subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+      weaken := fun x x_1 => { down := Sigma.fst }, genericVariable := fun x x_1 => { down := Sigma.snd },
+      pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ }, base := fun x x_1 => ℕ,
+      fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+      identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+      reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+      comp_id_left := @NativeType.structuralModel._proof_2, comp_id_right := @NativeType.structuralModel._proof_3,
+      comp_assoc := @NativeType.structuralModel._proof_4, subTy_id := @NativeType.structuralModel._proof_5,
+      subTy_comp := @NativeType.structuralModel._proof_6, subTm_id := @NativeType.structuralModel._proof_7,
+      subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+      identity_sub := @NativeType.structuralModel._proof_11, refl_sub := @NativeType.structuralModel._proof_12,
+      weaken_pair := @NativeType.structuralModel._proof_13, variable_pair := @NativeType.structuralModel._proof_14,
+      pair_eta := @NativeType.structuralModel._proof_16,
+      j := fun {Γ} {n} => NativeType.contextualJ ℕ fun n => Fin (n + 1), j_beta := ⋯, j_sub := ⋯ }
+    ⟨⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.26 } }⟩, 3⟩, { down := { down := ?m.33 } }⟩
+in the application
+  ⟨⟨⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.26 } }⟩, 3⟩, { down := { down := ?m.33 } }⟩, ⟨2, ?m.39⟩⟩
+Examples/DependentAuthorTrialCases.lean:76:8: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.32 = ?m.32
+but is expected to have type
+  (NamedCaller.yAtZ.code
+          { Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+            Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1}, extend := fun Γ A => (γ : Γ) × A γ,
+            idSub := fun x => { down := id }, compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+            subTy := fun {Γ Δ} A σ => A ∘ σ.down, subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+            weaken := fun x x_1 => { down := Sigma.fst }, genericVariable := fun x x_1 => { down := Sigma.snd },
+            pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ }, base := fun x x_1 => ℕ,
+            fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+            identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+            reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+            comp_id_left := @NativeType.structuralModel._proof_2, comp_id_right := @NativeType.structuralModel._proof_3,
+            comp_assoc := @NativeType.structuralModel._proof_4, subTy_id := @NativeType.structuralModel._proof_5,
+            subTy_comp := @NativeType.structuralModel._proof_6, subTm_id := @NativeType.structuralModel._proof_7,
+            subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+            identity_sub := @NativeType.structuralModel._proof_11, refl_sub := @NativeType.structuralModel._proof_12,
+            weaken_pair := @NativeType.structuralModel._proof_13,
+            variable_pair := @NativeType.structuralModel._proof_14, pair_eta := @NativeType.structuralModel._proof_16,
+            j := fun {Γ} {n} => NativeType.contextualJ ℕ fun n => Fin (n + 1), j_beta := ⋯, j_sub := ⋯ }).down
+      ⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.26 } }⟩, 3⟩ =
+    (NamedCaller.z.code
+          { Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+            Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1}, extend := fun Γ A => (γ : Γ) × A γ,
+            idSub := fun x => { down := id }, compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+            subTy := fun {Γ Δ} A σ => A ∘ σ.down, subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+            weaken := fun x x_1 => { down := Sigma.fst }, genericVariable := fun x x_1 => { down := Sigma.snd },
+            pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ }, base := fun x x_1 => ℕ,
+            fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+            identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+            reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+            comp_id_left := @NativeType.structuralModel._proof_2, comp_id_right := @NativeType.structuralModel._proof_3,
+            comp_assoc := @NativeType.structuralModel._proof_4, subTy_id := @NativeType.structuralModel._proof_5,
+            subTy_comp := @NativeType.structuralModel._proof_6, subTm_id := @NativeType.structuralModel._proof_7,
+            subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+            identity_sub := @NativeType.structuralModel._proof_11, refl_sub := @NativeType.structuralModel._proof_12,
+            weaken_pair := @NativeType.structuralModel._proof_13,
+            variable_pair := @NativeType.structuralModel._proof_14, pair_eta := @NativeType.structuralModel._proof_16,
+            j := fun {Γ} {n} => NativeType.contextualJ ℕ fun n => Fin (n + 1), j_beta := ⋯, j_sub := ⋯ }).down
+      ⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.26 } }⟩, 3⟩
+in the application
+  { down := ⋯ }
+Examples/DependentAuthorTrialCases.lean:71:33: warning: This simp argument is unused:
+  NamedCaller.generalized
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inputs, inputsOf, NamedCaller.bType, NamedCaller.xAtQ, NamedCaller.fixed, NamedCaller.x,
+    NamedCaller.moving, BasePoint.weaken, BasePoint.variable, NativeType.model, NativeType.structuralModel, native]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:71:58: warning: This simp argument is unused:
+  NamedCaller.bType
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inputs, inputsOf, NamedCaller.generalized, NamedCaller.xAtQ, NamedCaller.fixed, NamedCaller.x,
+    NamedCaller.moving, BasePoint.weaken, BasePoint.variable, NativeType.model, NativeType.structuralModel, native]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:72:58: warning: This simp argument is unused:
+  NamedCaller.moving
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inputs, inputsOf, NamedCaller.generalized, NamedCaller.bType, NamedCaller.xAtQ, NamedCaller.fixed,
+    NamedCaller.x, BasePoint.weaken, BasePoint.variable, NativeType.model, NativeType.structuralModel, native]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:73:24: warning: This simp argument is unused:
+  BasePoint.variable
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [inputs, inputsOf, NamedCaller.generalized, NamedCaller.bType, NamedCaller.xAtQ, NamedCaller.fixed,
+    NamedCaller.x, NamedCaller.moving, BasePoint.weaken, NativeType.model, NativeType.structuralModel, native]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

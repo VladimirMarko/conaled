@@ -1,0 +1,34 @@
+import pathlib,json,hashlib,subprocess,os,fcntl,datetime,sys
+p=pathlib.Path('/tmp/conaled-wave-20261111');out=p/'final-integration-validation';repo=p/'integration-final';replay=p/'423-trial-execution/slot-2/replay-02';candidate='59be9f3c25421ddbe07cca0cb933904a3fd10881'
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def emit(name,obj):(out/name).write_text(json.dumps(obj,indent=2))
+def h(f):
+ x=hashlib.sha256()
+ with f.open('rb') as s:
+  for b in iter(lambda:s.read(1024*1024),b''):x.update(b)
+ return x.hexdigest()
+def verify_replay():
+ for name,root in [('complete-source-hashes.json',replay/'sources'),('output-hashes.json',replay/'modules')]:
+  for f,d in json.loads((replay/name).read_text()).items():assert h(root/f)==d,str(root/f)
+ for r in json.loads((replay/'sources.json').read_text()):assert h(pathlib.Path(r['original']))==r['sha256']==h(pathlib.Path(r['copy']))
+ for r in json.loads((replay/'copied-artifact-correspondence.json').read_text()):assert h(pathlib.Path(r['source']))==r['sha256']==h(pathlib.Path(r['copy']))
+ actual=json.loads(subprocess.check_output(['python3','scripts/project_sources.py'],cwd=replay/'sources'));assert actual==json.loads((replay/'inventory.json').read_text());assert len(actual)==2949
+ for name,d in json.loads((out/'worker7-build-before.json').read_text()).items():assert h(p/'worker7/.lake/build'/name)==d
+ for cmd in queue['commands']:assert h(pathlib.Path(cmd['argv'][-1]))==cmd['audit_driver_sha256']
+queue=json.loads((replay/'audit-queue.json').read_text());verify_replay();emit('queue-state.json',{'status':'waiting for build.lock','at':now(),'candidate':candidate,'audit_identity_checks':'Passed','audit_inventory_modules':2949});print('QUEUED: final guarded check then both audit orders',flush=True)
+with (p/'build.lock').open('a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX);emit('queue-state.json',{'status':'lock acquired','at':now(),'candidate':candidate});print('LOCK ACQUIRED',now(),flush=True)
+ def run(label,argv,cwd,extra,log):
+  env=os.environ.copy();env.update(extra);t=now()
+  with pathlib.Path(log).open('xb') as f:r=subprocess.run(argv,cwd=cwd,env=env,stdout=f,stderr=subprocess.STDOUT)
+  rec={'label':label,'command':argv,'cwd':str(cwd),'environment':extra,'started_at':t,'completed_at':now(),'exit_code':r.returncode,'log':str(log),'log_sha256':h(pathlib.Path(log))};emit(label+'.json',rec);print(label,r.returncode,flush=True);return r.returncode
+ rc=run('guarded-check',['taskset','-c','0','./check.sh','--candidate',candidate],repo,{},out/'guarded-check.log')
+ if rc==0:
+  rc=run('verify-candidate',['taskset','-c','0','./check.sh','--verify-candidate',candidate],repo,{},out/'verify-candidate.log')
+  if rc==0:(out/'verification.json').write_bytes((repo/'.lake/verification.json').read_bytes())
+ verify_replay()
+ audit_rc=[]
+ for command in queue['commands']:
+  verify_replay();audit_rc.append(run('audit-'+command['label'],command['argv'],command['cwd'],command['env'],command['log']))
+ verify_replay();emit('queue-state.json',{'status':'completed','at':now(),'candidate':candidate,'candidate_check_exit':rc,'audit_exits':audit_rc,'worker7_origin_hashes_unchanged':True,'acceptance':'Only zero exits with matching detailed receipts support validation; review/publication separate'})
+ sys.exit(0 if rc==0 and all(x==0 for x in audit_rc) else 1)

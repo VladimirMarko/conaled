@@ -1,0 +1,1934 @@
+{
+  "sha256": "0030ca726e047b143be65ef6bf4eb9bfc3ed2de243d06f8633cb645a1e3bf919",
+  "header": [
+    18155016010468563053,
+    270054398390077386,
+    202507030
+  ],
+  "interface": [
+    0,
+    0,
+    0,
+    25,
+    38,
+    5,
+    1,
+    1935,
+    19563,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    20715,
+    20718,
+    20718,
+    20721,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sourceSha256": "48ac4bcb111b63339678cdbb9cc3fa26afe77f8a3476715ebd76e9dfad73c00f",
+  "environment": {
+    "imports": {
+      "node": 25,
+      "words": [
+        17,
+        24
+      ]
+    },
+    "metaBindings": {
+      "node": 1,
+      "words": []
+    },
+    "builtins": {
+      "node": 1,
+      "words": []
+    },
+    "filePragmas": {
+      "node": 20718,
+      "words": [
+        20717
+      ]
+    },
+    "optionsUsed": {
+      "node": 20721,
+      "words": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        39,
+        4,
+        4,
+        1,
+        1,
+        26,
+        1,
+        1,
+        1,
+        4,
+        39,
+        1,
+        1,
+        1,
+        1,
+        39,
+        39,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        28,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        500,
+        1,
+        1,
+        50,
+        39,
+        1,
+        1,
+        20720,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "partialDefs": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueBlocks": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueNames": {
+      "node": 1,
+      "words": []
+    }
+  },
+  "rewriteRules": {
+    "node": 1,
+    "words": []
+  },
+  "declarations": [
+    {
+      "name": "FrozenMemo.j-beta",
+      "fields": [
+        732,
+        973,
+        19247,
+        19248,
+        19248,
+        1,
+        1,
+        10,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        39,
+        2044,
+        19309
+      ],
+      "defn": [
+        1,
+        19303,
+        19308,
+        121,
+        1,
+        1,
+        39,
+        26,
+        380,
+        39,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 2066,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 19246,
+          "words": [
+            5,
+            4963,
+            19245
+          ]
+        },
+        "termTags": {
+          "Pi": 8,
+          "Def": 4,
+          "Sort": 2,
+          "Var": 8,
+          "Con": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Equality._≡_.refl",
+          "Agda.Primitive.Level",
+          "Cubical.Data.Equality.Base.J"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 2044,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 19302,
+            "words": [
+              1,
+              1,
+              19260,
+              19299,
+              9072,
+              19301,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 19262,
+              "words": [
+                4504,
+                19261
+              ]
+            },
+            {
+              "node": 19263,
+              "words": [
+                4504,
+                3015
+              ]
+            },
+            {
+              "node": 19264,
+              "words": [
+                4504,
+                4731
+              ]
+            },
+            {
+              "node": 19266,
+              "words": [
+                4504,
+                19265
+              ]
+            },
+            {
+              "node": 19282,
+              "words": [
+                732,
+                19281
+              ]
+            },
+            {
+              "node": 19298,
+              "words": [
+                732,
+                19297
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 2242,
+              "words": [
+                4,
+                2241,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 19308,
+        "words": [
+          19307
+        ]
+      },
+      "flags": {
+        "node": 380,
+        "words": [
+          26
+        ]
+      },
+      "terminates": {
+        "node": 39,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "FrozenMemo.Memo.apd-twice",
+      "fields": [
+        732,
+        1049,
+        19111,
+        3,
+        3,
+        1,
+        1,
+        51,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        39,
+        2044,
+        19132
+      ],
+      "defn": [
+        1,
+        19129,
+        16857,
+        40,
+        1,
+        1,
+        39,
+        19131,
+        380,
+        39,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 2066,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 19110,
+          "words": [
+            5,
+            1944,
+            19109
+          ]
+        },
+        "termTags": {
+          "Pi": 6,
+          "Def": 16,
+          "Sort": 1,
+          "Var": 14
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Primitive.Level",
+          "Cubical.Data.Equality.Base._∙_",
+          "Cubical.Data.Equality.Base.transport",
+          "FrozenMemo.Memo.K",
+          "FrozenMemo.Memo.higherWitness",
+          "FrozenMemo.Memo.second-apd",
+          "FrozenMemo.Memo.v",
+          "FrozenMemo.Memo.Θ",
+          "FrozenMemo.Memo.Θ.h",
+          "FrozenMemo.Memo.Θ.k",
+          "FrozenMemo.Memo.Θ.u",
+          "FrozenMemo.Memo.Θ.x",
+          "FrozenMemo.Memo.Θ.ℓ",
+          "FrozenMemo.Memo.Θ.ℓ′",
+          "FrozenMemo.Memo.η",
+          "FrozenMemo.Memo.σ∘τ"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 2044,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 19128,
+            "words": [
+              1,
+              1,
+              8922,
+              19125,
+              9072,
+              19127,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 19124,
+              "words": [
+                732,
+                19123
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 2242,
+              "words": [
+                4,
+                2241,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 16857,
+        "words": [
+          16856
+        ]
+      },
+      "flags": {
+        "node": 380,
+        "words": [
+          26
+        ]
+      },
+      "terminates": {
+        "node": 39,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "FrozenMemo.Memo.w-twice",
+      "fields": [
+        732,
+        1235,
+        16836,
+        3,
+        3,
+        1,
+        1,
+        49,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        39,
+        2044,
+        16862
+      ],
+      "defn": [
+        1,
+        16854,
+        16857,
+        40,
+        1,
+        1,
+        39,
+        16861,
+        380,
+        39,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 2066,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 16835,
+          "words": [
+            5,
+            1944,
+            16834
+          ]
+        },
+        "termTags": {
+          "Pi": 6,
+          "Def": 10,
+          "Sort": 1,
+          "Var": 13,
+          "Lam": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Sigma.Σ",
+          "Agda.Primitive.Level",
+          "Cubical.Data.Equality.Base._∙_",
+          "Cubical.Data.Equality.Base.transport",
+          "FrozenMemo.Memo.second-w",
+          "FrozenMemo.Memo.valueWitness",
+          "FrozenMemo.Memo.Θ",
+          "FrozenMemo.Memo.Θ.k",
+          "FrozenMemo.Memo.Θ.u",
+          "FrozenMemo.Memo.Θ.x",
+          "FrozenMemo.Memo.Θ.ℓ",
+          "FrozenMemo.Memo.σ∘τ"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 2044,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 16853,
+            "words": [
+              1,
+              1,
+              8922,
+              16850,
+              9072,
+              16852,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 16849,
+              "words": [
+                732,
+                16848
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 2242,
+              "words": [
+                4,
+                2241,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 16857,
+        "words": [
+          16856
+        ]
+      },
+      "flags": {
+        "node": 380,
+        "words": [
+          26
+        ]
+      },
+      "terminates": {
+        "node": 39,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "FrozenMemo.Memo.η",
+      "fields": [
+        732,
+        1291,
+        9012,
+        9013,
+        9014,
+        1,
+        1,
+        21,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        39,
+        2044,
+        14709
+      ],
+      "defn": [
+        1,
+        11807,
+        14684,
+        14704,
+        1,
+        14708,
+        39,
+        26,
+        380,
+        39,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 2066,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 9011,
+          "words": [
+            5,
+            1944,
+            9010
+          ]
+        },
+        "termTags": {
+          "Pi": 11,
+          "Def": 7,
+          "Sort": 1,
+          "Var": 12
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Primitive.Level",
+          "Cubical.Data.Equality.Base._∙_",
+          "Cubical.Data.Equality.Base.transport",
+          "FrozenMemo.Memo.v"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 2044,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 9093,
+            "words": [
+              1,
+              1,
+              9027,
+              9071,
+              9072,
+              9092,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 9031,
+              "words": [
+                2272,
+                9030
+              ]
+            },
+            {
+              "node": 9035,
+              "words": [
+                2272,
+                9034
+              ]
+            },
+            {
+              "node": 9038,
+              "words": [
+                2274,
+                9037
+              ]
+            },
+            {
+              "node": 9042,
+              "words": [
+                2274,
+                9041
+              ]
+            },
+            {
+              "node": 9044,
+              "words": [
+                4504,
+                9043
+              ]
+            },
+            {
+              "node": 9047,
+              "words": [
+                4504,
+                9046
+              ]
+            },
+            {
+              "node": 9049,
+              "words": [
+                4504,
+                9048
+              ]
+            },
+            {
+              "node": 9055,
+              "words": [
+                732,
+                9054
+              ]
+            },
+            {
+              "node": 9057,
+              "words": [
+                732,
+                9056
+              ]
+            },
+            {
+              "node": 9070,
+              "words": [
+                732,
+                9069
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 2242,
+              "words": [
+                4,
+                2241,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 9267,
+            "words": [
+              1,
+              1,
+              9122,
+              9144,
+              9243,
+              9266,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 9124,
+              "words": [
+                4504,
+                9123
+              ]
+            },
+            {
+              "node": 9126,
+              "words": [
+                4504,
+                9125
+              ]
+            },
+            {
+              "node": 9128,
+              "words": [
+                5177,
+                9127
+              ]
+            },
+            {
+              "node": 9130,
+              "words": [
+                5177,
+                9129
+              ]
+            },
+            {
+              "node": 9131,
+              "words": [
+                4504,
+                2595
+              ]
+            },
+            {
+              "node": 9133,
+              "words": [
+                4504,
+                9132
+              ]
+            },
+            {
+              "node": 9135,
+              "words": [
+                4504,
+                9134
+              ]
+            },
+            {
+              "node": 9141,
+              "words": [
+                5177,
+                9140
+              ]
+            },
+            {
+              "node": 9142,
+              "words": [
+                5177,
+                2512
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 9242,
+              "words": [
+                3,
+                3047,
+                9241
+              ]
+            },
+            "termTags": {
+              "Def": 18,
+              "Lam": 9,
+              "Var": 20,
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality._≡_.refl",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 10083,
+            "words": [
+              1,
+              1,
+              9308,
+              9347,
+              10077,
+              10082,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 9312,
+              "words": [
+                4504,
+                9311
+              ]
+            },
+            {
+              "node": 9316,
+              "words": [
+                4504,
+                9315
+              ]
+            },
+            {
+              "node": 9320,
+              "words": [
+                5177,
+                9319
+              ]
+            },
+            {
+              "node": 9322,
+              "words": [
+                5177,
+                9321
+              ]
+            },
+            {
+              "node": 9324,
+              "words": [
+                4504,
+                9323
+              ]
+            },
+            {
+              "node": 9326,
+              "words": [
+                4504,
+                9325
+              ]
+            },
+            {
+              "node": 9328,
+              "words": [
+                4504,
+                9327
+              ]
+            },
+            {
+              "node": 9346,
+              "words": [
+                5177,
+                9345
+              ]
+            },
+            {
+              "node": 9142,
+              "words": [
+                5177,
+                2512
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 10076,
+              "words": [
+                3,
+                3036,
+                10075
+              ]
+            },
+            "termTags": {
+              "Def": 166,
+              "Var": 46,
+              "Con": 1,
+              "Lam": 52
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 10415,
+            "words": [
+              1,
+              1,
+              10118,
+              10133,
+              10389,
+              10414,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 9312,
+              "words": [
+                4504,
+                9311
+              ]
+            },
+            {
+              "node": 9316,
+              "words": [
+                4504,
+                9315
+              ]
+            },
+            {
+              "node": 9320,
+              "words": [
+                5177,
+                9319
+              ]
+            },
+            {
+              "node": 9322,
+              "words": [
+                5177,
+                9321
+              ]
+            },
+            {
+              "node": 9324,
+              "words": [
+                4504,
+                9323
+              ]
+            },
+            {
+              "node": 9326,
+              "words": [
+                4504,
+                9325
+              ]
+            },
+            {
+              "node": 9328,
+              "words": [
+                4504,
+                9327
+              ]
+            },
+            {
+              "node": 10132,
+              "words": [
+                5177,
+                10131
+              ]
+            },
+            {
+              "node": 9142,
+              "words": [
+                5177,
+                2512
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 10388,
+              "words": [
+                3,
+                5615,
+                10387
+              ]
+            },
+            "termTags": {
+              "Def": 75,
+              "Lam": 32,
+              "Var": 36,
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 10636,
+            "words": [
+              1,
+              1,
+              10445,
+              10470,
+              10577,
+              10635,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 10447,
+              "words": [
+                4504,
+                10446
+              ]
+            },
+            {
+              "node": 10449,
+              "words": [
+                4504,
+                10448
+              ]
+            },
+            {
+              "node": 10450,
+              "words": [
+                5177,
+                5384
+              ]
+            },
+            {
+              "node": 10452,
+              "words": [
+                5177,
+                10451
+              ]
+            },
+            {
+              "node": 10453,
+              "words": [
+                4504,
+                2488
+              ]
+            },
+            {
+              "node": 10454,
+              "words": [
+                4504,
+                2492
+              ]
+            },
+            {
+              "node": 10455,
+              "words": [
+                4504,
+                2496
+              ]
+            },
+            {
+              "node": 10469,
+              "words": [
+                5177,
+                10468
+              ]
+            },
+            {
+              "node": 9142,
+              "words": [
+                5177,
+                2512
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 10576,
+              "words": [
+                3,
+                5615,
+                10575
+              ]
+            },
+            "termTags": {
+              "Def": 32,
+              "Lam": 16,
+              "Var": 21,
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 10783,
+            "words": [
+              1,
+              1,
+              10661,
+              10687,
+              10761,
+              10782,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 10663,
+              "words": [
+                4504,
+                10662
+              ]
+            },
+            {
+              "node": 10665,
+              "words": [
+                4504,
+                10664
+              ]
+            },
+            {
+              "node": 10666,
+              "words": [
+                5177,
+                5175
+              ]
+            },
+            {
+              "node": 10668,
+              "words": [
+                5177,
+                10667
+              ]
+            },
+            {
+              "node": 10670,
+              "words": [
+                4504,
+                10669
+              ]
+            },
+            {
+              "node": 10673,
+              "words": [
+                4504,
+                10672
+              ]
+            },
+            {
+              "node": 10675,
+              "words": [
+                4504,
+                10674
+              ]
+            },
+            {
+              "node": 10680,
+              "words": [
+                5177,
+                10679
+              ]
+            },
+            {
+              "node": 10686,
+              "words": [
+                5177,
+                10685
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 10760,
+              "words": [
+                3,
+                3047,
+                10759
+              ]
+            },
+            "termTags": {
+              "Def": 13,
+              "Lam": 6,
+              "Var": 15,
+              "Con": 2
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality._≡_.refl",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 11334,
+            "words": [
+              1,
+              1,
+              10814,
+              10828,
+              11330,
+              11333,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 10447,
+              "words": [
+                4504,
+                10446
+              ]
+            },
+            {
+              "node": 10449,
+              "words": [
+                4504,
+                10448
+              ]
+            },
+            {
+              "node": 10450,
+              "words": [
+                5177,
+                5384
+              ]
+            },
+            {
+              "node": 10452,
+              "words": [
+                5177,
+                10451
+              ]
+            },
+            {
+              "node": 10453,
+              "words": [
+                4504,
+                2488
+              ]
+            },
+            {
+              "node": 10816,
+              "words": [
+                4504,
+                10815
+              ]
+            },
+            {
+              "node": 10818,
+              "words": [
+                4504,
+                10817
+              ]
+            },
+            {
+              "node": 10680,
+              "words": [
+                5177,
+                10679
+              ]
+            },
+            {
+              "node": 10827,
+              "words": [
+                5177,
+                10826
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 11329,
+              "words": [
+                3,
+                3036,
+                11328
+              ]
+            },
+            "termTags": {
+              "Def": 158,
+              "Var": 44,
+              "Con": 2,
+              "Lam": 47
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality._≡_.refl",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 11628,
+            "words": [
+              1,
+              1,
+              11367,
+              11382,
+              11602,
+              11627,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 10447,
+              "words": [
+                4504,
+                10446
+              ]
+            },
+            {
+              "node": 10449,
+              "words": [
+                4504,
+                10448
+              ]
+            },
+            {
+              "node": 10450,
+              "words": [
+                5177,
+                5384
+              ]
+            },
+            {
+              "node": 10452,
+              "words": [
+                5177,
+                10451
+              ]
+            },
+            {
+              "node": 10453,
+              "words": [
+                4504,
+                2488
+              ]
+            },
+            {
+              "node": 10816,
+              "words": [
+                4504,
+                10815
+              ]
+            },
+            {
+              "node": 10818,
+              "words": [
+                4504,
+                10817
+              ]
+            },
+            {
+              "node": 10680,
+              "words": [
+                5177,
+                10679
+              ]
+            },
+            {
+              "node": 11381,
+              "words": [
+                5177,
+                11380
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 11601,
+              "words": [
+                3,
+                5615,
+                11600
+              ]
+            },
+            "termTags": {
+              "Def": 66,
+              "Lam": 27,
+              "Var": 34,
+              "Con": 2
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality._≡_.refl",
+              "Agda.Builtin.Equality.transpX-_≡_",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 11806,
+            "words": [
+              1,
+              1,
+              11656,
+              11684,
+              11761,
+              11805,
+              1,
+              39,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 11658,
+              "words": [
+                4504,
+                11657
+              ]
+            },
+            {
+              "node": 11660,
+              "words": [
+                4504,
+                11659
+              ]
+            },
+            {
+              "node": 11661,
+              "words": [
+                5177,
+                6641
+              ]
+            },
+            {
+              "node": 11663,
+              "words": [
+                5177,
+                11662
+              ]
+            },
+            {
+              "node": 11664,
+              "words": [
+                4504,
+                3826
+              ]
+            },
+            {
+              "node": 11667,
+              "words": [
+                4504,
+                11666
+              ]
+            },
+            {
+              "node": 9135,
+              "words": [
+                4504,
+                9134
+              ]
+            },
+            {
+              "node": 10680,
+              "words": [
+                5177,
+                10679
+              ]
+            },
+            {
+              "node": 11683,
+              "words": [
+                5177,
+                11682
+              ]
+            },
+            {
+              "node": 9143,
+              "words": [
+                5177,
+                2516
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 11760,
+              "words": [
+                3,
+                5615,
+                11759
+              ]
+            },
+            "termTags": {
+              "Def": 26,
+              "Lam": 12,
+              "Var": 19,
+              "Con": 2
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_",
+              "Agda.Builtin.Equality._≡_.refl",
+              "Agda.Primitive.Cubical.i0",
+              "Agda.Primitive.Cubical.primComp",
+              "Agda.Primitive.Cubical.primHComp",
+              "Agda.Primitive.Cubical.primIMax",
+              "Agda.Primitive.Cubical.primIMin",
+              "Agda.Primitive.Cubical.primINeg",
+              "Agda.Primitive.Cubical.primPOr",
+              "Agda.Primitive.Cubical.primTransp",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.transport",
+              "FrozenMemo.Memo.v",
+              "FrozenMemo.Memo.η"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 14684,
+        "words": [
+          14683
+        ]
+      },
+      "flags": {
+        "node": 380,
+        "words": [
+          26
+        ]
+      },
+      "terminates": {
+        "node": 39,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    }
+  ]
+}

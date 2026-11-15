@@ -1,0 +1,89 @@
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:14:23: error: Function expected at
+  IsIso.inv_inv
+but this term has type
+  inv (inv ?m.18) = ?m.18
+
+Note: Expected a function because this term is being applied to the argument
+  p
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:19:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (p.obj g).as
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:22:41: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label n)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:26:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:32:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:32:74: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ((fun X => X) (faithful.obj ((𝟭 C4).obj point))) 3
+numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
+  (fun X => X) (faithful.obj ((𝟭 C4).obj point))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:38:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:38:80: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ((fun X => X) (faithful.obj ((𝟭 C4).obj point))) 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  (fun X => X) (faithful.obj ((𝟭 C4).obj point))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:44:62: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:49:67: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:49:92: error: unsolved goals
+b : Fin 2
+⊢ ZMod 4
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:55:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:55:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:56:39: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 1)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:57:28: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsIso (label 0)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+theorem Independent108DirectComparison.double_inverse.{u, v} : ∀ {C : Type u} [inst : Groupoid C] {x y : C} (p : x ⟶ y),
+  inv (inv p) = p :=
+fun {C} [Groupoid C] {x y} p => sorry
+theorem Independent108DirectComparison.family_object.{u} : ∀ {G : Grpd} (A : ↑G ⥤ Grpd) (x y : Section A)
+  (p : Section (identityFamily A x y)) (g : ↑G), inv sorry = (p.obj g).as :=
+fun {G} A x y p g => sorry
+'Independent108DirectComparison.double_inverse' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Independent108DirectComparison.family_object' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Independent108DirectComparison.label_double' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Independent108DirectComparison.label_single_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+/tmp/conaled-resumed-orchestration/review-evidence/108-direct-lean-comparison/DirectComparison.lean:71:14: error(lean.unknownIdentifier): Unknown constant `faithful_single_one`
+'Independent108DirectComparison.faithful_double_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'Independent108DirectComparison.ineffective_single_one' depends on axioms: [propext, sorryAx, Quot.sound]
+'Independent108DirectComparison.ineffective_double_one' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'Independent108DirectComparison.ineffective_distinct' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

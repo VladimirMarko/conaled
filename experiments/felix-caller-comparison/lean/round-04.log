@@ -1,0 +1,43 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/25-authors/lean-baseline/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:96:55: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:96:57: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:245:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Fin (interpret.obj (leftProjection.obj (object 2)))) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Fin (interpret.obj (leftProjection.obj (object 2)))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:246:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Fin (interpret.obj (leftProjection.obj (object 2)))) 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  Fin (interpret.obj (leftProjection.obj (object 2)))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:249:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Fin (interpret.obj (leftProjection.obj (object 2)))) 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Fin (interpret.obj (leftProjection.obj (object 2)))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-04.lean:250:49: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (Fin (interpret.obj (leftProjection.obj (object 2)))) 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  Fin (interpret.obj (leftProjection.obj (object 2)))
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

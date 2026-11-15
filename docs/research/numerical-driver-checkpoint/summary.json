@@ -1,0 +1,423 @@
+[
+  {
+    "name": "baseline-move",
+    "parameters": [
+      "move",
+      "1",
+      "1",
+      "1024",
+      "32768",
+      "16384",
+      "whole"
+    ],
+    "outcome": "whole",
+    "last": {
+      "event": "whole",
+      "success": "true",
+      "attempts": "1",
+      "accepted": "1",
+      "rejected": "0",
+      "num_bits": "47",
+      "den_bits": "48",
+      "error": "\"39/1048576\"",
+      "meets_tolerance": "false",
+      "elapsed_ns": "323369"
+    },
+    "max_num_bits": 47,
+    "max_den_bits": 48,
+    "final_or_prefix_error_exact": "39/1048576",
+    "error_display_decimal": "0.0000371932983398",
+    "sum_step_ns": 0,
+    "peak_step_ns": 0,
+    "process_wall_seconds": 1.669833709980594,
+    "max_rss_kib": null
+  },
+  {
+    "name": "baseline-turn",
+    "parameters": [
+      "turn",
+      "1",
+      "1",
+      "1024",
+      "32768",
+      "16384",
+      "whole"
+    ],
+    "outcome": "whole",
+    "last": {
+      "event": "whole",
+      "success": "true",
+      "attempts": "1",
+      "accepted": "1",
+      "rejected": "0",
+      "num_bits": "24",
+      "den_bits": "36",
+      "error": "\"39/1048576\"",
+      "meets_tolerance": "false",
+      "elapsed_ns": "213599"
+    },
+    "max_num_bits": 24,
+    "max_den_bits": 36,
+    "final_or_prefix_error_exact": "39/1048576",
+    "error_display_decimal": "0.0000371932983398",
+    "sum_step_ns": 0,
+    "peak_step_ns": 0,
+    "process_wall_seconds": 1.7195063929830212,
+    "max_rss_kib": 4152016
+  },
+  {
+    "name": "baseline-word",
+    "parameters": [
+      "word",
+      "1",
+      "1",
+      "1024",
+      "8192",
+      "16384",
+      "whole"
+    ],
+    "outcome": "whole",
+    "last": {
+      "event": "whole",
+      "success": "true",
+      "attempts": "3",
+      "accepted": "3",
+      "rejected": "0",
+      "num_bits": "131",
+      "den_bits": "132",
+      "error": "\"124247487/1099511627776\"",
+      "meets_tolerance": "true",
+      "elapsed_ns": "289386"
+    },
+    "max_num_bits": 131,
+    "max_den_bits": 132,
+    "final_or_prefix_error_exact": "124247487/1099511627776",
+    "error_display_decimal": "0.000113002431135",
+    "sum_step_ns": 0,
+    "peak_step_ns": 0,
+    "process_wall_seconds": 1.6702986130258068,
+    "max_rss_kib": 4151908
+  },
+  {
+    "name": "refine2",
+    "parameters": [
+      "move",
+      "2",
+      "1",
+      "1024",
+      "32768",
+      "16384",
+      "whole"
+    ],
+    "outcome": "whole",
+    "last": {
+      "event": "whole",
+      "success": "true",
+      "attempts": "2",
+      "accepted": "2",
+      "rejected": "0",
+      "num_bits": "116",
+      "den_bits": "117",
+      "error": "\"160251/8589934592\"",
+      "meets_tolerance": "true",
+      "elapsed_ns": "390833"
+    },
+    "max_num_bits": 116,
+    "max_den_bits": 117,
+    "final_or_prefix_error_exact": "160251/8589934592",
+    "error_display_decimal": "0.0000186556717381",
+    "sum_step_ns": 0,
+    "peak_step_ns": 0,
+    "process_wall_seconds": 1.7192485530104022,
+    "max_rss_kib": 4151516
+  },
+  {
+    "name": "refine4",
+    "parameters": [
+      "move",
+      "4",
+      "1",
+      "1024",
+      "32768",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "4",
+      "error": "10771382734515/1152921504606846976",
+      "clock": "1/1024",
+      "meets_tolerance": "true",
+      "elapsed_ns": "891962"
+    },
+    "max_num_bits": 705,
+    "max_den_bits": 706,
+    "final_or_prefix_error_exact": "10771382734515/1152921504606846976",
+    "error_display_decimal": "0.00000934268524915",
+    "sum_step_ns": 511435,
+    "peak_step_ns": 355259,
+    "process_wall_seconds": 1.6694893570092972,
+    "max_rss_kib": 4151916
+  },
+  {
+    "name": "refine8",
+    "parameters": [
+      "move",
+      "8",
+      "1",
+      "1024",
+      "32768",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "8",
+      "error": "776778706532845214626122313827/166153499473114484112975882535043072",
+      "clock": "1/1024",
+      "meets_tolerance": "true",
+      "elapsed_ns": "5819398"
+    },
+    "max_num_bits": 23950,
+    "max_den_bits": 23951,
+    "final_or_prefix_error_exact": "776778706532845214626122313827/166153499473114484112975882535043072",
+    "error_display_decimal": "0.00000467506678461",
+    "sum_step_ns": 5481167,
+    "peak_step_ns": 2174369,
+    "process_wall_seconds": 1.6700400569825433,
+    "max_rss_kib": 4151572
+  },
+  {
+    "name": "long-move4",
+    "parameters": [
+      "move",
+      "4",
+      "1",
+      "16",
+      "16",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "4",
+      "error": "55127475/1073741824",
+      "clock": "1/16",
+      "meets_tolerance": "true",
+      "elapsed_ns": "744935"
+    },
+    "max_num_bits": 488,
+    "max_den_bits": 489,
+    "final_or_prefix_error_exact": "55127475/1073741824",
+    "error_display_decimal": "0.0513414619491",
+    "sum_step_ns": 535158,
+    "peak_step_ns": 229049,
+    "process_wall_seconds": 1.719077613990521,
+    "max_rss_kib": 4152112
+  },
+  {
+    "name": "long-move8",
+    "parameters": [
+      "move",
+      "8",
+      "1",
+      "16",
+      "32",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "8",
+      "error": "252504773249657955/9223372036854775808",
+      "clock": "1/16",
+      "meets_tolerance": "true",
+      "elapsed_ns": "1778067"
+    },
+    "max_num_bits": 17875,
+    "max_den_bits": 17876,
+    "final_or_prefix_error_exact": "252504773249657955/9223372036854775808",
+    "error_display_decimal": "0.0273766223720",
+    "sum_step_ns": 1599526,
+    "peak_step_ns": 779161,
+    "process_wall_seconds": 1.718513272004202,
+    "max_rss_kib": 4151580
+  },
+  {
+    "name": "long-move16",
+    "parameters": [
+      "move",
+      "16",
+      "1",
+      "16",
+      "64",
+      "262144",
+      "steps"
+    ],
+    "outcome": "bit_cutoff",
+    "last": {
+      "event": "bit_cutoff",
+      "accepted": "11",
+      "num_bits": "264672",
+      "den_bits": "264673"
+    },
+    "max_num_bits": 264672,
+    "max_den_bits": 264673,
+    "final_or_prefix_error_exact": "672563413256869988247022239/79228162514264337593543950336",
+    "error_display_decimal": "0.00848894372801",
+    "sum_step_ns": 54103699,
+    "peak_step_ns": 38466367,
+    "process_wall_seconds": 1.7197147379920352,
+    "max_rss_kib": 4152756
+  },
+  {
+    "name": "word-refine4",
+    "parameters": [
+      "word",
+      "4",
+      "1",
+      "1024",
+      "16384",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "12",
+      "error": "2592986926530344299764880441881903809336595/91343852333181432387730302044767688728495783936",
+      "clock": "3/1024",
+      "meets_tolerance": "true",
+      "elapsed_ns": "16463547"
+    },
+    "max_num_bits": 25298,
+    "max_den_bits": 25299,
+    "final_or_prefix_error_exact": "2592986926530344299764880441881903809336595/91343852333181432387730302044767688728495783936",
+    "error_display_decimal": "0.0000283870984231",
+    "sum_step_ns": 15939548,
+    "peak_step_ns": 10578728,
+    "process_wall_seconds": 1.6693711009866092,
+    "max_rss_kib": 4151724
+  },
+  {
+    "name": "long-word4",
+    "parameters": [
+      "word",
+      "4",
+      "1",
+      "64",
+      "32",
+      "16384",
+      "steps"
+    ],
+    "outcome": "complete",
+    "last": {
+      "event": "complete",
+      "accepted": "12",
+      "error": "192989473549130484518715443475/20282409603651670423947251286016",
+      "clock": "3/64",
+      "meets_tolerance": "true",
+      "elapsed_ns": "7028535"
+    },
+    "max_num_bits": 19725,
+    "max_den_bits": 19726,
+    "final_or_prefix_error_exact": "192989473549130484518715443475/20282409603651670423947251286016",
+    "error_display_decimal": "0.00951511567513",
+    "sum_step_ns": 6742207,
+    "peak_step_ns": 4222162,
+    "process_wall_seconds": 1.6682300789980218,
+    "max_rss_kib": 4151228
+  },
+  {
+    "name": "word-refine8",
+    "parameters": [
+      "word",
+      "8",
+      "1",
+      "1024",
+      "32768",
+      "131072",
+      "steps"
+    ],
+    "outcome": "bit_cutoff",
+    "last": {
+      "event": "bit_cutoff",
+      "accepted": "18",
+      "num_bits": "140079",
+      "den_bits": "140080"
+    },
+    "max_num_bits": 140079,
+    "max_den_bits": 140080,
+    "final_or_prefix_error_exact": "2397917871813005054275811086930919039662401703562660864123165124955323/226156424291633194186662080095093570025917938800079226639565593765455331328",
+    "error_display_decimal": "0.0000106029173362",
+    "sum_step_ns": 119485704,
+    "peak_step_ns": 79161873,
+    "process_wall_seconds": 1.7693083139893133,
+    "max_rss_kib": 4152700
+  },
+  {
+    "name": "long-turn64",
+    "parameters": [
+      "turn",
+      "64",
+      "1",
+      "16",
+      "256",
+      "16384",
+      "whole"
+    ],
+    "outcome": "whole",
+    "last": {
+      "event": "whole",
+      "success": "true",
+      "attempts": "64",
+      "accepted": "64",
+      "rejected": "0",
+      "num_bits": "664",
+      "den_bits": "666",
+      "error": "\"17000189039551404005515597849466454910909257812045457370190334162247274407541905979229136971399508694967365517457600905066949173715091969444960401292979872597586133594493691888371201755729220355/4671939192445127903888559724237098316690665991422525368913093138328857771221685643782054718788988313373329725003360673086145233634688448510210725191395547328770042546544911308884863172860522266624\"",
+      "meets_tolerance": "true",
+      "elapsed_ns": "2626136"
+    },
+    "max_num_bits": 664,
+    "max_den_bits": 666,
+    "final_or_prefix_error_exact": "17000189039551404005515597849466454910909257812045457370190334162247274407541905979229136971399508694967365517457600905066949173715091969444960401292979872597586133594493691888371201755729220355/4671939192445127903888559724237098316690665991422525368913093138328857771221685643782054718788988313373329725003360673086145233634688448510210725191395547328770042546544911308884863172860522266624",
+    "error_display_decimal": "0.00363878645232",
+    "sum_step_ns": 0,
+    "peak_step_ns": 0,
+    "process_wall_seconds": 1.7181551499816123,
+    "max_rss_kib": 4151284
+  },
+  {
+    "name": "domain-reject",
+    "parameters": [
+      "move",
+      "4",
+      "1",
+      "4",
+      "4",
+      "16384",
+      "steps"
+    ],
+    "outcome": "rejected",
+    "last": {
+      "event": "rejected",
+      "index": "2",
+      "attempts": "1",
+      "rejected": "1",
+      "step_ns": "14676"
+    },
+    "max_num_bits": 89,
+    "max_den_bits": 90,
+    "final_or_prefix_error_exact": "1755/4096",
+    "error_display_decimal": "0.428466796875",
+    "sum_step_ns": 489197,
+    "peak_step_ns": 416013,
+    "process_wall_seconds": 1.7187553829862736,
+    "max_rss_kib": 4151056
+  }
+]

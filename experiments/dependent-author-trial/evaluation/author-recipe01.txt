@@ -1,0 +1,28 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [511/566] Replayed SquareKit.Internal.PathTransport.Syntax
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [517/566] Replayed SquareKit.Internal.PathTransport.Comprehension
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [522/566] Replayed SquareKit.FinitaryTerm
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [815/853] Replayed SquareKit.Internal.DependentJudgments.Comprehension
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [847/853] Replayed SquareKit.Internal.DependentJudgments.NativeTypeModel
+warning: SquareKit/Internal/DependentJudgments/NativeTypeModel.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [850/853] Replayed SquareKit.Internal.DependentJudgments.CoherentTypePresentations
+warning: SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✖ [853/853] Building Examples.DependentAuthorTrialReplay (681ms)
+trace: .> LEAN_PATH=/tmp/conaled-314-320/320/.lake/packages/Cli/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/batteries/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/Qq/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/aesop/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/plausible/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /tmp/conaled-314-320/320/Examples/DependentAuthorTrialReplay.lean -o /tmp/conaled-314-320/320/.lake/build/lib/lean/Examples/DependentAuthorTrialReplay.olean -i /tmp/conaled-314-320/320/.lake/build/lib/lean/Examples/DependentAuthorTrialReplay.ilean -c /tmp/conaled-314-320/320/.lake/build/ir/Examples/DependentAuthorTrialReplay.c --setup /tmp/conaled-314-320/320/.lake/build/ir/Examples/DependentAuthorTrialReplay.setup.json --json
+error: Examples/DependentAuthorTrialReplay.lean:23:21: Unknown identifier `«cmd».motive.raw`
+error: Examples/DependentAuthorTrialReplay.lean:24:21: Unknown identifier `«cmd».motive.branch`
+error: Examples/DependentAuthorTrialReplay.lean:26:22: Unknown identifier `«cmd».motive.code`
+error: Examples/DependentAuthorTrialReplay.lean:27:22: Unknown identifier `«cmd».motive.branchCode`
+error: Examples/DependentAuthorTrialReplay.lean:27:46: Unknown identifier `«reference».motive.branchCode`
+error: Examples/DependentAuthorTrialReplay.lean:34:39: Unknown identifier `«reference».motive.branchCode`
+Some required targets logged failures:
+- Examples.DependentAuthorTrialReplay
+error: build failed

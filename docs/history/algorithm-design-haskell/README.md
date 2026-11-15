@@ -12,9 +12,10 @@ to locate main-library modules and their original hashes.
 
 | Snapshot | Artifact | Provenance and file checksums | State at receipt |
 | --- | --- | --- | --- |
+| `adwh-checkpoint-335-compact-recovery` | Supplied original in each local recovery tar.gz | [Metadata](checkpoint-335.json), [canonical source inventory](checkpoint-335.inventory.json), [intake assessment](../../research/adwh-checkpoint-335-intake.md) | Preferred source for current local adaptation; ordinary source unchanged outside Chapter 15; entire sixteen-queen numerical proof excluded by the current user. |
 | `adwh-checkpoint-233` | [checkpoint-233.zip](checkpoint-233.zip) | [Metadata](checkpoint-233.json), [member manifest](checkpoint-233.files.sha256) | Uncleaned preview; textbook chapters complete within their recorded scopes except the stock sixteen-queens numeral. Kernel integration and some experimental selections remain unfinished. |
 
-The archive is the **complete original ZIP**, copied byte-for-byte from the
+The checkpoint-233 archive below is the **complete original ZIP**, copied byte-for-byte from the
 owner's supplied
 `adwh-lean-233-transposition-accepted-and-strong-csp-producer.zip` on 2026-10-26.
 It contains 10,463 files and occupies 67,920,919 bytes. Its SHA-256 is:
@@ -151,8 +152,9 @@ PY
 
 A plain `diff -u` between manifests identifies path/content changes without
 extracting either snapshot. Extract the relevant sources for semantic review.
-Keep at least every snapshot used by reconstruction provenance; completion of
-the migration does not itself make its historical evidence disposable.
+Keep source identities and retrievable provenance for reconstructed results.
+External recovery bundles and successor archives need not be committed to Git;
+the checkpoint-335 record uses a digest and inventory delta.
 
 The [reconstruction coverage map](../../research/adwh-reconstruction-map.md)
 links every main-library module to a mathematical review family, the preserved

@@ -1,0 +1,487 @@
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Stability
+import SquareKit.Internal.DependentJudgments.Templates
+import SquareKit.Internal.DependentJudgments.Sigma.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Native
+import SquareApplications
+import Lean.Util.CollectAxioms
+import Lean.DeclarationRange
+
+namespace GuardedJRetest.BaselineReference
+open SquareKit.Internal SquareKit.Internal.PathTransport Typed Authoring
+universe u
+variable {Γ : RawCtx} {γ : CtxCode.{u}} {A x : Expr} {a : TyCode γ}
+  {ξ : TmCode γ a} {n : Nat} {Ξ : RawCtx} {T : TelCode (pathCode a ξ) n}
+  {Q p : Expr} {q : TyCode (telTotal T)} {π : TmCode (telTotal T) q}
+variable (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a) (hx : TmDeriv Γ γ A a x ξ)
+  (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Ξ T)
+  (hQ : TyDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q)
+  (hp : TmDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q p π)
+
+def inner := PathCommand.make hΓ hA hx hT (Motive.reflexivity hΓ hA hx hT hQ hp)
+def calibration := inner hΓ hA hx hT hQ hp
+def rootMap := SubDeriv.rootTail hΓ hA hx hT
+
+def outer := PathCommand.make hΓ hA hx hT
+  (Motive.reflexivity hΓ hA hx hT (inner hΓ hA hx hT hQ hp).motive.typing
+    (inner hΓ hA hx hT hQ hp).genericTerm)
+
+private def rawTerm {Γ : RawCtx} {γ : CtxCode.{u}} {A t : Expr}
+    {a : TyCode γ} {ξ : TmCode γ a} (_h : TmDeriv Γ γ A a t ξ) : Expr := t
+
+theorem selectedRecipe : rawTerm (outer hΓ hA hx hT hQ hp).genericTerm =
+    genericJRaw n A x
+      (.identity (Expr.identity Q p p)
+        (rawTerm (inner hΓ hA hx hT hQ hp).genericTerm)
+        (rawTerm (inner hΓ hA hx hT hQ hp).genericTerm))
+      (.refl ((rawTerm (inner hΓ hA hx hT hQ hp).genericTerm).sub
+        (Expr.liftSubN n (reflexiveSub x)))) := rfl
+
+def rootLeft := (outer hΓ hA hx hT hQ hp).reflexiveTerm
+def rootBeta := (outer hΓ hA hx hT hQ hp).reflexiveBeta
+
+def rootRight := ((outer hΓ hA hx hT hQ hp).motive.branchTyping.sub
+  (outer hΓ hA hx hT hQ hp).branchArguments).convert
+  (TyEqDeriv.subComp (outer hΓ hA hx hT hQ hp).motive.typing
+    (SubDeriv.rootTail hΓ hA hx hT) (outer hΓ hA hx hT hQ hp).branchArguments)
+
+variable {Δ : RawCtx} {δ : CtxCode.{u}} {σ : RawSub}
+  {s : SubCode δ (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T)}
+variable (hσ : SubDeriv Δ δ (subTail (reflexiveSub x) Ξ ++ Γ)
+  (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T) σ s)
+
+def substitutedLeft := (rootLeft hΓ hA hx hT hQ hp).sub hσ
+def substitutedRight := (rootRight hΓ hA hx hT hQ hp).sub hσ
+def substitutedBeta := TmEqDeriv.sub (rootBeta hΓ hA hx hT hQ hp) hσ
+
+def dependentWeakening := SubDeriv.weaken (outer hΓ hA hx hT hQ hp).branchContext
+  (TyDeriv.sub (inner hΓ hA hx hT hQ hp).motive.typing (SubDeriv.rootTail hΓ hA hx hT))
+def workedLeft := substitutedLeft hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp)
+def workedRight := substitutedRight hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp)
+def workedBeta := substitutedBeta hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp)
+
+theorem comparisonSound (M : Model.{u}) :
+    interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
+      interpretTm M (substitutedRight hΓ hA hx hT hQ hp hσ) := by
+  rw [interpretTm_agrees, interpretTm_agrees]
+  exact congrFun (termSound (substitutedBeta hΓ hA hx hT hQ hp hσ)) M
+
+/-- Exact root restriction of the selected outer section computes to its branch.
+The typed source computation also retains the generated identity argument map. -/
+theorem selectedRoot (M : Model.{u}) :
+    HEq (M.subTm ((outer hΓ hA hx hT hQ hp).interpret M) (rootTailCode a ξ T M))
+      ((outer hΓ hA hx hT hQ hp).motive.branchCode M) :=
+  (outer hΓ hA hx hT hQ hp).beta M
+
+theorem extensionSelected (M : Model.{u}) (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
+    interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
+    subTmCode (subTmCode
+      (jCode a ξ T (outer hΓ hA hx hT hQ hp).motive.code
+        (outer hΓ hA hx hT hQ hp).motive.branchCode)
+      (compCode (rootTailCode a ξ T) (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T)))) s M :=
+  interpretTm_agrees M _
+
+end GuardedJRetest.BaselineReference
+
+namespace GuardedJRetest.CandidateReference
+open SquareKit.Internal.DependentJudgments.Contextual SquareKit.GuardedTheory
+set_option backward.isDefEq.respectTransparency false
+variable {V : Type} {Ω : List (Judgment V)}
+variable {Γ A x T Q p Δ σ : Expression V} {n : Nat}
+variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+
+def inner := Command.reflexivity hx hT hp
+def calibration := inner hx hT hp
+
+def outer := Command.reflexivity hx hT (inner hx hT hp).typing
+
+def rootMap := hx.rootTail hT
+def rootLeft := (outer hx hT hp).typing.substitute (rootMap hx hT)
+def rootRight := (inner hx hT hp).typing.reflexivitySub (rootMap hx hT)
+def rootBeta := hx.jBeta hT (outer hx hT hp).motiveTyping (rootRight hx hT hp)
+
+theorem selectedRecipe : (outer hx hT hp).expression =
+    j A x T (identity (identity Q p p) (inner hx hT hp).expression (inner hx hT hp).expression)
+      (reflexivity (subTy (identity Q p p) (rootTail A x T))
+        (subTm (inner hx hT hp).expression (rootTail A x T))) := rfl
+
+variable (hσ : Sub (Ω := Ω) Δ (total (pullback T (root A x))) σ)
+def substitutedLeft := (rootLeft hx hT hp).substitute hσ
+def substitutedRight := (rootRight hx hT hp).substitute hσ
+
+def substitutedBeta (hσ : Sub (Ω := Ω) Δ (total (pullback T (root A x))) σ) : Equal (Ω := Ω)
+    (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)
+    (subTm (outer hx hT hp).branch σ) := by
+  have _ := hσ
+  exact Derivation.congruence (T := theory)
+    (Sum.inl SquareKit.Internal.DependentJudgments.Operation.subTm)
+    (args := ![subTm (outer hx hT hp).expression (rootTail A x T), σ])
+    (args' := ![(outer hx hT hp).branch, σ])
+    (Fin.cases (rootBeta hx hT hp) (Fin.cases (.reflexive σ) (fun i => nomatch i)))
+
+def dependentWeakening := ((inner hx hT hp).typing.substitute (rootMap hx hT)).family.weaken
+
+def workedLeft := substitutedLeft hx hT hp (dependentWeakening hx hT hp)
+def workedRight := substitutedRight hx hT hp (dependentWeakening hx hT hp)
+def workedBeta := substitutedBeta hx hT hp (dependentWeakening hx hT hp)
+
+universe u
+variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ a ∈ Ω, a.eval (algebra M) ρ)
+include hσ hΩ in
+theorem comparisonSound :
+    (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ =
+    (subTm (outer hx hT hp).branch σ).eval (algebra M) ρ :=
+  interpret (substitutedBeta hx hT hp hσ) M ρ hΩ
+
+include hΩ in
+theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
+    a.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
+  intro a ha
+  obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
+  simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
+
+include hσ hΩ in
+theorem extensionSelected :
+    ((term Δ (subTy (subTy (outer hx hT hp).motive (rootTail A x T)) σ)
+      (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)).inl
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
+    ((subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).inl
+      SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
+      (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
+      (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ :=
+  ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret
+    (SquareKit.Internal.DependentJudgments.Sigma.retain (substitutedLeft hx hT hp hσ))
+    M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
+    SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
+end GuardedJRetest.CandidateReference
+
+/-! Private inhabited specializations for #323. The support fixture is derived
+from the preserved #320 native cases; these are coordinator checks, excluded
+from both author handoffs. -/
+namespace GuardedJRetest.NativeCases
+open SquareKit.Internal SquareKit.Internal.PathTransport Typed Authoring
+open SquareKit.Internal.DependentJudgments SquareKit.GuardedTheory
+set_option backward.isDefEq.respectTransparency false
+abbrev native := NativeType.model Nat (fun n => Fin (n + 1))
+abbrev stable := Sigma.Native.stable Nat (fun n => Fin (n + 1))
+
+namespace Baseline
+open NamedCaller
+abbrev rootLeft := GuardedJRetest.BaselineReference.workedLeft
+  earlier base x.deriv generalized qAtBType qAtB
+abbrev rootRight := GuardedJRetest.BaselineReference.workedRight
+  earlier base x.deriv generalized qAtBType qAtB
+
+theorem comparisonSound : interpretTm native rootLeft = interpretTm native rootRight :=
+  GuardedJRetest.BaselineReference.comparisonSound
+    earlier base x.deriv generalized qAtBType qAtB
+    (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
+    native
+
+def retainedSelected := GuardedJRetest.BaselineReference.extensionSelected
+  earlier base x.deriv generalized qAtBType qAtB
+  (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
+  native stable
+end Baseline
+
+/-- Evaluate the concrete caller's annotations without assuming any source
+judgment in the candidate. The candidate hypotheses are checked below. -/
+structure Inputs where
+  context : native.Context
+  family : native.Family context
+  point : native.Section context family
+  length : Nat
+  tail : StructuralModel.Telescope native.toStructuralModel
+    (native.toStructuralModel.pathContext family point) length
+  valueFamily : native.Family tail.total
+  value : native.Section tail.total valueFamily
+
+private def inputsOf {Γ : RawCtx} {γ : CtxCode.{1}} {A x : Expr} {a : TyCode γ}
+    {ξ : TmCode γ a} {n : Nat} {Ξ : RawCtx} {T : TelCode (pathCode a ξ) n}
+    {Q p : Expr} {q : TyCode (telTotal T)} {π : TmCode (telTotal T) q}
+    (_hΓ : CtxDeriv Γ γ) (_hA : TyDeriv Γ γ A a) (_hx : TmDeriv Γ γ A a x ξ)
+    (_hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Ξ T)
+    (_hQ : TyDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q)
+    (_hp : TmDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q p π) : Inputs :=
+  ⟨γ native, a native, ξ native, n, T native, q native, π native⟩
+
+private def inputs := inputsOf NamedCaller.earlier NamedCaller.base NamedCaller.x.deriv
+  NamedCaller.generalized NamedCaller.qAtBType NamedCaller.qAtB
+
+theorem tail_length : inputs.length = 3 := rfl
+
+private theorem weaken_value {Γ : RawCtx} {γ : CtxCode.{1}} {A : Expr} {a : TyCode γ}
+    (p : BasePoint Γ γ) (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
+    (z : extendCode γ a native) :
+    ((p.weaken hΓ hA).code native).down z = (p.code native).down z.1 := by
+  have e := eq_of_heq (castCode_eval (baseSub_code (weakenCode γ a))
+    (subTmCode p.code (weakenCode γ a)) native)
+  exact congrArg (fun t => t.down z) e
+
+private theorem variable_value {Γ : RawCtx} {γ : CtxCode.{1}}
+    (hΓ : CtxDeriv Γ γ) (z : extendCode γ (baseCode γ) native) :
+    ((BasePoint.variable hΓ).code native).down z = z.2 := by
+  have e := eq_of_heq (castCode_eval (baseSub_code (weakenCode γ (baseCode γ)))
+    (varCode γ (baseCode γ)) native)
+  exact congrArg (fun t => t.down z) e
+
+/-- The full tail is inhabited, including its dependent identity and fiber
+binders, in the native model with varying finite fibers. -/
+private def populatedTail : inputs.tail.total := by
+  let γ : inputs.context := ⟨PUnit.unit, (3 : Nat)⟩
+  let chosen := inputs.point.down γ
+  refine ⟨⟨⟨⟨⟨γ, chosen⟩, ⟨⟨rfl⟩⟩⟩, chosen⟩, ⟨⟨?_⟩⟩⟩, ?_⟩
+  · simp only [NamedCaller.yAtZ, NamedCaller.moving, NamedCaller.z,
+      weaken_value, variable_value]
+  · change Fin (_ + 1)
+    exact ⟨0, Nat.zero_lt_succ _⟩
+
+theorem tail_inhabited : Nonempty inputs.tail.total := ⟨populatedTail⟩
+
+private def populatedRootTail :
+    (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+      (native.toStructuralModel.rootSub inputs.family inputs.point)).total :=
+  (NativeType.telescopeEquiv Nat (fun n => Fin (n + 1)) inputs.tail
+    (NativeType.rootEquiv Nat (fun n => Fin (n + 1)) inputs.family inputs.point)).symm populatedTail
+
+private def populatedWeakening : native.extend
+    (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+      (native.toStructuralModel.rootSub inputs.family inputs.point)).total
+    (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+      (native.toStructuralModel.rootTail inputs.family inputs.point inputs.tail)) :=
+  ⟨populatedRootTail, ⟨⟨rfl⟩⟩⟩
+
+theorem weakening_inhabited : Nonempty (native.extend
+    (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+      (native.toStructuralModel.rootSub inputs.family inputs.point)).total
+    (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+      (native.toStructuralModel.rootTail inputs.family inputs.point inputs.tail))) :=
+  ⟨populatedWeakening⟩
+
+theorem root_tail_inhabited : Nonempty
+    (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+      (native.toStructuralModel.rootSub inputs.family inputs.point)).total :=
+  ⟨populatedRootTail⟩
+
+namespace Candidate
+open Contextual
+
+private abbrev g : Contextual.Expression (Fin 6) := .var 0
+private abbrev a : Contextual.Expression (Fin 6) := .var 1
+private abbrev x : Contextual.Expression (Fin 6) := .var 2
+private abbrev t : Contextual.Expression (Fin 6) := .var 3
+private abbrev q : Contextual.Expression (Fin 6) := .var 4
+private abbrev p : Contextual.Expression (Fin 6) := .var 5
+private def premises : Fin 3 → Contextual.Judgment (Fin 6) :=
+  ![term g a x, telescope inputs.length (path a x) t, term (total t) q p]
+private abbrev assumptions := List.ofFn premises
+private def point : Tm (Ω := assumptions) g a x :=
+  .hypothesis (List.mem_ofFn.mpr ⟨0, rfl⟩)
+private def tail : Tel (Ω := assumptions) inputs.length (path a x) t :=
+  .hypothesis (List.mem_ofFn.mpr ⟨1, rfl⟩)
+private def value : Tm (Ω := assumptions) (total t) q p :=
+  .hypothesis (List.mem_ofFn.mpr ⟨2, rfl⟩)
+
+private def environment : Fin 6 → Value native.toStructuralModel :=
+  ![.context inputs.context, .family inputs.context inputs.family,
+    .term inputs.context inputs.family inputs.point,
+    .telescope _ inputs.length inputs.tail,
+    .family inputs.tail.total inputs.valueFamily,
+    .term inputs.tail.total inputs.valueFamily inputs.value]
+
+/-- All hypotheses have actual native values, including the three dependent
+tail binders. None is a requested equality or a selected-output assumption. -/
+theorem assumptions_valid : ∀ j ∈ assumptions, j.eval (Contextual.algebra native) environment := by
+  intro j hj
+  rcases List.mem_ofFn.mp hj with ⟨i, rfl⟩
+  fin_cases i
+  · exact ⟨inputs.context, inputs.family, inputs.point, rfl, rfl, rfl⟩
+  · refine ⟨_, inputs.tail, ?_, rfl⟩
+    simp [SquareKit.GuardedTheory.Term.eval, Contextual.algebra, Contextual.operation, environment]
+  · refine ⟨_, inputs.valueFamily, inputs.value, ?_, rfl, rfl⟩
+    simp [SquareKit.GuardedTheory.Term.eval, Contextual.algebra, Contextual.operation, environment]
+
+
+private abbrev cmd := GuardedJRetest.CandidateReference.outer point tail value
+private abbrev arrow := GuardedJRetest.CandidateReference.dependentWeakening point tail value
+
+def interpretedLeft := Contextual.interpret
+  (GuardedJRetest.CandidateReference.workedLeft point tail value)
+  native environment assumptions_valid
+
+def interpretedRight := Contextual.interpret
+  (GuardedJRetest.CandidateReference.workedRight point tail value)
+  native environment assumptions_valid
+
+def comparisonSound := GuardedJRetest.CandidateReference.comparisonSound
+  point tail value arrow native environment assumptions_valid
+
+def retainedSelected := GuardedJRetest.CandidateReference.extensionSelected
+  point tail value arrow native stable environment assumptions_valid
+
+theorem exactRecipe : cmd.expression =
+    j a x t (identity (identity q p p)
+      (GuardedJRetest.CandidateReference.inner point tail value).expression
+      (GuardedJRetest.CandidateReference.inner point tail value).expression)
+      (reflexivity (subTy (identity q p p) (rootTail a x t))
+        (subTm (GuardedJRetest.CandidateReference.inner point tail value).expression (rootTail a x t))) :=
+  GuardedJRetest.CandidateReference.selectedRecipe point tail value
+
+end Candidate
+end GuardedJRetest.NativeCases
+
+/-!
+# Exhaustive project axiom audit
+
+`#audit_project_axioms` enumerates every kernel-safe declaration whose defining module is
+one of the foundation modules, or lies under `SquareKit`, `Applications`, or
+`Examples`. Ownership comes from Lean's module-origin table, so private names,
+generated auxiliaries, instances, constructors, and recursors are included.
+Candidates come from project modules' constant and generated-name metadata plus
+current-module kernel declarations, with duplicate names removed. This preserves
+the module-origin boundary without scanning all dependency declarations.
+Definitions are audited as well as theorem declarations. The only root exclusion
+is Lean's `ConstantInfo.isUnsafe` flag: the compiler creates unsafe runtime
+declarations containing erased proofs (`lcProof`) and unreachable-code markers.
+These are not logical declarations and cannot occur in a kernel-safe proof.
+Their count is reported separately. An unsafe declaration with a registered
+source range is rejected, so a user-written `unsafe` declaration is not silently
+classified as a compiler artifact. No declaration-name convention is used.
+
+Every declaration is submitted to the public `Lean.collectAxioms` API. Lean
+records transitive axiom dependencies when exporting checked modules and uses
+those summaries for imported declarations; local declarations are traversed
+in the checked kernel environment. Every project declaration remains an audit
+root, including private and generated declarations. On failure, the same API
+attributes forbidden axioms to declarations.
+Any transitive axiom other than `propext`, `Classical.choice`, or `Quot.sound` is an error. This
+includes `sorryAx`, `Lean.ofReduceBool`, and arbitrary user-declared axioms.
+
+The import above is the project's complete public entrypoint. Audit coverage
+is over its transitive imports; adding a new source module requires importing
+it from that entrypoint. The command reports the imported project modules,
+all logical declaration and theorem counts, and the union of encountered axioms.
+Enable `trace.ProofAudit.roots` to inspect the exact logical root set.
+-/
+
+namespace ProofAudit
+
+open Lean Elab Command
+
+initialize registerTraceClass `ProofAudit.roots
+
+private def foundationModules : Array Name :=
+  #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
+
+/-- Filter module origins, never the spelling of declaration names. -/
+private def isProjectModule (moduleName : Name) : Bool :=
+  foundationModules.contains moduleName ||
+    (`SquareKit).isPrefixOf moduleName ||
+    (`Applications).isPrefixOf moduleName ||
+    (`Examples).isPrefixOf moduleName
+
+private def permittedAxiom (axiomName : Name) : Bool :=
+  axiomName == `propext || axiomName == `Classical.choice || axiomName == `Quot.sound
+
+private def declarationModule (env : Environment) (declName : Name) : Name :=
+  match env.getModuleIdxFor? declName with
+  | some index => env.header.moduleNames[index.toNat]!
+  | none => env.mainModule
+
+private structure ModuleCount where
+  moduleName : Name
+  declarations : Nat := 0
+  theorems : Nat := 0
+  runtimeDeclarations : Nat := 0
+
+/-- An executable verification command; it adds no mathematical assumptions. -/
+def auditProject : CommandElabM Unit := do
+  let env ← getEnv
+  let mut owned : Array (Name × ConstantInfo × Name) := #[]
+  let mut counts := (env.header.moduleNames.filter isProjectModule).map
+    (fun n => { moduleName := n : ModuleCount })
+  if isProjectModule env.mainModule then
+    counts := counts.push { moduleName := env.mainModule }
+  let mut runtimeCount : Nat := 0
+  let mut unsafeSource : Array Name := #[]
+  -- Restrict candidates by defining module before examining declarations.
+  -- Include generated-name metadata and current-module kernel declarations.
+  let imported := env.header.moduleNames.mapIdx fun i n =>
+    if isProjectModule n then
+      let data := env.header.moduleData[i]!
+      let regular := data.constants.map fun ci => (ci.name, ci)
+      regular ++ data.extraConstNames.filterMap (fun name =>
+        (env.constants.find? name).map fun ci => (name, ci))
+    else #[]
+  let candidates := env.constants.foldStage2 (fun acc n ci => acc.push (n, ci)) imported.flatten
+  let mut visited : NameSet := {}
+  for (declName, info) in candidates do
+    if visited.contains declName then continue
+    visited := visited.insert declName
+    let moduleName := declarationModule env declName
+    if isProjectModule moduleName then
+      -- Lean's code generator adds unsafe proof-erased runtime declarations
+      -- (including axioms) to the same constant table. The kernel prevents
+      -- safe proofs from using them. This is a safety-metadata boundary, not
+      -- a namespace or spelling-based exemption; dependencies are unfiltered.
+      -- `scripts/check.py` also rejects user-written unsafe source constructs.
+      if info.isUnsafe then
+        runtimeCount := runtimeCount + 1
+        if (declRangeExt.find? env declName).isSome then
+          unsafeSource := unsafeSource.push declName
+        if let some i := counts.findIdx? (fun c => c.moduleName == moduleName) then
+          counts := counts.modify i (fun c => { c with
+            runtimeDeclarations := c.runtimeDeclarations + 1 })
+      else
+        owned := owned.push (declName, info, moduleName)
+  if owned.isEmpty then
+    throwError "Proof audit found no project declarations; check the public entrypoint imports."
+  owned := owned.qsort (fun a b => Name.lt a.1 b.1)
+  let mut theoremCount : Nat := 0
+  for (declName, info, moduleName) in owned do
+    trace[ProofAudit.roots] "{declName}"
+    if info.isTheorem then theoremCount := theoremCount + 1
+    match counts.findIdx? (fun c => c.moduleName == moduleName) with
+    | some i =>
+      counts := counts.modify i (fun c => { c with
+        declarations := c.declarations + 1
+        theorems := c.theorems + if info.isTheorem then 1 else 0 })
+    | none =>
+      counts := counts.push ⟨moduleName, 1, if info.isTheorem then 1 else 0, 0⟩
+  -- Use Lean's public API and its checked module summaries, without relying
+  -- on the collector's private implementation. Every declaration is a root.
+  let mut axiomSet : NameSet := {}
+  for (declName, _, _) in owned do
+    for axiomName in (← Lean.collectAxioms declName) do
+      axiomSet := axiomSet.insert axiomName
+  let allAxioms := axiomSet.toArray.qsort Name.lt
+  let forbiddenUnion := allAxioms.filter (fun a => !permittedAxiom a)
+  counts := counts.qsort (fun a b => Name.lt a.moduleName b.moduleName)
+  logInfo m!"Proof audit: {owned.size} kernel-safe declarations, {theoremCount} theorem declarations, {counts.size} project modules."
+  for c in counts do
+    logInfo m!"  {c.moduleName}: {c.declarations} logical declarations; {c.theorems} theorem declarations; {c.runtimeDeclarations} unsafe runtime declarations"
+  logInfo m!"Excluded from logical roots: {runtimeCount} kernel-unsafe runtime declarations."
+  logInfo m!"Transitive axiom union: {allAxioms.toList}"
+  if !unsafeSource.isEmpty then
+    throwError "Proof audit FAILED: unsafe declarations with source ranges: {(unsafeSource.qsort Name.lt).toList}"
+  if !forbiddenUnion.isEmpty then
+    let mut rejectedCount : Nat := 0
+    for (declName, _, _) in owned do
+      let axioms ← Lean.collectAxioms declName
+      let bad := axioms.filter (fun a => !permittedAxiom a)
+      if !bad.isEmpty then
+        rejectedCount := rejectedCount + 1
+        logError m!"Forbidden transitive axioms in '{declName}': {(bad.qsort Name.lt).toList}"
+    throwError "Proof audit FAILED: {rejectedCount} declarations depend on forbidden axioms."
+  logInfo "Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms."
+
+elab "#audit_project_axioms" : command => auditProject
+
+end ProofAudit
+
+#audit_project_axioms

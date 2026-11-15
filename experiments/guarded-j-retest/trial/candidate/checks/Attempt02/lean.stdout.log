@@ -1,0 +1,19 @@
+attempts/checks/Attempt02/Source.lean:57:49: error(lean.unknownIdentifier): Unknown constant `SquareKit.GuardedTheory.Signature.Operation.inl`
+
+Note: Inferred this name from the expected resulting type of `.inl`:
+  SquareKit.GuardedTheory.Signature.Operation ?m.43
+attempts/checks/Attempt02/Source.lean:57:49: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.inl`
+  SquareKit.GuardedTheory.Signature.Operation ?m.43
+is not of the form `C ...` or `... → C ...` where C is a constant
+attempts/checks/Attempt02/Source.lean:59:42: error: Missing cases:
+(Fin.mk _ _)
+attempts/checks/Attempt02/Source.lean:59:18: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.reflexive` could not be determined
+
+Hint: Using `SquareKit.GuardedTheory.Derivation.reflexive would be unambiguous:
+  [apply] `SquareKit.GuardedTheory.Derivation.reflexive`
+attempts/checks/Attempt02/Source.lean:58:15: error: Type mismatch
+  rootBeta hx hT hp
+has type
+  Equal (subTm (outer hx hT hp).expression (rootTail A x T)) (outer hx hT hp).branch
+but is expected to have type
+  ?m.50 0

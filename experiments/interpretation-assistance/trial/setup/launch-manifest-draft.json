@@ -1,0 +1,33 @@
+{
+  "status": "draft pending private applicability, smoke checks and independent final readiness",
+  "prototype": "3b5c9002c9e799b00d01b6f1e0ca0dfe155d465b",
+  "order": [
+    "direct",
+    "assisted"
+  ],
+  "budget": {
+    "minutes": 45,
+    "lean_invocations": 30,
+    "elapsed_exclusions": [],
+    "cpu": 0,
+    "concurrent_author_arms": 1
+  },
+  "model_configuration": "fresh-context agents inheriting same root configuration; exact model/effort/service metadata not exposed and recorded unknown",
+  "arms": {
+    "direct": {
+      "source": "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/direct",
+      "output": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/direct",
+      "state": "/tmp/conaled-wave-20261111/462-trial-preparation/control/direct/state.json",
+      "prompt": "/tmp/conaled-wave-20261111/462-trial-preparation/prompts/direct.md",
+      "prompt_sha256": "cb2081e6b9decb0f3575522525f34a17718d9ffbece7af98e1d942bb226d522a"
+    },
+    "assisted": {
+      "source": "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted",
+      "output": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted",
+      "state": "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+      "prompt": "/tmp/conaled-wave-20261111/462-trial-preparation/prompts/assisted.md",
+      "prompt_sha256": "712412d01e8aabe4a5a65a51f7a0558fdf000ccfb8ad829d5308c8c2c816b513"
+    }
+  },
+  "watchdog": "Root starts pinned runner --watch OUTPUT at dispatch; polls cutoff evidence and interrupts author upon cutoff; completion freezes output and terminates watchdog. Watchdog failure stops arm. State initialized only immediately before dispatch."
+}

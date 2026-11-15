@@ -1,0 +1,34 @@
+{
+  "freeze_commit": "72607d73206b4be824c688aab738bb4f4493bb66",
+  "checkpoint": "/tmp/conaled-291-294/reviews/293-prospective-checkpoint.md",
+  "batch_started_not_before": "2026-11-04T20:40:54Z",
+  "batch_completed_by": "2026-11-04T20:41:31.577643+00:00",
+  "configuration": {
+    "fork_turns": "none",
+    "model_override": null,
+    "reasoning_effort_override": null,
+    "cap_minutes": 20
+  },
+  "arms": {
+    "manual": {
+      "agent": "/root/author_293_manual",
+      "handoff": "/tmp/conaled-291-294/handoffs/manual",
+      "dispatched_message": "You are fresh author M in the #293 requirement-discovery trial, assigned within an existing implementation/review loop. Do not start a new implementation workflow or spawn agents.\n\nWork only in /tmp/conaled-291-294/handoffs/manual. Record UTC start immediately, then read conduct.md, tasks.md and the supplied guidance. You have 20 minutes from that start including reading and checks; stop sooner when finished. Record actually exposed model/configuration and prior task exposure; mark hidden metadata unavailable.\n\nYour fixed route is manual; attempt E then W. Use namespace ProofRequirementTrial.Manual for every declaration. Your route is manual abstraction; no dependency ledger is supplied.\n\nRead only files allowed by tasks.md within this handoff and its pinned dependency/toolchain sources. Do not read repository history, parent/sibling directories, private references, other attempts or external sources. Do not modify frozen inputs. Write only under attempts/.\n\nUse direnv exec . python check_attempt.py attempts/AttemptNN.lean for every Lean check, with a fresh filename. The wrapper saves exact source bytes, command, UTC times, diagnostics and exit status. Retain failures before repairs and write a plain command transcript too. For shell/setup failures preserve the exact command and raw output separately. No session-transcript export is available; do not fabricate one.\n\nFinish with attempts/outcome.md and the path of your best checked source. Account for each task and negative control, generic interface and target obligations, source dependencies and changed proofs, selected witness, statement review, assistance, failures and remaining work. Do not silently repair after the cap. Return the paths, start/end, and checked/partial status to the coordinator.",
+      "message_sha256": "3383e6d75fb1a7c7dc94e8306b9953bc20f1b9216a251501f6fb3e4b32a98928",
+      "frozen_file_final_newline_omitted": true
+    },
+    "assisted": {
+      "agent": "/root/author_293_assisted",
+      "handoff": "/tmp/conaled-291-294/handoffs/assisted",
+      "dispatched_message": "You are fresh author D in the #293 requirement-discovery trial, assigned within an existing implementation/review loop. Do not start a new implementation workflow or spawn agents.\n\nWork only in /tmp/conaled-291-294/handoffs/assisted. Record UTC start immediately, then read conduct.md, tasks.md and the supplied guidance. You have 20 minutes from that start including reading and checks; stop sooner when finished. Record actually exposed model/configuration and prior task exposure; mark hidden metadata unavailable.\n\nYour fixed route is assisted; attempt E then W. Use namespace ProofRequirementTrial.Assisted for every declaration. You also receive dependency-ledger.md as the complete assistance intervention. Read it and record its use.\n\nRead only files allowed by tasks.md within this handoff and its pinned dependency/toolchain sources. Do not read repository history, parent/sibling directories, private references, other attempts or external sources. Do not modify frozen inputs. Write only under attempts/.\n\nUse direnv exec . python check_attempt.py attempts/AttemptNN.lean for every Lean check, with a fresh filename. The wrapper saves exact source bytes, command, UTC times, diagnostics and exit status. Retain failures before repairs and write a plain command transcript too. For shell/setup failures preserve the exact command and raw output separately. No session-transcript export is available; do not fabricate one.\n\nFinish with attempts/outcome.md and the path of your best checked source. Account for each task and negative control, generic interface and target obligations, source dependencies and changed proofs, selected witness, statement review, assistance, failures and remaining work. Do not silently repair after the cap. Return the paths, start/end, and checked/partial status to the coordinator.",
+      "message_sha256": "4f76fa4ec6e96105017bcd1a1f5f9b57b4066bee5fb07db9205ab03d325dd618",
+      "frozen_file_final_newline_omitted": true
+    }
+  },
+  "coordinator_activity_during_authors": [
+    {
+      "observed_at": "2026-11-04T20:42:54.646916+00:00",
+      "activity": "Private cache copy from reviewed /292 to final integration checkout ran concurrently with author work. Other host activity not controlled or measured; elapsed time cannot establish comparative productivity."
+    }
+  ]
+}

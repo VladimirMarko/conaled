@@ -1,0 +1,219 @@
+{
+  "context": {
+    "catalog": [
+      "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "c(p(p(l,l),p(l,l)),p(l,l))"
+    ],
+    "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+    "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+    "requirements": [
+      9
+    ],
+    "site": "scan:pl:l",
+    "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+    "workload": "scan:nested:4:17:32:0"
+  },
+  "repetitions": 5,
+  "samples": [
+    {
+      "candidate": "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 17047,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "c(p(p(l,l),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 28431,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "c(p(p(l,l),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 24575,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 19251,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 18110,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "c(p(p(l,l),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 24081,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "c(p(p(l,l),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 25943,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 17611,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 18813,
+      "repetition": 4,
+      "success": true
+    },
+    {
+      "candidate": "c(p(p(l,l),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "p(p(p(l,l),p(l,l)),p(p(p(l,l),l),l))",
+          "c(p(p(l,l),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          9
+        ],
+        "site": "scan:pl:l",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:nested:4:17:32:0"
+      },
+      "elapsedNs": 27660,
+      "repetition": 4,
+      "success": true
+    }
+  ]
+}

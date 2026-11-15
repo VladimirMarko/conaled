@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "source": "attempts/ReplayB.lean",
+  "command": [
+    "direnv",
+    "exec",
+    ".",
+    "python3",
+    "check_attempt.py",
+    "attempts/ReplayB.lean"
+  ],
+  "start_utc": "2026-11-08T16:51:18.894056+00:00",
+  "status": "finished",
+  "lock": "/tmp/conaled-362-orchestration/build.lock",
+  "lock_wait_seconds": 0.00010847000521607697,
+  "exit_code": 0,
+  "finish_utc": "2026-11-08T16:51:20.792029+00:00",
+  "check_seconds": 1.897859240998514,
+  "wall_seconds": 1.89796771100373,
+  "child_maxrss_kib": 1533012,
+  "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+}

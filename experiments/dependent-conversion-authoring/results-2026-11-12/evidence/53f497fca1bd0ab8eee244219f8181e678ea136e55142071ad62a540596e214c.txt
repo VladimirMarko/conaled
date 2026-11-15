@@ -1,0 +1,16 @@
+from pathlib import Path
+import sys,json,hashlib,shutil,datetime,time,importlib.util
+r=Path('/tmp/conaled-wave-20261111');t=r/'423-trial-execution';n=int(sys.argv[1]);slot=t/f'slot-{n}';work=slot/'work';pub=r/f'423-execution-correction/prepared-final/slots/slot-{n}/public';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();read=lambda p:json.loads(p.read_text());ctx=read(work/'context.json');assert ctx['phase']=='held-out';assert (slot/'held-out-completion/outcome.json').is_file();dest=slot/'final-submission';dest.mkdir()
+for p in work.iterdir():
+ if p.is_file():shutil.copy2(p,dest/p.name)
+shutil.copy2(pub/'release.json',dest/'release.json')
+files={p.name:sha(p) for p in work.glob('*.lean')};inv={str(p.relative_to(work)):sha(p) for p in work.rglob('*') if p.is_file()};fail=[];incomplete=[]
+for p in work.rglob('started.json'):
+ q=p.parent/'result.json'
+ if not q.is_file():incomplete.append(str(p.parent.relative_to(work)))
+ elif read(q).get('exit_code')!=0:fail.append({'attempt':str(p.parent.relative_to(work)),'result':read(q)})
+for f in read(pub/'release.json')['files']:assert sha(pub/f['path'])==f['sha256']
+receipt={'status':'all phases submitted; final coordinator replay/audit pending','slot':ctx['slot'],'session':ctx['session'],'route':ctx['route'],'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'monotonic_ns':time.monotonic_ns(),'sources':files,'all_work_inventory':inv,'failed_attempts':fail,'incomplete_attempts':incomplete,'assistance':'No mathematical assistance from coordinator; author disclosures retained in phase outcomes. Policy-only environment and inherited instructions recorded.','limitations':['Raw provider totals include repeated/cached input and are not effort or grading','Active reasoning time and unobserved suspension unknown','Final production policy/audit and independent review pending','Coordinator is ineligible as author or final reviewer of own coordination'],'final_audit':'pending'}
+(slot/'submission.json').write_text(json.dumps(receipt,indent=2)+'\n');(dest/'source-hashes.json').write_text(json.dumps(files,indent=2)+'\n');(dest/'all-work-hashes.json').write_text(json.dumps(inv,indent=2)+'\n')
+spec=importlib.util.spec_from_file_location('coord',t/'coordinator-handoff.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod);mod.usage(slot,slot/'raw-usage-events.json')
+print(json.dumps({'slot':ctx['slot'],'sources':list(files),'failed_attempts':len(fail),'incomplete_attempts':incomplete,'audit':'pending'}))

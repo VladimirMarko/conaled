@@ -21,8 +21,11 @@ one application, not an assumption imposed by this project's square kernel.
 * [Complete literate manuscript at reviewed revision](https://github.com/conal/generic-parallel-functional/blob/9a94c8343ede7f96b3b05a47d0e839bd585333eb/generic-parallel-functional.lhs).
 * Source revision: `9a94c8343ede7f96b3b05a47d0e839bd585333eb`.
 
-The reconstruction proves the structural scan and FFT semantics; paper-level
-work/depth and optimized circuit-count analyses are not claimed.
+The original reconstruction proves structural scan and FFT semantics. The later
+[exact FFT circuit development](research/fft-structural-costs.md) adds structural
+counts and declared scalar work/depth models, including the size16 local-rewrite
+comparison. Its exact constants and sharing policy are separate from the
+manuscript's floating-point generated circuits.
 
 ## S3. Automatic differentiation
 
@@ -83,42 +86,6 @@ the Agda automatic implementation.
 The PDF is the complete paper source used here; Felix alone is not presented
 as a complete artifact bundle for the paper. The port preserves independent
 value/timing maps, setup/hold bounds, and the adder hazard calculation.
-
-## S9. Purely Functional Data Structures
-
-* Chris Okasaki, *Purely Functional Data Structures*, Cambridge University
-  Press, 1998. [Publisher record](https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494),
-  DOI `10.1017/CBO9780511530104`.
-* [Publisher contents](https://assets.cambridge.org/97805216/63502/frontmatter/9780521663502_frontmatter.pdf),
-  SHA-256 `6fdfe24ac29b98252139a1aa483c1a56fba8f5807545d9ce788dc059c57148cb`.
-* [Publisher excerpt](https://assets.cambridge.org/97805216/63502/excerpt/9780521663502_excerpt.pdf),
-  SHA-256 `a39a8a3adb7e2d718a1395ad040e84403bf9c2bf669ebe4722aa850bea92f87b`.
-  Its ten scanned pages contain printed pages 1–5 and 7–11.
-* [Author's 1996 dissertation](https://www.cs.cmu.edu/~rwh/students/okasaki.pdf),
-  SHA-256 `f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072`.
-  The [Tufts-hosted copy supplied for this task](https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf)
-  is byte-identical: 162 PDF pages, report `CMU-CS-96-177`, September 1996.
-* Complete book PDF supplied by the user on 2026-11-02: 232 PDF pages,
-  2003 digital-print imprint, with first-publication and paperback dates 1998
-  and 1999. The copyright page identifies ISBNs `0-521-63124-6` and
-  `0-521-66350-4`. SHA-256
-  `b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41`.
-  Printed main-text page `n` is PDF page `n + 12` (one-based). Printed page 6
-  is present and was visually inspected as blank; it is no longer an inferred
-  omission. The complete source is available for chapter-specific inspection.
-
-The requested scope is now the **union of book and dissertation**, retaining
-different constructions, assumptions and resource contracts. Neither source is
-treated as a strict superset. In particular the thesis Appendix A specifies
-lazy evaluation in Standard ML, whereas the book Appendix A gives Haskell
-implementations. The
-[reconstruction record](research/pfds-reconstruction.md) distinguishes source
-coverage, mathematical obligations and the chapter acceptance process; the
-[union inventory](research/pfds-union-coverage.md) records forward obligations
-and known differences. Availability of a complete PDF is not a claim that every
-chapter has been inspected or formalized. Research manuscript copies remain
-outside deliverables under ADR 0001; exact attachment identity and recovery
-instructions accompany the local checkpoint records.
 
 ## Content fingerprints of downloaded manuscripts
 

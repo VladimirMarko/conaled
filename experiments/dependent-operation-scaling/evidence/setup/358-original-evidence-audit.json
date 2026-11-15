@@ -1,0 +1,486 @@
+{
+  "native": [
+    {
+      "stage": "A",
+      "count": 2,
+      "failures": [
+        "Attempt01"
+      ],
+      "check_seconds": 3.886355590017047,
+      "lock_wait_seconds": 5.150759089985513,
+      "maxrss_kib": 1524080,
+      "checks": [
+        {
+          "attempt": "Attempt01",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt01.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt01.lean"
+            ],
+            "start_utc": "2026-11-08T16:42:49.430962+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 5.150649781993707,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:42:56.680320+00:00",
+            "check_seconds": 2.098701067006914,
+            "wall_seconds": 7.249350849000621,
+            "child_maxrss_kib": 1520960,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt02",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt02.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt02.lean"
+            ],
+            "start_utc": "2026-11-08T16:43:11.446846+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.0001093079918064177,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:43:13.234614+00:00",
+            "check_seconds": 1.7876545230101328,
+            "wall_seconds": 1.7877638310019393,
+            "child_maxrss_kib": 1524080,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "B",
+      "count": 1,
+      "failures": [],
+      "check_seconds": 1.8974045520008076,
+      "lock_wait_seconds": 8.421599341090769e-05,
+      "maxrss_kib": 1534768,
+      "checks": [
+        {
+          "attempt": "Attempt03",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt03.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt03.lean"
+            ],
+            "start_utc": "2026-11-08T16:43:54.227311+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 8.421599341090769e-05,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:43:56.124803+00:00",
+            "check_seconds": 1.8974045520008076,
+            "wall_seconds": 1.8974887679942185,
+            "child_maxrss_kib": 1534768,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "C",
+      "count": 4,
+      "failures": [
+        "Attempt04",
+        "Attempt06"
+      ],
+      "check_seconds": 8.497128579008859,
+      "lock_wait_seconds": 0.0004290369979571551,
+      "maxrss_kib": 1552324,
+      "checks": [
+        {
+          "attempt": "Attempt04",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt04.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt04.lean"
+            ],
+            "start_utc": "2026-11-08T16:45:13.276657+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.0001078080094885081,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:45:15.293684+00:00",
+            "check_seconds": 2.016913077997742,
+            "wall_seconds": 2.0170208860072307,
+            "child_maxrss_kib": 1546548,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt05",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt05.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt05.lean"
+            ],
+            "start_utc": "2026-11-08T16:45:27.981811+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 9.542399493511766e-05,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:45:30.057182+00:00",
+            "check_seconds": 2.075271198002156,
+            "wall_seconds": 2.075366621997091,
+            "child_maxrss_kib": 1551252,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt06",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt06.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt06.lean"
+            ],
+            "start_utc": "2026-11-08T16:45:58.189539+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.0001007739920169115,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:46:00.449687+00:00",
+            "check_seconds": 2.260043022004538,
+            "wall_seconds": 2.260143795996555,
+            "child_maxrss_kib": 1552324,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt07",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt07.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt07.lean"
+            ],
+            "start_utc": "2026-11-08T16:46:09.603631+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00012503100151661783,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:46:11.748661+00:00",
+            "check_seconds": 2.1449012810044223,
+            "wall_seconds": 2.145026312005939,
+            "child_maxrss_kib": 1551784,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "repair",
+      "count": 1,
+      "failures": [],
+      "check_seconds": 2.1131453690031776,
+      "lock_wait_seconds": 0.000115233997348696,
+      "maxrss_kib": 1552780,
+      "checks": [
+        {
+          "attempt": "Attempt08",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt08.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt08.lean"
+            ],
+            "start_utc": "2026-11-08T16:47:04.054080+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.000115233997348696,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:47:06.167345+00:00",
+            "check_seconds": 2.1131453690031776,
+            "wall_seconds": 2.1132606030005263,
+            "child_maxrss_kib": 1552780,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "stage": "A",
+      "count": 3,
+      "failures": [
+        "Attempt01",
+        "Attempt02"
+      ],
+      "check_seconds": 5.307522123985109,
+      "lock_wait_seconds": 0.00032256801205221564,
+      "maxrss_kib": 1526604,
+      "checks": [
+        {
+          "attempt": "Attempt01",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt01.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt01.lean"
+            ],
+            "start_utc": "2026-11-08T16:44:25.394329+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00012281800445634872,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:44:27.209336+00:00",
+            "check_seconds": 1.8148807759862393,
+            "wall_seconds": 1.8150035939906957,
+            "child_maxrss_kib": 1526604,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt02",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt02.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt02.lean"
+            ],
+            "start_utc": "2026-11-08T16:44:41.580927+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00011399600771255791,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:44:43.311278+00:00",
+            "check_seconds": 1.7302331709943246,
+            "wall_seconds": 1.7303471670020372,
+            "child_maxrss_kib": 1520344,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt03",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt03.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt03.lean"
+            ],
+            "start_utc": "2026-11-08T16:44:53.519275+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 8.5753999883309e-05,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:44:55.281773+00:00",
+            "check_seconds": 1.762408177004545,
+            "wall_seconds": 1.7624939310044283,
+            "child_maxrss_kib": 1524364,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "B",
+      "count": 1,
+      "failures": [],
+      "check_seconds": 2.0461507930012885,
+      "lock_wait_seconds": 0.00012058799620717764,
+      "maxrss_kib": 1529284,
+      "checks": [
+        {
+          "attempt": "Attempt04",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt04.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt04.lean"
+            ],
+            "start_utc": "2026-11-08T16:45:46.597517+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00012058799620717764,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:45:48.643793+00:00",
+            "check_seconds": 2.0461507930012885,
+            "wall_seconds": 2.0462713809974957,
+            "child_maxrss_kib": 1529284,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "C",
+      "count": 2,
+      "failures": [
+        "Attempt05"
+      ],
+      "check_seconds": 4.218723250989569,
+      "lock_wait_seconds": 0.00021726801060140133,
+      "maxrss_kib": 1552332,
+      "checks": [
+        {
+          "attempt": "Attempt05",
+          "exit": 1,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt05.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt05.lean"
+            ],
+            "start_utc": "2026-11-08T16:47:25.593938+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00012910300574731082,
+            "exit_code": 1,
+            "finish_utc": "2026-11-08T16:47:27.690686+00:00",
+            "check_seconds": 2.096615058995667,
+            "wall_seconds": 2.0967441620014142,
+            "child_maxrss_kib": 1547616,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        },
+        {
+          "attempt": "Attempt06",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt06.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt06.lean"
+            ],
+            "start_utc": "2026-11-08T16:47:48.942323+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 8.816500485409051e-05,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:47:51.064524+00:00",
+            "check_seconds": 2.1221081919939024,
+            "wall_seconds": 2.1221963569987565,
+            "child_maxrss_kib": 1552332,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    },
+    {
+      "stage": "repair",
+      "count": 1,
+      "failures": [],
+      "check_seconds": 2.2193126779893646,
+      "lock_wait_seconds": 0.00012004100426565856,
+      "maxrss_kib": 1557976,
+      "checks": [
+        {
+          "attempt": "Attempt07",
+          "exit": 0,
+          "timing": {
+            "schema": 1,
+            "source": "attempts/Attempt07.lean",
+            "command": [
+              "direnv",
+              "exec",
+              ".",
+              "python3",
+              "check_attempt.py",
+              "attempts/Attempt07.lean"
+            ],
+            "start_utc": "2026-11-08T16:48:44.400573+00:00",
+            "status": "finished",
+            "lock": "/tmp/conaled-362-orchestration/build.lock",
+            "lock_wait_seconds": 0.00012004100426565856,
+            "exit_code": 0,
+            "finish_utc": "2026-11-08T16:48:46.620010+00:00",
+            "check_seconds": 2.2193126779893646,
+            "wall_seconds": 2.2194327189936303,
+            "child_maxrss_kib": 1557976,
+            "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+          }
+        }
+      ]
+    }
+  ]
+}

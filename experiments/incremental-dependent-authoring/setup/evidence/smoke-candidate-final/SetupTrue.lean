@@ -1,0 +1,6 @@
+import Examples.DependentPairTypedClient
+import SquareKit.DependentPairTheoryMap
+import SquareKit.DependentPairAdministrativeCompilation
+import Examples.DependentPairSharedClient
+import Examples.IncrementalDependentTrialSpec
+example : True := True.intro

@@ -1,0 +1,10 @@
+import Lean
+import Examples.ConversionTrial.Author.ScaleProof
+import Examples.ConversionTrial.Author.HeldOutProof
+run_cmd do
+  let env ← Lean.getEnv
+  for name in [`Examples.ConversionTrial.Author.ren_id_typed, `Examples.ConversionTrial.Author.left_eq_right, `Examples.ConversionTrial.Scale.composition_proof, `Examples.ConversionTrial.HeldOut.task_proof] do
+    let origin := match env.getModuleIdxFor? name with
+      | some i => toString env.header.moduleNames[i.toNat]!
+      | none => "current/absent"
+    Lean.logInfo m!"{name}: {origin}"

@@ -270,3 +270,14 @@ parallel cost, physical reclamation and crash cost to their explicit owners.
 #178 can use its results to decide whether a measured tree has a client benefit;
 #174 remains responsible for the broader toolkit. A tree or queue is never a
 prerequisite for using `run`, reweighting, potential bounds or optimization.
+
+## Cross-domain executions (#193)
+
+[FRP and numerical adapters](measured-frp-numerical-execution.md) now exercise
+`Measured` and workload/reweighting laws outside algorithm reconstruction.
+FRP reuses the continuing workload executor; numerical motion needs a local
+short-circuit recurrence that retains spent work. The common extension is only
+an attempt/acceptance/rejection observation product with additive tariffs.
+No new potential law or common execution runner was needed. These finite
+attempt counts do not resolve #113 retention costs or #177 structure-dependent
+traversal, allocation and ownership obligations.

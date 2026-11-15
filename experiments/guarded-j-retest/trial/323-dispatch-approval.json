@@ -1,0 +1,18 @@
+{
+  "approved_at": "2026-11-05T05:37:17.145554+00:00",
+  "candidate": "9677e0c83074d6af4bce3f8f8d0a54126981c15b",
+  "review_base": "e9953ca8c1ad7ed64e8e91cb2f1473c28ebfec56",
+  "manifest": "experiments/guarded-j-retest/dispatch-manifest-v2.json",
+  "manifest_sha256": "69fe6f1eea173a5d9f65f3db67b7e89bca8948ec1ed9c44b3b8e0352c1ab16e2",
+  "review_record": "323-handoff-review.md",
+  "standards": "Passed; STD323-001 fixed",
+  "spec": "Passed; SPEC323-001 fixed",
+  "scope": "Prospective approval to dispatch the two fresh measured authors using the exact reviewed public handoffs and prompts. Not full issue acceptance.",
+  "dispatch_configuration": {
+    "fork_turns": "none",
+    "model_override": null,
+    "reasoning_effort_override": null,
+    "notes": "Inherit session defaults; record actual available configuration separately, do not infer historical320 settings."
+  },
+  "user_gates": "No108 theorem preparation;107 paused;260 inactive; no push."
+}

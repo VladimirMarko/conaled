@@ -1,0 +1,70 @@
+attempts/checks/Attempt04/Source.lean:131:83: error: unexpected token '|'; expected term
+attempts/checks/Attempt04/Source.lean:141:12: error: unsolved goals
+case rotate
+n : ℕ
+i : Position n
+hi : ↑i < n + 1
+hn : ↑i + (n - ↑i) = n
+⊢ sorry () = (List.replicate ((↑i + 1) % (n + 1)) (), List.replicate (n - (↑i + 1) % (n + 1)) ())
+attempts/checks/Attempt04/Source.lean:142:10: error: unsolved goals
+case half
+n : ℕ
+i : Position n
+hi : ↑i < n + 1
+hn : ↑i + (n - ↑i) = n
+⊢ (match Instr.half, (List.replicate ↑i (), List.replicate (n - ↑i) ()) with
+    | Instr.old Low.mirror, (l, r) => (r, l)
+    | Instr.old Low.left, (l, r) => (List.replicate (l.length + 1) (), r)
+    | Instr.old Low.right, (l, r) => (l, List.replicate (r.length + 1) ())
+    | Instr.old Low.origin, (l, r) => ([], List.replicate (l.length + r.length) ())
+    | Instr.rotate, (l, r) => sorry ()) =
+    (List.replicate (↑i / 2) (), List.replicate (n - ↑i / 2) ())
+attempts/checks/Attempt04/Source.lean:143:14: error: unsolved goals
+case compress
+n : ℕ
+i : Position n
+hi : ↑i < n + 1
+hn : ↑i + (n - ↑i) = n
+⊢ (match Instr.compress, (List.replicate ↑i (), List.replicate (n - ↑i) ()) with
+    | Instr.old Low.mirror, (l, r) => (r, l)
+    | Instr.old Low.left, (l, r) => (List.replicate (l.length + 1) (), r)
+    | Instr.old Low.right, (l, r) => (l, List.replicate (r.length + 1) ())
+    | Instr.old Low.origin, (l, r) => ([], List.replicate (l.length + r.length) ())
+    | Instr.rotate, (l, r) => sorry ()) =
+    (List.replicate (↑i / 2) (), List.replicate (n / 2 - ↑i / 2) ())
+attempts/checks/Attempt04/Source.lean:139:52: warning: declaration uses `sorry`
+attempts/checks/Attempt04/Source.lean:141:110: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [word, macros, expand, runU, unary, meaning, Examples.DependentOperationTrialSpec.rotate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt04/Source.lean:142:106: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [word, macros, expand, runU, unary, meaning, Examples.DependentOperationTrialSpec.half]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt04/Source.lean:143:114: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [word, macros, expand, runU, unary, meaning, Examples.DependentOperationTrialSpec.compress]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt04/Source.lean:151:116: error: unexpected token 'theorem'; expected ')', ',' or ':'
+attempts/checks/Attempt04/Source.lean:181:107: error: Tactic `decide` failed to reduce
+  @decide
+    (Code.run runT total (Code.lower expand (emit (@macros) stageThree)) = (7, 3) ∧
+      Code.run runT total (Code.lower expand (emit (@macros) reflected)) = (7, 2) ∧
+        Code.run runT total (Code.lower expand (emit (@macros) resetReflected)) = (7, 1) ∧
+          Code.run runD distances (Code.lower expand (emit (@macros) stageThree)) = (3, 4) ∧
+            Code.run runU unary (Code.lower expand (emit (@macros) stageThree)) =
+              (List.replicate 3 (), List.replicate 4 ()))
+    instDecidableAnd
+to `true` or `false`.
+
+After unfolding the instances `decEq`, `instDecidableAnd`, `instDecidableEqList`, `instDecidableEqNat`, `instDecidableEqPUnit`, `instDecidableEqProd`, `isTrue`, `List.hasDecEq`, and `Nat.decEq`, reduction got stuck at
+  (List.replicate sorry.snd.length ()).beq (List.replicate 2 ())

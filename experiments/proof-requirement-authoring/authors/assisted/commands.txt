@@ -1,0 +1,38 @@
+Authored plain command transcript, not a raw agent session export.
+All commands run from /tmp/conaled-291-294/handoffs/assisted.
+
+1. date -u +'%Y-%m-%dT%H:%M:%SZ'
+   stdout: 2026-11-04T20:41:18Z; exit 0.
+2. cat conduct.md tasks.md
+   exit 0; raw output retained in tool record.
+3. ls guidance
+   exit 0; raw output retained in tool record.
+4. cat Examples/ProofRequirementSupport.lean dependency-ledger.md check_attempt.py manifest.json
+   exit 0; raw output retained in tool record.
+5. cat guidance/example-driven-development.md guidance/architectural-quality.md guidance/no-ai-slop.md guidance/language-direction.md guidance/worked-example.md
+   exit 0; combined tool output was truncated, followed by narrower reads.
+6. cat guidance/language-direction.md
+   exit 0; raw output retained in tool record.
+7. cat guidance/no-ai-slop.md guidance/references/ai-writing-detection.md
+   exit 0; raw output retained in tool record.
+8. cat .envrc lakefile.toml lean-toolchain prompt.txt
+   exit 0; raw output retained in tool record.
+9. mkdir -p attempts; wrote session-metadata.md, commands.txt and Attempt01.lean using literal heredocs.
+   The semicolon here describes sequential shell lines, not a fabricated raw command export.
+
+10. direnv exec . python check_attempt.py attempts/Attempt01.lean
+    Exit 0. Exact inner command, UTC times, source bytes, hash and diagnostics: attempts/checks/Attempt01/.
+    Initial direnv output: loading assigned .envrc; using flake; Using cached dev shell.
+11. Wrote Attempt02.lean by retaining Attempt01 declarations and appending W declarations before the namespace end.
+12. direnv exec . python check_attempt.py attempts/Attempt02.lean
+    Exit 0. Exact inner command, UTC times, source bytes, hash and diagnostics: attempts/checks/Attempt02/.
+    Initial direnv output: loading assigned .envrc; using flake; Using cached dev shell.
+13. cat attempts/checks/Attempt01/result.json attempts/checks/Attempt02/result.json
+    Exit 0; records retained verbatim at those paths.
+14. date -u +'%Y-%m-%dT%H:%M:%SZ'
+    stdout: 2026-11-04T20:43:55Z; exit 0.
+15. Wrote outcome.md and appended these command records using literal heredocs.
+    Source-writing commands are described rather than reconstructed as a raw session export; all compiler commands are recorded exactly above and by the wrapper.
+
+16. python3 literal heredoc: recorded datetime.now(timezone.utc).isoformat() in outcome.md and this transcript.
+    UTC end: 2026-11-04T20:44:56.226719+00:00; exit 0.

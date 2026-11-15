@@ -1,0 +1,91 @@
+[
+  {
+    "name": "source-policy",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "--run",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/scripts/lean-source-info.lean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/policy-input.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "3e476cf860cc575476a19b144a5933685944c5751abc3d2f19d4812ccbbed61d"
+  },
+  {
+    "name": "HeldOutProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/HeldOutProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/HeldOutProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "InitialProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/InitialProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/InitialProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "NegativeProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/NegativeProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/NegativeProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "RepairBaselineProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/RepairBaselineProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/RepairBaselineProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "RepairChangeProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/RepairChangeProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/RepairChangeProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ScaleProof",
+    "command": [
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/ScaleProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/ScaleProof.lean"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

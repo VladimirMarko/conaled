@@ -1,0 +1,35 @@
+# #358 independent Spec review — freeze milestone
+
+Outcome: **Passed**, zero findings. This approves the interface/task/protocol freeze only. It does not complete #358, approve author results, establish scalability, or waive export/smoke/eligibility gates before dispatch.
+
+Base: `9557ab95b8ea8dc8dc6a9666172e50cfac3ad872`.
+Candidate: `2838b20125fc4253f55eb1feb45f069f604175df`.
+The merge base is exactly the stated base. Reviewed all fourteen changed files, without exclusions, against the complete saved `358.json`, orchestration spec and worker guidance. This reviewer did not author #358 and is ineligible to serve as its fresh trial author. Root coordinates the separate Standards axis; this is solely the Spec assessment.
+
+## Mathematical contract and statement review
+
+Syntax uses the existing indexed derivation/rule maps, not an unrelated typing predicate. Operations have real input/output indices, including noninvertible reset and index-changing insertion/padding. Grafting is arbitrary typed substitution. Local interpretation and emitted-word equations imply the whole-term results through induction and existing interpretation theorems. The typed lowering has actual primitive certificates; padding expands to left then right rather than renaming a phase. Exact quotation retains the emitted word, load and instruction order.
+
+The two initial machines independently implement total/position and left/right distance representations. Their algorithms do not execute source derivations or invoke each other; selected encodings retain both bound and position. Native execution is proved independently by induction and remains available for unrestricted helper reuse. Shared laws do not assume the desired global execution equality as a caller field. The lowering quotation proof still contains primitive bookkeeping; the report admits that retained cost.
+
+The initial applications exercise the actual source term, two arbitrary typed substitutions through general laws, actual emitted instructions and selected outputs 3, 2, 1. The dependent tail chooses the last element of Fin(i+1) and is preserved by equality of the selected interpreted output. This is explicitly a semantic tail, not an unimplemented source Sigma or arbitrary dependent binder. Reflection/padding interchange, failed reflection/insertion interchange and changed-padding incompatibility separate local correctness from interaction laws. Former native/shared schedule examples remain regression checks.
+
+The independent held-out oracle defines rotation, halving, compression and backward rotation without compiler or realization solutions. Its nine-step client has the advertised index transitions (8,8,8,9,4,4,6,6,6,7) and selected outputs 3, 2, 1 under the original/reflected/reflected-reset inputs. Stage A returns 4 from 3 at bound4; the repaired rotation returns 2. Stage B returns 1 from 4 at bound5. Compression is genuinely noninvertible and changes the selected type; it is not a larger constant in the former schedule. Source indices remain host naturals: neither these statements nor the report claim general object-dependent type substitution, a full reference calculus model, higher identity, or the missing quantified Myers interpretation.
+
+## Acceptance coverage for this milestone
+
+The report compares direct reusable native helpers, named specializations of existing general laws and the bounded indexed representation; it does not require the incumbent to win. #366's missing source/model result is accounted for rather than assumed. #364 interaction costs and #365's broader eligible traditions remain visible. Local versus whole-construction obligations, admission and residual quotation costs are stated.
+
+The frozen task requires identical native/shared mathematical outcomes, actual target instructions/executors, exact two-stage quotation, general typed substitution, selected tail, independent additional backends, rejected interactions and old-operation preservation. Three cumulative points vary depth, primitives, realizations and interaction. The fixed backward-rotation repair changes the mathematical contract and its oracles; it does not demand preservation of a false old answer. Unary lists require complete selected list results rather than length-only success. Nothing in these obligations is mathematically inconsistent or requires the unavailable full Myers model.
+
+Budgets, attempt limits, stopping, assistance, exact snapshots, incomplete attempts, exposure exclusions and resource metadata are fixed before authors see tasks. Native authors may generalize helpers, use underlying general laws, or change representation; shared authors receive additional prepared support whose cost is explicitly charged. Both see all stages initially; anticipation and confounded cumulative dimensions are disclosed. One author per arm and three points cannot justify asymptotic or broad productivity claims. Limited budgets may produce incomplete submissions, which the protocol treats as valid retained observations rather than mathematical obstructions.
+
+Setup, prior framework work, author marginal work, repairs, replay and verification are separately accounted. Unknown historical setup timing and unavailable telemetry are not treated as zero. The allowed closures exclude other submissions, fixture applications, coordinator solutions and history. Interface/task review, public hashes, pinned dependencies, real success/failure wrapper smoke and fresh-author eligibility remain explicit pre-dispatch gates. They need not already be executed to approve this freeze, but approval alone does not satisfy them. Full measured execution and independent final acceptance remain pending under the original issue scope.
+
+## Validation and supplemental setup inspection
+
+The exact candidate audit reports all 1927 modules checked, zero kernel-unsafe runtime exclusions, and only propext/Classical.choice/Quot.sound in the transitive axiom union; `358-freeze-verify.log` matches the exact candidate. Full public entrypoint imports include both new example modules. I inspected the recorded evidence without initiating a redundant full build.
+
+Separately inspected coordinator `run_attempt.py`, `test_runner.py`, and `runner-unit-results.json`. The runner reserves timing receipts exclusively, separates lock waiting from child checking time, invokes the unchanged checker, propagates its exit code, and labels Linux child high-water RSS as nonaggregate. Stub tests cover success, failure, lock contention and duplicate preservation. This supports the narrow instrumentation behavior only; it does not replace real frozen-handoff smoke checks, source/manifest freezing, external thermal-suspension accounting, author activity records or the existing checker's exact-attempt preservation. Interrupted receipts remain visibly unfinished and require coordinator accounting. These files are supplemental setup artifacts, not part of the fourteen-file candidate acceptance.
+
+No SP358 findings. No source, tracker or integration edits were made.

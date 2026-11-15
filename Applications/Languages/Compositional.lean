@@ -29,22 +29,22 @@ def pointwise (p q : Syntax R true X) : Syntax R true X := .node .pointwise ![p,
 
 @[simp] theorem bind_add (f : X → Syntax R b Y) (p q : Syntax R b X) :
     Term.bind f (add p q) = add (Term.bind f p) (Term.bind f q) := by
-  simp only [add, Term.bind]
+  simp only [add, Term.bind, SquareKit.FinitaryTerm.bind]
   congr 1; funext i; fin_cases i <;> rfl
 
 @[simp] theorem bind_scale (f : X → Syntax R b Y) (r : R) (p : Syntax R b X) :
     Term.bind f (scale r p) = scale r (Term.bind f p) := by
-  simp only [scale, Term.bind]
+  simp only [scale, Term.bind, SquareKit.FinitaryTerm.bind]
   congr 1; funext i; fin_cases i; rfl
 
 @[simp] theorem bind_concat (f : X → Syntax R b Y) (p q : Syntax R b X) :
     Term.bind f (concat p q) = concat (Term.bind f p) (Term.bind f q) := by
-  simp only [concat, Term.bind]
+  simp only [concat, Term.bind, SquareKit.FinitaryTerm.bind]
   congr 1; funext i; fin_cases i <;> rfl
 
 @[simp] theorem bind_pointwise (f : X → Syntax R true Y) (p q : Syntax R true X) :
     Term.bind f (pointwise p q) = pointwise (Term.bind f p) (Term.bind f q) := by
-  simp only [pointwise, Term.bind]
+  simp only [pointwise, Term.bind, SquareKit.FinitaryTerm.bind]
   congr 1; funext i; fin_cases i <;> rfl
 
 variable {A : Type u} {R : Type v} {X : Type w} [Semiring R]

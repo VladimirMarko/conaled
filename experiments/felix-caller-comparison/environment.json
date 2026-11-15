@@ -1,0 +1,55 @@
+{
+  "status": "environment provisioned; protocol review and author assignment pending",
+  "lean": {
+    "revision": "3c064b11a5812e38c317601473e6897f65ce2a32",
+    "compiler": "leanprover/lean4:v4.35.0",
+    "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "files": {
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    }
+  },
+  "felix": {
+    "revision": "6f36d28097db7ea5f5df3263db3e8be08f74e490",
+    "compiler": "Agda 2.8.0",
+    "standard_library": "2.3",
+    "files": {
+      "flake.nix": "efb8e3eba7eb705de269585f94266d5d860c228034a4981cd33c402f349addbd",
+      "flake.lock": "16762eb965522dc4e76cfe980f699115fc3d9314e505fa616f7155d5d7f70a61",
+      "felix.agda-lib": "7afd512af7ddac1b6abce9c2106498d833b31e8326a4651bb1ad8023295fb1d2"
+    },
+    "environment_command": "nix develop /home/vlad/Code/felix --command agda --version",
+    "observed_result": "Agda version 2.8.0",
+    "library_manifest": "/nix/store/jgqq11nq43i0782myi0x2igwlj9kr3jl-libraries",
+    "private_stdlib_source": "/tmp/conaled-wave-20261111/25-environment/stdlib-src"
+  },
+  "neutral_smoke": {
+    "lean": {
+      "command": "direnv exec . lake env lean /tmp/conaled-wave-20261111/25-environment/Smoke.lean",
+      "cwd": "/home/vlad/Code/conaled",
+      "exit": 0,
+      "log": "environment/lean-smoke.log"
+    },
+    "felix": {
+      "command": "nix develop /home/vlad/Code/felix --command agda --no-libraries --ignore-interfaces -i /tmp/conaled-wave-20261111/25-environment/stdlib-src -i /tmp/conaled-wave-20261111/25-environment /tmp/conaled-wave-20261111/25-environment/Smoke.agda",
+      "exit": 0,
+      "log": "environment/agda-smoke-private.log",
+      "warnings": "stdlib UnsupportedIndexedMatch warnings retained; ordinary equality smoke checked",
+      "provisioning": "Private writable copy of pinned standard-library2.3 src; identical source bytes, generated interfaces excluded from source identity. Necessary because ignore-interfaces attempts to write dependency interfaces in read-only Nix store.",
+      "prior_failures": [
+        "environment/agda-smoke.log: no-libraries suppressed requested library resolution",
+        "environment/agda-smoke-final.log: fresh interfaces cannot be written to Nix store"
+      ]
+    }
+  },
+  "evidence_hashes": {
+    "Smoke.agda": "72ba8e263a1599eefdb34c8fe839bb7c1fb2b93229ba8edf46bbc3390dde0cba",
+    "Smoke.lean": "c39825c97e85c969ce9cac3ee1c5bf4ee28d729536bbb744a6c858e7ccb49f70",
+    "agda-smoke-final.log": "fcbf2b38fb80fb0513634d3b2ee54e48c9777d16a15ca5874b7534f04b4c48be",
+    "agda-smoke-private.log": "6bfc8c2d2749de26bf84cc28265e7ba899ebfb54353dfd44771ea5bbfdb9e5db",
+    "agda-smoke.log": "2bd35338095e2def02c51ec333e21cd4da1cf207d67bbe74dface71a06619237",
+    "lean-smoke.log": "f24710937e102e96b6b94c56a3c230c346e46a7a5b2efa7cd874c7e1b3057eaf"
+  }
+}

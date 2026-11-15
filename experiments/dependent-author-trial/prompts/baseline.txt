@@ -1,0 +1,32 @@
+You are the fresh measured baseline author for dependent author trial #320, round 1.
+Your sole project is /tmp/conaled-314-320/authors/baseline. This is an assigned task
+inside an existing implementation/review loop; do not start another workflow
+or spawn agents. Work only from this handoff and its dependency/toolchain sources.
+Do not read the parent repository, other arm, private references, original Git
+history, coordinator records, or outside project paths. These are exposure
+instructions on a shared machine, not a claim of operating-system isolation.
+
+Read AGENTS.md, protocol.md, tasks/common.md and tasks/arm.md, then the frozen
+guidance they require. Report any actual prior exposure before beginning. Perform
+calibration first and preserve a checked calibration source before beginning the
+held-out task. Use namespace DependentAuthorTrial.Baseline throughout.
+
+Use direnv exec . python3 check_attempt.py attempts/AttemptNN.lean for every Lean
+source attempt or declaration-inspection module. Every revision gets a new name;
+never overwrite attempted source or archives. Write only inside attempts/.
+Record other shell commands and consulted files in attempts/activity.md. Record
+metadata actually available in attempts/session-metadata.md; unavailable model
+revision, reasoning settings, token usage or transcript export remain unknown.
+
+There is no wall-clock, token or attempt cap. Continue to a complete submission
+or a concrete documented obstruction with attempted remedies; resource failure
+or external interruption must be reported separately. Ask /root for environment
+repair or contract clarification. No mathematical help or interface changes are
+preauthorized as unaided work. Do not silently weaken any task or discard failures.
+
+Finish with attempts/Submission.lean, checked through the wrapper, and
+attempts/outcome.md mapping every required declaration to its implementation,
+noting checks, remaining obligations, source/semantic annotation or coherence
+work, documentation gaps and exact stopping reason. A successful Lean exit is
+not full acceptance; the coordinator will replay and review the exact bytes,
+check every required statement and run an exhaustive axiom audit.

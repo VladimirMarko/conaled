@@ -1,0 +1,26 @@
+{
+  "recorded_after_dispatch_utc": "2026-11-05T02:56:48.492930+00:00",
+  "approval": "320-dispatch-approval.md",
+  "prospective_commit": "6ace04de2582151dccfb8005e0f17fd604c1033b",
+  "fork_turns": "none",
+  "model_override": null,
+  "reasoning_override": null,
+  "serving_model_revision": "unavailable",
+  "reasoning_configuration": "unavailable",
+  "authors": {
+    "baseline": {
+      "agent": "/root/author320_baseline",
+      "prompt_path": "experiments/dependent-author-trial/prompts/baseline.txt",
+      "prompt_sha256": "850291a5f73dbb6b6a1c05fe01641812ef7dde62797d4b4cd9b3022cbc9a6736",
+      "prompt_transport": "frozen text copied verbatim, terminal newline not included in tool message",
+      "initial_exposure": "Author reports generic repository AGENTS/skill instructions in fresh conversation, no parent source/private references/other-arm/history/coordinator records."
+    },
+    "candidate": {
+      "agent": "/root/author320_candidate",
+      "prompt_path": "experiments/dependent-author-trial/prompts/candidate.txt",
+      "prompt_sha256": "f420c18e322bdf3b99cafcb095e196666920888cea4ef6a548fe32505533491e",
+      "prompt_transport": "frozen text copied verbatim, terminal newline not included in tool message",
+      "initial_exposure": "Author reports generic repository AGENTS/skill instructions in fresh conversation, no parent source/private references/other-arm/history/coordinator records."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/tmp/conaled-checkpoint09610/verification/bin/agda",
+    "--no-default-libraries",
+    "--library-file",
+    "/tmp/conaled-checkpoint09610/verification/libraries",
+    "--safe",
+    "--cohesion",
+    "--ignore-interfaces",
+    "-i",
+    "/tmp/conaled-checkpoint09610/verification/source",
+    "-i",
+    "/tmp/conaled-checkpoint09610/verification/cubical",
+    "/tmp/conaled-checkpoint09610/verification/source/Orbifolds/ProperCompactDecisions.agda",
+    "-v",
+    "1"
+  ],
+  "environment": {
+    "Agda_datadir": "/tmp/conaled-checkpoint09610/verification/data",
+    "AGDA_DIR": "/tmp/conaled-checkpoint09610/verification/config",
+    "TMPDIR": "/tmp/conaled-checkpoint09610/verification/tmp"
+  },
+  "cwd": "/tmp/conaled-checkpoint09610/verification"
+}

@@ -1,0 +1,241 @@
+@calibration : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ Δ A x σ : Expression V} →
+      (c : Command Ω Γ A x) →
+        (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ Γ σ) →
+          TypedEquality Ω (total (pathTail A x c.tail σ)) (subTy c.motive (pathTailMap A x c.tail σ))
+            (subTm c.expression (pathTailMap A x c.tail σ)) (c.fresh hσ).expression
+@certificateCommand : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ A x T Q p : Expression V} → {n : ℕ} → Tm Γ A x → Tel n (path A x) T → Tm (total T) Q p → Command Ω Γ A x
+@certificate : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ A x T Q p : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) → (hp : Tm (total T) Q p) → Tm (total T) (identity Q p p) (selected hx hT hp)
+@valueTwice : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Δ σ Θ T Q p τ : Expression V} →
+      Tm (total T) Q p →
+        SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+          SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ → Tm Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)
+@certificateTwice : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ Δ A x σ Θ T Q p τ : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ →
+                  Tm Θ (subTy (subTy (identity Q p p) σ) τ) (subTm (subTm (selected hx hT hp) σ) τ)
+@valueTypeComparison : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Δ σ Θ T Q p τ : Expression V} →
+      Tm (total T) Q p →
+        SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+          SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ → Equal (subTy (subTy Q σ) τ) (subTy Q (comp σ τ))
+@certificateTypeComparison : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Δ σ Θ T Q p τ : Expression V} →
+      Tm (total T) Q p →
+        SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+          SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ →
+            Equal (subTy (subTy (identity Q p p) σ) τ) (subTy (identity Q p p) (comp σ τ))
+@certificateComparison : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ Δ A x σ Θ T Q p τ : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ →
+                  Equal (subTm (subTm (selected hx hT hp) σ) τ) (subTm (selected hx hT hp) (comp σ τ))
+@certificateAligned : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ Δ A x σ Θ T Q p τ : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ →
+                  Tm Θ (subTy (identity Q p p) (comp σ τ)) (subTm (subTm (selected hx hT hp) σ) τ)
+@firstWeakening : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {T Q p : Expression V} →
+      Tm (total T) Q p → SquareKit.Internal.DependentJudgments.Contextual.Sub firstContext (total T) firstMap
+@witnessVariable : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {T Q p : Expression V} → Tm (total T) Q p → Tm firstContext (subTy (identity Q p p) firstMap) witness
+@secondWeakening : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {T Q p : Expression V} →
+      Tm (total T) Q p → SquareKit.Internal.DependentJudgments.Contextual.Sub secondContext firstContext secondMap
+@dependentWeakeningCertificate : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ A x T Q p : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              Tm secondContext (subTy (subTy (identity Q p p) firstMap) secondMap)
+                (subTm (subTm (selected hx hT hp) firstMap) secondMap)
+@dependentWeakeningComparison : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ A x T Q p : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              Equal (subTm (subTm (selected hx hT hp) firstMap) secondMap)
+                (subTm (selected hx hT hp) (comp firstMap secondMap))
+@valueValidity : ∀ {V : Type} {Ω : List (Judgment V)} {Δ σ Θ T Q p τ : Expression V} (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) → Atom.eval (algebra M) ρ (term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ))
+@certificateValidity : ∀ {V : Type} {Ω : List (Judgment V)} {Γ Δ A x σ Θ T Q p τ : Expression V} {n : ℕ} (hx : Tm Γ A x)
+  (hT : Tel n (path A x) T) (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (algebra M) ρ (term Θ (subTy (subTy (identity Q p p) σ) τ) (subTm (subTm (selected hx hT hp) σ) τ))
+@certificateTypeValidity : ∀ {V : Type} {Ω : List (Judgment V)} {Δ σ Θ T Q p τ : Expression V} (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Term.eval (algebra M) ρ (subTy (subTy (identity Q p p) σ) τ) =
+      Term.eval (algebra M) ρ (subTy (identity Q p p) (comp σ τ))
+@extendedCertificate : {V : Type} →
+  {Ω : List (Judgment V)} →
+    {Γ A x T Q p : Expression V} →
+      {n : ℕ} →
+        (hx : Tm Γ A x) →
+          (hT : Tel n (path A x) T) →
+            (hp : Tm (total T) Q p) →
+              Derivation SquareKit.Internal.DependentJudgments.Sigma.theory
+                (List.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature) Ω)
+                (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                  (term (total T) (identity Q p p) (selected hx hT hp)))
+@extendedValidity : ∀ {V : Type} {Ω : List (Judgment V)} {Γ A x T Q p : Expression V} {n : ℕ} (hx : Tm Γ A x)
+  (hT : Tel n (path A x) T) (hp : Tm (total T) Q p) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+      (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+        (term (total T) (identity Q p p) (selected hx hT hp)))
+@extensionSelected : ∀ {V : Type} {Ω : List (Judgment V)} {Γ A x T Q p : Expression V} {n : ℕ} (hx : Tm Γ A x)
+  (hT : Tel n (path A x) T) (hp : Tm (total T) Q p) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+        (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+          (term (total T) (identity Q p p) (selected hx hT hp))) ∧
+      Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (selected hx hT hp)) =
+        Term.eval (algebra M) ρ (selected hx hT hp)
+@extensionValue : ∀ {V : Type} {Ω : List (Judgment V)} {T Q p : Expression V} (hp : Tm (total T) Q p)
+  (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+        (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (term (total T) Q p)) ∧
+      Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature p) =
+        Term.eval (algebra M) ρ p
+@extensionType : ∀ {V : Type} {Ω : List (Judgment V)} {Δ σ Θ T Q p τ : Expression V} (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (subTy (subTy (identity Q p p) σ) τ)) =
+        Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (subTy (identity Q p p) (comp σ τ))) ∧
+      Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (subTy (identity Q p p) (comp σ τ))) =
+        Term.eval (algebra M) ρ (subTy (identity Q p p) (comp σ τ))
+@extensionValueTwice : ∀ {V : Type} {Ω : List (Judgment V)} {Δ σ Θ T Q p τ : Expression V} (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+        (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+          (term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ))) ∧
+      Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature (subTm (subTm p σ) τ)) =
+        Term.eval (algebra M) ρ (subTm (subTm p σ) τ)
+@extensionAlignedValidity : ∀ {V : Type} {Ω : List (Judgment V)} {Γ Δ A x σ Θ T Q p τ : Expression V} {n : ℕ}
+  (hx : Tm Γ A x) (hT : Tel n (path A x) T) (hp : Tm (total T) Q p)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ (total T) σ)
+  (hτ : SquareKit.Internal.DependentJudgments.Contextual.Sub Θ Δ τ) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, Atom.eval (algebra M) ρ a) →
+    Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+      (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+        (term Θ (subTy (identity Q p p) (comp σ τ)) (subTm (subTm (selected hx hT hp) σ) τ)))
+'DependentAuthorTrial.Candidate.calibration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.applyExtra' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.rootTailTyping' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateCommand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.selected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.valueTwice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateTwice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.valueTypeComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateTypeComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.valueComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.firstContext' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.firstMap' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.witness' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.secondFamily' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.secondContext' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.secondMap' depends on axioms: [propext]
+'DependentAuthorTrial.Candidate.firstWeakening' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.witnessVariable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.secondWeakening' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.dependentWeakeningCertificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DependentAuthorTrial.Candidate.dependentWeakeningComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.selectedRecipe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.selectedRootComparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.valueComposite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateComposite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.dependentWeakeningAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.originalValueValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.originalCertificateValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.valueValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateTypeValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.certificateComparisonValidity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DependentAuthorTrial.Candidate.extendedCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedCertificateTwice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedCertificateAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedValue' depends on axioms: [propext, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedAssumptions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extendedTwiceValidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionSelected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionValue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionSelectedTwice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionValueTwice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DependentAuthorTrial.Candidate.extensionAlignedValidity' depends on axioms: [propext, Classical.choice, Quot.sound]

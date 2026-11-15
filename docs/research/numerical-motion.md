@@ -156,3 +156,16 @@ controls, general atlas descent, intrinsic error estimates, and floating-point
 rounding. Exact rational numerators and denominators can grow during repeated
 steps; these short checked executions make no performance claim for a renderer
 or an interactive simulator.
+
+## Measured checked ticks (#193)
+
+[The measured numerical adapter](measured-frp-numerical-execution.md) records
+attempts and accepted/rejected branches of actual `checkedStep` calls.
+Whole-run failure retains work already spent and stops before the suffix.
+Erasure recovers `Numerical.run` exactly; its existing sample, error and clock
+contracts apply on success. Event tariffs exclude rational bit cost, validation,
+allocation and runtime, and remain distinct from physical command duration.
+The [budget-driven command driver](budget-disk-driver.md) consumes this adapter
+for subdivision selection and retry accounting, retaining failed work and
+committing only successful command observations. Its bounded JSON executable
+adds explicit representative events and resource cutoffs.

@@ -1,0 +1,19 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/BaselineReference.lean:47:2: error: Application type mismatch: The argument
+  witnessVariable hΓ hA hx hT hQ hp
+has type
+  TmDeriv (Q.identity p p :: (Ξ ++ pathCtx Γ A x)) (extendCode (telTotal T) (identityCode q π π))
+    (Expr.rename Nat.succ (Q.identity p p))
+    (subTyCode (identityCode q π π) (weakenCode (telTotal T) (identityCode q π π))) (Expr.var 0)
+    (varCode (telTotal T) (identityCode q π π))
+but is expected to have type
+  TmDeriv (Q.identity p p :: (Ξ ++ pathCtx Γ A x)) (extendCode (telTotal T) (identityCode q π π))
+    (Expr.sub (Expr.var ∘ Nat.succ) (Q.identity p p))
+    (subTyCode (identityCode q π π) (weakenCode (telTotal T) (identityCode q π π))) ?m.39 ?m.42
+in the application
+  ((hQ.identity hp hp).sub (firstWeakening hΓ hA hx hT hQ hp)).identity (witnessVariable hΓ hA hx hT hQ hp)
+experiments/dependent-author-trial/preparation/BaselineReference.lean:50:3: error(lean.unknownIdentifier): Unknown identifier `secondFamily`
+experiments/dependent-author-trial/preparation/BaselineReference.lean:52:38: error(lean.unknownIdentifier): Unknown identifier `secondWeakening`
+experiments/dependent-author-trial/preparation/BaselineReference.lean:54:38: error(lean.unknownIdentifier): Unknown identifier `secondWeakening`

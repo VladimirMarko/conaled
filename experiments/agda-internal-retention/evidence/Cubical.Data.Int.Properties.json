@@ -1,0 +1,317 @@
+{
+  "sha256": "1beb99b945970ec5cc44d1cb2213f1243b362a77012c0664b9ec9713500aa19d",
+  "header": [
+    11876561005192420424,
+    719906512836092253,
+    202507030
+  ],
+  "interface": [
+    0,
+    0,
+    0,
+    150,
+    192,
+    5,
+    1,
+    14816,
+    72721,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    80819,
+    80822,
+    1,
+    80825,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sourceSha256": "39af5c339b25a9b2c649f4070d4dfeb63e012460a3195915d3512c301d0477b4",
+  "environment": {
+    "imports": {
+      "node": 150,
+      "words": [
+        17,
+        28,
+        39,
+        50,
+        61,
+        72,
+        83,
+        94,
+        105,
+        116,
+        127,
+        138,
+        149
+      ]
+    },
+    "metaBindings": {
+      "node": 1,
+      "words": []
+    },
+    "builtins": {
+      "node": 1,
+      "words": []
+    },
+    "filePragmas": {
+      "node": 1,
+      "words": []
+    },
+    "optionsUsed": {
+      "node": 80825,
+      "words": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        166,
+        153,
+        153,
+        1,
+        1,
+        151,
+        1,
+        1,
+        1,
+        153,
+        166,
+        1,
+        1,
+        1,
+        1,
+        166,
+        166,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        153,
+        1,
+        1,
+        154,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        500,
+        1,
+        1,
+        50,
+        166,
+        1,
+        1,
+        80824,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        153,
+        1,
+        153,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "partialDefs": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueBlocks": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueNames": {
+      "node": 1,
+      "words": []
+    }
+  },
+  "rewriteRules": {
+    "node": 1,
+    "words": []
+  },
+  "declarations": [
+    {
+      "name": "Cubical.Data.Int.Properties.sucPathℤ",
+      "fields": [
+        9873,
+        14147,
+        20112,
+        1,
+        1,
+        1,
+        1,
+        53,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        166,
+        15285,
+        20179
+      ],
+      "defn": [
+        1,
+        20151,
+        20178,
+        154,
+        1,
+        1,
+        166,
+        151,
+        1726,
+        166,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 14920,
+        "words": [
+          0,
+          1,
+          9886
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 20111,
+          "words": [
+            3,
+            10300,
+            20110
+          ]
+        },
+        "termTags": {
+          "Def": 2,
+          "Level": 1,
+          "Sort": 1
+        },
+        "references": [
+          "Agda.Builtin.Cubical.Path._≡_",
+          "Cubical.Data.Int.Base.ℤ"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 15285,
+        "words": [
+          1,
+          153
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 20150,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              20147,
+              20149,
+              1,
+              153,
+              153,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 20146,
+              "words": [
+                3,
+                3921,
+                20145
+              ]
+            },
+            "termTags": {
+              "Def": 7,
+              "Level": 1,
+              "Con": 2
+            },
+            "references": [
+              "Agda.Builtin.Sigma._,_",
+              "Cubical.Data.Int.Base.predℤ",
+              "Cubical.Data.Int.Base.sucℤ",
+              "Cubical.Data.Int.Base.ℤ",
+              "Cubical.Data.Int.Properties.predSuc",
+              "Cubical.Data.Int.Properties.sucPred",
+              "Cubical.Foundations.Isomorphism._.isoToIsEquiv",
+              "Cubical.Foundations.Isomorphism.iso",
+              "Cubical.Foundations.Univalence.ua"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 20178,
+        "words": [
+          20177
+        ]
+      },
+      "flags": {
+        "node": 1726,
+        "words": [
+          151
+        ]
+      },
+      "terminates": {
+        "node": 166,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    }
+  ]
+}

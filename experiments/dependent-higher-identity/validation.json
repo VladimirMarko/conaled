@@ -1,0 +1,1003 @@
+{
+  "scope": "External Agda source checking only; no Lean model or translation",
+  "completed_utc": "2026-11-04T23:37:08.099585+00:00",
+  "checkpoint_sha256": "19e6f70f5c86856ccd98b6ffb96817f6ee4a58938aa76e5aef1d91b670ba6a53",
+  "cubical_commit": "b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+  "compiler_pins": {
+    "kit_version": "1.0.1",
+    "agda_version": "2.8.0.2",
+    "platform": "Linux x86_64",
+    "release_url": "https://github.com/agda/agda/releases/tag/v2.8.0.2",
+    "archive_url": "https://github.com/agda/agda/releases/download/v2.8.0.2/Agda-v2.8.0.2-linux.tar.xz",
+    "archive_name": "Agda-v2.8.0.2-linux.tar.xz",
+    "archive_bytes": 8529008,
+    "archive_sha256": "2bcf24bb561b1be859bba841e5d67962d1616b3251bc147f878e4f60a2fbd9f7",
+    "binary_member": "agda",
+    "binary_bytes": 57419152,
+    "binary_sha256": "3fe070780fa370f5b74e5716ebe42fb60ec6b0ad90d13f8ab45d2903abf39b84",
+    "archive_hash_provenance": "GitHub release API asset digest; downloaded bytes independently hashed and matched on 2026-11-04.",
+    "binary_hash_provenance": "Unmodified regular file extracted from the SHA256-verified official archive."
+  },
+  "exit_code": 0,
+  "fresh_project_and_library_interfaces": true,
+  "builtin_note": "Compiler-owned modules omitted from Checking lines; sources verified against kit pins",
+  "builtin_modules": {
+    "Agda.Builtin.Bool": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Bool.agda",
+      "sha256": "514fa25a0df7064cdb213507a0f6332c97288a52d538be3a9df06cc7001ba7f5"
+    },
+    "Agda.Builtin.Cubical.Path": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/Path.agda",
+      "sha256": "f9a1f8b8e046278a3a1b2df21f39f4c2b81df46dee4ba1bec7b5ff4a2dae415c"
+    },
+    "Agda.Builtin.Equality": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Equality.agda",
+      "sha256": "5735edb0be7e530133814e9431d1466bb1e7892c2a4746c1a0d2a3a0dbea91cd"
+    },
+    "Agda.Builtin.Nat": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Nat.agda",
+      "sha256": "2e681d9dde9a39460364ee775181f31f7bcb7eba7220bd2ab8e4deb3d02d94c9"
+    },
+    "Agda.Primitive": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Primitive.agda",
+      "sha256": "e5e4e04900cf1a28202e2ff26bb20d6fa6401fcc9f4049cd8d14fedd5bd697f8"
+    },
+    "Agda.Primitive.Cubical": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Primitive/Cubical.agda",
+      "sha256": "2d437836d6207300fd959b2ab32eecd3a426e5d08990e780887e0f8359027865"
+    }
+  },
+  "import_closure_module_count": 235,
+  "checked_module_count": 229,
+  "checked_modules": {
+    "Agda.Builtin.Char": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Char.agda",
+      "sha256": "7274616cff2e47a42f8abb63757ded2d1664899d056476af1ea23be84be5dc75"
+    },
+    "Agda.Builtin.Cubical.Equiv": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/Equiv.agda",
+      "sha256": "333674b4eb6cf56471571796355715b7a9cbf6b79c25f7caa94e0852696fcd62"
+    },
+    "Agda.Builtin.Cubical.Glue": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/Glue.agda",
+      "sha256": "7c92cfd0f3aa48bdbe098f414c71135ae28b41548df4be26a28931f67d632082"
+    },
+    "Agda.Builtin.Cubical.HCompU": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/HCompU.agda",
+      "sha256": "c6a6f87a0010bf037660c28de83308742f8389c0d9e6718f31590dd956fa299f"
+    },
+    "Agda.Builtin.Cubical.Sub": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/Sub.agda",
+      "sha256": "148b631055f5c17519df9681a7a89512d080ec1d9c20c01418630c329f2b0238"
+    },
+    "Agda.Builtin.Float": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Float.agda",
+      "sha256": "9c199f60504b928033331ea41be3666488e420146a9530840f418a40c6a1442d"
+    },
+    "Agda.Builtin.FromNat": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/FromNat.agda",
+      "sha256": "6e1b97c6dc7690b354795bc2e48637dd4b2bd2da66813879da3056da5a3892fc"
+    },
+    "Agda.Builtin.FromNeg": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/FromNeg.agda",
+      "sha256": "731ae46a136179f90df1b90d86e6782b9b6cae4a248b14e27b641da1494a0810"
+    },
+    "Agda.Builtin.Int": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Int.agda",
+      "sha256": "4df341e074b845edc87dc8f83489635c2580e8222b14cbb9441fabf64c41383e"
+    },
+    "Agda.Builtin.List": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/List.agda",
+      "sha256": "387c75a65f0f14dc6268a8cf84c93b80b7139f0e90ba6d8d6d672f02c2882195"
+    },
+    "Agda.Builtin.Maybe": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Maybe.agda",
+      "sha256": "982f7f2afbfbc4ac41b6bdafddfb5e032a5ddfa71e204f39bbecc23967dc4808"
+    },
+    "Agda.Builtin.Reflection": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Reflection.agda",
+      "sha256": "ef851b831795fea34125c6cd17fb81675ed9eb62c871addb5951082cb1732b13"
+    },
+    "Agda.Builtin.Sigma": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Sigma.agda",
+      "sha256": "5c393f230b359032f64ff78ad693799a162dbf9cada2089048aedb4c6f669e1f"
+    },
+    "Agda.Builtin.String": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/String.agda",
+      "sha256": "542cd07a30ead94401227944e16adf863c1abfff54d805f9aeb3c86fbb7796b4"
+    },
+    "Agda.Builtin.Unit": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Unit.agda",
+      "sha256": "03d06283f9d8005beff99fd42de38b7315aa7697099ea22fc19d060600b16249"
+    },
+    "Agda.Builtin.Word": {
+      "path": "compiler-data/2.8.0.2/lib/prim/Agda/Builtin/Word.agda",
+      "sha256": "af59166a3d62db7c74c52f77bb43629b81668f24cba86481c921b28c76a60fcd"
+    },
+    "Cubical.Algebra.AbGroup": {
+      "path": "cubical/Cubical/Algebra/AbGroup.agda",
+      "sha256": "fcd1ccad7056d8f682d578cf0f2e597610cc69d5bdb098e56fb73e1da3e41ae5"
+    },
+    "Cubical.Algebra.AbGroup.Base": {
+      "path": "cubical/Cubical/Algebra/AbGroup/Base.agda",
+      "sha256": "997dcafa686daac93de58661def8ad8f38d69de9fb1b80ce00d02904b0ecb4fa"
+    },
+    "Cubical.Algebra.AbGroup.Properties": {
+      "path": "cubical/Cubical/Algebra/AbGroup/Properties.agda",
+      "sha256": "b6e0bba9f8aa965a09693af90c4058fb06738a28cd01c2aaf19bfcb19ee1f0fa"
+    },
+    "Cubical.Algebra.CommMonoid": {
+      "path": "cubical/Cubical/Algebra/CommMonoid.agda",
+      "sha256": "b052adc8c20aad00385d982850577991d9b1a733fb4ad8ba74bcb82292676644"
+    },
+    "Cubical.Algebra.CommMonoid.Base": {
+      "path": "cubical/Cubical/Algebra/CommMonoid/Base.agda",
+      "sha256": "a4f2f7b7a33d63a76566066fa3b5488bdb2073bafb595be9ed869a05330608e6"
+    },
+    "Cubical.Algebra.CommMonoid.Properties": {
+      "path": "cubical/Cubical/Algebra/CommMonoid/Properties.agda",
+      "sha256": "e2e6351e14377a59e6da4389dfd5c9dd240d30d9995d9b7b21343347de63995b"
+    },
+    "Cubical.Algebra.Group": {
+      "path": "cubical/Cubical/Algebra/Group.agda",
+      "sha256": "fb2619550c0f79c5343a9fbe0ad3e13c61d54141dd5d17f4a0a4b3a52a1d1cd4"
+    },
+    "Cubical.Algebra.Group.Base": {
+      "path": "cubical/Cubical/Algebra/Group/Base.agda",
+      "sha256": "ee6b49bec0da367d00c1b6e99bd98fd66acb0dc360fe0bdffdccb3878509ed89"
+    },
+    "Cubical.Algebra.Group.DirProd": {
+      "path": "cubical/Cubical/Algebra/Group/DirProd.agda",
+      "sha256": "888075a443fd1e646d84b71aeb89acc2b78773c8e411d3c948470d17c6719421"
+    },
+    "Cubical.Algebra.Group.Exact": {
+      "path": "cubical/Cubical/Algebra/Group/Exact.agda",
+      "sha256": "284fd36e39db355e618766dade51b8c5baf5f04f9f9953e026504ea457bae453"
+    },
+    "Cubical.Algebra.Group.GroupPath": {
+      "path": "cubical/Cubical/Algebra/Group/GroupPath.agda",
+      "sha256": "f2699b7efd47743ed19115f2bcf6569fe1ef0ccfb83ca2ada47339b683670631"
+    },
+    "Cubical.Algebra.Group.Instances.Bool": {
+      "path": "cubical/Cubical/Algebra/Group/Instances/Bool.agda",
+      "sha256": "90ffb540cd831ef77aa404f75b96c989a6f494889f5e5b4ddd8a5c63bf88412e"
+    },
+    "Cubical.Algebra.Group.Instances.Int": {
+      "path": "cubical/Cubical/Algebra/Group/Instances/Int.agda",
+      "sha256": "50953685ab3b9f0520f9cf5b73ff4f21cc904d358f7676695afef034d8b32382"
+    },
+    "Cubical.Algebra.Group.Instances.IntMod": {
+      "path": "cubical/Cubical/Algebra/Group/Instances/IntMod.agda",
+      "sha256": "ca8fe25add2753602e31941cab3156ff150ad10d852261d0af0ceb9aa4723f75"
+    },
+    "Cubical.Algebra.Group.Instances.Unit": {
+      "path": "cubical/Cubical/Algebra/Group/Instances/Unit.agda",
+      "sha256": "06f2abdd3e813e89e498b0650f1dcc09507311b5b05e459a15801e600a6472bf"
+    },
+    "Cubical.Algebra.Group.IsomorphismTheorems": {
+      "path": "cubical/Cubical/Algebra/Group/IsomorphismTheorems.agda",
+      "sha256": "930257006443ab478cd385c026b4cdfeffe6a6904cafcacab9ccf3495c1b4be4"
+    },
+    "Cubical.Algebra.Group.MorphismProperties": {
+      "path": "cubical/Cubical/Algebra/Group/MorphismProperties.agda",
+      "sha256": "afb2a09561b7d5d60f09fb694eb114b1bb001f09bafff69fa9fe1486016c29bb"
+    },
+    "Cubical.Algebra.Group.Morphisms": {
+      "path": "cubical/Cubical/Algebra/Group/Morphisms.agda",
+      "sha256": "a53f6b35f9a1111a6a5844ad02fb1745f5d676ff236cb14bb16052f356fb5231"
+    },
+    "Cubical.Algebra.Group.Properties": {
+      "path": "cubical/Cubical/Algebra/Group/Properties.agda",
+      "sha256": "177603e6b05d46f41dd250ffa26b5551eb9f0b95af4d1a14796caacf9aa296fb"
+    },
+    "Cubical.Algebra.Group.QuotientGroup": {
+      "path": "cubical/Cubical/Algebra/Group/QuotientGroup.agda",
+      "sha256": "4655cad9cd6ad970c9bc8594d1a74e866879b5791503d99d09f333a6cb6886e2"
+    },
+    "Cubical.Algebra.Group.Subgroup": {
+      "path": "cubical/Cubical/Algebra/Group/Subgroup.agda",
+      "sha256": "e4c615aaef68e9178f2e112986fe012a738332bb9298d27049205562be105591"
+    },
+    "Cubical.Algebra.Group.ZAction": {
+      "path": "cubical/Cubical/Algebra/Group/ZAction.agda",
+      "sha256": "97e4f68856a710af6e78b1fc478f7825bb2c1e7a93bad0d4bc24692c4ed40130"
+    },
+    "Cubical.Algebra.Monoid": {
+      "path": "cubical/Cubical/Algebra/Monoid.agda",
+      "sha256": "fc6ba1d3be429d0a2e851d98c4f4f407a73edbb514f67936bf882b2654cea1c8"
+    },
+    "Cubical.Algebra.Monoid.Base": {
+      "path": "cubical/Cubical/Algebra/Monoid/Base.agda",
+      "sha256": "8c6fe2fdfe6db760957dfddfa1c22a136579d3972d8efe92d9cc6fa592721d0e"
+    },
+    "Cubical.Algebra.Semigroup": {
+      "path": "cubical/Cubical/Algebra/Semigroup.agda",
+      "sha256": "a60627cf23d3dae2b7dabe931fdd5a657232afbf8559b67d94e27be8968d1704"
+    },
+    "Cubical.Algebra.Semigroup.Base": {
+      "path": "cubical/Cubical/Algebra/Semigroup/Base.agda",
+      "sha256": "70cd06fc58d928b1dd1cdff66b52937a52fc73dd18affe24e5144551bdfc2f66"
+    },
+    "Cubical.Core.Glue": {
+      "path": "cubical/Cubical/Core/Glue.agda",
+      "sha256": "f0158ac61aa51ce9a288bfb8b9995a2380e87b918b0e41a99613e46bc81915ee"
+    },
+    "Cubical.Core.Primitives": {
+      "path": "cubical/Cubical/Core/Primitives.agda",
+      "sha256": "6876f572465391ad48e7a41c18eaa6ef8d4bd0087dfe353bbf1fcdf0e20fde26"
+    },
+    "Cubical.Data.Bool": {
+      "path": "cubical/Cubical/Data/Bool.agda",
+      "sha256": "469d4f1c1b65727e6c6619c8d4fb3a8366b43ead796b07c8e1acff713d4f2c3d"
+    },
+    "Cubical.Data.Bool.Base": {
+      "path": "cubical/Cubical/Data/Bool/Base.agda",
+      "sha256": "f9e29d29417db7e5d4c476cc0d5998373dc0821b08255626268944bab364bfb4"
+    },
+    "Cubical.Data.Bool.Properties": {
+      "path": "cubical/Cubical/Data/Bool/Properties.agda",
+      "sha256": "c0ffc10903e4ee628df9211b46d404c9c04db28afce2ecff5bbdd389815dcde2"
+    },
+    "Cubical.Data.Empty": {
+      "path": "cubical/Cubical/Data/Empty.agda",
+      "sha256": "df6c6d1f749859c8316899710245cfa027adfc8e44e94a3946dbe699cf465b42"
+    },
+    "Cubical.Data.Empty.Base": {
+      "path": "cubical/Cubical/Data/Empty/Base.agda",
+      "sha256": "5f4d226f70881fe993e91d39ddb6220fb3d3df5eef3e8ce1792e5ff0fb76ad08"
+    },
+    "Cubical.Data.Empty.Properties": {
+      "path": "cubical/Cubical/Data/Empty/Properties.agda",
+      "sha256": "4a5285480b4cba44842da18989debe0f34fd10bb7d4f0cdbc7ad01d8e24f5fca"
+    },
+    "Cubical.Data.Equality.Base": {
+      "path": "cubical/Cubical/Data/Equality/Base.agda",
+      "sha256": "95f583d057b658bc375d1ea4b343617b7a17bf43a5e6845a94b45ff38a72243b"
+    },
+    "Cubical.Data.Equality.Conversion": {
+      "path": "cubical/Cubical/Data/Equality/Conversion.agda",
+      "sha256": "d836fdcd1e5e2a4c028bc39895e979d53e6af24174fd601166f25f337c99f017"
+    },
+    "Cubical.Data.Equality.S1": {
+      "path": "cubical/Cubical/Data/Equality/S1.agda",
+      "sha256": "70cf63840e63fcac222198001996be83e50149e6f0089de7c68618899fedbaaf"
+    },
+    "Cubical.Data.Equality.Univalence": {
+      "path": "cubical/Cubical/Data/Equality/Univalence.agda",
+      "sha256": "2f779294cb4dae7942c17925a5e8ee8ca53a036fc6c4ddbc807ea1e6a9b93f68"
+    },
+    "Cubical.Data.Fin": {
+      "path": "cubical/Cubical/Data/Fin.agda",
+      "sha256": "2addb1c12f0cc33ed10dcf7011f7866d3a0eb4c2cda94e34cea909d26c1691e6"
+    },
+    "Cubical.Data.Fin.Arithmetic": {
+      "path": "cubical/Cubical/Data/Fin/Arithmetic.agda",
+      "sha256": "d76f84e20abd6713ebca18bd68636aa5fe20362ed80f08b6601c400b6929f571"
+    },
+    "Cubical.Data.Fin.Base": {
+      "path": "cubical/Cubical/Data/Fin/Base.agda",
+      "sha256": "7fe5022e6f3d25db4cc952f5c23586fbad436df5d8e547e862f9821455cc89a7"
+    },
+    "Cubical.Data.Fin.Inductive": {
+      "path": "cubical/Cubical/Data/Fin/Inductive.agda",
+      "sha256": "d4284bd50f495450b46b6b17dfcaf65c3e6247527cac4d5053317ad766f20271"
+    },
+    "Cubical.Data.Fin.Inductive.Base": {
+      "path": "cubical/Cubical/Data/Fin/Inductive/Base.agda",
+      "sha256": "57945e77e10a0cc75627ee1cc3160169c900821d1e3c379fc0e28b9b429ee8a0"
+    },
+    "Cubical.Data.Fin.Inductive.Properties": {
+      "path": "cubical/Cubical/Data/Fin/Inductive/Properties.agda",
+      "sha256": "08ad6af59e5d41d4da8844f1a10ff68ae1f85cf7db00af6006ae6485a28413d5"
+    },
+    "Cubical.Data.Fin.Literals": {
+      "path": "cubical/Cubical/Data/Fin/Literals.agda",
+      "sha256": "38e78ae4e4b511a2cbacdc827b125229b8592778370b364e12e0b00806c144c3"
+    },
+    "Cubical.Data.Fin.Properties": {
+      "path": "cubical/Cubical/Data/Fin/Properties.agda",
+      "sha256": "10d9907257ddef5dda2103df53874ea5b62d9f9ee78d066a3d510bf030baee28"
+    },
+    "Cubical.Data.FinData": {
+      "path": "cubical/Cubical/Data/FinData.agda",
+      "sha256": "439b1554df3e9ec38389f6fca3b318fd67c5d89ab0bfcc870c7f06972160161a"
+    },
+    "Cubical.Data.FinData.Base": {
+      "path": "cubical/Cubical/Data/FinData/Base.agda",
+      "sha256": "0d15cde79681494f11b34638fd3c154d30a3e0758a22df8af4467dd2880332ab"
+    },
+    "Cubical.Data.FinData.Properties": {
+      "path": "cubical/Cubical/Data/FinData/Properties.agda",
+      "sha256": "bbd55474a16dc82411d954dc0c7154b6d7a91c0dbc15eb10cbcd18f7772d3ea8"
+    },
+    "Cubical.Data.Int": {
+      "path": "cubical/Cubical/Data/Int.agda",
+      "sha256": "a826617f8d35546555217ff74ca9b65f2ce9bf9689b13f533c7c168a34f0fd4a"
+    },
+    "Cubical.Data.Int.Base": {
+      "path": "cubical/Cubical/Data/Int/Base.agda",
+      "sha256": "e9cd04679a420229e48dbd79a9bcda6b28a109e3f79482da4bb46cc95a390a5b"
+    },
+    "Cubical.Data.Int.Properties": {
+      "path": "cubical/Cubical/Data/Int/Properties.agda",
+      "sha256": "39af5c339b25a9b2c649f4070d4dfeb63e012460a3195915d3512c301d0477b4"
+    },
+    "Cubical.Data.List": {
+      "path": "cubical/Cubical/Data/List.agda",
+      "sha256": "d49978454a519d7d2ca666a3d4cc79626315824c254c4459c56af1626021e2d6"
+    },
+    "Cubical.Data.List.Base": {
+      "path": "cubical/Cubical/Data/List/Base.agda",
+      "sha256": "407595477c41f2af56f60a9398bab7b0e6479b3d735b9fa2e7ba634247837941"
+    },
+    "Cubical.Data.List.Properties": {
+      "path": "cubical/Cubical/Data/List/Properties.agda",
+      "sha256": "fcff492392b6e92629e8f2b670857b4c77acb49accc864a16d87fcbce660d8d0"
+    },
+    "Cubical.Data.Maybe": {
+      "path": "cubical/Cubical/Data/Maybe.agda",
+      "sha256": "8d4d66ca67dcc74799dc43d016666647af4183e277275b892120e7b495ac5458"
+    },
+    "Cubical.Data.Maybe.Base": {
+      "path": "cubical/Cubical/Data/Maybe/Base.agda",
+      "sha256": "c6b945517a570d37e4bb8f50fd4d254b511bd5e73d023386706c4e283b1c4d57"
+    },
+    "Cubical.Data.Maybe.Properties": {
+      "path": "cubical/Cubical/Data/Maybe/Properties.agda",
+      "sha256": "b085ed07473982eb9dd0c8b35252d9cad7442f790b74ae3239a8ceb66bbc8099"
+    },
+    "Cubical.Data.Nat": {
+      "path": "cubical/Cubical/Data/Nat.agda",
+      "sha256": "c617624bde0cf0ad6efe50ff96fc2245a7d95531ffed2df5af4d0c976ff5c79a"
+    },
+    "Cubical.Data.Nat.Base": {
+      "path": "cubical/Cubical/Data/Nat/Base.agda",
+      "sha256": "47903559ea76085e3e4dbdb5ccf5a81b05b3a518415c296191a7533e8afe5bbd"
+    },
+    "Cubical.Data.Nat.Literals": {
+      "path": "cubical/Cubical/Data/Nat/Literals.agda",
+      "sha256": "ee7ea6f58eeda06197fbb1a6d9956f891bbc811f7e8f0b6fdd8110dadb51a2af"
+    },
+    "Cubical.Data.Nat.Mod": {
+      "path": "cubical/Cubical/Data/Nat/Mod.agda",
+      "sha256": "1b84c280dd7471cf0c266f4ed83a9dade0070b90f53730638822d5c921ef1809"
+    },
+    "Cubical.Data.Nat.Order": {
+      "path": "cubical/Cubical/Data/Nat/Order.agda",
+      "sha256": "a3de0dae29fdd173e9f3b5770c1f9f686d832cc971aaa7ed9c766398741621be"
+    },
+    "Cubical.Data.Nat.Order.Inductive": {
+      "path": "cubical/Cubical/Data/Nat/Order/Inductive.agda",
+      "sha256": "d3d436f498041cd6244cd300ea62051e083628734eaa4d014315fefb880973a9"
+    },
+    "Cubical.Data.Nat.Order.Recursive": {
+      "path": "cubical/Cubical/Data/Nat/Order/Recursive.agda",
+      "sha256": "677698fb929cc1192a9eea4725d69b19760ece6d35e03b389ac16dfa2547c377"
+    },
+    "Cubical.Data.Nat.Properties": {
+      "path": "cubical/Cubical/Data/Nat/Properties.agda",
+      "sha256": "c1975b80041fe51c743197bc99c04ba6ad04d2f14ad9bbc8042d3784c1671288"
+    },
+    "Cubical.Data.NatMinusOne": {
+      "path": "cubical/Cubical/Data/NatMinusOne.agda",
+      "sha256": "f5bf9fb471038110d125cf22af8e1ea81265cb0556663925840d97eb58d5a27a"
+    },
+    "Cubical.Data.NatMinusOne.Base": {
+      "path": "cubical/Cubical/Data/NatMinusOne/Base.agda",
+      "sha256": "086b261ced61b3a8b6883a180e182392e6f2b78703dc1655d192b264d145ff6b"
+    },
+    "Cubical.Data.NatMinusOne.Properties": {
+      "path": "cubical/Cubical/Data/NatMinusOne/Properties.agda",
+      "sha256": "7b122cc52bafc8347f58a4015d98f0e00984383a039007a086314f4aff186a0a"
+    },
+    "Cubical.Data.Prod.Base": {
+      "path": "cubical/Cubical/Data/Prod/Base.agda",
+      "sha256": "f0a02d8a8a83008721627b34da42ebcc0b526cc1c8219793599983ed554be7e2"
+    },
+    "Cubical.Data.Prod.Properties": {
+      "path": "cubical/Cubical/Data/Prod/Properties.agda",
+      "sha256": "70fb04703f36069138e2d77468851ffddbd9b81f63aad4699f215fd8d6dfaed7"
+    },
+    "Cubical.Data.Sigma": {
+      "path": "cubical/Cubical/Data/Sigma.agda",
+      "sha256": "eb094e5377cbfa18235e77af707f67b00cd6c5d8b99a4ee140a68a9ac460b118"
+    },
+    "Cubical.Data.Sigma.Base": {
+      "path": "cubical/Cubical/Data/Sigma/Base.agda",
+      "sha256": "d4f5146aecf68d36d7bb3638c613f9ae090bbcaf741f906f22b3ffaff9de37d1"
+    },
+    "Cubical.Data.Sigma.Properties": {
+      "path": "cubical/Cubical/Data/Sigma/Properties.agda",
+      "sha256": "f590033ab2b77ddeac146811e5389366ed1801c21b7b3f7ab39559a0fbd137de"
+    },
+    "Cubical.Data.Sum": {
+      "path": "cubical/Cubical/Data/Sum.agda",
+      "sha256": "b4bcfb1da0b5c757a81c9a743c9acecfbb63069e7932ea554a2e676f33ebbd44"
+    },
+    "Cubical.Data.Sum.Base": {
+      "path": "cubical/Cubical/Data/Sum/Base.agda",
+      "sha256": "20f529eee2ba6c3de9b8e3a06f0236d6d3049c3f286aa33bc3c2f474089be671"
+    },
+    "Cubical.Data.Sum.Properties": {
+      "path": "cubical/Cubical/Data/Sum/Properties.agda",
+      "sha256": "55561b62c5a3c123e0142aff96ffcc31454029b8c84a483e063c2bf8205d98de"
+    },
+    "Cubical.Data.Unit": {
+      "path": "cubical/Cubical/Data/Unit.agda",
+      "sha256": "57ece6226189b1f19a3dea660fd6d2e14bf8115b9e1f18e02d5037ae6c547350"
+    },
+    "Cubical.Data.Unit.Base": {
+      "path": "cubical/Cubical/Data/Unit/Base.agda",
+      "sha256": "2a23a69e6ce290d6bc65f2140363c8dda373905f0bec0ceb2aa3ef3ea48a8d36"
+    },
+    "Cubical.Data.Unit.Properties": {
+      "path": "cubical/Cubical/Data/Unit/Properties.agda",
+      "sha256": "6ec71f80218cd3736a6db7c3b43086ec763d3be177e236e19bde8401bbb6953a"
+    },
+    "Cubical.Data.Vec": {
+      "path": "cubical/Cubical/Data/Vec.agda",
+      "sha256": "2998a462b1de6c5c190b72b4f1af9cf99c3f689f66c5655682a34325a7017b58"
+    },
+    "Cubical.Data.Vec.Base": {
+      "path": "cubical/Cubical/Data/Vec/Base.agda",
+      "sha256": "230d7fa73064d1918a4309625b15f5ba9a7ff6033bda8eba54ba9f058585f6b9"
+    },
+    "Cubical.Data.Vec.NAry": {
+      "path": "cubical/Cubical/Data/Vec/NAry.agda",
+      "sha256": "831e730797bd4c2d92bf42831402316fb3e264a28396e70f09f338a84a7aabc2"
+    },
+    "Cubical.Data.Vec.Properties": {
+      "path": "cubical/Cubical/Data/Vec/Properties.agda",
+      "sha256": "28bcbfaf2e0d768ca78c9033dea5d6b6d53e6b09214e62486d7b0b6ec2d9be01"
+    },
+    "Cubical.Displayed.Auto": {
+      "path": "cubical/Cubical/Displayed/Auto.agda",
+      "sha256": "ce5d204d2f2e270d3c35f7d2794637d4bb066ccb34b9b5b9e55eed2e49242506"
+    },
+    "Cubical.Displayed.Base": {
+      "path": "cubical/Cubical/Displayed/Base.agda",
+      "sha256": "f4699eddf437a72e92d3190d057215b3d6a584dc57b166314a0ab71b8734b38c"
+    },
+    "Cubical.Displayed.Constant": {
+      "path": "cubical/Cubical/Displayed/Constant.agda",
+      "sha256": "7d67b9bc6ba5e6cd973f262828980c30bfe2debcc8eefd6bfda00789fcb06a13"
+    },
+    "Cubical.Displayed.Function": {
+      "path": "cubical/Cubical/Displayed/Function.agda",
+      "sha256": "d1a439801d3f900e6734ab913c239c49cc7f2622362cc1a385a7f9eaf64718d3"
+    },
+    "Cubical.Displayed.Generic": {
+      "path": "cubical/Cubical/Displayed/Generic.agda",
+      "sha256": "1980ab0dfb53c409fd28320f63f18f702353a121452b32920ea32872a7dbf352"
+    },
+    "Cubical.Displayed.Morphism": {
+      "path": "cubical/Cubical/Displayed/Morphism.agda",
+      "sha256": "c971b3c0cd8d05664c4edd9d0bbe951fedd1fc73c347559dbb34708987368499"
+    },
+    "Cubical.Displayed.Prop": {
+      "path": "cubical/Cubical/Displayed/Prop.agda",
+      "sha256": "52e8b485a1013b4c095b1d268fcf4f68e77192dbef7f7df4e5a814ee444f02a8"
+    },
+    "Cubical.Displayed.Properties": {
+      "path": "cubical/Cubical/Displayed/Properties.agda",
+      "sha256": "a7b2e42ddb59170c0a3186e144e6197e6ce990af54940f500a483c906750a59d"
+    },
+    "Cubical.Displayed.Record": {
+      "path": "cubical/Cubical/Displayed/Record.agda",
+      "sha256": "2c57242317b528492b10976e743a464770d8fb18c42372711f4ea67f71a3b8c0"
+    },
+    "Cubical.Displayed.Sigma": {
+      "path": "cubical/Cubical/Displayed/Sigma.agda",
+      "sha256": "efe94ef09687716396a8676ea1046598e399eee39ffd6bab8b85058223326c7c"
+    },
+    "Cubical.Displayed.Subst": {
+      "path": "cubical/Cubical/Displayed/Subst.agda",
+      "sha256": "28417f348ea3ee3fbf27ce22d87633e5862ca2f7f57ea00b571e37dad263d13c"
+    },
+    "Cubical.Displayed.Unit": {
+      "path": "cubical/Cubical/Displayed/Unit.agda",
+      "sha256": "48fa3b24453ed229a95b1a9b9fa26b82788360d99010a6396a5a5c9a17506f0c"
+    },
+    "Cubical.Displayed.Universe": {
+      "path": "cubical/Cubical/Displayed/Universe.agda",
+      "sha256": "0255073e7a7bdf90436702fcf703ba03887c760bde5a7fb4153ce906d89a5080"
+    },
+    "Cubical.Foundations.CartesianKanOps": {
+      "path": "cubical/Cubical/Foundations/CartesianKanOps.agda",
+      "sha256": "cec840490895319fb90952da37bbedfdb38b476b44d16b4518629d0a849ff931"
+    },
+    "Cubical.Foundations.Equiv": {
+      "path": "cubical/Cubical/Foundations/Equiv.agda",
+      "sha256": "e511e13deb9297dc61be81c407e6f809c7c6d8e696f58286d237b87e47df083e"
+    },
+    "Cubical.Foundations.Equiv.Base": {
+      "path": "cubical/Cubical/Foundations/Equiv/Base.agda",
+      "sha256": "44af7a33c40e93d20426a4e912a852326a57cf031a9f94089b2c0a7827fd8434"
+    },
+    "Cubical.Foundations.Equiv.Fiberwise": {
+      "path": "cubical/Cubical/Foundations/Equiv/Fiberwise.agda",
+      "sha256": "477d881a13d636a1025ac3ff6a6402d48979dc4455277ffa3de25f76824ff233"
+    },
+    "Cubical.Foundations.Equiv.HalfAdjoint": {
+      "path": "cubical/Cubical/Foundations/Equiv/HalfAdjoint.agda",
+      "sha256": "4ca2361c85dcf1476a169529c270a694c081c9e57b1ae8ba5101dd877a8a5b12"
+    },
+    "Cubical.Foundations.Equiv.PathSplit": {
+      "path": "cubical/Cubical/Foundations/Equiv/PathSplit.agda",
+      "sha256": "62e9437915566c26876b1fd73225338376abb3b6c1f16c96e3388b3dbd68092f"
+    },
+    "Cubical.Foundations.Equiv.Properties": {
+      "path": "cubical/Cubical/Foundations/Equiv/Properties.agda",
+      "sha256": "9aada052333838a800c2e25debf1c3739ccb01d56f26c9321d13dbb5ab1af437"
+    },
+    "Cubical.Foundations.Function": {
+      "path": "cubical/Cubical/Foundations/Function.agda",
+      "sha256": "cf539c15be92fab9cbfa98ec2163af08bee49c2171d21a34261356eafaccaaa8"
+    },
+    "Cubical.Foundations.GroupoidLaws": {
+      "path": "cubical/Cubical/Foundations/GroupoidLaws.agda",
+      "sha256": "0da2c0e39a40a5ef9ff3aaf8e541055fb4e988990f3e8a272dc9d549c979073a"
+    },
+    "Cubical.Foundations.HLevels": {
+      "path": "cubical/Cubical/Foundations/HLevels.agda",
+      "sha256": "2e7e60e998f8ea1ba11e01232af408dccde49cbf0d472880f0db84e6a42370cc"
+    },
+    "Cubical.Foundations.Interpolate": {
+      "path": "cubical/Cubical/Foundations/Interpolate.agda",
+      "sha256": "d5efaa452fee1adf87c3be8eded877f590108215b0b20c155e3e22adacb93d97"
+    },
+    "Cubical.Foundations.Isomorphism": {
+      "path": "cubical/Cubical/Foundations/Isomorphism.agda",
+      "sha256": "d53f97a6e86061a6d09f2f340d9407d1e71262258e3d2b373d451565e90e389e"
+    },
+    "Cubical.Foundations.Path": {
+      "path": "cubical/Cubical/Foundations/Path.agda",
+      "sha256": "4634ee73439ddcf795f038cbfec396762db69ddd43dd75af0032ca0655c090fb"
+    },
+    "Cubical.Foundations.Pointed": {
+      "path": "cubical/Cubical/Foundations/Pointed.agda",
+      "sha256": "9b2cd1c75414c23ebb172e1fb80b0bf3f758a2168987344808c52f4659528567"
+    },
+    "Cubical.Foundations.Pointed.Base": {
+      "path": "cubical/Cubical/Foundations/Pointed/Base.agda",
+      "sha256": "cb8df4236c8a1f2292a9df2e4dbd5ae801fcfbc67a09019c108849a6f2249fe2"
+    },
+    "Cubical.Foundations.Pointed.FunExt": {
+      "path": "cubical/Cubical/Foundations/Pointed/FunExt.agda",
+      "sha256": "204e64dc0be6840e6614de65531040ccbbd0d7c11d28d4bbce19c98483a38029"
+    },
+    "Cubical.Foundations.Pointed.Homogeneous": {
+      "path": "cubical/Cubical/Foundations/Pointed/Homogeneous.agda",
+      "sha256": "b68499f65ac1fc21fa4871c12c59d110283611ea4e18320106665054aff018d8"
+    },
+    "Cubical.Foundations.Pointed.Homotopy": {
+      "path": "cubical/Cubical/Foundations/Pointed/Homotopy.agda",
+      "sha256": "dbeba825ecdc76b3c97b46b8adb166025c0debf5cb6fc204d5fd20ba3da3f2b8"
+    },
+    "Cubical.Foundations.Pointed.Properties": {
+      "path": "cubical/Cubical/Foundations/Pointed/Properties.agda",
+      "sha256": "c64c63a83d4d8103c0e72a4c74a9db500814b55e482b96acb512e9a8dbd898a6"
+    },
+    "Cubical.Foundations.Powerset": {
+      "path": "cubical/Cubical/Foundations/Powerset.agda",
+      "sha256": "d88b76eb418ecfc63769f0657bc3e730bd9de088e854bc7d035bcb2c632f8db5"
+    },
+    "Cubical.Foundations.Prelude": {
+      "path": "cubical/Cubical/Foundations/Prelude.agda",
+      "sha256": "d6ac24993846d5b661922cdc6b036e07dfb1080085fe5d976d735820c52a25b6"
+    },
+    "Cubical.Foundations.SIP": {
+      "path": "cubical/Cubical/Foundations/SIP.agda",
+      "sha256": "96717932e9279b843b1882cf71bdb9889c6d3fa1cb5a125c87ad76db772b170f"
+    },
+    "Cubical.Foundations.Structure": {
+      "path": "cubical/Cubical/Foundations/Structure.agda",
+      "sha256": "f828cf4b2a16fb01849f2332b69c19dbef748bfe334e741081a05f58b0f18ecb"
+    },
+    "Cubical.Foundations.Transport": {
+      "path": "cubical/Cubical/Foundations/Transport.agda",
+      "sha256": "1c79363e7420c7a77ce27280ed88223fc593e0a7da7a479b028d76cb23ae047d"
+    },
+    "Cubical.Foundations.Univalence": {
+      "path": "cubical/Cubical/Foundations/Univalence.agda",
+      "sha256": "45f9e216a42c5535a391daa37a7dc821ae7392071224afa2f10c72758e04311a"
+    },
+    "Cubical.Functions.Embedding": {
+      "path": "cubical/Cubical/Functions/Embedding.agda",
+      "sha256": "7654f746720756f1e3fddf402fcc35ef1d9f96920f03fa277acc8de1c655806e"
+    },
+    "Cubical.Functions.Fibration": {
+      "path": "cubical/Cubical/Functions/Fibration.agda",
+      "sha256": "87084910918a0fbc5f059cc4045932661bf0381f1740ff3242c3b49d6611cc2a"
+    },
+    "Cubical.Functions.Fixpoint": {
+      "path": "cubical/Cubical/Functions/Fixpoint.agda",
+      "sha256": "6857878563601513d357923c9a00c2c11f3fa8e68e2d030154a54cec7e25c09a"
+    },
+    "Cubical.Functions.FunExtEquiv": {
+      "path": "cubical/Cubical/Functions/FunExtEquiv.agda",
+      "sha256": "383d23b9c13bf58c477cfe2e3edbbe684b3f2d70cbfd6330c2207e7735de9807"
+    },
+    "Cubical.Functions.Implicit": {
+      "path": "cubical/Cubical/Functions/Implicit.agda",
+      "sha256": "09be95d83d3f9b2f7e12a8b79ee68909155f8e5762162d2986a536ee77878241"
+    },
+    "Cubical.Functions.Involution": {
+      "path": "cubical/Cubical/Functions/Involution.agda",
+      "sha256": "9afd737c3a659638ec5a584d241e040b872c96529bc0a626c02a07173bd8700d"
+    },
+    "Cubical.Functions.Logic": {
+      "path": "cubical/Cubical/Functions/Logic.agda",
+      "sha256": "9fefd07090750a7623e65cd757ca1b3afc709a72f8d817bd4ab60718f034b012"
+    },
+    "Cubical.Functions.Morphism": {
+      "path": "cubical/Cubical/Functions/Morphism.agda",
+      "sha256": "99b4000fcc71ce170f7f94e87357c05968e5e08829a828a33a62eff760d40858"
+    },
+    "Cubical.Functions.Surjection": {
+      "path": "cubical/Cubical/Functions/Surjection.agda",
+      "sha256": "bb979e9dd0c95b2c67b50833d766f061d21567843490a1ae739fad1d4ad08eaa"
+    },
+    "Cubical.HITs.2GroupoidTruncation": {
+      "path": "cubical/Cubical/HITs/2GroupoidTruncation.agda",
+      "sha256": "77ab03d6d7aba8cc45dbace859939d4e4f7a33819cc8a7e6091be6c7df1c48b9"
+    },
+    "Cubical.HITs.2GroupoidTruncation.Base": {
+      "path": "cubical/Cubical/HITs/2GroupoidTruncation/Base.agda",
+      "sha256": "e4bf76f3f508ca94f8909b7cd2246cf078732eb64210fed328e71b15efbc3721"
+    },
+    "Cubical.HITs.2GroupoidTruncation.Properties": {
+      "path": "cubical/Cubical/HITs/2GroupoidTruncation/Properties.agda",
+      "sha256": "dd5159bf7666201bee33a919a6aef7bf5c1f752549df675c7e5309387813e8d8"
+    },
+    "Cubical.HITs.GroupoidTruncation": {
+      "path": "cubical/Cubical/HITs/GroupoidTruncation.agda",
+      "sha256": "d7c2ee4b0c66509e895ee4a4d9efae885cca030a7059fb30069dd57be5fd41cc"
+    },
+    "Cubical.HITs.GroupoidTruncation.Base": {
+      "path": "cubical/Cubical/HITs/GroupoidTruncation/Base.agda",
+      "sha256": "61ac3f6cba0caca353716d6d4bd99941abf6974db9f50a48157f0ba22874fccf"
+    },
+    "Cubical.HITs.GroupoidTruncation.Properties": {
+      "path": "cubical/Cubical/HITs/GroupoidTruncation/Properties.agda",
+      "sha256": "680d61310b7b08ba5f9f060cdfb025d8da2e83cafd0ac7f6b599ff01d33fa9a9"
+    },
+    "Cubical.HITs.Join": {
+      "path": "cubical/Cubical/HITs/Join.agda",
+      "sha256": "d2ca8c20ec036844a662258b5da8037361612d133455ec74bc6fffd7c82b6370"
+    },
+    "Cubical.HITs.Join.Base": {
+      "path": "cubical/Cubical/HITs/Join/Base.agda",
+      "sha256": "b6aeb32eef35e55f333f5be1ae5f688df09adbf20539a7a58e006a6b4204549a"
+    },
+    "Cubical.HITs.Join.Properties": {
+      "path": "cubical/Cubical/HITs/Join/Properties.agda",
+      "sha256": "360ce11d3d5e60fde0a328fbdfacb2e0bebd09ae21c571ea1a8dda2cbd776207"
+    },
+    "Cubical.HITs.Localization": {
+      "path": "cubical/Cubical/HITs/Localization.agda",
+      "sha256": "be3d71508efc6fcca8cad5ebc84fccd8547972dc698da8c259c934945d05d955"
+    },
+    "Cubical.HITs.Localization.Base": {
+      "path": "cubical/Cubical/HITs/Localization/Base.agda",
+      "sha256": "2952f77a9c32f08111247cc531397c425670a867aebe51f6b4f2ee466ee438f2"
+    },
+    "Cubical.HITs.Localization.Properties": {
+      "path": "cubical/Cubical/HITs/Localization/Properties.agda",
+      "sha256": "51d8a77ca338c2cd7ef12b69e53a83893087cffb4f475a5561b0f88afbfa1722"
+    },
+    "Cubical.HITs.Nullification": {
+      "path": "cubical/Cubical/HITs/Nullification.agda",
+      "sha256": "b5f9408ec25017d6dc6cd73f6a389e60add62481eb0832f25263843d733ca978"
+    },
+    "Cubical.HITs.Nullification.Base": {
+      "path": "cubical/Cubical/HITs/Nullification/Base.agda",
+      "sha256": "42cfed1d3d2863f9bd53a1e555bf3233d6d5081cfe98d65981b7304ea81a7323"
+    },
+    "Cubical.HITs.Nullification.Properties": {
+      "path": "cubical/Cubical/HITs/Nullification/Properties.agda",
+      "sha256": "ff6057ad0b2db2afa2119b032260e72a0f9c9ba707aeb5c7c0f0fbce69ab3911"
+    },
+    "Cubical.HITs.Nullification.Topological": {
+      "path": "cubical/Cubical/HITs/Nullification/Topological.agda",
+      "sha256": "87b73b23f41e658034373b5d29aa4c7af3e9e9d96c239ce854ad18a3d4ed543d"
+    },
+    "Cubical.HITs.PropositionalTruncation": {
+      "path": "cubical/Cubical/HITs/PropositionalTruncation.agda",
+      "sha256": "7f7697067904b774c4dba7237b99a436b95ae784e822b1f21497e75d5340f0c3"
+    },
+    "Cubical.HITs.PropositionalTruncation.Base": {
+      "path": "cubical/Cubical/HITs/PropositionalTruncation/Base.agda",
+      "sha256": "696ce859e65c4649510e6d3db586fce62e3324078dc9011779c9e45db8a8e61f"
+    },
+    "Cubical.HITs.PropositionalTruncation.MagicTrick": {
+      "path": "cubical/Cubical/HITs/PropositionalTruncation/MagicTrick.agda",
+      "sha256": "94ced58bb9551bb0af2aa8fadfecad4fe6d60305782a21cd8b3ccde81674b0b1"
+    },
+    "Cubical.HITs.PropositionalTruncation.Properties": {
+      "path": "cubical/Cubical/HITs/PropositionalTruncation/Properties.agda",
+      "sha256": "33e9b20793d33861e1ede98c034083a940ad0ede0248d9f07b63906ee31cba16"
+    },
+    "Cubical.HITs.Pushout": {
+      "path": "cubical/Cubical/HITs/Pushout.agda",
+      "sha256": "8989f2c1c1f43e64712fb6b635d64a0d5354ed75443ac09a8a134226ba75d1c2"
+    },
+    "Cubical.HITs.Pushout.Base": {
+      "path": "cubical/Cubical/HITs/Pushout/Base.agda",
+      "sha256": "360552c6de5ef1b04c34f2a7e258351d740c51ccdc0884f9e1d7bf404c68fb46"
+    },
+    "Cubical.HITs.Pushout.KrausVonRaumer": {
+      "path": "cubical/Cubical/HITs/Pushout/KrausVonRaumer.agda",
+      "sha256": "1ffa1e5dbc5222d2932abe6ac6adc77f970bc9ba56b5f63c8e1aa8c79acb774c"
+    },
+    "Cubical.HITs.Pushout.Properties": {
+      "path": "cubical/Cubical/HITs/Pushout/Properties.agda",
+      "sha256": "b5d09da2ed2d1b14763656eec6b213e4f703c2cfaa65ac5fe601c25b3e9239b5"
+    },
+    "Cubical.HITs.S1": {
+      "path": "cubical/Cubical/HITs/S1.agda",
+      "sha256": "da49c011662df12b8b8f52e00de7187ca980f7fdc872062fbfad0df79bb8d3ba"
+    },
+    "Cubical.HITs.S1.Base": {
+      "path": "cubical/Cubical/HITs/S1/Base.agda",
+      "sha256": "d239935edc6f9c3da22e82a95c89471681f945f835026efd73688857351cda77"
+    },
+    "Cubical.HITs.S1.Properties": {
+      "path": "cubical/Cubical/HITs/S1/Properties.agda",
+      "sha256": "79ce7e8fa62c517a2c799437b85dad8e6675e94054cf5612ac25229538a6e19c"
+    },
+    "Cubical.HITs.S2": {
+      "path": "cubical/Cubical/HITs/S2.agda",
+      "sha256": "18cb7b2d631186f2e8c665c21957e80488478f76323b7b854d90971e5df099b2"
+    },
+    "Cubical.HITs.S2.Base": {
+      "path": "cubical/Cubical/HITs/S2/Base.agda",
+      "sha256": "bdf205d1117bf44d96814e17aa8698665480920a471d96c0bc52b10b4b080b02"
+    },
+    "Cubical.HITs.S2.Properties": {
+      "path": "cubical/Cubical/HITs/S2/Properties.agda",
+      "sha256": "a73acdf84389d46b1ba3bd3f66687cd52b7bf7f98a208a3b92a878f5fda88592"
+    },
+    "Cubical.HITs.S3": {
+      "path": "cubical/Cubical/HITs/S3.agda",
+      "sha256": "c1ff42d1254f8c10668cd4b4b7c585633919167566a1877037856a9207919645"
+    },
+    "Cubical.HITs.S3.Base": {
+      "path": "cubical/Cubical/HITs/S3/Base.agda",
+      "sha256": "c15ca7cff1e87b23bb5c2f5ac670db2f098e3c5cc05874ba3ff72053b6e48fa1"
+    },
+    "Cubical.HITs.SetQuotients": {
+      "path": "cubical/Cubical/HITs/SetQuotients.agda",
+      "sha256": "806cb2b3dea1f88b07fcc5e39bd78a87372d8c90d2af55366df7617c62ac9ec2"
+    },
+    "Cubical.HITs.SetQuotients.Base": {
+      "path": "cubical/Cubical/HITs/SetQuotients/Base.agda",
+      "sha256": "4302c6ce79672ccaa77ad2d5c83ab2d5a082f6d08dd3ab1956706090ee94c5b4"
+    },
+    "Cubical.HITs.SetQuotients.Properties": {
+      "path": "cubical/Cubical/HITs/SetQuotients/Properties.agda",
+      "sha256": "33b24071e3038a8584dea2fa030ee35883a5f007aa0c5f8fed978c2f4ca6a022"
+    },
+    "Cubical.HITs.SetTruncation": {
+      "path": "cubical/Cubical/HITs/SetTruncation.agda",
+      "sha256": "8fa4a794075673fdcf4f46cd4aa91cbcbdc0fa98cb4a009c9a033d8d12f1579f"
+    },
+    "Cubical.HITs.SetTruncation.Base": {
+      "path": "cubical/Cubical/HITs/SetTruncation/Base.agda",
+      "sha256": "5c004f8e69b53dac5e1938b1d86714f56f2b264fa0c6c351017d18d8b35ac964"
+    },
+    "Cubical.HITs.SetTruncation.Properties": {
+      "path": "cubical/Cubical/HITs/SetTruncation/Properties.agda",
+      "sha256": "7094e8c99c296b1bdaf852dde00eac92921c3ee934cfa214eff057e46e06d5f6"
+    },
+    "Cubical.HITs.SmashProduct": {
+      "path": "cubical/Cubical/HITs/SmashProduct.agda",
+      "sha256": "9e8ee89d96be1d1176cf2180d499e2817a60a785a28cb67dfd08fb3d39b0cfa5"
+    },
+    "Cubical.HITs.SmashProduct.Base": {
+      "path": "cubical/Cubical/HITs/SmashProduct/Base.agda",
+      "sha256": "4e13b872a528ddad96cd52c2a328f020ec99ba647071387bc96cda104a10ee5e"
+    },
+    "Cubical.HITs.SmashProduct.Induction": {
+      "path": "cubical/Cubical/HITs/SmashProduct/Induction.agda",
+      "sha256": "7eee012a77b00699c2951a05fdc5e37dbe0843378dd52d8741377f0f2439fefd"
+    },
+    "Cubical.HITs.Sn": {
+      "path": "cubical/Cubical/HITs/Sn.agda",
+      "sha256": "2ed872778aadf2e8d847f353bcf70f076a2c9a3c0317478e638b18d29f5dd231"
+    },
+    "Cubical.HITs.Sn.Base": {
+      "path": "cubical/Cubical/HITs/Sn/Base.agda",
+      "sha256": "9be58af643fe59e696b154340b48af9967982359b9dd781ad51edd250ea6fd14"
+    },
+    "Cubical.HITs.Sn.Properties": {
+      "path": "cubical/Cubical/HITs/Sn/Properties.agda",
+      "sha256": "c95887396ec76aae9a428d0b3c0c5c83e10f1de0623d9279be9bdf11abb2bb65"
+    },
+    "Cubical.HITs.Susp": {
+      "path": "cubical/Cubical/HITs/Susp.agda",
+      "sha256": "1aa07c240256de548a67bdcb07dec0fe517064d8646c64d63bfcde4ee1072ea6"
+    },
+    "Cubical.HITs.Susp.Base": {
+      "path": "cubical/Cubical/HITs/Susp/Base.agda",
+      "sha256": "b48e1e9fb1a7b327562c4bbb44056832ba3fa316b8cc977040faa901f4e6a131"
+    },
+    "Cubical.HITs.Susp.Properties": {
+      "path": "cubical/Cubical/HITs/Susp/Properties.agda",
+      "sha256": "98f720f0ab708114f9ff930b682cde76cb27d1e8837f81c25382ad7cb04c452c"
+    },
+    "Cubical.HITs.Truncation": {
+      "path": "cubical/Cubical/HITs/Truncation.agda",
+      "sha256": "e1e13ddccfa52f733c0f29d46672f3f190bb84903788ad99ad9dd84c5db1186c"
+    },
+    "Cubical.HITs.Truncation.Base": {
+      "path": "cubical/Cubical/HITs/Truncation/Base.agda",
+      "sha256": "0fa31f9fbb4aae87fc32581dafb4cc88217eb367ecf0732a31cd5ca92cb3a62f"
+    },
+    "Cubical.HITs.Truncation.FromNegTwo": {
+      "path": "cubical/Cubical/HITs/Truncation/FromNegTwo.agda",
+      "sha256": "374ca2bb6371248f812f956192d5c72e77b82320cd00c6d54aa6fdfda1b1d281"
+    },
+    "Cubical.HITs.Truncation.FromNegTwo.Base": {
+      "path": "cubical/Cubical/HITs/Truncation/FromNegTwo/Base.agda",
+      "sha256": "b76e0881b23ba09a879f376c2693f270c69f82f39405e916e7fb007ad4aef12a"
+    },
+    "Cubical.HITs.Truncation.FromNegTwo.Properties": {
+      "path": "cubical/Cubical/HITs/Truncation/FromNegTwo/Properties.agda",
+      "sha256": "ea04e49b08edda799f876a05d49f3895cb76b365e31fd84c90baa9ce93d512a2"
+    },
+    "Cubical.HITs.Truncation.Properties": {
+      "path": "cubical/Cubical/HITs/Truncation/Properties.agda",
+      "sha256": "36755665205545828c666795a6a2100a97835eb568a3e7eb0896d1e43fb8ee64"
+    },
+    "Cubical.HITs.TypeQuotients": {
+      "path": "cubical/Cubical/HITs/TypeQuotients.agda",
+      "sha256": "e0a31075fc20698a5a2fe81c37135ab5bbb4f27ddd566ec86106254590409dc5"
+    },
+    "Cubical.HITs.TypeQuotients.Base": {
+      "path": "cubical/Cubical/HITs/TypeQuotients/Base.agda",
+      "sha256": "6cf523181b6d309ce54bfe7ab2df58d78517da75fc710caeb5483bce35a7dbaa"
+    },
+    "Cubical.HITs.TypeQuotients.Properties": {
+      "path": "cubical/Cubical/HITs/TypeQuotients/Properties.agda",
+      "sha256": "65c4ca7d4fc52bbe614c10d5b8d5069c49d661f7b05b1e91444adf78a74dcdbb"
+    },
+    "Cubical.HITs.Wedge": {
+      "path": "cubical/Cubical/HITs/Wedge.agda",
+      "sha256": "acf075a13be7a061b4f2b5f22924713a2ffdc09b1c38f557f2a8aaf080d139fe"
+    },
+    "Cubical.HITs.Wedge.Base": {
+      "path": "cubical/Cubical/HITs/Wedge/Base.agda",
+      "sha256": "011f2d35202bda1ceea5f4f58986cf7dcca356fdd5a171a569ac50ad35297e76"
+    },
+    "Cubical.HITs.Wedge.Properties": {
+      "path": "cubical/Cubical/HITs/Wedge/Properties.agda",
+      "sha256": "83536685125ed7d30a4eadbff673abf3bc4b14db2d6b26c1bc1ccc86bbe740b7"
+    },
+    "Cubical.Homotopy.Base": {
+      "path": "cubical/Cubical/Homotopy/Base.agda",
+      "sha256": "eb955865f1a0768361b45663ea0873eccf40c2921e9b1d801ce82b64873c750c"
+    },
+    "Cubical.Homotopy.Connected": {
+      "path": "cubical/Cubical/Homotopy/Connected.agda",
+      "sha256": "9e088f0f15b35dd0d6fd4656ccdd014d62db7df0e93e5c35a0761005874a182f"
+    },
+    "Cubical.Homotopy.Loopspace": {
+      "path": "cubical/Cubical/Homotopy/Loopspace.agda",
+      "sha256": "6a6f361b3456f6a26f947c8bd0cd5402beb8051bc21854a1e0007e58d3164389"
+    },
+    "Cubical.Induction.WellFounded": {
+      "path": "cubical/Cubical/Induction/WellFounded.agda",
+      "sha256": "de595cba56cd176f000f8e99ddc8d28a4ed243c7ab097a440b801d7c915bd40b"
+    },
+    "Cubical.Modalities.Modality": {
+      "path": "cubical/Cubical/Modalities/Modality.agda",
+      "sha256": "fcc7db9e1f85cd8cb8bb6b45c323793e5031ba6f6efb9e92089036a21c9c5179"
+    },
+    "Cubical.Reflection.Base": {
+      "path": "cubical/Cubical/Reflection/Base.agda",
+      "sha256": "1ecb6f9bde549d942e1cbcb8f02152866ef3f1023df37fea6fcbc682335bfc15"
+    },
+    "Cubical.Reflection.RecordEquiv": {
+      "path": "cubical/Cubical/Reflection/RecordEquiv.agda",
+      "sha256": "1c52f33e52017d78934bda3ebbc72db322f9171b3213f75f4ba3d3ad176a6277"
+    },
+    "Cubical.Reflection.StrictEquiv": {
+      "path": "cubical/Cubical/Reflection/StrictEquiv.agda",
+      "sha256": "a340adf53391db6808858ec448b74c2397466dbecb07d7b43b15b78bbf535e0e"
+    },
+    "Cubical.Relation.Binary": {
+      "path": "cubical/Cubical/Relation/Binary.agda",
+      "sha256": "e9de92c179ae0abd784faf5ce7550f081679537d2500bbed7bcae586f3603b0b"
+    },
+    "Cubical.Relation.Binary.Base": {
+      "path": "cubical/Cubical/Relation/Binary/Base.agda",
+      "sha256": "f60e9f2cde0ed68363c80d861e32877978ed1723c1ce5761d90df746ecc0012e"
+    },
+    "Cubical.Relation.Binary.Properties": {
+      "path": "cubical/Cubical/Relation/Binary/Properties.agda",
+      "sha256": "d90f0dfc7c6898da87917776d7ee715c09e846a97091225614ec187e0ed74692"
+    },
+    "Cubical.Relation.Nullary": {
+      "path": "cubical/Cubical/Relation/Nullary.agda",
+      "sha256": "43cabf6b470e6b0d045cf5ca3a1b57d33df5b303dc09b8f065e0eedd2dcce55f"
+    },
+    "Cubical.Relation.Nullary.Base": {
+      "path": "cubical/Cubical/Relation/Nullary/Base.agda",
+      "sha256": "c2b584c300c8c3f51bd9692a4fa91dac91a64ba1f90f6e8e933ba0179aaba8c5"
+    },
+    "Cubical.Relation.Nullary.Properties": {
+      "path": "cubical/Cubical/Relation/Nullary/Properties.agda",
+      "sha256": "0028b9b740f5ea4ccd5aa9c1966319f3ed5eea688e672c98c4fd3cdcb9132503"
+    },
+    "Cubical.Structures.Axioms": {
+      "path": "cubical/Cubical/Structures/Axioms.agda",
+      "sha256": "486529da88effef8d25cfdc920228f9604b38a0021cee9e9424e7f29d257b549"
+    },
+    "Cubical.Structures.Pointed": {
+      "path": "cubical/Cubical/Structures/Pointed.agda",
+      "sha256": "b43bcf63d2209e0a05b7af472ee948c3bcab2b540bd66b686c7cbc1cbd52171b"
+    },
+    "Cubical.ZCohomology.Base": {
+      "path": "cubical/Cubical/ZCohomology/Base.agda",
+      "sha256": "ec630968c0de198e0706aa072fd8c9703043baaa27c1582c86af4edfbc867b59"
+    },
+    "Cubical.ZCohomology.GroupStructure": {
+      "path": "cubical/Cubical/ZCohomology/GroupStructure.agda",
+      "sha256": "9cd19eb0a5f0cfd4e0b4d4b47f5c0afb43fb2fb4b51c3a4fff0c5927dcdd625a"
+    },
+    "Cubical.ZCohomology.Properties": {
+      "path": "cubical/Cubical/ZCohomology/Properties.agda",
+      "sha256": "08c8564fc2e49fe35639bd08519b40ee5e0f82bc4af238016d1779750695b9d7"
+    },
+    "Everything": {
+      "path": "source/Everything.agda",
+      "sha256": "d234914d03af7e9350a0adfa97e0c1e94d313cb9584169bbab00e53990991dd4"
+    },
+    "FrozenMemo": {
+      "path": "source/FrozenMemo.agda",
+      "sha256": "48ac4bcb111b63339678cdbb9cc3fa26afe77f8a3476715ebd76e9dfad73c00f"
+    },
+    "HigherWitness": {
+      "path": "source/HigherWitness.agda",
+      "sha256": "52d362cbc0618b0aa2ec31a117e0b739c7aa8afce5fba8d106513bc52be28707"
+    },
+    "Monodromy": {
+      "path": "source/Monodromy.agda",
+      "sha256": "bbca6eabc7d35040fd5bb1fcc84f49c12ddfcfb90ffc2edb6d922a8c6e622aa3"
+    }
+  },
+  "input_hashes": {
+    "Everything.agda": "d234914d03af7e9350a0adfa97e0c1e94d313cb9584169bbab00e53990991dd4",
+    "FrozenMemo.agda": "48ac4bcb111b63339678cdbb9cc3fa26afe77f8a3476715ebd76e9dfad73c00f",
+    "HigherWitness.agda": "52d362cbc0618b0aa2ec31a117e0b739c7aa8afce5fba8d106513bc52be28707",
+    "Monodromy.agda": "bbca6eabc7d35040fd5bb1fcc84f49c12ddfcfb90ffc2edb6d922a8c6e622aa3",
+    "check.py": "9ab13866b17352b826caab3ebe3d88b68a79e05455d567b37a01255981097dd6",
+    "memo.agda-lib": "1f58995484d730bcf22e841e86efa6e041e0628df6f72557ac68407c381a80e3"
+  },
+  "checker_receipt": {
+    "command": [
+      "/tmp/conaled-314-320/316-agda/final-316/state/bin/agda",
+      "--no-default-libraries",
+      "--library-file",
+      "/tmp/conaled-314-320/316-agda/final-316/libraries",
+      "--safe",
+      "--no-allow-unsolved-metas",
+      "--no-allow-incomplete-matches",
+      "/tmp/conaled-314-320/316-agda/final-316/source/Everything.agda",
+      "--ignore-interfaces",
+      "--dependency-graph=/tmp/conaled-314-320/316-agda/final-316/imports.dot",
+      "-l",
+      "cubical-0.9",
+      "-i",
+      "/tmp/conaled-314-320/316-agda/final-316/source"
+    ],
+    "cwd": "/tmp/conaled-314-320/316-agda/final-316/source",
+    "exit_code": 0,
+    "elapsed_seconds": 60.26,
+    "label": "check",
+    "agda_binary_sha256": "3fe070780fa370f5b74e5716ebe42fb60ec6b0ad90d13f8ab45d2903abf39b84"
+  },
+  "log_sha256": "dc57ddc7a1fa6b28c519b8614c31fe25d25017834ba6a1420a90f03e7833bd17",
+  "dependency_graph_sha256": "e130a6624482ff355399377b29221ef771e4aab47eb94c3681db8e42b56b5954"
+}

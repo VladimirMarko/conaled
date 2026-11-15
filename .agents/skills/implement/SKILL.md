@@ -14,11 +14,12 @@ worktree, preserving any existing task changes that must be included. Snapshot
 capture does not prevent editing collisions; leave other agents' files, index,
 and branches alone.
 
-Use [implement-spec](../implement-spec/SKILL.md) when the work calls for a ticket
-graph, parallel implementers, and an integration branch. This lightweight
-workflow replaces that workflow's ticket, scheduling, and integration loops
-with one loop against the full task. It requires no tickets, extra branches,
-worktrees, merger agent, or separate final review.
+This workflow requires no ticket decomposition. For exploratory work, preserve
+the agreed outcome while revising proof strategies and task boundaries from
+checked results. Record discoveries that change the plan and reassess affected
+dependencies before continuing. A failed proof attempt does not justify
+weakening the intended claim. Seek a user decision when the required outcome
+or scope must change, rather than for routine replanning within it.
 
 ## Establish scope and baseline
 
@@ -29,7 +30,7 @@ worktrees, merger agent, or separate final review.
    reviewer. Record their source and version; conversation requirements need
    no issue reference. Resolve ambiguity that affects acceptance with the user.
 2. Read [the shared review-and-fix procedure](../../../docs/agents/review-loop.md),
-   which defines the loop requirements shared with `implement-spec` from #3.
+   which defines candidate validation and independent review requirements.
    Use its review record and snapshot rules throughout this workflow.
 3. Before editing, record `HEAD`, index and working-tree changes, and relevant
    untracked files. Distinguish existing task work from unrelated user work,
@@ -39,6 +40,10 @@ worktrees, merger agent, or separate final review.
    If task changes already exist, construct the base snapshot with those task
    changes removed only in the temporary snapshot, so review includes them.
    Record inclusions and exclusions; ask when ownership cannot be established.
+   Use the shared procedure's `review_snapshot.py baseline` (or committed
+   `validate`) before editing, then `candidate`/`validate` before each review
+   and `compare` before acceptance. Save each helper receipt with the review
+   record; the shared procedure owns manifests and command details.
    A supplied earlier baseline must likewise cover all task changes while
    excluding unrelated edits. Keep this base fixed through corrections.
 

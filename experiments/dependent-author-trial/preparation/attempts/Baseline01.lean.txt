@@ -1,0 +1,41 @@
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Stability
+namespace DependentAuthorReference.Baseline
+open SquareKit.Internal SquareKit.Internal.PathTransport Typed Authoring
+universe u
+variable {Γ : RawCtx} {γ : CtxCode.{u}} {A x : Expr} {a : TyCode γ}
+  {ξ : TmCode γ a} {n : Nat} {Ξ : RawCtx} {T : TelCode (pathCode a ξ) n}
+  {Q p : Expr} {q : TyCode (telTotal T)} {π : TmCode (telTotal T) q}
+variable (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a) (hx : TmDeriv Γ γ A a x ξ)
+  (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Ξ T)
+  (hQ : TyDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q)
+  (hp : TmDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q p π)
+
+def certificateCommand := PathCommand.make hΓ hA hx hT (Motive.reflexivity hΓ hA hx hT hQ hp)
+def certificate := (certificateCommand hΓ hA hx hT hQ hp).genericTerm
+
+variable {Δ Θ : RawCtx} {δ θ : CtxCode.{u}} {σ τ : RawSub}
+  {s : SubCode δ (telTotal T)} {t : SubCode θ δ}
+variable (hσ : SubDeriv Δ δ (Ξ ++ pathCtx Γ A x) (telTotal T) σ s)
+  (hτ : SubDeriv Θ θ Δ δ τ t)
+
+def valueTwice := TmDeriv.sub (TmDeriv.sub hp hσ) hτ
+def certificateTwice := TmDeriv.sub (TmDeriv.sub (certificate hΓ hA hx hT hQ hp) hσ) hτ
+def valueTypeComparison := TyEqDeriv.subComp hQ hσ hτ
+def valueComparison := TmEqDeriv.subComp hp hσ hτ
+def certificateTypeComparison := TyEqDeriv.subComp (TyDeriv.identity hQ hp hp) hσ hτ
+def certificateComparison := TmEqDeriv.subComp (certificate hΓ hA hx hT hQ hp) hσ hτ
+
+def certificateAligned := (certificateTwice hΓ hA hx hT hQ hp hσ hτ).convert
+  (certificateTypeComparison hQ hp hσ hτ)
+
+-- A stable extension carries this exact underlying full model; interpretation
+-- of old Typed source uses its reduct and does not invent a Sigma source rule.
+theorem extensionSelected (M : Model.{u})
+    (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
+    interpretTm M (certificateTwice hΓ hA hx hT hQ hp hσ hτ) =
+    subTmCode (subTmCode (certificateCommand hΓ hA hx hT hQ hp).motive.branchCode
+      (idCode _)) (idCode _) M := by
+  skip
+
+end DependentAuthorReference.Baseline

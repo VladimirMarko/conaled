@@ -1,0 +1,2 @@
+ProofRequirementTrial.Source.reverseBlocks (_ambient : ∀ (t : List ℕ), t ++ [] = t) (x y z : List ℕ) :
+  (x ++ (y ++ z)).reverse = z.reverse ++ y.reverse ++ x.reverse

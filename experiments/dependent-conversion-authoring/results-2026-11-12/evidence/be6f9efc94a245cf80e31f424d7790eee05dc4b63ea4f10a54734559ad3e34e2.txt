@@ -1,0 +1,15 @@
+# Slot 3 replay and queued audit
+
+Coordinator validation support only. The frozen eight author files are unchanged. Source acceptance, publication and final review remain coordinator-owned.
+
+Preparation session **74378** completed successfully using `prepare-slot3-replay.py` under the repository direnv environment on CPU 0. `replay-01/sources.json` binds every copied source to `final-submission` and the exact hashes in `submission.json`. The source mirror copies the complete accepted stage from `423-trial-stage-round3`; `input-correspondence.json` confirms all stage source bytes remain unchanged. The eight additions are Composition, Context, Draft, HeldOutProof, NegativeProof, RepairAfter, RepairBefore and Substitution.
+
+Native policy and all eight fresh compilations passed, as did the combined-import smoke. `focused-results.json` preserves commands, exits, durations and log hashes. The native policy imports were inspected: each source imports its corresponding accepted task fixture and the service route's DependentFunctionConversion module, plus implicit Init. No other imports appear. Each authored task declaration has a distinct qualified name; no duplicated author helper requires alternate import-order audits.
+
+The private output tree copies the accepted stage's fixture/auditor artifacts, preventing the Examples search-root shadowing failure encountered during slot 2 preparation. All 3,429 copied artifact file hashes match their originals in `copied-artifact-correspondence.json`. Fresh author outputs, complete source hashes and the unchanged production auditor are retained alongside environment and inventory records. The full filesystem inventory has **2,951 modules**. RepairBefore uses the complete current Repair fixture with unchanged baseline declarations; original restricted-release checks remain separate evidence. No setup or author failure occurred in this replay. Earlier slot failures and history were not changed.
+
+Full production audit session **2270** runs `direnv exec . taskset -c 0 python3 /tmp/conaled-wave-20261111/queue-slot3-audit.py`. It verifies source/output/original-submission identities, copied artifacts, the complete inventory, driver hash and worker7's original build hashes before waiting for `/tmp/conaled-wave-20261111/build.lock`. It repeats identities after acquiring the lock and after the audit. It does not launch another build or bypass the lock.
+
+The exact command, cwd and LEAN_PATH are recorded in `replay-01/audit-queue.json`. `Audit.lean` imports all eight author modules and the retained Validate module, then invokes the unchanged production `#audit_project_axioms`. `Audit.log`, `audit-result.json` and `audit-state.json` will preserve the actual result. Require a zero exit, complete 2,951-module coverage and allowed axioms before calling this audit Passed. A waiting, running or missing result is not success.
+
+Status at handoff: focused replay **Passed**; full production audit **queued/pending**. No source checkout, public release, author bytes, worker7 artifact or previous stage was mutated. The preparation author is not an independent final reviewer of this preparation.

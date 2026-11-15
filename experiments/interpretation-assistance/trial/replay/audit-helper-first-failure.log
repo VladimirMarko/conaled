@@ -1,0 +1,152 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+TrialAudit.lean:40:15: error: unknown namespace `Command`
+TrialAudit.lean:42:11: error(lean.unknownIdentifier): Unknown identifier `registerTraceClass`
+TrialAudit.lean:45:4: error: Application type mismatch: The argument
+  `Squares
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `Squares
+TrialAudit.lean:45:14: error: Application type mismatch: The argument
+  `Compiler
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `Compiler
+TrialAudit.lean:45:25: error: Application type mismatch: The argument
+  `SquareCompiler
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `SquareCompiler
+TrialAudit.lean:45:42: error: Application type mismatch: The argument
+  `FirstOrder
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `FirstOrder
+TrialAudit.lean:45:55: error: Application type mismatch: The argument
+  `Dependent
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `Dependent
+TrialAudit.lean:45:67: error: Application type mismatch: The argument
+  `Verification
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `Verification
+TrialAudit.lean:45:82: error: Application type mismatch: The argument
+  `TaskSetup462
+has type
+  Lean.Name
+but is expected to have type
+  Name
+in the application
+  List.cons `TaskSetup462
+TrialAudit.lean:49:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  BEq Name
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+TrialAudit.lean:50:28: error: Application type mismatch: The argument
+  moduleName
+has type
+  Name
+but is expected to have type
+  Lean.Name
+in the application
+  `SquareKit.isPrefixOf moduleName
+TrialAudit.lean:51:31: error: Application type mismatch: The argument
+  moduleName
+has type
+  Name
+but is expected to have type
+  Lean.Name
+in the application
+  `Applications.isPrefixOf moduleName
+TrialAudit.lean:52:27: error: Application type mismatch: The argument
+  moduleName
+has type
+  Name
+but is expected to have type
+  Lean.Name
+in the application
+  `Examples.isPrefixOf moduleName
+TrialAudit.lean:55:15: error: Type mismatch
+  `propext
+has type
+  Lean.Name
+but is expected to have type
+  Name
+TrialAudit.lean:55:40: error: Type mismatch
+  `Classical.choice
+has type
+  Lean.Name
+but is expected to have type
+  Name
+TrialAudit.lean:55:74: error: Type mismatch
+  `Quot.sound
+has type
+  Lean.Name
+but is expected to have type
+  Name
+TrialAudit.lean:58:8: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  env
+has type `Environment` which does not have the necessary form.
+TrialAudit.lean:59:18: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  env
+has type `Environment` which does not have the necessary form.
+TrialAudit.lean:59:41: error(lean.invalidField): Invalid field notation: Type of
+  index
+is not known; cannot resolve field `toNat`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `BitVec.toNat`
+  • `Bool.toNat`
+  • `Char.toNat`
+  • `Fin.toNat`
+  • `Int.toNat`
+  • `UInt16.toNat`
+  • `UInt32.toNat`
+  • `UInt64.toNat`
+  • `UInt8.toNat`
+  • `USize.toNat`
+  • `Lean.Level.toNat`
+  • `Lean.ModuleIdx.toNat`
+  • `Lean.Syntax.toNat`
+TrialAudit.lean:60:12: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  env
+has type `Environment` which does not have the necessary form.
+TrialAudit.lean:59:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Inhabited Name
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+TrialAudit.lean:62:18: error: Constructor field `moduleName` of `_private.TrialAudit.0.ProofAudit.ModuleCount.mk` contains universe level metavariables at the expression
+  {Name : Sort ?u.4} → Name
+in its type
+  {Name : Sort ?u.4} → Name
+TrialAudit.lean:69:19: error: Function expected at
+  CommandElabM
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  Unit
+
+Hint: The identifier `CommandElabM` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+TrialAudit.lean:149:0: error(lean.unknownIdentifier): Unknown constant `Lean.Elab.Command.CommandElab`

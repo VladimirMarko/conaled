@@ -1,0 +1,105 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/25-authors/lean-baseline/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:83:30: error: Tactic `apply` failed: could not unify the conclusion of `@funext`
+  (∀ (x : ?α), ?f x = ?g x) → ?f = ?g
+with the goal
+  ∀ {a : ℕ}, ce.Rel (interpret.map raw.ident) coord.ident
+
+Note: The full type of `@funext` is
+  ∀ {α : Sort ?u.11} {β : α → Sort ?u.10} {f g : (x : α) → β x}, (∀ (x : α), f x = g x) → f = g
+
+⊢ ∀ {a : ℕ}, ce.Rel (interpret.map raw.ident) coord.ident
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:95:55: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:95:57: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:98:9: error: unsolved goals
+n m : ℕ
+x : types.obj (interpret.obj (mp.prod n m))
+i : Fin (interpret.obj n)
+⊢ types.map (Matrix.mulVec fun i j => if j = Fin.castAdd m i then 1 else 0) x i =
+    types.map (fun x i => x (Fin.castAdd m i)) x i
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:101:9: error: unsolved goals
+n m : ℕ
+x : types.obj (interpret.obj (mp.prod n m))
+i : Fin (interpret.obj m)
+⊢ types.map (Matrix.mulVec fun i j => if j = Fin.natAdd n i then 1 else 0) x i =
+    types.map (fun x i => x (Fin.natAdd n i)) x i
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:104:10: error: unsolved goals
+case refine_1
+a b c : ℕ
+f : raw.Hom a b
+g : raw.Hom a c
+x : types.obj (interpret.obj a)
+i : Fin (interpret.obj (mp.prod b c))
+j : Fin b
+⊢ types.map (Matrix.mulVec fun i => Fin.addCases (motive := fun x => Fin a → ℕ) f g i) x (Fin.castAdd c j) =
+    types.map (fun x => join (Matrix.mulVec f x, Matrix.mulVec g x)) x (Fin.castAdd c j)
+
+case refine_2
+a b c : ℕ
+f : raw.Hom a b
+g : raw.Hom a c
+x : types.obj (interpret.obj a)
+i : Fin (interpret.obj (mp.prod b c))
+j : Fin c
+⊢ types.map (Matrix.mulVec fun i => Fin.addCases (motive := fun x => Fin a → ℕ) f g i) x (Fin.natAdd b j) =
+    types.map (fun x => join (Matrix.mulVec f x, Matrix.mulVec g x)) x (Fin.natAdd b j)
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:100:25: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, dotProduct, coord, cp, split, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:100:40: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, Matrix.mulVec, coord, cp, split, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:103:25: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, dotProduct, coord, cp, split, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:103:40: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, Matrix.mulVec, coord, cp, split, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:107:27: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, dotProduct, coord, cp, join, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:107:42: warning: This simp argument is unused:
+  dotProduct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, Matrix.mulVec, coord, cp, join, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/25-authors/lean-output/round-01.lean:107:65: warning: This simp argument is unused:
+  join
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [interpret, mp, Matrix.mulVec, dotProduct, coord, cp, matrixProducts]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

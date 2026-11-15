@@ -96,6 +96,29 @@ The existing deterministic contracts and #197 kernel semantics are unchanged.
 This is an application-library extension using their operations and laws, not
 a new global effect hierarchy or a compiler for recursion.
 
+## Realized rational-kernel producers
+
+The supplied-environment API alone assumes measurable operational steps; it
+does not construct them from an arbitrary kernel. The finite rational case now
+has a concrete realization in
+[TableProducer.lean](../Applications/Probability/TableProducer.lean). Its single
+resumable state carries the semantic state and the exact row sampler's cursor
+and partial block. Its next-emission equivalence covers arbitrary partial row
+states. Delivery from an initialized state is equivalent to the existing
+finite-chain trace, retaining final state and cursor. Producer bit counts omit
+the finite-chain machine's one terminal administrative transition.
+
+`almostSureProductive` derives each length's delivery from actual finite-chain
+termination. `ae_coherent_prefixes` applies the existing API to obtain one
+conull set of coherent prefixes of this producer. This is not a family of
+independently restarted finite samplers. The finite-chain law already uses
+freshness of the unused suffix at each actual random return cursor.
+`TableProducer.stationary_blocks` preserves joint ordered blocks
+under finite observation shifts from a stationary initialization; the MH
+specialization uses the existing target stationarity theorem. See the
+[probability documentation](probability.md#exact-rows-and-resumable-chains)
+for representation premises, cases and observation boundaries.
+
 ## Checked cases and limits
 
 `CoinPaths` uses Mathlib's countable product of fair Boolean measures. The
@@ -121,8 +144,35 @@ Ordinary MH rejection returns the current state. Observing each update has
 one output per completed MH transition, including rejections. The guarded
 reject-only fixture remains productive; its accepted-only filter does not.
 A proposal implemented by an internal rejection sampler has its own progress
-obligation. These facts do not turn the exact tables in #197 into a random-bit
-implementation of MH, or prove mixing or finite-budget statistical accuracy.
+obligation. The generic reject-only fixture alone does not realize the finite tables. The
+separate rational producer above now supplies that realization; neither result
+proves mixing or finite-budget statistical accuracy. Its endpoint-only outputs
+do not reveal acceptance flags: a self-transition can also be an accepted
+self-proposal. Suppressing unchanged states is a distinct filter, proved
+unproductive on a singleton semantic space.
+
+Finite rational workloads now have quantitative resource bounds in
+[SamplerExpectedWork.lean](../Applications/Probability/SamplerExpectedWork.lean).
+The deadline event is failure to deliver the requested full prefix by a bit
+budget. Its indicator sum equals the actual finite delivery count, or infinity
+on non-delivery. The measured charged-work observation likewise equals setup
+plus the actual stopped `Resources.run` cost, and assigns infinity to
+non-delivery even under zero tariffs. Thus a zero price cannot turn a missing
+output into a completed deadline observation.
+
+The exact row rejection law and actual returned-cursor suffix independence give
+a finite-prefix tail; summing it proves finite unconditional expected bits and
+charged work for each selected finite table. This is additional quantitative
+evidence beyond almost-sure productivity. The heavy-tail counterexample above
+remains unchanged. No bound is claimed for the cost of producing infinitely
+many outputs or for every individual tape.
+
+The resource executor caches a row and partial block across pauses. Its append
+law accounts for continued execution without charging previously inspected
+bits again. Initial loading, per-emission next-row loading, final output
+handling, and the finite-chain administrative return have explicit prices.
+The [probability overview](probability.md#measured-finite-workloads) records the
+eager preparation convention and the checked setup-amortization comparison.
 
 Resource counts become random observations once a common execution law is
 specified. Nonnegative extended integrals express expectation, including

@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-11-10T00:29:38.129423+00:00",
+  "cycle": 27,
+  "category": "validation",
+  "state": "reserved, not started",
+  "full_fresh_invocation": 2,
+  "maximum_full_fresh_invocations": 2,
+  "candidate": "ec027e79f612ef1bf21c9968c91639dcfae0f554",
+  "shell_working_directory": "/tmp/conaled-108-independent",
+  "validation_working_directory": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout",
+  "shell_command": "direnv exec . env TRIAL_COMMAND_CWD=/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout python3 experiments/independent-guarded-authoring/trial/run.py 27 validation 'Full fresh build and exhaustive proof audit of exact isolated candidate; invocation 2 of 2; root-owned process' taskset -c 0,1 ./check.sh --candidate ec027e79f612ef1bf21c9968c91639dcfae0f554 --fresh --jobs 2 > experiments/independent-guarded-authoring/trial/validation-record/cycle27-runner-console.txt 2>&1",
+  "environment": "Pinned development environment through direnv exec .; unchanged toolchain/dependencies; CPU affinity 0,1; two fresh-check workers.",
+  "check_log": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/trial/cycles/27/check-01.txt",
+  "check_metadata": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/trial/cycles/27/check-01.json",
+  "source_snapshot": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/trial/cycles/27/check-01-source",
+  "runner_console": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/trial/validation-record/cycle27-runner-console.txt",
+  "execution_owner": "Root agent, keeping its exec process alive until completion.",
+  "caller_sha256": "4dc308b0b8cf2e69b322796c264092e1025bfb2f9fdf21ddc6a33a7b3e66133a",
+  "budget_before_start": {
+    "cycles_used": 26,
+    "full_fresh_invocations_used": 1
+  },
+  "budget_on_start": {
+    "cycles_used": 27,
+    "full_fresh_invocations_used": 2
+  },
+  "failure_disposition": "No third full fresh invocation. Preserve output/status and archive an incomplete outcome if required validation cannot finish."
+}

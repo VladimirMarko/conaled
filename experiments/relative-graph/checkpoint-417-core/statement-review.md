@@ -1,0 +1,9 @@
+# #417 first core statement review
+
+`memo_miss` states the exact CheckCM computation of a missed unary memo lookup, given the exact body result. The body-result hypothesis is discharged in the sort specialization. It includes the original two setter calls and does not assume cache correctness or pure/cached simulation.
+
+`sort_infer_succ` quantifies the indexed environment and residual fuel, from fresh memo state, and returns sort(succ zero) with exactly one inferC insertion. `sort_infer` specializes to the preserved Eq environment and actual irreducible checkFuel. Neither statement accepts And or another declaration. No SetTheory premise is required for these operational equations. Current-module permitted-axiom audits passed. Full closure fresh acceptance remains pending.
+
+Measurements in measurements.json bind the source hash and actual attempt. Synchronous checked insertion includes kernel declaration checking. Tree node counts are not storage or allocation measures. The command was the development runner under build.lock and direnv, with30s/module and capped16KiB diagnostics.
+
+Earlier whole-former attempt also had an Inhabited typing failure; its heartbeat failure cannot alone isolate a fuel obstruction. Subsequent broad sort reductions exceeded30s without timing markers and remain phase-unclassified. A later exact-fuel specialization generated in milliseconds but failed kernel checking with deep recursion: theorem and target spelled the indexed environment differently (eqFe alias versus mkFEnv expression). The successful source uses matching environment expressions and explicit congrArg fuel equality. No fuel transfer or reduced-fuel acceptance is inferred. Full per-attempt development evidence is retained by the coordinator; this compact record preserves the successful core measurement.

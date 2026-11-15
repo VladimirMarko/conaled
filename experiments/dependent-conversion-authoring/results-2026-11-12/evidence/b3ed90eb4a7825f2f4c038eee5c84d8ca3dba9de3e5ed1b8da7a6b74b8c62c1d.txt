@@ -1,0 +1,21 @@
+# Slot 4 exact-source replay and audit queue
+
+This is coordinator validation support, not author work, independent final review or publication. All six author sources remain byte-identical to `final-submission` and the hashes in `submission.json`.
+
+Preparation session **36849** passed native production source policy, fresh compilation of Draft, HeldOutProof, NegativeProof, RepairAfter, RepairBefore and ScaleProof, and a combined-import smoke. `replay-01/focused-results.json` retains commands, exits, timing and log hashes; `sources.json` maps frozen originals to exact copies. Native imports are only each corresponding accepted fixture plus implicit Init, consistent with the direct route. No setup failure or author failure occurred in this replay. Earlier slots' failures and history remain untouched.
+
+The complete accepted stage mirror and private copied outputs follow the previous replay protocol. `input-correspondence.json` confirms unchanged stage source bytes. The complete filesystem inventory contains **2,949 modules**, including all six submissions. `complete-source-hashes.json`, `output-hashes.json`, `copied-artifact-correspondence.json` and `environment.json` preserve identities; all 3,429 copied stage artifact files were compared. The production ProofAudit source and source-inventory helper are unchanged. RepairBefore uses the current full Repair fixture with unchanged baseline declarations; original restricted-release evidence remains distinct.
+
+## Helper ownership
+
+The seven scale helpers are renTypedComp, liftRenTyped, expandEq, sourceEq, renamedEq, chainEq and leftRightEq under `Examples.ConversionTrial`. HeldOutProof supplies a direct proof and does not copy those declarations. NegativeProof adds headsSameType and headsDistinctSyntax in `Examples.ConversionTrial.Negative`, alongside its IndexTask proof. The two diagnostics state equal indices and unequal syntax; they are not themselves a proof of HeadTask's semantic inequivalence. The retained negative-rejection prose and final rubric assessment remain coordinator evidence.
+
+Origin-probe session **51185** imported all six sources with ScaleProof first and last. Both passed. `ScaleThenHeld.log` and `HeldThenScale.log` show every scale helper owned by `Examples.ConversionTrial.Author.ScaleProof` and both diagnostics owned by `Examples.ConversionTrial.Author.NegativeProof` in either order. Thus no helper-origin overlap was found, and one full audit context suffices. No declaration was renamed or omitted.
+
+## Queued audit
+
+Full audit session **36794** runs `direnv exec . taskset -c 0 python3 /tmp/conaled-wave-20261111/queue-slot4-audit.py`. It verifies all replay/source/output/submission identities, copied stage artifacts, complete inventory, audit driver and original worker7 build hashes before waiting on `/tmp/conaled-wave-20261111/build.lock`; identities repeat under the lock and after the audit.
+
+`replay-01/audit-queue.json` records exact argv, cwd, LEAN_PATH and driver hash. `Audit.lean` imports all six author modules and the existing Validate module, then runs unchanged production `#audit_project_axioms`. Actual results go to `Audit.log`, `audit-result.json` and `audit-state.json`. A zero exit, complete 2,949-module coverage and allowed-axiom result are required before reporting audit success.
+
+Status: focused replay **Passed**; production audit **queued/pending**. No worker7 artifacts, previous stage, source checkout, public release or authored bytes were mutated. Publication and final acceptance remain root-owned. The preparation author is ineligible as independent final reviewer of this preparation.

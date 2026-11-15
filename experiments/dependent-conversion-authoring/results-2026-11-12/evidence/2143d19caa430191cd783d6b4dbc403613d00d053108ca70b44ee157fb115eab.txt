@@ -1,0 +1,21 @@
+{
+  "phase": "repair-change",
+  "status": "complete",
+  "proof": "RepairAfter.lean",
+  "theorem": "Examples.ConversionTrial.Repair.after_proof",
+  "checks": [
+    "repair-after-compile-001",
+    "repair-after-policy-001"
+  ],
+  "changes": [
+    "assignment argument changed from zero to var 0 in typed substitution derivation",
+    "new index proved by reflexivity",
+    "old index excluded by constructor disjointness"
+  ],
+  "helpers": [],
+  "repairs": [],
+  "assistance": "none",
+  "interruptions": [],
+  "exposures": [],
+  "usage": null
+}

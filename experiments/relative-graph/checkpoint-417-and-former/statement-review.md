@@ -1,0 +1,11 @@
+# #417 bounded And former review
+
+`CachedAndStages.former` is the exact `checkBlockIndsF` run at `sharedOpsC .verified (mkFEnv equalityEnvironment)`, with actual `parts` from `andPin`, from fresh memo state. Its output is exactly `(mkFEnv indsResult.1, indsResult.2)` and named state `s5`. All fields of the indexed result and memo state are constrained. It does not accept the constructor, full And installer, Exists, pending values, or whole emitted family.
+
+The generic bind and memo equations describe actual StateT/Except success. Their hypotheses are computation equalities; the concrete application discharges them by cached transitions, not one-way simulation or pure acceptance. `infer_tail_of_runs` and `infer_body_of_runs` expose the precise recursive calls. Their cached specializations establish those calls, retain the real peelFuel and checkFuel, and preserve the raw nested imax universe expression. Sort equality is not silently replaced by level equivalence.
+
+`former_infer_fixed` has no acceptance premise. Its predecessor equality only re-expresses the existing checkFuel as three successors. `actual_former_type` joins the actual And record to the worked two-binder expression. `former_sort_fixed` checks that raw inferred universe from the exact returned state. Metadata guards use indexed lookup/resolve equations and proof-producing cbv on finite record data. `tele_of_syntactic` and `inds_singleton` require the precise telescope/member shape; `member_cv`, `members`, and `tele` discharge these for actual parsed And data. No native evaluation, new axiom, SetTheory premise, or reduced-fuel substitution is involved.
+
+`member` is a checked normal form with its original equation. No getD success assumption is used: record shape and operational success are proved separately. Memo states s1–s5 explicitly record insertions; flush behavior is not invoked or approximated in this phase.
+
+The current-module audits pass for all four modules. This is focused development validation, not fresh closure or full-candidate acceptance. Measurements bind exact source hashes and distinguish proof generation, checked insertion, rendering, and normal-form insertion/code-generation. Expression tree counts are not allocation or storage measurements. Representative failed sources and capped records are retained alongside the successful records.

@@ -1,0 +1,13 @@
+--- baseline/ProofAudit.lean
++++ PrivateAudit462.lean
+@@ -1,4 +1,4 @@
+-import SquareApplications
++import Examples.PrivateReference462
+ import Lean.Util.CollectAxioms
+ import Lean.DeclarationRange
+ 
+@@ -151,4 +151,3 @@
+ 
+ end ProofAudit
+ 
+-#audit_project_axioms

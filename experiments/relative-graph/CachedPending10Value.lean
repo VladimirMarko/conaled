@@ -1,0 +1,97 @@
+import CachedPending10SpineJoin
+/-! Experimental actual backward lambda rebuild for #417.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedPending10Value
+open ConLeche ConLeche.Cached CachedPending10Stages CachedPending10Open EmittedBackwardAcceptance
+set_option acceptance.measureTreeSize false
+set_option maxRecDepth 100000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 2000000
+set_option pp.deepTerms.threshold 4
+attribute [local cbv_eval] Expr.bvarBRaw_bvar Expr.bvarBRaw_fvar Expr.bvarBRaw_sort Expr.bvarBRaw_const Expr.bvarBRaw_lit Expr.bvarBRaw_app Expr.bvarBRaw_lam Expr.bvarBRaw_forallE Expr.bvarBRaw_letE Expr.bvarBRaw_proj Expr.fvarBRaw_bvar Expr.fvarBRaw_fvar Expr.fvarBRaw_sort Expr.fvarBRaw_const Expr.fvarBRaw_lit Expr.fvarBRaw_app Expr.fvarBRaw_lam Expr.fvarBRaw_forallE Expr.fvarBRaw_letE Expr.fvarBRaw_proj Expr.hasLP_bvar Expr.hasLP_fvar Expr.hasLP_sort Expr.hasLP_const Expr.hasLP_lit Expr.hasLP_app Expr.hasLP_lam Expr.hasLP_forallE Expr.hasLP_letE Expr.hasLP_proj
+attribute [local cbv_eval] whnfLoopI.eq_1 whnfLoopI.eq_2 whnfCoreLoopI.eq_1 whnfCoreLoopI.eq_2
+attribute [local cbv_opaque] coreKnotI mkFEnv instListM defeqLamsI
+attribute [local cbv_opaque] Std.HashMap.size
+attribute [local cbv_eval] coreKnotI_infer_succ coreKnotI_whnf_succ coreKnotI_whnfCore_succ
+attribute [local cbv_eval] CachedTransitionComposition.infer_pis_sort
+attribute [local cbv_eval] CachedBinderComposition.pis_app CachedBinderComposition.pis_fvar
+attribute [local cbv_eval] mkFEnv_find? mkFEnv_env coreKnotI_defeq_succ structWalkersC_eq_plain Expr.abstractRangeC_spec Expr.abstract1C_spec
+attribute [local cbv_eval] Expr.instantiateRev_spec Expr.instLevelParams_spec Expr.instantiate1LiftC_spec Expr.getAppArgsC_spec Expr.wscopedBC_spec
+attribute [local cbv_eval] Expr.allLevelParamsDefinedC_spec constsResolveFC_spec constsResolveF_eq
+attribute [local cbv_eval] lazyDeltaReductionI.eq_1 lazyDeltaReductionI.eq_2 lazyDeltaProjReductionI.eq_1 lazyDeltaProjReductionI.eq_2
+attribute [local cbv_eval] inferLamsI.eq_def inferPisI.eq_def betaPeelI.eq_def
+attribute [local cbv_eval] whnfAppI.eq_def defeqLamsI_zero defeqLamsI_succ
+attribute [local cbv_eval] Std.HashMap.size_emptyWithCapacity Std.HashMap.size_empty Std.HashMap.size_insert
+attribute [local cbv_eval] push_mkFEnv
+attribute [local cbv_eval] Expr.instantiate1C_spec Expr.instantiateListC_spec Expr.instSpineC_spec
+def leafType := CachedPending10SpineJoin.result
+def leafMemo := CachedPending10SpineJoin.leafMemo
+def stk1 : List Expr := [dom0]
+def stk2 : List Expr := [dom1,dom0]
+def stk3 : List Expr := [dom2,dom1,dom0]
+def stk4 : List Expr := [dom3,dom2,dom1,dom0]
+def stk5 : List Expr := [dom4,dom3,dom2,dom1,dom0]
+def stk6 : List Expr := [dom5,dom4,dom3,dom2,dom1,dom0]
+def stk7 : List Expr := [dom6,dom5,dom4,dom3,dom2,dom1,dom0]
+def stk8 : List Expr := [dom7,dom6,dom5,dom4,dom3,dom2,dom1,dom0]
+checked_normal_form abs : Expr := leafType.abstractRange 0 8
+checked_normal_form rebuilt : Except CheckError (Expr × CState) := inferLamsOutI 0 stk8 7 abs leafMemo
+def valueType := (rebuilt.toOption.map Prod.fst).getD (.bvar 0)
+measured_theorem tail8 : inferLamsI lower 0 16777209 raw8 8 fvs8 stk8 state8 = .ok (valueType,leafMemo) := by
+  change inferLamsLeafI lower 0 raw8 8 fvs8 stk8 state8 = _
+  exact CachedLambdaComposition.leaf lower 0 8 raw8 opened leafType abs valueType fvs8 stk8 state8 leafMemo leafMemo
+    (by cbv) CachedPending10SpineJoin.leaf (by cbv) (by rw [rebuilt_eq]; rfl)
+def rawDom7 := match raw7 with | .lam a _ => a | _ => .bvar 0
+def u7 := match (whnf7.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail7 : inferLamsI lower 0 16777210 raw7 7 fvs7 stk7 state7 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777209+1) (.lam rawDom7 raw8) 7 fvs7 stk7 state7 = _
+  exact CachedLambdaComposition.step lower 0 16777209 7 rawDom7 raw8 dom7 itype7 valueType fvs7 stk7 u7 state7 imemo7 state8 leafMemo
+    (by cbv) (by rw [infer7_eq]; rfl) (by rw [whnf7_eq]; rfl) tail8
+def rawDom6 := match raw6 with | .lam a _ => a | _ => .bvar 0
+def u6 := match (whnf6.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail6 : inferLamsI lower 0 16777211 raw6 6 fvs6 stk6 state6 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777210+1) (.lam rawDom6 raw7) 6 fvs6 stk6 state6 = _
+  exact CachedLambdaComposition.step lower 0 16777210 6 rawDom6 raw7 dom6 itype6 valueType fvs6 stk6 u6 state6 imemo6 state7 leafMemo
+    (by cbv) (by rw [infer6_eq]; rfl) (by rw [whnf6_eq]; rfl) tail7
+def rawDom5 := match raw5 with | .lam a _ => a | _ => .bvar 0
+def u5 := match (whnf5.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail5 : inferLamsI lower 0 16777212 raw5 5 fvs5 stk5 state5 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777211+1) (.lam rawDom5 raw6) 5 fvs5 stk5 state5 = _
+  exact CachedLambdaComposition.step lower 0 16777211 5 rawDom5 raw6 dom5 itype5 valueType fvs5 stk5 u5 state5 imemo5 state6 leafMemo
+    (by cbv) (by rw [infer5_eq]; rfl) (by rw [whnf5_eq]; rfl) tail6
+def rawDom4 := match raw4 with | .lam a _ => a | _ => .bvar 0
+def u4 := match (whnf4.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail4 : inferLamsI lower 0 16777213 raw4 4 fvs4 stk4 state4 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777212+1) (.lam rawDom4 raw5) 4 fvs4 stk4 state4 = _
+  exact CachedLambdaComposition.step lower 0 16777212 4 rawDom4 raw5 dom4 itype4 valueType fvs4 stk4 u4 state4 imemo4 state5 leafMemo
+    (by cbv) (by rw [infer4_eq]; rfl) (by rw [whnf4_eq]; rfl) tail5
+def rawDom3 := match raw3 with | .lam a _ => a | _ => .bvar 0
+def u3 := match (whnf3.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail3 : inferLamsI lower 0 16777214 raw3 3 fvs3 stk3 state3 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777213+1) (.lam rawDom3 raw4) 3 fvs3 stk3 state3 = _
+  exact CachedLambdaComposition.step lower 0 16777213 3 rawDom3 raw4 dom3 itype3 valueType fvs3 stk3 u3 state3 imemo3 state4 leafMemo
+    (by cbv) (by rw [infer3_eq]; rfl) (by rw [whnf3_eq]; rfl) tail4
+def rawDom2 := match raw2 with | .lam a _ => a | _ => .bvar 0
+def u2 := match (whnf2.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail2 : inferLamsI lower 0 16777215 raw2 2 fvs2 stk2 state2 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777214+1) (.lam rawDom2 raw3) 2 fvs2 stk2 state2 = _
+  exact CachedLambdaComposition.step lower 0 16777214 2 rawDom2 raw3 dom2 itype2 valueType fvs2 stk2 u2 state2 imemo2 state3 leafMemo
+    (by cbv) (by rw [infer2_eq]; rfl) (by rw [whnf2_eq]; rfl) tail3
+def rawDom1 := match raw1 with | .lam a _ => a | _ => .bvar 0
+def u1 := match (whnf1.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem tail1 : inferLamsI lower 0 16777216 raw1 1 fvs1 stk1 state1 = .ok (valueType,leafMemo) := by
+  change inferLamsI lower 0 (16777215+1) (.lam rawDom1 raw2) 1 fvs1 stk1 state1 = _
+  exact CachedLambdaComposition.step lower 0 16777215 1 rawDom1 raw2 dom1 itype1 valueType fvs1 stk1 u1 state1 imemo1 state2 leafMemo
+    (by cbv) (by rw [infer1_eq]; rfl) (by rw [whnf1_eq]; rfl) tail2
+def u0 := match (whnf0.toOption.map Prod.fst).getD (.bvar 0) with | .sort u => u | _ => .zero
+measured_theorem body : inferBodyI lower fe 0 value sortMemo = .ok (valueType,leafMemo) := by
+  change inferBodyI lower fe 0 (.lam dom0 raw1) state0 = _
+  exact CachedLambdaComposition.body lower fe 0 dom0 raw1 itype0 valueType u0 state0 imemo0 state1 leafMemo
+    (by rw [infer0_eq]; rfl) (by rw [whnf0_eq]; rfl) tail1
+def valueMemo : CState := {leafMemo with inferC := leafMemo.inferC.insert value valueType}
+measured_theorem accepted : r.infer 0 value sortMemo = .ok (valueType,valueMemo) := by
+  unfold r
+  rw [show checkFuel = 4611686018427387903 + 1 by unfold checkFuel; rfl]
+  exact CachedLambdaComposition.infer_miss .verified fe 4611686018427387903 0 value valueType sortMemo leafMemo (by cbv) body
+end CachedPending10Value
+#audit_graph_module

@@ -1,0 +1,20 @@
+import pathlib,json,shutil,hashlib,subprocess,os,time
+p=pathlib.Path('/tmp/conaled-wave-20261111'); stage=p/'423-trial-stage-round3'; slot=p/'423-trial-execution/slot-5'; out=slot/'replay-01';out.mkdir(exist_ok=False)
+shutil.copytree(stage/'sources',out/'sources');shutil.copytree(stage/'modules',out/'modules'); author=out/'sources/Examples/ConversionTrial/Author';author.mkdir()
+hashf=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
+rows=[]
+selected=json.loads((slot/'replay-selection.json').read_text())['selected_sources']
+for f in sorted(slot/'final-submission'/name for names in selected.values() for name in names):
+ assert hashf(f)==json.loads((slot/'submission.json').read_text())['sources'][f.name];d=author/f.name;shutil.copyfile(f,d);rows.append({'original':str(f),'copy':str(d),'sha256':hashf(f)});assert hashf(f)==hashf(d)
+(out/'sources.json').write_text(json.dumps(rows,indent=2))
+envbase=json.loads((p/'423-trial-execution/slot-1/replay-01/environment.json').read_text());env=os.environ.copy();env['LEAN_PATH']=str(out/'modules')+':'+json.loads((stage/'environment.json').read_text())['LEAN_PATH']; lean=envbase['lean']
+(out/'environment.json').write_text(json.dumps({'cwd':str(out/'sources'),'LEAN_PATH':env['LEAN_PATH'],'lean':lean},indent=2))
+results=[]
+def run(name,args):
+ t=time.time();r=subprocess.run(['taskset','-c','0',*args],cwd=out/'sources',env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);(out/(name+'.log')).write_bytes(r.stdout);results.append({'name':name,'command':['taskset','-c','0',*args],'exit_code':r.returncode,'elapsed':time.time()-t,'log_sha256':hashf(out/(name+'.log'))});(out/'focused-results.json').write_text(json.dumps(results,indent=2));print(name,r.returncode,flush=True);return r.returncode
+(out/'policy-input.json').write_text(json.dumps([r['copy'] for r in rows]));run('source-policy',[lean,'--run',str(out/'sources/scripts/lean-source-info.lean'),str(out/'policy-input.json')])
+for r in rows:
+ f=pathlib.Path(r['copy']);dest=out/'modules/Examples/ConversionTrial/Author'/f.with_suffix('.olean').name;dest.parent.mkdir(parents=True,exist_ok=True);run(f.stem,[lean,'-R',str(out/'sources'),'-o',str(dest),str(f)])
+smoke=out/'CombinedImports.lean';smoke.write_text(''.join('import Examples.ConversionTrial.Author.'+pathlib.Path(r['copy']).stem+'\n' for r in rows));run('CombinedImports',[lean,str(smoke)])
+inv=subprocess.check_output(['python3','scripts/project_sources.py'],cwd=out/'sources');(out/'inventory.json').write_bytes(inv)
+(out/'input-correspondence.json').write_text(json.dumps({'source_stage':str(stage),'accepted_source':'1d9d4357f93b91a0f01ddef3103a7e4b72e5dc0e','package':'31c08c126952242843af1ac74411efb396743a0b','stage_sources_unchanged':all(hashf(f)==hashf(out/'sources'/f.relative_to(stage/'sources')) for f in (stage/'sources').rglob('*') if f.is_file()),'author_sources':rows,'inventory_modules':len(json.loads(inv)),'auditor_source_sha256':hashf(out/'sources/ProofAudit.lean'),'inventory_helper_sha256':hashf(out/'sources/scripts/project_sources.py'),'audit':'not run'},indent=2))

@@ -1,0 +1,7 @@
+ProofRequirementTrial.Source.reverseBlocks (_ambient : ∀ (t : List ℕ), t ++ [] = t) (x y z : List ℕ) :
+  (x ++ (y ++ z)).reverse = z.reverse ++ y.reverse ++ x.reverse
+
+Exit 0; archived at attempts/checks/SmokePass
+[0mdirenv: loading /tmp/conaled-291-294/handoffs/manual/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell

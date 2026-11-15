@@ -1,5 +1,23 @@
 # Dependent congruence repair: incomplete implementation
 
+Subsequent implementation: the approved [guarded repair](guarded-dependent-authoring-repair.md)
+now records the general left-path associativity derivation, fresh source
+substitution, and its interpretation consumers. The original checkpoint below
+remains historical evidence; current acceptance and #108 handoff are tracked in
+the subsequent report.
+
+Current status (2026-11-09): the owner has resumed #107. The checkpoint and
+validation below remain historical evidence, not a completed repair or freeze.
+The [resumed structural comparison](dependent-congruence-resumption.md) now
+records checked fixed-template callers and a proposed migration decision. It
+does not complete the repair or authorize a #108 freeze.
+The pause allowed time for better abstractions and possible frontend alternatives
+to manual DSL transcription. The [revised scheduling decision](next-assessment-work.md#resumed-repair-and-revised-dependencies)
+retains #108's independent test but removes a favorable retest as a blanket
+prerequisite for #103's technical smooth construction. Older pause/entry-gate
+language below is superseded by that decision.
+
+
 This is framework-authored work for [#107], starting at
 `429c7cc0418ccb6665520bce63422103cc60b61f`. It does not complete the general
 associativity derivation or freeze an interface for #108. The #106 archive,

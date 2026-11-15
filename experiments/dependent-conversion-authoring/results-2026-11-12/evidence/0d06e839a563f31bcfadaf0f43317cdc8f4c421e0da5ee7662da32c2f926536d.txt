@@ -1,0 +1,42 @@
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:13:28: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  r = 8 ∨ r ∈ []
+
+case inr.inr
+r : Nat
+h✝ : r = 8 ∨ r ∈ []
+⊢ DepEq (left 1 r 2) (right 1 2) ∧ (left 1 r 2).type = Initial.index
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:12:46: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [compositionSizes, List.mem_cons] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:20:28: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  k = 7 ∨ k ∈ []
+
+case inr.inr
+k : Nat
+h✝ : k = 7 ∨ k ∈ []
+⊢ DepEq (left k 1 2) (right k 2) ∧ (left k 1 2).type = (right k 2).type
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:19:49: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contextExtraBinders, List.mem_cons] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:27:28: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  d = 4 ∨ d ∈ []
+
+case inr.inr
+d : Nat
+h✝ : d = 4 ∨ d ∈ []
+⊢ DepEq (left 1 1 d) (right 1 d) ∧ (left 1 1 d).type = (right 1 d).type
+/tmp/conaled-wave-20261111/423-trial-execution/slot-6/work/scale-compile-001/source.lean:26:47: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [substitutionSizes, List.mem_cons] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

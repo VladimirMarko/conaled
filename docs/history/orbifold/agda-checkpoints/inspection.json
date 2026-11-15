@@ -1,0 +1,35 @@
+{
+  "inspection": "Archive/source integrity and receipt inventory only; no Agda compiler run in conaled.",
+  "archives": [
+    {
+      "archive": "myers-orbifolds-agda-checkpoint-022.tar.gz",
+      "sha256": "19e6f70f5c86856ccd98b6ffb96817f6ee4a58938aa76e5aef1d91b670ba6a53",
+      "bytes": 2352973,
+      "manifest_entries_verified": 1696,
+      "manifest_mismatches": [],
+      "receipt": "formalization/validation/latest-check.json",
+      "receipt_exit_code": 0,
+      "receipt_accepted": true,
+      "receipt_module_count": 357,
+      "receipt_compiler": "2.8.0.2",
+      "fresh_recheck_in_conaled": false,
+      "receipt_source_hashes_verified": 357,
+      "receipt_source_mismatches": []
+    },
+    {
+      "archive": "kock-sdg-agda-checkpoint.tar.gz",
+      "sha256": "7f615fa495853f64cf19ba53259ea01bc429ef631b2f119eef99eb1fca33bd69",
+      "bytes": 268497,
+      "manifest_entries_verified": 158,
+      "manifest_mismatches": [],
+      "receipt": "validation/latest.json",
+      "receipt_exit_code": 0,
+      "receipt_accepted": true,
+      "receipt_module_count": 146,
+      "receipt_compiler": "Agda 2.8.0.2",
+      "fresh_recheck_in_conaled": false,
+      "receipt_source_hashes_verified": 146,
+      "receipt_source_mismatches": []
+    }
+  ]
+}

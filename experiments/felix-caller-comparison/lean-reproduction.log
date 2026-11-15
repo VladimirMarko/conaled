@@ -1,0 +1,26 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/25-authors/lean-baseline/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+/tmp/conaled-wave-20261111/25-reproduction/lean/Final.lean:98:55: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/conaled-wave-20261111/25-reproduction/lean/Final.lean:98:57: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Proof audit: 507 kernel-safe declarations, 203 theorem declarations, 7 project modules.
+  _stdin: 154 logical declarations; 76 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.CartesianMap: 64 logical declarations; 23 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Category: 153 logical declarations; 42 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.CategoryMap: 55 logical declarations; 28 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Comma: 51 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.CommaProducts: 20 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.FunctionCategory: 10 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
+Transitive axiom union: [propext, Classical.choice, Quot.sound]
+Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms.

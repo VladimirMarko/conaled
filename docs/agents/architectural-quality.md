@@ -42,6 +42,11 @@ When comparing designs or interpreting author-trial failures, use the
 Keep mathematical quality, host-language encoding and observed author effort
 separate, and retain useful specializations through revisions.
 
+When introducing or weakening interfaces, changing observations, or reviewing
+generic mathematical arguments, apply the
+[counterexample and scope checks](../../.agents/skills/example-driven-development/SKILL.md#counterexamples-and-scope-checks).
+This includes paper-level designs before Lean implementation.
+
 ## Preservation-family changes
 
 When adding a preservation family or changing a shared interpretation interface,

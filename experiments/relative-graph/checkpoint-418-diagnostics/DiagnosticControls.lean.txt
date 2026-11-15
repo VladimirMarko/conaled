@@ -1,0 +1,43 @@
+import CachedRejections
+open ConLeche ConLeche.Cached
+
+-- These are executable observations, not new kernel equality theorems.
+def category : CheckError → String
+  | .invalid _ => "invalid"
+  | .notImplemented _ => "notImplemented"
+  | .internal _ => "internal"
+
+def assertDiagnostic (label expectedCategory expectedText : String) (e : CheckError) : IO Unit := do
+  unless category e == expectedCategory && toString e == expectedText do
+    throw (IO.userError s!"{label}: unexpected {category e}: {e}")
+  IO.println s!"CONTROL {label}: {category e}: {e}"
+
+#eval do
+  assertDiagnostic "actual graph_forward missing Exists.elim" "invalid"
+    "invalid: unknown constant in value of graph_forward" CachedRejectionsMissing.error
+  assertDiagnostic "unsupported string" "notImplemented"
+    "not implemented yet: string literals before the String support declarations"
+    (unresolvedConstsErrorL false "probe" (.lit (.strVal "x")))
+  assertDiagnostic "sorryAx" "notImplemented"
+    "not implemented yet: use of the sorryAx axiom in probe"
+    (unresolvedConstsErrorL false "probe" (.const sorryAxName []))
+  assertDiagnostic "ordinary unknown" "invalid" "invalid: unknown constant in probe"
+    (unresolvedConstsErrorL false "probe" (.const (.str .anonymous "missing418") []))
+  assertDiagnostic "string before sorryAx" "notImplemented"
+    "not implemented yet: string literals before the String support declarations"
+    (unresolvedConstsErrorL false "probe" (.app (.const sorryAxName []) (.lit (.strVal "x"))))
+  assertDiagnostic "supported string bypass" "notImplemented"
+    "not implemented yet: use of the sorryAx axiom in probe"
+    (unresolvedConstsErrorL true "probe" (.app (.const sorryAxName []) (.lit (.strVal "x"))))
+
+-- Only the error/position projection is proved; no diagnostic classification.
+def position {α : Type} : Except (CheckError × Nat) α → Option Nat
+  | .ok _ => none
+  | .error (_, n) => some n
+
+theorem actual_position : position
+    (checkDecls .verified [] CachedRejectionsFamilies.missingDeclarations.toArray) = some 11 := by
+  rw [CachedRejections.missing_rejected]
+  rfl
+
+#audit_graph_module

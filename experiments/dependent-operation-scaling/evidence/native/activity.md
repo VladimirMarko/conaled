@@ -1,0 +1,2 @@
+Author start: 2026-11-08T16:42:07Z. Stage A starts at that time.
+Prior exposure: repository AGENTS instructions and skill catalog only; no prior fixture, task, or solution exposure before this assignment. Eligible fresh author. Model: identified by system as GPT-based assistant; exact model and reasoning configuration unavailable. No override requested. No external assistance, agents, or internet. Setup reading is included in stage A active time. Full cumulative task disclosed up front, so later-stage anticipation is possible.

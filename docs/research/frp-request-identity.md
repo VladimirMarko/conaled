@@ -1,5 +1,10 @@
 # When FRP requests can omit identifiers
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 Explicit request identifiers are unnecessary for some useful reactive protocols.
 The existing initialized machines already execute without them. A sequential
 request interface can also omit them if its communication contract prevents
@@ -353,3 +358,12 @@ delayed old targeted processing, stalled source, and a growing count consumer.
 The first two expose protocol/observation differences; the last two separate
 progress and resource bounds from semantic preservation. The implementation
 must retain the existing identified lifecycle for clients needing its contract.
+
+## Implemented exclusive adapter
+
+[#236's implementation](exclusive-request-adapter.md) now supplies the bounded
+exclusive-current-request adapter, its command-constructed labelled reference,
+occurrence safety and progress proofs, and retained compiled consumers. The
+proposals above record the assessment that preceded it. The implementation keeps
+its serial admission boundary and does not extend arbitrary identified traces by
+erasure. Query-retention reclamation remains with #237.

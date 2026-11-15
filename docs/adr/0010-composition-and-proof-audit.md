@@ -118,10 +118,12 @@ compares exact audit root sets. These tests are empirical evidence; formal
 refinement proofs and their external-state assumptions are follow-up
 [#43](https://github.com/VladimirMarko/conaled/issues/43).
 
-The existing Python source/import scanner remains until
-[#7](https://github.com/VladimirMarko/conaled/issues/7) replaces it with Lean-native
-handling. The bounded scheduler uses its existing dependency graph so this
-performance change does not introduce another parser or change Lake/Nix build
-ownership. Routine incremental verification delegates compilation to Lake. The
-fresh mode retains the bounded scheduler. The policy change does not claim that the
-remaining Python scanner is a complete Lean parser.
+[#7](https://github.com/VladimirMarko/conaled/issues/7) replaces Python source
+interpretation with the pinned Lean header parser and native lexical parsers.
+Coverage and scheduling use the resulting import graph; no second import grammar
+is maintained. Lake resolves dependency paths and owns routine incremental
+compilation. The explicit fresh mode retains the bounded scheduler with private
+project outputs. Python continues to manage those processes and candidate
+receipts. The lexical policy preflight is distinct from full compiler syntax
+checking and the exhaustive transitive-axiom audit; none replaces the others.
+See [the implementation boundary](../research/native-verification-source.md).

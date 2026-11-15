@@ -1,0 +1,15 @@
+{
+  "cycle": 27,
+  "category": "validation",
+  "purpose": "Verify retained fresh receipt against exact candidate and pinned dependency/compiler identities; no compilation",
+  "command": [
+    "./check.sh",
+    "--verify-candidate",
+    "ec027e79f612ef1bf21c9968c91639dcfae0f554"
+  ],
+  "cwd": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout",
+  "started": "2026-11-10T01:58:33.400562+00:00",
+  "exit_code": 0,
+  "seconds": 0.19653906800158438,
+  "ended": "2026-11-10T01:58:33.597163+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "completed_utc": "2026-11-11T15:41:00.739792+00:00",
+  "source_repair": "none; author-final hashes unchanged",
+  "lean": {
+    "exit": 0,
+    "source_sha256": "14251b8e1ad49b4d310ef65da4c766df613410e2599f284513b693d185872669",
+    "command": "direnv exec . taskset -c 3 lake env lean /tmp/conaled-wave-20261111/25-reproduction/lean/Final.lean",
+    "cwd": "/tmp/conaled-wave-20261111/25-authors/lean-baseline",
+    "baseline": "3c064b11a5812e38c317601473e6897f65ce2a32",
+    "log": "lean-reproduction.log",
+    "log_sha256": "c35dae1e754cf7ac81677866ae1ff4da998b55a2f9082c98cb8c3dde589969db",
+    "kernel_safe_declarations": 507,
+    "theorem_declarations": 203,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audit_scope": "all current-module and imported project kernel-safe declarations; source adaptation retained in final.lean"
+  },
+  "felix": {
+    "exit": 0,
+    "source_sha256": {
+      "Core.agda": "21a877352bb75e36f4aa9d201312f101dc63c2409cf468683f4e970136ef2a85",
+      "Task1.agda": "fd3435f2fe409f7f746724455ae79c5570e4eb9233f26601207d762eeb381f9e",
+      "Task2.agda": "8196a1d9f3459cd01e3a58d810fcc2a9145b5d11dc2052fdbb168c1756f8df8f",
+      "Task3.agda": "98ab193ff853104a60598593fafc5b780f095bc9ad747be021ba445e08068a19"
+    },
+    "command": "nix develop /home/vlad/Code/felix --command taskset -c 3 agda --no-libraries --ignore-interfaces -i /tmp/conaled-wave-20261111/25-reproduction/felix -i /tmp/conaled-wave-20261111/25-authors/felix-baseline/src -i /tmp/conaled-wave-20261111/25-environment/stdlib-src /tmp/conaled-wave-20261111/25-reproduction/felix/Task3.agda",
+    "baseline": "6f36d28097db7ea5f5df3263db3e8be08f74e490",
+    "log": "felix-reproduction.log",
+    "log_sha256": "cd0ca5814adb6dcb64220de734f7e8066e0183b747ef1ec0c758598ca331fc3c",
+    "scope": "Task3 imports Task2,Task1,Core; dependencies rechecked ignoring interfaces; all caller modules safe without-K",
+    "warnings": "Pinned dependency UnsupportedIndexedMatch warnings retained in full log"
+  },
+  "launch_time_semantics": "Coordinator launch_time_utc fields were recorded after spawn returned; author logs supply approximate receipt/first-clock timestamps for effort accounting. Both completed well inside prospectively frozen limits."
+}

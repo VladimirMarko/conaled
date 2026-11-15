@@ -1,0 +1,10 @@
+Checking Smoke (/tmp/conaled-wave-20261111/25-environment/Smoke.agda).
+/tmp/conaled-wave-20261111/25-environment/Smoke.agda:2.1-36: error: [FileNotFound]
+Failed to find source of module Data.Nat in any of the following
+locations:
+  /tmp/conaled-wave-20261111/25-environment/Data/Nat.agda
+  /tmp/conaled-wave-20261111/25-environment/Data/Nat.lagda
+  /nix/store/13hnisa4pph767msvnpchwff49yfs9nc-Agda-2.8.0-data/share/ghc-9.10.3/x86_64-linux-ghc-9.10.3-139d/Agda-2.8.0/lib/prim/Data/Nat.agda
+  /nix/store/13hnisa4pph767msvnpchwff49yfs9nc-Agda-2.8.0-data/share/ghc-9.10.3/x86_64-linux-ghc-9.10.3-139d/Agda-2.8.0/lib/prim/Data/Nat.lagda
+when scope checking the declaration
+  open import Data.Nat using (ℕ; _+_)

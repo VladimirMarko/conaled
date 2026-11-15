@@ -1,0 +1,40 @@
+import CachedRejections
+import Lean
+open Lean Elab Command
+
+run_cmd do
+  let names := #[``ConLeche.Expr.hasStrLitGo, ``ConLeche.unresolvedConstsErrorL,
+    ``ConLeche.Expr.mentionsConstGo_spec, `ConLeche.Expr.hasStrLitGo._unsafe_rec]
+  for n in names do
+    let env ← getEnv
+    let some ci := env.find? n | throwError "Missing probe declaration {n}"
+    let kind := match ci with
+      | .axiomInfo _ => "axiom" | .defnInfo _ => "definition"
+      | .thmInfo _ => "theorem" | .opaqueInfo _ => "opaque"
+      | _ => "other"
+    let safety := match ci with
+      | .defnInfo d => toString (repr d.safety)
+      | _ => "not a definition"
+    let eqns ← liftTermElabM do
+      if n == `ConLeche.Expr.hasStrLitGo._unsafe_rec then
+        return "not requested: partial implementation; generation rejected in round 3"
+      try
+        let es ← Meta.getEqnsFor? n
+        pure (toString (repr es))
+      catch e => pure ("error: " ++ (← e.toMessageData.toString))
+    let related := env.constants.fold (init := #[]) fun acc k _ =>
+      if n.isPrefixOf k then acc.push (Json.str k.toString) else acc
+    let value ← liftTermElabM do
+      if kind == "theorem" then return "<proof term omitted>"
+      match ci.value? true with
+      | none => pure "<absent>"
+      | some e => pure (toString (← Meta.ppExpr e))
+    let j := Json.mkObj [("name",toJson n.toString),("kind",toJson kind),
+      ("unsafe",toJson ci.isUnsafe),("definition_safety",toJson safety),("kernel_value",toJson value),
+      ("equations_query",toJson eqns),
+      ("implemented_by",toJson (toString (repr (Compiler.getImplementedBy? env n)))),
+      ("related_names",Json.arr related)]
+    logInfo ("DECLARATION_JSON " ++ j.compress)
+
+#print ConLeche.Expr.hasStrLitGo
+#print axioms CachedRejections.missing_rejected

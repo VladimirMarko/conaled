@@ -1,0 +1,545 @@
+{
+  "baseline": "d1a1a0484f2f753455adf81d888503e13367ed73",
+  "status": "completed diagnostic probe; no conaled importer",
+  "primary_sources": [
+    {
+      "file": "stdlib.tar.gz",
+      "url": "https://codeload.github.com/agda/agda-stdlib/tar.gz/refs/tags/v2.3",
+      "sha256": "407286af16f2b5b8aebe577b3610ae9b40ce296ed3c03c66444b5801c2fa3012",
+      "bytes": 1267194
+    },
+    {
+      "file": "Either.hs",
+      "url": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.10.3-release/libraries/ghc-internal/src/GHC/Internal/Data/Either.hs",
+      "sha256": "cbac81710a7e01a8a43616d8d88f9a387d6b0e1bbe5f4410dc1f172dc5f765e6",
+      "bytes": 9105
+    },
+    {
+      "file": "Backend.hs",
+      "url": "https://raw.githubusercontent.com/agda/agda/v2.8.0.2/src/full/Agda/Compiler/Backend.hs",
+      "sha256": "950fe3487fb2e423db7830395460c689ae2469a5a7065225ad172d39219f7bb4",
+      "bytes": 8280
+    },
+    {
+      "file": "BackendBase.hs",
+      "url": "https://raw.githubusercontent.com/agda/agda/v2.8.0.2/src/full/Agda/Compiler/Backend/Base.hs",
+      "sha256": "c2bf8e906630d8480e9592aa5acb272d9008bcdb6d3bfb958be5edba575487e3",
+      "bytes": 4417
+    },
+    {
+      "file": "Treeless.hs",
+      "url": "https://raw.githubusercontent.com/agda/agda/v2.8.0.2/src/full/Agda/Syntax/Treeless.hs",
+      "sha256": "0f5846e4651135fbe9f406e21bbc5713d5051203866105520afa3bb10e9cb95c",
+      "bytes": 8620
+    },
+    {
+      "file": "ToTreeless.hs",
+      "url": "https://raw.githubusercontent.com/agda/agda/v2.8.0.2/src/full/Agda/Compiler/ToTreeless.hs",
+      "sha256": "f3c2823f47fe048122c6a8315a10a6b9529daa1b65c6eb828acdbbebfd5e742e",
+      "bytes": 26065
+    },
+    {
+      "file": "Internal.hs",
+      "url": "https://raw.githubusercontent.com/agda/agda/v2.8.0.2/src/full/Agda/Syntax/Internal.hs",
+      "sha256": "19bd9c6dd75caaa5b8aaaf2a90dda0caa0c03ceb758f4bcd437418c0f71250fc",
+      "bytes": 52795
+    },
+    {
+      "file": "Core.hs",
+      "url": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.10.3-release/compiler/GHC/Core.hs",
+      "sha256": "7ed8e797bc34a244a137c2de96aecf1adc06622e824a0f9bad98cc8dc710d388",
+      "bytes": 92491
+    },
+    {
+      "file": "base-LICENSE",
+      "url": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.10.3-release/libraries/base/LICENSE",
+      "sha256": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
+      "bytes": 3881
+    },
+    {
+      "file": "agda-stdlib-2.3/src/Data/Sum/Base.agda",
+      "url": "https://raw.githubusercontent.com/agda/agda-stdlib/v2.3/src/Data/Sum/Base.agda",
+      "sha256": "2733ba66eaed94cc0f0b21f2a9ed0533f8a31b5bd487e40384632f1d6204fcfd",
+      "bytes": 1937
+    },
+    {
+      "file": "agda-stdlib-2.3/src/Data/Bool/Base.agda",
+      "url": "https://raw.githubusercontent.com/agda/agda-stdlib/v2.3/src/Data/Bool/Base.agda",
+      "sha256": "ab8dde8c9ec3b30fd38317e9c87cf5af934f27c779897fb60652878cd23281d7",
+      "bytes": 1671
+    },
+    {
+      "file": "agda-stdlib-2.3/LICENCE",
+      "url": "https://raw.githubusercontent.com/agda/agda-stdlib/v2.3/LICENCE",
+      "sha256": "a50cee7356598d10561b1ced75d33e73e6f7f54d217148cde0cadf4cc6170da0",
+      "bytes": 1705
+    }
+  ],
+  "clients": {
+    "HaskellClient.hs": "67f79e4914b53715ff8f1657c4e49245960f21bb584d5dd1e729907416f50fb1",
+    "AgdaClient.agda": "be2b89b93bfa5ea5b867aa1c93abe77a01711777192dd481e721ac99b7834e41"
+  },
+  "probe": {
+    "ghc_version": "9.10.3",
+    "ghc_binary_sha256": "d723664c85cb982b478397532a63e08aeb043a9bc3d479214196589bae15ca92",
+    "ghc_path": "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+    "agda_version": "Agda version 2.8.0.2\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+    "agda_binary_sha256": "3fe070780fa370f5b74e5716ebe42fb60ec6b0ad90d13f8ab45d2903abf39b84",
+    "packages": "Cabal-3.12.1.0 Cabal-syntax-3.12.1.0 array-0.5.8.0 base-4.20.2.0 binary-0.8.9.3 bytestring-0.12.2.0 containers-0.7 deepseq-1.5.0.0 directory-1.3.8.5 exceptions-0.10.9 filepath-1.5.4.0 ghc-9.10.3 ghc-bignum-1.3 ghc-boot-9.10.3 ghc-boot-th-9.10.3 ghc-compact-0.1.0.0 ghc-experimental-9.1003.0 ghc-heap-9.10.3 ghc-internal-9.1003.0 ghc-platform-0.1.0.0 ghc-prim-0.12.0 ghc-toolchain-0.1.0.0 ghci-9.10.3 haskeline-0.8.2.1 hpc-0.7.0.2 integer-gmp-1.1 mtl-2.3.1 os-string-2.0.7 parsec-3.1.18.0 pretty-1.1.3.6 process-1.6.26.1 rts-1.0.2 semaphore-compat-1.0.0 stm-2.5.3.1 system-cxx-std-lib-1.0 template-haskell-2.22.0.0 terminfo-0.4.1.7 text-2.1.3 time-1.12.2 transformers-0.6.1.1 unix-2.8.7.0 xhtml-3000.2.2.1",
+    "either_interface_sha256": "be7478cfce119f055aab39e7318cd8b84b249978858c2f7a849c53b168c93d57",
+    "clients": {
+      "HaskellClient.hs": "67f79e4914b53715ff8f1657c4e49245960f21bb584d5dd1e729907416f50fb1",
+      "AgdaClient.agda": "be2b89b93bfa5ea5b867aa1c93abe77a01711777192dd481e721ac99b7834e41"
+    },
+    "stdlib_source_count": 1229,
+    "stdlib_source_tree_sha256": "d57f828541f15bbc7398defd7197fbbd582e260a5ba1018773b6ad1d8a479802",
+    "inspector_sha256": "3af36e668e8c0f877d12ceeaf7ba19bd47e797edd4ccdb6a6ede06ef50376712",
+    "generated_files": {
+      "MAlonzo/Code/Agda/Builtin/Bool.hs": "6c61a3f5ba38613b267585df9454866f8c0581f4453b75bf93f1b9977b2390be",
+      "MAlonzo/Code/Agda/Builtin/Equality.hs": "e481b44270305a05df3daf6137d6d4f7062c19b5d634aca5af50d98e4f6b23ee",
+      "MAlonzo/Code/Agda/Builtin/List.hs": "ffeaea19cd450a3edcc0380f4fad5304be9233de4add9cf8a11b5debde9d3b03",
+      "MAlonzo/Code/Agda/Builtin/Maybe.hs": "22fa7b7f323a2fd88a64d339464f930bf54570c8c7c4684236f33cac45b847e0",
+      "MAlonzo/Code/Agda/Builtin/Nat.hs": "5cd7eb1af11cb4418d1b4dd1df49a38984afc96d54d73d6f248e11865a7d079a",
+      "MAlonzo/Code/Agda/Builtin/Sigma.hs": "cd91ffe8aacd37f3a896bec7c5b5ad1de03983a2b0fe66f90434f3cc3b0c12b7",
+      "MAlonzo/Code/Agda/Builtin/Unit.hs": "72a1a8fe496f2ca069aaec5945e9878d5372e814dcba0995a7e312feaef70d5e",
+      "MAlonzo/Code/Agda/Primitive.hs": "89ebd2fd09c6a58d8de321a6b57d24dd275555227e6c8351cdd28c114cf42a89",
+      "MAlonzo/Code/AgdaClient.hs": "b7f3293d25e3e245b078a5a916ff5d9b7b2d986d69e1bbf07df594480231df05",
+      "MAlonzo/Code/Algebra/Bundles/Raw.hs": "c890dac3206ec1f3440eaded66af08790ccacfd82afad46005d5cc92791f54ae",
+      "MAlonzo/Code/Algebra/Core.hs": "88da601570e30b8bbd682728ba8728dbe7c0ad3d748bac3ebc85bef75730dc09",
+      "MAlonzo/Code/Algebra/Definitions/RawMagma.hs": "38b67131a37ba33ba73939fdfc30aff4bb5cd666efe350d327c8a5d6c2de86f7",
+      "MAlonzo/Code/Data/Bool/Base.hs": "8ed36f3666e13f35dbf4faaf7952a836c2f43e9b5fe21b96c1e890deba8e7ac9",
+      "MAlonzo/Code/Data/Empty/Polymorphic.hs": "7de993f6c50aecdb60d087ec0fa933cf341947db2bf45fa9fca6e8f0660766e2",
+      "MAlonzo/Code/Data/Empty.hs": "0dd5065bcb251584fb00ceec64daeadb8de52a1235e5808be4ad0f2da5f2a841",
+      "MAlonzo/Code/Data/Fin/Base.hs": "d68713d845dbcacfda54a1afa29482194c37749b6904459f5c47aedbbc4399da",
+      "MAlonzo/Code/Data/Irrelevant.hs": "69daff964dc3e63584075ec529a8ee740f7ce2b3e2e065330d1a4cf5d2efd79a",
+      "MAlonzo/Code/Data/List/Base.hs": "15fb32ffa09e69c939e22e0e569a124d5b098b81b9e8cebb580c52ca27254aa3",
+      "MAlonzo/Code/Data/Maybe/Base.hs": "fb6bc587e0b4dca1a4bd3506e1ac03f571f5b4c97f6b7a851eb8d40043ea58de",
+      "MAlonzo/Code/Data/Nat/Base.hs": "7953941e38a7a63007223cc3b48d2efa30b1a7832b35831e33a0d0f762db6285",
+      "MAlonzo/Code/Data/Parity/Base.hs": "7b8cd7c18f6ca1d2e2296408030870d2e7675dde84adb4be79d7b8beab962697",
+      "MAlonzo/Code/Data/Product/Base.hs": "4d0f522dc5afd0224741391bcc5cf7e8dc2ec1b9cac65f7c5a4f2eb1fbe9798a",
+      "MAlonzo/Code/Data/Sign/Base.hs": "f3a106f1849cfd8e9384a29642e989a6e70947cb374a338dfebccc471fca08e3",
+      "MAlonzo/Code/Data/Sum/Base.hs": "cfeb0f569da7f6cd5df023bb06e0c128762f9fb0a4a452024e9b057c00bece7b",
+      "MAlonzo/Code/Data/These/Base.hs": "2f4a0006f12938eb2e0574872eb14450bdd45a0f87d47492c5187e9f0fab4e2e",
+      "MAlonzo/Code/Data/Unit/Base.hs": "ad5341c0cfa3666438d02b574ebd85ac3dc60bce07fbe6820ddcf27c3a553585",
+      "MAlonzo/Code/Data/Unit/Polymorphic/Base.hs": "fe20eb9d31cc4d13dff9472f0f5c48e53b6ee14a7549a9f69324731aa403f4ff",
+      "MAlonzo/Code/Function/Base.hs": "eb229b16c766b961e388aa7766a6f19498ce1b1bdc84302abe31d9a1bcf34df6",
+      "MAlonzo/Code/Level.hs": "24e61c561fb547635897773c5070ddd0b5835b5adc87749cfb3136173f887fad",
+      "MAlonzo/Code/Relation/Binary/Bundles/Raw.hs": "0f546fb8e92073b2afda7cc0c9875a87d3f2922156c1f7071ca0461c178473cc",
+      "MAlonzo/Code/Relation/Binary/Core.hs": "5694353b3ea49b49ad89e4021d703ca0b4190decaa1bed90249a8eb04b689799",
+      "MAlonzo/Code/Relation/Binary/Definitions.hs": "4a436903f75021407018992da96fba68b4e53070cf07c112e428b453903aa96e",
+      "MAlonzo/Code/Relation/Binary/Indexed/Heterogeneous/Core.hs": "5411252e83f6fecd3c712f90bc4c605d5bd2d107c6693db076901d2377aff59f",
+      "MAlonzo/Code/Relation/Binary/PropositionalEquality/Core.hs": "b596d92fe6bc3a036e5a2968a38cb4a98b4478470d44652a78b77addf4a06286",
+      "MAlonzo/Code/Relation/Nullary/Decidable/Core.hs": "b3cee96fbcfd32852d123fa951aaca8ed74356e7467f43f42b50bff464e3b974",
+      "MAlonzo/Code/Relation/Nullary/Irrelevant.hs": "466aa199a181452e52ab66aa3416f33bbd0f3e367b953f7820403aeaf3b1da62",
+      "MAlonzo/Code/Relation/Nullary/Negation/Core.hs": "68d9d716749e38b9be2d3aeb02e13ccace03e559dca983b90b1dfcae81b0c977",
+      "MAlonzo/Code/Relation/Nullary/Recomputable/Core.hs": "e5ec237e6c896b95c19fa689055e89b0a21bf72750b5a17c696597b3c9929456",
+      "MAlonzo/Code/Relation/Nullary/Recomputable.hs": "919723813c6b9697017a4e7c2f17fa60646076cb548270a64ce88abb8a8749b5",
+      "MAlonzo/Code/Relation/Nullary/Reflects.hs": "e9f3a68132e481c7f27dc4bf1d921d24718807d4a23601374b20520c005905a4",
+      "MAlonzo/Code/Relation/Nullary.hs": "bb7d621e5e77f99b87ec801ada011e73386439ce130a34417bd5f8cb2420cc6b",
+      "MAlonzo/Code/Relation/Unary.hs": "3137d002baaa26f81e8457999a0d482201410e3eeddf53410c18e9ac1bd365a3",
+      "MAlonzo/RTE/Float.hs": "f3695ec6e4f78becaddbcd82026ad427e026c562fbbd8e97c7464e92ebc240b7",
+      "MAlonzo/RTE.hs": "dd865817f606aac84f1a76ba0683223284d05ef917da3a14d2a1e1803e4caa04"
+    },
+    "commands": [
+      {
+        "name": "ghc-version",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "--numeric-version"
+        ],
+        "exit": 0,
+        "log_sha256": "9eb530c7120599fed886a06f8ba0958266eb4c950a9f7a67daf9e960558722f3"
+      },
+      {
+        "name": "agda-version",
+        "argv": [
+          "/tmp/conaled-115-inspection/bin/agda",
+          "--version"
+        ],
+        "exit": 0,
+        "log_sha256": "cdacaad58752136a6d2deaaa5eeec0edc0c92287a038f8803d3c27e4233e1079"
+      },
+      {
+        "name": "packages",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-pkg",
+          "list",
+          "--simple-output"
+        ],
+        "exit": 0,
+        "log_sha256": "99b7d613da4f33dca4be3a05f378ff02b0e9360776e9b99a3af851746317a409"
+      },
+      {
+        "name": "ghc-internal-location",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-pkg",
+          "field",
+          "ghc-internal",
+          "import-dirs",
+          "--simple-output"
+        ],
+        "exit": 0,
+        "log_sha256": "8a9a8539b9cdd78066d6de1d91aba9e537fae970e58196e7fc74411799c1fdf9"
+      },
+      {
+        "name": "either-interface",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "--show-iface",
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/lib/ghc-9.10.3/lib/../lib/x86_64-linux-ghc-9.10.3/ghc-internal-9.1003.0-b8e5/GHC/Internal/Data/Either.hi"
+        ],
+        "exit": 0,
+        "log_sha256": "ecbbdebd91e78453623889cec451d155e43df0d955d544e9d0925a37a89289d9"
+      },
+      {
+        "name": "core-O0",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-O0",
+          "-fforce-recomp",
+          "-c",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs",
+          "-outputdir",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/ghc-O0",
+          "-ddump-ds",
+          "-ddump-simpl",
+          "-dcore-lint",
+          "-dsuppress-uniques"
+        ],
+        "exit": 0,
+        "log_sha256": "c01d299f9c08bfc69c27a41386638d96c1589e519a9051cedcd302775f246bfe"
+      },
+      {
+        "name": "core-O1",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-O1",
+          "-fforce-recomp",
+          "-c",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs",
+          "-outputdir",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/ghc-O1",
+          "-ddump-ds",
+          "-ddump-simpl",
+          "-dcore-lint",
+          "-dsuppress-uniques"
+        ],
+        "exit": 0,
+        "log_sha256": "08fe9956d4484674529fd54bfa694bd7d73eb20926e03bd38b99dca267071e54"
+      },
+      {
+        "name": "haskell-observations",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-ignore-dot-ghci",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs",
+          "-e",
+          "print observations"
+        ],
+        "exit": 0,
+        "log_sha256": "8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807"
+      },
+      {
+        "name": "haskell-unused-bottom",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-ignore-dot-ghci",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs",
+          "-e",
+          "print unusedBottom"
+        ],
+        "exit": 0,
+        "log_sha256": "a9ac0c3ac83c40e1b4c3416066d63d324ee9f8c144641dfeed72d140b6557245"
+      },
+      {
+        "name": "haskell-forced-bottom",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-ignore-dot-ghci",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs",
+          "-e",
+          "print forcedBottom"
+        ],
+        "exit": 1,
+        "log_sha256": "d5ad02580631a16b7cc961d77fbe59c80b6e064ab1eeecbb3da1a2c0251fd715"
+      },
+      {
+        "name": "agda-check",
+        "argv": [
+          "/tmp/conaled-115-inspection/bin/agda",
+          "--no-libraries",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/stdlib/src",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/AgdaClient.agda"
+        ],
+        "exit": 0,
+        "log_sha256": "4466ce7e00d39661ba282d7f3cfd0c5299b2c7277be992f7e529c00ce29c8011"
+      },
+      {
+        "name": "agda-internal-client",
+        "argv": [
+          "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+          "/tmp/conaled-wave-20261111/worker491/experiments/agda-internal-retention/inspect_interface.py",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/AgdaClient.agdai",
+          "AgdaClient.choose",
+          "AgdaClient.step",
+          "AgdaClient.observations-correct"
+        ],
+        "exit": 0,
+        "log_sha256": "34b2b40246fe63a5d184ad99e397d2e2251243cdaab329ec643ac6c24e538884"
+      },
+      {
+        "name": "agda-internal-sum",
+        "argv": [
+          "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+          "/tmp/conaled-wave-20261111/worker491/experiments/agda-internal-retention/inspect_interface.py",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/stdlib/_build/2.8.0.2/agda/src/Data/Sum/Base.agdai",
+          "Data.Sum.Base.[_,_]′"
+        ],
+        "exit": 0,
+        "log_sha256": "3ab1ed59af8fc32cc37cff04ccf9af66408dfc0b5072df226d0251021e37f77c"
+      },
+      {
+        "name": "agda-haskell",
+        "argv": [
+          "/tmp/conaled-115-inspection/bin/agda",
+          "--no-libraries",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/stdlib/src",
+          "--compile",
+          "--ghc-dont-call-ghc",
+          "--no-main",
+          "--compile-dir=/tmp/conaled-wave-20261111/491-handoff/probe-3/generated",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/AgdaClient.agda"
+        ],
+        "exit": 0,
+        "log_sha256": "df83b402c5f7a5a8c2e8c18d8274b32de4c54fe4a658575e633f14b7a5c32a62"
+      },
+      {
+        "name": "agda-observations",
+        "argv": [
+          "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+          "-ignore-dot-ghci",
+          "-i/tmp/conaled-wave-20261111/491-handoff/probe-3/generated",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/generated/MAlonzo/Code/AgdaClient.hs",
+          "-e",
+          "print d_observations_26"
+        ],
+        "exit": 0,
+        "log_sha256": "8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807"
+      },
+      {
+        "name": "agda-safe-postulate",
+        "argv": [
+          "/tmp/conaled-115-inspection/bin/agda",
+          "--no-libraries",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients",
+          "-i",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/stdlib/src",
+          "/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/Unsafe.agda"
+        ],
+        "exit": 42,
+        "log_sha256": "170268948215555e741d2088a08af35a90548574f6f8df8acb7832e13a04b231"
+      }
+    ]
+  },
+  "runner_sha256": "42fcc7a7dcb1a32a6450e4b59399bb9ca918b2999896d570ea74f24c7732f561",
+  "prior_attempts": [
+    {
+      "attempt": "probe-1",
+      "outcome": "Stopped before compilation: overly strict version guard compared Agda build flags as part of the version. Corrected to compare the first line; binary hash remains enforced.",
+      "commands": [
+        {
+          "name": "ghc-version",
+          "argv": [
+            "/nix/store/2xi3cdc5hls8cxzml56dm4yzz7mcplk6-ghc-9.10.3/bin/ghc-9.10.3",
+            "--numeric-version"
+          ],
+          "exit": 0,
+          "log_sha256": "9eb530c7120599fed886a06f8ba0958266eb4c950a9f7a67daf9e960558722f3"
+        },
+        {
+          "name": "agda-version",
+          "argv": [
+            "/tmp/conaled-115-inspection/bin/agda",
+            "--version"
+          ],
+          "exit": 0,
+          "log_sha256": "cdacaad58752136a6d2deaaa5eeec0edc0c92287a038f8803d3c27e4233e1079"
+        }
+      ]
+    },
+    {
+      "attempt": "probe-2",
+      "outcome": "All diagnostics passed, but AGDA_DIR warned that its nonexistent directory fell back to the home configuration. --no-libraries and private source/data paths were used. Final probe-3 creates that directory and repeats every check without the fallback.",
+      "commands_sha256": "8836d74c9585a2b458b730098ea72e8ea5e25d82ef8eb572497197447bfe8775"
+    }
+  ],
+  "retained_excerpts": [
+    {
+      "file": "agda-check.log",
+      "lines": [
+        38,
+        46
+      ],
+      "sha256": "4466ce7e00d39661ba282d7f3cfd0c5299b2c7277be992f7e529c00ce29c8011"
+    },
+    {
+      "file": "either-interface.log",
+      "lines": [
+        1091,
+        1104
+      ],
+      "sha256": "ecbbdebd91e78453623889cec451d155e43df0d955d544e9d0925a37a89289d9"
+    },
+    {
+      "file": "core-O0.log",
+      "lines": [
+        46,
+        68
+      ],
+      "sha256": "c01d299f9c08bfc69c27a41386638d96c1589e519a9051cedcd302775f246bfe"
+    },
+    {
+      "file": "core-O0.log",
+      "lines": [
+        290,
+        315
+      ],
+      "sha256": "c01d299f9c08bfc69c27a41386638d96c1589e519a9051cedcd302775f246bfe"
+    },
+    {
+      "file": "core-O1.log",
+      "lines": [
+        334,
+        366
+      ],
+      "sha256": "08fe9956d4484674529fd54bfa694bd7d73eb20926e03bd38b99dca267071e54"
+    },
+    {
+      "file": "agda-internal-client.log",
+      "projection": [
+        "sha256",
+        "sourceSha256",
+        "declarations.name",
+        "declarations.typeTerm",
+        "declarations.clauses.body"
+      ],
+      "sha256": "34b2b40246fe63a5d184ad99e397d2e2251243cdaab329ec643ac6c24e538884"
+    },
+    {
+      "file": "agda-internal-sum.log",
+      "projection": [
+        "sha256",
+        "sourceSha256",
+        "declarations.name",
+        "declarations.typeTerm",
+        "declarations.clauses.body"
+      ],
+      "sha256": "3ab1ed59af8fc32cc37cff04ccf9af66408dfc0b5072df226d0251021e37f77c"
+    },
+    {
+      "file": "generated/MAlonzo/Code/AgdaClient.hs",
+      "lines": [
+        28,
+        44
+      ],
+      "sha256": "b7f3293d25e3e245b078a5a916ff5d9b7b2d986d69e1bbf07df594480231df05"
+    },
+    {
+      "file": "generated/MAlonzo/Code/AgdaClient.hs",
+      "lines": [
+        173,
+        176
+      ],
+      "sha256": "b7f3293d25e3e245b078a5a916ff5d9b7b2d986d69e1bbf07df594480231df05"
+    },
+    {
+      "file": "generated/MAlonzo/Code/Data/Sum/Base.hs",
+      "lines": [
+        23,
+        63
+      ],
+      "sha256": "cfeb0f569da7f6cd5df023bb06e0c128762f9fb0a4a452024e9b057c00bece7b"
+    },
+    {
+      "file": "ghc-version.log",
+      "lines": [
+        1,
+        1
+      ],
+      "sha256": "9eb530c7120599fed886a06f8ba0958266eb4c950a9f7a67daf9e960558722f3"
+    },
+    {
+      "file": "agda-version.log",
+      "lines": [
+        1,
+        4
+      ],
+      "sha256": "cdacaad58752136a6d2deaaa5eeec0edc0c92287a038f8803d3c27e4233e1079"
+    },
+    {
+      "file": "haskell-observations.log",
+      "lines": [
+        1,
+        1
+      ],
+      "sha256": "8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807"
+    },
+    {
+      "file": "agda-observations.log",
+      "lines": [
+        1,
+        1
+      ],
+      "sha256": "8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807"
+    },
+    {
+      "file": "haskell-unused-bottom.log",
+      "lines": [
+        1,
+        1
+      ],
+      "sha256": "a9ac0c3ac83c40e1b4c3416066d63d324ee9f8c144641dfeed72d140b6557245"
+    },
+    {
+      "file": "haskell-forced-bottom.log",
+      "lines": [
+        1,
+        23
+      ],
+      "sha256": "d5ad02580631a16b7cc961d77fbe59c80b6e064ab1eeecbb3da1a2c0251fd715"
+    },
+    {
+      "file": "agda-safe-postulate.log",
+      "lines": [
+        1,
+        5
+      ],
+      "sha256": "170268948215555e741d2088a08af35a90548574f6f8df8acb7832e13a04b231"
+    }
+  ],
+  "retained_artifacts_sha256": "4c068e53b132bf560d34da1cf2269f6e2c9112c287268cc9efd87753cd0fd278",
+  "results_sha256": "9c6dbc0c2e84633fedbced60b950847972e3b59372a0045e42acafcb0c029cd1",
+  "limits": [
+    "No conaled import or source-to-target proof executed",
+    "No direct Treeless export obtained; backend API assessed from pinned source",
+    "GHC installed package/interface/executable pins identify the actual binary; upstream tag is source analysis, not a reproduced compiler build",
+    "Generated files and interface hashes can depend on paths/options; replay compares observations and declared semantics, not directory-independent byte identity"
+  ],
+  "diagnostics": {
+    "agda-check.log": {
+      "UnsupportedIndexedMatch_occurrences": 62,
+      "sha256": "4466ce7e00d39661ba282d7f3cfd0c5299b2c7277be992f7e529c00ce29c8011"
+    },
+    "agda-haskell.log": {
+      "UnsupportedIndexedMatch_occurrences": 62,
+      "sha256": "df83b402c5f7a5a8c2e8c18d8274b32de4c54fe4a658575e633f14b7a5c32a62"
+    }
+  }
+}

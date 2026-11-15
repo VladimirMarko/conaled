@@ -1,0 +1,190 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/CandidateReference.lean:8:31: error: Ambiguous term
+  Judgment
+Possible interpretations:
+  Contextual.Judgment V : Type
+  
+  DependentJudgments.Judgment V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:9:24: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:15:42: error: Invalid argument name `Ω` for function `Derivation.rule`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `S`: Ω̵S̲
+  • `V`: Ω̵V̲
+  • `Γ`: Ω̵Γ̲
+  • `a`: Ω̵a̲
+  • `σ`: Ω̵σ̲
+  • `premises`: Ω̵p̲r̲e̲m̲i̲s̲e̲s̲
+experiments/dependent-author-trial/preparation/CandidateReference.lean:14:92: error: unsolved goals
+V : Type
+Ω : List sorry
+Γ : sorry
+A : sorry
+x : sorry
+T : sorry
+Q : sorry
+p : sorry
+n : ℕ
+hx : Tm sorry sorry sorry
+hT : Tel n (path sorry sorry) sorry
+hp : Tm (total sorry) sorry sorry
+⊢ sorry
+experiments/dependent-author-trial/preparation/CandidateReference.lean:32:20: error(lean.unknownIdentifier): Unknown identifier `certificateCommand`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:34:20: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:34:20: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:34:20: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:34:20: error: Ambiguous term
+  Expression
+Possible interpretations:
+  Contextual.Expression V : Type
+  
+  DependentJudgments.Expression V : Type
+experiments/dependent-author-trial/preparation/CandidateReference.lean:37:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `valueTwice`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:38:26: error(lean.unknownIdentifier): Unknown identifier `certificate`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:39:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `valueTypeComparison`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:40:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `valueComparison`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:41:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `certificateTypeComparison`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:42:30: error(lean.unknownIdentifier): Unknown identifier `certificate`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:44:27: error(lean.unknownIdentifier): Unknown identifier `certificateTwice`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:47:55: error(lean.unknownIdentifier): Unknown identifier `certificateTwice`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:51:6: error: overloaded, errors 
+  51:13 overloaded, errors 
+    51:20 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+    
+    51:20 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+  
+  51:13 overloaded, errors 
+    51:20 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+    
+    51:20 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+experiments/dependent-author-trial/preparation/CandidateReference.lean:53:5: error: overloaded, errors 
+  53:12 overloaded, errors 
+    53:19 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+    
+    53:19 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+  
+  53:12 overloaded, errors 
+    53:19 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+    
+    53:19 Function expected at
+      certificateCommand
+    but this term has type
+      ?m.6
+    
+    Note: Expected a function because this term is being applied to the argument
+      hx
+    
+    Hint: The identifier `certificateCommand` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+experiments/dependent-author-trial/preparation/CandidateReference.lean:56:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `firstWeakening`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:57:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `witnessVariable`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:58:25: error(lean.unknownIdentifier): Unknown identifier `witnessVariable`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:60:37: error(lean.unknownIdentifier): Unknown identifier `certificateTwice`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:61:36: error(lean.unknownIdentifier): Unknown identifier `certificateComparison`

@@ -1,0 +1,51 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-wave-20261111/462-private-reference/checkout/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-wave-20261111/462-private-reference/checkout/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+/tmp/conaled-wave-20261111/462-private-reference/checkout/lean-toolchain
+/tmp/conaled-wave-20261111/462-private-reference/checkout/flake.nix
+/tmp/conaled-wave-20261111/462-private-reference/checkout/flake.lock
+[0mdirenv: nix-direnv: Renewed cache
+⚠ [741/757] Built SquareKit.DiagonalConstruction (2.3s)
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Function.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [742/757] Built SquareKit.ListFusion (2.9s)
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [743/757] Built Squares (3.1s)
+⚠ [744/757] Built Applications.Optimization.Basic (3.2s)
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Filter.Extr` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Hom.CompleteLattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [745/757] Built SquareKit.DiagonalCoverage (1.8s)
+✔ [746/757] Built SquareKit.Relations (1.8s)
+⚠ [747/757] Built Applications.Resources.Measured (2.3s)
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+ℹ [748/757] Built FirstOrder (5.7s)
+info: FirstOrder.lean:351:0: 'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+info: FirstOrder.lean:352:0: 'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+info: FirstOrder.lean:353:0: 'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+info: FirstOrder.lean:354:0: 'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+⚠ [749/757] Built SquareKit.Arithmetic (2.1s)
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Data.Int.Cast.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Algebra.Ring.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [750/757] Built Applications.Optimization.Relations (2.8s)
+✔ [751/757] Built Applications.Resources.Workload (2.8s)
+✔ [752/757] Built SquareKit.ListFoldCompiler (2.8s)
+✔ [753/757] Built Applications.Progress.Evaluation (1.7s)
+✔ [754/757] Built Applications.Resources.FoldCompiler (1.9s)
+✔ [755/757] Built Applications.Progress.Streams (1.3s)
+⚠ [756/757] Built Examples.RecursiveCompilation (1.1s)
+warning: Examples/RecursiveCompilation.lean: imports `Mathlib.Algebra.Ring.Int.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: Examples/RecursiveCompilation.lean:158:0: (4, 7)
+info: Examples/RecursiveCompilation.lean:159:0: (14, 10)
+✖ [757/757] Building Examples.PrivateReference462 (868ms)
+trace: .> LEAN_PATH=/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/462-private-reference/checkout/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /tmp/conaled-wave-20261111/462-private-reference/checkout/Examples/PrivateReference462.lean -o /tmp/conaled-wave-20261111/462-private-reference/checkout/.lake/build/lib/lean/Examples/PrivateReference462.olean -i /tmp/conaled-wave-20261111/462-private-reference/checkout/.lake/build/lib/lean/Examples/PrivateReference462.ilean -c /tmp/conaled-wave-20261111/462-private-reference/checkout/.lake/build/ir/Examples/PrivateReference462.c --setup /tmp/conaled-wave-20261111/462-private-reference/checkout/.lake/build/ir/Examples/PrivateReference462.setup.json --json
+error: Examples/PrivateReference462.lean:31:71: Expected type must not contain free variables
+  targetEval (some false) input ≠ targetEval (some true) input
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+Some required targets logged failures:
+- Examples.PrivateReference462
+error: build failed

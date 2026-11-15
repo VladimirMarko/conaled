@@ -1,0 +1,98 @@
+[0mdirenv: loading /tmp/conaled-314-320/317/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+SquareKit.Internal.DependentJudgments.Sigma.interpret.{u} {V : Type} {Ω : List (Sigma.Judgment V)}
+  {a : Sigma.Judgment V} (d : SquareKit.GuardedTheory.Derivation Sigma.theory Ω a)
+  (M : SquareKit.Internal.PathTransport.Typed.Model) (S : Sigma.Capability M.toStructuralModel)
+  (ρ : V → Value M.toStructuralModel) (h : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (Sigma.algebra M S) ρ p) :
+  SquareKit.GuardedTheory.Atom.eval (Sigma.algebra M S) ρ a
+SquareKit.Internal.DependentJudgments.Sigma.Reindexing.interpret.{u} {V : Type} {Ω : List (Sigma.Judgment V)}
+  {a : Sigma.Judgment V} (d : SquareKit.GuardedTheory.Derivation Sigma.Reindexing.theory Ω a)
+  (M : SquareKit.Internal.PathTransport.Typed.Model) (S : Sigma.Stable M.toStructuralModel)
+  (ρ : V → Value M.toStructuralModel)
+  (h : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (Sigma.algebra M S.toCapability) ρ p) :
+  SquareKit.GuardedTheory.Atom.eval (Sigma.algebra M S.toCapability) ρ a
+SquareKit.Internal.DependentJudgments.Sigma.Tm.pair {V : Type} {Ω : List (Sigma.Judgment V)}
+  {Γ A B a b : Sigma.Expression V} (hA : Sigma.Ty Γ A) (hB : Sigma.Ty (Sigma.extend Γ A) B) (ha : Sigma.Tm Γ A a)
+  (hb : Sigma.Tm Γ (Sigma.subTy B (Sigma.pairSub A (Sigma.identitySub Γ) a)) b) :
+  Sigma.Tm Γ (Sigma.sigma A B) (Sigma.pair Γ A B a b)
+SquareKit.Internal.DependentJudgments.Sigma.Tm.split {V : Type} {Ω : List (Sigma.Judgment V)}
+  {Γ A B C d : Sigma.Expression V} (hA : Sigma.Ty Γ A) (hB : Sigma.Ty (Sigma.extend Γ A) B)
+  (hC : Sigma.Ty (Sigma.extend Γ (Sigma.sigma A B)) C)
+  (hd : Sigma.Tm (Sigma.branchContext Γ A B) (Sigma.subTy C (Sigma.pack A B)) d) :
+  Sigma.Tm (Sigma.extend Γ (Sigma.sigma A B)) C (Sigma.split A B d)
+SquareKit.Internal.DependentJudgments.Sigma.Reindexing.Tm.splitSubComp {V : Type} {Ω : List (Sigma.Judgment V)}
+  {Γ Δ A B C d σ Θ τ : Sigma.Expression V} (hA : Sigma.Reindexing.Ty Γ A)
+  (hB : Sigma.Reindexing.Ty (Sigma.extend Γ A) B) (hC : Sigma.Reindexing.Ty (Sigma.extend Γ (Sigma.sigma A B)) C)
+  (hd : Sigma.Reindexing.Tm (Sigma.branchContext Γ A B) (Sigma.subTy C (Sigma.pack A B)) d)
+  (hσ : Sigma.Reindexing.Sub Δ Γ σ) (hτ : Sigma.Reindexing.Sub Θ Δ τ) :
+  have A₁ := Sigma.subTy A σ;
+  have B₁ := Sigma.subTy B (Sigma.lift Δ A σ);
+  have d₁ := Sigma.subTm d (Sigma.lift (Sigma.extend Δ A₁) B (Sigma.lift Δ A σ));
+  Sigma.Reindexing.Equal
+    (Sigma.subTm (Sigma.subTm (Sigma.split A B d) (Sigma.lift Δ (Sigma.sigma A B) σ))
+      (Sigma.lift Θ (Sigma.sigma A₁ B₁) τ))
+    (Sigma.split (Sigma.subTy A₁ τ) (Sigma.subTy B₁ (Sigma.lift Θ A₁ τ))
+      (Sigma.subTm d₁ (Sigma.lift (Sigma.extend Θ (Sigma.subTy A₁ τ)) B₁ (Sigma.lift Θ A₁ τ))))
+SquareKit.Internal.DependentJudgments.Sigma.Reindexing.Tm.splitSubComposite {V : Type} {Ω : List (Sigma.Judgment V)}
+  {Γ Δ A B C d σ Θ τ : Sigma.Expression V} (hA : Sigma.Reindexing.Ty Γ A)
+  (hB : Sigma.Reindexing.Ty (Sigma.extend Γ A) B) (hC : Sigma.Reindexing.Ty (Sigma.extend Γ (Sigma.sigma A B)) C)
+  (hd : Sigma.Reindexing.Tm (Sigma.branchContext Γ A B) (Sigma.subTy C (Sigma.pack A B)) d)
+  (hσ : Sigma.Reindexing.Sub Δ Γ σ) (hτ : Sigma.Reindexing.Sub Θ Δ τ) :
+  have A₁ := Sigma.subTy A σ;
+  have B₁ := Sigma.subTy B (Sigma.lift Δ A σ);
+  have d₁ := Sigma.subTm d (Sigma.lift (Sigma.extend Δ A₁) B (Sigma.lift Δ A σ));
+  Sigma.Reindexing.Equal
+    (Sigma.subTm (Sigma.split A B d)
+      (Sigma.comp (Sigma.lift Δ (Sigma.sigma A B) σ) (Sigma.lift Θ (Sigma.sigma A₁ B₁) τ)))
+    (Sigma.split (Sigma.subTy A₁ τ) (Sigma.subTy B₁ (Sigma.lift Θ A₁ τ))
+      (Sigma.subTm d₁ (Sigma.lift (Sigma.extend Θ (Sigma.subTy A₁ τ)) B₁ (Sigma.lift Θ A₁ τ))))
+SquareKit.Internal.DependentJudgments.Sigma.Reindexing.Tm.pairSubComp {V : Type} {Ω : List (Sigma.Judgment V)}
+  {Γ Δ A B a b σ Θ τ : Sigma.Expression V} (hA : Sigma.Reindexing.Ty Γ A)
+  (hB : Sigma.Reindexing.Ty (Sigma.extend Γ A) B) (ha : Sigma.Reindexing.Tm Γ A a)
+  (hb : Sigma.Reindexing.Tm Γ (Sigma.subTy B (Sigma.pairSub A (Sigma.identitySub Γ) a)) b)
+  (hσ : Sigma.Reindexing.Sub Δ Γ σ) (hτ : Sigma.Reindexing.Sub Θ Δ τ) :
+  Sigma.Reindexing.Equal (Sigma.subTm (Sigma.subTm (Sigma.pair Γ A B a b) σ) τ)
+    (Sigma.pair Θ (Sigma.subTy (Sigma.subTy A σ) τ)
+      (Sigma.subTy (Sigma.subTy B (Sigma.lift Δ A σ)) (Sigma.lift Θ (Sigma.subTy A σ) τ))
+      (Sigma.subTm (Sigma.subTm a σ) τ) (Sigma.subTm (Sigma.subTm b σ) τ))
+SquareKit.Internal.DependentJudgments.Sigma.SourceMap.{u, v} {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} (S : Sigma.Capability M.toStructuralModel)
+  (T : Sigma.Capability N.toStructuralModel) : Type (max u v)
+SquareKit.Internal.DependentJudgments.Sigma.interpret_term_map.{u, v} {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Sigma.Capability M.toStructuralModel}
+  {T : Sigma.Capability N.toStructuralModel} (F : Sigma.SourceMap S T) {V : Type} {Γ A t : Sigma.Expression V}
+  (ρ : V → Value M.toStructuralModel)
+  (ht : SquareKit.GuardedTheory.Atom.eval (Sigma.algebra M S) ρ (Sigma.term Γ A t)) :
+  Value.map F.toStructuralMap (SquareKit.GuardedTheory.Term.eval (Sigma.algebra M S) ρ t) =
+    SquareKit.GuardedTheory.Term.eval (Sigma.algebra N T) (Value.map F.toStructuralMap ∘ ρ) t
+SquareKit.Internal.DependentJudgments.Sigma.retain_dependentAction {V : Type} {Ω : List (Contextual.Judgment V)}
+  (F : Contextual.Memo.Parameters Ω) {p p' h : Contextual.Expression V} (hp : Contextual.Tm F.Γ F.pathType p)
+  (hp' : Contextual.Tm F.Γ F.pathType p') (hh : Contextual.Tm F.Γ (Contextual.identity F.pathType p p') h) :
+  SquareKit.GuardedTheory.Derivation Sigma.theory (List.map (SquareKit.GuardedTheory.Atom.inl Sigma.extraSignature) Ω)
+    (SquareKit.GuardedTheory.Atom.inl Sigma.extraSignature
+      (Contextual.term F.Γ
+        (Contextual.identity (F.certificateType p') (F.transportedCertificate p p' h) (F.certificate p'))
+        (F.dependentAction p p' h)))
+SquareKit.Internal.DependentJudgments.Sigma.recover_transportedSource.{u} {V : Type} {Ω : List (Contextual.Judgment V)}
+  (F : Contextual.Memo.Parameters Ω) (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : Sigma.Capability M.toStructuralModel) (ρ : V → Value M.toStructuralModel) (p p' h : Contextual.Expression V) :
+  SquareKit.GuardedTheory.Term.eval (Sigma.algebra M S) ρ
+      (SquareKit.GuardedTheory.Term.inl Sigma.extraSignature (F.transportedCertificate p p' h)) =
+    SquareKit.GuardedTheory.Term.eval (Contextual.algebra M) ρ (F.transportedCertificate p p' h)
+SquareKit.Internal.DependentJudgments.Sigma.retain_twice {V : Type} {Ω : List (Contextual.Judgment V)}
+  {a : Contextual.Judgment V} (d : SquareKit.GuardedTheory.Derivation Contextual.theory Ω a) :
+  SquareKit.GuardedTheory.Derivation Sigma.closureTheory
+    (List.map (SquareKit.GuardedTheory.Atom.inl Sigma.lawSignature)
+      (List.map (SquareKit.GuardedTheory.Atom.inl Sigma.extraSignature) Ω))
+    (SquareKit.GuardedTheory.Atom.inl Sigma.lawSignature (SquareKit.GuardedTheory.Atom.inl Sigma.extraSignature a))
+'SquareKit.Internal.DependentJudgments.Sigma.collapse_rejected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.missing_dependency_rejected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.closureModel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Examples.GuardedSigma.source_beta_selected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Examples.GuardedSigmaReindexing.Nonidentity.twice_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Examples.GuardedSigmaReindexing.Nonidentity.composite_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]

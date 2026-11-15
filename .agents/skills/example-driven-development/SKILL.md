@@ -87,6 +87,33 @@ Use a meaningful instance to expose vacuity when relevant. A theorem whose
 premise cannot hold says nothing about usable inputs. Examples complement the
 universal proofs and existing axiom audit; they do not replace either.
 
+## Counterexamples and scope checks
+
+When introducing an interface, weakening its laws, or changing its observations,
+look for a plausible unintended model: one satisfying the proposed assumptions
+but violating an independently stated intended consequence. Compare the contract
+with an established mathematical interface where applicable. Choose a
+counterexample for the missing guarantee it exposes, not merely because it has
+an unusual representation. Distinct representations that satisfy the specified
+semantic contract remain admissible.
+
+For generic arguments, inspect the quantifier order and induction domain. List
+intermediate forms the construction or execution can introduce, including open
+parameters, and verify that each reused theorem covers them. Distinguish a
+separate witness for each input from one uniform construction for all inputs.
+These checks apply to paper arguments as well as formal statements; more closed
+examples cannot establish the missing universal claim.
+
+When a mistake is found, retain a checked counterexample or regression case
+where feasible, together with a positive case showing that intended models still
+qualify. Explain which promised result needs the repaired requirement. A failed
+proof attempt alone does not establish impossibility; a rejection proof should
+establish failure of the relevant contract. Prefer a separating construction over
+simply assuming the negation of a required field. Counterexamples may themselves
+be finite, abstract or noncomputable. Reuse existing cases and select new ones
+for consequential risks; there is no quota per declaration. Record unresolved
+scope questions and paper-only evidence in the existing review handoff.
+
 ## Keep the evidence useful
 
 Choose cases for what they reveal: intended use, a consequential edge case, or

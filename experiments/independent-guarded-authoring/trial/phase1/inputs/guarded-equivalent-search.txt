@@ -1,0 +1,50 @@
+SquareKit/Internal/DependentJudgments/SourcePath.lean:54:    (Equal.reflexivity (PresentedPath.pathTypeRoot hx).symmetric (LeftConcatFrame.fixedRoot hx).symmetric)
+SquareKit/Internal/DependentJudgments/NativeTypeModel.lean:75:  invFun := (telescopeEquiv Base Fiber T (rootEquiv Base Fiber A x)).symm
+SquareKit/Internal/DependentJudgments/NativeTypeModel.lean:82:      ((telescopeEquiv Base Fiber T (rootEquiv Base Fiber A x)).symm r)).symm.trans
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:79:    Value.term_eq (M.subTy_id A).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:115:    Value.term_eq (M.toStructuralModel.pathFamily_at A x y).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:193:    (hb.trans (Value.term_eq (motive_root M A B x).symm (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:219:    hb.trans (Value.term_eq (motive_root M A B x).symm (cast_heq _ _).symm)
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:269:    (hp.trans (Value.term_eq (M.toStructuralModel.pathFamily_at A x y).symm (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:354:    (hb.trans (Value.term_eq (apdMotive_root M A B x t).symm (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:394:    ((cast_heq _ _).symm.trans ((cast_heq _ _).symm.trans (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:500:    (hp.trans (Value.term_eq (M.toStructuralModel.pathFamily_at A x y).symm (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/DerivedPathSemantics.lean:541:    (hbranch.trans (Value.term_eq (etaMotive_root M A B x y p b).symm (cast_heq _ _).symm))
+SquareKit/Internal/DependentJudgments/ReferenceSubstitution.lean:142:  case eqSymm _ ih => exact .eqSymm ih
+SquareKit/Internal/DependentJudgments/TelescopePresentation.lean:274:  | symmetric _ ih => exact .symmetric ih
+SquareKit/Internal/DependentJudgments/TelescopePresentation.lean:289:  | symmetric _ ih => exact .symmetric ih
+SquareKit/Internal/DependentJudgments/ReferenceTranslation.lean:120:  case eqSymm _ ih => exact .symmetric ih
+SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean:60:  invFun p := ⟨⟨(f γ).injective ((f.term_apply x γ).symm.trans p.down.down |>.trans
+SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean:163:    invFun p := ⟨⟨(f z.1).injective ((f.term_apply x z.1).symm.trans p.down.down)⟩⟩
+SquareKit/Internal/DependentJudgments/CoherentGroupoidMaps.lean:182:  isoWhiskerRight e.counitIso.symm f ≪≫ isoWhiskerLeft e.inverse α ≪≫
+SquareKit/Internal/DependentJudgments/PathReindexRules.lean:63:    Value.term_eq (M.pathSub_type A x σ).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/MemoPairReindex.lean:44:  exact (cast_heq _ _).symm.trans (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/OrdinaryActionSubstitution.lean:26: apply HEq.trans _ (M.toStructuralModel.subTm_congr (ordinaryFunction_type M A C σ).symm (cast_heq _ _) _).symm
+SquareKit/Internal/DependentJudgments/OrdinaryActionSubstitution.lean:40: exact (M.toStructuralModel.subTm_congr (ordinaryFunction_type M A C σ).symm (cast_heq _ _) _).symm
+SquareKit/Internal/DependentJudgments/ComprehensionMaps.lean:20:  | .invalid => .invalid
+SquareKit/Internal/DependentJudgments/ComprehensionMaps.lean:243:  invalid := .invalid
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:134:@[simp] theorem point_invalid_left (x : Value M) : point M .invalid x = none := rfl
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:135:@[simp] theorem point_invalid_right (a : Value M) : point M a .invalid = none := by
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:137:@[simp] theorem tail_invalid_left (x t : Value M) : tail M .invalid x t = none := by
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:139:@[simp] theorem tail_invalid_point (a t : Value M) : tail M a .invalid t = none := by
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:141:@[simp] theorem tail_invalid_telescope (a x : Value M) : tail M a x .invalid = none := by
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:157:    (h : operation M op args ≠ .invalid) : ∀ i, args i ≠ .invalid := by
+SquareKit/Internal/DependentJudgments/ContextualMaps.lean:412:  invalid := .invalid
+SquareKit/Internal/DependentJudgments/ReferenceRulePresentation.lean:156:  | eqSymm => exact .eqSymm (ds 0)
+SquareKit/Internal/DependentJudgments/ReferenceRulePresentation.lean:442:  | .eqSymm h0 => .rule (R := rules Ξ) ⟨_, _, .eqSymm⟩ (Fin.cases (encode h0) (fun i => Fin.elim0 i))
+SquareKit/Internal/DependentJudgments/DerivedRules.lean:81:    Value.term_eq (M.subTy_id A).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/DerivedRules.lean:114:    Value.term_eq (M.pathFamily_root A x).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/FiniteJTranslation.lean:55:      (Fin.cases (.symmetric eb) (Fin.cases (.symmetric ed)
+SquareKit/Internal/DependentJudgments/PrimitiveSigma/ConstantContextual.lean:39:    simpa only [Telescope.square, reverse, Telescope.liftSub, Telescope.pullback, Telescope.reindex] using reverse_square tail ((M).lift A F) ((M).lift ((M).subTy A K) F') ((M).lift A K)
+SquareKit/Internal/DependentJudgments/PrimitiveSigma/Pairing.lean:70:    Value.term_eq (M.subTy_id A).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/CertificateReindexing.lean:61:      ((hxs.pathFamily.generic.convert (hx.pathSubType hσ).symmetric).recontext hxs.pathDef.symmetric) hs)).transitive
+SquareKit/Internal/DependentJudgments/FiniteJNaturality.lean:81:      (Fin.cases (.symmetric (hT.path_map_eq hx hs)) (Fin.cases (.symmetric er) (fun i => nomatch i)))
+SquareKit/Internal/DependentJudgments/DerivedPaths.lean:96:  (Sub.pair hx.pathFamily hy.section (hp.convert (hx.pathFamilySection hy).symmetric)).retarget hx.pathDef.symmetric
+SquareKit/Internal/DependentJudgments/DependentActionReindexing.lean:36:    (Equal.reflexivity (ht.family.sectionLift hσ hx).symmetric (ht.sectionLift hσ hx).symmetric)
+SquareKit/Internal/DependentJudgments/Sigma/SourceMaps.lean:107:    (h : operation M S op args ≠ .invalid) : ∀ i, args i ≠ .invalid := by
+SquareKit/Internal/DependentJudgments/Sigma/SourceMaps.lean:122:  invalid := .invalid
+SquareKit/Internal/DependentJudgments/Sigma/Maps.lean:55:      (F.sumContext A B).symm (displayContext F.toStructuralMap A B).symm
+SquareKit/Internal/DependentJudgments/Sigma/Pairing.lean:70:    Value.term_eq (M.subTy_id A).symm (cast_heq _ _).symm
+SquareKit/Internal/DependentJudgments/PresentedPath.lean:64:        (Equal.reflexivity (carrierRoot hx hT).symmetric (firstRoot hx hT).symmetric)))
+SquareKit/Internal/DependentJudgments/Sigma/Reindexing.lean:481:  | symmetric _ ih => exact .symmetric ih
+SquareKit/Internal/DependentJudgments/OrdinaryActionEvaluation.lean:52:  (hb.trans (Value.term_eq (ordinaryApMotive_root M A C t x).symm (cast_heq _ _).symm))

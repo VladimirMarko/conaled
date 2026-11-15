@@ -1,0 +1,403 @@
+{
+  "clock": "perf_counter_ns",
+  "unit": "ns",
+  "scope": "local pipe round-trip after process startup; not a CPU-work or remote-latency proof",
+  "rows": [
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "a",
+      "elapsed_ns": 304089,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 12005,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7926,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "b",
+      "elapsed_ns": 81859,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7991,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 6765,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 37929,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "a",
+      "elapsed_ns": 283850,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "s",
+      "elapsed_ns": 255886,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 15823,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "b",
+      "elapsed_ns": 65569,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 124840,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 8289,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 74692,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "a",
+      "elapsed_ns": 314538,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 11434,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7204,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "b",
+      "elapsed_ns": 67666,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7940,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 6455,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 36570,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "a",
+      "elapsed_ns": 283417,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "s",
+      "elapsed_ns": 251168,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 14990,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "b",
+      "elapsed_ns": 67869,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 122088,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 8316,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 84376,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "a",
+      "elapsed_ns": 299217,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 10861,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7498,
+      "responses": [
+        "Q:10:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "b",
+      "elapsed_ns": 77940,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 7855,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 6594,
+      "responses": [
+        "Q:01:fused/fused:0:1"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 38967,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "a",
+      "elapsed_ns": 297349,
+      "responses": [
+        "B:11",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "s",
+      "elapsed_ns": 260516,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 19696,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "b",
+      "elapsed_ns": 70031,
+      "responses": [
+        "B:01",
+        "C:ticked"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 135601,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "m",
+      "elapsed_ns": 8307,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 79040,
+      "responses": [
+        "B:10",
+        "C:ticked"
+      ]
+    }
+  ]
+}

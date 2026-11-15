@@ -44,9 +44,9 @@ contract determine its scope.
 | Internal languages and models | Graph and logical reasoning, dependent fragments, sheaf and presheaf interpretations, groupoid transport, higher-identity examples, and classifiers. Start with [SquareKit/Internal/](SquareKit/Internal/), [dependent-source examples](Examples/DependentSource.lean), and [Sierpiński examples](Examples/SierpinskiSheaf.lean). |
 | Emission and interpretation | A bounded graph-core emitter with typing and denotation proofs, translation validation, and checked Lean callers. See the [implementation record](docs/research/graph-emission-implementation.md) and [caller examples](Examples/GraphEmission.lean). |
 | Smooth and orbifold geometry | Smooth algebra and sheaf constructions, descent and torsors, manifold comparisons, frame transport, and exact and rational disk-motion realizations. See [manifold examples](Examples/MathlibManifoldRealization.lean), [torsor examples](Examples/SmoothTorsors.lean), and [numerical motion](docs/research/numerical-motion.md). |
-| Functional reactive programming | Denotational events/switching, frontier protocols, an executable command engine, compiled initialized reactive consumers and sequential request lifecycles. See the [lifecycle](docs/research/request-lifecycle.md), [finite-circuit indefinite service](docs/research/indefinite-reactive-service.md), and [current limits and follow-up](docs/research/frp-runtime-follow-up.md). |
+| Functional reactive programming | Denotational events/switching, frontier protocols, an executable command engine, compiled initialized reactive consumers and sequential request lifecycles. See the [lifecycle](docs/research/request-lifecycle.md), [finite-circuit indefinite service](docs/research/indefinite-reactive-service.md), [pending peer migration](docs/research/pending-peer-migration.md), and [current limits and follow-up](docs/research/frp-runtime-follow-up.md). |
 | Probability and Monte Carlo | Measurable accept/reject kernels, exact finite Metropolis–Hastings, compositional interpretation, and probabilistic finite delivery. See [probability contracts](docs/probability.md), [stochastic progress](docs/probabilistic-progress.md), and [checked MH compositions](Examples/MetropolisHastings.lean). |
-| Algorithm derivation and data structures | Reconstructed sorting, selection, graph, search, dynamic-programming, and sequence developments, with refinement and explicit resource results. The [ADWH reconstruction map](docs/research/adwh-reconstruction-map.md) records provenance and remaining scope; [resource examples](Examples/Resources.lean) exercise composition and reweighting. |
+| Algorithm derivation and data structures | Reconstructed sorting, selection, graph, search, dynamic-programming, and sequence developments, with refinement and explicit resource results. The [ADWH reconstruction map](docs/research/adwh-reconstruction-map.md) records provenance and remaining scope, including [recovered list, numeral and recurrence foundations](docs/research/adwh-recovered-integration.md); [resource examples](Examples/Resources.lean) exercise composition and reweighting. |
 
 For examples of composition, [ArithmeticPipeline](Examples/ArithmeticPipeline.lean)
 connects incremental updates, stack recomputation, and interval enclosure;
@@ -86,8 +86,11 @@ scope, dependencies, and completion status.
 |---|---|---|
 | Felix port and completion | Port and extend Felix's constructions and proofs beyond the initial parity milestone | [#8](https://github.com/VladimirMarko/conaled/issues/8), [implementation evidence](docs/research/felix-parity-implementation.md) |
 | Shared internal language | Reusable internal reasoning, interpretations, and differential cohesive models | [#36](https://github.com/VladimirMarko/conaled/issues/36), [language direction](docs/language-direction.md), [nested efforts](docs/research/language-architecture-research.md#approved-follow-up-work) |
-| Construction and observation | Compatible construction, observation, interpretation and extension; duality and verified presentations | [Agenda](docs/research/duality-language-directions.md), [composition result #268](https://github.com/VladimirMarko/conaled/issues/268), follow-ups #266/#267/#269/#270/#271; coordinated with #36/#200/#235/#8 |
-| Logical correspondences and transport | Prioritize demonstrated preservation-law reuse while continuing logic classification and interpretation research | [#200](https://github.com/VladimirMarko/conaled/issues/200), [classification](https://github.com/VladimirMarko/conaled/issues/201), [preservation architecture #235](https://github.com/VladimirMarko/conaled/issues/235), [architecture and author trials](docs/research/preservation-architecture.md), [first experiment #231](https://github.com/VladimirMarko/conaled/issues/231), [implemented-contract inventory](docs/research/preservation-contract-inventory.md) |
+| Construction and observation | Compatible construction, observation, interpretation and extension; duality and verified presentations | [Agenda](docs/research/duality-language-directions.md), [ordinary composition](docs/research/compositional-constructor-observer-laws.md), [indexed composition](docs/research/indexed-constructor-observer-laws.md), [full finite parser composition #274](https://github.com/VladimirMarko/conaled/issues/274), [bialgebraic assessment and follow-ups](docs/research/bialgebraic-semantics-adoption.md), [relation to the research agenda](docs/research/construction-observation-research-assessment.md); coordinated with #36/#200/#235/#8 |
+| Logical correspondences and transport | Prioritize demonstrated preservation-law reuse while continuing logic classification and interpretation research | [#200](https://github.com/VladimirMarko/conaled/issues/200), [classification](https://github.com/VladimirMarko/conaled/issues/201), [preservation architecture #235](https://github.com/VladimirMarko/conaled/issues/235), [external discovery assessment](docs/research/external-discovery-assessment.md) (#280; follow-ups #286/#287), [architecture and author trials](docs/research/preservation-architecture.md), [first experiment #231](https://github.com/VladimirMarko/conaled/issues/231), [implemented-contract inventory](docs/research/preservation-contract-inventory.md) |
+| Compositional theory extensions | Model expansion, admissibility and retained witnesses | [#288](https://github.com/VladimirMarko/conaled/issues/288), [checked all-model extensions and descent](docs/research/all-model-representation-extensions.md), [research agenda](docs/research/language-research-agenda.md) |
+| Dependent semantics and coherence | Dependent judgment interpretation, constructor admission and model coherence | [#289](https://github.com/VladimirMarko/conaled/issues/289), [architectural reassessment and reviewed findings](docs/research/dependent-architecture-reassessment.md), [initial coherence comparison](docs/research/dependent-coherence-comparison.md) |
+| Reusable theories and proof transport | Discover, publish and interpret mathematical requirements | [#290](https://github.com/VladimirMarko/conaled/issues/290), [requirement-discovery trial](docs/research/proof-requirement-author-trial.md), [theory-network comparison](docs/research/theory-network-comparison.md) |
 | Temporal logic and FRP | Constructive temporal programs, monitoring, and comparisons with existing FRP observations and progress guarantees | [#204](https://github.com/VladimirMarko/conaled/issues/204), a focused sub-workstream of [#200](https://github.com/VladimirMarko/conaled/issues/200), coordinated with [#27](https://github.com/VladimirMarko/conaled/issues/27) and [#31](https://github.com/VladimirMarko/conaled/issues/31) |
 | Modular abstraction and cost transport | Assess Harper's methods and reuse client proofs and cost bounds across representations | [#208](https://github.com/VladimirMarko/conaled/issues/208), a focused sub-workstream of [#200](https://github.com/VladimirMarko/conaled/issues/200), coordinated with [#174](https://github.com/VladimirMarko/conaled/issues/174) and [#177](https://github.com/VladimirMarko/conaled/issues/177) |
 | FRP | Reactive semantics, compiled discrete execution, long-running state and external driver contracts | Runtime scope [#27](https://github.com/VladimirMarko/conaled/issues/27), indefinite-service class [#234](https://github.com/VladimirMarko/conaled/issues/234), request protocol/retention [#232](https://github.com/VladimirMarko/conaled/issues/232), bounded driver [#233](https://github.com/VladimirMarko/conaled/issues/233), [evidence and sequence](docs/research/frp-runtime-follow-up.md) |
@@ -158,6 +161,14 @@ The first command obtains the pinned dependencies and their compiled cache.
 public-entrypoint coverage, builds every integrated module with stock Lake's
 incremental dependency tracking, then executes `ProofAudit.lean`. The exhaustive
 audit runs on every invocation, including when compilation is entirely cached.
+Import discovery uses the pinned Lean header parser; the source-policy guard
+uses Lean's lexer, literal and comment parsers. The preflight also rejects
+imports after initial module documentation before compiling project modules.
+Compilation remains the authority for complete syntax, including local syntax
+extensions. Python retains scheduling, coverage graph checks and candidate
+receipts, but does not parse Lean source. See the
+[native-source implementation record](docs/research/native-verification-source.md).
+
 Successful builds remain in Lake's normal output directories for later reuse.
 Lake owns incremental scheduling; this wrapper adds no persistent cache. Before
 and after the incremental build, an output-integrity guard compares project
@@ -213,7 +224,7 @@ or `--fresh --jobs N` to set a memory-appropriate limit (default: up to four).
 
 Both modes discard caller `LEAN_PATH` and verify the compiler version against
 `lean-toolchain`. Incremental mode uses Lake's configured import paths and
-compiler. Fresh mode uses only its new project outputs and dependency caches;
+compiler. Fresh mode uses only its new project outputs and dependency paths resolved by Lake;
 it also supports `LEAN=/absolute/path/to/lean`. `--jobs` and `LEAN` overrides are
 rejected outside fresh mode rather than silently ignored.
 
@@ -252,10 +263,11 @@ Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source
 artifacts. The command reports build, audit, and total elapsed times.
 
-After `lake build`, run `lake env python3 scripts/test-proof-audit.py` to check
+Run `python3 scripts/test-proof-audit.py` in the development shell to check
 that the audit rejects private forbidden dependencies, admissions, and unsafe
 source declarations. Its temporary fixtures also check that an unused external
-axiom does not cause a false rejection. Two additional suites need only the
+axiom does not cause a false rejection. It compiles the real audit against a
+small fixture entrypoint without using project build artifacts. Two additional suites need only the
 development shell and cached dependencies:
 
 ```sh
@@ -287,6 +299,10 @@ does not validate the rest of the monorepo.
 
 The full check ends with a transitive axiom audit of integrated local kernel
 declarations, including private definitions and generated proof auxiliaries.
+Coverage, candidate checks and audit ownership share the filesystem inventory in
+`scripts/project_sources.py`, including newly added root modules. Standalone audit
+commands run from the project root and require Python to obtain that inventory;
+an inventory failure stops the audit. `ProofAudit` itself is infrastructure.
 The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 Admissions, application-specific axioms, and native-evaluation axiom shortcuts
 are rejected. See [ProofAudit.lean](ProofAudit.lean) for the precise treatment
@@ -304,6 +320,11 @@ The FRP protocols do not constitute a complete scheduler or runtime, and the
 geometric developments do not establish delivery of a complete simulator.
 Consult the linked examples, research records, and scope-owning issues for
 what each development supplies and what remains open.
+
+The verification driver itself has no connected formal interaction semantics yet.
+The [verification architecture plan](docs/research/verification-architecture-plan.md)
+describes the proposed use of library contracts, fallible external observations,
+and an explicit bootstrap path.
 
 ## Parallel and experimental developments
 

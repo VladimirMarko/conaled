@@ -1,0 +1,30 @@
+{
+  "base": "2f89f8651843797822efbb7da038311ab3d9f04d",
+  "candidate": "ec027e79f612ef1bf21c9968c91639dcfae0f554",
+  "tree": "6bc80e29691f0f77fdad29dc2e79d6f1d12b2d73",
+  "checkout": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout",
+  "mapping": [
+    {
+      "overlay_path": "Examples/IndependentGuardedInvolution.lean",
+      "sha256": "4dc308b0b8cf2e69b322796c264092e1025bfb2f9fdf21ddc6a33a7b3e66133a",
+      "bytes": 26483,
+      "origin": "experiments/independent-guarded-authoring/trial/work/Attempt.lean"
+    },
+    {
+      "overlay_path": "SquareApplications.lean",
+      "sha256": "ac5abc46a725ec53a1bdc01676af676483037ddad9cb2b35941680c262ee878b",
+      "bytes": 20391,
+      "origin": "frozen public entrypoint with one added import"
+    },
+    {
+      "overlay_path": "experiments/independent-guarded-authoring/trial/inputs/upstream/LICENSE.md",
+      "sha256": "2313ef68bef65ddbc08c41ff7dbb64ad4cc77fcbb97fa0898698e5d16e2f5e59",
+      "bytes": 1077,
+      "origin": "experiments/independent-guarded-authoring/trial/inputs/upstream/LICENSE.md"
+    }
+  ],
+  "public_import_delta": "import Examples.IndependentGuardedInvolution",
+  "frozen_tracked_files_unchanged": true,
+  "identical_caller_bytes": true,
+  "validation_scope": "Infrastructure overlay only. No production integration or framework change."
+}

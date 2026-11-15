@@ -1,0 +1,25 @@
+# Slot 5 selected-source replay and audit contexts
+
+Coordinator validation support only. The eight selected sources in `replay-selection.json` were copied byte-for-byte and checked against `submission.json`: Draft, Composition, Context, Substitution, Before, After, NegativeDraft and HeldOutDraft. Historical ScaleDraft remains unchanged in the frozen submission and earlier attempts. It is not an additional selected obligation. `replay-01/selection-correspondence.json` binds this explicit selection and the historical file hash; no author source was deleted or rewritten.
+
+Preparation session **80260** passed native production source policy and all eight fresh CPU0 compilations. Native imports were inspected and match the respective task fixture plus implicit Init. The combined-import smoke also passed, but is only a compatibility observation: it does not establish independent origin coverage for duplicate helper declarations. Commands, durations, exits and logs are in `focused-results.json`; original-to-copy hashes are in `sources.json`.
+
+The source mirror retains the complete accepted stage, adds all eight selected files, and uses the unchanged production source inventory helper and ProofAudit. The inventory has **2,951 modules**. `input-correspondence.json`, `complete-source-hashes.json`, `output-hashes.json`, `copied-artifact-correspondence.json` and `environment.json` retain provenance. All 3,429 copied stage artifact files match. Before is replayed against the full current Repair fixture with unchanged baseline declarations; the supplied restricted baseline and original phase checks remain distinct evidence. No coordinator setup or author failure occurred in this replay.
+
+## Duplicate declarations and original ownership
+
+Composition, Context, Substitution and HeldOutDraft each define expand_equal, rename_typed_comp, liftRen_typed, renamed_equal, chain_equal and left_right_equal under `Examples.ConversionTrial`. Before and After also define expand_equal. No helper source is merged, renamed or removed.
+
+Origin probe session **8199** tested six import contexts, each importing the entire eight-file selected submission and placing one overlapping original module first. Every context compiled. `origin-results.json` and the six `Origins-*.log` files confirm that each of the four scale/held-out modules owns all six repeated helpers in its first-import context, while Before and After each own expand_equal in theirs. These observations justify six exhaustive audit contexts. One successful combined import would not cover each original helper owner.
+
+The frozen selection's instruction not to import standalone sources together is respected as an acceptance warning: no single combined context is treated as complete evidence. The coordinator contexts intentionally vary the first owner while retaining the complete filesystem inventory. Each source is freshly compiled independently first. This preserves author bytes and each original defining module's audit opportunity without narrowing inventory or inventing an author repair.
+
+## Audit queue
+
+Session **15361** runs `direnv exec . taskset -c 0 python3 /tmp/conaled-wave-20261111/queue-slot5-audits.py`. It waits for the existing `/tmp/conaled-wave-20261111/build.lock`, then executes the six commands in `replay-01/audit-queue.json` sequentially. Each driver imports all eight selected source modules plus the existing Validate module and invokes unchanged production `#audit_project_axioms`. Worker7 build hashes, source/output hashes, submitted originals, copied stage outputs, inventory and driver hashes are checked before waiting, under the lock and around each audit.
+
+Logs are `Audit-{Composition,Context,Substitution,HeldOutDraft,Before,After}.log`; individual result receipts use matching `audit-result-*.json` names. `audit-state.json` and `audit-results.json` distinguish queued/running/completed states. Require successful exits, full 2,951-module coverage and allowed-axiom results in every context before reporting validation complete. Preserve any failures.
+
+These are six coordinator audit contexts for one author's selected submission, not six independent author observations. Their project/module/declaration counts overlap and must not be summed. NegativeDraft's equal-index and unequal-syntax diagnostics are not by themselves checked FuncEq inequivalence; the retained rejection prose and IndexTask proof remain separately classified by the coordinator.
+
+Status: focused replay **Passed**; all six full production audits **queued/pending**. No worker7 artifact, stage source, public release, accepted source checkout or frozen author byte was modified. No publication occurred. Final review and acceptance remain root-owned; this preparation's author cannot serve as its independent final reviewer.

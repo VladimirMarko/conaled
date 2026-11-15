@@ -52,6 +52,29 @@ theorem Delivers.coherent {step : Producer S A} {s xs ys t z k l}
       cases eq
       simpa using ih tail
 
+/-- Determinism fixes the state and transition count of the same output prefix. -/
+theorem Delivers.unique {step : Producer S A} {s : S} {xs : List A} {t z : S} {k l : Nat}
+    (h : Delivers step s xs t k) (j : Delivers step s xs z l) : t = z ∧ k = l := by
+  induction h generalizing z l with
+  | nil => cases j; exact ⟨rfl, rfl⟩
+  | cons first _ ih =>
+    cases j with
+    | cons other tail =>
+      obtain ⟨same, cost⟩ := first.unique other
+      cases same
+      cases cost
+      obtain ⟨rfl, rfl⟩ := ih tail
+      exact ⟨rfl, rfl⟩
+
+/-- A silent prefix can precede a nonempty delivery, never a positive-cost empty one. -/
+theorem Delivers.prepend_silent {step : Producer S A} {s t z : S} {a : A} {xs : List A}
+    {k : Nat} (h : Delivers step t (a :: xs) z k) (silent : step s = .inr t) :
+    Delivers step s (a :: xs) z (k + 1) := by
+  cases h with
+  | cons first rest =>
+    simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
+      Delivers.cons (Evaluates.next silent first) rest
+
 /-- Guarded coalgebras have exactly one output per atomic step. -/
 abbrev Coalgebra (S A : Type u) := S → A × S
 
@@ -65,6 +88,18 @@ def unfold (c : Coalgebra S A) (s : S) : Nat → List A
 def advance (c : Coalgebra S A) (s : S) : Nat → S
   | 0 => s
   | n + 1 => advance c (c s).2 n
+
+theorem unfold_add (c : Coalgebra S A) (s : S) (m n : Nat) :
+    unfold c s (m + n) = unfold c s m ++ unfold c (advance c s m) n := by
+  induction m generalizing s with
+  | zero => simp [unfold, advance]
+  | succ m ih => simp [Nat.succ_add, unfold, advance, ih]
+
+theorem advance_add (c : Coalgebra S A) (s : S) (m n : Nat) :
+    advance c s (m + n) = advance c (advance c s m) n := by
+  induction m generalizing s with
+  | zero => simp [advance]
+  | succ m ih => simp [Nat.succ_add, advance, ih]
 
 @[simp] theorem unfold_length (c : Coalgebra S A) (s : S) (n : Nat) :
     (unfold c s n).length = n := by

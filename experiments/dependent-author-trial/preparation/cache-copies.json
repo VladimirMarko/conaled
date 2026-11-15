@@ -1,0 +1,18 @@
+{
+  "start": "2026-11-05T02:45:33.756037+00:00",
+  "source": "/tmp/conaled-314-320/320/.lake/packages",
+  "method": "shutil.copytree(symlinks=True), ordinary copies, no hardlinks, dependency packages only",
+  "arms": {
+    "baseline": {
+      "finish": "2026-11-05T02:45:39.906153+00:00",
+      "elapsed_seconds": 6.150093094000113,
+      "destination": "/tmp/conaled-314-320/authors/baseline/.lake/packages"
+    },
+    "candidate": {
+      "finish": "2026-11-05T02:45:50.476102+00:00",
+      "elapsed_seconds": 10.569904473999486,
+      "destination": "/tmp/conaled-314-320/authors/candidate/.lake/packages"
+    }
+  },
+  "finish": "2026-11-05T02:45:50.476133+00:00"
+}

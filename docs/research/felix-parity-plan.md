@@ -6,7 +6,7 @@ The proposal adds reusable infrastructure and compatibility adapters in `SquareK
 
 ## Execution graph
 
-All execution tickets are direct sub-issues of [milestone #15](https://github.com/VladimirMarko/conaled/issues/15), with native blocking relationships. Use that issue as the spec for `implement-spec`; #1 remains the planning record. The ticket bodies own execution scope and acceptance criteria. The groups below preserve the architectural rationale and original coverage without assigning each group to one session.
+All execution tickets are direct sub-issues of [milestone #15](https://github.com/VladimirMarko/conaled/issues/15), with native blocking relationships. That issue records the milestone scope; #1 remains the planning record. The ticket bodies own execution scope and acceptance criteria. Follow the current implementation guidance in [AGENTS.md](../../AGENTS.md) for further work. The groups below preserve the architectural rationale and original coverage without assigning each group to one session.
 
 | Ticket | Delivers | Blocked by |
 |---|---|---|

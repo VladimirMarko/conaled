@@ -1,0 +1,163 @@
+{
+  "records": [
+    {
+      "probe": "DeclarationProbe",
+      "exit": 0,
+      "expected_outcome": true,
+      "seconds": 0.9231418139825109,
+      "output_sha256": "82f48f05f8e990d424efab105e1b70a4a2bbeb6ee934c7b928889fbb0465fee4"
+    },
+    {
+      "probe": "NormalizationProbe",
+      "exit": 1,
+      "expected_outcome": true,
+      "seconds": 0.6231982809840702,
+      "output_sha256": "08ccba5efa9b9de399aae0b7ce87267d40acd6c0366627d28c8ca73ceb6a18eb"
+    },
+    {
+      "probe": "DiagnosticControls",
+      "exit": 0,
+      "expected_outcome": true,
+      "seconds": 0.5512348210031632,
+      "output_sha256": "35e3b8dfa38cff21189650cedec06848083c293a603ea604bd1e0fefdf81f77c"
+    }
+  ],
+  "complete": true,
+  "meaning": "declaration inspection, expected failed normalization, runtime controls and audited position theorem; not fresh closure or scanner equality",
+  "prior_attempts": [
+    {
+      "round": 1,
+      "disposition": "Startup only: historical package paths absent; no Lean probe ran."
+    },
+    {
+      "round": 2,
+      "disposition": "Normalization timed out without the historical local mkFEnv cbv rules; not scanner-obstruction evidence.",
+      "results.json": {
+        "records": [
+          {
+            "probe": "DeclarationProbe",
+            "exit": 0,
+            "expected_outcome": true,
+            "seconds": 2.205758190015331,
+            "output_sha256": "58cfff43cc745bbef6896117b725d7707a79c0609ff3ec20d2ada38d4d033c14"
+          },
+          {
+            "probe": "NormalizationProbe",
+            "exit": 1,
+            "expected_outcome": false,
+            "seconds": 29.46454998801346,
+            "output_sha256": "38b21ddfc8489549828796ef96123fa7e5b99851e219789885a8b9e06b677ec1"
+          }
+        ],
+        "complete": false
+      },
+      "manifest.json": {
+        "format": 1,
+        "historical_candidate": "c4cbfdea38817f64760fb03319a94d25422dc65a",
+        "upstream_pin": "8e166ca53cd1f864b63c13cc1d326d38316d00ea",
+        "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+        "closure_provenance_sha256": "977f3f12b240682aaa0582ebdfd50a6d5beebb328fee8f71353441d72afb2c8c",
+        "control_sources": {
+          "experiments/relative-graph/CachedRejectionsMissing.lean": "297b314809a0cda2121bec73a6d417636056172e357f0cb2ae5a90e56a84f68d",
+          "experiments/relative-graph/CachedRejectionsFamilies.lean": "904c7ec49be3c3c1916ea00ec0498b64ec5f59c8ff4a5f18d267cae186b94aad",
+          "experiments/relative-graph/CachedRejections.lean": "68de32c76da5ce17437dc81174192ab91f0cb9c515b99fcec45967c2aaee205f"
+        },
+        "probe_sources": {
+          "DeclarationProbe.lean.txt": "135f7e714905576f6f28cca52ad4032dca8bdfd137863fc875d86038240974d4",
+          "NormalizationProbe.lean.txt": "95dc746025a9b79a3663b6cd48ac4941e3566848ce3f4a5311ac305dd26ed002",
+          "DiagnosticControls.lean.txt": "1213d556e4aae82cca7858e18eb9e45ec4b7802c6d0c80ff98e725ed938ce05f"
+        },
+        "runner_sha256": "140e4c46ecffc13299fc7fd297557c4097635a37eea84bb6de64324f1c1952d8",
+        "fresh_closure": false,
+        "upstream_run": "/tmp/conaled-369-orchestration/fresh-417-c4cbfde"
+      }
+    },
+    {
+      "round": 3,
+      "disposition": "Inspecting partial implementation equations caused kernel rejection of generated safe declarations.",
+      "results.json": {
+        "records": [
+          {
+            "probe": "DeclarationProbe",
+            "exit": 1,
+            "expected_outcome": false,
+            "seconds": 0.995706974004861,
+            "output_sha256": "09940ddfc2b32a9dc313786582f1dad6b6df8c7238060539e78c4d066cafbbb5"
+          }
+        ],
+        "complete": false
+      },
+      "manifest.json": {
+        "format": 1,
+        "historical_candidate": "c4cbfdea38817f64760fb03319a94d25422dc65a",
+        "upstream_pin": "8e166ca53cd1f864b63c13cc1d326d38316d00ea",
+        "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+        "closure_provenance_sha256": "977f3f12b240682aaa0582ebdfd50a6d5beebb328fee8f71353441d72afb2c8c",
+        "control_sources": {
+          "experiments/relative-graph/CachedRejectionsMissing.lean": "297b314809a0cda2121bec73a6d417636056172e357f0cb2ae5a90e56a84f68d",
+          "experiments/relative-graph/CachedRejectionsFamilies.lean": "904c7ec49be3c3c1916ea00ec0498b64ec5f59c8ff4a5f18d267cae186b94aad",
+          "experiments/relative-graph/CachedRejections.lean": "68de32c76da5ce17437dc81174192ab91f0cb9c515b99fcec45967c2aaee205f"
+        },
+        "probe_sources": {
+          "DeclarationProbe.lean.txt": "390cd9bbf10335f4fcc1c81f27628c81bb854fff58561949971a52940975e941",
+          "NormalizationProbe.lean.txt": "2977f2c1a688ed25ea2f22cb1148839ed9d3ac89345c4591ea5f5eb00d200043",
+          "DiagnosticControls.lean.txt": "1213d556e4aae82cca7858e18eb9e45ec4b7802c6d0c80ff98e725ed938ce05f"
+        },
+        "runner_sha256": "e9f860eb9379ce5c60198421d98b5b1e8bff557ce8364aafcc4e4260a0c12190",
+        "fresh_closure": false,
+        "upstream_run": "/tmp/conaled-369-orchestration/fresh-417-c4cbfde"
+      }
+    },
+    {
+      "round": 4,
+      "disposition": "Normalization reached the scanner; runtime controls had a local Lean.Name versus ConLeche.Name constructor error.",
+      "results.json": {
+        "records": [
+          {
+            "probe": "DeclarationProbe",
+            "exit": 0,
+            "expected_outcome": true,
+            "seconds": 0.9438018650107551,
+            "output_sha256": "82f48f05f8e990d424efab105e1b70a4a2bbeb6ee934c7b928889fbb0465fee4"
+          },
+          {
+            "probe": "NormalizationProbe",
+            "exit": 1,
+            "expected_outcome": true,
+            "seconds": 0.6202510680013802,
+            "output_sha256": "9fe05572a5ad2c3cb38882fb91b2654655821a4ebe54d2709a039c41c5272b57"
+          },
+          {
+            "probe": "DiagnosticControls",
+            "exit": 1,
+            "expected_outcome": false,
+            "seconds": 0.5464190630009398,
+            "output_sha256": "e73427d24d5bda7a6be7a8173067776faeb20ddddbcaf4f3bf50e4ae3d3a801c"
+          }
+        ],
+        "complete": false
+      },
+      "manifest.json": {
+        "format": 1,
+        "historical_candidate": "c4cbfdea38817f64760fb03319a94d25422dc65a",
+        "upstream_pin": "8e166ca53cd1f864b63c13cc1d326d38316d00ea",
+        "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+        "closure_provenance_sha256": "977f3f12b240682aaa0582ebdfd50a6d5beebb328fee8f71353441d72afb2c8c",
+        "control_sources": {
+          "experiments/relative-graph/CachedRejectionsMissing.lean": "297b314809a0cda2121bec73a6d417636056172e357f0cb2ae5a90e56a84f68d",
+          "experiments/relative-graph/CachedRejectionsFamilies.lean": "904c7ec49be3c3c1916ea00ec0498b64ec5f59c8ff4a5f18d267cae186b94aad",
+          "experiments/relative-graph/CachedRejections.lean": "68de32c76da5ce17437dc81174192ab91f0cb9c515b99fcec45967c2aaee205f"
+        },
+        "probe_sources": {
+          "DeclarationProbe.lean.txt": "ff30dbd27047b6e30961e8f3c54bc8f5ba6ed2efef6e47090bb5e038f0a81852",
+          "NormalizationProbe.lean.txt": "2977f2c1a688ed25ea2f22cb1148839ed9d3ac89345c4591ea5f5eb00d200043",
+          "DiagnosticControls.lean.txt": "1213d556e4aae82cca7858e18eb9e45ec4b7802c6d0c80ff98e725ed938ce05f"
+        },
+        "runner_sha256": "e9f860eb9379ce5c60198421d98b5b1e8bff557ce8364aafcc4e4260a0c12190",
+        "fresh_closure": false,
+        "upstream_run": "/tmp/conaled-369-orchestration/fresh-417-c4cbfde"
+      }
+    }
+  ],
+  "reviewed_boundary": "Final normalization goal retains Expr.hasStrLitGo on the actual emitted body; runtime controls are not classification proofs."
+}

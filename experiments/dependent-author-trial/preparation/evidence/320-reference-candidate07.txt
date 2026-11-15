@@ -1,0 +1,25 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/CandidateReference.lean:86:50: error(lean.unknownIdentifier): Unknown identifier `hσ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:86:53: error(lean.unknownIdentifier): Unknown identifier `hτ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:86:61: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:91:35: error(lean.unknownIdentifier): Unknown identifier `hp`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:91:38: error(lean.unknownIdentifier): Unknown identifier `hσ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:91:41: error(lean.unknownIdentifier): Unknown identifier `hτ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:91:49: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:97:54: error(lean.unknownIdentifier): Unknown identifier `hσ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:97:57: error(lean.unknownIdentifier): Unknown identifier `hτ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:100:45: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+experiments/dependent-author-trial/preparation/CandidateReference.lean:96:71: error: unsolved goals
+V : Type
+Ω : List (Contextual.Judgment V)
+Γ A x T Q p Θ σ τ : Contextual.Expression V
+n : ℕ
+hx : Tm Γ A x
+hT : Tel n (path A x) T
+hp : Tm (total T) Q p
+M : PathTransport.Typed.Model
+S : Sigma.Stable M.toStructuralModel
+ρ : V → Value M.toStructuralModel
+⊢ Contextual.Expression V

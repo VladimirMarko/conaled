@@ -8,6 +8,19 @@ The [inventory](preservation-contract-inventory.md) and the experiment's
 compatibility table remain the source-backed record of native contracts and
 missing adapters.
 
+The later [external comparison](external-language-comparison.md) assesses
+alternative foundations and computational semantics against the language ambition.
+Its completed first pass proposes discriminating experiments.
+The [#280 assessment](external-discovery-assessment.md) selects #286/#287 for
+requirement discovery and representation-extension comparisons;
+the local milestone below remains evidence for its original bounded clients.
+The completed [requirement comparison](proof-requirement-comparison.md) and
+[representation-extension comparison](representation-extension-comparison.md)
+now provide paper derivations and explicit limits. The former does not justify
+a general importer; the latter separates model expansion from selected-witness
+descent and natural choice. Their reusable mathematical contracts do not claim
+new Lean interfaces or measured author effectiveness.
+
 ## A family of compatible laws
 
 `Interaction.Refines` covers each admitted target behavior by a related source

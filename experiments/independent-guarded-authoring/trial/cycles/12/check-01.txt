@@ -1,0 +1,26 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:248:29: error: Application type mismatch: The argument
+  motive A x
+has type
+  PathComparison.PathCtx A x ⥤ Grpd
+but is expected to have type
+  M.Family ?m.9
+in the application
+  M.subTy (motive A x)
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:250:4: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:259:17: error(lean.unknownIdentifier): Unknown identifier `StructuralModel.pathContext`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:259:46: error(lean.unknownIdentifier): Unknown identifier `StructuralModel.pathFamily`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:262:8: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:271:4: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:274:30: error: Type mismatch
+  inverseSection ?m.12 ?m.14 ?m.16 ?m.18
+has type
+  Section (identityFamily ?m.12 ?m.16 ?m.14)
+but is expected to have type
+  Section (motive A x)
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:293:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

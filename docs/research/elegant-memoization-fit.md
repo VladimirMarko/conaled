@@ -57,3 +57,12 @@ This keeps the extension discipline visible without importing Haskell's
 partiality or sharing assumptions into Lean's total function semantics.
 
 Implementation is tracked in [#263](https://github.com/VladimirMarko/conaled/issues/263).
+
+## Bounded implementation
+
+The total constructors, bounded word tables, domain-equivalence transport and
+retained well-founded recursive client are implemented in
+`Applications/Memoization/`. The [implementation report](compositional-memoization.md)
+records checked contracts, actual operation counts, source boundaries and the
+remaining dependent-parser adapter obligation. This completes the bounded
+implementation proposed above; it does not settle the talk's broader challenges.

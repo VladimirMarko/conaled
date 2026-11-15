@@ -1,0 +1,37 @@
+import pathlib,json,hashlib,subprocess,os,fcntl,datetime
+p=pathlib.Path('/tmp/conaled-wave-20261111');out=p/'423-trial-execution/slot-3/replay-01';stage=p/'423-trial-stage-round3'
+def h(f):
+ x=hashlib.sha256()
+ with f.open('rb') as s:
+  for b in iter(lambda:s.read(1024*1024),b''):x.update(b)
+ return x.hexdigest()
+def save(f,v):(out/f).write_text(json.dumps(v,indent=2))
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+results=json.loads((out/'focused-results.json').read_text());assert all(r['exit_code']==0 for r in results)
+rows=json.loads((out/'sources.json').read_text());policy=json.loads((out/'source-policy.log').read_text());assert len(rows)==len(policy)==8
+for r,imports in zip(rows,policy):
+ expected={'Composition':'Scale','Context':'Scale','Substitution':'Scale','Draft':'Initial','HeldOutProof':'HeldOut','NegativeProof':'Negative','RepairBefore':'Repair','RepairAfter':'Repair'}[pathlib.Path(r['copy']).stem]
+ assert set(imports)=={'Init','Examples.ConversionTrial.'+expected,'SquareKit.Internal.DependentFunctionConversion'}
+sourcehash={str(f.relative_to(out/'sources')):h(f) for f in (out/'sources').rglob('*') if f.is_file()};save('complete-source-hashes.json',sourcehash)
+outputhash={str(f.relative_to(out/'modules')):h(f) for f in (out/'modules').rglob('*') if f.is_file()};save('output-hashes.json',outputhash)
+copied=[]
+for f in (stage/'modules').rglob('*'):
+ if f.is_file():
+  d=out/'modules'/f.relative_to(stage/'modules');assert h(f)==h(d);copied.append({'source':str(f),'copy':str(d),'sha256':h(f)})
+save('copied-artifact-correspondence.json',copied)
+inv=json.loads((out/'inventory.json').read_text());assert len(inv)==2951
+f=out/'Audit.lean';f.write_text(''.join('import Examples.ConversionTrial.Author.'+pathlib.Path(r['copy']).stem+'\n' for r in rows)+'import Examples.ConversionTrial.Validate\n#audit_project_axioms\n');driverhash=h(f)
+e=json.loads((out/'environment.json').read_text());cmd=['taskset','-c','0',e['lean'],str(f)];save('audit-queue.json',{'command':cmd,'cwd':e['cwd'],'environment':{'LEAN_PATH':e['LEAN_PATH']},'audit_driver_sha256':driverhash,'inventory_modules':len(inv),'status':'prepared, full audit not yet run','lock':str(p/'build.lock')})
+def verify():
+ for rel,d in sourcehash.items():assert h(out/'sources'/rel)==d,rel
+ for rel,d in outputhash.items():assert h(out/'modules'/rel)==d,rel
+ for r in copied:assert h(pathlib.Path(r['source']))==r['sha256']==h(pathlib.Path(r['copy']))
+ for r in rows:assert h(pathlib.Path(r['original']))==r['sha256']==h(pathlib.Path(r['copy']))
+ for rel,d in json.loads((p/'final-integration-validation/worker7-build-before.json').read_text()).items():assert h(p/'worker7/.lake/build'/rel)==d,rel
+ assert json.loads(subprocess.check_output(['python3','scripts/project_sources.py'],cwd=out/'sources'))==inv
+ assert h(f)==driverhash
+verify();save('audit-state.json',{'status':'waiting for build.lock','at':now()});print('QUEUED slot3 full audit, 2951 modules',flush=True)
+with (p/'build.lock').open('a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX);verify();start=now();save('audit-state.json',{'status':'running','at':start});print('LOCK ACQUIRED',flush=True);env=os.environ.copy();env['LEAN_PATH']=e['LEAN_PATH']
+ with (out/'Audit.log').open('xb') as log:r=subprocess.run(cmd,cwd=e['cwd'],env=env,stdout=log,stderr=subprocess.STDOUT)
+ verify();save('audit-result.json',{'command':cmd,'cwd':e['cwd'],'environment':{'LEAN_PATH':e['LEAN_PATH']},'started_at':start,'completed_at':now(),'exit_code':r.returncode,'log_sha256':h(out/'Audit.log'),'inventory_modules':2951,'source_artifact_and_worker7_origin_identities_unchanged':True});save('audit-state.json',{'status':'completed','exit_code':r.returncode,'at':now()});print('AUDIT EXIT',r.returncode,flush=True);raise SystemExit(r.returncode)

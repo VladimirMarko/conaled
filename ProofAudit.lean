@@ -1,4 +1,5 @@
 import SquareApplications
+import Lean
 import Lean.Util.CollectAxioms
 import Lean.DeclarationRange
 
@@ -6,8 +7,10 @@ import Lean.DeclarationRange
 # Exhaustive project axiom audit
 
 `#audit_project_axioms` enumerates every kernel-safe declaration whose defining module is
-one of the foundation modules, or lies under `SquareKit`, `Applications`, or
-`Examples`. Ownership comes from Lean's module-origin table, so private names,
+in the shared filesystem inventory used by coverage and candidate checks.
+`scripts/project_sources.py` inventories root modules and the three integrated
+source trees, excluding verification infrastructure. Run from the project root.
+Ownership comes from Lean's module-origin table, so private names,
 generated auxiliaries, instances, constructors, and recursors are included.
 Candidates come from project modules' constant and generated-name metadata plus
 current-module kernel declarations, with duplicate names removed. This preserves
@@ -42,15 +45,18 @@ open Lean Elab Command
 
 initialize registerTraceClass `ProofAudit.roots
 
-private def foundationModules : Array Name :=
-  #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
-
-/-- Filter module origins, never the spelling of declaration names. -/
-private def isProjectModule (moduleName : Name) : Bool :=
-  foundationModules.contains moduleName ||
-    (`SquareKit).isPrefixOf moduleName ||
-    (`Applications).isPrefixOf moduleName ||
-    (`Examples).isPrefixOf moduleName
+/-- The same inventory implementation serves the wrapper and standalone audit.
+Failure to acquire it is an error, never permission to narrow audit coverage. -/
+private def projectModules : IO (Array Name) := do
+  let result ← IO.Process.output {
+    cmd := "python3", args := #["scripts/project_sources.py"] }
+  if result.exitCode != 0 then
+    throw <| IO.userError s!"Cannot obtain project source inventory: {result.stderr}"
+  let names ← IO.ofExcept <| fromJson? (α := Array String)
+    (← IO.ofExcept <| Json.parse result.stdout)
+  if names.isEmpty then
+    throw <| IO.userError "Project source inventory is empty; run the audit from the project root"
+  return names.map String.toName
 
 private def permittedAxiom (axiomName : Name) : Bool :=
   axiomName == `propext || axiomName == `Classical.choice || axiomName == `Quot.sound
@@ -69,6 +75,8 @@ private structure ModuleCount where
 /-- An executable verification command; it adds no mathematical assumptions. -/
 def auditProject : CommandElabM Unit := do
   let env ← getEnv
+  let modules ← projectModules
+  let isProjectModule := modules.contains
   let mut owned : Array (Name × ConstantInfo × Name) := #[]
   let mut counts := (env.header.moduleNames.filter isProjectModule).map
     (fun n => { moduleName := n : ModuleCount })

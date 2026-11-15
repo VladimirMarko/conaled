@@ -1,0 +1,18 @@
+{
+  "label": "guarded-check",
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "./check.sh",
+    "--candidate",
+    "59be9f3c25421ddbe07cca0cb933904a3fd10881"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/integration-final",
+  "environment": {},
+  "started_at": "2026-11-12T17:55:20.378010+00:00",
+  "completed_at": "2026-11-12T17:55:24.609080+00:00",
+  "exit_code": 1,
+  "log": "/tmp/conaled-wave-20261111/final-integration-validation/guarded-check.log",
+  "log_sha256": "edf596578f024c350b0dd54e661256bbb4c204d0cb6b7db504f5cf4d93353a85"
+}

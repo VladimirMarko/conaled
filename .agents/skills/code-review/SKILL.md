@@ -21,7 +21,11 @@ untracked task changes. A supplied immutable candidate defines scope when the
 caller has already captured it. For committed-only review, resolve the candidate
 once, defaulting to HEAD. For work-in-progress review, use the snapshot rules in
 [the shared review procedure](../../../docs/agents/review-loop.md), preserving
-the real index and checkout and recording unrelated exclusions. Ask when task
+the real index and checkout and recording unrelated exclusions. Require the
+caller's `review_snapshot.py candidate`/`validate` receipt, or obtain it under
+the shared procedure before dispatch. Inspect its pinned IDs, scope, projections
+and diff command; a receipt establishes Git inputs, not review or validation
+success. Ask when task
 ownership or scope is ambiguous; never silently omit requested uncommitted work.
 
 Resolve the supplied fixed point to a base SHA; ask if neither user nor caller

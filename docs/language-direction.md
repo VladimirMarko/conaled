@@ -34,6 +34,16 @@ argument. Semantic differences must remain expressible. Higher identity,
 constructive existence and crisp-context restrictions cannot be erased merely
 to make every setting look alike.
 
+Equality and pair laws belong to the specification of the mathematical setting.
+A representation can use a different equality when its interpretation validates
+that specification. Clients at the semantic interface must respect the
+specified equivalence; compiler clients inspecting representations have a
+different contract. Interpretations may be relations or retain witnesses rather
+than be functions into a single carrier. The representation must retain enough
+data for the chosen specification, including relevant identity witnesses.
+Individual developments should state the preservation obligations they use;
+this does not require an exhaustive equality taxonomy in every issue.
+
 ## Compilation and proof share this requirement
 
 | Categorical compilation | Internal reasoning |
@@ -56,11 +66,100 @@ transport along one map of models but not another. The language should make
 the reusable argument and the missing obligation visible without requiring
 authors to reconstruct the semantics at each use.
 
+Clarified with the project owner on 2026-11-15: support both interpreting a
+shared argument in multiple settings and transporting constructions and proofs
+between settings whenever their mathematical requirements hold. Separate
+interpretations establish validity in their respective models; transport also
+needs a connection preserving the structures, judgments and witnesses used by
+the argument. Neither achievement alone establishes the other. Research should
+develop both routes, identify their hypotheses and composition laws, and retain
+explicit ownership of missing capabilities or mathematical obstructions.
+
+Existing constructions are starting points for expansion into wider and more
+powerful frameworks. Assess those frameworks by the additional mathematics and
+reusable arguments they support, while recovering existing clients under their
+original contracts. Reuse does not require retaining the current interfaces
+unchanged, and a bounded comparison does not set the language's expressive limit.
+The [six-functor investigation](research/six-functor-language.md) tests these
+goals on coherently varying settings and their realizations.
+
 This goes beyond sharing a parser or concrete notation between workstreams.
 The common design problem is which constructions and reasoning principles can
 be abstracted, how their requirements compose, and which interpretations
 preserve them. Shared implementation should follow demonstrated commonality;
 the two workstreams need not be forced into identical fragments.
+
+## Mathematical targets and external foundations
+
+Clarified with the project owner on 2026-11-12. A compilation target may be a
+mathematical setting without a runnable implementation. A realization connects
+two specified settings under an explicit preservation contract. Realizations
+may compose when their interfaces, observations and assumptions align. There
+is no mandatory hierarchy ending in an inherently physical or final backend.
+
+Mathematical interpretation, artifact generation, abstract-machine execution
+and hardware implementation are examples of settings and connections to study,
+not four fundamental levels or a universal ordering of stronger capabilities.
+An abstract machine may be realized by a hardware model, which may itself be
+related to another implementation model. Further layers are permitted without
+changing the general problem of establishing the relevant semantic connection.
+
+The connections need not all be code translations or functions. State/trace
+simulations, approximation bounds and witness-preserving interpretations have
+different contracts. Prove their applicable composition laws; a shared notion
+of realization does not make their observations or guarantees interchangeable.
+Do not impose one maximal record or a fixed pipeline on ordinary clients.
+
+Describe computable realization relative to a named computational model.
+Distinguish an existence theorem from supplied executable code, termination or
+progress, and resource guarantees. A finite artifact can name an oracle without
+implementing it. Noncomputability under one model can rule out a realization
+into that model while leaving other mathematical interpretations valid. These
+are obligations on particular connections, not a separate kind of realization.
+Target execution may use a different evaluation strategy when the selected
+observations are preserved.
+
+A formal relation between a device model and an abstract machine does not by
+itself establish that an actual device satisfies that model. State empirical
+and environmental assumptions when applying the theorem. Another implementation
+or simulation layer may refine those assumptions, but does not automatically
+discharge them. This distinction concerns evidence for the premises, not a
+privileged class of physical arrows or a claim about the nature of our universe.
+
+Explore unusual settings as mathematics and as tests of the compiler's
+abstractions. Their value need not depend on a runnable product. Oracle-relative
+computation, synthetic computability, quantum semantics and idealized
+noncomputable operations provide candidate examples and counterexamples.
+Quantum computation is not presumed to be hypercomputation. A change in
+computational capability does not automatically validate a new rule of deduction,
+and a physical backend does not uniquely determine a mathematical foundation.
+
+The compiler's current implementation and verification use Lean. This does not
+select native Lean judgments as the mandatory external evidence interface.
+The choice of external foundations remains open. Compare interfaces that retain
+source judgments, required principles and witnesses through several justified
+interpretations, including non-identity changes of setting. A direct Lean route
+is a specialization only where the judgments and meanings align. Merely wrapping
+all foreign obligations in native Lean propositions does not establish that the
+interface preserves the desired source capabilities.
+
+Keep compiler implementation language, verification metatheory, source logic,
+target semantics and physical-realization assumptions distinguishable. Checking
+an interpretation in Lean establishes the stated result relative to its audited
+dependencies; it does not supply unrestricted mutual interpretation of Lean and
+Agda, reflection from one model, or a foundation-free checker for every logic.
+Do not solve portability by silently narrowing all sources to a fixed common
+logic. State missing interpretations and capabilities, retain usable direct
+clients, and compare alternatives before selecting a general interface.
+
+[#493](https://github.com/VladimirMarko/conaled/issues/493) owns the comparative
+programme and bounded formalization studies linked in the
+[research agenda](research/language-research-agenda.md#mathematical-targets-and-foundation-relative-interfaces).
+The completed [MMT study](research/mmt-compiler-evidence.md) and
+[evidence-interface comparison](research/compiler-evidence-comparison.md) are
+inputs, not architecture adoption. #489's production bridge still requires the
+owner's selected evidence contract and source fragment. The tracker owns current
+readiness and completion status.
 
 ## What remains open, and what guides the design
 
@@ -96,6 +195,14 @@ each development teaches us about the language and revise proposed interfaces
 accordingly. A small working fragment can be valuable while its author interface
 remains below the long-term goal.
 
+For the MVP, the project owner accepts an agent-productivity advantage as
+sufficient (2026-11-07). Human-productivity evidence is not an acceptance gate.
+Compare agents under matched mathematical contracts and record completion,
+repair effort and resource use where available. Separate infrastructure setup
+from repeated authoring costs. The completed bounded author trials establish
+feasibility; their small samples and incomplete effort records do not establish
+a general productivity advantage.
+
 ## Selecting research by semantic requirements
 
 Agreed with the project owner on 2026-10-30: evaluate literature against the
@@ -120,7 +227,113 @@ produce a small example immediately. Compare explicit assumptions, composition,
 extension obligations, preserved equality and witnesses, and author effort.
 Record omitted traditions and uncertainty. Propose discriminating experiments
 that our current approach could fail, rather than only examples it already fits.
-#235 owns this external comparison, coordinated with #36, #200 and #8.
+#235 retains continuing discovery and integration ownership, coordinated with
+#36, #200 and #8. [#280](https://github.com/VladimirMarko/conaled/issues/280) owns
+the completed bounded external discovery and research-priority assessment.
+The [external comparison assessment](research/external-language-comparison.md)
+records the completed first pass, its omissions and proposed matched experiments.
+The [subsequent assessment](research/external-discovery-assessment.md) revises
+the next sequence toward proof-derived requirements (#286) and representation
+extensions with explicit model/witness contracts (#287). Keep dependent
+coherence tied to concrete author failures. The completed paper comparisons of
+[proof-derived requirements](research/proof-requirement-comparison.md) and
+[representation extensions](research/representation-extension-comparison.md)
+retain extraction as a complementary authoring service and a bounded extension
+certificate with separate witness-descent obligations. They establish neither
+an implemented importer/model framework nor measured author benefit. Further
+implementation needs a concrete client and its own scope under #235.
+
+The [research agenda](research/language-research-agenda.md) gives these next
+steps explicit owners: compositional theory extensions (#288), dependent
+semantics and coherence (#289), and reusable theories and proof transport
+(#290). Their first tasks and lower-priority studies may challenge the current
+architecture; an immediately available adapter is not a condition for taking
+a competing theory seriously. These programmes organize research without
+committing the language to a universal foundation.
+
+The [checked representation-extension study](research/all-model-representation-extensions.md)
+now supplies bounded all-model expansion and selected-section descent. Keep
+their obligations separate: admitting a representation for every model does
+not supply a natural representative selector or make every selected section
+descend. Clients still owe the relevant compatibility and equivariance laws.
+
+The [dependent coherence comparison](research/dependent-coherence-comparison.md)
+separates the author's judgment-interpretation boundary from the construction
+of semantic models. Strict semantic substitution alone does not repair source
+annotations or establish that interpretation contract. Keep the independent
+memo's dependent higher-witness test as an adoption condition, and compare
+local universes, direct strict models and chosen-universe constructions against
+it. A bounded Type-family specialization must not replace that requirement.
+The [three-perspective reassessment](research/dependent-architecture-reassessment.md)
+keeps author requirements, interpretation, model construction and comparisons
+as interacting responsibilities rather than fixed independent layers. Derive
+what follows from existing universal properties before adding assumptions;
+separate primitive signatures and constructor capabilities where the arguments
+permit it. Stronger laws can constrain existing operations as well as accompany
+new ones. Compare alternative foundations when current judgments impose
+recurring presentation work. Interpretation comparisons must act coherently on
+types, terms and dependent witnesses. A setting constructed from presentation
+data varying within a context needs its own reindexing contract; externally
+selected models do not establish that capability. These are research criteria,
+not a decision to adopt a particular structural core or framework.
+
+The [structure audit](research/dependent-structure-audit.md) now derives
+comprehension and generated empty substitutions from existing laws. Reuse
+those results before introducing stronger assumptions. Terminal uniqueness and
+the choice of morphisms remain explicit requirements where a construction
+needs them. The [nested internal-setting test](research/internal-setting-construction.md)
+also establishes a bounded positive case for context-varying presentations,
+including their selected dependent payloads under repeated substitution.
+The [judgment experiment](research/dependent-judgment-representation.md) now
+supplies a source boundary without all-model annotation indices. Authors'
+derivations inherit interpretation, substitution and strict-map preservation;
+model builders prove the primitive operation laws once. Keep source-typing
+effort, coherent comparison scope and old-client migration explicit.
+The [frozen author trial](research/dependent-author-interface-trial.md) establishes
+completion of the same selected J argument through both interfaces. Candidate
+authoring avoids semantic-code indices, while the baseline's motive helper
+already handles its branch alignment. A missing candidate root-tail helper
+was repaired in [#323](https://github.com/VladimirMarko/conaled/issues/323).
+The [successor trial](../experiments/guarded-j-retest/trial/evaluation.md)
+records both fresh authors completing the nested-J contract without assistance
+or interface changes, with exact submission replay. The original trial remains
+unchanged. Adopt the guarded boundary for the tested contract; retain the
+baseline and do not infer lower total author effort or broad migration from
+these small comparisons.
+The [constructor experiment](research/dependent-constructor-admission.md)
+checks this discipline for object-language dependent sums. Its operations and
+inverse laws derive dependent elimination and compatibility, while exact
+reduct recovery retains old selected witnesses. Judgmental eta is an explicit
+capability requirement. A further law-only extension shows that new requirements
+can also constrain existing operations. Admit each extension against its
+semantic contract; forward inclusion and reduct recovery alone do not prove
+conservativity or expansion of every old model.
+The [checked higher source test](research/dependent-higher-identity.md) retains
+the frozen memo's witness observations. The subsequent
+[cubical construction](research/cubical-model-construction.md) and
+[strict 2-groupoid construction](research/strict-two-groupoid-checkpoint.md)
+now supply bounded Lean interpretations with nontrivial higher observations.
+Those constructions discharge the specified higher-consumer gate; they do not
+establish an arbitrary higher-type-theory importer or universal model framework.
+Keep their model evidence separate from source checking and author trials.
+The [categorical assessment](research/concrete-dependent-coherence.md) keeps
+strictification conditional on a named model-construction benefit. Construct
+the required hypotheses for that consumer when strict stability is the missing
+capability or the transfer removes demonstrated recurring coherence work.
+
+The [theory-network comparison](research/theory-network-comparison.md) likewise
+keeps publication and view composition separate from encoding adequacy and
+changes of logic. A total assignment of declarations must preserve their laws
+and selected data; a framework's composition theorem does not discharge those
+obligations for a new encoding.
+
+The [requirement-discovery trial](research/proof-requirement-author-trial.md)
+compares independent manual and prepared-ledger authors on frozen tasks. Both
+retained reusable proofs and selected data; their sufficient witness interfaces
+differed. Use a dependency ledger as optional, reviewable evidence about a
+particular proof. Removing a proof detour requires a checked replacement proof,
+and choosing a more general interface remains a separate design task. This
+bounded trial does not establish causal savings or a preferred architecture.
 
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,
@@ -166,16 +379,35 @@ The [duality findings and agenda](research/duality-language-directions.md)
 distinguish checked results, source theorems, design inferences and conjectures.
 #256 supplies a bounded syntax transformation; it does not establish an
 isomorphism between arbitrary data and codata, a generic semantic lifting, or
-infinite productivity. Scoped follow-ups are #266–#270, coordinated with #262
-and the existing #235/#36/#200/#8 owners.
+infinite productivity. The completed #266–#270 studies test that agenda;
+#262 retains semantic-type extension work, coordinated with #235/#36/#200/#8.
 
 The [#268 composition experiment](research/compositional-constructor-observer-laws.md)
 now demonstrates this discipline for finitary derivative templates: local
 constructor compatibility yields interpretations of arbitrary finite composites,
 with separate renaming and substitution laws. Weighted concatenation and a
 pointwise extension recover their prior meanings. This supplies one usable
-instance, not a universal rule format. Index-changing constructors and dependent
-observations remain a design question under #271.
+instance, not a universal rule format. The completed #271/#274 results extend
+finite composition to fixed indexed families, index-changing constructors and
+exact parser result fibers. They do not supply arbitrary dependent-context
+substitution or changes of index base.
+
+The [recent workstream assessment](research/construction-observation-research-assessment.md)
+connects these results to the wider research agenda. #277 derives a supported
+local rule from either equation presentation; #276 lifts exact equations through
+finite contexts; #278 proves constructor/observer interaction obligations against
+an independent meaning. #284 separately constructs coordinate-guarded recursive
+solutions and their transport. #285 relates higher-order costed execution to an
+independent function denotation and rejects recovering step counts from that
+denotation. These are several checked contracts, not one universal lifting
+mechanism. The new theory-extension, coherence and proof-transport programmes
+must recover these capabilities or explain their different scope.
+
+Completed #279 provides independent author evidence for the tested vector and
+parser interfaces. It does not measure equation-table authoring, discovering a
+proof's requirements, or general dependent reasoning. Those remain distinct
+author tasks; existing successful trials need not wait for the wider design
+space to be settled.
 
 ## Evolving preservation laws and usable specializations
 
@@ -224,6 +456,16 @@ that diagnosis. Distinguish missing mathematical structure, interface design,
 documentation, language expressiveness, elaboration behavior and author
 capability. A failed attempt alone establishes neither a language limitation
 nor the impossibility of a practical encoding.
+
+Research and bounded author trials can proceed alongside each other. Freeze
+the interface, mathematical contract and permitted assistance for each trial;
+retain the attempts as a baseline when the interface later changes. Use failures
+to identify missing abstractions as well as local repairs. Reassess changed
+interfaces with affected tasks and fresh held-out tasks, preserving author
+independence and separating preparation cost from author effort. A trial does
+not commit the project to its tested architecture or rank unexplored designs.
+The [agenda](research/language-research-agenda.md#author-trials-alongside-architectural-research)
+records completed evidence and the distinct prerequisites of pending trials.
 
 Author trials measure effectiveness for recorded authors, tasks and tools.
 Retain model/version, configuration and resource budget, available documentation,

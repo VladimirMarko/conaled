@@ -1,0 +1,251 @@
+{
+  "slot": 2,
+  "route": "direct",
+  "session_id": "01a1d059-e929-7b40-bc13-2a03a73bae98",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "provider": "openai",
+  "cli_version": "0.161.0",
+  "exact_serving_revision": null,
+  "final_sources": {
+    "NegativeProof.lean": {
+      "sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+      "bytes": 552,
+      "lines": 21,
+      "nonblank_lines": 17,
+      "selected": true
+    },
+    "Draft.lean": {
+      "sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+      "bytes": 728,
+      "lines": 18,
+      "nonblank_lines": 15,
+      "selected": true
+    },
+    "RepairBefore.lean": {
+      "sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+      "bytes": 546,
+      "lines": 14,
+      "nonblank_lines": 11,
+      "selected": true
+    },
+    "HeldOutProof.lean": {
+      "sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+      "bytes": 2392,
+      "lines": 64,
+      "nonblank_lines": 52,
+      "selected": true
+    },
+    "ScaleProof.lean": {
+      "sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+      "bytes": 2565,
+      "lines": 72,
+      "nonblank_lines": 61,
+      "selected": true
+    },
+    "RepairAfter.lean": {
+      "sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+      "bytes": 668,
+      "lines": 19,
+      "nonblank_lines": 15,
+      "selected": true
+    }
+  },
+  "selected_sources": [
+    "Draft.lean",
+    "ScaleProof.lean",
+    "RepairBefore.lean",
+    "RepairAfter.lean",
+    "NegativeProof.lean",
+    "HeldOutProof.lean"
+  ],
+  "historical_unselected": [],
+  "general_helpers": [
+    "ren_id_typed",
+    "ren_comp_typed",
+    "rename_eq",
+    "liftRen_typed",
+    "expand_eq",
+    "chain_eq",
+    "left_eq_right"
+  ],
+  "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+  "index_control": "checked IndexTask",
+  "attempts": [
+    {
+      "id": "compile-001",
+      "phase": "initial",
+      "status": "check-failed",
+      "exit_code": 1,
+      "kind": "compile",
+      "source_sha256": "ce6cce1139faf6eda1d0dab48387ebe5527fb54dbc82c35534165a26d82e79e3",
+      "receipt": "423-trial-execution/slot-2/work/compile-001/result.json",
+      "tool_seconds": 0.424587383
+    },
+    {
+      "id": "compile-002",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+      "receipt": "423-trial-execution/slot-2/work/compile-002/result.json",
+      "tool_seconds": 0.41867666
+    },
+    {
+      "id": "held-out-compile-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+      "receipt": "423-trial-execution/slot-2/work/held-out-compile-001/result.json",
+      "tool_seconds": 0.408608696
+    },
+    {
+      "id": "held-out-policy-001",
+      "phase": "held-out",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+      "receipt": "423-trial-execution/slot-2/work/held-out-policy-001/result.json",
+      "tool_seconds": 0.997657917
+    },
+    {
+      "id": "negative-compile-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+      "receipt": "423-trial-execution/slot-2/work/negative-compile-001/result.json",
+      "tool_seconds": 0.430550933
+    },
+    {
+      "id": "negative-policy-001",
+      "phase": "negative",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+      "receipt": "423-trial-execution/slot-2/work/negative-policy-001/result.json",
+      "tool_seconds": 1.179381541
+    },
+    {
+      "id": "policy-001",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "ce6cce1139faf6eda1d0dab48387ebe5527fb54dbc82c35534165a26d82e79e3",
+      "receipt": "423-trial-execution/slot-2/work/policy-001/result.json",
+      "tool_seconds": 1.733978749
+    },
+    {
+      "id": "policy-002",
+      "phase": "initial",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+      "receipt": "423-trial-execution/slot-2/work/policy-002/result.json",
+      "tool_seconds": 1.117068338
+    },
+    {
+      "id": "repair-after-compile-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+      "receipt": "423-trial-execution/slot-2/work/repair-after-compile-001/result.json",
+      "tool_seconds": 0.605984705
+    },
+    {
+      "id": "repair-after-policy-001",
+      "phase": "repair-change",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+      "receipt": "423-trial-execution/slot-2/work/repair-after-policy-001/result.json",
+      "tool_seconds": 2.023299428
+    },
+    {
+      "id": "repair-before-compile-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+      "receipt": "423-trial-execution/slot-2/work/repair-before-compile-001/result.json",
+      "tool_seconds": 0.302568902
+    },
+    {
+      "id": "repair-before-policy-001",
+      "phase": "repair-baseline",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+      "receipt": "423-trial-execution/slot-2/work/repair-before-policy-001/result.json",
+      "tool_seconds": 1.149005164
+    },
+    {
+      "id": "scale-compile-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "compile",
+      "source_sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+      "receipt": "423-trial-execution/slot-2/work/scale-compile-001/result.json",
+      "tool_seconds": 1.333909861
+    },
+    {
+      "id": "scale-policy-001",
+      "phase": "scale",
+      "status": "check-passed",
+      "exit_code": 0,
+      "kind": "native-policy",
+      "source_sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+      "receipt": "423-trial-execution/slot-2/work/scale-policy-001/result.json",
+      "tool_seconds": 3.461305137
+    }
+  ],
+  "failed_recorded_commands": 1,
+  "incomplete_attempts": [],
+  "usage_last_observation": {
+    "timestamp": "2026-11-12T15:35:15.054Z",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 1431822,
+        "cached_input_tokens": 1392640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13225,
+        "reasoning_output_tokens": 1031,
+        "total_tokens": 1445047
+      },
+      "last_token_usage": {
+        "input_tokens": 60104,
+        "cached_input_tokens": 59776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 201,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 60305
+      },
+      "model_context_window": 258400
+    }
+  },
+  "usage_capture": "423-trial-execution/slot-2/raw-usage-events.json",
+  "active_reasoning_seconds": null,
+  "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+  "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+  "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+  "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423.",
+  "readable_rejection": {
+    "path": "negative-head-rejection.txt",
+    "original_evidence": "423-trial-execution/slot-2/negative-completion/negative-head-rejection.txt",
+    "sha256": "f5674c55d4d90fce96b6ceeb8d23dab621290295d7979df8fb873c7d2280568f"
+  }
+}

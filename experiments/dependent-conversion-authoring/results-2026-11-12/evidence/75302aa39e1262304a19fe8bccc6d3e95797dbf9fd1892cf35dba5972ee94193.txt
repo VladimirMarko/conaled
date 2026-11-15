@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-12T16:08:41.342126+00:00",
+  "monotonic_ns": 173010535638321,
+  "context": {
+    "slot": "slot-6",
+    "session": "01a1d081-11ff-7e60-9006-1174662054a2",
+    "route": "service",
+    "phase": "scale",
+    "release_sha256": "47c6f529373ed6c29e7610d339a75df56ada1839d67a461376c820c870c91585",
+    "environment_sha256": "80d480b33856e2bdb4cc3cb0083f0f0ca4f49607fd3945d20983f2f1a8bd24cb"
+  },
+  "decision": "Prior submission archived/checked; release only next frozen phase; supplied definition compilation passed",
+  "checkpoint_minutes": 20,
+  "repair_interval": "Shared baseline/change interval starts at repair-baseline-release.json; no reset at change",
+  "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-6",
+  "sealed_files": [
+    {
+      "path": "sealed/scale/Examples/ConversionTrial/Scale.lean",
+      "sha256": "40627e72efc8556288bc1b9b2c4f61295603965820a5dedc5f6d7de1bebe3834",
+      "source": "experiments/dependent-conversion-authoring/fixtures/Scale.lean",
+      "lines": null
+    }
+  ]
+}

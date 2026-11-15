@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "scope": "fake direnv only; real wrapper smoke still required",
+  "records": [
+    {
+      "schema": 1,
+      "source": "attempts/Success.lean",
+      "command": [
+        "direnv",
+        "exec",
+        ".",
+        "python3",
+        "check_attempt.py",
+        "attempts/Success.lean"
+      ],
+      "start_utc": "2026-11-08T16:33:58.000769+00:00",
+      "status": "finished",
+      "lock": "/tmp/conaled-runner-test-zuzh_bt_/build.lock",
+      "lock_wait_seconds": 0.00011498099775053561,
+      "exit_code": 0,
+      "finish_utc": "2026-11-08T16:33:58.003885+00:00",
+      "check_seconds": 0.0029993850039318204,
+      "wall_seconds": 0.003114366001682356,
+      "child_maxrss_kib": 14896,
+      "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+    },
+    {
+      "schema": 1,
+      "source": "attempts/Failure.lean",
+      "command": [
+        "direnv",
+        "exec",
+        ".",
+        "python3",
+        "check_attempt.py",
+        "attempts/Failure.lean"
+      ],
+      "start_utc": "2026-11-08T16:33:58.031904+00:00",
+      "status": "finished",
+      "lock": "/tmp/conaled-runner-test-zuzh_bt_/build.lock",
+      "lock_wait_seconds": 0.0001317349961027503,
+      "exit_code": 7,
+      "finish_utc": "2026-11-08T16:33:58.034904+00:00",
+      "check_seconds": 0.0028668599989032373,
+      "wall_seconds": 0.0029985949950059876,
+      "child_maxrss_kib": 14552,
+      "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+    },
+    {
+      "schema": 1,
+      "source": "attempts/Contended.lean",
+      "command": [
+        "direnv",
+        "exec",
+        ".",
+        "python3",
+        "check_attempt.py",
+        "attempts/Contended.lean"
+      ],
+      "start_utc": "2026-11-08T16:33:58.067945+00:00",
+      "status": "finished",
+      "lock": "/tmp/conaled-runner-test-zuzh_bt_/build.lock",
+      "lock_wait_seconds": 0.6717819710029289,
+      "exit_code": 0,
+      "finish_utc": "2026-11-08T16:33:58.742291+00:00",
+      "check_seconds": 0.0025503619981464,
+      "wall_seconds": 0.6743323330010753,
+      "child_maxrss_kib": 14868,
+      "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+    }
+  ],
+  "duplicate_preserved": true
+}

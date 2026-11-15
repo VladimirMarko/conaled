@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "flock",
+      "/tmp/conaled-wave-20261111/build.lock",
+      "direnv",
+      "exec",
+      ".",
+      "taskset",
+      "-c",
+      "0",
+      "lake",
+      "build",
+      "TaskSetup462",
+      "Examples.DiagonalCoverage",
+      "Examples.ConstructionTransport"
+    ],
+    "cwd": "/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct",
+    "log": "/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct-build.log",
+    "exit": 127,
+    "seconds": 0.14417266845703125
+  }
+]

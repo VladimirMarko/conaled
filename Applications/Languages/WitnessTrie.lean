@@ -47,6 +47,36 @@ theorem lookup_truncate (n : Nat) {m : Nat} (h : n ≤ m) (t : WitnessTrie P m)
       | nil => rfl
       | cons a w => exact ih _ _ _ _
 
+/-- Exact bounded decisions determine the entire finite trie. -/
+theorem ext_lookup {n} (s t : WitnessTrie P n)
+    (h : ∀ w hw, s.lookup w hw = t.lookup w hw) : s = t := by
+  induction n generalizing P with
+  | zero =>
+    cases s; cases t
+    exact congrArg WitnessTrie.leaf (h [] (Nat.zero_le _))
+  | succ n ih =>
+    cases s with
+    | node d ss => cases t with
+      | node e ts =>
+        have hd : d = e := h [] (Nat.zero_le _)
+        have hs : ss = ts := by
+          funext a
+          apply ih
+          intro w hw
+          exact h (a::w) (Nat.succ_le_succ hw)
+        cases hd; cases hs; rfl
+
+theorem truncate_self {n} (t : WitnessTrie P n) : truncate n (Nat.le_refl n) t = t := by
+  apply ext_lookup
+  intro w hw
+  exact lookup_truncate _ _ _ _ _
+
+theorem truncate_comp (l n : Nat) {m} (hln : l ≤ n) (hnm : n ≤ m) (t : WitnessTrie P m) :
+    truncate l hln (truncate n hnm t) = truncate l (Nat.le_trans hln hnm) t := by
+  apply ext_lookup
+  intro w hw
+  rw [lookup_truncate, lookup_truncate, lookup_truncate]
+
 def unfold [DecidableEq α] {P : Language α} (p : Parser P) : (n : Nat) → WitnessTrie P n
   | 0 => .leaf p.nullable
   | n+1 => .node p.nullable (fun a => unfold (p.derive a) n)

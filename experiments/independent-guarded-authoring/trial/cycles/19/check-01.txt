@@ -1,0 +1,95 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:409:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Quiver ((«M» : StructuralModel) → Value «M» → Value «M» → Option (Point «M»))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:414:58: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Quiver ((«M» : StructuralModel) → Value «M» → Value «M» → Option (Point «M»))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:421:2: warning: Unused tactic linter: `unfold observed` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:422:2: warning: Unused tactic linter: `rw [double_eval]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:423:2: warning: Unused tactic linter: `simp only [Value.termAt_term, Option.map_some]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:424:2: warning: Unused tactic linter: `exact
+  congrArg some (double_inverse_from_source C4 B (constant C4) base base (labeled n) ⟨PUnit.unit⟩)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:422:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:423:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:424:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:427:2: warning: Unused tactic linter: `unfold observedSingle` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:428:2: warning: Unused tactic linter: `rw [reverseRecipe_eval]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:429:2: warning: Unused tactic linter: `simp only [Value.termAt_term, Option.map_some]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:430:2: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:428:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:429:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:430:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:433:8: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:433:8: error: (kernel) unknown constant 'SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation.IndependentInv.Semantics.C4Consumers.observed_eq'
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:444:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:444:59: warning: Unused tactic linter: `rw [observedSingle_eq]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:444:83: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:444:83: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:445:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:445:62: warning: Unused tactic linter: `rw [observedSingle_eq]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:445:86: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:445:86: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:446:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:446:0: error: (kernel) unknown constant 'SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation.IndependentInv.Semantics.C4Consumers.observed_eq'
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:447:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:447:0: error: (kernel) unknown constant 'SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation.IndependentInv.Semantics.C4Consumers.observed_eq'
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:448:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:449:0: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:451:8: warning: declaration uses `sorry`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:452:2: warning: Unused tactic linter: `rw [observed_eq, observed_eq]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:453:2: warning: Unused tactic linter: `intro h` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:454:2: warning: Unused tactic linter: `exact (by decide : (1 : ZMod 4) ≠ 0) (labels_injective (Option.some.inj h))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:453:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:454:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`

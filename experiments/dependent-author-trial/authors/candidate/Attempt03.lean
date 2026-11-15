@@ -1,0 +1,112 @@
+import SquareKit.Internal.DependentJudgments.Templates
+
+namespace DependentAuthorTrial.Candidate
+open SquareKit.Internal.DependentJudgments.Contextual
+
+variable {V : Type} {Ω : List (Judgment V)}
+variable {Γ Δ A x σ : Expression V}
+
+/-- One-step comparison retains both source operand derivations. -/
+def calibration (c : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+    TypedEquality Ω (total (pathTail A x c.tail σ))
+      (subTy c.motive (pathTailMap A x c.tail σ))
+      (subTm c.expression (pathTailMap A x c.tail σ)) (c.fresh hσ).expression :=
+  c.comparison hσ
+
+
+
+open SquareKit.GuardedTheory
+set_option backward.isDefEq.respectTransparency false
+variable {Θ T Q p τ : Expression V} {n : Nat}
+
+def applyExtra (a : Axiom) (args : Fin (rule a).parameterCount → Expression V)
+    (h : ∀ i, Derivation theory Ω (((rule a).premise i).subst args)) :
+    Derivation theory Ω ((rule a).conclusion.subst args) :=
+  Derivation.rule (T := theory) (Sum.inr a) args h
+
+-- The public theory has this rule, but Authoring has no named wrapper for it.
+def rootTailTyping (hx : Tm (Ω := Ω) Γ A x)
+    (hT : Tel (Ω := Ω) n (path A x) T) :
+    Sub (Ω := Ω) (total (pullback T (root A x))) (total T) (rootTail A x T) := by
+  have e := applyExtra (Ω := Ω) (Axiom.rootTail n)
+    ![Γ, A, x, T]
+    (Fin.cases (by simpa [rule] using hx)
+      (Fin.cases (by simpa [rule] using hT) (fun i => nomatch i)))
+  simpa [rule] using e
+
+variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+
+def certificateCommand : Command Ω Γ A x where
+  point := hx
+  length := n
+  tail := T
+  tailTyping := hT
+  motive := identity Q p p
+  motiveTyping := hp.identity hp
+  branch := reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))
+  branchTyping := ((hp.substitute (rootTailTyping hx hT)).reflexivity).convert
+    (Derivation.symmetric (hp.identitySub hp (rootTailTyping hx hT)))
+
+abbrev selected : Expression V := (certificateCommand hx hT hp).expression
+
+def certificate : Tm (Ω := Ω) (total T) (identity Q p p) (selected hx hT hp) :=
+  (certificateCommand hx hT hp).typing
+
+variable (hσ : Sub (Ω := Ω) Δ (total T) σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
+
+def valueTwice : Tm (Ω := Ω) Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ) :=
+  (hp.substitute hσ).substitute hτ
+
+def certificateTwice : Tm (Ω := Ω) Θ (subTy (subTy (identity Q p p) σ) τ)
+    (subTm (subTm (selected hx hT hp) σ) τ) :=
+  ((certificate hx hT hp).substitute hσ).substitute hτ
+
+def valueTypeComparison : Equal (Ω := Ω) (subTy (subTy Q σ) τ) (subTy Q (comp σ τ)) :=
+  hp.family.subComp hσ hτ
+
+def certificateTypeComparison : Equal (Ω := Ω)
+    (subTy (subTy (identity Q p p) σ) τ) (subTy (identity Q p p) (comp σ τ)) :=
+  (hp.identity hp).subComp hσ hτ
+
+def valueComparison : Equal (Ω := Ω) (subTm (subTm p σ) τ) (subTm p (comp σ τ)) :=
+  hp.subComp hσ hτ
+
+def certificateComparison : Equal (Ω := Ω)
+    (subTm (subTm (selected hx hT hp) σ) τ) (subTm (selected hx hT hp) (comp σ τ)) :=
+  (certificate hx hT hp).subComp hσ hτ
+
+def certificateAligned : Tm (Ω := Ω) Θ (subTy (identity Q p p) (comp σ τ))
+    (subTm (subTm (selected hx hT hp) σ) τ) :=
+  (certificateTwice hx hT hp hσ hτ).convert (certificateTypeComparison hp hσ hτ)
+
+abbrev firstContext := extend (total T) (identity Q p p)
+abbrev firstMap := weaken (total T) (identity Q p p)
+abbrev witness := generic (total T) (identity Q p p)
+abbrev secondFamily := identity (subTy (identity Q p p) (firstMap (T := T) (Q := Q) (p := p)))
+  (witness (T := T) (Q := Q) (p := p)) (witness (T := T) (Q := Q) (p := p))
+abbrev secondContext := extend (firstContext (T := T) (Q := Q) (p := p))
+  (secondFamily (T := T) (Q := Q) (p := p))
+abbrev secondMap := weaken (firstContext (T := T) (Q := Q) (p := p))
+  (secondFamily (T := T) (Q := Q) (p := p))
+
+def firstWeakening : Sub (Ω := Ω) (firstContext (T := T) (Q := Q) (p := p))
+    (total T) (firstMap (T := T) (Q := Q) (p := p)) :=
+  (hp.identity hp).weaken
+
+def witnessVariable : Tm (Ω := Ω) (firstContext (T := T) (Q := Q) (p := p))
+    (subTy (identity Q p p) (firstMap (T := T) (Q := Q) (p := p)))
+    (witness (T := T) (Q := Q) (p := p)) :=
+  (hp.identity hp).generic
+
+def secondWeakening : Sub (Ω := Ω) (secondContext (T := T) (Q := Q) (p := p))
+    (firstContext (T := T) (Q := Q) (p := p)) (secondMap (T := T) (Q := Q) (p := p)) :=
+  ((witnessVariable hp).identity (witnessVariable hp)).weaken
+
+def dependentWeakeningCertificate :=
+  certificateTwice hx hT hp (firstWeakening hp) (secondWeakening hp)
+
+def dependentWeakeningComparison :=
+  certificateComparison hx hT hp (firstWeakening hp) (secondWeakening hp)
+
+end DependentAuthorTrial.Candidate

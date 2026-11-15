@@ -1,0 +1,36 @@
+import CachedCoreStages
+import ConLeche.Cached.CheckerC
+
+/-! Experimental #417 symbolic residual fuel for concrete cached transitions.
+See [artifact scope](../../docs/research/relative-emitted-acceptance.md). -/
+namespace CachedFuelStages
+open ConLeche ConLeche.Cached AcceptanceStages.Reference
+set_option maxRecDepth 2000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 1000000
+set_option pp.deepTerms.threshold 4
+
+/-- The cached operations with the fuel argument exposed for symbolic proofs. -/
+def ops (fe : FEnv) (fuel : Nat) : CheckerOps CheckCM where
+  inferType _ d e := (coreKnotI .verified fe fuel).infer d e
+  isDefEq _ d a b := (coreKnotI .verified fe fuel).defeq d a b
+  ensureSort _ d e := ensureSortI (coreKnotI .verified fe fuel) d e
+  whnf _ d e := (coreKnotI .verified fe fuel).whnf d e
+  orElse x k := fun s => match x s with
+    | .ok (true, s') => .ok ((), s')
+    | .ok (false, s') => k none s'
+    | .error e => k (some e) s
+
+theorem ops_fixed (fe : FEnv) : ops fe checkFuel = sharedOpsC .verified fe := rfl
+
+def run (fuel : Nat) := checkBlockIndsF (ops (mkFEnv AcceptanceStages.equalityEnvironment) fuel)
+  (mkFEnv AcceptanceStages.equalityEnvironment) parts false
+
+measured_theorem former_symbolic : ∀ f : Nat, ∃ memo : CState,
+    run (f + 8) {} = .ok ((mkFEnv indsResult.1, indsResult.2), memo) := by
+  intro f
+  refine ⟨((run (f + 8) {}).toOption.getD ((mkFEnv indsResult.1, indsResult.2), {})).2, ?_⟩
+  cbv
+
+end CachedFuelStages
+#audit_graph_module

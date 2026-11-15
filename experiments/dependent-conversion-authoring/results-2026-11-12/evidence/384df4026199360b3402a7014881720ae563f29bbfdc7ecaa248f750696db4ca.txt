@@ -1,0 +1,8 @@
+flock /tmp/conaled-wave-20261111/build.lock taskset -c 0 /nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3 - <<'PY'
+from pathlib import Path
+import json,subprocess,os,hashlib,datetime
+r=Path('/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01');cfg=json.loads((r/'environment.json').read_text());mirror=Path(cfg['cwd']);env=dict(os.environ,LEAN_PATH=cfg['LEAN_PATH']);cmd=[cfg['lean'],'-R',str(mirror),'-o',str(r/'modules/Examples/ConversionTrial/Author/Audit.olean'),str(mirror/'Examples/ConversionTrial/Author/Audit.lean')];start=datetime.datetime.now(datetime.timezone.utc).isoformat()
+with (r/'Audit.log').open('w') as f:p=subprocess.run(cmd,cwd=mirror,env=env,stdout=f,stderr=subprocess.STDOUT)
+log=(r/'Audit.log').read_text();inventory=json.loads((r/'inventory.json').read_text());missing=[m for m in inventory if '  '+m+':' not in log];passed=p.returncode==0 and 'Proof audit PASSED' in log and not missing
+receipt={'status':'Passed' if passed else 'Failed','command':cmd,'cwd':str(mirror),'exit_code':p.returncode,'start':start,'completed':datetime.datetime.now(datetime.timezone.utc).isoformat(),'inventory_count':len(inventory),'missing_reported_modules':missing,'log_sha256':hashlib.sha256((r/'Audit.log').read_bytes()).hexdigest(),'scope':'Unchangedproductionauditor andcompletecandidatefilesystemsourceinventory plus exactsixauthorsourcefiles; oldprivatecacheexcluded.'};(r/'audit-result.json').write_text(json.dumps(receipt,indent=2)+'\n');print(receipt['status']);assert passed
+PY

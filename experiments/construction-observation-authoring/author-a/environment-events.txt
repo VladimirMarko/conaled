@@ -1,0 +1,9 @@
+Recorded retrospectively during the trial:
+At 2026-11-04T17:20:28Z, an edit script was invoked with ambient python3,
+which failed before editing with:
+/run/current-system/sw/bin/bash: line 1: python3: command not found
+The shell then copied and rechecked the unchanged source as attempt 02.
+The editing script was saved as add-a-shared.py and run with:
+direnv exec . python3 experiments/construction-observation-authoring/author-a/add-a-shared.py
+This succeeded. Compiler commands themselves all used direnv exec .
+No artifact integrity failure or stale-output symptom was observed.

@@ -1,0 +1,43 @@
+{
+  "selected_sources": {
+    "initial": [
+      "Draft.lean"
+    ],
+    "scale-composition": [
+      "Composition.lean"
+    ],
+    "scale-context": [
+      "Context.lean"
+    ],
+    "scale-substitution": [
+      "Substitution.lean"
+    ],
+    "repair-baseline": [
+      "Before.lean"
+    ],
+    "repair-change": [
+      "After.lean"
+    ],
+    "negative": [
+      "NegativeDraft.lean"
+    ],
+    "held-out": [
+      "HeldOutDraft.lean"
+    ]
+  },
+  "historical_unselected": [
+    "ScaleDraft.lean"
+  ],
+  "overlap": "All six helpers appear under Examples.ConversionTrial in each scale source and HeldOutDraft; expand_equal repeats in Before and After. Do not import these standalone sources together. No author helper artifact imports exist.",
+  "shared_helpers": [
+    "expand_equal",
+    "rename_typed_comp",
+    "liftRen_typed",
+    "renamed_equal",
+    "chain_equal",
+    "left_right_equal"
+  ],
+  "repair_baseline_source": "repair-baseline-completion/supplied-Repair.lean",
+  "negative": "negative-rejection.txt + checked IndexTask; diagnostics only for head, no checked FuncEq inequivalence",
+  "audit": "pending root replay"
+}

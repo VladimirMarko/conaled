@@ -1,0 +1,15 @@
+import SquareKit.Internal.DependentJudgments.LeftAssociativity
+noncomputable section
+namespace GuardedWrongEndpoint
+open SquareKit.GuardedTheory SquareKit.Internal.DependentJudgments
+open Contextual TelescopePresentation
+variable {V : Type} {Ω : List (Contextual.Judgment V)} {Γ A x y z w p q r : Contextual.Expression V}
+example (hx : TelescopePresentation.Tm (Ω := Ω) Γ A x)
+    (hy : TelescopePresentation.Tm (Ω := Ω) Γ A y)
+    (hz : TelescopePresentation.Tm (Ω := Ω) Γ A z)
+    (hw : TelescopePresentation.Tm (Ω := Ω) Γ A w)
+    (hp : TelescopePresentation.Tm (Ω := Ω) Γ (Contextual.identity A x y) p)
+    (hq : TelescopePresentation.Tm (Ω := Ω) Γ (Contextual.identity A x z) q)
+    (hr : TelescopePresentation.Tm (Ω := Ω) Γ (Contextual.identity A z w) r) : ThreePaths Ω Γ :=
+  ⟨⟨A,x,y,p,hx,hy,hp⟩,z,w,q,r,hz,hw,hq,hr⟩
+end GuardedWrongEndpoint

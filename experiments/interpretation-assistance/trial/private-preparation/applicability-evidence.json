@@ -1,0 +1,130 @@
+{
+  "prototype_commit": "3b5c9002c9e799b00d01b6f1e0ca0dfe155d465b",
+  "baseline": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+  "prototype_hashes": {
+    "scripts/interpretation-assist.py": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
+    "scripts/interpretation-trial-check.py": "48797481bf6a74e58997ca41f0b702c4e3f694e7206ee87d2cce40e1c235dd9f",
+    "SquareKit/InterpretationAssistance.lean": "c6b26f243f8ff90b8b3075e558c4cd614ffc1f4ada567a4a4cc320eabd27561c",
+    "SquareKit/InterpretationDiagnostics.lean": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee"
+  },
+  "public_task_setup_sha256": "37d16a6205273b7b9c4a321819fc84e301bb51b095c3a38da57e7a1ef41873a3",
+  "task_registry_sha256": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+  "private_support": "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean",
+  "receipts": {
+    "final": {
+      "status": "checked",
+      "actual_lean_checks": 4,
+      "receipt_sha256": "e62838e90b846af73d16bf379b1fe92645f772fd3ff39149b158874a83a3c467"
+    },
+    "full": {
+      "status": "checked",
+      "actual_lean_checks": 3,
+      "receipt_sha256": "141729ff60da3475fd8d58266ee777f525ade0d5f075162d51bf933381bc69c1"
+    },
+    "image": {
+      "status": "checked",
+      "actual_lean_checks": 2,
+      "receipt_sha256": "598e7a8a2580e9368c9b3be475650310f6008fd1ba29e7fda38a724fc7dc1c76"
+    },
+    "missing": {
+      "status": "missing evidence",
+      "actual_lean_checks": 1,
+      "receipt_sha256": "5819d5f066dfa52b0ebbf2282de36aab056a59743966d1dad29119e8efe88b5c"
+    },
+    "product": {
+      "status": "checked",
+      "actual_lean_checks": 4,
+      "receipt_sha256": "5861cdffc6c7e2dad73dae79b62c951ba615956dca43bc874b322e6cbbbc0213"
+    },
+    "unknown": {
+      "status": "registry exhausted",
+      "actual_lean_checks": 0,
+      "receipt_sha256": "b45c2eb5f89e4913082909b5f6e89b8c6dd106351b255d8d6e673a36edfac4e7"
+    },
+    "wrong-type": {
+      "status": "rejected evidence",
+      "actual_lean_checks": 2,
+      "receipt_sha256": "4dc7c0e34f1752ed778dfe58d46ba69a2247fa1aa72d17c49e5cc0449f003a69"
+    }
+  },
+  "private_artifact_hashes": {
+    "applicability-support.lean": "b85e0666ad6d8b29d8578c67bcc55fbd05f8abd67036307d7ab2025b73888025",
+    "GeneratedConsumers.lean": "111814ef2721946ce12313c7bd7d843b06c760feb0520d8b34aa217e2142458d",
+    "generated-consumers.log": "4d7e953c95a6f7296727935563d6434e140435ed995bcd2090a2efb8b89cb803",
+    "TaskSetupAudit.lean": "00eb5f802cb6cd0c82dc9695f3205df43d40e95fdb68a1de1467fa7544c06d37",
+    "task-setup-audit.log": "883320b1a1fb787a2b29f00b7b33fd96e9e26c5ca57fe0d8bf22e6978e3e0de0",
+    "applicability-review.md": "177b57bf36504f470c7ec582620449e1a905dd2f97e581f0ebdf0bd848682a83",
+    "applicability-receipts.json": "6dad255e81119b6089337bfcf689e02033de9bafa5160fc3f3b1bc571f050eb1",
+    "applicability-support-build.log": "584506144cae2db6a52affb6cada24c0f1c584d18b94d757b69d7c2017a4d7f6",
+    "task-setup-check.log": "15b612bba025337e1027efc5ff3279eaad1f0e3b979ea9bfe8a9b0b355ca2241",
+    "applicability/full/receipt.json": "141729ff60da3475fd8d58266ee777f525ade0d5f075162d51bf933381bc69c1",
+    "applicability/full/result.log": "2777017313b093e3bd81be49212674673f0e446bb2d998217307dfcc24651b47",
+    "applicability/full/certificate_extension.log": "9b0f26036c1015283e3f48ec412ccad212c518a8c09a187d770e9300e09dfe5b",
+    "applicability/full/requirements.log": "da8f767fb14a9c5cc224fcf6f55a551caea68e198b8b25473e2442c852ef34bf",
+    "applicability/full/result.lean": "f30b8584b1bbde1d46ce59f1e5648488a9546dfc78bc613a224474112e3976b1",
+    "applicability/full/requirements.lean": "6cd0a84584ae87285e0ded93f88d58c07d9e90bd13158478fbc669fed7783e29",
+    "applicability/full/certificate_extension.lean": "90713697b237cda3fb0556046e54c0c408609f54c763089936717c01eac25065",
+    "applicability/final/receipt.json": "e62838e90b846af73d16bf379b1fe92645f772fd3ff39149b158874a83a3c467",
+    "applicability/final/certificate_zero.log": "50fb7251b435de18e1c67f70396fe87e9ad0cd5d6d4b6bb6e0a1bdc237b83375",
+    "applicability/final/certificate_add.log": "1781ed4311af6d2ec069dd7f178327b1219111435386905c180f39443c16c10b",
+    "applicability/final/result.log": "f19979a6243c84f39536665daf7c6eb44457a23e672d1a6a20052c00eabb1ca4",
+    "applicability/final/certificate_add.lean": "7bdcdd8dff1491ab3d30d4f5220ca5433df257464e03e43bfe65c32a7be9add5",
+    "applicability/final/requirements.log": "a271a559b7b5d521e012a36265ff5db88bddf3f276212d7757057d085132c0d2",
+    "applicability/final/result.lean": "afc99ef24a4870e7cbb4beff928a2cef168b37cdcfcdace9068c0cbccba384aa",
+    "applicability/final/requirements.lean": "7dfa513cacdd345c035e015bd86b4def806d75a4ece2da4fe9bb6a013b3296a0",
+    "applicability/final/certificate_zero.lean": "2396e66bbc70cfab3cac8ad8719810896fdd3ea06bb782f341eb6658dedd9a50",
+    "applicability/unknown/receipt.json": "b45c2eb5f89e4913082909b5f6e89b8c6dd106351b255d8d6e673a36edfac4e7",
+    "applicability/image/receipt.json": "598e7a8a2580e9368c9b3be475650310f6008fd1ba29e7fda38a724fc7dc1c76",
+    "applicability/image/result.log": "66cc58aa3645b8f7e2a1b7aff605dd60df40fea5a651690f07ea97526c9b8856",
+    "applicability/image/requirements.log": "6f0e4084dacdfa50012f85dbadeb92d12d85a0898dc83c6805459ef114730ce2",
+    "applicability/image/result.lean": "91e43aa0560ac7c3dd55d56c5cb6a696bb38839f4ea1cff10914f9f748679bf7",
+    "applicability/image/requirements.lean": "8cab5ab68e34c3b30b7cfdc9b6c618102af00dbe3df5aab51e7b78b688ddb0ff",
+    "applicability/wrong-type/receipt.json": "4dc7c0e34f1752ed778dfe58d46ba69a2247fa1aa72d17c49e5cc0449f003a69",
+    "applicability/wrong-type/certificate_extension.log": "c3de86cffb04f1b53f2015052fa32e435b80bfa28266df71d6cb23c3be9317ab",
+    "applicability/wrong-type/requirements.log": "73c98dbb7b8c840eeb327bc3a4d21d2d410b5c7663a5312b0623fa3aefa383b0",
+    "applicability/wrong-type/requirements.lean": "6cd0a84584ae87285e0ded93f88d58c07d9e90bd13158478fbc669fed7783e29",
+    "applicability/wrong-type/certificate_extension.lean": "01526f2f743198950b22b834289f175d6435612d0cbcc1b8fcd3ff4e82303eed",
+    "applicability/product/receipt.json": "5861cdffc6c7e2dad73dae79b62c951ba615956dca43bc874b322e6cbbbc0213",
+    "applicability/product/certificate_zero.log": "0dbaf87455681f96b884adcb1969e41f69f3af14fcda89926857a542330c8b06",
+    "applicability/product/certificate_add.log": "70315fc16ddb986455dbd2d28af0b4f0af82204ed0483336d059012a964b4b28",
+    "applicability/product/result.log": "3b185762fefd0602fd1d698f9bc847be1024b52f844844a73ebe19b3e814cc4c",
+    "applicability/product/certificate_add.lean": "9f3eb65bd002d565595186403c66800506ccd6153b0072dff24ef715daa73145",
+    "applicability/product/requirements.log": "7b4de634a9d66436090bcfb9a7a09afee56f4a026ec611c1f0fd7743a7d67fcc",
+    "applicability/product/result.lean": "a5f45160c44942314a1e403d159c14d2a00778e2e4211965b18f7ace3b16a8e1",
+    "applicability/product/requirements.lean": "190b8e3995df3871ca99c710959f9012bde292a5de64942fa91a99f569b58cb3",
+    "applicability/product/certificate_zero.lean": "ff9ab8290254555d4f8e7a48580db1615418fdf7d2769e69e019a1fea827e54e",
+    "applicability/missing/receipt.json": "5819d5f066dfa52b0ebbf2282de36aab056a59743966d1dad29119e8efe88b5c",
+    "applicability/missing/requirements.log": "7f9a2bc72f891238eef995dfda9973c89c0221667c2a7b91b7de816458d6d2b0",
+    "applicability/missing/requirements.lean": "6cd0a84584ae87285e0ded93f88d58c07d9e90bd13158478fbc669fed7783e29"
+  },
+  "commands": [
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake build SquareKit.InterpretationAssistance SquareKit.InterpretationDiagnostics",
+      "exit": 0,
+      "log": "applicability-support-build.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean -o .lake/build/lib/lean/TaskSetup462.olean TaskSetup462.lean",
+      "exit": 0,
+      "log": "task-setup-check.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 python3 /tmp/conaled-wave-20261111/462-private-reference/check-applicability.py",
+      "exit": 0,
+      "log": "applicability-run.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean /tmp/conaled-wave-20261111/462-private-reference/GeneratedConsumers.lean",
+      "exit": 0,
+      "log": "generated-consumers.log"
+    },
+    {
+      "command": "flock /tmp/conaled-wave-20261111/build.lock direnv exec . taskset -c 0 lake env lean /tmp/conaled-wave-20261111/462-private-reference/TaskSetupAudit.lean",
+      "exit": 0,
+      "log": "task-setup-audit.log"
+    }
+  ],
+  "expectations_changed": false,
+  "templates_changed": false,
+  "authors_launched": false
+}

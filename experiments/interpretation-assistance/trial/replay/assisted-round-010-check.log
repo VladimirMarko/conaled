@@ -1,0 +1,22 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-trial-preparation/replay/assisted/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+REQUIREMENT Requested.requirement_0: weight 0 = 0
+REQUIREMENT Requested.requirement_1: ∀ (a b : ℕ × ℕ), weight (a + b) = weight a + weight b
+Requested.initial : Resources.Measured ℤ (ℕ × ℕ)
+Requested.transition : ℤ → ℤ → Resources.Measured ℤ (ℕ × ℕ)
+Requested.weight : ℕ × ℕ → ℕ
+TRANSPORT_ROOT AssistedH2.product_add
+TRANSPORT_ROOT AssistedH2.final_add
+TRANSPORT_ROOT Requested.requirement_0
+TRANSPORT_ROOT Requested.requirement_1
+TRANSPORT_ROOT Requested.requestPresent
+TRANSPORT_ROOT Requested.weight
+TRANSPORT_ROOT AssistedH2.product_zero
+TRANSPORT_ROOT AssistedH2.final_zero
+TRANSPORT_ROOT Requested.certificate_0
+TRANSPORT_ROOT AssistedH2.product_add._proof_1_1
+TRANSPORT_ROOT AssistedH2.final_add._proof_1_1
+TRANSPORT_ROOT Requested.initial
+TRANSPORT_ROOT Requested.transition
+TRANSPORT_AUDIT_OK Requested.certificate_0; local roots: 13

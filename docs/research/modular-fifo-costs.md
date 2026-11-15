@@ -1,5 +1,10 @@
 # Modular FIFO resource bounds
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 Issue [#211](https://github.com/VladimirMarko/conaled/issues/211) extends the
 [shared FIFO client](abstract-fifo-client.md) with public operation budgets and
 initialization credit. One theorem applies to ordinary lists and valid symmetric

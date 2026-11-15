@@ -1,0 +1,11 @@
+[0mdirenv: loading /tmp/conaled-291-294/handoffs/manual/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Traceback (most recent call last):
+  File "/tmp/conaled-291-294/handoffs/manual/check_attempt.py", line 21, in <module>
+    archive.mkdir(parents=True, exist_ok=False)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/lib/python3.13/pathlib/_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/tmp/conaled-291-294/handoffs/manual/attempts/checks/SmokePass'

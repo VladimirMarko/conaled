@@ -92,8 +92,9 @@ Q(2^k) = k 2^k / 2 − 2^k + 1.
 These are structural derivations for two-point butterflies and nonidentity
 twiddle occurrences under exact primitive roots. They express association
 invariance, not minimum real arithmetic cost or costs after arbitrary common
-subexpression elimination. State the size-one case separately when using
-natural-number subtraction. The local semiring FFT theorem needs only
+subexpression elimination. The later [checked FFT development](fft-structural-costs.md) corrects the
+natural-number form to `Q = B + 1 − N`: the displayed left-associated
+subtraction also fails at size two, not only at size one. The local semiring FFT theorem needs only
 `ω^N=1`; nonidentity-twiddle and unitary claims need stronger assumptions.
 
 [Ailon's Theorem 2.1][ailon] gives the exact lower bound
@@ -295,3 +296,16 @@ signature comparison or global circuit optimality.
 [snir]: https://snir.cs.illinois.edu/listed/J16.pdf
 [ailon]: https://arxiv.org/abs/1305.4745
 [split]: https://www.fftw.org/~athena/papers/newsplit.pdf
+
+
+## FFT structural costs and local rewrites (#245)
+
+The [FFT implementation record](fft-structural-costs.md) connects the existing
+recipes to exact expression and scalar circuit interpretations. It proves the
+structural recurrences, corrected natural closed forms and association
+invariance, while preserving the semiring theorem's weak root hypothesis.
+Exact root identities justify local scalar rewrites. Under the declared
+precomputed-constant, free-sign and explicit-site-sharing model, the size16
+bush changes from work/depth `(176,6)` to `(168,6)`; the trees change from
+`(188,8)` to `(176,8)`. These are retained arithmetic gates and unit arithmetic
+depths, not wall-clock measurements or unrestricted optimality claims.
