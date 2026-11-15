@@ -61,6 +61,7 @@ import Examples.WireCorelation
 import Examples.UnaryInteraction
 import Examples.AdjointModes
 import Examples.IndexedWitnessAdjunctions
+import Examples.MatesBaseChange
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
