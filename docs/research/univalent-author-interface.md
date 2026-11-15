@@ -3,8 +3,9 @@
 Issue [#534](https://github.com/VladimirMarko/conaled/issues/534) tests whether
 an author-facing interface reduces repeated admission and transport plumbing
 without discarding the native construction. The interface and public calibration
-are implemented here. The independent task, acceptance oracle and author trial
-are not yet completed. No usability conclusion follows from the calibration.
+are implemented here. The independent paired-journal task and private acceptance oracle are now
+prepared and checked. The protocol awaits independent review and release; no
+author trial has run. No usability conclusion follows from the calibration.
 
 ## Admission and retained mathematics
 
@@ -84,9 +85,9 @@ execution. An independent task preparer must supply a new dependent-package
 argument and a variation involving repeated transport or a changed dependent
 field, together with a checked oracle that retains native witnesses and
 independent observations. That preparer and the interface builder cannot author
-either submission. Fresh authors must receive the same mathematical task,
-calibration and accepted baseline APIs; only the facade arm receives this
-proposed convenience interface.
+either submission. Both arms receive the same mathematical task and accepted baseline
+calibration/API sources. Only the facade arm additionally receives the proposed
+facade implementation, its API documentation and facade-only calibration.
 
 The frozen protocol must also specify permitted assistance and helper work,
 source access, attempt retention, defect handling and measurement. A correctness
@@ -102,11 +103,14 @@ fresh author execution. Submission replay and review of the eventual conclusion
 are separate completion requirements. The current checked calibration does not
 satisfy those requirements or justify a broader frontend adoption.
 
-## Trial protocol draft before independent task preparation
+## Prepared trial protocol before author release
 
-This protocol is not released to authors. Freeze remains incomplete until an
-independent preparer has produced and checked the task and oracle, and both
-review axes have accepted the complete protocol and interface candidate.
+This protocol is not released to authors. The independently prepared task and
+checked private oracle are fixed by the content manifest in
+[cohort 01](../../experiments/univalent-package-authoring/cohort-01/README.md).
+Release still requires independent Standards and Spec acceptance of the complete
+interface/protocol candidate and an external record binding that commit and
+verification to the content manifest. No trial has begun.
 
 The interface-builder role belongs to the coordinating root agent. The task
 preparer and the two fresh author roles must be different agents, with neither
@@ -129,7 +133,9 @@ case. The preparer proves its own feasibility solution privately before freeze;
 that solution is excluded from both author environments.
 
 Both arms receive identical task statements, expected declaration interfaces,
-public calibration links and validation commands. The direct arm may use all
+accepted baseline calibration links and validation commands. Facade-only
+calibration and implementation documentation are additional exposure for the
+facade arm; the direct arm does not read or import them. The direct arm may use all
 generic APIs accepted at the chosen baseline, including #528, #530, #533 and
 #554. The facade arm additionally may import the proposed facade. Both may
 write generic helpers, with their effort and retained helper code recorded.
@@ -185,3 +191,55 @@ witnesses, observations, role separation, preserved failures and conclusion.
 Publish the task, feasibility solution, oracle, submissions and attempt record
 with the final research report so the evidence can be inspected. A successful
 bounded trial supports only its tested fragment and author conditions.
+
+
+## Concrete preparation and freeze scope
+
+The independent preparer selected a pair of finite Nat journals, transported
+by reversing each list. The source appends 1; the independently defined target
+prepends 1. The complete main package preserves equal lengths. The variation
+changes the dependent field to equal totals, rather than adding repeated
+transport. The pairs `([2,3],[5])` and `([2],[3])` distinguish these predicates
+in opposite directions. The bad target keeps the correct operational fields
+but erases the invariant. These observations range over all states, including
+states outside the initial orbit; reachable traces alone would miss the field
+error. This is new task data, not a renamed Boolean, integer or Fin3/Phase
+calibration.
+
+The common named interface fixes the original arbitrary supplied equivalence
+`E`, its actual admitted ua line, native paths, entire filled sections and
+complete decoded records. Private oracle replays differ only in the submission
+import. They check both endpoints, both section decodings/recoveries, path
+recovery, universal initial/step/invariant observations, separating states and
+rejection. A concrete admitted equivalence is also instantiated privately to
+exclude an empty-input contract. Proof-dependency inspection remains part of
+acceptance; independent host target calculations alone are insufficient.
+
+The public files under `experiments/univalent-package-authoring/cohort-01/public/`
+are byte-identical to the independently prepared bundle. They are experimental
+fixtures, not integrated library modules. `ExpectedInterface.lean` imports the
+future `AuthorSubmission`; it was privately replayed against both feasibility
+solutions, not compiled as an absent author submission in the library audit.
+The private source manifest, proofs, oracle, raw failed attempts and successful
+logs remain coordinator evidence until final publication. Their hashes are
+committed in the freeze manifest without exposing solutions to future authors.
+
+Both private solutions and their common oracle passed at the default heartbeat
+limit. Preparation nevertheless exposed facade recovery elaboration timeouts
+at the common baseline-typed boundary. The passing facade feasibility uses
+facade transport and native section recovery, but uses the accepted baseline
+`uaStructureIdentity(...).symm_apply_apply` for the exact native path recovery.
+This permitted fallback is preparer/interface-integration effort; it is neither
+an observed author burden nor proof of a mathematical defect. Earlier failed
+record packaging, sum simplification, namespace and checker-computability
+attempts are retained. No failed preflight is rewritten into a passing trial.
+
+The accepted repository baseline and pinned dependency versions, fixed facade
+source revision and byte hashes, unchanged public task hashes, private oracle
+body and replay hashes are in `freeze.json`. Its own identity and the final
+integrated candidate commit are attached externally by the snapshot/release
+record, avoiding a self-referential commit hash. Integration reviewers receive
+all private evidence. Future authors receive only their declared exposure.
+The interface builder, preparer and protocol integrator are ineligible to author
+this cohort. Keep/refine/reject for author usability remains pending actual
+submissions, replay and independent final review.
