@@ -883,3 +883,28 @@ search/map chapters. It does not supply balancing, its worked figure or its
 height/cost contracts, and does not close the source row, Chapter 4 or a book.
 Exact focused checks and independent review remain in the CTB checkpoint
 evidence; receiving whole-library acceptance is still pending.
+
+## Recovered traversal exercises (CTB-74)
+
+The [enumeration/levels/reconstruction/rose unit](fdsa-tree-traversal-exercises.md)
+receives all eight useful modules in the full donor tree at
+`d02419738a9e16963727b25acf2e18f374dd16de`, retaining 97 original public named
+declarations and every original example. It reuses the canonical BinaryTree,
+inorder, preorder, membership and fold owners; the shared BasicObservations
+pair is not copied again.
+
+| Source obligation | Current declaration and boundary |
+| --- | --- |
+| Exercise 4.2, C04-019–020 | `enumTree` is a deterministic executable list with exact prescribed-inorder soundness/completeness and set correspondence. The left-spine insertion/deletion argument proves Nodup even with repeated labels; exact small output orders remain checked. |
+| Exercise 4.4, C04-023–026 | Independent `level` agrees at every default-empty index with the one-fold `levels` collector; bounded optional lookup and exact height/length agree. `mergeLevels` retains both unmatched tails; no linear total list-work claim is inferred. |
+| Exercise 4.5, C04-027–028 | Total Option reconstruction and the explicit empty-tree-fallback wrapper retain round trips under Nodup preorder, malformed-input failures, same-multiset nonexistence and the actual repeated-label parser choice. |
+| Exercise 4.6, C04-029–030 | The labelled ordered-child Rose carrier has recursive mirror and universal nested involution. Asymmetric and repeated-child applications retain order and occurrences. |
+| Enumeration/reconstruction composition | `reconstruct?_of_mem_enumTree` consumes the two headline laws under the exact common domain. Positive enumeration membership and repeated-label failure cases exercise its premise. |
+
+The earlier enumeration/levels/reconstruction/rose recovery gaps in this map
+are addressed by these source contracts. Other Chapter 4 rows, maximal complete
+subtrees, Boolean checking, almost-complete constructor characterization,
+balancing and its height/cost contracts, and remaining cache-client obligations
+stay open. Exact focused checks, independent reviews and final comparison are
+bound in the local CTB checkpoint; receiving whole-library acceptance remains
+pending. Neither Chapter 4 nor a book is declared complete.

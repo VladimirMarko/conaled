@@ -935,6 +935,10 @@ import Examples.TreeTraversalWork
 import Examples.TreeBasicObservations
 import Examples.TreeWeightedPaths
 import Examples.TreeSearchObservations
+import Examples.TreeEnumeration
+import Examples.TreeLevels
+import Examples.TreeReconstruction
+import Examples.TreeRose
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine
