@@ -506,5 +506,103 @@ theorem extractArrow_inverse {Q : Object (representation smoothAction).action X}
   rw [← Hom.comp_assoc, Hom.inverse_comp, Hom.ident_comp, Hom.comp_ident] at hh
   exact hh
 
+
+end TrivializedOn
+end SquareKit.SmoothCech
+
+noncomputable section
+open scoped Manifold ContDiff
+namespace SquareKit.SmoothCech
+open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite
+open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafActionQuotient
+variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
+variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
+  [TopologicalSpace G] [DiscreteTopology G]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+variable {smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)}
+omit [TopologicalSpace G] [DiscreteTopology G] in
+private theorem descentArrow_inverse
+    {q r : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover)}
+    (h : Descent.Map q r) :
+    (Descent.Map.arrow (inv (C := Descent.Datum (a := (representation smoothAction).action)
+      (SplitSheaf.ofDisplay A.cover)) h)) = h.arrow.inverse := by
+  have hi := (Descent.descentFunctor (representation smoothAction).action
+    (SplitSheaf.ofDisplay A.cover)).map_inv h
+  exact hi.trans (Groupoid.inv_eq_inv (C := Object (representation smoothAction).action X) h.arrow).symm
+
+omit [TopologicalSpace G] [DiscreteTopology G] in
+private theorem inverse_comp_arrow {P Q R : Object (representation smoothAction).action X}
+    (f : Arrow P Q) (g : Arrow Q R) : (f.comp g).inverse = g.inverse.comp f.inverse := by
+  change Groupoid.inv (obj := Object (representation smoothAction).action X) (f ≫ g) =
+    Groupoid.inv (obj := Object (representation smoothAction).action X) g ≫
+      Groupoid.inv (obj := Object (representation smoothAction).action X) f
+  simp only [Groupoid.inv_eq_inv, IsIso.inv_comp]
+
+omit [TopologicalSpace G] [DiscreteTopology G] in
+private theorem comp_assoc_arrow {P Q R S : Object (representation smoothAction).action X}
+    (f : Arrow P Q) (g : Arrow Q R) (h : Arrow R S) :
+    (f.comp g).comp h = f.comp (g.comp h) :=
+  Category.assoc (obj := Object (representation smoothAction).action X) f g h
+
+namespace TrivializedOn
+variable {P : Object (representation smoothAction).action X}
+variable (t : TrivializedOn A smoothAction P)
+/-- The extracted local datum maps to canonical descent through its actual
+regularization, before either datum is descended. -/
+def canonicalDescentMap : Descent.Map
+    (t.extractedDatum.cech smoothAction).toDescent
+    (Descent.canonicalDatum (SplitSheaf.ofDisplay A.cover) P) :=
+  eqToHom t.extractedDatum_descent ≫
+    descentOfLocalIsoMap smoothAction P _ t.splitRegularization
+
+/-- The existing selected canonical recovery gives exactly extractedRecovery
+through the constructed local comparison. -/
+theorem canonicalDescentMap_recovery :
+    t.canonicalDescentMap.arrow.comp
+      (Descent.canonicalRecovery (SplitSheaf.ofDisplay A.cover) P) = t.extractedRecovery := by
+  change (Descent.descentFunctor (representation smoothAction).action
+    (SplitSheaf.ofDisplay A.cover)).map
+      (eqToHom t.extractedDatum_descent ≫
+        descentOfLocalIsoMap smoothAction P _ t.splitRegularization) ≫ _ = _
+  erw [Functor.map_comp, eqToHom_map]
+  rfl
+
+/-- Compare an external arrow with canonical descent by composing actual local
+maps; no global recovered arrow is an input to this construction. -/
+def canonicalArrowMap {Q : Object (representation smoothAction).action X}
+    (u : TrivializedOn A smoothAction Q) (f : Hom t.extractedDatum u.extractedDatum) :
+    Descent.Map (Descent.canonicalDatum (SplitSheaf.ofDisplay A.cover) P)
+      (Descent.canonicalDatum (SplitSheaf.ofDisplay A.cover) Q) :=
+  Descent.Map.comp (Descent.Map.comp
+    (inv (C := Descent.Datum (a := (representation smoothAction).action)
+      (SplitSheaf.ofDisplay A.cover)) t.canonicalDescentMap)
+    (f.cechMap smoothAction).toDescent) u.canonicalDescentMap
+
+theorem canonicalArrowMap_agreement {Q : Object (representation smoothAction).action X}
+    (u : TrivializedOn A smoothAction Q) (f : Hom t.extractedDatum u.extractedDatum) :
+    Descent.canonicalArrowEquiv (SplitSheaf.ofDisplay A.cover) P Q
+      (t.canonicalArrowMap u f) = t.arrowEquiv u f := by
+  simp only [Descent.canonicalArrowEquiv, Equiv.trans_apply,
+    Descent.arrowEquiv, Equiv.coe_fn_mk, canonicalArrowMap, Descent.Map.arrow_comp,
+    arrowEquiv]
+  have ht := t.canonicalDescentMap_recovery
+  have hu := u.canonicalDescentMap_recovery
+  dsimp only [Iso.homCongr, Equiv.coe_fn_mk]
+  have hi : (Descent.Map.arrow (inv (C := Descent.Datum (a := (representation smoothAction).action)
+      (SplitSheaf.ofDisplay A.cover)) t.canonicalDescentMap)) =
+      t.canonicalDescentMap.arrow.inverse := by
+    exact descentArrow_inverse t.canonicalDescentMap
+  have hf : interpretedHomEquiv smoothAction _ _ f = (f.cechMap smoothAction).toDescent.arrow := rfl
+  rw [hi, hf, ← ht, ← hu]
+  dsimp only [Arrow.toIso]
+  erw [inverse_comp_arrow]
+  change (Descent.canonicalRecovery (SplitSheaf.ofDisplay A.cover) P).inverse.comp
+    (((t.canonicalDescentMap.arrow.inverse.comp (f.cechMap smoothAction).toDescent.arrow).comp
+      u.canonicalDescentMap.arrow).comp (Descent.canonicalRecovery (SplitSheaf.ofDisplay A.cover) Q)) =
+    ((Descent.canonicalRecovery (SplitSheaf.ofDisplay A.cover) P).inverse.comp
+      t.canonicalDescentMap.arrow.inverse).comp ((f.cechMap smoothAction).toDescent.arrow.comp
+      (u.canonicalDescentMap.arrow.comp (Descent.canonicalRecovery (SplitSheaf.ofDisplay A.cover) Q)))
+  simp only [comp_assoc_arrow]
+
 end TrivializedOn
 end SquareKit.SmoothCech
