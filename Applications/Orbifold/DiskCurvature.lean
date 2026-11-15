@@ -59,7 +59,6 @@ theorem scale_derivative {c : ℝ → ℂ} {u : ℂ} {t : ℝ}
   · rfl
   · simp [scale, coefficient, gap, Complex.div_re, Complex.mul_re, Complex.normSq_apply] at *
     field_simp
-    <;> ring
 
 /-- Compatibility on arbitrary constant coordinate fields, with the metric
 variation supplied by the actual base-curve derivative. -/

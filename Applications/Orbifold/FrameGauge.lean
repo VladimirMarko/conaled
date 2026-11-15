@@ -104,7 +104,6 @@ theorem local_decode (g : Gauge) {x y : Disk} (s : Segment x y) (a b : ℝ)
       s.factor b / s.factor a * (g.frame (s.curve a) * v) := by
   simp only [localTransport, ParallelTransport.scalar_apply, factor]
   field_simp [g.nonzero _ (s.inside a ha), g.nonzero _ (s.inside b hb), s.nonzero a ha]
-  <;> ring
 
 /-- Explicit local frame square. Its equations were established by product-rule
 compatibility and a constructed unique local solution above. -/
@@ -115,7 +114,6 @@ theorem local_change (g h : Gauge) {x y : Disk} (s : Segment x y) (a b : ℝ)
   simp only [Gauge.transition, localTransport, ParallelTransport.scalar_apply, factor]
   field_simp [g.nonzero _ (s.inside a ha), g.nonzero _ (s.inside b hb),
     h.nonzero _ (s.inside a ha), h.nonzero _ (s.inside b hb), s.nonzero a ha]
-  <;> ring
 
 /-- Standard normalized oriented frame, followed by a varying unit phase. -/
 def scale (z : ℂ) : ℂ := (gap z : ℂ) / 2

@@ -44,7 +44,7 @@ example :
       Orbifolds.QuarterTurn.origin
       ((Segment.hold Orbifolds.QuarterTurn.origin 1 (by norm_num)).transport 1) = Complex.I := by
   rw [Orbifolds.QuarterTurn.disk_tangent, Segment.hold_transport]
-  simp [Orbifolds.QuarterTurn.quarterTurn_scalar] <;> rfl
+  simp [Orbifolds.QuarterTurn.quarterTurn_scalar]; rfl
 
 example :
     mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ)
@@ -52,7 +52,7 @@ example :
       Orbifolds.QuarterTurn.half
       ((Segment.hold Orbifolds.QuarterTurn.half 1 (by norm_num)).transport 1) = Complex.I := by
   rw [Orbifolds.QuarterTurn.disk_tangent, Segment.hold_transport]
-  simp [Orbifolds.QuarterTurn.quarterTurn_scalar] <;> rfl
+  simp [Orbifolds.QuarterTurn.quarterTurn_scalar]; rfl
 
 /-- Both representative changes intertwine every admitted path, not only holds. -/
 example {x y : Disk} (p : DiskTransport.Path x y) (v : ℂ) :

@@ -493,7 +493,7 @@ private theorem local_no_output (s : PendingMigration.Session) (c : PendingMigra
   cases c <;> simp only [LocalCommand] at hc
   all_goals try contradiction
   all_goals dsimp only [PendingMigration.step,PendingMigration.enqueue,PendingMigration.reject]
-  all_goals repeat' first | rfl | split | dsimp only [PendingMigration.enqueue,PendingMigration.reject]
+  all_goals repeat' first | rfl | split
 
 private theorem transport_refines (s : PendingMigration.Session) (p : PendingMigration.Outcome)
     (o : Outcome)
@@ -609,7 +609,7 @@ private theorem external_fields (s : Session) (c : PendingMigration.Command)
   all_goals dsimp only [releaseBlocked] at hb
   all_goals dsimp only [external]
   all_goals simp only [hp,hb,Bool.false_eq_true,↓reduceIte]
-  all_goals repeat' first | rfl | split | dsimp only [source,updateResidual,Active.withResiduals]
+  all_goals repeat' first | rfl | split
 
 /-- The public wrapper preserves the independent source step, including busy
 internal-reference refusal, unsupported commands, and frozen preparation. -/

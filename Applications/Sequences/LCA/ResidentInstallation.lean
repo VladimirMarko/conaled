@@ -166,7 +166,7 @@ theorem ofState_eq_resident (input : Input m)
     simp only [ofState,Vector.getElem_ofFn]
     exact (macroWords_read input h.toWordEligible ⟨level,hl⟩ ⟨i,hi⟩).symm
   change Resident.mk _ _ _ _ _ _ = Resident.mk _ _ _ _ _ _
-  congr 1 <;> first | exact hs | exact hm | rfl
+  congr 1
 
 theorem innerWords_le_shared (m : Nat) :
     FlatTable.words (blockSize m) (blockSize m) ≤ sharedSlots m := by

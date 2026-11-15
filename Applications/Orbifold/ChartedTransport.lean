@@ -92,14 +92,12 @@ theorem decode (p : Charting s a b) (g h : Gauge) (v : ℂ) :
   | nil a ha =>
     simp only [transport, overlap_apply, Gauge.transition]
     field_simp [h.nonzero _ (s.inside a ha), s.nonzero a ha]
-    <;> ring
   | @cons a b c ha hb hab i covered r ih =>
     simp only [transport, LinearEquiv.trans_apply]
     rw [ih, local_decode]
     rw [overlap_apply]
     unfold Gauge.transition
     field_simp [(chart i).nonzero _ (s.inside a ha), s.nonzero a ha, s.nonzero b hb]
-    <;> ring
 
 /-- Independence covers any two witnessed subdivisions, including insertion
 of chart switches and zero-length pieces. It does not erase the physical curve. -/

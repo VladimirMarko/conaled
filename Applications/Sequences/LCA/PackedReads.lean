@@ -143,7 +143,6 @@ theorem flatten_depth (r : Representation m width) (i : Fin (blocks m*(blockSize
     rw [FlatTable.sharedPack_size,dimension]; rfl
   try unfold macroBase
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
 
 theorem arena_depth_read (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)

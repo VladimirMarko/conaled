@@ -110,7 +110,7 @@ theorem residual_derivative_zero : HasFDerivAt residual linearResidual 0 := by
       ((0 : Curve), integralCLM (conjugate p.2.1 * p.2.2 ^ 2)))
       (0 : State × Paths →L[ℝ] Paths) 0 := by
     convert! (ContinuousLinearMap.inr ℝ Curve Curve).hasFDerivAt.comp
-      (0 : State × Paths) hc using 1 <;> simp
+      (0 : State × Paths) hc using 1
   convert! hl.add hn using 1 <;> simp [residual]
 
 def pathDerivative : Paths →L[ℝ] Paths :=

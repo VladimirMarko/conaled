@@ -186,7 +186,7 @@ theorem external_native_fields (s : Session) (c : PendingMigration.Command)
   all_goals dsimp only [external]
   all_goals simp only [hp,hb,Bool.false_eq_true,↓reduceIte]
   all_goals simp only [and_true]
-  all_goals repeat' first | rfl | split | dsimp only [updateResidual,Active.withResiduals]
+  all_goals repeat' first | rfl | split
 
 theorem external_realizes (s : Session) (c : PendingMigration.Command) :
     ∃ call, Realizes s (.external c) (external s c) call (serviceValue s.active call) := by
@@ -267,7 +267,7 @@ theorem service_cut (s : Session) (c : Command) (hc : Business c) :
       all_goals try rfl
       all_goals split <;> rfl
   all_goals simp only [step,producer,deliver,join,whole]
-  all_goals repeat' first | rfl | split | dsimp only [updateResidual,Active.withResiduals]
+  all_goals repeat' first | rfl | split
 
 /-- The complete actual-command execution trace is admitted by the same
 service certificate stored on a replacement target. Readiness and the live

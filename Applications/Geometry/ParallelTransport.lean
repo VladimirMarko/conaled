@@ -15,8 +15,8 @@ namespace ParallelTransport
 def scalar (q : ℝ → ℂ) (a b : ℝ) (ha : q a ≠ 0) (hb : q b ≠ 0) : ℂ ≃ₗ[ℝ] ℂ where
   toFun v := q b / q a * v
   invFun v := q a / q b * v
-  left_inv v := by field_simp <;> ring
-  right_inv v := by field_simp <;> ring
+  left_inv v := by field_simp
+  right_inv v := by field_simp
   map_add' v w := by ring
   map_smul' r v := by simp [Complex.real_smul]; ring
 
