@@ -992,4 +992,6 @@ import Examples.SamplerWorkload
 import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
 
+import Examples.SmoothManifoldAction
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
