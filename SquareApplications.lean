@@ -990,5 +990,6 @@ import Examples.TableSampler
 import Examples.TableProducer
 import Examples.SamplerWorkload
 import Examples.CompositionalUnivalence
+import Examples.CubicalLargeConstructors
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
