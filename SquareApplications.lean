@@ -1002,4 +1002,7 @@ import Examples.SmoothManifoldAction
 import Examples.FiniteUniverseLoops
 import Examples.CubicalInterpretationObservations
 
+import Examples.BoundedArithmetic
+import Examples.BoundedMotionArithmetic
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
