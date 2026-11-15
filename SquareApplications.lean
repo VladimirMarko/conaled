@@ -934,6 +934,7 @@ import Examples.TreeAccumulatorObservations
 import Examples.TreeTraversalWork
 import Examples.TreeBasicObservations
 import Examples.TreeWeightedPaths
+import Examples.TreeSearchObservations
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine

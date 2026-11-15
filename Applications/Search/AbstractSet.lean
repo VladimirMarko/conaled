@@ -29,6 +29,20 @@ structure Laws (ops : Ops α S) (observe : S → α → Prop) (Valid : S → Pro
   insert : ∀ x s, Valid s → ∀ y, observe (ops.insert x s) y ↔ add x (observe s) y
   member : ∀ x s, Valid s → (ops.member x s = true ↔ observe s x)
 
+/-- Change the observer only where the fixed operations' validity contract
+applies. Empty and inserted states are valid by the original laws. -/
+theorem Laws.congr_observe {ops : Ops α S} {observe observe' : S → α → Prop}
+    {Valid : S → Prop} (laws : Laws ops observe Valid)
+    (agree : ∀ s, Valid s → ∀ x, observe s x ↔ observe' s x) :
+    Laws ops observe' Valid where
+  empty_valid := laws.empty_valid
+  empty x := fun h => laws.empty x ((agree ops.empty laws.empty_valid x).mpr h)
+  insert_valid := laws.insert_valid
+  insert x s hs y :=
+    (agree (ops.insert x s) (laws.insert_valid x s hs) y).symm.trans
+      ((laws.insert x s hs y).trans (or_congr Iff.rfl (agree s hs y)))
+  member x s hs := (laws.member x s hs).trans (agree s hs x)
+
 def representation (observe : S → α → Prop) (Valid : S → Prop) : Relational.RelRep :=
   ⟨S, α → Prop, fun s contents => Valid s ∧ ∀ x, observe s x ↔ contents x⟩
 

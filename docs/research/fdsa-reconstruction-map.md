@@ -857,3 +857,29 @@ almost-complete constructor characterization, balancing and its height/cost
 contracts, and remaining augmentation exercises stay with their chapter owners.
 Exact focused checks, independent source reviews and final comparison belong to
 the CTB checkpoint evidence; receiving whole-library acceptance remains pending.
+
+## Canonical tree observations and ordered-set contracts (CTB-73)
+
+The [ordered-observation unit](fdsa-tree-search-observations.md) connects the
+existing Search and Trees owners. `Search.OrderedTree.entries` now uses the
+canonical inorder implementation, preserving its public equations and clients.
+Raw Contains and All correspond to the independent `Trees.setTree` on every
+tree. The structural Ordered predicate is equivalent to pairwise strict inorder
+under Preorder; its converse needs only LT. Keyed payloads need no order or key
+injectivity. The existing Contents results are safely generalized to Preorder.
+
+`AbstractSet.Laws.congr_observe` changes an observer only on valid states.
+Both existing tree implementations inherit the FDSA set observation through
+this theorem. A mixed baseline/candidate insertion client consumes the existing
+insertion squares and relational composition, retaining validity and exact set
+updates. Repeated insertion words use the existing fold/member laws. Connected
+cases retain unordered observations, bad descendants, duplicate-key rejection,
+unordered payloads, a nontransitive-relation boundary and unequal actual search
+comparison counts. A lawful singleton-set case has observers that agree on
+valid states and provably differ on an invalid state.
+
+This is the ordered-input prerequisite for C04-058 and a connection for later
+search/map chapters. It does not supply balancing, its worked figure or its
+height/cost contracts, and does not close the source row, Chapter 4 or a book.
+Exact focused checks and independent review remain in the CTB checkpoint
+evidence; receiving whole-library acceptance is still pending.

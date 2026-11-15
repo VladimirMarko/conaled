@@ -4,7 +4,7 @@ import Mathlib.Data.List.Nodup
 /-!
 # Finite, duplicate-free contents of ordered trees
 
-The independent inorder list witnesses finiteness. Strict all-descendant
+The canonical inorder list witnesses finiteness. Strict all-descendant
 ordering makes that list pairwise increasing, hence free of duplicates.
 -/
 set_option autoImplicit false
@@ -12,14 +12,14 @@ set_option warningAsError true
 
 namespace Search.OrderedTree
 universe u
-variable {α : Type u} [LinearOrder α]
+variable {α : Type u} [Preorder α]
 
 theorem ordered_entries_pairwise {t : BinaryTree α} (ordered : Ordered t) :
     (entries t).Pairwise (· < ·) := by
   induction t with
   | nil => exact List.Pairwise.nil
   | node x l r hl hr =>
-      rw [entries, List.pairwise_append]
+      rw [entries_node, List.pairwise_append]
       refine ⟨hl ordered.1, ?_, ?_⟩
       · rw [List.pairwise_cons]
         exact ⟨fun y hy => ordered.2.2.2.of_contains ((contains_iff_mem_entries y r).mpr hy),
