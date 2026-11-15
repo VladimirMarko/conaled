@@ -1,5 +1,5 @@
 import SquareKit.SmoothCechGauge
-import SquareKit.SmoothClutchingAtlas
+import SquareKit.SmoothClutchingRefinement
 import SquareKit.SmoothQuarterTurnArcs
 import Examples.SmoothManifoldAction
 
@@ -49,6 +49,91 @@ example (U : Domain) (m : External.SmoothMap U d M) :
     (Hom.ident (identityDatum (G := G) U m)).inverse.comp
       (Hom.ident (identityDatum (G := G) U m)) = Hom.ident (identityDatum (G := G) U m) :=
   Hom.inverse_comp _
+
+namespace OneChart
+variable (U : Domain) (m : External.SmoothMap U d M)
+variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+
+def admitted : TrivializedOn (identityAtlas U) smoothAction
+    (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)) where
+  trivialization _ := SheafTorsor.Arrow.ident _
+
+theorem localMap_hat : hat ((admitted U m smoothAction).localMap ()).val
+    ((admitted U m smoothAction).localMap ()).property = hat m.val m.property := by
+  rw [TrivializedOn.localMap_hat]
+  ext V x
+  exact (representation smoothAction).action.one_act V _
+
+theorem smoothMap_of_hat_eq (m n : External.SmoothMap U d M)
+    (he : hat m.val m.property = hat n.val n.property) : m = n := by
+  apply Subtype.ext
+  funext x
+  have h := congrArg (fun f : embedding.obj U ⟶ object d M =>
+    pointEquiv (d := d) (M := M)
+      (f.hom.app (op (op (SmoothPresentationSite.free 0))) (ordinaryPoint U x))) he
+  exact (hat_eval m.val m.property x).symm.trans (h.trans (hat_eval n.val n.property x))
+
+theorem localMap_eq : (admitted U m smoothAction).localMap () = m :=
+  smoothMap_of_hat_eq U _ _ (localMap_hat U m smoothAction)
+
+theorem datum_unique (p : Datum (d := d) (G := G) (M := M) (identityAtlas U)) :
+    p = identityDatum U (p.localMap ()) := by
+  refine Datum.ext _ _ ?_ ?_
+  · funext i
+    cases i
+    rfl
+  · apply heq_of_eq
+    funext i j
+    cases i
+    cases j
+    apply Subtype.ext
+    apply LocallyConstant.ext
+    intro x
+    have hd : (identityAtlas U).diagonal () = 𝟙 U := by
+      simpa only [identityAtlas, Category.comp_id] using (identityAtlas U).diagonal_left ()
+    have h := p.diagonal () x
+    rw [hd] at h
+    exact h
+
+theorem extracted_eq : (admitted U m smoothAction).extractedDatum = identityDatum (G := G) U m := by
+  rw [datum_unique U ((admitted U m smoothAction).extractedDatum)]
+  change identityDatum U ((admitted U m smoothAction).localMap ()) = _
+  rw [localMap_eq]
+
+def recovery : SheafActionQuotient.Arrow ((identityDatum (G := G) U m).interpreted smoothAction)
+    (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)) :=
+  (eqToHom (congrArg (fun p : Datum (d := d) (G := G) (M := M) (identityAtlas U) =>
+    p.interpreted smoothAction) (extracted_eq U m smoothAction).symm)).comp
+      (admitted U m smoothAction).extractedRecovery
+
+
+/-- On the identity atlas, compatible arrows are exactly the original labels. -/
+def labelsEquiv (n : External.SmoothMap U d M) :
+    Hom (identityDatum (G := G) U m) (identityDatum U n) ≃ External.Labels (G := G) U m n where
+  toFun f := f.labels ()
+  invFun a := {
+    labels _ := a
+    commutes _ _ x := by change 1 * a.val x = a.val x * 1; simp }
+  left_inv f := by
+    apply Hom.ext
+    funext i
+    cases i
+    rfl
+  right_inv _ := rfl
+
+/-- The one-chart family comparison preserves both coordinates and certificates. -/
+def familiesEquiv (n : External.SmoothMap U d M) :
+    Hom (identityDatum (G := G) U m) (identityDatum U n) ≃ External.Family (G := G) U m n :=
+  (labelsEquiv U m n).trans (External.labelsEquiv m n)
+
+theorem native_family_agreement (n : External.SmoothMap U d M)
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    External.smoothChartEquiv smoothAction m n (f.chartArrow smoothAction ()) =
+      familiesEquiv U m n f := by
+  exact congrArg (External.labelsEquiv m n)
+    ((External.chartLabelsEquiv smoothAction m n).apply_symm_apply (f.labels ()))
+
+end OneChart
 
 namespace Clutching
 open SquareKit.SmoothClutching
@@ -207,6 +292,90 @@ theorem emptyArrow_roundtrip :
       (interpretedHomEquiv (smooth S3) _ _ emptyArrow) = emptyArrow :=
   (interpretedHomEquiv (smooth S3) _ _).symm_apply_apply emptyArrow
 
+def threeAtlas : Atlas lineSheaf (Fin 3) where
+  domain _ := line
+  chart _ := 𝟙 _
+  covering V x := by
+    apply topology.superset_covering _ (topology.top_mem V)
+    intro W r hr
+    exact ⟨0, lineSheaf.obj.map r.op x, rfl⟩
+  pair _ _ := line
+  left _ _ := 𝟙 _
+  right _ _ := 𝟙 _
+  square _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 lineSheaf))
+  triple _ _ _ := line
+  firstSecond _ _ _ := 𝟙 _
+  third _ _ _ := 𝟙 _
+  tripleSquare _ _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 lineSheaf))
+
+def badCocycle (i j : Fin 3) : LocallyConstant (Points line) S3 :=
+  LocallyConstant.const _ (if i = j then 1 else SmoothManifoldAction.g)
+
+theorem badCocycle_diagonal (i : Fin 3) (x : Points line) : badCocycle i i x = 1 := by
+  simp [badCocycle]
+
+/-- Every displayed diagonal is valid, but the off-diagonal cocycle is not. -/
+theorem reject_bad_cocycle (p : Datum (d := 1) (G := S3) (M := Space 1) threeAtlas)
+    (h : ∀ i j, (p.transition i j).val = badCocycle i j) : False := by
+  have he := p.cocycle 0 1 2 (realLinePoint 0)
+  rw [h, h, h] at he
+  change SmoothManifoldAction.g = SmoothManifoldAction.g * SmoothManifoldAction.g at he
+  have hz := congrArg (fun p : S3 => p 0) he
+  norm_num [badCocycle, SmoothManifoldAction.g, Equiv.Perm.mul_apply, Equiv.swap_apply_def] at hz
+
 end OrderControl
+
+def shiftedAdmitted : TrivializedOn Represented.atlas (smooth C4) (quotient C4 quarterTurn) where
+  trivialization i :=
+    (SheafTorsor.regularArrow (constantSection lineSheaf (if i then 1 else quarterTurn))).comp
+      ((admitted C4 quarterTurn).trivialization i)
+
+theorem shifted_trivialization_nonidentity : shiftedAdmitted.trivialization false ≠
+    (admitted C4 quarterTurn).trivialization false := by
+  intro h
+  let x := lineSheaf.obj.elementsMk (op (op (SmoothPresentationSite.free 0)))
+    (ordinaryPoint line (realLinePoint 0))
+  have he := congrArg (fun a => a.iso.hom.app x
+    (1 : (locallyConstantGroup C4).obj.obj x.obj)) h
+  have hi := (((admitted C4 quarterTurn).trivialization false).iso.app x).toEquiv.injective he
+  change (1 : (locallyConstantGroup C4).obj.obj x.obj) *
+    ((constantLabel C4).app x.obj quarterTurn) = 1 at hi
+  rw [one_mul] at hi
+  apply SquareKit.SmoothQuarterTurnArcs.quarterTurn_ne_one
+  apply (constantLabelRealEquiv C4).injective
+  exact hi.trans (((constantLabel C4).app x.obj).hom.map_one).symm
+
+theorem actual_changed_datum :
+    quarterTurnDatum.gauge shiftedAdmitted.extractedDatum.localMap
+      ((admitted C4 quarterTurn).changeOfTrivialization (smooth C4) shiftedAdmitted).labels =
+        shiftedAdmitted.extractedDatum :=
+  (admitted C4 quarterTurn).changed_datum (smooth C4) shiftedAdmitted
+
+namespace Refinements
+open SquareKit.SmoothClutching.Refined
+
+def onOne := quarterTurnDatum.restrict (refinement (punctures 1) (punctures_cover 1 (by norm_num)))
+def onTwo := quarterTurnDatum.restrict (refinement (punctures 2) (punctures_cover 2 (by norm_num)))
+def onCommon := quarterTurnDatum.restrict (refinement commonFunctions common_cover)
+
+theorem onOne_map_zero (i : Bool × Bool) (x : Points (atlasOne.domain i)) :
+    (onOne.localMap i).val x = 0 := localMap_zero C4 quarterTurn i.1 _
+
+theorem two_nonidentity : baseScale 2 (by norm_num) ≠ 𝟙 base :=
+  baseScale_ne_identity 2 (by norm_num) (by norm_num)
+
+theorem three_nonidentity : baseScale 3 (by norm_num) ≠ 𝟙 base :=
+  baseScale_ne_identity 3 (by norm_num) (by norm_num)
+
+theorem original_accepts_half : (fun _ : Fin 1 => (1/2 : ℝ)) ∈ Points (principal (hole 1)) := by
+  change (1/2 : ℝ) - 1 ≠ 0
+  norm_num
+
+theorem pullback_two_excludes_half :
+    ¬ (fun _ : Fin 1 => (1/2 : ℝ)) ∈ Points (principal (scaledFunction 2 (hole 1))) := by
+  change ¬ (2 : ℝ) * (1/2) - 1 ≠ 0
+  norm_num
+
+end Refinements
 end Clutching
 end Examples.SmoothCechDescent

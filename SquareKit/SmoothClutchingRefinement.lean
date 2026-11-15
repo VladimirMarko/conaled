@@ -251,6 +251,20 @@ def scaledFunction (r : ℝ) (f : Free 1) : Free 1 :=
   ⟨fun x => f.val (fun i => r * x i), (show ContDiff ℝ ∞ f.val from f.property).comp
     (contDiff_pi.mpr (fun i => contDiff_const.mul (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i)))⟩
 
+
+theorem scaledFunction_one (f : Free 1) : scaledFunction 1 f = f := by
+  apply Subtype.ext
+  funext x
+  change f.val (fun i => 1 * x i) = f.val x
+  simp only [one_mul]
+
+theorem scaledFunction_comp (r s : ℝ) (f : Free 1) :
+    scaledFunction r (scaledFunction s f) = scaledFunction (s * r) f := by
+  apply Subtype.ext
+  funext x
+  change f.val (fun i => s * (r * x i)) = f.val (fun i => (s * r) * x i)
+  simp only [mul_assoc]
+
 def principalScalingIso (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
     principal (scaledFunction r f) ≅ principal f where
   hom := {

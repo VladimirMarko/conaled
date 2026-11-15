@@ -123,5 +123,50 @@ def localTrivialization (i : Bool) :
   | true => SheafTorsor.ofSection _
       (chartSection G c right (totalChartRight G c) (localTrivial G c).2.w)
 
+theorem localTrivialization_left_apply (x : lineSheaf.obj.Elements)
+    (g : (locallyConstantGroup G).obj.obj x.obj) :
+    ((localTrivialization G c false).iso.hom.app x g).val =
+      (totalChartLeft G c).hom.app x.obj (pairSection _ _ x.obj x.val g) := by
+  change sectionAction G c x.obj g
+    ((totalChartLeft G c).hom.app x.obj (pairSection _ _ x.obj x.val (1 : (locallyConstantGroup G).obj.obj x.obj))) = _
+  rw [sectionAction_chart G c _ (actionMap_left G c)]
+  erw [pairSection_fst, pairSection_snd, mul_one]
+theorem localTrivialization_right_apply (x : lineSheaf.obj.Elements)
+    (g : (locallyConstantGroup G).obj.obj x.obj) :
+    ((localTrivialization G c true).iso.hom.app x g).val =
+      (totalChartRight G c).hom.app x.obj (pairSection _ _ x.obj x.val g) := by
+  change sectionAction G c x.obj g
+    ((totalChartRight G c).hom.app x.obj (pairSection _ _ x.obj x.val (1 : (locallyConstantGroup G).obj.obj x.obj))) = _
+  rw [sectionAction_chart G c _ (actionMap_right G c)]
+  erw [pairSection_fst, pairSection_snd, mul_one]
+theorem chart_gluing (U : SmoothPresentationSite.Siteᵒᵖ)
+    (x : puncturedSheaf.obj.obj U) (g : (locallyConstantGroup G).obj.obj U) :
+    (totalChartLeft G c).hom.app U
+      (pairSection _ _ U (inclusion.hom.app U x) g) =
+    (totalChartRight G c).hom.app U
+      (pairSection _ _ U (inclusion.hom.app U x)
+        (g * (show (locallyConstantGroup G).obj.obj U from (transition G c).hom.app U x))) := by
+  have h := congrArg (fun f : totalOverlap G ⟶ total G c =>
+    f.hom.app U (pairSection _ _ U x g))
+    (pushout.condition (f := totalLeft G) (g := totalRight G c))
+  change (totalChartLeft G c).hom.app U ((totalLeft G).hom.app U _) =
+    (totalChartRight G c).hom.app U ((totalRight G c).hom.app U _) at h
+  change (totalChartLeft G c).hom.app U
+    ((prod.map inclusion (𝟙 (locallyConstantGroupSheaf G))).hom.app U (pairSection _ _ U x g)) =
+    (totalChartRight G c).hom.app U
+    ((prod.lift (overlapProjection G ≫ inclusion)
+      (multiply G prod.snd (overlapProjection G ≫ transition G c))).hom.app U
+        (pairSection _ _ U x g)) at h
+  erw [pairSection_map, pairSection_lift] at h
+  change (totalChartLeft G c).hom.app U (pairSection _ _ U (inclusion.hom.app U x) g) =
+    (totalChartRight G c).hom.app U (pairSection _ _ U
+      (inclusion.hom.app U ((prod.fst : totalOverlap G ⟶ puncturedSheaf).hom.app U (pairSection _ _ U x g)))
+      ((show (locallyConstantGroup G).obj.obj U from
+        (prod.snd : totalOverlap G ⟶ _).hom.app U (pairSection _ _ U x g)) *
+       (show (locallyConstantGroup G).obj.obj U from (transition G c).hom.app U
+        ((prod.fst : totalOverlap G ⟶ puncturedSheaf).hom.app U (pairSection _ _ U x g))))) at h
+  erw [pairSection_fst, pairSection_snd] at h
+  exact h
+
 end Represented
 end SquareKit.SmoothClutching
