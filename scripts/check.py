@@ -10,6 +10,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -124,7 +125,7 @@ def read_record(path):
     try:
         record = json.loads(path.read_text())
         if (record["format"] != 1 or record["result"] != "passed"
-                or record["mode"] not in ("fresh", "incremental")
+                or record["mode"] not in ("fresh", "incremental", "clean")
                 or not isinstance(record["candidate"], str)
                 or not isinstance(record["dependencies"], dict)
                 or not isinstance(record["compiler"], str)
@@ -155,18 +156,23 @@ def main() -> int:
                             help="validate a clean HEAD candidate and save its success record")
     candidates.add_argument("--verify-candidate", metavar="REV",
                             help="check an existing candidate record without compiling")
-    parser.add_argument("--fresh", action="store_true",
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--clean", action="store_true",
+                       help="discard project Lake outputs, rebuild, and retain reusable outputs")
+    modes.add_argument("--fresh", action="store_true",
                         help="recompile every project module in private temporary outputs")
     parser.add_argument("--jobs", "-j", type=positive_jobs,
                         default=None,
                         help="fresh mode only: maximum concurrent compilers (default: up to 4)")
     args = parser.parse_args()
-    if args.verify_candidate and (args.fresh or args.jobs is not None):
-        parser.error("--verify-candidate uses the recorded mode; omit --fresh and --jobs")
+    if args.verify_candidate and (args.clean or args.fresh or args.jobs is not None):
+        parser.error("--verify-candidate uses the recorded mode; omit --clean, --fresh and --jobs")
     if not args.fresh and args.jobs is not None:
         parser.error("--jobs requires --fresh; incremental compilation uses Lake's scheduler")
     if not args.fresh and not args.verify_candidate and "LEAN" in os.environ:
         parser.error("LEAN override requires --fresh; incremental compilation uses Lake's pinned compiler")
+    if args.clean and ((ROOT / ".lake").is_symlink() or (ROOT / ".lake/build").is_symlink()):
+        raise RuntimeError("Clean build requires real .lake and .lake/build directories")
     args.jobs = args.jobs or min(4, os.cpu_count() or 1)
     started = time.monotonic()
     record_path = ROOT / ".lake/verification.json"
@@ -174,8 +180,8 @@ def main() -> int:
     env.pop("LEAN_PATH", None)
     if args.verify_candidate:
         record = read_record(record_path)
-        if record["mode"] == "incremental" and "LEAN" in env:
-            raise RuntimeError("LEAN override is incompatible with an incremental record")
+        if record["mode"] != "fresh" and "LEAN" in env:
+            raise RuntimeError("LEAN override is incompatible with a Lake build record")
         identity = candidate_identity(args.verify_candidate)
         identity["compiler"] = compiler_version(record["mode"] == "fresh", env)
         if any(record[key] != value for key, value in identity.items()):
@@ -251,14 +257,22 @@ def main() -> int:
         # Existing dependency build outputs remain trusted and reusable.
         env["LAKE_ARTIFACT_CACHE"] = "false"
         targets = [n for n in order if n != "ProofAudit"]
+        if args.clean:
+            # Only project outputs are discarded. Lake creates its own traces;
+            # never synthesize metadata for artifacts from the reference build.
+            output = ROOT / ".lake/build"
+            if output.exists():
+                shutil.rmtree(output)
+            print("Clean build: discarded project Lake outputs; dependency caches retained.", flush=True)
         guard_outputs(ROOT, targets, env, repair=True)
-        print(f"Building {len(order) - 1} project modules with Lake (incremental).", flush=True)
+        mode = "clean" if args.clean else "incremental"
+        print(f"Building {len(order) - 1} project modules with Lake ({mode}).", flush=True)
         build_started = time.monotonic()
         # Explicit module targets avoid library/default-target ambiguity and build
         # every inventoried module, including imports used only by the audit.
         subprocess.run(["lake", "--no-cache", "--rehash", "build", *["+" + n for n in targets]],
                        cwd=ROOT, env=env, check=True)
-        print(f"Incremental compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+        print(f"{mode.capitalize()} compilation: {time.monotonic() - build_started:.2f}s", flush=True)
         guard_outputs(ROOT, targets, env, repair=False)
         audit_started = time.monotonic()
         # Run the audit even when Lake reuses all project artifacts. Do not write
@@ -288,7 +302,7 @@ def main() -> int:
             raise RuntimeError("Candidate inputs changed during verification")
         save_record(record_path, {
             "format": 1, "result": "passed", **identity,
-            "mode": "fresh" if args.fresh else "incremental",
+            "mode": "fresh" if args.fresh else "clean" if args.clean else "incremental",
             "completed_at": datetime.now(timezone.utc).isoformat(),
         })
         print(f"Candidate {identity['candidate']} recorded in {record_path.relative_to(ROOT)}.")

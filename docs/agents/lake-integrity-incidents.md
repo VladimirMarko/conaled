@@ -58,9 +58,10 @@ stronger reuse contract; recovering one incident does not complete it.
 5. Use `./check.sh --fresh` when stale outputs are suspected, as required by the
    README; include `--candidate HEAD` when validating a committed candidate.
    Record its result separately. Fresh mode bypasses project outputs and leaves
-   the incremental cache unrepaired. Claim incremental recovery only after a
-   guarded incremental run passes; fresh success alone does not close the
-   incident. Verification records describe their recorded mode, not both modes.
+   the incremental cache unrepaired. Use `./check.sh --clean` to regenerate project
+   outputs and Lake traces, retaining them for reuse. Claim incremental recovery
+   only after a guarded incremental run passes; fresh success alone does not close
+   the incident. Verification records describe their recorded mode.
 6. Complete the incident comment in #272 with recovery results, remaining
    uncertainty and owner-alert status. For a delegated investigation, supply the
    evidence to the coordinator so it can maintain one comment and relay alerts.

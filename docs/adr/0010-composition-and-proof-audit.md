@@ -44,9 +44,19 @@ must use stable candidate inputs, dependencies, and configuration.
 A separate `--fresh` mode rechecks every project module from source, with
 bounded concurrent compilation after imports succeed. It uses private temporary
 outputs, reuses external dependency caches, and excludes existing project
-artifacts. Run this mode weekly and after build-tooling, toolchain, or dependency
-configuration changes, or suspected cache errors. Both modes audit only after
-all required compilation succeeds.
+artifacts. Run this independent reference mode weekly, after scheduler or
+integrity changes, and for suspected cache errors; the development guide defines
+the full input-based validation policy. All modes audit only after required
+compilation succeeds.
+
+`--clean` rebuilds with Lake after removing the project's build outputs and
+disabling artifact-cache restoration. It retains Lake-produced outputs and
+traces for subsequent incremental checks. This separates rebuilding from output
+retention without inventing Lake metadata for direct-Lean outputs. Compiler and
+dependency changes use clean rebuilding. Audit-only changes use guarded
+incremental acceptance and audit regressions when compilation and integrity
+inputs are unchanged: rerunning a changed auditor does not itself require
+regenerating its unchanged imported library.
 
 Issue [#223](https://github.com/VladimirMarko/conaled/issues/223) revises the earlier
 fresh-on-every-acceptance policy. Recompiling unchanged modules on every check
@@ -54,7 +64,7 @@ increases development cost as the library grows. Lake's ordinary invalidation
 is sufficient for routine acceptance; the fresh check independently exercises
 source compilation without project cache reuse. A stale result could validate
 an older statement or hide an integration failure, so the periodic check remains
-useful. Neither mode establishes truth of the intended specification or freezes
+useful. No build mode establishes truth of the intended specification or freezes
 concurrently changing inputs. A future conditional guarantee for cache reuse
 belongs to [#222](https://github.com/VladimirMarko/conaled/issues/222).
 

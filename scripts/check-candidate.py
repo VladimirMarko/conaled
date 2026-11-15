@@ -51,11 +51,13 @@ def main():
     parser.add_argument("revision", help="commit to check; resolved once before acquiring the workspace")
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--verify", action="store_true", help="verify the current receipt without checkout/build")
-    parser.add_argument("--fresh", action="store_true", help="explicit cache-independent project check")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--clean", action="store_true", help="rebuild project with Lake and retain outputs")
+    modes.add_argument("--fresh", action="store_true", help="independent direct-Lean reference check")
     parser.add_argument("--jobs", type=int, help="fresh-mode compiler concurrency")
     args = parser.parse_args()
-    if args.verify and (args.fresh or args.jobs is not None):
-        parser.error("--verify does not accept --fresh or --jobs")
+    if args.verify and (args.clean or args.fresh or args.jobs is not None):
+        parser.error("--verify does not accept --clean, --fresh or --jobs")
     if args.jobs is not None and (not args.fresh or args.jobs < 1):
         parser.error("--jobs requires --fresh and a positive count")
     if any(key.startswith("GIT_") and key != "GIT_PAGER" for key in os.environ):
@@ -115,6 +117,8 @@ def main():
                    "--verify-candidate" if args.verify else "--candidate", revision]
         if args.fresh:
             command.append("--fresh")
+        if args.clean:
+            command.append("--clean")
         if args.jobs is not None:
             command += ["--jobs", str(args.jobs)]
         code = run(command, workspace, lock.fileno())

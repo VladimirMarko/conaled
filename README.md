@@ -98,8 +98,10 @@ direnv exec . python3 scripts/check-candidate.py HEAD --verify
 ```
 
 This retains private Lake outputs across candidates and runs the full audit each
-time. Use `--fresh` for changes to verification inputs or suspected stale outputs,
-as defined in the development guide.
+time. `--clean` rebuilds project artifacts with Lake and retains them for reuse.
+`--fresh` runs the independent direct-Lean reference check with temporary outputs.
+Audit-only changes normally use guarded incremental acceptance. Choose validation
+by the changed inputs, as defined in the development guide.
 Before selecting validation for a change, read the
 [full build and audit procedure](docs/development.md#build-and-audit). It defines
 candidate requirements, fresh checks, stable inputs, cache-integrity handling,

@@ -236,6 +236,72 @@ run_cmd IO.FS.writeFile "Applications/A.lean" "def a : Nat := 999\\n"
         self.assertEqual((self.root / "audit-count").read_text(), "2")
         self.assertNotIn("PASS: all", result.stdout)
 
+    def test_clean_build_is_reused_and_modified_audit_still_runs(self):
+        self.write("Applications.A", '''import Lean
+def a : Nat := 7
+run_cmd do
+  let p : System.FilePath := "compile-count"
+  let n ← if ← p.pathExists then IO.FS.readFile p else pure "0"
+  IO.FS.writeFile p (toString (n.toNat! + 1))
+''')
+        self.write("Applications.B", "import Applications.A\nexample : a = 7 := rfl\n")
+        dependency = (self.root / ".lake/packages").resolve()
+        sibling = self.root / ".lake/retained-input"
+        sibling.write_text("keep")
+        for args, count in (((), "1"), (("--clean",), "2"), ((), "2")):
+            result = self.check(*args, fresh=False)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual((self.root / "compile-count").read_text(), count)
+            self.assertEqual((self.root / ".lake/packages").resolve(), dependency)
+            self.assertTrue((self.root / ".lake/packages").is_dir())
+            self.assertEqual(sibling.read_text(), "keep")
+        self.write("ProofAudit", "import SquareApplications\n#check changedAuditMustFail\n")
+        result = self.check(fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("changedAuditMustFail", result.stdout + result.stderr)
+        self.assertEqual((self.root / "compile-count").read_text(), "2")
+        self.assertNotIn("PASS: all", result.stdout)
+
+    def test_clean_refuses_symlinked_output_roots_without_touching_target(self):
+        for name in (".lake", ".lake/build"):
+            with self.subTest(path=name), tempfile.TemporaryDirectory() as other:
+                target = Path(other)
+                sentinel = target / "verification.json"
+                sentinel.write_text("preserve external state")
+                path = self.root / name
+                if path.exists():
+                    shutil.rmtree(path)
+                path.symlink_to(target, target_is_directory=True)
+                result = self.check("--clean", fresh=False)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("real .lake", result.stderr)
+                self.assertEqual(sentinel.read_text(), "preserve external state")
+                path.unlink()
+                path.mkdir()
+
+    def test_clean_failures_withhold_candidate_receipt(self):
+        self.commit_candidate()
+        for module, source in (
+            ("ProofAudit", "import SquareApplications\n#check brokenAudit\n"),
+            ("Applications.A", "#check brokenCompilation\n"),
+        ):
+            with self.subTest(module=module):
+                result = self.check("--clean", "--candidate", "HEAD", fresh=False)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                path = module.replace(".", "/") + ".lean"
+                original = (self.root / path).read_text()
+                self.write(module, source)
+                for command in (["git", "add", path], ["git", "commit", "-m", "failing fixture"]):
+                    subprocess.run(command, cwd=self.root, check=True, capture_output=True)
+                result = self.check("--clean", "--candidate", "HEAD", fresh=False)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse((self.root / ".lake/verification.json").exists())
+                self.assertNotIn("PASS: all", result.stdout)
+                self.assertNotEqual(self.check("--verify-candidate", "HEAD", fresh=False).returncode, 0)
+                self.write(module, original)
+                for command in (["git", "add", path], ["git", "commit", "-m", "repair fixture"]):
+                    subprocess.run(command, cwd=self.root, check=True, capture_output=True)
+
     def test_incremental_repairs_old_output_with_current_trace(self):
         result = self.check(fresh=False)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -318,6 +384,11 @@ def a : Nat := 1
                                 capture_output=True, text=True, timeout=45)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual((self.root / "compile-count").read_text(), "2")
+
+        result = subprocess.run(["./check.sh", "--clean"], cwd=self.root, env=env,
+                                capture_output=True, text=True, timeout=45)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual((self.root / "compile-count").read_text(), "3")
 
     def test_integrity_rejects_outputs_changed_during_build_before_audit(self):
         self.write("SquareApplications", '''import Applications.A
@@ -456,6 +527,18 @@ run_cmd IO.FS.writeFile "dependent-ran" "yes"
             result = self.check("--jobs", value)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("positive integer", result.stderr)
+
+    def test_clean_rejects_conflicting_modes_and_overrides(self):
+        for args in (("--clean", "--fresh"), ("--clean", "--jobs", "1"),
+                     ("--clean", "--verify-candidate", "HEAD")):
+            result = self.check(*args, fresh=False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertFalse((self.root / "audit-ran").exists())
+        env = {**os.environ, "LEAN": "/not-a-compiler"}
+        result = subprocess.run(["./check.sh", "--clean"], cwd=self.root, env=env,
+                                capture_output=True, text=True, timeout=15)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("LEAN override requires --fresh", result.stderr)
 
 
 if __name__ == "__main__":

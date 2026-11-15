@@ -95,6 +95,25 @@ run_cmd do
         self.accepted(foundation)
         self.assertEqual(self.counts(), {"A": 2, "B": 3, "C": 1})
 
+    def test_clean_candidate_retains_outputs_and_records_its_mode(self):
+        candidate = self.git("rev-parse", "HEAD")
+        self.accepted(candidate)
+        self.accepted(candidate, "--clean")
+        self.assertEqual(self.counts(), {"A": 2, "B": 2, "C": 2})
+        record = json.loads((self.workspace / ".lake/verification.json").read_text())
+        self.assertEqual(record["mode"], "clean")
+        for args in (("--clean", "--fresh"), ("--clean", "--verify"),
+                     ("--clean", "--jobs", "1")):
+            result = self.run_candidate(candidate, *args)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(json.loads((self.workspace / ".lake/verification.json").read_text()), record)
+        self.accepted(candidate)
+        self.assertEqual(self.counts(), {"A": 2, "B": 2, "C": 2})
+        path = self.root / "Applications/A.lean"
+        path.write_text(path.read_text().replace(":= 7", ":= 8"))
+        self.accepted(self.commit("change clean-built dependency"))
+        self.assertEqual(self.counts(), {"A": 3, "B": 3, "C": 2})
+
     def test_refusals_preserve_workspace_and_failed_check_clears_receipt(self):
         first = self.git("rev-parse", "HEAD")
         self.accepted(first)

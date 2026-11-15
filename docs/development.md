@@ -74,8 +74,9 @@ have the pinned dependency cache in `.lake/packages`. Only that dependency cache
 is shared. Keep it stable during checks, as with other isolated worktrees.
 The command prints the workspace and resolved candidate for the review record.
 
-`--verify` checks the existing candidate without switching commits. `--fresh`
-(and optional `--jobs N`) forwards the cache-independent mode described below.
+`--verify` checks the existing candidate without switching commits. `--clean`
+forwards a clean Lake rebuild that retains reusable outputs. `--fresh`
+(and optional `--jobs N`) forwards the independent reference mode described below.
 The wrapper delegates validation and receipt handling to the candidate's
 `check.sh`; it adds no artifact cache or provenance guarantee. Direct invocation
 of `./check.sh --candidate HEAD` and `./check.sh --verify-candidate HEAD` remains
@@ -97,7 +98,8 @@ tracked. Dependency checkouts must be clean and match the Git revisions in
 `lake-manifest.json`. It checks these conditions before compilation and again
 after the audit, then atomically writes `.lake/verification.json` with the
 resolved commit, dependency revisions, compiler version, mode, and completion
-time. Combine `--candidate HEAD` with `--fresh` when fresh validation is needed.
+time. The record distinguishes `incremental`, `clean` and `fresh` modes. Combine
+`--candidate HEAD` with the selected build mode when rebuilding is needed.
 
 `--verify-candidate` checks that the success record still matches the current
 candidate, dependencies, and compiler without compiling or rerunning the audit.
@@ -118,10 +120,31 @@ For focused development, use `lake build Applications.Interaction.Measurement`
 (or another module target). A bare `lake build` builds the configured library
 and audit, but does not replace `./check.sh`'s source-policy and coverage checks.
 
-Use `--fresh` for a cache-independent project rebuild when changing compiler or
-Lake inputs, dependency configuration, the build scheduler, source-policy checks,
-output-integrity checks, or proof-audit implementation, and when stale outputs
-are suspected. Routine library edits use guarded incremental acceptance.
+Choose validation by the effective inputs that changed:
+
+| Change | Acceptance |
+|---|---|
+| Library definitions or proofs | Guarded incremental build and exhaustive audit. |
+| Audit implementation only | Guarded incremental build and exhaustive audit, plus audit rejection and exhaustive-root regression suites. Record that compiler, dependency, scheduling and integrity inputs are unchanged. |
+| Compiler, Lake configuration or dependency pins | Clean Lake rebuild and exhaustive audit; validate any affected adapters. |
+| Retained-build lifecycle only, with compiler commands, dependency scheduling, source-policy and integrity checks unchanged | Clean Lake acceptance followed by incremental reuse, plus public-command regressions covering clean, incremental and reference modes. |
+| Scheduler, source-policy or output-integrity implementation; uncertain compilation boundary; suspected stale artifacts | Independent `--fresh` reference check and applicable public-command regressions. |
+
+`--clean` removes only this checkout's `.lake/build` after source, coverage,
+configuration and version preflight, then runs the guarded Lake build and audit.
+It disables artifact-cache restoration and writes, so prior project outputs
+cannot satisfy the build. Lake produces normal outputs and traces for subsequent
+incremental reuse. Dependency caches and other `.lake` state remain in place.
+Symlinked `.lake` or `.lake/build` roots are refused. Keep the checkout exclusively
+owned while cleaning or building. A failed build can leave partial compilation
+outputs for recovery, but never a successful candidate receipt.
+
+The independent `--fresh` path keeps its existing meaning: direct Lean compilation
+in an empty temporary output directory, followed by the exhaustive audit. It
+bypasses Lake's project build decisions and does not create Lake traces. Copying
+its outputs into Lake's cache would not establish valid reuse. Use `--clean`
+when a rebuild should warm the incremental cache.
+
 For auxiliary tooling changes, identify the effective verification inputs: if
 compiler, dependency, scheduling, source-policy, integrity and audit inputs are
 unchanged, test the changed executable behavior on real fixtures without a
@@ -136,11 +159,12 @@ It reuses external dependency caches but neither reuses project artifacts nor
 populates Lake's incremental cache. Use `--fresh --jobs 1` for serial compilation,
 or `--fresh --jobs N` to set a memory-appropriate limit (default: up to four).
 
-Both modes discard caller `LEAN_PATH` and verify the compiler version against
-`lean-toolchain`. Incremental mode uses Lake's configured import paths and
+All modes discard caller `LEAN_PATH` and verify the compiler version against
+`lean-toolchain`. Incremental and clean modes use Lake's configured import paths and
 compiler. Fresh mode uses only its new project outputs and dependency paths resolved by Lake;
 it also supports `LEAN=/absolute/path/to/lean`. `--jobs` and `LEAN` overrides are
-rejected outside fresh mode rather than silently ignored.
+rejected outside fresh mode rather than silently ignored. Clean and incremental
+builds use Lake's scheduler; `--clean` and `--fresh` are mutually exclusive.
 
 Keep sources, dependencies, and configuration stable during a check. Use an
 isolated checkout when other agents may edit them, and do not share writable
@@ -172,7 +196,7 @@ While the temporary tracker is open, record unexpected incidents in [#272](https
 normal cold-build invalidations need no report. The tracker defines how to alert
 the owner when an already investigated failure recurs, including sub-agent relay.
 
-Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
+All modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 `Examples/`; archived sources and isolated `experiments/` require their own
 validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source
 artifacts. The command reports build, audit, and total elapsed times.
@@ -190,7 +214,7 @@ python3 scripts/test-check-candidate.py
 python3 scripts/test-proof-audit-roots.py
 ```
 
-The first exercises incremental reuse and invalidation, repeated auditing, fresh
+The first exercises incremental reuse and invalidation, clean-build retention, repeated auditing, fresh
 compilation, concurrency, ordering, stale artifacts, coverage, and failure exits
 through `check.sh`. The candidate-workspace suite checks retained compilation,
 exact receipts, refusal and failure recovery through the public CLI. The roots
