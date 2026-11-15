@@ -181,7 +181,6 @@ theorem external_native_fields (s : Session) (c : PendingMigration.Command)
       (external s c).business = (PendingMigration.step s.active.protocol c).business ∧
       (external s c).cancellation = (PendingMigration.step s.active.protocol c).cancellation := by
   cases c <;> simp only [ExternalCommand] at hc
-  all_goals try contradiction
   all_goals dsimp only [serviceReleaseBlocked] at hb
   all_goals dsimp only [external]
   all_goals simp only [hp,hb,Bool.false_eq_true,↓reduceIte]
@@ -260,7 +259,6 @@ theorem service_cut (s : Session) (c : Command) (hc : Business c) :
       all_goals try dsimp only
       all_goals split
       all_goals try rfl
-      all_goals try dsimp only
       all_goals split
       all_goals try rfl
       all_goals split

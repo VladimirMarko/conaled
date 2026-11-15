@@ -24,7 +24,7 @@ theorem coefficient_derivative {c : ℝ → ℂ} {u : ℂ} {t : ℝ}
     unfold db
     push_cast
     field_simp
-    <;> ring
+    ; ring
 
 theorem curvature_vector (z : ℂ) (hz : gap z ≠ 0) :
     ConformalConnection.curvatureVector b z = (-4 / (gap z : ℂ) ^ 2) := by
@@ -75,7 +75,7 @@ theorem metric_compatible {c : ℝ → ℂ} {u : ℂ} {t : ℝ}
   · simp [metric, christoffel, coefficient, gap, Complex.div_re, Complex.div_im,
       Complex.mul_re, Complex.mul_im, Complex.normSq_apply] at *
     field_simp
-    <;> ring
+    ; ring
 
 /-- The torsion-free, metric-compatible coefficient is unique in the disk chart.
 Compatibility is stated with the actual derivative of the metric, so this

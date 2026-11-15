@@ -29,7 +29,7 @@ theorem flatten_shared (r : Representation m width)
   simp only [Representation.flatten,sharedAddress,Vector.getElem_cast,Vector.getElem_append]
   have hd : blocks m*(blockSize m-1+1) = paddedCapacity m := by rw [dimension]; rfl
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
+  all_goals (congr 1; omega)
 
 theorem flatten_macro (r : Representation m width)
     (i : Fin (FlatTable.words (levels m+1) (blocks m))) :
@@ -41,7 +41,7 @@ theorem flatten_macro (r : Representation m width)
     rw [FlatTable.sharedPack_size,dimension]; rfl
   try unfold macroBase
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
+  all_goals (congr 1; omega)
 
 theorem arena_shared (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
@@ -141,7 +141,6 @@ theorem flatten_depth (r : Representation m width) (i : Fin (blocks m*(blockSize
   have hd : blocks m*(blockSize m-1+1) = paddedCapacity m := by rw [dimension]; rfl
   have hs : FlatTable.words (2^(blockSize m-1)) (FlatTable.words (blockSize m-1+1) (blockSize m-1+1)) = sharedSlots m := by
     rw [FlatTable.sharedPack_size,dimension]; rfl
-  try unfold macroBase
   split_ifs <;> try omega
 
 theorem arena_depth_read (input : Input m)
@@ -167,9 +166,8 @@ theorem flatten_class (r : Representation m width) (i : Fin (blocks m)) :
   have hd : blocks m*(blockSize m-1+1) = paddedCapacity m := by rw [dimension]; rfl
   have hs : FlatTable.words (2^(blockSize m-1)) (FlatTable.words (blockSize m-1+1) (blockSize m-1+1)) = sharedSlots m := by
     rw [FlatTable.sharedPack_size,dimension]; rfl
-  try unfold macroBase
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
+  all_goals (congr 1; omega)
 
 theorem arena_class_read (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
@@ -196,7 +194,7 @@ theorem flatten_span (r : Representation m width) (i : Fin (levels m+1)) :
     rw [FlatTable.sharedPack_size,dimension]; rfl
   try unfold macroBase
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
+  all_goals (congr 1; omega)
 
 theorem arena_span_read (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
@@ -223,7 +221,7 @@ theorem flatten_log (r : Representation m width) (i : Fin (blocks m+1)) :
     rw [FlatTable.sharedPack_size,dimension]; rfl
   try unfold macroBase
   split_ifs <;> try omega
-  all_goals first | rfl | (congr 1; omega)
+  all_goals (congr 1; omega)
 
 theorem arena_log_read (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)

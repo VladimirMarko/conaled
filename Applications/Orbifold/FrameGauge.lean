@@ -43,7 +43,7 @@ theorem decode_parallel (g : Gauge) {c a : ℝ → ℂ} {v : ℂ} {t : ℝ}
   convert (g.derivative hc).mul ha using 1
   unfold Gauge.connection
   field_simp [g.nonzero _ hz]
-  <;> ring
+  ; ring
 
 /-- Encode an independently supplied physical parallel field. -/
 theorem encode_parallel (g : Gauge) {c w : ℝ → ℂ} {v : ℂ} {t : ℝ}
@@ -54,7 +54,7 @@ theorem encode_parallel (g : Gauge) {c w : ℝ → ℂ} {v : ℂ} {t : ℝ}
   convert hw.div (g.derivative hc) (g.nonzero _ hz) using 1
   unfold Gauge.connection
   field_simp [g.nonzero _ hz]
-  <;> ring
+  ; ring
 
 /-- The nonvanishing local fundamental solution is obtained by dividing the
 physical scalar solution by the frame, not by postulating endpoint agreement. -/
@@ -173,7 +173,7 @@ theorem standard_metric (z v w : ℂ) (hz : Complex.normSq z < 1) :
   simp only [metric, standard, hs, map_mul, Complex.conj_ofReal]
   simp [Complex.mul_re, Complex.mul_im]
   field_simp [hg]
-  <;> ring
+  ; ring
 
 theorem phase_unit (z : ℂ) : Complex.normSq (phase z) = 1 := by
   simp [phase, Complex.normSq_eq_norm_sq, Complex.norm_exp]
@@ -197,7 +197,7 @@ theorem varying_connection (z v : ℂ) (hz : Complex.normSq z < 1) :
   have hs : scale z ≠ 0 := standard.nonzero z hz
   have hp : phase z ≠ 0 := Complex.exp_ne_zero _
   field_simp [hs, hp]
-  <;> ring
+  ; ring
 
 theorem unchanged_connection_rejected : varying.connection 0 1 ≠ standard.connection 0 1 := by
   rw [varying_connection 0 1 (by norm_num)]

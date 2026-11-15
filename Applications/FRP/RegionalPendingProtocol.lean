@@ -246,7 +246,6 @@ private theorem uniform_local (s : PendingMigration.Session) (c : PendingMigrati
     uniformOutcome (PendingMigration.step s c) = PendingMigration.step (uniformProjection s) c := by
   have hprepared : (uniformProjection s).prepared = none := hp
   cases c <;> simp only [LocalCommand] at hc
-  all_goals try contradiction
   all_goals dsimp only [PendingMigration.step]
   all_goals try simp only [hp,hprepared,Option.isSome_none,Bool.false_eq_true,↓reduceIte,uniform_head]
   all_goals try rfl
@@ -261,7 +260,7 @@ private theorem uniform_local (s : PendingMigration.Session) (c : PendingMigrati
   all_goals cases pe : s.peer.get slot <;>
     try (rename_i ledger; have _ : PendingMigration.Ledger := ledger; cases ledger)
   all_goals try simp only [pe,Option.map_none,Option.map_some,ownLedger]
-  all_goals repeat' first | (split <;> try simp only [*]) | dsimp only
+  all_goals repeat' first | (split <;> try simp only [*])
   all_goals try rfl
   all_goals simp_all [uniform_enqueue,messagePayload,PendingMigration.Message.slot,ownerInput,uniformRequest,ownLedger]
   all_goals dsimp only [uniformOutcome]
@@ -390,15 +389,13 @@ private theorem uniform_dispatch (s : PendingMigration.Session) (deliver : Bool)
       all_goals try simp only [owned_publication s _ r hs hr]
       all_goals try rw [uniform_query]
       case reply slot answer =>
-        split <;> try simp only [*]
+        split
         · dsimp only [publicationTransport,uniformOutcome]
           rw [uniform_update {s with queue := q} slot r {r with phase := .confirmed} hr rfl]
           rfl
         · rfl
       all_goals dsimp only [publicationTransport,uniformOutcome]
-      all_goals try rfl
       all_goals simp only [outOwner]
-      all_goals try simp only [owned_publication s _ r hs hr]
       all_goals try simp only [uniformProjection,map_put,ownerInput]
       all_goals congr 1
       all_goals congr 1
@@ -491,7 +488,6 @@ private theorem dispatch_valid (s : PendingMigration.Session) (deliver : Bool)
 private theorem local_no_output (s : PendingMigration.Session) (c : PendingMigration.Command)
     (hc : LocalCommand c) : (PendingMigration.step s c).business = none := by
   cases c <;> simp only [LocalCommand] at hc
-  all_goals try contradiction
   all_goals dsimp only [PendingMigration.step,PendingMigration.enqueue,PendingMigration.reject]
   all_goals repeat' first | rfl | split
 
@@ -547,7 +543,6 @@ theorem external_command_valid (s : PendingMigration.Session) (c : PendingMigrat
     (hs : PendingMigration.Valid (delayProjection s)) :
     PendingMigration.Valid (delayProjection (PendingMigration.step s c).session) := by
   cases c <;> simp only [ExternalCommand] at hc
-  all_goals try contradiction
   case dispatch deliver =>
     simpa only [PendingMigration.step,hp,Option.isSome_none,Bool.false_eq_true,↓reduceIte] using dispatch_valid s deliver hs
   all_goals exact local_valid s _ (by trivial) hp hs
@@ -562,7 +557,6 @@ theorem external_command_refines (s : PendingMigration.Session) (c : PendingMigr
       ⟨PendingMigration.sourceState (PendingMigration.step s c).session,
         PendingMigration.waiting (PendingMigration.step s c).session⟩ := by
   cases c <;> simp only [ExternalCommand] at hc
-  all_goals try contradiction
   case dispatch deliver =>
     simp only [PendingMigration.step,hp,Option.isSome_none,Bool.false_eq_true,↓reduceIte] at ha hb hx ⊢
     exact dispatch_refines s deliver hs o ha hb hx
@@ -605,7 +599,6 @@ private theorem external_fields (s : Session) (c : PendingMigration.Command)
       (PendingMigration.step s.active.protocol c).business,
       (PendingMigration.step s.active.protocol c).cancellation) := by
   cases c <;> simp only [ExternalCommand] at hc
-  all_goals try contradiction
   all_goals dsimp only [releaseBlocked] at hb
   all_goals dsimp only [external]
   all_goals simp only [hp,hb,Bool.false_eq_true,↓reduceIte]
@@ -654,9 +647,8 @@ theorem external_projected_valid (s : Session) (c : PendingMigration.Command)
   by_cases hc : ExternalCommand c
   · have raw := external_command_valid s.active.protocol c hc hp hs.protocol
     cases c <;> simp only [ExternalCommand] at hc
-    all_goals try contradiction
     all_goals dsimp only [external]
-    all_goals repeat' first | (split <;> try simp only [*]) | dsimp only
+    all_goals repeat' first | (split <;> try simp only [*])
     all_goals first
       | exact hs.protocol
       | simpa only [updateResidual,Active.withResiduals] using raw
@@ -996,7 +988,6 @@ theorem external_invariant (s : Session) (c : PendingMigration.Command)
     | dispatch deliver => exact external_dispatch_invariant s deliver hs hp
     | _ =>
       simp only [ExternalCommand] at hc
-      all_goals try contradiction
       all_goals dsimp only [external,PendingMigration.step] at valid ⊢
       all_goals split
       all_goals first

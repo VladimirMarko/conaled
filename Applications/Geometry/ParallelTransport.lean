@@ -39,7 +39,7 @@ theorem scalar_reverse (q : ℝ → ℂ) (a b : ℝ) (ha hb) :
 theorem scalar_solves {q k : ℝ → ℂ} {a t : ℝ}
     (hq : HasDerivAt q (-k t * q t) t) (v : ℂ) :
     HasDerivAt (fun s => q s / q a * v) (-k t * (q t / q a * v)) t := by
-  convert (hq.div_const (q a)).mul_const v using 1 <;> ring
+  convert (hq.div_const (q a)).mul_const v using 1 ; ring
 
 /-- An integrating factor proves uniqueness on the entire closed interval,
 including its endpoint values. No global existence theorem is assumed. -/
@@ -50,7 +50,7 @@ theorem scalar_unique {q k w : ℝ → ℂ} {a b : ℝ}
     {t : ℝ} (ht : t ∈ Icc a b) : w t = q t / q a * w a := by
   have hd : ∀ s ∈ Icc a b, HasDerivAt (fun r => w r / q r) 0 s := by
     intro s hs
-    convert (hw s hs).div (hq s hs) (hn s hs) using 1 <;> ring
+    convert (hw s hs).div (hq s hs) (hn s hs) using 1 ; ring
   have he := constant_of_has_deriv_right_zero
     (fun s hs => (hd s hs).continuousAt.continuousWithinAt)
     (fun s hs => (hd s (mem_Icc_of_Ico hs)).hasDerivWithinAt) t ht
