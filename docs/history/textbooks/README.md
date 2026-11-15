@@ -1,7 +1,9 @@
 # Textbook mathematics and receiving provenance
 
-This directory records the curated intake of checkpoint 012 of the VFA, FDSA
-and PFDS workstream.
+This directory records curated intakes of the VFA, FDSA and PFDS workstream.
+[Checkpoint 024](checkpoint-024/README.md) contains the later tree/resource
+mathematics and CTB ticket projection; the checkpoint-012 records and recovery
+contract below retain their original scope.
 [Issue #558](https://github.com/VladimirMarko/conaled/issues/558) owns ongoing
 coverage and preservation. The [integration account](../../research/textbook-integration.md)
 explains the active library contracts and checked clients.

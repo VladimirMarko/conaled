@@ -9,6 +9,7 @@ number including the thousands. Historical book tickets use short prefixed IDs:
 | VFA | `VFA-2` | [VFA tickets](checkpoint-012/books/vfa/records/evidence/tracker/tickets.json) |
 | PFDS | `PFDS-2` | [PFDS tickets](checkpoint-012/books/pfds/records/research/coverage/tickets.json) |
 | FDSA | `FDSA-1` | [FDSA tickets](checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/tickets/) |
+| Checkpoint programme | `CTB-23` | [Curated checkpoint-024 tickets](checkpoint-024/TICKETS.json) |
 | Combined intake | `INT-32` | [Integration tickets](checkpoint-012/books/common/ISSUES.json) |
 
 New work uses GitHub as its single live tracker. New commit messages end with
@@ -30,6 +31,11 @@ IDs. [commit-rewrite.json](commit-rewrite.json) preserves the original raw
 commit objects, so historical proof receipts and donor ledgers remain usable.
 See [source recovery](README.md#source-recovery) to restore those identities.
 The mapping is scoped to recorded commits, never to a numeric interval.
+
+The checkpoint-024 `CTB-` namespace has its own [ticket projection](checkpoint-024/TICKETS.json)
+and [source commit map](checkpoint-024/source-map.json). Its original IDs were
+already qualified; received commits also name the real intake owner #582.
+The older JSON registry below remains scoped to checkpoint 012.
 
 The registry includes all preserved book/integration tickets and every imported
 commit reachable from the preservation carrier but absent from the receiving

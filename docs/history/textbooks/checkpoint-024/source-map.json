@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "source_upstream": "c214fb0720ffc998951255a7e4b5f2e80a299186",
+  "source_candidate": "68affd0a049a9a537ec583c225e0fccd574f2fcc",
+  "receiving_base": "e1f478784e412639bae505ebcd84d36805d6ad00",
+  "method": "Selected mathematical patches applied in order; no original donor parents or unrelated refs imported. All changed non-entrypoint blobs match each source commit. Public entrypoint preserves receiving imports.",
+  "commits": [
+    {
+      "source_commit": "77a2d38b7ad9041838d620cbb9f715d5cc22bd02",
+      "received_commit": "8ae0620657c2435a347335a2a8f7846bd8385dab",
+      "paths": [
+        "Applications/Resources/TreeFold.lean",
+        "Examples/TreeFold.lean",
+        "Examples/TreeFoldCache.lean",
+        "Examples/TreeFoldObservations.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-tree-fold-resource.md"
+      ],
+      "source_subject": "feat(resources): recover measured tree folds (CTB-2)"
+    },
+    {
+      "source_commit": "086b3bf1c21f6dc73419b784a2d94ac4e29bcacd",
+      "received_commit": "e75b6dc1c02a93ed31f4d3fef11b85d8fb9e21e3",
+      "paths": [
+        "docs/research/fdsa-tree-fold-resource.md"
+      ],
+      "source_subject": "docs(resources): correct measured annotation name (CTB-2)"
+    },
+    {
+      "source_commit": "10f1ce7eef98480b624aea44c728591d07b6b375",
+      "received_commit": "ed857003390476f3989a49cc28860a180946381e",
+      "paths": [
+        "Applications/Resources/TreeAccumulator.lean",
+        "Examples/TreeAccumulator.lean",
+        "Examples/TreeAccumulatorObservations.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-accumulator-invocation.md"
+      ],
+      "source_subject": "feat(resources): recover suffix traversal invocation (CTB-70)"
+    },
+    {
+      "source_commit": "dbc8c0f65d6456c2926d0d6324e97cf0523784ac",
+      "received_commit": "6d37efbd5c6c7f7120de28e42aa659f5fc55ba30",
+      "paths": [
+        "Applications/Resources/TreeTraversalWork.lean",
+        "Applications/Trees/TraversalWork.lean",
+        "Examples/TreeTraversalWork.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-traversal-work.md"
+      ],
+      "source_subject": "feat(resources): recover shape-sensitive tree traversal work (CTB-71)"
+    },
+    {
+      "source_commit": "42e6b9ad9022c56b5c82ab50b7e02f1328617eaa",
+      "received_commit": "7a3d4f6f1eaa04cc7957d48695a3d71ff5b9f75b",
+      "paths": [
+        "Applications/Trees/BasicObservations.lean",
+        "Applications/Trees/Shape.lean",
+        "Applications/Trees/WeightedPaths.lean",
+        "Examples/TreeBasicObservations.lean",
+        "Examples/TreeWeightedPaths.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-shape.md",
+        "docs/research/fdsa-tree-structural-weighted.md"
+      ],
+      "source_subject": "feat(trees): recover structural and weighted observations (CTB-72)"
+    },
+    {
+      "source_commit": "78cc12e471d83a7117f0e8150a51c8a6814c4fdd",
+      "received_commit": "b665a7e13bfc59b5a959bf62c70d4401206bac62",
+      "paths": [
+        "Applications/Search/AbstractSet.lean",
+        "Applications/Search/OrderedTree/Basic.lean",
+        "Applications/Search/OrderedTree/Contents.lean",
+        "Applications/Search/OrderedTree/Observations.lean",
+        "Examples/TreeSearchObservations.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-search-observations.md"
+      ],
+      "source_subject": "refactor(search): unify tree observations and set contracts (CTB-73)"
+    },
+    {
+      "source_commit": "9ad500d1a3925c4bb1413beba9be26405291ec8a",
+      "received_commit": "19867687140db4c9e709ad21003d27bcb51a3440",
+      "paths": [
+        "Applications/Trees/Enumeration.lean",
+        "Applications/Trees/Levels.lean",
+        "Applications/Trees/Reconstruction.lean",
+        "Applications/Trees/Rose.lean",
+        "Examples/TreeEnumeration.lean",
+        "Examples/TreeLevels.lean",
+        "Examples/TreeReconstruction.lean",
+        "Examples/TreeRose.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-traversal-exercises.md"
+      ],
+      "source_subject": "feat(trees): recover traversal exercises and compose reconstruction (CTB-74)"
+    },
+    {
+      "source_commit": "131bf04bacf55168e04e901754c3a7b1150a086a",
+      "received_commit": "a9729254c7dd919a5bfb86535a3cc72823ae57b2",
+      "paths": [
+        "Applications/Resources/TreeBalance.lean",
+        "Applications/Trees/Balance.lean",
+        "Applications/Trees/BalanceShape.lean",
+        "Applications/Trees/Shape.lean",
+        "Examples/TreeBalance.lean",
+        "Examples/TreeBalanceCost.lean",
+        "Examples/TreeBalancePipeline.lean",
+        "Examples/TreeBalanceSearch.lean",
+        "Examples/TreeBalanceShape.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-balancing.md"
+      ],
+      "source_subject": "feat(trees): integrate balancing shape and measured pipelines (CTB-75)"
+    },
+    {
+      "source_commit": "66041995e0c5f73786046d5d6d7d9b99dcd01564",
+      "received_commit": "77decdcd190d7b1ea4066fc19d23cbf34e3f065f",
+      "paths": [
+        "Applications/Trees/BasicObservations.lean",
+        "Applications/Trees/Completeness.lean",
+        "Applications/Trees/CompletenessCache.lean",
+        "Applications/Trees/MaximalCompleteSubtree.lean",
+        "Applications/Trees/Shape.lean",
+        "Examples/TreeCompleteness.lean",
+        "Examples/TreeMaximalCompleteSubtree.lean",
+        "Examples/TreeShape.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-completeness.md"
+      ],
+      "source_subject": "feat(trees): prove completeness and maximal-subtree contracts (CTB-76)"
+    },
+    {
+      "source_commit": "35ab95c1485468fee5004a6a919ef25fc99edb6c",
+      "received_commit": "bf1785201f4522daee200193d88f47d98c0e8173",
+      "paths": [
+        "Applications/Trees/BasicObservations.lean",
+        "Applications/Trees/MaximumCache.lean",
+        "Applications/Trees/MaximumCacheObservations.lean",
+        "Examples/TreeMaximumCache.lean",
+        "SquareApplications.lean",
+        "docs/research/fdsa-reconstruction-map.md",
+        "docs/research/fdsa-tree-maximum-cache.md"
+      ],
+      "source_subject": "feat(trees): connect source maximum caches to shared observations (CTB-77)"
+    },
+    {
+      "source_commit": "412e450cc7902296d5ed054a81fb5422237e114f",
+      "received_commit": "2b3b8afd8ee94f1abb991ffd6f4880b1a38ea979",
+      "paths": [
+        "docs/research/fdsa-chapter04-coverage.md",
+        "docs/research/fdsa-reconstruction-map.md"
+      ],
+      "source_subject": "docs(trees): qualify the complete FDSA chapter four source ledger (CTB-23)"
+    },
+    {
+      "source_commit": "68affd0a049a9a537ec583c225e0fccd574f2fcc",
+      "received_commit": "e25a1b25d417832bf6edf6c69ae9c63a557705dd",
+      "paths": [
+        "docs/research/vfa-coverage.md"
+      ],
+      "source_subject": "docs(vfa): qualify Preface and Perm source coverage (CTB-4)"
+    }
+  ],
+  "loose_mathematics": {
+    "received_path": "Examples/TextbookTreeTariffs.lean",
+    "source_provenance": {
+      "original_path": "work/evidence/TreeChapterFourAudit.lean",
+      "original_sha256": "3563ec6663a46bc1b6bbf325ac0891cf9e25d0f2312d205e22372674cb595dba",
+      "original_lines": [
+        38,
+        86
+      ],
+      "fragment_sha256": "1fd5732b5b7b6f41cb9fd73e39d0fba42e33fe27f43166316af10168b21c60d2",
+      "required_import": "Examples.TreeCache",
+      "namespace": "CTB23Tariff",
+      "declarations": [
+        "size_value",
+        "size_cost",
+        "size_valid",
+        "height_value",
+        "height_cost",
+        "height_valid"
+      ]
+    },
+    "received_sha256": "01bfebc35f0fc8c0a8ac859da104712e0795ef4dcc634503af7e2a627d6012cc"
+  }
+}
