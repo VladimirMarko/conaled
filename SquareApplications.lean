@@ -1046,4 +1046,6 @@ import Examples.StateChangeWork
 import Examples.TextbookTreeTariffs
 import Examples.PersistentFIFOClient
 
+import Examples.MeasuredLoop
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
