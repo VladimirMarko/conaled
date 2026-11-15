@@ -1018,4 +1018,7 @@ import Examples.CubicalSelectedInverse
 import Examples.KineticAD
 import Examples.CubicalAuthorTransportCalibration
 
+import Examples.StateChangeSampler
+import Examples.StateChangeWork
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
