@@ -5,7 +5,7 @@ syntax and proves complete closed invocation in a transcription of the reachable
 Core 2 rules. It composes that result with the existing first-order frontend,
 finite-sum lowering, canonical word bridge and explicit-state programs. It is the
 formal unit of [#488](https://github.com/VladimirMarko/conaled/issues/488);
-binary production and external execution remain open.
+native binary serialization is covered by [the binary contract](wasm-binary.md); external execution remains separate.
 
 The standard is Core 2.0, tag `v2.0.0`, WebAssembly/spec revision
 `05ca4182176763112561ae20153975c12bd689e4`. The links below name exact source
@@ -171,13 +171,15 @@ frontend let expression, nested finite-sum case execution and malformed inactive
 payloads, a width-two overflow with complete bit order, the universal width-32
 selector, and all-input two-delay execution with three successive calls.
 
-## Remaining #488 artifact contract
+## Binary serialization and remaining artifact contract
 
-This unit has no serializer, binary parser, external runtime or host adapter.
-The following unit must produce actual `.wasm` artifacts and test the exact
-byte/module/ABI/export correspondence at the approved trusted-encoder boundary.
-It must validate encoding lengths and buffers, bind tests to artifact hashes,
-exercise canonical raw-value marshalling, and commit returned state only after
-successful admitted execution. The engine and host environment remain explicit
-external assumptions. No source-to-real-runtime or complete #488 claim follows
-from the formal module syntax alone.
+The [native serializer](wasm-binary.md) proves exact byte/module/ABI/export
+correspondence against an independent selected binary grammar. It checks actual
+encoded lengths and u32 indices and composes with the invocation theorem here.
+This replaces the historical trusted-encoder recommendation with #511's stronger
+proved-encoder boundary.
+
+Actual file delivery, a pinned external engine, canonical raw-value marshalling
+and commit-after-success state management remain #512's artifact obligations.
+The engine and host environment remain explicit external assumptions. Binary
+correspondence alone does not establish source-to-real-runtime execution.

@@ -4,6 +4,7 @@ import Examples.UnivalentAuthorTrial.FacadeOracle
 import Examples.CircuitWords
 import Examples.CapturedAttempt
 import Examples.WasmCircuit
+import Examples.WasmBinary
 import Examples.IncrementalSearchTransport
 import Examples.IncrementalSearchCosts
 import Examples.IncrementalSearchHeuristics

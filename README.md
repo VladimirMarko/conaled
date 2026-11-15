@@ -46,7 +46,7 @@ compositions in more detail.
 | Internal languages and model transport | Dependent fragments, logical interpretations, sheaf/presheaf models, groupoid transport, and construction/observation compatibility. Start with [SquareKit/Internal](SquareKit/Internal/), [dependent-source examples](Examples/DependentSource.lean), and [the contract inventory](docs/research/preservation-contract-inventory.md). |
 | Cubical univalence and structured transport | A native univalence construction in the library's cubical model, substitution laws, and transport of state packages including invariants and proofs. See [the native theorem](SquareKit/Internal/Cubical/NativeUnivalence.lean), [checked specializations](Examples/CubicalNativeUnivalence.lean), and [a facade client](Examples/UnivalentAuthorTrial/FacadeOracle.lean). |
 | Reactive computation | Denotational FRP, compiled initialized consumers, discrete IO drivers, finite-circuit services, and backend migration with pending work. See [the bounded driver](docs/research/frp-driver.md), [the circuit service](docs/research/indefinite-reactive-service.md), and [in-process peer migration](docs/research/pending-peer-migration.md). |
-| External code representations | Graph-core emission with typing/denotation proofs and translation validation; Boolean-circuit lowering to a selected WebAssembly module syntax with invocation proofs. See [graph emission](Examples/GraphEmission.lean) and [Wasm contracts](docs/research/wasm-standard-subset.md). Wasm binary production and external execution remain unfinished. |
+| External code representations | Graph-core emission with typing/denotation proofs and translation validation; Boolean-circuit lowering to a selected WebAssembly module syntax with invocation proofs. See [graph emission](Examples/GraphEmission.lean) and [Wasm contracts](docs/research/wasm-standard-subset.md). Native binary serialization has proved correspondence to the selected binary grammar; external execution remains separate. See [the binary contract](docs/research/wasm-binary.md). |
 | Geometry | Smooth algebra, sheaves, torsors, descent, manifold comparisons, and exact/rational disk-motion realizations. See [manifold clients](Examples/MathlibManifoldRealization.lean), [torsors](Examples/SmoothTorsors.lean), and [numerical motion](docs/research/numerical-motion.md). |
 | Probability and interaction | Measurable accept/reject kernels, finite Metropolis–Hastings, sampling, probabilistic progress, and delivery/recovery contracts. See [probability](docs/probability.md), [checked MH compositions](Examples/MetropolisHastings.lean), and [durability](docs/durability-direction.md). |
 
@@ -122,7 +122,7 @@ Native univalence concerns paths and equivalences inside the constructed
 cubical model; it does not change Lean's equality or kernel. The executable
 transport adapter uses supplied executable maps with correctness proofs.
 The Wasm result covers a reviewed transcription of selected standard rules;
-serialization and execution in an external engine are further boundaries.
+serialization has a proved binary-grammar correspondence; execution in an external engine is a further boundary.
 The delivered FRP runners are discrete and do not implement general dynamic
 switching, an asynchronous scheduler, or crash-recoverable external delivery.
 
