@@ -123,4 +123,16 @@ theorem prepareNormalized_returns_mass [DecidableEq β]
     NormalizedWeights.weight_mass _ (fun i => t.nonneg x (e i)) i
   simp_rw [hw]
   exact (e.sum_comp (fun y => if y=b then mass (t.entry x y) else 0)).trans (by simp)
+
+/-- Equality with the existing kernel on every finite output event. -/
+theorem prepareNormalized_kernel_event [DecidableEq β] [MeasurableSpace β]
+    [MeasurableSingletonClass β] [MeasurableSpace α] [MeasurableSingletonClass α]
+    [Fintype α] (t : Table α β) (e : Fin m ≃ β) (x : α) (s : ℕ) (B : Set β) :
+    law ((t.prepareNormalized e x).outputEvent s B)=t.kernel x B := by
+  classical
+  rw [PreparedRow.outputEvent_mass,Table.kernel_apply]
+  simp only [prepareNormalized_returns_mass]
+  apply Finset.sum_congr rfl
+  intro b _
+  by_cases h : b∈B <;> simp [h]
 end Applications.Probability.Table

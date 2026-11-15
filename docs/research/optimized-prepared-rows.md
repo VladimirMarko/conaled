@@ -14,6 +14,8 @@ product. `denominator_le_product` proves the numerical size comparison.
 `weight_cast`, `sum_weight` and `weight_mass` establish exact rational
 multiplicities, including zeros. `Table.prepareNormalized` stores these
 multiplicities in an array and satisfies `prepareNormalized_returns_mass`.
+`prepareNormalized_kernel_event` identifies every finite output event with
+the existing table kernel.
 
 The selector reads weights from the last index toward the first. It carries
 the already available remaining total, subtracts one weight to obtain the next
@@ -34,6 +36,8 @@ Changing denominators has a different contract. The row `(0,1/3,2/3)` changes
 from total 9 and weights `(0,3,6)` to total 3 and weights `(0,1,2)`. The law is
 the same, but the block widths change from four to two bits. Checked tapes
 separate finite-fuel success, values, returned cursors and rejection patterns.
+At a common fuel bound of two, normalized timeout has mass 1/4 while the
+product implementation times out with mass one.
 The deterministic row has total 1 in both representations. The mixed row
 `(1/2,1/3,1/6)` changes from product 36 to LCM 6.
 
@@ -48,7 +52,8 @@ Its general `almostSureProductive_rows` needs only countably many states and
 positive prepared rows. Existing table-facing statements remain available.
 
 The normalized specializations prove complete ordered-prefix and endpoint
-laws, productivity, joint initialized output laws and stationary blocks.
+laws, productivity, coherent prefixes, joint initialized output laws and
+stationary blocks.
 `FiniteMH.normalized_stationary_blocks` supplies the MH specialization through
 the existing stationarity theorem. All these probability proofs retain the
 existing stopped-cursor argument. A checked dependent two-draw example uses

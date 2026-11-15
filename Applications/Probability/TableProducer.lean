@@ -136,7 +136,7 @@ theorem prefix_mass_rows [Fintype α] [DecidableEq α]
 
 theorem prefix_mass [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (x : α) (s : ℕ) (ys : List α) :
-    law (prefixEvent (t.prepare e) x s ys)=mass (RowChain.pathMass t x ys) := 
+    law (prefixEvent (t.prepare e) x s ys)=mass (RowChain.pathMass t x ys) :=
   prefix_mass_rows t (t.prepare e) (t.prepare_returns_mass e) x s ys
 
 /-- Endpoint observation after exactly n emissions. -/

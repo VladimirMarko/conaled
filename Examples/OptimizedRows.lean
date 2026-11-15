@@ -18,10 +18,27 @@ example (s : ℕ) (b : Fin 3) :
     CoinPaths.law (normalized.returns s b)=CoinPaths.law (old.returns s b) := by
   rw [Table.prepareNormalized_returns_mass,Table.prepare_returns_mass]
 
+example [MeasurableSpace (Fin 3)] [MeasurableSingletonClass (Fin 3)] (s : ℕ) (B : Set (Fin 3)) :
+    CoinPaths.law (normalized.outputEvent s B)=sparse.kernel () B :=
+  Table.prepareNormalized_kernel_event _ _ _ _ _
+
 /-- Equal output laws do not preserve fuel success or the returned cursor. -/
 example : Progress.search (normalized.step (fun _ => false)) 2 (normalized.start 0)=some ((1,2),2) ∧
     Progress.search (old.step (fun _ => false)) 2 (old.start 0)=none := by decide +kernel
 example : Progress.search (old.step (fun _ => false)) 4 (old.start 0)=some ((1,4),4) := by decide +kernel
+
+/-- A common fuel bound gives different probability laws for timeout. -/
+example : CoinPaths.law {ω | Progress.search (normalized.step ω) 2 (normalized.start 0)=none}=1/4 ∧
+    CoinPaths.law {ω | Progress.search (old.step ω) 2 (old.start 0)=none}=1 := by
+  constructor
+  · rw [PreparedRow.search_timeout_mass]
+    have ht : normalized.total=3 := by decide +kernel
+    rw [ht]
+    norm_num [BoundedUniform.rejection,BoundedUniform.width,← ENNReal.inv_pow]
+  · rw [PreparedRow.search_timeout_mass]
+    have ht : old.total=9 := by decide +kernel
+    rw [ht]
+    norm_num [BoundedUniform.width]
 
 /-- The same tape can select different values, not just different cursors. -/
 example : Progress.search (normalized.step (fun i => decide (i=2 ∨ i=3))) 2 (normalized.start 0)=
@@ -121,6 +138,14 @@ example (x : Fin 3) (s : ℕ) :
       (TableProducer.step (chain.prepareNormalized (Equiv.refl _)))
       (fun _ => TableProducer.start (chain.prepareNormalized (Equiv.refl _)) x s) :=
   Table.normalized_productive _ _ _ _
+
+example (x : Fin 3) (s : ℕ) :
+    ∀ᵐ ω ∂CoinPaths.law, ∃ prefixes : ℕ → List (Fin 3),
+      (∀ n, (prefixes n).length=n ∧ ∃ z k,
+        Progress.Delivers (TableProducer.step (chain.prepareNormalized (Equiv.refl _)) ω)
+          (TableProducer.start (chain.prepareNormalized (Equiv.refl _)) x s) (prefixes n) z k) ∧
+      ∀ i j, (prefixes i).take j=(prefixes j).take i :=
+  ProbabilityProgress.ae_coherent_prefixes _ _ _ (Table.normalized_productive _ _ _ _)
 
 example (s : ℕ) (a : Fin 3) (ys : List (Fin 3)) :
     CoinPaths.law (InitializedProducer.jointEvent normalized (chain.prepareNormalized (Equiv.refl _)) s a ys)=
