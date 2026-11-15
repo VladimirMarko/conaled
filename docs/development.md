@@ -236,6 +236,10 @@ inventory and configuration fingerprints before and after. Each repetition also
 measures an import-only process for the audit's current four imports. That probe
 is a separate workload, not an exact subtraction of import cost from another run.
 Phase timings are retained when the supplied implementation reports them.
+The default refuses an import closure that does not cover the inventoried modules.
+For a deliberately partial cached workload, pass `--allow-partial`; the console
+and JSON identify incomplete coverage and the JSON lists missing modules. Such
+results must be reported as partial-workload measurements.
 
 These measurements do not establish artifact provenance or candidate acceptance.
 Dependency-cache stability and absence of transient edits remain assumptions.

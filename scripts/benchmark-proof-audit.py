@@ -38,9 +38,11 @@ def inputs():
         "project_artifact_count": len(files),
         "project_artifacts_sha256": identity.hexdigest(),
         "inventory_sha256": hashlib.sha256(inventory).hexdigest(),
+        "inventory_modules": json.loads(inventory),
         "configuration": {name: digest(ROOT / name) for name in
                           ("lean-toolchain", "lakefile.toml", "lake-manifest.json",
-                           "flake.nix", "flake.lock", "scripts/project_sources.py")},
+                           "flake.nix", "flake.lock", "scripts/project_sources.py",
+                           "scripts/benchmark-proof-audit.py")},
     }
 
 
@@ -55,6 +57,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--baseline", type=Path, required=True, help="saved baseline ProofAudit.lean")
     parser.add_argument("--candidate", type=Path, default=ROOT / "ProofAudit.lean")
+    parser.add_argument("--allow-partial", action="store_true",
+                        help="explicitly measure an incomplete cached import closure; report missing modules")
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--output", type=Path, required=True, help="JSON report; raw logs are retained alongside it")
     args = parser.parse_args()
@@ -114,6 +118,18 @@ def main():
                         if len(observed) < 5 or not any(line.startswith("Proof audit PASSED:") for line in observed):
                             raise RuntimeError(f"Missing complete successful audit report: {log}")
                         if reference is None:
+                            inventoried = set(before["inventory_modules"])
+                            audited = {match.group(1) for line in observed
+                                       if (match := re.match(r"  (\S+): \d+ logical declarations;", line))}
+                            missing, unexpected = sorted(inventoried - audited), sorted(audited - inventoried)
+                            report["coverage"] = {"inventoried": len(inventoried), "audited": len(audited),
+                                                  "missing": missing, "unexpected": unexpected,
+                                                  "complete": not missing and not unexpected}
+                            print(f"Coverage: {len(audited)}/{len(inventoried)} inventoried modules"
+                                  + (" (PARTIAL measurement)" if missing else ""), flush=True)
+                            if unexpected or (missing and not args.allow_partial):
+                                raise RuntimeError("Audit closure differs from inventory; rebuild the project, or "
+                                                   "use --allow-partial for an explicitly partial measurement")
                             reference = observed
                         elif observed != reference:
                             raise RuntimeError(f"Audit reports differ: {log}")
@@ -123,6 +139,9 @@ def main():
                 raise RuntimeError("Benchmark inputs changed during comparison")
             report["semantic_report"] = reference
             report["status"] = "passed"
+    except Exception as error:
+        report["error"] = str(error)
+        raise
     finally:
         args.output.write_text(json.dumps(report, indent=2) + "\n")
 
