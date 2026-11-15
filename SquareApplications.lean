@@ -1005,4 +1005,6 @@ import Examples.CubicalInterpretationObservations
 import Examples.BoundedArithmetic
 import Examples.BoundedMotionArithmetic
 
+import Examples.ExecutableUnivalence
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

@@ -1,0 +1,13 @@
+# Executable univalence realization decision
+
+Use supplied measured maps as the direct interface. Compare them with a small identity, primitive, composition and reversal interpreter on the same finite clients. The interpreter remains optional. No general evaluator or backend is introduced.
+
+The three initial assessments are preserved alongside this decision. Contract/foundations and usage inspected accepted 14aa5ef7, including the unchanged core at 68604a4a; alternatives inspected 68604a4a explicitly. All three completed independently of the other current reports. Alternatives records accidental search-snippet exposure to an older, unrelated sharing challenge. None ran experiments or established new checked theorems. Their agreement supports a bounded experiment, not a correctness claim.
+
+The decisive existing evidence is the actual native endpoint observation in CubicalNativeUnivalenceTransport, selected concatenation and reversal in CompositionalUnivalence, and complete package recovery in CubicalFiniteStateIdentity. These support direct execution without evaluating native fillers. The package invariant is a proposition, so an executable observation must be supplied explicitly. Prepared queries retain immutable state; evolving machine workloads use Resources.run.
+
+The implementation will freeze Bool negation, a direction-sensitive Fin 3 cycle, and the existing Fin 3/Phase machine. Its computation model counts named source calls, syntax dispatch, setup, and observations; it does not claim CPU instruction or allocator costs. Every workload charges input setup/conversion, actual operations and observations, and final export. Empty workloads retain their eager setup cost. Native proof construction is a specification phase outside executable work.
+
+The direct and syntax clients use the same primitive functions and observation schedule. Positive inverse-cancellation cost and noncommuting order controls remain. No retained table, memoization or mutable representation cache is introduced. Syntax storage is the declared node count of its immutable input; each fresh execution charges its setup scan. There is no stale-cache maintenance claim. Tabulation, source-coordinate batch execution and a wider evaluator remain alternatives requiring a concrete consumer and complete setup/storage/update evidence.
+
+Implementation acceptance requires checked native endpoint and whole-package workload bridges, executable tests at all finite input states, exact modeled costs for zero/one/repeated use, separate timing evidence and an explicit dependency/trust account. The three reports do not replace independent Standards and Spec review of that candidate.
