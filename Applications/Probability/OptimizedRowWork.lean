@@ -56,11 +56,13 @@ theorem prepareMetered_cost {α β : Type} [Fintype β] {m : ℕ}
   ring_nf
   simp
 
+/-- Compilation charges each input-enumeration evaluation separately from the
+row-entry evaluations. Each later lookup includes inverse enumeration. -/
 def compileLoader {α : Type} [Fintype α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (τ : Tariff) : SamplerWorkload.Loader α × ℕ :=
   let rows := Array.ofFn (fun i => prepareMetered t e (e i) τ)
   (fun x => ((rows[(e.symm x).val]'(by simp [rows])).1,τ.base.lookup),
-    (∑ i : Fin m,(rows[i.val]'(by simp [rows])).2)+m*τ.base.store)
+    (∑ i : Fin m,(rows[i.val]'(by simp [rows])).2)+m*(τ.base.store+τ.base.entry))
 
 theorem compileLoader_value {α : Type} [Fintype α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (τ : Tariff) (x : α) :
@@ -69,7 +71,7 @@ theorem compileLoader_value {α : Type} [Fintype α] {m : ℕ}
 
 theorem compileLoader_setup {α : Type} [Fintype α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (τ : Tariff) :
-    (compileLoader t e τ).2=m*preparationCost m τ+m*τ.base.store := by
+    (compileLoader t e τ).2=m*preparationCost m τ+m*(τ.base.store+τ.base.entry) := by
   simp [compileLoader,prepareMetered_cost]
 
 theorem compileLoader_lookup {α : Type} [Fintype α] {m : ℕ}

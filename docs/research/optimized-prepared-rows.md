@@ -74,7 +74,8 @@ m*lcm + 3*m*arithmetic + 3*m*(entry + projection) + m*store.
 The three arithmetic operations per weight are numerator conversion, quotient
 and multiplication. Rational callbacks/projections are charged on each use.
 Compiling all `m` rows adds their preparation charges and `m` outer-array
-stores; each later load pays `lookup`, including inverse enumeration. The
+stores and `m` input-enumeration evaluations at the `entry` tariff; each later
+load pays `lookup`, including inverse enumeration. The
 storage measure follows the actual array and prepared-row sizes: `m*m+m`
 weight/reference entries, excluding immutable closures.
 
@@ -99,12 +100,12 @@ Compilation setup is added explicitly to the observed workload charge.
 The checked constant three-state chain uses the sparse row at every state.
 All existing tariffs are one, and LCM costs ten. Normalized preparation costs
 60 per row versus 33 for the product baseline. Compiling the normalized rows
-costs 183, and retains 12 weight/reference entries. On the all-false tape:
+costs 186, and retains 12 weight/reference entries. On the all-false tape:
 
 | Observation | Product, prepare per load | Normalized, prepare per load | Normalized, compiled once |
 |---|---:|---:|---:|
-| One output | 106 | 146 | 211 |
-| Four outputs | 319 | 398 | 286 |
+| One output | 106 | 146 | 214 |
+| Four outputs | 319 | 398 | 289 |
 
 These comparisons charge `n+1` loads for `n` outputs. Four outputs use sixteen
 bits in the product implementation and eight in the normalized implementation.

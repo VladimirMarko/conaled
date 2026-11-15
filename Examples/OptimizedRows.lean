@@ -73,7 +73,7 @@ abbrev compiled := OptimizedRowWork.compileLoader chain (Equiv.refl _) normalize
 
 example : OptimizedRowWork.preparationCost 3 normalizedTariff=60 ∧
     SamplerWorkload.preparationCost 3 unitTariff=33 := by decide +kernel
-example : compiled.2=183 := by
+example : compiled.2=186 := by
   rw [OptimizedRowWork.compileLoader_setup]
   decide +kernel
 example : OptimizedRowWork.compileStorage chain (Equiv.refl _) normalizedTariff=12 := by
@@ -83,13 +83,13 @@ example : OptimizedRowWork.compileStorage chain (Equiv.refl _) normalizedTariff=
 /-- Up-front compilation loses on this one-output workload, including the eager
 load after the final emission and final chronological output handling. -/
 example : (SamplerWorkload.workload oldLoader unitTariff overhead (fun _ => false) 0 0 4 false).2=106 ∧
-    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 2 false).2=211 := by
+    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 2 false).2=214 := by
   decide +kernel
 
 /-- The same policy wins after four outputs. Different bit counts are intentional;
 this comparison retains four outputs, not a common raw-bit budget. -/
 example : (SamplerWorkload.workload oldLoader unitTariff overhead (fun _ => false) 0 0 16 false).2=319 ∧
-    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 8 false).2=286 := by
+    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 8 false).2=289 := by
   decide +kernel
 
 example : (SamplerWorkload.workload oldLoader unitTariff overhead (fun _ => false) 0 0 16 false).1.1=[1,1,1,1] ∧
@@ -98,10 +98,10 @@ example : (SamplerWorkload.workload oldLoader unitTariff overhead (fun _ => fals
 
 /-- Caching is not free even with normalization already selected. -/
 example : (OptimizedRowWork.workload newLoader unitTariff overhead (fun _ => false) 0 0 2 false).2=146 ∧
-    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 2 false).2=211 := by
+    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 2 false).2=214 := by
   decide +kernel
 example : (OptimizedRowWork.workload newLoader unitTariff overhead (fun _ => false) 0 0 8 false).2=398 ∧
-    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 8 false).2=286 := by
+    compiled.2+(OptimizedRowWork.workload compiled.1 unitTariff overhead (fun _ => false) 0 0 8 false).2=289 := by
   decide +kernel
 
 /-- The selector alone preserves the entire workload state and output, including
