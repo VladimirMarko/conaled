@@ -150,7 +150,7 @@ asymptotic theorem is implemented in this shared unit.
 
 ## Actual cached annotation
 
-`Examples.TreeFoldCache.annotateRun` combines the measured fold with the
+`TreeFoldCacheExamples.annotateRun` combines the measured fold with the
 existing `Resources.TreeCache.nodeRun`. The latter executes two charged root
 reads and the actual inner callback before posting its constructor entry.
 Under a sufficient callback-value law, the returned tree equals existing
