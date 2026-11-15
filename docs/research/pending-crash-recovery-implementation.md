@@ -1,9 +1,10 @@
-# Pending-request crash recovery: implementation development
+# Pending-request crash recovery: implementation
 
 This implements the direct composition frozen in
 [pending-crash-recovery-protocol.md](pending-crash-recovery-protocol.md) for #540.
-It is a development milestone, not a completed acceptance result. The universal independent-source refinement is proved. Backend continuation,
-cost completeness and final acceptance checks remain in progress.
+The independent-source refinement and native backend agreement hold for every
+finite runtime command list. Final candidate audit and independent acceptance
+reviews are recorded in the implementation handoff.
 
 ## Implemented machine
 
@@ -79,10 +80,19 @@ name. The actual atomic peer publication advances the independent source;
 confirmation and durable tick commitment preserve that already selected state.
 
 The resumed-delay and stale-reply examples instantiate this theorem with
-arbitrary continuations. The active native backend's continuation requires an
-additional agreement invariant; the source refinement alone does not establish
-that representation property. This remaining obligation and complete cost
-review are tracked separately from the checked source result.
+arbitrary continuations. `initial_execute_backend` in the consumer-local `Backend` module separately proves that
+the actual active backend and current frame agree in kind and logical state,
+and every prepared target retains that current logical state. Its companion
+invariant tracks an uncommitted migration's selected target and ensures a tick
+cannot replace an owner while a target remains prepared. Publication makes the
+uncommitted-target obligation vacuous, so acknowledgment may follow target
+installation and former-owner release.
+
+The backend module also identifies the exact prepared target with native
+`PendingMigration.prepare_commit`, preserves the old owner and all pending
+fields through preparation, and invokes `transfer_suffix` for the chosen native
+checkpoint and business-command suffix. These comparisons retain the selected
+native representations rather than asserting equality of arbitrary realizations.
 
 ## Executable coverage
 
@@ -141,6 +151,5 @@ without violating the safety properties.
 The composition remains local to this consumer. It adds no universal recovery
 scheduler and does not change the crash-free #515 contract. A physical durable
 peer adapter and a lifetime-bounded retention/replay-fencing variant remain
-separate work. Final #540 acceptance still requires native backend agreement, complete cost
-and retained-witness review, full exact-candidate build and axiom audit,
+separate work. Final #540 acceptance requires the exact-candidate build and axiom audit,
 and independent Standards and Spec review.

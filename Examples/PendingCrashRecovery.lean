@@ -1,5 +1,5 @@
 import Applications.FRP.PendingCrash.Costs
-import Applications.FRP.PendingCrash.Refinement
+import Applications.FRP.PendingCrash.Backend
 
 /-! Successful executions and separating failures for the frozen #540 protocol.
 The network steps process actual submitted traffic; no receipt is fabricated. -/
@@ -78,6 +78,13 @@ def stagedMigration : List Command := computed true ++ [.prepareMigration .redun
 example : (List.range 5).map (fun cut =>
     (recoveredFrame (cutTrace stagedMigration 2 cut)).map Frame.kind) =
     [some .delay,some .delay,some .delay,some .delay,some .redundant] := by decide +kernel
+
+/-- Every migration crash cut retains the chosen pending identity, input and
+output; only the published backend kind is allowed to change. -/
+example : (List.range 5).map (fun cut =>
+    (recoveredFrame (cutTrace stagedMigration 2 cut)).bind (fun frame =>
+      frame.head.map (fun pair => (pair.2.identity, pair.2.input, pair.2.output)))) =
+    List.replicate 5 (some (0,true,some false)) := by decide +kernel
 
 /-- Restart during the journal scan restarts the scan from the durable root. -/
 example : (recoveredFrame (computed true ++ [.crash,.storage .startRead,.storage .read] ++ restart 2)).bind headPhase =
@@ -233,5 +240,19 @@ example :
     let work := (step staged.system (.storage .publish)).work
     Work.allocate 1 ∈ work ∧ Work.release 1 ∈ work := by decide +kernel
 
+
+/-- Every recovered or committed current frame has an actual native owner with
+the same selected kind and continuation, under arbitrary future commands. -/
+example (kind : Migration.Kind) (commands : List Command) (frame : Frame)
+    (current : (execute (initialSystem kind) commands).system.adapter.current = some frame) :
+    ∃ backend, (execute (initialSystem kind) commands).system.adapter.active = some backend ∧
+      backend.kind = frame.kind ∧ backend.logical = frame.logical :=
+  (initial_execute_backend kind commands).active_exists _ frame current
+
+/-- Preparation retains the exact old owner even when allocation or validation
+fails; this statement also retains every pending protocol field and message. -/
+example (s : System) (kind : Migration.Kind) (budget : Nat) (allocationOK validationOK : Bool) :
+    (prepareMigration s kind budget allocationOK validationOK).system.adapter.active = s.adapter.active :=
+  (prepareMigration_retained s kind budget allocationOK validationOK).2.1
 
 end FRPSpec.PendingCrash.Examples
