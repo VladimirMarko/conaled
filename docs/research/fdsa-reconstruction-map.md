@@ -974,3 +974,20 @@ negative-key and forged-cache cases, and the separate full annotation pass.
 All eleven named exercises now have implementations, while the local CTB-23
 tracker still requires final qualification of all 76 chapter rows. Exact source
 reviews and checks do not replace receiving whole-library acceptance.
+
+## Chapter 4 source qualification (CTB-23)
+
+The [current Chapter 4 witness map](fdsa-chapter04-coverage.md) brings together
+all 76 recorded obligations, eleven exercises and twelve named structural
+results. It qualifies the existing carrier/shape/logarithm/cache mathematics
+alongside the later bounded tree units, with exact source domains, generic
+instantiations, cost tariffs, corrections and algorithm restrictions.
+
+The map is based on the preserved July 27, 2026 source analysis and actual Lean
+definitions and proofs. It makes no claim of a fresh primary-PDF read. Historical
+unit sections above describe their development stage; the current mathematical
+correspondence belongs to this chapter map, and workflow status belongs to the
+local CTB tracker. The exact chapter build, all-owner/witness audit, complete
+statement assessment, independent source reviews and final comparison are
+checkpoint evidence. Programme primary-source closure and receiving whole-library
+acceptance remain distinct pending gates.
