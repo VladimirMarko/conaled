@@ -104,7 +104,7 @@ time. The record distinguishes `incremental`, `clean` and `fresh` modes. Combine
 `--verify-candidate` checks that the success record still matches the current
 candidate, dependencies, and compiler without compiling or rerunning the audit.
 Use it immediately before accepting the recorded candidate. It uses the mode
-in the record; omit `--fresh` and `--jobs`. Starting any new validation removes
+in the record; omit `--clean`, `--fresh` and `--jobs`. Starting any new validation removes
 the previous record, and only successful candidate validation writes a new one.
 Ordinary `./check.sh` remains available for uncommitted development work and
 does not produce a candidate success record. Other required tests and reviews

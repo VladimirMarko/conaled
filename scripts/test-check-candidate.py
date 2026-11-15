@@ -165,6 +165,33 @@ run_cmd do
         self.assertIn("unowned", result.stderr)
         self.assertEqual(notes.read_text(), "existing work")
 
+    def test_clean_refuses_symlink_before_touching_external_receipt(self):
+        self.accepted()
+        # Also ignore a symlink named .lake, so Git cleanliness does not mask
+        # the output-root refusal that this public command must provide.
+        exclude = Path(self.git("rev-parse", "--git-path", "info/exclude"))
+        with (self.root / exclude).open("a") as out:
+            out.write("\n.lake\n")
+        for name in (".lake", ".lake/build"):
+            with self.subTest(path=name):
+                path = self.workspace / name
+                saved = self.root / "saved-outputs"
+                path.rename(saved)
+                receipt = saved / "verification.json"
+                if not receipt.exists():
+                    receipt.write_text("external receipt")
+                before = receipt.read_bytes()
+                path.symlink_to(saved, target_is_directory=True)
+                try:
+                    result = self.run_candidate("HEAD", "--clean")
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn("real .lake", result.stderr)
+                    self.assertEqual(receipt.read_bytes(), before)
+                    self.assertFalse((self.workspace.parent / "acceptance-running.json").exists())
+                finally:
+                    path.unlink()
+                    saved.rename(path)
+
 
 if __name__ == "__main__":
     unittest.main()

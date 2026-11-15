@@ -86,6 +86,9 @@ def main():
             require_clean(workspace)
         elif args.verify:
             raise RuntimeError("No managed candidate exists to verify")
+        if args.clean and ((workspace / ".lake").is_symlink()
+                           or (workspace / ".lake/build").is_symlink()):
+            raise RuntimeError("Clean build requires real .lake and .lake/build directories")
         if args.verify:
             if git(workspace, "rev-parse", "HEAD") != revision:
                 raise RuntimeError("Requested candidate is not the managed worktree's HEAD")
