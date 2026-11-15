@@ -125,11 +125,19 @@ theorem prefix_eq (p : α → PreparedRow α) (x : α) (s : ℕ) (ys : List α) 
   · rintro ⟨t,k,h⟩
     exact ⟨_,_,delivers_of_trace h⟩
 
+/-- The row return law is the only representation assumption for path laws. -/
+theorem prefix_mass_rows [Fintype α] [DecidableEq α]
+    (t : Table α α) (p : α → PreparedRow α)
+    (hp : ∀ x s a, law ((p x).returns s a)=mass (t.entry x a))
+    (x : α) (s : ℕ) (ys : List α) :
+    law (prefixEvent p x s ys)=mass (RowChain.pathMass t x ys) := by
+  rw [prefix_eq]
+  exact RowChain.rows_path_mass t p hp _ _ _ _ rfl
+
 theorem prefix_mass [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (x : α) (s : ℕ) (ys : List α) :
-    law (prefixEvent (t.prepare e) x s ys)=mass (RowChain.pathMass t x ys) := by
-  rw [prefix_eq]
-  exact RowChain.table_path_mass _ _ _ _ _ _ rfl
+    law (prefixEvent (t.prepare e) x s ys)=mass (RowChain.pathMass t x ys) := 
+  prefix_mass_rows t (t.prepare e) (t.prepare_returns_mass e) x s ys
 
 /-- Endpoint observation after exactly n emissions. -/
 def endpointEvent (p : α → PreparedRow α) (n : ℕ) (x : α) (s : ℕ) (y : α) : Set Tape :=

@@ -183,15 +183,16 @@ def pathMass [Fintype α] (t : Table α α) : α → List α → ℚ
   | _,[] => 1
   | x,a::ys => t.entry x a * pathMass t a ys
 
-theorem table_path_mass [Fintype α] [DecidableEq α] {m : ℕ}
-    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s : ℕ) (ys : List α)
+theorem rows_path_mass [Fintype α] [DecidableEq α]
+    (t : Table α α) (p : α → PreparedRow α)
+    (hp : ∀ x s a, law ((p x).returns s a)=mass (t.entry x a)) (n : ℕ) (x : α) (s : ℕ) (ys : List α)
     (hlen : ys.length=n) :
-    law (returns (t.prepare e) n x s ys)=mass (pathMass t x ys) := by
+    law (returns p n x s ys)=mass (pathMass t x ys) := by
   induction ys generalizing n x s with
   | nil =>
     have : n=0 := by simpa using hlen.symm
     subst n
-    have he : returns (t.prepare e) 0 x s []=Set.univ := by
+    have he : returns p 0 x s []=Set.univ := by
       ext ω; simp [returns_zero]
     simp only [List.length_nil]
     rw [he,measure_univ]; simp [pathMass]
@@ -199,8 +200,14 @@ theorem table_path_mass [Fintype α] [DecidableEq α] {m : ℕ}
     have : n=ys.length+1 := hlen.symm
     subst n
     simp only [List.length_cons]
-    rw [returns_cons_mass,t.prepare_returns_mass,ih _ _ _ rfl,pathMass,
+    rw [returns_cons_mass,hp,ih _ _ _ rfl,pathMass,
       mass_mul _ _ (t.nonneg x a)]
+
+theorem table_path_mass [Fintype α] [DecidableEq α] {m : ℕ}
+    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s : ℕ) (ys : List α)
+    (hlen : ys.length=n) :
+    law (returns (t.prepare e) n x s ys)=mass (pathMass t x ys) :=
+  rows_path_mass t (t.prepare e) (t.prepare_returns_mass e) n x s ys hlen
 
 /-- Last state after a path; the empty path retains the input. -/
 def finalState : α → List α → α
@@ -269,16 +276,17 @@ theorem final_succ_mass [Fintype α] (p : α → PreparedRow α) (n : ℕ)
   · exact hm
 
 /-- Iterated operational transitions recover the existing composed rational table. -/
-theorem table_final_mass [Fintype α] [DecidableEq α] {m : ℕ}
-    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x z : α) (s : ℕ) :
-    law (finalEvent (t.prepare e) n x s z)=mass ((t.steps n).entry x z) := by
+theorem rows_final_mass [Fintype α] [DecidableEq α]
+    (t : Table α α) (p : α → PreparedRow α)
+    (hp : ∀ x s a, law ((p x).returns s a)=mass (t.entry x a)) (n : ℕ) (x z : α) (s : ℕ) :
+    law (finalEvent p n x s z)=mass ((t.steps n).entry x z) := by
   induction n generalizing x s with
   | zero =>
     rw [final_zero]
     by_cases h : x=z <;> simp [h,Table.steps,Table.deterministic]
   | succ n ih =>
     rw [final_succ_mass]
-    simp_rw [t.prepare_returns_mass,ih,← mass_mul _ _ (t.nonneg _ _)]
+    simp_rw [hp,ih,← mass_mul _ _ (t.nonneg _ _)]
     rw [← mass_sum _ _ (fun a _ => mul_nonneg (t.nonneg x a) ((t.steps n).nonneg a z))]
     -- The operational recursion starts with t; table iteration associates the other way.
     congr 1
@@ -294,6 +302,11 @@ theorem table_final_mass [Fintype α] [DecidableEq α] {m : ℕ}
       intro a _
       rw [ih]
       rfl
+
+theorem table_final_mass [Fintype α] [DecidableEq α] {m : ℕ}
+    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x z : α) (s : ℕ) :
+    law (finalEvent (t.prepare e) n x s z)=mass ((t.steps n).entry x z) :=
+  rows_final_mass t (t.prepare e) (t.prepare_returns_mass e) n x z s
 
 theorem termination_eq (p : α → PreparedRow α) (n : ℕ) (x : α) (s : ℕ) :
     ProbabilityProgress.termination (fun ω => step p ω n) (start p n x s)=

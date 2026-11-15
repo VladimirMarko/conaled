@@ -164,24 +164,30 @@ theorem rational_joint [Fintype α] [DecidableEq α] {m : ℕ}
 
 /-- Initialization and all finite continuations terminate almost surely. A
 countable intersection covers every possible returned cursor, not a fixed one. -/
-theorem almostSureProductive [Fintype α] [DecidableEq α] {m : ℕ}
-    (r : PreparedRow α) (t : Table α α) (e : Fin m ≃ α) (s : ℕ) :
-    ProbabilityProgress.AlmostSureProductive law (step r (t.prepare e))
+theorem almostSureProductive_rows [Countable α]
+    (r : PreparedRow α) (p : α → PreparedRow α) (s : ℕ) :
+    ProbabilityProgress.AlmostSureProductive law (step r p)
       (fun _ => start r s) := by
   intro n
   cases n with
   | zero => exact Filter.Eventually.of_forall fun _ => ⟨[],_,0,rfl,.nil _⟩
   | succ n =>
     have hc : ∀ᵐ ω ∂law, ∀ a u, ∃ ys z k, ys.length=n ∧
-        Progress.Delivers (TableProducer.step (t.prepare e) ω)
-          (TableProducer.start (t.prepare e) a u) ys z k :=
+        Progress.Delivers (TableProducer.step p ω)
+          (TableProducer.start p a u) ys z k :=
       (ae_all_iff).mpr fun a => (ae_all_iff).mpr fun u =>
-        TableProducer.almostSureProductive t e a u n
+        TableProducer.almostSureProductive_rows p a u n
     filter_upwards [r.ae_terminates s,hc] with ω hi hp
     obtain ⟨⟨a,u⟩,i,hi⟩ := hi
     obtain ⟨ys,z,k,hlen,hp⟩ := hp a u
     exact ⟨a::ys,.inr z,i+k,by simp [hlen],
       .cons (evaluates_of_initial hi) (delivers_of_ready hp)⟩
+
+theorem almostSureProductive [Fintype α] [DecidableEq α] {m : ℕ}
+    (r : PreparedRow α) (t : Table α α) (e : Fin m ≃ α) (s : ℕ) :
+    ProbabilityProgress.AlmostSureProductive law (step r (t.prepare e))
+      (fun _ => start r s) :=
+  almostSureProductive_rows r (t.prepare e) s
 
 /-- Divergent initialization prevents even the first output. Almost-sure
 productivity does not remove the exceptional tapes from the operational model. -/
@@ -234,15 +240,25 @@ theorem block_mass [Fintype α] (r : PreparedRow α) (p : α → PreparedRow α)
 
 /-- Invariant initialization is executed on the same tape as every transition.
 The conclusion retains the existing stationary ordered-block distribution. -/
+theorem stationary_blocks_rows [Fintype α] [DecidableEq α]
+    (t : Table α α) (r : PreparedRow α) (p : α → PreparedRow α) (π : α → ℝ≥0∞)
+    (hr : ∀ s a, law (r.returns s a)=π a)
+    (hp : ∀ x s a, law ((p x).returns s a)=mass (t.entry x a))
+    (hπ : ∀ a, ∑ x, π x*mass (t.entry x a)=π a)
+    (n s : ℕ) (ys : List α) :
+    law (blockEvent r p n s ys)=∑ a, π a*mass (RowChain.pathMass t a ys) := by
+  rw [block_mass]
+  simp_rw [hr]
+  exact TableProducer.stationary_blocks_rows t p hp π hπ n 0 ys
+
 theorem stationary_blocks [Fintype α] [DecidableEq α] {m : ℕ}
     (initial : Table Unit α) (t : Table α α) (e : Fin m ≃ α)
     (hπ : ∀ a, ∑ x, mass (initial.entry () x)*mass (t.entry x a)=
       mass (initial.entry () a)) (n s : ℕ) (ys : List α) :
     law (blockEvent (initial.prepare e ()) (t.prepare e) n s ys)=
-      ∑ a, mass (initial.entry () a)*mass (RowChain.pathMass t a ys) := by
-  rw [block_mass]
-  simp_rw [initial.prepare_returns_mass]
-  exact TableProducer.stationary_blocks t e _ hπ n 0 ys
+      ∑ a, mass (initial.entry () a)*mass (RowChain.pathMass t a ys) :=
+  stationary_blocks_rows t (initial.prepare e ()) (t.prepare e) _
+    (initial.prepare_returns_mass e ()) (t.prepare_returns_mass e) hπ n s ys
 
 /-- Converting the observation convention: hiding initialization and n
 transitions means dropping n+1 outputs of the initialized producer itself. -/

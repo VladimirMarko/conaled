@@ -76,19 +76,28 @@ theorem block_succ_mass [Fintype α] (p : α → PreparedRow α) (n : ℕ)
 
 /-- A stationary initialization preserves the entire ordered block distribution
 under a finite observation shift, not only each separate output marginal. -/
+theorem stationary_blocks_rows [Fintype α] [DecidableEq α]
+    (t : Table α α) (p : α → PreparedRow α)
+    (hp : ∀ x s a, law ((p x).returns s a)=mass (t.entry x a)) (π : α → ℝ≥0∞)
+    (hπ : ∀ a, ∑ x, π x*mass (t.entry x a)=π a)
+    (n : ℕ) (s : ℕ) (ys : List α) :
+    ∑ x, π x*law (blockEvent p n x s ys)=
+      ∑ x, π x*mass (RowChain.pathMass t x ys) := by
+  induction n generalizing s with
+  | zero => simp only [block_zero,prefix_mass_rows t p hp]
+  | succ n ih =>
+    simp_rw [block_succ_mass,hp,Finset.mul_sum]
+    rw [Finset.sum_comm]
+    simp_rw [← mul_assoc,← Finset.sum_mul,hπ]
+    exact ih 0
+
 theorem stationary_blocks [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (π : α → ℝ≥0∞)
     (hπ : ∀ a, ∑ x, π x*mass (t.entry x a)=π a)
     (n : ℕ) (s : ℕ) (ys : List α) :
     ∑ x, π x*law (blockEvent (t.prepare e) n x s ys)=
-      ∑ x, π x*mass (RowChain.pathMass t x ys) := by
-  induction n generalizing s with
-  | zero => simp only [block_zero,prefix_mass]
-  | succ n ih =>
-    simp_rw [block_succ_mass,t.prepare_returns_mass,Finset.mul_sum]
-    rw [Finset.sum_comm]
-    simp_rw [← mul_assoc,← Finset.sum_mul,hπ]
-    exact ih 0
+      ∑ x, π x*mass (RowChain.pathMass t x ys) :=
+  stationary_blocks_rows t (t.prepare e) (t.prepare_returns_mass e) π hπ n s ys
 
 end Applications.Probability.TableProducer
 
