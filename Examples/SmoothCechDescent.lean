@@ -174,6 +174,101 @@ def admitted (G : Type) [Group G] [TopologicalSpace G] [DiscreteTopology G] (c :
     TrivializedOn Represented.atlas (smooth G) (quotient G c) where
   trivialization := Represented.localTrivialization G c
 
+
+theorem split_trivialization_apply (G : Type) [Group G] [TopologicalSpace G]
+    [DiscreteTopology G] (c : G) (i : Bool) (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.obj U)
+    (x : lineSheaf.obj.obj U)
+    (hx : (SplitSheaf.displayIso Represented.atlas.cover).hom.hom.app U z =
+      (Represented.atlas.inclusion i).hom.app U x)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    ((admitted G c).splitRegularization.torsorArrow.iso.hom.app
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay Represented.atlas.cover)).obj.elementsMk U z) g).val =
+      (if i then totalChartRight G c else totalChartLeft G c).hom.app U
+        (pairSection _ _ U x g) := by
+  have h := (admitted G c).splitRegularization_apply U z g
+  rw [hx] at h
+  have ht := h.trans ((admitted G c).regularization_chart_apply i U x g)
+  have hv := congrArg (fun z : (SplitSheaf.Ext (torsor G c).family).obj.obj U =>
+    (show (total G c).obj.obj U from z.2.val)) ht
+  cases i
+  · exact hv.trans (Represented.localTrivialization_left_apply G c (lineSheaf.obj.elementsMk U x) g)
+  · exact hv.trans (Represented.localTrivialization_right_apply G c (lineSheaf.obj.elementsMk U x) g)
+
+
+theorem extracted_overlap (G : Type) [Group G] [TopologicalSpace G]
+    [DiscreteTopology G] (c : G) :
+    Represented.atlas.pairMap false true ≫
+      (admitted G c).extractedDatum.overlapLabel (smooth G) = transition G c := by
+  rw [TrivializedOn.extractedDatum_overlapLabel]
+  ext U x
+  let A := Represented.atlas
+  let t := admitted G c
+  let z := (SheafCoverCech.splitDoubleIso A.cover).inv.hom.app U
+    ((A.pairMap false true).hom.app U x)
+  let a := (SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover)).hom.app U z
+  let b := (SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover)).hom.app U z
+  let ea := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U a
+  let eb := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U b
+  let label : (locallyConstantGroup G).obj.obj U :=
+    t.splitRegularization.torsorArrow.iso.inv.app eb
+      (t.splitRegularization.torsorArrow.iso.hom.app ea (1 : (locallyConstantGroup G).obj.obj U))
+  change label = (transition G c).hom.app U x
+  have first : (SplitSheaf.displayIso A.cover).hom.hom.app U a =
+      (A.inclusion false).hom.app U (inclusion.hom.app U x) := by
+    have h : A.pairMap false true ≫ (SheafCoverCech.splitDoubleIso A.cover).inv ≫
+        SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover) ≫ (SplitSheaf.displayIso A.cover).hom =
+        embedding.map (A.left false true) ≫ A.inclusion false := by
+      rw [← SheafCoverCech.splitDouble_first]
+      simp only [Iso.inv_hom_id_assoc, A.pairMap_first]
+    exact congrArg (fun f => f.hom.app U x) h
+  have second : (SplitSheaf.displayIso A.cover).hom.hom.app U b =
+      (A.inclusion true).hom.app U (inclusion.hom.app U x) := by
+    have h : A.pairMap false true ≫ (SheafCoverCech.splitDoubleIso A.cover).inv ≫
+        SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover) ≫ (SplitSheaf.displayIso A.cover).hom =
+        embedding.map (A.right false true) ≫ A.inclusion true := by
+      rw [← SheafCoverCech.splitDouble_second]
+      simp only [Iso.inv_hom_id_assoc, A.pairMap_second]
+    exact congrArg (fun f => f.hom.app U x) h
+  have cancel := congrArg (fun f => f.app eb
+    (t.splitRegularization.torsorArrow.iso.hom.app ea (1 : (locallyConstantGroup G).obj.obj U)))
+    t.splitRegularization.torsorArrow.iso.inv_hom_id
+  change t.splitRegularization.torsorArrow.iso.hom.app eb label =
+    t.splitRegularization.torsorArrow.iso.hom.app ea (1 : (locallyConstantGroup G).obj.obj U) at cancel
+  have raw := congrArg (fun y => (show (total G c).obj.obj U from y.val)) cancel
+  rw [split_trivialization_apply G c true U b _ second label,
+    split_trivialization_apply G c false U a _ first 1] at raw
+  have glue := Represented.chart_gluing G c U x (1 : (locallyConstantGroup G).obj.obj U)
+  rw [one_mul] at glue
+  have same := raw.trans glue
+  let y := lineSheaf.obj.elementsMk U (inclusion.hom.app U x)
+  apply (((Represented.localTrivialization G c true).iso.app y).toEquiv).injective
+  apply Subtype.ext
+  exact (Represented.localTrivialization_right_apply G c y label).trans
+    (same.trans (Represented.localTrivialization_right_apply G c y _).symm)
+
+
+theorem extracted_transition (G : Type) [Group G] [TopologicalSpace G]
+    [DiscreteTopology G] (c : G) (x : Points punctured) :
+    ((admitted G c).extractedDatum.transition false true).val x =
+      (labelAt G (transition G c) x)⁻¹ := by
+  have h := congrArg (fun f : embedding.obj punctured ⟶ locallyConstantGroupSheaf G =>
+    ordinaryHomLabelEquiv G punctured f x) (extracted_overlap G c)
+  rw [Datum.overlapLabel_fac] at h
+  have hl := Datum.transitionArrow_label (smooth G) (admitted G c).extractedDatum false true x
+  have hh := hl.symm.trans h
+  have he : ordinaryHomLabelEquiv G punctured (transition G c) x =
+      labelAt G (transition G c) x := (labelAt_eq_ordinary G _ x).symm
+  have hh' := hh.trans he
+  exact inv_eq_iff_eq_inv.mp hh'
+
+theorem extracted_transition_sign (G : Type) [Group G] [TopologicalSpace G]
+    [DiscreteTopology G] (c : G) (b : Bool) (x : Points punctured)
+    (hx : x.val ∈ signOpen b) :
+    ((admitted G c).extractedDatum.transition false true).val x =
+      (if b then c else 1)⁻¹ := by
+  rw [extracted_transition, transition_label G c b x hx]
+
 theorem localMap_hat_zero (G : Type) [Group G] [TopologicalSpace G]
     [DiscreteTopology G] (c : G) (i : Bool) :
     hat ((admitted G c).localMap i).val ((admitted G c).localMap i).property =
@@ -210,6 +305,26 @@ def quarterTurnDatum := (admitted C4 quarterTurn).extractedDatum
 theorem quarterTurn_no_section :
     ¬ Nonempty (SplitSheaf.Tm (quarterTurnDatum.interpreted (smooth C4)).torsor.family) :=
   interpreted_no_section C4 quarterTurn SquareKit.SmoothQuarterTurnArcs.quarterTurn_ne_one
+
+
+theorem quarterTurn_transition_negative :
+    (quarterTurnDatum.transition false true).val (puncturedPoint (-1) (by norm_num)) = 1 := by
+  simpa only [quarterTurnDatum, Bool.false_eq_true, ite_false, inv_one] using
+    extracted_transition_sign C4 quarterTurn false
+    (puncturedPoint (-1) (by norm_num)) (by norm_num [signOpen, puncturedPoint])
+
+theorem quarterTurn_transition_positive :
+    (quarterTurnDatum.transition false true).val (puncturedPoint 1 one_ne_zero) = quarterTurn⁻¹ := by
+  exact extracted_transition_sign C4 quarterTurn true
+    (puncturedPoint 1 one_ne_zero) (by norm_num [signOpen, puncturedPoint])
+
+theorem quarterTurn_transition_varies :
+    (quarterTurnDatum.transition false true).val (puncturedPoint (-1) (by norm_num)) ≠
+      (quarterTurnDatum.transition false true).val (puncturedPoint 1 one_ne_zero) := by
+  rw [quarterTurn_transition_negative, quarterTurn_transition_positive]
+  intro h
+  exact SquareKit.SmoothQuarterTurnArcs.quarterTurn_ne_one
+    (inv_eq_one.mp h.symm)
 
 def quarterGauge (i : Bool) : External.Labels (G := C4) line
     (quarterTurnDatum.localMap i) (quarterTurnDatum.localMap i) :=
