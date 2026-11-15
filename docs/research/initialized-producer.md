@@ -69,7 +69,8 @@ prefix of `n` transitions contains `n + 1` draws because initialization counts.
 
 With unit tariffs, the checked twelve-bit example costs 161: initial setup
 24, initialization bit work 56, continuation bit work 29, two next-row
-loads and initializations costing 50, and final output handling costing two.
+loads, initializations and emission charges costing 50 (two times 22 + 2 + 1),
+and final output handling costing two.
 A checked one-bit pause costs six after the initial setup and retains state
 `(cursor=1, remaining=3, accumulator=1)`.
 
