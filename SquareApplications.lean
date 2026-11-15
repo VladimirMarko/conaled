@@ -993,4 +993,6 @@ import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
 import Examples.CubicalChartFamily
 
+import Examples.SmoothManifoldAction
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
