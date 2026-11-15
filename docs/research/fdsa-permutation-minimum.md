@@ -9,7 +9,7 @@ This bounded shared
 unit supports the FDSA reconstruction. It closes no chapter or randomized
 algorithm obligation. Its immutable candidate, exact requirements, independent
 calculations and eventual validation/review results are retained in the local
-durability checkpoint's FDSA-XU01 record.
+durability checkpoint's FDSA-54 record.
 
 **Validation snapshot — 4 November 2026.** A successful focused check covered
 the minimum-law core and both example modules. A separate successful

@@ -9,7 +9,7 @@ This bounded shared unit
 continues the [minimum-law work](fdsa-permutation-minimum.md). It supplies no
 chapter acceptance, recursive sampling theorem or algorithm cost bound.
 The exact frozen requirements, source/API preflights, candidate identity and
-eventual gate results are retained in the local FDSA-XU02 checkpoint record.
+eventual gate results are retained in the local FDSA-55 checkpoint record.
 
 **Development validation — 4 November 2026.** The whole-order core and both
 example modules had individual compilation successes in development checks

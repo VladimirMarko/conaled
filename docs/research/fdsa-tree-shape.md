@@ -24,7 +24,7 @@ acceptance. Every later algorithm, representation and runtime obligation remains
 ## Status and source boundary
 
 This is the implementation-side source and statement assessment of the
-FDSA-XT02 draft. The natural and real theorem families and their connected
+FDSA-46 draft. The natural and real theorem families and their connected
 uses have been written. **No compiler, complete candidate gate, exhaustive
 audit or independent final review has run for this unit.** Accepted repaired
 Chapter 1 and the preceding shared tree-cache unit remain prerequisites to

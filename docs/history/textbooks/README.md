@@ -20,6 +20,13 @@ explains the active library contracts and checked clients.
   and prior outcomes. Historical blocked reviews remain blocked observations;
   they are not approvals of the receiving candidate.
 
+## Issue references
+
+Use [qualified issue references](issue-lineages.md) and the
+[normalized imported history](commit-references.md) to distinguish VFA, PFDS,
+FDSA and intake tickets from real GitHub issues. Bare numbers never determine
+a lineage, and GitHub has no reserved numeric ranges.
+
 ## Source recovery
 
 The [original ref catalog](checkpoint-012/source/refs.json) and

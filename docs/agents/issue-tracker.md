@@ -54,3 +54,12 @@ are all closed. Claim it with
 `gh issue edit <number> --add-assignee @me`.
 On resolution, comment with the result, close the child, and add
 a summary and link to the map's Decisions-so-far section.
+
+## Imported textbook references
+
+Bare `#N` always denotes this repository's GitHub issue/PR namespace, including
+four- and five-digit numbers. Qualify historical textbook tickets as `VFA-2`,
+`PFDS-2`, `FDSA-1` or `INT-32`; never infer lineage from a numeric range.
+Use the [reference registry](../history/textbooks/issue-lineages.md) to resolve
+legacy commit messages. New work and commit trailers use real GitHub owners;
+book prefixes retain provenance without creating additional live trackers.

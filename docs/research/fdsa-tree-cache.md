@@ -31,7 +31,7 @@ fulfilled. This shared unit does not accept Chapter 4 or its later algorithms.
 ## Original implementation status and source boundary
 
 This is the implementation-side source and statement assessment for the
-FDSA-XT01 draft. The declarations and connected uses have been written, but
+FDSA-45 draft. The declarations and connected uses have been written, but
 **no compiler, complete candidate gate, exhaustive audit or independent final
 review has run for this unit**. Chapter 1 remains the prerequisite. These
 files provide no chapter or appendix acceptance by their presence.

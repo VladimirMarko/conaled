@@ -5,7 +5,7 @@ the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/READ
 Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
 old process and tracking instructions describe the producing session.
 
-This shared accounting development originated as FDSA-XP01 under issue #174,
+This shared accounting development originated as FDSA-41 under issue #174,
 at retained donor commit `12cb14fc98b8617b3b625620da8e60936daba340`. The textbook
 integration reconciles it with PFDS's generic, state-preserving and signed
 accounting APIs in the existing

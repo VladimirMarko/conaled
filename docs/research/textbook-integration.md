@@ -137,7 +137,7 @@ are allowed. The Square specializations retain the existing common-universe
 requirement of that framework.
 
 [OrderedMap.Invariant](../../Applications/Search/OrderedMap/Invariant.lean)
-recovers the valid-state portion of FDSA-XA01 donor
+recovers the valid-state portion of FDSA-34 donor
 `20a5b5537a704be016d09e4eb31db0dad8a12d61`. `Laws.restrict_iff` relates raw laws
 on valid states to the existing unconditional laws on the valid subtype.
 Empty-state validity and preservation by binding are explicit. The existing
@@ -146,7 +146,7 @@ whole-tree observation and proved invariant. It gains no equation about an
 invalid raw tree.
 
 [OrderedMap.AssociationList](../../Applications/Search/OrderedMap/AssociationList.lean)
-connects FDSA-XA01's actual Mathlib `AList` insertion and VFA's shadowing list
+connects FDSA-34's actual Mathlib `AList` insertion and VFA's shadowing list
 to this same contract. A third realization uses partial functions. An `AList`
 insertion erases an earlier binding, whereas the raw list retains shadowed
 entries; agreement concerns observations rather than equality of stored states.
@@ -176,7 +176,7 @@ The default-valued client uses the vertically pasted square itself.
 
 This recovery preserves the weaker generic total-table contract as distinct
 pending work: an arbitrary total table need not supply a partial observation.
-FDSA-XA01 deletion, modification round trips, set deletion and generic valid-graph
+FDSA-34 deletion, modification round trips, set deletion and generic valid-graph
 composition also remain owned by the preservation ledger. This binding-only
 contract does not replace those capabilities or accept an entire chapter.
 Lookup agreement grants no cost, allocation, physical-sharing, callback-count
@@ -210,18 +210,18 @@ larger set. Counts identify preservation scope, not required new public files.
 
 | Preserved family | Checkpoint-local owner and disposition |
 | --- | --- |
-| FDSA tree folds, accumulators, traversal observations, rotations, ordered search, leftmost extraction, Braun shape and Chapter 4 branches | **INT-020**, integration owner: compare capabilities with current tree owners before receiving proofs. Preserve Chapter 4's original base `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`, 76 obligations and 11 exercises. A shared prerequisite does not close the chapter. |
-| FDSA ADT refinement, priority observations, logarithm bounds, accumulated work and permutation expectation/joint-placement drafts | **INT-020**, integration owner: retain source/review evidence and give each capability an incorporation, supersession or preserved-pending disposition. Existing-path variants require capability comparison, not wholesale file replacement. |
-| VFA sorting specifications, table observations, positive keys, unary comparison costs and queue-peek counterexample | **INT-021**, integration owner: preserve ordering/multiplicity hypotheses, presence versus default lookup, shifted key inverses, actual unary recursion tariff, and the reachable repeated-reversal counterexample. None is closed by the three shared clients alone. |
+| FDSA tree folds, accumulators, traversal observations, rotations, ordered search, leftmost extraction, Braun shape and Chapter 4 branches | **INT-20**, integration owner: compare capabilities with current tree owners before receiving proofs. Preserve Chapter 4's original base `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`, 76 obligations and 11 exercises. A shared prerequisite does not close the chapter. |
+| FDSA ADT refinement, priority observations, logarithm bounds, accumulated work and permutation expectation/joint-placement drafts | **INT-20**, integration owner: retain source/review evidence and give each capability an incorporation, supersession or preserved-pending disposition. Existing-path variants require capability comparison, not wholesale file replacement. |
+| VFA sorting specifications, table observations, positive keys, unary comparison costs and queue-peek counterexample | **INT-21**, integration owner: preserve ordering/multiplicity hypotheses, presence versus default lookup, shifted key inverses, actual unary recursion tariff, and the reachable repeated-reversal counterexample. None is closed by the three shared clients alone. |
 
 PFDS's wrapped historical output tree contains no additional absent Lean path
 after normalizing the old `conaled/` directory prefix. It should not become a
 second active library. Its coverage matrix, paper mathematics, source
-obligations and forward cost contracts still constrain **INT-001**; importing
+obligations and forward cost contracts still constrain **INT-1**; importing
 the candidate does not accept its unfinished textbook coverage.
 
-Historical implementation work is recorded by INT-010–013 and receiving gates
-by INT-090/091 and INT-SP-001 in the
+Historical implementation work is recorded by INT-10–013 and receiving gates
+by INT-90/091 and INT-SP-001 in the
 [preserved review record](../history/textbooks/checkpoint-012/books/common/REVIEW.json).
 The full applicable build, exhaustive three-axiom audit and independent
 Standards/Spec reviews must describe the same receiving candidate and retain

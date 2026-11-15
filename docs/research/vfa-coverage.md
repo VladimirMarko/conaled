@@ -9,7 +9,9 @@ that broader workstream or select one canonical data structure.
 
 The [preserved VFA records](../history/textbooks/checkpoint-012/books/vfa/README.md)
 retain the original local tickets, review findings and validation evidence.
-Historical commit references from #1000 upward refer to that local tracker.
+Historical VFA ticket references use `VFA-0`, `VFA-2`, and so on.
+The [exact commit registry](../history/textbooks/issue-lineages.md) resolves old
+unqualified messages; no GitHub number range is reserved for them.
 Current coverage and follow-up are owned by
 [issue #558](https://github.com/VladimirMarko/conaled/issues/558).
 The map below describes mathematical coverage; source implementation alone is

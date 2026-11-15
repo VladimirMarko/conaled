@@ -8,7 +8,7 @@ old process and tracking instructions describe the producing session.
 This bounded shared unit
 continues the [whole-order draft](fdsa-permutation-order.md). Its frozen
 requirements, preflights, exact finite expectations, candidate identity and
-eventual gates are retained in the local FDSA-XU03 checkpoint record. No
+eventual gates are retained in the local FDSA-56 checkpoint record. No
 chapter or algorithm obligation is accepted by this source draft.
 
 **Development validation — 4 November 2026.** The conditional-tail core and both example modules had individual compilation successes in development checks that failed overall. All 61 explicit public declarations from the corrected source were subsequently included in the successful 815-declaration type inspection at `4b5dbfa07288acc73f25c27838d3fb2f78e77d71`; both independent reviewers assessed their complete printed types. These are historical results for that development candidate. Reuse requires matching integration-candidate evidence. The full acceptance gates below remain required.

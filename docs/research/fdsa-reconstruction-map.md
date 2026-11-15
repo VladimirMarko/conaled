@@ -273,7 +273,7 @@ No later chapter is accepted by these Chapter 2 preparations.
 
 ## Shared insertion costs for Chapters 2 and 3
 
-The local cross-cutting ticket FDSA-X002 develops the insertion-sort cost model
+The local cross-cutting ticket FDSA-33 develops the insertion-sort cost model
 used by §2.2, Exercise 2.1 and the small-input sorting case in Chapter 3. Its
 development does not accept either chapter or omit their remaining obligations.
 
@@ -564,7 +564,7 @@ audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
 
-## Shared ordinary list merge observations — FDSA-XM01
+## Shared ordinary list merge observations — FDSA-40
 
 `Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-
 relation pairwise converse and the input-local keyed sortedness iff, preserving
@@ -592,7 +592,7 @@ All concrete C14 queue/whole-enumeration/carrier
 and quadratic claims remain queued, and binomial carry is a different operation.
 The original foundation prefix c80eec9 excludes this later component.
 The source note retains a dated validation snapshot; acceptance requires the
-complete immutable-candidate gates recorded in the local FDSA-XM01 record.
+complete immutable-candidate gates recorded in the local FDSA-40 record.
 
 ## Shared difference-list closure groundwork
 
@@ -621,7 +621,7 @@ machine-runtime bounds, and this source map does not accept the chapter.
 The source note retains a dated validation snapshot; full immutable-candidate
 acceptance gates remain required.
 
-## Shared three-way partition values and source execution (FDSA-XQ01)
+## Shared three-way partition values and source execution (FDSA-42)
 
 This bounded cross-cutting component exposes the existing independent
 partition semantics to Sorting and Selection, with a separately measured
@@ -671,7 +671,7 @@ position, treap construction/ancestor/charging proofs or algorithm cost
 correspondences by itself. The Chapter 2 algorithm clients of this and the
 later order/tail units are mapped in [fdsa-sorting.md](fdsa-sorting.md).
 Its source note retains a dated validation snapshot;
-the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
+the local FDSA-54 record retains the frozen scope and subsequent gate results.
 
 ## Shared whole-subset ordering (draft)
 
@@ -689,7 +689,7 @@ histories, adaptive subsets, joint independence, expected positions, algorithm
 semantics and actual costs remain separate obligations. Chapter 2's actual
 algorithm clients are mapped in [fdsa-sorting.md](fdsa-sorting.md); they do not
 postulate a joint independence law. The source note retains the 4 November 2026 development validation history;
-the local FDSA-XU02 record retains the frozen exact scope and subsequent
+the local FDSA-55 record retains the frozen exact scope and subsequent
 candidate/review evidence. Full immutable-candidate acceptance gates remain
 required.
 
@@ -708,10 +708,10 @@ uniform observed tail, actual filtered projections, null conditioning and a
 counterexample to weakening subset containment. Chapter 2's actual child-filter,
 conditional-mean and cost recurrence clients are mapped in
 [fdsa-sorting.md](fdsa-sorting.md). Complete history and Chapter 3 algorithm,
-sampling-coupling and cost obligations remain separate. The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required. Local FDSA-XU03 retains the frozen scope, exact expectations,
+sampling-coupling and cost obligations remain separate. The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required. Local FDSA-56 retains the frozen scope, exact expectations,
 candidate identity and later validation/review evidence.
 
-## Shared binary-tree observations and cached folds (FDSA-XT01)
+## Shared binary-tree observations and cached folds (FDSA-45)
 
 This bounded cross-cutting unit supplies common observations
 and cache mathematics used by Chapters 4, 5 and 9, with a later representation
@@ -740,7 +740,7 @@ review. The current receiving base is accepted Chapter 3 commit
 `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`; all unit and chapter acceptance
 gates remain. This shared entry does not close the Chapter 4 coverage ledger.
 
-## Shared binary-tree shape bounds (FDSA-XT02)
+## Shared binary-tree shape bounds (FDSA-46)
 
 This bounded cross-cutting unit adds common structural mathematics used by
 Chapters 4, 11 and 15, on the accepted XT01 tree carrier and fold. It does not
