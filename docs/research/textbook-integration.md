@@ -174,11 +174,42 @@ shadowed entries, instantiate an empty payload type and type-valued payloads,
 and exhibit the lookup/observation disagreement of a malformed raw tree.
 The default-valued client uses the vertically pasted square itself.
 
-This recovery preserves the weaker generic total-table contract as distinct
-pending work: an arbitrary total table need not supply a partial observation.
-FDSA-34 deletion, modification round trips, set deletion and generic valid-graph
-composition also remain owned by the preservation ledger. This binding-only
-contract does not replace those capabilities or accept an entire chapter.
+[TotalTable](../../Applications/Search/OrderedMap/TotalTable.lean), delivered
+under #559, recovers the weaker generic total-table contract. Its separate
+operations and validity-relative laws require total lookup, not a partial
+observation. `setAll` executes an arbitrary chronological update list;
+`observe_setAll` relates it to function updates, and `setAll_agrees` transports
+the same client between corresponding valid initial states. These laws retain
+independent key, payload and representation universes. Pointwise laws and
+agreement need no key equality decision; the function realization states that
+requirement explicitly.
+
+`ofPartial` specializes current map operations by applying the supplied default
+at lookup. `ofPartial_laws` reuses the raw-validity/subtype bridge;
+`setAll_ofPartial` proves execution is the existing `bindAll`, and
+`observe_partial_setAll` retains the existing default-observation specification.
+[TotalTables](../../Examples/TotalTables.lean) uses one query-after-writes client
+with native functions, existing shadowing lists, raw ordered trees and a tagged
+total table. Cases retain repeated keys, arbitrary initial contents, empty
+updates, stored defaults versus absence, and an invalid raw-state failure.
+No reverse presence reconstruction is supplied. The original partial-map
+empty-payload examples remain meaningful; a total table instead needs its
+explicit default value.
+
+The representation choice belongs with #174. These contracts let callers
+change implementations while preserving observations, but do not rank their
+costs. The remaining FDSA-XA01 capabilities are explicitly decomposed: #587
+owns map deletion and Modify round trips, #588 owns set deletion through
+`AbstractSet`, and #589 owns generic valid-graph composition. Their source is
+`20a5b5537a704be016d09e4eb31db0dad8a12d61`, respectively
+`Applications/Collections/{Map,AList,Modify}.lean`,
+`Applications/Collections/Set.lean`, and `SquareKit/ValidGraphs.lean` with
+`Examples/ADTRefinement.lean`. The preserved source also includes
+`Examples/SetMapContracts.lean` and `Examples/MapModify.lean`, including the
+counterexamples distinguishing lookup agreement from state equality. Those
+owners retain the donor's stronger laws and current integration gates. This
+bounded total-table delivery does not accept those capabilities or an entire
+chapter.
 Lookup agreement grants no cost, allocation, physical-sharing, callback-count
 or concrete-state equivalence.
 

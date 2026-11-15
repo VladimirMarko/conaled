@@ -151,6 +151,7 @@ import Examples.OrderedSearch
 import Examples.OrderedTree
 import Examples.OrderedMap
 import Examples.TextbookMaps
+import Examples.TotalTables
 import Examples.SymmetricLists
 import Examples.SharedList
 import Examples.SharedListIntegers
