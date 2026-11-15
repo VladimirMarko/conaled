@@ -2,9 +2,8 @@
 
 This implements the direct composition frozen in
 [pending-crash-recovery-protocol.md](pending-crash-recovery-protocol.md) for #540.
-It is a development milestone, not a completed acceptance result. The general
-independent-source refinement invariant remains open; the distinction below is
-part of the handoff, not a reduction of the frozen acceptance criteria.
+It is a development milestone, not a completed acceptance result. The universal independent-source refinement is proved. Backend continuation,
+cost completeness and final acceptance checks remain in progress.
 
 ## Implemented machine
 
@@ -70,13 +69,20 @@ again. The executable `observedSource` checker returns a kernel-checked
 the existing independent pending-delay source without erasing any native
 session's delayed callbacks.
 
-**The source checker is not the universal runtime refinement theorem.** The
-remaining proof must establish a reachable-state invariant relating the durable
-accepted frame, current/active append state, retained peer entries and legitimate
-queued/in-flight traffic, and prove its preservation for every command. Checked
-peer/network and receipt-authenticity components are being developed separately.
-Neither conditional checker soundness nor the closed traces below closes this
-obligation.
+`execute_source_refinement` in the consumer-local `Refinement` module
+proves the independent `DelayRun` for every finite command list, from either
+backend kind. It has no successful-checker premise. Its inductive invariant
+relates the complete native accepted history to the stable frame, retains the
+actual command that produced each outstanding append, authenticates terminal
+receipts and queued traffic, and bounds every peer identity below the next fresh
+name. The actual atomic peer publication advances the independent source;
+confirmation and durable tick commitment preserve that already selected state.
+
+The resumed-delay and stale-reply examples instantiate this theorem with
+arbitrary continuations. The active native backend's continuation requires an
+additional agreement invariant; the source refinement alone does not establish
+that representation property. This remaining obligation and complete cost
+review are tracked separately from the checked source result.
 
 ## Executable coverage
 
@@ -130,6 +136,6 @@ without violating the safety properties.
 The composition remains local to this consumer. It adds no universal recovery
 scheduler and does not change the crash-free #515 contract. A physical durable
 peer adapter and a lifetime-bounded retention/replay-fencing variant remain
-separate work. Final #540 acceptance still requires the generic source proof,
-completed retained-witness review, full exact-candidate build and axiom audit,
+separate work. Final #540 acceptance still requires native backend agreement, complete cost
+and retained-witness review, full exact-candidate build and axiom audit,
 and independent Standards and Spec review.

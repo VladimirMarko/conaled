@@ -1,4 +1,5 @@
 import Applications.FRP.PendingCrash.Costs
+import Applications.FRP.PendingCrash.Refinement
 
 /-! Successful executions and separating failures for the frozen #540 protocol.
 The network steps process actual submitted traffic; no receipt is fabricated. -/
@@ -194,5 +195,17 @@ released. The persistent peer table and immutable journal are not bounded by 2. 
 example : (execute (initialSystem .delay) resumedDelay).system.peer.length = 2 := by decide +kernel
 example : (execute (initialSystem .delay) resumedDelay).system.adapter.journal.cells.length >
     (execute (initialSystem .delay) lostPublication).system.adapter.journal.cells.length := by decide +kernel
+
+/-- The lost-reply/restart scenario and every continuation use the universal
+runtime refinement, independently of the closed executable checker examples. -/
+example (continuation : List Command) :
+    ∃ final, DelayRun {} (execute (initialSystem .delay) (resumedDelay ++ continuation)).observations final :=
+  execute_source_refinement .delay _
+
+/-- Stale external replies remain covered after slot reuse, for either backend
+and arbitrary subsequent crash/recovery schedules. -/
+example (kind : Migration.Kind) (continuation : List Command) :
+    ∃ final, DelayRun {} (execute (initialSystem kind) (reusedWithStale ++ continuation)).observations final :=
+  execute_source_refinement kind _
 
 end FRPSpec.PendingCrash.Examples
