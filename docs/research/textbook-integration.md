@@ -235,3 +235,27 @@ remaining VFA drafts #563 and PFDS persistence #564. The
 [repository preservation record](../history/textbooks/README.md) links the full
 mathematics and book ledgers. These bounded tasks retain the outstanding wider
 book scope without treating it as a prerequisite for the current public contracts.
+
+
+## Checkpoint 024: tree clients and declared costs
+
+The [curated later intake](../history/textbooks/checkpoint-024/README.md), owned
+by #582, adds twelve mathematical source commits without importing the archive
+or its operational payload. Its source map retains original CTB identities;
+GitHub remains the live tracker.
+
+`Examples.TreeBalancePipeline` composes measured traversal with the actual
+prefix-consuming balancer. Literal, direct-suffix and staged construction routes
+return the same result, including failure, but retain different complete
+source-operation counts. `Examples.TreeBalanceSearch` connects rebalancing to
+existing insertion and membership contracts through valid-state relational
+composition. These are reusable consumers of the shared interfaces, with no
+claim of physical sharing or runtime improvement.
+
+The intake advances #561's tree/resource families and preserves the Chapter 4
+obligation map. It does not complete the other #561 donors, the #559 map or
+#560 sorting contracts, #562's tape connection, #563's remaining drafts, or
+#564's persistence/suspension client. VFA Preface/Perm coverage qualification
+and historical source-complete statuses remain distinct from whole-book
+acceptance. The next integration step should exercise these contracts in a
+representation decision, preserving construction, forcing and observation costs.
