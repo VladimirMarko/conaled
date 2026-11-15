@@ -801,9 +801,35 @@ owned by the local CTB checkpoint records, not the earlier FDSA draft statuses.
 | Ordered invocation | `TreeAccumulatorObservationExamples.trace_sample_word` proves the right-first word `[2,3,0,1]` and compares it with the measured fold's left-first word, retaining each execution's own value law. |
 
 The retained companion theory has no generated `T_inorder2`; the resource
-formula is derived for the declared measured recurrence. CTB-71 owns the
-direct-inorder quadratic shape-family portion of C04-018. Neither this unit nor
-CTB-2 closes Exercise 4.1, the 76-row Chapter 4 ledger, or its other exercises.
+formula is derived for the declared measured recurrence. CTB-71 below supplies
+the direct-inorder quadratic shape-family portion of C04-018. CTB-70 alone and
+CTB-2 do not close Exercise 4.1; the combined source contracts and their exact
+acceptance evidence remain distinct from the 76-row Chapter 4 ledger.
 No compiler/runtime, constant-stack, allocation or physical-sharing result is
 claimed. Whole-library guarded validation, exhaustive audit and final receiving
 verification remain explicitly pending under the current workflow decision.
+
+## Recovered shape-sensitive traversal work (CTB-71, formerly XT05)
+
+The [traversal-work unit](fdsa-tree-traversal-work.md) connects one pure shape
+observation to the existing measured fold and its actual append/cache clients.
+It preserves all useful donor claims, including standard asymptotic statements
+and the complete construction-inclusive suffix-program comparison.
+
+| Source obligation or connection | Current declaration and mathematical boundary |
+| --- | --- |
+| Direct-inorder part of C04-018 | `TreeTraversalWorkExamples.source_upper` gives the nonempty all-tree quadratic upper bound; `source_witness` supplies a size-indexed left-chain lower bound. The literal source callback retains both right-associated appends. |
+| Shape and occurrence observation | `Trees.leftSizeSum` is one ordinary fold observation linked to canonical size. Its sharp triangular bound, map invariance and repeated-child law retain every node occurrence. |
+| Actual callback work | `Resources.TreeFold.run_cost_leftSizeSum` derives `e*(2*n+1)+d*A+c*n` from one fixed affine law on actual reached child summaries. It adds no second executor or cost-only pass. |
+| Four current clients | `single_cost`, `right_cost`, `left_cost` and `cache_cost` retain the terminal append call and all three local cache helper charges. The cache's actual reader/erasure laws remain separate from list value. |
+| Qualified growth | `right_leftChain_theta` and `right_rightChain_theta` use the current growth bridge and Mathlib asymptotics for actual runs. The same execution is quadratic on left chains and linear on right chains. Nil, zero coefficients and Empty labels retain their boundaries. |
+| Concrete observation separation | `same_observations_different_work` preserves equal size, height and full inorder while work differs, 19 versus 16. Equal values alone do not imply equal resource observations. |
+| Complete program comparison | `materialize_buildOnce_cost` gives exact excess `A`, including construction in `buildOnce`. Values agree for every suffix; `rightChain_programs` proves full measured-result equality on right chains and `leftChain_program_excess` retains excess `n.choose 2`. |
+
+The combined CTB-70/71 source contracts address C04-017/018. Exact focused
+validation, independent source reviews and final source comparison belong to
+their checkpoint evidence. The whole chapter and receiving acceptance remain
+open. Structural/subtree and weighted-path observations, enumeration, levels,
+reconstruction, balancing with its height/cost contracts, and the remaining
+augmentation exercises keep their existing chapter obligations. In particular,
+a linear balancer core does not make a wrapper using direct inorder linear.
