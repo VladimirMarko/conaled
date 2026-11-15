@@ -40,6 +40,13 @@ theorem mem_inorder_iff_mem_setTree (x : α) (t : BinaryTree α) :
       simp only [inorder_node, List.mem_append, List.mem_cons, ihl, ihr,
         setTree_node, Set.mem_union, Set.mem_singleton_iff, or_assoc]
 
+/-- Arbitrary label transport takes the image of the independent label set.
+The proof uses the canonical traversal correspondence; injectivity is not needed. -/
+theorem setTree_map (label : α → β) (t : BinaryTree α) :
+    setTree (t.map label) = label '' setTree t := by
+  ext y
+  simp only [← mem_inorder_iff_mem_setTree, inorder_map, List.mem_map, Set.mem_image]
+
 /-- Preorder forgets order and multiplicity only when observed as membership. -/
 theorem mem_preorder_iff_mem_setTree (x : α) (t : BinaryTree α) :
     x ∈ preorder t ↔ x ∈ setTree t := by

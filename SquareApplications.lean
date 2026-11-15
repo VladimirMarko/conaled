@@ -946,6 +946,7 @@ import Examples.TreeBalanceSearch
 import Examples.TreeBalancePipeline
 import Examples.TreeCompleteness
 import Examples.TreeMaximalCompleteSubtree
+import Examples.TreeMaximumCache
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine

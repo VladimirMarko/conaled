@@ -956,3 +956,21 @@ their scope at that development stage; the local CTB tracker owns current row
 qualification. Maximum caches and final Chapter 4 qualification remain separate.
 Exact focused checks, independent source reviews and final comparison are
 checkpoint evidence; receiving whole-library acceptance remains pending.
+
+## Raw maximum cache and optional-summary correspondence (CTB-77)
+
+The [maximum-cache unit](fdsa-tree-maximum-cache.md) retains raw source
+annotations and direct local reads and smart nodes. Explicit lift/project
+adapters connect the representation to the existing `Trees.Cached` optional
+summary. Constructor validity and reader correctness consume the generic laws;
+the standard optional maximum of canonical inorder supplies independent
+greatest-element meaning, including attainment.
+
+This supplies Exercise 4.11/C04-075–076 and C04-063's key-set image observation.
+The general map-image law belongs to `Applications.Trees.BasicObservations`; existing
+occurrence-preserving inorder and shape erasure laws remain shared owners.
+The linked note records exact assumptions, reverse-adapter validity boundaries,
+negative-key and forged-cache cases, and the separate full annotation pass.
+All eleven named exercises now have implementations, while the local CTB-23
+tracker still requires final qualification of all 76 chapter rows. Exact source
+reviews and checks do not replace receiving whole-library acceptance.
