@@ -998,6 +998,7 @@ import Examples.CubicalLargeConstructors
 import Examples.CubicalChartFamily
 
 import Examples.SmoothManifoldAction
+import Examples.SmoothCechDescent
 
 import Examples.FiniteUniverseLoops
 import Examples.CubicalInterpretationObservations

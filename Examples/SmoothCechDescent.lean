@@ -170,6 +170,139 @@ theorem canonical_family_cover_comparison (n : External.SmoothMap U d M)
   rw [SheafActionQuotient.Descent.recoveryArrowComparison_commutes,
     canonical_arrow_agreement]
 
+
+theorem split_regularization_identity (V : SmoothPresentationSite.Siteᵒᵖ)
+    (x : (embedding.obj U).obj.obj V) (g : (locallyConstantGroup G).obj.obj V) :
+    let z := (SplitSheaf.displayIso (identityAtlas U).cover).inv.hom.app V
+      (((identityAtlas U).inclusion ()).hom.app V x)
+    (admitted U m smoothAction).splitRegularization.torsorArrow.iso.hom.app
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay (identityAtlas U).cover)).obj.elementsMk V z) g = g := by
+  dsimp only
+  let A := identityAtlas U
+  let t := admitted U m smoothAction
+  let z := (SplitSheaf.displayIso A.cover).inv.hom.app V ((A.inclusion ()).hom.app V x)
+  have hs := t.splitRegularization_apply V z g
+  have hi := congrArg (fun k => k.hom.app V ((A.inclusion ()).hom.app V x))
+    (SplitSheaf.displayIso A.cover).inv_hom_id
+  change (SplitSheaf.displayIso A.cover).hom.hom.app V z = (A.inclusion ()).hom.app V x at hi
+  rw [hi] at hs
+  have hv := hs.trans (t.regularization_chart_apply () V x g)
+  exact congrArg (fun q : (SplitSheaf.Ext
+    (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)).torsor.family).obj.obj V =>
+      (show (locallyConstantGroup G).obj.obj V from q.2)) hv
+
+theorem recovered_label (n : External.SmoothMap U d M)
+    (f : Hom (admitted U m smoothAction).extractedDatum (admitted U n smoothAction).extractedDatum) :
+    SheafActionQuotient.arrowLabel ((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction) f) =
+      SheafActionQuotient.arrowLabel (f.chartArrow smoothAction ()) := by
+  ext V x
+  let A := identityAtlas U
+  let z := (SplitSheaf.displayIso A.cover).inv.hom.app V ((A.inclusion ()).hom.app V x)
+  have hr := (admitted U m smoothAction).arrowEquiv_split_apply
+    (admitted U n smoothAction) f V z (1 : (locallyConstantGroup G).obj.obj V)
+  have hs := split_regularization_identity U m smoothAction V x
+    (1 : (locallyConstantGroup G).obj.obj V)
+  have ht := split_regularization_identity U n smoothAction V x
+    ((f.localArrow smoothAction).torsorArrow.iso.hom.app
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk V z)
+      (1 : (locallyConstantGroup G).obj.obj V))
+  have hinput := congrArg
+    (((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction) f).torsorArrow.iso.hom.app
+      ((embedding.obj U).obj.elementsMk V
+        ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app V z))) hs
+  have hr := hinput.symm.trans (hr.trans ht)
+  have hzmap : A.inclusion () ≫ (SplitSheaf.displayIso A.cover).inv ≫
+      SplitSheaf.p (SplitSheaf.ofDisplay A.cover) = 𝟙 (embedding.obj U) := by
+    rw [← SplitSheaf.displayIso_projection, Iso.inv_hom_id_assoc, A.inclusion_cover]
+    rfl
+  have hz := congrArg (fun k => k.hom.app V x) hzmap
+  change (SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app V z = x at hz
+  change (SheafActionQuotient.arrowLabel
+    ((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction) f)).hom.app V
+      ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app V z) =
+    (1 : (locallyConstantGroup G).obj.obj V) *
+      (show (locallyConstantGroup G).obj.obj V from (f.splitLabel smoothAction).hom.app V z) at hr
+  rw [one_mul, hz] at hr
+  have hi := congrArg (fun k => k.hom.app V ((A.inclusion ()).hom.app V x))
+    (SplitSheaf.displayIso A.cover).inv_hom_id
+  change (SplitSheaf.displayIso A.cover).hom.hom.app V z = (A.inclusion ()).hom.app V x at hi
+  have hl := congrArg (fun k => k.hom.app V x) (f.localLabel_fac smoothAction ())
+  change (f.localLabel smoothAction).hom.app V ((A.inclusion ()).hom.app V x) = _ at hl
+  apply hr.trans
+  change (f.localLabel smoothAction).hom.app V ((SplitSheaf.displayIso A.cover).hom.hom.app V z) = _
+  rw [hi]
+  exact hl
+
+private def castHom {p q p' q' : Datum (d := d) (G := G) (M := M) (identityAtlas U)}
+    (hp : p = p') (hq : q = q') (f : Hom p q) : Hom p' q' := by
+  cases hp
+  cases hq
+  exact f
+
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+private theorem castHom_labels {p q p' q' : Datum (d := d) (G := G) (M := M) (identityAtlas U)}
+    (hp : p = p') (hq : q = q') (f : Hom p q) :
+    ((castHom U hp hq f).labels ()).val = (f.labels ()).val := by
+  cases hp
+  cases hq
+  rfl
+
+def fromIdentityHom (n : External.SmoothMap U d M)
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    Hom (admitted U m smoothAction).extractedDatum (admitted U n smoothAction).extractedDatum :=
+  castHom U (extracted_eq U m smoothAction).symm (extracted_eq U n smoothAction).symm f
+
+/-- For an independently supplied identity-cover family, the global recovered
+arrow gives the original complete native family under #566's chosen equivalence. -/
+theorem independent_family_agreement (n : External.SmoothMap U d M)
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    External.smoothChartEquiv smoothAction m n
+      ((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction)
+        (fromIdentityHom U m smoothAction n f)) = familiesEquiv U m n f := by
+  apply External.Family.ext
+  intro x
+  change (ordinaryHomLabelEquiv G U (SheafActionQuotient.arrowLabel
+    ((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction)
+      (fromIdentityHom U m smoothAction n f))) x)⁻¹ = (f.labels ()).val x
+  rw [recovered_label]
+  have hl := (fromIdentityHom U m smoothAction n f).chartArrow_label smoothAction () x
+  exact (congrArg Inv.inv hl).trans ((inv_inv _).trans (congrArg (fun a : LocallyConstant (Points U) G => a x)
+    (castHom_labels U (extracted_eq U m smoothAction).symm
+      (extracted_eq U n smoothAction).symm f)))
+
+theorem independent_arrow_agreement (n : External.SmoothMap U d M)
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    (admitted U m smoothAction).arrowEquiv (admitted U n smoothAction)
+      (fromIdentityHom U m smoothAction n f) = f.chartArrow smoothAction () := by
+  apply (External.smoothChartEquiv smoothAction m n).injective
+  exact (independent_family_agreement U m smoothAction n f).trans
+    (native_family_agreement U m smoothAction n f).symm
+
+/-- The independently supplied one-chart arrow is recovered by the actual
+local comparison followed by #566's chosen canonical recovery. -/
+theorem independent_canonical_arrow_agreement (n : External.SmoothMap U d M)
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    SheafActionQuotient.Descent.canonicalArrowEquiv
+      (SplitSheaf.ofDisplay (identityAtlas U).cover) _ _
+      ((admitted U m smoothAction).canonicalArrowMap (admitted U n smoothAction)
+        (fromIdentityHom U m smoothAction n f)) = f.chartArrow smoothAction () := by
+  rw [TrivializedOn.canonicalArrowMap_agreement, independent_arrow_agreement]
+
+/-- Changing the chosen canonical cover retains the whole independently
+supplied family, including its endpoint and smoothness certificates. -/
+theorem independent_canonical_family_cover_comparison (n : External.SmoothMap U d M)
+    (B : SplitSheaf.Ty (embedding.obj U))
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p B).hom]
+    (f : Hom (identityDatum (G := G) U m) (identityDatum U n)) :
+    External.smoothChartEquiv smoothAction m n
+      (SheafActionQuotient.Descent.canonicalArrowEquiv B _ _
+        (SheafActionQuotient.Descent.recoveryArrowComparison
+          (SplitSheaf.ofDisplay (identityAtlas U).cover) B _ _
+          ((admitted U m smoothAction).canonicalArrowMap (admitted U n smoothAction)
+            (fromIdentityHom U m smoothAction n f)))) = familiesEquiv U m n f := by
+  rw [SheafActionQuotient.Descent.recoveryArrowComparison_commutes,
+    independent_canonical_arrow_agreement, native_family_agreement]
+
 end OneChart
 
 namespace Clutching
@@ -597,6 +730,38 @@ theorem common_route_coherence :
       (refinement commonFunctions common_cover) (smooth C4) :=
   quarterTurnDatum.commonComparison_comp commonViaOne commonViaTwo
     (refinement commonFunctions common_cover) (smooth C4)
+
+/-- The full selected comparison composition equation. Naming the proposition
+keeps the concrete scaling specialization from expanding geometric pullbacks
+while the kernel checks its type. -/
+def ComparisonComposition
+    {X Y Z : Sheaf topology Type} {I J K : Type}
+    {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
+    (p : Datum (d := 1) (G := C4) (M := Space 1) A)
+    {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g) : Prop :=
+    (((p.restrictComparison r (smooth C4)).reindex g).comp
+      ((p.restrict r).restrictComparison s (smooth C4))).comp
+        (eqToHom (congrArg (fun q => q.interpreted (smooth C4))
+          (p.restrict_comp r s))) =
+      p.restrictComparison (r.comp s) (smooth C4)
+
+private theorem comparisonComposition_holds
+    {X Y Z : Sheaf topology Type} {I J K : Type}
+    {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
+    (p : Datum (d := 1) (G := C4) (M := Space 1) A)
+    {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g) :
+    ComparisonComposition p r s :=
+  p.restrictComparison_comp r s (smooth C4)
+
+theorem scaling_comparison_coherence :
+    ComparisonComposition onOne scaleTwoMap scaleThreeAfterTwoMap :=
+  comparisonComposition_holds onOne scaleTwoMap scaleThreeAfterTwoMap
+
+theorem scaling_base_six : baseScale 3 (by norm_num) ≫ baseScale 2 (by norm_num) =
+    baseScale 6 (by norm_num) := by
+  have h := baseScale_comp 3 2 (by norm_num) (by norm_num)
+  norm_num at h ⊢
+  exact h
 
 end Refinements
 end Clutching

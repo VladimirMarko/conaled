@@ -606,3 +606,94 @@ theorem canonicalArrowMap_agreement {Q : Object (representation smoothAction).ac
 
 end TrivializedOn
 end SquareKit.SmoothCech
+
+noncomputable section
+open scoped Manifold ContDiff
+namespace SquareKit.SmoothCech
+open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite
+open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafActionQuotient
+variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
+variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
+  [TopologicalSpace G] [DiscreteTopology G]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+variable {smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)}
+omit [TopologicalSpace G] [DiscreteTopology G] in
+private theorem comparison_inverse_apply
+    {q r : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover)}
+    (h : Descent.Map q r) (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.obj U)
+    (g : q.localObject.torsor.family.family.obj
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z)) :
+    h.arrow.torsorArrow.iso.hom.app
+      (X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z))
+      (q.comparison.torsorArrow.iso.inv.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g) =
+    r.comparison.torsorArrow.iso.inv.app
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z)
+      (h.localArrow.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g) := by
+  let y := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z
+  let x := X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z)
+  let v := q.comparison.torsorArrow.iso.inv.app y g
+  have hn := Descent.Map.comparison_naturality (representation smoothAction).action
+    (SplitSheaf.ofDisplay A.cover) h
+  have hv := congrArg (fun e => e.torsorArrow.iso.hom.app y v) hn
+  have hc := congrArg (fun k => k.app y g) q.comparison.torsorArrow.iso.inv_hom_id
+  change q.comparison.torsorArrow.iso.hom.app y v = g at hc
+  change r.comparison.torsorArrow.iso.hom.app y (h.arrow.torsorArrow.iso.hom.app x v) =
+    h.localArrow.torsorArrow.iso.hom.app y (q.comparison.torsorArrow.iso.hom.app y v) at hv
+  have hv2 := hv.trans (congrArg (h.localArrow.torsorArrow.iso.hom.app y) hc)
+  have hh := congrArg (r.comparison.torsorArrow.iso.inv.app y) hv2
+  have hcancel := congrArg (fun k => k.app y (h.arrow.torsorArrow.iso.hom.app x v))
+    r.comparison.torsorArrow.iso.hom_inv_id
+  change r.comparison.torsorArrow.iso.inv.app y
+    (r.comparison.torsorArrow.iso.hom.app y (h.arrow.torsorArrow.iso.hom.app x v)) =
+      h.arrow.torsorArrow.iso.hom.app x v at hcancel
+  exact hcancel.symm.trans hh
+
+omit [TopologicalSpace G] [DiscreteTopology G] in
+private theorem conjugate_apply
+    {P Q P' Q' : Object (representation smoothAction).action X}
+    (t : Arrow P P') (u : Arrow Q Q') (h : Arrow P Q)
+    (x : X.obj.Elements) (v : P.torsor.family.family.obj x) :
+    ((t.toIso.homCongr u.toIso) h).torsorArrow.iso.hom.app x
+      (t.torsorArrow.iso.hom.app x v) =
+    u.torsorArrow.iso.hom.app x (h.torsorArrow.iso.hom.app x v) := by
+  have ht := congrArg (fun k => k.app x v) t.torsorArrow.iso.hom_inv_id
+  change t.torsorArrow.iso.inv.app x (t.torsorArrow.iso.hom.app x v) = v at ht
+  exact congrArg (fun q => u.torsorArrow.iso.hom.app x (h.torsorArrow.iso.hom.app x q)) ht
+
+namespace TrivializedOn
+variable {P Q : Object (representation smoothAction).action X}
+variable (t : TrivializedOn A smoothAction P) (u : TrivializedOn A smoothAction Q)
+
+/-- Recovering an external arrow on a chosen split-cover coordinate gives the
+actual local arrow between the supplied regularizations. -/
+theorem arrowEquiv_split_apply (f : Hom t.extractedDatum u.extractedDatum)
+    (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    (t.arrowEquiv u f).torsorArrow.iso.hom.app
+      (X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z))
+      (t.splitRegularization.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g) =
+    u.splitRegularization.torsorArrow.iso.hom.app
+      ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z)
+      ((f.localArrow smoothAction).torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g) := by
+  let cp := (t.extractedDatum.cech smoothAction).toDescent.comparison
+  let cq := (u.extractedDatum.cech smoothAction).toDescent.comparison
+  let y := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z
+  let x := X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z)
+  let v := cp.torsorArrow.iso.inv.app y g
+  have htransport := comparison_inverse_apply (f.cechMap smoothAction).toDescent U z g
+  have hrval := conjugate_apply t.extractedRecovery u.extractedRecovery
+    (interpretedHomEquiv smoothAction _ _ f) x v
+  exact (congrArg ((t.arrowEquiv u f).torsorArrow.iso.hom.app x)
+      (t.extractedRecovery_comparison_apply U z g).symm).trans
+    (hrval.trans ((congrArg (u.extractedRecovery.torsorArrow.iso.hom.app x)
+      htransport).trans (u.extractedRecovery_comparison_apply U z
+        ((f.localArrow smoothAction).torsorArrow.iso.hom.app y g))))
+
+end TrivializedOn
+end SquareKit.SmoothCech
