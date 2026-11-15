@@ -20,7 +20,7 @@ def restart (frames : Nat) : List Command :=
 abbrev queryRecovered : List Command := [.reconcile, .submit, .network true, .receive, .handle]
 
 def computed (input : Bool) : List Command :=
-  change (.admit input) ++ exchange .reserve ++ change .evaluate
+  change (.accept input) ++ exchange .reserve ++ change .evaluate
 
 def confirmed (input : Bool) : List Command :=
   computed input ++ exchange .publish ++ flush
@@ -43,7 +43,7 @@ example : outputs resumedDelay = [(0,false), (1,true)] := by decide
 example : ((execute (initialSystem .delay) lostPublication).system.adapter.current.map Frame.logical) = some true := by decide +kernel
 
 /-- Acknowledgment loss after root publication leaves the admission visible. -/
-def lostAdmission : List Command := [.local (.admit true)] ++ flush.take 4 ++ restart 1
+def lostAdmission : List Command := [.local (.accept true)] ++ flush.take 4 ++ restart 1
 
 example : ((execute (initialSystem .delay) lostAdmission).system.adapter.current.map Frame.nextIdentity) = some 1 := by decide
 
@@ -60,7 +60,7 @@ def cutTrace (staged : List Command) (previousFrames cut : Nat) : List Command :
 /-- Every write/persist/root-publication cut is exercised for each operation.
 The snapshot changes at root publication, not at cell write or persistence. -/
 example : (List.range 5).map (fun cut =>
-    (recoveredFrame (cutTrace [.local (.admit true)] 0 cut)).map Frame.nextIdentity) =
+    (recoveredFrame (cutTrace [.local (.accept true)] 0 cut)).map Frame.nextIdentity) =
     [some 0,some 0,some 0,some 0,some 1] := by decide +kernel
 
 def headPhase (frame : Frame) : Option PendingMigration.Phase := frame.head.map (fun p => p.2.phase)
@@ -129,7 +129,7 @@ example : (recoveredFrame repeated).bind headPhase = some .committed := by decid
 
 /-- A second admission that has not reached publication is absent after crash;
 the existing computed request keeps its identity, order and selected output. -/
-def interruptedSecond : List Command := computed true ++ [.local (.admit false)] ++ flush.take 3 ++ restart 2
+def interruptedSecond : List Command := computed true ++ [.local (.accept false)] ++ flush.take 3 ++ restart 2
 
 example : recoveredFrame interruptedSecond = recoveredFrame (computed true) := by decide +kernel
 
@@ -153,7 +153,7 @@ slot is retired and reused for a fresh identity. -/
 def heldPublication : List Command := computed true ++
   [.send false .publish,.submit,.network true,.duplicateInbound,.receive,.handle] ++ flush ++ change .tickCommit
 
-def reusedWithStale : List Command := heldPublication ++ retire ++ change (.admit false) ++
+def reusedWithStale : List Command := heldPublication ++ retire ++ change (.accept false) ++
   [.send false .reserve,.submit,.network true,.rotateInbound,.receive,.handle] ++
   change .evaluate ++ [.receive,.handle]
 
@@ -164,7 +164,7 @@ example : outputs reusedWithStale = [(0,false)] := by decide +kernel
 
 /-- A retained reservation receipt for the current identity cannot regress a
 later confirmed phase or replace its selected false output. -/
-def staleReservation : List Command := change (.admit true) ++
+def staleReservation : List Command := change (.accept true) ++
   [.send false .reserve,.submit,.network true,.duplicateInbound,.receive,.handle] ++
   change .evaluate ++ [.send false .publish,.submit,.network true,.rotateInbound,.receive,.handle] ++
   flush ++ [.receive,.handle]
@@ -225,7 +225,7 @@ example : (execute (initialSystem .delay)
 
 /-- Persistence without the required buffered write records a failed attempt. -/
 example : (execute (initialSystem .delay)
-    [.local (.admit true), .storage .prepare, .storage .persist]).cost.attempted > 2 := by decide
+    [.local (.accept true), .storage .prepare, .storage .persist]).cost.attempted > 2 := by decide
 
 example : checkMessageIdentity 3 [.request 3 .query, .request 7 .query] =
     (true,[.messageCheck]) := by decide

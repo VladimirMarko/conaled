@@ -66,7 +66,7 @@ def Frame.Valid (f : Frame) : Prop :=
 instance (f : Frame) : Decidable f.Valid := by unfold Frame.Valid; infer_instance
 
 inductive FrameCommand where
-  | admit (input : Bool)
+  | accept (input : Bool)
   | evaluate
   | receive (receipt : Receipt)
   | tickCommit
@@ -109,7 +109,7 @@ def propose (f : Frame) (command : FrameCommand) : Decision :=
   match command with
   | .receive receipt => receive f receipt
   | .migrate target => .changed {f with kind := target}
-  | .admit x =>
+  | .accept x =>
     if f.order.length ≥ 2 then .refused else
     let free := if (f.requests.get false).isNone then some false
       else if (f.requests.get true).isNone then some true else none
@@ -144,7 +144,7 @@ def propose (f : Frame) (command : FrameCommand) : Decision :=
 /-- The validator enumerates all finite permitted edits, retaining arbitrary
 lifetime identities by reading them from the preceding occupied slots. -/
 def possibleCommands (f : Frame) : List FrameCommand :=
-  [.admit false, .admit true, .evaluate, .tickCommit, .close, .release,
+  [.accept false, .accept true, .evaluate, .tickCommit, .close, .release,
     .migrate .delay, .migrate .redundant] ++
   [false,true].flatMap fun slot => match f.requests.get slot with
     | none => []

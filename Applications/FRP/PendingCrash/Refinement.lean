@@ -464,7 +464,7 @@ theorem execute_current_valid (kind : Migration.Kind) (commands : List Command) 
 
 
 def admissionDelta : FrameCommand → Nat
-  | .admit _ => 1
+  | .accept _ => 1
   | _ => 0
 
 theorem propose_nextIdentity (f g : Frame) (command : FrameCommand)
@@ -1414,7 +1414,7 @@ theorem propose_framePeer (before after : Frame) (peer : Peer) (command : FrameC
   cases command with
   | receive receipt => exact receive_framePeer before after peer receipt coupled authentic changed
   | migrate kind => cases changed; exact coupled
-  | admit input =>
+  | accept input =>
     simp only [propose] at changed
     repeat' first
       | simp_all only [reduceCtorEq, Decision.changed.injEq]
@@ -1589,7 +1589,7 @@ theorem PublicationProvenance.peerStep (frame : Frame) (peer : Peer) (identity c
 theorem sourceView_admit (frame : Frame) (peer : Peer) (slot : Bool) (request : Request)
     (valid : frame.Valid) (free : frame.requests.get slot = none)
     (fresh : (lookup request.identity peer).1 = none) :
-    DelayStep (.admit request.identity request.input) (sourceView frame peer)
+    DelayStep (.accept request.identity request.input) (sourceView frame peer)
       (sourceView {frame with requests := frame.requests.put slot (some request), order := frame.order ++ [slot], nextIdentity := frame.nextIdentity + 1} peer) := by
   let target := {frame with requests := frame.requests.put slot (some request), order := frame.order ++ [slot], nextIdentity := frame.nextIdentity + 1}
   have notMem : slot ∉ frame.order := by
@@ -1613,7 +1613,7 @@ theorem sourceView_admit (frame : Frame) (peer : Peer) (slot : Bool) (request : 
     split <;> rfl
   change DelayStep _ _ (sourceView target peer)
   rw [after]
-  exact .admit _ _ _
+  exact .accept _ _ _
 
 def MessageSafe (frame : Frame) (peer : Peer) : Message → Prop
   | .request identity command => FrameTraffic frame peer identity command ∧
@@ -2077,7 +2077,7 @@ theorem LiveFrameExtension.release (before : Frame) (peer : Peer) (slot : Bool)
     subst candidate
     exact False.elim (finished live)
 
-theorem LiveFrameExtension.admit (before : Frame) (peer : Peer) (slot : Bool)
+theorem LiveFrameExtension.accept (before : Frame) (peer : Peer) (slot : Bool)
     (request : Request) (free : before.requests.get slot = none) :
     LiveFrameExtension before
       {before with requests := before.requests.put slot (some request), order := before.order ++ [slot], nextIdentity := before.nextIdentity + 1} peer := by
@@ -2110,13 +2110,13 @@ theorem propose_liveExtension (before after : Frame) (peer : Peer) (command : Fr
       exact ⟨request,found,rfl,rfl⟩
     · intro slot request head phase _
       exact ⟨request,head,rfl,rfl,rfl,phase,rfl⟩
-  | admit input =>
+  | accept input =>
     simp only [propose] at changed
     repeat' first
       | simp_all only [reduceCtorEq,Decision.changed.injEq]
       | split at changed
     all_goals subst after
-    all_goals apply LiveFrameExtension.admit
+    all_goals apply LiveFrameExtension.accept
     all_goals repeat' first | split at * | simp_all
   | evaluate | tickCommit | close | release =>
     simp only [propose] at changed
@@ -2181,7 +2181,7 @@ theorem receive_sourceView (before after : Frame) (peer : Peer) (receipt : Recei
     all_goals first | exact idEq.symm | rfl
 
 def frameSourceLabel (before : Frame) : FrameCommand → SourceLabel
-  | .admit input => .admit before.nextIdentity input
+  | .accept input => .accept before.nextIdentity input
   | _ => .internal
 
 theorem propose_sourceView (before after : Frame) (peer : Peer) (command : FrameCommand)
@@ -2194,7 +2194,7 @@ theorem propose_sourceView (before after : Frame) (peer : Peer) (command : Frame
     rw [← receive_sourceView before after peer receipt changed]
     exact .internal _
   | migrate kind => cases changed; exact .internal _
-  | admit input =>
+  | accept input =>
     simp only [propose] at changed
     repeat' first
       | simp_all only [reduceCtorEq,Decision.changed.injEq]
@@ -2575,7 +2575,7 @@ theorem observation_counter_monotone (s : System) (o : Observation s.adapter.jou
 
 def journalSourceLabel (s : System) : Option (Durability.Event Frame) → SourceLabel
   | some (.commit record) => match s.adapter.pendingCause with
-    | some (.admit input) => .admit (record.payload.nextIdentity - 1) input
+    | some (.accept input) => .accept (record.payload.nextIdentity - 1) input
     | _ => .internal
   | _ => .internal
 

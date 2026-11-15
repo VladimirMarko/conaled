@@ -43,7 +43,7 @@ def messageBits : Message → Nat
 /-- The retained originating command can itself contain a lifetime-keyed
 receipt; a fixed-size control allowance cannot cover that growing identity. -/
 def frameCommandBits : FrameCommand → Nat
-  | .admit _ | .migrate _ => 4
+  | .accept _ | .migrate _ => 4
   | .receive receipt => 3 + receiptBits receipt
   | .evaluate | .tickCommit | .close | .release => 3
 

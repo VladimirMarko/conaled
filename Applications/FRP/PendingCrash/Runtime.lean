@@ -163,7 +163,7 @@ def applyJournal (s : System) (attempt : JournalAttempt s.adapter.journal) : Obs
             active := some (Migration.evaluate active request.input).candidate}}, work := result.work ++ [.allocate (Migration.evaluate active request.input).candidate.cells,
               .copy active.cells, .release active.cells]}
         | _, _ => {default with system := {s with adapter := {updated with stopped := true}}, status := .stopped}
-      | some (.admit input) =>
+      | some (.accept input) =>
         {default with system := {s with adapter := updated}, accepted := some (frame.nextIdentity - 1,input)}
       | _ => {default with system := {s with adapter := updated}}
     | .acknowledge _ =>

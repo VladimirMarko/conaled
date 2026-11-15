@@ -213,7 +213,7 @@ theorem advance_backend_unchanged (before after : Frame) (command : FrameCommand
   | receive receipt => exact receive_backend_unchanged before after receipt proposed
   | tickCommit => exact False.elim (notTick rfl)
   | migrate kind => exact False.elim (notMigration kind rfl)
-  | admit input | evaluate | close | release =>
+  | accept input | evaluate | close | release =>
     simp only [propose] at proposed
     repeat' first | split at proposed | contradiction
     all_goals cases proposed
@@ -659,7 +659,7 @@ theorem applyJournal_backend (s : System) (a : Durability.Abstract Frame) (stabl
         obtain ⟨target,prepared,selectedKind⟩ := staged
         exact applyJournal_migration_backend s result record stable kind target agreement event cause current prepared selectedKind changed
       | tickCommit => exact applyJournal_tick_backend s result record stable agreement event cause current staged changed
-      | admit input | evaluate | receive receipt | close | release =>
+      | accept input | evaluate | receive receipt | close | release =>
         apply applyJournal_ordinary_backend s result record stable _ agreement event cause current changed
         · intro impossible; cases impossible
         · intro kind impossible; cases impossible

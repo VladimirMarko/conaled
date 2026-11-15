@@ -12,14 +12,14 @@ structure DelaySource where
 
 inductive SourceLabel where
   | internal
-  | admit (identity : Nat) (input : Bool)
+  | accept (identity : Nat) (input : Bool)
   | prevent (identity : Nat) (input : Bool)
   | output (identity : Nat) (value : Bool)
   deriving DecidableEq, Repr
 
 inductive DelayStep : SourceLabel → DelaySource → DelaySource → Prop
   | internal (s) : DelayStep .internal s s
-  | admit (s identity input) : DelayStep (.admit identity input) s
+  | accept (s identity input) : DelayStep (.accept identity input) s
       {s with waiting := s.waiting ++ [(identity,input)]}
   | prevent (state identity input pre post) :
       DelayStep (.prevent identity input) ⟨state, pre ++ (identity,input) :: post⟩
@@ -32,7 +32,7 @@ projected to whichever one would make the source trace pass. -/
 def sourceLabel (entry : LogEntry) : Option SourceLabel :=
   match entry.accepted, entry.effect, entry.prevented with
   | none, none, none => some .internal
-  | some (i,x), none, none => some (.admit i x)
+  | some (i,x), none, none => some (.accept i x)
   | none, some (i,y), none => some (.output i y)
   | none, none, some (i,x) => some (.prevent i x)
   | _, _, _ => none
@@ -55,8 +55,8 @@ def delayAdvance (s : DelaySource) (label : SourceLabel) :
     Option {next : DelaySource // DelayStep label s next} :=
   match label with
   | .internal => some ⟨s, .internal s⟩
-  | .admit identity input => some ⟨{s with waiting := s.waiting ++ [(identity,input)]},
-      .admit s identity input⟩
+  | .accept identity input => some ⟨{s with waiting := s.waiting ++ [(identity,input)]},
+      .accept s identity input⟩
   | .prevent identity input =>
     match removePending identity input s.waiting with
     | none => none
@@ -131,7 +131,7 @@ theorem native_pending_step (s : PendingMigration.Session) (command : PendingMig
 translation, not an execution of an invented queue-free pending session. -/
 def sourceOutcome (label : SourceLabel) : PendingMigration.Outcome :=
   {session := PendingMigration.initial .delay, status := .inspect,
-   accepted := match label with | .admit _ x => some x | _ => none,
+   accepted := match label with | .accept _ x => some x | _ => none,
    business := match label with | .output _ y => some y | _ => none,
    cancellation := match label with | .prevent _ _ => some true | _ => none}
 
@@ -139,9 +139,9 @@ theorem DelayStep.erase {label : SourceLabel} {s t : DelaySource} (step : DelayS
     PendingMigration.SourceStep s.erase (sourceOutcome label) t.erase := by
   cases step with
   | internal s => exact .internal _ _ rfl rfl (by decide)
-  | admit s identity input =>
+  | accept s identity input =>
     simpa [DelaySource.erase, sourceOutcome] using
-      (PendingMigration.SourceStep.accept s.erase (sourceOutcome (.admit identity input)) input rfl rfl rfl)
+      (PendingMigration.SourceStep.accept s.erase (sourceOutcome (.accept identity input)) input rfl rfl rfl)
   | prevent state identity input pre post =>
     simpa [DelaySource.erase, List.map_append] using
       (PendingMigration.SourceStep.prevent state input (pre.map Prod.snd) (post.map Prod.snd)
