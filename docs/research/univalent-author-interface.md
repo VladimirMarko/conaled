@@ -101,3 +101,87 @@ Independent Standards and Spec review of the interface and protocol precedes
 fresh author execution. Submission replay and review of the eventual conclusion
 are separate completion requirements. The current checked calibration does not
 satisfy those requirements or justify a broader frontend adoption.
+
+## Trial protocol draft before independent task preparation
+
+This protocol is not released to authors. Freeze remains incomplete until an
+independent preparer has produced and checked the task and oracle, and both
+review axes have accepted the complete protocol and interface candidate.
+
+The interface-builder role belongs to the coordinating root agent. The task
+preparer and the two fresh author roles must be different agents, with neither
+author inheriting the builder's or preparer's conversation. The author
+assignments use empty-history forks. Reusing a reviewer as the independent task
+preparer is permissible only if that reviewer did not implement this facade or
+attempt the selected task. Reviewers and task preparers cannot subsequently
+serve as fresh authors for that cohort.
+
+The preparer chooses a new task within the documented discrete proof-bearing
+package fragment and records why it differs mathematically from the public
+Boolean, integer, Fin3/Phase and constructor examples. Merely renaming their
+states is insufficient. The task must have an independent target construction,
+a meaningful dependent invariant, a complete native package path over the
+specified exact equivalence, and observations that would fail for a wrong
+presentation. Its variation must require repeated transport or a changed
+dependent field. The private oracle must check native path endpoints and
+recovery, complete decoded packages, independent observations, and the rejecting
+case. The preparer proves its own feasibility solution privately before freeze;
+that solution is excluded from both author environments.
+
+Both arms receive identical task statements, expected declaration interfaces,
+public calibration links and validation commands. The direct arm may use all
+generic APIs accepted at the chosen baseline, including #528, #530, #533 and
+#554. The facade arm additionally may import the proposed facade. Both may
+write generic helpers, with their effort and retained helper code recorded.
+No baseline API is withheld to manufacture a facade advantage. Source access
+is limited by instruction to the frozen repository and the arm's own task
+bundle; private oracle, other submission and orchestration scratch directories
+are excluded. This is a cooperative experiment, not a security sandbox.
+
+The preparer assigns a common acceptance interface to both submissions so the
+same oracle can replay them unchanged except for the submission module import.
+It records source-level goal coverage separately from whether an author's proof
+actually uses the native transport APIs. A proof of an unrelated expected
+answer does not satisfy the native-witness requirement. Authors must not replace
+a requested original equivalence by a newly reconstructed `ofIso` witness.
+
+Before release, the coordinator records the full candidate commit, facade and
+baseline source hashes, task and oracle hashes, dependency manifest and checked
+revisions, Lean toolchain, commands, model metadata actually supplied by the
+agent environment, and start conditions. Unavailable metadata is marked
+unavailable. The same single-CPU serialized build wrapper is used for both arms;
+shared pinned dependency artifacts are permitted, with separate project build
+outputs and submissions. Cache state and host interruptions are recorded rather
+than silently interpreted as author performance.
+
+An initial attempt ends when the author reports a complete submission or a
+specific mathematical/interface blocker. Elaboration fixes, ordinary library
+search and self-written helpers remain part of that attempt. The coordinator
+may relay clarifications from the independent preparer; every such exchange is
+recorded and provided to both arms when applicable. New proof hints or repairs
+from other agents start a separately labeled assisted attempt after preserving
+the initial submission. Missing metadata or slow host execution does not turn
+a mathematically incomplete submission into a passing one.
+
+There is no inherited 24,000-token ceiling. Record actual per-attempt usage when
+available, distinguishing builder, preparer, reviewer and author activity.
+Check wall duration at hourly intervals solely to detect stalled tooling or
+host suspension; continue substantive work when those explain elapsed time.
+Neither wall duration nor token count alone determines the keep/refine/reject
+recommendation. Record author-reported blockers, required helpers, unsuccessful
+proof attempts, assistance and model-builder repairs alongside verified scope.
+
+A correctness defect in the frozen facade or oracle stops the affected cohort.
+Preserve its evidence, fix and review the defect, then identify a new cohort
+with new hashes. Task changes are never retroactively applied to make an
+original submission pass. A shared infrastructure outage pauses execution and
+is reported separately; changing mathematical source or acceptance goals is
+not an infrastructure repair.
+
+Replay each frozen submission against the common private oracle in its isolated
+checkout, then run the repository's applicable integrated candidate build and
+exhaustive audit. Independent final review checks the submitted proofs, native
+witnesses, observations, role separation, preserved failures and conclusion.
+Publish the task, feasibility solution, oracle, submissions and attempt record
+with the final research report so the evidence can be inspected. A successful
+bounded trial supports only its tested fragment and author conditions.
