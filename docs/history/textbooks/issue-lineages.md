@@ -22,15 +22,14 @@ IDs, so distinct chapter and shared-unit tickets do not collide. INT numbers
 omit zero padding. The explicit crosswalk below is authoritative. Existing IDs
 must never be renumbered; any additional historical tickets receive new IDs.
 
-The imported commits retain their original messages and IDs because proof
-receipts, donor ledgers and book correspondence depend on those identities.
-GitHub may therefore autolink a historical unqualified number incorrectly.
-Use the [qualified commit history](commit-references.md) or the exact commit
-entry in [issue-lineages.json](issue-lineages.json) to interpret those messages.
+The imported commit messages in `master` use these short IDs in subjects and
+bodies. Real GitHub references, including FDSA's `#174`, retain their meaning.
+The [qualified commit history](commit-references.md) lists the rewritten IDs;
+[issue-lineages.json](issue-lineages.json) records both original and rewritten
+IDs. [commit-rewrite.json](commit-rewrite.json) preserves the original raw
+commit objects, so historical proof receipts and donor ledgers remain usable.
+See [source recovery](README.md#source-recovery) to restore those identities.
 The mapping is scoped to recorded commits, never to a numeric interval.
-Old `142adf21` refers to `VFA-2`; a future ordinary commit with `#1002` refers
-to GitHub issue 1002. FDSA commits citing `#174` already refer to the real
-GitHub toolkit issue and retain that meaning.
 
 The registry includes all preserved book/integration tickets and every imported
 commit reachable from the preservation carrier but absent from the receiving

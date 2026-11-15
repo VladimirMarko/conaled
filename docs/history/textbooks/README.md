@@ -31,20 +31,31 @@ a lineage, and GitHub has no reserved numeric ranges.
 
 The [original ref catalog](checkpoint-012/source/refs.json) and
 [delivered identities](checkpoint-012/source/integration.json) identify the full
-source history. The receiving integration includes the delivered candidate
-`18235331da1fe343d09080ca4c41173f9b4d9963` and the ancestry carrier recorded in
-[history.json](history.json). That carrier retains every catalogued donor commit
-as an ancestor without selecting its source tree for the active library.
-An ordinary full clone therefore retains these objects without fetching custom
-refs or recovering the original archive. A shallow clone must fetch full history.
+source history. Commit messages in the receiving history now use short book
+IDs. Every rewritten commit retains its original tree, author, committer and
+timestamps, with parents mapped to their rewritten counterparts. This includes
+the ancestry carrier recorded in [history.json](history.json), which retains
+all donor source trees without selecting them for the active library.
 
-Read a historical file with `git show COMMIT:PATH`, using the exact commit and
-source path from the donor ledger. The catalog's original ref names are provenance;
-local convenience refs use `refs/textbooks/012/`. The history carrier is preservation
-only, not mathematical acceptance of its parents.
+[commit-rewrite.json](commit-rewrite.json) records every old/new identity and
+the original raw commit bytes. In an ordinary full clone, restore the original
+objects before using original IDs from proof receipts or donor ledgers:
 
-The original archive and 99 MB source bundle are not tracked. Git owns restored
-history; [preservation.json](preservation.json) records the input digest and omitted
+```sh
+direnv exec . python3 scripts/restore-textbook-commits.py --write
+git show COMMIT:PATH
+```
+
+Without `--write`, the script verifies original hashes, unchanged trees,
+metadata and mapped parent topology. Restoration writes only Git objects and
+leaves all refs unchanged. Restored objects are unreferenced and can be removed
+by Git garbage collection; rerun the command when needed. The checked-in
+registry and source trees retain the recovery material. A shallow clone must
+fetch full history first. Original local convenience refs remain under
+`refs/textbooks/012/`; they are not needed for recovery from a full clone.
+The carrier preserves history, not mathematical acceptance of its parents.
+
+The original archive and 99 MB source bundle are not tracked. Git owns source trees and the registry retains original commit objects; [preservation.json](preservation.json) records the input digest and omitted
 historical setup material. The original manifest is retained as evidence of the
 received payload, not as a manifest for this selected repository copy. The archived
 checkpoint tool cannot reconstruct omitted packaging material from this directory.
