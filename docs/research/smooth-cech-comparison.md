@@ -205,8 +205,15 @@ the integrated candidate build, exhaustive axiom audit, independent Standards
 and Spec reviews, and final verification. Focused author checks do not replace
 that acceptance evidence. The final author check built
 `Examples.SmoothCechDescent` and its dependencies successfully (3,762 jobs),
-with default Lean limits; its log is
-`/tmp/conaled-wave-20261115/567/evidence/final-consumers-04.log`.
+its log is `/tmp/conaled-wave-20261115/567/evidence/final-consumers-04.log`.
+That author checkpoint retained a section-wide `maxHeartbeats 800000` setting
+in `SmoothCechRefinement`; its original description as using default limits
+was inaccurate. Independent review reproduced the entire refinement module
+without that override, and the override was removed. The corrected integration
+candidate `fd1df6cf` passed the full 3,434-module build and exhaustive axiom
+audit at default heartbeat limits. The transparency option for that section
+remains explicit. This correction preserves the historical checks rather than
+reclassifying them as default-limit runs.
 
 Representable refinement of arbitrary torsor covers remains a separate
 mathematical question. This delivery supplies the precise represented-cover
