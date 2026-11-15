@@ -17,8 +17,9 @@ Nonempty (Term (homogeneousPath (loops S) p q)) ↔
   loopPermutation p = loopPermutation q
 ```
 
-The left side asks for a native two-path. It is stronger than the host
-inequality between chosen terms used by the earlier compositional examples.
+The left side asks for a native two-path. Ruling out such a path is stronger
+than the host inequality between chosen terms used by the earlier compositional
+examples.
 The result classifies closed loop components without constructing a quotient.
 `loopPermutation_ua` proves that every permutation occurs.
 
