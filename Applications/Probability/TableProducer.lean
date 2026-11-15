@@ -150,15 +150,28 @@ theorem endpoint_mass [Fintype α] [DecidableEq α] {m : ℕ}
     law (endpointEvent (t.prepare e) n x s y)=mass ((t.steps n).entry x y) := by
   rw [endpoint_eq,RowChain.table_final_mass]
 
+/-- Positive prepared rows suffice for productive finite observations. The
+construction of their multiplicities need not be a particular rational algorithm. -/
+theorem almostSureProductive_rows [Countable α] (p : α → PreparedRow α)
+    (x : α) (s : ℕ) :
+    ProbabilityProgress.AlmostSureProductive law (step p) (fun _ => start p x s) := by
+  intro n
+  induction n generalizing x s with
+  | zero => exact Filter.Eventually.of_forall fun _ => ⟨[],_,0,rfl,.nil _⟩
+  | succ n ih =>
+    have hc : ∀ᵐ ω ∂law, ∀ a u, ∃ ys z k, ys.length=n ∧
+        Progress.Delivers (step p ω) (start p a u) ys z k :=
+      (ae_all_iff).mpr fun a => (ae_all_iff).mpr fun u => ih a u
+    filter_upwards [(p x).ae_terminates s,hc] with ω hi hp
+    obtain ⟨⟨a,u⟩,i,hi⟩ := hi
+    obtain ⟨ys,z,k,hlen,hp⟩ := hp a u
+    exact ⟨a::ys,z,i+k,by simp [hlen],.cons (evaluates_of_row hi) hp⟩
+
 theorem almostSureProductive [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (x : α) (s : ℕ) :
     ProbabilityProgress.AlmostSureProductive law (step (t.prepare e))
-      (fun _ => start (t.prepare e) x s) := by
-  intro n
-  filter_upwards [RowChain.table_ae_terminates t e n x s] with ω h
-  obtain ⟨⟨ys,u⟩,k,h⟩ := h
-  have ht := RowChain.trace_of_evaluates h
-  exact ⟨ys,_,_,RowChain.trace_length ht,delivers_of_trace ht⟩
+      (fun _ => start (t.prepare e) x s) :=
+  almostSureProductive_rows (t.prepare e) x s
 
 theorem ae_coherent_prefixes [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (x : α) (s : ℕ) :

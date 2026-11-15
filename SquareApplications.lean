@@ -995,6 +995,7 @@ import Examples.SuspensionBodyRealization
 import Examples.TableSampler
 import Examples.TableProducer
 import Examples.SamplerWorkload
+import Examples.InitializedProducer
 import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
 import Examples.CubicalChartFamily

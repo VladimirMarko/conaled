@@ -131,14 +131,18 @@ theorem row_deadline [Fintype α] (p : α → PreparedRow α) (x : α) (r : ℕ)
   exact (pow_le_pow_left' (rejection_half _ (p x).positive) _).trans
     (pow_le_pow_right_of_le_one' (by norm_num) he)
 
+theorem rows_deadline [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (n : ℕ) (x : α) (s r : ℕ) :
+    law (deadline p n x s (n*(maxWidth p*r)))≤
+      n*(2⁻¹ : ℝ≥0∞)^r := by
+  apply deadline_bound _ _ _ (fun x => row_deadline _ x r)
+  exact fun x => (p x).returns_sum 0
+
 theorem table_deadline [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s r : ℕ) :
     law (deadline (t.prepare e) n x s (n*(maxWidth (t.prepare e)*r)))≤
-      n*(2⁻¹ : ℝ≥0∞)^r := by
-  apply deadline_bound _ _ _ (fun x => row_deadline _ x r)
-  intro x
-  simp_rw [Table.prepare_returns_mass]
-  rw [← mass_sum _ _ (fun a _ => t.nonneg x a),t.sum_row,mass_one]
+      n*(2⁻¹ : ℝ≥0∞)^r :=
+  rows_deadline (t.prepare e) n x s r
 
 theorem deadline_antitone (p : α → PreparedRow α) (n : ℕ) (x : α) (s : ℕ)
     {b c : ℕ} (h : b≤c) : deadline p n x s c⊆deadline p n x s b := by
@@ -146,14 +150,20 @@ theorem deadline_antitone (p : α → PreparedRow α) (n : ℕ) (x : α) (s : �
   obtain ⟨ys,z,k,hlen,hk,hd⟩ := hb
   exact hc ⟨ys,z,k,hlen,hk.trans h,hd⟩
 
+theorem rows_deadline_any [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (n : ℕ) (x : α) (s b : ℕ) :
+    law (deadline p n x s b)≤
+      n*(2⁻¹ : ℝ≥0∞)^(b/(n*maxWidth p)) := by
+  have hle : n*(maxWidth p*(b/(n*maxWidth p)))≤b := by
+    rw [← Nat.mul_assoc]
+    exact Nat.mul_div_le _ _
+  exact (measure_mono (deadline_antitone _ _ _ _ hle)).trans (rows_deadline p n x s _)
+
 theorem table_deadline_any [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s b : ℕ) :
     law (deadline (t.prepare e) n x s b)≤
-      n*(2⁻¹ : ℝ≥0∞)^(b/(n*maxWidth (t.prepare e))) := by
-  have hle : n*(maxWidth (t.prepare e)*(b/(n*maxWidth (t.prepare e))))≤b := by
-    rw [← Nat.mul_assoc]
-    exact Nat.mul_div_le _ _
-  exact (measure_mono (deadline_antitone _ _ _ _ hle)).trans (table_deadline t e n x s _)
+      n*(2⁻¹ : ℝ≥0∞)^(b/(n*maxWidth (t.prepare e))) :=
+  rows_deadline_any (t.prepare e) n x s b
 
 /-- Actual prefix bit count via deadline indicators: finite counts are recovered
 below, while a missing finite delivery has value infinity. -/
@@ -222,23 +232,28 @@ private theorem tsum_blocks (B : ℕ) (hB : 0<B) (q : ℝ≥0∞) :
 
 /-- A conservative quadratic horizon bound. Finiteness follows from geometric
 row tails and stopped suffix laws, not merely almost-sure productivity. -/
-theorem expected_bits_le [Fintype α] [DecidableEq α] {m : ℕ}
-    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s : ℕ) :
-    (∫⁻ ω,bitWork (t.prepare e) n x s ω ∂law)≤(2*n*(n*maxWidth (t.prepare e)) : ℕ) := by
+theorem expected_bits_rows [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (n : ℕ) (x : α) (s : ℕ) :
+    (∫⁻ ω,bitWork p n x s ω ∂law)≤(2*n*(n*maxWidth p) : ℕ) := by
   rw [lintegral_bitWork]
   by_cases hn : n=0
   · subst n
-    have hz (b : ℕ) : deadline (t.prepare e) 0 x s b=∅ := by
+    have hz (b : ℕ) : deadline p 0 x s b=∅ := by
       ext ω; simp only [Set.mem_empty_iff_false,iff_false]
       intro h; exact h ⟨[],_,0,rfl,Nat.zero_le _,.nil _⟩
     simp [hz]
   calc
-    _ ≤ ∑' b : ℕ,(n : ℝ≥0∞)*(2⁻¹ : ℝ≥0∞)^(b/(n*maxWidth (t.prepare e))) :=
-      ENNReal.tsum_le_tsum (fun b => table_deadline_any t e n x s b)
+    _ ≤ ∑' b : ℕ,(n : ℝ≥0∞)*(2⁻¹ : ℝ≥0∞)^(b/(n*maxWidth p)) :=
+      ENNReal.tsum_le_tsum (fun b => rows_deadline_any p n x s b)
     _ = _ := by
       rw [ENNReal.tsum_mul_left,tsum_blocks _ (by unfold maxWidth; positivity)]
       norm_num
       ring
+
+theorem expected_bits_le [Fintype α] [DecidableEq α] {m : ℕ}
+    (t : Table α α) (e : Fin m ≃ α) (n : ℕ) (x : α) (s : ℕ) :
+    (∫⁻ ω,bitWork (t.prepare e) n x s ω ∂law)≤(2*n*(n*maxWidth (t.prepare e)) : ℕ) :=
+  expected_bits_rows (t.prepare e) n x s
 
 
 open SamplerWorkload SamplerWork
@@ -383,70 +398,103 @@ private theorem delivered_cost_bound [Fintype α] (load : Loader α) (p : α →
 
 /-- Zero tariffs still do not make a divergent execution a completed workload.
 The affine comparison is almost everywhere, using proved finite delivery. -/
+theorem chargedWork_rows_ae_bound [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (load : Loader α)
+    (he : ∀ x,(load x).1=p x) (τ : Tariff) (o : Overhead)
+    (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
+    ∀ᵐ ω ∂law, chargedWork load p τ o setup n x s chain ω≤
+      baseCost load τ o setup n x chain+bitWork p n x s ω*drawCap load p τ o := by
+  filter_upwards [TableProducer.almostSureProductive_rows p x s n] with ω h
+  obtain ⟨ys,z,k,hlen,hd⟩ := h
+  have hc := chargedWork_of_delivers load p τ o setup x s chain hd
+  have hb := bitWork_of_delivers p x s hd
+  rw [hlen] at hc hb
+  rw [hc,hb]
+  have hbound := delivered_cost_bound load p he τ o setup x s hd chain
+  rw [hlen] at hbound
+  exact_mod_cast hbound
+
 theorem chargedWork_ae_bound [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (load : Loader α)
     (he : ∀ x,(load x).1=t.prepare e x) (τ : Tariff) (o : Overhead)
     (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
     ∀ᵐ ω ∂law, chargedWork load (t.prepare e) τ o setup n x s chain ω≤
-      baseCost load τ o setup n x chain+bitWork (t.prepare e) n x s ω*drawCap load (t.prepare e) τ o := by
-  filter_upwards [TableProducer.almostSureProductive t e x s n] with ω h
-  obtain ⟨ys,z,k,hlen,hd⟩ := h
-  have hc := chargedWork_of_delivers load (t.prepare e) τ o setup x s chain hd
-  have hb := bitWork_of_delivers (t.prepare e) x s hd
-  rw [hlen] at hc hb
-  rw [hc,hb]
-  have hbound := delivered_cost_bound load (t.prepare e) he τ o setup x s hd chain
-  rw [hlen] at hbound
-  exact_mod_cast hbound
+      baseCost load τ o setup n x chain+bitWork (t.prepare e) n x s ω*drawCap load (t.prepare e) τ o :=
+  chargedWork_rows_ae_bound (t.prepare e) load he τ o setup n x s chain
 
 /-- Unconditional nonnegative expected charged work is finite. The estimate is
 conservative: every bit gets the largest row envelope including next-row setup. -/
+theorem expected_rows_charged_le [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (load : Loader α)
+    (he : ∀ x,(load x).1=p x) (τ : Tariff) (o : Overhead)
+    (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
+    (∫⁻ ω,chargedWork load p τ o setup n x s chain ω ∂law)≤
+      (baseCost load τ o setup n x chain+
+        2*n*(n*maxWidth p)*drawCap load p τ o : ℕ) := by
+  calc
+    _ ≤ ∫⁻ ω,(baseCost load τ o setup n x chain : ℝ≥0∞)+
+        bitWork p n x s ω*(drawCap load p τ o : ℝ≥0∞) ∂law :=
+      lintegral_mono_ae (chargedWork_rows_ae_bound p load he τ o setup n x s chain)
+    _ = (baseCost load τ o setup n x chain : ℝ≥0∞)+
+        (∫⁻ ω,bitWork p n x s ω ∂law)*drawCap load p τ o := by
+      rw [lintegral_add_left measurable_const,lintegral_mul_const' _ _ (by simp)]
+      simp
+    _ ≤ _ := by
+      have hb := expected_bits_rows p n x s
+      simp only [Nat.cast_add,Nat.cast_mul,Nat.cast_ofNat] at hb ⊢
+      gcongr
+
 theorem expected_charged_le [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (load : Loader α)
     (he : ∀ x,(load x).1=t.prepare e x) (τ : Tariff) (o : Overhead)
     (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
     (∫⁻ ω,chargedWork load (t.prepare e) τ o setup n x s chain ω ∂law)≤
       (baseCost load τ o setup n x chain+
-        2*n*(n*maxWidth (t.prepare e))*drawCap load (t.prepare e) τ o : ℕ) := by
-  calc
-    _ ≤ ∫⁻ ω,(baseCost load τ o setup n x chain : ℝ≥0∞)+
-        bitWork (t.prepare e) n x s ω*(drawCap load (t.prepare e) τ o : ℝ≥0∞) ∂law :=
-      lintegral_mono_ae (chargedWork_ae_bound t e load he τ o setup n x s chain)
-    _ = (baseCost load τ o setup n x chain : ℝ≥0∞)+
-        (∫⁻ ω,bitWork (t.prepare e) n x s ω ∂law)*drawCap load (t.prepare e) τ o := by
-      rw [lintegral_add_left measurable_const,lintegral_mul_const' _ _ (by simp)]
-      simp
-    _ ≤ _ := by
-      have hb := expected_bits_le t e n x s
-      simp only [Nat.cast_add,Nat.cast_mul,Nat.cast_ofNat] at hb ⊢
-      gcongr
+        2*n*(n*maxWidth (t.prepare e))*drawCap load (t.prepare e) τ o : ℕ) :=
+  expected_rows_charged_le (t.prepare e) load he τ o setup n x s chain
+
+theorem expected_rows_charged_finite [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (load : Loader α)
+    (he : ∀ x,(load x).1=p x) (τ : Tariff) (o : Overhead)
+    (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
+    (∫⁻ ω,chargedWork load p τ o setup n x s chain ω ∂law)<∞ :=
+  (expected_rows_charged_le p load he τ o setup n x s chain).trans_lt (ENNReal.natCast_lt_top _)
 
 theorem expected_charged_finite [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (load : Loader α)
     (he : ∀ x,(load x).1=t.prepare e x) (τ : Tariff) (o : Overhead)
     (setup n : ℕ) (x : α) (s : ℕ) (chain : Bool) :
     (∫⁻ ω,chargedWork load (t.prepare e) τ o setup n x s chain ω ∂law)<∞ :=
-  (expected_charged_le t e load he τ o setup n x s chain).trans_lt (ENNReal.natCast_lt_top _)
+  expected_rows_charged_finite (t.prepare e) load he τ o setup n x s chain
 
 /-- Whole-workload deadline risk. Setup, lookup, preparation, selection and
 final handling are priced separately; no product of marginal tails is used. -/
+theorem rows_charged_deadline [Fintype α] [DecidableEq α]
+    (p : α → PreparedRow α) (load : Loader α)
+    (he : ∀ x,(load x).1=p x) (τ : Tariff) (o : Overhead)
+    (setup n : ℕ) (x : α) (s r : ℕ) (chain : Bool) :
+    law {ω | ¬chargedWork load p τ o setup n x s chain ω≤
+      (baseCost load τ o setup n x chain+n*(maxWidth p*r)*
+        drawCap load p τ o : ℕ)}≤n*(2⁻¹ : ℝ≥0∞)^r := by
+  apply le_trans (measure_mono ?_) (rows_deadline p n x s r)
+  intro ω h hd
+  obtain ⟨ys,z,k,hlen,hk,hy⟩ := hd
+  have hc := chargedWork_of_delivers load p τ o setup x s chain hy
+  rw [hlen] at hc
+  simp only [Set.mem_ofPred_eq] at h
+  rw [hc] at h
+  have hb := delivered_cost_bound load p he τ o setup x s hy chain
+  rw [hlen] at hb
+  apply h
+  exact_mod_cast hb.trans (Nat.add_le_add_left (Nat.mul_le_mul_right _ hk) _)
+
 theorem charged_deadline [Fintype α] [DecidableEq α] {m : ℕ}
     (t : Table α α) (e : Fin m ≃ α) (load : Loader α)
     (he : ∀ x,(load x).1=t.prepare e x) (τ : Tariff) (o : Overhead)
     (setup n : ℕ) (x : α) (s r : ℕ) (chain : Bool) :
     law {ω | ¬chargedWork load (t.prepare e) τ o setup n x s chain ω≤
       (baseCost load τ o setup n x chain+n*(maxWidth (t.prepare e)*r)*
-        drawCap load (t.prepare e) τ o : ℕ)}≤n*(2⁻¹ : ℝ≥0∞)^r := by
-  apply le_trans (measure_mono ?_) (table_deadline t e n x s r)
-  intro ω h hd
-  obtain ⟨ys,z,k,hlen,hk,hy⟩ := hd
-  have hc := chargedWork_of_delivers load (t.prepare e) τ o setup x s chain hy
-  rw [hlen] at hc
-  simp only [Set.mem_ofPred_eq] at h
-  rw [hc] at h
-  have hb := delivered_cost_bound load (t.prepare e) he τ o setup x s hy chain
-  rw [hlen] at hb
-  apply h
-  exact_mod_cast hb.trans (Nat.add_le_add_left (Nat.mul_le_mul_right _ hk) _)
+        drawCap load (t.prepare e) τ o : ℕ)}≤n*(2⁻¹ : ℝ≥0∞)^r :=
+  rows_charged_deadline (t.prepare e) load he τ o setup n x s r chain
 
 end Applications.Probability.SamplerExpectedWork

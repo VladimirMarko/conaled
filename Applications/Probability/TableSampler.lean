@@ -72,6 +72,16 @@ theorem returns_mass [DecidableEq β] (s : ℕ) (b : β) :
   · intro a
     exact (BoundedUniform.measurableSet_returns _ _ _).inter (MeasurableSet.const _)
 
+/-- Every prepared row has total returned-outcome mass one, independently of
+how its positive natural multiplicities were prepared. -/
+theorem returns_sum [Fintype β] [DecidableEq β] (s : ℕ) :
+    ∑ b, law (p.returns s b)=1 := by
+  simp_rw [p.returns_mass]
+  rw [Finset.sum_comm]
+  simp only [Finset.sum_ite_eq,Finset.mem_univ,ite_true,Finset.sum_const,
+    Finset.card_univ,Fintype.card_fin,nsmul_eq_mul]
+  exact ENNReal.mul_inv_cancel (by exact_mod_cast Nat.ne_of_gt p.positive) (by simp)
+
 theorem measurableSteps : ProbabilityProgress.MeasurableSteps p.step := by
   intro q r
   have he : {ω | p.step ω q=r} =

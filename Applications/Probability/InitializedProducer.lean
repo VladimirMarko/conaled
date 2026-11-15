@@ -269,4 +269,21 @@ theorem block_eq_delivery (r : PreparedRow α) (p : α → PreparedRow α)
         · simp only [List.length_cons] at hlen; omega
         · simpa using hdrop
 
+/-- Executable rational target initialization for the existing finite MH model. -/
+def targetInitial [Fintype α] [Nonempty α] (model : FiniteMH α) : Table Unit α where
+  entry _ := model.target
+  nonneg _ := model.target_nonneg
+  sum_row _ := model.target_sum
+
+theorem mh_stationary_blocks [Fintype α] [DecidableEq α] [Nonempty α]
+    (model : FiniteMH α) {m : ℕ} (e : Fin m ≃ α) (n s : ℕ) (ys : List α) :
+    law (blockEvent ((targetInitial model).prepare e ()) (model.transition.prepare e) n s ys)=
+      ∑ a, mass (model.target a)*mass (RowChain.pathMass model.transition a ys) := by
+  apply stationary_blocks
+  intro a
+  change ∑ x, mass (model.target x)*mass (model.transition.entry x a)=mass (model.target a)
+  simp_rw [← mass_mul _ _ (model.target_nonneg _)]
+  rw [← mass_sum _ _ (fun x _ => mul_nonneg (model.target_nonneg x) (model.transition.nonneg x a)),
+    model.stationary]
+
 end Applications.Probability.InitializedProducer
