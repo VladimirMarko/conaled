@@ -1000,5 +1000,6 @@ import Examples.CubicalChartFamily
 import Examples.SmoothManifoldAction
 
 import Examples.FiniteUniverseLoops
+import Examples.CubicalInterpretationObservations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
