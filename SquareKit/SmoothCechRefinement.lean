@@ -515,7 +515,6 @@ end SquareKit.SheafActionQuotient.Descent
 
 section SelectedRefinement
 set_option backward.isDefEq.respectTransparency false
-set_option maxHeartbeats 800000
 open scoped Manifold ContDiff
 namespace SquareKit.SmoothCech.Datum
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
