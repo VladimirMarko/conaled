@@ -58,14 +58,40 @@ the build fails verification before the audit. Guarded builds disable Lake
 artifact-cache restoration/writes and rehash inputs, while reusing existing
 dependency build outputs. The guard uses the pinned Lake hash implementation.
 
-For acceptance of a committed candidate in its isolated checkout:
+For acceptance of a committed candidate, use the persistent isolated workspace:
 
 ```sh
-./check.sh --candidate HEAD
-./check.sh --verify-candidate HEAD
+python3 scripts/check-candidate.py HEAD
+python3 scripts/check-candidate.py HEAD --verify
 ```
 
-The first command requires a clean Git checkout, including the index and
+The command resolves the revision once and keeps the caller's branch, index and
+edits intact. It owns one detached worktree under the repository's common Git
+directory, at `conaled/acceptance`, and retains that worktree's private Lake
+outputs across commits. An exclusive lock serializes its users. The candidate's
+tracked `.envrc` selects the development environment; the caller must already
+have the pinned dependency cache in `.lake/packages`. Only that dependency cache
+is shared. Keep it stable during checks, as with other isolated worktrees.
+The command prints the workspace and resolved candidate for the review record.
+
+`--verify` checks the existing candidate without switching commits. `--fresh`
+(and optional `--jobs N`) forwards the cache-independent mode described below.
+The wrapper delegates validation and receipt handling to the candidate's
+`check.sh`; it adds no artifact cache or provenance guarantee. Direct invocation
+of `./check.sh --candidate HEAD` and `./check.sh --verify-candidate HEAD` remains
+available in an independently managed, clean isolated checkout.
+
+The managed worktree is reserved for this command. Edits, an unowned existing
+path, or an interrupted run cause refusal rather than automatic cleanup. On
+interruption, inspect `conaled/acceptance-running.json` in the common Git
+directory, stop any surviving verifier/compiler processes, and preserve useful
+logs or edits. Once no process can write there, remove the marker and rerun
+validation. Follow the integrity incident runbook if artifact state is suspect.
+To retire the workspace, first resolve any interrupted run and preserve edits,
+then use `git worktree remove` on the printed path and remove
+`conaled/acceptance-owner.json`. Its next invocation creates a new cold workspace.
+
+The underlying `./check.sh --candidate` command requires a clean Git checkout, including the index and
 nonignored untracked files, and requires all integrated Lean sources to be
 tracked. Dependency checkouts must be clean and match the Git revisions in
 `lake-manifest.json`. It checks these conditions before compilation and again
@@ -92,9 +118,17 @@ For focused development, use `lake build Applications.Interaction.Measurement`
 (or another module target). A bare `lake build` builds the configured library
 and audit, but does not replace `./check.sh`'s source-policy and coverage checks.
 
-Use `./check.sh --fresh` for a cache-independent project rebuild after changing
-the build tooling, toolchain, or dependency configuration, or when stale outputs
-are suspected. The [fresh verification workflow](../.github/workflows/fresh-verification.yml)
+Use `--fresh` for a cache-independent project rebuild when changing compiler or
+Lake inputs, dependency configuration, the build scheduler, source-policy checks,
+output-integrity checks, or proof-audit implementation, and when stale outputs
+are suspected. Routine library edits use guarded incremental acceptance.
+For auxiliary tooling changes, identify the effective verification inputs: if
+compiler, dependency, scheduling, source-policy, integrity and audit inputs are
+unchanged, test the changed executable behavior on real fixtures without a
+full-library cold rebuild. Record that input comparison with the evidence. If
+the boundary is uncertain, use fresh validation. This applies to orchestration
+wrappers and their documentation; it does not exempt edits to the verifier they
+invoke. The [fresh verification workflow](../.github/workflows/fresh-verification.yml)
 also runs weekly on the default branch and supports manual dispatch once pushed
 to GitHub with Actions enabled. Fresh mode recompiles every project module into
 a private temporary directory, audits those outputs, and removes the directory.
@@ -147,17 +181,20 @@ Run `python3 scripts/test-proof-audit.py` in the development shell to check
 that the audit rejects private forbidden dependencies, admissions, and unsafe
 source declarations. Its temporary fixtures also check that an unused external
 axiom does not cause a false rejection. It compiles the real audit against a
-small fixture entrypoint without using project build artifacts. Two additional suites need only the
+small fixture entrypoint without using project build artifacts. The following suites need only the
 development shell and cached dependencies:
 
 ```sh
 python3 scripts/test-check.py
+python3 scripts/test-check-candidate.py
 python3 scripts/test-proof-audit-roots.py
 ```
 
 The first exercises incremental reuse and invalidation, repeated auditing, fresh
 compilation, concurrency, ordering, stale artifacts, coverage, and failure exits
-through `check.sh`. The second compares the audit's
+through `check.sh`. The candidate-workspace suite checks retained compilation,
+exact receipts, refusal and failure recovery through the public CLI. The roots
+suite compares the audit's
 exact root set with an independent exhaustive environment scan, including
 private, generated, and current-module declarations. For diagnostics,
 `set_option trace.ProofAudit.roots true in #audit_project_axioms` prints the

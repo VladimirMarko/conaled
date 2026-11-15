@@ -77,11 +77,15 @@ only with evidence that the validated source tree, dependencies, configuration,
 and other relevant inputs match this candidate. Record the commands, results,
 input identity, and coverage in the review record.
 
-For integrated Lean verification, run `./check.sh --candidate HEAD` in the
-captured candidate's isolated checkout, adding `--fresh` when README requires
-it. Preserve the reported commit and `.lake/verification.json` with the review
-evidence. Immediately before acceptance, run `./check.sh --verify-candidate HEAD`
-in that checkout and confirm that its resolved commit is the approved candidate.
+For integrated Lean verification, use `python3 scripts/check-candidate.py SHA`
+with the captured candidate SHA, adding `--fresh` when the development guide
+requires it. The persistent isolated workspace retains private compilation
+outputs across candidates. Preserve the reported commit and its
+`.lake/verification.json` with the review evidence. Immediately before acceptance,
+run `python3 scripts/check-candidate.py SHA --verify` and confirm that the resolved
+commit is the approved candidate. Direct `./check.sh --candidate HEAD` and
+`./check.sh --verify-candidate HEAD` in another stable isolated checkout remain
+valid alternatives.
 A failed or mismatched record check requires investigation and applicable
 revalidation. The record covers the build/axiom audit only; retain evidence for
 other required tests and both review axes. Before/after input checks do not

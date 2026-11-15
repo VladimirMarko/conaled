@@ -89,12 +89,17 @@ modules, and runs the exhaustive proof audit. For a focused development build:
 direnv exec . lake build Examples.MappedAggregate
 ```
 
-A focused build does not replace the integrated check. Committed Lean candidates
-are validated in a clean, isolated checkout using `./check.sh --candidate HEAD`
-and confirmed before acceptance with `./check.sh --verify-candidate HEAD`.
-Use `./check.sh --fresh` after changes to build tooling, the toolchain, or
-dependency configuration, or when stale outputs are suspected.
+A focused build does not replace the integrated check. Validate committed Lean
+candidates in the persistent isolated acceptance workspace:
 
+```sh
+direnv exec . python3 scripts/check-candidate.py HEAD
+direnv exec . python3 scripts/check-candidate.py HEAD --verify
+```
+
+This retains private Lake outputs across candidates and runs the full audit each
+time. Use `--fresh` for changes to verification inputs or suspected stale outputs,
+as defined in the development guide.
 Before selecting validation for a change, read the
 [full build and audit procedure](docs/development.md#build-and-audit). It defines
 candidate requirements, fresh checks, stable inputs, cache-integrity handling,
