@@ -1,4 +1,5 @@
-import SquareKit.SmoothCechComparison
+import SquareKit.SmoothCechExtraction
+import Mathlib.CategoryTheory.HomCongr
 
 /-! Recover actual quotient objects from represented local trivializations. -/
 noncomputable section
@@ -151,6 +152,65 @@ def regularDescent : Descent.Datum (a := (representation smoothAction).action)
 /-- Recovery includes the chosen equivariant value map, not only the torsor. -/
 def recovery : SheafActionQuotient.Arrow t.regularDescent.object P :=
   descentOfLocalIsoRecovery smoothAction P _ t.splitRegularization
+
+/-- The regularized local object is the realization of the extracted smooth maps. -/
+theorem regularDescent_localObject : (Cech.ofDescent t.regularDescent).localObject =
+    chart (representation smoothAction).action
+      ((SplitSheaf.displayIso A.cover).hom ≫ assembledMap t.localMap) := by
+  change chart _ (_ ≫ (reindex P A.cover).sectionMap t.localSection) = _
+  rw [← t.localValue_assembled]
+
+/-- Extract independent ordinary maps and transitions from the admitted object. -/
+def extractedDatum : Datum (d := d) (G := G) (M := M) A :=
+  (RegularLabels.fromCech smoothAction (Cech.ofDescent t.regularDescent)
+    t.regularDescent_localObject).datum smoothAction
+
+theorem extractedDatum_cech : t.extractedDatum.cech smoothAction =
+    Cech.ofDescent t.regularDescent :=
+  RegularLabels.fromCech_roundtrip smoothAction _ _
+
+theorem extractedDatum_descent : (t.extractedDatum.cech smoothAction).toDescent =
+    t.regularDescent := by
+  rw [t.extractedDatum_cech, Cech.toDescent_ofDescent]
+
+/-- Selected recovery of the interpreted external datum, including its value map. -/
+def extractedRecovery : SheafActionQuotient.Arrow
+    (t.extractedDatum.interpreted smoothAction) P :=
+  (eqToHom (congrArg (fun z =>
+    (Descent.displayDescentEquivalence (representation smoothAction).action A.cover).functor.obj z)
+    t.extractedDatum_descent)).comp t.recovery
+
+variable {Q : Object (representation smoothAction).action X}
+
+/-- All arrows between the admitted objects correspond to full external families. -/
+def arrowEquiv (u : TrivializedOn A smoothAction Q) :
+    Hom t.extractedDatum u.extractedDatum ≃ SheafActionQuotient.Arrow P Q :=
+  (interpretedHomEquiv smoothAction _ _).trans
+    (CategoryTheory.Iso.homCongr t.extractedRecovery.toIso u.extractedRecovery.toIso)
+
+def extractArrow (u : TrivializedOn A smoothAction Q) (f : SheafActionQuotient.Arrow P Q) :
+    Hom t.extractedDatum u.extractedDatum := (t.arrowEquiv u).symm f
+
+theorem arrow_roundtrip (u : TrivializedOn A smoothAction Q)
+    (f : SheafActionQuotient.Arrow P Q) : t.arrowEquiv u (t.extractArrow u f) = f :=
+  (t.arrowEquiv u).apply_symm_apply f
+
+theorem external_arrow_roundtrip (u : TrivializedOn A smoothAction Q)
+    (f : Hom t.extractedDatum u.extractedDatum) :
+    t.extractArrow u (t.arrowEquiv u f) = f := (t.arrowEquiv u).symm_apply_apply f
+
+/-- The chosen recovery commutes with the actual input arrow. -/
+theorem recovery_naturality (u : TrivializedOn A smoothAction Q)
+    (f : SheafActionQuotient.Arrow P Q) :
+    (interpretedHomEquiv smoothAction _ _ (t.extractArrow u f)).comp u.extractedRecovery =
+      t.extractedRecovery.comp f := by
+  have h := t.arrow_roundtrip u f
+  change t.extractedRecovery.toIso.inv ≫
+    (interpretedHomEquiv smoothAction _ _ (t.extractArrow u f)) ≫
+      u.extractedRecovery.toIso.hom = f at h
+  have hh := congrArg (fun z => t.extractedRecovery.toIso.hom ≫ z) h
+  rw [Iso.hom_inv_id_assoc] at hh
+  exact hh
 
 end TrivializedOn
 end SquareKit.SmoothCech
