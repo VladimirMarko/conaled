@@ -1,6 +1,7 @@
 # Textbook mathematics and receiving provenance
 
-This directory preserves checkpoint 012 of the VFA, FDSA and PFDS workstream.
+This directory records the curated intake of checkpoint 012 of the VFA, FDSA
+and PFDS workstream.
 [Issue #558](https://github.com/VladimirMarko/conaled/issues/558) owns ongoing
 coverage and preservation. The [integration account](../../research/textbook-integration.md)
 explains the active library contracts and checked clients.
@@ -14,8 +15,10 @@ explains the active library contracts and checked clients.
 - [FDSA](checkpoint-012/books/fdsa/README.md),
   [VFA](checkpoint-012/books/vfa/README.md) and
   [PFDS](checkpoint-012/books/pfds/README.md) lead to the original paper mathematics,
-  source correspondence, drafts and evidence. Their `records/` trees are preserved
-  byte-for-byte, including counterexamples and unsuccessful investigations.
+  source correspondence, drafts and evidence. Retained record files keep their
+  original bytes. Historical compiler and environment transcripts are deliberately
+  omitted under the [log curation disposition](log-curation.md); mathematical
+  source, counterexamples, explanatory notes and meaningful findings are retained.
 - [Historical reviews](checkpoint-012/books/common/REVIEW.json) retain finding IDs
   and prior outcomes. Historical blocked reviews remain blocked observations;
   they are not approvals of the receiving candidate.
@@ -60,6 +63,12 @@ historical setup material. The original manifest is retained as evidence of the
 received payload, not as a manifest for this selected repository copy. The archived
 checkpoint tool cannot reconstruct omitted packaging material from this directory.
 
+The log curation disposition supersedes the initial claim that all selected
+records were copied byte-for-byte. It defines the omitted set from the original
+manifest, identifies surviving mathematical owners, and explains historical
+references to transcripts. Old review records describe their original evidence;
+their raw log paths need not exist in this curated copy.
+
 ## Current authority and follow-up
 
 Repository AGENTS.md, README, GitHub issues and the receiving review loop govern
@@ -67,8 +76,9 @@ current work. All instructions, process handles, host paths, upload requirements
 local-only issue policies and native setup commands inside `checkpoint-012/` are
 historical evidence. They do not authorize actions or impose the former session's
 workflow. `AGENTS.historical.md` preserves the old instructions without activating
-them. Historical links into omitted setup snapshots can be unavailable; mathematical
-records and exact Git source identities remain preserved.
+them. Historical links into omitted setup snapshots and transcripts can be
+unavailable; mathematical source, retained records and exact Git source identities
+remain recoverable under the dispositions above.
 
 The receiving branch was pinned at
 `08dbb2a71c8c9236ef2a1283e66f17b5622c3b9e`. Its 18 changed paths since the delivered
