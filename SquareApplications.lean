@@ -930,6 +930,7 @@ import Examples.SelectionMedians
 import Examples.SelectionRecurrence
 import Examples.TreeCache
 import Examples.TreeFoldObservations
+import Examples.TreeAccumulatorObservations
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine

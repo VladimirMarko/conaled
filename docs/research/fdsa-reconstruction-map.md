@@ -736,9 +736,11 @@ maximum representation issues and the existing-leftist adapter remain in
 their chapter inventories. The original XT01 source now has complete independent
 Standards and Spec source assessments with zero findings, both overall Blocked
 pending actual receiving-candidate compilation, types, full check/audit and final
-review. The current receiving base is accepted Chapter 3 commit
-`298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`; all unit and chapter acceptance
-gates remain. This shared entry does not close the Chapter 4 coverage ledger.
+review. That historical XT01 record used accepted Chapter 3 commit
+`298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2` as its receiving base. The current
+CTB phase uses the pin and exact candidate in its durability checkpoint, rather
+than that earlier base or acceptance record. This shared entry does not close
+the Chapter 4 coverage ledger.
 
 ## Shared binary-tree shape bounds (FDSA-46)
 
@@ -763,3 +765,45 @@ array algorithms and the existing leftist representation and merge-cost bridges
 remain with their chapter tickets. The existing leftist rank proofs are
 unchanged. Current unit validation and acceptance status is recorded in the
 local control records; the complete chapter obligations remain separate.
+
+## Recovered measured whole-tree folds (CTB-2, formerly XT03)
+
+The [measured-fold unit](fdsa-tree-fold-resource.md) now connects the existing
+`Trees.fold` and `Resources.Measured` owners to actual callback executions.
+`Resources.TreeFold.run` retains raw `Add` assumptions and observation grouping;
+its value, label and additive-hom transport laws support independent clients.
+Natural structural charges and reached-callback bounds remain distinct from
+global callback laws. Actual append and annotation examples retain equal
+values with unequal work, product observations, ordered words and the
+reachable-summary counterexample.
+
+This source unit is recovered against pinned master
+`c214fb0720ffc998951255a7e4b5f2e80a299186`. Its focused checks and independent
+source reviews are recorded in the CTB-2 checkpoint evidence. Its source
+completion does not close Chapter 4 or substitute for the receiving
+whole-library acceptance gate.
+
+## Recovered tree suffix invocation and construction (CTB-70, formerly XT04)
+
+The [suffix-invocation unit](fdsa-tree-accumulator-invocation.md) supplies an
+actual cons-only suffix invocation and separate construction/application
+compositions through those existing owners. All three new modules pass focused
+compilation and the declaration audit. Exact candidate and review outcomes are
+owned by the local CTB checkpoint records, not the earlier FDSA draft statuses.
+
+| Source obligation or connection | Current declaration and mathematical boundary |
+| --- | --- |
+| Exercise 4.1, C04-017 | `Resources.TreeAccumulator.nodeRun` and `Resources.TreeAccumulator.invoke` use one ordinary fold of measured functions, with actual right-result dependency and arbitrary-suffix `invoke_value`. |
+| Accumulator part of C04-018 | `Resources.TreeAccumulator.invoke_exact` gives suffix-independent `e*(2*n+1)` work; its proportional linear bound preserves the positive-size premise and nil exception. |
+| Observation transport | `Resources.TreeAccumulator.reweight_invoke` uses existing additive homs and fold fusion; `TreeAccumulatorObservationExamples.invoke_pair` observes two tariffs on one invocation. |
+| Construction and actual applications | `TreeAccumulatorExamples.build` returns the measured invocation function; `buildOnce` and `buildTwice` bind that result to one or two calls with separate phase tariffs. |
+| Boundary and comparison cases | Empty/repeated labels and child occurrences, actual materialize-plus-append work 20 versus invocation work 9, and empty-suffix agreement without uniform work. |
+| Ordered invocation | `TreeAccumulatorObservationExamples.trace_sample_word` proves the right-first word `[2,3,0,1]` and compares it with the measured fold's left-first word, retaining each execution's own value law. |
+
+The retained companion theory has no generated `T_inorder2`; the resource
+formula is derived for the declared measured recurrence. CTB-71 owns the
+direct-inorder quadratic shape-family portion of C04-018. Neither this unit nor
+CTB-2 closes Exercise 4.1, the 76-row Chapter 4 ledger, or its other exercises.
+No compiler/runtime, constant-stack, allocation or physical-sharing result is
+claimed. Whole-library guarded validation, exhaustive audit and final receiving
+verification remain explicitly pending under the current workflow decision.
