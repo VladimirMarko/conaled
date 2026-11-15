@@ -908,3 +908,27 @@ balancing and its height/cost contracts, and remaining cache-client obligations
 stay open. Exact focused checks, independent reviews and final comparison are
 bound in the local CTB checkpoint; receiving whole-library acceptance remains
 pending. Neither Chapter 4 nor a book is declared complete.
+
+## Consuming balance and its coherent applications (CTB-75)
+
+The [balancing unit](fdsa-tree-balancing.md) receives all 66 named source
+contracts from the four balancing modules at
+`a8f57dbf153c19e3bad2c8136a90b566eeb35374`. The actual sequential Option
+consumer retains its exact prefix, size, suffix and failure behavior. Shared
+Shape/ShapeLog laws supply almost completeness and both exact heights at
+`n+1`, with correct domains for all four source wrappers. The full ten-node
+figure and zero/power-boundary cases consume those public results.
+
+The ordered interpretation uses CTB-73's canonical inorder bridge, including
+keyed payloads and the duplicate/failure boundaries. A validity-preserving
+rebalancing square composes with existing set insertion and membership.
+Actual measured literal, direct-suffix and construction-inclusive pipelines
+retain their distinct costs and exact returned suffixes. C04-047–058 and
+Exercise 4.9/C04-061 are this unit's source obligations; the detailed
+statements, source tariff and cases have one owner in the linked note.
+
+Executable completeness, maximal complete subtrees, the exact Exercise 4.8
+constructor law and the maximum-cache exercise remain separately assigned.
+The chapter tracker owns current row qualification. Exact focused evidence,
+source reviews and final comparison are checkpoint records; receiving
+whole-library checks and final acceptance remain distinct pending gates.

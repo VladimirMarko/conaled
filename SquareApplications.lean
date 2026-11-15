@@ -939,6 +939,11 @@ import Examples.TreeEnumeration
 import Examples.TreeLevels
 import Examples.TreeReconstruction
 import Examples.TreeRose
+import Examples.TreeBalance
+import Examples.TreeBalanceCost
+import Examples.TreeBalanceShape
+import Examples.TreeBalanceSearch
+import Examples.TreeBalancePipeline
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine

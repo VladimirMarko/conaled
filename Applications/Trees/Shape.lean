@@ -289,4 +289,27 @@ theorem height_optimal (s : BinaryTree α) (t : BinaryTree β)
   rw [height_eq_clog_numLeaves s hs]
   exact Nat.clog_le_of_le_pow (hleaves.trans (numLeaves_le_pow_height t))
 
+/-- A leaf-count comparison bounds one almost-complete tree's maximum depth
+by the other tree's minimum depth, even across unrelated payload types. -/
+theorem height_le_minHeight_add_one_of_numLeaves_le
+    (s : BinaryTree α) (t : BinaryTree β)
+    (hs : AlmostComplete s) (ht : AlmostComplete t)
+    (hleaves : s.numLeaves ≤ t.numLeaves + 1) :
+    s.height ≤ minHeight t + 1 := by
+  rw [height_eq_clog_numLeaves s hs, minHeight_eq_log_numLeaves t ht]
+  apply Nat.clog_le_of_le_pow
+  exact hleaves.trans (Nat.succ_le_of_lt
+    (Nat.lt_pow_succ_log_self (by decide : 1 < 2) t.numLeaves))
+
+/-- Almost-complete children with leaf counts differing by at most one give
+an almost-complete parent. This is a sufficient criterion, not a converse. -/
+theorem almostComplete_node_of_numLeaves (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hlr : l.numLeaves ≤ r.numLeaves + 1) (hrl : r.numLeaves ≤ l.numLeaves + 1) :
+    AlmostComplete (.node a l r) := by
+  have hcrosslr := height_le_minHeight_add_one_of_numLeaves_le l r hl hr hlr
+  have hcrossrl := height_le_minHeight_add_one_of_numLeaves_le r l hr hl hrl
+  simp only [AlmostComplete, BinaryTree.height, minHeight_node] at hl hr ⊢
+  omega
+
 end Trees
