@@ -6,6 +6,11 @@ Evaluate author effort and reuse across mathematical settings, including the
 requirements an argument exposes; improved concrete notation alone does not
 fulfill that direction.
 
+When planning library capabilities or connecting library and compiler clients,
+apply the [joint development criteria](../language-direction.md#developing-library-and-compiler-capabilities-together).
+Use them in implementation and review to identify shared contracts, checked
+reuse and the owner of any remaining gap.
+
 Start with the current local interfaces, proofs, and checked applications.
 For capabilities ported or extended from Felix, consult
 `docs/research/felix-parity-implementation.md` and verify the relevant code.

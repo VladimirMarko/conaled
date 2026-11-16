@@ -229,6 +229,25 @@ their own contracts. Equal denotations alone do not establish equal execution
 costs. Apply these checks where integration is intended, without requiring every
 library theorem to acquire a compiler route.
 
+For a capability change intended to connect library and compiler use, apply
+these completion criteria in the task and its review:
+
+1. State the mathematical contract, required structure and observations, naming
+   the existing constructions and laws to reuse.
+2. Check a direct client and a compiled or interpreted client against that
+   contract. Reuse retained cases when they suffice; check a replacement or
+   second interpretation where it tests a claimed reuse benefit.
+3. Inspect what remains with callers: repeated proofs, representation or binding
+   bookkeeping, and unsupported judgments. Place each consequential gap with
+   its library, compiler or frontend owner; use existing issues where they fit.
+4. Record what to adopt, retain or defer from the evidence, including the
+   preserved guarantees and any distinct resource or witness obligations.
+
+Keep this evidence in the existing task/review handoff and relevant API examples.
+Create a separate design record only when it serves a further decision. A useful
+scoped result can be complete while a linked follow-up remains open; a future
+consumer alone does not justify a shared interface or broad migration.
+
 The [mapped-aggregate client](../Examples/MappedAggregate.lean) supplies a first
 replacement case. Its independent specification sums `(x + 2) * (x + 2)` over
 the input and applies a scalar report. One source duplicates the shift; another
