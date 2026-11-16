@@ -183,7 +183,7 @@ def unary (d : Time) (op : Bool → Bool) : Digital .base .base where
   timing :=
     { toFun := fun τ _ => Interval.point d * τ 0
       map_add' := by intro x y; funext i; simp [mul_add]
-      map_smul' := by intro r x; funext i; simp [mul_assoc, mul_comm, mul_left_comm] }
+      map_smul' := by intro r x; funext i; simp [mul_assoc, mul_comm] }
   correct hs t ht := congrArg op (hs (t - d) ((Interval.contains_shift d _ t).mp ht))
 
 def binary (d₁ d₂ : Time) (op : Bool × Bool → Bool) : Digital (.prod .base .base) .base where

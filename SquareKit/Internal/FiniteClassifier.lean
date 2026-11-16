@@ -60,6 +60,7 @@ variable [HasTerminal F] [HasBinaryProducts F] [HasPullbacks F] [FinitaryExtensi
 variable [CartesianMonoidalCategory B] [HasPullbacks B] [HasBinaryCoproducts B]
 variable (h : GeometricMorphism F B) (U : B)
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] in
 @[reassoc (attr := simp)] theorem classifierObjectComparison_inl :
     h.inverseImage.map (coprod.inl : U ⟶ U ⨿ ⊤_ B) ≫
       (classifierObjectComparison h (U := U)).hom = coprod.inl := by
@@ -70,6 +71,7 @@ variable (h : GeometricMorphism F B) (U : B)
       coprod.map (𝟙 _) (PreservesTerminal.iso h.inverseImage).hom = _
   rw [← hi, Category.assoc, Iso.hom_inv_id_assoc, coprod.inl_map, Category.id_comp]
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] in
 @[reassoc (attr := simp)] theorem classifierObjectComparison_inr :
     h.inverseImage.map (coprod.inr : ⊤_ B ⟶ U ⨿ ⊤_ B) ≫
       (classifierObjectComparison h (U := U)).hom =

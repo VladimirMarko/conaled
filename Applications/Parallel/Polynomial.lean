@@ -12,7 +12,7 @@ theorem sequential_replicate {M : Type u} [Monoid M] (a : M) (n : Nat) :
     sequential 1 (List.replicate n a) =
       ((List.range n).map (a ^ ·), a ^ n) := by
   induction n with
-  | zero => simp [sequential]
+  | zero => simp
   | succ n ih =>
     simp only [List.replicate_succ, sequential_cons, one_mul]
     rw [sequential_seed a, ih]

@@ -23,12 +23,17 @@ def descriptorM (base rows cols i : Nat) : Measured (WordMachine.Word width) Nat
   bind (WordMachine.scalar width (rows+product.val)) fun relative =>
   WordMachine.scalar width (base+relative.val)
 
+omit [NeZero cols] in
 theorem descriptorM_value (hh : base+rows+i*cols < 2^width) :
     (descriptorM (width := width) base rows cols i).1.val = base+rows+i*cols := by
   have hp : i*cols < 2^width := by omega
   have hr : rows+i*cols < 2^width := by omega
   simp [descriptorM,Resources.bind,WordMachine.scalar,WordMachine.word_of_lt hp,
     WordMachine.word_of_lt hr,WordMachine.word_of_lt (show base+(rows+i*cols)<2^width by omega),Nat.add_assoc]
+
+-- Descriptor arithmetic also covers a zero-column shape.
+example : (descriptorM (width := 4) 1 2 0 3).1.val = 3 :=
+  descriptorM_value (by decide)
 
 theorem descriptorM_cost (base rows cols i : Nat) :
     (descriptorM (width := width) base rows cols i).2 = 3 := rfl
@@ -120,6 +125,7 @@ private instance innerWords_neZero : NeZero (FlatTable.words rows cols) := by
   unfold FlatTable.words
   omega
 
+omit [NeZero cols] [NeZero rows] in
 theorem inner_fit (fit : base+FlatTable.words classes (FlatTable.words rows cols) ≤ capacity)
     (code : Fin classes) :
     base+classes+code.val*FlatTable.words rows cols+FlatTable.words rows cols ≤ capacity := by

@@ -174,7 +174,7 @@ theorem Chunks.observe_value (c : Chunks width) (hw : c.size ≤ 2^width) (i : F
   | zero n => rfl
   | join a b ia ib =>
     simp only [observe,read]
-    split <;> simp_all only [Control.scope,indexM_exact,Resources.bind,ia,ib]
+    split <;> simp_all only [Control.scope,indexM_exact,Resources.bind,]
 
 theorem Chunks.observe_peak (c : Chunks width) (hw : c.size ≤ 2^width) (i : Fin c.size) :
     (c.observe hw i).peak ≤ 5*c.depth+3 := by

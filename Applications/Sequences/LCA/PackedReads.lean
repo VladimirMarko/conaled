@@ -131,7 +131,7 @@ def depthAddress (i : Fin (blocks m*(blockSize m-1+1))) : Fin (retainedSlots m) 
   ⟨i.val, by
     have hi := i.isLt
     have hd : blocks m*(blockSize m-1+1) = paddedCapacity m := by rw [dimension]; rfl
-    simp only [macroBase,retainedSlots,SparseExecution.retainedSlots,FlatTable.words]
+    simp only [retainedSlots,SparseExecution.retainedSlots]
     nlinarith⟩
 
 theorem flatten_depth (r : Representation m width) (i : Fin (blocks m*(blockSize m-1+1))) :
@@ -156,7 +156,7 @@ def classAddress (i : Fin (blocks m)) : Fin (retainedSlots m) :=
   ⟨paddedCapacity m+i.val, by
     have hi := i.isLt
     have hd : blocks m*(blockSize m-1+1) = paddedCapacity m := by rw [dimension]; rfl
-    simp only [macroBase,retainedSlots,SparseExecution.retainedSlots,FlatTable.words]
+    simp only [retainedSlots,SparseExecution.retainedSlots]
     nlinarith⟩
 
 theorem flatten_class (r : Representation m width) (i : Fin (blocks m)) :

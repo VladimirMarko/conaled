@@ -10,10 +10,12 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
+omit [IsLocallyGroupoid Γ] in
 theorem rootedEmbedding_cancel :
     (familyCast (rootedPathFamily_direct F x).symm).comp (rootedPathEmbedding F x) = rootedDirectEmbedding F x := by
   rw [← rootedPathEmbedding_direct, ← strictFunctor_comp_assoc, familyCast_comp]
   exact strictFunctor_id_comp _
+omit [IsLocallyGroupoid Γ] in
 theorem rootedReflexivity_embedding :
     (rootedReflexivity F x).comp (rootedPathEmbedding F x) = x.lift.comp (pathReflexivity F) := by
   unfold rootedReflexivity

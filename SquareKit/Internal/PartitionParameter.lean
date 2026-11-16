@@ -39,6 +39,7 @@ def parameterEquivalence (e : U ≅ V) : Model u ≌ Model v where
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }) (by intros; apply Subsingleton.elim)
 
+omit [Mono u] [Mono v] in
 /-- Parameter transport preserves the meaning of a section under the coproduct map. -/
 theorem mapParameter_section (t : U ⟶ V) (M : Model u) :
     ((mapParameter u v t).obj M).toSection = M.toSection ≫ coprod.map t (𝟙 (⊤_ C)) := by
@@ -54,6 +55,7 @@ theorem mapParameter_section (t : U ⟶ V) (M : Model u) :
     rw [Model.q_section]
     change M.q ≫ coprod.inr = M.q ≫ M.toSection ≫ coprod.map t (𝟙 _)
     rw [← Category.assoc M.q, Model.q_section, Category.assoc, coprod.inr_map, Category.id_comp]
+omit [Mono u] [Mono v] in
 /-- Isomorphic parameter transport has the same section formula. -/
 theorem changeParameter_section (e : U ≅ V) (M : Model u) :
     ((changeParameter u v e).obj M).toSection = M.toSection ≫ coprod.map e.hom (𝟙 (⊤_ C)) :=

@@ -13,6 +13,7 @@ variable [HasTerminal F] [HasBinaryProducts F] [HasPullbacks F] [FinitaryExtensi
 variable [CartesianMonoidalCategory B] [HasPullbacks B] [FinitaryExtensive B]
 variable {f g h : GeometricMorphism F B} {U : B} (u : U ⟶ ⊤_ B) [Mono u]
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] in
 /-- Identity source transformation agrees with the identity parameter comparison. -/
 theorem pullModelTransformation_identity :
     pullModelTransformation u (𝟙 f) =
@@ -22,6 +23,7 @@ theorem pullModelTransformation_identity :
   funext M
   apply Subsingleton.elim
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] in
 /-- Vertical composition agrees with parameter composition and the two actual carrier transformations. -/
 theorem pullModelTransformation_composition (α : f ⟶ g) (β : g ⟶ h) :
     pullModelTransformation u (α ≫ β) =

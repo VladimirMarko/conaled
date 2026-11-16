@@ -62,7 +62,7 @@ theorem gamma_quarterTurn (z u v : ℂ) :
     gamma (I*z) (I*u) (I*v) = I * gamma z u v := by
   simp [gamma, map_mul, mul_assoc]
   ring_nf
-  simp [Complex.I_sq]
+  simp
 
 def field (p : ℂ × ℂ) : ℂ × ℂ := (p.2, -gamma p.1 p.2 p.2)
 def weightedField (p : ℂ × ℂ) : ℂ × ℂ := (p.2 / 2, -conj p.1 * p.2 ^ 2)

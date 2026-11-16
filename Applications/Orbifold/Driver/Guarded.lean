@@ -63,9 +63,9 @@ theorem guarded_counts (cap : Nat) (cs : List Tick) (q : Packet) :
     · simp
     · have ha := (Measured.run_counts [c] q).2.2
       cases he : (Measured.run [c] q).1 with
-      | none => simp only [he]; exact ha.trans (by simp)
+      | none => simp only []; exact ha.trans (by simp)
       | some a =>
-        simp only [he]
+        simp only []
         split
         · simpa using ha.trans (by simp)
         · have hb := ih a.final

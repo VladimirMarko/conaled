@@ -96,6 +96,7 @@ theorem Lift.section_isPullback (k : Lift h (slice a)) (Y : Over a) :
   · exact k.comparison.hom.naturality Y.hom
   · simp [Lift.section]
 
+omit [HasTerminal F] in
 /-- Naturality of the recovered underlying-object map. -/
 theorem Lift.value_natural (k : Lift h (slice a)) {Y Z : Over a} (f : Y ⟶ Z) :
     k.morphism.inverseImage.map f ≫ k.value Z = k.value Y ≫ h.inverseImage.map f.left := by
@@ -143,6 +144,7 @@ variable {F : Type u₁} {B : Type u₂} [Category.{v₁} F] [Category.{v₂} B]
 variable [HasTerminal F] [CartesianMonoidalCategory B] [HasPullbacks B]
 variable {h : GeometricMorphism F B} {a : B} [Closed a]
 
+omit [HasTerminal F] in
 /-- A compatible transformation commutes with the recovered value map. -/
 theorem Lift.Hom.value {k l : Lift h (slice a)} (α : k ⟶ l) (Y : Over a) :
     α.transformation.app Y ≫ l.value Y = k.value Y := by
@@ -161,6 +163,7 @@ instance {k l : Lift h (slice a)} : Subsingleton (k ⟶ l) where
     · exact (α.value Y).trans (β.value Y).symm
     · exact terminal.hom_ext _ _
 
+omit [HasTerminal F] in
 /-- On a constant slice object, forgetting the generic coordinate recovers the base comparison. -/
 theorem Lift.value_star_snd (k : Lift h (slice a)) (X : B) :
     k.value ((Over.star a).obj X) ≫ h.inverseImage.map prod.snd = k.comparison.hom.app X := by

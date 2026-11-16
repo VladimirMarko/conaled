@@ -73,9 +73,11 @@ instance transformationCategory : Category (StrictPseudofunctor A B) where
   comp_id _ := Trans.ext (fun _ => Category.comp_id _)
   assoc _ _ _ := Trans.ext (fun _ => Category.assoc _ _ _)
 
+omit [Strict A] in
 @[simp] theorem Trans.comp_app {F G H : StrictPseudofunctor A B}
     (η : F ⟶ G) (θ : G ⟶ H) (a : A) : (η ≫ θ).app a = η.app a ≫ θ.app a := rfl
 
+omit [Strict A] in
 @[simp] theorem Trans.id_app (F : StrictPseudofunctor A B) (a : A) :
     (𝟙 F : F ⟶ F).app a = 𝟙 (F.obj a) := rfl
 
@@ -132,12 +134,15 @@ theorem functor_ext {F G : StrictPseudofunctor A B}
   subst Gc
   rfl
 
+omit [Strict A] [Strict B] in
 theorem functor_id_comp (F : StrictPseudofunctor A B) :
     (StrictPseudofunctor.id A).comp F = F := functor_ext rfl
 
+omit [Strict A] [Strict B] in
 theorem functor_comp_id (F : StrictPseudofunctor A B) :
     F.comp (StrictPseudofunctor.id B) = F := functor_ext rfl
 
+omit [Strict A] in
 @[simp] theorem Trans.eqToHom_app {F G : StrictPseudofunctor A B} (h : F = G) (a : A) :
     (eqToHom h : F ⟶ G).app a = eqToHom (congrArg (fun K => K.obj a) h) := by
   cases h

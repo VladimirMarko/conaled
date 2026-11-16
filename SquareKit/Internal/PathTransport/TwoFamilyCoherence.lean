@@ -166,8 +166,7 @@ theorem identity_left_whisker (F : Family Γ) {x y : Total F}
       TwoGroupoidHom.homFamily, Pseudofunctor.comp, Functor.toPseudofunctor',
       pseudofunctorOfIsLocallyDiscrete, Bicategory.yoneda₀, unop2_eqToHom,
       Bicategory.eqToHom_whiskerRight,
-      Bicategory.Strict.associator_eqToIso, Quiver.Hom.toLoc, Category.assoc,
-      total_eqToHom_base]
+      Bicategory.Strict.associator_eqToIso, Quiver.Hom.toLoc, Category.assoc]
     simp only [nested_whiskerLeft, Category.assoc, eqToHom_trans]
     simp only [identity, compBoundary, TwoGroupoidHom.arrow]
     apply conjugate_whiskerLeft
@@ -271,6 +270,7 @@ private theorem nested_whiskerRight_heq {B : Type*} [Bicategory B] [Bicategory.S
   rw [Bicategory.whiskerRight_comp]
   simp [Bicategory.Strict.associator_eqToIso]
 
+omit [Strict Γ] in
 private theorem total_eqToHom_left_heq (F : Family Γ) {x y : Total F}
     {p q : Hom F x y} (h : p = q) {b : F.obj y.base}
     {i j : (evaluation F x.fiber).obj q.base ⟶ b} (β : i ⟶ j) :

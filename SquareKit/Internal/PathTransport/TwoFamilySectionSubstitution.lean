@@ -131,6 +131,7 @@ def sectionOfLift : Section (reindex (factorBase F h) F) where
 /-- Recombining the factorization recovers the original higher lift exactly. -/
 theorem factorHigher_reindex : (factorHigher F h).comp (reindexHigher F (factorBase F h)) = h :=
   StrictTwoTransformation.functor_ext rfl
+omit [Strict Δ] in
 theorem Section.reindex_base (s : Section F) (σ : StrictPseudofunctor Δ Γ) :
     factorBase F (σ.comp s.lift) = σ := by
   calc

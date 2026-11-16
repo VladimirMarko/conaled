@@ -16,10 +16,12 @@ variable [∀x, IsIso (η.app x)] [∀x, IsIso (η'.app x)]
 variable (hη : HEq (strongPostcomp η' σ) (strongPrecomp η σ))
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hR in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionReindexFamily : reindex R' (reindex σ E) = reindex σ (reindex R E) :=
   (reindex_comp E σ R').trans ((congrArg (fun K => reindex K E) hR).trans (reindex_comp E R σ).symm)
 
 include hR hη in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] [∀ (x : Γ), IsIso (η.app x)] [∀ (x : Δ), IsIso (η'.app x)] in
 theorem forwardFamilyContraction_reindex :
     HEq (forwardFamilyContraction R' η' (reindex σ E))
       (strongPrecomp (forwardFamilyContraction R η E) σ) := by
@@ -34,6 +36,7 @@ theorem forwardFamilyContraction_reindex :
   exact h1.trans (h2.trans (h3.trans (h4.trans h5)))
 
 include hR hη in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem inverseFamilyContraction_reindex :
     HEq (inverseFamilyContraction R' η' (reindex σ E))
       (strongPrecomp (inverseFamilyContraction R η E) σ) := by
@@ -59,6 +62,7 @@ theorem strongMap_codomain_cast {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
 end CastMap
 
 include hR hη in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionBack_reindex :
     (contractionBack R' η' (reindex σ E)).comp
       (familySubstitution (reindex R E) σ (contractionReindexFamily R R' σ hR E)) =

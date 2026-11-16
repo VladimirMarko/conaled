@@ -112,16 +112,19 @@ theorem familyCast_comp (e : F = G) (e' : G = H) :
   exact StrictTwoTransformation.functor_ext rfl
 
 variable {D : Type*} [Bicategory D] [Strict D]
+omit [Strict D] in
 theorem familyCast_precomp_heq (e : F = G) (K : StrictPseudofunctor (Total G) D) :
     HEq ((familyCast e).comp K) K := by
   cases e
   exact heq_of_eq (StrictTwoTransformation.functor_id_comp K)
 
+omit [Strict D] in
 theorem familyCast_postcomp_heq (e : F = G) (K : StrictPseudofunctor D (Total F)) :
     HEq (K.comp (familyCast e)) K := by
   cases e
   exact heq_of_eq (StrictTwoTransformation.functor_comp_id K)
 
+omit [Strict D] in
 theorem familyCast_precomp_eq_of_heq (e : F = G)
     (K : StrictPseudofunctor (Total F) D) (L : StrictPseudofunctor (Total G) D)
     (h : HEq K L) : (familyCast e).comp L = K := by

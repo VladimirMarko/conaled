@@ -50,7 +50,7 @@ theorem d1_joint_diagonal (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) 
     ring
   · apply ContinuousLinearMap.ext
     intro p
-    simp [diagonalScale,deltaLinear,covector,ContinuousLinearMap.comp_apply]
+    simp [diagonalScale,deltaLinear,covector]
 
 theorem d2_joint_diagonal (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) :
     HasFDerivAt (fun p : ℂ × ℂ => d2 h p.1 p.2)
@@ -77,7 +77,7 @@ theorem d2_joint_diagonal (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) 
     ring
   · apply ContinuousLinearMap.ext
     intro p
-    simp [diagonalScale,deltaLinear,covector,ContinuousLinearMap.comp_apply]
+    simp [diagonalScale,deltaLinear,covector]
 
 /-- This is the derivative of the already proved first partial, not a stipulated Hessian. -/
 theorem mixed_hessian (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) :

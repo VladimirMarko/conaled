@@ -11,21 +11,26 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 noncomputable def closedSectionEmbedding (s t : Section F) (p : Section (closedId F s t)) :=
  p.lift.comp (closedPathEmbedding F s t)
+omit [IsLocallyGroupoid Γ] in
 theorem closedSectionEmbedding_first (s t : Section F) (p : Section (closedId F s t)) :
  (closedSectionEmbedding F s t p).comp (pathFirst F) = s.lift := by
  unfold closedSectionEmbedding
  rw [strictFunctor_comp_assoc, closedPathEmbedding_first, ← strictFunctor_comp_assoc, p.over, strictFunctor_id_comp]
+omit [IsLocallyGroupoid Γ] in
 theorem closedSectionEmbedding_second (s t : Section F) (p : Section (closedId F s t)) :
  (closedSectionEmbedding F s t p).comp (pathSecond F) = t.lift := by
  unfold closedSectionEmbedding
  rw [strictFunctor_comp_assoc, closedPathEmbedding_second, ← strictFunctor_comp_assoc, p.over, strictFunctor_id_comp]
+omit [IsLocallyGroupoid Γ] in
 theorem pathReflexivity_second :
  (pathReflexivity F).comp (pathSecond F) = StrictPseudofunctor.id (Total F) := by
  rw [pathSecond_normal, ← strictFunctor_comp_assoc, pathReflexivity_endpoints, diagonal_endpoint]
+omit [IsLocallyGroupoid Γ] in
 theorem closedComparison_source (s t : Section F) (p : Section (closedId F s t)) :
  ((closedSectionEmbedding F s t p).comp (contractionRetract F)).comp (pathSecond F) = s.lift := by
  change ((closedSectionEmbedding F s t p).comp ((pathFirst F).comp (pathReflexivity F))).comp (pathSecond F) = _
  rw [strictFunctor_comp_assoc, strictFunctor_comp_assoc, pathReflexivity_second, strictFunctor_comp_id, closedSectionEmbedding_first]
+omit [IsLocallyGroupoid Γ] in
 theorem closedComparison_target (s t : Section F) (p : Section (closedId F s t)) :
  ((closedSectionEmbedding F s t p).comp (StrictPseudofunctor.id _)).comp (pathSecond F) = t.lift := by
  rw [strictFunctor_comp_id, closedSectionEmbedding_second]

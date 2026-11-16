@@ -36,6 +36,7 @@ private theorem total_comp_congr {A B : Type*} [Bicategory A] [Bicategory B]
 variable [IsLocallyGroupoid Γ] (R : StrictPseudofunctor Γ Γ)
 variable (η : Pseudofunctor.StrongTrans R.toPseudofunctor
   (StrictPseudofunctor.id Γ).toPseudofunctor) [∀x, IsIso (η.app x)]
+omit [IsLocallyGroupoid Γ] [∀ (x : Γ), IsIso (η.app x)] in
 theorem coherentLiftRight_normalize : coherentLiftRight η E =
     StrongMap.toHigher (forwardFamilyContraction R η E) := by
   have h : HEq (strongPostcomp η E) (forwardFamilyContraction R η E) := by
@@ -49,6 +50,7 @@ theorem coherentLiftRight_normalize : coherentLiftRight η E =
   exact hc.trans (StrictTwoTransformation.functor_comp_id _)
 
 variable [∀ γ, IsLocallyGroupoid (E.obj γ)]
+omit [∀ (γ : Γ), IsLocallyGroupoid (E.obj γ).carrier] [IsLocallyGroupoid Γ] in
 theorem contractionBack_forward :
     (contractionBack R η E).comp (StrongMap.toHigher (forwardFamilyContraction R η E)) =
       StrictPseudofunctor.id (Total E) := by
@@ -63,6 +65,7 @@ def castStrongFunctorTarget {A B : Type*} [Bicategory A] [Bicategory B]
   cases e
   exact θ
 
+omit [∀ γ, IsLocallyGroupoid (E.obj γ).carrier] [IsLocallyGroupoid Γ] in
 theorem contractionLift_target :
     (contractionBack R η E).comp (coherentLiftRight η E) =
       StrictPseudofunctor.id (Total E) := by

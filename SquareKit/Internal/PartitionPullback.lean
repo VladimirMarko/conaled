@@ -38,6 +38,7 @@ def pullModelFunctor : PartitionSection.Model u ⥤ PartitionSection.Model (para
     right_over := terminal.hom_ext _ _ }
   map_id _ := Subsingleton.elim _ _
   map_comp _ _ := Subsingleton.elim _ _
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] in
 /-- Actual inverse image of predicates agrees with inverse image of their assembled section. -/
 theorem pullModel_section (M : PartitionSection.Model u) :
     (pullModel h M).toSection = h.pullSection M.toSection ≫

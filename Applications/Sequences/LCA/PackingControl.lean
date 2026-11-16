@@ -13,6 +13,7 @@ private instance inner_nonzero : NeZero (FlatTable.words rows cols) := by
   unfold FlatTable.words
   omega
 
+omit [NeZero cols] in
 private theorem descriptor_bound
     (fit : base+FlatTable.words classes (FlatTable.words rows cols) ≤ capacity)
     (wide : capacity ≤ 2^width) (code : Fin classes) :

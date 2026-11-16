@@ -15,7 +15,7 @@ variable [∀ γ, IsGroupoid (F.obj γ)]
 /-- Endpoint transport acts on the complete fiber hom-category. -/
 noncomputable def openIdMap {x y : Total (endpointFamily F)}
     (p : x ⟶ y) : (x.fiber.1 ⟶ x.fiber.2) ⥤ (y.fiber.1 ⟶ y.fiber.2) := by
-  letI : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
+  let : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
   exact TwoIdentityTransport.homTransport (F.map p.base) p.fiber.1 p.fiber.2
 
 theorem openIdMap_id (x : Total (endpointFamily F)) : openIdMap F (𝟙 x) = 𝟭 _ := by
@@ -51,8 +51,8 @@ theorem openIdMap_comp {x y z : Total (endpointFamily F)} (p : x ⟶ y) (q : y �
   change TwoIdentityTransport.homTransport (F.map (p.base ≫ q.base))
     (compose (endpointFamily F) p q).fiber.1 (compose (endpointFamily F) p q).fiber.2 = _
   rw [hf,hg]
-  letI : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
-  letI : IsIso q.fiber.1 := IsGroupoid.all_isIso (C := (F.obj z.base).carrier) q.fiber.1
+  let : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
+  let : IsIso q.fiber.1 := IsGroupoid.all_isIso (C := (F.obj z.base).carrier) q.fiber.1
   exact (TwoIdentityTransport.homTransport_congr (F.map_comp p.base q.base)
     ((F.map q.base).map p.fiber.1 ≫ q.fiber.1)
     ((F.map q.base).map p.fiber.2 ≫ q.fiber.2)).trans
@@ -69,7 +69,7 @@ variable [∀ γ, Bicategory.IsLocallyGroupoid (F.obj γ)]
 /-- A genuine endpoint-context 2-cell supplies the natural hom comparison. -/
 noncomputable def openIdCell {x y : Total (endpointFamily F)} {p q : Hom (endpointFamily F) x y}
     (α : p ⟶ q) : openIdMap F p ⟶ openIdMap F q := by
-  letI : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
+  let : IsIso p.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) p.fiber.1
   letI : IsIso q.fiber.1 := IsGroupoid.all_isIso (C := (F.obj y.base).carrier) q.fiber.1
   exact TwoIdentityTransport.homComparison (F.map₂ α.base) α.fiber.1 α.fiber.2
 end SquareKit.Internal.PathTransport.TwoFamily

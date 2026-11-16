@@ -142,7 +142,7 @@ private theorem zipWith_map_mul (a : M) (totals : List M) (chunks : List (List M
   | cons t ts ih =>
     cases chunks with
     | nil => simp
-    | cons xs xss => simp [ih, map_mul_map]
+    | cons xs xss => simp [ih]
 
 /-- The list-level calculation for composition, independent of any shape. -/
 theorem sequential_chunks (chunks : List (List M)) :
@@ -152,11 +152,11 @@ theorem sequential_chunks (chunks : List (List M)) :
       (locals.map Prod.fst)).flatten, totals.2) =
       sequential 1 chunks.flatten := by
   induction chunks with
-  | nil => simp [sequential]
+  | nil => simp
   | cons xs xss ih =>
     simp only [List.map_cons, List.map_map, sequential_cons, one_mul] at *
     rw [sequential_seed (sequential 1 xs).2]
-    simp only [List.zipWith_cons_cons, List.flatten_cons, List.map_id_fun]
+    simp only [List.zipWith_cons_cons, List.flatten_cons]
     rw [zipWith_map_mul]
     simp only [← List.map_flatten]
     have h₁ := congrArg Prod.fst ih

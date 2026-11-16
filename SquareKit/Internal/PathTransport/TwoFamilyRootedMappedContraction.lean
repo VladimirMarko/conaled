@@ -48,10 +48,12 @@ noncomputable def rootedContractionMapped : Pseudofunctor.StrongTrans
 theorem rootedContractionMapped_heq : HEq (rootedContractionMapped F x)
     (strongPrecomp (pathContraction F) (rootedDirectEmbedding F x)) := strongCast_heq _ _ _
 
+omit [IsLocallyGroupoid Γ] in
 theorem rootedBaseContraction_source :
     ((rootedDirectRetract F x).comp (rootedDirectEmbedding F x)).comp (pathSecond F) =
       (rootedDirectRetract F x).comp (projectionHigher (rootedDirectFamily F x)) := by
   rw [strictFunctor_comp_assoc, rootedDirectEmbedding_second]
+omit [IsLocallyGroupoid Γ] in
 theorem rootedBaseContraction_target :
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x)).comp (pathSecond F) =
       (StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (projectionHigher (rootedDirectFamily F x)) := by

@@ -23,6 +23,7 @@ def Lift.pullGeneric (k : Lift h (slice (U ⨿ ⊤_ B))) :
     (parameterPullback k.morphism (parameterPullback (slice (U ⨿ ⊤_ B)) u))
     (parameterPullback h u) (k.comparison.app U)).obj (pullModel k.morphism (genericModel u))
 
+omit [HasBinaryProducts F] [HasPullbacks F] [Mono u] in
 /-- The actual pulled-back predicates recover the same classified section. -/
 theorem Lift.pullGeneric_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     (k.pullGeneric u).toSection = (k.model u).toSection := by

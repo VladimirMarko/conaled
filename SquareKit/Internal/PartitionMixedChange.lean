@@ -22,10 +22,12 @@ def parameterPullbackIso : PartitionSection.mapParameter u v t ⋙ pullModelFunc
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }) (by intros; apply Subsingleton.elim)
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] [Mono v] in
 /-- The mixed comparison preserves the specific left predicate element, via identity on its carrier. -/
 theorem parameterPullbackIso_left (M : PartitionSection.Model u) :
     ((parameterPullbackIso f u v t).hom.app M).left = 𝟙 (f.inverseImage.obj M.P) := rfl
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] [Mono v] in
 /-- The right predicate is preserved independently, not identified with the left predicate. -/
 theorem parameterPullbackIso_right (M : PartitionSection.Model u) :
     ((parameterPullbackIso f u v t).hom.app M).right = 𝟙 (f.inverseImage.obj M.Q) := rfl

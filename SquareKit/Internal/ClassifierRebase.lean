@@ -15,6 +15,7 @@ variable [CartesianMonoidalCategory B] [HasPullbacks B] [FinitaryExtensive B]
 variable {h h' : GeometricMorphism F B} {U : B} (u : U ⟶ ⊤_ B) [Mono u]
 variable [Closed (U ⨿ ⊤_ B)] (e : h.inverseImage ≅ h'.inverseImage)
 
+omit [HasBinaryProducts F] [HasPullbacks F] [Mono u] in
 /-- Rebase normalization commutes with the actual classifier section. -/
 theorem classifierRebase_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     ((PartitionSection.changeParameter (parameterPullback h u) (parameterPullback h' u) (e.app U)).obj

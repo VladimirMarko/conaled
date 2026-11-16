@@ -389,7 +389,7 @@ theorem tripleHom_ext {N : Sheaf topology Type}
     (h : ∀ i j k, A.tripleMap i j k ≫ f = A.tripleMap i j k ≫ g) : f = g := by
   let F := fun ijk : (I × I) × I => embedding.obj (A.triple ijk.1.1 ijk.1.2 ijk.2)
   let j := fun ijk : (I × I) × I => A.tripleMap ijk.1.1 ijk.1.2 ijk.2
-  haveI : Presheaf.IsLocallySurjective topology (SheafCoproductLocal.desc F j).hom :=
+  have : Presheaf.IsLocallySurjective topology (SheafCoproductLocal.desc F j).hom :=
     SheafCoproductLocal.locallySurjective_desc F j A.tripleMap_cover
   apply (cancel_epi (SheafCoproductLocal.desc F j)).mp
   apply colimit.hom_ext

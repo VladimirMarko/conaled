@@ -27,7 +27,7 @@ theorem rangeMin_le (read : Nat → α) (start n i : Nat) (hi : i ≤ n) :
     · exact (min_le_left _ _).trans (ih h)
     · have : i = n+1 := by omega
       subst i
-      simpa [rangeMin,Nat.add_assoc] using min_le_right (rangeMin read start n) (read (start+n+1))
+      simp [rangeMin,Nat.add_assoc]
 
 theorem le_rangeMin (read : Nat → α) (start n : Nat) (x : α)
     (h : ∀ i ≤ n, x ≤ read (start+i)) : x ≤ rangeMin read start n := by

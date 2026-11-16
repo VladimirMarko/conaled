@@ -36,7 +36,7 @@ def primitiveEvaluationRecovery :
 include q in
 theorem primitiveEvaluation_isEquivalence_of_baseTerm :
     (familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence := by
-  haveI : (familyEvaluation a A hΓ (.fiber hx) c ⋙
+  have : (familyEvaluation a A hΓ (.fiber hx) c ⋙
       (primitiveRecoveryEquivalence a A hΓ hx c q).functor).IsEquivalence :=
     Functor.isEquivalence_of_iso (primitiveEvaluationRecovery a A hΓ hx c q).symm
   exact Functor.isEquivalence_of_comp_right (familyEvaluation a A hΓ (.fiber hx) c)

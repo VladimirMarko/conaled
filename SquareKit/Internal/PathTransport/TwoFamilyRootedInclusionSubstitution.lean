@@ -12,12 +12,16 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
+omit [IsLocallyGroupoid Γ]
+    [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier]
+    [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
 theorem rootedEndpoint_obj_injective : Function.Injective (rootedEndpoint F x).obj := by
   intro a b h
   have h' := congrArg (endpointProjection F false).obj h
   have ha := congrArg (fun K => K.obj a) (rootedEndpoint_second F x)
   have hb := congrArg (fun K => K.obj b) (rootedEndpoint_second F x)
   exact ha.symm.trans (h'.trans hb)
+omit [IsLocallyGroupoid Γ] in
 theorem rootedPathEmbedding_obj_injective : Function.Injective (rootedPathEmbedding F x).obj := by
   rw [rootedPathEmbedding_familySubstitution]
   exact familySubstitution_obj_injective _ _ _ (rootedEndpoint_obj_injective F x)

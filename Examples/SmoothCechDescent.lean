@@ -58,6 +58,7 @@ def admitted : TrivializedOn (identityAtlas U) smoothAction
     (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)) where
   trivialization _ := SheafTorsor.Arrow.ident _
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localMap_hat : hat ((admitted U m smoothAction).localMap ()).val
     ((admitted U m smoothAction).localMap ()).property = hat m.val m.property := by
   rw [TrivializedOn.localMap_hat]
@@ -73,9 +74,11 @@ theorem smoothMap_of_hat_eq (m n : External.SmoothMap U d M)
       (f.hom.app (op (op (SmoothPresentationSite.free 0))) (ordinaryPoint U x))) he
   exact (hat_eval m.val m.property x).symm.trans (h.trans (hat_eval n.val n.property x))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localMap_eq : (admitted U m smoothAction).localMap () = m :=
   smoothMap_of_hat_eq U _ _ (localMap_hat U m smoothAction)
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem datum_unique (p : Datum (d := d) (G := G) (M := M) (identityAtlas U)) :
     p = identityDatum U (p.localMap ()) := by
   refine Datum.ext _ _ ?_ ?_

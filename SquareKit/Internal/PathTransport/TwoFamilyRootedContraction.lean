@@ -11,17 +11,20 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
+omit [IsLocallyGroupoid Γ] in
 theorem rootedRetraction_direct :
     (familyCast (rootedPathFamily_direct F x)).comp (rootedRetractionDirect F x) = rootedRetraction F x := by
   unfold rootedRetractionDirect rootedRetraction
   rw [← strictFunctor_comp_assoc, familyCast_projection]
 
+omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_source :
     ((familyCast (rootedPathFamily_direct F x)).comp (rootedDirectRetract F x)).comp
       (familyCast (rootedPathFamily_direct F x).symm) =
       (rootedRetraction F x).comp (rootedReflexivity F x) := by
   unfold rootedDirectRetract rootedReflexivity
   rw [← strictFunctor_comp_assoc (familyCast _), rootedRetraction_direct, strictFunctor_comp_assoc]
+omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_target :
     ((familyCast (rootedPathFamily_direct F x)).comp (StrictPseudofunctor.id _)).comp
       (familyCast (rootedPathFamily_direct F x).symm) = StrictPseudofunctor.id _ := by

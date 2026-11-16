@@ -38,7 +38,7 @@ theorem selected_affine_bound (x : ℝ) :
     (1/10) (1/5)
     (by intro z _; simp [affine])
     (by intro z _; simp only [affine, Real.dist_eq]; ring_nf; norm_num)
-    (x+1/100) x (1/100) (by simp [Real.dist_eq])
+    (x+1/100) x (1/100) (by simp)
   norm_num at h
   exact h
 

@@ -91,7 +91,7 @@ instance : Bicategory StrictTwoCategory.{u,v,w} where
   pentagon F G H I := by
     apply Trans.ext; intro a
     repeat rw [Trans.comp_app]
-    simp only [eqToIso.hom, eqToIso.inv]
+    simp only [eqToIso.hom]
     dsimp only [Trans.whiskerLeft, Trans.whiskerRight]
     repeat rw [Trans.eqToHom_app]
     change I.map (𝟙 (H.obj (G.obj (F.obj a)))) ≫ 𝟙 _ ≫ 𝟙 _ = 𝟙 _ ≫ 𝟙 _
@@ -99,7 +99,7 @@ instance : Bicategory StrictTwoCategory.{u,v,w} where
   triangle F G := by
     apply Trans.ext; intro a
     repeat rw [Trans.comp_app]
-    simp only [eqToIso.hom, eqToIso.inv]
+    simp only [eqToIso.hom]
     dsimp only [Trans.whiskerLeft, Trans.whiskerRight]
     repeat rw [Trans.eqToHom_app]
     change 𝟙 _ ≫ 𝟙 _ = G.map (𝟙 (F.obj a))

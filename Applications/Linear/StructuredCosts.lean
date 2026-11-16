@@ -40,7 +40,7 @@ theorem fold_cost_uniform {S A : Type*} (step : S → A → S) (charge : Work)
     (measuredFold step (fun _ => charge) as s).2 e = as.length * charge e := by
   induction as generalizing s with
   | nil => simp [measuredFold]
-  | cons a as ih => simp [measuredFold, Resources.bind, ih, Nat.add_mul, Nat.add_comm]
+  | cons a as ih => simp [measuredFold, Resources.bind, Nat.add_mul, Nat.add_comm]
 
 /-- Materialization traverses the source and allocates each destination element. -/
 def measuredMap {A B : Type*} (f : A → B) (charge : A → Work) :
@@ -67,7 +67,7 @@ theorem map_cost_uniform {A B : Type*} (f : A → B) (charge : Work)
     (measuredMap f (fun _ => charge) as).2 e = as.length * charge e := by
   induction as with
   | nil => simp [measuredMap]
-  | cons a as ih => simp [measuredMap, ih, Nat.add_mul, Nat.add_comm]
+  | cons a as ih => simp [measuredMap, Nat.add_mul, Nat.add_comm]
 
 def events : List Event := [.traversal, .inputRead, .outputRead, .coefficientRead,
   .index, .scalarMul, .scalarAdd, .outputWrite, .construct, .scan]
@@ -106,7 +106,7 @@ theorem traverse_cost_uniform {X Y : Type*} (apply : X → Resources.Measured Y 
     (traverse apply xs).2 e = xs.length * charge e := by
   induction xs with
   | nil => simp [traverse]
-  | cons x xs ih => simp [traverse, h, ih, Nat.add_mul, Nat.add_comm]
+  | cons x xs ih => simp [traverse, h, Nat.add_mul, Nat.add_comm]
 
 /-- A measured preparation followed by a finite workload. Inputs may differ. -/
 def workload {P X Y : Type*} (prepare : Resources.Measured P Work)

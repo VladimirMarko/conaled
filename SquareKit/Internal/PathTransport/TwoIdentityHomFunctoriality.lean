@@ -75,6 +75,7 @@ theorem homComparison_heq {H H' K K' : StrictPseudofunctor A C}
   cases eq_of_heq hσ
   rfl
 
+omit [Strict A] in
 theorem homComparison_whiskerRight
     {F F' : StrictPseudofunctor A B} (η : StrictTwoTransformation.Trans F F')
     (G : StrictPseudofunctor B C)
@@ -108,7 +109,7 @@ theorem homComparison_whiskerRight
   have hi : G.map (inv u) = inv (G.map u) := G.toFunctor.map_inv u
   simp only [IsIso.inv_comp, hi, Category.assoc]
 
-omit [Bicategory.IsLocallyGroupoid B] in
+omit [Bicategory.IsLocallyGroupoid B] [Strict A] in
 theorem homComparison_whiskerLeft (F : StrictPseudofunctor A B)
     {G G' : StrictPseudofunctor B C} (η : StrictTwoTransformation.Trans G G')
     {a a' : A} {b b' : B} {c c' : C}

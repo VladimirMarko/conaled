@@ -85,7 +85,7 @@ def plainMaintenance : Maintenance (plain N) PlainValid (profile N false) update
   run b x := ((tryPush b x).1,BoundedSummary.charge false Cost.t N (.append x) b.size.val)
   valid s r h x := by subst r; rfl
   bound s r _ x := by
-    simp [BoundedSummary.charge,profile,Cost.t]; split <;> omega
+    simp [BoundedSummary.charge,profile]; split <;> omega
 
 def cachedMaintenance : Maintenance (cached N) CachedValid (profile N true) update where
   run c x := ((cachedPush c x).1,BoundedSummary.charge true Cost.t N (.append x) c.1.size.val)
@@ -97,6 +97,6 @@ def cachedMaintenance : Maintenance (cached N) CachedValid (profile N true) upda
     · rfl
     · exact h.1
   bound s r _ x := by
-    simp [BoundedSummary.charge,profile,Cost.t]; split <;> omega
+    simp [BoundedSummary.charge,profile]; split <;> omega
 
 end Resources.PreparedSummary

@@ -10,6 +10,7 @@ variable {A : Type u} [Bicategory.{w,v} A] [Strict A]
 variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B]
 variable {F G : StrictPseudofunctor A B}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
+omit [Strict A] in
 theorem strong_vcomp_id : η.vcomp (Pseudofunctor.StrongTrans.id G.toPseudofunctor) = η := by
   apply strongTrans_ext
   · intro a
@@ -20,7 +21,7 @@ theorem strong_vcomp_id : η.vcomp (Pseudofunctor.StrongTrans.id G.toPseudofunct
       (η.naturality f).hom
     simp only [Strict.associator_eqToIso, Strict.leftUnitor_eqToIso,
       Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
-      whiskerRight_id, whiskerLeft_comp, whiskerLeft_eqToHom, Category.assoc,
+      whiskerRight_id, whiskerLeft_eqToHom, Category.assoc,
       eqToHom_trans_assoc, eqToHom_trans, eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
     rfl
 
@@ -41,6 +42,7 @@ private theorem casts_heq {D : Type*} [Category D] {a b c d : D}
   cases e'
   rfl
 
+omit [Strict A] in
 theorem strongPostcomp_id (F : StrictPseudofunctor A B) (H : StrictPseudofunctor B C) :
     strongPostcomp (Pseudofunctor.StrongTrans.id F.toPseudofunctor) H =
       Pseudofunctor.StrongTrans.id (F.comp H).toPseudofunctor := by
@@ -49,8 +51,7 @@ theorem strongPostcomp_id (F : StrictPseudofunctor A B) (H : StrictPseudofunctor
   · intro x y p
     simp only [strongPostcomp, Pseudofunctor.StrongTrans.id, Iso.trans_hom, Iso.symm_hom,
       Functor.mapIso_hom, H.mapComp_eq_eqToIso, Strict.leftUnitor_eqToIso,
-      Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv, H.map₂_comp,
-      H.map₂_eqToHom, eqToHom_trans]
+      Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv, eqToHom_trans]
     simp only [eqToHom_map, eqToHom_trans]
     exact casts_heq (by simp [H.map_id]) _ _
 end Postcomposition

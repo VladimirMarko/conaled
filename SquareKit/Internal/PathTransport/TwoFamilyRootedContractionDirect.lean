@@ -10,10 +10,16 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
+omit [IsLocallyGroupoid Γ]
+    [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier]
+    [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
 theorem rootedEndpoint_map_injective {a b : Total F} :
     Function.Injective ((rootedEndpoint F x).map (X := a) (Y := b)) :=
   inverseData_map_injective (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct
     (congrArg (fun K => K.toPrelaxFunctorStruct) (rootedEndpoint_second F x))
+omit [IsLocallyGroupoid Γ]
+    [∀ (γ : Γ), IsGroupoid (F.obj γ).carrier]
+    [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).carrier] in
 theorem rootedEndpoint_cell_injective {a b : Total F} {p q : a ⟶ b} :
     Function.Injective ((rootedEndpoint F x).map₂ (f := p) (g := q)) :=
   inverseData_cell_injective (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct

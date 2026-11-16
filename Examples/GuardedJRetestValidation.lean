@@ -187,10 +187,15 @@ theorem comparisonSound : interpretTm native rootLeft = interpretTm native rootR
     (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
     native
 
-def retainedSelected := GuardedJRetest.BaselineReference.extensionSelected
-  earlier base x.deriv generalized qAtBType qAtB
-  (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
-  native stable
+theorem retainedSelected :
+    type_of% (GuardedJRetest.BaselineReference.extensionSelected
+      earlier base x.deriv generalized qAtBType qAtB
+      (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
+      native stable) :=
+  GuardedJRetest.BaselineReference.extensionSelected
+    earlier base x.deriv generalized qAtBType qAtB
+    (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
+    native stable
 end Baseline
 
 /-- Evaluate the concrete caller's annotations without assuming any source
@@ -314,19 +319,33 @@ theorem assumptions_valid : ∀ j ∈ assumptions, j.eval (Contextual.algebra na
 private abbrev cmd := GuardedJRetest.CandidateReference.outer point tail value
 private abbrev arrow := GuardedJRetest.CandidateReference.dependentWeakening point tail value
 
-def interpretedLeft := Contextual.interpret
-  (GuardedJRetest.CandidateReference.workedLeft point tail value)
-  native environment assumptions_valid
+theorem interpretedLeft :
+    type_of% (Contextual.interpret
+      (GuardedJRetest.CandidateReference.workedLeft point tail value)
+      native environment assumptions_valid) :=
+  Contextual.interpret
+    (GuardedJRetest.CandidateReference.workedLeft point tail value)
+    native environment assumptions_valid
 
-def interpretedRight := Contextual.interpret
-  (GuardedJRetest.CandidateReference.workedRight point tail value)
-  native environment assumptions_valid
+theorem interpretedRight :
+    type_of% (Contextual.interpret
+      (GuardedJRetest.CandidateReference.workedRight point tail value)
+      native environment assumptions_valid) :=
+  Contextual.interpret
+    (GuardedJRetest.CandidateReference.workedRight point tail value)
+    native environment assumptions_valid
 
-def comparisonSound := GuardedJRetest.CandidateReference.comparisonSound
-  point tail value arrow native environment assumptions_valid
+theorem comparisonSound :
+    type_of% (GuardedJRetest.CandidateReference.comparisonSound
+      point tail value arrow native environment assumptions_valid) :=
+  GuardedJRetest.CandidateReference.comparisonSound
+    point tail value arrow native environment assumptions_valid
 
-def retainedSelected := GuardedJRetest.CandidateReference.extensionSelected
-  point tail value arrow native stable environment assumptions_valid
+theorem retainedSelected :
+    type_of% (GuardedJRetest.CandidateReference.extensionSelected
+      point tail value arrow native stable environment assumptions_valid) :=
+  GuardedJRetest.CandidateReference.extensionSelected
+    point tail value arrow native stable environment assumptions_valid
 
 theorem exactRecipe : cmd.expression =
     j a x t (identity (identity q p p)

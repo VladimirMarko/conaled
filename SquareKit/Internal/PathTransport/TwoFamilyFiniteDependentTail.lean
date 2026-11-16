@@ -19,16 +19,17 @@ theorem locallyGroupoid {n} (tail : FiniteDependentTail Γ n Δ) : IsLocallyGrou
   induction tail with
   | nil => infer_instance
   | @snoc n Δ tail E objects cells ih =>
-    letI : IsLocallyGroupoid Δ := ih
-    letI : ∀x, IsLocallyGroupoid (E.obj x) := cells
+    let : IsLocallyGroupoid Δ := ih
+    let : ∀x, IsLocallyGroupoid (E.obj x) := cells
     exact inferInstanceAs (IsLocallyGroupoid (Total E))
 
+omit [IsLocallyGroupoid Γ.carrier] in
 theorem groupoid [IsGroupoid Γ] {n} (tail : FiniteDependentTail Γ n Δ) : IsGroupoid Δ := by
   induction tail with
   | nil => infer_instance
   | @snoc n Δ tail E objects cells ih =>
-    letI : IsGroupoid Δ := ih
-    letI : ∀x, IsGroupoid (E.obj x) := objects
+    let : IsGroupoid Δ := ih
+    let : ∀x, IsGroupoid (E.obj x) := objects
     exact inferInstanceAs (IsGroupoid (Total E))
 
 

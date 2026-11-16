@@ -16,6 +16,7 @@ variable [∀ x, IsIso (η.app x)]
 local instance (σ : StrictPseudofunctor C A) : ∀ x, IsIso ((strongPrecomp η σ).app x) :=
   fun x => inferInstanceAs (IsIso (η.app (σ.obj x)))
 
+omit [Strict A] [Strict C] in
 /-- Inverting a coherent transformation commutes with arbitrary strict substitution. -/
 theorem strongInverse_precomp (σ : StrictPseudofunctor C A) :
     strongInverse (strongPrecomp η σ) = strongPrecomp (strongInverse η) σ := by

@@ -11,6 +11,7 @@ universe u v w uA vA wA uB vB wB uE vE wE
 variable {A : Type uA} [Bicategory.{wA,vA} A] [Strict A]
 variable {B : Type uB} [Bicategory.{wB,vB} B] [Strict B]
 variable {C : Type*} [Bicategory C] [Strict C]
+omit [Strict A] [Strict B] [Strict C] in
 theorem strongPrecomp_heq {F G F' G' : StrictPseudofunctor A B}
     (eF : F = F') (eG : G = G')
     (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
@@ -19,6 +20,7 @@ theorem strongPrecomp_heq {F G F' G' : StrictPseudofunctor A B}
     HEq (strongPrecomp η K) (strongPrecomp θ K) := by
   cases eF; cases eG; cases eq_of_heq h; rfl
 
+omit [Strict A] in
 theorem strongInverse_heq {F G F' G' : StrictPseudofunctor A B}
     (eF : F = F') (eG : G = G')
     (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
@@ -37,6 +39,7 @@ variable (hη : HEq (strongPrecomp η i) (Pseudofunctor.StrongTrans.id i.toPseud
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hi hη
 
+omit [IsLocallyGroupoid Γ] [∀ (x : Γ), IsIso (η.app x)] in
 theorem forwardFamilyContraction_reflexive :
     HEq (strongPrecomp (forwardFamilyContraction (r.comp i) η E) i)
       (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor) := by
@@ -45,6 +48,7 @@ theorem forwardFamilyContraction_reflexive :
     (forwardFamilyContraction_heq (r.comp i) η E) i
   exact h1.trans (retractionJMotive_beta i r η hi hη E)
 
+omit [IsLocallyGroupoid Γ] in
 theorem inverseFamilyContraction_reflexive :
     HEq (strongPrecomp (inverseFamilyContraction (r.comp i) η E) i)
       (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor) := by
@@ -80,6 +84,7 @@ theorem strongMap_eq_familyCast (e : F = G)
 end CastSquares
 
 include hi hη in
+omit [IsLocallyGroupoid Γ] in
 theorem contractionRetraction_reflexive [∀x, IsLocallyGroupoid (E.obj x)] :
     (reindexHigher E i).comp (contractionRetraction i r η E) =
       StrictPseudofunctor.id (Total (reindex i E)) := by

@@ -248,7 +248,7 @@ theorem codeM_value (source : Nat → Measured Int Nat) (offset steps : Nat) :
     congr 2
     congr 1
     funext i
-    simp [classify, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+    simp [classify, Nat.add_comm, Nat.add_left_comm]
 
 theorem codeM_cost (source : Nat → Measured Int Nat) (offset steps c : Nat)
     (hc : ∀ i, (source i).2 ≤ c) :

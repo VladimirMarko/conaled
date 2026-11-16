@@ -212,7 +212,7 @@ theorem metric_pair_preserved (p : Path x y) (v w : ℂ) :
     metric y.val (p.transport v) (p.transport w) = metric x.val v w := by
   have polar (z a b : ℂ) : metric z (a + b) (a + b) =
       metric z a a + 2 * metric z a b + metric z b b := by
-    simp [metric, Complex.mul_re, Complex.mul_im]; ring
+    simp [metric, Complex.mul_re]; ring
   have h := p.metric_preserved (v + w)
   rw [map_add, polar, polar, p.metric_preserved v, p.metric_preserved w] at h
   linarith

@@ -103,11 +103,11 @@ theorem drive_success (limits : Limits) (tolerance : ℚ) (es : List Event)
     | relabel k =>
       by_cases hf : fuel = 0
       · simp [drive,hf,stopped] at h
-      · simp only [drive,if_neg hf] at h ⊢
+      · simp only [drive,ite_eq_right hf] at h ⊢
         exact ih _ _ _ h
     | command c =>
       by_cases hc : supported c
-      · simp only [drive,hc,not_true_eq_false,if_false] at h ⊢
+      · simp only [drive,hc,not_true_eq_false,ite_false] at h ⊢
         cases ha : (searchInterval limits tolerance fuel c q).accepted with
         | none => simp [ha,stopped] at h
         | some s =>

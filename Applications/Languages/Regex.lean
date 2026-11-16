@@ -95,8 +95,8 @@ theorem derive_matches (p : Regex α) (a : α) :
   | char b => rfl
   | plus p q hp hq => simp [derive, RegularExpression.deriv, smartPlus_correct, hp, hq]
   | comp p q hp hq =>
-    simp only [derive, smartPlus_correct, smartMul_correct, hp, hq, RegularExpression.deriv]
-    cases he : p.matchEpsilon <;> simp [he, hq]
+    simp only [derive, smartPlus_correct, smartMul_correct, hp, RegularExpression.deriv]
+    cases he : p.matchEpsilon <;> simp [hq]
   | star p hp => simp [derive, smartMul_correct, smartStar_correct, hp]
 
 theorem nullable_correct (p : Regex α) : p.matchEpsilon = true ↔ [] ∈ p.matches' :=

@@ -20,10 +20,12 @@ def chartArrow (i : I) :=
 def localLabel : A.total ⟶ locallyConstantGroupSheaf G :=
   SheafCoproductLocal.desc A.family (fun i => arrowLabel (f.chartArrow smoothAction i))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[simp, reassoc] theorem localLabel_fac (i : I) :
     A.inclusion i ≫ f.localLabel smoothAction = arrowLabel (f.chartArrow smoothAction i) :=
   SheafCoproductLocal.inclusion_desc _ _ _
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_relation :
     (representation smoothAction).action.onMap (f.localLabel smoothAction) q.localMapSheaf =
       p.localMapSheaf := by
@@ -33,6 +35,7 @@ theorem localLabel_relation :
   rw [Datum.onMap_precomp, localLabel_fac, Datum.localMapSheaf_fac, Datum.localMapSheaf_fac]
   exact arrowLabel_relation (f.chartArrow smoothAction i)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem chartArrow_label (i : I) (x : Points (A.domain i)) :
     ordinaryHomLabelEquiv G (A.domain i) (arrowLabel (f.chartArrow smoothAction i)) x =
       ((f.labels i).val x)⁻¹ := by
@@ -42,6 +45,7 @@ theorem chartArrow_label (i : I) (x : Points (A.domain i)) :
     (arrowLabel (f.chartArrow smoothAction i)) x)⁻¹ = _ at h
   exact inv_eq_iff_eq_inv.mp h
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_commutes :
     labelMul (SheafCoverCech.first A.cover ≫ f.localLabel smoothAction) (q.overlapLabel smoothAction) =
       labelMul (p.overlapLabel smoothAction) (SheafCoverCech.second A.cover ≫ f.localLabel smoothAction) := by
@@ -60,6 +64,7 @@ theorem localLabel_commutes :
 def splitLabel : SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) ⟶ locallyConstantGroupSheaf G :=
   (SplitSheaf.displayIso A.cover).hom ≫ f.localLabel smoothAction
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem splitLabel_relation :
     (representation smoothAction).action.onMap (f.splitLabel smoothAction) q.splitLocalMap =
       p.splitLocalMap := by
@@ -71,6 +76,7 @@ def localArrow : SheafActionQuotient.Arrow
   chartArrowOfRelation (f.splitLabel smoothAction) p.splitLocalMap q.splitLocalMap
     (f.splitLabel_relation smoothAction)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem splitLabel_commutes :
     labelMul (SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover) ≫ f.splitLabel smoothAction)
       (q.splitLabel smoothAction) =
@@ -116,6 +122,7 @@ structure LabelMap (p q : Datum (d := d) (G := G) (M := M) A) where
 namespace LabelMap
 variable {p q : Datum (d := d) (G := G) (M := M) A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[ext] theorem ext (f g : LabelMap smoothAction p q) (h : f.label = g.label) : f = g := by
   cases f
   cases g
@@ -139,6 +146,7 @@ def chartArrow (i : I) : External.ChartArrow smoothAction (p.localMap i) (q.loca
 def labels (i : I) := External.chartLabelsEquiv smoothAction (p.localMap i) (q.localMap i)
   (f.chartArrow smoothAction i)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem labels_apply (i : I) (x : Points (A.domain i)) :
     (f.labels smoothAction i).val x =
       (ordinaryHomLabelEquiv G (A.domain i) (A.inclusion i ≫ f.label) x)⁻¹ := by
@@ -160,6 +168,7 @@ def toHom : Hom p q where
     have hi := congrArg Inv.inv h
     simpa only [labels_apply, mul_inv_rev, inv_inv] using hi
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem ofHom_toHom : ofHom smoothAction (f.toHom smoothAction) = f := by
   apply LabelMap.ext
   apply colimit.hom_ext
@@ -173,6 +182,7 @@ theorem ofHom_toHom : ofHom smoothAction (f.toHom smoothAction) = f := by
   change ((f.labels smoothAction i).val x)⁻¹ = _
   rw [labels_apply, inv_inv]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem toHom_ofHom (f : Hom p q) : (ofHom smoothAction f).toHom smoothAction = f := by
   apply Hom.ext
   funext i
@@ -237,6 +247,7 @@ def ofCechMap (f : SheafActionQuotient.Cech.Map (p.cech smoothAction) (q.cech sm
     rw [mul_one] at he
     exact h.trans he
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem ofCechMap_ofHom (f : Hom p q) :
     ofCechMap smoothAction (f.cechMap smoothAction) = ofHom smoothAction f := by
   apply LabelMap.ext
@@ -247,6 +258,7 @@ theorem ofCechMap_ofHom (f : Hom p q) :
   rw [h]
   exact Iso.inv_hom_id_assoc _ _
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem ofCechMap_injective : Function.Injective
     (ofCechMap smoothAction (p := p) (q := q)) := by
   intro f g h
@@ -256,6 +268,7 @@ theorem ofCechMap_injective : Function.Injective
   apply (cancel_epi (SplitSheaf.displayIso A.cover).inv).mp
   exact congrArg LabelMap.label h
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem cechMap_toHom_ofCechMap
     (f : SheafActionQuotient.Cech.Map (p.cech smoothAction) (q.cech smoothAction)) :
     ((ofCechMap smoothAction f).toHom smoothAction).cechMap smoothAction = f := by
@@ -277,6 +290,7 @@ end LabelMap
 namespace Hom
 variable {p q r : Datum (d := d) (G := G) (M := M) A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).localLabel smoothAction = labelOne A.total := by
   apply colimit.hom_ext
@@ -289,6 +303,7 @@ theorem localLabel_ident (p : Datum (d := d) (G := G) (M := M) A) :
   rw [chartArrow_label, ordinary_labelOne]
   exact inv_one
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_comp (f : Hom p q) (g : Hom q r) :
     (f.comp g).localLabel smoothAction = labelMul (f.localLabel smoothAction) (g.localLabel smoothAction) := by
   apply colimit.hom_ext
@@ -301,6 +316,7 @@ theorem localLabel_comp (f : Hom p q) (g : Hom q r) :
   rw [ordinary_labelMul, chartArrow_label, chartArrow_label, chartArrow_label]
   exact mul_inv_rev _ _
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem cechMap_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).cechMap smoothAction = 𝟙 (p.cech smoothAction) := by
   apply SheafActionQuotient.Cech.Map.ext
@@ -314,6 +330,7 @@ theorem cechMap_ident (p : Datum (d := d) (G := G) (M := M) A) :
   rw [localLabel_ident]
   exact mul_one z
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem cechMap_comp (f : Hom p q) (g : Hom q r) :
     (f.comp g).cechMap smoothAction = SheafActionQuotient.Cech.Map.comp (f.cechMap smoothAction) (g.cechMap smoothAction) := by
   apply SheafActionQuotient.Cech.Map.ext

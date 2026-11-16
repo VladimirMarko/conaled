@@ -99,6 +99,7 @@ def compBoundary (F : Family Γ) {x y z : Γ} (f : x ⟶ y) (g : y ⟶ z)
     (a : F.obj x) : (F.map (f ≫ g)).obj a ⟶ (F.map g).obj ((F.map f).obj a) :=
   eqToHom (congrArg (fun H : F.obj x ⟶ F.obj z => H.obj a) (F.map_comp f g))
 
+omit [Strict Γ] in
 /-- Horizontal action on a base cell has its exact typed object boundary. -/
 theorem action_whiskerRight (F : Family Γ) {x y z : Γ} {f f' : x ⟶ y}
     (α : f ⟶ f') (g : y ⟶ z) (a : F.obj x) :
@@ -113,6 +114,16 @@ theorem action_whiskerRight (F : Family Γ) {x y z : Γ} {f f' : x ⟶ y}
   repeat rw [StrictTwoTransformation.Trans.eqToHom_app] at h
   exact h
 
+-- Keep a strict-specialized proof inside the whiskering definition. Using the
+-- general law directly makes downstream coherence simplification expensive.
+omit [Strict Γ] in
+private theorem action_whiskerRight_strict [Strict Γ] (F : Family Γ) {x y z : Γ} {f f' : x ⟶ y}
+    (α : f ⟶ f') (g : y ⟶ z) (a : F.obj x) :
+    (F.map₂ (α ▷ g)).app a = compBoundary F f g a ≫
+      (F.map g).map ((F.map₂ α).app a) ≫
+      eqToHom (congrArg (fun H : F.obj x ⟶ F.obj z => H.obj a)
+        (F.map_comp f' g)).symm := action_whiskerRight F α g a
+
 /-- Right whiskering transports the genuine fiber 2-cell along the later
 base arrow, then composes with its fiber arrow. -/
 def whiskerRight (F : Family Γ) {x y z : Total F} {p p' : Hom F x y}
@@ -126,9 +137,10 @@ def whiskerRight (F : Family Γ) {x y z : Total F} {p p' : Hom F x y}
         (F.map q.base).map ((F.map₂ α.base).app x.fiber ≫ p'.fiber)) ≫ q.fiber =
         (F.map₂ (α.base ▷ q.base)).app x.fiber ≫
           (compBoundary F p'.base q.base x.fiber ≫ (F.map q.base).map p'.fiber ≫ q.fiber)
-      rw [(F.map q.base).map_comp, action_whiskerRight]
+      rw [(F.map q.base).map_comp, action_whiskerRight_strict]
       simp [compBoundary, Category.assoc]))
 
+omit [Strict Γ] in
 theorem action_whiskerLeft (F : Family Γ) {x y z : Γ} (f : x ⟶ y)
     {g g' : y ⟶ z} (β : g ⟶ g') (a : F.obj x) :
     (F.map₂ (f ◁ β)).app a = compBoundary F f g a ≫
@@ -142,6 +154,15 @@ theorem action_whiskerLeft (F : Family Γ) {x y z : Γ} (f : x ⟶ y)
   repeat rw [StrictTwoTransformation.Trans.eqToHom_app] at h
   exact h
 
+-- As on the right, retain the strict-specialized proof for coherence clients.
+omit [Strict Γ] in
+private theorem action_whiskerLeft_strict [Strict Γ] (F : Family Γ) {x y z : Γ} (f : x ⟶ y)
+    {g g' : y ⟶ z} (β : g ⟶ g') (a : F.obj x) :
+    (F.map₂ (f ◁ β)).app a = compBoundary F f g a ≫
+      (F.map₂ β).app ((F.map f).obj a) ≫
+      eqToHom (congrArg (fun H : F.obj x ⟶ F.obj z => H.obj a)
+        (F.map_comp f g')).symm := action_whiskerLeft F f β a
+
 /-- Left whiskering uses naturality of the base action at the earlier fiber
 arrow. It retains the supplied fiber 2-cell of the later total cell. -/
 def whiskerLeft (F : Family Γ) {x y z : Total F} (p : Hom F x y)
@@ -153,7 +174,7 @@ def whiskerLeft (F : Family Γ) {x y z : Total F} (p : Hom F x y)
         ((F.map q.base).map p.fiber ≫ ((F.map₂ β.base).app y.fiber ≫ q'.fiber)) =
         (F.map₂ (p.base ◁ β.base)).app x.fiber ≫
           (compBoundary F p.base q'.base x.fiber ≫ (F.map q'.base).map p.fiber ≫ q'.fiber)
-      rw [action_whiskerLeft]
+      rw [action_whiskerLeft_strict]
       simp only [compBoundary, Category.assoc, eqToHom_trans_assoc, eqToHom_refl,
         Category.id_comp]
       rw [← Category.assoc ((F.map q.base).map p.fiber),

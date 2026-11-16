@@ -30,6 +30,7 @@ theorem inverseData_cell_injective {x y : A} {p q : x ⟶ y} :
     ((heq_of_eq hd).trans (congr_arg_heq (fun G => G.map₂ β) hL)))
 
 include hL hR in
+omit [Strict A] [Strict B] in
 theorem inverseData_map_id (x : B) : D.map (𝟙 x) = 𝟙 (D.obj x) := by
   apply inverseData_map_injective F D hL
   rw [F.map_id]
@@ -37,6 +38,7 @@ theorem inverseData_map_id (x : B) : D.map (𝟙 x) = 𝟙 (D.obj x) := by
     (congr_arg_heq (fun G => 𝟙 (G.obj x)) hR).symm)
 
 include hL hR in
+omit [Strict A] [Strict B] in
 theorem inverseData_map_comp {x y z : B} (p : x ⟶ y) (q : y ⟶ z) :
     D.map (p ≫ q) = D.map p ≫ D.map q := by
   apply inverseData_map_injective F D hL
@@ -45,6 +47,7 @@ theorem inverseData_map_comp {x y z : B} (p : x ⟶ y) (q : y ⟶ z) :
     (congr_arg_heq (fun G => G.map p ≫ G.map q) hR).symm)
 
 include hL hR in
+omit [Strict A] [Strict B] in
 theorem inverseData_cell_id {x y : B} (p : x ⟶ y) : D.map₂ (𝟙 p) = 𝟙 (D.map p) := by
   apply inverseData_cell_injective F D hL
   rw [F.map₂_id]
@@ -52,6 +55,7 @@ theorem inverseData_cell_id {x y : B} (p : x ⟶ y) : D.map₂ (𝟙 p) = 𝟙 (
     (congr_arg_heq (fun G => 𝟙 (G.map p)) hR).symm)
 
 include hL hR in
+omit [Strict A] [Strict B] in
 theorem inverseData_cell_comp {x y : B} {p q r : x ⟶ y} (α : p ⟶ q) (β : q ⟶ r) :
     D.map₂ (α ≫ β) = D.map₂ α ≫ D.map₂ β := by
   apply inverseData_cell_injective F D hL

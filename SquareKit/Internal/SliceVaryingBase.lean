@@ -65,6 +65,7 @@ theorem Lift.section_over (α : h ⟶ h') (β : k.morphism ⟶ l.morphism)
   rw [Category.assoc, Category.assoc, ← ho,
     reassoc_of% (β.naturality (genericSection a)), ← Category.assoc, ht]
 
+omit [HasTerminal F] in
 /-- Compatibility over the base determines every value map. -/
 theorem Lift.value_over (α : h ⟶ h') (β : k.morphism ⟶ l.morphism)
     (over : Functor.whiskerLeft (slice a).inverseImage β ≫ l.comparison.hom = k.comparison.hom ≫ α)

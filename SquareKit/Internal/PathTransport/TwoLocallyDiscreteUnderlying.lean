@@ -12,5 +12,5 @@ def locallyDiscreteComparison {F G : StrictPseudofunctor (LocallyDiscrete C) (Lo
  (β : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
  locallyDiscreteUnderlying F ⟶ locallyDiscreteUnderlying G where
  app x := (β.app ⟨x⟩).as
- naturality x y f := congrArg Discrete.as (LocallyDiscrete.eq_of_hom (β.naturality ⟨f⟩).hom)
+ naturality _x _y f := congrArg Discrete.as (LocallyDiscrete.eq_of_hom (β.naturality ⟨f⟩).hom)
 end SquareKit.Internal.PathTransport

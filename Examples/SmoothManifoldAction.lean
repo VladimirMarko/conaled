@@ -25,7 +25,7 @@ local instance trivial (G : Type) [Group G] : MulAction G (Space 1) where
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
 
-def smooth (G : Type) [Group G] (g : G) : ContMDiff (Model 1) (Model 1) ∞
+theorem smooth (G : Type) [Group G] (g : G) : ContMDiff (Model 1) (Model 1) ∞
     (fun x : Space 1 => g • x) := contMDiff_id
 
 def constant (U : Domain) (r : ℝ) : SmoothMap U 1 (Space 1) :=

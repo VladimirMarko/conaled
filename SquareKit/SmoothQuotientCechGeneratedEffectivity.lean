@@ -29,10 +29,10 @@ theorem matchingEvaluation_ext_isEquivalence
     [(matchingEvaluation a A hΓ).IsEquivalence]
     (families : ∀ c, (familyEvaluation a A hΓ hB c).IsEquivalence) :
     (matchingEvaluation a A (.ext hΓ hB)).IsEquivalence := by
-  haveI : (matchingEvaluation a A (.ext hΓ hB) ⋙
+  have : (matchingEvaluation a A (.ext hΓ hB) ⋙
       (SmoothQuotientGeneratedMatching.generatedToRelative a hΓ hB A).functor).IsEquivalence :=
     totalMatchingEvaluation_isEquivalence a A hΓ hB families
-  haveI : (SmoothQuotientGeneratedMatching.generatedToRelative a hΓ hB A).functor.IsEquivalence :=
+  have : (SmoothQuotientGeneratedMatching.generatedToRelative a hΓ hB A).functor.IsEquivalence :=
     (SmoothQuotientGeneratedMatching.relativeMatchingEquivalence a hΓ hB A).symm.isEquivalence_functor
   exact Functor.isEquivalence_of_comp_right (matchingEvaluation a A (.ext hΓ hB))
     (SmoothQuotientGeneratedMatching.generatedToRelative a hΓ hB A).functor

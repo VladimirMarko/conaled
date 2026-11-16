@@ -53,8 +53,8 @@ theorem prepend_mul (a : α) (f g : Series α R) :
   | nil => simp [prepend]
   | cons b w =>
     by_cases h : a = b
-    · subst b; simp [prepend, convolution]; rfl
-    · simp [prepend, convolution, h]
+    · subst b; simp [prepend]; rfl
+    · simp [prepend, h]
       have hz := zero_mul g
       exact congrArg (fun k : Series α R => k w) hz
 

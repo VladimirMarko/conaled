@@ -26,6 +26,7 @@ structure Datum where
 
 variable {A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 @[ext] theorem Datum.ext (p q : Datum (d := d) (G := G) (M := M) A)
     (hm : p.localMap = q.localMap) (ht : HEq p.transition q.transition) : p = q := by
   cases p
@@ -43,6 +44,7 @@ structure Hom (p q : Datum (d := d) (G := G) (M := M) A) where
 namespace Hom
 variable {p q r : Datum (d := d) (G := G) (M := M) A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 @[ext] theorem ext (f g : Hom p q) (h : f.labels = g.labels) : f = g := by
   cases f
   cases g
@@ -75,27 +77,32 @@ def families (f : Hom p q) (i : I) :
     External.Family (G := G) (A.domain i) (p.localMap i) (q.localMap i) :=
   External.labelsEquiv _ _ (f.labels i)
 
+omit [IsManifold (Model d) ∞ M] in
 theorem families_apply (f : Hom p q) (i : I) (x : Points (A.domain i)) :
     (f.families i).val x = ((f.labels i).val x, (p.localMap i).val x) := rfl
 
+omit [IsManifold (Model d) ∞ M] in
 theorem families_injective : Function.Injective (fun f : Hom p q => f.families) := by
   intro f g h
   apply Hom.ext
   funext i
   exact (External.labelsEquiv _ _).injective (congrFun h i)
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem ident_comp (f : Hom p q) : (ident p).comp f = f := by
   apply Hom.ext
   funext i
   apply Subtype.ext
   exact mul_one _
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem comp_ident (f : Hom p q) : f.comp (ident q) = f := by
   apply Hom.ext
   funext i
   apply Subtype.ext
   exact one_mul _
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem comp_assoc {s : Datum (d := d) (G := G) (M := M) A}
     (f : Hom p q) (g : Hom q r) (h : Hom r s) : (f.comp g).comp h = f.comp (g.comp h) := by
   apply Hom.ext
@@ -103,12 +110,14 @@ theorem comp_assoc {s : Datum (d := d) (G := G) (M := M) A}
   apply Subtype.ext
   exact (mul_assoc _ _ _).symm
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem inverse_comp (f : Hom p q) : f.inverse.comp f = ident q := by
   apply Hom.ext
   funext i
   apply Subtype.ext
   exact mul_inv_cancel _
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem comp_inverse (f : Hom p q) : f.comp f.inverse = ident p := by
   apply Hom.ext
   funext i

@@ -80,6 +80,7 @@ theorem measurable_timeout [Countable S] [Countable A]
       (MeasurableSet.const (n ≤ d)).inter (measurable_evaluates step hm s a n)).compl using 1
   ext ω; simp [timeout]
 
+omit [MeasurableSpace Ω] in
 /-- Infinite nontermination is precisely timeout at every finite deadline. -/
 theorem divergence_eq_all_timeouts (step : Execution Ω S A) (s : S) :
     (termination step s)ᶜ = ⋂ d, timeout step s d := by

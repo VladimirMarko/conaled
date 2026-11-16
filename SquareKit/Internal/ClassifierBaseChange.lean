@@ -40,6 +40,7 @@ def classifierBaseChangeGenericIso :
     (classifierBaseChangeLift h (U := U)).pullGeneric u ≅ (classifierBaseChangeLift h (U := U)).model u :=
   (classifierBaseChangeLift h).pullGenericIso u
 
+omit [Mono u] in
 /-- The generic comparison retains the diagonal section with the explicit coproduct/terminal normalization. -/
 theorem classifierBaseChangeGeneric_section :
     ((classifierBaseChangeLift h (U := U)).pullGeneric u).toSection =
@@ -67,6 +68,7 @@ def normalizedGenericModel :
     (parameterPullback ((slice (h.inverseImage.obj U ⨿ ⊤_ F)).comp h) u)
     (Iso.refl _)).obj (genericModel (parameterPullback h u))
 
+omit [Mono u] in
 /-- The normalized square classifies the new generic model, including its diagonal. -/
 theorem normalizedClassifier_model_section :
     ((normalizedClassifierLift h).model u).toSection = (normalizedGenericModel h u).toSection := by

@@ -72,7 +72,7 @@ theorem observeSquare_stokes (z : CubeCocycle (⟨3⟩ : Cube)) :
   have h21111 := flag_closed z 2 1 ![true,true,true]
   simp only [observeSquare,CubeCocycle.pullback_eval,Category.id_comp]
   dsimp only [remainingAxis,otherAxis2,vertex2,rawVertex2] at *
-  simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, ite_true, ite_false, Fin.zero_eq_one_iff] at *
+  simp only [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, ite_true, ] at *
   simp [Matrix.vecHead, Matrix.vecTail, edge3, rawEdge3, flagEndpoint] at *
   omega
 

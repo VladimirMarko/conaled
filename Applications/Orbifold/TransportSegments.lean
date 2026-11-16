@@ -60,14 +60,14 @@ def circle (x : Disk) (hr : Complex.normSq x.val = 1 / 5)
 
 /-- A point on the selected circle, with its domain proof. -/
 def loopPoint : Disk := ⟨(Real.sqrt (1 / 5) : ℂ), (disk_mem _).mpr (by
-  simp [Complex.normSq_ofReal, Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 1 / 5)]
+  simp [Complex.normSq_ofReal]
   norm_num)⟩
 
 theorem loopPoint_radius : Complex.normSq loopPoint.val = 1 / 5 := by
-  simp [loopPoint, Complex.normSq_ofReal, Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 1 / 5)]
+  simp [loopPoint, Complex.normSq_ofReal]
 
 @[simp] theorem turn_full : turn (2 * Real.pi) = 1 := by
-  simpa [turn] using Complex.exp_two_pi_mul_I
+  simp [turn]
 
 theorem loop_endpoint : turnPoint loopPoint (2 * Real.pi) = loopPoint := by
   apply Subtype.ext; simp [turnPoint]
@@ -77,7 +77,7 @@ theorem loop_transport (v : ℂ) :
   rw [circle_transport]
   have h : turn (-(2 * Real.pi) / 2) = -1 := by
     rw [show -(2 * Real.pi) / 2 = -Real.pi by ring]
-    simpa [turn] using Complex.exp_neg_pi_mul_I
+    simp [turn]
   rw [h]; ring
 
 /-- The loop and a hold have the same endpoints and different transport. -/

@@ -86,6 +86,7 @@ def sectionMap : A.total ⟶ SplitSheaf.Ext P.torsor.family :=
   SheafCoproductLocal.desc A.family (fun i => SplitSheaf.pair P.torsor.family (A.chart i)
     (SheafTorsor.sectionOfArrow (t.trivialization i)))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem sectionMap_projection : t.sectionMap ≫ SplitSheaf.p P.torsor.family = A.cover := by
   apply colimit.hom_ext
   intro ⟨i⟩
@@ -111,16 +112,19 @@ def localMap (i : I) : External.SmoothMap (A.domain i) d M :=
     (reindex P (A.chart i)).sectionMap (SheafTorsor.sectionOfArrow (t.trivialization i))),
     ManifoldRealization.reconstruct_smooth _⟩
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localMap_hat (i : I) : hat (t.localMap i).val (t.localMap i).property =
     (reindex P (A.chart i)).sectionMap (SheafTorsor.sectionOfArrow (t.trivialization i)) := by
   unfold localMap hat
   rw [ManifoldRealization.map_reconstruct, Iso.inv_hom_id_assoc]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localValue_factorization :
     (reindex P A.cover).sectionMap t.localSection = t.sectionMap ≫ P.totalMap := by
   change SplitSheaf.pair P.torsor.family A.cover t.localSection ≫ P.totalMap = _
   rw [localSection, SplitSheaf.pair_read]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localValue_chart (i : I) :
     A.inclusion i ≫ (reindex P A.cover).sectionMap t.localSection =
       hat (t.localMap i).val (t.localMap i).property := by
@@ -128,6 +132,7 @@ theorem localValue_chart (i : I) :
     SheafCoproductLocal.inclusion_desc, localMap_hat]
   rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- All reconstructed smooth maps assemble to the actual chosen local value map. -/
 theorem localValue_assembled :
     SheafCoproductLocal.desc A.family (fun i => hat (t.localMap i).val (t.localMap i).property) =
@@ -153,6 +158,7 @@ def regularDescent : Descent.Datum (a := (representation smoothAction).action)
 def recovery : SheafActionQuotient.Arrow t.regularDescent.object P :=
   descentOfLocalIsoRecovery smoothAction P _ t.splitRegularization
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The regularized local object is the realization of the extracted smooth maps. -/
 theorem regularDescent_localObject : (Cech.ofDescent t.regularDescent).localObject =
     chart (representation smoothAction).action
@@ -252,6 +258,7 @@ variable {X : Sheaf topology Type} {d : ℕ} {G M : Type} [Group G] [MulAction G
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Restricting the chosen global recovery gives precisely the local isomorphism
 following the effective-descent comparison. -/
 theorem descentOfLocalIsoRecovery_reindex {B : SplitSheaf.Ty X}
@@ -358,6 +365,7 @@ theorem extractedDatum_transition_apply (i j : I) (x : Points (A.pair i j)) :
   have h := (k.datum_label smoothAction).symm.trans t.extractedDatum_overlapLabel
   rw [h]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The selected section restricts to the section of the supplied chart
 trivialization, as an equality in the actual total sheaf. -/
 theorem localSection_chart (i : I) :
@@ -366,6 +374,7 @@ theorem localSection_chart (i : I) :
         (SheafTorsor.sectionOfArrow (t.trivialization i)) := by
   rw [localSection, SplitSheaf.pair_read, sectionMap, SheafCoproductLocal.inclusion_desc]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The regularization on every chart is the supplied trivialization at every
 group element, expressed in the total sheaf to retain the actual base point. -/
 theorem regularization_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒᵖ)
@@ -390,6 +399,7 @@ theorem regularization_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒ�
   exact hh.trans (congrArg (fun z =>
     (⟨(A.chart i).hom.app U x, z⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U)) he.symm)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Passing from the coproduct cover to its split display changes only its
 presentation; the selected regularization has the same actual total value. -/
 theorem splitRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)

@@ -23,6 +23,7 @@ theorem rootedContraction_embedding_source :
   rw [strictFunctor_comp_assoc, rootedReflexivity_embedding, ← strictFunctor_comp_assoc,
     ← strictFunctor_comp_assoc, rootedPathEmbedding_first]
   rfl
+omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_embedding_target :
     (StrictPseudofunctor.id _).comp (rootedPathEmbedding F x) =
       (rootedPathEmbedding F x).comp (StrictPseudofunctor.id _) := by
@@ -48,11 +49,13 @@ theorem rootedContraction_reflexive_mapped :
   have h9 := (heq_of_eq (strongPostcomp_id (rootedReflexivity F x) (rootedPathEmbedding F x))).symm
   exact h1.trans (h2.trans (h3.trans (h4.trans (h5.trans (h6.trans (h7.trans (h8.trans h9)))))))
 
+omit [IsLocallyGroupoid Γ] in
 theorem rootedPathEmbedding_map_injective {a b : Total (rootedPathFamily F x)} :
     Function.Injective ((rootedPathEmbedding F x).map (X := a) (Y := b)) := by
   rw [← rootedPathEmbedding_direct]
   exact familySubstitution_map_injective (openIdHigher F) (rootedEndpoint F x)
     (rootedPathFamily_direct F x) (fun {_ _} => rootedEndpoint_map_injective F x)
+omit [IsLocallyGroupoid Γ] in
 theorem rootedPathEmbedding_cell_injective {a b : Total (rootedPathFamily F x)} {p q : a ⟶ b} :
     Function.Injective ((rootedPathEmbedding F x).map₂ (f := p) (g := q)) := by
   rw [← rootedPathEmbedding_direct]

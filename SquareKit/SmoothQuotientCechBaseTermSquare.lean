@@ -58,8 +58,8 @@ theorem primitiveConeLaws : CechMatching.ConeLaws
     simp only [SmoothQuotientGeneratedMatching.baseDiagram,
       CechMatching.StrictDiagram.toDiagram, Iso.trans_hom, Iso.symm_hom,
       NatTrans.comp_app, isoWhiskerLeft_hom, isoWhiskerRight_hom,
-      whiskerLeft_app, whiskerRight_app, isoWhiskerLeft_inv, eqToIso.hom, eqToIso.inv, eqToHom_app, NatTrans.id_app,
-      eqToHom_refl, Category.comp_id, Category.id_comp]
+      whiskerLeft_app, whiskerRight_app, isoWhiskerLeft_inv, eqToIso.hom, eqToIso.inv, NatTrans.id_app,
+      eqToHom_refl, ]
     apply SheafActionQuotient.Arrow.ext
     apply SheafTorsor.Arrow.ext
     simpa [primitiveLocalMap, primitiveOverlap, alignedBaseIso, overlap, signature, alignedUniverseSignature, restriction, SheafActionQuotient.Cech.localFunctor, AsSmall.up, AsSmall.down, CategoryTheory.down_comp, lifted_id_down, SheafActionQuotient.instCategoryObject, SheafActionQuotient.instGroupoidObject, quotient_id, quotient_comp] using congrArg (fun k => k.torsorArrow.iso.hom) (AsSmall.down.obj d).diagonal
@@ -69,10 +69,9 @@ theorem primitiveConeLaws : CechMatching.ConeLaws
     funext d
     apply ULift.ext
     simp only [SmoothQuotientGeneratedMatching.baseDiagram,
-      CechMatching.StrictDiagram.toDiagram, Iso.trans_hom, Iso.symm_hom,
-      NatTrans.comp_app, isoWhiskerLeft_hom, isoWhiskerRight_hom,
-      whiskerLeft_app, whiskerRight_app, isoWhiskerLeft_inv, eqToIso.hom, eqToIso.inv, eqToHom_app, NatTrans.id_app,
-      eqToHom_refl, Category.comp_id, Category.id_comp]
+      CechMatching.StrictDiagram.toDiagram, Iso.trans_hom, NatTrans.comp_app, isoWhiskerLeft_hom, isoWhiskerRight_hom,
+      whiskerLeft_app, whiskerRight_app, eqToIso.hom, NatTrans.id_app,
+      eqToHom_refl, ]
     apply SheafActionQuotient.Arrow.ext
     apply SheafTorsor.Arrow.ext
     simpa [primitiveLocalMap, primitiveOverlap, alignedBaseIso, overlap, signature, alignedUniverseSignature, restriction, SheafActionQuotient.Cech.localFunctor, AsSmall.up, AsSmall.down, CategoryTheory.down_comp, lifted_id_down, SheafActionQuotient.instCategoryObject, SheafActionQuotient.instGroupoidObject, quotient_id, quotient_comp] using congrArg (fun k => k.torsorArrow.iso.hom) (AsSmall.down.obj d).cocycle

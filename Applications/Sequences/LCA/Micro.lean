@@ -44,7 +44,7 @@ theorem relative_unitSteps (shape : Shape steps) : UnitSteps steps (relative sha
 theorem classify_relative (shape : Shape steps) : classify steps (relative shape) = shape := by
   funext i
   simp only [classify, relative, i.isLt, dite_true]
-  cases h : shape i <;> simp [h]
+  cases h : shape i <;> simp
 
 /-- The height offset discarded by classification is invisible to exact
 leftmost argmin queries, not merely to minimum-value comparisons. -/

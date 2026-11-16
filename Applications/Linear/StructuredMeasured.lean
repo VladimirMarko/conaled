@@ -45,32 +45,31 @@ def diagonalStage (a : Diagonal R n) : Resources.Measured (Sparse R n n) Work :=
   measuredMap (fun i : Fin n => (⟨i, i, a[i]⟩ : Entry R n n))
     (fun _ => stageCharge) (List.finRange n)
 
+omit [CommSemiring R] in
 @[simp] theorem denseStage_erases (a : Dense R m n) :
     (denseStage a).1 = denseEntries a := by
   simp [denseStage, denseEntries, List.flatMap_def]
 
+omit [CommSemiring R] in
 @[simp] theorem diagonalStage_erases (a : Diagonal R n) :
     (diagonalStage a).1 = diagonalEntries a := by
   simp [diagonalStage, diagonalEntries]
 
+omit [CommSemiring R] in
 theorem diagonalStage_cost (a : Diagonal R n) (e : Event) :
     (diagonalStage a).2 e = n * stageCharge e := by
-  simpa [diagonalStage] using map_cost_uniform
-    (fun i : Fin n => (⟨i, i, a[i]⟩ : Entry R n n)) stageCharge (List.finRange n) e
+  simp [diagonalStage]
 
+omit [CommSemiring R] in
 theorem denseStage_cost (a : Dense R m n) (e : Event) :
     (denseStage a).2 e = m * n * stageCharge e +
       tick .traversal m e + tick .construct (m * n) e := by
-  have h : ∀ i : Fin m,
-      (measuredMap (fun j : Fin n => (⟨i, j, a[i][j]⟩ : Entry R m n))
-        (fun _ => stageCharge) (List.finRange n)).2 = fun e => n * stageCharge e := by
-    intro i
-    funext e
-    simpa using map_cost_uniform
-      (fun j : Fin n => (⟨i, j, a[i][j]⟩ : Entry R m n)) stageCharge (List.finRange n) e
-  have hc := traverse_cost_uniform _ _ h (List.finRange m) e
-  simpa [denseStage, Nat.mul_assoc] using
-    congrArg (fun k => k + tick .traversal m e + tick .construct (m * n) e) hc
+  simp [denseStage, Nat.mul_assoc]
+
+-- Staging only copies coefficients, so its cost law also applies to strings.
+example : (diagonalStage (#v["left", "right"] : Diagonal String 2)).2 .coefficientRead = 2 := by
+  rw [diagonalStage_cost]
+  rfl
 
 def denseMeasured (a : Dense R m n) (x : Vector R n) :
     Resources.Measured (Vector R m) Work :=
@@ -167,11 +166,13 @@ def materializeMeasured (a : Matrix (Fin m) (Fin n) R) :
     Resources.bind ((), tick .traversal) fun _ =>
       measuredTabulate n fun j => (a i j, materializeCellCharge)
 
+omit [CommSemiring R] in
 @[simp] theorem materializeMeasured_erases (a : Matrix (Fin m) (Fin n) R) :
     denseMatrix (materializeMeasured a).1 = a := by
   simp only [materializeMeasured, measuredTabulate_erases, Resources.bind]
   exact materialize_correct a
 
+omit [CommSemiring R] in
 theorem materializeMeasured_cost (a : Matrix (Fin m) (Fin n) R) (e : Event) :
     (materializeMeasured a).2 e =
       m * ((tick .traversal) e + n * materializeCellCharge e) := by

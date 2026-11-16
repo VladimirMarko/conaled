@@ -33,6 +33,7 @@ def Labels (U : Domain) (m n : SmoothMap U d M) :=
 
 variable {U : Domain} {m n p : SmoothMap U d M}
 
+omit [Group G] in
 /-- Smoothness of a locally constant map requires no connectedness of its domain. -/
 theorem label_smooth (g : LocallyConstant (Points U) G) :
     ContMDiff (Model U.dimension) 𝓘(ℝ, Fin 0 → ℝ) ∞
@@ -109,15 +110,18 @@ def inverse (a : Family (G := G) U m n) : Family (G := G) U n m :=
   labelsEquiv n m ⟨((labelsEquiv m n).symm a).val⁻¹,
     fun x => inv_smul_eq_iff.mpr (((labelsEquiv m n).symm a).property x).symm⟩
 
+omit [IsManifold (Model d) ∞ M] in
 @[ext] theorem ext {a b : Family (G := G) U m n}
     (h : ∀ x, (a.val x).1 = (b.val x).1) : a = b := by
   apply Subtype.ext
   funext x
   exact Prod.ext (h x) ((a.property.2.1 x).trans (b.property.2.1 x).symm)
 
+omit [IsManifold (Model d) ∞ M] in
 theorem comp_apply (a : Family (G := G) U m n) (b : Family (G := G) U n p) (x : Points U) :
     (a.comp b).val x = compose (a.val x).1 (b.val x).1 (m.val x) := rfl
 
+omit [IsManifold (Model d) ∞ M] in
 theorem inverse_apply (a : Family (G := G) U m n) (x : Points U) :
     a.inverse.val x = Orbifolds.FiniteActionPresentation.inverse (a.val x) :=
   Prod.ext rfl (a.property.2.2 x).symm

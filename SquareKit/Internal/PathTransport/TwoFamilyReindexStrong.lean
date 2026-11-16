@@ -13,6 +13,7 @@ variable {Δ : Type uD} [Bicategory.{wD,vD} Δ] [Strict Δ]
 variable (E : Family.{u,v,w,uE,vE,wE} Γ) (σ : StrictPseudofunctor Δ Γ)
 variable {A : Type*} [Bicategory A] [Strict A]
 variable {F G : StrictPseudofunctor A (Total (reindex σ E))}
+omit [Strict A] in
 theorem reindexStrongBoundary (K : StrictPseudofunctor A (Total (reindex σ E))) :
     (K.comp (projectionHigher (reindex σ E))).comp σ =
       (K.comp (reindexHigher E σ)).comp (projectionHigher E) := by
@@ -23,18 +24,22 @@ variable (θ : Pseudofunctor.StrongTrans (F.comp (reindexHigher E σ)).toPseudof
     (G.comp (reindexHigher E σ)).toPseudofunctor)
 variable (h : HEq (strongPostcomp β σ) (strongPostcomp θ (projectionHigher E)))
 include h in
+omit [Strict A] in
 theorem reindexStrongApp_base (x : A) : σ.map (β.app x) = (θ.app x).base :=
   eq_of_heq (strongTrans_app_heq (reindexStrongBoundary E σ F) (reindexStrongBoundary E σ G)
     _ _ h x)
 def reindexStrongApp (x : A) : F.obj x ⟶ G.obj x :=
   reindexLiftHom E σ (θ.app x) (β.app x) (reindexStrongApp_base E σ β θ h x)
+omit [Strict A] in
 theorem reindexStrongApp_map (x : A) :
     (reindexHigher E σ).map (reindexStrongApp E σ β θ h x) = θ.app x := reindexLiftHom_map _ _ _ _ _
+omit [Strict A] in
 theorem reindexStrongCell_source {x y : A} (p : x ⟶ y) :
     (reindexHigher E σ).map (F.map p ≫ reindexStrongApp E σ β θ h y) =
       (F.comp (reindexHigher E σ)).map p ≫ θ.app y := by
   rw [(reindexHigher E σ).map_comp, reindexStrongApp_map]
   rfl
+omit [Strict A] in
 theorem reindexStrongCell_target {x y : A} (p : x ⟶ y) :
     (reindexHigher E σ).map (reindexStrongApp E σ β θ h x ≫ G.map p) =
       θ.app x ≫ (G.comp (reindexHigher E σ)).map p := by
@@ -50,6 +55,7 @@ private theorem cast_cell_base_heq {x y : Total E} {p q p' q' : x ⟶ y}
   simp only [eqToHom_refl, Category.id_comp, Category.comp_id]
   rfl
 include h in
+omit [Strict A] in
 theorem reindexStrongCell_base {x y : A} (p : x ⟶ y) :
     σ.map₂ (β.naturality p).hom = (reindexStrongCellImage E σ β θ h p).base := by
   have h1 := (strongPostcomp_naturality_heq β σ p).symm
@@ -66,6 +72,7 @@ def reindexStrongCell {x y : A} (p : x ⟶ y) :
 variable [IsLocallyGroupoid Δ] [∀x, IsLocallyGroupoid (E.obj x)]
 noncomputable def reindexStrongNaturality {x y : A} (p : x ⟶ y) := asIso (reindexStrongCell E σ β θ h p)
 
+omit [Strict A] in
 theorem reindexStrongNaturality_mapped {x y : A} (p : x ⟶ y) :
     HEq (mappedStrongNaturality (reindexHigher E σ) (reindexStrongApp E σ β θ h)
       (reindexStrongNaturality E σ β θ h) p).hom (θ.naturality p).hom := by
@@ -85,6 +92,7 @@ noncomputable def reindexStrongLift
     (funext (reindexStrongApp_map E σ β θ h))
     (reindexStrongNaturality_mapped E σ β θ h)
 
+omit [Strict A] in
 theorem reindexStrongLift_map
     (hc : ∀{x y : Δ} {p q : x ⟶ y}, Function.Injective (σ.map₂ (f := p) (g := q))) :
     strongPostcomp (reindexStrongLift E σ β θ h (@hc)) (reindexHigher E σ) = θ :=

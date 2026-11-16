@@ -29,10 +29,9 @@ theorem CubeCocycle.closed_eval {N I J K L : Cube} (z : CubeCocycle N)
     (Over.homMk g rfl : Over.mk (g ≫ (h ≫ t)) ⟶ Over.mk (h ≫ t))
     (Over.homMk h rfl : Over.mk (h ≫ t) ⟶ Over.mk t)
   simp only [eval,δ2] at *
-  convert e using 1; congr 2 <;> simp [Over.mk,CostructuredArrow.mk,Over.homMk,CostructuredArrow.homMk,
-    Category.assoc]
+  convert e using 1; congr 2 <;> simp [Over.mk,CostructuredArrow.mk,Over.homMk,CostructuredArrow.homMk]
   all_goals congr 1
-  all_goals first | simp only [Category.assoc] | apply overHom_heq <;> simp [Over.mk,CostructuredArrow.mk,Category.assoc]
+  all_goals first | simp only [Category.assoc] | apply overHom_heq <;> simp [Category.assoc]
 
 theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
     (σ : M ⟶ N) (f : I ⟶ J) (g : J ⟶ K) (t : K ⟶ M) :
@@ -40,7 +39,7 @@ theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
   simp only [eval,Cocycle2.pullback]
   congr 1 <;> simp [Over.mk,CostructuredArrow.mk,Over.map,Comma.mapRight,Over.homMk,
     CostructuredArrow.homMk,Category.assoc]
-  all_goals apply overHom_heq <;> simp [Over.mk,CostructuredArrow.mk,Category.assoc]
+  all_goals apply overHom_heq <;> simp [Category.assoc]
 
 /-- Evaluating the underlying flag of actual slice arrows recovers their cochain value. -/
 theorem CubeCocycle.eval_arrows {N : Cube} (z : CubeCocycle N)

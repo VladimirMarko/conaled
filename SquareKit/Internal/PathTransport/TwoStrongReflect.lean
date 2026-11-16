@@ -49,7 +49,7 @@ def strongReflect (hc : ∀{x y : B} {p q : x ⟶ y}, Function.Injective (H.map�
       Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso,
       whiskerLeft_eqToHom, eqToHom_whiskerRight,
       PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans_assoc,
-      eqToHom_trans, eqToHom_refl, Category.id_comp, Category.comp_id] at k ⊢
+      eqToHom_trans, eqToHom_refl, Category.id_comp] at k ⊢
     convert k using 1; rfl
   · intro x y z f g
     apply hc
@@ -63,13 +63,14 @@ def strongReflect (hc : ∀{x y : B} {p q : x ⟶ y}, Function.Injective (H.map�
       Pseudofunctor.map₂_whisker_left, Pseudofunctor.map₂_whisker_right,
       whiskerLeft_comp, comp_whiskerRight,
       PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans_assoc,
-      eqToHom_trans, eqToHom_refl, Category.id_comp, Category.comp_id] at k ⊢
+      eqToHom_trans, eqToHom_refl, Category.id_comp] at k ⊢
     convert k using 1 <;> rfl
 
 variable (hc : ∀{x y : B} {p q : x ⟶ y}, Function.Injective (H.map₂ (f := p) (g := q)))
 variable (θ : Pseudofunctor.StrongTrans (F.comp H).toPseudofunctor (G.comp H).toPseudofunctor)
 variable (ha : (fun x => H.map (a x)) = θ.app)
 variable (hn : ∀ {x y : A} (p : x ⟶ y), HEq (mappedStrongNaturality H a n p).hom (θ.naturality p).hom)
+omit [Strict A] in
 theorem strongReflect_app : (strongReflect H a n (@hc) θ ha hn).app = a := by
   rcases θ with ⟨θa, θn, θh, θi, θc⟩
   dsimp only at ha hn
@@ -81,6 +82,7 @@ theorem strongReflect_app : (strongReflect H a n (@hc) θ ha hn).app = a := by
   cases hnat
   rfl
 
+omit [Strict A] in
 theorem strongReflect_naturality : HEq (@(strongReflect H a n (@hc) θ ha hn).naturality) (@n) := by
   rcases θ with ⟨θa, θn, θh, θi, θc⟩
   dsimp only at ha hn
@@ -92,6 +94,7 @@ theorem strongReflect_naturality : HEq (@(strongReflect H a n (@hc) θ ha hn).na
   cases hnat
   rfl
 
+omit [Strict A] in
 theorem strongReflect_postcomp : strongPostcomp (strongReflect H a n (@hc) θ ha hn) H = θ := by
   rcases θ with ⟨θa, θn, θh, θi, θc⟩
   dsimp only at ha hn

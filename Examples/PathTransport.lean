@@ -110,7 +110,7 @@ def quarterClosed : Path.ClosedLift loopPoint where
     change ((Orbifolds.QuarterTurn.quarterTurn⁻¹).val : ℂ) *
       (loopPoint.val * DiskTransport.turn (Real.pi / 2)) = loopPoint.val
     have hi : ((Orbifolds.QuarterTurn.quarterTurn⁻¹).val : ℂ) = -Complex.I := by
-      simp [Orbifolds.QuarterTurn.quarterTurn, Units.val_inv_eq_inv_val]
+      simp [Orbifolds.QuarterTurn.quarterTurn]
     have ht : DiskTransport.turn (Real.pi / 2) = Complex.I := by simp [DiskTransport.turn]
     rw [hi, ht]
     have hI := Complex.I_sq
@@ -139,7 +139,7 @@ example (v : ℂ) : quarterClosed.endomorphism v =
     (circle loopPoint loopPoint_radius (Real.pi / 2) _).transport v = _
   rw [circle_transport]
   have hi : ((Orbifolds.QuarterTurn.quarterTurn⁻¹).val : ℂ) = -Complex.I := by
-    simp [Orbifolds.QuarterTurn.quarterTurn, Units.val_inv_eq_inv_val]
+    simp [Orbifolds.QuarterTurn.quarterTurn]
   rw [hi]
 
 open Orbifold.DiskConnection in

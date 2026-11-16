@@ -34,8 +34,7 @@ theorem comparison_integer (m n : ℤ) :
     (comparison m n).app arrow = Multiplicative.ofAdd (n - m) := by
   simp [comparison, TwoIdentityTransport.homComparison, TwoIdentityTransport.inverseMate,
     TwoIdentityTransport.homNaturality, StrictTwoTransformation.Trans.id,
-    ← Groupoid.inv_eq_inv, SingleObj.comp_as_mul, SingleObj.id_as_one,
-    DoubleDelooping.instBicategorySpace]
+    ← Groupoid.inv_eq_inv, ]
   simp only [Bicategory.whiskerLeft, Bicategory.whiskerRight, Bicategory.associator,
     Iso.refl_hom, Iso.refl_inv]
   simp only [CategoryStruct.comp, CategoryStruct.id, Groupoid.inv, one_mul, mul_one]

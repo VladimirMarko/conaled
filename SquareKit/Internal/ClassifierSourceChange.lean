@@ -24,6 +24,7 @@ def sourceModelFunctor : PartitionSection.Model (parameterPullback h u) ⥤
   pullModelFunctor f ⋙ PartitionSection.changeParameter
     (parameterPullback f (parameterPullback h u)) (parameterPullback (f.comp h) u) (Iso.refl _)
 
+omit [HasPullbacks B] [FinitaryExtensive B] [HasPullbacks F] [HasBinaryProducts G] [HasPullbacks G] [Mono u] in
 /-- The source substitution functor retains inverse image of the actual section. -/
 theorem sourceModelFunctor_section (M : PartitionSection.Model (parameterPullback h u)) :
     ((sourceModelFunctor f h u).obj M).toSection = f.pullSection M.toSection ≫
@@ -34,6 +35,7 @@ theorem sourceModelFunctor_section (M : PartitionSection.Model (parameterPullbac
 
 variable [Closed (U ⨿ ⊤_ B)]
 
+omit [HasPullbacks F] [HasBinaryProducts G] [HasPullbacks G] [Mono u] in
 /-- Classification commutes with source substitution on the interpreted sections. -/
 theorem sourceModel_classifier_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     ((sourceModelFunctor f h u).obj (k.model u)).toSection = ((k.precomp f).model u).toSection := by

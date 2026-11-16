@@ -63,7 +63,7 @@ theorem tripleSquare (i j k : Bool) : IsPullback (embedding.map (firstSecond i j
   · simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using overlap
   · simp only [firstSecond, third, projection, chart, pair, triple, embedding.map_id]
     apply IsPullback.of_horiz_isIso_mono
-    exact ⟨by simp [firstSecond, third, projection, chart, pair, triple, embedding.map_id]⟩
+    exact ⟨by simp⟩
   · simp only [firstSecond, third, projection, chart, pair, triple, embedding.map_id]
     apply IsPullback.of_horiz_isIso_mono
     exact ⟨by simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using overlap.w⟩
@@ -72,7 +72,7 @@ theorem tripleSquare (i j k : Bool) : IsPullback (embedding.map (firstSecond i j
     exact ⟨by simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using overlap.w.symm⟩
   · simp only [firstSecond, third, projection, chart, pair, triple, embedding.map_id]
     apply IsPullback.of_horiz_isIso_mono
-    exact ⟨by simp [firstSecond, third, projection, chart, pair, triple, embedding.map_id]⟩
+    exact ⟨by simp⟩
   · simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using overlap.flip
   · simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using square true true
 

@@ -10,7 +10,6 @@ def cubicCorrection (p : State) : ℂ := conj p.1*p.2^2+conj p.1*p.1*p.2
 
 private theorem triple_difference {E : Type*} [NormedAddCommGroup E]
     {a b c d e f : E → ℂ}
-    (ha : a =O[𝓝 0] (fun p => ‖p‖))
     (hb : b =O[𝓝 0] (fun p => ‖p‖))
     (hc : c =O[𝓝 0] (fun p => ‖p‖))
     (hd : d =O[𝓝 0] (fun p => ‖p‖))
@@ -49,10 +48,10 @@ theorem cubicCorrection_difference {E : Type*} [NormedAddCommGroup E] {α β : E
     (fun p => cubicCorrection (α p)-cubicCorrection (β p)) =O[𝓝 0] (fun p => ‖p‖^5) := by
   have hdz : (fun p => conj (α p).1-conj (β p).1) =O[𝓝 0] (fun p => ‖p‖^3) := by
     simpa only [Prod.fst_sub,map_sub] using complexConjugate_bigO hd.prod_left_fst
-  have h1 := triple_difference (complexConjugate_bigO ha.prod_left_fst)
+  have h1 := triple_difference
     ha.prod_left_snd ha.prod_left_snd (complexConjugate_bigO hb.prod_left_fst)
     hb.prod_left_snd hdz hd.prod_left_snd hd.prod_left_snd
-  have h2 := triple_difference (complexConjugate_bigO ha.prod_left_fst)
+  have h2 := triple_difference
     ha.prod_left_fst ha.prod_left_snd (complexConjugate_bigO hb.prod_left_fst)
     hb.prod_left_fst hdz hd.prod_left_fst hd.prod_left_snd
   apply (h1.add h2).congr_left

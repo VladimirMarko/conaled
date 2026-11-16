@@ -50,6 +50,12 @@ variable [CartesianMonoidalCategory E] [HasPullbacks E] [FinitaryExtensive E]
 variable (f : GeometricMorphism B A) (g : GeometricMorphism C B) (k : GeometricMorphism D C)
 variable (h : GeometricMorphism A E) {U : E} (u : U ⟶ ⊤_ E) [Mono u]
 
+omit [HasPullbacks A]
+    [HasPullbacks B]
+    [HasPullbacks C]
+    [HasPullbacks D]
+    [HasPullbacks E]
+    [FinitaryExtensive E] [Mono u] in
 /-- The source composition comparisons satisfy the associativity diagram. -/
 theorem sourceModel_associativity :
     whiskerRight (sourceModelCompIso g f h u).hom (sourceModelFunctor k (g.comp (f.comp h)) u) ≫
@@ -62,6 +68,7 @@ theorem sourceModel_associativity :
   funext M
   apply Subsingleton.elim
 
+omit [HasPullbacks A] [HasPullbacks B] [HasPullbacks E] [FinitaryExtensive E] [Mono u] in
 /-- The right unit comparison is compatible with source composition. -/
 theorem sourceModel_right_unit :
     (sourceModelCompIso (identity B) f h u).hom =
@@ -71,6 +78,7 @@ theorem sourceModel_right_unit :
   funext M
   apply Subsingleton.elim
 
+omit [HasPullbacks A] [HasPullbacks B] [HasPullbacks E] [FinitaryExtensive E] [Mono u] in
 /-- The left unit comparison is compatible with source composition. -/
 theorem sourceModel_left_unit :
     (sourceModelCompIso f (identity A) h u).hom =

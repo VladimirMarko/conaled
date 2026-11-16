@@ -48,7 +48,7 @@ theorem endpointMap_derivative : HasFDerivAt endpointMap endpointDerivative 0 :=
   convert! h using 1
   apply ContinuousLinearMap.ext
   intro p
-  simp [endpointDerivative, initialPaths, constant, integralCLM_apply, extend, oneTime,
+  simp [endpointDerivative, initialPaths, constant, extend, oneTime,
     integralCurve, integralCLM, integralLinear]
 
 theorem endpointMap_zero : endpointMap 0 = 0 := by simp [endpointMap,solutionPaths_zero]
@@ -90,7 +90,7 @@ theorem expMap_derivative : HasFDerivAt expMap expDerivative 0 := by
   have h := hf.comp (0 : State) weightLinear.hasFDerivAt
   convert! h using 1
   · funext p; exact congrArg Variation.endpointMap (weightLinear_apply p).symm
-  · ext p <;> simp [Variation.endpointDerivative, expDerivative, weightLinear, smul_smul]
+  · ext p <;> simp [Variation.endpointDerivative, expDerivative, weightLinear]
 
 theorem expMap_zero : expMap 0 = 0 := by
   change Variation.endpointMap (weight (0 : State)) = 0

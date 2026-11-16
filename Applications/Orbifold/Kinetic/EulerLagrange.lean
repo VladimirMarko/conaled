@@ -33,8 +33,7 @@ theorem momentum_defect (z v a : ℂ) (hg : gap z ≠ 0) :
     simp only [momentumRate,force,Complex.sub_re,Complex.sub_im,scalar_re,scalar_im,
       Complex.add_re,Complex.add_im,christoffel,coefficient,Complex.mul_re,
       Complex.mul_im,Complex.div_re,Complex.div_im,Complex.conj_re,Complex.conj_im,
-      Complex.ofReal_re,Complex.ofReal_im,Complex.natCast_re,Complex.natCast_im,
-      mul_zero,zero_mul,sub_zero,add_zero,Complex.normSq_ofReal] <;>
+      Complex.ofReal_re,Complex.ofReal_im,mul_zero,Complex.normSq_ofReal] <;>
     field_simp <;> simp [Complex.normSq_apply] <;> ring
 
 theorem rate_eq_force_iff (z v a : ℂ) (hg : gap z ≠ 0) :
