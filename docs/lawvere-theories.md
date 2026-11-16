@@ -85,3 +85,61 @@ equivalence with finitary monads, enriched or countable theories, and
 completeness for guarded logic are separate mathematical developments.
 The existing unary union/tensor presentation remains a bounded construction;
 this API does not assert its categorical universal properties.
+
+## Evaluation and interchangeable representations
+
+[Action.lean](../SquareKit/Lawvere/Action.lean) adds `Operations.Action O X`:
+operations acting on an explicitly specified carrier `X`. Use it for scalar
+evaluation, `Algebra` when packaging varying carriers, and `Model` for general
+categorical semantics. `Action.algebra` and `Algebra.action` have exact record
+round trips (`algebra_action`, `action_algebra`); neither drops laws or operations.
+`Action.restrict_model` proves equality with categorical restriction, and
+`restrict_id` / `restrict_comp` prove the restriction laws. These statements
+include arity zero and independent operation and carrier universes. They do not
+claim that every arbitrary-target model is an action on a type.
+
+[The encoding clients](../Examples/LawvereEncoding.lean) check real negation,
+a nullary zero, composed restriction, Boolean negation, and increment followed
+by doubling at three. The real adapter states its carrier once:
+
+```lean
+abbrev smoothAction : Action smoothOperations ℝ := (smoothAlgebra ℝ).action
+abbrev realAction : Action pointedInvolution.operations ℝ :=
+  smoothAction.restrict interpretation
+example : realAction.act negOp (fun _ => 3) = -3 := rfl
+example : realAction.act zeroOp Fin.elim0 = 0 := rfl
+```
+
+On Lean 4.35.0, removing `(0 : Fin 1)` from the categorical negation client
+fails to synthesize `OfNat (Fin (toSmooth.toFunctor.obj { size := 1 }).size) 0`.
+The nullary client additionally needs `(0 : ℝ)` because the inferred carrier
+is `(smoothAlgebra ℝ).Carrier`. Repeating restriction does not expose those
+projections to instance search. These are elaboration failures; the annotated
+expressions prove the intended equalities by `rfl`.
+
+The investigation compared three interfaces:
+
+| Interface | Caller obligations | Result |
+| --- | --- | --- |
+| Categorical map | Tuple of operations, output coordinate, explicit arity/scalar annotations | Existing clients pass; general target categories remain available. |
+| Selective reducibility | Make `Map.toFunctor`, `Map.theoryHom`, and `smoothAlgebra` reducible | The unannotated real clients pass in a local experiment. Changing imported reducibility requires Lean's `allowUnsafeReducibility` override, so this was not adopted as a client convention. |
+| Carrier-indexed action | Specify the carrier at the adapter boundary; supply an arity-indexed operation and its inputs | Scalar clients pass without output coordinates, local transparency options, or repeated numeral annotations. |
+
+The action interface imports `Operations`, and existing direct smooth/cubical
+clients are unchanged. Converting an opaque bundled algebra to an action
+without giving the carrier type can still hide scalar instances; the typed
+adapter above is deliberate. Raw quotient terms still need their presentation
+and arity established, here by `negOp` and `zeroOp`. This is a bounded improvement,
+not evidence that no better Lean encoding exists. A source-level reducibility
+redesign remains possible if its benefits justify changing those abstraction
+boundaries.
+
+For the [language programme (#36)](https://github.com/VladimirMarko/conaled/issues/36),
+these checked expressions provide an authoring test: interpret a constant and
+an involution, compose restrictions, evaluate, and move between scalar and
+categorical views without re-proving the algebra laws. The mathematical
+requirement is coherent transport preserving projections and substitution,
+including the empty context. Lean currently asks the author to expose carriers
+and sometimes arities. A frontend could infer and insert those transports and
+annotations; its goal should be the scalar expressions above with adapters
+inferred from the interpretation, while retaining explicit categorical access.
