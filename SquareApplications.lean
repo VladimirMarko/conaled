@@ -1,3 +1,6 @@
+import Examples.CartesianFilling
+import Examples.CartesianPackageRecomputation
+import Examples.CartesianSourceObservation
 import Examples.MappedAggregate
 import Examples.UnivalentAuthorTrial.DirectOracle
 import Examples.UnivalentAuthorTrial.FacadeOracle
