@@ -1,3 +1,4 @@
+import Examples.Kunneth
 import Examples.CartesianClassifier
 import Examples.CartesianCofibrations
 import Examples.CartesianHigherSeparation
