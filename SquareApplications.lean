@@ -1037,6 +1037,7 @@ import Examples.SmoothManifoldAction
 import Examples.SmoothCechDescent
 
 import Examples.FiniteUniverseLoops
+import Examples.CartesianWitnessPreservation
 import Examples.CubicalInterpretationObservations
 
 import Examples.BoundedArithmetic
