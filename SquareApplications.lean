@@ -1,5 +1,6 @@
 import Examples.Lawvere
 import Examples.LawvereEncoding
+import Examples.LawvereRecovery
 import Examples.Kunneth
 import Examples.CartesianClassifier
 import Examples.CartesianCofibrations

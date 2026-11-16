@@ -143,3 +143,62 @@ including the empty context. Lean currently asks the author to expose carriers
 and sometimes arities. A frontend could infer and insert those transports and
 annotations; its goal should be the scalar expressions above with adapters
 inferred from the interpretation, while retaining explicit categorical access.
+
+## Recovering algebras and models
+
+[Recovery.lean](../SquareKit/Lawvere/Recovery.lean) equips operation algebras with
+homomorphisms preserving every operation, including constants. `Algebra.modelFunctor`
+sends them to coordinatewise natural transformations. It is fully faithful:
+naturality at projections forces a model transformation to act coordinatewise,
+and naturality at operations proves that its generator component is an algebra
+homomorphism.
+
+`Recovery.coordinates M n` compares `M(n)` with `Fin n → M(1)` by an isomorphism
+obtained from the preserved product universal property. This includes `n = 0`;
+it requires no inhabitant of `M(1)`. `Recovery.algebra M` evaluates an operation
+by assembling its inputs with the inverse comparison and applying `M`.
+`Recovery.functor` also recovers homomorphisms. The natural comparisons
+`Algebra.recoveryUnitIso` and `Recovery.counitIso` give
+`Algebra.modelEquivalence : O.Algebra ≌ Model O.theory (Type w)`, with independent
+operation and carrier universes. Mathlib's equivalence constructor supplies the
+triangle identity without changing the forward or inverse functor.
+
+This is an equivalence, not equality of representations. Recovering the tuple
+model of an algebra `A` produces carrier `Fin 1 → A.Carrier`.
+`Algebra.recoveryIso A` recovers the algebra up to isomorphism, while
+`Algebra.recovered_act` exposes the scalar evaluation equation. Arbitrary models
+may have finite powers that are not function types at all.
+
+`Algebra.transport` moves operations along an equivalence of carriers;
+`transportIso` proves it is an algebra isomorphism. Transport preserves identity
+and composition (`transport_refl`, `transport_trans`). Thus a caller can keep a
+convenient carrier representation without dropping operation laws.
+
+[Skeleton.lean](../SquareKit/Lawvere/Skeleton.lean) handles every `Theory T`,
+including nonskeletal theories. `T.operations` consists of maps from a chosen
+finite power to `T.generator`; substitution uses product tupling.
+`T.skeletonEquivalence` proves that the resulting context category is equivalent
+to `T.Obj`. `T.generatorIso` compares the chosen one-fold power with the original
+generator. No equality of these objects is assumed.
+
+`Model.precomposeEquivalence` transports models along a category equivalence in
+any target category. `T.algebraModelEquivalence` combines that transport with
+operation-algebra recovery for type-valued models. Its inverse uses the chosen
+one-fold power; `M.algebra` additionally transports the carrier along
+`M.mapIso T.generatorIso` to give exactly `M(T.generator)`.
+`M.algebraModelIso` proves that interpreting this algebra recovers the entire
+model. Arbitrary-target models retain their categorical API; scalar algebra
+recovery applies specifically to `Type w`.
+
+[ConcreteRecovery.lean](../SquareKit/Lawvere/ConcreteRecovery.lean) upgrades the
+De Morgan cube adapter to `cubeEquivalence`, including all substitution morphisms.
+`smoothAlgebraHom_toNatTrans` identifies the shared interpretation of smooth
+homomorphisms with the existing adapter under its original assumptions.
+
+[Recovery examples](../Examples/LawvereRecovery.lean) check real and Boolean
+operations, nullary constants, and smooth homomorphism recovery. A model wrapping
+each whole context in `ULift` checks the increment/double calculation through
+nonliteral powers. A theory with two distinct, isomorphic tagged copies of every
+arity checks the nonskeletal construction. The De Morgan complement separation
+remains unchanged. These tests distinguish the exact action/algebra round trips
+from the algebra/model and theory/context equivalences.
