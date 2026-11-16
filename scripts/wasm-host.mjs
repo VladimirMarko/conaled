@@ -89,7 +89,7 @@ function selectedSignature(bytes) {
             const b = byte();
             if (b < 128) break;
           }
-        } else require([0x45, 0x71, 0x72, 0x73].includes(op), 'Instruction outside selected subset');
+        } else require([0x45, 0x71, 0x72, 0x73, 0x6a, 0x1b].includes(op), 'Instruction outside selected subset');
       }
       require(byte() === 0x0b, 'Expected body end', 'validation_refused');
     }
@@ -197,6 +197,85 @@ export async function createStateful(bytes, descriptor, options) {
         state = result.values.slice(n);
         return { kind: 'result', values: result.values.slice(0, n), state: [...state] };
       } finally { busy = false; }
+    },
+  } };
+}
+
+/** One complete word conversion. Costs count scalar checks, bit visits and writes,
+ * not JS instructions, allocation bytes or engine work. Both directions allocate
+ * a new result; caller-owned inputs are never retained or changed. */
+export function convertWord(values, from, to) {
+  if (!['boolean', 'packed'].includes(from) || !['boolean', 'packed'].includes(to)) {
+    return { kind: 'unsupported' };
+  }
+  if (!Array.isArray(values) || values.length !== (from === 'boolean' ? 32 : 1)) {
+    return { kind: 'abi_refused' };
+  }
+  const cost = { validatedSlots: 0, convertedBits: 0, writtenSlots: 0 };
+  for (const value of values) {
+    cost.validatedSlots++;
+    if (!Number.isInteger(value) || value < 0 || value > (from === 'boolean' ? 1 : 0xffffffff)) {
+      return { kind: 'abi_refused' };
+    }
+  }
+  const result = [];
+  if (from === to) {
+    for (const value of values) { result.push(value); cost.writtenSlots++; }
+  } else if (to === 'packed') {
+    let word = 0;
+    for (let i = 0; i < 32; i++) { word += values[i] * 2 ** i; cost.convertedBits++; }
+    result.push(word); cost.writtenSlots++;
+  } else {
+    for (let i = 0; i < 32; i++) {
+      result.push((values[0] >>> i) & 1); cost.convertedBits++; cost.writtenSlots++;
+    }
+  }
+  return { kind: 'result', values: result, cost };
+}
+
+/** Bounded, caller-selected realization of one word selector. Public invocation
+ * uses [canonicalTag, x, y] and returns [selected, x, y] in unsigned words.
+ * The cost reports conversion bit visits and actual engine ABI arities only;
+ * hashing, validation, worker copies/startup and engine work remain separate. */
+export async function loadWordSelector(bytes, { representation, sha256 }, options = {}) {
+  if (!['boolean', 'packed'].includes(representation)) return { kind: 'unsupported' };
+  const maxSlots = options.maxSlots ?? 1000;
+  const parameters = representation === 'packed' ? 3 : 65;
+  const results = representation === 'packed' ? 3 : 96;
+  if (!Number.isSafeInteger(maxSlots) || maxSlots < 0 || Math.max(parameters, results) > maxSlots) {
+    return { kind: 'resource_refused' };
+  }
+  const wordShape = n => n === 0 ? 'unit' : { product: ['bit', wordShape(n - 1)] };
+  const word = representation === 'packed' ? 'i32' : wordShape(32);
+  const loaded = await loadArtifact(bytes, { sha256,
+    input: { product: ['bit', { product: [word, word] }] },
+    output: { product: [word, { product: [word, word] }] },
+  }, options);
+  if (loaded.kind !== 'loaded') return loaded;
+  return { kind: 'loaded', representation, artifact: {
+    async invoke(values, invokeOptions) {
+      if (!rawWords(values) || values.length !== 3 || values[0] > 1) return { kind: 'abi_refused' };
+      let engineInput = values;
+      let convertedBits = 0;
+      if (representation === 'boolean') {
+        const x = convertWord([values[1]], 'packed', 'boolean');
+        const y = convertWord([values[2]], 'packed', 'boolean');
+        engineInput = [values[0], ...x.values, ...y.values];
+        convertedBits += x.cost.convertedBits + y.cost.convertedBits;
+      }
+      const result = await loaded.artifact.invoke(engineInput, invokeOptions);
+      if (result.kind !== 'result') return result;
+      let output = result.values;
+      if (representation === 'boolean') {
+        output = [];
+        for (let offset = 0; offset < 96; offset += 32) {
+          const word = convertWord(result.values.slice(offset, offset + 32), 'boolean', 'packed');
+          if (word.kind !== 'result') return word;
+          output.push(word.values[0]); convertedBits += word.cost.convertedBits;
+        }
+      }
+      return { kind: 'result', values: output,
+        cost: { convertedBits, marshalledInputs: engineInput.length, marshalledOutputs: result.values.length } };
     },
   } };
 }

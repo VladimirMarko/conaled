@@ -84,6 +84,7 @@ def Instr.checkHeight (count : Nat) (i : Instr) (height : Nat) : Option Nat :=
   | .set n => if n < count ∧ 0 < height then some (height - 1) else none
   | .eqz => if 0 < height then some height else none
   | .binary _ => if 2 ≤ height then some (height - 1) else none
+  | .select => if 3 ≤ height then some (height - 2) else none
 
 def checkHeights (count : Nat) : List Instr → Nat → Option Nat
   | [], height => some height
@@ -107,6 +108,7 @@ theorem InstrTyped.checkHeight (h : InstrTyped (List.replicate count .i32) i bef
     simp [Instr.checkHeight, bound]
   | eqz => simp [Instr.checkHeight]
   | binary => simp [Instr.checkHeight]
+  | select => simp [Instr.checkHeight]
 
 theorem CodeTyped.checkHeights (h : CodeTyped (List.replicate count .i32) code before after) :
     checkHeights count code before.length = some after.length := by
@@ -167,6 +169,24 @@ theorem Instr.checkHeight_sound (i : Instr) (h : i.checkHeight count before = so
           _ = _ := by rw [List.replicate_add]; rfl
       rw [hin, hout]
       exact InstrTyped.binary _ op
+    · contradiction
+  | select =>
+    simp only [checkHeight] at h
+    split at h
+    · rename_i bound
+      cases h
+      have size : before = (before - 3) + 3 := by omega
+      have result : before - 2 = (before - 3) + 1 := by omega
+      have hin : List.replicate before ValueType.i32 = List.replicate (before - 3) .i32 ++ [.i32, .i32, .i32] := by
+        calc
+          _ = List.replicate ((before - 3) + 3) .i32 := congrArg (fun n => List.replicate n ValueType.i32) size
+          _ = _ := by rw [List.replicate_add]; rfl
+      have hout : List.replicate (before - 2) ValueType.i32 = List.replicate (before - 3) .i32 ++ [.i32] := by
+        calc
+          _ = List.replicate ((before - 3) + 1) .i32 := congrArg (fun n => List.replicate n ValueType.i32) result
+          _ = _ := by rw [List.replicate_add]; rfl
+      rw [hin, hout]
+      exact InstrTyped.select _
     · contradiction
 
 theorem checkHeights_sound (code : List Instr) (h : checkHeights count code before = some after) :

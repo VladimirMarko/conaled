@@ -83,3 +83,16 @@ arity, and commit returned state only after successful admitted execution.
 An external engine must implement the standard. None of those external
 obligations is an encoder-correspondence axiom. Actual artifact delivery,
 engine execution and host-state management are owned by #512.
+
+## Packed arithmetic extension
+
+The grammar and proof-carrying encoder also cover `i32.add` (`0x6a`) and
+untyped `select` (`0x1b`), following the pinned
+[numeric opcode table](https://github.com/WebAssembly/spec/blob/05ca4182176763112561ae20153975c12bd689e4/document/core/binary/instructions.rst#binary-binop)
+and [parametric opcode table](https://github.com/WebAssembly/spec/blob/05ca4182176763112561ae20153975c12bd689e4/document/core/binary/instructions.rst#binary-select).
+The existing module/section correspondence composes with those new instruction
+productions without a second serializer. `PackedWords.selector_serialized`
+checks the full 74-byte module against an independently written layout, and
+`Examples.WasmPackedWords` retains its grammar and opcode specializations.
+The independent Python parser checks the emitted packed module's exact bytes,
+ordered instructions, three-word signature and six total locals.

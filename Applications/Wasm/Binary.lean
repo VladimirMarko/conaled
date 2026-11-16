@@ -71,6 +71,8 @@ inductive Instruction : Instr → Bytes → Prop where
   | and : Instruction (.binary .and) [0x71]
   | or : Instruction (.binary .or) [0x72]
   | xor : Instruction (.binary .xor) [0x73]
+  | add : Instruction (.binary .add) [0x6a]
+  | select : Instruction .select [0x1b]
 
 inductive Expression : List Instr → Bytes → Prop where
   | intro (code : Sequence Instruction is b) : Expression is (b++[0x0b])

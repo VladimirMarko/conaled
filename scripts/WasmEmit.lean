@@ -1,4 +1,4 @@
-import Applications.Wasm.Serialize
+import Applications.Wasm.PackedWords
 import Examples.WasmCircuit
 
 open Applications.Wasm Applications.Wasm.Lowering Applications.Circuits
@@ -12,6 +12,7 @@ def main (args : List String) : IO Unit := do
   IO.FS.createDirAll directory
   let modules : List (String × Applications.Wasm.Module) := [
     ("selector32", assemble (Words.selector 32)),
+    ("selector32-packed", PackedWords.selectorModule),
     ("nested", assemble (FRPSpec.FiniteSum.lower Examples.WasmCircuit.NestedCase.source)),
     ("two-delay", assemble twoDelay.body),
     ("unit", assemble (Circuit.identity (a := .unit))),

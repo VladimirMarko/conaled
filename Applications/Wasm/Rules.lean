@@ -10,6 +10,9 @@ variable {I : Type}
 /-- Core 2 `ieqz`: zero maps to one and every nonzero word maps to zero. -/
 def eqz (x : BitVec 32) : BitVec 32 := if x = 0 then 1 else 0
 
+/-- The i32 specialization of standard untyped select. -/
+def select (x y tag : BitVec 32) : BitVec 32 := if tag = 0 then y else x
+
 /-- The selected standard reduction rules. The store is an index because these
 rules leave it unchanged; allocation is handled separately. Arbitrary ambient
 functions are retained but this relation does not execute their bodies. -/
@@ -24,6 +27,9 @@ inductive Step {I : Type} (s : ExtendedStore F O) : Frame → List (Admin I) →
   | binary (fr : Frame) (op : BinOp) (x y : BitVec 32) :
       Step (I := I) s fr [.value (.i32 x), .value (.i32 y), .instr (.binary op)]
         fr [.value (.i32 (op.eval x y))]
+  | select (fr : Frame) (x y tag : BitVec 32) :
+      Step (I := I) s fr [.value (.i32 x), .value (.i32 y), .value (.i32 tag), .instr .select]
+        fr [.value (.i32 (select x y tag))]
   | invoke (fr : Frame) (address : Nat) (f : Function) (args : List Value)
       (lookup : s.funcs[address]? = some (.inr f))
       (arity : args.length = f.type.params.length) :
@@ -87,6 +93,9 @@ inductive InstrTyped (locals : List ValueType) : Instr → List ValueType → Li
   | binary (ts : List ValueType) (op : BinOp) :
       InstrTyped locals (.binary op) (ts ++ [.i32, .i32]) (ts ++ [.i32])
 
+  | select (ts : List ValueType) :
+      InstrTyped locals .select (ts ++ [.i32, .i32, .i32]) (ts ++ [.i32])
+
 inductive CodeTyped (locals : List ValueType) : List Instr → List ValueType → List ValueType → Prop
   | nil (ts : List ValueType) : CodeTyped locals [] ts ts
   | cons {i : Instr} {code : List Instr} {a b c : List ValueType}
@@ -111,6 +120,10 @@ def evalInstr (i : Instr) (fr : Frame) (stack : List Value) : Option (Frame × L
     | _ => none
   | .binary op => match stack with
     | .i32 y :: .i32 x :: st => some (fr, .i32 (op.eval x y) :: st)
+    | _ => none
+
+  | .select => match stack with
+    | .i32 tag :: .i32 y :: .i32 x :: st => some (fr, .i32 (select x y tag) :: st)
     | _ => none
 
 def evalCode : List Instr → Frame → List Value → Option (Frame × List Value)
@@ -179,6 +192,29 @@ theorem evalInstr_steps (s : ExtendedStore F O) (i : Instr) (fr fr' : Frame)
             subst out
             simpa [Context.fill, values, Instr.admin, List.append_assoc] using
               (Steps.single (Step.binary (I := I) (s := s) fr op x y)).context (.seq tail.reverse .hole [])
+          | _ => simp [evalInstr] at h
+      | _ => simp [evalInstr] at h
+  | select =>
+    cases stack with
+    | nil => simp [evalInstr] at h
+    | cons c st =>
+      cases c with
+      | i32 tag =>
+        cases st with
+        | nil => simp [evalInstr] at h
+        | cons v st =>
+          cases v with
+          | i32 y =>
+            cases st with
+            | nil => simp [evalInstr] at h
+            | cons w tail =>
+              cases w with
+              | i32 x =>
+                simp only [evalInstr, Option.some.injEq, Prod.mk.injEq] at h
+                rcases h with ⟨rfl, rfl⟩
+                simpa [Context.fill, values, Instr.admin, List.append_assoc] using
+                  (Steps.single (Step.select (I := I) (s := s) fr x y tag)).context (.seq tail.reverse .hole [])
+              | _ => simp [evalInstr] at h
           | _ => simp [evalInstr] at h
       | _ => simp [evalInstr] at h
 
@@ -288,6 +324,7 @@ theorem Step.decreases {s : ExtendedStore F O} {fr fr' : Frame}
   | set => simp [weight, Admin.weight]
   | eqz => simp [weight, Admin.weight]
   | binary => simp [weight, Admin.weight]
+  | select => simp [weight, Admin.weight]
   | invoke fr address f args lookup arity =>
     simp [weight, Admin.weight, invocationCost, lookup,
       ← weight_expression (I := I) (invocationCost s) f.body]
@@ -365,6 +402,7 @@ theorem Step.traps_le {s : ExtendedStore F O} {fr fr' : Frame}
   | set => simp [traps, Admin.traps]
   | eqz => simp [traps, Admin.traps]
   | binary => simp [traps, Admin.traps]
+  | select => simp [traps, Admin.traps]
   | invoke fr address f args lookup arity =>
     rw [traps_append, traps_values]
     simp only [traps, List.map_cons, List.map_nil, List.sum_cons, List.sum_nil,
@@ -497,6 +535,25 @@ theorem evalInstr_append (i : Instr) (fr fr' : Frame) (stack out extra : List Va
         | cons w tail =>
           cases w with
           | i32 x => cases h; rfl
+          | _ => simp [evalInstr] at h
+      | _ => simp [evalInstr] at h
+  | select =>
+    cases stack with
+    | nil => simp [evalInstr] at h
+    | cons c st =>
+      cases c with
+      | i32 tag =>
+        cases st with
+        | nil => simp [evalInstr] at h
+        | cons v st =>
+          cases v with
+          | i32 y =>
+            cases st with
+            | nil => simp [evalInstr] at h
+            | cons w tail =>
+              cases w with
+              | i32 x => cases h; rfl
+              | _ => simp [evalInstr] at h
           | _ => simp [evalInstr] at h
       | _ => simp [evalInstr] at h
 
@@ -667,6 +724,7 @@ theorem Step.focus_or_trap (h : Step (I := I) s fr code fr' out) :
   | set fr i v h => exact .inl (by simp [focus, evalInstr, h, values])
   | eqz fr x => exact .inl (by simp [focus, evalInstr, values])
   | binary fr op x y => exact .inl (by simp [focus, evalInstr, values])
+  | select fr x y tag => exact .inl (by simp [focus, evalInstr, values])
   | invoke fr address f args lookup arity =>
     left
     rw [focus_values]
@@ -776,6 +834,7 @@ theorem Step.outside_le (h : Step (I := I) s fr code fr' out) : outside s out �
   | set => simp [outside, Admin.outside]
   | eqz => simp [outside, Admin.outside]
   | binary => simp [outside, Admin.outside]
+  | select => simp [outside, Admin.outside]
   | invoke fr address f args lookup arity =>
     rw [outside_append, outside_values]
     simp only [outside, List.map_cons, List.map_nil, List.sum_cons, List.sum_nil,

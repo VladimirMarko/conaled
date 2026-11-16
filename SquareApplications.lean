@@ -7,6 +7,7 @@ import Examples.WasmCircuit
 import Examples.WasmBinary
 import Examples.IncrementalSearchTransport
 import Examples.WasmArtifacts
+import Examples.WasmPackedWords
 import Examples.IncrementalSearchCosts
 import Examples.IncrementalSearchHeuristics
 import Examples.IncrementalSearchFreshCosts

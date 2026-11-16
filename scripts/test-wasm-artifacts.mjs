@@ -107,3 +107,51 @@ test('native two-delay preserves every intermediate output/state and commits onl
       { kind: 'result', values: [b], state: [input, a] });
   }
 });
+
+test('packed production selector agrees with Boolean artifact on all 96 observed bits', async () => {
+  const packed = await artifact('selector32-packed', {
+    input: { product: ['bit', { product: ['i32', 'i32'] }] },
+    output: { product: ['i32', { product: ['i32', 'i32'] }] },
+  });
+  const boolean = await artifact('selector32', {
+    input: { product: ['bit', { product: [word(32), word(32)] }] },
+    output: { product: [word(32), { product: [word(32), word(32)] }] },
+  });
+  const p = await loadArtifact(packed.bytes, packed.descriptor);
+  const b = await loadArtifact(boolean.bytes, boolean.descriptor);
+  assert.equal(p.kind, 'loaded', JSON.stringify(p)); assert.equal(b.kind, 'loaded');
+  const pairs = [[0n, 0n], [0x7fffffffn, 1n], [0xaaaaaaaan, 0x33333333n],
+    [0x12345678n, 0x87654321n], [0x80000000n, 0xffffffffn]];
+  for (let k = 0n; k <= 32n; k++) pairs.push([(1n << k) - 1n, 1n]);
+  for (const [x, y] of pairs) for (const tag of [0, 1]) {
+    const selected = tag ? (x + y) & 0xffffffffn : x ^ y;
+    const result = await p.artifact.invoke([tag, Number(x), Number(y)]);
+    assert.deepEqual(result, { kind: 'result', values: [Number(selected), Number(x), Number(y)] });
+    const unpacked = result.values.flatMap(x => bits(BigInt(x)));
+    assert.deepEqual(await b.artifact.invoke([tag, ...bits(x), ...bits(y)]),
+      { kind: 'result', values: unpacked });
+  }
+  for (const values of [[2, 0, 1], [-1, 0, 1], [1, 2 ** 32, 1], [1, 1.5, 1],
+    [1, -1, 1], [1, 0], [1, 0, 1, 0]]) {
+    assert.equal((await p.artifact.invoke(values)).kind, 'abi_refused');
+  }
+});
+
+test('explicit selector choice preserves source words and refuses insufficient slot budgets', async () => {
+  const { loadWordSelector } = await import('./wasm-host.mjs');
+  for (const representation of ['boolean', 'packed']) {
+    const { bytes, descriptor } = await artifact(representation === 'packed' ? 'selector32-packed' : 'selector32', {});
+    const loaded = await loadWordSelector(bytes, { representation, sha256: descriptor.sha256 });
+    assert.equal(loaded.kind, 'loaded', JSON.stringify(loaded));
+    const result = await loaded.artifact.invoke([1, 0xffffffff, 1]);
+    assert.deepEqual(result.values, [0, 0xffffffff, 1]);
+    assert.equal(result.cost.convertedBits, representation === 'boolean' ? 160 : 0);
+    assert.equal(result.cost.marshalledInputs, representation === 'boolean' ? 65 : 3);
+    assert.equal(result.cost.marshalledOutputs, representation === 'boolean' ? 96 : 3);
+    assert.equal((await loaded.artifact.invoke([2, 0, 0])).kind, 'abi_refused');
+    const limited = await loadWordSelector(bytes, { representation, sha256: descriptor.sha256 }, { maxSlots: 3 });
+    assert.equal(limited.kind, representation === 'packed' ? 'loaded' : 'resource_refused');
+    assert.equal((await loadWordSelector(bytes, { representation, sha256: descriptor.sha256 }, { maxSlots: 2 })).kind,
+      'resource_refused');
+  }
+});

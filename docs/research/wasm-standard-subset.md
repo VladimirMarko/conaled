@@ -183,3 +183,30 @@ Actual file delivery, a pinned external engine, canonical raw-value marshalling
 and commit-after-success state management remain #512's artifact obligations.
 The engine and host environment remain explicit external assumptions. Binary
 correspondence alone does not establish source-to-real-runtime execution.
+
+## Packed i32 add and select
+
+`Applications/Wasm/PackedWords.lean` adds a concrete word selector to this same
+module and execution infrastructure. `BinOp.add` specializes the pinned
+[modular addition equation](https://github.com/WebAssembly/spec/blob/05ca4182176763112561ae20153975c12bd689e4/document/core/exec/numerics.rst#op-iadd)
+to 32 bits; the existing binary typing and reduction rules apply. `add_native`
+connects it to the earlier `Words.NativeI32.add` equation.
+
+`Instr.select` specializes untyped select to i32 operands. Its
+[static rule](https://github.com/WebAssembly/spec/blob/05ca4182176763112561ae20153975c12bd689e4/document/core/valid/instructions.rst#valid-select)
+consumes two i32 alternatives and one i32 condition. The
+[reduction rule](https://github.com/WebAssembly/spec/blob/05ca4182176763112561ae20153975c12bd689e4/document/core/exec/instructions.rst#exec-select)
+returns the first alternative for nonzero condition and the second for zero.
+The executable evaluator has its stack top first, so its pattern is condition,
+second alternative, first alternative. Typed stack prefixes and arbitrary
+pending suffixes remain supported. Other standard select operand types are
+outside this emitted subset, not newly forbidden by the standard.
+
+The validator's select case requires three stack values and removes two.
+The existing execution-to-reduction proof, context extension, deterministic
+focus, decreasing measure, trap count and reachable-rule coverage include the
+new case. Consequently the no-infinite-execution, progress and unique terminal
+result theorems retain their prior strength. `PackedWords.invocation_safe`
+instantiates them for the new module and all admitted source inputs. Canonical
+tag admission is separate: raw tag 2 satisfies standard truthiness but is
+rejected by the source decoder. No memory, branch, call or import is introduced.

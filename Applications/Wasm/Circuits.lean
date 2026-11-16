@@ -113,6 +113,7 @@ def stackAfter (i : Instr) (height : Nat) : Nat :=
   | .const _ | .get _ => height + 1
   | .set _ | .binary _ => height - 1
   | .eqz => height
+  | .select => height - 2
 
 /-- Final and maximum operand heights, including the initial height. This is a
 body operand-stack model, not a count of activation frames or engine bytes. -/
@@ -214,6 +215,25 @@ theorem evalInstr_stack (i : Instr) (h : evalInstr i fr stack = some (after, out
           all_goals try contradiction
           cases h
           simp [stackAfter]
+      | _ => simp [evalInstr] at h
+  | select =>
+    cases stack with
+    | nil => simp [evalInstr] at h
+    | cons c st =>
+      cases c with
+      | i32 tag =>
+        cases st with
+        | nil => simp [evalInstr] at h
+        | cons v st =>
+          cases v with
+          | i32 y =>
+            cases st with
+            | nil => simp [evalInstr] at h
+            | cons w tail =>
+              cases w with
+              | i32 x => cases h; simp [stackAfter]
+              | _ => simp [evalInstr] at h
+          | _ => simp [evalInstr] at h
       | _ => simp [evalInstr] at h
 
 theorem scanStack_final_le (code : List Instr) (height : Nat) :

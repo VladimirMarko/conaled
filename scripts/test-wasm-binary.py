@@ -83,7 +83,7 @@ class Reader:
                 instructions.append((op, body.leb()))
             elif op == 0x41:
                 instructions.append((op, body.leb(signed=True)))
-            elif op in (0x45, 0x71, 0x72, 0x73):
+            elif op in (0x45, 0x71, 0x72, 0x73, 0x6a, 0x1b):
                 instructions.append((op,))
             else:
                 raise ValueError('unsupported opcode')
@@ -129,8 +129,17 @@ def main():
         expected = bytes.fromhex('0061736d01000000 0105016000017f 03020100 0707010372756e0000') + code
         assert fixtures[name] == expected
         assert parse(fixtures[name])[1][1] == [(0x41, value)]
+    packed = bytes.fromhex("0061736d01000000 010a0160037f7f7f037f7f7f 03020100 0707010372756e0000 0a27012503017f017f017f200120026a2103200120027321042003200420001b21052005200120020b")
+    assert fixtures["selector32-packed"] == packed
+    assert len(packed) == 74
     for data in fixtures.values():
         parse(data)
+    packed_signature, (packed_groups, packed_instructions) = parse(fixtures['selector32-packed'])
+    assert list(map(len, packed_signature)) == [3, 3]
+    assert sum(n for n, _ in packed_groups) + 3 == 6
+    assert packed_instructions == [(0x20,1),(0x20,2),(0x6a,),(0x21,3),
+        (0x20,1),(0x20,2),(0x73,),(0x21,4),(0x20,3),(0x20,4),(0x20,0),
+        (0x1b,),(0x21,5),(0x20,5),(0x20,1),(0x20,2)]
     signature, (groups, instructions) = parse(fixtures['selector32'])
     assert list(map(len, signature)) == [65, 96]
     assert sum(n for n, _ in groups) + 65 == 866

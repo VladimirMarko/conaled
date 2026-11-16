@@ -34,13 +34,14 @@ def Value.default : ValueType → Value
   cases t <;> rfl
 
 inductive BinOp where
-  | and | or | xor
+  | and | or | xor | add
   deriving DecidableEq, Repr
 
 def BinOp.eval : BinOp → BitVec 32 → BitVec 32 → BitVec 32
   | .and => (· &&& ·)
   | .or => (· ||| ·)
   | .xor => (· ^^^ ·)
+  | .add => (· + ·)
 
 inductive Instr where
   | const (bits : BitVec 32)
@@ -48,6 +49,7 @@ inductive Instr where
   | set (index : Nat)
   | eqz
   | binary (op : BinOp)
+  | select
   deriving DecidableEq, Repr
 
 structure FuncType where

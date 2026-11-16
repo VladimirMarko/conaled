@@ -88,6 +88,8 @@ def instruction : (i : Instr) → Option (Encoded Instruction i)
   | .binary .and => some ⟨[0x71], .and⟩
   | .binary .or => some ⟨[0x72], .or⟩
   | .binary .xor => some ⟨[0x73], .xor⟩
+  | .binary .add => some ⟨[0x6a], .add⟩
+  | .select => some ⟨[0x1b], .select⟩
 
 def expression (is : List Instr) : Option (Encoded Expression is) := do
   let code ← sequence instruction is

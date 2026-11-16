@@ -2,21 +2,22 @@
 
 The native Lean serializer writes the selected closed, single-function modules
 as binary WebAssembly. The Node host validates those bytes, resolves `run`, and
-returns every i32 result. The width-32 selector has 65 parameters and 96 results;
-its output includes the selected result and both original words.
+returns every i32 result. The Boolean width-32 selector has 65 parameters and 96 results; the packed
+selector has three parameters and three results. Both preserve the selected
+word and both original words, totaling 96 output bits.
 
 ## Reproduce
 
 Run from the repository root in the pinned development environment:
 
 ```sh
-direnv exec . lake build Applications.Wasm.Serialize Examples.WasmCircuit Examples.WasmArtifacts
+direnv exec . lake build Examples.WasmPackedWords Examples.WasmCircuit Examples.WasmArtifacts
 direnv exec . lake env lean --run scripts/WasmEmit.lean /tmp/conaled-wasm
 direnv exec . node --test scripts/test-wasm-host.mjs
 WASM_ARTIFACTS=/tmp/conaled-wasm direnv exec . node --test scripts/test-wasm-artifacts.mjs
 ```
 
-`WasmEmit.lean` deterministically writes `selector32.wasm`, `nested.wasm`,
+`WasmEmit.lean` deterministically writes `selector32.wasm`, `selector32-packed.wasm`, `nested.wasm`,
 `two-delay.wasm`, `unit.wasm`, and `not.wasm` directly from
 `Module.serializeArray`. No assembler participates in production. Repeating
 emission yields identical bytes. An IO or serializer refusal fails the command.
@@ -37,8 +38,9 @@ Import `loadArtifact`, `createStateful`, and `probeEngine` from
 descriptor)` takes a trusted descriptor containing `sha256`, `input`, and
 `output`. Shapes are `unit`, `bit`, `i32`, `{product: [a,b]}`, or `{sum: [a,b]}`.
 Products concatenate their slots. A sum is a Boolean tag followed by both
-payloads; every inactive payload slot must be zero. Words use 32 Boolean slots
-in least-significant-bit-first order.
+payloads; every inactive payload slot must be zero. Boolean words use 32 slots in least-significant-bit-first order; packed words
+use one `i32` slot. The packed selector input is `[tag,x,y]` and its output is
+`[selected,x,y]`, with canonical 0/1 tags.
 
 The digest binds content to the caller's descriptor. It does not authenticate
 the descriptor or establish its source provenance. Successful loading checks
@@ -90,5 +92,49 @@ contracts independently of those tests.
 
 This path supports the selected Boolean circuit syntax and fixed multivalue
 ABI. It supplies no WASI, dynamic memory, arbitrary-source compiler, browser VM
-proof, or wall-clock cost claim. Packed-word lowering and live representation
-migration have separate contracts in #513 and #515.
+proof, or wall-clock cost claim. Packed-word lowering is supplied by #513. Live representation migration retains
+its separate #515 contract.
+
+## Packed selector and explicit choice
+
+`loadWordSelector(bytes, {representation, sha256}, options)` accepts `boolean`
+or `packed` for this concrete selector. Its public input is always three
+unsigned words `[tag,x,y]`, and its result retains `[selected,x,y]`. The caller
+chooses the representation; `maxSlots` bounds both engine argument and result
+arity. A limit of three admits the packed artifact and refuses the Boolean
+artifact, whose result needs 96 slots. The normal byte, local and body admission
+limits still apply. Refusal does not select another representation silently.
+
+`convertWord(values, from, to)` supplies executable conversions in both directions.
+It checks exact arity and canonical scalar values, allocates a new result and
+preserves all high bits. Its cost counts checked slots, visited bits and written
+result slots. Boolean-to-packed input conversion visits 64 operand bits; returning
+all three words to a Boolean caller visits 96 bits. For the word-facing
+`loadWordSelector`, the Boolean route performs those conversions in the reverse
+direction, also totaling 160 bit visits. Its successful result reports conversion
+visits and actual engine marshalling arities: 65/96 for Boolean, 3/3 for packed.
+The direct packed path performs no bit conversion.
+
+The actual packed module contains 16 instruction entries, three parameters,
+three scratch locals, three results and a peak body operand stack of three.
+Its instructions occupy 29 bytes, its function body 37 bytes, and its full
+serialized module 74 bytes. The Boolean module emitted by the same serializer
+is 8779 bytes. These are syntax and byte observations, not measured speedups.
+`PackedWords.profile`, `prefix_stack_bound`, and `selector_serialized` connect
+the packed counts to the actual module and execution; counted recursive codecs
+prove the 64/96 conversion visits and their value erasure.
+
+Conversion buffers, argument and result array copies, worker message cloning,
+retained module bytes, hashing, engine validation, worker startup and engine
+execution are additional work. The host copies the input before dispatch and
+creates signed argument and unsigned result arrays in the worker. Both ABIs
+pay those operations at their respective arities. The reported counters do not
+claim an exact JS instruction count, physical heap bound or elapsed-time cost.
+In particular, the 16 module instructions exclude these adapter costs.
+
+`PackedWords.both_routes` relates both actual module invocations to the same
+complete source result. `PackedWords.host_result` retains the independent
+runtime-conformance, file-fidelity and marshalling assumptions. Production tests
+execute both emitted artifacts on zero, overflow, high-bit, alternating and
+asymmetric inputs and all 33 carry lengths, preserving all three output words.
+Nested sums and the Boolean two-delay artifacts remain tested clients.

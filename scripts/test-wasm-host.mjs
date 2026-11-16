@@ -172,3 +172,31 @@ test('missing nested payload and retained-state slots are refused', async () => 
   assert.deepEqual(session.snapshot(), [7, 9]);
   assert.deepEqual(await session.step([5]), { kind: 'result', values: [9], state: [5, 7] });
 });
+
+// Independent foreign fixture for add/xor/select admission; production uses WasmEmit.
+const packedSelect = Buffer.from('0061736d01000000 01080160037f7f7f017f 03020100 0707010372756e0000 0a11010f00200120026a200120027320001b0b'.replaceAll(' ', ''), 'hex');
+test('selected host admits native add and select with canonical source tags', async () => {
+  const loaded = await loadArtifact(packedSelect, { sha256: sha256(packedSelect),
+    input: { product: ['bit', { product: ['i32', 'i32'] }] }, output: 'i32' });
+  assert.equal(loaded.kind, 'loaded', JSON.stringify(loaded));
+  assert.deepEqual(await loaded.artifact.invoke([1, 0xffffffff, 1]), { kind: 'result', values: [0] });
+  assert.deepEqual(await loaded.artifact.invoke([0, 0xffffffff, 1]), { kind: 'result', values: [0xfffffffe] });
+  assert.equal((await loaded.artifact.invoke([2, 0xffffffff, 1])).kind, 'abi_refused');
+  assert.deepEqual(await probeEngine(packedSelect, [2, 0xffffffff, 1]), { kind: 'result', values: [0] });
+});
+
+test('word conversion preserves high bits and charges every visited bit', async () => {
+  const { convertWord } = await import('./wasm-host.mjs');
+  const bits = Array.from({ length: 32 }, (_, i) => i === 0 || i === 31 ? 1 : 0);
+  const packed = convertWord(bits, 'boolean', 'packed');
+  assert.deepEqual(packed, { kind: 'result', values: [0x80000001],
+    cost: { validatedSlots: 32, convertedBits: 32, writtenSlots: 1 } });
+  assert.deepEqual(convertWord(packed.values, 'packed', 'boolean'), {
+    kind: 'result', values: bits, cost: { validatedSlots: 1, convertedBits: 32, writtenSlots: 32 } });
+  for (const bad of [[], [...bits, 0], bits.map((x, i) => i === 9 ? 2 : x)]) {
+    assert.equal(convertWord(bad, 'boolean', 'packed').kind, 'abi_refused');
+  }
+  for (const bad of [[-1], [2 ** 32], [1.5], [NaN]]) {
+    assert.equal(convertWord(bad, 'packed', 'boolean').kind, 'abi_refused');
+  }
+});
