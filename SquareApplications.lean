@@ -809,6 +809,8 @@ import Examples.StaticFunctionReactive
 import Examples.RegionalMigration
 import Examples.RegionalPending
 import Examples.RegionalPendingPolicy
+import Examples.RegionalWorkloadCosts
+import Examples.RegionalPendingCosts
 
 import Examples.QuantumSemantics
 import Examples.IdealizedTargets
