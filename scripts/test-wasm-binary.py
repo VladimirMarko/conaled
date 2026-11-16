@@ -132,6 +132,9 @@ def main():
     packed = bytes.fromhex("0061736d01000000 010a0160037f7f7f037f7f7f 03020100 0707010372756e0000 0a27012503017f017f017f200120026a2103200120027321042003200420001b21052005200120020b")
     assert fixtures["selector32-packed"] == packed
     assert len(packed) == 74
+    delay_packed = bytes.fromhex('0061736d01000000 010a0160037f7f7f037f7f7f 03020100 0707010372756e0000 0a0d010b00200020026a200020010b')
+    assert fixtures['word-delay-packed'] == delay_packed
+    assert len(delay_packed) == 48
     for data in fixtures.values():
         parse(data)
     packed_signature, (packed_groups, packed_instructions) = parse(fixtures['selector32-packed'])
@@ -144,6 +147,12 @@ def main():
     assert list(map(len, signature)) == [65, 96]
     assert sum(n for n, _ in groups) + 65 == 866
     assert len(instructions) == 3266
+    delay_signature, (delay_locals, delay_code) = parse(fixtures['word-delay-boolean'])
+    assert list(map(len, delay_signature)) == [96, 96]
+    assert sum(n for n, _ in delay_locals) == 545
+    assert len(delay_code) == 2274
+    assert len(fixtures['word-delay-boolean']) == 6216
+    assert parse(fixtures['word-delay-packed'])[1][1] == [(0x20,0),(0x20,2),(0x6a,),(0x20,0),(0x20,1)]
     assert list(map(len, parse(fixtures['nested'])[0])) == [6, 3]
     assert list(map(len, parse(fixtures['two-delay'])[0])) == [3, 3]
     assert parse(fixtures['index128'])[1][1] == [(0x20, 128)]

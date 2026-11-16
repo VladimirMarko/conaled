@@ -1,5 +1,5 @@
 import Examples.WasmBinary
-import Applications.Wasm.PackedWords
+import Applications.Wasm.WordContinuation
 
 open Applications.Wasm Applications.Wasm.Lowering Applications.Circuits
 open FirstOrderCompiler
@@ -14,6 +14,8 @@ def main : IO Unit := do
      ("highbit", ⟨⟨[],[.i32]⟩,[],[.const (0x80000000#32)]⟩),
      ("selector32", assemble (Words.selector 32)),
      ("selector32-packed", PackedWords.selectorModule),
+     ("word-delay-boolean", WordContinuation.booleanModule),
+     ("word-delay-packed", WordContinuation.packedModule),
      ("nested", assemble (FRPSpec.FiniteSum.lower Examples.WasmCircuit.NestedCase.source)),
      ("two-delay", assemble twoDelay.body),
      ("index128", ⟨⟨List.replicate 129 .i32,[.i32]⟩,[],[.get 128]⟩)]

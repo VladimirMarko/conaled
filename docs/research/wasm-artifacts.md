@@ -11,14 +11,15 @@ word and both original words, totaling 96 output bits.
 Run from the repository root in the pinned development environment:
 
 ```sh
-direnv exec . lake build Examples.WasmPackedWords Examples.WasmCircuit Examples.WasmArtifacts
+direnv exec . lake build Examples.WasmWordContinuation Examples.WasmPackedWords Examples.WasmCircuit Examples.WasmArtifacts
 direnv exec . lake env lean --run scripts/WasmEmit.lean /tmp/conaled-wasm
 direnv exec . node --test scripts/test-wasm-host.mjs
 WASM_ARTIFACTS=/tmp/conaled-wasm direnv exec . node --test scripts/test-wasm-artifacts.mjs
 ```
 
 `WasmEmit.lean` deterministically writes `selector32.wasm`, `selector32-packed.wasm`, `nested.wasm`,
-`two-delay.wasm`, `unit.wasm`, and `not.wasm` directly from
+`two-delay.wasm`, `word-delay-boolean.wasm`, `word-delay-packed.wasm`,
+`unit.wasm`, and `not.wasm` directly from
 `Module.serializeArray`. No assembler participates in production. Repeating
 emission yields identical bytes. An IO or serializer refusal fails the command.
 The tests compute a SHA-256 descriptor for each emitted file and pass those
@@ -138,3 +139,8 @@ runtime-conformance, file-fidelity and marshalling assumptions. Production tests
 execute both emitted artifacts on zero, overflow, high-bit, alternating and
 asymmetric inputs and all 33 carry lengths, preserving all three output words.
 Nested sums and the Boolean two-delay artifacts remain tested clients.
+
+The [word continuation consumer](wasm-word-continuation.md) transfers a live,
+overflow-sensitive two-delay machine between the Boolean and packed artifacts.
+Its separate `scripts/test-wasm-word-session.mjs` suite checks live migration,
+failure recovery and explicit adapter costs.
