@@ -14,7 +14,7 @@ The kernel-checked size16 cost examples give: right and left trees have baseline
 
 Elliott's Fig.30 lists additions, subtractions and multiplications separately; its displayed totals also include literals. The arithmetic-only totals are 188 and 176. This exact reconstruction reproduces those arithmetic totals under the stated site/sharing policy; it does not claim identity of every generated floating circuit. See https://conal.net/papers/generic-parallel-functional/generic-parallel-functional.pdf , §4 and Fig.30.
 
-A future scaled-transform candidate must retain an exact diagonal scaling vector, source/output permutations and direction, ordinary DFT observation, and necessary nonzero/invertibility assumptions. Composition must account for compensation, conversion and normalization work and arrival maps. Size alone cannot identify the candidate boundary. Johnson–Frigo's several mutually recursive scaled transforms illustrate why one cheapest unscaled implementation is an insufficient search state; this development does not implement their split-radix algorithm or claim a global optimum. See https://www.fftw.org/~athena/papers/newsplit.pdf , §§II–IV, eqs.(7)–(8), Algorithms2–3.
+The size-four experiment below retains exact scale vectors, source/output permutations, forward direction, ordinary DFT observations and nonzero scale proofs. Size alone does not identify its boundaries. Johnson–Frigo's several mutually recursive scaled transforms illustrate why one cheapest unscaled implementation is an insufficient search state; this development does not implement their split-radix algorithm or claim a global optimum. See https://www.fftw.org/~athena/papers/newsplit.pdf , §§II–IV, eqs.(7)–(8), Algorithms2–3.
 
 
 The code is in [MeasuredFFT](../../Applications/Parallel/MeasuredFFT.lean),
@@ -31,3 +31,76 @@ containing that block. The arbitrary-arrival theorems cover local replacement;
 the finite size16 retained-gate theorems establish the whole-circuit comparison.
 No claim of work monotonicity in every shared context is inferred from isolated
 block savings.
+
+## Composed scaled size-four transforms (#517)
+
+[ScaledFFT](../../Applications/Parallel/ScaledFFT.lean) freezes two forward
+size-four transforms, using the existing `.comp .two .two` factor tree twice.
+For every complex input vector x, the observation is the complete ordinary
+DFT vector F(F(x)). A second consumer also observes the complete F(x).
+`lower_fourier` connects both lowered transforms to the existing independent
+DFT sum. The asymmetric checked vector distinguishes output order and real
+from imaginary components.
+
+The producer emits H(x) = F(x)/2, the existing unitary-normalized size-four
+Fourier boundary. An ordinary-input normalized next stage decodes H(x), runs
+its transform, and finally reconstructs an ordinary result. The retained-scale
+next stage consumes H(x) directly: linearity lets it run F on the stored vector
+and keep the same half-scale. It pays the final multiplication by two. The
+comparison therefore removes adapters required by an ordinary-input boundary.
+A plain F-then-F route remains available and is cheaper in this experiment.
+
+Candidate identity fixes size four and forward direction, an identity input
+permutation, the exact output scale vector, and the output permutation. The
+uniform vector is (1/2,1/2,1/2,1/2). A reordered route stores it in reversed
+coordinate order and explicitly recovers that order before the next transform.
+The incompatible boundary has vector (1/2,1,1/2,1); it needs coordinate-specific
+conversion and compensation. Every admitted scale is proved nonzero. A zero
+scale loses a nonzero coordinate. These are exact complex operations; no
+floating-point approximation is involved.
+
+The generated scalar graphs retain the existing sharing policy: equal
+referenced gates share, distinct labeled sites remain distinct, and wiring,
+permutations, signs and copying are free. Exact rational constants extend the
+existing coefficient syntax. Each generated real multiplication, including
+normalization and compensation, costs one unit of work and latency. Both FFT
+invocations have four structural butterflies and one nonidentity twiddle
+occurrence. Their quarter-turn twiddle needs only wiring and signs.
+
+Kernel-checked results in [Examples.ScaledFFT](../../Examples/ScaledFFT.lean):
+
+| Final-only route | Real additions/subtractions | Real products | Work | Zero-input-arrival depth |
+|---|---:|---:|---:|---:|
+| Ordinary F then F | 32 | 0 | 32 | 4 |
+| Eager normalized boundaries | 32 | 32 | 64 | 8 |
+| Retained half-scale | 32 | 16 | 48 | 6 |
+| Reversed storage, retained half-scale | 32 | 16 | 48 | 6 |
+| Converted and compensated nonuniform boundary | 32 | 16 | 48 | 6 |
+
+With both F(x) and F(F(x)) exposed, the ordinary graph still costs 32, the eager
+graph costs 64, and retained half-scale costs 56. The eager graph shares its
+intermediate decoder with the ordinary observation; the retained route needs
+an extra observation branch. Thus the final-only saving of 16 becomes 8 in
+this shared context. The theorem `eager_arrivals` compares every real and
+imaginary output for arbitrary input arrival maps and arbitrary input wires:
+the eager result arrives exactly two units later. A skewed input-arrival case
+uses that theorem. These are arithmetic graph costs, not runtime measurements.
+
+Omitting the nonuniform compensation reduces work from 48 to 44 but changes
+the impulse input's second DC coefficient from four to three. The separating
+example evaluates the independent DFT after using the public semantic
+contracts. It does not assume an incorrect implementation differs.
+
+The direct uniform-scale composition proof needs only scalar linearity and
+field arithmetic. The local `Boundary` helper factors out inversion and
+permutation recovery reused by uniform, reversed and alternating boundaries;
+its conversion theorem is connected to the generated nonuniform gates. It
+stays within this size-four experiment. There is no search frontier or general
+representation framework, and these examples do not justify one.
+
+The unitary lower-bound modules and their original two-coordinate gate machine
+are unchanged. Although H is unitary as a complete transform, these scalar
+circuits have a different gate model, and intermediate scaling need not be
+unitary. Their operation counts do not inherit that lower bound. Retaining a
+scale saves adapter work at the selected normalized boundary; it does not beat
+the ordinary route here or establish unrestricted FFT optimality.

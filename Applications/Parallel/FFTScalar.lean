@@ -17,6 +17,7 @@ inductive Constant where
   | cosine (denominator exponent : Nat)
   | sine (denominator exponent : Nat)
   | diagonal
+  | rational (value : ℚ)
   deriving BEq, ReflBEq, LawfulBEq, Repr
 
 instance : DecidableEq Constant := instDecidableEqOfLawfulBEq
@@ -25,6 +26,7 @@ noncomputable def Constant.eval : Constant → ℝ
   | .cosine n k => Real.cos (-(2 * Real.pi * k / n))
   | .sine n k => Real.sin (-(2 * Real.pi * k / n))
   | .diagonal => Real.sqrt 2 / 2
+  | .rational q => q
 
 /-- Gate labels distinguish deliberately distinct multiplication sites. -/
 inductive Wire where
