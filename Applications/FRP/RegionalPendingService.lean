@@ -104,11 +104,11 @@ theorem deliver_realizes (s : Session) (d : Bool) :
             · simp only [Bool.false_eq_true,↓reduceIte] at he hc ⊢
               cases he
               refine ⟨.negate x,rfl,slot,localState,hc,hl,cached,?_,rfl⟩
-              simp [updateResidual,Active.withResiduals,Active.residuals,serviceValue]
+              simp [updateResidual,Active.withResiduals,Active.residuals]
             · simp only [↓reduceIte] at he hc ⊢
               cases he
               refine ⟨.delay x localState.oldState,rfl,slot,localState,hc,hl,cached,rfl,?_,?_,rfl⟩
-              all_goals simp [updateResidual,Active.withResiduals,Active.residuals,serviceValue]
+              all_goals simp [updateResidual,Active.withResiduals,Active.residuals]
 
 theorem join_realizes (s : Session) :
     ∃ call, Realizes s .join (join s) call (serviceValue s.active call) := by
@@ -129,7 +129,7 @@ theorem join_realizes (s : Session) :
         rename_i d n next
         cases he
         refine ⟨.join d n,rfl,slot,r,localState,hh,hd,hn,?_,rfl⟩
-        simp [PendingMigration.update,serviceValue]
+        simp [PendingMigration.update]
 
 theorem whole_realizes (s : Session) :
     ∃ call, Realizes s .whole (whole s) call (serviceValue s.active call) := by
@@ -150,8 +150,8 @@ theorem whole_realizes (s : Session) :
           simp only [hc] at he
           cases he
           refine ⟨.whole x localState.oldState,rfl,slot,r,localState,hh,hc,rfl,?_,?_,rfl⟩
-          · simp [updateResidual,Active.withResiduals,PendingMigration.update,serviceValue]
-          · simp [updateResidual,Active.withResiduals,Active.residuals,serviceValue]
+          · simp [updateResidual,Active.withResiduals,PendingMigration.update]
+          · simp [updateResidual,Active.withResiduals,Active.residuals]
 
 theorem accept_realizes (s : Session) (x : Bool) :
     ∃ call, Realizes s (.accept x) (accept s x) call (serviceValue s.active call) := by
@@ -227,11 +227,11 @@ theorem wrapper_retained_bound (s : Session) (bounded : PendingMigration.Bounded
     (certificate : ServiceCertified s.active.cut capacity) : wrapperRetained s ≤ capacity := by
   have copy : (s.prepared.map (fun p => p.target.protocol.active.cells + retainedCells p.target.cut)).getD 0 ≤ 26 := by
     cases hp : s.prepared with
-    | none => simp [hp]
+    | none => simp
     | some p =>
       have backend := Migration.backend_cells p.target.protocol.active
       have store : retainedCells p.target.cut ≤ 24 := by cases p.target.cut <;> decide
-      simp only [hp,Option.map_some,Option.getD_some]
+      simp only [Option.map_some,Option.getD_some]
       omega
   have certified := certificate s.active rfl bounded .quiet
     (PendingMigration.stateSlots s.active.protocol + 16 + 4 + 2 * retainedCells s.active.cut + 44 + 8)

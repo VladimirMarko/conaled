@@ -41,7 +41,11 @@ theorem bundled_composition {a b c : Ty} (g : Code Prim b c) (f : Code Prim a b)
         ((bundledEvaluation meaning).map f) := (bundledEvaluationLaws meaning).comp g f
 
 /-- Code's semantic quotient evaluation preserves genuine Mathlib binary products. -/
-def evaluationPreservesProducts (a b : Ty) :=
+theorem evaluationPreservesProducts (a b : Ty) :
+    letI := HomQuotient.category (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
+    letI := HomQuotient.category (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    CategoryTheory.Limits.PreservesLimit (CategoryTheory.Limits.pair ⟨a⟩ ⟨b⟩)
+      (evaluationOnClasses meaning) :=
   HomQuotient.preservesBinaryProduct
     (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
     (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluationLaws meaning)
@@ -50,7 +54,12 @@ def evaluationPreservesProducts (a b : Ty) :=
     (CodeCategory.productComparisonLaws meaning) (CodeCategory.evaluationProducts meaning) ⟨a⟩ ⟨b⟩
 
 /-- The same quotient functor preserves the empty-diagram limit. -/
-def evaluationPreservesTerminal :=
+theorem evaluationPreservesTerminal :
+    letI := HomQuotient.category (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
+    letI := HomQuotient.category (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    CategoryTheory.Limits.PreservesLimit
+      (CategoryTheory.Functor.empty.{0} (HomQuotient (CodeCategory.ops Prim) (CodeCategory.equiv meaning)))
+      (evaluationOnClasses meaning) :=
   HomQuotient.preservesTerminal
     (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
     (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluationLaws meaning)

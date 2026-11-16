@@ -175,7 +175,7 @@ theorem map_convolution (h : R →+* T) (f g : List α → R) (w : List α) :
 def mapCoefficients (h : R →+* T) : Series α R →+* Series α T where
   toFun f := ⟨fun w => h (f w)⟩
   map_zero' := Series.ext_coeff (fun _ => h.map_zero)
-  map_one' := Series.ext_coeff (by intro w; cases w <;> simp [epsilonFn])
+  map_one' := Series.ext_coeff (by intro w; cases w <;> simp)
   map_add' f g := Series.ext_coeff (fun _ => h.map_add _ _)
   map_mul' f g := Series.ext_coeff (map_convolution h _ _)
 

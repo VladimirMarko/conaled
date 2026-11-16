@@ -35,11 +35,10 @@ theorem Section.map_identity (s : Section F) :
   · intro x y p
     dsimp [Section.map, StrongMap.toHigher, StrongMap.map,
       Pseudofunctor.StrongTrans.id]
-    simp only [Iso.trans_inv, Bicategory.Strict.leftUnitor_eqToIso,
+    simp only [Bicategory.Strict.leftUnitor_eqToIso,
       Bicategory.Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
       eqToHom_trans, StrongMap.classifier_eqToHom_app,
-      StrictTwoTransformation.Trans.comp_app, StrictTwoTransformation.Trans.eqToHom_app,
-      Category.id_comp, Category.comp_id]
+      ]
     exact eqToHom_comp_heq _ _
   · intro x y p q α
     change HEq (((((λ_ (F.map (s.lift.map p).base)).hom ≫

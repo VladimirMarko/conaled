@@ -19,6 +19,7 @@ theorem equalityFiber_reindex_map {x y : Total (reindex σ E)} {p q : x ⟶ y} (
 variable {X : Type*} [Bicategory X] [Strict X]
 variable {F G : StrictPseudofunctor X (Total (reindex σ E))}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
+omit [Strict X] in
 theorem postcompReindex_equalityFiber {x y : X} (p : x ⟶ y)
     (h : EqualityFiber (reindex σ E) (η.naturality p).hom) :
     EqualityFiber E ((strongPostcomp η (reindexHigher E σ)).naturality p).hom := by
@@ -27,6 +28,7 @@ theorem postcompReindex_equalityFiber {x y : X} (p : x ⟶ y)
   exact equalityFiber_comp E (equalityFiber_cast E _)
     (equalityFiber_comp E (equalityFiber_reindex_map E σ _ h) (equalityFiber_cast E _))
 
+omit [Strict X] in
 theorem postcompReindex_comparison_base {x y : X} (p : x ⟶ y) :
     HEq (((strongPostcomp η (reindexHigher E σ)).naturality p).hom).base
       (σ.map₂ ((η.naturality p).hom).base) := by

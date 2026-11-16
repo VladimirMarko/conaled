@@ -42,6 +42,7 @@ def transition (i j : I) := External.chartLabelsEquiv smoothAction
     ((m i).restrict (A.left i j)) ((m j).restrict (A.right i j))
     (k.transitionArrow smoothAction i j)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem transition_apply (i j : I) (x : Points (A.pair i j)) :
     (k.transition smoothAction i j).val x =
       (ordinaryHomLabelEquiv G (A.pair i j) (A.pairMap i j ≫ k.label) x)⁻¹ := by
@@ -68,6 +69,7 @@ def datum : Datum (d := d) (G := G) (M := M) A where
     rw [ordinary_labelMul] at he
     simpa only [mul_inv_rev] using congrArg Inv.inv he
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem datum_label : (k.datum smoothAction).overlapLabel smoothAction = k.label := by
   apply A.pairHom_ext
   intro i j

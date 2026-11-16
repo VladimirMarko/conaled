@@ -15,6 +15,7 @@ variable (f : GeometricMorphism F B) {U V W : B}
 variable (u : U ⟶ ⊤_ B) (v : V ⟶ ⊤_ B) (w : W ⟶ ⊤_ B)
 variable [Mono u] [Mono v] [Mono w]
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] in
 /-- The mixed square for an identity parameter map agrees with the identity comparisons. -/
 theorem parameterPullback_identity (M : Model u) :
     (parameterPullbackIso f u u (𝟙 U)).hom.app M =
@@ -24,6 +25,7 @@ theorem parameterPullback_identity (M : Model u) :
             (pullModel f M)) (f.inverseImage.map_id U).symm) :=
   Subsingleton.elim _ _
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [Mono u] [Mono v] [Mono w] in
 /-- The mixed square for a composite parameter map is the pasted pair of mixed squares. -/
 theorem parameterPullback_composition (s : U ⟶ V) (t : V ⟶ W) (M : Model u) :
     (parameterPullbackIso f u w (s ≫ t)).hom.app M =

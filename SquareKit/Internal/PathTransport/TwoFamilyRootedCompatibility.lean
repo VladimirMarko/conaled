@@ -17,6 +17,7 @@ private theorem strongId_heq {A B : Type*} [Bicategory A] [Bicategory B]
     {H K : StrictPseudofunctor A B} (e : H = K) :
     HEq (Pseudofunctor.StrongTrans.id H.toPseudofunctor) (Pseudofunctor.StrongTrans.id K.toPseudofunctor) := by cases e; rfl
 
+omit [IsLocallyGroupoid Γ] in
 theorem pathContraction_first_source : (contractionRetract F).comp (pathFirst F) = pathFirst F := by
   change ((pathFirst F).comp (pathReflexivity F)).comp (pathFirst F) = _
   rw [strictFunctor_comp_assoc, pathReflexivity_first, strictFunctor_comp_id]
@@ -25,6 +26,7 @@ theorem rootedMappedFirst_source :
     ((rootedDirectRetract F x).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
   rw [← rootedContractionMapped_source, strictFunctor_comp_assoc, pathContraction_first_source]
+omit [IsLocallyGroupoid Γ] in
 theorem rootedMappedFirst_target :
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
@@ -42,12 +44,14 @@ theorem rootedContractionMapped_first :
       Pseudofunctor.StrongTrans.id ((rootedDirectEmbedding F x).comp (pathFirst F)).toPseudofunctor := rfl
   exact h1.trans (h2.trans (h3.trans (heq_of_eq h4)))
 
+omit [IsLocallyGroupoid Γ] in
 theorem pathEndpoints_same_base :
     (pathSecond F).comp (projectionHigher F) = (pathFirst F).comp (projectionHigher F) := by
   unfold pathSecond pathFirst
   rw [strictFunctor_comp_assoc, strictFunctor_comp_assoc,
     StrongMap.toHigher_projection, StrongMap.toHigher_projection]
 
+omit [IsLocallyGroupoid Γ] in
 theorem rootedMappedFirst_section :
     ((rootedDirectEmbedding F x).comp (pathFirst F)).comp ((projectionHigher F).comp x.lift) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by

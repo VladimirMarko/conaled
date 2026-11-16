@@ -18,6 +18,7 @@ def coherentLiftApp (x : Total (reindex F E)) :
     (coherentLiftLeft (F := F) E).obj x ⟶ (coherentLiftRight η E).obj x :=
   cartesianLift E (η.app x.base) x.fiber
 
+omit [Strict Γ] in
 theorem coherentLiftPrefix {γ δ : Γ} (f : γ ⟶ δ) (a : E.obj (F.obj γ)) :
     (E.map₂ (η.naturality f).hom).app a ≫
       compBoundary E (η.app γ) (G.map f) a ≫
@@ -97,8 +98,7 @@ theorem coherentLiftCell_id (x : Total (reindex F E)) :
       coherentLiftCell_base]
     have h := η.naturality_id x.base
     simp only [F.mapId_eq_eqToIso, G.mapId_eq_eqToIso, Strict.leftUnitor_eqToIso,
-      Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv, whiskerLeft_eqToHom,
-      eqToHom_whiskerRight] at h
+      Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv] at h
     exact h
   · exact equalityFiber_comp E (coherentLiftCell_equalityFiber η E (𝟙 x))
       (equalityFiber_whiskerLeft E _ (equalityFiber_cast E _))
@@ -138,13 +138,11 @@ private theorem coherentLift_left_fiber_heq {x y : Total (reindex F E)}
   rw [fiber_comp]
   change HEq ((((coherentLiftLeft (F := F) E).map₂ α ▷ coherentLiftApp η E y).fiber) ≫
     _ ◁ eqToHom (coherentLiftBoundary η E q) ≫ eqToHom _) _
-  simp only [Bicategory.whiskerLeft_eqToHom, eqToHom_trans,
-    ← Category.assoc, comp_eqToHom_heq_iff]
+  simp only [Bicategory.whiskerLeft_eqToHom, eqToHom_trans]
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
   change HEq (eqToHom _ ≫ (compBoundary E _ _ _ ◁
     (E.map (η.app y.base)).map₂ α.fiber) ▷ (𝟙 _) ≫ eqToHom _) _
-  simp only [eqToHom_comp_heq_iff, comp_eqToHom_heq_iff,
-    Bicategory.whiskerRight_id, Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv]
+  simp only [Bicategory.whiskerRight_id, Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv]
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
@@ -165,12 +163,11 @@ private theorem coherentLift_right_fiber_heq {x y : Total (reindex F E)}
         (((strongPostcomp η E).naturality p.base).inv.app x.fiber ◁
           (E.map (η.app y.base)).map₂ α.fiber ≫ eqToHom _)) ≫ eqToHom _)) _
   simp only [Bicategory.whiskerLeft_comp, Bicategory.whiskerLeft_eqToHom,
-    Category.assoc, eqToHom_trans_assoc, eqToHom_trans,
-    eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
+    Category.assoc, eqToHom_trans]
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
   rw [(E.map (G.map p.base)).map_id]
   simp only [Bicategory.id_whiskerLeft, Strict.leftUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
-    Bicategory.whiskerLeft_comp, Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans]
+    Bicategory.whiskerLeft_comp, Bicategory.whiskerLeft_eqToHom]
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
   simp only [nested_whiskerLeft, Bicategory.whiskerLeft_comp,

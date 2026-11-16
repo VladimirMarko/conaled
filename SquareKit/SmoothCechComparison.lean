@@ -20,10 +20,12 @@ def chartArrow (i : I) :=
 def localLabel : A.total ⟶ locallyConstantGroupSheaf G :=
   SheafCoproductLocal.desc A.family (fun i => arrowLabel (f.chartArrow smoothAction i))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[simp, reassoc] theorem localLabel_fac (i : I) :
     A.inclusion i ≫ f.localLabel smoothAction = arrowLabel (f.chartArrow smoothAction i) :=
   SheafCoproductLocal.inclusion_desc _ _ _
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_relation :
     (representation smoothAction).action.onMap (f.localLabel smoothAction) q.localMapSheaf =
       p.localMapSheaf := by
@@ -33,6 +35,7 @@ theorem localLabel_relation :
   rw [Datum.onMap_precomp, localLabel_fac, Datum.localMapSheaf_fac, Datum.localMapSheaf_fac]
   exact arrowLabel_relation (f.chartArrow smoothAction i)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem chartArrow_label (i : I) (x : Points (A.domain i)) :
     ordinaryHomLabelEquiv G (A.domain i) (arrowLabel (f.chartArrow smoothAction i)) x =
       ((f.labels i).val x)⁻¹ := by
@@ -42,6 +45,7 @@ theorem chartArrow_label (i : I) (x : Points (A.domain i)) :
     (arrowLabel (f.chartArrow smoothAction i)) x)⁻¹ = _ at h
   exact inv_eq_iff_eq_inv.mp h
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_commutes :
     labelMul (SheafCoverCech.first A.cover ≫ f.localLabel smoothAction) (q.overlapLabel smoothAction) =
       labelMul (p.overlapLabel smoothAction) (SheafCoverCech.second A.cover ≫ f.localLabel smoothAction) := by
@@ -116,6 +120,7 @@ structure LabelMap (p q : Datum (d := d) (G := G) (M := M) A) where
 namespace LabelMap
 variable {p q : Datum (d := d) (G := G) (M := M) A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[ext] theorem ext (f g : LabelMap smoothAction p q) (h : f.label = g.label) : f = g := by
   cases f
   cases g
@@ -139,6 +144,7 @@ def chartArrow (i : I) : External.ChartArrow smoothAction (p.localMap i) (q.loca
 def labels (i : I) := External.chartLabelsEquiv smoothAction (p.localMap i) (q.localMap i)
   (f.chartArrow smoothAction i)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem labels_apply (i : I) (x : Points (A.domain i)) :
     (f.labels smoothAction i).val x =
       (ordinaryHomLabelEquiv G (A.domain i) (A.inclusion i ≫ f.label) x)⁻¹ := by
@@ -277,6 +283,7 @@ end LabelMap
 namespace Hom
 variable {p q r : Datum (d := d) (G := G) (M := M) A}
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).localLabel smoothAction = labelOne A.total := by
   apply colimit.hom_ext
@@ -289,6 +296,7 @@ theorem localLabel_ident (p : Datum (d := d) (G := G) (M := M) A) :
   rw [chartArrow_label, ordinary_labelOne]
   exact inv_one
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localLabel_comp (f : Hom p q) (g : Hom q r) :
     (f.comp g).localLabel smoothAction = labelMul (f.localLabel smoothAction) (g.localLabel smoothAction) := by
   apply colimit.hom_ext

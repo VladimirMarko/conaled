@@ -41,7 +41,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ)
 
 /-- The same equation applies to any generated substitution, including root
 and path-tail maps; neither invertibility nor faithfulness is required. -/
-example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
+example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
     (hB : Typed.TyDeriv.{2} Γ γ B b) (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s) :
     generatedFamilyMap S hΔ (.sub hB hs) =
       whiskerLeft (s L).down (generatedFamilyMap S hΓ hB) ≫
@@ -147,7 +147,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
   SmoothQuotientCechLocal.identityEvaluation_isEquivalence a A hΓ hB hx hy c
 
 /-- Arbitrary substitutions preserve the actual fiber evaluation equivalence. -/
-example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
+example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
     (hB : Typed.TyDeriv.{2} Γ γ B b) (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
     (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from δ (SmoothQuotientCechLocal.model a A)))
     [(SmoothQuotientCechLocal.familyEvaluation a A hΓ hB
@@ -169,7 +169,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
 
 /-- A substituted identity family is effective without any recursive
 fullness, faithfulness, or equivalence hypotheses. -/
-example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
+example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
     (hB : Typed.TyDeriv.{2} Γ γ B b) (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
     (hy : Typed.TmDeriv.{2} Γ γ B b y η) (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
     (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from δ (SmoothQuotientCechLocal.model a A))) :

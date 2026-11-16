@@ -34,7 +34,7 @@ theorem sigmaRegroupCell_comp {x y : Total (sigmaFamily F B)} {p q r : x ⟶ y}
   simp only [total_eqToHom_fiber (fiberRestriction F y.base B),
     Bicategory.whiskerLeft_comp (B := B.obj ⟨y.base,y.fiber.base⟩),
     Bicategory.whiskerLeft_eqToHom (B := B.obj ⟨y.base,y.fiber.base⟩),
-    Category.assoc, eqToHom_trans, eqToHom_trans_assoc]
+    Category.assoc, eqToHom_trans]
   change HEq (eqToHom _ ◁ α.fiber.fiber ≫
     eqToHom _ ◁ ((fiberRestriction F y.base B).map₂ α.fiber.base).app
       ((sigmaMap F B p.base).obj x.fiber).fiber ◁
@@ -48,7 +48,7 @@ theorem sigmaRegroupCell_comp {x y : Total (sigmaFamily F B)} {p q r : x ⟶ y}
     Bicategory.whiskerLeft_eqToHom (B := B.obj ⟨y.base,y.fiber.base⟩),
     nested_whiskerLeft (B := B.obj ⟨y.base,y.fiber.base⟩),
     Category.assoc, eqToHom_trans_assoc, eqToHom_trans,
-    comp_eqToHom_heq_iff, heq_comp_eqToHom_iff]
+    ]
   simp only [← Category.assoc]
   apply HEq.trans (comp_eqToHom_heq _ _)
   apply HEq.trans _ (comp_eqToHom_heq _ _).symm

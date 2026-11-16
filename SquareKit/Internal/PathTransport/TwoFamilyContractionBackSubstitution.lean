@@ -16,6 +16,7 @@ variable [∀x, IsIso (η.app x)] [∀x, IsIso (η'.app x)]
 variable (hη : HEq (strongPostcomp η' σ) (strongPrecomp η σ))
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hR in
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionReindexFamily : reindex R' (reindex σ E) = reindex σ (reindex R E) :=
   (reindex_comp E σ R').trans ((congrArg (fun K => reindex K E) hR).trans (reindex_comp E R σ).symm)
 

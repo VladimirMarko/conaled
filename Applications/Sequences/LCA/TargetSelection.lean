@@ -95,6 +95,7 @@ example (hw : TargetBackend.Config 17 width) (input : Input 17) : choose hw
 -- Its conservative constant requires a much larger size before ordinary
 -- sparse storage exceeds the shared candidate's certified linear budget.
 set_option maxRecDepth 4096 in
+set_option exponentiation.threshold 512 in
 example (hw : TargetBackend.Config (2^512) width) (input : Input (2^512)) : choose hw
     {startup := none, deadline := 57, maintenance := 0,
       capacity := 512*(2^512), peak := 2048*(2^512)} input = some .shared := by

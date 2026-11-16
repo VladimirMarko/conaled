@@ -12,7 +12,7 @@ theorem load_address (input : Input m)
     (base index : Nat) (i : Fin (retainedSlots m)) (he : base+index=i.val) :
     (load (arena input h) base index).1 =
       lookup (arena input h) ⟨i.val, by
-        have hh := h.memory; have hi := i.isLt
+        have hh := h.memory; have _hi := i.isLt
         unfold MachineCapacity.requiredSlots at hh; omega⟩ := by
   exact load_eq _ base index _ he
 

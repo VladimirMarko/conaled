@@ -203,7 +203,7 @@ theorem absorb_mulVec (d : Fin N → _root_.unitary ℂ) (p : Program N) (hp : p
       simp only [absorb,unitary,Step.unitary,Round.absorb_unitary d r head,Submonoid.coe_mul,
         ← Matrix.mulVec_mulVec]
       congr 1
-      simp only [diagonalUnitary,← Matrix.mulVec_mulVec]
+      simp only [diagonalUnitary]
       congr 1
       funext i
       simp [Matrix.mulVec,dotProduct,Matrix.diagonal_apply]

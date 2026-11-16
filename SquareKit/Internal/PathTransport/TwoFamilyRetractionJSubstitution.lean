@@ -19,12 +19,14 @@ variable (η' : Pseudofunctor.StrongTrans (r'.comp i').toPseudofunctor (StrictPs
 variable (hη : HEq (strongPostcomp η' σ) (strongPrecomp η σ))
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hi in
+omit [Strict Γ] in
 theorem retractionBranch_family : reindex σ₀ (reindex i E) = reindex i' (reindex σ E) :=
   (reindex_comp E i σ₀).trans ((congrArg (fun K => reindex K E) hi.symm).trans (reindex_comp E σ i').symm)
 
 def retractionBranchReindex (d : Section (reindex i E)) : Section (reindex i' (reindex σ E)) :=
   Section.cast (retractionBranch_family i i' σ σ₀ hi E) (d.reindex _ σ₀)
 include hi hr in
+omit [Strict Γ] [Strict Δ] [Strict A] [Strict B] in
 theorem retractionSource_square : (r'.comp i').comp σ = σ.comp (r.comp i) := by
   rw [strictFunctor_comp_assoc, hi, ← strictFunctor_comp_assoc, hr, strictFunctor_comp_assoc]
 

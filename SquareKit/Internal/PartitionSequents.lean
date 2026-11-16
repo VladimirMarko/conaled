@@ -26,6 +26,7 @@ instance Model.cover (M : Model u) : Epi (coprod.desc M.p M.q) := by
   rw [← he]
   infer_instance
 
+omit [Mono u] in
 /-- The two predicates have empty intersection in the categorical sense. -/
 theorem Model.exclusion (M : Model u) :
     IsPullback (initial.to M.P) (initial.to M.Q) M.p M.q :=
@@ -40,7 +41,7 @@ def partitionOfSequents (p : P ⟶ ⊤_ C) (q : Q ⟶ ⊤_ C) [Mono p] [Mono q]
   let h := IsPushout.of_hasBinaryCoproduct' P Q
   have hm : Mono (h.desc p q disjoint.w) := h.desc_mono_of_isPullback disjoint
   have he : h.desc p q disjoint.w = coprod.desc p q := by
-    apply coprod.hom_ext <;> simp [h]
+    apply coprod.hom_ext <;> simp
   rw [he] at hm
   haveI : Mono (coprod.desc p q) := hm
   haveI : IsIso (coprod.desc p q) := isIso_of_mono_of_epi _
@@ -76,6 +77,6 @@ theorem partition_iff_sequents (p : P ⟶ ⊤_ C) (q : Q ⟶ ⊤_ C) [Mono p] [M
     rw [← he]
     infer_instance
   · rintro ⟨hc, hd⟩
-    letI := hc
+    let := hc
     exact ⟨partitionOfSequents p q hd⟩
 end SquareKit.Internal.PartitionSection

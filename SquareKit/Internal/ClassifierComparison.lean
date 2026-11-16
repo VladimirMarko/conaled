@@ -12,6 +12,7 @@ variable [HasTerminal F] [HasBinaryProducts F] [HasPullbacks F] [FinitaryExtensi
 variable [CartesianMonoidalCategory B] [HasPullbacks B] [FinitaryExtensive B]
 variable {h k : GeometricMorphism F B} (α : h ⟶ k) (U : B)
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] in
 /-- The comparison is natural even for noninvertible inverse-image transformations. -/
 theorem classifierObjectComparison_natural :
     α.app (U ⨿ ⊤_ B) ≫ (classifierObjectComparison k (U := U)).hom =
@@ -38,6 +39,7 @@ variable [HasTerminal F] [HasBinaryProducts F] [HasPullbacks F] [FinitaryExtensi
 variable [CartesianMonoidalCategory B] [HasPullbacks B] [FinitaryExtensive B]
 variable [CartesianMonoidalCategory C] [HasPullbacks C] [FinitaryExtensive C]
 
+omit [HasBinaryProducts F] [HasPullbacks F] [HasPullbacks B] [HasPullbacks C] in
 /-- Composition preserves the specified coproduct and terminal comparisons. -/
 theorem classifierObjectComparison_comp (f : GeometricMorphism F B) (g : GeometricMorphism B C)
     (U : C) :

@@ -34,18 +34,22 @@ def labelOne (Y : Sheaf topology Type) : Y ⟶ locallyConstantGroupSheaf G := �
     intro x
     exact (((locallyConstantGroup G).obj.map f).hom.map_one).symm }⟩
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem labelMul_precomp {Y Z : Sheaf topology Type} (f : Z ⟶ Y)
     (g h : Y ⟶ locallyConstantGroupSheaf G) :
     f ≫ labelMul g h = labelMul (f ≫ g) (f ≫ h) := rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem labelOne_precomp {Y Z : Sheaf topology Type} (f : Z ⟶ Y) :
     f ≫ labelOne (G := G) Y = labelOne Z := rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem ordinary_labelMul {U : Domain} (g h : embedding.obj U ⟶ locallyConstantGroupSheaf G)
     (x : Points U) : ordinaryHomLabelEquiv G U (labelMul g h) x =
       ordinaryHomLabelEquiv G U g x * ordinaryHomLabelEquiv G U h x :=
   ordinaryLabel_mul G U _ _ x
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem ordinary_labelOne (U : Domain) (x : Points U) :
     ordinaryHomLabelEquiv G U (labelOne (embedding.obj U)) x = 1 := by
   change ordinaryLabel G U (1 : (locallyConstantGroup G).obj.obj (op (toSite.obj U))) x = 1
@@ -59,6 +63,7 @@ variable (p : Datum (d := d) (G := G) (M := M) A)
 def localMapSheaf : A.total ⟶ object d M :=
   SheafCoproductLocal.desc A.family (fun i => hat (p.localMap i).val (p.localMap i).property)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[simp, reassoc] theorem localMapSheaf_fac (i : I) :
     A.inclusion i ≫ p.localMapSheaf = hat (p.localMap i).val (p.localMap i).property :=
   SheafCoproductLocal.inclusion_desc _ _ _
@@ -73,16 +78,19 @@ def transitionArrow (i j : I) :=
 def overlapLabel : SheafCoverCech.double A.cover ⟶ locallyConstantGroupSheaf G :=
   A.pairHom (fun i j => arrowLabel (p.transitionArrow smoothAction i j))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 @[simp, reassoc] theorem overlapLabel_fac (i j : I) :
     A.pairMap i j ≫ p.overlapLabel smoothAction =
       arrowLabel (p.transitionArrow smoothAction i j) := A.pairHom_fac _ i j
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Pulling back an action equation preserves its complete sheaf maps. -/
 theorem onMap_precomp {Y Z : Sheaf topology Type}
     (f : Z ⟶ Y) (g : Y ⟶ locallyConstantGroupSheaf G) (m : Y ⟶ object d M) :
     f ≫ (representation smoothAction).action.onMap g m =
       (representation smoothAction).action.onMap (f ≫ g) (f ≫ m) := rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Local endpoint equations glue to the actual overlap endpoint equation. -/
 theorem overlapLabel_relation :
     (representation smoothAction).action.onMap (p.overlapLabel smoothAction)
@@ -96,6 +104,7 @@ theorem overlapLabel_relation :
   rw [External.hat_restrict, External.hat_restrict]
   exact arrowLabel_relation (p.transitionArrow smoothAction i j)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Actual right-translation labels are recovered from the supplied forward labels. -/
 theorem transitionArrow_label (i j : I) (x : Points (A.pair i j)) :
     ordinaryHomLabelEquiv G (A.pair i j) (arrowLabel (p.transitionArrow smoothAction i j)) x =
@@ -108,6 +117,7 @@ theorem transitionArrow_label (i j : I) (x : Points (A.pair i j)) :
     (arrowLabel (p.transitionArrow smoothAction i j)) x)⁻¹ = _ at h
   exact inv_eq_iff_eq_inv.mp h
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem overlapLabel_diagonal :
     SheafCoverCech.diagonal A.cover ≫ p.overlapLabel smoothAction = labelOne A.total := by
   apply colimit.hom_ext
@@ -122,6 +132,7 @@ theorem overlapLabel_diagonal :
     ordinaryHomLabelEquiv G (A.domain i) (labelOne _) x
   rw [p.diagonal, inv_one, ordinary_labelOne]
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem overlapLabel_cocycle :
     SheafCoverCech.firstThird A.cover ≫ p.overlapLabel smoothAction =
       labelMul (SheafCoverCech.firstSecond A.cover ≫ p.overlapLabel smoothAction)

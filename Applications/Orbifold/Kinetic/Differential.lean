@@ -57,7 +57,7 @@ theorem lagrangian_velocity (z v : ℂ) :
     simp only [covector,momentum,add_apply,smul_apply,
       Complex.reCLM_apply,Complex.imCLM_apply]
     simp only [Complex.real_smul,Complex.mul_re,Complex.mul_im,Complex.ofReal_re,
-      Complex.ofReal_im,zero_mul,mul_zero,sub_zero,smul_eq_mul]
+      Complex.ofReal_im,zero_mul,sub_zero,smul_eq_mul]
     ring
 
 theorem lagrangian_position (z v : ℂ) (hg : gap z ≠ 0) :

@@ -13,6 +13,7 @@ variable {F G H : Family.{u,v,w,u',v',w'} Γ}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
 variable (θ : Pseudofunctor.StrongTrans G.toPseudofunctor H.toPseudofunctor)
 namespace StrongMap
+omit [Strict Γ] in
 theorem vcompComparison {x y : Γ} (f : x ⟶ y) (a : F.obj x) :
     ((Pseudofunctor.StrongTrans.vcomp η θ).naturality f).inv.app a =
       (θ.naturality f).inv.app ((η.app x).obj a) ≫
@@ -35,13 +36,11 @@ private theorem comp_map {x y : Total F} (p : x ⟶ y) :
     simp only [(θ.app y.base).map_comp]
     dsimp [Pseudofunctor.StrongTrans.vcomp, Pseudofunctor.StrongTrans.mkOfOplax,
       Oplax.StrongTrans.vcomp, Oplax.StrongTrans.mkOfOplax]
-    simp only [Iso.trans_inv, Iso.symm_inv, Strict.associator_eqToIso, eqToIso.inv, eqToIso.hom,
-      StrictTwoTransformation.Trans.comp_app, classifier_eqToHom_app,
-      classifier_whiskerLeft_app, classifier_whiskerRight_app,
-      Category.assoc, eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
+    simp only [Strict.associator_eqToIso, eqToIso.inv, eqToIso.hom,
+      Category.assoc]
     repeat rw [StrictTwoTransformation.Trans.comp_app]
     simp only [classifier_eqToHom_app, classifier_whiskerLeft_app,
-      classifier_whiskerRight_app, Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+      classifier_whiskerRight_app, Category.assoc]
     simp only [eqToHom_refl, Category.id_comp]
     rfl
 private theorem comp_cell {x y : Total F} {p q : x ⟶ y} (α : p ⟶ q) :
@@ -58,7 +57,7 @@ private theorem comp_cell {x y : Total F} {p q : x ⟶ y} (α : p ⟶ q) :
       (θ.app y.base).map₂_whisker_left, Bicategory.whiskerLeft_comp,
       Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans]
     simp only [(θ.app y.base).mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv,
-      Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans]
+      Bicategory.whiskerLeft_eqToHom, eqToHom_trans]
     refine HEq.trans (eqToHom_comp_heq _ _) ?_
     refine HEq.trans (comp_eqToHom_heq _ _) ?_
     apply HEq.trans _ (comp_eqToHom_heq _ _).symm
@@ -82,10 +81,9 @@ private theorem id_map {x y : Total F} (p : x ⟶ y) :
   refine total_hom_hext F rfl rfl _ _ ?_ ?_
   · rfl
   · dsimp [toHigher, map, Pseudofunctor.StrongTrans.id]
-    simp only [Iso.trans_inv, Strict.leftUnitor_eqToIso,
+    simp only [Strict.leftUnitor_eqToIso,
       Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
-      eqToHom_trans, classifier_eqToHom_app, StrictTwoTransformation.Trans.comp_app,
-      StrictTwoTransformation.Trans.eqToHom_app, Category.id_comp, Category.comp_id]
+      eqToHom_trans, classifier_eqToHom_app]
     exact eqToHom_comp_heq _ _
 
 theorem toHigher_id : toHigher (Pseudofunctor.StrongTrans.id F.toPseudofunctor) =

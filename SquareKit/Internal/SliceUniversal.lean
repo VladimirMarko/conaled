@@ -18,6 +18,7 @@ variable {h : GeometricMorphism F B} {a : B} [Closed a]
 def sectionInverse (h : GeometricMorphism F B) (a : B) (s : ⊤_ F ⟶ h.inverseImage.obj a) :
     Over a ⥤ F := Over.post h.inverseImage ⋙ Over.pullback s ⋙ Over.forget (⊤_ F)
 
+omit [CartesianMonoidalCategory B] [HasPullbacks B] [Closed a] in
 private theorem sectionInverse_eq_fst {s t : ⊤_ F ⟶ h.inverseImage.obj a} (e : s = t) (Y : Over a) :
     (eqToHom (congrArg (sectionInverse h a) e)).app Y ≫
       pullback.fst (h.inverseImage.map Y.hom) t = pullback.fst (h.inverseImage.map Y.hom) s := by

@@ -92,6 +92,7 @@ structure PrincipalLabelData (U : Domain) (l : LocallyConstant (Points U) G) whe
 namespace PrincipalLabelData
 variable {G} {U : Domain} {l : LocallyConstant (Points U) G}
 
+omit [Group G] in
 theorem covers (d : PrincipalLabelData G U l) :
     Covers U d.defining := fun x =>
   ⟨l x, (d.fiber_iff (l x) x).mpr rfl⟩
@@ -167,6 +168,7 @@ theorem labelDefining_iff (U : Domain) (l : LocallyConstant (Points U) G)
 def selectedPrincipalLabelData (U : Domain) (l : LocallyConstant (Points U) G) :
     PrincipalLabelData G U l := ⟨labelDefining G U l, labelDefining_iff G U l⟩
 
+omit [Group G] in
 theorem label_covers (U : Domain) (l : LocallyConstant (Points U) G) :
     Covers U (labelDefining G U l) := (selectedPrincipalLabelData G U l).covers
 

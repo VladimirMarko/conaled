@@ -78,7 +78,7 @@ theorem map_parallel {A : ℝ → E →L[ℝ] E} {B : ℝ → F →L[ℝ] F}
     HasDerivAt (fun r => J r (v r)) (-B t (J t (v t))) t := by
   convert hJ.clm_apply hv using 1
   have h := hp t ht (v t)
-  simp only [Function.comp_apply, map_neg]
+  simp only [map_neg]
   rw [eq_sub_of_add_eq h]
   abel
 

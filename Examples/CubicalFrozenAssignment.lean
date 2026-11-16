@@ -50,8 +50,13 @@ def assignedU : Term (reindex (uFamily CM cocycleBase cocycleRootedFamily).famil
 def assignInput : terminal.{0} ⟶ inputContext CM cocycleBase cocycleRootedFamily := pair assignQ assignedU
 
 /-- The semantic interpretation evaluates the actual source context and higher binder. -/
-def sourceContext := inputContext_eval cocycleModel cocycleBase cocycleRootedFamily
-def sourceHomotopy := selectedHomotopy_eval cocycleModel cocycleBase cocycleRootedFamily
+theorem sourceContext :
+    type_of% (inputContext_eval cocycleModel cocycleBase cocycleRootedFamily) :=
+  inputContext_eval cocycleModel cocycleBase cocycleRootedFamily
+
+theorem sourceHomotopy :
+    type_of% (selectedHomotopy_eval cocycleModel cocycleBase cocycleRootedFamily) :=
+  selectedHomotopy_eval cocycleModel cocycleBase cocycleRootedFamily
 
 /-- Both equations use the original frozen maps and retain their displayed variable. -/
 def sourceSigmaHomotopy := sigmaHomotopy cocycleModel cocycleBase cocycleRootedFamily

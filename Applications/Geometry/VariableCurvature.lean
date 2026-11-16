@@ -46,7 +46,7 @@ theorem metric_preserved (b a t : ℝ) (v : ℂ) :
     scale (curve b t) ^ 2 * Complex.normSq (transport b a t v) =
       scale (curve b a) ^ 2 * Complex.normSq v := by
   simp [transport, ParallelTransport.scalar, factor, map_mul,
-    Complex.normSq_div, Complex.normSq_eq_norm_sq, Complex.norm_exp, scale, curve]
+    Complex.normSq_eq_norm_sq, Complex.norm_exp, scale, curve]
 
 /-- This is computed from derivatives of Christoffel coefficients, not assigned
 as a descriptive curvature label. -/

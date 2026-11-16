@@ -19,7 +19,7 @@ private theorem flag_value {I J : Cube} (f : I ⟶ J) (g : J ⟶ (⟨2⟩ : Cube
     change ¬ (none ≠ (none : Option Bool) ∨ none ≠ (none : Option Bool))
     simp
   simp only [CubeCocycle.eval,squareCocycle,coboundary,δ1,extendZero]
-  simp only [outside, dite_false, zero_sub, sub_zero, zero_add, Category.comp_id]
+  simp only [outside, dite_false, sub_zero, zero_add, Category.comp_id]
   split <;> simp_all [partialSquareCochain, squareLabel, squareEdgeValue, squareFaceData, Category.comp_id]
 
 private theorem horizontal_vertex_label (a b : Bool) :

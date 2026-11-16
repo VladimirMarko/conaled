@@ -23,6 +23,7 @@ private theorem comp_assoc {X Y Z W : Type*} [Bicategory X] [Bicategory Y]
     (g : StrictPseudofunctor Y Z) (h : StrictPseudofunctor Z W) :
     (f.comp g).comp h = f.comp (g.comp h) := StrictTwoTransformation.functor_ext rfl
 
+omit [∀ (x : Γ), IsLocallyGroupoid (E.obj x).carrier] in
 theorem contractionRetraction_inclusion :
     (contractionRetraction i r η E).comp (reindexHigher E i) = contractionLift (r.comp i) η E := by
   unfold contractionRetraction

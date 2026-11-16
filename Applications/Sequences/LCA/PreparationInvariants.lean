@@ -14,10 +14,10 @@ theorem rowFill_unfilled (seed : α) (source : Nat → Measured α Nat) (capacit
   induction len with
   | zero => simp [MicroExecution.rowFill,TableExecution.initStore_exact,lookup]
   | succ k ih =>
-    have he : (⟨k,by omega⟩ : Fin capacity) ≠ j := by intro he; have hh := congrArg Fin.val he; simp only [Fin.val_mk] at hh; omega
+    have he : (⟨k,by omega⟩ : Fin capacity) ≠ j := by intro he; have hh := congrArg Fin.val he; simp only [] at hh; omega
     dsimp only [MicroExecution.rowFill,MicroExecution.rowIndex,Resources.bind,
       TableExecution.store,TableExecution.read,MicroExecution.minimum]
-    split <;> rw [lookup_write,if_neg he] <;> exact ih (by omega) (by omega)
+    split <;> rw [lookup_write,ite_eq_right he] <;> exact ih (by omega) (by omega)
 
 theorem rowFill_fits (seed : Key) (source : Nat → Measured Key Nat) (capacity len : Nat)
     (h : len ≤ capacity) (hseed : Fits offset heights stride seed)

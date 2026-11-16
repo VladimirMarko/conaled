@@ -11,6 +11,7 @@ universe u v w uA vA wA uB vB wB uE vE wE
 variable {A : Type uA} [Bicategory.{wA,vA} A] [Strict A]
 variable {B : Type uB} [Bicategory.{wB,vB} B] [Strict B]
 variable {C : Type*} [Bicategory C] [Strict C]
+omit [Strict A] [Strict B] [Strict C] in
 theorem strongPrecomp_heq {F G F' G' : StrictPseudofunctor A B}
     (eF : F = F') (eG : G = G')
     (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)

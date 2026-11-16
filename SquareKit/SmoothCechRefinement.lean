@@ -206,6 +206,7 @@ def restrict (h : Hom p q) : Hom (p.restrict r) (q.restrict r) where
     erw [hl, hr] at he
     exact he
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).restrict r = Hom.ident (p.restrict r) := by
   apply Hom.ext
@@ -215,6 +216,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
   intro x
   rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
     (h : Hom p q) (k : Hom q s) : (h.comp k).restrict r = (h.restrict r).comp (k.restrict r) := by
   apply Hom.ext
@@ -224,6 +226,7 @@ theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
   intro x
   rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem restrict_inverse (h : Hom p q) : h.inverse.restrict r = (h.restrict r).inverse := by
   apply Hom.ext
   funext j
@@ -302,6 +305,7 @@ variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     p.restrict (AtlasMap.ident A) = p := by
   apply Datum.ext
@@ -318,6 +322,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     rw [AtlasMap.ident_pair]
     rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem restrict_comp (p : Datum (d := d) (G := G) (M := M) A)
     {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g) :
     (p.restrict r).restrict s = p.restrict (r.comp s) := by
@@ -371,6 +376,7 @@ variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_localMapSheaf : (p.restrict r).localMapSheaf = r.total ≫ p.localMapSheaf := by
   apply colimit.hom_ext
   intro ⟨j⟩
@@ -380,6 +386,7 @@ theorem restrict_localMapSheaf : (p.restrict r).localMapSheaf = r.total ≫ p.lo
 
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_overlapLabel : (p.restrict r).overlapLabel smoothAction =
     SheafCoverCech.mapDouble f r.total r.total_cover ≫ p.overlapLabel smoothAction := by
   apply B.pairHom_ext
@@ -688,6 +695,7 @@ variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r : AtlasMap A B f)
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_localLabel : (h.restrict r).localLabel smoothAction =
     r.total ≫ h.localLabel smoothAction := by
   apply colimit.hom_ext

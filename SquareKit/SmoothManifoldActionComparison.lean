@@ -71,11 +71,13 @@ def representation : SmoothConstantAction.Representation G A.realization where
     simpa only [Function.comp_def, mul_smul] using
       (A.interpret_comp A A (fun x : M => h • x) (fun x : M => g • x) (smoothAction h) (smoothAction g))
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem equivariant (g : G) :
     (SmoothManifoldAction.representation smoothAction).map g ≫ (atlasIso A).hom =
       (atlasIso A).hom ≫ (representation A smoothAction).map g :=
   (atlas_naturality A A (fun x : M => g • x) (smoothAction g)).symm
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem action_equivariant (U : SmoothPresentationSite.Siteᵒᵖ)
     (g : (locallyConstantGroup G).obj.obj U) (x : (object d M).obj.obj U) :
     (atlasIso A).hom.hom.app U ((SmoothManifoldAction.representation smoothAction).act U g x) =
@@ -124,11 +126,13 @@ def Family.restrict {m n : SmoothMap U d M} (a : Family (G := G) U m n) (r : V �
     Family (G := G) V (m.restrict r) (n.restrict r) :=
   ⟨fun x => a.val ((show EuclideanOpen.Map V U from r) x),
     a.property.1.comp (openMap_contMDiff r),
-    fun x => a.property.2.1 _, fun x => a.property.2.2 _⟩
+    fun _ => a.property.2.1 _, fun _ => a.property.2.2 _⟩
 
+omit [IsManifold (Model d) ∞ M] in
 theorem Family.restrict_id {m n : SmoothMap U d M} (a : Family (G := G) U m n) :
     a.restrict (𝟙 U) = a := rfl
 
+omit [IsManifold (Model d) ∞ M] in
 theorem Family.restrict_comp {m n : SmoothMap U d M} (a : Family (G := G) U m n)
     (r : V ⟶ U) (s : W ⟶ V) : (a.restrict r).restrict s = a.restrict (s ≫ r) := rfl
 
@@ -148,6 +152,7 @@ def transportEquiv {X Y : Sheaf topology Type} {a : Action (locallyConstantGroup
   left_inv f := by cases hm; cases hn; rfl
   right_inv f := by cases hm; cases hn; rfl
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem transport_label {Y : Sheaf topology Type} {a : Action (locallyConstantGroup G) Y}
     {m n m' n' : embedding.obj U ⟶ Y} (hm : m = m') (hn : n = n')
     (f : Arrow (chart a m) (chart a n)) :
@@ -211,6 +216,7 @@ variable {q r : Descent.Datum (a := (representation smoothAction).action) A}
 def comparison (q : Descent.Datum (a := (representation smoothAction).action) A) (f : Y ⟶ X) :=
   q.baseChangeComparison f
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem naturality (h : Descent.Map q r) (f : Y ⟶ X) :
     (h.arrow.reindex f).comp (r.baseChangeComparison f) =
       (q.baseChangeComparison f).comp (h.baseChange f).arrow :=
@@ -228,11 +234,25 @@ variable (f : Y ⟶ X) [Presheaf.IsLocallySurjective topology f.hom]
 variable (k : Y' ⟶ X') [Presheaf.IsLocallySurjective topology k.hom]
 variable (u : X' ⟶ X) (v : Y' ⟶ Y) (square : v ≫ f = k ≫ u)
 
+omit [TopologicalSpace G] [DiscreteTopology G]
+  [Presheaf.IsLocallySurjective topology f.hom] [Presheaf.IsLocallySurjective topology k.hom] in
 /-- Matching naturality for the constructed action retains whole functors. -/
-def matchingNaturality := matchingEquivalence_natural (representation smoothAction).action hΓ u v square
+theorem matchingNaturality :
+    (matchingEquivalence (representation smoothAction).action hΓ f).functor ⋙
+        (splitSquareMap (representation smoothAction).action hΓ u v square).functor =
+      squareFunctor (representation smoothAction).action hΓ u v square ⋙
+        (matchingEquivalence (representation smoothAction).action hΓ k).functor :=
+  matchingEquivalence_natural (representation smoothAction).action hΓ u v square
 
+omit [TopologicalSpace G] [DiscreteTopology G]
+  [Presheaf.IsLocallySurjective topology f.hom] [Presheaf.IsLocallySurjective topology k.hom] in
 /-- Family naturality retains selected base transports and matching arrows. -/
-def familyNaturality := relativeMatchingEquivalence_square (representation smoothAction).action hΓ hB u v square
+theorem familyNaturality :
+    (relativeMatchingEquivalence (representation smoothAction).action hΓ hB f).functor ⋙
+        squareFunctor (representation smoothAction).action (.ext hΓ hB) u v square =
+      relativeSquareFunctor (representation smoothAction).action hΓ hB u v square ⋙
+        (relativeMatchingEquivalence (representation smoothAction).action hΓ hB k).functor :=
+  relativeMatchingEquivalence_square (representation smoothAction).action hΓ hB u v square
 
 def familyRecovery (q : Datum (representation smoothAction).action hΓ f) :=
   familySquare_recovery (representation smoothAction).action hΓ hB u v square q
@@ -267,7 +287,7 @@ local instance coordinateAction : MulAction C4 (ordinaryOpen diskDomain) where
 
 local instance : MulAction C4 (Points diskDomain) := coordinateAction
 
-def smooth (g : C4) : ContMDiff (Model diskDomain.dimension) (Model diskDomain.dimension) ∞
+theorem smooth (g : C4) : ContMDiff (Model diskDomain.dimension) (Model diskDomain.dimension) ∞
     (fun x : ordinaryOpen diskDomain => g • x) := openMap_contMDiff (diskMap g)
 
 abbrev endpoint {U : Domain} (m : U ⟶ diskDomain) : External.SmoothMap U diskDomain.dimension (ordinaryOpen diskDomain) :=

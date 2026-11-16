@@ -18,6 +18,7 @@ noncomputable def hittingTime (step : Execution Ω S A) (s : S) (ω : Ω) : With
   | .inl () => ⊤
   | .inr (_, k) => k
 
+omit [MeasurableSpace Ω] in
 /-- Finite times come from actual evaluations, including explicit failure returns. -/
 theorem hittingTime_eq_nat_iff (step : Execution Ω S A) (s : S) (ω : Ω) (k : Nat) :
     hittingTime step s ω = (k : WithTop Nat) ↔
@@ -38,6 +39,7 @@ theorem hittingTime_eq_nat_iff (step : Execution Ω S A) (s : S) (ω : Ω) (k : 
     · rintro rfl; exact ⟨a,he⟩
     · rintro ⟨b,hb⟩; exact (he.unique hb).2
 
+omit [MeasurableSpace Ω] in
 theorem hittingTime_eq_top_iff (step : Execution Ω S A) (s : S) (ω : Ω) :
     hittingTime step s ω = ⊤ ↔ ω ∉ termination step s := by
   rw [← outcome_none_iff step s ω]
@@ -45,6 +47,7 @@ theorem hittingTime_eq_top_iff (step : Execution Ω S A) (s : S) (ω : Ω) :
   | inl u => cases u; simp [hittingTime, h]
   | inr r => simp [hittingTime, h]
 
+omit [MeasurableSpace Ω] in
 /-- A finite deadline succeeds precisely when it bounds the operational return time. -/
 theorem hittingTime_le_iff (step : Execution Ω S A) (s : S) (ω : Ω) (budget : Nat) :
     hittingTime step s ω ≤ (budget : WithTop Nat) ↔
@@ -68,6 +71,7 @@ theorem hittingTime_le_iff (step : Execution Ω S A) (s : S) (ω : Ω) (budget :
     · rintro ⟨b,k,hk,hb⟩
       rwa [(he.unique hb).2]
 
+omit [MeasurableSpace Ω] in
 theorem hittingTime_sublevel (step : Execution Ω S A) (s : S) (budget : Nat) :
     {ω | hittingTime step s ω ≤ (budget : WithTop Nat)} = (timeout step s budget)ᶜ := by
   ext ω

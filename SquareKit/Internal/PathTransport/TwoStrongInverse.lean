@@ -29,6 +29,7 @@ instance inverseComparison_isIso {a b : A} (f : a ⟶ b) : IsIso (inverseCompari
   unfold inverseComparison
   infer_instance
 
+omit [Strict A] in
 /-- The reverse comparison retains the original coherent square exactly. -/
 theorem inverseComparison_recover {a b : A} (f : a ⟶ b) :
     (mateEquiv (TwoIdentityTransport.inverseAdjunction (η.app a))
@@ -36,6 +37,7 @@ theorem inverseComparison_recover {a b : A} (f : a ⟶ b) :
         (inv (inverseComparison η f)) = (η.naturality f).hom := by
   simp only [inverseComparison, IsIso.inv_inv, Equiv.symm_apply_apply]
 
+omit [Strict A] in
 /-- The inverse comparison preserves the strict identity boundary. -/
 theorem inverseComparison_id (a : A) : inverseComparison η (𝟙 a) =
     eqToHom (by simp only [F.map_id, G.map_id, Category.comp_id, Category.id_comp]) := by
@@ -48,6 +50,7 @@ theorem inverseComparison_id (a : A) : inverseComparison η (𝟙 a) =
   simp [mateEquiv_apply, Adjunction.homEquiv₁_apply, Adjunction.homEquiv₂_apply,TwoIdentityTransport.inverseAdjunction, Strict.associator_eqToIso,
     Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso]
 
+omit [Strict A] in
 /-- Inverse comparisons preserve pasting by the mates correspondence. -/
 theorem inverseComparison_comp {a b c : A} (f : a ⟶ b) (g : b ⟶ c) :
     inverseComparison η (f ≫ g) ≫ inv (η.app a) ◁ (F.mapComp f g).hom =
@@ -112,6 +115,7 @@ private theorem unit_whiskerRight_left_heq {a b c : B} (u : a ⟶ b)
     eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
   rfl
 
+omit [Strict A] in
 /-- Reversing comparisons retains their naturality for genuine cells. -/
 theorem inverseComparison_naturality {a b : A} {f g : a ⟶ b} (α : f ⟶ g) :
     G.map₂ α ▷ inv (η.app b) ≫ inverseComparison η g =

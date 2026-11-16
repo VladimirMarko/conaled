@@ -13,6 +13,7 @@ variable {Δ : Type uD} [Bicategory.{wD,vD} Δ] [Strict Δ]
 variable (E : Family.{u,v,w,uE,vE,wE} Γ) (σ : StrictPseudofunctor Δ Γ)
 variable {A : Type*} [Bicategory A] [Strict A]
 variable {F G : StrictPseudofunctor A (Total (reindex σ E))}
+omit [Strict A] in
 theorem reindexStrongBoundary (K : StrictPseudofunctor A (Total (reindex σ E))) :
     (K.comp (projectionHigher (reindex σ E))).comp σ =
       (K.comp (reindexHigher E σ)).comp (projectionHigher E) := by

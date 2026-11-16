@@ -96,7 +96,7 @@ theorem packResident_cost (r : Resident m width)
   have hs := Installation.sharedM_cost (blockSize m-1) r.shared (sharedFits h) h.addresses
   have hm := Installation.packM_cost r.macroRows (macro_fit h) h.addresses
   simp only [packResident,Resources.bind,Resources.pure]
-  simp only [FlatTable.sharedPack_size,dimension] at hs
+  simp only [dimension] at hs
   change _ ≤ installWork m
   have he : FlatTable.words (2^(blockSize m-1)) (FlatTable.words (blockSize m) (blockSize m)) = sharedSlots m := by
     unfold FlatTable.words sharedSlots; ring
@@ -225,7 +225,9 @@ variable {rows cols base : Nat} [NeZero cols]
 
 /-- Retain the arguments and every produced scalar/reference for one
 installation cell. These are the arithmetic and read results of its branch;
-no recursive or source buffer payload is copied into this frame. -/
+no recursive or source buffer payload is copied into this frame.
+The `fit` and `wide` proof arguments retain `Installation.packCell`'s admission
+boundary and named interface; the control observations do not inspect them. -/
 def cellControl (cells : Vector (Vector (WordMachine.Word width) cols) rows)
     (fit : base+FlatTable.words rows cols ≤ capacity) (wide : capacity ≤ 2^width)
     (i : Fin (FlatTable.words rows cols)) : Control.Run (WordMachine.Word width) :=
@@ -335,6 +337,9 @@ def tensorM (offset : Int) (stride : Nat)
   bind (TableExecution.initStore rowSeed rows) fun classSeed =>
   mapM classSeed (matrixM offset stride) source
 
+/-- Measured conversion with the same admission arguments as `ofState`.
+The executable conversion does not inspect `h`; its value and cost contracts
+use that eligibility evidence. Retain the named argument for callers. -/
 def convertState (input : Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
     (data : Backend.State m) (_valid : data = PackedBackend.state input) : Measured (Resident m width) Nat :=

@@ -13,6 +13,7 @@ local notation "M" => structuralModel C D
 variable (A : Family Context.empty) (B : Family A.total)
 abbrev higherInputContext : Context := inputContext M A B
 
-def selectedHomotopy_payload (z : higherInputContext C D A B) :=
+theorem selectedHomotopy_payload (z : higherInputContext C D A B) :
+    type_of% (variable_two_weaken C D (parallel M A B).identity (qFamily M A B) (uFamily M A B) z) :=
   variable_two_weaken C D (parallel M A B).identity (qFamily M A B) (uFamily M A B) z
 end Examples.FrozenMemoStages

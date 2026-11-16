@@ -45,7 +45,7 @@ theorem same_observation (v : â„‚) : closed 1 v = closed kernel v := by
 
 example : closed kernel 1 = Complex.I := by
   rw [closed, product_tangent, AtlasPath.agreement]
-  simp [selectedLabel, close, AtlasTransport.apexAtlas, PathTransport.apexClosed,
+  simp [selectedLabel, close, PathTransport.apexClosed,
     DiskTransport.Path.transport, Segment.hold_transport]
 
 example : Nat.card C2 = 2 := by simp [Nat.card_eq_fintype_card, Fintype.card_perm]
@@ -84,7 +84,7 @@ example : AtlasPath.closed PathTransport.apexClosed AtlasTransport.apexAtlas 1 â
   rw [AtlasPath.closed_agreement, AtlasPath.agreement]
   simp only [PathTransport.apexClosed, DiskTransport.Path.ClosedLift.endomorphism,
     DiskTransport.Path.ClosedLift.label, DiskTransport.Path.transport,
-    Segment.hold_transport, quarterTurn, Units.val_inv_eq_inv_val]
+    Segment.hold_transport, quarterTurn]
   intro h
   have hi := congrArg Complex.im h
   norm_num at hi

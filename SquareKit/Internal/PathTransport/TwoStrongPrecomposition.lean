@@ -5,8 +5,10 @@ variable {A B C D : Type*} [Bicategory A] [Bicategory B] [Bicategory C] [Bicateg
 variable [Strict A] [Strict B] [Strict C] [Strict D]
 variable {F G : StrictPseudofunctor A B}
 variable (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
+omit [Strict A] [Strict B] [Strict C] in
 theorem strongPrecomp_functor_heq {H K : StrictPseudofunctor C A} (h : H = K) :
     HEq (strongPrecomp θ H) (strongPrecomp θ K) := by cases h; rfl
+omit [Strict A] [Strict B] [Strict C] [Strict D] in
 theorem strongPrecomp_comp (H : StrictPseudofunctor C A) (K : StrictPseudofunctor D C) :
     HEq (strongPrecomp (strongPrecomp θ H) K) (strongPrecomp θ (K.comp H)) := by
   apply strongTrans_hext
@@ -14,6 +16,7 @@ theorem strongPrecomp_comp (H : StrictPseudofunctor C A) (K : StrictPseudofuncto
     (congrArg (fun L => L.toPseudofunctor) (strictFunctor_comp_assoc K H G).symm)
   · intro x; rfl
   · intro x y p; rfl
+omit [Strict A] [Strict B] [Strict C] in
 theorem strongPrecomp_id (F : StrictPseudofunctor A B) (H : StrictPseudofunctor C A) :
     strongPrecomp (Pseudofunctor.StrongTrans.id F.toPseudofunctor) H =
       Pseudofunctor.StrongTrans.id (H.comp F).toPseudofunctor := rfl

@@ -19,12 +19,14 @@ private def castStrongTarget {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
   cases e
   exact θ
 
+omit [Strict Γ] [IsLocallyGroupoid Γ] in
 private theorem castStrongTarget_app {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
     (e : G = G') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (x : Γ) : HEq ((castStrongTarget e θ).app x) (θ.app x) := by
   cases e
   rfl
 
+omit [Strict Γ] [IsLocallyGroupoid Γ] in
 private theorem castStrongTarget_heq {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
     (e : G = G') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
     HEq (castStrongTarget e θ) θ := by
@@ -36,10 +38,12 @@ noncomputable def forwardFamilyContraction :
     Pseudofunctor.StrongTrans (reindex R E).toPseudofunctor E.toPseudofunctor :=
   castStrongTarget (StrictTwoTransformation.functor_id_comp E) (strongPostcomp η E)
 
+omit [IsLocallyGroupoid Γ] [∀ (x : Γ), IsIso (η.app x)] in
 theorem forwardFamilyContraction_heq :
     HEq (forwardFamilyContraction R η E) (strongPostcomp η E) :=
   castStrongTarget_heq (StrictTwoTransformation.functor_id_comp E) (strongPostcomp η E)
 
+omit [IsLocallyGroupoid Γ] [∀ (x : Γ), IsIso (η.app x)] in
 theorem forwardFamilyContraction_app (x : Γ) :
     (forwardFamilyContraction R η E).app x = E.map (η.app x) :=
   eq_of_heq (castStrongTarget_app (StrictTwoTransformation.functor_id_comp E)
@@ -76,6 +80,7 @@ theorem contractionLift_obj (x : Total E) :
   change (⟨R.obj x.base, ((inverseFamilyContraction R η E).app x.base).obj x.fiber⟩ : Total E) = _
   rw [inverseFamilyContraction_app]
 
+omit [IsLocallyGroupoid Γ] in
 /-- Forward transport recovers the element transported backwards, for every family. -/
 theorem contractionLiftBoundary (x : Total E) :
     (E.map (η.app x.base)).obj ((E.map (inv (η.app x.base))).obj x.fiber) = x.fiber := by

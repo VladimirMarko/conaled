@@ -69,6 +69,7 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Bicategory.Strict Γ]
 def endpointFamily (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) : Family Γ :=
   F.comp doubleClassifier
 
+omit [Strict Γ] in
 theorem endpointFamily_reindex {Δ : Type*} [Bicategory Δ] [Bicategory.Strict Δ]
     (σ : StrictPseudofunctor Δ Γ) (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
     endpointFamily (reindex σ F) = reindex σ (endpointFamily F) :=
@@ -134,12 +135,14 @@ def secondEndpoint (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
     change _ ≫ 𝟙 _ = 𝟙 _ ≫ _
     simp
     rfl
+omit [Strict Γ] in
 theorem diagonal_first (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
     (diagonalFamily F).comp (firstEndpoint F) = StrictTwoTransformation.Trans.id F := by
   apply StrictTwoTransformation.Trans.ext
   intro γ
   exact StrictTwoTransformation.functor_ext rfl
 
+omit [Strict Γ] in
 theorem diagonal_second (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
     (diagonalFamily F).comp (secondEndpoint F) = StrictTwoTransformation.Trans.id F := by
   apply StrictTwoTransformation.Trans.ext

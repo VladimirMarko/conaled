@@ -48,9 +48,7 @@ theorem strongInverse_vcomp : Pseudofunctor.StrongTrans.vcomp (strongInverse η)
       eqToIso.hom, eqToIso.inv, IsIso.inv_comp, inv_eqToHom,
       inv_whiskerLeft, inv_whiskerRight, comp_whiskerRight, eqToHom_whiskerRight,
       whiskerLeft_comp, whiskerLeft_eqToHom, Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
-    simp only [whisker_assoc, whiskerRight_comp_symm, IsIso.inv_hom_id,
-      Strict.associator_eqToIso, Strict.rightUnitor_eqToIso,
-      whiskerRight_id, eqToIso.hom, eqToIso.inv, whiskerLeft_comp, whiskerLeft_eqToHom,
+    simp only [whisker_assoc, whiskerRight_comp_symm, Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv, whiskerLeft_comp, whiskerLeft_eqToHom,
       Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
     refine HEq.trans (eqToHom_comp_heq _ _) ?_
     simp only [← Category.assoc, comp_eqToHom_heq_iff]
@@ -59,8 +57,8 @@ theorem strongInverse_vcomp : Pseudofunctor.StrongTrans.vcomp (strongInverse η)
       (α' := inv (η.app a) ◁ inv (η.naturality f).hom)
       (β' := inv (η.app a) ◁ (η.naturality f).hom)
       ?_ ?_ rfl rfl _ _ _ rfl ?_ HEq.rfl) ?_
-    · simp [Category.assoc]
-    · simp [Category.assoc]
+    · simp
+    · simp
     · generalize hv : inv (η.app b) ≫ η.app b = v
       have hv' : v = 𝟙 _ := hv.symm.trans (IsIso.inv_hom_id _)
       cases hv'

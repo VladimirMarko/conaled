@@ -23,6 +23,7 @@ theorem rootedContraction_embedding_source :
   rw [strictFunctor_comp_assoc, rootedReflexivity_embedding, ← strictFunctor_comp_assoc,
     ← strictFunctor_comp_assoc, rootedPathEmbedding_first]
   rfl
+omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_embedding_target :
     (StrictPseudofunctor.id _).comp (rootedPathEmbedding F x) =
       (rootedPathEmbedding F x).comp (StrictPseudofunctor.id _) := by

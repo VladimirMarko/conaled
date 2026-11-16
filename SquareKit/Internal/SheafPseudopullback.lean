@@ -15,7 +15,7 @@ variable (f : GeometricMorphism F B) (a : B) [Closed a] [Closed (f.inverseImage.
 local instance sheafPseudopullbackLocal1 : ∀ h : GeometricMorphism (Sheaf J (Type (max u v))) F,
     @MonoidalClosed (Over (h.inverseImage.obj (f.inverseImage.obj a))) inferInstance
       (Over.cartesianMonoidalCategory _).toMonoidalCategory :=
-  fun h => SquareKit.SheafSliceFunction.closed _
+  fun _h => SquareKit.SheafSliceFunction.closed _
 
 /-- Full cone classification, including both noninvertible transformation legs. -/
 def sheafPseudopullback : GeometricMorphism (Sheaf J (Type (max u v))) (Over (f.inverseImage.obj a)) ≌

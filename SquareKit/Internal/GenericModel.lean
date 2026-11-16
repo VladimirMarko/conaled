@@ -26,6 +26,7 @@ variable [Closed (U ⨿ ⊤_ B)]
 def Lift.model (k : Lift h (slice (U ⨿ ⊤_ B))) : PartitionSection.Model (parameterPullback h u) :=
   PartitionSection.ofSection _ (k.section ≫ (classifierObjectComparison h (U := U)).hom)
 
+omit [HasBinaryProducts F] [HasPullbacks F] [Mono u] in
 /-- The two interpreted predicates assemble to the pulled-back generic section. -/
 theorem Lift.model_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     (k.model u).toSection = k.section ≫ (classifierObjectComparison h (U := U)).hom :=

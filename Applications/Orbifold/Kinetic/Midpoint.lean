@@ -39,7 +39,7 @@ theorem discrete_d1 (h : ℝ) (x y : ℂ) (hh : h ≠ 0)
       ContinuousLinearMap.comp_apply,ContinuousLinearMap.id_apply,
       Complex.reCLM_apply,Complex.imCLM_apply,Complex.add_re,Complex.add_im,
       Complex.sub_re,Complex.sub_im,scalar_re,scalar_im,smul_eq_mul,
-      Function.comp_apply,Pi.smul_apply,Pi.sub_apply,Pi.add_apply,id_eq,Complex.zero_re,Complex.zero_im]
+      Function.comp_apply,Pi.smul_apply,Pi.add_apply,id_eq,Complex.zero_re,Complex.zero_im]
     simp only [midpoint] at hg ⊢
     field_simp
     simp only [Complex.normSq_apply,Complex.sub_re,Complex.sub_im]
@@ -60,7 +60,7 @@ theorem discrete_d2 (h : ℝ) (x y : ℂ) (hh : h ≠ 0)
       ContinuousLinearMap.comp_apply,ContinuousLinearMap.id_apply,
       Complex.reCLM_apply,Complex.imCLM_apply,Complex.add_re,Complex.add_im,
       Complex.sub_re,Complex.sub_im,scalar_re,scalar_im,smul_eq_mul,
-      Function.comp_apply,Pi.smul_apply,Pi.sub_apply,Pi.add_apply,id_eq,Complex.zero_re,Complex.zero_im]
+      Function.comp_apply,Pi.sub_apply,id_eq,Complex.zero_re,Complex.zero_im]
     simp only [midpoint] at hg ⊢
     field_simp
     simp only [Complex.normSq_apply,Complex.sub_re,Complex.sub_im]

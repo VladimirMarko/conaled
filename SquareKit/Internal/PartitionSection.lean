@@ -41,6 +41,7 @@ structure Hom (M N : Model u) where
   left_over : left ≫ N.p = M.p
   right_over : right ≫ N.q = M.q
 
+omit [Mono u] in
 @[ext] theorem Hom.ext {M N : Model u} (f g : Hom M N) : f = g := by
   have hp : f.left = g.left := (cancel_mono N.p).mp (f.left_over.trans g.left_over.symm)
   have hq : f.right = g.right := (cancel_mono N.q).mp (f.right_over.trans g.right_over.symm)
@@ -62,10 +63,12 @@ instance (M N : Model u) : Subsingleton (M ⟶ N) := ⟨Hom.ext⟩
 def toSection (M : Model u) : ⊤_ C ⟶ U ⨿ ⊤_ C :=
   M.partition.desc (BinaryCofan.mk (M.bound ≫ coprod.inl) (M.q ≫ coprod.inr))
 
+omit [Mono u] in
 @[reassoc (attr := simp)] theorem p_section (M : Model u) :
     M.p ≫ M.toSection = M.bound ≫ coprod.inl :=
   M.partition.fac _ ⟨WalkingPair.left⟩
 
+omit [Mono u] in
 @[reassoc (attr := simp)] theorem q_section (M : Model u) :
     M.q ≫ M.toSection = M.q ≫ coprod.inr :=
   M.partition.fac _ ⟨WalkingPair.right⟩
@@ -86,6 +89,7 @@ theorem section_natural {M N : Model u} (f : M ⟶ N) : M.toSection = N.toSectio
     rw [q_section, ← f.right_over]
     simp only [Category.assoc, q_section]
 
+omit [Mono u] in
 /-- Extensivity identifies the predicates as actual pullbacks of the summand inclusions. -/
 theorem section_pullbacks (M : Model u) :
     IsPullback M.p M.bound M.toSection (coprod.inl : U ⟶ U ⨿ ⊤_ C) ∧
@@ -121,6 +125,7 @@ def ofSection (s : ⊤_ C ⟶ U ⨿ ⊤_ C) : Model u where
       (pullback.condition).symm (pullback.condition).symm).mpr
       ⟨IsPullback.of_hasPullback _ _, IsPullback.of_hasPullback _ _⟩).some
 
+omit [HasPullbacks C] [Mono u] in
 /-- Assembling the pulled-back predicates returns exactly the given section. -/
 theorem ofSection_section (s : ⊤_ C ⟶ U ⨿ ⊤_ C) : (ofSection u s).toSection = s := by
   apply (ofSection u s).partition.hom_ext

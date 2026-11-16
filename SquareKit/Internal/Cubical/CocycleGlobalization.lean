@@ -18,7 +18,7 @@ def globalToMap {Γ : Presheaf.Context.{0}} (z : Cocycle2 Γ.Elementsᵒᵖ) : �
       (Functor.Elements.homMk f rfl)).symm
 
 def mapToCochain {Γ : Presheaf.Context.{0}} (v : Γ ⟶ cocycles) : Cochain2 Γ.Elementsᵒᵖ :=
-  fun {X Y Z} f g => CubeCocycle.eval (v.app Z.unop.obj Z.unop.val)
+  fun {_X _Y Z} f g => CubeCocycle.eval (v.app Z.unop.obj Z.unop.val)
     f.unop.hom.unop g.unop.hom.unop (𝟙 Z.unop.obj.unop)
 
 theorem map_restriction {Γ : Presheaf.Context.{0}} (v : Γ ⟶ cocycles)

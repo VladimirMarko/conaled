@@ -22,7 +22,7 @@ theorem paddedDepth_steps (depth : Nat → Int) (hn : 0 < n)
       simp only [paddedDepth, hnext, hi, ite_false, ite_true]
       rw [he]
       have hs : n-1+1-(n-1) = 1 := by omega
-      simp [hs, add_assoc]
+      simp [hs]
     · left
       simp only [paddedDepth, hnext, hi, ite_false]
       have hs : i+1-(n-1) = i-(n-1)+1 := by omega

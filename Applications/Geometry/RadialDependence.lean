@@ -27,7 +27,7 @@ theorem integralPath_eq {p : State} (hp : residual (p,solutionPaths p) = 0)
     integralPath p t = extendPaths (solutionPaths p) t := by
   have hz := congrArg (fun q : Paths => q.1 ⟨t,ht⟩) hp
   have hw := congrArg (fun q : Paths => q.2 ⟨t,ht⟩) hp
-  simp [residual, linearResidual, constant, integralCLM_apply, smul_eq_mul] at hz hw
+  simp [residual, linearResidual, constant, integralCLM_apply] at hz hw
   have hproj : projIcc 0 1 (by norm_num) t = ⟨t,ht⟩ := projIcc_of_mem _ ht
   apply Prod.ext
   · change p.1 + (1/2 : ℝ) • (∫ s in (0 : ℝ)..t, extend (solutionPaths p).2 s) =
@@ -52,8 +52,7 @@ theorem integralPath_deriv (p : State) (t : ℝ) :
     ((hasDerivAt_const t p.2).sub (primitive
       (conjugate (solutionPaths p).1 * (solutionPaths p).2 ^ 2))) using 1
   · rfl
-  · ext <;> simp [weightedField, extendPaths, extend, conjugate, smul_eq_mul,
-      Complex.real_smul]; ring
+  · ext <;> simp [weightedField, extendPaths, extend, conjugate, Complex.real_smul]; ring
 
 theorem integralPath_continuous (p : State) : Continuous (integralPath p) :=
   continuous_iff_continuousAt.mpr (fun t => (integralPath_deriv p t).continuousAt)

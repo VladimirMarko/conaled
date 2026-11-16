@@ -105,6 +105,7 @@ def gaugeHom : Hom p (p.gauge n a) where
     change ((a j).val _ * (p.transition i j).val x * ((a i).val _)⁻¹) * (a i).val _ = _
     exact inv_mul_cancel_right _ _
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem gauge_transition (i j : I) (x : Points (A.pair i j)) :
     ((p.gauge n a).transition i j).val x =
       (a j).val ((show EuclideanOpen.Map _ _ from A.right i j) x) *
@@ -117,6 +118,7 @@ def gaugeComparison
       (p.interpreted smoothAction) :=
   (interpretedHomEquiv smoothAction _ _ (p.gaugeHom n a)).inverse
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem gauge_of_hom {q : Datum (d := d) (G := G) (M := M) A} (h : Hom p q) :
     p.gauge q.localMap h.labels = q := by
   refine Datum.ext _ _ ?_ ?_
@@ -137,6 +139,7 @@ def composeGauge (m : ∀ i, External.SmoothMap (A.domain i) d M)
     change ((b i).val x * (a i).val x) • _ = _
     rw [mul_smul, (a i).property, (b i).property]⟩
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem gauge_twice (m : ∀ i, External.SmoothMap (A.domain i) d M)
     (b : ∀ i, External.Labels (G := G) (A.domain i) (n i) (m i)) :
     (p.gauge n a).gauge m b = p.gauge m (p.composeGauge n a m b) := by
@@ -205,6 +208,7 @@ variable (b : ∀ i, External.Labels (G := G) (A.domain i) (q.localMap i) (m i))
 def gauge : Hom (p.gauge n a) (q.gauge m b) :=
   (p.gaugeHom n a).inverse.comp (f.comp (q.gaugeHom m b))
 
+omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
 theorem gauge_labels (i : I) (x : Points (A.domain i)) :
     ((f.gauge n m a b).labels i).val x =
       (b i).val x * (f.labels i).val x * ((a i).val x)⁻¹ := rfl

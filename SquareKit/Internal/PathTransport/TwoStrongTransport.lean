@@ -42,8 +42,7 @@ def strongPostcomp : Pseudofunctor.StrongTrans (F.comp H).toPseudofunctor (G.com
       Iso.trans_hom, Iso.symm_hom, eqToIso.hom, eqToIso.inv,
       Bicategory.Strict.leftUnitor_eqToIso, Bicategory.Strict.rightUnitor_eqToIso,
       Bicategory.whiskerLeft_eqToHom, Bicategory.eqToHom_whiskerRight,
-      PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans_assoc,
-      eqToHom_trans, eqToHom_refl, Category.id_comp, Category.comp_id] at k ⊢
+      PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans, ] at k ⊢
     change eqToHom _ ≫ H.map₂ (η.naturality (𝟙 x)).hom ≫ eqToHom _ = eqToHom _
     exact k
   naturality_comp {a b c} f g := by
@@ -61,7 +60,7 @@ def strongPostcomp : Pseudofunctor.StrongTrans (F.comp H).toPseudofunctor (G.com
       Pseudofunctor.map₂_whisker_left, Pseudofunctor.map₂_whisker_right,
       Bicategory.whiskerLeft_comp, Bicategory.comp_whiskerRight,
       PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans_assoc,
-      eqToHom_trans, eqToHom_refl, Category.id_comp, Category.comp_id] at k ⊢
+      eqToHom_trans, ] at k ⊢
     exact k
 namespace TwoFamily
 variable {Γ : Type u} [Bicategory.{w,v} Γ] [Bicategory.Strict Γ]

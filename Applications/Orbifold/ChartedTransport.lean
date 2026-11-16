@@ -111,7 +111,7 @@ theorem independent (p q : Charting s a b) (g h : Gauge) :
 and its boundary values use the actual overlap. -/
 def Parallel : {a b : ℝ} → (p : Charting s a b) → Gauge → Gauge → ℂ → ℂ → Prop
   | _, _, .nil t ht, g, h, v, w => w = g.overlap h (s.curve t) (s.inside t ht) v
-  | _, _, @Charting.cons _ _ _ a b _ ha hb _ i _ r, g, h, v, w =>
+  | _, _, @Charting.cons _ _ _ a b _ ha _hb _ i _ r, g, h, v, w =>
       ∃ f : ℝ → ℂ,
         f a = g.overlap (chart i) _ (s.inside a ha) v ∧
         (∀ t ∈ Icc a b, HasDerivAt f (-(chart i).connection (s.curve t) (s.velocity t) * f t) t) ∧

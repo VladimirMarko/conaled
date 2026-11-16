@@ -19,6 +19,7 @@ noncomputable def outcome (step : Execution Ω S A) (s : S) (ω : Ω) : Sum Unit
   exact if h : ∃ r : A × Nat, Progress.Evaluates (step ω) s r.1 r.2
   then .inr (Classical.choose h) else .inl ()
 
+omit [MeasurableSpace Ω] in
 theorem outcome_some_iff (step : Execution Ω S A) (s : S) (ω : Ω) (a : A) (k : Nat) :
     outcome step s ω = Sum.inr (a,k) ↔ Progress.Evaluates (step ω) s a k := by
   classical
@@ -37,6 +38,13 @@ theorem outcome_some_iff (step : Execution Ω S A) (s : S) (ω : Ω) (a : A) (k 
     simp only [reduceCtorEq, false_iff]
     intro he; exact h ⟨(a,k),he⟩
 
+-- The operational result is available before choosing a measure on environments.
+omit [MeasurableSpace Ω] in
+example (ω : Ω) :
+    outcome (fun _ (_ : Unit) => Sum.inl true) () ω = Sum.inr (true, 1) :=
+  (outcome_some_iff _ _ _ _ _).2 (.done rfl)
+
+omit [MeasurableSpace Ω] in
 theorem outcome_none_iff (step : Execution Ω S A) (s : S) (ω : Ω) :
     outcome step s ω = Sum.inl () ↔ ω ∉ termination step s := by
   classical

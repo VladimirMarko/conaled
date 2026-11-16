@@ -24,6 +24,7 @@ def sourceModelFunctor : PartitionSection.Model (parameterPullback h u) ⥤
   pullModelFunctor f ⋙ PartitionSection.changeParameter
     (parameterPullback f (parameterPullback h u)) (parameterPullback (f.comp h) u) (Iso.refl _)
 
+omit [HasPullbacks B] [FinitaryExtensive B] in
 /-- The source substitution functor retains inverse image of the actual section. -/
 theorem sourceModelFunctor_section (M : PartitionSection.Model (parameterPullback h u)) :
     ((sourceModelFunctor f h u).obj M).toSection = f.pullSection M.toSection ≫

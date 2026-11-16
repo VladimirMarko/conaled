@@ -92,7 +92,7 @@ theorem originParallel_derivative (p : Initial) (hp : p.val.1 = 0) (v : ℂ)
   change -gamma (boundedFlow p t).1 ((boundedFlow p t).2/2) (originParallel p t v) =
     ↑(Real.exp (-normSq (boundedFlow p t).1) * -(2*(conj (boundedFlow p t).1 * ((boundedFlow p t).2/2)).re)) * v
   have hr : 2*(conj (boundedFlow p t).1 * ((boundedFlow p t).2/2)).re = (radialMomentum p t).re := by
-    simp [radialMomentum,mul_div_assoc]
+    simp [radialMomentum]
     ring
   rw [hr]
   push_cast

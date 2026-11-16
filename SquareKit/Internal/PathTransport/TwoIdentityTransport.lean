@@ -130,6 +130,7 @@ def locallyDiscreteTrans {C D : Type*} [Category* C] [Category* D]
   naturality f := Discrete.ext (η.naturality f.as)
   naturality₂ _ := Subsingleton.elim _ _
 
+omit [Strict A] in
 theorem homComparison_id [Bicategory.IsLocallyGroupoid B]
     (F : StrictPseudofunctor A B) {a a' : A} {b b' : B}
     (u : F.obj a ⟶ b) [IsIso u] (v : F.obj a' ⟶ b') :
@@ -138,8 +139,9 @@ theorem homComparison_id [Bicategory.IsLocallyGroupoid B]
         𝟙 (homTransport F u v) := by
   ext p
   simp [homComparison, homNaturality, inverseMate, StrictTwoTransformation.Trans.id,
-    Strict.associator_eqToIso, Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso]
+    Strict.associator_eqToIso]
 
+omit [Strict A] in
 /-- Vertical pasting of endpoint comparisons has the composite action on
 the complete hom-groupoid. -/
 theorem homComparison_comp [Bicategory.IsLocallyGroupoid B]
@@ -242,6 +244,7 @@ instance strictMapIsIso (G : StrictPseudofunctor B C) {a b : B}
   change IsIso (G.toFunctor.map u)
   infer_instance
 
+omit [Strict A] in
 /-- Transport along successive fiber functors and endpoint arrows composes exactly. -/
 theorem homTransport_comp (F : StrictPseudofunctor A B) (G : StrictPseudofunctor B C)
     {a a' : A} {b b' : B} {c c' : C}
@@ -300,6 +303,7 @@ theorem homTransport_id (a a' : A) :
 
 end TransportComposition
 
+omit [Strict A] in
 /-- Equality of fiber functors transports both endpoints without changing hom transport. -/
 theorem homTransport_congr {F G : StrictPseudofunctor A B} (e : F = G)
     {a a' : A} {b b' : B} (u : G.obj a ⟶ b) [IsIso u] (v : G.obj a' ⟶ b') :

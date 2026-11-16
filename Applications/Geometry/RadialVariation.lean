@@ -99,7 +99,7 @@ theorem cubic_derivative_zero :
       intro p
       apply ContinuousMap.ext
       intro t
-      simp [pathZ, pathW, conjugate, ContinuousLinearMap.smul_apply, smul_eq_mul]
+      simp [pathZ, pathW, conjugate, smul_eq_mul]
   convert! integralCLM.hasFDerivAt.comp (0 : State × Paths) hc using 1 ; simp
 
 theorem residual_derivative_zero : HasFDerivAt residual linearResidual 0 := by
@@ -111,7 +111,7 @@ theorem residual_derivative_zero : HasFDerivAt residual linearResidual 0 := by
       (0 : State × Paths →L[ℝ] Paths) 0 := by
     convert! (ContinuousLinearMap.inr ℝ Curve Curve).hasFDerivAt.comp
       (0 : State × Paths) hc using 1
-  convert! hl.add hn using 1 ; simp [residual]
+  convert! hl.add hn using 1 ; simp
 
 def pathDerivative : Paths →L[ℝ] Paths :=
   ((ContinuousLinearMap.fst ℝ Curve Curve -

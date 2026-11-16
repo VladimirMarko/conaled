@@ -58,6 +58,7 @@ def OrdinarySelectedComponents
  (β : Pseudofunctor.StrongTrans s.lift.toPseudofunctor t.lift.toPseudofunctor) : Prop :=
  ∀ z, HEq ((ordinarySectionComparison Γ C s t β).app z)
   (p.normalObj (closedId (constantFamily Γ (discreteCategory C)) s t) z).fiber.as.as
+omit [IsLocallyGroupoid Γ] in
 theorem ordinarySelectedComponents_of_native
  (s t : TwoFamily.Section (constantFamily Γ (discreteCategory C)))
  (p : TwoFamily.Section (closedId (constantFamily Γ (discreteCategory C)) s t))

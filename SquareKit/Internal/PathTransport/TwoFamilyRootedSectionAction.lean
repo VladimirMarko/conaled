@@ -15,6 +15,7 @@ def RootedSectionActionFormula {H K : StrictPseudofunctor (Total (rootedPathFami
    (projectionHigher (rootedPathFamily F x))).normalMap
    (reindex (projectionHigher (rootedPathFamily F x)) (reindex (projectionHigher F) B)) (η.app z)).fiber)
   (𝟙 (s.normalObj B z.base.base).fiber)
+omit [IsLocallyGroupoid Γ] in
 theorem rootedSection_action_of_base
  {H K : StrictPseudofunctor (Total (rootedPathFamily F x)) (Total (rootedPathFamily F x))}
  (η : Pseudofunctor.StrongTrans H.toPseudofunctor K.toPseudofunctor)

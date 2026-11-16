@@ -164,7 +164,7 @@ theorem act_formula (p : Pose) (z : Disk) :
     (p.act z : ℂ) = (p.a + p.u * z.val) / (1 + conj p.a * p.u * z.val) := by
   let L := MatrixBackend.Hermitian.decodeEquiv standardBasis diskForm p.certified
   have hn : (![z.val, 1] : DiskVector) ≠ 0 := by intro h; have := congrFun h 1; simp at this
-  have hl : L.val ![z.val, 1] ≠ 0 := by simpa using L.val.injective.ne hn
+  have hl : L.val ![z.val, 1] ≠ 0 := by simp
   change (diskOfLine (p.motion • lineOfDisk z) : ℂ) = _
   rw [diskOfLine_eq _ (L.val ![z.val, 1]) hl rfl]
   change (Matrix.toLin standardBasis standardBasis p.matrix ![z.val, 1]) 0 /

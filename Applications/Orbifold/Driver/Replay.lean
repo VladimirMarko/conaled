@@ -41,7 +41,7 @@ theorem measured_action (g : C4) (cs : List Tick) (q : Packet) :
       rw [ih]
       cases hr : Measured.run cs s with
       | mk a cost =>
-        cases a <;> simp [Measured.prepend,List.map_cons,Option.map_map,Function.comp_def]
+        cases a <;> simp [Measured.prepend,List.map_cons,]
 
 noncomputable def Attempt.act (g : C4) (a : Attempt) : Attempt :=
   ⟨a.accepted.map (g • ·),a.counts,a.failure⟩
@@ -55,9 +55,9 @@ theorem guarded_action (g : C4) (cap : Nat) (cs : List Tick) (q : Packet) :
     split
     · rfl
     · cases ha : (Measured.run [c] q).1 with
-      | none => simp [ha,Attempt.act]
+      | none => simp [Attempt.act]
       | some a =>
-        simp only [ha,Option.map_some]
+        simp only [Option.map_some]
         change (if packetBits (g • a.final) > cap then _ else _) = _
         rw [packetBits_action]
         split
@@ -65,7 +65,7 @@ theorem guarded_action (g : C4) (cap : Nat) (cs : List Tick) (q : Packet) :
         · simp only [result_action_final]
           rw [ih]
           cases hb : (guarded cap cs a.final).accepted <;>
-            simp [hb,Attempt.act,Measured.combine,Option.map_map,Function.comp_def]
+            simp [hb,Attempt.act,Measured.combine,]
 
 @[simp] theorem packet_action_error (g : C4) (q : Packet) : (g • q).error = q.error := rfl
 

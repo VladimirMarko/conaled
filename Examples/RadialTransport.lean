@@ -14,7 +14,7 @@ def holdClosing : C4 := 1
 theorem same_endpoint_and_closing :
     circle (1/4) 0 = (1/4 : ℂ) ∧ circle (1/4) (2*Real.pi) = (1/4 : ℂ) ∧
     (circleClosing.val : ℂ)*(1/4 : ℂ) = (1/4 : ℂ) ∧ circleClosing = holdClosing := by
-  exact ⟨by simpa using circle_initial (1/4),by simpa using circle_closed (1/4),by simp [circleClosing],rfl⟩
+  exact ⟨by simp,by simpa using circle_closed (1/4),by simp [circleClosing],rfl⟩
 
 /-- The same endpoint, duration, and closing label do not determine transport. -/
 theorem circle_hold_transport_distinct :
@@ -27,7 +27,7 @@ theorem actual_circle_transport (v : ℂ) :
     circleTransport (1/4) 0 v = v ∧
     ∀ t : ℝ, HasDerivAt (fun s => circleTransport (1/4) s v)
       (-gamma (circle (1/4) t) (I*circle (1/4) t) (circleTransport (1/4) t v)) t :=
-  ⟨circleTransport_initial _ _, fun t => circleTransport_derivative _ _ _⟩
+  ⟨circleTransport_initial _ _, fun _t => circleTransport_derivative _ _ _⟩
 
 theorem actual_hold_transport (v : ℂ) (t : ℝ) :
     HasDerivAt (fun _ : ℝ => v) (-gamma (1/4 : ℂ) 0 v) t := holdTransport_derivative _ _ _

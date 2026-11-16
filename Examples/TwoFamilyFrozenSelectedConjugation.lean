@@ -7,9 +7,12 @@ set_option backward.isDefEq.respectTransparency.types false
 set_option backward.defeqAttrib.useBackward true
 set_option maxRecDepth 3000
 noncomputable section
-def selectedConjugation (k : ℤ) :=
- TwoFamilySelectedOrdinaryAction.selectedConjugated_eq
-  Examples.TwoFamilyModelData.integerContext Examples.TwoFamilyModelData.integerContext
-  paths (Examples.TwoFamilyFrozenPoint.assignedPoint k)
+theorem selectedConjugation (k : ℤ) :
+    type_of% (TwoFamilySelectedOrdinaryAction.selectedConjugated_eq
+      Examples.TwoFamilyModelData.integerContext Examples.TwoFamilyModelData.integerContext
+      paths (Examples.TwoFamilyFrozenPoint.assignedPoint k)) :=
+  TwoFamilySelectedOrdinaryAction.selectedConjugated_eq
+    Examples.TwoFamilyModelData.integerContext Examples.TwoFamilyModelData.integerContext
+    paths (Examples.TwoFamilyFrozenPoint.assignedPoint k)
 end
 end Examples.TwoFamilyFrozenOrdinaryAction
