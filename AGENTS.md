@@ -36,6 +36,10 @@ files.
 
 ## Implementation and validation
 
+For new and changed Lean code, follow
+[Mathlib's naming conventions](https://mathlib.org/contribute/naming.html),
+including acronym casing and embedded identifiers in theorem names.
+
 For implementation tasks, including documentation, tooling, and skill changes,
 use `.agents/skills/implement/SKILL.md` by default. Independent Standards and
 Spec review is part of completion unless the user explicitly changes that
