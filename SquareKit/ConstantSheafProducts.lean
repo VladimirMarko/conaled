@@ -57,6 +57,6 @@ def binaryIso (B : Type) : obj X (A × B) ≅ SheafRelation.product (obj X A) (o
   inv := ⟨{ app U := ↾fun (p : LocallyConstant U.unop A × LocallyConstant U.unop B) =>
     ⟨fun x => (p.1 x, p.2 x), p.1.isLocallyConstant.prodMk p.2.isLocallyConstant⟩ }⟩
   hom_inv_id := by ext U s; rfl
-  inv_hom_id := by ext U s <;> rfl
+  inv_hom_id := by ext U s; rfl
 
 end SquareKit.LocallyConstantSheaf

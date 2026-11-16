@@ -55,7 +55,6 @@ theorem primitiveConeLaws : CechMatching.ConeLaws
     apply NatTrans.ext
     funext d
     apply ULift.ext
-    change _ = _
     simp only [SmoothQuotientGeneratedMatching.baseDiagram,
       CechMatching.StrictDiagram.toDiagram, Iso.trans_hom, Iso.symm_hom,
       NatTrans.comp_app, isoWhiskerLeft_hom, isoWhiskerRight_hom,

@@ -55,7 +55,7 @@ theorem parallel_metric_derivative {c v : ℝ → ℂ} {u : ℂ} {t : ℝ}
   · simp [coefficient, gap, Complex.div_re, Complex.div_im, Complex.mul_re,
       Complex.mul_im, Complex.normSq_apply] at *
     field_simp
-    <;> ring
+   ; ring
 
 /-- The chosen metric is positive definite on the open disk. -/
 theorem metric_positive (z v : ℂ) (hz : Complex.normSq z < 1) (hv : v ≠ 0) :

@@ -149,7 +149,7 @@ theorem geodesicFlow_deriv (p : Initial) {t : ℝ} (ht : t ∈ Ioo (-5/4 : ℝ) 
   have hw := (ContinuousLinearMap.snd ℝ ℂ ℂ).hasFDerivAt.comp_hasDerivAt t h
   convert hz.prodMk (hw.div_const 2) using 1
   · rfl
-  · ext <;> simp [geodesicFlow, unweight, field, weightedField, gamma] <;> ring
+  · ext <;> simp [geodesicFlow, unweight, field, weightedField, gamma]; ring
 
 /-- The actual endpoint of the bounded selected solution, not a formal jet. -/
 def endpoint (p : Initial) : ℂ := (geodesicFlow p 1).1

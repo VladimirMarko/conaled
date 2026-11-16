@@ -11,8 +11,8 @@ def legendrePlus (h : ℝ) (p : ℂ × ℂ) : ℂ × ℂ := (p.2,d2 h p.1 p.2)
 def minusBlock (c : ℝ) (hc : c ≠ 0) : (ℂ × ℂ) ≃L[ℝ] (ℂ × ℂ) where
   toFun p := (p.1,c • (p.2-p.1))
   invFun p := (p.1,p.1+c⁻¹ • p.2)
-  map_add' p q := by ext <;> simp [smul_add,smul_sub] <;> abel
-  map_smul' r p := by ext <;> simp [smul_sub,smul_smul,mul_comm] <;> ring
+  map_add' p q := by ext <;> simp [smul_add,smul_sub]; abel
+  map_smul' r p := by ext <;> simp [smul_sub,smul_smul,mul_comm]; ring
   left_inv p := by simp [smul_smul,hc]
   right_inv p := by simp [smul_smul,hc]
   continuous_toFun := by fun_prop
@@ -21,8 +21,8 @@ def minusBlock (c : ℝ) (hc : c ≠ 0) : (ℂ × ℂ) ≃L[ℝ] (ℂ × ℂ) wh
 def plusBlock (c : ℝ) (hc : c ≠ 0) : (ℂ × ℂ) ≃L[ℝ] (ℂ × ℂ) where
   toFun p := (p.2,c • (p.2-p.1))
   invFun p := (p.1-c⁻¹ • p.2,p.1)
-  map_add' p q := by ext <;> simp [smul_add,smul_sub] <;> abel
-  map_smul' r p := by ext <;> simp [smul_sub,smul_smul,mul_comm] <;> ring
+  map_add' p q := by ext <;> simp [smul_add,smul_sub]; abel
+  map_smul' r p := by ext <;> simp [smul_sub,smul_smul,mul_comm]; ring
   left_inv p := by simp [smul_smul,hc]
   right_inv p := by simp [smul_smul,hc]
   continuous_toFun := by fun_prop

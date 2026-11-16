@@ -33,7 +33,6 @@ theorem squareCocycle_horizontal (b : Bool) :
     squareCocycle.pullback (Over.map (horizontalEdge b)) = zeroCocycle (Over (⟨1⟩ : Cube)) := by
   apply squareCocycle_face
   right
-  change (squareFaceData (Over.mk (horizontalEdge b))).2 ≠ none
   rw [horizontalEdge_label]
   simp
 
@@ -41,7 +40,6 @@ theorem squareCocycle_vertical (a : Bool) :
     squareCocycle.pullback (Over.map (verticalEdge a)) = zeroCocycle (Over (⟨1⟩ : Cube)) := by
   apply squareCocycle_face
   left
-  change (squareFaceData (Over.mk (verticalEdge a))).1 ≠ none
   rw [verticalEdge_label]
   simp
 

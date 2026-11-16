@@ -50,7 +50,7 @@ def strongReflect (hc : ∀{x y : B} {p q : x ⟶ y}, Function.Injective (H.map�
       whiskerLeft_eqToHom, eqToHom_whiskerRight,
       PrelaxFunctor.map₂_eqToHom, Category.assoc, eqToHom_trans_assoc,
       eqToHom_trans, eqToHom_refl, Category.id_comp, Category.comp_id] at k ⊢
-    convert k using 1 <;> rfl
+    convert k using 1; rfl
   · intro x y z f g
     apply hc
     have e : H.map (a x ≫ (G.map f ≫ G.map g)) =

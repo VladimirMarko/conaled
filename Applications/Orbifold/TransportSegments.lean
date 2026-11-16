@@ -42,7 +42,7 @@ def circle (x : Disk) (hr : Complex.normSq x.val = 1 / 5)
   source := by simp
   target := rfl
   inside := fun t _ => by simpa [map_mul] using (disk_mem _).mp x.property
-  derivative := fun t _ => by convert (turn_derivative t).const_mul x.val using 1 <;> ring
+  derivative := fun t _ => by convert (turn_derivative t).const_mul x.val using 1; ring
   factor := fun t => turn (-t / 2)
   nonzero := fun t _ => turn_nonzero _
   equation := by

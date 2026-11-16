@@ -32,7 +32,7 @@ theorem attempt_consumes (s : Session) (e t : Cut) (k : Migration.Kind) (r : Req
     (a v bad : Bool) (hp : s.prepared.isSome = false) (permit : s.permitted = true) :
     (prepare s e t k r a v bad).session.permitted = false := by
   simp only [prepare,hp,permit,Bool.not_true,Bool.false_eq_true,↓reduceIte]
-  repeat' first | rfl | dsimp only | split
+  repeat' first | rfl | split
 
 theorem no_repeat_attempt (s : Session) (e t : Cut) (k : Migration.Kind) (r : Requirements)
     (a v bad : Bool) (hp : s.prepared.isSome = false) (permit : s.permitted = false) :
@@ -144,7 +144,6 @@ theorem producer_normalize (s : Session)  (hp : s.prepared = none) :
   simp only [observation]
   repeat' first
     | (split <;> try simp only [*])
-    | dsimp only
   all_goals simp_all [observation,wire,normalizeActive,reject,updateResidual,Active.withResiduals,
     Active.residuals,PendingMigration.canonical,PendingMigration.update,whole_correct]
 
@@ -155,7 +154,6 @@ theorem deliver_normalize (s : Session) (d : Bool) (hp : s.prepared = none) :
   simp only [observation]
   repeat' first
     | (split <;> try simp only [*])
-    | dsimp only
   all_goals simp_all [observation,wire,normalizeActive,reject,updateResidual,Active.withResiduals,
     Active.residuals,PendingMigration.canonical,PendingMigration.update,whole_correct]
 
@@ -166,7 +164,6 @@ theorem join_normalize (s : Session)  (hp : s.prepared = none) :
   simp only [observation]
   repeat' first
     | (split <;> try simp only [*])
-    | dsimp only
   all_goals simp_all [observation,wire,normalizeActive,reject,updateResidual,Active.withResiduals,
     Active.residuals,PendingMigration.canonical,PendingMigration.update,whole_correct]
 
@@ -177,7 +174,6 @@ theorem whole_normalize (s : Session)  (hp : s.prepared = none) :
   simp only [observation]
   repeat' first
     | (split <;> try simp only [*])
-    | dsimp only
   all_goals simp_all [observation,wire,normalizeActive,reject,updateResidual,Active.withResiduals,
     Active.residuals,PendingMigration.canonical,PendingMigration.update,whole_correct]
 
@@ -234,7 +230,6 @@ theorem external_normalize (s : Session) (c : PendingMigration.Command)
     all_goals try simp only [status,cancellation]
     all_goals repeat' first
       | (split <;> try simp only [*])
-      | dsimp only
     all_goals simp_all [observation,wire,normalize,normalizeActive,reject,updateResidual,
       Active.withResiduals,Active.residuals,PendingMigration.canonical]
   · cases c <;> simp only [PendingMigration.Business] at hc
@@ -323,9 +318,9 @@ theorem external_ready (s : Session) (c : PendingMigration.Command) (hs : Ready 
     cases c <;> dsimp only [external]
     all_goals simp only [hp,Option.isSome_none,Bool.false_eq_true,↓reduceIte]
     all_goals dsimp only [readiness]
-    all_goals repeat' first | (split <;> try simp only [*]) | dsimp only
+    all_goals repeat' first | (split <;> try simp only [*])
     all_goals simp_all only [readiness,outerPrepared,reject,inner_ite,inner_option,inner_update]
-    all_goals repeat' first | (split <;> try simp only [*]) | dsimp only
+    all_goals repeat' first | (split <;> try simp only [*])
     all_goals simp_all [innerPrepared,Active.withResiduals,updateResidual,PendingMigration.preparedFlag]
   · cases c <;> simp only [PendingMigration.Business] at hc
     all_goals try contradiction
@@ -343,7 +338,7 @@ theorem step_ready (s : Session) (c : Command) (hc : Business c) (hs : Ready s) 
     dsimp only [step,accept]
     simp only [hs.1,Option.isSome_none,Bool.false_eq_true,↓reduceIte]
     dsimp only [readiness]
-    repeat' first | (split <;> try simp only [*]) | dsimp only
+    repeat' first | split
     all_goals simp_all [readiness,outerPrepared,innerPrepared,updateResidual,Active.withResiduals,PendingMigration.preparedFlag]
     all_goals split <;> simpa [updateResidual,Active.withResiduals] using inner
   | prepare => cases hc
@@ -354,7 +349,7 @@ theorem step_ready (s : Session) (c : Command) (hc : Business c) (hs : Ready s) 
     dsimp only [step,producer,deliver,join,whole]
     simp only [hs.1,Option.isSome_none,Bool.false_eq_true,↓reduceIte]
     dsimp only [readiness]
-    repeat' first | (split <;> try simp only [*]) | dsimp only
+    repeat' first | (split <;> try simp only [*])
     all_goals simp_all [readiness,outerPrepared,innerPrepared,Ready,reject,updateResidual,Active.withResiduals,
       PendingMigration.update,PendingMigration.preparedFlag]
 

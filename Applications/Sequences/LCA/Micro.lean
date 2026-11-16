@@ -39,7 +39,7 @@ theorem argmin_correct (depth : Nat → Int) (start len : Nat) :
 theorem relative_unitSteps (shape : Shape steps) : UnitSteps steps (relative shape) := by
   intro i hi
   simp only [relative, hi, dite_true]
-  cases shape ⟨i, hi⟩ <;> simp <;> omega
+  cases shape ⟨i, hi⟩ <;> simp; omega
 
 theorem classify_relative (shape : Shape steps) : classify steps (relative shape) = shape := by
   funext i

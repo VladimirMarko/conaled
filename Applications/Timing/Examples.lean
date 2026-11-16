@@ -49,7 +49,7 @@ theorem delayed_double_not_constant :
       (fun _ => Interval.finite 3 4) true := by
   have h : Stable .base (fun _ => true) (fun _ => Interval.finite 0 1) true :=
     fun _ _ => rfl
-  convert delayed_double_not h using 1 <;> norm_num
+  convert delayed_double_not h using 1; norm_num
 
 #eval halfAdderRows
 #eval fullAdderRows

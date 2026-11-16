@@ -69,7 +69,7 @@ def weightedField (p : ℂ × ℂ) : ℂ × ℂ := (p.2 / 2, -conj p.1 * p.2 ^ 2
 def weight (p : ℂ × ℂ) : ℂ × ℂ := (p.1,2*p.2)
 
 theorem weightedField_weight (p : ℂ × ℂ) : weightedField (weight p) = weight (field p) := by
-  ext <;> simp [weightedField, weight, field, gamma] <;> ring
+  ext <;> simp [weightedField, weight, field, gamma]; ring
 
 theorem acceleration_coords (z v : ℂ) : coords (-gamma z v v) =
     (-4 * Orbifold.ConnectionAssessment.dot (coords z) (coords v)) • coords v +

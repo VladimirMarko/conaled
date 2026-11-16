@@ -12,7 +12,7 @@ def jointExp (p : State) : State := (p.1,expMap p)
 def jointDerivative : State ≃L[ℝ] State where
   toFun p := (p.1,p.1+p.2)
   invFun p := (p.1,p.2-p.1)
-  map_add' p q := by ext <;> simp <;> abel
+  map_add' p q := by ext <;> simp; abel
   map_smul' c p := by ext <;> simp [smul_add]
   left_inv p := by ext <;> simp
   right_inv p := by ext <;> simp

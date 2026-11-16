@@ -50,7 +50,6 @@ theorem radialTransport_derivative (x v : ℂ) (t : ℝ) :
   · rfl
   · rw [gamma_radial]
     simp [radialTransport]
-    push_cast
     ring
 
 theorem radialTransport_initial (x v : ℂ) : radialTransport x 0 v = v := by
@@ -88,7 +87,6 @@ theorem circleTransport_derivative (r t : ℝ) (v : ℂ) :
   · rfl
   · rw [gamma_circle,circle_normSq]
     simp [circleTransport]
-    push_cast
     ring
 
 @[simp] theorem circle_initial (r : ℝ) : circle r 0 = r := by simp [circle]

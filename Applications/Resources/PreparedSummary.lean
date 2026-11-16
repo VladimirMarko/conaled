@@ -70,10 +70,10 @@ theorem plain_bounds : Bounds (plain N) PlainValid (plainStorage N) (profile N f
 
 theorem cached_bounds : Bounds (cached N) CachedValid (cachedStorage N) (profile N true) where
   preparation b := by
-    simp [cached,BoundedSummary.convert_exact,profile,Cost.t] <;> omega
+    simp [cached,BoundedSummary.convert_exact,profile,Cost.t]; omega
   query _ _ _ _ := le_rfl
   retained _ _ _ := le_rfl
-  preparePeak _ := by simp [cachedStorage,profile] <;> omega
+  preparePeak _ := by simp [cachedStorage,profile]; omega
   queryPeak _ _ _ := by
     simp [cachedStorage,profile,BoundedSummary.conversionWorkingPeak,
       BoundedSummary.conversionPeak,BoundedSummary.retained,BoundedSummary.scanFrames]

@@ -106,7 +106,7 @@ theorem deliver_unprepared (s : Session) (d : Bool) (hp : s.prepared = none) :
     unfold deliver
     rw [hp]
     cases d <;> dsimp only
-    all_goals repeat' first | rfl | split | dsimp only
+    all_goals repeat' first | rfl | split
     all_goals simp [preparedFlag,reject,hp]
   simpa [preparedFlag] using result
 

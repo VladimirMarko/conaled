@@ -69,6 +69,6 @@ theorem pose_frame_norm (p : Pose) (w : ℂ) :
 along vertical lines. This is the same conformal connection, not a second API. -/
 theorem variable_vertical (x : ℝ) (v : ℝ × ℝ) :
     gamma (2 * x, 0) (0, 1) v = (-2 * x * v.2, 2 * x * v.1) := by
-  ext <;> simp [gamma, dot] <;> ring
+  ext <;> simp [gamma, dot]; ring
 
 end Orbifold.ConnectionAssessment

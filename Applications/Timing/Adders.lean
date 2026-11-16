@@ -118,7 +118,8 @@ theorem halfAdder_matrix : halfAdder.digital.matrix = halfAdderMatrix := by
   all_goals
     simp only [Digital.matrix, LinearMap.toMatrix'_apply]
     rw [halfAdder_timing]
-    simp [halfAdderTiming, halfAdderMatrix] <;> norm_num
+    simp [halfAdderTiming, halfAdderMatrix]
+  all_goals norm_num
 
 theorem fullAdder_matrix : fullAdder.digital.matrix = fullAdderMatrix := by
   funext out inp
@@ -128,7 +129,8 @@ theorem fullAdder_matrix : fullAdder.digital.matrix = fullAdderMatrix := by
     simp only [Digital.matrix, LinearMap.toMatrix'_apply]
     rw [fullAdder_timing]
     simp [fullAdderTiming, fullAdderMatrix, inputA, inputB, inputC,
-      mul_add, ← mul_assoc] <;> norm_num [Interval.point, Interval.finite_add]
+      mul_add]
+  all_goals norm_num [Interval.point, Interval.finite_add]
 
 theorem compiledFullAdder_matrix : compiledFullAdder.digital.matrix = fullAdderMatrix := by
   rw [compiled_fullAdder, fullAdder_matrix]

@@ -53,7 +53,7 @@ theorem integralPath_deriv (p : State) (t : ℝ) :
       (conjugate (solutionPaths p).1 * (solutionPaths p).2 ^ 2))) using 1
   · rfl
   · ext <;> simp [weightedField, extendPaths, extend, conjugate, smul_eq_mul,
-      Complex.real_smul] <;> ring
+      Complex.real_smul]; ring
 
 theorem integralPath_continuous (p : State) : Continuous (integralPath p) :=
   continuous_iff_continuousAt.mpr (fun t => (integralPath_deriv p t).continuousAt)

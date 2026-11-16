@@ -86,7 +86,7 @@ def overlap (s : Segment x y) (g h : Gauge) : ConnectionMap s g h where
   preserves t ht := by
     unfold Gauge.connection
     field_simp [g.nonzero _ (s.inside t ht), h.nonzero _ (s.inside t ht)]
-    <;> ring
+   ; ring
 
 theorem overlap_transport (a b : ℝ)
     (ha : a ∈ Icc 0 s.duration) (hb : b ∈ Icc 0 s.duration)

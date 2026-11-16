@@ -33,7 +33,7 @@ theorem quartic_d2 (x y : ℝ) :
 theorem quartic_mixed (x y : ℝ) :
     HasDerivAt (fun z => -4*(z-x)^3) (-12*(y-x)^2) y := by
   convert (((hasDerivAt_id y).sub (hasDerivAt_const y x)).pow 3).const_mul (-4) using 1 <;>
-    simp <;> ring
+    simp; ring
 
 theorem quartic_unique_recurrence (x y z : ℝ) :
     4*(y-x)^3 - 4*(z-y)^3 = 0 ↔ z = 2*y-x := by

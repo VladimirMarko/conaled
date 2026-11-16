@@ -29,10 +29,10 @@ theorem CubeCocycle.closed_eval {N I J K L : Cube} (z : CubeCocycle N)
     (Over.homMk g rfl : Over.mk (g ≫ (h ≫ t)) ⟶ Over.mk (h ≫ t))
     (Over.homMk h rfl : Over.mk (h ≫ t) ⟶ Over.mk t)
   simp only [eval,δ2] at *
-  convert e using 1 <;> congr 2 <;> simp [Over.mk,CostructuredArrow.mk,Over.homMk,CostructuredArrow.homMk,
+  convert e using 1; congr 2 <;> simp [Over.mk,CostructuredArrow.mk,Over.homMk,CostructuredArrow.homMk,
     Category.assoc]
   all_goals congr 1
-  all_goals first | rfl | simp only [Category.assoc] | apply overHom_heq <;> simp [Over.mk,CostructuredArrow.mk,Category.assoc]
+  all_goals first | simp only [Category.assoc] | apply overHom_heq <;> simp [Over.mk,CostructuredArrow.mk,Category.assoc]
 
 theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
     (σ : M ⟶ N) (f : I ⟶ J) (g : J ⟶ K) (t : K ⟶ M) :
@@ -51,7 +51,7 @@ theorem CubeCocycle.eval_arrows {N : Cube} (z : CubeCocycle N)
   have hz : Over.mk Z.hom = Z := rfl
   unfold eval
   congr 1
-  all_goals first | exact hx | exact hy | exact hz |
+  all_goals first |
     exact overHom_heq hx hy _ _ HEq.rfl | exact overHom_heq hy hz _ _ HEq.rfl
 
 end SquareKit.Cubical.CategoryCocycles

@@ -60,7 +60,7 @@ theorem boundedFlow_rotation (g : ℂ) (hg : normSq g = 1) (p : Initial)
   exact (he ht).symm
 
 theorem weight_rotation (g : ℂ) (p : State) : weight (g • p) = g • weight p := by
-  ext <;> simp [weight,smul_eq_mul] <;> ring
+  ext <;> simp [weight,smul_eq_mul]; ring
 
 theorem expMap_rotation (g : ℂ) (hg : normSq g = 1) (p : State)
     (hp : Admitted p) (hq : Admitted (g • p)) : expMap (g • p) = g * expMap p := by
