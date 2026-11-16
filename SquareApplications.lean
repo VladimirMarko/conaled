@@ -1,3 +1,4 @@
+import Examples.Lawvere
 import Examples.Kunneth
 import Examples.CartesianClassifier
 import Examples.CartesianCofibrations
