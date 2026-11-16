@@ -44,6 +44,7 @@ def classifiedSourceTransformation (k : Lift h (slice (U ⨿ ⊤_ B))) :
         simpa only [Category.assoc] using congrArg (fun t => (k.precomp f).section ≫ t) hn.symm
       _ = _ := by rw [hs])
 
+omit [HasPullbacks F] [HasBinaryProducts G] [HasPullbacks G] [Mono u] in
 /-- The classifier's source comparison square commutes for noninvertible transformations too. -/
 theorem classifierSource_transformation (k : Lift h (slice (U ⨿ ⊤_ B))) :
     (PartitionSection.mapParameter (parameterPullback (f.comp h) u) (parameterPullback (g.comp h) u)

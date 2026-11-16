@@ -98,6 +98,7 @@ theorem datum_unique (p : Datum (d := d) (G := G) (M := M) (identityAtlas U)) :
     rw [hd] at h
     exact h
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem extracted_eq : (admitted U m smoothAction).extractedDatum = identityDatum (G := G) U m := by
   rw [datum_unique U ((admitted U m smoothAction).extractedDatum)]
   change identityDatum U ((admitted U m smoothAction).localMap ()) = _
@@ -137,6 +138,7 @@ theorem native_family_agreement (n : External.SmoothMap U d M)
     ((External.chartLabelsEquiv smoothAction m n).apply_symm_apply (f.labels ()))
 
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The canonical descent comparison built from actual regularization recovers
 an original chart arrow, with the selected #566 recovery. -/
 theorem canonical_arrow_agreement (n : External.SmoothMap U d M)
@@ -174,6 +176,7 @@ theorem canonical_family_cover_comparison (n : External.SmoothMap U d M)
     canonical_arrow_agreement]
 
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem split_regularization_identity (V : SmoothPresentationSite.Siteᵒᵖ)
     (x : (embedding.obj U).obj.obj V) (g : (locallyConstantGroup G).obj.obj V) :
     let z := (SplitSheaf.displayIso (identityAtlas U).cover).inv.hom.app V
@@ -194,6 +197,7 @@ theorem split_regularization_identity (V : SmoothPresentationSite.Siteᵒᵖ)
     (SheafActionQuotient.chart (representation smoothAction).action (hat m.val m.property)).torsor.family).obj.obj V =>
       (show (locallyConstantGroup G).obj.obj V from q.2)) hv
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem recovered_label (n : External.SmoothMap U d M)
     (f : Hom (admitted U m smoothAction).extractedDatum (admitted U n smoothAction).extractedDatum) :
     SheafActionQuotient.arrowLabel ((admitted U m smoothAction).arrowEquiv (admitted U n smoothAction) f) =

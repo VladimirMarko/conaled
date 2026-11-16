@@ -28,6 +28,7 @@ theorem strong_vcomp_id : η.vcomp (Pseudofunctor.StrongTrans.id G.toPseudofunct
 noncomputable instance strongId_isIso (x : A) :
     IsIso ((Pseudofunctor.StrongTrans.id F.toPseudofunctor).app x) := inferInstanceAs (IsIso (𝟙 (F.obj x)))
 
+omit [Strict A] in
 theorem strongInverse_id : strongInverse (Pseudofunctor.StrongTrans.id F.toPseudofunctor) =
     Pseudofunctor.StrongTrans.id F.toPseudofunctor := by
   rw [← strong_vcomp_id (strongInverse (Pseudofunctor.StrongTrans.id F.toPseudofunctor))]

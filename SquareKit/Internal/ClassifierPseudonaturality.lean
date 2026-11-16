@@ -49,6 +49,7 @@ def classifiedLiftIdentityIso :
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }) (by intros; apply Subsingleton.elim)
 
+omit [HasPullbacks F] [Mono u] in
 /-- The source comparison satisfies the identity pseudonaturality diagram. -/
 theorem classifierSource_identity :
     (classifierSourceIso (identity F) h u).hom ≫ (classifiedLiftIdentityIso h u).hom =
@@ -58,6 +59,7 @@ theorem classifierSource_identity :
   funext M
   apply Subsingleton.elim
 
+omit [HasPullbacks F] [HasPullbacks G] [HasBinaryProducts H] [HasPullbacks H] [Mono u] in
 /-- The direct composite comparison equals the pasted source-comparison squares. -/
 theorem classifierSource_composition :
     (Functor.associator (modelFunctor (h := h) u) (sourceModelFunctor f h u)

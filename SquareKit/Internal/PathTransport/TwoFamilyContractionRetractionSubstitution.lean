@@ -38,7 +38,7 @@ theorem contractionInclusion_reindex :
   exact familySubstitution_congr E hi _ _
 
 include hi hr hη in
-omit [∀ (x : Γ), IsLocallyGroupoid (E.obj x).carrier] in
+omit [∀ (x : Γ), IsLocallyGroupoid (E.obj x).carrier] [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionRetraction_reindex :
     (contractionRetraction i' r' η' (reindex σ E)).comp
       (contractionBranchSubstitution i i' σ σ₀ hi E) =

@@ -148,7 +148,6 @@ open ManifoldRealization
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {f : Y ⟶ X} (r : AtlasMap A B f)
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 
 private theorem map_apply_eq {U V W : Domain} {a : U ⟶ V} {b : V ⟶ W}
@@ -206,7 +205,7 @@ def restrict (h : Hom p q) : Hom (p.restrict r) (q.restrict r) where
     erw [hl, hr] at he
     exact he
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [IsManifold (Model d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     (Hom.ident p).restrict r = Hom.ident (p.restrict r) := by
   apply Hom.ext
@@ -216,7 +215,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
   intro x
   rfl
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [IsManifold (Model d) ∞ M] in
 theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
     (h : Hom p q) (k : Hom q s) : (h.comp k).restrict r = (h.restrict r).comp (k.restrict r) := by
   apply Hom.ext
@@ -226,7 +225,7 @@ theorem restrict_comp {s : Datum (d := d) (G := G) (M := M) A}
   intro x
   rfl
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [IsManifold (Model d) ∞ M] in
 theorem restrict_inverse (h : Hom p q) : h.inverse.restrict r = (h.restrict r).inverse := by
   apply Hom.ext
   funext j
@@ -302,10 +301,9 @@ open ManifoldRealization
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [IsManifold (Model d) ∞ M] in
 theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     p.restrict (AtlasMap.ident A) = p := by
   apply Datum.ext
@@ -322,7 +320,7 @@ theorem restrict_ident (p : Datum (d := d) (G := G) (M := M) A) :
     rw [AtlasMap.ident_pair]
     rfl
 
-omit [TopologicalSpace G] [DiscreteTopology G] [IsManifold (Model d) ∞ M] in
+omit [IsManifold (Model d) ∞ M] in
 theorem restrict_comp (p : Datum (d := d) (G := G) (M := M) A)
     {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g) :
     (p.restrict r).restrict s = p.restrict (r.comp s) := by
@@ -371,12 +369,10 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_localMapSheaf : (p.restrict r).localMapSheaf = r.total ≫ p.localMapSheaf := by
   apply colimit.hom_ext
   intro ⟨j⟩
@@ -386,7 +382,6 @@ theorem restrict_localMapSheaf : (p.restrict r).localMapSheaf = r.total ≫ p.lo
 
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_overlapLabel : (p.restrict r).overlapLabel smoothAction =
     SheafCoverCech.mapDouble f r.total r.total_cover ≫ p.overlapLabel smoothAction := by
   apply B.pairHom_ext
@@ -424,12 +419,10 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_splitLocalMap : (p.restrict r).splitLocalMap = r.splitTotal ≫ p.splitLocalMap := by
   simp only [splitLocalMap, AtlasMap.splitTotal, Category.assoc, Iso.inv_hom_id_assoc]
   rw [restrict_localMapSheaf]
@@ -488,13 +481,11 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_splitLabel : (p.restrict r).splitLabel smoothAction =
     r.splitDouble ≫ p.splitLabel smoothAction := by
   simp only [splitLabel, AtlasMap.splitDouble, Category.assoc, Iso.inv_hom_id_assoc]
@@ -530,7 +521,6 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
@@ -691,13 +681,11 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothOpenSite SmoothRep
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r : AtlasMap A B f)
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_localLabel : (h.restrict r).localLabel smoothAction =
     r.total ≫ h.localLabel smoothAction := by
   apply colimit.hom_ext
@@ -710,7 +698,6 @@ theorem restrict_localLabel : (h.restrict r).localLabel smoothAction =
   rw [ordinaryHomLabelEquiv_natural, chartArrow_label, chartArrow_label]
   rfl
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem restrict_splitLabel : (h.restrict r).splitLabel smoothAction =
     r.splitTotal ≫ h.splitLabel smoothAction := by
   simp only [splitLabel, AtlasMap.splitTotal, Category.assoc, Iso.inv_hom_id_assoc]
@@ -761,7 +748,6 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r : AtlasMap A B f)
@@ -850,7 +836,6 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r : AtlasMap A B f)
@@ -904,7 +889,6 @@ open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y Z : Sheaf topology Type} {I J K : Type}
   {A : Atlas X I} {B : Atlas Y J} {C : Atlas Z K}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} {g : Z ⟶ Y} (r : AtlasMap A B f) (s : AtlasMap B C g)
@@ -1001,7 +985,6 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (p : Datum (d := d) (G := G) (M := M) A)
   {f : Y ⟶ X} (r s t : AtlasMap A B f)
@@ -1034,7 +1017,6 @@ open CategoryTheory EuclideanOpen SmoothOpenSite SmoothRepresentedCover
 open SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X Y : Sheaf topology Type} {I J : Type} {A : Atlas X I} {B : Atlas Y J}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable {p q : Datum (d := d) (G := G) (M := M) A}
   (h : Hom p q) {f : Y ⟶ X} (r s : AtlasMap A B f)

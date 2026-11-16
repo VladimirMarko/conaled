@@ -9,7 +9,6 @@ open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite
 open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X : Sheaf topology Type} {I : Type} (A : Atlas X I)
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
@@ -86,7 +85,6 @@ def sectionMap : A.total ⟶ SplitSheaf.Ext P.torsor.family :=
   SheafCoproductLocal.desc A.family (fun i => SplitSheaf.pair P.torsor.family (A.chart i)
     (SheafTorsor.sectionOfArrow (t.trivialization i)))
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem sectionMap_projection : t.sectionMap ≫ SplitSheaf.p P.torsor.family = A.cover := by
   apply colimit.hom_ext
   intro ⟨i⟩
@@ -112,19 +110,16 @@ def localMap (i : I) : External.SmoothMap (A.domain i) d M :=
     (reindex P (A.chart i)).sectionMap (SheafTorsor.sectionOfArrow (t.trivialization i))),
     ManifoldRealization.reconstruct_smooth _⟩
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localMap_hat (i : I) : hat (t.localMap i).val (t.localMap i).property =
     (reindex P (A.chart i)).sectionMap (SheafTorsor.sectionOfArrow (t.trivialization i)) := by
   unfold localMap hat
   rw [ManifoldRealization.map_reconstruct, Iso.inv_hom_id_assoc]
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localValue_factorization :
     (reindex P A.cover).sectionMap t.localSection = t.sectionMap ≫ P.totalMap := by
   change SplitSheaf.pair P.torsor.family A.cover t.localSection ≫ P.totalMap = _
   rw [localSection, SplitSheaf.pair_read]
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem localValue_chart (i : I) :
     A.inclusion i ≫ (reindex P A.cover).sectionMap t.localSection =
       hat (t.localMap i).val (t.localMap i).property := by
@@ -132,7 +127,6 @@ theorem localValue_chart (i : I) :
     SheafCoproductLocal.inclusion_desc, localMap_hat]
   rfl
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- All reconstructed smooth maps assemble to the actual chosen local value map. -/
 theorem localValue_assembled :
     SheafCoproductLocal.desc A.family (fun i => hat (t.localMap i).val (t.localMap i).property) =
@@ -158,7 +152,6 @@ def regularDescent : Descent.Datum (a := (representation smoothAction).action)
 def recovery : SheafActionQuotient.Arrow t.regularDescent.object P :=
   descentOfLocalIsoRecovery smoothAction P _ t.splitRegularization
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The regularized local object is the realization of the extracted smooth maps. -/
 theorem regularDescent_localObject : (Cech.ofDescent t.regularDescent).localObject =
     chart (representation smoothAction).action
@@ -254,11 +247,9 @@ open scoped Manifold ContDiff
 namespace SquareKit.SmoothCech
 open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction SheafActionQuotient ManifoldRealization
 variable {X : Sheaf topology Type} {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Restricting the chosen global recovery gives precisely the local isomorphism
 following the effective-descent comparison. -/
 theorem descentOfLocalIsoRecovery_reindex {B : SplitSheaf.Ty X}
@@ -365,7 +356,6 @@ theorem extractedDatum_transition_apply (i j : I) (x : Points (A.pair i j)) :
   have h := (k.datum_label smoothAction).symm.trans t.extractedDatum_overlapLabel
   rw [h]
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The selected section restricts to the section of the supplied chart
 trivialization, as an equality in the actual total sheaf. -/
 theorem localSection_chart (i : I) :
@@ -374,7 +364,6 @@ theorem localSection_chart (i : I) :
         (SheafTorsor.sectionOfArrow (t.trivialization i)) := by
   rw [localSection, SplitSheaf.pair_read, sectionMap, SheafCoproductLocal.inclusion_desc]
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- The regularization on every chart is the supplied trivialization at every
 group element, expressed in the total sheaf to retain the actual base point. -/
 theorem regularization_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒᵖ)
@@ -399,7 +388,6 @@ theorem regularization_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒ�
   exact hh.trans (congrArg (fun z =>
     (⟨(A.chart i).hom.app U x, z⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U)) he.symm)
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Passing from the coproduct cover to its split display changes only its
 presentation; the selected regularization has the same actual total value. -/
 theorem splitRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)
@@ -527,10 +515,8 @@ open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite
 open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable {smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)}
-omit [TopologicalSpace G] [DiscreteTopology G] in
 private theorem descentArrow_inverse
     {q r : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover)}
     (h : Descent.Map q r) :
@@ -540,7 +526,6 @@ private theorem descentArrow_inverse
     (SplitSheaf.ofDisplay A.cover)).map_inv h
   exact hi.trans (Groupoid.inv_eq_inv (C := Object (representation smoothAction).action X) h.arrow).symm
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 private theorem inverse_comp_arrow {P Q R : Object (representation smoothAction).action X}
     (f : Arrow P Q) (g : Arrow Q R) : (f.comp g).inverse = g.inverse.comp f.inverse := by
   change Groupoid.inv (obj := Object (representation smoothAction).action X) (f ≫ g) =
@@ -548,7 +533,6 @@ private theorem inverse_comp_arrow {P Q R : Object (representation smoothAction)
       Groupoid.inv (obj := Object (representation smoothAction).action X) f
   simp only [Groupoid.inv_eq_inv, IsIso.inv_comp]
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 private theorem comp_assoc_arrow {P Q R S : Object (representation smoothAction).action X}
     (f : Arrow P Q) (g : Arrow Q R) (h : Arrow R S) :
     (f.comp g).comp h = f.comp (g.comp h) :=
@@ -624,10 +608,8 @@ open CategoryTheory CategoryTheory.Limits Opposite EuclideanOpen SmoothOpenSite
 open SmoothRepresentedCover SmoothManifoldAction ManifoldRealization SheafActionQuotient
 variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
-  [TopologicalSpace G] [DiscreteTopology G]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
 variable {smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x)}
-omit [TopologicalSpace G] [DiscreteTopology G] in
 private theorem comparison_inverse_apply
     {q r : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover)}
     (h : Descent.Map q r) (U : SmoothPresentationSite.Siteᵒᵖ)
@@ -661,7 +643,6 @@ private theorem comparison_inverse_apply
       h.arrow.torsorArrow.iso.hom.app x v at hcancel
   exact hcancel.symm.trans hh
 
-omit [TopologicalSpace G] [DiscreteTopology G] in
 private theorem conjugate_apply
     {P Q P' Q' : Object (representation smoothAction).action X}
     (t : Arrow P P') (u : Arrow Q Q') (h : Arrow P Q)

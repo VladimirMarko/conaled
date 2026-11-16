@@ -152,6 +152,7 @@ def fromCech (c : SheafActionQuotient.Cech.Datum
       SheafCoverCech.splitTriple_firstSecond, SheafCoverCech.splitTriple_secondThird]
     simpa only [Category.assoc, Iso.hom_inv_id_assoc] using hcomp
 
+omit [TopologicalSpace G] [DiscreteTopology G] in
 /-- Reconstruction retains the complete chosen Čech record. -/
 theorem fromCech_roundtrip (c : SheafActionQuotient.Cech.Datum
     (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover))

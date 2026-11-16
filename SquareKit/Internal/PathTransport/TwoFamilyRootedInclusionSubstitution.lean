@@ -27,6 +27,7 @@ theorem rootedPathEmbedding_obj_injective : Function.Injective (rootedPathEmbedd
   exact familySubstitution_obj_injective _ _ _ (rootedEndpoint_obj_injective F x)
 variable {Δ : Type*} [Bicategory Δ] [Strict Δ] [IsLocallyGroupoid Δ]
 variable (σ : StrictPseudofunctor Δ Γ)
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem rootedSubstitution_reflexivity :
     (rootedReflexivity (reindex σ F) (x.reindex F σ)).comp (rootedSubstitution F x σ) =
       σ.comp (rootedReflexivity F x) := by

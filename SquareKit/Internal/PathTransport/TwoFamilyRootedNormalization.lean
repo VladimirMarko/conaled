@@ -16,6 +16,7 @@ private theorem strongId_heq {A B : Type*} [Bicategory A] [Bicategory B]
     {H K : StrictPseudofunctor A B} (e : H = K) :
     HEq (Pseudofunctor.StrongTrans.id H.toPseudofunctor) (Pseudofunctor.StrongTrans.id K.toPseudofunctor) := by cases e; rfl
 
+omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_embedding_source :
     ((rootedRetraction F x).comp (rootedReflexivity F x)).comp (rootedPathEmbedding F x) =
       (rootedPathEmbedding F x).comp (contractionRetract F) := by

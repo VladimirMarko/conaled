@@ -13,6 +13,7 @@ variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
 variable {Δ : Type*} [Bicategory Δ] [Strict Δ] [IsLocallyGroupoid Δ]
 variable (σ : StrictPseudofunctor Δ Γ)
+omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem rootedSubstitution_retract :
     ((rootedRetraction (reindex σ F) (x.reindex F σ)).comp
       (rootedReflexivity (reindex σ F) (x.reindex F σ))).comp (rootedSubstitution F x σ) =
