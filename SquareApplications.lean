@@ -1,3 +1,7 @@
+import Examples.CartesianClassifier
+import Examples.CartesianCofibrations
+import Examples.CartesianHigherSeparation
+import Examples.CartesianSmallFamilyClassification
 import Examples.CartesianFilling
 import Examples.CartesianPackageRecomputation
 import Examples.CartesianSourceObservation
