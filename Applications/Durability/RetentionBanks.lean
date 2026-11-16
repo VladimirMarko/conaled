@@ -1,4 +1,5 @@
 import Applications.Durability.Retention
+import Applications.Durability.SnapshotBanks
 
 /-! Two reusable typed banks. A transaction has a fixed finite list of writes.
 `cut` exposes every write/persist/publication boundary, including interrupted
@@ -165,15 +166,67 @@ theorem recordOps_buffer (xs : List Bool) (s : CopyState) (pre : List Bool)
     have eq := ih _ (pre ++ [p]) one
     simpa [List.length_append, List.append_assoc] using eq
 
+/-- Exact Boolean specialization of the shared typed payload mechanics. -/
+def Snapshot.toShared (s : Snapshot) : SnapshotBanks.Snapshot (Nat × Bool) Bool :=
+  ⟨(s.position,s.pastParity),s.items⟩
+
+theorem Snapshot.toShared_injective : Function.Injective Snapshot.toShared := by
+  intro a b h
+  cases a; cases b
+  simpa [Snapshot.toShared,and_assoc] using h
+
+def Banks.toShared (d : Banks) : SnapshotBanks.Banks (Nat × Bool) Bool :=
+  ⟨fun b => (d.cells b).toShared,d.selected⟩
+
+def CopyState.toShared (s : CopyState) : SnapshotBanks.CopyState (Nat × Bool) Bool :=
+  ⟨s.disk.toShared,s.buffer.toShared⟩
+
+def Primitive.toShared : Primitive → SnapshotBanks.Primitive (Nat × Bool) Bool
+  | .writeRecord i p => .writeRecord i p
+  | .persistRecord i p => .persistRecord i p
+  | .writeDescriptor n b => .writeHeader (n,b)
+  | .persistDescriptor n b => .persistHeader (n,b)
+  | .publish => .publish
+
+theorem primitive_toShared (s : CopyState) (op : Primitive) :
+    (primitive s op).toShared = SnapshotBanks.primitive s.toShared op.toShared := by
+  cases op <;> simp [primitive,SnapshotBanks.primitive,CopyState.toShared,
+    Banks.toShared,Banks.putInactive,SnapshotBanks.Banks.putInactive,Snapshot.toShared,
+    Primitive.toShared]
+  all_goals funext b; split <;> simp_all
+
+theorem fold_toShared (s : CopyState) (ops : List Primitive) :
+    (ops.foldl primitive s).toShared =
+      (ops.map Primitive.toShared).foldl SnapshotBanks.primitive s.toShared := by
+  induction ops generalizing s with
+  | nil => rfl
+  | cons op ops ih => simp only [List.foldl_cons,List.map_cons,ih,primitive_toShared]
+
+theorem recordOps_toShared (xs : List Bool) (i : Nat) :
+    (recordOps xs i).map Primitive.toShared = SnapshotBanks.recordOps xs i := by
+  induction xs generalizing i with
+  | nil => rfl
+  | cons x xs ih => simp [recordOps,SnapshotBanks.recordOps,Primitive.toShared,ih]
+
+theorem replacement_toShared (target : Snapshot) :
+    (replacement target).map Primitive.toShared = SnapshotBanks.replacement target.toShared := by
+  simp [replacement,SnapshotBanks.replacement,recordOps_toShared,Primitive.toShared,Snapshot.toShared]
+
+theorem cut_toShared (disk : Banks) (target : Snapshot) (n : Nat) :
+    (cut disk target n).toShared = SnapshotBanks.cut disk.toShared target.toShared (0,false) n := by
+  unfold cut SnapshotBanks.cut
+  rw [fold_toShared,List.map_take,replacement_toShared]
+  rfl
+
+
 theorem replacement_root (disk : Banks) (target : Snapshot) :
     ((replacement target).foldl primitive ⟨disk, empty⟩).disk.root = target := by
-  have hb := recordOps_buffer target.items (⟨disk, empty⟩ : CopyState) [] rfl
-  simp only [List.length_nil, List.nil_append] at hb
-  simp only [replacement, List.foldl_append, List.foldl_cons, List.foldl_nil, primitive,
-    Banks.root, Banks.putInactive]
-  simp only [↓reduceIte]
-  cases target
-  simp_all
+  apply Snapshot.toShared_injective
+  have h := SnapshotBanks.replacement_root disk.toShared target.toShared (0,false)
+  have eq := congrArg (fun s : SnapshotBanks.CopyState (Nat × Bool) Bool => s.disk.root)
+    (fold_toShared (⟨disk,empty⟩ : CopyState) (replacement target))
+  rw [replacement_toShared] at eq
+  exact eq.trans h
 
 /-- Every operation must satisfy the persistence capability's local rule. -/
 def Allowed : CopyState → List Primitive → Prop
@@ -251,19 +304,11 @@ theorem before_cut_root (disk : Banks) (target : Snapshot) (n : Nat) :
 
 theorem cut_old_or_new (disk : Banks) (target : Snapshot) (n : Nat) :
     (cut disk target n).disk.root = disk.root ∨ (cut disk target n).disk.root = target := by
-  by_cases bound : n ≤ (beforePublish target).length
-  · left
-    have eq : replacement target = beforePublish target ++ [.publish] := by
-      simp [replacement, beforePublish, List.append_assoc]
-    unfold cut
-    rw [eq, List.take_append_of_le_length bound]
-    exact before_cut_root disk target n
-  · right
-    have len : (replacement target).length ≤ n := by
-      simp [replacement, beforePublish] at bound ⊢
-      omega
-    simp only [cut, List.take_of_length_le len]
-    exact replacement_root disk target
+  have eq := congrArg (fun s : SnapshotBanks.CopyState (Nat × Bool) Bool => s.disk.root)
+    (cut_toShared disk target n)
+  rcases SnapshotBanks.cut_old_or_new disk.toShared target.toShared (0,false) n with h | h
+  · exact Or.inl (Snapshot.toShared_injective (eq.trans h))
+  · exact Or.inr (Snapshot.toShared_injective (eq.trans h))
 
 /-- Every crash cut refines either no commit or one append. There is no torn
 combination of boundary, payload suffix and cumulative parity. -/

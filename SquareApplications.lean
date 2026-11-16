@@ -122,6 +122,8 @@ import Examples.IndefiniteService
 import Examples.BetweenTicksMigration
 import Examples.PendingMigration
 import Examples.PendingCrashRecovery
+import Examples.PendingRetention
+import Examples.PendingRetentionBanks
 import Examples.InitializedFeedback
 import Examples.PreservationBounds
 import Examples.FIFOContracts
