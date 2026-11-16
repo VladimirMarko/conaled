@@ -1069,5 +1069,6 @@ import Examples.TextbookTreeTariffs
 import Examples.PersistentFIFOClient
 
 import Examples.MeasuredLoop
+import Examples.CompositionalStructureIdentity
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
