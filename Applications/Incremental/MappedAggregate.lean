@@ -253,6 +253,31 @@ theorem workload_output (g h : Scalar G) (v : Values G n) (ps : List (Patch G n)
     (workload g h v ps).1.2.2 = h.eval (specification g.eval (ps.foldl applyPatch v)) :=
   (composed_laws g.eval h.eval).observe _ _ (workload_valid g h v ps)
 
+/-- Changing scalar sources with the same meanings preserves the initialized
+state. Primitive vocabularies and execution tariffs may differ. -/
+theorem composedInit_value_congr (g g' h h' : Scalar G)
+    (hg : ∀ x, g.eval x = g'.eval x) (hh : ∀ x, h.eval x = h'.eval x)
+    (v : Values G n) :
+    (composedInit g h v).1 = (composedInit g' h' v).1 := by
+  rw [composedInit_value, composedInit_value, funext hg, funext hh]
+
+/-- Equivalent scalar sources can replace one another between repairs without
+converting the retained state. Both the next state and boundary delta agree,
+even for an arbitrary starting state; costs are a separate observation. -/
+theorem composedRepair_value_congr (g g' h h' : Scalar G)
+    (hg : ∀ x, g.eval x = g'.eval x) (hh : ∀ x, h.eval x = h'.eval x)
+    (s : State G n × (G × G)) (p : Patch G n) :
+    (composedRepair g h s p).1 = (composedRepair g' h' s p).1 := by
+  rw [composedRepair_value, composedRepair_value, funext hg, funext hh]
+
+/-- Whole-workload output agreement follows from the shared mathematical
+specification, without comparing the source syntax or compiler executions. -/
+theorem workload_output_congr (g g' h h' : Scalar G)
+    (hg : ∀ x, g.eval x = g'.eval x) (hh : ∀ x, h.eval x = h'.eval x)
+    (v : Values G n) (ps : List (Patch G n)) :
+    (workload g h v ps).1.2.2 = (workload g' h' v ps).1.2.2 := by
+  rw [workload_output, workload_output, funext hg, funext hh]
+
 /-- The measured repair publishes the same exact finite change as the retained
 semantic implementation, for every state satisfying its input relation. -/
 theorem composedRepair_boundary (g h : Scalar G) (v : Values G n)

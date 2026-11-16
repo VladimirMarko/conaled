@@ -203,6 +203,58 @@ from repeated authoring costs. The completed bounded author trials establish
 feasibility; their small samples and incomplete effort records do not establish
 a general productivity advantage.
 
+## Developing library and compiler capabilities together
+
+Start a capability with its mathematical meaning, required structure and intended
+observations. The domain library supplies reusable constructions and laws;
+compiler interpretations assemble those laws for supported source expressions.
+A frontend connects the author's language to those expressions and judgments.
+Lean currently supplies the implementation language and verification metatheory.
+A future Lean source frontend has its own preservation obligations; denotational
+specification alone does not discharge them or remove foundational assumptions.
+
+For work connecting these facets, choose a representative client with a direct
+mathematical specification and a compiled realization. Reuse existing cases when
+they already establish the connection. Check whether a different source or
+interpretation can reuse the laws, and state exactly which observations survive
+replacement. Library clients should be able to use the construction without
+compiler bookkeeping; compiler clients should reuse its laws without rebuilding
+the domain proofs. Mathematical requirements determine the supported fragment.
+Useful library development can proceed before a frontend expresses it.
+
+Use the observed missing capability to place the next change: mathematics in
+the library, systematic interpretation in the compiler, and author expression
+in the frontend. Assess costs, approximations and witness preservation under
+their own contracts. Equal denotations alone do not establish equal execution
+costs. Apply these checks where integration is intended, without requiring every
+library theorem to acquire a compiler route.
+
+The [mapped-aggregate client](../Examples/MappedAggregate.lean) supplies a first
+replacement case. Its independent specification sums `(x + 2) * (x + 2)` over
+the input and applies a scalar report. One source duplicates the shift; another
+uses a source `let`. The [library replacement laws](../Applications/Incremental/MappedAggregate.lean)
+derive equality of initialized states, subsequent repair states and boundary
+deltas, and workload outputs from pointwise agreement of scalar meanings.
+They reuse existing compiler-to-library preservation theorems. The repair law
+covers arbitrary retained states, so switching sources requires no conversion
+or reinitialization. Correctness relative to raw inputs still uses the existing
+state invariant.
+
+Under the unit primitive tariff, the two sources cost five and three per scalar
+evaluation. The checked workload saving is twice the input length plus twice
+the number of assignments, including repeated writes. This is a modeled cost,
+not a Lean runtime benchmark. It separates semantic substitutability from
+representation-dependent efficiency while preserving the existing library client.
+
+This case needed no new common interface or duplicate domain proof: small
+replacement theorems expose consequences of existing laws. Author work remains
+in constructing typed terms, choosing an explicit source `let`, and connecting
+the source meaning to the ordinary formula. These are concrete frontend and
+automation opportunities; this example provides neither Lean quotation nor an
+automatic sharing transformation. It justifies reusing the replacement laws
+for this scalar/aggregate interface, without establishing portability of arbitrary
+Lean definitions or a general author-productivity advantage.
+
 ## Selecting research by semantic requirements
 
 Agreed with the project owner on 2026-10-30: evaluate literature against the

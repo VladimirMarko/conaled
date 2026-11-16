@@ -184,4 +184,61 @@ theorem shiftedSquare_exec_cost (x : Int) : (shiftedSquare.exec x).2 = 5 := by
   rw [Scalar.exec_cost]
   rfl
 
+/-- A source let computes the shift once and reuses its bound value. -/
+def sharedShiftedSquare : Scalar Int where
+  Prim := Arithmetic.Prim
+  meaning := Arithmetic.meaning
+  charge _ := 1
+  body := .letE shifted (.prim .mul (.pair (.var .here) (.var .here)))
+
+@[simp] theorem sharedShiftedSquare_eval (x : Int) :
+    sharedShiftedSquare.eval x = (x + 2) * (x + 2) := rfl
+
+theorem shifted_sources_agree (x : Int) :
+    shiftedSquare.eval x = sharedShiftedSquare.eval x := rfl
+
+theorem shared_initial_state (v : Values Int n) :
+    (Cost.composedInit shiftedSquare downstream v).1 =
+      (Cost.composedInit sharedShiftedSquare downstream v).1 :=
+  Cost.composedInit_value_congr _ _ _ _ shifted_sources_agree (fun _ => rfl) v
+
+/-- A client can switch sources after earlier repairs, retaining its entire
+state and the exact output change. No initialization hypothesis is required. -/
+theorem shared_repair (s : VectorSum.State Int n × (Int × Int)) (p : Patch Int n) :
+    (Cost.composedRepair shiftedSquare downstream s p).1 =
+      (Cost.composedRepair sharedShiftedSquare downstream s p).1 :=
+  Cost.composedRepair_value_congr _ _ _ _ shifted_sources_agree (fun _ => rfl) s p
+
+theorem shared_workload (v : Values Int n) (ps : List (Patch Int n)) :
+    (Cost.workload sharedShiftedSquare downstream v ps).1.2.2 =
+      report (shiftedSquares (ps.foldl applyPatch v)) := by
+  rw [← Cost.workload_output_congr shiftedSquare sharedShiftedSquare downstream downstream
+    shifted_sources_agree (fun _ => rfl) v ps]
+  exact shiftedSquares_workload v ps
+
+/-- Sharing saves one addition and one literal per scalar evaluation under
+the existing unit primitive tariff. -/
+theorem sharedShiftedSquare_exec_cost (x : Int) :
+    (sharedShiftedSquare.exec x).2 = 3 := by
+  rw [Scalar.exec_cost]
+  rfl
+
+/-- Setup evaluates every input; repairs evaluate every assignment, including
+repeated writes. Empty workloads and zero-sized inputs satisfy the same law. -/
+theorem shared_workload_saving (v : Values Int n) (ps : List (Patch Int n)) :
+    (Cost.workload shiftedSquare downstream v ps).2 =
+      (Cost.workload sharedShiftedSquare downstream v ps).2 +
+        2 * (n + VectorSum.Cost.assignments ps) := by
+  rw [Cost.workload_cost, Cost.workload_cost]
+  have hd : shiftedSquare.cost = 5 := rfl
+  have hs : sharedShiftedSquare.cost = 3 := rfl
+  rw [hd, hs]
+  omega
+
+/-- Repeated writes still produce the independent mathematical result. -/
+theorem shared_repeated_output :
+    (Cost.workload sharedShiftedSquare downstream initial [repeated]).1.2.2 = 1226 := by
+  rw [shared_workload]
+  decide
+
 end Examples.MappedAggregate
