@@ -1,3 +1,4 @@
+import Examples.SpanInterpretation
 import Examples.SigmaPaths
 import Examples.SpanAction
 import Examples.Lawvere
