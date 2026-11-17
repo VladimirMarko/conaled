@@ -1071,5 +1071,6 @@ import Examples.PersistentFIFOClient
 import Examples.MeasuredLoop
 import Examples.CompositionalStructureIdentity
 import Examples.SharedCubicalConstructors
+import Examples.MatroidPresentations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
