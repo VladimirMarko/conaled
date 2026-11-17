@@ -1,3 +1,4 @@
+import Examples.SpanAction
 import Examples.Lawvere
 import Examples.LawvereEncoding
 import Examples.LawvereRecovery
@@ -1077,3 +1078,4 @@ import Examples.MatroidPresentations
 import Examples.GeometricMatroids
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
