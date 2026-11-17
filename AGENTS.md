@@ -1,108 +1,38 @@
 # Repository direction
 
-This Lean monorepo extends Conal Elliott's work. Its purpose is to build the
-best possible library: sound mathematics, useful capabilities, clear interfaces,
-and maintainable code.
+This Lean monorepo extends Conal Elliott's work. Build the best possible library:
+sound mathematics, useful capabilities, clear interfaces, and maintainable code.
 
-Use development history when it helps recover useful work, explain constraints,
-avoid repeated mistakes, or distinguish a deliberate interface choice from code
-that has simply not migrated yet. Assess older interfaces against current needs;
-neither their age nor the existence of a newer interface settles that choice.
-Keep historical detail only where it serves library development or use.
+Use history to recover useful work, understand constraints and avoid repeated
+mistakes. Assess interfaces against current needs rather than age. Keep records
+and review proportional to correctness, usability, maintenance and recovery;
+preserve useful mathematics and validation, and prune incidental history.
 
-Keep documentation and review proportional to their practical value. Before
-requesting more records or blocking progress over a historical distinction,
-identify its consequence for correctness, usability, maintenance, or recovery.
-Preserve useful mathematics and necessary validation; prune incidental history,
-redundant caveats, and process records that merely accumulate clutter.
+## Task guidance
 
-## Architectural quality
+- Before exploring domain concepts or architecture, read the
+  [domain guide](docs/agents/domain.md).
+- Before designing or reviewing library abstractions, read
+  [architectural quality](docs/agents/architectural-quality.md).
+- Before prioritizing architectural work or making trial/adoption decisions,
+  read the [planning guidance](docs/language-direction.md#elegance-author-capability-and-language-constraints).
+- Before running project commands, read the
+  [development environment](README.md#development-environment); before changing
+  tooling, read the [toolchain guidance](docs/development.md#development-environment).
+- Before choosing validation, read the [build and audit guidance](README.md#build-and-audit).
+- For unexpected Lake integrity invalidation, failed integrity checks or suspected
+  stale artifacts, follow the [incident runbook](docs/agents/lake-integrity-incidents.md).
+- Before writing or reviewing Lean code, or using historical formalizations,
+  read [formal development](docs/agents/formal-development.md).
+- Before tracker operations, read the [issue tracker guide](docs/agents/issue-tracker.md).
 
-Before designing or reviewing library abstractions, read
-`docs/agents/architectural-quality.md`.
-Before prioritizing architectural work or making trial/adoption decisions, read
-[the planning and adoption guidance](docs/language-direction.md#elegance-author-capability-and-language-constraints).
+## Implementation and completion
 
-## Development environment
+For implementation, including documentation, tooling and skill changes, use
+[implement](.agents/skills/implement/SKILL.md). Independent Standards and Spec
+review is required unless the user changes that requirement. Continue an assigned
+implementation/review loop rather than starting another; planning and read-only
+investigation do not start a loop.
 
-Use the Nix flake shell through direnv. Before running project commands or
-changing tooling, read the development environment section in `README.md`.
-For noninteractive commands, use `direnv exec . <command>` or
-`nix develop --command <command>`.
-Agents may add required tooling to `flake.nix`; keep it pinned through the
-checked-in `flake.lock` and validate changes with `nix flake check` and a shell
-smoke check. Lean and library versions remain in `lean-toolchain` and the Lake
-files.
-
-## Implementation and validation
-
-For new and changed Lean code, follow
-[Mathlib's naming conventions](https://mathlib.org/contribute/naming.html),
-including acronym casing and embedded identifiers in theorem names.
-
-For implementation tasks, including documentation, tooling, and skill changes,
-use `.agents/skills/implement/SKILL.md` by default. Independent Standards and
-Spec review is part of completion unless the user explicitly changes that
-requirement. When already assigned work within an implementation/review loop,
-continue that loop rather than starting another. Planning and read-only
-investigation do not start an implementation loop.
-
-Before choosing validation for a change, read the build and audit section in
-`README.md`. Match checks to the changed artifacts; formal changes require
-the applicable build and proof audit using the acceptance modes defined there.
-The implementation workflow owns review coordination, including reuse when
-originator review is requested.
-
-While the temporary Lake incident tracker is open, for unexpected integrity-guard
-invalidation, failed integrity checks, or suspected stale Lake artifacts, follow `docs/agents/lake-integrity-incidents.md`. It routes
-investigations and repeat-incident alerts through the dedicated tracker and the
-coordinating agent.
-
-## Completion and publication
-
-After the required validation and review pass, normally commit the completed
-work, integrate it into `master`, push `master`, and close completed issues with
-comments summarizing the result, validation and any follow-ups. Carry these steps
-through without another permission request. Review and deliberation can be
-intermediate phases; normally finish publication and issue closure before ending
-the turn. If a concrete reason prevents a step, report that reason and what
-remains; preserve unrelated user work and obey
-explicit instructions to defer publication. Unfinished scope stays open, while
-separately tracked extensions do not prevent closing a completed deliverable.
-
-## Commit messages
-
-Use Conventional Commits: `type(scope): description (#123)`.
-The scope is optional; the trailing issue number is required when an issue applies.
-Example: `docs: clarify agent guidance (#123)`.
-
-## Agent skills
-
-### Formal development
-
-Before using the standalone orbifold formalization as a source, proof reference,
-or implementation example, read
-`docs/history/orbifold/standalone-formalization/README.md`.
-
-When adding or changing Lean definitions and theorems, use
-`.agents/skills/example-driven-development/SKILL.md` to develop checked
-specializations and applications alongside the theory. For every new or changed
-formal claim, perform its statement review to check that the formalization
-expresses the intended mathematics. Reuse existing cases where they suffice.
-Use `tdd` when executable behavior needs runtime tests.
-
-### Issue tracker
-
-Track issues and specs in GitHub Issues for VladimirMarko/conaled.
-Before tracker operations, read `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Use the five canonical triage labels.
-Before triaging issues, read `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Use a single-context layout across the monorepo.
-Before exploring domain concepts or architecture, read
-`docs/agents/domain.md`.
+Before committing, publishing or finishing an implementation turn, follow
+[completion and publication](docs/agents/completion.md).

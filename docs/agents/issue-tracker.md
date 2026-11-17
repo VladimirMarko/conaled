@@ -9,6 +9,9 @@ When placing new work or coordinating related issues, consult the
 Use its links to find existing scope owners and related efforts; keep task
 acceptance criteria and dependencies in the issues.
 
+Before triaging issues, read the [canonical triage labels](triage-labels.md)
+and use their five roles.
+
 ## Operations
 
 - Create: `gh issue create --title "..." --body-file <file>`.
