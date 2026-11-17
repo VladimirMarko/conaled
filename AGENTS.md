@@ -58,6 +58,18 @@ invalidation, failed integrity checks, or suspected stale Lake artifacts, follow
 investigations and repeat-incident alerts through the dedicated tracker and the
 coordinating agent.
 
+## Completion and publication
+
+After the required validation and review pass, normally commit the completed
+work, integrate it into `master`, push `master`, and close completed issues with
+comments summarizing the result, validation and any follow-ups. Carry these steps
+through without another permission request. Review and deliberation can be
+intermediate phases; normally finish publication and issue closure before ending
+the turn. If a concrete reason prevents a step, report that reason and what
+remains; preserve unrelated user work and obey
+explicit instructions to defer publication. Unfinished scope stays open, while
+separately tracked extensions do not prevent closing a completed deliverable.
+
 ## Commit messages
 
 Use Conventional Commits: `type(scope): description (#123)`.
