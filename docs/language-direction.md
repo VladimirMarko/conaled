@@ -588,6 +588,63 @@ worth its cost. Neither current usability nor mathematical elegance alone settle
 that choice. Record decisions and remaining constraints without treating a
 current Lean encoding as the limit of the mathematical direction.
 
+## Complementary presentations and reconstruction
+
+Use complementary presentations when different definitions make different
+constructions, proofs or computations easier. Connect them with proved maps
+and recovery laws so callers can reuse the mathematics through the interface
+that fits their task. Prefer convenient specializations derived from shared
+constructions; preserve useful direct clients and access to the general API.
+
+The [Lawvere development](lawvere-theories.md) provides exact action/algebra
+round trips, algebra/model category equivalences and nonskeletal theory
+comparisons. The [matroid presentations](research/matroid-presentations.md)
+recover labelled finite matroids, while [geometric reconstruction](research/geometric-matroids.md)
+recovers a finite simple matroid from its flat lattice with explicit relabelling.
+These are examples of different recovery contracts, not evidence that every
+pair of useful presentations is equivalent.
+
+When designing, revisiting or integrating such interfaces:
+
+- Identify the additional mathematics or author capability each presentation
+  supports. Separate mathematical restrictions from Lean encoding/elaboration
+  friction, missing proofs and current author effort.
+- State the primitive operations and laws independently of the desired result.
+  Derive reconstruction, universal properties and shared construction laws
+  where they follow; a field asserting the final comparison does not establish
+  that derivation. State genuinely additional compatibility assumptions.
+- Prove the appropriate maps and recovery statements. Distinguish definitional
+  or propositional equality, equivalence of object types, categorical
+  equivalence, and one-way preservation. Include morphisms, substitution,
+  identity/composition and dependent witnesses where the claimed contract
+  uses them. Choose the strength the mathematics supports.
+- Identify information forgotten by each map. Retain labels, ground sets,
+  selected operations, multiplicities, probability mass or resource observations
+  when clients need them. Test proposed recovery against separating examples;
+  restrict hypotheses or retain richer data when recovery is impossible.
+- Check established clients under their original assumptions and observations,
+  alongside a new use of the general construction. Include relevant empty,
+  nullary, nonliteral-representation and composite-transport cases. Measure
+  adapter/setup obligations separately from recurring caller effort; conversion
+  wrappers alone do not demonstrate shared proofs or improved usability.
+
+Apply these criteria proportionally to the claimed change. A useful one-way
+interpretation need not become an equivalence, and a shared proof need not
+supply a bridge between its models. Preserve those distinctions in acceptance.
+For incoming formalizations, assess whether their presentation adds capability,
+can be recovered through existing shared interfaces, or reveals a missing
+construction. Record deferred work with an owner while retaining useful source
+mathematics and validation; acceptance of a bounded slice does not require
+completing every architectural opportunity it exposes.
+
+[#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates applications;
+[#634](https://github.com/VladimirMarko/conaled/issues/634) searches earlier
+compromises and additional opportunities. Revisit this guidance against the
+resulting library and CTB integration evidence in
+[#636](https://github.com/VladimirMarko/conaled/issues/636), including failed
+generalizations and cases where retaining a native interface was preferable.
+The tracker owns individual acceptance criteria and remaining work.
+
 ## Current evidence and ownership
 
 The [preservation architecture assessment](research/preservation-architecture.md)

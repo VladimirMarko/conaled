@@ -14,6 +14,35 @@ historical checkpoint-local INT issues remain provenance. This note owns the
 source and interface correspondence; current acceptance uses the receiving
 repository's build and independent review procedure.
 
+## Presentation review at acceptance
+
+For each incoming CTB receiving slice, apply the
+[complementary-presentation and recovery criteria](../language-direction.md#complementary-presentations-and-reconstruction)
+alongside the existing preservation, build/audit and independent-review gates.
+Compare the supplied definitions and axioms with current shared interfaces and
+checked clients. Record which source capabilities are retained, which maps or
+reconstruction theorems justify reuse, and which observations or assumptions
+prevent equivalence. Preserve computational and cost contracts separately from
+extensional mathematical agreement.
+
+Give each assessed overlap a disposition: integrate through a checked shared
+construction, retain a connected alternative presentation, or preserve the
+source mathematics with a scoped follow-up for the missing connection. State
+why a connection is inapplicable when that is the finding. Recover established
+clients under their original contracts when changing interfaces; importing a
+theorem or wrapping an assumed comparison alone does not establish recovery.
+Record the assessment and evidence in the receiving slice's acceptance record
+and reconcile its residual owners in [#558](https://github.com/VladimirMarko/conaled/issues/558).
+This review does not require unrelated library redesign or whole-book completion
+before accepting a bounded slice.
+
+Feed newly discovered opportunities to
+[#634](https://github.com/VladimirMarko/conaled/issues/634) and the experience
+of applying these criteria to
+[#636](https://github.com/VladimirMarko/conaled/issues/636). The latter should
+identify a concrete receiving slice as evidence rather than wait for the entire
+continuing CTB workstream.
+
 ## Source provenance and merge decisions
 
 The original full-spec review base is

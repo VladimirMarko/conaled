@@ -52,6 +52,13 @@ generic mathematical arguments, apply the
 [counterexample and scope checks](../../.agents/skills/example-driven-development/SKILL.md#counterexamples-and-scope-checks).
 This includes paper-level designs before Lean implementation.
 
+When comparing presentations, revisiting an interface compromise, extracting
+shared constructions or accepting external formalizations, apply the
+[complementary-presentation and recovery criteria](../language-direction.md#complementary-presentations-and-reconstruction).
+State the precise recovery or information-loss contract, derive shared laws
+from primitive requirements, and check existing clients under their original
+assumptions. This assessment belongs in integration review as well as new design.
+
 ## Preservation-family changes
 
 When adding a preservation family or changing a shared interpretation interface,
