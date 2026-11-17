@@ -2,11 +2,11 @@
 
 Completion means the requested deliverable is validated, reviewed and published
 within the [task's authority](task-authority.md), with affected issues accurate.
-For work commissioned by Vladimir Marko, after required validation and review
-pass, normally commit the completed work, integrate it into `master`, push
+When the full completion workflow is selected, after required validation and
+review pass, normally commit the completed work, integrate it into `master`, push
 `master`, and close completed issues with comments summarizing the result,
 validation and follow-ups. Carry these steps through without another permission
-request, within the originating mandate. Review and deliberation can be
+request, within the selected scope and permissions. Review and deliberation can be
 intermediate phases; normally finish authorized publication and issue closure
 before ending the turn.
 
