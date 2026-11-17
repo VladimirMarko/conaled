@@ -4,10 +4,11 @@ The [approved configuration file](../../.agents/model-policy.json) is the source
 of defaults for the [task policy](task-authority.md#model-eligibility-and-trials).
 The optional [monitor](../../scripts/model-warning.py) checks each submitted
 Codex CLI turn and displays a hook message when its status changes: 🟥 for a
-configuration outside those defaults, ⚠ for unavailable current configuration,
-and a short `Model: <model> / <effort>` message on recovery. Approved-to-approved
-changes, the first approved turn and repeated identical observations are quiet. This is an advisory
-warning, not permission enforcement or an authentication system.
+configuration outside those defaults, 🟧 for unavailable current configuration,
+and 🟩 when the configuration returns to matching the defaults. Approved-to-approved
+changes, the first approved turn and repeated identical observations are quiet.
+The messages report configuration status; they do not enforce permission or
+verify identity.
 
 ## Install for this checkout
 
@@ -61,25 +62,17 @@ Monitor failures warn and let work continue. If hooks are disabled, untrusted or
 timed out, the script cannot provide coverage; check `/hooks` when no expected
 warning appears.
 
-## Scoped exceptions
+## Conversational approval
 
-An operator can represent an existing scoped approval using a local JSON file
-passed to installation with `--exceptions /absolute/path/to/exceptions.json`:
+The monitor only compares the observed configuration with repository defaults.
+Scoped approval in a conversation still applies under the task policy, but does
+not change the indicator. An approved experiment outside the defaults remains
+red; approval with unavailable configuration remains orange. Both let work
+continue. There is no separate approval file to maintain.
 
-```json
-{"exceptions": [{"session_id": "exact-session-id", "agent_id": null,
-  "model": "exact-model-slug", "effort": null,
-  "expires_at": "2027-01-01T00:00:00Z", "reason": "Approved local trial"}]}
-```
-
-This example deliberately covers unknown effort for one model in one session;
-use an exact effort string for a known configuration. All four identity and
-configuration fields must match, and expiry must be in the future. A matching
-exception has its own visible status, not ordinary approval. The file records a
-human decision; the monitor cannot infer conversational approval or its task
-scope. Remove an exception when its approved work ends, even if the session
-continues. An exception neither changes repository-wide defaults nor authorizes
-publication. Keep local exception files out of commits.
+If an older installation uses `--exceptions`, remove that option and its file
+argument from the hook command in `.codex/hooks.json`. The option is no longer
+supported. Remove the unused approval file if it is no longer needed.
 
 ## Tested boundary
 
@@ -88,8 +81,8 @@ and renders `systemMessage` in interactive terminal history. It does not promise
 red UI chrome; the solid red square is part of the warning text and its appearance
 depends on the terminal font. The documented hook output has no color or severity
 field. The monitor therefore uses a Unicode marker, without ANSI escapes or a
-claim that the entire message is red. Scoped exceptions use `Model exception:`
-and recovery uses `Model:`, reserving warning language for active problems. In this version,
+claim that the entire message is red. Recovery explicitly reports that the
+configuration matches approved defaults. In this version,
 `codex exec --json` omits those messages. Configured `PreModelRequest` hooks did
 not run in the installed-runtime probe, so this adapter does not rely on them.
 It checks submitted user turns, not every internal retry or delegated agent.
