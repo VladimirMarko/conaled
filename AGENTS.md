@@ -10,6 +10,11 @@ preserve useful mathematics and validation, and prune incidental history.
 
 ## Task guidance
 
+- Before editing `AGENTS.md`, read
+  [writing-for-agents](.agents/skills/writing-for-agents/SKILL.md). Keep this file
+  compact: universal rules and pointers with explicit reading triggers. Put
+  situational detail in existing guides where appropriate; preserve requirements
+  and their discovery paths when moving them, rather than duplicating guidance.
 - Before exploring domain concepts or architecture, read the
   [domain guide](docs/agents/domain.md).
 - Before designing or reviewing library abstractions, read
