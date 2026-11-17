@@ -53,6 +53,37 @@ recovery of law-bearing/dependent clients, and selected univalence comparisons
 remain owned there. In particular, `presentedIso` does not identify native
 transport along arbitrary universe paths with host `Description.transport`.
 
+## Native decomposition of dependent-sum paths
+
+`SigmaPaths` and `CartesianSigmaPaths` provide the same interface in each
+native model. For sections `z₀ z₁` of `sigma A B`, `decomposition` is a natural
+family isomorphism from their path family to a base path together with a
+`DependentPath` in `B`. The latter records every generalized interval value,
+its restriction equation, and both dependent endpoints. `assemble` recovers
+the whole path; `equiv` proves both roundtrips.
+
+The component family transports restriction through this explicit equivalence.
+`restrict_base` and `restrict_field` expose the resulting formulas: restriction
+precomposes the generalized argument and retains its interval value. Thus this
+is a family-level comparison, not only a bijection of closed sections. It does
+not yet identify the component family with a separately constructed Sigma of
+native dependent-Path codes. `filling` transports the native path filler through
+`decomposition` and proves it lawful, including the Cartesian variable cap.
+
+`Examples.SigmaPaths` checks both models. A moving interval path retains its
+interval coordinate and Boolean field; a dependent family has fibers
+`Fin (n + 1)` and preserves its selected last element. A false field cannot
+satisfy a true target endpoint. The general construction also specializes to
+`StructureIdentity.Native.objects`, with a lawful filler for the decomposed
+path family. Statement review checks all generalized evaluations, genuinely
+dependent fiber types, both endpoints, inverse equations and restrictions.
+
+This supplies the dependent-sum path step toward #625. It does not turn a
+carrier path into an independently defined structure-preserving equivalence.
+That comparison still needs each model's own univalence, native preservation,
+and the law-family/sethood admission described above. The moving interval
+example tests path data; it does not assert a filler for the interval itself.
+
 ## Discrete proof-bearing state packages
 
 Issue [#530](https://github.com/VladimirMarko/conaled/issues/530) extends the
