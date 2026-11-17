@@ -3,10 +3,10 @@
 The [approved configuration file](../../.agents/model-policy.json) is the source
 of defaults for the [task policy](task-authority.md#model-eligibility-and-trials).
 The optional [monitor](../../scripts/model-warning.py) checks each submitted
-Codex CLI turn and displays a hook message when its status changes: 🔴 for a
+Codex CLI turn and displays a hook message when its status changes: 🟥 for a
 configuration outside those defaults, ⚠ for unavailable current configuration,
-and a recovery message when it returns to an approved configuration. The first
-approved turn and repeated identical observations are quiet. This is an advisory
+and a short `Model: <model> / <effort>` message on recovery. Approved-to-approved
+changes, the first approved turn and repeated identical observations are quiet. This is an advisory
 warning, not permission enforcement or an authentication system.
 
 ## Install for this checkout
@@ -85,7 +85,11 @@ publication. Keep local exception files out of commits.
 
 Codex CLI 0.161.0 runs `UserPromptSubmit` after the current turn context is written
 and renders `systemMessage` in interactive terminal history. It does not promise
-red UI chrome; the marker is part of the warning text. In this version,
+red UI chrome; the solid red square is part of the warning text and its appearance
+depends on the terminal font. The documented hook output has no color or severity
+field. The monitor therefore uses a Unicode marker, without ANSI escapes or a
+claim that the entire message is red. Scoped exceptions use `Model exception:`
+and recovery uses `Model:`, reserving warning language for active problems. In this version,
 `codex exec --json` omits those messages. Configured `PreModelRequest` hooks did
 not run in the installed-runtime probe, so this adapter does not rely on them.
 It checks submitted user turns, not every internal retry or delegated agent.

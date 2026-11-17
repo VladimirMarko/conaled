@@ -36,6 +36,7 @@ class MonitorTests(unittest.TestCase):
         event = self.event()
         self.assertEqual(self.call(event), {})
         self.assertEqual(self.diagnostic(event)['status'], 'approved')
+        self.assertEqual(self.call(self.event(effort='high', turn='next')), {})
         self.assertEqual(len(list(self.state.glob('*.json'))), 1)
 
     def test_every_default_configuration(self):
@@ -49,7 +50,7 @@ class MonitorTests(unittest.TestCase):
             self.assertEqual(self.diagnostic(event)['status'], 'unapproved')
             output = self.call(event)
             self.assertEqual(set(output), {'systemMessage'})
-            self.assertIn('🔴', output['systemMessage'])
+            self.assertIn('🟥', output['systemMessage'])
 
     def test_stale_turn_cannot_supply_effort(self):
         event = self.event()
@@ -94,15 +95,15 @@ class MonitorTests(unittest.TestCase):
 
     def test_transitions_dedup_and_recovery(self):
         event = self.event(effort='low')
-        self.assertIn('🔴', self.call(event)['systemMessage'])
+        self.assertIn('🟥', self.call(event)['systemMessage'])
         self.assertEqual(self.call(event), {})
         event = self.event(effort='medium', turn='next')
-        self.assertIn('cleared', self.call(event)['systemMessage'])
+        self.assertEqual(self.call(event)['systemMessage'], 'Model: gpt-6-astra / medium')
         self.assertEqual(self.call(event), {})
         event['turn_id'] = 'not-flushed'
         self.assertIn('⚠', self.call(event)['systemMessage'])
         event = self.event(effort='medium', turn='not-flushed')
-        self.assertIn('cleared', self.call(event)['systemMessage'])
+        self.assertEqual(self.call(event)['systemMessage'], 'Model: gpt-6-astra / medium')
 
     def test_concurrent_sessions_and_duplicate_events(self):
         events = [self.event(effort='low', session=f's{i}') for i in range(6)]

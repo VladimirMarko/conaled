@@ -110,12 +110,12 @@ def warning(result):
     status = result['status']
     configuration = f"{result.get('model') or 'unknown model'} / {result.get('effort') or 'unknown effort'}"
     if status == 'unapproved':
-        return f'🔴 Model warning: {configuration} is outside the configured defaults. Check the selection or record a scoped exception; work continues.'
+        return f'🟥 Model warning: {configuration} is outside the configured defaults. Check the selection or record a scoped exception; work continues.'
     if status == 'unknown':
         return f'⚠ Model warning: cannot determine current configuration ({configuration}; {result["evidence"]}). Work continues.'
     if status == 'exception':
-        return f'Model warning: scoped exception active for {configuration}.'
-    return f'Model warning cleared: {configuration} matches the configured defaults.'
+        return f'Model exception: {configuration}.'
+    return f'Model: {configuration}'
 
 
 def observe(event, policy, state_dir, exceptions=None):
@@ -132,8 +132,9 @@ def observe(event, policy, state_dir, exceptions=None):
         changed = previous is None or signature(previous) != signature(result)
         result['observed_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
         write_json(path, result)
-    # Quiet approved first turn; warn on changes and recovery, not repeated retries.
-    emit = changed and (previous is not None or result['status'] != 'approved')
+    # Approved configurations stay quiet; report recovery from another status once.
+    emit = changed and (result['status'] != 'approved'
+                        or (previous is not None and previous['status'] != 'approved'))
     return result, {'systemMessage': warning(result)} if emit else {}
 
 
