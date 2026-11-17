@@ -1,4 +1,59 @@
-# Structure identity for discrete proof-bearing state packages
+# Structure identity: native descriptions and discrete packages
+
+
+## Native description families over the carrier universe
+
+The next stage of [#625](https://github.com/VladimirMarko/conaled/issues/625)
+interprets `Description` in both native cubical models. Import
+`NativeStructureDescriptions` or `CartesianNativeStructureDescriptions` from
+`SquareKit.Internal.Cubical`; the interfaces live in each model's
+`StructureIdentity.Native` namespace.
+
+`family D A` interprets the carrier by `A`, fixed types by lifted constant
+families, products by native Sigma, and functions by native Pi. `filling`
+constructs a lawful selected operation from a lawful operation on `A`.
+`presentation` constructs small representatives from small representatives of
+`A`; `classify D a` packages a code and decoder comparison over any larger context,
+using each model's own large-context classifier. `universal D` specializes this
+to the generic carrier. These APIs require no constant carrier presentation.
+The [design assessment](sip625-design/decision.md) explains why applying the
+bijection-only host `Transport` pointwise would not construct this family.
+
+`objects D Γ` is the large native Sigma family of a small carrier code and its
+structure. `objectsFilling` proves its selected filler lawful using the model's
+universe filler and the descriptor filler. The total family is not asserted to
+have a code in the same small universe as its carriers.
+
+`presentedIso` recovers `Description.Data X` when the caller supplies an explicit
+carrier presentation by the constant family on `ULift X`. This is a natural
+isomorphism of native families, including every restriction-indexed Pi value,
+not just an equivalence of closed sections. Its function case derives recovery
+from naturality of Pi elements; functions at a general carrier remain native
+Pi elements. Fixed `Prop` still means a constant host type of propositions,
+not an internal universe of proposition families.
+
+`Examples.NativeStructureDescriptions` checks a point with an endomorphism and
+a function that takes another function as input. In both models the examples
+apply the actual native Pi fields to Boolean negation and observe `true`.
+They also use universal small-code admission and the lawful total family.
+Adjoining a fixed empty field yields an empty total family, so lawfulness and
+admission do not manufacture inhabitants. The generic presented comparison
+recovers every description in the existing grammar.
+
+Statement review checks that family formation and admission quantify over
+arbitrary carrier codes, while only the recovery theorem requires a constant
+presentation. Pi smallness uses restriction-indexed values. Fixed types retain
+explicit lifts, and the total universe is allowed to be larger. Neither host
+proof irrelevance nor an assumed preservation relation enters these results.
+
+This delivers native data families, admission, and presented-carrier recovery.
+It does not complete #625: the total internal path/isomorphism theorem,
+independent native field preservation, law-family admission and sethood,
+recovery of law-bearing/dependent clients, and selected univalence comparisons
+remain owned there. In particular, `presentedIso` does not identify native
+transport along arbitrary universe paths with host `Description.transport`.
+
+## Discrete proof-bearing state packages
 
 Issue [#530](https://github.com/VladimirMarko/conaled/issues/530) extends the
 six-field native package of #420. `Examples.CubicalStructuredState` provides a
