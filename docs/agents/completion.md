@@ -1,7 +1,10 @@
 # Completion and publication
 
-Completion means the requested deliverable is validated, reviewed and published
-within the [task's authority](task-authority.md), with affected issues accurate.
+Completion means the requested deliverable has passed required validation and
+review and been delivered within the [task's authority](task-authority.md).
+A validated and reviewed local deliverable completes a local assignment;
+publication is required only when selected or explicitly authorized as part of
+the requested outcome. Keep affected issues accurate within the authorized scope.
 When the full completion workflow is selected, after required validation and
 review pass, normally commit the completed work, integrate it into `master`, push
 `master`, and close completed issues with comments summarizing the result,
@@ -13,7 +16,8 @@ before ending the turn.
 If a concrete reason prevents a step, report that reason and what remains.
 Preserve unrelated user work and obey explicit instructions to defer publication.
 Unfinished scope stays open; separately tracked extensions do not prevent closing
-a completed deliverable.
+a completed deliverable. If required publication is blocked, keep that deliverable
+open and continue independently authorized issue maintenance with its status clear.
 
 The [implementation workflow](../../.agents/skills/implement/SKILL.md) owns review
 coordination, including reuse when originator review is requested. Follow the

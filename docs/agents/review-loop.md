@@ -10,6 +10,13 @@ independent Standards and Spec subagents.
 
 ## Candidate and record
 
+The [task authority guide](task-authority.md#workflow-selection) distinguishes
+internal snapshots from deliverable commits. Ordinary local or no-commit work
+uses this procedure without another permission request. If an explicit Git-object
+restriction prevents the required capture, report that specific blocked step and
+preserve permitted local work. Do not bypass the restriction, substitute an
+unapproved review method, or repeatedly ask for publication permission.
+
 Pin each round to immutable base and candidate commit SHAs and record the spec
 version or saved contents used for acceptance. Keep the base stable across
 ordinary fixes so each round covers the whole task change. For a ticket that
