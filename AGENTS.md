@@ -10,6 +10,8 @@ preserve useful mathematics and validation, and prune incidental history.
 
 ## Task guidance
 
+- Before undertaking or delegating work, read
+  [task authority and capability](docs/agents/task-authority.md).
 - Before editing `AGENTS.md`, read
   [writing-for-agents](.agents/skills/writing-for-agents/SKILL.md). Keep this file
   compact: universal rules and pointers with explicit reading triggers. Put

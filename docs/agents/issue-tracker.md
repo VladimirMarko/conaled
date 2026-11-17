@@ -12,6 +12,15 @@ acceptance criteria and dependencies in the issues.
 Before triaging issues, read the [canonical triage labels](triage-labels.md)
 and use their five roles.
 
+## Reconcile affected issues
+
+Within the [task's authority](task-authority.md), routinely reconcile affected
+issues with findings from the work. Update changed assumptions, scope and
+dependencies so the tracker reflects what remains. Put actionable follow-ups
+under existing scope owners, or create linked issues when no existing owner fits.
+Create issues when needed, with no ticket quota; recording new scope does not
+authorize implementing it.
+
 ## Operations
 
 - Create: `gh issue create --title "..." --body-file <file>`.

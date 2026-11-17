@@ -1,14 +1,19 @@
 # Completion and publication
 
-After the required validation and review pass, normally commit the completed
-work, integrate it into `master`, push `master`, and close completed issues with
-comments summarizing the result, validation and any follow-ups. Carry these steps
-through without another permission request. Review and deliberation can be
-intermediate phases; normally finish publication and issue closure before ending
-the turn. If a concrete reason prevents a step, report that reason and what
-remains. Preserve unrelated user work and obey explicit instructions to defer
-publication. Unfinished scope stays open; separately tracked extensions do not
-prevent closing a completed deliverable.
+Completion means the requested deliverable is validated, reviewed and published
+within the [task's authority](task-authority.md), with affected issues accurate.
+For work commissioned by Vladimir Marko, after required validation and review
+pass, normally commit the completed work, integrate it into `master`, push
+`master`, and close completed issues with comments summarizing the result,
+validation and follow-ups. Carry these steps through without another permission
+request, within the originating mandate. Review and deliberation can be
+intermediate phases; normally finish authorized publication and issue closure
+before ending the turn.
+
+If a concrete reason prevents a step, report that reason and what remains.
+Preserve unrelated user work and obey explicit instructions to defer publication.
+Unfinished scope stays open; separately tracked extensions do not prevent closing
+a completed deliverable.
 
 The [implementation workflow](../../.agents/skills/implement/SKILL.md) owns review
 coordination, including reuse when originator review is requested. Follow the
