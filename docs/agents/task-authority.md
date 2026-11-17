@@ -33,23 +33,23 @@ Respect an explicit prohibition of Git object creation; the
 
 ## Model eligibility and trials
 
-The repository-wide default is GPT-6-Astra at medium or higher reasoning effort.
-Vladimir Marko sets approved defaults and may approve other configurations for
+The [approved configurations](../../.agents/model-policy.json) define repository
+defaults. Vladimir Marko sets those defaults and may approve other configurations for
 specified work, including an agent with unknown model or effort. Accept recorded
 conversational approval or its relay by the orchestrator without separate identity
 authentication. Approval persists through continuations and delegation only for
 the agents, work and limits it covers; it does not automatically cover a different
 agent or task.
 
-Host configuration or a specific model-and-effort report from the orchestrator
-is sufficient evidence; independent self-attestation is unnecessary. Check that
-the configuration is eligible under the default or a scoped approval before
-undertaking or delegating work. An approval covering unavailable configuration
-details suffices without repeated verification questions. Apply eligibility to
-primary and delegated agents, including reviewers; do not infer it from output
-quality. If neither configuration evidence nor applicable approval establishes
-eligibility, report the gap before covered work. Reading this policy and
-explaining the gap remain allowed.
+Configuration selection and monitoring belong to the operator and host, for
+primary and delegated agents including reviewers. Agents concentrate on the task:
+do not poll runtime metadata, self-attest configuration, or stop work to ask about
+unknown model or effort. When delegation controls expose model and effort, select
+an approved configuration or one covered by the scoped approval. Carry that
+approval forward without repeated verification questions. Output quality does
+not establish approval. The [optional Codex CLI warning](model-warning.md)
+provides host-side feedback without adding model context or blocking work;
+other tools can use their own monitoring.
 
 A task requester may explicitly authorize a bounded local suitability trial of
 another or unknown configuration, including actual implementation work. Record
