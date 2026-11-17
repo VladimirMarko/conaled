@@ -1042,6 +1042,7 @@ import Examples.OptimizedRows
 import Examples.InitializedProducer
 import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
+import Examples.CartesianLargeFamilyConstructors
 import Examples.CubicalChartFamily
 
 import Examples.SmoothManifoldAction

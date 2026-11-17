@@ -828,3 +828,34 @@ theorem lowerChartEquivalence_reindex {Γ Θ : Context.{u}} {Ξ : Context.{u+1}}
 end SmallUniverse
 
 end SquareKit.Cubical.Cartesian
+
+namespace SquareKit.Cubical.Cartesian.SmallUniverse.NativeUnivalence
+open CategoryTheory
+universe u
+variable {Ξ : Context.{u+1}}
+/-- A small represented chart reaches any element of a larger context. -/
+def chart {Γ : Context.{u+1}} (x : Γ.Elements) :
+    raisedContext (representable.{u} x.obj.unop) ⟶ Γ where
+  app J := TypeCat.ofHom (fun f => Γ.map f.down.down.op x.val)
+  naturality J K f := by
+    apply ConcreteCategory.hom_ext
+    intro g
+    exact ConcreteCategory.congr_hom (Γ.map_comp g.down.down.op f) x.val
+
+theorem chart_substitution {Γ Δ : Context.{u+1}} (σ : Δ ⟶ Γ) (x : Δ.Elements) :
+    chart (σ.mapElements.obj x) = chart x ≫ σ := by
+  ext I f
+  exact (σ.naturality_apply f.down.down.op x.val).symm
+
+theorem chart_restrict {Γ : Context.{u+1}} {x y : Γ.Elements} (f : x ⟶ y) :
+    raisedSub (representableMap.{u} f.hom.unop) ≫ chart x = chart y := by
+  ext I g
+  change Γ.map (g.down.down ≫ f.hom.unop).op x.val = Γ.map g.down.down.op y.val
+  exact (ConcreteCategory.congr_hom (Γ.map_comp f.hom g.down.down.op) x.val).trans
+    (congrArg (fun z => Γ.map g.down.down.op z) f.map_val)
+
+/-- Generic evaluation of the small represented chart recovers the large point. -/
+theorem chart_generic (x : Ξ.Elements) : (chart x).app x.obj ⟨⟨𝟙 x.obj.unop⟩⟩ = x.val :=
+  ConcreteCategory.congr_hom (Ξ.map_id x.obj) x.val
+
+end SquareKit.Cubical.Cartesian.SmallUniverse.NativeUnivalence
