@@ -1083,6 +1083,7 @@ import Examples.MeasuredLoop
 import Examples.CompositionalStructureIdentity
 import Examples.SharedCubicalConstructors
 import Examples.SharedSigmaFilling
+import Examples.SharedRepresentableClassification
 import Examples.MatroidPresentations
 import Examples.SubmodularRank
 import Examples.CircuitElimination

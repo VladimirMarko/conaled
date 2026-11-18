@@ -38,22 +38,22 @@ Both expose `raisedContext`, `raisedSub`, local-family `code`, `code_reindex`,
 (#419) and `622219ab` (#603). Their model-specific origins explain the duplication,
 without establishing that the whole classifier should share an interface.
 
-[#642](https://github.com/VladimirMarko/conaled/issues/642) owns investigation
-after #627. Compare a small universe-lift helper, a base-category-parametric
-classification core and the native implementations. The candidate benefit is
-one derivation of natural decoding and code substitution with native local-family
-records recovered as specializations. Recovery and selected-operation equality
-must be derived under explicit hypotheses, not required as final-result fields.
-Migration would affect classification and downstream universe constructions;
-its cost has not been measured. #607 owns canonical decoder-filler equality,
-#606 owns comparison coherence and #625 owns SIP. Those are separate obligations.
+[#642](https://github.com/VladimirMarko/conaled/issues/642) now has a
+[checked assessment](shared-representable-classification.md): share the
+category-parametric coding and evaluation comparison, while retaining native
+universal decoders, interval charts and selected fillers. Both adapters recover
+the native codes and comparison; dependent families and composed nonidentity
+substitutions exercise the shared results. A separate production extraction
+must preserve those recovery checks and pass full validation. The assessment
+compares the smaller universe-lift helper and retaining both implementations,
+and records setup, recurring-client and maintenance costs separately.
 
 The negative control
 [`no_interval_retraction`](../../Examples/CartesianWitnessPreservation.lean)
-rules out the specified endpoint-preserving natural retraction from the restricted
-De Morgan interval to the Cartesian interval. It does not rule out shared proofs
-that never construct such a retraction. #642 is an investigation, not approval to
-migrate the classifier implementations.
+still rules out the specified endpoint-preserving natural retraction from the
+restricted De Morgan interval to the Cartesian interval. Sharing the proof
+requires no such map. #607's canonical decoder-filler question, #606's recomputed
+comparison coherence and #625's internal SIP remain separately owned.
 
 ## Existing interfaces to retain
 
