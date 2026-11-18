@@ -1051,6 +1051,8 @@ import Examples.CubicalChartFamily
 
 import Examples.SmoothManifoldAction
 import Examples.SmoothCechDescent
+import Examples.SmoothBundleAtlas
+import Examples.SmoothFiniteCover
 
 import Examples.FiniteUniverseLoops
 import Examples.CartesianWitnessPreservation
