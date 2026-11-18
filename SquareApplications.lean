@@ -1080,6 +1080,7 @@ import Examples.CompositionalStructureIdentity
 import Examples.SharedCubicalConstructors
 import Examples.MatroidPresentations
 import Examples.SubmodularRank
+import Examples.CircuitElimination
 import Examples.GeometricMatroids
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

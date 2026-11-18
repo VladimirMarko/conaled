@@ -27,7 +27,8 @@ the empty independent set alone cannot distinguish empty ground from all loops.
 | Rank | Natural-valued, zero at empty, ground normalization, monotonicity, insertion increases rank by at most one, zero increments persist under inclusion | Closure consists of ground elements whose insertion does not increase rank |
 
 The circuit exchange field is stated on circuit-free sets. This adapter does
-not derive augmentation from the usual circuit-elimination axiom. The rank
+not itself derive augmentation from the usual circuit-elimination axiom; the
+standard-axiom adapter below supplies that derivation. The rank
 interface uses local increments rather than taking submodularity as a field.
 Neither interface asks for a matroid realization or assumes reconstruction.
 Both recover their supplied data exactly; native finite matroids supply all
@@ -70,17 +71,51 @@ two nonidentity relabellings. A monotone cardinality-bounded function on `Bool`
 violates submodularity at the two singleton sets, separating the missing axiom.
 
 This completes the rank portion of [#628](https://github.com/VladimirMarko/conaled/issues/628).
-Its circuit-elimination-to-augmentation construction remains open. The result
+The result
 reuses the existing reconstruction proof and preserves its direct clients;
 it does not establish an author-productivity result. It supplies application
 evidence for [#636](https://github.com/VladimirMarko/conaled/issues/636).
+
+## Standard circuit elimination
+
+[CircuitElimination.lean](../../Applications/Matroid/CircuitElimination.lean)
+accepts a finite ground, nonempty contained circuits, an antichain law, and
+elimination of a common element from two distinct circuits. It derives
+augmentation of circuit-free sets. No matroid realization or exchange premise
+is required from the caller.
+
+The proof first shows that adjoining an element to an independent set creates
+at most one circuit. Removing another element of that circuit preserves
+maximal independence. Finite induction then extends an independent set using
+only it and a chosen maximal independent set, which yields augmentation.
+`toCircuit` feeds this result to the existing reconstruction.
+
+`matroid_isCircuit` recovers every supplied circuit; `ofMatroid` extracts the
+standard axioms from native finite matroids. Both round trips preserve the
+whole presentation, including its ground. `circuitEquiv` connects the two
+circuit interfaces, and `FiniteMatroid.circuitEliminationEquiv` connects the
+new input to all existing presentation routes. `relabel` preserves circuits
+under ambient carrier equivalences and satisfies identity and composition.
+
+Use this interface when elimination is the available circuit law. The existing
+`CircuitPresentation` remains useful when circuit-free augmentation is already
+known. Independence requires ground containment, so adding an outside-ground
+element is forbidden even when it lies in no supplied circuit.
+
+[Checked applications](../../Examples/CircuitElimination.lean) supply a single
+circuit directly, recover the existing U₂,₃ client, and check loops, parallel
+elements, empty ground, outside elements, presentation routes and relabelling.
+The nonempty antichain `{0,1}`, `{0,2}` fails elimination at `0`, showing that
+the other circuit conditions do not suffice. Together with the rank adapter,
+this completes the constructors requested by
+[#628](https://github.com/VladimirMarko/conaled/issues/628).
 
 ## Reuse of Mathlib
 
 The pinned Mathlib already supplies basis and independence constructors,
 observational characterizations by circuits, closure and extended-natural rank,
 and extensionality theorems. It has no constructor from closure or rank axioms
-in these modules. The new constructions reuse its independence constructor,
+or standard-circuit-axiom constructors in these modules. The new constructions reuse its independence constructor,
 closure exchange, basis extension and rank theorems. They do not copy the
 native matroid API into each presentation.
 
