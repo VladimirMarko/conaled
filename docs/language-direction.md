@@ -588,6 +588,39 @@ worth its cost. Neither current usability nor mathematical elegance alone settle
 that choice. Record decisions and remaining constraints without treating a
 current Lean encoding as the limit of the mathematical direction.
 
+### Elaboration resource budgets
+
+Treat Lean recursion limits as finite, adjustable engineering budgets. Preserve
+the mathematical interface and try a modest local increase before restructuring
+a useful abstraction solely to fit the default. Scope overrides to the affected
+declaration or module, retain heartbeat and process-time safeguards, and record
+the motivating client and measured behavior. Recursion depth, heartbeats, wall
+time and memory measure different constraints; report only what was measured.
+Increasing a recursion budget does not weaken kernel checking or set the runtime
+complexity limit of compiled functional programs.
+
+Keep shared mathematical proofs and inexpensive computational specializations
+when they improve reduction or concrete use. Multiple entry points can coexist
+when their purpose and recovery contract are clear; independently maintained
+implementations need a benefit that justifies their duplicated obligations.
+Compare implementation maintenance and recurring caller costs before removing
+a specialization or adding another public interface.
+
+Investigate repeated budget escalation, widespread caller overrides or rapidly
+growing work. Consider better reduction boundaries, explicit comparison lemmas,
+specializations and a minimized upstream reproducer where evidence warrants it.
+Broader evidence can justify changing a module or repository default; passing at
+512 is not an architectural acceptance criterion. Keep normal production limits
+finite and allow them to grow with legitimate developments.
+
+The [representable-classification measurements](research/representable-elaboration-costs.md)
+show one direct generic regression passing at depth 768 with modest additional
+heartbeat cost. [#648](https://github.com/VladimirMarko/conaled/issues/648) compares
+depth 1024 against all four original failing clients before deciding whether to
+remove the current specialization. These are sampled budgets, not exact minima
+or a new mandatory limit. No production budget changes follow from this policy
+alone; [#636](https://github.com/VladimirMarko/conaled/issues/636) owns reassessment.
+
 ## Complementary presentations and reconstruction
 
 Use complementary presentations when different definitions make different
@@ -645,6 +678,18 @@ resulting library and CTB integration evidence in
 [#636](https://github.com/VladimirMarko/conaled/issues/636), including failed
 generalizations and cases where retaining a native interface was preferable.
 The tracker owns individual acceptance criteria and remaining work.
+
+The [representable-classification programme #647](https://github.com/VladimirMarko/conaled/issues/647)
+develops reusable classification and recovery foundations. Its next milestones
+are coherent decoding with morphism recovery and effective descent. Compare
+direct families/display maps, local universes and natural models under concrete
+semantic contracts; use fibred categories, pseudofunctors and sheaf/stack descent
+where their additional structure is required. Keep useful presentations connected
+by proved comparisons. Coding alone supplies neither recovery for arbitrary
+systems nor gluing, type-former closure or univalence. The programme owns further
+consumer discovery and reassessment after each milestone; its linked issues own
+acceptance criteria. This direction does not prescribe a blanket migration or
+claim a new complete cubical model.
 
 ## Current evidence and ownership
 
