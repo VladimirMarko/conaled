@@ -3,7 +3,7 @@ import Examples.SharedCubicalConstructors
 import Examples.SharedSigmaFilling
 import Examples.CubicalSmallFamilies
 
-/-! Native adapters and dependent substitution controls for the #642 experiment. -/
+/-! Native adapters and dependent substitution controls for the shared production core. -/
 set_option autoImplicit false
 set_option warningAsError true
 noncomputable section
@@ -13,7 +13,7 @@ universe u
 
 namespace Original
 open Presheaf
-def system : RepresentableClassificationCore.System.{u} SquareKit.Cubical.Cube where
+def system : SquareKit.RepresentableClassification.System.{u} SquareKit.Cubical.Cube where
   Data := LocalFamily
   restrict := LocalFamily.reindex
   restrict_id := LocalFamily.reindex_id
@@ -21,11 +21,32 @@ def system : RepresentableClassificationCore.System.{u} SquareKit.Cubical.Cube w
 
 /-- The shared construction recovers the entire native code presheaf. -/
 theorem codes_native : system.codes = smallFamilyCodes.{u} := rfl
-theorem raised_native (Γ : Context.{u}) : RepresentableClassificationCore.raisedContext Γ = raisedContext Γ := rfl
-theorem elements_native (Γ : Context.{u}) : RepresentableClassificationCore.raisedElements Γ = raisedElements Γ := rfl
+theorem raised_native (Γ : Context.{u}) : SquareKit.RepresentableClassification.raisedContext Γ = raisedContext Γ := rfl
+theorem elements_native (Γ : Context.{u}) : SquareKit.RepresentableClassification.raisedElements Γ = raisedElements Γ := rfl
 
 variable {Γ : Context.{u}} (A : LocalFamily Γ)
 theorem code_native : system.code A = A.code := rfl
+
+/-- The original code fibers and restriction function still reduce directly. -/
+example (I : SquareKit.Cubical.Cubeᵒᵖ) : smallFamilyCodes.{u}.obj I = LocalFamily (representable I.unop) := rfl
+example {I J : SquareKit.Cubical.Cubeᵒᵖ} (f : I ⟶ J) (B : SmallFamilyCode.{u} I.unop) :
+    smallFamilyCodes.map f B = B.reindex (representableMap f.unop) := rfl
+example (I : SquareKit.Cubical.Cubeᵒᵖ) (x : Γ.obj I) :
+    A.code.app I ⟨x⟩ = A.reindex (represented (Γ.elementsMk I x)) := rfl
+
+/-- The original component formula determines the whole natural isomorphism. -/
+theorem comparison_components (x : Γ.Elements) :
+    A.decodeCodeIso.app x = A.family.mapIso (eqToIso (represented_generic_source x)) := by
+  apply Iso.ext
+  rfl
+
+/-- Maps and identity/inverse components retain the original reduction behavior. -/
+example {x y : Γ.Elements} (f : x ⟶ y) (a : (decode A.code).obj x) :
+    HEq ((decode A.code).map f a)
+      (A.family.map ((represented x).mapElements.map (representableGenericHom f.hom.unop)) a) :=
+  cast_heq _ _
+example (x : Γ.Elements) : A.decodeCodeIso.inv.app x =
+    A.family.map (eqToHom (represented_generic_source x).symm) := rfl
 
 theorem decode_native (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
     system.decode universalDecode a = decode a := rfl
@@ -34,7 +55,7 @@ theorem decode_substitution {Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFa
     (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = reindex (decode a) σ :=
   system.decode_reindex universalDecode a σ
 
-theorem evaluation : RepresentableClassificationCore.Evaluation A.family (decode A.code) :=
+theorem evaluation : SquareKit.RepresentableClassification.Evaluation A.family (decode A.code) :=
   ⟨fun _ => rfl, fun _ _ => cast_heq _ _⟩
 
 /-- Derived from the decoder's arrow formula, without the native recovery theorem. -/
@@ -72,7 +93,7 @@ end Original
 
 namespace Target
 open Cartesian
-def system : RepresentableClassificationCore.System.{u} Cartesian.Cube where
+def system : SquareKit.RepresentableClassification.System.{u} Cartesian.Cube where
   Data := LocalFamily
   restrict := LocalFamily.reindex
   restrict_id := LocalFamily.reindex_id
@@ -80,11 +101,32 @@ def system : RepresentableClassificationCore.System.{u} Cartesian.Cube where
 
 /-- The shared construction recovers the entire native code presheaf. -/
 theorem codes_native : system.codes = smallFamilyCodes.{u} := rfl
-theorem raised_native (Γ : Context.{u}) : RepresentableClassificationCore.raisedContext Γ = raisedContext Γ := rfl
-theorem elements_native (Γ : Context.{u}) : RepresentableClassificationCore.raisedElements Γ = raisedElements Γ := rfl
+theorem raised_native (Γ : Context.{u}) : SquareKit.RepresentableClassification.raisedContext Γ = raisedContext Γ := rfl
+theorem elements_native (Γ : Context.{u}) : SquareKit.RepresentableClassification.raisedElements Γ = raisedElements Γ := rfl
 
 variable {Γ : Context.{u}} (A : LocalFamily Γ)
 theorem code_native : system.code A = A.code := rfl
+
+/-- The original code fibers and restriction function still reduce directly. -/
+example (I : Cartesian.Cubeᵒᵖ) : smallFamilyCodes.{u}.obj I = LocalFamily (representable I.unop) := rfl
+example {I J : Cartesian.Cubeᵒᵖ} (f : I ⟶ J) (B : SmallFamilyCode.{u} I.unop) :
+    smallFamilyCodes.map f B = B.reindex (representableMap f.unop) := rfl
+example (I : Cartesian.Cubeᵒᵖ) (x : Γ.obj I) :
+    A.code.app I ⟨x⟩ = A.reindex (represented (Γ.elementsMk I x)) := rfl
+
+/-- The original component formula determines the whole natural isomorphism. -/
+theorem comparison_components (x : Γ.Elements) :
+    A.decodeCodeIso.app x = A.family.mapIso (eqToIso (represented_generic_source x)) := by
+  apply Iso.ext
+  rfl
+
+/-- Maps and identity/inverse components retain the original reduction behavior. -/
+example {x y : Γ.Elements} (f : x ⟶ y) (a : (decode A.code).obj x) :
+    HEq ((decode A.code).map f a)
+      (A.family.map ((represented x).mapElements.map (representableGenericHom f.hom.unop)) a) :=
+  cast_heq _ _
+example (x : Γ.Elements) : A.decodeCodeIso.inv.app x =
+    A.family.map (eqToHom (represented_generic_source x).symm) := rfl
 
 theorem decode_native (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
     system.decode universalDecode a = decode a := rfl
@@ -93,7 +135,7 @@ theorem decode_substitution {Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFa
     (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = reindex (decode a) σ :=
   system.decode_reindex universalDecode a σ
 
-theorem evaluation : RepresentableClassificationCore.Evaluation A.family (decode A.code) :=
+theorem evaluation : SquareKit.RepresentableClassification.Evaluation A.family (decode A.code) :=
   ⟨fun _ => rfl, fun _ _ => cast_heq _ _⟩
 
 /-- Derived from the decoder's arrow formula, without the native recovery theorem. -/

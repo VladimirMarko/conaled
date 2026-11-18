@@ -8,47 +8,26 @@ namespace SquareKit.Cubical.Presheaf
 open CategoryTheory
 universe u
 
-def raisedContext (Γ : Context.{u}) : Context.{u+1} where
-  obj I := ULift.{u+1} (Γ.obj I)
-  map f := TypeCat.ofHom (fun x => ⟨Γ.map f x.down⟩)
-  map_id I := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    exact congrArg ULift.up (ConcreteCategory.congr_hom (Γ.map_id I) x.down)
-  map_comp f g := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    exact congrArg ULift.up (ConcreteCategory.congr_hom (Γ.map_comp f g) x.down)
+def raisedContext (Γ : Context.{u}) : Context.{u+1} :=
+  RepresentableClassification.raisedContext Γ
 
-def raisedSub {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) : raisedContext Δ ⟶ raisedContext Γ where
-  app I := TypeCat.ofHom (fun x => ⟨σ.app I x.down⟩)
-  naturality I J f := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    exact congrArg ULift.up (ConcreteCategory.congr_hom (σ.naturality f) x.down)
+def raisedSub {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) : raisedContext Δ ⟶ raisedContext Γ :=
+  RepresentableClassification.raisedSub σ
 
-def LocalFamily.code {Γ : Context.{u}} (A : LocalFamily Γ) : raisedContext Γ ⟶ smallFamilyCodes.{u} where
-  app I := TypeCat.ofHom (fun x => A.reindex (represented (Γ.elementsMk I x.down)))
-  naturality I J f := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    let g : Γ.elementsMk I x.down ⟶ Γ.elementsMk J (Γ.map f x.down) :=
-      Functor.Elements.homMk f rfl
-    exact (congrArg A.reindex (represented_restrict g)).symm
+-- Keep the computational coding map shallow for nested transport clients.
+def LocalFamily.code {Γ : Context.{u}} (A : LocalFamily Γ) : raisedContext Γ ⟶ smallFamilyCodes.{u} :=
+  dsimp% only [RepresentableClassification.System.code, localFamilySystem]
+    localFamilySystem.code A
 
 theorem LocalFamily.code_reindex {Γ Δ : Context.{u}} (A : LocalFamily Γ) (σ : Δ ⟶ Γ) :
-    (A.reindex σ).code = raisedSub σ ≫ A.code := by
-  ext I x
-  exact (congrArg A.reindex (represented_naturality σ (Δ.elementsMk I x.down))).symm
+    (A.reindex σ).code = raisedSub σ ≫ A.code :=
+  localFamilySystem.code_reindex A σ
 
-def raisedElements (Γ : Context.{u}) : Γ.Elements ⥤ (raisedContext Γ).Elements where
-  obj x := (raisedContext Γ).elementsMk x.obj ⟨x.val⟩
-  map f := Functor.Elements.homMk f.hom (congrArg ULift.up f.map_val)
-  map_id _ := rfl
-  map_comp _ _ := rfl
+def raisedElements (Γ : Context.{u}) : Γ.Elements ⥤ (raisedContext Γ).Elements :=
+  RepresentableClassification.raisedElements Γ
 
 def decode {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) : Family Γ :=
-  raisedElements Γ ⋙ a.mapElements ⋙ universalDecode
+  localFamilySystem.decode universalDecode a
 
 def LocalFamily.decodeCodeComponent {Γ : Context.{u}} (A : LocalFamily Γ) (x : Γ.Elements) :
     (decode A.code).obj x ≅ A.family.obj x :=
@@ -60,32 +39,20 @@ theorem LocalFamily.decodeCodeMap_heq {Γ : Context.{u}} (A : LocalFamily Γ)
       (A.family.map ((represented x).mapElements.map (representableGenericHom f.hom.unop)) a) :=
   cast_heq _ _
 
+/-- The native decoder satisfies the shared local evaluation equations. -/
+theorem LocalFamily.decodeCodeEvaluation {Γ : Context.{u}} (A : LocalFamily Γ) :
+    RepresentableClassification.Evaluation A.family (decode A.code) :=
+  ⟨fun _ => rfl, fun _ _ => cast_heq _ _⟩
+
+-- Retain the native components; the generic comparison adds a reducible cast layer.
 def LocalFamily.decodeCodeIso {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code ≅ A.family :=
   NatIso.ofComponents A.decodeCodeComponent (by
     intro x y f
-    apply ConcreteCategory.hom_ext
-    intro a
-    have ey := represented_generic_source y
-    have hy := family_map_identity_heq A.family (eqToHom ey) ey
-      (heq_of_eq (elements_eqToHom_hom ey)) ((decode A.code).map f a)
-    have targetRel : (represented x).mapElements.obj
-        ((representableMap f.hom.unop).mapElements.obj (representableGeneric.{u} y.obj.unop)) = y :=
-      (congrArg (fun σ => σ.mapElements.obj (representableGeneric.{u} y.obj.unop))
-        (represented_restrict f)).trans ey
-    have hm := family_map_heq A.family
-      (eqToHom (represented_generic_source x) ≫ f)
-      ((represented x).mapElements.map (representableGenericHom f.hom.unop)) targetRel.symm
-      (heq_of_eq (by
-        change (eqToHom (represented_generic_source x) : _ ⟶ x).hom ≫ f.hom = f.hom
-        rw [elements_eqToHom_hom]
-        exact Category.id_comp f.hom)) a
-    have hc := ConcreteCategory.congr_hom
-      (A.family.map_comp (eqToHom (represented_generic_source x)) f) a
-    exact eq_of_heq (hy.trans ((A.decodeCodeMap_heq f a).trans
-      (hm.symm.trans (heq_of_eq hc)))))
+    exact A.decodeCodeEvaluation.iso.hom.naturality f)
 
 theorem decode_reindex {Γ Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
-    (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = Presheaf.reindex (decode a) σ := rfl
+    (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = Presheaf.reindex (decode a) σ :=
+  localFamilySystem.decode_reindex universalDecode a σ
 
 theorem code_represented {Γ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (x : Γ.Elements) : raisedSub (represented x) ≫ a = (a.app x.obj ⟨x.val⟩).code := by

@@ -1,3 +1,4 @@
+import SquareKit.Internal.RepresentableClassification
 import SquareKit.Internal.Cubical.CartesianPaths
 
 /-! Variable-source filling in Cartesian presheaves. Tubes are arbitrary
@@ -68,11 +69,8 @@ def Cofibration.reindex {Γ Δ : Context.{u}} (φ : Cofibration Γ) (σ : Δ ⟶
     obtain ⟨p, hp⟩ := φ.localFormula (σ.mapElements.obj x)
     exact ⟨p, fun f => hp (σ.mapElements.map f)⟩
 
-def representable (I : Cube) : Context.{u} where
-  obj J := ULift.{u} (J.unop ⟶ I)
-  map f := TypeCat.ofHom (fun g => ⟨f.unop ≫ g.down⟩)
-  map_id _ := by ext g; exact Category.id_comp g.down
-  map_comp _ _ := by ext g; exact Category.assoc _ _ _
+def representable (I : Cube) : Context.{u} :=
+  RepresentableClassification.representable I
 
 def Face.cofibration {I : Cube} (p : Face I.dimension) : Cofibration (representable.{u} I) where
   holds x := (p.subst x.val.down).Holds

@@ -11,9 +11,7 @@ universe u
 def representableGenericHom {I J : Cube} (f : J ⟶ I) :
     representableGeneric.{u} I ⟶
       (representableMap f).mapElements.obj (representableGeneric.{u} J) :=
-  Functor.Elements.homMk f.op (by
-    change (ULift.up (f ≫ 𝟙 I) : ULift.{u} (J ⟶ I)) = ⟨𝟙 J ≫ f⟩
-    exact congrArg ULift.up ((Category.comp_id f).trans (Category.id_comp f).symm))
+  RepresentableClassification.representableGenericHom f
 
 def codeFiber {I : Cube} (A : SmallFamilyCode.{u} I) : Type u :=
   A.family.obj (representableGeneric I)

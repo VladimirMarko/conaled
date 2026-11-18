@@ -1,3 +1,4 @@
+import Mathlib.Tactic.DSimpPercent
 import SquareKit.Internal.Cubical.CartesianLocalFillingBridge
 
 /-! Small codes retain a family over a represented cube and its selected lawful
@@ -41,23 +42,16 @@ theorem LocalFamily.reindex_comp {Γ Δ Θ : Context.{u}} (A : LocalFamily Γ)
 
 abbrev SmallFamilyCode (I : Cube) := LocalFamily (representable.{u} I)
 
-def smallFamilyCodes : Context.{u+1} where
-  obj I := SmallFamilyCode.{u} I.unop
-  map f := TypeCat.ofHom (fun A => A.reindex (representableMap f.unop))
-  map_id I := by
-    apply ConcreteCategory.hom_ext
-    intro A
-    have e : representableMap (𝟙 I.unop) = 𝟙 (representable.{u} I.unop) := by
-      ext J f
-      exact congrArg ULift.up (Category.comp_id f.down)
-    exact (congrArg A.reindex e).trans (A.reindex_id)
-  map_comp f g := by
-    apply ConcreteCategory.hom_ext
-    intro A
-    have e : representableMap (g.unop ≫ f.unop) =
-        representableMap g.unop ≫ representableMap f.unop := by
-      ext J h
-      exact congrArg ULift.up (Category.assoc h.down g.unop f.unop).symm
-    exact (congrArg A.reindex e).trans (A.reindex_comp _ _).symm
+/-- Restriction of complete native local-family data supplies the shared coding laws. -/
+def localFamilySystem : RepresentableClassification.System.{u} Cube where
+  Data := LocalFamily
+  restrict := LocalFamily.reindex
+  restrict_id := LocalFamily.reindex_id
+  restrict_comp := LocalFamily.reindex_comp
+
+-- Specialize once so nested clients do not repeatedly reduce adapter projections.
+def smallFamilyCodes : Context.{u+1} :=
+  dsimp% only [RepresentableClassification.System.codes, localFamilySystem]
+    localFamilySystem.codes
 
 end SquareKit.Cubical.Cartesian

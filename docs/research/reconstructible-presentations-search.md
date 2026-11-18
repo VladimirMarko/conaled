@@ -17,7 +17,7 @@ sets the assessment criteria. ADRs [0002](../adr/0002-relations-and-synchronizat
 [0007](../adr/0007-incremental-and-enclosure.md) explain why several one-way
 contracts are intentional.
 
-## Completed extensions and the remaining classifier question
+## Completed extensions and classifier extraction
 
 | Area | Contract and original limitation | Disposition and cost |
 |---|---|---|
@@ -30,7 +30,7 @@ The probability disposition corrected an initial search error: inspecting
 `FiniteKernel` alone missed `FiniteKernelEquality`. Existing proof and caller
 search must precede a proposal for another facade.
 
-The strongest uncovered candidate is the repeated representable-classification
+The classifier candidate discovered by the search was the repeated representable-classification
 construction in [SmallFamilyClassification](../../SquareKit/Internal/Cubical/SmallFamilyClassification.lean)
 and [CartesianSmallFamilyClassification](../../SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean).
 Both expose `raisedContext`, `raisedSub`, local-family `code`, `code_reindex`,
@@ -38,15 +38,17 @@ Both expose `raisedContext`, `raisedSub`, local-family `code`, `code_reindex`,
 (#419) and `622219ab` (#603). Their model-specific origins explain the duplication,
 without establishing that the whole classifier should share an interface.
 
-[#642](https://github.com/VladimirMarko/conaled/issues/642) now has a
-[checked assessment](shared-representable-classification.md): share the
-category-parametric coding and evaluation comparison, while retaining native
-universal decoders, interval charts and selected fillers. Both adapters recover
-the native codes and comparison; dependent families and composed nonidentity
-substitutions exercise the shared results. A separate production extraction
-must preserve those recovery checks and pass full validation. The assessment
-compares the smaller universe-lift helper and retaining both implementations,
-and records setup, recurring-client and maintenance costs separately.
+[#642](https://github.com/VladimirMarko/conaled/issues/642) produced the
+[checked assessment](shared-representable-classification.md), and
+[#643](https://github.com/VladimirMarko/conaled/issues/643) implements its bounded
+production extraction. Both native classifiers now specialize
+[RepresentableClassification](../../SquareKit/Internal/RepresentableClassification.lean)
+for category-parametric coding and evaluation comparison. Native universal
+decoders, interval charts and selected fillers retain their constructions.
+The original names and reduction formulas remain checked, including dependent
+families and composed nonidentity substitutions. The assessment records setup,
+recurring-client and maintenance costs, and keeps the larger generic decoder
+package deferred pending a demonstrated benefit.
 
 The negative control
 [`no_interval_retraction`](../../Examples/CartesianWitnessPreservation.lean)
@@ -166,9 +168,10 @@ completed slice.
 ## Priorities and reassessment triggers
 
 The completed mathematical extensions had concrete clients and checkable recovery
-claims. #642 has a repeated construction and an explicit comparison question,
-but must establish its hypotheses and migration cost before adoption. Existing
-exact transport APIs take priority over duplicate facades. Information-loss
+claims. #642/#643 established the bounded shared construction and checked native
+recovery, assessed its hypotheses and migration costs, and adopted that extraction.
+A broader decoder abstraction still needs its own cost assessment. Existing exact
+transport APIs take priority over duplicate facades. Information-loss
 controls prevent spending effort on inverses that their observations cannot
 support. Retained interfaces need no migration merely to conform to this search.
 

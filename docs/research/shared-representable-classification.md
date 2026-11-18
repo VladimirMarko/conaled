@@ -1,18 +1,21 @@
 # Shared representable classification
 
-Recommend a bounded production extraction of representable coding and the
-natural family comparison. Retain each native universal decoder and all interval,
-chart and selected-filler constructions. The checked experiment supports that
-boundary in both cubical models; it does not establish a shared classifier for
-arbitrary filling structures. Production migration is a separate follow-up to
-[#642](https://github.com/VladimirMarko/conaled/issues/642).
+Both cubical models now derive representable coding and their natural family
+comparison from [RepresentableClassification](../../SquareKit/Internal/RepresentableClassification.lean).
+Their native APIs, universal decoders, interval charts and selected-filler
+constructions remain in place. This is the bounded production extraction owned
+by [#643](https://github.com/VladimirMarko/conaled/issues/643), following
+[#642](https://github.com/VladimirMarko/conaled/issues/642). It does not establish
+a shared classifier for arbitrary filling structures.
 
 ## Source and prior work
 
-The inspected source is `ebe39d68e8497645576ea95e042cd191e1661b35`.
+The investigation inspected `ebe39d68e8497645576ea95e042cd191e1661b35`; the
+production migration starts from `7f0d436bfc932ddd6b36d0e8f75f4cb30cdb8d5c`.
+At those revisions,
 [SmallFamilyClassification](../../SquareKit/Internal/Cubical/SmallFamilyClassification.lean)
 and [CartesianSmallFamilyClassification](../../SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean)
-repeat the lifted contexts, code naturality, substitution and generic-element
+repeated the lifted contexts, code naturality, substitution and generic-element
 comparison. The same arguments occur in their introducing commits `aa4cd190`
 (#419) and `622219ab` (#603). Their
 [De Morgan](../../SquareKit/Internal/Cubical/SmallFamilyCodes.lean) and
@@ -39,14 +42,14 @@ unnecessary obligation.
 
 ## Checked boundary and inputs
 
-[RepresentableClassificationCore](../../Examples/RepresentableClassificationCore.lean)
+[RepresentableClassification](../../SquareKit/Internal/RepresentableClassification.lean)
 uses `C : Type` with `SmallCategory C`. Contexts are `Cᵒᵖ ⥤ Type u`, and a family
 is the entire functor `Γ.Elements ⥤ Type u`. Representables lift their hom sets
 into `Type u`; contexts are raised to `Type (u+1)` to receive codes. This covers
 both current cube categories at every fiber universe `u`. No theorem here claims
 the same universe bounds for arbitrary large base categories.
 
-The experiment separates two inputs:
+The shared module separates two inputs:
 
 - `System` supplies family data in `Type (u+1)`, restriction along context maps,
   and restriction identity/composition equalities. It derives the code presheaf,
@@ -61,22 +64,34 @@ The experiment separates two inputs:
 The second input is stronger than a mere objectwise bijection: it specifies the
 actual family maps. These formulas constrain the decoder more than an arbitrary
 family isomorphism would. They specify its local evaluation behavior; the shared
-proof constructs the natural comparison from them. It derives naturality from category-of-elements identities,
-represented restriction and the functor laws of `A`. Neither input assumes
+proof constructs the natural comparison from them. It derives naturality from
+category-of-elements identities, represented restriction and the functor laws of `A`. Neither input assumes
 `decode(code A) ≅ A`, complete-record recovery or selected-operation equality.
 `Evaluation` is a proposition containing local equations, not additional chosen
-data. The experiment does not construct a generic universal decoder from
+data. The shared module does not construct a generic universal decoder from
 `System`: that record deliberately has no underlying-family projection or law
 relating that projection to restriction.
 
 [SharedRepresentableClassification](../../Examples/SharedRepresentableClassification.lean)
-checks both adapters. Each `System` uses the native `LocalFamily`, restriction
-and its existing identity/composition proofs. The generic code presheaf, coding
+checks both adapters. Each model supplies `localFamilySystem` from its native
+`LocalFamily`, restriction and existing identity/composition proofs. The native
+`smallFamilyCodes`, `LocalFamily.code`, lifted contexts/elements and `decode`
+now specialize the shared constructions. The generic code presheaf, coding
 map, context lift, lifted elements and decoder pullback recover the native
-objects by `rfl`. Each evaluation adapter proves the object formula by `rfl`
-and the arrow formula by `cast_heq`, without calling the native `decodeCodeIso`.
-The derived isomorphism then equals the native one by extensionality and
-reduction. Its naturality covers all family arrows, not just the example values.
+objects by `rfl`. Each native `LocalFamily.decodeCodeEvaluation` proves the
+object formula by `rfl` and the arrow formula by `cast_heq`; `decodeCodeIso`
+uses its shared naturality proof. The old `decodeCodeComponent` formula remains
+available. The example's `comparison_components` checks equality of every
+isomorphism component with that original formula, and its inverse component
+still reduces to the original family map. A natural isomorphism is determined
+by its components, so these checks retain the original comparison without
+keeping a second copy of its naturality proof.
+
+The examples also check the explicit code fibers, restriction function, coding
+map values and decoded arrow formula. These checks compare the migrated API
+with its original operations, in addition to checking agreement between shared
+and native names. Naturality still covers all family arrows, not just the
+example values.
 
 The retained cases include:
 
@@ -105,15 +120,35 @@ selected-operation preservation or equality of local-family records.
 | Choice | Shared proof and input laws | One-time setup | Recurring clients and maintenance | Decision |
 | --- | --- | --- | --- | --- |
 | Universe-lift helper only | Pointwise `ULift`, substitution, lifted elements; only functor/natural-transformation laws, with the same small-base universe bounds | Replace the duplicated lifts and retain native names | No new client premises; generic-element naturality and code restriction proofs remain duplicated | Useful part of the bounded core, insufficient as the whole extraction |
-| Coding and evaluation core checked here | Restriction identity/composition and local evaluation formulas; derives code naturality/substitution and the family comparison | One restriction adapter and one evaluation proof per model, plus native recovery checks | Native wrappers can keep callers unchanged; maintain one dependent naturality proof and two small formula adapters | Adopt as a separately validated production extraction |
+| Coding and evaluation core adopted here | Restriction identity/composition and local evaluation formulas; derives code naturality/substitution and the family comparison | One restriction adapter and one evaluation proof per model, plus native recovery checks | Native wrappers keep callers unchanged; maintain one dependent naturality proof and two small formula adapters | Adopted in #643 |
 | Retain both native implementations | All native arguments and hypotheses remain as they are | No migration | No adapter maintenance, but fixes to the repeated proof must be made twice | Retain for universal-decoder construction and model-specific filling; fallback if migration breaks native reduction behavior |
 
-The prototype adds generic infrastructure and adapter examples; it is not a
-line-count reduction in production. The dependent comparison proof is the main
-reuse benefit. Its adapter proofs reduce directly in both models, so they do
-not transfer that proof back to callers. There is no measured author-time or
-build-time improvement. A production migration must check reduction behavior
-and downstream elaboration, not infer those costs from this bounded experiment.
+Production now maintains one represented-context construction, one code
+naturality/substitution argument and one dependent comparison proof. Native
+names are small specializations; the model-specific universal decoding and
+filling proofs remain native. The original generic experiment module moved to
+`SquareKit/Internal/RepresentableClassification.lean`. The old experiment
+module re-exports compatibility names; its adapter/client module remains in
+`Examples`.
+
+Setup consists of one restriction adapter and one local evaluation proof per
+model, plus specializations preserving existing names. No casts or extra
+hypotheses were added to native callers. Existing classifier, constructor and
+universe clients exercise the migrated definitions
+under their original assumptions. Maintenance now includes the shared module
+and those adapters, while the duplicate naturality proofs are removed. There
+is no measured author-time or build-time improvement; a successful migration
+does not establish a general productivity result.
+
+The first migration preserved definitional equality but exceeded existing
+recursion or heartbeat limits in four nested transport clients. Retaining the
+native comparison component expression and sharing its naturality proof fixed
+three. Specializing `System.codes` and `System.code` with `dsimp% only` at the
+native definitions fixed the remaining constructor observation. This unfolds
+the restriction adapter once instead of making callers reduce its projections
+repeatedly. The affected clients keep their proofs and limits. These two
+specialization choices are part of the maintenance cost: equality by `rfl`
+alone did not establish usable reduction behavior in larger clients.
 
 A larger package constructing the universal decoder would additionally need
 an underlying-family projection and its compatibility with restriction. A
@@ -141,14 +176,12 @@ naturality proved here do not identify those independently recomputed choices.
 structured-object identity; an external Lean natural isomorphism is not its
 internal identity theorem.
 
-The production successor should move the checked category-only helpers to a
-shared internal module, specialize both native APIs through adapters, retain
-native universal decoders/charts/fillers, and remove only the replaced duplicate
-proofs. It must retain exact code and comparison recovery, both dependent
-clients, the endpoint control and all original hypotheses; run the integrated
-build and exhaustive proof audit and obtain both independent reviews. It must
-not require #606/#607/#625 as adapter fields. Any larger decoder abstraction
-needs a new cost comparison before expanding that scope.
+The production scope is limited to the checked category-only helpers, coding,
+decoder pullback and natural family comparison. Both native universal decoders,
+charts and fillers retain their constructions. Exact code formulas, comparison
+components, dependent clients, the endpoint control and original hypotheses are
+retained in the integrated build and exhaustive proof audit. Any larger decoder
+abstraction needs a new cost comparison before expanding this scope.
 
 For [#235](https://github.com/VladimirMarko/conaled/issues/235) and
 [#636](https://github.com/VladimirMarko/conaled/issues/636), this supplies a

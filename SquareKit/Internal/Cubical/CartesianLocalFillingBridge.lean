@@ -73,19 +73,13 @@ theorem intervalEvaluation_source {Δ : Context.{u}} (x : (total (interval Δ)).
 
 theorem family_map_heq {Γ : Context.{u}} (A : Family Γ) {x y z : Γ.Elements}
     (f : x ⟶ y) (g : x ⟶ z) (e : y = z) (h : HEq f.hom g.hom) (v : A.obj x) :
-    HEq (A.map f v) (A.map g v) := by
-  cases e
-  have hfg : f = g := Functor.Elements.hom_ext (eq_of_heq h)
-  cases hfg
-  rfl
+    HEq (A.map f v) (A.map g v) :=
+  RepresentableClassification.family_map_heq A f g e h v
 
 theorem family_map_identity_heq {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) (e : x = y) (h : HEq f.hom (𝟙 x.obj)) (v : A.obj x) :
-    HEq (A.map f v) v := by
-  cases e
-  have hfid : f = 𝟙 x := Functor.Elements.hom_ext (eq_of_heq h)
-  cases hfid
-  exact heq_of_eq (ConcreteCategory.congr_hom (A.map_id x) v)
+    HEq (A.map f v) v :=
+  RepresentableClassification.family_map_identity_heq A f e h v
 
 private theorem local_fill_at_heq {Γ Δ : Context.{u}} {A : Family Γ} (F : LocalFilling A)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (Cartesian.reindex A p) φ r)
