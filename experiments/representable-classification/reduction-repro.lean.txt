@@ -1,0 +1,19 @@
+import Examples.CubicalFiniteStateIdentity
+set_option autoImplicit false
+set_option warningAsError true
+namespace Examples.Reproduction
+open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf
+open CubicalStateTransport CubicalStatePackageFamily CubicalStructuredState CubicalStatePackageUa
+open CubicalUnivalenceTransport CubicalGlue
+structure Change (S T : Type) where
+  map : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code
+  equivalence : HomotopyEquivalence map
+variable {S T : Type}
+noncomputable def carrier (c : Change S T) : S ≃ T := admittedCarrier c.map c.equivalence
+noncomputable def line (c : Change S T) := admittedLine c.map c.equivalence
+noncomputable abbrev PackagePath (c : Change S T) (p : StatePackage S) (q : StatePackage T) :=
+  StructuredPath (line c) (admittedPresentation c.map c.equivalence) (carrier c) p q
+noncomputable def packageIdentity (c : Change S T) (p : StatePackage S) (q : StatePackage T) :
+    PackagePath c p q ≃ Preserves (carrier c) p q :=
+  uaStructureIdentity c.map c.equivalence p q
+end Examples.Reproduction

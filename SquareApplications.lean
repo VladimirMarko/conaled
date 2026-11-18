@@ -1089,4 +1089,10 @@ import Examples.SubmodularRank
 import Examples.CircuitElimination
 import Examples.GeometricMatroids
 
+import Examples.NonCubicalClassification
+import Examples.RepresentableClassificationUniverses
+import Examples.CategoryValuedEvaluation
+import Examples.CoherentRepresentableCoding
+import Examples.SheafRepresentableClassification
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

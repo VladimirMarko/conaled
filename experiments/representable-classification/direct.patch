@@ -1,0 +1,76 @@
+diff --git a/SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean b/SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean
+index e0971836..3be5a000 100644
+--- a/SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean
++++ b/SquareKit/Internal/Cubical/CartesianSmallFamilyClassification.lean
+@@ -16,8 +16,7 @@ def raisedSub {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) : raisedContext Δ ⟶ rais
+ 
+ -- Keep the computational coding map shallow for nested transport clients.
+ def LocalFamily.code {Γ : Context.{u}} (A : LocalFamily Γ) : raisedContext Γ ⟶ smallFamilyCodes.{u} :=
+-  dsimp% only [RepresentableClassification.System.code, localFamilySystem]
+-    localFamilySystem.code A
++  localFamilySystem.code A
+ 
+ theorem LocalFamily.code_reindex {Γ Δ : Context.{u}} (A : LocalFamily Γ) (σ : Δ ⟶ Γ) :
+     (A.reindex σ).code = raisedSub σ ≫ A.code :=
+@@ -46,9 +45,7 @@ theorem LocalFamily.decodeCodeEvaluation {Γ : Context.{u}} (A : LocalFamily Γ)
+ 
+ -- Retain the native components; the generic comparison adds a reducible cast layer.
+ def LocalFamily.decodeCodeIso {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code ≅ A.family :=
+-  NatIso.ofComponents A.decodeCodeComponent (by
+-    intro x y f
+-    exact A.decodeCodeEvaluation.iso.hom.naturality f)
++  A.decodeCodeEvaluation.iso
+ 
+ theorem decode_reindex {Γ Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+     (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = Cartesian.reindex (decode a) σ :=
+diff --git a/SquareKit/Internal/Cubical/CartesianSmallFamilyCodes.lean b/SquareKit/Internal/Cubical/CartesianSmallFamilyCodes.lean
+index d697c063..39bfbcd5 100644
+--- a/SquareKit/Internal/Cubical/CartesianSmallFamilyCodes.lean
++++ b/SquareKit/Internal/Cubical/CartesianSmallFamilyCodes.lean
+@@ -51,7 +51,6 @@ def localFamilySystem : RepresentableClassification.System.{u} Cube where
+ 
+ -- Specialize once so nested clients do not repeatedly reduce adapter projections.
+ def smallFamilyCodes : Context.{u+1} :=
+-  dsimp% only [RepresentableClassification.System.codes, localFamilySystem]
+-    localFamilySystem.codes
++  localFamilySystem.codes
+ 
+ end SquareKit.Cubical.Cartesian
+diff --git a/SquareKit/Internal/Cubical/SmallFamilyClassification.lean b/SquareKit/Internal/Cubical/SmallFamilyClassification.lean
+index 6b4cbb8b..c79ae00e 100644
+--- a/SquareKit/Internal/Cubical/SmallFamilyClassification.lean
++++ b/SquareKit/Internal/Cubical/SmallFamilyClassification.lean
+@@ -16,8 +16,7 @@ def raisedSub {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) : raisedContext Δ ⟶ rais
+ 
+ -- Keep the computational coding map shallow for nested transport clients.
+ def LocalFamily.code {Γ : Context.{u}} (A : LocalFamily Γ) : raisedContext Γ ⟶ smallFamilyCodes.{u} :=
+-  dsimp% only [RepresentableClassification.System.code, localFamilySystem]
+-    localFamilySystem.code A
++  localFamilySystem.code A
+ 
+ theorem LocalFamily.code_reindex {Γ Δ : Context.{u}} (A : LocalFamily Γ) (σ : Δ ⟶ Γ) :
+     (A.reindex σ).code = raisedSub σ ≫ A.code :=
+@@ -46,9 +45,7 @@ theorem LocalFamily.decodeCodeEvaluation {Γ : Context.{u}} (A : LocalFamily Γ)
+ 
+ -- Retain the native components; the generic comparison adds a reducible cast layer.
+ def LocalFamily.decodeCodeIso {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code ≅ A.family :=
+-  NatIso.ofComponents A.decodeCodeComponent (by
+-    intro x y f
+-    exact A.decodeCodeEvaluation.iso.hom.naturality f)
++  A.decodeCodeEvaluation.iso
+ 
+ theorem decode_reindex {Γ Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+     (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = Presheaf.reindex (decode a) σ :=
+diff --git a/SquareKit/Internal/Cubical/SmallFamilyCodes.lean b/SquareKit/Internal/Cubical/SmallFamilyCodes.lean
+index 823dd84c..16a4a82c 100644
+--- a/SquareKit/Internal/Cubical/SmallFamilyCodes.lean
++++ b/SquareKit/Internal/Cubical/SmallFamilyCodes.lean
+@@ -40,7 +40,6 @@ def localFamilySystem : RepresentableClassification.System.{u} Cube where
+ 
+ -- Specialize once so nested clients do not repeatedly reduce adapter projections.
+ def smallFamilyCodes : Context.{u+1} :=
+-  dsimp% only [RepresentableClassification.System.codes, localFamilySystem]
+-    localFamilySystem.codes
++  localFamilySystem.codes
+ 
+ end SquareKit.Cubical.Presheaf

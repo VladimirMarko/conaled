@@ -42,19 +42,28 @@ unnecessary obligation.
 
 ## Checked boundary and inputs
 
+At #643 publication,
 [RepresentableClassification](../../SquareKit/Internal/RepresentableClassification.lean)
-uses `C : Type` with `SmallCategory C`. Contexts are `Cᵒᵖ ⥤ Type u`, and a family
-is the entire functor `Γ.Elements ⥤ Type u`. Representables lift their hom sets
-into `Type u`; contexts are raised to `Type (u+1)` to receive codes. This covers
-both current cube categories at every fiber universe `u`. No theorem here claims
-the same universe bounds for arbitrary large base categories.
+used `C : Type` with `SmallCategory C`. Contexts were `Cᵒᵖ ⥤ Type u`, families
+were the entire functors `Γ.Elements ⥤ Type u`, and codes lived in `Type (u+1)`.
+Both native cube categories still use that specialization at every fiber universe.
+
+#644 generalizes the module to `C : Type v` with `Category.{w} C`. Context and
+family values live in `Type (max u w)`, admitting the represented homs, and the
+code/data universe is `Type (max v (u+1) (w+1))`. The
+[generalization record](representable-classification-generalization.md) gives the
+large-universe clients and exact bounds; no resizing of arbitrary large homs
+into smaller section universes is claimed.
 
 The shared module separates two inputs:
 
-- `System` supplies family data in `Type (u+1)`, restriction along context maps,
-  and restriction identity/composition equalities. It derives the code presheaf,
-  the natural coding map and its substitution laws. Its generic `decode` pulls
-  back an already supplied universal decoder and derives decoder substitution.
+- `System` supplies family data in the code/data universe above, restriction along
+  context maps, and restriction identity/composition equalities. It derives the
+  code presheaf, the natural coding map and its substitution laws. Its generic
+  `decode` pulls back an already supplied universal decoder and derives decoder
+  substitution. In the native small-base specialization the data universe is
+  still `Type (u+1)`.
+
 - `Evaluation A D` supplies a local object formula for an existing decoded
   family `D` and its arrow formula: evaluation of `A` along the represented map
   and the generic-element arrow, with the required cast. It derives a natural
@@ -190,3 +199,16 @@ evaluation laws, and keep native selected structures where the shared proof
 never uses them. Exact recovery checks expose the cost of specialization;
 they do not turn proof sharing into a cross-model equivalence. The experiments
 are imported by `SquareApplications` and included in the normal proof audit.
+
+## Generalization and measured costs
+
+[#644](https://github.com/VladimirMarko/conaled/issues/644) extends the core to
+independent base universes and adds ordinary-family universal decoding,
+category-valued evaluation recovery, coherent representable coding, and sheaf
+display recovery. The [generalization record](representable-classification-generalization.md)
+identifies the checked clients, the strict specialization connection, and the
+remaining coherent-classifier and descent contracts. The
+[bounded cost comparison](representable-elaboration-costs.md) measures the
+original, direct generic and specialized encodings with retained source inputs.
+These additions do not identify independent fillers or change the owners of
+#606, #607 or #625.

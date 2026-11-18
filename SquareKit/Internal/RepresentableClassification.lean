@@ -1,16 +1,16 @@
 import Mathlib.CategoryTheory.Elements
 import Mathlib.CategoryTheory.Types.Basic
 
-/-! Representable coding and generic-element evaluation over a small category.
+/-! Representable coding and generic-element evaluation with independent base object and morphism universes.
 No interval or selected filling operation is part of this interface. -/
 set_option autoImplicit false
 set_option warningAsError true
 namespace SquareKit.RepresentableClassification
 open CategoryTheory
-universe u
-abbrev Context (C : Type) [SmallCategory C] := Cᵒᵖ ⥤ Type u
-abbrev Family {C : Type} [SmallCategory C] (Γ : Context.{u} C) := Γ.Elements ⥤ Type u
-variable {C : Type} [SmallCategory C]
+universe u v w
+abbrev Context (C : Type v) [Category.{w} C] := Cᵒᵖ ⥤ Type (max u w)
+abbrev Family {C : Type v} [Category.{w} C] (Γ : Context.{u} C) := Γ.Elements ⥤ Type (max u w)
+variable {C : Type v} [Category.{w} C]
 def representable (I : C) : Context.{u} C where
   obj J := ULift.{u} (J.unop ⟶ I)
   map f := TypeCat.ofHom (fun g => ⟨f.unop ≫ g.down⟩)
@@ -77,8 +77,8 @@ theorem represented_map_generic {Γ : Context.{u} C} {I : C} (σ : representable
   exact (represented_naturality σ (representableGeneric I)).trans
     ((congrArg (fun τ => τ ≫ σ) (represented_generic_identity I)).trans (Category.id_comp σ))
 
-def raisedContext (Γ : Context.{u} C) : Context.{u+1} C where
-  obj I := ULift.{u+1} (Γ.obj I)
+def raisedContext (Γ : Context.{u} C) : Context.{max v (u+1) (w+1)} C where
+  obj I := ULift.{max v (u+1) (w+1)} (Γ.obj I)
   map f := TypeCat.ofHom (fun x => ⟨Γ.map f x.down⟩)
   map_id I := by
     apply ConcreteCategory.hom_ext
@@ -131,8 +131,8 @@ theorem family_map_identity_heq {Γ : Context.{u} C} (A : Family Γ) {x y : Γ.E
 
 /-- Primitive strictly functorial restriction of family data. The data may include
 chosen operations; these laws concern restriction, not decoder recovery. -/
-structure System (C : Type) [SmallCategory C] where
-  Data : Context.{u} C → Type (u+1)
+structure System (C : Type v) [Category.{w} C] where
+  Data : Context.{u} C → Type (max v (u+1) (w+1))
   restrict : {Γ Δ : Context.{u} C} → Data Γ → (Δ ⟶ Γ) → Data Δ
   restrict_id : ∀ {Γ} (A : Data Γ), restrict A (𝟙 Γ) = A
   restrict_comp : ∀ {Γ Δ Θ} (A : Data Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ),
@@ -140,7 +140,7 @@ structure System (C : Type) [SmallCategory C] where
 
 namespace System
 variable (S : System.{u} C)
-def codes : Context.{u+1} C where
+def codes : Context.{max v (u+1) (w+1)} C where
   obj I := S.Data (representable I.unop)
   map f := TypeCat.ofHom (fun A => S.restrict A (representableMap f.unop))
   map_id I := by
@@ -182,11 +182,11 @@ theorem code_reindex_comp {Γ Δ Θ : Context.{u} C} (A : S.Data Γ)
 
 /-- Pull back an existing small-fiber decoder; constructing that decoder remains
 a responsibility of the supplied model. -/
-def decode (U : S.codes.Elements ⥤ Type u) {Γ : Context.{u} C}
+def decode (U : S.codes.Elements ⥤ Type (max u w)) {Γ : Context.{u} C}
     (a : raisedContext Γ ⟶ S.codes) : Family Γ :=
   raisedElements Γ ⋙ a.mapElements ⋙ U
 
-theorem decode_reindex (U : S.codes.Elements ⥤ Type u) {Γ Δ : Context.{u} C}
+theorem decode_reindex (U : S.codes.Elements ⥤ Type (max u w)) {Γ Δ : Context.{u} C}
     (a : raisedContext Γ ⟶ S.codes) (σ : Δ ⟶ Γ) :
     S.decode U (raisedSub σ ≫ a) = σ.mapElements ⋙ S.decode U a := rfl
 end System
