@@ -6,6 +6,7 @@ import Examples.LawvereEncoding
 import Examples.LawvereRecovery
 import Examples.LawvereUniversal
 import Examples.LawvereRestriction
+import Examples.LawvereCombinations
 import Examples.Kunneth
 import Examples.CartesianClassifier
 import Examples.CartesianCofibrations
