@@ -1,3 +1,4 @@
+import SquareKit.Internal.Cubical.SequentialFilling
 import SquareKit.Internal.Cubical.CartesianLocalFilling
 import SquareKit.Internal.Cubical.CartesianCofibrations
 import SquareKit.Internal.Cubical.CartesianDependentFamilies
@@ -6,7 +7,7 @@ import SquareKit.Internal.Cubical.CartesianDependentFamilies
 set_option autoImplicit false
 set_option warningAsError true
 namespace SquareKit.Cubical.Cartesian
-open CategoryTheory
+open CategoryTheory SquareKit.SequentialFilling
 universe u
 
 def Filling.reindex {Γ Δ : Context.{u}} {A : Family Γ} (F : Filling A)
@@ -128,16 +129,52 @@ def sigmaFilling {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     let c := G.fill (pair p a) φ r (OpenBox.sigmaSnd (B := reindex B (liftSub A p)) b a ha)
     Cartesian.sigmaIntro (B := reindex B (liftSub A p)) a c
 
+/-- Native data for the shared two-stage selection proof. -/
+def sigmaProblem {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)} (F : Filling A) (hF : F.Lawful) (G : Filling B)
+    (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (sigma A B) p) φ r) : Problem where
+  FirstBox := OpenBox (reindex A p) φ r
+  First := Term (reindex A p)
+  firstBox := OpenBox.sigmaFst (B := reindex B (liftSub A p)) b
+  firstFill := F.fill p φ r
+  FirstFills := OpenBox.Fills
+  first_fills := hF.fills p φ r
+  SecondBox a := OpenBox (reindex B (pair p a)) φ r
+  Second a := Term (reindex B (pair p a))
+  secondBox a ha := OpenBox.sigmaSnd (B := reindex B (liftSub A p)) b a ha
+  secondFill a := G.fill (pair p a) φ r
+  Whole := Term (reindex (sigma A B) p)
+  pair := Cartesian.sigmaIntro (B := reindex B (liftSub A p))
+
+/-- The shared selection retains the native algorithm exactly. -/
+theorem sigmaProblem_fill {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)} (F : Filling A) (hF : F.Lawful) (G : Filling B)
+    (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (sigma A B) p) φ r) :
+    (sigmaProblem F hF G p φ r b).fill = (sigmaFilling F hF G).fill p φ r b := rfl
+
+set_option backward.isDefEq.respectTransparency false in
+def sigmaSubstitution {Γ Δ Θ : Context.{u}} {A : Family Γ} {B : Family (total A)} (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
+    (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (sigma A B) p) φ r) (σ : Θ ⟶ Δ) :
+    Substitution (sigmaProblem F hF G p φ r b)
+      (sigmaProblem F hF G (intervalSub σ ≫ p) (φ.reindex σ) (Term.reindex r σ) (b.reindex σ)) where
+  firstBox b := b.reindex σ
+  first a := Term.reindex a (intervalSub σ)
+  firstBox_eq := rfl
+  first_uniform b := hF.uniform p φ r b σ
+  first_fills _a ha := ha.reindex σ
+  secondBox _a b := b.reindex σ
+  second _a c := Term.reindex c (intervalSub σ)
+  whole c := Term.reindex c (intervalSub σ)
+  secondBox_eq a ha := (OpenBox.sigmaSnd_reindex (B := reindex B (liftSub A p)) b a ha σ).symm
+  second_uniform a b := hG.uniform (pair p a) φ r b σ
+  pair_eq _ _ := rfl
+
 theorem sigmaFilling_fills {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (sigma A B) p) φ r) :
-    b.Fills ((sigmaFilling F hF G).fill p φ r b) := by
-  let first := OpenBox.sigmaFst (B := reindex B (liftSub A p)) b
-  let a := F.fill p φ r first
-  have ha : first.Fills a := hF.fills p φ r first
-  let second := OpenBox.sigmaSnd (B := reindex B (liftSub A p)) b a ha
-  exact OpenBox.sigmaIntro_fills (B := reindex B (liftSub A p)) b a ha
-    (G.fill (pair p a) φ r second) (hG.fills (pair p a) φ r second)
+    b.Fills ((sigmaFilling F hF G).fill p φ r b) :=
+  (sigmaProblem F hF G p φ r b).fills
+    (fun _ c t => c.Fills t) b.Fills
+    (fun a c => hG.fills (pair p a) φ r c)
+    (fun a ha c hc => OpenBox.sigmaIntro_fills (B := reindex B (liftSub A p)) b a ha c hc)
 
 set_option backward.isDefEq.respectTransparency false in
 theorem sigmaFilling_uniform {Γ Δ Θ : Context.{u}} {A : Family Γ} {B : Family (total A)}
@@ -145,28 +182,8 @@ theorem sigmaFilling_uniform {Γ Δ Θ : Context.{u}} {A : Family Γ} {B : Famil
     (p : total (interval Δ) ⟶ Γ) (φ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (sigma A B) p) φ r)
     (σ : Θ ⟶ Δ) :
     (sigmaFilling F hF G).fill (intervalSub σ ≫ p) (φ.reindex σ) (Term.reindex r σ) (b.reindex σ) =
-      Term.reindex ((sigmaFilling F hF G).fill p φ r b) (intervalSub σ) := by
-  let L := intervalSub σ
-  let first := OpenBox.sigmaFst (B := reindex B (liftSub A p)) b
-  let a := F.fill p φ r first
-  have ha : first.Fills a := hF.fills p φ r first
-  let k : {z : Term (reindex A (L ≫ p)) // (first.reindex σ).Fills z} →
-      Term (reindex (sigma A B) (L ≫ p)) := fun z =>
-    Cartesian.sigmaIntro (B := reindex B (liftSub A (L ≫ p))) z.val
-      (G.fill (pair (L ≫ p) z.val) (φ.reindex σ) (Term.reindex r σ)
-        (OpenBox.sigmaSnd (B := reindex B (liftSub A (L ≫ p))) (b.reindex σ) z.val z.property))
-  have hfirst : (⟨F.fill (L ≫ p) (φ.reindex σ) (Term.reindex r σ) (first.reindex σ),
-      hF.fills (L ≫ p) (φ.reindex σ) (Term.reindex r σ) (first.reindex σ)⟩ :
-      {z : Term (reindex A (L ≫ p)) // (first.reindex σ).Fills z}) =
-      ⟨Term.reindex a L,ha.reindex σ⟩ := Subtype.ext (hF.uniform p φ r first σ)
-  calc
-    _ = k ⟨Term.reindex a L,ha.reindex σ⟩ := congrArg k hfirst
-    _ = _ := by
-      dsimp only [k]
-      rw [← OpenBox.sigmaSnd_reindex (B := reindex B (liftSub A p)) b a ha σ]
-      exact congrArg (fun c => Cartesian.sigmaIntro (B := reindex B (liftSub A (L ≫ p)))
-        (Term.reindex a L) c) (hG.uniform (pair p a) φ r
-          (OpenBox.sigmaSnd (B := reindex B (liftSub A p)) b a ha) σ)
+      Term.reindex ((sigmaFilling F hF G).fill p φ r b) (intervalSub σ) :=
+  (sigmaSubstitution F hF G hG p φ r b σ).uniform
 
 theorem sigmaFilling_lawful {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful) :

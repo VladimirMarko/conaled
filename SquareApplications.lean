@@ -492,6 +492,7 @@ import SquareKit.Internal.Cubical.SumFillingSubstitution
 import Examples.PrimitiveDependentSums
 import Examples.CompositionalSpecifications
 import Examples.FiniteKernelEquality
+import Examples.RationalKernel
 
 import Examples.CoherentGroupoidPresentations
 
@@ -1081,6 +1082,7 @@ import Examples.PersistentFIFOClient
 import Examples.MeasuredLoop
 import Examples.CompositionalStructureIdentity
 import Examples.SharedCubicalConstructors
+import Examples.SharedSigmaFilling
 import Examples.MatroidPresentations
 import Examples.SubmodularRank
 import Examples.CircuitElimination
