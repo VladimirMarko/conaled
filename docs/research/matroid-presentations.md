@@ -35,6 +35,48 @@ their laws. In particular, native submodularity can be reused after rank
 reconstruction. The finite hypothesis is used to construct maximal independent
 sets and to show that adjoining the rank closure does not change rank.
 
+## Standard submodular rank axioms
+
+[SubmodularRank.lean](../../Applications/Matroid/SubmodularRank.lean) also accepts
+the familiar natural-valued rank axioms: empty rank zero, monotonicity, a
+cardinality bound and submodularity. `SubmodularRankPresentation` retains a
+finite ground in an arbitrary ambient type, with `rank (X ∩ ground) = rank X`
+and `rank X ≤ (X ∩ ground).ncard` for every ambient subset. Thus infinite
+ambient subsets cause no ambiguity in the natural-valued cardinality bound.
+
+`insert_le` derives unit increments from submodularity and the singleton bound;
+`persist` derives persistence of zero increments from submodularity. `toRank`
+then uses the existing local-rank constructor. `matroid_eRk` recovers the supplied
+rank on every subset, and `matroid_ofMatroid` recovers the entire presentation.
+`ofMatroid` extracts the standard axioms from a native finite matroid.
+`rankEquiv` proves the two rank presentations equivalent, while
+`FiniteMatroid.submodularRankEquiv` connects the new presentation to every
+existing hub route. These are equivalences of object types, without a new
+choice of matroid morphisms.
+
+`relabel` retains both the ground and ranks under an ambient carrier equivalence.
+`relabel_matroid` identifies the reconstructed matroid with native `mapEquiv`;
+`relabel_refl` and `relabel_trans` recover the whole presentation under identity
+and composed relabellings. The existing local-increment API remains available
+when an author's input is already given by insertion behavior. The standard
+interface suits inputs where submodularity and cardinality bounds are the
+available facts; callers supply no extra exchange or realizability premise.
+
+[Checked applications](../../Examples/SubmodularRank.lean) supply truncated
+cardinality directly, prove agreement with the existing uniform-matroid
+constructor, and recover `U₂,₃`. They cover empty ground, loops, parallel
+elements, outside-ground and infinite ambient subsets, presentation routes and
+two nonidentity relabellings. A monotone cardinality-bounded function on `Bool`
+violates submodularity at the two singleton sets, separating the missing axiom.
+
+This completes the rank portion of [#628](https://github.com/VladimirMarko/conaled/issues/628).
+Its circuit-elimination-to-augmentation construction remains open. The result
+reuses the existing reconstruction proof and preserves its direct clients;
+it does not establish an author-productivity result. It supplies application
+evidence for [#636](https://github.com/VladimirMarko/conaled/issues/636).
+
+## Reuse of Mathlib
+
 The pinned Mathlib already supplies basis and independence constructors,
 observational characterizations by circuits, closure and extended-natural rank,
 and extensionality theorems. It has no constructor from closure or rank axioms
