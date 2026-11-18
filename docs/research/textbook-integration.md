@@ -36,8 +36,10 @@ and reconcile its residual owners in [#558](https://github.com/VladimirMarko/con
 This review does not require unrelated library redesign or whole-book completion
 before accepting a bounded slice.
 
-Feed newly discovered opportunities to
-[#634](https://github.com/VladimirMarko/conaled/issues/634) and the experience
+Use the [interface-search inventory](reconstructible-presentations-search.md)
+from [#634](https://github.com/VladimirMarko/conaled/issues/634) when comparing
+receiving interfaces. Feed newly discovered opportunities to
+[#235](https://github.com/VladimirMarko/conaled/issues/235) and the experience
 of applying these criteria to
 [#636](https://github.com/VladimirMarko/conaled/issues/636). The latter should
 identify a concrete receiving slice as evidence rather than wait for the entire

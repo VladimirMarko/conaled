@@ -638,8 +638,9 @@ mathematics and validation; acceptance of a bounded slice does not require
 completing every architectural opportunity it exposes.
 
 [#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates applications;
-[#634](https://github.com/VladimirMarko/conaled/issues/634) searches earlier
-compromises and additional opportunities. Revisit this guidance against the
+the [interface search](research/reconstructible-presentations-search.md) from
+[#634](https://github.com/VladimirMarko/conaled/issues/634) records earlier
+compromises, retained interfaces and owned follow-ups. Revisit this guidance against the
 resulting library and CTB integration evidence in
 [#636](https://github.com/VladimirMarko/conaled/issues/636), including failed
 generalizations and cases where retaining a native interface was preferable.
