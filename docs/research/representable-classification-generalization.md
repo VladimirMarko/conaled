@@ -13,7 +13,7 @@ from baseline `290a15d8322cbd8f5ffc6186a589f4bfdec5827a`, with Mathlib pinned to
 Later sections retain the assessment of stronger contracts; proposals there are
 not claims that arbitrary pseudofunctors admit classification or that a stack
 instance has been proved. The #645 addition below constructs coherent recovery
-for category-valued families.
+for category-valued families; #646 below connects positive gluing and torsor descent.
 
 ## Checked additions
 
@@ -137,10 +137,93 @@ lifts or a new general Grothendieck-equivalence theorem. This is a choice of
 presentation for the constructed family system, not a claim that fibred or
 sheaf-over inputs have been classified by it.
 
+## Positive code gluing and effective torsor descent (#646)
+
+[HomRepresentableClassification](../../SquareKit/Internal/HomRepresentableClassification.lean)
+constructs `HomSystem.system B` for any presheaf context `B`. Its data over `Γ`
+are maps `Γ ⟶ B`, explicitly lifted to the `System.Data` universe. Restriction
+is precomposition. `sectionEquiv` evaluates a map from a represented context at
+the identity; its inverse is `represented`. `codesIso` packages these maps as
+an isomorphism from the code presheaf to `raisedContext B`, and
+`codesIso_code` identifies coding an arbitrary map with its raised map.
+
+`codes_isSheaf_iff` proves that these codes are sheaves exactly when `B` is a
+sheaf. It transports the sheaf condition through the proved comparison and
+Mathlib's universe-lift equivalence. The base may have independent object and
+hom universes. No subcanonicity is needed: the system is defined on all
+presheaf contexts, including representables that need not be sheaves.
+
+The [finite-site example](../../Examples/ClassifierDescent.lean) uses the
+existing diamond site. Its proper cover of `X` consists of `U` and `V` with
+overlap `W`. The new `pairs` sheaf has `Bool × Bool` at `X`, `Bool` at each
+piece and `Unit` at the overlap. The restriction maps are the two projections.
+The code matching family for `(false, true)` has a unique amalgamation, proved
+using `codes_isSheaf`; `matching_value` identifies that amalgamation with the
+code of the displayed pair. Both projection calculations are checked through
+the natural code comparison.
+
+The same example proves the site subcanonical by checking its Yoneda
+presheaves. Nevertheless, the existing proper pointwise image of `E → 1`
+has local sections over the cover and no section at `X`. Its previously proved
+failure of sheafness, transported by `codes_isSheaf_iff`, gives
+`badCodes_not_sheaf` on this subcanonical site. This is an explicit alternative
+to the two-point-open-space control described below. The earlier
+constant-Boolean empty-cover rejection remains checked.
+
+[TorsorClassifierDescent](../../SquareKit/Internal/TorsorClassifierDescent.lean)
+connects the existing constructive torsor descent to the ordinary representable
+family decoder. For a torsor `P`, `decoded` uses
+`PresheafFamily.decodeSheaf P.family`. Its action is conjugated by the derived
+evaluation comparison; the action laws, principality and local existence are
+proved, and `comparison` is an equivariant isomorphism. Local existence uses
+the sheaf isomorphism over the original display, not a chosen global section.
+
+For any existing `Descent.Datum A P`, `glue` first constructs effective torsor
+descent and then classifies and decodes it. `localComparison` recovers `P` on
+the entire cover. `mapEquiv` is a bijection between all compatible equivariant
+local maps and arrows between decoded glued torsors; `recover_map` and
+`map_comparison` retain inverse recovery and its naturality. These are actual
+equivariant maps. The torsor theorem that every such map is invertible
+justifies the groupoid interface. `projection` retains the original base map,
+and `canonicalRecovery` recovers an original torsor from its canonical datum.
+
+The exact hypotheses are a site, a sheaf of groups, a sheaf context, a split
+sheaf display whose projection is locally surjective, and a torsor on that
+display with natural equivariant transport satisfying identity and cocycle.
+Principality and local existence descend by the existing local torsor proofs.
+No arbitrary operation is asserted to descend: the selected operation here is
+the group action, and both transport and maps must preserve it. This client
+uses the existing section universe `Type (max u v)`.
+
+The smooth specialization recovers the quarter-turn clutching torsor through
+this construction and proves it remains nontrivializable. A second example
+passes distinct regular-torsor automorphisms through local arrow recovery and
+classified descent and proves they remain distinct. Thus the client tests
+nontrivial objects and maps, rather than only a terminal torsor.
+
+This bounded construction needs no sheafification: the positive code presheaf
+is already a sheaf, and torsor descent constructs sheaf total spaces before
+classification. It proves neither a decoder extension across a sheafification
+unit nor exact recovery for original non-sheaf codes. Those extensions remain
+owned by [#647](https://github.com/VladimirMarko/conaled/issues/647), together
+with comparison to Mathlib's general stack interface. In the pinned Mathlib,
+`IsStack` extends `IsPrestack` and requires essential surjectivity of the
+comparison to descent data for every covering sieve. The torsor result here
+constructs object and map recovery for locally surjective split displays;
+packaging it into that pseudofunctor and sieve-indexed contract remains work.
+No `IsStack` premise or blanket stack instance is introduced.
+
+Caller obligations are the existing sheaf, cover and cocycle data. Recovery
+and equivariant map reconstruction are shared proofs. No recursion or
+heartbeat limit was raised. This work does not measure comparative elaboration
+cost or prove descent for the arbitrary coherent family diagrams from #645;
+those diagrams do not supply a topology or local sheaf membership by themselves.
+
 ## Remaining contracts
 
-[#646](https://github.com/VladimirMarko/conaled/issues/646) owns positive code
-gluing and effective descent, including the sheafification assessment.
+The bounded positive code-gluing and effective torsor client from #646 is
+implemented above. Further stack packaging and decoder extension across
+sheafification remain under #647.
 [#647](https://github.com/VladimirMarko/conaled/issues/647) owns additional coherent
 systems and presentation comparisons; [#649](https://github.com/VladimirMarko/conaled/issues/649)
 owns comparison with natural models, direct families and local universes.
@@ -281,9 +364,8 @@ presheaf `B`, with restriction by precomposition. Evaluation at the represented
 identity and the ordinary Yoneda argument give `S.codes ≅ B`, up to the explicit
 universe lifts. Code sheafness then follows by transport from `B`. A client with
 nonconstant sections and nonidentity restriction should verify the natural
-isomorphism on values and maps. This is a proposed connection to the general
-classification API; it follows the ordinary Yoneda mathematics, and does not
-assume code descent. [Mathlib Yoneda](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Yoneda.lean).
+isomorphism on values and maps. This connection is now implemented by `HomSystem.codesIso` and
+`codes_isSheaf_iff` above; the proof does not assume code descent. [Mathlib Yoneda](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Yoneda.lean).
 
 The representable contexts need attention if `Data` is defined only over sheaf
 contexts. On a subcanonical site, Mathlib's `J.yoneda` and `J.uliftYoneda` give
@@ -336,7 +418,8 @@ its own arrow-descent proof when it is not full. [Stacks, stacks and subcategori
 ## Controls and next checked cases
 
 The following controls delimit the wider library. The first is now formalized
-as `codes_not_sheaf`; the second remains a paper counterexample.
+as `codes_not_sheaf`. The second has a checked diamond-site counterpart
+`badCodes_not_sheaf` above; the two-point presentation below remains a paper example.
 
 1. **Restriction laws do not imply code sheafness.** Take constant `Bool` data
    (lifted to the data universe) and identity restriction. All strict `System`
@@ -349,7 +432,7 @@ as `codes_not_sheaf`; the second remains a paper counterexample.
    open-set site of a two-point discrete space, take presheaf `B` with one global
    section, two sections on either singleton, and one on the empty open, with
    global restrictions selecting `false`. The singleton pair `(true, false)`
-   agrees on the empty intersection but has no global amalgamation. The proposed
+   agrees on the empty intersection but has no global amalgamation. The now-implemented
    system `Data(Γ) = Hom(Γ, B)` has codes naturally isomorphic to `B`, giving the
    same failure on a subcanonical site. This calculation distinguishes missing
    object gluing from a merely unusual representation.
@@ -362,11 +445,9 @@ as `codes_not_sheaf`; the second remains a paper counterexample.
    [Mathlib sheafification](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Sites/Sheafification.lean),
    [Stacks, sheafification](https://stacks.math.columbia.edu/tag/00W1).
 
-The next useful checked sequence is a representable `Hom(-, B)` system with
-genuine code gluing, followed by an effective descent client built from existing
-sheaf-display or torsor gluing. Retain the checked constant-`Bool` rejection and
-add a positive nontrivial code-gluing case. Ordinary native cubical classifiers
-remain strict specializations with their original selected-operation hypotheses.
-Any decoder extension across sheafification or general coherent classification
-equivalence remains a separate theorem to prove. This sequence expands the
-mathematics while making each new requirement and its recovery contract testable.
+The positive code-gluing and effective torsor-descent sequence is implemented
+above. The next extensions are a comparison with the general Mathlib stack
+contract and decoder extension across sheafification, with explicit unit and
+recovery laws. #647 owns their assessment; #649 coordinates alternative
+presentations. A new cubical model still needs its own type formers, filling
+operations and any requested univalence proof.
