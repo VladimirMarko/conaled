@@ -1095,4 +1095,6 @@ import Examples.CategoryValuedEvaluation
 import Examples.CoherentRepresentableCoding
 import Examples.SheafRepresentableClassification
 
+import Examples.CoherentFamilyClassification
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

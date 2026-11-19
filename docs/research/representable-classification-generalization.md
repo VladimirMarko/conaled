@@ -11,7 +11,9 @@ The implementation follows [#644](https://github.com/VladimirMarko/conaled/issue
 from baseline `290a15d8322cbd8f5ffc6186a589f4bfdec5827a`, with Mathlib pinned to
 `56a005855ea17e0b0958f73ec801ae140b0a1679`. The checked additions are listed below.
 Later sections retain the assessment of stronger contracts; proposals there are
-not claims that a full coherent classifier or stack instance has been proved.
+not claims that arbitrary pseudofunctors admit classification or that a stack
+instance has been proved. The #645 addition below constructs coherent recovery
+for category-valued families.
 
 ## Checked additions
 
@@ -62,20 +64,95 @@ actual sheafness. Neither obligation is hidden in a final comparison field.
 The [cost report](representable-elaboration-costs.md) assesses the Lean encoding
 separately; no author-time improvement was measured.
 
+## Coherent family recovery from #645
+
+[CoherentFamilyClassification](../../SquareKit/Internal/CoherentFamilyClassification.lean)
+constructs an equivalence for every category E and target category V. A coherent
+code is a functor `A : Arrow E ⥤ V` taking squares with invertible target maps to
+isomorphisms. An object `x → y` means a local view rooted at x and evaluated at y.
+Morphisms are all natural transformations; neither the local family maps nor
+maps between codes must be invertible. The input supplies this local diagram
+and its restriction law, not a decoder or a final recovery equivalence.
+
+The decoder evaluates A on identity arrows. Coding a family B uses the target
+projection, `Arrow.rightFunc ⋙ B`. Decoding a coded family is definitionally B.
+For an arbitrary coherent A, the square `(f, id) : f → id_target(f)` supplies the
+recovery component. Its image is invertible by the restriction hypothesis;
+functoriality proves naturality, and naturality of code morphisms proves recovery
+on morphisms. `equivalence` packages the functors, both recovery isomorphisms and
+the triangle law. `reindex` acts by `Functor.mapArrow`; `decodeReindex`, its unit
+and composition laws, and `recovery_reindex` retain the substitution comparisons.
+
+[RepresentableCoherentRecovery](../../SquareKit/Internal/RepresentableCoherentRecovery.lean)
+specializes E to `Γ.Elements`. `families` and `system` package the actual
+context-indexed functor categories as a Mathlib pseudofunctor. `decoder` and
+`coder` are Mathlib strong transformations; `classificationUnit` and
+`classificationCounit` are invertible modifications. Thus the equivalences are
+compatible with context substitution, including its identity and composition.
+
+The arrow-diagram contract is an explicit presentation of the local data used
+here. `localArrow` sends an actual represented element to its arrow out of the
+named root. `localView` extracts its represented family; `localRestrictionIso`
+derives its invertible restriction comparison. `code_localView` identifies
+coding with the original `system` restriction functor on objects and morphisms.
+`localGenericRecovery` compares each represented generic fiber with the decoder;
+`genericRecovery` uses the existing `CategoricalEvaluation.iso` argument.
+This does not identify arbitrary pseudonatural cones for arbitrary systems with
+these diagrams, or assume that restriction to representables always recovers a
+system. A general comparison with such a cone presentation remains a possible
+extension under [#647](https://github.com/VladimirMarko/conaled/issues/647).
+
+The [checked clients](../../Examples/CoherentFamilyClassification.lean) include:
+
+- A Boolean-valued family on the natural-number order category with a recovery
+  comparison that swaps false and true. This coherent diagram is not merely the
+  literal target-projection coding of a family.
+- A noninvertible collapse morphism to a singleton, retained by categorical
+  recovery, and the earlier order-valued family with a noninvertible arrow.
+- The dependent `Fin (n+1)` family with successor and double substitutions;
+  their composite takes the fiber at 2 to `Fin 6`.
+- A source-projection diagram with no recovery isomorphism at the chosen
+  noninvertible arrow. It fails the invertible-restriction condition, exposing
+  why arbitrary local diagrams are not classified by the theorem.
+- Both native cubical families' represented views and exact existing recovery
+  comparisons, including the Type-valued specialization of categorical evaluation.
+
+For ordinary families the adapter is `code`, with no recurring decoder proof.
+For independently supplied local diagrams, the builder proves functoriality and
+invertibility on restriction squares. The generic recovery and substitution
+proofs are shared. Selected cubical fillers remain governed by their existing
+native preservation theorems; this change neither reconstructs them from an
+unstructured family nor replaces the native computational specializations.
+All new definitions and examples elaborate at the existing default budgets.
+No comparative timing, allocation or author-productivity measurement is claimed;
+[#648](https://github.com/VladimirMarko/conaled/issues/648) retains the four-client
+budget experiment. The generic target V is an ordinary category, so choosing
+V = Cat does not by itself provide a theorem for pseudofunctor-valued families.
+
+Mathlib's Grothendieck construction supplies a fibred category from a
+contravariant Cat-valued pseudofunctor. It is useful when the input is already
+such a fibration. Here the arrow-diagram presentation exposes the concrete
+restriction squares directly, so the recovery proof needs no chosen cartesian
+lifts or a new general Grothendieck-equivalence theorem. This is a choice of
+presentation for the constructed family system, not a claim that fibred or
+sheaf-over inputs have been classified by it.
+
 ## Remaining contracts
 
-[#645](https://github.com/VladimirMarko/conaled/issues/645) owns coherent decoding
-and classification recovery. [#646](https://github.com/VladimirMarko/conaled/issues/646)
-owns positive code gluing and effective descent, including the sheafification
-assessment. Both are linked to the continuing #289/#235 programmes.
+[#646](https://github.com/VladimirMarko/conaled/issues/646) owns positive code
+gluing and effective descent, including the sheafification assessment.
+[#647](https://github.com/VladimirMarko/conaled/issues/647) owns additional coherent
+systems and presentation comparisons; [#649](https://github.com/VladimirMarko/conaled/issues/649)
+owns comparison with natural models, direct families and local universes.
+The #645 equivalence above is for category-valued families and coherent local
+arrow diagrams. It does not construct a decoder for the previously demonstrated
+sheaf-over pseudofunctor or an arbitrary context-indexed pseudofunctor.
 
-A coherent classifier still needs a decoder and a natural equivalence on objects
-and morphisms, with unit and composition compatibility. Effective descent still
-needs gluing and map descent, beyond the pseudofunctor laws. Sheafification would
-require extending a decoder across its unit and proving the resulting recovery
-contract. These are the follow-on constructions described below. A new cubical
-type-theory model additionally needs interval, filling, type formers and their
-laws; the category-parametric core supplies none of those by itself.
+Effective descent still needs gluing and map descent, beyond pseudofunctor laws.
+Sheafification would require extending a decoder across its unit and proving the
+resulting recovery contract. A new cubical type-theory model additionally needs
+interval, filling, type formers and their laws; classification supplies none of
+those by itself.
 
 ## Existing contracts and reusable constructions
 
@@ -131,10 +208,10 @@ at `I` is `F(h_I)`, with the original data morphisms retained. Its identity and
 composition coherence come from pseudofunctor composition. For `A : F(Γ)`, the
 objects assigned to generalized elements would be `(represented x)* A`.
 `coherentCodeRestriction` supplies their local restriction comparison from
-`mapComp` and represented-map equations. Packaging those assignments as a
-contextual coherent coding morphism, proving its substitution coherence, and
-constructing a decoder/recovery equivalence remain in #645. The existing code
-pseudofunctor alone is not that full classification theorem.
+`mapComp` and represented-map equations. The #645 construction above packages a decoder and recovery for the concrete
+category-valued family system using coherent arrow diagrams. For an arbitrary F,
+the code pseudofunctor alone is still not a classification theorem; additional
+reconstruction hypotheses and a corresponding decoder remain necessary.
 
 Keeping the current strict result as a discrete specialization is appropriate.
 For a strict `System`, discrete categories on its data and the existing
