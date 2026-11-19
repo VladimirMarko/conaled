@@ -1098,5 +1098,6 @@ import Examples.SheafRepresentableClassification
 import Examples.CoherentFamilyClassification
 
 import Examples.ClassifierDescent
+import Examples.ClassifierPresentationComparison
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
