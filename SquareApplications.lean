@@ -1100,5 +1100,6 @@ import Examples.CoherentFamilyClassification
 import Examples.ClassifierDescent
 import Examples.ClassifierPresentationComparison
 import Examples.NonUnivalentUniverse
+import Examples.TorsorStack
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
