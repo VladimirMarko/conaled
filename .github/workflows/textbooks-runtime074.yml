@@ -1,0 +1,125 @@
+name: Textbook receiving runtime evidence
+
+on:
+  push:
+    branches: [validation/textbooks-runtime074]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: textbooks-runtime074-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CONALED_CANDIDATE: 99a2974c93e556088af814f033540eb36ba2d3a6
+
+jobs:
+  runtime:
+    runs-on: ubuntu-24.04
+    # The completed whole-library run is reused. No whole-library check is run here.
+    # No project compilation/runtime timeout, CPU, thread, affinity or memory cap.
+    steps:
+      - name: Read the immutable validation driver
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          path: orchestration
+          sparse-checkout: .github/validation
+          persist-credentials: false
+
+      - name: Check out the unchanged receiving candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ env.CONALED_CANDIDATE }}
+          path: candidate
+          persist-credentials: false
+
+      - name: Authenticate candidate and start setup budget
+        working-directory: candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CONALED_CANDIDATE" =~ ^[0-9a-f]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          test "$(git rev-parse HEAD^{tree})" = 173003db476a73783a873897bb754ca941d2f9c8
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          printf 'CONALED_SETUP_DEADLINE=%s\n' "$(( $(date +%s) + 600 ))" >> "$GITHUB_ENV"
+          mkdir "$RUNNER_TEMP/textbooks-runtime074"
+          df -B1 .
+
+      - name: Install pinned Nix action within setup budget
+        uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b
+        timeout-minutes: 10 # Environment setup only.
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare pinned environment and dependency cache
+        working-directory: candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          remaining=$(( CONALED_SETUP_DEADLINE - $(date +%s) ))
+          (( remaining > 0 )) || exit 124
+          set +e
+          timeout --signal=TERM --kill-after=15s "${remaining}s" \
+            nix develop --command lake exe cache get
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=runtime-setup exit_code=%s\n' "$status"
+          (( status == 0 )) || exit "$status"
+          (( $(date +%s) <= CONALED_SETUP_DEADLINE )) || exit 124
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+
+      - name: Build and retain complete runtime observations
+        working-directory: candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command python3 -B \
+            ../orchestration/.github/validation/textbooks-runtime074.py run \
+            --repo "$PWD" --out "$RUNNER_TEMP/textbooks-runtime074" \
+            --candidate "$CONALED_CANDIDATE"
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=runtime-capture exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Verify retained identities without rerunning observations
+        working-directory: candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command python3 -B \
+            ../orchestration/.github/validation/textbooks-runtime074.py verify \
+            --repo "$PWD" --out "$RUNNER_TEMP/textbooks-runtime074" \
+            --candidate "$CONALED_CANDIDATE"
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=runtime-readback exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Preserve runtime evidence, including failed attempts
+        if: always()
+        id: evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: textbooks-runtime074-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/textbooks-runtime074/
+          if-no-files-found: error
+          include-hidden-files: true
+          compression-level: 9
+          retention-days: 90
+
+      - name: Report evidence identity
+        if: always() && steps.evidence.outcome == 'success'
+        shell: bash
+        env:
+          EVIDENCE_ID: ${{ steps.evidence.outputs.artifact-id }}
+          EVIDENCE_DIGEST: ${{ steps.evidence.outputs.artifact-digest }}
+        run: |
+          set -euo pipefail
+          printf 'CONALED_RUNTIME_ARTIFACT id=%s sha256=%s\n' "$EVIDENCE_ID" "$EVIDENCE_DIGEST"
