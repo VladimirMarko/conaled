@@ -1,4 +1,5 @@
 import Applications.Search.SharedTree.Basic
+import Applications.Trees.Direction
 
 /-!
 # Paths and unchanged off-path roots
@@ -14,11 +15,6 @@ set_option warningAsError true
 
 namespace Search.SharedTree
 variable {α : Type}
-
-inductive Branch where
-  | left
-  | right
-  deriving DecidableEq, Repr
 
 /-- The structural search route needs comparisons, independently of their order
 laws. A map can supply a key projection without ordering its stored payloads. -/

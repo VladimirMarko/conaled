@@ -5,17 +5,19 @@ import SquareKit.Relations
 # A minimal abstract set interface
 
 Operators, independent membership observations, and validity laws are separate.
-Insertion words reuse reachable fold fusion. The interface imposes no tree
-representation, comparison measure, or physical-sharing convention.
+Insertion words reuse reachable fold fusion. Element and state universes are
+independent in the algebra; the existing relational squares retain their
+common-universe specialization. The interface imposes no tree representation,
+comparison measure, or physical-sharing convention.
 -/
 set_option autoImplicit false
 set_option warningAsError true
 
 namespace Search.AbstractSet
-universe u
-variable {α S : Type u}
+universe u v
+variable {α : Type u} {S : Type v}
 
-structure Ops (α S : Type u) where
+structure Ops (α : Type u) (S : Type v) where
   empty : S
   insert : α → S → S
   member : α → S → Bool
@@ -43,10 +45,12 @@ theorem Laws.congr_observe {ops : Ops α S} {observe observe' : S → α → Pro
       ((laws.insert x s hs y).trans (or_congr Iff.rfl (agree s hs y)))
   member x s hs := (laws.member x s hs).trans (agree s hs x)
 
-def representation (observe : S → α → Prop) (Valid : S → Prop) : Relational.RelRep :=
+def representation {α S : Type u} (observe : S → α → Prop) (Valid : S → Prop) :
+    Relational.RelRep :=
   ⟨S, α → Prop, fun s contents => Valid s ∧ ∀ x, observe s x ↔ contents x⟩
 
-def Laws.insertSquare {ops : Ops α S} {observe : S → α → Prop} {Valid : S → Prop}
+def Laws.insertSquare {α S : Type u} {ops : Ops α S}
+    {observe : S → α → Prop} {Valid : S → Prop}
     (laws : Laws ops observe Valid) (x : α) :
     Relational.RelSquare (representation observe Valid) (representation observe Valid) where
   impl := ops.insert x

@@ -134,36 +134,51 @@ probability measure. Mass and occurrence erasure remain separating controls.
 
 The preserved checkpoint012 VFA
 [SortingSpecifications draft](../history/textbooks/checkpoint-012/books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean)
-and current
-[Stable](../../Applications/Sorting/Stable.lean) and
-[TextbookSorting](../../Examples/TextbookSorting.lean) expose useful complementary
-contracts. Indexed, bounded-indexed and pairwise sortedness can be connected
-without order axioms; connecting adjacent sortedness needs transitivity.
-Count/permutation recovery requires `[BEq α] [LawfulBEq α]`; the draft's
-`lawful_equality_matters` counterexample shows unequal multiplicities can have
-equal counts when Boolean equality is unlawful. Stability retains equal-key
-order and uses decidable equality on keys. `StableSort.unique` requires
-`[LE κ] [Std.IsPartialOrder κ] [DecidableEq κ]`: a partial order on keys suffices,
-without an order on payload records or totality. This differs from the
-`TextbookSorting` uniqueness route requiring antisymmetry on records. The
-draft and `TextbookSorting.equal_key_order_matters` retain the control that
-sortedness plus permutation alone does not imply stability. These distinctions
-must survive any shared presentation.
+has a concrete incoming public integration in donor
+`1f6ee5dd25ba633deb807b8d2240bec5e5cf96af`, assessed against master
+`8ff71395e9841760c4e240c4e8b8741b355bda68`. CTB-79 and CTB-82 supply
+[ordering specifications](../../Applications/Sorting/Specification.lean),
+[sequence multiplicity](../../Applications/Sequences/Multiplicity.lean), and
+[sorting contract transport](../../Applications/Sorting/Multiplicity.lean).
+The code exists in the donor; current receiving compilation, audit and both
+independent review axes remain pending. This updates the earlier prospective
+search finding without treating donor validation as receiving acceptance.
 
-[#560](https://github.com/VladimirMarko/conaled/issues/560) already owns the public
-sorting bridge and FDSA consumer. The draft is preserved source, not evidence of
-an accepted integration of that bridge. The receiving review should check the
-maps and hypotheses, derive common laws, retain the original direct clients and
-record migration obligations and deferred owners. No new sorting algorithm or
-whole-book acceptance is claimed here.
+Indexed, bounded-indexed and pairwise sortedness are connected without order
+axioms; adjacent sortedness needs transitivity. Count/permutation recovery
+requires `[BEq α] [LawfulBEq α]`. The retained unlawful-equality control prevents
+recovery from unsound Boolean counts. The direct positional insertion proof is
+preserved and connected to the shared observations rather than replaced by a
+different algorithm.
 
-The #558 receiving record includes checkpoint012 (`56c739a1`), checkpoint024
-(`28106961`), persistent FIFO #564 (`dce19795`) and total tables #559 (`36d67461`).
-Those precede the initial recovery guidance (`b272accf`). This search has not
-located a later applicable accepted receiving slice assessed under that guidance.
-Consequently #636's CTB evidence obligation remains open. #558 owns selection of
-the next applicable slice; #560 is a concrete prospective owner, not a claimed
-completed slice.
+[Stable](../../Applications/Sorting/Stable.lean) retains equal-key order and
+uses decidable equality on keys. `StableSort.unique` requires
+`[LE κ] [Std.IsPartialOrder κ] [DecidableEq κ]`, without an order on payloads or
+key totality. [TextbookSorting](../../Examples/TextbookSorting.lean) and the
+incoming `sorters_eq_of_contents` use the distinct full-value antisymmetry
+route. Sortedness plus permutation alone does not imply stability; the
+equal-key-order control remains relevant. Neither bridge identifies source
+execution costs.
+
+The same donor contains further concrete connected presentations: abstract-set
+operational refinement derives cached AVL/height-balance laws; decoded maps
+retain optional lookup and enumeration meaning; binomial queues instantiate
+the occurrence-preserving `ExactQueue`; finite supported coloring derives a
+Mathlib coloring while preserving its stored domain. The
+[receiving assessment](textbook-integration.md#current-ctb-continuation-receiving-integration-pending)
+records the assumptions, lost information and residual #587/#588/#589 scope.
+One local reuse repair restores canonical tree-membership lemma composition.
+The new classifier, Lawvere and kernel developments do not justify wrapping
+these algorithms without a concrete additional consumer or recovery contract.
+
+[#560](https://github.com/VladimirMarko/conaled/issues/560) remains the sorting
+receiving owner. The [CTB continuation](../textbooks/CTB.json) has CTB-78 active,
+with further book formalization gated on actual integration and validation.
+The historical accepted receiving records at checkpoint012 (`56c739a1`),
+checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and total tables #559
+(`36d67461`) retain their original scope. This new assessment does not yet add
+an accepted receiving slice. Consequently #636's acceptance evidence remains
+open; successful current review and validation must establish it explicitly.
 
 ## Priorities and reassessment triggers
 

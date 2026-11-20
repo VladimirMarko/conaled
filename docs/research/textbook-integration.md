@@ -7,7 +7,9 @@ proofs and counterexamples, keeps an explicit disposition. Receiving a source
 branch or proving a shared client does not establish whole-book acceptance.
 
 The [repository preservation record](../history/textbooks/README.md) owns the
-received paper mathematics, historical evidence and source recovery instructions.
+already received historical material. Current paper mathematics belongs in
+normal research owners; [CTB](../textbooks/README.md) owns the authorized
+continuation and its [inbox](../textbooks/inbox/README.md) identifies unprocessed work.
 [Issue #558](https://github.com/VladimirMarko/conaled/issues/558) owns current
 coverage and follow-up, with concrete interface tasks #559 through #564. The
 historical checkpoint-local INT issues remain provenance. This note owns the
@@ -44,6 +46,94 @@ of applying these criteria to
 [#636](https://github.com/VladimirMarko/conaled/issues/636). The latter should
 identify a concrete receiving slice as evidence rather than wait for the entire
 continuing CTB workstream.
+
+## Current CTB continuation: receiving integration pending
+
+The current receiving target is master
+`8ff71395e9841760c4e240c4e8b8741b355bda68`; the saved donor is
+`1f6ee5dd25ba633deb807b8d2240bec5e5cf96af`, with common prerequisite
+`c796ab0bf270bdf76ea4e980d1d606d8b6a9286e`. This is an assessed incoming
+slice, not an accepted integrated candidate. Whole-library compilation/audit,
+applicable executable checks and both independent receiving review axes remain
+pending. Historical donor checks retain their original candidate and scope.
+
+The user-authorized [CTB continuation](../textbooks/CTB.json) preserves CTB-79
+through CTB-122 and their complete requirements. Earlier CTB identities retain
+their existing canonical owners; no new numbering series is introduced.
+**CTB-78 is active. CTB-24 and subsequent formalization are gated on receiving
+integration, rework and validation.** The 20 November 2026 instruction supersedes
+older perpetual-retention, Page-only and 32 MiB process requirements. Dated
+ticket text is preserved without reinstating those instructions.
+
+The donor contributes 261 selected paths: 159 production Lean files, 70 clients,
+28 research notes, the public aggregate, one Lake executable declaration and
+two runtime files. Only `SquareApplications.lean` is changed on both sides;
+retain all 20 upstream and 70 donor import additions. Toolchain, Mathlib and Nix
+lock inputs are unchanged. The 229 changed production/client modules have a
+320-module project dependency closure disjoint from upstream's changed Lean
+modules, excluding the aggregate. This static result does not discharge the
+combined receiving build or the separately built executable.
+
+| Slice | Existing construction and retained observations | Receiving disposition |
+|---|---|---|
+| Sorting, CTB-79/82 | `Sorting.Specification` connects indexed, bounded-indexed and pairwise observations without order laws; adjacent order needs transitivity. `Sequences.Multiplicity` and `Sorting.Multiplicity` connect lawful counts to permutation and existing uniqueness. | Receive the implemented bridge; retain direct indexed proofs, stability distinctions and separate costs. #560 acceptance remains pending. |
+| Ordered sets and cached trees | `AbstractSet.Refinement` derives laws and mixed-history transport from primitive operational equations and auxiliary validity. Height-balance/AVL clients reuse this construction; interval updates reuse ordered-tree/list proofs through cache erasure. | Preserve cache, ordering and balance hypotheses. Reconcile #588 against these concrete capabilities without inferring closure of all map or graph follow-ups. |
+| Maps and decoded keys | Existing map/table contracts, tree folds and ordered enumeration connect raw lookup, valid structural meaning and sorted entries. | Keep absence distinct from a stored default and preserve malformed-tree controls. Map deletion alone does not establish every #587 `Modify` round trip. |
+| Queues and graphs | Binomial queues reuse `ExactQueue` on valid states with occurrences and native meld. Finite coloring supplies Mathlib `SimpleGraph.Coloring` while retaining the stored vertex domain. | Retain the native execution contracts. The graph adapter does not settle #589's arbitrary valid-graph composition requirement. |
+| Resources | Actual measured source recurrences reuse `Measured`, `Workload`, `Potential` and binary-counter laws. The measured right fold recovers the shared runner on reversed inputs and the earlier tariff. | Preserve execution order, state trajectories and cost observations independently of extensional semantics. |
+
+Two bounded reuse repairs are included. `Search.OrderedTree.contains_iff_mem_setTree`
+again composes `contains_iff_mem_entries` and `Trees.mem_inorder_iff_mem_setTree`,
+preserving its original statement and assumptions. Ordered-map enumeration now
+exposes `kvsInsert_split_of_left`, whose right suffix is arbitrary: the proof
+requires only the left separator. The original `kvsInsert_split` signature is
+retained as a wrapper, and enumeration correctness uses the weaker public law.
+The connected SearchTrees cases exercise an arbitrary suffix, a concrete
+unsorted suffix with duplicate keys, and the failure when the left separator is
+dropped. The recovered Chapter 6 observation has this shared interface owner;
+its full source exercise remains open.
+
+Receiving validation must include these clients, the generalized set/map
+universes, weaker raw map comparisons and extracted `Search.SharedTree.Branch`
+declaration. No computation or source qualification changes merely from exposing
+the weaker map theorem.
+
+The new upstream classification/descent, Lawvere, matroid and rational-kernel
+work supplies no demonstrated direct replacement for this slice. Rational-kernel
+recovery may help later probabilistic work, but forgets random tapes, paths and
+costs. No blanket migration is proposed without a concrete preserved contract.
+
+At the donor, Chapter 5 remains 90/94 with C05-085/090/092/093 open; Chapter 9
+remains 57/110. These source qualifications are not receiving acceptance.
+Remaining book requirements stay in CTB and the canonical coverage ledgers.
+Completed mathematics and source correspondence belong in normal repository
+owners. The [unprocessed inbox](../textbooks/inbox/README.md) holds only material
+whose useful destination still needs checking. Retire processed wrappers only
+after integration validation and pointer repair; retain no new checkpoint-numbered
+history wrapper. This concrete assessment is pending evidence for #636, not a
+claim that its acceptance obligation has closed.
+
+### Reuse for remaining textbook obligations
+
+The following existing owners preserve useful routes from the earlier reuse
+inventory. Each future textbook client still needs its actual source bridge,
+original assumptions and separate resource contract. These routes add no source
+qualification or receiving acceptance.
+
+| Remaining use | Existing owner and boundary to retain |
+|---|---|
+| FDSA randomized sorting/selection, CTB-21/22 | [Prepared-row optimization](optimized-prepared-rows.md), [executed initialization](initialized-producer.md), and [retained dependent draws](operational-sampler-substitution.md) supply operational laws. Connect the actual recursive textbook runner, preserving duplicate occurrences, rank/failure domains, joint laws and returned cursors; price sampling separately. Fixed-row selector replacement preserves execution, while denominator normalization preserves the law without general same-tape equality. Initialization and final eager loading still cost work; almost-sure productivity is not termination on every tape. |
+| Shared priorities, state changes and random-game observations | [State-change sampling](state-change-sampler.md) applies to finite rational positive-exit tables and retains suppressed work, actual cursors and altered invariant weights. It observes changed states, not latent proposal-acceptance flags. Keep its charged deadlines distinct from expected work. Treap clients under CTB-29 need a shared-priority experiment; CTB-46 first needs its own random-game/query model. Three retained draws alone do not implement arbitrary recursive runners. |
+| Aggregate and cache clients | [Mapped aggregates](compiled-mapped-aggregate.md) share compiled scalar laws, retained indexed sums and stateful composition, including repeated writes and initialization. Use their public output laws and complete repair/recomputation comparison. The carrier is an additive commutative group with fixed-size indexed storage; arbitrary-monoid repair, insertion/deletion, physical sharing and uniform speedup do not follow. |
+| Ranked loops and tree annotation | [Measured loops](measured-loop-comparison.md) connect native and compiled seed/test/body/post execution. Retain guard agreement, decrease, source invariants and separate value/cost transport. The bill includes the final successful guard. This bounded interface does not supply a general recursion architecture or physical-performance equality. |
+| Numerical and representation clients, CTB-58/68 | [ExecutableTransport](../../Applications/Representations/ExecutableTransport.lean) requires a genuine equivalence with forward/backward value laws; its prepared recipe scan is charged each time. Non-injective observations and redundant numerals need suitable relational contracts. [FixedPoint expressions](../../Applications/FixedPoint/Expressions.lean) demonstrate explicit range, enclosure and partial-failure contracts, not machine-word/compiler guarantees. Use [native package paths](../../Examples/CubicalAuthorTransport.lean) only when the client requires their admitted discrete proof-bearing packages and exact native equivalence witness; they supply no executable conversion or allocation cost. |
+| PFDS persistence and laziness, CTB-51/53/55 | The [persistent FIFO client](pfds-library-client.md) connects one executed prefix and actual branches to potential, histories and debit realization. Its workload-dependent representation comparison is already preserved there. The 77 later exercise headings, complete suspension-work correspondence and physical allocation/sharing remain separate obligations. |
+
+Current coverage and source availability come from
+[coverage.json](../textbooks/coverage.json), including the exact PFDS book/thesis
+identities and the remaining Cambridge-book source boundary. Earlier
+next-Extract, Chapter 5 and checkpoint-incorporation status descriptions do not
+replace this current state. No second active reuse log is needed.
 
 ## Source provenance and merge decisions
 
@@ -262,13 +352,24 @@ mapped, fractional, invalid-state and ordered-observation cases. The
 [potential-accounting correspondence](fdsa-potential-accounting.md) owns the
 precise source obligations, declarations, minimal assumptions and exclusions.
 
-## Useful mathematics still owned outside this component
+## Historical preservation families
 
-The preservation audit inspected branch tips and standalone mathematical
-records, not only the three candidates. It identified 65 FDSA Lean paths absent
-from its candidate, plus existing-path variants, and five VFA standalone
-drafts. The potential donor above is one selected incorporation from that
-larger set. Counts identify preservation scope, not required new public files.
+The earlier preservation audit inspected branch tips and standalone mathematical
+records, not only its three candidates. It identified 65 FDSA Lean paths absent
+from that earlier candidate, plus existing-path variants, and five VFA standalone
+drafts. Those counts and the INT assignments below describe that historical
+inventory. They are not the current receiving scope or an additional current
+work queue. Current source/paper ownership and remaining textbook requirements
+are recorded by the receiving inventory above and the
+[current CTB catalog and coverage](../textbooks/README.md).
+
+The five Extract drafts now have ordinary source counterparts at their planned
+paths. `Basic` and `DecodedKeys` retain their mathematical bodies; `Workload` and
+`SearchTreeWorkload` retain and extend the draft programs/laws; `DecodedKeysModels`
+retains its contracts with a repaired comparison-case proof and added finite
+support laws. Their old uncompiled status describes the archived bytes. Current
+receiving acceptance remains pending. Original source qualifications and remaining
+book obligations must still be read at their actual CTB/coverage owners.
 
 | Preserved family | Checkpoint-local owner and disposition |
 | --- | --- |

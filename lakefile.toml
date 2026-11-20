@@ -14,3 +14,8 @@ rev = "v4.35.0"
 name = "SquareApplications"
 roots = ["SquareApplications"]
 globs = ["SquareApplications", "Squares", "Compiler", "SquareCompiler", "FirstOrder", "Dependent", "Verification", "SquareKit.+", "Applications.+", "Examples.+", "ProofAudit"]
+
+[[lean_exe]]
+name = "extract-searchtree"
+root = "ExtractSearchTree"
+srcDir = "scripts"

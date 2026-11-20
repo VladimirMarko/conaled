@@ -15,8 +15,8 @@ set_option autoImplicit false
 set_option warningAsError true
 
 namespace Search.OrderedMap
-universe u
-variable {κ ν : Type u}
+universe u v
+variable {κ : Type u} {ν : Type v}
 open Search.OrderedTree (All OrderedBy Contains entries)
 
 section Equality
@@ -39,8 +39,8 @@ theorem observe_none_of_all_ne {query : κ} {t : BinaryTree (κ × ν)}
 
 end Equality
 
-section LinearOrder
-variable [LinearOrder κ]
+section Comparison
+variable [LT κ] [DecidableLT κ]
 
 /-- Ordered-key search; missing bindings retain an explicit failure result. -/
 def lookup (query : κ) : BinaryTree (κ × ν) → Option ν
@@ -49,6 +49,10 @@ def lookup (query : κ) : BinaryTree (κ × ν) → Option ν
       if query < binding.1 then lookup query left
       else if binding.1 < query then lookup query right
       else some binding.2
+
+/-- The direct path observation is meaningful on every raw tree. It is
+distinct from the independent whole-tree `observe` on malformed inputs. -/
+def pathObserve (t : BinaryTree (κ × ν)) : Meaning κ ν := fun query => lookup query t
 
 /-- Matching keys replace their payload, and every other branch retains the
 original binding. Values need neither equality nor ordering. -/
@@ -71,6 +75,38 @@ theorem all_bind {P : κ × ν → Prop} {t : BinaryTree (κ × ν)}
       · split
         · exact ⟨h.1, h.2.1, ihr h.2.2⟩
         · exact ⟨new, h.2.1, h.2.2⟩
+
+/-- Same-key lookup after insertion needs only false self-comparisons.
+No ordering invariant or equality decision on keys or payloads is required. -/
+theorem lookup_bind_self_of_irrefl (irrefl : ∀ key : κ, ¬ key < key)
+    (key : κ) (value : ν) (t : BinaryTree (κ × ν)) :
+    lookup key (bind key value t) = some value := by
+  induction t with
+  | nil => simp [bind, lookup, irrefl key]
+  | node binding left right ihl ihr =>
+      by_cases kl : key < binding.1
+      · simp [bind, lookup, kl, ihl]
+      · by_cases kr : binding.1 < key
+        · simp [bind, lookup, kl, kr, ihr]
+        · simp [bind, lookup, kl, kr, irrefl key]
+
+end Comparison
+
+section LinearOrder
+variable [LinearOrder κ]
+
+/-- The later same-key write replaces the earlier value as an equality of raw
+trees, including malformed ones. This is stronger than lookup agreement. -/
+theorem bind_shadow (key : κ) (first last : ν) (t : BinaryTree (κ × ν)) :
+    bind key last (bind key first t) = bind key last t := by
+  induction t with
+  | nil => simp [bind]
+  | node binding left right ihl ihr =>
+      by_cases kl : key < binding.1
+      · simp [bind, kl, ihl]
+      · by_cases kr : binding.1 < key
+        · simp [bind, kl, kr, ihr]
+        · simp [bind, kl, kr]
 
 theorem ordered_bind {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst t)
     (key : κ) (value : ν) : OrderedBy Prod.fst (bind key value t) := by
@@ -141,6 +177,11 @@ theorem lookup_bind (key : κ) (value : ν) (query : κ) (t : BinaryTree (κ × 
           · simp [bind, lookup, eq, h]
           · simp [bind, lookup, eq, h, not_lt_of_gt h, ne_of_gt h]
 
+theorem pathObserve_bind (key : κ) (value : ν) (t : BinaryTree (κ × ν)) :
+    pathObserve (bind key value t) = write key value (pathObserve t) := by
+  funext query
+  exact lookup_bind key value query t
+
 theorem observe_bind {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst t)
     (key : κ) (value : ν) : observe (bind key value t) = write key value (observe t) := by
   funext query
@@ -170,17 +211,24 @@ theorem lookup_finite_domain (t : BinaryTree (κ × ν)) :
   exact ⟨(query, value), (Search.OrderedTree.contains_iff_mem_entries _ _).mp
     (lookup_some_contains found), rfl⟩
 
-abbrev Tree (κ ν : Type u) [LinearOrder κ] :=
+abbrev Tree (κ : Type u) (ν : Type v) [LinearOrder κ] :=
   {t : BinaryTree (κ × ν) // OrderedBy Prod.fst t}
 
 /-- Raw operations do not claim that directed lookup agrees with the
 independent whole-tree observation on malformed trees. -/
-def rawTrees (κ ν : Type u) [LinearOrder κ] : Ops κ ν (BinaryTree (κ × ν)) where
+def rawTrees (κ : Type u) (ν : Type v) [LinearOrder κ] : Ops κ ν (BinaryTree (κ × ν)) where
   empty := .nil
   bind := bind
   lookup := lookup
 
-def trees (κ ν : Type u) [LinearOrder κ] : Ops κ ν (Tree κ ν) :=
+/-- Raw operations satisfy the map algebra under direct path observation,
+without assuming that their nodes are ordered. -/
+theorem rawTrees_laws : Laws (rawTrees κ ν) pathObserve where
+  empty := rfl
+  bind := pathObserve_bind
+  lookup _ _ := rfl
+
+def trees (κ : Type u) (ν : Type v) [LinearOrder κ] : Ops κ ν (Tree κ ν) :=
   (rawTrees κ ν).restrict (OrderedBy Prod.fst) trivial
     (fun key value _ ordered => ordered_bind ordered key value)
 

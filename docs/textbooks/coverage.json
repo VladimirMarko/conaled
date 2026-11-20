@@ -1,0 +1,886 @@
+{
+  "schema": 1,
+  "canonical_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
+  "books": {
+    "VFA": {
+      "source_identity": {
+        "title": "Verified Functional Algorithms",
+        "source_version": "2.1 (2026-08-24 10:11, Coq 9.0.0 or later)",
+        "source_archive_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+        "preferred_source_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz"
+      },
+      "denominators": {
+        "source_units_including_preface": 17
+      },
+      "qualified_progress": {
+        "source_qualified_units": [
+          "Preface",
+          "Perm",
+          "Sort",
+          "Multiset",
+          "BagPerm",
+          "Selection",
+          "Merge",
+          "Maps",
+          "SearchTree",
+          "ADT",
+          "Extract",
+          "Redblack",
+          "Trie",
+          "Priqueue",
+          "Binom",
+          "Decide",
+          "Color"
+        ],
+        "receiving_owner": "docs/research/vfa-coverage.md",
+        "boundary": "All 17 VFA units are source-qualified, including full Color by accepted CTB-99 through CTB-106 composition. This does not replace receiving integration-quality or whole-library acceptance. Continue all remaining FDSA/PFDS work.",
+        "newly_qualified_units": [
+          "Color"
+        ],
+        "current_correspondence": "docs/research/vfa-color.md",
+        "remaining_units": 0,
+        "active_unit": null,
+        "inherited_coverage": "docs/research/vfa-coverage.md",
+        "newly_qualified_bounded_foundations": [],
+        "newly_qualified_bounded_increments": [
+          {
+            "unit": "Color complete program resources",
+            "ticket": "CTB-106",
+            "parent": "CTB-19",
+            "candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
+            "tree": "56a5f8e82baa33533181007865ee18d46617eeb1",
+            "bounded_source_qualified": true,
+            "chapter_source_qualified": true,
+            "qualification_review": {
+              "phase": "CONTENT",
+              "candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
+              "tree": "56a5f8e82baa33533181007865ee18d46617eeb1",
+              "base": "c8927de505a4b248cbffa8a01268dc95a104ead0",
+              "record": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/record"
+              },
+              "requirements": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/requirements"
+              },
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "standards_findings": 0,
+              "spec_findings": 0,
+              "unresolved_findings": 0,
+              "coordinator": "/root/color_review",
+              "standards_report": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/standards_report"
+              },
+              "spec_report": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/spec_report"
+              },
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/root_complete_report_acceptance"
+              },
+              "root_read_both_complete_reports": true,
+              "qualification_authorized": true,
+              "qualification_scope": "CTB-106 complete measured Color program resources and CTB-19 full canonical Color source.",
+              "chapter_qualification_authorized": true,
+              "canonical_closure_map": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/canonical_closure_map"
+              },
+              "canonical_root_reading": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/canonical_root_reading"
+              },
+              "canonical_root_assessment": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/canonical_root_assessment"
+              },
+              "artifact_approval_granted": false,
+              "boundary": "Actual frozen CONTENT approves CTB-106 and full CTB-19/Color by composition with retained CTB-99 through CTB-105. FINAL, publication and receiving acceptance remain separate."
+            },
+            "correspondence": "docs/research/vfa-color.md",
+            "chapter_coverage": {
+              "canonical_plan": {
+                "where": "baseline",
+                "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1017-Color.md",
+                "sha256": "8b69472e3eb9a0157375d2e47292af07ba0eaf098b5a22d418ea0021cd0ceed7"
+              },
+              "primary": {
+                "path": "external/vfa-2.1/vfa/Color.v",
+                "size_bytes": 23243,
+                "sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370"
+              },
+              "canonical_source_records": 53,
+              "canonical_exercises": 14,
+              "canonical_source_commands": 35,
+              "canonical_module_aliases": 5,
+              "new_source_correspondence_objects": 0,
+              "complete_prior_source_correspondence_objects_preserved": true,
+              "correspondence_owner": "docs/research/vfa-color.md and retained CTB-99 through CTB-105 records",
+              "retained_additional_contracts": 41,
+              "new_program_contracts": 9,
+              "current_additional_contracts": 50,
+              "retained_connected_cases": 68,
+              "new_prewritten_case_groups": 18,
+              "current_connected_cases": 86,
+              "new_contract_ids": [
+                "055-contract-01",
+                "055-contract-02",
+                "055-contract-03",
+                "055-contract-04",
+                "055-contract-05",
+                "055-contract-06",
+                "055-contract-07",
+                "055-contract-08",
+                "055-contract-09"
+              ],
+              "new_case_ids": [
+                "055-case-01",
+                "055-case-02",
+                "055-case-03",
+                "055-case-04",
+                "055-case-05",
+                "055-case-06",
+                "055-case-07",
+                "055-case-08",
+                "055-case-09",
+                "055-case-10",
+                "055-case-11",
+                "055-case-12",
+                "055-case-13",
+                "055-case-14",
+                "055-case-15",
+                "055-case-16",
+                "055-case-17",
+                "055-case-18"
+              ],
+              "coverage_evidence": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/coverage_evidence"
+              },
+              "actual_focused_receipt": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/actual_focused_receipt"
+              },
+              "actual_source_command_input": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/actual_source_command_input"
+              },
+              "actual_source_command_output": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/actual_source_command_output"
+              },
+              "isolated_Print_Check_positions_reexecuted": 33,
+              "expanded_Print_Check_commands": 79,
+              "isolated_Compute_positions_executed": [
+                594,
+                596
+              ],
+              "pending_Compute_positions": [],
+              "actual_program_computations": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/actual_program_computations"
+              },
+              "chapter_source_qualified": true,
+              "canonical_closure": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/canonical_closure"
+              },
+              "root_closure_assessment": {
+                "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/chapter_coverage/root_closure_assessment"
+              },
+              "boundary": "The 53/14/35/5 source arrays and 41/68 contract/case prefixes retain exact historical attribution. Frozen prevalidation coverage remains unchanged; later actual validation and CONTENT qualify full Color by composition. No whole-provider or compiler equivalence is claimed."
+            },
+            "focused_validation_receipt": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_bounded_increments/0/focused_validation_receipt"
+            },
+            "remaining_scope": [],
+            "boundary": "CTB-106 completes the actual Color program-resource model and composes with CTB-99 through CTB-105 to qualify full canonical Color. Earlier mathematical bodies and raw/weak semantic hypotheses are unchanged. The shared measured right-fold preserves literal erasure, ordered callback states and noncommutative costs. Actual helper, construction, fixed-K selection and painting executions count Boolean/Option/control operations and operand-sensitive arithmetic; selection trajectories include the final residual, painting uses original adjacency and right-fold order. Successful lookup insertion attempts are counted separately from final used-color cardinality; successful suffix coloring proves actual writes rather than assuming them. The full normalized supplied-input bound is 64*P with P=n^2*b^2+n*D*b+D*(b+c)+(n+1)*k*c+n+1, b,c>=1, and stored/mentioned-key plus palette-color bit bounds. Graph construction charges original edge occurrences separately; palette setup and exports remain separately priced. Numeric decoders return actual decoded values and charge explicitly supplied fees; output list cells and pairs are counted. These are declared source events, not parser/byte-formatting, physical allocation/sharing/GC, machine arithmetic or wall-time bounds. All 18 prewritten case groups and 40 evaluations retain their expected results, including source selection 731, coloring 1058, separate exported pipeline 1584, padding counterfamilies and the 320*b^2 long-key bound. Shared semantic and SimpleGraph clients retain their actual validity, progress and palette hypotheses; no new provider/compiler equivalence is asserted. Full Color qualification is source qualification. FINAL/publication and receiving quality/whole-library acceptance remain mandatory; all remaining FDSA/PFDS work continues."
+          }
+        ],
+        "newly_qualified_evidence": {
+          "unit": "Color",
+          "ticket": "CTB-19",
+          "review": {
+            "phase": "CONTENT",
+            "candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
+            "tree": "56a5f8e82baa33533181007865ee18d46617eeb1",
+            "base": "c8927de505a4b248cbffa8a01268dc95a104ead0",
+            "record": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/record"
+            },
+            "requirements": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/requirements"
+            },
+            "Standards": "Passed",
+            "Spec": "Passed",
+            "standards_findings": 0,
+            "spec_findings": 0,
+            "unresolved_findings": 0,
+            "coordinator": "/root/color_review",
+            "standards_report": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/standards_report"
+            },
+            "spec_report": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/spec_report"
+            },
+            "root_complete_report_acceptance": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/root_complete_report_acceptance"
+            },
+            "root_read_both_complete_reports": true,
+            "qualification_authorized": true,
+            "qualification_scope": "CTB-106 complete measured Color program resources and CTB-19 full canonical Color source.",
+            "chapter_qualification_authorized": true,
+            "canonical_closure_map": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/canonical_closure_map"
+            },
+            "canonical_root_reading": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/canonical_root_reading"
+            },
+            "canonical_root_assessment": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/review/canonical_root_assessment"
+            },
+            "artifact_approval_granted": false,
+            "boundary": "Actual frozen CONTENT approves CTB-106 and full CTB-19/Color by composition with retained CTB-99 through CTB-105. FINAL, publication and receiving acceptance remain separate."
+          },
+          "coverage": {
+            "canonical_plan": {
+              "where": "baseline",
+              "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1017-Color.md",
+              "sha256": "8b69472e3eb9a0157375d2e47292af07ba0eaf098b5a22d418ea0021cd0ceed7"
+            },
+            "primary": {
+              "path": "external/vfa-2.1/vfa/Color.v",
+              "size_bytes": 23243,
+              "sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370"
+            },
+            "canonical_source_records": 53,
+            "canonical_exercises": 14,
+            "canonical_source_commands": 35,
+            "canonical_module_aliases": 5,
+            "new_source_correspondence_objects": 0,
+            "complete_prior_source_correspondence_objects_preserved": true,
+            "correspondence_owner": "docs/research/vfa-color.md and retained CTB-99 through CTB-105 records",
+            "retained_additional_contracts": 41,
+            "new_program_contracts": 9,
+            "current_additional_contracts": 50,
+            "retained_connected_cases": 68,
+            "new_prewritten_case_groups": 18,
+            "current_connected_cases": 86,
+            "new_contract_ids": [
+              "055-contract-01",
+              "055-contract-02",
+              "055-contract-03",
+              "055-contract-04",
+              "055-contract-05",
+              "055-contract-06",
+              "055-contract-07",
+              "055-contract-08",
+              "055-contract-09"
+            ],
+            "new_case_ids": [
+              "055-case-01",
+              "055-case-02",
+              "055-case-03",
+              "055-case-04",
+              "055-case-05",
+              "055-case-06",
+              "055-case-07",
+              "055-case-08",
+              "055-case-09",
+              "055-case-10",
+              "055-case-11",
+              "055-case-12",
+              "055-case-13",
+              "055-case-14",
+              "055-case-15",
+              "055-case-16",
+              "055-case-17",
+              "055-case-18"
+            ],
+            "coverage_evidence": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/coverage_evidence"
+            },
+            "actual_focused_receipt": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/actual_focused_receipt"
+            },
+            "actual_source_command_input": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/actual_source_command_input"
+            },
+            "actual_source_command_output": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/actual_source_command_output"
+            },
+            "isolated_Print_Check_positions_reexecuted": 33,
+            "expanded_Print_Check_commands": 79,
+            "isolated_Compute_positions_executed": [
+              594,
+              596
+            ],
+            "pending_Compute_positions": [],
+            "actual_program_computations": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/actual_program_computations"
+            },
+            "chapter_source_qualified": true,
+            "canonical_closure": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/canonical_closure"
+            },
+            "root_closure_assessment": {
+              "historical_ref": "saved072:BOOKS.json#/books/VFA/qualified_progress/newly_qualified_evidence/coverage/root_closure_assessment"
+            },
+            "boundary": "The 53/14/35/5 source arrays and 41/68 contract/case prefixes retain exact historical attribution. Frozen prevalidation coverage remains unchanged; later actual validation and CONTENT qualify full Color by composition. No whole-provider or compiler equivalence is claimed."
+          }
+        }
+      },
+      "canonical_chapter_requirements": "docs/history/textbooks/checkpoint-024/TICKETS.json",
+      "raw_primary_bodies_included": false
+    },
+    "FDSA": {
+      "source_identity": {
+        "title": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+        "edition": "Version of July 27, 2026",
+        "editor": "Tobias Nipkow",
+        "pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+        "pdf_url": "https://fdsa-book.net/functional_data_structures_algorithms.pdf",
+        "companion_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21"
+      },
+      "denominators": {
+        "chapter_count": 27,
+        "appendix_count": 3,
+        "numbered_chapter_obligations": 2526,
+        "numbered_appendix_obligations": 170
+      },
+      "qualified_progress": {
+        "historically_accepted_chapters": [
+          1,
+          2,
+          3
+        ],
+        "source_qualified_chapters": [
+          4
+        ],
+        "receiving_owner": "docs/research/fdsa-chapter04-coverage.md",
+        "boundary": "CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS and receiving acceptance remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+        "newly_qualified_chapters": [],
+        "newly_qualified_bounded_increments": [
+          {
+            "ticket": "CTB-114",
+            "rows": [
+              "C05-091",
+              "C05-094"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "cb53530ae9c020395d85f37f2e59a168bdee55c9",
+              "candidate": "8a67452781255dfedcf934a3c31e63dc12015890",
+              "tree": "9d70d8041b7ccd806b7b95409c3553e445bd5325",
+              "accepted_source_commit": "5e4600fa78d103f2e124d111909bf4ca70934dc2",
+              "record": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/record"
+              },
+              "requirements": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/requirements"
+              },
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "standards_report": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/standards_report"
+              },
+              "spec_report": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/spec_report"
+              },
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/root_complete_report_acceptance"
+              },
+              "root_read_both_complete_reports": true,
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "qualification_scope": "CTB-114 / C05-091 and094 only",
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/0/qualification_review/source_validation_reuse"
+              },
+              "boundary": "Reviewed source only; FINAL artifact approval and receiving acceptance remain separate gates."
+            },
+            "correspondence": "docs/research/fdsa-rotation-distance.md",
+            "correspondence_owners": [
+              "docs/research/fdsa-rotation-distance.md",
+              "docs/research/fdsa-three-key-search-mean.md"
+            ]
+          },
+          {
+            "ticket": "CTB-115",
+            "rows": [
+              "C09-001",
+              "C09-002",
+              "C09-003",
+              "C09-004",
+              "C09-005",
+              "C09-006",
+              "C09-007",
+              "C09-008",
+              "C09-009"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "5e4600fa78d103f2e124d111909bf4ca70934dc2",
+              "candidate": "4abb2796891f27f1d2eec43a46dd9183cc9b885a",
+              "tree": "6aaf5920aa058a29e93e2771ecbc68d7f5a08bd9",
+              "accepted_source_commit": "7c0ed589087945d3e6e9c44b3ff2845872deaa14",
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/1/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/1/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-001",
+                "C09-002",
+                "C09-003",
+                "C09-004",
+                "C09-005",
+                "C09-006",
+                "C09-007",
+                "C09-008",
+                "C09-009"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; artifact FINAL, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-avl-foundations.md"
+          },
+          {
+            "ticket": "CTB-116",
+            "rows": [
+              "C09-010",
+              "C09-011",
+              "C09-012",
+              "C09-013",
+              "C09-014",
+              "C09-015",
+              "C09-016",
+              "C09-017",
+              "C09-046",
+              "C09-047",
+              "C09-048",
+              "C09-049",
+              "C09-050",
+              "C09-051"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "7c0ed589087945d3e6e9c44b3ff2845872deaa14",
+              "candidate": "d76e2af9c455768268539d5a8b2d85e593b57e13",
+              "tree": "6d420e082e44f03bfb58fd96b10d677cc26c1420",
+              "accepted_source_commit": "7de50acd911aaa81901d40d752c1114d5837ae0c",
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/2/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/2/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-010",
+                "C09-011",
+                "C09-012",
+                "C09-013",
+                "C09-014",
+                "C09-015",
+                "C09-016",
+                "C09-017",
+                "C09-046",
+                "C09-047",
+                "C09-048",
+                "C09-049",
+                "C09-050",
+                "C09-051"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; artifact FINAL, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-avl-height.md"
+          },
+          {
+            "ticket": "CTB-117",
+            "rows": [
+              "C09-042",
+              "C09-043",
+              "C09-044",
+              "C09-045",
+              "C09-052",
+              "C09-053"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "7de50acd911aaa81901d40d752c1114d5837ae0c",
+              "candidate": "32ef1b0380274bd6e0c4e2327814f5460f4f32bf",
+              "tree": "fdaacfbeeb59a55502e6324af027d1fe4814f4e0",
+              "accepted_source_commit": "b79f5dea95e6c4508b2491127eb83d82d05f12a3",
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/3/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/3/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-042",
+                "C09-043",
+                "C09-044",
+                "C09-045",
+                "C09-052",
+                "C09-053"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; artifact FINAL, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-avl-elementary-bounds.md"
+          },
+          {
+            "ticket": "CTB-118",
+            "rows": [
+              "C09-018",
+              "C09-019",
+              "C09-020",
+              "C09-021",
+              "C09-022",
+              "C09-023",
+              "C09-024",
+              "C09-025",
+              "C09-026",
+              "C09-038",
+              "C09-054",
+              "C09-056"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "3e5ae52700723e45c921639456d119cbc4ea37e1",
+              "candidate": "02c7a4dd23f3495a18e69724c448d86c48612890",
+              "tree": "b9877a7b9e84d2f63d039bf71d7f8c8a7356a2bd",
+              "accepted_source_commit": "85016a4d83a19e9e1d9e7bbcd3906c3db0aa4975",
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/4/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/4/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-018",
+                "C09-019",
+                "C09-020",
+                "C09-021",
+                "C09-022",
+                "C09-023",
+                "C09-024",
+                "C09-025",
+                "C09-026",
+                "C09-038",
+                "C09-054",
+                "C09-056"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; payload FINAL, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-height-rebalance.md"
+          },
+          {
+            "ticket": "CTB-120",
+            "rows": [
+              "C09-027",
+              "C09-028",
+              "C09-029",
+              "C09-030",
+              "C09-031",
+              "C09-032",
+              "C09-033",
+              "C09-034",
+              "C09-035",
+              "C09-036",
+              "C09-055",
+              "C09-057",
+              "C09-058"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "85016a4d83a19e9e1d9e7bbcd3906c3db0aa4975",
+              "candidate": "e016caf68b387fab32b3056bca6b71c97935d219",
+              "tree": "fed6b6ade9f3452e9695941c650567db39253047",
+              "accepted_source_commit": "4212c4218726d47d94cfc2bcf4c53511fb2777fe",
+              "Spec": "Passed",
+              "Standards": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/5/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/5/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-027",
+                "C09-028",
+                "C09-029",
+                "C09-030",
+                "C09-031",
+                "C09-032",
+                "C09-033",
+                "C09-034",
+                "C09-035",
+                "C09-036",
+                "C09-055",
+                "C09-057",
+                "C09-058"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; FINAL artifact review, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-height-updates.md"
+          },
+          {
+            "ticket": "CTB-121",
+            "rows": [
+              "C09-037",
+              "C09-059"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "4212c4218726d47d94cfc2bcf4c53511fb2777fe",
+              "candidate": "e3717cce4566d581b18ff2b687d5582393ff60e4",
+              "tree": "be216f94f0166b3d3f6bf34c1ef93f2abd2e0532",
+              "accepted_source_commit": "d2179fad8bccba49bafd39827806009adfb7d110",
+              "Spec": "Passed",
+              "Standards": "Passed",
+              "unresolved_findings": 0,
+              "root_complete_report_acceptance": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/6/qualification_review/root_complete_report_acceptance"
+              },
+              "source_validation_reuse": {
+                "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/6/qualification_review/source_validation_reuse"
+              },
+              "qualification_rows": [
+                "C09-037",
+                "C09-059"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "boundary": "Actual bounded source CONTENT only; FINAL artifact review, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-height-set-refinement.md"
+          },
+          {
+            "ticket": "CTB-122",
+            "rows": [
+              "C09-061"
+            ],
+            "qualification_review": {
+              "phase": "CONTENT",
+              "base": "e63e705dc4617464ce417a2b5ec0d3326b5776a2",
+              "candidate": "fa8d5f89290d43da8a69049e9fc014b174ca2c95",
+              "tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
+              "accepted_source_commit": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "qualification_rows": [
+                "C09-061"
+              ],
+              "qualification_authorized": true,
+              "chapter_qualification_authorized": false,
+              "artifact_approval_granted": false,
+              "root_read_both_complete_reports": true,
+              "root_complete_report_acceptance": {
+                "path": {
+                  "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/7/qualification_review/root_complete_report_acceptance/path"
+                },
+                "json_pointer": "/source_validation_reuse"
+              },
+              "complete_reports_owner": {
+                "path": {
+                  "historical_ref": "saved072:BOOKS.json#/books/FDSA/qualified_progress/newly_qualified_bounded_increments/7/qualification_review/complete_reports_owner/path"
+                },
+                "json_pointer": "/evidence"
+              },
+              "boundary": "Actual bounded source CONTENT only; artifact FINAL, publication and receiving remain separate."
+            },
+            "correspondence": "docs/research/fdsa-height-bound.md"
+          }
+        ],
+        "active_chapter": 5,
+        "chapter05_qualified_rows": 90,
+        "chapter05_remaining_rows": 4,
+        "chapter05_correspondence": [
+          "docs/research/fdsa-search-trees.md",
+          "docs/research/fdsa-tree-rotations.md",
+          "docs/research/fdsa-interval-foundations.md",
+          "docs/research/fdsa-interval-updates.md",
+          "docs/research/fdsa-interval-search.md",
+          "docs/research/fdsa-rectangle-events.md",
+          "docs/research/fdsa-rectangle-sweep.md",
+          "docs/research/fdsa-rotation-distance.md",
+          "docs/research/fdsa-three-key-search-mean.md"
+        ],
+        "chapter09_qualified_rows": 57,
+        "chapter09_total_rows": 110,
+        "chapter09_remaining_rows": 53,
+        "chapter09_qualified_row_ids": [
+          "C09-001",
+          "C09-002",
+          "C09-003",
+          "C09-004",
+          "C09-005",
+          "C09-006",
+          "C09-007",
+          "C09-008",
+          "C09-009",
+          "C09-010",
+          "C09-011",
+          "C09-012",
+          "C09-013",
+          "C09-014",
+          "C09-015",
+          "C09-016",
+          "C09-017",
+          "C09-018",
+          "C09-019",
+          "C09-020",
+          "C09-021",
+          "C09-022",
+          "C09-023",
+          "C09-024",
+          "C09-025",
+          "C09-026",
+          "C09-027",
+          "C09-028",
+          "C09-029",
+          "C09-030",
+          "C09-031",
+          "C09-032",
+          "C09-033",
+          "C09-034",
+          "C09-035",
+          "C09-036",
+          "C09-037",
+          "C09-038",
+          "C09-042",
+          "C09-043",
+          "C09-044",
+          "C09-045",
+          "C09-046",
+          "C09-047",
+          "C09-048",
+          "C09-049",
+          "C09-050",
+          "C09-051",
+          "C09-052",
+          "C09-053",
+          "C09-054",
+          "C09-055",
+          "C09-056",
+          "C09-057",
+          "C09-058",
+          "C09-059",
+          "C09-061"
+        ],
+        "chapter09_correspondence": [
+          "docs/research/fdsa-avl-foundations.md",
+          "docs/research/fdsa-avl-height.md",
+          "docs/research/fdsa-avl-elementary-bounds.md",
+          "docs/research/fdsa-height-rebalance.md",
+          "docs/research/fdsa-height-updates.md",
+          "docs/research/fdsa-height-set-refinement.md",
+          "docs/research/fdsa-height-bound.md"
+        ]
+      },
+      "canonical_chapter_requirements": "docs/history/textbooks/checkpoint-024/TICKETS.json",
+      "raw_primary_bodies_included": false
+    },
+    "PFDS": {
+      "source_identity": {
+        "title": "Purely Functional Data Structures",
+        "author": "Chris Okasaki",
+        "scope": "Union of Cambridge book (1998 first publication, 1999 paperback, supplied 2003 digital printing) and complete 1996 thesis CMU-CS-96-177; both appendices and source corrections retained.",
+        "source_identities": {
+          "book": {
+            "sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+            "bytes": 9356709,
+            "pages": 232
+          },
+          "thesis": {
+            "sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072",
+            "bytes": 628877,
+            "pages": 162,
+            "url": "https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf"
+          }
+        }
+      },
+      "denominators": {
+        "book_chapters": 11,
+        "book_exercise_headings": 83,
+        "numbered_book_results": 12,
+        "thesis_forward_cost_contracts": 16
+      },
+      "qualified_progress": {
+        "receiving_owners": [
+          "docs/research/pfds-union-coverage.md",
+          "docs/research/pfds-library-client.md"
+        ],
+        "bounded_fifo_client_received": true,
+        "later_exercise_headings_open": 77,
+        "boundary": "The bounded FIFO client does not complete the book/thesis union, full suspension work correspondence, or physical sharing."
+      },
+      "canonical_chapter_requirements": "docs/history/textbooks/checkpoint-024/TICKETS.json",
+      "raw_primary_bodies_included": false
+    }
+  },
+  "accounting_rule": "Counts have distinct denominators and are not additive completion percentages. All exercises, assumptions, stronger drafts and source corrections remain in the pinned canonical chapter ledgers.",
+  "source_readiness": {
+    "VFA": "All 17 units are source-qualified. Exact primary, canonical plan, slides and provider reading retain earlier identities. All 53 Color source records, 14 exercises, 35 commands and five aliases retain their correspondence objects. Actual 055 validation reruns 33 Print/Check positions and both Computes at 594/596. CTB-106 completes actual helpers, construction, fixed-K selection, original-adjacency painting, trajectories, full event/arithmetic tariffs, the explicit 64-polynomial bound, separate construction and numeric export. Both full canonical CONTENT axes and root acceptance qualify Color by composition with CTB-99 through CTB-105. Earlier readiness remains in checkpoint054_progress_provenance; raw primary bodies remain external. Receiving integration-quality and whole-library acceptance are pending.",
+    "FDSA": "Actual isolated072 focused validation and both CONTENT axes qualify C09-061. The31module closure audits1182safe declarations/770theorems; all97new-origin pretty statements (83theorems) were read with universes and axioms. Complete pretty types and independent reasoning are retained; full/Expr exports remain authenticated external evidence. CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS and receiving acceptance remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+    "PFDS": "Checkpoint035 records authentication of the exact1996 thesis; that external PDF must be reacquired when needed. Preserved complete book chapter1-8 ledgers remain usable under CTB-64. Chapters9-11 still require the exact232-page Cambridge primary PDF identified above. No inaccessible historical Library file was read."
+  },
+  "last_donor_increment": {
+    "serial": 72,
+    "ticket": "CTB-122",
+    "new_rows": [
+      "C09-061"
+    ],
+    "chapter09_before": 56,
+    "chapter09_after": 57,
+    "chapter09_total": 110,
+    "chapter09_remaining": 53,
+    "chapter05_unchanged": "90/94;085/090/092/093 open",
+    "whole_chapter_qualification": false,
+    "receiving_acceptance": "pending"
+  },
+  "qualification_basis": {
+    "source_donor": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
+    "source_donor_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
+    "receiving_master": "8ff71395e9841760c4e240c4e8b8741b355bda68",
+    "receiving_acceptance": "pending",
+    "current_gate": "CTB-78; see docs/textbooks/CTB.json and docs/textbooks/README.md#required-order",
+    "migration_boundary": "All source editions, denominators, qualified row/unit membership and mathematical scope retain donor qualification. This repository migration qualifies no new row, chapter or book."
+  },
+  "historical_catalogs": {
+    "saved072": {
+      "archive": "conaled-textbooks-072.tar.xz",
+      "sha256": "c65f40d1c2bdddd9b8f58873c366afc633f7604cf1be21bb8daeafd7ca0d4c67",
+      "payload_commit": "922eb06ac7254efe278bd09483716a6dc71c0653",
+      "members": {
+        "CTB.json": "conaled-textbooks/integration/tickets/CTB.json",
+        "BOOKS.json": "conaled-textbooks/integration/coverage/BOOKS.json"
+      },
+      "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
+    }
+  },
+  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current receiving remains pending."
+}

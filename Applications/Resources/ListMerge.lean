@@ -158,6 +158,24 @@ theorem entries_le (cmp : α → α → Bool) (xs ys : List α) :
   rw [entries_eq_comparisons_add_one]
   exact Nat.add_le_add_right (comparisons_le cmp xs ys) 1
 
+/-- At least one element remains when a merge stops comparing. Natural
+subtraction also covers the case where both inputs are empty. -/
+theorem comparisons_le_pred (cmp : α → α → Bool) (xs ys : List α) :
+    comparisons cmp xs ys ≤ xs.length + ys.length - 1 := by
+  induction xs generalizing ys with
+  | nil => simp only [comparisons_nil_left]; exact Nat.zero_le _
+  | cons x xs ihx =>
+      induction ys with
+      | nil => simp only [comparisons_nil_right]; exact Nat.zero_le _
+      | cons y ys ihy =>
+          rw [comparisons_cons_cons]
+          split
+          · have ih := ihx (y :: ys)
+            simp only [List.length_cons] at ih ⊢
+            omega
+          · simp only [List.length_cons] at ihy ⊢
+            omega
+
 /-- Two nonempty inputs necessarily cause a first comparison. -/
 theorem comparisons_cons_pos (cmp : α → α → Bool) (x y : α) (xs ys : List α) :
     1 ≤ comparisons cmp (x :: xs) (y :: ys) := by
