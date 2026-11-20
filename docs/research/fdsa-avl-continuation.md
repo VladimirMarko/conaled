@@ -1,10 +1,14 @@
-# Chapter 9 factor algorithms and later exercises: unqualified preparation
+# Chapter 9 measured AVL correspondence and later preparation
 
 This paper preserves the 19 November 2026 primary-reading and mathematical
 preparation by `/root/balanced_interval_preparation`. Its factor algorithms,
-construction/conversion plans and proposed cases remain **unqualified**; no
-new Lean implementation or receiving acceptance follows from this curation.
-Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json): CTB-78 integration acceptance precedes resumed book formalization. This paper is not a Lean dependency or a receiving validation receipt.
+construction/conversion plans and proposed cases remain **unqualified**. The
+separate measured cached-AVL development below continues the existing CTB-28
+requirements; it does not implement the later factor algorithms by implication.
+Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json).
+The latest user instruction authorizes continued local formalization and dated
+checkpoints while receiving acceptance proceeds independently. This paper is
+not a receiving validation receipt, and publication remains separately gated.
 
 At accepted donor 072, Chapter 9 is57/110: rows 001–038,042–059 and 061 have their
 bounded source qualifications. Measured operation rows 039–041/060 and 062–110
@@ -14,6 +18,148 @@ own the complete scope. Existing cached-height work is documented in
 [Set refinement](fdsa-height-set-refinement.md) and [logarithmic height](fdsa-height-bound.md).
 The initial paper predated these increments; its old task boundaries are not
 current instructions.
+
+## Cached membership and ordinary measured correspondence
+
+Increment 082 addresses the existing C09-039/040/041/060 requirements. Its owners
+are `Applications/Resources/HeightBalance/Membership.lean`,
+`Applications/Resources/AVL.lean`, `Applications/Resources/AVL/Logarithmic.lean`,
+and the shared `Applications/Trees/SetCardinality.lean`. The older complete
+annotation update and logarithmic owners remain the underlying algorithms and
+proofs. This is implemented mathematical development, still subject to exact
+candidate validation and independent review before any row qualification.
+
+### One executed lookup and the complete membership tariff
+
+The existing `Resources.SearchTree.lookupWithRun` runs on the annotated input
+tree itself. It returns an Option of the original annotation together with the
+pair `(visited nonempty nodes, executed comparator work)`. The new scalar adapter
+binds that result once and observes
+
+\[
+  W=v+c+\mathbf 1_{\text{returned Option is none}}.
+\]
+
+The Boolean membership adapter takes `isSome` of the same returned Option and
+retains exactly the same cost. Neither program runs tree erasure, a second
+lookup, or a stored-height read. Pairing, projections, Boolean observation and
+the addition of recorded counters are free in this declared source model.
+Consequently nil costs 1. At a node, the actual first comparison chooses the
+left branch with cost `1 + firstCost + leftCost`; only when it returns false is
+the reverse comparison executed. A true reverse answer chooses the right branch
+with cost `1 + firstCost + secondCost + rightCost`. Two false answers return the
+original annotation at `1 + firstCost + secondCost`, without a terminal nil.
+
+Raw value erasure needs only `LT`, `DecidableLT` and the actual callback-value
+equations. These equations may be supplied locally at labels of the finite
+input. No ordering law or cache validity is needed for raw correspondence.
+Strict erased inorder separately supplies membership in the structural set.
+Cost bounds need no correctness equation: even deliberately false callbacks
+follow the stated reached-path recurrence. A local bound C on both query
+orientations at every input label gives
+
+\[
+  W\le (1+2C)h+1.
+\]
+
+The proof reuses the existing weighted visit/comparator theorem and adds at
+most one failed terminal. For any natural tolerance d, actual erased-shape
+`BalancedD d` and the existing height theorem give
+
+\[
+  W\le(1+2C)(d+1)\operatorname{clog}_2(N+1)+1.
+\]
+
+The shared affine-clog bridge proves ordinary real O(log2(n+1)) on every
+exact-size balanced family with fixed comparator tariff. Annotation and key
+universes are independent. This does not assume that all sizes are realizable
+by an ordered family over an arbitrary finite key type; the family and its
+size/balance premises are explicit.
+
+### Ordinary d=1 execution and structural work
+
+The ordinary owner specializes the same complete-annotation programs to d=1.
+Its height callback returns its input at cost 0. Its combination executes a
+unit-cost max and then a unit-cost successor, using the actual first result;
+the full callback costs 2. Strict comparison has cost 1. Cached access still
+charges 1, and the generic outer trigger still executes its two additions at
+d=1. Merely rewriting its mathematical threshold as +2 would not remove either
+executed observation.
+
+| Executed helper | Source observation |
+| --- | ---: |
+| Cached root access | 1 |
+| Smart node: two reads, max, successor, constructor | 5 |
+| Outer trigger: two reads, two additions, equality | 5 |
+| Inner child-height comparison | 3 |
+| Repair fallback, including repair entry | 11 |
+| Single rotation, including repair entry and guards | 19 |
+| Double rotation, including repair entry and guards | 24 |
+
+The public ordinary reader, constructor, repairs, insert, predecessor extraction
+and delete are direct specializations. Raw value theorems identify their actual
+returned trees with the existing `Trees.AVL` operations. Their exact recurrences
+and costs specialize the same generic measured programs, including the
+single-rotation equal-child ties used by deletion. Existing validity and
+simultaneous height-effect theorems apply to these actual returned values;
+strictness supplies the separate Set laws. This preserves the distinction
+between algorithm/value, invariant, recurrence and cost correspondence in
+C09-060.
+
+For every raw annotated tree, with structural height h, the complete work bounds
+are:
+
+| Operation | Structural bound | Under actual ordinary shape balance, L=clog2(N+1) |
+| --- | --- | --- |
+| Lookup or membership | 3h+1 | 6L+1 |
+| Insert | 27h+6 | 54L+6 |
+| Extract maximum | 25h+1 | 50L+1 |
+| Delete | 27h+1 | 54L+1 |
+
+For nonempty extraction the additive 1 is omitted. The input-height envelopes
+include actual predecessor extraction and rebuilding; there is no separate
+unmeasured traversal attached to a pure result. Shape balance suffices for the
+clog column even when the stored height is incorrect. Cache validity is required
+for the semantic preservation results, not for these structural cost bounds.
+
+### C09-015 composition and the node-to-set boundary
+
+On an ordinary `Trees.AVL.Valid` input, C09-015 supplies the sharper actual-height
+inequality
+
+\[
+ h\le\gamma\log_2(N+1),\qquad
+ \gamma=\frac1{\log_2\varphi},\quad\varphi=\text{Real.goldenRatio}.
+\]
+
+Casting the natural work inequalities to the reals and composing this theorem
+gives respectively `3 gamma log2(N+1)+1`, `27 gamma log2(N+1)+6`,
+`25 gamma log2(N+1)+1` and `27 gamma log2(N+1)+1`; nonempty extraction again omits
+1. The exact coefficient is retained. In particular, 1.44 must not be used as
+an upper bound for gamma. The integer-logarithmic family theorems independently
+give ordinary real O(log2(n+1)) with fixed operation tariffs.
+
+The reusable equality `(setTree t).ncard = t.numNodes` requires only
+`Nodup (inorder t)`. It follows by identifying the set with the inorder list's
+finite set, using distinctness for its cardinality, and applying the existing
+inorder-length theorem. No order, cache or balance structure is needed for that
+generic lemma. Strict erased inorder supplies Nodup for ordinary search trees;
+the cached erasure preserves node count. The complete-key sweep's former local
+proof now uses this same owner without changing its public statement.
+
+Set-size logarithmic corollaries therefore retain strictness separately from
+the shape/validity premises. A balanced perfect seven-node tree relabelled by
+one repeated key still has height 3 and seven nodes, but its observed set has
+cardinality 1. Neither balanced shape nor correct height caches licenses that
+substitution without distinctness.
+
+Connected cases use the existing pure cached-tree fixtures, the public generic
+and ordinary contracts, asymmetric comparison prices, deliberately wrong caches
+and callbacks, exact insertion/rotation/extraction/deletion observations, and
+arbitrary-input/family clients. Their actual compilation and statement-inspection
+results belong to the dated evidence records; finite examples alone do not
+establish the universal theorems. The old comparison-only SearchTree observation
+and its clients remain available.
 
 ## Source and attributed reading
 
@@ -339,5 +485,6 @@ operations, list/Set behavior and measured recurrences remain to be implemented
 and checked. Construction must preserve arbitrary lists and exact suffixes;
 conversion value equality does not establish a single traversal; tree4 value
 transport does not establish local execution or compiled byte savings. Retain
-the separate C05 balanced-interval and measured-sweep obligations. Current
-receiving integration must be accepted before new book formalization resumes.
+the separate C05 balanced-interval and measured-sweep obligations. Continue the
+canonical remaining book programme under the latest instruction while receiving
+integration and source qualification retain their separate owners and gates.

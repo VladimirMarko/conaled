@@ -867,7 +867,7 @@
     "source_donor_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
     "receiving_master": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_acceptance": "Passed for R2; see docs/textbooks/CTB.json#/integration_handoff/acceptance_evidence",
-    "current_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+    "current_gate": "Continue the full textbook programme under its existing CTB owners until formalization and receiving integration are complete, saving and uploading useful checkpoints regularly. Current C05-090 progress includes measured generation, scan and strict balanced prefix cardinality. Keep the selected model, master hold and complete unreceived delta; obtain actual validation and independent reviews before qualification. Receiving integration remains separately owned.",
     "migration_boundary": "All source editions, denominators, qualified row/unit membership and mathematical scope retain donor qualification. This repository migration qualifies no new row, chapter or book."
   },
   "historical_catalogs": {
@@ -882,5 +882,41 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope."
+  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope.",
+  "current_work": {
+    "ticket": "CTB-24",
+    "row": "C05-093",
+    "correspondence": "docs/research/fdsa-rotation-certificate-preparation.md",
+    "status": "Increment 084 implements concrete Fin16 tree/bit/path/move/certificate/input codes and actual accumulator emitters with exact values, lengths and work; actual bit/path/move prefix parsers with exact arbitrary-suffix recognition, success work, raw-input bounds, consumed lengths, prefix injectivity and actual emitter roundtrips. All 083 fixed-width/rotation/equality foundations remain intact. The complete 897-job focused example closure passed. Root read all 128 exported public declarations, including 97 theorems, and all 2213 output lines; only propext and Quot.sound occurred. The maintained paper separates these compiled codecs and linear parsers from the still unimplemented stack tree/input parsers, streaming checker, soundness/completeness and polynomial witness/work conclusions. Current 084 independent review remains pending. Both full 083 mathematical reviews and combined reconciliation were read; no new content defect, only inherited STD075-001/SPEC075-1. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain unresolved, old run outcome UNKNOWN, no new row qualified. Receiver-owned cfa205a4/#659 acceptance and master publication remain separate, preserving a7a831fc/#560 reconciliation.",
+    "retained_unqualified_work": {
+      "row": "C05-085",
+      "correspondence": "docs/research/fdsa-balanced-interval-tree.md",
+      "status": "Implemented and focused-compiled; whole-library and final nonrepairing qualification gates remain unresolved."
+    },
+    "chapter05_qualified_rows": 90,
+    "chapter05_remaining_rows": [
+      "C05-085",
+      "C05-090",
+      "C05-092",
+      "C05-093"
+    ],
+    "receiving_acceptance": "Verified read-only on 20 November 2026: cfa205a4 was received and reconstructed under GitHub issue #659, which remains open for independent isolated receiving acceptance. The old lost author-run handle is not its prerequisite. Later source work is preserved separately and remains unqualified. Published reconciliation a7a831fc and closure of #560 were also verified and are preserved; original author review base3ac and qualification counts remain unchanged.",
+    "retained_measured_sweep": {
+      "ticket": "CTB-24",
+      "row": "C05-090",
+      "correspondence": "docs/research/fdsa-rectangle-sweep.md",
+      "status": "Complete supported-state and actual measured sweep bounds implemented and focused-compiled; mathematical reviews complete and anchor correction confirmed. Matching qualification gates remain open."
+    },
+    "retained_ordinary_avl": {
+      "ticket": "CTB-28",
+      "rows": [
+        "C09-039",
+        "C09-040",
+        "C09-041",
+        "C09-060"
+      ],
+      "correspondence": "docs/research/fdsa-avl-continuation.md",
+      "status": "Implemented and focused-compiled; both complete 082 content reviews found no new defect. Whole/public-coverage, exhaustive-audit and final nonrepairing qualification remain open."
+    }
+  }
 }

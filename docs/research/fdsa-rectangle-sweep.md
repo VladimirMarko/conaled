@@ -16,6 +16,7 @@ values with equal occurrences.
 | [Correctness](../../Applications/Search/RectangleSweep/Correctness.lean) | Distinct overlapping occurrences, soundness/completeness and geometric correctness. |
 | [OrderedList interval search](../../Applications/Search/IntervalSet/OrderedList.lean) | Executable finite overlap search combined with the existing strict-list set laws. |
 | [Connected clients](../../Examples/RectangleSweep.lean) | Concrete results, boundary cases, independent universes and separating incorrect algorithms. |
+| [Measured generation, sorting, scan and active cardinality](fdsa-measured-rectangle-scan.md) | C05-090 progress: shared generation, actual sorter with a complete declared tariff, pipeline binding, early-return observations, primitive-cost envelope and strict balanced prefix node bound; full complexity qualification remains open. |
 
 ## Executable program and its semantic requirements
 
@@ -203,61 +204,83 @@ data, and distinct finite IDs preserve occurrence-sensitive deletion. This is
 a fresh local derivation; it does not claim that an Isabelle session was run or
 that lost source code was reconstructed exactly.
 
-C05-085 still requires an actual balanced interval representation with
-cache-aware updates and deletion. C05-090 still requires the selected
+C05-085 now has a concrete balanced interval representation with cache-aware
+updates and deletion, described in [its paper](fdsa-balanced-interval-tree.md);
+its whole-library acceptance and qualification remain unresolved. C05-090 still requires the selected
 implementation's conditional O(n log n) bound, including event generation,
 sorting, all queries/updates, active-size bounds and early termination. Shared
 semantic meaning does not transfer an operation-cost or physical-sharing
-theorem. C05-091–094, later FDSA chapters and appendices, remaining PFDS work and
+theorem. C05-091 and C05-094 are already qualified under their existing owners;
+C05-092–093, later FDSA chapters and appendices, remaining PFDS work and
 receiving integration remain separate obligations. Source compilation and
 focused proof audits also do not substitute for the independent reviews or the
 receiving whole-library acceptance of the combined branch contents.
 
-## Unqualified preparation for the measured sweep
+<a id="unqualified-preparation-for-the-measured-sweep"></a>
 
-The conditional theorem remains unfinished even though generic cached-height
-foundations are now present. It can be developed before the interval instance is
-finished, using primitive measured operations and their value/validity/size/cost
-contracts. Its assumptions must concern those independent operations and the
-sorter; a field asserting the desired whole-sweep bound would be circular.
-Whole-book completion still needs the concrete balanced instance to discharge
-the premises.
+## Measured sweep development and retained preparation
 
-First define measured event construction following the actual shared indexed
-list, both maps and the append. Prove its returned value is exactly `rawEvents`
-and give a linear bound under explicitly declared unit operations. Charge any
-ID increment/list construction being included. The current implementation avoids
-repeated indexed rectangle lookup; preserve that property.
+The original preparation below is now complemented by the actual concrete
+balanced executor and its complete source-work bound in the
+[maintained measured paper](fdsa-measured-rectangle-scan.md#closed-admitted-support-and-logarithmic-height).
+The proof uses independent primitive value/validity/size/cost contracts and an
+actual measured sorter. It has no field asserting the desired whole-sweep bound.
+Whole-library qualification and receiving integration remain separate from the
+implemented mathematical composition.
 
-Use `Resources.SourceMergeSort.run` on the actual event comparator and prove the
-returned schedule equals `events`. Its existing two observations already give
-`2*(2*n)*clog 2 (2*n)` as an upper bound for splitting plus comparisons. For a
-broader source-work model, include and bound the omitted comparator execution,
-recursive entries, list construction and length tests as appropriate. In
-particular, `run` tests `xs.length<=1`; its current `work` explicitly excludes
-that traversal cost. A new measured recurrence may charge it and prove its sum
-is bounded by the same split recurrence plus base overhead. Do not call the
-existing two-coordinate theorem a bound on costs it expressly excludes.
+The [measured development](fdsa-measured-rectangle-scan.md) now proves the exact
+linear tariff for shared occurrence indexing, both constructor maps and append.
+It charges the declared pair/successor work and preserves the generator's
+avoidance of repeated indexed lookup. Its generation-sort-scan composition binds
+each actual stage result once.
 
-The measured scan must bind actual query/update results in the same order as
-`scan`: query then conditional insertion, deletion without query, and no suffix
-execution after a hit. Prove its value projection, validity and a cumulative
-bound by induction over actual suffix execution. Nonnegative charges allow an
-upper bound by the full schedule's potential work, but that does not mean those
-later queries or updates were actually executed.
+The older `Resources.SourceMergeSort.run` still bounds only split visits plus
+comparisons by `2*(2*n)*clog 2 (2*n)`. The new
+`Resources.SourceMergeSortWork.run` supplies the broader source tariff: it reuses
+the actual length traversal, measures alternating split entries/cons cells,
+binds the actual child results and measured comparator, and charges sort/merge
+entries and the length test. The same existing split-size recurrence gives
+`(C+6)*m*clog 2 m+10*m+3` under a uniform callback bound C. No cost is inherited
+for components that the older observation explicitly excludes.
 
-Connect the existing complete-key active-state invariant to a finite cardinality
-bound of at most n. The active occurrences form a subset of `Fin n`, and their
-complete-key map is injective. For the concrete BST, strict inorder makes its
-node count equal the cardinality of its observed complete-key set. Prove those
-bridges; do not assume node count equals cardinality on arbitrary raw trees.
+`eventCompareRun` follows the actual y/rank/ID lexicographic tests, charging each
+reached primitive comparison and its own invocation. Its costs range from two
+to six and its returned Boolean is the canonical key comparison. The actual
+`sortEventsRun` therefore erases to `sortEvents` and costs at most
+`24*n*clog 2 (2*n)+20*n+3` on the generated events. The small-input cases and
+ordinary eventual sorting bound are explicit. This is a declared unit source
+model, not arithmetic bit complexity or compiled runtime.
 
-Instrument concrete AVL updates, predecessor extraction, smart reconstruction,
-rotations and overlap search. One-branch query cost is linear in height; updates
-visit a search path and deletion may additionally traverse a predecessor path,
-with bounded local reconstruction per returned level. Derive these bounds from
-the actual measured recurrences, then use the checked AVL logarithmic height.
-State the tariff for key/endpoint comparisons and cached-height arithmetic.
+The measured scan binds actual
+query/update results in the same order as `scan`: query then conditional
+insertion, deletion without query, and no suffix execution after a hit. It proves
+value erasure, additive reweighting, exact operation counts and constant tariffs,
+and a cumulative scan bound from primitive bounds and invariant closure.
+Nonnegative projected charges permit a full-schedule envelope without asserting
+that skipped suffix operations executed. The complete C05-090 row and this
+increment's acceptance remain open.
+
+`ActiveCardinality` now proves the finite cardinality bound of at most n from
+the subset of `Fin n`, injective complete-key map and existing exact prefix
+observation. These are full mathematical prefix states; actual continuation
+still needs the earlier miss condition. The concrete balanced prefix now has a
+checked node-count/complete-key-cardinality equality from strict inorder, and
+therefore at most n nodes. The separate complexity owner now closes the primitive
+envelope on every admitted state using finite input support, independently of
+these full-prefix states. The equality is false on raw trees containing repeated keys.
+
+The [measured height-update owner](fdsa-height-updates.md#implemented-measured-local-repairs-and-updates)
+now implements generic complete-annotation repairs, insertion, predecessor
+extraction and deletion, with raw erasures and input-height bounds. Its product
+examples use atomic strict comparisons. The concrete measured sweep additionally
+supplies a field-counted complete occurrence-key comparator and actual one-branch
+overlap query, with exact stages and geometry connected in its maintained paper.
+Updates visit a
+search path and deletion may additionally traverse a predecessor path, with
+bounded local reconstruction per returned level; those update bounds are now
+proved from the actual recurrences. Their composition with admitted support and
+checked logarithmic height is now implemented. The maintained paper states the
+tariff for key/endpoint comparisons and cached-height arithmetic.
 An abstract unit-cost model does not establish bit complexity of unbounded Nat
 IDs, arbitrary comparator execution, machine runtime or allocation.
 
@@ -269,14 +292,22 @@ overlap queries. A safe intermediate all-input envelope is of the form
 when stating a bound without the additive constant. An operation on an empty
 state can have positive cost while `clog 2 (0+1)=0`; use a justified
 `1+clog 2 (m+1)` operation bound or restrict the global n>=1 phase before absorbing
-constants. The final real-log/Big-O conversion and n=0/1 cases still need proofs.
+constants. The concrete all-input theorem now gives
+`24*n*clog 2 (2*n)+182*n*clog 2 (n+1)+40*n+8`, with ordinary eventual
+O(n log₂ n). Its empty cost is exactly8 and its singleton envelope is254;
+the actual square/point singleton costs remain64/66.
 
 ### Attribution and scope of this preparation
 
-The preceding cost decomposition and following separators originate in
-`/root/balanced_interval_preparation`'s 18 November 2026 paper. They remain
-unqualified C05-090 preparation; no measured scan/generation theorem, new runtime
-result or receiving acceptance is supplied by moving them here. The corresponding
+The original cost decomposition and following separators originate in
+`/root/balanced_interval_preparation`'s 18 November 2026 paper. The new measured
+generation/sorting/scan/cardinality work and measured update bounds are
+distinguished above and in their maintained papers.
+The support/height composition is now implemented in the maintained complexity
+owner. The field-comparison and overlap-query components are implemented in the
+[concrete measured pipeline](fdsa-measured-rectangle-scan.md#actual-measured-interval-queries-and-concrete-balanced-sweep),
+with exact small-input generation/sort/scan clients. The work remains
+unqualified; paper curation alone supplies no runtime result or acceptance. The corresponding
 [balanced interval paper](fdsa-balanced-interval-preparation.md) owns the concrete
 augmentation design. CTB-24 retains the open canonical row and
 [CTB-78](../textbooks/CTB.json) owns current receiving acceptance.
@@ -320,9 +351,13 @@ paper envelope, under explicit generation/control and operation tariffs, is
        + n*(CQ+CI+CD)*(1+Nat.log2(n+1))`.
 
 The existing sort's two counted components give
-`S(2*n) ≤ 4*n*Nat.clog 2 (2*n)` for exactly those components. Comparator work,
-length tests, other control charges and the actual balanced operations still
-need their own bounds. Empty-input overhead and the n=1 nonzero-event case
+`S(2*n) ≤ 4*n*Nat.clog 2 (2*n)` for exactly those components. The broader sorter
+above now accounts for its declared comparator, length, entry and construction
+work; actual balanced updates and overlap query have structural-height bounds.
+The admitted support/height composition and complete asymptotic theorem now
+apply those bounds to the concrete balanced pipeline. The unbalanced quadratic
+separator above remains attributed paper preparation, not that balanced theorem.
+Empty-input overhead and the n=1 nonzero-event case
 prevent treating a pure `n*log n` expression as an all-input pointwise bound.
 
 ### Exact AFP correspondence boundaries

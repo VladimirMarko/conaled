@@ -6,7 +6,7 @@ This paper preserves the mathematical preparation by
 `/root/recovery_book_inventory`, begun 18 November 2026. Its geometric arguments,
 family formulas and proposed proof decomposition remain **unqualified paper
 work**. The receiving curation adds no Lean theorem and makes no new primary
-reading claim. Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json): CTB-78 integration acceptance precedes resumed book formalization. This paper is not a Lean dependency or a receiving validation receipt.
+reading claim. Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json). The latest user instruction permits continued local textbook formalization and distinct dated checkpoints while the receiving agent independently validates its frozen snapshot under #659; publication and qualification gates remain separate. This paper is not a Lean dependency or a receiving validation receipt.
 
 ## Primary sources and attributed reading
 

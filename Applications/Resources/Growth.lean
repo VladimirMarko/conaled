@@ -126,6 +126,40 @@ theorem clog_two_cast_le_two_logb (n : Nat) (hn : 2 ≤ n) :
     exact Nat.ceil_lt_add_one (by linarith)
   linarith
 
+/-- An eventual affine ceiling-log bound gives ordinary logarithmic work.
+The additive term is absorbed only beyond `n ≥ 1`; zero coefficients and an
+arbitrary starting threshold remain allowed. -/
+theorem isBigO_logb_succ_of_clog_bound (f : Nat → Nat) (a b N : Nat)
+    (bound : ∀ n, N ≤ n → f n ≤ a * Nat.clog 2 (n + 1) + b) :
+    Asymptotics.IsBigO Filter.atTop (fun n => (f n : ℝ))
+      (fun n => Real.logb 2 (n + 1 : Nat)) := by
+  apply Asymptotics.isBigO_iff.mpr
+  refine ⟨2 * ((a + b : Nat) : ℝ),
+    Filter.eventually_atTop.mpr ⟨max N 1, fun n hn => ?_⟩⟩
+  have hN : N ≤ n := (Nat.le_max_left _ _).trans hn
+  have hone : 1 ≤ n := (Nat.le_max_right _ _).trans hn
+  have hclog : 1 ≤ Nat.clog 2 (n + 1) :=
+    Nat.clog_pos (by decide : 1 < 2) (by omega : 1 < n + 1)
+  have hconstant : b ≤ b * Nat.clog 2 (n + 1) := by
+    simpa only [Nat.mul_one] using Nat.mul_le_mul_left b hclog
+  have hnat : f n ≤ (a + b) * Nat.clog 2 (n + 1) := by
+    calc
+      f n ≤ a * Nat.clog 2 (n + 1) + b := bound n hN
+      _ ≤ a * Nat.clog 2 (n + 1) + b * Nat.clog 2 (n + 1) :=
+        Nat.add_le_add_left hconstant _
+      _ = (a + b) * Nat.clog 2 (n + 1) := by ring
+  have hb : (f n : ℝ) ≤ ((a + b : Nat) : ℝ) * (Nat.clog 2 (n + 1) : ℝ) := by
+    exact_mod_cast hnat
+  have hlog : 0 ≤ Real.logb 2 (n + 1 : Nat) :=
+    Real.logb_nonneg (by norm_num) (by exact_mod_cast (show 1 ≤ n + 1 by omega))
+  rw [Real.norm_natCast, Real.norm_of_nonneg hlog]
+  calc
+    (f n : ℝ) ≤ ((a + b : Nat) : ℝ) * (Nat.clog 2 (n + 1) : ℝ) := hb
+    _ ≤ ((a + b : Nat) : ℝ) * (2 * Real.logb 2 (n + 1 : Nat)) :=
+      mul_le_mul_of_nonneg_left (clog_two_cast_le_two_logb (n + 1) (by omega))
+        (Nat.cast_nonneg _)
+    _ = 2 * ((a + b : Nat) : ℝ) * Real.logb 2 (n + 1 : Nat) := by ring
+
 /-- A proved ceiling-log count bound yields the ordinary real `O(n log₂ n)`
 statement. This numerical bridge makes no claim about compiled execution. -/
 theorem isBigO_of_clog_two_bound (f : Nat → Nat) (C N : Nat)

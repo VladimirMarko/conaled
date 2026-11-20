@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "canonical_requirement_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; integration_handoff/acceptance_evidence records its actual evidence. Retention follow-through remains active.",
+  "authority": "This repository catalog continues the user-authorized CTB series. Canonical owners retain CTB-1 through CTB-78 and all original book obligations; this catalog retains CTB-79 through CTB-122 and consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; checkpoint074 retention and saving are complete. The a7a831fc documentation/GitHub reconciliation is incorporated. CTB-24/C05-085 and C05-090, plus current CTB-28/C09-039–041/060 mathematics remain unqualified, with independent receiving acceptance and continued local authoring kept separate.",
   "canonical_requirement_owners": [
     "docs/history/textbooks/checkpoint-024/TICKETS.json",
     "docs/history/textbooks/issue-lineages.json",
@@ -162,7 +162,7 @@
       "resource_progress": "CTB-80 supplies actual comparison/literal-constructor laws; CTB-81 supplies actual shared roots, exact fresh-cell counts and retained-root/live-cell interpretation. All17 Sort records and8 exercises are mapped."
     },
     "CTB-78": {
-      "state": "active; receiving integration accepted and published at R2; reviewed retention transition and checkpoint074 remain pending",
+      "state": "completed for the received donor/upstream integration and checkpoint074 retention transition",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -229,10 +229,24 @@
         "Standards": "Passed",
         "Spec": "Passed"
       },
-      "next_action": "Finish preservation/removal disposition review, assemble and freshly verify the current checkpoint, complete artifact review and secure checkpoint074; then resume CTB-24.",
-      "remaining_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
-      "boundary": "R2 source integration and receiving validation/review are accepted and published. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope. Checkpoint retirement and durable-save closure remain separate pending steps.",
-      "retention_policy": "docs/textbooks/README.md#retention-and-inbox"
+      "next_action": "Continue the existing CTB-24 programme and separate receiving acceptance under #659. Preserve the fixed received cfa205a4 snapshot and all subsequent local mathematics; completed CTB-78/R2/074 scope is not reopened.",
+      "remaining_gate": "No gate remains for this completed receiving/retirement scope. New textbook increments retain their own validation, review and publication requirements.",
+      "boundary": "Actual R2 execution and accepted R3 documentation/publication retain their distinct identities. Both retention/artifact axes passed and checkpoint074 was freshly verified and durably secured. This closure qualifies no new mathematical row; historical donor results and UNKNOWN outcomes retain their dated scope.",
+      "retention_policy": "docs/textbooks/README.md#retention-and-inbox",
+      "published_source": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "retention_checkpoint": {
+        "serial": 74,
+        "archive": "conaled-textbooks-074.tar.xz",
+        "bytes": 101276,
+        "sha256": "190354af468356f51fc17650cc40dc2a2205c095c142dbffdf23c1903a6b3d15",
+        "source": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "artifact_review": {
+          "Standards": "Passed",
+          "Spec": "Passed"
+        },
+        "fresh_verification": "Passed",
+        "secured_utc": "2026-11-20T12:09:05.918126+00:00"
+      }
     },
     "CTB-6": {
       "state": "source-qualified; receiving acceptance pending",
@@ -1484,17 +1498,100 @@
         "C05-092",
         "C05-093"
       ],
-      "next_implementation_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+      "next_implementation_gate": "Continue the full canonical VFA/FDSA/PFDS programme under existing CTB owners. Next implement C05-093 stack tree and complete input parsers, then actual streaming verifier, soundness/completeness and polynomial witness/work bounds from the compiled codecs and primitive foundations; retain the explicit computational-model obligation. C05-092 sharp diameter and later Chapter9 construction, factor and conversion requirements remain mandatory. Preserve the selected model, complete unreceived mathematical delta and master hold; save distinct dated checkpoints. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain pending under STD075-001/SPEC075-1, with old final outcome UNKNOWN. Receiver-owned cfa205a4/#659 acceptance remains independent and published a7a831fc/#560 reconciliation is preserved.",
       "next_rows": [
         "C05-085",
         "C05-090",
         "C05-092",
         "C05-093"
       ],
-      "boundary": "C05-091 and094 only: attained minimum over actual legal mixed rotation traces, the2*n-2 bound on common-size Unit shapes, and explicit normalized finite expectations of actual lookup visits5/3 versus2. Chapter5 is90/94, exactly001–084,086–089,091,094. Balanced interval operations085, sweep asymptotics090, sharp diameter092 and encoded polynomial verification093 remain mandatory. Later FDSA chapters/appendices, remaining PFDS obligations and actual receiving full-library/ordinary acceptance stay open. No new Extract execution, machine-runtime, bit-cost, balancing or whole-book qualification."
+      "boundary": "The qualified Chapter 5 union remains 90/94, exactly 001–084,086–089,091,094. Its retained qualification_review concerns historical CTB-114 rows 091/094. C05-085 and C05-090 development remain unqualified; the old whole execution is UNKNOWN with seven observed compiler exits137. Full C05-090, rows092/093, later FDSA chapters/appendices and remaining PFDS obligations stay open. Declared source observations imply no machine-runtime, allocation, bit-complexity or whole-book result.",
+      "current_work": {
+        "row": "C05-093",
+        "status": "Increment 084 implements concrete Fin16 tree/bit/path/move/certificate/input codes and actual accumulator emitters with exact values, lengths and work; actual bit/path/move prefix parsers with exact arbitrary-suffix recognition, success work, raw-input bounds, consumed lengths, prefix injectivity and actual emitter roundtrips. All 083 fixed-width/rotation/equality foundations remain intact. The complete 897-job focused example closure passed. Root read all 128 exported public declarations, including 97 theorems, and all 2213 output lines; only propext and Quot.sound occurred. The maintained paper separates these compiled codecs and linear parsers from the still unimplemented stack tree/input parsers, streaming checker, soundness/completeness and polynomial witness/work conclusions. Current 084 independent review remains pending. Both full 083 mathematical reviews and combined reconciliation were read; no new content defect, only inherited STD075-001/SPEC075-1. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain unresolved, old run outcome UNKNOWN, no new row qualified. Receiver-owned cfa205a4/#659 acceptance and master publication remain separate, preserving a7a831fc/#560 reconciliation.",
+        "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "correspondence": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "source_qualified": false,
+        "owners": [
+          "Applications/Resources/BinaryCounter/FixedWidth.lean",
+          "Applications/Resources/RotationCertificate/Execution.lean",
+          "Examples/MeasuredRotationCertificate.lean",
+          "Applications/Resources/RotationCertificate/Encoding.lean",
+          "Applications/Resources/RotationCertificate/LinearParser.lean",
+          "Examples/RotationCertificateCodecs.lean"
+        ],
+        "components": [
+          "Actual fixed-width binary predecessor: failure iff zero, success iff positive, unchanged width and exact decrement, raw bound 3*b+2, zero-word cost 2*b+2, first-true borrow cost 3*(r+1).",
+          "Actual label-polymorphic partial root and positioned rotations: existing semantic erasure, callback result consumption, empty-position behavior at nil, missing-node short circuit, actual successful depth p+2<=n, success work 3*p+5 and raw work <=3*n+3.",
+          "Actual left-first Unit-shape equality: decision erasure, arbitrary skipped-right short circuit, work <=3*source_nodes+2 and exact self-comparison cost.",
+          "Connected finite examples: fixed-width versus canonical decrement; actual callback reconstruction; stale reached position; normalization route of length three versus attained minimum one.",
+          "Concrete Fin16 tree/bit/path/move/certificate/input codes with exact lengths; actual accumulator emitters with arbitrary suffix correctness and exact cost, including certificate cost 2W+1 and input cost+1=2M.",
+          "Actual bit/path/move prefix parsers: all-raw iff recognition, exact untouched suffix, successful cost, uniform raw-input bounds, consumed lengths, strict move suffix, prefix injectivity and actual emitter roundtrips.",
+          "Connected codec/parser cases: literal encodings and emissions, both branches/directions, missing and foreign delimiters, arbitrary untouched tails, every reserved tag11–15, high/all-zero width preservation and syntax versus actual rotation legality."
+        ],
+        "tariff": "Primitive entry/dispatch and each new cons, tree node or returned Option/Bool literal cost one; control packaging, projections, aliases, reuse and measurement arithmetic are free. This is structural work, not a machine-time or bit-complexity result.",
+        "remaining_full_row": [
+          "Implement the actual stack tree parser and complete input parser with exact prefix/suffix correctness, malformed/trailing-input behavior and raw-input work bounds.",
+          "Implement the actual streaming verifier using binary fuel, current reached tree and actual parser results; prove malformed-input and failure behavior.",
+          "Prove semantic soundness/completeness, attained-minimum witness length and polynomial certificate-size and verifier-work bounds.",
+          "Supply and qualify the source-required computational-model/NP correspondence; no assumed polynomial-time oracle field discharges it."
+        ],
+        "remaining_rows": [
+          "C05-085",
+          "C05-090",
+          "C05-092",
+          "C05-093"
+        ],
+        "boundary": "The full C05-093 requirement remains open. C05-092 sharp diameter is a separate mandatory obligation. Completed unqualified interval/sweep work remains once under retained_work, with no recursive checkpoint history."
+      },
+      "retained_work": {
+        "C05-090": {
+          "row": "C05-090",
+          "status": "Increment081 completed the supported-state invariant, generic logarithmic operation bounds and actual complete sweep all-input and real O(n log n) envelope. Its successful 2,209-job focused closure and complete 92-declaration/87-theorem selected export remain attributed to their exact inputs. Both complete independent 081 mathematical reviews found no mathematical defect. The subsequent anchor-only correction 6abad853 resolved STD081-001/SPEC075-2 on both axes. Whole-validation blockers STD075-001/SPEC075-1 remain; no source row is qualified. Increment082 related CTB-28 work is tracked under its own existing owner.",
+          "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+          "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+          "source_qualified": false,
+          "components": [
+            "Actual early-return measured scan and primitive-value erasure",
+            "Noncommutative additive observations and reweighting",
+            "Executed operation counts, exact constant tariffs and primitive-cost envelope",
+            "Finite active complete-key cardinality and lawful prefix-state transports",
+            "Shared measured occurrence indexing, event maps and append with exact input-dependent and constant tariffs",
+            "Actual once-bound generation-sort-scan composition and value/cost stage laws",
+            "Strict complete-key node/cardinality correspondence and concrete balanced prefix bounds",
+            "Actual measured-comparator merge with exact constant and bounded input-dependent work",
+            "Complete declared source-sort tariff, unconditional erasure/permutation and size/logarithmic bounds",
+            "Reached lexicographic event comparisons, actual event sorting and the generated-schedule cost envelope",
+            "Connected exact sorting and actual generation-sort-scan cases, including arbitrary comparators and tie instability",
+            "Actual complete-annotation measured balL/balR repairs, insertion, rightmost extraction and predecessor deletion; raw callback-value erasures and global callback-sensitive input-height cost bounds",
+            "Connected product/ordinary/word update clients, all rotations and ties, malformed/equal/absent behavior, actual-callback controls and unchanged-height complete-summary changes; maintained derivation in docs/research/fdsa-height-updates.md",
+            "Actual measured interval projection, short-circuit overlap, stored-maximum reader and one-original-child query; raw erasure, weak semantic adapters and callback-sensitive structural-height bound",
+            "Reached complete-key field comparator with actual2–6 cost, explicit four-event annotation and concrete balanced update/query bounds43h+8,31h+1,43h+1,5h+1",
+            "Concrete once-generated/sorted balanced sweep, functional geometry and exact stage law; all nine fixed small-input/early-return/exhaustion/post-deletion totals and independent coordinate universes",
+            "Closed finite occurrence support for every admitted valid state, insertion with allowed key and arbitrary-key deletion preservation; strict node count and structural height composition",
+            "Generic shape-balanced integer logarithmic update/query costs and ordinary real O(log2(n+1)) via the shared affine-clog bridge",
+            "Actual complete sweep all-input bound 24*n*clog2(2*n)+182*n*clog2(n+1)+40*n+8; eventual456*n*clog2 n and ordinary real O(n*log2 n), preserving positive small-input work",
+            "Connected empty/duplicate/malformed-cache/wrong-callback/tolerance/admitted-state/family examples; exact full envelopes8,254,912,1436 for sizes0,1,2,3"
+          ],
+          "remaining_full_row": [
+            "Exact-candidate whole/public-coverage validation, exhaustive audit, final nonrepairing verification and matching independent reviews before source qualification"
+          ],
+          "retained_unqualified_work": {
+            "row": "C05-085",
+            "correspondence": "docs/research/fdsa-balanced-interval-tree.md",
+            "status": "Implemented and focused-compiled; earlier substantive reviews found no source/paper defects, but whole-library and final nonrepairing gates remain unresolved."
+          },
+          "remaining_rows": [
+            "C05-085",
+            "C05-090",
+            "C05-092",
+            "C05-093"
+          ]
+        }
+      }
     },
     "CTB-28": {
-      "state": "Bounded fixed-tolerance logarithmic height qualified; full AVL chapter remains open",
+      "state": "Cached membership and ordinary measured AVL correspondence implemented but unqualified; prior bounded qualifications unchanged",
       "bounded_ticket": "CTB-122",
       "prior_bounded_tickets": [
         "CTB-115",
@@ -1567,10 +1664,38 @@
       "total": 110,
       "remaining_count": 53,
       "chapter_source_qualified": false,
-      "receiving_acceptance": "pending"
+      "receiving_acceptance": "pending",
+      "current_work": {
+        "rows": [
+          "C09-039",
+          "C09-040",
+          "C09-041",
+          "C09-060"
+        ],
+        "status": "Increment082 implements complete cached membership by repricing the single existing actual annotated lookup, with local/global callback-sensitive structural and logarithmic bounds. Public ordinary d=1 AVL readers, constructors, repairs, lookup/member, insert/extract/delete preserve actual recurrences and the full tariff, raw erasures and existing validity/height/set laws. Structural and integer-log bounds, exact C09-015 golden-ratio composition and strict set-size corollaries are proved. Generic Nodup inorder/cardinality now serves both ordinary AVL and the complete-key sweep. The required 2,381-job focused closure passed; root read all 167 exported public declarations including 149 theorems and all 1,266 output lines, with only permitted axioms. Both complete independent 082 mathematical reviews found no new content defect; only inherited whole-validation findings STD075-001/SPEC075-1 remain, and no new row is qualified. Both full 081 content reviews and the 6abad853 anchor correction are complete. Exact whole/public-coverage, exhaustive-audit and final nonrepairing gates remain under STD075-001/SPEC075-1; old run outcome UNKNOWN. Receiver-owned cfa205a4/#659 checks and master publication remain separate; a7a831fc/#560 reconciliation is preserved.",
+        "correspondence": "docs/research/fdsa-avl-continuation.md#cached-membership-and-ordinary-measured-correspondence",
+        "owners": [
+          "Applications/Resources/HeightBalance/Membership.lean",
+          "Applications/Resources/AVL.lean",
+          "Applications/Resources/AVL/Logarithmic.lean",
+          "Applications/Trees/SetCardinality.lean",
+          "Examples/MeasuredAVL.lean"
+        ],
+        "components": [
+          "One actual measured lookup on the annotated tree, scalar visit/comparator/terminal tariff, same-cost Boolean membership, exact source-order recurrences and raw/local correctness interfaces",
+          "Local/global callback-sensitive structural and integer-logarithmic membership bounds with independent annotation universe and exact-size real-log families",
+          "Thin ordinary d=1 public reader/node/repair/update/search specialization, exact tariff/recurrence correspondence, returned-value erasures and existing invariant/height/set transport",
+          "Ordinary structural and integer-log work, exact golden-ratio C09-015 composition, strict node/set-cardinality substitution and ordinary real logarithmic families",
+          "Shared generic Nodup inorder cardinality theorem reused in the existing concrete sweep bridge; existing ordinary examples consume the public callback owner"
+        ],
+        "remaining_qualification": [
+          "Exact-candidate whole/public-coverage checks, exhaustive permitted-axiom audit, final nonrepairing verification and matching independent acceptance"
+        ],
+        "later_canonical_rows": "C09-062 through C09-110 remain under their original complete requirements; no later factor/construction/conversion result is implied."
+      }
     }
   },
-  "active_ticket": "CTB-78",
+  "active_ticket": "CTB-24",
   "next_ticket": "CTB-24",
   "next_id": 123,
   "user_tracking_exception": "The user explicitly requires the persistent CTB continuation to be integrated into conaled. This continues the existing namespace and does not authorize GitHub writes. Bare #N remains the repository GitHub issue/PR namespace.",
@@ -1578,9 +1703,9 @@
   "authorized_scope": "Continue formalizing all chapters and appendices of all three tracked books, preserving the canonical complete source/exercise ledgers. Securing a bounded checkpoint does not complete or terminate that ongoing task.",
   "integration_handoff": {
     "prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-    "current_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+    "current_candidate": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
     "approved_content_candidate": "fa8d5f89290d43da8a69049e9fc014b174ca2c95",
-    "candidate_tree": "173003db476a73783a873897bb754ca941d2f9c8",
+    "candidate_tree": "8c1e32b5ff122ca6dede16dd864d3b300c2785b8",
     "current_guidance_reference": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_agent": "conaled integration agent",
     "quality_review": "Passed: independent Standards and Spec for exact R2; see acceptance_evidence",
@@ -1600,15 +1725,15 @@
     "receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
     "master_observed_date": "2026-11-20",
     "guidance_boundary": "Current docs/textbooks/README.md#required-order records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
-    "current_stage": "receiving source accepted and published; current status reconciliation and reviewed checkpoint retention transition in progress",
+    "current_stage": "R2 receiving integration and checkpoint074 retention/save are complete. The verified a7a831fc documentation/GitHub reconciliation is preserved. Snapshot cfa205a4 is received and verified under #659, with receiving acceptance pending; subsequent sorting snapshot236da184 and later local work remain distinct and unqualified.",
     "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
     "work_sequence": "docs/textbooks/README.md#required-order",
     "unprocessed_inbox": "docs/textbooks/inbox/README.md",
     "next_formalization_ticket": "CTB-24",
-    "next_formalization_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+    "next_formalization_gate": "Continue the full canonical VFA/FDSA/PFDS programme under existing CTB owners. Next implement C05-093 stack tree and complete input parsers, then actual streaming verifier, soundness/completeness and polynomial witness/work bounds from the compiled codecs and primitive foundations; retain the explicit computational-model obligation. C05-092 sharp diameter and later Chapter9 construction, factor and conversion requirements remain mandatory. Preserve the selected model, complete unreceived mathematical delta and master hold; save distinct dated checkpoints. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain pending under STD075-001/SPEC075-1, with old final outcome UNKNOWN. Receiver-owned cfa205a4/#659 acceptance remains independent and published a7a831fc/#560 reconciliation is preserved.",
     "donor_content_approval_boundary": "approved_content_candidate records the accepted072 donor CONTENT candidate only, not current receiving integration approval.",
     "historical_receiving_boundary": "Indexed receiving070/072 interruption handoffs remain dated evidence. Historical UNKNOWN processes remain UNKNOWN; no current result is inferred.",
-    "retention_transition": "Useful mathematical preparation and case crosswalks have accepted ordinary repository owners. The exact old-carrier removal map, final current checkpoint bodies, fresh restoration, artifact review and durable save still require their recorded completion. Useful unfinished formalization remains in the maintained source inbox.",
+    "retention_transition": "Completed and secured in checkpoint074, whose exact recorded closure is retained in checkpoint074_closure. Useful mathematics and cases have ordinary repository owners. Recompute each later immediate transition, retain current useful unreceived bodies, and retire processed carriers after their receiving ownership is verified.",
     "retention_policy": "docs/textbooks/README.md#retention-and-inbox",
     "integration_rework": [
       {
@@ -1686,16 +1811,55 @@
         "recorded_utc": "2026-11-20T11:12:43.564216+00:00"
       },
       "boundary": "Actual build and runtime execution belong to R2 in isolated CI. Later documentation-only acceptance requires a complete effective-input comparison and its own independent review. No old failure or UNKNOWN outcome is rewritten; raw artifacts are not perpetual checkpoint payloads."
+    },
+    "current_gate": "Continue the full canonical VFA/FDSA/PFDS programme under existing CTB owners. Next implement C05-093 stack tree and complete input parsers, then actual streaming verifier, soundness/completeness and polynomial witness/work bounds from the compiled codecs and primitive foundations; retain the explicit computational-model obligation. C05-092 sharp diameter and later Chapter9 construction, factor and conversion requirements remain mandatory. Preserve the selected model, complete unreceived mathematical delta and master hold; save distinct dated checkpoints. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain pending under STD075-001/SPEC075-1, with old final outcome UNKNOWN. Receiver-owned cfa205a4/#659 acceptance remains independent and published a7a831fc/#560 reconciliation is preserved.",
+    "current_increment_handoff": {
+      "ticket": "CTB-24",
+      "rows": [
+        "C05-085",
+        "C05-090",
+        "C05-093"
+      ],
+      "prerequisite": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "status": "Complete current source, paper and catalog delta is preserved in dated progress checkpoints; source qualification and receiving integration remain pending.",
+      "delivery": "One source-delta checkpoint with all complete unreceived bodies and current operations. Unqualified recovery is separately labeled.",
+      "receiving_acceptance": "Verified read-only on 20 November 2026: cfa205a4 was received and reconstructed under GitHub issue #659, which remains open for independent isolated receiving acceptance. The old lost author-run handle is not its prerequisite. Later source work is preserved separately and remains unqualified.",
+      "continued_authoring": "The user directs continued work until all textbooks are formalized and integrated, with regularly uploaded checkpoints. The receiving agent handles integration; keep its exact accepted state distinct from newer local work.",
+      "after_integration": "Retire processed copies against the actual accepted prerequisite; retain any newer unreceived delta and continue remaining CTB obligations.",
+      "receiving_snapshot": "cfa205a4e08d38c8e75048213126decad5d31f1c",
+      "receiving_issue": 659,
+      "published_reconciliation": "a7a831fc1529a2d285a838c9af8489c756454741",
+      "last_secured_progress_snapshot": "ea5a0d3116f347bb7875cf20ca11931cc0019af9",
+      "last_secured_progress_archive": "conaled-textbooks-083-progress-2026-11-20.tar.xz",
+      "related_existing_ticket": {
+        "ticket": "CTB-28",
+        "rows": [
+          "C09-039",
+          "C09-040",
+          "C09-041",
+          "C09-060"
+        ]
+      }
+    },
+    "checkpoint074_closure": {
+      "archive": "conaled-textbooks-074.tar.xz",
+      "bytes": 101276,
+      "sha256": "190354af468356f51fc17650cc40dc2a2205c095c142dbffdf23c1903a6b3d15",
+      "secured_utc": "2026-11-20T12:09:05.918126+00:00",
+      "source_commit": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "evidence": "Supplied checkpoint074 CURRENT.json and checkpoint075 recovery previous-secured-closure.json, corroborated by the author handoff dated 2026-11-20 14:16:07 UTC. The receiving inventory matched the actual archive size and SHA-256.",
+      "reported_outcomes": "Both artifact review axes, fresh restoration, immediate comparison and durable save passed in the author closure. This is recovery of those recorded outcomes, not a new mathematical acceptance."
     }
   },
-  "next_ticket_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+  "next_ticket_gate": "Continue the full canonical VFA/FDSA/PFDS programme under existing CTB owners. Next implement C05-093 stack tree and complete input parsers, then actual streaming verifier, soundness/completeness and polynomial witness/work bounds from the compiled codecs and primitive foundations; retain the explicit computational-model obligation. C05-092 sharp diameter and later Chapter9 construction, factor and conversion requirements remain mandatory. Preserve the selected model, complete unreceived mathematical delta and master hold; save distinct dated checkpoints. Whole/public-coverage, exhaustive-audit and final nonrepairing acceptance remain pending under STD075-001/SPEC075-1, with old final outcome UNKNOWN. Receiver-owned cfa205a4/#659 acceptance remains independent and published a7a831fc/#560 reconciliation is preserved.",
   "current_user_override": {
     "date": "2026-11-20",
-    "sequence": "CTB-78 integration, necessary rework, whole-library validation and independent Standards/Spec review precede further book formalization.",
+    "sequence": "Earlier CTB-78 integration and retention completed. The latest20November direction permits continued local textbook formalization while receiving integration waits, retaining the selected model. Actual validation, independent reviews, qualification and complete handoff remain required; master is held at the current published prerequisite.",
     "max_payload_bytes": 134217728,
     "retention": "Completed mathematics belongs in repository source/research; requirements and state in CTB; guidance in operational owners. Empty processed inbox items after verified disposition. Retire obsolete provenance after receiving validation; do not perpetuate every historical receipt or wrap prior archives.",
     "historical_instruction_boundary": "CTB-119 and other dated requirements remain literal history. Their former Page-only, blanket-retention and 32 MiB process requirements do not govern current work.",
-    "instructions": "docs/textbooks/README.md#required-order"
+    "instructions": "docs/textbooks/README.md#required-order",
+    "ongoing_authorization": "Keep working until all the books are formalized and integrated and keep creating and uploading checkpoints. The user will relay requests from the conaled integration agent."
   },
   "historical_catalogs": {
     "saved072": {
@@ -1709,7 +1873,7 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "state_boundary": "Per-ticket local states, qualification reviews and source scopes retain their historical donor result, including dated pending language. Current R2 receiving acceptance is established by integration_handoff and CTB-78; retention follow-through remains active. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. No chapter row is newly qualified by this status update.",
+  "state_boundary": "Historical donor qualifications, accepted R2 integration, completed074 closure and dated UNKNOWN outcomes retain their exact scopes. Verified a7a831fc documentation and GitHub reconciliation is preserved without a new mathematical qualification. CTB-24 current_work records C05-093 compiled foundations, concrete codes/emitters and linear prefix parsers, with remaining tree/input/streaming verifier obligations; retained_work preserves the complete unqualified085/090 continuation once. CTB-28 retains cached-membership/ordinary-AVL work and completed content reviews. #659 owns independent receiving acceptance of cfa205a4 while later local work stays distinct. Literal requirements remain unchanged; current_user_override and latest continuation instruction resolve dated process conflicts.",
   "new_tickets": [
     {
       "id": "CTB-79",
