@@ -1,0 +1,139 @@
+name: Textbook integration verification
+
+# Review and place this draft on this dedicated validation branch only.
+# The workflow branch supplies orchestration; checkout selects the reviewed source.
+on:
+  push:
+    branches: [validation/textbooks-receiving]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: textbooks-receiving-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CONALED_CANDIDATE: 3a370b4bdf777b84e2b283562200d65525a232d2
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    # No compilation timeout, worker, CPU, or memory cap is imposed here.
+    steps:
+      - name: Require an immutable candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${CONALED_CANDIDATE:-}" =~ ^[0-9a-f]{40}$ ]] || {
+            printf '%s\n' 'Refusing unset or malformed integration candidate.' >&2
+            exit 64
+          }
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ env.CONALED_CANDIDATE }}
+          persist-credentials: false
+
+      - name: Authenticate checkout and start setup budget
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          printf 'candidate=%s\ntree=%s\n' "$CONALED_CANDIDATE" "$(git rev-parse HEAD^{tree})"
+          df -B1 .
+          printf 'CONALED_SETUP_DEADLINE=%s\n' "$(( $(date +%s) + 600 ))" >> "$GITHUB_ENV"
+
+      - name: Install pinned Nix action within setup budget
+        uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31
+        timeout-minutes: 10 # Environment setup only; never project compilation.
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare pinned environment and dependency cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          remaining=$(( CONALED_SETUP_DEADLINE - $(date +%s) ))
+          (( remaining > 0 )) || {
+            printf '%s\n' 'Ten-minute environment setup budget exhausted.' >&2
+            exit 124
+          }
+          set +e
+          timeout --signal=TERM --kill-after=15s "${remaining}s" \
+            nix develop --command lake exe cache get
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=setup exit_code=%s\n' "$status"
+          (( status == 0 )) || exit "$status"
+          (( $(date +%s) <= CONALED_SETUP_DEADLINE )) || exit 124
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          df -B1 .
+          # No automatic retry. Review an observed setup failure before one targeted retry.
+
+      - name: Clean whole-library build and exhaustive proof audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          set +e
+          nix develop --command ./check.sh --candidate "$CONALED_CANDIDATE" --clean
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=whole-library-check exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Build the standalone Extract executable
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command lake --no-cache --rehash build extract-searchtree
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=extract-executable-build exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Test the direct Extract command
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command python3 -B scripts/test-extract-searchtree.py
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=extract-direct-tests exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Test the standalone Extract executable
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command env 'EXTRACT_TEST_COMMAND_JSON=[".lake/build/bin/extract-searchtree"]' \
+            python3 -B scripts/test-extract-searchtree.py
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=extract-standalone-tests exit_code=%s\n' "$status"
+          exit "$status"
+
+      - name: Verify exact candidate and print complete official receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          nix develop --command ./check.sh --verify-candidate "$CONALED_CANDIDATE"
+          status=$?
+          set -e
+          printf 'CONALED_STAGE_EXIT stage=verify-candidate exit_code=%s\n' "$status"
+          (( status == 0 )) || exit "$status"
+          test "$(git rev-parse HEAD)" = "$CONALED_CANDIDATE"
+          test -f .lake/verification.json
+          test ! -L .lake/verification.json
+          printf '%s\n' 'CONALED_VERIFICATION_RECEIPT_BEGIN'
+          cat .lake/verification.json
+          printf '\n%s\n' 'CONALED_VERIFICATION_RECEIPT_END'
+          sha256sum .lake/verification.json
+          printf 'CONALED_RECEIVING_CHECK_COMPLETE candidate=%s exit_code=0\n' "$CONALED_CANDIDATE"
