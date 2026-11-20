@@ -3,9 +3,10 @@
 This directory owns the user-authorized CTB continuation and current textbook
 coverage. It continues the existing series in ordinary repository files.
 
-**CTB-78 is active. R2 receiving integration is validated, independently reviewed
-and published. Retention review, checkpoint verification and durable checkpoint074
-publication remain pending; CTB-24 resumes after that step.**
+**CTB-78 receiving integration and the retention transition are complete.
+Checkpoint074 is verified, independently reviewed and secured. CTB-24 has resumed
+with the concrete balanced interval-tree obligation C05-085; its new whole-library
+validation and qualification review are in progress.**
 
 The integration baseline is master `8ff71395e9841760c4e240c4e8b8741b355bda68`, fetched on
 20 November 2026. The saved source donor is
@@ -56,7 +57,10 @@ in `CTB.json`'s CTB-78 state and `integration_handoff`. R2
 `99a2974c93e556088af814f033540eb36ba2d3a6` passed the actual whole-library and
 runtime checks, both independent reviews and publication checks. The compact
 `integration_handoff.acceptance_evidence` index identifies those results. The
-retention review and checkpoint transition is the remaining current step.
+retention review and checkpoint transition completed with secured074. Its
+published source is `3ac996cc42ec4a57bb5c7052714052cca87c97ff`, the fixed base for
+the new C05-085 implementation scope. This closes the receiving gate without
+changing historical donor qualifications or completing the remaining books.
 
 ## Requirements and qualification
 
@@ -106,11 +110,13 @@ in CTB, and reusable environment lessons in guidance. Before retiring an old
 mixed container, verify every useful result, assumption, case and unresolved
 obligation in its destination. The receiving integration gate precedes cleanup.
 
-Checkpoints carry current recoverable source, current catalogs/instructions and
-complete useful unfinished work. Keep the saved072 archive separately; never
-embed it in a successor. Reproducible type exports, processed chat transcripts
-and superseded publication/development receipts do not become permanent
-checkpoint contents merely because they were once saved.
+Checkpoints pin the accepted published source, complete catalogs and maintained
+paper owners. They carry current operations, a concise current index and any
+complete useful work not yet received into that prerequisite. Do not duplicate
+received bodies. Keep older archives separately; never embed one in a successor.
+Recompute only the immediate-predecessor removal map; a completed migration map
+does not become a cumulative field. Reproducible type exports, processed chat
+transcripts and superseded receipts do not become permanent checkpoint contents.
 
 When an inbox item is processed, update its consumers and remove the inbox entry.
 The maintained paper/code/CTB owner remains. This review occurs at workstream

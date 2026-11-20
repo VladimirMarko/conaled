@@ -162,7 +162,7 @@
       "resource_progress": "CTB-80 supplies actual comparison/literal-constructor laws; CTB-81 supplies actual shared roots, exact fresh-cell counts and retained-root/live-cell interpretation. All17 Sort records and8 exercises are mapped."
     },
     "CTB-78": {
-      "state": "active; receiving integration accepted and published at R2; reviewed retention transition and checkpoint074 remain pending",
+      "state": "completed for the received donor/upstream integration and checkpoint074 retention transition",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -229,10 +229,24 @@
         "Standards": "Passed",
         "Spec": "Passed"
       },
-      "next_action": "Finish preservation/removal disposition review, assemble and freshly verify the current checkpoint, complete artifact review and secure checkpoint074; then resume CTB-24.",
-      "remaining_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
-      "boundary": "R2 source integration and receiving validation/review are accepted and published. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope. Checkpoint retirement and durable-save closure remain separate pending steps.",
-      "retention_policy": "docs/textbooks/README.md#retention-and-inbox"
+      "next_action": "Continue CTB-24 from the complete Chapter5 ledger, beginning with the concrete balanced interval-tree obligation C05-085.",
+      "remaining_gate": "No gate remains for this completed receiving/retirement scope. New textbook increments retain their own validation, review and publication requirements.",
+      "boundary": "Actual R2 execution and accepted R3 documentation/publication retain their distinct identities. Both retention/artifact axes passed and checkpoint074 was freshly verified and durably secured. This closure qualifies no new mathematical row; historical donor results and UNKNOWN outcomes retain their dated scope.",
+      "retention_policy": "docs/textbooks/README.md#retention-and-inbox",
+      "published_source": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "retention_checkpoint": {
+        "serial": 74,
+        "archive": "conaled-textbooks-074.tar.xz",
+        "bytes": 101276,
+        "sha256": "190354af468356f51fc17650cc40dc2a2205c095c142dbffdf23c1903a6b3d15",
+        "source": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "artifact_review": {
+          "Standards": "Passed",
+          "Spec": "Passed"
+        },
+        "fresh_verification": "Passed",
+        "secured_utc": "2026-11-20T12:09:05.918126+00:00"
+      }
     },
     "CTB-6": {
       "state": "source-qualified; receiving acceptance pending",
@@ -1491,7 +1505,19 @@
         "C05-092",
         "C05-093"
       ],
-      "boundary": "C05-091 and094 only: attained minimum over actual legal mixed rotation traces, the2*n-2 bound on common-size Unit shapes, and explicit normalized finite expectations of actual lookup visits5/3 versus2. Chapter5 is90/94, exactly001–084,086–089,091,094. Balanced interval operations085, sweep asymptotics090, sharp diameter092 and encoded polynomial verification093 remain mandatory. Later FDSA chapters/appendices, remaining PFDS obligations and actual receiving full-library/ordinary acceptance stay open. No new Extract execution, machine-runtime, bit-cost, balancing or whole-book qualification."
+      "boundary": "C05-091 and094 only: attained minimum over actual legal mixed rotation traces, the2*n-2 bound on common-size Unit shapes, and explicit normalized finite expectations of actual lookup visits5/3 versus2. Chapter5 is90/94, exactly001–084,086–089,091,094. Balanced interval operations085, sweep asymptotics090, sharp diameter092 and encoded polynomial verification093 remain mandatory. Later FDSA chapters/appendices, remaining PFDS obligations and actual receiving full-library/ordinary acceptance stay open. No new Extract execution, machine-runtime, bit-cost, balancing or whole-book qualification.",
+      "current_work": {
+        "row": "C05-085",
+        "status": "Implemented; all new modules and connected cases passed focused compilation. Exact-candidate whole-library validation and independent qualification review remain pending.",
+        "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "correspondence": "docs/research/fdsa-balanced-interval-tree.md",
+        "source_qualified": false,
+        "remaining_after_this_increment": [
+          "C05-090",
+          "C05-092",
+          "C05-093"
+        ]
+      }
     },
     "CTB-28": {
       "state": "Bounded fixed-tolerance logarithmic height qualified; full AVL chapter remains open",
@@ -1570,7 +1596,7 @@
       "receiving_acceptance": "pending"
     }
   },
-  "active_ticket": "CTB-78",
+  "active_ticket": "CTB-24",
   "next_ticket": "CTB-24",
   "next_id": 123,
   "user_tracking_exception": "The user explicitly requires the persistent CTB continuation to be integrated into conaled. This continues the existing namespace and does not authorize GitHub writes. Bare #N remains the repository GitHub issue/PR namespace.",
@@ -1578,9 +1604,9 @@
   "authorized_scope": "Continue formalizing all chapters and appendices of all three tracked books, preserving the canonical complete source/exercise ledgers. Securing a bounded checkpoint does not complete or terminate that ongoing task.",
   "integration_handoff": {
     "prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-    "current_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+    "current_candidate": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
     "approved_content_candidate": "fa8d5f89290d43da8a69049e9fc014b174ca2c95",
-    "candidate_tree": "173003db476a73783a873897bb754ca941d2f9c8",
+    "candidate_tree": "8c1e32b5ff122ca6dede16dd864d3b300c2785b8",
     "current_guidance_reference": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_agent": "conaled integration agent",
     "quality_review": "Passed: independent Standards and Spec for exact R2; see acceptance_evidence",
@@ -1686,9 +1712,10 @@
         "recorded_utc": "2026-11-20T11:12:43.564216+00:00"
       },
       "boundary": "Actual build and runtime execution belong to R2 in isolated CI. Later documentation-only acceptance requires a complete effective-input comparison and its own independent review. No old failure or UNKNOWN outcome is rewritten; raw artifacts are not perpetual checkpoint payloads."
-    }
+    },
+    "current_gate": "The receiving integration and retention transition are complete; checkpoint074 is secured. CTB-24/C05-085 is implemented with focused module compilation, and requires its new exact-candidate whole build/audit, independent review and publication before qualification and checkpoint075."
   },
-  "next_ticket_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+  "next_ticket_gate": "The receiving integration and retention transition are complete; checkpoint074 is secured. CTB-24/C05-085 is implemented with focused module compilation, and requires its new exact-candidate whole build/audit, independent review and publication before qualification and checkpoint075.",
   "current_user_override": {
     "date": "2026-11-20",
     "sequence": "CTB-78 integration, necessary rework, whole-library validation and independent Standards/Spec review precede further book formalization.",
@@ -1709,7 +1736,7 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "state_boundary": "Per-ticket local states, qualification reviews and source scopes retain their historical donor result, including dated pending language. Current R2 receiving acceptance is established by integration_handoff and CTB-78; retention follow-through remains active. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. No chapter row is newly qualified by this status update.",
+  "state_boundary": "Dated donor qualification/state fields retain their historical scope. Current receiving acceptance is established by integration_handoff and CTB-78, whose checkpoint074 transition is complete. CTB-24 current_work records the new increment without qualifying it prematurely. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts.",
   "new_tickets": [
     {
       "id": "CTB-79",
