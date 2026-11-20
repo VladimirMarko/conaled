@@ -134,15 +134,16 @@ probability measure. Mass and occurrence erasure remain separating controls.
 
 The preserved checkpoint012 VFA
 [SortingSpecifications draft](../history/textbooks/checkpoint-012/books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean)
-has a concrete incoming public integration in donor
-`1f6ee5dd25ba633deb807b8d2240bec5e5cf96af`, assessed against master
+has a public integration from donor
+`1f6ee5dd25ba633deb807b8d2240bec5e5cf96af`, integrated against baseline
 `8ff71395e9841760c4e240c4e8b8741b355bda68`. CTB-79 and CTB-82 supply
 [ordering specifications](../../Applications/Sorting/Specification.lean),
 [sequence multiplicity](../../Applications/Sequences/Multiplicity.lean), and
 [sorting contract transport](../../Applications/Sorting/Multiplicity.lean).
-The code exists in the donor; current receiving compilation, audit and both
-independent review axes remain pending. This updates the earlier prospective
-search finding without treating donor validation as receiving acceptance.
+The code is published in R2 `99a2974c`, with acceptance indexed by `3ac996cc`
+in [CTB.json](../textbooks/CTB.json). The clean receiving build/audit, extraction
+checks and both independent review axes passed on R2. This supplies the later
+receiving slice; donor validation remains separately attributed.
 
 Indexed, bounded-indexed and pairwise sortedness are connected without order
 axioms; adjacent sortedness needs transitivity. Count/permutation recovery
@@ -155,30 +156,30 @@ different algorithm.
 uses decidable equality on keys. `StableSort.unique` requires
 `[LE κ] [Std.IsPartialOrder κ] [DecidableEq κ]`, without an order on payloads or
 key totality. [TextbookSorting](../../Examples/TextbookSorting.lean) and the
-incoming `sorters_eq_of_contents` use the distinct full-value antisymmetry
+received `sorters_eq_of_contents` use the distinct full-value antisymmetry
 route. Sortedness plus permutation alone does not imply stability; the
 equal-key-order control remains relevant. Neither bridge identifies source
 execution costs.
 
-The same donor contains further concrete connected presentations: abstract-set
+The same receiving slice contains further concrete connected presentations: abstract-set
 operational refinement derives cached AVL/height-balance laws; decoded maps
 retain optional lookup and enumeration meaning; binomial queues instantiate
 the occurrence-preserving `ExactQueue`; finite supported coloring derives a
 Mathlib coloring while preserving its stored domain. The
-[receiving assessment](textbook-integration.md#current-ctb-continuation-receiving-integration-pending)
+[receiving assessment](textbook-integration.md#current-ctb-continuation-accepted-receiving-integration)
 records the assumptions, lost information and residual #587/#588/#589 scope.
 One local reuse repair restores canonical tree-membership lemma composition.
 The new classifier, Lawvere and kernel developments do not justify wrapping
 these algorithms without a concrete additional consumer or recovery contract.
 
-[#560](https://github.com/VladimirMarko/conaled/issues/560) remains the sorting
-receiving owner. The [CTB continuation](../textbooks/CTB.json) has CTB-78 active,
-with further book formalization gated on actual integration and validation.
-The historical accepted receiving records at checkpoint012 (`56c739a1`),
-checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and total tables #559
-(`36d67461`) retain their original scope. This new assessment does not yet add
-an accepted receiving slice. Consequently #636's acceptance evidence remains
-open; successful current review and validation must establish it explicitly.
+[#560](https://github.com/VladimirMarko/conaled/issues/560) retains its individual
+sorting acceptance scope. The [CTB continuation](../textbooks/CTB.json) records
+completed CTB-78 integration; checkpoint074 subsequently completed retention and
+saving. CTB-24/C05-085 remains a separate unmerged increment without whole-library
+acceptance in the supplied handoff. The historical accepted receiving records at
+checkpoint012 (`56c739a1`), checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and
+total tables #559 (`36d67461`) retain their original scope. R2 is the later slice
+available for #636, whose comparative synthesis and guidance decisions remain open.
 
 ## Priorities and reassessment triggers
 
@@ -196,7 +197,7 @@ Feed this inventory and the implementation evidence to
 [#636](https://github.com/VladimirMarko/conaled/issues/636). Final guidance
 reassessment must compare mathematical capability, shared proofs, conversion
 obligations, direct-client compatibility and maintenance separately, including
-the pending CTB evidence. Successful compilation is not a usability measurement.
+the accepted R2 CTB slice and its remaining issue-specific obligations. Successful compilation is not a usability measurement.
 
 Search again when a receiving slice exposes repeated adapters or stronger
 assumptions, an existing client needs an observation currently erased, a common

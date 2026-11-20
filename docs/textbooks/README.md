@@ -3,9 +3,9 @@
 This directory owns the user-authorized CTB continuation and current textbook
 coverage. It continues the existing series in ordinary repository files.
 
-**CTB-78 is active. R2 receiving integration is validated, independently reviewed
-and published. Retention review, checkpoint verification and durable checkpoint074
-publication remain pending; CTB-24 resumes after that step.**
+**CTB-78 receiving integration and checkpoint074 retention/save are complete.
+CTB-24/C05-085 is the active, separate unmerged continuation. Its receiving
+validation and review must finish before another book increment.**
 
 The integration baseline is master `8ff71395e9841760c4e240c4e8b8741b355bda68`, fetched on
 20 November 2026. The saved source donor is
@@ -55,8 +55,8 @@ relevant changes on the actual accepted tree. Current integration status belongs
 in `CTB.json`'s CTB-78 state and `integration_handoff`. R2
 `99a2974c93e556088af814f033540eb36ba2d3a6` passed the actual whole-library and
 runtime checks, both independent reviews and publication checks. The compact
-`integration_handoff.acceptance_evidence` index identifies those results. The
-retention review and checkpoint transition is the remaining current step.
+`integration_handoff.acceptance_evidence` index identifies those results. Checkpoint074 subsequently completed the
+retention review and checkpoint transition. C05-085 has its own pending gate.
 
 ## Requirements and qualification
 
@@ -115,3 +115,19 @@ checkpoint contents merely because they were once saved.
 When an inbox item is processed, update its consumers and remove the inbox entry.
 The maintained paper/code/CTB owner remains. This review occurs at workstream
 checkpoints and creates no scheduled automation.
+
+Checkpoint074 was secured at 2026-11-20 12:09:05 UTC, after the published status
+commit. The supplied archive is 101,276 bytes with SHA-256
+`190354af468356f51fc17650cc40dc2a2205c095c142dbffdf23c1903a6b3d15`.
+Its `integration/provenance/CURRENT.json` records the preservation disposition;
+the supplied recovery packet's `previous-secured-closure.json` records successful
+artifact reviews, fresh restoration, comparison and durable save. The current
+catalog records that later closure without changing historical ticket bodies.
+
+The author's 20 November 2026 handoff keeps C05-085 separate: public pending
+candidate `249c44a1b39fc029e35fb925dcf75b46998009ce` is not on master. Its
+substantive reviews reported no source/paper defects but remained blocked on
+whole-library acceptance and final verification. The recovery packet is not a
+qualified checkpoint075. Keep the balanced-interval preparation and inbox entry
+until an accepted successor preserves them; no new row or measured-cost result
+follows from this status reconciliation.

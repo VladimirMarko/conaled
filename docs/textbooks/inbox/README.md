@@ -1,8 +1,8 @@
 # Unprocessed textbook work
 
 This inbox identifies useful preparation and remaining content-reconciliation
-work. **CTB-78 receiving integration is accepted and published; retention and
-checkpoint reviews remain pending.** Further formalization follows the
+work. **CTB-78 receiving integration and checkpoint074 retention/save are complete.
+CTB-24/C05-085 remains unmerged and awaits its own receiving acceptance.** Further formalization follows the
 [required order](../README.md#required-order).
 
 The linked papers preserve the mathematical preparation in ordinary repository
@@ -29,12 +29,13 @@ and Chapter 9 remains 57/110; every canonical outstanding obligation stays open.
 
 ## Other unprocessed inputs
 
-The receiving source review has accepted the current mathematical owners. The
-final mixed-provenance removal disposition must still verify each useful
-source/case crosswalk, counterexample and operational lesson before retiring its
-old carrier. Historical UNKNOWN receiving outcomes stay
-UNKNOWN until actual evidence resolves them. An old scratch-path reference is
-not a claim that its raw receipt is currently available.
+The receiving source review accepted the current mathematical owners. Checkpoint074
+completed the mixed-provenance disposition and durable save, as recorded in the
+[current continuation](../README.md#retention-and-inbox). Its processed carriers
+need no repeat migration. The later C05-085 source and paper remain unaccepted;
+keep their preparation entry until the reviewed successor is received. Historical
+UNKNOWN outcomes retain their original scope. An old scratch-path reference does
+not imply that its raw receipt is currently available.
 
 ## Emptying processed entries
 
