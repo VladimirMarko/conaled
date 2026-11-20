@@ -1102,8 +1102,6 @@ import Examples.ClassifierPresentationComparison
 import Examples.NonUnivalentUniverse
 import Examples.TorsorStack
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
 -- Textbook continuation and checked clients.
 import Examples.AVLFoundations
 import Examples.AVLHeight
@@ -1175,3 +1173,5 @@ import Examples.IntervalTreeUpdates
 import Examples.IntervalTreeSearch
 import Examples.RectangleEvents
 import Examples.RectangleSweep
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
