@@ -1173,5 +1173,14 @@ import Examples.IntervalTreeUpdates
 import Examples.IntervalTreeSearch
 import Examples.RectangleEvents
 import Examples.RectangleSweep
+import Applications.Search.IntervalTree.Balanced
+import Applications.Search.RectangleSweep.Balanced
+import Applications.Search.RectangleSweep.ActiveCardinality
+import Applications.Search.RectangleSweep.Measured
+import Applications.Resources.ListIndex
+import Applications.Search.RectangleSweep.MeasuredEvents
+import Examples.BalancedIntervalTrees
+import Examples.MeasuredRectangleSweep
+import Examples.MeasuredRectangleEvents
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

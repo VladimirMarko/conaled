@@ -3,9 +3,14 @@
 This directory owns the user-authorized CTB continuation and current textbook
 coverage. It continues the existing series in ordinary repository files.
 
-**CTB-78 is active. R2 receiving integration is validated, independently reviewed
-and published. Retention review, checkpoint verification and durable checkpoint074
-publication remain pending; CTB-24 resumes after that step.**
+**CTB-78 receiving integration and the retention transition are complete.
+Checkpoint074 is verified, independently reviewed and secured. CTB-24 has resumed
+with C05-085 and the measured generation, scan and active-cardinality work under
+C05-090. Both remain unqualified; the earlier whole-library execution has an
+unresolved outcome. Local formalization continues while receiving integration
+waits, as the user expressly directed. Continue until the full textbook programme
+is formalized and integrated, securing useful increments through uploaded
+checkpoints; a checkpoint is a continuation milestone.**
 
 The integration baseline is master `8ff71395e9841760c4e240c4e8b8741b355bda68`, fetched on
 20 November 2026. The saved source donor is
@@ -32,7 +37,31 @@ catalog grants no additional communication authority. External issue states in
 the catalog retain their recorded observation date; no fresh tracker lookup is
 implied by migration.
 
+## Current receiving handoff
+
+The current work is CTB-24 / C05-085 plus bounded C05-090 progress. After the
+required author-side validation, independent reviews and paper curation, the
+next unified checkpoint will carry
+the complete unmerged source delta against published `3ac996cc42ec4a57bb5c7052714052cca87c97ff`
+to the `conaled` receiving agent. That agent checks and integrates its exact
+candidate. The latest 20 November direction permits local formalization while
+it waits, retaining the selected model and keeping master unchanged. The exact source tree, actual validation
+identity and receiving steps belong in that checkpoint's current handoff index.
+
+The source-delta archive is complete for the new work relative to its declared
+Git prerequisite. It includes the new/changed Lean, paper and CTB bodies and
+explicit source deletions. The older checkpoint and recovery packet are not
+receiving prerequisites. The restored tree is staged on the baseline; the
+recipient creates its own receiving commit after checking it. Compiler,
+dependency and primary-book source requirements remain explicit external inputs.
+
 ## Required order
+
+The earlier integration and retention stages below are complete for published
+R2/3ac. The latest user direction permits bounded local authoring while the next
+receiving integration waits. It changes that sequencing pause, not the validation
+or qualification gates. Preserve complete newer unreceived work and identify
+separately the exact candidate accepted by the receiving agent.
 
 1. Pin latest master and the saved donor; inventory accumulated source, paper
    mathematics, CTB requirements and useful unfinished material against actual
@@ -56,7 +85,10 @@ in `CTB.json`'s CTB-78 state and `integration_handoff`. R2
 `99a2974c93e556088af814f033540eb36ba2d3a6` passed the actual whole-library and
 runtime checks, both independent reviews and publication checks. The compact
 `integration_handoff.acceptance_evidence` index identifies those results. The
-retention review and checkpoint transition is the remaining current step.
+retention review and checkpoint transition completed with secured074. Its
+published source is `3ac996cc42ec4a57bb5c7052714052cca87c97ff`, the fixed base for
+the new C05-085/C05-090 implementation scope. This closes the earlier receiving gate without
+changing historical donor qualifications or completing the remaining books.
 
 ## Requirements and qualification
 
@@ -82,6 +114,16 @@ catalogs. All remaining FDSA/PFDS obligations, appendices, source requirements
 and observation boundaries remain in their canonical owners. The inbox's known
 families are not the complete remaining book plan.
 
+The [measured rectangle-scan paper](../research/fdsa-measured-rectangle-scan.md)
+owns the current C05-090 correspondence: shared indexed event generation,
+actual early-return observations, operation counts, primitive-cost bounds,
+active-key cardinality, the strict balanced node-count bridge and actual
+generation-sort-scan value composition. Full sorting tariffs, concrete AVL
+operation costs, support-invariant composition and the final
+conditional asymptotic theorem remain open. The earlier C05-085 whole execution
+is UNKNOWN with seven observed compiler exits137 and no success receipt; focused
+author compilation cannot replace that gate.
+
 ## Historical references
 
 Current code and paper references resolve to repository paths. A
@@ -106,11 +148,13 @@ in CTB, and reusable environment lessons in guidance. Before retiring an old
 mixed container, verify every useful result, assumption, case and unresolved
 obligation in its destination. The receiving integration gate precedes cleanup.
 
-Checkpoints carry current recoverable source, current catalogs/instructions and
-complete useful unfinished work. Keep the saved072 archive separately; never
-embed it in a successor. Reproducible type exports, processed chat transcripts
-and superseded publication/development receipts do not become permanent
-checkpoint contents merely because they were once saved.
+Checkpoints pin the accepted published source, complete catalogs and maintained
+paper owners. They carry current operations, a concise current index and any
+complete useful work not yet received into that prerequisite. Do not duplicate
+received bodies. Keep older archives separately; never embed one in a successor.
+Recompute only the immediate-predecessor removal map; a completed migration map
+does not become a cumulative field. Reproducible type exports, processed chat
+transcripts and superseded receipts do not become permanent checkpoint contents.
 
 When an inbox item is processed, update its consumers and remove the inbox entry.
 The maintained paper/code/CTB owner remains. This review occurs at workstream

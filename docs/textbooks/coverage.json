@@ -867,7 +867,7 @@
     "source_donor_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
     "receiving_master": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_acceptance": "Passed for R2; see docs/textbooks/CTB.json#/integration_handoff/acceptance_evidence",
-    "current_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+    "current_gate": "Continue the full textbook programme under its existing CTB owners until formalization and receiving integration are complete, saving and uploading useful checkpoints regularly. Current C05-090 progress includes measured generation, scan and strict balanced prefix cardinality. Keep the selected model, master hold and complete unreceived delta; obtain actual validation and independent reviews before qualification. Receiving integration remains separately owned.",
     "migration_boundary": "All source editions, denominators, qualified row/unit membership and mathematical scope retain donor qualification. This repository migration qualifies no new row, chapter or book."
   },
   "historical_catalogs": {
@@ -882,5 +882,24 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope."
+  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope.",
+  "current_work": {
+    "ticket": "CTB-24",
+    "row": "C05-090",
+    "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+    "status": "Measured generation, scan, actual pipeline binding and strict balanced prefix node/cardinality additions passed focused compilation. No row newly qualified; current additions await renewed independent review and whole-library outcome remains UNKNOWN.",
+    "retained_unqualified_work": {
+      "row": "C05-085",
+      "correspondence": "docs/research/fdsa-balanced-interval-tree.md",
+      "status": "Implemented and focused-compiled; whole-library and final nonrepairing qualification gates remain unresolved."
+    },
+    "chapter05_qualified_rows": 90,
+    "chapter05_remaining_rows": [
+      "C05-085",
+      "C05-090",
+      "C05-092",
+      "C05-093"
+    ],
+    "receiving_acceptance": "Pending for the exact new source delta. Continue the full programme and uploaded checkpoints while the receiving agent handles integration."
+  }
 }
