@@ -16,6 +16,7 @@ values with equal occurrences.
 | [Correctness](../../Applications/Search/RectangleSweep/Correctness.lean) | Distinct overlapping occurrences, soundness/completeness and geometric correctness. |
 | [OrderedList interval search](../../Applications/Search/IntervalSet/OrderedList.lean) | Executable finite overlap search combined with the existing strict-list set laws. |
 | [Connected clients](../../Examples/RectangleSweep.lean) | Concrete results, boundary cases, independent universes and separating incorrect algorithms. |
+| [Measured generation, scan and active cardinality](fdsa-measured-rectangle-scan.md) | C05-090 progress: shared indexed generation and exact tariffs, actual pipeline binding, early-return observations, executed counts, primitive-cost envelope and strict balanced prefix node bound; full complexity qualification remains open. |
 
 ## Executable program and its semantic requirements
 
@@ -203,12 +204,16 @@ data, and distinct finite IDs preserve occurrence-sensitive deletion. This is
 a fresh local derivation; it does not claim that an Isabelle session was run or
 that lost source code was reconstructed exactly.
 
-C05-085 still requires an actual balanced interval representation with
-cache-aware updates and deletion. C05-090 still requires the selected
+C05-085 now has a concrete balanced interval representation with cache-aware
+updates and deletion, described in [its paper](fdsa-balanced-interval-tree.md);
+C05-085 is now qualified after receiving validation and independent review
+under [issue #659](https://github.com/VladimirMarko/conaled/issues/659).
+C05-090 still requires the selected
 implementation's conditional O(n log n) bound, including event generation,
 sorting, all queries/updates, active-size bounds and early termination. Shared
 semantic meaning does not transfer an operation-cost or physical-sharing
-theorem. C05-091–094, later FDSA chapters and appendices, remaining PFDS work and
+theorem. C05-091 and C05-094 are already qualified under their existing owners;
+C05-092–093, later FDSA chapters and appendices, remaining PFDS work and
 receiving integration remain separate obligations. Source compilation and
 focused proof audits also do not substitute for the independent reviews or the
 receiving whole-library acceptance of the combined branch contents.
@@ -239,18 +244,26 @@ that traversal cost. A new measured recurrence may charge it and prove its sum
 is bounded by the same split recurrence plus base overhead. Do not call the
 existing two-coordinate theorem a bound on costs it expressly excludes.
 
-The measured scan must bind actual query/update results in the same order as
-`scan`: query then conditional insertion, deletion without query, and no suffix
-execution after a hit. Prove its value projection, validity and a cumulative
-bound by induction over actual suffix execution. Nonnegative charges allow an
-upper bound by the full schedule's potential work, but that does not mean those
-later queries or updates were actually executed.
+The [measured development](fdsa-measured-rectangle-scan.md) now proves the exact
+linear tariff for shared occurrence indexing, both constructor maps and append.
+Its generation-sort-scan composition binds each actual stage result once. The
+sorter remains a supplied measured callback until its complete tariff is proved.
+The measured scan binds actual
+query/update results in the same order as `scan`: query then conditional
+insertion, deletion without query, and no suffix execution after a hit. It proves
+value erasure, additive reweighting, exact operation counts and constant tariffs,
+and a cumulative scan bound from primitive bounds and invariant closure.
+Nonnegative projected charges permit a full-schedule envelope without asserting
+that skipped suffix operations executed. These bounded components have receiving
+source acceptance; the complete C05-090 row remains open.
 
-Connect the existing complete-key active-state invariant to a finite cardinality
-bound of at most n. The active occurrences form a subset of `Fin n`, and their
-complete-key map is injective. For the concrete BST, strict inorder makes its
-node count equal the cardinality of its observed complete-key set. Prove those
-bridges; do not assume node count equals cardinality on arbitrary raw trees.
+`ActiveCardinality` now proves the finite cardinality bound of at most n from
+the subset of `Fin n`, injective complete-key map and existing exact prefix
+observation. These are full mathematical prefix states; actual continuation
+still needs the earlier miss condition. The concrete balanced prefix now has a
+checked node-count/complete-key-cardinality equality from strict inorder, and
+therefore at most n nodes. The primitive envelope still needs its admitted
+support invariant. The equality is false on raw trees containing repeated keys.
 
 Instrument concrete AVL updates, predecessor extraction, smart reconstruction,
 rotations and overlap search. One-branch query cost is linear in height; updates
@@ -273,11 +286,12 @@ constants. The final real-log/Big-O conversion and n=0/1 cases still need proofs
 
 ### Attribution and scope of this preparation
 
-The preceding cost decomposition and following separators originate in
-`/root/balanced_interval_preparation`'s 18 November 2026 paper. They remain
-unqualified C05-090 preparation; no measured scan/generation theorem, new runtime
-result or receiving acceptance is supplied by moving them here. The corresponding
-[balanced interval paper](fdsa-balanced-interval-preparation.md) owns the concrete
+The original cost decomposition and following separators originate in
+`/root/balanced_interval_preparation`'s 18 November 2026 paper. The new measured
+generation/scan/cardinality work is distinguished above and in its own maintained paper.
+The remaining sorting, support and concrete-operation preparation is still
+unqualified; moving it here supplied no theorem, runtime result or acceptance. The corresponding
+[balanced interval paper](fdsa-balanced-interval-tree.md) owns the concrete
 augmentation design. CTB-24 retains the open canonical row and
 [CTB-78](../textbooks/CTB.json) owns current receiving acceptance.
 

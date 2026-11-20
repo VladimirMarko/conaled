@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "canonical_requirement_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; integration_handoff/acceptance_evidence records its actual evidence. Checkpoint074 retention and durable saving completed on 20 November 2026; CTB-24/C05-085 remains a separate pending receiving increment.",
+  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; integration_handoff/acceptance_evidence records its actual evidence. Checkpoint074 retention and durable saving completed on 20 November 2026; CTB-24/C05-085 and bounded C05-090 work have receiving source acceptance under GitHub issue #659. C05-085 is qualified; full C05-090 remains open.",
   "canonical_requirement_owners": [
     "docs/history/textbooks/checkpoint-024/TICKETS.json",
     "docs/history/textbooks/issue-lineages.json",
@@ -229,8 +229,8 @@
         "Standards": "Passed",
         "Spec": "Passed"
       },
-      "next_action": "Receive the separate CTB-24/C05-085 handoff under its own validation and review scope.",
-      "remaining_gate": "Checkpoint074 retention, artifact review, fresh restoration and durable saving completed at 2026-11-20T12:09:05 UTC. CTB-24/C05-085 is unmerged and lacks successful whole-library acceptance in the supplied 2026-11-20 handoff. Complete its receiving validation and independent review before further book increments; no row is qualified by this status update.",
+      "next_action": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+      "remaining_gate": "No gate remains for completed R2 integration and checkpoint074 retention/save. The frozen C05-085 and bounded C05-090 slice has separate receiving source acceptance under GitHub issue #659; subsequent increments require their own checks.",
       "boundary": "R2 source integration and receiving validation/review are accepted and published; checkpoint074 later completed retention and durable saving. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope.",
       "retention_policy": "docs/textbooks/README.md#retention-and-inbox"
     },
@@ -1155,7 +1155,7 @@
       }
     },
     "CTB-24": {
-      "state": "Chapter5 open;001–084,086–089,091,094 bounded source-qualified throughCTB114",
+      "state": "Chapter5 open; 001–089,091,094 bounded source-qualified, including C05-085 receiving acceptance under GitHub issue #659",
       "candidate": "5e4600fa78d103f2e124d111909bf4ca70934dc2",
       "candidate_tree": "9d70d8041b7ccd806b7b95409c3553e445bd5325",
       "children": [
@@ -1188,7 +1188,9 @@
         "docs/research/fdsa-rectangle-events.md",
         "docs/research/fdsa-rectangle-sweep.md",
         "docs/research/fdsa-rotation-distance.md",
-        "docs/research/fdsa-three-key-search-mean.md"
+        "docs/research/fdsa-three-key-search-mean.md",
+        "docs/research/fdsa-balanced-interval-tree.md",
+        "docs/research/fdsa-measured-rectangle-scan.md"
       ],
       "chapter_coverage": {
         "canonical_plan": {
@@ -1290,6 +1292,7 @@
           "C05-082",
           "C05-083",
           "C05-084",
+          "C05-085",
           "C05-086",
           "C05-087",
           "C05-088",
@@ -1392,7 +1395,6 @@
           "C05-089"
         ],
         "remaining_rows": [
-          "C05-085",
           "C05-090",
           "C05-092",
           "C05-093"
@@ -1442,7 +1444,11 @@
         "type_inspection": {
           "historical_ref": "saved072:CTB.json#/local_state/CTB-24/chapter_coverage/type_inspection"
         },
-        "primary_boundary": "Canonical091 minimum bound and094 explicit tariff/sample; prior visual reading attributed to its actual delegate.092093 remain open."
+        "primary_boundary": "Canonical091 minimum bound and094 explicit tariff/sample; prior visual reading attributed to its actual delegate.092093 remain open.",
+        "receiving_increment_rows": [
+          "C05-085"
+        ],
+        "receiving_correspondence_owner": "docs/research/fdsa-balanced-interval-tree.md"
       },
       "qualification_review": {
         "phase": "CONTENT",
@@ -1479,19 +1485,51 @@
         "boundary": "Reviewed source only; FINAL artifact approval and receiving acceptance remain separate gates."
       },
       "remaining_scope": [
-        "C05-085",
         "C05-090",
         "C05-092",
         "C05-093"
       ],
-      "next_implementation_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+      "next_implementation_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
       "next_rows": [
-        "C05-085",
         "C05-090",
         "C05-092",
         "C05-093"
       ],
-      "boundary": "C05-091 and094 only: attained minimum over actual legal mixed rotation traces, the2*n-2 bound on common-size Unit shapes, and explicit normalized finite expectations of actual lookup visits5/3 versus2. Chapter5 is90/94, exactly001–084,086–089,091,094. Balanced interval operations085, sweep asymptotics090, sharp diameter092 and encoded polynomial verification093 remain mandatory. Later FDSA chapters/appendices, remaining PFDS obligations and actual receiving full-library/ordinary acceptance stay open. No new Extract execution, machine-runtime, bit-cost, balancing or whole-book qualification."
+      "boundary": "The qualified Chapter 5 union is 91/94, exactly 001–089,091,094. Historical qualification_review retains CTB-114 rows091/094; receiving_qualification records C05-085. C05-090 has accepted bounded components but remains incomplete; rows092/093, later FDSA chapters/appendices and remaining PFDS obligations stay open. Declared source observations imply no machine-runtime, allocation, bit-complexity or whole-book result.",
+      "current_work": {
+        "row": "C05-090",
+        "status": "Frozen cfa205a4 measured generation, scan, strict balanced prefix node counts and connected examples have receiving source acceptance under GitHub issue #659. The complete canonical C05-090 complexity row remains open.",
+        "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+        "source_qualified": false,
+        "components": [
+          "Actual early-return measured scan and primitive-value erasure",
+          "Noncommutative additive observations and reweighting",
+          "Executed operation counts, exact constant tariffs and primitive-cost envelope",
+          "Finite active complete-key cardinality and lawful prefix-state transports",
+          "Shared measured occurrence indexing, event maps and append with exact input-dependent and constant tariffs",
+          "Actual once-bound generation-sort-scan composition and value/cost stage laws",
+          "Strict complete-key node/cardinality correspondence and concrete balanced prefix bounds"
+        ],
+        "remaining_full_row": [
+          "Complete declared sorting tariff",
+          "Actual balanced-update and overlap-query cost recurrences",
+          "Admitted support invariants and logarithmic-cost composition",
+          "Whole-pipeline asymptotic proof and small-input cases"
+        ],
+        "remaining_rows": [
+          "C05-090",
+          "C05-092",
+          "C05-093"
+        ]
+      },
+      "receiving_qualification": {
+        "qualified_rows": [
+          "C05-085"
+        ],
+        "chapter_source_qualified": false,
+        "evidence": "#/integration_handoff/current_increment_handoff/receiving_acceptance"
+      }
     },
     "CTB-28": {
       "state": "Bounded fixed-tolerance logarithmic height qualified; full AVL chapter remains open",
@@ -1600,12 +1638,12 @@
     "receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
     "master_observed_date": "2026-11-20",
     "guidance_boundary": "Current docs/textbooks/README.md#required-order records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
-    "current_stage": "receiving source accepted and published; checkpoint074 retention/save complete; separate CTB-24/C05-085 receiving acceptance pending",
+    "current_stage": "R2 receiving source accepted and published; checkpoint074 retention/save complete. Frozen cfa205a4 now has separate receiving source acceptance under GitHub issue #659; C05-085 is qualified and C05-090 remains partial. Further authoring proceeds separately.",
     "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
     "work_sequence": "docs/textbooks/README.md#required-order",
     "unprocessed_inbox": "docs/textbooks/inbox/README.md",
     "next_formalization_ticket": "CTB-24",
-    "next_formalization_gate": "Checkpoint074 retention, artifact review, fresh restoration and durable saving completed at 2026-11-20T12:09:05 UTC. CTB-24/C05-085 is unmerged and lacks successful whole-library acceptance in the supplied 2026-11-20 handoff. Complete its receiving validation and independent review before further book increments; no row is qualified by this status update.",
+    "next_formalization_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
     "donor_content_approval_boundary": "approved_content_candidate records the accepted072 donor CONTENT candidate only, not current receiving integration approval.",
     "historical_receiving_boundary": "Indexed receiving070/072 interruption handoffs remain dated evidence. Historical UNKNOWN processes remain UNKNOWN; no current result is inferred.",
     "retention_transition": "Completed in checkpoint074: useful mathematics, case crosswalks and remaining obligations resolve through ordinary repository owners. Its observed closure is recorded in checkpoint074_closure; pending075 remains separate.",
@@ -1695,16 +1733,75 @@
       "source_commit": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
       "evidence": "Supplied checkpoint074 CURRENT.json and checkpoint075 recovery previous-secured-closure.json, corroborated by the author handoff dated 2026-11-20 14:16:07 UTC. The receiving inventory matched the actual archive size and SHA-256.",
       "reported_outcomes": "Both artifact review axes, fresh restoration, immediate comparison and durable save passed in the author closure. This is recovery of those recorded outcomes, not a new mathematical acceptance."
+    },
+    "current_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+    "current_increment_handoff": {
+      "ticket": "CTB-24",
+      "rows": [
+        "C05-085",
+        "C05-090"
+      ],
+      "prerequisite": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "status": "Exact frozen source received with current master metadata; whole-library validation, final nonrepairing verification and both independent reviews passed.",
+      "delivery": "Complete supplied recovery packet relative to prerequisite3ac; this is not a qualified producer checkpoint075.",
+      "receiving_acceptance": {
+        "issue": 659,
+        "source_candidate": "cfa205a4e08d38c8e75048213126decad5d31f1c",
+        "receiving_base": "a7a831fc1529a2d285a838c9af8489c756454741",
+        "checked_candidate": "db7c383a4937553618f5e80ebe6b7e535e9af893",
+        "reviewed_candidate": "b9178ae1568ed91bcfd2e99b499f13603e953949",
+        "whole_library_check": "Passed; guarded incremental check-candidate.py, 3931 modules checked, 3930 audited, 172639 kernel-safe declarations and 101230 theorems; only propext, Classical.choice and Quot.sound.",
+        "final_nonrepairing_verification": "Passed for db7c383a4937553618f5e80ebe6b7e535e9af893",
+        "verification_completed_at": "2026-11-20T22:59:03.408788+00:00",
+        "compiler": "Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+        "Standards": "Passed",
+        "Spec": "Passed",
+        "unresolved_findings": 0,
+        "input_reuse": "The checked-to-reviewed diff changes only the textbook README retention paragraph; all Lean, public imports, examples, compiler/dependency pins, build, audit and integrity inputs are identical. Actual execution remains attributed to the checked candidate.",
+        "runtime_reuse": "Historical R2 runtime evidence reused after complete applicable-input comparison; no new runtime execution claimed.",
+        "resolved_findings": [
+          "STD075-001",
+          "SPEC075-1",
+          "SPEC075-2"
+        ],
+        "evidence_owner": "https://github.com/VladimirMarko/conaled/issues/659",
+        "boundary": "Receiving source acceptance qualifies C05-085 only. C05-090 remains partial. The old author run remains UNKNOWN; later author work and producer checkpoint qualification remain separate.",
+        "verification_sha256": "4d7a61d240bd145c35a6325da0cc90d0d5394f8f228dea3d06562183882d7e40",
+        "standards_report_sha256": "ec5d5d14bbb87fb07e0b9cc4f9d1124c6d795ce2ca61acec4caa02e0433f891c",
+        "spec_report_sha256": "fd069aab5540fa621b82300ca9e35e4a23070b5b6d80b7fe32be2b4bc56aac00",
+        "runtime_comparison_sha256": "08b32aecb191725f4c05a63937e7d06bb0f4740a04163b2dc025f341c0d9f304"
+      },
+      "continued_authoring": "The user directs continued work until all textbooks are formalized and integrated, with regularly uploaded checkpoints. The receiving agent handles integration; keep its exact accepted state distinct from newer local work.",
+      "after_integration": "Retire processed copies against the actual accepted prerequisite; retain any newer unreceived delta and continue remaining CTB obligations.",
+      "issue": 659,
+      "source_candidate": "cfa205a4e08d38c8e75048213126decad5d31f1c",
+      "source_tree": "6da57d0564d23930803b18f29800b4559a761fe7",
+      "receiving_base": "a7a831fc1529a2d285a838c9af8489c756454741",
+      "archive_sha256": "28423546de3e64274364cc4510a340070b958bcd977a39b36f33ed8d4d3736c2",
+      "historical_review_findings": [
+        "STD075-001",
+        "SPEC075-1"
+      ],
+      "qualified_rows": [
+        "C05-085"
+      ],
+      "remaining_rows": [
+        "C05-090",
+        "C05-092",
+        "C05-093"
+      ],
+      "preparation_disposition": "The balanced preparation was checked against its accepted successor paper, checked examples and existing measured-work owners; useful content is preserved and the processed preparation/inbox entry retired."
     }
   },
-  "next_ticket_gate": "Checkpoint074 retention, artifact review, fresh restoration and durable saving completed at 2026-11-20T12:09:05 UTC. CTB-24/C05-085 is unmerged and lacks successful whole-library acceptance in the supplied 2026-11-20 handoff. Complete its receiving validation and independent review before further book increments; no row is qualified by this status update.",
+  "next_ticket_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
   "current_user_override": {
     "date": "2026-11-20",
-    "sequence": "CTB-78 integration, necessary rework, whole-library validation and independent Standards/Spec review precede further book formalization.",
+    "sequence": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
     "max_payload_bytes": 134217728,
     "retention": "Completed mathematics belongs in repository source/research; requirements and state in CTB; guidance in operational owners. Empty processed inbox items after verified disposition. Retire obsolete provenance after receiving validation; do not perpetuate every historical receipt or wrap prior archives.",
     "historical_instruction_boundary": "CTB-119 and other dated requirements remain literal history. Their former Page-only, blanket-retention and 32 MiB process requirements do not govern current work.",
-    "instructions": "docs/textbooks/README.md#required-order"
+    "instructions": "docs/textbooks/README.md#required-order",
+    "ongoing_authorization": "Keep working until all the books are formalized and integrated and keep creating and uploading checkpoints. The user will relay requests from the conaled integration agent."
   },
   "historical_catalogs": {
     "saved072": {
@@ -1718,7 +1815,7 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "state_boundary": "Per-ticket local states, qualification reviews and source scopes retain their historical donor result, including dated pending language. Current R2 receiving acceptance is established by integration_handoff and CTB-78; checkpoint074 retention/save subsequently completed, and CTB-24/C05-085 remains pending receiving acceptance. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. No chapter row is newly qualified by this status update.",
+  "state_boundary": "Per-ticket historical qualification reviews and source scopes retain their dated donor result. Current R2 acceptance and completed checkpoint074 retention remain in integration_handoff and CTB-78. The separately accepted cfa205a4 receiving slice qualifies C05-085, taking Chapter5 to91/94; C05-090 remains partial and Chapter9 remains57/110. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. Later authoring and producer checkpoint qualification proceed separately.",
   "new_tickets": [
     {
       "id": "CTB-79",

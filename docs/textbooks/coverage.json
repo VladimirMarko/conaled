@@ -348,7 +348,7 @@
           4
         ],
         "receiving_owner": "docs/research/fdsa-chapter04-coverage.md",
-        "boundary": "CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS obligations remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+        "boundary": "C05-085 receiving acceptance qualifies the concrete balanced interval realization and rectangle-sweep consumer, taking Chapter5 to91/94; C05-090/092/093 remain open. CTB-122 retains its C09-061 scope and Chapter9 remains57/110. Operation costs039-041/060, construction062 onward, balance-factor Set090 and remaining FDSA/PFDS obligations remain open. No whole-book, machine-runtime, allocation, bit-cost or physical-sharing result follows.",
         "newly_qualified_chapters": [],
         "newly_qualified_bounded_increments": [
           {
@@ -713,11 +713,26 @@
               "boundary": "Actual bounded source CONTENT only; artifact FINAL, publication and receiving remain separate."
             },
             "correspondence": "docs/research/fdsa-height-bound.md"
+          },
+          {
+            "ticket": "CTB-24",
+            "rows": [
+              "C05-085"
+            ],
+            "qualification_review": {
+              "Standards": "Passed",
+              "Spec": "Passed",
+              "unresolved_findings": 0,
+              "evidence": "docs/textbooks/CTB.json#/integration_handoff/current_increment_handoff/receiving_acceptance",
+              "scope": "C05-085 only; C05-090 remains partial and producer checkpoint qualification is separate."
+            },
+            "correspondence": "docs/research/fdsa-balanced-interval-tree.md",
+            "chapter_source_qualified": false
           }
         ],
         "active_chapter": 5,
-        "chapter05_qualified_rows": 90,
-        "chapter05_remaining_rows": 4,
+        "chapter05_qualified_rows": 91,
+        "chapter05_remaining_rows": 3,
         "chapter05_correspondence": [
           "docs/research/fdsa-search-trees.md",
           "docs/research/fdsa-tree-rotations.md",
@@ -727,7 +742,9 @@
           "docs/research/fdsa-rectangle-events.md",
           "docs/research/fdsa-rectangle-sweep.md",
           "docs/research/fdsa-rotation-distance.md",
-          "docs/research/fdsa-three-key-search-mean.md"
+          "docs/research/fdsa-three-key-search-mean.md",
+          "docs/research/fdsa-balanced-interval-tree.md",
+          "docs/research/fdsa-measured-rectangle-scan.md"
         ],
         "chapter09_qualified_rows": 57,
         "chapter09_total_rows": 110,
@@ -867,8 +884,15 @@
     "source_donor_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
     "receiving_master": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_acceptance": "Passed for R2; see docs/textbooks/CTB.json#/integration_handoff/acceptance_evidence",
-    "current_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
-    "migration_boundary": "All source editions, denominators, qualified row/unit membership and mathematical scope retain donor qualification. This repository migration qualifies no new row, chapter or book."
+    "current_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+    "migration_boundary": "All source editions, denominators, qualified row/unit membership and mathematical scope retain donor qualification. This repository migration qualifies no new row, chapter or book.",
+    "current_receiving_increment": {
+      "issue": 659,
+      "qualified_rows": [
+        "C05-085"
+      ],
+      "evidence": "docs/textbooks/CTB.json#/integration_handoff/current_increment_handoff/receiving_acceptance"
+    }
   },
   "historical_catalogs": {
     "saved072": {
@@ -882,5 +906,18 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope."
+  "historical_readiness_boundary": "Source-readiness prose preserves the donor reading/qualification attribution. References to checkpointNNN_progress_provenance denote that field in saved072 BOOKS.json, not a repeated object in this current ledger. Detailed receipt metadata refers to original dated evidence; current R2 receiving acceptance is recorded in CTB integration_handoff/acceptance_evidence; dated donor readiness retains its historical time and scope.",
+  "current_work": {
+    "ticket": "CTB-24",
+    "row": "C05-090",
+    "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+    "status": "Frozen cfa205a4 measured components have receiving source acceptance under GitHub issue #659. C05-085 is separately qualified; the complete C05-090 complexity row stays open.",
+    "chapter05_qualified_rows": 91,
+    "chapter05_remaining_rows": [
+      "C05-090",
+      "C05-092",
+      "C05-093"
+    ],
+    "receiving_acceptance": "Passed for the frozen receiving source; evidence in CTB.json integration_handoff/current_increment_handoff/receiving_acceptance. Later authoring and producer checkpoints retain separate qualification gates."
+  }
 }
