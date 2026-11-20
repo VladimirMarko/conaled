@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "canonical_requirement_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. Current receiving integration and review remain pending.",
+  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; integration_handoff/acceptance_evidence records its actual evidence. Retention follow-through remains active.",
   "canonical_requirement_owners": [
     "docs/history/textbooks/checkpoint-024/TICKETS.json",
     "docs/history/textbooks/issue-lineages.json",
@@ -162,7 +162,7 @@
       "resource_progress": "CTB-80 supplies actual comparison/literal-constructor laws; CTB-81 supplies actual shared roots, exact fresh-cell counts and retained-root/live-cell interpretation. All17 Sort records and8 exercises are mapped."
     },
     "CTB-78": {
-      "state": "active; latest master fetched and pinned; inventory and integration preparation in progress; source integration, rework and receiving acceptance pending",
+      "state": "active; receiving integration accepted and published at R2; reviewed retention transition and checkpoint074 remain pending",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -223,15 +223,15 @@
       "scope": "Inventory the full donor/upstream mathematical union and CTB requirements; assess missed reuse, interface changes and affected clients; integrate and rework; validate the exact receiving candidate before new textbook formalization.",
       "work_sequence": "docs/textbooks/README.md#required-order",
       "unprocessed_inbox": "docs/textbooks/inbox/README.md",
-      "integration_candidate": null,
-      "whole_library_acceptance": "pending",
+      "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+      "whole_library_acceptance": "Passed; actual R2 evidence in integration_handoff/acceptance_evidence",
       "independent_review": {
-        "Standards": "pending",
-        "Spec": "pending"
+        "Standards": "Passed",
+        "Spec": "Passed"
       },
-      "next_action": "Complete inventory/reuse/interface review against the pinned master, then integrate and validate the actual combined candidate.",
-      "remaining_gate": "Receiving integration of donor 1f6ee5dd25ba633deb807b8d2240bec5e5cf96af with observed conaled/master 8ff71395e9841760c4e240c4e8b8741b355bda68 must pass required whole-library validation, independent Standards and Spec review, fixes and immediate acceptance gates under docs/textbooks/README.md#required-order before new textbook formalization.",
-      "boundary": "No new mathematical row, completed integration, current receiving validation or review acceptance is claimed. Donor checks retain their original scope; historical UNKNOWN receiving outcomes remain UNKNOWN. No provenance is pruned in this control checkpoint.",
+      "next_action": "Finish preservation/removal disposition review, assemble and freshly verify the current checkpoint, complete artifact review and secure checkpoint074; then resume CTB-24.",
+      "remaining_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
+      "boundary": "R2 source integration and receiving validation/review are accepted and published. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope. Checkpoint retirement and durable-save closure remain separate pending steps.",
       "retention_policy": "docs/textbooks/README.md#retention-and-inbox"
     },
     "CTB-6": {
@@ -1484,7 +1484,7 @@
         "C05-092",
         "C05-093"
       ],
-      "next_implementation_gate": "Receiving integration of donor 1f6ee5dd25ba633deb807b8d2240bec5e5cf96af with observed conaled/master 8ff71395e9841760c4e240c4e8b8741b355bda68 must pass required whole-library validation, independent Standards and Spec review, fixes and immediate acceptance gates under docs/textbooks/README.md#required-order before new textbook formalization.",
+      "next_implementation_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
       "next_rows": [
         "C05-085",
         "C05-090",
@@ -1578,14 +1578,14 @@
   "authorized_scope": "Continue formalizing all chapters and appendices of all three tracked books, preserving the canonical complete source/exercise ledgers. Securing a bounded checkpoint does not complete or terminate that ongoing task.",
   "integration_handoff": {
     "prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-    "current_candidate": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
+    "current_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
     "approved_content_candidate": "fa8d5f89290d43da8a69049e9fc014b174ca2c95",
-    "candidate_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
+    "candidate_tree": "173003db476a73783a873897bb754ca941d2f9c8",
     "current_guidance_reference": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_agent": "conaled integration agent",
-    "quality_review": "pending; both independent receiving Standards and Spec axes are required for the actual integrated candidate",
-    "whole_library_acceptance": "pending",
-    "chapter_progress": "CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS and receiving acceptance remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+    "quality_review": "Passed: independent Standards and Spec for exact R2; see acceptance_evidence",
+    "whole_library_acceptance": "Passed: actual clean R2 CI and final nonrepairing verification; see acceptance_evidence",
+    "chapter_progress": "CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS obligations remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
     "review_focus": [
       "Preserve the complete donor/upstream mathematical union, public imports, all prior requirements and CTB identities.",
       "Inventory missed reuse and interface changes against the actual pinned master; rework affected clients while preserving original assumptions and stronger specialized results.",
@@ -1593,22 +1593,22 @@
       "Complete receiving whole-library compilation/audit, applicable runtime/extraction checks and both independent review axes on the actual integrated candidate.",
       "Before retiring provenance, preserve useful unfinished mathematics/case crosswalks and repair current CTB/research/index references; keep remaining book requirements open."
     ],
-    "current_candidate_role": "accepted072 donor; no integrated receiving candidate established",
+    "current_candidate_role": "accepted and published receiving source; actual executions and independent review identify R2",
     "donor_source_commit": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
     "donor_source_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
     "receiving_master_commit": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
     "master_observed_date": "2026-11-20",
     "guidance_boundary": "Current docs/textbooks/README.md#required-order records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
-    "current_stage": "source union, current CTB/paper ownership and bounded interface rework prepared; exact receiving validation and reviews pending",
-    "integration_candidate": null,
+    "current_stage": "receiving source accepted and published; current status reconciliation and reviewed checkpoint retention transition in progress",
+    "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
     "work_sequence": "docs/textbooks/README.md#required-order",
     "unprocessed_inbox": "docs/textbooks/inbox/README.md",
     "next_formalization_ticket": "CTB-24",
-    "next_formalization_gate": "Receiving integration of donor 1f6ee5dd25ba633deb807b8d2240bec5e5cf96af with observed conaled/master 8ff71395e9841760c4e240c4e8b8741b355bda68 must pass required whole-library validation, independent Standards and Spec review, fixes and immediate acceptance gates under docs/textbooks/README.md#required-order before new textbook formalization.",
+    "next_formalization_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
     "donor_content_approval_boundary": "approved_content_candidate records the accepted072 donor CONTENT candidate only, not current receiving integration approval.",
     "historical_receiving_boundary": "Indexed receiving070/072 interruption handoffs remain dated evidence. Historical UNKNOWN processes remain UNKNOWN; no current result is inferred.",
-    "retention_transition": "Useful mathematical preparation and case crosswalks are being verified in ordinary repository owners. After validated receiving integration, retire processed historical containers, preserve complete useful unresolved inputs and periodically empty processed inbox entries.",
+    "retention_transition": "Useful mathematical preparation and case crosswalks have accepted ordinary repository owners. The exact old-carrier removal map, final current checkpoint bodies, fresh restoration, artifact review and durable save still require their recorded completion. Useful unfinished formalization remains in the maintained source inbox.",
     "retention_policy": "docs/textbooks/README.md#retention-and-inbox",
     "integration_rework": [
       {
@@ -1620,9 +1620,75 @@
         "change": "Expose kvsInsert_split_of_left for an arbitrary right suffix, retain the original source-facing wrapper and use the weaker law in enumeration correctness.",
         "cases": "Examples/SearchTrees.lean"
       }
-    ]
+    ],
+    "acceptance_evidence": {
+      "source_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+      "source_tree": "173003db476a73783a873897bb754ca941d2f9c8",
+      "full_review_base": "8ff71395e9841760c4e240c4e8b8741b355bda68",
+      "whole_library": {
+        "run": 44670389911,
+        "job": 136069677454,
+        "url": "https://github.com/VladimirMarko/conaled/actions/runs/44670389911",
+        "mode": "clean",
+        "checked_modules": 3922,
+        "audited_project_modules": 3921,
+        "kernel_safe_declarations": 172158,
+        "theorems": 100902,
+        "unsafe_runtime_roots": 0,
+        "axiom_union": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "official_receipt_sha256": "6ef943c8c05ce3568c2a5ce3f8bccd5c5b514afe09a48dde0c4e599fc067209e",
+        "final_verify_exit": 0
+      },
+      "runtime": {
+        "run": 44700642536,
+        "job": 136167893808,
+        "url": "https://github.com/VladimirMarko/conaled/actions/runs/44700642536",
+        "workflow_commit": "691e561563d03010fa5bfeebbc4a6491446fbd45",
+        "artifact_url": "https://github.com/VladimirMarko/conaled/actions/runs/44700642536/artifacts/14617049551",
+        "artifact_sha256": "dc1e77a5ac45a9cc30fea2b026ef0685a2df64d4b4805b80d3f8e3d02d6feb0c",
+        "direct_tests": 55,
+        "standalone_tests": 55,
+        "skipped_per_mode": 0,
+        "paired_invocations": 744,
+        "equal_byte_binding_records": 192,
+        "distinct_parent_pairs": 27,
+        "missing_path_bindings": 3,
+        "result_sha256": "41eec0654901fe41ce50639783292237e72fcae6033551bbfe12fdc36d450f3e",
+        "comparison_sha256": "44e06e5da6c45dd3fb51b3aee8c31e2aa8f2765b407934b8e3d243d40f8fcaf4",
+        "readback_sha256": "4f7afe025d02c80309970621d138ee89b776a1e7c3f35f5202bcee0cc7adf05e",
+        "generated_identities_sha256": "d685658646fbc72376fe8c3ab5b3cb48a51863334c118a28ce475181ba580d0c",
+        "generated_code_assessment": "Passed within the recorded selected C/native observation and trusted compiler/runtime boundary"
+      },
+      "independent_review": {
+        "coordinator": "/root/control_review073",
+        "reports": {
+          "Standards": {
+            "outcome": "Passed",
+            "report_sha256": "8c6a3a1dc2c43c50be076e9e358454403c7c2e39a06de28053080231ddbe741b"
+          },
+          "Spec": {
+            "outcome": "Passed",
+            "report_sha256": "02d2b5e663ef61eac9692d8b5ebdea1ad4f53d292764c63d6fb948378baa4c74"
+          }
+        },
+        "unresolved_source_findings": 0,
+        "record_sha256": "74a99c383e3de0b432c2d368285e09889f7cd3a8b08c5e76546530de19c9df45"
+      },
+      "publication": {
+        "ref": "refs/heads/master",
+        "observed_commit": "99a2974c93e556088af814f033540eb36ba2d3a6",
+        "observed_tree": "173003db476a73783a873897bb754ca941d2f9c8",
+        "readback_sha256": "d88dc8a89ede3405341d0313be37a3703f31b40964ebc6f55cb08cb0d0e72a80",
+        "recorded_utc": "2026-11-20T11:12:43.564216+00:00"
+      },
+      "boundary": "Actual build and runtime execution belong to R2 in isolated CI. Later documentation-only acceptance requires a complete effective-input comparison and its own independent review. No old failure or UNKNOWN outcome is rewritten; raw artifacts are not perpetual checkpoint payloads."
+    }
   },
-  "next_ticket_gate": "Receiving integration of donor 1f6ee5dd25ba633deb807b8d2240bec5e5cf96af with observed conaled/master 8ff71395e9841760c4e240c4e8b8741b355bda68 must pass required whole-library validation, independent Standards and Spec review, fixes and immediate acceptance gates under docs/textbooks/README.md#required-order before new textbook formalization.",
+  "next_ticket_gate": "R2 receiving integration has passed the required whole-library and runtime validation, independent Standards and Spec review, immediate content checks and master publication. Complete retention disposition and artifact review, fresh verification and durable checkpoint074 publication, then resume CTB-24 with the ordinary primary-source, independent-case, validation and review requirements.",
   "current_user_override": {
     "date": "2026-11-20",
     "sequence": "CTB-78 integration, necessary rework, whole-library validation and independent Standards/Spec review precede further book formalization.",
@@ -1643,7 +1709,7 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "state_boundary": "Per-ticket local states, qualification reviews and source scopes record their historical donor result. Current receiving acceptance is controlled by integration_handoff and CTB-78, and remains pending. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. No chapter row is newly qualified by this migration.",
+  "state_boundary": "Per-ticket local states, qualification reviews and source scopes retain their historical donor result, including dated pending language. Current R2 receiving acceptance is established by integration_handoff and CTB-78; retention follow-through remains active. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. No chapter row is newly qualified by this status update.",
   "new_tickets": [
     {
       "id": "CTB-79",

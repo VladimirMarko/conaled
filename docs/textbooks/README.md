@@ -3,10 +3,11 @@
 This directory owns the user-authorized CTB continuation and current textbook
 coverage. It continues the existing series in ordinary repository files.
 
-**CTB-78 is active. Receiving integration, validation and independent review are
-pending. CTB-24 and further book formalization resume after that gate.**
+**CTB-78 is active. R2 receiving integration is validated, independently reviewed
+and published. Retention review, checkpoint verification and durable checkpoint074
+publication remain pending; CTB-24 resumes after that step.**
 
-The receiving master is `8ff71395e9841760c4e240c4e8b8741b355bda68`, fetched on
+The integration baseline is master `8ff71395e9841760c4e240c4e8b8741b355bda68`, fetched on
 20 November 2026. The saved source donor is
 `1f6ee5dd25ba633deb807b8d2240bec5e5cf96af`, tree
 `0995ad74091115ed9bed77f3814b14fb57fd5ad7`. Their common prerequisite is
@@ -51,8 +52,11 @@ implied by migration.
 
 Before final receiving publication, check whether master advanced and reconcile
 relevant changes on the actual accepted tree. Current integration status belongs
-in `CTB.json`'s CTB-78 state and `integration_handoff`; acceptance remains pending
-until actual evidence establishes it.
+in `CTB.json`'s CTB-78 state and `integration_handoff`. R2
+`99a2974c93e556088af814f033540eb36ba2d3a6` passed the actual whole-library and
+runtime checks, both independent reviews and publication checks. The compact
+`integration_handoff.acceptance_evidence` index identifies those results. The
+retention review and checkpoint transition is the remaining current step.
 
 ## Requirements and qualification
 
@@ -71,9 +75,9 @@ requirements remain literal historical text, with this current override made
 explicit in the catalog. Preserving those texts does not reinstate their old
 process instructions.
 
-The donor source-qualifies all 17 VFA units, subject to separate receiving
-acceptance. FDSA Chapter 5 remains 90/94, with C05-085/090/092/093 open; Chapter 9
-remains 57/110. No row, chapter or book is newly qualified by moving these
+The donor source-qualifies all 17 VFA units; R2 has now passed the separate
+receiving acceptance. FDSA Chapter 5 remains 90/94, with C05-085/090/092/093
+open; Chapter 9 remains 57/110. No row, chapter or book is newly qualified by moving these
 catalogs. All remaining FDSA/PFDS obligations, appendices, source requirements
 and observation boundaries remain in their canonical owners. The inbox's known
 families are not the complete remaining book plan.
