@@ -1211,5 +1211,6 @@ import Applications.Resources.RotationCertificate.Encoding
 import Applications.Resources.RotationCertificate.LinearParser
 import Examples.RotationCertificateCodecs
 import Examples.ClassifierSheafPi
+import Examples.CoherentSheafOver
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
