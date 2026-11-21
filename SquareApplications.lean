@@ -1214,4 +1214,6 @@ import Examples.ClassifierSheafPi
 import Examples.CoherentSheafOver
 import Examples.SheafFamilyDescent
 
+import Examples.SubcanonicalTorsor
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
