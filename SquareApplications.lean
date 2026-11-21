@@ -1103,6 +1103,7 @@ import Examples.ClassifierPresentationComparison
 import Examples.NonUnivalentUniverse
 import Examples.TorsorStack
 import Examples.ActionQuotientStack
+import Examples.SheafFamilyCover
 
 -- Textbook continuation and checked clients.
 import Examples.AVLFoundations
