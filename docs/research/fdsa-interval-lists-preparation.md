@@ -1,7 +1,7 @@
 # Interval-list sets: unqualified Chapter 6 preparation
 
-CTB-25, C06-020–033 remain open. This note preserves the useful surviving
-paper preparation for Exercise 6.1 and one separate C06-060 map-interface
+CTB-25, FDSA-6-20 to FDSA-6-33 remain open. This note preserves the useful surviving
+paper preparation for Exercise 6.1 and one separate FDSA-6-60 map-interface
 observation. It adds no implementation, measured result, source qualification,
 or receiving acceptance. The [Chapter 6 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter06-obligations.md)
 owns the complete 74-row chapter scope and exact requirements. CTB-78 receiving
@@ -108,7 +108,7 @@ recoverable from this note and must be transparently rederived or independently
 recovered. Preserve the canonical linear-in-interval-count goal; never obtain it
 by enumerating all represented natural numbers.
 
-## Separate C06-060 map-interface observation
+## Separate FDSA-6-60 map-interface observation
 
 This observation concerns ordered-map list update, not the interval-list
 algorithm. Its current owner is
@@ -122,10 +122,10 @@ law. [SearchTrees](../../Examples/SearchTrees.lean) includes an arbitrary-suffix
 client, an unsorted duplicate-bearing witness that violates the old extra premise,
 and a counterexample showing why the left separator is still needed.
 
-The surviving Chapter 6 preparation says C06-060 permits an arbitrary right
+The surviving Chapter 6 preparation says FDSA-6-60 permits an arbitrary right
 suffix. Reconcile its exact canonical statement and remaining exercise proof
 with this shared theorem when formalizing that row. This interface improvement
-does not by itself qualify C06-060 or complete its chapter; receiving compilation
+does not by itself qualify FDSA-6-60 or complete its chapter; receiving compilation
 and review remain pending.
 
 [`SourceModel.listObserve_kvsInsert`](../../Applications/Search/OrderedMap/SourceModel.lean)
@@ -140,7 +140,7 @@ claim a complete Chapter 6 reuse audit or classify any of those rows as done.
 ## Next action and qualification
 
 Recover or rederive the missing complete branches, cases and tariff, then compare
-them with the canonical C06-020–033 requirements and current shared interfaces.
+them with the canonical FDSA-6-20 to FDSA-6-33 requirements and current shared interfaces.
 Implement and prove actual operations, all required laws, early termination,
-validity and measured linear bounds. Keep the C06-060 weakening under its map
+validity and measured linear bounds. Keep the FDSA-6-60 weakening under its map
 owner. None of the retained paper work closes a canonical row.

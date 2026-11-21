@@ -21,12 +21,12 @@ reread the PDF. Earlier G/P labels are historical capability assessments.
 
 | Source obligation | Current connection |
 | --- | --- |
-| C04-002 | `Trees.setTree`, with independent structural empty/node equations. |
-| C04-005 | `Trees.preorder`, visiting root, left and right in that order. |
-| C04-014 | `Trees.Subtree`, its nil/node characterizations and transitivity, plus `subtrees`, exact set recurrences and empty/self membership. |
-| Membership and preorder portions of C04-015 | Both traversal-to-set membership bridges and `preorder_length`; existing `inorder_length` remains the canonical inorder length theorem. |
-| Exercise 4.3, C04-021–022 | `sumTree`, `wpld`, `wpl0`, independent `wpl`, the universally quantified offset identity and its depth-zero specialization. |
-| General-subtree portion of C04-046 | `complete_of_subtree` and `almostComplete_of_subtree` in the existing Shape owner. |
+| FDSA-4-2 | `Trees.setTree`, with independent structural empty/node equations. |
+| FDSA-4-5 | `Trees.preorder`, visiting root, left and right in that order. |
+| FDSA-4-14 | `Trees.Subtree`, its nil/node characterizations and transitivity, plus `subtrees`, exact set recurrences and empty/self membership. |
+| Membership and preorder portions of FDSA-4-15 | Both traversal-to-set membership bridges and `preorder_length`; existing `inorder_length` remains the canonical inorder length theorem. |
+| Exercise 4.3, FDSA-4-21 to FDSA-4-22 | `sumTree`, `wpld`, `wpl0`, independent `wpl`, the universally quantified offset identity and its depth-zero specialization. |
+| General-subtree portion of FDSA-4-46 | `complete_of_subtree` and `almostComplete_of_subtree` in the existing Shape owner. |
 
 Preorder label transport is a useful additional connection to the current map
 interface. Enumeration, level traversal, reconstruction, rose mirroring,

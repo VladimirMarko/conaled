@@ -1,12 +1,18 @@
 # Exact rotation diameter: unqualified preparation
 
-C05-092 remains open: every pair of common-size binary-tree shapes must have
+FDSA-5-92 remains open: every pair of common-size binary-tree shapes must have
 distance at most 2N−6, and an explicit pair must attain that bound, for N≥11.
 This paper preserves the mathematical preparation by
 `/root/recovery_book_inventory`, begun 18 November 2026. Its geometric arguments,
 family formulas and proposed proof decomposition remain **unqualified paper
 work**. The receiving curation adds no Lean theorem and makes no new primary
-reading claim. Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json): CTB-78 integration acceptance precedes resumed book formalization. This paper is not a Lean dependency or a receiving validation receipt.
+reading claim. Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json). Cumulative source integration is tracked under [issue #660](https://github.com/VladimirMarko/conaled/issues/660); FDSA-5-92 remains an open mathematical obligation. This paper is not a Lean dependency or a receiving validation receipt.
+
+The later sections [Concrete finite obstruction](#concrete-finite-obstruction)
+and [Tree-diagonal bridge](#tree-diagonal-bridge) preserve the subsequent complete
+literal tables and tree realization. They replace the earlier missing-table
+obligation for those explicit objects. The lost memo itself was not recovered,
+and identification with the primary figure-defined families remains unresolved.
 
 ## Primary sources and attributed reading
 
@@ -32,7 +38,7 @@ reading identities do not assert current availability of old scratch copies.
 
 ## 1. Exact target and conventions
 
-The canonical owner is the [Chapter 5 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md), row **C05-092**, under CTB-24. It demands the exact maximum rotation distance **2N−6 for binary trees with N internal nodes, N≥11**. C05-091's constructive 2N−2 connection bound does not establish this stronger claim. Difficulty and citation to external papers do not remove C05-092 from whole-book completion.
+The canonical owner is the [Chapter 5 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md), row **FDSA-5-92**, under CTB-24. It demands the exact maximum rotation distance **2N−6 for binary trees with N internal nodes, N≥11**. FDSA-5-91's constructive 2N−2 connection bound does not establish this stronger claim. Difficulty and citation to external papers do not remove FDSA-5-92 from whole-book completion.
 
 Use separate variables throughout the implementation to avoid the papers' conflicting uses of `n`:
 
@@ -198,7 +204,7 @@ The B/C variations lead to the finite Q drawings in Figure 12; these need concre
 
 For m=9,…,12 use Proposition 4 and the B/C lower bounds; for m≥13 use Theorem 11 and strong induction. The paper writes a formally loose induction hypothesis mentioning A_i for i=0,1,2, although the family is only defined for i≥3. Restrict the IH to the actual defined range. For natural-number arithmetic, state the lower bound as `2*m ≤ δ(A_m)+10` or explicitly work over integers; do not silently use truncated subtraction in rearrangements below m=5.
 
-**Possible target-preserving simplification:** the mandatory theorem only needs m≥13, whose largest offset is 6, so a lower-bound induction may begin at m=7. One could prove the sufficient weaker seeds δ(A_7)≥4 by the four differing diagonals and δ(A_8)≥6 using Theorem 4/deletion to A_7, then carry out Proposition 4 for m=9,…,12. The exact small values above remain the correct source facts; the simplified proof would omit unnecessary equality proofs, not weaken C05-092. This suggestion is unimplemented and must retain every needed finite family/deletion identity.
+**Possible target-preserving simplification:** the mandatory theorem only needs m≥13, whose largest offset is 6, so a lower-bound induction may begin at m=7. One could prove the sufficient weaker seeds δ(A_7)≥4 by the four differing diagonals and δ(A_8)≥6 using Theorem 4/deletion to A_7, then carry out Proposition 4 for m=9,…,12. The exact small values above remain the correct source facts; the simplified proof would omit unnecessary equality proofs, not weaken FDSA-5-92. This suggestion is unimplemented and must retain every needed finite family/deletion identity.
 
 ### Retained independent Q10 conflict and proposed repair
 
@@ -245,7 +251,7 @@ than silently choosing the later report or assuming the missing tables survived.
 
 ## 8. Complete-paper scope and textual cautions
 
-Proposition 8 (pp. 24–25) gives δ(A_m)≤2m−10 for every m>8 by routing both endpoints through the fan at vertex 3. The A⁺ endpoint already has four incident diagonals there; the two costs are m−7 and m−3. Thus A_m is **not** always a diameter pair at small sizes: for d=6,7,9 (m=9,10,12), its distance is one below the cited diameter. The source's small-dimension diameter list is `0,1,2,4,5,7,9,11,12,15` for d=0,…,9. That list is discussion/context, not an additional dependency for C05-092.
+Proposition 8 (pp. 24–25) gives δ(A_m)≤2m−10 for every m>8 by routing both endpoints through the fan at vertex 3. The A⁺ endpoint already has four incident diagonals there; the two costs are m−7 and m−3. Thus A_m is **not** always a diameter pair at small sizes: for d=6,7,9 (m=9,10,12), its distance is one below the cited diameter. The source's small-dimension diameter list is `0,1,2,4,5,7,9,11,12,15` for d=0,…,9. That list is discussion/context, not an additional dependency for FDSA-5-92.
 
 Section 6.2 constructs a different, more symmetric D-family and refutes the suggested extremality of that family. Proposition 9 gives a concrete 14-flip/17-flip route reduction `δ(D_m)≤δ(D_(m−16))+31` for m>19, using shared diagonals to strip equal subregions. Consequently its asymptotic slope is at most 31/16. This warns against replacing A by a visually simpler symmetric zigzag/comb family without a new proof. The D-family is not needed for the mandatory sharp theorem.
 
@@ -300,14 +306,14 @@ Theorem 8 additionally needs an **ear-face isometry**: triangulations sharing th
 
 ## 10. Proposed implementation dependency map
 
-These are mathematical components, **not** allocated tickets, approved source scopes, or a proposal to redefine the target. Keep C05-092 mandatory while fitting coherent increments into the ordinary example/implementation/review/checkpoint process.
+These are mathematical components, **not** allocated tickets, approved source scopes, or a proposal to redefine the target. Keep FDSA-5-92 mandatory while fitting coherent increments into the ordinary example/implementation/review/checkpoint process.
 
 | Stage | Concrete outcome | Dependencies and reuse |
 | --- | --- | --- |
-| A. Mixed rotation distance | Existing `RotationMove`, `applyMoves?`, attained minimum and `Shape n`; finite maximum/attainment interface for the new diameter theorem remains to connect | Reuse `Mixed.lean` and `Distance.lean`; C05-091's 2N−2 route supplies connectivity. Right-only optimality still concerns a different problem. |
+| A. Mixed rotation distance | Existing `RotationMove`, `applyMoves?`, attained minimum and `Shape n`; finite maximum/attainment interface for the new diameter theorem remains to connect | Reuse `Mixed.lean` and `Distance.lean`; FDSA-5-91's 2N−2 route supplies connectivity. Right-only optimality still concerns a different problem. |
 | B. Cyclic polygon triangulations | Finite labelled vertex/edge model; crossing, boundaries, triangle/link uniqueness, m−3 diagonals, quadrilateral flip | Prefer finite cyclic-order combinatorics; no analytic convexity or associahedron realization is needed for the requested tree theorem. Prove that the chosen model has exactly the paper's triangulations. |
 | C. Rooted tree/flip correspondence | Size-preserving bijection, adjacency equivalence, trace transfer, distance equality | Root boundary edge, ordered left/right children, fixed inorder or unlabelled shapes. Reuse the existing tree carrier rather than a second unrelated binary-tree type. |
-| D. Universal upper bound | Fan-extension trace, finite degree count, 2m−10 bound for m≥13, then tree bound | B, A/C. This is already a coherent theorem even before the lower bound, but does not close C05-092 alone. |
+| D. Universal upper bound | Fan-extension trace, finite degree count, 2m−10 bound for m≥13, then tree bound | B, A/C. This is already a coherent theorem even before the lower bound, but does not close FDSA-5-92 alone. |
 | E. Path infrastructure | Shortest subpaths, triangle inequality, contraction with exact collapsed-step count, isomorphism invariance, common-ear restriction/lift | Reuse/generalize existing legal trace structure; finite graph/path facts should not be encoded separately in each family proof. |
 | F. Normalization | Concrete diagonal normalization and local flip behavior; target-edge-first and common-edge geodesic lemmas | B,E; STT Lemma 3. Boundary-inclusive edge sets simplify spokes. |
 | G. Vertex deletion | Concrete clockwise-neighbor contraction, triangulation preservation, exact incident-step characterization; Θ/existential-geodesic lower-bound principle | B,E. Separate this operator from normalization and from ear restriction. |
@@ -339,8 +345,595 @@ These are proposed checks with mathematically justified expected outcomes, **not
 
 ## Remaining work
 
-The explicit zigzag formula is inferred and unproved; the finite polygon model,
-normalization, deletion, family identities, the Q10 conflict, finite seeds and
-sharp upper/lower bounds still need actual formalization and review. Reuse the existing mixed-distance
-foundation, then establish the concrete tree/flip correspondence. C05-092 and
+The explicit zigzag formula has the later ear-cutting paper argument below;
+its primary-family identification and formal proof remain open. The finite
+polygon model, normalization, deletion, family identities, finite seeds and
+sharp upper/lower bounds still need actual formalization and review. The later
+literal Q10 tables resolve the local finite obstruction without establishing
+the disputed primary-family identification. Reuse the existing mixed-distance
+foundation, then establish the concrete tree/flip correspondence. FDSA-5-92 and
 all other remaining book obligations stay open.
+
+## Concrete finite obstruction
+
+Prepared 20 November 2026 for increment 083. This is mathematical preparation,
+not a Lean qualification, source change, or acceptance receipt. CTB-24/FDSA-5-92
+remains mandatory: for N internal nodes and N≥11, every two shapes have rotation
+distance at most 2N−6, and a specified pair attains that value. The certificate/NP
+work under FDSA-5-93 is separate.
+
+### 1. What was actually inspected, and the remaining source boundary
+
+The complete maintained paper
+`docs/research/fdsa-rotation-diameter-preparation.md` and the complete FDSA-5-92 row
+in `docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md`
+were read in the historical source checkout. Their remaining obligations
+are retained; this note replaces neither file.
+
+Fresh primary reading used Lionel Pournin, *The diameter of associahedra*:
+
+- <https://arxiv.org/pdf/1207.6296>, whose returned body identifies itself as
+  arXiv:1207.6296v4, 28 March 2014, 28 pages.
+- <https://ar5iv.labs.arxiv.org/html/1207.6296>, the conversion of that paper,
+  especially §3.1–3.2 (family definitions) and §5, Proposition 7.
+- Relevant manuscript locations: pp.11–12, Figure 4 and the A construction;
+  pp.14–16, B/C construction and Figures 7–8; pp.22–23, Proposition 7 and
+  Figure 12; pp.23–24, Theorems 12–13. DOI:
+  <https://doi.org/10.1016/j.aim.2014.02.035>.
+
+The Proposition 7 text says, using its variable n, “no flip can introduce an
+edge of Q_n^+ into Q_n^-” when 10≤n≤11. The literal Q10 configurations below contradict this
+sentence **if** their identification with the paper's diagram-defined family
+is established. That identification is not newly authenticated here: PDF
+screenshot calls returned text markers without inspectable image content;
+versioned PDF/source requests were disabled. The fresh text establishes the
+sentence and the deletion/relabel conventions, not a fresh visual reading of
+Figures 4 or 12. Do not report a proved error in Pournin on this evidence alone.
+
+No raw Pournin PDF was acquired or hashed. The maintained paper's historical
+pin, 964,617 bytes / SHA256
+`2f5a4ea8866e60b31a765549e48f3620dae34c0b75158cc9a1d53f9bbe1f295b`,
+remains historical attribution. No fresh STT reading or whole-paper/whole-book
+inspection is claimed. The lost independent Q10 memo was not recovered.
+
+### 2. Explicit reconstructed objects and why they are usable mathematics
+
+Here `ab` means the unordered edge `{a,b}` when both labels are single digits.
+All polygons have the stated cyclic order, and all boundary edges are included
+implicitly. Tables list only interior diagonals. Q10 is an **eight-vertex**
+polygon after deletion, not a ten-vertex polygon.
+
+The reconstruction uses the retained proposed Z formula: for an m-gon, its
+m−3 interior diagonals, indexed by 0≤j≤m−4, are
+
+\[
+d_{2r}=\{2-r,4+r\},\qquad
+d_{2r+1}=\{1-r,4+r\}\quad(\bmod m).
+\]
+
+For m=3 there are no diagonals and the polygon is already a triangle. For
+m≥4 there is an elementary validity proof independent of a picture: successively
+cut ears with labels `3,2,4,1,5,0,6,…` modulo m. At step 2r the removed block is
+`[3−r,2+r]` and the next ear is `3+r`; its current neighbors are `2−r,4+r`.
+At step 2r+1 the removed block is `[3−r,3+r]` and the next ear is `2−r`;
+its current neighbors are `1−r,4+r`. Until the last cut at j=m−4 the neighbors
+are distinct. These are exactly the displayed diagonals, and cutting ears
+leaves a triangle. Thus the explicit formula defines a valid zigzag
+triangulation. Matching its orientation/labels to the source's Figure 4 is
+still a separate source-correspondence obligation.
+
+To reproduce the finite data, use the maintained paper's construction with
+original vertex identities retained until relabeling: A_m starts with
+Z_(m+4); the minus side deletes 0,1,bar(0),bar(1) and keeps original 2 labeled
+2; the plus side deletes 4,5,bar(4),bar(5) and sends original 2 to label 1.
+Bars use the original m+4. Every deletion collapses toward the **current**
+clockwise successor and deduplicates edges. B_q uses A_(q+1), the three actual
+minus flips 25,24,26, then removes the common ear at 2; relabel keeping 3.
+C_q changes B_q's 46 diagonal to 35. For Q9/Q10 delete 1,2; for Q11 delete
+0,1,2; do not relabel Q afterward.
+
+Inline finite set calculations reconstructed these data and enumerated flips
+by their two incident triangles; no compiler, repository test, or acceptance
+audit was run. The literal sets and exhaustive local tables below are the
+retained evidence, not an opaque search result. Their internal validity is
+also visible directly: every listed set has m−3 mutually noncrossing
+diagonals in its stated cyclic order. Consequently the local results below
+hold for these explicit objects whether or not the source-family mapping is
+later confirmed. No alternate family is asserted to satisfy the global
+Pournin recurrence without proof.
+
+### 3. The replacement lemma: count missing target diagonals
+
+Fix a target triangulation V and let
+
+\[
+M_V(T)=|I(V)\setminus I(T)|,
+\]
+
+where I is the interior-diagonal set. If a legal flip removes e and inserts f,
+then e∈I(T), f∉I(T), and
+
+\[
+M_V(T')+\mathbf1_{f\in I(V)}
+=M_V(T)+\mathbf1_{e\in I(V)}.
+\]
+
+This exact identity follows by separately removing e and inserting f. In
+particular a step decreases M by at most one; if it inserts no target
+diagonal, it does not decrease M at all. A path from U to V must decrease M
+from r=M_V(U) to zero, so its length is at least r. If it has at least one
+nondecreasing step, its length is at least r+1: sum the per-step inequalities,
+using zero decrease at that step and decrease at most one elsewhere. This
+argument allows a later removal/reintroduction of target edges; that behavior
+only makes the estimate stronger.
+
+**Two-prefix form.** Suppose r≥2, and every legal two-step prefix from U has
+at least one step that inserts no target diagonal. Every U→V path already has
+length at least r, hence has such a prefix, and therefore has length at least
+r+1. A sufficient condition is that every target-introducing first move has a
+successor from which no target-introducing move is possible. Uniqueness of the
+first move is convenient finite evidence, not a necessary hypothesis.
+
+This is a statement about **every legal path**. It needs neither a selected
+geodesic, a maximum-incidence theorem, a target-first normalization, nor an
+assumption that paths preserve common diagonals. Natural-number proofs can
+use the displayed additive identity without truncated subtraction.
+
+### 4. Q10: complete first and second flip tables
+
+Use cyclic order `(0,3,4,5,6,7,8,9)`. The common target and two initial sets are:
+
+| State | Interior diagonals |
+| --- | --- |
+| V | 39,48,49,58,68 |
+| U_B | 07,36,37,46,79 |
+| U_C | 07,35,36,37,79 |
+
+For an independently checkable triangle certificate, U_B has triangles
+`037,079,346,367,456,789`; U_C replaces `346,456` by `345,356`.
+V has triangles `039,349,458,489,568,678`. In particular 07 is incident to
+037 and 079, so the legal flip 07→39 introduces a target diagonal in both
+variants. The no-first-target assertion is false for these literal objects.
+
+Each row below gives one of **all five** first flips and **all five** second
+flips available after that first flip. An asterisk marks insertion of a
+target diagonal. This includes undo moves and all initially non-progressing
+branches; no move is silently excluded as non-geodesic.
+
+| Initial state | First flip | Every second flip from its result |
+| --- | --- | --- |
+| U_B | 07→39* | 36→47; 37→69; 39→07; 46→35; 79→38 |
+| U_B | 36→47 | 07→39*; 37→04; 46→57; 47→36; 79→08 |
+| U_B | 37→06 | 06→37; 07→69; 36→04; 46→35; 79→08 |
+| U_B | 46→35 | 07→39*; 35→46; 36→57; 37→06; 79→08 |
+| U_B | 79→08 | 07→38; 08→79; 36→47; 37→06; 46→35 |
+| U_C | 07→39* | 35→46; 36→57; 37→69; 39→07; 79→38 |
+| U_C | 35→46 | 07→39*; 36→47; 37→06; 46→35; 79→08 |
+| U_C | 36→57 | 07→39*; 35→47; 37→05; 57→36; 79→08 |
+| U_C | 37→06 | 06→37; 07→69; 35→46; 36→05; 79→08 |
+| U_C | 79→08 | 07→38; 08→79; 35→46; 36→57; 37→06 |
+
+These tables are obtained by taking the two third vertices adjacent to each
+removed diagonal and joining them. For example, after 07→39 in U_B, diagonal
+37 has triangles 367 and 379, hence flips to 69; diagonal 79 has triangles
+379 and 789, hence flips to 38. Neither is in V. The number of rows/choices
+is exhaustive because an eight-vertex triangulation has five flippable
+interior diagonals.
+
+Both initial sets have M=5. Their only target-introducing first flip is
+07→39; every possible second move after it inserts a non-target edge. Thus
+the two-prefix lemma proves **every U_B→V and U_C→V path has length at least
+6**. For the undo second move M goes 5→4→5; for each other second move in
+those two rows it goes 5→4→4. If the first move is unstarred, it already
+uses the required nondecreasing step. No equality of the two distances, and
+no exact distance beyond this lower bound, is claimed here.
+
+### 5. Other small data needed by the same induction
+
+These are additional independently reconstructed literal cases. They reduce
+the finite prerequisites without changing the required final theorem.
+
+#### A7, A8 and B8/C8
+
+These polygons use consecutive cyclic labels 0 through m−1.
+
+| Pair | Minus diagonals | Plus diagonals | Sufficient bound |
+| --- | --- | --- | --- |
+| A7 | 05,15,24,25 | 03,13,36,46 | ≥4 by four missing targets |
+| A8 | 06,16,24,25,26 | 03,13,37,47,57 | ≥6 by five missing targets and the table below |
+| B8 | 06,16,26,36,46 | 03,13,37,47,57 | ≥5 by five missing targets |
+| C8 | 06,16,26,35,36 | 03,13,37,47,57 | ≥5 by five missing targets |
+
+All A8 first flips are `06→17, 16→02, 24→35, 25→46, 26→15`; none inserts a
+target. This gives the needed A8≥6 directly. It avoids a forced-incidence
+lemma merely to obtain this weaker seed, and avoids proving its unnecessary
+exact distance 7. For completeness A7's first flips are
+`05→16, 15→02, 24→35, 25→14`; none inserts a target, so the stronger ≥5 also
+holds for this literal pair. Only ≥4 enters the proposed induction.
+
+#### Q9 and Q11
+
+| Pair | Cyclic vertices | Minus diagonals | Plus diagonals |
+| --- | --- | --- | --- |
+| Q9, B variant | 0,3,4,5,6,7,8 | 07,36,37,46 | 38,48,58,68 |
+| Q9, C variant | same | 07,35,36,37 | same |
+| Q11, B variant | 3,4,5,6,7,8,9,10 | 36,37,38,46,{8,10} | 49,{4,10},59,69,79 |
+| Q11, C variant | same | 35,36,37,38,{8,10} | same |
+
+Q9 has four missing targets, giving ≥4. Q11 has five; its complete first-flip
+table is:
+
+| Variant | Every first flip |
+| --- | --- |
+| B | 36→47; 37→68; 38→{7,10}; 46→35; {8,10}→39 |
+| C | 35→46; 36→57; 37→68; 38→{7,10}; {8,10}→39 |
+
+None inserts a Q11 target. The one-stall lemma therefore gives ≥6 for both
+literal Q11 pairs. Q11's first-move obstruction must not be copied to Q10.
+
+### 6. Exact use in the still-open global lower-bound route
+
+The finite potential results above are independent mathematics. Their use
+as the paper's named A/B/C/Q seeds still requires the source-family mapping
+and concrete deletion identities. Retain the maintained paper's proof of
+the q9/q10 deletion loss 3 and q11 deletion loss 5 as **obligations**, not
+assumed oracle fields. Once those identities and incidence proofs exist:
+
+| q | Literal Q bound | Required deletion loss | Result for both B_q,C_q |
+| --- | --- | --- | --- |
+| 8 | Direct five-target count, no Q | 0 | ≥5 |
+| 9 | ≥4 | 3 | ≥7 |
+| 10 | ≥6, using the repaired two-prefix proof | 3 | ≥9 |
+| 11 | ≥6 | 5 | ≥11 |
+
+With A7≥4 and A8≥6, the actual Proposition 4 recurrence then gives the needed
+A9,A10,A11,A12 lower bounds 8,10,12,14. The general four-offset recurrence
+can start at m=13: its predecessor sizes are m−1,m−2,m−5,m−6, all at least
+7, and its corresponding additions are 2,4,10,12. Each resulting lower
+bound is 2m−10. Use a strong induction restricted to the defined family
+range, not an induction hypothesis referring to A0,A1,A2.
+
+This repairs a finite step of the existing A-family route; abandoning it
+for the paper's D-family would not solve the problem. The necessary next
+implementation components remain concrete finite cyclic triangulations,
+legal flips, the actual source-correspondence/explicit-family identities,
+path contraction and incidence bounds, normalization/ear lifting where
+the global recurrence uses them, and that recurrence itself. None is
+provided by these small tables.
+
+For the final tree theorem retain the distinct quantities m=N+2 and d=N−1.
+The universal fan upper bound and the rooted tree/flip distance equivalence
+are still necessary, as is an explicit attaining pair. Reuse
+`Applications/Trees/Rotations/Mixed.lean` and
+`Applications/Trees/Rotations/Distance.lean` for actual legal traces and
+attained distance; the primitive certificate work supplies no sharp
+diameter theorem by itself. All existing qualification and publication
+boundaries remain unchanged.
+
+**Immediate bounded mathematical increment:** prove the missing-target
+identity and its one-/two-prefix path lemmas for a concrete flip model, with
+the above literal Q10 pair as both a positive lower-bound case and a negative
+case for no-first-target. In parallel preparation, authenticate Figure 4's
+orientation and Figure 12's labels against acquired primary bytes. If the
+mapping differs, retain the valid literal lemmas and correct the family
+correspondence; do not alter the expected flip data to fit a desired proof.
+
+## Tree-diagonal bridge
+
+20 November 2026. Read-only mathematical handoff; no new Lean proof or source
+change is claimed. This builds on the complete
+the preceding concrete finite-obstruction section, whose primary-source and
+qualification boundaries remain. The Q10 figure/source-family identification
+is unresolved; the literal objects below are independent of that identification.
+CTB-24/FDSA-5-92, its global recurrences, sharp upper bound and attainer remain open.
+
+### 1. Recommended reuse and actual current interfaces
+
+Start with a finite diagonal **observation of the existing trees**, using the
+existing rotations and trace interpreter. `Trees.Rotations.Shape N` can serve
+as a representation of rooted triangulations. No new graph or tree datatype
+is needed to prove the finite potential lower bounds. Calling it a
+representation of *all* ordinary polygon triangulations additionally requires
+the reconstruction theorem described below; an abbreviation alone does not
+establish that correspondence.
+
+The following complete owners were inspected in
+the historical source checkout: `Applications/Trees/Rotations/Basic.lean`,
+`Position.lean`, `Mixed.lean`, `Distance.lean`, and the supporting
+`Applications/Trees/BasicObservations.lean`, `Observations.lean`, `Direction.lean`.
+The relevant governing domain, architecture and formal-development guidance was
+also read. Exact public interfaces used by this plan are:
+
+| Owner / namespace | Existing interface and argument order |
+| --- | --- |
+| `Rotations/Basic.lean`, `Trees.Rotations` | `rotateRight? : BinaryTree α → Option (BinaryTree α)`; `.node b (.node a A B) C ↦ some (.node a A (.node b B C))`. `rotateLeft?` is the inverse pattern; other shapes return `none`. |
+| Same | `rotateRight?_eq_some_iff (t s)` exposes exactly that decomposition; `rotateRight?_numNodes (h : rotateRight? t = some s)` proves `s.numNodes = t.numNodes`. Corresponding left laws and both undo laws exist. |
+| `Rotations/Position.lean` | `applyAt? (f : BinaryTree α → Option (BinaryTree α)) (p : List Branch) (t)`; `[]` calls f, and a nonempty path through nil fails. `applyAt?_inorder f preserve p run` lifts callback preservation. |
+| `Direction.lean` | `Search.SharedTree.Branch.left/right` are path branches. These differ from `RotationDirection.left/right`. |
+| `Rotations/Mixed.lean` | `RotationMove` has fields `direction : RotationDirection`, `position : List Branch`. `applyMove? move t := applyAt? move.direction.apply? move.position t`. |
+| Same | `applyMoves? moves t` is sequential `foldlM`; `applyMoves?_cons move moves t` exposes its bind. `applyMove?_inorder move run`, `applyMoves?_numNodes moves run`, append and undo laws are available. |
+| `Rotations/Distance.lean` | `Shape N := {t : BinaryTree Unit // t.numNodes = N}`. `Shape.distance_spec s t` gives an actual successful move list whose length equals `Shape.distance s t`. `Shape.distance_le_length s t run` gives an **upper**, not lower, bound. |
+
+The proposed `spans`/`diagonals` names below are mathematical notation, not
+existing declarations. Constructor order is `.node label left right`.
+
+### 2. Concrete observation, counts, noncrossing and recovery
+
+Write |t| for `t.numNodes`. Use ordered pairs of naturals `(a,b)` with a<b;
+endpoint bounds can later provide a `Fin (N+2)` view without complicating
+recursive offset arithmetic. Define H(k,t), all nonempty occurrence spans,
+by the structural equations
+
+\[
+\begin{aligned}
+H(k,\mathrm{nil})&=\varnothing,\\
+H(k,\mathrm{node}(a,l,r))
+ &=\{(k,k+|l|+|r|+2)\}\cup H(k,l)
+      \cup H(k+|l|+1,r).
+\end{aligned}
+\]
+
+Define D(k,nil)=∅ and
+`D(k,node a l r) = H(k,l) ∪ H(k+|l|+1,r)`.
+Thus D excludes the selected global root span, and `diagonals(t)=D(0,t)`.
+For |t|=N>0 the root span is `(0,N+1)`, the distinguished boundary edge of
+the polygon with vertices 0,…,N+1. Each proper nonempty subtree with offset k
+and n nodes gives `(k,k+n+1)`. Nil occurrences would give consecutive boundary
+edges; they contribute nothing to H or D.
+
+**Occurrence identity is essential.** `Trees.subtrees t` is a set of subtree
+*values*, not positions, and is unsuitable for this count. For
+`S=node () nil nil`, the tree `node () S S` has distinct diagonals `(0,2)`
+and `(2,4)`, although both children are equal to S. Structural recursion with
+offsets retains both occurrences without needing labels to be distinct.
+
+The following proofs follow directly by structural induction, but must still
+be implemented:
+
+1. Every H(k,t) edge has endpoints in `[k,k+|t|+1]` and length at least 2.
+   An occurrence strictly below the root has strictly smaller span length.
+2. At a node put q=k+|l|+1. Left edges lie in `[k,q]`; right edges lie in
+   `[q,k+|t|+1]`. Their interiors are disjoint, so the two finite sets are
+   disjoint; neither contains the root span. This proves `card H(k,t)=|t|`
+   and `card D(k,t)=|t|−1` (natural subtraction, including nil).
+3. Two occurrence intervals are nested, or have disjoint interiors: at their
+   first divergent branch they occupy those two child regions. Hence no pair
+   has alternating endpoints `a<c<b<d` or `c<a<d<b`. This is exactly the
+   convex cyclic noncrossing test for sorted endpoints.
+4. For N≥1, D(0,t) contains no polygon boundary edge: each has length≥2,
+   and none is `(0,N+1)`. Adding the N+1 consecutive boundary edges and the
+   closing root edge gives `2N+1=2(N+2)−3` full edges. The N−1 diagonals form
+   an ordinary triangulation; this last conclusion needs either the standard
+   maximal-noncrossing cardinality proof or the recursive triangle decomposition.
+
+The recursive decomposition is particularly direct. The root triangle is
+`(k,q,k+|t|+1)`, and the left/right subtrees triangulate its two remaining
+regions. A nil child is a boundary edge, not a zero-area triangle. Induction
+gives N triangles, including the selected root triangle, and supplies the
+geometric interpretation without a theorem-valued triangulation oracle.
+
+**Injectivity on a fixed size.** For Unit trees with the same N, equality of
+D determines the tree. Add the known polygon boundary edges. For N≥1 the
+root split q is the unique interior vertex such that both `(0,q)` and
+`(q,N+1)` belong to this full edge set. Existence follows from the root
+decomposition. If q<q' both worked, `(0,q')` and `(q,N+1)` would cross, proving
+uniqueness. It determines `|l|=q−1`, `|r|=N−q`. Restrict the common diagonal
+set to the two closed regions, remove the child root span when nonempty, and
+apply induction to recover both children. Offset translation gives the same
+argument for arbitrary k. Size zero has only nil.
+
+The hypotheses matter: nil and a singleton both have empty D, so D alone
+is not injective across arbitrary sizes; arbitrary node labels are also
+forgotten. Either use Unit/shape recovery, or additionally recover labels from
+a common inorder sequence. No injectivity for arbitrary differently labelled
+trees is being claimed.
+
+**All-polygon correspondence still owed.** Given any maximal noncrossing
+triangulation with root edge `(0,N+1)`, prove existence/uniqueness of its
+incident root triangle, split along that triangle, and recurse to construct
+the Unit tree. Prove both reconstruction directions. This is the useful
+surjectivity/recovery contract if the Pournin operations are first described
+on ordinary triangulations. It is not needed merely to interpret the three
+explicit tree values in §5 or prove their trace lower bounds.
+
+### 3. A legal rotation changes exactly one diagonal
+
+Consider an actual right rotation at offset k:
+
+`node b (node a A B) C  →  node a A (node b B C)`.
+
+Put u=|A|, v=|B|, w=|C| and
+
+\[
+x_0=k,\quad x_1=k+u+1,\quad x_2=k+u+v+2,\quad
+x_3=k+u+v+w+3.
+\]
+
+Then x0<x1<x2<x3 even if A, B or C is nil. The changed edge is
+`e=(x0,x2)` and its replacement is `f=(x1,x3)`. In both trees A is at x0,
+B at x1, C at x2; their spans are identical. The selected subtree's outer
+span `(x0,x3)` is also identical. Expanding H/D therefore proves
+
+\[
+D(k,t')=(D(k,t)\setminus\{e\})\cup\{f\},
+\quad e\in D(k,t),\quad f\notin D(k,t).
+\]
+
+The same erase/insert identity holds for H, retaining the outer span. All
+other spans lie in one of the A/B/C regions; none is e or f. Alternatively,
+f's absence follows from crossing e and the established noncrossing law.
+The two old triangles are `(x0,x1,x2)` and `(x0,x2,x3)`; the two new ones
+are `(x0,x1,x3)` and `(x1,x2,x3)`. This is an actual quadrilateral flip,
+including the cases with boundary sides from nil children. Left rotation
+reverses the calculation.
+
+For a successful `applyAt?` at any position p, compute the offset by leaving
+it unchanged on a left branch and adding `|left|+1` on a right branch.
+Induct on p using the exact `applyAt?` equations. Root rotations preserve
+subtree size, so ancestor outer spans and all right-sibling offsets remain
+unchanged, including when the selected child is the left child. The H identity
+handles a selected proper subtree whose own outer span belongs to the global D;
+the D identity handles p=`[]`. Thus every successful `applyMove? move t=some t'`
+has an actual pair e,f with the same global erase/insert identity and e≠f.
+This law is to be derived from the definitions, not supplied as a field.
+
+There is also a useful converse within the tree representation. Every D edge
+comes from a unique nonempty proper occurrence: ancestors have different span
+lengths; incomparable occurrences have disjoint interiors. It has a unique
+parent path. If it is a left child, a right rotation at that parent removes
+it; if a right child, a left rotation does. Consequently the N−1 diagonals
+are in bijection with the successful directed moves on an N-node tree (N>0).
+This also proves exhaustiveness of finite legal-move tables. A geometrically
+specified flip of that edge matches this move after proving uniqueness of
+the two incident triangles/opposite quadrilateral diagonal. Do not replace
+that proof by assuming any arbitrary finite-set exchange is a legal rotation.
+
+### 4. Transport the potential through the existing interpreter and distance
+
+For a fixed target v define `M_v(t)=card (D(0,v) \ D(0,t))`. The concrete
+one-diagonal law from §3 gives the exact identity from the 083 note:
+
+`M_v(t') + [f ∈ D(0,v)] = M_v(t) + [e ∈ D(0,v)]`.
+
+Here brackets are 0/1 indicators. Each successful move drops M by at most
+one. A move inserting no target edge drops it by zero or increases it.
+Induct on `moves`, expanding **the actual** `applyMoves?_cons` bind, to obtain
+`M_v(t) ≤ moves.length + M_v(t')` for any successful run to t'. At the
+target M is zero. This proof neither defines a replacement interpreter nor
+counts failures as identity moves.
+
+For the two-prefix improvement, prove the concrete local property for every
+two successful moves from t: `M_v(t) ≤ M_v(t₂)+1`. If M_v(t)≥2, the ordinary
+bound rules out target-reaching traces of length 0 or 1. Decompose an arbitrary
+remaining trace into its first two moves and tail. The local property plus
+the tail bound yields `M_v(t)+1 ≤ moves.length`. The stronger 083 condition
+that one of the first two flips inserts no target edge implies that property.
+
+To conclude a lower bound on **existing** `Shape.distance s v`, obtain its
+attaining successful trace from `Shape.distance_spec s v` and apply the
+universal trace lower bound. `Shape.distance_le_length` cannot be used in
+the opposite direction. No generic polygon distance or shortest-path oracle
+is required. Full reconstruction/injectivity is also unnecessary for this
+particular implication: the endpoint is already the actual target tree.
+
+### 5. Explicit six-node trees for the Q10 literal objects
+
+Normalize the 083 cyclic labels by the order-preserving map
+
+| Old label | 0 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| New label | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+
+Root edge 09 becomes `(0,7)`. Write `E=nil`, `n(l,r)=BinaryTree.node () l r`,
+`S=n(E,E)`, `P=n(E,S)`, `Q=n(S,E)`. Define the concrete values
+
+\[
+\begin{aligned}
+b&=n(n(E,n(P,E)),S),\\
+c&=n(n(E,n(Q,E)),S),\\
+v&=n(E,n(E,n(n(E,P),E))).
+\end{aligned}
+\]
+
+S has one node; P and Q have two; each of b,c,v has six. These values were
+reconstructed by the root-triangle splits, then checked by direct finite
+arithmetic on trees and their legal root-rotation equations. This was an
+inline mathematical calculation, not a Lean compilation/test or acceptance.
+
+The complete nonempty-occurrence span lists provide a short reconstruction
+certificate. Here L/R mean path branches, and ε is the empty path:
+
+| Tree | Path: span; root-triangle split vertex |
+| --- | --- |
+| b | ε:(0,7);5 — L:(0,5);1 — LR:(1,5);4 — LRL:(1,4);2 — LRLR:(2,4);3 — R:(5,7);6 |
+| c | ε:(0,7);5 — L:(0,5);1 — LR:(1,5);4 — LRL:(1,4);3 — LRLL:(1,3);2 — R:(5,7);6 |
+| v | ε:(0,7);1 — R:(1,7);2 — RR:(2,7);6 — RRL:(2,6);3 — RRLR:(3,6);4 — RRLRR:(4,6);5 |
+
+Removing the ε entry gives:
+
+| Tree | Normalized diagonal set | In old labels |
+| --- | --- | --- |
+| b | (0,5),(1,4),(1,5),(2,4),(5,7) | 07,36,37,46,79 |
+| c | (0,5),(1,3),(1,4),(1,5),(5,7) | 07,35,36,37,79 |
+| v | (1,7),(2,6),(2,7),(3,6),(4,6) | 39,48,49,58,68 |
+
+These are exactly the **literal** Q10 sets retained in 083. This establishes
+their concrete tree realization, not their identification with Pournin's
+figure-defined family. Six is the number of tree nodes here; Q10's subscript
+refers to its auxiliary source construction, not a ten-node tree.
+
+The following are all successful first moves. Direction names are the actual
+`RotationDirection` constructors; paths use `Branch` constructors. Exchanges
+are shown in old labels so they can be compared directly with 083.
+
+| Tree | Position | Rotation | Edge exchange | M_v afterward |
+| --- | --- | --- | --- | --- |
+| b | ε | right | 07→39 | 4 |
+| b | ε | left | 79→08 | 5 |
+| b | L | left | 37→06 | 5 |
+| b | LR | right | 36→47 | 5 |
+| b | LRL | left | 46→35 | 5 |
+| c | ε | right | 07→39 | 4 |
+| c | ε | left | 79→08 | 5 |
+| c | L | left | 37→06 | 5 |
+| c | LR | right | 36→57 | 5 |
+| c | LRL | right | 35→46 | 5 |
+
+The unique target-introducing first move is `⟨.right, []⟩`. Its actual results
+are `b'=n(E,n(n(P,E),S))` and `c'=n(E,n(n(Q,E),S))`.
+All successful next moves are:
+
+| Tree | Position | Rotation | Edge exchange | M_v afterward |
+| --- | --- | --- | --- | --- |
+| b' | ε | left | 39→07 | 5 |
+| b' | R | right | 37→69 | 4 |
+| b' | R | left | 79→38 | 4 |
+| b' | RL | right | 36→47 | 4 |
+| b' | RLL | left | 46→35 | 4 |
+| c' | ε | left | 39→07 | 5 |
+| c' | R | right | 37→69 | 4 |
+| c' | R | left | 79→38 | 4 |
+| c' | RL | right | 36→57 | 4 |
+| c' | RLL | right | 35→46 | 4 |
+
+No second move inserts a target edge. Every other first move already leaves
+M at five. Thus the proposed trace theorem yields
+`6 ≤ Shape.distance bShape vShape` and `6 ≤ Shape.distance cShape vShape`
+after constructing their size-six witnesses and connecting these tables to
+the public definitions. These are paper derivations, not existing Lean
+theorems. They assert lower bounds only, not exact distances or the global
+sharp-diameter theorem.
+
+For a formal exhaustive table, prove that any successful `applyMove?` on
+each displayed tree occurs among the five listed moves. Structural case
+analysis of positions suffices: positions selecting nil and descent through nil fail,
+and at each nonempty position only the directions with a nonempty selected
+child succeed. The five-diagonal/unique-occurrence theorem offers a reusable
+alternative proof of exhaustiveness. Neither method assumes shortestness.
+
+### 6. Bounded next development and retained obligations
+
+The first coherent implementation can consist of H/D, their offset and
+disjointness laws, the actual-root and `applyAt?` one-diagonal laws, the
+trace-potential inequalities, and these three explicit Unit-tree cases. State
+and prove the local conditions needed by the two-prefix lemma; do not pass a
+whole desired distance bound, arbitrary cost oracle or assumed flip-correctness
+record. Keep these pure observations independent of the measured certificate
+and codec writers' scope.
+
+The observation/recovery programme can then add fixed-size injectivity,
+rooted-triangulation reconstruction and adjacency reflection when the geometric
+consumers need them. Define flips through the unique proper occurrence and
+the existing move operation where practical. A separate mathematical
+triangulation presentation can still be valuable for deletion, fan routing
+and normalization, but connect it by proved recovery and step laws rather
+than maintaining unrelated distance semantics.
+
+All global obligations remain: authenticate the primary family's figures and
+conventions; construct the A/B/C families and deletion/normalization/ear maps;
+prove the exact recurrence and finite-seed correspondence; prove the universal
+fan upper bound and construct the attaining A_(N+2) pair for every N≥11.
+Forward tree-to-diagonal preservation alone does not give polygon-path lifting,
+all-triangulation surjectivity, a sharp upper bound, or the attaining family.
+No qualification, publication, source edits or gate changes follow from this
+note.

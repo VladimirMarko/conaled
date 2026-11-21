@@ -197,9 +197,9 @@ is application weight `1+2*(r-2)=2*r-3`. Empty and singleton runs bypass that
 path. The source-to-model branch equations and actual run-size invariant remain
 Chapter 2 obligations; the generic seed theorem merely provides the shared law.
 
-C02-112 additionally needs actual scanner/control, descending cons construction,
+FDSA-2-112 additionally needs actual scanner/control, descending cons construction,
 emitted-run construction and merge-dispatch observations. Its comparison
-counters remain unchanged by the separate closure tariff. C02-109's ordinary
+counters remain unchanged by the separate closure tariff. FDSA-2-109's ordinary
 repeated append versus prepend/reverse construction also remains chapter work.
 No chapter completeness claim follows from this shared interface.
 

@@ -180,12 +180,12 @@ SHA-256 `9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
 The saved preflights retain the pinned Mathlib APIs and the recovered AFP
 quicksort source evidence.
 
-For Chapter 2's C02-024, this unit supplies a specified-pivot remaining-order
+For Chapter 2's FDSA-2-24, this unit supplies a specified-pivot remaining-order
 law and separate filtered-branch marginals. The AFP joint partition law,
 actual sorting recursion, source tariff and equivalence to fresh random
 occurrence choices remain separate obligations.
 
-For Chapter 3's C03-059–077, indices represent occurrences. Equal payload
+For Chapter 3's FDSA-3-59 to FDSA-3-77, indices represent occurrences. Equal payload
 values do not identify those indices, and revealing only a repeated value
 can merge several different head events. A history induction must establish
 the initial law, connect each actual program update to the tail/filter

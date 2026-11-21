@@ -1,6 +1,6 @@
 import Examples.TreeCache
 
-/-! Generic cache-node clients for FDSA C04-073. The callbacks charge two
+/-! Generic cache-node clients for FDSA-4-73. The callbacks charge two
 unit primitive operations (two additions, or max and successor). These are
 declared operation tariffs, not machine-time or bit-complexity claims. -/
 

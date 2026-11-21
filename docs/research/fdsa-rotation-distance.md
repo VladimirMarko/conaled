@@ -1,12 +1,12 @@
 # FDSA Chapter 5: minimum mixed rotation distance
 
-This component addresses canonical C05-091. Its finite distance is the minimum
+This component addresses canonical FDSA-5-91. Its finite distance is the minimum
 number of successful left or right rotations at subtree positions, over all
 legal sequential traces between the endpoints. The existing right-normalization
 and left-recovery construction proves existence and the elementary upper bound.
 The selected route is not used as the definition of distance.
 
-The canonical requirement is C05-091 in the unchanged
+The canonical requirement is FDSA-5-91 in the unchanged
 [Chapter 5 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
 The source is the rotation-distance discussion in
 [Functional Data Structures and Algorithms](https://fdsa-book.net/functional_data_structures_algorithms.pdf),
@@ -77,7 +77,7 @@ every-trace minimality, the threshold equivalence, zero iff equality, symmetry
 and the triangle inequality through the labelled API.
 
 `Shape.distance_le_two_mul_sub_two` proves `distance s t ≤ 2*n-2` for every
-natural `n`. In particular it proves C05-091's positive-size bound. Natural
+natural `n`. In particular it proves FDSA-5-91's positive-size bound. Natural
 subtraction also gives the separate empty case; `distance_empty` and
 `distance_singleton` prove zero for every pair at sizes zero and one. This fixed
 size interface is available to a later maximum-distance theorem without
@@ -103,7 +103,7 @@ laws to the cases selected before implementation:
 The charged unit is a successful rotation. A move can traverse multiple child
 edges; this development gives no bound on traversal, allocation, bit operations
 or compiled runtime. The threshold equivalence is an uncosted existence result.
-It does not prove C05-093's encoded polynomial verification claim. C05-092's
+It does not prove FDSA-5-93's encoded polynomial verification claim. FDSA-5-92's
 sharp `2*n-6` diameter for `n ≥ 11` also remains mandatory and unproved here.
 These boundaries do not replace the remaining canonical book obligations or
 the separate receiving integration reviews and acceptance checks.

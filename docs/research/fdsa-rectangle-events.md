@@ -1,7 +1,7 @@
 # Closed rectangles and occurrence-preserving events
 
 This development supplies the geometry, event generation and ordering required
-by FDSA Chapter 5 obligations C05-086–087. It uses the July 27, 2026 edition,
+by FDSA Chapter 5 obligations FDSA-5-86 to FDSA-5-87. It uses the July 27, 2026 edition,
 printed page 76, and the canonical
 [Chapter 5 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
 The implementation is in [Rectangle](../../Applications/Search/Rectangle.lean)
@@ -172,7 +172,7 @@ textual merge compatibility do not establish that acceptance.
 
 ## Continuing obligations
 
-C05-088–089 require an actual terminating early-exit scan, its active-set
+FDSA-5-88 to FDSA-5-89 require an actual terminating early-exit scan, its active-set
 invariant and the equivalence between its Boolean result and `HasIntersection`.
 The existing `AbstractSet.DeleteOps`, `DeleteLaws` and `IntervalSet.Laws` provide
 reusable state-update and observation contracts. Prove the finite prefix's active
@@ -180,10 +180,10 @@ IDs and their complete-key image first; then connect those sets to state through
 the existing execution laws. Query the pre-insertion state. Distinguish the
 mathematical full-prefix fold from prefixes actually visited after early return.
 
-C05-085 still requires a concrete balanced interval representation with real
-cache-aware updates and deletion. C05-090 additionally needs the cost of the
+FDSA-5-85 still requires a concrete balanced interval representation with real
+cache-aware updates and deletion. FDSA-5-90 additionally needs the cost of the
 selected event generation, sort, queries, updates and early termination, with
 active size bounded by the input length. The current correctness results alone
-supply neither balanced updates nor an O(n log n) runtime claim. C05-091–094,
+supply neither balanced updates nor an O(n log n) runtime claim. FDSA-5-91 to FDSA-5-94,
 later FDSA chapters and appendices, all remaining PFDS work and receiving union
 acceptance remain separately required by the continuing book formalization task.

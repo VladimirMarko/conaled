@@ -1,7 +1,7 @@
 # AVL height bounds and attained minimum size
 
-This bounded increment addresses FDSA Chapter 9 rows C09-010–017 and
-C09-046–051. It uses the accepted cached AVL foundations and the existing
+This bounded increment addresses FDSA Chapter 9 rows FDSA-9-10 to FDSA-9-17 and
+FDSA-9-46 to FDSA-9-51. It uses the accepted cached AVL foundations and the existing
 `BinaryTree`, cached-fold and tree-observation interfaces. The implementation
 owners are `Applications/Trees/AVL/Height.lean` and `Examples/AVLHeight.lean`.
 Exact-candidate validation and the independent review records establish source
@@ -198,19 +198,19 @@ equation is `numNodes(fibTree n) + 1 = F(n+2)`.
 
 | Rows | Public result or reused primary interface | Essential boundary |
 |---|---|---|
-| C09-010 | `Nat.fib_zero`, `Nat.fib_one`, `Nat.fib_add_two`; actual use of `Nat.twoStepInduction` | Mathematical recurrence; no naive-Fibonacci cost assertion. |
-| C09-011 | `fib_height_le_numLeaves`, `fib_height_le_numLeaves_of_valid` | Actual height and external leaves; balance is necessary. |
-| C09-012 | `Real.goldenRatio` and its >1, <2, square and power properties | The actual pinned real constant. |
-| C09-013 | `goldenRatio_pow_le_fib` | Every natural index, with both bases and recurrence. |
-| C09-014 | `goldenRatio_pow_height_le_numLeaves`, `_of_valid` | Natural/real conversion of the same leaf count. |
-| C09-015 | `height_le_logb_numLeaves`, `_of_valid`, node-count and stored-height corollaries | Empty included; nodes+1; stored height requires validity. |
-| C09-016 | `height_coefficient_bounds` | Strict rational enclosure and exact multiplier. |
-| C09-017, C09-050 | `fibTree_minimal`, `_of_valid`, attainment packages and leaf recurrence | Universal lower bound plus an actual witness of the prescribed height. |
-| C09-046 | `fibTree`, `fibTree_zero`, `fibTree_one`, `fibTree_add_two` | Concrete executable unannotated tree construction. |
-| C09-047 | `balanced_fibTree`, `valid_annotate_fibTree` | Recursive balance and correctly restored caches. |
-| C09-048 | `height_fibTree`, `height_annotate_fibTree` | Exact height, independently from counting. |
-| C09-049 | `numLeaves_fibTree`, `numLeaves_annotate_fibTree` | External leaves F(n+2). |
-| C09-051 | `numNodes_fibTree_add_one`, `fibTree_numNodes_minimal`, `_of_valid` | Derived node translation; repeated labels still count as occurrences. |
+| FDSA-9-10 | `Nat.fib_zero`, `Nat.fib_one`, `Nat.fib_add_two`; actual use of `Nat.twoStepInduction` | Mathematical recurrence; no naive-Fibonacci cost assertion. |
+| FDSA-9-11 | `fib_height_le_numLeaves`, `fib_height_le_numLeaves_of_valid` | Actual height and external leaves; balance is necessary. |
+| FDSA-9-12 | `Real.goldenRatio` and its >1, <2, square and power properties | The actual pinned real constant. |
+| FDSA-9-13 | `goldenRatio_pow_le_fib` | Every natural index, with both bases and recurrence. |
+| FDSA-9-14 | `goldenRatio_pow_height_le_numLeaves`, `_of_valid` | Natural/real conversion of the same leaf count. |
+| FDSA-9-15 | `height_le_logb_numLeaves`, `_of_valid`, node-count and stored-height corollaries | Empty included; nodes+1; stored height requires validity. |
+| FDSA-9-16 | `height_coefficient_bounds` | Strict rational enclosure and exact multiplier. |
+| FDSA-9-17, FDSA-9-50 | `fibTree_minimal`, `_of_valid`, attainment packages and leaf recurrence | Universal lower bound plus an actual witness of the prescribed height. |
+| FDSA-9-46 | `fibTree`, `fibTree_zero`, `fibTree_one`, `fibTree_add_two` | Concrete executable unannotated tree construction. |
+| FDSA-9-47 | `balanced_fibTree`, `valid_annotate_fibTree` | Recursive balance and correctly restored caches. |
+| FDSA-9-48 | `height_fibTree`, `height_annotate_fibTree` | Exact height, independently from counting. |
+| FDSA-9-49 | `numLeaves_fibTree`, `numLeaves_annotate_fibTree` | External leaves F(n+2). |
+| FDSA-9-51 | `numNodes_fibTree_add_one`, `fibTree_numNodes_minimal`, `_of_valid` | Derived node translation; repeated labels still count as occurrences. |
 
 ## Independent cases and statement review
 

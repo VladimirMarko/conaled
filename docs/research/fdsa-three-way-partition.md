@@ -191,8 +191,8 @@ and current-call entry contribute `4*m+3`, in addition to the recursive calls.
 The supplied metric omits append traversal. Its later worst-case and average
 proofs retain that execution and tariff.
 
-This unit supplies shared partition semantics behind C02-102 and C03-011/013,
-and the new one-pass realization required by C03-031 and B-018/019, subject
+This unit supplies shared partition semantics behind FDSA-2-102 and FDSA-3-11, FDSA-3-13,
+and the new one-pass realization required by FDSA-3-31 and B-018/019, subject
 to its validation gates. Complete quicksort3 correctness, rank/dispatch
 bridges, actual selection and median-of-medians recursion, random policies,
 whole-algorithm costs and all other book obligations remain in their original

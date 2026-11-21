@@ -1,7 +1,7 @@
 import Applications.Search.IntervalSet
 import Mathlib.Order.Interval.Lex
 
-/-! Independent interval geometry and key-order cases for FDSA C05-067–069.
+/-! Independent interval geometry and key-order cases for FDSA-5-67 to FDSA-5-69.
 The public key order is different from containment and from Mathlib's
 descending-low interval lexicographic order. Int geometry needs no bottom.
 -/

@@ -1,7 +1,7 @@
 # FDSA cached AVL foundations
 
 The [foundation module](../../Applications/Trees/AVL/Basic.lean) implements the
-height-cache and shape-invariant foundations of FDSA Chapter9, C09-001–009.
+height-cache and shape-invariant foundations of FDSA Chapter9, FDSA-9-1 to FDSA-9-9.
 The [connected clients](../../Examples/AVLFoundations.lean) distinguish cache
 correctness, recursive height balance and search ordering, and reuse the existing
 ordered-map membership program. This increment does not implement rotations,
@@ -186,15 +186,15 @@ the cost equation; they use the separate generic value and resource theorems.
 
 | Canonical row | Implemented/reused owner |
 |---|---|
-| C09-001 | Shared `BinaryTree (α × Nat)` in the actual public definitions; no new carrier |
-| C09-002 | `ht`, `ht_nil`, `ht_node` |
-| C09-003 | `node`, `node_eq`, `ht_node_smart`, shared `Cached.smartNode`; connected local-work clients |
-| C09-004 | `erase_node`, `height_node`, `inorder_node`; existing shared erasure/size/height/inorder laws used by clients |
-| C09-005 | `Valid`, complete signed actual-height `valid_node_iff`, `valid_nil` |
-| C09-006 | `ht_eq_height_of_cacheValid`, `ht_eq_height`, `node_valid_iff`, `valid_singleton` |
-| C09-007 | `Balanced`, `height_balance_iff`, `balanced_map`, `valid_iff`, and decoration/recovery laws |
-| C09-008 | Existing `Search.OrderedMap.containsKey` and its raw equations; `empty_search` and raw-path clients |
-| C09-009 | Existing strict-inorder/set membership laws instantiated by the clients; `valid_nil` and `empty_search` |
+| FDSA-9-1 | Shared `BinaryTree (α × Nat)` in the actual public definitions; no new carrier |
+| FDSA-9-2 | `ht`, `ht_nil`, `ht_node` |
+| FDSA-9-3 | `node`, `node_eq`, `ht_node_smart`, shared `Cached.smartNode`; connected local-work clients |
+| FDSA-9-4 | `erase_node`, `height_node`, `inorder_node`; existing shared erasure/size/height/inorder laws used by clients |
+| FDSA-9-5 | `Valid`, complete signed actual-height `valid_node_iff`, `valid_nil` |
+| FDSA-9-6 | `ht_eq_height_of_cacheValid`, `ht_eq_height`, `node_valid_iff`, `valid_singleton` |
+| FDSA-9-7 | `Balanced`, `height_balance_iff`, `balanced_map`, `valid_iff`, and decoration/recovery laws |
+| FDSA-9-8 | Existing `Search.OrderedMap.containsKey` and its raw equations; `empty_search` and raw-path clients |
+| FDSA-9-9 | Existing strict-inorder/set membership laws instantiated by the clients; `valid_nil` and `empty_search` |
 
 These are declaration and client correspondences, not a replacement for the
 candidate's build, exhaustive focused proof audit, statement/type assessment,
@@ -202,10 +202,10 @@ independent reviews or receiving acceptance records. The source module and
 connected clients compiled in development; qualification and checkpoint
 publication are recorded by the enclosing workflow on its exact candidate.
 
-C09-010 onward remains mandatory: Fibonacci and exact real-log bounds, numerical
+FDSA-9-10 onward remains mandatory: Fibonacci and exact real-log bounds, numerical
 coefficient correspondence, minimum-height witnesses, cached rotations and both
 updates, measured operation costs, the balance-factor implementation, all seven
-exercises and the generalized-height claim. C05-085/090 still require the actual
-balanced interval instance and measured sweep; C05-092/093 also remain open.
+exercises and the generalized-height claim. FDSA-5-85, FDSA-5-90 still require the actual
+balanced interval instance and measured sweep; FDSA-5-92, FDSA-5-93 also remain open.
 Remaining FDSA chapters/appendices, PFDS book/thesis obligations, VFA receiving
 acceptance and the complete three-book task are unchanged by this foundation.

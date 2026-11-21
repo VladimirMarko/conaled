@@ -10,7 +10,7 @@ exhaustive project audit and receiving acceptance remain separate pending gates.
 
 This unit contributes to FDSA Chapter 4 (CTB-23) and cross-book coherence
 (CTB-68). The retained [Chapter 4 obligation ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md)
-identifies C04-058's ordered-input prerequisite: the generic balancer requires
+identifies FDSA-4-58's ordered-input prerequisite: the generic balancer requires
 no label order, but its strict BST interpretation requires strictly increasing
 input. Nondecreasing input alone allows repeated keys. This unit supplies the
 observation characterization needed for that interpretation; it does not

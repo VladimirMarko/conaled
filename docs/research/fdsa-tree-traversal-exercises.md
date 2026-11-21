@@ -24,12 +24,12 @@ This recovery uses that analysis; it does not claim a new reading of the PDF.
 
 | Source obligation | Current connection and boundary |
 | --- | --- |
-| Exercise 4.2, C04-019 | Executable `enumTree`, exact `mem_enumTree_iff`, and `set_enumTree` enumerate precisely the trees with the prescribed full inorder. |
-| C04-020 | `enumTree_nodup` holds for every input list, including repeated labels. |
-| Exercise 4.4, C04-023–024 | Independent indexed `level` and the `Trees.fold` collector `levels`; aligned level merging preserves unmatched tails. |
-| C04-025–026 | Exact height/length equality, all-index default-empty lookup, and bounded optional-index correctness. |
-| Exercise 4.5, C04-027–028 | Total first-occurrence Option parser and explicit empty-tree-fallback wrapper; both round trips retain the distinct-preorder premise. |
-| Exercise 4.6, C04-029–030 | Labelled ordered-list-child `Rose`, recursive child mirroring/reversal, and universal nested mirror involution. |
+| Exercise 4.2, FDSA-4-19 | Executable `enumTree`, exact `mem_enumTree_iff`, and `set_enumTree` enumerate precisely the trees with the prescribed full inorder. |
+| FDSA-4-20 | `enumTree_nodup` holds for every input list, including repeated labels. |
+| Exercise 4.4, FDSA-4-23 to FDSA-4-24 | Independent indexed `level` and the `Trees.fold` collector `levels`; aligned level merging preserves unmatched tails. |
+| FDSA-4-25 to FDSA-4-26 | Exact height/length equality, all-index default-empty lookup, and bounded optional-index correctness. |
+| Exercise 4.5, FDSA-4-27 to FDSA-4-28 | Total first-occurrence Option parser and explicit empty-tree-fallback wrapper; both round trips retain the distinct-preorder premise. |
+| Exercise 4.6, FDSA-4-29 to FDSA-4-30 | Labelled ordered-list-child `Rose`, recursive child mirroring/reversal, and universal nested mirror involution. |
 | Cross-module composition | `reconstruct?_of_mem_enumTree` reconstructs an enumerated tree from its preorder and prescribed inorder when its preorder has no duplicates. |
 
 Enumeration and levels use the existing BinaryTree/inorder/fold owner.

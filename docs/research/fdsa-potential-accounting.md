@@ -34,13 +34,13 @@ introduced as an axiom and no Isabelle rebuild is claimed.
 
 | Source obligation | Shared correspondence |
 | --- | --- |
-| C19-011: valid-state potential and explicit initial boundary | `run_potential_map_of_invariant`, `run_cost_le_map_of_invariant` |
-| C19-012: signed charge `work + Phi(after) - Phi(before)` | The charge expression in `budget_amortized`, in an additive commutative group |
-| C19-013: exact telescoping along actual states | `budget_amortized`, supported by `run_potential_map_exact` |
-| C19-014: upper bound with initial credit | `run_cost_le_map_of_invariant`, requiring nonnegativity on preserved states |
-| C19-015: zero-initial specialization | The arbitrary-workload zero-start fractional example, obtained from the preceding bound |
-| C19-016: state-dependent local bounds on a preserved domain | `run_potential_map_of_invariant` and the existing `run_invariant` |
-| C19-017–018: two input potentials and operation histories | Remain open; a unary state trajectory does not prove these claims |
+| FDSA-19-11: valid-state potential and explicit initial boundary | `run_potential_map_of_invariant`, `run_cost_le_map_of_invariant` |
+| FDSA-19-12: signed charge `work + Phi(after) - Phi(before)` | The charge expression in `budget_amortized`, in an additive commutative group |
+| FDSA-19-13: exact telescoping along actual states | `budget_amortized`, supported by `run_potential_map_exact` |
+| FDSA-19-14: upper bound with initial credit | `run_cost_le_map_of_invariant`, requiring nonnegativity on preserved states |
+| FDSA-19-15: zero-initial specialization | The arbitrary-workload zero-start fractional example, obtained from the preceding bound |
+| FDSA-19-16: state-dependent local bounds on a preserved domain | `run_potential_map_of_invariant` and the existing `run_invariant` |
+| FDSA-19-17 to FDSA-19-18: two input potentials and operation histories | Remain open; a unary state trajectory does not prove these claims |
 
 These rows locate the common accounting argument. The book's counter, dynamic
 tables, queues and heaps still require their own exact algorithm, potential,

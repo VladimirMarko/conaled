@@ -1,6 +1,6 @@
 # Unbalanced search trees: two deletions and two correctness routes
 
-This component implements FDSA Chapter 5 obligations C05-001–041 in the
+This component implements FDSA Chapter 5 obligations FDSA-5-1 to FDSA-5-41 in the
 [complete chapter ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
 Its intended tracking item is CTB-107 under CTB-24. Qualification and the exact
 accepted candidate belong to the checkpoint's review and validation records;
@@ -222,47 +222,47 @@ finite cases are supplementary evidence.
 
 | Row | Exact source obligation and implemented declarations | Proof/client and cases |
 | --- | --- | --- |
-| C05-001 | Recursive strict BST and independent contents: existing OT.`OrderedBy`, `Ordered`, `All`, `Contains`; OT.`contains_iff_mem_setTree` | Same statement through the existing canonical bridges; malformed/descendant boundaries G01/G07/G08 |
-| C05-002 | Empty/insert/delete/member interface: AS.`DeleteOps`, `DeleteLaws`, original `Ops` projection | Independent operations/observer/validity and universes; G01/G03/G17 |
-| C05-003 | Three-way comparison reflection and elimination: standard `compare_lt_iff_lt`, `compare_eq_iff_eq`, `compare_gt_iff_gt`; OT.`member_node_compare`, `insert_node_compare`, `deleteWith_node_compare` | Exact actual-operation branches, original tariff retained; G01 |
-| C05-004 | Raw empty/search recurrence: existing OT.`memberRun`, `member`; OT.`member_node_compare` | Direct existing `member_correct`; G01/G07 |
-| C05-005 | Raw insertion and equality unchanged: existing OT.`insert`; OT.`insert_node_compare` | Existing raw `contains_insert` and `ordered_insert`; G01 |
-| C05-006 | Nonempty leftmost traversal: T.`extractLeftmost`, its three node/nil equations, `extractLeftmost_exists`, `extractLeftmostNonempty_spec` | Option failure iff nil, no default label; G02 |
-| C05-007 | Inorder head/residual, leastness and exact ordered removal: T.`extractLeftmost_inorder`, OT.`extractLeftmost_ordered`, `extractLeftmost_least`, `extractLeftmost_removal` | Independent raw structural contents/All proofs; old residual/insertion recovery; G02/G07 |
-| C05-008 | Actual successor deletion: OT.`deleteBy`, `delete`, `deleteBy_node`, `deleteBy_eq_root_nil`, `deleteBy_eq_root_extract` | Equality callback uses only proved nonempty extraction calls; G03/G04/G07 |
-| C05-009 | Literal two-branch source join: T.`join`, `join_nil_left`, `join_nil_right`, `join_node_node` | Both returned-middle branches retained; G04/G05 |
-| C05-010 | Raw inorder join and consequences: T.`inorder_join`, `numNodes_join`, `setTree_join`; OT.`orderedBy_join` | Raw structural union and ordered strict cross bounds; G04/G05 |
-| C05-011 | Actual join deletion and refinement: OT.`deleteJoinBy`, `deleteJoin`, `deleteJoinBy_node`, `inorder_deleteJoin`, `deleteJoinSetLaws`, `refinedDeleteJoinSetLaws` | Distinct shape, same exact valid observation; G03/G04/G14 |
-| C05-012 | Literal simpler join: T.`join0`, nil identities and `join0_node_node` | Separate raw inorder/contents/size and OT.`orderedBy_join0`; G04/G05 |
-| C05-013 | Raw deletion height nonincrease: T.`extractLeftmost_height_le`, `height_joinLeftmost_le`; OT.`height_deleteWith_le`, `height_delete_le`, `height_deleteJoin_le` | No BST premise, actual chosen callbacks; G02/G03/G07 |
-| C05-014 | Four set semantics: OT.`deleteSetLaws`, `deleteJoinSetLaws` | Structural observer, exact removal; separate composed contracts below; G01/G03/G14 |
-| C05-015 | Three validity laws for each client: OT.`deleteLaws`, `deleteJoinLaws`, `ordered_delete`, `ordered_deleteJoin` | Uses raw All preservation before exact semantics; G03/G14 |
-| C05-016 | Arbitrary mixed updates and every prefix: AS.`Update`, `execute`, `DeleteLaws.execute_valid`, `prefix_valid`, `execute_observe`, `execute_from_empty` | Existing reachable fold fusion; actual direct/refined/lifted consumers G14/G17 |
-| C05-017 | Independent node triples and both full-child bounds: OT.`nodes`, `nodes_node`, `OrderedNodesBy`, `orderedNodesBy_iff`, `orderedNodes_iff` | Rooted subtree induction, LT-only; child-root counterexample G08 |
-| C05-018 | Exact join bound: T.`height_join_le` | All raw trees, additive constant 1; G04/G05 |
-| C05-019 | Sum bound for simpler join: T.`height_join0_le` | All raw trees; G04/G05/G06 |
-| C05-020 | Complete-input equality and near doubling: T.`height_join0_of_complete`, `join0_root_heights`, `join0_root_height_increases_iff` | Universal constant-label and ordered complete families, exact near doubling and 0–5 table in `Examples.TreeJoin`; G06 |
-| C05-021 | Direct seven-law exercise: OT.`contains_deleteWith_subset`, `all_deleteWith`, `orderedBy_deleteWith`, `contains_deleteWith`, both direct set contracts | Recursive Contains/All/Ordered and structural helper contents, no list-refinement dependency; G01–G04/G14 |
-| C05-022 | Actual terminating union: OT.`union`, `union_node` | Structural first-tree recursion, second input generalized; G13 |
-| C05-023 | Strict pivot partition: OT.`split`, `split_subset`, `ordered_split`, `contains_split`, `split_bounds`, `setTree_split` | Exact below/above filters exclude equality; G13 |
-| C05-024 | Union semantics and preservation: OT.`contains_union`, `setTree_union`, `ordered_union` | Set equality, ordered output, unequal shapes under operand exchange; G13 |
-| C05-025 | Strict inorder and raw contents characterization: existing OT.`ordered_iff_inorder_pairwise`, `orderedBy_iff_inorder_pairwise`, raw contents bridge; OL.`strict_iff_adjacent`, `strict_iff_nodup_nonstrict` | Forward transitivity vs LT-only converse; strictness distinct from nonstrict sorting; G07/G08/G09/G15 |
-| C05-026 | Equality-suppressing list insertion: OL.`insert` | Literal source recurrence on arbitrary lists; G09/G11 |
-| C05-027 | First-match list deletion: OL.`delete`, `delete_eq_erase`, `delete_of_not_mem` | Scans past greater unequal heads; G09/G12 |
-| C05-028 | Figure 5.1: existing T.`inorder_nil`; OT.`inorder_insert`, `inorder_delete`, `inorder_deleteJoin`, `member_inorder` | Strict inorder alone, exact operational equality; malformed counterexamples G07 and clients G14 |
-| C05-029 | Equation 5.1 midpoint decomposition: OL.`strict_middle` | Pairwise append and transitivity; G10 |
-| C05-030 | Equation 5.2 four-part decomposition: OL.`strict_four_parts` | Explicit `x :: (xs ++ y :: ys)` parsing and required x<y; G10 |
-| C05-031 | Equation 5.3 tail consequence: OL.`strict_tail` | Only LT required; G10 |
-| C05-032 | Equation 5.4 prefix consequence: OL.`strict_prefix` | Only LT required; G10 |
-| C05-033 | Equation 5.5 insertion distribution: OL.`insert_distribution`, `_lt`, `_ge` | Only strict prefix through pivot, arbitrary suffix; positive and negative boundary G11 |
-| C05-034 | Equation 5.6 deletion distribution: OL.`delete_distribution`, `_lt`, `_ge` | Whole-list strictness and absent-query case; weaker-premise counterexample G12 |
-| C05-035 | Equation 5.7 all-members cons: OL.`strict_cons_iff` | Standard Pairwise cons, LT-only; G10 |
-| C05-036 | Equation 5.8 all-members snoc: OL.`strict_snoc_iff` | Standard Pairwise append, LT-only; G10 |
-| C05-037 | Arbitrary-list insertion union: OL.`mem_insert`, insertion field of OL.`laws` | No strictness premise in underlying theorem; unsorted duplicate case G09 |
-| C05-038 | Strict-list deletion difference: OL.`mem_delete`, stronger uniqueness helper `mem_delete_of_nodup` | Raw duplicate counterexample retained; G09 |
-| C05-039 | Insertion preserves strictness: OL.`strict_insert` | Actual source operation, existing Pairwise infrastructure; G09/G11 |
-| C05-040 | Deletion preserves strictness: OL.`strict_delete` | Checked erase bridge and Pairwise erase; G09/G12 |
-| C05-041 | One reusable composition: AS.`Refinement`, `Refinement.Valid`, `.laws`, `.execute`; OT.`inorderRefinement`, `inorderJoinRefinement`, both `refinedDelete...SetLaws` | Aux ∧ target validity, actual primitive commutation, both real algorithms; flag and mixed consumers G14/G15/G17 |
+| FDSA-5-1 | Recursive strict BST and independent contents: existing OT.`OrderedBy`, `Ordered`, `All`, `Contains`; OT.`contains_iff_mem_setTree` | Same statement through the existing canonical bridges; malformed/descendant boundaries G01/G07/G08 |
+| FDSA-5-2 | Empty/insert/delete/member interface: AS.`DeleteOps`, `DeleteLaws`, original `Ops` projection | Independent operations/observer/validity and universes; G01/G03/G17 |
+| FDSA-5-3 | Three-way comparison reflection and elimination: standard `compare_lt_iff_lt`, `compare_eq_iff_eq`, `compare_gt_iff_gt`; OT.`member_node_compare`, `insert_node_compare`, `deleteWith_node_compare` | Exact actual-operation branches, original tariff retained; G01 |
+| FDSA-5-4 | Raw empty/search recurrence: existing OT.`memberRun`, `member`; OT.`member_node_compare` | Direct existing `member_correct`; G01/G07 |
+| FDSA-5-5 | Raw insertion and equality unchanged: existing OT.`insert`; OT.`insert_node_compare` | Existing raw `contains_insert` and `ordered_insert`; G01 |
+| FDSA-5-6 | Nonempty leftmost traversal: T.`extractLeftmost`, its three node/nil equations, `extractLeftmost_exists`, `extractLeftmostNonempty_spec` | Option failure iff nil, no default label; G02 |
+| FDSA-5-7 | Inorder head/residual, leastness and exact ordered removal: T.`extractLeftmost_inorder`, OT.`extractLeftmost_ordered`, `extractLeftmost_least`, `extractLeftmost_removal` | Independent raw structural contents/All proofs; old residual/insertion recovery; G02/G07 |
+| FDSA-5-8 | Actual successor deletion: OT.`deleteBy`, `delete`, `deleteBy_node`, `deleteBy_eq_root_nil`, `deleteBy_eq_root_extract` | Equality callback uses only proved nonempty extraction calls; G03/G04/G07 |
+| FDSA-5-9 | Literal two-branch source join: T.`join`, `join_nil_left`, `join_nil_right`, `join_node_node` | Both returned-middle branches retained; G04/G05 |
+| FDSA-5-10 | Raw inorder join and consequences: T.`inorder_join`, `numNodes_join`, `setTree_join`; OT.`orderedBy_join` | Raw structural union and ordered strict cross bounds; G04/G05 |
+| FDSA-5-11 | Actual join deletion and refinement: OT.`deleteJoinBy`, `deleteJoin`, `deleteJoinBy_node`, `inorder_deleteJoin`, `deleteJoinSetLaws`, `refinedDeleteJoinSetLaws` | Distinct shape, same exact valid observation; G03/G04/G14 |
+| FDSA-5-12 | Literal simpler join: T.`join0`, nil identities and `join0_node_node` | Separate raw inorder/contents/size and OT.`orderedBy_join0`; G04/G05 |
+| FDSA-5-13 | Raw deletion height nonincrease: T.`extractLeftmost_height_le`, `height_joinLeftmost_le`; OT.`height_deleteWith_le`, `height_delete_le`, `height_deleteJoin_le` | No BST premise, actual chosen callbacks; G02/G03/G07 |
+| FDSA-5-14 | Four set semantics: OT.`deleteSetLaws`, `deleteJoinSetLaws` | Structural observer, exact removal; separate composed contracts below; G01/G03/G14 |
+| FDSA-5-15 | Three validity laws for each client: OT.`deleteLaws`, `deleteJoinLaws`, `ordered_delete`, `ordered_deleteJoin` | Uses raw All preservation before exact semantics; G03/G14 |
+| FDSA-5-16 | Arbitrary mixed updates and every prefix: AS.`Update`, `execute`, `DeleteLaws.execute_valid`, `prefix_valid`, `execute_observe`, `execute_from_empty` | Existing reachable fold fusion; actual direct/refined/lifted consumers G14/G17 |
+| FDSA-5-17 | Independent node triples and both full-child bounds: OT.`nodes`, `nodes_node`, `OrderedNodesBy`, `orderedNodesBy_iff`, `orderedNodes_iff` | Rooted subtree induction, LT-only; child-root counterexample G08 |
+| FDSA-5-18 | Exact join bound: T.`height_join_le` | All raw trees, additive constant 1; G04/G05 |
+| FDSA-5-19 | Sum bound for simpler join: T.`height_join0_le` | All raw trees; G04/G05/G06 |
+| FDSA-5-20 | Complete-input equality and near doubling: T.`height_join0_of_complete`, `join0_root_heights`, `join0_root_height_increases_iff` | Universal constant-label and ordered complete families, exact near doubling and 0–5 table in `Examples.TreeJoin`; G06 |
+| FDSA-5-21 | Direct seven-law exercise: OT.`contains_deleteWith_subset`, `all_deleteWith`, `orderedBy_deleteWith`, `contains_deleteWith`, both direct set contracts | Recursive Contains/All/Ordered and structural helper contents, no list-refinement dependency; G01–G04/G14 |
+| FDSA-5-22 | Actual terminating union: OT.`union`, `union_node` | Structural first-tree recursion, second input generalized; G13 |
+| FDSA-5-23 | Strict pivot partition: OT.`split`, `split_subset`, `ordered_split`, `contains_split`, `split_bounds`, `setTree_split` | Exact below/above filters exclude equality; G13 |
+| FDSA-5-24 | Union semantics and preservation: OT.`contains_union`, `setTree_union`, `ordered_union` | Set equality, ordered output, unequal shapes under operand exchange; G13 |
+| FDSA-5-25 | Strict inorder and raw contents characterization: existing OT.`ordered_iff_inorder_pairwise`, `orderedBy_iff_inorder_pairwise`, raw contents bridge; OL.`strict_iff_adjacent`, `strict_iff_nodup_nonstrict` | Forward transitivity vs LT-only converse; strictness distinct from nonstrict sorting; G07/G08/G09/G15 |
+| FDSA-5-26 | Equality-suppressing list insertion: OL.`insert` | Literal source recurrence on arbitrary lists; G09/G11 |
+| FDSA-5-27 | First-match list deletion: OL.`delete`, `delete_eq_erase`, `delete_of_not_mem` | Scans past greater unequal heads; G09/G12 |
+| FDSA-5-28 | Figure 5.1: existing T.`inorder_nil`; OT.`inorder_insert`, `inorder_delete`, `inorder_deleteJoin`, `member_inorder` | Strict inorder alone, exact operational equality; malformed counterexamples G07 and clients G14 |
+| FDSA-5-29 | Equation 5.1 midpoint decomposition: OL.`strict_middle` | Pairwise append and transitivity; G10 |
+| FDSA-5-30 | Equation 5.2 four-part decomposition: OL.`strict_four_parts` | Explicit `x :: (xs ++ y :: ys)` parsing and required x<y; G10 |
+| FDSA-5-31 | Equation 5.3 tail consequence: OL.`strict_tail` | Only LT required; G10 |
+| FDSA-5-32 | Equation 5.4 prefix consequence: OL.`strict_prefix` | Only LT required; G10 |
+| FDSA-5-33 | Equation 5.5 insertion distribution: OL.`insert_distribution`, `_lt`, `_ge` | Only strict prefix through pivot, arbitrary suffix; positive and negative boundary G11 |
+| FDSA-5-34 | Equation 5.6 deletion distribution: OL.`delete_distribution`, `_lt`, `_ge` | Whole-list strictness and absent-query case; weaker-premise counterexample G12 |
+| FDSA-5-35 | Equation 5.7 all-members cons: OL.`strict_cons_iff` | Standard Pairwise cons, LT-only; G10 |
+| FDSA-5-36 | Equation 5.8 all-members snoc: OL.`strict_snoc_iff` | Standard Pairwise append, LT-only; G10 |
+| FDSA-5-37 | Arbitrary-list insertion union: OL.`mem_insert`, insertion field of OL.`laws` | No strictness premise in underlying theorem; unsorted duplicate case G09 |
+| FDSA-5-38 | Strict-list deletion difference: OL.`mem_delete`, stronger uniqueness helper `mem_delete_of_nodup` | Raw duplicate counterexample retained; G09 |
+| FDSA-5-39 | Insertion preserves strictness: OL.`strict_insert` | Actual source operation, existing Pairwise infrastructure; G09/G11 |
+| FDSA-5-40 | Deletion preserves strictness: OL.`strict_delete` | Checked erase bridge and Pairwise erase; G09/G12 |
+| FDSA-5-41 | One reusable composition: AS.`Refinement`, `Refinement.Valid`, `.laws`, `.execute`; OT.`inorderRefinement`, `inorderJoinRefinement`, both `refinedDelete...SetLaws` | Aux ∧ target validity, actual primitive commutation, both real algorithms; flag and mixed consumers G14/G15/G17 |
 
 ## Concrete-case ownership
 
@@ -292,8 +292,8 @@ inventories, actual elaborated statements, private guarded validation and both
 review axes supply the remaining evidence; a count of rows or declarations is
 not a mathematical qualification criterion.
 
-The continuation remains C05-042–065 positioned rotations, C05-066–084 interval
-trees, C05-085–090 balanced/sweep obligations, and C05-091–094 diameter,
+The continuation remains FDSA-5-42 to FDSA-5-65 positioned rotations, FDSA-5-66 to FDSA-5-84 interval
+trees, FDSA-5-85 to FDSA-5-90 balanced/sweep obligations, and FDSA-5-91 to FDSA-5-94 diameter,
 verification complexity and the separate unit-visit expected-search model.
 The latter is not the existing two-comparison `memberRun` tariff. No chapter
 closure, complete-book closure, physical-sharing guarantee or receiving

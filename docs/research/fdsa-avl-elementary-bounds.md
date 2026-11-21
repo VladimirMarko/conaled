@@ -2,7 +2,7 @@
 
 This increment addresses FDSA Exercise 9.1 and Exercise 9.3, printed page 111
 (physical page 117 of the pinned PDF). The exact canonical outcomes are
-**C09-042–045 and C09-052–053**, under the unchanged CTB-28 Chapter 9 owner.
+**FDSA-9-42 to FDSA-9-45 and FDSA-9-52 to FDSA-9-53**, under the unchanged CTB-28 Chapter 9 owner.
 The local increment is CTB-117; these identifiers are distinct from GitHub
 integration owners. The complete canonical catalog remains
 `docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md`.
@@ -39,12 +39,12 @@ assume a strictly positive logarithm.
 
 | Canonical row | Formal connection |
 | --- | --- |
-| C09-042 | `two_pow_half_height_le_numLeaves`; the connected `prescribed_height_bounds` and `prescribed_stored_height_bound` retain the source's explicit height index. |
-| C09-043 | `two_pow_ceil_half_height_le_numLeaves`, with a height-indexed direct two-step induction and the stronger odd-height exponent. |
-| C09-044 | `height_le_two_mul_logb_numLeaves`, derived from the stronger natural bound and exact logarithm/rounding laws. |
-| C09-045 | `floor_power_log_gap` and the connected `arithmetic_floor_gap`: the exact arithmetic separator `n = 3, L = 2`. |
-| C09-052 | Reuse `Trees.AlmostComplete`, `Trees.minHeight`, `almostComplete_children` and `minHeight_le_height`; no replacement predicate is introduced. |
-| C09-053 | `balanced_of_almostComplete` and `valid_annotate_of_almostComplete`; the global predicate implies local recursive balance for arbitrary payloads. |
+| FDSA-9-42 | `two_pow_half_height_le_numLeaves`; the connected `prescribed_height_bounds` and `prescribed_stored_height_bound` retain the source's explicit height index. |
+| FDSA-9-43 | `two_pow_ceil_half_height_le_numLeaves`, with a height-indexed direct two-step induction and the stronger odd-height exponent. |
+| FDSA-9-44 | `height_le_two_mul_logb_numLeaves`, derived from the stronger natural bound and exact logarithm/rounding laws. |
+| FDSA-9-45 | `floor_power_log_gap` and the connected `arithmetic_floor_gap`: the exact arithmetic separator `n = 3, L = 2`. |
+| FDSA-9-52 | Reuse `Trees.AlmostComplete`, `Trees.minHeight`, `almostComplete_children` and `minHeight_le_height`; no replacement predicate is introduced. |
+| FDSA-9-53 | `balanced_of_almostComplete` and `valid_annotate_of_almostComplete`; the global predicate implies local recursive balance for arbitrary payloads. |
 
 ## The direct induction and the missing arithmetic inference
 

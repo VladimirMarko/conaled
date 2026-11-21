@@ -1,6 +1,6 @@
 # Interval-tree updates and their separate correctness conditions
 
-This increment implements **C05-075–078** from the unchanged
+This increment implements **FDSA-5-75 to FDSA-5-78** from the unchanged
 [Chapter 5 obligation inventory](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
 It supplies literal insertion, paired leftmost extraction, successor deletion,
 erasure bridges, strict-list refinements and cache preservation. The definitions
@@ -32,10 +32,10 @@ reconstructed exactly. Lean is pinned to 4.35.0 and Mathlib to
 
 | Canonical row | Local owners and principal declarations | Correspondence |
 | --- | --- | --- |
-| C05-075 | [Insert](../../Applications/Search/IntervalTree/Insert.lean): `insert`, `insert_nil`, `insert_node`, raw branch equations and `insert_eq_root` | Literal high in the empty branch; smart reconstruction only on LT/GT; original annotated node in the lawful EQ branch |
-| C05-076 | [Leftmost](../../Applications/Search/IntervalTree/Leftmost.lean): `splitMin`, `splitMinNonempty`, domain/specification laws, `erase_splitMin`, `splitMin_inorder`, `join`; [Delete](../../Applications/Search/IntervalTree/Delete.lean): `delete`, branch equations, `erase_delete` | Single paired extraction with an explicit nonempty source domain; successor deletion smart-rebuilds changed ancestors and the new root |
-| C05-077 | [Refinement](../../Applications/Search/IntervalTree/Refinement.lean): `inorder_insert`, `inorder_delete`, `strict_inorder_insert`, `strict_inorder_delete` | Exact existing ordered-list insertion/deletion under strict erased inorder, with no cache premise |
-| C05-078 | `insert_cacheValid_of_singleton`, `insert_cacheValid`, `splitMin_cacheValid`, `join_cacheValid`, `delete_cacheValid` | Structural preservation of exact recursive cache equations, with no BST premise |
+| FDSA-5-75 | [Insert](../../Applications/Search/IntervalTree/Insert.lean): `insert`, `insert_nil`, `insert_node`, raw branch equations and `insert_eq_root` | Literal high in the empty branch; smart reconstruction only on LT/GT; original annotated node in the lawful EQ branch |
+| FDSA-5-76 | [Leftmost](../../Applications/Search/IntervalTree/Leftmost.lean): `splitMin`, `splitMinNonempty`, domain/specification laws, `erase_splitMin`, `splitMin_inorder`, `join`; [Delete](../../Applications/Search/IntervalTree/Delete.lean): `delete`, branch equations, `erase_delete` | Single paired extraction with an explicit nonempty source domain; successor deletion smart-rebuilds changed ancestors and the new root |
+| FDSA-5-77 | [Refinement](../../Applications/Search/IntervalTree/Refinement.lean): `inorder_insert`, `inorder_delete`, `strict_inorder_insert`, `strict_inorder_delete` | Exact existing ordered-list insertion/deletion under strict erased inorder, with no cache premise |
+| FDSA-5-78 | `insert_cacheValid_of_singleton`, `insert_cacheValid`, `splitMin_cacheValid`, `join_cacheValid`, `delete_cacheValid` | Structural preservation of exact recursive cache equations, with no BST premise |
 
 The connected cases live in
 [IntervalTreeUpdates](../../Examples/IntervalTreeUpdates.lean), which is imported
@@ -162,12 +162,12 @@ it never supplies a canonical maximum theorem's instance.
 
 ## Remaining work and integration boundary
 
-This increment has four canonical rows. **C05-079 remains open**: it requires
+This increment has four canonical rows. **FDSA-5-79 remains open**: it requires
 the combined cache/order invariant, empty and equality-membership semantics,
 insert/delete set semantics and an actual interval-set contract with overlap
 observation. The four displayed update corollaries alone do not establish it.
-C05-080–084 cover the overlap and point-search work; C05-085–090 cover balanced
-augmentation and sweep-line work; C05-091–094 cover distance algorithms. All
+FDSA-5-80 to FDSA-5-84 cover the overlap and point-search work; FDSA-5-85 to FDSA-5-90 cover balanced
+augmentation and sweep-line work; FDSA-5-91 to FDSA-5-94 cover distance algorithms. All
 later FDSA chapters/appendices and remaining PFDS work retain their existing
 scope. This note establishes neither full Chapter 5 nor all-books completion.
 

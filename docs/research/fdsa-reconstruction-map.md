@@ -231,7 +231,7 @@ conventions refer forward to Appendix B.1 and stay on that appendix's list.
 ## Chapter 2: Sorting, printed pages 13–29
 
 The [complete sorting correspondence](fdsa-sorting.md) retains all 112 frozen
-obligations: C02-001–107 and the five operational clarifications C02-108–112.
+obligations: FDSA-2-1 to FDSA-2-107 and the five operational clarifications FDSA-2-108 to FDSA-2-112.
 It maps every section, display, named result and exercise to exact declarations,
 connected examples, standard reuse or an explicit correction/proof-step
 disposition. This is source correspondence at the recorded immutable candidate,
@@ -576,7 +576,7 @@ terminal base. Exact erasure, E=C+1, loose length bounds and input-local exact
 map/key transport retain arbitrary payload universes and require no sorting,
 equality or inhabitant on the raw domain.
 
-This supports C02-025, the merge portion of C02-027, and C02-028/029/031/033/035/037.
+This supports FDSA-2-25, the merge portion of FDSA-2-27, and FDSA-2-28, FDSA-2-29, FDSA-2-31, FDSA-2-33, FDSA-2-35, FDSA-2-37.
 `Examples.MergeCosts` connects actual bind/reweight, the second merge's real
 first value, source/key adapters, stable and unsorted cases, noninjective key
 erasure, Empty, the qualified C1 positive/zero comparison, and an actual raw
@@ -634,11 +634,11 @@ for this unit's full candidate gates.
 
 | Common source obligation | Draft declarations / intended connection |
 | --- | --- |
-| Three ordered filters and occurrence semantics, partition component of C02-102 and C03-011 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |
-| Qualified strict-side decrease, C03-013 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |
+| Three ordered filters and occurrence semantics, partition component of FDSA-2-102 and FDSA-3-11 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |
+| Qualified strict-side decrease, FDSA-3-13 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |
 | Existing Selection compatibility | The old same-signature operation and seven theorem names remain wrappers/adapters. The selection-specific remainder, Rank, Consumers and RankSelection examples are unchanged. |
 | Companion source value equations | Shared nil/cons theorems expose one-tail reconstruction with tests `y<p` then `p=y`, without defining another pure operation or assigning a cost to the old implementation. |
-| Actual source count, C03-031 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |
+| Actual source count, FDSA-3-31 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |
 | Consequential clients | Generic equal-block/empty cases; mixed ordered duplicates; absent outside/interior pivots; old-name compatibility; same-program bind on the actual returned lower bucket with expected total thirteen. |
 
 The manuscript prints the three-filter specification and time recurrence;
@@ -723,9 +723,9 @@ source distinctions, examples and statement assessment are in
 | --- | --- |
 | Ordinary explicit-zero, ternary branching fold | `Trees.fold`, constructor equations, `fold_map`, `fold_fusion`; no new carrier or algebra class. |
 | Canonical size/height and node-labelled inorder observations | `fold_numNodes`, `fold_height`, `inorder`, `inorder_length`, `inorder_map` and the three shape-map laws. |
-| Generic cached fold and all-node validity, C04-062–072 common mathematics | `Trees.Cached.read`, `smartNode`, `Valid`, `smartNode_valid_iff`, `read_eq_fold`; independent erasure/inorder/shape laws. |
+| Generic cached fold and all-node validity, FDSA-4-62 to FDSA-4-72 common mathematics | `Trees.Cached.read`, `smartNode`, `Valid`, `smartNode_valid_iff`, `read_eq_fold`; independent erasure/inorder/shape laws. |
 | Actual bottom-up annotation | `annotate`, `annotate_valid`, `erase_annotate`, `read_annotate`, as an ordinary fold client. |
-| Conditional local overhead component of C04-073 | `Resources.TreeCache.readRun`, `nodeRun`, reached-argument value refinement, exact callback-cost-plus-three equation and local bound. This is a separately declared tariff. |
+| Conditional local overhead component of FDSA-4-73 | `Resources.TreeCache.readRun`, `nodeRun`, reached-argument value refinement, exact callback-cost-plus-three equation and local bound. This is a separately declared tariff. |
 | Reuse and composition | General size/height and pair-fusion clients, existing ordered-summary composition, noncommutative word, empty/repeated labels, malformed descendants and actual measured-append callback in `TreeCacheExamples`. |
 
 The source leftist helper tariff is zero; it has not been equated with the
@@ -793,8 +793,8 @@ owned by the local CTB checkpoint records, not the earlier FDSA draft statuses.
 
 | Source obligation or connection | Current declaration and mathematical boundary |
 | --- | --- |
-| Exercise 4.1, C04-017 | `Resources.TreeAccumulator.nodeRun` and `Resources.TreeAccumulator.invoke` use one ordinary fold of measured functions, with actual right-result dependency and arbitrary-suffix `invoke_value`. |
-| Accumulator part of C04-018 | `Resources.TreeAccumulator.invoke_exact` gives suffix-independent `e*(2*n+1)` work; its proportional linear bound preserves the positive-size premise and nil exception. |
+| Exercise 4.1, FDSA-4-17 | `Resources.TreeAccumulator.nodeRun` and `Resources.TreeAccumulator.invoke` use one ordinary fold of measured functions, with actual right-result dependency and arbitrary-suffix `invoke_value`. |
+| Accumulator part of FDSA-4-18 | `Resources.TreeAccumulator.invoke_exact` gives suffix-independent `e*(2*n+1)` work; its proportional linear bound preserves the positive-size premise and nil exception. |
 | Observation transport | `Resources.TreeAccumulator.reweight_invoke` uses existing additive homs and fold fusion; `TreeAccumulatorObservationExamples.invoke_pair` observes two tariffs on one invocation. |
 | Construction and actual applications | `TreeAccumulatorExamples.build` returns the measured invocation function; `buildOnce` and `buildTwice` bind that result to one or two calls with separate phase tariffs. |
 | Boundary and comparison cases | Empty/repeated labels and child occurrences, actual materialize-plus-append work 20 versus invocation work 9, and empty-suffix agreement without uniform work. |
@@ -802,7 +802,7 @@ owned by the local CTB checkpoint records, not the earlier FDSA draft statuses.
 
 The retained companion theory has no generated `T_inorder2`; the resource
 formula is derived for the declared measured recurrence. CTB-71 below supplies
-the direct-inorder quadratic shape-family portion of C04-018. CTB-70 alone and
+the direct-inorder quadratic shape-family portion of FDSA-4-18. CTB-70 alone and
 CTB-2 do not close Exercise 4.1; the combined source contracts and their exact
 acceptance evidence remain distinct from the 76-row Chapter 4 ledger.
 No compiler/runtime, constant-stack, allocation or physical-sharing result is
@@ -818,7 +818,7 @@ and the complete construction-inclusive suffix-program comparison.
 
 | Source obligation or connection | Current declaration and mathematical boundary |
 | --- | --- |
-| Direct-inorder part of C04-018 | `TreeTraversalWorkExamples.source_upper` gives the nonempty all-tree quadratic upper bound; `source_witness` supplies a size-indexed left-chain lower bound. The literal source callback retains both right-associated appends. |
+| Direct-inorder part of FDSA-4-18 | `TreeTraversalWorkExamples.source_upper` gives the nonempty all-tree quadratic upper bound; `source_witness` supplies a size-indexed left-chain lower bound. The literal source callback retains both right-associated appends. |
 | Shape and occurrence observation | `Trees.leftSizeSum` is one ordinary fold observation linked to canonical size. Its sharp triangular bound, map invariance and repeated-child law retain every node occurrence. |
 | Actual callback work | `Resources.TreeFold.run_cost_leftSizeSum` derives `e*(2*n+1)+d*A+c*n` from one fixed affine law on actual reached child summaries. It adds no second executor or cost-only pass. |
 | Four current clients | `single_cost`, `right_cost`, `left_cost` and `cache_cost` retain the terminal append call and all three local cache helper charges. The cache's actual reader/erasure laws remain separate from list value. |
@@ -826,7 +826,7 @@ and the complete construction-inclusive suffix-program comparison.
 | Concrete observation separation | `same_observations_different_work` preserves equal size, height and full inorder while work differs, 19 versus 16. Equal values alone do not imply equal resource observations. |
 | Complete program comparison | `materialize_buildOnce_cost` gives exact excess `A`, including construction in `buildOnce`. Values agree for every suffix; `rightChain_programs` proves full measured-result equality on right chains and `leftChain_program_excess` retains excess `n.choose 2`. |
 
-The combined CTB-70/71 source contracts address C04-017/018. Exact focused
+The combined CTB-70/71 source contracts address FDSA-4-17, FDSA-4-18. Exact focused
 validation, independent source reviews and final source comparison belong to
 their checkpoint evidence. The whole chapter and receiving acceptance remain
 open. CTB-72 below recovers structural/subtree and weighted-path observations;
@@ -844,11 +844,11 @@ the independent source meanings and all original mathematical contracts remain.
 
 | Source obligation or connection | Current declaration and boundary |
 | --- | --- |
-| C04-002, C04-005 | Independent `Trees.setTree` and ordered `Trees.preorder` on the existing `BinaryTree`, with displayed recurrence laws and arbitrary label types. |
-| C04-015 membership/preorder portions | Both membership bridges connect traversals to the independent label set; `preorder_length` and `preorder_map` retain size, ordered occurrences and noninjective maps. |
-| C04-014 | `Trees.Subtree` is whole rooted structural containment, including self and nil; transitivity and the `subtrees` set recurrences agree. Equal label sets or traversals do not imply containment. |
-| General-subtree portion of C04-046 | The current Shape owner derives `complete_of_subtree` and `almostComplete_of_subtree`; nested cases include an almost-complete parent proved not complete. |
-| Exercise 4.3, C04-021–022 | The independent depth and subtree-sum weighted paths satisfy `wpld d t = d*sumTree t + wpl t` for every incoming depth; `wpl0_eq_wpl` specializes it to zero. Node depth-plus-one remains distinct from Huffman's leaf-depth convention. |
+| FDSA-4-2, FDSA-4-5 | Independent `Trees.setTree` and ordered `Trees.preorder` on the existing `BinaryTree`, with displayed recurrence laws and arbitrary label types. |
+| FDSA-4-15 membership/preorder portions | Both membership bridges connect traversals to the independent label set; `preorder_length` and `preorder_map` retain size, ordered occurrences and noninjective maps. |
+| FDSA-4-14 | `Trees.Subtree` is whole rooted structural containment, including self and nil; transitivity and the `subtrees` set recurrences agree. Equal label sets or traversals do not imply containment. |
+| General-subtree portion of FDSA-4-46 | The current Shape owner derives `complete_of_subtree` and `almostComplete_of_subtree`; nested cases include an almost-complete parent proved not complete. |
+| Exercise 4.3, FDSA-4-21 to FDSA-4-22 | The independent depth and subtree-sum weighted paths satisfy `wpld d t = d*sumTree t + wpl t` for every incoming depth; `wpl0_eq_wpl` specializes it to zero. Node depth-plus-one remains distinct from Huffman's leaf-depth convention. |
 | Connected weighted cases | Equal total weight 15 yields path values 27 and 34 on different shapes, and 57/64 at incoming depth two. The arbitrary singleton, zero-weight root and nil cases retain the root charge and domain boundaries. |
 
 These source contracts do not close the full chapter. Enumeration, levels,
@@ -878,7 +878,7 @@ unordered payloads, a nontransitive-relation boundary and unequal actual search
 comparison counts. A lawful singleton-set case has observers that agree on
 valid states and provably differ on an invalid state.
 
-This is the ordered-input prerequisite for C04-058 and a connection for later
+This is the ordered-input prerequisite for FDSA-4-58 and a connection for later
 search/map chapters. It does not supply balancing, its worked figure or its
 height/cost contracts, and does not close the source row, Chapter 4 or a book.
 Exact focused checks and independent review remain in the CTB checkpoint
@@ -895,10 +895,10 @@ pair is not copied again.
 
 | Source obligation | Current declaration and boundary |
 | --- | --- |
-| Exercise 4.2, C04-019–020 | `enumTree` is a deterministic executable list with exact prescribed-inorder soundness/completeness and set correspondence. The left-spine insertion/deletion argument proves Nodup even with repeated labels; exact small output orders remain checked. |
-| Exercise 4.4, C04-023–026 | Independent `level` agrees at every default-empty index with the one-fold `levels` collector; bounded optional lookup and exact height/length agree. `mergeLevels` retains both unmatched tails; no linear total list-work claim is inferred. |
-| Exercise 4.5, C04-027–028 | Total Option reconstruction and the explicit empty-tree-fallback wrapper retain round trips under Nodup preorder, malformed-input failures, same-multiset nonexistence and the actual repeated-label parser choice. |
-| Exercise 4.6, C04-029–030 | The labelled ordered-child Rose carrier has recursive mirror and universal nested involution. Asymmetric and repeated-child applications retain order and occurrences. |
+| Exercise 4.2, FDSA-4-19 to FDSA-4-20 | `enumTree` is a deterministic executable list with exact prescribed-inorder soundness/completeness and set correspondence. The left-spine insertion/deletion argument proves Nodup even with repeated labels; exact small output orders remain checked. |
+| Exercise 4.4, FDSA-4-23 to FDSA-4-26 | Independent `level` agrees at every default-empty index with the one-fold `levels` collector; bounded optional lookup and exact height/length agree. `mergeLevels` retains both unmatched tails; no linear total list-work claim is inferred. |
+| Exercise 4.5, FDSA-4-27 to FDSA-4-28 | Total Option reconstruction and the explicit empty-tree-fallback wrapper retain round trips under Nodup preorder, malformed-input failures, same-multiset nonexistence and the actual repeated-label parser choice. |
+| Exercise 4.6, FDSA-4-29 to FDSA-4-30 | The labelled ordered-child Rose carrier has recursive mirror and universal nested involution. Asymmetric and repeated-child applications retain order and occurrences. |
 | Enumeration/reconstruction composition | `reconstruct?_of_mem_enumTree` consumes the two headline laws under the exact common domain. Positive enumeration membership and repeated-label failure cases exercise its premise. |
 
 The earlier enumeration/levels/reconstruction/rose recovery gaps in this map
@@ -923,8 +923,8 @@ The ordered interpretation uses CTB-73's canonical inorder bridge, including
 keyed payloads and the duplicate/failure boundaries. A validity-preserving
 rebalancing square composes with existing set insertion and membership.
 Actual measured literal, direct-suffix and construction-inclusive pipelines
-retain their distinct costs and exact returned suffixes. C04-047–058 and
-Exercise 4.9/C04-061 are this unit's source obligations; the detailed
+retain their distinct costs and exact returned suffixes. FDSA-4-47 to FDSA-4-58 and
+Exercise 4.9/FDSA-4-61 are this unit's source obligations; the detailed
 statements, source tariff and cases have one owner in the linked note.
 
 Executable completeness, maximal complete subtrees, the exact Exercise 4.8
@@ -949,8 +949,8 @@ ties. The exact almost-complete node characterization includes completeness
 of the shorter child when the heights differ; checked uses retain the existing
 counterexample to the weaker condition.
 
-This supplies the checker portion of C04-031, Exercise 4.7/C04-038–041,
-Exercise 4.8/C04-059–060 and Exercise 4.10/C04-074. The linked note owns the
+This supplies the checker portion of FDSA-4-31, Exercise 4.7/FDSA-4-38 to FDSA-4-41,
+Exercise 4.8/FDSA-4-59 to FDSA-4-60 and Exercise 4.10/FDSA-4-74. The linked note owns the
 statements, algorithm boundaries and cases. Earlier unit sections describe
 their scope at that development stage; the local CTB tracker owns current row
 qualification. Maximum caches and final Chapter 4 qualification remain separate.
@@ -966,7 +966,7 @@ summary. Constructor validity and reader correctness consume the generic laws;
 the standard optional maximum of canonical inorder supplies independent
 greatest-element meaning, including attainment.
 
-This supplies Exercise 4.11/C04-075–076 and C04-063's key-set image observation.
+This supplies Exercise 4.11/FDSA-4-75 to FDSA-4-76 and FDSA-4-63's key-set image observation.
 The general map-image law belongs to `Applications.Trees.BasicObservations`; existing
 occurrence-preserving inorder and shape erasure laws remain shared owners.
 The linked note records exact assumptions, reverse-adapter validity boundaries,

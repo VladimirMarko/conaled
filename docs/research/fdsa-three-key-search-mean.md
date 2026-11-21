@@ -7,7 +7,7 @@ FDSA, 27 July 2026, printed p.67, compares two trees containing the keys
 3, 6, 9. The illustration and surrounding discussion give a qualitative
 comparison for equally likely keys. The exact finite distribution, tariff
 and numeric targets used here are specified by canonical
-[C05-094](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
+[FDSA-5-94](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md).
 The numbers 5/3 and 2 are derived from those conventions; they are not quoted
 as formulas printed next to the illustration.
 

@@ -2,7 +2,7 @@
 
 ## Source and scope
 
-This construction addresses **C05-085**, the unnumbered balanced-augmentation
+This construction addresses **FDSA-5-85**, the unnumbered balanced-augmentation
 exercise in section 5.6.6, printed page 76 of *Functional Data Structures and
 Algorithms: A Proof Assistant Approach*, edition 27 July 2026. The canonical
 [Chapter 5 ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md)
@@ -303,7 +303,7 @@ deletion program or its operation-height bill.
 
 ## Remaining measured work
 
-C05-090 remains open. Its complete preparation is maintained in
+FDSA-5-90 remains open. Its complete preparation is maintained in
 [the rectangle-sweep paper](fdsa-rectangle-sweep.md#unqualified-preparation-for-the-measured-sweep).
 Chapter 9's operation-cost obligations remain in
 [the height-update paper](fdsa-height-updates.md#unqualified-preparation-for-measured-operation-costs).
@@ -326,6 +326,6 @@ preparation. The existing `Resources.TreeBalance.balRun` has `2*n+1` recursive
 calls on its sufficient size-n input before charging inorder traversal; it
 cannot stand in for a logarithmic local update. Pure-tree construction, measured
 construction, shared-store references and physical-sharing observations remain
-distinct. C05-092's exact eventual rotation-diameter bound, C05-093's encoded
+distinct. FDSA-5-92's exact eventual rotation-diameter bound, FDSA-5-93's encoded
 polynomial certificate checker, and all other canonical textbook obligations
 also remain open.

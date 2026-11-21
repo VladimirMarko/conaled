@@ -1,6 +1,6 @@
 # FDSA Chapter 5: rotations, listification and exact traces
 
-This component implements canonical obligations C05-042–065. Its raw operations
+This component implements canonical obligations FDSA-5-42 to FDSA-5-65. Its raw operations
 act on the existing `BinaryTree α` for arbitrary `α : Type u`. A successful
 rotation preserves the full inorder sequence, including repetitions. Ordering
 is an additional client invariant, and height can change.
@@ -143,30 +143,30 @@ dependencies remain the unit of assessment.
 
 | Row | Actual formal content | Cases |
 | --- | --- | --- |
-| C05-042 | `rotateRight?`, `rotateLeft?`, both `_node` equations and both `_eq_some_iff` domains | G01–G03, G09, G17 |
-| C05-043 | Both `_inorder`, `_numNodes`, `_setTree`, `_undo`; existing-inorder transport in `Search.OrderedTree` | G02–G03, G09–G10, G17 |
-| C05-044 | `IsList`, `instDecidableIsList`, `isList_iff_no_right_rotation` and both implications | G01, G06, G12 |
-| C05-045 | `rightLength`, its equations, `rightLength_le_numNodes`, `rightLength_eq_numNodes` | G01–G05, G12–G13 |
-| C05-046 | Actual `listOf` definition and its three public equations | G01–G03, G05, G09, G13 |
-| C05-047 | `measure`, `measure_rotate`, `measure_descend`, `deficit_descend` and all three termination proofs | G02–G05, G12–G13 |
-| C05-048 | `listOf_isList`, `listOf_inorder`, `listOf_eq_self` | G01–G03, G05, G09, G13 |
-| C05-049 | Shared `Branch`, `applyAt?`, standard-fold `applyAts?`, exact constructor/nil/cons equations | G04–G08, G16 |
-| C05-050 | Actual `rightPositions` definition and its three public equations | G01–G03, G05, G12–G13 |
-| C05-051 | `measure_rotate`, `measure_descend`, `apply_rightPositions` with actual successful sequential execution | G03, G05–G06, G12–G13 |
-| C05-052 | Unconditional `applyAts?_append` from `List.foldlM_append` | G04, G08, G11 |
-| C05-053 | Unconditional `applyAts?_map_right` for arbitrary partial callbacks | G05, G08, G12 |
-| C05-054 | `apply_rightPositions` and `listOf_isList` | G01–G05, G09, G13 |
-| C05-055 | `apply_rightPositions`, `listOf_inorder`, generic successful observation laws | G02–G05, G09–G10, G17 |
-| C05-056 | `rightPositions_length`, the independently recursive `countRots_eq_length` | G01–G05, G12–G13 |
-| C05-057 | `countRots_le_pred`, `rightPositions_length_le_pred`, `countRots_eq_pred` and all-size chain laws | G01, G03, G11, G13 |
-| C05-058 | Generic `applyAt?_undo`, `applyAts?_undo` and `reverse_rightPositions` | G02–G05, G09, G17 |
-| C05-059 | `eq_of_isList_of_inorder_eq`, `listOf_eq_of_inorder_eq` | G09–G11, G13 |
-| C05-060 | `connect_equal_inorder`, `connect_enumTree` and actual ordered/enumeration consumers | G10–G11 |
-| C05-061 | `connection_length_le`; explicit empty, singleton and tight constructed-route cases | G01, G11 |
-| C05-062 | Actual `countRots`, its three equations, `countRots_eq_deficit`, `countRots_eq_length` | G01–G05, G12–G13 |
-| C05-063 | Independent `exists_right_list`, whose import/proof boundary excludes every generator | G14 |
-| C05-064 | `longer_legal_trace`, `longer_trace_recovers`, `off_spine_trace_steps`, `longer_than_optimum` | G04, G14 |
-| C05-065 | `applyAt?_rightLength_bounds`, `applyAts?_rightLength_le`, `deficit_le_length`, `rightPositions_optimal` | G03–G04, G05, G13 |
+| FDSA-5-42 | `rotateRight?`, `rotateLeft?`, both `_node` equations and both `_eq_some_iff` domains | G01–G03, G09, G17 |
+| FDSA-5-43 | Both `_inorder`, `_numNodes`, `_setTree`, `_undo`; existing-inorder transport in `Search.OrderedTree` | G02–G03, G09–G10, G17 |
+| FDSA-5-44 | `IsList`, `instDecidableIsList`, `isList_iff_no_right_rotation` and both implications | G01, G06, G12 |
+| FDSA-5-45 | `rightLength`, its equations, `rightLength_le_numNodes`, `rightLength_eq_numNodes` | G01–G05, G12–G13 |
+| FDSA-5-46 | Actual `listOf` definition and its three public equations | G01–G03, G05, G09, G13 |
+| FDSA-5-47 | `measure`, `measure_rotate`, `measure_descend`, `deficit_descend` and all three termination proofs | G02–G05, G12–G13 |
+| FDSA-5-48 | `listOf_isList`, `listOf_inorder`, `listOf_eq_self` | G01–G03, G05, G09, G13 |
+| FDSA-5-49 | Shared `Branch`, `applyAt?`, standard-fold `applyAts?`, exact constructor/nil/cons equations | G04–G08, G16 |
+| FDSA-5-50 | Actual `rightPositions` definition and its three public equations | G01–G03, G05, G12–G13 |
+| FDSA-5-51 | `measure_rotate`, `measure_descend`, `apply_rightPositions` with actual successful sequential execution | G03, G05–G06, G12–G13 |
+| FDSA-5-52 | Unconditional `applyAts?_append` from `List.foldlM_append` | G04, G08, G11 |
+| FDSA-5-53 | Unconditional `applyAts?_map_right` for arbitrary partial callbacks | G05, G08, G12 |
+| FDSA-5-54 | `apply_rightPositions` and `listOf_isList` | G01–G05, G09, G13 |
+| FDSA-5-55 | `apply_rightPositions`, `listOf_inorder`, generic successful observation laws | G02–G05, G09–G10, G17 |
+| FDSA-5-56 | `rightPositions_length`, the independently recursive `countRots_eq_length` | G01–G05, G12–G13 |
+| FDSA-5-57 | `countRots_le_pred`, `rightPositions_length_le_pred`, `countRots_eq_pred` and all-size chain laws | G01, G03, G11, G13 |
+| FDSA-5-58 | Generic `applyAt?_undo`, `applyAts?_undo` and `reverse_rightPositions` | G02–G05, G09, G17 |
+| FDSA-5-59 | `eq_of_isList_of_inorder_eq`, `listOf_eq_of_inorder_eq` | G09–G11, G13 |
+| FDSA-5-60 | `connect_equal_inorder`, `connect_enumTree` and actual ordered/enumeration consumers | G10–G11 |
+| FDSA-5-61 | `connection_length_le`; explicit empty, singleton and tight constructed-route cases | G01, G11 |
+| FDSA-5-62 | Actual `countRots`, its three equations, `countRots_eq_deficit`, `countRots_eq_length` | G01–G05, G12–G13 |
+| FDSA-5-63 | Independent `exists_right_list`, whose import/proof boundary excludes every generator | G14 |
+| FDSA-5-64 | `longer_legal_trace`, `longer_trace_recovers`, `off_spine_trace_steps`, `longer_than_optimum` | G04, G14 |
+| FDSA-5-65 | `applyAt?_rightLength_bounds`, `applyAts?_rightLength_le`, `deficit_le_length`, `rightPositions_optimal` | G03–G04, G05, G13 |
 
 ## Frozen independent cases and concrete consumers
 
@@ -220,7 +220,7 @@ direction entries. An interpreter that starts at the root for every position
 would perform those descents under a separately defined one-unit-per-direction
 observation. This is retained paper mathematics, with no Lean traversal-cost
 or native-runtime theorem claimed and no additional acceptance gate for
-C05-042–065.
+FDSA-5-42 to FDSA-5-65.
 
 ## Statement assessment and remaining work
 
@@ -244,7 +244,7 @@ the two-phase mixed-direction connection. It does not define the later minimum
 rotation distance or prove the exact `2*n-6` diameter for `n ≥ 11`.
 
 After the established validation and checkpoint process, these 24 rows can add
-to the preceding 41, yielding 65 of 94 Chapter 5 obligations. Rows C05-066–094,
+to the preceding 41, yielding 65 of 94 Chapter 5 obligations. Rows FDSA-5-66 to FDSA-5-94,
 the interval and sweep components, exact-distance/complexity results, the
 separate search tariff, all remaining chapters/appendices and PFDS work remain
 required. Receiving integration quality, branch-divergence assessment, the

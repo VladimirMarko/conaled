@@ -218,7 +218,7 @@ quantifiers without additional uniform prefix information.
 
 The full Chapter 3 ledger still retains the exact natural-ceiling bridges with
 negative offsets; the source's displayed child thresholds; its sharper
-constant choices, including a possibly negative intercept in C03-041/042;
+constant choices, including a possibly negative intercept in FDSA-3-41, FDSA-3-42;
 the actual median-of-medians scalar recurrence and uniform selector-to-cost
 correspondence; generalized grouping; and the genuine noncontracting halving
 counterexample. A successful check of this shared theorem would not discharge

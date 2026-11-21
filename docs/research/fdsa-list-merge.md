@@ -190,12 +190,12 @@ measured enumeration must sequence and count those computations separately.
 ## Remaining book obligations and validation
 
 This unit supplies only the ordinary merge portion of the Chapter 2 map:
-C02-025, C02-027's merge termination, C02-028/029/031/033/035/037. It leaves
+FDSA-2-25, FDSA-2-27's merge termination, FDSA-2-28, FDSA-2-29, FDSA-2-31, FDSA-2-33, FDSA-2-35, FDSA-2-37. It leaves
 all actual floor-left sorter definitions, decreasing halves, sorted-child
 cost composition, stability, printed power-of-two and all-length/real-log
 bounds, bottom-up/natural algorithms, scanner/builder observations and
 exercises to their retained chapter scope. The original 107 and reconciled 112
-inventory records, including C02-108–112, are unchanged. Standard ceil-left
+inventory records, including FDSA-2-108 to FDSA-2-112, are unchanged. Standard ceil-left
 sort value equality supplies no source-cost equality.
 
 Chapter 14 still needs its concrete sorted-list representation, direct minimum

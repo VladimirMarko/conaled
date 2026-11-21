@@ -178,8 +178,8 @@ completed CTB-78 integration; checkpoint074 subsequently completed retention and
 saving. The separate CTB-24 increment was subsequently accepted at
 `a5ce55a05aca5c0738cd1877841b906ce9b4e547` under
 [#659](https://github.com/VladimirMarko/conaled/issues/659), with full build/audit,
-final verification and both independent review axes passing. C05-085 is qualified
-(Chapter 5: 91/94), while C05-090 remains partial. Continued local authoring and
+final verification and both independent review axes passing. FDSA-5-85 is qualified
+(Chapter 5: 91/94), while FDSA-5-90 remains partial. Continued local authoring and
 distinct checkpoint deliveries are authorized alongside receiving work. The
 historical accepted receiving records at checkpoint012 (`56c739a1`), checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and
 total tables #559 (`36d67461`) retain their original scope. R2 and the accepted
@@ -196,9 +196,9 @@ code or general usability measurement. The other #658 families remain open.
 | Presentation | Checked recovery or preservation | Decision and remaining cost |
 |---|---|---|
 | Complete cached summaries and height-balanced sets | `Cached.read_eq_fold` derives the reader's meaning under recursive validity; `erase_annotate` recovers the unannotated tree. `HeightAnnotation` and `AbstractSet.Refinement` derive height observations, set laws and mixed histories. `HeightSetRefinement.independent_representations` compares different annotations/tolerances without identifying their states. | Retain the shared construction. Algebra setup and strict-order/positive-tolerance premises are explicit. Word-summary mirroring controls forbid replacing complete validity with projected height equality. Repeated local fixture decision procedures are a bounded #658 maintenance opportunity, not a reason to strengthen the public API. |
-| Balanced and maximum-only interval trees | The direct balanced query agrees with the maximum projection even on raw trees; completeness needs valid maxima and low order. The balanced sweep consumes the existing interval-set and geometric laws, preserving occurrence keys with equal interval images. | Retain connected alternatives. Key/low-order compatibility remains an adapter proof; predecessor versus successor deletion prevents claiming literal update-tree recovery. C05-085 is accepted. |
+| Balanced and maximum-only interval trees | The direct balanced query agrees with the maximum projection even on raw trees; completeness needs valid maxima and low order. The balanced sweep consumes the existing interval-set and geometric laws, preserving occurrence keys with equal interval images. | Retain connected alternatives. Key/low-order compatibility remains an adapter proof; predecessor versus successor deletion prevents claiming literal update-tree recovery. FDSA-5-85 is accepted. |
 | Raw rotations and traversal-to-balance routes | Retained target trees and legal schedules support exact rotation recovery given equal inorders. Existing traversal clients share returned balancing results, including failure, with separately proved costs. | Retain raw shape operations and literal/direct/staged traversals. Inorder erases shape; set meaning further erases order and multiplicity. For successful requests, direct suffix invocation costs no more than literal traversal and less than staging in the inspected model; staging still pays construction. No universal inverse or runtime improvement follows. |
-| Measured cache construction and rectangle execution | The cache constructor binds actual reads/callbacks; word-cache append demonstrates nonconstant work. Scan clients retain state order and noncommuting observations. Generation binds one occurrence index list, actual maps/append and a sorter result into the scan. | Reuse `Measured` and the existing resource operations. C05-090 still needs concrete balanced primitive costs, admitted-support invariant closure, the actual sorting tariff and final composition. Full-prefix cardinality and a fixture sorter cost do not fill those gaps. |
+| Measured cache construction and rectangle execution | The cache constructor binds actual reads/callbacks; word-cache append demonstrates nonconstant work. Scan clients retain state order and noncommuting observations. Generation binds one occurrence index list, actual maps/append and a sorter result into the scan. | Reuse `Measured` and the existing resource operations. FDSA-5-90 still needs concrete balanced primitive costs, admitted-support invariant closure, the actual sorting tariff and final composition. Full-prefix cardinality and a fixture sorter cost do not fill those gaps. |
 
 The detailed assessment names public theorem owners, retained controls, exact
 premises and scoped follow-ups. It supports sharing algebra and refinement proofs
@@ -231,3 +231,23 @@ assumptions, an existing client needs an observation currently erased, a common
 proof is duplicated across another model, or author/tooling changes make a
 previously costly presentation practical. These are workstream review triggers,
 not a scheduled automation or a mandate to unify all interfaces.
+
+## Cumulative textbook progress after the tree assessment
+
+The #658 assessment above describes the accepted `a5ce55a0` source. The later
+084 source, received under [#660](https://github.com/VladimirMarko/conaled/issues/660),
+implements the previously missing complete sorting tariff, balanced update/query
+work, admitted-support closure and actual sweep asymptotics. The
+[measured sweep correspondence](fdsa-measured-rectangle-scan.md) gives the exact
+source-work assumptions and retained small-input/early-return cases. Ordinary
+[measured AVL correspondence](fdsa-avl-continuation.md#cached-membership-and-ordinary-measured-correspondence)
+reuses those generic constructions and connects the golden-ratio and strict
+set-cardinality bounds. These new capabilities do not change the earlier
+assessment's source identity or establish a general usability measurement.
+
+[Rotation certificate foundations](fdsa-rotation-certificate-preparation.md)
+retain actual binary predecessor, partial execution, equality, finite-word
+encoding and linear-prefix parsing. The complete checker and machine-complexity
+bridge remain open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
+now also retains explicit finite flip tables and a tree-diagonal proof plan;
+its global sharp theorem and primary-family correspondence remain open.

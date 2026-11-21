@@ -70,8 +70,8 @@ their existing canonical owners; no new numbering series is introduced.
 The later CTB-24 slice was accepted at
 `a5ce55a05aca5c0738cd1877841b906ce9b4e547` under
 [#659](https://github.com/VladimirMarko/conaled/issues/659), preserving donor
-`cfa205a4e08d38c8e75048213126decad5d31f1c` in its ancestry. C05-085 is qualified;
-C05-090 remains partial. Its full build/audit, final verification and independent
+`cfa205a4e08d38c8e75048213126decad5d31f1c` in its ancestry. FDSA-5-85 is qualified;
+FDSA-5-90 remains partial. Its full build/audit, final verification and independent
 Standards/Spec reviews passed. This is source acceptance, not certification of
 a final checkpoint075 archive. The 20 November instructions allow continued
 local authoring and distinct checkpoint deliveries alongside receiving work,
@@ -117,14 +117,14 @@ work supplies no demonstrated direct replacement for this slice. Rational-kernel
 recovery may help later probabilistic work, but forgets random tapes, paths and
 costs. No blanket migration is proposed without a concrete preserved contract.
 
-The R2 slice left Chapter 5 at 90/94. After the separate C05-085 acceptance,
-published coverage is 91/94 with C05-090/092/093 open; Chapter 9 remains 57/110.
+The R2 slice left Chapter 5 at 90/94. After the separate FDSA-5-85 acceptance,
+published coverage is 91/94 with FDSA-5-90, FDSA-5-92, FDSA-5-93 open; Chapter 9 remains 57/110.
 Remaining book requirements stay in CTB and the canonical coverage ledgers.
 Completed mathematics and source correspondence belong in normal repository
 owners. The [unprocessed inbox](../textbooks/inbox/README.md) retains unfinished
 preparations. Checkpoint074's later retention and durable-save closure is recorded
-in the [current continuation](../textbooks/README.md#retention-and-inbox); it is
-separate from the later C05-085 acceptance. These accepted slices supply evidence for
+in the [current continuation](../textbooks/README.md#retention-and-recovery); it is
+separate from the later FDSA-5-85 acceptance. These accepted slices supply evidence for
 [#636](https://github.com/VladimirMarko/conaled/issues/636). Its comparative
 synthesis and guidance reassessment remain open.
 
@@ -203,7 +203,7 @@ passes the derived interval-set laws directly to the existing
 shared abstraction; it requires no compiler wrapper or repeated geometry proof.
 The distinct occurrence IDs survive in complete keys even when interval images
 agree. Retain the maximum-only and balanced implementations as connected
-alternatives with their own shapes and execution contracts. C05-085 is complete;
+alternatives with their own shapes and execution contracts. FDSA-5-85 is complete;
 no operation-cost equality or whole-pipeline complexity follows.
 
 **Older shape and traversal clients.**
@@ -282,7 +282,7 @@ share that fixture support if another client or change needs it; such extraction
 must preserve local instance scope and avoid adding `DecidableEq` to the public
 annotation interface. No new abstraction is needed to use the current clients.
 
-The next mathematical connection belongs to **CTB-24/C05-090**, under
+The next mathematical connection belongs to **CTB-24/FDSA-5-90**, under
 [#558](https://github.com/VladimirMarko/conaled/issues/558), alongside the measured
 height-update obligations described in [their owner](fdsa-height-updates.md#unqualified-preparation-for-measured-operation-costs):
 
@@ -305,7 +305,7 @@ height-update obligations described in [their owner](fdsa-height-updates.md#unqu
   more general ordered scan observations; no trace-preserving theorem for the
   complete pipeline is claimed.
 
-Retain these missing connections in [the measured-sweep owner](fdsa-measured-rectangle-scan.md#remaining-c05-090-work-and-acceptance-boundary),
+Retain these missing connections in [the measured-sweep owner](fdsa-measured-rectangle-scan.md#qualification-and-remaining-book-work),
 not as assumptions asserting the desired whole-pipeline bound. The checked
 `balanced_duplicate_full_prefix_nodes` and `repeated_complete_key_counts`
 show why complete-key strictness, rather than interval-image cardinality, is the
@@ -320,7 +320,7 @@ retains its specifically requested function-Boolean and metadata-bearing
 realizations; the generic tree histories do not discharge all of that issue.
 For #174 and #636, adopt the demonstrated complete-cache/refinement/consumer
 connections, retain the raw shape and measured execution alternatives, and
-prioritize the missing C05-090 cost composition over a new universal wrapper.
+prioritize the missing FDSA-5-90 cost composition over a new universal wrapper.
 No interface migration or general productivity conclusion follows from this
 bounded assessment.
 
@@ -633,3 +633,23 @@ donor dispositions, #562's tape connection and #563's remaining drafts stay
 separate, as does whole-book coverage. The bounded representation assessment
 above now uses these traversal and search clients, preserving construction,
 failure and observation costs; it does not claim a physical-performance result.
+
+## Cumulative textbook progress after the tree assessment
+
+The #658 assessment above describes the accepted `a5ce55a0` source. The later
+084 source, received under [#660](https://github.com/VladimirMarko/conaled/issues/660),
+implements the previously missing complete sorting tariff, balanced update/query
+work, admitted-support closure and actual sweep asymptotics. The
+[measured sweep correspondence](fdsa-measured-rectangle-scan.md) gives the exact
+source-work assumptions and retained small-input/early-return cases. Ordinary
+[measured AVL correspondence](fdsa-avl-continuation.md#cached-membership-and-ordinary-measured-correspondence)
+reuses those generic constructions and connects the golden-ratio and strict
+set-cardinality bounds. These new capabilities do not change the earlier
+assessment's source identity or establish a general usability measurement.
+
+[Rotation certificate foundations](fdsa-rotation-certificate-preparation.md)
+retain actual binary predecessor, partial execution, equality, finite-word
+encoding and linear-prefix parsing. The complete checker and machine-complexity
+bridge remain open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
+now also retains explicit finite flip tables and a tree-diagonal proof plan;
+its global sharp theorem and primary-family correspondence remain open.

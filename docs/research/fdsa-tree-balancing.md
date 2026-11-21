@@ -7,8 +7,8 @@ the complete tree at `a8f57dbf153c19e3bad2c8136a90b566eeb35374`, containing
 are retained alongside the new shape and cross-application results.
 
 The source correspondence is the retained [Chapter 4 obligation ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md)
-for the July 27, 2026 manuscript. C04-047–058 cover consumption, balancing,
-heights, the figure and its ordered interpretation; C04-061 is Exercise 4.9's
+for the July 27, 2026 manuscript. FDSA-4-47 to FDSA-4-58 cover consumption, balancing,
+heights, the figure and its ordered interpretation; FDSA-4-61 is Exercise 4.9's
 consumer cost. This work uses that retained source analysis and does not claim
 a new reading of the PDF. The exact Exercise 4.8 constructor formula,
 completeness/maximal-subtree algorithms and maximum-cache exercise have

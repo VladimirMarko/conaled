@@ -4,7 +4,7 @@ The generic owners are `Applications/Trees/HeightBalance/Basic.lean` and
 `Applications/Trees/HeightBalance/Rebalance.lean`. The ordinary specialization
 is `Applications/Trees/AVL/Rebalance.lean`; connected applications are in
 `Examples/HeightRebalance.lean`. This bounded increment addresses exactly
-**C09-018–026, C09-038, C09-054 and C09-056**, under local CTB-118 and the unchanged
+**FDSA-9-18 to FDSA-9-26, FDSA-9-38, FDSA-9-54 and FDSA-9-56**, under local CTB-118 and the unchanged
 CTB-28 Chapter 9 owner. Canonical obligations remain in
 `docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md`.
 
@@ -403,14 +403,14 @@ Other prefixes are written in full.
 
 | Canonical rows | Formal owners and decisive content |
 | --- | --- |
-| C09-018–019 | Actual ordinary specializations and exact `balL/R_of_ne`, `_single`, `_double` equations |
-| C09-020 | Raw heavy-child and middle-child nonempty laws for every natural tolerance |
-| C09-021 | Unconditional erased-payload inorder preservation in both orientations |
-| C09-022–024 | Cache-only triggered height alternatives, exact branch effects and fallback height |
-| C09-025–026 | Ordinary full recursive validity over the complete one-sided ranges |
-| C09-038 | Exact rotation equations, strengthened height diagram, ordinary middle-height disjunction and tagged placement cases |
-| C09-054 | Generic shape/cache invariant, complete node characterization, signed arithmetic and positive integer transport |
-| C09-056 | Generalized raw programs, all-natural domain/inorder/cache laws and positive-tolerance height/full-repair laws |
+| FDSA-9-18 to FDSA-9-19 | Actual ordinary specializations and exact `balL/R_of_ne`, `_single`, `_double` equations |
+| FDSA-9-20 | Raw heavy-child and middle-child nonempty laws for every natural tolerance |
+| FDSA-9-21 | Unconditional erased-payload inorder preservation in both orientations |
+| FDSA-9-22 to FDSA-9-24 | Cache-only triggered height alternatives, exact branch effects and fallback height |
+| FDSA-9-25 to FDSA-9-26 | Ordinary full recursive validity over the complete one-sided ranges |
+| FDSA-9-38 | Exact rotation equations, strengthened height diagram, ordinary middle-height disjunction and tagged placement cases |
+| FDSA-9-54 | Generic shape/cache invariant, complete node characterization, signed arithmetic and positive integer transport |
+| FDSA-9-56 | Generalized raw programs, all-natural domain/inorder/cache laws and positive-tolerance height/full-repair laws |
 
 This note records mathematical correspondence and complete useful case ownership.
 [CTB-118 and current CTB-78 status](../textbooks/CTB.json) distinguish the accepted
@@ -421,7 +421,7 @@ explanations, and are not relabelled as runs of the receiving candidate.
 Later donor work now supplies [recursive updates](fdsa-height-updates.md),
 [Set refinement](fdsa-height-set-refinement.md) and [fixed-tolerance logarithmic
 height](fdsa-height-bound.md). Their existence does not establish the still-open
-measured operation costs or C09-060 recurrence/cost specialization. Factor
+measured operation costs or FDSA-9-60 recurrence/cost specialization. Factor
 algorithms, construction 062 onward and later exercises remain in
 [the continuation paper](fdsa-avl-continuation.md). Chapter 5's balanced interval,
 measured sweep, sharp diameter and encoded polynomial verification, all other

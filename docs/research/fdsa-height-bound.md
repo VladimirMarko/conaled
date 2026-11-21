@@ -1,6 +1,6 @@
 # Fixed-tolerance logarithmic height
 
-This increment addresses only FDSA Chapter 9 obligation **C09-061**. The canonical
+The original height increment addresses FDSA Chapter 9 obligation **FDSA-9-61**. The canonical
 owner is
 `docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md`.
 The Chapter Notes on printed page 116 state that every fixed positive balance
@@ -14,8 +14,9 @@ retains its original author, exact paper/PDF identities and primary-reading
 scope: printed pages 105–112 and 116 were individually inspected, with text
 read for printed 105–116. This increment reuses that reading and the exact
 canonical row. It does not claim a fresh reading or port of the alternative AFP
-proof. Its pure height result is implemented; the cited operation-cost model
-and optional sharper minimum recurrence remain unqualified preparation.
+proof. Its pure height result is implemented. The later measured update/query
+work and logarithmic cost composition are maintained in the linked papers;
+the optional sharper minimum recurrence remains unqualified preparation.
 
 ## Measures and exact domains
 
@@ -106,6 +107,21 @@ h\le(d+1)k\le(d+1)\log_2 L.
 The node formulation uses `BinaryTree.numLeaves_eq_numNodes_succ`; it does not
 take the logarithm of a raw zero node count at nil.
 
+The integer corollaries `height_le_mul_clog_numLeaves` and
+`height_le_mul_clog_numNodes_add_one` use the same ceiling-power and rounding
+proofs. `Nat.le_log_of_pow_le` gives k≤floor(log₂ L), and `Nat.log_le_clog`
+then gives k≤clog₂ L. Multiplying the natural inequality by d+1 proves
+
+\[
+h(t)\le(d+1)\operatorname{clog}_2 L(t)
+=(d+1)\operatorname{clog}_2(N(t)+1).
+\]
+
+These corollaries retain arbitrary payload universes and every natural d,
+including0. They add no order, annotation, inhabitedness or nonempty premise.
+They are convenient natural-number inputs to the measured work recurrences.
+The sharper real bound and ordinary AVL golden-ratio bound remain unchanged.
+
 The cached adapters use an arbitrary complete
 `HeightAnnotation α σ`, with independent `σ : Type v`. `ValidD ann d t` provides
 balance of `Cached.erase t` and correctness of the complete annotation. The
@@ -174,7 +190,7 @@ public theorem applications.
 
 ## Qualification boundary and next mathematics
 
-The explicit logarithmic-height theorem is the requested C09-061 outcome.
+The explicit logarithmic-height theorem is the requested FDSA-9-61 outcome.
 The argument does not prove costs for arbitrary annotation callbacks, runtime
 complexity, physical allocation or a relation between node count and Set
 cardinality. In particular, a perfect repeated-key height-three tree has seven
@@ -182,7 +198,12 @@ nodes and one distinct key; substituting distinct-key cardinality into the
 coefficient-two formula would assert the false inequality `3 ≤ 2`. A positive
 cardinality replacement needs its own strict-order/uniqueness bridge.
 
-The actual instrumented operation recurrences, height-to-cost bounds, ordinary
-cost specialization and their logarithmic consequences remain C09-039–041 and
-the remaining cost portion of C09-060. Construction, balance-factor algorithms,
-the other book obligations and receiving integration acceptance remain separate.
+The [actual measured updates](fdsa-height-updates.md#implemented-measured-local-repairs-and-updates)
+now have height-to-cost and logarithmic consequences, including the ordinary
+height-only specialization. The [interval query and full sweep](fdsa-measured-rectangle-scan.md#closed-admitted-support-and-logarithmic-height)
+separately combine strict complete-key cardinality with finite admitted support.
+Full accounting for FDSA-9-39 to FDSA-9-41 and the remaining cost part of FDSA-9-60 still
+retains their ordinary-search and exact implementation-correspondence
+requirements; these new corollaries do not by themselves qualify those rows.
+Construction, balance-factor algorithms, the other book obligations and
+receiving integration acceptance remain separate.

@@ -8,9 +8,9 @@ pass focused compilation and the focused all-declarations axiom audit. The local
 CTB checkpoint records own exact candidates, commands, inputs, statement
 inspection, independent review outcomes and final source comparison.
 
-This unit supplies the direct-inorder worst-case part of C04-018. Combined
+This unit supplies the direct-inorder worst-case part of FDSA-4-18. Combined
 with CTB-70's all-suffix correctness and linear invocation work, the source
-contracts cover C04-017/018. That is a bounded mathematical contribution,
+contracts cover FDSA-4-17, FDSA-4-18. That is a bounded mathematical contribution,
 not acceptance of all Chapter 4 or its remaining exercises. The receiving
 integrator still owns guarded whole-library validation, the exhaustive project
 audit, immediate verification and final acceptance.
@@ -30,7 +30,7 @@ Approach*, July 27, 2026 edition, available from
 Printed p.48 defines direct inorder with two appends. The p.5 parsing convention
 makes this right-associated. Exercise 4.1 on p.49 asks for a cons-only accumulator,
 its arbitrary-suffix value law and linear work, against direct inorder's
-quadratic worst case. Local obligations are C04-017/018.
+quadratic worst case. Local obligations are FDSA-4-17, FDSA-4-18.
 
 The retained companion mirror is Isabelle revision
 `f86f290225eebcc52c1ae7dba2e098f405f51c21`.
@@ -278,7 +278,7 @@ mathematical statements. Proof repairs qualify the measured pure operation,
 type the cached empty tree explicitly, and rewrite the public cost laws before
 simplifying nil. No resource limit or theorem premise was relaxed.
 
-This unit addresses the remaining direct-inorder work argument within C04-018
+This unit addresses the remaining direct-inorder work argument within FDSA-4-18
 and supplies additional generic-augmentation evidence. It leaves original
 chapter obligations in their inventories: enumeration, weighted paths, levels,
 reconstruction, completeness/checker/subtrees, balancing and its actual wrappers,

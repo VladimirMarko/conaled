@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "meaning": "Book-qualified chapter ledger row names; row numbers are not printed exercise numbers. Historical aliases and literal requirements retain their identities.",
+  "format": "FDSA-<chapter>-<row>, decimal without leading zeroes",
+  "scope": "FDSA chapter obligations; CTB tasks, GitHub issues, historical book tickets and other books retain their distinct namespaces.",
+  "legacy_pattern": "^C([0-9]{2})-([0-9]{3})$",
+  "current_pattern": "^FDSA-([1-9][0-9]*)-([1-9][0-9]*)$",
+  "conversion": "Parse chapter and row as decimal integers; emit FDSA-<chapter>-<row>. Reverse by padding chapter to two digits and row to three. Resolve only rows present in the named canonical ledger; this is a name change, not a new obligation.",
+  "examples": {
+    "C05-085": "FDSA-5-85",
+    "C05-090": "FDSA-5-90",
+    "C09-039": "FDSA-9-39"
+  },
+  "chapters": {
+    "2": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter02-obligations.md",
+      "first_row": 1,
+      "last_row": 112,
+      "row_count": 112
+    },
+    "3": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter03-obligations.md",
+      "first_row": 1,
+      "last_row": 83,
+      "row_count": 83
+    },
+    "4": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md",
+      "first_row": 1,
+      "last_row": 76,
+      "row_count": 76
+    },
+    "5": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md",
+      "first_row": 1,
+      "last_row": 94,
+      "row_count": 94
+    },
+    "6": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter06-obligations.md",
+      "first_row": 1,
+      "last_row": 74,
+      "row_count": 74
+    },
+    "7": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter07-obligations.md",
+      "first_row": 1,
+      "last_row": 90,
+      "row_count": 90
+    },
+    "8": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter08-obligations.md",
+      "first_row": 1,
+      "last_row": 98,
+      "row_count": 98
+    },
+    "9": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md",
+      "first_row": 1,
+      "last_row": 110,
+      "row_count": 110
+    },
+    "10": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter10-obligations.md",
+      "first_row": 1,
+      "last_row": 118,
+      "row_count": 118
+    },
+    "11": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter11-obligations.md",
+      "first_row": 1,
+      "last_row": 135,
+      "row_count": 135
+    },
+    "12": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter12-obligations.md",
+      "first_row": 1,
+      "last_row": 110,
+      "row_count": 110
+    },
+    "13": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter13-obligations.md",
+      "first_row": 1,
+      "last_row": 104,
+      "row_count": 104
+    },
+    "14": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter14-obligations.md",
+      "first_row": 1,
+      "last_row": 40,
+      "row_count": 40
+    },
+    "15": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter15-obligations.md",
+      "first_row": 1,
+      "last_row": 79,
+      "row_count": 79
+    },
+    "16": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter16-obligations.md",
+      "first_row": 1,
+      "last_row": 48,
+      "row_count": 48
+    },
+    "17": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter17-obligations.md",
+      "first_row": 1,
+      "last_row": 80,
+      "row_count": 80
+    },
+    "18": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter18-obligations.md",
+      "first_row": 1,
+      "last_row": 126,
+      "row_count": 126
+    },
+    "19": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter19-obligations.md",
+      "first_row": 1,
+      "last_row": 68,
+      "row_count": 68
+    },
+    "20": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter20-obligations.md",
+      "first_row": 1,
+      "last_row": 119,
+      "row_count": 119
+    },
+    "21": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter21-obligations.md",
+      "first_row": 1,
+      "last_row": 102,
+      "row_count": 102
+    },
+    "22": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter22-obligations.md",
+      "first_row": 1,
+      "last_row": 65,
+      "row_count": 65
+    },
+    "23": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter23-obligations.md",
+      "first_row": 1,
+      "last_row": 78,
+      "row_count": 78
+    },
+    "24": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter24-obligations.md",
+      "first_row": 1,
+      "last_row": 138,
+      "row_count": 138
+    },
+    "25": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter25-obligations.md",
+      "first_row": 1,
+      "last_row": 94,
+      "row_count": 94
+    },
+    "26": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter26-obligations.md",
+      "first_row": 1,
+      "last_row": 100,
+      "row_count": 100
+    },
+    "27": {
+      "requirement_owner": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter27-obligations.md",
+      "first_row": 1,
+      "last_row": 185,
+      "row_count": 185
+    }
+  }
+}

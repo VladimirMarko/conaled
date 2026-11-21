@@ -1,12 +1,22 @@
 # Cached height-balanced insertion and predecessor deletion
 
-This increment implements the update algorithms of FDSA Chapter 9 on the
+The original update increment implements the algorithms of FDSA Chapter 9 on the
 existing complete-annotation `HeightBalance` interface. `HeightBalance.Updates`
 contains the raw programs, extraction domain, cache and shape proofs;
 `HeightBalance.OrderedUpdates` supplies their ordered observations;
 `AVL.Updates` is the ordinary height-only, tolerance-one specialization.
 `Examples.HeightUpdates` connects the public contracts to the discriminating
 cases. The public aggregate imports that client module.
+
+The subsequent measured increment adds
+[`Resources.HeightBalance.Rebalance`](../../Applications/Resources/HeightBalance/Rebalance.lean),
+[`Resources.HeightBalance.Updates`](../../Applications/Resources/HeightBalance/Updates.lean)
+and [connected measured cases](../../Examples/MeasuredHeightUpdates.lean).
+They implement the actual decorated local repairs and updates, raw value
+erasure, and complete-work bounds in actual input height. The implementation
+status and correspondence appear below the retained derivation. This later
+work reuses the attributed source inspection; it does not claim a new primary
+reading, a newly qualified row or receiving acceptance.
 
 The primary reference is the pinned FDSA edition, printed pages 107 and 109–112:
 the insertion recurrence and Theorem 9.4, Figure 9.3's maximum-extraction and
@@ -131,19 +141,19 @@ with usable ordinary branch, domain, preservation and semantic equations.
 
 | Canonical row | Public correspondence |
 |---|---|
-| C09-027 | Generic `insert` and its branch equations; ordinary `AVL.insert` specialization. |
-| C09-028 | `inorder_insert`, specialized by `AVL.inorder_insert`, under strict inorder alone. |
-| C09-029 | `validD_insert` and `AVL.valid_insert`, preserving the simultaneous validity/actual-height contract. |
-| C09-030 | `splitMaxOption_node_nil` and `splitMaxOption_node_of_some`, with the exact source pair order and left repair. |
-| C09-031 | `splitMaxOption_eq_none_iff` and `splitMaxOption_exists_of_ne_nil`; no inhabited payload. |
-| C09-032 | Raw `inorder_splitMaxOption`, with separate strict/maximality observations. |
-| C09-033 | `validD_splitMaxOption` and `AVL.valid_splitMaxOption`. |
-| C09-034 | `delete` and its branch equations, opposite repair direction and left-maximum replacement. |
-| C09-035 | `inorder_delete` and its ordinary specialization, independent of cache/balance. |
-| C09-036 | `validD_delete` and `AVL.valid_delete`, including zero height change. |
-| C09-055 | Existing generalized local balancers and the concrete generic update programs. |
-| C09-057 | Generic insertion validity/height and strict-list semantics for every fixed positive tolerance. |
-| C09-058 | Generic extraction/deletion validity/height, predecessor policy and list observations. |
+| FDSA-9-27 | Generic `insert` and its branch equations; ordinary `AVL.insert` specialization. |
+| FDSA-9-28 | `inorder_insert`, specialized by `AVL.inorder_insert`, under strict inorder alone. |
+| FDSA-9-29 | `validD_insert` and `AVL.valid_insert`, preserving the simultaneous validity/actual-height contract. |
+| FDSA-9-30 | `splitMaxOption_node_nil` and `splitMaxOption_node_of_some`, with the exact source pair order and left repair. |
+| FDSA-9-31 | `splitMaxOption_eq_none_iff` and `splitMaxOption_exists_of_ne_nil`; no inhabited payload. |
+| FDSA-9-32 | Raw `inorder_splitMaxOption`, with separate strict/maximality observations. |
+| FDSA-9-33 | `validD_splitMaxOption` and `AVL.valid_splitMaxOption`. |
+| FDSA-9-34 | `delete` and its branch equations, opposite repair direction and left-maximum replacement. |
+| FDSA-9-35 | `inorder_delete` and its ordinary specialization, independent of cache/balance. |
+| FDSA-9-36 | `validD_delete` and `AVL.valid_delete`, including zero height change. |
+| FDSA-9-55 | Existing generalized local balancers and the concrete generic update programs. |
+| FDSA-9-57 | Generic insertion validity/height and strict-list semantics for every fixed positive tolerance. |
+| FDSA-9-58 | Generic extraction/deletion validity/height, predecessor policy and list observations. |
 
 The complete U01–U28 client groups exercise exact raw branch behavior, valid
 duplicates/absent deletion, unordered-state separators, ordinary and generalized
@@ -170,25 +180,38 @@ Spec/Standards outcomes and checkpoint publication have their recorded owners.
 Receiving acceptance remains a separate integration obligation.
 
 The ordinary/generalized [Set-by-Ordered instances](fdsa-height-set-refinement.md)
-(C09-037/059) and [fixed-tolerance height theorem](fdsa-height-bound.md) (C09-061)
-are later donor owners. Actual instrumented costs and logarithmic operation
-bounds remain C09-039–041. Recurrence specialization here supplies only part of
-C09-060; its exact cost specialization is still required. Linear construction, balance-factor algorithms,
+(FDSA-9-37, FDSA-9-59) and [fixed-tolerance height theorem](fdsa-height-bound.md) (FDSA-9-61)
+are later donor owners. The measured local repairs and update bounds now supply
+the update portion of FDSA-9-39 to FDSA-9-41. Increment081 added generic logarithmic
+consequences, and increment082 adds the cached membership and public ordinary
+d=1 correspondence, including exact golden-ratio and strict set-cardinality
+composition in [the maintained AVL paper](fdsa-avl-continuation.md#cached-membership-and-ordinary-measured-correspondence).
+Those implementations are source-qualified under
+[receiving issue #660](https://github.com/VladimirMarko/conaled/issues/660);
+the earlier example callbacks now consume the public ordinary callback owner.
+Linear construction, balance-factor algorithms,
 the remaining Chapter 5 work, PFDS work and all other book/integration
 requirements retain their canonical owners. No whole-book completion follows
 from this bounded update family.
 
 ## Unqualified preparation for measured operation costs
 
-C09-039–041 and the cost portion of C09-060 remain open. The following complete
+FDSA-9-39 through FDSA-9-41 and FDSA-9-60 have receiving qualification under #660.
+The measured owners implemented through082 now discharge the corresponding
+local mathematical development; the following retained derivation explains its
+source model and the boundaries that still apply. The following complete
 operational model, proposed recurrences and separating cases were prepared by
 `/root/balanced_interval_preparation` on 19 November 2026 at accepted source
-`4212c4218726d47d94cfc2bcf4c53511fb2777fe`. They are **unqualified paper
-preparation**, not new measured Lean programs or accepted cost theorems.
+`4212c4218726d47d94cfc2bcf4c53511fb2777fe`. This was **unqualified paper
+preparation** when written. The local-repair and update recurrences, erasure and
+height bounds have since been implemented as detailed in the final section;
+the search and logarithmic consequences have also been implemented through082.
+The optional minimum recurrence remains unformalized and is outside those
+accepted source qualifications.
 [CTB-28 and current CTB-78](../textbooks/CTB.json) retain their requirements and
-receiving gate. C09-061's pure height argument has since been implemented in
-[the height-bound owner](fdsa-height-bound.md); it is a prerequisite for this
-still-open cost work.
+receiving evidence. FDSA-9-61's pure height argument is implemented in
+[the height-bound owner](fdsa-height-bound.md); it supplies a prerequisite for
+the now-qualified measured cost composition.
 
 The author's original 31,288-byte paper had SHA256
 `1432164502247308c8581e855ad7fdaf54d03f658a3f4efe4bfed4661834fc5b`.
@@ -455,7 +478,7 @@ wrong growth target.
 Only strict order (the Set representation predicate S) licenses equality of
 node count and abstract cardinality. Valid cache/balance alone permits duplicate
 payloads: arbitrarily large perfect trees of one repeated key have Set
-cardinality1. The existing C09-037/059 Set refinement supplies the strict-order representation
+cardinality1. The existing FDSA-9-37, FDSA-9-59 Set refinement supplies the strict-order representation
 condition. The node-count/cardinality equality still needs its own proved bridge;
 it does not follow merely from naming that refinement. No cardinality bridge is needed for a node-count theorem.
 
@@ -475,8 +498,8 @@ The positive-integer bridge retains both positivity and exact coercion back to
 the supplied integer. The ordinary sharper golden-ratio bound remains separate.
 See [the complete argument and cases](fdsa-height-bound.md).
 
-Once the measured input-height bound above is proved, substitution gives, for
-fixed d and callback bounds, `I ≤ A*(d+1)*log₂(numNodes+1)+(G+1)`. This is still
+The measured input-height bound below now supplies the premise for substitution:
+for fixed d and callback bounds, `I ≤ A*(d+1)*log₂(numNodes+1)+(G+1)`. This is still
 an unproved cost consequence. If d grows with input size, its coefficient grows:
 ordered chains of height n are d-balanced for d≥n−1 and have linear search paths.
 No uniform logarithmic constant independent of d follows.
@@ -522,8 +545,9 @@ the declared scalar tariff units and the current generic two-addition syntax.
 
 ### Failed approaches and concrete remaining work
 
-The following tempting routes are rejected for mathematical reasons, not because
-of an observed compiler failure (no compiler was run in this task):
+The following tempting routes were rejected during the original preparation
+for mathematical reasons, not because of a compiler failure. That preparation
+did not run a compiler; the later measured implementation has its own records:
 
 1. Giving a pure update its already-known height bound as an attached cost, or
    reusing the unbalanced insertion run wholesale, would measure a proxy. Bind
@@ -548,16 +572,207 @@ of an observed compiler failure (no compiler was run in this task):
    obligations for061. The direct q-block proof is sufficient and keeps all
    domains and constants explicit.
 
-### Remaining implementation
+## Implemented measured local repairs and updates
 
-Reuse the completed pure shape/height and Set-refinement owners. Still implement
-the actual measured cache and direct local-balancer programs with returned-value
-sequencing; prove their erasures, branch costs and the uniform β bound. Then
-implement the measured insert/extract/delete/search recurrences, the stronger
-nonempty extraction bound, exact ordinary specialization, height/log consequences
-and the cases above. A separate comparison-only observation may reuse the search
-path proof, but cannot replace complete work accounting. The optional minimum
-recurrence remains paper preparation and is not required for C09-061.
+This increment continues CTB-24/FDSA-5-90's concrete balanced-operation prerequisite
+and the existing CTB-28/CTB-78 Chapter 9 cost obligations. It creates no parallel
+ticket series and changes no source-qualified count. The generic programs and
+their connected example closure have passed focused compilation. Whole-library
+acceptance, exhaustive proof auditing and the current independent review have
+separate evidence owners; focused compilation does not discharge those gates.
 
-None of this changes existing source qualifications or establishes receiving
-acceptance, wall-clock, bit-cost, allocation or physical-sharing results.
+### Executed data flow and callback contracts
+
+The raw programs accept `empty`, `heightRun`, `combineRun` and, for updates,
+`ltRun` as unbundled callbacks. Independent universes are retained for payloads
+and annotations. A height callback runs on the summary returned by one actual
+`TreeCache.readRun`. The explicit `excessRun` binds two heights, then two distinct
+additions, then equality. `leHeightRun` binds two heights before the nonstrict
+test. Neither helper adds a wrapper-entry charge. The actual Bool chooses the
+next branch. Both direct repair orientations retain the total heavy/middle
+fallbacks and bind each freshly constructed inner tree into the outer
+`TreeCache.nodeRun`; no mirror law or stale annotation substitution is used.
+
+`insertRun`, `splitMaxRun` and `deleteRun` follow the raw recurrences above,
+including the unchanged raw equal-key insertion, extraction's nonempty base,
+and matched deletion's empty-left extraction call. Pairing and Option wrapping
+remain free. Actual recursive values, including extraction's Option, select the
+subsequent construction. The definitions do not call a pure update and attach
+an external bound as its observation.
+
+The five public `*_value` erasures for repairs and updates require pointwise
+height/combine callback equations. Insertion and deletion additionally require
+pointwise strict-comparison equations and only `[LT α] [DecidableLT α]`. They
+do not assume linear order, valid caches, balance or positive tolerance.
+Extraction requires no order or inhabitant. Consequently callers can transport
+the existing stronger cache/balance/order laws through value erasure while
+retaining each law's original premises. The measured example clients compose
+with the existing balanced interval-set contract to preserve full validity.
+
+The cost theorems are separate. They require global bounds on actual callback
+observations but no value-correctness or invariant premise. In particular,
+bounding only summaries present in the original tree is insufficient: a parent
+combine receives summaries newly returned by an inner constructor. The example
+`newly_constructed_summary_is_observed` makes that distinction explicit.
+
+### Proven bounds and induction
+
+Let `H`, `K`, `C` bound height, complete-combine and strict-key callback costs,
+respectively. Put
+
+\[
+B=18+4H+3K,\qquad A=1+2C+B,\qquad h=\operatorname{height}(t).
+\]
+
+The public results now prove, for every natural tolerance and raw input:
+
+| Program / public theorem | Bound |
+| --- | --- |
+| `htRun_cost_le` | `1 + H` |
+| `excessRun_cost_le` | `5 + 2*H` |
+| `leHeightRun_cost_le` | `3 + 2*H` |
+| `balLRun_cost_le`, `balRRun_cost_le` | `B` |
+| `insertRun_cost_le` | `A*h + K + 4` |
+| `splitMaxRun_cost_le` | `(B+1)*h + 1` |
+| `splitMaxRun_cost_le_of_ne_nil` | `(B+1)*h`, when `t ≠ nil` |
+| `deleteRun_cost_le` | `A*h + 1` |
+
+The repair proofs bound each actually reached helper and constructor, including
+the constructed-tree callback arguments. Their branch accounting is the table
+in the retained derivation. No erasure assumption is used to suppress a branch.
+
+Insertion's empty case costs at most `K+4`. A descending arm contributes at
+most `A` around the recursive original child, whose height is at most the
+parent height minus one. Its raw equal-key arm costs at most `2*C+2`, within
+the same bound. This argument uses structural input height, even if stored
+height callbacks deliberately return false values.
+
+Nonempty extraction costs one at a node with empty right child. Otherwise the
+nonempty original right child supplies the stronger induction hypothesis;
+one entry and at most `B` for the reached repair extend it by at most one
+level. The uniform bound separately accounts for empty input's cost one.
+The proof retains the actual recursive Option case split, so its cost theorem
+does not assume erasure to identify success.
+
+Deletion's descending arms use the same child-height argument. At a matching
+node, its actual extraction cost is at most `(B+1)*h_l+1`. Including the two
+comparisons, operation entry and possible final repair gives at most
+
+\[
+(B+1)h_l+B+2C+2\le A(h_l+1)+1\le Ah+1.
+\]
+
+Thus the original search prefix and predecessor path are bounded within one
+input-height induction. The proof does not require a bound on the repaired
+output's height and does not repeat an independent full-height search at each
+ancestor. The optional exact path-count strengthenings in the derivation are
+still explanatory mathematics; no new Lean theorem for those identities is
+claimed here.
+
+For the interval product summary, the concrete example callbacks use `H=0`,
+`K=4`: height max/successor and two endpoint maxima are the four declared
+combine events. Atomic strict comparison uses `C=1`, so `B=30`, insertion is
+at most `33*h+8`, extraction at most `31*h+1` (or `31*h` if nonempty), and deletion
+at most `33*h+1`. Ordinary height-only examples use `K=2`, giving the distinct
+`27*h+6`, `25*h+1` and `27*h+1` bounds. These are direct instantiations of the
+same measured generic program, including both additions at `d=1`.
+
+### Connected cases and separating controls
+
+`Examples.MeasuredHeightUpdates` uses the existing literal ordinary and
+product-annotation trees. Its product-cost expectations were fixed before the
+new programs and are connected to the public contracts as well as exact
+returned-value equations:
+
+| Case | Checked product cost / result |
+| --- | --- |
+| Empty insertion / extraction / deletion | `8 / 1 / 1`; singleton extraction also costs `1` and reuses the actual left tree. |
+| No-trigger / single / double repair | `13 / 23 / 30`; both direct orientations, all four rotations and deletion ties. |
+| Duplicate singleton insertion | `4`, preserving even a malformed original cache. |
+| Smaller / larger singleton insertion | `23 / 24`; first versus second comparator execution. |
+| Smaller / larger absent deletion; matching singleton deletion | `16 / 17 / 4`; the matching branch includes the empty extraction. |
+| Perfect-three extraction / matching-root deletion | `15 / 17`; extraction from an unordered control remains rightmost, not greatest. |
+| RR / LL / LR / RL insertion | `50 / 48 / 56 / 56`, with complete expected summaries. |
+| Both deletion ties | `30 / 29`, selecting single rotation at equal child heights. |
+| Perfect-seven root / searched-child predecessor deletion | `31 / 32`; ordinary-height root deletion separately costs `27`. |
+| Same-height maximum insertion / deletion | `40 / 36`, with changed complete ancestor summaries. |
+| Distinct occurrence keys with one shared interval image | Atomic history costs `8,24,4,4,4`, preserving the distinct complete keys. |
+
+False height and comparison callbacks deliberately violate the erasure contract
+and demonstrably choose their own branches. Both total fallback arms have
+controls. A truthful but height-priced callback yields RR cost `26` and has no
+uniform global `H`. An intermediate-summary-priced complete combine yields
+RR cost `30` instead of `23`; the newly reached summary `(1,1)` is absent from
+the original root summaries. Asymmetric comparator tariffs distinguish equal
+output values with different work. Independent payload/annotation universes
+and an empty payload carrier remain supported.
+
+The complete-word clients accept arbitrary combine tariffs and prove returned
+values, including unchanged-height changes to both ancestor words. They do not
+invent a uniform `K` or claim logarithmic total word-processing work.
+
+### Logarithmic consequences of the actual measured operations
+
+The new [generic logarithmic owner](../../Applications/Resources/HeightBalance/Logarithmic.lean)
+combines the raw structural bounds above with the existing height argument's
+integer corollary. Put L=clog₂(N+1), where N is the actual input node count.
+For shape balance at tolerance d, h≤(d+1)L. With the same A and B as above,
+the actual insertion, extraction and deletion observations satisfy
+
+\[
+I\le A(d+1)L+K+4,\qquad
+S\le(B+1)(d+1)L+1,\qquad
+D\le A(d+1)L+1.
+\]
+
+For nonempty extraction the additive1 is omitted. Shape balance is enough for
+these cost consequences. The callbacks may return arbitrary values, the complete
+cache may be malformed, and the keys need not be sorted, provided the stated
+global H/K/C cost bounds hold. Actual semantic erasure and output validity have
+their separate stronger hypotheses. No stored-height replacement is used.
+
+At d=1, ordinary height-only annotations H=0,K=2 with atomic comparison C=1
+give54L+6,50L+1,54L+1. The interval product with atomic comparison gives66L+8,
+62L+1,66L+1; its concrete field-counted C=6 comparison instead gives86L+8,
+62L+1,86L+1. H=0 prices the height projection inside its callback; it does not
+remove the separate charged cached-root access already included in B.
+
+`Resources.isBigO_logb_succ_of_clog_bound` proves that an eventual natural bound
+a·clog₂(n+1)+b gives ordinary real O(log₂(n+1)), with constant2(a+b) beyond
+max(N₀,1). Here N₀ is the starting threshold. It absorbs the positive constant
+only where clog₂(n+1)≥1, then uses the existing ceiling-to-real-log estimate.
+The generic operation-family theorems fix callbacks, tolerance and tariffs and
+quantify over arbitrary key/tree families with actual node count n and shape
+balance at each index. They require no equality between node and set size.
+All natural tolerances remain permitted for the cost theorem; preservation of
+the update invariant retains its existing positive-tolerance regime.
+
+The connected complexity examples retain positive empty costs, the ordinary
+predecessor example, arbitrary-family consumers and stale-height controls. They
+do not infer a global tariff for complete-word processing or a height-priced
+callback. The n·log n numerical bridge used by sorting and the full sweep is
+not the operation-only bridge.
+
+### Remaining cost and integration obligations
+
+The concrete sweep now has an actual measured interval-overlap query, including
+its once-per-node interval projection and reached endpoint comparisons, and its
+own field-counted complete-key comparator. The
+[measured sweep paper](fdsa-measured-rectangle-scan.md#actual-measured-interval-queries-and-concrete-balanced-sweep)
+owns that derivation and the connected actual pipeline. The comparator's reached
+entry/field costs lie between2 and6; the complete annotation executes four unit
+operations. With H=0,K=4,C=6 the raw bounds are43h+8 for insertion,31h+1 for
+extraction and43h+1 for deletion. The actual query has bound5h+1. These retain
+the earlier atomic model as a distinct specialization. The
+[closed admitted-state argument and whole-pipeline theorem](fdsa-measured-rectangle-scan.md#closed-admitted-support-and-logarithmic-height)
+now supply finite support, strict node/cardinality equality, logarithmic height,
+the complete all-input cost and ordinary sweep asymptotics. FDSA-5-90 is
+qualified under receiving #660.
+
+For Chapter 9, the augmented measured lookup is connected to the full search
+contract and exact ordinary implementation transport. These canonical rows,
+the generic and ordinary update-cost specializations and their logarithmic
+consequences are qualified under #660.
+The optional minimum recurrence remains paper preparation and
+is unnecessary for FDSA-9-61 and remains outside the accepted rows. No
+wall-clock, bit-cost, allocation or physical-sharing claim is added.

@@ -1,6 +1,6 @@
 import Applications.Resources.MedianPolicy
 
-/-! Connected C03-080 cases for the actual charged median policy.
+/-! Connected FDSA-3-80 cases for the actual charged median policy.
 Concrete pivots use the public small-input equation of the measured selector.
 Concrete outer executions use the public policy step equation. General bounds
 are also consumed for an infinite size family and arbitrary integer inputs.

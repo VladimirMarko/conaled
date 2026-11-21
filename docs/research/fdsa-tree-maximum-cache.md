@@ -1,11 +1,11 @@
 # Source maximum caches and the shared optional summary
 
-This unit addresses FDSA Chapter 4, Exercise 4.11 and rows C04-075–076,
-plus the key-set portion of C04-063 in the retained July 27, 2026
+This unit addresses FDSA Chapter 4, Exercise 4.11 and rows FDSA-4-75 to FDSA-4-76,
+plus the key-set portion of FDSA-4-63 in the retained July 27, 2026
 [chapter ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md).
 It is a new Lean development against the recorded source analysis, without a
 claim of another manuscript read. Existing shape and inorder erasure laws
-retain their ownership of the other C04-063 observations.
+retain their ownership of the other FDSA-4-63 observations.
 
 ## Raw representation and local operations
 

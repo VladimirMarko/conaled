@@ -1,6 +1,6 @@
 # Cached height-balanced trees as the Set ADT
 
-This increment addresses FDSA Chapter 9 obligations **C09-037** and **C09-059**.
+This increment addresses FDSA Chapter 9 obligations **FDSA-9-37** and **FDSA-9-59**.
 It connects the actual cached local-update algorithms to the existing
 `Search.AbstractSet.Refinement` interface. The canonical obligation owner is
 `docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md`.
@@ -159,8 +159,8 @@ specialization remains a separate obligation, even though its pure algorithms
 are aliases. Generic callback costs are not assumed constant: a complete word
 annotation can perform nonconstant list concatenation.
 
-The operation-cost obligations C09-039–041, the cost portion of C09-060, later
-construction and balance-factor Set row C09-090 remain open. C09-061 now has its
+The operation-cost obligations FDSA-9-39 to FDSA-9-41, the cost portion of FDSA-9-60, later
+construction and balance-factor Set row FDSA-9-90 remain open. FDSA-9-61 now has its
 [ordinary repository proof owner](fdsa-height-bound.md). The complete
 [operation-cost preparation](fdsa-height-updates.md#unqualified-preparation-for-measured-operation-costs)
 retains the prospective tariff, recurrences, assumptions and counterexamples;

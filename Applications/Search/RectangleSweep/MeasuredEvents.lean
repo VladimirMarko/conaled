@@ -2,16 +2,19 @@ import Applications.Search.RectangleSweep.Measured
 import Applications.Resources.ListIndex
 import Applications.Resources.ListCalls
 import Applications.Resources.ListReversal
+import Applications.Resources.SourceMergeSortWork
 import Mathlib.Tactic.Ring
 
 /-!
-# Measured rectangle event generation and pipeline composition
+# Measured rectangle event generation, sorting and pipeline composition
 
 The indexed input is computed once and its returned list feeds both event maps.
 Their actual returned lists feed measured append. Constructor callbacks may carry
 input-dependent costs. Value erasure is a separate premise, not a replacement of
 the actual returned values. Generation costs are paid before sorting and scanning,
 including when the later scan returns early.
+The concrete sorter measures the actual short-circuit lexicographic comparator
+and the broader declared source-operation tariff of the shared alternating sort.
 -/
 set_option autoImplicit false
 set_option warningAsError true
@@ -123,6 +126,70 @@ end Generation
 
 section Canonical
 variable [LinearOrder β]
+
+/-- Compare the actual key fields in lexicographic order. Each reached primitive
+test and this callback's invocation cost one. X payloads are never inspected. -/
+def eventCompareRun (e f : Event α β) : Measured Bool Nat :=
+  CallCount.tick (Resources.bind (decide (e.y < f.y), 1) fun lowerY =>
+    if lowerY then Resources.pure true
+    else Resources.bind (decide (e.y = f.y), 1) fun sameY =>
+      if sameY then
+        Resources.bind (decide (e.kind.rank < f.kind.rank), 1) fun lowerKind =>
+          if lowerKind then Resources.pure true
+          else Resources.bind (decide (e.kind.rank = f.kind.rank), 1) fun sameKind =>
+            if sameKind then (decide (e.id ≤ f.id), 1)
+            else Resources.pure false
+      else Resources.pure false)
+
+theorem eventCompareRun_value (e f : Event α β) :
+    (eventCompareRun e f).1 = decide (e.key ≤ f.key) := by
+  have key_le : e.key ≤ f.key ↔
+      e.y < f.y ∨ e.y = f.y ∧
+        (e.kind.rank < f.kind.rank ∨ e.kind.rank = f.kind.rank ∧ e.id ≤ f.id) := by
+    simp only [Event.key, Prod.Lex.toLex_le_toLex]
+  by_cases hy : e.y < f.y <;> by_cases he : e.y = f.y <;>
+    by_cases hk : e.kind.rank < f.kind.rank <;>
+    by_cases hr : e.kind.rank = f.kind.rank <;>
+    simp [eventCompareRun, Resources.bind, Resources.pure, CallCount.tick,
+      hy, he, hk, hr, key_le]
+
+/-- The actual short-circuit costs range from two to six; six is an envelope. -/
+theorem eventCompareRun_cost_bounds (e f : Event α β) :
+    2 ≤ (eventCompareRun e f).2 ∧ (eventCompareRun e f).2 ≤ 6 := by
+  by_cases hy : e.y < f.y <;> by_cases he : e.y = f.y <;>
+    by_cases hk : e.kind.rank < f.kind.rank <;>
+    by_cases hr : e.kind.rank = f.kind.rank <;>
+    simp [eventCompareRun, Resources.bind, Resources.pure, CallCount.tick, hy, he, hk, hr]
+
+theorem eventCompareRun_cost_le (e f : Event α β) :
+    (eventCompareRun e f).2 ≤ 6 := (eventCompareRun_cost_bounds e f).2
+
+/-- The measured source sorter consumes the actual event-comparison results. -/
+def sortEventsRun (es : List (Event α β)) : Measured (List (Event α β)) Nat :=
+  SourceMergeSortWork.run eventCompareRun es
+
+theorem sortEventsRun_value (es : List (Event α β)) :
+    (sortEventsRun es).1 = sortEvents es := by
+  simp only [sortEventsRun, SourceMergeSortWork.run_value, eventCompareRun_value,
+    sortEvents, Applications.Sorting.SourceMergeSort.sortOn]
+
+theorem sortEventsRun_perm (es : List (Event α β)) : (sortEventsRun es).1.Perm es := by
+  rw [sortEventsRun_value]
+  exact sortEvents_perm es
+
+theorem sortEventsRun_cost_le (es : List (Event α β)) :
+    (sortEventsRun es).2 ≤ 12 * es.length * Nat.clog 2 es.length + 10 * es.length + 3 := by
+  simpa only [sortEventsRun, Nat.reduceAdd] using
+    SourceMergeSortWork.run_cost_le_clog eventCompareRun es 6 eventCompareRun_cost_le
+
+/-- Full sort work for the actually generated 2n events, including empty input. -/
+theorem sortEventsRun_raw_cost_le (rs : List (Rectangle α β)) :
+    (sortEventsRun (rawEvents rs)).2 ≤
+      24 * rs.length * Nat.clog 2 (2 * rs.length) + 20 * rs.length + 3 := by
+  have h := sortEventsRun_cost_le (rawEvents rs)
+  rw [length_rawEvents] at h
+  convert h using 1
+  ring
 
 /-- Erasure identifies the actual stage inputs, while retaining each observation. -/
 theorem sweepRun_cost_of_values (pairCost succCost : Nat)

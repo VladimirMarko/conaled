@@ -1,19 +1,167 @@
-# Chapter 9 factor algorithms and later exercises: unqualified preparation
+# Chapter 9 measured AVL correspondence and later preparation
 
 This paper preserves the 19 November 2026 primary-reading and mathematical
 preparation by `/root/balanced_interval_preparation`. Its factor algorithms,
-construction/conversion plans and proposed cases remain **unqualified**; no
-new Lean implementation or receiving acceptance follows from this curation.
-Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json): CTB-78 integration acceptance precedes resumed book formalization. This paper is not a Lean dependency or a receiving validation receipt.
+construction/conversion plans and proposed cases remain **unqualified**. The
+separate measured cached-AVL development below continues the existing CTB-28
+requirements; it does not implement the later factor algorithms by implication.
+Current requirements and receiving status are tracked in [CTB](../textbooks/CTB.json).
+The latest user instruction authorizes continued local formalization and dated
+checkpoints while receiving acceptance proceeds independently. This paper is
+not a receiving validation receipt, and publication remains separately gated.
 
-At accepted donor 072, Chapter 9 is57/110: rows 001–038,042–059 and 061 have their
-bounded source qualifications. Measured operation rows 039–041/060 and 062–110
-remain open. CTB-28 and the [canonical 110-row ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md)
+Donor 072 qualified 57/110 Chapter 9 rows. Receiving
+[issue #660](https://github.com/VladimirMarko/conaled/issues/660) additionally
+qualifies FDSA-9-39, FDSA-9-40, FDSA-9-41 and FDSA-9-60, bringing coverage to
+61/110. Rows FDSA-9-62 through FDSA-9-110 remain open. CTB-28 and the [canonical 110-row ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md)
 own the complete scope. Existing cached-height work is documented in
 [rebalancing](fdsa-height-rebalance.md), [updates](fdsa-height-updates.md),
 [Set refinement](fdsa-height-set-refinement.md) and [logarithmic height](fdsa-height-bound.md).
 The initial paper predated these increments; its old task boundaries are not
 current instructions.
+
+## Cached membership and ordinary measured correspondence
+
+Increment 082 addresses the existing FDSA-9-39, FDSA-9-40, FDSA-9-41, FDSA-9-60 requirements. Its owners
+are `Applications/Resources/HeightBalance/Membership.lean`,
+`Applications/Resources/AVL.lean`, `Applications/Resources/AVL/Logarithmic.lean`,
+and the shared `Applications/Trees/SetCardinality.lean`. The older complete
+annotation update and logarithmic owners remain the underlying algorithms and
+proofs. These four bounded rows have receiving source qualification under
+#660, whose acceptance record owns exact-candidate validation and independent
+review. The later factor, construction and conversion obligations remain open.
+
+### One executed lookup and the complete membership tariff
+
+The existing `Resources.SearchTree.lookupWithRun` runs on the annotated input
+tree itself. It returns an Option of the original annotation together with the
+pair `(visited nonempty nodes, executed comparator work)`. The new scalar adapter
+binds that result once and observes
+
+\[
+  W=v+c+\mathbf 1_{\text{returned Option is none}}.
+\]
+
+The Boolean membership adapter takes `isSome` of the same returned Option and
+retains exactly the same cost. Neither program runs tree erasure, a second
+lookup, or a stored-height read. Pairing, projections, Boolean observation and
+the addition of recorded counters are free in this declared source model.
+Consequently nil costs 1. At a node, the actual first comparison chooses the
+left branch with cost `1 + firstCost + leftCost`; only when it returns false is
+the reverse comparison executed. A true reverse answer chooses the right branch
+with cost `1 + firstCost + secondCost + rightCost`. Two false answers return the
+original annotation at `1 + firstCost + secondCost`, without a terminal nil.
+
+Raw value erasure needs only `LT`, `DecidableLT` and the actual callback-value
+equations. These equations may be supplied locally at labels of the finite
+input. No ordering law or cache validity is needed for raw correspondence.
+Strict erased inorder separately supplies membership in the structural set.
+Cost bounds need no correctness equation: even deliberately false callbacks
+follow the stated reached-path recurrence. A local bound C on both query
+orientations at every input label gives
+
+\[
+  W\le (1+2C)h+1.
+\]
+
+The proof reuses the existing weighted visit/comparator theorem and adds at
+most one failed terminal. For any natural tolerance d, actual erased-shape
+`BalancedD d` and the existing height theorem give
+
+\[
+  W\le(1+2C)(d+1)\operatorname{clog}_2(N+1)+1.
+\]
+
+The shared affine-clog bridge proves ordinary real O(log2(n+1)) on every
+exact-size balanced family with fixed comparator tariff. Annotation and key
+universes are independent. This does not assume that all sizes are realizable
+by an ordered family over an arbitrary finite key type; the family and its
+size/balance premises are explicit.
+
+### Ordinary d=1 execution and structural work
+
+The ordinary owner specializes the same complete-annotation programs to d=1.
+Its height callback returns its input at cost 0. Its combination executes a
+unit-cost max and then a unit-cost successor, using the actual first result;
+the full callback costs 2. Strict comparison has cost 1. Cached access still
+charges 1, and the generic outer trigger still executes its two additions at
+d=1. Merely rewriting its mathematical threshold as +2 would not remove either
+executed observation.
+
+| Executed helper | Source observation |
+| --- | ---: |
+| Cached root access | 1 |
+| Smart node: two reads, max, successor, constructor | 5 |
+| Outer trigger: two reads, two additions, equality | 5 |
+| Inner child-height comparison | 3 |
+| Repair fallback, including repair entry | 11 |
+| Single rotation, including repair entry and guards | 19 |
+| Double rotation, including repair entry and guards | 24 |
+
+The public ordinary reader, constructor, repairs, insert, predecessor extraction
+and delete are direct specializations. Raw value theorems identify their actual
+returned trees with the existing `Trees.AVL` operations. Their exact recurrences
+and costs specialize the same generic measured programs, including the
+single-rotation equal-child ties used by deletion. Existing validity and
+simultaneous height-effect theorems apply to these actual returned values;
+strictness supplies the separate Set laws. This preserves the distinction
+between algorithm/value, invariant, recurrence and cost correspondence in
+FDSA-9-60.
+
+For every raw annotated tree, with structural height h, the complete work bounds
+are:
+
+| Operation | Structural bound | Under actual ordinary shape balance, L=clog2(N+1) |
+| --- | --- | --- |
+| Lookup or membership | 3h+1 | 6L+1 |
+| Insert | 27h+6 | 54L+6 |
+| Extract maximum | 25h+1 | 50L+1 |
+| Delete | 27h+1 | 54L+1 |
+
+For nonempty extraction the additive 1 is omitted. The input-height envelopes
+include actual predecessor extraction and rebuilding; there is no separate
+unmeasured traversal attached to a pure result. Shape balance suffices for the
+clog column even when the stored height is incorrect. Cache validity is required
+for the semantic preservation results, not for these structural cost bounds.
+
+### FDSA-9-15 composition and the node-to-set boundary
+
+On an ordinary `Trees.AVL.Valid` input, FDSA-9-15 supplies the sharper actual-height
+inequality
+
+\[
+ h\le\gamma\log_2(N+1),\qquad
+ \gamma=\frac1{\log_2\varphi},\quad\varphi=\text{Real.goldenRatio}.
+\]
+
+Casting the natural work inequalities to the reals and composing this theorem
+gives respectively `3 gamma log2(N+1)+1`, `27 gamma log2(N+1)+6`,
+`25 gamma log2(N+1)+1` and `27 gamma log2(N+1)+1`; nonempty extraction again omits
+1. The exact coefficient is retained. In particular, 1.44 must not be used as
+an upper bound for gamma. The integer-logarithmic family theorems independently
+give ordinary real O(log2(n+1)) with fixed operation tariffs.
+
+The reusable equality `(setTree t).ncard = t.numNodes` requires only
+`Nodup (inorder t)`. It follows by identifying the set with the inorder list's
+finite set, using distinctness for its cardinality, and applying the existing
+inorder-length theorem. No order, cache or balance structure is needed for that
+generic lemma. Strict erased inorder supplies Nodup for ordinary search trees;
+the cached erasure preserves node count. The complete-key sweep's former local
+proof now uses this same owner without changing its public statement.
+
+Set-size logarithmic corollaries therefore retain strictness separately from
+the shape/validity premises. A balanced perfect seven-node tree relabelled by
+one repeated key still has height 3 and seven nodes, but its observed set has
+cardinality 1. Neither balanced shape nor correct height caches licenses that
+substitution without distinctness.
+
+Connected cases use the existing pure cached-tree fixtures, the public generic
+and ordinary contracts, asymmetric comparison prices, deliberately wrong caches
+and callbacks, exact insertion/rotation/extraction/deletion observations, and
+arbitrary-input/family clients. Their actual compilation and statement-inspection
+results belong to the dated evidence records; finite examples alone do not
+establish the universal theorems. The old comparison-only SearchTree observation
+and its clients remain available.
 
 ## Source and attributed reading
 
@@ -33,11 +181,11 @@ reading is asserted now.
 
 | Printed / physical | Contents inspected | Later obligations |
 | --- | --- | --- |
-|112/118|Exercise 9.4 continuation; Exercise 9.5; factor datatype/invariant|C09-054–070|
-|113/119|is_bal, polymorphic incr/decr, insertion/change detection|C09-071–074/080–083|
-|114/120|Complete Figure 9.4 balancers and rot2|C09-075–079|
-|115/121|Deletion, predecessor extraction, Theorems 9.6/9.7|C09-084–094|
-|116/122|Exercises 9.6/9.7 and generalized-height chapter note|C09-095–110;061|
+|112/118|Exercise 9.4 continuation; Exercise 9.5; factor datatype/invariant|FDSA-9-54 to FDSA-9-70|
+|113/119|is_bal, polymorphic incr/decr, insertion/change detection|FDSA-9-71 to FDSA-9-74, FDSA-9-80 to FDSA-9-83|
+|114/120|Complete Figure 9.4 balancers and rot2|FDSA-9-75 to FDSA-9-79|
+|115/121|Deletion, predecessor extraction, Theorems 9.6/9.7|FDSA-9-84 to FDSA-9-94|
+|116/122|Exercises 9.6/9.7 and generalized-height chapter note|FDSA-9-95 to FDSA-9-110; FDSA-9-61|
 
 ## Factor representation and detector boundaries
 
@@ -175,7 +323,7 @@ separate required conclusions.
 
 Actual source functions use only root tags, shapes, comparisons and local
 rewrites; structural h occurs in propositions, not executable branches. Later
-resource proofs C09-092/093 must inspect and measure the actual factor recurrence,
+resource proofs FDSA-9-92, FDSA-9-93 must inspect and measure the actual factor recurrence,
 including detectors and local rotations. A cached-family cost theorem attached
 to the same output set would not establish those costs.
 
@@ -194,13 +342,16 @@ The implemented generic cached single/double scheme uses trigger
 permitted local input range is one-sided, e.g. `hr-d <= hl <= hr+d+1` for balL.
 The generic cache/domain/height effects, ordered-list semantics, predecessor
 extraction, Set refinement and d=1 operation specialization have separate
-source owners; the measured-cost specialization remains open. The invariant
+source owners. The measured cached-update instrumentation is now supplied by
+the resource owners above, and its ordinary d=1 specialization has receiving
+qualification under #660. Factor-based representation and its costs remain
+separate obligations. The invariant
 alone, a sorted-list rebuild, or the AFP bounds theorem does not implement these
-local updates. C09-057/058 retain simultaneous preservation and height change
+local updates. FDSA-9-57, FDSA-9-58 retain simultaneous preservation and height change
 0/+1 or0/−1 for every fixed d≥1.
 
 Exercise 9.4 tells students they need not prove logarithmic height, but printed 116
-explicitly asserts that height is still logarithmic. C09-061 was therefore a
+explicitly asserts that height is still logarithmic. FDSA-9-61 was therefore a
 formalization obligation, now represented by the accepted height-bound owner.
 Its sufficient target is `h <= (d+1)*log2(leaves)`, from `2^ceil(h/(d+1)) <= leaves`.
 
@@ -227,7 +378,7 @@ and leaves are not internal nodes.
 
 Printed 112 requires a linear-time `avl_of_list` for arbitrary lists, with
 `I(avl_of_list xs)=xs` and valid cached AVL output. No sortedness or nodup premise
-appears. C09-062–067 preserve successful suffix consumption, exact input length,
+appears. FDSA-9-62 to FDSA-9-67 preserve successful suffix consumption, exact input length,
 no default payload, and the actual cost of length/traversal/annotation work.
 The Chapter 4 sequential prefix builder plus correctly cached almost-complete
 shape is a proposed reuse route. A separate linear annotation pass can still
@@ -252,7 +403,7 @@ The required equality is `Abal t -> debal2 t=debal t`; since both proposed
 conversions ignore the old tag, unconditional equality is a plausible stronger
 target, not a proved fact. It must not be used before proof.
 
-C09-099 requires the actual single-traversal/linear-cost recurrence. Under one
+FDSA-9-99 requires the actual single-traversal/linear-cost recurrence. Under one
 charge per recursive tree entry, an empty/node traversal has `2*nodes+1` entries;
 separate helper calls and arithmetic have separately stated charges. Result
 equality does not transfer this cost to repeated-height debal. Proof-only
@@ -265,7 +416,7 @@ Printed 116's `tree4` has exactly Leaf, Lh(left,key,right), Bal(left,key,right),
 Rh(left,key,right). There is no separate tag field. It requests its invariant,
 insertion, deletion, all auxiliaries, and Theorems 9.6/9.7.
 
-C09-101–110 require a structural equivalence with both inverse laws and preserved
+FDSA-9-101 to FDSA-9-110 require a structural equivalence with both inverse laws and preserved
 observations; exact invariant and detector transport; every rot2/balancer/
 predecessor case; direct constructor-based insertion/deletion; ordered-list and
 common Set semantics; and concrete recurrence/cost correspondence. A whole-tree
@@ -339,5 +490,6 @@ operations, list/Set behavior and measured recurrences remain to be implemented
 and checked. Construction must preserve arbitrary lists and exact suffixes;
 conversion value equality does not establish a single traversal; tree4 value
 transport does not establish local execution or compiled byte savings. Retain
-the separate C05 balanced-interval and measured-sweep obligations. Current
-receiving integration must be accepted before new book formalization resumes.
+the separate C05 balanced-interval and measured-sweep obligations. Continue the
+canonical remaining book programme under the latest instruction while receiving
+integration and source qualification retain their separate owners and gates.

@@ -235,8 +235,8 @@ theorem insertWithRun_isBigO (ltRun : κ → κ → Measured Bool Nat)
   simp only [insertWithRun_work]
   exact lookupWithRun_isBigO ltRun keys family K H sizes local_bounds heights
 
-section Ordered
-variable [LinearOrder κ]
+section Comparison
+variable [LT κ] [DecidableLT κ]
 
 /-- Comparator correctness is needed only for the two query orientations at
 labels in this input tree; unreachable labels may be included harmlessly. -/
@@ -275,6 +275,11 @@ theorem insertWithRun_value (ltRun : κ → κ → Measured Bool Nat) (k : κ) (
       · split
         · rw [ihr hr]
         · rfl
+
+end Comparison
+
+section Ordered
+variable [LinearOrder κ]
 
 /-- One abstract call charge for each executed strict comparison. -/
 def lookupRun (q : κ) (t : BinaryTree (κ × ν)) : Measured (Option ν) (Nat × Nat) :=

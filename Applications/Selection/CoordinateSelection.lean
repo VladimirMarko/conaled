@@ -11,7 +11,7 @@ adds those actual calls. The existing query model leaves frontend bookkeeping,
 plan lookup and projections uncharged. No physical-runtime claim is made.
 
 Correctness permits duplicate inputs. The competitor lower bound keeps the
-distinct-input, valid-rank and positive-query-tariff domain of C03-081--083.
+distinct-input, valid-rank and positive-query-tariff domain of FDSA-3-81 to FDSA-3-83.
 -/
 set_option autoImplicit false
 set_option warningAsError true

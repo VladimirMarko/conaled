@@ -1,7 +1,6 @@
 import Applications.Search.RectangleSweep.Active
 import Applications.Search.RectangleSweep.Balanced
-import Mathlib.Data.Finset.Card
-import Mathlib.Data.Set.Card
+import Applications.Trees.SetCardinality
 
 /-!
 # Finite cardinality of the active occurrence keys
@@ -78,13 +77,8 @@ theorem balanced_observe_ncard_eq_numNodes [LinearOrder α]
     (t : BinaryTree (Key α × (Nat × α)))
     (strict : (Trees.inorder (Trees.Cached.erase t)).Pairwise (· < ·)) :
     (Trees.setTree (Trees.Cached.erase t)).ncard = t.numNodes := by
-  classical
-  have contents : Trees.setTree (Trees.Cached.erase t) =
-      ((Trees.inorder (Trees.Cached.erase t)).toFinset : Set (Key α)) := by
-    ext key
-    simp only [Finset.mem_coe, List.mem_toFinset, Trees.mem_inorder_iff_mem_setTree]
-  rw [contents, Set.ncard_coe_finset, List.toFinset_card_of_nodup strict.nodup,
-    Trees.inorder_length, Trees.Cached.numNodes_erase]
+  simpa only [Trees.Cached.numNodes_erase] using
+    Trees.setTree_ncard_eq_numNodes (Trees.Cached.erase t) strict.nodup
 
 variable [LinearOrder α] [OrderBot α] [LinearOrder β]
 

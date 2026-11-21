@@ -7,7 +7,7 @@ import Mathlib.Tactic.FinCases
 # Uniform successful search in the two three-key trees
 
 FDSA's printed p.67 illustrates root 6 with leaves 3 and 9, and the increasing
-right chain 3, 6, 9. The canonical C05-094 obligation fixes a uniform present-key
+right chain 3, 6, 9. The canonical FDSA-5-94 obligation fixes a uniform present-key
 sample and one unit per nonempty visit. All costs below come from the existing
 executed map lookup with a key-preserving constant payload.
 -/

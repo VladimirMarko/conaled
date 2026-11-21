@@ -3,7 +3,7 @@
 This unit addresses FDSA Chapter 4's executable completeness checker and
 Exercises 4.7, 4.8 and 4.10. Its source scope is the retained July 27, 2026
 [chapter ledger](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md),
-rows C04-031, C04-038–041, C04-059–060 and C04-074. This is a new Lean development
+rows FDSA-4-31, FDSA-4-38 to FDSA-4-41, FDSA-4-59 to FDSA-4-60 and FDSA-4-74. This is a new Lean development
 against that recorded source analysis, not a claim of another manuscript read.
 
 The existing `BinaryTree`, `Trees.fold`, structural `Subtree`, `Complete`,

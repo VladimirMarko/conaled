@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "canonical_requirement_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-  "authority": "This repository catalog continues the user-authorized CTB series. The canonical requirement owners at the frozen requirement commit retain CTB-1 through CTB-78 and the original full book obligations. This catalog owns CTB-79 through CTB-122, current local state and future consecutive allocation. Preserve every ID and complete requirement. R2 receiving integration is accepted and published; integration_handoff/acceptance_evidence records its actual evidence. Checkpoint074 retention and durable saving completed on 20 November 2026; CTB-24/C05-085 and bounded C05-090 work have receiving source acceptance under GitHub issue #659. C05-085 is qualified; full C05-090 remains open.",
+  "authority": "This catalog continues the user-authorized CTB series, retaining canonical CTB-1 through CTB-78 and all 44 literal CTB-79 through CTB-122 requirements. Receiving R2, checkpoint074 retention/save and #659 remain completed historical scopes. Cumulative084 receiving acceptance under #660 qualifies the complete measured sweep and four ordinary measured AVL rows; final acceptance evidence is owned by that issue. Remaining textbook obligations and future consecutive allocation are unchanged.",
   "canonical_requirement_owners": [
     "docs/history/textbooks/checkpoint-024/TICKETS.json",
     "docs/history/textbooks/issue-lineages.json",
@@ -142,7 +142,7 @@
   "prefix": "CTB",
   "local_state": {
     "CTB-5": {
-      "state": "source-qualified; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -157,9 +157,14 @@
         "https://github.com/VladimirMarko/conaled/issues/558",
         "https://github.com/VladimirMarko/conaled/issues/560"
       ],
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open; abstract observations do not certify physical allocator, collector, node-size or runtime behavior.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "semantic_progress": "CTB-79 supplies all17 Sort source-record correspondences and all8 exercises through shared sorting contracts, including the independent optional positional proof.",
-      "resource_progress": "CTB-80 supplies actual comparison/literal-constructor laws; CTB-81 supplies actual shared roots, exact fresh-cell counts and retained-root/live-cell interpretation. All17 Sort records and8 exercises are mapped."
+      "resource_progress": "CTB-80 supplies actual comparison/literal-constructor laws; CTB-81 supplies actual shared roots, exact fresh-cell counts and retained-root/live-cell interpretation. All17 Sort records and8 exercises are mapped.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-78": {
       "state": "completed receiving integration and checkpoint074 retention/save; no whole-book completion",
@@ -168,7 +173,6 @@
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-78"
       },
-      "current_prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
       "donor_source_commit": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
       "donor_source_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
       "receiving_master_commit": "8ff71395e9841760c4e240c4e8b8741b355bda68",
@@ -221,7 +225,7 @@
         "CTB-122"
       ],
       "scope": "Inventory the full donor/upstream mathematical union and CTB requirements; assess missed reuse, interface changes and affected clients; integrate and rework; validate the exact receiving candidate before new textbook formalization.",
-      "work_sequence": "docs/textbooks/README.md#required-order",
+      "work_sequence": "docs/textbooks/README.md#receiving-state",
       "unprocessed_inbox": "docs/textbooks/inbox/README.md",
       "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
       "whole_library_acceptance": "Passed; actual R2 evidence in integration_handoff/acceptance_evidence",
@@ -229,13 +233,14 @@
         "Standards": "Passed",
         "Spec": "Passed"
       },
-      "next_action": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
-      "remaining_gate": "No gate remains for completed R2 integration and checkpoint074 retention/save. The frozen C05-085 and bounded C05-090 slice has separate receiving source acceptance under GitHub issue #659; subsequent increments require their own checks.",
+      "next_action": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+      "remaining_gate": "No gate remains for completed R2 integration and checkpoint074 retention/save. The frozen FDSA-5-85 and bounded FDSA-5-90 slice has separate receiving source acceptance under GitHub issue #659; subsequent increments require their own checks.",
       "boundary": "R2 source integration and receiving validation/review are accepted and published; checkpoint074 later completed retention and durable saving. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope.",
-      "retention_policy": "docs/textbooks/README.md#retention-and-inbox"
+      "retention_policy": "docs/textbooks/README.md#retention-and-recovery",
+      "historical_receiving_prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e"
     },
     "CTB-6": {
-      "state": "source-qualified; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -247,10 +252,15 @@
       "source_unit": "Multiset",
       "source_records_mapped": 22,
       "exercise_headings_accounted": 14,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance; later chapters remain separate."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-7": {
-      "state": "source-qualified; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -262,10 +272,15 @@
       "source_unit": "BagPerm",
       "source_records_mapped": 19,
       "exercise_headings_accounted": 9,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance; later chapters remain separate."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-8": {
-      "state": "implemented and source-qualified; isolated exact-candidate focused checks passed; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -277,10 +292,15 @@
       "source_unit": "Selection",
       "source_records_mapped": 33,
       "exercise_headings_accounted": 20,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open. Unit comparison counts do not certify runtime, physical allocation, sharing or collection."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-9": {
-      "state": "implemented and source-qualified; isolated exact-candidate focused checks passed; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -292,10 +312,15 @@
       "source_unit": "Merge",
       "source_records_mapped": 17,
       "exercise_headings_accounted": 6,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open. Later source units and all remaining FDSA/PFDS requirements are separate continuing obligations."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-10": {
-      "state": "implemented and source-qualified; isolated exact-candidate focused checks passed; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -307,10 +332,15 @@
       "source_unit": "Maps",
       "source_records_mapped": 23,
       "exercise_headings_accounted": 6,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open. Later source units and all remaining FDSA/PFDS requirements are separate continuing obligations."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-11": {
-      "state": "implemented and source-qualified; isolated exact-candidate focused checks passed; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -322,10 +352,15 @@
       "source_unit": "SearchTree",
       "source_records_mapped": 90,
       "exercise_headings_accounted": 35,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open. ADT through Color and all remaining FDSA/PFDS chapters and appendices are continuing obligations."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-12": {
-      "state": "implemented and source-qualified; isolated exact-candidate focused checks passed; receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -337,10 +372,15 @@
       "source_unit": "ADT",
       "source_records_mapped": 254,
       "exercise_headings_accounted": 12,
-      "remaining_scope": "Receiving full-library build, exhaustive audit and integration acceptance remain open. Extract through Color and all remaining FDSA/PFDS chapters and appendices are continuing obligations."
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      }
     },
     "CTB-13": {
-      "state": "source-qualified in the validated candidate; final independent review/publication and receiving acceptance remain separate",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
@@ -357,7 +397,7 @@
       "total_source_records": 34,
       "exercise_headings_implemented": 4,
       "total_exercise_headings": 4,
-      "remaining_scope": "Canonical Extract mathematics and required bounded runtime observations are supported. Source-size experiments remain explicitly optional recipes, not observed runs. Final independent review/archive/publication gates and delegated whole-library/receiving acceptance are separate; continue Redblack and every remaining chapter of all three books.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence. Optional source-size experiment recipes are not reported as observed runs.",
       "optional_enumeration_groups_supported": 14,
       "resource_state": "Actual measured histories, supplied-Boolean bridges and guarded signed finite-prefix families have mathematical support.",
       "source_commands_implemented": 13,
@@ -384,10 +424,15 @@
       "runtime_evidence": {
         "historical_ref": "saved072:CTB.json#/local_state/CTB-13/runtime_evidence"
       },
-      "candidate": "d6497b18c39ccac281efdd88861b46e448f78171"
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "d6497b18c39ccac281efdd88861b46e448f78171"
     },
     "CTB-14": {
-      "state": "source-qualified in the reviewed candidate; publication and receiving acceptance remain separate",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Redblack",
       "canonical_requirement": {
         "where": "baseline",
@@ -399,13 +444,11 @@
         "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1012-Redblack.md",
         "sha256": "cf11fe2794f8c40814ab19228eb92f39c86cb9ee957065c8d54e3e6e59dfba10"
       },
-      "prerequisite": "CTB-13",
-      "remaining_scope": "Complete Redblack source qualification is supported by the current mathematical, runtime, correspondence and independent-review evidence. Final sealed-artifact verification/publication and delegated whole-library/receiving acceptance remain separate; continue Trie and every remaining chapter and appendix of all three books.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "children": [
         "CTB-92",
         "CTB-93"
       ],
-      "candidate": "1a8e4842ddd7f210d10faf4a2eb7d79af50227ae",
       "source_qualified": true,
       "canonical_source_records": 45,
       "canonical_exercise_headings": 13,
@@ -428,18 +471,24 @@
         "mapped_source_commands": 6,
         "substantive_prose_mapped": true,
         "remaining_obligations": []
-      }
+      },
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "1a8e4842ddd7f210d10faf4a2eb7d79af50227ae",
+      "historical_author_prerequisite": "CTB-13"
     },
     "CTB-15": {
-      "state": "source qualified after complete pure/resource correspondence and immutable two-axis content acceptance",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Trie",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-15"
       },
-      "prerequisite": "CTB-14",
-      "remaining_scope": "Trie source qualification is derived from complete pure/resource/operational correspondence, all55 source records,12 exercises,11 commands, zero open canonical obligations and the actual immutable two-axis CONTENT acceptance. Costs remain the stated source models and hypotheses; no native timing, allocation, conversion or fresh Extract execution is inferred. Exact artifact review, reconstruction, publication and whole-library/receiving acceptance remain separate. Continue Priqueue and every remaining chapter and appendix of all three tracked books after securing this increment.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "canonical_plan": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1013-Trie.md",
@@ -449,7 +498,6 @@
         "CTB-94",
         "CTB-95"
       ],
-      "candidate": "3b496fb5047302976ac9f3469e4bb0c9cecb0581",
       "source_qualified": true,
       "pure_increment": "CTB-94",
       "canonical_source_records": 55,
@@ -547,19 +595,25 @@
       "resource_correspondence": "docs/research/vfa-trie-work.md",
       "qualification_review": {
         "historical_ref": "saved072:CTB.json#/local_state/CTB-15/qualification_review"
-      }
+      },
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "3b496fb5047302976ac9f3469e4bb0c9cecb0581",
+      "historical_author_prerequisite": "CTB-14"
     },
     "CTB-16": {
-      "state": "source qualified after complete pure/resource correspondence and immutable two-axis content acceptance",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Priqueue",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-16"
       },
-      "prerequisite": "CTB-15",
       "source_qualified": true,
-      "remaining_scope": "Priqueue source qualification is derived from the complete relational source contract, exact list realization and modeled resources, all43 source records, two exercises, two modules, zero inventoried pedagogical commands, substantive prose, zero open canonical obligations and actual immutable two-axis CONTENT acceptance. Costs use their explicit comparator and source-operation assumptions; no native timing, physical allocation or fresh Extract execution is inferred. Sealed-artifact review, reconstruction, publication and whole-library/receiving acceptance remain separate. Begin Binom implementation only after this checkpoint is actually secured, then continue every remaining chapter and appendix of all three books.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "canonical_plan": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1014-Priqueue.md",
@@ -568,7 +622,6 @@
       "children": [
         "CTB-96"
       ],
-      "candidate": "8c4a6f936d6f84feab527e6e7b39aa4f15255ed1",
       "completed_increment": "CTB-96",
       "canonical_source_records": 43,
       "canonical_exercise_headings": 2,
@@ -642,19 +695,25 @@
       },
       "qualification_review": {
         "historical_ref": "saved072:CTB.json#/local_state/CTB-16/qualification_review"
-      }
+      },
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "8c4a6f936d6f84feab527e6e7b39aa4f15255ed1",
+      "historical_author_prerequisite": "CTB-15"
     },
     "CTB-17": {
-      "state": "source qualified after complete pure/resource/runtime correspondence and immutable two-axis content acceptance",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Binom",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-17"
       },
-      "prerequisite": "CTB-16",
       "source_qualified": true,
-      "remaining_scope": "Binom source qualification is derived only from complete pure, resource and actual runtime correspondence, all44 source records, all21 exercise headings, the one module and source Eval, required readings, substantive prose, zero open canonical obligations and genuine immutable two-axis CONTENT acceptance. Resource bounds retain explicit comparator, rank, stored-capacity and actual-history hypotheses; measured operations are not wall-clock or physical-allocation models. Actual045 two-mode workloads retain their own exact source, binary, input, observer and timing identities; earlier observations keep their original candidates. Sealed-artifact review, reconstruction, publication and whole-library/receiving acceptance remain separate. Begin Decide implementation only after this checkpoint is actually secured, then continue every remaining chapter and appendix of all three books.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "canonical_plan": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1015-Binom.md",
@@ -663,7 +722,6 @@
       "children": [
         "CTB-97"
       ],
-      "candidate": "0aceecd27c9245abf41ba93795b58c46227b81e5",
       "completed_increment": "CTB-97",
       "canonical_source_records": 44,
       "canonical_exercise_headings": 21,
@@ -739,21 +797,26 @@
       },
       "qualification_review": {
         "historical_ref": "saved072:CTB.json#/local_state/CTB-17/qualification_review"
-      }
+      },
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "0aceecd27c9245abf41ba93795b58c46227b81e5",
+      "historical_author_prerequisite": "CTB-16"
     },
     "CTB-18": {
-      "state": "complete source qualified from immutable Passed CONTENT axes; final delivery and checkpoint gates pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Decide",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-18"
       },
-      "prerequisite": "CTB-17",
       "children": [
         "CTB-98"
       ],
-      "candidate": "fe3526a735fdda0eebfd849b4e2cd63d8fbfe18c",
       "source_qualified": true,
       "canonical_plan": {
         "where": "baseline",
@@ -886,15 +949,15 @@
         ],
         "substantive_prose_mapping_present": true,
         "mapping_boundary": "Complete correspondence, actual chapter probes and root statement/body/use assessment are present. Qualification awaits immutable Passed Standards and Spec CONTENT outcomes.",
-        "remaining_acceptance_obligations": [
+        "remaining_source_obligations": [],
+        "historical_author_remaining_acceptance_obligations": [
           "Final full-task Standards and Spec review of guidance-only delivery and qualification metadata.",
           "Final accepted-content/receipt verification and exact archive reconstruction.",
           "Successful durable checkpoint publication with local identity persistence before Color implementation.",
           "Receiving conaled integration-quality review and whole-library build/exhaustive audit remain delegated and pending."
-        ],
-        "remaining_source_obligations": []
+        ]
       },
-      "remaining_scope": "Decide source is qualified; final delivery/artifact/publication gates remain pending. Begin Color only after checkpoint047 is secured, then continue all remaining FDSA/PFDS chapters and appendices. Receiving quality and whole-library acceptance remain separate.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "approved_content_candidate": "9b6f08a111ba5afe466d900dd633c39b51bff3a2",
       "approved_content_tree": "447d3ebd2d35410c8bd1465741828687413e200d",
       "qualification_review": {
@@ -936,7 +999,14 @@
         "qualification_authorized": true,
         "boundary": "Approval is for the exact CONTENT candidate above. The later guidance-only delivery and qualification metadata require final full-task axes, final validation/artifact checks and publication; receiving acceptance is separate."
       },
-      "delivery_validation": {
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "fe3526a735fdda0eebfd849b4e2cd63d8fbfe18c",
+      "historical_author_prerequisite": "CTB-17",
+      "historical_author_delivery_validation": {
         "candidate": "fe3526a735fdda0eebfd849b4e2cd63d8fbfe18c",
         "tree": "8876f4a89c02a3f71ba17d597c09212d940dcd73",
         "status": "Passed exact delivery-candidate guarded focused validation; read-only receipt verification passed",
@@ -989,18 +1059,15 @@
       }
     },
     "CTB-19": {
-      "state": "full canonical Color source-qualified by CTB-99 through CTB-106 composition; final checkpoint and receiving acceptance pending",
+      "state": "source-qualified and receiving-accepted under the completed R2 integration",
       "source_unit": "Color",
       "canonical_requirement": {
         "where": "baseline",
         "path": "docs/history/textbooks/checkpoint-024/TICKETS.json",
         "ticket": "CTB-19"
       },
-      "prerequisite": "CTB-18",
       "source_qualified": true,
       "boundary": "CTB-106 completes the actual Color program-resource model and composes with CTB-99 through CTB-105 to qualify full canonical Color. Earlier mathematical bodies and raw/weak semantic hypotheses are unchanged. The shared measured right-fold preserves literal erasure, ordered callback states and noncommutative costs. Actual helper, construction, fixed-K selection and painting executions count Boolean/Option/control operations and operand-sensitive arithmetic; selection trajectories include the final residual, painting uses original adjacency and right-fold order. Successful lookup insertion attempts are counted separately from final used-color cardinality; successful suffix coloring proves actual writes rather than assuming them. The full normalized supplied-input bound is 64*P with P=n^2*b^2+n*D*b+D*(b+c)+(n+1)*k*c+n+1, b,c>=1, and stored/mentioned-key plus palette-color bit bounds. Graph construction charges original edge occurrences separately; palette setup and exports remain separately priced. Numeric decoders return actual decoded values and charge explicitly supplied fees; output list cells and pairs are counted. These are declared source events, not parser/byte-formatting, physical allocation/sharing/GC, machine arithmetic or wall-time bounds. All 18 prewritten case groups and 40 evaluations retain their expected results, including source selection 731, coloring 1058, separate exported pipeline 1584, padding counterfamilies and the 320*b^2 long-key bound. Shared semantic and SimpleGraph clients retain their actual validity, progress and palette hypotheses; no new provider/compiler equivalence is asserted. Full Color qualification is source qualification. FINAL/publication and receiving quality/whole-library acceptance remain mandatory; all remaining FDSA/PFDS work continues.",
-      "candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
-      "candidate_tree": "56a5f8e82baa33533181007865ee18d46617eeb1",
       "children": [
         "CTB-99",
         "CTB-100",
@@ -1108,9 +1175,8 @@
         },
         "boundary": "The 53/14/35/5 source arrays and 41/68 contract/case prefixes retain exact historical attribution. Frozen prevalidation coverage remains unchanged; later actual validation and CONTENT qualify full Color by composition. No whole-provider or compiler equivalence is claimed."
       },
-      "qualification_boundary": "Full Color source-qualified after both independent canonical assessments and root complete report acceptance. VFA source coverage is 17/17; receiving acceptance remains pending.",
-      "remaining_scope": [],
-      "next_implementation_gate": "successful durable checkpoint055 publication",
+      "qualification_boundary": "Full Color source-qualified after both independent canonical assessments and root complete report acceptance. VFA source coverage is 17/17; receiving integration and whole-library acceptance passed for R2, recorded in integration_handoff/acceptance_evidence.",
+      "remaining_scope": "No remaining canonical obligation for this VFA unit. Shared-library integration follow-ups remain under GitHub issue #658; FDSA/PFDS and their appendices retain their complete separate requirements. Source-cost, allocator, sharing, collector and runtime claims retain the precise hypotheses and observation boundaries in the unit correspondence and recorded evidence.",
       "qualification_review": {
         "phase": "CONTENT",
         "candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
@@ -1152,12 +1218,19 @@
         },
         "artifact_approval_granted": false,
         "boundary": "Actual frozen CONTENT approves CTB-106 and full CTB-19/Color by composition with retained CTB-99 through CTB-105. FINAL, publication and receiving acceptance remain separate."
-      }
+      },
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "integration_handoff.acceptance_evidence",
+        "source_commit": "99a2974c93e556088af814f033540eb36ba2d3a6"
+      },
+      "historical_author_candidate": "d834601077fd0a2e3f7f38d626efe700005559aa",
+      "historical_author_candidate_tree": "56a5f8e82baa33533181007865ee18d46617eeb1",
+      "historical_author_prerequisite": "CTB-18",
+      "historical_author_next_implementation_gate": "successful durable checkpoint055 publication"
     },
     "CTB-24": {
-      "state": "Chapter5 open; 001–089,091,094 bounded source-qualified, including C05-085 receiving acceptance under GitHub issue #659",
-      "candidate": "5e4600fa78d103f2e124d111909bf4ca70934dc2",
-      "candidate_tree": "9d70d8041b7ccd806b7b95409c3553e445bd5325",
+      "state": "Chapter 5 open: 92/94 source-qualified; FDSA-5-92 and FDSA-5-93 remain open.",
       "children": [
         "CTB-107",
         "CTB-108",
@@ -1208,196 +1281,192 @@
         },
         "canonical_chapter_rows": 94,
         "qualified_rows": [
-          "C05-001",
-          "C05-002",
-          "C05-003",
-          "C05-004",
-          "C05-005",
-          "C05-006",
-          "C05-007",
-          "C05-008",
-          "C05-009",
-          "C05-010",
-          "C05-011",
-          "C05-012",
-          "C05-013",
-          "C05-014",
-          "C05-015",
-          "C05-016",
-          "C05-017",
-          "C05-018",
-          "C05-019",
-          "C05-020",
-          "C05-021",
-          "C05-022",
-          "C05-023",
-          "C05-024",
-          "C05-025",
-          "C05-026",
-          "C05-027",
-          "C05-028",
-          "C05-029",
-          "C05-030",
-          "C05-031",
-          "C05-032",
-          "C05-033",
-          "C05-034",
-          "C05-035",
-          "C05-036",
-          "C05-037",
-          "C05-038",
-          "C05-039",
-          "C05-040",
-          "C05-041",
-          "C05-042",
-          "C05-043",
-          "C05-044",
-          "C05-045",
-          "C05-046",
-          "C05-047",
-          "C05-048",
-          "C05-049",
-          "C05-050",
-          "C05-051",
-          "C05-052",
-          "C05-053",
-          "C05-054",
-          "C05-055",
-          "C05-056",
-          "C05-057",
-          "C05-058",
-          "C05-059",
-          "C05-060",
-          "C05-061",
-          "C05-062",
-          "C05-063",
-          "C05-064",
-          "C05-065",
-          "C05-066",
-          "C05-067",
-          "C05-068",
-          "C05-069",
-          "C05-070",
-          "C05-071",
-          "C05-072",
-          "C05-073",
-          "C05-074",
-          "C05-075",
-          "C05-076",
-          "C05-077",
-          "C05-078",
-          "C05-079",
-          "C05-080",
-          "C05-081",
-          "C05-082",
-          "C05-083",
-          "C05-084",
-          "C05-085",
-          "C05-086",
-          "C05-087",
-          "C05-088",
-          "C05-089",
-          "C05-091",
-          "C05-094"
-        ],
-        "current_increment_rows": [
-          "C05-091",
-          "C05-094"
+          "FDSA-5-1",
+          "FDSA-5-2",
+          "FDSA-5-3",
+          "FDSA-5-4",
+          "FDSA-5-5",
+          "FDSA-5-6",
+          "FDSA-5-7",
+          "FDSA-5-8",
+          "FDSA-5-9",
+          "FDSA-5-10",
+          "FDSA-5-11",
+          "FDSA-5-12",
+          "FDSA-5-13",
+          "FDSA-5-14",
+          "FDSA-5-15",
+          "FDSA-5-16",
+          "FDSA-5-17",
+          "FDSA-5-18",
+          "FDSA-5-19",
+          "FDSA-5-20",
+          "FDSA-5-21",
+          "FDSA-5-22",
+          "FDSA-5-23",
+          "FDSA-5-24",
+          "FDSA-5-25",
+          "FDSA-5-26",
+          "FDSA-5-27",
+          "FDSA-5-28",
+          "FDSA-5-29",
+          "FDSA-5-30",
+          "FDSA-5-31",
+          "FDSA-5-32",
+          "FDSA-5-33",
+          "FDSA-5-34",
+          "FDSA-5-35",
+          "FDSA-5-36",
+          "FDSA-5-37",
+          "FDSA-5-38",
+          "FDSA-5-39",
+          "FDSA-5-40",
+          "FDSA-5-41",
+          "FDSA-5-42",
+          "FDSA-5-43",
+          "FDSA-5-44",
+          "FDSA-5-45",
+          "FDSA-5-46",
+          "FDSA-5-47",
+          "FDSA-5-48",
+          "FDSA-5-49",
+          "FDSA-5-50",
+          "FDSA-5-51",
+          "FDSA-5-52",
+          "FDSA-5-53",
+          "FDSA-5-54",
+          "FDSA-5-55",
+          "FDSA-5-56",
+          "FDSA-5-57",
+          "FDSA-5-58",
+          "FDSA-5-59",
+          "FDSA-5-60",
+          "FDSA-5-61",
+          "FDSA-5-62",
+          "FDSA-5-63",
+          "FDSA-5-64",
+          "FDSA-5-65",
+          "FDSA-5-66",
+          "FDSA-5-67",
+          "FDSA-5-68",
+          "FDSA-5-69",
+          "FDSA-5-70",
+          "FDSA-5-71",
+          "FDSA-5-72",
+          "FDSA-5-73",
+          "FDSA-5-74",
+          "FDSA-5-75",
+          "FDSA-5-76",
+          "FDSA-5-77",
+          "FDSA-5-78",
+          "FDSA-5-79",
+          "FDSA-5-80",
+          "FDSA-5-81",
+          "FDSA-5-82",
+          "FDSA-5-83",
+          "FDSA-5-84",
+          "FDSA-5-85",
+          "FDSA-5-86",
+          "FDSA-5-87",
+          "FDSA-5-88",
+          "FDSA-5-89",
+          "FDSA-5-90",
+          "FDSA-5-91",
+          "FDSA-5-94"
         ],
         "prior_qualified_rows": [
-          "C05-001",
-          "C05-002",
-          "C05-003",
-          "C05-004",
-          "C05-005",
-          "C05-006",
-          "C05-007",
-          "C05-008",
-          "C05-009",
-          "C05-010",
-          "C05-011",
-          "C05-012",
-          "C05-013",
-          "C05-014",
-          "C05-015",
-          "C05-016",
-          "C05-017",
-          "C05-018",
-          "C05-019",
-          "C05-020",
-          "C05-021",
-          "C05-022",
-          "C05-023",
-          "C05-024",
-          "C05-025",
-          "C05-026",
-          "C05-027",
-          "C05-028",
-          "C05-029",
-          "C05-030",
-          "C05-031",
-          "C05-032",
-          "C05-033",
-          "C05-034",
-          "C05-035",
-          "C05-036",
-          "C05-037",
-          "C05-038",
-          "C05-039",
-          "C05-040",
-          "C05-041",
-          "C05-042",
-          "C05-043",
-          "C05-044",
-          "C05-045",
-          "C05-046",
-          "C05-047",
-          "C05-048",
-          "C05-049",
-          "C05-050",
-          "C05-051",
-          "C05-052",
-          "C05-053",
-          "C05-054",
-          "C05-055",
-          "C05-056",
-          "C05-057",
-          "C05-058",
-          "C05-059",
-          "C05-060",
-          "C05-061",
-          "C05-062",
-          "C05-063",
-          "C05-064",
-          "C05-065",
-          "C05-066",
-          "C05-067",
-          "C05-068",
-          "C05-069",
-          "C05-070",
-          "C05-071",
-          "C05-072",
-          "C05-073",
-          "C05-074",
-          "C05-075",
-          "C05-076",
-          "C05-077",
-          "C05-078",
-          "C05-079",
-          "C05-080",
-          "C05-081",
-          "C05-082",
-          "C05-083",
-          "C05-084",
-          "C05-086",
-          "C05-087",
-          "C05-088",
-          "C05-089"
+          "FDSA-5-1",
+          "FDSA-5-2",
+          "FDSA-5-3",
+          "FDSA-5-4",
+          "FDSA-5-5",
+          "FDSA-5-6",
+          "FDSA-5-7",
+          "FDSA-5-8",
+          "FDSA-5-9",
+          "FDSA-5-10",
+          "FDSA-5-11",
+          "FDSA-5-12",
+          "FDSA-5-13",
+          "FDSA-5-14",
+          "FDSA-5-15",
+          "FDSA-5-16",
+          "FDSA-5-17",
+          "FDSA-5-18",
+          "FDSA-5-19",
+          "FDSA-5-20",
+          "FDSA-5-21",
+          "FDSA-5-22",
+          "FDSA-5-23",
+          "FDSA-5-24",
+          "FDSA-5-25",
+          "FDSA-5-26",
+          "FDSA-5-27",
+          "FDSA-5-28",
+          "FDSA-5-29",
+          "FDSA-5-30",
+          "FDSA-5-31",
+          "FDSA-5-32",
+          "FDSA-5-33",
+          "FDSA-5-34",
+          "FDSA-5-35",
+          "FDSA-5-36",
+          "FDSA-5-37",
+          "FDSA-5-38",
+          "FDSA-5-39",
+          "FDSA-5-40",
+          "FDSA-5-41",
+          "FDSA-5-42",
+          "FDSA-5-43",
+          "FDSA-5-44",
+          "FDSA-5-45",
+          "FDSA-5-46",
+          "FDSA-5-47",
+          "FDSA-5-48",
+          "FDSA-5-49",
+          "FDSA-5-50",
+          "FDSA-5-51",
+          "FDSA-5-52",
+          "FDSA-5-53",
+          "FDSA-5-54",
+          "FDSA-5-55",
+          "FDSA-5-56",
+          "FDSA-5-57",
+          "FDSA-5-58",
+          "FDSA-5-59",
+          "FDSA-5-60",
+          "FDSA-5-61",
+          "FDSA-5-62",
+          "FDSA-5-63",
+          "FDSA-5-64",
+          "FDSA-5-65",
+          "FDSA-5-66",
+          "FDSA-5-67",
+          "FDSA-5-68",
+          "FDSA-5-69",
+          "FDSA-5-70",
+          "FDSA-5-71",
+          "FDSA-5-72",
+          "FDSA-5-73",
+          "FDSA-5-74",
+          "FDSA-5-75",
+          "FDSA-5-76",
+          "FDSA-5-77",
+          "FDSA-5-78",
+          "FDSA-5-79",
+          "FDSA-5-80",
+          "FDSA-5-81",
+          "FDSA-5-82",
+          "FDSA-5-83",
+          "FDSA-5-84",
+          "FDSA-5-86",
+          "FDSA-5-87",
+          "FDSA-5-88",
+          "FDSA-5-89"
         ],
         "remaining_rows": [
-          "C05-090",
-          "C05-092",
-          "C05-093"
+          "FDSA-5-92",
+          "FDSA-5-93"
         ],
         "chapter_source_qualified": false,
         "correspondence_owner": "docs/research/fdsa-rotation-distance.md",
@@ -1446,9 +1515,13 @@
         },
         "primary_boundary": "Canonical091 minimum bound and094 explicit tariff/sample; prior visual reading attributed to its actual delegate.092093 remain open.",
         "receiving_increment_rows": [
-          "C05-085"
+          "FDSA-5-85"
         ],
-        "receiving_correspondence_owner": "docs/research/fdsa-balanced-interval-tree.md"
+        "receiving_correspondence_owner": "docs/research/fdsa-balanced-interval-tree.md",
+        "historical_author_current_increment_rows": [
+          "FDSA-5-91",
+          "FDSA-5-94"
+        ]
       },
       "qualification_review": {
         "phase": "CONTENT",
@@ -1485,54 +1558,103 @@
         "boundary": "Reviewed source only; FINAL artifact approval and receiving acceptance remain separate gates."
       },
       "remaining_scope": [
-        "C05-090",
-        "C05-092",
-        "C05-093"
+        "FDSA-5-92",
+        "FDSA-5-93"
       ],
-      "next_implementation_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+      "next_implementation_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
       "next_rows": [
-        "C05-090",
-        "C05-092",
-        "C05-093"
+        "FDSA-5-92",
+        "FDSA-5-93"
       ],
-      "boundary": "The qualified Chapter 5 union is 91/94, exactly 001–089,091,094. Historical qualification_review retains CTB-114 rows091/094; receiving_qualification records C05-085. C05-090 has accepted bounded components but remains incomplete; rows092/093, later FDSA chapters/appendices and remaining PFDS obligations stay open. Declared source observations imply no machine-runtime, allocation, bit-complexity or whole-book result.",
+      "boundary": "Receiving #660 qualifies FDSA-5-90 and FDSA-9-39/40/41/60. Chapter 5 is 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 is 61/110 with FDSA-9-62 through FDSA-9-110 open. Source-event costs imply no allocation, physical-sharing, bit-cost or machine-runtime result. No whole-book completion or fresh restart-artifact delivery is asserted.",
       "current_work": {
-        "row": "C05-090",
-        "status": "Frozen cfa205a4 measured generation, scan, strict balanced prefix node counts and connected examples have receiving source acceptance under GitHub issue #659. The complete canonical C05-090 complexity row remains open.",
-        "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
-        "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+        "row": "FDSA-5-93",
+        "status": "Receiving #660 accepts the concrete finite-alphabet codes, accumulator emitters, linear bit/path/move prefix parsers and structural execution foundations. The full FDSA-5-93 verifier, polynomial-checkability result and machine bridge remain open.",
+        "correspondence": "docs/research/fdsa-rotation-certificate-preparation.md",
         "source_qualified": false,
-        "components": [
-          "Actual early-return measured scan and primitive-value erasure",
-          "Noncommutative additive observations and reweighting",
-          "Executed operation counts, exact constant tariffs and primitive-cost envelope",
-          "Finite active complete-key cardinality and lawful prefix-state transports",
-          "Shared measured occurrence indexing, event maps and append with exact input-dependent and constant tariffs",
-          "Actual once-bound generation-sort-scan composition and value/cost stage laws",
-          "Strict complete-key node/cardinality correspondence and concrete balanced prefix bounds"
+        "owners": [
+          "Applications/Resources/BinaryCounter/FixedWidth.lean",
+          "Applications/Resources/RotationCertificate/Execution.lean",
+          "Examples/MeasuredRotationCertificate.lean",
+          "Applications/Resources/RotationCertificate/Encoding.lean",
+          "Applications/Resources/RotationCertificate/LinearParser.lean",
+          "Examples/RotationCertificateCodecs.lean"
         ],
+        "components": [
+          "Actual fixed-width binary predecessor: failure iff zero, success iff positive, unchanged width and exact decrement, raw bound 3*b+2, zero-word cost 2*b+2, first-true borrow cost 3*(r+1).",
+          "Actual label-polymorphic partial root and positioned rotations: existing semantic erasure, callback result consumption, empty-position behavior at nil, missing-node short circuit, actual successful depth p+2<=n, success work 3*p+5 and raw work <=3*n+3.",
+          "Actual left-first Unit-shape equality: decision erasure, arbitrary skipped-right short circuit, work <=3*source_nodes+2 and exact self-comparison cost.",
+          "Connected finite examples: fixed-width versus canonical decrement; actual callback reconstruction; stale reached position; normalization route of length three versus attained minimum one.",
+          "Concrete Fin16 tree/bit/path/move/certificate/input codes with exact lengths; actual accumulator emitters with arbitrary suffix correctness and exact cost, including certificate cost 2W+1 and input cost+1=2M.",
+          "Actual bit/path/move prefix parsers: all-raw iff recognition, exact untouched suffix, successful cost, uniform raw-input bounds, consumed lengths, strict move suffix, prefix injectivity and actual emitter roundtrips.",
+          "Connected codec/parser cases: literal encodings and emissions, both branches/directions, missing and foreign delimiters, arbitrary untouched tails, every reserved tag11–15, high/all-zero width preservation and syntax versus actual rotation legality."
+        ],
+        "tariff": "Primitive entry/dispatch and each new cons, tree node or returned Option/Bool literal cost one; control packaging, projections, aliases, reuse and measurement arithmetic are free. This is structural work, not a machine-time or bit-complexity result.",
         "remaining_full_row": [
-          "Complete declared sorting tariff",
-          "Actual balanced-update and overlap-query cost recurrences",
-          "Admitted support invariants and logarithmic-cost composition",
-          "Whole-pipeline asymptotic proof and small-input cases"
+          "Implement the actual stack tree parser and complete input parser with exact prefix/suffix correctness, malformed/trailing-input behavior and raw-input work bounds.",
+          "Implement the actual streaming verifier using binary fuel, current reached tree and actual parser results; prove malformed-input and failure behavior.",
+          "Prove semantic soundness/completeness, attained-minimum witness length and polynomial certificate-size and verifier-work bounds.",
+          "Supply and qualify the source-required computational-model/NP correspondence; no assumed polynomial-time oracle field discharges it."
         ],
         "remaining_rows": [
-          "C05-090",
-          "C05-092",
-          "C05-093"
-        ]
+          "FDSA-5-92",
+          "FDSA-5-93"
+        ],
+        "boundary": "Accepted foundations do not complete FDSA-5-93. FDSA-5-85 retains #659 qualification, and FDSA-5-90 is qualified under #660. FDSA-5-92 and all remaining canonical obligations remain open.",
+        "historical_author_source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+        "receiving_acceptance": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance"
       },
       "receiving_qualification": {
         "qualified_rows": [
-          "C05-085"
+          "FDSA-5-85",
+          "FDSA-5-90"
         ],
         "chapter_source_qualified": false,
-        "evidence": "#/integration_handoff/current_increment_handoff/receiving_acceptance"
-      }
+        "evidence": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance",
+        "prior_085_evidence": "#/integration_handoff/current_increment_handoff/receiving_acceptance"
+      },
+      "retained_work": {
+        "C05-090": {
+          "row": "FDSA-5-90",
+          "status": "Qualified under receiving #660: actual measured generation/sorting/balanced updates/query, closed admitted support, all-input source-work envelope and ordinary real O(n log n).",
+          "correspondence": "docs/research/fdsa-measured-rectangle-scan.md",
+          "source_qualified": true,
+          "components": [
+            "Actual early-return measured scan and primitive-value erasure",
+            "Noncommutative additive observations and reweighting",
+            "Executed operation counts, exact constant tariffs and primitive-cost envelope",
+            "Finite active complete-key cardinality and lawful prefix-state transports",
+            "Shared measured occurrence indexing, event maps and append with exact input-dependent and constant tariffs",
+            "Actual once-bound generation-sort-scan composition and value/cost stage laws",
+            "Strict complete-key node/cardinality correspondence and concrete balanced prefix bounds",
+            "Actual measured-comparator merge with exact constant and bounded input-dependent work",
+            "Complete declared source-sort tariff, unconditional erasure/permutation and size/logarithmic bounds",
+            "Reached lexicographic event comparisons, actual event sorting and the generated-schedule cost envelope",
+            "Connected exact sorting and actual generation-sort-scan cases, including arbitrary comparators and tie instability",
+            "Actual complete-annotation measured balL/balR repairs, insertion, rightmost extraction and predecessor deletion; raw callback-value erasures and global callback-sensitive input-height cost bounds",
+            "Connected product/ordinary/word update clients, all rotations and ties, malformed/equal/absent behavior, actual-callback controls and unchanged-height complete-summary changes; maintained derivation in docs/research/fdsa-height-updates.md",
+            "Actual measured interval projection, short-circuit overlap, stored-maximum reader and one-original-child query; raw erasure, weak semantic adapters and callback-sensitive structural-height bound",
+            "Reached complete-key field comparator with actual2–6 cost, explicit four-event annotation and concrete balanced update/query bounds43h+8,31h+1,43h+1,5h+1",
+            "Concrete once-generated/sorted balanced sweep, functional geometry and exact stage law; all nine fixed small-input/early-return/exhaustion/post-deletion totals and independent coordinate universes",
+            "Closed finite occurrence support for every admitted valid state, insertion with allowed key and arbitrary-key deletion preservation; strict node count and structural height composition",
+            "Generic shape-balanced integer logarithmic update/query costs and ordinary real O(log2(n+1)) via the shared affine-clog bridge",
+            "Actual complete sweep all-input bound 24*n*clog2(2*n)+182*n*clog2(n+1)+40*n+8; eventual456*n*clog2 n and ordinary real O(n*log2 n), preserving positive small-input work",
+            "Connected empty/duplicate/malformed-cache/wrong-callback/tolerance/admitted-state/family examples; exact full envelopes8,254,912,1436 for sizes0,1,2,3"
+          ],
+          "remaining_full_row": [],
+          "remaining_rows": [
+            "FDSA-5-92",
+            "FDSA-5-93"
+          ],
+          "receiving_acceptance": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance",
+          "historical_author_source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff"
+        }
+      },
+      "historical_author_candidate": "5e4600fa78d103f2e124d111909bf4ca70934dc2",
+      "historical_author_candidate_tree": "9d70d8041b7ccd806b7b95409c3553e445bd5325"
     },
     "CTB-28": {
-      "state": "Bounded fixed-tolerance logarithmic height qualified; full AVL chapter remains open",
+      "state": "Ordinary measured AVL operation rows and prior height/set rows qualified; Chapter 9 remains open at 61/110.",
       "bounded_ticket": "CTB-122",
       "prior_bounded_tickets": [
         "CTB-115",
@@ -1543,87 +1665,118 @@
         "CTB-121"
       ],
       "qualified_rows": [
-        "C09-001",
-        "C09-002",
-        "C09-003",
-        "C09-004",
-        "C09-005",
-        "C09-006",
-        "C09-007",
-        "C09-008",
-        "C09-009",
-        "C09-010",
-        "C09-011",
-        "C09-012",
-        "C09-013",
-        "C09-014",
-        "C09-015",
-        "C09-016",
-        "C09-017",
-        "C09-018",
-        "C09-019",
-        "C09-020",
-        "C09-021",
-        "C09-022",
-        "C09-023",
-        "C09-024",
-        "C09-025",
-        "C09-026",
-        "C09-027",
-        "C09-028",
-        "C09-029",
-        "C09-030",
-        "C09-031",
-        "C09-032",
-        "C09-033",
-        "C09-034",
-        "C09-035",
-        "C09-036",
-        "C09-037",
-        "C09-038",
-        "C09-042",
-        "C09-043",
-        "C09-044",
-        "C09-045",
-        "C09-046",
-        "C09-047",
-        "C09-048",
-        "C09-049",
-        "C09-050",
-        "C09-051",
-        "C09-052",
-        "C09-053",
-        "C09-054",
-        "C09-055",
-        "C09-056",
-        "C09-057",
-        "C09-058",
-        "C09-059",
-        "C09-061"
+        "FDSA-9-1",
+        "FDSA-9-2",
+        "FDSA-9-3",
+        "FDSA-9-4",
+        "FDSA-9-5",
+        "FDSA-9-6",
+        "FDSA-9-7",
+        "FDSA-9-8",
+        "FDSA-9-9",
+        "FDSA-9-10",
+        "FDSA-9-11",
+        "FDSA-9-12",
+        "FDSA-9-13",
+        "FDSA-9-14",
+        "FDSA-9-15",
+        "FDSA-9-16",
+        "FDSA-9-17",
+        "FDSA-9-18",
+        "FDSA-9-19",
+        "FDSA-9-20",
+        "FDSA-9-21",
+        "FDSA-9-22",
+        "FDSA-9-23",
+        "FDSA-9-24",
+        "FDSA-9-25",
+        "FDSA-9-26",
+        "FDSA-9-27",
+        "FDSA-9-28",
+        "FDSA-9-29",
+        "FDSA-9-30",
+        "FDSA-9-31",
+        "FDSA-9-32",
+        "FDSA-9-33",
+        "FDSA-9-34",
+        "FDSA-9-35",
+        "FDSA-9-36",
+        "FDSA-9-37",
+        "FDSA-9-38",
+        "FDSA-9-39",
+        "FDSA-9-40",
+        "FDSA-9-41",
+        "FDSA-9-42",
+        "FDSA-9-43",
+        "FDSA-9-44",
+        "FDSA-9-45",
+        "FDSA-9-46",
+        "FDSA-9-47",
+        "FDSA-9-48",
+        "FDSA-9-49",
+        "FDSA-9-50",
+        "FDSA-9-51",
+        "FDSA-9-52",
+        "FDSA-9-53",
+        "FDSA-9-54",
+        "FDSA-9-55",
+        "FDSA-9-56",
+        "FDSA-9-57",
+        "FDSA-9-58",
+        "FDSA-9-59",
+        "FDSA-9-60",
+        "FDSA-9-61"
       ],
-      "qualified_count": 57,
+      "qualified_count": 61,
       "total": 110,
-      "remaining_count": 53,
+      "remaining_count": 49,
       "chapter_source_qualified": false,
-      "receiving_acceptance": "pending"
+      "receiving_acceptance": {
+        "status": "accepted",
+        "evidence": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance"
+      },
+      "current_work": {
+        "rows": [
+          "FDSA-9-39",
+          "FDSA-9-40",
+          "FDSA-9-41",
+          "FDSA-9-60"
+        ],
+        "status": "Qualified under receiving #660: complete cached membership, ordinary d=1 measured AVL correspondence, exact recurrences, structural/logarithmic work, golden-ratio composition and strict set-cardinality transport.",
+        "correspondence": "docs/research/fdsa-avl-continuation.md#cached-membership-and-ordinary-measured-correspondence",
+        "owners": [
+          "Applications/Resources/HeightBalance/Membership.lean",
+          "Applications/Resources/AVL.lean",
+          "Applications/Resources/AVL/Logarithmic.lean",
+          "Applications/Trees/SetCardinality.lean",
+          "Examples/MeasuredAVL.lean"
+        ],
+        "components": [
+          "One actual measured lookup on the annotated tree, scalar visit/comparator/terminal tariff, same-cost Boolean membership, exact source-order recurrences and raw/local correctness interfaces",
+          "Local/global callback-sensitive structural and integer-logarithmic membership bounds with independent annotation universe and exact-size real-log families",
+          "Thin ordinary d=1 public reader/node/repair/update/search specialization, exact tariff/recurrence correspondence, returned-value erasures and existing invariant/height/set transport",
+          "Ordinary structural and integer-log work, exact golden-ratio FDSA-9-15 composition, strict node/set-cardinality substitution and ordinary real logarithmic families",
+          "Shared generic Nodup inorder cardinality theorem reused in the existing concrete sweep bridge; existing ordinary examples consume the public callback owner"
+        ],
+        "remaining_qualification": [],
+        "later_canonical_rows": "FDSA-9-62 through FDSA-9-110 remain under their original complete requirements; no later factor/construction/conversion result is implied.",
+        "source_qualified": true,
+        "receiving_acceptance": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance"
+      }
     }
   },
   "active_ticket": "CTB-24",
   "next_ticket": "CTB-24",
   "next_id": 123,
   "user_tracking_exception": "The user explicitly requires the persistent CTB continuation to be integrated into conaled. This continues the existing namespace and does not authorize GitHub writes. Bare #N remains the repository GitHub issue/PR namespace.",
-  "source_correspondence": "docs/research/vfa-coverage.md",
-  "authorized_scope": "Continue formalizing all chapters and appendices of all three tracked books, preserving the canonical complete source/exercise ledgers. Securing a bounded checkpoint does not complete or terminate that ongoing task.",
+  "source_correspondence": "docs/textbooks/coverage.json",
+  "authorized_scope": "Continue all chapters and appendices of the existing CTB programme: VFA, FDSA and PFDS, including the complete PFDS book/thesis union. Preserve their canonical source/exercise ledgers. The repository also covers ADWH under its separate #149 programme; a bounded checkpoint completes neither programme.",
   "integration_handoff": {
-    "prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-    "current_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
     "approved_content_candidate": "fa8d5f89290d43da8a69049e9fc014b174ca2c95",
-    "candidate_tree": "173003db476a73783a873897bb754ca941d2f9c8",
-    "current_guidance_reference": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "receiving_agent": "conaled integration agent",
     "quality_review": "Passed: independent Standards and Spec for exact R2; see acceptance_evidence",
     "whole_library_acceptance": "Passed: actual clean R2 CI and final nonrepairing verification; see acceptance_evidence",
-    "chapter_progress": "CTB-122 qualifies only C09-061: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS obligations remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+    "chapter_progress": "Receiving #660 qualifies FDSA-5-90 and FDSA-9-39/40/41/60. Chapter 5 is 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 is 61/110 with FDSA-9-62 through FDSA-9-110 open. Source-event costs imply no allocation, physical-sharing, bit-cost or machine-runtime result. No whole-book completion or fresh restart-artifact delivery is asserted.",
     "review_focus": [
       "Preserve the complete donor/upstream mathematical union, public imports, all prior requirements and CTB identities.",
       "Inventory missed reuse and interface changes against the actual pinned master; rework affected clients while preserving original assumptions and stronger specialized results.",
@@ -1631,23 +1784,16 @@
       "Complete receiving whole-library compilation/audit, applicable runtime/extraction checks and both independent review axes on the actual integrated candidate.",
       "Before retiring provenance, preserve useful unfinished mathematics/case crosswalks and repair current CTB/research/index references; keep remaining book requirements open."
     ],
-    "current_candidate_role": "accepted and published receiving source; actual executions and independent review identify R2",
-    "donor_source_commit": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
-    "donor_source_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
-    "receiving_master_commit": "8ff71395e9841760c4e240c4e8b8741b355bda68",
-    "receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
-    "master_observed_date": "2026-11-20",
-    "guidance_boundary": "Current docs/textbooks/README.md#required-order records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
-    "current_stage": "R2 receiving source accepted and published; checkpoint074 retention/save complete. Frozen cfa205a4 now has separate receiving source acceptance under GitHub issue #659; C05-085 is qualified and C05-090 remains partial. Further authoring proceeds separately.",
-    "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
-    "work_sequence": "docs/textbooks/README.md#required-order",
+    "guidance_boundary": "Current docs/textbooks/README.md#receiving-state records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
+    "current_stage": "Cumulative084 receiving source accepted under #660; prior R2/#659 acceptance and checkpoint074 retention/save remain complete. Fresh restart-seed creation and delivery follow publication.",
+    "work_sequence": "docs/textbooks/README.md#receiving-state",
     "unprocessed_inbox": "docs/textbooks/inbox/README.md",
     "next_formalization_ticket": "CTB-24",
-    "next_formalization_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+    "next_formalization_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
     "donor_content_approval_boundary": "approved_content_candidate records the accepted072 donor CONTENT candidate only, not current receiving integration approval.",
     "historical_receiving_boundary": "Indexed receiving070/072 interruption handoffs remain dated evidence. Historical UNKNOWN processes remain UNKNOWN; no current result is inferred.",
-    "retention_transition": "Completed in checkpoint074: useful mathematics, case crosswalks and remaining obligations resolve through ordinary repository owners. Its observed closure is recorded in checkpoint074_closure; pending075 remains separate.",
-    "retention_policy": "docs/textbooks/README.md#retention-and-inbox",
+    "retention_transition": "Checkpoint074 completed its original retention transition. Received084 useful source and paper mathematics now have maintained repository owners; prepare the fresh restart seed after publication, without embedded old carriers or recursive review history.",
+    "retention_policy": "docs/textbooks/README.md#retention-and-recovery",
     "integration_rework": [
       {
         "owner": "Applications/Search/OrderedTree/Observations.lean",
@@ -1734,12 +1880,12 @@
       "evidence": "Supplied checkpoint074 CURRENT.json and checkpoint075 recovery previous-secured-closure.json, corroborated by the author handoff dated 2026-11-20 14:16:07 UTC. The receiving inventory matched the actual archive size and SHA-256.",
       "reported_outcomes": "Both artifact review axes, fresh restoration, immediate comparison and durable save passed in the author closure. This is recovery of those recorded outcomes, not a new mathematical acceptance."
     },
-    "current_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+    "current_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
     "current_increment_handoff": {
       "ticket": "CTB-24",
       "rows": [
-        "C05-085",
-        "C05-090"
+        "FDSA-5-85",
+        "FDSA-5-90"
       ],
       "prerequisite": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
       "status": "Exact frozen source received with current master metadata; whole-library validation, final nonrepairing verification and both independent reviews passed.",
@@ -1765,7 +1911,7 @@
           "SPEC075-2"
         ],
         "evidence_owner": "https://github.com/VladimirMarko/conaled/issues/659",
-        "boundary": "Receiving source acceptance qualifies C05-085 only. C05-090 remains partial. The old author run remains UNKNOWN; later author work and producer checkpoint qualification remain separate.",
+        "boundary": "Receiving source acceptance qualifies FDSA-5-85 only. FDSA-5-90 remains partial. The old author run remains UNKNOWN; later author work and producer checkpoint qualification remain separate.",
         "verification_sha256": "4d7a61d240bd145c35a6325da0cc90d0d5394f8f228dea3d06562183882d7e40",
         "standards_report_sha256": "ec5d5d14bbb87fb07e0b9cc4f9d1124c6d795ce2ca61acec4caa02e0433f891c",
         "spec_report_sha256": "fd069aab5540fa621b82300ca9e35e4a23070b5b6d80b7fe32be2b4bc56aac00",
@@ -1783,24 +1929,90 @@
         "SPEC075-1"
       ],
       "qualified_rows": [
-        "C05-085"
+        "FDSA-5-85"
       ],
       "remaining_rows": [
-        "C05-090",
-        "C05-092",
-        "C05-093"
+        "FDSA-5-90",
+        "FDSA-5-92",
+        "FDSA-5-93"
       ],
       "preparation_disposition": "The balanced preparation was checked against its accepted successor paper, checked examples and existing measured-work owners; useful content is preserved and the processed preparation/inbox entry retired."
-    }
+    },
+    "progress084": {
+      "issue": 660,
+      "source_candidate": "883cb842a8520a0ea4ab5859f1083007ae3d3f09",
+      "source_tree": "ad0a309751b57b4ad4e83700f6de0ff358ee7da9",
+      "source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
+      "archive_sha256": "20f8a8c4897653fea5b975ee76a5ec40cdc97f8657a7dfe9dab73f3d515dcd79",
+      "receiving_base": "0971e788039fc8b47a8cc4a31b0dfdbaa6c7327f",
+      "status": "Accepted receiving source under #660; final reviewed source and publication evidence are recorded on that issue. Prior #659 acceptance remains authoritative for FDSA-5-85.",
+      "resolved_donor_navigation_findings": [
+        "STD081-001",
+        "SPEC075-2"
+      ],
+      "partial_rows": [
+        "FDSA-5-92",
+        "FDSA-5-93"
+      ],
+      "qualified_rows": [
+        "FDSA-5-90",
+        "FDSA-9-39",
+        "FDSA-9-40",
+        "FDSA-9-41",
+        "FDSA-9-60"
+      ],
+      "historical_donor_findings": [
+        "STD075-001",
+        "SPEC075-1"
+      ],
+      "finding_disposition": "STD075-001 and SPEC075-1 are discharged for the accepted receiving scope by exact-candidate whole validation, exhaustive audit, final verification and independent review; historical author UNKNOWN outcomes are unchanged.",
+      "receiving_acceptance": {
+        "status": "accepted",
+        "issue": 660,
+        "evidence_owner": "https://github.com/VladimirMarko/conaled/issues/660",
+        "qualified_rows": [
+          "FDSA-5-90",
+          "FDSA-9-39",
+          "FDSA-9-40",
+          "FDSA-9-41",
+          "FDSA-9-60"
+        ],
+        "whole_book_qualification": false,
+        "whole_library": {
+          "checked_candidate": "b6887a53b8f4403eee91822b9fa454d3efc1478a",
+          "mode": "incremental",
+          "completed_at": "2026-11-21T04:28:26.754885+00:00",
+          "checked_modules": 3956,
+          "exhaustive_axiom_audit": "Passed; propext, Classical.choice, Quot.sound only",
+          "verification_receipt_sha256": "01202ee5c6e7a386a3626ea9848af538251233dbff64865bf5a56b4e3f37882d",
+          "nonrepairing_verification": "Passed for the checked candidate"
+        },
+        "runtime": "Earlier R2 native/extraction results reused only after unchanged effective-input comparison; current source acceptance is separate.",
+        "final_acceptance_record": "https://github.com/VladimirMarko/conaled/issues/660",
+        "boundary": "The recorded R1 execution identifies its actual checked source. Final review, matching final-candidate verification and publication are recorded on #660; they do not claim a new producer checkpoint or restart-seed delivery."
+      }
+    },
+    "historical_r2_prerequisite": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
+    "historical_r2_current_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+    "historical_r2_candidate_tree": "173003db476a73783a873897bb754ca941d2f9c8",
+    "historical_r2_current_guidance_reference": "8ff71395e9841760c4e240c4e8b8741b355bda68",
+    "historical_r2_current_candidate_role": "accepted and published receiving source; actual executions and independent review identify R2",
+    "historical_r2_chapter_progress": "CTB-122 qualifies only FDSA-9-61: fixed-natural-tolerance actual-height ceiling power and logarithmic bounds, complete-annotation cached transports, actual update/history/prefix clients and exact positive-integer conversion. Chapter9 is57/110 with53remaining; Chapter5 remains90/94 with085/090/092/093 open. Operation costs039-041/060, construction062 onward, balance-factor Set090, remaining FDSA/PFDS obligations remain open. No whole-book, new Extract, measured cost, allocation, bit-cost or physical-sharing result follows.",
+    "historical_r2_integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
+    "historical_r2_donor_source_commit": "1f6ee5dd25ba633deb807b8d2240bec5e5cf96af",
+    "historical_r2_donor_source_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
+    "historical_r2_receiving_master_commit": "8ff71395e9841760c4e240c4e8b8741b355bda68",
+    "historical_r2_receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
+    "historical_r2_master_observed_date": "2026-11-20"
   },
-  "next_ticket_gate": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+  "next_ticket_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
   "current_user_override": {
-    "date": "2026-11-20",
-    "sequence": "Continue authorized textbook authoring and regular checkpoints under existing CTB owners. The frozen cfa205a4 slice has receiving source acceptance under GitHub issue #659; keep newer unreceived work distinct, pin the accepted published prerequisite, retain Astra and the author master hold, and apply all qualification gates to later increments.",
+    "date": "2026-11-21",
+    "sequence": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
     "max_payload_bytes": 134217728,
     "retention": "Completed mathematics belongs in repository source/research; requirements and state in CTB; guidance in operational owners. Empty processed inbox items after verified disposition. Retire obsolete provenance after receiving validation; do not perpetuate every historical receipt or wrap prior archives.",
     "historical_instruction_boundary": "CTB-119 and other dated requirements remain literal history. Their former Page-only, blanket-retention and 32 MiB process requirements do not govern current work.",
-    "instructions": "docs/textbooks/README.md#required-order",
+    "instructions": "docs/textbooks/README.md#receiving-state",
     "ongoing_authorization": "Keep working until all the books are formalized and integrated and keep creating and uploading checkpoints. The user will relay requests from the conaled integration agent."
   },
   "historical_catalogs": {
@@ -1815,7 +2027,7 @@
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
     }
   },
-  "state_boundary": "Per-ticket historical qualification reviews and source scopes retain their dated donor result. Current R2 acceptance and completed checkpoint074 retention remain in integration_handoff and CTB-78. The separately accepted cfa205a4 receiving slice qualifies C05-085, taking Chapter5 to91/94; C05-090 remains partial and Chapter9 remains57/110. Frozen complete requirements retain original wording; current_user_override resolves dated process conflicts. Later authoring and producer checkpoint qualification proceed separately.",
+  "state_boundary": "Historical qualification reviews retain their original literal claims, dates and candidates. Current receiving evidence is in integration_handoff/progress084; prior R2 and #659 evidence retains its original scope. Receiving #660 qualifies FDSA-5-90 and FDSA-9-39/40/41/60. Chapter 5 is 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 is 61/110 with FDSA-9-62 through FDSA-9-110 open. Source-event costs imply no allocation, physical-sharing, bit-cost or machine-runtime result. No whole-book completion or fresh restart-artifact delivery is asserted.",
   "new_tickets": [
     {
       "id": "CTB-79",

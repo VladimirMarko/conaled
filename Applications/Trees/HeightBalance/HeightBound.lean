@@ -77,6 +77,22 @@ theorem two_pow_ceil_height_le_numLeaves
       rw [quotient, Nat.mul_succ, Nat.mul_comm (d + 1) k] at decomposition
       omega
 
+/-- Integer logarithmic height for every natural tolerance, including zero.
+Only actual shape balance is used; the payload has no additional assumptions. -/
+theorem height_le_mul_clog_numLeaves
+    (d : Nat) (t : BinaryTree α) (h : BalancedD d t) :
+    t.height ≤ (d + 1) * Nat.clog 2 t.numLeaves := by
+  have exponent : (t.height + d) / (d + 1) ≤ Nat.clog 2 t.numLeaves :=
+    (Nat.le_log_of_pow_le (by decide : 1 < 2)
+      (two_pow_ceil_height_le_numLeaves d t h)).trans (Nat.log_le_clog 2 t.numLeaves)
+  exact (height_le_mul_ceil t.height d).trans (Nat.mul_le_mul_left (d + 1) exponent)
+
+theorem height_le_mul_clog_numNodes_add_one
+    (d : Nat) (t : BinaryTree α) (h : BalancedD d t) :
+    t.height ≤ (d + 1) * Nat.clog 2 (t.numNodes + 1) := by
+  simpa only [BinaryTree.numLeaves_eq_numNodes_succ] using
+    height_le_mul_clog_numLeaves d t h
+
 /-- Actual height is logarithmic in external leaves for each fixed natural tolerance. -/
 theorem height_le_mul_logb_numLeaves
     (d : Nat) (t : BinaryTree α) (h : BalancedD d t) :

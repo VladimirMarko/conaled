@@ -1,6 +1,6 @@
 # Interval-set laws, overlap search and independent point search
 
-This contribution addresses C05-079–084: the complete interval-set contract,
+This contribution addresses FDSA-5-79 to FDSA-5-84: the complete interval-set contract,
 the literal guarded overlap recursion, its two pruning arguments and full
 correctness, and the separately recursive point program of Exercise 5.8. It
 builds on the interval geometry, cache foundations and updates described in
@@ -25,12 +25,12 @@ SHA-256 `f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad`.
 
 | Canonical row | Source correspondence | Lean owners and public results |
 | --- | --- | --- |
-| C05-079 | Combined cache/strict-inorder invariant and the full interval-set interpretation. The four displayed update corollaries are only part of this contract. | `IntervalTree.Valid`, `deleteOps`, `inorderRefinement_of_singleton`, `setLaws_of_singleton`, their canonical specializations, `IntervalSet.Laws`, `IntervalTree.intervalSetLaws` and shared mixed-history APIs. |
-| C05-080 | Empty false; root overlap true; otherwise choose exactly one child, retaining the nonempty-left guard. | `IntervalTree.search`, `search_nil`, the four node branch equations and `search_sound`. |
-| C05-081 | A selected nonempty left subtree with no overlap excludes the right through an attained left maximum and ordered lows. | `high_lt_low_of_left_no_overlap` and `not_overlap_right_of_left`, using the existing `maxHi_attained`. |
-| C05-082 | Empty left, or a failed maximum threshold, excludes overlap in the left subtree. | `not_overlap_nil` and `not_overlap_of_maxHi_lt`, using the existing `high_le_maxHi`. |
-| C05-083 | Theorem 5.3, with boundary contact, singleton intervals and overlapping stored intervals. | `search_complete`, `search_correct`, `search_correct_of_strict` and `search_correct_book`. |
-| C05-084 | Exercise 5.8's own point-containment recursion and semantic theorem. | `containsPoint`, `searchPoint`, `searchPoint_eq_search`, `searchPoint_correct` and its strict/book specializations. |
+| FDSA-5-79 | Combined cache/strict-inorder invariant and the full interval-set interpretation. The four displayed update corollaries are only part of this contract. | `IntervalTree.Valid`, `deleteOps`, `inorderRefinement_of_singleton`, `setLaws_of_singleton`, their canonical specializations, `IntervalSet.Laws`, `IntervalTree.intervalSetLaws` and shared mixed-history APIs. |
+| FDSA-5-80 | Empty false; root overlap true; otherwise choose exactly one child, retaining the nonempty-left guard. | `IntervalTree.search`, `search_nil`, the four node branch equations and `search_sound`. |
+| FDSA-5-81 | A selected nonempty left subtree with no overlap excludes the right through an attained left maximum and ordered lows. | `high_lt_low_of_left_no_overlap` and `not_overlap_right_of_left`, using the existing `maxHi_attained`. |
+| FDSA-5-82 | Empty left, or a failed maximum threshold, excludes overlap in the left subtree. | `not_overlap_nil` and `not_overlap_of_maxHi_lt`, using the existing `high_le_maxHi`. |
+| FDSA-5-83 | Theorem 5.3, with boundary contact, singleton intervals and overlapping stored intervals. | `search_complete`, `search_correct`, `search_correct_of_strict` and `search_correct_book`. |
+| FDSA-5-84 | Exercise 5.8's own point-containment recursion and semantic theorem. | `containsPoint`, `searchPoint`, `searchPoint_eq_search`, `searchPoint_correct` and its strict/book specializations. |
 
 The Lean implementation and proof organization are original. They reuse the
 repository's actual tree/list/set refinements and maximum-cache results, rather
@@ -321,8 +321,8 @@ whole-library build/exhaustive audit. The receiving integration must retain the
 carried shared owners and both aggregate import families, not transfer only
 these new leaf modules.
 
-C05-085–090 still concern balanced augmentation, the sweep-line application and
-their cost claims; C05-091–094 concern distance. This contribution makes no
+FDSA-5-85 to FDSA-5-90 still concern balanced augmentation, the sweep-line application and
+their cost claims; FDSA-5-91 to FDSA-5-94 concern distance. This contribution makes no
 balance, asymptotic, allocation, physical-sharing, runtime benchmark or
 all-books completion claim. The remaining canonical rows and later chapters
 retain their existing owners.

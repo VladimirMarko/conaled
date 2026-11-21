@@ -1182,5 +1182,30 @@ import Applications.Search.RectangleSweep.MeasuredEvents
 import Examples.BalancedIntervalTrees
 import Examples.MeasuredRectangleSweep
 import Examples.MeasuredRectangleEvents
+import Applications.Resources.ListMergeWork
+import Applications.Resources.SourceMergeSortWork
+import Examples.SourceMergeSortWork
+import Applications.Resources.HeightBalance.Rebalance
+import Applications.Resources.HeightBalance.Updates
+import Examples.MeasuredHeightUpdates
+import Applications.Resources.IntervalTree
+import Applications.Search.RectangleSweep.MeasuredBalanced
+import Examples.MeasuredIntervalQueries
+import Examples.MeasuredBalancedRectangleSweep
+import Applications.Resources.HeightBalance.Logarithmic
+import Applications.Resources.IntervalTree.Logarithmic
+import Applications.Search.RectangleSweep.Complexity
+import Examples.MeasuredBalancedComplexity
+import Applications.Trees.SetCardinality
+import Applications.Resources.HeightBalance.Membership
+import Applications.Resources.AVL
+import Applications.Resources.AVL.Logarithmic
+import Examples.MeasuredAVL
+import Applications.Resources.BinaryCounter.FixedWidth
+import Applications.Resources.RotationCertificate.Execution
+import Examples.MeasuredRotationCertificate
+import Applications.Resources.RotationCertificate.Encoding
+import Applications.Resources.RotationCertificate.LinearParser
+import Examples.RotationCertificateCodecs
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

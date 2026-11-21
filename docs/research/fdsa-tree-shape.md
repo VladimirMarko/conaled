@@ -151,15 +151,15 @@ empty tree, without a floating-point approximation or a replacement logarithm.
 
 | Common source obligations | Draft connection |
 | --- | --- |
-| C04-009, C04-011 | `minHeight`, its constructor equations and `minHeight_le_height`; the existing `height_le_numNodes` already covers C04-010. |
-| C04-012–013 | `pow_minHeight_le_numLeaves`, `numLeaves_le_pow_height`. |
-| Recursive mathematical part of C04-031, C04-032 | `Complete`, `complete_node`, `complete_iff_minHeight_eq_height`; the executable checker remains open. |
-| C04-033–036 | Complete equalities, both strict incomplete bounds, and both equality characterizations. |
-| C04-037 and the supporting real strict/sandwich results | `height_eq_logb_numLeaves`, `minHeight_le_logb_numLeaves`, `logb_numLeaves_le_height` and strict variants. |
-| C04-042–045 | `AlmostComplete`, `almostComplete_iff_sub`, `height_optimal`, exact natural log/clog and real floor/ceiling formulas. |
-| C04-046 | The original `complete_almostComplete` and `almostComplete_children` are joined in CTB-72 by general `almostComplete_of_subtree`; `complete_of_subtree` supplies the corresponding completeness connection. |
-| Common mathematics later used by C11-014–018 | Almost-complete shape/logarithm/optimum results. The constructor arithmetic, Braun/weight-balance invariant bridges and array operations remain separate. |
-| Common shape bound used by C15-006 | Universal minimum-height power/log bounds. Existing leftist `rank_paths`, `rank_size` and `rank_log` remain intact; cache/representation and actual merge-cost bridges remain separate. |
+| FDSA-4-9, FDSA-4-11 | `minHeight`, its constructor equations and `minHeight_le_height`; the existing `height_le_numNodes` already covers FDSA-4-10. |
+| FDSA-4-12 to FDSA-4-13 | `pow_minHeight_le_numLeaves`, `numLeaves_le_pow_height`. |
+| Recursive mathematical part of FDSA-4-31, FDSA-4-32 | `Complete`, `complete_node`, `complete_iff_minHeight_eq_height`; the executable checker remains open. |
+| FDSA-4-33 to FDSA-4-36 | Complete equalities, both strict incomplete bounds, and both equality characterizations. |
+| FDSA-4-37 and the supporting real strict/sandwich results | `height_eq_logb_numLeaves`, `minHeight_le_logb_numLeaves`, `logb_numLeaves_le_height` and strict variants. |
+| FDSA-4-42 to FDSA-4-45 | `AlmostComplete`, `almostComplete_iff_sub`, `height_optimal`, exact natural log/clog and real floor/ceiling formulas. |
+| FDSA-4-46 | The original `complete_almostComplete` and `almostComplete_children` are joined in CTB-72 by general `almostComplete_of_subtree`; `complete_of_subtree` supplies the corresponding completeness connection. |
+| Common mathematics later used by FDSA-11-14 to FDSA-11-18 | Almost-complete shape/logarithm/optimum results. The constructor arithmetic, Braun/weight-balance invariant bridges and array operations remain separate. |
+| Common shape bound used by FDSA-15-6 | Universal minimum-height power/log bounds. Existing leftist `rank_paths`, `rank_size` and `rank_log` remain intact; cache/representation and actual merge-cost bridges remain separate. |
 
 The original rows describe the shared drafting stage; the general descendant
 connection is the later CTB-72 addition described above. This table does not

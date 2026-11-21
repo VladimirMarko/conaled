@@ -1,6 +1,6 @@
 # Interval geometry, membership and maximum-cache foundations
 
-This increment implements FDSA Chapter 5 obligations **C05-066–074**. It separates
+This increment implements FDSA Chapter 5 obligations **FDSA-5-66 to FDSA-5-74**. It separates
 complete-key membership, closed-interval geometry, independent overlap
 observations, raw cached values and recursively valid maximum caches. The
 unchanged [Chapter 5 obligation inventory](../history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md)
@@ -31,15 +31,15 @@ ordered-map and maximum-cache interfaces. Mathlib is pinned at
 
 | Canonical row | Local declarations | Connected examples |
 | --- | --- | --- |
-| C05-066: annotations do not select equality-membership branches | `OrderedMap.containsKey`, its empty/node equations, `containsKey_eq_member_erase`, `containsKey_congr_erase`, `containsKey_eq_true_iff_mem_inorder`, `containsKey_eq_true_iff_mem_setTree`, strict-inorder adapter | Higher-universe function annotations; numeric replacement annotations; equal-low keys and cache corruption; unordered lookup counterexample |
-| C05-067: valid interval endpoints and ascending lexicographic order | `IntervalKey`, `ofBounds`, `low`, `high`, `low_le_high`, `ext`, `endpoints_injective`, linear-order instance, `lt_iff`, `le_iff`, `low_le_of_le` | Containment versus key order; Mathlib's different interval Lex order; proof-independent endpoints; equal-low high tie breaker |
-| C05-068: closed overlap and common-point semantics | `IntervalKey.overlap`, `overlap_comm`, `overlap_self`, `toSet`, `overlap_iff_nonempty_inter` | Negative touching intervals; singleton intersection; a genuine gap; reversed endpoint countermodel |
-| C05-069: independent abstract overlap observation | `IntervalSet.hasOverlap`, empty/insert/singleton laws, monotonicity, `hasOverlap_image_iff` | Two directly specified intervals; an unrestricted predicate-defined set; noninjective complete-key images |
-| C05-070: literal augmented representation and root reader | `IntervalTree.maxHi`, `maxHi_nil`, `maxHi_node`, `combine`, `max3`, `max3_eq` | Empty/bottom singleton; each max3 contribution; negative finite endpoints above a true bottom; malformed raw readers |
-| C05-071: recursive exact cache equations | `IntervalTree.CacheValid`, `cacheValid_nil`, `cacheValid_node`, `cacheValid_iff_invarMx` | Valid ordered and unordered trees; separate upper-bound, attainment and root-only countermodels |
-| C05-072: every stored high is bounded | `IntervalTree.maxHi_spec`, `high_le_maxHi` | Maximum high on the least key; unordered valid tree; negative endpoints; both independent universe specializations |
-| C05-073: an actual stored key attains the reader | `IntervalTree.maxHi_spec`, `maxHi_attained` | Bottom singleton; greatest-high witness; nonunique tied witnesses; indexed noninjective projection; explicit failure under upper bounds alone |
-| C05-074: local smart construction and erasure/cache laws | `IntervalTree.node`, `node_eq`, `maxHi_node_smart`, `erase_node`, `node_cacheValid_iff`, `node_cacheValid` | Valid children; repaired malformed leaf; unchanged malformed children under smart reconstruction |
+| FDSA-5-66: annotations do not select equality-membership branches | `OrderedMap.containsKey`, its empty/node equations, `containsKey_eq_member_erase`, `containsKey_congr_erase`, `containsKey_eq_true_iff_mem_inorder`, `containsKey_eq_true_iff_mem_setTree`, strict-inorder adapter | Higher-universe function annotations; numeric replacement annotations; equal-low keys and cache corruption; unordered lookup counterexample |
+| FDSA-5-67: valid interval endpoints and ascending lexicographic order | `IntervalKey`, `ofBounds`, `low`, `high`, `low_le_high`, `ext`, `endpoints_injective`, linear-order instance, `lt_iff`, `le_iff`, `low_le_of_le` | Containment versus key order; Mathlib's different interval Lex order; proof-independent endpoints; equal-low high tie breaker |
+| FDSA-5-68: closed overlap and common-point semantics | `IntervalKey.overlap`, `overlap_comm`, `overlap_self`, `toSet`, `overlap_iff_nonempty_inter` | Negative touching intervals; singleton intersection; a genuine gap; reversed endpoint countermodel |
+| FDSA-5-69: independent abstract overlap observation | `IntervalSet.hasOverlap`, empty/insert/singleton laws, monotonicity, `hasOverlap_image_iff` | Two directly specified intervals; an unrestricted predicate-defined set; noninjective complete-key images |
+| FDSA-5-70: literal augmented representation and root reader | `IntervalTree.maxHi`, `maxHi_nil`, `maxHi_node`, `combine`, `max3`, `max3_eq` | Empty/bottom singleton; each max3 contribution; negative finite endpoints above a true bottom; malformed raw readers |
+| FDSA-5-71: recursive exact cache equations | `IntervalTree.CacheValid`, `cacheValid_nil`, `cacheValid_node`, `cacheValid_iff_invarMx` | Valid ordered and unordered trees; separate upper-bound, attainment and root-only countermodels |
+| FDSA-5-72: every stored high is bounded | `IntervalTree.maxHi_spec`, `high_le_maxHi` | Maximum high on the least key; unordered valid tree; negative endpoints; both independent universe specializations |
+| FDSA-5-73: an actual stored key attains the reader | `IntervalTree.maxHi_spec`, `maxHi_attained` | Bottom singleton; greatest-high witness; nonunique tied witnesses; indexed noninjective projection; explicit failure under upper bounds alone |
+| FDSA-5-74: local smart construction and erasure/cache laws | `IntervalTree.node`, `node_eq`, `maxHi_node_smart`, `erase_node`, `node_cacheValid_iff`, `node_cacheValid` | Valid children; repaired malformed leaf; unchanged malformed children under smart reconstruction |
 
 Library owners are [IntervalKey](../../Applications/Search/IntervalKey.lean),
 [OrderedMap/Membership](../../Applications/Search/OrderedMap/Membership.lean),
@@ -183,12 +183,12 @@ checkpoint's exact validation and review records. A focused donor check does
 not establish full-library or receiving-branch acceptance. Existing module
 system compatibility warnings are not a reason to change compilation inputs.
 
-C05-075–084 still require smart insertion/deletion, exact erased list
+FDSA-5-75 to FDSA-5-84 still require smart insertion/deletion, exact erased list
 refinement, combined invariants, pruning lemmas, one-branch overlap search and
 the separately recursive point-search exercise. For generalized complete keys,
 future search must explicitly require the order-to-low compatibility it uses;
 an arbitrary `iv` does not follow key order merely because the cache theorems
-allow it. C05-085–094 and the later books remain open. The receiving branch's
+allow it. FDSA-5-85 to FDSA-5-94 and the later books remain open. The receiving branch's
 additional public imports and its effective Lake configuration must be reconciled
 and validated on the actual integrated union. This bounded source increment
 does not settle those obligations.

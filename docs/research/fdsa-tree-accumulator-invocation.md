@@ -16,8 +16,8 @@ the pinned compiler and dependencies. Exact candidate checks, statement review
 and independent source-review outcomes belong to the checkpoint review record.
 By the user's explicit workflow decision, the receiving integrator owns the
 whole-library guarded build, exhaustive audit and final candidate verification;
-those acceptance gates remain pending. This unit supplies C04-017 and the
-accumulator portion of C04-018. CTB-71 still owns C04-018's direct-inorder
+those acceptance gates remain pending. This unit supplies FDSA-4-17 and the
+accumulator portion of FDSA-4-18. CTB-71 still owns FDSA-4-18's direct-inorder
 quadratic shape-family obligation, so this unit does not complete Exercise 4.1,
 Chapter 4 or any whole book.
 
@@ -230,8 +230,8 @@ comparison and observation compositions are under `Examples`, as required by
 ADRs 0001 and 0010. The public root imports
 `Examples.TreeAccumulatorObservations`; its closure includes every new module.
 
-This unit addresses C04-017 and the accumulator portion of C04-018, reusing existing
-inorder observations C04-004/015. It does not discharge their chapter, the
+This unit addresses FDSA-4-17 and the accumulator portion of FDSA-4-18, reusing existing
+inorder observations FDSA-4-4, FDSA-4-15. It does not discharge their chapter, the
 direct-inorder quadratic worst-case obligation, all Chapter 4 exercises,
 preorder, AVL/Braun/list-balancing algorithms, or Appendix B as a whole. Generic
 higher-order translation, closure conversion, memoization and physical runtime,
