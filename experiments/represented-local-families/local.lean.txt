@@ -1,0 +1,30 @@
+import Examples.RepresentedLocalFamily
+set_option autoImplicit false
+set_option warningAsError true
+namespace CostProbe
+open CategoryTheory CategoryTheory.Functor
+open SquareKit.RepresentableClassification
+open Examples.CategoryValuedEvaluation
+set_option backward.defeqAttrib.useBackward true in
+set_option backward.isDefEq.respectTransparency false in
+set_option backward.isDefEq.respectTransparency.types false in
+/-- Each represented context has the constant Boolean family. Root restrictions
+use the parity-dependent swap; this is local input, with no arrow-code constructor. -/
+noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type) where
+  app _ := (Functor.const _).obj Bool
+  comparison f := NatIso.ofComponents (fun _ => by
+    letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom
+    exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom)) (by
+      intro x y g
+      simp)
+  comparison_id x := by
+    ext z b
+    exact congrArg (fun f => f b)
+      (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)
+  comparison_comp f g := by
+    ext z b
+    exact congrArg (fun h => h b)
+      (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)
+
+example : ((SquareKit.RepresentedLocalFamily.decode (Type) context).obj boolean).map step false = true := rfl
+end CostProbe

@@ -1,0 +1,328 @@
+{
+  "time_utc": "2026-11-21T16:05:20.044078+00:00",
+  "host": {
+    "system": "Linux",
+    "node": "captiva",
+    "release": "6.18.58",
+    "version": "#1-NixOS SMP PREEMPT_DYNAMIC @1792571549",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "input_identity": {
+    "commit": "b58619bd3bae3ed518469dc13d6d58c915ff9e89",
+    "source_sha256": "19684b802682946214abf9ace422d48188c3488b87ae9a607fb0000a1a564861",
+    "diff": "diff --git a/SquareApplications.lean b/SquareApplications.lean\nindex f6d24bb2..72c4beaa 100644\n--- a/SquareApplications.lean\n+++ b/SquareApplications.lean\n@@ -1096,6 +1096,7 @@ import Examples.CoherentRepresentableCoding\n import Examples.SheafRepresentableClassification\n \n import Examples.CoherentFamilyClassification\n+import Examples.RepresentedLocalFamily\n \n import Examples.ClassifierDescent\n import Examples.ClassifierPresentationComparison",
+    "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "clients": {
+      "CubicalAuthorTransport": "861780b6c3d8421f29393088ad83549b94dce6402192f3ee48fc786055f615b5",
+      "CubicalConstructorState": "13c57d26bc7beed4bb2c2ca9c279c240835dbfee01632deba6becc35f06730a4",
+      "CartesianPackageRecomputation": "6ac69b3615aff9bc5e463e3b7b2ff5e9a03dee79deaf360343437ffd4f71291d",
+      "CubicalInterpretationObservations": "5b77666db13eea7189ad3d21817b4fa149256366e461c37b063df1a1f0424711"
+    },
+    "dependencies": {
+      "mathlib": {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "status": ""
+      },
+      "plausible": {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "status": ""
+      },
+      "LeanSearchClient": {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "status": ""
+      },
+      "importGraph": {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "status": ""
+      },
+      "proofwidgets": {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "status": ""
+      },
+      "aesop": {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "status": ""
+      },
+      "Qq": {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "status": ""
+      },
+      "batteries": {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "status": ""
+      },
+      "Cli": {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "status": ""
+      }
+    }
+  },
+  "runner_sha256": "776004ff5a32fe44f3bcf57e7d675a88043c5f29071f9ac610f7f702a090fd6b",
+  "implementation_sha256": {
+    "SquareKit/Internal/RepresentedLocalFamily.lean": "92022d380c0a4898969908104182f283b87400f7b4bba62b559a82bf49518845",
+    "Examples/RepresentedLocalFamily.lean": "05baff6ac8ac44ddd98e373aeddc960dac8e40cb34b5dabb62e3fd074c40ecce",
+    "SquareKit/Internal/CoherentFamilyClassification.lean": "36cee1c263fba5a4c08e704e848f87e487ae6cfd8acb16521216edce98e19804",
+    "SquareKit/Internal/RepresentableCoherentRecovery.lean": "7ca64a8ae7d299ce8b9944a8906c0d38543b0d8380220d046c5df2e47aa31902",
+    "Examples/CoherentFamilyClassification.lean": "9a582e652bd17ad8e10cc0bf788e9332bb38be3c979574b6e4013a1f6ecbf1ea"
+  },
+  "fixture_sha256": {
+    "local": "96ce244214608b72269e2396ba99465f63a12562b5492f64ac2afa498ce6f2ba",
+    "arrow": "4b3098a562ea233a9fb40d4cfa5ab6dc1489f4b8403ebe37b740223936731c08"
+  },
+  "settings": {
+    "timeout_seconds": 30,
+    "maxRecDepth": 512,
+    "maxHeartbeats": 200000,
+    "repeats": 3,
+    "profiling": [
+      "-DElab.async=false",
+      "-Dtrace.profiler=true",
+      "-Dtrace.profiler.useHeartbeats=true",
+      "-Dtrace.profiler.threshold=1000000000",
+      "-Dtrace.Elab.command=true"
+    ]
+  },
+  "quiet_window": "Coordinated after #656 acceptance; no concurrent team Lean builds",
+  "results": [
+    {
+      "client": "local",
+      "repeat": 0,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 1.0545097580179572,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        653,
+        61,
+        650,
+        653,
+        61,
+        650,
+        653,
+        62,
+        650,
+        1332690,
+        354,
+        1334822,
+        353,
+        1336951,
+        352,
+        1339087,
+        105823,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 5460599,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/local.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [62.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [1332690.000000] \u2705\ufe0f /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [354.000000] \u2705\ufe0f end\n[Elab.command] [1334822.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [353.000000] \u2705\ufe0f end\n[Elab.command] [1336951.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [352.000000] \u2705\ufe0f end\n[Elab.command] [1339087.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true in\n    set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [105823.000000] \u2705\ufe0f example :\n        ((SquareKit.RepresentedLocalFamily.decode (Type) context).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    },
+    {
+      "client": "arrow",
+      "repeat": 0,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 1.058773422962986,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        224727,
+        85005,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 315806,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/arrow.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [224727.000000] \u2705\ufe0f def boolean : SquareKit.CoherentFamilyClassification.Code context.Elements (Type) :=\n      \u27e8Arrow.leftFunc \u22d9 Functor.Elements.\u03c0 context \u22d9 Examples.CoherentFamilyClassification.twisted, fun {_ _} f _ =>\n        by\n        change IsIso (Examples.CoherentFamilyClassification.twisted.map f.left.hom)\n        infer_instance\u27e9\n[Elab.command] [85005.000000] \u2705\ufe0f example :\n        ((SquareKit.CoherentFamilyClassification.decode _ _).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    },
+    {
+      "client": "arrow",
+      "repeat": 1,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 0.93311670597177,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        224727,
+        85005,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 315806,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/arrow.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [224727.000000] \u2705\ufe0f def boolean : SquareKit.CoherentFamilyClassification.Code context.Elements (Type) :=\n      \u27e8Arrow.leftFunc \u22d9 Functor.Elements.\u03c0 context \u22d9 Examples.CoherentFamilyClassification.twisted, fun {_ _} f _ =>\n        by\n        change IsIso (Examples.CoherentFamilyClassification.twisted.map f.left.hom)\n        infer_instance\u27e9\n[Elab.command] [85005.000000] \u2705\ufe0f example :\n        ((SquareKit.CoherentFamilyClassification.decode _ _).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    },
+    {
+      "client": "local",
+      "repeat": 1,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 1.0150255460175686,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        653,
+        61,
+        650,
+        653,
+        61,
+        650,
+        653,
+        62,
+        650,
+        1332690,
+        354,
+        1334822,
+        353,
+        1336951,
+        352,
+        1339087,
+        105823,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 5460599,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/local.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [62.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [1332690.000000] \u2705\ufe0f /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [354.000000] \u2705\ufe0f end\n[Elab.command] [1334822.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [353.000000] \u2705\ufe0f end\n[Elab.command] [1336951.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [352.000000] \u2705\ufe0f end\n[Elab.command] [1339087.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true in\n    set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [105823.000000] \u2705\ufe0f example :\n        ((SquareKit.RepresentedLocalFamily.decode (Type) context).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    },
+    {
+      "client": "local",
+      "repeat": 2,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 1.113538192003034,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        653,
+        61,
+        650,
+        653,
+        61,
+        650,
+        653,
+        62,
+        650,
+        1332690,
+        354,
+        1334822,
+        353,
+        1336951,
+        352,
+        1339087,
+        105823,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 5460599,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/local.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [61.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [653.000000] \u2705\ufe0f section\n[Elab.command] [62.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false\n[Elab.command] [650.000000] \u2705\ufe0f end_local_scope 1\n[Elab.command] [1332690.000000] \u2705\ufe0f /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [354.000000] \u2705\ufe0f end\n[Elab.command] [1334822.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [353.000000] \u2705\ufe0f end\n[Elab.command] [1336951.000000] \u2705\ufe0f set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [352.000000] \u2705\ufe0f end\n[Elab.command] [1339087.000000] \u2705\ufe0f set_option backward.defeqAttrib.useBackward true in\n    set_option backward.isDefEq.respectTransparency false in\n    set_option backward.isDefEq.respectTransparency.types false in\n    /-- Each represented context has the constant Boolean family. Root restrictions\n    use the parity-dependent swap; this is local input, with no arrow-code constructor. -/\n    noncomputable def boolean : SquareKit.RepresentedLocalFamily.Family context (Type)\n        where\n      app _ := (Functor.const _).obj Bool\n      comparison\n        f :=\n        NatIso.ofComponents\n          (fun _ => by\n            letI := Examples.CoherentFamilyClassification.twisted_map_isIso f.unop.hom\n            exact asIso (Examples.CoherentFamilyClassification.twisted.map f.unop.hom))\n          (by\n            intro x y g\n            simp)\n      comparison_id\n        x := by\n        ext z b\n        exact congrArg (fun f => f b) (Examples.CoherentFamilyClassification.twisted.map_id x.unop.obj)\n      comparison_comp f\n        g := by\n        ext z b\n        exact congrArg (fun h => h b) (Examples.CoherentFamilyClassification.twisted.map_comp g.unop.hom f.unop.hom)\n[Elab.command] [105823.000000] \u2705\ufe0f example :\n        ((SquareKit.RepresentedLocalFamily.decode (Type) context).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    },
+    {
+      "client": "arrow",
+      "repeat": 2,
+      "status": "pass",
+      "returncode": 0,
+      "wall_seconds": 0.9742216020240448,
+      "command_internal_heartbeats": [
+        65,
+        61,
+        1271,
+        1984,
+        1152,
+        1155,
+        224727,
+        85005,
+        353,
+        33
+      ],
+      "total_internal_heartbeats": 315806,
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DElab.async=false",
+        "-Dtrace.profiler=true",
+        "-Dtrace.profiler.useHeartbeats=true",
+        "-Dtrace.profiler.threshold=1000000000",
+        "-Dtrace.Elab.command=true",
+        "experiments/represented-local-families/arrow.lean.txt"
+      ],
+      "diagnostics": "[Elab.command] [65.000000] \u2705\ufe0f set_option autoImplicit false\n[Elab.command] [61.000000] \u2705\ufe0f set_option warningAsError true\n[Elab.command] [1271.000000] \u2705\ufe0f namespace CostProbe\n[Elab.command] [1984.000000] \u2705\ufe0f open CategoryTheory CategoryTheory.Functor\n[Elab.command] [1152.000000] \u2705\ufe0f open SquareKit.RepresentableClassification\n[Elab.command] [1155.000000] \u2705\ufe0f open Examples.CategoryValuedEvaluation\n[Elab.command] [224727.000000] \u2705\ufe0f def boolean : SquareKit.CoherentFamilyClassification.Code context.Elements (Type) :=\n      \u27e8Arrow.leftFunc \u22d9 Functor.Elements.\u03c0 context \u22d9 Examples.CoherentFamilyClassification.twisted, fun {_ _} f _ =>\n        by\n        change IsIso (Examples.CoherentFamilyClassification.twisted.map f.left.hom)\n        infer_instance\u27e9\n[Elab.command] [85005.000000] \u2705\ufe0f example :\n        ((SquareKit.CoherentFamilyClassification.decode _ _).obj boolean).map step false = true :=\n      rfl\n[Elab.command] [353.000000] \u2705\ufe0f end CostProbe\n[Elab.command] [33.000000] \u2705\ufe0f \n"
+    }
+  ],
+  "inputs_verified_after": true
+}
