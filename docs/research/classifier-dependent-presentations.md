@@ -2,9 +2,9 @@
 
 For [#649](https://github.com/VladimirMarko/conaled/issues/649), retain direct
 split sheaf families as the author interface and use coherent classification
-as a comparison layer. The next bounded model-building investment should
-connect the existing sheaf dependent-product operations to classification on
-a proper cover. The present structural comparison needs no new weak-model
+as a comparison layer. The #655 extension below connects the existing sheaf
+dependent-product operations to classification on a proper cover. This
+comparison needs no new weak-model
 strictifier, cubical filler, or univalence assumption.
 
 The comparison uses the completed #645/#646 constructions described in
@@ -205,12 +205,11 @@ semantic category is familiar.
 functions, abstraction, application into the actual dependent result family,
 and repeated substitution. [SplitFunctionSheaf](../../SquareKit/SplitFunctionSheaf.lean)
 proves the needed sheafness by expressing dependent sections as an equalizer
-inside a sheaf of natural functions. Thus the next consumer can test a
-substantive existing constructor without constructing a complete new model.
-Require the comparison to retain λ, application, the selected β/η laws and
+inside a sheaf of natural functions. The #655 consumer below retains λ,
+application, the selected β/η laws and
 two nonidentity substitutions, with empty and varying argument fibers on the
-proper-cover site. A classified output family alone would not test those
-operations.
+proper-cover site. It reuses these constructors without constructing a complete
+new model.
 
 The cubical alternative already has stronger selected-operation evidence:
 [SharedCubicalConstructors](../../Examples/SharedCubicalConstructors.lean)
@@ -232,6 +231,79 @@ unneeded here: the contract asks for explicit isomorphisms and equations of
 maps, not identification of equivalences with identity paths. The separate
 non-univalence control remains with
 [#650](https://github.com/VladimirMarko/conaled/issues/650).
+
+## Sheaf Π operations through classified sections
+
+[#655](https://github.com/VladimirMarko/conaled/issues/655) adds
+[ClassifierSheafPi](../../SquareKit/Internal/ClassifierSheafPi.lean) and its
+[diamond cases](../../Examples/ClassifierSheafPi.lean). Fix `C : Type u`,
+`Category.{v} C`, a topology J, and sheaf contexts with sections in
+`Type (max u v)`. The inputs are `A : SplitSheaf.Ty Γ` and
+`B : SplitSheaf.Ty (Ext A)`. Each includes total-space sheafness; the Π
+total's sheafness follows from `SplitFunctionSheaf.piType`. Substitutions are
+arbitrary sheaf morphisms. Neither an inhabited argument fiber nor a global
+argument section is required for formation or abstraction.
+
+The frozen direct operation is `SplitSheafPi.pi A B`. The classified route
+codes this family, decodes its actual display through
+`ClassifierDisplayComparison`, and represents a term above `σ : Δ → Γ` by a
+map from Δ into that display whose projection is σ. `sections` derives an
+equivalence with `Tm (A[σ])` using comprehension, pairing and term recovery.
+The selected codes come from existing split families; this API does not
+accept arbitrary coherent codes as sheaf families without a sheaf certificate.
+For these codes, decoding the family is definitionally exact, while recovering
+all display sections uses the proved pairing inverse. There is no adapter
+record containing a final preservation or recovery assumption.
+
+`lam` and `unlam` transport `lamAt` and `unlamAt` through this equivalence.
+Their β/η equations are derived from the existing laws. Application is
+uncurrying followed by the actual argument pairing. Its target is the section
+type of B above `pair A σ a`, rather than a constant codomain. `app_sections`
+proves agreement with the original split application after its required Π
+substitution transport. `pi_reindex`, `lam_sub_twice`, and `app_sub_twice`
+retain formation and operations through two substitutions; `display_pullback`
+retains the actual output display square. `map` accepts every code morphism,
+and its identity, composition and substitution equations retain noninvertible
+maps as well as isomorphisms.
+
+This constructs selected operations by transport. The agreement statements
+refer to the original split operations used in that construction, so they
+are not evidence of agreement with an independently selected native Π
+algorithm. `SplitPiComparison`, used by the existing diamond examples, connects
+the same split constructor to the ordinary sheaf dependent product; that
+construction uses `SheafSliceFunction`'s slice closure. We reuse its mathematical
+proofs without adding a second sheafness or slice-exponential argument.
+Native cubical filling agreement remains #607's separate contract. No filler,
+univalence, LF, or general strictification hypothesis is added here.
+
+The checked positive case recovers a chosen Boolean from lambda at an inhabited
+false fiber and applies the function to `falseArgument` after restriction.
+`lambdas_distinct` separates the false and true bodies. A constant map on the
+function family collapses those two classified terms and still commutes with
+two substitutions. The λ and collapse-map tests use Boolean negation twice,
+proved nonidentity;
+the examples check the actual extension maps and their projection too.
+Application additionally commutes with the base map followed by negation.
+The dependent-result control has an inhabited false output fiber but no global
+function because its true output fiber is empty. The E-input control has an
+empty top fiber and incompatible U/V overlap restrictions. Its classified Π
+still cannot be replaced by functions between top-stage fibers, reusing the
+existing separating theorem. These cases preserve the proper-cover semantics
+instead of treating empty input fibers as sufficient evidence for the laws.
+
+Builder setup consists of the term/section equivalence and the transport and
+naturality proofs above. Recurring direct callers still supply split families,
+terms and substitutions. A caller choosing the classified view additionally
+uses `sections` to cross the display-section boundary; it supplies no new
+β/η or recovery proof. We have not run a matched author-effort or elaboration
+benchmark for this extension and make no performance claim. #648 owns the
+separate classifier elaboration comparison.
+
+This consumer starts with sheaf families and uses the canonical family codes,
+so neither the full #652 sheaf-over decoder nor #654 extension across
+sheafification is needed. #647/#289 retain broader constructor and model
+development; #235 retains preservation-interface reassessment. #518 remains
+the separate Type-family local-parameter Σ/Π experiment.
 
 ## Fibred categories and descent remain complementary
 
@@ -278,8 +350,8 @@ the matched structural comparison.
 | Lean elaboration | The added categorical equivalence introduces functor and isomorphism adapters. No timing or author-effort experiment is reported here; #648 owns the separate classifier budget comparison. Mathematical coverage does not predict reduction cost. |
 
 Adopt the bounded comparison as a reusable connection; retain the direct
-interfaces and native cubical specializations. Refine one sheaf Π consumer
-under #647/#289, coordinating #652 and the preservation owner #235. Keep #518
+interfaces and native cubical specializations. Adopt the sheaf Π section comparison below
+under #647/#289 and the preservation owner #235. Keep #518
 as the Type-family Σ/Π reuse experiment, including its weak-unit controls.
 Defer a general local-universes framework until a selected weak model has the
 needed semantic operations and strict stability is its remaining obstacle,

@@ -1207,5 +1207,6 @@ import Examples.MeasuredRotationCertificate
 import Applications.Resources.RotationCertificate.Encoding
 import Applications.Resources.RotationCertificate.LinearParser
 import Examples.RotationCertificateCodecs
+import Examples.ClassifierSheafPi
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
