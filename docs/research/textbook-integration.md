@@ -66,11 +66,18 @@ claims no new execution. Historical donor checks retain their original scope.
 The user-authorized [CTB continuation](../textbooks/CTB.json) preserves CTB-79
 through CTB-122 and their complete requirements. Earlier CTB identities retain
 their existing canonical owners; no new numbering series is introduced.
-**CTB-78 receiving integration and checkpoint074 retention/save are complete.
-CTB-24/C05-085 is a separate unmerged continuation awaiting its own receiving
-validation and review; further book increments wait for that integration.** The 20 November 2026 instruction supersedes
-older perpetual-retention, Page-only and 32 MiB process requirements. Dated
-ticket text is preserved without reinstating those instructions.
+**CTB-78 receiving integration and checkpoint074 retention/save are complete.**
+The later CTB-24 slice was accepted at
+`a5ce55a05aca5c0738cd1877841b906ce9b4e547` under
+[#659](https://github.com/VladimirMarko/conaled/issues/659), preserving donor
+`cfa205a4e08d38c8e75048213126decad5d31f1c` in its ancestry. C05-085 is qualified;
+C05-090 remains partial. Its full build/audit, final verification and independent
+Standards/Spec reviews passed. This is source acceptance, not certification of
+a final checkpoint075 archive. The 20 November instructions allow continued
+local authoring and distinct checkpoint deliveries alongside receiving work,
+and supersede older perpetual-retention, Page-only and 32 MiB process
+requirements. Dated ticket text does not reinstate them. The R2 inventory below
+retains its original receiving scope.
 
 The donor contributes 261 selected paths: 159 production Lean files, 70 clients,
 28 research notes, the public aggregate, one Lake executable declaration and
@@ -110,16 +117,212 @@ work supplies no demonstrated direct replacement for this slice. Rational-kernel
 recovery may help later probabilistic work, but forgets random tapes, paths and
 costs. No blanket migration is proposed without a concrete preserved contract.
 
-On published source, Chapter 5 remains 90/94 with C05-085/090/092/093 open;
-Chapter 9 remains 57/110. Receiving acceptance adds no source qualification.
+The R2 slice left Chapter 5 at 90/94. After the separate C05-085 acceptance,
+published coverage is 91/94 with C05-090/092/093 open; Chapter 9 remains 57/110.
 Remaining book requirements stay in CTB and the canonical coverage ledgers.
 Completed mathematics and source correspondence belong in normal repository
 owners. The [unprocessed inbox](../textbooks/inbox/README.md) retains unfinished
 preparations. Checkpoint074's later retention and durable-save closure is recorded
-in the [current continuation](../textbooks/README.md#retention-and-inbox); it does
-not accept pending C05-085. This accepted slice supplies concrete evidence for
+in the [current continuation](../textbooks/README.md#retention-and-inbox); it is
+separate from the later C05-085 acceptance. These accepted slices supply evidence for
 [#636](https://github.com/VladimirMarko/conaled/issues/636). Its comparative
 synthesis and guidance reassessment remain open.
+
+## Tree, cache and resource integration assessment
+
+This bounded first pass for [#658](https://github.com/VladimirMarko/conaled/issues/658)
+inspected source and existing public clients at
+`a5ce55a05aca5c0738cd1877841b906ce9b4e547` on 21 November 2026. It follows the
+actual definitions, premises and selected client derivations below; it is not
+an exhaustive statement review of every imported theorem or a new book-source
+comparison. No Lean code changed. The accepted build/audit at that source commit
+covers these retained declarations. Documentation validation checks the new
+assessment and its links; it does not claim a fresh execution or usability trial.
+Other #658 families remain outside this pass.
+
+### Shared constructions and retained clients
+
+**Complete caches and height-balanced sets.**
+[Cached](../../Applications/Trees/Cached.lean) already separates `read`,
+`smartNode`, `Valid`, `erase` and `annotate`. `read_eq_fold` derives the cached
+observation from an independent fold under recursive validity;
+`erase_annotate` recovers the whole unannotated tree. A root equation alone does
+not establish descendant validity. These contracts need no equality decision,
+order or inhabitant for the label type. They do not identify an arbitrary
+malformed annotated tree with its reconstruction.
+
+[HeightAnnotation](../../Applications/Trees/HeightBalance/Basic.lean) adds only
+an empty summary, combining operation, height projection and its two algebra
+laws. Its `height_fold` uses the existing `Trees.fold_fusion`; balance is a
+separate predicate on actual shape. The
+[set refinement](../../Applications/Trees/HeightBalance/SetRefinement.lean)
+supplies primitive operational equations and auxiliary closure to
+[AbstractSet.Refinement](../../Applications/Search/AbstractSet/Refinement.lean),
+which derives set laws and mixed-history transport. `setLaws` changes the
+observer through `mem_inorder_iff_mem_setTree`; it does not repeat the update
+induction. `member_inorder` needs a linear key order and strict inorder but no
+cache or balance premise. Full update closure additionally needs `1 ≤ d` and
+complete `ValidD`. Annotation and key universes remain independent.
+
+The [height-set clients](../../Examples/HeightSetRefinement.lean)
+`ordinary_history_contract`, `generic_history_contract` and
+`independent_representations` consume these public results for arbitrary valid
+initial states and mixed words. Different positive tolerances and annotation
+carriers preserve inorder/query observations without recovering equal concrete
+states. [HeightRebalance](../../Examples/HeightRebalance.lean) supplies maximum
+and word summaries through `maximum_fold_fusion` and `word_fold_fusion`;
+`word_reader_eq_inorder` consumes cache validity rather than assuming its final
+comparison. Its `plain_mirror_keeps_the_wrong_word` and
+`mirror_derived_right_is_wrong` reject transporting a noncommutative word cache
+by plain mirroring. Retain the complete-annotation construction and these
+specializations. Equal projected heights cannot replace their full invariants.
+
+**Balanced intervals and a geometric consumer.**
+[Balanced intervals](../../Applications/Search/IntervalTree/Balanced.lean)
+specialize that same algebra to height/maximum pairs and reuse the actual
+local updates at tolerance one. `maximumTree` is a proof projection;
+`search_eq` connects a direct one-branch query to the existing maximum-only
+query even on malformed trees. It does not execute that projection or assert
+that updates commute with it: the older interval tree uses successor deletion,
+whereas the selected balanced implementation uses a predecessor.
+
+`search_sound` requires no validity premise. Completeness in `search_correct`
+requires valid maxima and weak low-endpoint order, without height validity or
+strict key order. Full `intervalSetLaws` uses linear keys, linear endpoints with
+bottom, complete validity and the explicit compatibility
+`a < b → (iv a).low ≤ (iv b).low`. The interval map need not be injective.
+[BalancedIntervalTrees](../../Examples/BalancedIntervalTrees.lean) connects
+`weak_query_contracts`, `indexed_delete_preserves_other_occurrence` and the
+closed-boundary/duplicate rectangle cases to these laws. Its stale-cache and
+reverse-projection false negatives show why valid heights alone and arbitrary
+key-to-interval maps do not suffice.
+
+[The balanced sweep](../../Applications/Search/RectangleSweep/Balanced.lean)
+passes the derived interval-set laws directly to the existing
+`sweep_eq_true_iff_hasIntersection`. This is a checked ordinary client of the
+shared abstraction; it requires no compiler wrapper or repeated geometry proof.
+The distinct occurrence IDs survive in complete keys even when interval images
+agree. Retain the maximum-only and balanced implementations as connected
+alternatives with their own shapes and execution contracts. C05-085 is complete;
+no operation-cost equality or whole-pipeline complexity follows.
+
+**Older shape and traversal clients.**
+[Rotation bounds](../../Applications/Trees/Rotations/Bounds.lean)
+`connect_equal_inorder` recovers an actual target tree by a right-rotation
+schedule followed by a reversed left schedule, given equal inorders. The raw
+contracts have no ordering hypothesis and retain duplicate labels. The
+[rotation clients](../../Examples/TreeRotations.lean)
+`inorder_does_not_determine_raw_shape`, `set_does_not_determine_multiplicity`
+and `three_connection_is_not_shortest` separate semantic preservation, exact
+recovery using a retained target/schedule, and optimality. Do not infer a
+canonical inverse of inorder or a shortest mixed route.
+
+[TreeBalanceSearch](../../Examples/TreeBalanceSearch.lean) already composes
+`rebalanceSquare` with the existing insertion square and membership law.
+`member_insert_rebalance` needs a linear order and a valid starting BST;
+`ordered_balanceTree_iff` needs only a preorder. The underlying prefix balancer
+remains order-free and retains the unconsumed suffix.
+[TreeBalancePipeline](../../Examples/TreeBalancePipeline.lean) binds actual
+literal, direct-suffix and staged traversal outputs into that balancer.
+`same_result` includes failure, while its cost formulas retain the successful
+request premise `n ≤ t.numNodes`. `nil_staged_not_le_literal`,
+`failed_nil_executions` and `empty_payload` keep empty inputs, failure and empty
+label carriers visible. Retain the alternatives: direct invocation has the
+smallest declared count for this already-available suffix function; staged
+execution separately pays construction. This supports that bounded modeled
+representation decision, not a claim about physical sharing or wall-clock speed.
+
+**Resource interpretations.**
+[TreeCache.nodeRun](../../Applications/Resources/TreeCache.lean) binds both
+root reads and the callback's returned summary. Its value theorem needs only
+the callback equation at the reached arguments; its cost theorem is independent
+of that equation and child validity. [TextbookTreeTariffs](../../Examples/TextbookTreeTariffs.lean)
+reuses it for size and height, with two declared primitive charges and total
+cost five. [TreeCache](../../Examples/TreeCache.lean) instead passes actual
+measured append: `chain_node_cost` is `n + 4`, and `chain_node_exceeds` rules out
+a uniform constant even on valid prepared children. A complete summary algebra
+therefore cannot promise constant-time combination without a separate tariff.
+
+The [measured scan](../../Applications/Search/RectangleSweep/Measured.lean)
+uses `Resources.bind`, with callbacks supplying the next actual state. Its
+value erasure needs only `Zero`/`Add`; additive reweighting requires additive
+monoids and a homomorphism, not commutativity. The
+[scan clients](../../Examples/MeasuredRectangleSweep.lean)
+`sentinel_update_order`, `sentinel_query_before_insert` and
+`sentinel_ordered_observation` exercise state dependence and noncommuting token
+observations. A hit skips insertion and the suffix; only exhaustion pays the
+terminal charge. Replacing this executor with an unconditional whole-list fold
+would change the contract.
+
+[MeasuredEvents](../../Applications/Search/RectangleSweep/MeasuredEvents.lean)
+reuses `ListIndex.run`, `ListCalls.mapRun` and `ListReversal.appendRun`, binding
+one indexed list into both event maps before sorting and scanning. The
+[generation clients](../../Examples/MeasuredRectangleEvents.lean)
+`generate_ids`, `id_priced_triple`, `forged_constructor_not_erasing` and
+`discarding_sorter_control` distinguish occurrence identity, input-dependent
+charges and the actual returned callback values. `pipeline_geometry` connects
+value erasure to the existing intersection theorem. Its sorter charge of 17 is
+explicitly a fixture, not a measured sorting bound.
+
+### Caller obligations and remaining decisions
+
+The inspected clients demonstrate reuse without strengthening the generic APIs
+to decidable annotation equality or commutative observations. Some setup remains
+intentional: an annotation author supplies its algebra/projection laws; an
+interval adapter proves low-order compatibility; a measured realization proves
+callback value correspondence and its chosen tariff. Library consumers then
+reuse histories, prefix validity and geometry instead of repeating their
+inductions. This is evidence of shared proofs, not measured author-time savings.
+
+There is also concrete repeated fixture setup. Both `HeightSetRefinement` and
+`BalancedIntervalTrees` define local recursive decision procedures for balance
+and complete-cache validity. These support finite `decide` cases and do not
+enter the public contracts. #658 retains a bounded maintenance opportunity to
+share that fixture support if another client or change needs it; such extraction
+must preserve local instance scope and avoid adding `DecidableEq` to the public
+annotation interface. No new abstraction is needed to use the current clients.
+
+The next mathematical connection belongs to **CTB-24/C05-090**, under
+[#558](https://github.com/VladimirMarko/conaled/issues/558), alongside the measured
+height-update obligations described in [their owner](fdsa-height-updates.md#unqualified-preparation-for-measured-operation-costs):
+
+- Supply measured balanced insertion, predecessor extraction/deletion and direct
+  overlap query, with actual callback costs and value erasure. Reuse the
+  complete-cache and height results; a cache invariant alone does not price a
+  callback. Keep these implementation obligations distinct from #659's completed
+  source receipt.
+- Discharge the premises of `scanRun_events_cost_le`: bounds apply to every
+  admitted key and invariant state, and measured updates must preserve that
+  invariant. [ActiveCardinality](../../Applications/Search/RectangleSweep/ActiveCardinality.lean)
+  supplies cardinalities for mathematical full-schedule prefixes, including
+  prefixes beyond an early hit. Its strict-key node-count bridge is checked,
+  but those prefix results alone do not prove closure and bounds for arbitrary
+  states admitted by the scan theorem. A finite input-key support invariant
+  together with full tree validity is a prospective route, still unproved here.
+- Complete the actual sorter's tariff and length-sensitive bound, then compose
+  generation, sorting and scan with the admitted support/height bounds and the
+  empty/small cases. Natural-number generation/pipeline counts coexist with the
+  more general ordered scan observations; no trace-preserving theorem for the
+  complete pipeline is claimed.
+
+Retain these missing connections in [the measured-sweep owner](fdsa-measured-rectangle-scan.md#remaining-c05-090-work-and-acceptance-boundary),
+not as assumptions asserting the desired whole-pipeline bound. The checked
+`balanced_duplicate_full_prefix_nodes` and `repeated_complete_key_counts`
+show why complete-key strictness, rather than interval-image cardinality, is the
+relevant node-count condition. They do not supply the missing measured update
+contracts.
+
+[#561](https://github.com/VladimirMarko/conaled/issues/561) still owns the wider
+historical FDSA capability dispositions; this pass does not close that inventory
+or its separate chapter coverage. #658 keeps the other family assessments and
+any fixture-sharing follow-up. [#588](https://github.com/VladimirMarko/conaled/issues/588)
+retains its specifically requested function-Boolean and metadata-bearing
+realizations; the generic tree histories do not discharge all of that issue.
+For #174 and #636, adopt the demonstrated complete-cache/refinement/consumer
+connections, retain the raw shape and measured execution alternatives, and
+prioritize the missing C05-090 cost composition over a new universal wrapper.
+No interface migration or general productivity conclusion follows from this
+bounded assessment.
 
 ### Reuse for remaining textbook obligations
 
@@ -423,10 +626,10 @@ existing insertion and membership contracts through valid-state relational
 composition. These are reusable consumers of the shared interfaces, with no
 claim of physical sharing or runtime improvement.
 
-The intake advances #561's tree/resource families and preserves the Chapter 4
-obligation map. It does not complete the other #561 donors, the #559 map or
-#560 sorting contracts, #562's tape connection, #563's remaining drafts, or
-#564's persistence/suspension client. VFA Preface/Perm coverage qualification
-and historical source-complete statuses remain distinct from whole-book
-acceptance. The next integration step should exercise these contracts in a
-representation decision, preserving construction, forcing and observation costs.
+At receipt, this intake advanced #561's tree/resource families and preserved
+the Chapter 4 obligation map without completing its sibling integration tasks.
+Later #559, #560 and #564 acceptance retains its own scope. #561's remaining
+donor dispositions, #562's tape connection and #563's remaining drafts stay
+separate, as does whole-book coverage. The bounded representation assessment
+above now uses these traversal and search clients, preserving construction,
+failure and observation costs; it does not claim a physical-performance result.

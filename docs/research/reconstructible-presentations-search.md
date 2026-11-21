@@ -172,14 +172,40 @@ One local reuse repair restores canonical tree-membership lemma composition.
 The new classifier, Lawvere and kernel developments do not justify wrapping
 these algorithms without a concrete additional consumer or recovery contract.
 
-[#560](https://github.com/VladimirMarko/conaled/issues/560) retains its individual
-sorting acceptance scope. The [CTB continuation](../textbooks/CTB.json) records
+[#560](https://github.com/VladimirMarko/conaled/issues/560) is closed with its
+individual sorting acceptance scope. The [CTB continuation](../textbooks/CTB.json) records
 completed CTB-78 integration; checkpoint074 subsequently completed retention and
-saving. CTB-24/C05-085 remains a separate unmerged increment without whole-library
-acceptance in the supplied handoff. The historical accepted receiving records at
-checkpoint012 (`56c739a1`), checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and
-total tables #559 (`36d67461`) retain their original scope. R2 is the later slice
-available for #636, whose comparative synthesis and guidance decisions remain open.
+saving. The separate CTB-24 increment was subsequently accepted at
+`a5ce55a05aca5c0738cd1877841b906ce9b4e547` under
+[#659](https://github.com/VladimirMarko/conaled/issues/659), with full build/audit,
+final verification and both independent review axes passing. C05-085 is qualified
+(Chapter 5: 91/94), while C05-090 remains partial. Continued local authoring and
+distinct checkpoint deliveries are authorized alongside receiving work. The
+historical accepted receiving records at checkpoint012 (`56c739a1`), checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and
+total tables #559 (`36d67461`) retain their original scope. R2 and the accepted
+CTB-24 slice supply evidence for #636, whose comparative synthesis and guidance
+decisions remain open.
+
+### Tree/cache/resource assessment after receiving acceptance
+
+The [bounded #658 assessment](textbook-integration.md#tree-cache-and-resource-integration-assessment)
+inspected the accepted `a5ce55a0` source and selected public-client derivations
+on 21 November 2026. It reuses that source's build/audit evidence and adds no Lean
+code or general usability measurement. The other #658 families remain open.
+
+| Presentation | Checked recovery or preservation | Decision and remaining cost |
+|---|---|---|
+| Complete cached summaries and height-balanced sets | `Cached.read_eq_fold` derives the reader's meaning under recursive validity; `erase_annotate` recovers the unannotated tree. `HeightAnnotation` and `AbstractSet.Refinement` derive height observations, set laws and mixed histories. `HeightSetRefinement.independent_representations` compares different annotations/tolerances without identifying their states. | Retain the shared construction. Algebra setup and strict-order/positive-tolerance premises are explicit. Word-summary mirroring controls forbid replacing complete validity with projected height equality. Repeated local fixture decision procedures are a bounded #658 maintenance opportunity, not a reason to strengthen the public API. |
+| Balanced and maximum-only interval trees | The direct balanced query agrees with the maximum projection even on raw trees; completeness needs valid maxima and low order. The balanced sweep consumes the existing interval-set and geometric laws, preserving occurrence keys with equal interval images. | Retain connected alternatives. Key/low-order compatibility remains an adapter proof; predecessor versus successor deletion prevents claiming literal update-tree recovery. C05-085 is accepted. |
+| Raw rotations and traversal-to-balance routes | Retained target trees and legal schedules support exact rotation recovery given equal inorders. Existing traversal clients share returned balancing results, including failure, with separately proved costs. | Retain raw shape operations and literal/direct/staged traversals. Inorder erases shape; set meaning further erases order and multiplicity. For successful requests, direct suffix invocation costs no more than literal traversal and less than staging in the inspected model; staging still pays construction. No universal inverse or runtime improvement follows. |
+| Measured cache construction and rectangle execution | The cache constructor binds actual reads/callbacks; word-cache append demonstrates nonconstant work. Scan clients retain state order and noncommuting observations. Generation binds one occurrence index list, actual maps/append and a sorter result into the scan. | Reuse `Measured` and the existing resource operations. C05-090 still needs concrete balanced primitive costs, admitted-support invariant closure, the actual sorting tariff and final composition. Full-prefix cardinality and a fixture sorter cost do not fill those gaps. |
+
+The detailed assessment names public theorem owners, retained controls, exact
+premises and scoped follow-ups. It supports sharing algebra and refinement proofs
+while retaining stronger native execution observations. It establishes neither a
+need for a categorical wrapper around each algorithm nor completion of #561's
+historical capability inventory. Feed these concrete setup, reuse and maintenance
+observations into #174/#636; broader guidance remains their separate assessment.
 
 ## Priorities and reassessment triggers
 
@@ -197,7 +223,8 @@ Feed this inventory and the implementation evidence to
 [#636](https://github.com/VladimirMarko/conaled/issues/636). Final guidance
 reassessment must compare mathematical capability, shared proofs, conversion
 obligations, direct-client compatibility and maintenance separately, including
-the accepted R2 CTB slice and its remaining issue-specific obligations. Successful compilation is not a usability measurement.
+the accepted R2 and CTB-24 slices and their remaining issue-specific obligations.
+Successful compilation is not a usability measurement.
 
 Search again when a receiving slice exposes repeated adapters or stronger
 assumptions, an existing client needs an observation currently erased, a common
