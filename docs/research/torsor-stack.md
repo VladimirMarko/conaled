@@ -199,10 +199,114 @@ centres on those interfaces. The separate family module leaves the existing
 primitive cover module and its clients' imports unchanged. No timing or general
 productivity conclusion is claimed.
 
-This is cover mathematics only. [#663](https://github.com/VladimirMarko/conaled/issues/663)
-retains object/all-map family descent and both stack consumers;
+The cover comparison is consumed by the family descent construction below.
 [#664](https://github.com/VladimirMarko/conaled/issues/664) and
 [#665](https://github.com/VladimirMarko/conaled/issues/665) retain the
 subcanonical and arbitrary original-site/slice comparisons. The parent #657
 remains open. Using established sheafification to construct a coproduct does
 not require the decoder extension across a non-sheaf code unit owned by #654.
+
+## Effective coproduct assembly
+
+[SheafCoproductGeometry](../../SquareKit/SheafCoproductGeometry.lean) proves
+that the supported categorical coproducts of sheaves are Van Kampen colimits.
+The proof uses the corresponding coproducts of types, evaluation in presheaves,
+and Mathlib's left-exact sheafification. It derives disjointness of distinct
+summands, pullback stability, decomposition above a coproduct, and component
+fiber comparisons. The site, value and index universes are those of
+`SheafFamilyCover`; callers need no additional colimit or sheafification
+assumptions. Empty index types are included.
+
+[SheafTorsorCoproduct](../../SquareKit/SheafTorsorCoproduct.lean) constructs a
+torsor over the coproduct of its contexts. Its total sheaf is the categorical
+coproduct of the local total sheaves. The action is assembled through the
+sheaf exponential, and principality and local surjectivity follow from local
+summand decomposition and the component fiber comparisons. The resulting
+restriction functor is full, faithful and essentially surjective. Component
+isomorphisms recover each supplied torsor, and recovery over the whole
+coproduct respects every equivariant arrow.
+
+[SheafActionQuotientCoproduct](../../SquareKit/SheafActionQuotientCoproduct.lean)
+uses that construction for the underlying torsors and assembles their actual
+equivariant maps to the fixed target. It proves the same restriction
+equivalence on objects and all arrows. Target compatibility is proved from
+the supplied equivariant maps; stabilizer arrows remain arrows in the
+resulting category.
+
+[SheafFamilyTopology](../../SquareKit/SheafFamilyTopology.lean) constructs the
+least topology containing the independently jointly locally-surjective
+families. Its transitivity proof composes local lifts; its pullback proof uses
+the selected categorical pullback squares. A covering sieve contains a joint
+family. It need not contain that family's aggregate map. The former
+singleton topology maps into this topology, while the two-point example
+proves that the inclusion can be strict.
+
+
+## Family descent and recovery
+
+[CoproductDescent](../../SquareKit/CoproductDescent.lean) proves the presentation
+comparison for a category-valued pseudofunctor with effective coproduct
+restriction and Van Kampen coproducts. Its restriction functor sends singleton
+descent over the aggregate map to the original family. Fullness and faithfulness
+are proved on all compatible arrows. For essential surjectivity, the proof
+assembles transition maps on pairs of summands, checks them on arbitrary charts,
+and derives identity and triple cocycle laws. The recovery isomorphism and the
+comparison with canonical descent are consequences of these constructions.
+Neither the final equivalence nor its laws are adapter fields.
+
+[SheafFamilyDescent](../../SquareKit/SheafFamilyDescent.lean) discharges both
+coproduct hypotheses for the existing torsor and action-quotient
+pseudofunctors. `aggregateEquivalence` compares their Mathlib descent categories
+with singleton descent over the actual sheaf coproduct map. Combining it with
+constructive singleton gluing proves `torsorEquivalence` and
+`quotientEquivalence`, and `IsPrestack`/`IsStack` for the family topology. Both
+old singleton constructions agree with family-topology recovery through
+`torsorSingletonComparison` and `quotientSingletonComparison`. These preserve
+the original `Unit`-indexed singleton categories even when supported covering
+families live in a larger universe.
+
+The supported setting is a site `C : Type u` with `Category.{v} C`, sheaves
+valued in `Type (max u v)`, and families indexed by `Type (max u v)`.
+Mathlib supplies the required coproducts, pullbacks and left-exact
+sheafification. The generic comparison states its Van Kampen and effective
+coproduct hypotheses explicitly; both clients prove them. The topology also
+handles sieves with larger arrow-index types through Mathlib's stack interface.
+
+`recoveryNaturality` is a natural isomorphism between pulling family data then
+recovering and recovering then reindexing. It applies to refinements and base
+change, including every compatible arrow. The checked
+[family examples](../../Examples/SheafFamilyDescent.lean) specialize it to a
+permutation of the two charts and two successive nonidentity scalings of the
+smooth doubled-origin context. Their composite is built from the two natural
+comparisons and functorial transport; separate computation equations identify
+the pseudofunctor maps with the established composite reindexing operation.
+
+The same two-chart family is jointly covering with neither chart locally
+surjective. Its recovered quarter-turn torsor is globally nontrivial. The
+quotient example retains the genuine equivariant target from the singleton
+client, and the ineffective-action example retains distinct stabilizers.
+Object and arrow round trips use the equivalence unit and counit; distinct
+compatible arrows remain distinct under recovery. Empty families recover both
+clients over the empty context. The existing non-covering empty-family controls
+remain failures of faithfulness, so empty descent is not asserted without its
+coverage hypothesis.
+
+The reusable setup comprises actual sheaf coproduct assembly, the generic
+transition-map comparison and the family topology. The generic comparison
+imports only Mathlib's Van Kampen, descent-data and product-category interfaces;
+it does not import the sheaf clients. Existing primitive cover and singleton
+modules retain their imports. This adds proof and maintenance obligations at
+those interfaces, not a measured claim of reduced authoring or elaboration
+cost. The final examples use ordinary resource settings: no local heartbeat or
+recursion-limit increases. Two initial concrete examples hit kernel deterministic
+timeouts while reducing chosen recovery equivalences directly to composite
+reindex notation. Naming the functor-level comparison and checking the separate
+reindex equation with the public composition theorem avoids that reduction; the mathematical two-step comparison
+is unchanged. No recursion-depth failure was observed.
+
+[#664](https://github.com/VladimirMarko/conaled/issues/664) retains the
+subcanonical original-site and slice comparisons, and
+[#665](https://github.com/VladimirMarko/conaled/issues/665) retains the
+arbitrary-site route and non-subcanonical control. Parent #657 remains open.
+No decoder extension across a noninvertible code unit was needed, so this work
+does not activate #654.
