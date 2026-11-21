@@ -96,9 +96,8 @@ Keep the existing shallow native specialization and shared mathematical proof.
 A local recursion increase is also a reasonable option when a concrete client
 benefits from the direct form: this experiment establishes that it works here.
 There is no evidence requiring a repository-wide increase, and the exact minimum
-or the behavior of all four original failing clients has not been measured.
-Before removing the specialization globally, repeat the comparison on those
-clients and the full integrated suite. No production limits were changed.
+was not measured. The [four-client follow-up](#four-original-clients-at-depth-1024)
+below tests the broader regression set. No production limits were changed.
 
 The demonstrated simpler-adapter alternative is direct generic specialization
 with a local recursion increase. The matrix compares the combined shallow coding
@@ -155,3 +154,164 @@ select an independently built stable checkout. Do not edit a measured workspace
 during a run. A report is complete only when `inputs_verified_after` is true;
 partial output is retained for diagnosis if a run is interrupted. Source-policy,
 full-build and exhaustive-axiom validation remain separate acceptance checks.
+
+## Four original clients at depth 1024
+
+The [#648](https://github.com/VladimirMarko/conaled/issues/648) follow-up compares
+all four original regression files without changing their statements or proofs:
+`CubicalAuthorTransport`, `CubicalConstructorState`,
+`CartesianPackageRecomputation`, and `CubicalInterpretationObservations` in
+`Examples/`. Both workspaces start at
+`bc95f503ccbf043136c6699992388f750270e8e6`; the direct workspace applies only the
+retained `direct.patch`. The four clients and four patched classifier files are
+byte-identical to their versions at `290a15d8322cbd8f5ffc6186a589f4bfdec5827a`.
+The rest of the import closure uses the current pinned sources, including the
+generalized shared classification interface.
+
+The [client runner](../../scripts/benchmark-classification-clients.py) reuses the
+original runner's source fingerprinting and checks complete imports before
+measurement. Project build directories are private; pinned dependency artifacts
+are shared. The [client results](../../experiments/representable-classification/clients-results.json)
+retain the complete direct diff, source and client hashes, dependency revisions,
+Lean version, runner hashes, commands, diagnostics and individual measurements.
+Both inputs are checked after the run. Each file is run twice in each of three
+configurations, for 24 processes:
+
+| Form | Recursion budget | Heartbeat budget | Process timeout |
+| --- | --- | --- | --- |
+| Current specialized | Original default 512 | Original default 200,000 per command | 30 seconds |
+| Direct, control | Original default 512 | Original default 200,000 per command | 30 seconds |
+| Direct, proposed local budget | 1,024 | Original default 200,000 per command | 30 seconds |
+
+The sole resource override is `-DmaxRecDepth=1024` on the last row's individual
+`lake env lean Examples/<client>.lean` process. It applies to that module's
+commands, not its already built imports or any production source. No heartbeat
+limit is disabled. All measurements use synchronous elaboration and Lean's
+heartbeat profiler via command-line options. Only the inclusive, unindented
+`Elab.command` roots are summed, avoiding double counting nested traces. The raw
+profiler unit is one internal heartbeat; divide by 1,000 for the budget units
+used above. Totals cover all profiled commands in the file and can exceed the
+per-command budget. They include profiling overhead and exclude import loading;
+they are not directly comparable to the earlier single-declaration wrapper's
+counts. Wall time covers the entire profiled process, including startup and
+imports. No byte-allocation or resident-memory measurement was made.
+
+The [regression tests](../../scripts/test-benchmark-classification-clients.py)
+check the aggregation rule and run a real Lean fixture with heartbeat budgets
+1 and 200,000, checking failure and success while preserving the fixture's bytes.
+The four-client run separately exercises the recursion guard. Timing was
+coordinated with the other active implementation agent, which paused compiler
+work. The machine was still a shared host without CPU isolation; two repetitions
+cannot establish small timing differences.
+
+For the two completed clients, aggregate profiled heartbeats (rounded to the
+nearest budget unit) and process-time ranges across two repetitions are:
+
+| Client | Specialized, 512: heartbeats / seconds | Direct, 1024: heartbeats / seconds |
+| --- | --- | --- |
+| `CubicalAuthorTransport` | 147,833 / 6.82–7.31 | 149,980 / 6.89–7.40 |
+| `CubicalConstructorState` | Censored / 30-second timeout | Censored / 30-second timeout |
+| `CartesianPackageRecomputation` | 75,200 / 4.33–4.39 | 74,447 / 4.15–4.38 |
+| `CubicalInterpretationObservations` | Censored / 30-second timeout | Censored / 30-second timeout |
+
+At depth 512, direct `CubicalAuthorTransport` and
+`CartesianPackageRecomputation` fail with recursion diagnostics in both
+repetitions, without a heartbeat-limit diagnostic. At depth 1024 both pass.
+The successful heartbeat differences relative to specialized are about +1.5%
+and −1.0%, respectively. Their opposite signs provide no uniform cost advantage
+for either form. The other two clients hit the process deadline in every
+profiled configuration; increasing recursion to 1024 does not make either
+finish within that bound. No completed cost or depth-failure diagnosis follows
+from these timeouts.
+
+The raw heartbeat field on a timeout sums only command traces emitted before
+termination. It is a lower bound, not the successful file cost. Standard-output
+buffering can leave no captured count even after elaboration has started.
+Recorded wall time includes launch, termination and process reaping, so a
+30-second timeout can appear slightly above 30 seconds. The earlier experiment's
+30-second bound covered a setup plus one measured declaration; applying the same
+bound to a whole regression file is a stricter completion test. These results
+do not establish that an individual declaration exceeds that bound or that work
+grows nonlinearly.
+
+The separately retained `unprofiled_controls` remove all profiling and
+synchronous-elaboration overrides. They run the original files with their
+original options, adding only the module-process recursion override for direct.
+Each control ran once at the same 30-second process bound:
+
+| Client | Specialized, 512 | Direct, 1024 |
+| --- | --- | --- |
+| `CubicalAuthorTransport` | Pass, 6.37 s | Pass, 6.42 s |
+| `CubicalConstructorState` | 30-second timeout | 30-second timeout |
+| `CartesianPackageRecomputation` | Pass, 2.38 s | Pass, 2.37 s |
+| `CubicalInterpretationObservations` | 30-second timeout | 30-second timeout |
+
+The same two files time out without instrumentation. Profiling therefore does
+not alone explain their failure to finish under this whole-file process bound.
+These controls supply no successful whole-file cost for those clients. The
+successful process times also differ between profiled and unprofiled runs;
+neither set isolates pure declaration elaboration time.
+
+Keep the current specialization. The retained direct patch removes four `dsimp%`
+normalizations and replaces two `NatIso.ofComponents` assemblies with
+`decodeCodeEvaluation.iso`. Its net source reduction is eight lines across four
+files. It deletes no public declaration or mathematical theorem:
+`decodeCodeComponent`, `decodeCodeEvaluation`, coding/reindexing laws and the
+shared `RepresentableClassification.Evaluation.iso` proof remain. The existing
+specialization already reuses that proof's naturality result. This is a choice
+between computational presentations of shared mathematics, not between two
+independently maintained mathematical implementations.
+
+Callers keep the same names, types, assumptions, statements and proof bodies.
+The direct form adds a module-scoped recursion budget to the tested calls; the
+successful clients require no rewritten targets, casts or helper lemmas from
+the caller. A depth of 1024 is an acceptable finite engineering budget. Retaining
+the specialization is justified by its small maintenance footprint and the lack
+of a complete four-client cost/compatibility result under the bounded protocol,
+not by requiring every future client to fit 512.
+
+The changed computation passes through the generic evaluation component's
+`Equiv.cast` before the native `mapIso`. Native `decodeCodeComponent` omits that
+extra reducible layer. `chartDecodeIso` and `decodedLocalFilling` use the selected
+comparison, so replacing it affects the reduction path used to compute fillers,
+even though their source definitions and laws are unchanged. The completed
+unchanged clients check their existing package, record and transport contracts.
+The censored files supply no complete contract check, and this experiment proves
+no new cross-implementation equality for arbitrary selected fillers. The generic
+coding and evaluation entry points remain available alongside the shallow
+specialization; no second public facade or independently maintained proof is
+needed.
+
+No production Lean code or resource default changes. No integrated build/audit
+is claimed for an adopted direct implementation because none is adopted. The
+auxiliary runner is checked on real Lean fixtures, the retained data are checked
+against their source/runner hashes, and the report receives content/link checks
+and independent Standards/Spec review. A future adoption would still need the
+full integrated build/audit and complete original client contracts. There is no
+repeated recursion-budget escalation or measured growth series here to justify
+an upstream Lean bug report. If removing these thin adapters becomes useful,
+[follow-up #661](https://github.com/VladimirMarko/conaled/issues/661), under the
+[classification programme #647](https://github.com/VladimirMarko/conaled/issues/647),
+owns the censored-client comparison with a separately justified whole-file time
+budget or a command-level protocol that preserves the original statements.
+Its results will also inform [#636](https://github.com/VladimirMarko/conaled/issues/636).
+
+To replay the follow-up, create two detached worktrees at `bc95f503`, apply
+`direct.patch` to the direct tree, initialize their environments and pinned
+Mathlib cache, and keep project outputs private. From a checkout containing the
+new runner:
+
+```sh
+python3 scripts/benchmark-classification-clients.py \
+  --specialized /path/to/specialized --direct /path/to/direct \
+  --repeats 2 --timeout 30 --output /tmp/classification-clients.json
+python3 scripts/test-benchmark-classification-clients.py
+```
+
+The data's `unprofiled_controls.script` stores the complete portable control
+harness and its SHA-256. Extract that string to a temporary Python file and run
+it from this checkout with `--specialized /path/to/specialized`,
+`--direct /path/to/direct`, and `--output /tmp/controls.json`; `--runner` can
+select the absolute path of `scripts/benchmark-classification-clients.py`.
+Both result objects must report `inputs_verified_after: true`. The retained
+`direct.patch` SHA-256 is `2208009fe6828d8c12293ee64d96979af3b137a66d07c70286a760e4a27cb4ba`.
