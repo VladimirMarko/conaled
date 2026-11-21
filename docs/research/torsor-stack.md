@@ -86,15 +86,69 @@ The bridge uses Mathlib's `DescentData`, `IsPrestack`, `IsStack` and coverage
 APIs, so changes to those interfaces are the principal new maintenance cost.
 No recursion or heartbeat budget override was added.
 
-The implementation imports the existing quotient-descent base-change module
-for its generic split-cover local-surjectivity instance. This adds a dependency
-on that module; it does not use quotient objects in the torsor stack proof.
-If additional site-level clients need these facts, moving the cover lemmas to
-a shared sheaf-cover module would remove this dependency without changing the
-mathematics.
+[SheafCover](../../SquareKit/SheafCover.lean) owns the shared local-surjectivity
+and actual-display lemmas. [SheafContextTopology](../../SquareKit/SheafContextTopology.lean)
+builds their topology and slice coverage for both stack clients. Constructive
+quotient base change uses the primitive cover module without importing stack
+topology machinery. The torsor stack no longer imports quotient descent for
+cover machinery, and its old public names remain available.
 
 The classification programme remains tracked by
 [#647](https://github.com/VladimirMarko/conaled/issues/647). This result supplies
 its torsor-stack consumer. It does not complete coherent sheaf decoder recovery
-(#652), preservation of dependent products (#655), or the smooth reconstruction
-work (#640).
+(#652) or the smooth reconstruction work (#640).
+
+## Action-quotient stack
+
+[SheafActionQuotientStack](../../SquareKit/SheafActionQuotientStack.lean) proves
+Mathlib `IsPrestack` and `IsStack` for a group-sheaf action `a : Action G M`,
+with the same universe convention and sheaf-context topology described above.
+Its fiber is `Object a X`: an actual `G`-torsor over `X`, a natural equivariant
+map from its total sheaf to `M`, and every torsor arrow preserving that map.
+Restriction uses the existing strict `restriction` functors. Stabilizers are
+retained, including elements acting trivially on the target.
+
+The [quotient bridge](../../SquareKit/SheafActionQuotientStackDescent.lean)
+forgets Mathlib descent data to torsor descent data and reuses the torsor overlap
+proofs. It derives target compatibility from the actual transition arrows.
+`datumMapEquiv` retains every compatible map; `datumFunctor` composes with
+`quotientDescentEquivalence` to define `glueFunctor`. `localComparison` recovers
+the original Mathlib datum, with precisely the existing constructive quotient
+comparison as its component. `ofDatumRecovery` and `ofDatumRecoveryInv` recover
+constructive local objects and transport, with both inverse equations. The
+canonical hom equivalence proves full faithfulness, while the constructed
+comparison proves essential surjectivity. Neither is an adapter assumption.
+
+`glue_value` and `glue_action` identify the chosen construction.
+`localComparison_target`, `localComparison_action` and
+`localComparison_projection` retain the target map, action and display. `baseChangeComparison` uses the existing direct
+base change of local quotient cocycles. Its recovery, naturality, identity and
+composition equations relate that construction to restriction of the selected
+glued object and every descended map. There is no choice of torsor trivialization.
+
+[ActionQuotientStack examples](../../Examples/ActionQuotientStack.lean) use the
+quarter-turn clutching torsor with its actual total sheaf as target. The target
+map is the display isomorphism sending a fiber element to its underlying section.
+Recovery preserves this map and the torsor remains nontrivial. Separate examples
+retain distinct C4 stabilizers for an ineffective action, through both the
+Mathlib bridge and constructive gluing. The empty-cover control loses those
+stabilizers. A varying local group-valued target map fails compatibility with
+identity torsor transport, despite being equivariant; that compatibility cannot
+be omitted from descent data.
+
+The additional setup is the target-preserving bridge and its checked clients.
+Constructive quotient object/map gluing and base-change coherence are reused;
+the shared cover extraction removes duplicate instances and the reverse
+module dependency. Maintenance remains concentrated in Mathlib descent and
+coverage interfaces. These are structural costs, not timing measurements or
+claims of lower elaboration cost.
+
+This is the singleton-topology result of
+[#656](https://github.com/VladimirMarko/conaled/issues/656).
+[#657](https://github.com/VladimirMarko/conaled/issues/657) separately owns joint
+families and transfer to the original site for this quotient client; that
+extension does not follow merely from the torsor instance. No additional sheaf
+replacement operation from #654 is needed. This result does not classify the
+quotient by an orbit sheaf, stackify arbitrary groupoids, or reconstruct smooth
+manifolds; the geometry work remains with #32/#640 and the shared language
+coordination with #36/#647.

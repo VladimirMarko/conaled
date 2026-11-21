@@ -1,3 +1,4 @@
+import SquareKit.SheafCover
 import SquareKit.SheafTorsorDescent
 import Mathlib.CategoryTheory.Sites.Descent.Precoverage
 import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
@@ -302,25 +303,7 @@ theorem localComparison_natural {D E : Data (G := G) A} (h : D ⟶ E)
   rcases x with @⟨U, ⟨x, a⟩⟩
   exact (datumMap h).evaluation (X.obj.elementsMk U x) a p
 
-instance splitDisplay_locallySurjective {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X)
-    [Presheaf.IsLocallySurjective J f.hom] :
-    Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.ofDisplay f)).hom := by
-  rw [← SplitSheaf.displayIso_projection]
-  change Presheaf.IsLocallySurjective J ((SplitSheaf.displayIso f).hom.hom ≫ f.hom)
-  infer_instance
-
-theorem display_sieve {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X) :
-    Sieve.ofArrows _ (singleton (SplitSheaf.ofDisplay f)) =
-      Sieve.ofArrows _ (fun _ : Unit => f) := by
-  ext Z g
-  simp only [Sieve.mem_ofArrows_iff]
-  constructor
-  · rintro ⟨i, h, rfl⟩
-    exact ⟨(), h ≫ (SplitSheaf.displayIso f).hom, by
-      rw [Category.assoc, SplitSheaf.displayIso_projection]⟩
-  · rintro ⟨i, h, rfl⟩
-    exact ⟨(), h ≫ (SplitSheaf.displayIso f).inv, by
-      simp [singleton, ← SplitSheaf.displayIso_projection]⟩
+export SheafCover (splitDisplay_locallySurjective display_sieve)
 
 theorem isStackFor_cover {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective J f.hom] :

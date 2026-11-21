@@ -1,3 +1,4 @@
+import SquareKit.SheafCover
 import SquareKit.SheafActionQuotientDescentCategory
 
 /-! Pull back actual local quotient cocycles along a parameter map. -/
@@ -56,22 +57,7 @@ theorem Map.baseChange_localArrow {d e : Datum (a := a) A} (h : Map d e) (f : Y 
 @[simp] theorem baseChange_comp (f : Y ⟶ X) (g : Z ⟶ Y) :
     baseChange (a := a) (A := A) f ⋙ baseChange g = baseChange (g ≫ f) := rfl
 
-/-- A split cover remains locally surjective after arbitrary parameter change. -/
-instance baseChangeCover_locallySurjective (f : Y ⟶ X)
-    [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
-    Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.tySub A f)).hom where
-  imageSieve_mem {U} y := by
-    apply J.superset_covering _
-      (Presheaf.imageSieve_mem J (SplitSheaf.p A).hom (f.hom.app (Opposite.op U) y))
-    intro V k hk
-    obtain ⟨⟨x,b⟩, hx⟩ := hk
-    change x = X.obj.map k.op (f.hom.app (Opposite.op U) y) at hx
-    subst x
-    have hn := NatTrans.naturality_apply f.hom k.op y
-    change f.hom.app (Opposite.op V) (Y.obj.map k.op y) =
-      X.obj.map k.op (f.hom.app (Opposite.op U) y) at hn
-    rw [← hn] at b
-    exact ⟨⟨Y.obj.map k.op y,b⟩, rfl⟩
+export SheafCover (baseChangeCover_locallySurjective)
 
 variable [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom]
 

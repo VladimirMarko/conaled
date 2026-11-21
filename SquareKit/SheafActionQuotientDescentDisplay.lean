@@ -1,3 +1,4 @@
+import SquareKit.SheafCover
 import SquareKit.SheafActionQuotientDescentCategory
 
 /-! Arbitrary parameter covers have an equivalent split-display presentation. -/
@@ -10,11 +11,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {G : Sheaf J GrpCat.{max u v}} {M X Y : Sheaf J (Type (max u v))}
 variable (a : Action G M) (f : Y ⟶ X)
 
-instance splitCover_locallySurjective [Presheaf.IsLocallySurjective J f.hom] :
-    Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.ofDisplay f)).hom := by
-  rw [← SplitSheaf.displayIso_projection f]
-  change Presheaf.IsLocallySurjective J ((SplitSheaf.displayIso f).hom.hom ≫ f.hom)
-  infer_instance
+abbrev splitCover_locallySurjective := @SheafCover.splitDisplay_locallySurjective
 
 /-- The arbitrary sheaf cover is represented by its actual fibers. The cover
 isomorphism remains explicit; this does not select a section of the cover. -/
