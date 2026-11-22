@@ -289,12 +289,12 @@ against their source/runner hashes, and the report receives content/link checks
 and independent Standards/Spec review. A future adoption would still need the
 full integrated build/audit and complete original client contracts. There is no
 repeated recursion-budget escalation or measured growth series here to justify
-an upstream Lean bug report. If removing these thin adapters becomes useful,
-[follow-up #661](https://github.com/VladimirMarko/conaled/issues/661), under the
-[classification programme #647](https://github.com/VladimirMarko/conaled/issues/647),
-owns the censored-client comparison with a separately justified whole-file time
-budget or a command-level protocol that preserves the original statements.
-Its results will also inform [#636](https://github.com/VladimirMarko/conaled/issues/636).
+an upstream Lean bug report. [Follow-up #661](https://github.com/VladimirMarko/conaled/issues/661),
+under the [classification programme #647](https://github.com/VladimirMarko/conaled/issues/647),
+subsequently measured these clients with a separately justified whole-file bound.
+Its [complete-client diagnosis below](#complete-client-diagnosis-under-a-separate-process-bound)
+adds evidence for [#636](https://github.com/VladimirMarko/conaled/issues/636) while
+preserving this original bounded result.
 
 To replay the follow-up, create two detached worktrees at `bc95f503`, apply
 `direct.patch` to the direct tree, initialize their environments and pinned
@@ -315,3 +315,209 @@ it from this checkout with `--specialized /path/to/specialized`,
 select the absolute path of `scripts/benchmark-classification-clients.py`.
 Both result objects must report `inputs_verified_after: true`. The retained
 `direct.patch` SHA-256 is `2208009fe6828d8c12293ee64d96979af3b137a66d07c70286a760e4a27cb4ba`.
+
+## Complete-client diagnosis under a separate process bound
+
+The [#661](https://github.com/VladimirMarko/conaled/issues/661) measurement uses
+`a65430ba42ce5c36a73e66bd9e0c2dd625807a73` for both forms, applying the same retained
+`direct.patch` only to the direct worktree. The four clients remain byte-identical
+to #648. The original 30-second results above remain unchanged and are not
+relabelled as successes under a larger bound.
+
+The [protocol](../../experiments/representable-classification/complete-protocol.json)
+predeclares a finite 300-second whole-file timeout, ten times the earlier bound.
+This allows accumulated work across the 374-line ConstructorState and 212-line
+InterpretationObservations files. It is a completion and diagnosis budget, not
+an estimate of their minimum requirement. There is no automatic timeout
+escalation. Every invocation explicitly retains `maxHeartbeats=200000`, with
+`maxRecDepth=512` for specialized and `1024` for direct. No production option or
+client file changes.
+
+The [runner](../../scripts/benchmark-classification-complete.py) checks each
+private import closure before timing and checks the complete input identities
+afterward. Pinned dependency artifacts are shared; project build directories
+are distinct. The [raw results](../../experiments/representable-classification/complete-results.json)
+retain the protocol, source and client hashes, complete direct diff, dependency
+revisions, compiler version, runner hashes, commands, source-located diagnostics,
+all command traces, selected command totals, process wall times and load averages.
+Only a result with `inputs_verified_after: true` is a complete run.
+
+All four files receive two synchronous heartbeat-profile runs and one control
+with the original asynchronous setting and no profiling. The two previously
+censored files also receive synchronous unprofiled and synchronous wall-profile
+controls. The latter measures command seconds with Lean's monotonic clock in a
+separate run from the allocation-based heartbeat counter. These heartbeat
+counts are internal units: Lean multiplies the user-facing `maxHeartbeats` by
+1,000. Neither measurement reports allocated bytes or peak memory. Command
+sums cover the emitted inclusive command ranges, excluding import setup and
+output rendering; they are not a counter for every allocation in the process.
+Process wall time additionally includes startup, imports, diagnostic rendering
+and process reaping. The inclusive trace counter and the failing guard's
+scoped counter are distinct; the observed diagnostic identifies the exhausted
+budget, rather than a comparison of the inclusive total with 200,000.
+
+Lean's JSON diagnostics supply source ranges for command traces. A scoped
+`set_option ... in` emits separate traces for its expanded commands and their
+inclusive parent. The new runner retains all of them but sums only maximal
+nonoverlapping source ranges. Missing or ambiguous ranges suppress an aggregate
+rather than inventing a total. A checked scoped-option fixture exercises this
+case. The two completed #648 clients contain no scoped-option wrappers, and all
+retained ConstructorState timeout output ends before its scoped wrappers, so
+this correction does not change the published successful totals or those
+captured prefixes. It matters for the newly observed full ConstructorState trace.
+
+A second real fixture completes an arithmetic declaration and then sleeps in
+IO for ten seconds. Both processes are killed after four seconds. Comparing
+default buffering with `stdbuf -oL -eL` checks that a completed trace survives
+termination. The fixture's source, hash and raw partial output are retained
+separately from classifier costs. All client runs use line-buffered JSON output;
+this changes diagnostic delivery, not their source statements or proof bodies.
+
+Timing is sequential. The other implementation agents pause Lean compilation
+within each measured block and may compile while the runner waits at an explicit
+client-pair boundary. This is a shared host without CPU isolation or guaranteed
+resident caches. Per-process load averages are retained; two repetitions do not
+establish small speed differences. Failed-file trace totals record observed work
+in a rejected elaboration, not successful file costs or estimates of them.
+
+### Repeated heartbeat results
+
+The following are the two synchronous heartbeat-profile runs per form.
+Counts are sums over maximal command ranges, in millions of internal
+heartbeats. An asterisk marks observed work from a failed file, not a
+successful cost. All processes exited before the separate 300-second bound.
+
+| Client | Form | Result, both runs | Internal heartbeats (millions) | Process seconds |
+| --- | --- | --- | ---: | ---: |
+| CubicalAuthorTransport | specialized | Pass | 147.851 | 7.40–11.94 |
+| CubicalAuthorTransport | direct | Pass | 149.980 | 7.46–7.96 |
+| CubicalConstructorState | specialized | Heartbeat limit | 681.904 * | 48.87–54.13 |
+| CubicalConstructorState | direct | Heartbeat limit | 749.454 * | 52.48–52.98 |
+| CartesianPackageRecomputation | specialized | Pass | 75.347 | 4.46–4.52 |
+| CartesianPackageRecomputation | direct | Pass | 74.447 | 4.48–4.59 |
+| CubicalInterpretationObservations | specialized | Pass | 786.218 | 51.89–53.67 |
+| CubicalInterpretationObservations | direct | Heartbeat limit | 796.778 * | 50.82–51.68 |
+
+The only count variation is two internal heartbeats in specialized author
+transport; all other totals reproduce exactly. These are not four-client
+successes. Constructor state fails in both forms at `carrierComparison`
+(line 159), with a `whnf` heartbeat diagnostic. Direct interpretation fails
+inside `pathBijection_concat` (command line 80, diagnostic line 89), at
+`isDefEq`; specialized interpretation passes. Neither failure is recursion
+exhaustion or a process timeout. Subsequent controls below separate the
+profiling and asynchronous settings.
+
+The largest measured interpretation commands are `pathBijection_ua` (line 64),
+`pathBijection_concat` (line 80), and `no_collapsing_action` (line 100). Their
+specialized counts are 476.098, 193.008 and 53.674 million internal heartbeats;
+together they account for about 92% of its successful traced-command total.
+The corresponding direct observations are 476.508, 200.014 and 53.836 million,
+with the middle command rejected. For constructor state, the failed
+`carrierComparison` trace accounts for 379.714 million specialized and 379.653
+million direct internal heartbeats. `argument_start` (line 291) then contributes
+92.215 and 92.400 million. Lean continues after reporting a rejected declaration,
+so later trace output does not turn either failed file into an accepted contract.
+These locations identify concentrated work; they do not establish asymptotic or
+nonlinear growth. No size-growth experiment is part of this protocol.
+
+The buffering fixture retained zero completed command roots with default pipe
+buffering and one with line buffering, while both processes reached their
+four-second timeout. This is direct evidence of lost completed-message visibility
+under the former capture method, not evidence that the sleeping command
+completed. The line-buffered runner keeps every observed diagnostic and reports
+missing or ambiguous command coverage explicitly.
+
+### Ordinary and synchronous controls
+
+These unprofiled controls run once each. They measure complete process wall time
+on exit, not command heartbeats. The async column leaves Lean's original
+asynchronous setting untouched; the synchronous column adds only
+`-DElab.async=false`. The same explicit recursion and heartbeat budgets apply.
+
+| Client | Form | Original async | Synchronous, no profiler |
+| --- | --- | --- | --- |
+| CubicalAuthorTransport | specialized | Pass, 6.41 s | Not scheduled |
+| CubicalAuthorTransport | direct | Pass, 6.49 s | Not scheduled |
+| CubicalConstructorState | specialized | Pass, 42.57 s | Heartbeat limit, 48.06 s |
+| CubicalConstructorState | direct | Pass, 45.57 s | Heartbeat limit, 48.47 s |
+| CartesianPackageRecomputation | specialized | Pass, 2.38 s | Not scheduled |
+| CartesianPackageRecomputation | direct | Pass, 2.38 s | Not scheduled |
+| CubicalInterpretationObservations | specialized | Pass, 38.51 s | Pass, 46.72 s |
+| CubicalInterpretationObservations | direct | Heartbeat limit, 40.61 s | Heartbeat limit, 47.58 s |
+
+All four specialized clients pass with the original async setting. Three direct
+clients pass; direct interpretation still fails at `pathBijection_concat`,
+line 89, with a `whnf` heartbeat diagnostic. Its synchronous unprofiled failure
+is at the same line, with `isDefEq`, matching the heartbeat-profile location.
+That obstruction persists without instrumentation. In contrast, both constructor
+forms pass asynchronously but fail at `carrierComparison` under synchronous
+elaboration, even without a profiler. The async-setting change alone is enough
+to expose that failure. A synchronous rejected-file heartbeat total cannot be
+used as the cost of the successful asynchronous run.
+
+These controls separate mode effects from the old process cutoff: successful
+asynchronous constructor and specialized interpretation runs take more than
+30 seconds, while the direct interpretation process now reaches a specific
+heartbeat error. They do not measure profiling overhead by subtracting unequal
+accepted/rejected executions, and one control run per mode does not establish a
+small performance difference. No asynchronous command-heartbeat total is
+reported by an unprofiled control.
+
+To reproduce this separate protocol, create two detached worktrees at the full
+`a65430ba42ce5c36a73e66bd9e0c2dd625807a73` pin, apply the retained `direct.patch`
+only to the direct tree, initialize the pinned development environment and
+Mathlib artifacts, and keep the project build directories private. Run from a
+checkout containing this runner and protocol:
+
+```sh
+python3 scripts/benchmark-classification-complete.py \
+  --specialized /path/to/specialized --direct /path/to/direct \
+  --pause-between-clients --output /tmp/classification-complete.json
+CLASSIFICATION_BENCH_WORKSPACE=/path/to/specialized \
+  python3 scripts/test-benchmark-classification-complete.py
+```
+
+The optional pause waits before each client pair, outside measured process time;
+use it to coordinate compiler activity. Omitting it runs the same protocol
+sequentially without interaction. Input builds occur before timing. The output
+must contain all 32 predeclared rows and `inputs_verified_after: true`; each
+row's status and raw diagnostics determine whether its cost is complete.
+
+
+### Wall-profile controls and disposition
+
+The separate synchronous wall-profile runs retain command seconds as well as
+whole-process wall time. An asterisk denotes a rejected file, not a successful
+execution cost.
+
+| Client | Form | Result | Command seconds | Process seconds |
+| --- | --- | --- | ---: | ---: |
+| CubicalConstructorState | specialized | Heartbeat limit | 43.888 * | 45.05 |
+| CubicalConstructorState | direct | Heartbeat limit | 47.136 * | 48.22 |
+| CubicalInterpretationObservations | specialized | Pass | 52.564 | 56.94 |
+| CubicalInterpretationObservations | direct | Heartbeat limit | 49.718 * | 51.22 |
+
+The worker reached the platform usage limit while paused before the final
+InterpretationObservations pair. The coordinating agent completed that pair
+with the same pinned `run` function, budgets and input checks. The raw result
+records the continuation script and its hash. All 32 predeclared rows are
+present, and the final source, protocol and runner identity checks passed.
+No process reached the separate 300-second limit.
+
+Retain the production specialization. With the original async setting all four
+specialized clients pass, while direct interpretation still fails at the
+unchanged heartbeat guard. Raising direct recursion depth to 1024 therefore
+does not establish complete compatibility. The direct patch's small wrapper
+reduction does not currently justify migration or maintaining two production
+implementations. The original 30-second evidence remains useful as a bounded
+experiment; these longer controls diagnose what that bound concealed.
+
+Future measurements must record the async setting and distinguish successful
+costs from work observed in rejected files. The synchronous constructor failure
+persists without profiling; its precise relationship to Lean's task-level
+heartbeat accounting is not established here. This evidence belongs in #636's
+guidance reassessment. A further simplification or upstream report needs a
+concrete consumer or minimized obstruction; neither is justified merely by the
+old process timeout. No production defaults or selected-operation contracts
+changed, and no asynchronous command-heartbeat total is inferred from these
+unprofiled controls.

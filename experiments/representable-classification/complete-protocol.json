@@ -1,0 +1,56 @@
+{
+  "declared_at": "2026-11-21T21:21:16.643883+00:00",
+  "source_commit": "a65430ba42ce5c36a73e66bd9e0c2dd625807a73",
+  "timeout_seconds": 300,
+  "rationale": "A separate finite whole-file bound of ten times the original 30 seconds allows accumulated work across the unchanged 374-line ConstructorState and 212-line InterpretationObservations modules. It is a completion/diagnosis budget, not a measured minimum or a pass at the original bound. A timeout remains censored; no automatic escalation.",
+  "per_command_heartbeats": 200000,
+  "specialized_maxRecDepth": 512,
+  "direct_maxRecDepth": 1024,
+  "buffering": "stdbuf -oL -eL plus Lean --json for source-located command diagnostics; no source rewrite",
+  "stages": [
+    {
+      "mode": "heartbeats",
+      "clients": [
+        "CubicalAuthorTransport",
+        "CubicalConstructorState",
+        "CartesianPackageRecomputation",
+        "CubicalInterpretationObservations"
+      ],
+      "repeats": 2
+    },
+    {
+      "mode": "async",
+      "clients": [
+        "CubicalAuthorTransport",
+        "CubicalConstructorState",
+        "CartesianPackageRecomputation",
+        "CubicalInterpretationObservations"
+      ],
+      "repeats": 1
+    },
+    {
+      "mode": "sync",
+      "clients": [
+        "CubicalConstructorState",
+        "CubicalInterpretationObservations"
+      ],
+      "repeats": 1
+    },
+    {
+      "mode": "seconds",
+      "clients": [
+        "CubicalConstructorState",
+        "CubicalInterpretationObservations"
+      ],
+      "repeats": 1
+    }
+  ],
+  "ordering": "Sequential; specialized/direct alternated, reversed on second heartbeat repetition. All imports built before timing.",
+  "controls": "Async omits profiling and Elab.async overrides; sync adds only Elab.async=false. Seconds uses the same synchronous trace configuration as heartbeats but a monotonic wall clock. Counts and wall profiles are separate runs.",
+  "coordination": "Request the other active implementation agent to pause Lean compilation for the measured window; shared host, no CPU isolation. Load averages retained per run.",
+  "original_evidence": "clients-results.json remains unchanged, including the censored 30-second rows and original async controls.",
+  "buffering_fixture": "Before client timing: unchanged temporary two-command fixture, first a proved arithmetic example then 10s sleeping IO; 4s process bound, run once with default buffering and once line-buffered. Retain all partial output; fixture only diagnoses completed-message capture, not classifier cost.",
+  "aggregation": "Parse source-located JSON command traces; retain all raw traces, but sum only maximal nonoverlapping source ranges. Nested scoped-option expansion traces are enclosed by the inclusive parent. Missing/reversed ranges, equal outermost ranges or nonnested overlap yield no aggregate and explicit diagnostic. Never present failed-file totals as successful costs.",
+  "aggregation_corrected_at": "2026-11-21T21:35:27.912321+00:00",
+  "preliminary_disposition": "Four preliminary rows exposed separate scoped-option expansion roots. They are retained outside the final matrix; final runs restart with the tested source-range aggregation. Budgets, repetitions and client sources are unchanged."
+}
