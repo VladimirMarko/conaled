@@ -78,9 +78,9 @@ and carrier annotations in some Lean expressions. These checked cases establish
 mathematical recovery and reuse, not a measured productivity improvement.
 
 This resolves [#614](https://github.com/VladimirMarko/conaled/issues/614).
-Restriction coherence and sums/tensors remain with
-[#615](https://github.com/VladimirMarko/conaled/issues/615) and
-[#616](https://github.com/VladimirMarko/conaled/issues/616).
+The subsequent [restriction coherence](lawvere-restriction.md) and
+[sums/tensors](lawvere-combinations.md) complete #615 and #616 using these
+universal properties and recovery maps.
 The result concerns unconditional equations only. It adds no semantic
 completeness theorem for arbitrary guarded predicates or conditional premises,
 and no finitary-monad, enrichment or countable-operation equivalence.

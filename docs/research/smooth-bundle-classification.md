@@ -81,9 +81,13 @@ comparison for reconstruction.
 Target base change uses composition with the second projection of the actual
 fiber product. The comparison retains the full quotient arrow and its target,
 including identity/composite transports and a natural reconstruction comparison.
-This supplies ordinary target-preserving data for #669's associated-bundle
-comparison. The associated quotient manifold, its universal property and
-arbitrary structure-group extension remain #669's work.
+This supplies ordinary target-preserving data for the implemented
+[associated-sheaf construction](associated-sheaf-bundles.md). #669 constructs the
+sheaf quotient and arbitrary structure-group extension, with ordinary comparisons
+for regular and singleton fibers. General ordinary discrete associated spaces
+remain [#676](https://github.com/VladimirMarko/conaled/issues/676); the selected
+positive-dimensional geometry is the future branch
+[#677](https://github.com/VladimirMarko/conaled/issues/677).
 
 ## Checked consumers
 

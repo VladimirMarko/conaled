@@ -41,11 +41,16 @@ before accepting a bounded slice.
 Use the [interface-search inventory](reconstructible-presentations-search.md)
 from [#634](https://github.com/VladimirMarko/conaled/issues/634) when comparing
 receiving interfaces. Feed newly discovered opportunities to
-[#235](https://github.com/VladimirMarko/conaled/issues/235) and the experience
-of applying these criteria to
-[#636](https://github.com/VladimirMarko/conaled/issues/636). The latter should
-identify a concrete receiving slice as evidence rather than wait for the entire
-continuing CTB workstream.
+[#235](https://github.com/VladimirMarko/conaled/issues/235) and subsequent experience
+to the
+[guidance reassessment](../language-direction.md#reassessment-after-library-and-ctb-applications).
+That assessment selects accepted R2 `99a2974c`, indexed by `3ac996cc`, alongside
+the library applications. It retains these acceptance criteria: the sorting,
+cache, map and resource cases justify checked shared derivations while keeping
+native computational observations. Record conversion/setup and recurring caller
+obligations separately; an available generic wrapper alone does not justify
+migration. Continued receiving work can trigger another assessment without
+making every book or later checkpoint a prerequisite for this one.
 
 ## Current CTB continuation: accepted receiving integration
 
@@ -124,9 +129,10 @@ Completed mathematics and source correspondence belong in normal repository
 owners. The [unprocessed inbox](../textbooks/inbox/README.md) retains unfinished
 preparations. Checkpoint074's later retention and durable-save closure is recorded
 in the [current continuation](../textbooks/README.md#retention-and-recovery); it is
-separate from the later FDSA-5-85 acceptance. These accepted slices supply evidence for
-[#636](https://github.com/VladimirMarko/conaled/issues/636). Its comparative
-synthesis and guidance reassessment remain open.
+separate from the later FDSA-5-85 acceptance. The
+[#636 synthesis](../language-direction.md#reassessment-after-library-and-ctb-applications)
+assesses the selected R2 evidence while retaining these later slices' separate
+source and acceptance scope.
 
 ## Tree, cache and resource integration assessment
 

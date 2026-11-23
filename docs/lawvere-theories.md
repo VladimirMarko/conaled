@@ -79,12 +79,13 @@ Ordinary smooth and cubical clients need no additional imports or parameters.
 
 ## Scope
 
-[Issue #611](https://github.com/VladimirMarko/conaled/issues/611) owns this common
-API and its concrete adapters. General theory coproducts and tensors,
-equivalence with finitary monads, enriched or countable theories, and
-completeness for guarded logic are separate mathematical developments.
-The existing unary union/tensor presentation remains a bounded construction;
-this API does not assert its categorical universal properties.
+[Issue #611](https://github.com/VladimirMarko/conaled/issues/611) delivered this
+common API and its concrete adapters. The subsequent
+[sums and tensors](research/lawvere-combinations.md) construct coproducts and
+commuting tensors in `Operations`, recover the unary schemes, and state the
+nonskeletal categorical comparison precisely. Equivalence with finitary monads,
+enriched or countable theories, and completeness for guarded logic remain
+separate mathematical developments.
 
 ## Evaluation and interchangeable representations
 

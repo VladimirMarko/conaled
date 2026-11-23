@@ -141,7 +141,8 @@ that the one- and two-element carriers cannot be equivalent. A two-element
 parallel class is checked to be a circuit. Thus the abstract lattice forgets
 loop counts and parallel multiplicities.
 
-[#626](https://github.com/VladimirMarko/conaled/issues/626) owns reconstruction
-between finite simple matroids and finite atomistic upper-semimodular lattices.
-It follows this deliverable under the owner's approved staging. The closure
-constructor here provides the route from atom-generated closure to a matroid.
+[Geometric reconstruction](geometric-matroids.md), completed in #626, connects
+finite simple matroids and finite atomistic upper-semimodular lattices. It uses
+the closure constructor here and retains the specified relabelling and embedding
+back into the ambient type. Its simplicity hypothesis preserves the limits
+exhibited by the loop and parallel-class controls above.

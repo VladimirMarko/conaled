@@ -91,13 +91,17 @@ General nonfree discrete fibers require an ordinary associated-space
 construction from local products and transition maps, an atlas on the glued
 space, and comparison of its realized display with `associated`. Principal
 bundle reconstruction alone cannot supply this result: an action with
-stabilizers need not give a principal total. A follow-up should take a discrete
-acted-on set, build the ordinary associated total over an arbitrary admitted
+stabilizers need not give a principal total.
+[#676](https://github.com/VladimirMarko/conaled/issues/676) owns the future
+discrete-fiber construction: take a discrete acted-on set, build the ordinary
+associated total over an arbitrary admitted
 ordinary principal bundle, prove local product charts and projection, and
 identify all realized associated maps and base changes.
 
-Positive-dimensional fibers require a separate ordinary construction. Its
-inputs should include a smooth fiber manifold and a smooth group action;
+[#677](https://github.com/VladimirMarko/conaled/issues/677) owns the future
+positive-dimensional branch, conditional on selecting a concrete smooth action
+and nontrivial bundle. Its inputs include a smooth fiber manifold and a smooth
+group action;
 local charts have dimension `dim(base) + dim(fiber)`. The remaining obligations
 are smooth transition maps, the glued manifold and projection, the realization
 comparison at arbitrary stages, and map/base-change naturality. Neither this

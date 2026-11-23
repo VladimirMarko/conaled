@@ -613,13 +613,14 @@ Broader evidence can justify changing a module or repository default; passing at
 512 is not an architectural acceptance criterion. Keep normal production limits
 finite and allow them to grow with legitimate developments.
 
-The [representable-classification measurements](research/representable-elaboration-costs.md)
-show one direct generic regression passing at depth 768 with modest additional
-heartbeat cost. [#648](https://github.com/VladimirMarko/conaled/issues/648) compares
-depth 1024 against all four original failing clients before deciding whether to
-remove the current specialization. These are sampled budgets, not exact minima
-or a new mandatory limit. No production budget changes follow from this policy
-alone; [#636](https://github.com/VladimirMarko/conaled/issues/636) owns reassessment.
+The [complete-client measurements](research/representable-elaboration-costs.md#complete-client-diagnosis-under-a-separate-process-bound)
+from #648/#661 support retaining the shallow native specialization and shared
+proof. A direct regression passes at a higher recursion limit, but the full
+client comparison also exposes heartbeat and async-setting differences.
+Sampled passing budgets are not exact minima. The
+[application reassessment](#resource-observations-and-adoption) records local
+allowances and explicit proof boundaries with different outcomes; it supplies
+no basis for a blanket default increase.
 
 ## Complementary presentations and reconstruction
 
@@ -670,28 +671,123 @@ construction. Record deferred work with an owner while retaining useful source
 mathematics and validation; acceptance of a bounded slice does not require
 completing every architectural opportunity it exposes.
 
-[#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates applications;
-the [interface search](research/reconstructible-presentations-search.md) from
-[#634](https://github.com/VladimirMarko/conaled/issues/634) records earlier
-compromises, retained interfaces and owned follow-ups. Revisit this guidance against the
-resulting library and CTB integration evidence in
-[#636](https://github.com/VladimirMarko/conaled/issues/636), including failed
-generalizations and cases where retaining a native interface was preferable.
-The tracker owns individual acceptance criteria and remaining work.
+[#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates continuing
+applications. The [#636 reassessment](#reassessment-after-library-and-ctb-applications)
+compares the initial examples with subsequent library and accepted CTB work;
+the [interface search](research/reconstructible-presentations-search.md) retains
+its source contracts, rejected routes and residual owners. Reassess when another
+consumer exposes duplicated proof, erased information, stronger assumptions or
+recurring adapter costs, and when changed tools or authors warrant a new bounded
+comparison. Existing issue owners retain their individual acceptance criteria.
 
 The [representable-classification programme #647](https://github.com/VladimirMarko/conaled/issues/647)
-develops reusable classification and recovery foundations. Its next milestones
-are coherent decoding with morphism recovery and effective descent. Compare
-direct families/display maps, local universes and natural models under concrete
-semantic contracts; use fibred categories, pseudofunctors and sheaf/stack descent
-where their additional structure is required. Keep useful presentations connected
-by proved comparisons. Coding alone supplies neither recovery for arbitrary
-systems nor gluing, type-former closure or univalence. The programme owns further
-consumer discovery and reassessment after each milestone; its linked issues own
-acceptance criteria. This direction does not prescribe a blanket migration or
-claim a new complete cubical model.
+now includes coherent recovery, effective descent and ordinary bundle
+classification. [#666](https://github.com/VladimirMarko/conaled/issues/666) owns
+continuing descent/torsor/quotient applications. Compare direct families/display
+maps, local universes and natural models under concrete semantic contracts;
+use fibred categories, pseudofunctors and sheaf/stack descent where their
+additional structure is required. The accepted results do not supply recovery
+for arbitrary systems, selected-filler equality, general type-former closure or
+univalence. Those obligations remain with their scoped owners in the inventory.
 
 ## Current evidence and ownership
+
+### Reassessment after library and CTB applications
+
+The [#636 reassessment](https://github.com/VladimirMarko/conaled/issues/636)
+retains the recovery and primitive-law criteria above. The later applications
+support conditional adoption of shared constructions, with native entry points
+chosen according to the caller's available data. They do not support compulsory
+migration, universal equivalences or general productivity claims. The
+[discovery inventory](research/reconstructible-presentations-search.md) records
+retained alternatives and rejected routes; the comparison below identifies the
+mathematics and costs behind this decision.
+
+| Application and source contract | Recovery and shared proof | Caller and maintenance consequence |
+|---|---|---|
+| Initial [Lawvere #611–613](lawvere-theories.md#recovering-algebras-and-models) | Action/algebra records have exact round trips; algebra/model and nonskeletal theory comparisons are categorical equivalences. Product universal properties recover all maps, including nullary operations. | Scalar, packaged-algebra and arbitrary-target model APIs remain useful. Explicit carriers, arities and dependent comparisons sometimes remain necessary; the equivalences do not make all representations definitionally equal. |
+| [Sums and tensors #616](research/lawvere-combinations.md) | `sumIsColimit` constructs the coproduct in `Operations`; `tensorMapEquiv` classifies commuting pairs. Primitive interchange derives commutation of all operations. Unary schemes and their models recover through the shared construction. | Canonical presentations cover arbitrary finitary operation theories but add syntax. Compact presentations retain their direct clients. Nonskeletal uniqueness keeps the generator comparison; no strict coproduct of raw chosen theory morphisms is asserted. Increment/doubling and unequal constants separate sum from tensor. |
+| [Matroids #620/#628](research/matroid-presentations.md) and [geometric recovery #626](research/geometric-matroids.md) | Circuit elimination derives augmentation; submodularity derives local rank laws. Both reuse the labelled finite-matroid hub and its routes. Geometric recovery uses simplicity and explicit atom relabelling. | Keep standard and local-axiom inputs: convenience depends on which laws are already known. Ground normalization handles arbitrary ambient subsets. Loop/parallel multiplicity controls forbid recovering arbitrary labelled matroids from abstract flat lattices. These are object-type and order equivalences, without a chosen category of matroid morphisms. |
+| [Shared Sigma filling #627](research/shared-sigma-filling.md) | First/second filling and primitive pairing/substitution laws derive whole-section uniformity once. Both adapters recover the selected native operation by `rfl`. | Setup and model-specific box laws are paid per model; callers retain their native cap/face hypotheses. Prop-valued boundary witnesses permit the shared congruence proof. Relevant higher witnesses and a cross-model interval bridge are separate obligations. |
+| [Rational kernels #635](research/rational-kernel-recovery.md) | Finite additivity and the Markov law derive table normalization from rational singleton masses. Full table/kernel round trips retain composition and coordinate changes. | Native probability inputs trade row-sum proofs for rationality certificates; small direct tables can remain simpler. Choice makes reconstruction noncomputable. Existing executable tables/samplers remain, and equal support does not recover mass, seeds, paths or costs. |
+| [Accepted CTB R2](research/textbook-integration.md#current-ctb-continuation-accepted-receiving-integration), `99a2974c`, index `3ac996cc` | Indexed/pairwise sorting agrees without order laws; adjacent order needs transitivity. Lawful counts recover permutation. Set/cache refinement derives laws and histories from operational equations; queue/resource clients retain occurrences and actual execution observations. | Keep positional proofs, cache/order premises and separate stability and cost contracts. The tree-membership reuse repair and weaker left-separator map lemma remove concrete duplication without replacing the algorithms. Source acceptance and runtime extraction retain their separate receipts; later book progress does not enlarge R2's validation scope. |
+
+These results strengthen mathematical capability and remove specified repeated
+proofs. The reports record setup and conversion obligations, but provide no
+controlled comparison establishing general author productivity. The earlier
+matched author trials below retain their narrower evidential scope.
+
+The subsequent classification/descent applications test the same distinction
+with arrows and independently supplied local data. [Shared representable
+classification](research/shared-representable-classification.md) derives coding
+and comparison naturality while native decoders and selected fillers remain.
+[Sheaf display descent #667](research/sheaf-display-descent.md) exercises arbitrary,
+possibly noninvertible maps independently of torsors. [Torsor and quotient
+recovery](research/torsor-stack.md) reuse shared element/slice geometry and
+principal-sheaf transport, while actions, target preservation and site hypotheses
+retain their own proofs. The [dense chart-site comparison #668](research/site-comparison.md)
+adds those hypotheses for an actual alternate site; empty observations lose
+distinct stabilizers.
+
+[Ordinary bundle classification #672](research/smooth-bundle-classification.md)
+reuses #640's reconstruction and #641's maps/pullbacks, then supplies all-map
+categorical recovery, chart-choice and base-change comparisons. Non-Hausdorff,
+nontrivial-cover and independent-target consumers retain the original scope.
+[Transverse-pullback preservation #97](research/transverse-pullback-preservation.md)
+requires additional full-algebra local factorization and sheaf gluing; ordinary
+point agreement or full faithfulness alone does not provide stagewise existence.
+[Associated bundles #669](research/associated-sheaf-bundles.md) reuse effective
+display/torsor descent, retaining arbitrary group homomorphisms, fiber maps,
+independent local data and all-map universal properties. Their selected ordinary
+regular/singleton comparisons leave general discrete and positive-dimensional
+geometry to [#676](https://github.com/VladimirMarko/conaled/issues/676) and
+[#677](https://github.com/VladimirMarko/conaled/issues/677), respectively.
+
+The guidance decisions are:
+
+- **Retain** deriving laws from primitive inputs, precise recovery strength,
+  information-loss controls and original-client compatibility. The cases above
+  exhibit different valid contracts; no one equivalence schema covers them.
+- **Make convenience conditional** on the input facts and repeated obligations
+  actually removed. Search existing proofs before adding a facade: #634 initially
+  missed `FiniteKernelEquality`, and found parser-witness transport already served.
+  A connected direct interface can be the better entry point.
+- **Keep domain assumptions with their constructions.** Simplicity, rationality,
+  selected operations, coverage and site universes justify particular recoveries.
+  Retaining a counterexample rejects its specified route, not every richer
+  construction. Preserve the interval, multiplicity, mass and cubical controls.
+- **Remove stale milestones and reject unsupported migration.** Coherent
+  recovery and descent now have accepted implementations. Retaining computational
+  specializations and direct algorithms remains justified; no categorical
+  wrapper is required for each algorithm. The inspected cases do not show that
+  the criteria forced spurious equivalences or migration. They did expose a
+  proposed duplicate kernel facade, corrected by searching existing proofs.
+  Future textbook/application work can inform another bounded assessment.
+
+### Resource observations and adoption
+
+The [elaboration policy](#elaboration-resource-budgets) is retained. Modest local
+allowances and explicit comparison proofs both have successful applications;
+failed escalation alone does not establish a mathematical obstruction. Inspect
+the complete elaborated statement when changing an encoding so that a cheaper
+client still retains its original maps, hypotheses and observations.
+
+| Evidence | Observed result and adopted response |
+|---|---|
+| [#648/#661 complete clients](research/representable-elaboration-costs.md#complete-client-diagnosis-under-a-separate-process-bound) | Original-async specialization passes all four clients; direct interpretation exhausts heartbeats even unprofiled at depth 1024. Synchronous execution makes both constructor forms fail. Retain the shallow specialization and shared proof; the small wrapper deletion does not justify migration. Record async mode, recursion, heartbeats and process bounds separately. |
+| [#665 recovery](research/torsor-stack.md) and [#670 cocycles](research/torsor-cocycle-classification.md) | Two quotient comparisons retain local 400k heartbeats; a different comparison needed named reductions even after a failed 400k trial. Cocycle extraction uses defaults, but larger smooth repeated-comparison consumers failed at 200k/400k/800k; the accepted smaller-site composite and other smooth controls have distinct scope. |
+| [#641 maps](https://github.com/VladimirMarko/conaled/issues/641), [#640 reconstruction](https://github.com/VladimirMarko/conaled/issues/640), [#668 site comparison](research/site-comparison.md) | Abstract evaluation/action/transition lemmas removed concrete normalization failures without final budget increases. Direct #641 evaluation and #668 counit trials also failed at 800k; those failures are not passing costs. Shared projection-sheet geometry and comparison laws preserve the original clients. |
+| [#606 constructors](research/constructor-recomputation.md) | Four generic Pi/Path composition laws pass at defaults after isomorphism cancellation. A section proof retains 400k and a concrete Cartesian consumer 1.6m; a direct two-step recursion-1024 trial reached its external bound without a Lean result. Full-body comparison remains distinct from the fixed-body equality owned by #671. |
+| [#97 realization](research/transverse-pullback-preservation.md), [#672 classification](research/smooth-bundle-classification.md) | #97 retains a measured local 400k allowance for `lift_in_normalOpen`. #672's concrete manually restated comparison failed at 200k/400k; exact `type_of%` specialization passed at defaults with its full type inspected. These are different encodings and constructions, not a controlled cross-design benchmark. |
+| [#669 association](research/associated-sheaf-bundles.md#elaboration-costs) | Two extension-descent packaging declarations retain local 400k after 200k failures. Generic cocycle-map extensionality replaces a concrete proof that failed at 200k/400k. The full smooth two-scaling section comparison failed through a 1.6m trial; a kernel-checked opaque pair equal to those exact maps passed at defaults in 1.57s. It retains the original nontrivial torsor, arbitrary stages/sections and both nonidentity maps. Torsor-only opacity failed and was not adopted. |
+
+Passing budgets are not measured minima. Failed runs, warm integrated validation,
+fresh compilation and declaration timings cannot be combined into a productivity
+ranking. These observations establish neither a Lean bug nor runtime complexity.
+Broader tuning or another encoding experiment needs a concrete affected consumer;
+this assessment creates no duplicate optimizer programme.
+
+### Earlier author trials and continuing direction
 
 The [preservation architecture assessment](research/preservation-architecture.md)
 records a first bounded comparison of direct and shared author routes. Existing

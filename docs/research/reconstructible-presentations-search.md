@@ -54,8 +54,11 @@ The negative control
 [`no_interval_retraction`](../../Examples/CartesianWitnessPreservation.lean)
 still rules out the specified endpoint-preserving natural retraction from the
 restricted De Morgan interval to the Cartesian interval. Sharing the proof
-requires no such map. #607's canonical decoder-filler question, #606's recomputed
-comparison coherence and #625's internal SIP remain separately owned.
+requires no such map. [#606's constructor comparison](constructor-recomputation.md)
+now proves the decoder identity/composition and stated section/body comparisons.
+Exact equality of independently rebuilt fixed bodies remains #671, requiring
+#607's selected-operation analysis and #631's Cartesian algorithms; #625 owns
+the distinct internal total structured-object identity theorem.
 
 ## Existing interfaces to retain
 
@@ -182,9 +185,11 @@ final verification and both independent review axes passing. FDSA-5-85 is qualif
 (Chapter 5: 91/94), while FDSA-5-90 remains partial. Continued local authoring and
 distinct checkpoint deliveries are authorized alongside receiving work. The
 historical accepted receiving records at checkpoint012 (`56c739a1`), checkpoint024 (`28106961`), FIFO #564 (`dce19795`) and
-total tables #559 (`36d67461`) retain their original scope. R2 and the accepted
-CTB-24 slice supply evidence for #636, whose comparative synthesis and guidance
-decisions remain open.
+total tables #559 (`36d67461`) retain their original scope. R2 is the selected
+receiving evidence for the
+[#636 guidance reassessment](../language-direction.md#reassessment-after-library-and-ctb-applications).
+The accepted CTB-24 and later receiving increments retain their own source and
+validation scope; they do not retroactively change R2's contract.
 
 ### Tree/cache/resource assessment after receiving acceptance
 
@@ -204,8 +209,10 @@ The detailed assessment names public theorem owners, retained controls, exact
 premises and scoped follow-ups. It supports sharing algebra and refinement proofs
 while retaining stronger native execution observations. It establishes neither a
 need for a categorical wrapper around each algorithm nor completion of #561's
-historical capability inventory. Feed these concrete setup, reuse and maintenance
-observations into #174/#636; broader guidance remains their separate assessment.
+historical capability inventory. These concrete setup, reuse and maintenance
+observations inform #174 and the
+[guidance reassessment](../language-direction.md#reassessment-after-library-and-ctb-applications).
+The later source progress below retains its separate attribution.
 
 ## Priorities and reassessment triggers
 
@@ -217,14 +224,43 @@ transport APIs take priority over duplicate facades. Information-loss
 controls prevent spending effort on inverses that their observations cannot
 support. Retained interfaces need no migration merely to conform to this search.
 
-Feed this inventory and the implementation evidence to
-[#235](https://github.com/VladimirMarko/conaled/issues/235),
-[#558](https://github.com/VladimirMarko/conaled/issues/558) and
-[#636](https://github.com/VladimirMarko/conaled/issues/636). Final guidance
-reassessment must compare mathematical capability, shared proofs, conversion
-obligations, direct-client compatibility and maintenance separately, including
-the accepted R2 and CTB-24 slices and their remaining issue-specific obligations.
+The [#636 synthesis](../language-direction.md#reassessment-after-library-and-ctb-applications)
+retains primitive-law derivation, explicit recovery strength and information-loss
+controls. Convenience remains conditional on input facts and demonstrated reuse;
+existing direct interfaces need no uniformity-driven migration. The synthesis
+separates mathematical capability, shared proofs, setup/conversion obligations,
+recurring caller work and maintenance, and assesses the selected R2 slice.
 Successful compilation is not a usability measurement.
+
+### Current residual owners after the descent applications
+
+The accepted [display descent](sheaf-display-descent.md),
+[torsor/quotient recovery](torsor-stack.md), [site comparison](site-comparison.md),
+[ordinary bundle classification](smooth-bundle-classification.md),
+[transverse preservation](transverse-pullback-preservation.md) and
+[associated-sheaf construction](associated-sheaf-bundles.md) add concrete
+all-map consumers. They reuse common proofs while retaining action, coverage,
+selected-data, ordinary-geometric and universe obligations. Their completion
+removes those earlier milestones from the open list; it does not remove the
+following distinct contracts.
+
+| Owner | Remaining contract and selection condition |
+|---|---|
+| [#235](https://github.com/VladimirMarko/conaled/issues/235), [#289](https://github.com/VladimirMarko/conaled/issues/289), [#647](https://github.com/VladimirMarko/conaled/issues/647) | Continuing interface discovery and classification. A broader generic universal decoder needs its own compatibility/cost assessment; bounded coding and evaluation extraction does not supply it. |
+| [#518](https://github.com/VladimirMarko/conaled/issues/518) | Bounded comparison of local-universe parameter reuse for dependent sums/products, retaining its concrete substitution and comprehension controls. Its outcome is future evidence, not a prerequisite for this reassessment. |
+| [#607](https://github.com/VladimirMarko/conaled/issues/607), [#631](https://github.com/VladimirMarko/conaled/issues/631), [#671](https://github.com/VladimirMarko/conaled/issues/671) | Selected canonical filler analysis, native Cartesian pair/function algorithms, and exact fixed comparison-body recomputation. A native path retaining both bodies does not itself prove their equality. |
+| [#625](https://github.com/VladimirMarko/conaled/issues/625) | Internal total structured-object identity in both cubical models; separate from decoder comparison and arbitrary external structure equivalence. |
+| [#666](https://github.com/VladimirMarko/conaled/issues/666), [#676](https://github.com/VladimirMarko/conaled/issues/676), [#677](https://github.com/VladimirMarko/conaled/issues/677) | Continuing descent applications; future ordinary associated spaces for general discrete actions and a selected positive-dimensional action. The latter two remain needs-triage branches. Stabilizers prevent applying principal-torsor reconstruction to every associated total. Broader Morita/stackification work still needs a selected consumer. |
+| [#654](https://github.com/VladimirMarko/conaled/issues/654) | Conditional decoder extension across a noninvertible code-sheafification unit. Constructing an associated quotient or sheafified coproduct does not by itself activate that requirement. |
+| [#558](https://github.com/VladimirMarko/conaled/issues/558), [#658](https://github.com/VladimirMarko/conaled/issues/658) and the existing domain owners above | Continued CTB receiving/coverage and shared-client assessment. Preserve each accepted source identity and residual mathematical contract; later unreceived continuations are separate from R2 and from this finite reassessment. |
+
+[#107](https://github.com/VladimirMarko/conaled/issues/107) and
+[#108](https://github.com/VladimirMarko/conaled/issues/108) are closed. Preserve
+their outcomes and archived attempts. A newly authorized author comparison
+would require distinct authors, frozen interfaces/contracts and recorded
+assistance; these applications do not restart the old trials or replace their
+independence safeguards. #235 retains continuing reassessment, while #558
+retains receiving acceptance and individual issues retain their own scope.
 
 Search again when a receiving slice exposes repeated adapters or stronger
 assumptions, an existing client needs an observation currently erased, a common

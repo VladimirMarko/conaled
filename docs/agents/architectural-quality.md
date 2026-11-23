@@ -58,6 +58,12 @@ shared constructions or accepting external formalizations, apply the
 State the precise recovery or information-loss contract, derive shared laws
 from primitive requirements, and check existing clients under their original
 assumptions. This assessment belongs in integration review as well as new design.
+Use the
+[application reassessment](../language-direction.md#reassessment-after-library-and-ctb-applications)
+when deciding whether to adopt, retain or simplify a presentation: account for
+shared proof, caller setup and maintenance separately, and keep domain-specific
+recovery hypotheses in the construction's own contract. The retained examples
+do not establish a universal productivity advantage.
 
 ## Preservation-family changes
 
