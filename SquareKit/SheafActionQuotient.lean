@@ -1,4 +1,5 @@
 import SquareKit.SheafTorsorLabels
+import SquareKit.SplitSheafCategory
 import Mathlib.CategoryTheory.Discrete.Basic
 
 /-! Action quotients with actual sheaf torsors and equivariant maps. -/
@@ -40,6 +41,19 @@ def Object.totalMap (P : Object a X) : SplitSheaf.Ext P.torsor.family ⟶ M := �
     apply ConcreteCategory.hom_ext
     rintro ⟨x,p⟩
     exact (P.natural (ElementFamilies.along X.obj f x) p).symm }⟩
+
+/-- Pointwise equivariance-compatible target preservation is the ordinary
+commuting equation on total sheaves. -/
+theorem preserves_iff_totalMap {P Q : Object a X}
+    (h : SheafTorsor.Arrow P.torsor Q.torsor) :
+    (∀ x p, Q.value x (h.iso.hom.app x p) = P.value x p) ↔
+      SplitSheaf.totalMap h.iso.hom ≫ Q.totalMap = P.totalMap := by
+  constructor
+  · intro hh
+    ext U z
+    exact hh (X.obj.elementsMk U z.1) z.2
+  · intro hh x p
+    exact congrArg (fun f => f.hom.app x.obj ⟨x.val,p⟩) hh
 
 structure Arrow (P Q : Object a X) where
   torsorArrow : SheafTorsor.Arrow P.torsor Q.torsor
@@ -99,6 +113,9 @@ def reindex (P : Object a X) (f : Y ⟶ X) : Object a Y where
   value x := P.value (f.hom.mapElements.obj x)
   natural k p := P.natural (f.hom.mapElements.map k) p
   equivariant x := P.equivariant (f.hom.mapElements.obj x)
+
+theorem reindex_totalMap (P : Object a X) (f : Y ⟶ X) :
+    (reindex P f).totalMap = SplitSheaf.lift P.torsor.family f ≫ P.totalMap := rfl
 
 def Arrow.reindex {P Q : Object a X} (h : Arrow P Q) (f : Y ⟶ X) :
     Arrow (reindex P f) (reindex Q f) where

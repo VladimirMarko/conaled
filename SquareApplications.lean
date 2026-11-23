@@ -1219,4 +1219,8 @@ import Examples.SubcanonicalTorsor
 import Examples.SheafifiedTorsor
 import Examples.SheafTorsorCocycle
 
+import Examples.SmoothBundleMorphisms
+import Examples.SmoothBundlePullback
+import SquareKit.SmoothBundlePullbackTargets
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

@@ -95,3 +95,50 @@ def displayReindex (f : Y ⟶ X) :
       rfl)
 
 end SquareKit.SplitSheaf
+
+namespace SquareKit.SplitSheaf
+open CategoryTheory
+universe u v w
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {X : Sheaf J (Type w)} {A B : Ty X}
+
+/-- Recover a fiber map from an arbitrary map of total spaces over the base. -/
+def mapOfTotal (f : Ext A ⟶ Ext B) (hf : f ≫ p B = p A) : A.family ⟶ B.family :=
+  overEquivalence.functor.preimage (Over.homMk f hf)
+
+theorem totalMap_mapOfTotal (f : Ext A ⟶ Ext B) (hf : f ≫ p B = p A) :
+    totalMap (mapOfTotal f hf) = f :=
+  congrArg (fun h => h.left) (overEquivalence.functor.map_preimage (Over.homMk f hf))
+
+theorem totalMap_injective : Function.Injective (totalMap (A := A) (B := B)) := by
+  intro f g h
+  apply overEquivalence.functor.map_injective
+  exact Over.OverMorphism.ext h
+
+theorem totalMap_value {Y Z : Sheaf J (Type w)} (k : A.family ⟶ B.family)
+    (h : Ext B ⟶ Z) (u : Ext A ⟶ Y) (v : Y ⟶ Z)
+    (he : totalMap k ≫ h = u ≫ v) (x : X.obj.Elements) (p : A.family.obj x) :
+    h.hom.app x.obj ⟨x.val, k.app x p⟩ =
+      v.hom.app x.obj (u.hom.app x.obj ⟨x.val, p⟩) :=
+  congrArg (fun q => q.hom.app x.obj ⟨x.val, p⟩) he
+
+theorem totalMap_projection (k : A.family ⟶ B.family) : totalMap k ≫ p B = p A := rfl
+
+theorem conjugate_value {Y Z : Sheaf J (Type w)} (e : Ext A ≅ Y) (f : Ext B ≅ Z)
+    (k : A.family ⟶ B.family) (x : X.obj.Elements) (p : A.family.obj x) :
+    (e.inv ≫ totalMap k ≫ f.hom).hom.app x.obj (e.hom.hom.app x.obj ⟨x.val,p⟩) =
+      f.hom.hom.app x.obj ⟨x.val,k.app x p⟩ := by
+  have h : e.hom ≫ e.inv ≫ totalMap k ≫ f.hom = totalMap k ≫ f.hom := by simp
+  exact congrArg (fun q => q.hom.app x.obj ⟨x.val,p⟩) h
+
+end SquareKit.SplitSheaf
+
+namespace SquareKit.SplitSheaf
+open CategoryTheory
+universe u v w
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {X : Sheaf J (Type w)} {A B D : Ty X}
+@[simp] theorem totalMap_id : totalMap (𝟙 A.family) = 𝟙 (Ext A) := rfl
+@[simp] theorem totalMap_comp (f : A.family ⟶ B.family) (g : B.family ⟶ D.family) :
+    totalMap (f ≫ g) = totalMap f ≫ totalMap g := rfl
+end SquareKit.SplitSheaf
