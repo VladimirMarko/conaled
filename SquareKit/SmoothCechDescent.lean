@@ -16,23 +16,11 @@ variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M
 
 /-- Pointwise multiplication of sheaf labels preserves their naturality. -/
 def labelMul {Y : Sheaf topology Type}
-    (g h : Y ⟶ locallyConstantGroupSheaf G) : Y ⟶ locallyConstantGroupSheaf G := ⟨{
-  app U := ↾fun x => (show (locallyConstantGroup G).obj.obj U from g.hom.app U x) *
-    (show (locallyConstantGroup G).obj.obj U from h.hom.app U x)
-  naturality {U V} f := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    change _ = (locallyConstantGroup G).obj.map f (_ * _)
-    rw [((locallyConstantGroup G).obj.map f).hom.map_mul]
-    exact congrArg₂ (fun a b : (locallyConstantGroup G).obj.obj V => a * b) (NatTrans.naturality_apply g.hom f x)
-      (NatTrans.naturality_apply h.hom f x) }⟩
+    (g h : Y ⟶ locallyConstantGroupSheaf G) : Y ⟶ locallyConstantGroupSheaf G :=
+  SheafTorsor.labelMul g h
 
-def labelOne (Y : Sheaf topology Type) : Y ⟶ locallyConstantGroupSheaf G := ⟨{
-  app U := ↾fun _ => (1 : (locallyConstantGroup G).obj.obj U)
-  naturality {U V} f := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    exact (((locallyConstantGroup G).obj.map f).hom.map_one).symm }⟩
+def labelOne (Y : Sheaf topology Type) : Y ⟶ locallyConstantGroupSheaf G :=
+  SheafTorsor.labelOne Y
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
 theorem labelMul_precomp {Y Z : Sheaf topology Type} (f : Z ⟶ Y)

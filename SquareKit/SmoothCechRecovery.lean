@@ -1,4 +1,5 @@
 import SquareKit.SmoothCechExtraction
+import SquareKit.SheafTorsorLocalIso
 import Mathlib.CategoryTheory.HomCongr
 
 /-! Recover actual quotient objects from represented local trivializations. -/
@@ -25,48 +26,15 @@ def descentOfLocalIso {B : SplitSheaf.Ty X}
     (P : Object (representation smoothAction).action X)
     (Q : Object (representation smoothAction).action (SplitSheaf.Ext B))
     (e : SheafActionQuotient.Arrow Q (reindex P (SplitSheaf.p B))) :
-    Descent.Datum (a := (representation smoothAction).action) B where
-  localObject := Q
-  torsorDatum := {
-    transport x b c z := e.torsorArrow.iso.inv.app (SheafTorsor.Descent.point B x c)
-      (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z)
-    identity x b z := congrArg (fun h => h.app (SheafTorsor.Descent.point B x b) z)
-      e.torsorArrow.iso.hom_inv_id
-    cocycle x b c k z := by
-      have h := congrArg (fun h => h.app (SheafTorsor.Descent.point B x c)
-        (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z))
-        e.torsorArrow.iso.inv_hom_id
-      exact congrArg (e.torsorArrow.iso.inv.app (SheafTorsor.Descent.point B x k)) h
-    natural {x y} f b c z := by
-      have hi := NatTrans.naturality_apply e.torsorArrow.iso.inv
-        (SplitFunctionDiagram.pairArrow B.family f c)
-        (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z)
-      have hh := NatTrans.naturality_apply e.torsorArrow.iso.hom
-        (SplitFunctionDiagram.pairArrow B.family f b) z
-      exact hi.symm.trans (congrArg
-        (e.torsorArrow.iso.inv.app (SheafTorsor.Descent.point B y (B.family.map f c))) hh.symm)
-    equivariant x b c g z := by
-      rw [e.torsorArrow.equivariant]
-      exact e.inverse.torsorArrow.equivariant (SheafTorsor.Descent.point B x c) g
-        (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z) }
-  value_compatible x b c z :=
-    (e.inverse.preserves (SheafTorsor.Descent.point B x c)
-      (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z)).trans
-      (e.preserves (SheafTorsor.Descent.point B x b) z)
+    Descent.Datum (a := (representation smoothAction).action) B :=
+  Descent.ofLocalIso P Q e
 
 def descentOfLocalIsoMap {B : SplitSheaf.Ty X}
     (P : Object (representation smoothAction).action X)
     (Q : Object (representation smoothAction).action (SplitSheaf.Ext B))
     (e : SheafActionQuotient.Arrow Q (reindex P (SplitSheaf.p B))) :
-    Descent.Map (descentOfLocalIso smoothAction P Q e) (Descent.canonicalDatum B P) where
-  torsorMap := {
-    hom := e.torsorArrow.iso.hom
-    equivariant := e.torsorArrow.equivariant
-    transport x b c z := by
-      exact (congrArg (fun h => h.app (SheafTorsor.Descent.point B x c)
-        (e.torsorArrow.iso.hom.app (SheafTorsor.Descent.point B x b) z))
-        e.torsorArrow.iso.inv_hom_id) }
-  preserves := e.preserves
+    Descent.Map (descentOfLocalIso smoothAction P Q e) (Descent.canonicalDatum B P) :=
+  Descent.ofLocalIsoMap P Q e
 
 /-- A selected global recovery isomorphism, constructed through effective descent. -/
 def descentOfLocalIsoRecovery {B : SplitSheaf.Ty X}
@@ -75,7 +43,7 @@ def descentOfLocalIsoRecovery {B : SplitSheaf.Ty X}
     (Q : Object (representation smoothAction).action (SplitSheaf.Ext B))
     (e : SheafActionQuotient.Arrow Q (reindex P (SplitSheaf.p B))) :
     SheafActionQuotient.Arrow (descentOfLocalIso smoothAction P Q e).object P :=
-  ((descentOfLocalIsoMap smoothAction P Q e).arrow).comp (Descent.canonicalRecovery B P)
+  Descent.ofLocalIsoRecovery P Q e
 
 namespace TrivializedOn
 variable {A smoothAction} {P : Object (representation smoothAction).action X}
@@ -258,28 +226,8 @@ theorem descentOfLocalIsoRecovery_reindex {B : SplitSheaf.Ty X}
     (Q : Object (representation smoothAction).action (SplitSheaf.Ext B))
     (e : Arrow Q (reindex P (SplitSheaf.p B))) :
     (descentOfLocalIsoRecovery smoothAction P Q e).reindex (SplitSheaf.p B) =
-      (descentOfLocalIso smoothAction P Q e).comparison.comp e := by
-  have hc : (Descent.canonicalRecovery B P).reindex (SplitSheaf.p B) =
-      (Descent.canonicalDatum B P).comparison := by
-    apply SheafActionQuotient.Arrow.ext
-    apply SheafTorsor.Arrow.ext
-    have h := congrArg (fun k => k.iso.hom)
-      (SheafTorsor.Descent.canonicalEmbedding_evaluation B P.torsor)
-    have hh := congrArg (fun k =>
-      ((SheafTorsor.Descent.canonicalEmbedding B P.torsor).toArrow.reindex (SplitSheaf.p B)).iso.inv ≫ k) h
-    dsimp only [SheafTorsor.Arrow.comp, SheafTorsor.Arrow.ident, Iso.trans_hom, Iso.refl_hom] at hh
-    rw [Iso.inv_hom_id_assoc, Category.comp_id] at hh
-    exact hh.symm
-  have hn := Descent.Map.comparison_naturality (representation smoothAction).action B
-    (descentOfLocalIsoMap smoothAction P Q e)
-  change ((descentOfLocalIsoMap smoothAction P Q e).arrow.reindex (SplitSheaf.p B)).comp
-    ((Descent.canonicalRecovery B P).reindex (SplitSheaf.p B)) = _
-  rw [hc]
-  have he : (descentOfLocalIsoMap smoothAction P Q e).localArrow = e := by
-    apply SheafActionQuotient.Arrow.ext
-    apply SheafTorsor.Arrow.ext
-    rfl
-  exact hn.trans (congrArg ((descentOfLocalIso smoothAction P Q e).comparison.comp) he)
+      (descentOfLocalIso smoothAction P Q e).comparison.comp e :=
+  Descent.ofLocalIsoRecovery_reindex P Q e
 namespace TrivializedOn
 variable {I : Type} {A : SmoothRepresentedCover.Atlas X I}
 variable {smoothAction} {P : Object (representation smoothAction).action X}

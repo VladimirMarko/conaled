@@ -1,4 +1,4 @@
-import SquareKit.SheafTorsor
+import SquareKit.SheafTorsorLabels
 import Mathlib.CategoryTheory.Discrete.Basic
 
 /-! Action quotients with actual sheaf torsors and equivariant maps. -/
@@ -181,16 +181,7 @@ def chartFunctor (a : Action G M) (X : Sheaf J (Type w)) :
 
 /-- Evaluation at the identity recovers the variable label of every regular arrow. -/
 def arrowLabel {m n : X ⟶ M} (f : Arrow (chart a m) (chart a n)) :
-    X ⟶ SheafTorsor.groupSheaf G := ⟨{
-  app U := ↾fun x => f.torsorArrow.iso.hom.app (X.obj.elementsMk U x) (1 : G.obj.obj U)
-  naturality {U V} k := by
-    apply ConcreteCategory.hom_ext
-    intro x
-    have h := NatTrans.naturality_apply f.torsorArrow.iso.hom
-      (ElementFamilies.along X.obj k x) (1 : G.obj.obj U)
-    change f.torsorArrow.iso.hom.app (X.obj.elementsMk V (X.obj.map k x)) (G.obj.map k 1) = _ at h
-    rw [(G.obj.map k).hom.map_one] at h
-    exact h }⟩
+    X ⟶ SheafTorsor.groupSheaf G := SheafTorsor.regularArrowLabel f.torsorArrow
 
 theorem arrowLabel_relation {m n : X ⟶ M} (f : Arrow (chart a m) (chart a n)) :
     a.onMap (arrowLabel f) n = m := by
@@ -201,14 +192,7 @@ theorem arrowLabel_relation {m n : X ⟶ M} (f : Arrow (chart a m) (chart a n)) 
 theorem arrowLabel_recovers {m n : X ⟶ M} (f : Arrow (chart a m) (chart a n)) :
     chartArrowOfRelation (arrowLabel f) m n (arrowLabel_relation f) = f := by
   apply Arrow.ext
-  apply SheafTorsor.Arrow.ext
-  ext x p
-  change G.obj.obj x.obj at p
-  have h := f.torsorArrow.equivariant x p (1 : G.obj.obj x.obj)
-  change f.torsorArrow.iso.hom.app x (p * 1) =
-    p * (show G.obj.obj x.obj from f.torsorArrow.iso.hom.app x (1 : G.obj.obj x.obj)) at h
-  rw [mul_one] at h
-  exact h.symm
+  exact SheafTorsor.regularArrowLabel_recovers f.torsorArrow
 
 def chartArrowEquiv (m n : X ⟶ M) :
     Arrow (chart a m) (chart a n) ≃
@@ -218,8 +202,7 @@ def chartArrowEquiv (m n : X ⟶ M) :
   left_inv := arrowLabel_recovers
   right_inv g := by
     apply Subtype.ext
-    ext U x
-    exact one_mul (show G.obj.obj U from g.val.hom.app U x)
+    exact SheafTorsor.regularArrowLabel_regularArrow g.val
 
 /-- A section of an arbitrary torsor produces a sheaf-valued point. -/
 def Object.sectionMap (P : Object a X) (t : SplitSheaf.Tm P.torsor.family) : X ⟶ M := ⟨{

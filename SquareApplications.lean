@@ -1217,5 +1217,6 @@ import Examples.SheafDisplayDescent
 
 import Examples.SubcanonicalTorsor
 import Examples.SheafifiedTorsor
+import Examples.SheafTorsorCocycle
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
