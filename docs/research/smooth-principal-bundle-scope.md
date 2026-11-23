@@ -1,5 +1,13 @@
 # Ordinary finite-group bundles and represented smooth atlases
 
+The construction and classification now implemented are described in
+[smooth bundle classification](smooth-bundle-classification.md). That account
+uses the constructed ordinary total manifold for arbitrary discrete groups,
+full target-preserving maps, actual pullback comparisons and an ordinary
+non-Hausdorff control. The assessment below records the earlier finite-group
+scope investigation at its stated revision; its unimplemented-prerequisite
+statements describe that baseline.
+
 This assessment addresses [#637](https://github.com/VladimirMarko/conaled/issues/637), with construction and consumer contracts for [#638](https://github.com/VladimirMarko/conaled/issues/638) and [#639](https://github.com/VladimirMarko/conaled/issues/639). The inspected repository revision is `b272accf03334ff738288198b761e7736f84fcd4`; its Mathlib revision is `56a005855ea17e0b0958f73ec801ae140b0a1679`.
 
 The recommended ordinary class is every independently locally trivial smooth principal bundle for a finite discrete group over the existing Type-sized, finite-dimensional, boundaryless real manifold model. There is no identified need to require compactness, a globally charted base, principal-shaped intersections as an additional geometric hypothesis, or a global section. Hausdorffness and second countability can be imposed by clients, but the proposed chart argument does not use them. This is a mathematical scope conclusion and implementation contract, not a claim that the required all-stage gluing theorem already exists in Lean.
