@@ -54,7 +54,136 @@ not just a preselected constant tail. -/
 example (n : Nat) (f : Fin (n + 1) → second.Parameters) :
     (first.sigma second).Parameters := ⟨n, f⟩
 
+theorem shift_ne_id : shift ≠ idSub := by
+  intro h
+  have bad : (1 : Nat) = 0 := congrFun h 0
+  cases bad
+
+theorem double_ne_id : double ≠ idSub := by
+  intro h
+  have bad : (2 : Nat) = 1 := congrFun h 1
+  cases bad
+
+/-- The very same parameter object serves the product constructor. -/
+example : (first.sigma second).Parameters = (first.pi second).Parameters := rfl
+
+def product : (first.pi second).Term := Family.lam (A := first) (B := second) Example.body
+
+theorem product_native : product = Example.tighten :=
+  Family.lam_native (A := first) (B := second) Example.body
+
+theorem product_substituted_type :
+    (((first.pi second).reindex shift).reindex double).decode =
+      fun n => (i : Fin (2 * n + 2)) → Fin (i.val + 1) := rfl
+
+theorem product_formation_twice :
+    ((first.pi second).reindex shift).reindex double =
+      (first.reindex (compSub shift double)).pi
+        (second.reindex (lift (A := first.decode) (compSub shift double))) := by
+  rw [Family.reindex_comp]
+  exact Family.pi_reindex first second (compSub shift double)
+
+/-- Equality of the entire dependent function, not only its last value. -/
+theorem product_routes_agree :
+    Family.termReindex (Family.termReindex product shift) double =
+      Family.lam (A := first.reindex (compSub shift double))
+        (B := second.reindex (lift (A := first.decode) (compSub shift double)))
+        (Family.termReindex Example.body (lift (A := first.decode) (compSub shift double))) :=
+  Family.lam_twice (A := first) (B := second) Example.body shift double
+
+theorem application_routes_agree :
+    Family.termReindex
+      (Family.termReindex (Family.app (B := second) product selected) shift) double =
+      Family.app (B := second.reindex (lift (A := first.decode) (compSub shift double)))
+        (Family.termReindex product (compSub shift double))
+        (Family.termReindex selected (compSub shift double)) :=
+  Family.app_twice product selected shift double
+
+theorem application_beta : Family.app (B := second) product selected =
+    Family.termReindex Example.body (extend idSub selected) :=
+  Family.pi_beta (A := first) (B := second) Example.body selected
+
+theorem product_eta (f : (first.pi second).Term) :
+    Family.lam (A := first) (B := second) (etaBody (B := second.decode) f) = f :=
+  Family.pi_eta_cwf f
+
+/-- At n=2 the domain is Fin 6; every index i returns the last element of Fin(i+1). -/
+theorem product_values (i : Fin 6) :
+    ((Family.termReindex (Family.termReindex product shift) double) 2 i).val = i.val := by
+  rw [product_routes_agree]
+  rfl
+
+theorem application_value :
+    ((Family.termReindex
+      (Family.termReindex (Family.app (B := second) product selected) shift) double) 2).val = 5 := by
+  rw [application_routes_agree]
+  rfl
+
+example : (first.pi second).reindex shift =
+    (first.reindex shift).pi (second.reindex (lift shift)) :=
+  Family.pi_reindex first second shift
+
+example (b : (second.reindex (lift (A := first.decode) shift)).Term) :
+    (Family.piSections first second shift).symm (Family.piSections first second shift b) = b :=
+  Family.piSections_symm_apply first second shift b
+
+example (f : ((first.pi second).reindex shift).Term) :
+    Family.piSections first second shift ((Family.piSections first second shift).symm f) = f :=
+  Family.piSections_apply_symm first second shift f
+
+example (b : (second.reindex (lift (A := first.decode) shift)).Term) :
+    Family.piSections first second (compSub shift double) (Family.termReindex b (lift double)) =
+      Family.termReindex (Family.piSections first second shift b) double :=
+  Family.piSections_natural first second shift double b
+
 end DependentTail
+
+namespace InputRepresentation
+
+universe u
+variable {P Q W V : Type u} (E : P → Type u)
+
+/-- The second names are arbitrary functions, not just constant or canonical names. -/
+example (a : W → P) (b : (w : W) → E (a w) → Q) :
+    DependentInput.representation E (DependentInput.name E a b) = ⟨a, b⟩ :=
+  DependentInput.representation_name E a b
+
+example (n : W → DependentInput.Parameters (Q := Q) E) :
+    DependentInput.name E (DependentInput.representation E n).1
+      (DependentInput.representation E n).2 = n := DependentInput.name_representation E n
+
+example (a : W → P) (b : (w : W) → E (a w) → Q) (σ : V → W) :
+    DependentInput.name E (a ∘ σ) (fun v => b (σ v)) = DependentInput.name E a b ∘ σ :=
+  DependentInput.name_natural E a b σ
+
+end InputRepresentation
+
+namespace EmptyFibers
+
+def emptyInput : Family Unit := Family.present (fun _ => Empty)
+def emptyOutput : Family emptyInput.Comprehension := Family.present (fun _ => Empty)
+
+/-- Empty-domain products exist even when every output fiber is empty. -/
+def emptyProduct : (emptyInput.pi emptyOutput).Term :=
+  Family.lam (A := emptyInput) (B := emptyOutput) (fun z => nomatch z.2)
+
+theorem emptyProduct_unique (f : (emptyInput.pi emptyOutput).Term) : f = emptyProduct := by
+  funext x a
+  exact Empty.elim a
+
+example : Family.lam (A := emptyInput) (B := emptyOutput)
+    (etaBody (B := emptyOutput.decode) emptyProduct) = emptyProduct :=
+  Family.pi_eta_cwf emptyProduct
+
+def inhabitedInput : Family Unit := Family.present (fun _ => Unit)
+def impossibleOutput : Family inhabitedInput.Comprehension := Family.present (fun _ => Empty)
+
+/-- A nonempty input with an empty output admits no product term. -/
+theorem no_product : ¬ Nonempty (inhabitedInput.pi impossibleOutput).Term := by
+  rintro ⟨f⟩
+  exact (Family.app (B := impossibleOutput) f (fun _ => ()) ()).elim
+
+end EmptyFibers
 
 namespace Transport
 
