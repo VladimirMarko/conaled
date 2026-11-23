@@ -1065,6 +1065,9 @@ import Examples.NativeStructureDescriptions
 import Examples.NativeStructureIdentity
 import Examples.NativeStructureLaws
 import Examples.NativeStructureRecovery
+import Examples.LatticeTransportBridge
+import Examples.NativeLatticeTransport
+import Examples.NativeLatticeTransportCases
 import SquareKit.Internal.Cubical.PropositionExtension
 import SquareKit.Internal.Cubical.CartesianPropositionExtension
 import Examples.CubicalChartFamily
