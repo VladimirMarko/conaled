@@ -42,14 +42,16 @@ family isomorphisms and filler equalities after transport, not equalities of
 classified codes. `sigmaSubstitution_comp` identifies the composite comparison.
 
 The returned filler is defined by transporting the constructor's supplied
-filler. No theorem here equates it with `NativeDecode.filling` of the newly
-classified code. That stronger question belongs to
-[#607](https://github.com/VladimirMarko/conaled/issues/607). Named Pi/Path
-composite comparison laws belong with
-[#606](https://github.com/VladimirMarko/conaled/issues/606). Constructor admission
-does not supply the dependent pair/function universe-path transport algorithms
-tracked in [#631](https://github.com/VladimirMarko/conaled/issues/631), or
-the total structure identity theorem in #625.
+filler. [Canonical decoder recovery](canonical-decoder-filling-recovery.md),
+completed in [#607](https://github.com/VladimirMarko/conaled/issues/607),
+identifies it with `NativeDecode.filling` of the classified code and derives
+canonical constructor-operation substitution. Named Pi/Path identity and
+composite comparison laws were supplied by
+[#606](https://github.com/VladimirMarko/conaled/issues/606).
+The [native constructor transport API](cartesian-constructor-transport.md)
+supplies dependent pair/function algorithms along actual Cartesian universe
+paths and derives their selected comparison bodies. The total structure
+identity theorem remains in #625.
 
 ## Checked cases and statement review
 

@@ -1055,6 +1055,7 @@ import Examples.InitializedProducer
 import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
 import Examples.CartesianLargeFamilyConstructors
+import Examples.CartesianConstructorTransport
 import Examples.NativeStructureDescriptions
 import Examples.CubicalChartFamily
 

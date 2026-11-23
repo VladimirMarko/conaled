@@ -132,9 +132,59 @@ theorem fiberPathLine_one : Term.reindex (fiberPathLine L a b h) (endpointSub Γ
 
 noncomputable def fiberPath : Term (homogeneousPath A a b) :=
   pathLam (fiberPathLine L a b h) (fiberPathLine_zero L a b h) (fiberPathLine_one L a b h)
+
+theorem fiberPathLine_congr {a' b' : Term A} (ha : a = a') (hb : b = b')
+    (h' : Term.map f a' = Term.map f b') : fiberPathLine L a b h = fiberPathLine L a' b' h' := by
+  cases ha
+  cases hb
+  rfl
+
+set_option backward.isDefEq.respectTransparency false in
+theorem fiberPathLine_reindex (hL : L.Uniform) {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
+    fiberPathLine (L.reindex σ) (Term.reindex a σ) (Term.reindex b σ)
+        (congrArg (fun t => Term.reindex t σ) h) =
+      Term.reindex (fiberPathLine L a b h) (intervalSub σ) := by
+  have hu := hL (projection (interval Γ)) ((intervalFace Γ false).join (intervalFace Γ true))
+    (endpointBoundary (intervalCoefficient A) a b)
+    (Term.reindex (Term.map f a) (projection (interval Γ))) (fiberPath_boundary a b h) (intervalSub σ)
+  have hb := endpointBoundary_reindex (intervalCoefficient A) a b σ
+  refine Eq.trans ?_ hu
+  dsimp only [fiberPathLine, MapLifting.reindex]
+  congr 1
 end MapLifting
 namespace IntervalTransport
 variable {Γ : Context.{u}} {A : Family (total (interval Γ))}
+
+set_option backward.isDefEq.respectTransparency false in
+theorem evaluationLifting_fiberPathLine_reindex (F : Filling A) (hF : F.Lawful)
+    (r : Term (interval Γ)) (a b : Term (pi (interval Γ) A))
+    (h : Term.map (evaluate r) a = Term.map (evaluate r) b)
+    {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
+    (evaluationLifting (F.reindex (intervalSub σ)) (hF.reindex _) (Term.reindex r σ)).fiberPathLine
+        (Term.map (piReindexIso (interval Γ) A σ).hom (Term.reindex a σ))
+        (Term.map (piReindexIso (interval Γ) A σ).hom (Term.reindex b σ))
+        (congrArg (fun t => Term.reindex t σ) h) =
+      Term.map (Functor.whiskerLeft (projection (interval Δ)).mapElements
+        (piReindexIso (interval Γ) A σ).hom)
+        (Term.reindex ((evaluationLifting F hF r).fiberPathLine a b h) (intervalSub σ)) := by
+  have hi := evaluationLift_input_reindex F r σ (projection (interval Δ))
+    ((intervalFace Δ false).join (intervalFace Δ true))
+    (endpointBoundary (intervalCoefficient (reindex (pi (interval Γ) A) σ))
+      (Term.reindex a σ) (Term.reindex b σ))
+    (Term.reindex (Term.reindex (Term.map (evaluate r) a) σ) (projection (interval Δ)))
+    (MapLifting.fiberPath_boundary (f := Functor.whiskerLeft σ.mapElements (evaluate r))
+      (Term.reindex a σ) (Term.reindex b σ)
+      (congrArg (fun t => Term.reindex t σ) h))
+  have hb := endpointBoundary_map (piReindexIso (interval Γ) A σ).hom
+    (Term.reindex a σ) (Term.reindex b σ)
+  have hu := MapLifting.fiberPathLine_reindex (evaluationLifting F hF r) a b h
+    (evaluationLifting_uniform F hF r) σ
+  refine Eq.trans ?_ (hi.trans (congrArg (Term.map
+    (Functor.whiskerLeft (projection (interval Δ)).mapElements (piReindexIso (interval Γ) A σ).hom)) hu))
+  dsimp only [MapLifting.fiberPathLine, evaluationLifting]
+  congr 1
+  exact hb.symm
+
 noncomputable def prescribedLineComparison (F : Filling A) (hF : F.Lawful)
     (r s : Term (interval Γ)) (a : Term (reindex A (graph r)))
     (z : Term A) (hz : Term.reindex z (graph r) = a) :
@@ -144,6 +194,45 @@ noncomputable def prescribedLineComparison (F : Filling A) (hF : F.Lawful)
   exact homogeneousPathMap (evaluate s)
     ((evaluationLifting F hF r).fiberPath (lam (line F r (𝟙 Γ) a)) (lam z)
       ((line_source F hF r (𝟙 Γ) a).trans hz.symm))
+
+private theorem pathApp_mpr_left {Ξ : Context.{u}} {C : Family Ξ}
+    {a a' b : Term C} (h : a = a') (p : Term (homogeneousPath C a' b)) :
+    pathApp (Eq.mpr (congrArg (fun k => ↥(Term (homogeneousPath C k b))) h) p) = pathApp p := by
+  cases h
+  rfl
+
+/-- The endpoint cast in the public comparison retains the selected lift body. -/
+theorem prescribedLineComparison_body (F : Filling A) (hF : F.Lawful)
+    (r s : Term (interval Γ)) (a : Term (reindex A (graph r)))
+    (z : Term A) (hz : Term.reindex z (graph r) = a) :
+    pathApp (prescribedLineComparison F hF r s a z hz) =
+      Term.map (Functor.whiskerLeft (projection (interval Γ)).mapElements (evaluate s))
+        ((evaluationLifting F hF r).fiberPathLine (lam (line F r (𝟙 Γ) a)) (lam z)
+          ((line_source F hF r (𝟙 Γ) a).trans hz.symm)) :=
+  pathApp_mpr_left (map_section F hF r s a) _
+
+set_option backward.isDefEq.respectTransparency false in
+/-- Restricting the fixed comparison preserves its selected body. This uses
+uniformity of the actual evaluation lift, not endpoint equality alone. -/
+theorem prescribedLineComparison_body_reindex (F : Filling A) (hF : F.Lawful)
+    (r s : Term (interval Γ)) (a : Term (reindex A (graph r)))
+    (z : Term A) (hz : Term.reindex z (graph r) = a)
+    {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
+    pathApp (prescribedLineComparison (F.reindex (intervalSub σ)) (hF.reindex _)
+      (Term.reindex r σ) (Term.reindex s σ) (Term.reindex a σ)
+      (Term.reindex z (intervalSub σ)) (congrArg (fun t => Term.reindex t σ) hz)) =
+      Term.reindex (pathApp (prescribedLineComparison F hF r s a z hz)) (intervalSub σ) := by
+  rw [prescribedLineComparison_body, prescribedLineComparison_body]
+  have he := evaluationLifting_fiberPathLine_reindex F hF r (lam (line F r (𝟙 Γ) a)) (lam z)
+    ((line_source F hF r (𝟙 Γ) a).trans hz.symm) σ
+  have hl : Term.map (piReindexIso (interval Γ) A σ).hom
+      (Term.reindex (lam (line F r (𝟙 Γ) a)) σ) =
+      lam (line (F.reindex (intervalSub σ)) (Term.reindex r σ) (𝟙 Δ) (Term.reindex a σ)) :=
+    congrArg lam (line_reindex F hF r (𝟙 Γ) a σ).symm
+  refine Eq.trans ?_ (congrArg (Term.map (Functor.whiskerLeft (projection (interval Δ)).mapElements
+    (evaluate (Term.reindex s σ)))) he)
+  apply congrArg (Term.map _)
+  exact MapLifting.fiberPathLine_congr _ _ _ _ hl.symm rfl _
 end IntervalTransport
 namespace DependentSquare
 variable {Γ : Context.{u}} (D : Family (total (interval (total (interval Γ)))))
