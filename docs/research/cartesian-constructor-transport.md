@@ -72,10 +72,13 @@ concatenation and reversal. They use the exact section equations and the
 decoded-family adapters from
 [#606](https://github.com/VladimirMarko/conaled/issues/606).
 They do not assert equality of the independently selected comparison bodies.
-The Cartesian version of that stronger equation remains in
-[#671](https://github.com/VladimirMarko/conaled/issues/671), coordinated with
+The stronger fixed-constructor equation was completed by
+[#671](https://github.com/VladimirMarko/conaled/issues/671), using
 the [canonical decoder recovery](canonical-decoder-filling-recovery.md)
 completed by [#607](https://github.com/VladimirMarko/conaled/issues/607).
+The public `pair_comparison_body_recomputed` and
+`function_comparison_body_recomputed` derive exact equality with arbitrary
+source and target caps; see [the body contract](constructor-recomputation.md).
 The algorithms here derive their paths without assuming a
 canonical-versus-returned filler equality.
 
@@ -95,9 +98,9 @@ argument. That value differs from both the original argument and its forward
 transport. Variable source caps, a proper face, two nonidentity substitutions,
 and their composite exercise the whole-section and comparison APIs.
 `Substitution.PairCase` and `Substitution.FunctionCase` retain the full section
-equations, fixed-result body equations, and native paths comparing the two
-transport endpoints. The function case also retains its whole proper-face
-filling equation. Their concrete instances reuse these checked interfaces;
+equations, fixed-result and independently rebuilt body equations, and native
+paths comparing the two transport endpoints. The function case also retains
+its whole proper-face filling equation. Their concrete instances reuse these checked interfaces;
 they do not normalize the admitted code's implementation in every assertion.
 
 [#625](https://github.com/VladimirMarko/conaled/issues/625)'s structure-identity
@@ -106,8 +109,9 @@ They must retain the supplied carrier equivalence witness, the dependent
 codomain line, endpoint decoders, whole transported fields, and comparison
 paths. Converting those paths to exact equality requires an appropriate
 observation or a separate discreteness theorem. Exact compatibility with
-independently rebuilt comparisons requires the additional #671 result.
-The total structure-identity theorem remains a separate construction.
+independently rebuilt comparisons uses the completed #671 body theorem.
+The [total structure-identity theorem](cubical-structure-identity.md)
+is a separate construction.
 
 Statement review checks the dependent display in the input type, both endpoint
 adapters, the backwards argument direction, and whether each conclusion is a

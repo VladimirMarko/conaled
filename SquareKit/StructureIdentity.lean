@@ -12,12 +12,12 @@ Preparing a specification requires writing its data shape and law syntax.
 Preservation, law invariance and transport of formula solutions are then derived.
 Direct functions and existing mathematical records remain usable through adapters.
 
-The native realization in Internal.Cubical.StructureIdentity is restricted to
-presented discrete carriers and a supplied equivalence. It constructs lawful
-structure families and proves exact recovery of their path sections. The
-Cartesian realization compares restriction of those paths. These results do not
-yet constitute the total internal structured-object SIP or a comparison with an
-independently selected Cartesian ua; issue #625 owns that continuation.
+The earlier realization in Internal.Cubical.StructureIdentity treats presented
+discrete carriers and a supplied equivalence, with exact recovery of native path
+sections. NativeStructureUaComparison and its Cartesian counterpart provide the
+total internal correspondence for the admitted grammar using each model's own
+univalence. They retain whole native recovery homotopies and law-bearing objects.
+Presented-model comparisons do not identify independently selected ua paths.
 No author-productivity or executable-transport claim follows from these proofs. -/
 set_option autoImplicit false
 set_option warningAsError true

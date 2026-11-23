@@ -60,7 +60,8 @@ now proves the decoder identity/composition and stated section/body comparisons.
 [#631's native Cartesian algorithms](cartesian-constructor-transport.md) now
 support #671's exact equality of independently rebuilt fixed Sigma/Pi bodies in
 both models. The Cartesian equations retain arbitrary source and target caps.
-#625 owns the distinct internal total structured-object identity theorem.
+[#625's internal total structured-object identity theorem](cubical-structure-identity.md)
+uses each model's own univalence and retains whole native recovery homotopies.
 
 ## Existing interfaces to retain
 
@@ -253,12 +254,20 @@ recomputation in both models. Those results retain their specified operations
 and decoder adapters; arbitrary independently selected operations still need
 an operation-preservation law.
 
+The [native structure-identity construction](cubical-structure-identity.md)
+supplies #625's total correspondence in both models for the admitted grammar,
+including law-bearing objects. The selected dependent-lattice application and
+author comparison remain in #621; arbitrary dependent signatures and equality
+between independently selected ua paths are not consequences of this result.
+
 | Owner | Remaining contract and selection condition |
 |---|---|
 | [#235](https://github.com/VladimirMarko/conaled/issues/235), [#289](https://github.com/VladimirMarko/conaled/issues/289), [#647](https://github.com/VladimirMarko/conaled/issues/647) | Continuing interface discovery and classification. A broader generic universal decoder needs its own compatibility/cost assessment; bounded coding and evaluation extraction does not supply it. |
-| [#625](https://github.com/VladimirMarko/conaled/issues/625) | Internal total structured-object identity in both cubical models; separate from decoder comparison and arbitrary external structure equivalence. |
+| [#621](https://github.com/VladimirMarko/conaled/issues/621) | Selected dependent-lattice application of the native structure-identity construction, comparison with direct interfaces, and the scoped author trial. |
+| [#680](https://github.com/VladimirMarko/conaled/issues/680) | Generalize the admitted law syntax and native model correspondence across universes; retain small-universe clients and whole recovery contracts. |
 | [#666](https://github.com/VladimirMarko/conaled/issues/666), [#676](https://github.com/VladimirMarko/conaled/issues/676), [#677](https://github.com/VladimirMarko/conaled/issues/677) | Continuing descent applications; future ordinary associated spaces for general discrete actions and a selected positive-dimensional action. The latter two remain needs-triage branches. Stabilizers prevent applying principal-torsor reconstruction to every associated total. Broader Morita/stackification work still needs a selected consumer. |
 | [#654](https://github.com/VladimirMarko/conaled/issues/654) | Conditional decoder extension across a noninvertible code-sheafification unit. Constructing an associated quotient or sheafified coproduct does not by itself activate that requirement. |
+| [#678](https://github.com/VladimirMarko/conaled/issues/678), [#679](https://github.com/VladimirMarko/conaled/issues/679) | Groupoid/Morita comparisons and stackification, each conditional on a selected consumer and its precise recovery contract. |
 | [#558](https://github.com/VladimirMarko/conaled/issues/558), [#658](https://github.com/VladimirMarko/conaled/issues/658) and the existing domain owners above | Continued CTB receiving/coverage and shared-client assessment. Preserve each accepted source identity and residual mathematical contract; later unreceived continuations are separate from R2 and from this finite reassessment. |
 
 [#107](https://github.com/VladimirMarko/conaled/issues/107) and

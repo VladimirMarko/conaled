@@ -73,7 +73,7 @@ the Cartesian complete-record theorem is not evidence for the original claim.
 The implementation is a checked derivation of the displayed full equation,
 with no outstanding paper-only step.
 
-## Constructor substitution and the remaining body question
+## Constructor substitution and comparison bodies
 
 For any substitution `σ`, the new `sigmaSubstitution_native_filling` theorem
 states
@@ -95,13 +95,15 @@ Thus a caller can rewrite canonical filling across the fixed rebuilt decoder
 without unfolding the chart proof or changing its selected operation.
 
 This supplies the full-operation input identified by
-[#671](https://github.com/VladimirMarko/conaled/issues/671). That issue still
-owns naturality of the selected `sectionComparison` construction and exact
-whole-body equality for independently rebuilt fixed constructor comparisons.
+[#671](https://github.com/VladimirMarko/conaled/issues/671). That issue has
+completed selected-comparison naturality and exact whole-body equality for
+independently rebuilt fixed Sigma/Pi comparisons in both models, retaining
+arbitrary Cartesian source and target caps. The
+[constructor recomputation contract](constructor-recomputation.md) records
+the actual selected-lift proofs and public client theorems.
 The present equations do not identify arbitrary paths with equal endpoints,
-or prove equality of code maps. The bounded original Sigma/Pi consumer has
-priority; a universal classifier proof is no longer an external prerequisite
-because the required operation equation has now been derived here.
+or prove equality of code maps. The required operation equation is derived
+here; the selected-comparison proof is a separate step supplied by #671.
 
 The three approaches remain distinguishable:
 
@@ -165,7 +167,7 @@ mathematical obstruction nor a need for a larger resource budget.
 
 Adopt the complete recovery and fixed-constructor substitution laws. There is
 no remaining general recovery theorem to defer and no construction change to
-schedule from this investigation. Retain #671's selected-comparison and body
-obligations, and keep Cartesian path algorithms under their separate #631
-scope. Acceptance requires the exact integrated candidate audit and independent
-Standards and Spec review coordinated by the enclosing implementation loop.
+schedule from this investigation. The separate #671 selected-comparison and
+body equations and #631 native Cartesian algorithms are now complete.
+#625 retains total internal structured-object identity and its law-bearing
+clients; operation recovery alone does not establish that theorem.

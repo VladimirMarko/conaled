@@ -1,10 +1,10 @@
-# Structure identity: native descriptions and discrete packages
-
+# Native structure identity in both cubical models
 
 ## Native description families over the carrier universe
 
-The next stage of [#625](https://github.com/VladimirMarko/conaled/issues/625)
-interprets `Description` in both native cubical models. Import
+The native interpretation developed for
+[#625](https://github.com/VladimirMarko/conaled/issues/625) interprets
+`Description` in both native cubical models. Import
 `NativeStructureDescriptions` or `CartesianNativeStructureDescriptions` from
 `SquareKit.Internal.Cubical`; the interfaces live in each model's
 `StructureIdentity.Native` namespace.
@@ -46,12 +46,139 @@ presentation. Pi smallness uses restriction-indexed values. Fixed types retain
 explicit lifts, and the total universe is allowed to be larger. Neither host
 proof irrelevance nor an assumed preservation relation enters these results.
 
-This delivers native data families, admission, and presented-carrier recovery.
-It does not complete #625: the total internal path/isomorphism theorem,
-independent native field preservation, law-family admission and sethood,
-recovery of law-bearing/dependent clients, and selected univalence comparisons
-remain owned there. In particular, `presentedIso` does not identify native
-transport along arbitrary universe paths with host `Description.transport`.
+## Independent preservation and native laws
+
+`NativeStructurePreservation` and its Cartesian counterpart define `preserves`
+recursively from the description. Carrier fields use native paths after the
+supplied map; products retain both comparisons; function fields quantify over
+all generalized arguments, using the supplied maps in both variances. The
+relation is defined independently of the desired structure-identity theorem.
+`identityPathIso` compares preservation under identity maps with the whole
+native field path. `preservesActionPathIso` extends this to any supplied strict
+carrier isomorphism: independent preservation is naturally isomorphic to a path
+from the whole `actionIso`-transported structure to the target. This includes
+higher-order functions. `preservesReindexIso` proves substitution for the
+recursive relation, including dependent function arguments.
+
+`FunctionPaths.decomposition` identifies native paths between dependent
+functions with native functions into their pointwise path families. No
+constant-carrier presentation or sethood assumption enters this isomorphism.
+`PiDomain.congr` and `sigmaCongr` change dependent domains through supplied
+family isomorphisms. Both inverse equations retain the dependent output, and
+the function comparison evaluates every generalized argument.
+
+`NativeStructureLaws` interprets the existing `Formula` grammar using native
+path, Sigma and Pi families. The expression and law language currently uses
+`Specification` over `Context.{1}`; the raw description interpretation and
+structure-path construction are polymorphic in `Description.{u}` and
+`Context.{u+1}`. [#680](https://github.com/VladimirMarko/conaled/issues/680)
+tracks generalization of the law syntax and its recovery across universes.
+Native carrier sethood supplies propositionhood
+of the interpreted laws; host proof irrelevance is not used to erase arbitrary
+native identity witnesses. The `HomotopyLevels` modules package these native
+witnesses, their substitution, lawful fillings and small presentations.
+`modelsFamily` retains both the data and the actual law witness.
+`modelObjects` adds native carrier sethood and the laws to the total family of
+raw structured objects. `objectConditionsIsProp` proves that this combined
+condition is a native proposition; callers need not supply sethood for every
+possible carrier code. `modelObject` constructs an inhabitant from a selected
+set-carrier witness, fields and laws.
+
+`PropositionExtension.pathEquivalence` proves that forgetting an inhabited
+native proposition fiber induces a native equivalence on path families. It
+applies to arbitrary endpoints and uses the literal first-projection map.
+`modelPathProjectionEquivalence` specializes it to the law-bearing total
+family, retaining whole paths and both recovery homotopies.
+
+`NativeStructureRecovery` recovers all existing formula constructors over an
+explicitly presented constant carrier. `presentedModelsEquiv` and
+`presentedModelsIso` retain the complete model, while
+`presentedModelsTransport_data` identifies its data transport with the native
+descriptor action. `presentedSolutionsEquiv` and
+`presentedSolutionsTransport` cover dependent solution families. The retained
+examples recover the law-bearing state package and comparable-pair lattice
+client in both models, including nonidentity transport and rejected endpoints.
+`presentedPreservationEquiv` recovers the old `Description.Preserves` witness
+from the independent native relation over a presented carrier isomorphism.
+`presentedModelPreservationEquiv` does the same for `Specification.Preserves`,
+and `presented_model_preserves_iff` recovers the old model-transport equality.
+The state examples construct native preservation for the transported state and
+reject preservation to the unchanged state through these public comparisons.
+`Examples.NativeStructureRecovery.modelComparison` is an explicit cross-model
+family isomorphism for presented law-bearing structures. It compares restriction
+of the original-model family with the Cartesian family through their common
+presented model. `modelComparison_recovery` proves that this comparison retains
+the same complete host model. It does not identify the models' independently
+selected ua paths. These presented-carrier recovery results do not alone
+classify arbitrary total structured-object paths.
+
+## Substitution, composition and inverse contracts
+
+`action_id` and `action_comp` prove exact whole-field laws for the supplied
+forward and backward maps. For strict carrier isomorphisms, `actionIso` retains
+both inverse equations. `reindexIso_id`, `reindexIso_comp`, `reindexTerm_id`
+and `reindexTerm_comp` govern substitution of every description;
+`action_reindex` makes field action commute with substitution.
+`preservesReindexIso` and `preservationTargetsReindexIso` transport the entire
+native preservation family, and `lawReindexIso` covers all admitted formulas,
+including quantification over function fields.
+
+`decodeEquivalence_reindex` and `genericEquivalence_at` retain the complete
+pair of a carrier map and its selected contractible-fiber witness. These laws
+do not assert that independently selected homotopy inverses compose strictly.
+The selected-ua comparisons and native recovery homotopies state their own
+contracts. The two model-local results do not imply equality between
+independently selected original-model and Cartesian ua paths.
+
+`Examples.NativeStructureIdentity` exercises higher-order preservation under
+Boolean complementation. It also admits a Boolean carrier into each native
+universe, conjugates complementation by its decoder isomorphism, and checks
+that the coded false section reads back as false while its image reads back as
+true. A native path to the unchanged false endpoint is rejected by mapping
+through the decoder and separating the constant Boolean endpoints.
+`admittedSwapPath` applies the final total correspondence to this actual coded
+Boolean swap. `codedSwapWitnessRecovery` recovers its complete supplied witness,
+and `codedSwapPathRecovery` recovers every whole path between the selected
+objects. Both use the public `explicitLeftInverseAt`/`explicitRightInverseAt`
+interfaces. `codedSwap_carrier` identifies the whole carrier section with the
+selected ua of the supplied complete swap equivalence.
+
+`Examples.NativeStructureLaws` constructs a raw pointed-unary path from a native
+point path while retaining the identity operation, then reconstructs a path of
+fixed-point-law models. `pointedModelPath_projection` recovers the whole raw
+path. `pointedModelPath_roundtrip` exercises the final law-bearing inverse and
+map on that constructed model path.
+
+## Total structured-object correspondence
+
+Import `NativeStructureUaComparison` or `CartesianNativeStructureUaComparison`.
+The public interface is `StructuredIdentity.UaComparison` in the corresponding
+model namespace. `explicitMap D a s b t` maps the independently defined
+`Native.equivalences D s t` to whole paths between `objectOf D a s` and
+`objectOf D b t`. `explicitEquivalence` proves that this actual map is a native
+homotopy equivalence. `explicitInverse` reconstructs the supplied equivalence
+and preservation data; `explicitLeftInverseAt` and `explicitRightInverseAt`
+recover the whole witness and the whole path by native homotopies.
+`explicitMap_carrier_values` identifies every generalized carrier value with
+the caller's selected ua. `explicitMap_carrier` retains the whole carrier path;
+`explicitMap_carrier_ua` identifies its section with `ua a b E.1 E.2`, where `E`
+decodes the complete supplied carrier-equivalence section, including its chosen
+homotopy-equivalence witness.
+
+`rawMap` and `rawEquivalence` expose the same construction for arbitrary
+sections of `objects D Γ`, using the checked endpoint normalization. They
+require no constant-carrier presentation. These are equivalences of native
+families, not just host equivalences between sets of closed sections.
+
+For an admitted `Specification`, `modelMap` and `modelEquivalence` extend the
+correspondence to arbitrary law-bearing objects. The source retains the raw
+carrier equivalence and independent field preservation; the proposition
+witnesses already present in both endpoint objects supply the law extension.
+`modelInverse`, both recovery homotopies and their `At` specializations retain
+whole paths and witnesses. `modelMap_projection` recovers the raw selected-ua
+path by a native homotopy after forgetting the laws. This is a whole-path
+comparison, not a claim of strict equality between the law-extension path and
+the raw path.
 
 ## Native decomposition of dependent-sum paths
 
@@ -65,9 +192,7 @@ the whole path; `equiv` proves both roundtrips.
 The component family transports restriction through this explicit equivalence.
 `restrict_base` and `restrict_field` expose the resulting formulas: restriction
 precomposes the generalized argument and retains its interval value. Thus this
-is a family-level comparison, not only a bijection of closed sections. It does
-not yet identify the component family with a separately constructed Sigma of
-native dependent-Path codes. `filling` transports the native path filler through
+is a family-level comparison, not only a bijection of closed sections. `filling` transports the native path filler through
 `decomposition` and proves it lawful, including the Cartesian variable cap.
 
 `Examples.SigmaPaths` checks both models. A moving interval path retains its
@@ -78,11 +203,39 @@ satisfy a true target endpoint. The general construction also specializes to
 path family. Statement review checks all generalized evaluations, genuinely
 dependent fiber types, both endpoints, inverse equations and restrictions.
 
-This supplies the dependent-sum path step toward #625. It does not turn a
-carrier path into an independently defined structure-preserving equivalence.
-That comparison still needs each model's own univalence, native preservation,
-and the law-family/sethood admission described above. The moving interval
-example tests path data; it does not assert a filler for the interval itself.
+`StructuredIdentity.StructuredPaths.wholeIso` in `NativeStructureIdentity`
+and its Cartesian counterpart further identifies this component family with
+a native Sigma of carrier paths and native dependent field paths. Both inverse
+equations retain every interval value. `FieldsAlong` constructs the actual
+family evaluated along the carrier path, with its dependent endpoints and
+lawful filling.
+
+`SmallUniverse.NativeUnivalence.uaEquivalence` proves that each model's selected
+`equivToPath` map is a native homotopy equivalence. Its substitution comparison
+uses that same selected map. `StructuredIdentity.UaStructured.equivalence`
+changes the base of the field-path family along this map and reconstructs the
+whole structured path. `map_carrier` gives the exact selected ua path;
+`map_fields` gives the complete reconstructed dependent field path. The supplied
+carrier equivalence witness is retained, and `inverse`, `rightInverse` and
+`leftInverse` give native recovery, including arbitrary path interiors.
+
+`UaComparison.preservationFieldsEquivalence` connects the independently defined
+preservation relation to dependent fields along the selected ua. The proof
+normalizes the identity fiber, then extends the comparison over the contractible
+family of carrier equivalences. `preservationToWhole` assembles the actual
+structured path. Its carrier equation is exact, and its field equation retains
+the complete dependent path.
+
+`Native.SIP.relationAtIso` identifies the based relation at two supplied objects
+with `Native.equivalences`. Its inverse retains the supplied complete carrier
+equivalence through `equivReindexIso`, including the selected contractible-fiber
+witness. This normalization uses a local 400,000-heartbeat budget in each model;
+the recursion depth remains at Lean's default. The rest of the endpoint adapter
+uses default budgets.
+
+No equality between independently selected original-model and Cartesian ua paths
+is assumed. The earlier moving-interval example tests path data and does not
+assert a filler for the interval itself.
 
 ## Discrete proof-bearing state packages
 
@@ -140,11 +293,11 @@ native path sections by applying the section-injectivity theorem to their
 bodies. The other recovery equation is equality in the stated proposition
 `Preserves`. This is stronger than an equivalence of mere existence statements.
 
-The result is fiberwise over a chosen equivalence. It does not classify the
-unrestricted total space of all carrier paths or all equivalence witnesses.
-That stronger SIP would require a comparison of the selected carrier
-path/equivalence witnesses and compatible higher recovery laws. Nor does this
-result cover a package whose proof field has distinct native inhabitants or
+This earlier result is fiberwise over a chosen equivalence. The total native
+correspondence above now classifies whole structured-object paths for its
+admitted grammar, retaining carrier equivalence witnesses and both recovery
+homotopies. The discrete argument here does not cover a package whose proof
+field has distinct native inhabitants or
 nontrivial higher paths. Replacing a PLift proposition with such a field would
 invalidate the pointwise singleton argument; no host proof-irrelevance rule
 is applied to erase that field. Equality here is a checked host equality of

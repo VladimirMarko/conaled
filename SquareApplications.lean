@@ -1057,6 +1057,11 @@ import Examples.CubicalLargeConstructors
 import Examples.CartesianLargeFamilyConstructors
 import Examples.CartesianConstructorTransport
 import Examples.NativeStructureDescriptions
+import Examples.NativeStructureIdentity
+import Examples.NativeStructureLaws
+import Examples.NativeStructureRecovery
+import SquareKit.Internal.Cubical.PropositionExtension
+import SquareKit.Internal.Cubical.CartesianPropositionExtension
 import Examples.CubicalChartFamily
 
 import Examples.SmoothManifoldAction
