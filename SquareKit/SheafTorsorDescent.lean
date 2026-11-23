@@ -1,4 +1,5 @@
 import SquareKit.SheafTorsorLocal
+import SquareKit.SplitSheafDescent
 import SquareKit.SplitSheafPi
 import Mathlib.CategoryTheory.Sites.Subsheaf
 import Mathlib.CategoryTheory.HomCongr
@@ -36,42 +37,40 @@ structure Datum (A : SplitSheaf.Ty X) (P : Torsor G (SplitSheaf.Ext A)) where
 
 variable {A : SplitSheaf.Ty X} {P : Torsor G (SplitSheaf.Ext A)}
 
+/-- The underlying display datum forgets only the action compatibility law. -/
+def Datum.toDisplayDatum (d : Datum A P) : SplitSheafDescent.Datum A P.family where
+  transport := d.transport
+  identity := d.identity
+  cocycle := d.cocycle
+  natural := d.natural
+
 /-- The cocycle, rather than an input inverse, makes transport an equivalence. -/
 def Datum.transportEquiv (d : Datum A P) (x : X.obj.Elements) (a b : A.family.obj x) :
-    P.family.family.obj (point A x a) ≃ P.family.family.obj (point A x b) where
-  toFun := d.transport x a b
-  invFun := d.transport x b a
-  left_inv p := (d.cocycle x a b a p).trans (d.identity x a p)
-  right_inv p := (d.cocycle x b a b p).trans (d.identity x b p)
+    P.family.family.obj (point A x a) ≃ P.family.family.obj (point A x b) :=
+  SplitSheafDescent.Datum.transportEquiv d.toDisplayDatum x a b
 
 /-- A compatible dependent function is checked at every further restriction. -/
 def Compatible (d : Datum A P) (x : X.obj.Elements)
     (t : Value A.family P.family.family x) : Prop :=
-  ∀ (y : X.obj.Elements) (f : x ⟶ y) (a b : A.family.obj y),
-    d.transport y a b (evaluate A.family P.family.family y
-      (restrict A.family P.family.family f t) a) =
-      evaluate A.family P.family.family y (restrict A.family P.family.family f t) b
+  SplitSheafDescent.Compatible d.toDisplayDatum x t
 
 theorem Compatible.restrict {d : Datum A P} {x y : X.obj.Elements}
     {t : Value A.family P.family.family x} (ht : Compatible d x t) (f : x ⟶ y) :
-    Compatible d y (restrict A.family P.family.family f t) := by
-  intro z g a b
-  rw [restrict_comp]
-  exact ht z (f ≫ g) a b
+    Compatible d y (restrict A.family P.family.family f t) :=
+  SplitSheafDescent.Compatible.restrict ht f
 
 /-- Compatibility at the current stage follows from the identity restriction. -/
 theorem Compatible.evaluate {d : Datum A P} {x : X.obj.Elements}
     {t : Value A.family P.family.family x} (ht : Compatible d x t)
     (a b : A.family.obj x) :
     d.transport x a b (evaluate A.family P.family.family x t a) =
-      evaluate A.family P.family.family x t b := by
-  simpa only [restrict_id] using ht x (𝟙 x) a b
+      evaluate A.family P.family.family x t b :=
+  SplitSheafDescent.Compatible.evaluate ht a b
 
 /-- The restriction-stable compatibility predicate inside the proved Pi sheaf. -/
 def compatibleSubfunctor (d : Datum A P) :
-    Subfunctor (SplitSheaf.elementSheaf (SplitSheafPi.pi A P.family)).obj where
-  obj x := {t | Compatible d x.unop.unop t}
-  map {_x _y} f _ ht := ht.restrict f.unop.unop
+    Subfunctor (SplitSheaf.elementSheaf (SplitSheafPi.pi A P.family)).obj :=
+  SplitSheafDescent.compatibleSubfunctor d.toDisplayDatum
 
 /-- Equality in a sheaf fiber can be checked on any covering sieve. -/
 theorem fiber_ext (B : SplitSheaf.Ty X) (x : X.obj.Elements)
@@ -79,207 +78,82 @@ theorem fiber_ext (B : SplitSheaf.Ty X) (x : X.obj.Elements)
     (p q : B.family.obj x)
     (h : ∀ (V : C) (k : V ⟶ x.obj.unop), R k →
       B.family.map (along X.obj k.op x.val) p =
-        B.family.map (along X.obj k.op x.val) q) : p = q := by
-  have he : (⟨x.val, p⟩ : (SplitSheaf.Ext B).obj.obj x.obj) = ⟨x.val, q⟩ := by
-    apply (((isSheaf_iff_isSheaf_of_type _ _).1 B.isSheaf) R hR).isSeparatedFor.ext
-    intro V k hk
-    exact congrArg (fun p => Sigma.mk _ p) (h V k hk)
-  exact eq_of_heq (Sigma.mk.inj_iff.mp he).2
+        B.family.map (along X.obj k.op x.val) q) : p = q :=
+  SplitSheafDescent.fiber_ext B x R hR p q h
 
 /-- Compatibility is a local predicate inside the dependent-product sheaf. -/
 theorem compatible_isSheaf (d : Datum A P) :
-    Presieve.IsSheaf (ElementSite.topology X.obj J) (compatibleSubfunctor d).toFunctor := by
-  apply (Subfunctor.isSheaf_iff _
-    ((isSheaf_iff_isSheaf_of_type _ _).1
-      (SplitSheaf.elementSheaf (SplitSheafPi.pi A P.family)).property)).2
-  intro x t ht y f a b
-  let R := (compatibleSubfunctor d).sieveOfSection t
-  have hR : ElementSite.down X.obj (R.pullback f.op) ∈ J y.obj.unop :=
-    (ElementSite.topology X.obj J).pullback_stable f.op ht
-  apply fiber_ext P.family (point A y b) (ElementSite.down X.obj (R.pullback f.op)) hR
-  intro V k hk
-  obtain ⟨z, hz, hk⟩ := hk
-  subst z
-  let l : y ⟶ X.obj.elementsMk (op V) (X.obj.map k.op y.val) := along X.obj k.op y.val
-  have he : along (SplitSheaf.Ext A).obj k.op (point A y b).val =
-      pairArrow A.family l b := by
-    apply Functor.Elements.hom_ext
-    rfl
-  rw [he]
-  erw [d.natural]
-  have ha := evaluate_natural A.family P.family.family l
-    (restrict A.family P.family.family f t) a
-  have hb := evaluate_natural A.family P.family.family l
-    (restrict A.family P.family.family f t) b
-  erw [ha, hb, restrict_comp]
-  have hc : Compatible d _ (restrict A.family P.family.family (f ≫ l) t) := hk
-  exact hc.evaluate _ _
+    Presieve.IsSheaf (ElementSite.topology X.obj J) (compatibleSubfunctor d).toFunctor :=
+  SplitSheafDescent.compatible_isSheaf d.toDisplayDatum
 
 /-- The descended display is constructed as an actual sheaf of compatible
 Kripke sections. No descent-effectiveness assumption is required. -/
-def family (d : Datum A P) : SplitSheaf.Ty X where
-  family := ElementSheaf.family X.obj (compatibleSubfunctor d).toFunctor
-  isSheaf := (isSheaf_iff_isSheaf_of_type _ _).2
-    (ElementSheaf.total_isSheaf X.obj
-      ((isSheaf_iff_isSheaf_of_type _ _).1 X.property)
-      (compatibleSubfunctor d).toFunctor (compatible_isSheaf d))
+def family (d : Datum A P) : SplitSheaf.Ty X :=
+  SplitSheafDescent.family d.toDisplayDatum
 
 theorem map_apply_heq {D : Type*} [Category D] (F : D ⥤ Type*)
     {x y y' : D} (hy : y = y') {f : x ⟶ y} {g : x ⟶ y'}
-    (h : HEq f g) (p : F.obj x) : HEq (F.map f p) (F.map g p) := by
-  cases hy
-  cases h
-  rfl
+    (h : HEq f g) (p : F.obj x) : HEq (F.map f p) (F.map g p) :=
+  SplitSheafDescent.map_apply_heq F hy h p
 
 theorem transport_heq (d : Datum A P) (x : X.obj.Elements) {a a' b : A.family.obj x}
     (ha : a = a') {p : P.family.family.obj (point A x a)}
     {p' : P.family.family.obj (point A x a')} (hp : HEq p p') :
-    d.transport x a b p = d.transport x a' b p' := by
-  cases ha
-  cases hp
-  rfl
+    d.transport x a b p = d.transport x a' b p' :=
+  SplitSheafDescent.transport_heq d.toDisplayDatum x ha hp
 
 /-- The cocycle extends a section over one lift to every other local lift. -/
 def extend (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
-    (p : P.family.family.obj (point A x a)) : Value A.family P.family.family x where
-  val z := d.transport ((restrictions X.obj x).obj z.obj)
-    (A.family.map (along X.obj z.obj.hom x.val) a) z.val
-    (P.family.family.map (pairArrow A.family (along X.obj z.obj.hom x.val) a) p)
-  natural {z w} f := by
-    rcases w with @⟨w, b⟩
-    rcases f with ⟨k, hk⟩
-    change z.obj ⟶ w at k
-    change A.family.obj ((restrictions X.obj x).obj w) at b
-    have hf : A.family.map ((restrictions X.obj x).map k) z.val = b := hk
-    subst b
-    have hn := d.natural ((restrictions X.obj x).map k)
-      (A.family.map (along X.obj z.obj.hom x.val) a) z.val
-      (P.family.family.map (pairArrow A.family (along X.obj z.obj.hom x.val) a) p)
-    have hc : along X.obj z.obj.hom x.val ≫ (restrictions X.obj x).map k =
-        along X.obj w.hom x.val := by
-      apply Functor.Elements.hom_ext
-      exact Under.w k
-    have ha : A.family.map ((restrictions X.obj x).map k)
-        (A.family.map (along X.obj z.obj.hom x.val) a) =
-        A.family.map (along X.obj w.hom x.val) a := by
-      erw [← ConcreteCategory.comp_apply, ← A.family.map_comp, hc]
-      rfl
-    have hp : HEq
-        (P.family.family.map (pairArrow A.family ((restrictions X.obj x).map k)
-          (A.family.map (along X.obj z.obj.hom x.val) a))
-          (P.family.family.map (pairArrow A.family (along X.obj z.obj.hom x.val) a) p))
-        (P.family.family.map (pairArrow A.family (along X.obj w.hom x.val) a) p) := by
-      have hm := congrArg (fun k => k p) (P.family.family.map_comp
-        (pairArrow A.family (along X.obj z.obj.hom x.val) a)
-        (pairArrow A.family ((restrictions X.obj x).map k)
-          (A.family.map (along X.obj z.obj.hom x.val) a)))
-      refine (heq_of_eq hm.symm).trans ?_
-      have he : HEq
-          (pairArrow A.family (along X.obj z.obj.hom x.val) a ≫
-            pairArrow A.family ((restrictions X.obj x).map k)
-              (A.family.map (along X.obj z.obj.hom x.val) a))
-          (pairArrow A.family (along X.obj w.hom x.val) a) := by
-        apply elements_hom_hext rfl
-          (congrArg (fun a => point A ((restrictions X.obj x).obj w) a) ha)
-        exact heq_of_eq (Under.w k)
-      exact map_apply_heq P.family.family
-        (congrArg (fun a => point A ((restrictions X.obj x).obj w) a) ha) he p
-    change _ = _
-    have hv : HEq (d.transport ((restrictions X.obj x).obj w)
-        (A.family.map ((restrictions X.obj x).map k)
-          (A.family.map (along X.obj z.obj.hom x.val) a))
-        (A.family.map ((restrictions X.obj x).map k) z.val)
-        (P.family.family.map (pairArrow A.family ((restrictions X.obj x).map k)
-          (A.family.map (along X.obj z.obj.hom x.val) a))
-          (P.family.family.map (pairArrow A.family (along X.obj z.obj.hom x.val) a) p)))
-        (d.transport ((restrictions X.obj x).obj w)
-          (A.family.map (along X.obj w.hom x.val) a)
-          (A.family.map ((restrictions X.obj x).map k) z.val)
-          (P.family.family.map (pairArrow A.family (along X.obj w.hom x.val) a) p)) := by
-      exact heq_of_eq (transport_heq d _ ha hp)
-    exact hn.trans (eq_of_heq hv)
+    (p : P.family.family.obj (point A x a)) : Value A.family P.family.family x :=
+  SplitSheafDescent.extend d.toDisplayDatum x a p
 
 def extensionOutput (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
     (p : P.family.family.obj (point A x a)) (y : X.obj.Elements) (f : x ⟶ y) :
-    Output A.family P.family.family y := fun b =>
-  d.transport y (A.family.map f a) b (P.family.family.map (pairArrow A.family f a) p)
+    Output A.family P.family.family y :=
+  SplitSheafDescent.extensionOutput d.toDisplayDatum x a p y f
 
 theorem extensionOutput_heq (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
     (p : P.family.family.obj (point A x a)) {y y' : X.obj.Elements} (hy : y = y')
     {f : x ⟶ y} {f' : x ⟶ y'} (hf : HEq f f') :
-    HEq (extensionOutput d x a p y f) (extensionOutput d x a p y' f') := by
-  cases hy
-  cases hf
-  rfl
+    HEq (extensionOutput d x a p y f) (extensionOutput d x a p y' f') :=
+  SplitSheafDescent.extensionOutput_heq d.toDisplayDatum x a p hy hf
 
 /-- The inverse comparison computes by transition from the chosen lift. -/
 theorem evaluate_extend (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
     (p : P.family.family.obj (point A x a)) (y : X.obj.Elements) (f : x ⟶ y) :
     evaluate A.family P.family.family y (restrict A.family P.family.family f (extend d x a p)) =
-      extensionOutput d x a p y f := by
-  have hy : (restrictions X.obj x).obj (Under.mk f.hom) = y := by
-    change X.obj.elementsMk y.obj (X.obj.map f.hom x.val) = y
-    rw [f.map_val]
-  have hf : HEq (along X.obj f.hom x.val) f :=
-    elements_hom_hext rfl hy HEq.rfl
-  exact eq_of_heq ((evaluate_restrict_heq A.family P.family.family f (extend d x a p)).trans
-    (extensionOutput_heq d x a p hy hf))
+      extensionOutput d x a p y f :=
+  SplitSheafDescent.evaluate_extend d.toDisplayDatum x a p y f
 
 /-- The extension satisfies the Cech matching equations at every stage. -/
 theorem extend_compatible (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
-    (p : P.family.family.obj (point A x a)) : Compatible d x (extend d x a p) := by
-  intro y f b c
-  rw [evaluate_extend]
-  exact d.cocycle y _ b c _
+    (p : P.family.family.obj (point A x a)) : Compatible d x (extend d x a p) :=
+  SplitSheafDescent.extend_compatible d.toDisplayDatum x a p
 
 /-- Evaluation is a left inverse of the explicitly constructed extension. -/
 theorem evaluate_extend_self (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
     (p : P.family.family.obj (point A x a)) :
-    evaluate A.family P.family.family x (extend d x a p) a = p := by
-  have h := congrFun (evaluate_extend d x a p x (𝟙 x)) a
-  rw [restrict_id] at h
-  have ha : A.family.map (𝟙 x) a = a := by rw [A.family.map_id]; rfl
-  have hp : HEq (P.family.family.map (pairArrow A.family (𝟙 x) a) p) p := by
-    have hh : HEq (pairArrow A.family (𝟙 x) a) (𝟙 (point A x a)) :=
-      elements_hom_hext rfl (congrArg (point A x) ha) HEq.rfl
-    exact (map_apply_heq P.family.family (congrArg (point A x) ha) hh p).trans
-      (heq_of_eq (by rw [P.family.family.map_id]; rfl))
-  exact h.trans ((transport_heq d x ha hp).trans (d.identity x a p))
+    evaluate A.family P.family.family x (extend d x a p) a = p :=
+  SplitSheafDescent.evaluate_extend_self d.toDisplayDatum x a p
 
 /-- A compatible section is recovered from any one of its local values. -/
 theorem extend_evaluate (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x)
     (t : Value A.family P.family.family x) (ht : Compatible d x t) :
-    extend d x a (evaluate A.family P.family.family x t a) = t := by
-  apply SplitPresheaf.Tm.ext
-  funext z
-  let f := along X.obj z.obj.hom x.val
-  have he := eq_of_heq (evaluate_restrict_heq A.family P.family.family f t)
-  have hn := evaluate_natural A.family P.family.family f t a
-  have hc := (ht.restrict f).evaluate (A.family.map f a) z.val
-  rw [he] at hn hc
-  exact (congrArg (d.transport _ (A.family.map f a) z.val) hn).trans hc
+    extend d x a (evaluate A.family P.family.family x t a) = t :=
+  SplitSheafDescent.extend_evaluate d.toDisplayDatum x a t ht
 
 /-- At each lift of a base section, the constructed family recovers precisely
 its given local torsor fiber. -/
 def evaluationEquiv (d : Datum A P) (x : X.obj.Elements) (a : A.family.obj x) :
-    (family d).family.obj x ≃ P.family.family.obj (point A x a) where
-  toFun t := evaluate A.family P.family.family x t.val a
-  invFun p := ⟨extend d x a p, extend_compatible d x a p⟩
-  left_inv t := Subtype.ext (extend_evaluate d x a t.val t.property)
-  right_inv p := evaluate_extend_self d x a p
+    (family d).family.obj x ≃ P.family.family.obj (point A x a) :=
+  SplitSheafDescent.evaluationEquiv d.toDisplayDatum x a
 
 /-- Equality of Kripke functions is tested on all evaluations. -/
 theorem value_ext {x : X.obj.Elements} {s t : Value A.family P.family.family x}
     (h : ∀ (y : X.obj.Elements) (f : x ⟶ y) (a : A.family.obj y),
       evaluate A.family P.family.family y (restrict A.family P.family.family f s) a =
-        evaluate A.family P.family.family y (restrict A.family P.family.family f t) a) : s = t := by
-  apply SplitPresheaf.Tm.ext
-  funext z
-  let f := along X.obj z.obj.hom x.val
-  have he := h _ f z.val
-  rw [eq_of_heq (evaluate_restrict_heq A.family P.family.family f s),
-    eq_of_heq (evaluate_restrict_heq A.family P.family.family f t)] at he
-  exact he
+        evaluate A.family P.family.family y (restrict A.family P.family.family f t) a) : s = t :=
+  SplitSheafDescent.value_ext (P := P.family) h
 
 /-- Group sections act on every restriction-stage value. -/
 def actValue (x : X.obj.Elements) (g : G.obj.obj x.obj)
@@ -322,7 +196,9 @@ theorem actValue_compatible (d : Datum A P) (x : X.obj.Elements) (g : G.obj.obj 
     Compatible d x (actValue x g t) := by
   intro y f a b
   rw [evaluate_actValue]
-  rw [d.equivariant, ht y f a b]
+  dsimp only [Datum.toDisplayDatum]
+  rw [d.equivariant]
+  exact congrArg (P.act (point A y b) (G.obj.map f.hom g)) (ht y f a b)
 
 theorem actValue_one (x : X.obj.Elements) (t : Value A.family P.family.family x) :
     actValue x (1 : G.obj.obj x.obj) t = t := by
@@ -362,21 +238,7 @@ def action (d : Datum A P) : Action G X where
 /-- Evaluation is natural on the cover's actual category of elements. -/
 def evaluationIso (d : Datum A P) :
     (SplitSheaf.tySub (family d) (SplitSheaf.p A)).family ≅ P.family.family :=
-  NatIso.ofComponents (fun x =>
-    (evaluationEquiv d (X.obj.elementsMk x.obj x.val.1) x.val.2).toIso) (by
-      intro x y f
-      apply ConcreteCategory.hom_ext
-      intro t
-      rcases x with @⟨U, xb, a⟩
-      rcases y with @⟨V, yb, b⟩
-      rcases f with ⟨k, hk⟩
-      change U ⟶ V at k
-      have hx : X.obj.map k xb = yb := congrArg Sigma.fst hk
-      subst yb
-      have ha : A.family.map (along X.obj k xb) a = b :=
-        eq_of_heq (Sigma.mk.inj_iff.mp hk).2
-      subst b
-      exact (evaluate_natural A.family P.family.family (along X.obj k xb) t.val a).symm)
+  SplitSheafDescent.evaluationIso d.toDisplayDatum
 
 /-- The comparison preserves the full sheaf-of-groups action. -/
 theorem evaluation_equivariant (d : Datum A P) (x : (SplitSheaf.Ext A).obj.Elements)
@@ -440,33 +302,15 @@ structure Map (d : Datum A P) (e : Datum A Q) extends EquivariantMap P Q where
       e.transport x a b (hom.app (point A x a) p)
 
 def mapValue (h : EquivariantMap P Q) (x : X.obj.Elements)
-    (t : Value A.family P.family.family x) : Value A.family Q.family.family x where
-  val z := h.hom.app ((totalDiagram A.family (restrictions X.obj x)).obj z) (t.val z)
-  natural {z w} f := by
-    have hh := NatTrans.naturality_apply h.hom
-      ((totalDiagram A.family (restrictions X.obj x)).map f) (t.val z)
-    exact hh.symm.trans (congrArg (h.hom.app _) (t.natural f))
+    (t : Value A.family P.family.family x) : Value A.family Q.family.family x :=
+  SplitSheafDescent.mapValue h.hom x t
 
 theorem evaluate_mapValue (h : EquivariantMap P Q) (x : X.obj.Elements)
     (t : Value A.family P.family.family x) (y : X.obj.Elements) (f : x ⟶ y) :
     evaluate A.family Q.family.family y (restrict A.family Q.family.family f (mapValue h x t)) =
       fun a => h.hom.app (point A y a)
-        (evaluate A.family P.family.family y (restrict A.family P.family.family f t) a) := by
-  have hy : (restrictions X.obj x).obj (Under.mk f.hom) = y := by
-    change X.obj.elementsMk y.obj (X.obj.map f.hom x.val) = y
-    rw [f.map_val]
-  have he := evaluate_restrict_heq A.family P.family.family f t
-  have hh := evaluate_restrict_heq A.family Q.family.family f (mapValue h x t)
-  have hgeneral : ∀ (z z' : X.obj.Elements) (hz : z = z')
-      (s : Output A.family P.family.family z) (s' : Output A.family P.family.family z')
-      (hs : HEq s s'), HEq
-        (fun a => h.hom.app (point A z a) (s a))
-        (fun a => h.hom.app (point A z' a) (s' a)) := by
-    intro z z' hz s s' hs
-    cases hz
-    cases hs
-    rfl
-  exact eq_of_heq (hh.trans (hgeneral _ _ hy _ _ he.symm))
+        (evaluate A.family P.family.family y (restrict A.family P.family.family f t) a) :=
+  SplitSheafDescent.evaluate_mapValue h.hom x t y f
 
 theorem Map.compatible {d : Datum A P} {e : Datum A Q} (h : Map d e)
     (x : X.obj.Elements) (t : Value A.family P.family.family x) (ht : Compatible d x t) :
@@ -478,10 +322,8 @@ theorem Map.compatible {d : Datum A P} {e : Datum A Q} (h : Map d e)
 theorem mapValue_restrict (h : EquivariantMap P Q) {x y : X.obj.Elements}
     (f : x ⟶ y) (t : Value A.family P.family.family x) :
     mapValue h y (restrict A.family P.family.family f t) =
-      restrict A.family Q.family.family f (mapValue h x t) := by
-  apply value_ext (P := Q)
-  intro z k a
-  rw [restrict_comp, evaluate_mapValue, evaluate_mapValue, restrict_comp]
+      restrict A.family Q.family.family f (mapValue h x t) :=
+  SplitSheafDescent.mapValue_restrict h.hom f t
 
 /-- Compatible local arrows descend by applying them at every restriction stage. -/
 def Map.descend {d : Datum A P} {e : Datum A Q} (h : Map d e) :
@@ -667,69 +509,31 @@ def canonicalComparison (A : SplitSheaf.Ty X) (T : Torsor G X)
 the result does not depend on the chosen lift of the cover. -/
 def canonicalValue (A : SplitSheaf.Ty X) (T : Torsor G X)
     (x : X.obj.Elements) (p : T.family.family.obj x) :
-    Value A.family (reindex T (SplitSheaf.p A)).family.family x where
-  val z := T.family.family.map (along X.obj z.obj.hom x.val) p
-  natural {z w} f := by
-    change T.family.family.map ((restrictions X.obj x).map f.hom)
-      (T.family.family.map (along X.obj z.obj.hom x.val) p) =
-        T.family.family.map (along X.obj w.obj.hom x.val) p
-    erw [← types_comp_apply, ← T.family.family.map_comp]
-    congr 2
-    apply congrArg T.family.family.map
-    apply Functor.Elements.hom_ext
-    exact Under.w f.hom
+    Value A.family (reindex T (SplitSheaf.p A)).family.family x :=
+  SplitSheafDescent.canonicalValue A T.family x p
 
 theorem canonicalValue_evaluate (A : SplitSheaf.Ty X) (T : Torsor G X)
     {x y : X.obj.Elements} (f : x ⟶ y) (p : T.family.family.obj x)
     (a : A.family.obj y) :
     evaluate A.family (reindex T (SplitSheaf.p A)).family.family y
       (restrict A.family (reindex T (SplitSheaf.p A)).family.family f (canonicalValue A T x p)) a =
-        T.family.family.map f p := by
-  have hy : (restrictions X.obj x).obj (Under.mk f.hom) = y := by
-    change X.obj.elementsMk y.obj (X.obj.map f.hom x.val) = y
-    rw [f.map_val]
-  have hh := evaluate_restrict_heq A.family (reindex T (SplitSheaf.p A)).family.family
-    f (canonicalValue A T x p)
-  have hgeneral : ∀ (z z' : X.obj.Elements) (hz : z = z')
-      (k : x ⟶ z) (k' : x ⟶ z') (hk : HEq k k'),
-      HEq (fun _ : A.family.obj z => T.family.family.map k p)
-        (fun _ : A.family.obj z' => T.family.family.map k' p) := by
-    intro z z' hz k k' hk
-    cases hz
-    cases hk
-    rfl
-  have he : HEq (along X.obj f.hom x.val) f :=
-    elements_hom_hext rfl hy HEq.rfl
-  exact congrFun (eq_of_heq (hh.trans (hgeneral _ _ hy _ _ he))) a
+        T.family.family.map f p :=
+  SplitSheafDescent.canonicalValue_evaluate A T.family f p a
 
 theorem canonicalValue_compatible (A : SplitSheaf.Ty X) (T : Torsor G X)
     (x : X.obj.Elements) (p : T.family.family.obj x) :
-    Compatible (canonicalDatum A T) x (canonicalValue A T x p) := by
-  intro y f a b
-  change evaluate A.family (reindex T (SplitSheaf.p A)).family.family y
-    (restrict A.family (reindex T (SplitSheaf.p A)).family.family f
-      (canonicalValue A T x p)) a = _
-  exact (canonicalValue_evaluate A T f p a).trans (canonicalValue_evaluate A T f p b).symm
+    Compatible (canonicalDatum A T) x (canonicalValue A T x p) :=
+  SplitSheafDescent.canonicalValue_compatible A T.family x p
 
 theorem canonicalValue_restrict (A : SplitSheaf.Ty X) (T : Torsor G X)
     {x y : X.obj.Elements} (f : x ⟶ y) (p : T.family.family.obj x) :
     canonicalValue A T y (T.family.family.map f p) =
-      restrict A.family (reindex T (SplitSheaf.p A)).family.family f (canonicalValue A T x p) := by
-  apply value_ext (A := A) (P := reindex T (SplitSheaf.p A))
-  intro z k a
-  rw [restrict_comp]
-  exact (canonicalValue_evaluate A T k (T.family.family.map f p) a).trans
-    ((Functor.map_comp_apply T.family.family f k p).symm.trans
-      (canonicalValue_evaluate A T (f ≫ k) p a).symm)
+      restrict A.family (reindex T (SplitSheaf.p A)).family.family f (canonicalValue A T x p) :=
+  SplitSheafDescent.canonicalValue_restrict A T.family f p
 
 def canonicalFamilyMap (A : SplitSheaf.Ty X) (T : Torsor G X) :
-    T.family.family ⟶ (family (canonicalDatum A T)).family where
-  app x := ↾fun p => ⟨canonicalValue A T x p, canonicalValue_compatible A T x p⟩
-  naturality {x y} f := by
-    apply ConcreteCategory.hom_ext
-    intro p
-    apply Subtype.ext
-    exact canonicalValue_restrict A T f p
+    T.family.family ⟶ (family (canonicalDatum A T)).family :=
+  SplitSheafDescent.canonicalFamilyMap A T.family
 
 theorem canonicalValue_act (A : SplitSheaf.Ty X) (T : Torsor G X)
     (x : X.obj.Elements) (g : G.obj.obj x.obj) (p : T.family.family.obj x) :

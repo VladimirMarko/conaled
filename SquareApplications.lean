@@ -1213,6 +1213,7 @@ import Examples.RotationCertificateCodecs
 import Examples.ClassifierSheafPi
 import Examples.CoherentSheafOver
 import Examples.SheafFamilyDescent
+import Examples.SheafDisplayDescent
 
 import Examples.SubcanonicalTorsor
 
