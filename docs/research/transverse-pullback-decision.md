@@ -1,4 +1,19 @@
-# Transverse-pullback preservation: decision gate for #97
+# Transverse-pullback preservation: decision record for #97
+
+The 2026-10-20 DEFER decision below is superseded by the construction in
+[transverse-pullback preservation](transverse-pullback-preservation.md).
+`SmoothTransversePullback.Realization.isPullback` proves preservation for the
+actual ordinary transverse fiber product at all sheaf stages. Its inputs are
+smooth maps and derivative transversality; the ordinary atlas, local algebra
+factorization and global comparison are constructed.
+
+The earlier distinction between full faithfulness and arbitrary-stage
+existence remains valid. The new proof supplies that existence through local
+normal forms, principal localization and sheaf descent. The assessment of the
+selected Myers application below records its own scope; transverse
+preservation does not add cohesive or higher interpretation rules.
+
+## Historical decision, 2026-10-20
 
 **Verdict: DEFER the proposed preservation theorem.** This resolves the
 preimplementation questions in [#97], not its conditional theorem deliverable.

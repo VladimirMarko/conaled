@@ -1,21 +1,21 @@
 # A small algebraic site for the first KL construction (#73)
 
-## Current higher/differential decision (#96)
+## Current transverse-pullback result (#97)
 
-The [finite-quotient tangent investigation](myers-tangent-integration.md)
-selects a first-order consequence of Myers Proposition 4.3.5 after #95. It
-recommends testing finite torsor invariance under the existing dual extension,
-with quotient tangent transport and KL comparison in the same model. General
-transverse-pullback preservation is deferred as the next task. The dated
-assessments below remain historical evidence; the new note audits current
-capabilities and states the missing compatibility theorems.
+[Transverse-pullback preservation](transverse-pullback-preservation.md) proves
+that the existing manifold interpretation preserves ordinary transverse
+fiber products. The actual equality subtype receives its smooth atlas from
+derivative transversality, and its realized projections satisfy `IsPullback`
+against arbitrary sheaf tests. The stage equivalence includes nilpotent
+sections and commutes with restriction. Hausdorffness and second countability
+are separate inherited consequences, not preservation hypotheses.
 
-After accepted #99, the [#97 decision gate](transverse-pullback-decision.md)
-keeps general transverse-pullback preservation deferred. The selected quotient
-tangent comparison is constructed; its next identified gap is source-language
-interpretation and soundness. The gate records the pinned ordinary APIs and
-the additional all-stage comparison a future preservation theorem would need.
-
+This supersedes the [historical #97 DEFER decision](transverse-pullback-decision.md).
+The [finite-quotient tangent investigation](myers-tangent-integration.md) and
+its accepted #99 application remain separate source-to-model work. General
+Weil KL, microlinearity, full well-adaptedness and higher/cohesive or orbifold
+comparison do not follow from transverse preservation. The dated assessments
+below record the earlier construction stages.
 
 Inspected 2026-10-18 at Lean 4.35.0 and Mathlib
 `56a005855ea17e0b0958f73ec801ae140b0a1679`. This continues the
@@ -1566,10 +1566,10 @@ uses Hausdorff, countably based manifolds. Theorem 8.4 obtains full faithfulness
 through the smooth-function algebra functor and Yoneda, and also establishes
 the axioms of a fully well-adapted model. The construction here instead proves
 full faithfulness of the existing atlas colimit without those global manifold
-restrictions. It does not prove transverse-limit preservation or the remaining
-well-adaptedness axioms.
+restrictions. Full faithfulness alone does not prove transverse-limit
+preservation. The later [#97 construction](transverse-pullback-preservation.md)
+supplies that result through an additional local algebra and descent argument.
 
-General Weil KL, transverse-limit preservation, full well-adaptedness, and
-higher/cohesive compatibility remain separate unproved claims. The next
-decision task is the targeted Myers/higher/cohesive requirements assessment
-in #96. This result does not complete #36.
+General Weil KL, full well-adaptedness and higher/cohesive compatibility remain
+separate claims. The subsequent #96 assessment and #99 tangent application
+are recorded above. These results do not complete #36.
