@@ -155,6 +155,105 @@ end MapLifting
 namespace IntervalTransport
 variable {Γ : Context.{u}} {A : Family (total (interval Γ))}
 
+/-- Transport retains the selected value of the full filling operation. -/
+theorem filling_transport_map {Ξ Δ : Context.{u}} {C D : Family Ξ}
+    (F : Filling C) (e : C ≅ D) (p : total (interval Δ) ⟶ Ξ)
+    (φ : Subcontext Δ) (r : Term (interval Δ))
+    (b : OpenBox (reindex C p) φ r) :
+    (F.transport e).fill p φ r (b.map (Functor.whiskerLeft p.mapElements e.hom)) =
+      Term.map (Functor.whiskerLeft p.mapElements e.hom) (F.fill p φ r b) := by
+  exact congrArg (fun z => Term.map (Functor.whiskerLeft p.mapElements e.hom)
+    (F.fill p φ r z))
+    (OpenBox.map_iso_roundtrip (Functor.isoWhiskerLeft p.mapElements e).symm b)
+
+theorem line_transport {B : Family (total (interval Γ))}
+    (F : Filling A) (e : A ≅ B) (r : Term (interval Γ))
+    {Δ : Context.{u}} (σ : Δ ⟶ Γ) (a : Term (reindex A (σ ≫ graph r))) :
+    line (F.transport e) r σ
+        (Term.map (Functor.whiskerLeft (σ ≫ graph r).mapElements e.hom) a) =
+      Term.map (Functor.whiskerLeft (intervalSub σ).mapElements e.hom) (line F r σ a) := by
+  have hb : (emptyBox (Term.reindex r σ) a).map
+      (Functor.whiskerLeft (intervalSub σ).mapElements e.hom) =
+      emptyBox (Term.reindex r σ)
+        (Term.map (Functor.whiskerLeft (σ ≫ graph r).mapElements e.hom) a) := by
+    apply OpenBox.ext
+    · apply PartialSection.ext
+      intro x h
+      exact h.elim
+    · rfl
+  exact (congrArg ((F.transport e).fill (intervalSub σ) Subcontext.bot
+    (Term.reindex r σ)) hb).symm.trans
+    (filling_transport_map F e (intervalSub σ) Subcontext.bot (Term.reindex r σ)
+      (emptyBox (Term.reindex r σ) a))
+
+theorem evaluationBox_map {B : Family (total (interval Γ))}
+    (f : A ⟶ B) (r : Term (interval Γ)) {Δ : Context.{u}}
+    (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
+    (a : PartialSection (reindex (pi (interval Γ) A) σ) φ)
+    (b : Term (reindex (reindex A (graph r)) σ))
+    (h : ∀ x hx, (evaluate r).app (σ.mapElements.obj x) (a.val x hx) = b.val x) :
+    evaluationBox r σ φ
+        (a.map (Functor.whiskerLeft σ.mapElements
+          (EquivalenceFamilies.piSecondMap (interval Γ) f)))
+        (Term.map (Functor.whiskerLeft (σ ≫ graph r).mapElements f) b)
+        (fun x hx => congrArg (f.app ((σ ≫ graph r).mapElements.obj x)) (h x hx)) =
+      (evaluationBox r σ φ a b h).map (Functor.whiskerLeft (intervalSub σ).mapElements f) := by
+  apply OpenBox.ext
+  · apply PartialSection.ext
+    intro x hx
+    rfl
+  · rfl
+
+theorem evaluationLift_transport {B : Family (total (interval Γ))}
+    (F : Filling A) (e : A ≅ B) (r : Term (interval Γ)) {Δ : Context.{u}}
+    (σ : Δ ⟶ Γ) (φ : Subcontext Δ)
+    (a : PartialSection (reindex (pi (interval Γ) A) σ) φ)
+    (b : Term (reindex (reindex A (graph r)) σ))
+    (h : ∀ x hx, (evaluate r).app (σ.mapElements.obj x) (a.val x hx) = b.val x) :
+    evaluationLift (F.transport e) r σ φ
+        (a.map (Functor.whiskerLeft σ.mapElements
+          (EquivalenceFamilies.piSecondIso (interval Γ) e).hom))
+        (Term.map (Functor.whiskerLeft (σ ≫ graph r).mapElements e.hom) b)
+        (fun x hx => congrArg (e.hom.app ((σ ≫ graph r).mapElements.obj x)) (h x hx)) =
+      Term.map (Functor.whiskerLeft σ.mapElements
+        (EquivalenceFamilies.piSecondIso (interval Γ) e).hom)
+        (evaluationLift F r σ φ a b h) := by
+  apply Term.map_injective_of_iso (piReindexIso (interval Γ) B σ)
+  have hb := evaluationBox_map e.hom r σ φ a b h
+  have hf := (congrArg ((F.transport e).fill (intervalSub σ) φ (Term.reindex r σ)) hb).trans
+    (filling_transport_map F e (intervalSub σ) φ (Term.reindex r σ)
+      (evaluationBox r σ φ a b h))
+  have hn := congrArg (Term.map (EquivalenceFamilies.piSecondMap (interval Δ)
+    (Functor.whiskerLeft (intervalSub σ).mapElements e.hom)))
+    (Term.map_iso_roundtrip (piReindexIso (interval Γ) A σ).symm
+      (lam (F.fill (intervalSub σ) φ (Term.reindex r σ) (evaluationBox r σ φ a b h))))
+  exact (Term.map_iso_roundtrip (piReindexIso (interval Γ) B σ).symm _).trans
+    ((congrArg lam hf).trans hn.symm)
+
+set_option backward.isDefEq.respectTransparency false in
+/-- The selected evaluation lift preserves the whole path in an evaluation fiber. -/
+theorem evaluationLifting_fiberPathLine_transport {B : Family (total (interval Γ))}
+    (F : Filling A) (hF : F.Lawful) (r : Term (interval Γ))
+    (a b : Term (pi (interval Γ) A))
+    (h : Term.map (evaluate r) a = Term.map (evaluate r) b) (e : A ≅ B) :
+    (evaluationLifting (F.transport e) (Filling.transport_lawful e F hF) r).fiberPathLine
+        (Term.map (EquivalenceFamilies.piSecondIso (interval Γ) e).hom a)
+        (Term.map (EquivalenceFamilies.piSecondIso (interval Γ) e).hom b)
+        (congrArg (Term.map (Functor.whiskerLeft (graph r).mapElements e.hom)) h) =
+      Term.map (Functor.whiskerLeft (projection (interval Γ)).mapElements
+        (EquivalenceFamilies.piSecondIso (interval Γ) e).hom)
+        ((evaluationLifting F hF r).fiberPathLine a b h) := by
+  have hi := evaluationLift_transport F e r (projection (interval Γ))
+    ((intervalFace Γ false).join (intervalFace Γ true))
+    (endpointBoundary (intervalCoefficient (pi (interval Γ) A)) a b)
+    (Term.reindex (Term.map (evaluate r) a) (projection (interval Γ)))
+    (MapLifting.fiberPath_boundary a b h)
+  have hb := endpointBoundary_map (EquivalenceFamilies.piSecondIso (interval Γ) e).hom a b
+  refine Eq.trans ?_ hi
+  dsimp only [MapLifting.fiberPathLine, evaluationLifting]
+  congr 1
+  exact hb.symm
+
 set_option backward.isDefEq.respectTransparency false in
 theorem evaluationLifting_fiberPathLine_reindex (F : Filling A) (hF : F.Lawful)
     (r : Term (interval Γ)) (a b : Term (pi (interval Γ) A))
@@ -210,6 +309,33 @@ theorem prescribedLineComparison_body (F : Filling A) (hF : F.Lawful)
         ((evaluationLifting F hF r).fiberPathLine (lam (line F r (𝟙 Γ) a)) (lam z)
           ((line_source F hF r (𝟙 Γ) a).trans hz.symm)) :=
   pathApp_mpr_left (map_section F hF r s a) _
+
+set_option backward.isDefEq.respectTransparency false in
+/-- A family isomorphism preserves the body selected by the actual evaluation
+lift, including its initial line and the prescribed complete section. -/
+theorem prescribedLineComparison_body_transport {B : Family (total (interval Γ))}
+    (F : Filling A) (hF : F.Lawful) (r s : Term (interval Γ))
+    (a : Term (reindex A (graph r))) (z : Term A)
+    (hz : Term.reindex z (graph r) = a) (e : A ≅ B) :
+    pathApp (prescribedLineComparison (F.transport e) (Filling.transport_lawful e F hF) r s
+        (Term.map (Functor.whiskerLeft (graph r).mapElements e.hom) a)
+        (Term.map e.hom z)
+        (congrArg (Term.map (Functor.whiskerLeft (graph r).mapElements e.hom)) hz)) =
+      Term.map (Functor.whiskerLeft (projection (interval Γ)).mapElements
+        (Functor.whiskerLeft (graph s).mapElements e.hom))
+        (pathApp (prescribedLineComparison F hF r s a z hz)) := by
+  rw [prescribedLineComparison_body, prescribedLineComparison_body]
+  have he := evaluationLifting_fiberPathLine_transport F hF r
+    (lam (line F r (𝟙 Γ) a)) (lam z)
+    ((line_source F hF r (𝟙 Γ) a).trans hz.symm) e
+  have hl : lam (line (F.transport e) r (𝟙 Γ)
+      (Term.map (Functor.whiskerLeft (graph r).mapElements e.hom) a)) =
+      Term.map (EquivalenceFamilies.piSecondIso (interval Γ) e).hom
+        (lam (line F r (𝟙 Γ) a)) := congrArg lam (line_transport F e r (𝟙 Γ) a)
+  refine Eq.trans ?_ (congrArg (Term.map
+    (Functor.whiskerLeft (projection (interval Γ)).mapElements (evaluate s))) he)
+  apply congrArg (Term.map _)
+  exact MapLifting.fiberPathLine_congr _ _ _ _ hl rfl _
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Restricting the fixed comparison preserves its selected body. This uses

@@ -440,6 +440,16 @@ structure PairCase
       (Term.reindex (pairSection a b r z) (intervalSub σ))) =
       Term.reindex (pathApp ((LargeConstructors.sigma a b).comparisonInFamily r s
         (pairSection a b r z))) (intervalSub σ)
+  rebuilt_body_eq :
+    pathApp (((LargeConstructors.sigma a b).reindex (intervalSub σ)).comparisonInFamily
+      (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (pairSection a b r z) (intervalSub σ))) =
+    pathApp ((LargeConstructors.sigma (intervalSub σ ≫ a)
+      (liftSub (liftedDecode a) (intervalSub σ) ≫ b)).rebuiltComparison
+      (Iso.refl _) (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (pairSection a b r z) (intervalSub σ))
+      (pairSection (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)
+        (Term.reindex r σ) (Term.reindex z σ)) (pairSection_reindex a b r z σ).symm)
   comparison : Term (homogeneousPath
     (reindex (reindex (SquareKit.Cubical.Cartesian.sigma (liftedDecode a) (liftedDecode b))
       (intervalSub σ)) (graph (Term.reindex s σ)))
@@ -458,6 +468,7 @@ noncomputable def pairCase
     (σ : square ⟶ square) : PairCase a b r s z σ where
   section_eq := pairSection_reindex a b r z σ
   body_eq := Result.comparisonInFamily_body_reindex _ _ _ _ σ
+  rebuilt_body_eq := pair_comparison_body_recomputed a b r s z σ
   comparison := pairRecomputedComparison a b r s z σ
 
 noncomputable def functionBoxFor
@@ -486,6 +497,16 @@ structure FunctionCase
       (Term.reindex (functionSection a b r z) (intervalSub σ))) =
       Term.reindex (pathApp ((LargeConstructors.pi a b).comparisonInFamily r s
         (functionSection a b r z))) (intervalSub σ)
+  rebuilt_body_eq :
+    pathApp (((LargeConstructors.pi a b).reindex (intervalSub σ)).comparisonInFamily
+      (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (functionSection a b r z) (intervalSub σ))) =
+    pathApp ((LargeConstructors.pi (intervalSub σ ≫ a)
+      (liftSub (liftedDecode a) (intervalSub σ) ≫ b)).rebuiltComparison
+      (piReindexIso (liftedDecode a) (liftedDecode b) (intervalSub σ)) (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (functionSection a b r z) (intervalSub σ))
+      (functionSection (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)
+        (Term.reindex r σ) (functionInitialReindex a b r z σ)) (functionSection_reindex a b r z σ).symm)
   comparison : Term (homogeneousPath
     (reindex (reindex (SquareKit.Cubical.Cartesian.pi (liftedDecode a) (liftedDecode b))
       (intervalSub σ)) (graph (Term.reindex s σ)))
@@ -516,6 +537,7 @@ noncomputable def functionCase
     (φ : Subcontext square) (σ : square ⟶ square) : FunctionCase a b r s z φ σ where
   section_eq := functionSection_reindex a b r z σ
   body_eq := Result.comparisonInFamily_body_reindex _ _ _ _ σ
+  rebuilt_body_eq := function_comparison_body_recomputed a b r s z σ
   comparison := functionRecomputedComparison a b r s z σ
   face_rebuild := FunctionFilling.fill_input_reindex _ _ _ (intervalSub σ) (𝟙 _) _ _ _
 
@@ -531,6 +553,34 @@ noncomputable def functionDuplicate : FunctionCase a c cap (endpoint square true
   functionCase a c cap (endpoint square true) functionCap face duplicate
 noncomputable def functionComposite : FunctionCase a c cap (endpoint square true) functionCap face (swap ≫ duplicate) :=
   functionCase a c cap (endpoint square true) functionCap face (swap ≫ duplicate)
+/-- A distinct, nonconstant target cap exercises both graph adapters. -/
+def targetCap : Term (interval square) := Term.reindex cap swap
+
+theorem variable_target_cap (b : Bool) : targetCap ≠ endpoint square b := by
+  intro h
+  have he := congrArg (fun t => (t.val genericPoint).down 0) h
+  change Dim.var (1 : Fin 2) = Dim.endpoint b at he
+  cases he
+
+theorem targetCap_ne_cap : targetCap ≠ cap := by
+  intro h
+  have he := congrArg (fun t => (t.val genericPoint).down 0) h
+  change Dim.var (1 : Fin 2) = Dim.var 0 at he
+  exact (by decide : (1 : Fin 2) ≠ 0) (Dim.var.inj he)
+
+noncomputable def pairIdentity : PairCase a b cap (endpoint square true) pairCap (𝟙 square) :=
+  pairCase a b cap (endpoint square true) pairCap (𝟙 square)
+noncomputable def functionIdentity : FunctionCase a c cap (endpoint square true) functionCap face (𝟙 square) :=
+  functionCase a c cap (endpoint square true) functionCap face (𝟙 square)
+noncomputable def pairVariableTarget : PairCase a b cap targetCap pairCap swap :=
+  pairCase a b cap targetCap pairCap swap
+noncomputable def functionVariableTarget : FunctionCase a c cap targetCap functionCap face swap :=
+  functionCase a c cap targetCap functionCap face swap
+noncomputable def pairDiagonal : PairCase a b cap cap pairCap (swap ≫ duplicate) :=
+  pairCase a b cap cap pairCap (swap ≫ duplicate)
+noncomputable def functionDiagonal : FunctionCase a c cap cap functionCap face (swap ≫ duplicate) :=
+  functionCase a c cap cap functionCap face (swap ≫ duplicate)
+
 end Substitution
 
 end Examples.CartesianConstructorTransport

@@ -1,14 +1,13 @@
 # Constructor substitution and recomputation
 
 The native Pi and Path decoder comparisons have identity and composition laws
-in both cube models. The original model also has whole-section recomputation
-for its dependent pair and function transport algorithms. Comparing the two
+in both cube models. Both models have whole-section recomputation for their
+dependent pair and function transport algorithms. Comparing the two
 canonical decoder transports gives a native path retaining the original and
-rebuilt comparison bodies. For the original model, the fixed Sigma and Pi
-constructors now preserve those complete selected bodies exactly when rebuilt
-after substitution. The corresponding native Cartesian result remains under
-[#671](https://github.com/VladimirMarko/conaled/issues/671), following the
-algorithms developed independently in #631.
+rebuilt comparison bodies. The fixed Sigma and Pi constructors preserve those
+complete selected bodies exactly when rebuilt after substitution in both
+models. The native Cartesian result retains arbitrary source and target caps
+and the evaluation lift used by the [#631 algorithms](cartesian-constructor-transport.md).
 
 ## Decoder comparisons
 
@@ -29,7 +28,7 @@ Those contracts and the preexisting negative controls are unchanged.
 
 ## Whole sections and actual transports
 
-Put `L = liftSub (interval Ξ) σ`, `a' = L ≫ a` and
+In the original model, put `L = liftSub (interval Ξ) σ`, `a' = L ≫ a` and
 `b' = liftSub (liftedDecode a) L ≫ b`. `pairSection_reindex` identifies the
 whole freshly rebuilt pair section with the original section restricted by
 `L`. Its initial pair is `z.reindex σ`. `functionSection_reindex` gives the
@@ -134,14 +133,58 @@ can prove about their selected constituents. The general interfaces still
 allow independently selected operations, for which exact equality needs an
 additional preservation theorem.
 
-This is the original-model milestone of
-[#671](https://github.com/VladimirMarko/conaled/issues/671), not closure of
-its full scope. The Cartesian branch must use the native variable-cap
-algorithms from [#631](https://github.com/VladimirMarko/conaled/issues/631)
-and prove their corresponding selected-comparison naturality and exact body
-result. The existing Cartesian Pi/Path decoder laws and #607's complete
-variable-cap operation recovery supply parts of that route, not its final
-comparison theorem. No De Morgan restriction is used as a replacement.
+## Native Cartesian selected bodies
+
+The Cartesian result uses `L = intervalSub σ`, `r' = Term.reindex r σ` and
+`s' = Term.reindex s σ`, for arbitrary interval terms `r` and `s`. With the
+same independently rebuilt constructors and decoded-family adapter, its
+conclusion is
+
+```lean
+pathApp (R.comparisonInFamily r' s' v) =
+  pathApp (S.rebuiltComparison e r' s' v w hw)
+```
+
+Here `v` is the original pair or function section restricted by `L`, and `w`
+is the section computed afresh from the substituted inputs. The source
+adapter is over `graph r'`; the target adapter is over `graph s'`. The
+function case retains `functionInitialReindex` and the complete native
+`piReindexIso`. Both fixed theorems quantify over the codes, `r`, `s`, an
+initial term and `σ`, with no final-body or filler-preservation premise.
+
+`IntervalTransport.prescribedLineComparison_body_transport` derives the
+required family-isomorphism law for the selected native comparison. Its
+proof keeps the algorithm's full data:
+
+- `filling_transport_map` cancels the mapped open box through the family
+  isomorphism for every context, substitution, face and cap.
+- `line_transport` applies that equality to the empty box at the arbitrary
+  source cap, retaining the original selected initial line.
+- `evaluationBox_map` maps the partial dependent function and source value
+  using `EquivalenceFamilies.piSecondMap`. The generalized interval arguments
+  remain unchanged.
+- `evaluationLift_transport` uses this box equation and the full filling
+  equation, then cancels the native Pi reindex isomorphisms. It identifies
+  the actual selected lift.
+- `evaluationLifting_fiberPathLine_transport` maps the endpoint boundary of
+  the two complete interval sections. The prescribed-comparison theorem
+  then evaluates this same path at the arbitrary target cap.
+
+The Cartesian `Result.comparison_body_eq_of_filling` applies that law through
+`R.decoding ≪≫ e ≪≫ S.decoding.symm`. Its source-section roundtrip and target
+graph cancellation retain both complete comparison bodies. The fixed
+`pair_comparison_body_recomputed` and `function_comparison_body_recomputed`
+reuse #607's Cartesian `sigmaSubstitution_native_filling` and
+`piSubstitution_native_filling`, together with #631's whole-section equations.
+The proof uses native Cartesian filling throughout; it needs neither a
+De Morgan interval restriction nor a path-uniqueness principle.
+
+These equations complete the mathematical scope of
+[#671](https://github.com/VladimirMarko/conaled/issues/671) in both models.
+[#625](https://github.com/VladimirMarko/conaled/issues/625) retains the distinct
+total structured-object identity work. The generic interfaces continue to
+permit independently selected operations; equality there requires the stated
+operation-preservation equation.
 
 ## Reuse and validation
 
@@ -167,6 +210,25 @@ term is adapted by the inverse endpoint Pi isomorphism. Existing
 relevant properties of these inputs. Existing empty-domain and incompatible
 path controls remain imported. Integrated build and exhaustive proof audit,
 plus independent Standards and Spec review, are required for acceptance.
+
+The Cartesian `Substitution.PairCase` and `FunctionCase` records now include
+the explicit complete `rebuilt_body_eq` target, supplied by the two public
+fixed-constructor theorems. Their concrete instances cover identity, swap,
+duplicate and `swap ≫ duplicate`. Further instances use a target cap given
+by swapping the variable source cap, and a diagonal source-equals-target
+case under the composite substitution. `variable_target_cap` and
+`targetCap_ne_cap` establish that the extra target is nonconstant and differs
+from the source. The retained `variable_cap`, `face_nonempty`, `proper_face`
+and `FunctionCase.face_rebuild` exercise the source cap and the existing proper-face
+Pi filling consumer. The code families still come from the nonreflexive cycle
+univalence line with varying dependent finite fibers. The inverse function
+action, noncommuting actions, full carriers and round-trip paths remain.
+
+The original `independent_bodies_not_equal` and native Cartesian
+`selected_fillings_distinct`/`no_relative_square` controls retain their
+separation claims. The Cartesian empty-sum and incompatible-endpoint
+rejection examples also remain available. None asserts failure of the fixed
+constructor equation proved here.
 
 ## Elaboration costs
 
@@ -204,3 +266,19 @@ errors. A small equality-elimination lemma handles those proof arguments;
 no filling algorithm or theorem statement changed to resolve the errors.
 These measurements support this implementation only, not a general authoring
 productivity claim.
+
+The Cartesian selected-lift naturality additions use default heartbeat,
+recursion and kernel limits. Their module built in 7.1 seconds, with 7.744
+seconds for the focused Lake invocation, excluding the shared compiler-lock
+wait. An initial rewrite-based lift proof encountered dependent transparency
+errors; explicit Pi-isomorphism cancellation checked without a budget
+increase. The constructor substitution module built in 15 seconds and its
+complete Cartesian example module in 13 seconds, in a successful focused
+1,045-job build. The new bridge and example declarations use default resource
+limits. Explicit endpoint proof arguments and a local transparency setting
+resolved inference errors in the rebuilt-body wrapper without changing its
+algorithm. The full headline statements, example fields and selected axiom
+checks passed, with only the three permitted axioms. The inherited Cartesian
+`pairSection_reindex` keeps its measured 400,000-heartbeat allowance from #631.
+These costs describe this proof and do not impose default limits as an
+acceptance condition.

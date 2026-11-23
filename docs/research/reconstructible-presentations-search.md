@@ -56,9 +56,11 @@ still rules out the specified endpoint-preserving natural retraction from the
 restricted De Morgan interval to the Cartesian interval. Sharing the proof
 requires no such map. [#606's constructor comparison](constructor-recomputation.md)
 now proves the decoder identity/composition and stated section/body comparisons.
-Exact equality of independently rebuilt fixed bodies remains #671, requiring
-#607's selected-operation analysis and #631's Cartesian algorithms; #625 owns
-the distinct internal total structured-object identity theorem.
+[#607's complete-operation recovery](canonical-decoder-filling-recovery.md) and
+[#631's native Cartesian algorithms](cartesian-constructor-transport.md) now
+support #671's exact equality of independently rebuilt fixed Sigma/Pi bodies in
+both models. The Cartesian equations retain arbitrary source and target caps.
+#625 owns the distinct internal total structured-object identity theorem.
 
 ## Existing interfaces to retain
 
@@ -244,11 +246,16 @@ selected-data, ordinary-geometric and universe obligations. Their completion
 removes those earlier milestones from the open list; it does not remove the
 following distinct contracts.
 
+The bounded [#518 parameter-reuse experiment](local-universes-dependent-constructors.md)
+is complete. So are #607's full canonical filling recovery, #631's native
+Cartesian pair/function algorithms and #671's exact fixed comparison-body
+recomputation in both models. Those results retain their specified operations
+and decoder adapters; arbitrary independently selected operations still need
+an operation-preservation law.
+
 | Owner | Remaining contract and selection condition |
 |---|---|
 | [#235](https://github.com/VladimirMarko/conaled/issues/235), [#289](https://github.com/VladimirMarko/conaled/issues/289), [#647](https://github.com/VladimirMarko/conaled/issues/647) | Continuing interface discovery and classification. A broader generic universal decoder needs its own compatibility/cost assessment; bounded coding and evaluation extraction does not supply it. |
-| [#518](https://github.com/VladimirMarko/conaled/issues/518) | Bounded comparison of local-universe parameter reuse for dependent sums/products, retaining its concrete substitution and comprehension controls. Its outcome is future evidence, not a prerequisite for this reassessment. |
-| [#607](https://github.com/VladimirMarko/conaled/issues/607), [#631](https://github.com/VladimirMarko/conaled/issues/631), [#671](https://github.com/VladimirMarko/conaled/issues/671) | Selected canonical filler analysis, native Cartesian pair/function algorithms, and exact fixed comparison-body recomputation. A native path retaining both bodies does not itself prove their equality. |
 | [#625](https://github.com/VladimirMarko/conaled/issues/625) | Internal total structured-object identity in both cubical models; separate from decoder comparison and arbitrary external structure equivalence. |
 | [#666](https://github.com/VladimirMarko/conaled/issues/666), [#676](https://github.com/VladimirMarko/conaled/issues/676), [#677](https://github.com/VladimirMarko/conaled/issues/677) | Continuing descent applications; future ordinary associated spaces for general discrete actions and a selected positive-dimensional action. The latter two remain needs-triage branches. Stabilizers prevent applying principal-torsor reconstruction to every associated total. Broader Morita/stackification work still needs a selected consumer. |
 | [#654](https://github.com/VladimirMarko/conaled/issues/654) | Conditional decoder extension across a noninvertible code-sheafification unit. Constructing an associated quotient or sheafified coproduct does not by itself activate that requirement. |

@@ -1,8 +1,9 @@
 import SquareKit.Internal.Cubical.CartesianConstructorTransport
+import SquareKit.Internal.Cubical.CartesianLargeFamilyFillingRecovery
 
 /-! Whole-section substitution and retained comparisons for freshly rebuilt
-Cartesian constructors. Equality of the independently selected comparison bodies
-is a further operation-selection coherence condition. -/
+Cartesian constructors. The fixed Sigma and Pi constructions preserve their
+complete selected comparison bodies across independent rebuilding. -/
 set_option autoImplicit false
 set_option warningAsError true
 namespace SquareKit.Cubical.Cartesian
@@ -143,6 +144,107 @@ noncomputable def functionRecomputedComparison
     (Term.reindex r σ) (Term.reindex s σ) (Term.reindex (functionSection a b r z) (intervalSub σ))
     (functionSection (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)
       (Term.reindex r σ) (functionInitialReindex a b r z σ)) (functionSection_reindex a b r z σ).symm
+
+set_option backward.isDefEq.respectTransparency false in
+/-- The target adapter retains the complete freshly selected body. -/
+theorem Result.rebuiltComparison_body {C D : Family (total (interval Ξ))}
+    (S : Result D) (e : C ≅ D) (r s : Term (interval Ξ))
+    (z : Term C) (w : Term D) (hw : Term.map e.hom z = w) :
+    pathApp (S.rebuiltComparison e r s z w hw) =
+      Term.map (Functor.whiskerLeft (projection (interval Ξ)).mapElements
+        (Functor.whiskerLeft (graph s).mapElements e.inv))
+        (pathApp (S.comparisonInFamily r s w)) := by
+  let q := homogeneousPathMap (Functor.whiskerLeft (graph s).mapElements e.inv)
+    (S.comparisonInFamily r s w)
+  have h : Term.map e.inv w = z := hw.symm ▸ Term.map_iso_roundtrip e z
+  exact (pathApp_lam (pathApp q) (pathApp_zero q)
+    ((pathApp_one q).trans (congrArg (fun t => Term.reindex t (graph s)) h))).trans
+      (pathApp_lam _ _ _)
+
+private theorem prescribed_comparison_body_congr {C : Family (total (interval Ξ))}
+    {F G : Filling C} (hF : F.Lawful) (hG : G.Lawful) (h : F = G)
+    (r s : Term (interval Ξ)) (z : Term C) :
+    pathApp (IntervalTransport.prescribedLineComparison F hF r s
+      (Term.reindex z (graph r)) z rfl) =
+    pathApp (IntervalTransport.prescribedLineComparison G hG r s
+      (Term.reindex z (graph r)) z rfl) := by
+  cases h
+  rfl
+
+/-- Full canonical-operation preservation gives exact selected-body preservation
+through the actual source and target decoder adapters. -/
+theorem Result.comparison_body_eq_of_filling {C D : Family (total (interval Ξ))}
+    (R : Result C) (S : Result D) (e : C ≅ D) (r s : Term (interval Ξ))
+    (z : Term C) (w : Term D) (hw : Term.map e.hom z = w)
+    (hF : (NativeDecode.filling R.code).transport
+      (R.decoding ≪≫ e ≪≫ S.decoding.symm) = NativeDecode.filling S.code) :
+    pathApp (R.comparisonInFamily r s z) = pathApp (S.rebuiltComparison e r s z w hw) := by
+  let d := R.decoding ≪≫ e ≪≫ S.decoding.symm
+  have hs : Term.map d.hom (Term.map R.decoding.inv z) = Term.map S.decoding.inv w :=
+    (congrArg (fun t => Term.map S.decoding.inv (Term.map e.hom t))
+      (Term.map_iso_roundtrip R.decoding.symm z)).trans
+        (congrArg (Term.map S.decoding.inv) hw)
+  have hn := IntervalTransport.prescribedLineComparison_body_transport
+    (NativeDecode.filling R.code) (NativeDecode.filling_lawful R.code) r s
+    (Term.reindex (Term.map R.decoding.inv z) (graph r)) (Term.map R.decoding.inv z) rfl d
+  change (NativeDecode.filling R.code).transport d = NativeDecode.filling S.code at hF
+  have hn' := (prescribed_comparison_body_congr
+    (Filling.transport_lawful d (NativeDecode.filling R.code)
+      (NativeDecode.filling_lawful R.code)) (NativeDecode.filling_lawful S.code)
+    hF r s (Term.map d.hom (Term.map R.decoding.inv z))).symm.trans hn
+  have hb : pathApp (S.transportComparison r s w) =
+      Term.map (Functor.whiskerLeft (projection (interval Ξ)).mapElements
+        (Functor.whiskerLeft (graph s).mapElements d.hom))
+        (pathApp (R.transportComparison r s z)) :=
+    (congrArg (fun t => pathApp (IntervalTransport.prescribedLineComparison
+      (NativeDecode.filling S.code) (NativeDecode.filling_lawful S.code) r s
+      (Term.reindex t (graph r)) t rfl)) hs).symm.trans hn'
+  let E := Functor.isoWhiskerLeft (projection (interval Ξ) ≫ graph s).mapElements e
+  let T := Functor.isoWhiskerLeft (projection (interval Ξ) ≫ graph s).mapElements S.decoding
+  let t := Term.map (Functor.whiskerLeft (projection (interval Ξ)).mapElements
+    (Functor.whiskerLeft (graph s).mapElements R.decoding.hom))
+    (pathApp (R.transportComparison r s z))
+  have hc := congrArg (fun q => Term.map E.inv (Term.map T.hom q)) hb
+  have hr := (congrArg (Term.map E.inv)
+    (Term.map_iso_roundtrip T.symm (Term.map E.hom t))).trans (Term.map_iso_roundtrip E t)
+  rw [Result.rebuiltComparison_body, Result.comparisonInFamily_body, Result.comparisonInFamily_body]
+  exact (hc.trans hr).symm
+
+/-- Independent fixed Sigma rebuilding preserves the complete selected body
+at arbitrary source and target caps. -/
+theorem pair_comparison_body_recomputed
+    (a : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u}) (r s : Term (interval Ξ))
+    (z : Term (reindex (Cartesian.sigma (liftedDecode a) (liftedDecode b)) (graph r)))
+    (σ : Ω ⟶ Ξ) :
+    pathApp (((sigma a b).reindex (intervalSub σ)).comparisonInFamily
+      (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (pairSection a b r z) (intervalSub σ))) =
+    pathApp ((sigma (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)).rebuiltComparison
+      (Iso.refl _) (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (pairSection a b r z) (intervalSub σ))
+      (pairSection (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)
+        (Term.reindex r σ) (Term.reindex z σ)) (pairSection_reindex a b r z σ).symm) := by
+  apply Result.comparison_body_eq_of_filling
+  exact sigmaSubstitution_native_filling a b (intervalSub σ)
+
+/-- Independent fixed Pi rebuilding preserves the complete selected body
+at arbitrary source and target caps. -/
+theorem function_comparison_body_recomputed
+    (a : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u}) (r s : Term (interval Ξ))
+    (z : Term (reindex (Cartesian.pi (liftedDecode a) (liftedDecode b)) (graph r)))
+    (σ : Ω ⟶ Ξ) :
+    pathApp (((pi a b).reindex (intervalSub σ)).comparisonInFamily
+      (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (functionSection a b r z) (intervalSub σ))) =
+    pathApp ((pi (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)).rebuiltComparison
+      (piReindexIso (liftedDecode a) (liftedDecode b) (intervalSub σ)) (Term.reindex r σ) (Term.reindex s σ)
+      (Term.reindex (functionSection a b r z) (intervalSub σ))
+      (functionSection (intervalSub σ ≫ a) (liftSub (liftedDecode a) (intervalSub σ) ≫ b)
+        (Term.reindex r σ) (functionInitialReindex a b r z σ)) (functionSection_reindex a b r z σ).symm) := by
+  apply Result.comparison_body_eq_of_filling
+  exact piSubstitution_native_filling a b (intervalSub σ)
 
 end SmallUniverse.LargeConstructors
 end SquareKit.Cubical.Cartesian
