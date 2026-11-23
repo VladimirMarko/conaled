@@ -862,6 +862,7 @@ import Examples.CubicalStatePackageUa
 import Examples.CubicalStructuredState
 import Examples.CubicalFiniteStateIdentity
 import Examples.CubicalConstructorState
+import Examples.CubicalConstructorRecomputation
 import Examples.CubicalUniversalDecode
 import Examples.CubicalUniverseRaising
 import Examples.CubicalContractibleTotals

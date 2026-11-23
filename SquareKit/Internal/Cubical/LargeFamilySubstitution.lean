@@ -118,4 +118,51 @@ theorem sigmaSubstitution_comp {Θ : Context.{u+1}}
     (congrArg (fun k => k.app (τ.mapElements.obj x)
       ((sigma a b).decoding.hom.app ((τ ≫ σ).mapElements.obj x) z)) d.inv_hom_id).symm
 
+@[simp] theorem piSubstitution_id (a : Ξ ⟶ smallFamilyCodes.{u})
+    (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u}) :
+    piSubstitution a b (𝟙 Ξ) = Iso.refl _ := by
+  apply Iso.ext
+  change (pi a b).decoding.hom ≫ 𝟙 _ ≫ (pi a b).decoding.inv = 𝟙 _
+  simp
+
+@[simp] theorem pathSubstitution_id (b : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (a₀ : Term (reindex (liftedDecode b) (endpointSub Ξ false)))
+    (a₁ : Term (reindex (liftedDecode b) (endpointSub Ξ true))) :
+    pathSubstitution b a₀ a₁ (𝟙 Ξ) = Iso.refl _ := by
+  apply Iso.ext
+  change (path b a₀ a₁).decoding.hom ≫ 𝟙 _ ≫ (path b a₀ a₁).decoding.inv = 𝟙 _
+  simp
+
+set_option backward.isDefEq.respectTransparency false in
+theorem piSubstitution_comp {Θ : Context.{u+1}}
+    (a : Ξ ⟶ smallFamilyCodes.{u}) (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u})
+    (σ : Ω ⟶ Ξ) (τ : Θ ⟶ Ω) :
+    piSubstitution a b (τ ≫ σ) =
+      Functor.isoWhiskerLeft τ.mapElements (piSubstitution a b σ) ≪≫
+        piSubstitution (σ ≫ a) (liftSub (liftedDecode a) σ ≫ b) τ := by
+  apply Iso.ext
+  simp only [piSubstitution, Iso.trans_hom, Iso.symm_hom,
+    Functor.isoWhiskerLeft_hom, Functor.whiskerLeft_comp, piReindexIso]
+  rw [piReindex_comp]
+  simp only [Category.assoc, ← Functor.isoWhiskerLeft_inv,
+    ← Functor.isoWhiskerLeft_hom, Iso.inv_hom_id_assoc]
+  rfl
+set_option backward.isDefEq.respectTransparency false in
+theorem pathSubstitution_comp {Θ : Context.{u+1}}
+    (b : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (a₀ : Term (reindex (liftedDecode b) (endpointSub Ξ false)))
+    (a₁ : Term (reindex (liftedDecode b) (endpointSub Ξ true)))
+    (σ : Ω ⟶ Ξ) (τ : Θ ⟶ Ω) :
+    pathSubstitution b a₀ a₁ (τ ≫ σ) =
+      Functor.isoWhiskerLeft τ.mapElements (pathSubstitution b a₀ a₁ σ) ≪≫
+        pathSubstitution (liftSub (interval Ξ) σ ≫ b)
+          (Term.reindex a₀ σ) (Term.reindex a₁ σ) τ := by
+  apply Iso.ext
+  simp only [pathSubstitution, Iso.trans_hom, Iso.symm_hom,
+    Functor.isoWhiskerLeft_hom, Functor.whiskerLeft_comp, pathReindexIso]
+  rw [pathReindex_comp]
+  simp only [Category.assoc, ← Functor.isoWhiskerLeft_inv,
+    ← Functor.isoWhiskerLeft_hom, Iso.inv_hom_id_assoc]
+  rfl
+
 end SquareKit.Cubical.Presheaf.SmallUniverse.LargeConstructors

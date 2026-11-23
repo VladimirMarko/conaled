@@ -180,4 +180,21 @@ noncomputable def reflexivePath := LargeConstructors.path
 noncomputable def reflexiveSection : Term (liftedDecode reflexivePath.code) :=
   Term.map reflexivePath.decoding.inv (homogeneousRefl (naturalSection 0))
 
+example : LargeConstructors.piSubstitution domain.code dependent.code (𝟙 context) = Iso.refl _ :=
+  LargeConstructors.piSubstitution_id _ _
+
+set_option maxHeartbeats 1600000 in
+example : productComposite =
+    Functor.isoWhiskerLeft twice.mapElements productSuccessor ≪≫
+      LargeConstructors.piSubstitution (successor ≫ domain.code)
+        (liftSub (liftedDecode domain.code) successor ≫ dependent.code) twice :=
+  LargeConstructors.piSubstitution_comp _ _ _ _
+
+example : pathComposite =
+    Functor.isoWhiskerLeft twice.mapElements pathSuccessor ≪≫
+      LargeConstructors.pathSubstitution
+        (liftSub (interval context) successor ≫ projection (interval context) ≫ domain.code)
+        (Term.reindex (naturalSection 0) successor) (Term.reindex (naturalSection 1) successor) twice :=
+  LargeConstructors.pathSubstitution_comp _ _ _ _ _
+
 end Examples.CartesianLargeFamilyConstructors
