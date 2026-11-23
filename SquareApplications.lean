@@ -1226,5 +1226,6 @@ import SquareKit.SmoothBundlePullbackTargets
 import Examples.SheafSiteComparison
 
 import Examples.SmoothTorsorReconstruction
+import Examples.SmoothRegularLevel
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
