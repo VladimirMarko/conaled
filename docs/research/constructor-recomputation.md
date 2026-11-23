@@ -4,8 +4,11 @@ The native Pi and Path decoder comparisons have identity and composition laws
 in both cube models. The original model also has whole-section recomputation
 for its dependent pair and function transport algorithms. Comparing the two
 canonical decoder transports gives a native path retaining the original and
-rebuilt comparison bodies. Exact equality of those two bodies is a stronger
-selection obligation, still open for the fixed classifier.
+rebuilt comparison bodies. For the original model, the fixed Sigma and Pi
+constructors now preserve those complete selected bodies exactly when rebuilt
+after substitution. The corresponding native Cartesian result remains under
+[#671](https://github.com/VladimirMarko/conaled/issues/671), following the
+algorithms developed independently in #631.
 
 ## Decoder comparisons
 
@@ -60,7 +63,7 @@ through the first family isomorphism. `pairRecomputedComparisonTwice` and
 and their comparison premises. All three canonical transports and both
 constituent paths remain in this composition.
 
-## Exact-body boundary
+## Exact fixed-constructor bodies
 
 After these explicit family and decoder adapters, the stronger equation is
 
@@ -85,24 +88,37 @@ is, for the Sigma or Pi decoder comparison `d` over the substituted line,
   NativeDecode.filling S.code
 ```
 
-This retains the full operation, every context, face and cap. Existing
-`*_filling` theorems instead state this equation for `Result.filling`.
-`Result.transportComparison` consumes the canonical decoder operation, so
-substituting the former law for the latter would change the theorem.
-A proof through this sufficient route must also transport the selected
-`sectionComparison` construction through the family isomorphism, retaining
-its path-filling operations and all intermediate sections.
+This retains the full operation, every context, face and cap. The completed
+[#607 recovery](canonical-decoder-filling-recovery.md) proves this equation
+as `sigmaSubstitution_native_filling` and `piSubstitution_native_filling`.
+It first recovers the supplied full lawful operation through
+`SmallPresentation.Data.code` and `nativeIso`, including the represented
+chart, lowering and decoding steps. Equality of the displayed families alone
+would not give this recovery. The result identifies `NativeDecode.filling`
+with the returned selected operation for the fixed construction; the two
+operations remain distinct in the general interfaces.
 
-For the fixed construction, `SmallPresentation.Data.localFamily` lowers the
-supplied filler onto each represented chart; `Data.code` records those chart
-families, and `nativeIso` compares evaluation with the presented family.
-`NativeDecode.filling` assembles fills by decoding represented charts.
-Recovering the full selected operation through these lowering, evaluation and
-raising adapters is the canonical decoder-filler investigation
-[#607](https://github.com/VladimirMarko/conaled/issues/607). Pi and Path also
-use `Shrink` in their small presentations, so equality of freshly selected
-codes cannot be inferred from reindexing the displayed family. This analysis
-does not show that the fixed construction fails the stronger law.
+`NativeTransportComposition.sectionComparison_body_transport` supplies the
+other part of the proof. It maps the actual `sectionsInitial` path through
+the family isomorphism, using the existing
+`SelectedPathTransport.reindex_inverse_map`. The existing
+`SelectedPathTransport.filling_transport` preserves the selected Path filler.
+Transport of the forward filled section then preserves `sectionsFilled`.
+The last endpoint restriction gives equality of the full `sectionComparison`
+body. None of these steps replaces the selected filling algorithm or assumes
+that paths with the same endpoints agree.
+
+`Result.comparison_body_eq_of_filling` combines this naturality with an
+explicit full-operation preservation equation. Its decoder-section
+roundtrips and endpoint isomorphism cancellation retain the actual original
+and rebuilt bodies. The public `pair_comparison_body_recomputed` and
+`function_comparison_body_recomputed` discharge that equation using #607 and
+supply the section equality from `pairSection_reindex` and
+`functionSection_reindex`. Their statements are exactly the displayed
+whole-body equation for independently rebuilt Sigma and Pi, with `Iso.refl`
+and `piReindexIso` respectively. Callers supply codes, an initial section and
+a substitution; they do not supply a comparison-body equality or a filler
+preservation hypothesis.
 
 Arbitrary independently selected paths are different: equal endpoints do not
 determine the body. The checked `independent_bodies_not_equal` control uses the
@@ -112,15 +128,20 @@ to the fixed constructor's recomputation equation. The positive control
 `comparisonInFamily_body_reindex` retains exact body equality when the same
 result is restricted.
 
-Adopt the decoder laws, whole-section laws and derived native comparison.
-Keep exact canonical-body reconstruction under
-[#671](https://github.com/VladimirMarko/conaled/issues/671), coordinating
-#607's operation recovery and the selected `sectionComparison` isomorphism
-naturality proof. The weaker comparison does not prove that stronger equation.
-Cartesian native pair/function universe-path algorithms remain under
-[#631](https://github.com/VladimirMarko/conaled/issues/631), which was open
-without an implementation at this task's baseline. The Cartesian Pi/Path
-laws here do not supply those algorithms.
+The earlier `compareRebuilt` and two-step comparison interfaces remain
+available. The new exact fixed-constructor results strengthen what callers
+can prove about their selected constituents. The general interfaces still
+allow independently selected operations, for which exact equality needs an
+additional preservation theorem.
+
+This is the original-model milestone of
+[#671](https://github.com/VladimirMarko/conaled/issues/671), not closure of
+its full scope. The Cartesian branch must use the native variable-cap
+algorithms from [#631](https://github.com/VladimirMarko/conaled/issues/631)
+and prove their corresponding selected-comparison naturality and exact body
+result. The existing Cartesian Pi/Path decoder laws and #607's complete
+variable-cap operation recovery supply parts of that route, not its final
+comparison theorem. No De Morgan restriction is used as a replacement.
 
 ## Reuse and validation
 
@@ -135,9 +156,15 @@ but it does not identify constructor comparison selections automatically.
 Their categorical map equalities provide cancellation methods, not a cubical
 higher-body preservation theorem.
 
-The checked clients use two nonidentity substitutions and their composition,
-varying finite dependent fibers, a nonreflexive universe path, and the existing
-direction-sensitive function observation. Existing empty-domain and incompatible
+The original-model exact-body clients use identity, successor, twice and
+`twiceSub ≫ successorSub` for both Sigma and Pi. The nonreflexive
+`stateLine`/`stateField` examples state the complete body equations explicitly.
+The `suppliedPath`/`suppliedDependentCode` examples use the actual varying
+`Fin(n+1)` family and its initial pair/function terms. The function initial
+term is adapted by the inverse endpoint Pi isomorphism. Existing
+`successor_nonidentity`, `twice_nonidentity`, `varying_fibers`,
+`carrierPath_nonreflexive` and `function_direction_sensitive` establish the
+relevant properties of these inputs. Existing empty-domain and incompatible
 path controls remain imported. Integrated build and exhaustive proof audit,
 plus independent Standards and Spec review, are required for acceptance.
 
@@ -151,9 +178,9 @@ replaced, not retained. The updated native and Cartesian law files built in
 6.7 and 7.6 seconds respectively.
 
 `pairSection_reindex` retains a local 400,000-heartbeat budget after the default
-200,000 timed out, including a local transparency trial. All other new core
-and native example declarations use defaults. The complete core built in
-14 seconds and its native examples in 10 seconds. The explicit Cartesian
+200,000 timed out, including a local transparency trial. The other core and native example declarations added for #606 used defaults.
+At that delivery the complete core built in 14 seconds and its native
+examples in 10 seconds. The explicit Cartesian
 Pi composition example retains a local 1,600,000-heartbeat budget: 200,000,
 400,000 and 800,000 trials timed out; its complete example module passed in
 83 seconds. These are measured bounded settings, not exact minima.
@@ -164,3 +191,16 @@ heartbeats reached a 120-second process bound without a completed Lean result.
 The shared two-step APIs retain all three transports and supply reusable
 section premises. Passing at the default recursion depth is not an acceptance
 criterion, and the bounded direct trial does not establish impossibility.
+
+The #671 original-model additions use default heartbeat, recursion and kernel
+limits. The generic selected-comparison naturality module checked in 19
+seconds; the constructor module, including both fixed exact-body theorems,
+checked in 14 seconds. The complete original-model recomputation example
+module checked in 24 seconds, including its old clients and the new explicit
+body equations and substitutions. These are focused module timings, excluding
+time waiting for the shared compiler lock. The initial generic decoder proof
+trials encountered dependent lawfulness-proof rewriting and transparency
+errors. A small equality-elimination lemma handles those proof arguments;
+no filling algorithm or theorem statement changed to resolve the errors.
+These measurements support this implementation only, not a general authoring
+productivity claim.

@@ -84,6 +84,75 @@ noncomputable def pairTwoSteps := LargeConstructors.pairRecomputedComparisonTwic
 noncomputable def functionTwoSteps := LargeConstructors.functionRecomputedComparisonTwice
   stateLine stateField stateFunction successorSub twiceSub
 
+/-- The actual fixed pair comparison has the same whole body after fresh
+classification. The assertion includes every decoder and endpoint adapter. -/
+example (σ : context ⟶ context) :
+    pathApp (((LargeConstructors.sigma stateLine stateField).reindex
+      (liftSub (interval context) σ)).comparisonInFamily
+      ((LargeConstructors.pairSection stateLine stateField statePair).reindex
+        (liftSub (interval context) σ))) =
+    pathApp ((LargeConstructors.sigma (liftSub (interval context) σ ≫ stateLine)
+      (liftSub (liftedDecode stateLine) (liftSub (interval context) σ) ≫ stateField)).rebuiltComparison
+      (Iso.refl _)
+      ((LargeConstructors.pairSection stateLine stateField statePair).reindex
+        (liftSub (interval context) σ))
+      (LargeConstructors.pairSection (liftSub (interval context) σ ≫ stateLine)
+        (liftSub (liftedDecode stateLine) (liftSub (interval context) σ) ≫ stateField)
+        (statePair.reindex σ))
+      (LargeConstructors.pairSection_reindex stateLine stateField statePair σ).symm) :=
+  LargeConstructors.pair_comparison_body_recomputed stateLine stateField statePair σ
+
+/-- The Pi comparison retains the backwards argument and the entire chosen
+body through the actual Pi substitution isomorphism. -/
+example (σ : context ⟶ context) :
+    pathApp (((LargeConstructors.pi stateLine stateField).reindex
+      (liftSub (interval context) σ)).comparisonInFamily
+      ((LargeConstructors.functionSection stateLine stateField stateFunction).reindex
+        (liftSub (interval context) σ))) =
+    pathApp ((LargeConstructors.pi (liftSub (interval context) σ ≫ stateLine)
+      (liftSub (liftedDecode stateLine) (liftSub (interval context) σ) ≫ stateField)).rebuiltComparison
+      (piReindexIso (liftedDecode stateLine) (liftedDecode stateField)
+        (liftSub (interval context) σ))
+      ((LargeConstructors.functionSection stateLine stateField stateFunction).reindex
+        (liftSub (interval context) σ))
+      (LargeConstructors.functionSection (liftSub (interval context) σ ≫ stateLine)
+        (liftSub (liftedDecode stateLine) (liftSub (interval context) σ) ≫ stateField)
+        (LargeConstructors.functionInitialReindex stateLine stateField stateFunction σ))
+      (LargeConstructors.functionSection_reindex stateLine stateField stateFunction σ).symm) :=
+  LargeConstructors.function_comparison_body_recomputed stateLine stateField stateFunction σ
+
+example := LargeConstructors.pair_comparison_body_recomputed stateLine stateField statePair (𝟙 context)
+example := LargeConstructors.pair_comparison_body_recomputed stateLine stateField statePair successorSub
+example := LargeConstructors.pair_comparison_body_recomputed stateLine stateField statePair twiceSub
+example := LargeConstructors.pair_comparison_body_recomputed stateLine stateField statePair (twiceSub ≫ successorSub)
+example := LargeConstructors.function_comparison_body_recomputed stateLine stateField stateFunction (𝟙 context)
+example := LargeConstructors.function_comparison_body_recomputed stateLine stateField stateFunction successorSub
+example := LargeConstructors.function_comparison_body_recomputed stateLine stateField stateFunction twiceSub
+example := LargeConstructors.function_comparison_body_recomputed stateLine stateField stateFunction (twiceSub ≫ successorSub)
+
+/-- These initial values inhabit the genuinely varying Fin(n+1) family.
+The function adapter retains all arguments, including its dependent output. -/
+noncomputable def varyingInitialFunction :=
+  Term.map (piReindexIso (liftedDecode (LargeConstructors.inputLine suppliedPath))
+    (liftedDecode suppliedDependentCode) (endpointSub context false)).inv initialFunction
+
+example := LargeConstructors.pair_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode initialPair (𝟙 context)
+example := LargeConstructors.pair_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode initialPair successorSub
+example := LargeConstructors.pair_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode initialPair twiceSub
+example := LargeConstructors.pair_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode initialPair (twiceSub ≫ successorSub)
+example := LargeConstructors.function_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode varyingInitialFunction (𝟙 context)
+example := LargeConstructors.function_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode varyingInitialFunction successorSub
+example := LargeConstructors.function_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode varyingInitialFunction twiceSub
+example := LargeConstructors.function_comparison_body_recomputed
+  (LargeConstructors.inputLine suppliedPath) suppliedDependentCode varyingInitialFunction (twiceSub ≫ successorSub)
+
 /-- Equal endpoints do not identify independently selected native path bodies.
 This control concerns arbitrary selections, not failure of the fixed classifier. -/
 theorem independent_bodies_not_equal :

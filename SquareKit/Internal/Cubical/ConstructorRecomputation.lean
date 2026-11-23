@@ -1,7 +1,8 @@
 import SquareKit.Internal.Cubical.ConstructorTransport
+import SquareKit.Internal.Cubical.LargeFamilyFillingRecovery
 /-! Whole-section recomputation and comparisons between independently rebuilt
-constructor transports. Exact equality of canonical comparison bodies remains
-a separate selected-coherence obligation. -/
+constructor transports. The fixed original-model Sigma and Pi constructors
+preserve complete canonical comparison bodies across independent rebuilding. -/
 set_option autoImplicit false
 set_option warningAsError true
 namespace SquareKit.Cubical.Presheaf.SmallUniverse.LargeConstructors
@@ -159,6 +160,50 @@ theorem Result.rebuiltComparison_body {C D : Family (total (interval Ξ))}
         (Functor.whiskerLeft (endpointSub Ξ true).mapElements e.inv))
         (pathApp (S.comparisonInFamily w)) := rfl
 
+private theorem sectionComparison_body_congr {C : Family (total (interval Ξ))}
+    {F G : Filling C} (hF : F.Lawful) (hG : G.Lawful) (h : F = G) (z : Term C) :
+    pathApp (NativeTransportComposition.sectionComparison F hF z) =
+      pathApp (NativeTransportComposition.sectionComparison G hG z) := by
+  cases h
+  rfl
+
+/-- Preservation of the full canonical filling operation preserves the actual
+chosen comparison body, including both decoder maps. -/
+theorem Result.comparison_body_eq_of_filling {C D : Family (total (interval Ξ))}
+    (R : Result C) (S : Result D) (e : C ≅ D)
+    (z : Term C) (w : Term D) (hw : Term.map e.hom z = w)
+    (hF : (NativeDecode.filling R.code).transport
+      (R.decoding ≪≫ e ≪≫ S.decoding.symm) = NativeDecode.filling S.code) :
+    pathApp (R.comparisonInFamily z) = pathApp (S.rebuiltComparison e z w hw) := by
+  let d := R.decoding ≪≫ e ≪≫ S.decoding.symm
+  have hs : Term.map d.hom (Term.map R.decoding.inv z) = Term.map S.decoding.inv w :=
+    (congrArg (fun t => Term.map S.decoding.inv (Term.map e.hom t))
+      (Term.map_iso_roundtrip R.decoding.symm z)).trans
+        (congrArg (Term.map S.decoding.inv) hw)
+  have hn := NativeTransportComposition.sectionComparison_body_transport
+    (NativeDecode.filling R.code) (NativeDecode.filling_lawful R.code)
+    (Term.map R.decoding.inv z) d
+  change (NativeDecode.filling R.code).transport d = NativeDecode.filling S.code at hF
+  have hn' := (sectionComparison_body_congr
+    (Filling.transport_lawful d (NativeDecode.filling R.code)
+      (NativeDecode.filling_lawful R.code)) (NativeDecode.filling_lawful S.code)
+    hF (Term.map d.hom (Term.map R.decoding.inv z))).symm.trans hn
+  have hb : pathApp (S.transportComparison w) =
+      Term.map (Functor.whiskerLeft (projection (interval Ξ)).mapElements
+        (Functor.whiskerLeft (endpointSub Ξ true).mapElements d.hom))
+        (pathApp (R.transportComparison z)) :=
+    (congrArg (fun t => pathApp (NativeTransportComposition.sectionComparison
+      (NativeDecode.filling S.code) (NativeDecode.filling_lawful S.code) t)) hs).symm.trans hn'
+  let E := Functor.isoWhiskerLeft
+    (projection (interval Ξ) ≫ endpointSub Ξ true).mapElements e
+  let T := Functor.isoWhiskerLeft
+    (projection (interval Ξ) ≫ endpointSub Ξ true).mapElements S.decoding
+  let t := pathApp (R.comparisonInFamily z)
+  have hc := congrArg (fun q => Term.map E.inv (Term.map T.hom q)) hb
+  have hr := (congrArg (Term.map E.inv)
+    (Term.map_iso_roundtrip T.symm (Term.map E.hom t))).trans (Term.map_iso_roundtrip E t)
+  exact (hc.trans hr).symm
+
 /-- Exact recomputation is available when the same classified result is
 restricted. This is a positive control, not a law for fresh classification. -/
 theorem Result.comparisonInFamily_body_reindex {C : Family (total (interval Ξ))}
@@ -202,6 +247,42 @@ noncomputable def functionRecomputedComparison
     (functionSection (liftSub (interval Ξ) σ ≫ a)
       (liftSub (liftedDecode a) (liftSub (interval Ξ) σ) ≫ b) (functionInitialReindex a b z σ))
     (functionSection_reindex a b z σ).symm
+
+/-- Independent fixed Sigma reconstruction preserves the complete canonical comparison body. -/
+theorem pair_comparison_body_recomputed
+    (a : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u})
+    (z : Term (Presheaf.reindex (Presheaf.sigma (liftedDecode a) (liftedDecode b))
+      (endpointSub Ξ false))) (σ : Ω ⟶ Ξ) :
+    pathApp (((sigma a b).reindex (liftSub (interval Ξ) σ)).comparisonInFamily
+      ((pairSection a b z).reindex (liftSub (interval Ξ) σ))) =
+    pathApp ((sigma (liftSub (interval Ξ) σ ≫ a)
+      (liftSub (liftedDecode a) (liftSub (interval Ξ) σ) ≫ b)).rebuiltComparison
+      (Iso.refl _)
+      ((pairSection a b z).reindex (liftSub (interval Ξ) σ))
+      (pairSection (liftSub (interval Ξ) σ ≫ a)
+        (liftSub (liftedDecode a) (liftSub (interval Ξ) σ) ≫ b) (z.reindex σ))
+      (pairSection_reindex a b z σ).symm) := by
+  apply Result.comparison_body_eq_of_filling
+  exact sigmaSubstitution_native_filling a b (liftSub (interval Ξ) σ)
+
+/-- Independent fixed Pi reconstruction preserves the complete canonical comparison body. -/
+theorem function_comparison_body_recomputed
+    (a : total (interval Ξ) ⟶ smallFamilyCodes.{u})
+    (b : total (liftedDecode a) ⟶ smallFamilyCodes.{u})
+    (z : Term (Presheaf.reindex (Presheaf.pi (liftedDecode a) (liftedDecode b))
+      (endpointSub Ξ false))) (σ : Ω ⟶ Ξ) :
+    pathApp (((pi a b).reindex (liftSub (interval Ξ) σ)).comparisonInFamily
+      ((functionSection a b z).reindex (liftSub (interval Ξ) σ))) =
+    pathApp ((pi (liftSub (interval Ξ) σ ≫ a)
+      (liftSub (liftedDecode a) (liftSub (interval Ξ) σ) ≫ b)).rebuiltComparison
+      (piReindexIso (liftedDecode a) (liftedDecode b) (liftSub (interval Ξ) σ))
+      ((functionSection a b z).reindex (liftSub (interval Ξ) σ))
+      (functionSection (liftSub (interval Ξ) σ ≫ a)
+        (liftSub (liftedDecode a) (liftSub (interval Ξ) σ) ≫ b) (functionInitialReindex a b z σ))
+      (functionSection_reindex a b z σ).symm) := by
+  apply Result.comparison_body_eq_of_filling
+  exact piSubstitution_native_filling a b (liftSub (interval Ξ) σ)
 
 /-- Compose two independently rebuilt pair comparisons. All three chosen
 canonical transports and both complete constituent comparison paths remain. -/

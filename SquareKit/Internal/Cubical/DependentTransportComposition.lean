@@ -1,5 +1,6 @@
 import SquareKit.Internal.Cubical.NativePathComposition
 import SquareKit.Internal.Cubical.UnivalenceTransport
+import SquareKit.Internal.Cubical.SelectedIntervalTransportSubstitution
 
 set_option autoImplicit false
 set_option warningAsError true
@@ -24,6 +25,52 @@ private noncomputable def sectionsFilling (v w : Term A) :=
 private noncomputable def sectionsFilled (v w : Term A)
     (h : v.reindex (endpointSub Γ false) = w.reindex (endpointSub Γ false)) :=
   IntervalTransport.forward (sectionsFilling F hF v w) (𝟙 Γ) (sectionsInitial v w h)
+
+private theorem sectionsInitial_transport {B : Family (total (interval Γ))}
+    (e : A ≅ B) (v w : Term A)
+    (h : v.reindex (endpointSub Γ false) = w.reindex (endpointSub Γ false))
+    (h' : (Term.map e.hom v).reindex (endpointSub Γ false) =
+      (Term.map e.hom w).reindex (endpointSub Γ false)) :
+    Term.map (Functor.whiskerLeft (endpointSub Γ false).mapElements
+      (SelectedPathTransport.iso
+        (Functor.isoWhiskerLeft (projection (interval (total (interval Γ)))).mapElements e)
+        v w).hom) (sectionsInitial v w h) =
+    sectionsInitial (Term.map e.hom v) (Term.map e.hom w) h' := by
+  apply Term.map_injective_of_iso (pathReindexIso _ _ _ (endpointSub Γ false))
+  apply pathApp_injective
+  have hn := SelectedPathTransport.reindex_inverse_map
+    (Functor.whiskerLeft (projection (interval (total (interval Γ)))).mapElements e.hom)
+    v w (endpointSub Γ false)
+    (pathLam ((v.reindex (endpointSub Γ false)).reindex (projection (interval Γ))) rfl h)
+  have ht := Term.map_iso_roundtrip
+    (pathReindexIso (reindex B (projection (interval (total (interval Γ)))))
+      (Term.map e.hom v) (Term.map e.hom w) (endpointSub Γ false)).symm
+    (pathLam (((Term.map e.hom v).reindex (endpointSub Γ false)).reindex
+      (projection (interval Γ))) rfl h')
+  exact (congrArg pathApp hn).trans (congrArg pathApp ht).symm
+
+private theorem sectionsFilled_transport {B : Family (total (interval Γ))}
+    (e : A ≅ B) (v w : Term A)
+    (h : v.reindex (endpointSub Γ false) = w.reindex (endpointSub Γ false))
+    (h' : (Term.map e.hom v).reindex (endpointSub Γ false) =
+      (Term.map e.hom w).reindex (endpointSub Γ false)) :
+    sectionsFilled (F.transport e) (Filling.transport_lawful e F hF)
+      (Term.map e.hom v) (Term.map e.hom w) h' =
+    Term.map (SelectedPathTransport.iso
+      (Functor.isoWhiskerLeft (projection (interval (total (interval Γ)))).mapElements e)
+      v w).hom (sectionsFilled F hF v w h) := by
+  let d := SelectedPathTransport.iso
+    (Functor.isoWhiskerLeft (projection (interval (total (interval Γ)))).mapElements e) v w
+  let K := sectionsFilling F hF v w
+  have hk := SelectedPathTransport.filling_transport
+    (Functor.isoWhiskerLeft (projection (interval (total (interval Γ)))).mapElements e)
+    (F.reindex (projection (interval (total (interval Γ))))) (hF.reindex _) v w
+  have hs := congrArg (fun H => IntervalTransport.forward H (𝟙 Γ)
+    (sectionsInitial (Term.map e.hom v) (Term.map e.hom w) h')) hk.symm
+  have hi := congrArg (IntervalTransport.forward (K.transport d) (𝟙 Γ))
+    (sectionsInitial_transport e v w h h').symm
+  exact hs.trans (hi.trans (SelectedIntervalTransport.forward_map d K (𝟙 Γ)
+    (sectionsInitial v w h)))
 
 private theorem sectionsInitial_reindex {Δ : Context.{u}} (v w : Term A)
     (h : v.reindex (endpointSub Γ false) = w.reindex (endpointSub Γ false)) (σ : Δ ⟶ Γ) :
@@ -111,6 +158,30 @@ theorem sectionComparison_body_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
       ((z.reindex L).reindex (endpointSub Δ false))) (congrArg (fun t => t.reindex σ) h)
   exact congrArg (fun t => t.reindex
     (liftSub (interval (total (interval Δ))) (endpointSub Δ true))) (he.trans hn.symm)
+
+/-- Transporting the complete filling operation and section preserves every
+point of the selected comparison, through the endpoint family isomorphism. -/
+theorem sectionComparison_body_transport {B : Family (total (interval Γ))} (e : A ≅ B) :
+    pathApp (sectionComparison (F.transport e) (Filling.transport_lawful e F hF)
+      (Term.map e.hom z)) =
+    Term.map (Functor.whiskerLeft (projection (interval Γ)).mapElements
+      (Functor.whiskerLeft (endpointSub Γ true).mapElements e.hom))
+      (pathApp (sectionComparison F hF z)) := by
+  let v := IntervalTransport.forward F (𝟙 Γ) (z.reindex (endpointSub Γ false))
+  let h := IntervalTransport.forward_zero F hF (𝟙 Γ) (z.reindex (endpointSub Γ false))
+  have h' : (Term.map e.hom v).reindex (endpointSub Γ false) =
+      (Term.map e.hom z).reindex (endpointSub Γ false) :=
+    congrArg (Term.map (Functor.whiskerLeft (endpointSub Γ false).mapElements e.hom)) h
+  have hn := congrArg pathApp (sectionsFilled_transport F hF e v z h h')
+  have hv := IntervalTransport.forward_transport_map F e (z.reindex (endpointSub Γ false))
+  have he := sectionsFilled_body_congr (F.transport e) (Filling.transport_lawful e F hF)
+    (IntervalTransport.forward (F.transport e) (𝟙 Γ)
+      ((Term.map e.hom z).reindex (endpointSub Γ false)))
+    (Term.map e.hom v) (Term.map e.hom z) hv
+    (IntervalTransport.forward_zero (F.transport e) (Filling.transport_lawful e F hF)
+      (𝟙 Γ) ((Term.map e.hom z).reindex (endpointSub Γ false))) h'
+  exact congrArg (fun t => t.reindex
+    (liftSub (interval (total (interval Γ))) (endpointSub Γ true))) (he.trans hn)
 
 /-- Constant-path transport is homotopic to the identity, even for a filler
 which does not satisfy a judgmental regularity rule. -/
