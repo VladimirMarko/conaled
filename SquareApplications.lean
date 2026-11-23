@@ -1,3 +1,5 @@
+import Examples.SheafAssociatedBundle
+import Examples.SmoothAssociatedBundle
 import Examples.SmoothBundleClassification
 import Examples.SpanInterpretation
 import Examples.SigmaPaths
