@@ -315,6 +315,9 @@ import Applications.Circuits.Correctness
 import Applications.Circuits.Syntax
 import Applications.Convolution.Polynomial
 import Applications.Convolution.Series
+import Applications.Convolution.Finite
+import Applications.Convolution.Sparse
+import Applications.Convolution.Proper
 import Applications.Incremental.Arithmetic
 import Applications.Incremental.Core
 import Applications.Intervals.Arithmetic
@@ -933,6 +936,7 @@ import Examples.CoordinateSelection
 import Examples.CoordinateSensitivity
 import Examples.FixedRankSelection
 import Examples.GeneralMedianBounds
+import Examples.GeneralizedConvolution
 import Examples.GroupSelectionRecurrence
 import Examples.HalvingTrace
 import Examples.ListChunks
