@@ -388,10 +388,120 @@ named equality-transport equations replaced broad simplification and resolved
 both checks without changing resource limits. No recursion-depth failure was
 observed.
 
-Subcanonicity is the boundary of this result. Raw representables are used as
-sheaves only with that hypothesis. [#665](https://github.com/VladimirMarko/conaled/issues/665)
-retains the arbitrary-site sheafified-representable route, its evaluation and
-slice comparisons, and the non-subcanonical control. Parent #657 remains open.
-Ordinary total-manifold reconstruction remains #640. No classifier decoder was
-extended across a noninvertible code-sheafification unit, so #654 remains
-conditional on such an actual consumer.
+The subcanonical construction uses raw representables as sheaves only with
+that hypothesis. The arbitrary-site construction below replaces them by their
+sheafifications and compares the two routes explicitly.
+
+## Arbitrary sites and sheafified representables
+
+[SheafifiedYoneda](../../SquareKit/SheafifiedYoneda.lean) uses the actual
+sheafification functor to define `H(U) = a(y U)`. Its evaluation equivalence
+`Hom(H(U), X) ≃ X(U)` is the sheafification adjunction followed by Yoneda.
+Evaluation composes with the sheafification unit before applying the identity
+arrow; it is not the old definitional generic-element computation. Original
+covering families correspond exactly to jointly locally-surjective families
+of the `H(U)`. The converse uses local lifting and local equality along the
+unit, so it also detects which empty families cover.
+
+[ElementSiteLocalEquivalence](../../SquareKit/ElementSiteLocalEquivalence.lean)
+proves that a locally bijective map of presheaves induces a dense equivalence
+of their element sites. The image of an element sieve has exactly the same
+underlying base sieve. Local injectivity supplies local fullness and local
+surjectivity supplies cover density. Mathlib's dense-subsite equivalence then
+extends sheaves; restriction is its inverse. This helper keeps separate base,
+arrow, and section universes and permits an arbitrary target category with the
+stated structured-arrow-shaped limits. Its sheafification specialization uses
+common-universe type-valued sheaves, where those limits are available.
+
+[PrincipalSheaf](../../SquareKit/PrincipalSheaf.lean) records an action on a
+specified sheaf, sectionwise principality, and independent local inhabitance.
+[PrincipalSheafLocalEquivalence](../../SquareKit/PrincipalSheafLocalEquivalence.lean)
+extends the action and its uniquely determined division operation across a
+dense subsite. The division laws recover principality, while cover density
+recovers local inhabitance. Empty sets of sections do not imply local
+inhabitance. The extension and restriction recover the structures and detect
+equivariance of every sheaf map.
+
+[SheafifiedSliceTorsor](../../SquareKit/SheafifiedSliceTorsor.lean) applies these
+facts to the unit `y U → a(y U)` and the existing ordinary-slice/element-site
+comparison. It constructs an equivalence with the independently defined
+torsors on `C/U`. [SheafifiedSliceQuotient](../../SquareKit/SheafifiedSliceQuotient.lean)
+adds the actual target map. Both comparisons retain all equivariant maps;
+principality derives their inverses. The display comparisons commute with the
+projection and target. Automorphisms, including stabilizers, are retained by
+the equivalences. Restriction compares ordinary precomposition along
+`Over.map f` with restriction along `H(f)`; the unit's naturality supplies the
+section comparison and its identity/composition diagrams.
+
+[SheafifiedSheafStack](../../SquareKit/SheafifiedSheafStack.lean) extends original
+transition data to arbitrary sheaf-context tests. First it evaluates on raw
+representable sections, then extends the resulting maps across the locally
+bijective sheafification unit. For an arbitrary overlap it uses the
+sheafification of the raw presheaf pullback. Preservation of finite limits
+supplies the map into this overlap, so no pullbacks in the original category
+are required. The extension satisfies identity, cocycle and restriction laws,
+recovers every original transition, and is fully faithful on compatible maps.
+The canonical comparison transfers the established sheaf-context family
+descent theorem to the original site. The quotient extension additionally
+reflects equality of target maps along the same dense presentation.
+
+[SheafifiedSubcanonical](../../SquareKit/SheafifiedSubcanonical.lean) compares
+`H` with the existing sheaf-valued Yoneda functor by the adjunction counit.
+Whiskering this natural isomorphism gives the torsor and quotient comparisons
+on entire categories. Their identity, composition and refinement equations
+are equalities of functors, hence retain objects and all arrows. The inverse
+counit is proved to be the sheafification unit. This identifies the resulting
+ordinary-slice forwards with the old slice forwards, including actions and
+target sections. The recovery comparison for descent itself now accepts an
+arbitrary base category and independent index universes; its equivalence
+calculus proof needs no sheaf-specific hypotheses.
+
+The [arbitrary-site controls](../../Examples/SheafifiedTorsor.lean) use the top
+topology on `Discrete Bool`, where the representable of `true` fails the empty
+cover at `false`. The replacement is a sheaf, has the proved evaluation
+adjunction, and supports both stack and ordinary-slice comparisons with an
+actual terminal group sheaf. Empty original covers have effective descent on
+this site. Smooth controls separately retain distinct clutching arrows and
+ineffective stabilizers, so empty descent there is still not faithful. The
+proper original two-open cover, chart recovery from the nontrivial global
+clutching construction, permutation of cover members, and two nonidentity
+line scalings exercise the final route and its comparison with the prior one.
+
+The supported client setting is `C : Type u`, `Category.{u} C`, a group sheaf
+in `GrpCat.{u}`, a target in `Type u`, and covering families indexed by
+`Type u`. Mathlib supplies sheafification and the needed limits in this
+setting. There is no subcanonicity or original-category pullback hypothesis.
+The common-universe client boundary is unchanged from #664; the reusable
+element-site comparison is more general. Extending the client stack and its
+finite-limit comparison across different size bounds needs a specified theorem
+target and its limit hypotheses, rather than an assertion of unrestricted
+universes.
+
+Two quotient canonical-comparison proofs use a scoped `maxHeartbeats 400000`
+after kernel deterministic timeouts at the default setting. Named projection
+and identity-reindex equations avoid expensive normalization in the remaining
+comparison, which checks at the default budget. The constructions and final
+stack theorems retain their full statements; no recursion-depth setting changes.
+
+Using sheafification here does not extend a classifier decoder across a
+noninvertible code-sheafification unit. No #654 decoder equation is used.
+Ordinary total-manifold reconstruction remains #640, and the continuing
+application and presentation roadmap remains #666 under #647.
+
+## Parent #657 contract and continuing scope
+
+The four delivery stages together supply the requested path:
+
+| Parent obligation | Formal contract and controls |
+| --- | --- |
+| #662 family to aggregate cover | `SheafFamilyCover` proves independent local lifting iff local surjectivity of the actual sheaf coproduct map; `Examples/SheafFamilyCover` retains proper-family, singleton, empty and base-change controls. |
+| #663 descent presentations and family topology | `SheafCoproductGeometry`, `SheafFamilyDescentCore` and both clients give object/all-map aggregate comparison and family stacks; `Examples/SheafFamilyDescent` retains nontrivial gluing, target maps, distinct arrows, refinements, repeated recovery and empty behavior. |
+| #664 subcanonical original site | `SubcanonicalSheafStack`, the independent slice categories and `SubcanonicalTorsor` supply original-site stacks, all-map slice recovery and coherent restriction; their original examples remain compiled. |
+| #665 arbitrary original site | Sheafified representables, dense element-site comparison, principal-action extension, both original-site stacks and slice equivalences remove the subcanonical assumption in the stated size setting. `SheafifiedSubcanonical` compares the earlier route and `Examples/SheafifiedTorsor` connects the controls to the final one. |
+
+These results concern the specified torsor and action-quotient clients. They do
+not assert descent for every category-valued pseudofunctor, invariance under
+an arbitrary presentation functor, or ordinary total-manifold reconstruction.
+The original singleton/direct clients remain in place. #666 retains future
+applications and selected presentation comparisons after the #657 milestone;
+#647 remains the broader classification and recovery programme.

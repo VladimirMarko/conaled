@@ -113,9 +113,9 @@ def singletonEquivalence
 base, naturally on every compatible arrow. The hypotheses are discharged below
 for the two clients and jointly covering families. -/
 def recoveryNaturality
-    (F : Pseudofunctor (LocallyDiscrete (Sheaf J (Type (max u v)))ᵒᵖ) Cat.{v',u'})
-    {S T : Sheaf J (Type (max u v))} {I K : Type (max u v)}
-    {X : I → Sheaf J (Type (max u v))} {Y : K → Sheaf J (Type (max u v))}
+    {D : Type*} [Category D]
+    (F : Pseudofunctor (LocallyDiscrete Dᵒᵖ) Cat.{v',u'})
+    {S T : D} {I K : Type*} {X : I → D} {Y : K → D}
     {f : ∀ i, X i ⟶ S} {g : ∀ k, Y k ⟶ T}
     [ (F.toDescentData f).IsEquivalence ] [ (F.toDescentData g).IsEquivalence ]
     (r : K → I) (p : T ⟶ S) (a : ∀ k, Y k ⟶ X (r k))
