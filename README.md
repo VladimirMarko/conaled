@@ -163,7 +163,7 @@ locate the main ongoing efforts; shared components often serve several of them.
 | Classification and recovery | [Representable foundations #647](https://github.com/VladimirMarko/conaled/issues/647), coordinating coherent decoding, descent and comparisons with alternative dependent presentations under #289/#235. |
 | Reactive systems and durability | [FRP runtime #27](https://github.com/VladimirMarko/conaled/issues/27), [durability #225](https://github.com/VladimirMarko/conaled/issues/225), and [runtime contracts](docs/research/frp-runtime-follow-up.md). |
 | Algorithms and textbook integration | [ADWH #149](https://github.com/VladimirMarko/conaled/issues/149), [textbooks #558](https://github.com/VladimirMarko/conaled/issues/558), and [data-structure toolkits #174](https://github.com/VladimirMarko/conaled/issues/174). |
-| Geometry | [Orbifold theory #32](https://github.com/VladimirMarko/conaled/issues/32) and [simulator #34](https://github.com/VladimirMarko/conaled/issues/34). |
+| Geometry and rendering | [Orbifold theory #32](https://github.com/VladimirMarko/conaled/issues/32), [simulator #34](https://github.com/VladimirMarko/conaled/issues/34), and the [rendering direction](docs/rendering-direction.md), targeting 3D orbifold worlds with more general foundations. |
 | Hardware realizations | [FPGA and hardware architecture directions](docs/extensions.md#hardware-research-and-external-realizations). |
 
 Choose module and interface boundaries from actual reuse and dependencies.
