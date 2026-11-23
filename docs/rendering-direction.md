@@ -98,13 +98,14 @@ semantic experiments.
    their semantic contracts, retain comparison examples and distinguish modeled
    costs from runtime measurements.
 
-The next bounded implementation should address milestone 1 with an accompanying
-plan for the first executable observation. Its acceptance evidence is a reusable
-composition result consumed by contrasting clients, a dependence-sensitive
-statistical example, a presentation-compatibility case, and a record of missing
-capabilities. These tests may revise or reject the initial response interface.
-They do not claim that simple layered composition handles interreflection or all
-light transport. The selected construction must state what it excludes.
+The [response experiment](research/rendering-responses.md) supplies milestone 1
+with reusable composition, spatial clients in two and three dimensions, a
+dependence-sensitive finite-probability observation, and a translated-presentation
+comparison. It retains the small layering model and records its limits. The next
+image-producing slice is an orthographic 3D scene with two luminous rectangles,
+a finite camera sequence and deterministic PPM output. General light transport,
+orbifold transport and certified reuse remain separate milestones; the response
+experiment does not establish their contracts.
 
 ## Questions to settle through the work
 
