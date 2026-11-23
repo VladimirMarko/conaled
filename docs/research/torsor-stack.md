@@ -1,5 +1,12 @@
 # Torsor descent as a Mathlib stack
 
+The concrete successor [site comparison](site-comparison.md) changes the
+doubled-origin torsor's element site to its dense two-chart subsite. It retains
+the full torsor and quotient categories, their target maps and stabilizers,
+and their restriction and covering-descent comparisons. This is the selected
+#668 application of the principal-sheaf transport developed in #665; it does
+not extend the original result to arbitrary presentation functors.
+
 [SheafTorsorStack](../../SquareKit/SheafTorsorStack.lean) proves Mathlib's
 `Pseudofunctor.IsStack` for the existing torsor restriction functor. Clients can
 now use Mathlib's sieve-indexed descent equivalences, while the split-display
