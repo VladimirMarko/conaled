@@ -137,4 +137,14 @@ theorem regularArrowLabel_inverse (f : Arrow (trivial G X) (trivial G X)) :
 theorem regularArrowLabel_reindex (f : Arrow (trivial G X) (trivial G X)) (a : Y ⟶ X) :
     regularArrowLabel (f.reindex a) = a ≫ regularArrowLabel f := rfl
 
+/-- The unique sheaf-valued displacement carrying the first section to the second. -/
+def sectionDifference (P : Torsor G X) (s t : SplitSheaf.Tm P.family) : X ⟶ groupSheaf G :=
+  regularArrowLabel ((ofSection P t).comp (ofSection P s).inverse)
+theorem sectionDifference_act (P : Torsor G X) (s t : SplitSheaf.Tm P.family)
+    (x : X.obj.Elements) :
+    P.act x ((sectionDifference P s t).hom.app x.obj x.val) (s.val x) = t.val x := by
+  change (fiberEquiv P x (s.val x))
+    ((fiberEquiv P x (s.val x)).symm (P.act x 1 (t.val x))) = _
+  rw [Equiv.apply_symm_apply, P.one_act]
+
 end SquareKit.SheafTorsor

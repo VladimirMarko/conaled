@@ -1,4 +1,5 @@
 import SquareKit.SmoothBundleMorphisms
+import SquareKit.SmoothLocalHomeomorph
 
 /-! Ordinary pullbacks of smooth principal bundles, with the fiber-product topology. -/
 noncomputable section
@@ -104,66 +105,47 @@ def localSheet (z : Pullback P f) : OpenPartialHomeomorph (Pullback P f) B' :=
 theorem mem_localSheet_source (z : Pullback P f) : z ∈ (localSheet P f hf z).source :=
   mem_sheet P f z
 
+/-- The pullback sheets supply the generic projection atlas. -/
+def projectionSheets : SmoothLocalHomeomorph.ProjectionSheets (fst P f) where
+  sheet := localSheet P f hf
+  mem_source := mem_localSheet_source P f hf
+  projection _ := rfl
+
 def chart (z : Pullback P f) : OpenPartialHomeomorph (Pullback P f) (Space m) :=
-  (localSheet P f hf z).trans (chartAt (Space m) (fst P f z))
+  (projectionSheets P f hf).chart (n := m) z
 
 @[instance_reducible]
-def chartedSpace : ChartedSpace (Space m) (Pullback P f) where
-  atlas := Set.range (chart (m := m) P f hf)
-  chartAt := chart (m := m) P f hf
-  mem_chart_source z := ⟨mem_localSheet_source P f hf z, mem_chart_source _ _⟩
-  chart_mem_atlas z := ⟨z, rfl⟩
+def chartedSpace : ChartedSpace (Space m) (Pullback P f) :=
+  (projectionSheets P f hf).chartedSpace
 
 theorem fst_chart_symm (z : Pullback P f) {x : Space m}
     (hx : x ∈ (chart (m := m) P f hf z).target) :
     fst P f ((chart (m := m) P f hf z).symm x) = (chartAt (Space m) (fst P f z)).symm x :=
-  (localSheet P f hf z).right_inv hx.2
+  (projectionSheets P f hf).proj_chart_symm z hx
 
 theorem chart_transition (z w : Pullback P f) {x : Space m}
     (hx : x ∈ ((chart (m := m) P f hf z).symm.trans (chart (m := m) P f hf w)).source) :
     ((chart (m := m) P f hf z).symm.trans (chart (m := m) P f hf w)) x =
-      ((chartAt (Space m) (fst P f z)).symm.trans (chartAt (Space m) (fst P f w))) x := by
-  change (chartAt (Space m) (fst P f w)) (fst P f ((chart (m := m) P f hf z).symm x)) = _
-  rw [fst_chart_symm (m := m) P f hf z hx.1]
-  rfl
+      ((chartAt (Space m) (fst P f z)).symm.trans (chartAt (Space m) (fst P f w))) x :=
+  (projectionSheets P f hf).chart_transition z w hx
 
 theorem chart_transition_source (z w : Pullback P f) :
     ((chart (m := m) P f hf z).symm.trans (chart (m := m) P f hf w)).source ⊆
-      ((chartAt (Space m) (fst P f z)).symm.trans (chartAt (Space m) (fst P f w))).source := by
-  intro x hx
-  refine ⟨hx.1.1, ?_⟩
-  have h := hx.2.2
-  change fst P f ((chart (m := m) P f hf z).symm x) ∈ (chartAt (Space m) (fst P f w)).source at h
-  rwa [fst_chart_symm (m := m) P f hf z hx.1] at h
+      ((chartAt (Space m) (fst P f z)).symm.trans (chartAt (Space m) (fst P f w))).source :=
+  (projectionSheets P f hf).chart_transition_source z w
 
 theorem isManifold [IsManifold (Model m) ∞ B'] :
     letI := chartedSpace (m := m) P f hf
-    IsManifold (Model m) ∞ (Pullback P f) := by
-  let := chartedSpace (m := m) P f hf
-  apply isManifold_of_contDiffOn (Model m) ∞ (Pullback P f)
-  rintro e e' ⟨z, rfl⟩ ⟨w, rfl⟩
-  have h := contMDiffOn_of_mem_contDiffGroupoid
-    ((contDiffGroupoid ∞ (Model m)).compatible
-      (chart_mem_atlas (Space m) (fst P f z)) (chart_mem_atlas (Space m) (fst P f w)))
-  have hd := h.contDiffOn.mono (chart_transition_source (m := m) P f hf z w)
-  simpa only [Model, modelWithCornersSelf_coe, modelWithCornersSelf_coe_symm,
-    Function.comp_id, Function.id_comp, Set.preimage_id, Set.range_id, Set.inter_univ] using
-    hd.congr (fun x hx => chart_transition (m := m) P f hf z w hx)
+    IsManifold (Model m) ∞ (Pullback P f) :=
+  (projectionSheets P f hf).isManifold
 
 theorem smooth_of_fst_at [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
     (h : N → Pullback P f) (x : N) (hc : ContinuousAt h x)
     (hs : ContMDiffAt (Model k) (Model m) ∞ (fst P f ∘ h) x) :
     letI := chartedSpace (m := m) P f hf
-    ContMDiffAt (Model k) (Model m) ∞ h x := by
-  let := chartedSpace (m := m) P f hf
-  apply contMDiffAt_iff_target.mpr
-  refine ⟨hc, ?_⟩
-  change ContMDiffAt (Model k) (Model m) ∞
-    ((chartAt (Space m) (fst P f (h x))) ∘ (fst P f ∘ h)) x
-  exact (contMDiffOn_chart (I := Model m) (x := fst P f (h x))).contMDiffAt
-    ((chartAt (Space m) (fst P f (h x))).open_source.mem_nhds
-      (mem_chart_source _ _)) |>.comp x hs
+    ContMDiffAt (Model k) (Model m) ∞ h x :=
+  (projectionSheets P f hf).smooth_of_proj_at h x hc hs
 
 theorem smooth_of_fst [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N]
@@ -171,31 +153,19 @@ theorem smooth_of_fst [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
     (hs : ContMDiff (Model k) (Model m) ∞ (fst P f ∘ h)) :
     letI := chartedSpace (m := m) P f hf
     ContMDiff (Model k) (Model m) ∞ h :=
-  fun x => smooth_of_fst_at P f hf h x hc.continuousAt (hs x)
+  (projectionSheets P f hf).smooth_of_proj h hc hs
 
 theorem smooth_fst [IsManifold (Model m) ∞ B'] :
     letI := chartedSpace (m := m) P f hf
-    ContMDiff (Model m) (Model m) ∞ (fst P f) := by
-  let := chartedSpace (m := m) P f hf
-  intro z
-  apply contMDiffAt_iff_source.mpr
-  have hb := (contMDiffOn_chart_symm (I := Model m) (n := ∞) (x := fst P f z)).contMDiffAt
-    ((chartAt (Space m) (fst P f z)).open_target.mem_nhds (mem_chart_target _ _))
-  have he : (fst P f ∘ (chart (m := m) P f hf z).symm) =ᶠ[
-      nhds ((chart (m := m) P f hf z) z)] (chartAt (Space m) (fst P f z)).symm :=
-    Filter.eventually_of_mem ((chart (m := m) P f hf z).open_target.mem_nhds
-      ((chart (m := m) P f hf z).map_source (mem_chart_source (Space m) z)))
-      (fun _ hx => fst_chart_symm (m := m) P f hf z hx)
-  exact (hb.congr_of_eventuallyEq he).contMDiffWithinAt
+    ContMDiff (Model m) (Model m) ∞ (fst P f) :=
+  (projectionSheets P f hf).smooth_proj
 
 theorem smooth_iff_fst [IsManifold (Model m) ∞ B'] {k : ℕ} {N : Type}
     [TopologicalSpace N] [ChartedSpace (Space k) N] (h : N → Pullback P f) :
     letI := chartedSpace (m := m) P f hf
     ContMDiff (Model k) (Model m) ∞ h ↔
-      Continuous h ∧ ContMDiff (Model k) (Model m) ∞ (fst P f ∘ h) := by
-  let := chartedSpace (m := m) P f hf
-  exact ⟨fun hs => ⟨hs.continuous, (smooth_fst P f hf).comp hs⟩,
-    fun hs => smooth_of_fst P f hf h hs.1 hs.2⟩
+      Continuous h ∧ ContMDiff (Model k) (Model m) ∞ (fst P f ∘ h) :=
+  (projectionSheets P f hf).smooth_iff_proj h
 
 theorem smooth_snd [IsManifold (Model m) ∞ B']
     (hs : ContMDiff (Model m) (Model n) ∞ f) :
