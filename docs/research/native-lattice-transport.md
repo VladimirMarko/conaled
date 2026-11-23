@@ -73,14 +73,19 @@ of the four-element Boolean lattice. Each model admits both carriers and builds
 its own native structure path. `tupleWitness_recovery` recovers the complete
 ordered pair after transport from the function presentation to the product.
 
-The direct geometric bridge uses #626's `GeometricMatroids.booleanFlats`,
-connecting `Set (Fin 2)` with the flat lattice of its atom matroid. The inclusion
-of the empty set into `{0}` transports to a strict pair of flats. Its concrete
-native path is not part of the delivered checked cases: specialization exposed
-a conversion-cost problem described below. The generic adapter's statement
-retains arbitrary `Type 0` lattices, but a practical checked specialization of
-that concrete path remains follow-up work. No internal powerset constructor or
-classification of arbitrary matroid structures is claimed.
+The geometric bridge uses #626's `GeometricMatroids.booleanFlats`, connecting
+`Set (Fin 2)` with the flat lattice of its atom matroid. Issue #691 supplies the
+concrete native consumer in `Examples.NativeGeometricLatticeTransport`. Both
+models construct actual admissions, the law-bearing path and its projection,
+whole-path recovery, and recovery of the complete selected equivalence. The
+inclusion of the empty set into `{0}` transports to a strict pair of flats.
+`inclusionWitness_eq` compares the complete dependent value with direct geometric
+transport; `nativeSolution_recovery` recovers the entire source native solution.
+`meet_recovery` and `join_recovery` retain the target operations. `models_inclusion`
+compares the whole dependent observations across models.
+
+The consumer uses the endpoint package described below. This does not supply an
+internal powerset constructor or classification of arbitrary matroid structures.
 
 `Comparison.models` is a natural isomorphism of the presented law-bearing model
 families after restricting the original model to Cartesian cubes. Its recovery
@@ -112,22 +117,91 @@ structured-equivalence composition/inversion. Existing direct and strict-carrier
 laws do not establish that broader result. Further signature or higher-law
 extensions require their own consumer and admission contract.
 
-## Concrete geometric specialization cost
+## Concrete geometric specialization and conversion cost
 
-The generic adapters and the Boolean, dual and function/product consumers check
-at default resource settings. Separate diagnostic probes admitted the geometric
-source and target carriers and constructed both endpoint objects. Applying the
-native path adapter to those concrete admissions caused extensive reduction of
-representable classification, decoding and family expressions. An explicitly
-typed probe reached the default recursion guard; local depth 1024 then reached
-200,000 heartbeats, and a 400,000-heartbeat diagnostic probe also timed out.
-Neither factoring a generic admission wrapper nor separating the consumer into
-an importing module removed the observed problem. These probes establish a
-local specialization-cost issue, not a mathematical obstruction or a general
-Lean limitation. No experimental budget or transparency override is retained.
+The direct declaration at commit `5b05aaa48f018d5e263776db633e033f371d1c66`
+reproduces the problem from #621:
 
-The follow-up should retain this exact geometric consumer, compare explicit
-argument/type boundaries and decoder-normalization contracts, measure bounded
-local budgets, and keep the completed Boolean/function consumers as controls.
-It must preserve full paths and supplied equivalence data. The direct geometric
-transport remains available during that investigation.
+```lean
+import Examples.NativeLatticeTransportCases
+open SquareKit.Cubical.Presheaf
+open Examples.NativeLatticeTransport.Presheaf
+open Examples.LatticeTransportBridge
+noncomputable def geometricPath {Γ : Context.{1}} :=
+  admittedPath (Γ := Γ) flatsBridge
+```
+
+A `#check` of the same application succeeds quickly. The definition exceeds a
+15-second process bound. An explicit result annotation does not remove the cost.
+With a diagnostic 10,000-heartbeat limit and `trace.profiler`, Lean emits the
+expected elaborated term and then reports a kernel deterministic timeout while
+typechecking the declaration. Thus this reproduction reaches kernel conversion;
+it is not a failure to find the lattice isomorphism or elaborate its application.
+Separate declarations for admissions, the carrier map, moved fields, the complete
+structured equivalence and raw path pass. The law-bearing path is the failing
+step. Making admissions opaque did not resolve it. Earlier #621 probes also
+encountered elaborator recursion and heartbeat limits for differently annotated
+clients; those observations concern those probes, not this kernel diagnosis.
+
+### Retained interface
+
+`PathData A` contains two terms of `A` and their actual homogeneous path.
+`PathData.ofPath` simply packages an existing path with its endpoints.
+`latticePathData` applies it to the existing `latticePath`; the checked
+`latticePathData_source`, `latticePathData_target` and `latticePathData_path`
+equations retain both endpoints and the same whole path. No new mathematical
+proof or equivalence selection is introduced. `equivalenceRecoveryData` and
+`latticeProjectionData` package the existing selected-equivalence recovery and
+law-bearing projection homotopies in the same way.
+
+The geometric consumer first specializes this package to a named `transport`,
+then accesses `transport.path`. Kernel checking can use the named package's
+endpoints instead of repeatedly converting the expanded concrete result type.
+Its `source_eq`, `target_eq` and `path_eq` instantiate the generic equations;
+`selectedRecovery_target` retains the entire supplied structured equivalence.
+The package stores native witnesses, not merely their existence.
+
+The original direct interfaces remain unchanged. Merely changing `admittedPath`
+to return the path projection of a generic package still reached the process
+bound: retaining the specialized package at the consumer is the useful boundary.
+Fully expanding concrete endpoints, or reproving their equations by reduction,
+can reintroduce the cost. The retained client uses proved projection equations.
+There is no blanket claim that all equivalent spellings now check cheaply.
+
+### Bounded measurements
+
+Measurements used the repository's pinned Lean 4.35.0 and dependencies, the normal
+`direnv`/`lake env` environment, with recursion depth 512, 200,000 heartbeats and `Elab.async=true` unless
+a row states otherwise. Each row is
+one process observation, not a benchmark distribution or an exact minimum budget.
+The process bound was 15 seconds. Successful checks used full kernel checking;
+no kernel bypass or production transparency/resource override was used.
+
+| Check | Result | Wall time | Peak RSS (KiB) |
+|---|---|---:|---:|
+| Baseline direct geometric definition, default budgets | Process timeout | 15.05 s | 4,256,516 |
+| Same baseline definition, recursion depth 1024 | Process timeout | 15.05 s | 4,274,320 |
+| Baseline swap, dual and function/product path controls together | Passed | 0.63 s | 2,204,148 |
+| Geometric module with both models, recovery and dependent consumers, emitting an olean | Passed | 1.04 s | 2,254,920 |
+
+The baseline is the #621 tree pinned above; the last row is the #691 module.
+For the successful module check, run:
+
+```sh
+direnv exec . lake build Examples.NativeGeometricLatticeTransport
+direnv exec . lake env lean -o /tmp/NativeGeometricLatticeTransport.olean \
+  Examples/NativeGeometricLatticeTransport.lean
+```
+
+Timing used a Python `subprocess` invoking `timeout --kill-after=2s 15s lean ...`
+inside `lake env`, recording monotonic elapsed time and `RUSAGE_CHILDREN` CPU/RSS.
+The shared compiler lock serialized probes. RSS includes imported libraries; it
+is not an allocation count. The diagnostic 10,000-heartbeat kernel failure took
+4.12 seconds, while the initial endpoint-package probe passed at that same budget
+in 0.75 seconds. Production declarations keep the existing finite defaults.
+
+The result supports this small computational boundary, with shared proofs and
+exact recovery, under the #636 policy. It does not establish a general Lean defect
+or justify a global limit increase. An upstream report would need a smaller
+independent reproducer. Authoring productivity remains unmeasured; #692 retains
+the separate held-out trial.

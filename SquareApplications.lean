@@ -1068,6 +1068,7 @@ import Examples.NativeStructureRecovery
 import Examples.LatticeTransportBridge
 import Examples.NativeLatticeTransport
 import Examples.NativeLatticeTransportCases
+import Examples.NativeGeometricLatticeTransport
 import SquareKit.Internal.Cubical.PropositionExtension
 import SquareKit.Internal.Cubical.CartesianPropositionExtension
 import Examples.CubicalChartFamily

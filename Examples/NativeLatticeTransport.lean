@@ -283,6 +283,43 @@ theorem pathSolution_moved (e : X ≃o Y) (p : OrderedPair X) (x : Γ.Elements) 
   apply Subtype.ext
   exact (congrArg Subtype.val (pathOrderedPair_direct a b e p x)).trans (movedWitness_data a b e p x).symm
 
+
+/-- Keep both endpoints with their actual native path, so concrete clients need
+not repeatedly normalize a deeply dependent result type. -/
+structure PathData {Γ : Context.{1}} (A : Family Γ) where
+  source : Term A
+  target : Term A
+  path : Term (homogeneousPath A source target)
+
+def PathData.ofPath {Γ : Context.{1}} {A : Family Γ} {s t : Term A}
+    (p : Term (homogeneousPath A s t)) : PathData A := ⟨s, t, p⟩
+
+/-- A computational boundary around the existing law-bearing path, with no new
+choice of path or equivalence. -/
+noncomputable def latticePathData (e : X ≃o Y) :=
+  PathData.ofPath (latticePath a b e)
+
+theorem latticePathData_source (e : X ≃o Y) :
+    (latticePathData a b e).source = sourceObject a := rfl
+
+theorem latticePathData_target (e : X ≃o Y) :
+    (latticePathData a b e).target = targetObject a b e := rfl
+
+theorem latticePathData_path (e : X ≃o Y) :
+    (latticePathData a b e).path = latticePath a b e := rfl
+
+/-- Retain the complete selected equivalence and its native recovery path. -/
+noncomputable def equivalenceRecoveryData (e : X ≃o Y) :=
+  PathData.ofPath (equivalence_roundtrip a b e)
+
+theorem equivalenceRecoveryData_target (e : X ≃o Y) :
+    (equivalenceRecoveryData a b e).target = structuredEquivalence a b e := rfl
+
+/-- The law-bearing path still projects to the original raw path by the same
+native two-path. -/
+noncomputable def latticeProjectionData (e : X ≃o Y) :=
+  PathData.ofPath (latticePath_projection a b e)
+
 end Presheaf
 namespace Cartesian
 open SquareKit.Cubical.Cartesian StructureIdentity.Native StructuredIdentity
@@ -557,6 +594,43 @@ theorem pathSolution_moved (e : X ≃o Y) (p : OrderedPair X) (x : Γ.Elements) 
   apply ULift.ext
   apply Subtype.ext
   exact (congrArg Subtype.val (pathOrderedPair_direct a b e p x)).trans (movedWitness_data a b e p x).symm
+
+
+/-- Keep both endpoints with their actual native path, so concrete clients need
+not repeatedly normalize a deeply dependent result type. -/
+structure PathData {Γ : Context.{1}} (A : Family Γ) where
+  source : Term A
+  target : Term A
+  path : Term (homogeneousPath A source target)
+
+def PathData.ofPath {Γ : Context.{1}} {A : Family Γ} {s t : Term A}
+    (p : Term (homogeneousPath A s t)) : PathData A := ⟨s, t, p⟩
+
+/-- A computational boundary around the existing law-bearing path, with no new
+choice of path or equivalence. -/
+noncomputable def latticePathData (e : X ≃o Y) :=
+  PathData.ofPath (latticePath a b e)
+
+theorem latticePathData_source (e : X ≃o Y) :
+    (latticePathData a b e).source = sourceObject a := rfl
+
+theorem latticePathData_target (e : X ≃o Y) :
+    (latticePathData a b e).target = targetObject a b e := rfl
+
+theorem latticePathData_path (e : X ≃o Y) :
+    (latticePathData a b e).path = latticePath a b e := rfl
+
+/-- Retain the complete selected equivalence and its native recovery path. -/
+noncomputable def equivalenceRecoveryData (e : X ≃o Y) :=
+  PathData.ofPath (equivalence_roundtrip a b e)
+
+theorem equivalenceRecoveryData_target (e : X ≃o Y) :
+    (equivalenceRecoveryData a b e).target = structuredEquivalence a b e := rfl
+
+/-- The law-bearing path still projects to the original raw path by the same
+native two-path. -/
+noncomputable def latticeProjectionData (e : X ≃o Y) :=
+  PathData.ofPath (latticePath_projection a b e)
 
 end Cartesian
 end Examples.NativeLatticeTransport
