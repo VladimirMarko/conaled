@@ -1,0 +1,62 @@
+import Examples.TwoFamily
+import Examples.SecondIdentity
+import SquareKit.Internal.PathTransport.TwoFamilyCoherence
+
+namespace Foundations698
+open CategoryTheory Bicategory SquareKit
+open SquareKit.Internal.PathTransport
+set_option autoImplicit false
+set_option backward.isDefEq.respectTransparency false
+set_option backward.defeqAttrib.useBackward true
+variable (G : Type) [CommGroup G]
+abbrev Base := DoubleDelooping.Space G
+abbrev Fiber := LocallyDiscrete (SingleObj G)
+def action (g : G) : StrictTwoTransformation.Trans
+    (StrictPseudofunctor.id (Fiber G)) (StrictPseudofunctor.id (Fiber G)) where
+  app _ := Discrete.mk g
+  naturality f := by
+    apply Discrete.ext
+    exact mul_comm g f.as
+  naturality₂ _ := congrArg Discrete.Hom.mk rfl
+
+def family : TwoFamily.Family (Base G) := StrictPseudofunctor.mk'' {
+  obj := fun _ => (⟨Fiber G⟩ : StrictTwoCategory)
+  map := fun _ => StrictPseudofunctor.id _
+  map₂ := fun α => action G α
+  map₂_id := fun _ => by apply StrictTwoTransformation.Trans.ext; intro a; rfl
+  map₂_comp := fun α β => by apply StrictTwoTransformation.Trans.ext; intro a; rfl
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => (StrictTwoTransformation.functor_comp_id _).symm
+  map₂_whisker_left := fun f _ _ α => by
+    apply StrictTwoTransformation.Trans.ext; intro a
+    repeat rw [StrictTwoTransformation.Trans.comp_app]
+    repeat rw [StrictTwoTransformation.Trans.eqToHom_app]
+    change (show a ⟶ a from Discrete.mk α) = 𝟙 a ≫ Discrete.mk α ≫ 𝟙 a
+    exact ((Category.id_comp _).trans (Category.comp_id _)).symm
+  map₂_whisker_right := fun α f => by
+    apply StrictTwoTransformation.Trans.ext; intro a
+    repeat rw [StrictTwoTransformation.Trans.comp_app]
+    repeat rw [StrictTwoTransformation.Trans.eqToHom_app]
+    change (show a ⟶ a from Discrete.mk α) = 𝟙 a ≫ Discrete.mk α ≫ 𝟙 a
+    exact ((Category.id_comp _).trans (Category.comp_id _)).symm
+}
+def point : TwoFamily.Total (family G) :=
+  ⟨DoubleDelooping.point G, ⟨SingleObj.star G⟩⟩
+def arrow (m : G) : TwoFamily.Hom (family G) (point G) (point G) :=
+  TwoGroupoidHom.arrow (TwoFamily.evaluation (family G) (point G).fiber)
+    (point G).fiber (DoubleDelooping.arrow G) (Discrete.mk m)
+def cell {m n : G} (α : G) (h : m = n * α) : arrow G m ⟶ arrow G n :=
+  TwoGroupoidHom.cell α (eqToHom (Discrete.ext h))
+theorem cell_base {m n : G} (α : G) (h : m = n * α) :
+    (cell G α h).base = α := rfl
+
+def selected : arrow Examples.SecondIdentity.Bit (Multiplicative.ofAdd true) ⟶
+    arrow Examples.SecondIdentity.Bit (Multiplicative.ofAdd false) :=
+  cell _ (Multiplicative.ofAdd true) rfl
+example : Examples.SecondIdentity.bitObservation selected.base = 1 := rfl
+example (k : Examples.SecondIdentity.Bit) :
+    (TwoFamily.whiskerRight (family Examples.SecondIdentity.Bit) selected
+      (arrow Examples.SecondIdentity.Bit k)).base = Multiplicative.ofAdd true := rfl
+example : ¬ (Multiplicative.ofAdd true : Examples.SecondIdentity.Bit) =
+    Multiplicative.ofAdd false * Multiplicative.ofAdd false := by decide
+end Foundations698
