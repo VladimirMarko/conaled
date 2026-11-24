@@ -1260,5 +1260,6 @@ import Examples.SmoothTransversePullback
 import Examples.SmoothTransverseRealization
 
 import Examples.RetainedFirstHit
+import Examples.GroupoidCorrespondence
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
