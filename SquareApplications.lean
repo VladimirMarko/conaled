@@ -1265,6 +1265,7 @@ import Examples.SmoothTransverseRealization
 
 import Examples.RetainedFirstHit
 import Examples.GroupoidCorrespondence
+import Examples.FiniteDependentCorrespondence
 import Examples.ExceptionalInternalHom
 import Examples.NativeCanonicalInverse
 
