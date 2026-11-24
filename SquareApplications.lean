@@ -1,3 +1,4 @@
+import Examples.CategoryCharacterizations
 import Examples.RenderingResponse
 import Examples.LargeFamilyFillingRecovery
 import Examples.SheafAssociatedBundle

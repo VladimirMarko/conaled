@@ -99,9 +99,9 @@ Its `toFunctor_ofFunctor` is an exact recovery equation.
 
 [CategoryQuotient](../../SquareKit/CategoryQuotient.lean) already compares the
 local lawful quotient with Mathlib's quotient by hom equivalences and a
-composition-preserving functor. A packaged category equivalence is absent from
-that module. That is a small presentation-completion opportunity, not missing
-quotient mathematics. A total-arrow/internal-category bridge was not found in
+composition-preserving functor. The subsequent [checked characterization work](category-characterizations.md)
+packages this as `LawfulQuotient.equivalence`, with an explicit quotient-class
+inverse. It recovers neither raw representatives nor erased witnesses. A total-arrow/internal-category bridge was not found in
 the inspected foundational modules; it would need its own size and ambient
 pullback contract. Neither bridge warrants forcing raw compiler clients to
 assume equality laws before their quotient is constructed.

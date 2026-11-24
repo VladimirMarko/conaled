@@ -1,4 +1,5 @@
 import SquareKit.Category
+import Mathlib.CategoryTheory.Equivalence
 
 /-! Comparison with Mathlib's quotient when the input already has equality laws. -/
 set_option backward.isDefEq.respectTransparency false
@@ -50,5 +51,33 @@ def comparison :
     map := fun {a b} f => homEquiv r a.as b.as f
     map_id := fun _ => rfl
     map_comp := fun f g => _root_.Quotient.inductionOn₂ f g (fun _ _ => rfl) }
+
+/-- The inverse changes quotient presentations, without choosing raw representatives. -/
+def inverse :
+    letI := HomQuotient.category (congruence r) (laws r)
+    Quotient r ⥤ HomQuotient (ofCategory C) (equiv r) := by
+  letI := HomQuotient.category (congruence r) (laws r)
+  exact {
+    obj := fun a => ⟨a.as⟩
+    map := fun {a b} f => (homEquiv r a.as b.as).symm f
+    map_id := fun _ => rfl
+    map_comp := fun f g => Quot.inductionOn f (fun _ => Quot.inductionOn g (fun _ => rfl)) }
+
+/-- The lawful semantic quotients are equivalent as categories. Both directions
+retain objects and recover arrow classes; neither recovers erased representatives. -/
+def equivalence :
+    letI := HomQuotient.category (congruence r) (laws r)
+    HomQuotient (ofCategory C) (equiv r) ≌ Quotient r := by
+  letI := HomQuotient.category (congruence r) (laws r)
+  exact {
+    functor := comparison r
+    inverse := inverse r
+    unitIso := NatIso.ofComponents (fun _ => Iso.refl _) (fun f => by
+      simp only [Functor.id_map, Functor.comp_map, Iso.refl_hom, Category.comp_id, Category.id_comp]
+      exact ((homEquiv r _ _).symm_apply_apply f).symm)
+    counitIso := NatIso.ofComponents (fun _ => Iso.refl _) (fun f => by
+      simp only [Functor.id_map, Functor.comp_map, Iso.refl_hom, Category.comp_id, Category.id_comp]
+      exact (homEquiv r _ _).apply_symm_apply f) }
+
 end LawfulQuotient
 end SquareKit
