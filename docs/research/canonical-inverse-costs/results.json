@@ -1,0 +1,1884 @@
+{
+  "schema": 1,
+  "environment": {
+    "head": "eb595d46179a48dfc3d1850e5051d33da04b7ffd",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "platform": "Linux-6.18.58-x86_64-with-glibc2.42",
+    "cpu_count": 32,
+    "load": [
+      4.82861328125,
+      7.91845703125,
+      11.541015625
+    ],
+    "cpu_model": "Intel(R) Core(TM) i9-14900HX",
+    "memory": [
+      "MemTotal:       65541744 kB",
+      "MemFree:        25771896 kB",
+      "MemAvailable:   46152236 kB"
+    ],
+    "dependency": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "async_default": "unchanged; explicit false diagnostic separately",
+    "scope": "Original-model Presheaf; no Cartesian automatic witness extension",
+    "process_context": "Lean invocations serialized under /tmp/conaled-native-followups-lake.lock; other laptop activity is uncontrolled; CPU/wall/RSS and load recorded per process. No suspension assumed away."
+  },
+  "integrated_base": "511f0c89a041ed6a72538b9dbe506eaa26f74022",
+  "provenance": "Historical matrix at eb595d46. Integrated-prefixed runs at 511f0c89. Initial measure.py retained exactly; actual-batch used an intermediate portable version that was subsequently rewritten and whose exact bytes were not saved. Current measure.py is separately validated; historical commands, source hashes and raw outcomes are retained. No interrupted exploratory timing is used in comparisons.",
+  "sources": {
+    "ActualSuffix.lean.txt": {
+      "sha256": "5cc94e134c2455446e1a376cfa02e8a24145864e5bbf6a7d22fe2bf208ee00c1",
+      "text": "\nnoncomputable def actualInverseComparison {\u0393 : SquareKit.Cubical.Presheaf.Context.{1}} :=\n  Examples.NativeStructureCoherence.Presheaf.inverseComparison\n    (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n"
+    },
+    "Boundary.lean": {
+      "sha256": "b8a03a164bb75f48feb872eae6aa46b4666c06836d21734c5242dc67af717bfe",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def canonicalWitness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  ((move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  (canonicalWitness admitted)\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n"
+    },
+    "BoundaryActual.lean": {
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def canonicalWitness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  ((move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  (canonicalWitness admitted)\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n\nnoncomputable def actualInverseComparison {\u0393 : SquareKit.Cubical.Presheaf.Context.{1}} :=\n  Examples.NativeStructureCoherence.Presheaf.inverseComparison\n    (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n"
+    },
+    "Canonical.lean": {
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  ((move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n"
+    },
+    "CanonicalActual.lean": {
+      "sha256": "c55439e352e7d70c3b2fa36c316e4b1564cc33ae095eab0efef68641e6814d97",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  ((move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n\nnoncomputable def actualInverseComparison {\u0393 : SquareKit.Cubical.Presheaf.Context.{1}} :=\n  Examples.NativeStructureCoherence.Presheaf.inverseComparison\n    (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n"
+    },
+    "Inspect.lean": {
+      "sha256": "f4e9fa978e02bf8f05d32af4d5b58deb44a5daa1c8c6721450d261426da3c43a",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n\n#check @Examples.NativeCanonicalInverse.comparison\n#check @Examples.NativeCanonicalInverse.actualComparison\n"
+    },
+    "PublicAllArguments.lean": {
+      "sha256": "a40312b63850ecd984131352847e66d7cdded08675ca47b64aaec6f84a6ff00f",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :\n    Term (homogeneousPath\n      (homogeneousPath (objects description \u0393)\n        (objectOf description admitted.code (system admitted 1).fields)\n        (objectOf description admitted.code (system admitted 0).fields))\n      (Coded.path (a := admitted.code) (b := admitted.code)\n        (s := system admitted 1) (t := system admitted 0) ((move admitted 0 1).inverseWith (witness admitted)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)))\n      (homogeneousReverse (Coded.path (a := admitted.code) (b := admitted.code)\n        (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)))) :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "PublicFinal.lean": {
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "PublicTyped.lean": {
+      "sha256": "a0876eade1cb54b4e944dfa808377f72fa6321a52982f4e795c3a9047d64343f",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :\n    Term (homogeneousPath\n      (homogeneousPath (objects description \u0393)\n        (objectOf description admitted.code (system admitted 1).fields)\n        (objectOf description admitted.code (system admitted 0).fields))\n      (Coded.path ((move admitted 0 1).inverseWith (witness admitted)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)))\n      (homogeneousReverse (Coded.path (move admitted 0 1)))) :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "PublicWitness.lean": {
+      "sha256": "9827e24e3162bb231ba3cd73bcf0bbf9cb3545ecce0de342a81710a776d0537e",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "Supplied.lean": {
+      "sha256": "17f6bf31a739e891399b867d403144cc54a7cfbd352040216719dd10e83d02b8",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  (HomotopyEquivalence.ofIso (shift admitted 1).symm)\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n"
+    },
+    "SuppliedActual.lean": {
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def inverseComparison := Coded.inversion\n  (a := admitted.code) (b := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (move (\u0393 := \u0393) admitted 0 1)\n  (HomotopyEquivalence.ofIso (shift admitted 1).symm)\n  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\nend Presheaf\nend Examples.NativeStructureCoherence\n\nnoncomputable def actualInverseComparison {\u0393 : SquareKit.Cubical.Presheaf.Context.{1}} :=\n  Examples.NativeStructureCoherence.Presheaf.inverseComparison\n    (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n"
+    },
+    "Witness.lean": {
+      "sha256": "015d58931861a0f90e483a011d7c982095933dc3f12ed5afb090356c91c6cb6b",
+      "text": "import SquareKit.Internal.Cubical.NativeStructureCoherence\nimport Examples.NativeLatticeTransport\n\n/-! A admitted translation chain of pointed integer successor systems. -/\nset_option autoImplicit false\nset_option warningAsError true\nnamespace Examples.NativeStructureCoherence\nopen CategoryTheory\n\ndef translation (k : \u2124) : \u2124 \u2243 \u2124 where\n  toFun n := n + k\n  invFun n := n - k\n  left_inv n := by dsimp; omega\n  right_inv n := by dsimp; omega\n\nnamespace Presheaf\nopen SquareKit.Cubical.Presheaf StructureIdentity.Coherence\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\nnoncomputable abbrev A := SmallUniverse.liftedDecode admitted.code\nnoncomputable def point (n : \u2124) : Term (A (\u0393 := \u0393) admitted) :=\n  Term.map admitted.decoding.inv \u27e8fun _ => \u27e8n\u27e9, fun _ => rfl\u27e9\nnoncomputable def shift (k : \u2124) : A (\u0393 := \u0393) admitted \u2245 A (\u0393 := \u0393) admitted :=\n  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)\nnoncomputable def system (n : \u2124) : PointedEndomorphism (A (\u0393 := \u0393) admitted) :=\n  \u27e8point admitted n, (shift admitted 1).hom\u27e9\n\ntheorem shift_point (n k : \u2124) : Term.map (shift (\u0393 := \u0393) admitted k).hom (point admitted n) = point admitted (n+k) := by\n  apply Term.ext\n  intro x\n  change admitted.decoding.inv.app x\n    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  rfl\n\ntheorem shift_commute (j k : \u2124) :\n    (shift (\u0393 := \u0393) admitted j).hom \u226b (shift admitted k).hom = (shift admitted k).hom \u226b (shift admitted j).hom := by\n  ext x z\n  change admitted.decoding.inv.app x (ULift.up\n    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x\n      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =\n    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x\n      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))\n  rw [admitted.decoding.inv_hom_id_app_apply]\n  congr 2\n  dsimp\n  omega\n\nnoncomputable def move (n k : \u2124) : Equivalence (system (\u0393 := \u0393) admitted n) (system admitted (n+k)) where\n  map := (shift admitted k).hom\n  witness := HomotopyEquivalence.ofIso (shift admitted k)\n  point := Term.convert (congrArg (homogeneousPath (A admitted) \u00b7 (point admitted (n+k))) (shift_point admitted n k).symm)\n    (homogeneousRefl (point admitted (n+k)))\n  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))\n    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))\n    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom \u226b (shift admitted k).hom)))\n\nnoncomputable def composite := (move (\u0393 := \u0393) admitted 0 1).comp (move admitted 1 2)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\nnoncomputable def compositionComparison := Coded.composition\n  (a := admitted.code) (b := admitted.code) (c := admitted.code)\n  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (\u0393 := \u0393) admitted 0 1) (move admitted 1 2)\n  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\nnoncomputable def canonicalWitness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  ((move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))\n\nend Presheaf\nend Examples.NativeStructureCoherence\n"
+    },
+    "actual-batch.py": {
+      "sha256": "1ab0525424817d4c3efacdbb5382bd56d1ede3dcd61a2306e8a23059060657cd",
+      "text": "import pathlib,subprocess\nr=pathlib.Path('/tmp/conaled-693-evidence');h=pathlib.Path('docs/research/canonical-inverse-costs/measure.py').resolve()\nfor depth,hb,group in [(512,200000,'default'),(1024,400000,'larger')]:\n for rep in [1,2]:\n  for name in ['SuppliedActual','BoundaryActual','PublicFinal']:\n   subprocess.run(['python3',str(h),str(r/(name+'.lean')),'--output-dir',str(r),'--tag',f'{name.lower()}-{group}-{rep}','--depth',str(depth),'--heartbeats',str(hb)],check=True)\nsubprocess.run(['python3',str(h),str(r/'CanonicalActual.lean'),'--output-dir',str(r),'--tag','canonicalactual-default-1'],check=True)\n"
+    },
+    "batch.py": {
+      "sha256": "cfc9ffc518fb1288ade4a5ca90744a389a18985c3a27a758e67ab33f24dd78f9",
+      "text": "import pathlib,subprocess\nr=pathlib.Path('/tmp/conaled-693-evidence')\nfor depth,hb,group,reps in [(512,200000,'default',[2]),(1024,400000,'larger',[1,2])]:\n for rep in reps:\n  for name in ['Canonical','Supplied','Boundary']:\n   subprocess.run(['python3',str(r/'measure.py'),str(r/(name+'.lean')),'--tag',f'{name.lower()}-{group}-{rep}','--depth',str(depth),'--heartbeats',str(hb)],check=True)\nsubprocess.run(['python3',str(r/'measure.py'),str(r/'Canonical.lean'),'--tag','canonical-sync-default-1','--sync'],check=True)\n"
+    },
+    "client-first-disposition.txt": {
+      "sha256": "9331f1f7c25ef0f26d57130be8c320f33d86d6bf55d3a0ca2a77eb02652241fe",
+      "text": "Initial public client run was queued behind bounded measurements, then observed running22s. Manually terminated in next command near30s; no precise wall/CPU/RSS measurement for this run. Source preserved client-first.lean.txt. Run may have read before/after actualComparison append; discard as timing comparison, retain as interrupted exploration. Isolate witness equality and explicit endpoint/concrete application under the measurement harness next.\n"
+    },
+    "client-first.lean.txt": {
+      "sha256": "7abc442dc137ea15226e57f506e7f02065b67cbb858d749fd1de4c2d8aa50f07",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- The witness is exactly the library's canonical construction, including its\ncontractible fibers, rather than only an equality of inverse maps. -/\ntheorem witness_eq : witness admitted =\n    (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverseEquivalence\n      (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n      (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _) := rfl\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :\n    Term (homogeneousPath\n      (homogeneousPath (objects description \u0393)\n        (objectOf description admitted.code (system admitted 1).fields)\n        (objectOf description admitted.code (system admitted 0).fields))\n      (Coded.path ((move admitted 0 1).inverseWith (witness admitted)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)))\n      (homogeneousReverse (Coded.path (move admitted 0 1)))) :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "integrated-batch.py": {
+      "sha256": "a2e81aefe1b16e222036f500b6f1ce3bedede7f58d21a4bb45f10113b5caa27b",
+      "text": "from pathlib import Path\nimport subprocess\nr=Path('/tmp/conaled-693-evidence')\nh=Path('docs/research/canonical-inverse-costs/measure.py').resolve()\nfor depth,hb,budget in [(512,200000,'default'),(1024,400000,'larger')]:\n    for rep in [1,2]:\n        for name in ['Canonical','SuppliedActual','BoundaryActual']:\n            subprocess.run(['python3',str(h),str(r/(name+'.lean')),'--output-dir',str(r),'--tag',f'integrated-{name.lower()}-{budget}-{rep}','--depth',str(depth),'--heartbeats',str(hb)],check=True)\n"
+    },
+    "measure.py": {
+      "sha256": "4a61fa7057e1323a32b04a077baf0af1152750d915314fcd707dfa2a5d07f8cd",
+      "text": "import argparse, datetime, hashlib, json, os, pathlib, signal, time\np=argparse.ArgumentParser();p.add_argument('source');p.add_argument('--tag',required=True);p.add_argument('--wall',type=float,default=30);p.add_argument('--depth',type=int,default=512);p.add_argument('--heartbeats',type=int,default=200000);p.add_argument('--sync',action='store_true');a=p.parse_args()\nr=pathlib.Path('/tmp/conaled-693-evidence');source=pathlib.Path(a.source).resolve();log=r/(a.tag+'.log');out=r/(a.tag+'.json')\ncmd=['lean',f'-DmaxRecDepth={a.depth}',f'-DmaxHeartbeats={a.heartbeats}']+(['-DElab.async=false'] if a.sync else [])+[str(source)]\nrecord={'tag':a.tag,'source':str(source),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'command':cmd,'start_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'load_before':os.getloadavg(),'cpu_count':os.cpu_count(),'wall_limit_s':a.wall,'async':'false' if a.sync else 'default','depth':a.depth,'heartbeats':a.heartbeats}\nt0=time.monotonic();b0=time.clock_gettime(time.CLOCK_BOOTTIME);pid=os.fork()\nif pid==0:\n os.setsid();fd=os.open(log,os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o600);os.dup2(fd,1);os.dup2(fd,2);os.close(fd);os.execvp(cmd[0],cmd)\nexpired=False\nwhile True:\n done,status,usage=os.wait4(pid,os.WNOHANG)\n if done:break\n if time.monotonic()-t0>=a.wall:\n  expired=True;os.killpg(pid,signal.SIGKILL);_,status,usage=os.wait4(pid,0);break\n time.sleep(.05)\nrecord.update(wall_s=time.monotonic()-t0,boottime_s=time.clock_gettime(time.CLOCK_BOOTTIME)-b0,user_s=usage.ru_utime,system_s=usage.ru_stime,maxrss_kib=usage.ru_maxrss,wall_timeout=expired,exit_code=os.waitstatus_to_exitcode(status),load_after=os.getloadavg())\nrecord['suspension_delta_s']=record['boottime_s']-record['wall_s'];out.write_text(json.dumps(record,indent=2)+'\\n');print(json.dumps(record),flush=True)\n"
+    },
+    "public-explicit-codes.lean.txt": {
+      "sha256": "cd8a280e0e4d9a0cb0a2f8a165ae6c3a82063c244440c38de62b01f11e1414ff",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :\n    Term (homogeneousPath\n      (homogeneousPath (objects description \u0393)\n        (objectOf description admitted.code (system admitted 1).fields)\n        (objectOf description admitted.code (system admitted 0).fields))\n      (Coded.path (a := admitted.code) (b := admitted.code) ((move admitted 0 1).inverseWith (witness admitted)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)))\n      (homogeneousReverse (Coded.path (a := admitted.code) (b := admitted.code) (move admitted 0 1)))) :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "public-without-equality.lean.txt": {
+      "sha256": "5622ead63aeb0ec80dee5c75cb57996718f801fe3603e81b1aa96101746f8d66",
+      "text": "import Examples.NativeStructureCoherence\n\n/-! A typed boundary for the complete canonical inverse witness and its whole\nselected structure-path comparison. The supplied-witness client stays available. -/\nset_option autoImplicit false\nset_option warningAsError true\nnoncomputable section\nnamespace Examples.NativeCanonicalInverse\nopen CategoryTheory SquareKit.Cubical.Presheaf\nopen StructureIdentity.Coherence StructureIdentity.Native\nopen Examples.NativeStructureCoherence.Presheaf\nvariable {\u0393 : Context.{1}}\nvariable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily \u0393 (ULift.{1} \u2124)))\n\n/-- Name the full canonical witness before specializing the dependent comparison.\nNo contraction or inverse data is replaced with the strict-isomorphism witness. -/\ndef witness : HomotopyEquivalence (move (\u0393 := \u0393) admitted 0 1).witness.selectedInverse :=\n  (move admitted 0 1).witness.selectedInverseEquivalence\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n\n/-- Both endpoints are the original admitted selected structure paths. -/\ndef comparison :\n    Term (homogeneousPath\n      (homogeneousPath (objects description \u0393)\n        (objectOf description admitted.code (system admitted 1).fields)\n        (objectOf description admitted.code (system admitted 0).fields))\n      (Coded.path ((move admitted 0 1).inverseWith (witness admitted)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)\n        (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)))\n      (homogeneousReverse (Coded.path (move admitted 0 1)))) :=\n  Coded.inversion (a := admitted.code) (b := admitted.code)\n    (s := system admitted 0) (t := system admitted 1) (move admitted 0 1)\n    (witness admitted) (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)\n\n/-- The canonical route at the same actual integer admission as the direct client. -/\ndef actualComparison {\u0393 : Context.{1}} :=\n  comparison (Examples.NativeLatticeTransport.Presheaf.admission (\u0393 := \u0393) \u2124)\n\nend Examples.NativeCanonicalInverse\n"
+    },
+    "retained-measure.py": {
+      "sha256": "01bb5357695b805b8584cbbebcf57fd6437ee32d14e1d58e12efdfe7243a84bf",
+      "text": "\"\"\"Run one bounded Lean probe under `direnv exec . lake env python3`.\n\nLinux fork/wait4 supplies per-child CPU time and peak RSS. CLOCK_BOOTTIME lets\nus report a suspension gap separately. The harness exits nonzero for harness\nfailures; inspect exit_code and wall_timeout for the Lean verdict. When flock\nwraps this script, lock waiting and shell setup precede the measured child.\n\"\"\"\n\nimport argparse\nimport datetime\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport signal\nimport time\n\n\ndef main():\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument(\"source\", type=Path)\n    parser.add_argument(\"--tag\", required=True)\n    parser.add_argument(\"--output-dir\", required=True, type=Path)\n    parser.add_argument(\"--wall\", type=float, default=30)\n    parser.add_argument(\"--depth\", type=int, default=512)\n    parser.add_argument(\"--heartbeats\", type=int, default=200000)\n    parser.add_argument(\"--sync\", action=\"store_true\")\n    args = parser.parse_args()\n    if args.wall <= 0 or args.depth <= 0 or args.heartbeats <= 0:\n        parser.error(\"resource bounds must be positive\")\n    if Path(args.tag).name != args.tag or args.tag in (\".\", \"..\"):\n        parser.error(\"tag must be a single filename component\")\n\n    output = args.output_dir.resolve()\n    output.mkdir(parents=True, exist_ok=True)\n    source = args.source.resolve()\n    command = [\"lean\", f\"-DmaxRecDepth={args.depth}\",\n               f\"-DmaxHeartbeats={args.heartbeats}\"]\n    if args.sync:\n        command.append(\"-DElab.async=false\")\n    command.append(str(source))\n    record = {\n        \"tag\": args.tag,\n        \"source\": str(source),\n        \"sha256\": hashlib.sha256(source.read_bytes()).hexdigest(),\n        \"command\": command,\n        \"start_utc\": datetime.datetime.now(datetime.timezone.utc).isoformat(),\n        \"load_before\": os.getloadavg(),\n        \"cpu_count\": os.cpu_count(),\n        \"wall_limit_s\": args.wall,\n        \"async\": \"false\" if args.sync else \"default\",\n        \"depth\": args.depth,\n        \"heartbeats\": args.heartbeats,\n    }\n    start = time.monotonic()\n    boot_start = time.clock_gettime(time.CLOCK_BOOTTIME)\n    pid = os.fork()\n    if pid == 0:\n        os.setsid()\n        fd = os.open(output / (args.tag + \".log\"),\n                     os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)\n        os.dup2(fd, 1)\n        os.dup2(fd, 2)\n        os.close(fd)\n        os.execvp(command[0], command)\n\n    expired = False\n    try:\n        while True:\n            done, status, usage = os.wait4(pid, os.WNOHANG)\n            if done:\n                break\n            if time.monotonic() - start >= args.wall:\n                expired = True\n                os.killpg(pid, signal.SIGKILL)\n                _, status, usage = os.wait4(pid, 0)\n                break\n            time.sleep(0.05)\n    except BaseException:\n        # Interruption is a harness failure, not a measured Lean timeout.\n        try:\n            os.killpg(pid, signal.SIGKILL)\n        except ProcessLookupError:\n            pass\n        os.wait4(pid, 0)\n        raise\n\n    record.update(\n        wall_s=time.monotonic() - start,\n        boottime_s=time.clock_gettime(time.CLOCK_BOOTTIME) - boot_start,\n        user_s=usage.ru_utime,\n        system_s=usage.ru_stime,\n        maxrss_kib=usage.ru_maxrss,\n        wall_timeout=expired,\n        exit_code=os.waitstatus_to_exitcode(status),\n        load_after=os.getloadavg(),\n    )\n    record[\"suspension_delta_s\"] = record[\"boottime_s\"] - record[\"wall_s\"]\n    (output / (args.tag + \".json\")).write_text(json.dumps(record, indent=2) + \"\\n\")\n    print(json.dumps(record), flush=True)\n\n\nif __name__ == \"__main__\":\n    main()\n"
+    }
+  },
+  "runs": [
+    {
+      "tag": "boundary-actual-1",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:04:29.159374+00:00",
+      "load_before": [
+        3.0947265625,
+        4.96142578125,
+        9.02197265625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8022332820110023,
+      "boottime_s": 0.802236819989048,
+      "user_s": 0.6657029999999999,
+      "system_s": 0.222016,
+      "maxrss_kib": 2224964,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.0947265625,
+        4.96142578125,
+        9.02197265625
+      ],
+      "suspension_delta_s": 3.537978045642376e-06,
+      "log": ""
+    },
+    {
+      "tag": "boundary-default-1",
+      "source": "/tmp/conaled-693-evidence/Boundary.lean",
+      "sha256": "b8a03a164bb75f48feb872eae6aa46b4666c06836d21734c5242dc67af717bfe",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Boundary.lean"
+      ],
+      "start_utc": "2026-11-24T12:59:20.120681+00:00",
+      "load_before": [
+        3.93896484375,
+        7.2109375,
+        11.0927734375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8024627389968373,
+      "boottime_s": 0.8024644819961395,
+      "user_s": 0.642299,
+      "system_s": 0.218003,
+      "maxrss_kib": 2227640,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.93896484375,
+        7.2109375,
+        11.0927734375
+      ],
+      "suspension_delta_s": 1.7429993022233248e-06,
+      "log": ""
+    },
+    {
+      "tag": "boundary-default-2",
+      "source": "/tmp/conaled-693-evidence/Boundary.lean",
+      "sha256": "b8a03a164bb75f48feb872eae6aa46b4666c06836d21734c5242dc67af717bfe",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Boundary.lean"
+      ],
+      "start_utc": "2026-11-24T13:00:50.422818+00:00",
+      "load_before": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8525543499854393,
+      "boottime_s": 0.8525552659993991,
+      "user_s": 0.6993039999999999,
+      "system_s": 0.234514,
+      "maxrss_kib": 2226432,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "suspension_delta_s": 9.160139597952366e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundary-larger-1",
+      "source": "/tmp/conaled-693-evidence/Boundary.lean",
+      "sha256": "b8a03a164bb75f48feb872eae6aa46b4666c06836d21734c5242dc67af717bfe",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Boundary.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:22.249563+00:00",
+      "load_before": [
+        4.30810546875,
+        6.17138671875,
+        10.2099609375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.853210437024245,
+      "boottime_s": 0.8532111739914399,
+      "user_s": 0.68601,
+      "system_s": 0.24420899999999998,
+      "maxrss_kib": 2229636,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.30810546875,
+        6.17138671875,
+        10.2099609375
+      ],
+      "suspension_delta_s": 7.369671948254108e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundary-larger-2",
+      "source": "/tmp/conaled-693-evidence/Boundary.lean",
+      "sha256": "b8a03a164bb75f48feb872eae6aa46b4666c06836d21734c5242dc67af717bfe",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Boundary.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:54.193798+00:00",
+      "load_before": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.8526859910052735,
+      "boottime_s": 0.852686383004766,
+      "user_s": 0.681829,
+      "system_s": 0.251668,
+      "maxrss_kib": 2228348,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "suspension_delta_s": 3.9199949242174625e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundaryactual-default-1",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:21.121481+00:00",
+      "load_before": [
+        2.23681640625,
+        4.1611328125,
+        8.28076171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8019329709932208,
+      "boottime_s": 0.8019339539750945,
+      "user_s": 0.635199,
+      "system_s": 0.224408,
+      "maxrss_kib": 2227948,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.23681640625,
+        4.1611328125,
+        8.28076171875
+      ],
+      "suspension_delta_s": 9.829818736761808e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundaryactual-default-2",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:23.467173+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7522670360049233,
+      "boottime_s": 0.752267986012157,
+      "user_s": 0.6182259999999999,
+      "system_s": 0.24348199999999998,
+      "maxrss_kib": 2228160,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 9.500072337687016e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundaryactual-larger-1",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:25.847565+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7522600350202993,
+      "boottime_s": 0.7522608489962295,
+      "user_s": 0.6253799999999999,
+      "system_s": 0.228868,
+      "maxrss_kib": 2230408,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 8.139759302139282e-07,
+      "log": ""
+    },
+    {
+      "tag": "boundaryactual-larger-2",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:28.141279+00:00",
+      "load_before": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7524253290030174,
+      "boottime_s": 0.7524260389909614,
+      "user_s": 0.604409,
+      "system_s": 0.23773899999999998,
+      "maxrss_kib": 2225940,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "suspension_delta_s": 7.099879439920187e-07,
+      "log": ""
+    },
+    {
+      "tag": "canonical-default-1",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T12:58:15.593271+00:00",
+      "load_before": [
+        5.16162109375,
+        8.08642578125,
+        11.6337890625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.075170377996983,
+      "boottime_s": 30.075170868978603,
+      "user_s": 29.305025,
+      "system_s": 0.391797,
+      "maxrss_kib": 3690248,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        5.037109375,
+        7.76123046875,
+        11.41162109375
+      ],
+      "suspension_delta_s": 4.909816198050976e-07,
+      "log": ""
+    },
+    {
+      "tag": "canonical-default-2",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:00:19.496165+00:00",
+      "load_before": [
+        3.76611328125,
+        6.53857421875,
+        10.6142578125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.075253887975123,
+      "boottime_s": 30.07525543597876,
+      "user_s": 29.75777,
+      "system_s": 0.33609,
+      "maxrss_kib": 3791360,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "suspension_delta_s": 1.548003638163209e-06,
+      "log": ""
+    },
+    {
+      "tag": "canonical-larger-1",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:00:51.300884+00:00",
+      "load_before": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 30.080411157017807,
+      "boottime_s": 30.08041224401677,
+      "user_s": 29.733369,
+      "system_s": 0.355653,
+      "maxrss_kib": 3787088,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        4.42236328125,
+        6.22509765625,
+        10.2490234375
+      ],
+      "suspension_delta_s": 1.086998963728547e-06,
+      "log": ""
+    },
+    {
+      "tag": "canonical-larger-2",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:23.126745+00:00",
+      "load_before": [
+        4.30810546875,
+        6.17138671875,
+        10.2099609375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 30.10792608000338,
+      "boottime_s": 30.107927247998305,
+      "user_s": 29.758466,
+      "system_s": 0.366052,
+      "maxrss_kib": 3704340,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "suspension_delta_s": 1.167994923889637e-06,
+      "log": ""
+    },
+    {
+      "tag": "canonical-sync-default-1",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "-DElab.async=false",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:55.078719+00:00",
+      "load_before": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "false",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.076880393986357,
+      "boottime_s": 30.07688139300444,
+      "user_s": 29.675083,
+      "system_s": 0.302969,
+      "maxrss_kib": 3753820,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        4.81005859375,
+        5.9736328125,
+        9.88720703125
+      ],
+      "suspension_delta_s": 9.990180842578411e-07,
+      "log": ""
+    },
+    {
+      "tag": "canonicalactual-default-1",
+      "source": "/tmp/conaled-693-evidence/CanonicalActual.lean",
+      "sha256": "c55439e352e7d70c3b2fa36c316e4b1564cc33ae095eab0efef68641e6814d97",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/CanonicalActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:29.594079+00:00",
+      "load_before": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.074257822998334,
+      "boottime_s": 30.074258956010453,
+      "user_s": 29.735528,
+      "system_s": 0.34101499999999996,
+      "maxrss_kib": 3941088,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.21044921875,
+        3.91796875,
+        8.02392578125
+      ],
+      "suspension_delta_s": 1.133012119680643e-06,
+      "log": ""
+    },
+    {
+      "tag": "inspect-final-1",
+      "source": "/tmp/conaled-693-evidence/Inspect.lean",
+      "sha256": "f4e9fa978e02bf8f05d32af4d5b58deb44a5daa1c8c6721450d261426da3c43a",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Inspect.lean"
+      ],
+      "start_utc": "2026-11-24T13:05:45.121653+00:00",
+      "load_before": [
+        2.865234375,
+        4.50244140625,
+        8.54541015625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7019057230209,
+      "boottime_s": 0.7019063839979935,
+      "user_s": 0.49382899999999996,
+      "system_s": 0.23658099999999999,
+      "maxrss_kib": 2227892,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.865234375,
+        4.50244140625,
+        8.54541015625
+      ],
+      "suspension_delta_s": 6.609770935028791e-07,
+      "log": "@Examples.NativeCanonicalInverse.comparison : {\u0393 : SquareKit.Cubical.Presheaf.Context} \u2192\n  (admitted :\n      SquareKit.Cubical.Presheaf.SmallUniverse.LargeConstructors.Result\n        (SquareKit.Cubical.Presheaf.constantFamily \u0393 (ULift.{1, 0} \u2124))) \u2192\n    SquareKit.Cubical.Presheaf.Term\n      (SquareKit.Cubical.Presheaf.homogeneousPath\n        (SquareKit.Cubical.Presheaf.homogeneousPath\n          (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objects\n            SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description \u0393)\n          (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objectOf\n            SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description admitted.code\n            (Examples.NativeStructureCoherence.Presheaf.system admitted 1).fields)\n          (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objectOf\n            SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description admitted.code\n            (Examples.NativeStructureCoherence.Presheaf.system admitted 0).fields))\n        (SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.Coded.path\n          ((Examples.NativeStructureCoherence.Presheaf.move admitted 0 1).inverseWith\n            (Examples.NativeCanonicalInverse.witness admitted)\n            (SquareKit.Cubical.Presheaf.SmallUniverse.NativeDecode.filling admitted.code) \u22ef\n            (SquareKit.Cubical.Presheaf.SmallUniverse.NativeDecode.filling admitted.code) \u22ef))\n        (SquareKit.Cubical.Presheaf.homogeneousReverse\n          (SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.Coded.path\n            (Examples.NativeStructureCoherence.Presheaf.move admitted 0 1))))\n@Examples.NativeCanonicalInverse.actualComparison : {\u0393 : SquareKit.Cubical.Presheaf.Context} \u2192\n  SquareKit.Cubical.Presheaf.Term\n    (SquareKit.Cubical.Presheaf.homogeneousPath\n      (SquareKit.Cubical.Presheaf.homogeneousPath\n        (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objects\n          SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description \u0393)\n        (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objectOf\n          SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description\n          (Examples.NativeLatticeTransport.Presheaf.admission \u2124).code\n          (Examples.NativeStructureCoherence.Presheaf.system (Examples.NativeLatticeTransport.Presheaf.admission \u2124)\n              1).fields)\n        (SquareKit.Cubical.Presheaf.StructureIdentity.Native.objectOf\n          SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.description\n          (Examples.NativeLatticeTransport.Presheaf.admission \u2124).code\n          (Examples.NativeStructureCoherence.Presheaf.system (Examples.NativeLatticeTransport.Presheaf.admission \u2124)\n              0).fields))\n      (SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.Coded.path\n        ((Examples.NativeStructureCoherence.Presheaf.move (Examples.NativeLatticeTransport.Presheaf.admission \u2124) 0\n              1).inverseWith\n          (Examples.NativeCanonicalInverse.witness (Examples.NativeLatticeTransport.Presheaf.admission \u2124))\n          (SquareKit.Cubical.Presheaf.SmallUniverse.NativeDecode.filling\n            (Examples.NativeLatticeTransport.Presheaf.admission \u2124).code)\n          \u22ef\n          (SquareKit.Cubical.Presheaf.SmallUniverse.NativeDecode.filling\n            (Examples.NativeLatticeTransport.Presheaf.admission \u2124).code)\n          \u22ef))\n      (SquareKit.Cubical.Presheaf.homogeneousReverse\n        (SquareKit.Cubical.Presheaf.StructureIdentity.Coherence.Coded.path\n          (Examples.NativeStructureCoherence.Presheaf.move (Examples.NativeLatticeTransport.Presheaf.admission \u2124) 0\n            1))))\n"
+    },
+    {
+      "tag": "integrated-boundaryactual-default-1",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:26.185200+00:00",
+      "load_before": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7529763740021735,
+      "boottime_s": 0.7529773999995086,
+      "user_s": 0.5999749999999999,
+      "system_s": 0.21698499999999998,
+      "maxrss_kib": 2227892,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "suspension_delta_s": 1.0259973350912333e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-boundaryactual-default-2",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:57.873937+00:00",
+      "load_before": [
+        2.89501953125,
+        2.8681640625,
+        4.85986328125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.752706491999561,
+      "boottime_s": 0.7527100859733764,
+      "user_s": 0.640909,
+      "system_s": 0.20363699999999998,
+      "maxrss_kib": 2228072,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.89501953125,
+        2.8681640625,
+        4.85986328125
+      ],
+      "suspension_delta_s": 3.5939738154411316e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-boundaryactual-larger-1",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:21:29.578254+00:00",
+      "load_before": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7521581829932984,
+      "boottime_s": 0.7521589949901681,
+      "user_s": 0.629622,
+      "system_s": 0.21589,
+      "maxrss_kib": 2225804,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "suspension_delta_s": 8.119968697428703e-07,
+      "log": ""
+    },
+    {
+      "tag": "integrated-boundaryactual-larger-2",
+      "source": "/tmp/conaled-693-evidence/BoundaryActual.lean",
+      "sha256": "506ef18eba7f7828fae49df62257f42c3844f61e8d650310d98df384dd07f3b7",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/BoundaryActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:22:01.268061+00:00",
+      "load_before": [
+        2.52685546875,
+        2.76904296875,
+        4.69873046875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7532771440164652,
+      "boottime_s": 0.7532783049973659,
+      "user_s": 0.601233,
+      "system_s": 0.205197,
+      "maxrss_kib": 2225176,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.52685546875,
+        2.76904296875,
+        4.69873046875
+      ],
+      "suspension_delta_s": 1.1609809007495642e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-canonical-default-1",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:19:55.254426+00:00",
+      "load_before": [
+        3.09814453125,
+        2.8603515625,
+        5.00341796875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.098816300014732,
+      "boottime_s": 30.098817444988526,
+      "user_s": 28.207906,
+      "system_s": 1.926864,
+      "maxrss_kib": 3796336,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "suspension_delta_s": 1.1449737939983606e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-canonical-default-2",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:26.967199+00:00",
+      "load_before": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.097040619992185,
+      "boottime_s": 30.09704159401008,
+      "user_s": 28.686963,
+      "system_s": 1.434231,
+      "maxrss_kib": 3860252,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.97314453125,
+        2.88330078125,
+        4.87548828125
+      ],
+      "suspension_delta_s": 9.740178938955069e-07,
+      "log": ""
+    },
+    {
+      "tag": "integrated-canonical-larger-1",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:58.658674+00:00",
+      "load_before": [
+        2.89501953125,
+        2.8681640625,
+        4.85986328125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 30.103305637981975,
+      "boottime_s": 30.103306887991494,
+      "user_s": 29.050682,
+      "system_s": 1.096818,
+      "maxrss_kib": 3920616,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "suspension_delta_s": 1.2500095181167126e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-canonical-larger-2",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:21:30.359239+00:00",
+      "load_before": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 30.091491472994676,
+      "boottime_s": 30.091492218984058,
+      "user_s": 28.944427,
+      "system_s": 1.17568,
+      "maxrss_kib": 3932896,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.52685546875,
+        2.76904296875,
+        4.69873046875
+      ],
+      "suspension_delta_s": 7.459893822669983e-07,
+      "log": ""
+    },
+    {
+      "tag": "integrated-public-default-1",
+      "source": "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean"
+      ],
+      "start_utc": "2026-11-24T13:19:14.085330+00:00",
+      "load_before": [
+        3.05810546875,
+        2.82177734375,
+        5.087890625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7523252009996213,
+      "boottime_s": 0.7523266620119102,
+      "user_s": 0.532496,
+      "system_s": 0.21495999999999998,
+      "maxrss_kib": 2224212,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.05810546875,
+        2.82177734375,
+        5.087890625
+      ],
+      "suspension_delta_s": 1.461012288928032e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-suppliedactual-default-1",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:25.387143+00:00",
+      "load_before": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7527080790023319,
+      "boottime_s": 0.7527094020042568,
+      "user_s": 0.629595,
+      "system_s": 0.201928,
+      "maxrss_kib": 2226304,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.36376953125,
+        2.94091796875,
+        4.96044921875
+      ],
+      "suspension_delta_s": 1.3230019249022007e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-suppliedactual-default-2",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:20:57.092577+00:00",
+      "load_before": [
+        2.97314453125,
+        2.88330078125,
+        4.87548828125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7525974579912145,
+      "boottime_s": 0.7525982249935623,
+      "user_s": 0.656308,
+      "system_s": 0.19370199999999999,
+      "maxrss_kib": 2228384,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.89501953125,
+        2.8681640625,
+        4.85986328125
+      ],
+      "suspension_delta_s": 7.6700234785676e-07,
+      "log": ""
+    },
+    {
+      "tag": "integrated-suppliedactual-larger-1",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:21:28.796448+00:00",
+      "load_before": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7527734320028685,
+      "boottime_s": 0.7527741070080083,
+      "user_s": 0.607947,
+      "system_s": 0.234141,
+      "maxrss_kib": 2226264,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.68896484375,
+        2.81640625,
+        4.7783203125
+      ],
+      "suspension_delta_s": 6.750051397830248e-07,
+      "log": ""
+    },
+    {
+      "tag": "integrated-suppliedactual-larger-2",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:22:00.477021+00:00",
+      "load_before": [
+        2.52685546875,
+        2.76904296875,
+        4.69873046875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7531219449883793,
+      "boottime_s": 0.7531242769910023,
+      "user_s": 0.573338,
+      "system_s": 0.244,
+      "maxrss_kib": 2228228,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.52685546875,
+        2.76904296875,
+        4.69873046875
+      ],
+      "suspension_delta_s": 2.3320026230067015e-06,
+      "log": ""
+    },
+    {
+      "tag": "integrated-timeout-control",
+      "source": "/tmp/conaled-693-evidence/Canonical.lean",
+      "sha256": "68b11cf9806ce79c65507ac42d9fd755fcd379bfb91e49af1327a4eea9cea181",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Canonical.lean"
+      ],
+      "start_utc": "2026-11-24T13:19:44.499696+00:00",
+      "load_before": [
+        2.93408203125,
+        2.82080078125,
+        5.01513671875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 0.25,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.27573458198457956,
+      "boottime_s": 0.27573548001237214,
+      "user_s": 0.094659,
+      "system_s": 0.179011,
+      "maxrss_kib": 669208,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.93408203125,
+        2.82080078125,
+        5.01513671875
+      ],
+      "suspension_delta_s": 8.980277925729752e-07,
+      "log": ""
+    },
+    {
+      "tag": "public-all-arguments-1",
+      "source": "/tmp/conaled-693-evidence/PublicAllArguments.lean",
+      "sha256": "a40312b63850ecd984131352847e66d7cdded08675ca47b64aaec6f84a6ff00f",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/PublicAllArguments.lean"
+      ],
+      "start_utc": "2026-11-24T13:07:00.275878+00:00",
+      "load_before": [
+        2.21044921875,
+        3.91796875,
+        8.02392578125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.059987704007654,
+      "boottime_s": 30.05999006499769,
+      "user_s": 29.786935,
+      "system_s": 0.23787599999999998,
+      "maxrss_kib": 2235184,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        2.53857421875,
+        3.830078125,
+        7.86279296875
+      ],
+      "suspension_delta_s": 2.3609900381416082e-06,
+      "log": ""
+    },
+    {
+      "tag": "public-explicit-codes-1",
+      "source": "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean",
+      "sha256": "cd8a280e0e4d9a0cb0a2f8a165ae6c3a82063c244440c38de62b01f11e1414ff",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean"
+      ],
+      "start_utc": "2026-11-24T13:04:31.419097+00:00",
+      "load_before": [
+        3.0947265625,
+        4.96142578125,
+        9.02197265625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.08214752501226,
+      "boottime_s": 30.082148254005006,
+      "user_s": 29.77425,
+      "system_s": 0.251093,
+      "maxrss_kib": 2235148,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        3.30615234375,
+        4.82373046875,
+        8.84521484375
+      ],
+      "suspension_delta_s": 7.289927452802658e-07,
+      "log": ""
+    },
+    {
+      "tag": "public-inferred-1",
+      "source": "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean"
+      ],
+      "start_utc": "2026-11-24T13:05:10.011084+00:00",
+      "load_before": [
+        3.3583984375,
+        4.78076171875,
+        8.78759765625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7024457829829771,
+      "boottime_s": 0.7024465319991577,
+      "user_s": 0.504383,
+      "system_s": 0.230493,
+      "maxrss_kib": 2221952,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.3583984375,
+        4.78076171875,
+        8.78759765625
+      ],
+      "suspension_delta_s": 7.490161806344986e-07,
+      "log": ""
+    },
+    {
+      "tag": "public-typed-1",
+      "source": "/tmp/conaled-693-evidence/PublicTyped.lean",
+      "sha256": "a0876eade1cb54b4e944dfa808377f72fa6321a52982f4e795c3a9047d64343f",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/PublicTyped.lean"
+      ],
+      "start_utc": "2026-11-24T13:03:58.465148+00:00",
+      "load_before": [
+        3.236328125,
+        5.18701171875,
+        9.2265625
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.074960419995477,
+      "boottime_s": 30.074962034006603,
+      "user_s": 29.778305,
+      "system_s": 0.268826,
+      "maxrss_kib": 2237352,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        3.0947265625,
+        4.96142578125,
+        9.02197265625
+      ],
+      "suspension_delta_s": 1.614011125639081e-06,
+      "log": ""
+    },
+    {
+      "tag": "public-without-equality-1",
+      "source": "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean",
+      "sha256": "5622ead63aeb0ec80dee5c75cb57996718f801fe3603e81b1aa96101746f8d66",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/home/vlad/Code/conaled/Examples/NativeCanonicalInverse.lean"
+      ],
+      "start_utc": "2026-11-24T13:03:12.461724+00:00",
+      "load_before": [
+        4.0615234375,
+        5.58935546875,
+        9.5498046875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 30.07786430598935,
+      "boottime_s": 30.077865297003882,
+      "user_s": 29.739081,
+      "system_s": 0.25659,
+      "maxrss_kib": 2235380,
+      "wall_timeout": true,
+      "exit_code": -9,
+      "load_after": [
+        3.880859375,
+        5.4033203125,
+        9.36083984375
+      ],
+      "suspension_delta_s": 9.910145308822393e-07,
+      "log": ""
+    },
+    {
+      "tag": "public-witness-1",
+      "source": "/tmp/conaled-693-evidence/PublicWitness.lean",
+      "sha256": "9827e24e3162bb231ba3cd73bcf0bbf9cb3545ecce0de342a81710a776d0537e",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/PublicWitness.lean"
+      ],
+      "start_utc": "2026-11-24T13:03:43.142295+00:00",
+      "load_before": [
+        3.880859375,
+        5.4033203125,
+        9.36083984375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7019364849838894,
+      "boottime_s": 0.7019374590017833,
+      "user_s": 0.517894,
+      "system_s": 0.19352,
+      "maxrss_kib": 2226584,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        3.880859375,
+        5.4033203125,
+        9.36083984375
+      ],
+      "suspension_delta_s": 9.740178938955069e-07,
+      "log": ""
+    },
+    {
+      "tag": "publicfinal-default-1",
+      "source": "/tmp/conaled-693-evidence/PublicFinal.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/PublicFinal.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:21.951612+00:00",
+      "load_before": [
+        2.23681640625,
+        4.1611328125,
+        8.28076171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.6522648520185612,
+      "boottime_s": 0.6522657460009214,
+      "user_s": 0.48685,
+      "system_s": 0.193998,
+      "maxrss_kib": 2224464,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 8.939823601394892e-07,
+      "log": ""
+    },
+    {
+      "tag": "publicfinal-default-2",
+      "source": "/tmp/conaled-693-evidence/PublicFinal.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/PublicFinal.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:24.250187+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.7023364289780147,
+      "boottime_s": 0.7023383239866234,
+      "user_s": 0.48198399999999997,
+      "system_s": 0.22735899999999998,
+      "maxrss_kib": 2224120,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 1.895008608698845e-06,
+      "log": ""
+    },
+    {
+      "tag": "publicfinal-larger-1",
+      "source": "/tmp/conaled-693-evidence/PublicFinal.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/PublicFinal.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:26.633608+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7017647879838478,
+      "boottime_s": 0.7017689020140097,
+      "user_s": 0.49458799999999997,
+      "system_s": 0.22775399999999998,
+      "maxrss_kib": 2224544,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "suspension_delta_s": 4.114030161872506e-06,
+      "log": ""
+    },
+    {
+      "tag": "publicfinal-larger-2",
+      "source": "/tmp/conaled-693-evidence/PublicFinal.lean",
+      "sha256": "46c2238a3ada4429f08bab58599a09c427d3855ccd013ae66cb8f92e14f8d109",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/PublicFinal.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:28.918472+00:00",
+      "load_before": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.6522188379894942,
+      "boottime_s": 0.6522197129961569,
+      "user_s": 0.49847199999999997,
+      "system_s": 0.176348,
+      "maxrss_kib": 2224940,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "suspension_delta_s": 8.750066626816988e-07,
+      "log": ""
+    },
+    {
+      "tag": "supplied-default-1",
+      "source": "/tmp/conaled-693-evidence/Supplied.lean",
+      "sha256": "17f6bf31a739e891399b867d403144cc54a7cfbd352040216719dd10e83d02b8",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Supplied.lean"
+      ],
+      "start_utc": "2026-11-24T12:58:46.230044+00:00",
+      "load_before": [
+        5.037109375,
+        7.76123046875,
+        11.41162109375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.9032105219957884,
+      "boottime_s": 0.9032108589890413,
+      "user_s": 0.770704,
+      "system_s": 0.266334,
+      "maxrss_kib": 2230100,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        5.037109375,
+        7.76123046875,
+        11.41162109375
+      ],
+      "suspension_delta_s": 3.3699325285851955e-07,
+      "log": ""
+    },
+    {
+      "tag": "supplied-default-2",
+      "source": "/tmp/conaled-693-evidence/Supplied.lean",
+      "sha256": "17f6bf31a739e891399b867d403144cc54a7cfbd352040216719dd10e83d02b8",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Supplied.lean"
+      ],
+      "start_utc": "2026-11-24T13:00:49.594678+00:00",
+      "load_before": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8024851359950844,
+      "boottime_s": 0.8024854379764292,
+      "user_s": 0.6692319999999999,
+      "system_s": 0.230762,
+      "maxrss_kib": 2230464,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.02978515625,
+        6.34130859375,
+        10.41796875
+      ],
+      "suspension_delta_s": 3.019813448190689e-07,
+      "log": ""
+    },
+    {
+      "tag": "supplied-larger-1",
+      "source": "/tmp/conaled-693-evidence/Supplied.lean",
+      "sha256": "17f6bf31a739e891399b867d403144cc54a7cfbd352040216719dd10e83d02b8",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Supplied.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:21.417036+00:00",
+      "load_before": [
+        4.42236328125,
+        6.22509765625,
+        10.2490234375
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.8041847599961329,
+      "boottime_s": 0.804185156011954,
+      "user_s": 0.663671,
+      "system_s": 0.225927,
+      "maxrss_kib": 2227884,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.30810546875,
+        6.17138671875,
+        10.2099609375
+      ],
+      "suspension_delta_s": 3.960158210247755e-07,
+      "log": ""
+    },
+    {
+      "tag": "supplied-larger-2",
+      "source": "/tmp/conaled-693-evidence/Supplied.lean",
+      "sha256": "17f6bf31a739e891399b867d403144cc54a7cfbd352040216719dd10e83d02b8",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/Supplied.lean"
+      ],
+      "start_utc": "2026-11-24T13:01:53.262216+00:00",
+      "load_before": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.9027174760121852,
+      "boottime_s": 0.9027180909761228,
+      "user_s": 0.7305269999999999,
+      "system_s": 0.27785899999999997,
+      "maxrss_kib": 2229304,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.38134765625,
+        6.0107421875,
+        10.02685546875
+      ],
+      "suspension_delta_s": 6.149639375507832e-07,
+      "log": ""
+    },
+    {
+      "tag": "suppliedactual-default-1",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:20.289082+00:00",
+      "load_before": [
+        2.23681640625,
+        4.1611328125,
+        8.28076171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8026296400057618,
+      "boottime_s": 0.802630299993325,
+      "user_s": 0.653002,
+      "system_s": 0.249944,
+      "maxrss_kib": 2230156,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.23681640625,
+        4.1611328125,
+        8.28076171875
+      ],
+      "suspension_delta_s": 6.599875632673502e-07,
+      "log": ""
+    },
+    {
+      "tag": "suppliedactual-default-2",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:22.629386+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.802242732985178,
+      "boottime_s": 0.8022439129999839,
+      "user_s": 0.649023,
+      "system_s": 0.23698699999999998,
+      "maxrss_kib": 2227624,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 1.180014805868268e-06,
+      "log": ""
+    },
+    {
+      "tag": "suppliedactual-larger-1",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:24.996824+00:00",
+      "load_before": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.8025402420025785,
+      "boottime_s": 0.8025419350015,
+      "user_s": 0.65444,
+      "system_s": 0.22842099999999999,
+      "maxrss_kib": 2227600,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.2177734375,
+        4.125,
+        8.24658203125
+      ],
+      "suspension_delta_s": 1.6929989214986563e-06,
+      "log": ""
+    },
+    {
+      "tag": "suppliedactual-larger-2",
+      "source": "/tmp/conaled-693-evidence/SuppliedActual.lean",
+      "sha256": "5db45e1fc400ddce99c4c2639bf3db91d048bbb6c6507898bf6634a7366047b2",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=1024",
+        "-DmaxHeartbeats=400000",
+        "/tmp/conaled-693-evidence/SuppliedActual.lean"
+      ],
+      "start_utc": "2026-11-24T13:06:27.360764+00:00",
+      "load_before": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 1024,
+      "heartbeats": 400000,
+      "wall_s": 0.7529432130104396,
+      "boottime_s": 0.7529444599931594,
+      "user_s": 0.627406,
+      "system_s": 0.21662099999999998,
+      "maxrss_kib": 2225492,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        2.28076171875,
+        4.10595703125,
+        8.21826171875
+      ],
+      "suspension_delta_s": 1.2469827197492123e-06,
+      "log": ""
+    },
+    {
+      "tag": "witness-default-1",
+      "source": "/tmp/conaled-693-evidence/Witness.lean",
+      "sha256": "015d58931861a0f90e483a011d7c982095933dc3f12ed5afb090356c91c6cb6b",
+      "command": [
+        "lean",
+        "-DmaxRecDepth=512",
+        "-DmaxHeartbeats=200000",
+        "/tmp/conaled-693-evidence/Witness.lean"
+      ],
+      "start_utc": "2026-11-24T12:59:10.736427+00:00",
+      "load_before": [
+        4.4736328125,
+        7.4228515625,
+        11.20263671875
+      ],
+      "cpu_count": 32,
+      "wall_limit_s": 30,
+      "async": "default",
+      "depth": 512,
+      "heartbeats": 200000,
+      "wall_s": 0.8032704799843486,
+      "boottime_s": 0.8032717369787861,
+      "user_s": 0.663546,
+      "system_s": 0.220276,
+      "maxrss_kib": 2228028,
+      "wall_timeout": false,
+      "exit_code": 0,
+      "load_after": [
+        4.4736328125,
+        7.4228515625,
+        11.20263671875
+      ],
+      "suspension_delta_s": 1.2569944374263287e-06,
+      "log": ""
+    }
+  ]
+}
