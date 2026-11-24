@@ -101,7 +101,7 @@ composition. It does not establish a coherent random field across arbitrary
 views, time or refinement, nor an executable random-bit sampler for this renderer.
 No new probability-object interface was needed for these finite laws.
 
-## Interface assessment and next image
+## Interface assessment and image client
 
 Retain this construction as a small reusable layering model. The clients required
 separate emission and transmission carriers, explicit layer order, a world/query
@@ -112,23 +112,13 @@ requires adopting scalar layering as the final renderer's universal scene model.
 Scattering back toward earlier layers and interreflection require richer response
 information and different composition obligations.
 
-A concrete next example is an orthographic view of two bounded, parallel luminous
-rectangles in a rational 3D world, at depths `z=1` and `z=2`. Give the nearer
-rectangle transmission `1/2` and the farther rectangle transmission zero, with
-different RGB emission values and black background. A finite pixel grid supplies
-rays parallel to the positive z-axis. A finite sequence of rational camera
-translations in x makes both occlusion and newly exposed background visible.
-This permits exact intersection arithmetic and front-to-back ordering while
-exercising the existing response model.
-
-The deliverable for that next slice should be a deterministic PPM image sequence,
-with checked pixel values connected to response composition and a specified
-channel clamp/quantization rule. It needs finite grid generation, ray/rectangle
-hit and boundary conventions, depth ordering or a proved fixed order, camera
-queries, finite layer folding, and an output adapter. The adapter needs byte-level
-checks and explicit runtime assumptions. Rational scene evaluation is exact;
-quantization needs its own stated error bound. Resolution, file names and scene
-parameters belong to that implementation's acceptance criteria.
+The [orthographic image sequence](orthographic-rendering.md) now implements this
+next client: two bounded parallel rectangles at depths z=1 and z=2, rational RGB
+emission, black background and three translated cameras. It uses the shared
+`eval_prod` folding consequence of `eval_mul`. Checked intersections and fixed
+depth order justify its finite pixel computation; a separate clamp/quantization
+contract connects the exact samples to deterministic PPM output. Its output
+adapter has executable byte-level checks and explicit runtime assumptions.
 
 This image slice has no identified dependency on general probability objects,
 smooth associated bundles, Morita comparison, a general FRP runtime, or caching.

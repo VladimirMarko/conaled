@@ -1269,4 +1269,6 @@ import Examples.FiniteDependentCorrespondence
 import Examples.ExceptionalInternalHom
 import Examples.NativeCanonicalInverse
 
+import Examples.OrthographicRendering
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

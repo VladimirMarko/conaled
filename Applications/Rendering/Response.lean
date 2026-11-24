@@ -1,6 +1,7 @@
 import Mathlib.Algebra.GroupWithZero.Action.Basic
 import Mathlib.Algebra.Group.End
 import Mathlib.Algebra.Group.Pi.Basic
+import Mathlib.Algebra.BigOperators.Group.List.Basic
 
 /-! Emission/transmission layering, separate from world geometry and sampling. -/
 namespace Applications.Rendering
@@ -58,6 +59,13 @@ def meaning : Response T V →* Function.End V where
   toFun := eval
   map_one' := funext eval_one
   map_mul' a b := funext (eval_mul a b)
+
+/-- Front-to-back finite layering evaluates from the back toward the observer. -/
+theorem eval_prod (layers : List (Response T V)) (incoming : V) :
+    layers.prod.eval incoming = layers.foldr (fun r light => r.eval light) incoming := by
+  induction layers with
+  | nil => simp
+  | cons front rest ih => simp only [List.prod_cons, eval_mul, List.foldr_cons, ih]
 
 /-- A spatial query and its incoming value are separate from the response algebra. -/
 def observe {X P : Type*} (scene : X → Response T V) (query : P → X)

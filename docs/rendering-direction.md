@@ -101,11 +101,12 @@ semantic experiments.
 The [response experiment](research/rendering-responses.md) supplies milestone 1
 with reusable composition, spatial clients in two and three dimensions, a
 dependence-sensitive finite-probability observation, and a translated-presentation
-comparison. It retains the small layering model and records its limits. The next
-image-producing slice is an orthographic 3D scene with two luminous rectangles,
-a finite camera sequence and deterministic PPM output. General light transport,
-orbifold transport and certified reuse remain separate milestones; the response
-experiment does not establish their contracts.
+comparison. It retains the small layering model and records its limits. The
+[orthographic image sequence](research/orthographic-rendering.md) supplies the
+Euclidean part of milestone 2: two luminous rectangles, three camera positions,
+checked finite pixel computation and deterministic PPM output. General light
+transport, orbifold transport and certified reuse remain separate milestones;
+these experiments do not establish their contracts.
 
 ## Questions to settle through the work
 
