@@ -9,9 +9,10 @@ set_option autoImplicit false
 set_option warningAsError true
 namespace SquareKit.Cubical.Presheaf.StructureIdentity.Native
 open CategoryTheory SquareKit.StructureIdentity
-variable {Γ : Context.{1}} {A : Family Γ}
+universe u
+variable {Γ : Context.{u+1}} {A : Family Γ}
 
-def expression {D C E : Description} (s : Term (family D A)) (c : Term (family C A)) :
+def expression {D C E : Description.{u}} (s : Term (family D A)) (c : Term (family C A)) :
     Expression D C E → Term (family E A)
   | .data => s
   | .var => c
@@ -21,31 +22,33 @@ def expression {D C E : Description} (s : Term (family D A)) (c : Term (family C
   | .second a => sigmaSnd (expression s c a)
   | .apply f a => applyTerm (expression s c f) (expression s c a)
 
-def holdsFamily (p : Term (constantFamily Γ (ULift.{1} Prop))) : Family Γ :=
-  discreteFamily p (fun q => ULift.{1} (PLift q.down))
+def holdsFamily {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) : Family Γ :=
+  discreteFamily p (fun q => ULift.{u+1} (PLift (PropositionCarrier.decode q.down)))
 
-def holdsFilling (p : Term (constantFamily Γ (ULift.{1} Prop))) : Filling (holdsFamily p) :=
-  discreteFilling p (fun q => ULift.{1} (PLift q.down))
+def holdsFilling {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) : Filling (holdsFamily p) :=
+  discreteFilling p (fun q => ULift.{u+1} (PLift (PropositionCarrier.decode q.down)))
 
-theorem holdsFilling_lawful (p : Term (constantFamily Γ (ULift.{1} Prop))) :
+theorem holdsFilling_lawful {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) :
     (holdsFilling p).Lawful := discreteFilling_lawful p _
 
-def holdsIsProp (p : Term (constantFamily Γ (ULift.{1} Prop))) :
+def holdsIsProp {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) :
     Term (HomotopyLevels.isProp (holdsFamily p)) :=
   HomotopyLevels.ofSubsingleton _ (fun x =>
-    (show Subsingleton (ULift.{1} (PLift (p.val x).down)) from inferInstance))
+    (show Subsingleton (ULift.{u+1} (PLift (PropositionCarrier.decode (p.val x).down))) from inferInstance))
 
-def holdsPresentation (p : Term (constantFamily Γ (ULift.{1} Prop))) :
+def holdsPresentation {P : Type u} [PropositionCarrier P] (p : Term (constantFamily Γ (ULift.{u+1} P))) :
     SmallUniverse.SmallPresentation.Data (holdsFamily p) where
-  fiber x := PLift (p.val x).down
-  equiv _ := Equiv.ulift.symm
+  fiber x := ULift.{u} (PLift (PropositionCarrier.decode (p.val x).down))
+  equiv _ := Equiv.ulift.trans Equiv.ulift.symm
 
-def lawFamily {D C : Description} (p : Formula D C) {Γ : Context.{1}} {A : Family Γ}
+def lawFamily {D C : Description.{u}} (p : Formula D C) {Γ : Context.{u+1}} {A : Family Γ}
     (s : Term (family D A)) (c : Term (family C A)) : Family Γ :=
   match p with
-  | .truth => constantFamily Γ (ULift.{1} Unit)
+  | .truth => constantFamily Γ (ULift.{u+1} PUnit.{u+1})
   | .equal (E := E) a b => homogeneousPath (family E A) (expression s c a) (expression s c b)
-  | .holds a => holdsFamily (expression s c a)
+  | @Formula.holds _ _ _P hp a =>
+    letI := hp
+    holdsFamily (expression s c a)
   | .and p q =>
     let P := lawFamily p s c
     sigma P (reindex (lawFamily q s c) (projection P))
@@ -59,12 +62,12 @@ def lawFamily {D C : Description} (p : Formula D C) {Γ : Context.{1}} {A : Fami
         (Term.map (reindexIso E A π).hom (generic (family E A)))))
 
 /-- Descriptions built over a native set remain sets, including function fields. -/
-noncomputable def familyIsSet (D : Description) {Γ : Context.{1}} {A : Family Γ}
+noncomputable def familyIsSet (D : Description.{u}) {Γ : Context.{u+1}} {A : Family Γ}
     (sA : Term (HomotopyLevels.isSet A)) (FA : Filling A) (hFA : FA.Lawful) :
     Term (HomotopyLevels.isSet (family D A)) :=
   match D with
   | .carrier => sA
-  | .fixed S => HomotopyLevels.constantIsSet (ULift.{1} S)
+  | .fixed S => HomotopyLevels.constantIsSet (ULift.{u+1} S)
   | .product D E =>
     let d := filling D FA hFA
     let e := filling E FA hFA
@@ -77,17 +80,19 @@ noncomputable def familyIsSet (D : Description) {Γ : Context.{1}} {A : Family �
     HomotopyLevels.piIsSet (HomotopyLevels.reindexSet (familyIsSet E sA FA hFA) π)
       d.1 d.2 (e.1.reindex π) (e.2.reindex π)
 
-noncomputable def lawFilling {D C : Description} (p : Formula D C)
-    {Γ : Context.{1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
+noncomputable def lawFilling {D C : Description.{u}} (p : Formula D C)
+    {Γ : Context.{u+1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
     (FA : Filling A) (hFA : FA.Lawful) :
     {F : Filling (lawFamily p s c) // F.Lawful} :=
   match p with
-  | .truth => filling (.fixed Unit) FA hFA
+  | .truth => filling (.fixed PUnit.{u+1}) FA hFA
   | .equal (E := E) a b =>
     let F := filling E FA hFA
     ⟨pathFilling (F.1.reindex (projection (interval Γ))) (F.2.reindex _)
       (expression s c a) (expression s c b), pathFilling_lawful _ (F.2.reindex _) _ _⟩
-  | .holds a => ⟨holdsFilling (expression s c a), holdsFilling_lawful _⟩
+  | @Formula.holds _ _ _P hp a =>
+    letI := hp
+    ⟨holdsFilling (expression s c a), holdsFilling_lawful _⟩
   | .and p q =>
     let d := lawFilling p s c FA hFA
     let e := lawFilling q s c FA hFA
@@ -107,16 +112,18 @@ noncomputable def lawFilling {D C : Description} (p : Formula D C)
       (FA.reindex π) (hFA.reindex π)
     ⟨piFilling d.1 d.2 e.1, piFilling_lawful d.1 d.2 e.1 e.2⟩
 
-noncomputable def lawPresentation {D C : Description} (p : Formula D C)
-    {Γ : Context.{1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
+noncomputable def lawPresentation {D C : Description.{u}} (p : Formula D C)
+    {Γ : Context.{u+1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
     (PA : SmallUniverse.SmallPresentation.Data A) :
     SmallUniverse.SmallPresentation.Data (lawFamily p s c) :=
   match p with
-  | .truth => presentation (.fixed Unit) PA
+  | .truth => presentation (.fixed PUnit.{u+1}) PA
   | .equal (E := E) a b => SmallUniverse.SmallPresentation.Data.path _
       (smallReindex (presentation E PA) (projection (interval Γ)))
       (expression s c a) (expression s c b)
-  | .holds a => holdsPresentation (expression s c a)
+  | @Formula.holds _ _ _P hp a =>
+    letI := hp
+    holdsPresentation (expression s c a)
   | .and p q =>
     let d := lawPresentation p s c PA
     let e := lawPresentation q s c PA
@@ -133,16 +140,18 @@ noncomputable def lawPresentation {D C : Description} (p : Formula D C)
 
 /-- Laws are native propositions when their carrier is a native set. Equality
 uses that sethood witness; only the explicitly discrete `holds` case uses host proofs. -/
-noncomputable def lawIsProp {D C : Description} (p : Formula D C)
-    {Γ : Context.{1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
+noncomputable def lawIsProp {D C : Description.{u}} (p : Formula D C)
+    {Γ : Context.{u+1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
     (sA : Term (HomotopyLevels.isSet A)) (FA : Filling A) (hFA : FA.Lawful) :
     Term (HomotopyLevels.isProp (lawFamily p s c)) :=
   match p with
   | .truth => HomotopyLevels.ofSubsingleton _ (fun _ =>
-      (show Subsingleton (ULift.{1} Unit) from inferInstance))
+      (show Subsingleton (ULift.{u+1} PUnit.{u+1}) from inferInstance))
   | .equal (E := E) a b =>
     HomotopyLevels.pathIsPropAt (familyIsSet E sA FA hFA) (expression s c a) (expression s c b)
-  | .holds a => holdsIsProp (expression s c a)
+  | @Formula.holds _ _ _P hp a =>
+    letI := hp
+    holdsIsProp (expression s c a)
   | .and p q =>
     let d := lawFilling p s c FA hFA
     let e := lawFilling q s c FA hFA
@@ -165,8 +174,8 @@ noncomputable def lawIsProp {D C : Description} (p : Formula D C)
       (lawIsProp p s' c' (HomotopyLevels.reindexSet sA π) (FA.reindex π) (hFA.reindex π))
       d.1 d.2 e.1 e.2
 
-noncomputable def classifyLaw {D C : Description} (p : Formula D C)
-    (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def classifyLaw {D C : Description.{u}} (p : Formula D C)
+    (a : Γ ⟶ smallFamilyCodes.{u})
     (s : Term (family D (SmallUniverse.liftedDecode a)))
     (c : Term (family C (SmallUniverse.liftedDecode a))) :
     SmallUniverse.LargeConstructors.Result (lawFamily p s c) :=
@@ -175,15 +184,15 @@ noncomputable def classifyLaw {D C : Description} (p : Formula D C)
   SmallUniverse.LargeConstructors.construct
     (lawPresentation p s c (SmallUniverse.decodePresentation a)) F.1 F.2
 
-def unitContext : Term (family (.fixed Unit) A) := ⟨fun _ => ⟨()⟩, fun _ => rfl⟩
+def unitContext : Term (family (.fixed PUnit.{u+1}) A) := ⟨fun _ => ⟨PUnit.unit⟩, fun _ => rfl⟩
 
 /-- A law-bearing structure retains the native law witness as its second field. -/
-def modelsFamily (T : Specification) (A : Family Γ) : Family Γ :=
+def modelsFamily (T : Specification.{u}) (A : Family Γ) : Family Γ :=
   let S := family T.description A
   let π := projection S
   sigma S (lawFamily T.law (Term.map (reindexIso T.description A π).hom (generic S)) unitContext)
 
-noncomputable def modelsFilling (T : Specification) (FA : Filling A) (hFA : FA.Lawful) :
+noncomputable def modelsFilling (T : Specification.{u}) (FA : Filling A) (hFA : FA.Lawful) :
     {F : Filling (modelsFamily T A) // F.Lawful} :=
   let S := family T.description A
   let π := projection S
@@ -192,7 +201,7 @@ noncomputable def modelsFilling (T : Specification) (FA : Filling A) (hFA : FA.L
     unitContext (FA.reindex π) (hFA.reindex π)
   ⟨sigmaFilling d.1 d.2 p.1, sigmaFilling_lawful d.1 d.2 p.1 p.2⟩
 
-noncomputable def modelsPresentation (T : Specification)
+noncomputable def modelsPresentation (T : Specification.{u})
     (PA : SmallUniverse.SmallPresentation.Data A) :
     SmallUniverse.SmallPresentation.Data (modelsFamily T A) :=
   let S := family T.description A
@@ -201,16 +210,16 @@ noncomputable def modelsPresentation (T : Specification)
     (lawPresentation T.law (Term.map (reindexIso T.description A π).hom (generic S))
       unitContext (smallReindex PA π))
 
-noncomputable def classifyModels (T : Specification) (a : Γ ⟶ smallFamilyCodes.{0}) :
+noncomputable def classifyModels (T : Specification.{u}) (a : Γ ⟶ smallFamilyCodes.{u}) :
     SmallUniverse.LargeConstructors.Result (modelsFamily T (SmallUniverse.liftedDecode a)) :=
   let F := modelsFilling T (SmallUniverse.NativeDecode.filling a)
     (SmallUniverse.NativeDecode.filling_lawful a)
   SmallUniverse.LargeConstructors.construct
     (modelsPresentation T (SmallUniverse.decodePresentation a)) F.1 F.2
 
-variable {Δ : Context.{1}}
+variable {Δ : Context.{u+1}}
 
-theorem applyTerm_reindex (D E : Description)
+theorem applyTerm_reindex (D E : Description.{u})
     (f : Term (family (.function D E) A)) (a : Term (family D A)) (σ : Δ ⟶ Γ) :
     reindexTerm E (applyTerm f a) σ =
       applyTerm (reindexTerm (.function D E) f σ) (reindexTerm D a σ) := by
@@ -220,7 +229,7 @@ theorem applyTerm_reindex (D E : Description)
   exact congrArg (fun b => (reindexIso E A σ).hom.app x ((f.val y).val (𝟙 y) b))
     ((reindexIso D A σ).hom_inv_id_app_apply x (a.val y)).symm
 
-theorem expression_reindex {D C E : Description}
+theorem expression_reindex {D C E : Description.{u}}
     (s : Term (family D A)) (c : Term (family C A)) (a : Expression D C E) (σ : Δ ⟶ Γ) :
     reindexTerm E (expression s c a) σ =
       expression (reindexTerm D s σ) (reindexTerm C c σ) a := by
@@ -245,8 +254,8 @@ theorem expression_reindex {D C E : Description}
     change reindexTerm _ (applyTerm (expression s c f) (expression s c a)) σ = _
     rw [applyTerm_reindex, hf, ha]
     rfl
-noncomputable def lawReindexIso {D C : Description} (p : Formula D C)
-    {Γ Δ : Context.{1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
+noncomputable def lawReindexIso {D C : Description.{u}} (p : Formula D C)
+    {Γ Δ : Context.{u+1}} {A : Family Γ} (s : Term (family D A)) (c : Term (family C A))
     (σ : Δ ⟶ Γ) : reindex (lawFamily p s c) σ ≅
       lawFamily p (reindexTerm D s σ) (reindexTerm C c σ) :=
   match p with
@@ -258,7 +267,9 @@ noncomputable def lawReindexIso {D C : Description} (p : Formula D C)
       (Term.reindex (expression s c b) σ) ≪≫
     eqToIso (congrArg₂ (homogeneousPath (family E (reindex A σ)))
       (expression_reindex s c a σ) (expression_reindex s c b σ))
-  | .holds a => eqToIso (congrArg holdsFamily (expression_reindex s c a σ))
+  | @Formula.holds _ _ _P hp a =>
+    letI := hp
+    eqToIso (congrArg holdsFamily (expression_reindex s c a σ))
   | .and p q => productCongr (lawReindexIso p s c σ) (lawReindexIso q s c σ)
   | .implies p q =>
     piReindexIso (lawFamily p s c) (reindex (lawFamily q s c) (projection _)) σ ≪≫
@@ -307,22 +318,22 @@ noncomputable def lawReindexIso {D C : Description} (p : Formula D C)
       EquivalenceFamilies.piSecondIso (reindex X σ) j ≪≫ PiDomain.congr e P
 
 
-def objectLaws (T : Specification) (Γ : Context.{1}) : Family (total (objects T.description Γ)) :=
+def objectLaws (T : Specification.{u}) (Γ : Context.{u+1}) : Family (total (objects T.description Γ)) :=
   lawFamily T.law (objectStructure T.description Γ) unitContext
 
 /-- Sethood and the law are retained native fields over each raw structured object. -/
-def objectConditions (T : Specification) (Γ : Context.{1}) :
+def objectConditions (T : Specification.{u}) (Γ : Context.{u+1}) :
     Family (total (objects T.description Γ)) :=
   let S := HomotopyLevels.isSet (objectCarrier T.description Γ)
   sigma S (reindex (objectLaws T Γ) (projection S))
 
-noncomputable def objectLawsFilling (T : Specification) (Γ : Context.{1}) :
+noncomputable def objectLawsFilling (T : Specification.{u}) (Γ : Context.{u+1}) :
     {F : Filling (objectLaws T Γ) // F.Lawful} :=
   let a := objectCarrierCode T.description Γ
   lawFilling T.law (objectStructure T.description Γ) unitContext
     (SmallUniverse.NativeDecode.filling a) (SmallUniverse.NativeDecode.filling_lawful a)
 
-noncomputable def objectConditionsFilling (T : Specification) (Γ : Context.{1}) :
+noncomputable def objectConditionsFilling (T : Specification.{u}) (Γ : Context.{u+1}) :
     {F : Filling (objectConditions T Γ) // F.Lawful} :=
   let a := objectCarrierCode T.description Γ
   let F := SmallUniverse.NativeDecode.filling a
@@ -333,29 +344,29 @@ noncomputable def objectConditionsFilling (T : Specification) (Γ : Context.{1})
   ⟨sigmaFilling S hS (L.1.reindex (projection _)),
     sigmaFilling_lawful S hS _ (L.2.reindex _)⟩
 
-noncomputable def objectConditionsPresentation (T : Specification) (Γ : Context.{1}) :
+noncomputable def objectConditionsPresentation (T : Specification.{u}) (Γ : Context.{u+1}) :
     SmallUniverse.SmallPresentation.Data (objectConditions T Γ) :=
   let a := objectCarrierCode T.description Γ
   let P := SmallUniverse.decodePresentation a
   (HomotopyLevels.isSetPresentation P).sigma
     (smallReindex (lawPresentation T.law (objectStructure T.description Γ) unitContext P) _)
 
-noncomputable def classifyObjectConditions (T : Specification) (Γ : Context.{1}) :
+noncomputable def classifyObjectConditions (T : Specification.{u}) (Γ : Context.{u+1}) :
     SmallUniverse.LargeConstructors.Result (objectConditions T Γ) :=
   let F := objectConditionsFilling T Γ
   SmallUniverse.LargeConstructors.construct (objectConditionsPresentation T Γ) F.1 F.2
 
 /-- The total family of all small native set carriers with structure and laws. -/
-def modelObjects (T : Specification) (Γ : Context.{1}) : Family Γ :=
+def modelObjects (T : Specification.{u}) (Γ : Context.{u+1}) : Family Γ :=
   sigma (objects T.description Γ) (objectConditions T Γ)
 
-noncomputable def modelObjectsFilling (T : Specification) (Γ : Context.{1}) :
+noncomputable def modelObjectsFilling (T : Specification.{u}) (Γ : Context.{u+1}) :
     {F : Filling (modelObjects T Γ) // F.Lawful} :=
   let O := objectsFilling T.description Γ
   let C := objectConditionsFilling T Γ
   ⟨sigmaFilling O.1 O.2 C.1, sigmaFilling_lawful O.1 O.2 C.1 C.2⟩
 
-noncomputable def objectConditionsIsProp (T : Specification) (Γ : Context.{1}) :
+noncomputable def objectConditionsIsProp (T : Specification.{u}) (Γ : Context.{u+1}) :
     Term (HomotopyLevels.isProp (objectConditions T Γ)) := by
   apply lam
   apply lam
@@ -375,7 +386,7 @@ noncomputable def objectConditionsIsProp (T : Specification) (Γ : Context.{1}) 
   let pl := HomotopyLevels.mapProp
     (lawReindexIso T.law (objectStructure T.description Γ) unitContext σ).symm
     (lawIsProp T.law (reindexTerm T.description (objectStructure T.description Γ) σ)
-      (reindexTerm (.fixed Unit) unitContext σ) sA (F.reindex σ) (hF.reindex σ))
+      (reindexTerm (.fixed PUnit.{u+1}) unitContext σ) sA (F.reindex σ) (hF.reindex σ))
   let L := objectLawsFilling T Γ
   let p := HomotopyLevels.productIsProp ps pl
     ((HomotopyLevels.isSetFilling F hF).reindex σ)
@@ -397,7 +408,7 @@ private noncomputable def unreindexSetTerm (A : Family Γ) (σ : Δ ⟶ Γ)
     (pi (reindex A (projection A)) (HomotopyLevels.isProp (EquivalenceFamilies.contractionPaths A))) σ).inv
     (lam s₁)
 
-noncomputable def modelObject (T : Specification) (a : Γ ⟶ smallFamilyCodes.{0})
+noncomputable def modelObject (T : Specification.{u}) (a : Γ ⟶ smallFamilyCodes.{u})
     (s : Term (family T.description (SmallUniverse.liftedDecode a)))
     (sA : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode a)))
     (p : Term (lawFamily T.law s unitContext)) : Term (modelObjects T Γ) := by
@@ -406,7 +417,7 @@ noncomputable def modelObject (T : Specification) (a : Γ ⟶ smallFamilyCodes.{
   let hs := unreindexSetTerm (objectCarrier T.description Γ) σ sA
   have hp : Term (lawFamily T.law
       (reindexTerm T.description (objectStructure T.description Γ) σ)
-      (reindexTerm (.fixed Unit) unitContext σ)) := by
+      (reindexTerm (.fixed PUnit.{u+1}) unitContext σ)) := by
     change Term (lawFamily T.law
       (reindexTerm T.description (objectStructure T.description Γ) (pair (𝟙 Γ) (objectOf T.description a s)))
       unitContext)
@@ -417,7 +428,7 @@ noncomputable def modelObject (T : Specification) (a : Γ ⟶ smallFamilyCodes.{
     sigmaIntro (B := reindex (reindex (objectLaws T Γ) σ) (projection _)) hs hl
   exact sigmaIntro o hc
 
-noncomputable def modelPathProjectionEquivalence (T : Specification)
+noncomputable def modelPathProjectionEquivalence (T : Specification.{u})
     (z w : Term (modelObjects T Γ)) :
     HomotopyEquivalence (HomotopyLevels.pathMap (PropositionExtension.first (objectConditions T Γ)) z w) :=
   let O := objectsFilling T.description Γ

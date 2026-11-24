@@ -6,8 +6,7 @@ structure identity principle.
 
 The description grammar covers carrier occurrences, fixed types, products and
 function types. The law grammar adds equations, proposition-valued relations,
-conjunction, implication and universal quantification. Specifications currently
-use small Lean types; descriptions and their transport are universe-polymorphic.
+conjunction, implication and universal quantification. Specifications, descriptions and their transport are universe-polymorphic.
 Preparing a specification requires writing its data shape and law syntax.
 Preservation, law invariance and transport of formula solutions are then derived.
 Direct functions and existing mathematical records remain usable through adapters.
@@ -36,7 +35,7 @@ def Description.toTransport (D : Description.{u}) : Transport.{u} where
   map_refl _ := D.transport_refl
   map_trans := D.transport_trans
 
-def Specification.toTransport (T : Specification) : Transport.{0} where
+def Specification.toTransport (T : Specification.{u}) : Transport.{u} where
   Data := T.Model
   map := T.transport
   map_refl _ := Equiv.ext T.transport_refl

@@ -111,8 +111,10 @@ it is not evidence of lower authoring cost. There has been no independent
 held-out author trial in this implementation. Any such trial must pin the
 published interface and retain preparation cost separately from author effort.
 
-#680 retains universe generalization of the law grammar; these consumers live
-in its existing `Type 0` range. #687 retains coherence for independently selected
+#680 generalizes the law grammar, both native interpretations and recovery
+to `Description.{u}` over `Context.{u+1}`. These lattice consumers remain
+unchanged specializations at `Type 0`; the higher-universe state example is
+`Examples.UniverseStructureLaws`. #687 retains coherence for independently selected
 structured-equivalence composition/inversion. Existing direct and strict-carrier
 laws do not establish that broader result. Further signature or higher-law
 extensions require their own consumer and admission contract.
@@ -205,3 +207,31 @@ exact recovery, under the #636 policy. It does not establish a general Lean defe
 or justify a global limit increase. An upstream report would need a smaller
 independent reproducer. Authoring productivity remains unmeasured; #692 retains
 the separate held-out trial.
+
+## Universe generalization regression measurements (#680)
+
+The same geometric adapter and frozen #692 native author source were elaborated
+three times each before and after generalizing the law grammar. The baseline
+was the reviewed #692 tree (`fe9b446c`, identical to published `e9692543`);
+source hashes matched for each adapter across both checkouts. Commands used
+`lake env lean -DwarningAsError=true -EhasSorry` with warm compiled dependencies,
+Lean 4.35.0 and default recursion/heartbeat settings. Wall time includes the
+`direnv`/Lake wrapper; peak RSS is the child-process usage reported by `wait4`.
+
+| Adapter | Baseline seconds, three runs | Generalized seconds, three runs | Baseline / generalized peak RSS, KiB |
+| --- | --- | --- | --- |
+| `NativeGeometricLatticeTransport` | 1.485, 1.547, 1.583 | 1.477, 1.476, 1.534 | 2252400 / 2252348 |
+| `LatticeAuthorTrialNative` | 1.975, 2.020, 2.008 | 2.007, 1.990, 2.037 | 3594348 / 3596648 |
+
+All twelve invocations passed. These observations show no new resource failure
+at the measured adapters; they do not establish a general performance bound.
+No resource allowance or transparency setting was added. Existing local
+transparency settings in presented recovery remain unchanged.
+
+Initial implementation failures were encoding problems: `()` selected the
+small unit universe, the proposition-carrier instance needed explicit binding
+when matching `Formula.holds`, and satisfaction recovery needed both the fixed
+`ULift Prop` carrier and the outer native lift. The higher-state equivalence
+also needed an explicit proposition-carrier parameter and unfolding of
+`Description.Data` in a proof. These failures did not change the expected
+state transport, the grammar's connectives or either negative control.

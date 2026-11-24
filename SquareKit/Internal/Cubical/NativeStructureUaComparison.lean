@@ -410,7 +410,7 @@ end Description
 
 section Models
 open CategoryTheory SquareKit.StructureIdentity StructureIdentity.Native
-variable {Γ : Context.{1}} (T : Specification) (z w : Term (modelObjects T Γ))
+variable {Γ : Context.{u+1}} (T : Specification.{u}) (z w : Term (modelObjects T Γ))
 noncomputable def modelPathInverse :
     homogeneousPath (objects T.description Γ) (sigmaFst z) (sigmaFst w) ⟶
       homogeneousPath (modelObjects T Γ) z w :=
@@ -710,7 +710,7 @@ private noncomputable def wholePathFilling {Γ : Context.{u}} {A : Family Γ}
     pathFilling_lawful (F.reindex (projection (interval Γ))) (hF.reindex _) a b⟩
 
 section FinalModels
-variable {Γ : Context.{1}} (T : Specification) (z w : Term (modelObjects T Γ))
+variable {Γ : Context.{u+1}} (T : Specification.{u}) (z w : Term (modelObjects T Γ))
 noncomputable def modelEquivalences : Family Γ := rawEquivalences T.description (sigmaFst z) (sigmaFst w)
 noncomputable def modelMap : modelEquivalences T z w ⟶ homogeneousPath (modelObjects T Γ) z w :=
   rawMap T.description (sigmaFst z) (sigmaFst w) ≫ modelPathInverse T z w

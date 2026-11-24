@@ -68,11 +68,22 @@ family isomorphisms. Both inverse equations retain the dependent output, and
 the function comparison evaluates every generalized argument.
 
 `NativeStructureLaws` interprets the existing `Formula` grammar using native
-path, Sigma and Pi families. The expression and law language currently uses
-`Specification` over `Context.{1}`; the raw description interpretation and
-structure-path construction are polymorphic in `Description.{u}` and
-`Context.{u+1}`. [#680](https://github.com/VladimirMarko/conaled/issues/680)
-tracks generalization of the law syntax and its recovery across universes.
+path, Sigma and Pi families. Expressions, formulas, `Specification.{u}`,
+model transport, dependent solution recovery and both native interpretations
+now use `Description.{u}` and `Context.{u+1}` (#680). The empty expression
+context uses `PUnit.{u+1}`. `PropositionCarrier P` supplies an equivalence
+`P ≃ Prop` for the fixed host-proposition carrier; existing clients infer
+`P = Prop`, while higher-universe clients can use `ULift.{u} Prop`. This
+retains the six law constructors and does not supply an internal universe of
+proposition families. Complete selected equivalences and both whole native
+recovery homotopies remain part of the polymorphic correspondence.
+
+`Examples.UniverseStructureLaws` connects the generalized syntax to the
+established `StatePackage` interface. At `ULift.{1} Bool`, complementation
+moves the initial state from false to true and changes the invariant. Both
+native presented-model recoveries retain the invariant proofs and reject the
+unchanged endpoint. The `Prop` specialization of its syntax is definitionally
+the existing small state specification.
 Native carrier sethood supplies propositionhood
 of the interpreted laws; host proof irrelevance is not used to erase arbitrary
 native identity witnesses. The `HomotopyLevels` modules package these native

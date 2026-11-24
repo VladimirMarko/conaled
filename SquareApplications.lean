@@ -1071,6 +1071,7 @@ import Examples.NativeLatticeTransportCases
 import Examples.NativeGeometricLatticeTransport
 import Examples.LatticeAuthorTrialDirect
 import Examples.LatticeAuthorTrialNative
+import Examples.UniverseStructureLaws
 import SquareKit.Internal.Cubical.PropositionExtension
 import SquareKit.Internal.Cubical.CartesianPropositionExtension
 import Examples.CubicalChartFamily
