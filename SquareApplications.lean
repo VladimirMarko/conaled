@@ -1261,5 +1261,6 @@ import Examples.SmoothTransverseRealization
 
 import Examples.RetainedFirstHit
 import Examples.GroupoidCorrespondence
+import Examples.ExceptionalInternalHom
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
