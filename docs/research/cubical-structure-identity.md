@@ -160,6 +160,64 @@ fixed-point-law models. `pointedModelPath_projection` recovers the whole raw
 path. `pointedModelPath_roundtrip` exercises the final law-bearing inverse and
 map on that constructed model path.
 
+### Independently supplied composition and inversion (#687)
+
+`NativeStructureCoherence` and `CartesianNativeStructureCoherence` add the
+model-local `StructureIdentity.Coherence` interface. Its bounded structure is a
+pointed endomorphism: a point and an entire endomorphism, with preservation given
+by native paths. `Equivalence` retains the forward map and its complete
+contractible-fiber witness. `compWith` accepts a separately supplied complete
+witness for the composite map. `inverseWith` uses the inverse selected by the
+original witness and accepts a complete witness for that inverse map. These
+operations construct their point and function homotopies independently of the
+selected structure-path map.
+
+`Coded.path` applies the existing `UaComparison.explicitMap` to that independently
+constructed preservation data. `Coded.composition` compares the actual selected
+path of `compWith` with concatenation of the two selected whole paths.
+`Coded.inversion` compares the actual selected path of `inverseWith` with reversal
+of the original whole path. Both conclusions are native homotopies between
+whole paths, including their fields and carrier projections. Neither identifies
+complete carrier-equivalence witnesses by equality. The caller's composite or
+inverse witness remains in the selected `ua` construction.
+
+The whole-path comparison requires native sethood of the target carrier. Its
+shared argument, `wholeComparison`, works for every existing description: the
+preservation fields are propositions over a native set, and the selected total
+correspondence recovers both whole paths. The integer and lattice specializations supply this assumption; the theorem
+itself does not require a discrete presentation.
+The independent composition and inversion operations themselves work with
+arbitrary lawful native families. The bounded operation interface here does not
+claim composition for every recursive description.
+
+`Equivalence.reindex` retains the complete substituted witness.
+`Coded.path_reindex` compares fresh selection after substitution with the
+substituted selected whole path. `composition_reindex` and `inversion_reindex`
+compare freshly constructed operations after substitution with substitution of
+the original selected path. Their lawful fillers are explicit; the conclusions
+are whole-path homotopies, rather than strict equations between chosen fillers
+or contractions. Exact carrier projection and Sigma-filling equations support
+these comparisons in both models.
+
+`Examples.NativeStructureCoherence` checks an integer chain translated first by
+1 and then by 2, preserving the successor function. The composite moves the
+initial point from 0 to 3; its unchanged endpoint is rejected. Both native
+models exercise the selected composition and inverse comparisons, substitution
+along the interval projection, and actual integer universe admissions. The
+substitution consumer uses the existing `PathData` interface to retain both
+whole paths and their comparison before specializing its lawful fillers. A lattice
+specialization applies `wholeComparison` to the existing #621 consumer using
+its proved native sethood. The old strict-isomorphism interfaces and their exact
+laws remain available.
+
+This establishes homotopies comparing the displayed paths. It does not supply
+associators, unitors, triangle identities, pentagons, or a comparison between the
+two models' independently selected `ua` paths. A consumer requiring those higher
+coherences must select its precise contract. #633 concerns composition of span
+interpretations and has a separate acceptance criterion. The retained
+[resource experiments](native-structure-coherence/attempts.md) distinguish
+encoding and checking costs from mathematical obstructions.
+
 ## Total structured-object correspondence
 
 Import `NativeStructureUaComparison` or `CartesianNativeStructureUaComparison`.

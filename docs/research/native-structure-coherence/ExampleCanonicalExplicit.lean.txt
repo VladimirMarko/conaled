@@ -1,0 +1,79 @@
+import SquareKit.Internal.Cubical.NativeStructureCoherence
+import Examples.NativeLatticeTransport
+
+/-! A admitted translation chain of pointed integer successor systems. -/
+set_option autoImplicit false
+set_option warningAsError true
+namespace Examples.NativeStructureCoherence
+open CategoryTheory
+
+def translation (k : ℤ) : ℤ ≃ ℤ where
+  toFun n := n + k
+  invFun n := n - k
+  left_inv n := by dsimp; omega
+  right_inv n := by dsimp; omega
+
+namespace Presheaf
+open SquareKit.Cubical.Presheaf StructureIdentity.Coherence
+variable {Γ : Context.{1}}
+variable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily Γ (ULift.{1} ℤ)))
+noncomputable abbrev A := SmallUniverse.liftedDecode admitted.code
+noncomputable def point (n : ℤ) : Term (A (Γ := Γ) admitted) :=
+  Term.map admitted.decoding.inv ⟨fun _ => ⟨n⟩, fun _ => rfl⟩
+noncomputable def shift (k : ℤ) : A (Γ := Γ) admitted ≅ A (Γ := Γ) admitted :=
+  StructureIdentity.Native.presentedCarrierIso admitted.decoding admitted.decoding (translation k)
+noncomputable def system (n : ℤ) : PointedEndomorphism (A (Γ := Γ) admitted) :=
+  ⟨point admitted n, (shift admitted 1).hom⟩
+
+theorem shift_point (n k : ℤ) : Term.map (shift (Γ := Γ) admitted k).hom (point admitted n) = point admitted (n+k) := by
+  apply Term.ext
+  intro x
+  change admitted.decoding.inv.app x
+    (ULift.up (((admitted.decoding.hom.app x (admitted.decoding.inv.app x (ULift.up n)))).down + k)) = _
+  rw [admitted.decoding.inv_hom_id_app_apply]
+  rfl
+
+theorem shift_commute (j k : ℤ) :
+    (shift (Γ := Γ) admitted j).hom ≫ (shift admitted k).hom = (shift admitted k).hom ≫ (shift admitted j).hom := by
+  ext x z
+  change admitted.decoding.inv.app x (ULift.up
+    ((admitted.decoding.hom.app x (admitted.decoding.inv.app x
+      (ULift.up ((admitted.decoding.hom.app x z).down + j)))).down + k)) = _
+  rw [admitted.decoding.inv_hom_id_app_apply]
+  change admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + j + k)) =
+    admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x
+      (admitted.decoding.inv.app x (ULift.up ((admitted.decoding.hom.app x z).down + k)))).down + j))
+  rw [admitted.decoding.inv_hom_id_app_apply]
+  congr 2
+  dsimp
+  omega
+
+noncomputable def move (n k : ℤ) : Equivalence (system (Γ := Γ) admitted n) (system admitted (n+k)) where
+  map := (shift admitted k).hom
+  witness := HomotopyEquivalence.ofIso (shift admitted k)
+  point := Term.convert (congrArg (homogeneousPath (A admitted) · (point admitted (n+k))) (shift_point admitted n k).symm)
+    (homogeneousRefl (point admitted (n+k)))
+  step := Term.convert (congrArg (homogeneousPath (EquivalenceFamilies.maps (A admitted) (A admitted))
+    (EquivalenceFamilies.encodeMap ((shift admitted 1).hom ≫ (shift admitted k).hom)))
+    (congrArg EquivalenceFamilies.encodeMap (shift_commute admitted 1 k)))
+    (homogeneousRefl (EquivalenceFamilies.encodeMap ((shift admitted 1).hom ≫ (shift admitted k).hom)))
+
+noncomputable def composite := (move (Γ := Γ) admitted 0 1).comp (move admitted 1 2)
+  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)
+  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)
+  (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)
+
+noncomputable def compositionComparison := Coded.composition
+  (a := admitted.code) (b := admitted.code) (c := admitted.code)
+  (s := system admitted 0) (t := system admitted 1) (v := system admitted 3) (move (Γ := Γ) admitted 0 1) (move admitted 1 2)
+  (composite admitted).witness (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)
+noncomputable def inverseComparison := Coded.inversion
+  (a := admitted.code) (b := admitted.code)
+  (s := system admitted 0) (t := system admitted 1) (move (Γ := Γ) admitted 0 1)
+  ((move admitted 0 1).witness.selectedInverseEquivalence
+    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _)
+    (SmallUniverse.NativeDecode.filling admitted.code) (SmallUniverse.NativeDecode.filling_lawful _))
+  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)
+
+end Presheaf
+end Examples.NativeStructureCoherence

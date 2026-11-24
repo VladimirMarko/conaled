@@ -1,0 +1,288 @@
+import SquareKit.Internal.Cubical.CartesianNativeStructureUaComparison
+import SquareKit.Internal.Cubical.CartesianNativeStructureRecovery
+import SquareKit.Internal.Cubical.CartesianEquivalenceComposition
+import SquareKit.Internal.Cubical.CartesianTransportConcatenation
+
+/-! Independently supplied equivalences of pointed endomorphisms. Composition
+and inversion use native map homotopies before comparison with structure paths. -/
+set_option autoImplicit false
+set_option warningAsError true
+namespace SquareKit.Cubical.Cartesian.StructureIdentity.Coherence
+open CategoryTheory SquareKit.StructureIdentity Glue
+open Native
+universe u
+variable {Γ : Context.{u+1}}
+
+abbrev MapPath {A B : Family Γ} (f g : A ⟶ B) :=
+  Term (homogeneousPath (EquivalenceFamilies.maps A B)
+    (EquivalenceFamilies.encodeMap f) (EquivalenceFamilies.encodeMap g))
+
+noncomputable def mapsFilling {A B : Family Γ}
+    (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) : Filling (EquivalenceFamilies.maps A B) :=
+  piFilling FA hFA (FB.reindex (projection A))
+theorem mapsFilling_lawful {A B : Family Γ}
+    (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful) :
+    (mapsFilling FA hFA FB).Lawful := piFilling_lawful FA hFA _ (hFB.reindex _)
+
+namespace MapPath
+variable {A B C D : Family Γ} {f g : A ⟶ B}
+
+def whisker (p : MapPath f g) (l : C ⟶ A) (r : B ⟶ D) :
+    MapPath (l ≫ f ≫ r) (l ≫ g ≫ r) :=
+  homogeneousPathMap (functionMap l r) p
+
+noncomputable def trans {h : A ⟶ B} (p : MapPath f g) (q : MapPath g h)
+    (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful) :
+    MapPath f h :=
+  homogeneousConcat (mapsFilling FA hFA FB)
+    (mapsFilling_lawful FA hFA FB hFB) p q
+
+def evaluate (p : MapPath f g) (a : Term A) :
+    Term (homogeneousPath B (Term.map f a) (Term.map g a)) := by
+  let q := Term.reindex (app (Term.map (FunctionPaths.decomposition
+    (EquivalenceFamilies.encodeMap f) (EquivalenceFamilies.encodeMap g)).hom p))
+      (pair (𝟙 Γ) a)
+  exact Term.map (EquivalenceFamilies.homogeneousReindexIso _ _ _ (pair (𝟙 Γ) a)).hom q
+end MapPath
+
+abbrev description : Description.{u} := .product .carrier (.function .carrier .carrier)
+
+structure PointedEndomorphism (A : Family Γ) where
+  point : Term A
+  step : A ⟶ A
+
+def PointedEndomorphism.fields {A : Family Γ} (s : PointedEndomorphism A) :
+    Term (family description A) :=
+  sigmaIntro s.point (EquivalenceFamilies.encodeMap s.step)
+
+/-- The entire selected contractible-fiber witness is an input, alongside the
+point path and the homotopy of complete endomorphisms. -/
+structure Equivalence {A B : Family Γ} (s : PointedEndomorphism A) (t : PointedEndomorphism B) where
+  map : A ⟶ B
+  witness : HomotopyEquivalence map
+  point : Term (homogeneousPath B (Term.map map s.point) t.point)
+  step : MapPath (s.step ≫ map) (map ≫ t.step)
+
+
+namespace Selected
+variable {A B : Family Γ} {f : A ⟶ B}
+def right (E : HomotopyEquivalence f) :
+    Term (homogeneousPath (reindex B (projection B))
+      (Term.map (Functor.whiskerLeft (projection B).mapElements f)
+        (Term.map (Functor.whiskerLeft (projection B).mapElements E.selectedInverse) (generic B)))
+      (generic B)) := genericFiberPath f (𝟙 (total B)) E.fibers.center
+
+def left (E : HomotopyEquivalence f) :
+    Term (homogeneousPath (reindex A (projection A))
+      (Term.map (Functor.whiskerLeft (projection A).mapElements E.selectedInverse)
+        (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A)))
+      (generic A)) := by
+  let τ := pair (projection A) (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A))
+  let z := genericFiberIntro f τ (generic A)
+    (homogeneousRefl (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A)))
+  exact homogeneousPathMap
+    (PropositionExtension.first
+      (reindex (genericFiberPathFamily f) (liftSub (reindex A (projection B)) τ)))
+    ((E.fibers.reindex τ).pathTo z)
+end Selected
+
+namespace Equivalence
+variable {A B C : Family Γ} {s : PointedEndomorphism A}
+  {t : PointedEndomorphism B} {v : PointedEndomorphism C}
+
+/-- A separately supplied composite witness is retained without replacing its
+inverse or contractions with a strict carrier isomorphism. -/
+noncomputable def compWith (e : Equivalence s t) (d : Equivalence t v)
+    (w : HomotopyEquivalence (e.map ≫ d.map))
+    (FA : Filling A) (hFA : FA.Lawful) (FC : Filling C) (hFC : FC.Lawful) :
+    Equivalence s v where
+  map := e.map ≫ d.map
+  witness := w
+  point := homogeneousConcat FC hFC (homogeneousPathMap d.map e.point) d.point
+  step := MapPath.trans (MapPath.whisker e.step (𝟙 A) d.map)
+    (MapPath.whisker d.step e.map (𝟙 C)) FA hFA FC hFC
+
+noncomputable def comp (e : Equivalence s t) (d : Equivalence t v)
+    (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful)
+    (FC : Filling C) (hFC : FC.Lawful) : Equivalence s v :=
+  e.compWith d (e.witness.comp d.witness FA hFA FB hFB FC hFC) FA hFA FC hFC
+
+noncomputable def inverseWith (e : Equivalence s t)
+    (w : HomotopyEquivalence e.witness.selectedInverse)
+    (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful) :
+    Equivalence t s := by
+  let g := e.witness.selectedInverse
+  let L : MapPath (e.map ≫ g) (𝟙 A) :=
+    EquivalencePaths.mapPath _ _ (Selected.left e.witness)
+  let R : MapPath (g ≫ e.map) (𝟙 B) :=
+    EquivalencePaths.mapPath _ _ (Selected.right e.witness)
+  let p := MapPath.trans
+    (homogeneousReverse (mapsFilling FB hFB FA)
+      (mapsFilling_lawful FB hFB FA hFA) (MapPath.whisker L (g ≫ s.step) (𝟙 A)))
+    (MapPath.whisker e.step g g) FB hFB FA hFA
+  let q := MapPath.trans p (MapPath.whisker R (𝟙 B) (t.step ≫ g)) FB hFB FA hFA
+  exact {
+    map := g
+    witness := w
+    point := homogeneousConcat FA hFA
+      (homogeneousReverse FA hFA (homogeneousPathMap g e.point)) (MapPath.evaluate L s.point)
+    step := homogeneousReverse (mapsFilling FB hFB FA)
+      (mapsFilling_lawful FB hFB FA hFA) q }
+
+/-- The independent point and function homotopies inhabit the existing
+recursive preservation interface, with the original witness-selected inverse. -/
+noncomputable def preservation (e : Equivalence s t) :
+    Term (preserves description e.map e.witness.selectedInverse s.fields t.fields) :=
+  sigmaIntro e.point (Term.map (FunctionPaths.decomposition
+    (EquivalenceFamilies.encodeMap (s.step ≫ e.map))
+    (EquivalenceFamilies.encodeMap (e.map ≫ t.step))).hom e.step)
+
+noncomputable def native (e : Equivalence s t) :
+    Term (Native.equivalences description s.fields t.fields) :=
+  sigmaIntro (EquivalenceFamilies.equivSections A B ⟨e.map, e.witness⟩)
+    (Term.map (suppliedEquivalenceFiberIso description e.map e.witness s.fields t.fields).inv
+      e.preservation)
+
+example (e : Equivalence s t) : sigmaFst e.native =
+    EquivalenceFamilies.equivSections A B ⟨e.map, e.witness⟩ := rfl
+
+end Equivalence
+/-- Reflect a path through a genuine native equivalence, using the inverse
+selected from that same witness and retaining both endpoint homotopies. -/
+noncomputable def reflectPath {A B : Family Γ} (f : A ⟶ B) (E : HomotopyEquivalence f)
+    (FA : Filling A) (hFA : FA.Lawful) (x y : Term A)
+    (p : Term (homogeneousPath B (Term.map f x) (Term.map f y))) :
+    Term (homogeneousPath A x y) := by
+  let L : MapPath (f ≫ E.selectedInverse) (𝟙 A) :=
+    EquivalencePaths.mapPath _ _ (Selected.left E)
+  exact homogeneousConcat FA hFA
+    (homogeneousReverse FA hFA (MapPath.evaluate L x))
+    (homogeneousConcat FA hFA (homogeneousPathMap E.selectedInverse p) (MapPath.evaluate L y))
+
+section WholeComparison
+open StructuredIdentity.UaComparison SmallUniverse
+variable (D : Description.{u}) (a b : Γ ⟶ smallFamilyCodes.{u})
+  (s : Term (family D (SmallUniverse.liftedDecode a)))
+  (t : Term (family D (SmallUniverse.liftedDecode b)))
+  (sB : Term (HomotopyLevels.isSet (SmallUniverse.liftedDecode b)))
+
+/-- A homotopy of complete carrier equivalences lifts through proposition-valued
+preservation. Native sethood is explicit; no discrete presentation is required. -/
+noncomputable def equivalencePath (q r : Term (Native.equivalences D s t))
+    (h : Term (homogeneousPath
+      (EquivalenceFamilies.equiv (SmallUniverse.liftedDecode a) (SmallUniverse.liftedDecode b))
+      (sigmaFst q) (sigmaFst r))) :
+    Term (homogeneousPath (Native.equivalences D s t) q r) := by
+  let FA := NativeDecode.filling a
+  let FB := NativeDecode.filling b
+  let hFA := NativeDecode.filling_lawful a
+  let hFB := NativeDecode.filling_lawful b
+  let P := equivalenceFieldsFilling D s t FA hFA FB hFB
+  exact Term.map (PropositionExtension.pathInverse (equivalenceFields D s t) q r
+    (equivalenceFieldsIsProp D s t sB FA hFA FB hFB)
+    (EquivalenceFamilies.equivFilling FA hFA FB hFB)
+    (EquivalenceFamilies.equivFilling_lawful FA hFA FB hFB) P.1 P.2) h
+
+noncomputable def uaEquivalencePath (q r : Term (Native.equivalences D s t))
+    (h : Term (homogeneousPath (SmallUniverse.NativeUnivalence.paths a b)
+      (Term.map (SmallUniverse.NativeUnivalence.equivToPath a b) (sigmaFst q))
+      (Term.map (SmallUniverse.NativeUnivalence.equivToPath a b) (sigmaFst r)))) :
+    Term (homogeneousPath (Native.equivalences D s t) q r) := by
+  let F := EquivalenceFamilies.equivFilling (NativeDecode.filling a) (NativeDecode.filling_lawful a)
+    (NativeDecode.filling b) (NativeDecode.filling_lawful b)
+  let hF := EquivalenceFamilies.equivFilling_lawful (NativeDecode.filling a) (NativeDecode.filling_lawful a)
+    (NativeDecode.filling b) (NativeDecode.filling_lawful b)
+  exact equivalencePath D a b s t sB q r
+    (reflectPath (SmallUniverse.NativeUnivalence.equivToPath a b)
+      (SmallUniverse.NativeUnivalence.uaEquivalence a b) F hF (sigmaFst q) (sigmaFst r) h)
+def carrierProjection :=
+  HomotopyLevels.pathMap (SIP.Exchange.first (SIP.objectFields D))
+    (objectOf D a s) (objectOf D b t)
+
+theorem carrier_explicit (q : Term (Native.equivalences D s t)) :
+    Term.map (carrierProjection D a b s t) (Term.map (explicitMap D a s b t) q) =
+      Term.map (SmallUniverse.NativeUnivalence.equivToPath a b) (sigmaFst q) := by
+  apply Term.ext
+  intro x
+  exact explicitMap_carrier D a s b t x (q.val x)
+
+set_option maxHeartbeats 400000 in
+/-- Carrier-path comparison determines a whole structure-path comparison when
+the target is a native set. The proof retains the supplied whole paths through
+the selected correspondence's recovery homotopies. -/
+noncomputable def wholeComparison
+    (p q : Term (homogeneousPath (objects D Γ) (objectOf D a s) (objectOf D b t)))
+    (h : Term (homogeneousPath (SmallUniverse.NativeUnivalence.paths a b)
+      (Term.map (carrierProjection D a b s t) p)
+      (Term.map (carrierProjection D a b s t) q))) :
+    Term (homogeneousPath
+      (homogeneousPath (objects D Γ) (objectOf D a s) (objectOf D b t)) p q) := by
+  let ep := Term.map (explicitInverse D a s b t) p
+  let eq := Term.map (explicitInverse D a s b t) q
+  let rp := explicitRightInverseAt D a s b t p
+  let rq := explicitRightInverseAt D a s b t q
+  let cp := homogeneousPathMap (carrierProjection D a b s t) rp
+  let cq := homogeneousPathMap (carrierProjection D a b s t) rq
+  let cp' := pathLam (pathApp cp)
+    ((pathApp_zero cp).trans (carrier_explicit D a b s t ep)) (pathApp_one cp)
+  let cq' := pathLam (pathApp cq)
+    ((pathApp_zero cq).trans (carrier_explicit D a b s t eq)) (pathApp_one cq)
+  let H := homogeneousConcat (SmallUniverse.NativeUnivalence.pathsFilling a b)
+    (SmallUniverse.NativeUnivalence.pathsFilling_lawful a b) cp'
+    (homogeneousConcat (SmallUniverse.NativeUnivalence.pathsFilling a b)
+      (SmallUniverse.NativeUnivalence.pathsFilling_lawful a b) h (homogeneousReverse (SmallUniverse.NativeUnivalence.pathsFilling a b)
+        (SmallUniverse.NativeUnivalence.pathsFilling_lawful a b) cq'))
+  let K := homogeneousPathMap (explicitMap D a s b t)
+    (uaEquivalencePath D a b s t sB ep eq H)
+  let O := objectsFilling D Γ
+  let F := pathFilling (O.1.reindex (projection (interval Γ))) (O.2.reindex _)
+    (objectOf D a s) (objectOf D b t)
+  let hF := pathFilling_lawful (O.1.reindex (projection (interval Γ))) (O.2.reindex _)
+    (objectOf D a s) (objectOf D b t)
+  exact homogeneousConcat F hF (homogeneousReverse F hF rp) (homogeneousConcat F hF K rq)
+end WholeComparison
+
+end SquareKit.Cubical.Cartesian.StructureIdentity.Coherence
+
+namespace SquareKit.Cubical.Cartesian.StructureIdentity.Coherence.SigmaFillingPaths
+open CategoryTheory
+universe u
+variable {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
+  (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
+
+private abbrev first := PropositionExtension.first B
+private abbrev lineMap := Functor.whiskerLeft (projection (interval Γ)).mapElements (first (B := B))
+
+theorem square_first (ε : Bool) (l r base : Term (intervalCoefficient (sigma A B)))
+    (h₀ : Term.reindex base (endpointSub Γ false) = Term.reindex l (endpointSub Γ ε))
+    (h₁ : Term.reindex base (endpointSub Γ true) = Term.reindex r (endpointSub Γ ε)) :
+    Term.map (Functor.whiskerLeft (NativeSquare.squareBase Γ).mapElements (first (B := B)))
+      (NativeSquare.fill (sigmaFilling F hF G) ε l r base h₀ h₁) =
+    NativeSquare.fill F ε (Term.map lineMap l) (Term.map lineMap r) (Term.map lineMap base)
+      (congrArg (Term.map (first (B := B))) h₀) (congrArg (Term.map (first (B := B))) h₁) := by
+  have hb : OpenBox.sigmaFst (B := reindex B (liftSub A (NativeSquare.squareBase Γ)))
+      (NativeSquare.box ε l r base h₀ h₁) =
+      NativeSquare.box ε (Term.map lineMap l) (Term.map lineMap r) (Term.map lineMap base)
+        (congrArg (Term.map (first (B := B))) h₀) (congrArg (Term.map (first (B := B))) h₁) := by
+    apply OpenBox.ext
+    · apply PartialSection.ext
+      intro a ha
+      dsimp [OpenBox.sigmaFst, PartialSection.sigmaFst, NativeSquare.box, NativeSquare.tube]
+      split <;> rfl
+    · rfl
+  exact congrArg (F.fill (NativeSquare.squareBase Γ) (NativeSquare.sides Γ)
+    (endpoint (total (interval Γ)) ε)) hb
+
+theorem concat_first {x y z : Term (sigma A B)}
+    (p : Term (homogeneousPath (sigma A B) x y))
+    (q : Term (homogeneousPath (sigma A B) y z)) :
+    homogeneousPathMap (first (B := B))
+      (homogeneousConcat (sigmaFilling F hF G) (sigmaFilling_lawful F hF G hG) p q) =
+    homogeneousConcat F hF (homogeneousPathMap (first (B := B)) p)
+      (homogeneousPathMap (first (B := B)) q) := by
+  apply pathApp_injective
+  have h := congrArg (fun t => NativeSquare.slice t true)
+    (square_first F hF G false (Term.reindex x (projection (interval Γ)))
+      (pathApp q) (pathApp p) (pathApp_zero p) ((pathApp_one p).trans (pathApp_zero q).symm))
+  exact h
+end SquareKit.Cubical.Cartesian.StructureIdentity.Coherence.SigmaFillingPaths

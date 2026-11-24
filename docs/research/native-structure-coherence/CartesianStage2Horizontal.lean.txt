@@ -1,0 +1,40 @@
+import CartesianCore
+import SquareKit.Internal.Cubical.CartesianTransportConcatenation
+set_option autoImplicit false
+namespace SquareKit.Cubical.Cartesian.StructureIdentity.Coherence
+open CategoryTheory Native SmallUniverse
+universe u
+variable {Γ : Context.{u+1}}
+namespace MapPath
+variable {A B : Family Γ} {f g : A ⟶ B}
+def pointwise (p : MapPath f g) :
+    Term (homogeneousPath (reindex B (projection A))
+      (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A))
+      (Term.map (Functor.whiskerLeft (projection A).mapElements g) (generic A))) :=
+  app (Term.map (FunctionPaths.decomposition (EquivalenceFamilies.encodeMap f)
+    (EquivalenceFamilies.encodeMap g)).hom p)
+
+noncomputable def horizontal {C : Family Γ} {f' : A ⟶ B} {k k' : B ⟶ C}
+    (p : MapPath f f') (q : MapPath k k')
+    (FA : Filling A) (hFA : FA.Lawful) (FC : Filling C) (hFC : FC.Lawful) :
+    MapPath (f ≫ k) (f' ≫ k') :=
+  MapPath.trans (MapPath.whisker p (𝟙 A) k) (MapPath.whisker q f' (𝟙 C)) FA hFA FC hFC
+
+end MapPath
+namespace Coded
+noncomputable def uaMapPath (a b : Γ ⟶ smallFamilyCodes.{u})
+    (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f) :
+    MapPath f (NativeUnivalence.pathToMap (NativeUnivalence.ua a b f E)) :=
+  EquivalencePaths.mapPath _ _ (NativeUnivalence.uaMapHomotopy a b f E)
+
+noncomputable def sequentialMapPath (a b c : Γ ⟶ smallFamilyCodes.{u})
+    (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f)
+    (g : liftedDecode b ⟶ liftedDecode c) (D : HomotopyEquivalence g) :
+    MapPath (f ≫ g) (NativeUnivalence.pathToMap (NativeUnivalence.ua a b f E) ≫
+      NativeUnivalence.pathToMap (NativeUnivalence.ua b c g D)) :=
+  MapPath.horizontal (uaMapPath a b f E) (uaMapPath b c g D)
+    (NativeDecode.filling a) (NativeDecode.filling_lawful a)
+    (NativeDecode.filling c) (NativeDecode.filling_lawful c)
+
+end Coded
+end SquareKit.Cubical.Cartesian.StructureIdentity.Coherence

@@ -1061,6 +1061,7 @@ import Examples.CompositionalUnivalence
 import Examples.CubicalLargeConstructors
 import Examples.CartesianLargeFamilyConstructors
 import Examples.CartesianConstructorTransport
+import Examples.NativeStructureCoherence
 import Examples.NativeStructureDescriptions
 import Examples.NativeStructureIdentity
 import Examples.NativeStructureLaws
