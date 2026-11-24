@@ -306,6 +306,7 @@ import Applications.Linear.FirstOrderNaturality
 import Examples.CommaSquares
 import Examples.CommaUniversal
 import Examples.CategoryMaps
+import Examples.RawTransformations
 import Applications.Linear.Maps
 import Applications.AD.Compiler
 import Applications.AD.Core
