@@ -1069,6 +1069,8 @@ import Examples.LatticeTransportBridge
 import Examples.NativeLatticeTransport
 import Examples.NativeLatticeTransportCases
 import Examples.NativeGeometricLatticeTransport
+import Examples.LatticeAuthorTrialDirect
+import Examples.LatticeAuthorTrialNative
 import SquareKit.Internal.Cubical.PropositionExtension
 import SquareKit.Internal.Cubical.CartesianPropositionExtension
 import Examples.CubicalChartFamily
