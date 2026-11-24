@@ -1,0 +1,151 @@
+import Examples.NativeStructureCoherence
+
+set_option autoImplicit false
+set_option warningAsError true
+namespace NativeCoherenceContractProbe
+open CategoryTheory
+namespace Original
+open SquareKit.Cubical.Presheaf StructureIdentity.Coherence
+open Examples.NativeStructureCoherence.Presheaf
+variable {Γ : Context.{1}}
+variable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily Γ (ULift.{1} ℤ)))
+noncomputable abbrev filling := SmallUniverse.NativeDecode.filling admitted.code
+noncomputable abbrev lawful := SmallUniverse.NativeDecode.filling_lawful admitted.code
+noncomputable def e12 := (move admitted 0 1).compWith (move admitted 1 2)
+  (HomotopyEquivalence.ofIso ((shift admitted 1) ≪≫ (shift admitted 2)))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def e23 := (move admitted 1 2).compWith (move admitted 3 3)
+  (HomotopyEquivalence.ofIso ((shift admitted 2) ≪≫ (shift admitted 3)))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def left := (e12 admitted).compWith (move admitted 3 3)
+  (HomotopyEquivalence.ofIso (((shift admitted 1) ≪≫ (shift admitted 2)) ≪≫ (shift admitted 3)))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def right := (move admitted 0 1).compWith (e23 admitted)
+  (HomotopyEquivalence.ofIso ((shift admitted 1) ≪≫ ((shift admitted 2) ≪≫ (shift admitted 3))))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+
+theorem left_point : Term.map (left admitted).map (point admitted 0) = point admitted 6 := by
+  change Term.map (shift admitted 3).hom
+    (Term.map (shift admitted 2).hom (Term.map (shift admitted 1).hom (point admitted 0))) = _
+  rw [shift_point, shift_point, shift_point]
+  rfl
+
+theorem right_point : Term.map (right admitted).map (point admitted 0) = point admitted 6 := by
+  change Term.map (shift admitted 3).hom
+    (Term.map (shift admitted 2).hom (Term.map (shift admitted 1).hom (point admitted 0))) = _
+  rw [shift_point, shift_point, shift_point]
+  rfl
+
+theorem maps_agree : (left admitted).map = (right admitted).map := rfl
+
+noncomputable def leftComparison := Coded.composition
+  (a := admitted.code) (b := admitted.code) (c := admitted.code)
+  (e12 admitted) (move admitted 3 3) (left admitted).witness
+  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)
+noncomputable def rightComparison := Coded.composition
+  (a := admitted.code) (b := admitted.code) (c := admitted.code)
+  (move admitted 0 1) (e23 admitted) (right admitted).witness
+  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted)
+noncomputable def nonidentityReindex := Coded.path_reindex
+  (a := admitted.code) (b := admitted.code) (left admitted)
+  (Examples.NativeLatticeTransport.Presheaf.carrierSet admitted) (projection (interval Γ))
+
+noncomputable def actualLeft {Γ : Context.{1}} :=
+  leftComparison (Examples.NativeLatticeTransport.Presheaf.admission (Γ := Γ) ℤ)
+noncomputable def actualRight {Γ : Context.{1}} :=
+  rightComparison (Examples.NativeLatticeTransport.Presheaf.admission (Γ := Γ) ℤ)
+noncomputable def actualReindex {Γ : Context.{1}} :=
+  nonidentityReindex (Examples.NativeLatticeTransport.Presheaf.admission (Γ := Γ) ℤ)
+
+example (x : Γ.Elements) :
+    (admitted.decoding.hom.app x ((Term.map (left admitted).map (point admitted 0)).val x)).down = 6 := by
+  rw [left_point, point_decode]
+
+example : Term.map (system admitted 6).step (point admitted 6) = point admitted 7 :=
+  shift_point admitted 6 1
+
+theorem rejects_unchanged (x : Γ.Elements) :
+    ¬ Nonempty (Term (homogeneousPath (A admitted)
+      (Term.map (left admitted).map (point admitted 0)) (point admitted 0))) := by
+  rintro ⟨p⟩
+  have hx := (StructureIdentity.Native.presentedPathEquiv admitted.decoding _ _ x (p.val x)).down.down
+  rw [left_point] at hx
+  change (admitted.decoding.hom.app x ((point admitted 6).val x)).down =
+    (admitted.decoding.hom.app x ((point admitted 0).val x)).down at hx
+  rw [point_decode, point_decode] at hx
+  norm_num at hx
+
+end Original
+namespace Cartesian
+open SquareKit.Cubical.Cartesian StructureIdentity.Coherence
+open Examples.NativeStructureCoherence.Cartesian
+variable {Γ : Context.{1}}
+variable (admitted : SmallUniverse.LargeConstructors.Result (constantFamily Γ (ULift.{1} ℤ)))
+noncomputable abbrev filling := SmallUniverse.NativeDecode.filling admitted.code
+noncomputable abbrev lawful := SmallUniverse.NativeDecode.filling_lawful admitted.code
+noncomputable def e12 := (move admitted 0 1).compWith (move admitted 1 2)
+  (HomotopyEquivalence.ofIso ((shift admitted 1) ≪≫ (shift admitted 2)) (filling admitted) (lawful admitted))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def e23 := (move admitted 1 2).compWith (move admitted 3 3)
+  (HomotopyEquivalence.ofIso ((shift admitted 2) ≪≫ (shift admitted 3)) (filling admitted) (lawful admitted))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def left := (e12 admitted).compWith (move admitted 3 3)
+  (HomotopyEquivalence.ofIso (((shift admitted 1) ≪≫ (shift admitted 2)) ≪≫ (shift admitted 3)) (filling admitted) (lawful admitted))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+noncomputable def right := (move admitted 0 1).compWith (e23 admitted)
+  (HomotopyEquivalence.ofIso ((shift admitted 1) ≪≫ ((shift admitted 2) ≪≫ (shift admitted 3))) (filling admitted) (lawful admitted))
+  (filling admitted) (lawful admitted) (filling admitted) (lawful admitted)
+
+theorem left_point : Term.map (left admitted).map (point admitted 0) = point admitted 6 := by
+  change Term.map (shift admitted 3).hom
+    (Term.map (shift admitted 2).hom (Term.map (shift admitted 1).hom (point admitted 0))) = _
+  rw [shift_point, shift_point, shift_point]
+  rfl
+
+theorem right_point : Term.map (right admitted).map (point admitted 0) = point admitted 6 := by
+  change Term.map (shift admitted 3).hom
+    (Term.map (shift admitted 2).hom (Term.map (shift admitted 1).hom (point admitted 0))) = _
+  rw [shift_point, shift_point, shift_point]
+  rfl
+
+theorem maps_agree : (left admitted).map = (right admitted).map := rfl
+
+noncomputable def leftComparison := Coded.composition
+  (a := admitted.code) (b := admitted.code) (c := admitted.code)
+  (e12 admitted) (move admitted 3 3) (left admitted).witness
+  (Examples.NativeLatticeTransport.Cartesian.carrierSet admitted)
+noncomputable def rightComparison := Coded.composition
+  (a := admitted.code) (b := admitted.code) (c := admitted.code)
+  (move admitted 0 1) (e23 admitted) (right admitted).witness
+  (Examples.NativeLatticeTransport.Cartesian.carrierSet admitted)
+noncomputable def nonidentityReindex := Coded.path_reindex
+  (a := admitted.code) (b := admitted.code) (left admitted)
+  (Examples.NativeLatticeTransport.Cartesian.carrierSet admitted) (projection (interval Γ))
+
+noncomputable def actualLeft {Γ : Context.{1}} :=
+  leftComparison (Examples.NativeLatticeTransport.Cartesian.admission (Γ := Γ) ℤ)
+noncomputable def actualRight {Γ : Context.{1}} :=
+  rightComparison (Examples.NativeLatticeTransport.Cartesian.admission (Γ := Γ) ℤ)
+noncomputable def actualReindex {Γ : Context.{1}} :=
+  nonidentityReindex (Examples.NativeLatticeTransport.Cartesian.admission (Γ := Γ) ℤ)
+
+example (x : Γ.Elements) :
+    (admitted.decoding.hom.app x ((Term.map (left admitted).map (point admitted 0)).val x)).down = 6 := by
+  rw [left_point, point_decode]
+
+example : Term.map (system admitted 6).step (point admitted 6) = point admitted 7 :=
+  shift_point admitted 6 1
+
+theorem rejects_unchanged (x : Γ.Elements) :
+    ¬ Nonempty (Term (homogeneousPath (A admitted)
+      (Term.map (left admitted).map (point admitted 0)) (point admitted 0))) := by
+  rintro ⟨p⟩
+  have hx := (StructureIdentity.Native.presentedPathEquiv admitted.decoding _ _ x (p.val x)).down.down
+  rw [left_point] at hx
+  change (admitted.decoding.hom.app x ((point admitted 6).val x)).down =
+    (admitted.decoding.hom.app x ((point admitted 0).val x)).down at hx
+  rw [point_decode, point_decode] at hx
+  norm_num at hx
+
+end Cartesian
+end NativeCoherenceContractProbe

@@ -1,0 +1,30 @@
+#697 retained integer starting-point probe
+Source base: f0cac600a954fae4f340a9262ad732f6fbb30cc7
+Toolchain: leanprover/lean4:v4.35.0
+Final probe SHA-256: 9625292efbc03554c78223aab2eb5750380036fe88fe35555122834a5cf4853f
+Command (copy the adjacent .lean.txt to a .lean file first):
+  direnv exec . flock /tmp/conaled-native-followups-lake.lock timeout 60s lake env lean /tmp/conaled-697-evidence/integer-client.lean
+No maxRecDepth/heartbeat override. Final original + Cartesian probe: exit 0,
+no Lean diagnostics. Actual admissions, separate bracketed composite witnesses,
+both outer composition comparisons, interval-projection reindexing, endpoint 6,
+successor 7, and rejecting unchanged endpoint checked. Higher coherence remains
+proposed; this is not an integrated new library API.
+
+Retained first failed experiment:
+The original-model left_point and right_point proofs ended immediately after
+  rw [shift_point, shift_point, shift_point]
+and failed with these same two goals (at lines 27 and 32):
+  error: unsolved goals
+  Γ : Context
+  admitted : SmallUniverse.LargeConstructors.Result (constantFamily Γ (ULift.{1, 0} ℤ))
+  ⊢ point admitted (0 + 1 + 2 + 3) = point admitted 6
+Correction: add `rfl` after that rewrite in each proof. Original-only replay,
+then Cartesian extension, then decoding/rejection extension each exited 0.
+This is an omitted definitional arithmetic step, not a changed mathematical
+contract or resource-budget adjustment. Exact failed source is reconstructible
+by deleting those two `rfl` lines and the later Cartesian/control additions.
+
+Standards review correction: rename the Filling-valued abbreviation F to
+filling in both namespaces and all its uses (lowerCamelCase). No type,
+mathematical endpoint or resource setting changed. The renamed probe replay
+is checked again against the immutable correction candidate.
