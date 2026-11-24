@@ -303,6 +303,7 @@ import SquareKit.CommaLimits
 import SquareKit.MatrixDoubling
 import Applications.Linear.FirstOrderNaturality
 import Examples.CommaSquares
+import Examples.CommaUniversal
 import Examples.CategoryMaps
 import Applications.Linear.Maps
 import Applications.AD.Compiler
