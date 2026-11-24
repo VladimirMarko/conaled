@@ -1,0 +1,101 @@
+module
+public import Mathlib.ModelTheory.Semantics
+public import Applications.ModelCombination.OperationTransport
+
+/-! A bounded signature comparison using Mathlib's existing first-order structures. -/
+@[expose] public section
+set_option autoImplicit false
+set_option warningAsError true
+namespace NativeModelCombination.SignatureTransport
+open FirstOrder FirstOrder.Language
+universe u v w
+variable {X : Type u} {Y : Type v} {L : Language} [L.Structure Y]
+
+/-- Evaluate every open term after transporting its independently supplied structure. -/
+theorem realize_transport (e : X ≃ Y) {V : Type w} (t : L.Term V) (xs : V → X) :
+    letI : L.Structure X := e.symm.inducedStructure
+    t.realize xs = e.symm (t.realize (e ∘ xs)) := by
+  let : L.Structure X := e.symm.inducedStructure
+  have h := HomClass.realize_term (e.symm.inducedStructureEquiv (L := L))
+    (t := t) (v := e ∘ xs)
+  simpa [Function.comp_def] using h
+
+/-- All supplied open equations transport; this does not assert any new mixed equation. -/
+theorem equation_transport (e : X ≃ Y) {V : Type w} (s t : L.Term V)
+    (h : ∀ ys : V → Y, s.realize ys = t.realize ys) :
+    letI : L.Structure X := e.symm.inducedStructure
+    ∀ xs : V → X, s.realize xs = t.realize xs := by
+  intro xs
+  rw [realize_transport e s xs, realize_transport e t xs, h]
+
+inductive Symbol : Nat → Type
+  | join : Symbol 2
+  | unit : Symbol 0
+
+def language : Language := ⟨Symbol, fun _ => Empty⟩
+
+@[instance_reducible] def suppliedStructure (op : Y → Y → Y) (unit : Y) : language.Structure Y where
+  funMap := fun {_n} f xs => match f with
+    | .join => op (xs 0) (xs 1)
+    | .unit => unit
+  RelMap := fun r => nomatch r
+
+def joinTerm {V : Type w} (s t : language.Term V) : language.Term V :=
+  .func Symbol.join (fun i => if i = 0 then s else t)
+
+def unitTerm {V : Type w} : language.Term V := .func Symbol.unit Fin.elim0
+
+/-- Recover the same binary data as the native helper, before proving any equations. -/
+theorem binary_recovery (e : X ≃ Y) (op : Y → Y → Y) (unit : Y) (x y : X) :
+    let _instY : language.Structure Y := suppliedStructure op unit
+    letI : language.Structure X := e.symm.inducedStructure
+    Structure.funMap (L := language) Symbol.join (fun i => if i = 0 then x else y) =
+      OperationTransport.binary e op x y := rfl
+
+/-- The signature proof transports the associativity equation through open-term semantics. -/
+theorem associative (e : X ≃ Y) (op : Y → Y → Y) (unit : Y)
+    (h : ∀ x y z, op (op x y) z = op x (op y z)) : ∀ x y z, OperationTransport.binary e op (OperationTransport.binary e op x y) z =
+      OperationTransport.binary e op x (OperationTransport.binary e op y z) := by
+  let instY : language.Structure Y := suppliedStructure op unit
+  let a : language.Term (Fin 3) := .var 0
+  let b : language.Term (Fin 3) := .var 1
+  let c : language.Term (Fin 3) := .var 2
+  have eqY : ∀ ys : Fin 3 → Y,
+      (joinTerm (joinTerm a b) c).realize ys = (joinTerm a (joinTerm b c)).realize ys := by
+    intro ys
+    simpa [joinTerm, a, b, c, Term.realize, Structure.funMap, instY, suppliedStructure] using h (ys 0) (ys 1) (ys 2)
+  have eqX := equation_transport e _ _ eqY
+  intro x y z
+  simpa [joinTerm, a, b, c, Term.realize, Structure.funMap, instY, suppliedStructure, Equiv.inducedStructure,
+    OperationTransport.binary_def, Function.comp_def] using
+    eqX (fun i => if i = 0 then x else if i = 1 then y else z)
+
+/-- The nullary operation is recovered independently of any selected state point. -/
+theorem unit_recovery (e : X ≃ Y) (op : Y → Y → Y) (unit : Y) :
+    let _instY : language.Structure Y := suppliedStructure op unit
+    letI : language.Structure X := e.symm.inducedStructure
+    Structure.funMap (L := language) Symbol.unit Fin.elim0 = e.symm unit := rfl
+
+theorem left_unit (e : X ≃ Y) (op : Y → Y → Y) (unit : Y)
+    (h : ∀ y, op unit y = y) (x : X) : OperationTransport.binary e op (e.symm unit) x = x := by
+  let instY : language.Structure Y := suppliedStructure op unit
+  let t : language.Term Unit := .var ()
+  have hy : ∀ ys : Unit → Y, (joinTerm unitTerm t).realize ys = t.realize ys := by
+    intro ys
+    simpa [joinTerm, unitTerm, t, Term.realize, Structure.funMap, instY, suppliedStructure] using h (ys ())
+  have hx := equation_transport e _ _ hy (fun _ => x)
+  simpa [joinTerm, unitTerm, t, Term.realize, Structure.funMap, instY, suppliedStructure, Equiv.inducedStructure,
+    OperationTransport.binary_def, Function.comp_def] using hx
+
+theorem right_unit (e : X ≃ Y) (op : Y → Y → Y) (unit : Y)
+    (h : ∀ y, op y unit = y) (x : X) : OperationTransport.binary e op x (e.symm unit) = x := by
+  let instY : language.Structure Y := suppliedStructure op unit
+  let t : language.Term Unit := .var ()
+  have hy : ∀ ys : Unit → Y, (joinTerm t unitTerm).realize ys = t.realize ys := by
+    intro ys
+    simpa [joinTerm, unitTerm, t, Term.realize, Structure.funMap, instY, suppliedStructure] using h (ys ())
+  have hx := equation_transport e _ _ hy (fun _ => x)
+  simpa [joinTerm, unitTerm, t, Term.realize, Structure.funMap, instY, suppliedStructure, Equiv.inducedStructure,
+    OperationTransport.binary_def, Function.comp_def] using hx
+
+end NativeModelCombination.SignatureTransport

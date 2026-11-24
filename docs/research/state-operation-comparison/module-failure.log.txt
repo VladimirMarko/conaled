@@ -1,0 +1,14 @@
+[0mdirenv: loading ~/Code/conaled/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [1033/1042] Replayed SquareKit.ListFusion
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1034/1042] Replayed Applications.Sequences.Symmetric.Core
+warning: Applications/Sequences/Symmetric/Core.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1041/1042] Built Applications.ModelCombination.UnaryOperationTransport (451ms)
+✖ [1042/1042] Building Examples.StateOperationFIFO (214ms)
+trace: .> LEAN_PATH=/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -EhasSorry /home/vlad/Code/conaled/Examples/StateOperationFIFO.lean -o /home/vlad/Code/conaled/.lake/build/lib/lean/Examples/StateOperationFIFO.olean -i /home/vlad/Code/conaled/.lake/build/lib/lean/Examples/StateOperationFIFO.ilean -c /home/vlad/Code/conaled/.lake/build/ir/Examples/StateOperationFIFO.c --setup /home/vlad/Code/conaled/.lake/build/ir/Examples/StateOperationFIFO.setup.json --json
+error: Examples/StateOperationFIFO.lean:1:0: cannot import non-`module` Applications.Sequences.AbstractFIFO from `module`
+Some required targets logged failures:
+- Examples.StateOperationFIFO
+error: build failed

@@ -1,0 +1,69 @@
+[0mdirenv: loading ~/Code/conaled/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+✖ [1031/1032] Building Applications.ModelCombination.SignatureTransport (466ms)
+trace: .> LEAN_PATH=/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean -EhasSorry /home/vlad/Code/conaled/Applications/ModelCombination/SignatureTransport.lean -o /home/vlad/Code/conaled/.lake/build/lib/lean/Applications/ModelCombination/SignatureTransport.olean -i /home/vlad/Code/conaled/.lake/build/lib/lean/Applications/ModelCombination/SignatureTransport.ilean -c /home/vlad/Code/conaled/.lake/build/ir/Applications/ModelCombination/SignatureTransport.c --setup /home/vlad/Code/conaled/.lake/build/ir/Applications/ModelCombination/SignatureTransport.setup.json --json
+warning: Applications/ModelCombination/SignatureTransport.lean:36:17: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Applications/ModelCombination/SignatureTransport.lean:64:4: Type mismatch: After simplification, term
+  h (ys 0) (ys 1) (ys 2)
+ has type
+  @Eq Y (op (op (ys 0) (ys 1)) (ys 2)) (op (ys 0) (op (ys 1) (ys 2)))
+but is expected to have type
+  @Eq Y
+    (Structure.funMap Symbol.join fun i =>
+      Term.realize ys (if i = 0 then func Symbol.join fun i => if i = 0 then var 0 else var 1 else var 2))
+    (Structure.funMap Symbol.join fun i =>
+      Term.realize ys (if i = 0 then var 0 else func Symbol.join fun i => if i = 0 then var 1 else var 2))
+error: Applications/ModelCombination/SignatureTransport.lean:67:2: Type mismatch: After simplification, term
+  eqX fun i => if i = 0 then x else if i = 1 then y else z
+ has type
+  (Structure.funMap Symbol.join fun x_1 =>
+      e
+        (Term.realize (fun i => if i = 0 then x else if i = 1 then y else z)
+          (if x_1 = 0 then func Symbol.join fun i => if i = 0 then var 0 else var 1 else var 2))) =
+    Structure.funMap Symbol.join fun x_1 =>
+      e
+        (Term.realize (fun i => if i = 0 then x else if i = 1 then y else z)
+          (if x_1 = 0 then var 0 else func Symbol.join fun i => if i = 0 then var 1 else var 2))
+but is expected to have type
+  op (op (e x) (e y)) (e z) = op (e x) (op (e y) (e z))
+error: Applications/ModelCombination/SignatureTransport.lean:83:4: Type mismatch: After simplification, term
+  h (ys ())
+ has type
+  @Eq Y (op unit (ys ())) (ys ())
+but is expected to have type
+  @Eq Y (Structure.funMap Symbol.join fun i => Term.realize ys (if i = 0 then func Symbol.unit Fin.elim0 else var ()))
+    (ys ())
+error: Applications/ModelCombination/SignatureTransport.lean:85:2: Type mismatch: After simplification, term
+  hx
+ has type
+  e.symm
+      (Structure.funMap Symbol.join fun x_1 =>
+        e (Term.realize (fun x_2 => x) (if x_1 = 0 then func Symbol.unit Fin.elim0 else var ()))) =
+    x
+but is expected to have type
+  e.symm (op unit (e x)) = x
+error: Applications/ModelCombination/SignatureTransport.lean:94:4: Type mismatch: After simplification, term
+  h (ys ())
+ has type
+  @Eq Y (op (ys ()) unit) (ys ())
+but is expected to have type
+  @Eq Y (Structure.funMap Symbol.join fun i => Term.realize ys (if i = 0 then var () else func Symbol.unit Fin.elim0))
+    (ys ())
+error: Applications/ModelCombination/SignatureTransport.lean:96:2: Type mismatch: After simplification, term
+  hx
+ has type
+  e.symm
+      (Structure.funMap Symbol.join fun x_1 =>
+        e (Term.realize (fun x_2 => x) (if x_1 = 0 then var () else func Symbol.unit Fin.elim0))) =
+    x
+but is expected to have type
+  e.symm (op (e x) unit) = x
+Some required targets logged failures:
+- Applications.ModelCombination.SignatureTransport
+error: build failed

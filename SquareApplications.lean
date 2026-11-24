@@ -834,6 +834,7 @@ import Examples.CounterGeometry
 import Examples.WeakGroupoidUnit
 
 import Examples.NativeModelCombination
+import Examples.StateOperationFIFO
 
 import Examples.StaticFunctionReactive
 
