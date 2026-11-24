@@ -1127,6 +1127,7 @@ import Examples.CoherentRepresentableCoding
 import Examples.SheafRepresentableClassification
 
 import Examples.CoherentFamilyClassification
+import Examples.CoherentFamilyFibration
 import Examples.RepresentedLocalFamily
 
 import Examples.ClassifierDescent

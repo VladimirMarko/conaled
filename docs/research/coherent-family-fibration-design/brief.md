@@ -1,0 +1,21 @@
+# Issue 705 selection and acceptance contract
+
+Inspected project: 4819b69ca98f5d7f480b75b1a46224faadb64e32. Mathlib: 56a005855ea17e0b0958f73ec801ae140b0a1679.
+
+Selected family: `RepresentableClassification.CoherentFamily.diagrams V`, over presheaf contexts `Context C`, and its direct family system `CoherentFamily.system V`. Current consumers: `Examples/CoherentFamilyClassification.lean` and `RepresentedLocalFamily.lean`. Objects are coherent arrow diagrams; maps are arbitrary natural transformations. Reindexing precomposes with the arrow functor of context substitution. Restriction squares whose target map is invertible must map to isomorphisms. This condition supplies recovery by evaluating identity views.
+
+Contract: form the two contravariant CoGrothendieck categories over the same context category, and lift the existing decoder/coder StrongTrans and unit/counit modifications to a categorical equivalence of total categories over that base. Retain all vertical maps and substitution arrows. Derive identity/composition from existing total map functors. Expose canonical cartesian lifts, IsFibered, and fibre recovery via Mathlib HasFibers. Prove the comparison preserves cartesian arrows (or establish the explicit cartesian-lift comparison with its invertible vertical component and derive the claimed lifting property). No equality of arbitrary selected cleavages is asserted.
+
+The base has objects in Type (max v (u+1)) for C : Type v with Category.{w}; fibre objects/homs use the existing inferred max levels in CoherentFamily.diagrams/system with V : Type a, Category.{b} V. Elaborated universe signatures will be checked before acceptance. Laws are strict for context reindexing functors, pseudo for decoder naturality, and invertible modifications for recovery. The totals use ordinary categories, not dependent bicategories or higher TwoFamily actions.
+
+Missing adapter to investigate: CoGrothendieck.map already lifts StrongTrans, mapIdIso/mapCompIso give coherence, but the inspected module lacks action on modifications. Add a narrow adapter for modifications/natural isomorphisms, then reuse classificationUnit/classificationCounit. A fibrewise-equivalence-only proof is expressly excluded.
+
+Checked controls: retain original twisted localData and existing direct clients unchanged; exercise nonidentity successor and doubling context substitutions and their ordered composite; a nonidentity, noninvertible natural family map; recovery on that map; and an explicit loss control showing recovery fails without the restriction-isomorphism condition (reuse established control where it states that fact). Include cartesian-lift behaviour and composition compatibility.
+
+Alternatives inspected: chosen-pullback Family/TypeFamily and SpanAction/SpanInterpretation (already pseudo over spans, needs restriction from bicategory); StructuralModel.DisplayCategory (already all commuting squares and direct cartesian property, missing Mathlib packaging); SplitSheaf indexed family (already strict and fibrewise equivalent to Over). These remain valid native interfaces. Selection uses an existing complete pseudonatural inverse to isolate the total-category interoperability gap, avoiding a global family rewrite.
+
+Owned prospective files: SquareKit/CoGrothendieckMap.lean; SquareKit/Internal/CoherentFamilyFibration.lean; Examples/CoherentFamilyFibration.lean; docs/research/coherent-family-fibration.md; docs/research/coherent-family-fibration-design/*; one import in SquareApplications.lean. No overlap with #704 raw interfaces or #706 quotient packaging. Any final manifest revision will be recorded before capture.
+
+#700/#701: no cubical higher coherence theorem supplied or required. #702: no universe/decoder admission generalized. #703: no TwoFamily dependent 2-cells retained, erased, or retrofitted. This ordinary bridge offers no automatic solution to those issues and imposes no dependency. #679/#678 remain untouched.
+
+Design challenge: independently assess (1) contract/foundations, (2) implementation/use, (3) alternatives/generality. Inspect existing code and pinned dependency; preserve initial assessments before synthesis. Review the contract before implementation adoption; isolated scratch probes are permitted. Reports outside source diff at /tmp/conaled-investigations/705/design-*.md until incorporated.
