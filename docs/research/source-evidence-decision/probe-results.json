@@ -1,0 +1,249 @@
+{
+  "prior_490_replay": {
+    "algebra": {
+      "enumerated_edges": 0,
+      "method": "polynomial-identities",
+      "status": "accepted"
+    },
+    "algebra:artifact-output": "output-polynomial-correspondence",
+    "algebra:initialization": "initial-correspondence",
+    "algebra:overflow": "temporary-overflow",
+    "algebra:parameters": "unsupported-modulus",
+    "algebra:primitive-meaning": "unsupported-primitive-meaning",
+    "algebra:representation": "invalid-representation",
+    "algebra:source-coefficient": "y-polynomial-correspondence",
+    "algebra:witness": "decoder-does-not-realize-relation",
+    "bindings": {
+      "artifact": "fb812cdfb04b61622013d694f86cfb620bbfea07ac22acccca9b5ce7cd50ef1d",
+      "decoder": "e7b8fe99602d00ce2f8a207ab7c118c7ed11df386215558cfe1482ab3323afeb",
+      "interpretation": "congruence-ring-bits-v1",
+      "source": "dda680a1d77cbd65e442ae89c869b50fa2310e1f4eef5b8875644eb2e547b491"
+    },
+    "composition-comparisons": 1280,
+    "finite": {
+      "enumerated_edges": 64,
+      "method": "finite-simulation",
+      "status": "accepted"
+    },
+    "finite:artifact-output": "output-mismatch:3,9,3,0",
+    "finite:initialization": "initial-not-in-relation",
+    "finite:missing-row": "relation-not-closed:13,7,13,2",
+    "finite:overflow": "temporary-overflow",
+    "finite:parameters": "unsupported-modulus",
+    "finite:primitive-meaning": "unsupported-primitive-meaning",
+    "finite:representation": "invalid-representation",
+    "finite:source-coefficient": "relation-not-closed:3,9,3,1",
+    "finite:witness": "lost-selected-witness",
+    "source-gate:initial:None": "invalid-source-initial",
+    "source-gate:initial:algebra": "invalid-source-initial",
+    "source-gate:initial:finite": "invalid-source-initial",
+    "source-gate:inputs:None": "unsupported-input-contract",
+    "source-gate:inputs:algebra": "unsupported-input-contract",
+    "source-gate:inputs:finite": "unsupported-input-contract",
+    "source-gate:modulus:None": "unsupported-modulus",
+    "source-gate:modulus:algebra": "unsupported-modulus",
+    "source-gate:modulus:finite": "unsupported-modulus",
+    "source-gate:observe:None": "unsupported-observation",
+    "source-gate:observe:algebra": "unsupported-observation",
+    "source-gate:observe:finite": "unsupported-observation",
+    "source-gate:primitive:None": "unsupported-primitive-meaning",
+    "source-gate:primitive:algebra": "unsupported-primitive-meaning",
+    "source-gate:primitive:finite": "unsupported-primitive-meaning",
+    "source-gate:schema:None": "unsupported-source",
+    "source-gate:schema:algebra": "unsupported-source",
+    "source-gate:schema:finite": "unsupported-source",
+    "source-gate:temporary_bits:None": "temporary-overflow",
+    "source-gate:temporary_bits:algebra": "temporary-overflow",
+    "source-gate:temporary_bits:finite": "temporary-overflow",
+    "status": "diagnostic Python checks only; no kernel proof",
+    "trace-comparisons-per-route": 341,
+    "valid-source:rejected-algebra-fallback": "baseline",
+    "valid-source:rejected-finite-fallback": "baseline"
+  },
+  "prior_probe_sha256": "11441c41b476b5b32949b92e895d8af86a73e5052d1ae3522f902a79d92cef74",
+  "probe_sha256": "1856c87a67db29a62a67182759dc327086fe8cb78111389f28eba324b505fe56",
+  "pure": {
+    "changed_coefficient": 5,
+    "changed_coefficient_counterexamples": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "coefficient": 3,
+    "different_syntax": [
+      "q",
+      [
+        "+",
+        "q",
+        [
+          "+",
+          "q",
+          "q"
+        ]
+      ]
+    ],
+    "direct": [
+      "q",
+      [
+        "*",
+        3,
+        "q"
+      ]
+    ],
+    "inputs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "lost_integer_distinction": [
+      0,
+      16
+    ],
+    "modulus": 16,
+    "outside_invariant_state": [
+      0,
+      1
+    ],
+    "submitted_table": [
+      [
+        0,
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        1,
+        [
+          1,
+          3
+        ]
+      ],
+      [
+        2,
+        [
+          2,
+          6
+        ]
+      ],
+      [
+        3,
+        [
+          3,
+          9
+        ]
+      ],
+      [
+        4,
+        [
+          4,
+          12
+        ]
+      ],
+      [
+        5,
+        [
+          5,
+          15
+        ]
+      ],
+      [
+        6,
+        [
+          6,
+          2
+        ]
+      ],
+      [
+        7,
+        [
+          7,
+          5
+        ]
+      ],
+      [
+        8,
+        [
+          8,
+          8
+        ]
+      ],
+      [
+        9,
+        [
+          9,
+          11
+        ]
+      ],
+      [
+        10,
+        [
+          10,
+          14
+        ]
+      ],
+      [
+        11,
+        [
+          11,
+          1
+        ]
+      ],
+      [
+        12,
+        [
+          12,
+          4
+        ]
+      ],
+      [
+        13,
+        [
+          13,
+          7
+        ]
+      ],
+      [
+        14,
+        [
+          14,
+          10
+        ]
+      ],
+      [
+        15,
+        [
+          15,
+          13
+        ]
+      ]
+    ],
+    "unsupported_primitive": "unsupported-primitive"
+  },
+  "source_base": "0d3865b344940510428e01f6907cb03dedbfe256",
+  "status": "Python diagnostics and source inspection only; no new kernel theorem"
+}
