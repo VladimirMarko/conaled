@@ -1106,6 +1106,7 @@ import Examples.TextbookTreeTariffs
 import Examples.PersistentFIFOClient
 
 import Examples.MeasuredLoop
+import Examples.FirstHitScan
 import Examples.CompositionalStructureIdentity
 import Examples.SharedCubicalConstructors
 import Examples.SharedSigmaFilling
