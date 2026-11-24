@@ -1,0 +1,79 @@
+import SquareKit.SpanInterpretation
+import SquareKit.Internal.PseudofunctorCoherence
+
+/-! Identity and composition in the interpretation variable, retaining the chosen
+apex comparisons and the complete slice-action transformations. -/
+noncomputable section
+namespace SquareKit.SpanInterpretation
+open CategoryTheory Limits SpanAction Span.SpanBicat Bicategory
+open scoped Pseudofunctor.StrongTrans
+universe u v
+variable {C D E K : Type u} [Category.{v} C] [Category.{v} D]
+  [Category.{v} E] [Category.{v} K]
+variable [HasPullbacks C] [HasPullbacks D] [HasPullbacks E] [HasPullbacks K]
+variable (F : C ⥤ D) (G : D ⥤ E) (H : E ⥤ K)
+variable [PreservesLimitsOfShape WalkingCospan F] [PreservesLimitsOfShape WalkingCospan G]
+  [PreservesLimitsOfShape WalkingCospan H]
+
+/-- The actual canonical apex comparison gives equality of the complete induced data. -/
+theorem pseudofunctor_comp :
+    pseudofunctor (F ⋙ G) = (pseudofunctor F).comp (pseudofunctor G) := by
+  refine PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G))
+    (G := (pseudofunctor F).comp (pseudofunctor G)) rfl ?_ ?_
+  · apply heq_of_eq
+    funext X
+    apply Iso.ext
+    apply Span.hom_ext
+    change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+    simp
+  · apply heq_of_eq
+    funext X Y Z S T
+    apply Iso.ext
+    apply Span.hom_ext
+    exact apex_composition F G S T
+
+/-- The identity interpretation includes the identity chosen pullback comparison. -/
+theorem pseudofunctor_id : pseudofunctor (𝟭 C) = Pseudofunctor.id (Bases C) := by
+  refine PseudofunctorCoherence.ext (F := pseudofunctor (𝟭 C))
+    (G := Pseudofunctor.id (Bases C)) rfl ?_ ?_
+  · apply heq_of_eq
+    funext X
+    apply Iso.ext
+    apply Span.hom_ext
+    rfl
+  · apply heq_of_eq
+    funext X Y Z S T
+    apply Iso.ext
+    apply Span.hom_ext
+    change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+    apply pullback.hom_ext <;> simp only [Category.id_comp,
+      pullbackComparison_comp_fst, pullbackComparison_comp_snd, Functor.id_map]
+
+/-- Comparison between the two interpretation pseudofunctors, with identity components. -/
+def compositionComparison : pseudofunctor (F ⋙ G) ⟶
+    (pseudofunctor F).comp (pseudofunctor G) := eqToHom (pseudofunctor_comp F G)
+
+/-- Identity comparison as an actual strong transformation. -/
+def identityComparison : pseudofunctor (𝟭 C) ⟶ Pseudofunctor.id (Bases C) :=
+  eqToHom pseudofunctor_id
+
+/-- Reassociation and the actual composition comparison align the slice-action targets. -/
+theorem action_target_comp :
+    (pseudofunctor F).comp ((pseudofunctor G).comp (SpanAction.pseudofunctor (C := E))) =
+      (pseudofunctor (F ⋙ G)).comp (SpanAction.pseudofunctor (C := E)) := by
+  rw [← PseudofunctorCoherence.comp_assoc, ← pseudofunctor_comp]
+
+/-- The successive transformation is built by actual precomposition and vertical composition. -/
+def successiveTransformation : SpanAction.pseudofunctor (C := C) ⟶
+    (pseudofunctor (F ⋙ G)).comp (SpanAction.pseudofunctor (C := E)) :=
+  PseudofunctorCoherence.retarget
+    (transformation F ≫ PseudofunctorCoherence.precomp (pseudofunctor F) (transformation G))
+    (action_target_comp F G)
+
+/-- The complete postcomposition functors are retained after target normalization. -/
+theorem successiveTransformation_app (X : Bases C) :
+    (successiveTransformation F G).app X =
+      ((Over.post (X := X.of) F) ⋙ Over.post G).toCatHom :=
+  eq_of_heq (PseudofunctorCoherence.retarget_app _ _ X)
+
+end SquareKit.SpanInterpretation

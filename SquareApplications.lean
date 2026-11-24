@@ -4,6 +4,7 @@ import Examples.SheafAssociatedBundle
 import Examples.SmoothAssociatedBundle
 import Examples.SmoothBundleClassification
 import Examples.SpanInterpretation
+import Examples.SpanInterpretationComposition
 import Examples.SigmaPaths
 import Examples.SpanAction
 import Examples.Lawvere

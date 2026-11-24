@@ -1,0 +1,479 @@
+[0mdirenv: loading ~/Code/conaled/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+[Elab.command] [0.010290] ✅️ /-- The actual canonical apex comparison gives equality of the complete induced data. -/
+    theorem pseudofunctor_comp : pseudofunctor (F ⋙ G) = (pseudofunctor F).comp (pseudofunctor G) :=
+      by
+      refine
+        PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G)) (G := (pseudofunctor F).comp (pseudofunctor G)) rfl ?_
+          ?_
+      · apply heq_of_eq
+        funext X
+        apply Iso.ext
+        apply Span.hom_ext
+        change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+        simp
+      · apply heq_of_eq
+        funext X Y Z S T
+        apply Iso.ext
+        apply Span.hom_ext
+        exact apex_composition F G S T
+[Elab.async] [0.100285] ✅️ elaborating proof of SquareKit.SpanInterpretation.pseudofunctor_comp
+  [Elab.definition.value] [0.098627] ✅️ SquareKit.SpanInterpretation.pseudofunctor_comp
+    [Elab.step] [0.097968] ✅️ 
+          refine
+            PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G)) (G := (pseudofunctor F).comp (pseudofunctor G)) rfl
+              ?_ ?_
+          · apply heq_of_eq
+            funext X
+            apply Iso.ext
+            apply Span.hom_ext
+            change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+            simp
+          · apply heq_of_eq
+            funext X Y Z S T
+            apply Iso.ext
+            apply Span.hom_ext
+            exact apex_composition F G S T
+      [Elab.step] [0.097945] ✅️ 
+            refine
+              PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G)) (G := (pseudofunctor F).comp (pseudofunctor G))
+                rfl ?_ ?_
+            · apply heq_of_eq
+              funext X
+              apply Iso.ext
+              apply Span.hom_ext
+              change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+              simp
+            · apply heq_of_eq
+              funext X Y Z S T
+              apply Iso.ext
+              apply Span.hom_ext
+              exact apex_composition F G S T
+        [Elab.step] [0.026565] ✅️ refine
+              PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G)) (G := (pseudofunctor F).comp (pseudofunctor G))
+                rfl ?_ ?_
+          [Elab.step] [0.026440] ✅️ expected type: pseudofunctor (F ⋙ G) =
+                (pseudofunctor F).comp (pseudofunctor G), term
+              PseudofunctorCoherence.ext (F := pseudofunctor (F ⋙ G)) (G := (pseudofunctor F).comp (pseudofunctor G))
+                rfl ?_ ?_
+            [Elab.app.args] [0.026277] ✅️ elabAppArgs (3 args) (2 namedArgs) `@PseudofunctorCoherence.ext`
+        [Elab.step] [0.022019] ✅️ ·
+              apply heq_of_eq
+              funext X
+              apply Iso.ext
+              apply Span.hom_ext
+              change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+              simp
+          [Elab.step] [0.021812] ✅️ 
+                apply heq_of_eq
+                funext X
+                apply Iso.ext
+                apply Span.hom_ext
+                change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+                simp
+            [Elab.step] [0.021806] ✅️ 
+                  apply heq_of_eq
+                  funext X
+                  apply Iso.ext
+                  apply Span.hom_ext
+                  change 𝟙 _ = G.map (𝟙 _) ≫ 𝟙 _
+                  simp
+        [Elab.step] [0.049333] ✅️ ·
+              apply heq_of_eq
+              funext X Y Z S T
+              apply Iso.ext
+              apply Span.hom_ext
+              exact apex_composition F G S T
+          [Elab.step] [0.049321] ✅️ 
+                apply heq_of_eq
+                funext X Y Z S T
+                apply Iso.ext
+                apply Span.hom_ext
+                exact apex_composition F G S T
+            [Elab.step] [0.049312] ✅️ 
+                  apply heq_of_eq
+                  funext X Y Z S T
+                  apply Iso.ext
+                  apply Span.hom_ext
+                  exact apex_composition F G S T
+              [Elab.step] [0.022021] ✅️ funext X Y Z S T
+                [Elab.step] [0.021977] ✅️ apply funext✝;
+                      intro X;
+                      funext Y Z S T
+                  [Elab.step] [0.017448] ✅️ funext Y Z S T
+                    [Elab.step] [0.017419] ✅️ apply funext✝;
+                          intro Y;
+                          funext Z S T
+                      [Elab.step] [0.013041] ✅️ funext Z S T
+                        [Elab.step] [0.013014] ✅️ apply funext✝;
+                              intro Z;
+                              funext S T
+              [Elab.step] [0.012331] ✅️ exact apex_composition F G S T
+[Elab.async] [0.016880] ✅️ _private.Lean.AddDecl.0.Lean.addDeclCore
+  [Kernel] [0.016841] ✅️ typechecking declarations [SquareKit.SpanInterpretation.pseudofunctor_comp]
+SquareKit/SpanInterpretationComposition.lean:50:6: error: Type mismatch: After simplification, term
+  pullbackComparison_comp_fst (𝟭 C) S.r T.l
+ has type
+  @Eq ((𝟭 C).obj (pullback S.r T.l) ⟶ (𝟭 C).obj S.apex)
+    (pullbackComparison (𝟭 C) S.r T.l ≫ pullback.fst ((𝟭 C).map S.r) ((𝟭 C).map T.l)) ((𝟭 C).map (pullback.fst S.r T.l))
+but is expected to have type
+  @Eq ((𝟭 C).obj (pullback S.r T.l) ⟶ (𝟭 C).obj S.apex)
+    (pullbackComparison (𝟭 C) S.r T.l ≫ pullback.fst ((𝟭 C).map S.r) ((𝟭 C).map T.l))
+    (pullback.fst ((𝟭 C).map S.r) ((𝟭 C).map T.l))
+SquareKit/SpanInterpretationComposition.lean:51:6: error: Type mismatch: After simplification, term
+  pullbackComparison_comp_snd (𝟭 C) S.r T.l
+ has type
+  @Eq ((𝟭 C).obj (pullback S.r T.l) ⟶ (𝟭 C).obj T.apex)
+    (pullbackComparison (𝟭 C) S.r T.l ≫ pullback.snd ((𝟭 C).map S.r) ((𝟭 C).map T.l)) ((𝟭 C).map (pullback.snd S.r T.l))
+but is expected to have type
+  @Eq ((𝟭 C).obj (pullback S.r T.l) ⟶ (𝟭 C).obj T.apex)
+    (pullbackComparison (𝟭 C) S.r T.l ≫ pullback.snd ((𝟭 C).map S.r) ((𝟭 C).map T.l))
+    (pullback.snd ((𝟭 C).map S.r) ((𝟭 C).map T.l))
+[Elab.async] [0.081461] ✅️ elaborating proof of SquareKit.SpanInterpretation.pseudofunctor_id
+  [Elab.definition.value] [0.079663] ❌️ SquareKit.SpanInterpretation.pseudofunctor_id
+    [Elab.step] [0.079185] ✅️ 
+          refine PseudofunctorCoherence.ext (F := pseudofunctor (𝟭 C)) (G := Pseudofunctor.id (Bases C)) rfl ?_ ?_
+          · apply heq_of_eq
+            funext X
+            apply Iso.ext
+            apply Span.hom_ext
+            rfl
+          · apply heq_of_eq
+            funext X Y Z S T
+            apply Iso.ext
+            apply Span.hom_ext
+            change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+            apply pullback.hom_ext
+            · simpa only [Category.id_comp] using pullbackComparison_comp_fst (𝟭 C) S.r T.l
+            · simpa only [Category.id_comp] using pullbackComparison_comp_snd (𝟭 C) S.r T.l
+      [Elab.step] [0.079175] ✅️ 
+            refine PseudofunctorCoherence.ext (F := pseudofunctor (𝟭 C)) (G := Pseudofunctor.id (Bases C)) rfl ?_ ?_
+            · apply heq_of_eq
+              funext X
+              apply Iso.ext
+              apply Span.hom_ext
+              rfl
+            · apply heq_of_eq
+              funext X Y Z S T
+              apply Iso.ext
+              apply Span.hom_ext
+              change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+              apply pullback.hom_ext
+              · simpa only [Category.id_comp] using pullbackComparison_comp_fst (𝟭 C) S.r T.l
+              · simpa only [Category.id_comp] using pullbackComparison_comp_snd (𝟭 C) S.r T.l
+        [Elab.step] [0.016027] ✅️ refine
+              PseudofunctorCoherence.ext (F := pseudofunctor (𝟭 C)) (G := Pseudofunctor.id (Bases C)) rfl ?_ ?_
+          [Elab.step] [0.015910] ✅️ expected type: pseudofunctor (𝟭 C) = Pseudofunctor.id (Bases C), term
+              PseudofunctorCoherence.ext (F := pseudofunctor (𝟭 C)) (G := Pseudofunctor.id (Bases C)) rfl ?_ ?_
+            [Elab.app.args] [0.015774] ✅️ elabAppArgs (3 args) (2 namedArgs) `@PseudofunctorCoherence.ext`
+        [Elab.step] [0.010002] ✅️ ·
+              apply heq_of_eq
+              funext X
+              apply Iso.ext
+              apply Span.hom_ext
+              rfl
+        [Elab.step] [0.053116] ✅️ ·
+              apply heq_of_eq
+              funext X Y Z S T
+              apply Iso.ext
+              apply Span.hom_ext
+              change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+              apply pullback.hom_ext
+              · simpa only [Category.id_comp] using pullbackComparison_comp_fst (𝟭 C) S.r T.l
+              · simpa only [Category.id_comp] using pullbackComparison_comp_snd (𝟭 C) S.r T.l
+          [Elab.step] [0.053099] ✅️ 
+                apply heq_of_eq
+                funext X Y Z S T
+                apply Iso.ext
+                apply Span.hom_ext
+                change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+                apply pullback.hom_ext
+                · simpa only [Category.id_comp] using pullbackComparison_comp_fst (𝟭 C) S.r T.l
+                · simpa only [Category.id_comp] using pullbackComparison_comp_snd (𝟭 C) S.r T.l
+            [Elab.step] [0.053094] ✅️ 
+                  apply heq_of_eq
+                  funext X Y Z S T
+                  apply Iso.ext
+                  apply Span.hom_ext
+                  change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+                  apply pullback.hom_ext
+                  · simpa only [Category.id_comp] using pullbackComparison_comp_fst (𝟭 C) S.r T.l
+                  · simpa only [Category.id_comp] using pullbackComparison_comp_snd (𝟭 C) S.r T.l
+              [Elab.step] [0.017844] ✅️ funext X Y Z S T
+                [Elab.step] [0.017826] ✅️ apply funext✝;
+                      intro X;
+                      funext Y Z S T
+                  [Elab.step] [0.013835] ✅️ funext Y Z S T
+                    [Elab.step] [0.013819] ✅️ apply funext✝;
+                          intro Y;
+                          funext Z S T
+                      [Elab.step] [0.010361] ✅️ funext Z S T
+                        [Elab.step] [0.010345] ✅️ apply funext✝;
+                              intro Z;
+                              funext S T
+              [Elab.step] [0.014062] ✅️ change pullbackComparison (𝟭 C) S.r T.l = 𝟙 _
+[Elab.async] [0.018304] ✅️ _private.Lean.AddDecl.0.Lean.addDeclCore
+  [Kernel] [0.018271] ✅️ typechecking declarations [SquareKit.SpanInterpretation.pseudofunctor_id]
+[Elab.command] [0.024759] ✅️ /-- Comparison between the two interpretation pseudofunctors, with identity components. -/
+    def compositionComparison : pseudofunctor (F ⋙ G) ⟶ (pseudofunctor F).comp (pseudofunctor G) :=
+      PseudofunctorCoherence.retarget (Pseudofunctor.StrongTrans.id _) (pseudofunctor_comp F G) rfl
+  [Elab.definition.value] [0.012832] ✅️ SquareKit.SpanInterpretation.compositionComparison
+    [Elab.step] [0.012770] ✅️ expected type: pseudofunctor (F ⋙ G) ⟶ (pseudofunctor F).comp (pseudofunctor G), term
+        PseudofunctorCoherence.retarget (Pseudofunctor.StrongTrans.id _) (pseudofunctor_comp F G) rfl
+      [Elab.app.args] [0.012689] ✅️ elabAppArgs (3 args)
+            @PseudofunctorCoherence.retarget
+[Elab.command] [0.016821] ✅️ /-- Identity comparison as an actual strong transformation. -/
+    def identityComparison : pseudofunctor (𝟭 C) ⟶ Pseudofunctor.id (Bases C) :=
+      PseudofunctorCoherence.retarget (Pseudofunctor.StrongTrans.id _) pseudofunctor_id rfl
+[Elab.command] [0.011647] ✅️ /-- Reassociation and the actual composition comparison align the slice-action targets. -/
+    theorem action_target_comp :
+        (pseudofunctor F).comp ((pseudofunctor G).comp (SpanAction.pseudofunctor (C := E))) =
+          (pseudofunctor (F ⋙ G)).comp (SpanAction.pseudofunctor (C := E)) :=
+      by rw [← PseudofunctorCoherence.comp_assoc, ← pseudofunctor_comp]
+[Elab.async] [0.010496] ✅️ elaborating proof of SquareKit.SpanInterpretation.action_target_comp
+[Elab.command] [0.042679] ✅️ /--
+    The successive transformation is built by actual precomposition and vertical composition. -/
+    def successiveTransformation :
+        SpanAction.pseudofunctor (C := C) ⟶ (pseudofunctor (F ⋙ G)).comp (SpanAction.pseudofunctor (C := E)) :=
+      PseudofunctorCoherence.retarget
+        (transformation F ≫ PseudofunctorCoherence.precomp (pseudofunctor F) (transformation G))
+        (action_target_comp F G) rfl
+  [Elab.definition.value] [0.031897] ✅️ SquareKit.SpanInterpretation.successiveTransformation
+    [Elab.step] [0.031809] ✅️ expected type: SpanAction.pseudofunctor ⟶
+          (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor, term
+        PseudofunctorCoherence.retarget
+          (transformation F ≫ PseudofunctorCoherence.precomp (pseudofunctor F) (transformation G))
+          (action_target_comp F G) rfl
+      [Elab.app.args] [0.031706] ✅️ elabAppArgs (3 args)
+            @PseudofunctorCoherence.retarget
+        [Elab.step] [0.013953] ✅️ expected type: ((pseudofunctor F).comp
+                  ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+              ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).toPrelaxFunctor, term
+            rfl
+          [Elab.app.args] [0.013883] ✅️ elabAppArgs  `@rfl`
+            [Elab.app.finalize] [0.013871] ✅️ rfl : ((pseudofunctor F).comp
+                      ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+                  ((pseudofunctor F).comp ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor
+              [Elab.app.finalize] [0.013868] ✅️ propagating expected type: ((pseudofunctor F).comp
+                        ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+                    ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).toPrelaxFunctor =?= ?m.104 = ?m.104
+                [Meta.isDefEq] [0.013866] ✅️ ((pseudofunctor F).comp
+                          ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+                      ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).toPrelaxFunctor =?= ?m.104 = ?m.104
+                  [Meta.isDefEq] [0.013800] ✅️ ((pseudofunctor (F ⋙ G)).comp
+                          SpanAction.pseudofunctor).toPrelaxFunctor =?= ((pseudofunctor F).comp
+                          ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor
+                    [Meta.isDefEq] [0.013797] ✅️ ((pseudofunctor (F ⋙ G)).comp
+                            SpanAction.pseudofunctor).toPrelaxFunctor =?= ((pseudofunctor F).comp
+                            ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor
+                      [Meta.isDefEq] [0.013788] ✅️ ((pseudofunctor (F ⋙ G)).comp
+                              SpanAction.pseudofunctor).1 =?= ((pseudofunctor F).comp
+                              ((pseudofunctor G).comp SpanAction.pseudofunctor)).1
+                        [Meta.isDefEq] [0.010672] ✅️ (pseudofunctor (F ⋙ G)).comp
+                              SpanAction.pseudofunctor.toPrelaxFunctor =?= (pseudofunctor F).comp
+                              ((pseudofunctor G).comp SpanAction.pseudofunctor).toPrelaxFunctor
+                          [Meta.isDefEq] [0.010369] ✅️ let __PrelaxFunctorStruct :=
+                                (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor.toPrelaxFunctorStruct;
+                              { toPrelaxFunctorStruct := __PrelaxFunctorStruct, map₂_id := ⋯,
+                                map₂_comp :=
+                                  ⋯ } =?= let __PrelaxFunctorStruct :=
+                                (pseudofunctor F).comp
+                                  ((pseudofunctor G).comp SpanAction.pseudofunctor).toPrelaxFunctorStruct;
+                              { toPrelaxFunctorStruct := __PrelaxFunctorStruct, map₂_id := ⋯, map₂_comp := ⋯ }
+                            [Meta.isDefEq] [0.010328] ✅️ {
+                                  toPrelaxFunctorStruct :=
+                                    (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor.toPrelaxFunctorStruct,
+                                  map₂_id := ⋯,
+                                  map₂_comp :=
+                                    ⋯ } =?= {
+                                  toPrelaxFunctorStruct :=
+                                    (pseudofunctor F).comp
+                                      ((pseudofunctor G).comp SpanAction.pseudofunctor).toPrelaxFunctorStruct,
+                                  map₂_id := ⋯, map₂_comp := ⋯ }
+                              [Meta.isDefEq] [0.010107] ✅️ (pseudofunctor (F ⋙ G)).comp
+                                    SpanAction.pseudofunctor.toPrelaxFunctorStruct =?= (pseudofunctor F).comp
+                                    ((pseudofunctor G).comp SpanAction.pseudofunctor).toPrelaxFunctorStruct
+        [Meta.isDefEq] [0.010306] ✅️ ((pseudofunctor F).comp
+                  ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+              ((pseudofunctor F).comp
+                  ((pseudofunctor G).comp
+                    SpanAction.pseudofunctor)).toPrelaxFunctor =?= ((pseudofunctor F).comp
+                  ((pseudofunctor G).comp SpanAction.pseudofunctor)).toPrelaxFunctor =
+              ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).toPrelaxFunctor
+          [Meta.isDefEq] [0.010287] ✅️ ((pseudofunctor F).comp
+                  ((pseudofunctor G).comp
+                    SpanAction.pseudofunctor)).toPrelaxFunctor =?= ((pseudofunctor (F ⋙ G)).comp
+                  SpanAction.pseudofunctor).toPrelaxFunctor
+            [Meta.isDefEq] [0.010273] ✅️ ((pseudofunctor F).comp
+                    ((pseudofunctor G).comp
+                      SpanAction.pseudofunctor)).1 =?= ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).1
+[Elab.async] [0.026081] ✅️ elaborating proof of SquareKit.SpanInterpretation.successiveTransformation_app
+  [Elab.definition.value] [0.025097] ✅️ SquareKit.SpanInterpretation.successiveTransformation_app
+    [Elab.step] [0.024423] ✅️ rfl
+      [Elab.step] [0.024409] ✅️ rfl
+        [Elab.step] [0.024396] ✅️ rfl
+          [Elab.step] [0.023944] ✅️ eq_refl
+            [Meta.isDefEq] [0.023927] ✅️ (successiveTransformation F G).app X =?= (Over.post F ⋙ Over.post G).toCatHom
+              [Meta.isDefEq] [0.023880] ✅️ (successiveTransformation F G).app
+                    X =?= { toFunctor := Over.post F ⋙ Over.post G }
+                [Meta.isDefEq] [0.023864] ✅️ (successiveTransformation F G).1
+                      X =?= { toFunctor := Over.post F ⋙ Over.post G }
+                  [Meta.whnf] [0.015000] ✅️ Non-easy whnf: successiveTransformation F G
+                    [Meta.whnf] [0.014864] ✅️ Non-easy whnf: PseudofunctorCoherence.retarget
+                          (transformation F ≫ PseudofunctorCoherence.precomp (pseudofunctor F) (transformation G)) ⋯ ⋯
+                      [Meta.whnf] [0.013651] ✅️ Non-easy whnf: Pseudofunctor.casesOn (motive := fun t =>
+                            (pseudofunctor F).comp ((pseudofunctor G).comp SpanAction.pseudofunctor) = t →
+                              (SpanAction.pseudofunctor ⟶ (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor))
+                            ((pseudofunctor F).comp ((pseudofunctor G).comp SpanAction.pseudofunctor))
+                            (fun toPrelaxFunctor mapId mapComp map₂_whisker_left map₂_whisker_right map₂_associator
+                                map₂_left_unitor map₂_right_unitor h =>
+                              Eq.ndrec (motive := fun {G_1} =>
+                                (SpanAction.pseudofunctor ⟶ G_1) →
+                                  G_1 = (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor →
+                                    G_1.toPrelaxFunctor =
+                                        ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor).toPrelaxFunctor →
+                                      (SpanAction.pseudofunctor ⟶
+                                        (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor))
+                                (fun η h hp =>
+                                  Pseudofunctor.casesOn (motive := fun t =>
+                                    (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor = t →
+                                      (SpanAction.pseudofunctor ⟶
+                                        (pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor))
+                                    ((pseudofunctor (F ⋙ G)).comp SpanAction.pseudofunctor)
+                                    (fun toPrelaxFunctor_1 mapId_1 mapComp_1 map₂_whisker_left_1 map₂_whisker_right_1
+                                        map₂_associator_1 map₂_left_unitor_1 map₂_right_unitor_1 h_1 =>
+                                      Eq.ndrec (motive := fun {H} =>
+                                        { toPrelaxFunctor := toPrelaxFunctor, mapId := mapId, mapComp := mapComp,
+                                              map₂_whisker_left := map₂_whisker_left,
+                                              map₂_whisker_right := map₂_whisker_right,
+                                              map₂_associator := map₂_associator, map₂_left_unitor := map₂_left_unitor,
+                                              map₂_right_unitor := map₂_right_unitor } =
+                                            H →
+                                          { toPrelaxFunctor := toPrelaxFunctor, mapId := mapId, mapComp := mapComp,
+                                                  map₂_whisker_left := map₂_whisker_left,
+                                                  map₂_whisker_right := map₂_whisker_right,
+                                                  map₂_associator := map₂_associator,
+                                                  map₂_left_unitor := map₂_left_unitor,
+                                                  map₂_right_unitor := map₂_right_unitor }.toPrelaxFunctor =
+                                              H.toPrelaxFunctor →
+                                            (SpanAction.pseudofunctor ⟶ H))
+                                        (fun h hp =>
+                                          Eq.casesOn (motive := fun a t =>
+                                            { toPrelaxFunctor := toPrelaxFunctor_1, mapId := mapId_1,
+                                                    mapComp := mapComp_1, map₂_whisker_left := map₂_whisker_left_1,
+                                                    map₂_whisker_right := map₂_whisker_right_1,
+                                                    map₂_associator := map₂_associator_1,
+                                                    map₂_left_unitor := map₂_left_unitor_1,
+                                                    map₂_right_unitor := map₂_right_unitor_1 }.toPrelaxFunctor =
+                                                a →
+                                              hp ≍ t →
+                                                (SpanAction.pseudofunctor ⟶
+                                                  { toPrelaxFunctor := toPrelaxFunctor_1, mapId := mapId_1,
+                                                    mapComp := mapComp_1, map₂_whisker_left := map₂_whisker_left_1,
+                                                    map₂_whisker_right := map₂_whisker_right_1,
+                                                    map₂_associator := map₂_associator_1,
+                                                    map₂_left_unitor := map₂_left_unitor_1,
+                                                    map₂_right_unitor := map₂_right_unitor_1 }))
+                                            hp
+                                            (fun h_2 =>
+                                              Eq.ndrec (motive := fun toPrelaxFunctor_2 =>
+                                                (mapId_2 :
+                                                    (a : Bases C) →
+                                                      toPrelaxFunctor_2.map (𝟙 a) ≅ 𝟙 (toPrelaxFunctor_2.obj a)) →
+                                                  (mapComp_2 :
+                                                      {a b c : Bases C} →
+                                                        (f : a ⟶ b) →
+                                                          (g : b ⟶ c) →
+                                                            toPrelaxFunctor_2.map (f ≫ g) ≅
+                                                              toPrelaxFunctor_2.map f ≫ toPrelaxFunctor_2.map g) →
+                                                    (map₂_whisker_left_2 :
+                                                        ∀ {a b c : Bases C} (f : a ⟶ b) {g h : b ⟶ c} (η : g ⟶ h),
+                                                          toPrelaxFunctor_2.map₂ (f ◁ η) =
+                                                            (mapComp_2 f g).hom ≫
+                                                              toPrelaxFunctor_2.map f ◁ toPrelaxFunctor_2.map₂ η ≫
+                                                                (mapComp_2 f h).inv) →
+                                                      (map₂_whisker_right_2 :
+                                                          ∀ {a b c : Bases C} {f g : a ⟶ b} (η : f ⟶ g) (h : b ⟶ c),
+                                                            toPrelaxFunctor_2.map₂ (η ▷ h) =
+                                                              (mapComp_2 f h).hom ≫
+                                                                toPrelaxFunctor_2.map₂ η ▷ toPrelaxFunctor_2.map h ≫
+                                                                  (mapComp_2 g h).inv) →
+                                                        (map₂_associator_2 :
+                                                            ∀ {a b c d : Bases C} (f : a ⟶ b) (g : b ⟶ c) (h : c ⟶ d),
+                                                              toPrelaxFunctor_2.map₂ (α_ f g h).hom =
+                                                                (mapComp_2 (f ≫ g) h).hom ≫
+                                                                  (mapComp_2 f g).hom ▷ toPrelaxFunctor_2.map h ≫
+                                                                    (α_ (toPrelaxFunctor_2.map f)
+                                                                          (toPrelaxFunctor_2.map g)
+                                                                          (toPrelaxFunctor_2.map h)).hom ≫
+                                                                      toPrelaxFunctor_2.map f ◁ (mapComp_2 g h).inv ≫
+                                                                        (mapComp_2 f (g ≫ h)).inv) →
+                                                          (map₂_left_unitor_2 :
+                                                              ∀ {a b : Bases C} (f : a ⟶ b),
+                                                                toPrelaxFunctor_2.map₂ (λ_ f).hom =
+                                                                  (mapComp_2 (𝟙 a) f).hom ≫
+                                                                    (mapId_2 a).hom ▷ toPrelaxFunctor_2.map f ≫
+                                                                      (λ_ (toPrelaxFunctor_2.map f)).hom) →
+                                                            (map₂_right_unitor_2 :
+                                                                ∀ {a b : Bases C} (f : a ⟶ b),
+                                                                  toPrelaxFunctor_2.map₂ (ρ_ f).hom =
+                                                                    (mapComp_2 f (𝟙 b)).hom ≫
+                                                                      toPrelaxFunctor_2.map f ◁ (mapId_2 b).hom ≫
+                                                                        (ρ_ (toPrelaxFunctor_2.map f)).hom) →
+                                                              { toPrelaxFunctor := toPrelaxFunctor, mapId := mapId,
+                                                                    mapComp := mapComp,
+                                                                    map₂_whisker_left := map₂_whisker_left,
+                                                                    map₂_whisker_right := map₂_whisker_right,
+                                                                    map₂_associator := map₂_associator,
+                                                                    map₂_left_unitor := map₂_left_unitor,
+                                                                    map₂_right_unitor := map₂_right_unitor } =
+                                                                  { toPrelaxFunctor := toPrelaxFunctor_2,
+                                                                    mapId := mapId_2, mapComp := mapComp_2,
+                                                                    map₂_whisker_left := map₂_whisker_left_2,
+                                                                    map₂_whisker_right := map₂_whisker_right_2,
+                                                                    map₂_associator := map₂_associator_2,
+                                                                    map₂_left_unitor := map₂_left_unitor_2,
+                                                                    map₂_right_unitor := map₂_right_unitor_2 } →
+                                                                (hp :
+                                                                    { toPrelaxFunctor := toPrelaxFunctor,
+                                                                          mapId := mapId, mapComp := mapComp,
+                                                                          map₂_whisker_left := map₂_whisker_left,
+                                                                          map₂_whisker_right := map₂_whisker_right,
+                                                                          map₂_associator := map₂_associator,
+                                                                          map₂_left_unitor := map₂_left_unitor,
+                                                                          map₂_right_unitor :=
+                                                                            map₂_right_unitor }.toPrelaxFunctor =
+                                                                      { toPrelaxFunctor := toPrelaxFunctor_2,
+                                                                          mapId := mapId_2, mapComp := mapComp_2,
+                                                                          map₂_whisker_left := map₂_whisker_left_2,
+                                                                          map₂_whisker_right := map₂_whisker_right_2,
+                                                                          map₂_associator := map₂_associator_2,
+                                                                          map₂_left_unitor := map₂_left_unitor_2,
+                                                                          map₂_right_unitor :=
+                                                                            map₂_right_unitor_2 }.toPrelaxFunctor) →
+                                                                  hp ≍ ⋯ →
+                                                                    (SpanAction.pseudofunctor ⟶
+                                                                      { toPrelaxFunctor := toPrelaxFunctor_2,
+                                                                        mapId := mapId_2, mapComp := mapComp_2,
+                                                                        map₂_whisker_left := map₂_whisker_left_2,
+                                                                        map₂_whisker_right := map₂_whisker_right_2,
+                                                                        map₂_associator := map₂_associator_2,
+                                                                        map₂_left_unitor := map₂_left_unitor_2,
+                                                                        map₂_right_unitor := map₂_right_unitor_2 }))
+                                                (fun mapId_2 mapComp_2 map₂_whisker_left_2 map₂_whisker_right_2
+                                                    map₂_associator_2 map₂_left_unitor_2 map₂_right_unitor_2 h hp h_3 =>
+                                                  { app := η.app, naturality := fun {a b} => η.naturality,
+                                                    naturality_naturality := ⋯, naturality_id := ⋯,
+                                                    naturality_comp := ⋯ })
+                                                ⋯ mapId_1 mapComp_1 map₂_whisker_left_1 map₂_whisker_right_1
+                                                map₂_associator_1 map₂_left_unitor_1 map₂_right_unitor_1 h hp)
+                                            ⋯ ⋯)
+                                        ⋯ h hp)
+                                    ⋯)
+                                ⋯
+                                (transformation F ≫ PseudofunctorCoherence.precomp (pseudofunctor F) (transformation G))
+                                ⋯ ⋯)
+                            ⋯
+[Elab.async] [0.014547] ✅️ _private.Lean.AddDecl.0.Lean.addDeclCore
+  [Kernel] [0.014531] ✅️ typechecking declarations [SquareKit.SpanInterpretation.successiveTransformation_app]
