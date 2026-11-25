@@ -63,7 +63,7 @@ It does not require a caller-supplied encoder-equivalence premise.
 The native fixture producer and independent Python parser can be run as follows:
 
 ```sh
-direnv exec . lake env lean --run scripts/wasm-fixtures.lean > /tmp/wasm-fixtures.jsonl
+direnv exec . lake env lean --run scripts/WasmFixtures.lean > /tmp/wasm-fixtures.jsonl
 direnv exec . python3 scripts/test-wasm-binary.py /tmp/wasm-fixtures.jsonl
 ```
 

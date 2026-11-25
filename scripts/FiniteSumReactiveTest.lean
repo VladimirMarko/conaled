@@ -7,13 +7,13 @@ open FRPSpec.FiniteSum Examples.FiniteSumReactive Progress.Feedback
 def ensure (b : Bool) (message : String) : IO Unit :=
   unless b do throw (IO.userError message)
 
-def words : Nat → List (List Bool)
+def booleanInputSequences : Nat → List (List Bool)
   | 0 => [[]]
-  | n+1 => (words n).map (false :: ·) ++ (words n).map (true :: ·)
+  | n+1 => (booleanInputSequences n).map (false :: ·) ++ (booleanInputSequences n).map (true :: ·)
 
-def delayedNot : Bool → List Bool → List Bool
+def delayedNotOutputs : Bool → List Bool → List Bool
   | _, [] => []
-  | previous, x::xs => previous :: delayedNot (!x) xs
+  | previous, x::xs => previous :: delayedNotOutputs (!x) xs
 
 def main : IO Unit := do
   let states : List NativeState := [.inl false,.inl true,.inr (false,false),
@@ -33,7 +33,7 @@ def main : IO Unit := do
           ensure ((sumInputSource.tick raw ()).isSome == expected) "checked tick bypassed input admission"
           if expected then admitted := admitted + 1
   ensure (admitted == 6) "expected six canonical states among sixteen raw representations"
-  let trials := (List.range 6).flatMap words
+  let trials := (List.range 6).flatMap booleanInputSequences
   for st in states do
     for xs in trials do
       let actual := run source.program.machine.mealy (encode (a := S) st) xs
@@ -42,7 +42,7 @@ def main : IO Unit := do
       ensure (actual.2 == encode (a := S) expected.2) "lowered final state differs from oracle"
   for xs in trials do
     let actual := run pipeline.machine.mealy pipeline.initial xs
-    let expected := delayedNot false (run reference.mealy reference.initial xs).1
+    let expected := delayedNotOutputs false (run reference.mealy reference.initial xs).1
     ensure (actual.1 == expected) "compiled first-order region/delay changed output order"
   ensure ((source.tick false (true,(true,(true,false)))).isNone) "invalid inactive payload admitted"
   ensure ((checkedDecode (.sum S .bool) (false,((false,(true,(true,false))),false))).isNone)

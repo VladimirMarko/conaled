@@ -10,7 +10,7 @@ The exact rational scene, finite observations and output presentation are separa
   serializes the resulting arrays to ASCII P3.
 - [Checked clients](../../Examples/OrthographicRendering.lean) retain independent
   geometric, color, camera, saturation and serialization controls.
-- [The IO driver](../../scripts/render-orthographic.lean) writes three files to a
+- [The IO driver](../../scripts/RenderOrthographic.lean) writes three files to a
   caller-selected directory. [The output test](../../scripts/test-orthographic-rendering.py)
   checks the real files and an asymmetric serializer fixture.
 
@@ -81,7 +81,7 @@ From a clean checkout at the source revision to record:
 ```sh
 git rev-parse HEAD
 direnv exec . lake build Examples.OrthographicRendering
-direnv exec . lake env lean --run scripts/render-orthographic.lean /tmp/conaled-orthographic
+direnv exec . lake env lean --run scripts/RenderOrthographic.lean /tmp/conaled-orthographic
 direnv exec . python3 scripts/test-orthographic-rendering.py
 sha256sum /tmp/conaled-orthographic/frame-*.ppm
 ```

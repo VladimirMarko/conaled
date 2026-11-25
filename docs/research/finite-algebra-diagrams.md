@@ -86,7 +86,7 @@ From the repository's Nix shell (`direnv exec .` for noninteractive commands):
 
 ```sh
 lake build Examples.SchreierDiagramDriver
-lake env lean --run scripts/schreier-diagrams.lean > docs/diagrams/schreier/actions.json
+lake env lean --run scripts/SchreierDiagrams.lean > docs/diagrams/schreier/actions.json
 python scripts/render-schreier-diagrams.py docs/diagrams/schreier/actions.json docs/diagrams/schreier/actions.svg
 python scripts/test-schreier-diagrams.py
 ```

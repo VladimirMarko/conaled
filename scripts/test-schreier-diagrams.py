@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class Diagrams(unittest.TestCase):
     def test_export(self):
         result = subprocess.run(
-            ["lake", "env", "lean", "--run", "scripts/schreier-diagrams.lean"],
+            ["lake", "env", "lean", "--run", "scripts/SchreierDiagrams.lean"],
             cwd=ROOT, text=True, capture_output=True, check=True,
         )
         actual = json.loads(result.stdout)
@@ -44,7 +44,7 @@ class Diagrams(unittest.TestCase):
 
     def test_saved_artifacts(self):
         result = subprocess.run(
-            ["lake", "env", "lean", "--run", "scripts/schreier-diagrams.lean"],
+            ["lake", "env", "lean", "--run", "scripts/SchreierDiagrams.lean"],
             cwd=ROOT, capture_output=True, check=True)
         saved = ROOT / "docs/diagrams/schreier"
         self.assertEqual(result.stdout, (saved / "actions.json").read_bytes())

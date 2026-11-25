@@ -3,7 +3,7 @@ import Examples.WasmCircuit
 
 open Applications.Wasm Applications.Wasm.Lowering Applications.Circuits
 
-private def twoDelay : FRPSpec.Indefinite.Program .base .base (.prod .base .base) :=
+private def twoTickDelay : FRPSpec.Indefinite.Program .base .base (.prod .base .base) :=
   (FRPSpec.Indefinite.Program.delay false).seq (FRPSpec.Indefinite.Program.delay false)
 
 /-- Deterministic production artifacts use the proved native encoder directly. -/
@@ -16,7 +16,7 @@ def main (args : List String) : IO Unit := do
     ("word-delay-boolean", WordContinuation.booleanModule),
     ("word-delay-packed", WordContinuation.packedModule),
     ("nested", assemble (FRPSpec.FiniteSum.lower Examples.WasmCircuit.NestedCase.source)),
-    ("two-delay", assemble twoDelay.body),
+    ("two-delay", assemble twoTickDelay.body),
     ("unit", assemble (Circuit.identity (a := .unit))),
     ("not", assemble (.gate (.not 0)))]
   for (name, m) in modules do

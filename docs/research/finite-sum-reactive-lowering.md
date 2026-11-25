@@ -128,7 +128,7 @@ Run the executable checks inside the development shell:
 
 ```sh
 lake build Examples.FiniteSumReactive
-lake env lean --run scripts/test-finite-sum.lean
+lake env lean --run scripts/FiniteSumReactiveTest.lean
 python3 scripts/test-reactive-service.py
 ```
 

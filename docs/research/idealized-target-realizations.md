@@ -65,4 +65,4 @@ No general evidence API or fixed hierarchy is adopted, and #489 remains deferred
 
 ## Validation scope
 
-The focused build target is `Examples.IdealizedTargets`, covering the new library results and public positive and separating cases. Executable observations additionally have concrete reduction checks and the runtime command `direnv exec . lake env lean --run scripts/test-idealized-targets.lean`; exact committed acceptance requires the repository's full build, exhaustive proof audit, and independent Standards and Spec reviews. The implementation handoff records those outcomes separately from this mathematical account.
+The focused build target is `Examples.IdealizedTargets`, covering the new library results and public positive and separating cases. Executable observations additionally have concrete reduction checks and the runtime command `direnv exec . lake env lean --run scripts/IdealizedTargetsTest.lean`; exact committed acceptance requires the repository's full build, exhaustive proof audit, and independent Standards and Spec reviews. The implementation handoff records those outcomes separately from this mathematical account.

@@ -24,7 +24,7 @@ def main : IO Unit := IO.print (rasterText asymmetricRaster)
         with tempfile.TemporaryDirectory(prefix="orthographic output ") as tmp:
             output = pathlib.Path(tmp) / "nested" / "frames"
             subprocess.run(["lake", "env", "lean", "--run",
-                            "scripts/render-orthographic.lean", str(output)],
+                            "scripts/RenderOrthographic.lean", str(output)],
                            cwd=ROOT, check=True)
             self.assertEqual(sorted(p.name for p in output.iterdir()),
                              [f"frame-{k:03}.ppm" for k in range(3)])
@@ -53,7 +53,7 @@ def main : IO Unit := IO.print (rasterText asymmetricRaster)
             self.assertEqual(len(set(frames)), 3)
             # Re-running in the same caller-selected directory deterministically replaces files.
             subprocess.run(["lake", "env", "lean", "--run",
-                            "scripts/render-orthographic.lean", str(output)],
+                            "scripts/RenderOrthographic.lean", str(output)],
                            cwd=ROOT, check=True)
             self.assertEqual(frames, [(output / f"frame-{k:03}.ppm").read_text()
                                      for k in range(3)])

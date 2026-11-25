@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Independent selected-Core parser and hand-calculated serializer fixtures.
 Run: direnv exec . python3 scripts/test-wasm-binary.py emitted.jsonl
-The input is produced by lake env lean --run scripts/wasm-fixtures.lean.
+The input is produced by lake env lean --run scripts/WasmFixtures.lean.
 """
 import json
 import sys

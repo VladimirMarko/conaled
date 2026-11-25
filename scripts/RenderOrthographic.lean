@@ -2,7 +2,7 @@ import Applications.Rendering.PPM
 
 /-- The OS and Lean runtime implement these external writes; no filesystem theorem is claimed. -/
 def main (args : List String) : IO Unit := do
-  let [directory] := args | throw (IO.userError "usage: render-orthographic.lean OUTPUT_DIRECTORY")
+  let [directory] := args | throw (IO.userError "usage: RenderOrthographic.lean OUTPUT_DIRECTORY")
   let output : System.FilePath := directory
   IO.FS.createDirAll output
   for k in List.finRange 3 do
