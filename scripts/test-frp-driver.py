@@ -3,7 +3,7 @@
 import subprocess
 import unittest
 
-COMMAND = ["lake", "env", "lean", "--run", "scripts/frp-driver.lean"]
+COMMAND = ["lake", "env", "lean", "--run", "scripts/FRPDriver.lean"]
 
 
 def run(data, **kwargs):
@@ -59,7 +59,7 @@ class DriverTests(unittest.TestCase):
         self.assertEqual(lines[6], "error limit")
 
     def test_output_failure_has_no_retry_or_next_input(self):
-        result = subprocess.run(["lake", "env", "lean", "--run", "scripts/frp-driver-faults.lean"],
+        result = subprocess.run(["lake", "env", "lean", "--run", "scripts/FRPDriverFailureTests.lean"],
                                 capture_output=True, timeout=60)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(result.stdout, b"failure fixtures passed\n")

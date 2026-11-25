@@ -7,7 +7,7 @@ import time
 rows = []
 for repetition in range(3):
     for name, commands in [('ordinary', 'aqqbqqc'), ('repartition', 'asmbhm c'.replace(' ', ''))]:
-        process = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/regional-migration-main.lean'],
+        process = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/RegionalMigrationMain.lean'],
                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    text=True, bufsize=1)
         process.stdin.write('q'); process.stdin.flush()

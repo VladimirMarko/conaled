@@ -6,7 +6,7 @@ import selectors
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-COMMAND = ["lake", "env", "lean", "--run", "scripts/choice-driver.lean"]
+COMMAND = ["lake", "env", "lean", "--run", "scripts/ChoiceDriver.lean"]
 
 
 class Session:

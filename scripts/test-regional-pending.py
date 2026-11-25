@@ -8,7 +8,7 @@ import unittest
 
 class RegionalPending(unittest.TestCase):
     def run_client(self, commands, outputs):
-        p = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/regional-pending-main.lean'],
+        p = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/RegionalPendingMain.lean'],
                            input=commands, text=True, capture_output=True, timeout=120)
         self.assertEqual(p.returncode, 0, p.stderr)
         lines = p.stdout.splitlines()
@@ -68,7 +68,7 @@ class RegionalPending(unittest.TestCase):
         self.assertEqual(lines.count('C:delivered-N'), 1)
 
     def test_long_stream_before_eof(self):
-        p = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/regional-pending-main.lean'],
+        p = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/RegionalPendingMain.lean'],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                              bufsize=0)
         def frame():
@@ -115,7 +115,7 @@ class RegionalPending(unittest.TestCase):
                 stream.close()
 
     def test_fail_stop(self):
-        argv = ['lake', 'env', 'lean', '--run', 'scripts/regional-pending-main.lean']
+        argv = ['lake', 'env', 'lean', '--run', 'scripts/RegionalPendingMain.lean']
         p = subprocess.run(argv, input='?', text=True, capture_output=True, timeout=120)
         self.assertNotEqual(p.returncode, 0)
         self.assertIn('invalid regional pending command byte', p.stderr)

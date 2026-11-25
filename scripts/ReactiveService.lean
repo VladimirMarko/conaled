@@ -8,6 +8,6 @@ def main (args : List String) : IO UInt32 := do
   | [] => FRPSpec.Indefinite.serve FRPSpec.Indefinite.delay input output
   | ["twice"] => FRPSpec.Indefinite.serve FRPSpec.Indefinite.twice input output
   | _ =>
-    (← IO.getStderr).putStrLn "usage: reactive-service.lean [twice]"
+    (← IO.getStderr).putStrLn "usage: ReactiveService.lean [twice]"
     return 2
   return 0

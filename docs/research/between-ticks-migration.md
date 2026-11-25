@@ -49,8 +49,8 @@ adopted.
 
 ## Ownership and publication
 
-The public runner is [migration-service.lean](../../scripts/migration-service.lean).
-Run it through `direnv exec . lake env lean --run scripts/migration-service.lean`,
+The public runner is [MigrationService.lean](../../scripts/MigrationService.lean).
+Run it through `direnv exec . lake env lean --run scripts/MigrationService.lean`,
 optionally with `redundant` as its initial realization. Each byte is one command;
 newline is ignored. The adapter never accumulates a line or lifetime transcript.
 

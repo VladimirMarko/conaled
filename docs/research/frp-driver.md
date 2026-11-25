@@ -12,7 +12,7 @@ From the development shell, build the imported library once, then run the script
 
 ```sh
 lake build Applications.FRP.DriverIO
-lake env lean --run scripts/frp-driver.lean <<'INPUT'
+lake env lean --run scripts/FRPDriver.lean <<'INPUT'
 begin 0 2
 source left 3 1 2 2 3 4
 source right 3 1 2 1 3

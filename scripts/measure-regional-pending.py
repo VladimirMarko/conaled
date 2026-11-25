@@ -9,7 +9,7 @@ for repetition in range(3):
     for name, commands in [('ordinary', '1ewpx1kddtcleDNjpddtcl0ewpddtclq'),
                            ('placement', '1ewpx1rokddtcleDNjpddtcl0ewpddtclq'),
                            ('repartition', '1ewpx1hokddtcleDgoNjpddtcl0ewpddtclq')]:
-        process = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/regional-pending-main.lean'],
+        process = subprocess.Popen(['lake', 'env', 'lean', '--run', 'scripts/RegionalPendingMain.lean'],
                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    text=True, bufsize=1)
         process.stdin.write('q'); process.stdin.flush()

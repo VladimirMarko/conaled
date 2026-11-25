@@ -84,7 +84,7 @@ direnv exec . lake build Examples.PolicyChoiceDriver
 direnv exec . python3 scripts/test-choice-driver.py
 ```
 
-`scripts/choice-driver.lean` exposes a bounded JSONL session. `select` returns
+`scripts/ChoiceDriver.lean` exposes a bounded JSONL session. `select` returns
 its exact context and candidate IDs; `record` applies the shared immutable
 update; `run` executes the selected realization; `explore` explicitly executes
 an admitted named realization. Those modes read no clock. A syntactically

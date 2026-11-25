@@ -25,7 +25,7 @@ def main():
     request = str(pathlib.Path(sys.argv[1]).resolve())
     with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
         process = subprocess.Popen(
-            ['lake', 'env', 'lean', '-j1', '--run', 'scripts/disk-driver.lean', request],
+            ['lake', 'env', 'lean', '-j1', '--run', 'scripts/DiskDriver.lean', request],
             cwd=ROOT, stdout=out, stderr=err, start_new_session=True, preexec_fn=limits)
         try:
             code = process.wait(timeout=25)

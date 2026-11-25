@@ -7,7 +7,7 @@ open FRPSpec.Frontier.Driver
 def ensure (condition : Bool) (message : String) : IO Unit :=
   unless condition do throw (IO.userError message)
 
-def publicationFailure (atFlush : Bool) : IO Unit := do
+def checkPublicationFailure (atFlush : Bool) : IO Unit := do
   let consumed := "source left 1 0\nsource right 1 0\nbegin 0 0\nprocess 0\n"
   let source ← IO.mkRef ({data := (consumed ++ "idle\n").toUTF8} : IO.FS.Stream.Buffer)
   let sink ← IO.mkRef ({} : IO.FS.Stream.Buffer)
@@ -41,7 +41,7 @@ def publicationFailure (atFlush : Bool) : IO Unit := do
   ensure (String.fromUTF8! bytes == previousFrames ++ response)
     "fixture did not retain the ambiguous response publication"
 
-def readFailure : IO Unit := do
+def checkReadFailure : IO Unit := do
   let sink ← IO.mkRef ({} : IO.FS.Stream.Buffer)
   let base := IO.FS.Stream.ofBuffer sink
   let input : IO.FS.Stream := {base with read := fun _ => throw (IO.userError "read failure")}
@@ -52,7 +52,7 @@ def readFailure : IO Unit := do
   ensure ((← sink.get).data.isEmpty) "read failure published a lifecycle result"
 
 def main : IO Unit := do
-  publicationFailure false
-  publicationFailure true
-  readFailure
+  checkPublicationFailure false
+  checkPublicationFailure true
+  checkReadFailure
   IO.println "failure fixtures passed"

@@ -104,8 +104,8 @@ From the repository's development shell, build once and run:
 
 ```sh
 lake build Applications.FRP.IndefiniteIO
-printf '10110' | lake env lean --run scripts/reactive-service.lean
-printf '10110' | lake env lean --run scripts/reactive-service.lean twice
+printf '10110' | lake env lean --run scripts/ReactiveService.lean
+printf '10110' | lake env lean --run scripts/ReactiveService.lean twice
 ```
 
 The outputs are `01011` and `00101`, respectively, with no added newline.

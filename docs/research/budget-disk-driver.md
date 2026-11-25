@@ -12,7 +12,7 @@ Build the public modules using the repository's ordinary check procedure, then r
 direnv exec . python3 scripts/run-disk-driver.py tests/disk-driver/refine.json
 ```
 
-The wrapper runs the Lean executable `scripts/disk-driver.lean`. The request is a JSON object:
+The wrapper runs the Lean executable `scripts/DiskDriver.lean`. The request is a JSON object:
 
 ```json
 {

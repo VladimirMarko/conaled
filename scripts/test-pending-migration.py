@@ -9,7 +9,7 @@ import unittest
 class PendingMigration(unittest.TestCase):
     def check(self, commands, outputs, mode='delay'):
         p = subprocess.run(['lake', 'env', 'lean', '--run',
-                            'scripts/pending-migration.lean', mode],
+                            'scripts/PendingMigration.lean', mode],
                            input=commands, capture_output=True, timeout=120)
         self.assertEqual(p.returncode, 0, p.stderr.decode() + p.stdout.decode())
         self.assertEqual([x for x in p.stdout.splitlines() if x.startswith(b'B:')],
@@ -67,7 +67,7 @@ class PendingMigration(unittest.TestCase):
 
     def test_long_stream_reuses_slots_without_eof(self):
         p = subprocess.Popen(['lake', 'env', 'lean', '--run',
-                              'scripts/pending-migration.lean'],
+                              'scripts/PendingMigration.lean'],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE, bufsize=0)
         def line():
@@ -116,21 +116,21 @@ class PendingMigration(unittest.TestCase):
 
     def test_invalid_byte_and_output_failure_stop(self):
         p = subprocess.run(['lake', 'env', 'lean', '--run',
-                            'scripts/pending-migration.lean'],
+                            'scripts/PendingMigration.lean'],
                            input=b'?' * 4096, capture_output=True, timeout=120)
         self.assertNotEqual(p.returncode, 0)
         self.assertIn(b'invalid pending migration command byte', p.stderr)
         # Failure is the first acceptance control frame, before publication.
         with open('/dev/full', 'wb') as sink:
             p = subprocess.run(['lake', 'env', 'lean', '--run',
-                                'scripts/pending-migration.lean'],
+                                'scripts/PendingMigration.lean'],
                                input=b'1epddtcl', stdout=sink, stderr=subprocess.PIPE,
                                timeout=120)
         self.assertNotEqual(p.returncode, 0)
 
     def test_cancel_second_pending_input(self):
         p = subprocess.run(['lake', 'env', 'lean', '--run',
-                            'scripts/pending-migration.lean'],
+                            'scripts/PendingMigration.lean'],
                            input=b'10Nepddtclclq', capture_output=True, timeout=120)
         self.assertEqual(p.returncode, 0, p.stderr.decode())
         self.assertEqual([x for x in p.stdout.splitlines() if x.startswith(b'B:')], [b'B:0'])
@@ -141,7 +141,7 @@ class PendingMigration(unittest.TestCase):
         # Delay(false,[true,false]) = ([false,true],false). First publication
         # loses its reply; transfer precedes query/confirmation and local commit.
         p = subprocess.run(['lake', 'env', 'lean', '--run',
-                            'scripts/pending-migration.lean'],
+                            'scripts/PendingMigration.lean'],
                            input=b'1epx0rokddtclepddtclq',
                            capture_output=True, timeout=120)
         self.assertEqual(p.returncode, 0, p.stderr.decode())

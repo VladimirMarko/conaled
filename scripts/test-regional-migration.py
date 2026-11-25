@@ -4,7 +4,7 @@ import subprocess
 
 
 def run(commands):
-    result = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/regional-migration-main.lean'],
+    result = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/RegionalMigrationMain.lean'],
                             input=commands, text=True, capture_output=True, check=True)
     return result.stdout.splitlines()
 

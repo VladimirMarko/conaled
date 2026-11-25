@@ -84,7 +84,7 @@ def main():
                       for name in ['Applications/FRP/MigrationPair.lean',
                                    'Applications/FRP/Migration.lean',
                                    'Applications/FRP/MigrationIO.lean',
-                                   'scripts/migration-service.lean',
+                                   'scripts/MigrationService.lean',
                                    'scripts/test-migration-service.py',
                                    'scripts/benchmark-migration-service.py']},
                   toolchain=subprocess.check_output(['lean', '--version'], text=True).strip(),

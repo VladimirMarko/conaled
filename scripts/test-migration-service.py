@@ -6,7 +6,7 @@ import subprocess
 import time
 import unittest
 
-COMMAND = ['lake', 'env', 'lean', '--run', 'scripts/migration-service.lean']
+COMMAND = ['lake', 'env', 'lean', '--run', 'scripts/MigrationService.lean']
 
 
 def run(data, mode=()):

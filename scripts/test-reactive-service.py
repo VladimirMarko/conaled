@@ -6,7 +6,7 @@ import select
 import time
 import unittest
 
-COMMAND = ["lake", "env", "lean", "--run", "scripts/reactive-service.lean"]
+COMMAND = ["lake", "env", "lean", "--run", "scripts/ReactiveService.lean"]
 
 
 class ReactiveService(unittest.TestCase):

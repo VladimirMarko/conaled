@@ -129,7 +129,7 @@ or scheduler interface.
 
 ## Running the adapter
 
-Run `direnv exec . lake env lean --run scripts/pending-migration.lean`, optionally
+Run `direnv exec . lake env lean --run scripts/PendingMigration.lean`, optionally
 with `redundant` as the initial backend. Newlines are ignored; every other input
 byte must name a command. Business frames are `B:0` or `B:1`, status frames begin
 with `C:`, and queries return backend, committed state, occupied slots and queue
