@@ -1,8 +1,14 @@
 # Category presentations and compositional extensions
 
-Surveyed on 2026-11-24 against repository baseline
+Initially surveyed on 2026-11-24 against repository baseline
 `040f28a9dbcbb0e9059eddbd4819419fc5c0ff1e` and pinned Mathlib
 `56a005855ea17e0b0958f73ec801ae140b0a1679`.
+
+Updated on 2026-11-25 against project `96e2189394fe32a346ca306bd75da3197db246c9`
+to account for the delivered comma interfaces and #703–#706. The nLab readings
+remain the 2026-11-24 source assessment; this update does not claim a new page
+review or an exhaustive survey. The coverage table below separates available
+interfaces, adoption work and further research.
 
 The library already connects several presentations through maps, categorical
 equivalences and coherent substitution. These mechanisms are substantial, but
@@ -78,6 +84,51 @@ assertions use the checked-in Lean source and the pinned Mathlib source. A
 negative finding means that the specified interface was not found in the
 inspected modules, not that no equivalent theorem can exist elsewhere.
 
+## Coverage and adoption table
+
+This table indexes the inspected presentations; the sections below contain
+nLab links and declaration-level source references. “Available” means the
+specified interface exists, not that every old caller has adopted it. Universe
+restrictions belong to individual adapters; the linked reports give their exact
+signatures. The common-universe Cat pullback and the context universe maxima
+in the family bridge must not be generalized silently.
+
+| Presentation | Existing declaration or entry point | Assumptions and morphism/coherence coverage | Recovery guarantee | Remaining work |
+|---|---|---|---|---|
+| Raw categories/maps → lawful quotient | `HomQuotient.category`, `RawMap.quotientFunctor`, `LawfulQuotient.equivalence` | Semantic equivalence, congruence and laws; the Mathlib quotient comparison takes an ordinary category and congruent hom relation. Functors preserve composition. | Quotient classes and their arrows, not representatives. | Available; assess older quotient callers under #712. Total-arrow/internal-category comparison is outside the inspected bridge. |
+| Raw transformations → ordinary transformations | `RawTransformation.Natural`, `quotient`, `quotient_eq_iff`, `toNatTrans`/`ofNatTrans` | Fixed raw maps; target laws/congruence where used; postwhiskering requires preservation. Quotient boundary also requires source laws. Independent source/target universes. | Pointwise semantic relation exactly matches quotient transformation equality; lawful specialization round trip. | Available; adoption ledger #712. No automatic Type-valued witness coherence. |
+| Monoids/groups → one-object categories | Mathlib `SingleObj.toEnd`, `mapHom`; `SetoidMonoid` | Monoid maps correspond to functors; groups give groupoids. | One-object map correspondence. | Available. Full two-dimensional correspondence needs specified intertwining cells and pointedness; research only. |
+| Products/pullbacks/limits → representability | `CartesianMapQuotient.binaryFanIsLimit`; Mathlib `IsLimit.homEquiv`, `representableBy`, `ofRepresentableBy` | Raw beta/eta and congruence for the quotient bridge; ordinary cones and natural cone maps afterward. Chosen pullback substitution uses comparison isomorphisms. | Universal-property recovery and uniqueness up to the stated isomorphism. | Available; #706 checks a product client. Further raw adapters need a selected construction. |
+| Comma objects → universal cones and arrow-endpoint pullback | `CommaUniversal.equivalence`, `precomposeNat`; `CommaPullback.arrowPullbackIsLimit` | Functors and compatible natural transformations, composition and test-category changes. Cat bundling uses common object/hom universes; unbundled API retains independent levels. | Strict functor round trips; factorization and uniqueness for the strict endpoint pullback. | Delivered. Reuse in older callers where appropriate; not an isocomma or higher-comma theorem. |
+| Function squares → bundled arrows | `CommaExactLawful` | Lawful function categories; exact objects/arrows and composition. | Exact object/morphism round trips. | Delivered; retain raw weak-assumption routes. |
+| Adjunctions → hom bijections/unit–counit; closed structure → product adjunction | Mathlib `Adjunction.mkOfHomEquiv`, `mkOfUnitCounit`; `ClosedMap`, `AdjointComparison` | Naturality and triangle laws; raw transport needs its comparison/reflection hypotheses. Beck–Chevalley requires the specified pullback/adjunctions. | Selected hom bijections and adjunction data; curry/uncurry laws. | Available; checked #706 client. No automatic higher coherent adjunction translator. |
+| Monoidal categories → one-object bicategories | Mathlib `MonoidalSingleObj` | Associator/unitors and their laws; strictness is not implicit. | Existing construction and endomorphism recovery. | Full biequivalence remains beyond the inspected interface; no migration selected. |
+| Monads → monoids in endofunctors | Mathlib `Monad.monadMonEquiv`; `programLiftMonad` | Ordinary categorical equivalence including morphisms; concrete multiplication laws proved first. | Monad/monoid category equivalence. Does not recover an arbitrary inducing adjunction. | Available; #706 checks operations and a morphism. #617 owns the separate Lawvere–finitary-monad correspondence. |
+| Presheaves/Yoneda/elements → evaluation and totals | `SheafifiedYoneda.evaluation`, `subcanonicalIso`; Mathlib `Elements`, `grothendieckTypeToCat` | Natural evaluation; representable-sheaf comparison requires subcanonicity; discrete-fibre total comparison has its stated variance. | Selected evaluation and elements/total comparisons, retaining action arrows. | Available selected routes; deeper presheaf/sheaf coverage remains #708. |
+| Indexed coherent families → fibred total categories | `CoherentFamilyFibration.totalEquivalence`, `codeFiberEquivalence`, `directFiberEquivalence`; `CoGrothendieckMap.homFunctor` | Contravariant context reindexing, strong transformations and invertible recovery modifications. All family maps, including noninvertible ones; cartesian arrows preserved. Context universe `max v (u+1) (w+1)`. | Total equivalence over the same base, fibre recovery and base-trivial unit/counit components; not equality of arbitrary cleavages. | Selected bridge delivered. Other family adapters and converse/biequivalence remain #708. |
+| Sheaves/descent → reconstructed categories | `SheafActionQuotientDescentCategory.quotientDescentEquivalence` | Local surjectivity and the stated action/descent hypotheses; arrows and natural comparison retained. | Selected category-level descent equivalence. | Does not establish effective descent for every added structure. #678/#679 own Morita/stackification; coverage research #708. |
+| Equivalent presentations of structured objects | `Lawvere.Recovery` model maps, `modelFullyFaithful`, `modelEquivalence`; matroid object/order comparisons | Lawvere algebra maps become natural transformations; object/order equivalences alone do not select matroid morphisms. | Lawvere categorical recovery; matroid recovery at the existing object/order level. | #630 owns the isomorphism-functorial matroid extension; no arbitrary morphism category inferred. |
+| Dependent higher witnesses → finite correspondence representations | `FiniteDependentCorrespondence`; existing `TwoFamily` | Fixed finite dependent cells, actual whiskering and independently constructed representation maps; endpoint transports retained. | Full selected-cell recovery; distinct witnesses survive the comparison. | #703 delivered. Native #700–#702 and general higher interfaces remain separate. |
+
+At `96e2189394fe32a346ca306bd75da3197db246c9`, rerunning the selection script
+finds 4,151 local modules. Leading direct-import counts are `SingleObj` 14,
+`Whiskering` 12, `Limits.Types.Pullbacks` 11 and `Equivalence` 9. There are no
+direct imports whose names contain `Kan`, `Ends` or `Coend` in that sample;
+this is not evidence that those concepts or transitive APIs are absent.
+
+Local-import checks locate `RawTransformation` in `Examples.RawTransformations`,
+`CoherentFamilyFibration` in `Examples.CoherentFamilyFibration`, and
+`CommaPullback` in `Examples.CommaUniversal` (with `CommaUniversal` imported
+through the pullback module). `CategoryQuotient` is imported by
+`Examples.CategoryInstances` and `Examples.CategoryCharacterizations`.
+These are concrete entry points, not a proof-call census or evidence of broad
+migration. #712 must inspect old callers before claiming removable duplication.
+
+The included families are the rows above. Deferred depth includes the full
+presheaf/sheaf developments, general higher coherence, converse fibration
+comparisons, and facade/transitive-use assessment of additional families.
+#708 retains that research rather than treating this table as exhaustive.
+
 ## Presentations already connected, and remaining interfaces
 
 ### Categories, functors and semantic equality
@@ -120,13 +171,16 @@ transformation `B ⟶ base ⋙ A`. `transport` follows from naturality; `comp_as
 and `reindex_comp` establish composition and substitution. Despite the filename,
 the construction itself permits arbitrary categories with Type-valued families.
 
-The raw foundational map API above has no corresponding generic transformation
-record with a naturality witness in `HomEquiv`, composition, whiskering and a
-quotient comparison. Mathlib's ordinary transformations cannot be applied to
-arbitrary raw operations without first supplying the missing laws. A shared
-raw transformation layer is a plausible next construction. A Type-valued
-witness version would additionally need specified coherence between witness
-composites; replacing witnesses by their mere existence does not supply that.
+[RawTransformation](../../SquareKit/RawTransformation.lean), delivered in #704,
+now separates component data, `Natural` modulo the target `HomEquiv`, and
+pointwise semantic `Rel`. It supplies identity, composition, whiskering,
+horizontal composition and interchange under explicit laws. Prewhiskering
+needs only a raw map; postwhiskering needs preservation. Its ordinary lawful
+adapter recovers Mathlib natural transformations; `quotient_eq_iff` identifies
+exactly pointwise semantic equality for fixed endpoints. It does not recover
+raw representatives or arbitrary Type-valued coherence witnesses. The
+[extension assessment](compositional-interface-extension.md) records the
+hypothesis controls and the adopted scope.
 
 ### Monoids, groups and one-object categories
 
@@ -278,8 +332,14 @@ of total categories, and `extendEquivalence` also changes the base. Components
 need not be bijections of object representations. Pinned Mathlib additionally
 has a pseudofunctor [CoGrothendieck construction with a fibered projection][M-fibered]
 and equivalences with its specified fibres. Thus pseudofunctor support is
-already available; a full converse biequivalence and a shared adapter for the
-project's varied family APIs were not located in this survey.
+already available. #705 added [CoGrothendieckMap](../../SquareKit/CoGrothendieckMap.lean)
+and [CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean):
+the selected coherent local diagrams and direct families have equivalent total
+categories over the same context base, recover their fibres and preserve
+cartesian arrows. Modifications induce total natural transformations. The
+[family report](coherent-family-fibration.md) states variance, universe maxima
+and recovery comparisons. A converse from arbitrary fibrations, a full
+biequivalence and adapters for every local family API remain outside this result.
 
 nLab's [sheaf](https://ncatlab.org/nlab/show/sheaf) article describes unique
 gluing of compatible sections. Category-valued descent must also retain arrows
@@ -313,7 +373,7 @@ The following mechanisms are concrete and reusable now:
 
 | Existing mechanism | What it establishes | Boundary |
 |---|---|---|
-| `RawMap`, operation-specific maps, law transport and hom quotients | Compose interpretations while separating operations, equivalence, preservation and reflection. | Supplies no generic raw 2-cell layer or recovery after witness erasure. |
+| `RawMap`, `RawTransformation`, operation-specific maps, law transport and hom quotients | Compose interpretations and ordinary transformations while separating operations, equivalence, preservation and reflection. | The transformation layer observes semantic equality; it does not reconstruct arbitrary erased witnesses. |
 | Functor categories, natural transformations, full subcategories | Reuse identity/composition and naturality instead of restating component equations. [CoherentFamilyClassification](../../SquareKit/Internal/CoherentFamilyClassification.lean) restricts arrow-indexed functors by a coherence property, then gives code/decode and reindexing comparisons. | A full subcategory adds object properties without changing allowed arrows. Extra operations whose preservation restricts arrows need a different construction. |
 | Families, chosen pullbacks and Grothendieck totals | Assemble dependent objects and arrows; prove base-change comparisons, units and associativity. | Strict diagrams and pseudo diagrams have different input contracts; fibrewise equivalence alone without natural compatibility does not assemble a total equivalence. |
 | Model-specific categories of structured objects | Lawvere recovery and quotient descent recover morphisms and natural comparisons along with objects. | Their operation or cover hypotheses are part of the construction, not generic consequences of object-level recovery. |
@@ -321,8 +381,7 @@ The following mechanisms are concrete and reusable now:
 
 These mechanisms occur across foundations, internal languages, algebra and
 geometry. That supports describing them as a recurring architectural practice.
-It does not support saying the complete practice is ubiquitous. The raw map
-layer, the object-only matroid comparisons and the specialized family adapters
+It does not support saying the complete practice is ubiquitous. The object-only matroid comparisons and the specialized family adapters
 show different levels of completion. Import frequencies above do not measure
 how many old definitions have all morphism/coherence layers.
 
@@ -367,13 +426,22 @@ preserving every chosen cleavage or filler. This module is evidence for a
 reusable specialization, not an already adopted generic displayed-category
 framework for every legacy definition.
 
-The design recommendation is to assess a small shared structure-over-base
-interface, with reusable total categories, forgetful functors, change of base,
-composition of structured maps and comparisons. It should support adding a
-property as a full subcategory and adding operations with preservation-restricted
-arrows. Separate strict equalities, natural isomorphisms and relevant witness
-cells at the interface. Do not put all optional laws into one record or claim
-that an arbitrary object definition determines its morphisms canonically.
+The completed [extension design assessment](interface-extension-design/decision.md)
+adopts the bounded raw transformation layer and retains Mathlib lawful
+transformations, operation-preserving morphism restrictions and complete span
+comparisons. Canonical span comparisons can be rebuilt from the retained
+functor, chosen pullbacks and preservation evidence. This does not justify
+recovering arbitrary supplied witnesses after erasure. The
+[family design assessment](coherent-family-fibration-design/decision.md) adopts
+the selected total-category bridge. A universal structure-over-base framework
+remains research; neither decision mandates a global rewrite.
+
+For old interfaces, identify the information and laws needed for later maps and
+coherence early. Implement shared layers when they provide mathematical
+capability or reusable proofs, without requiring an immediate blocked client.
+Keep agreed adoption work visible in [#712](https://github.com/VladimirMarko/conaled/issues/712),
+with explicit retain, update or defer decisions and a next review checkpoint.
+A deferral is not a conclusion that the present encoding should remain forever.
 
 The [preservation architecture](preservation-architecture.md) already chooses
 compatible native layers, and the [contract inventory](preservation-contract-inventory.md)
@@ -391,10 +459,12 @@ The following distinction should guide planning:
   natural transformations; hom-bijection/unit-counit adjunctions; universal
   cones and representability; specific quotient, family, Lawvere and descent
   comparisons cited above.
-- **Settled mathematics with missing or incomplete project interfaces:** a raw
-  transformation layer, packaged comparison equivalences, systematic adapters
-  between structured-family APIs, and the broader pseudofunctor/fibration
-  comparison. Their implementation and usable specialization remain work.
+- **Delivered interfaces with adoption work:** raw transformations, the lawful
+  quotient equivalence, comma presentations and the selected family/fibration
+  bridge. Their availability does not establish that older callers use them.
+- **Missing or incomplete comparisons in the inspected scope:** systematic
+  adapters for the remaining family APIs and the broader pseudofunctor/fibration
+  comparison. These need their own precise contracts and source assessment.
 - **Architectural research:** which common structure-over-base interface
   should be adopted, how far strict/pseudo/witness layers can share proofs,
   how structure extensions expose requirements, and how to retain concrete
@@ -404,40 +474,48 @@ The following distinction should guide planning:
   identify distinct such data. Existing separating examples in the preservation
   inventory must remain regression cases.
 
-## Priorities and acceptance contracts
+## Adoption and further research
 
-1. **Complete the lawful comma universal property and its bridges.** This is
-   the present implementation task. Require functor and natural-transformation
-   recovery, composition, substitution/coherence, the exact-square client and
-   the arrow-endpoint pullback with its actual universe and strictness contract.
-   Retain raw weak assumptions and distinguish witness erasure from equivalence.
-2. **Complete inexpensive presentation bridges before inventing replacements.**
-   Package the existing lawful quotient comparison when a category equivalence
-   is the intended claim. Surface existing Mathlib adjunction, limit, monad and
-   elements constructions in focused examples or facade documentation. Existing
-   mathematics should be reused rather than counted as missing.
-3. **Develop a reusable transformation and structure-extension slice.** Compare
-   the raw/quotient route with a displayed or structured-category route using
-   one old operation-preservation API and one family/coherence API. Acceptance
-   should include identity/composition, naturality, a comparison between the
-   presentations, old clients under their original assumptions, and a
-   witness-sensitive separating example. This is justified foundational work;
-   it need not wait for a client to fail before being investigated.
-4. **Extend coherent family interoperability.** Connect a current chosen-pullback
-   or structural-model family to the pinned pseudofunctor/fibered machinery.
-   State variance, cleavage choices, allowed maps, recovery strength and
-   comparison coherence. Broader biequivalence or descent claims need their
-   own proofs, not a pointwise isomorphism table.
+The original four priorities have delivered results: comma presentations in
+`511f0c89`, checked characterizations in #706, the raw transformation and
+extension study in #704, and the selected coherent-family bridge in #705.
+#703 additionally checks finite dependent witness retention and independent
+representation maps; it does not supply a general higher comma construction.
 
-[#235](https://github.com/VladimirMarko/conaled/issues/235) is the existing
-coordination owner for compatibility and specialization, with
-[#8](https://github.com/VladimirMarko/conaled/issues/8) for categorical foundations
-and [#289](https://github.com/VladimirMarko/conaled/issues/289)/
-[#647](https://github.com/VladimirMarko/conaled/issues/647) for dependent and
-classification interfaces. These are proposed work allocations using the
-repository's documented ownership, not new issue-state claims or completed
-implementation commitments. The current task does not require blanket
-migration or completion of every nLab presentation.
+[#712](https://github.com/VladimirMarko/conaled/issues/712) tracks adoption of
+these settled interfaces in older callers. Its ledger must name the caller,
+change, preserved assumptions and observations, benefit, acceptance example,
+and disposition. External textbook work targets current or recent interfaces.
+Before replacing those interfaces, identify the incoming development and its
+target revision and prefer integrating it first where practical. Earlier
+changes must preserve its contracts through compatible adapters and checked
+clients; additive work can proceed when those contracts remain intact.
+
+Revisit adoption at the next #235 planning checkpoint and at intake/integration
+review of that external work, whichever happens first. The external artifact
+and delivery date are not identified here. Each deferral must name a delivery
+or review event and a fallback planning checkpoint if it slips. Waiting for
+external work must not become indefinite, nor depend on completing the entire
+textbook programme.
+
+[#708](https://github.com/VladimirMarko/conaled/issues/708) tracks further
+coverage and interface research. It retains the remaining facade-aware usage
+audit, deeper presheaf/sheaf and higher coverage, and comparison of chosen
+pullback families, structural display maps, `SplitSheaf` and restricted span
+actions. New consequential adoption decisions require the design challenge;
+the existing #704/#705 decisions need not be reopened for routine reuse.
+
+[#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates both
+tracks, with [#8](https://github.com/VladimirMarko/conaled/issues/8),
+[#289](https://github.com/VladimirMarko/conaled/issues/289) and
+[#647](https://github.com/VladimirMarko/conaled/issues/647). Existing substantive
+owners include [#617](https://github.com/VladimirMarko/conaled/issues/617) for
+Lawvere/monad correspondence and [#630](https://github.com/VladimirMarko/conaled/issues/630)
+for matroid functoriality. Native whole-path sethood and coherence remain
+[#700](https://github.com/VladimirMarko/conaled/issues/700) →
+[#701](https://github.com/VladimirMarko/conaled/issues/701); cross-model admission
+is [#702](https://github.com/VladimirMarko/conaled/issues/702). Ordinary categorical
+adapters discharge none of those native obligations.
 
 [M-single]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/SingleObj.lean
 [M-limit]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Limits/IsLimit.lean
