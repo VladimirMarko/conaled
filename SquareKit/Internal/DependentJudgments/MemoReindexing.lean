@@ -43,10 +43,10 @@ def fiber_reindex : Equal (Ω := Ω) (subTy (F.fiber p) σ) ((F.reindex hσ).fib
 
 def certificateType_reindex : Equal (Ω := Ω) (subTy (F.certificateType p) σ)
     ((F.reindex hσ).certificateType (subTm p σ)) :=
-  ((((Equal.subTy (F.certificateType_eq hp) (.reflexive σ)).transitive
-    ((F.value_typed hp).identitySub (F.varyingCompositeValue_typed.substitute hp.section) hσ)).transitive
+  ((((Equal.subTy (F.certificateTypeNormalization hp) (.reflexive σ)).transitive
+    ((F.valueTyping hp).identitySub (F.varyingCompositeValueTyping.substitute hp.section) hσ)).transitive
       (Equal.identity (F.fiber_reindex hp hσ) (F.value_reindex hp hσ) (F.compositeValue_reindex hp hσ))).transitive
-        ((F.reindex hσ).certificateType_eq (F.reindexedPath_typed hp hσ)).symmetric)
+        ((F.reindex hσ).certificateTypeNormalization (F.reindexedPath_typed hp hσ)).symmetric)
 
 variable {p' h : Expression V} (hp' : Tm (Ω := Ω) F.Γ F.pathType p')
   (hh : Tm (Ω := Ω) F.Γ (identity F.pathType p p') h)
@@ -56,13 +56,13 @@ endpoint-only replacement or equality reflection enters the derivation. -/
 def dependentAction_reindex : Equal (Ω := Ω) (subTm (F.dependentAction p p' h) σ)
     (apd Δ (subTy F.pathType σ) (subTy F.certificateFamily (lift Δ F.pathType σ))
       (subTm p σ) (subTm p' σ) (subTm h σ) (subTm F.certificateSection (lift Δ F.pathType σ))) :=
-  Tm.apdSub F.certificateSection_typed hp hσ hp' hh
+  Tm.apdSub F.certificateSectionTyping hp hσ hp' hh
 
 def dependentActionSource_reindex : Equal (Ω := Ω) (subTm (F.transportedCertificate p p' h) σ)
     (transport Δ (subTy F.pathType σ) (subTy F.certificateFamily (lift Δ F.pathType σ))
       (subTm p σ) (subTm p' σ) (subTm h σ)
       (subTm (subTm F.certificateSection (lift Δ F.pathType σ)) (sectionSub Δ (subTy F.pathType σ) (subTm p σ)))) :=
-  Tm.apdSourceSub F.certificateSection_typed hp hσ hp' hh
+  Tm.apdSourceSub F.certificateSectionTyping hp hσ hp' hh
 
 end
 end SquareKit.Internal.DependentJudgments.Contextual.Memo.Parameters

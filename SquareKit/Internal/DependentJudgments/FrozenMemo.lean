@@ -14,13 +14,13 @@ namespace Input
 variable (I : Input Ω) {Δ Θ σ τ : Expression V}
   (hσ : Sub (Ω := Ω) Δ I.Γ σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
 
-def memoValue_subComp := I.parameters.value_subComp I.hp hσ hτ
-def memoFiber_subComp := I.parameters.fiber_subComp I.hp hσ hτ
-def memoCertificate_subComp := I.parameters.certificate_subComp I.hp hσ hτ
-def memoCertificateType_subComp := I.parameters.certificateType_subComp I.hp hσ hτ
-def memoAction_subComp := I.parameters.dependentAction_subComp I.hp I.hp' I.hh hσ hτ
-def memoTransportedSource_subComp := I.parameters.transportedCertificate_subComp I.hp I.hp' I.hh hσ hτ
-def memoActionType_subComp := I.parameters.dependentActionType_subComp I.hp I.hp' I.hh hσ hτ
+def memoValue_subComp := I.parameters.valueSubComp I.hp hσ hτ
+def memoFiber_subComp := I.parameters.fiberSubComp I.hp hσ hτ
+def memoCertificate_subComp := I.parameters.certificateSubComp I.hp hσ hτ
+def memoCertificateType_subComp := I.parameters.certificateTypeSubComp I.hp hσ hτ
+def memoAction_subComp := I.parameters.dependentActionSubComp I.hp I.hp' I.hh hσ hτ
+def memoTransportedSource_subComp := I.parameters.transportedCertificateSubComp I.hp I.hp' I.hh hσ hτ
+def memoActionType_subComp := I.parameters.dependentActionTypeSubComp I.hp I.hp' I.hh hσ hτ
 
 def memoValue_reindex : Equal (Ω := Ω) (subTm (I.parameters.value I.p) σ)
     ((I.reindex hσ).parameters.value (subTm I.p σ)) :=

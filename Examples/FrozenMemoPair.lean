@@ -49,9 +49,9 @@ noncomputable def pair_typed :
       (MemoPair.sourcePair F.Γ (F.parameters.fiber F.p) (F.parameters.compositeValue F.p)
         (F.parameters.value F.p) (F.parameters.certificate F.p)) :=
   MemoPair.sourcePair_typed
-    (F.parameters.varyingCompositeValue_typed.substitute F.hp.section)
-    (F.parameters.value_typed F.hp)
-    ((F.parameters.certificate_typed F.hp).convert (F.parameters.certificateType_eq F.hp))
+    (F.parameters.varyingCompositeValueTyping.substitute F.hp.section)
+    (F.parameters.valueTyping F.hp)
+    ((F.parameters.certificateTyping F.hp).convert (F.parameters.certificateTypeNormalization F.hp))
 
 
 include hΩ in

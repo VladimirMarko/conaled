@@ -103,7 +103,7 @@ theorem dependentActionType_twice_eval :
       (Contextual.algebra M) ρ =
       .family thetaRealization.context thetaRealization.dependentActionFamily :=
   family_of_eval M ρ
-    (((S.input.parameters.dependentAction_typed S.input.hp S.input.hp' S.input.hh).substitute
+    (((S.input.parameters.dependentActionTyping S.input.hp S.input.hp' S.input.hh).substitute
       S.sigma_typed).substitute S.tau_typed) hΩ
     thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction (dependentAction_twice_eval M ρ hΩ S thetaRealization)
 

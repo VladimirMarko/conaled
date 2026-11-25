@@ -32,7 +32,7 @@ abbrev pathType := identity F.A F.x F.y
 abbrev pathContext := extend F.Γ F.pathType
 abbrev pathProjection := weaken F.Γ F.pathType
 
-def pathType_typed : Ty (Ω := Ω) F.Γ F.pathType := F.x_typed.identity F.y_typed
+def pathTypeFormation : Ty (Ω := Ω) F.Γ F.pathType := F.x_typed.identity F.y_typed
 
 def reindex {Δ σ : Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ) : Parameters Ω where
   Γ := Δ
@@ -51,12 +51,12 @@ def reindex {Δ σ : Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ) : Parameter
   u_typed := (F.u_typed.substitute hσ).convert (F.B_typed.sectionLift hσ F.x_typed).symmetric
 
 /-- Expose a genuinely varying first path, retaining all other parameters. -/
-def varying : Parameters Ω := F.reindex F.pathType_typed.weaken
+def varying : Parameters Ω := F.reindex F.pathTypeFormation.weaken
 abbrev variablePath : Expression V := generic F.Γ F.pathType
 
-def variablePath_typed : Tm (Ω := Ω) F.pathContext
+def variablePathTyping : Tm (Ω := Ω) F.pathContext
     (identity F.varying.A F.varying.x F.varying.y) F.variablePath :=
-  F.pathType_typed.generic.convert (F.x_typed.identitySub F.y_typed F.pathType_typed.weaken)
+  F.pathTypeFormation.generic.convert (F.x_typed.identitySub F.y_typed F.pathTypeFormation.weaken)
 
 abbrev varyingValue : Expression V :=
   transport F.varying.Γ F.varying.A F.varying.B F.varying.y F.varying.z F.varying.q
@@ -69,16 +69,16 @@ abbrev certificateFamily : Expression V := identity F.varyingFiber F.varyingValu
 abbrev certificateSection : Expression V :=
   eta F.varying.Γ F.varying.A F.varying.B F.varying.x F.varying.y F.varying.z F.variablePath F.varying.q F.varying.u
 
-def varyingValue_typed : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingValue :=
+def varyingValueTyping : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingValue :=
   Tm.transport F.varying.B_typed F.varying.y_typed F.varying.z_typed F.varying.q_typed
-    (Tm.transport F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePath_typed F.varying.u_typed)
+    (Tm.transport F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed)
 
-def varyingCompositeValue_typed : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingCompositeValue :=
+def varyingCompositeValueTyping : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingCompositeValue :=
   Tm.transport F.varying.B_typed F.varying.x_typed F.varying.z_typed
-    (F.varying.x_typed.concat F.varying.y_typed F.varying.z_typed F.variablePath_typed F.varying.q_typed) F.varying.u_typed
+    (F.varying.x_typed.concat F.varying.y_typed F.varying.z_typed F.variablePathTyping F.varying.q_typed) F.varying.u_typed
 
-def certificateSection_typed : Tm (Ω := Ω) F.pathContext F.certificateFamily F.certificateSection :=
-  Tm.eta F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePath_typed F.varying.u_typed
+def certificateSectionTyping : Tm (Ω := Ω) F.pathContext F.certificateFamily F.certificateSection :=
+  Tm.eta F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed
     F.varying.z_typed F.varying.q_typed
 
 abbrev atPath (p : Expression V) := sectionSub F.Γ F.pathType p
@@ -88,46 +88,46 @@ abbrev fiber (p : Expression V) := subTy F.varyingFiber (F.atPath p)
 abbrev certificateType (p : Expression V) := subTy F.certificateFamily (F.atPath p)
 abbrev certificate (p : Expression V) := subTm F.certificateSection (F.atPath p)
 
-def value_typed {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
-    Tm (Ω := Ω) F.Γ (F.fiber p) (F.value p) := F.varyingValue_typed.substitute hp.section
+def valueTyping {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
+    Tm (Ω := Ω) F.Γ (F.fiber p) (F.value p) := F.varyingValueTyping.substitute hp.section
 
-def certificateType_eq {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
+def certificateTypeNormalization {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
     Equal (Ω := Ω) (F.certificateType p) (identity (F.fiber p) (F.value p) (F.compositeValue p)) :=
-  F.varyingValue_typed.identitySub F.varyingCompositeValue_typed hp.section
+  F.varyingValueTyping.identitySub F.varyingCompositeValueTyping hp.section
 
-def certificate_typed {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
-    Tm (Ω := Ω) F.Γ (F.certificateType p) (F.certificate p) := F.certificateSection_typed.substitute hp.section
+def certificateTyping {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) :
+    Tm (Ω := Ω) F.Γ (F.certificateType p) (F.certificate p) := F.certificateSectionTyping.substitute hp.section
 
 abbrev transportedCertificate (p p' h : Expression V) : Expression V :=
   transport F.Γ F.pathType F.certificateFamily p p' h (F.certificate p)
 abbrev dependentAction (p p' h : Expression V) : Expression V :=
   apd F.Γ F.pathType F.certificateFamily p p' h F.certificateSection
 
-def dependentAction_typed {p p' h : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
+def dependentActionTyping {p p' h : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
     (hp' : Tm (Ω := Ω) F.Γ F.pathType p') (hh : Tm (Ω := Ω) F.Γ (identity F.pathType p p') h) :
     Tm (Ω := Ω) F.Γ
       (identity (F.certificateType p') (F.transportedCertificate p p' h) (F.certificate p'))
       (F.dependentAction p p' h) :=
-  Tm.apd F.certificateSection_typed hp hp' hh
+  Tm.apd F.certificateSectionTyping hp hp' hh
 
 /-- Contextual dependent data; this adds no object-language pair constructor. -/
 structure Package (p : Expression V) where
   selectedValue : Expression V
   selectedCertificate : Expression V
-  value_typing : Tm (Ω := Ω) F.Γ (F.fiber p) selectedValue
-  certificate_typing : Tm (Ω := Ω) F.Γ
+  selectedValueTyping : Tm (Ω := Ω) F.Γ (F.fiber p) selectedValue
+  selectedCertificateTyping : Tm (Ω := Ω) F.Γ
     (identity (F.fiber p) selectedValue (F.compositeValue p)) selectedCertificate
 
 def package {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p) : F.Package p where
   selectedValue := F.value p
   selectedCertificate := F.certificate p
-  value_typing := F.value_typed hp
-  certificate_typing := (F.certificate_typed hp).convert (F.certificateType_eq hp)
+  selectedValueTyping := F.valueTyping hp
+  selectedCertificateTyping := (F.certificateTyping hp).convert (F.certificateTypeNormalization hp)
 
-def transportedCertificate_typed {p p' h : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
+def transportedCertificateTyping {p p' h : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
     (hp' : Tm (Ω := Ω) F.Γ F.pathType p') (hh : Tm (Ω := Ω) F.Γ (identity F.pathType p p') h) :
     Tm (Ω := Ω) F.Γ (F.certificateType p') (F.transportedCertificate p p' h) :=
-  Tm.transport F.certificateSection_typed.family hp hp' hh (F.certificate_typed hp)
+  Tm.transport F.certificateSectionTyping.family hp hp' hh (F.certificateTyping hp)
 
 /- These equations use object-context arrows. They do not substitute raw
 metavariables, nor identify a frozen assignment until its arrows are supplied. -/
@@ -137,31 +137,31 @@ variable {Δ Θ σ τ p p' h : Expression V}
   (hh : Tm (Ω := Ω) F.Γ (identity F.pathType p p') h)
   (hσ : Sub (Ω := Ω) Δ F.Γ σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
 
-def value_subComp : Equal (Ω := Ω) (subTm (subTm (F.value p) σ) τ) (subTm (F.value p) (comp σ τ)) :=
-  (F.value_typed hp).subComp hσ hτ
+def valueSubComp : Equal (Ω := Ω) (subTm (subTm (F.value p) σ) τ) (subTm (F.value p) (comp σ τ)) :=
+  (F.valueTyping hp).subComp hσ hτ
 
-def fiber_subComp : Equal (Ω := Ω) (subTy (subTy (F.fiber p) σ) τ) (subTy (F.fiber p) (comp σ τ)) :=
-  (F.value_typed hp).family.subComp hσ hτ
+def fiberSubComp : Equal (Ω := Ω) (subTy (subTy (F.fiber p) σ) τ) (subTy (F.fiber p) (comp σ τ)) :=
+  (F.valueTyping hp).family.subComp hσ hτ
 
-def certificate_subComp : Equal (Ω := Ω) (subTm (subTm (F.certificate p) σ) τ) (subTm (F.certificate p) (comp σ τ)) :=
-  (F.certificate_typed hp).subComp hσ hτ
+def certificateSubComp : Equal (Ω := Ω) (subTm (subTm (F.certificate p) σ) τ) (subTm (F.certificate p) (comp σ τ)) :=
+  (F.certificateTyping hp).subComp hσ hτ
 
-def certificateType_subComp : Equal (Ω := Ω) (subTy (subTy (F.certificateType p) σ) τ)
+def certificateTypeSubComp : Equal (Ω := Ω) (subTy (subTy (F.certificateType p) σ) τ)
     (subTy (F.certificateType p) (comp σ τ)) :=
-  (F.certificate_typed hp).family.subComp hσ hτ
+  (F.certificateTyping hp).family.subComp hσ hτ
 
-def dependentAction_subComp : Equal (Ω := Ω) (subTm (subTm (F.dependentAction p p' h) σ) τ)
+def dependentActionSubComp : Equal (Ω := Ω) (subTm (subTm (F.dependentAction p p' h) σ) τ)
     (subTm (F.dependentAction p p' h) (comp σ τ)) :=
-  (F.dependentAction_typed hp hp' hh).subComp hσ hτ
+  (F.dependentActionTyping hp hp' hh).subComp hσ hτ
 
-def transportedCertificate_subComp : Equal (Ω := Ω) (subTm (subTm (F.transportedCertificate p p' h) σ) τ)
+def transportedCertificateSubComp : Equal (Ω := Ω) (subTm (subTm (F.transportedCertificate p p' h) σ) τ)
     (subTm (F.transportedCertificate p p' h) (comp σ τ)) :=
-  (F.transportedCertificate_typed hp hp' hh).subComp hσ hτ
+  (F.transportedCertificateTyping hp hp' hh).subComp hσ hτ
 
-def dependentActionType_subComp : Equal (Ω := Ω)
+def dependentActionTypeSubComp : Equal (Ω := Ω)
     (subTy (subTy (identity (F.certificateType p') (F.transportedCertificate p p' h) (F.certificate p')) σ) τ)
     (subTy (identity (F.certificateType p') (F.transportedCertificate p p' h) (F.certificate p')) (comp σ τ)) :=
-  (F.dependentAction_typed hp hp' hh).family.subComp hσ hτ
+  (F.dependentActionTyping hp hp' hh).family.subComp hσ hτ
 
 end ObjectSubstitution
 

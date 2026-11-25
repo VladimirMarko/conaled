@@ -13,7 +13,7 @@ variable (F : Contextual.Memo.Parameters Ω)
 /-- The selected certificate section is retained as the same source argument. -/
 noncomputable def retain_certificate : Derivation theory (Ω.map (Atom.inl extraSignature))
     ((Contextual.term F.pathContext F.certificateFamily F.certificateSection).inl extraSignature) :=
-  retain F.certificateSection_typed
+  retain F.certificateSectionTyping
 
 /-- The higher dependent action keeps its transported source boundary. -/
 noncomputable def retain_dependentAction {p p' h : Contextual.Expression V}
@@ -24,7 +24,7 @@ noncomputable def retain_dependentAction {p p' h : Contextual.Expression V}
       ((Contextual.term F.Γ
         (Contextual.identity (F.certificateType p') (F.transportedCertificate p p' h) (F.certificate p'))
         (F.dependentAction p p' h)).inl extraSignature) :=
-  retain (F.dependentAction_typed hp hp' hh)
+  retain (F.dependentActionTyping hp hp' hh)
 
 variable (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel)
   (ρ : V → Value M.toStructuralModel)

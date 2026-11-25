@@ -257,9 +257,9 @@ theorem declarations_valid : ∀ d ∈ compiledDeclarations,
   rcases hd with rfl | rfl | rfl | rfl
   · exact Examples.FrozenMemoSignature.inputs M A B _ (by simp [Examples.GuardedGroupoidMemo.premises, Declaration.encode, Examples.GuardedGroupoidMemo.alpha, Examples.GuardedGroupoidMemo.beta])
   · exact Examples.FrozenMemoSignature.inputs M A B _ (by simp [Examples.GuardedGroupoidMemo.premises, Declaration.encode, Examples.GuardedGroupoidMemo.alpha, Examples.GuardedGroupoidMemo.beta])
-  · exact Contextual.interpret native.input.parameters.certificateSection_typed.family M env
+  · exact Contextual.interpret native.input.parameters.certificateSectionTyping.family M env
       (Examples.FrozenMemoSignature.inputs M A B)
-  · exact Contextual.interpret native.input.parameters.certificateSection_typed M env
+  · exact Contextual.interpret native.input.parameters.certificateSectionTyping M env
       (Examples.FrozenMemoSignature.inputs M A B)
 
 /-- Semantic typing consumes the actual decoded local-certificate translation. -/

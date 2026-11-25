@@ -18,11 +18,11 @@ variable {F : Frozen.Input Ω} (R : InputRealization M ρ F)
 variable (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
 
 def varying : InputRealization M ρ
-    (F.reindex F.parameters.pathType_typed.weaken) := by
+    (F.reindex F.parameters.pathTypeFormation.weaken) := by
   let A := M.identity R.family R.x R.y
   have hA := identity_eval M ρ F.A F.x F.y R.context R.family R.x R.y
     R.family_eval R.x_eval R.y_eval
-  exact R.reindex F.parameters.pathType_typed.weaken (M.extend R.context A)
+  exact R.reindex F.parameters.pathTypeFormation.weaken (M.extend R.context A)
     (M.weaken R.context A)
     (extend_eval M ρ F.Γ F.parameters.pathType R.context A R.context_eval hA)
     (weaken_eval M ρ F.Γ F.parameters.pathType R.context A R.context_eval hA)
@@ -72,7 +72,7 @@ theorem certificateSection_eval : F.parameters.certificateSection.eval (Contextu
 include hΩ in
 theorem certificateFamily_eval : F.parameters.certificateFamily.eval (Contextual.algebra M) ρ =
     .family R.varying.context R.certificateFamily :=
-  family_of_eval M ρ F.parameters.certificateSection_typed hΩ _ _ _ R.certificateSection_eval
+  family_of_eval M ρ F.parameters.certificateSectionTyping hΩ _ _ _ R.certificateSection_eval
 
 def atPath := (M).toStructuralModel.sectionSub (M.identity R.family R.x R.y) R.p
 def atParallelPath := (M).toStructuralModel.sectionSub (M.identity R.family R.x R.y) R.p'
@@ -130,7 +130,7 @@ theorem dependentActionFamily_eval :
     (Contextual.identity (F.parameters.certificateType F.p')
       (F.parameters.transportedCertificate F.p F.p' F.h) (F.parameters.certificate F.p')).eval
       (Contextual.algebra M) ρ = .family R.context R.dependentActionFamily :=
-  family_of_eval M ρ (F.parameters.dependentAction_typed F.hp F.hp' F.hh) hΩ
+  family_of_eval M ρ (F.parameters.dependentActionTyping F.hp F.hp' F.hh) hΩ
     R.context R.dependentActionFamily R.dependentAction (R.dependentAction_eval hΩ)
 
 end InputRealization

@@ -22,19 +22,19 @@ include hp
 theorem value_map :
     Value.map map.toStructuralMap ((F.value p).eval (algebra M) ρ) =
       (F.value p).eval (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (F.value_typed hp).interpret_map map ρ hΩ
+  (F.valueTyping hp).interpret_map map ρ hΩ
 
 theorem certificate_map :
     Value.map map.toStructuralMap ((F.certificate p).eval (algebra M) ρ) =
       (F.certificate p).eval (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (F.certificate_typed hp).interpret_map map ρ hΩ
+  (F.certificateTyping hp).interpret_map map ρ hΩ
 
 include hp' hh
 
 theorem dependentAction_map :
     Value.map map.toStructuralMap ((F.dependentAction p p' h).eval (algebra M) ρ) =
       (F.dependentAction p p' h).eval (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (F.dependentAction_typed hp hp' hh).interpret_map map ρ hΩ
+  (F.dependentActionTyping hp hp' hh).interpret_map map ρ hΩ
 
 end Parameters
 
@@ -46,14 +46,14 @@ theorem certificate_twice_map :
       ((subTm (subTm (S.input.parameters.certificate S.input.p) S.sigma) S.tau).eval (algebra M) ρ) =
     (subTm (subTm (S.input.parameters.certificate S.input.p) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (((S.input.parameters.certificate_typed S.input.hp).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
+  (((S.input.parameters.certificateTyping S.input.hp).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
 
 theorem dependentAction_twice_map :
     Value.map map.toStructuralMap
       ((subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval (algebra M) ρ) =
     (subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (((S.input.parameters.dependentAction_typed S.input.hp S.input.hp' S.input.hh).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
+  (((S.input.parameters.dependentActionTyping S.input.hp S.input.hp' S.input.hh).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
 
 /-- Reusing the complete target derivation transports typed equality premises;
 the resulting comparison is the generated fresh-action equation. -/

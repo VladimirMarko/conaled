@@ -58,7 +58,7 @@ def directCertificate_typed : Tm (Ω := premises) gamma
   Tm.eta family_typed point_typed point_typed point_typed.reflexivity input_typed
     point_typed point_typed.reflexivity
 
-def dependentAction_typed := parameters.dependentAction_typed
+def dependentAction_typed := parameters.dependentActionTyping
   point_typed.reflexivity point_typed.reflexivity point_typed.reflexivity.reflexivity
 
 universe u

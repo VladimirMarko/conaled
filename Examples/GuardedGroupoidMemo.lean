@@ -440,11 +440,11 @@ theorem certificate_eval : (F.parameters.certificate F.p).eval (Contextual.algeb
     R.context_eval R.family_eval R.fiber_eval R.x_eval R.y_eval R.z_eval R.p_eval R.q_eval R.element_eval
 
 def varying : InputRealization C B ρ
-    (F.reindex F.parameters.pathType_typed.weaken) := by
+    (F.reindex F.parameters.pathTypeFormation.weaken) := by
   let A := identityFamily (constant C) R.x R.y
   have hA := identity_eval M ρ F.A F.x F.y R.context (constant C) ⟨R.x⟩ ⟨R.y⟩
     R.family_eval R.x_eval R.y_eval
-  exact R.reindex F.parameters.pathType_typed.weaken ((M).extend R.context A)
+  exact R.reindex F.parameters.pathTypeFormation.weaken ((M).extend R.context A)
     (SquareKit.Internal.PathTransport.GroupoidModel.weaken A)
     (extend_eval M ρ F.Γ F.parameters.pathType R.context A R.context_eval hA)
     (weaken_eval M ρ F.Γ F.parameters.pathType R.context A R.context_eval hA)
@@ -488,7 +488,7 @@ theorem certificateSection_eval : F.parameters.certificateSection.eval (Contextu
 include hΩ in
 theorem certificateFamily_eval : F.parameters.certificateFamily.eval (Contextual.algebra M) ρ =
     .family R.varying.context R.certificateFamily :=
-  family_of_eval M ρ F.parameters.certificateSection_typed hΩ _ _ _ R.certificateSection_eval
+  family_of_eval M ρ F.parameters.certificateSectionTyping hΩ _ _ _ R.certificateSection_eval
 
 def atPath := (M).toStructuralModel.sectionSub (identityFamily (constant C) R.x R.y) ⟨R.p⟩
 def atParallelPath := (M).toStructuralModel.sectionSub (identityFamily (constant C) R.x R.y) ⟨R.p'⟩
@@ -546,7 +546,7 @@ theorem dependentActionFamily_eval :
     (Contextual.identity (F.parameters.certificateType F.p')
       (F.parameters.transportedCertificate F.p F.p' F.h) (F.parameters.certificate F.p')).eval
       (Contextual.algebra M) ρ = .family R.context R.dependentActionFamily :=
-  family_of_eval M ρ (F.parameters.dependentAction_typed F.hp F.hp' F.hh) hΩ
+  family_of_eval M ρ (F.parameters.dependentActionTyping F.hp F.hp' F.hh) hΩ
     R.context R.dependentActionFamily R.dependentAction (R.dependentAction_eval hΩ)
 
 end InputRealization
@@ -841,7 +841,7 @@ theorem dependentActionType_twice_eval :
       (Contextual.algebra IM) environment =
       .family thetaRealization.context thetaRealization.dependentActionFamily :=
   family_of_eval IM environment
-    (((signature.input.parameters.dependentAction_typed signature.input.hp signature.input.hp' signature.input.hh).substitute
+    (((signature.input.parameters.dependentActionTyping signature.input.hp signature.input.hp' signature.input.hh).substitute
       signature.sigma_typed).substitute signature.tau_typed) inputs
     thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction dependentAction_twice_eval
 
