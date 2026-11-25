@@ -1,0 +1,794 @@
+{
+  "schema": 1,
+  "name": "generic-owners147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.TuringSimulation.OrdinaryPackage",
+    "Applications.Resources.TuringSimulation.PrintMove"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "started_utc": "2026-11-24T19:23:15.075218+00:00",
+  "source_bindings": {
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/check.sh": {
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/check.py": {
+      "bytes": 16215,
+      "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/project_sources.py": {
+      "bytes": 876,
+      "sha256": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/review_snapshot.py": {
+      "bytes": 20515,
+      "sha256": "935149f2408a240ca32e34f549be5900ffd577c4ce4c2ee64e5c69a136e8a1bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json": {
+      "bytes": 9735771,
+      "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+      "mode": "100644"
+    }
+  },
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+  "finished_utc": "2026-11-24T19:23:18.455346+00:00",
+  "elapsed_seconds": 3.378310486999908,
+  "recorded_utc": "2026-11-24T19:23:18.476048+00:00",
+  "exit_code": 0,
+  "source_bindings_after": {
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/check.sh": {
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/check.py": {
+      "bytes": 16215,
+      "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/project_sources.py": {
+      "bytes": 876,
+      "sha256": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/review_snapshot.py": {
+      "bytes": 20515,
+      "sha256": "935149f2408a240ca32e34f549be5900ffd577c4ce4c2ee64e5c69a136e8a1bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json": {
+      "bytes": 9735771,
+      "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+      "mode": "100644"
+    }
+  },
+  "sources_unchanged": true,
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+  "log_descriptor": {
+    "bytes": 4204,
+    "sha256": "e8bc9e1463a901f51bb4290abeaafc130ef2f576f02156b5c90fffb5a6748312",
+    "mode": "100644"
+  },
+  "child_exit_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.child-exit.json",
+    "bytes": 1313,
+    "sha256": "ed241f285be073cbf562361ee25a8cbc42482c110575db6990cbf4a856b5e05e",
+    "mode": "100644"
+  }
+}

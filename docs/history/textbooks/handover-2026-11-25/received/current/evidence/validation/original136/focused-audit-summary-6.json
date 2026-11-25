@@ -1,0 +1,124 @@
+{
+  "status": "focused execution passed; actual added definitions and finite instances read by root; complete added type/body/instance semantics independently reviewed by original Spec; integrated acceptance pending",
+  "observed_at_utc": "2026-11-21T22:08:17.999872+00:00",
+  "candidate": "2b3738c116b1a9a439a8fa38663e2da824a56339",
+  "tree": "49fa40ddd4a5f84a0b743a0b8ca2df6248dbd930",
+  "audit_source": {
+    "path": "/workspace/scratch/39407f75909a/continuation085/FocusedAudit6.lean",
+    "bytes": 58429,
+    "sha256": "655f104f238b7ddcb506fc4ae52ac3dbf40f1d3a46974003cdf31745ff1c1a75"
+  },
+  "audit_log": {
+    "path": "/workspace/scratch/39407f75909a/continuation085/focused-audit-6.log",
+    "bytes": 952799,
+    "sha256": "046e903eeb73d279950f942d96711b44f8ef88f9a1604d68c9ec494bc79a9282"
+  },
+  "execution_result": {
+    "path": "/workspace/scratch/39407f75909a/continuation085/focused-audit-result-6.json",
+    "bytes": 10399,
+    "sha256": "6ca69f98c0498379079a9f8cb4e869e94f673f82573c1fbb9c3f2210cdeabaa2"
+  },
+  "input_bindings": {
+    "path": "/workspace/scratch/39407f75909a/continuation085/focused-audit-inputs-6.json",
+    "bytes": 55009,
+    "sha256": "c205136e26ea581cd049eecb652cacc8ca4959569552950fc1dce5c03db063fc"
+  },
+  "prior_root_readback": {
+    "observed_utc": "2026-11-21T21:50:29.948273+00:00",
+    "candidate": "2b3738c116b1a9a439a8fa38663e2da824a56339",
+    "tree": "49fa40ddd4a5f84a0b743a0b8ca2df6248dbd930",
+    "actual_exit_code": 0,
+    "owned_session": 93903,
+    "project_modules": 43,
+    "kernel_safe_declarations": 2841,
+    "theorems": 1902,
+    "unsafe_runtime_declarations": 0,
+    "axiom_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "all40prior_module_counts_unchanged": true,
+    "new_owner_counts": {
+      "Examples.RotationCertificateFuelMachine": [
+        71,
+        56,
+        0
+      ],
+      "Applications.Resources.BinaryCounter.FixedWidthMachine": [
+        255,
+        141,
+        0
+      ],
+      "Applications.Resources.RotationCertificate.FuelDispatchMachine": [
+        179,
+        88,
+        0
+      ]
+    },
+    "inherited_actual_221check_57print_13synth_output_exact": true,
+    "new_public_checks": 217,
+    "new_prints": 78,
+    "new_syntheses": 27,
+    "root_actual_inspection": {
+      "all78new_definition_prints_read": true,
+      "all27new_synthesis_outputs_read": true,
+      "actual_log_lines_read_for_definitions_and_instances": [
+        11506,
+        12981
+      ],
+      "view_transformation": "Only literal fully-qualified module prefixes abbreviated to an explicitly supplied alias map; every expression in the selected contiguous range was retained.",
+      "new217_public_type_inspection": "Original Spec axis now reviewing complete actual type output; root additional type inspection pending.",
+      "findings_to_date": "Runtime blocks contain only fixed finite stack/register operations; caller supplied before input; dispatch is definitionally the same core program with a finite presence gate. Ghost predecessor/rank/representation functions remain proof-side. Exact timed values use actual step and actual reached configurations; caller composition uses EvalsToInTime.trans. Space and context preservation are restricted to LocalStep/first handoff, with explicit later allocating caller."
+    },
+    "boundary": "Scoped development audit/inspection only; whole-library check remains running and independent review unresolved; no row qualification."
+  },
+  "actual_census": {
+    "modules": 43,
+    "safe_declarations": 2841,
+    "theorems": 1902,
+    "unsafe_declarations": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "original_spec_independent_readback": {
+    "reviewer": "/root/parser_review/spec",
+    "actual_new_check_types": 217,
+    "actual_new_prints": 78,
+    "actual_new_syntheses": 27,
+    "new_log_lines_fully_read": "6728\u201312981",
+    "all22_source_bindings_verified": true,
+    "all6_configuration_bindings_verified": true,
+    "all40_prior_module_counts_retained": true,
+    "source_findings": 0,
+    "overall_axis": "Blocked",
+    "finding": "SP-V001",
+    "report_md": {
+      "path": "/workspace/scratch/39407f75909a/continuation085/spec-review-round6.md",
+      "bytes": 45340,
+      "sha256": "3c50e10c290deb93a179af209b4f6b6b1518359c3abd8fb65c6c6a4d8f8edff8"
+    },
+    "report_json": {
+      "path": "/workspace/scratch/39407f75909a/continuation085/spec-review-round6.json",
+      "bytes": 109955,
+      "sha256": "5a94d74f702edfccd867d31665d4ba85ba83c1d6983b908fe5a17feb56a9c950"
+    }
+  },
+  "root_followup": {
+    "full_spec_markdown_report_read": true,
+    "reading": "Entire Unicode character ranges 0:16000,16000:32000,32000:end; no omissions or truncation.",
+    "root_does_not_claim_personal_readback_of_all217_types": true
+  },
+  "not_full_acceptance": true,
+  "remaining": [
+    "Original Standards assessment",
+    "Exact C6c isolated whole-library validation and exhaustive audit",
+    "Matching successful receipt",
+    "Immediate final nonrepairing verify",
+    "Supported final comparison",
+    "Receiving acceptance; complete verifier/NP and all other canonical obligations remain open"
+  ]
+}

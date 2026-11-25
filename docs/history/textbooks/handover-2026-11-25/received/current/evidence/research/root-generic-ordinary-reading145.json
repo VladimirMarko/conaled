@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T12:11:54.224911+00:00",
+  "role": "root author",
+  "run": "generic-ordinary144-attempt3",
+  "result": "/workspace/scratch/ae71b485b114/work/continuation/generic-ordinary144-attempt3.result.json",
+  "result_sha256": "0dd264c538995fd394cd22353464066d54f6a84d66c341186b2a69242932fd46",
+  "source": {
+    "bytes": 122563,
+    "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2",
+    "mode": "100644"
+  },
+  "log_descriptor": {
+    "bytes": 43303,
+    "sha256": "39c65d3b68eccd1ee8cf147eef1008784d46e66636529052cb2d8d324f4d5f4e",
+    "mode": "100644"
+  },
+  "actual_reading_ranges": [
+    [
+      1,
+      65
+    ],
+    [
+      66,
+      270
+    ],
+    [
+      271,
+      455
+    ],
+    [
+      456,
+      594
+    ]
+  ],
+  "all594_emitted_lines_read": true,
+  "readable_checks": 80,
+  "expanded_commands": 4,
+  "axiom_roots": 4,
+  "observed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "interpretation": "Generic fixed FinTM2 ordinary input/output wrapper, supplied defaults, full TrCfg singleton output, actual stored count1+(before.steps+preludeSteps raw), live bound prelude+B+1 and separate outerNone prelude+B+2. Fixture uses Option Bool input and Bool output, distinct stores, true initial register, finite24-symbol alphabet. This is checked research outside installed60-owner scope, not ordinary module integration, exhaustive audit, independent approval, or conventional NP."
+}

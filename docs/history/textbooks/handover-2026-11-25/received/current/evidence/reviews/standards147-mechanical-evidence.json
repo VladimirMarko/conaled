@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "reviewer": "/root/requirements_review147/standards147",
+  "observed_utc": "2026-11-24T19:39:03.544798+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 63,
+  "C147_source_bindings_mechanically_rechecked": {
+    "count": 63,
+    "all_match_immutable_git_and_acceptance_source": true,
+    "exact_scope_reference": {
+      "path": "/workspace/scratch/ae71b485b114/work/review147/capture-identity147.json",
+      "bytes": 27552,
+      "sha256": "49aa6e7cf9283513f840a9f26d589039bdaaa6fb158fb7e55238959ee07dd596"
+    },
+    "canonical_descriptor_list_sha256": "e7f16d234dd85c1386551c1b9c6a1b92749c44f8fa40887b55a45223a863c2fa",
+    "mismatches": []
+  },
+  "current146_unchanged_owner_count": 55,
+  "new_namespace_blocks": [
+    {
+      "name": "ordinary_machine",
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "lines": [
+        24,
+        153
+      ],
+      "bytes": 6360,
+      "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565"
+    },
+    {
+      "name": "ordinary_run",
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "lines": [
+        155,
+        388
+      ],
+      "bytes": 13314,
+      "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8"
+    },
+    {
+      "name": "ordinary_cases",
+      "owner": "Examples/TuringSimulation.lean",
+      "lines": [
+        1179,
+        1426
+      ],
+      "bytes": 11348,
+      "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76"
+    },
+    {
+      "name": "printmove_adapter",
+      "owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "lines": [
+        28,
+        492
+      ],
+      "bytes": 20492,
+      "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599"
+    },
+    {
+      "name": "printmove_trace",
+      "owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "lines": [
+        494,
+        754
+      ],
+      "bytes": 11704,
+      "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8"
+    },
+    {
+      "name": "printmove_cases",
+      "owner": "Examples/TuringSimulation.lean",
+      "lines": [
+        1428,
+        1716
+      ],
+      "bytes": 12692,
+      "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483"
+    },
+    {
+      "name": "polynomial_consumer",
+      "owner": "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "lines": [
+        20,
+        149
+      ],
+      "bytes": 6791,
+      "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a"
+    }
+  ],
+  "preserved_existing_bodies": {
+    "Examples/TuringSimulation.lean": {
+      "old_full_body_bytes": 48440,
+      "old_sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+      "new_offset": 212,
+      "prefix": "import Applications.Resources.TuringSimulation.OrdinaryPackage\nimport Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove\nimport Mathlib.Data.Fintype.BigOperators\nimport Mathlib.Data.Fintype.Prod\n\n",
+      "suffix_bytes": 24042
+    },
+    "SquareApplications.lean": {
+      "old_full_body_bytes": 46872,
+      "old_sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19",
+      "new_offset": 195,
+      "prefix": "import Applications.Resources.TuringSimulation.OrdinaryPackage\nimport Applications.Resources.TuringSimulation.PrintMove\nimport Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove\n\n",
+      "suffix_bytes": 0
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "old_bytes": 3776014,
+      "old_sha256": "a4ea35c9b0f4c23ce0544b5ec9001786759b36d5f9ee492e0fc56adf4155b8ec",
+      "append_bytes": 3775,
+      "append_sha256": "3d9c1f42bb450fc2500d76215624d92afc1d379ff1f49690ea014189c6bde709",
+      "append_start_line": 75203
+    }
+  },
+  "json_changed_paths": [
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-78",
+        "next_action"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-24",
+        "next_implementation_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "next_ticket_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/coverage.json",
+      "path": [
+        "source_readiness",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/coverage.json",
+      "path": [
+        "qualification_basis",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    }
+  ],
+  "all_five_new_gate_values_equal": true,
+  "all_other_decoded_values_unchanged": true,
+  "validation": [
+    {
+      "name": "candidate147-scope63",
+      "exit_code": 0,
+      "elapsed_seconds": 51.93578890000026,
+      "input_count": 72,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled",
+        "--",
+        "python3",
+        "-B",
+        "scripts/review_snapshot.py",
+        "candidate",
+        "--repo",
+        "/workspace/scratch/ae71b485b114/work/conaled",
+        "--manifest",
+        "/workspace/scratch/ae71b485b114/work/resume147/manifest147-planned.json",
+        "--record",
+        "/workspace/scratch/ae71b485b114/work/resume147/baseline147-scope63.json"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate147-scope63.result.json",
+        "bytes": 36739,
+        "sha256": "f335b44adab95ad500677c7cb9a5f504972636438acd8e10271004447bca726c"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate147-scope63.log",
+        "bytes": 9735771,
+        "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate147-scope63.child-exit.json",
+        "bytes": 1499,
+        "sha256": "38a3fde39506b0774b1517d870e3f66d5caa6ba1d962511c09adcdc5243a94a8"
+      }
+    },
+    {
+      "name": "prerequisites147",
+      "exit_code": 0,
+      "elapsed_seconds": 16.655972108999777,
+      "input_count": 75,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.FiniteControl",
+        "Applications.Resources.TuringSimulation.FiniteStackToTape",
+        "Applications.Resources.TuringSimulation.TapeReflection",
+        "Applications.Resources.TuringSimulation.SingletonOutput",
+        "Applications.Resources.TuringSimulation.MarkedInput",
+        "Applications.Resources.TuringSimulation.PolynomialDecider"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.result.json",
+        "bytes": 38891,
+        "sha256": "63fec67ea4079593a9d9d29ee4cfbacaea3132c7c4b8a9af07bb50c13cdb63de"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.log",
+        "bytes": 3347,
+        "sha256": "e7a1553f76dc71e0f210d1ee0b58793e547f5677a309b8bc40860a01b9cb9fb3"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.child-exit.json",
+        "bytes": 1566,
+        "sha256": "e73a79b528b915febc648db8e425acae958261c1fb97fbbcaa8baeed303a3702"
+      }
+    },
+    {
+      "name": "generic-owners147",
+      "exit_code": 0,
+      "elapsed_seconds": 3.378310486999908,
+      "input_count": 75,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PrintMove"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.result.json",
+        "bytes": 38638,
+        "sha256": "b90d5551b60e9f4bd2ca19722ddb22f11e602476d9e1bafddb1e8dc18bec8c19"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+        "bytes": 4204,
+        "sha256": "e8bc9e1463a901f51bb4290abeaafc130ef2f576f02156b5c90fffb5a6748312"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.child-exit.json",
+        "bytes": 1313,
+        "sha256": "ed241f285be073cbf562361ee25a8cbc42482c110575db6990cbf4a856b5e05e"
+      }
+    },
+    {
+      "name": "polynomial-owner147",
+      "exit_code": 0,
+      "elapsed_seconds": 2.806057308000163,
+      "input_count": 75,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.result.json",
+        "bytes": 38598,
+        "sha256": "5a59a54b19f9160695e835aab722e040936b1f128afb99c71cd0e79ba417ebcf"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.log",
+        "bytes": 2184,
+        "sha256": "db4c21804cf0ed035cdf70a048c6bf9e79a31d6dab0ab7293f2a5e216ac5a045"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.child-exit.json",
+        "bytes": 1273,
+        "sha256": "fdaf047b7e7e419020fc5a79eff7dea040b8b3d144d6bddb8c3c961c4edd17b6"
+      }
+    },
+    {
+      "name": "turing-examples147",
+      "exit_code": 0,
+      "elapsed_seconds": 6.233093702000133,
+      "input_count": 75,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Examples.TuringSimulation"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.result.json",
+        "bytes": 38554,
+        "sha256": "a33871cbf2411cb3aac4fcb5d911d499e86d5655d25a5cb797b725d1deddc344"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.log",
+        "bytes": 6536,
+        "sha256": "f079235fcb6c2c858ef83913413e420e5f51e13fdb57cc3f82fd65143a24c7e0"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.child-exit.json",
+        "bytes": 1229,
+        "sha256": "dd787ed26d04392034c0c5a36d6972872dee7a8872fc81430948fbc3c8f93657"
+      }
+    },
+    {
+      "name": "controller-clients147",
+      "exit_code": 0,
+      "elapsed_seconds": 104.59182915500014,
+      "input_count": 78,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.RotationCertificate.CertificateCorrespondence",
+        "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+        "Examples.RotationDistance",
+        "Examples.RotationCertificateCorrespondence",
+        "Examples.RotationCertificateStreamMachine",
+        "Examples.RotationCertificateFrontEndStreamMachine",
+        "Examples.RotationCertificateFrontEndStreamTapeMachine"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.result.json",
+        "bytes": 40306,
+        "sha256": "930ba9cfcacc4354c57755a0f35abbb29f124e45578936c7048d363a74ce4a59"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.log",
+        "bytes": 15941,
+        "sha256": "28c3228bfe7cd06770e867efae5938b0596f9b785a8c28f8cb319e4b166dd2da"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.child-exit.json",
+        "bytes": 1608,
+        "sha256": "fd2167bf2b2401c87e124fc3e6a995d4a3e55db78de21492813d0d25a0330a5c"
+      }
+    },
+    {
+      "name": "query147",
+      "exit_code": 0,
+      "elapsed_seconds": 3.989197924999644,
+      "input_count": 293,
+      "input_bindings_nonnull_and_equal": true,
+      "C147_scope_bindings": 63,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean"
+      ],
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.result.json",
+        "bytes": 155507,
+        "sha256": "00d91abee5585bad7fad2f1ec4184df5688e586992392712e217ea15d2697153"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+        "bytes": 594334,
+        "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+      },
+      "child": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.child-exit.json",
+        "bytes": 1292,
+        "sha256": "bde86756df21ab42b891ecaf1e09f8b19266e18c0d1903c78fdaeb651cfb9964"
+      }
+    }
+  ],
+  "query_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+  },
+  "query_prefix": {
+    "old_log": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "current_lines": [
+      1,
+      5723
+    ],
+    "byte_identical": true,
+    "inherited_analysis_only": true
+  },
+  "query_products": {
+    "captured_product_and_trace_count": 192,
+    "all_match_query_bindings": true,
+    "fresh_current_product_hashing": false,
+    "reason": "Root whole147 remains sole writer; inspection binds immutable query records, without asserting present product freshness."
+  },
+  "query_omissions": {
+    "literal_glyph": "\u22ef",
+    "occurrences": 14,
+    "lines": [
+      4198,
+      4201,
+      4204,
+      4208,
+      4218,
+      4298,
+      5583,
+      5584
+    ],
+    "new_tail_count": 0
+  },
+  "compiler_or_project_mutation": false,
+  "boundary": "Mechanical equality and metadata checks grant no semantic reading credit; source and query reading separately attributed in Standards147.",
+  "unchanged_owner_list_reference": "/workspace/scratch/ae71b485b114/work/review147/capture-identity147.json#byte_identical_146_owners",
+  "query_new_output_blocks": {
+    "count": 255,
+    "all_range_hashes_and_contiguity_independently_checked": true,
+    "counts": {
+      "readable": 239,
+      "axiom_roots": 9,
+      "expanded": 7
+    },
+    "index": {
+      "path": "/workspace/scratch/ae71b485b114/work/review147/query-output-binding147.json",
+      "bytes": 120356,
+      "sha256": "48190050ef5a353d4b26630bc91dd6d687d6868fcfe7d21a85bf25530a81a7f1"
+    },
+    "query_commands": 647,
+    "normal_imports": 19,
+    "carrier": {
+      "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean",
+      "bytes": 51093,
+      "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f"
+    }
+  }
+}

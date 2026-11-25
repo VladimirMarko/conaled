@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "blocks": [
+    {
+      "name": "ordinary_machine",
+      "historical_carrier": "current/research/generic-ordinary/ordinary_machine.lean",
+      "historical_descriptor": {
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565",
+        "mode": "100644"
+      },
+      "historical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 6360,
+        "inclusive_lines": [
+          1,
+          130
+        ],
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565"
+      },
+      "current_owner": "current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "current_selection": {
+        "byte_start": 1027,
+        "byte_end_exclusive": 7387,
+        "inclusive_lines": [
+          24,
+          153
+        ],
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565"
+      },
+      "namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "ordinary_run",
+      "historical_carrier": "current/research/generic-ordinary/ordinary_run.lean",
+      "historical_descriptor": {
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8",
+        "mode": "100644"
+      },
+      "historical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 13314,
+        "inclusive_lines": [
+          1,
+          234
+        ],
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8"
+      },
+      "current_owner": "current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "current_selection": {
+        "byte_start": 7388,
+        "byte_end_exclusive": 20702,
+        "inclusive_lines": [
+          155,
+          388
+        ],
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8"
+      },
+      "namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "ordinary_cases",
+      "historical_carrier": "current/research/generic-ordinary/ordinary_cases.lean",
+      "historical_descriptor": {
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76",
+        "mode": "100644"
+      },
+      "historical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 11348,
+        "inclusive_lines": [
+          1,
+          248
+        ],
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76"
+      },
+      "current_owner": "current/source/Examples/TuringSimulation.lean",
+      "current_selection": {
+        "byte_start": 48653,
+        "byte_end_exclusive": 60001,
+        "inclusive_lines": [
+          1179,
+          1426
+        ],
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76"
+      },
+      "namespace": "Examples.TuringSimulation.OrdinaryPackageCases",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "printmove_adapter",
+      "historical_carrier": "current/research/conventional/PrintMoveAdapter.lean",
+      "historical_descriptor": {
+        "bytes": 20923,
+        "sha256": "24befda9f470ab92f4ed4311799a87012e67d756b6a2c484cb2651ae01b66315",
+        "mode": "100444"
+      },
+      "historical_selection": {
+        "byte_start": 430,
+        "byte_end_exclusive": 20922,
+        "inclusive_lines": [
+          14,
+          478
+        ],
+        "bytes": 20492,
+        "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599"
+      },
+      "current_owner": "current/source/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "current_selection": {
+        "byte_start": 1135,
+        "byte_end_exclusive": 21627,
+        "inclusive_lines": [
+          28,
+          492
+        ],
+        "bytes": 20492,
+        "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599"
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "printmove_trace",
+      "historical_carrier": "current/research/conventional/PrintMoveSpace.lean",
+      "historical_descriptor": {
+        "bytes": 11986,
+        "sha256": "def140d467b4efa88d2a1be7dbfbb4f53a0c97f7ed723964fab4bfd506876121",
+        "mode": "100444"
+      },
+      "historical_selection": {
+        "byte_start": 281,
+        "byte_end_exclusive": 11985,
+        "inclusive_lines": [
+          8,
+          268
+        ],
+        "bytes": 11704,
+        "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8"
+      },
+      "current_owner": "current/source/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "current_selection": {
+        "byte_start": 21628,
+        "byte_end_exclusive": 33332,
+        "inclusive_lines": [
+          494,
+          754
+        ],
+        "bytes": 11704,
+        "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8"
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove.Trace",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "printmove_cases",
+      "historical_carrier": "current/research/conventional/PrintMoveCases.lean",
+      "historical_descriptor": {
+        "bytes": 12916,
+        "sha256": "607482c044e65891e98e047b3bd0c89341cbd59b409edf3af6f259100d0dbc70",
+        "mode": "100444"
+      },
+      "historical_selection": {
+        "byte_start": 223,
+        "byte_end_exclusive": 12915,
+        "inclusive_lines": [
+          7,
+          295
+        ],
+        "bytes": 12692,
+        "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483"
+      },
+      "current_owner": "current/source/Examples/TuringSimulation.lean",
+      "current_selection": {
+        "byte_start": 60002,
+        "byte_end_exclusive": 72694,
+        "inclusive_lines": [
+          1428,
+          1716
+        ],
+        "bytes": 12692,
+        "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483"
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove.Cases",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    },
+    {
+      "name": "polynomial_consumer",
+      "historical_carrier": "current/research/conventional/PolynomialDeciderPrintMove.lean",
+      "historical_descriptor": {
+        "bytes": 7165,
+        "sha256": "802d3599d9ad5bc4fa16ac4790badde908cf959956ca457e5bedf2146f2181da",
+        "mode": "100444"
+      },
+      "historical_selection": {
+        "byte_start": 373,
+        "byte_end_exclusive": 7164,
+        "inclusive_lines": [
+          9,
+          138
+        ],
+        "bytes": 6791,
+        "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a"
+      },
+      "current_owner": "current/source/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "current_selection": {
+        "byte_start": 796,
+        "byte_end_exclusive": 7587,
+        "inclusive_lines": [
+          20,
+          149
+        ],
+        "bytes": 6791,
+        "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a"
+      },
+      "namespace": "Resources.TuringSimulation.PolynomialBooleanDecider",
+      "namespace_mapping": "identity",
+      "exact_body_bytes_equal": true
+    }
+  ],
+  "total_exact_namespace_bytes": 82701
+}

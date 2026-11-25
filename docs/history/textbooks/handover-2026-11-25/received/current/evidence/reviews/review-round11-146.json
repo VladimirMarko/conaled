@@ -1,0 +1,453 @@
+{
+  "schema": 1,
+  "reconciled_utc": "2026-11-24T12:50:05.309333+00:00",
+  "coordinator": "/root/requirements_review",
+  "role": "Administrative reconciliation of same original two axes, no third substantive review",
+  "round": 11,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "tree": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 60,
+  "scope_identity": "6745d491eb3e2eb696661aad90a8e14538770105a7e3aca2c3561ee2b6cf39ec",
+  "content_identity": "f2984548febbaaa6b8bc57f651b386f60126b5b74f99c39d5e80c931c52e673b",
+  "projection_identity": "22b413ae8650b3d37c053b557aef75c659c9e3004d71f75ca0e0326ca639cb19",
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "original_seven_rounds_preserved": 7,
+  "round8_139_round9_142_round10_144_preserved": true,
+  "round10_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-round10-144.json",
+    "bytes": 33941,
+    "sha256": "8293d995358e8eac25e5306ea75bdcb674b23fb8d94245ad789a4bb1c831f061"
+  },
+  "145_no_review_round": true,
+  "intervening145_observation": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/unreviewed-candidate145-validation-observation.json",
+    "bytes": 5668,
+    "sha256": "d7a25f81d6ebd06aecc953b6af18fbc5876fee69f6e9bb773913b1fbe0670c3c"
+  },
+  "requirements_carryforward": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/requirements-carryforward144.json",
+    "bytes": 23510,
+    "sha256": "c05318eae533a85c344dd3709e76b0253ec72d8609741ce87119fd6197a14a5a"
+  },
+  "full_inherited_requirements_unchanged": true,
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "reports": {
+    "Standards": {
+      "markdown": {
+        "path": "/workspace/scratch/ae71b485b114/work/review/standards146.md",
+        "bytes": 15991,
+        "sha256": "a2ad96eac70181f177eca3628c476cf410446479d1db210b357e797836ee531f"
+      },
+      "json": {
+        "path": "/workspace/scratch/ae71b485b114/work/review/standards146.json",
+        "bytes": 69396,
+        "sha256": "cf3055add88fc33d107bb8635adf951823ae45cb842270a035ff673fd76cdb15"
+      }
+    },
+    "Spec": {
+      "markdown": {
+        "path": "/workspace/scratch/ae71b485b114/work/review/spec146.md",
+        "bytes": 25615,
+        "sha256": "54392bec8c11178192d5b1e22c252edac794c1e7eb27850646b7000b7b478ba2"
+      },
+      "json": {
+        "path": "/workspace/scratch/ae71b485b114/work/review/spec146.json",
+        "bytes": 47913,
+        "sha256": "c563b12fbbae1c1bd9bfe12f471ab92276a3f72bedb5a3f198e9c75570b29ba4"
+      }
+    }
+  },
+  "axis_identities": {
+    "Standards": "/root/requirements_review/standards139",
+    "Spec": "/root/requirements_review/spec139"
+  },
+  "both_outcomes": "Blocked",
+  "source_and_available_evidence_assessments_complete_with_limits": true,
+  "source_findings_resolved_on146_only": [
+    "ST-001",
+    "ST-002",
+    "ST-003",
+    "SP-D001",
+    "SP-D002",
+    "SP-C001"
+  ],
+  "open_findings": [
+    "ST-V001",
+    "SP-V001"
+  ],
+  "Standards_findings": [
+    {
+      "id": "ST-V001",
+      "status": "Unresolved",
+      "blocking": true,
+      "title": "Matching cumulative validation remains absent",
+      "evidence": "Actual146 combined query exited0 with305 real stable bindings and no indexed diagnostics. Independent supplied-query assessment completed with350 readable,19 expanded emitted-output assessments and23 selected roots, using explicitly recorded exact-output prior reuse and retaining printer elisions. Normal owner/client module validation, matching whole146/exhaustive audit, immediate nonrepairing verify and supported compare remain absent; earlier whole139 remains separate.",
+      "remedy": "Obtain and assess actual matching ordinary owner/client module and exact whole/audit/verify/compare evidence, then reconcile both continuing original axes. No repeat or expansion of completed query reading is required absent a new mismatch or source change."
+    },
+    {
+      "id": "ST-003",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "medium",
+      "locations": [
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 113
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 120
+        }
+      ],
+      "evidence": "Both explicit actual-alphabet source remedies preserve literal observations and proofs. Actual matching combined146 exited0; both formerly unavailable types freshly read at90-125, preserving true marker, absent versus present-false selected symbol, true supplied package, length1. The failed144 finding remains historically open;145 remains unreviewed.",
+      "history": "Open on immutable144; no independent145 review or closure inferred.",
+      "resolution_boundary": "Scoped source/elaboration finding resolved by exact-source successful combined check and actual type reading. Normal owner/module and whole acceptance remain pending under ST-V001."
+    },
+    {
+      "id": "ST-001",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "medium",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-78/next_action",
+          "line": 236,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-24/next_implementation_gate",
+          "line": 1564,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/next_ticket_gate",
+          "line": 2440,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/source_readiness/current_gate",
+          "line": 903,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/qualification_basis/current_gate",
+          "line": 921,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        }
+      ],
+      "decoded_value": "Source146 preserves the complete145 statements and proofs, moving only its omit command before the attached theorem doc comment so the declaration parses. The actual145 combined query exited1 with302 unchanged input bindings in236.389865302 seconds; its sole diagnostic was unexpected token omit after the doc comment. Its complete source, output and terminal remain failure evidence. No independent145 review round is invented; the next continuing same-axis assessment must receive an immutable146 identity. The two explicit-alphabet clients and all fixed observations remain unchanged. The proposed146 query keeps350 readable,19 expanded and23 root observations; no future execution is assumed. Continue the complete original-B cumulative60-owner scope and unchanged requirements1-15 plus timing138, controller140, primitive141, output-observation142, ordinary-I/O143 and ordinary-integration144. All96 controller domains,84 independent cases,81 positive closed fixtures, literal clocks, physical contracts and qualification counts remain unchanged. The seven new144 owners and all checked NativeOrdinary144c producer bodies remain unchanged in this146 successor. The actual current144 combined client/query run failed with296 stable bindings after377.240338989 seconds: two trInit length statements lacked an inferable dependent alphabet, two old example proofs triggered strict probe lints, and the two failed declarations caused downstream unknown-identifier queries. This successor explicitly supplies the actual machine alphabet in the empty and present-false cases, omits one unused Fintype K section binder, and removes one unused simp argument. No linter setting is suppressed. The cleanup-prefix public type must be read again because its unused binder is removed. The successor350-readable/19-expanded/23-root query plan is not an execution result. The failed144 run emitted347 readable types, including16 of the18 older clients; two were absent. Both original axes read the emitted types and selected roots with separately recorded expanded reading limits; no failed query is accepted. Source144 scope/wording findings were reassessed there, while ST-003/SP-C001 identify its two required case elaboration errors and ST-V001/SP-V001 remain. Matching146 source/output reassessment is still required; this author repair does not retroactively resolve144. Preserve fixed machine data before input, supplied starts/registers, full literal input and singleton output, exact stored run counts, every-prefix physical visited space, and separate live-halt/outer-none observations. The configured live2/none3 and genuine native-init Peek live5/none6 fixtures stay distinct. Whole139 is a separate older candidate with seven known child137 failures and no observed successful outer result; reconcile its actual latest receipt without inferring a cause. Normal ordinary modules and clients, matching whole build/exhaustive audit, immediate nonrepairing verification, supported final comparison and both original review approvals remain gates. The newly checked generic ordinary package remains outside60 owners, as do delimiter and conventional print-and-move research. Formal conventional certificate-class/NP correspondence, sharper space, exact rotation diameter and the full canonical VFA/FDSA/PFDS book/thesis-union and separate ADWH programme remain open. Keep every historical UNKNOWN, the same continuing review loop, one complete archive per cutoff, and no local progress posts to issue558. No textbook qualification follows from development checks or checkpoint recovery.",
+      "evidence": "All five operative gates agree on actual60-owner scope, prior failed query history, proposed current evidence and pending acceptance gates. All other decoded values including qualification unchanged. Historical dispositions preserved."
+    },
+    {
+      "id": "ST-002",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "low",
+      "location": {
+        "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "line": 75005
+      },
+      "evidence": "144-to146 paper is append-only; actual two-step source-run phrase remains. Configured2/3 and native-init Peek5/6 source bodies unchanged. Historical142 finding remains historically open."
+    }
+  ],
+  "Spec_source_findings": [
+    {
+      "id": "SP-D001",
+      "status": "resolved on146",
+      "independently_reassessed": true,
+      "evidence": "All five active decoded gate values equal and accurate for frozen source146/cumulative60. Prior failed144/145 and pending checks retained; other decoded values/qualification unchanged.",
+      "historical_dispositions_unchanged": true
+    },
+    {
+      "id": "SP-D002",
+      "status": "resolved on146",
+      "independently_reassessed": true,
+      "evidence": "The full144 paper is a byte prefix; captured configured live2/none3 wording remains distinct from genuine initialization5/6. Actual current default/type observations are consistent.",
+      "historical_dispositions_unchanged": true
+    },
+    {
+      "id": "SP-C001",
+      "severity": "P2",
+      "status": "resolved source/elaboration defect on146",
+      "evidence": "Explicit actual machine alphabet arguments preserve literal empty/[false] inputs and complete conjunctions. Actual readable types at90-107 and108-125 emitted/read in exact combined exit0.",
+      "ordinary_client_module_gate": "Still unavailable; retained under SP-V001.",
+      "no_retroactive144_pass_or_invented145_review": true
+    }
+  ],
+  "Spec_validation_findings": [
+    {
+      "id": "SP-V001",
+      "status": "unresolved",
+      "severity": "blocking acceptance",
+      "evidence": "Actual exact-body combined exit0 and complete available output reading are supplied. Matching ordinary owner/client graph, whole146/exhaustive audit, immediate supported nonrepairing verification and supported comparison remain unavailable. Eight literal expanded omissions and historical UNKNOWNs/limits remain.",
+      "remedy": "Supply exact matching actual acceptance evidence under the existing supported workflow and complete both original axes; additional printer visibility credit requires actual matching readable output."
+    }
+  ],
+  "actual_query": {
+    "actual_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.result.json",
+      "bytes": 157895,
+      "sha256": "d812c523b083299c6dab58fa7dcb0e1d399f88a07c329eae8fcdb45694f14374"
+    },
+    "actual_child": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.child-exit.json",
+      "bytes": 1328,
+      "sha256": "c8c66c93ca318bfd61d8ebb992efa77f1a183adabdc8371f1ab05b5f6f7dbfc7"
+    },
+    "actual_source": {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean",
+      "bytes": 1424668,
+      "sha256": "23d4265e4eed2fc5ac2000fd88f69cab95615dedbf8a3f33a3649020dee6d2b8"
+    },
+    "actual_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "actual_log_lines": 5723,
+    "actual_exit_code": 0,
+    "started_utc": "2026-11-24T12:21:42.442138+00:00",
+    "finished_utc": "2026-11-24T12:26:56.224414+00:00",
+    "elapsed_seconds": 313.7760097340033,
+    "command": [
+      "python3",
+      "-B",
+      "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+      "--state",
+      "/workspace/scratch/ae71b485b114/work/native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/ae71b485b114/work/acceptance139",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "-EhasSorry",
+      "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean"
+    ],
+    "actual305_before_after_equal_nonnull": true,
+    "new_resource_or_time_limits": false,
+    "diagnostic_entries": []
+  },
+  "output_comparison": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/round11-output-comparison146.json",
+    "bytes": 359235,
+    "sha256": "f53667db6ebb96f7dfce2d0e57f14706ed96926c3d4b7264b70f5d53a02d020e"
+  },
+  "Standards_reading": {
+    "readable_fresh": 3,
+    "readable_exact_prior144_reuse": 347,
+    "expanded_fresh_complete": 7,
+    "expanded_exact_prior144_reuse": 12,
+    "selected_roots_fresh": 23,
+    "fresh_actual_log_ranges": [
+      [
+        90,
+        125
+      ],
+      [
+        2164,
+        2185
+      ],
+      [
+        2924,
+        5723
+      ]
+    ],
+    "fresh_log_line_count": 2858,
+    "entire5723_current_log_fresh_read_claimed": false,
+    "all_current_requested_emitted_types_assessed": true,
+    "all_four_former_expanded_gaps_discharged_on146": true,
+    "gap_discharge_record": {
+      "prior144_full": 14,
+      "prior144_partial": 1,
+      "prior144_unread": 3,
+      "current146_previously_unread_ranges_actually_read": [
+        [
+          2924,
+          4193
+        ],
+        [
+          4318,
+          5563
+        ]
+      ],
+      "current_full_ordinary_space_range_freshly_read": [
+        4194,
+        5584
+      ],
+      "original144_reports_unchanged": true,
+      "unprinted_ellipses_not_discharged_as_printed_text": true
+    }
+  },
+  "Spec_reading": {
+    "all_actual_log_lines_freshly_read": [
+      [
+        1,
+        5723
+      ]
+    ],
+    "readable_fresh": 350,
+    "expanded_as_printed_fresh": 19,
+    "selected_roots_fresh": 23,
+    "available_output_review_complete": true,
+    "all_requested_public_type_names_available": true,
+    "public_statement_output_review_complete": false,
+    "review_complete": false,
+    "reading_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146-statement-reading-progress.json",
+      "bytes": 12963,
+      "sha256": "575acaf21cbfd8f653796588d1fe15affa7c7ccdb3f329555d0f756c61f1ac77"
+    }
+  },
+  "old18_gap_closed_for146": true,
+  "prior144_absence_and_failed_status_unchanged": true,
+  "all57_Audit6_prior_credit": "Standards round9 retained-output reading only; all earlier and other-reader limits preserved",
+  "printer_elisions_current146": [
+    4198,
+    4201,
+    4204,
+    4208,
+    4218,
+    4298,
+    5583,
+    5584
+  ],
+  "readable_final_interval_equality": [
+    1139,
+    1144
+  ],
+  "expanded_omitted_text_read_or_reconstructed": false,
+  "Standards_historical_and_current_limits": [
+    "Full requirements15, huge paper and entire cumulative source not freshly reread; complete authority retained. Requirements15 actual read ranges and all six previously full-read addenda are recorded above.",
+    "55 unchanged144 owners use prior exact-source analysis with all original proof/trace/source reading limits; all19 original predecessor bodies remain qualified inherited analysis, not a new full fresh source read.",
+    "Current146 readable coverage is3 fresh full types plus347 independently read prior144 blocks proven byte-identical. Expanded emitted-output coverage is7 fresh full outputs plus12 prior full-read blocks proven byte-identical. All23 selected roots were freshly read. This does not claim every5723 current log line was freshly read.",
+    "The two formerly absent case types are now actually emitted and independently read on146. All previously incomplete expanded emitted ranges were actually read on146. Historical144 failed status, absent outputs and prior reading limits remain unchanged.",
+    "Eight current pp.all elision lines4198,4201,4204,4208,4218,4298,5583,5584 remain actual omissions. Complete source and readable type support the contract; no unprinted text receives output-reading credit. Older native144c/144 omissions remain historical.",
+    "All57 historical Audit6 declarations were actually read in Standards round9; this is neither146 execution evidence nor Spec reading credit. Original6/7/8 range limits remain historical output ranges.",
+    "Every original UNKNOWN, absent rounds1-4 standalone reports and unavailable C5b Git object is preserved.",
+    "The current query has305 non-null before/after bindings. All297 INPUTS descriptors and10 frozen member identities were checked mechanically; the raw305 descriptors were not individually displayed/read. All60 installation descriptors were mechanically compared, not all individually fresh-read.",
+    "Initial batched historical/install output truncated and supplied no complete middle reading; both historical observations were subsequently read fully. An attempted2924-3240 log output returned no delivered content before context transition; that range was then actually reread in smaller complete chunks.",
+    "No current Spec report or source-author type-reading report was used as independent Standards reading. No new heuristic objection is asserted."
+  ],
+  "Spec_historical_limits": [
+    "Requirements15 and75k-line paper not wholly freshly reread; full authority unchanged. All normative/addendum reading attribution from prior rounds retained.",
+    "Original19 predecessor attributions and20 round8 component/controller source assessments retain ordinary proof/trace omissions. Stream1321-1905 most intermediate TracePoint rows not read; all44 contracts/records/endpoints assessed.",
+    "Original84 controller records,142 cleaner boundaries and96 generic domains remain binding.81 fixtures/1292 fields supply mechanical comparison, not native execution.",
+    "Original1-4 standalone reports and historicalC5b Git object unavailable; never reconstructed. All historical UNKNOWNs retained.",
+    "Standards57 Audit6 reading is its round9 credit, not Spec. Native144c log was not independently reread by Spec; root/helper credit remains attributed.",
+    "Current144 combined attempt remains exit1 with six diagnostics,347/349 readable outputs and actual literal omissions. Current145 remains exit1; only its controls/receipts/prep and first12log lines were read, with full maps mechanically compared; no full145350/19/23 reading or review round.",
+    "Five historical auxiliary expectation inputs independently confirmed null/null. Three actualexit0/twoexit1 retained. Separate present file cannot supply retroactive body/content binding or reading credit.",
+    "Whole139 seven actual child137 exits, with no outer terminal or established cause; no whole146 evidence inferred.",
+    "All current146 actual log1-5723 read:350 readable,19 expanded as printed,23 selected roots. Literal elisions4198,4201,4204,4208,4218,4298,5583,5584 not reconstructed. Readable final equality1139-1144 fully visible/read. Named plan excludes five private proofs/three anonymous instances; no environment census or exhaustive audit inferred.",
+    "Imported product/dependency source bindings mechanically checked, not whole fresh semantic reading. Combined no-output invocation is not ordinary owner/client graph validation.",
+    "Generic conventional ordinary package/print-move/delimiter research remains outside60; full textbook/thesis union,appendices,separateADWH/shared-library,FDSA5.92/exactdiameter,formal conventionalNP and sharper space programme open."
+  ],
+  "Spec_remaining_required_evidence": [
+    "Matching ordinary owner/client graph validation for immutable146.",
+    "Matching exact whole146 build and exhaustive audit.",
+    "Immediate supported nonrepairing verification.",
+    "Supported final comparison and same-loop both-axis reconciliation.",
+    "Actual matching expanded output if claiming removal of the remaining literal visibility limitations."
+  ],
+  "historical_five_null_expectation_bindings": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/historical-expectation-binding-observation145.json",
+    "bytes": 6599,
+    "sha256": "20afe555e954f7e896e2784bc2c86b6350f2393317ca905389defc6eadc343c3"
+  },
+  "all_other_historical_unknowns_preserved": true,
+  "whole139": "Last supplied observation: seven actual child137 exits, no outer terminal or established cause. No current process poll or146 acceptance inferred.",
+  "initial_coordinator_records_preserved": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity146-initial-dispatch-before-final146.json",
+      "bytes": 7290,
+      "sha256": "1ceeb1db61448a8c41327bef269ff1e4d3e608367339dba573bc06150271a2a5"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/public-statement-reading-ledger146-initial-dispatch-before-final146.json",
+      "bytes": 139662,
+      "sha256": "9cabee7540e81a2fe0cd959643be0b48d0a6ee1a6d66d36bf8a92c6ae89bb0bc"
+    }
+  ],
+  "axis_provisional_bodies_preserved_and_hash_checked": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123023457586Z.md",
+      "bytes": 4999,
+      "sha256": "46f6e7dc68a766bc0c8dbb69b30ede0cd2d5c46695eb392221102816e938f59d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123023457586Z.json",
+      "bytes": 41576,
+      "sha256": "8fe6f9162074417d96d89db1c16bce07a8130a7f7b9c4c505f87c5732d0e15ce"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123320792717Z.md",
+      "bytes": 5443,
+      "sha256": "e96c994b13ad3ec7da3c80a8db98ba564aee4e7319074e4dddc95e8eee1cda23"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123320792717Z.json",
+      "bytes": 51621,
+      "sha256": "30476a3496b810120d4667101eb763ebf03e97f2543e5880dfe791a0bd4ace34"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123734230192Z.md",
+      "bytes": 5846,
+      "sha256": "25e4daa7375a86c5a5b317a147807732fc711ca48dfee6292f5eba827dc9cd33"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123734230192Z.json",
+      "bytes": 53386,
+      "sha256": "469a6e777edf223c23fba1bd811722eea7aed04e043ef63082ad6c491bccff0f"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146-provisional-20261124T123530Z.md",
+      "bytes": 5647,
+      "sha256": "99a919a8c671e7b333db234dc24efa058f278e7ace25073d594a89553ccbb33d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146-provisional-20261124T123530Z.json",
+      "bytes": 10027,
+      "sha256": "b6daf13ce3c82e2959f42d39b146f8b162624ebe56667053807328ce71c3827a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146-statement-reading-progress-provisional-20261124T123530Z.json",
+      "bytes": 717,
+      "sha256": "d47725cc5e6b32dd71d95c544aa6a8e07de67e4e6f18cf9abb62fc65dad01ed3"
+    }
+  ],
+  "coordinator_reading_and_checks": [
+    "Both full final Markdown reports; initial aggregate output truncated Spec, followed by separate complete Spec reread",
+    "Structured finding, result/control and reading-limit fields; not every entire JSON descriptor read individually",
+    "Actual result scalar fields/full child receipt;305 maps equal and non-null; actual log hash/line count",
+    "All392 query/output ranges and raw body hashes matched to Spec mechanical index;347 readable and12 expanded reuse blocks independently byte-compared to actual144 output",
+    "No work/conaled-public working-file access during reconciliation"
+  ],
+  "ordinary_module_validation_supplied": false,
+  "whole146_exhaustive_audit_supplied": false,
+  "immediate_verify_supplied": false,
+  "supported_compare_supplied": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "qualification_changed": false,
+  "full_programme_complete": false,
+  "third_substantive_axis": false,
+  "compiler_source_project_output_or_publication_mutation": false,
+  "reviewers_spawned_or_replaced": false,
+  "next_step": "Resume same original axes on actual remaining matching146 validation; unchanged completed reading may be reused with exact identities/limits. A changed source requires a supported successor capture/assessment.",
+  "checkpoint_root_report": "C144 archive verified, extracted and durably saved; full repository restore pending disk guard. Recovery is not acceptance. All new round11 records belong to next single complete146 checkpoint."
+}

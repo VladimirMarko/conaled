@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T12:29:29.633826+00:00",
+  "role": "root author, not independent review",
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "result": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.result.json",
+  "log_descriptor": {
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01",
+    "mode": "100644"
+  },
+  "actual_reading_ranges": [
+    [
+      75,
+      125
+    ],
+    [
+      2158,
+      2220
+    ],
+    [
+      5613,
+      5723
+    ]
+  ],
+  "readable_changed_cases": [
+    "empty_encoded_input_has_a_marker_without_a_raw_symbol",
+    "singleton_false_encoded_input_has_a_symbol_on_its_marker"
+  ],
+  "cleanup_public_binder": "Read readable2164-2186 and complete expanded5613-5668: DecidableEq K remains, Fintype K absent; original theorem premises/counts/configurations remain.",
+  "selected_axiom_roots_read": 23,
+  "observed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "limits": "Not all350readable or19expanded outputs were read by root. Root read the result/child scalar bindings; before/after305descriptor maps matched mechanically. Full actual-type reading belongs to the two continuing review axes. No ordinary import-context module execution, exhaustive audit or whole acceptance inferred."
+}

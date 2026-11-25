@@ -1,0 +1,994 @@
+{
+  "schema": 1,
+  "kind": "exact-completed-run-receipt-capsules-with-explicit-map-deltas",
+  "canonical_member": "current/evidence/validation/integration155/run-capsules.json",
+  "anchor": {
+    "canonical_member": "current/evidence/validation/integration155/query-b.start.json",
+    "map_field": "source_bindings",
+    "binding_count": 4068,
+    "literal_receipt_id": "query-b.start"
+  },
+  "literal_files": [
+    {
+      "canonical_member": "current/evidence/validation/integration155/query-b.start.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.start.json",
+        "bytes": 1038712,
+        "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d",
+        "mode": "0644"
+      },
+      "purpose": "One literal4068-binding current anchor; all completed actual receipt bytes reconstruct exactly."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/draft-a.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.child-exit.json",
+        "bytes": 1318,
+        "sha256": "115b0fb5deeb252f919caaa830508fb2a856a33fc70c375b0cee9ed24a3cf994",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child receipt for the separately identified completed command."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/draft-a.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.log",
+        "bytes": 266930,
+        "sha256": "9e9c772bf62059fb312399a30b5362704671bcb18db97e579a784e8ae49156fe",
+        "mode": "0644"
+      },
+      "purpose": "Complete actual command output; failed query-a is selected through an exact prefix/tail reconstruction instead of duplicated old output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/draft-b.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.child-exit.json",
+        "bytes": 1318,
+        "sha256": "b69a2a55f4bada702cfb434f7e91872d67cca488909e08fe8e0bf3670918a09a",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child receipt for the separately identified completed command."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/draft-b.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.log",
+        "bytes": 274807,
+        "sha256": "a9a89910914f2a3d0b0a6eb656021c33f6ddb6ba3b289463a5edd530de68be92",
+        "mode": "0644"
+      },
+      "purpose": "Complete actual command output; failed query-a is selected through an exact prefix/tail reconstruction instead of duplicated old output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/owners.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.child-exit.json",
+        "bytes": 2148,
+        "sha256": "7d79738a3bc1177ba6048106530cdacc2337c8ceceaca361889385d7198d3da9",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child receipt for the separately identified completed command."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/owners.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.log",
+        "bytes": 17422,
+        "sha256": "8ba057a7194da9d1b0a35b02a82d633c18df2bc9e8ae34fd1baeb5640d94de52",
+        "mode": "0644"
+      },
+      "purpose": "Complete actual command output; failed query-a is selected through an exact prefix/tail reconstruction instead of duplicated old output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/query-a.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.child-exit.json",
+        "bytes": 1278,
+        "sha256": "56fed86b67cd2fa97aaa9e66c499a699f852f030dfba6f5b2e59bbe823ad463b",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child receipt for the separately identified completed command."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/query-a.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.log",
+        "bytes": 1235007,
+        "sha256": "0936b4973f18ff8d4c4244cd9d2802291027ca1453158a55a571124fd72128eb",
+        "mode": "0644"
+      },
+      "purpose": "Complete actual command output; failed query-a is selected through an exact prefix/tail reconstruction instead of duplicated old output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/query-b.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.child-exit.json",
+        "bytes": 1285,
+        "sha256": "37ec55089553b0479a3c5d4c9021075df837798975dda526f7b6dc5990a252ac",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child receipt for the separately identified completed command."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration155/query-b.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.log",
+        "bytes": 1252458,
+        "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106",
+        "mode": "0644"
+      },
+      "purpose": "Complete actual command output; failed query-a is selected through an exact prefix/tail reconstruction instead of duplicated old output."
+    }
+  ],
+  "projections": {
+    "draft-a": {
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.log",
+        "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.result.json",
+        "/workspace/scratch/ae71b485b114/work/source155/CANDIDATE155.json",
+        "/workspace/scratch/ae71b485b114/work/source155/INSTALL155.json",
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/TraceConcatenation155Statements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/inputs.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/query-b.inputs.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/query.inputs.json"
+      ],
+      "descriptor_overrides": {
+        "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+          "bytes": 25433,
+          "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/Examples/TuringSimulation.lean": {
+          "bytes": 74616,
+          "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/research/fdsa-rotation-certificate-preparation.md": {
+          "bytes": 3785863,
+          "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/textbooks/CTB.json": {
+          "bytes": 853606,
+          "sha256": "c71f097fcb63a555e8fbf898a0c3b6f5e09af9e5cc19d51959cb1bb27b99c540",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/textbooks/coverage.json": {
+          "bytes": 54127,
+          "sha256": "5ea3eba4889b2d1961ac3c3cf27edf10c5def2fb4841c56198bb4a713349d343",
+          "mode": "100644"
+        }
+      },
+      "added_bindings": {
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean": {
+          "bytes": 8929,
+          "sha256": "c5edc769825e280d061e5188191a30bf0254f4a6d9d7692d389c2ff0db253abb",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/inputs.json": {
+          "bytes": 471205,
+          "sha256": "00fc5d9742a09afed238a7f9cef7ef2e983ece11ffad6c7d4fc559386f0708c4",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/MANIFEST.json": {
+          "bytes": 9747,
+          "sha256": "4c3723ef4c7acc3e0ec6b0bdde1a16676f99e16c42d056e42c9ee9f42ce155c6",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/TraceConcatenation.lean": {
+          "bytes": 7191,
+          "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/queries/INTEGRATION.md": {
+          "bytes": 9604,
+          "sha256": "489cc40b3b4a73f7dbd40d85a64ca3b42cfc6ae90dab83a88d7d07745492f7fe",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/queries/TraceConcatenationStatements.lean": {
+          "bytes": 2133,
+          "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482",
+          "mode": "100444"
+        }
+      },
+      "binding_count": 4063,
+      "key_order": "lexicographic"
+    },
+    "draft-b": {
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.log",
+        "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.result.json",
+        "/workspace/scratch/ae71b485b114/work/source155/CANDIDATE155.json",
+        "/workspace/scratch/ae71b485b114/work/source155/INSTALL155.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/TraceConcatenation155Statements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/inputs.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/query-b.inputs.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/query.inputs.json"
+      ],
+      "descriptor_overrides": {
+        "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+          "bytes": 25433,
+          "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/Examples/TuringSimulation.lean": {
+          "bytes": 74616,
+          "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/research/fdsa-rotation-certificate-preparation.md": {
+          "bytes": 3785863,
+          "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/textbooks/CTB.json": {
+          "bytes": 853606,
+          "sha256": "c71f097fcb63a555e8fbf898a0c3b6f5e09af9e5cc19d51959cb1bb27b99c540",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/conaled154/docs/textbooks/coverage.json": {
+          "bytes": 54127,
+          "sha256": "5ea3eba4889b2d1961ac3c3cf27edf10c5def2fb4841c56198bb4a713349d343",
+          "mode": "100644"
+        }
+      },
+      "added_bindings": {
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean": {
+          "bytes": 8929,
+          "sha256": "c5edc769825e280d061e5188191a30bf0254f4a6d9d7692d389c2ff0db253abb",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/inputs.json": {
+          "bytes": 471205,
+          "sha256": "00fc5d9742a09afed238a7f9cef7ef2e983ece11ffad6c7d4fc559386f0708c4",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/inputs.json": {
+          "bytes": 471388,
+          "sha256": "74d4fa6148106cbdd27f7c5c2db7a7985ae80ca180c647e72f0288c70070f904",
+          "mode": "100644"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/MANIFEST.json": {
+          "bytes": 9747,
+          "sha256": "4c3723ef4c7acc3e0ec6b0bdde1a16676f99e16c42d056e42c9ee9f42ce155c6",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/TraceConcatenation.lean": {
+          "bytes": 7191,
+          "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/queries/INTEGRATION.md": {
+          "bytes": 9604,
+          "sha256": "489cc40b3b4a73f7dbd40d85a64ca3b42cfc6ae90dab83a88d7d07745492f7fe",
+          "mode": "100444"
+        },
+        "/workspace/scratch/ae71b485b114/work/space155/queries/TraceConcatenationStatements.lean": {
+          "bytes": 2133,
+          "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482",
+          "mode": "100444"
+        }
+      },
+      "binding_count": 4065,
+      "key_order": "lexicographic"
+    },
+    "owners": {
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/query-b.inputs.json",
+        "/workspace/scratch/ae71b485b114/work/validation155/query.inputs.json"
+      ],
+      "descriptor_overrides": {},
+      "added_bindings": {},
+      "binding_count": 4064,
+      "key_order": "lexicographic"
+    },
+    "query-a": {
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean",
+        "/workspace/scratch/ae71b485b114/work/validation155/query-b.inputs.json"
+      ],
+      "descriptor_overrides": {},
+      "added_bindings": {},
+      "binding_count": 4066,
+      "key_order": "lexicographic"
+    },
+    "query-b": {
+      "omitted_keys": [],
+      "descriptor_overrides": {},
+      "added_bindings": {},
+      "binding_count": 4068,
+      "key_order": "lexicographic"
+    }
+  },
+  "records": [
+    {
+      "id": "draft-a.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.start.json",
+        "bytes": 1037623,
+        "sha256": "2ddfd5ce2053e80910c82e60deb0dc38a89a551d98912d432d58942a3d6dec5a",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "trace155-draft-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:22:17.645017+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "draft-a"
+        }
+      }
+    },
+    {
+      "id": "draft-a.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.result.json",
+        "bytes": 2075117,
+        "sha256": "b240194d94ced34c6277da988bf351212ccc2cca51c5b6179122764efebdda49",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "trace155-draft-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:22:17.645017+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-25T05:22:23.238104+00:00",
+        "elapsed_seconds": 5.582609249999223,
+        "recorded_utc": "2026-11-25T05:22:23.974388+00:00",
+        "exit_code": 1,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.log",
+        "log_descriptor": {
+          "bytes": 266930,
+          "sha256": "9e9c772bf62059fb312399a30b5362704671bcb18db97e579a784e8ae49156fe",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.child-exit.json",
+          "bytes": 1318,
+          "sha256": "115b0fb5deeb252f919caaa830508fb2a856a33fc70c375b0cee9ed24a3cf994",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "draft-a"
+        },
+        "source_bindings_after": {
+          "projection": "draft-a"
+        }
+      }
+    },
+    {
+      "id": "draft-b.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.start.json",
+        "bytes": 1038086,
+        "sha256": "7f4169f1358c2685b2c59a2af7d419e239daa2f9367826d262ebf7429be8c6ca",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "trace155-draft-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:23:20.393250+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "draft-b"
+        }
+      }
+    },
+    {
+      "id": "draft-b.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.result.json",
+        "bytes": 2076043,
+        "sha256": "5466f55b6105f13e8a34500b698e9dfabb1eb539fb2eeeb4adc88742ca6898b8",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "trace155-draft-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:23:20.393250+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-25T05:23:24.806890+00:00",
+        "elapsed_seconds": 4.403153874000054,
+        "recorded_utc": "2026-11-25T05:23:25.969265+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.log",
+        "log_descriptor": {
+          "bytes": 274807,
+          "sha256": "a9a89910914f2a3d0b0a6eb656021c33f6ddb6ba3b289463a5edd530de68be92",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.child-exit.json",
+          "bytes": 1318,
+          "sha256": "b69a2a55f4bada702cfb434f7e91872d67cca488909e08fe8e0bf3670918a09a",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "draft-b"
+        },
+        "source_bindings_after": {
+          "projection": "draft-b"
+        }
+      }
+    },
+    {
+      "id": "owners.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.start.json",
+        "bytes": 1038691,
+        "sha256": "3faaf3cc36d32f219a3146944b4b766ecf03ba5af7cdebff0c605b92eab9f5fb",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners155",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:29:40.502365+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners"
+        }
+      }
+    },
+    {
+      "id": "owners.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.result.json",
+        "bytes": 2076396,
+        "sha256": "32a23dbe1d61fbe19476d3acb259ea809f601c160904dc7edf7f6e95f6db1373",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners155",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:29:40.502365+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-25T05:29:59.853295+00:00",
+        "elapsed_seconds": 19.340161270000863,
+        "recorded_utc": "2026-11-25T05:30:01.720090+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.log",
+        "log_descriptor": {
+          "bytes": 17422,
+          "sha256": "8ba057a7194da9d1b0a35b02a82d633c18df2bc9e8ae34fd1baeb5640d94de52",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.child-exit.json",
+          "bytes": 2148,
+          "sha256": "7d79738a3bc1177ba6048106530cdacc2337c8ceceaca361889385d7198d3da9",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners"
+        },
+        "source_bindings_after": {
+          "projection": "owners"
+        }
+      }
+    },
+    {
+      "id": "query-a.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.start.json",
+        "bytes": 1038265,
+        "sha256": "1ff3f9604382a9003e6285990d462c2d0f7110892af8817a13aa2b3d36314940",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "query155",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:31:14.668933+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "query-a"
+        }
+      }
+    },
+    {
+      "id": "query-a.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.result.json",
+        "bytes": 2076410,
+        "sha256": "a00220495b83df42bdd05e0597bece5057114268d406a9b44109a18c5cdef15c",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "query155",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:31:14.668933+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-25T05:31:19.262085+00:00",
+        "elapsed_seconds": 4.581935827000052,
+        "recorded_utc": "2026-11-25T05:31:20.688834+00:00",
+        "exit_code": 1,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.log",
+        "log_descriptor": {
+          "bytes": 1235007,
+          "sha256": "0936b4973f18ff8d4c4244cd9d2802291027ca1453158a55a571124fd72128eb",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.child-exit.json",
+          "bytes": 1278,
+          "sha256": "56fed86b67cd2fa97aaa9e66c499a699f852f030dfba6f5b2e59bbe823ad463b",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "query-a"
+        },
+        "source_bindings_after": {
+          "projection": "query-a"
+        }
+      }
+    },
+    {
+      "id": "query-b.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.result.json",
+        "bytes": 2077305,
+        "sha256": "d0c2101f4df20804a3d7a278b6fda9d43fa06bdee720543cabd00a3c1671d4ec",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "query155-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+        "started_utc": "2026-11-25T05:33:16.004550+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-25T05:33:19.790718+00:00",
+        "elapsed_seconds": 3.774985086000015,
+        "recorded_utc": "2026-11-25T05:33:21.130702+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.log",
+        "log_descriptor": {
+          "bytes": 1252458,
+          "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.child-exit.json",
+          "bytes": 1285,
+          "sha256": "37ec55089553b0479a3c5d4c9021075df837798975dda526f7b6dc5990a252ac",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "query-b"
+        },
+        "source_bindings_after": {
+          "projection": "query-b"
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "draft-a",
+      "start_record": "draft-a.start",
+      "result_record": "draft-a.result",
+      "child_member": "current/evidence/validation/integration155/draft-a.child-exit.json",
+      "log_member": "current/evidence/validation/integration155/draft-a.log",
+      "actual_exit_code": 1,
+      "nonnull_before_after_bindings": 4063,
+      "actual_before_after_equal": true,
+      "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.start.json",
+      "original_child_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.child-exit.json",
+      "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.log"
+    },
+    {
+      "id": "draft-b",
+      "start_record": "draft-b.start",
+      "result_record": "draft-b.result",
+      "child_member": "current/evidence/validation/integration155/draft-b.child-exit.json",
+      "log_member": "current/evidence/validation/integration155/draft-b.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 4065,
+      "actual_before_after_equal": true,
+      "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.start.json",
+      "original_child_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.child-exit.json",
+      "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.log"
+    },
+    {
+      "id": "owners",
+      "start_record": "owners.start",
+      "result_record": "owners.result",
+      "child_member": "current/evidence/validation/integration155/owners.child-exit.json",
+      "log_member": "current/evidence/validation/integration155/owners.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 4064,
+      "actual_before_after_equal": true,
+      "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.start.json",
+      "original_child_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.child-exit.json",
+      "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.log"
+    },
+    {
+      "id": "query-a",
+      "start_record": "query-a.start",
+      "result_record": "query-a.result",
+      "child_member": "current/evidence/validation/integration155/query-a.child-exit.json",
+      "log_member": "current/evidence/validation/integration155/query-a.log",
+      "actual_exit_code": 1,
+      "nonnull_before_after_bindings": 4066,
+      "actual_before_after_equal": true,
+      "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.start.json",
+      "original_child_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.child-exit.json",
+      "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.log"
+    },
+    {
+      "id": "query-b",
+      "start_record": "query-b.start",
+      "result_record": "query-b.result",
+      "child_member": "current/evidence/validation/integration155/query-b.child-exit.json",
+      "log_member": "current/evidence/validation/integration155/query-b.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 4068,
+      "actual_before_after_equal": true,
+      "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.start.json",
+      "original_child_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.child-exit.json",
+      "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.log"
+    }
+  ],
+  "creation_verification": {
+    "original_receipts": 10,
+    "original_total_bytes": 15572648,
+    "all_original_bytes_reconstructed_exactly": true
+  },
+  "serialization": "UTF-8 indent2 ensure_ascii=True, exact original top-level key order and lexicographically sorted source maps, final LF.",
+  "derived_log": "query-a.log is reconstructed with current/evidence/history/DERIVED_FILES155.json before running this standalone verifier on a recovered packet.",
+  "limits": "Exact evidence bytes only; actual failures stay failures. No compiler, proof reading, whole/audit or independent acceptance credit."
+}

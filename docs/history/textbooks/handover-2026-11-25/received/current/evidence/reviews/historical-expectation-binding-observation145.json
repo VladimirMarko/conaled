@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T12:17:51.731585+00:00",
+  "selected_status": {
+    "path": "/workspace/scratch/ae71b485b114/work/checkpoint144-preparation/selected-control/status144.json",
+    "bytes": 58142,
+    "sha256": "4fd2929dc7b884a6e503a587a91442d1b0e34c0dba57768c7533edec71ec12b6"
+  },
+  "selected_cutoff_utc": "2026-11-24T11:55:59.937856+00:00",
+  "unique_absent_path_count": 1,
+  "affected_attempt_count": 5,
+  "observations": [
+    {
+      "result_member": "current/evidence/selection144-attempt1/evidence/continuation144/native-ordinary144-attempt2.result.json",
+      "run": "native-ordinary144-attempt2",
+      "actual_exit_code": 1,
+      "original_input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before_descriptor": null,
+      "after_descriptor": null,
+      "boundary": "Absent at recorded input observation; null/null is part of the recorded unchanged flag. No body or successful input binding is invented. The separate literal specification route does not repair this historical binding.",
+      "actual_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt2.result.json",
+        "bytes": 9863,
+        "sha256": "96d6c337f428d2c74a0240f9f013e6e952b2a16899c9047a299e7620f1616c4c"
+      },
+      "actual_result_before_after_null_independently_confirmed": true,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result_member": "current/evidence/selection144-attempt1/evidence/continuation144/native-ordinary144-attempt3.result.json",
+      "run": "native-ordinary144-attempt3",
+      "actual_exit_code": 1,
+      "original_input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before_descriptor": null,
+      "after_descriptor": null,
+      "boundary": "Absent at recorded input observation; null/null is part of the recorded unchanged flag. No body or successful input binding is invented. The separate literal specification route does not repair this historical binding.",
+      "actual_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt3.result.json",
+        "bytes": 11227,
+        "sha256": "fe95ff60d4ed917d17e33e197c59af8e63e8ddc966401b243148e301dc961a5e"
+      },
+      "actual_result_before_after_null_independently_confirmed": true,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result_member": "current/evidence/selection144-attempt1/evidence/continuation144/native-ordinary144-attempt4.result.json",
+      "run": "native-ordinary144-attempt4",
+      "actual_exit_code": 0,
+      "original_input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before_descriptor": null,
+      "after_descriptor": null,
+      "boundary": "Absent at recorded input observation; null/null is part of the recorded unchanged flag. No body or successful input binding is invented. The separate literal specification route does not repair this historical binding.",
+      "actual_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt4.result.json",
+        "bytes": 12592,
+        "sha256": "b82aac6241750448bcc10fe47dcfa901d1530701b24ff970b188180f0377867e"
+      },
+      "actual_result_before_after_null_independently_confirmed": true,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result_member": "current/evidence/selection144-attempt1/evidence/continuation144/native-space-decider-types144.result.json",
+      "run": "native-space-decider-types144",
+      "actual_exit_code": 0,
+      "original_input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before_descriptor": null,
+      "after_descriptor": null,
+      "boundary": "Absent at recorded input observation; null/null is part of the recorded unchanged flag. No body or successful input binding is invented. The separate literal specification route does not repair this historical binding.",
+      "actual_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-space-decider-types144.result.json",
+        "bytes": 4478,
+        "sha256": "c652094c613c1ad892884595559018dc8ef40ac73e265690d351ed36a30a7a2e"
+      },
+      "actual_result_before_after_null_independently_confirmed": true,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result_member": "current/evidence/selection144-attempt1/evidence/continuation144/polynomial-decider143-attempt1.result.json",
+      "run": "polynomial-decider143-attempt1",
+      "actual_exit_code": 0,
+      "original_input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before_descriptor": null,
+      "after_descriptor": null,
+      "boundary": "Absent at recorded input observation; null/null is part of the recorded unchanged flag. No body or successful input binding is invented. The separate literal specification route does not repair this historical binding.",
+      "actual_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/polynomial-decider143-attempt1.result.json",
+        "bytes": 3149,
+        "sha256": "e2554dc3cd63eeeaf4cc5de7149d6ad471c8a15bd5024db057e4d899774d3d83"
+      },
+      "actual_result_before_after_null_independently_confirmed": true,
+      "recorded_sources_unchanged": true
+    }
+  ],
+  "separate_present_expectation_file": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/native-decider-fixed-expectations143.json",
+    "bytes": 1108,
+    "sha256": "2a6e4636dc4b5c6e0b494f593298cc47beda5f24a60bdf22155f8854aba5d959"
+  },
+  "current_separate_file_was_historically_bound_claimed": false,
+  "boundary": "Null/null means absence remained unchanged; it supplies no expectation-file body, content hash, existence or reading evidence. The three actual exit0 and two exit1 results remain actual compiler outcomes with this auxiliary-input limitation. The separate literal specification and currently present review file do not repair or replace the five historical bindings. No frozen result, selected checkpoint status or source proof was changed.",
+  "future_review_obligation": "Carry this explicit limitation into next same-axis dispatch; distinguish independent literal specification/expectation reading from actual probe input-file binding. Do not invent a freeze or retro-bind a replacement.",
+  "source_accepted": false,
+  "third_substantive_axis": false
+}

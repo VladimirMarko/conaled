@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "kind": "exact-research-input-reassembly",
+  "target": {
+    "path": "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean",
+    "bytes": 8987,
+    "sha256": "09ee2b645f5735cc71240060b7fc334434f8345c126653711894cc4b91136dfa",
+    "mode": "100644"
+  },
+  "inputs": [
+    {
+      "path": "captured155/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "bytes": 26946,
+      "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496",
+      "mode": "100644"
+    },
+    {
+      "path": "captured155/Examples/TuringSimulation.lean",
+      "bytes": 79470,
+      "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906",
+      "mode": "100644"
+    }
+  ],
+  "pieces": [
+    {
+      "literal_utf8": "import Applications.Resources.TuringSimulation.VisitedSpace\nimport Examples.TuringSimulation\n\n/-!\n# Actual native trace concatenation\n\nUncompiled external implementation draft. The fixed calculations are recorded\nin EXPECTATIONS.md before this file was written. The generic declarations are\nintended for the existing VisitedSpace owner; the connected fixture belongs with\nthe existing Examples.TuringSimulation.VisitedSpace cases.\n\nThe live split premise is the actual native optional iterate. Full commands,\nincluding their next controls, are transported before head coordinates are\ncomposed. No displacement is inferred from equality of endpoint tapes.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\nnamespace Resources.TuringSimulation.VisitedSpace\n\nopen Turing\n\nvariable {Γ Q : Type*} [Inhabited Γ] [Inhabited Q]\n"
+    },
+    {
+      "source": "captured155/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "byte_start": 7577,
+      "byte_end_exclusive": 9090,
+      "slice_sha256": "400d0084c42334199e6d9b0f338b84fd37f75878481f250a5c757f797bc6714a"
+    },
+    {
+      "literal_utf8": "end Resources.TuringSimulation.VisitedSpace\n"
+    },
+    {
+      "source": "captured155/Examples/TuringSimulation.lean",
+      "byte_start": 48757,
+      "byte_end_exclusive": 53612,
+      "slice_sha256": "83f0f14d2d7d8dd826c718946fa083e3c0decbcd714e43ba4e109c3ea57ffbb1"
+    },
+    {
+      "literal_utf8": "set_option pp.all true\n\n#check Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live\n#check Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live\n#check Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live\n#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace\n#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command\n#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion\n#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted\n\n#print Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live\n#print Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live\n#print Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live\n#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace\n#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command\n#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion\n#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted\n\n#print axioms Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live\n#print axioms Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live\n#print axioms Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live\n#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace\n#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command\n#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion\n#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted\n"
+    }
+  ],
+  "compiler_result": "actual0",
+  "boundary": "Exact historical input, including the failed-a type-inference site when present. Current owner slices and otherwise unowned import/query/glue bytes; no new proof or acceptance."
+}

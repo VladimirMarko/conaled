@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "completed_utc": "2026-11-24T12:50:05.309333+00:00",
+  "task": "Administrative reconciliation of FINAL146 reports only",
+  "round": 11,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "tree": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "scope_count": 60,
+  "axes": {
+    "Standards": "Blocked",
+    "Spec": "Blocked"
+  },
+  "open_findings": [
+    "ST-V001",
+    "SP-V001"
+  ],
+  "resolved_on146_only": [
+    "ST-001",
+    "ST-002",
+    "ST-003",
+    "SP-D001",
+    "SP-D002",
+    "SP-C001"
+  ],
+  "matching_combined_query_exit_code": 0,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "qualification_changed": false,
+  "third_substantive_axis": false,
+  "reviewers_spawned_or_replaced": false,
+  "compiler_source_project_output_or_issue_mutation": false,
+  "work_conaled_public_working_files_accessed": false,
+  "descriptors": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/reconciliation-round11-146.md",
+      "bytes": 10346,
+      "sha256": "b0feb3d54884ebd5113c66708c091746996ff7a14c7be0721adf29bc7862be5a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/review-round11-146.json",
+      "bytes": 27649,
+      "sha256": "a2b14094f141cd280a21bd07faad6991468e7ad91df4fc0c65f235f94136026c"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity146.json",
+      "bytes": 12486,
+      "sha256": "dc0f7525b1db97b954d0fcf3e24b8209c41060e59a820ecd7f290a722062d15c"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/public-statement-reading-ledger146.json",
+      "bytes": 683573,
+      "sha256": "8a694e4769535fe35e77e65e53ef709a8f3c1e32d914831f1019cfefb6b3069c"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/round11-output-comparison146.json",
+      "bytes": 359235,
+      "sha256": "f53667db6ebb96f7dfce2d0e57f14706ed96926c3d4b7264b70f5d53a02d020e"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146.md",
+      "bytes": 15991,
+      "sha256": "a2ad96eac70181f177eca3628c476cf410446479d1db210b357e797836ee531f"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146.json",
+      "bytes": 69396,
+      "sha256": "cf3055add88fc33d107bb8635adf951823ae45cb842270a035ff673fd76cdb15"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146.md",
+      "bytes": 25615,
+      "sha256": "54392bec8c11178192d5b1e22c252edac794c1e7eb27850646b7000b7b478ba2"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec146.json",
+      "bytes": 47913,
+      "sha256": "c563b12fbbae1c1bd9bfe12f471ab92276a3f72bedb5a3f198e9c75570b29ba4"
+    }
+  ],
+  "preserved_initial_records": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity146-initial-dispatch-before-final146.json",
+      "bytes": 7290,
+      "sha256": "1ceeb1db61448a8c41327bef269ff1e4d3e608367339dba573bc06150271a2a5"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/public-statement-reading-ledger146-initial-dispatch-before-final146.json",
+      "bytes": 139662,
+      "sha256": "9cabee7540e81a2fe0cd959643be0b48d0a6ee1a6d66d36bf8a92c6ae89bb0bc"
+    }
+  ],
+  "preserved_axis_provisional_count": 9,
+  "checkpoint_boundary": "All new records belong to next single complete checkpoint146; exact prior144 cutoff unchanged; recovery not acceptance."
+}

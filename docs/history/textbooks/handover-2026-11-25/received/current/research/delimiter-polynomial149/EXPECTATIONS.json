@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "status": "Independent intended contract saved before the composition Lean body; not compiler evidence.",
+  "parent_contracts": {
+    "normal_form": "Resources.PolynomialTime.NormalFormDraft148, corrected research149 core",
+    "consumer": "Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148; exact existing conventional_run signature"
+  },
+  "fixed_before_raw": [
+    "R and its supplied Fintype",
+    "initial : R and the existing package's supplied registers, blank and start",
+    "DecidableEq (NativeConsumer148.Alphabet initial)",
+    "A = actionMaximum (R := R), for the complete fixed program",
+    "p_A and k = NormalFormDraft148.exponent p_A"
+  ],
+  "formula": {
+    "source": "S(N) = 4*N*N + 23*N + 38",
+    "primitive": "E_A(N) = 3*S(N)*(1 + A*(2*(2*N + 1 + A) + 2))",
+    "ordinary": "T_A(N) = N + 3 + E_A(N)",
+    "polynomial_eval": "p_A.eval N = 2*T_A(N) + 1",
+    "exponent": "k = p_A.natDegree + p_A.eval 1",
+    "target_allowance": "N^k + k",
+    "no_degree_expansion": true
+  },
+  "actual_witness": {
+    "native": "Retain the native witness returned by conventional_run, including its original bound.",
+    "target": "Retain target.toEvalsTo exactly; widen only steps_le_m.",
+    "exact_count": "target.steps = PrintMove.simulationTime ordinaryMachine ordinaryInit native.steps + 1",
+    "relative_count": "target.steps <= 2*native.steps + 1",
+    "endpoint": "The existing full decidedCfg of verifyDelimited raw and the complete ordinaryOutput tape.",
+    "stopped": "The existing PrintMove.step decidedCfg = none fact survives.",
+    "outer_none": "No additional terminalOuterNone transition is included."
+  },
+  "cases": [
+    {
+      "name": "N_zero",
+      "raw": "[]",
+      "prelude_steps": 1,
+      "existing_conventional_allowance": "2*(E_A(0) + 2) + 1",
+      "polynomial_allowance": "2*(E_A(0) + 3) + 1",
+      "slack": 2,
+      "power_bound": "p_A.eval 0 <= 0^k + k; no positive-input premise"
+    },
+    {
+      "name": "N_one",
+      "raw": "[letter], for every letter : Option Bool",
+      "prelude_steps": 3,
+      "existing_conventional_allowance": "2*(E_A(1) + 4) + 1",
+      "polynomial_allowance": "2*(E_A(1) + 4) + 1",
+      "slack": 0,
+      "power_bound": "p_A.eval 1 <= 1^k + k; all three letters included"
+    },
+    {
+      "name": "literal_pair",
+      "raw": "input.map some ++ [none] ++ certificate.map some",
+      "N": "input.length + certificate.length + 1",
+      "answer": "(verifyBitsRun input certificate).1",
+      "scope": "Both input and certificate are universally quantified; no canonicalization or width change."
+    }
+  ],
+  "boundary": "UNCOMPILED composition; no new machine, polynomialTime assumption, NP equivalence, effectivity, transition table, source acceptance or review claim."
+}

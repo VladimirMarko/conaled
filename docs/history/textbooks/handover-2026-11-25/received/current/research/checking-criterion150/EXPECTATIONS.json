@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "fixed_utc": "2026-11-24T21:54:18.087856+00:00",
+  "status": "PREIMPLEMENTATION EXPECTATIONS; no compiler permitted in this helper task",
+  "target": "Explicit conventional binary checking relation and selected verifier criterion, with an actual finite polynomial decider and a fixed pure-power witness bound.",
+  "independent_contract": [
+    "A generic literal pair is input.map some ++ [none] ++ cert.map some over Option Bool. The delimiter is one present source symbol. It is never erased, encoded by an arbitrary word map, or confused with physical tape blank.",
+    "A checking relation R : List Bool -> List Bool -> Prop carries one actual ConventionalPolynomialDraft150.PolynomialDecider over Option Bool, with its Boolean specification fixed, and arbitrary-raw accepted-language iff raw is exactly a literal pair with R input cert. The machine is fixed before raw.",
+    "A ConventionalVerifierCriterion L fixes R, that actual checking-relation machine, and one natural witness exponent k BEFORE every input. Its correctness is L input iff exists cert with cert.length <= input.length^k and R input cert. No additive constant appears in the certificate bound.",
+    "The generic owner imports the generic conventional contract and basic list mathematics, never RotationCertificate. Pair uniqueness should follow from existing Mathlib list/symbol facts, without another parser.",
+    "The concrete relation is the existing verifyBitsRun answer=true; its checking machine is exactly frozen unitDecider. Reuse the arbitrary-raw accepted-language iff and direct small-certificate completeness/soundness. No new compiler adapter or execution proof is assumed.",
+    "BinaryYes is supplied an actual criterion value with witnessExponent2. Expose the accepted-witness equivalence, retain the separate I^2+I+1 literal-pair bound, and retain the full native/target Run refinement through the exact checked composition.",
+    "The name denotes the selected conventional verifier characterization. Do not identify it with an independently defined nondeterministic NP class, assert NTM equivalence, export executable numeric tables, or qualify/close any source row."
+  ],
+  "independent_cases": [
+    {
+      "id": "pair-identity",
+      "expected": "The generic literal pair equals the old concrete literalPair definition by rfl; input and certificate lengths add with exactly one delimiter."
+    },
+    {
+      "id": "pair-unique",
+      "expected": "Equal literal pairs have equal input and certificate words; use generic Mathlib append/none-nonmembership and map injectivity, with no RotationCertificate import."
+    },
+    {
+      "id": "actual-pair-recognition",
+      "expected": "For any checking relation package, actual decider acceptance of literalPair input cert iff R input cert, derived from arbitrary-raw language and unique encoding."
+    },
+    {
+      "id": "fixed-witness-exponent",
+      "expected": "An existential k precedes all inputs in the exported verifier criterion consequence; concrete k=2. Machine exponent for total pair length is a different fixed number."
+    },
+    {
+      "id": "small-pair",
+      "expected": "L input admits a witness with cert<=I^k and actual conventional acceptance; pair.length<=I^k+I+1 follows arithmetically. For BinaryYes retain k2 and both inequalities."
+    },
+    {
+      "id": "raw-empty-vs-empty-pair",
+      "expected": "Raw [] has length0; literalPair [] []=[none] has length1 and is present input. Both reject for BinaryYes, for separate reasons; an empty raw instance is not an encoded zero-node distance instance."
+    },
+    {
+      "id": "empty-witness-bound",
+      "expected": "For concrete witnessExponent2, cert.length<=0^2 iff cert=[]. The generic criterion does not assert this for exponent0, where 0^0=1."
+    },
+    {
+      "id": "zero-node-encoded-instance",
+      "expected": "An encoded pair of zero-node shapes with literal zero-width threshold has input length20 and is in BinaryYes. Apply the actual criterion to obtain cert<=400 and accepted literal pair length<=421. This is a positive connected use and remains distinct from raw []."
+    },
+    {
+      "id": "full-run-preserved",
+      "expected": "The exact checking decider remains frozen unitDecider. A corollary retains the prior Run on every raw input, including actual native and target witnesses, complete endpoint tapes, exact simulationTime+1 and relative <=2*native.steps+1. The smaller criterion does not reconstruct this richer data from its own fields."
+    }
+  ],
+  "fixed_existing_signatures": [
+    "verifyBitsRun_complete_small(input,yes) -> exists cert, cert.length<=input.length^2 and verifyBitsRun(input,cert).1=true",
+    "verifyBitsRun_sound(input,cert,accepted) -> BinaryYes input",
+    "ConventionalContract150.unit_language(raw) -> unitDecider.Accepts raw iff exists input cert, raw=old literalPair input cert and verifyBitsRun(input,cert).1=true",
+    "CertificateCorrespondence.not_binaryYes_nil; binaryYes_empty_shapes; encoded_instance_length =16*n+4*bs.length+20"
+  ],
+  "boundaries": "Parent contract150 is frozen but UNCOMPILED; this child draft is therefore likewise UNCOMPILED and unreviewed. Original C147 source, all previous bodies, requirements and counts remain unchanged. Root exclusively owns later compilation and the original Standards/Spec loop. Primary Cook characterization reading is attributed to root; no fresh primary reading by this helper."
+}

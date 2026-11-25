@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "UNEXECUTED; root alone may compile after its active whole command terminates",
+  "readable": [
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine_eq_none_iff",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.transition_some_of_nonterminal",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.literal_input_length",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.step_eq_none_iff",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run_and_stopped",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.empty_run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative_accepts_iff",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.machine_and_input",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.full_run_refinement",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.accepts_iff_checking_relation",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.empty_rejects",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.missing_rejects",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.repeated_rejects",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.three_nonblank_letters",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unitDecider",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language"
+  ],
+  "expanded": [
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language"
+  ],
+  "definition_prints": [
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts"
+  ],
+  "selected_axiom_roots": [
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run_and_stopped",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative",
+    "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative_accepts_iff",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.full_run_refinement",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.accepts_iff_checking_relation",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.three_nonblank_letters",
+    "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language"
+  ],
+  "counts": {
+    "readable": 24,
+    "expanded": 7,
+    "definition_prints": 2,
+    "selected_axiom_roots": 11
+  },
+  "inspect": "Read the full expanded package/run/acceptance definitions and quantifier order; check finite/input/blank/terminal facts, unchanged literal map, fixed exponent, actual EvalsTo and terminal evaluation, exact pair language, pure I^2 witness and separate pair-length bound. No ellipsis or hidden output earns reading credit. Foundation roots only propext/Classical.choice/Quot.sound. No compiler result or acceptance inferred from this query plan.",
+  "rendering": "In listed order: readable => #check NAME; expanded => set_option pp.all true in #check @NAME; definition_prints => set_option pp.all true in #print NAME; selected_axiom_roots => #print axioms NAME. Actual generated input must be bound by root before its compiler run."
+}

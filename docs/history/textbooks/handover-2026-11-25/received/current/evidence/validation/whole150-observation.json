@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T23:15:00.320172+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "project": "/workspace/scratch/ae71b485b114/work/research149",
+  "started_utc": "2026-11-24T21:21:53.891332+00:00",
+  "tool_session": 24491,
+  "terminal_observed": false,
+  "actual_exit_code": null,
+  "outer_outcome": "UNKNOWN",
+  "prefix": {
+    "bytes": 1249441,
+    "sha256": "a9e026c3da9a35aa435ccdf0c9d1ba5069f61d4caf03d5d1e4ed0a971c6d4219",
+    "mode": "100644"
+  },
+  "observed_child_failures": [
+    {
+      "header_line": 6316,
+      "diagnostic_line": 6318,
+      "actual_child_exit_code": 137,
+      "exact_block": [
+        "✖ [10224/10300] Building SquareKit.Internal.Cubical.CartesianUniverse (238s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/Cubical/CartesianUniverse.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 6322,
+      "diagnostic_line": 6324,
+      "actual_child_exit_code": 137,
+      "exact_block": [
+        "✖ [10228/10301] Building Examples.CartesianFilling (224s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/Examples/CartesianFilling.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CartesianFilling.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CartesianFilling.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CartesianFilling.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CartesianFilling.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 6836,
+      "diagnostic_line": 6838,
+      "actual_child_exit_code": 137,
+      "exact_block": [
+        "✖ [10605/10647] Building Examples.CubicalConstructorState (102s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/Examples/CubicalConstructorState.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CubicalConstructorState.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CubicalConstructorState.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CubicalConstructorState.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CubicalConstructorState.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 7103,
+      "diagnostic_line": 7105,
+      "actual_child_exit_code": 137,
+      "exact_block": [
+        "✖ [10847/10925] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (168s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/Cubical/CocycleOrdinaryAction.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 7187,
+      "diagnostic_line": 7191,
+      "actual_child_exit_code": 1,
+      "exact_block": [
+        "✖ [10912/10996] Building SquareKit.Internal.Cubical.Judgments.PathsTheory (6.5s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/Cubical/Judgments/PathsTheory.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/Judgments/PathsTheory.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/Judgments/PathsTheory.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/Judgments/PathsTheory.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/Judgments/PathsTheory.setup.json --json",
+        "info: stderr:",
+        "failed to write '/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/Judgments/PathsTheory.olean': failed to create file",
+        "error: Lean exited with code 1"
+      ]
+    },
+    {
+      "header_line": 7194,
+      "diagnostic_line": 7198,
+      "actual_child_exit_code": 1,
+      "exact_block": [
+        "✖ [10939/11026] Building Examples.LocalUniversesBoundary (12s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/Examples/LocalUniversesBoundary.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/LocalUniversesBoundary.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/LocalUniversesBoundary.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/LocalUniversesBoundary.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/LocalUniversesBoundary.setup.json --json",
+        "info: stderr:",
+        "failed to write '/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/LocalUniversesBoundary.olean': failed to create file",
+        "error: Lean exited with code 1"
+      ]
+    },
+    {
+      "header_line": 7210,
+      "diagnostic_line": 7214,
+      "actual_child_exit_code": 1,
+      "exact_block": [
+        "✖ [10963/11091] Building SquareKit.Internal.DependentFunctionNormalForms (750ms)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/DependentFunctionNormalForms.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionNormalForms.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionNormalForms.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/DependentFunctionNormalForms.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/DependentFunctionNormalForms.setup.json --json",
+        "info: stderr:",
+        "failed to write '/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentFunctionNormalForms.olean': failed to create file",
+        "error: Lean exited with code 1"
+      ]
+    },
+    {
+      "header_line": 7250,
+      "diagnostic_line": 7254,
+      "actual_child_exit_code": 1,
+      "exact_block": [
+        "✖ [11011/11110] Building SquareKit.DependentPairDeclarations (2.9s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/DependentPairDeclarations.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/DependentPairDeclarations.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/DependentPairDeclarations.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/DependentPairDeclarations.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/DependentPairDeclarations.setup.json --json",
+        "info: stderr:",
+        "failed to write '/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/DependentPairDeclarations.olean': failed to create file",
+        "error: Lean exited with code 1"
+      ]
+    },
+    {
+      "header_line": 7272,
+      "diagnostic_line": 7276,
+      "actual_child_exit_code": 1,
+      "exact_block": [
+        "✖ [11055/11123] Building SquareKit.Internal.DependentSheafComparison (4.1s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/DependentSheafComparison.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentSheafComparison.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentSheafComparison.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/DependentSheafComparison.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/DependentSheafComparison.setup.json --json",
+        "info: stderr:",
+        "failed to write '/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/DependentSheafComparison.olean': failed to create file",
+        "error: Lean exited with code 1"
+      ]
+    }
+  ],
+  "observed_137_children": 4,
+  "enospc_diagnostics": [
+    {
+      "line": 7183,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7185,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7193,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7200,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7202,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7205,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7209,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7216,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7218,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7221,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7226,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7229,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7237,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7239,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7247,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7259,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7262,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7266,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7271,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7278,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7280,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7283,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7305,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7308,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7310,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7313,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7315,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7322,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7332,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    }
+  ],
+  "source_bindings_observed_count": 132,
+  "bindings_nonnull": true,
+  "bindings_equal_start_at_observation": true,
+  "canonical_start_map": "current/evidence/validation/whole150-start.json",
+  "binding_limit": "Equal132 nonnull bindings at this later observation; not post-terminal invariance or transient-change exclusion.",
+  "last_tool_result": "At22:41:22 root received Unknown process id24491; no child, final or verification receipt exists at this observation.",
+  "failure_cause": "Cause of each observed137 remains UNKNOWN. Later explicit ENOSPC is observed separately.",
+  "capture_limit": "ENOSPC, partial warning and progress jump11158 to13054 mean complete console capture is not established. Observed failures are not an exhaustive outcome claim.",
+  "ownership": "Quarantine research149; no compiler, retry, reuse, cleanup or deletion of products without authoritative surviving-writer cessation. Unknown handle/static logs prove none.",
+  "source_accepted": false,
+  "receiving_accepted": false
+}

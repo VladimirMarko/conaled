@@ -1,0 +1,703 @@
+{
+  "schema": 1,
+  "kind": "exact_completed_run_receipt_projection",
+  "canonical_member": "current/evidence/validation/conventional151/run-capsules.json",
+  "anchor": {
+    "canonical_member": "current/evidence/validation/conventional151/c.start.json",
+    "map_field": "source_bindings",
+    "binding_count": 3870,
+    "literal_receipt_id": "c.start"
+  },
+  "literal_files": [
+    {
+      "canonical_member": "current/evidence/validation/conventional151/c.start.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.start.json",
+        "bytes": 980668,
+        "sha256": "08d488da8c4a24be448de37640b2cf122f32d7517fc5e583d206a304811ca068",
+        "mode": "0644"
+      },
+      "purpose": "Literal current source-binding anchor and complete c.start receipt"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/prereqs.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.child-exit.json",
+        "bytes": 1666,
+        "sha256": "564aa81fc7095f972ae4a9cb59da370a125bb99335dee4d479291abe1fd0bf11",
+        "mode": "0644"
+      },
+      "purpose": "Literal completed child receipt"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/prereqs.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.log",
+        "bytes": 15560,
+        "sha256": "3dcbf5acdf816f115798659b58e0a2e9e4933a6307c7a0d3d0153b74598f6a6d",
+        "mode": "0644"
+      },
+      "purpose": "Literal complete compiler/build log"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/a.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.child-exit.json",
+        "bytes": 1331,
+        "sha256": "4a8e97dab75ba84189882e5311dc4629ad3cfbea73bfdaa1d4f6f0e7b9306aab",
+        "mode": "0644"
+      },
+      "purpose": "Literal completed child receipt"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/a.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.log",
+        "bytes": 79197,
+        "sha256": "a33ac43f1583768a64a2bafd7a4cb02d8298244d0c216029750857e82b2f7165",
+        "mode": "0644"
+      },
+      "purpose": "Literal complete compiler/build log"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/b.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.child-exit.json",
+        "bytes": 1338,
+        "sha256": "a6f314700a7ae1e2ec04cb3b5cc4a62a4ae5032c13fc0b24f264ddea168f1aa3",
+        "mode": "0644"
+      },
+      "purpose": "Literal completed child receipt"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/b.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.log",
+        "bytes": 88694,
+        "sha256": "903d58918ffba4f9c59fcbbd9fa6c92bba95cba7d0a6938f01512c274dfe88ad",
+        "mode": "0644"
+      },
+      "purpose": "Literal complete compiler/build log"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/c.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.child-exit.json",
+        "bytes": 1338,
+        "sha256": "f167aa0f6ee9a1b085bd9d44d7d6f323e9ae821c45b8f87c99938c167a51dfc2",
+        "mode": "0644"
+      },
+      "purpose": "Literal completed child receipt"
+    },
+    {
+      "canonical_member": "current/evidence/validation/conventional151/c.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.log",
+        "bytes": 85423,
+        "sha256": "4a96a6ce1774dc5adc3b439fb896da520651f0c5b0fd69fc0fbeed5257a776c5",
+        "mode": "0644"
+      },
+      "purpose": "Literal complete compiler/build log"
+    }
+  ],
+  "projections": {
+    "prereqs": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/Conventional151bProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/ConventionalPolynomialDecider151b.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/LOCAL_PATH_MAP.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/REASSEMBLY.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/REPAIR151b.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/conventional151-author-b.inputs.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/ConventionalPolynomialDecider151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/DelimiterConventionalContract151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/LOCAL_PATH_MAP.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REASSEMBLY.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REPAIR151c.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/conventional151-author-c.inputs.json"
+      ],
+      "binding_count": 3857,
+      "key_order": "Anchor insertion order with precisely the listed keys omitted."
+    },
+    "a": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/Conventional151bProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/ConventionalPolynomialDecider151b.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/LOCAL_PATH_MAP.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/REASSEMBLY.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/REPAIR151b.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/conventional151-author-b.inputs.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/ConventionalPolynomialDecider151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/DelimiterConventionalContract151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/LOCAL_PATH_MAP.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REASSEMBLY.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REPAIR151c.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/conventional151-author-c.inputs.json"
+      ],
+      "binding_count": 3857,
+      "key_order": "Anchor insertion order with precisely the listed keys omitted."
+    },
+    "b": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/ConventionalPolynomialDecider151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/DelimiterConventionalContract151c.lean",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/LOCAL_PATH_MAP.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REASSEMBLY.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/REPAIR151c.json",
+        "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/conventional151-author-c.inputs.json"
+      ],
+      "binding_count": 3863,
+      "key_order": "Anchor insertion order with precisely the listed keys omitted."
+    },
+    "c": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [],
+      "binding_count": 3870,
+      "key_order": "Anchor insertion order with precisely the listed keys omitted."
+    }
+  },
+  "records": [
+    {
+      "id": "prereqs.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.start.json",
+        "bytes": 977832,
+        "sha256": "509ddcce8460ecbd7f06ad01994cea2679a1801ff7cb98a0fa3689412a81d7b2",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-prereqs",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.RotationCertificate.CertificateCorrespondence",
+          "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+          "Applications.Resources.TuringSimulation.PrintMove",
+          "Applications.Resources.TuringSimulation.TapeToPrimitive"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:45:41.058215+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "prereqs"
+        }
+      }
+    },
+    {
+      "id": "prereqs.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.result.json",
+        "bytes": 1955241,
+        "sha256": "a43207d14f9dab16868f1550bd9828cafe87b551bf644e3d1cc04f60d5396171",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-prereqs",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.RotationCertificate.CertificateCorrespondence",
+          "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+          "Applications.Resources.TuringSimulation.PrintMove",
+          "Applications.Resources.TuringSimulation.TapeToPrimitive"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:45:41.058215+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T22:47:15.629470+00:00",
+        "elapsed_seconds": 94.55003565799962,
+        "recorded_utc": "2026-11-24T22:47:15.758282+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.log",
+        "log_descriptor": {
+          "bytes": 15560,
+          "sha256": "3dcbf5acdf816f115798659b58e0a2e9e4933a6307c7a0d3d0153b74598f6a6d",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-prereqs.child-exit.json",
+          "bytes": 1666,
+          "sha256": "564aa81fc7095f972ae4a9cb59da370a125bb99335dee4d479291abe1fd0bf11",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "prereqs"
+        },
+        "source_bindings_after": {
+          "projection": "prereqs"
+        }
+      }
+    },
+    {
+      "id": "a.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.start.json",
+        "bytes": 977509,
+        "sha256": "98460ce8da3f5b54606af6d15c25b5427d7b2757141c50fb372d97e3c7e4f327",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/conventional150-preparation/Conventional150Probe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:47:49.788818+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "a"
+        }
+      }
+    },
+    {
+      "id": "a.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.result.json",
+        "bytes": 1954906,
+        "sha256": "a9c66c09c7a2f71fed0782507a81d7cf43f2c98ef25dd6a007318e8110a8278c",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/conventional150-preparation/Conventional150Probe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:47:49.788818+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T22:47:55.262703+00:00",
+        "elapsed_seconds": 5.458667578001041,
+        "recorded_utc": "2026-11-24T22:47:55.397296+00:00",
+        "exit_code": 1,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.log",
+        "log_descriptor": {
+          "bytes": 79197,
+          "sha256": "a33ac43f1583768a64a2bafd7a4cb02d8298244d0c216029750857e82b2f7165",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-a.child-exit.json",
+          "bytes": 1331,
+          "sha256": "4a8e97dab75ba84189882e5311dc4629ad3cfbea73bfdaa1d4f6f0e7b9306aab",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "a"
+        },
+        "source_bindings_after": {
+          "projection": "a"
+        }
+      }
+    },
+    {
+      "id": "b.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.start.json",
+        "bytes": 978965,
+        "sha256": "fa1362ff0641dee7cce875615152306e827d18444ee7be863818354e99662e2a",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/Conventional151bProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:50:39.107982+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "b"
+        }
+      }
+    },
+    {
+      "id": "b.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.result.json",
+        "bytes": 1957811,
+        "sha256": "6221bc329049bcc48c2e506a54e515a177d0da0b20a5d0f9873fefe97b49b752",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-b/Conventional151bProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:50:39.107982+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T22:50:46.247475+00:00",
+        "elapsed_seconds": 7.123954766999304,
+        "recorded_utc": "2026-11-24T22:50:46.347510+00:00",
+        "exit_code": 1,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.log",
+        "log_descriptor": {
+          "bytes": 88694,
+          "sha256": "903d58918ffba4f9c59fcbbd9fa6c92bba95cba7d0a6938f01512c274dfe88ad",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-b.child-exit.json",
+          "bytes": 1338,
+          "sha256": "a6f314700a7ae1e2ec04cb3b5cc4a62a4ae5032c13fc0b24f264ddea168f1aa3",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "b"
+        },
+        "source_bindings_after": {
+          "projection": "b"
+        }
+      }
+    },
+    {
+      "id": "c.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.result.json",
+        "bytes": 1961217,
+        "sha256": "826db6481ceae45c811d153cd7276f9489931dbbb8da77251e4b88a6c47f5163",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "conventional151-author-c",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T22:52:13.693493+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T22:52:19.200025+00:00",
+        "elapsed_seconds": 5.490244058999451,
+        "recorded_utc": "2026-11-24T22:52:19.304664+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.log",
+        "log_descriptor": {
+          "bytes": 85423,
+          "sha256": "4a96a6ce1774dc5adc3b439fb896da520651f0c5b0fd69fc0fbeed5257a776c5",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.child-exit.json",
+          "bytes": 1338,
+          "sha256": "f167aa0f6ee9a1b085bd9d44d7d6f323e9ae821c45b8f87c99938c167a51dfc2",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "c"
+        },
+        "source_bindings_after": {
+          "projection": "c"
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "prereqs",
+      "start_record": "prereqs.start",
+      "result_record": "prereqs.result",
+      "child_member": "current/evidence/validation/conventional151/prereqs.child-exit.json",
+      "log_member": "current/evidence/validation/conventional151/prereqs.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 3857,
+      "actual_before_after_equal": true
+    },
+    {
+      "id": "a",
+      "start_record": "a.start",
+      "result_record": "a.result",
+      "child_member": "current/evidence/validation/conventional151/a.child-exit.json",
+      "log_member": "current/evidence/validation/conventional151/a.log",
+      "actual_exit_code": 1,
+      "nonnull_before_after_bindings": 3857,
+      "actual_before_after_equal": true
+    },
+    {
+      "id": "b",
+      "start_record": "b.start",
+      "result_record": "b.result",
+      "child_member": "current/evidence/validation/conventional151/b.child-exit.json",
+      "log_member": "current/evidence/validation/conventional151/b.log",
+      "actual_exit_code": 1,
+      "nonnull_before_after_bindings": 3863,
+      "actual_before_after_equal": true
+    },
+    {
+      "id": "c",
+      "start_record": "c.start",
+      "result_record": "c.result",
+      "child_member": "current/evidence/validation/conventional151/c.child-exit.json",
+      "log_member": "current/evidence/validation/conventional151/c.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 3870,
+      "actual_before_after_equal": true
+    }
+  ],
+  "serialization": {
+    "encoding": "utf-8",
+    "json_indent": 2,
+    "ensure_ascii": true,
+    "sort_keys": false,
+    "object_key_order": "Preserved parsed order, with explicit original top-level key order in every projected receipt.",
+    "final_newline": "One LF",
+    "original_bytes_reconstruction": "All8 original start/result byte strings were compared exactly during creation; the retained hashes are verified by the reconstructor."
+  },
+  "creation_verification": {
+    "actual_parsed_before_and_after_equal_projected_map": true,
+    "all_nonmap_fields_preserved": true,
+    "original_top_level_and_binding_key_orders_preserved": true,
+    "original_full_json_bytes_equal_reconstructed": true,
+    "receipts": 8,
+    "projected_receipts": 7,
+    "original_receipt_bytes_total": 11744149,
+    "before_after_counts": {
+      "prereqs": 3857,
+      "a": 3857,
+      "b": 3863,
+      "c": 3870
+    },
+    "omission_counts": {
+      "prereqs": 13,
+      "a": 13,
+      "b": 7,
+      "c": 0
+    }
+  },
+  "identity_boundary": "Original descriptors always name original full receipt bytes. They are never retargeted to capsule bytes. Canonical capsule and literal routes have their own identities.",
+  "limits": "Exact receipt reconstruction is packaging evidence only. Source-binding paths are historical observations, not claims that those files currently exist or remain unchanged. Failed a/b outcomes remain failures. Focused c success is not ordinary installation, whole-library or independent acceptance. No receipt command is executed."
+}

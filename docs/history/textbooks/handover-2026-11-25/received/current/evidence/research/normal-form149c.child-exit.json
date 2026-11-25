@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "normal-form149c",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/research149",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/normal-form149-checks/NormalForm149c.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/research149",
+  "started_utc": "2026-11-24T20:41:25.842894+00:00",
+  "finished_utc": "2026-11-24T20:41:28.304217+00:00",
+  "elapsed_seconds": 2.459646838999106,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149c.start.json",
+    "bytes": 37709,
+    "sha256": "bcb1256e5d06613c0200cef2dbfac28f3b9859e65e5afc541cfcbe9786bbac35",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149c.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

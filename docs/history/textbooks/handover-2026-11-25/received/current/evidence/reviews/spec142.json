@@ -1,0 +1,1134 @@
+{
+  "schema": "conaled.spec-review.3",
+  "reviewer": "/root/requirements_review/spec139",
+  "original_reviewer": "/root/parser_review/spec",
+  "successor_identity_explicit": true,
+  "same_original_loop": true,
+  "round": 9,
+  "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+  "tree": "89c45ac0fda464a47eec42d4db1813c967e62355",
+  "ticket_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 53,
+  "observed_utc": "2026-11-24T10:15:42.024429+00:00",
+  "outcome": "Blocked",
+  "assessment_stage": "finalized source and available-output assessment; exact acceptance remains Blocked",
+  "review_complete": false,
+  "source_assessment_complete": true,
+  "source_accepted": false,
+  "compiler_commands_run": false,
+  "source_or_dependency_mutation": false,
+  "github_messages_sent": false,
+  "historical_rounds_retained": 7,
+  "previous_successor_round_retained": 8,
+  "historical_unknown_outcomes_unchanged": true,
+  "current_user_override": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "full_spec": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+    "bytes": 2205749,
+    "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+  },
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "addenda": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/controller-tape-addendum140.md",
+      "bytes": 5322,
+      "sha256": "cdd07335fff81761599f4ecf2074b3d065a13806997eb0b103cdd73160cad361"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/primitive-addendum141.md",
+      "bytes": 6738,
+      "sha256": "83f6d00bdc401d7b859b8b58c0b55a8f8d9398f49166cf46e06df29f8329420c"
+    }
+  ],
+  "previous_independent_report": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec139.json",
+    "bytes": 35458,
+    "sha256": "899d612a5cf2161d19fe98bd7ad035966cfcdec50257799ae204b380f9d4c368"
+  },
+  "reuse_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec142-reuse-and-source-identity.json",
+    "bytes": 7417,
+    "sha256": "0aaf236cbdafde9e1ee149fba384c34200ffe1479de1418e9ba2435691d69196"
+  },
+  "source_read": [
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "bytes": 14601,
+      "lines": 257,
+      "sha256": "53e18fc09fd4268a248f63156169833fe9a5f8668e03f775db05212838867750",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full immutable source including all proof bodies.",
+      "fresh_complete_ranges": [
+        [
+          1,
+          257
+        ]
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "bytes": 16006,
+      "lines": 379,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full immutable source including all proof bodies.",
+      "fresh_complete_ranges": [
+        [
+          1,
+          379
+        ]
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "bytes": 17333,
+      "lines": 365,
+      "sha256": "973c9aae6bea1b91d2911c3199db03f9c584c859244c371467dfcf7c22da1329",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full immutable source including all proof bodies.",
+      "fresh_complete_ranges": [
+        [
+          1,
+          365
+        ]
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "lines": 262,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full immutable source including all proof bodies.",
+      "fresh_complete_ranges": [
+        [
+          1,
+          262
+        ]
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "bytes": 15857,
+      "lines": 274,
+      "sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full immutable source including all proof bodies.",
+      "fresh_complete_ranges": [
+        [
+          1,
+          274
+        ]
+      ]
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "bytes": 29403,
+      "lines": 723,
+      "sha256": "4b6b47632ef9423a0e4600a5e9bd9abcb5e13f23fd46b9941b6779c07a4b7860",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "method": "Full139-to142 diff: two new imports and appended lines360-723 (364lines) read with all proofs. Original357-line body reuses its prior complete source reading and is otherwise unchanged.",
+      "fresh_complete_ranges": [
+        [
+          360,
+          723
+        ]
+      ],
+      "fresh_import_lines": [
+        2,
+        3
+      ]
+    }
+  ],
+  "statement_read": {
+    "readable_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.log",
+      "bytes": 96332,
+      "sha256": "bd4fa3af0e2693e67102ebaa5166029ed7fbe205784b27904fc60130bf0a832b"
+    },
+    "lines": 1374,
+    "current142_type_ranges_fully_read": [
+      [
+        1,
+        879
+      ]
+    ],
+    "all202_current142_named_checks_read": true,
+    "current142_definition_and_axiom_ranges_fully_read": [
+      [
+        1326,
+        1365
+      ]
+    ],
+    "definition_prints_read": 6,
+    "selected_current_axiom_queries_read": 5,
+    "selected_axiom_results": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "whole_log_read": false,
+    "outside142_checks": 42,
+    "outside142_type_range": [
+      880,
+      1325
+    ],
+    "outside142_axiom_range": [
+      1366,
+      1374
+    ],
+    "outside142_incidental_partial_output": [
+      880,
+      1004
+    ],
+    "outside142_semantic_assessment_claimed": false,
+    "expanded_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.log",
+      "bytes": 333654,
+      "sha256": "5ee87d172f9f76edba492141239d15f1543029f7c4adcef32559a5c46f8c55f3"
+    },
+    "expanded_ranges_fully_read": [
+      [
+        635,
+        647
+      ],
+      [
+        1062,
+        1070
+      ],
+      [
+        1081,
+        1090
+      ],
+      [
+        1913,
+        2092
+      ],
+      [
+        2986,
+        3039
+      ],
+      [
+        3153,
+        3163
+      ],
+      [
+        3201,
+        3211
+      ],
+      [
+        4712,
+        4841
+      ]
+    ],
+    "expanded_entire4850_lines_read": false,
+    "index": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec142-type-output-index.json",
+      "bytes": 50293,
+      "sha256": "c8ed49a3a4e87cbcc0b35b7b2f9841647d24f952c0ee06feea01b3b72a118708"
+    },
+    "owner_counts": {
+      "Applications/Resources/TuringSimulation/TapeToPrimitive.lean": 14,
+      "Applications/Resources/TuringSimulation/FiniteControl.lean": 29,
+      "Applications/Resources/TuringSimulation/FiniteStackToTape.lean": 36,
+      "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": 14,
+      "Examples/TuringSimulation.lean": 109,
+      "outside142": 42
+    },
+    "missing_current_controller_client_declarations": [
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 28,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 45,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 62,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 80,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 96,
+        "kind": "def",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 99,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 106,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 113,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 120,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 136,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 159,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 182,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 209,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 230,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 244,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 252,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 260,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      },
+      {
+        "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+        "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "owner_line": 268,
+        "kind": "theorem",
+        "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+        "actual_type_output_in_development143": false,
+        "actual_type_reading": "pending",
+        "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+      }
+    ],
+    "missing_current_controller_client_count": 18,
+    "limits": [
+      "Default readable output elides some inferred existential witness types and proof arguments; complete explicit immutable source types were read, and critical package initialization/defaults and finite-controller/generic source-run types were additionally read with expanded implicit arguments.",
+      "Six definition prints expose source-level closed transition matches and actual supplied defaults; generated primitiveSteps._f/primitiveBound._f internals and proof terms behind ellipses are not claimed expanded. Full corresponding source bodies were independently read.",
+      "The202 queries are named declarations in the five matched amalgamated bodies, not every generated helper, anonymous example or every public declaration in the53-owner cumulative scope.",
+      "The18 new controller-client named declarations lack actual output; full source/proof reading does not close their actual type-output/ordinary-module gate.",
+      "Mechanical query-body comparison confirms all four producer namespace bodies and full generic-client namespace body match142 after discarding blank lines only. Amalgamated imports/context differ; no ordinary-module pass is inferred."
+    ]
+  },
+  "historical_reuse": {
+    "source_analysis_only": true,
+    "approval_reused": false,
+    "all43_unchanged_entries_verified": true,
+    "unchanged_owners": [
+      {
+        "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Witness.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateBinary.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateBitDecoderMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateBitPairFraming.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateFrontEndMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateFuelMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateInputParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateMoveApplyMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateMoveParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateOpenDecoderMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateOpenFramingMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateParsing.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificatePositionedRotationMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateStreamMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateTreeEqualityMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateTreeParserMachine.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "Examples/RotationCertificateVerification.lean",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "docs/textbooks/README.md",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "docs/textbooks/external-agent.md",
+        "identical_tree_entry": true
+      },
+      {
+        "path": "docs/textbooks/inbox/README.md",
+        "identical_tree_entry": true
+      }
+    ],
+    "round8_full_reading_limits": "Complete intended public-claim and case assessment across all48 owners, using the listed new normative outline/API/case ranges, the frozen controller literal cross-check, and explicitly attributed original-round7 analysis for19 unchanged Lean owners. Not every line of the53,261-line append-only requirements body, embedded supporting script/trace/provenance, or the74,901-line paper was reread. Ordinary proof bodies were read only in listed supplementary ranges; source-level explicit arguments were inspected, not every elaborated helper type.",
+    "round8_detailed_reading_record": "/workspace/scratch/ae71b485b114/work/review/spec139.json",
+    "original19_body_analysis": {
+      "report": "restored/conaled-textbooks-136-progress-2026-11-23/evidence/spec-review-round7.md",
+      "report_read": "complete 286 lines in bounded ranges",
+      "original_author": "/root/parser_review/spec",
+      "source_analysis_reused_only_for_exactly_matching_bodies": true,
+      "review_approval_reused": false,
+      "matching_source_descriptors": [
+        {
+          "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+          "bytes": 11312,
+          "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+          "bytes": 12371,
+          "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+        },
+        {
+          "path": "Examples/RotationCertificateParsing.lean",
+          "bytes": 12173,
+          "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+          "bytes": 16291,
+          "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/Witness.lean",
+          "bytes": 4494,
+          "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+          "bytes": 7117,
+          "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211"
+        },
+        {
+          "path": "Examples/RotationCertificateVerification.lean",
+          "bytes": 16154,
+          "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+          "bytes": 15284,
+          "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+          "bytes": 12641,
+          "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+        },
+        {
+          "path": "Examples/RotationCertificateBinary.lean",
+          "bytes": 14837,
+          "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+          "bytes": 20150,
+          "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267"
+        },
+        {
+          "path": "Examples/RotationCertificateBitDecoderMachine.lean",
+          "bytes": 15665,
+          "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+          "bytes": 34844,
+          "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+        },
+        {
+          "path": "Examples/RotationCertificateBitPairFraming.lean",
+          "bytes": 27139,
+          "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1"
+        },
+        {
+          "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+          "bytes": 40378,
+          "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+          "bytes": 28035,
+          "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a"
+        },
+        {
+          "path": "Examples/RotationCertificateFuelMachine.lean",
+          "bytes": 40502,
+          "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b"
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+          "bytes": 69147,
+          "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c"
+        },
+        {
+          "path": "Examples/RotationCertificateTreeParserMachine.lean",
+          "bytes": 64635,
+          "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664"
+        }
+      ],
+      "historical_rounds": 7,
+      "unknown_outcomes": "unchanged"
+    },
+    "all84_controller_records_and96_generic_domains_binding": true,
+    "frozen_literal_helper": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec139-literal-comparison.json",
+      "bytes": 2382,
+      "sha256": "595b0154b553ea3f2838da594ded3bcecb64b21197128b245f65fa83910cb1ca"
+    },
+    "round8_requirements_preamble_ranges": [
+      [
+        6756,
+        6815
+      ],
+      [
+        7235,
+        7293
+      ],
+      [
+        8351,
+        8418
+      ],
+      [
+        10829,
+        10952
+      ],
+      [
+        12506,
+        12515
+      ],
+      [
+        14098,
+        14111
+      ],
+      [
+        17219,
+        17292
+      ]
+    ],
+    "round8_requirements_additional_ranges": [
+      [
+        10953,
+        11125
+      ],
+      [
+        12506,
+        12600
+      ],
+      [
+        17219,
+        17529
+      ],
+      [
+        17530,
+        18751
+      ],
+      [
+        38413,
+        38916
+      ],
+      [
+        6818,
+        7080
+      ],
+      [
+        7675,
+        7974
+      ],
+      [
+        8698,
+        9189
+      ],
+      [
+        9932,
+        10209
+      ],
+      [
+        11918,
+        12398
+      ],
+      [
+        13112,
+        13700
+      ],
+      [
+        13753,
+        13831
+      ],
+      [
+        14706,
+        14907
+      ],
+      [
+        14964,
+        15444
+      ],
+      [
+        16347,
+        16445
+      ],
+      [
+        16620,
+        16733
+      ],
+      [
+        7294,
+        7673
+      ],
+      [
+        11126,
+        11883
+      ],
+      [
+        12598,
+        13056
+      ],
+      [
+        12775,
+        12981
+      ],
+      [
+        15753,
+        16346
+      ],
+      [
+        16446,
+        16619
+      ],
+      [
+        14293,
+        14705
+      ],
+      [
+        8419,
+        8697
+      ],
+      [
+        9603,
+        9931
+      ],
+      [
+        5526,
+        5729
+      ],
+      [
+        5931,
+        6259
+      ]
+    ],
+    "component_contract_reading_record": "/workspace/scratch/ae71b485b114/work/review/spec139.json :: reading_progress_additional.component_contract_reading",
+    "unchanged_owner_groups": {
+      "original_round7_Lean": 19,
+      "round8_component_and_controller_Lean": 20,
+      "round8_StackToTape_Lean": 1,
+      "round8_textbook_guides": 3
+    },
+    "ordinary_proof_limits": "For20 component/controller owners the complete operational definitions/instances and theorem contracts were read in round8, with ordinary theorem proof bodies omitted except exact ranges in spec139.json. Stream client1321-1905 most intermediate TracePoint rows not reread; all44 individual records/actual contracts and trace endpoints were assessed. All84 controller records,142 cleaner boundaries and96 domains assessed;81 positive fixtures mechanically matched1292 frozen fields. None of these exact bodies changed in142.",
+    "legacy_Standards_gap": {
+      "index": {
+        "path": "/workspace/scratch/ae71b485b114/work/review/legacy-audit6-unread-output-index139.json",
+        "bytes": 10853,
+        "sha256": "50738fa7f36551148f0db23efdf6744875a8da3afa9f94248c15b0a0f0ff6f3c"
+      },
+      "still_unread_by_successor_Standards": true,
+      "not_in_244_current_checks": true,
+      "historical_output_ranges_inclusive": [
+        [
+          9148,
+          10335
+        ],
+        [
+          10401,
+          11407
+        ]
+      ],
+      "source_line_ranges": false
+    },
+    "legacy_gap_scope_note": "This is a preserved predecessor/successor Standards reading limit, not a claimed independent Spec reread or closure; these57 historical type outputs are not among244 current checks."
+  },
+  "source_findings": [
+    {
+      "id": "SP-D001",
+      "severity": "P2",
+      "status": "resolved in candidate142",
+      "carried_from_round": 8,
+      "reassessed_round": 9,
+      "title": "Active continuation gates still describe the pre-controller46-owner stage",
+      "evidence": "Independently read all five current53-owner gate fields and full139-to142 JSON delta. Four flagged undated fields now agree with CTB-24.next_implementation_gate on implemented but unaccepted53-owner source, ordinary module and whole acceptance pending. Dated earlier-stage records remain historical.",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "line": 236,
+          "field": "local_state.CTB-78.next_action"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "line": 1564,
+          "field": "local_state.CTB-24.next_implementation_gate"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "line": 2440,
+          "field": "next_ticket_gate"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "line": 903,
+          "field": "source_readiness.current_gate"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "line": 921,
+          "field": "qualification_basis.current_gate"
+        }
+      ]
+    },
+    {
+      "id": "SP-D002",
+      "severity": "P2",
+      "status": "unresolved",
+      "title": "Current paper calls a configured live2/none3 example genuine-init",
+      "locations": [
+        {
+          "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+          "line": 75005
+        },
+        {
+          "path": "Examples/TuringSimulation.lean",
+          "line": 521
+        }
+      ],
+      "evidence": "Immutable paper75005 says genuine-init live2/none3 boundary observations. Immutable generic twoInitial521 is \u27e8some false,true,T\u27e9 for arbitrary Tape; two_native_steps/two_primitive_bound/twoPrimitiveRun/threePrimitiveOuterNone connect that actual configured source run. Pinned TM1.init448-449 uses some default/default/Tape.mk1; TM1to0 default497-498 uses some(M default),default. Expanded actual output2986-3039 uses instInhabitedBool and the explicit twoInitial, not a genuine TM0.init identity. The frozen3185-byte EXPECTATIONS explicitly requires the arbitrary-tape true-register actual source run. The count/endpoint proofs are valid; the stronger initialization label is unsupported.",
+      "remedy": "For a supported successor candidate, describe this as an actual source-run live2/none3 case, or prove the genuine initialization connection with explicit correct defaults and input tape. Retain actual literal counts.",
+      "root_proposed_future_remedy": "Root message reports successor-only wording correction applied10:04:17Z. This reviewer did not use later source or a new Standards report; it is not a remedy on immutable142.",
+      "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+      "requirement": "Primitive-addendum141 fixed cases: actual source two-label run with true registers and arbitrary tape; frozen primitive EXPECTATIONS explicitly distinguish local/configured source runs from genuine-init controller execution. Active paper must accurately describe proved initialization boundaries.",
+      "consequence": "The active preparation paper overstates which initialization boundary the connected case exercises, potentially confusing the actual configured source-run test with the package initialization results proved elsewhere.",
+      "exposure": "Independently identified while reading immutable142 paper append and complete generic client source. Root subsequently acknowledged the finding and reported a successor-only remedy. No new Standards142 report read."
+    }
+  ],
+  "validation_findings": [
+    {
+      "id": "SP-V001",
+      "severity": "blocking acceptance",
+      "status": "unresolved",
+      "carried_from_round": 1,
+      "reassessed_round": 9,
+      "title": "Required exact-candidate integrated validation is unavailable",
+      "evidence": "Actual readable143 development query exited0 with stable bound inputs; all202 current142 checks, six current prints and five selected current axiom queries independently read.18 new controller-client declaration outputs remain absent; matching ordinary142 module validation, whole142/exhaustive audit, immediate supported nonrepairing final verification and supported final comparison remain unavailable. The seven recorded139 subprocess exits137 and absent outer terminal are separate historical evidence.",
+      "remedy": "Supply the actual matching ordinary module/client result and all18 missing controller-client statement outputs for independent reading, then successful exact cumulative whole build/exhaustive audit with stable input records, immediate supported nonrepairing verification and supported final comparison. Continue the same finding/axes; a source correction requires a new immutable supported candidate and explicit delta review.",
+      "requirement": "Unchanged requirements15 and timing138/controller140/primitive141 addenda; original review-loop exact-candidate build/audit/verify/compare and actual public-statement review gates."
+    }
+  ],
+  "remaining_reading": [
+    "Actual type output for all18 new controller-client declarations, currently absent.",
+    "Any new matching ordinary142 module/client build and exact whole142/exhaustive audit receipt, then immediate supported nonrepairing verification and supported final comparison, before acceptance can be reassessed.",
+    "A supported successor candidate correcting SP-D002 requires explicit immutable delta review and full-scope reassessment. Later live author source is not142."
+  ],
+  "scope_limits": [
+    "Complete53-owner assessment means intended public claims, actual operational definitions, premises, affected dependencies and connected cases assessed through independently read deltas and explicitly attributed exact-body prior analysis. It does not mean all historical proofs, all generated helper types or every requirements/paper/provenance line were reread.",
+    "Ordinary proof and intermediate trace omissions for unchanged owners remain exactly those recorded in spec139.json. Original-round7 analysis is attributed and matched; blocked historical reviews are not reused as approvals.",
+    "18 new controller-client declarations lack actual type output, despite full independent source/proof reading. No ordinary installed module success is inferred from amalgamated development results.",
+    "Only current142 output1-879 and1326-1365 and listed expanded ranges were read for this candidate. Outside142 output880-1004 was incidentally seen but not assessed; remaining research output and3 research axiom queries not read/approved.",
+    "All historical UNKNOWNs preserved; actual139 child137 exits do not establish cause or an outer result.",
+    "No ordinary Boolean encoder/output adapter, visited-space theorem, full formal NP theorem, FDSA-5-92, exact rotation diameter, whole VFA/FDSA/PFDS book/thesis union or ADWH programme completion is claimed."
+  ],
+  "public_statement_output_review_complete": false,
+  "source_findings_outcome": "Needs changes: SP-D002 remains open on immutable142",
+  "scope_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142.json",
+    "bytes": 9731525,
+    "sha256": "245212dc08a030395d2b86845394835743e8e6a156c26ec2079277cb9b1d5944"
+  },
+  "scope_identity": "c72a77903b0cf83573225f4e22f07260979a2d0a5484ffd25b72923f723319ce",
+  "source_identity": "abe00a1381c340f23af5b48ad6eb40af484e844e2cf0358a7db0092048fb5c6e",
+  "projection_identity": "9ba5fd76e05224d822fce921af29dc9d6ad96324c75641cc44985bc60ceff565",
+  "manifest_entries": {},
+  "manifest_exclude": [],
+  "all53_receipt_hashes_independently_match": true,
+  "document_scope_check": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec142-document-and-scope-check.json",
+    "bytes": 27297,
+    "sha256": "9cba87bacc21432341ae5289cc8f08f7899ace2743decdafb685ce0c6d99043e"
+  },
+  "development_body_binding": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec142-development-body-binding.json",
+    "bytes": 7285,
+    "sha256": "6a769af64c9f9f649680ac1453b2c9d189da3396bd6737f3125e8f19bdccc9ba"
+  },
+  "source_assessment_meaning": "All53 intended current public claims, operational definitions, premises, affected dependencies, connected cases and active documentary changes assessed through new reading and explicitly attributed exact-body reuse. This is not all-proof/all-type-output/integrated acceptance.",
+  "native_dependency_reading": {
+    "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "new_path": "Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+    "fresh_complete_ranges": [
+      [
+        104,
+        229
+      ],
+      [
+        430,
+        574
+      ]
+    ],
+    "read_via": "git show exact pinned revision from read-only shared Mathlib checkout",
+    "scope": "Native TM0/Machine/step/init/Supports/map and map_step statement; TM1 init; TM1to0 actual control default/trAux/tr/trCfg/trStmts and support proof through574. Not entire file or complete map/support proof reading.",
+    "prior_native_reading": {
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "complete_ranges": [
+        [
+          137,
+          173
+        ],
+        [
+          331,
+          704
+        ]
+      ],
+      "claims": "TM2 source statement semantics, dependent track representation, native trStAct/go/ret, full TrCfg relation; action proof inspected"
+    }
+  },
+  "fixed_expectations": {
+    "frozen": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint140a-preparation/frozen/research/tm-research/primitive-next/EXPECTATIONS.md",
+      "bytes": 3185,
+      "sha256": "2600234fa4d42e45d9d91cc658f3c0efe1d12fccae19379716afd4193f9ccf52"
+    },
+    "complete_read": true,
+    "current_copy_same_hash_at_read": true,
+    "case_observations": [
+      "goto1 unchanged whole tape/register",
+      "outward2 move right plus dummy write",
+      "empty push3 with retained true symbol",
+      "empty pop1 false-to-true register unchanged whole tape",
+      "empty peek3 explicit left/return/dummy write and false-to-true register",
+      "two-label configured source run true register/arbitrary tape: live2, outerNone3; no genuine-init claim in frozen expectations",
+      "infinite ambient Nat, supported finite subtype{0,1}: actual native init live1/none2; same counts for retraction and closed transition"
+    ],
+    "controller_cases": "Full new controller-client source/proofs read for F01[]20peak1, F02[false]20peak1, literal V01raw length41/source95/peak41 and polynomial2127; same native multiplier and factor3 primitive/finite conversion; explicit true package state and empty/single-false marker distinction. Actual18 declaration output pending."
+  },
+  "addenda_reading": {
+    "timing138": "Unchanged; complete prior round8 reading reused.",
+    "controller140": "Complete fresh reading.",
+    "primitive141": "Complete fresh reading.",
+    "outside142_observation_and_IO_research": "Explicitly outside142, not a current owner or completed requirement; its mixed development output excluded from candidate142 conclusions."
+  },
+  "document_reading": {
+    "fresh": [
+      "Complete139-to142 paper append74902-75035, all134 lines.",
+      "Full aggregate import delta; all46 scoped ordinary Lean owners directly imported.",
+      "Complete139-to142 CTB/coverage JSON delta, all five active gate fields, new controller-to-tape continuation and explicit remaining programme/validation boundaries."
+    ],
+    "reused": [
+      "Exact139 paper prefix retained byte-for-byte (8815new bytes), with earlier stated paper reading limits.",
+      "All three textbook guides unchanged; reuse complete round8 readings.",
+      "Original preparation programme and requirements1-15 preserved without rewrite or row qualification."
+    ],
+    "active_gate_result": "SP-D001 resolved on142; no historical139 finding rewritten.",
+    "new_paper_result": "SP-D002 P2 unresolved on142."
+  },
+  "validation_evidence": {
+    "readable_actual_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.result.json",
+      "bytes": 9809,
+      "sha256": "7b49bbf0f590e4e2a09d35a19bb0199282e5e9775a76082ccd179d72ac97928f"
+    },
+    "readable_child_exit": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.child-exit.json",
+      "bytes": 1300,
+      "sha256": "26480a95b817c6b0b51705dbe557b5fc1a3601359d2ae70a37fa34f2cf79f8c0"
+    },
+    "readable_exit_code": 0,
+    "readable_source_bindings_unchanged": true,
+    "readable_command": "native_profile.py run --project work/acceptance139 -- lake env lean -EhasSorry work/continuation/DevelopmentTypes143Readable.lean",
+    "limits_added": false,
+    "actual_query_source": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/DevelopmentTypes143Readable.lean",
+      "bytes": 144289,
+      "sha256": "ce3cbcd4661b930b219c6848f1879821d85a4c0836dd487ee597ecbb439eb0d3"
+    },
+    "combined_development_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.result.json",
+      "bytes": 9805,
+      "sha256": "26ae8d19d658c4333d2cb6bceff36abb6d955d18397715d248c56abbd64c713a"
+    },
+    "whole139_failure_observation": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/whole139-failures-observed143.json",
+      "bytes": 14677,
+      "sha256": "62084d0c44c09bedf9aed2efc036f7b29a6d1fa37ff14fa9971f77e45ef1f42c"
+    },
+    "seven_actual139_child_exits137": true,
+    "whole139_terminal_supplied": false,
+    "whole139_cause_inferred": false,
+    "ordinary142_module_result_supplied": false,
+    "whole142_result_supplied": false,
+    "whole142_exhaustive_audit_supplied": false,
+    "final_verify142_supplied": false,
+    "final_compare142_supplied": false,
+    "current_whole_process_inspected_by_reviewer": false,
+    "qualification_upgraded": false
+  },
+  "current_conclusions": [
+    "Full53-owner intended public-claim, operational, dependency and case assessment completed with exact43-owner analysis reuse and stated proof/trace/type-output limits.",
+    "All five new Lean owners and all364 appended generic-client lines read in full including proofs.202 current actual type checks, six prints and five selected axiom outputs read; current mixed development source bodies match142.",
+    "No actionable mathematical statement, operational-definition, fixed-case connection or count/endpoint defect established by this assessment. This is not a proof of complete specification adequacy or acceptance.",
+    "SP-D001 P2 resolved in142. SP-D002 P2 remains open on142, even though root reports a later author wording remedy. SP-V001 remains blocking acceptance.",
+    "142 now includes source-level fixed-controller native and primitive timing plus finite-control restriction; its ordinary-module and whole acceptance remain unavailable. Primitive visited-space, ordinary input/output, formal NP and the complete textbook programme remain open.",
+    "All original seven rounds, round8 identities, stable findings and historical UNKNOWNs are preserved. No source/receiving approval, row qualification or issue/publication message is made."
+  ]
+}

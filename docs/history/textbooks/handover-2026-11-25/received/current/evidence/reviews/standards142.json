@@ -1,0 +1,1216 @@
+{
+  "schema": 1,
+  "axis": "Standards",
+  "review_round": 9,
+  "status": "Blocked",
+  "source_assessment_complete": true,
+  "provisional": false,
+  "updated_utc": "2026-11-24T10:09:56.232089+00:00",
+  "reviewer": "/root/requirements_review/standards139",
+  "replaces_unavailable_reviewer": "/root/parser_review/standards",
+  "same_original_review_loop": true,
+  "original_seven_rounds_preserved": true,
+  "successor_round8_preserved": true,
+  "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+  "tree": "89c45ac0fda464a47eec42d4db1813c967e62355",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 53,
+  "scope_identity": "c72a77903b0cf83573225f4e22f07260979a2d0a5484ffd25b72923f723319ce",
+  "content_identity": "abe00a1381c340f23af5b48ad6eb40af484e844e2cf0358a7db0092048fb5c6e",
+  "projection_identity": "9ba5fd76e05224d822fce921af29dc9d6ad96324c75641cc44985bc60ceff565",
+  "source_access": "Immutable git objects only from work/conaled; no live author source assessment.",
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142.json",
+    "bytes": 9731525,
+    "sha256": "245212dc08a030395d2b86845394835743e8e6a156c26ec2079277cb9b1d5944"
+  },
+  "manifest": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/manifest141-planned.json",
+    "bytes": 3295,
+    "sha256": "3b0c4e1a3025e7194b7f4f7dd18c731dda9082c15b562481582e058591dfca2f"
+  },
+  "scope_source_map": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142-review-source-map.json",
+    "bytes": 37399,
+    "sha256": "8edb8bfcbb483204c3787748d6b8755e6658dcbc070389ff09912efbd7c60e9e"
+  },
+  "all53_source_bindings": [
+    {
+      "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "mode": "100644",
+      "bytes": 40378,
+      "lines": 866,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "git_blob": "c02f260167179d1136824a64fb35876103fed54e",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "mode": "100644",
+      "bytes": 12641,
+      "lines": 261,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "git_blob": "50506be88ae25ade87e11ad6a758830ace854d08",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "mode": "100644",
+      "bytes": 15284,
+      "lines": 353,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "git_blob": "d7bdbd79a3fc254a4e00f9aea2e3cbbf8f60bfd8",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "mode": "100644",
+      "bytes": 20150,
+      "lines": 483,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "git_blob": "77111c825ff6cdc5fe35f2d44a71907637657978",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "mode": "100644",
+      "bytes": 34844,
+      "lines": 800,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "git_blob": "08e782cc1e183d4cbfa014a3908984ebc9b29a40",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "mode": "100644",
+      "bytes": 153130,
+      "lines": 2962,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "git_blob": "9fe20783760d6b2341bfcaa33612e3b7aa3520af",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "mode": "100644",
+      "bytes": 484065,
+      "lines": 9086,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "git_blob": "f15088f4b409319e7bc0079ed2d422bddc291555",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "bytes": 14601,
+      "lines": 257,
+      "sha256": "53e18fc09fd4268a248f63156169833fe9a5f8668e03f775db05212838867750",
+      "git_blob": "7117ebae01cfeab6c037a4eeaf6d48d91eed2a89",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "mode": "100644",
+      "bytes": 28035,
+      "lines": 584,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "git_blob": "5e2812e25a0f20db37c1e564c804ce0883e08cf5",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+      "mode": "100644",
+      "bytes": 12371,
+      "lines": 250,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "git_blob": "1b6ceb58313bd2b82b8b7f4b1070971d2076495b",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "mode": "100644",
+      "bytes": 130327,
+      "lines": 2406,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "git_blob": "359c53cb14c22a4bebcc0f159f85d8323c50790a",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "mode": "100644",
+      "bytes": 247070,
+      "lines": 4585,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "git_blob": "d780166bbec3a44fa9e954c238aa1825dc8e0d65",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "mode": "100644",
+      "bytes": 74689,
+      "lines": 1476,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "git_blob": "0e9c8dea47aef826204955f36f3110700ba53566",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "mode": "100644",
+      "bytes": 45727,
+      "lines": 911,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "git_blob": "9334d9e7880b945a2ff0d3043d078c93280b5c1e",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "mode": "100644",
+      "bytes": 49570,
+      "lines": 973,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "git_blob": "bc91f1fbc2e31e9816e8d52f4f02a07647b7003b",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "mode": "100644",
+      "bytes": 200743,
+      "lines": 3883,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "git_blob": "743d6c73407d1e981b4e61045f85eac3285c8f88",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "mode": "100644",
+      "bytes": 368040,
+      "lines": 6788,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "git_blob": "eee6f5b54af6635f00db8b97964fd574169874d6",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+      "mode": "100644",
+      "bytes": 16291,
+      "lines": 329,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "git_blob": "a80b694a876a0f16aeac9a4da2a731ea5ffba608",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "mode": "100644",
+      "bytes": 39194,
+      "lines": 875,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "git_blob": "5224631b3fd445a6e075b216f56b67e19c526c9c",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "mode": "100644",
+      "bytes": 11312,
+      "lines": 251,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "git_blob": "d14d28624a682873f854d156cf3f0e1eb5c49024",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "mode": "100644",
+      "bytes": 69147,
+      "lines": 1387,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "git_blob": "5e3f862694cb3e5306fdfa8a0471dd78cee53b56",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+      "mode": "100644",
+      "bytes": 7117,
+      "lines": 139,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "git_blob": "0647e3a1084978742b8fdeb4136bb743f14cb162",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Witness.lean",
+      "mode": "100644",
+      "bytes": 4494,
+      "lines": 93,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "git_blob": "ad006c49999da1be48779b3f2c31477728e46177",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "mode": "100644",
+      "bytes": 16006,
+      "lines": 379,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "git_blob": "84edc05cd7864c3c721aa3cbfe79b28f4665974c",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "mode": "100644",
+      "bytes": 17333,
+      "lines": 365,
+      "sha256": "973c9aae6bea1b91d2911c3199db03f9c584c859244c371467dfcf7c22da1329",
+      "git_blob": "a318654eb0ce2c15adfa9875f51602a02d76a3cf",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "mode": "100644",
+      "bytes": 28454,
+      "lines": 600,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "git_blob": "1b19817d8d34eaaa56da60ade3a499df2c0ae273",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "mode": "100644",
+      "bytes": 11817,
+      "lines": 262,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "git_blob": "5fb1147fc974e2c6ede18b8ce053fc2effa0b09d",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Examples/RotationCertificateBinary.lean",
+      "mode": "100644",
+      "bytes": 14837,
+      "lines": 286,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "git_blob": "25506f3b076befab01d8380d7fcbdd4b8faefe97",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateBitDecoderMachine.lean",
+      "mode": "100644",
+      "bytes": 15665,
+      "lines": 328,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "git_blob": "6706bb6bb3cb1991f89aad57669301b0df508c85",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateBitPairFraming.lean",
+      "mode": "100644",
+      "bytes": 27139,
+      "lines": 533,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "git_blob": "5c449e6936383af673425f600ffe8704fe87cb13",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndMachine.lean",
+      "mode": "100644",
+      "bytes": 92763,
+      "lines": 1526,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "git_blob": "6ca974d7e0e9e151a709b7ec3941318652e914b6",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "mode": "100644",
+      "bytes": 639308,
+      "lines": 9923,
+      "sha256": "15641fa690a23b64cef84d03fe8ba908a7cb092b11385dcf5daeba139808dd5e",
+      "git_blob": "ea7473b7f8075edba094dd520d6bbe8cf5e3ccee",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "bytes": 15857,
+      "lines": 274,
+      "sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+      "git_blob": "3cca4b8e0511eff0052a6bd458c967b79daff158",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Examples/RotationCertificateFuelMachine.lean",
+      "mode": "100644",
+      "bytes": 40502,
+      "lines": 760,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "git_blob": "57609eb0a260c752091e495e88434ed46f04dc89",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateInputParserMachine.lean",
+      "mode": "100644",
+      "bytes": 77931,
+      "lines": 1301,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "git_blob": "4f926cc82a199c4bcbe26e00871ddada447301b4",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateMoveApplyMachine.lean",
+      "mode": "100644",
+      "bytes": 206731,
+      "lines": 3502,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "git_blob": "a582f5fa6b3b4d45142f50cf94c6452f4f79e023",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateMoveParserMachine.lean",
+      "mode": "100644",
+      "bytes": 56609,
+      "lines": 999,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "git_blob": "6f986b36e344297096506404ee14b0babe6f9792",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "mode": "100644",
+      "bytes": 38027,
+      "lines": 703,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "git_blob": "a0f2a30f9057745530016a77af73c62dd2324354",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateOpenFramingMachine.lean",
+      "mode": "100644",
+      "bytes": 33006,
+      "lines": 598,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "git_blob": "f410aaed80243efcc97cbd8a8f193338c258c8a7",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateParsing.lean",
+      "mode": "100644",
+      "bytes": 12173,
+      "lines": 245,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "git_blob": "a3c6021180c9ea9889baea1e7a41c6a391426e1b",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "mode": "100644",
+      "bytes": 146233,
+      "lines": 2665,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "git_blob": "116bc51f94524312c835b47b629955d3157612a0",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateStreamMachine.lean",
+      "mode": "100644",
+      "bytes": 487273,
+      "lines": 6555,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "git_blob": "a10d1803d60b86a115e690ce2ab7db14f023ef5c",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "mode": "100644",
+      "bytes": 59248,
+      "lines": 1107,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "git_blob": "44822445865a2e86c1acc1ca512fdd96c1ebedb0",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateTreeParserMachine.lean",
+      "mode": "100644",
+      "bytes": 64635,
+      "lines": 1170,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "git_blob": "c4c5fbb76a18d2fc82e89373037a794afb5c5dea",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/RotationCertificateVerification.lean",
+      "mode": "100644",
+      "bytes": 16154,
+      "lines": 329,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "git_blob": "37bf48a96757a5af557721a68f05be3e3cf2d98f",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "mode": "100644",
+      "bytes": 29403,
+      "lines": 723,
+      "sha256": "4b6b47632ef9423a0e4600a5e9bd9abcb5e13f23fd46b9941b6779c07a4b7860",
+      "git_blob": "58b4773522b8ddb7d004e9861c28a6aa801665bd",
+      "relative_to139": "changed bytes or mode"
+    },
+    {
+      "path": "SquareApplications.lean",
+      "mode": "100644",
+      "bytes": 46436,
+      "lines": 1292,
+      "sha256": "c638c7dfb36c345b3a561ee219a448207c86991cc86f47070d35fb42ee12a7ad",
+      "git_blob": "03a9e017cea4cd1f546061af86aca3b6be797f5c",
+      "relative_to139": "changed bytes or mode"
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "mode": "100644",
+      "bytes": 3765028,
+      "lines": 75035,
+      "sha256": "f44923af91d83fbd0b1b657703dda3c6525d5d6b14d617cb41c7dffd8494e1fd",
+      "git_blob": "1ae4d94806ee6762bfad41d72abbc0820b03fd6e",
+      "relative_to139": "changed bytes or mode"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "mode": "100644",
+      "bytes": 854938,
+      "lines": 12687,
+      "sha256": "f90fd7d4a313832b298c2d84167b6f3fb90dc2168c9d4089d2d4213f8cbd4fef",
+      "git_blob": "27f6a5aec0a224fd0c4fda6b3447547ca241659e",
+      "relative_to139": "changed bytes or mode"
+    },
+    {
+      "path": "docs/textbooks/README.md",
+      "mode": "100644",
+      "bytes": 8066,
+      "lines": 125,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "git_blob": "ac85f309e8967fc5d178076c999f0b96718add53",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "mode": "100644",
+      "bytes": 55015,
+      "lines": 983,
+      "sha256": "07fcfe38eeeb92a0bf8edc7bc42d7ee7e43a7b9d0af7430abf454edd23d15837",
+      "git_blob": "480be4349bafdfffbe208284cdc8233347fabc01",
+      "relative_to139": "changed bytes or mode"
+    },
+    {
+      "path": "docs/textbooks/external-agent.md",
+      "mode": "100644",
+      "bytes": 7217,
+      "lines": 114,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "git_blob": "07a55bf2a64d9a935f397cf1f58b9a686258159c",
+      "relative_to139": "same bytes and mode"
+    },
+    {
+      "path": "docs/textbooks/inbox/README.md",
+      "mode": "100644",
+      "bytes": 16717,
+      "lines": 110,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "git_blob": "134aec86bc0723d004600445be8a796ea6ad4649",
+      "relative_to139": "same bytes and mode"
+    }
+  ],
+  "mechanical_source_binding": {
+    "all53_immutable_hashes_and_byte_lengths_checked_by_this_axis": true,
+    "mode_equality": "All53 Git modes and blob identities independently checked, together with bytes and SHA256.",
+    "all19_predecessor_body_matches_preserved": true,
+    "changed_vs139": [
+      "Examples/TuringSimulation.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-rotation-certificate-preparation.md",
+      "docs/textbooks/CTB.json",
+      "docs/textbooks/coverage.json"
+    ],
+    "new_vs139": [
+      "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    ],
+    "unchanged_vs139": [
+      "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "Applications/Resources/RotationCertificate/InputParser.lean",
+      "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "Applications/Resources/RotationCertificate/Streaming.lean",
+      "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "Applications/Resources/RotationCertificate/Verifier.lean",
+      "Applications/Resources/RotationCertificate/Witness.lean",
+      "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "Examples/RotationCertificateBinary.lean",
+      "Examples/RotationCertificateBitDecoderMachine.lean",
+      "Examples/RotationCertificateBitPairFraming.lean",
+      "Examples/RotationCertificateFrontEndMachine.lean",
+      "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "Examples/RotationCertificateFuelMachine.lean",
+      "Examples/RotationCertificateInputParserMachine.lean",
+      "Examples/RotationCertificateMoveApplyMachine.lean",
+      "Examples/RotationCertificateMoveParserMachine.lean",
+      "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "Examples/RotationCertificateOpenFramingMachine.lean",
+      "Examples/RotationCertificateParsing.lean",
+      "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "Examples/RotationCertificateStreamMachine.lean",
+      "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "Examples/RotationCertificateTreeParserMachine.lean",
+      "Examples/RotationCertificateVerification.lean",
+      "docs/textbooks/README.md",
+      "docs/textbooks/external-agent.md",
+      "docs/textbooks/inbox/README.md"
+    ],
+    "combined_namespace_body_comparison": {
+      "method": "Extract each immutable owner from first namespace line to end; preserve every nonblank line, discard only blank lines; compare contiguous body in actual combined query sources. Import/header context is deliberately not equated with ordinary-module compilation.",
+      "checked_sources": [
+        {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/Controller142b.lean",
+          "bytes": 57191,
+          "sha256": "bb373aaec4fb7cdd86abee5ff2ca819cba875982066a2e13a774c32b2ab08394"
+        },
+        {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/DevelopmentCases143a.lean",
+          "bytes": 144287,
+          "sha256": "5cd785c3c5c3b7c3ceff4ea2092c82827884ad92beec3c7c64919418c9cd3159"
+        },
+        {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/DevelopmentTypes143Readable.lean",
+          "bytes": 144289,
+          "sha256": "ce3cbcd4661b930b219c6848f1879821d85a4c0836dd487ee597ecbb439eb0d3"
+        }
+      ],
+      "producer_bodies_match_all_three_queries": [
+        {
+          "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+          "nonblank_body_lines": 221
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+          "nonblank_body_lines": 299
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+          "nonblank_body_lines": 292
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+          "nonblank_body_lines": 217
+        }
+      ],
+      "generic_client_body": {
+        "path": "Examples/TuringSimulation.lean",
+        "nonblank_body_lines": 562,
+        "matches_development_and_readable_queries": true,
+        "not_in_producer_only_query": true
+      },
+      "ordinary_module_import_context_verified": false
+    }
+  },
+  "findings": [
+    {
+      "id": "ST-V001",
+      "status": "Unresolved",
+      "blocking": true,
+      "title": "Required matching cumulative validation is absent",
+      "evidence": "No actual whole142 terminal success, exhaustive axiom audit, immediate nonrepairing verification or supported final comparison has been supplied. Successful combined development runs are not ordinary-module/whole142 acceptance.",
+      "required_remedy": "Supply the exact immutable candidate ordinary-module and guarded whole build/audit, immediate nonrepairing verification, supported comparison and both continuing independent axes. Keep every historical UNKNOWN unchanged."
+    },
+    {
+      "id": "ST-001",
+      "status": "Resolved_on_candidate142_only",
+      "severity": "medium",
+      "blocking": false,
+      "title": "Operative continuation gates now agree with the actual cumulative53-owner stage",
+      "historical_disposition": "Historical C7c fix preserved; candidate139 recurrence remains an accurate unresolved finding on that immutable139. This resolution applies only to142.",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-78/next_action",
+          "line": 236,
+          "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-24/next_implementation_gate",
+          "line": 1564,
+          "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/next_ticket_gate",
+          "line": 2440,
+          "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/source_readiness/current_gate",
+          "line": 903,
+          "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/qualification_basis/current_gate",
+          "line": 921,
+          "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+        }
+      ],
+      "evidence": "All five decoded immutable gate values were read in full. They agree on53 owners, retain original46 plus timing/controller/primitive additions, separate combined development evidence from pending ordinary module/type/whole checks, distinguish separately staged research, preserve fixed fixtures, full programme and every acceptance gate. Qualification counts are unchanged.",
+      "remedy_reviewed": true
+    },
+    {
+      "id": "ST-002",
+      "status": "Open_on_candidate142",
+      "severity": "low",
+      "blocking": true,
+      "category": "documentation statement-scope mismatch",
+      "title": "Preparation paper overstates the two-step fixture as genuine initialization",
+      "location": {
+        "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "line": 75005
+      },
+      "quoted_claim": "three-step empty peek and genuine-init live2/none3 boundary observations",
+      "source_evidence": [
+        {
+          "path": "Examples/TuringSimulation.lean",
+          "lines": [
+            521,
+            567
+          ],
+          "detail": "twoInitial T explicitly uses label some false, register true and arbitrary Tape T. two_native_steps and primitive live2/none3 conclusions concern this actual source run; they do not use TM1.init."
+        },
+        {
+          "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+          "path": "Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+          "lines": [
+            448,
+            449
+          ],
+          "detail": "TM1.init uses some default, default and Tape.mk₁ l; the usual Bool register default is false."
+        }
+      ],
+      "rules": [
+        {
+          "path": ".agents/skills/example-driven-development/SKILL.md",
+          "lines": [
+            70,
+            84
+          ],
+          "detail": "Statement/explanation must express the intended semantics, including initialization hypotheses."
+        },
+        {
+          "path": ".agents/skills/example-driven-development/SKILL.md",
+          "lines": [
+            104,
+            105
+          ],
+          "detail": "Statement review also applies to paper arguments."
+        },
+        {
+          "path": "docs/agents/formal-development.md",
+          "lines": [
+            7,
+            11
+          ],
+          "detail": "Required statement review."
+        }
+      ],
+      "consequence": "A reader can infer that this fixed true-register arbitrary-tape example validates native input/default initialization, which its public statement does not assert. The mathematical example itself is sound as an actual source-run case and matches the addendum.",
+      "remedy": "Replace genuine-init with actual two-step source-run, or an equally accurate phrase. Preserve the existing true-register case and its fixed expectations.",
+      "future_remedy": "Root acknowledged the wording issue and intends a separately captured successor correction. Mutable source or a future checkpoint is not a142 fix."
+    }
+  ],
+  "requirements": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+      "bytes": 2205749,
+      "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/controller-tape-addendum140.md",
+      "bytes": 5322,
+      "sha256": "cdd07335fff81761599f4ecf2074b3d065a13806997eb0b103cdd73160cad361"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/primitive-addendum141.md",
+      "bytes": 6738,
+      "sha256": "83f6d00bdc401d7b859b8b58c0b55a8f8d9398f49166cf46e06df29f8329420c"
+    }
+  ],
+  "requirements15_actual_read_ranges_inclusive": [
+    [
+      1,
+      85
+    ],
+    [
+      7270,
+      7460
+    ],
+    [
+      7675,
+      7851
+    ],
+    [
+      8421,
+      9205
+    ]
+  ],
+  "requirements15_full_fresh_read": false,
+  "all_three_addenda_fully_read": true,
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "previous139_report": {
+    "markdown": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards139.md",
+      "bytes": 58590,
+      "sha256": "cb7e47d46e5d1372e80690d4848b351247cb87ed1b160f52ff1ba0c7c85d8306"
+    },
+    "json": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards139.json",
+      "bytes": 47366,
+      "sha256": "bf9540bdd080a08a00f1faad42f7eeb4134a36cdc6a000bdfe8b1c026392e9d1"
+    }
+  },
+  "complete_new_source_reads": [
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "bytes": 14601,
+      "lines": 257,
+      "sha256": "53e18fc09fd4268a248f63156169833fe9a5f8668e03f775db05212838867750",
+      "git_blob": "7117ebae01cfeab6c037a4eeaf6d48d91eed2a89",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "mode": "100644",
+      "bytes": 16006,
+      "lines": 379,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "git_blob": "84edc05cd7864c3c721aa3cbfe79b28f4665974c",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "mode": "100644",
+      "bytes": 17333,
+      "lines": 365,
+      "sha256": "973c9aae6bea1b91d2911c3199db03f9c584c859244c371467dfcf7c22da1329",
+      "git_blob": "a318654eb0ce2c15adfa9875f51602a02d76a3cf",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "mode": "100644",
+      "bytes": 11817,
+      "lines": 262,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "git_blob": "5fb1147fc974e2c6ede18b8ce053fc2effa0b09d",
+      "relative_to139": "new scoped owner"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "bytes": 15857,
+      "lines": 274,
+      "sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+      "git_blob": "3cca4b8e0511eff0052a6bd458c967b79daff158",
+      "relative_to139": "new scoped owner"
+    }
+  ],
+  "changed_source_reads": [
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "coverage": "Complete139-to142 diff and all new declaration bodies read; unchanged earlier357-line body was fully read on139 and is reused. This accounts for the whole723-line142 file."
+    },
+    {
+      "path": "SquareApplications.lean",
+      "coverage": "Complete139-to142 import diff read. Whole1292-line aggregate not freshly read; previous cumulative import-diff review reused."
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "coverage": "Complete139-to142 diff,134 added lines near74899–75035, read. Entire75035-line paper not freshly read."
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "coverage": "Complete decoded semantic139-to142 diff and all five current gate values read, together with changed coverage metadata. Entire JSON not freshly read."
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "coverage": "Complete decoded semantic139-to142 diff and gate values read. Qualification counts mechanically unchanged."
+    }
+  ],
+  "prior_source_reuse": {
+    "all22_new139_Lean_owners": "Fully read in round8;21 unchanged142 and generic client unchanged earlier body reused. Exact prior component assessments and limits retained in standards139 reports.",
+    "original19_owners": "Original predecessor analysis reused with its historical reading limits after immutable body match; not a new full read or approval.",
+    "prior_governance": "Full candidate139 governance reading retained; same-M instructions. Full code-review skill reread142; statement-review/formal-development relevant clauses read."
+  },
+  "actual_type_reading": {
+    "readable_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.log",
+      "bytes": 96332,
+      "sha256": "bd4fa3af0e2693e67102ebaa5166029ed7fbe205784b27904fc60130bf0a832b"
+    },
+    "lines": 1374,
+    "ranges_read_inclusive": [
+      [
+        1,
+        1374
+      ]
+    ],
+    "all202_current_checks_read": true,
+    "outside142_checks": "All42 read as output context only; not candidate142 source or independent approval of that research. Current checks end at879; outside checks start880.",
+    "explicit_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.log",
+      "bytes": 333654,
+      "sha256": "5ee87d172f9f76edba492141239d15f1543029f7c4adcef32559a5c46f8c55f3"
+    },
+    "explicit_ranges_read_inclusive": [
+      [
+        31,
+        69
+      ],
+      [
+        120,
+        154
+      ],
+      [
+        197,
+        295
+      ],
+      [
+        635,
+        647
+      ],
+      [
+        714,
+        739
+      ],
+      [
+        1062,
+        1070
+      ],
+      [
+        1081,
+        1090
+      ],
+      [
+        1354,
+        1394
+      ],
+      [
+        1995,
+        2092
+      ],
+      [
+        2986,
+        3005
+      ],
+      [
+        4712,
+        4841
+      ]
+    ],
+    "new_controller_client_18_public_types": "Actual elaborated outputs absent; complete source reading does not close this gap.",
+    "legacy57_type_output_gap": "Newly read in round9 from exact preserved historical output; original round6/7 and successor round8 limits remain true for those rounds. No fresh142 execution is claimed.",
+    "prior_truncated_call": "An attempted1–300 range before this continuation returned no type content because of context truncation and is not counted.",
+    "whole_readable_log_read": true,
+    "current_checks_output_lines_inclusive": [
+      1,
+      879
+    ],
+    "fully_read_expanded_current_contracts": [
+      {
+        "declaration": "Resources.TuringSimulation.TapeToPrimitive.statement_exact",
+        "output_lines_inclusive": [
+          31,
+          69
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.TapeToPrimitive.finite_run_bounded",
+        "output_lines_inclusive": [
+          120,
+          154
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.TapeToPrimitive.stack_run_bounded",
+        "output_lines_inclusive": [
+          197,
+          248
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.FiniteControl.map_iterate_option",
+        "output_lines_inclusive": [
+          249,
+          295
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.FiniteControl.restrict_init",
+        "output_lines_inclusive": [
+          635,
+          647
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.FiniteControl.restrictInitialEvalsToInTime",
+        "output_lines_inclusive": [
+          714,
+          739
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.StackToTape.Package.initial_eq_init",
+        "output_lines_inclusive": [
+          1062,
+          1070
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.StackToTape.Package.mapCfg_initial",
+        "output_lines_inclusive": [
+          1081,
+          1090
+        ]
+      },
+      {
+        "declaration": "Resources.TuringSimulation.StackToTape.Package.closedInitialRun",
+        "output_lines_inclusive": [
+          1354,
+          1394
+        ]
+      },
+      {
+        "declaration": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_run_polynomial",
+        "output_lines_inclusive": [
+          1995,
+          2063
+        ]
+      },
+      {
+        "declaration": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_outer_none",
+        "output_lines_inclusive": [
+          2064,
+          2092
+        ]
+      },
+      {
+        "declaration": "Examples.TuringSimulation.Primitive.two_primitive_bound",
+        "output_lines_inclusive": [
+          2986,
+          3005
+        ]
+      }
+    ],
+    "six_current_definition_prints_read": true,
+    "five_current_selected_axiom_roots_read": true,
+    "selected_axioms_observed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "exhaustive_whole_axiom_audit": false,
+    "compact_printing_limits": "Compact output can suppress instance terms/proof witnesses and some EvalsTo existential binder types. Every new/changed source contract was read;12 identity-sensitive contracts and six definition prints were additionally read in expanded output. The entire4850-line explicit log was not read. Both printed primitive recursive definitions use generated _f/brecOn constants; their full defining equations were read in immutable source.",
+    "counts_independently_reconciled": {
+      "queried_declarations": 244,
+      "candidate142": 202,
+      "outside142": 42
+    }
+  },
+  "actual_result_jsons_read_in_full": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/controller142-attempt3.result.json",
+      "bytes": 5096,
+      "sha256": "364ecc47ef74845a63977c83fcf7e14037aa575401180b6b0538ae7e0981d263"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.result.json",
+      "bytes": 9805,
+      "sha256": "26ae8d19d658c4333d2cb6bceff36abb6d955d18397715d248c56abbd64c713a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.result.json",
+      "bytes": 9809,
+      "sha256": "7b49bbf0f590e4e2a09d35a19bb0199282e5e9775a76082ccd179d72ac97928f"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable-preparation.json",
+      "bytes": 823,
+      "sha256": "dd0eb0650e34db103cbfd020a32b5093f577696ef2f2cab44acea3305dc8cff4"
+    }
+  ],
+  "validation": {
+    "combined_producer_exit": 0,
+    "combined_development_exit": 0,
+    "readable_types_exit": 0,
+    "all_are_actual_supplied_results": true,
+    "ordinary_new_module_build": "Pending per supplied evidence",
+    "whole142": "No matching result supplied",
+    "exhaustive_audit142": "No matching result supplied",
+    "final_verify142": "No matching result supplied",
+    "supported_compare142": "No matching result supplied",
+    "whole139": "Seven observed child exits137, outer terminal not supplied at last root observation; cause unknown; no substitution for142."
+  },
+  "component_assessments": [
+    "TapeToPrimitive counts real primitive move/write effects and zero-cost load/branch, with positive statement steps. Its exact endpoint is the full trCfg of stepAux; finite-run induction composes actual source configurations and bounds by T*P, then stack translation by3*W.",
+    "FiniteControl transports Option iteration including outer-none with exact step preservation under actual support and inverse hypotheses. Pointed identity preserves the whole tape. Supplied default is included in support; there is no ambient-Fintype assumption. Closed transition computes M on subtype value and attaches proof-side closure instead of evaluating a classical membership fallback.",
+    "FiniteStackToTape fixes the source programme maximum before input, preserves actual main and initialState, uses all-index alphabet finiteness explicitly, and maps native full tape/configuration initialization into finite support without a charged runtime normalization step.",
+    "Controller connection uses actual source iterate witnesses and prefix peak bounds; the cubic envelope depends on original raw length and fixed programme action maximum. Primitive refinement retains live-halt endpoint and separately charges one step to outer-none. Finite initialization preserves raw/fuel tracks and supplied true registers.",
+    "Generic new cases independently expose goto, outward scan, empty push/pop/peek full tapes, actual two-step source-run live2/none3, and an infinite-Nat ambient machine restricted to finite{0,1}support. Controller client source retains actual F01/F02/V01 clocks20/20/95, marker-vs-present-false distinction, raw/fuel storage, explicit true initialization and full mapped endpoints."
+  ],
+  "dependency_reading": {
+    "new142": [
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+        "ranges_read_inclusive": [
+          [
+            434,
+            463
+          ],
+          [
+            479,
+            535
+          ]
+        ]
+      }
+    ],
+    "round8": [
+      {
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+        "ranges": [
+          [
+            401,
+            545
+          ],
+          [
+            624,
+            670
+          ]
+        ]
+      },
+      {
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "path": "Mathlib/Computability/StateTransition.lean",
+        "ranges": [
+          [
+            246,
+            312
+          ]
+        ]
+      }
+    ]
+  },
+  "reading_limits": [
+    "Requirements15 and the complete preparation paper have not received a complete fresh reading; all inherited requirements remain in force.",
+    "Original rounds1–4 standalone report bodies are absent and were not reconstructed.",
+    "Historical C5b Git object is unavailable; historical descriptor comparison is not new source reading.",
+    "Original round6 Audit6 standalone client-type OUTPUT ranges9148–10335 and10401–11407 were unread then, in round7, and in successor round8. They have now been fully read from bound retained output in round9 (57 checks); no historical report is rewritten, no fresh142 execution is inferred.",
+    "Only stated actual143 type-output ranges are counted; an execution result, declaration index or author reading does not constitute this independent axis reading.",
+    "18 new controller-client named public declarations have full source reading but no corresponding actual elaborated output in the supplied244-check run.",
+    "Combined namespace checks do not establish ordinary installed-module import compilation, exhaustive axiom audit or full-candidate acceptance.",
+    "A full-paper output request with a1-token budget returned truncated content and was not counted as any additional paper reading; only the explicitly stated immutable source ranges/diffs count.",
+    "Outside142 research declarations in the readable output were read only as context; their source/proofs and integration are outside this assessment."
+  ],
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "full_programme": "OPEN; complete canonical VFA/FDSA/PFDS books/thesis union, separate ADWH, ordinary I/O, visited-space, final certificate correspondence/formal NP and exact rotation diameter remain. No qualification changes.",
+  "spec142_report_read": false,
+  "third_substantive_axis": false,
+  "compiler_source_output_or_publication_mutation": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "assessment_complete_for_stated_reading_scope": true,
+  "full_fresh_cumulative_source_read": false,
+  "full_acceptance_assessment_complete": false,
+  "assessment_boundary": "Final source/type assessment for the supplied immutable142 evidence and precise reused reading scope. Overall Blocked; not acceptance, complete requirements/paper fresh reading, or closure of full programme.",
+  "legacy_Audit6_reading_now": {
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/focused-audit-6.log",
+      "bytes": 952799,
+      "sha256": "046e903eeb73d279950f942d96711b44f8ef88f9a1604d68c9ec494bc79a9282"
+    },
+    "original_execution_result": {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/focused-audit-result-6.json",
+      "bytes": 10399,
+      "sha256": "6ca69f98c0498379079a9f8cb4e869e94f673f82573c1fbb9c3f2210cdeabaa2"
+    },
+    "input_manifest": {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/focused-audit-inputs-6.json",
+      "bytes": 55009,
+      "sha256": "c205136e26ea581cd049eecb652cacc8ca4959569552950fc1dce5c03db063fc"
+    },
+    "candidate_of_historical_execution": "2b3738c116b1a9a439a8fa38663e2da824a56339",
+    "tree_of_historical_execution": "49fa40ddd4a5f84a0b743a0b8ca2df6248dbd930",
+    "actual_exit_code_of_historical_execution": 0,
+    "log_hash_and_size_independently_verified": true,
+    "input_manifest_exactly_bound_to_actual_result": true,
+    "all17_then_queried_Lean_owner_hashes_match142": true,
+    "new_actual_read_ranges_inclusive": [
+      [
+        9148,
+        10335
+      ],
+      [
+        10401,
+        11407
+      ]
+    ],
+    "declaration_count": 57,
+    "all57_types_actually_read_now": true,
+    "index": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/legacy-audit6-unread-output-index139.json",
+      "bytes": 10853,
+      "sha256": "50738fa7f36551148f0db23efdf6744875a8da3afa9f94248c15b0a0f0ff6f3c"
+    },
+    "original_limits_preserved": "Those output ranges were unread in original rounds6/7 and successor round8; no earlier report is edited or retrospectively broadened. They are not Lean source ranges.",
+    "scope_limit": "This is reading of retained actual historical type output bound to unchanged owner bodies, not reexecution/ordinary whole142 validation or a fresh reading of all original implementation proofs.",
+    "observations": [
+      "Literal fuel widths, retained higher zeros/nonpalindromic high bits and actual returned word/value connection remain explicit in full configuration endpoints.",
+      "Arbitrary pending scratch tokens count remaining restoration work and represent the original logical low-zero prefix; EOF/reset cases preserve caller data.",
+      "Owned-body agreement is restricted to owned transitions, every actual prefix through first handoff preserves protected context/cell counts, and caller composition charges the additional actual caller step.",
+      "Dispatch inspects EOF before borrowing and leaves the whole nonempty certificate untouched until parser handoff. Zero, reserved-tag and missing-delimiter source continuations remain distinguished.",
+      "Emitted root-rotation source work22 and longer-borrow source3*z+22 remain distinct from dispatch2*z+3. Equality of initial trees does not bypass a nonempty certificate.",
+      "No additional concrete Standards issue found in these57 exposed contracts within this retained-output scope."
+    ]
+  },
+  "additional_evidence_index_observation": {
+    "source_finding": false,
+    "detail": "Author-public-statement-reading143 named StackToTape.Package.stack_run_bounded in its expanded-contract list; actual explicit output197–248 is TapeToPrimitive.stack_run_bounded. Root acknowledged and recorded an additive correction without modifying the historical record.",
+    "correction_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/author-public-statement-reading143-correction1.json",
+      "bytes": 810,
+      "sha256": "d5cc298a310449bb2527464b9e7cf5fc37d8e94ea6cf59b8adcb550cabe69b45"
+    }
+  }
+}

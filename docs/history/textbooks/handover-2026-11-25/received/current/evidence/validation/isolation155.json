@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-25T05:32:47.692570+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "checkout": "/workspace/scratch/ae71b485b114/work/recovered154-validation",
+  "prior_independent_recovery_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "prior_source_recovery_and_inspection_passed": true,
+  "own_nonshallow_git_storage": true,
+  "git_alternates": false,
+  "shared_project_sources_or_outputs": false,
+  "project_outputs_present_before_validation": false,
+  "normal_lake_and_packages_directories": true,
+  "only_pinned_dependency_directories_shared": [
+    {
+      "name": "mathlib",
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/mathlib",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib",
+      "source_clean": true
+    },
+    {
+      "name": "plausible",
+      "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/plausible",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/plausible",
+      "source_clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/LeanSearchClient",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/LeanSearchClient",
+      "source_clean": true
+    },
+    {
+      "name": "importGraph",
+      "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/importGraph",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/importGraph",
+      "source_clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/proofwidgets",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/proofwidgets",
+      "source_clean": true
+    },
+    {
+      "name": "aesop",
+      "revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/aesop",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/aesop",
+      "source_clean": true
+    },
+    {
+      "name": "Qq",
+      "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/Qq",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Qq",
+      "source_clean": true
+    },
+    {
+      "name": "batteries",
+      "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/batteries",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/batteries",
+      "source_clean": true
+    },
+    {
+      "name": "Cli",
+      "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "validation_path": "/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/packages/Cli",
+      "shared_dependency_path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Cli",
+      "source_clean": true
+    }
+  ],
+  "source_clean_at_head": true,
+  "root_owns_all_compilers": true,
+  "compiler_executed_by_preparer": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "boundary": "Owned fresh candidate source and private future project outputs; normal pinned dependency caches are shared. This setup is not a whole run, exhaustive audit, product-origin proof or acceptance."
+}

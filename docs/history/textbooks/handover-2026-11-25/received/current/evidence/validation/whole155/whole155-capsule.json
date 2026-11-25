@@ -1,0 +1,731 @@
+{
+  "schema": 1,
+  "run_id": "whole155",
+  "status": "FROZEN_CUTOFF_OUTER_TERMINAL_UNOBSERVED",
+  "cutoff_utc": "2026-11-25T06:09:18.070235+00:00",
+  "packaging_after_cutoff_of_pre_cutoff_evidence": true,
+  "actual_outer_terminal_observed": false,
+  "actual_outer_exit_code": null,
+  "literal_files": [
+    {
+      "member": "current/evidence/validation/integration155/query-b.start.json",
+      "descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.start.json",
+        "bytes": 1038712,
+        "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/bindings-delta.json",
+      "descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/bindings-delta.json",
+        "bytes": 3436265,
+        "sha256": "9a871fb5dc7b55f756c82bcf44cdd81e1e7b717d0e9c0c40bd9b9a8b7ada20f5",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/STATUS155.json",
+      "descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/STATUS155.json",
+        "bytes": 2473,
+        "sha256": "5e363a293346c5bb09d8a37859d64b692b0419f533b35666d8801fcb4f62c78a",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/diagnostics.log",
+      "descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/diagnostics.log",
+        "bytes": 28526,
+        "sha256": "403d3a5ce6e5d4ccca42dabb733349fd8e308bc2d3df7ea2727aff8086046647",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/first-failure-observation.json",
+      "descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/first-failure-observation.json",
+        "bytes": 1925,
+        "sha256": "1eecf3e3dc4c7e6bf6c080f6eec0bf236c827f76c104d5251164c4f77fe3c298",
+        "mode": "100644"
+      },
+      "original_carrier_descriptor": {
+        "path": "/workspace/scratch/ae71b485b114/work/validation155/FAILURE_OBSERVATION155.json",
+        "bytes": 1925,
+        "sha256": "1eecf3e3dc4c7e6bf6c080f6eec0bf236c827f76c104d5251164c4f77fe3c298",
+        "mode": "100444"
+      },
+      "packaging_mode_normalization": "Exact literal bytes copied from immutable0444 carrier to selected0644 file; original unchanged."
+    }
+  ],
+  "anchor_member": "current/evidence/validation/integration155/query-b.start.json",
+  "before_delta_member": "current/evidence/validation/whole155/bindings-delta.json",
+  "cutoff_status_member": "current/evidence/validation/whole155/STATUS155.json",
+  "records": [
+    {
+      "id": "whole155.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.start.json",
+        "bytes": 4449054,
+        "sha256": "90575be3f5aa923249991ff46e3ee6a0715a6f9d6de84ad1873cb0666edda568",
+        "mode": "100644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "whole155",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/recovered154-validation",
+          "--",
+          "./check.sh",
+          "--candidate",
+          "a5a917db8717977371b8d76d93f166389c9eec9b"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/recovered154-validation",
+        "started_utc": "2026-11-25T05:35:05.422165+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": "whole_before"
+      }
+    }
+  ],
+  "original_start_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.start.json",
+  "frozen_start_source": {
+    "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.start.json",
+    "bytes": 4449054,
+    "sha256": "90575be3f5aa923249991ff46e3ee6a0715a6f9d6de84ad1873cb0666edda568",
+    "mode": "100644"
+  },
+  "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.log",
+  "raw_log": {
+    "kind": "frozen-prefix-of-still-running-log",
+    "descriptor": {
+      "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.frozen.log",
+      "bytes": 1292012,
+      "sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+      "mode": "100644"
+    },
+    "original_live_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.log",
+    "lines": 7300,
+    "full_body_reconstructible_here": false,
+    "retirement": "Only exact selected diagnostic slices survive. The original frozen prefix and continuing raw log cannot be reconstructed from this packet. The frozen-prefix hash is not an alias for a later complete log or for the selected diagnostic body."
+  },
+  "diagnostic_excerpts": [
+    {
+      "member": "current/evidence/validation/whole155/diagnostics.log",
+      "segments": [
+        {
+          "source_lines_inclusive": [
+            1,
+            5
+          ],
+          "source_byte_range": [
+            0,
+            639
+          ],
+          "selected_byte_range": [
+            0,
+            639
+          ],
+          "descriptor": {
+            "bytes": 639,
+            "sha256": "29784278e0f8bc8517a788cac3deb5ba8fc1702127331e4a72a397f6fcd77904"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4166,
+            4169
+          ],
+          "source_byte_range": [
+            977893,
+            978397
+          ],
+          "selected_byte_range": [
+            639,
+            1143
+          ],
+          "descriptor": {
+            "bytes": 504,
+            "sha256": "a72ed7d7cc116d88af157e369bdf86c669e942cdde2a23fa900449fd13c3ff3b"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4178,
+            4182
+          ],
+          "source_byte_range": [
+            979578,
+            980009
+          ],
+          "selected_byte_range": [
+            1143,
+            1574
+          ],
+          "descriptor": {
+            "bytes": 431,
+            "sha256": "db689a8f0188ce431bbbf11e50053242e44aa5d1addd277e94c2c788971e7fa3"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4310,
+            4331
+          ],
+          "source_byte_range": [
+            996578,
+            999753
+          ],
+          "selected_byte_range": [
+            1574,
+            4749
+          ],
+          "descriptor": {
+            "bytes": 3175,
+            "sha256": "6d17fe341573a68f84606fa9ceaab9b7e0339d491257bc76ad21b0e3d8f94a46"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4353,
+            4374
+          ],
+          "source_byte_range": [
+            1002394,
+            1005211
+          ],
+          "selected_byte_range": [
+            4749,
+            7566
+          ],
+          "descriptor": {
+            "bytes": 2817,
+            "sha256": "5cd2cfce596d4451eea7674dbfa06bd80db857de2309b0449cffb2217815b8ca"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4720,
+            4734
+          ],
+          "source_byte_range": [
+            1050294,
+            1052283
+          ],
+          "selected_byte_range": [
+            7566,
+            9555
+          ],
+          "descriptor": {
+            "bytes": 1989,
+            "sha256": "e79b176afe302990c4a997062c26a80885d8f89dc8254879534944caef65ed58"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            4911,
+            4929
+          ],
+          "source_byte_range": [
+            1071767,
+            1072929
+          ],
+          "selected_byte_range": [
+            9555,
+            10717
+          ],
+          "descriptor": {
+            "bytes": 1162,
+            "sha256": "d8795e3be720444e151ed892cdce919174dc430ebc6c3425ed4a3d9170c0305d"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5115,
+            5119
+          ],
+          "source_byte_range": [
+            1096070,
+            1096749
+          ],
+          "selected_byte_range": [
+            10717,
+            11396
+          ],
+          "descriptor": {
+            "bytes": 679,
+            "sha256": "d6e27464679940bd90a0b71bb0487ca83385a1ea6a650add470a0540aabf530c"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5145,
+            5150
+          ],
+          "source_byte_range": [
+            1099719,
+            1100287
+          ],
+          "selected_byte_range": [
+            11396,
+            11964
+          ],
+          "descriptor": {
+            "bytes": 568,
+            "sha256": "5e5b9ea11875b096507e7631757ad1d9df85f47b4ac7ac3cadf7dc794795711a"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5347,
+            5348
+          ],
+          "source_byte_range": [
+            1121448,
+            1121596
+          ],
+          "selected_byte_range": [
+            11964,
+            12112
+          ],
+          "descriptor": {
+            "bytes": 148,
+            "sha256": "0f7ac343c75307db496a87ad76d6ef7c2a74bceb746fbf1ce51a9d83bec92488"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5522,
+            5530
+          ],
+          "source_byte_range": [
+            1139582,
+            1140199
+          ],
+          "selected_byte_range": [
+            12112,
+            12729
+          ],
+          "descriptor": {
+            "bytes": 617,
+            "sha256": "97ce878a16eaead881472d4ba8f2f7ddddd6f06b20188453195066bb13335857"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5777,
+            5783
+          ],
+          "source_byte_range": [
+            1165021,
+            1165499
+          ],
+          "selected_byte_range": [
+            12729,
+            13207
+          ],
+          "descriptor": {
+            "bytes": 478,
+            "sha256": "d9eb6d529618473aa291332c425f0cc752f902d607d819edf7872dbf12fe0406"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            5820,
+            6253
+          ],
+          "source_byte_range": [
+            1169265,
+            1180071
+          ],
+          "selected_byte_range": [
+            13207,
+            24013
+          ],
+          "descriptor": {
+            "bytes": 10806,
+            "sha256": "e714110d9864883cfbfa2bf1330fee949bca9ca635b836ef6eac8de8b5d3d74c"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            6407,
+            6409
+          ],
+          "source_byte_range": [
+            1196336,
+            1198029
+          ],
+          "selected_byte_range": [
+            24013,
+            25706
+          ],
+          "descriptor": {
+            "bytes": 1693,
+            "sha256": "5b544268a79fce22931a253efb764054a0548dcf267ce45d5bba9d6a195f85bb"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            6840,
+            6843
+          ],
+          "source_byte_range": [
+            1246236,
+            1246619
+          ],
+          "selected_byte_range": [
+            25706,
+            26089
+          ],
+          "descriptor": {
+            "bytes": 383,
+            "sha256": "e6c6fb01b4b32a73c9eaf6da8fe30802b35cd7f9c2e6abd39649771dd9ba6355"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            6975,
+            6976
+          ],
+          "source_byte_range": [
+            1260127,
+            1260254
+          ],
+          "selected_byte_range": [
+            26089,
+            26216
+          ],
+          "descriptor": {
+            "bytes": 127,
+            "sha256": "7c0996f50aaa550bdfcbb5bf0a04e29b94d30d6d8250ddbec1c23f9d91801bc7"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            7207,
+            7209
+          ],
+          "source_byte_range": [
+            1280612,
+            1282425
+          ],
+          "selected_byte_range": [
+            26216,
+            28029
+          ],
+          "descriptor": {
+            "bytes": 1813,
+            "sha256": "f42af4ccaeb06c69ed21869d55ee0e1c95572a0c883d0fa9256efa6e9db109d6"
+          }
+        },
+        {
+          "source_lines_inclusive": [
+            7296,
+            7300
+          ],
+          "source_byte_range": [
+            1291515,
+            1292012
+          ],
+          "selected_byte_range": [
+            28029,
+            28526
+          ],
+          "descriptor": {
+            "bytes": 497,
+            "sha256": "d64d35d64c29d614a64146285f93e6d799360fe415aa3bd2b7289eb77b921984"
+          }
+        }
+      ]
+    }
+  ],
+  "selection_coverage": {
+    "frozen_log_descriptor": {
+      "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.frozen.log",
+      "bytes": 1292012,
+      "sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+      "mode": "100644"
+    },
+    "frozen_log_lines": 7300,
+    "selected_lines": 572,
+    "selected_bytes": 28526,
+    "omitted_lines": 6728,
+    "every_line_accounted_once": true,
+    "source_byte_slices_checked_against_frozen_body_at_creation": true,
+    "source_line_slices_checked": true,
+    "nonroutine_blocks_retained": [
+      {
+        "source_lines_inclusive": [
+          4178,
+          4182
+        ],
+        "header": "\u2139 [2614/2671] Built FirstOrder (2.9s)"
+      },
+      {
+        "source_lines_inclusive": [
+          4310,
+          4331
+        ],
+        "header": "\u2139 [3483/3508] Built Applications.AD.Verification (2.4s)"
+      },
+      {
+        "source_lines_inclusive": [
+          4353,
+          4374
+        ],
+        "header": "\u26a0 [3496/3520] Built Applications.Parallel.Examples (2.7s)"
+      },
+      {
+        "source_lines_inclusive": [
+          4720,
+          4734
+        ],
+        "header": "\u2139 [3763/3841] Built Applications.Timing.Examples (2.0s)"
+      },
+      {
+        "source_lines_inclusive": [
+          4911,
+          4929
+        ],
+        "header": "\u26a0 [4258/4320] Built Applications.Sequences.LCA.ResidentInstallation (6.7s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5115,
+          5119
+        ],
+        "header": "\u2139 [4492/4635] Built Examples.ArithmeticPipeline (2.6s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5145,
+          5150
+        ],
+        "header": "\u2139 [4513/4653] Built Examples.ArithmeticStaging (4.4s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5347,
+          5348
+        ],
+        "header": "\u2139 [9733/9859] Built Examples.BoundedArithmetic (3.1s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5522,
+          5530
+        ],
+        "header": "\u2139 [9865/10007] Built Examples.BoundedMotionArithmetic (23s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5777,
+          5783
+        ],
+        "header": "\u2139 [10069/10220] Built Examples.CertifiedIndexConversion (28s)"
+      },
+      {
+        "source_lines_inclusive": [
+          5820,
+          6253
+        ],
+        "header": "\u2139 [10098/10231] Built Examples.BoundedMotion (28s)"
+      },
+      {
+        "source_lines_inclusive": [
+          6407,
+          6409
+        ],
+        "header": "\u2716 [10221/10307] Building Examples.FiniteUniverseLoops (70s)"
+      },
+      {
+        "source_lines_inclusive": [
+          6840,
+          6843
+        ],
+        "header": "\u26a0 [10540/10588] Built Examples.RecursiveCompilation (3.2s)"
+      },
+      {
+        "source_lines_inclusive": [
+          6975,
+          6976
+        ],
+        "header": "\u2139 [10644/10711] Built Examples.CountedStackRun (50s)"
+      },
+      {
+        "source_lines_inclusive": [
+          7207,
+          7209
+        ],
+        "header": "\u2716 [10854/10927] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (96s)"
+      }
+    ],
+    "all_nonroutine_blocks_retained": true,
+    "failures": [
+      {
+        "module": "Examples.FiniteUniverseLoops",
+        "source_lines_inclusive": [
+          6407,
+          6409
+        ],
+        "reported_child_exit_code": 137
+      },
+      {
+        "module": "SquareKit.Internal.Cubical.CocycleOrdinaryAction",
+        "source_lines_inclusive": [
+          7207,
+          7209
+        ],
+        "reported_child_exit_code": 137
+      }
+    ],
+    "variable_reference_warnings_retained": {
+      "count": 3,
+      "complete_block_lines_inclusive": [
+        4911,
+        4929
+      ]
+    },
+    "preflight_retained_lines_inclusive": [
+      [
+        1,
+        5
+      ],
+      [
+        4166,
+        4169
+      ]
+    ],
+    "current_prefix_tail_lines_inclusive": [
+      7296,
+      7300
+    ],
+    "omitted_categories": [
+      {
+        "category": "routine empty-cache missing-trace enumeration",
+        "count": 4160,
+        "source_lines_inclusive": [
+          [
+            6,
+            4165
+          ]
+        ],
+        "matching_regex": "^Integrity guard: rebuilding (?P<module>[A-Za-z0-9_.]+) \\(\\[Errno 2\\] No such file or directory: '(?P<trace>[^']+)'\\)$",
+        "all_matching_notices": 4164,
+        "literal_examples_retained": 4,
+        "every_enumerated_module_has_a_nonnull_source_binding": true,
+        "authorization": "Root explicitly authorized summarizing this repetitive enumeration while preserving exact preflight headers,first2/last2 notices and full guard/phase conclusions."
+      },
+      {
+        "category": "routine successful-build progress and repeated module-system warnings",
+        "count": 2568,
+        "source_lines_inclusive": [
+          [
+            4170,
+            4177
+          ],
+          [
+            4183,
+            4309
+          ],
+          [
+            4332,
+            4352
+          ],
+          [
+            4375,
+            4719
+          ],
+          [
+            4735,
+            4910
+          ],
+          [
+            4930,
+            5114
+          ],
+          [
+            5120,
+            5144
+          ],
+          [
+            5151,
+            5346
+          ],
+          [
+            5349,
+            5521
+          ],
+          [
+            5531,
+            5776
+          ],
+          [
+            5784,
+            5819
+          ],
+          [
+            6254,
+            6406
+          ],
+          [
+            6410,
+            6839
+          ],
+          [
+            6844,
+            6974
+          ],
+          [
+            6977,
+            7206
+          ],
+          [
+            7210,
+            7295
+          ]
+        ],
+        "successful_progress_lines": 1848,
+        "module_system_warning_lines": 720,
+        "progress_header_regex": "^[\u2714\u26a0\u2139\u2716] \\[\\d+/\\d+\\] (?:Built|Building|Replayed) .+ \\(.+\\)$",
+        "module_warning_regex": "^warning: .+\\.lean: imports `[^`]+` from package `[^`]+`, which is designed for use with the module system; consider adding `module` to the start of this file$",
+        "rule": "Omit only complete successful job blocks whose remaining nonblank lines all match the repeated module warning, except literal current-prefix tail. Keep all nonroutine job blocks unchanged, including ordinary warning lines within them."
+      }
+    ],
+    "retired_warning_boundary": "724 module-system warnings occurred in the prefix;720 are omitted and4 retained with nonroutine/tail context. Three distinct variable-reference warnings and complete hint/note context are retained. No setting is changed in response to warning text.",
+    "raw_prefix_full_body_reconstructible_here": false,
+    "reading_limit": "Exhaustive structural classification/byte partition of the authorized frozen snapshot; exact failure/command blocks, guard/phase conclusions and distinct warning context inspected. Retained informational/benchmark bodies are preserved in full, without a new semantic validation or independent review of each printed value."
+  },
+  "source_bindings_before": {
+    "count": 16842,
+    "nonnull": true,
+    "shared_equal_bindings": 2598,
+    "omitted_anchor_keys": 1470,
+    "added_whole_bindings": 14244,
+    "descriptor_overrides": 0
+  },
+  "after_map_status": "Unavailable at cutoff; no source_bindings_after record/map is invented.",
+  "limits": "Exact start reconstruction and retained literal evidence only. No outer result/child exists at this cutoff. Later live output belongs to a later checkpoint. Child137 does not establish its cause. No no-transient-edit, whole/audit success, compiler provenance, output-reading, source or receiving acceptance is inferred."
+}

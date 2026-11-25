@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "kind": "normal-form149-selection-and-historical-limits",
+  "outside_installed_source": true,
+  "current_source_owners": 63,
+  "canonical_inputs": [
+    {
+      "path": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "bytes": 3167,
+      "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a"
+    },
+    {
+      "path": "current/research/polynomial-normal-form149/NaturalPolynomialNormalFormCases149.lean",
+      "bytes": 2060,
+      "sha256": "e2498dad7e17f1fe7c0571addb53375b96a7322ba6b8f19311966c01855d7d3e"
+    }
+  ],
+  "current_replay_target": {
+    "path": "work/normal-form149-checks/NormalForm149c.lean",
+    "bytes": 7334,
+    "sha256": "56c29430edca5ceb50a00ae1c31699e8b1e3fe26605497abbdb3653c77e522e1"
+  },
+  "attempts": [
+    {
+      "attempt": "normal-form149a",
+      "actual_exit_code": 1,
+      "sources_unchanged": true,
+      "nonnull_inputs": 145,
+      "elapsed_seconds": 9.943229454000175,
+      "finished_utc": "2026-11-24T20:37:38.093392+00:00",
+      "result_descriptor": {
+        "bytes": 70988,
+        "sha256": "6905b1cba0e52393a3289417887ad40b3517a0072818a3bcd95c102851d9e655",
+        "mode": "100644"
+      },
+      "log_descriptor": {
+        "bytes": 2235,
+        "sha256": "df40d2b07c45051454c84cf7d22ffeebcf00f8cd282f6cf6cd557b41ea0ebbd1",
+        "mode": "100644"
+      },
+      "availability": "The current c full result/log and canonical replay inputs are selected by root. Superseded a/b receipts and concatenated carriers need only compact actual outcomes; failed a diagnostics/sorryAx remain failure evidence."
+    },
+    {
+      "attempt": "normal-form149b",
+      "actual_exit_code": 0,
+      "sources_unchanged": true,
+      "nonnull_inputs": 146,
+      "elapsed_seconds": 2.4763076509989332,
+      "finished_utc": "2026-11-24T20:38:56.883685+00:00",
+      "result_descriptor": {
+        "bytes": 71467,
+        "sha256": "a066ffe216088980dfd700236098bcaf6699d1828ee36e6c8939d47619887752",
+        "mode": "100644"
+      },
+      "log_descriptor": {
+        "bytes": 1877,
+        "sha256": "2e2b792fa0a1f29019261fc59fc0ab123a50a7d60c9b835692171ed6e67a322d",
+        "mode": "100644"
+      },
+      "availability": "The current c full result/log and canonical replay inputs are selected by root. Superseded a/b receipts and concatenated carriers need only compact actual outcomes; failed a diagnostics/sorryAx remain failure evidence."
+    },
+    {
+      "attempt": "normal-form149c",
+      "actual_exit_code": 0,
+      "sources_unchanged": true,
+      "nonnull_inputs": 154,
+      "elapsed_seconds": 2.459646838999106,
+      "finished_utc": "2026-11-24T20:41:28.304217+00:00",
+      "result_descriptor": {
+        "bytes": 75302,
+        "sha256": "e77c982645ec0672be54f2ab6a17a581e7e3642b8249504c62ab550833b53f7b",
+        "mode": "100644"
+      },
+      "log_descriptor": {
+        "bytes": 4544,
+        "sha256": "213e4d82d4e04704f54407abc89a9bdc9861e20bc3ac0de28b436edfa6c4417c",
+        "mode": "100644"
+      },
+      "availability": "The current c full result/log and canonical replay inputs are selected by root. Superseded a/b receipts and concatenated carriers need only compact actual outcomes; failed a diagnostics/sorryAx remain failure evidence."
+    }
+  ],
+  "failed_a": "Actual exit1 with unchanged145 nonnull inputs; the evaluation rewrite did not match the beta-reduced goal. Its emitted sorryAx is from a failed proof and confers no passing proof or axiom credit.",
+  "repair_b": "Added change p.eval a <= p.eval b before the existing rewrites. No theorem statement, hypothesis, expectation, resource or printing change.",
+  "current_c": "Actual exit0 with unchanged154 nonnull inputs;18 readable statements,2 expansions,6 roots. Root separately recorded complete output reading without ellipses; this helper has not performed independent mathematical review.",
+  "fixed_expectations_survive": [
+    "current/research/polynomial-normal-form148/EXPECTATIONS.md",
+    "current/research/polynomial-normal-form148/QUERY_PLAN.md",
+    "current/research/polynomial-normal-form149/CASE_EXPECTATIONS149.md"
+  ],
+  "old_draft_source": "Updated to the checked149 core; obsolete source manifest/static reading retire. No old full-body reconstruction claim.",
+  "remaining": "No installation, independent review, whole audit, concrete machine, conventional NP or receiving acceptance."
+}

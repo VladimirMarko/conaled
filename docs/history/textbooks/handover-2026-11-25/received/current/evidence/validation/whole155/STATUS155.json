@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "run_id": "whole155",
+  "cutoff_utc": "2026-11-25T06:09:18.070235+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "actual_outer_terminal_observed": false,
+  "actual_outer_exit_code": null,
+  "outer_outcome": "UNKNOWN",
+  "log_kind": "frozen-prefix-of-still-running-log",
+  "original_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.log",
+  "frozen_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.frozen.log",
+    "bytes": 1292012,
+    "sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+    "mode": "100644"
+  },
+  "frozen_log_lines": 7300,
+  "complete_raw_log_will_be_retained": false,
+  "failed_job_lines": [
+    "\u2716 [10221/10307] Building Examples.FiniteUniverseLoops (70s)",
+    "\u2716 [10854/10927] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (96s)"
+  ],
+  "error_lines": [
+    "error: Lean exited with code 137",
+    "error: Lean exited with code 137"
+  ],
+  "reported_137_lines": 2,
+  "cause_established": false,
+  "source_bindings_before_nonnull": true,
+  "source_bindings_before_count": 16842,
+  "sources_unchanged": null,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "root_exclusive_compiler_owner": true,
+  "root_exec_session": 29456,
+  "writer_cessation_established": false,
+  "failed_project_outputs_reused": false,
+  "resource_or_compiler_settings_changed": false,
+  "resource_observation": {
+    "disk_total_bytes": 20957446144,
+    "disk_available_bytes": 2143068160,
+    "mem_total": "10206472 kB",
+    "mem_available": "6855476 kB",
+    "swap_total": "0 kB"
+  },
+  "diagnostic_selection_authorization": "The assigned io_bridge may read this immutable frozen log and these stable frozen records; identify and byte-bind every consequential failure/context/command/phase/terminal block. Retire only repetitive successful build chatter and ordinary repeated warnings, with explicit raw-log reconstruction and reading limits. Do not read the continuing live log/products.",
+  "limits": "The actual native outer result is reported only if the complete stable result and child receipts were available at this observation. An internal137 does not establish the eventual outer result or its cause. Later live output belongs to a later observation/checkpoint; no current successful whole/audit/verification is inferred."
+}

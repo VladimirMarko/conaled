@@ -1,0 +1,403 @@
+{
+  "schema": "spec-review153-v1",
+  "axis": "Spec",
+  "same_original_axis": "/root/parser_review/spec",
+  "successor": "/root/requirements_review147/spec147",
+  "round": 13,
+  "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+  "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "incorporated_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 72,
+  "status": "Blocked",
+  "source_assessment": "No new semantic defect found in bounded full changed-source and complete available statement-output assessment",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "observed_utc": "2026-11-25T00:16:48.760733+00:00",
+  "frozen153_cutoff": "2026-11-25T00:00:51.906378+00:00",
+  "available_at_frozen_cutoff": {
+    "completed_spec153_report": false,
+    "fresh_current_query_reading_lines": 0,
+    "potentially_mutable_source_checks_included": false
+  },
+  "interruption": {
+    "observed_interrupted": true,
+    "cause": null,
+    "time": null,
+    "work_inferred_during_interval": false
+  },
+  "stage_history": [
+    {
+      "stage": "source_and_receipt_assessment",
+      "observed_utc": "2026-11-25T00:13:13.672228+00:00",
+      "source_reading_complete_with_stated_reuse": true,
+      "query_actual_exit": 0,
+      "query_new_tail_fresh_read_lines": 0,
+      "status": "Blocked",
+      "artifacts": [
+        {
+          "path": "/workspace/scratch/ae71b485b114/work/review153/spec153-source-checks.json",
+          "bytes": 25956,
+          "sha256": "a47411c4c1b89cbf9a2e58af27d8d80560f88ac6aa9d4407d734ea9f0b71bebb"
+        },
+        {
+          "path": "/workspace/scratch/ae71b485b114/work/review153/spec153-native-query-binding.json",
+          "bytes": 34606,
+          "sha256": "46304a49c8ce558f63f3007143cb73a0819f43f83aad373ed53ffe4ba0699f10"
+        }
+      ]
+    },
+    {
+      "stage": "actual_query_semantic_followup",
+      "observed_utc": "2026-11-25T00:16:48.760733+00:00",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "fresh_query_lines": 4680,
+      "fresh_range": [
+        7802,
+        12481
+      ],
+      "qualified_old_prefix_reuse": [
+        1,
+        7801
+      ],
+      "status": "Blocked",
+      "new_actionable_semantic_defect": false,
+      "reading_evidence": {
+        "path": "/workspace/scratch/ae71b485b114/work/review153/spec153-statement-reading.json",
+        "bytes": 35374,
+        "sha256": "1e6d8e2b6586a5fbf97749fb5a1cb4f2a16eb753ab198cce75afdf0387e6f1be"
+      },
+      "same_original_axis": true,
+      "frozen153_modified": false
+    }
+  ],
+  "source_reading": [
+    {
+      "path": "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "14f5b1cd2568603656a64b7ffd05006acee9b8969be574d0d7d8080caac9333a",
+      "fresh_read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": true,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "0f5ad442a56db1e12d8a01dfff70b2f7cdd0c691c10f93eb03334cdb79cbed34",
+      "fresh_read_ranges": [
+        [
+          1,
+          634
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": false,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "6dca8473a0ba5cd87ee9b58738be64534bd8d59cfdffe79ab8d261bf61ed5768",
+      "fresh_read_ranges": [
+        [
+          1,
+          1033
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": false,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "7d305529995e38cf59200ac55e991b8df780ee56e39f8b10c2a6927a65921d52",
+      "fresh_read_ranges": [
+        [
+          1,
+          272
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": false,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "29e5cfa3b27878544025f52e714f2f069d047bf6f0437a0878ba4d08c76a5e78",
+      "fresh_read_ranges": [
+        [
+          1,
+          161
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": false,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "ac6a3e45cf2a6165f3f355cdd88ec3fc12e355d00f3bb4c2d8d0bc580f9ad5e0",
+      "fresh_read_ranges": [
+        [
+          1,
+          220
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": true,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "ad34cc066a2f73452a91c8ed408652ee83ec400c61f405842509dcd220503d67",
+      "fresh_read_ranges": [
+        [
+          1,
+          150
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": true,
+      "b_sole_changed_open_freshly_read": null
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "849b5e6977c4041f5df850ba3205e4b79b8099c333b96cdacebcdd3766f564dc",
+      "fresh_read_ranges": [
+        [
+          1,
+          266
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": true,
+      "b_sole_changed_open_freshly_read": [
+        17,
+        30
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateDelimiterMachine.lean",
+      "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+      "sha256": "70b7a03ee5141bd0d5691a6176a29d684985f6a85c9aa8a02fcfed5c47569fc0",
+      "fresh_read_ranges": [
+        [
+          1,
+          479
+        ]
+      ],
+      "initial_reading_on_a_with_exact_reuse_to_b": false,
+      "b_sole_changed_open_freshly_read": null
+    }
+  ],
+  "changed_existing_reading": {
+    "OrdinaryPackage.lean": {
+      "new_import": true,
+      "fresh_ranges": [
+        [
+          395,
+          455
+        ]
+      ],
+      "complete_old_body_exact_reuse": true
+    },
+    "Examples/TuringSimulation.lean": {
+      "new_imports": true,
+      "fresh_ranges": [
+        [
+          1720,
+          1771
+        ]
+      ],
+      "complete_old_body_exact_reuse": true
+    },
+    "SquareApplications.lean": {
+      "all_nine_new_imports_read": true,
+      "complete_old_body_exact_reuse": true
+    },
+    "paper": {
+      "complete6074byte_append_read": true,
+      "old_prefix_exact_reuse": true
+    },
+    "decoded_gate_values": {
+      "count": 5,
+      "all_fresh_read": true,
+      "other_values_exact": true
+    }
+  },
+  "fixed_cases": {
+    "six_expectation_files_fully_read": true,
+    "seventeen_original_fixture_records_fully_read": true,
+    "seventeen_full_state_handoffs": true,
+    "six_bridge_clocks": [
+      2,
+      4,
+      5,
+      14,
+      11,
+      9
+    ],
+    "symbol_separation": true,
+    "normal_named_observations": 11,
+    "parser_named_observations": 9,
+    "anonymous_parser_clients": 3,
+    "fixture_peak_expectations_not_invented_as_extra_exact_peak_theorems": true
+  },
+  "requirements": {
+    "descriptor": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/current/control/requirements.md",
+      "bytes": 2237283,
+      "sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7"
+    },
+    "full_authority_retained": true,
+    "fresh_addendum_bytes": 31534,
+    "full_fresh_requirements_claim": false,
+    "prior_reading_limits_retained": true
+  },
+  "query_reading": {
+    "log_sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+    "log_bytes": 960006,
+    "log_lines": 12481,
+    "prior147_prefix_independently_byte_verified": true,
+    "qualified_same_axis_reuse_lines": [
+      1,
+      7801
+    ],
+    "fresh_new_tail_read_ranges": [
+      [
+        7802,
+        8190
+      ],
+      [
+        8191,
+        8600
+      ],
+      [
+        8601,
+        9000
+      ],
+      [
+        9001,
+        9350
+      ],
+      [
+        9351,
+        9730
+      ],
+      [
+        9731,
+        10100
+      ],
+      [
+        10101,
+        10430
+      ],
+      [
+        10431,
+        10750
+      ],
+      [
+        10751,
+        11070
+      ],
+      [
+        11071,
+        11393
+      ],
+      [
+        11394,
+        11700
+      ],
+      [
+        11701,
+        12018
+      ],
+      [
+        12019,
+        12250
+      ],
+      [
+        12251,
+        12481
+      ]
+    ],
+    "new_tail_total_lines": 4680,
+    "all_new_tail_read": true,
+    "old_printer_limit": {
+      "glyphs": 14,
+      "lines": 8,
+      "nonfatal": true,
+      "additional_gate": false
+    },
+    "fresh_new_tail_read_lines": 4680,
+    "complete_available_statement_assessment": true,
+    "fresh_counts": {
+      "readable": 334,
+      "expanded": 28,
+      "selected_axiom_roots": 55,
+      "definition_prints": 7
+    },
+    "qualified_total_counts": {
+      "readable": 923,
+      "expanded_historical": 54,
+      "selected_axiom_roots": 87,
+      "later_definition_prints": 7,
+      "physical_checks": 976,
+      "physical_definition_prints": 8
+    }
+  },
+  "findings": [
+    {
+      "id": "SP-D001",
+      "status": "Resolved remedy retained; current five gates independently reassessed"
+    },
+    {
+      "id": "SP-D002",
+      "status": "Resolved remedy retained; old paper prefix exact and new append reassessed"
+    },
+    {
+      "id": "SP-C001",
+      "status": "Resolved source remedy retained; current focused ordinary clients succeed at their recorded scope"
+    },
+    {
+      "id": "SP-V001",
+      "status": "Open",
+      "severity": "Blocking acceptance",
+      "remaining": [
+        "Matching aggregate/whole validation with actual terminal evidence",
+        "Exhaustive source, module-origin and axiom audit",
+        "Immediate supported nonrepairing verification",
+        "Supported final postvalidation comparison",
+        "Same original independent axes reconciliation"
+      ]
+    }
+  ],
+  "historical_limits_retained": true,
+  "fresh_standards_report_read": false,
+  "compiler_or_checker_run": false,
+  "project_outputs_mutated": false,
+  "source_or_config_mutated": false,
+  "external_action": false,
+  "canonical_packet": "work/checkpoint153-stage/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+  "retired_reader_dependencies_released": [
+    "eight conventional151 original start/result maps",
+    "entire corrected152 stage"
+  ],
+  "full_report": {
+    "path": "/workspace/scratch/ae71b485b114/work/review153/spec153.md",
+    "bytes": 21637,
+    "sha256": "8d304042ae4117b4faf0e79bfe42f7dc101e28c14605d04e2276b85402f9a129"
+  },
+  "receipt_scope_limit": {
+    "recorded_scoped_sources": 54,
+    "full_captured_scope": 72,
+    "direct_query_imports": 28,
+    "build_product_descriptors_in_focused_maps": 0,
+    "unrecorded_earlier_examples": 15,
+    "unrecorded_unchanged_guidance_files": 3,
+    "exhaustive_audit_inferred": false
+  }
+}

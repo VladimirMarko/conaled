@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "status": "Exact historical checked source reconstructed from current147 owners and retained unfinished research; no new compilation or acceptance.",
+  "target": {
+    "path": "work/continuation/GenericOrdinary144b.lean",
+    "bytes": 122563,
+    "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+  },
+  "inputs": [
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b"
+    },
+    {
+      "path": "work/conaled/Examples/TuringSimulation.lean",
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2"
+    }
+  ],
+  "literal_glue_and_query_bytes": 13544,
+  "pieces": [
+    {
+      "literal_utf8": "import Mathlib.Data.Fintype.BigOperators\nimport Mathlib.Data.Fintype.Prod\nimport Applications.Resources.RotationCertificate.FrontEndStreamMachine\nimport Applications.Resources.TuringSimulation.StackToTape\nimport Mathlib.Computability.TuringMachine.Computable\nimport Mathlib.Data.Finset.Lattice.Fold\nimport Mathlib.Data.Fintype.Sets\nimport Applications.Trees.Rotations.Distance\nimport Mathlib.Data.Fintype.Basic\nimport Mathlib.Tactic.DeriveFintype\nimport Mathlib.Algebra.Polynomial.Eval.Defs\nimport Mathlib.Computability.TuringMachine.StackTuringMachine\nimport Mathlib.Computability.TuringMachine.PostTuringMachine\nimport Mathlib.Data.Finset.Card\nimport Mathlib.Data.Int.Interval\nimport Mathlib.Order.Monotone.Basic\n\n/-\nRoot combined controller checking draft. This file imports already produced\nordinary candidate139 modules through that candidate's native Lake environment.\nIt writes no compiled project output and changes no source in the frozen tree.\nA focused pass is not whole-candidate acceptance. The public ordinary owner\nfiles and connected fixture clients remain separately staged for integration.\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "byte_start": 636,
+      "byte_end_exclusive": 11817,
+      "slice_sha256": "a232d481662bb93f0c28d5fc54695c8886fa87de86065add9ec006eaab6fa9e8",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "byte_start": 892,
+      "byte_end_exclusive": 16006,
+      "slice_sha256": "f26311bf2bca0c9f3810d7d6b6fa1ccb4af3ace27e81d689f821779c2ef272fa",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "byte_start": 577,
+      "byte_end_exclusive": 17334,
+      "slice_sha256": "c4652064cde4f6b98a46aec979d7abf97580424a764aa300cd435e196ad71ea0",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Exact reflection of native primitive machines\n\nUNCOMPILED research proposal, prepared 24 November 2026. This is not an\ninstalled owner or an acceptance result. No compiler was run by its author.\nThe proposed ordinary owner is\nApplications/Resources/TuringSimulation/TapeReflection.lean.\n\nThe entire tape is reflected about its current head. The actual native\ntransition changes only move directions; control, writes and the supplied\ndefault remain unchanged. Optional iteration and actual witness counts are\ntransported literally, including live endpoints and outer none.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "byte_start": 345,
+      "byte_end_exclusive": 5232,
+      "slice_sha256": "6335ae95ad82f2f8b5100e258ea08d3ce30c5a375f6702c2ac7f85964c300ab0",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n\n/-!\n# Ordinary designated input for the reflected native stack simulator\n\nUNCOMPILED research proposal. Expected clocks and complete boundary tapes were\nfixed in EXPECTATIONS.json before any compiler feedback. This file was not\ncompiled by its author and is not an installed source owner.\n\nThe input alphabet is a fixed per-letter injection into the finite working\nalphabet. Input order and length are unchanged; false is a present symbol and\nnone is blank. The actual prelude scans to the first blank, moves back once,\nand writes the marker. The resulting entire tape is the reflection of trInit.\nThe main phase reflects every native move. A final native write can normalize\nan already established singleton output tape; outer none is one step later.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "byte_start": 591,
+      "byte_end_exclusive": 12145,
+      "slice_sha256": "14a55576bb2866869498ad69c8cc71875eaa7ad269bba335dbef4482bfdc8dc4",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Complete singleton tapes at related stack halts\n\nUNCOMPILED research proposal. No compiler was run by its author. This is not an\ninstalled owner or an acceptance result. The proposed reusable ordinary owner\nis Applications/Resources/TuringSimulation/SingletonOutput.lean.\n\nThe output argument needs every stack, not merely a head observation. The\nexisting complete TrCfg relation and a family of at-most-one-element stacks\nforce every tape cell away from the bottom to be blank. A later actual native\nwrite can therefore normalize the complete output tape in one primitive step.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "byte_start": 436,
+      "byte_end_exclusive": 3364,
+      "slice_sha256": "f445eb2f052b49248e21fded179079ab0598fc5948eab0ee1da420803c04cd0a",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Native composition for the marked-input wrapper\n\nUNCOMPILED research proposal. No compiler was run by its author. These proof\nbodies consume an actual source EvalsTo witness and its live endpoint. The\nsource transition returning none is deliberately intercepted by one actual\noutput write. Reflection itself preserves outer none, but the wrapper does not.\n\nThe controller must derive the singleton endpoint and stopped premise from its\nexisting full TrCfg and support-closed run. These generic composition theorems\nare not a replacement for that concrete instantiation.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "byte_start": 12145,
+      "byte_end_exclusive": 21194,
+      "slice_sha256": "37ae04ee152bc3fe12e6970e8ffba16cd2a81a7a0e63c17aff2540e8907a9b31",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n\n/-!\n# Independently fixed ordinary-input boundary cases\n\nUNCOMPILED research clients. The literal input words, complete endpoint tapes\nand exact prelude counts were fixed in EXPECTATIONS.json before compiler\nfeedback. The source is finite, with two Boolean-indexed Boolean stores and a\nsupplied true control default. These are prelude/output interface cases; they\ndo not claim controller reachability for the selected artificial source.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\nnamespace Examples.MarkedInputResearch\n"
+    },
+    {
+      "source": "work/conaled/Examples/TuringSimulation.lean",
+      "byte_start": 29913,
+      "byte_end_exclusive": 34952,
+      "slice_sha256": "9f8495261bccbf091df8002d0df6d15c96032967b3d9a4083cbbac819b3ff928",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "end Examples.MarkedInputResearch\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "byte_start": 3364,
+      "byte_end_exclusive": 4852,
+      "slice_sha256": "8c40ac69d04a021e7fe399e49ee12bfb766bd4d07dc7af3c3afc973c6c00cc2d",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Fixed ordinary native interface for an arbitrary finite stack package\n\nUNCOMPILED implementation-assistance draft. EXPECTATIONS.json was frozen\nbefore this implementation. No source owner is installed by this file.\n\nThe source package, output-letter conversion and fallback are fixed before\nany raw input. Alphabet finiteness is supplied at every stack index. Input is\nthe existing injective per-letter symbol map, with unchanged order and length.\nThe actual prelude, reflected native simulation and output write are charged\nby the companion run API. Input and output stack alphabets may differ.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "byte_start": 1027,
+      "byte_end_exclusive": 7387,
+      "slice_sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Actual ordinary runs from full native package witnesses\n\nUNCOMPILED implementation assistance. SingletonOutputSupport is a proposed\ngeneric owner boundary, not an installed file. Its two required declarations\nare the exact generic SingletonOutput namespace block in the frozen\ndecider-research/repair1/ControllerOrdinary.lean. Include that block once when\ncombining, or use its root-validated generic owner after extraction.\n\nEvery run below consumes the actual primitive EvalsToInTime witness and full\nTrCfg relation. No source timing predicate is substituted for execution. The\nfull output tape is obtained before the output write, and the stored native\ncount is retained throughout endpoint transport.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "byte_start": 7388,
+      "byte_end_exclusive": 20702,
+      "slice_sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/-!\n# Independently fixed ordinary-package interface cases\n\nUNCOMPILED implementation assistance. These statements implement the literal\nexpectations frozen in EXPECTATIONS.json before OrdinaryPackage.lean existed.\n\nThe two-stack fixture has input alphabet Option Bool and output alphabet Bool.\nIts main label and register are both true. The transition program halts at\nevery source label: this file claims actual prelude and output-boundary runs,\nnot an input-to-singleton run that this fixture cannot supply. Stored-count\nexamples below are literal arithmetic consequences of the generic count API.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n\n"
+    },
+    {
+      "source": "work/conaled/Examples/TuringSimulation.lean",
+      "byte_start": 48653,
+      "byte_end_exclusive": 60001,
+      "slice_sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/- Actual-output queries; not a result. -/\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval\n#check Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet\n#check Examples.TuringSimulation.OrdinaryPackageCases.fixture\n#check Examples.TuringSimulation.OrdinaryPackageCases.outputLetter\n#check Examples.TuringSimulation.OrdinaryPackageCases.cell\n#check Examples.TuringSimulation.OrdinaryPackageCases.nativeInput\n#check Examples.TuringSimulation.OrdinaryPackageCases.M\n#check Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct\n#check Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite\n#check Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols\n#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite\n#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true\n#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true\n#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control\n#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude\n#check Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length\n#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present\n#check Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present\n#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank\n#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false\n#check Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter\n#check Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step\n#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps\n#check Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps\n#check Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps\n#check Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback\n#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback\n#check Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback\n#check Examples.TuringSimulation.OrdinaryPackageCases.haltedControl\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step\n#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none\n#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two\n#check Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals\n#check Examples.TuringSimulation.OrdinaryPackageCases.bound_literals\n#check Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals\n#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime\n#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun\n#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run\n#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step\nset_option pp.all true in\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine\nset_option pp.all true in\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun\nset_option pp.all true in\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime\nset_option pp.all true in\n#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps\n"
+    }
+  ],
+  "current_source_candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "current_source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d"
+}

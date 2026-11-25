@@ -1,0 +1,310 @@
+{
+  "schema": 1,
+  "record_kind": "New post-wipe provenance and identity overlay; not a reconstruction of the lost final153 continuity and not an approval",
+  "created_utc": "2026-11-25T05:05:59.792272+00:00",
+  "coordinator": "/root/requirements_review147",
+  "same_original_review_loop": true,
+  "prior_rounds_preserved_through": 13,
+  "original_axes": [
+    "/root/parser_review/standards",
+    "/root/parser_review/spec"
+  ],
+  "current_same_axis_handles": [
+    "/root/requirements_review147/standards147",
+    "/root/requirements_review147/spec147"
+  ],
+  "axis_resumption_in_this_overlay": false,
+  "axis_availability": "Root reports all four concurrency slots occupied; neither axis resumed. Resume existing handles only after a concrete slot release.",
+  "candidate": {
+    "commit": "8f299334a51a00b02c79850d73dd4f165c73e671",
+    "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+    "incorporated_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "original_full_spec_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "scope_count": 72,
+    "scope_Lean_count": 66,
+    "scope_document_count": 6,
+    "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+    "projection_identity": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+    "content_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+    "source_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+    "actual_git_commit_tree_parent": [
+      "8f299334a51a00b02c79850d73dd4f165c73e671",
+      "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+      "ec4949a94ed70084d70f5b273fb0cc6dca8b2647"
+    ],
+    "old_private_candidate_recreated": false
+  },
+  "fresh_supported_baseline_and_capture": [
+    {
+      "name": "baseline154-scope72",
+      "exit_code": 0,
+      "elapsed_seconds": 29.639599579999413,
+      "finished_utc": "2026-11-25T04:59:01.815002+00:00",
+      "nonnull_stable_input_bindings": 141,
+      "start_child_final_command_and_times_match": true,
+      "start_child_log_bodies_hash_bound": true,
+      "complete_log_JSON_parsed": true,
+      "resource_or_time_limits_added": false,
+      "descriptors": {
+        "start.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.start.json",
+          "bytes": 35708,
+          "sha256": "4e2b36098708bc90a4108a6c0bda14be9c3539c7655b093d3e09305ef248b6f5"
+        },
+        "child-exit.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.child-exit.json",
+          "bytes": 1708,
+          "sha256": "7a1887eaa7fcc297aa0bf341403893714f7bf895d88ef7507aebf9130b2a69d7"
+        },
+        "result.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.result.json",
+          "bytes": 70910,
+          "sha256": "c8d9df14aa05842f8dcd4c3ff34466a12dd32edfeef123c335a350e63283d90c"
+        },
+        "log": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.log",
+          "bytes": 9731110,
+          "sha256": "070993e6e0ceaf11e87859659bc2d29b7dd4bbd3b7aaa9b00e5516e2509bab9e"
+        }
+      }
+    },
+    {
+      "name": "candidate154-scope72",
+      "exit_code": 0,
+      "elapsed_seconds": 29.71180708999964,
+      "finished_utc": "2026-11-25T05:00:18.718209+00:00",
+      "nonnull_stable_input_bindings": 143,
+      "start_child_final_command_and_times_match": true,
+      "start_child_log_bodies_hash_bound": true,
+      "complete_log_JSON_parsed": true,
+      "resource_or_time_limits_added": false,
+      "descriptors": {
+        "start.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.start.json",
+          "bytes": 35951,
+          "sha256": "35748cfde3491a67c298a3b1abbcaf7913bf449aa129147a09e6ca0839bf5dd7"
+        },
+        "child-exit.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.child-exit.json",
+          "bytes": 1512,
+          "sha256": "ea1e0962fa2a0f4aa9478f32f692e9bfda071f4b6274419718669d678bbe1f3b"
+        },
+        "result.json": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.result.json",
+          "bytes": 71594,
+          "sha256": "558372dc5a0f0c2208ea549247058c32b029f6b1d105a753801dc13f3df3d2b9"
+        },
+        "log": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.log",
+          "bytes": 9739739,
+          "sha256": "d3c736a61b4e91da77e87b959a49501063d1c0a9192c63a17fddab99dc27a69c"
+        }
+      }
+    }
+  ],
+  "identity_reconciliation": {
+    "previous_reviewed_commit": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+    "previous_complete_capture": {
+      "path": "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/current/evidence/validation/candidate153b.json",
+      "bytes": 9739736,
+      "sha256": "36391b701b2832b75d0e57a9b108c8bf8915d48b3579382c4ae1963a7d446528"
+    },
+    "complete_capture_fields_equal": {
+      "base": true,
+      "original_base": true,
+      "tree": true,
+      "scope": true,
+      "scope_identity": true,
+      "projection_identity": true,
+      "content_identity": true,
+      "entries": true,
+      "sources": true
+    },
+    "matching_captured_tree_entry_count": 19407,
+    "matching_observed_source_descriptor_count": 19407,
+    "representation_limit": "Tree entries carry Git oid/mode; observed sources carry SHA256/mode. Old versus new equality was checked within each representation; raw source/entry dictionaries are not the same schema.",
+    "changed_paths_against_M_exactly_scope": true,
+    "changed_path_count": 72,
+    "manifest_entries": {},
+    "manifest_exclude": [],
+    "candidate_diff_command": [
+      "git",
+      "diff",
+      "ec4949a94ed70084d70f5b273fb0cc6dca8b2647...8f299334a51a00b02c79850d73dd4f165c73e671"
+    ],
+    "prior_analysis_preserved_by_exact_source_identity_not_commit_ancestry": true,
+    "new_candidate_ordinary_axis_approval_inferred": false,
+    "source_and_input_endpoint_equality_is_not_isolation_or_product_origin_audit": true
+  },
+  "requirements": {
+    "current": {
+      "path": "/workspace/scratch/ae71b485b114/work/resume154/requirements154.md",
+      "bytes": 2238214,
+      "sha256": "3e686f9f28a413c75dd98ccf4f9764badd613e623f08467fc760adae734728d0"
+    },
+    "old_prefix_bytes": 2237283,
+    "old_prefix_sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7",
+    "old_prefix_exact_match": true,
+    "new_suffix_bytes": 931,
+    "new_suffix_read_completely_by_coordinator": true,
+    "new_suffix_purpose": "User requests status after reset, recording post153 remembered progress, then continuing formalization; all prior mathematical requirements and validation gates remain.",
+    "old_full_requirements_fresh_end_to_end_read_claimed": false,
+    "previous_attributed_reading_limits_preserved": true
+  },
+  "current_guidance_freshly_read": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/AGENTS.md",
+      "bytes": 2628,
+      "sha256": "c98741e0325029ca67e2d079239288a05af775b5d336b88f4b4046068db37db7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/task-authority.md",
+      "bytes": 3817,
+      "sha256": "1873b383daa756a7b4fd2780868e66c75e5f2eb2695fa914cce57eda5f5f0e9a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/review-loop.md",
+      "bytes": 16277,
+      "sha256": "c369ed734ff8b61c2a2745fc3cd5839f496654e1625b1a4ceaa6a04abb2ba80f"
+    }
+  ],
+  "native_setup_and_restore": {
+    "readiness_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/resume154/NATIVE_READY154.json",
+      "bytes": 3484,
+      "sha256": "9c77fefb846f915126fbdb72065407d41897881ff9132bd9723ae881dff6cdfa"
+    },
+    "readiness_record_read_completely": true,
+    "root_record_reports": {
+      "setup_seconds": 372.186983,
+      "setup_budget_seconds": 600,
+      "all9_dependency_revisions_match_and_sources_clean": true,
+      "cache_exit_code": 0,
+      "no_project_compilation_at_readiness": true
+    },
+    "restore_report": {
+      "path": "/workspace/scratch/ae71b485b114/work/recovery154/restore153-exact.json",
+      "bytes": 1281,
+      "sha256": "b77f18406e4f3c2c34906d873f84840d9cf50295a5d94a857086ff29c418d00d"
+    },
+    "restore_terminal": {
+      "path": "/workspace/scratch/ae71b485b114/work/recovery154/restore153-exact.result.json",
+      "bytes": 923,
+      "sha256": "8a653fe7907b48a01f21fcdc61c1ae51bf51fe08eb4a8ab7dbc45e036151bda7"
+    },
+    "inspect_report": {
+      "path": "/workspace/scratch/ae71b485b114/work/recovery154/inspect153.json",
+      "bytes": 1015,
+      "sha256": "642d2eb6c49219c9ebf02afcb7478bbb8c7a83c51e58a52fb1d6b36a412124de"
+    },
+    "inspect_terminal": {
+      "path": "/workspace/scratch/ae71b485b114/work/recovery154/inspect153.result.json",
+      "bytes": 918,
+      "sha256": "c37a972cb4e53ab7213717a946071bf3ea51ee870e4e7d3fc49b5c949bc95f7f"
+    },
+    "restore_and_inspect_recorded_exit_codes": [
+      0,
+      0
+    ],
+    "tracked_bodies_modes_reported_checked": 19407,
+    "coordinator_reran_restore_setup_or_compilation": false,
+    "exhaustive_generated_product_origin_audit": false
+  },
+  "preserved_prior_assessments": {
+    "exact_recovered_bodies_and_availability_ledger": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/RECONSTRUCTED_REVIEW_MEMORY.json",
+      "bytes": 13024,
+      "sha256": "5d55df4e4fed777b3387024d6c07d1de005b25f111dba7d7afa9a43770847cd1"
+    },
+    "exact_recovered_reconciliation": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/round13-reconciliation153.md",
+      "bytes": 11847,
+      "sha256": "29c5235dbea6226b1839a8b212a98068edcac8da668a458cf27b276f7d78ad74"
+    },
+    "original_final_release_manifest": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/FINAL_REVIEW153_FILES.json",
+      "bytes": 4835,
+      "sha256": "08f3f97bf1941ec494ee1d92cbd96b8a0d688b3c0086c20cbc06f39d838c3fcc"
+    },
+    "same_axis_reports": [
+      "standards153.md",
+      "standards153.json",
+      "spec153.md",
+      "spec153.json"
+    ],
+    "all6_reconstructed_original_descriptors_rechecked_exact": true,
+    "prior8_file_recovery_set_unchanged": true,
+    "assessment_attribution": "The original Standards and Spec axes independently assessed C153b full scope, with the documented qualified inherited reading. This overlay binds identical C154 content, without supplying a new substantive axis judgment.",
+    "prior_new_query_tail_independently_read_by_each_axis": {
+      "lines": [
+        7802,
+        12481
+      ],
+      "line_count": 4680,
+      "observations": 424,
+      "readable": 334,
+      "expanded_checks": 28,
+      "selected_axiom_roots": 55,
+      "definition_prints": 7
+    },
+    "prior_query_prefix": "First 594,334 bytes / 7,801 lines exact147 output; original same-axis 147/146/144 reading attribution and interrupted-reading limits retained. No fresh C154 output reading is claimed.",
+    "prior_printer_limit": "14 unchanged glyphs on eight old lines; Spec found no consequential binder/domain unassessed and no extra query required. Hidden text still receives no reading credit.",
+    "prior_focused_map_limit": "Owners153-b and query153-b actual exit 0 remain historical evidence: 4,048 nonnull stable inputs, 54/72 scoped paths, zero generated-product descriptors. They are not fresh C154 results.",
+    "missing_original_bodies": [
+      "standards153-evidence.json",
+      "spec153-source-checks.json",
+      "spec153-native-query-binding.json",
+      "spec153-statement-reading.json",
+      "HANDOFF153.md",
+      "review-continuity153.json",
+      "query-output-index153b.json",
+      "query-output-index153b.md"
+    ],
+    "lost_final153_continuity_body_reconstructed_or_forged": false,
+    "all_historical_UNKNOWN_failures_null_bindings_and_early_report_gaps_retained": true,
+    "root_reading_not_transferred_to_independent_axes": true
+  },
+  "current_validation_information": {
+    "knowledge_cutoff_utc": "2026-11-25T05:05:59.792272+00:00",
+    "fresh_owner_status_last_supplied_by_root": "RUNNING; no terminal receipt supplied to this coordinator",
+    "root_reported_owner_targets": 16,
+    "root_reported_owner_input_paths": 1539,
+    "root_reported_owner_coverage": "1,451 project/dependency source/config paths rebound from old153 anchor with identical bytes; all 72 scoped paths including unused files; selected official tool pins and current query/capture/controls.",
+    "root_reported_owner_toolchain_limit": "2,509 toolchain source files from the older broader list are absent from this build before-map. Do not extend it retroactively to 4,048 or infer an exhaustive generated-product-origin audit.",
+    "root_planned_query_bindings": "Root intends to include the2,509 toolchain sources and generated native profile files in the following query map. Planned coverage is not observed current evidence.",
+    "fresh_owner_terminal_or_query_output_received_and_reconciled": false,
+    "fresh_aggregate_whole_audit_verify_final_compare_completed": false
+  },
+  "findings": {
+    "Standards": {
+      "ST-001": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "ST-002": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "ST-003": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "ST-V001": "OPEN"
+    },
+    "Spec": {
+      "SP-D001": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "SP-D002": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "SP-C001": "Prior remedy retained; exact source unchanged; no new ordinary-axis approval inferred",
+      "SP-V001": "OPEN"
+    }
+  },
+  "remaining_acceptance_gates": [
+    "Aggregate and whole validation with actual matching terminal evidence and required isolation/provenance",
+    "Exhaustive source, module-origin, generated-product-origin and axiom audit",
+    "Immediate supported nonrepairing verification",
+    "Supported final postvalidation comparison",
+    "Return of actual evidence to the same original axes and final acceptance reconciliation"
+  ],
+  "next_bounded_step": "Root provides actual fresh focused owner/query terminal evidence and bindings. Once a slot is released, resume each original axis sequentially to reconcile the new candidate/full scope, appended requirements and actual evidence using only qualified prior reading. Preserve both V findings until their actual whole/audit/verify/compare gates and final same-axis reconciliation are satisfied.",
+  "status": "Blocked; supported fresh identity bound, no new acceptance",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "programme_scope_or_mathematical_qualification_changed": false,
+  "third_substantive_axis_or_replacement_loop": false,
+  "compiler_checker_project_source_config_product_or_external_write": false,
+  "canonical_packet": "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+  "initial_restored154_tree_released_and_never_read": true,
+  "retention": "Keep this small overlay and HANDOFF154.md with the 8 exact recovery files and root's canonical current receipts in the next single complete checkpoint. Do not duplicate full captured maps here. Historical paths in old reports remain provenance; current packet routing controls future reads.",
+  "writer_released_for_checkpoint_copy": true
+}

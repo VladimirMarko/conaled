@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-24T09:17:56.043892+00:00",
+  "status": "Independent paper expectations fixed before any compiler feedback; author is prohibited from running compiler.",
+  "source_revision": "Mathlib56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "interface": "Two nonblank per-letter Boolean input symbols inside a fixed finite working alphabet; none is blank; raw order and raw length retained.",
+  "prelude_states": [
+    "start",
+    "scan",
+    "mark"
+  ],
+  "prelude_exact_cost": {
+    "empty": 1,
+    "positive_length_N": "N+2"
+  },
+  "prelude_cases": [
+    {
+      "raw": [],
+      "steps": 1,
+      "head_marker": true,
+      "head_input": null,
+      "left_input_nearest_first": [],
+      "right_input": []
+    },
+    {
+      "raw": [
+        false
+      ],
+      "steps": 3,
+      "head_marker": true,
+      "head_input": false,
+      "left_input_nearest_first": [],
+      "right_input": []
+    },
+    {
+      "raw": [
+        true
+      ],
+      "steps": 3,
+      "head_marker": true,
+      "head_input": true,
+      "left_input_nearest_first": [],
+      "right_input": []
+    },
+    {
+      "raw": [
+        false,
+        true
+      ],
+      "steps": 4,
+      "head_marker": true,
+      "head_input": true,
+      "left_input_nearest_first": [
+        false
+      ],
+      "right_input": []
+    },
+    {
+      "raw": [
+        true,
+        false
+      ],
+      "steps": 4,
+      "head_marker": true,
+      "head_input": false,
+      "left_input_nearest_first": [
+        true
+      ],
+      "right_input": []
+    },
+    {
+      "raw": [
+        false,
+        false
+      ],
+      "steps": 4,
+      "head_marker": true,
+      "head_input": false,
+      "left_input_nearest_first": [
+        false
+      ],
+      "right_input": []
+    },
+    {
+      "raw": [
+        true,
+        false,
+        false
+      ],
+      "steps": 5,
+      "head_marker": true,
+      "head_input": false,
+      "left_input_nearest_first": [
+        false,
+        true
+      ],
+      "right_input": []
+    }
+  ],
+  "all_prelude_cases_other_tracks": "none everywhere",
+  "prelude_endpoint": "run the same supplied source default, with complete tape equal to reflection of Tape.mk\u2081(trInit k0 raw)",
+  "reflection": {
+    "direction_left": "right",
+    "direction_right": "left",
+    "write_symbol": "unchanged",
+    "count": "identical to actual source witness",
+    "whole_tape": "head unchanged, complete left/right ListBlank components exchanged",
+    "outer_none": "preserved by reflection itself",
+    "empty_peek_primitive_trace": "right, left, terminal dummy write; still3, still returns full original tape/register effect"
+  },
+  "output_cases": [
+    {
+      "answer": false,
+      "live_normalization_steps": 1,
+      "ordinary_output_symbol": "rawSymbol false, nonblank",
+      "subsequent_outer_none_steps": 1
+    },
+    {
+      "answer": true,
+      "live_normalization_steps": 1,
+      "ordinary_output_symbol": "rawSymbol true, nonblank",
+      "subsequent_outer_none_steps": 1
+    }
+  ],
+  "output_premise_to_derive": "Full source halt singleton fuel/all other stores empty; TrCfg then implies exact singleton marked whole tape. No head-only cleanup claim.",
+  "bounds": {
+    "live_output": "P(N)+3*encodedTapeTimeBound(A,N)+1",
+    "uniform_live_output": "N+3+3*encodedTapeTimeBound(A,N)",
+    "outer_none": "P(N)+3*encodedTapeTimeBound(A,N)+2"
+  },
+  "not_claimed": [
+    "compiled proof",
+    "ordinary owner installation",
+    "whole candidate acceptance",
+    "numerically enumerated finite transition table",
+    "exact simulator running time from upper bound",
+    "visited space bound",
+    "binary-only working alphabet",
+    "NP or textbook qualification increment"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "name": "generic-owners147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.TuringSimulation.OrdinaryPackage",
+    "Applications.Resources.TuringSimulation.PrintMove"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "started_utc": "2026-11-24T19:23:15.075218+00:00",
+  "finished_utc": "2026-11-24T19:23:18.455346+00:00",
+  "elapsed_seconds": 3.378310486999908,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.start.json",
+    "bytes": 19381,
+    "sha256": "be5751dea32221781c9e837eca1b8a5347e927cc4341b7b40c10869656eb3a8b",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

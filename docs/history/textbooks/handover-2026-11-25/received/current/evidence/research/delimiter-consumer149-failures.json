@@ -1,0 +1,450 @@
+{
+  "schema": 1,
+  "actual_failed_attempts": [
+    {
+      "name": "delimiter-consumer149a",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/research149",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/research149",
+      "started_utc": "2026-11-24T20:46:56.330136+00:00",
+      "finished_utc": "2026-11-24T20:47:01.812050+00:00",
+      "recorded_utc": "2026-11-24T20:47:01.915053+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.4787895859990385,
+      "sources_unchanged": true,
+      "log_descriptor": {
+        "bytes": 233494,
+        "sha256": "63beeaa8b8ff6a705b55a1522b0a163e510b1471349e9cd990d97c4953cc98c9",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149a.child-exit.json",
+        "bytes": 1342,
+        "sha256": "d694108ae5b548d14ff43ae9f84c6d9be81126fd299d9ffd87465b79fd0df477",
+        "mode": "100644"
+      },
+      "input_count": 448,
+      "all_inputs_nonnull": true,
+      "original_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149a.result.json",
+        "descriptor": {
+          "bytes": 235308,
+          "sha256": "20ddf9e6c228827fb19f56f8d3454de3d46007558f1c8acb718ad3e3b30b5c8c",
+          "mode": "100644"
+        }
+      },
+      "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+      "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here.",
+      "initial_diagnostic_prefix": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2005:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.K\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2009:23: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.Λ\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2010:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.Λ\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2013:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.Λ\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2022:27: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.Λ\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2024:39: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.K\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2026:51: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype tm.K\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2179:37: error(lean.unknownIdentifier): Unknown identifier `OrdinaryPackage.encodedRun_of_outputsInTime`\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2179:9: error: Tactic `rcases` failed: `x✝ : ?m.17` is not an inductive datatype\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2348:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2359:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2369:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2381:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2392:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2403:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+      "all_error_line_locations": [
+        {
+          "line": 30,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2179:9: error: Tactic `rcases` failed: `x✝ : ?m.17` is not an inductive datatype"
+        },
+        {
+          "line": 31,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2348:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 34,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2359:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 37,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2369:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 40,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2381:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 43,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2392:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 46,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/consumer148a/DelimiterConsumer148Probe.lean:2403:4: error: maximum recursion depth has been reached"
+        }
+      ]
+    },
+    {
+      "name": "delimiter-consumer149b",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/research149",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/research149",
+      "started_utc": "2026-11-24T20:50:54.513437+00:00",
+      "finished_utc": "2026-11-24T20:51:02.367592+00:00",
+      "recorded_utc": "2026-11-24T20:51:02.500021+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 7.850416875000519,
+      "sources_unchanged": true,
+      "log_descriptor": {
+        "bytes": 235903,
+        "sha256": "f588f99780124ee540db952eac01df89c7afc4d479bf916c23481b5649a9f3e2",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149b.child-exit.json",
+        "bytes": 1340,
+        "sha256": "ba4bc729ff797b7a9819ff496e9e8da97236afbe77c523469aed641772a18196",
+        "mode": "100644"
+      },
+      "input_count": 450,
+      "all_inputs_nonnull": true,
+      "original_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149b.result.json",
+        "descriptor": {
+          "bytes": 236246,
+          "sha256": "0b871fb0f538f8388544a2567c93da38682d12678cfa20560c9915a04d169108",
+          "mode": "100644"
+        }
+      },
+      "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+      "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here.",
+      "initial_diagnostic_prefix": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2187:18: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Fintype (machine initial).Λ\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2187:84: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2351:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2362:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2372:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2384:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2395:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2406:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+      "all_error_line_locations": [
+        {
+          "line": 5,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2187:84: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 8,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2351:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 11,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2362:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 14,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2372:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 17,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2384:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 20,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2395:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 23,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/DelimiterConsumer149bProbe.lean:2406:4: error: maximum recursion depth has been reached"
+        }
+      ]
+    },
+    {
+      "name": "delimiter-consumer149c",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/research149",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/research149",
+      "started_utc": "2026-11-24T20:53:34.996538+00:00",
+      "finished_utc": "2026-11-24T20:53:42.384595+00:00",
+      "recorded_utc": "2026-11-24T20:53:42.512333+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 7.385077603001264,
+      "sources_unchanged": true,
+      "log_descriptor": {
+        "bytes": 235707,
+        "sha256": "9e7e2ab5ca5d607ed837cb69a986e03b0fcc10bf48c25628a9b01f567aa7dff3",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149c.child-exit.json",
+        "bytes": 1340,
+        "sha256": "3f2d68d6fd398a5e1b57f84d23acca3c136f730d8792af36401a29fc248a3049",
+        "mode": "100644"
+      },
+      "input_count": 453,
+      "all_inputs_nonnull": true,
+      "original_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149c.result.json",
+        "descriptor": {
+          "bytes": 237686,
+          "sha256": "959816657d3db81d5f95c9946a247e7adb865e9df35cfcebb800d9270de02c9e",
+          "mode": "100644"
+        }
+      },
+      "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+      "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here.",
+      "initial_diagnostic_prefix": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2187:2: error: Try this: \n  letI̵\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2190:6: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2367:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2379:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2393:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2406:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2419:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+      "all_error_line_locations": [
+        {
+          "line": 1,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2187:2: error: Try this: "
+        },
+        {
+          "line": 9,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2190:6: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 12,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2367:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 15,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2379:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 18,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2393:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 21,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2406:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 24,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-c/DelimiterConsumer149cProbe.lean:2419:4: error: maximum recursion depth has been reached"
+        }
+      ]
+    },
+    {
+      "name": "delimiter-consumer149d",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/research149",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/research149",
+      "started_utc": "2026-11-24T20:56:31.127929+00:00",
+      "finished_utc": "2026-11-24T20:56:37.667853+00:00",
+      "recorded_utc": "2026-11-24T20:56:37.790942+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 6.533116425998742,
+      "sources_unchanged": true,
+      "log_descriptor": {
+        "bytes": 234984,
+        "sha256": "e152b73b2bd7d1b72aa9c2008e364ec308540edf0823c28e6f25ec117d6a3578",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149d.child-exit.json",
+        "bytes": 1340,
+        "sha256": "225b1e59314c662e58abf129d5d7c924d17aa73fa1bcb343e6ee1d69a983fef8",
+        "mode": "100644"
+      },
+      "input_count": 455,
+      "all_inputs_nonnull": true,
+      "original_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149d.result.json",
+        "descriptor": {
+          "bytes": 238638,
+          "sha256": "df10223def4acc00bb060052a9f6091098a062293b1009f9162c967fb4438f7a",
+          "mode": "100644"
+        }
+      },
+      "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+      "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here.",
+      "initial_diagnostic_prefix": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2372:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2384:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2398:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2411:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2424:4: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+      "all_error_line_locations": [
+        {
+          "line": 1,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2372:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 4,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2384:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 7,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2398:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 10,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2411:4: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 13,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterConsumer149dProbe.lean:2424:4: error: maximum recursion depth has been reached"
+        }
+      ]
+    },
+    {
+      "name": "delimiter-consumer149e",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/research149",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/research149",
+      "started_utc": "2026-11-24T20:57:40.854353+00:00",
+      "finished_utc": "2026-11-24T20:57:46.455922+00:00",
+      "recorded_utc": "2026-11-24T20:57:46.575370+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.598376832000213,
+      "sources_unchanged": true,
+      "log_descriptor": {
+        "bytes": 234989,
+        "sha256": "c1cc2c919280ec126bb86b02f262e981181751b340cd02dda387927410adfaec",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149e.child-exit.json",
+        "bytes": 1340,
+        "sha256": "dfee82b3647f938eb2396bde95e1d4031bb1dc6ec2d2bdc7b8a0098463870fcb",
+        "mode": "100644"
+      },
+      "input_count": 457,
+      "all_inputs_nonnull": true,
+      "original_result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149e.result.json",
+        "descriptor": {
+          "bytes": 239586,
+          "sha256": "9cb79b48609c1521b69cc830fd87ea727cf04d273d0bbba89caf1a0edda65dfc",
+          "mode": "100644"
+        }
+      },
+      "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+      "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here.",
+      "initial_diagnostic_prefix": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2372:10: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2384:10: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2398:10: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2411:10: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2424:10: error: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+      "all_error_line_locations": [
+        {
+          "line": 1,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2372:10: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 4,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2384:10: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 7,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2398:10: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 10,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2411:10: error: maximum recursion depth has been reached"
+        },
+        {
+          "line": 13,
+          "text": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-e/DelimiterConsumer149eProbe.lean:2424:10: error: maximum recursion depth has been reached"
+        }
+      ]
+    }
+  ],
+  "repairs": {
+    "a_to_b": "Register exact bundled FinTM2 kFin and LambdaFin locally. No new caller assumptions.",
+    "b_to_c": "Supply concrete bundled label finiteness; split fixture handoff from execution goals. This still failed, including actual haveILetI linter error.",
+    "c_to_d": "Use ordinary let for bundled finiteness; prove a separate Nat allowance equality, then transitivity on steps_le_m. Generic and native diagnostics resolved; five nonempty fixtures still exceeded default recursion.",
+    "d_to_e": "Typed generic run with exact transport still exceeded default recursion for five fixtures.",
+    "e_to_f": "A private equality-transport theorem abstracts only Raw/list/length equalities away from the large execution predicate. All six original statements, full endpoints and clocks are unchanged; actual f exit0."
+  },
+  "failed_query_sorryAx": "Some failed attempts emitted sorryAx for failed declarations. They remain failed and grant no successful selected-root or audit credit.",
+  "settings_changed": false,
+  "resource_overrides": false,
+  "linter_overrides": false,
+  "current_success": {
+    "name": "delimiter-consumer149f",
+    "command": [
+      "python3",
+      "-B",
+      "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+      "--state",
+      "/workspace/scratch/ae71b485b114/work/native-state147",
+      "run",
+      "--project",
+      "/workspace/scratch/ae71b485b114/work/research149",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "-EhasSorry",
+      "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-f/DelimiterConsumer149fProbe.lean"
+    ],
+    "project": "/workspace/scratch/ae71b485b114/work/research149",
+    "started_utc": "2026-11-24T21:00:27.149507+00:00",
+    "finished_utc": "2026-11-24T21:00:33.782751+00:00",
+    "recorded_utc": "2026-11-24T21:00:33.914566+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 6.6278316200005065,
+    "sources_unchanged": true,
+    "log_descriptor": {
+      "bytes": 233597,
+      "sha256": "3cbd6ae975537e1fee10c6bfd32f9d4117d1c0f896ace9de32b9b9c42485dda9",
+      "mode": "100644"
+    },
+    "child_exit_receipt": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.child-exit.json",
+      "bytes": 1341,
+      "sha256": "47beb1d81d7ba1c49b6a8cf608b7784d3079bb650bf40102ea0f806311083567",
+      "mode": "100644"
+    },
+    "input_count": 459,
+    "all_inputs_nonnull": true,
+    "original_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.result.json",
+      "descriptor": {
+        "bytes": 240535,
+        "sha256": "1bce7ccc5781633ef5a52c09a95a89a8aaff8e2f54ce8a00847ad5f2ca71d3bd",
+        "mode": "100644"
+      }
+    },
+    "reading_limit": "Actual terminal and selected diagnostics observed; full failed query output is not credited as a successful or fully read proof.",
+    "availability_limit": "Current successful f receipt/output selected separately. Superseded a-e full probes/logs/input maps are intentionally not selected; exact failure diagnostics and repair facts survive here."
+  },
+  "claim_boundary": "Combined development only; no installation, independent review, exhaustive audit or source acceptance."
+}

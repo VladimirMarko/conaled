@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "fixed_before_compiler_utc": "2026-11-24T10:12:06.312033+00:00",
+  "author": "/root/io_bridge",
+  "compiler_runs_by_author": 0,
+  "interface_source": "work/continuation/PolynomialDecider143a.lean",
+  "interface_sha256": "ea47e1be2b32cca741dcc9303a0cdec46c2b40109da9c65a3b26d5ea5e785f54",
+  "status": "Concrete controller expectations fixed before any compiler feedback on these new consumers. Generic I/O and earlier certificate checks are prior evidence only.",
+  "fixed_data_before_raw": {
+    "parameters": "K, \u0393, \u039b, R and all finite instances; caller and initial",
+    "alphabet": "Package.Alphabet (machine caller initial)",
+    "control": "MarkedInput.Control (Package.Control (machine caller initial))",
+    "blank": "(false, fun _ => none), the existing \u0393\u2032 blank",
+    "start": "MarkedInput.Control.start",
+    "source_default": "Package.controlInhabited from actual package main and initialRegisters initial",
+    "bit": "MarkedInput.symbol at actual package input index; no whole-word encoder",
+    "machine": "ordinaryMachine caller initial, fixed before raw",
+    "time": "ordinaryTimePolynomial (tapeActionBound caller), fixed before raw"
+  },
+  "ordinary_bound": {
+    "definition": "T_A(N) = N + 3 + encodedPrimitiveTimeBound A N",
+    "primitive_definition": "3 * ((N*N + 10*N + 36) * (1 + A*(2*(N+1+A)+2)))",
+    "T_0_0": 111,
+    "T_0_1": 145,
+    "T_1_0": 759,
+    "T_1_1": 1273,
+    "meaning": "Uniform upper bound to live stopped singleton output, never asserted as exact runtime",
+    "outer_none": "One additional native transition, uniform bound T_A(N)+1",
+    "witness_preservation": "Widen only steps_le_m; retain original toEvalsTo and literal steps"
+  },
+  "input_output_expectations": {
+    "all_raw_words": "Every finite Boolean word, including malformed framing",
+    "empty_and_present_false": "Distinct complete native input tapes, distinct because none and some false differ",
+    "letters": "Both Boolean letters are nonblank and injection is injective",
+    "output": "Full Tape.mk\u2081 singleton of ordinary bit at live done; actual next step none; native eval singleton retained",
+    "indices": "Actual input and fuel indices remain distinct",
+    "prelude_empty": 1,
+    "prelude_positive": "N+2",
+    "emitter": 1,
+    "terminal": 1,
+    "true_initial_fixture": "Boolean caller register initial=true remains true in the supported source default and in the actual prelude run entry; wrapper start itself remains start"
+  },
+  "pair_and_witness_expectations": {
+    "existing_codec_only": "BitPairFraming.frame input cert = escapeBits input ++ true :: cert",
+    "exact_frame_length": "2*input.length + cert.length + 1",
+    "all_pair_allowance": "2*(input.length + cert.length + 1), using the existing checked frame_length_le_combined",
+    "all_pair_polynomial": "ordinaryTimePolynomial A composed with 2*(X+1), evaluated at input.length+cert.length; no certificate-size premise",
+    "small_certificate": "For BinaryYes input, the existing actual certificate has cert.length \u2264 input.length^2",
+    "small_frame_allowance": "(input.length+1)^2",
+    "small_witness_polynomial": "ordinaryTimePolynomial A composed with (X+1)^2",
+    "literal_empty_frame": "frame [] [] = [true], length1",
+    "empty_pair_all_pair_allowance": 2,
+    "all_pair_poly_A0_at0": 185,
+    "all_pair_poly_A1_at0": 1985,
+    "small_witness_poly_A0_at0": 145,
+    "small_witness_poly_A1_at0": 1273,
+    "valid_empty_tree_instance_length": 20,
+    "its_literal_empty_certificate_frame_length": 41,
+    "its_generic_witness_length_allowance": 400,
+    "its_generic_frame_allowance": 441,
+    "threshold": "Literal bs and its width retained; no canonicalization or unary replacement",
+    "semantics": "Concrete rotation consumer only; generic raw decider does not import rotation or duplicate codec"
+  },
+  "nonclaims": [
+    "Conventional NP equivalence",
+    "Cook machine or pair-format simulation",
+    "Executable finite-table serialization",
+    "Primitive visited-space theorem",
+    "Textbook row qualification",
+    "Ordinary owner installation or acceptance"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "purpose": "One canonical current consumer body set; compact closure of superseded148 generation metadata.",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "installed_in_current_source": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "current_recipe_member": "current/research/reassembly/delimiter-consumer149.json",
+  "current_body_members": [
+    "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+    "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+    "current/research/delimiter-consumer149/DelimiterConsumerCases149f.lean"
+  ],
+  "retained_delimiter_body_members": [
+    "current/research/delimiter/DelimiterPrelude144b.lean",
+    "current/research/delimiter/DelimiterPreludeExamples144c.lean",
+    "current/research/delimiter/Protocol144b.lean",
+    "current/research/delimiter/NativeLoops144b.lean",
+    "current/research/delimiter/PrefixComposition144b.lean"
+  ],
+  "fixed_expectations_member": "current/research/delimiter-consumer148/EXPECTATIONS.json",
+  "original_17_fixtures": "The complete DelimiterPreludeExamples144c.lean body and unchanged fixed delimiter contracts remain literal; six bridge consumers do not replace them.",
+  "mathematical_contract": {
+    "generic": "encodedRun_of_outputsInTime consumes an actual TM2OutputsInTime tm raw (some out) T and total-stack occupancy B on actual prefixes strictly before source.steps; fixed package finite data/defaults precede raw input.",
+    "generic_allowance": "3 * (T * (1 + A * (2 * (B + A) + 2))), A = finiteActionBound tm.m; retain full TrCfg (haltList tm out), actual finite EncodedRun, source stored count and toEvalsTo.",
+    "concrete_source": "For literal three-letter length N: source count preludeSteps raw + runSteps (handoffWord raw), allowance 4*N*N + 23*N + 38, every-prefix occupancy max (2*N) 1 <= 2*N+1. Use the complete actionMaximum, not caller-only bound3.",
+    "native": "Fixed OrdinaryPackage.machine, outputLetter some, fallback false; input is a per-letter map. Delimiter selected slot some none, present false some (some false), blank none. Retain injectivity/nonblank, distinct stores, supplied registers/main, literal length and complete singleton output tape.",
+    "counts": "ordinary_run keeps related target, primitive/live/next-none witnesses; live.steps = 1 + (primitive.steps + MarkedInput.preludeSteps raw), after.steps = 1 + live.steps, stopped output and native evaluation. Uniform allowance N+3+encodedPrimitiveTimeBound A N.",
+    "cases": "Original exact prelude clocks2,4,5,14,11,9 remain with full old initializers and ordinary output configurations. literal_pair uses (verifyBitsRun input cert).1; malformed includes missing/repeated cleanup. Separate delimiter/false/blank distinctness is retained.",
+    "conventional": "conventional_run uses PrintMove.decide_of_native_run with fixed work-alphabet decidable equality before raw, a separate Boolean output embedding, exact simulationTime+1 and <=2*native.steps+1, accept/reject control and complete output tape moved right.",
+    "limits": "No executable transition-table export, NP/class equivalence, sharper physical-space result, exact primitive count from a source clock, row qualification, ordinary installation or full-source acceptance."
+  },
+  "actual149f": {
+    "outcome": "passed",
+    "actual_exit_code": 0,
+    "terminal_observed": true,
+    "elapsed_seconds": 6.6278316200005065,
+    "finished_utc": "2026-11-24T21:00:33.782751+00:00",
+    "nonnull_unchanged_bindings": 459,
+    "result_historical_identity": {
+      "bytes": 240535,
+      "sha256": "1bce7ccc5781633ef5a52c09a95a89a8aaff8e2f54ce8a00847ad5f2ca71d3bd",
+      "mode": "100644"
+    },
+    "result_member": "current/evidence/research/delimiter-consumer149f.result.json",
+    "child_member": "current/evidence/research/delimiter-consumer149f.child-exit.json",
+    "log_member": "current/evidence/research/delimiter-consumer149f.log",
+    "root_reading_member": "current/evidence/research/ROOT_READING_DELIMITER149f.json",
+    "reading_limit": "This preparation checked recipe/source identities and actual result metadata only. Root supplies attributed current output reading; old-prefix reading is not inferred."
+  },
+  "failures_member": "current/evidence/research/delimiter-consumer149-failures.json",
+  "failure_preservation": "Actual a-e exits, diagnostic text/ranges, exact source/log/result descriptors, input/null-binding and reading limits survive in the compact frozen aggregate and cumulative outcomes. Superseded full failed probes/logs/maps are not required literal payloads.",
+  "original148": {
+    "status": "UNCOMPILED at its own cutoff; later a failed, then proof-only b-f repairs; never relabel the old148 body as passed.",
+    "target": {
+      "bytes": 138052,
+      "sha256": "a6326a0032300a69d182839c8900d1ff9dc26a603940d1a1112bad75ec8ee1d8"
+    },
+    "recovery": "Its exact source-only replay actually passed during148 strict recovery; this does not grant compilation credit. Old full input is no longer promised reconstructible after canonical replacement.",
+    "reading_limits": "Original author read all five retained delimiter bodies, fixed contracts/fixtures/model (not executed), three new drafts and preparer. Installed interface ranges were partial; historical delimiter result fields only, without fresh full old compiler-log reading or independent review."
+  },
+  "reassembly": {
+    "normal_imports": [
+      "import Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+      "import Applications.Resources.TuringSimulation.OrdinaryPackage",
+      "import Applications.Resources.TuringSimulation.TapeToPrimitive",
+      "import Applications.Resources.TuringSimulation.PrintMove"
+    ],
+    "queries": {
+      "readable": 238,
+      "expanded": 5,
+      "axiom_roots": 14
+    },
+    "component_count": 8,
+    "source_slice_bytes": 118247,
+    "literal_glue_bytes": 23087,
+    "omitted_import_lines": [
+      {
+        "source": "current/research/delimiter/DelimiterPrelude144b.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 76,
+        "text": "import Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine\n"
+      },
+      {
+        "source": "current/research/delimiter/DelimiterPreludeExamples144c.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 28,
+        "text": "import DelimiterPrelude144b\n"
+      },
+      {
+        "source": "current/research/delimiter/Protocol144b.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 28,
+        "text": "import DelimiterPrelude144b\n"
+      },
+      {
+        "source": "current/research/delimiter/NativeLoops144b.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 20,
+        "text": "import Protocol144b\n"
+      },
+      {
+        "source": "current/research/delimiter/PrefixComposition144b.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 23,
+        "text": "import NativeLoops144b\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 63,
+        "text": "import Applications.Resources.TuringSimulation.OrdinaryPackage\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+        "byte_start": 63,
+        "byte_end_exclusive": 126,
+        "text": "import Applications.Resources.TuringSimulation.TapeToPrimitive\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 29,
+        "text": "import PrefixComposition144b\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+        "byte_start": 29,
+        "byte_end_exclusive": 59,
+        "text": "import SourceRunToOrdinary148\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+        "byte_start": 59,
+        "byte_end_exclusive": 116,
+        "text": "import Applications.Resources.TuringSimulation.PrintMove\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/DelimiterConsumerCases149f.lean",
+        "byte_start": 0,
+        "byte_end_exclusive": 36,
+        "text": "import DelimiterPreludeExamples144c\n"
+      },
+      {
+        "source": "current/research/delimiter-consumer149/DelimiterConsumerCases149f.lean",
+        "byte_start": 36,
+        "byte_end_exclusive": 70,
+        "text": "import DelimiterNativeConsumer148\n"
+      }
+    ],
+    "instruction": "Use current/research/reassemble_research.py with the selected recipe, recovered packet root and optional current RESEARCH_PATH_MAP.json; no compiler invocation. Exact reconstruction is checked separately from output-reading or acceptance."
+  },
+  "retired_metadata": {
+    "current/research/delimiter-consumer148/MANIFEST.json": {
+      "bytes": 23247,
+      "sha256": "778763a9079b7b7eb4da96ed8c912bd919b285c8b4eb06334547ff73fc3cdfc2",
+      "mode": "100644"
+    },
+    "current/research/delimiter-consumer148/SNAPSHOT.json": {
+      "bytes": 2728,
+      "sha256": "2abff38ed37945eaf3369af7f267749eac0beccaa5bb7fa0f9081f7892e9dac5",
+      "mode": "100644"
+    },
+    "current/research/delimiter-consumer148/SOURCE_MAP.json": {
+      "bytes": 34032,
+      "sha256": "d9c3be47c283cbe3e7c95a97a646328e9b884597ae4e893c61f8e6ec97446975",
+      "mode": "100644"
+    },
+    "current/research/delimiter-consumer148/prepare_probe.py": {
+      "bytes": 12776,
+      "sha256": "65fee81afc7f291e72174228c90d6512d314b31fbfbf4581b5a28d5c521b68eb",
+      "mode": "100644"
+    },
+    "current/research/delimiter-consumer148/README.md": {
+      "bytes": 8862,
+      "sha256": "9ba695f55eccb481484174ecb40c24496438b1a0b6c782983d70bb8ce5c87759",
+      "mode": "100644"
+    }
+  },
+  "availability": "Only current recipe/canonical bodies/fixed contracts and selected final evidence are promised. Historical identities in retained receipts are provenance, not promises to retain old products or every earlier input."
+}

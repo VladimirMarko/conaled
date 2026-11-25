@@ -1,0 +1,38 @@
+/workspace/scratch/ae71b485b114/work/normal-form149-checks/NormalForm149a.lean:27:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eval ?x ?m.17
+in the target expression
+  (fun x => eval x p) a ≤ (fun x => eval x p) b
+
+p : ℕ[X]
+a b : ℕ
+hab : a ≤ b
+⊢ (fun x => eval x p) a ≤ (fun x => eval x p) b
+Resources.PolynomialTime.NormalFormDraft148.exponent (p : Polynomial ℕ) : ℕ
+Resources.PolynomialTime.NormalFormDraft148.eval_monotone (p : Polynomial ℕ) : Monotone fun x => Polynomial.eval x p
+Resources.PolynomialTime.NormalFormDraft148.eval_le_coefficient_sum_mul_power (p : Polynomial ℕ) (N : ℕ)
+  (positive : 1 ≤ N) : Polynomial.eval N p ≤ Polynomial.eval 1 p * N ^ p.natDegree
+Resources.PolynomialTime.NormalFormDraft148.eval_zero_le_exponent (p : Polynomial ℕ) :
+  Polynomial.eval 0 p ≤ Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.eval_one_le_exponent (p : Polynomial ℕ) :
+  Polynomial.eval 1 p ≤ Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent (p : Polynomial ℕ) (N : ℕ) :
+  Polynomial.eval N p ≤
+    N ^ Resources.PolynomialTime.NormalFormDraft148.exponent p + Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound (p : Polynomial ℕ) :
+  ∃ k, ∀ (N : ℕ), Polynomial.eval N p ≤ N ^ k + k
+Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound (p : @Polynomial.{0} Nat Nat.instSemiring) :
+  @Exists.{1} Nat fun (k : Nat) =>
+    ∀ (N : Nat),
+      @LE.le.{0} Nat instLENat (@Polynomial.eval.{0} Nat Nat.instSemiring N p)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) N k)
+          k)
+'Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+'Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

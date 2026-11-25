@@ -1,0 +1,19 @@
+⚠ [1266/1272] Built Applications.Resources.TuringSimulation.TapeReflection (4.2s)
+warning: Applications/Resources/TuringSimulation/TapeReflection.lean: imports `Mathlib.Computability.TuringMachine.PostTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1267/1272] Built Applications.Resources.TuringSimulation.FiniteControl (4.7s)
+warning: Applications/Resources/TuringSimulation/FiniteControl.lean: imports `Mathlib.Computability.TuringMachine.PostTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/FiniteControl.lean: imports `Mathlib.Data.Fintype.Sets` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1268/1272] Built Applications.Resources.TuringSimulation.PolynomialDecider (4.4s)
+warning: Applications/Resources/TuringSimulation/PolynomialDecider.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PolynomialDecider.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1269/1272] Built Applications.Resources.TuringSimulation.StackToTape (4.0s)
+warning: Applications/Resources/TuringSimulation/StackToTape.lean: imports `Mathlib.Computability.TuringMachine.StackTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1270/1272] Built Applications.Resources.TuringSimulation.FiniteStackToTape (1.7s)
+warning: Applications/Resources/TuringSimulation/FiniteStackToTape.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/FiniteStackToTape.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1271/1272] Built Applications.Resources.TuringSimulation.SingletonOutput (1.4s)
+⚠ [1272/1272] Built Applications.Resources.TuringSimulation.MarkedInput (1.8s)
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Computability.TuringMachine.StackTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Tactic.DeriveFintype` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (1272 jobs).

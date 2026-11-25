@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "reader": "/root",
+  "recorded_utc": "2026-11-24T21:15:47.730975+00:00",
+  "run": "delimiter-consumer149f",
+  "actual_exit_code": 0,
+  "log": {
+    "bytes": 233597,
+    "sha256": "3cbd6ae975537e1fee10c6bfd32f9d4117d1c0f896ace9de32b9b9c42485dda9",
+    "mode": "100644"
+  },
+  "new_readable_statements": 40,
+  "new_expanded_statements": 4,
+  "new_selected_axiom_roots": 6,
+  "fresh_reading_inclusive_lines": [
+    1083,
+    2937
+  ],
+  "full_new_tail_freshly_read": true,
+  "ellipsis_glyphs_in_entire_output": 0,
+  "observed_new_roots": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "semantic_assessment": [
+    "Generic tm and T/B/source/prefix occupancy remain explicit, with bundled kFin and LambdaFin and complete TrCfg target.",
+    "Concrete R/Fintype/initial fixed before raw; full-program A remains distinct from caller bound3.",
+    "Actual encoded before, live some output and next-None after witnesses retain full configurations; live.steps=1+(before.steps+preludeSteps), after.steps=1+live.steps.",
+    "PrintMove DecidableEq fixed before raw; actual native/target EvalsToInTime bounds, literal per-letter input, .normal .start, complete decidedCfg tape and stopped fact preserved.",
+    "Exact simulationTime+1 and relative target.steps<=2*native.steps+1 remain separate from polynomial allowance."
+  ],
+  "reading_limits": "Old198 readable/1 expanded/8 roots in lines1\u20131082 remain historically attributed; no fresh complete reading claimed for them. New-tail source/root reading is implementation assessment, not independent Standards/Spec review or exhaustive audit.",
+  "after_checkpoint149_cutoff": true,
+  "source_accepted": false,
+  "receiving_accepted": false
+}

@@ -1,0 +1,562 @@
+{
+  "schema": "conaled.spec-review.4",
+  "reviewer": "/root/requirements_review/spec139",
+  "original_reviewer": "/root/parser_review/spec",
+  "same_original_loop": true,
+  "successor_identity_explicit": true,
+  "round": 10,
+  "candidate": "a45cfbc32273fb6c86171ab1b6749f89ff007fa0",
+  "tree": "0fdae5c200efdb59de26b569543799783be3d476",
+  "ticket_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 60,
+  "scope_identity": "6745d491eb3e2eb696661aad90a8e14538770105a7e3aca2c3561ee2b6cf39ec",
+  "content_identity": "37336083ff06084a2cf854219a283828cab08253f3b0d807750b1e08cfeb8a6c",
+  "projection_identity": "22b413ae8650b3d37c053b557aef75c659c9e3004d71f75ca0e0326ca639cb19",
+  "observed_utc": "2026-11-24T11:56:50.158391+00:00",
+  "outcome": "Blocked",
+  "assessment_stage": "Final source and complete available-output assessment; acceptance Blocked",
+  "review_complete": false,
+  "source_assessment_complete": true,
+  "public_statement_output_review_complete": false,
+  "source_accepted": false,
+  "historical_rounds_retained": 7,
+  "successor_rounds_retained": [
+    8,
+    9
+  ],
+  "historical_unknowns_and_limits_unchanged": true,
+  "requirements": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+      "bytes": 2205749,
+      "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/controller-tape-addendum140.md",
+      "bytes": 5322,
+      "sha256": "cdd07335fff81761599f4ecf2074b3d065a13806997eb0b103cdd73160cad361"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/primitive-addendum141.md",
+      "bytes": 6738,
+      "sha256": "83f6d00bdc401d7b859b8b58c0b55a8f8d9398f49166cf46e06df29f8329420c"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/output-observation-addendum142.md",
+      "bytes": 2346,
+      "sha256": "43e4a3f46a1a825b02a894abf466a3087f4ef252d4f0b6c377a65d5ff3b84500"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/ordinary-io-addendum143.md",
+      "bytes": 3929,
+      "sha256": "b9e74e2c7282d4bf3b9622d809249d661d17237cadf5c454163991d9085c5e0a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/ordinary-integration144-plan.md",
+      "bytes": 5884,
+      "sha256": "5d8b252df2ecb0206405b52da39004fd8e3806deef19e4e53706f9e3b172236a"
+    }
+  ],
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "previous_full_report": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec142.json",
+    "bytes": 50082,
+    "sha256": "4986d5d1d64702ddc51cb1578b13785cfd3cc2a73d37e99501cfe7ad8443f635"
+  },
+  "source_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate144.json",
+    "bytes": 9734476,
+    "sha256": "f617f15b32ab6e6f5e672188195c337823f9efce931c5fab3cfa2b11ff88dbed"
+  },
+  "independent_source_identity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-source-identity.json",
+    "bytes": 19388,
+    "sha256": "e5ed3007bbf8ade782295a8e7b71620c448b553f5e4cf6f54c43bc6385b93051"
+  },
+  "independent_provenance": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-provenance-check.json",
+    "bytes": 14106,
+    "sha256": "3077f1ec66018bcf9fe4c6cc74214e9dd57c8f8ad1874d7e79ee04ecc43b988c"
+  },
+  "independent_document_delta": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-active-document-delta.json",
+    "bytes": 26711,
+    "sha256": "ddc2906d19873f73fe8127c17c557bd47c9cb3251550c4f04ecbc939d9f56002"
+  },
+  "changed_owner_inventory": [
+    {
+      "path": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "bytes": 5877,
+      "lines": 126,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "bytes": 54742,
+      "lines": 992,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "bytes": 17998,
+      "lines": 381,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "bytes": 21194,
+      "lines": 468,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "bytes": 3223,
+      "lines": 82,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "bytes": 4852,
+      "lines": 117,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "bytes": 5232,
+      "lines": 141,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "bytes": 25433,
+      "lines": 573,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Examples/RotationCertificateCorrespondence.lean",
+      "bytes": 9437,
+      "lines": 184,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": true,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "bytes": 27942,
+      "lines": 513,
+      "sha256": "3e9ecce3ca9276bfba5834179816b860b321248c514bb93c4fcefd931958e403",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "bytes": 48440,
+      "lines": 1172,
+      "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "bytes": 46872,
+      "lines": 1300,
+      "sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "bytes": 3772076,
+      "lines": 75143,
+      "sha256": "b79583c8aaf942e6962d92054223a8b9815e470ba326b81523d64e4e9bdd7213",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "bytes": 855928,
+      "lines": 12687,
+      "sha256": "4e79af4a47f2524ce367eb84816a223bfe61fc0dada333c25d09639a8b55ad02",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "bytes": 55675,
+      "lines": 983,
+      "sha256": "307ddc32ef349c1b841d6174f8e8d4a2ba70c8dd111f70f7a5da693215925b97",
+      "unchanged_tree_entry_from142": false,
+      "new_from142": false,
+      "matches_receipt_hash": true
+    }
+  ],
+  "source_reading": {
+    "all7_new_owners_complete_including_proofs": true,
+    "FrontEndStreamTapeMachine": {
+      "fresh_ranges": [
+        [
+          1,
+          40
+        ],
+        [
+          241,
+          992
+        ]
+      ],
+      "prior_body_reuse": "Complete142 namespace body, unchanged, now30-263; full prior source/proof reading applies. Fresh append265-992 read completely including proofs."
+    },
+    "FiniteStackToTape": "Full16-line append and exact diff read; previous complete365-line body retained.",
+    "Examples_TuringSimulation": {
+      "fresh_ranges": [
+        [
+          1,
+          12
+        ],
+        [
+          715,
+          1172
+        ]
+      ],
+      "prior_body_reuse": "Complete723-line142 body retained with new imports; new appended729-1172 fully read including proofs."
+    },
+    "Examples_ControllerTape": {
+      "fresh_ranges": [
+        [
+          1,
+          16
+        ],
+        [
+          266,
+          513
+        ]
+      ],
+      "prior_body_reuse": "Complete274-line142 body and18 declarations retained with new imports; full append278-513 read including proofs."
+    },
+    "SquareApplications": "Complete7-import addition diff read.",
+    "paper": "Complete142-to144 diff read: one-phrase143 remedy at75005 and all108 appended lines75036-75143.",
+    "CTB_coverage": "Complete recursive decoded diff: exactly five active gate strings, identical current60-owner value; all other values unchanged.",
+    "additional_dependency": "Complete immutable Examples/RotationDistance.lean read, including connected shapes, actual root move and independently derived distance1.",
+    "frozen_expectations": [
+      {
+        "path": "/workspace/scratch/ae71b485b114/work/io-research/EXPECTATIONS.json",
+        "bytes": 3716,
+        "sha256": "157caa43f0245abc3f4dcd248e1490a48c99ed0bba81b1d059ae9cafe61d3681"
+      },
+      {
+        "path": "/workspace/scratch/ae71b485b114/work/certificate-research/EXPECTATIONS.md",
+        "bytes": 3612,
+        "sha256": "49558304cbc544390c79ef5108173250d883b363340c0ffc326ae6429faf31ed"
+      }
+    ],
+    "complete_new_source_reading_not_compilation": true,
+    "additional_diagnostic_ranges": [
+      {
+        "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+        "ranges": [
+          [
+            3293,
+            3314
+          ],
+          [
+            8492,
+            8513
+          ]
+        ],
+        "purpose": "Independent exact source mapping of actual promoted lints."
+      },
+      {
+        "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "ranges": [
+          [
+            105,
+            133
+          ]
+        ],
+        "purpose": "Reassessed exact dependent-alphabet statement errors after actual output."
+      }
+    ],
+    "current_query_preparation": "Complete README_FIRST.md/SCOPING.md; exact16 retained-body comparisons and61 tracked author-source binding comparisons against Git144. Query fragment/source-map roles and all6 diagnostic mappings assessed. Not all product/dependency contents freshly read.",
+    "certificate_expectation_provenance": "Complete certificate-research README and EXPECTATIONS read; their implementation-assistance limits retained, not treated as independent approval. I/O EXPECTATIONS SHA matches its frozen SNAPSHOT entry."
+  },
+  "analysis_reuse": {
+    "45_unchanged_entries_independently_verified": true,
+    "all60_hashes_match_receipt": true,
+    "prior_source_analysis_only_not_approval": true,
+    "previous_original_19_analysis_retained": true,
+    "original84_controller_records_96_domains_preserved": true,
+    "original81_positive_fixtures1292_fields_comparison_retained": true,
+    "Standards57_Audit6_round9_reading_not_credited_to_Spec": true,
+    "previous_round142_limits_verbatim": [
+      "Complete53-owner assessment means intended public claims, actual operational definitions, premises, affected dependencies and connected cases assessed through independently read deltas and explicitly attributed exact-body prior analysis. It does not mean all historical proofs, all generated helper types or every requirements/paper/provenance line were reread.",
+      "Ordinary proof and intermediate trace omissions for unchanged owners remain exactly those recorded in spec139.json. Original-round7 analysis is attributed and matched; blocked historical reviews are not reused as approvals.",
+      "18 new controller-client declarations lack actual type output, despite full independent source/proof reading. No ordinary installed module success is inferred from amalgamated development results.",
+      "Only current142 output1-879 and1326-1365 and listed expanded ranges were read for this candidate. Outside142 output880-1004 was incidentally seen but not assessed; remaining research output and3 research axiom queries not read/approved.",
+      "All historical UNKNOWNs preserved; actual139 child137 exits do not establish cause or an outer result.",
+      "No ordinary Boolean encoder/output adapter, visited-space theorem, full formal NP theorem, FDSA-5-92, exact rotation diameter, whole VFA/FDSA/PFDS book/thesis union or ADWH programme completion is claimed."
+    ],
+    "previous_round142_limits_are_historical_not_current_scope": "The quoted142 statement that ordinary I/O/visited space were then outside scope is retained as history.144 now contains the specific ordinary wrapper and time-derived visited-space source described here; full conventional adapter/NP remain outside144.",
+    "current_reading_limits": [
+      "19 unchanged original-round7 Lean bodies retain explicitly attributed predecessor analysis, not approval.20 component/controller owners retain round8 complete operational-definition/contract/case assessment with ordinary proof omissions precisely recorded in spec139.json; only listed supplementary proof ranges were read.",
+      "Stream example lines1321-1905 retain the omission of most intermediate TracePoint rows; all44 records, actual contracts and endpoints were assessed. All84 controller records,142 cleaner boundaries and96 generic domains remain binding; the81 positive-fixture/1292-field comparison is mechanical evidence, not native execution.",
+      "The2.2MB requirements15 body and75k-line paper were not wholly reread. Previously listed normative/API/case and programme readings remain attributed; every current addendum was read completely in its relevant review round. All144 paper/document deltas were read.",
+      "All7 new owners and fresh append/case proofs were read fully. The45 unchanged142 entries and retained complete old bodies of4 extended owners were independently checked. Prior43-owner142 reuse is preserved as an earlier layer.",
+      "All5637 actual current144 query log lines were read, including347 readable outputs,18 expanded observations as printed and22 roots. Two requested declarations are absent. Literal printer elisions at4171,4174,4177,4181,4191,4271,5556,5557 are not reconstructed or counted as fully visible expanded content.",
+      "The349-name list is a lexical planned public/selected-generated inventory, not an elaborated environment census. Five private proofs and three anonymous example instances are excluded from that named query plan. Source reading of them does not create separate emitted-type/axiom-audit credit.",
+      "Actual22 selected axiom roots are standard-only observations in an exit1 combined attempt, not exhaustive owner/library audit or a successful candidate validation. No source fragment or later #check output repairs preceding failures.",
+      "Prior native144c output was not independently reread by this Spec axis; author/helper reading credits remain attributed. Standards57 Audit6 reading is that axis's round9 credit. Historical UNKNOWNs and unread scopes remain.",
+      "No ordinary-module/client, whole144/exhaustive audit, immediate supported verify or supported compare success has been supplied. Seven actual whole139 child137 exits do not establish cause or an outer terminal. No later145 source or result is assessed here."
+    ]
+  },
+  "source_findings": [
+    {
+      "id": "SP-D001",
+      "severity": "P2",
+      "status": "resolved on144",
+      "history": "Resolved on142 only in prior round; reassessed all five current60-owner gate values now.139 finding remains historically valid.",
+      "evidence": "Exactly five decoded gate values changed; all identify current60 owners and actual successful narrower development evidence, pending ordinary modules/current query output and whole/audit/verify/compare/both axes, preserved scopes/cases/qualification counts and entire remaining programme."
+    },
+    {
+      "id": "SP-D002",
+      "severity": "P2",
+      "status": "resolved on144",
+      "history": "Open on142; author143 remedy now independently assessed as captured144.",
+      "evidence": "Paper75005 now says actual two-step source-run live2/none3. Appended143 correction explicitly identifies true-register/arbitrary-tape configured run and distinguishes genuine package initialization. Original two-step case body retained; separate new genuine native-init Peek fixture has live5/none6 and visits{-1,0}, with explicit correct translated default."
+    },
+    {
+      "id": "SP-C001",
+      "severity": "P2",
+      "status": "unresolved on144",
+      "first_observed_round": 10,
+      "title": "Make both required marker-case statements elaborate",
+      "candidate": "a45cfbc32273fb6c86171ab1b6749f89ff007fa0",
+      "locations": [
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 113,
+          "declaration": "empty_encoded_input_has_a_marker_without_a_raw_symbol"
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 120,
+          "declaration": "singleton_false_encoded_input_has_a_symbol_on_its_marker"
+        }
+      ],
+      "requirement": "Retain and actually check the existing18 controller-client cases, including full empty/false marker distinction and exact trInit length; example-driven actual public statement review and ordinary-module validation.",
+      "evidence": "The bound current144 attempt fails at combined20629/20636 because trInit cannot infer dependent Γ from []/[false] : Bits when only .length is consumed. The corresponding349-plan checks then fail with unknownIdentifier at combined22221/22222 (log119/120). The two declarations have no printed type. All16 copied bodies and61 tracked author-source inputs match immutable144; the old namespace body is unchanged from142.",
+      "consequence": "Two required connected empty/present-false case declarations are unavailable, so the existing18 client statement requirement and current query gate are not met.",
+      "remedy": "Supply the explicit package alphabet Γ for the two trInit occurrences (or an equivalent fully typed expression), retain the literal []/[false], complete marker observations and exact length1, then run and read the actual matching query and ordinary owner checks on a supported successor. Do not add a premise, delete the cases, replace them with head-only assertions, or count later query output as successful validation.",
+      "execution_boundary": "This is an observed failure in the exact-body combined probe. No ordinary isolated module invocation was run by this reviewer or inferred from this attempt. Future author145 repairs do not close this finding on144.",
+      "diagnostic_log_lines": [
+        14,
+        22,
+        119,
+        120
+      ]
+    }
+  ],
+  "validation_findings": [
+    {
+      "id": "SP-V001",
+      "severity": "blocking acceptance",
+      "status": "unresolved",
+      "carried_from_round": 1,
+      "reassessed_round": 10,
+      "title": "Required exact-candidate integrated validation remains unsuccessful or unavailable",
+      "requirement": "Unchanged requirements15 plus timing138/controller140/primitive141/output142/ordinary143/integration144 addenda and the original exact-candidate build/audit/verify/compare/public-statement gates.",
+      "evidence": "Actual current144-statements-attempt1 exited1 after377.240338989s with296 unchanged bindings. Six diagnostics comprise2 promoted lints,2 dependent-alphabet statement failures and2 downstream unknownIdentifier queries.347/349 readable observations,18 expanded observations as printed and22 selected roots were read completely;2 old case outputs are absent and expanded printer elisions remain. Matching ordinary144 modules/clients, whole144/exhaustive audit, immediate supported nonrepairing verification and supported comparison remain unavailable. Seven historical139 child137 exits have no supplied outer terminal or established cause.",
+      "promoted_lint_locations": [
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+          "line": 3301,
+          "diagnostic": "unused automatically included [Fintype K]",
+          "log_line": 1
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+          "line": 8500,
+          "diagnostic": "unused simp argument Nat.zero_add",
+          "log_line": 7
+        }
+      ],
+      "remedy": "Resolve the actual case and lint diagnostics without suppressions, weakening fixtures or changing resource limits; provide successful matching ordinary module/client and statement output, visible requested tail contracts, exact whole/exhaustive audit, immediate supported verify and supported final compare. Continue the same axes and finding history; a new candidate needs explicit delta review."
+    }
+  ],
+  "current_conclusions": [
+    "Full60-owner source/intended-claim assessment and complete available actual output reading finished with precisely attributed unchanged-body reuse and inherited proof/trace limits.",
+    "SP-D001 and SP-D002 resolved on actual144. SP-C001 P2 remains unresolved for the two required marker cases, and SP-V001 remains blocking acceptance.",
+    "Current query actually failed;347 outputs and22 standard-only selected roots are observations, not a successful349-query/module/whole/audit result. Expanded tail visibility remains qualified.",
+    "Ordinary input/output, concrete finite polynomial Boolean verifier and time-derived primitive visited-space contracts are now present in144 source. Formal conventional NP/verifier correspondence, conventional adapter/delimiter, FDSA-5-92/exact diameter and complete textbook programme remain open.",
+    "No source/receiving acceptance, qualification change, compiler run, source/dependency/output mutation, GitHub progress or publication by this axis. Future145 source is not read or assessed."
+  ],
+  "remaining_reading": [
+    "No emitted current144 log range remains unread. Two requested marker-case type outputs are absent because their declarations failed; obtain and independently assess successful corresponding output on a supported correction candidate.",
+    "Expanded ordinary_native_run_with_visited_space still elides six type annotations/repeated arguments and final tail. Source and readable final conjunct were read; fully visible required expanded output remains pending.",
+    "Successful matching ordinary modules/clients, complete whole/exhaustive audit, immediate supported nonrepairing verify and final compare remain pending. Do not erase the failed current144 attempt or historical UNKNOWNs.",
+    "Any successor correction needs immutable identity, exact full cumulative scope/requirements, explicit delta and the same two axes; current future145 work supplies no144 remedy."
+  ],
+  "compiler_commands_run": false,
+  "source_dependency_or_output_mutation": false,
+  "new_Standards144_report_read": false,
+  "github_or_external_messages": false,
+  "available_output_review_complete": true,
+  "receiving_accepted": false,
+  "qualification_changed": false,
+  "source_findings_outcome": "Findings",
+  "preserved_provisional_reports": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec144-provisional-20261124T115105Z.md",
+      "bytes": 5907,
+      "sha256": "619a7b2538f591e2458fada585254d9680648a504f62992cb4e4bec395980fe1"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec144-provisional-20261124T115105Z.json",
+      "bytes": 17460,
+      "sha256": "d35439d469c65ad4b1a331122a5eec5fe970feb122785a25b8497531a518261a"
+    }
+  ],
+  "independent_guidance_integrity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-guidance-integrity.json",
+    "bytes": 4531,
+    "sha256": "8c00131ab3c84a811e95972bb21af74a073d006616b03f7589fa1aea3ddc870a"
+  },
+  "independent_import_ownership": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-import-ownership.json",
+    "bytes": 1525,
+    "sha256": "4b4071aa919be935ba9b51aeef54384aec1141a58294b32c90d345a237e50f01"
+  },
+  "independent_query_integrity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-current-query-integrity.json",
+    "bytes": 12932,
+    "sha256": "33950d7c014e98c8cb4097eed1e3290ecad5822406f8b39f175b4059f5e40180"
+  },
+  "independent_statement_reading": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-statement-reading-progress.json",
+    "bytes": 8918,
+    "sha256": "28d76e48e7944adb5d83a3c9e39954cb2a009c9a0617499edb2360c5c852e7bb"
+  },
+  "independent_output_index": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/spec144-output-index.json",
+    "bytes": 50656,
+    "sha256": "32ee6134ba55d867b2f8e766f3aeb7e3c266ac5734702ab8b8b76d5ec8ffd3f8"
+  },
+  "source_assessment_meaning": "Full60-owner intended public claims, operational definitions, premises, affected dependencies and connected cases assessed through exact-body prior analysis and full fresh source/proof readings stated here. This is neither every historical proof line reread nor acceptance of an unsuccessful integrated candidate.",
+  "actual_statement_evidence": {
+    "result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current144-statements-attempt1.result.json",
+      "bytes": 153620,
+      "sha256": "ecf1557eb8eafeae373f692b4cfbb068fb879793cd124bb293a4e1938281b78b"
+    },
+    "child_exit": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current144-statements-attempt1.child-exit.json",
+      "bytes": 1329,
+      "sha256": "a338ec3ddd682eef17d9b1515861e350fc56c9c40fe328c9d0c479b7540f2232"
+    },
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current144-statements-attempt1.log",
+      "bytes": 425067,
+      "sha256": "0fc808c040c53237261586efed25e35e2c186b79c9f9bf951896fbe2e933de61"
+    },
+    "source": {
+      "path": "/workspace/scratch/ae71b485b114/work/current144-query-preparation/Current144Statements.lean",
+      "bytes": 1423929,
+      "sha256": "5e96c6bf14494152ef9d05b82522be54a78039d04f753d652be05dd3fb5e3ca2"
+    },
+    "exit_code": 1,
+    "bindings_count": 296,
+    "sources_unchanged": true,
+    "all61_tracked_source_bindings_match_Git144": true,
+    "all16_retained_bodies_match_Git144": true,
+    "all_emitted_lines_read": [
+      1,
+      5637
+    ],
+    "requested_readable": 349,
+    "emitted_readable": 347,
+    "old18_emitted": 16,
+    "named_new_emitted": 311,
+    "selected_generated_emitted": 20,
+    "expanded_requested_and_observed": 18,
+    "selected_axiom_roots_observed": 22,
+    "selected_axiom_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "successful_query": false,
+    "ordinary_module_validation": false,
+    "exhaustive_audit": false,
+    "missing_declarations": [
+      "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+      "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker"
+    ],
+    "literal_expanded_elision_lines": [
+      4171,
+      4174,
+      4177,
+      4181,
+      4191,
+      4271,
+      5556,
+      5557
+    ],
+    "final_interval_conjunct_readable_visible": [
+      1134,
+      1139
+    ],
+    "expanded_final_interval_conjunct_visible": false
+  },
+  "mathematical_assessment": {
+    "Boolean_interface": "PolynomialBooleanDecider.bit : Bool ↪ Alphabet bundles injectivity; bit_ne_blank separates both letters from blank; true_ne_false follows from d.bit.injective. Expanded actual structure2172-2187/2273-2312 confirms embedding and supplied start/blank. Fixed finite machine/data/polynomial precede forall raw. Generic run observes the head; concrete ordinary controller separately proves complete singleton and native eval.",
+    "ordinary_input": "MarkedInput.input is the literal letter map with length preserved and both Boolean values nonblank. Complete physical tape reflection has exact actual prelude empty1 or positiveN+2; supplied source default is entered. No whole-input preprocessing or runtime reversal is hidden.",
+    "live_output": "Reflection preserves all optional prefixes/counts. Wrapper live-run transport has the necessary live-endpoint premise because it intercepts source none for one paid emit write. Halt relation supplies full singleton tape/all tracks and actual stopped supported control; native eval returns ordinary singleton. Outer none costs one more.",
+    "fixed_polynomial": "With A fixed before raw,N, W(A,N)=3*(N*N+10*N+36)*(1+A*(2*(N+1+A)+2)); ordinary uniform T=N+3+W. All-pair polynomial composes2*(X+1), small-witness polynomial composes(X+1)^2. Widening preserves stored runs/counts; no upper bound is asserted exact.",
+    "certificate": "Same supplied shapes and literal threshold bs are retained; high zero bits retain width; length16*n+4*bs.length+20. Accepted framed certificates are actual legal trace codes; arbitrary raw BinaryYes iff exists small certificate with cert.length<=I^2/frame.length<=(I+1)^2. All-pair run has no syntax/size/positive-threshold premise; witness-run yes premise is appropriate.",
+    "visited_space": "Actual optional prefixes/commands determine signed global head positions and live visited cells. Input cells plus visited interval and every physical nonblank cell are accounted for. The generic interval bound is max N1+T; ordinary consumer uses N+1+T. Actual shared reached/run witness and prefix quantifiers are retained; paid outer none adds no cell. This is a time-derived bound, not a sharp stack-height-only theorem.",
+    "cases": "All new fixed prelude, output, reflection, genuine-init Peek5/6, visited-space, certificate-length/high-zero and polynomial-value cases were read with proofs and now emitted types. The two failed existing marker-length cases are specifically excepted by SP-C001. Old configured two-step true-register/arbitrary-tape run remains distinct from genuine init.",
+    "other_defects": "No further actionable mathematical contract, vacuity, runtime-oracle, count/endpoint or fixed-case expectation discrepancy established in the stated reading scope. This does not assert exhaustive adequacy or proof of the full programme."
+  }
+}

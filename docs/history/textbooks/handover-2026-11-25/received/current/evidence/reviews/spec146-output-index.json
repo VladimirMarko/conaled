@@ -1,0 +1,3555 @@
+{
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "log": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+  },
+  "count": 392,
+  "counts": {
+    "readable": 350,
+    "expanded": 19,
+    "axiom_roots": 23
+  },
+  "entries": [
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+      "query_source_line": 22216,
+      "start_line": 1,
+      "end_line": 16,
+      "body_sha256": "2461c65265e1143457a7761711432707cb12f9c6f0563852802bf9b7dc22d5c7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+      "query_source_line": 22217,
+      "start_line": 17,
+      "end_line": 32,
+      "body_sha256": "ebac24f7b761c131491cac53348bfd2c94854f41b32aaa7ab1f6f89fc140c370",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+      "query_source_line": 22218,
+      "start_line": 33,
+      "end_line": 49,
+      "body_sha256": "726e5765783d9de9c77e01f651c997236bc3b677bb226108029fd22018e843f9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+      "query_source_line": 22219,
+      "start_line": 50,
+      "end_line": 66,
+      "body_sha256": "fd9d4f44b8cac293a4905387f08caecc5cc48d1ac2cc7cfad88a1aded3c913a4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+      "query_source_line": 22220,
+      "start_line": 67,
+      "end_line": 68,
+      "body_sha256": "214ba37cb68590e3d3ceff66bec9ccaaaa412a1a693ea9eb0d83b40974ddee6c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+      "query_source_line": 22221,
+      "start_line": 69,
+      "end_line": 89,
+      "body_sha256": "b7f541ed3fef8cbf18072a812101a17329d7c03013c2eda1f0673929a28fce0c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+      "query_source_line": 22222,
+      "start_line": 90,
+      "end_line": 107,
+      "body_sha256": "d4746907389ff663f2fd957e79314fb14e16970f6a1a22d69a51d8e37b849f63",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+      "query_source_line": 22223,
+      "start_line": 108,
+      "end_line": 125,
+      "body_sha256": "34f0093a709f26bd7617c7fd5d4fa1de050463436888d73d98dec2d766f82e27",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+      "query_source_line": 22224,
+      "start_line": 126,
+      "end_line": 144,
+      "body_sha256": "058d67cd1d9eb6c86244d9e3ee8eae20deec052834c6a95cf298be569b0e6acf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+      "query_source_line": 22225,
+      "start_line": 145,
+      "end_line": 163,
+      "body_sha256": "486b8b8aacbe26130b2ed5ac80612d56abdf6a3df85aa4c41b49288e6891b6e8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+      "query_source_line": 22226,
+      "start_line": 164,
+      "end_line": 182,
+      "body_sha256": "125e7c81e806113357b8735c16beec0ed3836f81eb3306ee42c2ce0fcbc55c46",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+      "query_source_line": 22227,
+      "start_line": 183,
+      "end_line": 201,
+      "body_sha256": "341cbdef3ae377372e2a758c975ee9ddcacc97c835b0b0f52ffd7086626be529",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+      "query_source_line": 22228,
+      "start_line": 202,
+      "end_line": 220,
+      "body_sha256": "01cb027c7d6d4c5683c70369a988d5604adc69cc74d46b75354d97b2514d62df",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+      "query_source_line": 22229,
+      "start_line": 221,
+      "end_line": 233,
+      "body_sha256": "5173d3aa31014d01696c6a2181b1825c605c8c5e62d29c10d74a13cb9142bd3f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+      "query_source_line": 22230,
+      "start_line": 234,
+      "end_line": 241,
+      "body_sha256": "e8479782f41117374b18eb801408ec619bb4247ac67d4248baaea5c661f1b624",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+      "query_source_line": 22231,
+      "start_line": 242,
+      "end_line": 247,
+      "body_sha256": "1c7afe58caf6408c7caff62e5ed6577923a9db51bc4d2927689e8a563b71cfe5",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+      "query_source_line": 22232,
+      "start_line": 248,
+      "end_line": 253,
+      "body_sha256": "95358a4c871830c7f4ef8beecc0aac245f76eb7d274a3dbed36f87a17974ca3a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+      "query_source_line": 22233,
+      "start_line": 254,
+      "end_line": 267,
+      "body_sha256": "f4034718abed1807115eeb1cc4db44913b8887a7a4b88065e9fa4c65fd62604e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.Letters",
+      "query_source_line": 22236,
+      "start_line": 268,
+      "end_line": 268,
+      "body_sha256": "8647b52844226d7b4851e0703e19a7d6d7a9ad27676f82943e80711e07005a36",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.haltSource",
+      "query_source_line": 22237,
+      "start_line": 269,
+      "end_line": 270,
+      "body_sha256": "0228db5e4937e1097fde38fcf374dee94bd94c91b38057267284b606a0f15cc4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.emit",
+      "query_source_line": 22238,
+      "start_line": 271,
+      "end_line": 272,
+      "body_sha256": "328785da650e87a6d5ab938ed027bc84941d8acd1c806827a590cd2255fd639a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.marked",
+      "query_source_line": 22239,
+      "start_line": 273,
+      "end_line": 273,
+      "body_sha256": "83c6decd3dc59399d2c4a549cd9c341e0290149354ce1f322d7fe9553055dded",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.empty_prelude_is_one_actual_write",
+      "query_source_line": 22240,
+      "start_line": 274,
+      "end_line": 282,
+      "body_sha256": "537edf19396b4d057c2c6ba9e3b70077fafe888177425d8cf867375dc80f9162",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.false_prelude_costs_three_and_keeps_present_false",
+      "query_source_line": 22241,
+      "start_line": 283,
+      "end_line": 291,
+      "body_sha256": "88a315bf8b3b7c932a90129ea58209d653c909694e342c3b693bfd81f3b96202",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.true_prelude_costs_three",
+      "query_source_line": 22242,
+      "start_line": 292,
+      "end_line": 300,
+      "body_sha256": "e2e24aeb32fdb21b8da17e546bbd6dd11f3865fb42b2d621c847d6cd3f6f7d2c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.false_true_prelude_exposes_the_reflected_orientation",
+      "query_source_line": 22243,
+      "start_line": 301,
+      "end_line": 311,
+      "body_sha256": "81f1624317da37360661302391a5f80720ce90f2edcf53549cbd1ce354963443",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.true_false_prelude_is_a_different_complete_tape",
+      "query_source_line": 22244,
+      "start_line": 312,
+      "end_line": 322,
+      "body_sha256": "a2e9cef7d4fde179516ec29bee162c3e2a1df18cbaac2102bf871969648319da",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.repeated_false_does_not_terminate_the_scan",
+      "query_source_line": 22245,
+      "start_line": 323,
+      "end_line": 333,
+      "body_sha256": "130511abfffb923c3a37f345d632156c2175185fb323570b2953fe322b2ca213",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.length_three_prelude_has_nearest_first_left_order",
+      "query_source_line": 22246,
+      "start_line": 334,
+      "end_line": 348,
+      "body_sha256": "5f85d63ee9da443540a336eb65e29d1db1e217cd12e65e9845ea6d15dddfa10c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.ordinary_false_is_not_the_blank",
+      "query_source_line": 22247,
+      "start_line": 349,
+      "end_line": 350,
+      "body_sha256": "4e73c56f736eba241f78eb1188e73e34cbb8787ac7076d443d35abb54b63b4bc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.empty_and_false_have_distinct_complete_native_input_tapes",
+      "query_source_line": 22248,
+      "start_line": 351,
+      "end_line": 353,
+      "body_sha256": "c1644058d1dfef1738b23a93257771c0dba0f426e1abbcf8a3b341f4ea3c001d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.ordinary_false_and_true_are_distinct",
+      "query_source_line": 22249,
+      "start_line": 354,
+      "end_line": 355,
+      "body_sha256": "cd1b9656fbbd0a058e4017e4d88b6ddeaa878c0f0b962bb96790b7685c729391",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.input_and_fuel_are_distinct",
+      "query_source_line": 22250,
+      "start_line": 356,
+      "end_line": 356,
+      "body_sha256": "d4df58613ce24b211111fdf561a1983a16f3b38cd4b356176654976fa5eb2b63",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryInput.output_write_and_following_none",
+      "query_source_line": 22251,
+      "start_line": 357,
+      "end_line": 371,
+      "body_sha256": "78f8b138602aebdd996607bfb6181434e72fda724fb05f7acc7d90d494d5acfb",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantMachine",
+      "query_source_line": 22252,
+      "start_line": 372,
+      "end_line": 372,
+      "body_sha256": "93b0c395045022eeaa0548e3cf1df44c8807f456df55c8f7e579595ad6b048dc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+      "query_source_line": 22253,
+      "start_line": 373,
+      "end_line": 376,
+      "body_sha256": "41aa3ddc6999bc77417720a00690b76b5ce6804c71a193f77d72cb5a8d840cd7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantRun_steps",
+      "query_source_line": 22254,
+      "start_line": 377,
+      "end_line": 378,
+      "body_sha256": "05b58416b8d3018c49fd6e94f6805cb7477c159fca67238551cf716002eefe60",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantDecider",
+      "query_source_line": 22255,
+      "start_line": 379,
+      "end_line": 380,
+      "body_sha256": "031941bf93a206ccaa95e57ab1dd3d1c1f25fb96721d927f54a3913c9bf71b23",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantDecider_uses_true_start",
+      "query_source_line": 22256,
+      "start_line": 381,
+      "end_line": 382,
+      "body_sha256": "65e4c95a1993a3b6742ef0c321de1ce2e2df0eb1deb100b7ed68568a7572a5d7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.empty_and_present_false_inputs_differ",
+      "query_source_line": 22257,
+      "start_line": 383,
+      "end_line": 385,
+      "body_sha256": "5e36c5a36f6973a565d6ac94116fe4f1ca2b5039549f7cffbb75816f6d488863",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PolynomialDecider.present_false_output_is_not_blank",
+      "query_source_line": 22258,
+      "start_line": 386,
+      "end_line": 388,
+      "body_sha256": "36d126a3ba5cd879d698239e6baea7c69761031c47ccf1bea2e5ae0c1f6929eb",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.reflectedStep",
+      "query_source_line": 22259,
+      "start_line": 389,
+      "end_line": 390,
+      "body_sha256": "739be95b3857de023145cbc1f07a86f8c7b6f776ee25497468bc14ad4d4c5023",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_first_moves_right",
+      "query_source_line": 22260,
+      "start_line": 391,
+      "end_line": 398,
+      "body_sha256": "6e89d09f24f442d39580e874cb8c28f177240dd52f6405898a0c690970922494",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_right_is_off_bottom",
+      "query_source_line": 22261,
+      "start_line": 399,
+      "end_line": 400,
+      "body_sha256": "5397395e74aad7b6d088147c9e34bead668554cf5fcf2b166287571b1ea1d96e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_second_returns_left",
+      "query_source_line": 22262,
+      "start_line": 401,
+      "end_line": 407,
+      "body_sha256": "86021bb560d7463a17605984df4b49cdf0082688fb0314e664fb8876788fff16",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_third_still_selects_ret",
+      "query_source_line": 22263,
+      "start_line": 408,
+      "end_line": 412,
+      "body_sha256": "78112fc38aac86bf6093f319acbdadc4de72fbbb51596cd22e713395f19a1662",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+      "query_source_line": 22264,
+      "start_line": 413,
+      "end_line": 420,
+      "body_sha256": "3ccf36d86958b9ccf7b6cb580eab142761486bffe18f420eeee93463e901f870",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun_steps",
+      "query_source_line": 22265,
+      "start_line": 421,
+      "end_line": 422,
+      "body_sha256": "8cd231d34307f1de81d2c6cd9b4512255a2f2b115f5f7e141e3f1a503f6ca12d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Phase",
+      "query_source_line": 22266,
+      "start_line": 423,
+      "end_line": 423,
+      "body_sha256": "18c03f846078e7de160766328643ef81ad52df54844ae66892068d1b4cf2593f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Cell",
+      "query_source_line": 22267,
+      "start_line": 424,
+      "end_line": 424,
+      "body_sha256": "acf9151053f57c19d9a89479941272ee58949fd3f74089604d7a7070b2216609",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Cfg",
+      "query_source_line": 22268,
+      "start_line": 425,
+      "end_line": 425,
+      "body_sha256": "5c7f65447e25c7dcd1899b739220e8525d56890902045e6a10881a15208ef6d1",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.haltMachine",
+      "query_source_line": 22269,
+      "start_line": 426,
+      "end_line": 427,
+      "body_sha256": "6fcf742a3b94f4485a64493a220416da32f547482d07d12ad39727c87228285e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeftMachine",
+      "query_source_line": 22270,
+      "start_line": 428,
+      "end_line": 429,
+      "body_sha256": "9ee8df9babbe20f484e288f9442ca263692269964981b03c186ba5585a0f48ad",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.writeEraseMachine",
+      "query_source_line": 22271,
+      "start_line": 430,
+      "end_line": 431,
+      "body_sha256": "e685bc17499b107cef1f715eff9ee08b2b38bd0366b4455fd86ca2faef597d6c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeftMachine",
+      "query_source_line": 22272,
+      "start_line": 432,
+      "end_line": 433,
+      "body_sha256": "c7f9a587a27854a23796df8b2fd2dab91f2464773a9845a88e49c4a47518906a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.emptyStart",
+      "query_source_line": 22273,
+      "start_line": 434,
+      "end_line": 434,
+      "body_sha256": "550f026dc7f213a6a7744e49a597de81ccb3e71ac6ff4314e0905dfa7163f6fc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.falseStart",
+      "query_source_line": 22274,
+      "start_line": 435,
+      "end_line": 435,
+      "body_sha256": "339766ef88575072933807a1dddd77e6eb87adb80e39d9d46d650561cd403648",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoInputStart",
+      "query_source_line": 22275,
+      "start_line": 436,
+      "end_line": 436,
+      "body_sha256": "33beafaf4e395a2b57d1611d4b86ecd7df100227aeb989a7eea746c75dc795de",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.empty_input_head",
+      "query_source_line": 22276,
+      "start_line": 437,
+      "end_line": 438,
+      "body_sha256": "d2da4c6065e9cf4fa1c907c6029dd58823263992d997af5c0c95cdd9f2338f3e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.present_false_input_head",
+      "query_source_line": 22277,
+      "start_line": 439,
+      "end_line": 440,
+      "body_sha256": "4c1ee9e756d078384c83ce91f0bb17e2d56632bc87e19c17030db083374eadc8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.halt_empty_visits_origin",
+      "query_source_line": 22278,
+      "start_line": 441,
+      "end_line": 444,
+      "body_sha256": "015bfb0e12de8bd2606a2c103bd7af5be29586bb9368b3e7126021e63669d1ab",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.halt_false_visits_origin",
+      "query_source_line": 22279,
+      "start_line": 445,
+      "end_line": 448,
+      "body_sha256": "789366eb58a4ac8436b3dfd38c85b098fba82e33d422c39df72a9298c275bd3f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.halt_empty_outer_none",
+      "query_source_line": 22280,
+      "start_line": 449,
+      "end_line": 452,
+      "body_sha256": "4f84edfe9f0bd6730d0ecb3ce3b57a1ce20b32d1934e749af0d26436287d7c34",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.halt_false_outer_none",
+      "query_source_line": 22281,
+      "start_line": 453,
+      "end_line": 456,
+      "body_sha256": "045ac45c24bea643c342219a0ecb1b763a674519a68f2fd5d1a3120131d5f843",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_positions",
+      "query_source_line": 22282,
+      "start_line": 457,
+      "end_line": 462,
+      "body_sha256": "24e7ea491b1642a4f7a5c82914abc1819bef8e80d54d42d44e82890a05c12b62",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_visits",
+      "query_source_line": 22283,
+      "start_line": 463,
+      "end_line": 466,
+      "body_sha256": "565f0704099919a9f72e6dbea045d5fe0f29f1c04949d470346bd44f5b778d79",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_interval",
+      "query_source_line": 22284,
+      "start_line": 467,
+      "end_line": 470,
+      "body_sha256": "b4201cf8846a0ef9ce9e81c5178bfd532e015c67b7d489dc7e03e9d8e25486f0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_live_halt",
+      "query_source_line": 22285,
+      "start_line": 471,
+      "end_line": 476,
+      "body_sha256": "9e8f6664524aff13e38e5b0b304ca126d81dd2e26202cac9d2c889ba2ace2020",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_outer_none",
+      "query_source_line": 22286,
+      "start_line": 477,
+      "end_line": 480,
+      "body_sha256": "73ee6f29e1b11de38562b1ab65fff83b41c12e0a79b589a0c859723640bd0005",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.writeErase_positions",
+      "query_source_line": 22287,
+      "start_line": 481,
+      "end_line": 486,
+      "body_sha256": "305d709858c6080ccb0c6af9280a4c9648ec2dcab260126fcaeadf6c009a0abb",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.writeErase_visits",
+      "query_source_line": 22288,
+      "start_line": 487,
+      "end_line": 490,
+      "body_sha256": "eea74e68789ba149210c6cae4a6e11964074253942a102377d53592153b04b38",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.writeErase_live_halt",
+      "query_source_line": 22289,
+      "start_line": 491,
+      "end_line": 496,
+      "body_sha256": "ba43b7e69dc3a0ba4ef951ee4a1ba2f5168b72428fe6186fb30e877ee8009677",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_positions",
+      "query_source_line": 22290,
+      "start_line": 497,
+      "end_line": 502,
+      "body_sha256": "56de21ab1458f5d01ae5dceca7203bbbf7d422b075a494efc43e4ea10bee51c9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_visits",
+      "query_source_line": 22291,
+      "start_line": 503,
+      "end_line": 506,
+      "body_sha256": "5d1916acc785691b3625c1f7ce2dc75a20fd18221340e3a5e7aaf5b93f9c2767",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_input_plus_visits",
+      "query_source_line": 22292,
+      "start_line": 507,
+      "end_line": 510,
+      "body_sha256": "662b63998c6070275d6731e4768ea83f526c354fd57e4876050c58c3ab95c7b0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_interval",
+      "query_source_line": 22293,
+      "start_line": 511,
+      "end_line": 514,
+      "body_sha256": "182492a2787dd053b0804a7d7cb828f129b281e0f92f35ff3b67ee9c7f6f2bed",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_attains_bound",
+      "query_source_line": 22294,
+      "start_line": 515,
+      "end_line": 518,
+      "body_sha256": "42a6c14e3dfacdcc116a4aefacec45e7abb2bbc39de5a909b4e2d52aa2516bdf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_positions",
+      "query_source_line": 22295,
+      "start_line": 519,
+      "end_line": 524,
+      "body_sha256": "f9647a369ad43fe50f0e51d28022eac95e1bfecae6434a9ea3187e4a93cecb6c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_visits",
+      "query_source_line": 22296,
+      "start_line": 525,
+      "end_line": 528,
+      "body_sha256": "4f199d1b9d7205ff1122f5c0836149a8278043d8715d2d82b376c7fd0fab9f98",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.PeekAlphabet",
+      "query_source_line": 22297,
+      "start_line": 529,
+      "end_line": 529,
+      "body_sha256": "6af24d8639b813c7a1a5d10e07166649e364092b6ddf78a20cc31c1e23dd25ac",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.PeekTapeControl",
+      "query_source_line": 22298,
+      "start_line": 530,
+      "end_line": 530,
+      "body_sha256": "5631bb2f21c75e4a5c27e77b38e60f678128f276cc602975df60c83f3726eba1",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekSource",
+      "query_source_line": 22299,
+      "start_line": 531,
+      "end_line": 531,
+      "body_sha256": "3ed5a192827c949a880e71c03ff2f11c18d3945decbbfd678b0bca4db7aba7c4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekTapeProgram",
+      "query_source_line": 22300,
+      "start_line": 532,
+      "end_line": 535,
+      "body_sha256": "2cc636eec55a309051a33d490e711d0912db26342323caeda495c6469810a25e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.PeekControl",
+      "query_source_line": 22301,
+      "start_line": 536,
+      "end_line": 536,
+      "body_sha256": "038d8ff9a4a9e9ef3475956ddf989cc2c6543da03b7aa64db8c0554eb4d54d86",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.PeekCfg",
+      "query_source_line": 22302,
+      "start_line": 537,
+      "end_line": 537,
+      "body_sha256": "9ee2c045d35ca17e0bce2888e50fb0e8f4b090878b54ffe36d406628d0b272ee",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekMachine",
+      "query_source_line": 22303,
+      "start_line": 538,
+      "end_line": 540,
+      "body_sha256": "76914ff6d6d26256b8ec9e0d3f14df66d2c6523b622f5e5254efd42a50a94bbe",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekInput",
+      "query_source_line": 22304,
+      "start_line": 541,
+      "end_line": 541,
+      "body_sha256": "17ab3c81070f0dcab25d0acb931ac92790da3d03cc21f3a765c2f967a339ac68",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekTape",
+      "query_source_line": 22305,
+      "start_line": 542,
+      "end_line": 542,
+      "body_sha256": "2fe5aa106012979b6b51fab2e6896c4976f36a10a2590ecc5ced95d1419b52da",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekStart",
+      "query_source_line": 22306,
+      "start_line": 543,
+      "end_line": 543,
+      "body_sha256": "af978c960acc396aab1d763533d48d68ede87a27aa4838328838d9c30a658964",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekAction",
+      "query_source_line": 22307,
+      "start_line": 544,
+      "end_line": 544,
+      "body_sha256": "f9eec2231f337b85a49486325339ebdc04d011af5a201adc091cbbc9db0ae3bb",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekGo",
+      "query_source_line": 22308,
+      "start_line": 545,
+      "end_line": 545,
+      "body_sha256": "252694be8118f13dbcb287bcd27298a310560e383d44a863b4fd1be69321db11",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekGotoRet",
+      "query_source_line": 22309,
+      "start_line": 546,
+      "end_line": 548,
+      "body_sha256": "5aa80eb4ed39d22da7c233a51eccb983133445b227dac35fceb50c339058e980",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekAfterLeft",
+      "query_source_line": 22310,
+      "start_line": 549,
+      "end_line": 551,
+      "body_sha256": "e1156af42d0dbd2fea7c6323ae867ceeacae460f66bdf64abb8ef1e4ea7d4f4c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekLeft",
+      "query_source_line": 22311,
+      "start_line": 552,
+      "end_line": 552,
+      "body_sha256": "eff2f26f0786faa6aa87b48f211ddcbe276cb5a2036931ad943166ac1ee41cf5",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekBack",
+      "query_source_line": 22312,
+      "start_line": 553,
+      "end_line": 553,
+      "body_sha256": "d4b2aa90d40655ca43c0db85e06124c789b443dcee21c2488bf76500e2499832",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekRet",
+      "query_source_line": 22313,
+      "start_line": 554,
+      "end_line": 554,
+      "body_sha256": "476bda338430554fe31636d7d11125fcf4a50475a546736aca34c30c64028bc1",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekHalt",
+      "query_source_line": 22314,
+      "start_line": 555,
+      "end_line": 555,
+      "body_sha256": "c5e8302bdd0474df8ce1f339c9532c1bf39b9e5fa7d500c25bf4b8c4a72938b0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+      "query_source_line": 22315,
+      "start_line": 556,
+      "end_line": 559,
+      "body_sha256": "52dacb7d479699e518af1f5784eb93179f2ff8a83f371ddf15a2336ed8475fd2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step0",
+      "query_source_line": 22316,
+      "start_line": 560,
+      "end_line": 562,
+      "body_sha256": "34863077dc3240b525df3bb65bc7343046df049dd457c27f7320720a9f764960",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step1",
+      "query_source_line": 22317,
+      "start_line": 563,
+      "end_line": 565,
+      "body_sha256": "f745d83baa7a6b099405eeb8eb3fa64c394c74139d9640f2659b26451508ecfe",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step2",
+      "query_source_line": 22318,
+      "start_line": 566,
+      "end_line": 568,
+      "body_sha256": "19372ba39ea2b29c69310163583b5a1a96b957053b9afdb750231bc76f4bed4d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step3",
+      "query_source_line": 22319,
+      "start_line": 569,
+      "end_line": 571,
+      "body_sha256": "f903293860921ab8cb3eda68ceb0fdb4031e8251122b2b8bd3138295c7152211",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step4",
+      "query_source_line": 22320,
+      "start_line": 572,
+      "end_line": 574,
+      "body_sha256": "65a3895a13155b650ceb3a8578ec015cb2fcf2bce1b2736a7e75e6e07cc502b9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_step5",
+      "query_source_line": 22321,
+      "start_line": 575,
+      "end_line": 577,
+      "body_sha256": "4a872159d063a02402c084a5a14da2987c7c5c9eed75ca199903ebee24181ebd",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+      "query_source_line": 22322,
+      "start_line": 578,
+      "end_line": 596,
+      "body_sha256": "34a0f521d78d06f3ac9ab024263ad68eb0c953b122572bbac7e3249504ecd3af",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_positions",
+      "query_source_line": 22323,
+      "start_line": 597,
+      "end_line": 602,
+      "body_sha256": "0acc81db5d1bfdf714c18104bf2b6adb492af20a084424e9ff38d18e89a02d20",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_before_excursion",
+      "query_source_line": 22324,
+      "start_line": 603,
+      "end_line": 606,
+      "body_sha256": "608b7fd820f55e8e68d2721967c3b7c54e94b77111662fc6502fbeb75c6b1462",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_excursion_is_visited",
+      "query_source_line": 22325,
+      "start_line": 607,
+      "end_line": 610,
+      "body_sha256": "99add61308666964a004e359b0303e23c6ed1492266a4558d974d4d176b61d86",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_live_halt_retains_excursion",
+      "query_source_line": 22326,
+      "start_line": 611,
+      "end_line": 614,
+      "body_sha256": "c3fabac7d4b88bf99b3a7cccade1dddc1ab91260f1888d52c653eade95c9f9c8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_outer_none_adds_no_cell",
+      "query_source_line": 22327,
+      "start_line": 615,
+      "end_line": 618,
+      "body_sha256": "26afc8ce5b0d6f36ba4c8ea1beb1be6c544b8319226ee48a2c482293c62d9186",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_final_interval",
+      "query_source_line": 22328,
+      "start_line": 619,
+      "end_line": 622,
+      "body_sha256": "fd0981efe434a9a59716356b61e1b600dc884df31fe2c6c5b2d413277d80d519",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_initial_raw_empty",
+      "query_source_line": 22329,
+      "start_line": 623,
+      "end_line": 624,
+      "body_sha256": "253e2cd6267aca621450d3a0a1d652b5c2076d9f67ca614ae49eb14faf801307",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_initial_marker",
+      "query_source_line": 22330,
+      "start_line": 625,
+      "end_line": 626,
+      "body_sha256": "b2514bc356c4308fba77985137e1932f6b26cfa5b055787c8c37e4af1ce49927",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_halt_register",
+      "query_source_line": 22331,
+      "start_line": 627,
+      "end_line": 627,
+      "body_sha256": "d3a745465e77dce4be5bda65fecda0a71a8f4c48555321d2fa55f56001fde14f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_halt_tape",
+      "query_source_line": 22332,
+      "start_line": 628,
+      "end_line": 629,
+      "body_sha256": "377fdb4599a20e1a3df93c06e1b4718bd3a3c097957824b7ea31f7a656221bdf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.trInit_length",
+      "query_source_line": 22333,
+      "start_line": 630,
+      "end_line": 631,
+      "body_sha256": "df711fefbdab6e330be7cc5e16ba256040285f44fc87bbfb9eb77f0860042642",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.related_controller_halt_observation",
+      "query_source_line": 22334,
+      "start_line": 632,
+      "end_line": 652,
+      "body_sha256": "92646728378168d26532c0b2b849749f6c98c4049335ff7e04060b4cea8f5f67",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.related_finite_primitive_halt_head",
+      "query_source_line": 22335,
+      "start_line": 653,
+      "end_line": 673,
+      "body_sha256": "d66405e36891d18f57c4972cd97dccfe23741018465a66fc2385d857ad40acf4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_run_observed",
+      "query_source_line": 22336,
+      "start_line": 674,
+      "end_line": 694,
+      "body_sha256": "b5b9ff2eb04b3b38ce9aafb5d83a85cc95491562acf3e3e31e1895b8b9d62797",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedTapeTimeBound_mono",
+      "query_source_line": 22337,
+      "start_line": 695,
+      "end_line": 696,
+      "body_sha256": "d1b90524ee1b0ecaad2d3cb44a0d48bcf5141d0cec6ca3b8fcf862c361cc3791",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_mono",
+      "query_source_line": 22338,
+      "start_line": 697,
+      "end_line": 698,
+      "body_sha256": "6b3953bd0603c9923051198359a58ce470c9acd88defc790121a2984b1183681",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial",
+      "query_source_line": 22339,
+      "start_line": 699,
+      "end_line": 699,
+      "body_sha256": "f7919f26682a4adc7ca8d95fa01278cdffca33012caff1b54d704eb8d8d8fc59",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial_eval",
+      "query_source_line": 22340,
+      "start_line": 700,
+      "end_line": 702,
+      "body_sha256": "33c5094e1983928e4db6134344d21a331c7c421084a350a36137f3a473639d23",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial",
+      "query_source_line": 22341,
+      "start_line": 703,
+      "end_line": 703,
+      "body_sha256": "49c5a4505121318e1a7b4879d1ff23b4b0350673afcf23f3c0046fc8be405a94",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial_eval",
+      "query_source_line": 22342,
+      "start_line": 704,
+      "end_line": 706,
+      "body_sha256": "eb345e633f1e78645d71e77d43ba2adff42fecc89c2f0d3876f16207ef013d87",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.frame_length_le_combined",
+      "query_source_line": 22343,
+      "start_line": 707,
+      "end_line": 710,
+      "body_sha256": "28087047e35c485e888343f77ed80a4820b7806314fb4acd601ff67ba209f8b8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_frame_le",
+      "query_source_line": 22344,
+      "start_line": 711,
+      "end_line": 716,
+      "body_sha256": "7fcf2bd026fca1e3269191f0f9a05924923bdc41094fa71224209eccd5917440",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+      "query_source_line": 22345,
+      "start_line": 717,
+      "end_line": 738,
+      "body_sha256": "0a6c79b9dceeaa7cd1acb359e2609658a753a91636850f71c9e73b62bcde9664",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter",
+      "query_source_line": 22346,
+      "start_line": 739,
+      "end_line": 746,
+      "body_sha256": "aa35d8e3f1636d00fe2483cb136195151e617efac326c4f461dc8bd1c572fc00",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter_halt_row",
+      "query_source_line": 22347,
+      "start_line": 747,
+      "end_line": 755,
+      "body_sha256": "045358a736d9c4af800bd79697551e4ab058b7e584cc418849549f91ec0dee9d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+      "query_source_line": 22348,
+      "start_line": 756,
+      "end_line": 764,
+      "body_sha256": "d2f33bd657916fd98f5cc1ab3f7ccfc2e7b5985670b7d8565e61a290555da918",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryControlFintype",
+      "query_source_line": 22349,
+      "start_line": 765,
+      "end_line": 771,
+      "body_sha256": "a92e6a18197aba9c3c9b74a4ec4a3e5959d7c4a9970ab7a5c54dc5478daa7b6d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+      "query_source_line": 22350,
+      "start_line": 772,
+      "end_line": 790,
+      "body_sha256": "948e08a78edf72cc5013925e595a20e8af40dca04397a0fa450b56abec5f9558",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound",
+      "query_source_line": 22351,
+      "start_line": 791,
+      "end_line": 791,
+      "body_sha256": "d39cd10b59dac4bcf819e3260aa01c8d974920edf4b66d390c2cb0e9acc7f453",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_mono",
+      "query_source_line": 22352,
+      "start_line": 792,
+      "end_line": 793,
+      "body_sha256": "af5cdda2ea26345aa0aa56fcbe599afd907c14a375b5bd5bc60d8aecc3a6c816",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.preludeSteps_le_length_add_two",
+      "query_source_line": 22353,
+      "start_line": 794,
+      "end_line": 795,
+      "body_sha256": "3e12735b5dc8f11fa79c7cbc17b268e7b653bad0d340978b4d761d27611b826e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_overhead_le",
+      "query_source_line": 22354,
+      "start_line": 796,
+      "end_line": 800,
+      "body_sha256": "0b32e1edde15297279cb14b1726158cb9c3e962dd6f34c0f63929f885eef8090",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial",
+      "query_source_line": 22355,
+      "start_line": 801,
+      "end_line": 801,
+      "body_sha256": "5d0f5820bd32a23689c6c507f7141fde25ea2f4ae38fb247eb4bc4210dd381ff",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial_eval",
+      "query_source_line": 22356,
+      "start_line": 802,
+      "end_line": 804,
+      "body_sha256": "bc3906e12abdbbf19319792d2ff73ee7a3d6cfada912ed829cad515ed16eda7d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial",
+      "query_source_line": 22357,
+      "start_line": 805,
+      "end_line": 805,
+      "body_sha256": "57cc2690d0b2d296691a80291f575f13ab655690efdb3caaecd4e264704f1a35",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial_eval",
+      "query_source_line": 22358,
+      "start_line": 806,
+      "end_line": 808,
+      "body_sha256": "8ae6224ab339180af215ac8de1a04b08ac0fd4cb865e9c6308113c835a757dd3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial",
+      "query_source_line": 22359,
+      "start_line": 809,
+      "end_line": 809,
+      "body_sha256": "287e17415a091db143c6e6726b5ffd7dd10de895922ee6dc6c5821a9be61d397",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial_eval",
+      "query_source_line": 22360,
+      "start_line": 810,
+      "end_line": 812,
+      "body_sha256": "ee0050ceda627db6ba82eeb3b0deba26fb03c431024873d3a4f0f926240f1651",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_frame_le",
+      "query_source_line": 22361,
+      "start_line": 813,
+      "end_line": 818,
+      "body_sha256": "8d8866130488fe732e20ee6849134308f05825c2521eb021c8d1ac486ddf11e2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_small_frame_le",
+      "query_source_line": 22362,
+      "start_line": 819,
+      "end_line": 824,
+      "body_sha256": "62fb36587d88b75a8dbad5536691b4af5c9c1cbd8255fcd6aa4fc19f110ba5ba",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun",
+      "query_source_line": 22363,
+      "start_line": 825,
+      "end_line": 854,
+      "body_sha256": "a996fc225fbe6a9c17ced3b855eac17e8168783475d9b201a9bd2b82c9a59dae",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_toEvalsTo",
+      "query_source_line": 22364,
+      "start_line": 855,
+      "end_line": 878,
+      "body_sha256": "cd33c82ea4b61d5759691ae32ad2922ce340ed2218d33f01bc28f9b48650d910",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_steps",
+      "query_source_line": 22365,
+      "start_line": 879,
+      "end_line": 901,
+      "body_sha256": "f33289ffff884c796f681ad9749a805cd92bcc99e6fca9417f6634c4f7b202a0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_done_step",
+      "query_source_line": 22366,
+      "start_line": 902,
+      "end_line": 911,
+      "body_sha256": "e5d0f8715b376d9e9d5fc9a80683b705bd6056b09c84af8122fc5d4071911aa8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_uniform",
+      "query_source_line": 22367,
+      "start_line": 912,
+      "end_line": 931,
+      "body_sha256": "714004baf7ca6e86d2faf1c1c2b0f98643066d941378bb922b5f749f106658d1",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_source_default_user",
+      "query_source_line": 22368,
+      "start_line": 932,
+      "end_line": 935,
+      "body_sha256": "d9cb8433554c3574485ae51d5a595bd7c633cf3f4adb87b33636649c7aed4a0e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+      "query_source_line": 22369,
+      "start_line": 936,
+      "end_line": 939,
+      "body_sha256": "1aeb78c48d2c743b893639f53eab09b75cca368e2dfa9728ae9d07625a3a59f7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_time",
+      "query_source_line": 22370,
+      "start_line": 940,
+      "end_line": 945,
+      "body_sha256": "61415be086679ac6ab63f5ce4f2840e3de4fe15839f3483905d5a06121d22a9d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_bit",
+      "query_source_line": 22371,
+      "start_line": 946,
+      "end_line": 951,
+      "body_sha256": "a2a88753ce16c5847c755d26d2759aec8e2aff23445ba781946e91682418be60",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_start",
+      "query_source_line": 22372,
+      "start_line": 952,
+      "end_line": 956,
+      "body_sha256": "b8038e54297359d8daee233171fe50012447ecf775b2c07110e3fa2d427db5b8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+      "query_source_line": 22373,
+      "start_line": 957,
+      "end_line": 978,
+      "body_sha256": "a75867d130911732193e135630454c00c1d9f86d0aeb2d75675d5b3cef5d7064",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+      "query_source_line": 22374,
+      "start_line": 979,
+      "end_line": 1006,
+      "body_sha256": "087655ca6f5af2ab2283ffa9a9c9a9cc19d4b573841bcf736c10dd1a2563e827",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+      "query_source_line": 22375,
+      "start_line": 1007,
+      "end_line": 1069,
+      "body_sha256": "a75346fe6959cebbbfeef6d223ea96c691b1605add5b2a81396183de103f7795",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+      "query_source_line": 22376,
+      "start_line": 1070,
+      "end_line": 1144,
+      "body_sha256": "fc9b6f04e08046fd99a87db080cc21d341f95f9c9767edb52468ceeeac20356b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_bound_literal_values",
+      "query_source_line": 22377,
+      "start_line": 1145,
+      "end_line": 1149,
+      "body_sha256": "c01db96dcd6cb083a666cf3ba8cdd009815018a96493628a50c4360dac635fb2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_polynomial_literal_values",
+      "query_source_line": 22378,
+      "start_line": 1150,
+      "end_line": 1154,
+      "body_sha256": "c0eef3a2d86aa549ed9f630eafe01d114f6e413150ae9fed8d44db53d13a6259",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.witness_polynomial_zero_argument",
+      "query_source_line": 22379,
+      "start_line": 1155,
+      "end_line": 1157,
+      "body_sha256": "18e9745ef5d4d682a2c1fdfca232c6999e7bca9d79bcc84261834bb56ea661d6",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_generic_frame_allowance",
+      "query_source_line": 22380,
+      "start_line": 1158,
+      "end_line": 1171,
+      "body_sha256": "06ba3cda1e1a1316a7cc975b1731b87c0a6a5f64bdcb8c42fdfa7d9378dff3bf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.small_frame_bound_uses_the_instance_polynomial",
+      "query_source_line": 22381,
+      "start_line": 1172,
+      "end_line": 1177,
+      "body_sha256": "d2ae67d351fe4175109ef09f7d3655a79958e9ba57ad558702d7391b1bb47591",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.arbitrary_pair_bound_keeps_both_input_lengths",
+      "query_source_line": 22382,
+      "start_line": 1178,
+      "end_line": 1183,
+      "body_sha256": "2603c33f50ac3ab9811e96e21e224859f67b1f81ac3be0d0352f1f727fe990da",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_has_an_actual_finite_primitive_witness",
+      "query_source_line": 22383,
+      "start_line": 1184,
+      "end_line": 1214,
+      "body_sha256": "60daa466641c50899e978c347088a88eb111958893ad2d09339a65e49eb58dd6",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_bound_fixed_values",
+      "query_source_line": 22384,
+      "start_line": 1215,
+      "end_line": 1219,
+      "body_sha256": "80013670abb6104de63e16e7b53d4b556e99e31c0aeb7945eee883d2cbcd54ad",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_polynomial_fixed_values",
+      "query_source_line": 22385,
+      "start_line": 1220,
+      "end_line": 1224,
+      "body_sha256": "43556f407c97b47ce5cb676497d01d111fa40a04e92efbbfd79be943943ca38f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.all_pair_polynomial_at_zero",
+      "query_source_line": 22386,
+      "start_line": 1225,
+      "end_line": 1227,
+      "body_sha256": "f4ccb556e6699de0d55a32cf60fdff778dbb50c108c9c3278e3350486db80cdc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.small_witness_polynomial_at_zero",
+      "query_source_line": 22387,
+      "start_line": 1228,
+      "end_line": 1230,
+      "body_sha256": "06814f4bf61684f9dc529b2d277318be11e596e3ed8d6bebf67c9beba0bcff66",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.literal_empty_pair_frame",
+      "query_source_line": 22388,
+      "start_line": 1231,
+      "end_line": 1233,
+      "body_sha256": "23a150e993596a5281438216b3f2d08382771b566c7d3d17622343282703bd14",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.haltCaller",
+      "query_source_line": 22389,
+      "start_line": 1234,
+      "end_line": 1235,
+      "body_sha256": "1b12640d4051cf55c7bb31f2a8f7f29e52ebe054fe9dd37b2f1c6f6cc34abf13",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedPackage",
+      "query_source_line": 22390,
+      "start_line": 1236,
+      "end_line": 1236,
+      "body_sha256": "412d63f2b522b5a0a103b9e87bde089d1108b62fbe2e34b62275dca9ccba89a8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedBit",
+      "query_source_line": 22391,
+      "start_line": 1237,
+      "end_line": 1240,
+      "body_sha256": "0234cd5d430ec003adfa5cc9c195ac2372e91373263d5f8e69d63566e87e94aa",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedInput",
+      "query_source_line": 22392,
+      "start_line": 1241,
+      "end_line": 1244,
+      "body_sha256": "d877deb061766af859f9cda55e2dca4214485196a75f3eff8da62e44ee1cdf44",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedDecider",
+      "query_source_line": 22393,
+      "start_line": 1245,
+      "end_line": 1246,
+      "body_sha256": "9e50cd74fd2f443572b13601971559bdbbd649025ea816d3335b80db1a895bd4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_input_is_literal_letter_map",
+      "query_source_line": 22394,
+      "start_line": 1247,
+      "end_line": 1250,
+      "body_sha256": "c3eaf5101bf7afbaf9929bb452e0eb6adc69f46d2ef0cdb8ef73df163446c44d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_register_is_preserved_by_the_source_default",
+      "query_source_line": 22395,
+      "start_line": 1251,
+      "end_line": 1252,
+      "body_sha256": "f53eb2d617595af50beeebc95fabee1037e92e9e2a79fb0e28d88505796a7c16",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.wrapper_start_is_the_fixed_prelude_start",
+      "query_source_line": 22396,
+      "start_line": 1253,
+      "end_line": 1255,
+      "body_sha256": "cb3c6b871ab672b86957c1fb8123bd51e37892aefe28e68c94f7f82d294c2101",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_false_letter_is_not_blank",
+      "query_source_line": 22397,
+      "start_line": 1256,
+      "end_line": 1258,
+      "body_sha256": "9c11af14767cde5e584ef4862409f7915671325b1de40d0ffa7331f8578b8458",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_true_and_false_letters_differ",
+      "query_source_line": 22398,
+      "start_line": 1259,
+      "end_line": 1261,
+      "body_sha256": "69c41446ae1338613b6f6d55889f1980282a9589dbef9640a4983fff29831bd2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_and_present_false_have_distinct_complete_native_tapes",
+      "query_source_line": 22399,
+      "start_line": 1262,
+      "end_line": 1264,
+      "body_sha256": "d9dd827d84786d3c78b0c14bc7f244fe8f169c23317128138c02d7ac7be41e47",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_empty_prelude",
+      "query_source_line": 22400,
+      "start_line": 1265,
+      "end_line": 1273,
+      "body_sha256": "06caa144c56d12f63ca17a2411f2c25380480f8be1f40139e3eb55664375878a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_false_prelude",
+      "query_source_line": 22401,
+      "start_line": 1274,
+      "end_line": 1284,
+      "body_sha256": "406e5ce9388307fe3075894c46b7bb8680fa28fa368073ce925bcf74aeec8b7f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_raw_native_eval",
+      "query_source_line": 22402,
+      "start_line": 1285,
+      "end_line": 1290,
+      "body_sha256": "da1cc7a9db6e195aa53fc70323ca2826292b567710b1c973acfda396431e9489",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.present_false_raw_native_eval",
+      "query_source_line": 22403,
+      "start_line": 1291,
+      "end_line": 1296,
+      "body_sha256": "6eebe4692dd982db490e7870b9398b93282acf93d7329020e647ac65f18a549c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+      "query_source_line": 22404,
+      "start_line": 1297,
+      "end_line": 1321,
+      "body_sha256": "5a70effc3bffe28ba4fbbdd6c59bb0298bc8ccaf49044caf3d4b6127a4d8a3ed",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.direction",
+      "query_source_line": 22405,
+      "start_line": 1322,
+      "end_line": 1322,
+      "body_sha256": "504ad2bb66a4e92e2689a4c3e9e4ac2214e0474a9714992bd12d752cbbb64597",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.direction_involutive",
+      "query_source_line": 22406,
+      "start_line": 1323,
+      "end_line": 1324,
+      "body_sha256": "cb6d26a8e98dd50c3e413d98f2b60528e2a68008c3804b1c2033488d382d5f0f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.tape",
+      "query_source_line": 22407,
+      "start_line": 1325,
+      "end_line": 1325,
+      "body_sha256": "163c1f52f7f309af3b8f2c344709c6392e1d7086162020a7ae6ad1c94c88f7d5",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.tape_involutive",
+      "query_source_line": 22408,
+      "start_line": 1326,
+      "end_line": 1327,
+      "body_sha256": "65bebe4dd9a3d65b42c9e0320f0722976751c37df1d95fab0e6a825d22861c4e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.tape_head",
+      "query_source_line": 22409,
+      "start_line": 1328,
+      "end_line": 1329,
+      "body_sha256": "7f1d0e859e315b4b042d823902c486920d2158dac5695101b18b23f0b141b251",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.tape_write",
+      "query_source_line": 22410,
+      "start_line": 1330,
+      "end_line": 1332,
+      "body_sha256": "43761307418d2792568a518644016e7eeb909bddfb042a4de230550ff287739c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.tape_move",
+      "query_source_line": 22411,
+      "start_line": 1333,
+      "end_line": 1337,
+      "body_sha256": "11c773714386486d0aa2575b3f8a9d4bb50ffd64e14f07b0f1524ebae5d8c215",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.statement",
+      "query_source_line": 22412,
+      "start_line": 1338,
+      "end_line": 1338,
+      "body_sha256": "50edabadf5a4b7ffb7a7941669a3d477706abf3849fe614f6c12daedc6de907f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.statement_involutive",
+      "query_source_line": 22413,
+      "start_line": 1339,
+      "end_line": 1340,
+      "body_sha256": "fda10db7bdefe0e48bfc26840976afe5809d2206729800a5cf61bd027a2d98f7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.configuration",
+      "query_source_line": 22414,
+      "start_line": 1341,
+      "end_line": 1342,
+      "body_sha256": "e05f577ec0d4125d25e4f8d37299d2a0d56a2063898774fb482ab3dd13414086",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.configuration_involutive",
+      "query_source_line": 22415,
+      "start_line": 1343,
+      "end_line": 1346,
+      "body_sha256": "d38ac10b5856ee2d520f7890eb753401fac866f662c8b66b2add9ff4fe003e4d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.machine",
+      "query_source_line": 22416,
+      "start_line": 1347,
+      "end_line": 1348,
+      "body_sha256": "7bd3d9063433757f832db6522685bd102437e82ef4c453bcb587722b092a196a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.step",
+      "query_source_line": 22417,
+      "start_line": 1349,
+      "end_line": 1353,
+      "body_sha256": "bdb74a8d8e3e82bc47ca1f2c595e79e288f63188648a1490a254dcdbcb6447f0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.bind_step",
+      "query_source_line": 22418,
+      "start_line": 1354,
+      "end_line": 1358,
+      "body_sha256": "dbad0922533e15dcf58350aa4726571e07e08fdaff31caf2ccdf8a4981f97a30",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+      "query_source_line": 22419,
+      "start_line": 1359,
+      "end_line": 1363,
+      "body_sha256": "a9af9aef7f1b70d42d1ebd697ff6467d552115e75b64bf520735d182a676659d",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.evalsToInTime",
+      "query_source_line": 22420,
+      "start_line": 1364,
+      "end_line": 1369,
+      "body_sha256": "8ef43052877a389abbdf2ab6b38b4d1ce85434205d9ff51de3854e896e04d0d3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.evalsToInTime_steps",
+      "query_source_line": 22421,
+      "start_line": 1370,
+      "end_line": 1373,
+      "body_sha256": "a835743170c08793fa22c1c16626061b36a3dd8c8308cd0e582ae30f2b910085",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.TapeReflection.configuration_default",
+      "query_source_line": 22422,
+      "start_line": 1374,
+      "end_line": 1376,
+      "body_sha256": "1993cff98a620b109ea7555b42ab8f96fd0169a29d6f48e93517b656346b632c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.symbol",
+      "query_source_line": 22423,
+      "start_line": 1377,
+      "end_line": 1378,
+      "body_sha256": "55f795be9e6d757e6ec37d9927a358ac0df61402da9a720695a45a83fb8786b4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.symbol_selected",
+      "query_source_line": 22424,
+      "start_line": 1379,
+      "end_line": 1380,
+      "body_sha256": "878bdd54a0c212e3ef4439aef19ee7743a8029d448c982ba6db04bfca593c463",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.symbol_injective",
+      "query_source_line": 22425,
+      "start_line": 1381,
+      "end_line": 1382,
+      "body_sha256": "f8cf0cbdec9eca8f28fadde0fa0c94cfc871852852e75bc49eacad60244ade09",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.symbol_ne_blank",
+      "query_source_line": 22426,
+      "start_line": 1383,
+      "end_line": 1384,
+      "body_sha256": "98ec81fbfedf39573d13e11141cdfade83a8b58978aeb4308a14b0dc6751c55c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.input",
+      "query_source_line": 22427,
+      "start_line": 1385,
+      "end_line": 1386,
+      "body_sha256": "04d03d3c17ec4c93a2b2a5663f0b31a2e8e1a4ab44de8f73e800d7e7962080ce",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.input_length",
+      "query_source_line": 22428,
+      "start_line": 1387,
+      "end_line": 1388,
+      "body_sha256": "dc018ffed7b6e020321dc4fed75edde4aba8479e32ba17c00ab30a3d771d3748",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.inputAlphabet",
+      "query_source_line": 22429,
+      "start_line": 1389,
+      "end_line": 1390,
+      "body_sha256": "3cc8f5b0273a8f1f15333decf2df76bf4149ac01b36414edb1f3e655829b46d0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.readInput",
+      "query_source_line": 22430,
+      "start_line": 1391,
+      "end_line": 1392,
+      "body_sha256": "fd00d33e71a222be80b5344f2ddf7657b6aa5ecbb45a59ebb0fd4470df567895",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.read_inputAlphabet",
+      "query_source_line": 22431,
+      "start_line": 1393,
+      "end_line": 1397,
+      "body_sha256": "d2ac871f3b8a6b3364fe5e48cc2eb297a6e2031bca8b2af419db9bc9da70c28b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.output_readback",
+      "query_source_line": 22432,
+      "start_line": 1398,
+      "end_line": 1402,
+      "body_sha256": "94253457423eac0cb136b9a15b12e43c134a45e36f00490f8576ce06a674efd9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control",
+      "query_source_line": 22433,
+      "start_line": 1403,
+      "end_line": 1403,
+      "body_sha256": "d522949e6e647c5a8417c68043f263ef7b816cbbff4ff3ce7cedd5f8b0abef83",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.machine",
+      "query_source_line": 22434,
+      "start_line": 1404,
+      "end_line": 1407,
+      "body_sha256": "94b3944e0d81fc74a765049067675ae489914bba12205a5afccd656ce8a34890",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.scanTape",
+      "query_source_line": 22435,
+      "start_line": 1408,
+      "end_line": 1409,
+      "body_sha256": "6733d8af620fd7a35689eda5207c4306322c4c07a89b5eddae920ac4ab404f04",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.preludeSteps",
+      "query_source_line": 22436,
+      "start_line": 1410,
+      "end_line": 1410,
+      "body_sha256": "e54faabc824d1be219a94e06576110d43724fa5e74b5b45f31eebb2d81ce5f82",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.scan_symbol_step",
+      "query_source_line": 22437,
+      "start_line": 1411,
+      "end_line": 1419,
+      "body_sha256": "ad21362538d108723804aaef9feeced7f04d3cd013eb3b5f333dcded43bb484e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.start_symbol_step",
+      "query_source_line": 22438,
+      "start_line": 1420,
+      "end_line": 1427,
+      "body_sha256": "9b7cedf1961e0accb086b9fe6624ba836f1ab9927f83d5a9ac26a552a5034ec9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.scan_empty_step",
+      "query_source_line": 22439,
+      "start_line": 1428,
+      "end_line": 1436,
+      "body_sha256": "0196025cdaed769c60457b6af40cc8abe13a17e0e0dcba7e51e4c605c4d2a95c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.mark_step",
+      "query_source_line": 22440,
+      "start_line": 1437,
+      "end_line": 1443,
+      "body_sha256": "b0236a50427997cc97a33f8e17a3b65317e4c85375007560ac52dea653073cbe",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.blank_cons_empty",
+      "query_source_line": 22441,
+      "start_line": 1444,
+      "end_line": 1445,
+      "body_sha256": "267e8fcb423f8875b78114e368ef090f3c4d5910a592967f3880424dddb0b10f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.marked_boundary_tape",
+      "query_source_line": 22442,
+      "start_line": 1446,
+      "end_line": 1452,
+      "body_sha256": "2e48864a4dc44f2f7fa3892594da9c888f9c557af9152cb2790011b0f4cd961a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.scan_exact",
+      "query_source_line": 22443,
+      "start_line": 1453,
+      "end_line": 1464,
+      "body_sha256": "bda97dc244a16f94d518e1b909c09c4ab94730db317f6ca01e79ee5be4f2913e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+      "query_source_line": 22444,
+      "start_line": 1465,
+      "end_line": 1475,
+      "body_sha256": "65a6fad1cb9fbd352023e1d5713ce4023d02800a26609859314c854573f0cb08",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.preludeRun",
+      "query_source_line": 22445,
+      "start_line": 1476,
+      "end_line": 1483,
+      "body_sha256": "593b895bee3ed47225fb44593eae4bb300afd2c4bcedc780ecf3c6b056bfaa3a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.preludeRun_steps",
+      "query_source_line": 22446,
+      "start_line": 1484,
+      "end_line": 1488,
+      "body_sha256": "c91e94df79360d4958b7f49626b26891aeb001d0e5cc96f64fa6a55646ed9ad2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.emit_singleton_step",
+      "query_source_line": 22447,
+      "start_line": 1489,
+      "end_line": 1494,
+      "body_sha256": "76cbd2f8997f50db57fe911cb28298d8332e315c692f555a70307d8dcd9fbc43",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.done_step",
+      "query_source_line": 22448,
+      "start_line": 1495,
+      "end_line": 1500,
+      "body_sha256": "f392f1f2b523789cb14a729ad6c42a7544705c008a20347fdcac2fa89241e570",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.runConfiguration",
+      "query_source_line": 22449,
+      "start_line": 1501,
+      "end_line": 1503,
+      "body_sha256": "09fe99645c193876d63f64a05a0231e5097dcabb227d0f736c488815aa4ab74a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.run_step",
+      "query_source_line": 22450,
+      "start_line": 1504,
+      "end_line": 1510,
+      "body_sha256": "b537cd684145cb3e1c9f1b765fc9547f168a88f0c0d59e625d0d0859d53785d3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.run_iterate",
+      "query_source_line": 22451,
+      "start_line": 1511,
+      "end_line": 1517,
+      "body_sha256": "bb4b9e919a47035a76a52e1fe34f1c075f703f9aeaef85bc909926ef8910ab2b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.liveRun",
+      "query_source_line": 22452,
+      "start_line": 1518,
+      "end_line": 1524,
+      "body_sha256": "60da206100b8a1a9acdeae5ebdfa8bfaa844ee221394eb15dd61f48c9badee3f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.liveRun_steps",
+      "query_source_line": 22453,
+      "start_line": 1525,
+      "end_line": 1529,
+      "body_sha256": "aa34bd453d57cb6c22fea3039ae1d3a583e690225fd89aab02c53eefd67f880b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRun",
+      "query_source_line": 22454,
+      "start_line": 1530,
+      "end_line": 1539,
+      "body_sha256": "28ce10085d7ca246582f33984900e42baecf439b4dfc6760138406edb271a6fc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRun_steps",
+      "query_source_line": 22455,
+      "start_line": 1540,
+      "end_line": 1548,
+      "body_sha256": "99392aae79862d729a3529e23be9f864865ecd044c7ee684bca841f2f95cfd83",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+      "query_source_line": 22456,
+      "start_line": 1549,
+      "end_line": 1559,
+      "body_sha256": "8947e01b758d8a84a7c04421819a3308659509d3111e608b82ca41550d6e7438",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedOuterNone",
+      "query_source_line": 22457,
+      "start_line": 1560,
+      "end_line": 1569,
+      "body_sha256": "51293a7e01524484b33000927baba6f04e0afafcb94a41d7c60c14227e935802",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+      "query_source_line": 22458,
+      "start_line": 1570,
+      "end_line": 1579,
+      "body_sha256": "faf4eb706a4dc8eb8f73ed944e4cd785eadb31afb15ca1a01dea057fd0754ce0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.related_singleton_tape",
+      "query_source_line": 22459,
+      "start_line": 1580,
+      "end_line": 1584,
+      "body_sha256": "2db65df28e0d098a31552b31a70e1b634e9a3f5ee2a566ac97b26d7f7843f522",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.reflection_singleton",
+      "query_source_line": 22460,
+      "start_line": 1585,
+      "end_line": 1586,
+      "body_sha256": "c36e6223f54e4fb899407e0dde78a6d5d0238b0fb4b6f359e1e4e0b6f4117c67",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.haltRow",
+      "query_source_line": 22461,
+      "start_line": 1587,
+      "end_line": 1587,
+      "body_sha256": "58d0b7d0e4fec67938c7b2112b51699d9360bb395b592774755fd08de8ba2c58",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_slots",
+      "query_source_line": 22462,
+      "start_line": 1588,
+      "end_line": 1589,
+      "body_sha256": "bc7f1c0d0b270fbdff8b0ade30fcda0d9b536e8168e601887de65d0410affadc",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+      "query_source_line": 22463,
+      "start_line": 1590,
+      "end_line": 1593,
+      "body_sha256": "5e5a9ad0e43b4b80c26b57806a3c0d8adbf0f55936f74cbc7258428718320233",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.package_halt_supported",
+      "query_source_line": 22464,
+      "start_line": 1594,
+      "end_line": 1595,
+      "body_sha256": "e31726cf2f0f3645ea256d85d791806c8b8374923e02b465a0435da592cd272c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+      "query_source_line": 22465,
+      "start_line": 1596,
+      "end_line": 1603,
+      "body_sha256": "861526ccdf622306c922d656153861b2ae224491c4ef906d06754406e3580be5",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+      "query_source_line": 22466,
+      "start_line": 1604,
+      "end_line": 1604,
+      "body_sha256": "2e97ab2a0199adcd977709551d31d285a221bf353889a844939970c826d88baa",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.false_ne_blank",
+      "query_source_line": 22467,
+      "start_line": 1605,
+      "end_line": 1606,
+      "body_sha256": "8c1af19bf0a7d28a0a8746b45d200cffc14cad3053552e17166904545e640d78",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.true_ne_false",
+      "query_source_line": 22468,
+      "start_line": 1607,
+      "end_line": 1608,
+      "body_sha256": "de083b0729a9b965d09b225999ef3188d0b65f40492fd1c3a7c323ab1ca4003e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+      "query_source_line": 22469,
+      "start_line": 1609,
+      "end_line": 1619,
+      "body_sha256": "e22892e0dd73a8e0cafabb881f6b972d31f6b3e275f71084153f028b20e9c930",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.directionOffset",
+      "query_source_line": 22470,
+      "start_line": 1620,
+      "end_line": 1620,
+      "body_sha256": "191bef9092f2128dd358ce32d0dbf3f62494e5bf7411904204bf2e0ff1c483eb",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandOffset",
+      "query_source_line": 22471,
+      "start_line": 1621,
+      "end_line": 1622,
+      "body_sha256": "c728987fd79a0f9c1d8642a99f0ded981c8b1da238032394b6ab6e98fc42e7d6",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandOffset_bounds",
+      "query_source_line": 22472,
+      "start_line": 1623,
+      "end_line": 1626,
+      "body_sha256": "a2387a7345874606194c1756dbbd518abbeaf20c952c03bb6876b1bd9b03a08c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.cfgAt",
+      "query_source_line": 22473,
+      "start_line": 1627,
+      "end_line": 1628,
+      "body_sha256": "71becf120e32a662e60350fea7f4347b230fc9f878e43be6650d089adfa03e4f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_zero",
+      "query_source_line": 22474,
+      "start_line": 1629,
+      "end_line": 1631,
+      "body_sha256": "7833fc67fddae0d12c9cedc685923df64a865dbfdc63b25125226fe9dc4dd855",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_succ",
+      "query_source_line": 22475,
+      "start_line": 1632,
+      "end_line": 1635,
+      "body_sha256": "565bd16733590602cbc7c3c41eff4c72da7b458c9c64201392a694dccfd9a205",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandAt",
+      "query_source_line": 22476,
+      "start_line": 1636,
+      "end_line": 1637,
+      "body_sha256": "3b397d441f7f53f800590fec4fd6f4f04aa3149173a3953a3a2394618ffe6461",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandAt_of_live",
+      "query_source_line": 22477,
+      "start_line": 1638,
+      "end_line": 1641,
+      "body_sha256": "eb52479ecc78ae0dc94102441a6fff90c758e7cac77e5ff1a4963642e635c55b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandAt_of_none",
+      "query_source_line": 22478,
+      "start_line": 1642,
+      "end_line": 1645,
+      "body_sha256": "e20ecf41e794a33e71d628d81a663ac47349a8f0fa5f1470b416a3073f063a30",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition",
+      "query_source_line": 22479,
+      "start_line": 1646,
+      "end_line": 1647,
+      "body_sha256": "df6011bf84c9d0ec73b756a9471db7923a6e9f6220559ce67d5746c841530b28",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition_zero",
+      "query_source_line": 22480,
+      "start_line": 1648,
+      "end_line": 1650,
+      "body_sha256": "13eec636843c16b1c744c83899bbe116d00a37cc7b97f94acb44f7dec37cc1d7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition_succ",
+      "query_source_line": 22481,
+      "start_line": 1651,
+      "end_line": 1656,
+      "body_sha256": "b6fdb5354c57245bc72f09706862934da80c6a5b203b9980d47b97f81950b515",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition_step_bounds",
+      "query_source_line": 22482,
+      "start_line": 1657,
+      "end_line": 1662,
+      "body_sha256": "0d65ded924487991bbf02b960d8488dc4af2b82a8b432a831d9cd9bd0b9291ed",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition_bounds",
+      "query_source_line": 22483,
+      "start_line": 1663,
+      "end_line": 1666,
+      "body_sha256": "9e10f59e03158861c0a82140be40952cb8c10bcd9470704b23e4ef08e7f74236",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells",
+      "query_source_line": 22484,
+      "start_line": 1667,
+      "end_line": 1668,
+      "body_sha256": "e174f9c3701fb0b32a7a223980d61b4d3404eabaf30a007c7f43e4d2de4af736",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.mem_visitedCells",
+      "query_source_line": 22485,
+      "start_line": 1669,
+      "end_line": 1674,
+      "body_sha256": "beca0ec2a047ce25c3bad41c0994c209cf7a6bd15d4dd634526aa9e14b695560",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.live_head_mem_visitedCells",
+      "query_source_line": 22486,
+      "start_line": 1675,
+      "end_line": 1679,
+      "body_sha256": "41ca9584e42da950a2bc9209cb13d3a4d749cedf2a48dbd5859555db2373a599",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.origin_mem_visitedCells",
+      "query_source_line": 22487,
+      "start_line": 1680,
+      "end_line": 1682,
+      "body_sha256": "6a1d047b04afbfbf73b58af540d9bba6dbed836c67c834865dcfdcdbad423e6f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_mono",
+      "query_source_line": 22488,
+      "start_line": 1683,
+      "end_line": 1686,
+      "body_sha256": "63d36758f9023f6d516482942ad2bd727397b4d8e84be19ee5edf788ddc09576",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_card_le",
+      "query_source_line": 22489,
+      "start_line": 1687,
+      "end_line": 1689,
+      "body_sha256": "50a5f6950e65281c6b5c6e414c684c327696509d1d199e84680b8b26e5f40669",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_succ_of_none",
+      "query_source_line": 22490,
+      "start_line": 1690,
+      "end_line": 1694,
+      "body_sha256": "1a54bf7c7d5ebde25a9e35c859a7a4409e87b0d91ee6e2077d329c1d7f4ff2e2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_none",
+      "query_source_line": 22491,
+      "start_line": 1695,
+      "end_line": 1698,
+      "body_sha256": "758c9b6c43b3bc85be1282aa211df484468503976ebaa8dcdfd4f1559830d72f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_add_of_none",
+      "query_source_line": 22492,
+      "start_line": 1699,
+      "end_line": 1703,
+      "body_sha256": "07e4107117407c83e9060dc923bf03982d9f9502045a1ab96292e1e5ea1c7ab2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.inputCells",
+      "query_source_line": 22493,
+      "start_line": 1704,
+      "end_line": 1704,
+      "body_sha256": "0e44f24fc0cfd2f4ec87e19e8fb542181421f29838b17ec6616d16f18e14ed37",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.mem_inputCells",
+      "query_source_line": 22494,
+      "start_line": 1705,
+      "end_line": 1706,
+      "body_sha256": "2231b2f1d3eb29fa37e275fb7070068e295476de39990991f112274bbe362ef3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells",
+      "query_source_line": 22495,
+      "start_line": 1707,
+      "end_line": 1708,
+      "body_sha256": "55cb09e397d692a46e22a45d76a3981c1d573c211fa59027bf5d2bea30d13ef6",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.leftEdge",
+      "query_source_line": 22496,
+      "start_line": 1709,
+      "end_line": 1710,
+      "body_sha256": "d651f1d6e4c59cc3e872ff9057305b58cea7747f647e7532c699e44a3e1a9fb2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.rightEdge",
+      "query_source_line": 22497,
+      "start_line": 1711,
+      "end_line": 1712,
+      "body_sha256": "4f457bf8e386453a8317593302c81732c4996bc3335e3b6aad28c70690dbd3f6",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.leftEdge_succ",
+      "query_source_line": 22498,
+      "start_line": 1713,
+      "end_line": 1717,
+      "body_sha256": "7ba2f0b117c47a47d7c16f155557c7d4e2bf5c54e6e2ebc9c052e760a6b1d626",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.rightEdge_succ",
+      "query_source_line": 22499,
+      "start_line": 1718,
+      "end_line": 1722,
+      "body_sha256": "e84be25c6d78ea622703a1d4a45b1c87cf7513e6e6f20db6af3e6a0a10211fea",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval",
+      "query_source_line": 22500,
+      "start_line": 1723,
+      "end_line": 1724,
+      "body_sha256": "5f62265147213e3b04cdf47ae7b0aa7f772e220adf2e375c79cf908cd12ba349",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.headPosition_between_edges",
+      "query_source_line": 22501,
+      "start_line": 1725,
+      "end_line": 1730,
+      "body_sha256": "655c17bb9eb274394e604e44764db2db987e8e8b50c071f9e4361caa91f7d6db",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.leftEdge_antitone",
+      "query_source_line": 22502,
+      "start_line": 1731,
+      "end_line": 1733,
+      "body_sha256": "05e9dc2a558cd2b7bb83b3f3c16230bfac805d78c55e278c90aa9c3c9c8c533e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.rightEdge_monotone",
+      "query_source_line": 22503,
+      "start_line": 1734,
+      "end_line": 1736,
+      "body_sha256": "0e759caa9b02350765dcb14bb391a00d5254d6687d85d8ca4f05c65e51bce1dd",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_subset_interval",
+      "query_source_line": 22504,
+      "start_line": 1737,
+      "end_line": 1740,
+      "body_sha256": "84036798920d2afec41f3a2cf0693fdca85371abac62ab805208a7fa979df024",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.inputCells_subset_interval",
+      "query_source_line": 22505,
+      "start_line": 1741,
+      "end_line": 1744,
+      "body_sha256": "498877b42c36b1e7518fc68260b9539d749be00e2ad37dcadb42f1903238f9e0",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells_subset_interval",
+      "query_source_line": 22506,
+      "start_line": 1745,
+      "end_line": 1748,
+      "body_sha256": "0aa8b56d03f192c9a1186f0b21092fc9a283f03cbdb5af82b5219df1372d44b9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.interval_width_le",
+      "query_source_line": 22507,
+      "start_line": 1749,
+      "end_line": 1753,
+      "body_sha256": "59393c6d5addc7fc9512efde7aec76e126d432c56558bb7bc4bf200f97841294",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_card_le",
+      "query_source_line": 22508,
+      "start_line": 1754,
+      "end_line": 1756,
+      "body_sha256": "ff57ed4b85f09a0b85544093b273221486007e418c193e0794900fcef1aa18f9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells_card_le",
+      "query_source_line": 22509,
+      "start_line": 1757,
+      "end_line": 1759,
+      "body_sha256": "fa8970d8163d0c910075fe2eed40c70356e66f477465326b973de7ea169e48ca",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_succ_of_no_command",
+      "query_source_line": 22510,
+      "start_line": 1760,
+      "end_line": 1764,
+      "body_sha256": "2fef0bc59ae33818b6487e5563b1a90f20a3bb43c94f9b8de3b4f4cdba69f87a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_add_of_none",
+      "query_source_line": 22511,
+      "start_line": 1765,
+      "end_line": 1769,
+      "body_sha256": "f222233139a41f44749530823cb1a8f576871b8e21ab06b97d2244f864c4b93c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+      "query_source_line": 22512,
+      "start_line": 1770,
+      "end_line": 1777,
+      "body_sha256": "b8bdcf02fcfabb9cc3d7e0b8c0172c9fb3563b8793565cecb2825c3599a25809",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.move_nth_at_global_coordinate",
+      "query_source_line": 22513,
+      "start_line": 1778,
+      "end_line": 1780,
+      "body_sha256": "8d3399018265992349f00b335260850e544719bb01b7dfb222488ad1e1a2360e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.write_nth_at_other_global_coordinate",
+      "query_source_line": 22514,
+      "start_line": 1781,
+      "end_line": 1782,
+      "body_sha256": "7d9d8ba634f7735c33ebf40c2809dd29ea1496e02f6dae662727b2bd2d4c89e4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.initTape_nth_eq_default_of_not_mem_inputCells",
+      "query_source_line": 22515,
+      "start_line": 1783,
+      "end_line": 1785,
+      "body_sha256": "fbfffbf081001048a87506215d44fa6c902d2698092a27815600a5ee05c20c9f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.commandAt_eq_none_of_next_none",
+      "query_source_line": 22516,
+      "start_line": 1786,
+      "end_line": 1789,
+      "body_sha256": "3fcaa2e3be20fd26961bc5bd49ae02bff949510d814d9a558c7dbf45635ad9ab",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.terminal_prefix_adds_no_cells",
+      "query_source_line": 22517,
+      "start_line": 1790,
+      "end_line": 1796,
+      "body_sha256": "0a76f3a050b1b6ff8a8b7303206b9d33168893d580bdc187779b1b614186c38f",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+      "query_source_line": 22518,
+      "start_line": 1797,
+      "end_line": 1805,
+      "body_sha256": "8c9a6337e83cb10fa2342a5ac645e557d4a248a4e3a73de7a9b66bafafa0153a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.step_nth_at_other_global_coordinate",
+      "query_source_line": 22519,
+      "start_line": 1806,
+      "end_line": 1810,
+      "body_sha256": "4c990eae3d8d5c442473010a374c6a812001188529ddef7f0e67ea1d972a933b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.nth_eq_initial_of_not_visited",
+      "query_source_line": 22520,
+      "start_line": 1811,
+      "end_line": 1816,
+      "body_sha256": "8d2e0da480ad1768ac3016a27628774221ccd27365e8a4d8e7460efb73ad58e5",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.nth_eq_default_of_not_inputVisitedCells",
+      "query_source_line": 22521,
+      "start_line": 1817,
+      "end_line": 1823,
+      "body_sha256": "2a00d6b2bf9732dd79d997388e0767144849081876278a3a3f517adcbc0ec1a2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.init_nth_eq_default_of_not_inputVisitedCells",
+      "query_source_line": 22522,
+      "start_line": 1824,
+      "end_line": 1830,
+      "body_sha256": "52578c01f0be7e312a50217185e96476eb1e10ec140f870838949eeb3164c435",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+      "query_source_line": 22523,
+      "start_line": 1831,
+      "end_line": 1842,
+      "body_sha256": "c4e0d53b341cba941802eb7594745f206c5201fcbf6d85ff1232b1cf1fb4d8bd",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_encoded_distance",
+      "query_source_line": 22524,
+      "start_line": 1843,
+      "end_line": 1848,
+      "body_sha256": "889382997198013a53ade4e47a72b48f72bbd8904b9d66686f1dba29e49e8446",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+      "query_source_line": 22525,
+      "start_line": 1849,
+      "end_line": 1853,
+      "body_sha256": "d829e312115f2567187795b90f55eca67dd2672801467aa54728bb6b10bbf67c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.encoded_instance_length",
+      "query_source_line": 22526,
+      "start_line": 1854,
+      "end_line": 1857,
+      "body_sha256": "0a54baedb88dfb754408e26a433ea061fd4619465ff310b9dc3df4db4448deaf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.verifyFramed_code_iff_trace",
+      "query_source_line": 22527,
+      "start_line": 1858,
+      "end_line": 1866,
+      "body_sha256": "46e7fc4661d451657e2e4981cd943eb13f65c32d81d8932f26f19d9d8b8e5f25",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_exists_small_framed_certificate",
+      "query_source_line": 22528,
+      "start_line": 1867,
+      "end_line": 1875,
+      "body_sha256": "2cd5a569e68e91e5f82b893c134b4a721ad1633be24f7fd477cbe75ddd687a7b",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+      "query_source_line": 22529,
+      "start_line": 1876,
+      "end_line": 1893,
+      "body_sha256": "46f6e15f09c8a9ff2e05c43df445331261ea69b659cf41917ea0fe4140ced168",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.not_binaryYes_nil",
+      "query_source_line": 22530,
+      "start_line": 1894,
+      "end_line": 1894,
+      "body_sha256": "b98422c2b83a3c2e722a2cae7eb947bb702b3deb1866e8023afc5bbb229b7eb4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_empty_shapes",
+      "query_source_line": 22531,
+      "start_line": 1895,
+      "end_line": 1898,
+      "body_sha256": "b439f623e46819d80f4266ea0488fc0963e6bf5cf815fc21b2c6d11c6d4c1803",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_singleton_shapes",
+      "query_source_line": 22532,
+      "start_line": 1899,
+      "end_line": 1902,
+      "body_sha256": "2be4a9d74a39d2f7879c60babd0bbd17399d1ae0f6f8b300357b5b4d2e709dc4",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.empty_zero_width_case",
+      "query_source_line": 22533,
+      "start_line": 1903,
+      "end_line": 1922,
+      "body_sha256": "767f9d0ba3ad6cb3255a41d8102086febc5e58bf2fc84522558289612d33bc8e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.empty_width_two_case",
+      "query_source_line": 22534,
+      "start_line": 1923,
+      "end_line": 1944,
+      "body_sha256": "dd4075541621fd8e04c117b32bd0a2389d94f2d50a90ee3a6fc03f83f3077cea",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_not_in_language",
+      "query_source_line": 22535,
+      "start_line": 1945,
+      "end_line": 1948,
+      "body_sha256": "216b41301cfde9b33f20f6fa1a4b380092c3a8d2502976d8df247cd724549a33",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_rejects_every_certificate",
+      "query_source_line": 22536,
+      "start_line": 1949,
+      "end_line": 1957,
+      "body_sha256": "e8970d7ffea55188bf8ed04805aa98abf6577d5d5a8719df3064a165fbcc05fe",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_case",
+      "query_source_line": 22537,
+      "start_line": 1958,
+      "end_line": 1983,
+      "body_sha256": "ee0214bc22f8eb12c0a97db9b662fe33e007cb0acedf179d2372118c0041e033",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.one_rotation_case",
+      "query_source_line": 22538,
+      "start_line": 1984,
+      "end_line": 2009,
+      "body_sha256": "dbcce5bf42b5e9938ea5d1afcc5e7b40d1b0df403e55ef2f2b83879a96951907",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.one_rotation_high_zero_case",
+      "query_source_line": 22539,
+      "start_line": 2010,
+      "end_line": 2036,
+      "body_sha256": "5fab50d52f2560d58f9e35c2aa7e7dbadde6b974c60ebb926376b67cf1e7e326",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.high_zero_does_not_identify_the_two_instances",
+      "query_source_line": 22540,
+      "start_line": 2037,
+      "end_line": 2044,
+      "body_sha256": "0d136182c54d2560c078d2b4d76c41e96fb7199922b99ef059adcfcfd89cc5e3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.raw_empty_instance_case",
+      "query_source_line": 22541,
+      "start_line": 2045,
+      "end_line": 2050,
+      "body_sha256": "bcdeb485ee35e83530e7248e8a538d0ee06ff5ee20ef8f814dbeb76b7a9cf668",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.zero_and_one_node_language_boundaries",
+      "query_source_line": 22542,
+      "start_line": 2051,
+      "end_line": 2059,
+      "body_sha256": "d65b04eaaf02a2cca967cb2f685a2ef5f327211606db55b05788a13b4227ce60",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.arbitrary_zero_node_boundary",
+      "query_source_line": 22543,
+      "start_line": 2060,
+      "end_line": 2063,
+      "body_sha256": "39eb16aab4451cf74908843e0d99eb4b16142108e263b988f4966c0008a66041",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.arbitrary_one_node_boundary",
+      "query_source_line": 22544,
+      "start_line": 2064,
+      "end_line": 2067,
+      "body_sha256": "afba027d4032564c5e0b92b44432154b01a56bdab2e704477c18fb83723e2ef3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.one_rotation_has_a_small_accepted_witness",
+      "query_source_line": 22545,
+      "start_line": 2068,
+      "end_line": 2084,
+      "body_sha256": "375a744d243bd5a97ddccb9befafc2bedbea138b4f5ae46224a319801b8be328",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateCorrespondence.zero_threshold_has_no_small_accepted_witness",
+      "query_source_line": 22546,
+      "start_line": 2085,
+      "end_line": 2111,
+      "body_sha256": "9252ba63f8ffa203b3c0c698de7071f1be9608fbbe72bcefa8767604053c008c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.mk",
+      "query_source_line": 22549,
+      "start_line": 2112,
+      "end_line": 2123,
+      "body_sha256": "ec7d9f685e01d0007ec8470080daa727fe68ae6dd861f610c7c05fc6ebff35f8",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet",
+      "query_source_line": 22550,
+      "start_line": 2124,
+      "end_line": 2125,
+      "body_sha256": "ae8b0be806c9f37f6a6ff40719cd0cbac68b97a4ca7fdb8422205d945aa35a48",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.Control",
+      "query_source_line": 22551,
+      "start_line": 2126,
+      "end_line": 2127,
+      "body_sha256": "7d38911dafc99c4e7d84e361d31a271c77f3b19cb936224fbf4e44f3ab54f395",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.alphabetFintype",
+      "query_source_line": 22552,
+      "start_line": 2128,
+      "end_line": 2129,
+      "body_sha256": "535d1ecad818961953bd235c24e629c083734d75209e12532413a2fcaacd4bf3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.controlFintype",
+      "query_source_line": 22553,
+      "start_line": 2130,
+      "end_line": 2131,
+      "body_sha256": "7a930a9d4912e9d020a2031cf235b688e27fb3026f2982b58869ad4eb48eb137",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.blank",
+      "query_source_line": 22554,
+      "start_line": 2132,
+      "end_line": 2133,
+      "body_sha256": "18a9427020bf2446f7f6d1a23841f10657e188a49fd73159926c63a812c6a76c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.start",
+      "query_source_line": 22555,
+      "start_line": 2134,
+      "end_line": 2135,
+      "body_sha256": "13628e7e6c3b059abefc315f2c859c057c33b39cdeb47b67e5a5b12ea4333ef2",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.bit",
+      "query_source_line": 22556,
+      "start_line": 2136,
+      "end_line": 2137,
+      "body_sha256": "070f8a398f8591b4a5eb88b32a5e890a2a127eaf51661c09c846fa3d2863b46e",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.bit_ne_blank",
+      "query_source_line": 22557,
+      "start_line": 2138,
+      "end_line": 2139,
+      "body_sha256": "d3bb7109b3d37183414f2e36d571f6dd1fa77ad0e4f1cbb748ddf03142e52be3",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.machine",
+      "query_source_line": 22558,
+      "start_line": 2140,
+      "end_line": 2141,
+      "body_sha256": "b42a9102e767afd27b7d968cbc93914c44b5670153e7860c4b8d597f930f59bd",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.time",
+      "query_source_line": 22559,
+      "start_line": 2142,
+      "end_line": 2143,
+      "body_sha256": "5754973ad10b3361f09bf508f56c07521969350ae412930d36094ea676844e6c",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run",
+      "query_source_line": 22560,
+      "start_line": 2144,
+      "end_line": 2150,
+      "body_sha256": "95841245144f8be2b2de5b7e937ba0c68b9a8b274627cb6543c283e9a86c4aa7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control.start",
+      "query_source_line": 22561,
+      "start_line": 2151,
+      "end_line": 2152,
+      "body_sha256": "7c63ebf8d3f50ba07e2642553017de05485ae3989d93e243ff3bcff4cf5206f7",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control.scan",
+      "query_source_line": 22562,
+      "start_line": 2153,
+      "end_line": 2154,
+      "body_sha256": "9b32f09e536a0090a7d843556cb125bc5042abf2b404cb38c5369c6c4c6d31ae",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control.mark",
+      "query_source_line": 22563,
+      "start_line": 2155,
+      "end_line": 2156,
+      "body_sha256": "8e542e1528586125c3d2fbfab2e23885d0124e7a8ce353fe263271bfa3e3eebe",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control.run",
+      "query_source_line": 22564,
+      "start_line": 2157,
+      "end_line": 2158,
+      "body_sha256": "5d839e2d5c5cd92aa62016310f2257749d13bf1e0934912a7c572d5bf9db658a",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.MarkedInput.Control.done",
+      "query_source_line": 22565,
+      "start_line": 2159,
+      "end_line": 2160,
+      "body_sha256": "b34cf9f2685d82a04508164d591116da1547e58c7ce5b3551063c562439196f1",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Phase.first",
+      "query_source_line": 22566,
+      "start_line": 2161,
+      "end_line": 2161,
+      "body_sha256": "fa23807912a6399330e1333debec67f972682f5366c2ed8c5b0a3ce74a7faa87",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Phase.second",
+      "query_source_line": 22567,
+      "start_line": 2162,
+      "end_line": 2162,
+      "body_sha256": "7b13f7a96855ff9b3d3437555145c93ef281830b927118edecf32ae4cf45b8cf",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.VisitedSpace.Phase.stopped",
+      "query_source_line": 22568,
+      "start_line": 2163,
+      "end_line": 2163,
+      "body_sha256": "d3f864d1ad32ec6a25cb72fad84e0198dd5a24d47a731ac9417df6599bf0cee9",
+      "actual_reading": null
+    },
+    {
+      "group": "readable",
+      "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+      "query_source_line": 22571,
+      "start_line": 2164,
+      "end_line": 2185,
+      "body_sha256": "c011754c2f66e249eb04ba2e287c33e720dec31c07146c91799e62750ac004b5",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+      "query_source_line": 22577,
+      "start_line": 2186,
+      "end_line": 2339,
+      "body_sha256": "d9e6998f4ab8eee8dcaa3aaaeaaa541bf1483f16b1c56c2b1d1ae44b29a0852c",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+      "query_source_line": 22580,
+      "start_line": 2340,
+      "end_line": 2459,
+      "body_sha256": "a5ac3db96516cbfca4b73a9bbd90bfdbbc2dfd6b2ddfcf7f286c1b5d8e7a4c91",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.TapeReflection.machine",
+      "query_source_line": 22583,
+      "start_line": 2460,
+      "end_line": 2461,
+      "body_sha256": "4630b3e5508f94f773cbfbda5056f6cefa966fb7b9e80154ec27357c2a9d3971",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+      "query_source_line": 22586,
+      "start_line": 2462,
+      "end_line": 2492,
+      "body_sha256": "c46c8e93cf18a1310cd2c4f2664a3b4634d886d12d14340b8abc152812d3d5d5",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.MarkedInput.machine",
+      "query_source_line": 22589,
+      "start_line": 2493,
+      "end_line": 2498,
+      "body_sha256": "bd5724826a6922b8cf72e66082a8f6ccdfd8fbe85d8fbd762f8eed208ddafb62",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+      "query_source_line": 22592,
+      "start_line": 2499,
+      "end_line": 2553,
+      "body_sha256": "ab6bc0f0213f3ee7eea522b3cda845555567160ec39734c885518ede0e4aa96c",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+      "query_source_line": 22595,
+      "start_line": 2554,
+      "end_line": 2608,
+      "body_sha256": "b1b91b0b98d9a227ab9e14e441ab66e6063d0802225e7059589f419435c8ba75",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+      "query_source_line": 22598,
+      "start_line": 2609,
+      "end_line": 2650,
+      "body_sha256": "148b93f1695660ffb0225e808b54c0e4ce1c86be187fec18ed08272bd09c5e93",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+      "query_source_line": 22601,
+      "start_line": 2651,
+      "end_line": 2680,
+      "body_sha256": "f8a6d8958118a1bf47ff842c8f93e9855b0393a6a54d8b18eece309031f2e18b",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+      "query_source_line": 22604,
+      "start_line": 2681,
+      "end_line": 2695,
+      "body_sha256": "2d2038b125d29966b8ef423e0c29d5695e309c33750dba73fb2420eb25819e36",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+      "query_source_line": 22607,
+      "start_line": 2696,
+      "end_line": 2919,
+      "body_sha256": "31aad59433ebc9851c29a433fc8e0b82148141e37cd40ddb71155722062ff2b7",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+      "query_source_line": 22610,
+      "start_line": 2920,
+      "end_line": 2923,
+      "body_sha256": "9424e725ad985cb2dc2a781ce2d7d23d728d9d870dfd7c4f33d26f79b82e11e0",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+      "query_source_line": 22613,
+      "start_line": 2924,
+      "end_line": 3240,
+      "body_sha256": "49ac1c2232e051820f4a8558a6a9e466a589e594c646da81fb591d06dcc66556",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+      "query_source_line": 22616,
+      "start_line": 3241,
+      "end_line": 3581,
+      "body_sha256": "00f44bcc44a87fc37795d1248e07e567a82b0574c45979ecc8d24de2747b8e50",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+      "query_source_line": 22619,
+      "start_line": 3582,
+      "end_line": 4193,
+      "body_sha256": "43e3ed6b11485081de6fa3a3f2886d29ce441ce43875dc997de83c4851ef2a64",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+      "query_source_line": 22622,
+      "start_line": 4194,
+      "end_line": 5584,
+      "body_sha256": "016ea095289374ecad13e8a5f29c2820203fc0e773050a84e700d35f39fb39ec",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+      "query_source_line": 22625,
+      "start_line": 5585,
+      "end_line": 5595,
+      "body_sha256": "795ab135d0d4ed4e68243a7f65be63aba7d46273da391accd9565d7b4b342fc4",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+      "query_source_line": 22628,
+      "start_line": 5596,
+      "end_line": 5612,
+      "body_sha256": "53912a506980c5befff0d7368bbd5a6846150c68ea191c8ba5d82071dcc01239",
+      "actual_reading": null
+    },
+    {
+      "group": "expanded",
+      "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+      "query_source_line": 22633,
+      "start_line": 5613,
+      "end_line": 5668,
+      "body_sha256": "317184936a0763c4e69ab98a6a2779ef283cb05452e8520ecf28e0b235c1bf01",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+      "query_source_line": 22638,
+      "start_line": 5669,
+      "end_line": 5669,
+      "body_sha256": "795c9d008d92f5b90167d8f1356821f306454ba159bccfce6dbd8ca106e28067",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+      "query_source_line": 22639,
+      "start_line": 5670,
+      "end_line": 5670,
+      "body_sha256": "c03dd43481c591870f47e8322fc0f520cb8830e2a8d0b438a4097037883b09c1",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+      "query_source_line": 22640,
+      "start_line": 5671,
+      "end_line": 5671,
+      "body_sha256": "9c93d44c6e764f3fa80df7443fce20842ef46135f02ad2f1ac7eaf6830ace64d",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+      "query_source_line": 22641,
+      "start_line": 5672,
+      "end_line": 5672,
+      "body_sha256": "9de3b670f95c414318e9a5c46fd17583813eb925dde26d12b7d7c216ce660786",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+      "query_source_line": 22642,
+      "start_line": 5673,
+      "end_line": 5675,
+      "body_sha256": "5cb4504ee4890d67cbaf1b06429c396a0ebaa9bb42a4c720feaa3c47714ae036",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+      "query_source_line": 22643,
+      "start_line": 5676,
+      "end_line": 5678,
+      "body_sha256": "f7587f3cf0c82e6465a49cfb7c8b83425f718ad3596e04906d96696dcde38b55",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+      "query_source_line": 22644,
+      "start_line": 5679,
+      "end_line": 5681,
+      "body_sha256": "7faf42c426e39aeb6ff6abf54aa40c3bea2f4c0dbcd4193f496aa3e2a22eaee9",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+      "query_source_line": 22645,
+      "start_line": 5682,
+      "end_line": 5682,
+      "body_sha256": "4003d9d4ee1cd7276de3dcd0ae991de2c3ea03c57e28d35103260a31e709652a",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+      "query_source_line": 22646,
+      "start_line": 5683,
+      "end_line": 5685,
+      "body_sha256": "89c0f3b5dc5417d430b52a19c534b44d0c92117e20fa17e72f1be79feaffc321",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+      "query_source_line": 22647,
+      "start_line": 5686,
+      "end_line": 5688,
+      "body_sha256": "0b02103779b176cc89370c240bd3db0005b0aa865715cc5bedd788bd46b7ea1b",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+      "query_source_line": 22648,
+      "start_line": 5689,
+      "end_line": 5691,
+      "body_sha256": "61b14aae7c086359dd9602e41c1cf173b27dda2ffcfb90e172755318c3d4e75b",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+      "query_source_line": 22649,
+      "start_line": 5692,
+      "end_line": 5694,
+      "body_sha256": "bdcc92ae171f95f0e64b65d3e67efc253ca4cd1f03fd6e6205e3d7833487acda",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+      "query_source_line": 22650,
+      "start_line": 5695,
+      "end_line": 5697,
+      "body_sha256": "e876d7cdf1792fac1a13e4b340dab0a66586b6a4eed60f94800b0e44a47f9a53",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+      "query_source_line": 22651,
+      "start_line": 5698,
+      "end_line": 5700,
+      "body_sha256": "f61f63c39b0376a828c89652e90f3f33957f80783a62309561e3828eb0bb0422",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+      "query_source_line": 22652,
+      "start_line": 5701,
+      "end_line": 5703,
+      "body_sha256": "fa32dd1695d74b238129862c3f0d5dc045c47a4c3838e8a961f886618e101746",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+      "query_source_line": 22653,
+      "start_line": 5704,
+      "end_line": 5706,
+      "body_sha256": "d5ee4d31fd5a5ed559e3e9299316f9a6f4cfc77326ec16ec8ca186b4f3f19c12",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+      "query_source_line": 22654,
+      "start_line": 5707,
+      "end_line": 5709,
+      "body_sha256": "b2c4cd73f753d322afbb45e417aebe38c31409170c61b282fd2a6ca531cc0d19",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+      "query_source_line": 22655,
+      "start_line": 5710,
+      "end_line": 5712,
+      "body_sha256": "2121b99a9d1cca1d222c51dac8e950a2a725f5bc9b23380a7de231713ce8c6b9",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+      "query_source_line": 22656,
+      "start_line": 5713,
+      "end_line": 5715,
+      "body_sha256": "ad800a32c5b6dc87bf7b74a78c81a965f9789d2e1d2c531df1310ee5e1f41584",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+      "query_source_line": 22657,
+      "start_line": 5716,
+      "end_line": 5716,
+      "body_sha256": "56da8a78d16afe021c05ecc4750f278e69c50b4ca8ab6139bdd4df43ec631246",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+      "query_source_line": 22658,
+      "start_line": 5717,
+      "end_line": 5717,
+      "body_sha256": "91ef9787564f25c5ce2d69c90ba55c213e66a0a5652e87c8bb660e4569dd3900",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+      "query_source_line": 22659,
+      "start_line": 5718,
+      "end_line": 5720,
+      "body_sha256": "8997e134d9bd5dd6ab89068b2b21513ff42eca3d675b45d01bc8a1d0a3b659af",
+      "actual_reading": null
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+      "query_source_line": 22662,
+      "start_line": 5721,
+      "end_line": 5723,
+      "body_sha256": "f051fca924cf987e0996c22737563f20e1048be84c6b33b198d8d271d3e84282",
+      "actual_reading": null
+    }
+  ],
+  "mechanical_index_not_reading_credit": true,
+  "literal_elision_lines": [
+    4198,
+    4201,
+    4204,
+    4208,
+    4218,
+    4298,
+    5583,
+    5584
+  ]
+}

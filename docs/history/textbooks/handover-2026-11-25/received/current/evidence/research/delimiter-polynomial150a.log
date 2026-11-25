@@ -1,0 +1,848 @@
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial : ℕ → Polynomial ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial_eval : ∀ (A N : ℕ),
+  Polynomial.eval N (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A) =
+    2 * Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryTimeBound A N + 1
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent : ℕ → ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_le_power : ∀ (A N : ℕ),
+  Polynomial.eval N (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A) ≤
+    N ^ Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.allowance_le_power : ∀ (A : ℕ)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  2 *
+        (Resources.TuringSimulation.MarkedInput.preludeSteps raw +
+            Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound A (List.length raw) +
+          1) +
+      1 ≤
+    List.length raw ^ Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_allowance_slack : ∀ (A : ℕ),
+  2 *
+          (Resources.TuringSimulation.MarkedInput.preludeSteps [] +
+              Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound A 0 +
+            1) +
+        1 +
+      2 =
+    Polynomial.eval 0 (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A)
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_allowance : ∀ (A : ℕ)
+  (letter : Option Bool),
+  2 *
+        (Resources.TuringSimulation.MarkedInput.preludeSteps [letter] +
+            Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound A 1 +
+          1) +
+      1 =
+    Polynomial.eval 1 (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A)
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_zero_le_power : ∀ (A : ℕ),
+  Polynomial.eval 0 (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A) ≤
+    0 ^ Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A
+Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_one_le_power : ∀ (A : ℕ),
+  Polynomial.eval 1 (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial A) ≤
+    1 ^ Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent A
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run : {R : Type} →
+  [inst : Fintype R] →
+    (initial : R) →
+      [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)] →
+        Resources.RotationCertificate.DelimiterPreludeDraft.Raw → ℕ → Prop
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power : ∀ {R : Type} [inst : Fintype R]
+  (initial : R)
+  [inst_1 : DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial raw
+    (List.length raw ^
+        Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+        Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum)
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.exists_fixed_power : ∀ {R : Type}
+  [inst : Fintype R] (initial : R)
+  [inst_1 : DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)],
+  ∃ k,
+    ∀ (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial raw
+        (List.length raw ^ k + k)
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_run : ∀ {R : Type} [inst : Fintype R]
+  (initial : R)
+  [inst_1 : DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)],
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial []
+    (0 ^
+        Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+        Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum)
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_run : ∀ {R : Type}
+  [inst : Fintype R] (initial : R)
+  [inst_1 : DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (letter : Option Bool),
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial [letter]
+    (1 ^
+        Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum +
+      Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+        Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum)
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run : ∀ {R : Type}
+  [inst : Fintype R] (initial : R)
+  [inst_1 : DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (input cert : Resources.BinaryCounter.Bits),
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)
+      ((List.length input + List.length cert + 1) ^
+          Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+            Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum +
+        Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum) ∧
+    (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput initial
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)).length =
+        List.length input + List.length cert + 1 ∧
+      Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+        (Resources.RotationCertificate.verifyBitsRun input cert).1
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run : {R : Type} →
+  [inst : Fintype.{0} R] →
+    (initial : R) →
+      [DecidableEq.{1}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)] →
+        (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) → (bound : Nat) → Prop
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power : ∀ {R : Type}
+  [inst : Fintype.{0} R] (initial : R)
+  [inst_1 :
+    DecidableEq.{1} (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)]
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run R inst initial inst_1 raw
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@List.length.{0} (Option.{0} Bool) raw)
+        (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)))
+      (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)))
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.exists_fixed_power : ∀ {R : Type}
+  [inst : Fintype.{0} R] (initial : R)
+  [inst_1 :
+    DecidableEq.{1} (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)],
+  @Exists.{1} Nat fun (k : Nat) =>
+    ∀ (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+      @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run R inst initial inst_1 raw
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@List.length.{0} (Option.{0} Bool) raw) k)
+          k)
+@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run : ∀ {R : Type}
+  [inst : Fintype.{0} R] (initial : R)
+  [inst_1 :
+    DecidableEq.{1} (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)]
+  (input cert : Resources.BinaryCounter.Bits),
+  And
+    (@Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run R inst initial inst_1
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{0} Bool input)
+              (@List.length.{0} Bool cert))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)))
+        (Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst))))
+    (And
+      (@Eq.{1} Nat
+        (@List.length.{0}
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{0} Bool input)
+            (@List.length.{0} Bool cert))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@Eq.{1} Bool
+        (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))
+        (@Prod.fst.{0, 0} Bool Nat (Resources.RotationCertificate.verifyBitsRun input cert))))
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.allowance_le_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+def Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run : {R : Type} →
+  [inst : Fintype.{0} R] →
+    (initial : R) →
+      [DecidableEq.{1}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)] →
+        (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) → (bound : Nat) → Prop :=
+fun {R : Type} [inst : Fintype.{0} R] (initial : R)
+    [inst_1 :
+      DecidableEq.{1} (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)]
+    (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (bound : Nat) =>
+  @Exists.{1}
+    (@StateTransition.EvalsToInTime.{0}
+      (@Turing.TM0.Cfg.{0, 0}
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+          (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+          (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+      (@Turing.TM0.step.{0, 0}
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+          (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+          (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst initial))
+      (@Turing.TM0.init.{0, 0}
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+        (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+          (Resources.TuringSimulation.StackToTape.Package.Control
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+          (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+          (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial raw))
+      (@Option.some.{0}
+        (@Turing.TM0.Cfg.{0, 0}
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+            (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+            (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+          (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Option.{0} Bool) raw)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)
+            (@List.length.{0} (Option.{0} Bool) raw)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    fun
+      (native :
+        @StateTransition.EvalsToInTime.{0}
+          (@Turing.TM0.Cfg.{0, 0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+              (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+          (@Turing.TM0.step.{0, 0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+              (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst initial))
+          (@Turing.TM0.init.{0, 0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+            (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+              (Resources.TuringSimulation.StackToTape.Package.Control
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+              (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial raw))
+          (@Option.some.{0}
+            (@Turing.TM0.Cfg.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+              (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Option.{0} Bool) raw)
+              (Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)
+                (@List.length.{0} (Option.{0} Bool) raw)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+    @Exists.{1}
+      (@StateTransition.EvalsToInTime.{0}
+        (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+          (Resources.TuringSimulation.PrintMove.Control.{0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+            (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+            (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+        (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+          (Resources.TuringSimulation.PrintMove.Control.{0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+            (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+            (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst initial
+            inst_1))
+        (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+          (Resources.TuringSimulation.PrintMove.Control.{0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+            (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+            (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+          (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+            (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+              (Resources.TuringSimulation.StackToTape.Package.Control
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+          (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial raw))
+        (@Option.some.{0}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+            (Resources.TuringSimulation.PrintMove.Control.{0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+              (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+          (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+              (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+            (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+            (@Turing.TM0.Cfg.Tape.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+                (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+        bound)
+      fun
+        (target :
+          @StateTransition.EvalsToInTime.{0}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+            (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst initial
+                inst_1))
+            (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+                  (Resources.TuringSimulation.StackToTape.Package.Control
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial raw))
+            (@Option.some.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                (@Turing.TM0.Cfg.Tape.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+                    (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+            bound) =>
+      And
+        (@Eq.{1} Nat
+          (@StateTransition.EvalsTo.steps.{0}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+            (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst initial
+                inst_1))
+            (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+                  (Resources.TuringSimulation.StackToTape.Package.Control
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial raw))
+            (@Option.some.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                (@Turing.TM0.Cfg.Tape.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+                    (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+            (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst
+                  initial inst_1))
+              (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+                    (Resources.TuringSimulation.StackToTape.Package.Control
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                  raw))
+              (@Option.some.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                  (@Turing.TM0.Cfg.Tape.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                      initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+              bound target))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@Resources.TuringSimulation.PrintMove.simulationTime.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst initial)
+              (@Turing.TM0.init.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+                  (Resources.TuringSimulation.StackToTape.Package.Control
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                  raw))
+              (@StateTransition.EvalsTo.steps.{0}
+                (@Turing.TM0.Cfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Turing.TM0.step.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst
+                    initial))
+                (@Turing.TM0.init.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+                    (Resources.TuringSimulation.StackToTape.Package.Control
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                    raw))
+                (@Option.some.{0}
+                  (@Turing.TM0.Cfg.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+                    (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+                (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                  (@Turing.TM0.Cfg.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                  (@Turing.TM0.step.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst
+                      initial))
+                  (@Turing.TM0.init.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+                      (Resources.TuringSimulation.StackToTape.Package.Control
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                      raw))
+                  (@Option.some.{0}
+                    (@Turing.TM0.Cfg.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ
+                          (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                      initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Option.{0} Bool) raw)
+                      (Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)
+                        (@List.length.{0} (Option.{0} Bool) raw)))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  native)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (And
+          (@LE.le.{0} Nat instLENat
+            (@StateTransition.EvalsTo.steps.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+              (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst
+                  initial inst_1))
+              (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+                    (Resources.TuringSimulation.StackToTape.Package.Control
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                  raw))
+              (@Option.some.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                  (@Turing.TM0.Cfg.Tape.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                      initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+              (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst
+                    initial inst_1))
+                (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Resources.TuringSimulation.MarkedInput.Control.start.{0}
+                      (Resources.TuringSimulation.StackToTape.Package.Control
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                    raw))
+                (@Option.some.{0}
+                  (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                  (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                    (@Turing.TM0.Cfg.Tape.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                        initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+                bound target))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@StateTransition.EvalsTo.steps.{0}
+                  (@Turing.TM0.Cfg.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                  (@Turing.TM0.step.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst
+                      initial))
+                  (@Turing.TM0.init.{0, 0}
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                    (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+                      (Resources.TuringSimulation.StackToTape.Package.Control
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                      (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst initial
+                      raw))
+                  (@Option.some.{0}
+                    (@Turing.TM0.Cfg.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ
+                          (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                    (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                      initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+                  (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                    (@Turing.TM0.Cfg.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ
+                          (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                    (@Turing.TM0.step.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryMachine R inst
+                        initial))
+                    (@Turing.TM0.init.{0, 0}
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                      (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+                        (Resources.TuringSimulation.StackToTape.Package.Control
+                          (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                      (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                        (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                        (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryInput R inst
+                        initial raw))
+                    (@Option.some.{0}
+                      (@Turing.TM0.Cfg.{0, 0}
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                        (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                        (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                          (Turing.FinTM2.K
+                            (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                          (Turing.FinTM2.Γ
+                            (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))))
+                      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst
+                        initial (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                        (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Option.{0} Bool) raw)
+                        (Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound
+                          (@Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum R inst)
+                          (@List.length.{0} (Option.{0} Bool) raw)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    native)))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Eq.{1}
+            (Option.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))))
+            (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+              (Resources.TuringSimulation.PrintMove.Control.{0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+              (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine R inst initial
+                inst_1)
+              (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)
+                (@Turing.TM0.Cfg.Tape.{0, 0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial)
+                  (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                    (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                    (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.ordinaryOutput R inst initial
+                    (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw)))))
+            (@Option.none.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Control R inst initial))
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0}
+                  (Turing.FinTM2.K (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial))
+                  (Turing.FinTM2.Γ (@Resources.RotationCertificate.DelimiterPreludeDraft.machine R inst initial)))))))

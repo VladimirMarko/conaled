@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "frozen_utc": "2026-11-24T21:49:18.164451+00:00",
+  "status": "UNCOMPILED / UNINSTALLED / UNREVIEWED",
+  "candidate_context": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree_context": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "current_scope_owners": 63,
+  "expectations_fixed_before_source": {
+    "path": "work/conventional-contract150-draft/EXPECTATIONS.json",
+    "bytes": 5314,
+    "sha256": "7962fa0b7853f9d968b456cec76785f69814671843fa033ab58e840d9f4769fd",
+    "mode": "100644"
+  },
+  "source_files": [
+    {
+      "path": "work/conventional-contract150-draft/ConventionalPolynomialDecider150.lean",
+      "bytes": 9818,
+      "sha256": "97fb968d958ff5a4e5bb6460fd2be38afbf1d5acf9c23d0e707b1e67e6c1ac8a",
+      "mode": "100644"
+    },
+    {
+      "path": "work/conventional-contract150-draft/DelimiterConventionalContract150.lean",
+      "bytes": 6751,
+      "sha256": "16b40d61d40211a29510e511ef2a427628525ff699a98c5912cf791967e930db",
+      "mode": "100644"
+    }
+  ],
+  "post_import_body_slices": [
+    {
+      "source": "work/conventional-contract150-draft/ConventionalPolynomialDecider150.lean",
+      "byte_start": 113,
+      "byte_end_exclusive": 9818,
+      "bytes": 9705,
+      "sha256": "64a0fb38b7783dd68397160f7c93f3130e750e723da7d8b85190e59dfe48a152",
+      "header_removed": "import Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove\nimport NaturalPolynomialNormalForm149\n\n",
+      "body_rewritten": false
+    },
+    {
+      "source": "work/conventional-contract150-draft/DelimiterConventionalContract150.lean",
+      "byte_start": 71,
+      "byte_end_exclusive": 6751,
+      "bytes": 6680,
+      "sha256": "81fe7dd3bda3f150360e8748ff0fabefe6d58d2e8f7902c47176e4339fcba12a",
+      "header_removed": "import ConventionalPolynomialDecider150\nimport DelimiterPolynomial149\n\n",
+      "body_rewritten": false
+    }
+  ],
+  "direct_parent_bindings": [
+    {
+      "import": "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+      "source": {
+        "path": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+        "bytes": 7587,
+        "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+        "mode": "100644"
+      },
+      "canonical_member": "current/source/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "kind": "normal C147 project import"
+    },
+    {
+      "import": "NaturalPolynomialNormalForm149",
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+        "bytes": 3167,
+        "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "kind": "exact research staging alias"
+    },
+    {
+      "import": "DelimiterPolynomial149",
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/delimiter-polynomial149/DelimiterPolynomial149.lean",
+        "bytes": 7730,
+        "sha256": "127fa9829aeea2ea97035580d7a9425a201fb6e4d538e0bbc0fdf63f4fdac7cf",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/delimiter-polynomial149/DelimiterPolynomial149.lean",
+      "kind": "exact research staging alias; original149 header status is historical, passed by root150a"
+    },
+    {
+      "source": {
+        "path": "work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+        "bytes": 33332,
+        "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+        "mode": "100644"
+      },
+      "canonical_member": "current/source/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "kind": "actual combined-transition semantics and total terminal domain"
+    },
+    {
+      "source": {
+        "path": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+        "bytes": 3223,
+        "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+        "mode": "100644"
+      },
+      "canonical_member": "current/source/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "kind": "existing generic Boolean-input contract"
+    },
+    {
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/delimiter/Protocol144b.lean",
+        "bytes": 11634,
+        "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/delimiter/Protocol144b.lean",
+      "kind": "existing parser converse and arbitrary-raw checking relation; no duplicated proof"
+    },
+    {
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/delimiter/DelimiterPrelude144b.lean",
+        "bytes": 25107,
+        "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "kind": "literal pair, BinaryYes and I^2 witness theorem"
+    },
+    {
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+        "bytes": 14728,
+        "sha256": "f596cd55e0f6fc366a3b39591dd65bdcb8409a786ed582e72dd40f2af521586b",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+      "kind": "actual finite carriers, input embedding, machine and stronger witnesses"
+    },
+    {
+      "source": {
+        "path": "work/conaled/.lake/packages/mathlib/Mathlib/Computability/StateTransition.lean",
+        "bytes": 14068,
+        "sha256": "8c05afaf9ddd44cf6069f1a1a1a4267b17e74a61435aba582d62c95a5784704e",
+        "mode": "100644"
+      },
+      "kind": "pinned Mathlib source; actual finite optional iteration, reachability and terminal eval; external dependency not selected as duplicate"
+    }
+  ],
+  "transitive_parent_reassembly": {
+    "source": {
+      "path": "work/delimiter-polynomial150-preparation/REASSEMBLY.json",
+      "bytes": 11842,
+      "sha256": "0935a2cbf824b221f780f79096f993a37cc6ad1477f2b63d31fce054bd015024",
+      "mode": "100644"
+    },
+    "canonical_member": "current/research/reassembly/delimiter-polynomial150.json",
+    "scope": "All exact existing composition parents; new draft bodies are additional and not part of its old target hash"
+  },
+  "query_plan": {
+    "path": "work/conventional-contract150-draft/QUERY_PLAN.json",
+    "bytes": 5299,
+    "sha256": "529691be183f898008a551e0668669cb7807449f6b7a304d3d0ca3219cc2b65e",
+    "mode": "100644"
+  },
+  "readme": {
+    "path": "work/conventional-contract150-draft/README.md",
+    "bytes": 5204,
+    "sha256": "40bbcdad37c6f7318c2ddb02b433f83cfb05c10add2e43253b3a661dc1e00611",
+    "mode": "100644"
+  },
+  "body_order": [
+    "all exact existing composition parent bodies",
+    "ConventionalPolynomialDecider150.lean post-import body",
+    "DelimiterConventionalContract150.lean post-import body"
+  ],
+  "normal_project_import_addition": "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+  "actions": {
+    "source_only_file_writes": true,
+    "compiler_invocations": 0,
+    "checker_invocations": 0,
+    "snapshot_captures": 0,
+    "repository_edits": 0,
+    "settings_overrides": 0,
+    "source_accepted": false
+  },
+  "observed_failure_history": "No compiler has been run, so there is no compiler failure or pass to report. Source-only inspection simplified Boolean branch proofs and qualified native carrier names before this freeze, preserving all fixed expectations.",
+  "finite_run_bridge_lineage": {
+    "source": {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "private_helper": "Resources.TuringSimulation.MarkedInput.live_iteration_reaches",
+    "bounded_read_lines": [
+      431,
+      477
+    ],
+    "public_existing_consumer": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+    "meaning": "Existing private proof uses the same induction. Draft generic public EvalsTo bridge is a reusable interface exposure, not a novel semantic gap. No existing private owner edited."
+  }
+}

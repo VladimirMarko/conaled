@@ -1,0 +1,519 @@
+{
+  "schema": "conaled-single-checkpoint-v1",
+  "repository_url": "https://github.com/VladimirMarko/conaled.git",
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "prerequisite_tree": "2a6df7a7fce23ae73a8e46d3bde59cf386c958b8",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "original_base_tree": "3cf266b2a1fa38f13159692fd9ef43fbccaf9009",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "updates": {
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "payload": "current/source/Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644",
+      "git_blob": "c02f260167179d1136824a64fb35876103fed54e"
+    },
+    "Applications/Resources/PolynomialTime/NormalForm.lean": {
+      "payload": "current/source/Applications/Resources/PolynomialTime/NormalForm.lean",
+      "bytes": 3054,
+      "sha256": "14f5b1cd2568603656a64b7ffd05006acee9b8969be574d0d7d8080caac9333a",
+      "mode": "100644",
+      "git_blob": "d2ae67b5ce7cb049a9da1ff63b361caf20bc04f5"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644",
+      "git_blob": "50506be88ae25ade87e11ad6a758830ace854d08"
+    },
+    "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "bytes": 12241,
+      "sha256": "849b5e6977c4041f5df850ba3205e4b79b8099c333b96cdacebcdd3766f564dc",
+      "mode": "100644",
+      "git_blob": "06ba7a0284cc31d587afbdfde8895737b41b9945"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/BitCodec.lean",
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644",
+      "git_blob": "d7bdbd79a3fc254a4e00f9aea2e3cbbf8f60bfd8"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644",
+      "git_blob": "77111c825ff6cdc5fe35f2d44a71907637657978"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644",
+      "git_blob": "08e782cc1e183d4cbfa014a3908984ebc9b29a40"
+    },
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644",
+      "git_blob": "f1b70ad3bcc42f7622a7ccc67f39b89735c55963"
+    },
+    "Applications/Resources/RotationCertificate/DelimiterExecution.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "bytes": 53677,
+      "sha256": "6dca8473a0ba5cd87ee9b58738be64534bd8d59cfdffe79ab8d261bf61ed5768",
+      "mode": "100644",
+      "git_blob": "2b50fdd3453822f05bc38d5d57837ab032ba1c6c"
+    },
+    "Applications/Resources/RotationCertificate/DelimiterMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "bytes": 24731,
+      "sha256": "0f5ad442a56db1e12d8a01dfff70b2f7cdd0c691c10f93eb03334cdb79cbed34",
+      "mode": "100644",
+      "git_blob": "9f9ed06697566a943f2a9a51fe058134d76d61de"
+    },
+    "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "bytes": 7617,
+      "sha256": "29e5cfa3b27878544025f52e714f2f069d047bf6f0437a0878ba4d08c76a5e78",
+      "mode": "100644",
+      "git_blob": "648ff4b8fa576f2e4f92727083c6bd81f463a63f"
+    },
+    "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "bytes": 14626,
+      "sha256": "7d305529995e38cf59200ac55e991b8df780ee56e39f8b10c2a6927a65921d52",
+      "mode": "100644",
+      "git_blob": "80cba2625552611484bf5f3abf256da34d929b0e"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644",
+      "git_blob": "9fe20783760d6b2341bfcaa33612e3b7aa3520af"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644",
+      "git_blob": "f15088f4b409319e7bc0079ed2d422bddc291555"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644",
+      "git_blob": "aed6023fd84f24ed0f84c31a8fda9d6d60d1b09f"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644",
+      "git_blob": "5e2812e25a0f20db37c1e564c804ce0883e08cf5"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/InputParser.lean",
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644",
+      "git_blob": "1b6ceb58313bd2b82b8b7f4b1070971d2076495b"
+    },
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644",
+      "git_blob": "359c53cb14c22a4bebcc0f159f85d8323c50790a"
+    },
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644",
+      "git_blob": "d780166bbec3a44fa9e954c238aa1825dc8e0d65"
+    },
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644",
+      "git_blob": "0e9c8dea47aef826204955f36f3110700ba53566"
+    },
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644",
+      "git_blob": "9334d9e7880b945a2ff0d3043d078c93280b5c1e"
+    },
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644",
+      "git_blob": "bc91f1fbc2e31e9816e8d52f4f02a07647b7003b"
+    },
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644",
+      "git_blob": "743d6c73407d1e981b4e61045f85eac3285c8f88"
+    },
+    "Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644",
+      "git_blob": "eee6f5b54af6635f00db8b97964fd574169874d6"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/Streaming.lean",
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644",
+      "git_blob": "a80b694a876a0f16aeac9a4da2a731ea5ffba608"
+    },
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644",
+      "git_blob": "5224631b3fd445a6e075b216f56b67e19c526c9c"
+    },
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/TreeParser.lean",
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644",
+      "git_blob": "d14d28624a682873f854d156cf3f0e1eb5c49024"
+    },
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644",
+      "git_blob": "5e3f862694cb3e5306fdfa8a0471dd78cee53b56"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/Verifier.lean",
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644",
+      "git_blob": "0647e3a1084978742b8fdeb4136bb743f14cb162"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "payload": "current/source/Applications/Resources/RotationCertificate/Witness.lean",
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644",
+      "git_blob": "ad006c49999da1be48779b3f2c31477728e46177"
+    },
+    "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "bytes": 9439,
+      "sha256": "ac6a3e45cf2a6165f3f355cdd88ec3fc12e355d00f3bb4c2d8d0bc580f9ad5e0",
+      "mode": "100644",
+      "git_blob": "e73b64456f5bc45ff091c1848819445d373d5a9b"
+    },
+    "Applications/Resources/TuringSimulation/ConventionalVerifier.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "bytes": 6433,
+      "sha256": "ad34cc066a2f73452a91c8ed408652ee83ec400c61f405842509dcd220503d67",
+      "mode": "100644",
+      "git_blob": "ffef2116d410d8d5b61e2fb48f6a4cb1d089083e"
+    },
+    "Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644",
+      "git_blob": "84edc05cd7864c3c721aa3cbfe79b28f4665974c"
+    },
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644",
+      "git_blob": "4cb04ad0974fbf21052bd7acd356a46360a1b5ae"
+    },
+    "Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644",
+      "git_blob": "805aaf403051e7ece54f65393c2951f2cbce9e57"
+    },
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "bytes": 24026,
+      "sha256": "3d5500150bc32093e7d86d4c26fb26978f72636064e22d16bc4e9fdff6791931",
+      "mode": "100644",
+      "git_blob": "21ffc2ce3183af43d213bc186e4681b0a6cddec5"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644",
+      "git_blob": "d55e08331e9840fde051ed56ad8b57bdcd9b07b0"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644",
+      "git_blob": "b9e6810d628ddff469998b4ac6d779ddf88d3db4"
+    },
+    "Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644",
+      "git_blob": "8a0921e836207def23f0741143493690c0f9e546"
+    },
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644",
+      "git_blob": "4a41242bb4bb093ab003005a08cc140929c3bf8b"
+    },
+    "Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/StackToTape.lean",
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644",
+      "git_blob": "1b19817d8d34eaaa56da60ade3a499df2c0ae273"
+    },
+    "Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644",
+      "git_blob": "eb39b4f4e2af0a827a41c230ed9f29e3bce03d84"
+    },
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644",
+      "git_blob": "5fb1147fc974e2c6ede18b8ce053fc2effa0b09d"
+    },
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "payload": "current/source/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "bytes": 26946,
+      "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496",
+      "mode": "100644",
+      "git_blob": "4ecd94c9c587672d8fbc721854cf184ee74eb5f1"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "payload": "current/source/Examples/RotationCertificateBinary.lean",
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644",
+      "git_blob": "25506f3b076befab01d8380d7fcbdd4b8faefe97"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateBitDecoderMachine.lean",
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644",
+      "git_blob": "6706bb6bb3cb1991f89aad57669301b0df508c85"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "payload": "current/source/Examples/RotationCertificateBitPairFraming.lean",
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644",
+      "git_blob": "5c449e6936383af673425f600ffe8704fe87cb13"
+    },
+    "Examples/RotationCertificateCorrespondence.lean": {
+      "payload": "current/source/Examples/RotationCertificateCorrespondence.lean",
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644",
+      "git_blob": "4e26a24584ef4d7548e3955fab0c98e8cfa50674"
+    },
+    "Examples/RotationCertificateDelimiterMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateDelimiterMachine.lean",
+      "bytes": 22906,
+      "sha256": "70b7a03ee5141bd0d5691a6176a29d684985f6a85c9aa8a02fcfed5c47569fc0",
+      "mode": "100644",
+      "git_blob": "e6c0d717b2ed3d6249e1a535e5ee81a207094f5c"
+    },
+    "Examples/RotationCertificateFrontEndMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateFrontEndMachine.lean",
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644",
+      "git_blob": "6ca974d7e0e9e151a709b7ec3941318652e914b6"
+    },
+    "Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644",
+      "git_blob": "5c586608c4b3ed50565c880dfe83eb694330879e"
+    },
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644",
+      "git_blob": "46f38cb476d555a85262ea15358eb4f2413534e5"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateFuelMachine.lean",
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644",
+      "git_blob": "57609eb0a260c752091e495e88434ed46f04dc89"
+    },
+    "Examples/RotationCertificateInputParserMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateInputParserMachine.lean",
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644",
+      "git_blob": "4f926cc82a199c4bcbe26e00871ddada447301b4"
+    },
+    "Examples/RotationCertificateMoveApplyMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateMoveApplyMachine.lean",
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644",
+      "git_blob": "a582f5fa6b3b4d45142f50cf94c6452f4f79e023"
+    },
+    "Examples/RotationCertificateMoveParserMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateMoveParserMachine.lean",
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644",
+      "git_blob": "6f986b36e344297096506404ee14b0babe6f9792"
+    },
+    "Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateOpenDecoderMachine.lean",
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644",
+      "git_blob": "a0f2a30f9057745530016a77af73c62dd2324354"
+    },
+    "Examples/RotationCertificateOpenFramingMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateOpenFramingMachine.lean",
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644",
+      "git_blob": "f410aaed80243efcc97cbd8a8f193338c258c8a7"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "payload": "current/source/Examples/RotationCertificateParsing.lean",
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644",
+      "git_blob": "a3c6021180c9ea9889baea1e7a41c6a391426e1b"
+    },
+    "Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificatePositionedRotationMachine.lean",
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644",
+      "git_blob": "116bc51f94524312c835b47b629955d3157612a0"
+    },
+    "Examples/RotationCertificateStreamMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateStreamMachine.lean",
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644",
+      "git_blob": "a10d1803d60b86a115e690ce2ab7db14f023ef5c"
+    },
+    "Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateTreeEqualityMachine.lean",
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644",
+      "git_blob": "44822445865a2e86c1acc1ca512fdd96c1ebedb0"
+    },
+    "Examples/RotationCertificateTreeParserMachine.lean": {
+      "payload": "current/source/Examples/RotationCertificateTreeParserMachine.lean",
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644",
+      "git_blob": "c4c5fbb76a18d2fc82e89373037a794afb5c5dea"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "payload": "current/source/Examples/RotationCertificateVerification.lean",
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644",
+      "git_blob": "37bf48a96757a5af557721a68f05be3e3cf2d98f"
+    },
+    "Examples/TuringSimulation.lean": {
+      "payload": "current/source/Examples/TuringSimulation.lean",
+      "bytes": 79470,
+      "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906",
+      "mode": "100644",
+      "git_blob": "1de957466a048f499039ebe2c16222323340c791"
+    },
+    "SquareApplications.lean": {
+      "payload": "current/source/SquareApplications.lean",
+      "bytes": 47670,
+      "sha256": "e4f4080ebc8ac489cd4955273c2e1a6714fdcd872e4a70556ae7b4a71400dc9c",
+      "mode": "100644",
+      "git_blob": "8402b5ff3a4f14999fd269709410d282cd6a5431"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "payload": "current/source/docs/research/fdsa-rotation-certificate-preparation.md",
+      "bytes": 3789101,
+      "sha256": "9076cee65790498561b8b3a63b4c81ef21585baefc232271dcf53b579501800c",
+      "mode": "100644",
+      "git_blob": "a92846218bb0231e7de8f052f924e074386e6a54"
+    },
+    "docs/textbooks/CTB.json": {
+      "payload": "current/source/docs/textbooks/CTB.json",
+      "bytes": 853522,
+      "sha256": "c0dc06a2122f18c0d31fe9d5d40ab0bde8ca1bcb60b99b77800393b74a43ebbc",
+      "mode": "100644",
+      "git_blob": "d8e1ea6ac49a09e8a69eb2e186e5ceb79a16d207"
+    },
+    "docs/textbooks/README.md": {
+      "payload": "current/source/docs/textbooks/README.md",
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644",
+      "git_blob": "ac85f309e8967fc5d178076c999f0b96718add53"
+    },
+    "docs/textbooks/coverage.json": {
+      "payload": "current/source/docs/textbooks/coverage.json",
+      "bytes": 54071,
+      "sha256": "2d3d5204e3f621d23a467e2c378b4f7b97429fe7f5bb7c1a60624443e9d150de",
+      "mode": "100644",
+      "git_blob": "611d49c0c83310dc2a026f3337cc4a504ea0233a"
+    },
+    "docs/textbooks/external-agent.md": {
+      "payload": "current/source/docs/textbooks/external-agent.md",
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644",
+      "git_blob": "07a55bf2a64d9a935f397cf1f58b9a686258159c"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "payload": "current/source/docs/textbooks/inbox/README.md",
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644",
+      "git_blob": "134aec86bc0723d004600445be8a796ea6ad4649"
+    }
+  },
+  "deletions": [],
+  "snapshot_source": "Exact immutable Git commit blobs; the live index/worktree is not packaged implicitly",
+  "private_author_git_objects_required_for_recovery": false
+}

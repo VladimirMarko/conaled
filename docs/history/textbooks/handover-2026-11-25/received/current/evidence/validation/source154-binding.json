@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "kind": "actual-same-tree-recovery-snapshot-binding",
+  "recorded_utc": "2026-11-25T05:03:22.430374+00:00",
+  "repo": "/workspace/scratch/ae71b485b114/work/conaled154",
+  "candidate": "8f299334a51a00b02c79850d73dd4f165c73e671",
+  "source_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "scope_owner_count": 72,
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "prior_candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+  "prior_source_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "same_all_current_owner_bytes_and_modes": true,
+  "complete_candidate_source_maps_equal": true,
+  "complete_baseline_M_entries_equal": true,
+  "fresh_baseline_live_sources_match_current": true,
+  "comparisons": [
+    {
+      "kind": "baseline",
+      "complete_sources_equal": false,
+      "complete_entries_equal": true,
+      "source_count": 19407,
+      "entry_count": 19342,
+      "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+      "content_identity": "17b988471d5d3328e02927cd19e0fbb1533d3097d6a383d9afdaa66add7d2b8c",
+      "source_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+      "projection_identity": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+      "actual_exit_code": 0,
+      "nonnull_unchanged_inputs": 141,
+      "baseline_live_source_boundary": "Baseline entries/tree/content describe M; sources/source_identity describe the live worktree. Old baseline preceded integration; fresh baseline follows exact source restoration."
+    },
+    {
+      "kind": "capture",
+      "complete_sources_equal": true,
+      "complete_entries_equal": true,
+      "source_count": 19407,
+      "entry_count": 19407,
+      "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+      "content_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+      "source_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+      "projection_identity": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+      "actual_exit_code": 0,
+      "nonnull_unchanged_inputs": 143,
+      "baseline_live_source_boundary": null
+    }
+  ],
+  "old_baseline_live_source_identity": "2ffcb51391ce65a1e473932cdda92647ed9a8481a3b49c8568481d05ba2656d7",
+  "baseline_live_source_changes": {
+    "Applications/Resources/PolynomialTime/NormalForm.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "14f5b1cd2568603656a64b7ffd05006acee9b8969be574d0d7d8080caac9333a"
+      }
+    },
+    "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "849b5e6977c4041f5df850ba3205e4b79b8099c333b96cdacebcdd3766f564dc"
+      }
+    },
+    "Applications/Resources/RotationCertificate/DelimiterExecution.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "6dca8473a0ba5cd87ee9b58738be64534bd8d59cfdffe79ab8d261bf61ed5768"
+      }
+    },
+    "Applications/Resources/RotationCertificate/DelimiterMachine.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "0f5ad442a56db1e12d8a01dfff70b2f7cdd0c691c10f93eb03334cdb79cbed34"
+      }
+    },
+    "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "29e5cfa3b27878544025f52e714f2f069d047bf6f0437a0878ba4d08c76a5e78"
+      }
+    },
+    "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "7d305529995e38cf59200ac55e991b8df780ee56e39f8b10c2a6927a65921d52"
+      }
+    },
+    "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "ac6a3e45cf2a6165f3f355cdd88ec3fc12e355d00f3bb4c2d8d0bc580f9ad5e0"
+      }
+    },
+    "Applications/Resources/TuringSimulation/ConventionalVerifier.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "ad34cc066a2f73452a91c8ed408652ee83ec400c61f405842509dcd220503d67"
+      }
+    },
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "old": {
+        "mode": "100644",
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "3d5500150bc32093e7d86d4c26fb26978f72636064e22d16bc4e9fdff6791931"
+      }
+    },
+    "Examples/RotationCertificateDelimiterMachine.lean": {
+      "old": null,
+      "current": {
+        "mode": "100644",
+        "sha256": "70b7a03ee5141bd0d5691a6176a29d684985f6a85c9aa8a02fcfed5c47569fc0"
+      }
+    },
+    "Examples/TuringSimulation.lean": {
+      "old": {
+        "mode": "100644",
+        "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4"
+      }
+    },
+    "SquareApplications.lean": {
+      "old": {
+        "mode": "100644",
+        "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "e4f4080ebc8ac489cd4955273c2e1a6714fdcd872e4a70556ae7b4a71400dc9c"
+      }
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "old": {
+        "mode": "100644",
+        "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d"
+      }
+    },
+    "docs/textbooks/CTB.json": {
+      "old": {
+        "mode": "100644",
+        "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "c71f097fcb63a555e8fbf898a0c3b6f5e09af9e5cc19d51959cb1bb27b99c540"
+      }
+    },
+    "docs/textbooks/coverage.json": {
+      "old": {
+        "mode": "100644",
+        "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738"
+      },
+      "current": {
+        "mode": "100644",
+        "sha256": "5ea3eba4889b2d1961ac3c3cf27edf10c5def2fb4841c56198bb4a713349d343"
+      }
+    }
+  },
+  "supported_evidence": {
+    "baseline": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.log",
+      "expected": {
+        "bytes": 9731110,
+        "sha256": "070993e6e0ceaf11e87859659bc2d29b7dd4bbd3b7aaa9b00e5516e2509bab9e",
+        "mode": "100644"
+      }
+    },
+    "baseline-result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.result.json",
+      "expected": {
+        "bytes": 70910,
+        "sha256": "c8d9df14aa05842f8dcd4c3ff34466a12dd32edfeef123c335a350e63283d90c",
+        "mode": "100644"
+      }
+    },
+    "baseline-child": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.child-exit.json",
+      "expected": {
+        "bytes": 1708,
+        "sha256": "7a1887eaa7fcc297aa0bf341403893714f7bf895d88ef7507aebf9130b2a69d7",
+        "mode": "100644"
+      }
+    },
+    "capture": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.log",
+      "expected": {
+        "bytes": 9739739,
+        "sha256": "d3c736a61b4e91da77e87b959a49501063d1c0a9192c63a17fddab99dc27a69c",
+        "mode": "100644"
+      }
+    },
+    "capture-result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.result.json",
+      "expected": {
+        "bytes": 71594,
+        "sha256": "558372dc5a0f0c2208ea549247058c32b029f6b1d105a753801dc13f3df3d2b9",
+        "mode": "100644"
+      }
+    },
+    "capture-child": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.child-exit.json",
+      "expected": {
+        "bytes": 1512,
+        "sha256": "ea1e0962fa2a0f4aa9478f32f692e9bfda071f4b6274419718669d678bbe1f3b",
+        "mode": "100644"
+      }
+    }
+  },
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "compiler_run_by_this_binding": false,
+  "source_or_git_mutated_by_this_binding": false
+}

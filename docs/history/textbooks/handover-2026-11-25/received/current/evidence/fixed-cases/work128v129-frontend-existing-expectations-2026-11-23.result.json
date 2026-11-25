@@ -1,0 +1,4884 @@
+{
+  "status": "Passed 36 selected existing-FE mathematical evaluations against earlier saved literal expectations",
+  "started_utc": "2026-11-23T00:43:50.878158+00:00",
+  "finished_utc": "2026-11-23T00:43:50.887094+00:00",
+  "elapsed_seconds": 0.008955120007158257,
+  "checked_rows": 36,
+  "checked_complete_endpoints": 36,
+  "checked_source_tariff_vectors": 36,
+  "source_bindings_unchanged": true,
+  "before": [
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation128/frontend_existing_expectations_2026_11_23.py",
+      "bytes": 13380,
+      "sha256": "b0fe67d8e38f4544cc98050d42db49ad4a9dbddf07158b5aebd5c332cef14965"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation128/FrontEndStream.frontend-expected-2026-11-23.json",
+      "bytes": 59634,
+      "sha256": "b4e4089875d79a667ae444ee25557d01fe5dd2f45b0973bf330eec9ebb0a7ce7"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/FrontEndStream.independent-case-pool127.md",
+      "bytes": 17777,
+      "sha256": "40781b92fabd6d42ae55ea42a3e26c3a833e48a2d9932570f8c8857101ea9635"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/FrontEndStream.independent-case-pool127.json",
+      "bytes": 57567,
+      "sha256": "a60733151588175c6d49893a390c0c6f6aa898b080ed45e6341868a82143d1f7"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend_stream_independent_pool127.py",
+      "bytes": 11343,
+      "sha256": "f2abc8c20aa698332ec8d90bfa79c30822407ec3c1472a1ccd692c332acd1719"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.result.json",
+      "bytes": 4745,
+      "sha256": "8fd1113a04c5253e599ad493dad2ac32efd49fe3afb152f957ce7b1d00890328"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.provenance.json",
+      "bytes": 5737,
+      "sha256": "71e5c7df5875a497a31c169807f95358ab38a76cbe85cf5af0ab657f17a98b3d"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.handoff.json",
+      "bytes": 1671,
+      "sha256": "693162b518c7ab932fc39542775ce270023b60ea63ab029ec75e6d6b7de532ac"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/InputParser.lean",
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/TreeParser.lean",
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/LinearParser.lean",
+      "bytes": 18678,
+      "sha256": "941f096b10b022edc3f366e82eafd1f47cf7a6870c8d3c451eb51129b17d8ba1"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BitCodec.lean",
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/Encoding.lean",
+      "bytes": 9752,
+      "sha256": "621b093b3be69220da94f609c99fe2b7d40c96b6b4e8704494af8468cc9e38ca"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+    }
+  ],
+  "after": [
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation128/frontend_existing_expectations_2026_11_23.py",
+      "bytes": 13380,
+      "sha256": "b0fe67d8e38f4544cc98050d42db49ad4a9dbddf07158b5aebd5c332cef14965"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation128/FrontEndStream.frontend-expected-2026-11-23.json",
+      "bytes": 59634,
+      "sha256": "b4e4089875d79a667ae444ee25557d01fe5dd2f45b0973bf330eec9ebb0a7ce7"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/FrontEndStream.independent-case-pool127.md",
+      "bytes": 17777,
+      "sha256": "40781b92fabd6d42ae55ea42a3e26c3a833e48a2d9932570f8c8857101ea9635"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/FrontEndStream.independent-case-pool127.json",
+      "bytes": 57567,
+      "sha256": "a60733151588175c6d49893a390c0c6f6aa898b080ed45e6341868a82143d1f7"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend_stream_independent_pool127.py",
+      "bytes": 11343,
+      "sha256": "f2abc8c20aa698332ec8d90bfa79c30822407ec3c1472a1ccd692c332acd1719"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.result.json",
+      "bytes": 4745,
+      "sha256": "8fd1113a04c5253e599ad493dad2ac32efd49fe3afb152f957ce7b1d00890328"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.provenance.json",
+      "bytes": 5737,
+      "sha256": "71e5c7df5875a497a31c169807f95358ab38a76cbe85cf5af0ab657f17a98b3d"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/continuation127/frontend-stream-independent-pool127.handoff.json",
+      "bytes": 1671,
+      "sha256": "693162b518c7ab932fc39542775ce270023b60ea63ab029ec75e6d6b7de532ac"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/InputParser.lean",
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/TreeParser.lean",
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/LinearParser.lean",
+      "bytes": 18678,
+      "sha256": "941f096b10b022edc3f366e82eafd1f47cf7a6870c8d3c451eb51129b17d8ba1"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BitCodec.lean",
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/Encoding.lean",
+      "bytes": 9752,
+      "sha256": "621b093b3be69220da94f609c99fe2b7d40c96b6b4e8704494af8468cc9e38ca"
+    },
+    {
+      "path": "/workspace/scratch/b7b9d6d1b494/conaled/Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+    }
+  ],
+  "original_pool_unchanged": true,
+  "future_controller_material_read": false,
+  "validation_kind": "Python translation of existing public source/clock definitions plus independent literal expectations; not Lean or TM2 syntax execution",
+  "new_lean_check": false,
+  "new_controller_clock": false,
+  "actual_tm2_execution_claim": false,
+  "rows": [
+    {
+      "id": "F01",
+      "raw_bit_length": 0,
+      "frontend": "frameFailure",
+      "stage_machine_steps": {
+        "framing": 2,
+        "input_decoder": null,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 2,
+      "component_source_tariffs": {
+        "unpack_input": null,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.resetFramer",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "original.decoder_b1",
+          "decoder_b2": "original.decoder_b2",
+          "decoder_b3": "original.decoder_b3",
+          "decoder_tag": "original.decoder_tag",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {}
+    },
+    {
+      "id": "F02",
+      "raw_bit_length": 1,
+      "frontend": "frameFailure",
+      "stage_machine_steps": {
+        "framing": 2,
+        "input_decoder": null,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 2,
+      "component_source_tariffs": {
+        "unpack_input": null,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.resetFramer",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "original.decoder_b1",
+          "decoder_b2": "original.decoder_b2",
+          "decoder_b3": "original.decoder_b3",
+          "decoder_tag": "original.decoder_tag",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {}
+    },
+    {
+      "id": "F03",
+      "raw_bit_length": 2,
+      "frontend": "frameFailure",
+      "stage_machine_steps": {
+        "framing": 4,
+        "input_decoder": null,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 4,
+      "component_source_tariffs": {
+        "unpack_input": null,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.resetFramer",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "original.decoder_b1",
+          "decoder_b2": "original.decoder_b2",
+          "decoder_b3": "original.decoder_b3",
+          "decoder_tag": "original.decoder_tag",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {}
+    },
+    {
+      "id": "F04",
+      "raw_bit_length": 3,
+      "frontend": "frameFailure",
+      "stage_machine_steps": {
+        "framing": 4,
+        "input_decoder": null,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 4,
+      "component_source_tariffs": {
+        "unpack_input": null,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.resetFramer",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "original.decoder_b1",
+          "decoder_b2": "original.decoder_b2",
+          "decoder_b3": "original.decoder_b3",
+          "decoder_tag": "original.decoder_tag",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {}
+    },
+    {
+      "id": "F05",
+      "raw_bit_length": 1,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 4,
+        "input_decoder": 2,
+        "input_parser": 5,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 11,
+      "component_source_tariffs": {
+        "unpack_input": 2,
+        "parse_input": 4,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [],
+        "certificate_bits": [],
+        "decoded_input": [],
+        "input_parser_branch": "source_tree",
+        "first_tree_phase_account": {
+          "outcome": "failure",
+          "accepted": [],
+          "rest": [],
+          "pending": 1,
+          "init": 1,
+          "scans": 1,
+          "undo": 1,
+          "drop": 2,
+          "total": 5
+        }
+      }
+    },
+    {
+      "id": "F06",
+      "raw_bit_length": 2,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 6,
+        "input_decoder": 2,
+        "input_parser": 5,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 13,
+      "component_source_tariffs": {
+        "unpack_input": 2,
+        "parse_input": 4,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [
+            true
+          ],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [],
+        "certificate_bits": [
+          true
+        ],
+        "decoded_input": [],
+        "input_parser_branch": "source_tree",
+        "first_tree_phase_account": {
+          "outcome": "failure",
+          "accepted": [],
+          "rest": [],
+          "pending": 1,
+          "init": 1,
+          "scans": 1,
+          "undo": 1,
+          "drop": 2,
+          "total": 5
+        }
+      }
+    },
+    {
+      "id": "F07",
+      "raw_bit_length": 3,
+      "frontend": "inputDecodeFailure",
+      "stage_machine_steps": {
+        "framing": 6,
+        "input_decoder": 2,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 8,
+      "component_source_tariffs": {
+        "unpack_input": 2,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.afterInputDecoder",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true
+        ],
+        "certificate_bits": []
+      }
+    },
+    {
+      "id": "F08",
+      "raw_bit_length": 6,
+      "frontend": "inputDecodeFailure",
+      "stage_machine_steps": {
+        "framing": 12,
+        "input_decoder": 2,
+        "input_parser": null,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 14,
+      "component_source_tariffs": {
+        "unpack_input": 2,
+        "parse_input": null,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.afterInputDecoder",
+        "registers": {
+          "tree_tag": "original.tree_tag",
+          "tree_pending": "original.tree_pending",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [
+            false,
+            true,
+            true
+          ],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "id": "I01",
+      "raw_bit_length": 9,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 12,
+        "input_decoder": 4,
+        "input_parser": 9,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 25,
+      "component_source_tariffs": {
+        "unpack_input": 6,
+        "parse_input": 7,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [
+            0
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0
+        ],
+        "input_parser_branch": "first_separator",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "I02",
+      "raw_bit_length": 10,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 14,
+        "input_decoder": 4,
+        "input_parser": 5,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 23,
+      "component_source_tariffs": {
+        "unpack_input": 6,
+        "parse_input": 4,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [
+            true
+          ],
+          "inputRaw": [
+            15
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "certificate_bits": [
+          true
+        ],
+        "decoded_input": [
+          15
+        ],
+        "input_parser_branch": "source_tree",
+        "first_tree_phase_account": {
+          "outcome": "failure",
+          "accepted": [],
+          "rest": [
+            15
+          ],
+          "pending": 1,
+          "init": 1,
+          "scans": 1,
+          "undo": 1,
+          "drop": 2,
+          "total": 5
+        }
+      }
+    },
+    {
+      "id": "I03",
+      "raw_bit_length": 33,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 36,
+        "input_decoder": 10,
+        "input_parser": 9,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 55,
+      "component_source_tariffs": {
+        "unpack_input": 18,
+        "parse_input": 7,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [
+            0,
+            0,
+            2,
+            5
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "input_parser_branch": "first_separator",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            0,
+            2,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "I04",
+      "raw_bit_length": 49,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 52,
+        "input_decoder": 14,
+        "input_parser": 26,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 92,
+      "component_source_tariffs": {
+        "unpack_input": 26,
+        "parse_input": 15,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [
+            0,
+            2,
+            0,
+            2,
+            5,
+            0
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          5,
+          0
+        ],
+        "input_parser_branch": "final_eof",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            5,
+            0
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "I05",
+      "raw_bit_length": 49,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 52,
+        "input_decoder": 14,
+        "input_parser": 22,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 88,
+      "component_source_tariffs": {
+        "unpack_input": 26,
+        "parse_input": 14,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [
+            0,
+            2,
+            0,
+            2,
+            15,
+            5
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          15,
+          5
+        ],
+        "input_parser_branch": "fuel_bits",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            15,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "I06",
+      "raw_bit_length": 105,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 116,
+        "input_decoder": 26,
+        "input_parser": 12,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 154,
+      "component_source_tariffs": {
+        "unpack_input": 50,
+        "parse_input": 11,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [
+            false,
+            true,
+            true,
+            false,
+            false,
+            true,
+            false,
+            true
+          ],
+          "inputRaw": [
+            1,
+            0,
+            1,
+            15,
+            2,
+            1,
+            1,
+            0,
+            15,
+            2,
+            4,
+            5
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          15,
+          2,
+          1,
+          1,
+          0,
+          15,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "source_tree",
+        "first_tree_phase_account": {
+          "outcome": "failure",
+          "accepted": [
+            1,
+            0,
+            1
+          ],
+          "rest": [
+            15,
+            2,
+            1,
+            1,
+            0,
+            15,
+            2,
+            4,
+            5
+          ],
+          "pending": 2,
+          "init": 1,
+          "scans": 4,
+          "undo": 4,
+          "drop": 3,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "I07",
+      "raw_bit_length": 41,
+      "frontend": "inputParseFailure",
+      "stage_machine_steps": {
+        "framing": 44,
+        "input_decoder": 12,
+        "input_parser": 5,
+        "certificate_decoder": null
+      },
+      "frontend_machine_steps": 61,
+      "component_source_tariffs": {
+        "unpack_input": 22,
+        "parse_input": 4,
+        "unpack_certificate": null
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [
+            15,
+            2,
+            15,
+            2,
+            5
+          ],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [],
+          "targetTree": [],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          15,
+          2,
+          15,
+          2,
+          5
+        ],
+        "input_parser_branch": "source_tree",
+        "first_tree_phase_account": {
+          "outcome": "failure",
+          "accepted": [],
+          "rest": [
+            15,
+            2,
+            15,
+            2,
+            5
+          ],
+          "pending": 1,
+          "init": 1,
+          "scans": 1,
+          "undo": 1,
+          "drop": 2,
+          "total": 5
+        }
+      }
+    },
+    {
+      "id": "C01",
+      "raw_bit_length": 42,
+      "frontend": "certificateDecodeFailure",
+      "stage_machine_steps": {
+        "framing": 46,
+        "input_decoder": 12,
+        "input_parser": 13,
+        "certificate_decoder": 2
+      },
+      "frontend_machine_steps": 73,
+      "component_source_tariffs": {
+        "unpack_input": 22,
+        "parse_input": 15,
+        "unpack_certificate": 2
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          true
+        ],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "C02",
+      "raw_bit_length": 62,
+      "frontend": "certificateDecodeFailure",
+      "stage_machine_steps": {
+        "framing": 70,
+        "input_decoder": 16,
+        "input_parser": 17,
+        "certificate_decoder": 4
+      },
+      "frontend_machine_steps": 107,
+      "component_source_tariffs": {
+        "unpack_input": 30,
+        "parse_input": 21,
+        "unpack_certificate": 4
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            false,
+            false
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          3,
+          3,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            3,
+            3,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "C03",
+      "raw_bit_length": 122,
+      "frontend": "certificateDecodeFailure",
+      "stage_machine_steps": {
+        "framing": 134,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 201,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 6
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(rejectLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V01",
+      "raw_bit_length": 41,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 44,
+        "input_decoder": 12,
+        "input_parser": 13,
+        "certificate_decoder": 2
+      },
+      "frontend_machine_steps": 71,
+      "component_source_tariffs": {
+        "unpack_input": 22,
+        "parse_input": 15,
+        "unpack_certificate": 2
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "V02",
+      "raw_bit_length": 57,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 60,
+        "input_decoder": 16,
+        "input_parser": 17,
+        "certificate_decoder": 2
+      },
+      "frontend_machine_steps": 95,
+      "component_source_tariffs": {
+        "unpack_input": 30,
+        "parse_input": 22,
+        "unpack_certificate": 2
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          2,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            0,
+            2,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "V03",
+      "raw_bit_length": 121,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 132,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 199,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V04",
+      "raw_bit_length": 121,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 132,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 199,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            7,
+            10
+          ],
+          "sourceTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V05",
+      "raw_bit_length": 137,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 156,
+        "input_decoder": 32,
+        "input_parser": 33,
+        "certificate_decoder": 10
+      },
+      "frontend_machine_steps": 231,
+      "component_source_tariffs": {
+        "unpack_input": 62,
+        "parse_input": 49,
+        "unpack_certificate": 18
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10,
+            7,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            false,
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V06",
+      "raw_bit_length": 129,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 148,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 10
+      },
+      "frontend_machine_steps": 219,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 18
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10,
+            7,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V07",
+      "raw_bit_length": 129,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 140,
+        "input_decoder": 32,
+        "input_parser": 33,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 211,
+      "component_source_tariffs": {
+        "unpack_input": 62,
+        "parse_input": 49,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            false,
+            false
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          3,
+          3,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            3,
+            3,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V08",
+      "raw_bit_length": 137,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 148,
+        "input_decoder": 34,
+        "input_parser": 35,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 223,
+      "component_source_tariffs": {
+        "unpack_input": 66,
+        "parse_input": 52,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true,
+            false,
+            false
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          3,
+          3,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            3,
+            3,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V09",
+      "raw_bit_length": 117,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 124,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 4
+      },
+      "frontend_machine_steps": 189,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 6
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V10",
+      "raw_bit_length": 125,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 140,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 8
+      },
+      "frontend_machine_steps": 209,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 14
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            15,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V11",
+      "raw_bit_length": 125,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 140,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 8
+      },
+      "frontend_machine_steps": 209,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 14
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            8,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V12",
+      "raw_bit_length": 121,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 132,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 199,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            7,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V13",
+      "raw_bit_length": 157,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 172,
+        "input_decoder": 38,
+        "input_parser": 39,
+        "certificate_decoder": 8
+      },
+      "frontend_machine_steps": 257,
+      "component_source_tariffs": {
+        "unpack_input": 74,
+        "parse_input": 60,
+        "unpack_certificate": 14
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            9,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 7,
+          "emit": 8,
+          "total": 16
+        }
+      }
+    },
+    {
+      "id": "V14",
+      "raw_bit_length": 125,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 140,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 8
+      },
+      "frontend_machine_steps": 209,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 14
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10,
+            15
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V15",
+      "raw_bit_length": 57,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 60,
+        "input_decoder": 16,
+        "input_parser": 17,
+        "certificate_decoder": 2
+      },
+      "frontend_machine_steps": 95,
+      "component_source_tariffs": {
+        "unpack_input": 30,
+        "parse_input": 21,
+        "unpack_certificate": 2
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            false,
+            false
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          3,
+          3,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            3,
+            3,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "V16",
+      "raw_bit_length": 117,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 124,
+        "input_decoder": 30,
+        "input_parser": 31,
+        "certificate_decoder": 4
+      },
+      "frontend_machine_steps": 189,
+      "component_source_tariffs": {
+        "unpack_input": 58,
+        "parse_input": 46,
+        "unpack_certificate": 6
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            15
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    },
+    {
+      "id": "V17",
+      "raw_bit_length": 57,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 68,
+        "input_decoder": 14,
+        "input_parser": 15,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 103,
+      "component_source_tariffs": {
+        "unpack_input": 26,
+        "parse_input": 18,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10
+          ],
+          "sourceTree": [
+            0
+          ],
+          "targetTree": [
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [
+            true
+          ],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          0,
+          2,
+          0,
+          2,
+          4,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            0
+          ],
+          "rest": [
+            2,
+            0,
+            2,
+            4,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 1,
+          "emit": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "id": "V18",
+      "raw_bit_length": 113,
+      "frontend": "success",
+      "stage_machine_steps": {
+        "framing": 124,
+        "input_decoder": 28,
+        "input_parser": 29,
+        "certificate_decoder": 6
+      },
+      "frontend_machine_steps": 187,
+      "component_source_tariffs": {
+        "unpack_input": 54,
+        "parse_input": 43,
+        "unpack_certificate": 10
+      },
+      "endpoint": {
+        "outer_state": "some(configuration)",
+        "label": "some(dispatchLabel)",
+        "reset_function": "FrontEndMachine.reset",
+        "registers": {
+          "tree_tag": "none",
+          "tree_pending": "none",
+          "decoder_b0": "none",
+          "decoder_b1": "none",
+          "decoder_b2": "none",
+          "decoder_b3": "none",
+          "decoder_tag": "none",
+          "caller": "original.caller"
+        },
+        "local_data": {
+          "framedRaw": [],
+          "frameFirstReverse": [],
+          "frameCertReverse": [],
+          "inputBits": [],
+          "certificateBits": [],
+          "inputRaw": [],
+          "decodeReverse": [],
+          "certificateWord": [
+            6,
+            10
+          ],
+          "sourceTree": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "targetTree": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "treeReverse": [],
+          "pending": [],
+          "fuel": [],
+          "bitsReverse": []
+        },
+        "external_stacks": "forall k, original context(k)"
+      },
+      "derivation_detail": {
+        "input_bits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        "certificate_bits": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        "decoded_input": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2,
+          5
+        ],
+        "input_parser_branch": "success",
+        "first_tree_phase_account": {
+          "outcome": "success",
+          "accepted": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rest": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            2,
+            5
+          ],
+          "pending": 0,
+          "init": 1,
+          "scans": 5,
+          "emit": 6,
+          "total": 12
+        }
+      }
+    }
+  ]
+}

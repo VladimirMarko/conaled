@@ -1,0 +1,546 @@
+{
+  "axis": "Standards",
+  "reviewer": "/root/parser_review/standards",
+  "round": 5,
+  "same_loop": true,
+  "review_date": "2026-11-21",
+  "completed_utc": "2026-11-21T11:10:23.693514+00:00",
+  "outcome": "Blocked",
+  "source_content_review": "complete; no source findings",
+  "supplementary_statement_review": "complete; no findings",
+  "source_findings": [],
+  "source_finding_count": 0,
+  "unresolved_validation_finding_count": 1,
+  "worst_severity": "blocking acceptance",
+  "base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "merge_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "candidate": "92e40e2200511531d377def795f0a3038752dd7a",
+  "tree": "44b75c9f8e05960b4f7cc3e523497698fbdd4599",
+  "prior_candidate": "e2a0a0cd3d7be96362659d02a2e8a5631f61848e",
+  "commit_list": [
+    "92e40e22 Immutable scoped review snapshot"
+  ],
+  "diff_command": "git diff bc95f503ccbf043136c6699992388f750270e8e6...92e40e2200511531d377def795f0a3038752dd7a",
+  "diff_stat": {
+    "files": 19,
+    "additions": 7589,
+    "deletions": 306
+  },
+  "receipt": {
+    "path": "candidate-5b.json",
+    "bytes": 9665468,
+    "sha256": "2d2df8e1ac43731234acb7b6db6511b30de4ce39006d2f3a921cac909eea08ba",
+    "status": "ok",
+    "mode": "whole"
+  },
+  "scope_identity": "267f2d073de9d88b4976c968274a850c0178af941f1f369261cdc277b4084b99",
+  "source_identity": "9d9bf0e5601a12d96d43b2954107e4871330cbc6d2d913bf40119103f91ff554",
+  "projection_identity": "392a9025ee47d574cfdca516e0e588a29194f85ad67c4a091b81b6494652479a",
+  "task_exclusions": [],
+  "projections": {},
+  "requirements": {
+    "path": "requirements-5.txt",
+    "bytes": 218148,
+    "sha256": "76f3a3bb9f00f92a125cc6fbca95e1ad72168ddac188627c70c7c9495635a5ab",
+    "previous_file": "requirements-4.txt",
+    "previous_exact_prefix_bytes": 164086,
+    "added_bytes": 54062,
+    "full_new_suffix_read": true,
+    "raw_plans_verbatim": true
+  },
+  "source_files": {
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "SquareApplications.lean": {
+      "bytes": 43281,
+      "sha256": "7b2f79115246aa8feee51c73ea372b23868e51bbf22230d5f86f9bd1e86fe80c",
+      "mode": "100644"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 166236,
+      "sha256": "fb72f51286711c1f5f1a7d60798265764de6a31b41f2dbc045e22259755863e5",
+      "mode": "100644"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 818753,
+      "sha256": "eee2699f23fd6a273e7c445f1054a124f924d481fdbd7a8dfdcf51f384d47937",
+      "mode": "100644"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 53092,
+      "sha256": "d46b30f1a6afb33872906561b8f2db0d4485e488ab0029de82adaf5818b78d9e",
+      "mode": "100644"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 5340,
+      "sha256": "cb1440f8cefc53b937ef145def29fab3205347b37f75c41c734b717884778719",
+      "mode": "100644"
+    }
+  },
+  "source_metadata": {
+    "path": "candidate-5b-metadata.json",
+    "bytes": 5673,
+    "sha256": "7b96c924a4b3d82021c04b56914839b984d896776aa06b3977e9d2a510caaa29"
+  },
+  "source_identity_checks": {
+    "all19_immutable_bytes_hashes_modes_match": true,
+    "all12_prior_Lean_owners_byte_identical_to_C4b": true,
+    "audit_source_before_equals_after_equals_immutable_metadata": true,
+    "audit_configuration_before_equals_after": true,
+    "no_separate_prevalidation_compare_required": true,
+    "final_postvalidation_compare_pending": true
+  },
+  "assessment": [
+    {
+      "area": "Repository standards and architecture",
+      "locations": [
+        "AGENTS.md",
+        "docs/agents/architectural-quality.md",
+        ".agents/skills/code-review/SKILL.md",
+        ".agents/skills/example-driven-development/SKILL.md"
+      ],
+      "result": "No source finding",
+      "reason": "Relevant standards unchanged; independent concrete representation, actual fixed finite machine, proofs, observations and source client remain separate; existing pinned interfaces and public-result clients are reused. No speculative generic compiler or parallel transition semantics."
+    },
+    {
+      "area": "Retained twelve Lean owners",
+      "locations": [
+        "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+        "Applications/Resources/RotationCertificate/BitCodec.lean",
+        "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+        "Applications/Resources/RotationCertificate/InputParser.lean",
+        "Applications/Resources/RotationCertificate/Streaming.lean",
+        "Applications/Resources/RotationCertificate/TreeParser.lean",
+        "Applications/Resources/RotationCertificate/Verifier.lean",
+        "Applications/Resources/RotationCertificate/Witness.lean",
+        "Examples/RotationCertificateBinary.lean",
+        "Examples/RotationCertificateBitDecoderMachine.lean",
+        "Examples/RotationCertificateParsing.lean",
+        "Examples/RotationCertificateVerification.lean"
+      ],
+      "result": "Prior complete content assessment reused on exact byte equality only",
+      "reason": "All prior source semantics, hypotheses, tariffs, independent Yes/BinaryYes language, emitters and finite decoder contracts remain unchanged; new consumers checked."
+    },
+    {
+      "area": "Raw representation and recognition",
+      "locations": [
+        "BitPairFraming.lean:25-157"
+      ],
+      "result": "No source finding",
+      "reason": "Actual false-guard escape, first true flag and entire certificate suffix; all-raw success iff exact frame; complete two-family failure classification; arbitrary successful/failed prefix continuation; length, append and pair injectivity."
+    },
+    {
+      "area": "Injective optional-pair result",
+      "locations": [
+        "BitPairFraming.lean:159-188"
+      ],
+      "result": "No source finding",
+      "reason": "Failure [], success none::(map some input ++ none::map some cert), independent full injection proof and exact output length. False payload and coordinate separator remain distinct; no claim both markers are individually necessary for injection."
+    },
+    {
+      "area": "Fixed finite executable program",
+      "locations": [
+        "BitPairFraming.lean:190-273"
+      ],
+      "result": "No source finding",
+      "reason": "Four finite stacks, five labels, Option Bool registers, explicit all-alphabet finiteness, actual pop result overwrites register, presence checks precede payload use, every jump/halt resets. No unbounded callback, runtime length, source recognizer/verifier or precomputed answer."
+    },
+    {
+      "area": "Actual step and generalized phase laws",
+      "locations": [
+        "BitPairFraming.lean:308-508"
+      ],
+      "result": "No source finding",
+      "reason": "Thirteen step clauses cover all branches with arbitrary registers/untouched lists. Phase iterates retain arbitrary accumulators/output and necessary empty unrelated stacks; scan handles arbitrary raw input and failed continuations, clearing firstRev while preserving old output."
+    },
+    {
+      "area": "Exact execution and timed records",
+      "locations": [
+        "BitPairFraming.lean:510-587"
+      ],
+      "result": "No source finding",
+      "reason": "Universal raw initList reaches some exact reset haltList(resultCode(unframe raw)). Counts 2I+2C+4 on frames, 2q+2 on both malformed families and <=2N+2 all raw. Actual constructed exact/linear records and one polynomial machine with 2X+2; source failure is not outer None."
+    },
+    {
+      "area": "Actual reached workspace",
+      "locations": [
+        "BitPairFraming.lean:589-699"
+      ],
+      "result": "No source finding",
+      "reason": "All four real stack lengths plus phase credit; global arbitrary-configuration step monotonicity and actual Reaches induction give N+1. Consumed delimiter pays for second marker; connected actual four-step [true] path attains two cells and refutes N."
+    },
+    {
+      "area": "Existing verifier and same witness",
+      "locations": [
+        "BitPairFraming.lean:701-798",
+        "Examples/RotationCertificateBitPairFraming.lean:502-531"
+      ],
+      "result": "No source finding",
+      "reason": "Actual returned fields feed verifyBitsRun. Raw iff, trace equivalence, independent-language soundness and completeness preserved. One certificate has C<=I^2, accepted frame <=(I+1)^2, constructed framing timing <=2(I+1)^2+2 and every-reached cells <=(I+1)^2+1. No new source tariff or full verifier-machine clock."
+    },
+    {
+      "area": "Connected semantic cases",
+      "locations": [
+        "Examples/RotationCertificateBitPairFraming.lean:1-533"
+      ],
+      "result": "No source finding",
+      "reason": "Public contracts exercise flag/value/EOF, failed prefixes, arbitrary suffixes, order/width, all finite alphabets, stale registers, intermediate cleanup, old accumulators/output, leftover-cert counterexample, sharp reachable space, posthalt separation, fixed polynomial record, actual packed emitters and nonvacuous single witness."
+    },
+    {
+      "area": "Layer-separating emitter cases",
+      "locations": [
+        "Examples/RotationCertificateBitPairFraming.lean:417-500"
+      ],
+      "result": "No source finding",
+      "reason": "Actual one-rotation outputs give 56/8 bits, 121-bit frame, 132 machine steps, 66 output symbols, binary (true,137). Either appended bit gives 122-bit valid frame, 134 framing steps and downstream binary (false,112), retaining separate cost meanings."
+    },
+    {
+      "area": "Proof repairs",
+      "locations": [
+        "framing-draft/bitpair-framing-proof-repairs.diff",
+        "framing-draft/bitpair-framing-example-proof-repairs.diff"
+      ],
+      "result": "No source finding",
+      "reason": "Only proof scripts normalized actual same goals, removing redundant remembered equations/tactics and exposing iteration/zero contribution. Definitions, statements, expected values, counts and fixed plans unchanged; prior failures remain historical failures."
+    },
+    {
+      "area": "Actual elaborated output",
+      "locations": [
+        "focused-audit-5.log:3008-6724"
+      ],
+      "result": "Complete independent supplementary statement inspection",
+      "reason": "Read every new actual printed output line:119 contracts,30 definition prints,7 finite syntheses; checked implicit domains/quantifiers, actual constructor targets, finite program/instances, record bodies, no vacuity or source-language circularity. Only six namespace prefixes shortened for display, with all mathematical terms retained."
+    },
+    {
+      "area": "Paper, public entrypoint and status",
+      "locations": [
+        "SquareApplications.lean",
+        "docs/research/fdsa-rotation-certificate-preparation.md",
+        "docs/textbooks/CTB.json",
+        "docs/textbooks/coverage.json",
+        "docs/textbooks/inbox/README.md"
+      ],
+      "result": "No source finding",
+      "reason": "Both ordinary imports added; complete old paper and fixed plans retained. Current status credits only exact scoped builds while integrated acceptance and full verifier-machine/NP remain open. All44 complete ticket objects, canonical/override/history and existing numeric/Boolean/null leaves preserved."
+    }
+  ],
+  "preservation": {
+    "complete_new_tickets_objects": 44,
+    "all44_equal_original_base": true,
+    "canonical_owner_override_historical_top_level_CTB_objects_preserved": true,
+    "six_canonical_files_match_B_C4b_C5b": true,
+    "unrelated_task_objects_unchanged": true,
+    "CTB78_only_next_action_changed": true,
+    "original_B_numeric_boolean_null_CTB_leaves": 681,
+    "C4b_numeric_boolean_null_CTB_leaves": 682,
+    "coverage_numeric_boolean_null_leaves": 129,
+    "all_old_numeric_boolean_null_values_preserved": true,
+    "FDSA_chapter5_progress": "92/94; FDSA-5-92 and FDSA-5-93 open",
+    "programme_denominators_and_progress_unchanged": true,
+    "receiving_acceptance": "cumulative084 foundations only; new author work unreceived",
+    "paper_bytes": 166236,
+    "paper_sha256": "fb72f51286711c1f5f1a7d60798265764de6a31b41f2dbc045e22259755863e5",
+    "C4b_paper_exact_prefix": true,
+    "both_fixed_plans_complete_heading_transformed_in_paper": true,
+    "requirements_full_previous_prefix_preserved": true,
+    "source_row_qualification_change": false
+  },
+  "validation_evidence": {
+    "independent_diff_check": {
+      "exit_code": 0,
+      "scope": "B...C5b"
+    },
+    "core_producer": {
+      "record": {
+        "path": "framing-draft/bitpair-framing-producer-1.json",
+        "bytes": 2028,
+        "sha256": "466b227510a51e7c11cae3160b594e89134dcbc80934cea5b45ee30621d5b3db"
+      },
+      "log": {
+        "path": "framing-draft/bitpair-framing-producer-1.log",
+        "bytes": 4558,
+        "sha256": "fac34ac20d775ca71d4248920dcb7da6fb274137daf54ce9a6ee83939c2ac525"
+      },
+      "exit_code": 0,
+      "jobs": 1339,
+      "source_sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "source_and_log_hashes_independently_matched": true
+    },
+    "example_build3": {
+      "record": {
+        "path": "framing-draft/bitpair-framing-examples-build-3.json",
+        "bytes": 1976,
+        "sha256": "7b1b98cdca60f57222349e6ed778eafdca8867be95634d930c3e619612c4bca9"
+      },
+      "log": {
+        "path": "framing-draft/bitpair-framing-examples-build-3.log",
+        "bytes": 4626,
+        "sha256": "c96aba5bab6651ebd4e8962b0bff3664b68eaad6241bd5e5de88cd280652e245"
+      },
+      "exit_code": 0,
+      "jobs": 1347,
+      "source_sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "source_and_log_hashes_independently_matched": true,
+      "prior_failed_builds_preserved": [
+        "framing-draft/bitpair-framing-examples-build-1.json",
+        "framing-draft/bitpair-framing-examples-build-2.json"
+      ]
+    },
+    "focused_audit": {
+      "result": {
+        "path": "focused-audit-result-5.json",
+        "bytes": 11640,
+        "sha256": "c445b32c7a918979baabc725da10faf68b7b48601b60616e9d58bce0d79bf497"
+      },
+      "inputs": {
+        "path": "focused-audit-inputs-5.json",
+        "bytes": 16277,
+        "sha256": "3f37c58afac7f75af7ce16cf0090bfd9b61707f42223159e910d7974bce000af"
+      },
+      "source": {
+        "path": "FocusedAudit5.lean",
+        "bytes": 32328,
+        "sha256": "138bf48088cc6a64eafd9fe6645d7d3b735ba92206f8390b13730af36dcfebd6"
+      },
+      "log": {
+        "path": "focused-audit-5.log",
+        "bytes": 489331,
+        "sha256": "e1920e6d95e4ebdeda15139966e2287f929e85aadf88950e8a4a63afce5f973c"
+      },
+      "author_summary": {
+        "path": "focused-audit-summary-5.json",
+        "bytes": 7669,
+        "sha256": "0ea11447102f1747bcc058b38d18d2e03fd7498def883f1fa4daefe7b2aec17e"
+      },
+      "exit_code": 0,
+      "project_modules": 40,
+      "kernel_safe_declarations": 2336,
+      "theorems": 1617,
+      "unsafe_runtime_declarations": 0,
+      "axiom_union": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "all14_new_owners_totals": {
+        "logical": 1053,
+        "theorems": 746
+      },
+      "new_core_counts": {
+        "logical": 242,
+        "theorems": 155
+      },
+      "new_example_counts": {
+        "logical": 57,
+        "theorems": 54
+      },
+      "all38_prior_counts_unchanged": true,
+      "inherited_printed_output": {
+        "bytes": 214364,
+        "sha256": "5fde980fcd7f1a208fe395d0c2aa7288fac3cc7d32aa1d6cdd73c528dfe6c819",
+        "byte_identical_to_Audit4": true,
+        "contracts": 102,
+        "definition_prints": 27,
+        "finite_syntheses": 6
+      },
+      "new_independent_actual_output_review": {
+        "complete": true,
+        "start_line": 3008,
+        "end_line": 6724,
+        "contracts": 119,
+        "core_contracts": 71,
+        "example_contracts": 48,
+        "definition_prints": 30,
+        "finite_syntheses": 7,
+        "no_mathematical_terms_omitted": true
+      },
+      "ProofAudit_namespace_identical_to_Audit4": true,
+      "candidate_ProofAudit_only_namespace_difference": "Scoped success wording; audit logic identical",
+      "whole_library_acceptance": false
+    },
+    "old_base_observation": {
+      "base": "bc95f503ccbf043136c6699992388f750270e8e6",
+      "session": 41860,
+      "reviewed_eight_failure_snapshot": {
+        "observed_utc": "2026-11-21T10:44:05.089101+00:00",
+        "bytes": 17777,
+        "sha256": "1922e642d6b005df5fec77869210cdb3ec11330bb1178e4432ec1a13d50c2d8a",
+        "constituent_failures": 8
+      },
+      "later_coordinator_update": {
+        "observed_utc": "2026-11-21T11:05:32Z",
+        "bytes": 20181,
+        "sha256": "2ec78bf372fb83b6878fad03db6411fe341a8bd38ce53f39618d8f004432854f",
+        "constituent_failures": 9,
+        "latest_module": "SquareKit.SmoothQuotientGeneratedBaseChange",
+        "provenance": "Root observation relayed by coordinator during report preparation"
+      },
+      "cause": "not established by exit137 alone",
+      "status": "still running at supplied observation; no passing receipt",
+      "candidate_acceptance_evidence": false
+    },
+    "required_integrated_gate": "pending",
+    "final_nonrepairing_verify": "pending",
+    "final_postvalidation_compare": "pending"
+  },
+  "validation_findings": [
+    {
+      "id": "ST-V001",
+      "title": "Missing exact-candidate integrated acceptance evidence",
+      "category": "validation/evidence",
+      "severity": "blocking acceptance",
+      "status": "unresolved",
+      "first_recorded_round": 1,
+      "reassessed_rounds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidate": "92e40e2200511531d377def795f0a3038752dd7a",
+      "tree": "44b75c9f8e05960b4f7cc3e523497698fbdd4599",
+      "location": [
+        "review-record.json validation state",
+        "candidate-5b.json",
+        "candidate-5b-metadata.json",
+        "framing-draft/bitpair-framing-producer-1.json",
+        "framing-draft/bitpair-framing-examples-build-3.json",
+        "focused-audit-inputs-5.json",
+        "focused-audit-result-5.json",
+        "focused-audit-5.log"
+      ],
+      "applicable_rules": [
+        "README.md: Build and audit",
+        "docs/development.md: exact-candidate/input-based validation policy",
+        "docs/agents/formal-development.md",
+        "docs/agents/review-loop.md: Validation of the candidate",
+        "code-review SKILL.md sections 3 and 5"
+      ],
+      "evidence": "Full source/content and supplementary statement reviews complete without source findings. Matching normal core producer and connected example builds and selected-closure audit passed. Required exact-candidate whole-library guarded check/exhaustive audit, acceptance receipt, final nonrepairing verification and final supported post-validation comparison remain missing.",
+      "consequence": "Complete public-entrypoint integration, whole-library policy/coverage and exhaustive whole-library axiom acceptance remain unestablished for C5b. Prior candidate reviews, scoped successful evidence and old-base validation cannot supply the missing integrated result.",
+      "remedy": "Provide successful isolated guarded whole-library validation and exhaustive audit on the exact full candidate, matching receipt and compiler/dependency identities, immediate nonrepairing final verification and supported post-validation comparison. Reassess in this same axis; recapture any changed source against the original base.",
+      "not_a_requirement": "No separate prevalidation comparison5 is required; supported capture and verified audit before/after identities bind this review."
+    }
+  ],
+  "prior_reports_preserved": {
+    "standards-review-round2.json": {
+      "bytes": 3983,
+      "sha256": "e73f6ff8a14c3d53773ef41bf1a28cdadb4b9d864301f213889f87c96798c99d"
+    },
+    "standards-review-round2.md": {
+      "bytes": 22013,
+      "sha256": "694ecd3b2c519181072515ffb31515c67420584165238791d61d38d6666770cc"
+    },
+    "standards-review-round3.json": {
+      "bytes": 11653,
+      "sha256": "8be2d10eb2698047f77475787190901e0c19b47b39d04d885db9a5ae70c8bb65"
+    },
+    "standards-review-round3.md": {
+      "bytes": 31808,
+      "sha256": "7fb5794dd17c9322c43cc50108aa5ee26549d34da19cbd2a47ab42ad48d6650e"
+    },
+    "standards-review-round4.json": {
+      "bytes": 15732,
+      "sha256": "8df163bf3c6a4bc48ba3975c7ab03dc4401f63a0adf9a479b082fa7109f96bab"
+    },
+    "standards-review-round4.md": {
+      "bytes": 36127,
+      "sha256": "58b8025dddd654e6abc31cec1ac38c0f2c84b23d160ac16131f7ac4d6be899fe"
+    },
+    "standards-review.json": {
+      "bytes": 2303,
+      "sha256": "54f9c5c2d4e68ae7113c7ce9c996218024ebe0deb579d8da908b4c669a29cff5"
+    },
+    "standards-review.md": {
+      "bytes": 14815,
+      "sha256": "a6b1e508aa8b6b8af509285069d473b40fd297d58d885ff04bc6d43c955d0ebd"
+    }
+  },
+  "report": {
+    "path": "standards-review-round5.md",
+    "bytes": 32914,
+    "sha256": "7d4fc249191b50ef8d5a0d2b56c3e39b1da1afa465ebabd4fb9b9158b40ca9cf"
+  },
+  "actions": {
+    "source_edits": false,
+    "checkout_changes": false,
+    "heavy_builds": false,
+    "review_record_mutated": false,
+    "publication": false,
+    "person_directed_messages": false,
+    "new_reviewers": false,
+    "written_files": [
+      "standards-review-round5.md",
+      "standards-review-round5.json"
+    ]
+  }
+}

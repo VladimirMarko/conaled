@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "actual-source-binding-for-future-checkpoint153",
+  "recorded_utc": "2026-11-24T23:47:23.706009+00:00",
+  "not_a_checkpoint_cutoff": true,
+  "predecessor": {
+    "packet": "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z",
+    "archive": {
+      "path": "/workspace/scratch/ae71b485b114/deliverables/conaled-textbooks-152-checkpoint-2026-11-24T231500Z.tar.xz",
+      "expected": {
+        "bytes": 4543632,
+        "sha256": "50844fc0521a0852e083bb93869aae85ce654ea0e68eff5ce6bd1b5c93d0bce7",
+        "mode": "100644"
+      }
+    },
+    "inventory": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/INVENTORY.json",
+      "expected": {
+        "bytes": 73031,
+        "sha256": "644d44312b23453b297056560c72e8915dadd1e76dfe2d7dd8b9a95f34452237",
+        "mode": "100644"
+      }
+    },
+    "saved_version": 1,
+    "full_source_restoration_status": "PENDING_STORAGE"
+  },
+  "source": {
+    "repo": "/workspace/scratch/ae71b485b114/work/conaled",
+    "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+    "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+    "scope_owner_count": 72,
+    "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "deletions": [],
+    "scope_paths": [
+      "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "Applications/Resources/RotationCertificate/InputParser.lean",
+      "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "Applications/Resources/RotationCertificate/Streaming.lean",
+      "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "Applications/Resources/RotationCertificate/Verifier.lean",
+      "Applications/Resources/RotationCertificate/Witness.lean",
+      "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "Examples/RotationCertificateBinary.lean",
+      "Examples/RotationCertificateBitDecoderMachine.lean",
+      "Examples/RotationCertificateBitPairFraming.lean",
+      "Examples/RotationCertificateCorrespondence.lean",
+      "Examples/RotationCertificateDelimiterMachine.lean",
+      "Examples/RotationCertificateFrontEndMachine.lean",
+      "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "Examples/RotationCertificateFuelMachine.lean",
+      "Examples/RotationCertificateInputParserMachine.lean",
+      "Examples/RotationCertificateMoveApplyMachine.lean",
+      "Examples/RotationCertificateMoveParserMachine.lean",
+      "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "Examples/RotationCertificateOpenFramingMachine.lean",
+      "Examples/RotationCertificateParsing.lean",
+      "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "Examples/RotationCertificateStreamMachine.lean",
+      "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "Examples/RotationCertificateTreeParserMachine.lean",
+      "Examples/RotationCertificateVerification.lean",
+      "Examples/TuringSimulation.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-rotation-certificate-preparation.md",
+      "docs/textbooks/CTB.json",
+      "docs/textbooks/README.md",
+      "docs/textbooks/coverage.json",
+      "docs/textbooks/external-agent.md",
+      "docs/textbooks/inbox/README.md"
+    ],
+    "new_owner_paths": [
+      "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "Examples/RotationCertificateDelimiterMachine.lean"
+    ]
+  },
+  "supported_evidence": {
+    "baseline": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/baseline153-scope72.log",
+      "expected": {
+        "bytes": 9730279,
+        "sha256": "127d97c9ad63656bde8196e98cbdd4e0c9118d0d7b02b3a01ca7fae5dea8b6b2",
+        "mode": "100644"
+      }
+    },
+    "capture": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.log",
+      "expected": {
+        "bytes": 9739736,
+        "sha256": "36391b701b2832b75d0e57a9b108c8bf8915d48b3579382c4ae1963a7d446528",
+        "mode": "100644"
+      }
+    },
+    "baseline-result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/baseline153-scope72.result.json",
+      "expected": {
+        "bytes": 38225,
+        "sha256": "a608f9203597d8eb7335d08aaeba6880b2efce67fdf3e4d4e07020675246417e",
+        "mode": "100644"
+      }
+    },
+    "capture-result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.result.json",
+      "expected": {
+        "bytes": 44833,
+        "sha256": "7a3d00031b743083627bc892182f5d8fedf7728844539534fb04648dfca79c66",
+        "mode": "100644"
+      }
+    },
+    "scope-manifest": {
+      "path": "/workspace/scratch/ae71b485b114/work/integration153-root/manifest153-scope72.json",
+      "expected": {
+        "bytes": 4621,
+        "sha256": "a987c94eb41d3e100d600ef26c760c7f4cfd1719b49fa59c3343f5a645b18331",
+        "mode": "100644"
+      }
+    },
+    "installation": {
+      "path": "/workspace/scratch/ae71b485b114/work/integration153-root/INSTALL153.json",
+      "expected": {
+        "bytes": 10102,
+        "sha256": "29fa2cb83e2136bb15521190b291413387623b0c1b61bd105a42877c3a30c93d",
+        "mode": "100644"
+      }
+    }
+  },
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "compiler_or_recovery_claim": "Supported capture is source identity evidence only; use separately observed compiler, reading, review and recovery results.",
+  "remaining_assembly_work": "Bind the actual later cutoff and current controls; preserve184 inherited outcomes and complete requirements; append only this actual authored identity; update source-based recipes against this immutable tree and require all eight historical target hashes.",
+  "archive_created": false,
+  "compiler_run": false,
+  "source_modified": false,
+  "recovery_executed": false,
+  "saved": false
+}

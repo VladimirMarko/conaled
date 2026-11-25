@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "UNCOMPILED normal-module query plan; no carrier or compiler output generated.",
+  "source": {
+    "path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/DelimiterPolynomial149.lean",
+    "bytes": 7730,
+    "sha256": "127fa9829aeea2ea97035580d7a9425a201fb6e4d538e0bbc0fdf63f4fdac7cf",
+    "mode": "0644",
+    "relative_path": "DelimiterPolynomial149.lean"
+  },
+  "imports": [
+    "import DelimiterPolynomial149"
+  ],
+  "counts": {
+    "readable": 15,
+    "expanded": 4,
+    "axiom_roots": 6,
+    "definition_prints": 1,
+    "total_observations": 26
+  },
+  "readable": [
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial_eval",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_le_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.allowance_le_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_allowance_slack",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_allowance",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_zero_le_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.polynomial_one_le_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.exists_fixed_power",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_run",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_run",
+    "#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run"
+  ],
+  "expanded": [
+    "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run",
+    "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power",
+    "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.exists_fixed_power",
+    "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run"
+  ],
+  "axiom_roots": [
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.timePolynomial_eval",
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.allowance_le_power",
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.run_power",
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.empty_run",
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.singleton_run",
+    "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.literal_pair_run"
+  ],
+  "definition_prints": [
+    "set_option pp.all true in\n#print Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run"
+  ],
+  "parent_queries": "Retain existing normal-form and delimiter queries and all 17 old delimiter fixtures independently; this adds observations and replaces none.",
+  "run_condition": "Root must bind/build the exact research parents under their logical staging import names before a normal import query. A separately approved exact-body development assembly must retain body maps and cannot be reported as ordinary-module validation.",
+  "forbidden_in_this_preparation": [
+    "No Lean/Lake invocation",
+    "No output products",
+    "No proof concatenation",
+    "No parent or source mutation",
+    "No caller search-path or resource changes"
+  ]
+}

@@ -1,0 +1,1830 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-21T23:30:43.254448+00:00",
+  "candidate": "8c1ae22f3c29da427786e457cb3d42154584d7da",
+  "tree": "743351811890c0a8f2bef4246d8a8770d3248643",
+  "base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "candidate_receipt": "/workspace/scratch/39407f75909a/continuation085/candidate-7c.json",
+  "candidate_receipt_descriptor": {
+    "bytes": 9667533,
+    "sha256": "f386d26d39d890688c944111e429bb823d9bd3c052f2464b13568de046174583",
+    "mode": "100644"
+  },
+  "scope_identity": "9a1aae27492d73ef4971334b01903253c72d8f8e2c84e8273b84597654c6f769",
+  "content_identity": "7502957828e21c7aedc1ea5cb85a681b2f66074e2cef77d864e22183f98c12c6",
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/39407f75909a/continuation085/FocusedAudit7.lean"
+  ],
+  "audit_source": "/workspace/scratch/39407f75909a/continuation085/FocusedAudit7.lean",
+  "audit_source_descriptor": {
+    "bytes": 82898,
+    "sha256": "4501c6a1b539162cd891c26077294d2a1f7318e949f5863666502f1dba858f88",
+    "mode": "100644"
+  },
+  "complete_Audit6_exact_substring": {
+    "offset": 121,
+    "bytes": 58429,
+    "sha256": "655f104f238b7ddcb506fc4ae52ac3dbf40f1d3a46974003cdf31745ff1c1a75"
+  },
+  "source_files": {
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "SquareApplications.lean": {
+      "bytes": 43581,
+      "sha256": "77cd69943a2baabf954f2c60a2bc2111de433f6cf134f3c5070431f5bb14001e",
+      "mode": "100644"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 357208,
+      "sha256": "11b854eba100f75217519555cf05844e058177d18187d7f96e31f0f42bde9086",
+      "mode": "100644"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 823852,
+      "sha256": "2ebbb15bdc6c859c9b43cc1304797bb59267e9ddbc832e1d76867f74c88c1e71",
+      "mode": "100644"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 51532,
+      "sha256": "a7c4da4ce1a6db33752ed147e6e1159fc7191fc28961743d5d22b01a0a058047",
+      "mode": "100644"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 5921,
+      "sha256": "8d79ff9fe5206cb47fcc4009c64da8c6371ea65d5e6d077e61dd699529c3b435",
+      "mode": "100644"
+    }
+  },
+  "configuration": {
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "ProofAudit.lean": {
+      "bytes": 9052,
+      "sha256": "0215a7a894ca8368624e6c15bdb739304a3825a0e70ba84a8ffe4be468ac0b32",
+      "mode": "100644"
+    },
+    "scripts/project_sources.py": {
+      "bytes": 876,
+      "sha256": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+      "mode": "100644"
+    },
+    "check.sh": {
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "mode": "100755"
+    }
+  },
+  "counts": {
+    "prior": {
+      "check": 438,
+      "print": 135,
+      "synth": 40
+    },
+    "new": {
+      "check": 211,
+      "print": 76,
+      "synth": 20
+    },
+    "total": {
+      "check": 649,
+      "print": 211,
+      "synth": 60
+    }
+  },
+  "new_declarations": [
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 20,
+      "kind": "inductive",
+      "name": "Resources.RotationCertificate.TreeParserMachine.LocalStack"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 24,
+      "kind": "inductive",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Phase"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 32,
+      "kind": "inductive",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Result"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 40,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.StackId"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 41,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.External"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 42,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Label"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 43,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Temporaries"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 44,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Registers"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 48,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.alphabet"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 53,
+      "kind": "instance",
+      "name": "Resources.RotationCertificate.TreeParserMachine.alphabetFintype"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 59,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Statement"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 61,
+      "kind": "abbrev",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Cfg"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 64,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.phaseLabel"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 65,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.resultLabel"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 66,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.callerLabel"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 68,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.reset"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.reset_reset"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 71,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.storeTag"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 73,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.storePending"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 76,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.jump"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 80,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.block"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 110,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.program"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 115,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.program_eq_of_agrees"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 123,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.cfg"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 134,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.cfg_ext"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 157,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.cfg_eta"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 165,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.step"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 168,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.next"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 171,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.next_none"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 172,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.next_some"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 177,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.init_step"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 184,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_step_node"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 192,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_step_empty"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 205,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_step_nil"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 212,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_step_foreign"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 221,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.emit_step_cons"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 236,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.emit_step_nil"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 243,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.undo_step_cons"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 250,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.undo_step_nil"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 257,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.dropPending_step_cons"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 264,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.dropPending_step_nil"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 271,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.iterate_step"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 276,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.emit_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 294,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.undo_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 307,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.dropPending_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 320,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.undo_drop_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 332,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 340,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_nil"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 342,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_node"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 346,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_empty"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 350,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_foreign"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 355,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_pos"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 368,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_le"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 382,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 384,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_pos"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 386,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_le"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 392,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_code"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 413,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_code"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 420,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_code_nodes"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 425,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.phaseSteps"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 432,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Owned"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 436,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.remainingSteps"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 443,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.remainingSteps_pos_iff"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 461,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.owned_cases"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 475,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.leftSlots"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 480,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.resumeTreeRun_slots"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 491,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_empty_value"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 502,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.resumeTreeValue"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 508,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_code_value"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 521,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.resultCfg"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 528,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.resultCfg_reset"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 536,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_nil_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 546,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_foreign_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 559,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_source"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 632,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_source"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 643,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_of_some"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 653,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_of_none"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 661,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_code"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 671,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runInTime"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 680,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runInLinearTime"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 690,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.destination"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 696,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.phase_step_data"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 786,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.LocalStep"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 789,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.local_step_data"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 808,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.local_progress"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 815,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.step_caller_independent"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 820,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.prefix_local_register"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 839,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.phase_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 862,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 873,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.phase_prefix_caller_independent"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 884,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.local_reaches_preserves"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 899,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.prefix_preserves"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 920,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.emit_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 936,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.undo_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 951,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.dropPending_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 967,
+      "kind": "inductive",
+      "name": "Resources.RotationCertificate.TreeParserMachine.OpenPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 974,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.openPrefix_bounds"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 982,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.openPrefix_frames"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1012,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_openPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1026,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.Blocked"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1030,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_openPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1040,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.parseTreeRun_none_of_openPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1050,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_none_openPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1087,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.parseTreeRun_none_iff_openPrefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1098,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.run_openPrefix_failure"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1111,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.outputCells"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1112,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.contextCells"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1114,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.outputCells_update_cons"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1132,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.stackCells"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1137,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.credit"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1142,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.potential"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1146,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.step_potential_le"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1228,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.local_reaches_potential_le"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1235,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.prefix_stackCells_le"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1250,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scanSteps_nodes"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1259,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_nodes"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1266,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.runSteps_nodes_foreign"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1278,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.scan_nodes_iterate"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1294,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.nodes_prefix"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1309,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.nodes_prefix_sharp"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1325,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.FirstSuccess"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1333,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.firstSuccess_iff"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1358,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.firstSuccess_code_iff"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1366,
+      "kind": "def",
+      "name": "Resources.RotationCertificate.TreeParserMachine.machine"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1378,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.machine_step_eq"
+    },
+    {
+      "owner": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "line": 1381,
+      "kind": "theorem",
+      "name": "Resources.RotationCertificate.TreeParserMachine.initList_eq"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.SmallAlphabet"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 27,
+      "kind": "instance",
+      "name": "Examples.RotationCertificateTreeParserMachine.smallAlphabetFintype"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 32,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.smallContext"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 36,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.oldOutputs"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 40,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.staleRegisters"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 42,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.haltCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 45,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.concrete_control_is_finite"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 58,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nil_leaves_the_arbitrary_suffix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 77,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.empty_input_fails_in_five"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 93,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.foreign_head_restores_its_whole_word"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 114,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonpalindromic_emit_retains_old_output"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 125,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonpalindromic_undo_retains_the_blocked_tail"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 136,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.emit_preserves_nonempty_pending"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 145,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.pending_cleanup_counts_each_token_and_empty_probe"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 157,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.literal_codes_keep_their_shape_and_tail"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 182,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.incomplete_codes_restore_all_consumed_material"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 207,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonpalindromic_rejected_prefix_keeps_the_blocker"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 218,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needLeft_scan_completes_the_parent"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 229,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needLeft_scan_failure_restores_its_ghost_prefix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 244,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needRight_scan_moves_the_entire_left_prefix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 260,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.mixed_ghost_frames_keep_outer_first_order"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 281,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.emitted_tree_enters_the_actual_machine"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 299,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_uniform_tree_time"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 308,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonempty_reverse_changes_an_otherwise_valid_tree"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 328,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonempty_reverse_changes_failure_restoration"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 341,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonempty_pending_rejects_a_valid_nil_word"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 359,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nonempty_pending_consumes_two_nil_words"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 384,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.reinitializing_a_ghost_scan_rejects_its_completion"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 411,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.zero_pending_scan_can_emit_an_incomplete_code"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 433,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_prefix_keeps_context_and_bounds_all_cells"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 454,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.different_callers_share_every_owned_prefix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 465,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.all_node_words_attain_the_workspace_bound"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 484,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_first_success_recognizes_exactly_one_prefix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 491,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needRight_foreign_failure_keeps_its_large_prefix"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 506,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needRight_source_and_machine_work_are_distinct"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 520,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needRight_completes_with_an_arbitrary_right_tree"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 547,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.needLeft_completes_with_two_arbitrary_children"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 601,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.all_nodes_restore_after_their_exact_failure_time"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 617,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.all_nodes_before_a_foreign_tag_restore_without_reading_its_tail"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 634,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_tree_time_composes_with_a_continuation"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 649,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.arbitrary_emit_and_rollback_have_their_literal_endpoints"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 664,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_input_emitter_enters_only_the_first_tree_call"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 680,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.emitted_rotation_separates_tree_machine_from_full_source_parser"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 697,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.nil_source_work_is_smaller_than_its_actual_machine_time"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 709,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.mixed_frame_source_and_machine_clocks"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 726,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.partial_transfers_preserve_the_unread_material"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 741,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.every_actual_source_failure_has_its_exact_cleanup_decomposition"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 761,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.concrete_left_two_preserves_both_distinct_old_outputs"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 785,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.old_output_is_distinct_from_corrupt_pending"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 795,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.actual_finite_machine_uniform_time"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 807,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 811,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelStart"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 816,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelHandoff"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 821,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelAfterCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 827,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinel_handoff_precedes_the_actual_push"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 834,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinel_push_is_one_additional_actual_step"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 848,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelHandoffInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 854,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelCallerInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 861,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.sentinelCompositionInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 869,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.live_return_halt_and_outer_none_are_three_distinct_stages"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 889,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.allocatingCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 894,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.emptyStart"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 898,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.allocatingState"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 902,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.allocating_caller_step"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 914,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.allocating_caller_runs_after_the_first_failure"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 924,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.a_post_return_loop_exceeds_the_component_workspace_bound"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 934,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.misleadingCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 940,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.misleadingSuccess"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 944,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.misleadingReentry"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 948,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.misleading_success_is_created_by_one_caller_step"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 960,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.misleading_success_can_reenter_the_component"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 963,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.later_success_is_not_the_parser_first_success"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 985,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoStageCaller"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 989,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoStageStart"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 994,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoStageFirstReturn"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 999,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoStageSecondEntry"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1004,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoStageFinalReturn"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1010,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.the_second_entry_is_the_actual_caller_successor"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1016,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.firstTreeInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1032,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.interveningJumpInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1042,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.secondTreeInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1054,
+      "kind": "def",
+      "name": "Examples.RotationCertificateTreeParserMachine.twoTreeCompositionInTime"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1077,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.two_tree_calls_include_the_real_intervening_jump"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1092,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.left_two_then_nil_takes_seventeen_actual_steps"
+    },
+    {
+      "owner": "Examples/RotationCertificateTreeParserMachine.lean",
+      "line": 1120,
+      "kind": "theorem",
+      "name": "Examples.RotationCertificateTreeParserMachine.two_tree_calls_keep_the_original_bound_through_every_prefix"
+    }
+  ],
+  "new_commands": {
+    "check": [
+      "#check @Resources.RotationCertificate.TreeParserMachine.LocalStack",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Phase",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Result",
+      "#check @Resources.RotationCertificate.TreeParserMachine.StackId",
+      "#check @Resources.RotationCertificate.TreeParserMachine.External",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Label",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Temporaries",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Registers",
+      "#check @Resources.RotationCertificate.TreeParserMachine.alphabet",
+      "#check @Resources.RotationCertificate.TreeParserMachine.alphabetFintype",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Statement",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Cfg",
+      "#check @Resources.RotationCertificate.TreeParserMachine.phaseLabel",
+      "#check @Resources.RotationCertificate.TreeParserMachine.resultLabel",
+      "#check @Resources.RotationCertificate.TreeParserMachine.callerLabel",
+      "#check @Resources.RotationCertificate.TreeParserMachine.reset",
+      "#check @Resources.RotationCertificate.TreeParserMachine.reset_reset",
+      "#check @Resources.RotationCertificate.TreeParserMachine.storeTag",
+      "#check @Resources.RotationCertificate.TreeParserMachine.storePending",
+      "#check @Resources.RotationCertificate.TreeParserMachine.jump",
+      "#check @Resources.RotationCertificate.TreeParserMachine.block",
+      "#check @Resources.RotationCertificate.TreeParserMachine.program",
+      "#check @Resources.RotationCertificate.TreeParserMachine.program_eq_of_agrees",
+      "#check @Resources.RotationCertificate.TreeParserMachine.cfg",
+      "#check @Resources.RotationCertificate.TreeParserMachine.cfg_ext",
+      "#check @Resources.RotationCertificate.TreeParserMachine.cfg_eta",
+      "#check @Resources.RotationCertificate.TreeParserMachine.step",
+      "#check @Resources.RotationCertificate.TreeParserMachine.next",
+      "#check @Resources.RotationCertificate.TreeParserMachine.next_none",
+      "#check @Resources.RotationCertificate.TreeParserMachine.next_some",
+      "#check @Resources.RotationCertificate.TreeParserMachine.init_step",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_step_node",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_step_empty",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_step_nil",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_step_foreign",
+      "#check @Resources.RotationCertificate.TreeParserMachine.emit_step_cons",
+      "#check @Resources.RotationCertificate.TreeParserMachine.emit_step_nil",
+      "#check @Resources.RotationCertificate.TreeParserMachine.undo_step_cons",
+      "#check @Resources.RotationCertificate.TreeParserMachine.undo_step_nil",
+      "#check @Resources.RotationCertificate.TreeParserMachine.dropPending_step_cons",
+      "#check @Resources.RotationCertificate.TreeParserMachine.dropPending_step_nil",
+      "#check @Resources.RotationCertificate.TreeParserMachine.iterate_step",
+      "#check @Resources.RotationCertificate.TreeParserMachine.emit_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.undo_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.dropPending_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.undo_drop_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_nil",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_node",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_empty",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_foreign",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_pos",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_le",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_pos",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_le",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_code",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_code",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_code_nodes",
+      "#check @Resources.RotationCertificate.TreeParserMachine.phaseSteps",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Owned",
+      "#check @Resources.RotationCertificate.TreeParserMachine.remainingSteps",
+      "#check @Resources.RotationCertificate.TreeParserMachine.remainingSteps_pos_iff",
+      "#check @Resources.RotationCertificate.TreeParserMachine.owned_cases",
+      "#check @Resources.RotationCertificate.TreeParserMachine.leftSlots",
+      "#check @Resources.RotationCertificate.TreeParserMachine.resumeTreeRun_slots",
+      "#check @Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_empty_value",
+      "#check @Resources.RotationCertificate.TreeParserMachine.resumeTreeValue",
+      "#check @Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_code_value",
+      "#check @Resources.RotationCertificate.TreeParserMachine.resultCfg",
+      "#check @Resources.RotationCertificate.TreeParserMachine.resultCfg_reset",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_nil_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_foreign_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_source",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_source",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_of_some",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_of_none",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_code",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runInTime",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runInLinearTime",
+      "#check @Resources.RotationCertificate.TreeParserMachine.destination",
+      "#check @Resources.RotationCertificate.TreeParserMachine.phase_step_data",
+      "#check @Resources.RotationCertificate.TreeParserMachine.LocalStep",
+      "#check @Resources.RotationCertificate.TreeParserMachine.local_step_data",
+      "#check @Resources.RotationCertificate.TreeParserMachine.local_progress",
+      "#check @Resources.RotationCertificate.TreeParserMachine.step_caller_independent",
+      "#check @Resources.RotationCertificate.TreeParserMachine.prefix_local_register",
+      "#check @Resources.RotationCertificate.TreeParserMachine.phase_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.phase_prefix_caller_independent",
+      "#check @Resources.RotationCertificate.TreeParserMachine.local_reaches_preserves",
+      "#check @Resources.RotationCertificate.TreeParserMachine.prefix_preserves",
+      "#check @Resources.RotationCertificate.TreeParserMachine.emit_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.undo_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.dropPending_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.OpenPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.openPrefix_bounds",
+      "#check @Resources.RotationCertificate.TreeParserMachine.openPrefix_frames",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_openPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.Blocked",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_openPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.parseTreeRun_none_of_openPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.parseTreeLoop_none_openPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.parseTreeRun_none_iff_openPrefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.run_openPrefix_failure",
+      "#check @Resources.RotationCertificate.TreeParserMachine.outputCells",
+      "#check @Resources.RotationCertificate.TreeParserMachine.contextCells",
+      "#check @Resources.RotationCertificate.TreeParserMachine.outputCells_update_cons",
+      "#check @Resources.RotationCertificate.TreeParserMachine.stackCells",
+      "#check @Resources.RotationCertificate.TreeParserMachine.credit",
+      "#check @Resources.RotationCertificate.TreeParserMachine.potential",
+      "#check @Resources.RotationCertificate.TreeParserMachine.step_potential_le",
+      "#check @Resources.RotationCertificate.TreeParserMachine.local_reaches_potential_le",
+      "#check @Resources.RotationCertificate.TreeParserMachine.prefix_stackCells_le",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scanSteps_nodes",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_nodes",
+      "#check @Resources.RotationCertificate.TreeParserMachine.runSteps_nodes_foreign",
+      "#check @Resources.RotationCertificate.TreeParserMachine.scan_nodes_iterate",
+      "#check @Resources.RotationCertificate.TreeParserMachine.nodes_prefix",
+      "#check @Resources.RotationCertificate.TreeParserMachine.nodes_prefix_sharp",
+      "#check @Resources.RotationCertificate.TreeParserMachine.FirstSuccess",
+      "#check @Resources.RotationCertificate.TreeParserMachine.firstSuccess_iff",
+      "#check @Resources.RotationCertificate.TreeParserMachine.firstSuccess_code_iff",
+      "#check @Resources.RotationCertificate.TreeParserMachine.machine",
+      "#check @Resources.RotationCertificate.TreeParserMachine.machine_step_eq",
+      "#check @Resources.RotationCertificate.TreeParserMachine.initList_eq",
+      "#check @Examples.RotationCertificateTreeParserMachine.SmallAlphabet",
+      "#check @Examples.RotationCertificateTreeParserMachine.smallAlphabetFintype",
+      "#check @Examples.RotationCertificateTreeParserMachine.smallContext",
+      "#check @Examples.RotationCertificateTreeParserMachine.oldOutputs",
+      "#check @Examples.RotationCertificateTreeParserMachine.staleRegisters",
+      "#check @Examples.RotationCertificateTreeParserMachine.haltCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.concrete_control_is_finite",
+      "#check @Examples.RotationCertificateTreeParserMachine.nil_leaves_the_arbitrary_suffix",
+      "#check @Examples.RotationCertificateTreeParserMachine.empty_input_fails_in_five",
+      "#check @Examples.RotationCertificateTreeParserMachine.foreign_head_restores_its_whole_word",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonpalindromic_emit_retains_old_output",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonpalindromic_undo_retains_the_blocked_tail",
+      "#check @Examples.RotationCertificateTreeParserMachine.emit_preserves_nonempty_pending",
+      "#check @Examples.RotationCertificateTreeParserMachine.pending_cleanup_counts_each_token_and_empty_probe",
+      "#check @Examples.RotationCertificateTreeParserMachine.literal_codes_keep_their_shape_and_tail",
+      "#check @Examples.RotationCertificateTreeParserMachine.incomplete_codes_restore_all_consumed_material",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonpalindromic_rejected_prefix_keeps_the_blocker",
+      "#check @Examples.RotationCertificateTreeParserMachine.needLeft_scan_completes_the_parent",
+      "#check @Examples.RotationCertificateTreeParserMachine.needLeft_scan_failure_restores_its_ghost_prefix",
+      "#check @Examples.RotationCertificateTreeParserMachine.needRight_scan_moves_the_entire_left_prefix",
+      "#check @Examples.RotationCertificateTreeParserMachine.mixed_ghost_frames_keep_outer_first_order",
+      "#check @Examples.RotationCertificateTreeParserMachine.emitted_tree_enters_the_actual_machine",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_uniform_tree_time",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonempty_reverse_changes_an_otherwise_valid_tree",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonempty_reverse_changes_failure_restoration",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonempty_pending_rejects_a_valid_nil_word",
+      "#check @Examples.RotationCertificateTreeParserMachine.nonempty_pending_consumes_two_nil_words",
+      "#check @Examples.RotationCertificateTreeParserMachine.reinitializing_a_ghost_scan_rejects_its_completion",
+      "#check @Examples.RotationCertificateTreeParserMachine.zero_pending_scan_can_emit_an_incomplete_code",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_prefix_keeps_context_and_bounds_all_cells",
+      "#check @Examples.RotationCertificateTreeParserMachine.different_callers_share_every_owned_prefix",
+      "#check @Examples.RotationCertificateTreeParserMachine.all_node_words_attain_the_workspace_bound",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_first_success_recognizes_exactly_one_prefix",
+      "#check @Examples.RotationCertificateTreeParserMachine.needRight_foreign_failure_keeps_its_large_prefix",
+      "#check @Examples.RotationCertificateTreeParserMachine.needRight_source_and_machine_work_are_distinct",
+      "#check @Examples.RotationCertificateTreeParserMachine.needRight_completes_with_an_arbitrary_right_tree",
+      "#check @Examples.RotationCertificateTreeParserMachine.needLeft_completes_with_two_arbitrary_children",
+      "#check @Examples.RotationCertificateTreeParserMachine.all_nodes_restore_after_their_exact_failure_time",
+      "#check @Examples.RotationCertificateTreeParserMachine.all_nodes_before_a_foreign_tag_restore_without_reading_its_tail",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_tree_time_composes_with_a_continuation",
+      "#check @Examples.RotationCertificateTreeParserMachine.arbitrary_emit_and_rollback_have_their_literal_endpoints",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_input_emitter_enters_only_the_first_tree_call",
+      "#check @Examples.RotationCertificateTreeParserMachine.emitted_rotation_separates_tree_machine_from_full_source_parser",
+      "#check @Examples.RotationCertificateTreeParserMachine.nil_source_work_is_smaller_than_its_actual_machine_time",
+      "#check @Examples.RotationCertificateTreeParserMachine.mixed_frame_source_and_machine_clocks",
+      "#check @Examples.RotationCertificateTreeParserMachine.partial_transfers_preserve_the_unread_material",
+      "#check @Examples.RotationCertificateTreeParserMachine.every_actual_source_failure_has_its_exact_cleanup_decomposition",
+      "#check @Examples.RotationCertificateTreeParserMachine.concrete_left_two_preserves_both_distinct_old_outputs",
+      "#check @Examples.RotationCertificateTreeParserMachine.old_output_is_distinct_from_corrupt_pending",
+      "#check @Examples.RotationCertificateTreeParserMachine.actual_finite_machine_uniform_time",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelStart",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelHandoff",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelAfterCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinel_handoff_precedes_the_actual_push",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinel_push_is_one_additional_actual_step",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelHandoffInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelCallerInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.sentinelCompositionInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.live_return_halt_and_outer_none_are_three_distinct_stages",
+      "#check @Examples.RotationCertificateTreeParserMachine.allocatingCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.emptyStart",
+      "#check @Examples.RotationCertificateTreeParserMachine.allocatingState",
+      "#check @Examples.RotationCertificateTreeParserMachine.allocating_caller_step",
+      "#check @Examples.RotationCertificateTreeParserMachine.allocating_caller_runs_after_the_first_failure",
+      "#check @Examples.RotationCertificateTreeParserMachine.a_post_return_loop_exceeds_the_component_workspace_bound",
+      "#check @Examples.RotationCertificateTreeParserMachine.misleadingCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.misleadingSuccess",
+      "#check @Examples.RotationCertificateTreeParserMachine.misleadingReentry",
+      "#check @Examples.RotationCertificateTreeParserMachine.misleading_success_is_created_by_one_caller_step",
+      "#check @Examples.RotationCertificateTreeParserMachine.misleading_success_can_reenter_the_component",
+      "#check @Examples.RotationCertificateTreeParserMachine.later_success_is_not_the_parser_first_success",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoStageCaller",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoStageStart",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoStageFirstReturn",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoStageSecondEntry",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoStageFinalReturn",
+      "#check @Examples.RotationCertificateTreeParserMachine.the_second_entry_is_the_actual_caller_successor",
+      "#check @Examples.RotationCertificateTreeParserMachine.firstTreeInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.interveningJumpInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.secondTreeInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.twoTreeCompositionInTime",
+      "#check @Examples.RotationCertificateTreeParserMachine.two_tree_calls_include_the_real_intervening_jump",
+      "#check @Examples.RotationCertificateTreeParserMachine.left_two_then_nil_takes_seventeen_actual_steps",
+      "#check @Examples.RotationCertificateTreeParserMachine.two_tree_calls_keep_the_original_bound_through_every_prefix"
+    ],
+    "print": [
+      "#print Resources.RotationCertificate.TreeParserMachine.LocalStack",
+      "#print Resources.RotationCertificate.TreeParserMachine.Phase",
+      "#print Resources.RotationCertificate.TreeParserMachine.Result",
+      "#print Resources.RotationCertificate.TreeParserMachine.StackId",
+      "#print Resources.RotationCertificate.TreeParserMachine.External",
+      "#print Resources.RotationCertificate.TreeParserMachine.Label",
+      "#print Resources.RotationCertificate.TreeParserMachine.Temporaries",
+      "#print Resources.RotationCertificate.TreeParserMachine.Registers",
+      "#print Resources.RotationCertificate.TreeParserMachine.alphabet",
+      "#print Resources.RotationCertificate.TreeParserMachine.alphabetFintype",
+      "#print Resources.RotationCertificate.TreeParserMachine.Statement",
+      "#print Resources.RotationCertificate.TreeParserMachine.Cfg",
+      "#print Resources.RotationCertificate.TreeParserMachine.phaseLabel",
+      "#print Resources.RotationCertificate.TreeParserMachine.resultLabel",
+      "#print Resources.RotationCertificate.TreeParserMachine.callerLabel",
+      "#print Resources.RotationCertificate.TreeParserMachine.reset",
+      "#print Resources.RotationCertificate.TreeParserMachine.storeTag",
+      "#print Resources.RotationCertificate.TreeParserMachine.storePending",
+      "#print Resources.RotationCertificate.TreeParserMachine.jump",
+      "#print Resources.RotationCertificate.TreeParserMachine.block",
+      "#print Resources.RotationCertificate.TreeParserMachine.program",
+      "#print Resources.RotationCertificate.TreeParserMachine.cfg",
+      "#print Resources.RotationCertificate.TreeParserMachine.step",
+      "#print Resources.RotationCertificate.TreeParserMachine.next",
+      "#print Resources.RotationCertificate.TreeParserMachine.scanSteps",
+      "#print Resources.RotationCertificate.TreeParserMachine.runSteps",
+      "#print Resources.RotationCertificate.TreeParserMachine.phaseSteps",
+      "#print Resources.RotationCertificate.TreeParserMachine.Owned",
+      "#print Resources.RotationCertificate.TreeParserMachine.remainingSteps",
+      "#print Resources.RotationCertificate.TreeParserMachine.leftSlots",
+      "#print Resources.RotationCertificate.TreeParserMachine.resumeTreeValue",
+      "#print Resources.RotationCertificate.TreeParserMachine.resultCfg",
+      "#print Resources.RotationCertificate.TreeParserMachine.runInTime",
+      "#print Resources.RotationCertificate.TreeParserMachine.runInLinearTime",
+      "#print Resources.RotationCertificate.TreeParserMachine.destination",
+      "#print Resources.RotationCertificate.TreeParserMachine.LocalStep",
+      "#print Resources.RotationCertificate.TreeParserMachine.OpenPrefix",
+      "#print Resources.RotationCertificate.TreeParserMachine.Blocked",
+      "#print Resources.RotationCertificate.TreeParserMachine.outputCells",
+      "#print Resources.RotationCertificate.TreeParserMachine.contextCells",
+      "#print Resources.RotationCertificate.TreeParserMachine.stackCells",
+      "#print Resources.RotationCertificate.TreeParserMachine.credit",
+      "#print Resources.RotationCertificate.TreeParserMachine.potential",
+      "#print Resources.RotationCertificate.TreeParserMachine.FirstSuccess",
+      "#print Resources.RotationCertificate.TreeParserMachine.machine",
+      "#print Examples.RotationCertificateTreeParserMachine.SmallAlphabet",
+      "#print Examples.RotationCertificateTreeParserMachine.smallAlphabetFintype",
+      "#print Examples.RotationCertificateTreeParserMachine.smallContext",
+      "#print Examples.RotationCertificateTreeParserMachine.oldOutputs",
+      "#print Examples.RotationCertificateTreeParserMachine.staleRegisters",
+      "#print Examples.RotationCertificateTreeParserMachine.haltCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.actual_uniform_tree_time",
+      "#print Examples.RotationCertificateTreeParserMachine.actual_tree_time_composes_with_a_continuation",
+      "#print Examples.RotationCertificateTreeParserMachine.actual_finite_machine_uniform_time",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelStart",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelHandoff",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelAfterCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelHandoffInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelCallerInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.sentinelCompositionInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.allocatingCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.emptyStart",
+      "#print Examples.RotationCertificateTreeParserMachine.allocatingState",
+      "#print Examples.RotationCertificateTreeParserMachine.misleadingCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.misleadingSuccess",
+      "#print Examples.RotationCertificateTreeParserMachine.misleadingReentry",
+      "#print Examples.RotationCertificateTreeParserMachine.twoStageCaller",
+      "#print Examples.RotationCertificateTreeParserMachine.twoStageStart",
+      "#print Examples.RotationCertificateTreeParserMachine.twoStageFirstReturn",
+      "#print Examples.RotationCertificateTreeParserMachine.twoStageSecondEntry",
+      "#print Examples.RotationCertificateTreeParserMachine.twoStageFinalReturn",
+      "#print Examples.RotationCertificateTreeParserMachine.firstTreeInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.interveningJumpInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.secondTreeInTime",
+      "#print Examples.RotationCertificateTreeParserMachine.twoTreeCompositionInTime"
+    ],
+    "synth": [
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.LocalStack Bool)",
+      "#synth Fintype Resources.RotationCertificate.TreeParserMachine.Phase",
+      "#synth Fintype Resources.RotationCertificate.TreeParserMachine.Result",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.StackId Bool Bool)",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.External Bool Unit)",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.Label Bool Unit)",
+      "#synth Fintype Resources.RotationCertificate.TreeParserMachine.Temporaries",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.Registers Bool)",
+      "#synth DecidableEq (Resources.RotationCertificate.TreeParserMachine.StackId Bool Bool)",
+      "#synth DecidableEq (Resources.RotationCertificate.TreeParserMachine.Label Bool Unit)",
+      "#synth DecidableEq (Resources.RotationCertificate.TreeParserMachine.Registers Bool)",
+      "#synth Fintype (Examples.RotationCertificateTreeParserMachine.SmallAlphabet false)",
+      "#synth Fintype (Examples.RotationCertificateTreeParserMachine.SmallAlphabet true)",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inl Resources.RotationCertificate.TreeParserMachine.LocalStack.raw))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inl Resources.RotationCertificate.TreeParserMachine.LocalStack.reverse))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inl Resources.RotationCertificate.TreeParserMachine.LocalStack.pending))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inl (Resources.RotationCertificate.TreeParserMachine.LocalStack.output false)))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inl (Resources.RotationCertificate.TreeParserMachine.LocalStack.output true)))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inr false))",
+      "#synth Fintype (Resources.RotationCertificate.TreeParserMachine.alphabet Bool Examples.RotationCertificateTreeParserMachine.SmallAlphabet (Sum.inr true))"
+    ]
+  },
+  "environment": "environment-recovered-102.json",
+  "normal_focused_builds": {
+    "producer": {
+      "path": "/workspace/scratch/39407f75909a/continuation085/tree-machine-build-12.result.json",
+      "bytes": 775,
+      "sha256": "69cd41362fe73fcce61e905cf81bd239f38222a78dc1d6ffa13bf595311ad038",
+      "mode": "100644"
+    },
+    "client": {
+      "path": "/workspace/scratch/39407f75909a/continuation085/tree-machine-client-build-6.result.json",
+      "bytes": 9181,
+      "sha256": "a9b11e9434f6ae7ce008be95036e61b26984bd02a01ee4576f8088638673ff80",
+      "mode": "100644"
+    },
+    "all_current_Lean_owners_match_successful_client_build": true,
+    "documentation_advanced_after_that_build": {
+      "docs/research/fdsa-rotation-certificate-preparation.md": {
+        "build_sha256": "a8b1b735de5fbdd23f7fdb285456c767fabd4a74a8800267d5a75dad5d556d3f",
+        "candidate_sha256": "11b854eba100f75217519555cf05844e058177d18187d7f96e31f0f42bde9086"
+      },
+      "docs/textbooks/CTB.json": {
+        "build_sha256": "d2a791e8f7e7c1527df16fed0fb492c26fc604d0b4e5e9d9379d1ee9e270ab61",
+        "candidate_sha256": "2ebbb15bdc6c859c9b43cc1304797bb59267e9ddbc832e1d76867f74c88c1e71"
+      },
+      "docs/textbooks/coverage.json": {
+        "build_sha256": "d22c8b04608d188affb6203f2b04ee0594d016448482a147a7dfb250abe2246f",
+        "candidate_sha256": "a7c4da4ce1a6db33752ed147e6e1159fc7191fc28961743d5d22b01a0a058047"
+      },
+      "docs/textbooks/inbox/README.md": {
+        "build_sha256": "586eee051b1eb87f8280032eacde0997a5fe6c3a2558459c3966da35de2e957e",
+        "candidate_sha256": "8d79ff9fe5206cb47fcc4009c64da8c6371ea65d5e6d077e61dd699529c3b435"
+      }
+    }
+  },
+  "requirements": {
+    "bytes": 383575,
+    "sha256": "7e65db3e85cb867b3fd8cc4c681bb48a9662b821042723a4d294cd8836e1657b",
+    "mode": "100644"
+  },
+  "actual_execution": "not yet performed",
+  "whole_library_acceptance": false,
+  "boundary": "Cumulative actual import-closure audit and public contracts; execution and actual statement inspection remain separate. No whole-library acceptance or source-row qualification."
+}

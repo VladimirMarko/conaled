@@ -1,0 +1,23 @@
+⚠ [725/1035] Replayed Applications.Resources.TuringSimulation.TapeReflection
+warning: Applications/Resources/TuringSimulation/TapeReflection.lean: imports `Mathlib.Computability.TuringMachine.PostTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [754/1035] Replayed Applications.Resources.TuringSimulation.StackToTape
+warning: Applications/Resources/TuringSimulation/StackToTape.lean: imports `Mathlib.Computability.TuringMachine.StackTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [755/1035] Replayed Applications.Resources.TuringSimulation.FiniteControl
+warning: Applications/Resources/TuringSimulation/FiniteControl.lean: imports `Mathlib.Computability.TuringMachine.PostTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/FiniteControl.lean: imports `Mathlib.Data.Fintype.Sets` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1269/1275] Replayed Applications.Resources.TuringSimulation.FiniteStackToTape
+warning: Applications/Resources/TuringSimulation/FiniteStackToTape.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/FiniteStackToTape.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1271/1275] Replayed Applications.Resources.TuringSimulation.MarkedInput
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Computability.TuringMachine.StackTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/MarkedInput.lean: imports `Mathlib.Tactic.DeriveFintype` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1274/1275] Built Applications.Resources.TuringSimulation.OrdinaryPackage (1.9s)
+⚠ [1275/1275] Built Applications.Resources.TuringSimulation.PrintMove (1.0s)
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Computability.TuringMachine.PostTuringMachine` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Data.Fintype.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Tactic.DeriveFintype` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Data.Int.Interval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/TuringSimulation/PrintMove.lean: imports `Mathlib.Order.Monotone.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (1275 jobs).

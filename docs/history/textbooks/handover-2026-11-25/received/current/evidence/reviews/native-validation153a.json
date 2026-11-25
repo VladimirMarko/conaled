@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T23:46:03.005759+00:00",
+  "candidate": "2c10ea82d95a58d09ad02e2f16c7aa117357b0b0",
+  "tree": "25a159f36ffff3acd638d675bc9e9c4955e58e8a",
+  "status": "FAILED",
+  "command_name": "owners153-a",
+  "actual_exit_code": 1,
+  "actual_child_exit_code": 1,
+  "elapsed_seconds": 49.93705243899967,
+  "started_utc": "2026-11-24T23:41:09.862066+00:00",
+  "finished_utc": "2026-11-24T23:41:59.815340+00:00",
+  "records": {
+    "result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.result.json",
+      "bytes": 2053145,
+      "sha256": "903126328fa536725875b19aa95c3ba8aa4f5b17023d5e95216586ebddfb755f"
+    },
+    "child": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.child-exit.json",
+      "bytes": 2159,
+      "sha256": "2b4ec3297698995b0c05143949cb5cfabeab8bfd7ff48732f35822fe06407c7f"
+    },
+    "start": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.start.json",
+      "bytes": 1027068,
+      "sha256": "8f264f0e3b9cc278f9b2d63863b964116d2ccbc06bee05f3f6bacb2dda77539c"
+    },
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.log",
+      "bytes": 20043,
+      "sha256": "cc1418e912f5e34ce8674de1384202381e0d30843e0da875cf262268e44d5732"
+    }
+  },
+  "result_child_log_descriptors_verified": true,
+  "binding_count": 4044,
+  "all_bindings_nonnull": true,
+  "endpoint_maps_equal": true,
+  "captured_source_binding_coverage": {
+    "matched": 54,
+    "missing": [
+      "Examples/RotationCertificateBinary.lean",
+      "Examples/RotationCertificateBitDecoderMachine.lean",
+      "Examples/RotationCertificateBitPairFraming.lean",
+      "Examples/RotationCertificateFrontEndMachine.lean",
+      "Examples/RotationCertificateFuelMachine.lean",
+      "Examples/RotationCertificateInputParserMachine.lean",
+      "Examples/RotationCertificateMoveApplyMachine.lean",
+      "Examples/RotationCertificateMoveParserMachine.lean",
+      "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "Examples/RotationCertificateOpenFramingMachine.lean",
+      "Examples/RotationCertificateParsing.lean",
+      "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "Examples/RotationCertificateTreeParserMachine.lean",
+      "Examples/RotationCertificateVerification.lean",
+      "docs/textbooks/README.md",
+      "docs/textbooks/external-agent.md",
+      "docs/textbooks/inbox/README.md"
+    ],
+    "different": []
+  },
+  "log_reading": {
+    "reader": "/root/requirements_review147",
+    "all_actual_lines_read": true,
+    "line_count": 112,
+    "scope": "Complete actual112-line focused normal-build output; no theorem/public-statement semantic reading credit."
+  },
+  "observed_failed_targets": [
+    "Applications.Resources.RotationCertificate.BinaryYesVerifier"
+  ],
+  "observed_error": {
+    "path": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+    "line": 25,
+    "column": 12,
+    "kind": "Ambiguous namespace open",
+    "local_selected": "_root_.Resources.RotationCertificate.DelimiterMachine.PolynomialTime",
+    "other_silently_not_opened": "_root_.Resources.PolynomialTime"
+  },
+  "root_proposed_correction": "Qualify only the existing open with _root_.Resources.RotationCertificate.DelimiterMachine.PolynomialTime; capture corrected immutable candidate before retry. No settings, linter, fixture, statement or fixed-expectation changes.",
+  "correction_validated": false,
+  "current_candidate_success_inferred": false,
+  "whole_source_acceptance": false,
+  "limits": [
+    "Successful child-module messages in this failed focused invocation are not a passing aggregate, whole/audit result or acceptance.",
+    "No current products were read, copied, repaired or modified by coordinator.",
+    "Keep this actual failed run bound to C153a; corrected candidate must have its own identity and validation evidence."
+  ]
+}

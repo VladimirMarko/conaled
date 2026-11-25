@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-25T05:48:28.918407+00:00",
+  "status": "Prepared but not compiled; whole155 compiler remains active",
+  "candidate_basis": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree_basis": "394733a450268e8943048ea146440dcb75c7ceea",
+  "expectations": {
+    "path": "/workspace/scratch/ae71b485b114/work/space155/next/EXPECTATIONS.md",
+    "bytes": 6862,
+    "sha256": "bb908a5d8ab2c86303dd760285a80ab45dc9708749768bf95183ec9f579a6015"
+  },
+  "probe": {
+    "path": "/workspace/scratch/ae71b485b114/work/space156-checks/revision-a/NormalDispatch156aProbe.lean",
+    "bytes": 14492,
+    "sha256": "b7794d703dccd955991ebf435923b490448154df2387d0a443ad4e675ab94f77"
+  },
+  "exact_slices": [
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatch.lean",
+        "bytes": 9183,
+        "sha256": "44fdae2dabf4808f136be3c830003eed2c9a9a5c71786a9c4b4d4d019a58babe"
+      },
+      "start": 0,
+      "end": 9183
+    },
+    {
+      "literal_hex": "0a"
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchContinuation.lean",
+        "bytes": 3900,
+        "sha256": "480504137e26ff00cb7114da68dd5e25609e621f7813af2668e04fb67c39ce67"
+      },
+      "start": 634,
+      "end": 3900
+    },
+    {
+      "literal_hex": "0a"
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchStatements.lean",
+        "bytes": 2426,
+        "sha256": "5d09d3a2e799fe3838e2508658fb4b6b03a6c28bfa7ada0abe784088c7ebd569"
+      },
+      "start": 385,
+      "end": 2426
+    }
+  ],
+  "source_reads_match_current_files": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/StackToTape.lean",
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "bytes": 26946,
+      "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Examples/TuringSimulation.lean",
+      "bytes": 79470,
+      "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "bytes": 37335,
+      "sha256": "5957cf3776536e63c5bf8f79e182b7b8fa7549699a31165b10d4e7df4e38cf2f"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+      "bytes": 43733,
+      "sha256": "9e49302ee4f6c270e136ec7135c07a9b27f94da4cadc3beabbf53faba8e37148"
+    }
+  ],
+  "basis_clarification": "The frozen implementer manifest retains an earlier root-reported C153b/source-tree label at its top; its actual per-file reads include the current C155 VisitedSpace and Examples hashes. Those individual hashes are now directly checked against C155 files. Treat the top old identity as historical guidance, not as a claim that all six listed bodies belong to C153b. Draft and expectation bodies are unchanged. The continuation now has the three compiled C155 trace concatenation exports available. The new normal dispatch declarations are still uncompiled.",
+  "root_static_reading": "Root read complete EXPECTATIONS.md, both Lean proof files, nine-query carrier, README.md and MANIFEST.json. Actual command-level self-write, register-after-load branch choice, complete endpoint, stationary origin and supplied versus genuine-init distinctions match the fixed cases. No target height premise or claimed height theorem is introduced. Actual elaboration remains required.",
+  "project_source_or_products_modified": false,
+  "compiler_started": false,
+  "source_accepted": false
+}

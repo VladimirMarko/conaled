@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "read_utc": "2026-11-24T20:44:02.865300+00:00",
+  "reader": "/root",
+  "run": "normal-form149c",
+  "actual_exit_code": 0,
+  "input_count": 154,
+  "all_inputs_nonnull_unchanged": true,
+  "log_descriptor": {
+    "bytes": 4544,
+    "sha256": "213e4d82d4e04704f54407abc89a9bdc9861e20bc3ac0de28b436edfa6c4417c",
+    "mode": "100644"
+  },
+  "complete_log_read": true,
+  "readable_statements": 18,
+  "selected_expansions": 2,
+  "selected_axiom_roots": 6,
+  "literal_ellipsis_count": 0,
+  "observed_root_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "checked_cases": "Zero exponent0; C7 exponent7; X exponent2; 2X^2+3X+5 degree2/eval0=5/eval1=10/eval2=19/exponent12; four bound corollaries each consume the generic public result for every Nat N.",
+  "claim_boundary": "Development proof/query outside installed C147. No whole audit, independent review, machine/table or NP result.",
+  "whole147_outcome": "UNKNOWN; separate project outputs not used."
+}

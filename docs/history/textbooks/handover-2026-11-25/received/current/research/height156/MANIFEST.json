@@ -1,0 +1,338 @@
+{
+  "schema": "height156-internal-height-preparation-v1",
+  "created_utc": "2026-11-25T06:27:37.189569+00:00",
+  "status": "uncompiled external implementation preparation; no acceptance",
+  "role": "implementation assistance in existing review loop; no new review axis",
+  "source_identity": {
+    "candidate_commit": "a5a917db8717977371b8d76d93f166389c9eec9b",
+    "candidate_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+    "binding": "candidate object resolved and listed working files compared byte-for-byte with its Git blobs; not a whole-tree comparison",
+    "checkout_root": "/workspace/scratch/ae71b485b114/work/conaled154",
+    "head_observed_at_initial_read": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "head_tree_observed_at_initial_read": "2a6df7a7fce23ae73a8e46d3bde59cf386c958b8",
+    "head_role": "different checkout base, not the requested candidate source identity"
+  },
+  "expectation_order": "EXPECTATIONS.md written and chmod 0444 before InternalHeight.lean was created; no compiler feedback for this increment received",
+  "artifacts": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/height156/EXPECTATIONS.md",
+      "bytes": 6655,
+      "lines": 64,
+      "sha256": "33eb8454918f38a201e77b36c93eda67709b38ea5a25c6343e135ff88e105f41",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/height156/InternalHeight.lean",
+      "bytes": 9272,
+      "lines": 215,
+      "sha256": "d971cad93995c2331c7015c9d1ae8a8883d2d4f8a69805f410724ca8e8fc6963",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/height156/InternalHeightStatements.lean",
+      "bytes": 3630,
+      "lines": 56,
+      "sha256": "fe26ebeda4f1b59e84840fe4b8cbd01f4674da1b5023fce4082b2c65ac471863",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/height156/README.md",
+      "bytes": 9317,
+      "lines": 64,
+      "sha256": "ffdde7e58c75f699ad7b831a470080bcb0e9f183078a30f5756647f24e821a46",
+      "mode": "0o444"
+    }
+  ],
+  "project_source_and_guidance_reads": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/StackToTape.lean",
+      "bytes": 28454,
+      "lines": 600,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "0o644",
+      "relative_path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "read_coverage": "lines 1-40 and 275-540 read in this increment; grouped source execution, bounds, growth lemma and reserve induction",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Examples/TuringSimulation.lean",
+      "bytes": 79470,
+      "lines": 1871,
+      "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906",
+      "mode": "0o644",
+      "relative_path": "Examples/TuringSimulation.lean",
+      "read_coverage": "current lines 92-255 read; sourceStacks/columns from retained earlier complete case readings, with full current file bound to C155",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/AGENTS.md",
+      "bytes": 2628,
+      "lines": 45,
+      "sha256": "c98741e0325029ca67e2d079239288a05af775b5d336b88f4b4046068db37db7",
+      "mode": "0o644",
+      "relative_path": "AGENTS.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/task-authority.md",
+      "bytes": 3817,
+      "lines": 64,
+      "sha256": "1873b383daa756a7b4fd2780868e66c75e5f2eb2695fa914cce57eda5f5f0e9a",
+      "mode": "0o644",
+      "relative_path": "docs/agents/task-authority.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/formal-development.md",
+      "bytes": 1038,
+      "lines": 20,
+      "sha256": "36065a7becbd4773f4889a970f826e2afe5092e21ba5ef30e56691921256adac",
+      "mode": "0o644",
+      "relative_path": "docs/agents/formal-development.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/domain.md",
+      "bytes": 926,
+      "lines": 27,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "mode": "0o644",
+      "relative_path": "docs/agents/domain.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/architectural-quality.md",
+      "bytes": 5409,
+      "lines": 89,
+      "sha256": "d64cdc8e5ffb02d5ee3509c9c798861bf9d0c7d0510e9584bbea6d9eb2249a4c",
+      "mode": "0o644",
+      "relative_path": "docs/agents/architectural-quality.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/review-loop.md",
+      "bytes": 16277,
+      "lines": 247,
+      "sha256": "c369ed734ff8b61c2a2745fc3cd5839f496654e1625b1a4ceaa6a04abb2ba80f",
+      "mode": "0o644",
+      "relative_path": "docs/agents/review-loop.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/agents/completion.md",
+      "bytes": 1772,
+      "lines": 30,
+      "sha256": "5cdd90762527df7999c196ea8d7532ae9b9fe43a030d522fe2ccd07fb1823db2",
+      "mode": "0o644",
+      "relative_path": "docs/agents/completion.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.agents/skills/implement/SKILL.md",
+      "bytes": 5383,
+      "lines": 88,
+      "sha256": "1ee81882f7b87e2233bd513dc4304ebd9cfc3ac11551fb2736817b4caa1fe243",
+      "mode": "0o644",
+      "relative_path": ".agents/skills/implement/SKILL.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.agents/skills/example-driven-development/SKILL.md",
+      "bytes": 8691,
+      "lines": 143,
+      "sha256": "4c396c3f6142b6aeddff067756a451eb31d0b5aa3baac89d63228751ab2593ae",
+      "mode": "0o644",
+      "relative_path": ".agents/skills/example-driven-development/SKILL.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "lines": 55,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "mode": "0o644",
+      "relative_path": ".agents/skills/example-driven-development/worked-example.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/GLOSSARY.md",
+      "bytes": 4934,
+      "lines": 109,
+      "sha256": "20b2caab65426bf067ca8e12b1bae2151a8ef5ff7997604d93258a27d6cde8c9",
+      "mode": "0o644",
+      "relative_path": "GLOSSARY.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/adr/README.md",
+      "bytes": 1547,
+      "lines": 17,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "mode": "0o644",
+      "relative_path": "docs/adr/README.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "lines": 50,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "mode": "0o644",
+      "relative_path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 8160,
+      "lines": 139,
+      "sha256": "ff80c10a835f6ed5d30b45719cc311d4af6be1fbeb08fd37eeeab085906e356e",
+      "mode": "0o644",
+      "relative_path": "docs/adr/0010-composition-and-proof-audit.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/docs/language-direction.md",
+      "bytes": 59914,
+      "lines": 835,
+      "sha256": "67027141798b659caba825757daabf4860d15a47c320ef36c9e97eb1fbbbaea4",
+      "mode": "0o644",
+      "relative_path": "docs/language-direction.md",
+      "read_coverage": "prior complete reading reused after exact byte comparison; AGENTS/task/formal also reread in this increment",
+      "matches_C155_git_blob": true
+    }
+  ],
+  "native_source_read": {
+    "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+    "bytes": 37335,
+    "lines": 808,
+    "sha256": "5957cf3776536e63c5bf8f79e182b7b8fa7549699a31165b10d4e7df4e38cf2f",
+    "mode": "0o644",
+    "read_coverage": "lines 45-175 and 405-450 in this increment",
+    "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+    "pinned_blob_read_exit": 0,
+    "matches_pinned_git_blob": true
+  },
+  "normal_dispatch_files_verified_unchanged": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/EXPECTATIONS.md",
+      "bytes": 6862,
+      "lines": 64,
+      "sha256": "bb908a5d8ab2c86303dd760285a80ab45dc9708749768bf95183ec9f579a6015",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatch.lean",
+      "bytes": 9183,
+      "lines": 206,
+      "sha256": "44fdae2dabf4808f136be3c830003eed2c9a9a5c71786a9c4b4d4d019a58babe",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchContinuation.lean",
+      "bytes": 3900,
+      "lines": 84,
+      "sha256": "480504137e26ff00cb7114da68dd5e25609e621f7813af2668e04fb67c39ce67",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchStatements.lean",
+      "bytes": 2426,
+      "lines": 42,
+      "sha256": "5d09d3a2e799fe3838e2508658fb4b6b03a6c28bfa7ada0abe784088c7ebd569",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/README.md",
+      "bytes": 9991,
+      "lines": 60,
+      "sha256": "04ac4e2bffe075be2a8ef978b8ead4902f325d9008b783bebcb065ea6be1ad11",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/MANIFEST.json",
+      "bytes": 8777,
+      "lines": 205,
+      "sha256": "7ead93a471464a9447966925b642e79b39bc8d8bc89dfce6a35a6d68ed77268f",
+      "mode": "0o444"
+    }
+  ],
+  "normal_dispatch_dependency": false,
+  "public_query_inventory": [
+    "Resources.TuringSimulation.StackToTape.InternalHeight",
+    "Resources.TuringSimulation.StackToTape.internalHeight_stRun",
+    "Resources.TuringSimulation.StackToTape.InternalHeight.mono",
+    "Resources.TuringSimulation.StackToTape.internalHeight_of_reserve",
+    "Resources.TuringSimulation.StackToTape.internalHeight_of_uniform_bound",
+    "Examples.TuringSimulation.InternalHeightCases.emptyPeekBody",
+    "Examples.TuringSimulation.InternalHeightCases.emptyPopBody",
+    "Examples.TuringSimulation.InternalHeightCases.empty_peek_height_zero",
+    "Examples.TuringSimulation.InternalHeightCases.empty_pop_height_zero",
+    "Examples.TuringSimulation.InternalHeightCases.empty_peek_not_reserved",
+    "Examples.TuringSimulation.InternalHeightCases.pushPop_height_and_empty_endpoints",
+    "Examples.TuringSimulation.InternalHeightCases.pushPop_uniform_and_widening",
+    "Examples.TuringSimulation.InternalHeightCases.loaded_true_height_three_not_two",
+    "Examples.TuringSimulation.InternalHeightCases.loaded_false_height_zero"
+  ],
+  "declaration_counts": {
+    "definitions": 3,
+    "theorems": 11,
+    "total_public": 14
+  },
+  "query_counts": {
+    "check": 14,
+    "print": 14,
+    "print_axioms": 14
+  },
+  "source_integration_segments": [
+    {
+      "file": "InternalHeight.lean",
+      "lines": [
+        15,
+        125
+      ],
+      "target_owner": "Applications/Resources/TuringSimulation/StackToTape.lean"
+    },
+    {
+      "file": "InternalHeight.lean",
+      "lines": [
+        127,
+        215
+      ],
+      "target_owner": "Examples/TuringSimulation.lean"
+    }
+  ],
+  "compiler_or_proof_checker_run_by_this_agent": false,
+  "project_source_or_product_writes_by_this_agent": false,
+  "resource_transparency_linter_overrides": false,
+  "new_agents_spawned": false,
+  "fixed_expectations_changed": false,
+  "remaining_checks": [
+    "root actual compilation in the normal environment",
+    "complete elaborated type/definition/proof reading and axiom inspection",
+    "normal installed-owner import check if integrated",
+    "existing independent review and applicable build/audit gates"
+  ],
+  "scope_limits": [
+    "source-side actual statement paths only",
+    "no primitive head position or visited-space theorem",
+    "whole-family reserve is sufficient, not necessary",
+    "no occupied-support or input-inclusive interval bound",
+    "no clocks/defaults changed",
+    "no normal-dispatch proof assumed",
+    "no conventional-machine, NP, textbook qualification or whole-library acceptance claim"
+  ]
+}

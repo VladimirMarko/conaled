@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "frozen_utc": "2026-11-24T21:59:43.893974+00:00",
+  "status": "UNCOMPILED / UNINSTALLED / UNREVIEWED",
+  "candidate_context": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree_context": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "current_scope_owners": 63,
+  "expectations_fixed_before_source": {
+    "path": "work/checking-criterion150-draft/EXPECTATIONS.json",
+    "bytes": 5452,
+    "sha256": "93acb2d8e243c1599258d9f93bb0fa8376d9c7e7ce1016e479bff6f9070f7205",
+    "mode": "100644"
+  },
+  "source_files": [
+    {
+      "path": "work/checking-criterion150-draft/ConventionalVerifierCriterion150.lean",
+      "bytes": 6580,
+      "sha256": "453633c5d75a81442195778553ddaf633af82e572f87cc972b96187f238d3980",
+      "mode": "100644"
+    },
+    {
+      "path": "work/checking-criterion150-draft/BinaryYesVerifierCriterion150.lean",
+      "bytes": 6073,
+      "sha256": "fde6f18511f1b414fa417b221b87a45e013ed307208d46d64e19a877b357ed21",
+      "mode": "100644"
+    }
+  ],
+  "post_import_body_slices": [
+    {
+      "source": "work/checking-criterion150-draft/ConventionalVerifierCriterion150.lean",
+      "byte_start": 102,
+      "byte_end_exclusive": 6580,
+      "bytes": 6478,
+      "sha256": "b7efef6f95a5869b5f498a1b1b47e571f1dd77c57dde7ae50ad478e7cc7e604d",
+      "header_removed": "import ConventionalPolynomialDecider150\nimport Mathlib.Data.List.Basic\nimport Lean.Elab.Tactic.Omega\n\n",
+      "body_rewritten": false
+    },
+    {
+      "source": "work/checking-criterion150-draft/BinaryYesVerifierCriterion150.lean",
+      "byte_start": 157,
+      "byte_end_exclusive": 6073,
+      "bytes": 5916,
+      "sha256": "c3e80c9341fac2b4ead0897679704c00b6d9e1af16e434fd711ab72ca1f98e37",
+      "header_removed": "import ConventionalVerifierCriterion150\nimport DelimiterConventionalContract150\nimport Applications.Resources.RotationCertificate.CertificateCorrespondence\n\n",
+      "body_rewritten": false
+    }
+  ],
+  "direct_parent_bindings": [
+    {
+      "staging_import": "ConventionalPolynomialDecider150",
+      "source": {
+        "path": "work/conventional-contract150-draft/ConventionalPolynomialDecider150.lean",
+        "bytes": 9818,
+        "sha256": "97fb968d958ff5a4e5bb6460fd2be38afbf1d5acf9c23d0e707b1e67e6c1ac8a",
+        "mode": "100644"
+      },
+      "future_canonical_member": "current/research/conventional-contract150/ConventionalPolynomialDecider150.lean",
+      "status": "UNCOMPILED frozen parent"
+    },
+    {
+      "staging_import": "DelimiterConventionalContract150",
+      "source": {
+        "path": "work/conventional-contract150-draft/DelimiterConventionalContract150.lean",
+        "bytes": 6751,
+        "sha256": "16b40d61d40211a29510e511ef2a427628525ff699a98c5912cf791967e930db",
+        "mode": "100644"
+      },
+      "future_canonical_member": "current/research/conventional-contract150/DelimiterConventionalContract150.lean",
+      "status": "UNCOMPILED frozen parent; no compilation inferred from earlier composition pass"
+    },
+    {
+      "source": {
+        "path": "work/conventional-contract150-draft/MANIFEST.json",
+        "bytes": 8815,
+        "sha256": "3e2b4ab188e4209d2dd02e77e911b6d90fab83bb48dd0a942477158da07db4f7",
+        "mode": "100644"
+      },
+      "future_canonical_member": "current/research/conventional-contract150/MANIFEST.json",
+      "status": "Parent provenance and exact earlier canonical imports"
+    },
+    {
+      "normal_project_owner": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "source": {
+        "path": "work/conaled/Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+        "bytes": 12641,
+        "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+        "mode": "100644"
+      },
+      "role": "existing verifyBitsRun_complete_small and verifyBitsRun_sound",
+      "canonical_member": "current/source/Applications/Resources/RotationCertificate/BinaryVerifier.lean"
+    },
+    {
+      "normal_project_owner": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "source": {
+        "path": "work/conaled/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+        "bytes": 5877,
+        "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+        "mode": "100644"
+      },
+      "role": "normal import; raw-empty rejection, zero-node positive language and encoded length",
+      "canonical_member": "current/source/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean"
+    },
+    {
+      "source": {
+        "path": "work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z/current/research/delimiter/DelimiterPrelude144b.lean",
+        "bytes": 25107,
+        "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+        "mode": "100644"
+      },
+      "canonical_member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "role": "exact old literalPair and independent small-delimited theorem"
+    },
+    {
+      "source": {
+        "path": "work/conaled/.lake/packages/mathlib/Mathlib/Data/List/Basic.lean",
+        "bytes": 44433,
+        "sha256": "d954cf5406e239d718e03bf9eb755e4d1245e2b66c0eb814eb6ec9c24c87c5eb",
+        "mode": "100644"
+      },
+      "role": "pinned external Mathlib source: append_cons_inj_of_notMem and map_injective_iff; not duplicated in payload"
+    }
+  ],
+  "query_plan": {
+    "path": "work/checking-criterion150-draft/QUERY_PLAN.json",
+    "bytes": 6373,
+    "sha256": "c9983114580ade41903a74eac8585d82a95d4772c20dd592100792c4dd128d53",
+    "mode": "100644"
+  },
+  "readme": {
+    "path": "work/checking-criterion150-draft/README.md",
+    "bytes": 5194,
+    "sha256": "b7634b45f0df991411ce18d78cf1405c3ba0fee1d78f92f88a16c6accc48cb85",
+    "mode": "100644"
+  },
+  "body_order": [
+    "exact existing composition parent bodies",
+    "frozen conventional-contract150 generic body",
+    "frozen conventional-contract150 delimiter body",
+    "ConventionalVerifierCriterion150.lean post-import body",
+    "BinaryYesVerifierCriterion150.lean post-import body"
+  ],
+  "normal_import_additions": [
+    "Mathlib.Data.List.Basic",
+    "Lean.Elab.Tactic.Omega",
+    "Applications.Resources.RotationCertificate.CertificateCorrespondence"
+  ],
+  "boundaries": {
+    "selected_verifier_characterization_only": true,
+    "independently_defined_NTM_or_NP_equivalence": false,
+    "literal_pair_encoder_changed": false,
+    "fixed_contract150_parents_changed": false,
+    "compiler_invocations": 0,
+    "checker_invocations": 0,
+    "snapshot_captures": 0,
+    "repository_edits": 0,
+    "settings_overrides": 0,
+    "source_accepted": false
+  },
+  "statement_review": "Generic actual machine and arbitrary-raw relation precede all inputs. Concrete witness2 has no additive constant. Pair length and machine time remain distinct. Generic criterion retains bounded-witness premise; unbounded soundness is separately concrete. Empty raw, empty literal pair, exponent0 and encoded zero-node cases are distinguished. Parent/peer source critique may follow; no independent approval claimed."
+}

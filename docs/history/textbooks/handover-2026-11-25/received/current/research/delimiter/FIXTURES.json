@@ -1,0 +1,341 @@
+{
+  "schema": "delimiter-prelude-fixed-cases-v1",
+  "fixtures": [
+    {
+      "name": "empty_missing",
+      "raw_notation": "",
+      "raw": [],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 2,
+      "expected_peak_cells": 0,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "delimiter_only",
+      "raw_notation": "#",
+      "raw": [
+        null
+      ],
+      "expected_frame_notation": "1",
+      "expected_frame": [
+        true
+      ],
+      "expected_steps": 4,
+      "expected_peak_cells": 1,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "prefix_false",
+      "raw_notation": "0#",
+      "raw": [
+        false,
+        null
+      ],
+      "expected_frame_notation": "001",
+      "expected_frame": [
+        false,
+        false,
+        true
+      ],
+      "expected_steps": 7,
+      "expected_peak_cells": 3,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "prefix_true",
+      "raw_notation": "1#",
+      "raw": [
+        true,
+        null
+      ],
+      "expected_frame_notation": "011",
+      "expected_frame": [
+        false,
+        true,
+        true
+      ],
+      "expected_steps": 7,
+      "expected_peak_cells": 3,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "certificate_false",
+      "raw_notation": "#0",
+      "raw": [
+        null,
+        false
+      ],
+      "expected_frame_notation": "10",
+      "expected_frame": [
+        true,
+        false
+      ],
+      "expected_steps": 6,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "certificate_true",
+      "raw_notation": "#1",
+      "raw": [
+        null,
+        true
+      ],
+      "expected_frame_notation": "11",
+      "expected_frame": [
+        true,
+        true
+      ],
+      "expected_steps": 6,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "two_certificate_bits",
+      "raw_notation": "#01",
+      "raw": [
+        null,
+        false,
+        true
+      ],
+      "expected_frame_notation": "101",
+      "expected_frame": [
+        true,
+        false,
+        true
+      ],
+      "expected_steps": 8,
+      "expected_peak_cells": 3,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "mixed_valid",
+      "raw_notation": "10#01",
+      "raw": [
+        true,
+        false,
+        null,
+        false,
+        true
+      ],
+      "expected_frame_notation": "0100101",
+      "expected_frame": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true
+      ],
+      "expected_steps": 14,
+      "expected_peak_cells": 7,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "missing_false",
+      "raw_notation": "0",
+      "raw": [
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 5,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "missing_true",
+      "raw_notation": "1",
+      "raw": [
+        true
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 5,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "missing_mixed",
+      "raw_notation": "10",
+      "raw": [
+        true,
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 8,
+      "expected_peak_cells": 4,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_empty",
+      "raw_notation": "##",
+      "raw": [
+        null,
+        null
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 5,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_tail",
+      "raw_notation": "##0",
+      "raw": [
+        null,
+        null,
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 6,
+      "expected_peak_cells": 3,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_mixed",
+      "raw_notation": "1#0#1",
+      "raw": [
+        true,
+        null,
+        false,
+        null,
+        true
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 11,
+      "expected_peak_cells": 6,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_tail_has_delimiter",
+      "raw_notation": "#1##0",
+      "raw": [
+        null,
+        true,
+        null,
+        null,
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 9,
+      "expected_peak_cells": 5,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "mixed_valid_initial_true",
+      "raw_notation": "10#01",
+      "raw": [
+        true,
+        false,
+        null,
+        false,
+        true
+      ],
+      "expected_frame_notation": "0100101",
+      "expected_frame": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true
+      ],
+      "expected_steps": 14,
+      "expected_peak_cells": 7,
+      "initial_user": true,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_mixed_initial_true",
+      "raw_notation": "1#0#1",
+      "raw": [
+        true,
+        null,
+        false,
+        null,
+        true
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 11,
+      "expected_peak_cells": 6,
+      "initial_user": true,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    }
+  ]
+}

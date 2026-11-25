@@ -1,0 +1,294 @@
+{
+  "schema": "same-spec-axis-increment155-installed-followup-v1",
+  "observed_utc": "2026-11-25T05:50:39.275910+00:00",
+  "axis": "/root/requirements_review147/spec147",
+  "original_axis": "/root/parser_review/spec",
+  "same_existing_review_loop": true,
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "original_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "incorporated_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "scope_count": 72,
+  "status": "Focused installed source/type evidence assessed; acceptance Blocked under SP-V001",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "released_preparation_unchanged": [
+    {
+      "path": "work/review154-recovered/preparation155/spec/spec155-preparation.md",
+      "bytes": 11941,
+      "sha256": "a8b6e782a3019fe7e3604637a2702cfe0f40a1234f5178004527f8355852a2e7"
+    },
+    {
+      "path": "work/review154-recovered/preparation155/spec/spec155-preparation.json",
+      "bytes": 20377,
+      "sha256": "b7fa997acf9d9dd4fcb7d144a6895f532cff960df6fa57e1fad9d076ba02ee9d"
+    }
+  ],
+  "runs": [
+    {
+      "name": "owners155",
+      "exit_code": 0,
+      "elapsed_seconds": 19.340161270000863,
+      "started_utc": "2026-11-25T05:29:40.502365+00:00",
+      "finished_utc": "2026-11-25T05:29:59.853295+00:00",
+      "nonnull_unchanged_inputs": 4064,
+      "independently_verified_matching_child_final_command_times_exit_and_descriptors": true,
+      "all72_C155_source_descriptors_match": true,
+      "build_product_descriptors": 0,
+      "carrier": null,
+      "records": [
+        {
+          "path": "work/native-runs154/owners155.start.json",
+          "bytes": 1038691,
+          "sha256": "3faaf3cc36d32f219a3146944b4b766ecf03ba5af7cdebff0c605b92eab9f5fb"
+        },
+        {
+          "path": "work/native-runs154/owners155.child-exit.json",
+          "bytes": 2148,
+          "sha256": "7d79738a3bc1177ba6048106530cdacc2337c8ceceaca361889385d7198d3da9"
+        },
+        {
+          "path": "work/native-runs154/owners155.result.json",
+          "bytes": 2076396,
+          "sha256": "32a23dbe1d61fbe19476d3acb259ea809f601c160904dc7edf7f6e95f6db1373"
+        },
+        {
+          "path": "work/native-runs154/owners155.log",
+          "bytes": 17422,
+          "sha256": "8ba057a7194da9d1b0a35b02a82d633c18df2bc9e8ae34fd1baeb5640d94de52"
+        }
+      ]
+    },
+    {
+      "name": "query155",
+      "exit_code": 1,
+      "elapsed_seconds": 4.581935827000052,
+      "started_utc": "2026-11-25T05:31:14.668933+00:00",
+      "finished_utc": "2026-11-25T05:31:19.262085+00:00",
+      "nonnull_unchanged_inputs": 4066,
+      "independently_verified_matching_child_final_command_times_exit_and_descriptors": true,
+      "all72_C155_source_descriptors_match": true,
+      "build_product_descriptors": 0,
+      "carrier": {
+        "path": "work/validation155/Integration155Statements.lean",
+        "bytes": 89970,
+        "sha256": "84918d6fa182fe73d882d7310e0261f976160a960f48ed070e75e8f517e1ea2d"
+      },
+      "records": [
+        {
+          "path": "work/native-runs154/query155.start.json",
+          "bytes": 1038265,
+          "sha256": "1ff3f9604382a9003e6285990d462c2d0f7110892af8817a13aa2b3d36314940"
+        },
+        {
+          "path": "work/native-runs154/query155.child-exit.json",
+          "bytes": 1278,
+          "sha256": "56fed86b67cd2fa97aaa9e66c499a699f852f030dfba6f5b2e59bbe823ad463b"
+        },
+        {
+          "path": "work/native-runs154/query155.result.json",
+          "bytes": 2076410,
+          "sha256": "a00220495b83df42bdd05e0597bece5057114268d406a9b44109a18c5cdef15c"
+        },
+        {
+          "path": "work/native-runs154/query155.log",
+          "bytes": 1235007,
+          "sha256": "0936b4973f18ff8d4c4244cd9d2802291027ca1453158a55a571124fd72128eb"
+        }
+      ]
+    },
+    {
+      "name": "query155-b",
+      "exit_code": 0,
+      "elapsed_seconds": 3.774985086000015,
+      "started_utc": "2026-11-25T05:33:16.004550+00:00",
+      "finished_utc": "2026-11-25T05:33:19.790718+00:00",
+      "nonnull_unchanged_inputs": 4068,
+      "independently_verified_matching_child_final_command_times_exit_and_descriptors": true,
+      "all72_C155_source_descriptors_match": true,
+      "build_product_descriptors": 0,
+      "carrier": {
+        "path": "work/validation155/Integration155bStatements.lean",
+        "bytes": 90010,
+        "sha256": "aceb16c7ad092f77b32efc2657770de536531ca2d45a733c78c095a14e582779"
+      },
+      "records": [
+        {
+          "path": "work/native-runs154/query155-b.start.json",
+          "bytes": 1038712,
+          "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d"
+        },
+        {
+          "path": "work/native-runs154/query155-b.child-exit.json",
+          "bytes": 1285,
+          "sha256": "37ec55089553b0479a3c5d4c9021075df837798975dda526f7b6dc5990a252ac"
+        },
+        {
+          "path": "work/native-runs154/query155-b.result.json",
+          "bytes": 2077305,
+          "sha256": "d0c2101f4df20804a3d7a278b6fda9d43fa06bdee720543cabd00a3c1671d4ec"
+        },
+        {
+          "path": "work/native-runs154/query155-b.log",
+          "bytes": 1252458,
+          "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106"
+        }
+      ]
+    }
+  ],
+  "query_only_repair": {
+    "failed_attempt_retained": true,
+    "exact_four_matches_to_observedConstants_replacements": true,
+    "source_or_expectation_changes": false,
+    "old87360byte_carrier_prefix_exact": true,
+    "old_carrier_sha256": "be70bb5a5812c615fee9940f5e62424f8cd41a79ecaef3ce30913558a3dc8599",
+    "original_21_command_block_exact_once": true,
+    "original_block_bytes": 1713,
+    "original_block_sha256": "3016c841564a03759f16bbb19125462bdfdbf78f8a2f74ab9ac1e478a4d0424c"
+  },
+  "reading": {
+    "owners155_full_log_lines": [
+      1,
+      103
+    ],
+    "owners_log_observation": "16 requested targets; changed VisitedSpace and Examples rebuilt with affected consumers;1432 jobs completed successfully; ordinary module-system import warnings retained.",
+    "failed_query_diagnostic_full_log_lines": [
+      16243,
+      16244
+    ],
+    "failed_query_other_output_no_new_reading_credit": true,
+    "full_current_log": {
+      "path": "work/native-runs154/query155-b.log",
+      "bytes": 1252458,
+      "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106"
+    },
+    "prior_prefix": {
+      "bytes": 960006,
+      "lines": 12481,
+      "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+      "exact_current_prefix_independently_verified": true,
+      "attribution": "Qualified same-axis Spec153/recovered154 reading with every original limit, not fresh full-prefix reading."
+    },
+    "new_tail": {
+      "path": "work/validation155/query155-b.new-tail.log",
+      "bytes": 292452,
+      "sha256": "6af1f63fba4a3b25836ffeafc58751a37c455caf41bbb9561db560474bdd9116"
+    },
+    "tail_exact_full_minus_prior_prefix": true,
+    "same_axis_local_to_imported_reuse": [
+      {
+        "tail_lines": [
+          1,
+          250
+        ],
+        "full_log_lines": [
+          12482,
+          12731
+        ],
+        "bytes": 17549,
+        "sha256": "dab5178a331966813f0cf5572ce89296ff1862700761b4045b7101fc67d6cb1f",
+        "attribution": "same Spec axis preparation reading of exact local b output; independently byte-verified reuse, not fresh imported-output reading"
+      },
+      {
+        "tail_lines": [
+          3742,
+          3762
+        ],
+        "full_log_lines": [
+          16223,
+          16243
+        ],
+        "bytes": 1002,
+        "sha256": "847fdee7093838fc3cbf9dfc706d2a07692f23ce15b566e2dfd636b2d56b9da7",
+        "attribution": "same Spec axis preparation reading of exact local b output; independently byte-verified reuse, not fresh imported-output reading"
+      }
+    ],
+    "private_observation": {
+      "tail_lines": [
+        3763,
+        4060
+      ],
+      "fresh_bounded_reads": [
+        [
+          3763,
+          3910
+        ],
+        [
+          3911,
+          4060
+        ]
+      ],
+      "full_log_lines": [
+        16244,
+        16541
+      ],
+      "bytes": 17626,
+      "sha256": "49707577682700e029d49ed3f06122a1539dfa9ad41adba7cb62c8600a28d195",
+      "all298_lines_freshly_read": true,
+      "actual_name": "_private.Examples.TuringSimulation.0.Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_left_prefixes",
+      "universe_parameters": [],
+      "full_type_and_raw_Expr_read": true,
+      "selected_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "assessment": "Closed conjunction for actual peekMachine/peekLeft with suffix1=some peekBack,2=some peekRet,3=some peekHalt,4=outer None; complete native Cfg/Option types and supplied native inhabited instances agree with assessed source. No extra premise or hidden domain found.",
+      "concrete_visibility_item": "Assessed and no longer pending; SP-V001 overall remains open."
+    },
+    "unread_proof_print_middle": {
+      "tail_lines": [
+        251,
+        3741
+      ],
+      "full_log_lines": [
+        12732,
+        16222
+      ],
+      "line_count": 3491,
+      "remains_unread": true,
+      "new_gate": false,
+      "reading_limit": "No full new-tail or complete proof-print reading claim. Source proofs and consequential statement types have their explicitly recorded assessment."
+    },
+    "new_tail_literal_ellipsis_glyphs": 0,
+    "old_ellipsis": "14 glyphs on8 old lines retained as previously nonfatal rendering limit; no extra gate or hidden text credit.",
+    "root_or_Standards_semantic_reading_borrowed": false
+  },
+  "findings": [
+    {
+      "id": "SP-D001",
+      "status": "Resolved remedy retained; preparation source assessment unchanged."
+    },
+    {
+      "id": "SP-D002",
+      "status": "Resolved remedy retained; actual installed types preserve live5/None6 and full endpoints."
+    },
+    {
+      "id": "SP-C001",
+      "status": "Resolved source remedy retained; current16-target ordinary run passes at its recorded scope."
+    },
+    {
+      "id": "SP-V001",
+      "status": "Open",
+      "severity": "Blocking acceptance",
+      "focused_progress": "Matching current owner/query evidence and concrete private-helper visibility item assessed.",
+      "remaining": [
+        "Actual aggregate/whole terminal validation",
+        "Exhaustive applicable source, module-origin/product-origin and transitive-axiom audit",
+        "Immediate supported nonrepairing verification",
+        "Supported final postvalidation comparison",
+        "Same original Standards/Spec reconciliation"
+      ]
+    }
+  ],
+  "new_findings": [],
+  "whole155": "Root-reported RUNNING at supplied-evidence cutoff; no terminal reviewed and no active whole log accessed.",
+  "inherited_limits": "Every preparation/recovered153/original-loop reading, null, missing-record, recovery and UNKNOWN limit remains. Later evidence does not retroactively repair153 map coverage or lost outer results.",
+  "no_other_concrete_consequential_binder_or_domain_gap_identified": true,
+  "all_statement_rendering_completely_read": false,
+  "all_selected_roots_are_not_exhaustive_audit": true,
+  "compiler_or_checker_executed": false,
+  "source_configuration_or_products_mutated": false,
+  "released_files_mutated": false,
+  "external_action": false
+}

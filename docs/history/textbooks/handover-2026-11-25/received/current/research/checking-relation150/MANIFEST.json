@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "status": "UNCOMPILED connected draft; exact general equivalence is existing canonical mathematics.",
+  "finding": {
+    "parser": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+    "checking": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff",
+    "scope": "Arbitrary raw words, including missing/repeated delimiters; not merely literal-pair specialization.",
+    "new_proof_claim": false
+  },
+  "files": [
+    {
+      "name": "EXPECTATIONS.json",
+      "bytes": 2337,
+      "sha256": "f6df8f975f9864cfea79f98e753e89a9d549e49b1bdc263122b2dbaa176c3e91",
+      "mode": "0644"
+    },
+    {
+      "name": "CheckingRelation150.lean",
+      "bytes": 2720,
+      "sha256": "07fc477d15222350079946e0e8b7feb82696cd64876c87c869ac259e70f2ccca",
+      "mode": "0644"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3234,
+      "sha256": "b371f927d3d3e3e3f19750aa079bdb881b8c1e391830a5e242140903f32589ef",
+      "mode": "0644"
+    }
+  ],
+  "save_order": "EXPECTATIONS.json saved before the new client source; no compiler feedback on new clients.",
+  "dependencies": [
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "bytes": 11634,
+      "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da",
+      "mode": "0644",
+      "logical_import": "Protocol144b"
+    },
+    {
+      "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "bytes": 25107,
+      "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+      "mode": "0644",
+      "logical_import": "DelimiterPrelude144b"
+    },
+    {
+      "member": "current/source/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "0644",
+      "normal_import": "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+      "live_source_path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean"
+    }
+  ],
+  "source_slices": [
+    {
+      "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "declaration": "literalPair",
+      "byte_range": [
+        15326,
+        15416
+      ],
+      "sha256": "cbba33f7f062521d9eaee0e5ae29550cb7bc9cbe4576b8059a2a30f3d64d32da",
+      "inclusive_lines": [
+        417,
+        419
+      ]
+    },
+    {
+      "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "declaration": "suffixBits",
+      "byte_range": [
+        15416,
+        15548
+      ],
+      "sha256": "3aa1d12d19d0e69e948e2469f2a168b9d61204b04fcd40831397d8bb592a99de",
+      "inclusive_lines": [
+        420,
+        424
+      ]
+    },
+    {
+      "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "declaration": "splitLiteral",
+      "byte_range": [
+        15548,
+        15762
+      ],
+      "sha256": "e84908de50ab19c9a49f09a6faa8ef549c99429ec923ab999c494e8807ba1d87",
+      "inclusive_lines": [
+        425,
+        429
+      ]
+    },
+    {
+      "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+      "declaration": "verifyDelimited",
+      "byte_range": [
+        15904,
+        16129
+      ],
+      "sha256": "8e70f1259d88863d14f4e97bab2e423266bf6cd6bec8018515498b8cafba4e31",
+      "inclusive_lines": [
+        435,
+        440
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "protocol_cases",
+      "byte_range": [
+        1068,
+        1707
+      ],
+      "sha256": "10c2ba94b498f8750b901a35aa0c80f18ecec294fd213d231d9e51d7d5cd1486",
+      "inclusive_lines": [
+        31,
+        41
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "suffixBits_iff",
+      "byte_range": [
+        3316,
+        3874
+      ],
+      "sha256": "643a866c8c34bb520ad9c1520536212dfe86019da33b6181639649b45415532b",
+      "inclusive_lines": [
+        81,
+        93
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "splitLiteral_iff",
+      "byte_range": [
+        3874,
+        4490
+      ],
+      "sha256": "3c311e0c0122902a5e142d6a60cfc0ed9f7c033043fe7a52ec574e0478d887ae",
+      "inclusive_lines": [
+        94,
+        109
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "literalPair_injective",
+      "byte_range": [
+        4490,
+        4768
+      ],
+      "sha256": "b78b08b35f6a9f66c8e10f93e9621ee3a13224fcbe598eb8a79d25b942970e5c",
+      "inclusive_lines": [
+        110,
+        116
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "splitLiteral_none_iff",
+      "byte_range": [
+        4768,
+        5429
+      ],
+      "sha256": "3ecc2a0f6e75286df89407791a669054fc02c7d937ad5c8ebd4fd0144272c316",
+      "inclusive_lines": [
+        117,
+        131
+      ]
+    },
+    {
+      "member": "current/research/delimiter/Protocol144b.lean",
+      "declaration": "verifyDelimited_accept_iff",
+      "byte_range": [
+        9746,
+        10347
+      ],
+      "sha256": "a6275e7382f6d32c2a86c461b108a26ce21617b81872b57118cdfcc62532f74c",
+      "inclusive_lines": [
+        225,
+        238
+      ]
+    }
+  ],
+  "queries": {
+    "normal_import": "import CheckingRelation150",
+    "readable": [
+      "#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+      "#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff",
+      "#check @Examples.DelimiterCheckingRelation150.empty_missing_rejects",
+      "#check @Examples.DelimiterCheckingRelation150.present_false_missing_rejects",
+      "#check @Examples.DelimiterCheckingRelation150.delimiter_only_parses",
+      "#check @Examples.DelimiterCheckingRelation150.empty_input_false_certificate_parses",
+      "#check @Examples.DelimiterCheckingRelation150.false_input_empty_certificate_parses",
+      "#check @Examples.DelimiterCheckingRelation150.mixed_order_parses",
+      "#check @Examples.DelimiterCheckingRelation150.mixed_pair_checker",
+      "#check @Examples.DelimiterCheckingRelation150.two_delimiters_reject",
+      "#check @Examples.DelimiterCheckingRelation150.repeated_with_more_tail_rejects"
+    ],
+    "expanded": [
+      "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+      "set_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff"
+    ],
+    "axiom_roots": [
+      "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+      "#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff",
+      "#print axioms Examples.DelimiterCheckingRelation150.mixed_pair_checker",
+      "#print axioms Examples.DelimiterCheckingRelation150.repeated_with_more_tail_rejects"
+    ],
+    "counts": {
+      "readable": 11,
+      "expanded": 2,
+      "axiom_roots": 4,
+      "anonymous_connected_examples": 3
+    },
+    "boundary": "Proposed observations only; whole-body compilation must also include all anonymous clients."
+  },
+  "reuse": "Three anonymous clients reuse the existing arbitrary-raw parser/checking equivalences and failure equation. Nine named fixed-case declarations do not duplicate the parser proof or add another public checking-language API.",
+  "preserved": "All canonical files, expectations, integration150-plan, repository sources, machine contracts and native outputs remain unchanged.",
+  "next_connection": {
+    "task": "Generic conventional polynomial-decider/checking-relation packaging; connect the existing iff to the passed composition.",
+    "existing_target": "PrintMove.decidedCfg (verifyDelimited raw) fullNativeTape; terminalControl true=accept and false=reject.",
+    "actual_execution": "Retain native and conventional EvalsToInTime witnesses, stored counts, full tape, supplied states/defaults, finite data and nonblank three-letter input injection.",
+    "time": "Existing fixed k gives N^k+k for the complete literal pair length N.",
+    "certificate": "Existing binaryYes_iff_exists_small_delimited_certificate supplies cert.length <= input.length^2 and pair length <= input.length^2+input.length+1. Preserve I^k, not I^k+k, for the selected witness-length convention; runtime/certificate exponents remain distinct unless explicitly related.",
+    "not_established": [
+      "A new generic class",
+      "Conventional NP equivalence",
+      "Effectivity or executable table extraction",
+      "New qualification or source acceptance"
+    ]
+  },
+  "composition_parent_evidence": {
+    "path": "work/resume150/ROOT_READING_POLYNOMIAL150a.json",
+    "bytes": 1986,
+    "sha256": "76b6fa63759aeab23a5dc20727e3d49427aefb925ff6dba113fdb93fb2f81078",
+    "mode": "0644",
+    "actual_exit_code": 0,
+    "attribution": "Root reading/result record; this helper has not read the complete compiler log."
+  },
+  "reading_limits": [
+    "Canonical Prelude lines405–544 and Protocol lines1–139,200–242; required definitions and existing proofs read directly.",
+    "Relevant PrintMove machine/init/terminalControl/decidedCfg definitions inspected locally.",
+    "All new source text inspected as authored; no Lean/Lake, output products, source installation, checker change or capture."
+  ],
+  "minimal_retained_files": [
+    "EXPECTATIONS.json",
+    "CheckingRelation150.lean",
+    "README.md",
+    "MANIFEST.json"
+  ],
+  "boundary": "Source-only research and connected client preparation; no independent review or acceptance claim."
+}

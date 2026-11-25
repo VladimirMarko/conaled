@@ -1,0 +1,560 @@
+{
+  "schema": "same-spec-axis-increment155-preparation-v1",
+  "observed_utc": "2026-11-25T05:35:13.721058+00:00",
+  "axis": "/root/requirements_review147/spec147",
+  "original_axis": "/root/parser_review/spec",
+  "new_review_loop": false,
+  "status": "Blocked acceptance; bounded source preparation complete",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "prior_candidate": "8f299334a51a00b02c79850d73dd4f165c73e671",
+  "prior_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "incorporated_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 72,
+  "unchanged_scope_count": 67,
+  "same_scope_paths": true,
+  "git_scope_paths_sha256": "0a1f924bd899f0fa65d6683b88604822a9894eff43e1b98775446a0cf22eadb0",
+  "candidate_capture_chain": "Coordinator independently verified actual exit0,149 nonnull invariant inputs; this axis independently checked immutable Git identities, full diff paths and file/body equality. Capture-chain validation is attributed, not an independent reparse of the full capture receipt.",
+  "source_assessment": "No new Spec semantic defect identified in the exact inserted bodies and changed documentation. Actual source acceptance remains false.",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "changed_files": [
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "before": {
+        "bytes": 25433,
+        "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5"
+      },
+      "after": {
+        "bytes": 26946,
+        "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496"
+      },
+      "complete_old_lines_retained": true,
+      "insertions": [
+        {
+          "candidate_lines": [
+            187,
+            218
+          ],
+          "insertion_bytes": 1513,
+          "insertion_sha256": "400d0084c42334199e6d9b0f338b84fd37f75878481f250a5c757f797bc6714a",
+          "core_sha256": "cda66b1497750d3886acbc3db630959186c7062b2793aba0af34ac09382b8ba8",
+          "core_probe_lines": [
+            26,
+            55
+          ],
+          "core_exact_probe_bytes": true,
+          "only_boundary_LF_removed_for_core_comparison": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "before": {
+        "bytes": 74616,
+        "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4"
+      },
+      "after": {
+        "bytes": 79470,
+        "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906"
+      },
+      "complete_old_lines_retained": true,
+      "insertions": [
+        {
+          "candidate_lines": [
+            1182,
+            1281
+          ],
+          "insertion_bytes": 4854,
+          "insertion_sha256": "2a98913f2c0cfcab99849c2f3a8a8aabfbd52a780af9ad26e7d6e104f625dd04",
+          "core_sha256": "2bb999b2bc041e40b66d622c82e45a6cd6198c73aea9b23462593209c070c525",
+          "core_probe_lines": [
+            59,
+            157
+          ],
+          "core_exact_probe_bytes": true,
+          "only_boundary_LF_removed_for_core_comparison": true
+        }
+      ]
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "before": {
+        "bytes": 3785863,
+        "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d"
+      },
+      "after": {
+        "bytes": 3789101,
+        "sha256": "9076cee65790498561b8b3a63b4c81ef21585baefc232271dcf53b579501800c"
+      },
+      "exact_old_prefix_retained": true,
+      "fresh_append_bytes": 3238,
+      "fresh_append_sha256": "9daf7bd9a2ae0da7370bf8827d5ca2a7c871477ad12d79d16e8ed007712437a9"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "before": {
+        "bytes": 853606,
+        "sha256": "c71f097fcb63a555e8fbf898a0c3b6f5e09af9e5cc19d51959cb1bb27b99c540"
+      },
+      "after": {
+        "bytes": 853522,
+        "sha256": "c0dc06a2122f18c0d31fe9d5d40ab0bde8ca1bcb60b99b77800393b74a43ebbc"
+      }
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "before": {
+        "bytes": 54127,
+        "sha256": "5ea3eba4889b2d1961ac3c3cf27edf10c5def2fb4841c56198bb4a713349d343"
+      },
+      "after": {
+        "bytes": 54071,
+        "sha256": "2d3d5204e3f621d23a467e2c378b4f7b97429fe7f5bb7c1a60624443e9d150de"
+      }
+    }
+  ],
+  "decoded_gate_changes": [
+    {
+      "path": "docs/textbooks/CTB.json",
+      "json_path": [
+        "local_state",
+        "CTB-78",
+        "next_action"
+      ],
+      "new_value_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "json_path": [
+        "local_state",
+        "CTB-24",
+        "next_implementation_gate"
+      ],
+      "new_value_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "json_path": [
+        "next_ticket_gate"
+      ],
+      "new_value_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "json_path": [
+        "source_readiness",
+        "current_gate"
+      ],
+      "new_value_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "json_path": [
+        "qualification_basis",
+        "current_gate"
+      ],
+      "new_value_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    }
+  ],
+  "guidance": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2628,
+      "sha256": "c98741e0325029ca67e2d079239288a05af775b5d336b88f4b4046068db37db7",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/agents/task-authority.md",
+      "bytes": 3817,
+      "sha256": "1873b383daa756a7b4fd2780868e66c75e5f2eb2695fa914cce57eda5f5f0e9a",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 16277,
+      "sha256": "c369ed734ff8b61c2a2745fc3cd5839f496654e1625b1a4ceaa6a04abb2ba80f",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/agents/formal-development.md",
+      "bytes": 1038,
+      "sha256": "36065a7becbd4773f4889a970f826e2afe5092e21ba5ef30e56691921256adac",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7724,
+      "sha256": "9540911b44f0b184c3c78fa2cfb42b237cd76045d370c287bf3e97d4fc27e8f9",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 8691,
+      "sha256": "4c396c3f6142b6aeddff067756a451eb31d0b5aa3baac89d63228751ab2593ae",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 5409,
+      "sha256": "d64cdc8e5ffb02d5ee3509c9c798861bf9d0c7d0510e9584bbea6d9eb2249a4c",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4934,
+      "sha256": "20b2caab65426bf067ca8e12b1bae2151a8ef5ff7997604d93258a27d6cde8c9",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/adr/0006-stack-machine.md",
+      "bytes": 2341,
+      "sha256": "0c93a0510f03cd1b7e6307ee79b707a7eb9585549a451c600743250cf86cb5cf",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 8160,
+      "sha256": "ff80c10a835f6ed5d30b45719cc311d4af6be1fbeb08fd37eeeab085906e356e",
+      "same_M_C154_C155": true,
+      "read": "full during this preparation"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "work/space155/EXPECTATIONS.md",
+      "bytes": 6816,
+      "sha256": "d8ffae1a7d60fbe91b86f47e0beca5da8c1d80b9384cf098c6a3f72c65e31669"
+    },
+    {
+      "path": "work/space155/TraceConcatenation.lean",
+      "bytes": 7191,
+      "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf"
+    },
+    {
+      "path": "work/space155/queries/INTEGRATION.md",
+      "bytes": 9604,
+      "sha256": "489cc40b3b4a73f7dbd40d85a64ca3b42cfc6ae90dab83a88d7d07745492f7fe"
+    },
+    {
+      "path": "work/space155/queries/MANIFEST.json",
+      "bytes": 3737,
+      "sha256": "696edc26313a8bec8f2bea3e2223a36e79ae8691e052341dd184b7c4566af207"
+    },
+    {
+      "path": "work/space155/queries/TraceConcatenationStatements.lean",
+      "bytes": 2133,
+      "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482"
+    },
+    {
+      "path": "work/space155-checks/revision-a/TraceConcatenation155aProbe.lean",
+      "bytes": 8929,
+      "sha256": "c5edc769825e280d061e5188191a30bf0254f4a6d9d7692d389c2ff0db253abb"
+    },
+    {
+      "path": "work/space155-checks/revision-b/TraceConcatenation155bProbe.lean",
+      "bytes": 8987,
+      "sha256": "09ee2b645f5735cc71240060b7fc334434f8345c126653711894cc4b91136dfa"
+    },
+    {
+      "path": "work/space155-checks/revision-b/REPAIR.diff",
+      "bytes": 426,
+      "sha256": "ab30977a8b02d3c3dc88ebaaedd23c9f97b6c42f447c80a271c112807936923c"
+    },
+    {
+      "path": "work/space155-checks/revision-b/REPAIR.json",
+      "bytes": 767,
+      "sha256": "bb643718233871a4e9edfb20f34a1cb10a9cde5dda2697ca136ebe6f4ad7d99c"
+    },
+    {
+      "path": "work/source155/INSTALL155.json",
+      "bytes": 3872,
+      "sha256": "b41c9f8cbf03f00a4e987f847d600eaffa9e2e8b66b7c93a7220e04780c98cbe"
+    },
+    {
+      "path": "work/source155/CANDIDATE155.json",
+      "bytes": 639,
+      "sha256": "ce1cd89cf47d3c2a8cbde386485c2a82f8f4c57832cc2994f422c30c5dbc21da"
+    },
+    {
+      "path": "work/validation155/TraceConcatenation155Statements.lean",
+      "bytes": 3005,
+      "sha256": "794f781cac490e4f290c3d4a6a300a8768fb639a2e58aaf02da49ab1c86e76d4"
+    },
+    {
+      "path": "work/review154-recovered/spec153.md",
+      "bytes": 21637,
+      "sha256": "8d304042ae4117b4faf0e79bfe42f7dc101e28c14605d04e2276b85402f9a129"
+    },
+    {
+      "path": "work/review154-recovered/spec153.json",
+      "bytes": 11722,
+      "sha256": "23abdb87cb36890905dc291aa6726e7366184ba2622de248f63528dfa88e74be"
+    },
+    {
+      "path": "work/review154-recovered/RECONSTRUCTED_REVIEW_MEMORY.json",
+      "bytes": 13024,
+      "sha256": "5d55df4e4fed777b3387024d6c07d1de005b25f111dba7d7afa9a43770847cd1"
+    }
+  ],
+  "local_runs": [
+    {
+      "name": "trace155-draft-a",
+      "start": {
+        "path": "work/native-runs154/trace155-draft-a.start.json",
+        "bytes": 1037623,
+        "sha256": "2ddfd5ce2053e80910c82e60deb0dc38a89a551d98912d432d58942a3d6dec5a"
+      },
+      "child": {
+        "path": "work/native-runs154/trace155-draft-a.child-exit.json",
+        "bytes": 1318,
+        "sha256": "115b0fb5deeb252f919caaa830508fb2a856a33fc70c375b0cee9ed24a3cf994"
+      },
+      "result": {
+        "path": "work/native-runs154/trace155-draft-a.result.json",
+        "bytes": 2075117,
+        "sha256": "b240194d94ced34c6277da988bf351212ccc2cca51c5b6179122764efebdda49"
+      },
+      "log": {
+        "path": "work/native-runs154/trace155-draft-a.log",
+        "bytes": 266930,
+        "sha256": "9e9c772bf62059fb312399a30b5362704671bcb18db97e579a784e8ae49156fe"
+      },
+      "log_lines": 3669,
+      "exit_code": 1,
+      "elapsed_seconds": 5.582609249999223,
+      "started_utc": "2026-11-25T05:22:17.645017+00:00",
+      "finished_utc": "2026-11-25T05:22:23.238104+00:00",
+      "matching_child_final_command_times_exit_and_descriptors": true,
+      "nonnull_invariant_input_count": 4063,
+      "C154_scoped_source_descriptors_matching": 72,
+      "C155_execution_credit": false,
+      "build_product_path_descriptors": 0,
+      "literal_ellipsis_glyph_count": 0
+    },
+    {
+      "name": "trace155-draft-b",
+      "start": {
+        "path": "work/native-runs154/trace155-draft-b.start.json",
+        "bytes": 1038086,
+        "sha256": "7f4169f1358c2685b2c59a2af7d419e239daa2f9367826d262ebf7429be8c6ca"
+      },
+      "child": {
+        "path": "work/native-runs154/trace155-draft-b.child-exit.json",
+        "bytes": 1318,
+        "sha256": "b69a2a55f4bada702cfb434f7e91872d67cca488909e08fe8e0bf3670918a09a"
+      },
+      "result": {
+        "path": "work/native-runs154/trace155-draft-b.result.json",
+        "bytes": 2076043,
+        "sha256": "5466f55b6105f13e8a34500b698e9dfabb1eb539fb2eeeb4adc88742ca6898b8"
+      },
+      "log": {
+        "path": "work/native-runs154/trace155-draft-b.log",
+        "bytes": 274807,
+        "sha256": "a9a89910914f2a3d0b0a6eb656021c33f6ddb6ba3b289463a5edd530de68be92"
+      },
+      "log_lines": 3762,
+      "exit_code": 0,
+      "elapsed_seconds": 4.403153874000054,
+      "started_utc": "2026-11-25T05:23:20.393250+00:00",
+      "finished_utc": "2026-11-25T05:23:24.806890+00:00",
+      "matching_child_final_command_times_exit_and_descriptors": true,
+      "nonnull_invariant_input_count": 4065,
+      "C154_scoped_source_descriptors_matching": 72,
+      "C155_execution_credit": false,
+      "build_product_path_descriptors": 0,
+      "literal_ellipsis_glyph_count": 0
+    }
+  ],
+  "repair": {
+    "draft_a_exact_original_plus_LF_plus_frozen_query_tail": true,
+    "draft_b_exact_one_annotation_replacement": true,
+    "added_bytes": 58,
+    "fixed_expectations_changed": false,
+    "theorem_statements_changed": false,
+    "prior_failure_retained": true
+  },
+  "source_reading": {
+    "original_expectations": "full,66 lines",
+    "original_draft": "full,156 lines",
+    "repaired_probe": "fresh lines1-175; remaining query tail exact already-read frozen carrier",
+    "immutable_C154_VisitedSpace": [
+      1,
+      190
+    ],
+    "immutable_C154_Examples_TuringSimulation": [
+      967,
+      1182
+    ],
+    "C155_insertions": "exact repaired-probe core bytes; newline-only framing; full old source retained",
+    "paper_append": "all3238 bytes freshly read",
+    "decoded_gates": "all5 new values freshly read; no other JSON value changed",
+    "query_plan": "full INTEGRATION.md,MANIFEST.json and original carrier",
+    "augmented_query": "full3005-byte carrier freshly read; exact original2133-byte prefix; execution not assessed",
+    "requirements": {
+      "current": {
+        "path": "work/checkpoint154-stage/conaled-textbooks-154-checkpoint-2026-11-25T051903Z/current/control/requirements.md",
+        "bytes": 2238214,
+        "sha256": "3e686f9f28a413c75dd98ccf4f9764badd613e623f08467fc760adae734728d0"
+      },
+      "old_prefix_bytes": 2237283,
+      "old_prefix_sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7",
+      "old_prefix_reading": "qualified same-axis inherited reading only; no fresh whole-document claim",
+      "fresh_suffix_bytes": 931,
+      "fresh_suffix": "all931 bytes read; continuation only, no weakened mathematical requirement"
+    },
+    "dependency_reading": [
+      {
+        "path": "Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+        "sha256": "9e49302ee4f6c270e136ec7135c07a9b27f94da4cadc3beabbf53faba8e37148",
+        "fresh_ranges": [
+          [
+            104,
+            173
+          ],
+          [
+            479,
+            530
+          ]
+        ],
+        "matches_local_b_input_binding": true
+      },
+      {
+        "path": "Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+        "sha256": "5957cf3776536e63c5bf8f79e182b7b8fa7549699a31165b10d4e7df4e38cf2f",
+        "fresh_ranges": [
+          [
+            331,
+            360
+          ],
+          [
+            478,
+            500
+          ]
+        ],
+        "matches_local_b_input_binding": true
+      }
+    ]
+  },
+  "actual_local_output_reading": {
+    "a_fresh_lines": [
+      [
+        1,
+        24
+      ]
+    ],
+    "a_complete_diagnostic_read": true,
+    "a_other_output_unread": true,
+    "b_fresh_ranges": [
+      [
+        1,
+        125
+      ],
+      [
+        126,
+        250
+      ],
+      [
+        3742,
+        3762
+      ]
+    ],
+    "b_seven_expanded_check_types_read": true,
+    "b_seven_selected_axiom_lists_read": true,
+    "b_unread_ranges": [
+      [
+        251,
+        3741
+      ]
+    ],
+    "b_full_print_proofs_read": false,
+    "b_reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "b_selected_roots_only": true,
+    "b_literal_ellipsis_count": 0,
+    "absence_of_glyphs_is_not_reading_credit": true,
+    "normal_import_output_reading_credit": 0,
+    "private_generated_type_observed": false
+  },
+  "findings": [
+    {
+      "id": "SP-D001",
+      "status": "Resolved remedy retained; current bounded append and all five gates reassessed."
+    },
+    {
+      "id": "SP-D002",
+      "status": "Resolved remedy retained; genuine initialized live5/None6 and old continuation live2/None3 remain distinguished."
+    },
+    {
+      "id": "SP-C001",
+      "status": "Resolved source remedy retained; full old fixtures unchanged, new connected fixtures independently assessed."
+    },
+    {
+      "id": "SP-V001",
+      "status": "Open",
+      "severity": "Blocking acceptance",
+      "remaining": [
+        "Matching actual ordinary-owner and normal-import evidence for C155, including private peek_left_prefixes generated name and complete type observation",
+        "Matching aggregate/whole terminal validation",
+        "Exhaustive source, module-origin/product-origin and axiom audit",
+        "Immediate supported nonrepairing verification",
+        "Supported final postvalidation comparison",
+        "Same original independent Standards/Spec reconciliation"
+      ]
+    }
+  ],
+  "new_findings": [],
+  "inherited_limits": {
+    "full_same_axis_report_and_original_ledger_retained": true,
+    "recovered_main_spec153_hashes_verified": true,
+    "ancillary_spec153_reading_bodies_lost": "No reconstructed-body claim; exact recovered main reports retain prior attribution, per RECONSTRUCTED_REVIEW_MEMORY.json.",
+    "prior_whole139_147_150": "UNKNOWN outer outcomes retained; no cause or acceptance inferred.",
+    "prior_null_bindings_and_missing_round_reports": "All retained; no reset.",
+    "original_14_glyphs_8_lines": "Nonfatal retained rendering limit, no additional gate; no old hidden text claimed read.",
+    "prior_153_focused_map_scope": "54/72 source descriptors and zero build-product descriptors; later154/155 maps do not repair old provenance.",
+    "current_local_maps": "72 C154 scope descriptors bound, zero build-product descriptors; before/after equality is not exhaustive product-origin audit.",
+    "fixed_universe": "96 domains,84 records,81 positive fixtures and qualification counts unchanged; mechanical equality is not execution.",
+    "full_programme": "VFA/FDSA/PFDS complete books/thesis union and appendices plus separate ADWH/shared library remain open; no sharp height-space, NP, exact diameter, FDSA-5-93 or CTB24 completion."
+  },
+  "recovery_reads": "RECONSTRUCTED_REVIEW_MEMORY and validation154 supplement full; continuity154 selected fields only. No full-continuity-JSON fresh reading claim.",
+  "other_axis_report_read_for_this_assessment": false,
+  "compiler_or_checker_executed": false,
+  "project_source_config_or_products_mutated": false,
+  "external_action": false,
+  "report_file": "spec155-preparation.md"
+}

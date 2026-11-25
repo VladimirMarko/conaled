@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+  "source_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "query": {
+    "member": "current/evidence/validation/query153/Integration153Statements.lean",
+    "bytes": 87360,
+    "sha256": "be70bb5a5812c615fee9940f5e62424f8cd41a79ecaef3ce30913558a3dc8599",
+    "mode": "100644"
+  },
+  "output": {
+    "member": "current/evidence/validation/integration153/query-b.log",
+    "bytes": 960006,
+    "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+    "mode": "100644",
+    "lines": 12481
+  },
+  "actual_exit_code": 0,
+  "nonnull_stable_inputs": 4048,
+  "ordinary_imports": 28,
+  "copied_proof_bodies": 0,
+  "legacy_observation_buckets": {
+    "readable": 923,
+    "expanded": 54,
+    "selected_axiom_roots": 87,
+    "additional_definition_prints": 7
+  },
+  "physical_syntax": {
+    "checks": 976,
+    "axiom_prints": 87,
+    "definition_prints": 8
+  },
+  "legacy_count_explanation": "The historical147 expanded bucket includes one existing definition print; preserve actual commands and historical accounting.",
+  "old147_prefix": {
+    "member": "current/evidence/validation/native147/query147.log",
+    "bytes": 594334,
+    "lines": 7801,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927",
+    "exact_bytes": true
+  },
+  "root_reading": {
+    "new_tail_inclusive_lines": [
+      7802,
+      12481
+    ],
+    "new_tail_bytes": 365672,
+    "new_tail_lines": 4680,
+    "complete": false,
+    "status": "PENDING_FULL_READING",
+    "old_prefix": "Byte-exact reuse retains only the original root/axis attribution and old omissions; no fresh reading credit."
+  },
+  "ellipsis_lines": [],
+  "new_tail_ellipsis": false,
+  "terminal_limit": "The later tool poll returned Unknown process id8477, but matching durable native child and final receipts both record actual0; unlike whole147/150, the actual command terminal is present.",
+  "remaining": [
+    "root full new-tail statement/axiom reading",
+    "both original independent review axes on current source/output",
+    "aggregate and whole-library build",
+    "exhaustive proof audit",
+    "nonrepairing verification",
+    "final exact-content comparison",
+    "receiving acceptance"
+  ],
+  "source_accepted": false
+}

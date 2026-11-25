@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "packet_name": "conaled-textbooks-156-checkpoint-2026-11-25T064235Z",
+  "cutoff_utc": "2026-11-25T06:42:35.088499+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "scope_owner_count": 72,
+  "source_deletions": 0,
+  "scope_sha256": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+  "projection_sha256": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+  "content_sha256": "a0447cce23d5c6d16012aeed0e633f2890af042aa7767fb785e78f3c0ce7b5ff",
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "authored_commit_identities": 36,
+  "programme": {
+    "fdsa_ch5": "92/94",
+    "fdsa_ch9": "61/110",
+    "fdsa_5_92_exact_diameter": "OPEN",
+    "fdsa_5_93_NP": "OPEN",
+    "CTB24": "OPEN",
+    "controller_domains": 96,
+    "fixed_records": 84,
+    "positive_closed_runs": 81,
+    "qualification_changes": 0,
+    "complete_original_book_thesis_union_and_separate_ADWH_shared_library_preserved": true
+  },
+  "actual_current_results": {
+    "local_draft_a": 1,
+    "local_draft_b": 0,
+    "supported_candidate_capture": 0,
+    "focused16_targets": 0,
+    "focused_elapsed_seconds": 19.340161270000863,
+    "focused_nonnull_equal_inputs": 4064,
+    "first_installed_query": 1,
+    "repaired_installed_query": 0,
+    "query_elapsed_seconds": 3.774985086000015,
+    "query_nonnull_equal_inputs": 4068,
+    "isolation_preparation": 0,
+    "whole_outer": "UNKNOWN",
+    "whole_observed_internal137": 3,
+    "whole_exhaustive_audit_passed": false,
+    "immediate_verify_after_whole_success": "NOT_APPLICABLE_YET_NO_SUCCESS",
+    "supported_final_postvalidation_compare": "PENDING"
+  },
+  "current_query": {
+    "query": "current/evidence/validation/query155/Integration155bStatements.lean",
+    "output": "current/evidence/validation/integration155/query-b.log",
+    "bytes": 1252458,
+    "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106",
+    "old_exact_prefix_bytes": 960006,
+    "new_tail_bytes": 292452,
+    "new_tail_lines": 4060,
+    "root_complete_new_tail_reading": true,
+    "reading_record": "current/evidence/research/ROOT_READING155.json",
+    "historical_prefix_omission_glyphs": 14,
+    "new_tail_omission_glyphs": 0,
+    "selected_axioms_only": true
+  },
+  "reviews": {
+    "original_loop_continues": true,
+    "record": "current/evidence/reviews/review-continuity155.json",
+    "both_original_axes_no_new_bounded_defect": true,
+    "both_private_visibility_assessed": true,
+    "open": [
+      "ST-V001",
+      "SP-V001"
+    ],
+    "source_accepted": false,
+    "receiving_accepted": false
+  },
+  "whole_observation": "current/evidence/validation/whole155/observation156.json",
+  "historical_whole_results": {
+    "whole139": "UNKNOWN; eight observed child137",
+    "whole147": "UNKNOWN; three observed child137",
+    "whole150": "UNKNOWN; four observed child137 and29 ENOSPC observations"
+  },
+  "supported_next_whole_route": "Native ./check.sh --fresh --candidate C in a separately owned clean checkout after actual current writer cessation; unchanged built-in up-to-four compiler default, no caller jobs/LEAN/compiler/resource overrides. After actual success, immediate --verify-candidate C without mode/jobs flags, supported final compare and the same original review axes.",
+  "remaining_validation": [
+    "actual successful matching whole/aggregate terminal",
+    "applicable exhaustive source/module/product-origin/transitive-axiom audit",
+    "immediate recorded-mode nonrepairing verification",
+    "supported final postvalidation content comparison",
+    "same original axis reconciliation",
+    "receiving acceptance"
+  ],
+  "next_uncompiled_mathematics": {
+    "normal_dispatch": {
+      "guide": "current/research/space155/next/README.md",
+      "exact_probe_recipe": "current/research/space156/PREPARATION156.json",
+      "theorems": 9,
+      "compiled": false,
+      "installed": false
+    },
+    "source_internal_height": {
+      "guide": "current/research/height156/README.md",
+      "expectations": "current/research/height156/EXPECTATIONS.md",
+      "exact_probe_recipe": "current/research/height156/PREPARATION156_HEIGHT.json",
+      "definitions": 3,
+      "theorems": 11,
+      "root_complete_static_reading": true,
+      "compiled": false,
+      "installed": false
+    },
+    "no_primitive_geometry_occupancy_NP_or_qualification_claim": true
+  },
+  "environment_observation": {
+    "observed_utc": "2026-11-25T06:42:35.088499+00:00",
+    "disk_total_bytes": 20957446144,
+    "disk_available_bytes": 1442516992,
+    "mem_total": "10206472 kB",
+    "mem_available": "5732760 kB",
+    "swap_total": "0 kB"
+  },
+  "new_packet_recovery_tested_at_cutoff": false,
+  "new_packet_saved_at_cutoff": false,
+  "postcutoff_rule": "Archive verification, independent ordinary restoration, inspection and durable save occur after this source/work cutoff and are carried forward next time. No later terminal is inserted into the frozen whole prefix.",
+  "issue558_progress_updates": false,
+  "github_mutations_this_continuation": false,
+  "source_unchanged_since_checkpoint155": true,
+  "new_Lean_invocations_since_checkpoint155_cutoff": 0,
+  "installed_increment155": {
+    "generic_trace_lemmas": 3,
+    "public_connected_examples": 4,
+    "private_helper": 1,
+    "new_Lean_owners": 0,
+    "edited_Lean_owners": 2,
+    "edited_documentation_owners": 3,
+    "changed_paths_from154": 5,
+    "height_interval_or_NP_claim": false,
+    "already_compiled_before_checkpoint155_cutoff": true
+  },
+  "earlier_whole155_snapshot": "current/evidence/validation/whole155/INDEX.json",
+  "secured155": {
+    "archive_bytes": 5387460,
+    "archive_sha256": "f108776042e7e43e79d3c1f93290191b03acb7b6f1786c444f05c19b895ce8e2",
+    "saved_utc": "2026-11-25T06:34:21.309Z",
+    "library_file_id": "libfile_fde3_f-60d8542982848191b44585e25228fc3f_bcb09d6951dc8191bbb29f2ba3c27d9d",
+    "operations": "current/evidence/history/checkpoint155-operations.json",
+    "archive_verify": 0,
+    "ordinary_restore_retry": 0,
+    "independent_inspection": 0,
+    "durable_save_and_xattrs_succeeded": true,
+    "original_restore_terminal": "UNKNOWN after automatic approval-review tool loss",
+    "source_accepted": false,
+    "receiving_accepted": false
+  },
+  "local_space_reclamation": {
+    "allocated_bytes_reclaimed": 720089088,
+    "reason": "Completed verified staging, superseded packet extraction and released clean recovery clone; exact source remains in secured155 and current155 packet.",
+    "active_whole_author_tools_dependencies_and_unfinished_math_untouched": true,
+    "unknown_partial_first_restore_preserved": true
+  }
+}

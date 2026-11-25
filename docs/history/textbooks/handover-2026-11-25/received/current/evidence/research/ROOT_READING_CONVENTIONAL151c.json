@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "read_completed_utc": "2026-11-24T22:58:27.612921+00:00",
+  "reader": "root",
+  "actual_run": "conventional151-author-c",
+  "actual_exit_code": 0,
+  "elapsed_seconds": 5.490244058999451,
+  "project": "/workspace/scratch/ae71b485b114/work/conaled",
+  "source_candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "author_source_unchanged": true,
+  "carrier": {
+    "path": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean",
+    "bytes": 166827,
+    "sha256": "b432cf39c0644a4083a3a442825df0bbcd8a3b79d60850be8de669eb25b28dec",
+    "mode": "100644"
+  },
+  "log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.log",
+    "bytes": 85423,
+    "sha256": "4a96a6ce1774dc5adc3b439fb896da520651f0c5b0fd69fc0fbeed5257a776c5",
+    "mode": "100644"
+  },
+  "child": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.child-exit.json",
+    "bytes": 1338,
+    "sha256": "f167aa0f6ee9a1b085bd9d44d7d6f323e9ae821c45b8f87c99938c167a51dfc2",
+    "mode": "100644"
+  },
+  "result": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.result.json",
+    "bytes": 1961217,
+    "sha256": "826db6481ceae45c811d153cd7276f9489931dbbb8da77251e4b88a6c47f5163",
+    "mode": "100644"
+  },
+  "nonnull_before_after_bindings": 3870,
+  "before_after_equal": true,
+  "fresh_complete_reading": {
+    "lines": [
+      1,
+      1143
+    ],
+    "readable": 63,
+    "expanded": 17,
+    "selected_axiom_roots": 29,
+    "expanded_definition_prints": 6,
+    "ellipsis": 0,
+    "omitted_output": false,
+    "warnings_or_errors": 0
+  },
+  "selected_roots": [
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Examples.DelimiterCheckingRelation150.mixed_pair_checker",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Examples.DelimiterCheckingRelation150.repeated_with_more_tail_rejects",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run_and_stopped",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative_accepts_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.full_run_refinement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.accepts_iff_checking_relation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.three_nonblank_letters",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair_eq_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.accepts_pair_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.empty_raw_rejects",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.accepted_small_pair_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.exists_fixed_power",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.checking",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_has_conventional_verifier",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_iff_small_accepted_pair",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.accepted_pair_sound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.full_run_refinement",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_certificate_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_pair_rejects",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "Resources.RotationCertificate.ConventionalVerifierCriterion150.zero_node_zero_width",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "checked_meaning": [
+    "Fixed finite input/work/control alphabets, distinct start/accept/reject, injective nonblank letters and actual total combined transitions at every nonterminal symbol.",
+    "Fixed runtime exponent before all literal raw words; actual executions bounded by N^k+k including zero. Actual terminal evaluation membership and deterministic uniqueness establish acceptance iff the Boolean answer.",
+    "Native and delimiter constructors preserve actual machines and input maps; stronger full native/target Run refinement remains separately connected.",
+    "Generic literalPair is input.map some ++ [none] ++ cert.map some and is injective; PairLanguage quantifies both words exactly.",
+    "PolynomialCheckingRelation contains the actual fixed conventional decider and its exact arbitrary-raw accepted language, including malformed words.",
+    "ConventionalVerifierCriterion fixes relation/checker/witnessExponent before all inputs. Certificate bound is pure I^k with no additive constant.",
+    "Concrete BinaryYes uses the same unitDecider, existing verifyBitsRun relation and witness exponent2.",
+    "Actual accepted pair iff BinaryYes retains certificate<=I^2 and separate pair length<=I^2+I+1. Unbounded-witness soundness remains.",
+    "Raw empty and one-symbol empty pair are distinct and both reject for stated reasons. Exponent2 at zero forces an empty certificate.",
+    "Zero-node zero-width encoded instance has20bits, certificate<=400 and pair<=421 with actual fixed-machine acceptance."
+  ],
+  "repair_boundary": "a/b actual failures retained. c changes12 bound-type tokens, one cases-branch proof term and two explicit control-type annotations. No hypothesis, conclusion, fixture, query, resource or elaboration-setting change.",
+  "accounting_note": "An initial local count assertion classified every @check as expanded and failed before writing this record. Eleven readable parser checks explicitly use@; corrected accounting uses actual local pp.all scope. Source/query/Lean results were unchanged; no new compiler run was needed.",
+  "limits": "Passing external development mathematics and selected root reports only. Ordinary installation, whole-library/exhaustive audit, original independent review, receiving acceptance, independently defined NTM/NP-class equivalence and executable numeric tables are not established. No source-row qualification change.",
+  "source_accepted": false,
+  "receiving_accepted": false
+}

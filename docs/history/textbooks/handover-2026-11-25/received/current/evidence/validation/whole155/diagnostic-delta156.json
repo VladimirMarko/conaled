@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "run_id": "whole155",
+  "observation": "checkpoint156 continuation of the same running whole155 command",
+  "cutoff_utc": "2026-11-25T06:42:35.088499+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "root_observation": {
+    "member": "current/evidence/validation/whole155/observation156.json",
+    "descriptor": {
+      "bytes": 3652,
+      "sha256": "d3b1002da7b7c04ecc76e37fc25d42597343f2550d196282cf742a4c7f0948e5",
+      "mode": "100644"
+    }
+  },
+  "terminal": {
+    "actual_outer_terminal_observed": false,
+    "actual_outer_exit_code": null,
+    "outer_outcome": "UNKNOWN",
+    "writer_cessation_established": false,
+    "source_bindings_after_available": false,
+    "sources_unchanged": null,
+    "new_top_level_Lean_commands_since_checkpoint155_cutoff": 0
+  },
+  "prior_evidence_reused_unchanged": [
+    {
+      "member": "current/evidence/validation/whole155/INDEX.json",
+      "descriptor": {
+        "bytes": 7697,
+        "sha256": "63f8ae151e133aaf35dc9c9482c078bbb99da1d7bf6a72114cd302e72ca82e86",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/whole155-capsule.json",
+      "descriptor": {
+        "bytes": 21483,
+        "sha256": "64e902d7dbbd6d6541dd13f9d9e5b9e50dc7507d3d0ced1b15b2620dffa64e64",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/diagnostics.log",
+      "descriptor": {
+        "bytes": 28526,
+        "sha256": "403d3a5ce6e5d4ccca42dabb733349fd8e308bc2d3df7ea2727aff8086046647",
+        "mode": "100644"
+      }
+    },
+    {
+      "member": "current/evidence/validation/whole155/bindings-delta.json",
+      "descriptor": {
+        "bytes": 3436265,
+        "sha256": "9a871fb5dc7b55f756c82bcf44cdd81e1e7b717d0e9c0c40bd9b9a8b7ada20f5",
+        "mode": "100644"
+      }
+    }
+  ],
+  "frozen_source": {
+    "descriptor": {
+      "bytes": 1361428,
+      "sha256": "0fd2d9f9f399cd184e1f7e02d1462f53a9daf64aaf6d2bc675aec224dfe73639",
+      "mode": "100644"
+    },
+    "lines": 7891,
+    "raw_body_selected": false
+  },
+  "prefix_extension_verification": {
+    "prior_prefix_bytes": 1292012,
+    "prior_prefix_lines": 7300,
+    "expected_sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+    "actual_sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+    "exact_prefix_equal_by_sha256": true
+  },
+  "suffix": {
+    "source_byte_start_zero_based": 1292012,
+    "source_first_line_one_based": 7301,
+    "bytes": 69416,
+    "lines": 591,
+    "sha256": "8fcb0b0f9810485685f88e513c93cae82ed97f0d34d8550e701484ad81c6b283",
+    "complete_body_selected": false
+  },
+  "selected_delta": {
+    "member": "current/evidence/validation/whole155/diagnostic-delta156.log",
+    "descriptor": {
+      "bytes": 3148,
+      "sha256": "52c784e5be0ca37146a3e472249a4d69629d15601baf74df61d269d16d055164",
+      "mode": "100644"
+    },
+    "lines": 14,
+    "slices": [
+      {
+        "source_lines_inclusive": [
+          7464,
+          7466
+        ],
+        "source_bytes_half_open": [
+          1307124,
+          1308920
+        ],
+        "delta_bytes_half_open": [
+          0,
+          1796
+        ],
+        "bytes": 1796,
+        "sha256": "a61f27db043f15f609ec51a497b745be5a7457038eb385b2648ef826cdfb78d7",
+        "reason": "Complete third observed child-failure header, actual emitted command and error137; no outer terminal inferred."
+      },
+      {
+        "source_lines_inclusive": [
+          7734,
+          7739
+        ],
+        "source_bytes_half_open": [
+          1342175,
+          1342917
+        ],
+        "delta_bytes_half_open": [
+          1796,
+          2538
+        ],
+        "bytes": 742,
+        "sha256": "17e3a48b4b98b9627f35709b81a3dac629bcd3cd1359f767122b917d73a62ee1",
+        "reason": "Complete job block containing four FRP axiom-print observations, including its module-system warning context."
+      },
+      {
+        "source_lines_inclusive": [
+          7826,
+          7830
+        ],
+        "source_bytes_half_open": [
+          1352198,
+          1352808
+        ],
+        "delta_bytes_half_open": [
+          2538,
+          3148
+        ],
+        "bytes": 610,
+        "sha256": "3ae4d31fc0f2424382878d1ba353aac7b369b2c137a72f2ddff7b76d824412af",
+        "reason": "Complete job block containing the TwoFamily universe warning, blank separator and literal linter hint; the hint is retained output, not an instruction executed."
+      }
+    ]
+  },
+  "consequential_observations": {
+    "new_child_failure_count": 1,
+    "total_literal_error137_lines_through_cutoff": 3,
+    "new_failed_module": "Examples.DependentFunctionConversionSemantics",
+    "new_failure_source_lines_inclusive": [
+      7464,
+      7466
+    ],
+    "failure_cause_established": false,
+    "FRP_axiom_prints": 4,
+    "additional_warning": "SquareKit.Internal.PathTransport.TwoFamily: Family universes only occur together"
+  },
+  "retired_routine_suffix": {
+    "lines": 577,
+    "bytes": 66268,
+    "routine_job_headers": 395,
+    "module_system_warning_lines": 182,
+    "ranges": [
+      {
+        "source_lines_inclusive": [
+          7301,
+          7463
+        ],
+        "source_bytes_half_open": [
+          1292012,
+          1307124
+        ],
+        "bytes": 15112,
+        "sha256": "d56ac499305c7094a68099b3008f8ea2a4b3dcbeba7a2b459ef7389a0f1f8eb8",
+        "routine_job_headers": 140,
+        "module_system_warning_lines": 23
+      },
+      {
+        "source_lines_inclusive": [
+          7467,
+          7733
+        ],
+        "source_bytes_half_open": [
+          1308920,
+          1342175
+        ],
+        "bytes": 33255,
+        "sha256": "35627eedc93187db05f7be709dcbdb4987b99c5087d3f1819a9ef67f07ad0dea",
+        "routine_job_headers": 160,
+        "module_system_warning_lines": 107
+      },
+      {
+        "source_lines_inclusive": [
+          7740,
+          7825
+        ],
+        "source_bytes_half_open": [
+          1342917,
+          1352198
+        ],
+        "bytes": 9281,
+        "sha256": "ccf6e55c70aad5307bb558e4a266a9fd6d3d8ae5a7e7e22f4dccc2342b19e45a",
+        "routine_job_headers": 63,
+        "module_system_warning_lines": 23
+      },
+      {
+        "source_lines_inclusive": [
+          7831,
+          7891
+        ],
+        "source_bytes_half_open": [
+          1352808,
+          1361428
+        ],
+        "bytes": 8620,
+        "sha256": "9c8010a5817ed16943d7646359576691827048ebf2921d80101938192b913780",
+        "routine_job_headers": 32,
+        "module_system_warning_lines": 29
+      }
+    ],
+    "job_header_fullmatch_regex": "^[✔⚠ℹ✖] \\[\\d+/\\d+\\] (?:Built|Building|Replayed) .+ \\(.+\\)$",
+    "module_warning_fullmatch_regex": "^warning: .+\\.lean: imports `[^`]+` from package `[^`]+`, which is designed for use with the module system; consider adding `module` to the start of this file$",
+    "block_rule": "A job block begins at a job header and ends before the next job header or at EOF. Retire only a success/warning header whose every nonblank body line matches the module-system warning regex. Preserve each other whole block. No leading unclassified suffix existed.",
+    "complete_suffix_reconstructible": false,
+    "complete_log_reconstructible": false
+  },
+  "actual_local_byte_verification": {
+    "performed": true,
+    "root_observation_descriptor_matches": true,
+    "frozen_log_descriptor_matches_root_observation": true,
+    "prior_prefix_hash_matches": true,
+    "suffix_hash_matches_root_observation": true,
+    "all_591_suffix_lines_partitioned_once": true,
+    "all_new_nonroutine_blocks_preserved": true,
+    "all_new_failure_trace_error_info_lines_selected": true,
+    "all_selected_source_slices_equal_written_delta_slices": true,
+    "written_delta_equals_exact_ordered_slice_concatenation": true,
+    "original155_reused_descriptors_rechecked_unchanged": true,
+    "frozen_source_rechecked_unchanged": true,
+    "no_compiler_or_native_command_run": true
+  },
+  "limits": [
+    "The literal root observation and selected new diagnostics are retained. Routine output is deliberately retired, so neither the complete new suffix nor the complete raw log is reconstructible from this packet.",
+    "Three child137 diagnostics do not establish an outer terminal, outer exit, resource cause, whole-run source-after equality or source/receiving acceptance.",
+    "No new start record, binding map, after map, result receipt or compiler command is created. Existing155 exact-start reconstruction remains the sole carrier for the original start.",
+    "The source-match statement in the root observation concerns the author working tree at that observation; it is not a whole-run after-map or a no-transient-edit claim.",
+    "This post-cutoff packaging reads only the immutable observation and frozen log plus canonical155 evidence. It does not read the continuing live log or project products, and supplies no independent review or new compiler-validation credit.",
+    "The selected axiom prints and linter warning are literal output observations; retaining them is not a new proof or acceptance assessment."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-24T23:53:22.033593+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/work/run-capsules153/reconstruct_run_capsules.py",
+    "/workspace/scratch/ae71b485b114/work/run-capsules153/run-capsules.json",
+    "--root",
+    "/workspace/scratch/ae71b485b114",
+    "--path-map",
+    "/workspace/scratch/ae71b485b114/work/run-capsules153/LOCAL_PATH_MAP.json"
+  ],
+  "actual_exit_code": 0,
+  "elapsed_seconds": 0.2857602449985279,
+  "stdout": "{\n  \"original_receipts_verified\": 6,\n  \"projected_receipts\": 5,\n  \"literal_files_verified\": 7,\n  \"anchor_bindings\": 4048,\n  \"original_serialized_bytes_exact\": true,\n  \"reconstructed_in_memory_only\": true,\n  \"compiler_run\": false,\n  \"reconstructed\": [\n    {\n      \"id\": \"owners-a.start\",\n      \"bytes\": 1027068,\n      \"sha256\": \"8f264f0e3b9cc278f9b2d63863b964116d2ccbc06bee05f3f6bacb2dda77539c\"\n    },\n    {\n      \"id\": \"owners-a.result\",\n      \"bytes\": 2053145,\n      \"sha256\": \"903126328fa536725875b19aa95c3ba8aa4f5b17023d5e95216586ebddfb755f\"\n    },\n    {\n      \"id\": \"owners-b.start\",\n      \"bytes\": 1027957,\n      \"sha256\": \"f5c033f2a7efc24b614f944e58f4bb268e46465b0721f8e8f810b96330d45860\"\n    },\n    {\n      \"id\": \"owners-b.result\",\n      \"bytes\": 2054923,\n      \"sha256\": \"6f2d22d9a9a005adefebe67eaa1acf667ff385eb56200082d342dc6e607d1602\"\n    },\n    {\n      \"id\": \"query-b.result\",\n      \"bytes\": 2054078,\n      \"sha256\": \"d2290063aae6709dfc0f45b42f0ecd4b16fdc32213a0acc9bd05ccf46bd80bde\"\n    }\n  ]\n}\n",
+  "stderr": "",
+  "compiler_invoked": false,
+  "original_files_unchanged": true
+}

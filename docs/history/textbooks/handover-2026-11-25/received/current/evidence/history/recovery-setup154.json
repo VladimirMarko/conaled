@@ -1,0 +1,594 @@
+{
+  "schema": 1,
+  "cutoff_utc": "2026-11-25T05:19:03.564446+00:00",
+  "kind": "fresh-recovery-and-setup-command-account",
+  "boundary": "Actual terminal records and selected consequential log bodies. This compact account does not recreate omitted complete operational files or grant compiler, source, whole-build or reading acceptance.",
+  "records": {
+    "extract153-exact": {
+      "original_result_descriptor": {
+        "bytes": 1018,
+        "sha256": "245f991d2a43a7e168ff52a8a3c6f5cc65532537caf70225b7bb343675b20c52",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:50:32.766347+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/checkpoint.py",
+          "verify",
+          "--archive",
+          "upload/conaled-textbooks-153-checkpoint-2026-11-25T000051Z.tar(1).xz",
+          "--expected-sha256",
+          "87a3356553b337ee2314b2efe091137e6147c3a414ababc152e6111fe8e0b01e",
+          "--expected-bytes",
+          "4622600",
+          "--extract",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact",
+          "--receipt",
+          "/workspace/scratch/ae71b485b114/work/recovery154/extract153-exact.json"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:50:33.567076+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.799489316999825,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 1352,
+          "sha256": "f8704f70aafbe428977f668fcf8094a92593af12926329750a4947f2a637867f"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 1352,
+        "sha256": "f8704f70aafbe428977f668fcf8094a92593af12926329750a4947f2a637867f",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"schema\": \"conaled-single-checkpoint-v1\",\n  \"kind\": \"packet-verification\",\n  \"verified_utc\": \"2026-11-25T04:50:33.554282+00:00\",\n  \"packet_name\": \"conaled-textbooks-153-checkpoint-2026-11-25T000051Z\",\n  \"candidate\": \"0959a1c9d59660eec33ca4c9d971d74a8bc54378\",\n  \"source_tree\": \"655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669\",\n  \"regular_member_count\": 409,\n  \"total_regular_bytes_including_inventory\": 51395709,\n  \"inventory_descriptor\": {\n    \"bytes\": 83194,\n    \"sha256\": \"7fc23bd0591f1cb0839d76204b1529c6195fe97c4321afa04e55019ac9932f27\",\n    \"mode\": \"100644\"\n  },\n  \"complete_inventory_verified\": true,\n  \"history_inventories_verified\": false,\n  \"source_payloads_verified\": true,\n  \"source_recovery_executed\": false,\n  \"source_accepted\": false,\n  \"durably_saved\": false,\n  \"retention_mode\": \"curated-v2\",\n  \"predecessor_inventory_verified\": true,\n  \"exhaustive_dispositions_verified\": true,\n  \"predecessor_archive_needed_for_recovery\": false,\n  \"archive\": \"/workspace/scratch/ae71b485b114/upload/conaled-textbooks-153-checkpoint-2026-11-25T000051Z.tar(1).xz\",\n  \"archive_descriptor\": {\n    \"bytes\": 4622600,\n    \"sha256\": \"87a3356553b337ee2314b2efe091137e6147c3a414ababc152e6111fe8e0b01e\",\n    \"mode\": \"100644\"\n  },\n  \"extracted_packet\": \"/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z\"\n}\n"
+    },
+    "inspect153": {
+      "original_result_descriptor": {
+        "bytes": 918,
+        "sha256": "c37a972cb4e53ab7213717a946071bf3ea51ee870e4e7d3fc49b5c949bc95f7f",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:52:14.242822+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/checkpoint.py",
+          "inspect",
+          "--packet",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+          "--destination",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--receipt",
+          "/workspace/scratch/ae71b485b114/work/recovery154/inspect153.json"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:52:16.246870+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 2.0028877249997095,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 1015,
+          "sha256": "642d2eb6c49219c9ebf02afcb7478bbb8c7a83c51e58a52fb1d6b36a412124de"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 1015,
+        "sha256": "642d2eb6c49219c9ebf02afcb7478bbb8c7a83c51e58a52fb1d6b36a412124de",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"schema\": \"conaled-single-checkpoint-v1\",\n  \"kind\": \"recovered-source-inspection\",\n  \"verified_utc\": \"2026-11-25T04:52:16.231547+00:00\",\n  \"packet\": \"/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z\",\n  \"destination\": \"/workspace/scratch/ae71b485b114/work/conaled154\",\n  \"candidate_identity_from_packet\": \"0959a1c9d59660eec33ca4c9d971d74a8bc54378\",\n  \"public_base\": \"ec4949a94ed70084d70f5b273fb0cc6dca8b2647\",\n  \"source_tree\": \"655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669\",\n  \"tracked_files_checked\": 19407,\n  \"source_updates_checked\": 72,\n  \"source_deletions_checked\": 0,\n  \"own_nonshallow_git_storage\": true,\n  \"all_tracked_bodies_and_modes_match\": true,\n  \"no_unstaged_untracked_or_ignored_files\": true,\n  \"source_style_exit_code\": 0,\n  \"packet_inventory_descriptor\": {\n    \"bytes\": 83194,\n    \"sha256\": \"7fc23bd0591f1cb0839d76204b1529c6195fe97c4321afa04e55019ac9932f27\",\n    \"mode\": \"100644\"\n  },\n  \"source_accepted\": false,\n  \"durably_saved\": false\n}\n"
+    },
+    "restore153-exact": {
+      "original_result_descriptor": {
+        "bytes": 923,
+        "sha256": "8a653fe7907b48a01f21fcdc61c1ae51bf51fe08eb4a8ab7dbc45e036151bda7",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:50:52.754523+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/checkpoint.py",
+          "restore",
+          "--packet",
+          "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+          "--destination",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--receipt",
+          "/workspace/scratch/ae71b485b114/work/recovery154/restore153-exact.json"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:51:15.210587+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 22.45489031499983,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 1281,
+          "sha256": "b77f18406e4f3c2c34906d873f84840d9cf50295a5d94a857086ff29c418d00d"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 1281,
+        "sha256": "b77f18406e4f3c2c34906d873f84840d9cf50295a5d94a857086ff29c418d00d",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"schema\": \"conaled-single-checkpoint-v1\",\n  \"kind\": \"source-restoration\",\n  \"verified_utc\": \"2026-11-25T04:51:15.190134+00:00\",\n  \"packet\": \"/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z\",\n  \"destination\": \"/workspace/scratch/ae71b485b114/work/conaled154\",\n  \"candidate_identity_from_packet\": \"0959a1c9d59660eec33ca4c9d971d74a8bc54378\",\n  \"public_base\": \"ec4949a94ed70084d70f5b273fb0cc6dca8b2647\",\n  \"source_tree\": \"655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669\",\n  \"tracked_files_checked\": 19407,\n  \"source_updates_checked\": 72,\n  \"source_deletions_checked\": 0,\n  \"own_nonshallow_git_storage\": true,\n  \"all_tracked_bodies_and_modes_match\": true,\n  \"no_unstaged_untracked_or_ignored_files\": true,\n  \"source_style_exit_code\": 0,\n  \"packet_inventory_descriptor\": {\n    \"bytes\": 83194,\n    \"sha256\": \"7fc23bd0591f1cb0839d76204b1529c6195fe97c4321afa04e55019ac9932f27\",\n    \"mode\": \"100644\"\n  },\n  \"source_accepted\": false,\n  \"durably_saved\": false,\n  \"started_utc\": \"2026-11-25T04:50:52.905486+00:00\",\n  \"completed_utc\": \"2026-11-25T04:51:15.191779+00:00\",\n  \"restore_operations_completed\": true,\n  \"clone_source_kind\": \"canonical public URL\",\n  \"private_candidate_commit_recreated\": false,\n  \"compilation_executed\": false\n}\n"
+    },
+    "restore153": {
+      "original_result_descriptor": {
+        "bytes": 906,
+        "sha256": "2fe4455391aefc344ead1e4a7eec2510730de339f49881b0cf8d5dec7ab2ab1f",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:50:06.296328+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/checkpoint.py",
+          "restore",
+          "--packet",
+          "/workspace/scratch/ae71b485b114/work/restored154/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+          "--destination",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--receipt",
+          "/workspace/scratch/ae71b485b114/work/recovery154/restore153.json"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:50:06.401078+00:00",
+        "actual_exit_code": 1,
+        "elapsed_seconds": 0.10371819899955881,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 220,
+          "sha256": "57c05da19829daa6bcd11e0b6fc6fe601baa485d7818a553409cbcc61268f51c"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 220,
+        "sha256": "57c05da19829daa6bcd11e0b6fc6fe601baa485d7818a553409cbcc61268f51c",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\"status\": \"failed\", \"error_type\": \"CheckpointError\", \"error\": \"Inventory bytes/hash/mode differ: current/evidence/research/implementation-conventional-reading146.json\", \"source_accepted\": false, \"durably_saved\": false}\n"
+    },
+    "verify-attached153": {
+      "original_result_descriptor": {
+        "bytes": 933,
+        "sha256": "adb309245f640dccecf7eb7378bc633fcca61d6c18b692ba76475e0bd7d1c2b8",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:50:01.636701+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/checkpoint.py",
+          "verify",
+          "--archive",
+          "upload/conaled-textbooks-153-checkpoint-2026-11-25T000051Z.tar(1).xz",
+          "--expected-sha256",
+          "87a3356553b337ee2314b2efe091137e6147c3a414ababc152e6111fe8e0b01e",
+          "--expected-bytes",
+          "4622600",
+          "--receipt",
+          "/workspace/scratch/ae71b485b114/work/recovery154/verify153.json"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:50:02.518356+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.8803298459997677,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 1249,
+          "sha256": "1e59d9f115777fff9cda34c005ab178968e8451a0de0cef8c08ed7cc52019d12"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 1249,
+        "sha256": "1e59d9f115777fff9cda34c005ab178968e8451a0de0cef8c08ed7cc52019d12",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"schema\": \"conaled-single-checkpoint-v1\",\n  \"kind\": \"archive-verification\",\n  \"verified_utc\": \"2026-11-25T04:50:02.505982+00:00\",\n  \"packet_name\": \"conaled-textbooks-153-checkpoint-2026-11-25T000051Z\",\n  \"candidate\": \"0959a1c9d59660eec33ca4c9d971d74a8bc54378\",\n  \"source_tree\": \"655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669\",\n  \"regular_member_count\": 409,\n  \"total_regular_bytes_including_inventory\": 51395709,\n  \"inventory_descriptor\": {\n    \"bytes\": 83194,\n    \"sha256\": \"7fc23bd0591f1cb0839d76204b1529c6195fe97c4321afa04e55019ac9932f27\",\n    \"mode\": \"100644\"\n  },\n  \"complete_inventory_verified\": true,\n  \"history_inventories_verified\": false,\n  \"source_payloads_verified\": true,\n  \"source_recovery_executed\": false,\n  \"source_accepted\": false,\n  \"durably_saved\": false,\n  \"retention_mode\": \"curated-v2\",\n  \"predecessor_inventory_verified\": true,\n  \"exhaustive_dispositions_verified\": true,\n  \"predecessor_archive_needed_for_recovery\": false,\n  \"archive\": \"/workspace/scratch/ae71b485b114/upload/conaled-textbooks-153-checkpoint-2026-11-25T000051Z.tar(1).xz\",\n  \"archive_descriptor\": {\n    \"bytes\": 4622600,\n    \"sha256\": \"87a3356553b337ee2314b2efe091137e6147c3a414ababc152e6111fe8e0b01e\",\n    \"mode\": \"100644\"\n  },\n  \"extracted_packet\": null\n}\n"
+    },
+    "lean-download154": {
+      "original_result_descriptor": {
+        "bytes": 752,
+        "sha256": "5ed9bdcbfa5fce9d6f18544f7491037d36f4ad9ba276dbab830c76fd913d3a9e",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:51:53.277670+00:00",
+        "command": [
+          "curl",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "--output",
+          "/workspace/scratch/ae71b485b114/work/external-tools154/lean-4.35.0-linux.tar.zst",
+          "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:52:27.054134+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 33.775361965999764,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "100644"
+      },
+      "complete_log_utf8": ""
+    },
+    "lean-extract154": {
+      "original_result_descriptor": {
+        "bytes": 545,
+        "sha256": "5494735eac1b2c69881e7bd6305f2526272d44d9191c030dc312210e1b2b956a",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:52:56.868943+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/resume154/extract_toolchain154.py"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:53:00.967554+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 4.097493639999811,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 244,
+          "sha256": "c628129433bcc0b089421dfc82ed2b390895fb8fc118d8af3a3e44ccd632172f"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 244,
+        "sha256": "c628129433bcc0b089421dfc82ed2b390895fb8fc118d8af3a3e44ccd632172f",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"archive_bytes\": 594481375,\n  \"archive_sha256\": \"7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d\",\n  \"toolchain\": \"/workspace/scratch/ae71b485b114/work/external-tools154/lean-4.35.0-linux\",\n  \"exact_pinned_archive\": true\n}\n"
+    },
+    "native-prepare154": {
+      "original_result_descriptor": {
+        "bytes": 879,
+        "sha256": "07cfc2ea39f72fd5d7d30c6467cf95039d06abe197cd58c2c9d825ee6eec7982",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:53:24.251282+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "prepare",
+          "--toolchain",
+          "/workspace/scratch/ae71b485b114/work/external-tools154/lean-4.35.0-linux",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:53:24.846483+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.5940858180001669,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 543,
+          "sha256": "2d345ff38155ef5717389bb33576f459c27d164e2975818ac7cc31e8af3d65dd"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 543,
+        "sha256": "2d345ff38155ef5717389bb33576f459c27d164e2975818ac7cc31e8af3d65dd",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"passed\": true,\n  \"profile\": \"/workspace/scratch/ae71b485b114/work/native-state154/profile\",\n  \"project\": \"/workspace/scratch/ae71b485b114/work/conaled154\",\n  \"toolchain\": \"/workspace/scratch/ae71b485b114/work/external-tools154/lean-4.35.0-linux\",\n  \"host_mode\": \"native\",\n  \"official_inputs\": {\n    \"files_checked\": 55,\n    \"scope\": \"55 official executable, link and runtime inputs plus required directories; not a whole-tree attestation of an existing installation.\"\n  },\n  \"dependencies_checked\": false,\n  \"project_acceptance\": false\n}\n"
+    },
+    "native-verify154": {
+      "original_result_descriptor": {
+        "bytes": 794,
+        "sha256": "13d767159d981fbc04f5f0ae80b1928d0c204f70e33159ffa5e8fb225df6880d",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "kind": "ordinary-root-command",
+        "started_utc": "2026-11-25T04:54:02.206043+00:00",
+        "command": [
+          "python3",
+          "-B",
+          "work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state154",
+          "verify",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled154",
+          "--full"
+        ],
+        "cwd": "/workspace/scratch/ae71b485b114",
+        "time_or_resource_limits_added": false,
+        "finished_utc": "2026-11-25T04:54:02.688171+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.47983936200034805,
+        "terminal_observed": true,
+        "log": {
+          "bytes": 452,
+          "sha256": "f6649a38ef53097a6013d40ef23a8205dc8f59208b45a00141385c8d1cdf691b"
+        }
+      },
+      "original_log_descriptor": {
+        "bytes": 452,
+        "sha256": "f6649a38ef53097a6013d40ef23a8205dc8f59208b45a00141385c8d1cdf691b",
+        "mode": "100644"
+      },
+      "complete_log_utf8": "{\n  \"passed\": true,\n  \"profile\": \"/workspace/scratch/ae71b485b114/work/native-state154/profile\",\n  \"host_mode\": \"native\",\n  \"project\": \"/workspace/scratch/ae71b485b114/work/conaled154\",\n  \"project_acceptance\": false,\n  \"dependencies_checked\": false,\n  \"official_inputs\": {\n    \"files_checked\": 55,\n    \"scope\": \"55 official executable, link and runtime inputs plus required directories; not a whole-tree attestation of an existing installation.\"\n  }\n}\n"
+    },
+    "bind-source154-attempt1": {
+      "original_result_descriptor": {
+        "bytes": 950,
+        "sha256": "5a1eae6afe4f6b0ee83865fe96d1ae036d8266511f24296411ac02af00bf63d4",
+        "mode": "100644"
+      },
+      "original_result": {
+        "command": [
+          "python",
+          "-B",
+          "work/checkpoint154-preparation/bind_source154.py",
+          "--repo",
+          "work/conaled154",
+          "--candidate",
+          "8f299334a51a00b02c79850d73dd4f165c73e671",
+          "--tree",
+          "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+          "--baseline",
+          "work/native-runs154/baseline154-scope72.log",
+          "--baseline-result",
+          "work/native-runs154/baseline154-scope72.result.json",
+          "--baseline-child",
+          "work/native-runs154/baseline154-scope72.child-exit.json",
+          "--capture",
+          "work/native-runs154/candidate154-scope72.log",
+          "--capture-result",
+          "work/native-runs154/candidate154-scope72.result.json",
+          "--capture-child",
+          "work/native-runs154/candidate154-scope72.child-exit.json"
+        ],
+        "started_utc": "2026-11-25T05:01:35.247122+00:00",
+        "completed_utc": "2026-11-25T05:01:36.260794+00:00",
+        "actual_exit_code": 1,
+        "elapsed_seconds": 1.0136323870001434,
+        "inputs_unchanged": true
+      }
+    },
+    "bind-source154-attempt2": {
+      "original_result_descriptor": {
+        "bytes": 950,
+        "sha256": "aa90da4fa2441afb1ec0de8d9aed580f01fe755140ff92f4f613cb1be1edb5d0",
+        "mode": "100644"
+      },
+      "original_result": {
+        "command": [
+          "python",
+          "-B",
+          "work/checkpoint154-preparation/bind_source154.py",
+          "--repo",
+          "work/conaled154",
+          "--candidate",
+          "8f299334a51a00b02c79850d73dd4f165c73e671",
+          "--tree",
+          "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+          "--baseline",
+          "work/native-runs154/baseline154-scope72.log",
+          "--baseline-result",
+          "work/native-runs154/baseline154-scope72.result.json",
+          "--baseline-child",
+          "work/native-runs154/baseline154-scope72.child-exit.json",
+          "--capture",
+          "work/native-runs154/candidate154-scope72.log",
+          "--capture-result",
+          "work/native-runs154/candidate154-scope72.result.json",
+          "--capture-child",
+          "work/native-runs154/candidate154-scope72.child-exit.json"
+        ],
+        "started_utc": "2026-11-25T05:03:20.949541+00:00",
+        "completed_utc": "2026-11-25T05:03:22.508632+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 1.5591332240001066,
+        "inputs_unchanged": true
+      }
+    },
+    "finalize-navigation154-attempt1": {
+      "original_result_descriptor": {
+        "bytes": 483,
+        "sha256": "e348a831b7e03a060be4fee8dd25161f110efd9ac23802230f529d90d2d0f109",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "command": [
+          "python",
+          "work/checkpoint154-preparation/finalize_navigation154.py"
+        ],
+        "started_utc": "2026-11-25T05:09:55.413317+00:00",
+        "finished_utc": "2026-11-25T05:09:55.914706+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.501409176999914,
+        "script_sha256": "14f8aae58ba35852bcd8cc10332d94ee0f3d311cadc12f51a39e9fe0d2122506",
+        "script_unchanged": true,
+        "compiler_run": false,
+        "source_modified": false,
+        "archive_created": false
+      }
+    },
+    "navigation154-attempt1": {
+      "original_result_descriptor": {
+        "bytes": 484,
+        "sha256": "74b8d0b96c3f64f67e0c124bfd5cac867780a84fea688c4067a97f2d259b18bd",
+        "mode": "100644"
+      },
+      "original_result": {
+        "schema": 1,
+        "command": [
+          "python",
+          "work/checkpoint154-preparation/prepare_navigation154.py"
+        ],
+        "started_utc": "2026-11-25T05:08:23.642679+00:00",
+        "finished_utc": "2026-11-25T05:08:23.725207+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.08254510900042078,
+        "script_sha256": "4a13f06609aa07fe02887764ca1d6f1e0bc55e2d6b01f68d45d6b85e1c64c599",
+        "script_unchanged": true,
+        "compiler_run": false,
+        "source_modified": false,
+        "archive_created": false
+      }
+    },
+    "prepare154-fresh-attempt1": {
+      "original_result_descriptor": {
+        "bytes": 273,
+        "sha256": "4971d1d168dcfef834aac1e67aeec6ec7021728a28ccbf32e0bf14b38598db5d",
+        "mode": "100644"
+      },
+      "original_result": {
+        "command": [
+          "python",
+          "-B",
+          "work/checkpoint154-preparation/prepare154.py"
+        ],
+        "started_utc": "2026-11-25T04:54:25.583906+00:00",
+        "completed_utc": "2026-11-25T04:54:25.915677+00:00",
+        "actual_exit_code": 0,
+        "elapsed_seconds": 0.33179348400062736
+      }
+    },
+    "native-smoke154": {
+      "schema": 1,
+      "name": "native-smoke154",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lean",
+        "--version"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+      "started_utc": "2026-11-25T04:54:15.710528+00:00",
+      "resource_or_time_limits_added": false,
+      "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+      "finished_utc": "2026-11-25T04:54:15.788125+00:00",
+      "elapsed_seconds": 0.07460247699964384,
+      "recorded_utc": "2026-11-25T04:54:16.531271+00:00",
+      "exit_code": 0,
+      "sources_unchanged": true,
+      "log": "/workspace/scratch/ae71b485b114/work/native-runs154/native-smoke154.log",
+      "log_descriptor": {
+        "bytes": 106,
+        "sha256": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/native-smoke154.child-exit.json",
+        "bytes": 1187,
+        "sha256": "32ee213ee9c9eb7c872d8536c2fa120e9433ac56e0f25c28dbfb9157eb80b266",
+        "mode": "100644"
+      },
+      "nonnull_equal_before_after_bindings": 65,
+      "original_result_descriptor": {
+        "bytes": 32743,
+        "sha256": "923d297bc59421bce8861663737452c1c845da7b0d68e45b86997e89567adcaa",
+        "mode": "100644"
+      },
+      "source_map_retention": "Selected official native inputs are pinned in operations/native/PINS.json and current readiness; these two obsolete setup maps are not duplicated."
+    },
+    "native-cache154": {
+      "schema": 1,
+      "name": "native-cache154",
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "exe",
+        "cache",
+        "get"
+      ],
+      "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+      "started_utc": "2026-11-25T04:54:33.399021+00:00",
+      "resource_or_time_limits_added": false,
+      "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+      "finished_utc": "2026-11-25T04:57:21.959196+00:00",
+      "elapsed_seconds": 168.556886976,
+      "recorded_utc": "2026-11-25T04:57:22.823129+00:00",
+      "exit_code": 0,
+      "sources_unchanged": true,
+      "log": "/workspace/scratch/ae71b485b114/work/native-runs154/native-cache154.log",
+      "log_descriptor": {
+        "bytes": 12037,
+        "sha256": "f4091765428a400995ad4cdebc7c7d3c993413e7011438ccdf16f7918d5e66ec",
+        "mode": "100644"
+      },
+      "child_exit_receipt": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/native-cache154.child-exit.json",
+        "bytes": 1199,
+        "sha256": "9cb63566ddc9c78b5bac74c38120c0bae9270c27dc0cab9ffa1432a32a833c76",
+        "mode": "100644"
+      },
+      "nonnull_equal_before_after_bindings": 65,
+      "original_result_descriptor": {
+        "bytes": 32757,
+        "sha256": "7342c651b31613e7f81e5ed6256be87312589e66e5778dc1d3023e56e53f7d0b",
+        "mode": "100644"
+      },
+      "source_map_retention": "Selected official native inputs are pinned in operations/native/PINS.json and current readiness; these two obsolete setup maps are not duplicated."
+    }
+  }
+}

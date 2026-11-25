@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "status": "Exact historical checked source reconstructed from current147 owners and retained unfinished research; no new compilation or acceptance.",
+  "target": {
+    "path": "work/continuation/ConventionalNative144a.lean",
+    "bytes": 70278,
+    "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+  },
+  "inputs": [
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4"
+    },
+    {
+      "path": "work/conaled/Examples/TuringSimulation.lean",
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2"
+    }
+  ],
+  "literal_glue_and_query_bytes": 12771,
+  "pieces": [
+    {
+      "literal_utf8": "import Mathlib.Computability.TuringMachine.Computable\nimport Mathlib.Algebra.Polynomial.Eval.Defs\nimport Mathlib.Computability.TuringMachine.PostTuringMachine\nimport Mathlib.Data.Fintype.Sum\nimport Mathlib.Tactic.DeriveFintype\nimport Mathlib.Data.Finset.Card\nimport Mathlib.Data.Int.Interval\nimport Mathlib.Order.Monotone.Basic\n\n/- Exact component: PolynomialDecider143d.lean -/\n/-!\n# A fixed finite native polynomial Boolean decider\n\nDevelopment source. This interface records an actual primitive-machine run,\nwith fixed finite carriers and supplied defaults before the input quantifier.\nIt does not define or assert equivalence with a conventional NP class.\n\nThe concrete controller retains a stronger complete singleton output theorem;\nthe reusable decision contract observes a nonblank Boolean letter at a real\nstopped configuration. The outer-none observation is counted separately.\n-/\n\nset_option autoImplicit false\nset_option warningAsError true\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "byte_start": 416,
+      "byte_end_exclusive": 3223,
+      "slice_sha256": "c682d907315ceb3ca363d1cedf5170374c7225e105d0ef140fa838aad069bf90",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "source": "work/conaled/Examples/TuringSimulation.lean",
+      "byte_start": 34996,
+      "byte_end_exclusive": 37073,
+      "slice_sha256": "50727493c2f98fc125392c99aa55bf2d6d7d5d7e63ceb6bf72f27637f278c8b2",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "/- Exact component: PrintMoveAdapter.lean -/\n/-\nUNCOMPILED implementation draft. Read PUBLIC_CONTRACT.md and the earlier\nEXPECTATIONS.md. No compiler or project-output change was made by this author.\nThe target operation is an actual simultaneous print-and-one-square-move step.\n-/\n\n"
+    },
+    {
+      "literal_utf8": "\nset_option autoImplicit false\nset_option warningAsError true\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "byte_start": 1135,
+      "byte_end_exclusive": 21627,
+      "slice_sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n"
+    },
+    {
+      "literal_utf8": "/- Exact component: PrintMoveSpace.lean -/\n"
+    },
+    {
+      "literal_utf8": "/-\nUNCOMPILED companion fragment, appended after PrintMoveAdapter.lean.\nAdd Mathlib.Data.Finset.Card, Mathlib.Data.Int.Interval, and\nMathlib.Order.Monotone.Basic to the combined initial import block.\nThis observes the actual combined step, including every rightward excursion.\n-/\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "byte_start": 21628,
+      "byte_end_exclusive": 33332,
+      "slice_sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n"
+    },
+    {
+      "literal_utf8": "/- Exact component: PrintMoveCases.lean -/\n"
+    },
+    {
+      "literal_utf8": "/-\nUNCOMPILED connected-case fragment. Append after PrintMoveAdapter and\nPrintMoveSpace. All expected counts, positions and endpoint tapes were frozen\nfirst in EXPECTATIONS.md; no compiler result selected these values.\n-/\n\n"
+    },
+    {
+      "source": "work/conaled/Examples/TuringSimulation.lean",
+      "byte_start": 60002,
+      "byte_end_exclusive": 72694,
+      "slice_sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n"
+    },
+    {
+      "literal_utf8": "/- Exact component: PolynomialDeciderPrintMove.lean -/\n"
+    },
+    {
+      "literal_utf8": "/-\nUNCOMPILED native-decider consumer fragment. Append after PrintMoveAdapter\n(and, for the optional space consumer, PrintMoveSpace). It requires the current\nPolynomialBooleanDecider declaration from root's native-decider source and\nMathlib.Algebra.Polynomial.Eval.Defs in the initial import block.\nNo native contract, source file, or compiler output is modified here.\n-/\n\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "byte_start": 796,
+      "byte_end_exclusive": 7587,
+      "slice_sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n"
+    },
+    {
+      "literal_utf8": "/- Actual-output queries; no proof result is claimed. -/\n#check Resources.TuringSimulation.PrintMove.Action\n#check Resources.TuringSimulation.PrintMove.Machine\n#check Resources.TuringSimulation.PrintMove.Cfg\n#check Resources.TuringSimulation.PrintMove.step\n#check Resources.TuringSimulation.PrintMove.init\n#check Resources.TuringSimulation.PrintMove.Control\n#check Resources.TuringSimulation.PrintMove.controlEquiv\n#check Resources.TuringSimulation.PrintMove.card_control\n#check Resources.TuringSimulation.PrintMove.normal_ne_accept\n#check Resources.TuringSimulation.PrintMove.normal_ne_reject\n#check Resources.TuringSimulation.PrintMove.accept_ne_reject\n#check Resources.TuringSimulation.PrintMove.Nonterminal\n#check Resources.TuringSimulation.PrintMove.normalAction\n#check Resources.TuringSimulation.PrintMove.adapter\n#check Resources.TuringSimulation.PrintMove.delta\n#check Resources.TuringSimulation.PrintMove.adapter_eq_none_iff\n#check Resources.TuringSimulation.PrintMove.adapter_delta\n#check Resources.TuringSimulation.PrintMove.normalCfg\n#check Resources.TuringSimulation.PrintMove.normalCfg_tape\n#check Resources.TuringSimulation.PrintMove.normalCfg_init\n#check Resources.TuringSimulation.PrintMove.normalCfg_native_init\n#check Resources.TuringSimulation.PrintMove.step_delta\n#check Resources.TuringSimulation.PrintMove.move_step\n#check Resources.TuringSimulation.PrintMove.write_first_step\n#check Resources.TuringSimulation.PrintMove.return_step\n#check Resources.TuringSimulation.PrintMove.write_second_step\n#check Resources.TuringSimulation.PrintMove.accept_step\n#check Resources.TuringSimulation.PrintMove.reject_step\n#check Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal\n#check Resources.TuringSimulation.PrintMove.oneStep\n#check Resources.TuringSimulation.PrintMove.commandCost\n#check Resources.TuringSimulation.PrintMove.commandCost_le_two\n#check Resources.TuringSimulation.PrintMove.moveRun\n#check Resources.TuringSimulation.PrintMove.moveRun_steps\n#check Resources.TuringSimulation.PrintMove.writeRun\n#check Resources.TuringSimulation.PrintMove.writeRun_steps\n#check Resources.TuringSimulation.PrintMove.native_step_exact\n#check Resources.TuringSimulation.PrintMove.nativePrefix\n#check Resources.TuringSimulation.PrintMove.nativePrefix_succ\n#check Resources.TuringSimulation.PrintMove.observedNativeCommand\n#check Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live\n#check Resources.TuringSimulation.PrintMove.simulationTime\n#check Resources.TuringSimulation.PrintMove.simulationTime_le\n#check Resources.TuringSimulation.PrintMove.finite_run_exact\n#check Resources.TuringSimulation.PrintMove.lift_bounded_run\n#check Resources.TuringSimulation.PrintMove.terminalControl\n#check Resources.TuringSimulation.PrintMove.decidedCfg\n#check Resources.TuringSimulation.PrintMove.native_command_none_of_stopped\n#check Resources.TuringSimulation.PrintMove.decision_step\n#check Resources.TuringSimulation.PrintMove.decisionRun\n#check Resources.TuringSimulation.PrintMove.decisionRun_steps\n#check Resources.TuringSimulation.PrintMove.decidedCfg_stopped\n#check Resources.TuringSimulation.PrintMove.decide_of_native_run\n#check Resources.TuringSimulation.PrintMove.terminalOuterNone\n#check Resources.TuringSimulation.PrintMove.terminalOuterNone_steps\n#check Resources.TuringSimulation.PrintMove.Trace.directionOffset\n#check Resources.TuringSimulation.PrintMove.Trace.actionOffset\n#check Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds\n#check Resources.TuringSimulation.PrintMove.Trace.cfgAt\n#check Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ\n#check Resources.TuringSimulation.PrintMove.Trace.actionAt\n#check Resources.TuringSimulation.PrintMove.Trace.headPosition\n#check Resources.TuringSimulation.PrintMove.Trace.headPosition_succ\n#check Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds\n#check Resources.TuringSimulation.PrintMove.Trace.visitedCells\n#check Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells\n#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le\n#check Resources.TuringSimulation.PrintMove.Trace.inputCells\n#check Resources.TuringSimulation.PrintMove.Trace.leftEdge\n#check Resources.TuringSimulation.PrintMove.Trace.rightEdge\n#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval\n#check Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges\n#check Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone\n#check Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone\n#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval\n#check Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval\n#check Resources.TuringSimulation.PrintMove.Trace.interval_width_le\n#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le\n#check Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none\n#check Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells\n#check Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run\n#check Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate\n#check Resources.TuringSimulation.PrintMove.Trace.paid_run_interval\n#check Resources.TuringSimulation.PrintMove.Cases.Cell\n#check Resources.TuringSimulation.PrintMove.Cases.bit\n#check Resources.TuringSimulation.PrintMove.Cases.stoppedMachine\n#check Resources.TuringSimulation.PrintMove.Cases.stoppedCfg\n#check Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun\n#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun\n#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps\n#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun\n#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps\n#check Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound\n#check Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects\n#check Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts\n#check Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none\n#check Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none\n#check Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin\n#check Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right\n#check Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit\n#check Resources.TuringSimulation.PrintMove.Cases.constantMachine\n#check Resources.TuringSimulation.PrintMove.Cases.constantStart\n#check Resources.TuringSimulation.PrintMove.Cases.constantFinish\n#check Resources.TuringSimulation.PrintMove.Cases.constantCombined\n#check Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false\n#check Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true\n#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true\n#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init\n#check Resources.TuringSimulation.PrintMove.Cases.empty_literal_head\n#check Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head\n#check Resources.TuringSimulation.PrintMove.Cases.constantNativeRun\n#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun\n#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps\n#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun\n#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps\n#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun\n#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_positions\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary\n#check Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits\n#check Resources.TuringSimulation.PrintMove.Cases.Phase\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftTape\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftStart\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions\n#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits\n#check Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine\n#check Resources.TuringSimulation.PrintMove.Cases.blankTape\n#check Resources.TuringSimulation.PrintMove.Cases.writeEraseStart\n#check Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish\n#check Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun\n#check Resources.TuringSimulation.PrintMove.Cases.writeErase_count\n#check Resources.TuringSimulation.PrintMove.Cases.writeErase_positions\n#check Resources.TuringSimulation.PrintMove.Cases.writeErase_visits\n#check Resources.TuringSimulation.PrintMove.Cases.writeErase_interval\n#check Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank\n#check Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card\n#check Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space\n#check Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine\n#check Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run\n#print axioms Resources.TuringSimulation.PrintMove.finite_run_exact\n#print axioms Resources.TuringSimulation.PrintMove.decide_of_native_run\n#print axioms Resources.TuringSimulation.PrintMove.Trace.paid_run_interval\n#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run\n#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run\nset_option pp.all true in\n#check Resources.TuringSimulation.PrintMove.delta\nset_option pp.all true in\n#check Resources.TuringSimulation.PrintMove.decide_of_native_run\nset_option pp.all true in\n#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run\n"
+    }
+  ],
+  "current_source_candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "current_source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d"
+}

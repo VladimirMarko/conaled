@@ -1,0 +1,524 @@
+{
+  "schema": 1,
+  "kind": "Same original loop: completed bounded increment155 source and focused-query reconciliation; final whole acceptance blocked",
+  "created_utc": "2026-11-25T05:34:23.016074+00:00",
+  "coordinator": "/root/requirements_review147",
+  "same_original_axes": [
+    "/root/requirements_review147/standards147",
+    "/root/requirements_review147/spec147"
+  ],
+  "prior_rounds_preserved_through": 13,
+  "candidate": {
+    "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+    "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+    "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+    "projection_identity": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+    "content_identity": "a0447cce23d5c6d16012aeed0e633f2890af042aa7767fb785e78f3c0ce7b5ff",
+    "source_identity": "a0447cce23d5c6d16012aeed0e633f2890af042aa7767fb785e78f3c0ce7b5ff"
+  },
+  "scope_count": 72,
+  "capture": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.log",
+    "bytes": 9739739,
+    "sha256": "a346a3c042457e1f71e0e7a9ef202f618ea7ea1cd9612c341e6bb93baa45ab33"
+  },
+  "capture_terminal": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate155-scope72.result.json",
+    "bytes": 74220,
+    "sha256": "d8fc54c3507d43679f83bb2dfe4615be7e07e82d38c557b6e34c84e05b1d55cc"
+  },
+  "capture_checks": {
+    "actual_child_and_final_exit": 0,
+    "nonnull_unchanged_inputs": 149,
+    "complete_receipt_parsed_and_chain_hashes_verified": true,
+    "immutable_git_commit_tree_parent_verified": true,
+    "actual_elapsed_seconds": 33.50039868899967
+  },
+  "previous_identity": "8f299334a51a00b02c79850d73dd4f165c73e671",
+  "delta_against_previous": {
+    "changed_paths": [
+      "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "Examples/TuringSimulation.lean",
+      "docs/research/fdsa-rotation-certificate-preparation.md",
+      "docs/textbooks/CTB.json",
+      "docs/textbooks/coverage.json"
+    ],
+    "unchanged_scoped_entries": 67,
+    "unchanged_full_tree_entries": 19402,
+    "all_recorded_before_after_file_descriptors_verified_against_immutable_Git": true,
+    "installation": {
+      "path": "/workspace/scratch/ae71b485b114/work/source155/INSTALL155.json",
+      "bytes": 3872,
+      "sha256": "b41c9f8cbf03f00a4e987f847d600eaffa9e2e8b66b7c93a7220e04780c98cbe"
+    },
+    "coordinator_new_substantive_review": false
+  },
+  "fixed_expectations": {
+    "path": "/workspace/scratch/ae71b485b114/work/space155/EXPECTATIONS.md",
+    "bytes": 6816,
+    "sha256": "d8ffae1a7d60fbe91b86f47e0beca5da8c1d80b9384cf098c6a3f72c65e31669"
+  },
+  "fixed_expectations_identical_to_saved154": true,
+  "unchanged_original_draft": {
+    "path": "/workspace/scratch/ae71b485b114/work/space155/TraceConcatenation.lean",
+    "bytes": 7191,
+    "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf"
+  },
+  "unchanged_normal_import_carrier": {
+    "path": "/workspace/scratch/ae71b485b114/work/space155/queries/TraceConcatenationStatements.lean",
+    "bytes": 2133,
+    "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482"
+  },
+  "draft_attempts": [
+    {
+      "name": "trace155-draft-a",
+      "actual_exit_code": 1,
+      "elapsed_seconds": 5.582609249999223,
+      "nonnull_unchanged_inputs": 4063,
+      "all72_imported_source_bindings_match_C154": true,
+      "start_child_final_chain_and_log_hashes_verified": true,
+      "checked_probe": {
+        "path": "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean",
+        "bytes": 8929,
+        "sha256": "c5edc769825e280d061e5188191a30bf0254f4a6d9d7692d389c2ff0db253abb"
+      },
+      "complete_log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.log",
+        "bytes": 266930,
+        "sha256": "9e9c772bf62059fb312399a30b5362704671bcb18db97e579a784e8ae49156fe"
+      },
+      "log_lines": 3669,
+      "omission_glyphs_mechanically_counted": 0,
+      "fresh_complete_printer_reading_claimed_by_coordinator": false,
+      "result_record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.result.json",
+        "bytes": 2075117,
+        "sha256": "b240194d94ced34c6277da988bf351212ccc2cca51c5b6179122764efebdda49"
+      }
+    },
+    {
+      "name": "trace155-draft-b",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 4.403153874000054,
+      "nonnull_unchanged_inputs": 4065,
+      "all72_imported_source_bindings_match_C154": true,
+      "start_child_final_chain_and_log_hashes_verified": true,
+      "checked_probe": {
+        "path": "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean",
+        "bytes": 8987,
+        "sha256": "09ee2b645f5735cc71240060b7fc334434f8345c126653711894cc4b91136dfa"
+      },
+      "complete_log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.log",
+        "bytes": 274807,
+        "sha256": "a9a89910914f2a3d0b0a6eb656021c33f6ddb6ba3b289463a5edd530de68be92"
+      },
+      "log_lines": 3762,
+      "omission_glyphs_mechanically_counted": 0,
+      "fresh_complete_printer_reading_claimed_by_coordinator": false,
+      "result_record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-b.result.json",
+        "bytes": 2076043,
+        "sha256": "5466f55b6105f13e8a34500b698e9dfabb1eb539fb2eeeb4adc88742ca6898b8"
+      }
+    }
+  ],
+  "mechanical_draft_relationship": {
+    "a": "Exact original7191-byte draft, one LF, then exact unchanged query tail.",
+    "b": "Only the recorded explicit Option(PeekControl × TM0.Stmt PeekAlphabet) annotation on the second calc RHS;58 bytes added.",
+    "query_tail_unchanged": true,
+    "expectations_unchanged": true,
+    "actual_a_error": "Line96:6 invalid calc step; failed to synthesize Trans Eq Eq instance. Full failure log retained.",
+    "fixed_cases_or_statement_amendment_inferred": false
+  },
+  "reading_and_review_status": {
+    "coordinator": "Read complete fixed expectations, operational records, INSTALL155, both complete Standards reports plus evidence, both complete Spec source-preparation and installed-follow-up reports, and complete root reading record. This is coordinator reconciliation, not a third substantive review axis or fresh complete printer reading.",
+    "root_reading_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/validation155/ROOT_READING155.json",
+      "bytes": 3816,
+      "sha256": "bcb2f45bd58f23ad5ea33573992e25a775bad9e64c253d1998909fd27ea36463"
+    },
+    "root_record_dated_utc": "2026-11-25T05:45:32.064065+00:00",
+    "root_attributed_reading": {
+      "new_tail_lines": [
+        1,
+        4060
+      ],
+      "coverage_complete": true,
+      "public_types1_250_and_axioms3742_3762": "Root fresh local reading reused on independently checked exact local/imported equality.",
+      "middle251_3741_and_private3763_4060": "Root fresh bounded direct reading.",
+      "truncated_attempt2501_3000": "No credit; repaired by complete2501_2750 and2751_3000 rereads.",
+      "coordinator_borrows_root_reading_as_own": false
+    },
+    "Standards_actual_reading": {
+      "imported_public_types": [
+        1,
+        250
+      ],
+      "imported_axioms_and_private": [
+        3742,
+        4060
+      ],
+      "complete_owner_log_lines": [
+        1,
+        103
+      ],
+      "owner_log_truncated_attempt": "Repaired by focused44_58 reread.",
+      "middle_proof_print_lines251_3741": "Not read by Standards; no borrowed root or Spec credit."
+    },
+    "Spec_actual_reading": {
+      "public_types": [
+        1,
+        250
+      ],
+      "public_axioms": [
+        3742,
+        3762
+      ],
+      "public_reuse": "Its own fresh local-b reading, reused only after independent byte-equality checks.",
+      "imported_private_fresh_ranges": [
+        [
+          3763,
+          3910
+        ],
+        [
+          3911,
+          4060
+        ]
+      ],
+      "complete_owner_log_lines": [
+        1,
+        103
+      ],
+      "middle_proof_print_lines251_3741": "Not read by Spec; no borrowed root or Standards credit."
+    },
+    "old_output_prefix": "Exact960006-byte/12481-line prior output; retain all original attributed readings and14 omission glyphs on8 old lines. No new reading credit from equality. Existing Spec clarification treats these as nonfatal truthful limits, with no consequential unassessed binder/domain or extra query gate.",
+    "new_tail_omissions": 0,
+    "private_helper_visibility": "Both original axes independently assessed the actual unique generated imported declaration, full type, raw Expr and standard-three selected axioms; the earlier concrete visibility gap is settled. No remaining consequential binder/domain was identified.",
+    "current_normal_import_terminal_or_output_reconciled": true,
+    "unread_axis_middle_is_new_acceptance_gate": false,
+    "whole_acceptance": false
+  },
+  "open_findings": [
+    "ST-V001",
+    "SP-V001"
+  ],
+  "inherited_limits": "All original13-round dispositions and reading attributions remain. Exact recovered153 principal report bodies are available; four ancillary153 bodies remain unavailable. Historical whole139/147/150 and earlier unknowns remain UNKNOWN, including child137/ENOSPC observations without established cause or outer success. Five historical null/null bindings and interrupted readings are never filled retrospectively. Old153 focused54/72 and154 owner1539-map limitations remain; current155 all72 source bindings and zero generated-product descriptors do not repair those old scopes or establish product-origin audit.",
+  "requirements": "Use unchanged requirements154 and all earlier full-scope requirements; the fixed increment expectations narrow this implementation increment without changing original obligations.",
+  "secured_predecessor": {
+    "packet": "/workspace/scratch/ae71b485b114/work/checkpoint154-stage/conaled-textbooks-154-checkpoint-2026-11-25T051903Z",
+    "save_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint154-operations/SAVED154.json",
+      "bytes": 1561,
+      "sha256": "456ce66763df9370ee1d92b3620824b664991e0d3a661baf7d89061559d248e6"
+    },
+    "old154_review_files_unchanged": true
+  },
+  "next_step": "Root awaits actual outer whole155 terminal and preserves failure without using failed project outputs. A future independent supported fresh candidate validation is only prospective route eligibility; retain all remaining gates. Same original axes remain available for actual whole/audit/verify/compare evidence. Root freezes one complete checkpoint from released review bodies; do not rewrite previous cutoffs.",
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "compiler_or_project_source_config_product_writes_by_coordinator": false,
+  "archive_created_by_coordinator": false,
+  "writer_released": true,
+  "updated_utc": "2026-11-25T06:07:38.626745+00:00",
+  "Spec_preparation": {
+    "markdown": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/spec/spec155-preparation.md",
+      "bytes": 11941,
+      "sha256": "a8b6e782a3019fe7e3604637a2702cfe0f40a1234f5178004527f8355852a2e7"
+    },
+    "json": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/spec/spec155-preparation.json",
+      "bytes": 20377,
+      "sha256": "b7fa997acf9d9dd4fcb7d144a6895f532cff960df6fa57e1fad9d076ba02ee9d"
+    },
+    "coordinator_full_reports_read": true,
+    "coordinator_tool_truncation_repaired_by_json_lines": [
+      191,
+      420
+    ],
+    "status": "At its own05:35:13 cutoff no new semantic mismatch; then-pending installed/private observation settled by the separate unchanged05:50:39 follow-up.",
+    "original_axis_yielded": true
+  },
+  "installed_completed_runs": [
+    {
+      "name": "owners155",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 19.340161270000863,
+      "nonnull_stable_bindings": 4064,
+      "all72_scoped_sources_and_C155_capture_body_bound": true,
+      "actual_start_child_final_and_log_chain_verified": true,
+      "generated_project_build_product_descriptors": 0,
+      "result_record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.result.json",
+        "bytes": 2076396,
+        "sha256": "32a23dbe1d61fbe19476d3acb259ea809f601c160904dc7edf7f6e95f6db1373"
+      },
+      "complete_log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/owners155.log",
+        "bytes": 17422,
+        "sha256": "8ba057a7194da9d1b0a35b02a82d633c18df2bc9e8ae34fd1baeb5640d94de52"
+      }
+    },
+    {
+      "name": "query155",
+      "actual_exit_code": 1,
+      "elapsed_seconds": 4.581935827000052,
+      "nonnull_stable_bindings": 4066,
+      "all72_scoped_sources_and_C155_capture_body_bound": true,
+      "actual_start_child_final_and_log_chain_verified": true,
+      "generated_project_build_product_descriptors": 0,
+      "result_record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.result.json",
+        "bytes": 2076410,
+        "sha256": "a00220495b83df42bdd05e0597bece5057114268d406a9b44109a18c5cdef15c"
+      },
+      "complete_log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.log",
+        "bytes": 1235007,
+        "sha256": "0936b4973f18ff8d4c4244cd9d2802291027ca1453158a55a571124fd72128eb"
+      }
+    },
+    {
+      "name": "query155-b",
+      "actual_exit_code": 0,
+      "elapsed_seconds": 3.774985086000015,
+      "nonnull_stable_bindings": 4068,
+      "all72_scoped_sources_and_C155_capture_body_bound": true,
+      "actual_start_child_final_and_log_chain_verified": true,
+      "generated_project_build_product_descriptors": 0,
+      "result_record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.result.json",
+        "bytes": 2077305,
+        "sha256": "d0c2101f4df20804a3d7a278b6fda9d43fa06bdee720543cabd00a3c1671d4ec"
+      },
+      "complete_log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.log",
+        "bytes": 1252458,
+        "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106"
+      }
+    }
+  ],
+  "installed_query_identity": {
+    "carrier": {
+      "path": "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean",
+      "bytes": 90010,
+      "sha256": "aceb16c7ad092f77b32efc2657770de536531ca2d45a733c78c095a14e582779"
+    },
+    "output": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.log",
+      "bytes": 1252458,
+      "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106"
+    },
+    "lines": 16541,
+    "old_output_prefix_bytes": 960006,
+    "old_output_prefix_lines": 12481,
+    "old_output_prefix_exact": true,
+    "old_carrier87360_byte_prefix_exact": true,
+    "original7_check_print_axiom_blocks_exact": true,
+    "observer_repair": "Only four occurrences of the local reserved token matches renamed to observedConstants; failed initial query/log retained and source unchanged.",
+    "new_tail": {
+      "path": "/workspace/scratch/ae71b485b114/work/validation155/query155-b.new-tail.log",
+      "bytes": 292452,
+      "sha256": "6af1f63fba4a3b25836ffeafc58751a37c455caf41bbb9561db560474bdd9116"
+    },
+    "new_tail_lines": 4060,
+    "new_tail_omission_glyphs": 0,
+    "public_types_tail1_250_exact_local_b": true,
+    "public_axioms_tail3742_3762_exact_local_b": true,
+    "private_observation_tail_range": [
+      3763,
+      4060
+    ],
+    "private_observation_bytes": 17626,
+    "actual_private_name_reported_by_root": "_private.Examples.TuringSimulation.0.Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_left_prefixes",
+    "coordinator_fresh_complete_printer_reading": false,
+    "identity_comparison_does_not_create_new_reading_credit": true
+  },
+  "whole155": {
+    "root_reported_status": "OUTER TERMINAL PENDING at latest received observation; internal module failure observed",
+    "root_reported_session": 29456,
+    "root_reported_command": "./check.sh --candidate a5a917db8717977371b8d76d93f166389c9eec9b",
+    "setup_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/validation155/ISOLATION155.json",
+      "bytes": 4182,
+      "sha256": "75597b5c478d88da45c0420731489f3aa309419dafc8b59a912d469ff6247133"
+    },
+    "setup_record_fully_read": true,
+    "root_reported_inputs": 16842,
+    "root_reported_source_modules": 4165,
+    "root_reported_independent_checkout": "/workspace/scratch/ae71b485b114/work/recovered154-validation",
+    "active_whole_log_read_by_coordinator_or_requested_of_axes": false,
+    "before_after_or_setup_record_is_not_whole_terminal_or_audit_acceptance": true,
+    "latest_root_observation_utc": "2026-11-25T05:52:12+00:00",
+    "observation_origin": "Root message; coordinator did not read active whole log or terminal files.",
+    "internal_failure": {
+      "module": "Examples.FiniteUniverseLoops",
+      "job": "10221/10307",
+      "reported_seconds": 70,
+      "diagnostic": "Lean exited with code137",
+      "cause": "UNKNOWN"
+    },
+    "outer_child_exit_received": false,
+    "outer_final_receipt_received": false,
+    "outer_exit_code": null,
+    "root_observed_log_bytes": 1198029,
+    "root_observed_log_lines": 6409,
+    "no_failure_output_reuse_authorized": true,
+    "current_run_is_successful_whole_evidence": false
+  },
+  "canonical_member": "current/evidence/reviews/review-continuity155.json",
+  "Spec_installed_followup": {
+    "markdown": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/spec/spec155-installed-followup-2026-11-25.md",
+      "bytes": 6364,
+      "sha256": "81f88ab6ab043ef6bf166bb5e26ccaef1001114de21c2bd9d6a621c24b3fe69b"
+    },
+    "json": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/spec/spec155-installed-followup-2026-11-25.json",
+      "bytes": 11430,
+      "sha256": "1e8f1a755771a641219653ae8368c6876a223505549744214702a6508d92b747"
+    },
+    "cutoff_utc": "2026-11-25T05:50:39.275910+00:00",
+    "coordinator_full_reports_read": true,
+    "status": "No new defect; all72 source bindings and actual three installed terminal chains checked; imported private-helper visibility settled; SP-V001 OPEN.",
+    "writer_released": true
+  },
+  "Standards155": {
+    "markdown": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/standards/standards155.md",
+      "bytes": 11443,
+      "sha256": "b4dfac582a3a1c2584808e87606de8f94255b07322f4a0144f9b7b09096d5425"
+    },
+    "json": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/standards/standards155.json",
+      "bytes": 18988,
+      "sha256": "4162a2a44d5e17a25a98cf8f040b9def0b03add2c043b45b38e658a4978b9d97"
+    },
+    "evidence": {
+      "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/standards/standards155-evidence.json",
+      "bytes": 22577,
+      "sha256": "69c7930d36c847b99161a094e85332c5aa1a85b06e46116bb4d838c27ed4e85b"
+    },
+    "cutoff_utc": "2026-11-25T05:45:59.851296+00:00",
+    "evidence_cutoff_utc": "2026-11-25T05:42:19.976756+00:00",
+    "coordinator_complete_three_bodies_read": true,
+    "status": "No new defect; full candidate scope and actual installed terminal chains checked; imported private-helper visibility settled; ST-V001 OPEN.",
+    "writer_released": true
+  },
+  "remaining_gates": [
+    "Actual successful whole/aggregate terminal for the exact immutable candidate with the required isolated input/product provenance.",
+    "Applicable exhaustive source/module/product-origin/transitive-axiom audit for that candidate.",
+    "Immediate supported nonrepairing verification of the successful candidate record.",
+    "Supported final postvalidation content comparison.",
+    "Actual matching-evidence assessment by the same original Standards and Spec axes and final reconciliation."
+  ],
+  "retained_finding_dispositions": {
+    "Standards": "ST-001/ST-002/ST-003 retained remedies and historical scope; ST-V001 OPEN.",
+    "Spec": "SP-D001/SP-D002/SP-C001 retained remedies and historical scope; SP-V001 OPEN.",
+    "new_substantive_defect_found_in155_bounded_reviews": false
+  },
+  "fresh_route_assessment": {
+    "coordinator_read_only_conclusion": "Permitted future supported full-source validation through unchanged native adapter, with no caller jobs/LEAN/thread/memory/time/compiler override. Intrinsic default min(4,os.cpu_count() or1) is explicit and unchanged, not described as unbounded. Empty private project outputs, same inventory/source guards and ProofAudit; fresh does not run retained-Lake-output guard or populate its cache. After success verify-candidate uses recorded mode without fresh/jobs flags.",
+    "authority_ranges": {
+      "requirements154.md": [
+        [
+          28,
+          30
+        ],
+        [
+          1203,
+          1208
+        ],
+        [
+          1489,
+          1496
+        ],
+        [
+          10821,
+          10826
+        ],
+        [
+          10838,
+          10842
+        ]
+      ],
+      "docs/agents/review-loop.md": [
+        [
+          79,
+          101
+        ]
+      ],
+      "docs/development.md": [
+        [
+          84,
+          90
+        ],
+        [
+          122,
+          144
+        ],
+        [
+          170,
+          199
+        ]
+      ],
+      "scripts/check.py": [
+        [
+          153,
+          195
+        ],
+        [
+          197,
+          329
+        ]
+      ],
+      "checkpoint154/START_HERE.md": [
+        [
+          78,
+          78
+        ]
+      ]
+    },
+    "exact_default_only_restriction_found": false,
+    "read_only_public_source_matches_C155": true,
+    "same_Spec_clarification": {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/review154-recovered/preparation155/spec/spec155-fresh-route-clarification-2026-11-25.md",
+        "bytes": 9346,
+        "sha256": "56136914b4d1b351ad6570fddaf3dd16485264f725577912454d257b3f5249d1"
+      },
+      "recorded_utc": "2026-11-25T06:06:28.073171+00:00",
+      "status": "Independently agrees documented unmodified fresh route is eligible; no acceptance credit. SP-V001 remains OPEN.",
+      "coordinator_complete_body_read_and_descriptor_verified": true,
+      "original_axis_writer_released": true
+    },
+    "new_approval_axis_or_permission": false,
+    "current_failed_whole_accepted_or_retrospectively_changed": false,
+    "checker_bytes_equal_original_B_M_C154_C155": {
+      "bc95f503ccbf043136c6699992388f750270e8e6": {
+        "bytes": 16215,
+        "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694"
+      },
+      "ec4949a94ed70084d70f5b273fb0cc6dca8b2647": {
+        "bytes": 16215,
+        "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694"
+      },
+      "8f299334a51a00b02c79850d73dd4f165c73e671": {
+        "bytes": 16215,
+        "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694"
+      },
+      "a5a917db8717977371b8d76d93f166389c9eec9b": {
+        "bytes": 16215,
+        "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694"
+      }
+    },
+    "coordinator_equality_verified_independently": true,
+    "search_precision": "No literal --fresh or --jobs flag spellings in the cumulative requirements; ordinary word fresh appears elsewhere. Absence alone is not authorization."
+  },
+  "writer_release_utc": "2026-11-25T06:07:38.626745+00:00",
+  "released_predecessor_review_bodies_verified_unchanged": 12,
+  "no_further_mutation_of_these_released_bodies": "Later terminal evidence or reviews require a separately dated supplement; root may freeze these current bodies now."
+}

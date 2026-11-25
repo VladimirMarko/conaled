@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "kind": "frozen unfinished whole155 evidence; final packaging index",
+  "run_id": "whole155",
+  "cutoff_utc": "2026-11-25T06:09:18.070235+00:00",
+  "packaging_generated_after_cutoff_is_not_validation_progress": true,
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "actual_outer_terminal_observed": false,
+  "actual_outer_exit_code": null,
+  "outer_outcome": "UNKNOWN",
+  "writer_cessation_established": false,
+  "record_ids_present": [
+    "whole155.start"
+  ],
+  "record_ids_absent_at_cutoff": [
+    "whole155.result"
+  ],
+  "outer_child_receipt_available_at_cutoff": false,
+  "source_bindings_before_count": 16842,
+  "source_bindings_before_nonnull": true,
+  "source_bindings_after_available": false,
+  "sources_unchanged": null,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "cause_established": false,
+  "failures": [
+    {
+      "module": "Examples.FiniteUniverseLoops",
+      "source_lines_inclusive": [
+        6407,
+        6409
+      ],
+      "reported_child_exit_code": 137
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.CocycleOrdinaryAction",
+      "source_lines_inclusive": [
+        7207,
+        7209
+      ],
+      "reported_child_exit_code": 137
+    }
+  ],
+  "full_failure_command_traces_retained": true,
+  "frozen_prefix": {
+    "kind": "frozen-prefix-of-still-running-log",
+    "descriptor": {
+      "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.frozen.log",
+      "bytes": 1292012,
+      "sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+      "mode": "100644"
+    },
+    "original_live_log_path": "/workspace/scratch/ae71b485b114/work/native-runs154/whole155.log",
+    "lines": 7300,
+    "full_body_reconstructible_here": false,
+    "retirement": "Only exact selected diagnostic slices survive. The original frozen prefix and continuing raw log cannot be reconstructed from this packet. The frozen-prefix hash is not an alias for a later complete log or for the selected diagnostic body."
+  },
+  "retained_diagnostics": {
+    "descriptor": {
+      "bytes": 28526,
+      "sha256": "403d3a5ce6e5d4ccca42dabb733349fd8e308bc2d3df7ea2727aff8086046647",
+      "mode": "100644"
+    },
+    "source_ranges": [
+      [
+        1,
+        5
+      ],
+      [
+        4166,
+        4169
+      ],
+      [
+        4178,
+        4182
+      ],
+      [
+        4310,
+        4331
+      ],
+      [
+        4353,
+        4374
+      ],
+      [
+        4720,
+        4734
+      ],
+      [
+        4911,
+        4929
+      ],
+      [
+        5115,
+        5119
+      ],
+      [
+        5145,
+        5150
+      ],
+      [
+        5347,
+        5348
+      ],
+      [
+        5522,
+        5530
+      ],
+      [
+        5777,
+        5783
+      ],
+      [
+        5820,
+        6253
+      ],
+      [
+        6407,
+        6409
+      ],
+      [
+        6840,
+        6843
+      ],
+      [
+        6975,
+        6976
+      ],
+      [
+        7207,
+        7209
+      ],
+      [
+        7296,
+        7300
+      ]
+    ],
+    "lines": 572,
+    "byte_ranges_and_hashes": "whole155-capsule.json / diagnostic_excerpts / segments",
+    "all_nonroutine_job_blocks": 15,
+    "variable_reference_warning_block_lines_inclusive": [
+      4911,
+      4929
+    ]
+  },
+  "retirement": {
+    "frozen_total_lines": 7300,
+    "retained_lines": 572,
+    "omitted_lines": 6728,
+    "omitted_missing_trace_notices": 4160,
+    "omitted_successful_progress_lines": 1848,
+    "omitted_module_system_warning_lines": 720,
+    "exact_omitted_ranges_and_regexes": "whole155-capsule.json / selection_coverage / omitted_categories",
+    "full_raw_frozen_prefix_reconstructible": false,
+    "later_live_log_not_read_or_included": true,
+    "raw_prefix_bytes_avoided": 1263486
+  },
+  "preflight_literals_preserved": [
+    "Lean version4.35.0 and exact compiler commit",
+    "Source guard passed and22.25s source/coverage/version phase",
+    "First2/last2 missing-trace notices",
+    "Integrity guard: hashed0 artifacts;4164 modules invalidated (0.34s)",
+    "Building4164 project modules with Lake (incremental)"
+  ],
+  "shared_anchor": {
+    "member": "current/evidence/validation/integration155/query-b.start.json",
+    "descriptor": {
+      "bytes": 1038712,
+      "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d",
+      "mode": "100644"
+    },
+    "binding_count": 4068,
+    "identical_shared_bindings": 2598,
+    "omitted_anchor_keys": 1470,
+    "added_whole_bindings": 14244,
+    "descriptor_overrides": 0
+  },
+  "actual_packaging_verification": {
+    "exit_code": 0,
+    "original_start_bytes_exact": true,
+    "all18_literal_diagnostic_ranges_compared_to_frozen_bytes": true,
+    "verification_member": "current/evidence/validation/whole155/VERIFICATION.json",
+    "compiler_invoked": false
+  },
+  "selected_artifacts": {
+    "current/evidence/validation/whole155/bindings-delta.json": {
+      "bytes": 3436265,
+      "sha256": "9a871fb5dc7b55f756c82bcf44cdd81e1e7b717d0e9c0c40bd9b9a8b7ada20f5",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/reconstruct_whole155.py": {
+      "bytes": 8734,
+      "sha256": "5674b004e7377dfce5a8f9cf39c8e2755513ae486c7d9fc129eb330765152fc8",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/whole155-capsule.json": {
+      "bytes": 21483,
+      "sha256": "64e902d7dbbd6d6541dd13f9d9e5b9e50dc7507d3d0ced1b15b2620dffa64e64",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/diagnostics.log": {
+      "bytes": 28526,
+      "sha256": "403d3a5ce6e5d4ccca42dabb733349fd8e308bc2d3df7ea2727aff8086046647",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/STATUS155.json": {
+      "bytes": 2473,
+      "sha256": "5e363a293346c5bb09d8a37859d64b692b0419f533b35666d8801fcb4f62c78a",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/first-failure-observation.json": {
+      "bytes": 1925,
+      "sha256": "1eecf3e3dc4c7e6bf6c080f6eec0bf236c827f76c104d5251164c4f77fe3c298",
+      "mode": "100644"
+    },
+    "current/evidence/validation/whole155/VERIFICATION.json": {
+      "bytes": 3575,
+      "sha256": "5f1518b4f55a5e657eda068a90b7a13168e70728ba53e3075ab646a542d0a1f5",
+      "mode": "100644"
+    }
+  },
+  "reconstruction_from_recovered_packet": "Run python3 -B <packet>/current/evidence/validation/whole155/reconstruct_whole155.py <packet>/current/evidence/validation/whole155/whole155-capsule.json --root <packet>. No recorded command is executed; optional --output requires a fresh directory. The shared closed-query anchor is retained once under integration155.",
+  "limits": "This packages only the root-authorized pre-cutoff snapshot. No whole terminal, source-after map, absence of transient edits, resource cause, whole/audit success or source/receiving acceptance is inferred. Structural/byte selection preserved all nonroutine output without claiming a fresh semantic reading of every informational/benchmark value. After raw-prefix retirement recovery verifies selected bytes and record reconstruction, but cannot re-prove slice inclusion against the absent complete prefix. The raw-prefix hash never aliases the selected diagnostic body or later log.",
+  "first_observation_packaging_mode": {
+    "original": {
+      "path": "/workspace/scratch/ae71b485b114/work/validation155/FAILURE_OBSERVATION155.json",
+      "bytes": 1925,
+      "sha256": "1eecf3e3dc4c7e6bf6c080f6eec0bf236c827f76c104d5251164c4f77fe3c298",
+      "mode": "100444"
+    },
+    "selected_mode": "100644",
+    "literal_bytes_equal": true,
+    "original_unmodified": true
+  }
+}

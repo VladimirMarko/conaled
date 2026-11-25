@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "reader": "/root",
+  "read_utc": "2026-11-24T21:20:08.000002+00:00",
+  "run": "delimiter-polynomial150a",
+  "actual_exit_code": 0,
+  "inputs_nonnull_unchanged": 474,
+  "carrier": {
+    "bytes": 125478,
+    "sha256": "cb747c5fa8ce1fdcc4eddbb467c66c02bf09ce606ddd05ac9db527e38b10eca4"
+  },
+  "canonical_composition": {
+    "bytes": 7730,
+    "sha256": "127fa9829aeea2ea97035580d7a9425a201fb6e4d538e0bbc0fdf63f4fdac7cf"
+  },
+  "log": {
+    "bytes": 70732,
+    "sha256": "5869e0a60084a287d820a0a20239be3cce054226f3930d87c7260c6b0724f163",
+    "mode": "100644"
+  },
+  "full_log_inclusive_lines": [
+    1,
+    848
+  ],
+  "complete_output_freshly_read": true,
+  "observations": {
+    "readable": 15,
+    "expanded": 4,
+    "selected_roots": 6,
+    "expanded_definition_prints": 1
+  },
+  "literal_ellipsis_glyphs": 0,
+  "observed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "assessment": [
+    "p_A.eval N = 2*ordinaryTimeBound A N+1 for every A/N; no assumed polynomial-time predicate.",
+    "Exponent powerExponent A is fixed before raw; R,Fintype,initial and DecidableEq are also fixed before raw.",
+    "Run expands to concrete native and target EvalsToInTime witnesses; native original allowance, complete ordinary input/output and complete decidedCfg tape are explicit.",
+    "Only target allowance is widened through target.toEvalsTo; exact simulationTime+1, relative<=2*native.steps+1 and stopped facts are retained.",
+    "Empty input has two steps of uniform polynomial slack; all singleton letters, literal pair length and answer remain explicit."
+  ],
+  "source_and_expectations_read": "Root freshly read all7730 composition source bytes and complete fixed expectations/query plan. Parent body reading remains separately attributed.",
+  "boundary": "Actual external combined development proof/query. No ordinary new module installation, exhaustive audit, independent Standards/Spec review, NP/effectivity or receiving acceptance."
+}

@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "kind": "actual standalone Python evidence-reconstruction verification, not a Lean/native whole-validation run",
+  "started_utc": "2026-11-25T06:21:55.306400+00:00",
+  "finished_utc": "2026-11-25T06:21:55.427852+00:00",
+  "elapsed_seconds": 0.1214343129995541,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/reconstruct_whole155.py",
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/whole155-capsule.json",
+    "--root",
+    "/workspace/scratch/ae71b485b114",
+    "--path-map",
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/LOCAL_PATH_MAP.json"
+  ],
+  "actual_exit_code": 0,
+  "stdout": "{\n  \"run_id\": \"whole155\",\n  \"original_receipts_verified\": 1,\n  \"original_serialized_bytes_exact\": true,\n  \"shared_anchor_bindings\": 4068,\n  \"whole_before_bindings\": 16842,\n  \"actual_outer_terminal_observed\": false,\n  \"actual_outer_exit_code\": null,\n  \"literal_files_verified\": 5,\n  \"full_raw_log_verified_from_selected_bytes\": false,\n  \"retired_log_excerpt_origin_rechecked_without_raw_body\": false,\n  \"reconstructed_in_memory_only\": true,\n  \"compiler_run\": false\n}\n",
+  "stderr": "",
+  "inputs_before": {
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/reconstruct_whole155.py": {
+      "bytes": 8734,
+      "sha256": "5674b004e7377dfce5a8f9cf39c8e2755513ae486c7d9fc129eb330765152fc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/whole155-capsule.json": {
+      "bytes": 21483,
+      "sha256": "64e902d7dbbd6d6541dd13f9d9e5b9e50dc7507d3d0ced1b15b2620dffa64e64",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/LOCAL_PATH_MAP.json": {
+      "bytes": 775,
+      "sha256": "927d283d9d0e070116db097d6b34b226ef259b12e0982bd51a7716afa21e2c1c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/native-runs154/query155-b.start.json": {
+      "bytes": 1038712,
+      "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/bindings-delta.json": {
+      "bytes": 3436265,
+      "sha256": "9a871fb5dc7b55f756c82bcf44cdd81e1e7b717d0e9c0c40bd9b9a8b7ada20f5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/STATUS155.json": {
+      "bytes": 2473,
+      "sha256": "5e363a293346c5bb09d8a37859d64b692b0419f533b35666d8801fcb4f62c78a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/diagnostics.log": {
+      "bytes": 28526,
+      "sha256": "403d3a5ce6e5d4ccca42dabb733349fd8e308bc2d3df7ea2727aff8086046647",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/whole155-capsule-preparation/final/first-failure-observation.json": {
+      "bytes": 1925,
+      "sha256": "1eecf3e3dc4c7e6bf6c080f6eec0bf236c827f76c104d5251164c4f77fe3c298",
+      "mode": "100644"
+    }
+  },
+  "inputs_after_equal": true,
+  "compiler_invoked": false,
+  "cutoff_utc": "2026-11-25T06:09:18.070235+00:00",
+  "packaging_only_after_cutoff": true,
+  "whole_outer_terminal_observed": false,
+  "active_live_log_or_products_read": false,
+  "frozen_source_slices_checked_at_creation": true,
+  "retired_full_raw_prefix_reconstructible_here": false,
+  "first_observation_original_0444_carrier_unchanged": true
+}

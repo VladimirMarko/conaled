@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-25T04:58:05.261993+00:00",
+  "kind": "fresh-native-environment-readiness",
+  "setup_elapsed_seconds": 372.186983,
+  "setup_budget_seconds": 600,
+  "within_setup_budget": true,
+  "official_archive_sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d",
+  "project_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib",
+      "expected_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "actual_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "source_clean": true
+    },
+    {
+      "name": "plausible",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/plausible",
+      "expected_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "actual_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "source_clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/LeanSearchClient",
+      "expected_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "actual_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "source_clean": true
+    },
+    {
+      "name": "importGraph",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/importGraph",
+      "expected_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "actual_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "source_clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/proofwidgets",
+      "expected_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "actual_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "source_clean": true
+    },
+    {
+      "name": "aesop",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/aesop",
+      "expected_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "actual_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "source_clean": true
+    },
+    {
+      "name": "Qq",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Qq",
+      "expected_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "actual_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "source_clean": true
+    },
+    {
+      "name": "batteries",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/batteries",
+      "expected_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "actual_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "source_clean": true
+    },
+    {
+      "name": "Cli",
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Cli",
+      "expected_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "actual_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "source_clean": true
+    }
+  ],
+  "cache_exit_code": 0,
+  "cache_nonnull_stable_inputs": 65,
+  "cache_elapsed_seconds": 168.556886976,
+  "available_storage_bytes": 5356109824,
+  "targeted_retries_used": 0,
+  "project_compilation_performed": false,
+  "source_accepted": false,
+  "scope_limit": "Dependency Git revisions/clean sources and selected official native inputs; no exhaustive generated-product-origin audit."
+}

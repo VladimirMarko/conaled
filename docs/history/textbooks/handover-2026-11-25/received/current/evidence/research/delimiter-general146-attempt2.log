@@ -1,0 +1,1082 @@
+Resources.RotationCertificate.DelimiterPreludeDraft.Raw : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.Scratch : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.CallerAlphabet :
+  Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore → Type
+Resources.RotationCertificate.DelimiterPreludeDraft.Registers (R : Type) : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.Statement (R : Type) : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.Cfg (R : Type) : Type
+Resources.RotationCertificate.DelimiterPreludeDraft.inputIndex :
+  Resources.RotationCertificate.FrontEndStreamMachine.StackId
+    Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore
+Resources.RotationCertificate.DelimiterPreludeDraft.workIndex :
+  Resources.RotationCertificate.FrontEndStreamMachine.StackId
+    Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore
+Resources.RotationCertificate.DelimiterPreludeDraft.framedIndex :
+  Resources.RotationCertificate.FrontEndStreamMachine.StackId
+    Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore
+Resources.RotationCertificate.DelimiterPreludeDraft.fuelIndex :
+  Resources.RotationCertificate.FrontEndStreamMachine.StackId
+    Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore
+Resources.RotationCertificate.DelimiterPreludeDraft.oldMain :
+  Resources.RotationCertificate.FrontEndStreamMachine.Label
+    Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase
+Resources.RotationCertificate.DelimiterPreludeDraft.scratch {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Scratch
+Resources.RotationCertificate.DelimiterPreludeDraft.baseUser {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) : R
+Resources.RotationCertificate.DelimiterPreludeDraft.setScratch {R : Type}
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Registers R
+Resources.RotationCertificate.DelimiterPreludeDraft.observeInput {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) (head : Option (Option Bool)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Registers R
+Resources.RotationCertificate.DelimiterPreludeDraft.observeWork {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) (head : Option Bool) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Registers R
+Resources.RotationCertificate.DelimiterPreludeDraft.present {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) : Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.isBit {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) : Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.bit {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) : Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.reset {R : Type}
+  (regs : Resources.RotationCertificate.DelimiterPreludeDraft.Registers R) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Registers R
+Resources.RotationCertificate.DelimiterPreludeDraft.jump {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Statement R
+Resources.RotationCertificate.DelimiterPreludeDraft.handoff {R : Type} :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Statement R
+Resources.RotationCertificate.DelimiterPreludeDraft.caller {R : Type} :
+  Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase →
+    Resources.RotationCertificate.DelimiterPreludeDraft.Statement R
+Resources.RotationCertificate.DelimiterPreludeDraft.program {R : Type} :
+  Resources.RotationCertificate.FrontEndStreamMachine.Label
+      Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase →
+    Resources.RotationCertificate.DelimiterPreludeDraft.Statement R
+Resources.RotationCertificate.DelimiterPreludeDraft.step {R : Type} :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R →
+    Option (Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R)
+Resources.RotationCertificate.DelimiterPreludeDraft.next {R : Type}
+  (c : Option (Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R)) :
+  Option (Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R)
+Resources.RotationCertificate.DelimiterPreludeDraft.next_some {R : Type}
+  (c : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next (some c) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.step c
+Resources.RotationCertificate.DelimiterPreludeDraft.program_caller {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.program
+      (Resources.RotationCertificate.FrontEndStreamMachine.callerLabel q) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.caller q
+Resources.RotationCertificate.DelimiterPreludeDraft.caller_actionBound_le {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) :
+  Resources.TuringSimulation.StackToTape.actionBound (Resources.RotationCertificate.DelimiterPreludeDraft.caller q) ≤ 3
+Resources.RotationCertificate.DelimiterPreludeDraft.callerContext
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work : Resources.BinaryCounter.Bits)
+  (k : Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore) :
+  List (Resources.RotationCertificate.DelimiterPreludeDraft.CallerAlphabet k)
+Resources.RotationCertificate.DelimiterPreludeDraft.state {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R
+Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine {R : Type} [Fintype R] (initial : R) : Turing.FinTM2
+Resources.RotationCertificate.DelimiterPreludeDraft.machine {R : Type} [Fintype R] (initial : R) : Turing.FinTM2
+Resources.RotationCertificate.DelimiterPreludeDraft.machineAlphabetFintype {R : Type} [Fintype R] (initial : R)
+  (k : (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).K) :
+  Fintype ((Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).Γ k)
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_inputAlphabet {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).Γ
+      (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).k₀ =
+    Option Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_outputAlphabet {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).Γ
+      (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).k₁ =
+    Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_program_eq_old {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).m =
+    (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial).m
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_initialState_eq_old {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).initialState =
+    (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial).initialState
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_step_eq {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial).step =
+    Resources.RotationCertificate.DelimiterPreludeDraft.step
+Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_step_eq {R : Type} [Fintype R] (initial : R) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial).step =
+    Resources.RotationCertificate.DelimiterPreludeDraft.step
+Resources.RotationCertificate.DelimiterPreludeDraft.haltList_eq_old {R : Type} [Fintype R] (initial : R)
+  (out : Resources.BinaryCounter.Bits) :
+  Turing.haltList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) out =
+    Turing.haltList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) out
+Resources.RotationCertificate.DelimiterPreludeDraft.machine_initList_eq {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw =
+    Resources.RotationCertificate.DelimiterPreludeDraft.state
+      Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial none raw [] []
+Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_initList_eq {R : Type} [Fintype R] (initial : R)
+  (framed : Resources.BinaryCounter.Bits) :
+  Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) framed =
+    Resources.RotationCertificate.FrontEndStreamMachine.cfg
+      (some Resources.RotationCertificate.DelimiterPreludeDraft.oldMain)
+      (Resources.RotationCertificate.FrontEndStreamMachine.initialRegisters (none, initial)) { framedRaw := framed }
+      (Resources.RotationCertificate.DelimiterPreludeDraft.callerContext [] [])
+Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_bit {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (b : Bool)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial seen (some b :: raw) work
+        framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial (some (some b)) raw
+        (b :: false :: work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_delimiter {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial seen (none :: raw) work framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial (some none) raw
+        (true :: work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_empty {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial seen [] work framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial none [] work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_bit {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (b : Bool)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial seen (some b :: raw) work
+        framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial (some (some b)) raw
+        (b :: work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_delimiter {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial seen (none :: raw) work
+        framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial (some none) raw work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_empty {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial seen [] work framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial none [] work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_bit {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (b : Bool)
+  (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial seen [] (b :: work) framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial (some (some b)) [] work
+        (b :: framed))
+Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_cons {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (a : Option Bool)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial seen (a :: raw) work
+        framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial (some a) raw work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_empty {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial seen [] work framed) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial none [] work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_bit {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (b : Bool)
+  (work : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial seen [] (b :: work) []) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial (some (some b)) [] work [])
+Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_empty {R : Type} [Fintype R] (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial seen [] [] framed) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_empty {R : Type} [Fintype R] (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.step
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial seen [] [] []) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.literalPair (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Raw
+Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Raw → Option Resources.BinaryCounter.Bits
+Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Raw →
+    Option (Resources.BinaryCounter.Bits × Resources.BinaryCounter.Bits)
+Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) : Resources.BinaryCounter.Bits
+Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) : Bool
+Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Raw → ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.workLength :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Raw → ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) : ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength_le
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength raw ≤ List.length raw
+Resources.RotationCertificate.DelimiterPreludeDraft.workLength_le
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.workLength raw ≤ 2 * List.length raw
+Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps_le
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps raw ≤ 3 * List.length raw + 2
+Resources.RotationCertificate.DelimiterPreludeDraft.literalPair_length (input cert : Resources.BinaryCounter.Bits) :
+  List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    List.length input + List.length cert + 1
+Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits_map (cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits (List.map some cert) = some cert
+Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral_pair (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    some (input, cert)
+Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord_pair (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    Resources.RotationCertificate.BitPairFraming.frame input cert
+Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited_pair (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    (Resources.RotationCertificate.verifyBitsRun input cert).1
+Resources.RotationCertificate.DelimiterPreludeDraft.verifyFramed_handoffWord
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.BitPairFraming.verifyFramed
+      (Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord raw) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw
+Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_delimited_certificate
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.BinaryYes input ↔
+    ∃ cert,
+      Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+        true
+Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_small_delimited_certificate
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.BinaryYes input ↔
+    ∃ cert,
+      List.length cert ≤ List.length input ^ 2 ∧
+        List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) ≤
+            List.length input ^ 2 + List.length input + 1 ∧
+          Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+              (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+            true
+Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (consumed : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Scratch
+Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (consumed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.Scratch
+Resources.RotationCertificate.DelimiterPreludeDraft.PreludeInvariant {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  ℕ → Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R → Prop
+Resources.RotationCertificate.DelimiterPreludeDraft.HandoffObligation {R : Type} [Fintype R] : Prop
+Resources.RotationCertificate.DelimiterPreludeDraft.PrefixObligation {R : Type} [Fintype R] : Prop
+Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) : ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.sourceTimeBound (N : ℕ) : ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum {R : Type} [Fintype R] : ℕ
+Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound (A N : ℕ) : ℕ
+Examples.DelimiterPreludeResearch.empty_missing_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[2]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.delimiter_only_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[4]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [none])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [true])
+Examples.DelimiterPreludeResearch.prefix_false_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[7]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [some false, none])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [false, false, true])
+Examples.DelimiterPreludeResearch.prefix_true_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[7]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [some true, none])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [false, true, true])
+Examples.DelimiterPreludeResearch.certificate_false_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[6]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [none, some false])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [true, false])
+Examples.DelimiterPreludeResearch.certificate_true_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[6]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [none, some true])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [true, true])
+Examples.DelimiterPreludeResearch.two_certificate_bits_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[8]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false)
+          [none, some false, some true])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [true, false, true])
+Examples.DelimiterPreludeResearch.mixed_valid_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[14]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false)
+          [some true, some false, none, some false, some true])) =
+    some
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false)
+        [false, true, false, false, true, false, true])
+Examples.DelimiterPreludeResearch.missing_false_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[5]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [some false])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.missing_true_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[5]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [some true])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.missing_mixed_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[8]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [some true, some false])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.repeated_empty_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[5]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false) [none, none])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.repeated_tail_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[6]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false)
+          [none, none, some false])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.repeated_mixed_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[11]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false)
+          [some true, none, some false, none, some true])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.repeated_tail_has_delimiter_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[9]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine false)
+          [none, some true, none, none, some false])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine false) [])
+Examples.DelimiterPreludeResearch.mixed_valid_initial_true_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[14]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine true)
+          [some true, some false, none, some false, some true])) =
+    some
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine true)
+        [false, true, false, false, true, false, true])
+Examples.DelimiterPreludeResearch.repeated_mixed_initial_true_handoff :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[11]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine true)
+          [some true, none, some false, none, some true])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine true) [])
+Examples.DelimiterPreludeResearch.empty_is_missing :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral [] = none
+Examples.DelimiterPreludeResearch.delimiter_alone_is_valid :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral [none] = some ([], [])
+Examples.DelimiterPreludeResearch.repeated_delimiter_is_invalid :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral [none, none] = none
+Examples.DelimiterPreludeResearch.delimiter_tail_is_fully_rejected :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral [none, some true, none, none, some false] = none
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.first_delimiter_cases
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  (∃ bits, raw = List.map some bits) ∨ ∃ bits tail, raw = List.map some bits ++ none :: tail
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.protocol_cases
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  (∃ input, raw = List.map some input) ∨
+    (∃ input cert, raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) ∨
+      ∃ input cert tail,
+        raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_map_append
+  (bits : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits (List.map some bits ++ tail) =
+    Option.map (fun x => bits ++ x) (Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits tail)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_map_append
+  (input : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral (List.map some input ++ tail) =
+    Option.map (fun pair => (input ++ pair.1, pair.2))
+      (Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral tail)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_before_delimiter
+  (bits : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits (List.map some bits ++ none :: tail) = none
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_missing
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral (List.map some input) = none
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_repeated
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    none
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_iff
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (bits : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits raw = some bits ↔ raw = List.map some bits
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral raw = some (input, cert) ↔
+    raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literalPair_injective :
+  Function.Injective fun pair => Resources.RotationCertificate.DelimiterPreludeDraft.literalPair pair.1 pair.2
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_none_iff
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral raw = none ↔
+    (∃ input, raw = List.map some input) ∨
+      ∃ input cert tail,
+        raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixWorkLength_map_append
+  (bits : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength (List.map some bits ++ tail) =
+    List.length bits + Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength tail
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_map_append
+  (bits : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.workLength (List.map some bits ++ tail) =
+    2 * List.length bits + Resources.RotationCertificate.DelimiterPreludeDraft.workLength tail
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_missing
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.workLength (List.map some input) = 2 * List.length input
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_pair
+  (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.workLength
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    2 * List.length input + List.length cert + 1
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_repeated
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.workLength
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    2 * List.length input + List.length cert + 1
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_length
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    List.length input + List.length cert + List.length tail + 2
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_missing
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps (List.map some input) = 3 * List.length input + 2
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair
+  (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    3 * List.length input + 2 * List.length cert + 4
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair_frame
+  (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) =
+    List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) +
+        List.length (Resources.RotationCertificate.BitPairFraming.frame input cert) +
+      2
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    3 * List.length input + 2 * List.length cert + List.length tail + 5
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated_frame
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) +
+        List.length (Resources.RotationCertificate.BitPairFraming.frame input cert) +
+      2
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_missing
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord (List.map some input) = []
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_repeated
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) =
+    []
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le_workLength
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  List.length (Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord raw) ≤
+    Resources.RotationCertificate.DelimiterPreludeDraft.workLength raw
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  List.length (Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord raw) ≤ 2 * List.length raw
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw = true ↔
+    ∃ input cert,
+      raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ∧
+        (Resources.RotationCertificate.verifyBitsRun input cert).1 = true
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_cons
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (a : Option Bool)
+  (rest : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop seed (a :: rest) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop (some a) rest
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_cons
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (b : Bool)
+  (rest : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seed (b :: rest) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop (some (some b)) rest
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_append
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (left right : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop seed (left ++ right) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop
+      (Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop seed left) right
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_append
+  (seed : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (left right : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seed (left ++ right) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop
+      (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seed left) right
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.frame_reverse
+  (input cert : Resources.BinaryCounter.Bits) :
+  List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert) =
+    List.reverse cert ++ true :: List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits input)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.next_some {R : Type}
+  (c : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next (some c) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.step c
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_one {R : Type}
+  {a b : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R}
+  (executed : Resources.RotationCertificate.DelimiterPreludeDraft.step a = some b) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[1] (some a) = some b
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_trans {R : Type}
+  {a b c : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R} {m n : ℕ}
+  (first : Resources.RotationCertificate.DelimiterPreludeDraft.next^[m] (some a) = some b)
+  (second : Resources.RotationCertificate.DelimiterPreludeDraft.next^[n] (some b) = some c) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[m + n] (some a) = some c
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_count {R : Type}
+  {a b : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R} {m n : ℕ} (count : m = n)
+  (executed : Resources.RotationCertificate.DelimiterPreludeDraft.next^[m] (some a) = some b) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n] (some a) = some b
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.bits_split_append
+  (input : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) :
+  List.map some input ++ tail = List.map some (List.take n input) ++ (List.map some (List.drop n input) ++ tail)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.pair_split_append
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ tail =
+    Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input (List.take n cert) ++
+      (List.map some (List.drop n cert) ++ tail)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_bits {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (input : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial seen
+          (List.map some input ++ tail) work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen input) tail
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits input) ++ work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_bits {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length cert]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial seen
+          (List.map some cert ++ tail) work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen cert) tail (List.reverse cert ++ work)
+        framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_bits {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (bits rest framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length bits]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial seen [] (bits ++ rest)
+          framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen bits) [] rest
+        (List.reverse bits ++ framed))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_words {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (letters rest : Resources.RotationCertificate.DelimiterPreludeDraft.Raw)
+  (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length letters]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial seen (letters ++ rest) work
+          framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop seen letters) rest work framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_bits {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (bits rest : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length bits]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial seen [] (bits ++ rest)
+          [])) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen bits) [] rest [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_take {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (input : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length input) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial seen
+          (List.map some input ++ tail) work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen (List.take n input))
+        (List.map some (List.drop n input) ++ tail)
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits (List.take n input)) ++ work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_take {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length cert) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial seen
+          (List.map some cert ++ tail) work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen (List.take n cert))
+        (List.map some (List.drop n cert) ++ tail) ((List.take n cert).reverse ++ work) framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_take {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work framed : Resources.BinaryCounter.Bits)
+  (n : ℕ) (within : n ≤ List.length work) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial seen [] work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen (List.take n work)) [] (List.drop n work)
+        ((List.take n work).reverse ++ framed))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_take {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial seen raw work framed)) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop seen (List.take n raw)) (List.drop n raw) work
+        framed)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_take {R : Type} (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length work) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial seen [] work [])) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop seen (List.take n work)) [] (List.drop n work)
+        [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.init_transport {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+    Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial none raw [] []))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_word_congr {R : Type} [Fintype R]
+  (initial : R) (left right : Resources.BinaryCounter.Bits) (same : left = right) :
+  some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) left) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) right)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_from_init {R : Type} [Fintype R] (initial : R)
+  (input : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ List.length input) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (List.map some input ++ tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.prefix initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop none (List.take n input))
+        (List.map some (List.drop n input) ++ tail)
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits (List.take n input))) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_prefix {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) (within : n ≤ List.length cert) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input + 1 + n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.certificate initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop (some none) (List.take n cert))
+        (List.map some (List.drop n cert) ++ tail)
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input (List.take n cert))) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_entry {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) +
+          1]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial none []
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert)) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_prefix {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.frame input cert)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length
+              (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) +
+            1 +
+          n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop none
+          (List.take n (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert))))
+        [] (List.drop n (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert)))
+        (List.take n (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert))).reverse)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_finish {R : Type} [Fintype R] (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length work + 1]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.reverse initial seen [] work framed)) =
+    some
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial)
+        (List.reverse work ++ framed))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_finish {R : Type} [Fintype R] (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch) (work : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length work + 1]
+      (some
+        (Resources.RotationCertificate.DelimiterPreludeDraft.state
+          Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial seen [] work [])) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_handoff {R : Type} [Fintype R] (initial : R)
+  (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))) =
+    some
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial)
+        (Resources.RotationCertificate.BitPairFraming.frame input cert))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_entry {R : Type} [Fintype R]
+  (initial : R) (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input + 1]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) (List.map some input))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial none []
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits input)) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_prefix {R : Type} [Fintype R]
+  (initial : R) (input : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.escapeBits input)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input + 1 + n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) (List.map some input))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop none
+          (List.take n (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits input))))
+        [] (List.drop n (List.reverse (Resources.RotationCertificate.BitPairFraming.escapeBits input))) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_handoff {R : Type} [Fintype R] (initial : R)
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+          (List.map some input)]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) (List.map some input))) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_entry {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input + List.length cert + 2]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial (some none) tail
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert)) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_prefix {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) (within : n ≤ List.length tail) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length input + List.length cert + 2 + n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainInput initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop (some none) (List.take n tail))
+        (List.drop n tail) (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert)) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_entry {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) +
+          1]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial none []
+        (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert)) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_prefix {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.frame input cert)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[List.length
+              (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) +
+            1 +
+          n]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail))) =
+    some
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state
+        Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase.drainWork initial
+        (Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop none
+          (List.take n (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert))))
+        [] (List.drop n (List.reverse (Resources.RotationCertificate.BitPairFraming.frame input cert))) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_handoff {R : Type} [Fintype R] (initial : R)
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail)]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail))) =
+    some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) [])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps
+          raw]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+    some
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial)
+        (Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord raw))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_obligation {R : Type} [Fintype R] :
+  Resources.RotationCertificate.DelimiterPreludeDraft.HandoffObligation
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) : Prop
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_witness {R : Type} [Fintype R] (initial : R)
+  (input : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ List.length input) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial
+    (List.map some input ++ tail) n
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_witness {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) (within : n ≤ List.length cert) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial
+    (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ tail) (List.length input + 1 + n)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_witness {R : Type} [Fintype R] (initial : R)
+  (input cert : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.frame input cert)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial
+    (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)
+    (List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) + 1 + n)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_witness {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ) (within : n ≤ List.length tail) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial
+    (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail)
+    (List.length input + List.length cert + 2 + n)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_missing_witness {R : Type} [Fintype R]
+  (initial : R) (input : Resources.BinaryCounter.Bits) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.escapeBits input)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial (List.map some input)
+    (List.length input + 1 + n)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_repeated_witness {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits)
+  (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ List.length (Resources.RotationCertificate.BitPairFraming.frame input cert)) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial
+    (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail)
+    (List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail) + 1 + n)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_invariant {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.PreludeInvariant initial raw
+    (Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps raw)
+    (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial)
+      (Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord raw))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_witness {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial raw
+    (Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps raw)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_boundary {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness initial raw n
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.callerContext_cells
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.FrontEndStreamMachine.contextCells
+      (Resources.RotationCertificate.DelimiterPreludeDraft.callerContext raw work) =
+    List.length raw + List.length work
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.FrontEndStreamMachine.stackCells
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state q initial seen raw work framed) =
+    List.length raw + List.length work + List.length framed
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_stackCells {R : Type} [Fintype R]
+  (initial : R) (framed : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.FrontEndStreamMachine.stackCells
+      (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine initial) framed) =
+    List.length framed
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.invariant_stackCells {R : Type} [Fintype R]
+  (initial : R) (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (reached : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R)
+  (shape : Resources.RotationCertificate.DelimiterPreludeDraft.PreludeInvariant initial raw n reached) :
+  Resources.RotationCertificate.FrontEndStreamMachine.stackCells reached ≤ 2 * List.length raw
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation {R : Type} [Fintype R] :
+  Resources.RotationCertificate.DelimiterPreludeDraft.PrefixObligation
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_prefix_cells {R : Type} [Fintype R]
+  (initial : R) (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (n : ℕ)
+  (within : n ≤ Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps raw)
+  (reached : Resources.RotationCertificate.DelimiterPreludeDraft.Cfg R)
+  (executed :
+    Resources.RotationCertificate.DelimiterPreludeDraft.next^[n]
+        (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+      some reached) :
+  Resources.RotationCertificate.FrontEndStreamMachine.stackCells reached ≤ 2 * List.length raw
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps
+          raw]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+    some
+      (Turing.haltList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+        [Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.totalSourceSteps_le
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps raw ≤
+    Resources.RotationCertificate.DelimiterPreludeDraft.sourceTimeBound (List.length raw)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells {R : Type} [Fintype R]
+  (initial : R) (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.FrontEndStreamMachine.PrefixProperty
+    Resources.RotationCertificate.DelimiterPreludeDraft.caller
+    (fun c => Resources.RotationCertificate.FrontEndStreamMachine.stackCells c ≤ max (2 * List.length raw) 1)
+    (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)
+    (Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps raw)
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Turing.TM2OutputsInTime (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw
+    (some [Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw])
+    (Resources.RotationCertificate.DelimiterPreludeDraft.sourceTimeBound (List.length raw))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime_steps {R : Type} [Fintype R]
+  (initial : R) (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime initial raw).steps =
+    Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps raw
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_outer_none {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps
+            raw +
+          1]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+    none
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output {R : Type} [Fintype R]
+  (initial : R) (input cert : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)]
+      (some
+        (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+          (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))) =
+    some
+      (Turing.haltList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial)
+        [(Resources.RotationCertificate.verifyBitsRun input cert).1])
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output {R : Type} [Fintype R] (initial : R)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw)
+  (malformed : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral raw = none) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.next^[Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps
+          raw]
+      (some (Turing.initList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) raw)) =
+    some (Turing.haltList (Resources.RotationCertificate.DelimiterPreludeDraft.machine initial) [false])
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells : ∀ {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits),
+  Resources.RotationCertificate.FrontEndStreamMachine.stackCells
+      (Resources.RotationCertificate.DelimiterPreludeDraft.state q initial seen raw work framed) =
+    List.length raw + List.length work + List.length framed
+@Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells : ∀ {R : Type}
+  (q : Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase) (initial : R)
+  (seen : Resources.RotationCertificate.DelimiterPreludeDraft.Scratch)
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (work framed : Resources.BinaryCounter.Bits),
+  @Eq.{1} Nat
+    (@Resources.RotationCertificate.FrontEndStreamMachine.stackCells
+      Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore
+      Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase
+      (Prod.{0, 0} Resources.RotationCertificate.DelimiterPreludeDraft.Scratch R)
+      Resources.RotationCertificate.DelimiterPreludeDraft.CallerAlphabet
+      Resources.RotationCertificate.DelimiterPreludeDraft.instFintypeCallerStore
+      (@Resources.RotationCertificate.DelimiterPreludeDraft.state R q initial seen raw work framed))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@List.length.{0} (Option.{0} Bool) raw)
+        (@List.length.{0} Bool work))
+      (@List.length.{0} Bool framed))
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

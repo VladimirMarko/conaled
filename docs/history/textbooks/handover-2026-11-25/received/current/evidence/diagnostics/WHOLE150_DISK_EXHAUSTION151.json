@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T22:31:40.551705+00:00",
+  "tool_session": 24491,
+  "outer_terminal_observed": false,
+  "outer_outcome": "UNKNOWN",
+  "actual_outer_exit_code": null,
+  "log_observed": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/whole150.log",
+    "bytes": 1249329,
+    "sha256": "70c114ed5f4792f9430c4b305661965908e1c289d93556c604d65c3be0792aff"
+  },
+  "actual_child137_blocks": [
+    {
+      "header_line": 6316,
+      "diagnostic_line": 6318,
+      "exact_block": [
+        "\u2716 [10224/10300] Building SquareKit.Internal.Cubical.CartesianUniverse (238s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/Cubical/CartesianUniverse.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 6322,
+      "diagnostic_line": 6324,
+      "exact_block": [
+        "\u2716 [10228/10301] Building Examples.CartesianFilling (224s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/Examples/CartesianFilling.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CartesianFilling.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CartesianFilling.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CartesianFilling.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CartesianFilling.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 6836,
+      "diagnostic_line": 6838,
+      "exact_block": [
+        "\u2716 [10605/10647] Building Examples.CubicalConstructorState (102s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/Examples/CubicalConstructorState.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CubicalConstructorState.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/Examples/CubicalConstructorState.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CubicalConstructorState.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/Examples/CubicalConstructorState.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "header_line": 7103,
+      "diagnostic_line": 7105,
+      "exact_block": [
+        "\u2716 [10847/10925] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (168s)",
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/research149/SquareKit/Internal/Cubical/CocycleOrdinaryAction.lean -o /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.olean -i /workspace/scratch/ae71b485b114/work/research149/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.ilean -c /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.c --setup /workspace/scratch/ae71b485b114/work/research149/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    }
+  ],
+  "explicit_no_space_diagnostics": [
+    {
+      "line": 7183,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7185,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7193,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7200,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7202,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7205,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7209,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7216,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7218,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7221,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7226,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7229,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7237,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7239,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7247,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7259,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7262,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7266,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7271,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7278,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7280,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7283,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7305,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7308,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7310,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7313,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7315,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7322,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    },
+    {
+      "line": 7332,
+      "text": "error: resource exhausted (error code: 28, no space left on device)"
+    }
+  ],
+  "log_ends_mid_warning": false,
+  "output_capture_limit": "Disk exhaustion occurred while the command was writing its log. The earlier22:28:43 tool observation ended in a partial warning; this later prefix ends in a newline. Do not assert complete console capture or infer a terminal from either prefix.",
+  "child137_cause": "UNKNOWN; later explicit ENOSPC does not establish the earlier137 causes.",
+  "free_bytes_at_observation": 60100608,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "editorial_note": "Corrected the initial explanatory sentence, which incorrectly described the earlier partial-warning ending as this observation. The measured Boolean, log descriptor and all actual observations remain unchanged.",
+  "note_corrected_utc": "2026-11-24T22:32:20.351764+00:00"
+}

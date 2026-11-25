@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "delimiter-consumer149f",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/research149",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-f/DelimiterConsumer149fProbe.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/research149",
+  "started_utc": "2026-11-24T21:00:27.149507+00:00",
+  "finished_utc": "2026-11-24T21:00:33.782751+00:00",
+  "elapsed_seconds": 6.6278316200005065,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.start.json",
+    "bytes": 120331,
+    "sha256": "ae49b240e2d4238a5e0dc2c86bf0eac897dd264e3c4773c5c247cbd74423a1d5",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

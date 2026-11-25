@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T13:39:51.206358+00:00",
+  "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance139",
+  "state": "IN_PROGRESS_AT_THIS_OBSERVATION",
+  "outer_terminal": "UNKNOWN",
+  "child_exit_receipt_present": false,
+  "result_receipt_present": false,
+  "prefix": {
+    "path": "/workspace/scratch/ae71b485b114/work/checkpoint146-preparation/whole139-prefix.log",
+    "bytes": 1433310,
+    "sha256": "a5d6eaf1cfe0d96411e09d2f16c1b92af3f266c85c9e65a57ea351fd04a0a0ea",
+    "mode": "100644"
+  },
+  "live_log": "/workspace/scratch/ae71b485b114/work/continuation/whole139.log",
+  "prefix_containment_verified": true,
+  "recorded_Lean_child_failures": [
+    {
+      "module": "Examples.CartesianFilling",
+      "line": 6469,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CartesianLargeFamilyConstructors",
+      "line": 6491,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.CartesianUniverse",
+      "line": 6506,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CubicalConstructorState",
+      "line": 6856,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.CocycleOrdinaryAction",
+      "line": 7129,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CubicalFrozenActionHomotopy",
+      "line": 7155,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.DependentFunctionConversionSemantics",
+      "line": 7332,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.DependentJudgments.ReferenceApd",
+      "line": 8205,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    }
+  ],
+  "last_five_lines": [
+    "\u2714 [12176/12225] Built Applications.QuantumSemantics.Program (155s)",
+    "\u26a0 [12177/12226] Built Applications.QuantumSemantics.Qubit (156s)",
+    "warning: Applications/QuantumSemantics/Qubit.lean: imports `Mathlib.LinearAlgebra.Matrix.Notation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+    "warning: Applications/QuantumSemantics/Qubit.lean: imports `Mathlib.Analysis.SpecialFunctions.Sqrt` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file",
+    "\u2714 [12178/12240] Built Examples.QuickSortCosts (73s)"
+  ],
+  "reading_limits": "Root read the failure observations and selected tails; no fresh full-log reading is claimed by freezing this prefix.",
+  "meaning": "An actual live observation and eight child137 diagnostics, not an outer exit or a proved cause. A workspace/process loss without a terminal leaves UNKNOWN. No source acceptance."
+}

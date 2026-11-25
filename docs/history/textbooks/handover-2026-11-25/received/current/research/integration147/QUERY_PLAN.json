@@ -1,0 +1,4040 @@
+{
+  "schema": 1,
+  "status": "Retained commands planned for matching installed modules; no new execution.",
+  "existing_current146_fragments": [
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/PublicStatements146.body.lean",
+        "bytes": 26751,
+        "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57"
+      },
+      "inclusive_lines": [
+        1,
+        360
+      ],
+      "selected_bytes": 26751,
+      "selected_sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57",
+      "counts": {
+        "readable": 350,
+        "expanded": 0,
+        "axiom_roots": 0
+      },
+      "queries": {
+        "readable": [
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+            "source_line": 5
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+            "source_line": 6
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+            "source_line": 7
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+            "source_line": 8
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+            "source_line": 9
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+            "source_line": 10
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+            "source_line": 11
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+            "source_line": 12
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+            "source_line": 13
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+            "source_line": 14
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+            "source_line": 15
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+            "source_line": 16
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+            "source_line": 17
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+            "source_line": 18
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+            "source_line": 19
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+            "source_line": 20
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+            "source_line": 21
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+            "source_line": 22
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.Letters",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.Letters",
+            "source_line": 25
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.haltSource",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.haltSource",
+            "source_line": 26
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.emit",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.emit",
+            "source_line": 27
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.marked",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.marked",
+            "source_line": 28
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.empty_prelude_is_one_actual_write",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.empty_prelude_is_one_actual_write",
+            "source_line": 29
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.false_prelude_costs_three_and_keeps_present_false",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.false_prelude_costs_three_and_keeps_present_false",
+            "source_line": 30
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.true_prelude_costs_three",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.true_prelude_costs_three",
+            "source_line": 31
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.false_true_prelude_exposes_the_reflected_orientation",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.false_true_prelude_exposes_the_reflected_orientation",
+            "source_line": 32
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.true_false_prelude_is_a_different_complete_tape",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.true_false_prelude_is_a_different_complete_tape",
+            "source_line": 33
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.repeated_false_does_not_terminate_the_scan",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.repeated_false_does_not_terminate_the_scan",
+            "source_line": 34
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.length_three_prelude_has_nearest_first_left_order",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.length_three_prelude_has_nearest_first_left_order",
+            "source_line": 35
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.ordinary_false_is_not_the_blank",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.ordinary_false_is_not_the_blank",
+            "source_line": 36
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.empty_and_false_have_distinct_complete_native_input_tapes",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.empty_and_false_have_distinct_complete_native_input_tapes",
+            "source_line": 37
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.ordinary_false_and_true_are_distinct",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.ordinary_false_and_true_are_distinct",
+            "source_line": 38
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.input_and_fuel_are_distinct",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.input_and_fuel_are_distinct",
+            "source_line": 39
+          },
+          {
+            "name": "Examples.TuringSimulation.OrdinaryInput.output_write_and_following_none",
+            "command": "#check Examples.TuringSimulation.OrdinaryInput.output_write_and_following_none",
+            "source_line": 40
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantMachine",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantMachine",
+            "source_line": 41
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantRun",
+            "source_line": 42
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantRun_steps",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantRun_steps",
+            "source_line": 43
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantDecider",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantDecider",
+            "source_line": 44
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantDecider_uses_true_start",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantDecider_uses_true_start",
+            "source_line": 45
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.empty_and_present_false_inputs_differ",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.empty_and_present_false_inputs_differ",
+            "source_line": 46
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.present_false_output_is_not_blank",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.present_false_output_is_not_blank",
+            "source_line": 47
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.reflectedStep",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.reflectedStep",
+            "source_line": 48
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_first_moves_right",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeek_first_moves_right",
+            "source_line": 49
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_right_is_off_bottom",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeek_right_is_off_bottom",
+            "source_line": 50
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_second_returns_left",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeek_second_returns_left",
+            "source_line": 51
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeek_third_still_selects_ret",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeek_third_still_selects_ret",
+            "source_line": 52
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+            "source_line": 53
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun_steps",
+            "command": "#check Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun_steps",
+            "source_line": 54
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Phase",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Phase",
+            "source_line": 55
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Cell",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Cell",
+            "source_line": 56
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Cfg",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Cfg",
+            "source_line": 57
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.haltMachine",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.haltMachine",
+            "source_line": 58
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeftMachine",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeftMachine",
+            "source_line": 59
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.writeEraseMachine",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.writeEraseMachine",
+            "source_line": 60
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeftMachine",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeftMachine",
+            "source_line": 61
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.emptyStart",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.emptyStart",
+            "source_line": 62
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.falseStart",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.falseStart",
+            "source_line": 63
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoInputStart",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoInputStart",
+            "source_line": 64
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.empty_input_head",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.empty_input_head",
+            "source_line": 65
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.present_false_input_head",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.present_false_input_head",
+            "source_line": 66
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.halt_empty_visits_origin",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.halt_empty_visits_origin",
+            "source_line": 67
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.halt_false_visits_origin",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.halt_false_visits_origin",
+            "source_line": 68
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.halt_empty_outer_none",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.halt_empty_outer_none",
+            "source_line": 69
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.halt_false_outer_none",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.halt_false_outer_none",
+            "source_line": 70
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_positions",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeft_positions",
+            "source_line": 71
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_visits",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeft_visits",
+            "source_line": 72
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_interval",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeft_interval",
+            "source_line": 73
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_live_halt",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeft_live_halt",
+            "source_line": 74
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.rightLeft_outer_none",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.rightLeft_outer_none",
+            "source_line": 75
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.writeErase_positions",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.writeErase_positions",
+            "source_line": 76
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.writeErase_visits",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.writeErase_visits",
+            "source_line": 77
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.writeErase_live_halt",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.writeErase_live_halt",
+            "source_line": 78
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_positions",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeft_positions",
+            "source_line": 79
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_visits",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeft_visits",
+            "source_line": 80
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_input_plus_visits",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeft_input_plus_visits",
+            "source_line": 81
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_interval",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeft_interval",
+            "source_line": 82
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.twoLeft_attains_bound",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.twoLeft_attains_bound",
+            "source_line": 83
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_positions",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_positions",
+            "source_line": 84
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_visits",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.shifted_rightLeft_visits",
+            "source_line": 85
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.PeekAlphabet",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.PeekAlphabet",
+            "source_line": 86
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.PeekTapeControl",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.PeekTapeControl",
+            "source_line": 87
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekSource",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekSource",
+            "source_line": 88
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekTapeProgram",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekTapeProgram",
+            "source_line": 89
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.PeekControl",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.PeekControl",
+            "source_line": 90
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.PeekCfg",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.PeekCfg",
+            "source_line": 91
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekMachine",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekMachine",
+            "source_line": 92
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekInput",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekInput",
+            "source_line": 93
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekTape",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekTape",
+            "source_line": 94
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekStart",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekStart",
+            "source_line": 95
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekAction",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekAction",
+            "source_line": 96
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekGo",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekGo",
+            "source_line": 97
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekGotoRet",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekGotoRet",
+            "source_line": 98
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekAfterLeft",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekAfterLeft",
+            "source_line": 99
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekLeft",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekLeft",
+            "source_line": 100
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekBack",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekBack",
+            "source_line": 101
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekRet",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekRet",
+            "source_line": 102
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekHalt",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekHalt",
+            "source_line": 103
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+            "source_line": 104
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step0",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step0",
+            "source_line": 105
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step1",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step1",
+            "source_line": 106
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step2",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step2",
+            "source_line": 107
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step3",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step3",
+            "source_line": 108
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step4",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step4",
+            "source_line": 109
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_step5",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_step5",
+            "source_line": 110
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+            "source_line": 111
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_positions",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_positions",
+            "source_line": 112
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_before_excursion",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_before_excursion",
+            "source_line": 113
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_excursion_is_visited",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_excursion_is_visited",
+            "source_line": 114
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_live_halt_retains_excursion",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_live_halt_retains_excursion",
+            "source_line": 115
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_outer_none_adds_no_cell",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_outer_none_adds_no_cell",
+            "source_line": 116
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_final_interval",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_final_interval",
+            "source_line": 117
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_initial_raw_empty",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_initial_raw_empty",
+            "source_line": 118
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_initial_marker",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_initial_marker",
+            "source_line": 119
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_halt_register",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_halt_register",
+            "source_line": 120
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_halt_tape",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peek_halt_tape",
+            "source_line": 121
+          },
+          {
+            "name": "Resources.TuringSimulation.StackToTape.trInit_length",
+            "command": "#check Resources.TuringSimulation.StackToTape.trInit_length",
+            "source_line": 122
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.related_controller_halt_observation",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.related_controller_halt_observation",
+            "source_line": 123
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.related_finite_primitive_halt_head",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.related_finite_primitive_halt_head",
+            "source_line": 124
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_run_observed",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_run_observed",
+            "source_line": 125
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedTapeTimeBound_mono",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedTapeTimeBound_mono",
+            "source_line": 126
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_mono",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_mono",
+            "source_line": 127
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial",
+            "source_line": 128
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimePolynomial_eval",
+            "source_line": 129
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial",
+            "source_line": 130
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveWitnessPolynomial_eval",
+            "source_line": 131
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.frame_length_le_combined",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.frame_length_le_combined",
+            "source_line": 132
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_frame_le",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.encodedPrimitiveTimeBound_frame_le",
+            "source_line": 133
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+            "source_line": 134
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter",
+            "source_line": 135
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter_halt_row",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryEmitter_halt_row",
+            "source_line": 136
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+            "source_line": 137
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryControlFintype",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryControlFintype",
+            "source_line": 138
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "source_line": 139
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound",
+            "source_line": 140
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_mono",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_mono",
+            "source_line": 141
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.preludeSteps_le_length_add_two",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.preludeSteps_le_length_add_two",
+            "source_line": 142
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_overhead_le",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_overhead_le",
+            "source_line": 143
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial",
+            "source_line": 144
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimePolynomial_eval",
+            "source_line": 145
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial",
+            "source_line": 146
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPairTimePolynomial_eval",
+            "source_line": 147
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial",
+            "source_line": 148
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWitnessTimePolynomial_eval",
+            "source_line": 149
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_frame_le",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_frame_le",
+            "source_line": 150
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_small_frame_le",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryTimeBound_small_frame_le",
+            "source_line": 151
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun",
+            "source_line": 152
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_toEvalsTo",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_toEvalsTo",
+            "source_line": 153
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_steps",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryWidenRun_steps",
+            "source_line": 154
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_done_step",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_done_step",
+            "source_line": 155
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_uniform",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_uniform",
+            "source_line": 156
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_source_default_user",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_source_default_user",
+            "source_line": 157
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "source_line": 158
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_time",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_time",
+            "source_line": 159
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_bit",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_bit",
+            "source_line": 160
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_start",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider_start",
+            "source_line": 161
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "source_line": 162
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "source_line": 163
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "source_line": 164
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "source_line": 165
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_bound_literal_values",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_bound_literal_values",
+            "source_line": 166
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_polynomial_literal_values",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.primitive_polynomial_literal_values",
+            "source_line": 167
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.witness_polynomial_zero_argument",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.witness_polynomial_zero_argument",
+            "source_line": 168
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_generic_frame_allowance",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_generic_frame_allowance",
+            "source_line": 169
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.small_frame_bound_uses_the_instance_polynomial",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.small_frame_bound_uses_the_instance_polynomial",
+            "source_line": 170
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.arbitrary_pair_bound_keeps_both_input_lengths",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.arbitrary_pair_bound_keeps_both_input_lengths",
+            "source_line": 171
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_has_an_actual_finite_primitive_witness",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.CertificateTime.empty_instance_has_an_actual_finite_primitive_witness",
+            "source_line": 172
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_bound_fixed_values",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_bound_fixed_values",
+            "source_line": 173
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_polynomial_fixed_values",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.ordinary_polynomial_fixed_values",
+            "source_line": 174
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.all_pair_polynomial_at_zero",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.all_pair_polynomial_at_zero",
+            "source_line": 175
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.small_witness_polynomial_at_zero",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.small_witness_polynomial_at_zero",
+            "source_line": 176
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.literal_empty_pair_frame",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.literal_empty_pair_frame",
+            "source_line": 177
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.haltCaller",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.haltCaller",
+            "source_line": 178
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedPackage",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedPackage",
+            "source_line": 179
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedBit",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedBit",
+            "source_line": 180
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedInput",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedInput",
+            "source_line": 181
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedDecider",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixedDecider",
+            "source_line": 182
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_input_is_literal_letter_map",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_input_is_literal_letter_map",
+            "source_line": 183
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_register_is_preserved_by_the_source_default",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_register_is_preserved_by_the_source_default",
+            "source_line": 184
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.wrapper_start_is_the_fixed_prelude_start",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.wrapper_start_is_the_fixed_prelude_start",
+            "source_line": 185
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_false_letter_is_not_blank",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_false_letter_is_not_blank",
+            "source_line": 186
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_true_and_false_letters_differ",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_true_and_false_letters_differ",
+            "source_line": 187
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_and_present_false_have_distinct_complete_native_tapes",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_and_present_false_have_distinct_complete_native_tapes",
+            "source_line": 188
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_empty_prelude",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_empty_prelude",
+            "source_line": 189
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_false_prelude",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.true_initial_false_prelude",
+            "source_line": 190
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_raw_native_eval",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.empty_raw_native_eval",
+            "source_line": 191
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.present_false_raw_native_eval",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.present_false_raw_native_eval",
+            "source_line": 192
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+            "command": "#check Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+            "source_line": 193
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.direction",
+            "command": "#check Resources.TuringSimulation.TapeReflection.direction",
+            "source_line": 194
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.direction_involutive",
+            "command": "#check Resources.TuringSimulation.TapeReflection.direction_involutive",
+            "source_line": 195
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.tape",
+            "command": "#check Resources.TuringSimulation.TapeReflection.tape",
+            "source_line": 196
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.tape_involutive",
+            "command": "#check Resources.TuringSimulation.TapeReflection.tape_involutive",
+            "source_line": 197
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.tape_head",
+            "command": "#check Resources.TuringSimulation.TapeReflection.tape_head",
+            "source_line": 198
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.tape_write",
+            "command": "#check Resources.TuringSimulation.TapeReflection.tape_write",
+            "source_line": 199
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.tape_move",
+            "command": "#check Resources.TuringSimulation.TapeReflection.tape_move",
+            "source_line": 200
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.statement",
+            "command": "#check Resources.TuringSimulation.TapeReflection.statement",
+            "source_line": 201
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.statement_involutive",
+            "command": "#check Resources.TuringSimulation.TapeReflection.statement_involutive",
+            "source_line": 202
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.configuration",
+            "command": "#check Resources.TuringSimulation.TapeReflection.configuration",
+            "source_line": 203
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.configuration_involutive",
+            "command": "#check Resources.TuringSimulation.TapeReflection.configuration_involutive",
+            "source_line": 204
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.machine",
+            "command": "#check Resources.TuringSimulation.TapeReflection.machine",
+            "source_line": 205
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.step",
+            "command": "#check Resources.TuringSimulation.TapeReflection.step",
+            "source_line": 206
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.bind_step",
+            "command": "#check Resources.TuringSimulation.TapeReflection.bind_step",
+            "source_line": 207
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+            "command": "#check Resources.TuringSimulation.TapeReflection.iterate_option",
+            "source_line": 208
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.evalsToInTime",
+            "command": "#check Resources.TuringSimulation.TapeReflection.evalsToInTime",
+            "source_line": 209
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.evalsToInTime_steps",
+            "command": "#check Resources.TuringSimulation.TapeReflection.evalsToInTime_steps",
+            "source_line": 210
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.configuration_default",
+            "command": "#check Resources.TuringSimulation.TapeReflection.configuration_default",
+            "source_line": 211
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.symbol",
+            "command": "#check Resources.TuringSimulation.MarkedInput.symbol",
+            "source_line": 212
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.symbol_selected",
+            "command": "#check Resources.TuringSimulation.MarkedInput.symbol_selected",
+            "source_line": 213
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.symbol_injective",
+            "command": "#check Resources.TuringSimulation.MarkedInput.symbol_injective",
+            "source_line": 214
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.symbol_ne_blank",
+            "command": "#check Resources.TuringSimulation.MarkedInput.symbol_ne_blank",
+            "source_line": 215
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.input",
+            "command": "#check Resources.TuringSimulation.MarkedInput.input",
+            "source_line": 216
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.input_length",
+            "command": "#check Resources.TuringSimulation.MarkedInput.input_length",
+            "source_line": 217
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.inputAlphabet",
+            "command": "#check Resources.TuringSimulation.MarkedInput.inputAlphabet",
+            "source_line": 218
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.readInput",
+            "command": "#check Resources.TuringSimulation.MarkedInput.readInput",
+            "source_line": 219
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.read_inputAlphabet",
+            "command": "#check Resources.TuringSimulation.MarkedInput.read_inputAlphabet",
+            "source_line": 220
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.output_readback",
+            "command": "#check Resources.TuringSimulation.MarkedInput.output_readback",
+            "source_line": 221
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control",
+            "source_line": 222
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.machine",
+            "command": "#check Resources.TuringSimulation.MarkedInput.machine",
+            "source_line": 223
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.scanTape",
+            "command": "#check Resources.TuringSimulation.MarkedInput.scanTape",
+            "source_line": 224
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.preludeSteps",
+            "command": "#check Resources.TuringSimulation.MarkedInput.preludeSteps",
+            "source_line": 225
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.scan_symbol_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.scan_symbol_step",
+            "source_line": 226
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.start_symbol_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.start_symbol_step",
+            "source_line": 227
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.scan_empty_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.scan_empty_step",
+            "source_line": 228
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.mark_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.mark_step",
+            "source_line": 229
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.blank_cons_empty",
+            "command": "#check Resources.TuringSimulation.MarkedInput.blank_cons_empty",
+            "source_line": 230
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.marked_boundary_tape",
+            "command": "#check Resources.TuringSimulation.MarkedInput.marked_boundary_tape",
+            "source_line": 231
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.scan_exact",
+            "command": "#check Resources.TuringSimulation.MarkedInput.scan_exact",
+            "source_line": 232
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "command": "#check Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "source_line": 233
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.preludeRun",
+            "command": "#check Resources.TuringSimulation.MarkedInput.preludeRun",
+            "source_line": 234
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.preludeRun_steps",
+            "command": "#check Resources.TuringSimulation.MarkedInput.preludeRun_steps",
+            "source_line": 235
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.emit_singleton_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.emit_singleton_step",
+            "source_line": 236
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.done_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.done_step",
+            "source_line": 237
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.runConfiguration",
+            "command": "#check Resources.TuringSimulation.MarkedInput.runConfiguration",
+            "source_line": 238
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.run_step",
+            "command": "#check Resources.TuringSimulation.MarkedInput.run_step",
+            "source_line": 239
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.run_iterate",
+            "command": "#check Resources.TuringSimulation.MarkedInput.run_iterate",
+            "source_line": 240
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.liveRun",
+            "command": "#check Resources.TuringSimulation.MarkedInput.liveRun",
+            "source_line": 241
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.liveRun_steps",
+            "command": "#check Resources.TuringSimulation.MarkedInput.liveRun_steps",
+            "source_line": 242
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedRun",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalizedRun",
+            "source_line": 243
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedRun_steps",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalizedRun_steps",
+            "source_line": 244
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "source_line": 245
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedOuterNone",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalizedOuterNone",
+            "source_line": 246
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "source_line": 247
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.related_singleton_tape",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.related_singleton_tape",
+            "source_line": 248
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.reflection_singleton",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.reflection_singleton",
+            "source_line": 249
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.haltRow",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.haltRow",
+            "source_line": 250
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_slots",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.haltList_singleton_slots",
+            "source_line": 251
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "source_line": 252
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.package_halt_supported",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.package_halt_supported",
+            "source_line": 253
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+            "source_line": 254
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider",
+            "source_line": 255
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.false_ne_blank",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.false_ne_blank",
+            "source_line": 256
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.true_ne_false",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.true_ne_false",
+            "source_line": 257
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "source_line": 258
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.directionOffset",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.directionOffset",
+            "source_line": 259
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandOffset",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandOffset",
+            "source_line": 260
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandOffset_bounds",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandOffset_bounds",
+            "source_line": 261
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.cfgAt",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.cfgAt",
+            "source_line": 262
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_zero",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.cfgAt_zero",
+            "source_line": 263
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_succ",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.cfgAt_succ",
+            "source_line": 264
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandAt",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandAt",
+            "source_line": 265
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandAt_of_live",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandAt_of_live",
+            "source_line": 266
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandAt_of_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandAt_of_none",
+            "source_line": 267
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition",
+            "source_line": 268
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition_zero",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition_zero",
+            "source_line": 269
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition_succ",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition_succ",
+            "source_line": 270
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition_step_bounds",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition_step_bounds",
+            "source_line": 271
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition_bounds",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition_bounds",
+            "source_line": 272
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells",
+            "source_line": 273
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.mem_visitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.mem_visitedCells",
+            "source_line": 274
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.live_head_mem_visitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.live_head_mem_visitedCells",
+            "source_line": 275
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.origin_mem_visitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.origin_mem_visitedCells",
+            "source_line": 276
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_mono",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells_mono",
+            "source_line": 277
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_card_le",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells_card_le",
+            "source_line": 278
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_succ_of_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells_succ_of_none",
+            "source_line": 279
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_none",
+            "source_line": 280
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_add_of_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells_add_of_none",
+            "source_line": 281
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.inputCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.inputCells",
+            "source_line": 282
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.mem_inputCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.mem_inputCells",
+            "source_line": 283
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.inputVisitedCells",
+            "source_line": 284
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.leftEdge",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.leftEdge",
+            "source_line": 285
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.rightEdge",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.rightEdge",
+            "source_line": 286
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.leftEdge_succ",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.leftEdge_succ",
+            "source_line": 287
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.rightEdge_succ",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.rightEdge_succ",
+            "source_line": 288
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedInterval",
+            "source_line": 289
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.headPosition_between_edges",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.headPosition_between_edges",
+            "source_line": 290
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.leftEdge_antitone",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.leftEdge_antitone",
+            "source_line": 291
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.rightEdge_monotone",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.rightEdge_monotone",
+            "source_line": 292
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedCells_subset_interval",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedCells_subset_interval",
+            "source_line": 293
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.inputCells_subset_interval",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.inputCells_subset_interval",
+            "source_line": 294
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells_subset_interval",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.inputVisitedCells_subset_interval",
+            "source_line": 295
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.interval_width_le",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.interval_width_le",
+            "source_line": 296
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_card_le",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedInterval_card_le",
+            "source_line": 297
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.inputVisitedCells_card_le",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.inputVisitedCells_card_le",
+            "source_line": 298
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_succ_of_no_command",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedInterval_succ_of_no_command",
+            "source_line": 299
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.visitedInterval_add_of_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.visitedInterval_add_of_none",
+            "source_line": 300
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+            "source_line": 301
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.move_nth_at_global_coordinate",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.move_nth_at_global_coordinate",
+            "source_line": 302
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.write_nth_at_other_global_coordinate",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.write_nth_at_other_global_coordinate",
+            "source_line": 303
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.initTape_nth_eq_default_of_not_mem_inputCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.initTape_nth_eq_default_of_not_mem_inputCells",
+            "source_line": 304
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.commandAt_eq_none_of_next_none",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.commandAt_eq_none_of_next_none",
+            "source_line": 305
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.terminal_prefix_adds_no_cells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.terminal_prefix_adds_no_cells",
+            "source_line": 306
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+            "source_line": 307
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.step_nth_at_other_global_coordinate",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.step_nth_at_other_global_coordinate",
+            "source_line": 308
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.nth_eq_initial_of_not_visited",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.nth_eq_initial_of_not_visited",
+            "source_line": 309
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.nth_eq_default_of_not_inputVisitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.nth_eq_default_of_not_inputVisitedCells",
+            "source_line": 310
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.init_nth_eq_default_of_not_inputVisitedCells",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.init_nth_eq_default_of_not_inputVisitedCells",
+            "source_line": 311
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+            "command": "#check Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+            "source_line": 312
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_encoded_distance",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_encoded_distance",
+            "source_line": 313
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+            "source_line": 314
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.encoded_instance_length",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.encoded_instance_length",
+            "source_line": 315
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.verifyFramed_code_iff_trace",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.verifyFramed_code_iff_trace",
+            "source_line": 316
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_exists_small_framed_certificate",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.binaryYes_iff_exists_small_framed_certificate",
+            "source_line": 317
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+            "source_line": 318
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.not_binaryYes_nil",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.not_binaryYes_nil",
+            "source_line": 319
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_empty_shapes",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.binaryYes_empty_shapes",
+            "source_line": 320
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_singleton_shapes",
+            "command": "#check Resources.RotationCertificate.CertificateCorrespondence.binaryYes_singleton_shapes",
+            "source_line": 321
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.empty_zero_width_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.empty_zero_width_case",
+            "source_line": 322
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.empty_width_two_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.empty_width_two_case",
+            "source_line": 323
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_not_in_language",
+            "command": "#check Examples.RotationCertificateCorrespondence.two_node_zero_threshold_not_in_language",
+            "source_line": 324
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_rejects_every_certificate",
+            "command": "#check Examples.RotationCertificateCorrespondence.two_node_zero_threshold_rejects_every_certificate",
+            "source_line": 325
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.two_node_zero_threshold_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.two_node_zero_threshold_case",
+            "source_line": 326
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.one_rotation_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.one_rotation_case",
+            "source_line": 327
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.one_rotation_high_zero_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.one_rotation_high_zero_case",
+            "source_line": 328
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.high_zero_does_not_identify_the_two_instances",
+            "command": "#check Examples.RotationCertificateCorrespondence.high_zero_does_not_identify_the_two_instances",
+            "source_line": 329
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.raw_empty_instance_case",
+            "command": "#check Examples.RotationCertificateCorrespondence.raw_empty_instance_case",
+            "source_line": 330
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.zero_and_one_node_language_boundaries",
+            "command": "#check Examples.RotationCertificateCorrespondence.zero_and_one_node_language_boundaries",
+            "source_line": 331
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.arbitrary_zero_node_boundary",
+            "command": "#check Examples.RotationCertificateCorrespondence.arbitrary_zero_node_boundary",
+            "source_line": 332
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.arbitrary_one_node_boundary",
+            "command": "#check Examples.RotationCertificateCorrespondence.arbitrary_one_node_boundary",
+            "source_line": 333
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.one_rotation_has_a_small_accepted_witness",
+            "command": "#check Examples.RotationCertificateCorrespondence.one_rotation_has_a_small_accepted_witness",
+            "source_line": 334
+          },
+          {
+            "name": "Examples.RotationCertificateCorrespondence.zero_threshold_has_no_small_accepted_witness",
+            "command": "#check Examples.RotationCertificateCorrespondence.zero_threshold_has_no_small_accepted_witness",
+            "source_line": 335
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.mk",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.mk",
+            "source_line": 338
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet",
+            "source_line": 339
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.Control",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.Control",
+            "source_line": 340
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.alphabetFintype",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.alphabetFintype",
+            "source_line": 341
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.controlFintype",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.controlFintype",
+            "source_line": 342
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.blank",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.blank",
+            "source_line": 343
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.start",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.start",
+            "source_line": 344
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.bit",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.bit",
+            "source_line": 345
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.bit_ne_blank",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.bit_ne_blank",
+            "source_line": 346
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.machine",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.machine",
+            "source_line": 347
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.time",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.time",
+            "source_line": 348
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.run",
+            "source_line": 349
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control.start",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control.start",
+            "source_line": 350
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control.scan",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control.scan",
+            "source_line": 351
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control.mark",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control.mark",
+            "source_line": 352
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control.run",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control.run",
+            "source_line": 353
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.Control.done",
+            "command": "#check Resources.TuringSimulation.MarkedInput.Control.done",
+            "source_line": 354
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Phase.first",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Phase.first",
+            "source_line": 355
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Phase.second",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Phase.second",
+            "source_line": 356
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.Phase.stopped",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.Phase.stopped",
+            "source_line": 357
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "command": "#check @Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "source_line": 360
+          }
+        ],
+        "expanded": [],
+        "axiom_roots": []
+      },
+      "instruction": "Retain the exact original commands and local pp.all setting."
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/ExpandedContracts146.body.lean",
+        "bytes": 2117,
+        "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876"
+      },
+      "inclusive_lines": [
+        1,
+        60
+      ],
+      "selected_bytes": 2117,
+      "selected_sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876",
+      "counts": {
+        "readable": 0,
+        "expanded": 19,
+        "axiom_roots": 0
+      },
+      "queries": {
+        "readable": [],
+        "expanded": [
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+            "command": "#print Resources.TuringSimulation.PolynomialBooleanDecider",
+            "source_line": 4
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "source_line": 7
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.machine",
+            "command": "#check Resources.TuringSimulation.TapeReflection.machine",
+            "source_line": 10
+          },
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+            "command": "#check Resources.TuringSimulation.TapeReflection.iterate_option",
+            "source_line": 13
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.machine",
+            "command": "#check Resources.TuringSimulation.MarkedInput.machine",
+            "source_line": 16
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "command": "#check Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "source_line": 19
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "source_line": 22
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "command": "#check Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "source_line": 25
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "command": "#check Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "source_line": 28
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+            "source_line": 31
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "source_line": 34
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "source_line": 37
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "source_line": 40
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "source_line": 43
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "source_line": 46
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "command": "#check Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "source_line": 49
+          },
+          {
+            "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+            "command": "#check Examples.TuringSimulation.PolynomialDecider.constantRun",
+            "source_line": 52
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+            "command": "#check Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+            "source_line": 55
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "command": "#check @Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "source_line": 60
+          }
+        ],
+        "axiom_roots": []
+      },
+      "instruction": "Retain the exact original commands and local pp.all setting."
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SelectedAxioms146.body.lean",
+        "bytes": 2188,
+        "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee"
+      },
+      "inclusive_lines": [
+        1,
+        27
+      ],
+      "selected_bytes": 2188,
+      "selected_sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee",
+      "counts": {
+        "readable": 0,
+        "expanded": 0,
+        "axiom_roots": 23
+      },
+      "queries": {
+        "readable": [],
+        "expanded": [],
+        "axiom_roots": [
+          {
+            "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+            "command": "#print axioms Resources.TuringSimulation.TapeReflection.iterate_option",
+            "source_line": 3
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "command": "#print axioms Resources.TuringSimulation.MarkedInput.prelude_exact",
+            "source_line": 4
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "command": "#print axioms Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+            "source_line": 5
+          },
+          {
+            "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "command": "#print axioms Resources.TuringSimulation.MarkedInput.normalized_eval",
+            "source_line": 6
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "command": "#print axioms Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+            "source_line": 7
+          },
+          {
+            "name": "Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+            "command": "#print axioms Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+            "source_line": 8
+          },
+          {
+            "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "command": "#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+            "source_line": 9
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+            "command": "#print axioms Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+            "source_line": 10
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+            "command": "#print axioms Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+            "source_line": 11
+          },
+          {
+            "name": "Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+            "command": "#print axioms Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+            "source_line": 12
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+            "command": "#print axioms Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+            "source_line": 13
+          },
+          {
+            "name": "Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+            "command": "#print axioms Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+            "source_line": 14
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+            "source_line": 15
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+            "source_line": 16
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+            "source_line": 17
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+            "source_line": 18
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+            "source_line": 19
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+            "source_line": 20
+          },
+          {
+            "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "command": "#print axioms Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+            "source_line": 21
+          },
+          {
+            "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+            "command": "#print axioms Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+            "source_line": 22
+          },
+          {
+            "name": "Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+            "command": "#print axioms Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+            "source_line": 23
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+            "command": "#print axioms Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+            "source_line": 24
+          },
+          {
+            "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "command": "#print axioms Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+            "source_line": 27
+          }
+        ]
+      },
+      "instruction": "Retain the exact original commands and local pp.all setting."
+    }
+  ],
+  "new_generic_fragment": {
+    "source": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/GenericOrdinary144b.lean",
+      "bytes": 122563,
+      "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+    },
+    "inclusive_lines": [
+      2533,
+      2624
+    ],
+    "selected_bytes": 6942,
+    "selected_sha256": "03158c8f887cf12d1ba0a814ce4b96218f86e6f2cc33d63265c43a35983b8469",
+    "counts": {
+      "readable": 80,
+      "expanded": 4,
+      "axiom_roots": 4
+    },
+    "queries": {
+      "readable": [
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet",
+          "source_line": 2533
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control",
+          "source_line": 2534
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited",
+          "source_line": 2535
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype",
+          "source_line": 2536
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype",
+          "source_line": 2537
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault",
+          "source_line": 2538
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val",
+          "source_line": 2539
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register",
+          "source_line": 2540
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default",
+          "source_line": 2541
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter",
+          "source_line": 2542
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank",
+          "source_line": 2543
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected",
+          "source_line": 2544
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq",
+          "source_line": 2545
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length",
+          "source_line": 2546
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter",
+          "source_line": 2547
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output",
+          "source_line": 2548
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input",
+          "source_line": 2549
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row",
+          "source_line": 2550
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback",
+          "source_line": 2551
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+          "source_line": 2552
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact",
+          "source_line": 2553
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step",
+          "source_line": 2554
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget",
+          "source_line": 2555
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget",
+          "source_line": 2556
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape",
+          "source_line": 2557
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+          "source_line": 2558
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg",
+          "source_line": 2559
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape",
+          "source_line": 2560
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped",
+          "source_line": 2561
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton",
+          "source_line": 2562
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped",
+          "source_line": 2563
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun",
+          "source_line": 2564
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps",
+          "source_line": 2565
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+          "source_line": 2566
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "source_line": 2567
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+          "source_line": 2568
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+          "source_line": 2569
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+          "source_line": 2570
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps",
+          "source_line": 2571
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval",
+          "source_line": 2572
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+          "source_line": 2573
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+          "source_line": 2574
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+          "source_line": 2575
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.cell",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.cell",
+          "source_line": 2576
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+          "source_line": 2577
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.M",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.M",
+          "source_line": 2578
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+          "source_line": 2579
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+          "source_line": 2580
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+          "source_line": 2581
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+          "source_line": 2582
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+          "source_line": 2583
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+          "source_line": 2584
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+          "source_line": 2585
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+          "source_line": 2586
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+          "source_line": 2587
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+          "source_line": 2588
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+          "source_line": 2589
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+          "source_line": 2590
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+          "source_line": 2591
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+          "source_line": 2592
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+          "source_line": 2593
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+          "source_line": 2594
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+          "source_line": 2595
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+          "source_line": 2596
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+          "source_line": 2597
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+          "source_line": 2598
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+          "source_line": 2599
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+          "source_line": 2600
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+          "source_line": 2601
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+          "source_line": 2602
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+          "source_line": 2603
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+          "source_line": 2604
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+          "source_line": 2605
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+          "source_line": 2606
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+          "source_line": 2607
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+          "source_line": 2608
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+          "source_line": 2609
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+          "source_line": 2610
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+          "source_line": 2611
+        },
+        {
+          "name": "Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+          "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+          "source_line": 2612
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+          "source_line": 2618
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+          "source_line": 2620
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "source_line": 2622
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+          "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+          "source_line": 2624
+        }
+      ],
+      "axiom_roots": [
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+          "source_line": 2613
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+          "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+          "source_line": 2614
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+          "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+          "source_line": 2615
+        },
+        {
+          "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+          "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+          "source_line": 2616
+        }
+      ]
+    },
+    "instruction": "Retain the exact original commands and local pp.all setting."
+  },
+  "new_conventional_fragment": {
+    "source": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+      "bytes": 70278,
+      "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+    },
+    "inclusive_lines": [
+      1338,
+      1507
+    ],
+    "selected_bytes": 11337,
+    "selected_sha256": "7df869923fd423fe46953e47070c3a7ef9e80fccbe63c902c6057b8db6ffdffd",
+    "counts": {
+      "readable": 159,
+      "expanded": 3,
+      "axiom_roots": 5
+    },
+    "queries": {
+      "readable": [
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Action",
+          "command": "#check Resources.TuringSimulation.PrintMove.Action",
+          "source_line": 1338
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Machine",
+          "command": "#check Resources.TuringSimulation.PrintMove.Machine",
+          "source_line": 1339
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cfg",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cfg",
+          "source_line": 1340
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.step",
+          "command": "#check Resources.TuringSimulation.PrintMove.step",
+          "source_line": 1341
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.init",
+          "command": "#check Resources.TuringSimulation.PrintMove.init",
+          "source_line": 1342
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Control",
+          "command": "#check Resources.TuringSimulation.PrintMove.Control",
+          "source_line": 1343
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.controlEquiv",
+          "command": "#check Resources.TuringSimulation.PrintMove.controlEquiv",
+          "source_line": 1344
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.card_control",
+          "command": "#check Resources.TuringSimulation.PrintMove.card_control",
+          "source_line": 1345
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normal_ne_accept",
+          "command": "#check Resources.TuringSimulation.PrintMove.normal_ne_accept",
+          "source_line": 1346
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normal_ne_reject",
+          "command": "#check Resources.TuringSimulation.PrintMove.normal_ne_reject",
+          "source_line": 1347
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.accept_ne_reject",
+          "command": "#check Resources.TuringSimulation.PrintMove.accept_ne_reject",
+          "source_line": 1348
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Nonterminal",
+          "command": "#check Resources.TuringSimulation.PrintMove.Nonterminal",
+          "source_line": 1349
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normalAction",
+          "command": "#check Resources.TuringSimulation.PrintMove.normalAction",
+          "source_line": 1350
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.adapter",
+          "command": "#check Resources.TuringSimulation.PrintMove.adapter",
+          "source_line": 1351
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.delta",
+          "command": "#check Resources.TuringSimulation.PrintMove.delta",
+          "source_line": 1352
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.adapter_eq_none_iff",
+          "command": "#check Resources.TuringSimulation.PrintMove.adapter_eq_none_iff",
+          "source_line": 1353
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.adapter_delta",
+          "command": "#check Resources.TuringSimulation.PrintMove.adapter_delta",
+          "source_line": 1354
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normalCfg",
+          "command": "#check Resources.TuringSimulation.PrintMove.normalCfg",
+          "source_line": 1355
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normalCfg_tape",
+          "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_tape",
+          "source_line": 1356
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normalCfg_init",
+          "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_init",
+          "source_line": 1357
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.normalCfg_native_init",
+          "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_native_init",
+          "source_line": 1358
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.step_delta",
+          "command": "#check Resources.TuringSimulation.PrintMove.step_delta",
+          "source_line": 1359
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.move_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.move_step",
+          "source_line": 1360
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.write_first_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.write_first_step",
+          "source_line": 1361
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.return_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.return_step",
+          "source_line": 1362
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.write_second_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.write_second_step",
+          "source_line": 1363
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.accept_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.accept_step",
+          "source_line": 1364
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.reject_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.reject_step",
+          "source_line": 1365
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal",
+          "command": "#check Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal",
+          "source_line": 1366
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.oneStep",
+          "command": "#check Resources.TuringSimulation.PrintMove.oneStep",
+          "source_line": 1367
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.commandCost",
+          "command": "#check Resources.TuringSimulation.PrintMove.commandCost",
+          "source_line": 1368
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.commandCost_le_two",
+          "command": "#check Resources.TuringSimulation.PrintMove.commandCost_le_two",
+          "source_line": 1369
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.moveRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.moveRun",
+          "source_line": 1370
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.moveRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.moveRun_steps",
+          "source_line": 1371
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.writeRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.writeRun",
+          "source_line": 1372
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.writeRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.writeRun_steps",
+          "source_line": 1373
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.native_step_exact",
+          "command": "#check Resources.TuringSimulation.PrintMove.native_step_exact",
+          "source_line": 1374
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.nativePrefix",
+          "command": "#check Resources.TuringSimulation.PrintMove.nativePrefix",
+          "source_line": 1375
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.nativePrefix_succ",
+          "command": "#check Resources.TuringSimulation.PrintMove.nativePrefix_succ",
+          "source_line": 1376
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.observedNativeCommand",
+          "command": "#check Resources.TuringSimulation.PrintMove.observedNativeCommand",
+          "source_line": 1377
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live",
+          "command": "#check Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live",
+          "source_line": 1378
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.simulationTime",
+          "command": "#check Resources.TuringSimulation.PrintMove.simulationTime",
+          "source_line": 1379
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.simulationTime_le",
+          "command": "#check Resources.TuringSimulation.PrintMove.simulationTime_le",
+          "source_line": 1380
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.finite_run_exact",
+          "command": "#check Resources.TuringSimulation.PrintMove.finite_run_exact",
+          "source_line": 1381
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.lift_bounded_run",
+          "command": "#check Resources.TuringSimulation.PrintMove.lift_bounded_run",
+          "source_line": 1382
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.terminalControl",
+          "command": "#check Resources.TuringSimulation.PrintMove.terminalControl",
+          "source_line": 1383
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decidedCfg",
+          "command": "#check Resources.TuringSimulation.PrintMove.decidedCfg",
+          "source_line": 1384
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.native_command_none_of_stopped",
+          "command": "#check Resources.TuringSimulation.PrintMove.native_command_none_of_stopped",
+          "source_line": 1385
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decision_step",
+          "command": "#check Resources.TuringSimulation.PrintMove.decision_step",
+          "source_line": 1386
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decisionRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.decisionRun",
+          "source_line": 1387
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decisionRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.decisionRun_steps",
+          "source_line": 1388
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decidedCfg_stopped",
+          "command": "#check Resources.TuringSimulation.PrintMove.decidedCfg_stopped",
+          "source_line": 1389
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "command": "#check Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "source_line": 1390
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.terminalOuterNone",
+          "command": "#check Resources.TuringSimulation.PrintMove.terminalOuterNone",
+          "source_line": 1391
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.terminalOuterNone_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.terminalOuterNone_steps",
+          "source_line": 1392
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.directionOffset",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.directionOffset",
+          "source_line": 1393
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.actionOffset",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionOffset",
+          "source_line": 1394
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds",
+          "source_line": 1395
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.cfgAt",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.cfgAt",
+          "source_line": 1396
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ",
+          "source_line": 1397
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.actionAt",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionAt",
+          "source_line": 1398
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition",
+          "source_line": 1399
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_succ",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_succ",
+          "source_line": 1400
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds",
+          "source_line": 1401
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells",
+          "source_line": 1402
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells",
+          "source_line": 1403
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le",
+          "source_line": 1404
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.inputCells",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.inputCells",
+          "source_line": 1405
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.leftEdge",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.leftEdge",
+          "source_line": 1406
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.rightEdge",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.rightEdge",
+          "source_line": 1407
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.visitedInterval",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval",
+          "source_line": 1408
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges",
+          "source_line": 1409
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone",
+          "source_line": 1410
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone",
+          "source_line": 1411
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval",
+          "source_line": 1412
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval",
+          "source_line": 1413
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.interval_width_le",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.interval_width_le",
+          "source_line": 1414
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le",
+          "source_line": 1415
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none",
+          "source_line": 1416
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells",
+          "source_line": 1417
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run",
+          "source_line": 1418
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate",
+          "source_line": 1419
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+          "command": "#check Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+          "source_line": 1420
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.Cell",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.Cell",
+          "source_line": 1421
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.bit",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.bit",
+          "source_line": 1422
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+          "source_line": 1423
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+          "source_line": 1424
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+          "source_line": 1425
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+          "source_line": 1426
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+          "source_line": 1427
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+          "source_line": 1428
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+          "source_line": 1429
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+          "source_line": 1430
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+          "source_line": 1431
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+          "source_line": 1432
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+          "source_line": 1433
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+          "source_line": 1434
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+          "source_line": 1435
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+          "source_line": 1436
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+          "source_line": 1437
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+          "source_line": 1438
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantStart",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantStart",
+          "source_line": 1439
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+          "source_line": 1440
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+          "source_line": 1441
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+          "source_line": 1442
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+          "source_line": 1443
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+          "source_line": 1444
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+          "source_line": 1445
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+          "source_line": 1446
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+          "source_line": 1447
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+          "source_line": 1448
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+          "source_line": 1449
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+          "source_line": 1450
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+          "source_line": 1451
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+          "source_line": 1452
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+          "source_line": 1453
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+          "source_line": 1454
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+          "source_line": 1455
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+          "source_line": 1456
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+          "source_line": 1457
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+          "source_line": 1458
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+          "source_line": 1459
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+          "source_line": 1460
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+          "source_line": 1461
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+          "source_line": 1462
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+          "source_line": 1463
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.Phase",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.Phase",
+          "source_line": 1464
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+          "source_line": 1465
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+          "source_line": 1466
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+          "source_line": 1467
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+          "source_line": 1468
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+          "source_line": 1469
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+          "source_line": 1470
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+          "source_line": 1471
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+          "source_line": 1472
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+          "source_line": 1473
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+          "source_line": 1474
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+          "source_line": 1475
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.blankTape",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.blankTape",
+          "source_line": 1476
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+          "source_line": 1477
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+          "source_line": 1478
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+          "source_line": 1479
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+          "source_line": 1480
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+          "source_line": 1481
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+          "source_line": 1482
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+          "source_line": 1483
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+          "source_line": 1484
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+          "command": "#check Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+          "source_line": 1485
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+          "source_line": 1486
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+          "source_line": 1487
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+          "source_line": 1488
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+          "source_line": 1489
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+          "source_line": 1490
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+          "source_line": 1491
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+          "source_line": 1492
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "source_line": 1493
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+          "source_line": 1494
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+          "source_line": 1495
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+          "source_line": 1496
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Resources.TuringSimulation.PrintMove.delta",
+          "command": "#check Resources.TuringSimulation.PrintMove.delta",
+          "source_line": 1503
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "command": "#check Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "source_line": 1505
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "source_line": 1507
+        }
+      ],
+      "axiom_roots": [
+        {
+          "name": "Resources.TuringSimulation.PrintMove.finite_run_exact",
+          "command": "#print axioms Resources.TuringSimulation.PrintMove.finite_run_exact",
+          "source_line": 1497
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "command": "#print axioms Resources.TuringSimulation.PrintMove.decide_of_native_run",
+          "source_line": 1498
+        },
+        {
+          "name": "Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+          "command": "#print axioms Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+          "source_line": 1499
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "command": "#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+          "source_line": 1500
+        },
+        {
+          "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+          "command": "#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+          "source_line": 1501
+        }
+      ]
+    },
+    "instruction": "Retain the exact original commands and local pp.all setting."
+  },
+  "planned_counts": {
+    "readable": 589,
+    "expanded": 26,
+    "axiom_roots": 32
+  },
+  "deduplication_or_command_rewriting": false,
+  "existing18_names_only": [
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean"
+    }
+  ],
+  "existing18_note": "Names/owners retained; stale execution/read-status fields in old preparation are not inherited.",
+  "new_direct_fixture_queries": [
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+      "source_line": 2573
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+      "source_line": 2574
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+      "source_line": 2575
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.cell",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.cell",
+      "source_line": 2576
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+      "source_line": 2577
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.M",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.M",
+      "source_line": 2578
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+      "source_line": 2579
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+      "source_line": 2580
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+      "source_line": 2581
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+      "source_line": 2582
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+      "source_line": 2583
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+      "source_line": 2584
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+      "source_line": 2585
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+      "source_line": 2586
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+      "source_line": 2587
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+      "source_line": 2588
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+      "source_line": 2589
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+      "source_line": 2590
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+      "source_line": 2591
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+      "source_line": 2592
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+      "source_line": 2593
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+      "source_line": 2594
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+      "source_line": 2595
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+      "source_line": 2596
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+      "source_line": 2597
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+      "source_line": 2598
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+      "source_line": 2599
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+      "source_line": 2600
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+      "source_line": 2601
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+      "source_line": 2602
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+      "source_line": 2603
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+      "source_line": 2604
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+      "source_line": 2605
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+      "source_line": 2606
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+      "source_line": 2607
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+      "source_line": 2608
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+      "source_line": 2609
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+      "source_line": 2610
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+      "source_line": 2611
+    },
+    {
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+      "source_line": 2612
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.Cell",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.Cell",
+      "source_line": 1421
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.bit",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.bit",
+      "source_line": 1422
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+      "source_line": 1423
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+      "source_line": 1424
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+      "source_line": 1425
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+      "source_line": 1426
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+      "source_line": 1427
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+      "source_line": 1428
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+      "source_line": 1429
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+      "source_line": 1430
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+      "source_line": 1431
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+      "source_line": 1432
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+      "source_line": 1433
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+      "source_line": 1434
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+      "source_line": 1435
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+      "source_line": 1436
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+      "source_line": 1437
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+      "source_line": 1438
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantStart",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantStart",
+      "source_line": 1439
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+      "source_line": 1440
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+      "source_line": 1441
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+      "source_line": 1442
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+      "source_line": 1443
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+      "source_line": 1444
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+      "source_line": 1445
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+      "source_line": 1446
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+      "source_line": 1447
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+      "source_line": 1448
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+      "source_line": 1449
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+      "source_line": 1450
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+      "source_line": 1451
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+      "source_line": 1452
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+      "source_line": 1453
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+      "source_line": 1454
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+      "source_line": 1455
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+      "source_line": 1456
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+      "source_line": 1457
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+      "source_line": 1458
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+      "source_line": 1459
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+      "source_line": 1460
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+      "source_line": 1461
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+      "source_line": 1462
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+      "source_line": 1463
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.Phase",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.Phase",
+      "source_line": 1464
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+      "source_line": 1465
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+      "source_line": 1466
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+      "source_line": 1467
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+      "source_line": 1468
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+      "source_line": 1469
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+      "source_line": 1470
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+      "source_line": 1471
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+      "source_line": 1472
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+      "source_line": 1473
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+      "source_line": 1474
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+      "source_line": 1475
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.blankTape",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.blankTape",
+      "source_line": 1476
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+      "source_line": 1477
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+      "source_line": 1478
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+      "source_line": 1479
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+      "source_line": 1480
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+      "source_line": 1481
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+      "source_line": 1482
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+      "source_line": 1483
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+      "source_line": 1484
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+      "source_line": 1485
+    }
+  ],
+  "checked_generic_decider_consumer_queries": [
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+      "source_line": 1486
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+      "source_line": 1487
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+      "source_line": 1488
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+      "source_line": 1489
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+      "source_line": 1490
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+      "source_line": 1491
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+      "source_line": 1492
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "source_line": 1493
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+      "source_line": 1494
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+      "source_line": 1495
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "source_line": 1496
+    }
+  ],
+  "future_concrete_controller_specialization": {
+    "native_input_api": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+    "status": "not selected for this extraction; any new explicit specialization must be authored and checked separately"
+  },
+  "audit_boundary": "Selected roots do not replace normal-module compilation or exhaustive module-origin axiom audit."
+}

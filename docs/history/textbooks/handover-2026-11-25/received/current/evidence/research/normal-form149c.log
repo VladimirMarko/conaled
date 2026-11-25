@@ -1,0 +1,67 @@
+Resources.PolynomialTime.NormalFormDraft148.exponent (p : Polynomial ℕ) : ℕ
+Resources.PolynomialTime.NormalFormDraft148.eval_monotone (p : Polynomial ℕ) : Monotone fun x => Polynomial.eval x p
+Resources.PolynomialTime.NormalFormDraft148.eval_le_coefficient_sum_mul_power (p : Polynomial ℕ) (N : ℕ)
+  (positive : 1 ≤ N) : Polynomial.eval N p ≤ Polynomial.eval 1 p * N ^ p.natDegree
+Resources.PolynomialTime.NormalFormDraft148.eval_zero_le_exponent (p : Polynomial ℕ) :
+  Polynomial.eval 0 p ≤ Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.eval_one_le_exponent (p : Polynomial ℕ) :
+  Polynomial.eval 1 p ≤ Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent (p : Polynomial ℕ) (N : ℕ) :
+  Polynomial.eval N p ≤
+    N ^ Resources.PolynomialTime.NormalFormDraft148.exponent p + Resources.PolynomialTime.NormalFormDraft148.exponent p
+Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound (p : Polynomial ℕ) :
+  ∃ k, ∀ (N : ℕ), Polynomial.eval N p ≤ N ^ k + k
+Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound (p : @Polynomial.{0} Nat Nat.instSemiring) :
+  @Exists.{1} Nat fun (k : Nat) =>
+    ∀ (N : Nat),
+      @LE.le.{0} Nat instLENat (@Polynomial.eval.{0} Nat Nat.instSemiring N p)
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) N k)
+          k)
+'Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Resources.PolynomialTime.NormalFormDraft148.Cases.zero_exponent :
+  Resources.PolynomialTime.NormalFormDraft148.exponent 0 = 0
+Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_exponent :
+  Resources.PolynomialTime.NormalFormDraft148.exponent (Polynomial.C 7) = 7
+Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_exponent :
+  Resources.PolynomialTime.NormalFormDraft148.exponent Polynomial.X = 2
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed : Polynomial ℕ
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_degree :
+  Resources.PolynomialTime.NormalFormDraft148.Cases.mixed.natDegree = 2
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_values :
+  Polynomial.eval 0 Resources.PolynomialTime.NormalFormDraft148.Cases.mixed = 5 ∧
+    Polynomial.eval 1 Resources.PolynomialTime.NormalFormDraft148.Cases.mixed = 10 ∧
+      Polynomial.eval 2 Resources.PolynomialTime.NormalFormDraft148.Cases.mixed = 19
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_exponent :
+  Resources.PolynomialTime.NormalFormDraft148.exponent Resources.PolynomialTime.NormalFormDraft148.Cases.mixed = 12
+Resources.PolynomialTime.NormalFormDraft148.Cases.zero_bound (N : ℕ) : 0 ≤ N ^ 0 + 0
+Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_bound (N : ℕ) : 7 ≤ N ^ 7 + 7
+Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_bound (N : ℕ) : N ≤ N ^ 2 + 2
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound (N : ℕ) :
+  Polynomial.eval N Resources.PolynomialTime.NormalFormDraft148.Cases.mixed ≤ N ^ 12 + 12
+Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound (N : Nat) :
+  @LE.le.{0} Nat instLENat
+    (@Polynomial.eval.{0} Nat Nat.instSemiring N Resources.PolynomialTime.NormalFormDraft148.Cases.mixed)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) N
+        (@OfNat.ofNat.{0} Nat (nat_lit 12) (instOfNatNat (nat_lit 12))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 12) (instOfNatNat (nat_lit 12))))
+'Resources.PolynomialTime.NormalFormDraft148.Cases.zero_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

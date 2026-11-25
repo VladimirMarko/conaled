@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T20:32:06.955041+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "session_id": 12179,
+  "tool_poll_result": "write_stdin failed: Unknown process id 12179",
+  "first_followup_observation_utc": "2026-11-24T20:29:18.674009+00:00",
+  "outer_outcome": "UNKNOWN",
+  "outer_actual_exit_code": null,
+  "outer_terminal_observed": false,
+  "child_exit_receipt_exists": false,
+  "final_result_receipt_exists": false,
+  "acceptance_receipt_exists": false,
+  "last_log_modification_utc": "2026-11-24T20:28:24.653703+00:00",
+  "log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/whole147.log",
+    "bytes": 1196464,
+    "sha256": "816645d842be8c2e84d0ded7cce2e4e54de63f0e2d40238817e5c9564225878a",
+    "mode": "100644"
+  },
+  "frozen_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume149/whole147-lost-outer.log",
+    "bytes": 1196464,
+    "sha256": "816645d842be8c2e84d0ded7cce2e4e54de63f0e2d40238817e5c9564225878a",
+    "mode": "100644"
+  },
+  "failed_children": [
+    {
+      "line": 6189,
+      "job_line": "✖ [10147/10222] Building Examples.FiniteUniverseLoops (125s)",
+      "following_lines": [
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance147/Examples/FiniteUniverseLoops.lean -o /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/FiniteUniverseLoops.olean -i /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/FiniteUniverseLoops.ilean -c /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/FiniteUniverseLoops.c --setup /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/FiniteUniverseLoops.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "line": 6822,
+      "job_line": "✖ [10600/10642] Building Examples.CubicalConstructorState (101s)",
+      "following_lines": [
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance147/Examples/CubicalConstructorState.lean -o /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/CubicalConstructorState.olean -i /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/CubicalConstructorState.ilean -c /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/CubicalConstructorState.c --setup /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/CubicalConstructorState.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    },
+    {
+      "line": 6825,
+      "job_line": "✖ [10601/10642] Building Examples.CubicalEquivalenceWitnessSubstitution (81s)",
+      "following_lines": [
+        "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state147/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance147/Examples/CubicalEquivalenceWitnessSubstitution.lean -o /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/CubicalEquivalenceWitnessSubstitution.olean -i /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/CubicalEquivalenceWitnessSubstitution.ilean -c /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/CubicalEquivalenceWitnessSubstitution.c --setup /workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/ir/Examples/CubicalEquivalenceWitnessSubstitution.setup.json --json",
+        "error: Lean exited with code 137"
+      ]
+    }
+  ],
+  "failure_cause": "UNKNOWN",
+  "all_132_inputs_nonnull": true,
+  "inputs_match_start_at_observation": true,
+  "input_observation_limit": "Later recovery observation, not an actual terminal/post-run record; no absence of transient changes is proved.",
+  "process_visibility_limit": "A separate exec ps displayed only its own PID namespace. It is not global proof that old compiler writers are absent.",
+  "restart_executed": false,
+  "source_accepted": false,
+  "source_bindings_at_recovery_observation_ref": {
+    "member": "current/evidence/validation/whole147.start.json",
+    "member_descriptor": {
+      "bytes": 32493,
+      "sha256": "8f021e6fb3f9874b43531783318c0252c10dbde2a51a287c54225c133a4d67d9",
+      "mode": "100644"
+    },
+    "json_field": "source_bindings",
+    "entries": 132,
+    "canonical_json_encoding": "UTF-8 json.dumps(sort_keys=True,separators=(comma,colon))",
+    "canonical_json_bytes": 27102,
+    "canonical_json_sha256": "4e0a251ac4574514488b2a10665e8b5546555d42583040cc829966d20bfc4b2f",
+    "exact_map_equality_verified_before_compaction": true
+  },
+  "historical_log_capsule_member": "current/evidence/history/whole147-log-capsule.json",
+  "current_availability": "Original full-log and local path descriptors remain historical provenance; current151 retains exact non-chatter segments/context in the capsule, and the unchanged canonical start map. It does not promise the omitted chatter or original full observation serialization."
+}

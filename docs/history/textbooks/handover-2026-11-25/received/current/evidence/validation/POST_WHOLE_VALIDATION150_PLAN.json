@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-24T21:55:22.134115+00:00",
+  "status": "NOT RUN; wait for actual whole150 exit0, then immediate nonrepairing verification and only after actual verify0 the supported paused-author LIVE comparison.",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "verify_inputs": 133,
+  "compare_inputs": 73,
+  "verify_command": [
+    "./check.sh",
+    "--verify-candidate",
+    "5aed6b9726b5af6718e0240d81503b8e99bdc166"
+  ],
+  "compare_command": [
+    "python3",
+    "-B",
+    "scripts/review_snapshot.py",
+    "compare",
+    "--repo",
+    "/workspace/scratch/ae71b485b114/work/conaled",
+    "--manifest",
+    "/workspace/scratch/ae71b485b114/work/resume147/manifest147-planned.json",
+    "--record",
+    "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json",
+    "--accepted",
+    "LIVE"
+  ],
+  "manifest_scope": 63,
+  "manifest_entries_empty": true,
+  "source_changed": false,
+  "compiler_invoked": false
+}

@@ -1,0 +1,517 @@
+{
+  "schema": 1,
+  "kind": "historical-whole-log-retained-segments",
+  "run": "whole139",
+  "original_member": "current/evidence/diagnostics/whole139-prefix.log",
+  "original_descriptor": {
+    "bytes": 1433310,
+    "sha256": "a5d6eaf1cfe0d96411e09d2f16c1b92af3f266c85c9e65a57ea351fd04a0a0ea",
+    "mode": "100644"
+  },
+  "original_line_count": 9028,
+  "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance139",
+  "observed_utc": "2026-11-24T13:39:51.206358+00:00",
+  "outer_outcome": "UNKNOWN",
+  "actual_outer_exit_code": null,
+  "outer_terminal_observed": false,
+  "failure_cause": "UNKNOWN",
+  "filter_patterns": {
+    "successful_job_chatter": "^[✔⚠] \\[\\d+/\\d+\\] (?:Built|Replayed) [^\\r\\n]+\\n?$",
+    "missing_trace_rebuild_chatter": "^Integrity guard: rebuilding .+ \\(\\[Errno 2\\] No such file or directory: '.+\\.trace'\\)\\n?$",
+    "module_system_import_warning": "^warning: .+\\.lean: imports `.+` from package `.+`, which is designed for use with the module system; consider adding `module` to the start of this file\\n?$"
+  },
+  "filter_rule": "Keep every line not matching one of these three exact chatter forms; additionally keep the original first12 and last12 lines. Segments are exact original byte slices in order.",
+  "first_context_lines": [
+    1,
+    12
+  ],
+  "last_context_lines": [
+    9017,
+    9028
+  ],
+  "classified_nonchatter": {
+    "bytes": 44021,
+    "sha256": "2569b49037f2f57af2b7032f6780bdf994cd2cd3f86f9ea9b3af81829496ae48"
+  },
+  "retained_segments": [
+    {
+      "line_start": 1,
+      "line_end_inclusive": 12,
+      "byte_start": 0,
+      "byte_end_exclusive": 1934,
+      "bytes": 1934,
+      "sha256": "5105e0ac4cfccfd53d2ba49347143500d3fdf7c148e7110b90b0c1c685f07f3f",
+      "text_utf8": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\nSource guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.\nSource/coverage/version checks: 40.90s\nIntegrity guard: rebuilding Squares ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Squares.trace')\nIntegrity guard: rebuilding Applications.AD.Core ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Applications/AD/Core.trace')\nIntegrity guard: rebuilding Applications.AD.Modes ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Applications/AD/Modes.trace')\nIntegrity guard: rebuilding FirstOrder ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/FirstOrder.trace')\nIntegrity guard: rebuilding Applications.AD.Compiler ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Applications/AD/Compiler.trace')\nIntegrity guard: rebuilding SquareKit.Relations ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Relations.trace')\nIntegrity guard: rebuilding Applications.AD.Generalized ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Applications/AD/Generalized.trace')\nIntegrity guard: rebuilding Compiler ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Compiler.trace')\nIntegrity guard: rebuilding Applications.AD.HigherOrder ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Applications/AD/HigherOrder.trace')\n"
+    },
+    {
+      "line_start": 4144,
+      "line_end_inclusive": 4145,
+      "byte_start": 930325,
+      "byte_end_exclusive": 930451,
+      "bytes": 126,
+      "sha256": "705573934d98ce769256394f9e107c420c6747cc512be9981027e82ea9552799",
+      "text_utf8": "Integrity guard: hashed 0 artifacts; 4140 modules invalidated (0.55s).\nBuilding 4140 project modules with Lake (incremental).\n"
+    },
+    {
+      "line_start": 4155,
+      "line_end_inclusive": 4159,
+      "byte_start": 931694,
+      "byte_end_exclusive": 932125,
+      "bytes": 431,
+      "sha256": "ea2c2bf47a75eeeae23f32f2f57c36f2951f9591ae8ed24281cc9e72c7c735af",
+      "text_utf8": "ℹ [2615/2671] Built FirstOrder (5.7s)\ninfo: FirstOrder.lean:351:0: 'FirstOrderCompiler.compile_sound' depends on axioms: [propext]\ninfo: FirstOrder.lean:352:0: 'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]\ninfo: FirstOrder.lean:353:0: 'FirstOrderCompiler.letExample_all' depends on axioms: [propext]\ninfo: FirstOrder.lean:354:0: 'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]\n"
+    },
+    {
+      "line_start": 4299,
+      "line_end_inclusive": 4320,
+      "byte_start": 950465,
+      "byte_end_exclusive": 953640,
+      "bytes": 3175,
+      "sha256": "6d5f602ce1d82c5bb40dbb3c166a134f218a62a1e4aff909758c0ba216fc9325",
+      "text_utf8": "ℹ [3489/3512] Built Applications.AD.Verification (4.5s)\ninfo: Applications/AD/Verification.lean:7:0: 'Applications.AD.DMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:8:0: 'Applications.AD.tangent_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:9:0: 'Applications.AD.continuation_comp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:10:0: 'Applications.AD.continuation_pair' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:11:0: 'Applications.AD.adjoint_square_comp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:12:0: 'Applications.AD.gradient_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:13:0: 'Applications.AD.FirstOrder.compile_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:14:0: 'Applications.AD.FirstOrder.sharedPolynomial_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:15:0: 'Applications.AD.Generalized.compile_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:16:0: 'Applications.AD.Generalized.compile_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:17:0: 'Applications.AD.Generalized.compile_reverse_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:18:0: 'Applications.AD.Generalized.modes_agree' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:19:0: 'Applications.AD.Generalized.sharedPolynomial_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:20:0: 'Applications.AD.HigherOrder.eval_related' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:21:0: 'Applications.AD.HigherOrder.compileDual_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:22:0: 'Applications.AD.HigherOrder.compileCurveSquare' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:23:0: 'Applications.AD.HigherOrder.higherOrder_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:24:0: 'Applications.AD.Jets.jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:25:0: 'Applications.AD.Jets.jet_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:26:0: 'Applications.AD.Jets.towerMulSquare' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/AD/Verification.lean:27:0: 'Applications.AD.Jets.compile_jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "line_start": 4329,
+      "line_end_inclusive": 4347,
+      "byte_start": 954419,
+      "byte_end_exclusive": 956757,
+      "bytes": 2338,
+      "sha256": "09183aba0526f161f5fa8700d293f219a82181311f8ebbe21ea058aa2c76232b",
+      "text_utf8": "info: Applications/Parallel/Examples.lean:81:0: ([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],\n  [1, 2, 3, 4, 5, 6, 7, 8])\ninfo: Applications/Parallel/Examples.lean:82:0: ([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],\n  [1, 2, 3, 4, 5, 6, 7, 8])\ninfo: Applications/Parallel/Examples.lean:83:0: 49\ninfo: Applications/Parallel/Examples.lean:84:0: [10, 7, 15, 6]\ninfo: Applications/Parallel/Examples.lean:85:0: [2, 8, 14, 6, 13, 3, 12, 1]\ninfo: Applications/Parallel/Examples.lean:87:0: 'Applications.Parallel.Shape.scan_correct' depends on axioms: [propext, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:88:0: 'Applications.Parallel.Shape.scanNestedWith_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:89:0: 'Applications.Parallel.ScanPlan.correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:90:0: 'Applications.Parallel.Scanner.powers_correct' depends on axioms: [propext, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:91:0: 'Applications.Parallel.evaluatePolynomial_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:92:0: 'Applications.Parallel.Factor.twiddle_factorization' depends on axioms: [propext]\ninfo: Applications/Parallel/Examples.lean:93:0: 'Applications.Parallel.Factor.fft_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:94:0: 'Applications.Parallel.Factor.dft_eq_direct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:95:0: 'Applications.Parallel.Factor.fft_decode' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:96:0: 'Applications.Parallel.Factor.fourierRoot_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:97:0: 'Applications.Parallel.Factor.fourier_correct' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Parallel/Examples.lean:98:0: 'Applications.Parallel.Examples.fourOutput_value' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "line_start": 4652,
+      "line_end_inclusive": 4666,
+      "byte_start": 994589,
+      "byte_end_exclusive": 996578,
+      "bytes": 1989,
+      "sha256": "1d1fe920d9eb1bb90695e8f1b258257ff2461a5555e1ca7fba89f1a795bf2775",
+      "text_utf8": "ℹ [3744/3818] Built Applications.Timing.Examples (6.6s)\ninfo: Applications/Timing/Examples.lean:54:0: [[(some (1 / 4), some (1 / 4)), (some (1 / 4), some (1 / 4))],\n  [(some (3 / 10), some (3 / 10)), (some (3 / 10), some (3 / 10))]]\ninfo: Applications/Timing/Examples.lean:55:0: [[(some (1 / 4), some (1 / 4)), (some (1 / 2), some (1 / 2)), (some (1 / 2), some (1 / 2))],\n  [(some (3 / 5), some (3 / 5)), (some (17 / 20), some (3 / 5)), (some (17 / 20), some (3 / 5))]]\ninfo: Applications/Timing/Examples.lean:56:0: [(0, true), (1 / 2, true), (7 / 10, false), (9 / 10, true), (1, true)]\ninfo: Applications/Timing/Examples.lean:58:0: 'Applications.Timing.Interval.empty_product_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:59:0: 'Applications.Timing.Digital.square_compose' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:60:0: 'Applications.Timing.Digital.timingMatrixSquare' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:61:0: 'Applications.Circuits.Circuit.compile_matrix_stable' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:62:0: 'Applications.Timing.Adders.compiled_fullAdder' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:63:0: 'Applications.Timing.Adders.fullAdder_addition' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:64:0: 'Applications.Timing.Adders.fullAdder_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:65:0: 'Applications.Timing.Adders.hazard_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Applications/Timing/Examples.lean:66:0: 'Applications.Timing.Adders.carry_path_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "line_start": 4874,
+      "line_end_inclusive": 4891,
+      "byte_start": 1020492,
+      "byte_end_exclusive": 1021577,
+      "bytes": 1085,
+      "sha256": "3d4f361ca2d058995d71edec9f3bf364960dc4a3ebea70d8f313f15ce7a6cb3d",
+      "text_utf8": "warning: Applications/Sequences/LCA/ResidentInstallation.lean:232:5: Variable name `fit` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _fit\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Applications/Sequences/LCA/ResidentInstallation.lean:232:55: Variable name `wide` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _wide\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Applications/Sequences/LCA/ResidentInstallation.lean:344:5: Variable name `h` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    },
+    {
+      "line_start": 5060,
+      "line_end_inclusive": 5064,
+      "byte_start": 1041458,
+      "byte_end_exclusive": 1042136,
+      "bytes": 678,
+      "sha256": "04202008e939e3b601dd90a6ecad732391107f4514ec7bcb9dd439640bb07ca8",
+      "text_utf8": "ℹ [4481/4588] Built Examples.ArithmeticPipeline (40s)\ninfo: Examples/ArithmeticPipeline.lean:150:0: 'Examples.ArithmeticPipeline.compile_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Examples/ArithmeticPipeline.lean:151:0: 'Examples.ArithmeticPipeline.stack_after_update' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Examples/ArithmeticPipeline.lean:152:0: 'Examples.ArithmeticPipeline.stack_enclosed' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Examples/ArithmeticPipeline.lean:153:0: 'Examples.ArithmeticPipeline.incremental_output_enclosed' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "line_start": 5073,
+      "line_end_inclusive": 5078,
+      "byte_start": 1042679,
+      "byte_end_exclusive": 1043246,
+      "bytes": 567,
+      "sha256": "ca404b4caa30eafe0c5fde8b17693e57ee1da5d1bb0f59544a22fa1dca553359",
+      "text_utf8": "ℹ [4496/4614] Built Examples.ArithmeticStaging (22s)\ninfo: Examples/ArithmeticStaging.lean:46:0: (147, PUnit.unit)\ninfo: Examples/ArithmeticStaging.lean:47:0: [\"DUP\", \"SWAP\", \"PUSH\", \"DUP\", \"SWAP\", \"PUSH\", \"DUP\", \"SWAP\", \"PUSH\", \"SND\", \"POP\", \"SWAP\", \"PUSH\", \"DROP\", \"CONST 3\",\n  \"POP\", \"SND\", \"POP\", \"SWAP\", \"PUSH\", \"DUP\", \"SWAP\", \"PUSH\", \"SND\", \"POP\", \"SWAP\", \"PUSH\", \"DROP\", \"CONST 3\", \"POP\",\n  \"FST\", \"POP\", \"MUL\", \"POP\", \"SWAP\", \"PUSH\", \"POP\", \"DUP\", \"SWAP\", \"PUSH\", \"DUP\", \"SWAP\", \"PUSH\", \"FST\", \"SND\", \"POP\",\n  \"SWAP\", \"PUSH\", \"DROP\", \"CONST 3\", \"POP\", ⋯]\n"
+    },
+    {
+      "line_start": 5266,
+      "line_end_inclusive": 5267,
+      "byte_start": 1064735,
+      "byte_end_exclusive": 1064883,
+      "bytes": 148,
+      "sha256": "48420dcb7adabfe57cb67fc7a0128f780b01f4da8929fcb98f3df5c01a0002a1",
+      "text_utf8": "ℹ [9702/9825] Built Examples.BoundedArithmetic (6.3s)\ninfo: Examples/BoundedArithmetic.lean:131:0: bounded signed primitive runtime checks passed\n"
+    },
+    {
+      "line_start": 5414,
+      "line_end_inclusive": 5422,
+      "byte_start": 1079785,
+      "byte_end_exclusive": 1080402,
+      "bytes": 617,
+      "sha256": "a8ad96d1915d8883189eecf01c6994d4b756d85207c4c710b0347d164a7d1778",
+      "text_utf8": "ℹ [9814/10028] Built Examples.BoundedMotionArithmetic (16s)\ninfo: Examples/BoundedMotionArithmetic.lean:240:0: some (29, 29, 29)\ninfo: Examples/BoundedMotionArithmetic.lean:241:0: some (-28, -28, -28)\ninfo: Examples/BoundedMotionArithmetic.lean:242:0: some (128, 128, 129)\ninfo: Examples/BoundedMotionArithmetic.lean:243:0: some (-65, -65, -64)\ninfo: Examples/BoundedMotionArithmetic.lean:244:0: some (40, 40, 41)\ninfo: Examples/BoundedMotionArithmetic.lean:245:0: true\ninfo: Examples/BoundedMotionArithmetic.lean:246:0: false\ninfo: Examples/BoundedMotionArithmetic.lean:248:0: bounded motion runtime checks passed\n"
+    },
+    {
+      "line_start": 5643,
+      "line_end_inclusive": 6076,
+      "byte_start": 1101761,
+      "byte_end_exclusive": 1112570,
+      "bytes": 10809,
+      "sha256": "87bbcc08f182e4862d3802f507802ef43fe9fd1bc58ac6b691aafa7f90cc3a02",
+      "text_utf8": "ℹ [10001/10191] Built Examples.BoundedMotion (17s)\ninfo: Examples/BoundedMotion.lean:166:0: bounded-motion smoke cases passed\ninfo: Examples/BoundedMotion.lean:195:0: bounded tol=1/4 representative=0: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),\n (1 : Rat)/16,\n (43 : Rat)/256,\n 7,\n 22,\n 25,\n 109,\n 11,\n { expressionNodes := 3591,\n   inputScalarConversions := 33,\n   outputScalarConversions := 30,\n   integerGuardUnits := 294,\n   scheduleAndSearchUnits := 25,\n   retainedPacketWrites := 5,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 25,\n   outputListCells := 11 })\nbounded elapsed_ns_including_render=11002160\nrational tol=1/4 representative=0: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=8778190\nbounded tol=1/4 representative=1: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),\n (1 : Rat)/16,\n (43 : Rat)/256,\n 7,\n 22,\n 25,\n 109,\n 11,\n { expressionNodes := 3591,\n   inputScalarConversions := 33,\n   outputScalarConversions := 30,\n   integerGuardUnits := 294,\n   scheduleAndSearchUnits := 25,\n   retainedPacketWrites := 5,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 25,\n   outputListCells := 11 })\nbounded elapsed_ns_including_render=3163421\nrational tol=1/4 representative=1: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=283585\nbounded tol=1/4 representative=2: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),\n (1 : Rat)/16,\n (43 : Rat)/256,\n 7,\n 22,\n 25,\n 113,\n 11,\n { expressionNodes := 3591,\n   inputScalarConversions := 33,\n   outputScalarConversions := 30,\n   integerGuardUnits := 294,\n   scheduleAndSearchUnits := 25,\n   retainedPacketWrites := 5,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 25,\n   outputListCells := 11 })\nbounded elapsed_ns_including_render=2334535\nrational tol=1/4 representative=2: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=250446\nbounded tol=1/4 representative=3: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),\n (1 : Rat)/16,\n (43 : Rat)/256,\n 7,\n 22,\n 25,\n 113,\n 11,\n { expressionNodes := 3591,\n   inputScalarConversions := 33,\n   outputScalarConversions := 30,\n   integerGuardUnits := 294,\n   scheduleAndSearchUnits := 25,\n   retainedPacketWrites := 5,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 25,\n   outputListCells := 11 })\nbounded elapsed_ns_including_render=6635253\nrational tol=1/4 representative=3: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=278969\nbounded tol=1/2 representative=0: (none,\n (5 : Rat)/64,\n (23 : Rat)/64,\n 2,\n 5,\n 40,\n 107,\n 9,\n { expressionNodes := 1026,\n   inputScalarConversions := 13,\n   outputScalarConversions := 42,\n   integerGuardUnits := 84,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nbounded elapsed_ns_including_render=5905678\nrational tol=1/2 representative=0: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=307511\nbounded tol=1/2 representative=1: (none,\n (5 : Rat)/64,\n (23 : Rat)/64,\n 2,\n 5,\n 40,\n 107,\n 9,\n { expressionNodes := 1026,\n   inputScalarConversions := 13,\n   outputScalarConversions := 42,\n   integerGuardUnits := 84,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nbounded elapsed_ns_including_render=1097959\nrational tol=1/2 representative=1: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=274512\nbounded tol=1/2 representative=2: (none,\n (5 : Rat)/64,\n (93 : Rat)/256,\n 2,\n 5,\n 40,\n 111,\n 9,\n { expressionNodes := 1026,\n   inputScalarConversions := 13,\n   outputScalarConversions := 42,\n   integerGuardUnits := 84,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nbounded elapsed_ns_including_render=1035595\nrational tol=1/2 representative=2: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=220962\nbounded tol=1/2 representative=3: (none,\n (5 : Rat)/64,\n (93 : Rat)/256,\n 2,\n 5,\n 40,\n 111,\n 9,\n { expressionNodes := 1026,\n   inputScalarConversions := 13,\n   outputScalarConversions := 42,\n   integerGuardUnits := 84,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 1,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nbounded elapsed_ns_including_render=1230627\nrational tol=1/2 representative=3: (none,\n (5 : Rat)/64,\n (52777 : Rat)/262144,\n 2,\n 5,\n 831,\n 147,\n 9,\n { formulaNodes := 1026,\n   packetScalarBitScans := 20,\n   setupRationalCopies := 5,\n   outputRationalObservations := 42,\n   scheduleAndSearchUnits := 8,\n   retainedPacketWrites := 8,\n   setupAdmissionChecks := 0,\n   relabelScalarNegations := 2 },\n { initialScalarSlots := 5,\n   initialPredicates := 2,\n   eventSlots := 4,\n   candidateCells := 12,\n   candidateChecks := 15,\n   scheduleSlots := 128,\n   stepSlots := 128,\n   relabelQuarterTurns := 9,\n   outputScalarSlots := 40,\n   outputListCells := 9 })\nrational elapsed_ns_including_render=266791\n"
+    },
+    {
+      "line_start": 6117,
+      "line_end_inclusive": 6123,
+      "byte_start": 1117545,
+      "byte_end_exclusive": 1118023,
+      "bytes": 478,
+      "sha256": "04016ff5bf9f4b31721933d3a0db9a74a0bd45288407169710b22261fccf9603",
+      "text_utf8": "ℹ [10028/10214] Built Examples.CertifiedIndexConversion (18s)\ninfo: Examples/CertifiedIndexConversion.lean:82:0: some { common := CertifiedIndexConversion.Expr.succ\n              (CertifiedIndexConversion.Expr.succ\n                (CertifiedIndexConversion.Expr.succ\n                  (CertifiedIndexConversion.Expr.succ (CertifiedIndexConversion.Expr.zero)))) }\ninfo: Examples/CertifiedIndexConversion.lean:83:0: true\ninfo: Examples/CertifiedIndexConversion.lean:84:0: false\n"
+    },
+    {
+      "line_start": 6467,
+      "line_end_inclusive": 6469,
+      "byte_start": 1154724,
+      "byte_end_exclusive": 1156310,
+      "bytes": 1586,
+      "sha256": "d21bb855ba29a4264bc2889340d413e8a848cc797f8ef66fe121074d462c8b52",
+      "text_utf8": "✖ [10294/10349] Building Examples.CartesianFilling (115s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/Examples/CartesianFilling.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CartesianFilling.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CartesianFilling.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CartesianFilling.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CartesianFilling.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 6488,
+      "line_end_inclusive": 6488,
+      "byte_start": 1158847,
+      "byte_end_exclusive": 1158923,
+      "bytes": 76,
+      "sha256": "a64398000c87b276392a688f619ef6b6fcb7a88aa3cb25d43e1564c6049a96b8",
+      "text_utf8": "✖ [10304/10362] Building Examples.CartesianLargeFamilyConstructors (153s)\n"
+    },
+    {
+      "line_start": 6490,
+      "line_end_inclusive": 6491,
+      "byte_start": 1159141,
+      "byte_end_exclusive": 1160747,
+      "bytes": 1606,
+      "sha256": "8bb7e2ab23c1498637f7500210dac05ed5732304f6ee2c1fc7ce22ece495468c",
+      "text_utf8": "trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/Examples/CartesianLargeFamilyConstructors.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CartesianLargeFamilyConstructors.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CartesianLargeFamilyConstructors.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CartesianLargeFamilyConstructors.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CartesianLargeFamilyConstructors.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 6504,
+      "line_end_inclusive": 6507,
+      "byte_start": 1162632,
+      "byte_end_exclusive": 1164389,
+      "bytes": 1757,
+      "sha256": "94529f15491fe1fc90fa60485afc956471fa14bf6ce49645ea3b83d5f2455850",
+      "text_utf8": "✖ [10310/10381] Building SquareKit.Internal.Cubical.CartesianUniverse (273s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/SquareKit/Internal/Cubical/CartesianUniverse.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/Cubical/CartesianUniverse.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/Cubical/CartesianUniverse.setup.json --json\nerror: Lean exited with code 137\n⚠ [10319/10384] Ran Examples.CartesianHigherSeparation\n"
+    },
+    {
+      "line_start": 6771,
+      "line_end_inclusive": 6772,
+      "byte_start": 1193142,
+      "byte_end_exclusive": 1193254,
+      "bytes": 112,
+      "sha256": "d830db0f457850ca9497266961e4040f1c6257734d34a273ddff974536c642d0",
+      "text_utf8": "info: Examples/RecursiveCompilation.lean:158:0: (4, 7)\ninfo: Examples/RecursiveCompilation.lean:159:0: (14, 10)\n"
+    },
+    {
+      "line_start": 6854,
+      "line_end_inclusive": 6856,
+      "byte_start": 1202773,
+      "byte_end_exclusive": 1204401,
+      "bytes": 1628,
+      "sha256": "b5007ff4c760959aff17e39939b9c9d205565645480126268d5d62e690dbab84",
+      "text_utf8": "✖ [10573/10620] Building Examples.CubicalConstructorState (156s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/Examples/CubicalConstructorState.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CubicalConstructorState.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CubicalConstructorState.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CubicalConstructorState.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CubicalConstructorState.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 6883,
+      "line_end_inclusive": 6884,
+      "byte_start": 1206393,
+      "byte_end_exclusive": 1206521,
+      "bytes": 128,
+      "sha256": "a8996dac2879dd10770b72040f567b8fdd94e692420a9366bc8bc49a2507e788",
+      "text_utf8": "ℹ [10600/10659] Built Examples.CountedStackRun (329s)\ninfo: Examples/CountedStackRun.lean:34:0: counted stack controls passed\n"
+    },
+    {
+      "line_start": 7127,
+      "line_end_inclusive": 7129,
+      "byte_start": 1227883,
+      "byte_end_exclusive": 1229607,
+      "bytes": 1724,
+      "sha256": "30a77a8946bc86a3427d4cd2123b359eb03e4dd7c5b9d50aef0a2a05fb7641ed",
+      "text_utf8": "✖ [10822/10902] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (182s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/SquareKit/Internal/Cubical/CocycleOrdinaryAction.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 7153,
+      "line_end_inclusive": 7155,
+      "byte_start": 1231503,
+      "byte_end_exclusive": 1233155,
+      "bytes": 1652,
+      "sha256": "2a905fbd3beb514cf6b6f221dab79abd00759e341c0e229e5e662ca8e399b75b",
+      "text_utf8": "✖ [10845/10917] Building Examples.CubicalFrozenActionHomotopy (206s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/Examples/CubicalFrozenActionHomotopy.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CubicalFrozenActionHomotopy.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/CubicalFrozenActionHomotopy.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CubicalFrozenActionHomotopy.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/CubicalFrozenActionHomotopy.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 7330,
+      "line_end_inclusive": 7332,
+      "byte_start": 1249136,
+      "byte_end_exclusive": 1250842,
+      "bytes": 1706,
+      "sha256": "8eef153c711dd90cc484531369a59746a11a17cbef73acc2306c850dec712062",
+      "text_utf8": "✖ [10999/11048] Building Examples.DependentFunctionConversionSemantics (286s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/Examples/DependentFunctionConversionSemantics.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/DependentFunctionConversionSemantics.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/Examples/DependentFunctionConversionSemantics.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/DependentFunctionConversionSemantics.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/Examples/DependentFunctionConversionSemantics.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 7594,
+      "line_end_inclusive": 7595,
+      "byte_start": 1281666,
+      "byte_end_exclusive": 1281895,
+      "bytes": 229,
+      "sha256": "6499402c8d4647dd047307e8d0821ca66c6cd5b6039b568b94c723901cf571b6",
+      "text_utf8": "ℹ [11169/11232] Built Examples.ExecutableUnivalence (3.8s)\ninfo: Examples/ExecutableUnivalence.lean:227:0: Executable ua tests passed: Boolean, cycle/reversal, positive-cost cancellation, and all machine states at 0/1/8 steps.\n"
+    },
+    {
+      "line_start": 7721,
+      "line_end_inclusive": 7724,
+      "byte_start": 1297274,
+      "byte_end_exclusive": 1297769,
+      "bytes": 495,
+      "sha256": "3b8f5419116b9cfd8fd329a13e1c7c87f9ca5bb31dc3e2d90b431041d65e0817",
+      "text_utf8": "info: Applications/FRP/Equivalence.lean:1146:0: 'FRP.eventEquiv' depends on axioms: [propext, choice, Quot.sound]\ninfo: Applications/FRP/Equivalence.lean:1147:0: 'FRP.totalEventEquiv' depends on axioms: [propext, choice, Quot.sound]\ninfo: Applications/FRP/Equivalence.lean:1148:0: 'FRP.Realization.switcher_eq' depends on axioms: [propext, choice, Quot.sound]\ninfo: Applications/FRP/Equivalence.lean:1149:0: 'FRP.Examples.zeno_not_finiteHistory' depends on axioms: [propext, choice, Quot.sound]\n"
+    },
+    {
+      "line_start": 7770,
+      "line_end_inclusive": 7772,
+      "byte_start": 1303211,
+      "byte_end_exclusive": 1303519,
+      "bytes": 308,
+      "sha256": "7db39ec54365c5925ffc55fcb967a9e38919c1daf2f7d0374bae44ebbdce669e",
+      "text_utf8": "warning: SquareKit/Internal/PathTransport/TwoFamily.lean:15:0: `Family`: universes `u'`, `v'`, `w'` only occur together. This usually means there is a `max` expression in the type where none of these universes appear on their own.\n\nNote: This linter can be disabled with `set_option linter.checkUnivs false`\n"
+    },
+    {
+      "line_start": 7780,
+      "line_end_inclusive": 7781,
+      "byte_start": 1304025,
+      "byte_end_exclusive": 1304157,
+      "bytes": 132,
+      "sha256": "69f0d44f0aadc2a0620e14a00bc63f31273b4db4f2197a8010d963a76eb3f210",
+      "text_utf8": "ℹ [11284/11375] Built Examples.FRPEngine (669s)\ninfo: Examples/FRPEngine.lean:25:0: [none, none, none, none, some (2, [3, 4, 3])]\n"
+    },
+    {
+      "line_start": 7914,
+      "line_end_inclusive": 7917,
+      "byte_start": 1319385,
+      "byte_end_exclusive": 1319726,
+      "bytes": 341,
+      "sha256": "7ab98971da1d127b72170d9526ff69383b8f78a399e8844b2b95a7b48faee9b0",
+      "text_utf8": "ℹ [11384/11448] Built Examples.ReactiveTarget (1539s)\ninfo: Examples/ReactiveTarget.lean:16:0: ([(1, 7), (2, 7), (3, 10)], 3, 10)\ninfo: Examples/ReactiveTarget.lean:24:0: ([(1, 8), (2, 9), (3, 13)], (PUnit.unit, 3, 10), PUnit.unit)\ninfo: Examples/ReactiveTarget.lean:99:0: ([none, none, none, none, some (2, [3, 4, 3])], [(1, 10)], 1, 10)\n"
+    },
+    {
+      "line_start": 8049,
+      "line_end_inclusive": 8051,
+      "byte_start": 1331234,
+      "byte_end_exclusive": 1331584,
+      "bytes": 350,
+      "sha256": "287b6016556aa55a914ad96ce008500ad6231f0a5a5cc32b97abf16f8eeda385",
+      "text_utf8": "ℹ [11506/11563] Built Examples.ReactivePipeline (3082s)\ninfo: Examples/ReactivePipeline.lean:20:0: ([(none, none), (none, none), (none, none), (none, none), (some (2, [3, 4, 3]), some (1, 10))], 1, 10)\ninfo: Examples/ReactivePipeline.lean:25:0: ([(none, none), (none, none), (none, none), (none, none), (some (2, [3, 4, 3]), some (1, 11))], 1, 10)\n"
+    },
+    {
+      "line_start": 8057,
+      "line_end_inclusive": 8076,
+      "byte_start": 1331937,
+      "byte_end_exclusive": 1332522,
+      "bytes": 585,
+      "sha256": "8b353e61dcf12cb169c6bb90abf3118e6a336ccd318e8509198583efe4d8084c",
+      "text_utf8": "ℹ [11512/11566] Built Examples.GraphEmission (124s)\ninfo: Examples/GraphEmission.lean:5:0: graph dependencies: [Exists,\n Exists.intro,\n And,\n And.intro,\n Eq,\n Eq.refl,\n Exists.elim,\n _private.Init.Core.0.Exists.elim.match_1_1,\n Exists.casesOn,\n Exists.rec,\n Eq.trans,\n Eq.rec,\n And.right,\n congrArg,\n rfl,\n And.left]\ninfo: Examples/GraphEmission.lean:5:0: graph GraphEmitted.forward: axioms []\ninfo: Examples/GraphEmission.lean:5:0: graph dependencies: [Eq, Eq.refl, Exists, Exists.intro, And, And.intro]\ninfo: Examples/GraphEmission.lean:5:0: graph GraphEmitted.backward: axioms []\n"
+    },
+    {
+      "line_start": 8120,
+      "line_end_inclusive": 8128,
+      "byte_start": 1336247,
+      "byte_end_exclusive": 1336848,
+      "bytes": 601,
+      "sha256": "21ebb5302d956e8e916f4d0c34a74b6f5abd86b3ebb7bc86838cc800e07fa65f",
+      "text_utf8": "ℹ [11551/11614] Built Examples.RequestLifecycle (1874s)\ninfo: Examples/RequestLifecycle.lean:21:0: ([({ status := some (FRPSpec.Frontier.Lifecycle.BeginStatus.accepted), response := none }, none),\n  ({ status := none, response := none }, none),\n  ({ status := none, response := none }, none),\n  ({ status := none, response := some { id := 0, time := 2, batch := [3, 4, 3] } }, some (1, 10)),\n  ({ status := some (FRPSpec.Frontier.Lifecycle.BeginStatus.accepted), response := none }, none),\n  ({ status := none, response := some { id := 1, time := 2, batch := [3, 4, 3] } }, some (2, 20))],\n 2,\n 20)\n"
+    },
+    {
+      "line_start": 8203,
+      "line_end_inclusive": 8205,
+      "byte_start": 1343902,
+      "byte_end_exclusive": 1345638,
+      "bytes": 1736,
+      "sha256": "a0d4beb131407cc82a6b490b92c300ff6f7a86a729213b4fa77e30d88848790b",
+      "text_utf8": "✖ [11616/11642] Building SquareKit.Internal.DependentJudgments.ReferenceApd (262s)\ntrace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/acceptance139/SquareKit/Internal/DependentJudgments/ReferenceApd.lean -o /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ReferenceApd.olean -i /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ReferenceApd.ilean -c /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/DependentJudgments/ReferenceApd.c --setup /workspace/scratch/ae71b485b114/work/acceptance139/.lake/build/ir/SquareKit/Internal/DependentJudgments/ReferenceApd.setup.json --json\nerror: Lean exited with code 137\n"
+    },
+    {
+      "line_start": 8221,
+      "line_end_inclusive": 8229,
+      "byte_start": 1347503,
+      "byte_end_exclusive": 1348050,
+      "bytes": 547,
+      "sha256": "68c9b7c923547e65b7e05f76e4839b8908b00d4894be61d0cfda9b8d3c89a9d9",
+      "text_utf8": "ℹ [11631/11650] Built Examples.ExclusiveRequests (1811s)\ninfo: Examples/ExclusiveRequests.lean:22:0: ([({ status := some (FRPSpec.Frontier.Exclusive.BeginStatus.accepted), response := none }, none),\n  ({ status := none, response := none }, none),\n  ({ status := none, response := none }, none),\n  ({ status := none, response := some (2, [3, 4, 3]) }, some (1, 10)),\n  ({ status := some (FRPSpec.Frontier.Exclusive.BeginStatus.accepted), response := none }, none),\n  ({ status := none, response := some (2, [3, 4, 3]) }, some (2, 20))],\n 2,\n 20)\n"
+    },
+    {
+      "line_start": 8333,
+      "line_end_inclusive": 8334,
+      "byte_start": 1359744,
+      "byte_end_exclusive": 1359850,
+      "bytes": 106,
+      "sha256": "423dfe65a6abe05bcb6468d66a031cc014b2bb85b4a9abe5ebc944d2f6618cf6",
+      "text_utf8": "ℹ [11702/11743] Built Examples.IndexedFeedback (102s)\ninfo: Examples/IndexedFeedback.lean:105:0: (0, 3)\n"
+    },
+    {
+      "line_start": 8384,
+      "line_end_inclusive": 8386,
+      "byte_start": 1364245,
+      "byte_end_exclusive": 1364452,
+      "bytes": 207,
+      "sha256": "7d1d2ed9022f5c18cf3d0076948a83043c0c7528947c76a20630fa7c7c04af39",
+      "text_utf8": "ℹ [11745/11779] Built Examples.InitializedFeedback (1117s)\ninfo: Examples/InitializedFeedback.lean:133:0: ([(1, [3, 4, 3])], 1, [3, 4, 3])\ninfo: Examples/InitializedFeedback.lean:134:0: ([(1, [])], 1, [])\n"
+    },
+    {
+      "line_start": 8429,
+      "line_end_inclusive": 8440,
+      "byte_start": 1369622,
+      "byte_end_exclusive": 1370336,
+      "bytes": 714,
+      "sha256": "0db91204834a051c675e03eab2c6d2668ff8a779aab34ba85798eb2a1b8e0c17",
+      "text_utf8": "info: Applications/Orbifold/Kinetic/Regularity.lean:50:4: Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\ninfo: Applications/Orbifold/Kinetic/Regularity.lean:77:4: Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n"
+    },
+    {
+      "line_start": 8680,
+      "line_end_inclusive": 8686,
+      "byte_start": 1395252,
+      "byte_end_exclusive": 1395648,
+      "bytes": 396,
+      "sha256": "f93a491d76565816c5e66cf1cc50f607af1b3ec39c53db85e71f4eccce138e8c",
+      "text_utf8": "ℹ [11960/11978] Built Examples.NumericalError (198s)\ninfo: Examples/NumericalError.lean:31:67: Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n"
+    },
+    {
+      "line_start": 8764,
+      "line_end_inclusive": 8774,
+      "byte_start": 1404013,
+      "byte_end_exclusive": 1405024,
+      "bytes": 1011,
+      "sha256": "9757b185d31cbcd2388f7877047ab9abffbeffeda1a66a523ccd9e95bd2e1b07",
+      "text_utf8": "info: Examples/TreeJoin.lean:233:0: [(0, 0, 0, 0, 1), (1, 1, 2, 2, 2), (2, 3, 6, 4, 3), (3, 7, 14, 6, 4), (4, 15, 30, 8, 5), (5, 31, 62, 10, 6)]\ninfo: Examples/TreeJoin.lean:234:0: [([1, 2, 3, 5, 6, 7], 6, 3), ([1, 2, 3, 5, 6, 7], 6, 3), ([1, 2, 3, 5, 6, 7], 6, 4)]\nℹ [12017/12049] Built Examples.TreeRotations (4.2s)\ninfo: Examples/TreeRotations.lean:372:0: ([[]], [[], []], 1, 2)\ninfo: Examples/TreeRotations.lean:375:0: (true, 2, 3, 2, 3, 4)\ninfo: Examples/TreeRotations.lean:379:0: ([[], [], [1, 1], [1, 1, 1, 1]], 4, [3, 4, 5, 6, 7], [11, 10, 9, 8, 7])\ninfo: Examples/TreeRotations.lean:384:0: (true, true, true, true, true)\ninfo: Examples/TreeRotations.lean:390:0: (true, true, some [0, 9, 2, 3], true)\ninfo: Examples/TreeRotations.lean:395:0: ([7, 7], 1, [9, 1, 0], 3, 3, 2)\ninfo: Examples/TreeRotations.lean:399:0: [(0, 0, 0, 0, 0, 0), (1, 1, 1, 0, 1, 0), (2, 1, 3, 1, 2, 0), (3, 1, 5, 2, 3, 0), (4, 1, 7, 3, 4, 0), (5, 1, 9, 4, 5, 0)]\ninfo: Examples/TreeRotations.lean:403:0: ([1, 2, 3], 1, 3, 2, 4)\n"
+    },
+    {
+      "line_start": 8778,
+      "line_end_inclusive": 8785,
+      "byte_start": 1405209,
+      "byte_end_exclusive": 1405885,
+      "bytes": 676,
+      "sha256": "1093fa5c133728e56ae56ce3390cbc46051ec5dbd17d349227fae74dfe5c74aa",
+      "text_utf8": "ℹ [12021/12051] Built Examples.OrderedTreeRotations (8.4s)\ninfo: Examples/OrderedTreeRotations.lean:110:0: ([1, 2, 3], [14, 24, 34], 1, 1)\ninfo: Examples/OrderedTreeRotations.lean:114:0: [[0, 0], [0], [], [1], [1, 1]]\nℹ [12022/12052] Built Examples.OrderedTreeDeletion (9.1s)\ninfo: Examples/OrderedTreeDeletion.lean:182:0: [false, true, true, true, false]\ninfo: Examples/OrderedTreeDeletion.lean:183:0: [([], [1, 3, 5]), ([], [3, 5]), ([1], [3, 5]), ([1], [5]), ([1, 3], [5]), ([1, 3, 5], [])]\ninfo: Examples/OrderedTreeDeletion.lean:186:0: [([1, 3, 4, 5, 6], 5, 3), ([1, 3, 4, 5, 6], 5, 3)]\ninfo: Examples/OrderedTreeDeletion.lean:188:0: (some none, none, some (some 9))\n"
+    },
+    {
+      "line_start": 8794,
+      "line_end_inclusive": 8803,
+      "byte_start": 1406510,
+      "byte_end_exclusive": 1407414,
+      "bytes": 904,
+      "sha256": "8725a47796a390f5fcca8ab84816062920298a5a173c365a2bfa2b9867950242",
+      "text_utf8": "ℹ [12030/12063] Built Examples.OrderedSetRefinement (12s)\ninfo: Examples/OrderedSetRefinement.lean:288:0: [[1, 2, 3, 0, 0], [1, 3, 0, 0], [1, 3, 0, 0, 4]]\ninfo: Examples/OrderedSetRefinement.lean:289:0: [[1, 5, 7, 9], [1, 3, 5, 7, 9], [1, 3, 7, 9], [1, 3, 5, 9]]\ninfo: Examples/OrderedSetRefinement.lean:290:0: [([], 0, 0), ([2], 1, 1), ([1, 2], 2, 2), ([1, 2, 3], 3, 2), ([1, 2, 3], 3, 2), ([1, 3], 2, 2), ([1, 2, 3], 3, 3),\n  ([2, 3], 2, 2), ([2, 3], 2, 2), ([2], 1, 1), ([], 0, 0)]\ninfo: Examples/OrderedSetRefinement.lean:291:0: [([], 0, 0), ([2], 1, 1), ([1, 2], 2, 2), ([1, 2, 3], 3, 2), ([1, 2, 3], 3, 2), ([1, 3], 2, 2), ([1, 2, 3], 3, 3),\n  ([2, 3], 2, 2), ([2, 3], 2, 2), ([2], 1, 1), ([], 0, 0)]\ninfo: Examples/OrderedSetRefinement.lean:292:0: ((true, 2), true, 4)\ninfo: Examples/OrderedSetRefinement.lean:293:0: (some 9, none)\ninfo: Examples/OrderedSetRefinement.lean:296:0: (some 9, none)\n"
+    },
+    {
+      "line_start": 9017,
+      "line_end_inclusive": 9028,
+      "byte_start": 1431472,
+      "byte_end_exclusive": 1433310,
+      "bytes": 1838,
+      "sha256": "f50df2eedee7ee316b181ef87b9653f3d43567b3b05b946702a57a4131fc2ea8",
+      "text_utf8": "warning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Applications/Resources/QuickSortMean.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n✔ [12174/12224] Built Applications.Resources.QuickSortTransport (89s)\n✔ [12175/12225] Built Applications.QuantumSemantics.Permutations (154s)\n✔ [12176/12225] Built Applications.QuantumSemantics.Program (155s)\n⚠ [12177/12226] Built Applications.QuantumSemantics.Qubit (156s)\nwarning: Applications/QuantumSemantics/Qubit.lean: imports `Mathlib.LinearAlgebra.Matrix.Notation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Applications/QuantumSemantics/Qubit.lean: imports `Mathlib.Analysis.SpecialFunctions.Sqrt` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n✔ [12178/12240] Built Examples.QuickSortCosts (73s)\n"
+    }
+  ],
+  "retained_text": {
+    "bytes": 47526,
+    "sha256": "8fe1bfa027bb0644f0a05038025396492624ec22d8df2eb93300d89fa59f6d8f"
+  },
+  "omitted_chatter": {
+    "successful_job_chatter": {
+      "lines": 3058,
+      "bytes": 210904
+    },
+    "missing_trace_rebuild_chatter": {
+      "lines": 4131,
+      "bytes": 928391
+    },
+    "module_system_import_warning": {
+      "lines": 1133,
+      "bytes": 246489
+    }
+  },
+  "observed_children": [
+    {
+      "module": "Examples.CartesianFilling",
+      "job_line": 6467,
+      "trace_line": 6468,
+      "diagnostic_line": 6469,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CartesianLargeFamilyConstructors",
+      "job_line": 6488,
+      "trace_line": 6490,
+      "diagnostic_line": 6491,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.CartesianUniverse",
+      "job_line": 6504,
+      "trace_line": 6505,
+      "diagnostic_line": 6506,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CubicalConstructorState",
+      "job_line": 6854,
+      "trace_line": 6855,
+      "diagnostic_line": 6856,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.Cubical.CocycleOrdinaryAction",
+      "job_line": 7127,
+      "trace_line": 7128,
+      "diagnostic_line": 7129,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.CubicalFrozenActionHomotopy",
+      "job_line": 7153,
+      "trace_line": 7154,
+      "diagnostic_line": 7155,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "Examples.DependentFunctionConversionSemantics",
+      "job_line": 7330,
+      "trace_line": 7331,
+      "diagnostic_line": 7332,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    },
+    {
+      "module": "SquareKit.Internal.DependentJudgments.ReferenceApd",
+      "job_line": 8203,
+      "trace_line": 8204,
+      "diagnostic_line": 8205,
+      "actual_exit_code": 137,
+      "literal_diagnostic": "error: Lean exited with code 137"
+    }
+  ],
+  "retained_ellipsis_lines": [
+    5078
+  ],
+  "original_full_log_reconstructible": false,
+  "availability_limit": "This capsule promises the listed literal segments, their original offsets and outcome context. The omitted repetitive lines are not recoverable from this successor. The original full-log descriptor remains historical provenance.",
+  "assessment_reading_limit": "Complete bytes were classified and all failure headers/exit diagnostics plus nonroutine-warning contexts were inspected. No fresh complete reading or mathematical approval of every retained informational/evaluation statement is claimed.",
+  "source_accepted": false,
+  "compiler_run_for_this_capsule": false,
+  "normal_candidate_command": [
+    "./check.sh",
+    "--candidate",
+    "50581179674f0ccf364ca3c372b5e07e5c70c80e"
+  ],
+  "command_provenance_member": "current/operations/whole139-retry-analysis/README.md",
+  "original_wrapper_argv_availability": "The selected historical ledger binds the original start record by descriptor; no missing full wrapper argv is fabricated.",
+  "historical_observation_member": "current/evidence/diagnostics/whole139-observation.json",
+  "binding_observations": {
+    "retained_source_equality_records": [
+      "current/operations/whole139-retry-analysis/OBSERVATIONS.json",
+      "current/evidence/diagnostics/whole139-eighth-child146.json"
+    ],
+    "limit": "Recorded direct source/checker equality and dependency-head observations are not an exhaustive transitive-input proof, terminal invariance result or cause of exit137."
+  },
+  "original_reading_limit": "Root read the failure observations and selected tails; no fresh full-log reading is claimed by freezing this prefix.",
+  "ownership_limit": "The original workspace was later lost without an observed outer terminal. This capsule supplies no surviving-writer or cause evidence. An independently owned later workspace does not retroactively complete this run."
+}

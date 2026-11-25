@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "name": "native-cache147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/conaled",
+    "--",
+    "lake",
+    "exe",
+    "cache",
+    "get"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/conaled",
+  "started_utc": "2026-11-24T19:07:42.536773+00:00",
+  "source_bindings": {
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/lib/runtime.py": {
+      "bytes": 6267,
+      "sha256": "cafe22ddc9a0de09a7dad5ef70fbd1c0b752217281cafed6bd71b7601d9413ad",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/lib/app_path.c": {
+      "bytes": 3848,
+      "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    }
+  },
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+  "finished_utc": "2026-11-24T19:10:50.184909+00:00",
+  "elapsed_seconds": 187.64677824199998,
+  "recorded_utc": "2026-11-24T19:10:50.208822+00:00",
+  "exit_code": 0,
+  "source_bindings_after": {
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/lib/runtime.py": {
+      "bytes": 6267,
+      "sha256": "cafe22ddc9a0de09a7dad5ef70fbd1c0b752217281cafed6bd71b7601d9413ad",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/lib/app_path.c": {
+      "bytes": 3848,
+      "sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conaled/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    }
+  },
+  "sources_unchanged": true,
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/native-cache147.log",
+  "log_descriptor": {
+    "bytes": 15757,
+    "sha256": "67fc71ca72917759d0ea8989745aaa23386cb01a2c38b4b92562faccb48a42a1",
+    "mode": "100644"
+  },
+  "child_exit_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/native-cache147.child-exit.json",
+    "bytes": 1197,
+    "sha256": "6a675aeafa1d7aced3e4c7afc1ed472e15abaf552509e6bd1cf8e30a88ba825a",
+    "mode": "100644"
+  }
+}

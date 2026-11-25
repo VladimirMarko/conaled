@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "run_id": "whole155",
+  "cutoff_utc": "2026-11-25T06:42:35.088499+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "actual_outer_terminal_observed": false,
+  "actual_outer_exit_code": null,
+  "outer_outcome": "UNKNOWN",
+  "writer_cessation_established": false,
+  "log_kind": "frozen-prefix-of-continuing-owned-run",
+  "frozen_log": {
+    "bytes": 1361428,
+    "sha256": "0fd2d9f9f399cd184e1f7e02d1462f53a9daf64aaf6d2bc675aec224dfe73639",
+    "mode": "100644"
+  },
+  "frozen_log_lines": 7891,
+  "frozen_workspace_carrier": "/workspace/scratch/ae71b485b114/work/checkpoint156-root/whole-observation/whole155.frozen156.log",
+  "complete_raw_log_will_be_retained": false,
+  "previous_snapshot": {
+    "member": "current/evidence/validation/whole155/INDEX.json",
+    "cutoff_utc": "2026-11-25T06:09:18.070235+00:00",
+    "descriptor": {
+      "original_path": "/workspace/scratch/ae71b485b114/work/checkpoint155-root/whole-observation/whole155.frozen.log",
+      "bytes": 1292012,
+      "sha256": "96a2835796f7c4737aac94366ddb228d45dde26675a2ee6dee86ac55df9e2434",
+      "mode": "100644"
+    },
+    "exact_prefix_extension_verified": true
+  },
+  "new_suffix_byte_start": 1292012,
+  "new_suffix_descriptor": {
+    "bytes": 69416,
+    "sha256": "8fcb0b0f9810485685f88e513c93cae82ed97f0d34d8550e701484ad81c6b283",
+    "mode": "100644"
+  },
+  "failed_job_lines": [
+    "\u2716 [10221/10307] Building Examples.FiniteUniverseLoops (70s)",
+    "\u2716 [10854/10927] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (96s)",
+    "\u2716 [11068/11114] Building Examples.DependentFunctionConversionSemantics (125s)"
+  ],
+  "error_lines": [
+    "error: Lean exited with code 137",
+    "error: Lean exited with code 137",
+    "error: Lean exited with code 137"
+  ],
+  "reported_137_lines": 3,
+  "cause_established": false,
+  "source_bindings_before_nonnull": true,
+  "source_bindings_before_count": 16842,
+  "source_before_record": {
+    "record_id": "whole155.start",
+    "descriptor": {
+      "bytes": 4449054,
+      "sha256": "90575be3f5aa923249991ff46e3ee6a0715a6f9d6de84ad1873cb0666edda568",
+      "mode": "100644"
+    },
+    "existing_reconstruction": "current/evidence/validation/whole155/whole155-capsule.json"
+  },
+  "source_bindings_after_available": false,
+  "sources_unchanged": null,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "root_exclusive_compiler_owner": true,
+  "root_exec_session": 29456,
+  "failed_project_outputs_reused": false,
+  "resource_or_compiler_settings_changed": false,
+  "author_working_source_matches_C155_at_observation": true,
+  "new_Lean_commands_since_checkpoint155_cutoff": 0,
+  "resource_observation": {
+    "disk_total_bytes": 20957446144,
+    "disk_available_bytes": 1442516992,
+    "mem_total": "10206472 kB",
+    "mem_available": "5732760 kB",
+    "swap_total": "0 kB"
+  },
+  "diagnostic_selection_authorization": "Select only new consequential diagnostics from this frozen suffix. Reuse the retained original cutoff capsule, diagnostic body and exact start reconstruction. Do not read the continuing live log or products; do not duplicate complete maps or prefixes.",
+  "limits": "This is a further observation of the same running command, not a new compiler invocation or terminal. Three or more child failures do not establish an outer exit or resource cause. Raw-log and new-suffix bodies will be retired after exact diagnostic selection; the archive will not reconstruct the complete log. The source-match check concerns the author working tree, not an inferred complete whole-run after-map."
+}

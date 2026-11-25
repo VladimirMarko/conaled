@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "name": "polynomial-owner147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "started_utc": "2026-11-24T19:23:49.465009+00:00",
+  "finished_utc": "2026-11-24T19:23:52.273737+00:00",
+  "elapsed_seconds": 2.806057308000163,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.start.json",
+    "bytes": 19337,
+    "sha256": "31e39e98e535d7653c8d4c4c575b37371c9ecd9cef0025bfa2d6c4aaa646bf82",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

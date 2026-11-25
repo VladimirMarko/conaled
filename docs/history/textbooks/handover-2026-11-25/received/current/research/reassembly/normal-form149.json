@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "Exact current checked development carrier; no ordinary installation or acceptance.",
+  "target": {
+    "path": "work/normal-form149-checks/NormalForm149c.lean",
+    "bytes": 7334,
+    "sha256": "56c29430edca5ceb50a00ae1c31699e8b1e3fe26605497abbdb3653c77e522e1"
+  },
+  "inputs": [
+    {
+      "path": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "bytes": 3167,
+      "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a"
+    },
+    {
+      "path": "current/research/polynomial-normal-form149/NaturalPolynomialNormalFormCases149.lean",
+      "bytes": 2060,
+      "sha256": "e2498dad7e17f1fe7c0571addb53375b96a7322ba6b8f19311966c01855d7d3e"
+    }
+  ],
+  "pieces": [
+    {
+      "literal_utf8": "import Mathlib.Algebra.Polynomial.Degree.Lemmas\n"
+    },
+    {
+      "source": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "byte_start": 0,
+      "byte_end_exclusive": 3167,
+      "slice_sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a"
+    },
+    {
+      "literal_utf8": "\n"
+    },
+    {
+      "source": "current/research/polynomial-normal-form149/NaturalPolynomialNormalFormCases149.lean",
+      "byte_start": 0,
+      "byte_end_exclusive": 2060,
+      "slice_sha256": "e2498dad7e17f1fe7c0571addb53375b96a7322ba6b8f19311966c01855d7d3e"
+    },
+    {
+      "literal_utf8": "\n/-! Actual query carrier: retained draft body above exactly once. -/\n#check Resources.PolynomialTime.NormalFormDraft148.exponent\n#check Resources.PolynomialTime.NormalFormDraft148.eval_monotone\n#check Resources.PolynomialTime.NormalFormDraft148.eval_le_coefficient_sum_mul_power\n#check Resources.PolynomialTime.NormalFormDraft148.eval_zero_le_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.eval_one_le_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound\nset_option pp.all true in\n#check Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound\n#print axioms Resources.PolynomialTime.NormalFormDraft148.eval_le_power_add_exponent\n#print axioms Resources.PolynomialTime.NormalFormDraft148.exists_power_add_bound\n\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.zero_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_degree\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_values\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_exponent\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.zero_bound\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_bound\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_bound\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound\nset_option pp.all true in\n#check Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound\n#print axioms Resources.PolynomialTime.NormalFormDraft148.Cases.zero_bound\n#print axioms Resources.PolynomialTime.NormalFormDraft148.Cases.constant_seven_bound\n#print axioms Resources.PolynomialTime.NormalFormDraft148.Cases.indeterminate_bound\n#print axioms Resources.PolynomialTime.NormalFormDraft148.Cases.mixed_bound\n"
+    }
+  ],
+  "current_source_candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "current_source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d"
+}

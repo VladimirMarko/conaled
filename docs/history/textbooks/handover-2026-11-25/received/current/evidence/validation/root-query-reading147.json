@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "reader": "/root",
+  "time_utc": "2026-11-24T19:31:08.089317+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "query_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927",
+    "lines": 7801
+  },
+  "freshly_read_inclusive_ranges": [
+    [
+      1,
+      75
+    ],
+    [
+      5724,
+      7801
+    ]
+  ],
+  "new_tail_complete": true,
+  "new_tail": {
+    "bytes": 162955,
+    "sha256": "f7e777939166c4563ff50578cdef668d18ff53313095c862447b0dabb812a90e",
+    "literal_omission_glyphs": 0
+  },
+  "new_observations": {
+    "readable": 239,
+    "expanded": 7,
+    "selected_roots": 9
+  },
+  "old_prefix_reading": "No fresh full root rereading of lines1\u20135723. Coordinator is independently recording exact equality to the full prior146 output and its attributed prior reading. Root freshly read only1\u201375 of that prefix in this turn.",
+  "output_delivery_limits": "Two broad tool outputs were truncated. The affected6428\u20136510 and7601\u20137801 ranges were subsequently reread in full without tool truncation. No hidden text behind actual printer omissions is claimed.",
+  "semantic_checks": [
+    "OrdinaryPackage fixes machine/output map/fallback before raw input; supplied source main and register retained; all-index alphabet finiteness remains separate.",
+    "Actual EncodedRun plus complete TrCfg singleton halt relation supplies native run and complete singleton tape; bound preludeSteps raw+B+1 and stored1+(before.steps+preludeSteps raw) remain distinct; outerNone adds1.",
+    "Generic fixtures preserve24symbols,blank/delimiter/presentfalse distinctions,whole-tape orientation,opposite fallbacks, and7-step/allowance10 formula cases.",
+    "PrintMove normal boundaries preserve complete tape; moves cost1,writes2 with actual right/left excursion; stopped Boolean decision pays1 and outerNone separately.",
+    "All actual-prefix interval claims retain max N1+U and do not assert arbitrary initial tape support.",
+    "Native decider consumer retains supplied alphabet blank/control start/embedding,actual native+target run witnesses,literal input length and polynomial2*d.time+1.",
+    "All9new selected-root outputs list only propext,Classical.choice,Quot.sound; this is not the exhaustive audit."
+  ],
+  "all_seven_installed_namespace_bodies_freshly_read": true,
+  "source_acceptance": false,
+  "whole_library_and_final_review": "pending"
+}

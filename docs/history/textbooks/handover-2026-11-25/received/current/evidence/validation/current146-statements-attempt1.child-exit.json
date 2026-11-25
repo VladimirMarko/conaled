@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "current146-statements-attempt1",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance139",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance139",
+  "started_utc": "2026-11-24T12:21:42.442138+00:00",
+  "finished_utc": "2026-11-24T12:26:56.224414+00:00",
+  "elapsed_seconds": 313.7760097340033,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.start.json",
+    "bytes": 78994,
+    "sha256": "828c675952157d2999213475d6231e901350bf08b103ece65786cd949a21bcc0",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

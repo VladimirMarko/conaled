@@ -1,0 +1,491 @@
+{
+  "schema": "whole139-read-only-retry-analysis-v1",
+  "observed_utc": "2026-11-24T09:48:50.267437+00:00",
+  "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "public_prerequisite_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "checkout_head": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "boundary": "Read-only source and metadata analysis; no compiler, process-control, cache/source/output/Git mutation, cleanup, or GitHub action. Research files only. No diagnosis of exit137 or startup stall is established.",
+  "prefix": {
+    "path": "work/continuation/whole139-failure-prefix143.log",
+    "bytes": 1268672,
+    "sha256": "57bada2a6addee30e05f6b7517580c5f68ef3f25848cf61c16ce2985e97547be"
+  },
+  "prefix_status_record": {
+    "path": "work/continuation/whole139-failures-observed143.json",
+    "bytes": 14677,
+    "sha256": "62084d0c44c09bedf9aed2efc036f7b29a6d1fa37ff14fa9971f77e45ef1f42c"
+  },
+  "current_terminal_receipts": {
+    "whole139.child-exit.json": {
+      "exists": false
+    },
+    "whole139.result.json": {
+      "exists": false
+    }
+  },
+  "failed_module_source_identities": [
+    {
+      "prefix_line": 6469,
+      "module": "Examples.CartesianFilling",
+      "path": "work/acceptance139/Examples/CartesianFilling.lean",
+      "bytes": 12910,
+      "sha256": "40e8198fabafc4b278f47660e8f171a4367fd66d95c19b9105021b1f6d84a3d2",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 6491,
+      "module": "Examples.CartesianLargeFamilyConstructors",
+      "path": "work/acceptance139/Examples/CartesianLargeFamilyConstructors.lean",
+      "bytes": 11498,
+      "sha256": "776f87375dfd9221457e224d998f865c453bc9ee015f06d443c536c9520ddee4",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 6506,
+      "module": "SquareKit.Internal.Cubical.CartesianUniverse",
+      "path": "work/acceptance139/SquareKit/Internal/Cubical/CartesianUniverse.lean",
+      "bytes": 129109,
+      "sha256": "8b561d529fc9310f69bb4f72b8e0eea6848dab848c769c8b4c3840d7828a36dd",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 6856,
+      "module": "Examples.CubicalConstructorState",
+      "path": "work/acceptance139/Examples/CubicalConstructorState.lean",
+      "bytes": 21214,
+      "sha256": "13c57d26bc7beed4bb2c2ca9c279c240835dbfee01632deba6becc35f06730a4",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 7129,
+      "module": "SquareKit.Internal.Cubical.CocycleOrdinaryAction",
+      "path": "work/acceptance139/SquareKit/Internal/Cubical/CocycleOrdinaryAction.lean",
+      "bytes": 1751,
+      "sha256": "ad5f1294612d41a86c8ad27ab17ce586d7237982250311d7a98e17297bd1904a",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 7155,
+      "module": "Examples.CubicalFrozenActionHomotopy",
+      "path": "work/acceptance139/Examples/CubicalFrozenActionHomotopy.lean",
+      "bytes": 2499,
+      "sha256": "b3e148e6ffcc68fa7f65020170625c029a8414ca310fa09745ecac20e848d347",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "prefix_line": 7332,
+      "module": "Examples.DependentFunctionConversionSemantics",
+      "path": "work/acceptance139/Examples/DependentFunctionConversionSemantics.lean",
+      "bytes": 3260,
+      "sha256": "f40997841de46ef00e0422b1b2b7752b5e5599bd567ad7bce322f11c8f01d982",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    }
+  ],
+  "checker_input_identities": [
+    {
+      "path": "work/acceptance139/scripts/check.py",
+      "bytes": 16215,
+      "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/scripts/lake_integrity.py",
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/docs/development.md",
+      "bytes": 21541,
+      "sha256": "e21fd90793a89acc8837f8624adf0e01ac93efebc6e641c9f6277389398e18bf",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/docs/agents/lake-integrity-incidents.md",
+      "bytes": 5122,
+      "sha256": "05c2e53a3fdd37e470fe6d45ea6ec86718fffc6a9c3d33ff97e2db3b48354b8d",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/check.sh",
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/lean-toolchain",
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/lakefile.toml",
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/lake-manifest.json",
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    },
+    {
+      "path": "work/acceptance139/ProofAudit.lean",
+      "bytes": 9052,
+      "sha256": "0215a7a894ca8368624e6c15bdb739304a3825a0e70ba84a8ffe4be468ac0b32",
+      "working_equals_candidate_blob": true,
+      "working_equals_M_blob": true
+    }
+  ],
+  "dependency_heads": [
+    {
+      "name": "mathlib",
+      "manifest_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "head": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "matches_pin": true
+    },
+    {
+      "name": "plausible",
+      "manifest_revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "head": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "matches_pin": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "manifest_revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "head": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "matches_pin": true
+    },
+    {
+      "name": "importGraph",
+      "manifest_revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "head": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "matches_pin": true
+    },
+    {
+      "name": "proofwidgets",
+      "manifest_revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "head": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "matches_pin": true
+    },
+    {
+      "name": "aesop",
+      "manifest_revision": "4a174c490d8707121c4a9290800489f105d85e07",
+      "head": "4a174c490d8707121c4a9290800489f105d85e07",
+      "matches_pin": true
+    },
+    {
+      "name": "Qq",
+      "manifest_revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "head": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "matches_pin": true
+    },
+    {
+      "name": "batteries",
+      "manifest_revision": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "head": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "matches_pin": true
+    },
+    {
+      "name": "Cli",
+      "manifest_revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "head": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "matches_pin": true
+    }
+  ],
+  "other_inspected_source_descriptors": [
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/CLI/Main.lean",
+      "bytes": 58018,
+      "sha256": "330d8ebde227bee7234892dabe2191fcd387c8d582559537baca1e207f9196d3"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/CLI/Help.lean",
+      "bytes": 40551,
+      "sha256": "82e09cc8d8318305b0ba239d740f8650b5435c2f9e8a91b4a58fff7a0b19f6dd"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Load/Config.lean",
+      "bytes": 3146,
+      "sha256": "7292223420baa665c49a71a022191bddf8507243e310161d10b52a83f3238e4b"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Load/Workspace.lean",
+      "bytes": 2590,
+      "sha256": "dd23a173478243833d443dae8ffd28695f9a9b0ca00dd03ee88d039d1f6dd129"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Load/Lean/Elab.lean",
+      "bytes": 12041,
+      "sha256": "5b3d30d5a9001514e7ff3d8c95a71bd0b29a79777e12c441e79563af0acb1674"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Load/Resolve.lean",
+      "bytes": 26089,
+      "sha256": "f90d1e01f6ee9d6087b5d4d1de348f2ce39b0be8f58b5e19a2094f714ebd892d"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Load/Materialize.lean",
+      "bytes": 11481,
+      "sha256": "d5383864d2f105e37d230964ffa54d462c6434dc1feb0d9b8e73ff2fb87fd17b"
+    },
+    {
+      "path": "work/external-tools/lean-4.35.0-linux/src/lean/lake/Lake/Util/Lock.lean",
+      "bytes": 2026,
+      "sha256": "e41f9a5b34cb425553ce6c9af377f4f89b85f8f6f8d8299c570b195b7d7e927d"
+    },
+    {
+      "path": "restored/conaled-textbooks-136-progress-2026-11-23/operations/SETUP.md",
+      "bytes": 4273,
+      "sha256": "330d68b2ff3b73b921192582355a609b335463e6c8f637e5a1986a528c9eb2d8"
+    },
+    {
+      "path": "restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4"
+    },
+    {
+      "path": "restored/conaled-textbooks-136-progress-2026-11-23/operations/native/lib/runtime.py",
+      "bytes": 6267,
+      "sha256": "cafe22ddc9a0de09a7dad5ef70fbd1c0b752217281cafed6bd71b7601d9413ad"
+    },
+    {
+      "path": "work/continuation/run_recorded.py",
+      "bytes": 4529,
+      "sha256": "b15a27b2d60878b9ace50a907f72534fc0774d471b1932f370e538af0f8225b0"
+    },
+    {
+      "path": "work/review/post-whole139-plan.md",
+      "bytes": 14045,
+      "sha256": "1045b69152e9f1ce8ab602b0d6e1c4da586a08b7b0ede40f08c5d731ec225cc3"
+    },
+    {
+      "path": "work/checkpoint140a-results/retire140a-copies.py",
+      "bytes": 5717,
+      "sha256": "19b260bfd508fcab6087a898a9e11367001e03fde53b8c1426e786ec65a1f079"
+    }
+  ],
+  "configuration_metadata": [
+    {
+      "path": "work/conaled/.lake/config/1/lakefile.olean",
+      "exists": true,
+      "bytes": 727328,
+      "mtime_utc": "2026-11-24T07:39:58.876118+00:00"
+    },
+    {
+      "path": "work/conaled/.lake/config/1/lakefile.olean.trace",
+      "exists": true,
+      "bytes": 180,
+      "mtime_utc": "2026-11-24T07:39:57.789865+00:00",
+      "trace": {
+        "platform": "x86_64-unknown-linux-gnu",
+        "options": {},
+        "name": "mathlib",
+        "leanHash": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+        "idx": 1,
+        "configHash": "0fc9f7ba58e2d0a1"
+      }
+    },
+    {
+      "path": "work/conaled/.lake/config/1/lakefile.olean.lock",
+      "exists": false
+    },
+    {
+      "path": "work/conaled/.lake/config/5/lakefile.olean",
+      "exists": true,
+      "bytes": 763384,
+      "mtime_utc": "2026-11-24T07:40:39.929016+00:00"
+    },
+    {
+      "path": "work/conaled/.lake/config/5/lakefile.olean.trace",
+      "exists": true,
+      "bytes": 297,
+      "mtime_utc": "2026-11-24T07:40:39.358866+00:00",
+      "trace": {
+        "platform": "x86_64-unknown-linux-gnu",
+        "options": {
+          "errorOnBuild": "ProofWidgets failed to reuse pre-built JS code. Please report this issue on the Lean Zulip."
+        },
+        "name": "proofwidgets",
+        "leanHash": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+        "idx": 5,
+        "configHash": "a4f8a6ba6807ecfe"
+      }
+    },
+    {
+      "path": "work/conaled/.lake/config/5/lakefile.olean.lock",
+      "exists": false
+    },
+    {
+      "path": "work/acceptance139/.lake/config/1/lakefile.olean",
+      "exists": true,
+      "bytes": 727328,
+      "mtime_utc": "2026-11-24T07:56:51.084861+00:00"
+    },
+    {
+      "path": "work/acceptance139/.lake/config/1/lakefile.olean.trace",
+      "exists": true,
+      "bytes": 180,
+      "mtime_utc": "2026-11-24T07:56:49.084442+00:00",
+      "trace": {
+        "platform": "x86_64-unknown-linux-gnu",
+        "options": {},
+        "name": "mathlib",
+        "leanHash": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+        "idx": 1,
+        "configHash": "0fc9f7ba58e2d0a1"
+      }
+    },
+    {
+      "path": "work/acceptance139/.lake/config/1/lakefile.olean.lock",
+      "exists": false
+    },
+    {
+      "path": "work/acceptance139/.lake/config/5/lakefile.olean",
+      "exists": true,
+      "bytes": 763384,
+      "mtime_utc": "2026-11-24T07:56:51.968868+00:00"
+    },
+    {
+      "path": "work/acceptance139/.lake/config/5/lakefile.olean.trace",
+      "exists": true,
+      "bytes": 297,
+      "mtime_utc": "2026-11-24T07:56:51.245151+00:00",
+      "trace": {
+        "platform": "x86_64-unknown-linux-gnu",
+        "options": {
+          "errorOnBuild": "ProofWidgets failed to reuse pre-built JS code. Please report this issue on the Lean Zulip."
+        },
+        "name": "proofwidgets",
+        "leanHash": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+        "idx": 5,
+        "configHash": "a4f8a6ba6807ecfe"
+      }
+    },
+    {
+      "path": "work/acceptance139/.lake/config/5/lakefile.olean.lock",
+      "exists": false
+    }
+  ],
+  "disk_observation": {
+    "volume_bytes": 20957446144,
+    "available_bytes": 1783496704,
+    "free_including_reserved_bytes": 2874015744,
+    "cause_inference": null
+  },
+  "earlier_du_approximate_allocated_sizes": {
+    "work/conaled/.lake/packages": "7.3G",
+    "work/acceptance139/.lake/build": "2.9G",
+    "work/external-tools/lean-4.35.0-linux": "3.0G",
+    "work/conaled-public": "517M",
+    "work/checkpoint139-preparation": "42M",
+    "work/checkpoint140-preparation": "70M",
+    "work/checkpoint140a-preparation": "103M",
+    "checkpoints": "50M",
+    "restored": "121M"
+  },
+  "prior_research_freeze_checks": [
+    {
+      "path": "work/certificate-research/EXPECTATIONS.md",
+      "bytes": 3612,
+      "sha256": "49558304cbc544390c79ef5108173250d883b363340c0ffc326ae6429faf31ed",
+      "expected_sha256": "49558304cbc544390c79ef5108173250d883b363340c0ffc326ae6429faf31ed",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/CertificateCorrespondence.lean",
+      "bytes": 6178,
+      "sha256": "32ab2ae3a6f9fe67268909a9c6334e3945ee758775ab5ff69685124a508b4853",
+      "expected_sha256": "32ab2ae3a6f9fe67268909a9c6334e3945ee758775ab5ff69685124a508b4853",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/FiniteCertificateTime.lean",
+      "bytes": 5635,
+      "sha256": "7d2a8939a21d49341e32f3f410dfb273571e31978ea9363cd6990d1a40c9d3fc",
+      "expected_sha256": "7d2a8939a21d49341e32f3f410dfb273571e31978ea9363cd6990d1a40c9d3fc",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/README.md",
+      "bytes": 12562,
+      "sha256": "8dafeed268fe69eff83b8c85eda339ba04a0b06d0dac6ed3441593fce225f5e2",
+      "expected_sha256": "8dafeed268fe69eff83b8c85eda339ba04a0b06d0dac6ed3441593fce225f5e2",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/SOURCE-HASHES.txt",
+      "bytes": 1106,
+      "sha256": "e190ca89ec1c655200f46fedf12520a9e221c075f1c320fd5b15a82c904bff36",
+      "expected_sha256": "e190ca89ec1c655200f46fedf12520a9e221c075f1c320fd5b15a82c904bff36",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/DRAFT-STATUS.json",
+      "bytes": 2310,
+      "sha256": "e77358a290de951bb9f2be9124a2fccc3f109ef850cc4603b4b0e8e5b3d20baa",
+      "expected_sha256": "e77358a290de951bb9f2be9124a2fccc3f109ef850cc4603b4b0e8e5b3d20baa",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/examples/CertificateCorrespondenceExamples.lean",
+      "bytes": 9645,
+      "sha256": "ad1812c598ec325fe2d5937a8a51817e61be323c3757146f7790efc237b8df66",
+      "expected_sha256": "ad1812c598ec325fe2d5937a8a51817e61be323c3757146f7790efc237b8df66",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/examples/FiniteCertificateTimeExamples.lean",
+      "bytes": 5501,
+      "sha256": "1f2037614237518dba98be937b2f69d016d67dfddfad6380f29780cf21a02102",
+      "expected_sha256": "1f2037614237518dba98be937b2f69d016d67dfddfad6380f29780cf21a02102",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/examples/README.md",
+      "bytes": 4044,
+      "sha256": "f0975d4ae862a9b54826c586b6c31e95da5e6b08ea574b97d26919b4b984e718",
+      "expected_sha256": "f0975d4ae862a9b54826c586b6c31e95da5e6b08ea574b97d26919b4b984e718",
+      "matches_prior_freeze": true
+    },
+    {
+      "path": "work/certificate-research/examples/EXAMPLE-STATUS.json",
+      "bytes": 3227,
+      "sha256": "8e2564661a7365be0f2b7c02877d7027edd37df5fed46fd4b45bd344943c6dfd",
+      "expected_sha256": "8e2564661a7365be0f2b7c02877d7027edd37df5fed46fd4b45bd344943c6dfd",
+      "matches_prior_freeze": true
+    }
+  ],
+  "prior_research_sets_unchanged": true,
+  "retry_executed": false,
+  "retirement_executed": false,
+  "cause_established": false,
+  "prepared_artifacts": [
+    {
+      "path": "work/environment/whole139-retry-analysis/README.md",
+      "bytes": 14092,
+      "sha256": "2c8b21c81d379329c083b29539ed438974ec518372168de867b2760d8a3d9f66"
+    },
+    {
+      "path": "work/environment/whole139-retry-analysis/RETRY-PLAN.md",
+      "bytes": 5271,
+      "sha256": "f51f0529a159cec3544cb7ab44af74ed561197e6213a02a37231b22a058e7819"
+    }
+  ]
+}

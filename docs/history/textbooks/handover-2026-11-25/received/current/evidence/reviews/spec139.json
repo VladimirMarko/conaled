@@ -1,0 +1,853 @@
+{
+  "schema": "conaled.spec-review.2",
+  "reviewer": "/root/requirements_review/spec139",
+  "original_reviewer": "/root/parser_review/spec",
+  "successor_identity_explicit": true,
+  "same_original_loop": true,
+  "round": 8,
+  "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "tree": "24195b45e05fcdcdfcf3956d6d3024dddee724c5",
+  "ticket_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 48,
+  "observed_utc": "2026-11-24T09:02:54.479923+00:00",
+  "outcome": "Blocked",
+  "review_complete": false,
+  "source_findings": [
+    {
+      "id": "SP-D001",
+      "severity": "P2",
+      "status": "unresolved",
+      "title": "Active continuation gates still describe the pre-controller 46-owner stage",
+      "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "field": "local_state.CTB-78.next_action",
+          "line": 236
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "field": "next_ticket_gate",
+          "line": 2427
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "field": "source_readiness.current_gate",
+          "line": 903
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "field": "qualification_basis.current_gate",
+          "line": 921
+        }
+      ],
+      "evidence": "All four undated active fields prescribe cumulative46 and implementing the complete controller. Candidate139 has the full controller plus timing producer/client in scope48; CTB-24.next_implementation_gate line1564 and native_tm1_timing_continuation explicitly describe that current state.",
+      "requirement": "Full cumulative48 scope and timing addendum138; accurate current continuation/recovery guidance while preserving inherited requirements and historical evidence.",
+      "consequence": "A new chat or integration reader following an active gate is directed to the wrong candidate scope and already implemented work, obscuring the timing increment and current acceptance gate.",
+      "remedy": "Update these active fields to the implemented-but-unaccepted48-owner state, explicitly retaining requirements1-15, timing-addendum138, whole validation/verification/comparison and both review axes; preserve dated46-owner baseline/preimplementation history and all qualification boundaries.",
+      "exposure": "Root identified the relevant locations after Standards review; Spec independently inspected immutable139 fields and compared current source/status. Successor Standards report was not read. No claim of independently discovering these locations."
+    }
+  ],
+  "validation_findings": [
+    {
+      "id": "SP-V001",
+      "severity": "blocking acceptance",
+      "status": "unresolved",
+      "carried_from_round": 1,
+      "reassessed_round": 8,
+      "title": "Required exact-candidate integrated validation is unavailable",
+      "requirement": "requirements15+timing-addendum138 acceptance gates; README Build and audit; docs/development.md; docs/agents/review-loop.md Validation of the candidate",
+      "evidence": "Root reports whole139 still running. No terminal whole139 receipt or final exhaustive audit result, immediate nonrepairing verification or supported final comparison supplied. Matching focused timing module/client build and public-type/selected-axiom log do not cover the whole acceptance gate.",
+      "consequence": "No Passed Spec outcome, source acceptance or integrated acceptance for139.",
+      "remedy": "Supply actual successful matching isolated whole-library build/exhaustive audit and stable input receipts, immediate supported nonrepairing final verification and supported final comparison; reassess the same stable finding. Source/document correction requires a new immutable candidate and continued review."
+    }
+  ],
+  "source_read": [
+    {
+      "repository_path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "lines": 600,
+      "complete_source_read": true,
+      "method": "Immutable git show; all source lines through EOF."
+    },
+    {
+      "repository_path": "Examples/TuringSimulation.lean",
+      "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+      "bytes": 14887,
+      "sha256": "d66d068f0f5fa477c721305ed7c769d5fbc26ef9cc74f83ecb4d7f044b2ee7a6",
+      "lines": 357,
+      "complete_source_read": true,
+      "method": "Immutable git show; all source lines through EOF."
+    }
+  ],
+  "statement_read": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types139.log",
+    "bytes": 17549,
+    "sha256": "fe74e5f67d597d12639a588f5d865708f06bfc004c21e6e40f19c0f1c8e22e66",
+    "complete_log_read": true,
+    "public_producer_types": 23,
+    "pretty_print_elisions": "Existential witness types elided in default log were checked against explicit source types; proof terms not claimed expanded."
+  },
+  "additive_spec_read": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+    "bytes": 5708,
+    "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7",
+    "complete": true
+  },
+  "remaining_reading": [
+    "Exact successful whole139 terminal receipt and exhaustive audit, matching immediate supported nonrepairing final verification, and supported final candidate comparison. Root reports run still active; no pass inferred.",
+    "Any corrected immutable candidate needs explicit delta review/full-scope reassessment within this same loop; no future140 edit is applied to139."
+  ],
+  "historical_rounds_retained": 7,
+  "historical_unknown_outcomes_unchanged": true,
+  "source_accepted": false,
+  "compiler_commands_run": false,
+  "source_or_dependency_mutation": false,
+  "github_messages_sent": false,
+  "historical_reuse": {
+    "report": "restored/conaled-textbooks-136-progress-2026-11-23/evidence/spec-review-round7.md",
+    "report_read": "complete 286 lines in bounded ranges",
+    "original_author": "/root/parser_review/spec",
+    "source_analysis_reused_only_for_exactly_matching_bodies": true,
+    "review_approval_reused": false,
+    "matching_source_descriptors": [
+      {
+        "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+        "bytes": 11312,
+        "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+        "bytes": 12371,
+        "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+      },
+      {
+        "path": "Examples/RotationCertificateParsing.lean",
+        "bytes": 12173,
+        "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+        "bytes": 16291,
+        "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Witness.lean",
+        "bytes": 4494,
+        "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+        "bytes": 7117,
+        "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211"
+      },
+      {
+        "path": "Examples/RotationCertificateVerification.lean",
+        "bytes": 16154,
+        "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+        "bytes": 15284,
+        "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+        "bytes": 12641,
+        "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+      },
+      {
+        "path": "Examples/RotationCertificateBinary.lean",
+        "bytes": 14837,
+        "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+        "bytes": 20150,
+        "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267"
+      },
+      {
+        "path": "Examples/RotationCertificateBitDecoderMachine.lean",
+        "bytes": 15665,
+        "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+        "bytes": 34844,
+        "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+      },
+      {
+        "path": "Examples/RotationCertificateBitPairFraming.lean",
+        "bytes": 27139,
+        "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1"
+      },
+      {
+        "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+        "bytes": 40378,
+        "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+        "bytes": 28035,
+        "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a"
+      },
+      {
+        "path": "Examples/RotationCertificateFuelMachine.lean",
+        "bytes": 40502,
+        "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b"
+      },
+      {
+        "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+        "bytes": 69147,
+        "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c"
+      },
+      {
+        "path": "Examples/RotationCertificateTreeParserMachine.lean",
+        "bytes": 64635,
+        "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664"
+      }
+    ],
+    "historical_rounds": 7,
+    "unknown_outcomes": "unchanged"
+  },
+  "reading_progress_additional": {
+    "guidance": [
+      "complete candidate code-review SKILL.md",
+      "complete candidate example-driven-development SKILL.md",
+      "complete candidate review-loop.md",
+      "complete candidate task-authority.md",
+      "Complete candidate docs/adr/0010-composition-and-proof-audit.md; earlier output gap closed by full immutable reread"
+    ],
+    "native_mathlib": {
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "complete_ranges": [
+        [
+          137,
+          173
+        ],
+        [
+          331,
+          704
+        ]
+      ],
+      "claims": "TM2 source statement semantics, dependent track representation, native trStAct/go/ret, full TrCfg relation; action proof inspected"
+    },
+    "requirements15_preambles_read": [
+      [
+        6756,
+        6815
+      ],
+      [
+        7235,
+        7293
+      ],
+      [
+        8351,
+        8418
+      ],
+      [
+        10829,
+        10952
+      ],
+      [
+        12506,
+        12515
+      ],
+      [
+        14098,
+        14111
+      ],
+      [
+        17219,
+        17292
+      ]
+    ],
+    "front_end_stream_producer": {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "full_content_ranges_read": [
+        [
+          1,
+          130
+        ],
+        [
+          146,
+          246
+        ],
+        [
+          277,
+          302
+        ],
+        [
+          326,
+          410
+        ],
+        [
+          566,
+          660
+        ],
+        [
+          1369,
+          1488
+        ],
+        [
+          1996,
+          2010
+        ],
+        [
+          2177,
+          2255
+        ],
+        [
+          6545,
+          6750
+        ]
+      ],
+      "selected_public_contract_ranges": [
+        [
+          7259,
+          7403
+        ],
+        [
+          7935,
+          7966
+        ],
+        [
+          8088,
+          8159
+        ],
+        [
+          8174,
+          8201
+        ],
+        [
+          8715,
+          8859
+        ],
+        [
+          8893,
+          9086
+        ]
+      ],
+      "limits": "Selected contract extraction is not complete file/proof reading; some types with := implicit arguments ended early and require full source followup. Definitions indexes are navigation only.",
+      "superseded_by": "Complete later FrontEndStreamMachine entry under component_contract_reading; initial partial-reading limits below are historical progress only."
+    },
+    "front_end_stream_client": {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "full_content_ranges_read": [
+        [
+          20,
+          204
+        ],
+        [
+          1452,
+          1545
+        ],
+        [
+          1603,
+          1617
+        ],
+        [
+          1624,
+          1801
+        ],
+        [
+          9050,
+          9182
+        ]
+      ],
+      "limits": "Output omitted portions of1617-1623; all84 literal fields/case connections not independently reconciled yet. The81-case aggregate is read, not a substitute for individual case assessment.",
+      "superseded_by": "Complete later FrontEndStreamMachine entry under component_contract_reading; initial partial-reading limits below are historical progress only."
+    },
+    "component_contract_reading": {
+      "OpenDecoderMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          911
+        ],
+        "client_path": "Examples/RotationCertificateOpenDecoderMachine.lean",
+        "client_contract_view_range": [
+          1,
+          703
+        ],
+        "method": "Immutable candidate git show; all definitions and instance bodies plus theorem/lemma headers, ordinary proof bodies omitted. Contract view is not an elaborated-type or all-proof reading."
+      },
+      "OpenFramingMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          973
+        ],
+        "client_path": "Examples/RotationCertificateOpenFramingMachine.lean",
+        "client_contract_view_range": [
+          1,
+          598
+        ],
+        "method": "Immutable candidate git show; all definitions and instance bodies plus theorem/lemma headers, ordinary proof bodies omitted. Contract view is not an elaborated-type or all-proof reading."
+      },
+      "TreeEqualityMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          875
+        ],
+        "client_path": "Examples/RotationCertificateTreeEqualityMachine.lean",
+        "client_contract_view_range": [
+          1,
+          1107
+        ],
+        "method": "Immutable candidate git show; all definitions and instance bodies plus theorem/lemma headers, ordinary proof bodies omitted. Contract view is not an elaborated-type or all-proof reading.",
+        "additional_full_source_range": [
+          450,
+          642
+        ]
+      },
+      "MoveParserMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          1476
+        ],
+        "client_path": "Examples/RotationCertificateMoveParserMachine.lean",
+        "client_contract_view_range": [
+          1,
+          999
+        ],
+        "method": "Immutable candidate git show; all definitions and instance bodies plus theorem/lemma headers, ordinary proof bodies omitted. Contract view is not an elaborated-type or all-proof reading."
+      },
+      "InputParserMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          2406
+        ],
+        "client_path": "Examples/RotationCertificateInputParserMachine.lean",
+        "client_contract_view_range": [
+          1,
+          1301
+        ],
+        "method": "Immutable candidate git show; all definitions and instance bodies plus theorem/lemma headers, ordinary proof bodies omitted. Contract view is not an elaborated-type or all-proof reading."
+      },
+      "FrontEndMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          2962
+        ],
+        "client_path": "Examples/RotationCertificateFrontEndMachine.lean",
+        "client_contract_view_range": [
+          1,
+          1526
+        ],
+        "method": "Immutable candidate git show; full definitions/instances plus complete theorem/lemma type text, ordinary proof bodies omitted. Supplemented output truncation and record-field extraction omissions with bounded rereads. Not actual elaborated-type output or all-proof reading."
+      },
+      "PositionedRotationMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          3883
+        ],
+        "client_path": "Examples/RotationCertificatePositionedRotationMachine.lean",
+        "client_contract_view_range": [
+          1,
+          2665
+        ],
+        "method": "Immutable candidate git show; full definitions/instances plus complete theorem/lemma type text, ordinary proof bodies omitted. Supplemented output truncation and record-field extraction omissions with bounded rereads. Not actual elaborated-type output or all-proof reading.",
+        "producer_full_source_extra": [
+          [
+            2120,
+            2229
+          ]
+        ],
+        "client_full_source_extra": [
+          [
+            1215,
+            1287
+          ]
+        ]
+      },
+      "MoveApplyMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          4585
+        ],
+        "client_path": "Examples/RotationCertificateMoveApplyMachine.lean",
+        "client_contract_view_range": [
+          1,
+          3502
+        ],
+        "method": "Immutable candidate git show; full definitions/instances and complete theorem/lemma type text, ordinary theorem proof bodies omitted. Output gaps253\u2013333 client and2953\u20132976 producer separately reread. Not actual elaborated types or all-proof reading.",
+        "complete_client_contract_read": true,
+        "client_full_source_extra": [
+          [
+            1266,
+            1334
+          ],
+          [
+            2320,
+            2360
+          ]
+        ]
+      },
+      "StreamMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          6788
+        ],
+        "client_path": "Examples/RotationCertificateStreamMachine.lean",
+        "client_contract_view_ranges": [
+          [
+            1,
+            1320
+          ],
+          [
+            1906,
+            6555
+          ]
+        ],
+        "client_trace_boundary_read": [
+          1312,
+          1905
+        ],
+        "client_omitted_trace_interiors": "Most intermediate literal TracePoint rows for A15\u2013A21,D01\u2013D13,R01\u2013R10 in1321\u20131905 not reread. All44 independent input/output/time/peak records and all44 actual edge/strict-owned/cell contracts plus their first-run/peak conclusions were read. Endpoints of each omitted trace read; generic connection and selected full edge proofs independently read.",
+        "producer_full_source_extra": [
+          [
+            1714,
+            1763
+          ],
+          [
+            5709,
+            5792
+          ]
+        ],
+        "client_full_source_extra": [
+          [
+            3523,
+            3580
+          ],
+          [
+            2077,
+            2119
+          ],
+          [
+            4632,
+            4686
+          ],
+          [
+            4720,
+            4753
+          ]
+        ],
+        "method": "Immutable candidate git show; all producer operational definitions/instances plus complete theorem types, client public types and fixed expectations; ordinary proofs omitted except listed ranges. Output gap5281\u20135335 separately reread. No elaborated-type or all-proof reading claim."
+      },
+      "FrontEndStreamMachine": {
+        "producer_path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+        "producer_contract_view_range": [
+          1,
+          9086
+        ],
+        "client_path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+        "client_contract_view_range": [
+          1,
+          9923
+        ],
+        "producer_full_source_extra": [
+          [
+            3770,
+            3880
+          ],
+          [
+            2398,
+            2416
+          ],
+          [
+            5619,
+            5649
+          ],
+          [
+            5972,
+            5987
+          ],
+          [
+            8013,
+            8055
+          ],
+          [
+            8113,
+            8126
+          ]
+        ],
+        "method": "Immutable candidate git show; complete producer and client definitions/instances and theorem types. Ordinary theorem proof bodies omitted except listed extra ranges. Contract-view leading-whitespace omissions 3803 and 3839 found and fully reread; all candidate Lean declaration scan found exactly those two affected headers. Client output gap 1010\u20131165 separately reread. All 84 literal records, 142 literal cleaner boundaries, 96 enumerated distinct/complete domains, actual connected run/peak contracts and genuine finite-package outputs independently assessed. Not an all-proof or actual-elaborated-type reading claim.",
+        "client_full_source_extra": [
+          [
+            5546,
+            5572
+          ],
+          [
+            5764,
+            5797
+          ],
+          [
+            5837,
+            5873
+          ],
+          [
+            6478,
+            6514
+          ],
+          [
+            6938,
+            6960
+          ],
+          [
+            8500,
+            8590
+          ],
+          [
+            9050,
+            9184
+          ],
+          [
+            9910,
+            9923
+          ]
+        ]
+      }
+    },
+    "viewer_audit": "Improved read-only contract view to retain record fields, implicit defaults and proof-side let expressions in theorem types. Mechanically compared old/new printed-line sets for the first five component pairs: no dropped type lines; FrontEnd client125 restored lines reread. Initial partial controller extraction was superseded by the complete recorded contract view and full omission rereads. Leading-whitespace declaration audit across all changed candidate Lean paths found exactly two controller producer headers3803/3839; helper corrected and both full source/proof bodies read.",
+    "requirements15_additional_ranges_read": [
+      [
+        10953,
+        11125
+      ],
+      [
+        12506,
+        12600
+      ],
+      [
+        17219,
+        17529
+      ],
+      [
+        17530,
+        18751
+      ],
+      [
+        38413,
+        38916
+      ],
+      [
+        6818,
+        7080
+      ],
+      [
+        7675,
+        7974
+      ],
+      [
+        8698,
+        9189
+      ],
+      [
+        9932,
+        10209
+      ],
+      [
+        11918,
+        12398
+      ],
+      [
+        13112,
+        13700
+      ],
+      [
+        13753,
+        13831
+      ],
+      [
+        14706,
+        14907
+      ],
+      [
+        14964,
+        15444
+      ],
+      [
+        16347,
+        16445
+      ],
+      [
+        16620,
+        16733
+      ],
+      [
+        7294,
+        7673
+      ],
+      [
+        11126,
+        11883
+      ],
+      [
+        12598,
+        13056
+      ],
+      [
+        12775,
+        12981
+      ],
+      [
+        15753,
+        16346
+      ],
+      [
+        16446,
+        16619
+      ],
+      [
+        14293,
+        14705
+      ],
+      [
+        8419,
+        8697
+      ],
+      [
+        9603,
+        9931
+      ],
+      [
+        5526,
+        5729
+      ],
+      [
+        5931,
+        6259
+      ]
+    ],
+    "requirements15_reading_limits": "Complete intended public-claim and case assessment across all48 owners, using the listed new normative outline/API/case ranges, the frozen controller literal cross-check, and explicitly attributed original-round7 analysis for19 unchanged Lean owners. Not every line of the53,261-line append-only requirements body, embedded supporting script/trace/provenance, or the74,901-line paper was reread. Ordinary proof bodies were read only in listed supplementary ranges; source-level explicit arguments were inspected, not every elaborated helper type.",
+    "literal_fixture_comparison": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec139-literal-comparison.json",
+      "helper": "/workspace/scratch/ae71b485b114/work/review/spec139-literal-comparison.py",
+      "positive_cases": 81,
+      "fields_compared": 1292,
+      "mismatches": 0,
+      "limits": "Literal syntax and typed JSON equality only. No machine execution, Lean compilation, elaboration or independent proof. All84 records and actual case connections separately assessed;142 boundary records and three liveness rows read but not executed by helper."
+    },
+    "document_preservation": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec139-document-preservation.json",
+      "restored136_paper_exact_prefix": true,
+      "controller_fixed_bodies_retained_verbatim": 26,
+      "paper_fresh_read_ranges": [
+        [
+          1,
+          120
+        ],
+        [
+          74818,
+          74901
+        ]
+      ],
+      "limits": "Entire74,901-line paper not reread; current appended timing section read completely, inherited paper retained byte-for-byte, relevant normative material assessed via requirements15 and original matching analysis."
+    },
+    "document_active_fields": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/spec139-active-document-check.json",
+      "read": "All current/changed CTB scalar and structured mathematical preparation fields, current gates, added timing continuation, author-increment record, integration stage/gates and qualification boundaries; all coverage delta/current fields; complete textbook README, external-agent and inbox README; whole aggregate import delta. Historical extensive JSON bodies not reread wholesale.",
+      "aggregate_scoped_modules": 41,
+      "aggregate_missing_direct_imports": [],
+      "qualification_numeric_changes": false,
+      "finding": "SP-D001"
+    }
+  },
+  "source_findings_outcome": "Findings-present",
+  "source_assessment_complete": true,
+  "full_spec": {
+    "requirements15": {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+      "bytes": 2205749,
+      "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+    },
+    "addendum": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7",
+      "complete": true
+    },
+    "unchanged_inherited_requirements": true,
+    "current_user_overrides": [
+      "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+      "The previous session had been updating https://github.com/VladimirMarko/conaled/issues/558, but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on conaled."
+    ]
+  },
+  "scope_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate139.json",
+    "manifest": "/workspace/scratch/ae71b485b114/work/review/manifest139.json",
+    "continuity": "/workspace/scratch/ae71b485b114/work/review/review-continuity139.json",
+    "scope_id": "44159b46912df222316d4e37c456dc924604d4a529a4a3a4698149ab5185ab24",
+    "source_id": "35f307b3ebd0c5c684e19a295a2616c9a11995fae3504b615adaef9b9d947af5",
+    "projection_id": "1895a3bfffb7fa9371271270f6cbcd5961bed89766e7e6738aed2c049d913fad",
+    "entries": {},
+    "exclude": [],
+    "source_access": "Immutable git show50581179674f0ccf364ca3c372b5e07e5c70c80e:path only; later live drafts excluded."
+  },
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20",
+    "rounds_preserved": 7,
+    "missing_round1_to4_standalone_bodies_not_reconstructed": true,
+    "historical_unknowns_preserved": true,
+    "current_round": 8
+  },
+  "validation_evidence_received": {
+    "focused_module_build": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/modules139-attempt1.result.json",
+      "sha256": "a2427cbee2b733292d9d26163ee6d1b32010acd6d9353d62894a0c87fa47c3b7",
+      "exit_code": 0
+    },
+    "public_types": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types139.log",
+      "bytes": 17549,
+      "sha256": "fe74e5f67d597d12639a588f5d865708f06bfc004c21e6e40f19c0f1c8e22e66",
+      "complete_log_read": true,
+      "public_producer_types": 23,
+      "pretty_print_elisions": "Existential witness types elided in default log were checked against explicit source types; proof terms not claimed expanded."
+    },
+    "public_types_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types139.result.json",
+      "sha256": "b55f7b2b28a8a41756756a2511fd216225ecbf204f053eda2ce412a9a15a196a",
+      "exit_code": 0
+    },
+    "selected_axiom_queries": 4,
+    "selected_axiom_result": "propext,Classical.choice,Quot.sound only; not exhaustive whole-library audit",
+    "whole139": "RUNNING as last root observation; no terminal result supplied",
+    "final_verification": "not supplied",
+    "final_comparison": "not supplied",
+    "reviewer_ran_compiler": false
+  },
+  "current_conclusions": [
+    "Complete48-owner semantic assessment using explicit19-owner historical reuse, complete22-new-owner public/operational/case reading with listed proof/trace limits, aggregate import assessment and all active/changed documentary fields.",
+    "No actionable mathematical statement/definition/case-connection defect established in the reviewed scope. This is not a proof that all intended mathematics is captured or that unread proof/provenance bodies have independently been checked.",
+    "SP-D001 P2 unresolved in four active continuation gates. OverallBlocked; stable SP-V001 remains unresolved.",
+    "All84 controller records,142 cleaner boundaries and96 generic domains assessed;81positive literal expectations matched1292frozen fields.",
+    "Timing is native TM1 label activation count, retaining full tape/tracks/registers and source-side size assumptions; primitive TM0 time/visited-space, ordinary input/output, fixed-controller quantitative instantiation and fullNP/programme remain open.",
+    "No current source acceptance, original-axis approval, new canonical row qualification or receiving publication is claimed."
+  ],
+  "historical_provisional_conclusions": [
+    "No actionable source defect found in fully read timing increment.",
+    "Controller inspected definitions retain16 stores, paid4 joins, unrestricted data/register inputs, partial-cleaner/direct-emitter semantics and exact LocalRun abstraction.",
+    "Inspected canonical controller API keeps shared inclusive reached witness, distinct outer-none tail and exact raw polynomial/peak contracts; all cumulative new owners are not yet fully assessed.",
+    "Open framing/decoder, move parser and equality contract views preserve literal dirty accumulators, failure rollback/consumption, finite runtime transitions, frames and source-vs-machine clocks. Input parser producer contract view and client1-650 assessed; later clients and proof connections remain. No actionable source finding established in these inspected views; no full-scope acceptance.",
+    "FrontEnd complete contract view checks four actual staged traces and static full configuration transports, live syntactic output, exact12M+10C+11 success clock and raw-cell bound. Position complete contract view checks16 finite phases/102 temporaries, arbitrary dirty execution, literal rollback, represented tree+old saved+suffix result, consumed path, separate source/machine clocks, paid inverse reentry and all raw/represented/transfer fixtures; selected represented and fixture proofs independently inspected. No new actionable source finding established.",
+    "MoveApply complete producer contracts and client1\u20131170 inspected: actual move-parser-to-position transport, all3 paid reset joins, dirty literal path accumulation, noncollapsed failure outcomes, source-side evaluation/clock/space definitions and further installation of all26 owned labels. Thirty fixed run records and thirteen represented records read; later public connections remain. No actionable source defect established.",
+    "Completed MoveApply public contracts and all fixed case connections. Stream source operational definitions/public contracts and all44 fixed input/output/time/peak records,19 source observations,8 joins,11 reset cases,18 sharp instances and generic all-state/installed source contracts assessed. Runtime uses nine stores/39 owned labels/306 temporaries, source-side recursion decreases actual certificate suffix; paid joins reset all fields, earlier component masks preserve others. Clean represented acceptance iff whole certificate and legal moves within fuel; raw malformed acceptance remains explicit; exact native label time stays distinct from source tariff. No actionable source defect established in this reading.",
+    "Controller full producer contract reading found no actionable defect: all96 owned domains total on arbitrary local words/registers; finite16-store program, paid4 joins/16 empty probes/emit; structural dirty potentials and actual endpoint allowances; complete source Bool iff and finite initList/haltList output type. Client all84 literal records and96 distinct/complete domains read, remaining connection review pending.",
+    "Completed controller producer/client contracts and all84 records/142 cleaner boundaries/96 generic domains; all81 positive literal cases mechanically matched frozen JSON in1292 fields with zero mismatches. Complete intended controller outline/API and case reconciliation read. No actionable mathematical source defect established. Active current documentary gates have confirmed SP-D001; dated preimplementation history remains historical."
+  ]
+}

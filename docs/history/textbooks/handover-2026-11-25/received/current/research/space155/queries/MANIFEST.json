@@ -1,0 +1,97 @@
+{
+  "schema": "space155-trace-concatenation-query-preparation-v1",
+  "created_utc": "2026-11-25T05:17:22.524382+00:00",
+  "status": "uncompiled preparation; no source integration or review approval",
+  "role": "implementation assistance within existing review loop",
+  "artifacts": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/queries/TraceConcatenationStatements.lean",
+      "bytes": 2133,
+      "lines": 36,
+      "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/queries/INTEGRATION.md",
+      "bytes": 9604,
+      "lines": 70,
+      "sha256": "489cc40b3b4a73f7dbd40d85a64ca3b42cfc6ae90dab83a88d7d07745492f7fe",
+      "mode": "0o444"
+    }
+  ],
+  "original_frozen_files_verified_unchanged": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/EXPECTATIONS.md",
+      "bytes": 6816,
+      "lines": 66,
+      "sha256": "d8ffae1a7d60fbe91b86f47e0beca5da8c1d80b9384cf098c6a3f72c65e31669",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/TraceConcatenation.lean",
+      "bytes": 7191,
+      "lines": 156,
+      "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/README.md",
+      "bytes": 7496,
+      "lines": 52,
+      "sha256": "df1de1b919d03058bc7bbc60fe4a66c911ae42870c18432e5aea9a77596a2030",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/MANIFEST.json",
+      "bytes": 9747,
+      "lines": 232,
+      "sha256": "4c3723ef4c7acc3e0ec6b0bdde1a16676f99e16c42d056e42c9ee9f42ce155c6",
+      "mode": "0o444"
+    }
+  ],
+  "normal_imports": [
+    "Applications.Resources.TuringSimulation.VisitedSpace",
+    "Examples.TuringSimulation"
+  ],
+  "query_order": [
+    "Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live",
+    "Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live",
+    "Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live",
+    "Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace",
+    "Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command",
+    "Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion",
+    "Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted"
+  ],
+  "query_counts": {
+    "check": 7,
+    "print": 7,
+    "print_axioms": 7
+  },
+  "printer_option": "pp.all true applies to every query; no resource flag",
+  "normal_import_precondition": "new declarations installed into production owners and built normally; unchanged recovery154 owners do not export them",
+  "preintegration_reading_route": "root may create a separately bound copy of the frozen complete draft followed by this carrier query block; that is local draft evidence, not an installed-owner import check",
+  "prospective_integration": [
+    {
+      "draft_lines": [
+        26,
+        55
+      ],
+      "owner": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "anchor": "NativeRun after cfgAt_add_of_none before visitedCells_add_of_none"
+    },
+    {
+      "draft_lines": [
+        59,
+        156
+      ],
+      "owner": "Examples/TuringSimulation.lean",
+      "anchor": "after end Examples.TuringSimulation.VisitedSpace before OrdinaryPackageCases"
+    }
+  ],
+  "compiler_run": false,
+  "project_source_or_product_mutation": false,
+  "existing_draft_or_expectation_mutation": false,
+  "new_review_axis": false,
+  "resource_transparency_or_linter_override": false,
+  "fixed_expectations_changed": false
+}

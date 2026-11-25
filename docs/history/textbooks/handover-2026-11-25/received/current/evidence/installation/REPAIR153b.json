@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "repaired_utc": "2026-11-24T23:45:03.988668+00:00",
+  "failed_candidate": "2c10ea82d95a58d09ad02e2f16c7aa117357b0b0",
+  "failed_tree": "25a159f36ffff3acd638d675bc9e9c4955e58e8a",
+  "actual_failed_run": "owners153-a",
+  "actual_exit_code": 1,
+  "elapsed_seconds": 49.93705243899967,
+  "nonnull_unchanged_inputs": 4044,
+  "source_path": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+  "before": {
+    "bytes": 12187,
+    "sha256": "2beebc75c62332ca8bb974f8fb7469d431867c0feed0bc4dc3274f596319455f"
+  },
+  "after": {
+    "bytes": 12241,
+    "sha256": "849b5e6977c4041f5df850ba3205e4b79b8099c333b96cdacebcdd3766f564dc"
+  },
+  "exact_old": "open Native PolynomialTime\n",
+  "exact_new": "open Native _root_.Resources.RotationCertificate.DelimiterMachine.PolynomialTime\n",
+  "diagnostic": "Ambiguous namespace PolynomialTime: compiler resolved intended local delimiter namespace but reported the alternative generic Resources.PolynomialTime.",
+  "intended_open": "_root_.Resources.RotationCertificate.DelimiterMachine.PolynomialTime",
+  "full_source_except_one_open_identical": true,
+  "statements_cases_hypotheses_conclusions_unchanged": true,
+  "settings_or_linter_override": false,
+  "original83_mapping_sites_preserved": true,
+  "recovery": "Undo this explicit qualification to recover original staged owner exactly, then use original83 identifier reversals for16 complete bodies. The corrected mapping can fold this qualifier into that same original site.",
+  "query_unchanged_sha256": "be70bb5a5812c615fee9940f5e62424f8cd41a79ecaef3ce30913558a3dc8599",
+  "current_corrected_candidate_not_yet_captured": true
+}

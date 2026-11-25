@@ -1,0 +1,1163 @@
+{
+  "schema": 1,
+  "status": "PROPOSED / UNAPPLIED integration152. Exact selected sources have recorded combined research success, including151c. Renamed ordinary owner staging remains UNCOMPILED; no install, capture, receiving change or independent acceptance.",
+  "current_source": {
+    "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+    "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+    "scope_count": 63,
+    "whole150": "Root-reported UNKNOWN after handle24491 loss, with ENOSPC diagnostics. Focused151c success does not establish a whole150 terminal or acceptance."
+  },
+  "scope": {
+    "current_count": 63,
+    "proposed_count": 72,
+    "base_scope": {
+      "count": 63,
+      "derive": "/scope/proposed_scope excluding /scope/add_paths",
+      "historical_binding": {
+        "source": {
+          "member": "current/research/integration147/OWNER_PLAN.json",
+          "bytes": 37639,
+          "sha256": "4dfa5bc7a7b89a870c3ef52a91eed3c3580900c60659822a77139f352879c793"
+        },
+        "json_pointer": "/proposed_scope",
+        "count": 63
+      },
+      "historical_binding_is_runtime_dependency": false
+    },
+    "add_paths": [
+      "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "Examples/RotationCertificateDelimiterMachine.lean",
+      "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean"
+    ],
+    "proposed_scope": [
+      "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "Applications/Resources/RotationCertificate/InputParser.lean",
+      "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "Applications/Resources/RotationCertificate/Streaming.lean",
+      "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "Applications/Resources/RotationCertificate/Verifier.lean",
+      "Applications/Resources/RotationCertificate/Witness.lean",
+      "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "Examples/RotationCertificateBinary.lean",
+      "Examples/RotationCertificateBitDecoderMachine.lean",
+      "Examples/RotationCertificateBitPairFraming.lean",
+      "Examples/RotationCertificateCorrespondence.lean",
+      "Examples/RotationCertificateDelimiterMachine.lean",
+      "Examples/RotationCertificateFrontEndMachine.lean",
+      "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "Examples/RotationCertificateFuelMachine.lean",
+      "Examples/RotationCertificateInputParserMachine.lean",
+      "Examples/RotationCertificateMoveApplyMachine.lean",
+      "Examples/RotationCertificateMoveParserMachine.lean",
+      "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "Examples/RotationCertificateOpenFramingMachine.lean",
+      "Examples/RotationCertificateParsing.lean",
+      "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "Examples/RotationCertificateStreamMachine.lean",
+      "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "Examples/RotationCertificateTreeParserMachine.lean",
+      "Examples/RotationCertificateVerification.lean",
+      "Examples/TuringSimulation.lean",
+      "SquareApplications.lean",
+      "docs/research/fdsa-rotation-certificate-preparation.md",
+      "docs/textbooks/CTB.json",
+      "docs/textbooks/README.md",
+      "docs/textbooks/coverage.json",
+      "docs/textbooks/external-agent.md",
+      "docs/textbooks/inbox/README.md"
+    ],
+    "sorted_newline_sha256": "0a1f924bd899f0fa65d6683b88604822a9894eff43e1b98775446a0cf22eadb0",
+    "lean_paths": 66,
+    "documentation_paths": 6,
+    "original_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "incorporated_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647"
+  },
+  "new_owners": [
+    {
+      "path": "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "blocks": [
+        "normal_core"
+      ],
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Eval.Degree",
+        "Mathlib.Algebra.Order.Monoid.Unbundled.Pow",
+        "Mathlib.Data.Nat.Basic",
+        "Lean.Elab.Tactic.Omega"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "blocks": [
+        "delimiter_machine"
+      ],
+      "imports": [
+        "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "blocks": [
+        "protocol",
+        "native_loops",
+        "prefix_composition"
+      ],
+      "imports": [
+        "Applications.Resources.RotationCertificate.DelimiterMachine"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "blocks": [
+        "native_consumer"
+      ],
+      "imports": [
+        "Applications.Resources.RotationCertificate.DelimiterExecution",
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PrintMove"
+      ]
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "blocks": [
+        "polynomial_consumer"
+      ],
+      "imports": [
+        "Applications.Resources.PolynomialTime.NormalForm",
+        "Applications.Resources.RotationCertificate.DelimiterTapeMachine"
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateDelimiterMachine.lean",
+      "blocks": [
+        "delimiter_examples",
+        "bridge_examples",
+        "checking_examples"
+      ],
+      "imports": [
+        "Applications.Resources.RotationCertificate.DelimiterMachine",
+        "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+        "Applications.Resources.RotationCertificate.DelimiterExecution"
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "blocks": [
+        "conventional_decider"
+      ],
+      "imports": [
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+        "Applications.Resources.PolynomialTime.NormalForm"
+      ],
+      "purpose": "Actual finite conventional polynomial machine, terminal-evaluation law, native Boolean constructor. No rotation import."
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "blocks": [
+        "verifier_criterion"
+      ],
+      "imports": [
+        "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+        "Mathlib.Data.List.Basic",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "purpose": "Generic literal pair, arbitrary-raw checking language and fixed pure-power witness criterion. No rotation import."
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "blocks": [
+        "delimiter_conventional",
+        "binary_yes_criterion"
+      ],
+      "imports": [
+        "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+        "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+        "Applications.Resources.TuringSimulation.ConventionalVerifier",
+        "Applications.Resources.RotationCertificate.CertificateCorrespondence"
+      ],
+      "purpose": "Register-parametric concrete delimiter decider/full refinement followed by fixed unit decider/BinaryYes criterion and boundary clients. Two complete separately scoped bodies, no extra intermediary module."
+    }
+  ],
+  "existing_owner_edits": [
+    {
+      "path": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "current": {
+        "bytes": 20702,
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+        "mode": "0644"
+      },
+      "append_blocks": [
+        "generic_bridge"
+      ],
+      "add_imports": [
+        "Applications.Resources.TuringSimulation.TapeToPrimitive"
+      ],
+      "preserve": "Complete existing namespace blocks. The incoming self import is replaced by ownership, not added as a module cycle."
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "current": {
+        "bytes": 72694,
+        "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+        "mode": "0644"
+      },
+      "append_blocks": [
+        "normal_cases"
+      ],
+      "add_imports": [
+        "Applications.Resources.PolynomialTime.NormalForm",
+        "Mathlib.Algebra.Polynomial.Degree.Lemmas"
+      ],
+      "preserve": "Complete existing body, imports and all old examples."
+    },
+    {
+      "path": "SquareApplications.lean",
+      "current": {
+        "bytes": 47067,
+        "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+        "mode": "0644"
+      },
+      "add_imports": [
+        "Applications.Resources.PolynomialTime.NormalForm",
+        "Applications.Resources.RotationCertificate.DelimiterMachine",
+        "Applications.Resources.RotationCertificate.DelimiterExecution",
+        "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+        "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+        "Examples.RotationCertificateDelimiterMachine",
+        "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+        "Applications.Resources.TuringSimulation.ConventionalVerifier",
+        "Applications.Resources.RotationCertificate.BinaryYesVerifier"
+      ],
+      "preserve": "All existing imports and body bytes."
+    }
+  ],
+  "blocks": [
+    {
+      "id": "normal_core",
+      "source": {
+        "member": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+        "bytes": 3167,
+        "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a",
+        "mode": "0644"
+      },
+      "namespace": "Resources.PolynomialTime.NormalFormDraft148",
+      "slice": [
+        557,
+        3167
+      ],
+      "slice_sha256": "55cbc0cbe9f42d94cbef37480c9c226a23b29cb377f1e0498c4ab8399e15ef21",
+      "owner": "Applications/Resources/PolynomialTime/NormalForm.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.PolynomialTime.NormalForm"
+    },
+    {
+      "id": "normal_cases",
+      "source": {
+        "member": "current/research/polynomial-normal-form149/NaturalPolynomialNormalFormCases149.lean",
+        "bytes": 2060,
+        "sha256": "e2498dad7e17f1fe7c0571addb53375b96a7322ba6b8f19311966c01855d7d3e",
+        "mode": "0644"
+      },
+      "namespace": "Resources.PolynomialTime.NormalFormDraft148.Cases",
+      "slice": [
+        292,
+        2060
+      ],
+      "slice_sha256": "0e4773c7f9db97f2e976eb66e093a84d6bc414f8a2bd74d021885ab7b48b5f76",
+      "owner": "Examples/TuringSimulation.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.PolynomialTime.NormalForm.Cases"
+    },
+    {
+      "id": "delimiter_machine",
+      "source": {
+        "member": "current/research/delimiter/DelimiterPrelude144b.lean",
+        "bytes": 25107,
+        "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft",
+      "slice": [
+        759,
+        25107
+      ],
+      "slice_sha256": "d09dfb2935e2dac586424d2b3268db0e8ddbe671d97bb8e1f9513ca0753d4a27",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine"
+    },
+    {
+      "id": "delimiter_examples",
+      "source": {
+        "member": "current/research/delimiter/DelimiterPreludeExamples144c.lean",
+        "bytes": 12989,
+        "sha256": "30e5cb81d457bc8d4c4fe889cfb7b00df600ea1691e8dcfe38a65a939accc208",
+        "mode": "0644"
+      },
+      "namespace": "Examples.DelimiterPreludeResearch",
+      "slice": [
+        622,
+        12989
+      ],
+      "slice_sha256": "ac7cc7810981a5cf0984207df8d436e1dedd88550a8f68ea65fb3f516985ffcd",
+      "owner": "Examples/RotationCertificateDelimiterMachine.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Examples.RotationCertificateDelimiterMachine.Prelude"
+    },
+    {
+      "id": "protocol",
+      "source": {
+        "member": "current/research/delimiter/Protocol144b.lean",
+        "bytes": 11634,
+        "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1",
+      "slice": [
+        324,
+        11634
+      ],
+      "slice_sha256": "61c40632643a3e9225da586a1c0bddc97468409f5886bf44ceb0bc5a48c29d1d",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.Execution"
+    },
+    {
+      "id": "native_loops",
+      "source": {
+        "member": "current/research/delimiter/NativeLoops144b.lean",
+        "bytes": 22886,
+        "sha256": "ece5e04f35bb69e71f9308ea62c30e0fdaecd634b737f6c48cf49b9cd8a32fd5",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1",
+      "slice": [
+        392,
+        22886
+      ],
+      "slice_sha256": "75a811f3a63fd5d3ea50dc88f83d2cf638e1c81eda0062128404d95ed0b178fc",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.Execution"
+    },
+    {
+      "id": "prefix_composition",
+      "source": {
+        "member": "current/research/delimiter/PrefixComposition144b.lean",
+        "bytes": 19761,
+        "sha256": "15dcaffb7fd2f57f76d13d8fce4beb94387ec9daff3b6354f035eff3863459ce",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1",
+      "slice": [
+        328,
+        19761
+      ],
+      "slice_sha256": "f6d4559f822daa20b4193d67511cde8dccb3400aceaaa2c87f0f6007cdd1b201",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.Execution"
+    },
+    {
+      "id": "generic_bridge",
+      "source": {
+        "member": "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+        "bytes": 3764,
+        "sha256": "3943239fba68eb9133b6b1236fe08884998022f18982a054cebb1eab074fed23",
+        "mode": "0644"
+      },
+      "namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+      "slice": [
+        571,
+        3764
+      ],
+      "slice_sha256": "3ffce6e115ce72193caef377dc7bbfce15487cfde5a1f26a8e7566c7bfd1da9d",
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage"
+    },
+    {
+      "id": "native_consumer",
+      "source": {
+        "member": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+        "bytes": 14728,
+        "sha256": "f596cd55e0f6fc366a3b39591dd65bdcb8409a786ed582e72dd40f2af521586b",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148",
+      "slice": [
+        568,
+        14728
+      ],
+      "slice_sha256": "432f078a5bf2b6c216ce31ba9272cfa7a197cb255fcc81c7109ad3af1ab7e0be",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.Native"
+    },
+    {
+      "id": "bridge_examples",
+      "source": {
+        "member": "current/research/delimiter-consumer149/DelimiterConsumerCases149f.lean",
+        "bytes": 7865,
+        "sha256": "ef8b55072588bd5989c384c75630131fdb4f4a64e4b2f5c97588319261f30ca0",
+        "mode": "0644"
+      },
+      "namespace": "Examples.DelimiterConsumer148",
+      "slice": [
+        502,
+        7865
+      ],
+      "slice_sha256": "2b774c1f5b81422acde715a978b5931cb830973b2962adf08123e84c68bff90f",
+      "owner": "Examples/RotationCertificateDelimiterMachine.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Examples.RotationCertificateDelimiterMachine.Native"
+    },
+    {
+      "id": "polynomial_consumer",
+      "source": {
+        "member": "current/research/delimiter-polynomial149/DelimiterPolynomial149.lean",
+        "bytes": 7730,
+        "sha256": "127fa9829aeea2ea97035580d7a9425a201fb6e4d538e0bbc0fdf63f4fdac7cf",
+        "mode": "0644"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149",
+      "slice": [
+        512,
+        7730
+      ],
+      "slice_sha256": "d69d960a3ebf41897e0848eaef9599173e7d73a9b1358001c407e623f968f145",
+      "owner": "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+      "validation_status": "Selected body has recorded combined research success; no ordinary installation or independent acceptance inferred.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.PolynomialTime"
+    },
+    {
+      "id": "checking_examples",
+      "source": {
+        "member": "current/research/checking-relation150/CheckingRelation150.lean",
+        "bytes": 2720,
+        "sha256": "07fc477d15222350079946e0e8b7feb82696cd64876c87c869ac259e70f2ccca"
+      },
+      "namespace": "Examples.DelimiterCheckingRelation150",
+      "slice": [
+        397,
+        2720
+      ],
+      "slice_sha256": "520c591c8fbd06176f7f4e3b520ba00267ed46ed4a1a4f2bd2851b1b8ecbf953",
+      "owner": "Examples/RotationCertificateDelimiterMachine.lean",
+      "validation_status": "Selected exact body participated in successful conventional151-author-c combined research check. Renamed ordinary owner remains UNCOMPILED and uninstalled; no independent acceptance.",
+      "mapped_namespace": "Examples.RotationCertificateDelimiterMachine.Checking"
+    },
+    {
+      "id": "conventional_decider",
+      "source": {
+        "bytes": 9849,
+        "sha256": "307811ffd42a52158a59930db92ee6da4dfe64fa6906c971d4f57618feb2a035",
+        "member": "current/research/conventional-contract151/ConventionalPolynomialDecider151c.lean"
+      },
+      "namespace": "Resources.TuringSimulation.ConventionalPolynomialDraft150",
+      "slice": [
+        820,
+        9849
+      ],
+      "slice_sha256": "89991a081ebe9b409f38ba6fbbf16ce8d56e9fe9ead7caf1528a6eaf1313df74",
+      "owner": "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+      "validation_status": "Selected exact body participated in successful conventional151-author-c combined research check. Renamed ordinary owner remains UNCOMPILED and uninstalled; no independent acceptance.",
+      "mapped_namespace": "Resources.TuringSimulation.ConventionalPolynomial"
+    },
+    {
+      "id": "delimiter_conventional",
+      "source": {
+        "bytes": 6827,
+        "sha256": "9b8ac5115a153428108425b7fabf59a7f7860b15423bead65daadd3f4d9d5767",
+        "member": "current/research/conventional-contract151/DelimiterConventionalContract151c.lean"
+      },
+      "namespace": "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150",
+      "slice": [
+        438,
+        6827
+      ],
+      "slice_sha256": "75d907483207bb4569bd30746502f269822000c1436090e90fac477a2efd6054",
+      "owner": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "validation_status": "Selected exact body participated in successful conventional151-author-c combined research check. Renamed ordinary owner remains UNCOMPILED and uninstalled; no independent acceptance.",
+      "mapped_namespace": "Resources.RotationCertificate.DelimiterMachine.Conventional"
+    },
+    {
+      "id": "verifier_criterion",
+      "source": {
+        "member": "current/research/checking-criterion150/ConventionalVerifierCriterion150.lean",
+        "bytes": 6580,
+        "sha256": "453633c5d75a81442195778553ddaf633af82e572f87cc972b96187f238d3980"
+      },
+      "namespace": "Resources.TuringSimulation.ConventionalVerifierDraft150",
+      "slice": [
+        662,
+        6580
+      ],
+      "slice_sha256": "537f64e90102d8bc027e33809d3b5e31b8a82764e7ae61db1d55555188e0d7dc",
+      "owner": "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+      "validation_status": "Selected exact body participated in successful conventional151-author-c combined research check. Renamed ordinary owner remains UNCOMPILED and uninstalled; no independent acceptance.",
+      "mapped_namespace": "Resources.TuringSimulation.ConventionalVerifier"
+    },
+    {
+      "id": "binary_yes_criterion",
+      "source": {
+        "member": "current/research/checking-criterion150/BinaryYesVerifierCriterion150.lean",
+        "bytes": 6073,
+        "sha256": "fde6f18511f1b414fa417b221b87a45e013ed307208d46d64e19a877b357ed21"
+      },
+      "namespace": "Resources.RotationCertificate.ConventionalVerifierCriterion150",
+      "slice": [
+        729,
+        6073
+      ],
+      "slice_sha256": "ca750c975c43979bcbbe1873f63cb01ffe9b510b64841109eab15f3022fb8267",
+      "owner": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+      "validation_status": "Selected exact body participated in successful conventional151-author-c combined research check. Renamed ordinary owner remains UNCOMPILED and uninstalled; no independent acceptance.",
+      "mapped_namespace": "Resources.RotationCertificate.BinaryYesVerifier"
+    }
+  ],
+  "namespace_cleanup": {
+    "qualified_prefixes": [
+      [
+        "Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150",
+        "Resources.RotationCertificate.DelimiterMachine.Conventional"
+      ],
+      [
+        "Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149",
+        "Resources.RotationCertificate.DelimiterMachine.PolynomialTime"
+      ],
+      [
+        "Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148",
+        "Resources.RotationCertificate.DelimiterMachine.Native"
+      ],
+      [
+        "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1",
+        "Resources.RotationCertificate.DelimiterMachine.Execution"
+      ],
+      [
+        "Resources.RotationCertificate.ConventionalVerifierCriterion150",
+        "Resources.RotationCertificate.BinaryYesVerifier"
+      ],
+      [
+        "Resources.TuringSimulation.ConventionalPolynomialDraft150",
+        "Resources.TuringSimulation.ConventionalPolynomial"
+      ],
+      [
+        "Resources.TuringSimulation.ConventionalVerifierDraft150",
+        "Resources.TuringSimulation.ConventionalVerifier"
+      ],
+      [
+        "Resources.RotationCertificate.DelimiterPreludeDraft",
+        "Resources.RotationCertificate.DelimiterMachine"
+      ],
+      [
+        "Resources.PolynomialTime.NormalFormDraft148.Cases",
+        "Resources.PolynomialTime.NormalForm.Cases"
+      ],
+      [
+        "Resources.PolynomialTime.NormalFormDraft148",
+        "Resources.PolynomialTime.NormalForm"
+      ],
+      [
+        "Examples.DelimiterCheckingRelation150",
+        "Examples.RotationCertificateDelimiterMachine.Checking"
+      ],
+      [
+        "Examples.DelimiterPreludeResearch",
+        "Examples.RotationCertificateDelimiterMachine.Prelude"
+      ],
+      [
+        "Examples.DelimiterConsumer148",
+        "Examples.RotationCertificateDelimiterMachine.Native"
+      ]
+    ],
+    "explicit_short_identifier_edits": [
+      [
+        "GeneralProof1",
+        "Execution"
+      ],
+      [
+        "NativeConsumer148",
+        "Native"
+      ],
+      [
+        "PolynomialConsumer149",
+        "PolynomialTime"
+      ],
+      [
+        "DelimiterPreludeDraft",
+        "DelimiterMachine"
+      ],
+      [
+        "NormalFormDraft148",
+        "NormalForm"
+      ],
+      [
+        "ConventionalPolynomialDraft150",
+        "ConventionalPolynomial"
+      ],
+      [
+        "ConventionalVerifierDraft150",
+        "ConventionalVerifier"
+      ],
+      [
+        "ConventionalContract150",
+        "Conventional"
+      ]
+    ],
+    "unchanged_generic_namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+    "method": "Longest qualified prefix first; record each exact edit span, including namespace/end/open and qualified proof/query references. Reverse only recorded edits and require every original namespace slice hash. No blanket textual replacement of arbitrary prose or already-existing Execution/Native identifiers. All short edits are guarded identifier occurrences at recorded namespace/open/end/qualified-reference sites, never arbitrary prose. Reverse exact recorded spans per block before requiring its original slice hash.",
+    "normal_case_explicit": "Resources.PolynomialTime.NormalFormDraft148.Cases -> Resources.PolynomialTime.NormalForm.Cases; complete checked case block remains in Examples/TuringSimulation.lean.",
+    "concrete_namespace_choice": "BinaryYesVerifier avoids shadowing the generic ConventionalVerifier namespace inside relative open and literalPair references."
+  },
+  "options": [
+    "set_option autoImplicit false",
+    "set_option warningAsError true"
+  ],
+  "preservation": [
+    "Every namespace block and all public/private/generated-declaration source text survive; apart from explicit reversible names, no definition, statement or proof rewrite.",
+    "The three execution blocks retain order and separate lexical sections; the generic local FinTM2.kFin/ΛFin registration remains local and uses bundled fields.",
+    "Preserve all 17 original handoff fixtures, six bridge cases and seventh delimiter/false/blank theorem, including transport_literal_case.",
+    "Preserve supplied registers/starts/defaults, distinct stores, all-index finite alphabets, literal three-letter input and complete cleanup/full tape relations.",
+    "Retain exact source clocks 2,4,5,14,11,9; actual source/primitive/live/next-none counts; full-program actionMaximum; conventional simulationTime+1 and relative bound.",
+    "Retain fixed polynomial/exponent before raw, target.toEvalsTo, empty/singleton cases, literal length input.length+cert.length+1 and answer; no canonicalization or threshold-width loss.",
+    "Fresh owner imports/options/module documentation stay outside the preserved blocks. Any obsolete OPEN/UNCOMPILED comment cleanup is separately enumerated and reversible; named obligation propositions remain.",
+    "Current accepted/public programme, source qualification and 96/84/81 accounting do not change merely because these sources are integrated.",
+    "All five selected checking/contract/criterion complete bodies survive, including9 named parser observations and3 anonymous connected clients.",
+    "Finite input/work/control carriers, supplied blank and distinct start/accept/reject, injective nonblank letter map and actual terminal-evaluation acceptance are retained. Transition none is exactly at terminal controls.",
+    "Machine runtime exponent is fixed before all raw words. Witness exponent is separately fixed before all input/certificate pairs. Keep N^k+k including N=0/1, pure I^2 certificates without+k, and separate I^2+I+1 pair length.",
+    "Keep the retained literalPair_agrees connection to the actual paid delimiter input; no arbitrary whole-word encoding or free conversion.",
+    "Keep [] versus [none], concrete k2 empty-certificate result, and positive encoded zero-node length20/certificate400/pair421 distinct.",
+    "The small criterion forgets particular native witnesses/final tape; separate full_run_refinement remains. No inverse recovery, independently defined NP/NTM equivalence, executable table or qualification claim."
+  ],
+  "queries": {
+    "sets": [
+      {
+        "id": "existing147",
+        "readable": 589,
+        "expanded": 26,
+        "axiom_roots": 32
+      },
+      {
+        "id": "normal149c",
+        "readable": 18,
+        "expanded": 2,
+        "axiom_roots": 6
+      },
+      {
+        "id": "delimiter149f",
+        "readable": 238,
+        "expanded": 5,
+        "axiom_roots": 14
+      },
+      {
+        "id": "composition150a",
+        "readable": 15,
+        "expanded": 4,
+        "axiom_roots": 6,
+        "definition_prints": 1
+      },
+      {
+        "id": "checking_relation150",
+        "readable": 11,
+        "expanded": 2,
+        "axiom_roots": 4,
+        "definition_prints": 0,
+        "source": {
+          "member": "current/research/checking-relation150/MANIFEST.json",
+          "bytes": 9859,
+          "sha256": "b8a778460fb1d5bc007ccfbd28318a5711ce443d088630810219806ca483d998"
+        },
+        "json_pointer": "/queries",
+        "status": "Commands preserved in actual successful conventional151-author-c combined research check. Mapped ordinary-module replay is still required."
+      },
+      {
+        "id": "conventional_contract150",
+        "readable": 24,
+        "expanded": 7,
+        "axiom_roots": 11,
+        "definition_prints": 2,
+        "source": {
+          "member": "current/research/conventional-contract150/QUERY_PLAN.json",
+          "bytes": 5299,
+          "sha256": "529691be183f898008a551e0668669cb7807449f6b7a304d3d0ca3219cc2b65e"
+        },
+        "json_pointer": "",
+        "status": "Commands preserved in actual successful conventional151-author-c combined research check. Mapped ordinary-module replay is still required."
+      },
+      {
+        "id": "checking_criterion150",
+        "readable": 28,
+        "expanded": 8,
+        "axiom_roots": 14,
+        "definition_prints": 4,
+        "source": {
+          "member": "current/research/checking-criterion150/QUERY_PLAN.json",
+          "bytes": 6373,
+          "sha256": "c9983114580ade41903a74eac8585d82a95d4772c20dd592100792c4dd128d53"
+        },
+        "json_pointer": "",
+        "status": "Commands preserved in actual successful conventional151-author-c combined research check. Mapped ordinary-module replay is still required."
+      }
+    ],
+    "total": {
+      "readable": 923,
+      "expanded": 54,
+      "axiom_roots": 87,
+      "definition_prints": 7
+    },
+    "rule": "Map every retained command through the explicit namespace edits; preserve repetitions, original controller clients and full expansions. These are planned observations, not new results. Preserve #check versus #check @, all complete expanded definitions and selected roots; these do not replace exhaustive module-origin audit.",
+    "new_boundary": {
+      "readable": 63,
+      "expanded": 17,
+      "axiom_roots": 29,
+      "definition_prints": 6
+    }
+  },
+  "validation_order": [
+    "Respect current author source/product ownership; whole150 remains UNKNOWN. This preparation runs no compiler or product writer.",
+    "Bind actual151c success and root output reading; preserve failed a/b outcomes. Ordinary renamed owners still require normal-module validation after the required baseline and installation gates.",
+    "Run supported original-B/M baseline for complete proposed72 scope before installation.",
+    "Qualify/build unchanged normal C147 dependencies; then NormalForm and extended OrdinaryPackage.",
+    "Build DelimiterMachine, DelimiterExecution, DelimiterTapeMachine and DelimiterPolynomialTime in order.",
+    "Build ConventionalPolynomialDecider after NormalForm/PolynomialDeciderPrintMove; then ConventionalVerifier.",
+    "Build BinaryYesVerifier after DelimiterPolynomialTime, both generic conventional owners and CertificateCorrespondence.",
+    "Build both complete Examples owners with every old case and all incoming blocks.",
+    "Build SquareApplications; execute all mapped923/54/87/7 observations using normal imports; run required whole validation and exhaustive module-origin audit with unchanged settings.",
+    "Continue existing Standards/Spec axes. No new independent review loop or acceptance is initiated by this plan."
+  ],
+  "documentation": {
+    "append": "docs/research/fdsa-rotation-certificate-preparation.md",
+    "after_actual_installation_only": {
+      "docs/textbooks/CTB.json": [
+        "next_ticket_gate",
+        "local_state.CTB-24.next_implementation_gate",
+        "local_state.CTB-78.next_action"
+      ],
+      "docs/textbooks/coverage.json": [
+        "source_readiness.current_gate",
+        "qualification_basis.current_gate"
+      ]
+    },
+    "preserve_all_other_decoded_values": true,
+    "no_new_tracker_post": true
+  },
+  "composition_research_evidence": {
+    "run": "delimiter-polynomial150a",
+    "actual_exit_code": 0,
+    "stable_nonnull_inputs": 474,
+    "elapsed_seconds": 12.542645765,
+    "carrier": {
+      "bytes": 125478,
+      "sha256": "cb747c5fa8ce1fdcc4eddbb467c66c02bf09ce606ddd05ac9db527e38b10eca4"
+    },
+    "log": {
+      "bytes": 70732,
+      "sha256": "5869e0a60084a287d820a0a20239be3cce054226f3930d87c7260c6b0724f163",
+      "mode": "100644"
+    },
+    "root_reading_record": {
+      "path": "work/resume150/ROOT_READING_POLYNOMIAL150a.json",
+      "bytes": 1986,
+      "sha256": "76b6fa63759aeab23a5dc20727e3d49427aefb925ff6dba113fdb93fb2f81078",
+      "mode": "0644"
+    },
+    "reader": "/root",
+    "root_reading_lines": [
+      1,
+      848
+    ],
+    "helper_limit": "This helper read the root reading record, not the complete compiler output; the pass remains a combined research result, not ordinary installation/audit/independent approval."
+  },
+  "not_in_scope": [
+    "New source mathematics",
+    "NP equivalence or effectivity",
+    "Executable transition tables",
+    "Sharper space",
+    "Resource/printing/checker changes",
+    "Source or receiving acceptance",
+    "A new independent review loop",
+    "Helper compiler execution",
+    "Editing any frozen parent or expectation",
+    "Changing current C147 or active whole150 inputs"
+  ],
+  "reading_basis": [
+    "Current AGENTS, task authority, domain, architectural-quality and formal-development guides; glossary; ADR0001/0006/0010; relevant language-direction sections (earlier reading lineage; current runtime members verified in P151)",
+    "Retained OWNER_PLAN147 and query counts; current OrdinaryPackage, Examples/TuringSimulation, SquareApplications and direct import headers (earlier reading lineage; current runtime members verified in P151)",
+    "Exact canonical source blocks and normal-case namespace; existing source maps and fixture bodies (earlier reading lineage; current runtime members verified in P151)",
+    "Revision152: exact151c source diff, repair records and actual a/b/c result/child metadata. Root owns full compiler-output reading; no helper compiler or independent review."
+  ],
+  "artifact_limit": "Current complete source/owner/import/name plan and compact outcome account only. Historical plans/staging need not be retained for this reproducer; no packet or old proof bodies are copied.",
+  "inherits": {
+    "historical_plan": {
+      "path": "work/integration151-plan/OWNER_PLAN.json",
+      "bytes": 52415,
+      "sha256": "2600e7a6aad0b4afffad8741416994d09e4b14392a628406c8657f4a248dfcb1"
+    },
+    "runtime_dependency": false,
+    "preserve": "All16 complete namespace blocks,72-path scope, owner/import/name mappings, fixtures and query boundary retained; only two exact canonical source bodies superseded by151c."
+  },
+  "owner_decomposition_reason": "Three additions to proposed69 suffice: two generic owners and one concrete owner containing the delimiter-conventional and BinaryYes complete bodies. Their direct dependency permits one consumer owner. Parser clients append to the existing proposed delimiter Examples owner; no generic rotation import.",
+  "prospective_documentation_edits": [
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "current": {
+        "member": "current/source/docs/research/fdsa-rotation-certificate-preparation.md",
+        "bytes": 3779789,
+        "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e"
+      }
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "current": {
+        "member": "current/source/docs/textbooks/CTB.json",
+        "bytes": 855664,
+        "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1"
+      }
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "current": {
+        "member": "current/source/docs/textbooks/coverage.json",
+        "bytes": 55499,
+        "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738"
+      }
+    }
+  ],
+  "all_prospectively_changed_paths": [
+    "Applications/Resources/PolynomialTime/NormalForm.lean",
+    "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+    "Applications/Resources/RotationCertificate/DelimiterExecution.lean",
+    "Applications/Resources/RotationCertificate/DelimiterMachine.lean",
+    "Applications/Resources/RotationCertificate/DelimiterPolynomialTime.lean",
+    "Applications/Resources/RotationCertificate/DelimiterTapeMachine.lean",
+    "Applications/Resources/TuringSimulation/ConventionalPolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/ConventionalVerifier.lean",
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+    "Examples/RotationCertificateDelimiterMachine.lean",
+    "Examples/TuringSimulation.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/coverage.json"
+  ],
+  "block_boundary": "All16 slices start at the outer namespace and continue through its final end to EOF. No declaration/proof/private-helper bytes are omitted. Names may change only through recorded reversible edits. Owner imports/options/docs stay outside slices; original complete carriers remain retained.",
+  "lexical_scoping": "Each appended/co-owned block has a separate unnamed section. Preserve order of the three DelimiterExecution blocks and two BinaryYesVerifier blocks. Keep local finite instances and opens local. Remove staging self imports by ownership; never create cycles.",
+  "staging_import_owner_map": {
+    "NaturalPolynomialNormalForm149": "Applications.Resources.PolynomialTime.NormalForm",
+    "DelimiterPrelude144b": "Applications.Resources.RotationCertificate.DelimiterMachine",
+    "Protocol144b": "Applications.Resources.RotationCertificate.DelimiterExecution",
+    "NativeLoops144b": "Applications.Resources.RotationCertificate.DelimiterExecution",
+    "PrefixComposition144b": "Applications.Resources.RotationCertificate.DelimiterExecution",
+    "SourceRunToOrdinary148": "Applications.Resources.TuringSimulation.OrdinaryPackage",
+    "DelimiterNativeConsumer148": "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+    "DelimiterPolynomial149": "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+    "ConventionalPolynomialDecider150": "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+    "ConventionalVerifierCriterion150": "Applications.Resources.TuringSimulation.ConventionalVerifier",
+    "DelimiterConventionalContract150": "Applications.Resources.RotationCertificate.BinaryYesVerifier"
+  },
+  "research_status": [
+    {
+      "family": "delimiter",
+      "status": "Uninstalled delimiter mathematics; actual historical standalone pass retained, downstream native/conventional integration open.",
+      "source_index": "current/research/RESEARCH_INDEX.json",
+      "reassembly": {
+        "path": "current/research/reassembly/delimiter.json",
+        "bytes": 24270,
+        "sha256": "6b40b5d4a71e2da3a48876e06d58b621ccba500f72bc4dbd08674bdfebb01a6e"
+      },
+      "reading_limit": "Read retained status, not a fresh full compiler log or ordinary-module validation."
+    },
+    {
+      "family": "delimiter-consumer149",
+      "status": "Actual149f exit0 with459 nonnull unchanged inputs. Root now fully read all40 new readable/4 expanded/6 root observations. Old198/1/8 prefix reading remains historical. Uninstalled and independently unreviewed.",
+      "source_index": "current/research/RESEARCH_INDEX.json",
+      "reassembly": {
+        "path": "current/research/reassembly/delimiter-consumer149.json",
+        "bytes": 27715,
+        "sha256": "5eb4573d5db72a1dcba0fc9fb2acbbaedc3d5a2ee3fbf09addd81f6617443006",
+        "mode": "100644"
+      },
+      "reading_limit": "Read retained status, not a fresh full compiler log or ordinary-module validation."
+    },
+    {
+      "family": "polynomial-normal-form149",
+      "status": "Actual normal-form149b/c exit0, all current154 inputs nonnull unchanged; current18/2/6 output fully read by root. Uninstalled and independently unreviewed.",
+      "source_index": "current/research/RESEARCH_INDEX.json",
+      "reassembly": {
+        "path": "current/research/reassembly/normal-form149.json",
+        "bytes": 3680,
+        "sha256": "0753b87476e3c21ac41fec3b9726cba2bc7626a487442b26706d0b68e206c6ec",
+        "mode": "100644"
+      },
+      "reading_limit": "Read retained status, not a fresh full compiler log or ordinary-module validation."
+    },
+    {
+      "family": "delimiter-polynomial149",
+      "status": "Actual150a exit0,474 nonnull unchanged inputs; complete15/4/6 plus expanded Run output freshly read by root. Original149 UNCOMPILED annotations are dated history, superseded by this current result. Uninstalled and independently unreviewed.",
+      "source_index": "current/research/RESEARCH_INDEX.json",
+      "reassembly": {
+        "path": "current/research/reassembly/delimiter-polynomial150.json",
+        "bytes": 11842,
+        "sha256": "0935a2cbf824b221f780f79096f993a37cc6ad1477f2b63d31fce054bd015024",
+        "mode": "100644"
+      },
+      "reading_limit": "Read retained status, not a fresh full compiler log or ordinary-module validation."
+    }
+  ],
+  "new_draft_status": "Superseded status: the five150 bodies now have actual combined151c success with two repaired source replacements. Their original comments/expectations remain dated history. No renamed ordinary owner has yet been compiled.",
+  "expectation_inputs": [
+    {
+      "member": "current/research/checking-relation150/EXPECTATIONS.json",
+      "bytes": 2337,
+      "sha256": "f6df8f975f9864cfea79f98e753e89a9d549e49b1bdc263122b2dbaa176c3e91"
+    },
+    {
+      "member": "current/research/conventional-contract150/EXPECTATIONS.json",
+      "bytes": 5314,
+      "sha256": "7962fa0b7853f9d968b456cec76785f69814671843fa033ab58e840d9f4769fd"
+    },
+    {
+      "member": "current/research/checking-criterion150/EXPECTATIONS.json",
+      "bytes": 5452,
+      "sha256": "93acb2d8e243c1599258d9f93bb0fa8376d9c7e7ce1016e479bff6f9070f7205"
+    },
+    {
+      "member": "current/research/delimiter-consumer148/EXPECTATIONS.json",
+      "bytes": 5363,
+      "sha256": "fa2d0733745d048fabc79176b404c11d9daf800a63d1fb9ee4273d7b04cc9d8f"
+    },
+    {
+      "member": "current/research/polynomial-normal-form149/CASE_EXPECTATIONS149.md",
+      "bytes": 1082,
+      "sha256": "012d1f8883e6a627acc9a8643bcfacced6d80003f347a57233764e66a83b9145"
+    },
+    {
+      "member": "current/research/delimiter-polynomial149/EXPECTATIONS.json",
+      "bytes": 2791,
+      "sha256": "832b91c45cbb3e910e423630420402bb746726046d8a23698caf2db899ca1079"
+    }
+  ],
+  "local_new_source_bindings": [
+    {
+      "member": "current/research/checking-relation150/CheckingRelation150.lean",
+      "observed_source": "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/current/research/checking-relation150/CheckingRelation150.lean",
+      "sha256": "07fc477d15222350079946e0e8b7feb82696cd64876c87c869ac259e70f2ccca"
+    },
+    {
+      "member": "current/research/conventional-contract151/ConventionalPolynomialDecider151c.lean",
+      "observed_source": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/ConventionalPolynomialDecider151c.lean",
+      "sha256": "307811ffd42a52158a59930db92ee6da4dfe64fa6906c971d4f57618feb2a035"
+    },
+    {
+      "member": "current/research/conventional-contract151/DelimiterConventionalContract151c.lean",
+      "observed_source": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/DelimiterConventionalContract151c.lean",
+      "sha256": "9b8ac5115a153428108425b7fabf59a7f7860b15423bead65daadd3f4d9d5767"
+    },
+    {
+      "member": "current/research/checking-criterion150/ConventionalVerifierCriterion150.lean",
+      "observed_source": "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/current/research/checking-criterion150/ConventionalVerifierCriterion150.lean",
+      "sha256": "453633c5d75a81442195778553ddaf633af82e572f87cc972b96187f238d3980"
+    },
+    {
+      "member": "current/research/checking-criterion150/BinaryYesVerifierCriterion150.lean",
+      "observed_source": "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/current/research/checking-criterion150/BinaryYesVerifierCriterion150.lean",
+      "sha256": "fde6f18511f1b414fa417b221b87a45e013ed307208d46d64e19a877b357ed21"
+    }
+  ],
+  "guidance_reading": {
+    "read": [
+      "AGENTS.md",
+      "docs/agents/task-authority.md",
+      "docs/agents/domain.md",
+      "docs/agents/architectural-quality.md",
+      "docs/agents/formal-development.md",
+      "GLOSSARY.md",
+      "docs/adr/README.md",
+      "ADRs0001/0006/0010",
+      ".agents/skills/example-driven-development/SKILL.md",
+      "docs/language-direction.md sections Developing library and compiler capabilities together; Complementary presentations and reconstruction"
+    ],
+    "requirement": {
+      "source": {
+        "member": "current/control/requirements.md",
+        "bytes": 2237283,
+        "sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7"
+      },
+      "fresh_lines": [
+        490,
+        508
+      ],
+      "meaning": "Actual all-input work and machine encoding/cost bridge required; no assumed polynomialTime or prose suffices."
+    },
+    "limit": "Broad cumulative-requirement and research-index output was truncated. Only the stated requirement section and later selective statuses count as fresh reading. No compiler/product/independent acceptance review."
+  },
+  "runtime_inputs": {
+    "base_packet_root": "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z",
+    "canonical_future_packet": "Complete P152 (sourceC147 unchanged, as confirmed by root) or a verified relocation of the same members.",
+    "optional_path_map_required_now": [
+      "current/research/conventional-contract151/ConventionalPolynomialDecider151c.lean",
+      "current/research/conventional-contract151/DelimiterConventionalContract151c.lean"
+    ],
+    "verified_current_members": [
+      "current/control/requirements.md",
+      "current/research/checking-criterion150/BinaryYesVerifierCriterion150.lean",
+      "current/research/checking-criterion150/ConventionalVerifierCriterion150.lean",
+      "current/research/checking-criterion150/EXPECTATIONS.json",
+      "current/research/checking-criterion150/QUERY_PLAN.json",
+      "current/research/checking-relation150/CheckingRelation150.lean",
+      "current/research/checking-relation150/EXPECTATIONS.json",
+      "current/research/checking-relation150/MANIFEST.json",
+      "current/research/conventional-contract150/EXPECTATIONS.json",
+      "current/research/conventional-contract150/QUERY_PLAN.json",
+      "current/research/conventional-contract151/ConventionalPolynomialDecider151c.lean",
+      "current/research/conventional-contract151/DelimiterConventionalContract151c.lean",
+      "current/research/delimiter-consumer148/EXPECTATIONS.json",
+      "current/research/delimiter-consumer149/DelimiterConsumerCases149f.lean",
+      "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+      "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+      "current/research/delimiter-polynomial149/DelimiterPolynomial149.lean",
+      "current/research/delimiter-polynomial149/EXPECTATIONS.json",
+      "current/research/delimiter/DelimiterPrelude144b.lean",
+      "current/research/delimiter/DelimiterPreludeExamples144c.lean",
+      "current/research/delimiter/NativeLoops144b.lean",
+      "current/research/delimiter/PrefixComposition144b.lean",
+      "current/research/delimiter/Protocol144b.lean",
+      "current/research/polynomial-normal-form149/CASE_EXPECTATIONS149.md",
+      "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "current/research/polynomial-normal-form149/NaturalPolynomialNormalFormCases149.lean",
+      "current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "current/source/Examples/TuringSimulation.lean",
+      "current/source/SquareApplications.lean",
+      "current/source/docs/research/fdsa-rotation-certificate-preparation.md",
+      "current/source/docs/textbooks/CTB.json",
+      "current/source/docs/textbooks/coverage.json"
+    ],
+    "unique_verified_members": 32,
+    "reproducer_input_contract": "The preparer reads the exact current plan,16 selected source carriers and3 original C147 owner files. No historical151/150 plan or staging is a runtime input. It retains every original hash and before-image gate.",
+    "future_no_override_rule": "When both current/research/conventional-contract151/*151c.lean members exist in the packet, omit --path-map. All other canonical paths already exist in P151.",
+    "no_source_before_image_fallback": true
+  },
+  "selected_source_status": "All16 selected bodies have successful combined research evidence; ordinary staged owner validation remains pending.",
+  "source_revision152": {
+    "changed_blocks": [
+      {
+        "block": "conventional_decider",
+        "superseded_source_descriptor": {
+          "member": "current/research/conventional-contract150/ConventionalPolynomialDecider150.lean",
+          "bytes": 9818,
+          "sha256": "97fb968d958ff5a4e5bb6460fd2be38afbf1d5acf9c23d0e707b1e67e6c1ac8a"
+        },
+        "selected_source": {
+          "bytes": 9849,
+          "sha256": "307811ffd42a52158a59930db92ee6da4dfe64fa6906c971d4f57618feb2a035",
+          "member": "current/research/conventional-contract151/ConventionalPolynomialDecider151c.lean"
+        },
+        "new_slice": [
+          820,
+          9849
+        ],
+        "new_slice_sha256": "89991a081ebe9b409f38ba6fbbf16ce8d56e9fe9ead7caf1528a6eaf1313df74"
+      },
+      {
+        "block": "delimiter_conventional",
+        "superseded_source_descriptor": {
+          "member": "current/research/conventional-contract150/DelimiterConventionalContract150.lean",
+          "bytes": 6751,
+          "sha256": "16b40d61d40211a29510e511ef2a427628525ff699a98c5912cf791967e930db"
+        },
+        "selected_source": {
+          "bytes": 6827,
+          "sha256": "9b8ac5115a153428108425b7fabf59a7f7860b15423bead65daadd3f4d9d5767",
+          "member": "current/research/conventional-contract151/DelimiterConventionalContract151c.lean"
+        },
+        "new_slice": [
+          438,
+          6827
+        ],
+        "new_slice_sha256": "75d907483207bb4569bd30746502f269822000c1436090e90fac477a2efd6054"
+      }
+    ],
+    "historical_identifier_spans": 81,
+    "additional_annotation_namespace_spans": 2,
+    "expected_current_identifier_spans": 83,
+    "Input_binder_staging_edits": 0,
+    "current_source_scope_still_C147_63": true
+  },
+  "conventional_research_evidence": {
+    "run": "conventional151-author-c",
+    "actual_exit_code": 0,
+    "elapsed_seconds": 5.490244058999451,
+    "nonnull_unchanged_inputs": 3870,
+    "carrier": {
+      "path": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean",
+      "bytes": 166827,
+      "sha256": "b432cf39c0644a4083a3a442825df0bbcd8a3b79d60850be8de669eb25b28dec"
+    },
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.log",
+      "bytes": 85423,
+      "sha256": "4a96a6ce1774dc5adc3b439fb896da520651f0c5b0fd69fc0fbeed5257a776c5"
+    },
+    "log_lines": 1143,
+    "query_counts": {
+      "readable": 63,
+      "expanded": 17,
+      "axiom_roots": 29,
+      "definition_prints": 6
+    },
+    "helper_reading_limit": "Exact source diff and result metadata only. Root completed output reading; receipt belongs to root.",
+    "no_ordinary_module_or_independent_acceptance": true,
+    "root_reading_record": {
+      "path": "/workspace/scratch/ae71b485b114/work/resume151/ROOT_READING_CONVENTIONAL151c.json",
+      "proposed_canonical_member": "current/evidence/research/ROOT_READING_CONVENTIONAL151c.json",
+      "bytes": 10139,
+      "sha256": "d131548048156f783b5ca8090ff034bb5e132c14fd27c1028c92ec0b2ca73bca",
+      "reader": "root",
+      "scope": "All1143 lines;63 readable/17 expanded/29 selected roots/6 definition prints; no omissions/errors/warnings; allowed foundations only.",
+      "helper_limit": "Helper read this record, not the full output; independent acceptance is not inferred."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "conaled-single-checkpoint-v1",
+  "packet_name": "conaled-textbooks-156-checkpoint-2026-11-25T064235Z",
+  "created_utc": "2026-11-25T06:42:35.088499+00:00",
+  "source_manifest": "SOURCE_MANIFEST.json",
+  "source_manifest_descriptor": {
+    "bytes": 26251,
+    "sha256": "765a8235fde30da1d358c964406bc36d7217b77c57954e274a72a50d230bc1d1",
+    "mode": "100644"
+  },
+  "current_source": {
+    "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "prerequisite_tree": "2a6df7a7fce23ae73a8e46d3bde59cf386c958b8",
+    "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "original_base_tree": "3cf266b2a1fa38f13159692fd9ef43fbccaf9009",
+    "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+    "source_tree": "394733a450268e8943048ea146440dcb75c7ceea"
+  },
+  "documents": {
+    "authored_commits": "current/control/authored_commits.json",
+    "continuation": "current/control/continuation.md",
+    "requirements": "current/control/requirements.md",
+    "status": "current/control/status.json"
+  },
+  "directories": {},
+  "history": [],
+  "payload_limit_bytes_including_inventory": 536870912,
+  "source_accepted_by_packaging": false,
+  "review_approved_by_packaging": false,
+  "recovery_tested_by_packaging": false,
+  "durably_saved_by_packaging": false,
+  "issue558_progress_updates_authorized": false,
+  "receiving_master_publication_owner": "conaled integration agent",
+  "external_prerequisites": "Ordinary public Git history and the separately pinned compiler/dependency environment",
+  "save_receipt_policy": "The exact final archive/save receipt is external until the next complete checkpoint; no completion companion",
+  "retention_mode": "curated-v2",
+  "retention": {
+    "manifest": "RETENTION.json",
+    "manifest_descriptor": {
+      "bytes": 417365,
+      "sha256": "cfe784a71d33901b390ca3a4cb817eab1161952ffb99cfea624662c3efeed204",
+      "mode": "100644"
+    },
+    "policy": "RETENTION.md",
+    "policy_descriptor": {
+      "bytes": 4602,
+      "sha256": "662272ac5eb204b4fc29326d466f16c9f2af45e54b0c30c7b2593334ee713152",
+      "mode": "100644"
+    },
+    "historical_outcomes_member": "current/evidence/history/OUTCOMES156.json"
+  }
+}

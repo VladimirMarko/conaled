@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "fixed_utc": "2026-11-24T21:41:49.840829+00:00",
+  "status": "PREIMPLEMENTATION EXPECTATIONS; no Lean invocation permitted in this helper task",
+  "scope": "A generic finite-input conventional polynomial decider contract and two concrete constructions, kept outside C147 source.",
+  "independent_contract": [
+    "One finite input alphabet, finite work alphabet and finite control carrier are fixed before every raw input. A work blank and three pairwise distinct start/accept/reject controls are explicit.",
+    "Input uses one fixed injective per-letter map whose image excludes the blank. Tape initialization is PrintMove.init start (raw.map letter), including the literal empty word; no whole-word encoder or input-dependent machine is allowed.",
+    "The machine performs actual combined write then left/right move through existing PrintMove.step. Its optional transition is none exactly at accept/reject; every other control/symbol has a real action.",
+    "One exponent k is fixed before all raw inputs. Every raw word has a real EvalsToInTime witness to the Boolean answer control in length^k+k actions. Existence is proved by the constructors from existing runs, never assumed through a stand-in polynomial-time predicate.",
+    "Define acceptance through actual deterministic StateTransition.eval terminal membership. Prove acceptance iff the specified Boolean answer, using genuine finite-run-to-reachability and uniqueness of terminal evaluation.",
+    "Generic laws retain literal length and derive terminal stopping/active transition totality from the primitive contract; those laws are not duplicated caller assumptions.",
+    "Constructor1 consumes existing PolynomialBooleanDecider.printMove_run plus the already checked natural polynomial normal form. Constructor2 consumes delimiter PolynomialConsumer149.run_power and existing finite alphabet/control, input and adapter facts.",
+    "The concrete delimiter refinement continues to expose the entire original Run: actual native and target witnesses, full input/output tapes, simulationTime+1, target<=2*native.steps+1, and stopped facts. The smaller generic contract does not claim recovery of those richer data.",
+    "Connect the resulting actual accepted language to the already proved GeneralProof1.verifyDelimited_accept_iff. No parser reimplementation, NP/NTM equivalence, executable numeric table, exact-diameter or sharper-space claim."
+  ],
+  "independent_cases": [
+    {
+      "id": "generic-empty",
+      "expected": "The public run-and-stopped theorem applies at [] with the same fixed k and 0^k+k; no positive-length premise."
+    },
+    {
+      "id": "native-Boolean-reuse",
+      "expected": "ofNative fixes the supplied blank/start/Boolean embedding and actual printMoveMachine, and accepts iff f raw=true. It widens only the checked target allowance."
+    },
+    {
+      "id": "literal-three-symbol-alphabet",
+      "expected": "Delimiter none, present false and present true remain three distinct nonblank letters; the delimiter is not physical blank."
+    },
+    {
+      "id": "empty-rejected",
+      "expected": "Concrete generic acceptance at [] is false, through the new accepts_iff law and existing parser computation."
+    },
+    {
+      "id": "missing-delimiter",
+      "expected": "Every raw word input.map some is rejected, using the existing arbitrary-raw parser theorem rather than restricting the language to valid pairs."
+    },
+    {
+      "id": "repeated-delimiter",
+      "expected": "Every literalPair input cert ++ none::tail is rejected, using existing complete parser semantics."
+    },
+    {
+      "id": "pair-language",
+      "expected": "Actual conventional acceptance of any raw equals existence of the exact literal input/certificate pair with verifyBitsRun answer true."
+    },
+    {
+      "id": "small-witness",
+      "expected": "BinaryYes input iff some cert with cert.length<=input.length^2 is conventionally accepted on the literal pair; preserve pair.length<=I^2+I+1 as a separate observation, with no additive constant on certificate bound."
+    },
+    {
+      "id": "retained-full-run",
+      "expected": "The generic constructor has the same exact machine, input letters and exponent as the checked composition; the existing full Run remains separately obtainable, with its final tape/count evidence intact."
+    }
+  ],
+  "scope_separations": [
+    "A machine lacking an active transition cannot satisfy the exact none-iff law. A start already equal to a terminal is excluded. A blank input letter or collapsed letters is excluded.",
+    "This is a finite mathematical machine. Supplied decidable alphabet equality and finite carriers do not by themselves promise executable indexed tables.",
+    "The current source-only draft will be UNCOMPILED and unreviewed. Root exclusively owns any later compilation and original same-axis integration review. No compiler/resource/settings changes."
+  ],
+  "reading_limits": "Read the supplied active task and current relevant owner definitions in full or bounded sections; the multi-megabyte cumulative requirements read was truncated and is not claimed as a full fresh reading. Original requirements remain unchanged. Primary Cook reading is attributed to parent root; this helper does not claim a fresh primary-source reading."
+}

@@ -1,0 +1,36 @@
+import Applications.Resources.TuringSimulation.VisitedSpace
+import Examples.TuringSimulation
+
+/-!
+Uncompiled normal-import query carrier for the prospective trace-concatenation
+integration. The unchanged recovery154 owners do not yet export these new names.
+See INTEGRATION.md for the separate pre-integration draft-reading route.
+-/
+
+set_option autoImplicit false
+set_option warningAsError true
+set_option pp.all true
+
+#check Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live
+#check Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live
+#check Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live
+#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace
+#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command
+#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion
+#check Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted
+
+#print Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live
+#print Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live
+#print Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live
+#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace
+#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command
+#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion
+#print Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted
+
+#print axioms Resources.TuringSimulation.VisitedSpace.cfgAt_add_of_live
+#print axioms Resources.TuringSimulation.VisitedSpace.commandAt_add_of_live
+#print axioms Resources.TuringSimulation.VisitedSpace.headPosition_add_of_live
+#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_trace
+#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_selected_command
+#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_split_completion
+#print axioms Examples.TuringSimulation.VisitedSpace.TraceConcatenation.peek_resume_shifted

@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "name": "conventional-native144-attempt2",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance139",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance139",
+  "started_utc": "2026-11-24T11:56:54.051430+00:00",
+  "source_bindings": {
+    "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean": {
+      "bytes": 70278,
+      "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/continuation/PolynomialDecider143d.lean": {
+      "bytes": 5556,
+      "sha256": "75579237f6ca039690e9b26d576fc32bd9a42c8bbf093e30bce6a97410993545",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveAdapter.lean": {
+      "bytes": 20659,
+      "sha256": "cdce0c4f1245f03291e1784a21d3d8f19ccf7b3f20f4e9ca185aef5db1ad4c1e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveSpace.lean": {
+      "bytes": 11689,
+      "sha256": "bd58068c653a5dffeffdf74594c14cbc165a7fedff4c87bf2ef04f10d20bbf9c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveCases.lean": {
+      "bytes": 12315,
+      "sha256": "e313fa53f91d81e7192514362b60567ecdcb52054f81e0287abca3d0ac22e521",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7151,
+      "sha256": "eba3b4586a41b57330af7f5e909e1e8f0459dcb6e3ef7d70e65ae91f205fe67c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/EXPECTATIONS.md": {
+      "bytes": 4057,
+      "sha256": "90a248687dc2e4eabfc4a01d97ff6efe354aa9c09c49b2f282ce26c9051c7cf3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/SHA256SUMS": {
+      "bytes": 686,
+      "sha256": "c235e46ebccef5c2d4b0b18b2edce252949cf562c20ccdacc11bb0d34b1d25e5",
+      "mode": "100644"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveAdapter.lean": {
+      "bytes": 20923,
+      "sha256": "24befda9f470ab92f4ed4311799a87012e67d756b6a2c484cb2651ae01b66315",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveSpace.lean": {
+      "bytes": 11986,
+      "sha256": "def140d467b4efa88d2a1be7dbfbb4f53a0c97f7ed723964fab4bfd506876121",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveCases.lean": {
+      "bytes": 12916,
+      "sha256": "607482c044e65891e98e047b3bd0c89341cbd59b409edf3af6f259100d0dbc70",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7165,
+      "sha256": "802d3599d9ad5bc4fa16ac4790badde908cf959956ca457e5bedf2146f2181da",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/MANIFEST.json": {
+      "bytes": 5823,
+      "sha256": "bce6da9b0e2da0dcf11bfde1c8bfbcca23b1b0c10ddbd7136c8b56d497133f4e",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/SHA256SUMS": {
+      "bytes": 1017,
+      "sha256": "9a8faa13eb580b6444b726b0fd8682ac8a38423842dbee1e0ac5f2cebbf57458",
+      "mode": "100444"
+    }
+  },
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+  "finished_utc": "2026-11-24T11:58:12.781935+00:00",
+  "elapsed_seconds": 78.72401990800063,
+  "recorded_utc": "2026-11-24T11:58:12.792567+00:00",
+  "exit_code": 0,
+  "source_bindings_after": {
+    "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean": {
+      "bytes": 70278,
+      "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/continuation/PolynomialDecider143d.lean": {
+      "bytes": 5556,
+      "sha256": "75579237f6ca039690e9b26d576fc32bd9a42c8bbf093e30bce6a97410993545",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveAdapter.lean": {
+      "bytes": 20659,
+      "sha256": "cdce0c4f1245f03291e1784a21d3d8f19ccf7b3f20f4e9ca185aef5db1ad4c1e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveSpace.lean": {
+      "bytes": 11689,
+      "sha256": "bd58068c653a5dffeffdf74594c14cbc165a7fedff4c87bf2ef04f10d20bbf9c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PrintMoveCases.lean": {
+      "bytes": 12315,
+      "sha256": "e313fa53f91d81e7192514362b60567ecdcb52054f81e0287abca3d0ac22e521",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7151,
+      "sha256": "eba3b4586a41b57330af7f5e909e1e8f0459dcb6e3ef7d70e65ae91f205fe67c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/EXPECTATIONS.md": {
+      "bytes": 4057,
+      "sha256": "90a248687dc2e4eabfc4a01d97ff6efe354aa9c09c49b2f282ce26c9051c7cf3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/SHA256SUMS": {
+      "bytes": 686,
+      "sha256": "c235e46ebccef5c2d4b0b18b2edce252949cf562c20ccdacc11bb0d34b1d25e5",
+      "mode": "100644"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveAdapter.lean": {
+      "bytes": 20923,
+      "sha256": "24befda9f470ab92f4ed4311799a87012e67d756b6a2c484cb2651ae01b66315",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveSpace.lean": {
+      "bytes": 11986,
+      "sha256": "def140d467b4efa88d2a1be7dbfbb4f53a0c97f7ed723964fab4bfd506876121",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PrintMoveCases.lean": {
+      "bytes": 12916,
+      "sha256": "607482c044e65891e98e047b3bd0c89341cbd59b409edf3af6f259100d0dbc70",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7165,
+      "sha256": "802d3599d9ad5bc4fa16ac4790badde908cf959956ca457e5bedf2146f2181da",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/MANIFEST.json": {
+      "bytes": 5823,
+      "sha256": "bce6da9b0e2da0dcf11bfde1c8bfbcca23b1b0c10ddbd7136c8b56d497133f4e",
+      "mode": "100444"
+    },
+    "/workspace/scratch/ae71b485b114/work/conventional-research/repair1/SHA256SUMS": {
+      "bytes": 1017,
+      "sha256": "9a8faa13eb580b6444b726b0fd8682ac8a38423842dbee1e0ac5f2cebbf57458",
+      "mode": "100444"
+    }
+  },
+  "sources_unchanged": true,
+  "log": "/workspace/scratch/ae71b485b114/work/continuation/conventional-native144-attempt2.log",
+  "log_descriptor": {
+    "bytes": 119652,
+    "sha256": "15afab789bb7416a231884b089edbf53859411ebbee6df741022ff5b5fe2d440",
+    "mode": "100644"
+  },
+  "child_exit_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/conventional-native144-attempt2.child-exit.json",
+    "bytes": 1316,
+    "sha256": "2e6c8158a7cb32409962ddee4ce5b630b7da13fcc7b2314e5f5ec7ea6cde3cea",
+    "mode": "100644"
+  }
+}

@@ -1,0 +1,290 @@
+# One complete continuation checkpoint
+
+## Compact successors (configuration schema 2)
+
+Use schema2 for future checkpoints. Read the root `RETENTION.md` policy first.
+Schema1 packing and verification remain available for the existing three-tree
+format, including checkpoint144. The common packet schema stays
+`conaled-single-checkpoint-v1`; `STATE.json.retention_mode = "curated-v2"`
+explicitly selects the new retention checks. An older helper will reject a
+compact packet; use the helper carried by that packet.
+
+Compact selection does **not** accept `history` or `directories`. Every extra
+literal file has a destination, exact regular carrier, expected descriptor and
+reason. The complete immutable Git delta and the four required documents still
+use all the existing source/hash/mode gates. The source, clone, restore, inspect,
+whole-index, full-body, style and clean-worktree algorithms are unchanged.
+
+```json
+{
+  "schema": 2,
+  "packet_name": "conaled-textbooks-147-checkpoint-2026-11-24T160000Z",
+  "repo": "/absolute/author/conaled",
+  "candidate": "<actual immutable 40-character SHA>",
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "repository_url": "https://github.com/VladimirMarko/conaled.git",
+  "predecessor": {
+    "packet_name": "<actual immediate predecessor root>",
+    "archive": {"path": "/absolute/previous.tar.xz", "expected": {"bytes": 123, "sha256": "<actual SHA256>", "mode": "100644"}},
+    "inventory": {"path": "/absolute/previous-INVENTORY.json", "expected": {"bytes": 456, "sha256": "<actual SHA256>", "mode": "100644"}}
+  },
+  "files": {
+    "current/evidence/historical-outcomes.json": {
+      "path": "/absolute/frozen-historical-outcomes.json",
+      "expected": {"bytes": 789, "sha256": "<actual SHA256>", "mode": "100644"},
+      "reason": "Retain observed failures, UNKNOWNs and exact reading/availability limits."
+    }
+  },
+  "retention": {"path": "/absolute/dispositions.json", "expected": {"bytes": 987, "sha256": "<actual SHA256>", "mode": "100644"}},
+  "documents": {
+    "requirements": "/absolute/complete-requirements.txt",
+    "authored_commits": "/absolute/authored-commits.json",
+    "continuation": "/absolute/current-continuation.md",
+    "status": "/absolute/current-status.json"
+  }
+}
+```
+
+The numeric and hash placeholders above must be replaced with real descriptors.
+The operator identifies the actual immediate predecessor from its durable save
+receipt; the tool cannot discover which externally saved archive is latest.
+During planning/packing it verifies that **actual archive**, including its full
+inventory and existing packet/source checks, and compares the supplied literal
+inventory bytes and mode with the archive. The predecessor archive is never
+included. Only its literal inventory is kept at
+`retention/predecessor-INVENTORY.json`.
+
+The `retention` carrier is JSON with exactly these keys:
+
+```json
+{
+  "schema": 1,
+  "historical_outcomes_member": "current/evidence/historical-outcomes.json",
+  "dispositions": {
+    "<each exact predecessor relative member>": {
+      "previous_descriptor": {"bytes": 123, "sha256": "<actual SHA256>", "mode": "100644"},
+      "disposition": "retired",
+      "reason": "Describe the checked surviving mathematics or useful conclusion, not merely its age.",
+      "survivor_member": "current/control/status.json",
+      "old_body_reconstructible": false
+    }
+  }
+}
+```
+
+Cover every predecessor member exactly, **including its `INVENTORY.json`**.
+That inventory's entry must be retained/duplicate and point to
+`retention/predecessor-INVENTORY.json`. Other entries use:
+
+| Disposition | Required contract |
+|---|---|
+| `retained`, `duplicate` | `old_body_reconstructible: true`; the literal successor carrier has identical bytes, SHA256 and mode. The packer also compares its actual bytes with the predecessor archive body. Several old members can share one successor carrier. |
+| `embedded` | `old_body_reconstructible: true` and nonnegative integer `byte_offset`. The entire old body, with length/hash and old mode recorded in `previous_descriptor`, must match exactly the successor byte slice at that offset; the packer also compares actual predecessor bytes. This is not a prose or semantic-embedding claim. |
+| `updated`, `retired` | `old_body_reconstructible: false`, nonempty reason and an existing current survivor/conclusion member. No old-body reconstruction is promised. Root must assess the mathematical or evidential adequacy of that survivor. |
+
+Successor paths are literal packet members, not chains through other disposition
+entries. `INVENTORY.json` and `RETENTION.json` cannot be circular survivors.
+No successor descriptor is repeated for updated/retired entries: the successor
+inventory binds that file, avoiding a hash cycle through `STATE.json`.
+Reserved control/source routes are generated by the tool. Duplicate selected
+bytes/mode and duplicate literal compact payloads are rejected; select one
+carrier and reuse its route. Required documents and Git source updates reuse
+identical selected carriers when possible.
+
+The historical-outcomes member is a curated JSON object with a nonempty
+`coverage_statement` and a nonempty `outcomes` list. Each entry includes `id`,
+`outcome`, `actual_exit_code`, `terminal_observed`, `candidate`, `scope`,
+`source_evidence`, `reading_limits`, and `availability_limits`.
+`source_evidence` is a nonempty list of explicit evidence references (include
+their exact descriptors and prior/current availability). Use `UNKNOWN` with
+null exit and false terminal observation; `failed` with nonzero integer exit
+and true terminal observation; `passed` with zero exit and true observation.
+Separate an observed failed child from an unobserved outer terminal. A source
+capture or inventory check is not a compiler result: label its kind and scope.
+The tool checks ledger presence/coherence and exact carriers; root reviews the
+coverage assertion and evidence. It cannot infer every historical fact from
+arbitrary predecessor prose.
+
+The generated root reading order starts with `RETENTION.md`, current state and
+the historical-outcomes ledger. `RETENTION.json` carries the exact predecessor
+binding, selection reasons and exhaustive dispositions. Packet verification
+checks those against the carried predecessor inventory without requiring the
+old archive. Packing alone still does not test source recovery or durable saving.
+Run the same real independent restore and subsequent inspect commands below.
+
+## Legacy schema1 configuration and common operations
+
+`checkpoint.py` packs exact Git source plus preserved history, verifies the whole
+archive, and restores an ordinary complete public clone with the current delta.
+It uses Python 3.11+ and Git. It does not invoke Lean, alter toolchain settings,
+publish Git objects, claim review approval, or upload the result.
+
+Every archive has one authoritative `START_HERE.md`, `STATE.json`, complete
+`INVENTORY.json`, `SOURCE_MANIFEST.json`, and this recovery program. The original
+three supplied packets in **legacy schema1 mode** are preserved as immutable extracted trees under
+`history/`. Their old entrypoints remain historical. No previous archive is
+nested inside the new archive. Same current source bytes and modes reuse an
+existing literal payload; only genuinely new bodies are placed in
+`current/source/`.
+
+## Configure a checkpoint
+
+Save a JSON configuration outside the source repository. All input paths below
+must be actual existing files/directories; replace the example placeholders.
+Use complete immutable commit SHAs, never branch names or `HEAD`.
+
+```json
+{
+  "schema": 1,
+  "packet_name": "conaled-textbooks-138-checkpoint-2026-11-24T120000Z",
+  "repo": "/absolute/author/conaled",
+  "candidate": "<actual 40-character immutable candidate SHA>",
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "repository_url": "https://github.com/VladimirMarko/conaled.git",
+  "history": [
+    "/absolute/restored/conaled-textbooks-136-progress-2026-11-23",
+    "/absolute/restored/conaled-textbooks-136-completion-2026-11-23",
+    "/absolute/restored/conaled-textbooks-136-followup-notes-2026-11-23"
+  ],
+  "directories": {
+    "evidence": {"current": "/absolute/frozen-current-evidence"},
+    "research": {"tm-simulation": "/absolute/useful-research"},
+    "operations": {"session": "/absolute/operation-sources"}
+  },
+  "documents": {
+    "requirements": "/absolute/complete-requirements.txt",
+    "authored_commits": "/absolute/authored-commit-inventory.json",
+    "continuation": "/absolute/current-continuation.md",
+    "status": "/absolute/current-status.json"
+  }
+}
+```
+
+`directories` is optional. Its only categories are `evidence`, `research`, and
+`operations`; each maps a simple label to a selected directory. Select useful
+files beforehand; this tool does not guess which logs are obsolete. It rejects
+links, `.git`, `.lake`, installed/generated outputs and nested archives. It also
+rejects changed inputs observed during planning or packaging. Copy an actively
+growing log to a frozen observation file before selecting it; document the
+observed cutoff and absence of any terminal outcome.
+
+`documents` requires all four named files. Requirements and continuation are
+nonempty UTF-8 text. Status and authored commits are JSON. The continuation must
+give exact paths for the original reviews, preparation paper, current evidence,
+unfinished work and next actions. The packer records these files faithfully but
+cannot determine that the user-authored claims are mathematically correct.
+
+`created_utc` may optionally fix an explicit cutoff string. Otherwise the tool
+records its actual planning time. The complete expanded packet, including its
+inventory, must not exceed 536,870,912 bytes. Source is taken from the immutable
+candidate against the entire public base, including every changed/new/deleted
+owner. Live uncommitted changes are not silently added; capture them using the
+supported review snapshot procedure before packaging when they belong to the
+checkpoint. Preserve useful drafts separately when they are not current source.
+
+The tool reads the source repository and creates no Git objects there. It
+requires original-base → public-base → candidate ancestry and ordinary full
+history. It does not verify public publication of an arbitrary new base; that
+pin reconciliation remains the operator's responsibility.
+
+## Plan and pack
+
+```sh
+python3 -B checkpoint.py pack --config /absolute/config.json --plan-only
+python3 -B checkpoint.py pack --config /absolute/config.json \
+  --archive /absolute/conaled-textbooks-138-checkpoint-2026-11-24T120000Z.tar.xz \
+  --stage /absolute/new-checkpoint-stage \
+  --receipt /absolute/new-pack-result.json
+```
+
+All output paths must be new, with existing parents. The archive basename must
+be `packet_name + .tar.xz`. Staging is retained for inspection. An interrupted
+or failed attempt may leave its own partial stage/archive; the tool never
+overwrites or automatically deletes them. Report and inspect such a failure
+before choosing a new path.
+
+The completed pack result gives the actual archive bytes/SHA-256, complete
+expanded size, member count and staged source tree. It separately records that
+ordinary source recovery and durable saving have not been performed by packing.
+
+## Verify and recover
+
+Verify an archive's supplied external identity, complete member inventory,
+historical inventories and current source routes, and optionally extract it to
+a nonexistent directory:
+
+```sh
+python3 -B checkpoint.py verify --archive /absolute/checkpoint.tar.xz \
+  --expected-sha256 ACTUAL_RECORDED_SHA256 --expected-bytes ACTUAL_BYTE_COUNT \
+  --extract /absolute/new-extracted-checkpoint \
+  --receipt /absolute/new-archive-verification.json
+```
+
+Both `--expected-*` arguments are optional when discovering an archive's actual
+identity, but do not substitute discovery for a comparison with a retained
+external identity. Extraction accepts only safe unique regular files under one
+root; it does not invoke tar's bulk extraction or follow links. For an extracted
+packet, use `verify --packet /absolute/packet` instead.
+
+From an extracted packet:
+
+```sh
+python3 -B operations/checkpoint.py restore --packet . \
+  --destination /absolute/new/conaled \
+  --receipt /absolute/new-recovery-result.json
+```
+
+The default recovery runs an ordinary public clone without shallow, shared,
+alternate or hard-linked object storage. It checks out the exact public
+prerequisite, applies the complete update/deletion map, stages it, then checks
+the whole candidate tree, every tracked source body/mode, source style and the
+absence of unstaged, untracked and ignored files. The recovered HEAD remains
+the public prerequisite with the complete source delta staged. It does not
+recreate the historical private author commit or its review-retention references.
+
+For a second independent source check after restoration:
+
+```sh
+python3 -B operations/checkpoint.py inspect --packet . \
+  --destination /absolute/recovered/conaled \
+  --receipt /absolute/new-source-inspection.json
+```
+
+`inspect` reads working files and Git metadata and invokes `git write-tree` to
+obtain the complete existing index identity; it does not alter the index or
+working files. Git may materialize the corresponding tree object locally.
+
+If a separately held full public clone is already available, `restore` accepts
+`--public-cache /absolute/public-clone`. The cache must have the exact canonical
+origin, be checked out at the declared public base with its exact tree, own its
+Git storage, contain original-base ancestry, and not contain the private author
+candidate. Recovery uses `git clone --no-local --no-hardlinks` and then restores
+the canonical origin; it does not share cache objects. This is an explicit
+public-history input, not a previous checkpoint or private donor requirement.
+
+## Acceptance, saving and future checkpoints
+
+An inventory is consistency evidence, not authentication against an adversary
+who can rewrite both files and metadata. These checks do not establish Lean
+acceptance, independent Standards/Spec review, receiving integration, or saving.
+Keep those actual results separate. Normal pinned compiler/dependency setup and
+the inherited validation/review procedure remain required for mathematics.
+
+Save the single completed archive through the authorized durable route and
+record the actual result. Its final save/hash receipt is external to that same
+archive; include it in the next complete checkpoint. Do not make a companion
+archive for the same cutoff solely to enclose the save receipt. Do not post
+local progress to issue #558. New observations after a cutoff belong to the
+next complete archive, preserving all useful current source, drafts, evidence,
+requirements and unresolved findings.
+
+## Read-only research artifacts
+
+Regular research/evidence members may have mode100444 as well as100644 or100755.
+Their exact permission mode, bytes and SHA256 remain checked through staging,
+archive verification and extraction. This preserves frozen read-only research
+without altering its files or making it executable. Git source-tree and source
+payload modes remain restricted to100644 and100755. Symlinks, special bits,
+world-writable modes, compiler products and unsafe paths remain rejected.

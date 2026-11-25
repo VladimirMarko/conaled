@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "started_utc": "2026-11-21T21:45:30.035234+00:00",
+  "completed_utc": "2026-11-21T21:45:36.590003+00:00",
+  "elapsed_seconds": 6.554765631000009,
+  "candidate": "2b3738c116b1a9a439a8fa38663e2da824a56339",
+  "tree": "49fa40ddd4a5f84a0b743a0b8ca2df6248dbd930",
+  "base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "argv": [
+    "python3",
+    "-B",
+    "/workspace/scratch/39407f75909a/checkpoint101/conaled-textbooks-101-progress-2026-11-21/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/39407f75909a/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/39407f75909a/conaled",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/39407f75909a/continuation085/FocusedAudit6.lean"
+  ],
+  "actual_exit_code": 0,
+  "exit_code": 0,
+  "input_manifest": "/workspace/scratch/39407f75909a/continuation085/focused-audit-inputs-6.json",
+  "input_manifest_bytes": 55009,
+  "input_manifest_sha256": "c205136e26ea581cd049eecb652cacc8ca4959569552950fc1dce5c03db063fc",
+  "audit_source_bytes": 58429,
+  "audit_source_sha256": "655f104f238b7ddcb506fc4ae52ac3dbf40f1d3a46974003cdf31745ff1c1a75",
+  "audit_source_unchanged": true,
+  "source_before": {
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96"
+    },
+    "SquareApplications.lean": {
+      "bytes": 43460,
+      "sha256": "bf57a2fddf29afa6ab93471412e5bf373b8309ba49c40d37517132895acbf561"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 264302,
+      "sha256": "f3074f113007e57985ba616476eb6149f2dd635d225591c2cdb79633fe94699d"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 821776,
+      "sha256": "bbb1207bcc0b891a67745c2d46c8c287b702813af78153a3f403bb00bca41f9b"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 54158,
+      "sha256": "b9e70e1e89342a819f9aaa4bbfd305f9035d045f48965664790a913afd0308c2"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 5187,
+      "sha256": "fac7b36b5dea123da9b7e1b916548b3efa8ba0de6a481f7b7bb0f38d2929738f"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1"
+    },
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b"
+    }
+  },
+  "source_after": {
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96"
+    },
+    "SquareApplications.lean": {
+      "bytes": 43460,
+      "sha256": "bf57a2fddf29afa6ab93471412e5bf373b8309ba49c40d37517132895acbf561"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 264302,
+      "sha256": "f3074f113007e57985ba616476eb6149f2dd635d225591c2cdb79633fe94699d"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 821776,
+      "sha256": "bbb1207bcc0b891a67745c2d46c8c287b702813af78153a3f403bb00bca41f9b"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 54158,
+      "sha256": "b9e70e1e89342a819f9aaa4bbfd305f9035d045f48965664790a913afd0308c2"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 5187,
+      "sha256": "fac7b36b5dea123da9b7e1b916548b3efa8ba0de6a481f7b7bb0f38d2929738f"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1"
+    },
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b"
+    }
+  },
+  "all_source_hashes_still_match": true,
+  "configuration_before": {
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lakefile.toml": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "ProofAudit.lean": "0215a7a894ca8368624e6c15bdb739304a3825a0e70ba84a8ffe4be468ac0b32",
+    "scripts/project_sources.py": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+    "check.sh": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+  },
+  "configuration_after": {
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lakefile.toml": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "ProofAudit.lean": "0215a7a894ca8368624e6c15bdb739304a3825a0e70ba84a8ffe4be468ac0b32",
+    "scripts/project_sources.py": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+    "check.sh": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd"
+  },
+  "all_configuration_hashes_still_match": true,
+  "log": "/workspace/scratch/39407f75909a/continuation085/focused-audit-6.log",
+  "log_bytes": 952799,
+  "log_sha256": "046e903eeb73d279950f942d96711b44f8ef88f9a1604d68c9ec494bc79a9282",
+  "extra_resource_caps": false,
+  "manual_olean_injection": false,
+  "whole_library_acceptance": false,
+  "root_actual_statement_inspection": "pending actual log inspection"
+}

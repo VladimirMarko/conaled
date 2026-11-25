@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "kind": "bounded live whole155 diagnostic observation; not an outer terminal",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "observed_utc": "2026-11-25T05:52:12.055068+00:00",
+  "log_bytes_at_observation": 1198029,
+  "log_lines_at_observation": 6409,
+  "failure": "Examples.FiniteUniverseLoops",
+  "job": "10221/10307",
+  "reported_duration_seconds": 70,
+  "literal_error": "error: Lean exited with code 137",
+  "actual_outer_terminal_observed": false,
+  "actual_outer_exit_code": null,
+  "disk_available_bytes_at_observation": 3046952960,
+  "disk_total_bytes": 20957446144,
+  "later_resource_observation": {
+    "observed_utc": "2026-11-25T05:53:10.819913+00:00",
+    "disk_available_bytes": 3028123648,
+    "mem_total_kB": 10206472,
+    "mem_available_kB": 2991896,
+    "swap_total_kB": 0,
+    "proc_self_cgroup": "0::/",
+    "memory_events_max_current_files": "FileNotFoundError at standard /sys/fs/cgroup paths",
+    "process_inspection_limit": "A separate shell ps invocation exposed only its own codex/ps processes; it did not provide a compiler process or peak-memory history."
+  },
+  "failed_source": {
+    "repository_path": "Examples/FiniteUniverseLoops.lean",
+    "bytes": 11458,
+    "sha256": "9c8c40e7d91ccccced670889fa97f52e3cd5411155314f5c09dc6d5c653afe54",
+    "byte_identical_to_pinned_public_M": true,
+    "public_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "outside_scope72": true
+  },
+  "cause_established": false,
+  "source_or_resource_settings_changed": false,
+  "retry_started": false,
+  "failed_project_outputs_reused": false,
+  "boundary": "A reported child exit137 does not identify its cause or the eventual outer result. Focused155 and query155-b actual0 remain distinct. Wait for the actual outer terminal; preserve failures and never infer a successful whole/audit result from this observation."
+}

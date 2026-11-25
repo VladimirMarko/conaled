@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "prerequisite": "9b20498dffaeb8f60de18b2af902f267786f8b22",
+  "project_files": {
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b"
+  },
+  "toolchain": "4.35.0",
+  "lean_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "lake_version": "5.0.0-src+eb6cafb",
+  "official_archive": {
+    "url": "https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst",
+    "bytes": 594481375,
+    "sha256": "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d"
+  },
+  "required_directories": [
+    "bin",
+    "lib",
+    "lib/lean",
+    "lib/lean/Init",
+    "lib/lean/Lean",
+    "lib/lean/Std",
+    "lib/lean/Lake"
+  ],
+  "tools": [
+    "lean",
+    "lake",
+    "leanir",
+    "leanc"
+  ],
+  "official_files": [
+    {
+      "path": "bin/clang",
+      "bytes": 119280,
+      "sha256": "df2e7d9b9e23822587cf04ac28f206a1ddaac5053312a4c875acf5608701b9d2"
+    },
+    {
+      "path": "bin/lake",
+      "bytes": 13416,
+      "sha256": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+    },
+    {
+      "path": "bin/ld.lld",
+      "bytes": 6054672,
+      "sha256": "621175cfcf8051bfda72fb921f32a35f7e761a0fdd217d67335dfbf3a2f5d9df"
+    },
+    {
+      "path": "bin/lean",
+      "bytes": 9024,
+      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+    },
+    {
+      "path": "bin/leanc",
+      "bytes": 36168,
+      "sha256": "1e0b075573c5ea98e6b196e35d3b159b93e3226714e28cd8febb30a240ec735c"
+    },
+    {
+      "path": "bin/leanir",
+      "bytes": 215864,
+      "sha256": "5908f2917dcda5ed840e1ff5d6cdac5d104f9f6ca1ab1dc9f11d1c9fe220487e"
+    },
+    {
+      "path": "bin/leantar",
+      "bytes": 2692960,
+      "sha256": "06d613dffd2a6fd996b095bfd835c2bb720886f9eb7e13ed2adddd7df4507bf3"
+    },
+    {
+      "path": "lib/Mcrt1.o",
+      "bytes": 1304,
+      "sha256": "ec1d706fdd345846611a80d5c564474cc1385dfae590bd80cdc59faacc3642c3"
+    },
+    {
+      "path": "lib/Scrt1.o",
+      "bytes": 3896,
+      "sha256": "dc52654dd0ea0ae811a976a904ae61a02b1741fed2499fbe5d524c602d1b430c"
+    },
+    {
+      "path": "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtbegin.o",
+      "bytes": 3128,
+      "sha256": "b1af135ed20215fc90975ec195de2284c7e86209eb4e44bd947f73016df0ed63"
+    },
+    {
+      "path": "lib/clang/23/lib/x86_64-unknown-linux-gnu/clang_rt.crtend.o",
+      "bytes": 848,
+      "sha256": "ab019a30bab6316ba90e982fa3985f1d2c19e811cc46fcf492f9201732b215ab"
+    },
+    {
+      "path": "lib/clang/23/lib/x86_64-unknown-linux-gnu/libclang_rt.builtins.a",
+      "bytes": 282396,
+      "sha256": "4f56ea6173fab54d0d878537a3b0c7fe724ff01d06de78792bf40f02e029e1d3"
+    },
+    {
+      "path": "lib/crt1.o",
+      "bytes": 3896,
+      "sha256": "1f890fce9e8bbb1f51aef778abbd19e97142ba29f89e6dba0fe0bab785efef61"
+    },
+    {
+      "path": "lib/crti.o",
+      "bytes": 2608,
+      "sha256": "26304f6644783815c972f04aa4bb86540c6a21b488d2358beb2132f4e248bc79"
+    },
+    {
+      "path": "lib/crtn.o",
+      "bytes": 2336,
+      "sha256": "2266e8762e7030de4377d1b530c9fc455a8582b473ed55b928ddf045881fe0e3"
+    },
+    {
+      "path": "lib/gcrt1.o",
+      "bytes": 6184,
+      "sha256": "619afc7fa1483d96e20d4be8bd3582aaff85c3a915524ba48d7899515345b471"
+    },
+    {
+      "path": "lib/glibc/ld.so",
+      "bytes": 174680,
+      "sha256": "cf102aa2866d69b6b1b6f5195da0031deb7fbae374a0c2f677a1fffc9e01f3f2"
+    },
+    {
+      "path": "lib/glibc/libc.so",
+      "bytes": 1998936,
+      "sha256": "e256592ceadd9c7c4256e92e845b0899d297d5bd4a6ad932048db5cd5e799e0d"
+    },
+    {
+      "path": "lib/glibc/libc_nonshared.a",
+      "bytes": 23508,
+      "sha256": "f6a232d070f03e3a6d6adb7d15ffb36fd3aa6d534cf36c23cedf8c303591b363"
+    },
+    {
+      "path": "lib/glibc/libdl.so",
+      "bytes": 18528,
+      "sha256": "fc529305501bfce8aa9f614c041c936827cefed5c2c533abbb1867d5ebf84a55"
+    },
+    {
+      "path": "lib/glibc/libm.so",
+      "bytes": 1440248,
+      "sha256": "dd9e596df3c48d1805c235fc5b89161c4942dc6641200a813fa75914152d04e9"
+    },
+    {
+      "path": "lib/glibc/libpthread.so",
+      "bytes": 137184,
+      "sha256": "27ba14f60ea7a4d46579879c87e206de33eaac0ccd130d87e6ef4cb3fa28cf86"
+    },
+    {
+      "path": "lib/glibc/libpthread_nonshared.a",
+      "bytes": 1836,
+      "sha256": "af44a8974f451cf11d20a1e2acb070dc223d611703354e9c17c58cff33e4c04c"
+    },
+    {
+      "path": "lib/glibc/librt.so",
+      "bytes": 41696,
+      "sha256": "542ef722b42111dbeaa9f1f6579b933e7bbf1c95466f4dc3604d7905d657e924"
+    },
+    {
+      "path": "lib/lean/libInit.a",
+      "bytes": 26197506,
+      "sha256": "8e052110172cff7a05da417bc112cfe9e9e06454bda02270a64fbfd326c9f259"
+    },
+    {
+      "path": "lib/lean/libInit_shared.so",
+      "bytes": 6264,
+      "sha256": "7831b707e868cee76c353d26649fbd8981b2f4d7e0329af55bbf4fa9e0c69350"
+    },
+    {
+      "path": "lib/lean/libLake.a",
+      "bytes": 22476306,
+      "sha256": "43521aa2138faaa712a14dcf13cb49a3f0970f368d269fb68e50e1353cf06440"
+    },
+    {
+      "path": "lib/lean/libLake_shared.so",
+      "bytes": 14070032,
+      "sha256": "d68867df340056b40726fde3939a9d2021901cc6944f971dd6a6a778bd9ea25b"
+    },
+    {
+      "path": "lib/lean/libLean.a",
+      "bytes": 312347648,
+      "sha256": "9bf52d31dff9bcaae41d5d33135749c9e9a4c595f4d5a319a4b34c9a54380fb2"
+    },
+    {
+      "path": "lib/lean/libLeanChecker.a",
+      "bytes": 69950,
+      "sha256": "fb8bb6522834bf6ebc544366aa4fee2a882b1268f6d74b2ac721885a8fdcc30f"
+    },
+    {
+      "path": "lib/lean/libLeanExport.a",
+      "bytes": 1038398,
+      "sha256": "4ffe24823aab0b70c28329b7a3f5b05cfcf120e87d1915ac29c117e181a67282"
+    },
+    {
+      "path": "lib/lean/libLeanIR.a",
+      "bytes": 279530,
+      "sha256": "1f190fcb9a1f5af391526cbd47ac24a92cc824b94d4753548e9cd3eeb3199a40"
+    },
+    {
+      "path": "lib/lean/libLeanc.a",
+      "bytes": 40268,
+      "sha256": "13e9ebccd131835495f62d63a387118a06ad2d6768b6e5ccd156beca5b4a865d"
+    },
+    {
+      "path": "lib/lean/libStd.a",
+      "bytes": 30173828,
+      "sha256": "2f69e0b6bed4eef60a95cdbdaec4f66cfbafd0a614b29feee38574403b7665e6"
+    },
+    {
+      "path": "lib/lean/libinitialize_minimal.a",
+      "bytes": 14734,
+      "sha256": "31e5026b3d16824f7d5c5c30ce41843bf167d262a236978264d4021d1d8538a5"
+    },
+    {
+      "path": "lib/lean/libleancpp.a",
+      "bytes": 2373186,
+      "sha256": "f178f1d5469b3481930e2016a7fb5ed713086ca076fae677c826c48e14429d69"
+    },
+    {
+      "path": "lib/lean/libleanmanifest.a",
+      "bytes": 872,
+      "sha256": "3b8db870dbee829b2e34f8ec6a5e68ebf69b5512a42f1d8aabb3aef4e452fddf"
+    },
+    {
+      "path": "lib/lean/libleanrt.a",
+      "bytes": 1258058,
+      "sha256": "5f33785947b6e0338457f5cc7cd72c0da0082192a1265c013b3ab217b5c98c2e"
+    },
+    {
+      "path": "lib/lean/libleanshared.so",
+      "bytes": 231113560,
+      "sha256": "efef27df56f2197139afe12f1a2b63913a05f1aba81ce88824c44100431ed8c4"
+    },
+    {
+      "path": "lib/lean/libleanshared_1.so",
+      "bytes": 6264,
+      "sha256": "691bf49d9e542a15808fad9d1f8c5df45860166f77efa57961b5335e65a3a0ed"
+    },
+    {
+      "path": "lib/lean/libleanshared_2.so",
+      "bytes": 6264,
+      "sha256": "141cbfdb3bc2016cd68e0bebc2e5494818213b462ed985afa6d975d4872fb8ec"
+    },
+    {
+      "path": "lib/lean/libmimalloc_paranoid.a",
+      "bytes": 382740,
+      "sha256": "fc096697861e923a74700ede1408e82b7c6c497488e503100a272c1d1cb84e7f"
+    },
+    {
+      "path": "lib/libLLVM.so.23.1",
+      "bytes": 78470160,
+      "sha256": "d156f2240517cf3e363dbe74492491494f74300a2a0513f8606f802dca2f2fbe"
+    },
+    {
+      "path": "lib/libc++.a",
+      "bytes": 2480040,
+      "sha256": "21ec9522439e5f55ed4042c1feaea62d0d81d0002096f0e7ef1eee531e6817fe"
+    },
+    {
+      "path": "lib/libc++.so.1",
+      "bytes": 1347456,
+      "sha256": "f074b78d387f3b0db490e3e61289300ee4cf3c4cdb89a7485983e5605cee6c68"
+    },
+    {
+      "path": "lib/libc++abi.a",
+      "bytes": 722742,
+      "sha256": "4f13ec2f7a5e8fc0315a6d48964c719abd40f550a03f8e961c1f2f8bb60570b6"
+    },
+    {
+      "path": "lib/libc++abi.so.1",
+      "bytes": 406584,
+      "sha256": "43ae4baf280de152662d88ed938cef229022900e13457683b6a19ae82fafac66"
+    },
+    {
+      "path": "lib/libclang-cpp.so.23.1",
+      "bytes": 67766536,
+      "sha256": "d7adb9dfd7170742a0dce7773e4ffe5903830b11c2af316908058516017fcc92"
+    },
+    {
+      "path": "lib/libcrypto.a",
+      "bytes": 10990460,
+      "sha256": "75c67cf549d96bf791effd4b6f234d1d04ac402b895c064a532da86046c6408e"
+    },
+    {
+      "path": "lib/libgcc_s.so.1",
+      "bytes": 102664,
+      "sha256": "3f499bb3b14f33c5c321f52015d385c145c7bd4551a66c5fcff4262c833f2d2a"
+    },
+    {
+      "path": "lib/libgmp.a",
+      "bytes": 1668288,
+      "sha256": "e104f4f49980de8dc81f407ea0a28719ddedeb1da62f27fc6404a31c4587cf8b"
+    },
+    {
+      "path": "lib/libssl.a",
+      "bytes": 2031304,
+      "sha256": "9214a7eb51574c382cb6a0a7185f8240be35710552b4be8ff6988fd710227ffa"
+    },
+    {
+      "path": "lib/libunwind.a",
+      "bytes": 136662,
+      "sha256": "e27091c520e8a9f854a00191863f2e11b55c1f1e6a829407e4b9128f2b9b3826"
+    },
+    {
+      "path": "lib/libuv.a",
+      "bytes": 362414,
+      "sha256": "f5b243e37f7ef8087e9bc075401bf799f2ae40fa0fbc17d33d8df641e5d91c40"
+    },
+    {
+      "path": "lib/libz.so.1",
+      "bytes": 100640,
+      "sha256": "d0aeafffcfe309a107a857dfa1f9afd0db90796d32c2b735a3959eccb317f5b4"
+    }
+  ],
+  "verification_scope": "55 official executable, link and runtime inputs plus required directories; not a whole-tree attestation of an existing installation.",
+  "source_provenance": {
+    "origin": "User-supplied native kit 1.0.0, 2026-11-03; selected source only. No cache objects or vendor payload.",
+    "app_path.c_sha256": "fefc39d8645e4a938d6cc27574257d1a1e8e8f0790b75cc15bcf074272066fe0",
+    "original_runtime.py_sha256": "e790d472353e8d9467d696d2b1f7ae245c731d61e90cbfbcc7a2a576ad4fd695",
+    "original_conaled_native.py_sha256": "9d1b1e6f10ae574e5c1f388d8df069f43c9ca3e1a993c372293595abd2e5090a"
+  }
+}

@@ -1,0 +1,2975 @@
+{
+  "schema": 1,
+  "name": "query147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "started_utc": "2026-11-24T19:27:12.851268+00:00",
+  "source_bindings": {
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.olean": {
+      "bytes": 579776,
+      "sha256": "6bb9ca5c95b41cdd12a4c084b9610e20217f7c5f4d7e7c565769d4f0ac4dc5ad",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.olean.hash": {
+      "bytes": 16,
+      "sha256": "337b525ebe1f57b1db582211a9ca1060c321a61b4904974dbc14f0f795165c3b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.trace": {
+      "bytes": 3166,
+      "sha256": "8228ec02f7e52aae359c2ea48c520db8b7e8e1cc8ab54092425c44af62b2f1fa",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.olean": {
+      "bytes": 216240,
+      "sha256": "be0516c75892ee53db4770d5635fdecbde1bac3c72d56ea600489903f82f7fb3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.olean.hash": {
+      "bytes": 16,
+      "sha256": "805b383a02be878a7a5d689806a7c56c7e399be5f48750a06e9b282ab0faf86f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.trace": {
+      "bytes": 2925,
+      "sha256": "6747ff765d883a1b0d02942fd8a11c892813ddb3fb63ed41774b60eb343b5b9a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.olean": {
+      "bytes": 1622144,
+      "sha256": "1b5b9eae9c23e731c67a6ec9b4ed447306b609d70d0c1cd49d582b5b2557c34e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "5500eb92e84eccdd0a26cccd181880d79171f3fc95494d3ef51a77f05e168c58",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.trace": {
+      "bytes": 3208,
+      "sha256": "ee4e0b04deb7714ab038457ad24640391b62ffbbf71839b3a6912538727dbe8c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+      "bytes": 70784,
+      "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+      "bytes": 16,
+      "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+      "bytes": 2800,
+      "sha256": "724d2afdd9622ff67dda969ce2d6b73dcf153414d41ff90f2a431c5775dafb82",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.olean": {
+      "bytes": 89608,
+      "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+      "bytes": 16,
+      "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.trace": {
+      "bytes": 3111,
+      "sha256": "26e1f445cd6fff8ba67ca33cb88b83c26ff7a94220c25361693e1c61f0b995ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.olean": {
+      "bytes": 328680,
+      "sha256": "c314cac25929e398ff87a63cdbfe1d16070591e7f3830fe0898c2b1e63beccae",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+      "bytes": 16,
+      "sha256": "acca4a3168cd07f88e918ee4b05ea9022009d5c6ad7e09d88a2cf1973fbf489e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.trace": {
+      "bytes": 2975,
+      "sha256": "d8cd5a50ed0c15977e4d59f52cc2bd16120fac3f05929ce8bf4f245cff96873e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.olean": {
+      "bytes": 795904,
+      "sha256": "291e3745b2d36b8c801ed69358e1c2e73fdeeb96f34a081db6148936f38e7af7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.olean.hash": {
+      "bytes": 16,
+      "sha256": "69ea435d82f816a149d3eddd67cc114116a648dca9e0be35f1f861c9e6fca42e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.trace": {
+      "bytes": 3247,
+      "sha256": "886e494029f14e5603ae9a489029dd75703a4cb78dcd7709ed9c7247c6b77e49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.olean": {
+      "bytes": 1570112,
+      "sha256": "94e7879e6ce631135a27c735d45509a412a5680cc1c461eeadc3e5b4d4757610",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.olean.hash": {
+      "bytes": 16,
+      "sha256": "c3211a725053159bd6e67f60e7dcfc7e4adfdee186b98fc51799d5422a3c0ebb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.trace": {
+      "bytes": 3303,
+      "sha256": "569fcc690e5ce4c0830d9880b778897ec00e85dbf8db45470d2e9bef7d48715d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.olean": {
+      "bytes": 1027880,
+      "sha256": "3dd123e9b8e6e062ad19d2d0609597ed567befca148762d549d7d0d80c0573af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "c7a98b71c952cce2518e6e901dcab811b66d99fcc164ddb517bddd78d59c700f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.trace": {
+      "bytes": 3258,
+      "sha256": "e4ddef1052784b1f0728c1269c75028072ebca3619fa963b7b4f2d58ccfbae5a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.olean": {
+      "bytes": 1369872,
+      "sha256": "b8c67093eaa480aaa8e58e1e773baddb209c1795d740ef5caccd6cbad936a530",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.olean.hash": {
+      "bytes": 16,
+      "sha256": "2219c4bec2f8d0671f67a1e3606ae9fb3304bc3f2d255aa780de5891721da71d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.trace": {
+      "bytes": 3249,
+      "sha256": "54e2fefc9d5f8609c8c0596dd03ec87e9eea6592331ad53b465173bb986579e3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.olean": {
+      "bytes": 165664,
+      "sha256": "290491b76883752aa9a776b2e7eecff4d017570c3296603e46cc3ebd44fa5fcb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.olean.hash": {
+      "bytes": 16,
+      "sha256": "89ffb486113f3794304e4ef8a073b324c28a8fb8eb01131878a72420cd9b3f2f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.trace": {
+      "bytes": 3114,
+      "sha256": "921f414bf7d4e47b4f7cdd405199e4a8f5e2640071b72fd1b0ae6abb007aa86a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.olean": {
+      "bytes": 587536,
+      "sha256": "620658a866749cc94902f24f741dde455d7cc23481faaae888d5c230f928914f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.olean.hash": {
+      "bytes": 16,
+      "sha256": "3375b7285fd381abb7ccb172671f34c5e5de4fb7244d4cd6e4748c0d792c0842",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.trace": {
+      "bytes": 3199,
+      "sha256": "003f8c0f0442b2e84f8dfcef4d9876f7d36d3487a5008b7b3f662e684507b1cb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.olean": {
+      "bytes": 884616,
+      "sha256": "91d749830c24d30f353254ebdc546b47bc9fd128876f7762d5e6719069879094",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.olean.hash": {
+      "bytes": 16,
+      "sha256": "0a0b7243d624df077091e74bff98a9214263d5bf8911c5732819048baff7c22d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.trace": {
+      "bytes": 3133,
+      "sha256": "9054158d4bf4a8126ce1c03507b6b33f7ac2d311a2db9d07f6779b1e708a72b4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.olean": {
+      "bytes": 6563384,
+      "sha256": "97a7a1ecbcc99ab7f98d0db4599aab6add9e81da2dac6e843ca9ff249588d77c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "f677681493d316837bdfe6eac7364222dc2b7ce271d9bc15b768c26f2517643e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.trace": {
+      "bytes": 3925,
+      "sha256": "0d3a96c6bb046f4af0ef225dd9c06897955742351d09f436cf7813805babfe8b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.olean": {
+      "bytes": 25947264,
+      "sha256": "2d98dd286a8338fb4907b68d69452d9e2cfb3444fa849c96a7c544b14087f966",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "7b3e28701f799b1847ab2a48ac0fde7136d3eee55819911418db16082e22d842",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.trace": {
+      "bytes": 3268,
+      "sha256": "52873d7868ff801cfc52c9024e1e56a720eda8f2f4ff0e140766a83840a2b194",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.olean": {
+      "bytes": 935160,
+      "sha256": "97acf0170e18a26c05ab6ff0376ad71f2056f44949f49f21dd645e3b6680fc2b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "8975110f910969d7f622b306fb1016f0402db0782fbed5128efae9e983986d91",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.trace": {
+      "bytes": 4272,
+      "sha256": "53fba9ac92ef686ebb20e2f207d22e8ab2f1b8ecbd0876b04b0b21561d61eaf8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.olean": {
+      "bytes": 1117904,
+      "sha256": "dff40522fb87495cc4815eb0006a6d02da9f0ba9818a347c9f14fecd267fb748",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "16a860af1891f1500a61da44fedd9c20bc520735c21a5a3b9c17f4ffbfdcccfa",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.trace": {
+      "bytes": 3290,
+      "sha256": "6c98756614119ca94a6b5955642acd5d2d2d9d19e5375d03fa14678021cf6d09",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.olean": {
+      "bytes": 641672,
+      "sha256": "c8e9cd0d80de026cc614d6f2d3463d5f196eada34044669fa43a585fd8ed8cab",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "e359dab0ca26585540ae39675573a141a3fc5ad48302c28044f2bede4b611b2e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.trace": {
+      "bytes": 3008,
+      "sha256": "436a5d322a43e3f1c8ddcebbf31b70059abc97cfcc43852651aaea42289c1fbd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.olean": {
+      "bytes": 4433512,
+      "sha256": "414a26dc326b8b160ee812ed91d6c7d26981d46c7ceec76add77270e0a4bc82f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "ac545a82c75d0b1fd891d20995a1a1cc4faa741ac87408897fb2cc9af631be63",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.trace": {
+      "bytes": 3299,
+      "sha256": "b0ba7a0afb665885c0a2ab5b833a1182c157cbb85139f9076716232bdfb702da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.olean": {
+      "bytes": 583640,
+      "sha256": "ba381fd6ea9ebef005a391b5765ae404497ff16e1243fdaf05ef305f5ef01bf3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "6ddd8abbce8a9ceb1a3cfbbb58ef7370ab29665653214ebdc477079ad52753a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.trace": {
+      "bytes": 3011,
+      "sha256": "276ed9d2681e74ff13574f12b89be0ffdfd730a64c931af293868ab88cd67c8c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.olean": {
+      "bytes": 6755000,
+      "sha256": "9f0e9bdd43382d2c133c4e93c681b491629d19e6eccbb63826d5183f11fbfd3d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "d938ad8e40b3a79099f43d6b9ff72c87f560a8649415b7c905939c5f9ff8cdf2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.trace": {
+      "bytes": 3309,
+      "sha256": "baa7b757a135b97bca7e062f8c8471b7de478388ae84e940c2b67b75a5fe7921",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.olean": {
+      "bytes": 2664192,
+      "sha256": "f60cdb193a63ee0d685f6bdd3364c0c90b82de67d5632f38bc1308045b1571f9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "04f513d46abfa0635dc452385baf264445c7588bb77440bd86af084e3a3ee603",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.trace": {
+      "bytes": 3282,
+      "sha256": "b8333c707cbb55a8fac4e6ec5d3bf5c8ba4fcbf93c302f58f892d4883f5f931f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.olean": {
+      "bytes": 2058480,
+      "sha256": "726d1944ec2084abbe3638304a68723658ed3714bf7a86ca374712bd8d287de2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "cd2db64401ab0da452ab62682a55356b97a12e4f44ba544166d363cb043cfca6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.trace": {
+      "bytes": 3299,
+      "sha256": "dc8d135465d80870841a2c3aeca7c40828ed05e6ba19dadd64b9975d50adedca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.olean": {
+      "bytes": 1907936,
+      "sha256": "0a9ecd6a6e78113df81862bd6d188a510d18c8de109f41d4771733f4d1afdc14",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "c7428e75da00dcb564d84019058ccf494d41cc0756629fa7503c00c1a0a12c43",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.trace": {
+      "bytes": 3293,
+      "sha256": "6063c9a48f6285f2ae27fd5526041a6201cc35c8428b37a4036f4bf5fc728fbe",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.olean": {
+      "bytes": 8080792,
+      "sha256": "037c0c954d5ddc5f26d464a6053aca1cbbb72f62f2647fb90e4500f1f0420b64",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "3ca27112a3e0f1fdfb39f9664373fe6bff14ba4b12d04aa4fa09bc185e91e578",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.trace": {
+      "bytes": 4034,
+      "sha256": "2397943e2b21a7bfd41a88534bd898ef7c7d4ca7229a1c1a328523699cd2efc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.olean": {
+      "bytes": 10695992,
+      "sha256": "c709fc73044d0d15890390e73c0247f37f1aa20b3a896cf15580d80decb6ef18",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "149af66e970ce283f635f5fe601acdc7b36889c7e2618c3bc34819ed5ed56afc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.trace": {
+      "bytes": 3522,
+      "sha256": "389be77df82098edb4bb9671773ae1cd42eaf73e218d5ea76a793f10aeec7295",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.olean": {
+      "bytes": 795504,
+      "sha256": "49a7057d3ac205ca68026dc1bb83da15bfcd52ca476400ffb01ca818dc7feca0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.olean.hash": {
+      "bytes": 16,
+      "sha256": "410153a94d30c97ef8afe23ff2f856b01bce1f6f198ffbcfc19d3e04be4e5487",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.trace": {
+      "bytes": 2998,
+      "sha256": "78fa5a9c44088b3f92801594fd8fb0c2369285dd786d8c95ad72be90d2b4c99a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.olean": {
+      "bytes": 1671344,
+      "sha256": "6ffa84c639e84e160ba27e3dd2594c3e73a32eccb545d11c812a4062c806fe01",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "9d7cace081f3d8da1d169e6ea66fa537d899d72f017e9f647a110de3bc30b4ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.trace": {
+      "bytes": 3738,
+      "sha256": "bb39c597241b67fc6270398bb72e69a9f7512488c5380a5bd3e60e6772641db7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.olean": {
+      "bytes": 569120,
+      "sha256": "e86e82d01c51d7eed4615e4108e02f984e139a4a5719a5096134f7b68736edcb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "c1d5bed49461ef096c41ec4cd002f1e4d38b79fc6dd534fbe41be9413d33c9e8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.trace": {
+      "bytes": 3005,
+      "sha256": "0f0537c26c18110aff7884aa810e2ee11dc8293c682d68ba23afc635a3fd8635",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.olean": {
+      "bytes": 3479968,
+      "sha256": "620ea86fe7d8c6f1aef7a5b644b724bae793e4ee33ccb4a17bf31bf9b131e9a0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "019b74f16a49b9af8e6873753a3140730f28c5d43753f36da6124b7cdb0c7b2c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.trace": {
+      "bytes": 3500,
+      "sha256": "bec8b7adf40da562a7aa7c3350dd0a99a5fce64888795c6254e3b7511ea6c136",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.olean": {
+      "bytes": 426176,
+      "sha256": "5a31b115159c4edc256cbf481b8867936cb0730c3128a0d01f808e6c4d70a9b5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.olean.hash": {
+      "bytes": 16,
+      "sha256": "d253e3830bc38846a09f42b6f41fd7c74ebdc5149d5abe0f32d10c48ba541484",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.trace": {
+      "bytes": 3433,
+      "sha256": "499be90dfd465e5bd573e522dfa40341a23cfb0a0e040911586980b6278f9187",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.olean": {
+      "bytes": 226936,
+      "sha256": "235d5c464ef4cb1114a37d7cded3c49ca0225b713cbf1a914253988f166c2dde",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.olean.hash": {
+      "bytes": 16,
+      "sha256": "464c315f56a303ca50b4212b64f364dd94a47f3e00bc12c72bda2f4930ea2cd8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.trace": {
+      "bytes": 3170,
+      "sha256": "dbb831bf61f5512d62324cbfe9de2c7d649ca3f5338e87ad7f2a52dadc693864",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.olean": {
+      "bytes": 391768,
+      "sha256": "1add138b50d50913afa895db0fdf812e85ee61d3c4ccc1b125dd9d72ae5279e8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.olean.hash": {
+      "bytes": 16,
+      "sha256": "89d8b63d0df72113525fc5b6bd6888f7c40af09bd120ac395ec33ed8f5c91fa6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.trace": {
+      "bytes": 3164,
+      "sha256": "1b6b94263e53423ca8d23fb588e467921ed82c5db2876e2a1d64b73aafb4d8eb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.olean": {
+      "bytes": 484840,
+      "sha256": "00860246531bf66e327f8e140d2864eb5e9484b97fed6397bec4127d1c71fc42",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.olean.hash": {
+      "bytes": 16,
+      "sha256": "d5951dae3b84e3340151bc69b6b754f26e34d49b95c60b0003d24e9b5e78333d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.trace": {
+      "bytes": 3647,
+      "sha256": "32b703813e1b45b7cc3deb1d16bedc82fd8e67e7a323ddc387a8804a996f1e16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.olean": {
+      "bytes": 747704,
+      "sha256": "9db05a636f662c481e7bdb5d99b296f02915bb9a6d7e1c52bdab3ffdc309ddd3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.olean.hash": {
+      "bytes": 16,
+      "sha256": "6c73d33366d8471ccc6befbe3c026b7c3e0c1e352ac78253dda8319082e43905",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.trace": {
+      "bytes": 3781,
+      "sha256": "5fbe945e8bbec907eb088c2716beffdcf4180bab278cf38700f672784d3fc3fb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.olean": {
+      "bytes": 209536,
+      "sha256": "42d10fbd3f48f54f362dd88ea02eb9be60b50dd8fde884a1e7e3f67195eb4b8a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.olean.hash": {
+      "bytes": 16,
+      "sha256": "564a11fe68a89dc1940fc4999b9b70357150d52907dc2d4d61a37bf2442546d6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.trace": {
+      "bytes": 3475,
+      "sha256": "f4b6b4951a0f52e968e8ef306a885a6060681cd8f590cc951114f252b6b02c58",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.olean": {
+      "bytes": 189472,
+      "sha256": "b66287eda7990a7be092788daab6a5df252bacda887d6861dde8b0f213b55dd9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.olean.hash": {
+      "bytes": 16,
+      "sha256": "dc2ac74043f95227b7f7dd6aef89d49cec6e060f5136527c9dbb4cf02a73c7b0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.trace": {
+      "bytes": 3207,
+      "sha256": "d926120102d0d7173006d940c15df830bfa747ec739cbf75a31850fd92e3914f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.olean": {
+      "bytes": 250544,
+      "sha256": "f1e1793cc5d182ea8af73f4092c4170022fa465822b27fecbcc5d9388499bb07",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.olean.hash": {
+      "bytes": 16,
+      "sha256": "0d0919f0a4e74195ca53936b8d49b2ef0dc695cd8ee257b7c7eacd7df3a0b466",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.trace": {
+      "bytes": 3318,
+      "sha256": "2890fd1f4c0650c41704dee697bf44614f22a9438680916cd14dde95507ffb3a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.olean": {
+      "bytes": 1342632,
+      "sha256": "6ae549fa5d5dcb63d88e8c6b2bd91356ee331f22a479dd3d82ec6ce897e554c6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.olean.hash": {
+      "bytes": 16,
+      "sha256": "6470313fd6c7a42da5d05de8c0bc1e089a0bde390397070f2a4ac68b87a12493",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.trace": {
+      "bytes": 3796,
+      "sha256": "18060a9cc8228bb3cc86647ce0e83d2abb6925aa2462a049744f13819be2e3d1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.olean": {
+      "bytes": 168016,
+      "sha256": "68e55f2c87368a5ecd3cb3ea2da212e5e0723f4085b28df03a6274714452fa78",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.olean.hash": {
+      "bytes": 16,
+      "sha256": "f6a2cf96e673965df2691d460633a25631db30ecc7d4b2534e302fee1442cedb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.trace": {
+      "bytes": 3251,
+      "sha256": "877708e6425b547f17def90dcab4112d1419a5017d8ddbcc312098ba66c4184d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.olean": {
+      "bytes": 1152104,
+      "sha256": "264da792600beebcedd37dad6d17b309c4eee2c889dc2a4af7ad76d03241405d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.olean.hash": {
+      "bytes": 16,
+      "sha256": "50a3b04e63b144c2439526a5cc4f0cc19bb363dc69837bc6ebb551ca3ccf356d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.trace": {
+      "bytes": 2989,
+      "sha256": "ff7a3249b3d2451e518a3b35e9fbdfcc585e821308d50a4908280c35732706a0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.olean": {
+      "bytes": 216296,
+      "sha256": "d6e99ce8fa6755afbc1ef45cde0ad94bc68c5ea5a4a7754b91a599ede8ba83df",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.olean.hash": {
+      "bytes": 16,
+      "sha256": "1e4baeadc835dd2502f2e82e45d08772d461e77f15de1006c061833e11295522",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.trace": {
+      "bytes": 3008,
+      "sha256": "3bad7003381578f3f11eb745cd11677a756149780f33165a524d444d3fd4abb8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.olean": {
+      "bytes": 579872,
+      "sha256": "d4705eaf5161ef6004a473d936a6daa1e400d524ac1f050ded2385e5e37a3a21",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.olean.hash": {
+      "bytes": 16,
+      "sha256": "5418b6f3b246be1cca41fae41e530d9f819f5b1ad9d1dbccc24057f43da6ca36",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.trace": {
+      "bytes": 3017,
+      "sha256": "694746118401ee52b5543520552c9965aac8060e739f26f30149747307feeeac",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.olean": {
+      "bytes": 779072,
+      "sha256": "46804b3df512ccfd9430251a16810304ae31f732d47e2841b24463930e4d4eb8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.olean.hash": {
+      "bytes": 16,
+      "sha256": "dc1d2814c833d6ea39574cf084f4eadc1f760cd8b789e1023d355713175272c0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.trace": {
+      "bytes": 3487,
+      "sha256": "685e80ff327649f8c1226526d8475f1ee4967779e95c3c653a8c02e41a818b19",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.olean": {
+      "bytes": 148480,
+      "sha256": "ed02f5c0b7994a7943530b000c2c60c06528f88f3fbfa3dcdd9b189d92321b5c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+      "bytes": 16,
+      "sha256": "2736719f5e3de36f1651884f384ca3aadf5851c2ca5eecd305f72633629562b6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.trace": {
+      "bytes": 2939,
+      "sha256": "e550e8e095f12c0fa553559ac83db2606f4c78d8fa9e157c6e5887381b89dee6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.olean": {
+      "bytes": 217464,
+      "sha256": "f54b68e87ffe0bcc07a33703a9b84a1e858ecee9999fc5e4a1b9028928f7ad6f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.olean.hash": {
+      "bytes": 16,
+      "sha256": "3c69bc424a1f06c7bedd987763fe7142c021830893b3c4eb4aba3feb66ba4fca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.trace": {
+      "bytes": 2987,
+      "sha256": "e3a66d1edfce6bf3615bf15389a0d585605bd1f6d2d9ea9f1d30e3a20e79e974",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.olean": {
+      "bytes": 76856,
+      "sha256": "8e5950df52dfe17406257b6fee3dea36a13a8d491f4f855b8dfbb04c3fedae05",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.olean.hash": {
+      "bytes": 16,
+      "sha256": "81e40a11dd14f761d7a9a1d51aa5af8d4515890134de8359464132266b0a81a1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.trace": {
+      "bytes": 2616,
+      "sha256": "9f772870b835eb669ca5c8f13d59b39c6acd3c35cb6078ab01b40fabaddbb132",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.olean": {
+      "bytes": 373504,
+      "sha256": "603cdc3695c1d9e72eecb4a6aa2cd275c0d262ae555b9d4feca7c376ab3c055f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.olean.hash": {
+      "bytes": 16,
+      "sha256": "a2dbc74cdfe41542145c292f85913c2e569318c578a22633d650003e96d5bca7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.trace": {
+      "bytes": 3102,
+      "sha256": "ff65a494e4b54fd0d7c992462a40ea1b8aa02aad3b29b2c1071868361aa68094",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.olean": {
+      "bytes": 104360,
+      "sha256": "261630480ccba9e520832f510118da43e8dced6d51710b61a8ee1c41ee05214d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.olean.hash": {
+      "bytes": 16,
+      "sha256": "e1cb4b7bcc354171f93bf725416760bfb2c0e0f7fbe21d39583933050672a688",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.trace": {
+      "bytes": 2936,
+      "sha256": "6ab968cb04f215e959545d33fa9070538192a10715d534648379af93fb9017e3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.olean": {
+      "bytes": 497136,
+      "sha256": "b4110c4ed52e8cf81d13d6834639a9f16cd2d382086efbde5c19a5c860db1909",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.olean.hash": {
+      "bytes": 16,
+      "sha256": "8e8c7bc21231ff6d1fcab3678db84a8f49c24467e78a7db10f30e9a814353663",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.trace": {
+      "bytes": 3000,
+      "sha256": "d8ad09eea48dde6fdcc582ab0bafd515d6896d962ffa87c8d745d8abd3f04a9a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.olean": {
+      "bytes": 374920,
+      "sha256": "4e0e88851546e7cd10c7175349e6a191dff0b80be68d18873beaf45d4327738a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.olean.hash": {
+      "bytes": 16,
+      "sha256": "77a294c462d6a76a87b3fca9b60a2ba63025980093a5a236d2e5021d625bd8b0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.trace": {
+      "bytes": 3199,
+      "sha256": "2c4188a1b16766f688b78974f731c12c7bb55598201af93141a98313d7068109",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.olean": {
+      "bytes": 122976,
+      "sha256": "2b00f21ab3d6ffffecac8823f5d0f3cc2450586da3f7bba885ef0c72f6643fa5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.olean.hash": {
+      "bytes": 16,
+      "sha256": "628f475c377ad838293905cd631bb3d3902e3ac67aace371eae0cea855891438",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.trace": {
+      "bytes": 3172,
+      "sha256": "60752343b78ce43a68ac638f93b6a356baa8f1c2de40a468c3b6a2e1effef8cb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.olean": {
+      "bytes": 308200,
+      "sha256": "854b94d984756ecff537ef0456ba54049be4c3cbab1c0f28ae08ec32014a4d3e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.olean.hash": {
+      "bytes": 16,
+      "sha256": "f616b373e54b15aec1da1f2f6f467605bd7f737c99343a33bb4d79376e9564b3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.trace": {
+      "bytes": 2833,
+      "sha256": "4a51f88d496958f31916a18eeea806720376dc7e76655c3d6ee1b1de76e61fe2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.olean": {
+      "bytes": 425680,
+      "sha256": "31691956f826f65556cc077ecac38da32edb7ab437f739220f0d42ed24c1f47c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.olean.hash": {
+      "bytes": 16,
+      "sha256": "cc06d9b274e117b9c4ce646fa851875718d600bdd9cfe02467f1e41103d19758",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.trace": {
+      "bytes": 2861,
+      "sha256": "61f63437641f9a615966ea97272c19e92e771fb1067cdd203d7efe28f7320008",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.olean": {
+      "bytes": 218472,
+      "sha256": "a687d7fcc0ab70036f15050f7e940de7adae060a5a4983e14a56f7a5809e1ee9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.olean.hash": {
+      "bytes": 16,
+      "sha256": "d132262add8ab6ae7042725823488b9e33e39fc877f20f1b805d8dab83affc9c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.trace": {
+      "bytes": 2848,
+      "sha256": "2ffa59817d876c2b2f2e76516c959875b1577d1da0c4fb660de95cad25d76196",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.olean": {
+      "bytes": 361128,
+      "sha256": "edb087e562a8c844664223e08e0eedb96994e946891b3255de440d1aff657700",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.olean.hash": {
+      "bytes": 16,
+      "sha256": "a6e8e4cae200a417e5845e36e9308b7fb32092b4ee51296dc25d14437e03e532",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.trace": {
+      "bytes": 3274,
+      "sha256": "d3d8dc035ea0b148dd8a67482c3a472ea86e35bd68441712432c0b37e571b354",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.olean": {
+      "bytes": 82696,
+      "sha256": "cbd5c54ca4bab6138b45a4bc1a604301c739b031542c98b1e557bc30c1598bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.olean.hash": {
+      "bytes": 16,
+      "sha256": "7f907f89c244cdb9cde4029d8330bcf063ebc7d47e3ce9f95f0dc29b1c6ce001",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.trace": {
+      "bytes": 3117,
+      "sha256": "37217a94362e554aada16277066ee3d557deef2eabe8370349f8c1e1ecf13a59",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.olean": {
+      "bytes": 14575272,
+      "sha256": "b8d0f3193ef800a554ee3e06248f8a38023904c31c93e62c311f4bf2cda33709",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "8395cd68d4695ff303357093481833d42a465d3d663d6f595d2e9d564f4012e9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.trace": {
+      "bytes": 3859,
+      "sha256": "fecd07abfda5e2b75d6bdf46414b9d8af6a023368df52dcc5525d2c91aff7851",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.olean": {
+      "bytes": 392288,
+      "sha256": "20b4b806cbb15d3b0f3be17b4fe40f5c4ca9dc9973744783e4acddb41fe17f30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "2e003022fbe01a30c527d9370b6a9f79a8df5539d002d0ce53624ffab53a3f93",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.trace": {
+      "bytes": 3668,
+      "sha256": "988ac2d099ffad9db47ee7f3bd28518511c5a08e8becf746e067168ae7c890c5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.olean": {
+      "bytes": 12947768,
+      "sha256": "702e721e626523f901dcc9f4dc0f5090a5f3f69c90ca2f8d6e84850161266572",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "001bffadc16a0eedc93c92e60a2a5319f6c7c749daf15b1cca34277c37a03b30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.trace": {
+      "bytes": 3585,
+      "sha256": "150edce9ae3da330fab62af9e2903e0f60b92ced374131706876d8cac79e6f5d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.olean": {
+      "bytes": 157136,
+      "sha256": "24ea73ac4b8acf69c394f014093e0ceeac17355eed34f64bc05d063e9e0b57ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.olean.hash": {
+      "bytes": 16,
+      "sha256": "4fdb59f37b9dc7ad854fb012dde813a6f56e1c3530553133a5308bc1f3faa360",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.trace": {
+      "bytes": 2770,
+      "sha256": "c91129569ea9ae687ad492321412071008ee82a078e5c5b14d3ca38907960571",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.olean": {
+      "bytes": 1516936,
+      "sha256": "ccccdaca5aae36db5b23f099cb9d183fc005a491ca3697efccb35e87a80f2b87",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.olean.hash": {
+      "bytes": 16,
+      "sha256": "d5b1dce1e91bbed12b765ebb05121f3bea928563f72a9733cffbd3ddde02a9d1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.trace": {
+      "bytes": 4986,
+      "sha256": "9b2c2592f393181f4d7ee6716942fdf50390484adfe4e50c9e534c8710c75cdf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.olean": {
+      "bytes": 114864,
+      "sha256": "7236341841d1f2dfbc5caee33e37cb10b04f3c9fe16ea34829cc971f8eb601bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+      "bytes": 16,
+      "sha256": "e0b5b69cc82d32aa23f50eb81a337d4c471cbe203e3af581520e6926a2951bc3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.trace": {
+      "bytes": 2700,
+      "sha256": "2ab9877cdeb0e9360ca283240b2a3d561ba36c9b0280b3445e5ddda9e0fdaf71",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.olean": {
+      "bytes": 397408,
+      "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.olean.hash": {
+      "bytes": 16,
+      "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.trace": {
+      "bytes": 2469,
+      "sha256": "dcc900f5734c558eabeb6e6f2e76b1d1351d4ff4067f3b99b66a9e11ab0d66d7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter.lean": {
+      "bytes": 11446,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidth.lean": {
+      "bytes": 5441,
+      "sha256": "9b8483b02c0854773605d6b66a5818451bd34d3a1ba7dc23c4af26f0c5ad3007",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/CallCount.lean": {
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Measured.lean": {
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Potential.lean": {
+      "bytes": 13410,
+      "sha256": "c7dac5fcb51e02a688e39b60a3a3c5f6777a3d2c4e7222fce8e1c81cdf3f504d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Encoding.lean": {
+      "bytes": 9752,
+      "sha256": "621b093b3be69220da94f609c99fe2b7d40c96b6b4e8704494af8468cc9e38ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Execution.lean": {
+      "bytes": 15219,
+      "sha256": "6b3f6e386444a3dc9054932c6008e74dcf35d09d7f32643570fee7d761decc6c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/LinearParser.lean": {
+      "bytes": 18678,
+      "sha256": "941f096b10b022edc3f366e82eafd1f47cf7a6870c8d3c451eb51129b17d8ba1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Workload.lean": {
+      "bytes": 3169,
+      "sha256": "3ab7b4911dbc5283d50d4bf24df4a3c0f41b21e54bc938d6270c9c2c03fc19b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/BasicObservations.lean": {
+      "bytes": 5821,
+      "sha256": "251e7349a1bcc057d405d36dbe8c3d24e97bc85d43b723461b2d90bc46f71580",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Direction.lean": {
+      "bytes": 413,
+      "sha256": "4cd6daf3200fce9e5489bfff29aa850ab708c407d5779e9c4568bb27731be7af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Enumeration.lean": {
+      "bytes": 6707,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Observations.lean": {
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Basic.lean": {
+      "bytes": 6732,
+      "sha256": "0521be3f8943e171409674da1029a8507550e1ed8e972c0add6bd926d33fb3a4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Bounds.lean": {
+      "bytes": 9603,
+      "sha256": "0af5ad28c3805ec928ea028d8ae5bed5b063e04922355bd317f144d68f21b0be",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Distance.lean": {
+      "bytes": 8589,
+      "sha256": "4cc00de6c2a487dccc8869f982c612111a8418fe6b162aca1a2bdeed54801218",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Mixed.lean": {
+      "bytes": 6653,
+      "sha256": "045283c6af61c87adfd1099a066ed498f90e62f49497774fb7ee5c565e3d3603",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Normalize.lean": {
+      "bytes": 5252,
+      "sha256": "5d1044733c7e9563d24baa86afd015737261737ffa8edafab995fd48789c33fd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Position.lean": {
+      "bytes": 8133,
+      "sha256": "929b1e6cdace1bb33950ac8f80a8db04e76663da5390ca8e4643ff0980776a24",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/TraversalWork.lean": {
+      "bytes": 5427,
+      "sha256": "49762c33454e1cc90db706ebd2e16bf7dc395c0a74116bc21b3a63d0a282b85e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationDistance.lean": {
+      "bytes": 7774,
+      "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareKit/ListFusion.lean": {
+      "bytes": 6168,
+      "sha256": "91b913c29bc3198fe7c9c189d8c7c45bd9ed3752a825e660989f428f3b6df21e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Squares.lean": {
+      "bytes": 11694,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/check.sh": {
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/check.py": {
+      "bytes": 16215,
+      "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/project_sources.py": {
+      "bytes": 876,
+      "sha256": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/review_snapshot.py": {
+      "bytes": 20515,
+      "sha256": "935149f2408a240ca32e34f549be5900ffd577c4ce4c2ee64e5c69a136e8a1bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean": {
+      "bytes": 51093,
+      "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/MANIFEST.json": {
+      "bytes": 31256,
+      "sha256": "2cf3d3ec7edd80cf3897e02ac628c236c7430a580dbc034ad5ac3b9d4cb08761",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json": {
+      "bytes": 9735771,
+      "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/query-source-binding147.json": {
+      "bytes": 7363,
+      "sha256": "41487108f4e00ffb41a548bd23138414b1926bec3e801bd5c600afdf32772472",
+      "mode": "100644"
+    }
+  },
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+  "finished_utc": "2026-11-24T19:27:16.844387+00:00",
+  "elapsed_seconds": 3.989197924999644,
+  "recorded_utc": "2026-11-24T19:27:16.958052+00:00",
+  "exit_code": 0,
+  "source_bindings_after": {
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/PINS.json": {
+      "bytes": 10133,
+      "sha256": "854746c88e7ab68f1f81ff6749842b9549dea7d51591952d5987c68a81c668f6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py": {
+      "bytes": 12032,
+      "sha256": "a3891ea20145d0cd9fed82c07b95276d79fe611eb141c27e8a9a600b62355ea4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.olean": {
+      "bytes": 579776,
+      "sha256": "6bb9ca5c95b41cdd12a4c084b9610e20217f7c5f4d7e7c565769d4f0ac4dc5ad",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.olean.hash": {
+      "bytes": 16,
+      "sha256": "337b525ebe1f57b1db582211a9ca1060c321a61b4904974dbc14f0f795165c3b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter.trace": {
+      "bytes": 3166,
+      "sha256": "8228ec02f7e52aae359c2ea48c520db8b7e8e1cc8ab54092425c44af62b2f1fa",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.olean": {
+      "bytes": 216240,
+      "sha256": "be0516c75892ee53db4770d5635fdecbde1bac3c72d56ea600489903f82f7fb3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.olean.hash": {
+      "bytes": 16,
+      "sha256": "805b383a02be878a7a5d689806a7c56c7e399be5f48750a06e9b282ab0faf86f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidth.trace": {
+      "bytes": 2925,
+      "sha256": "6747ff765d883a1b0d02942fd8a11c892813ddb3fb63ed41774b60eb343b5b9a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.olean": {
+      "bytes": 1622144,
+      "sha256": "1b5b9eae9c23e731c67a6ec9b4ed447306b609d70d0c1cd49d582b5b2557c34e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "5500eb92e84eccdd0a26cccd181880d79171f3fc95494d3ef51a77f05e168c58",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/BinaryCounter/FixedWidthMachine.trace": {
+      "bytes": 3208,
+      "sha256": "ee4e0b04deb7714ab038457ad24640391b62ffbbf71839b3a6912538727dbe8c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.olean": {
+      "bytes": 70784,
+      "sha256": "213261bb3cc47a6b79696c7e55b4aba27ffe452d29a2ebe8b63c278d8c7d46ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.olean.hash": {
+      "bytes": 16,
+      "sha256": "3e6f69de38b1477145ca9e62d340fc376d494ecdf2baf44ee7dbb8a3242ede14",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/CallCount.trace": {
+      "bytes": 2800,
+      "sha256": "724d2afdd9622ff67dda969ce2d6b73dcf153414d41ff90f2a431c5775dafb82",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.olean": {
+      "bytes": 89608,
+      "sha256": "e3bea04397592484406bb442881a4305dc230d2c1b908b1eef2613cb377d9bf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.olean.hash": {
+      "bytes": 16,
+      "sha256": "f5b0f6171cb7ac85a0bdea0be7590639628917e6b37ee8ff2fad746de319cc29",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Measured.trace": {
+      "bytes": 3111,
+      "sha256": "26e1f445cd6fff8ba67ca33cb88b83c26ff7a94220c25361693e1c61f0b995ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.olean": {
+      "bytes": 328680,
+      "sha256": "c314cac25929e398ff87a63cdbfe1d16070591e7f3830fe0898c2b1e63beccae",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.olean.hash": {
+      "bytes": 16,
+      "sha256": "acca4a3168cd07f88e918ee4b05ea9022009d5c6ad7e09d88a2cf1973fbf489e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Potential.trace": {
+      "bytes": 2975,
+      "sha256": "d8cd5a50ed0c15977e4d59f52cc2bd16120fac3f05929ce8bf4f245cff96873e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.olean": {
+      "bytes": 795904,
+      "sha256": "291e3745b2d36b8c801ed69358e1c2e73fdeeb96f34a081db6148936f38e7af7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.olean.hash": {
+      "bytes": 16,
+      "sha256": "69ea435d82f816a149d3eddd67cc114116a648dca9e0be35f1f861c9e6fca42e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BinaryVerifier.trace": {
+      "bytes": 3247,
+      "sha256": "886e494029f14e5603ae9a489029dd75703a4cb78dcd7709ed9c7247c6b77e49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.olean": {
+      "bytes": 1570112,
+      "sha256": "94e7879e6ce631135a27c735d45509a412a5680cc1c461eeadc3e5b4d4757610",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.olean.hash": {
+      "bytes": 16,
+      "sha256": "c3211a725053159bd6e67f60e7dcfc7e4adfdee186b98fc51799d5422a3c0ebb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitCodec.trace": {
+      "bytes": 3303,
+      "sha256": "569fcc690e5ce4c0830d9880b778897ec00e85dbf8db45470d2e9bef7d48715d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.olean": {
+      "bytes": 1027880,
+      "sha256": "3dd123e9b8e6e062ad19d2d0609597ed567befca148762d549d7d0d80c0573af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "c7a98b71c952cce2518e6e901dcab811b66d99fcc164ddb517bddd78d59c700f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitDecoderMachine.trace": {
+      "bytes": 3258,
+      "sha256": "e4ddef1052784b1f0728c1269c75028072ebca3619fa963b7b4f2d58ccfbae5a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.olean": {
+      "bytes": 1369872,
+      "sha256": "b8c67093eaa480aaa8e58e1e773baddb209c1795d740ef5caccd6cbad936a530",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.olean.hash": {
+      "bytes": 16,
+      "sha256": "2219c4bec2f8d0671f67a1e3606ae9fb3304bc3f2d255aa780de5891721da71d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/BitPairFraming.trace": {
+      "bytes": 3249,
+      "sha256": "54e2fefc9d5f8609c8c0596dd03ec87e9eea6592331ad53b465173bb986579e3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.olean": {
+      "bytes": 165664,
+      "sha256": "290491b76883752aa9a776b2e7eecff4d017570c3296603e46cc3ebd44fa5fcb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.olean.hash": {
+      "bytes": 16,
+      "sha256": "89ffb486113f3794304e4ef8a073b324c28a8fb8eb01131878a72420cd9b3f2f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/CertificateCorrespondence.trace": {
+      "bytes": 3114,
+      "sha256": "921f414bf7d4e47b4f7cdd405199e4a8f5e2640071b72fd1b0ae6abb007aa86a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.olean": {
+      "bytes": 587536,
+      "sha256": "620658a866749cc94902f24f741dde455d7cc23481faaae888d5c230f928914f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.olean.hash": {
+      "bytes": 16,
+      "sha256": "3375b7285fd381abb7ccb172671f34c5e5de4fb7244d4cd6e4748c0d792c0842",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Encoding.trace": {
+      "bytes": 3199,
+      "sha256": "003f8c0f0442b2e84f8dfcef4d9876f7d36d3487a5008b7b3f662e684507b1cb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.olean": {
+      "bytes": 884616,
+      "sha256": "91d749830c24d30f353254ebdc546b47bc9fd128876f7762d5e6719069879094",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.olean.hash": {
+      "bytes": 16,
+      "sha256": "0a0b7243d624df077091e74bff98a9214263d5bf8911c5732819048baff7c22d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Execution.trace": {
+      "bytes": 3133,
+      "sha256": "9054158d4bf4a8126ce1c03507b6b33f7ac2d311a2db9d07f6779b1e708a72b4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.olean": {
+      "bytes": 6563384,
+      "sha256": "97a7a1ecbcc99ab7f98d0db4599aab6add9e81da2dac6e843ca9ff249588d77c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "f677681493d316837bdfe6eac7364222dc2b7ce271d9bc15b768c26f2517643e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndMachine.trace": {
+      "bytes": 3925,
+      "sha256": "0d3a96c6bb046f4af0ef225dd9c06897955742351d09f436cf7813805babfe8b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.olean": {
+      "bytes": 25947264,
+      "sha256": "2d98dd286a8338fb4907b68d69452d9e2cfb3444fa849c96a7c544b14087f966",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "7b3e28701f799b1847ab2a48ac0fde7136d3eee55819911418db16082e22d842",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamMachine.trace": {
+      "bytes": 3268,
+      "sha256": "52873d7868ff801cfc52c9024e1e56a720eda8f2f4ff0e140766a83840a2b194",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.olean": {
+      "bytes": 935160,
+      "sha256": "97acf0170e18a26c05ab6ff0376ad71f2056f44949f49f21dd645e3b6680fc2b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "8975110f910969d7f622b306fb1016f0402db0782fbed5128efae9e983986d91",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.trace": {
+      "bytes": 4272,
+      "sha256": "53fba9ac92ef686ebb20e2f207d22e8ab2f1b8ecbd0876b04b0b21561d61eaf8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.olean": {
+      "bytes": 1117904,
+      "sha256": "dff40522fb87495cc4815eb0006a6d02da9f0ba9818a347c9f14fecd267fb748",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "16a860af1891f1500a61da44fedd9c20bc520735c21a5a3b9c17f4ffbfdcccfa",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/FuelDispatchMachine.trace": {
+      "bytes": 3290,
+      "sha256": "6c98756614119ca94a6b5955642acd5d2d2d9d19e5375d03fa14678021cf6d09",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.olean": {
+      "bytes": 641672,
+      "sha256": "c8e9cd0d80de026cc614d6f2d3463d5f196eada34044669fa43a585fd8ed8cab",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "e359dab0ca26585540ae39675573a141a3fc5ad48302c28044f2bede4b611b2e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParser.trace": {
+      "bytes": 3008,
+      "sha256": "436a5d322a43e3f1c8ddcebbf31b70059abc97cfcc43852651aaea42289c1fbd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.olean": {
+      "bytes": 4433512,
+      "sha256": "414a26dc326b8b160ee812ed91d6c7d26981d46c7ceec76add77270e0a4bc82f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "ac545a82c75d0b1fd891d20995a1a1cc4faa741ac87408897fb2cc9af631be63",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/InputParserMachine.trace": {
+      "bytes": 3299,
+      "sha256": "b0ba7a0afb665885c0a2ab5b833a1182c157cbb85139f9076716232bdfb702da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.olean": {
+      "bytes": 583640,
+      "sha256": "ba381fd6ea9ebef005a391b5765ae404497ff16e1243fdaf05ef305f5ef01bf3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "6ddd8abbce8a9ceb1a3cfbbb58ef7370ab29665653214ebdc477079ad52753a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/LinearParser.trace": {
+      "bytes": 3011,
+      "sha256": "276ed9d2681e74ff13574f12b89be0ffdfd730a64c931af293868ab88cd67c8c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.olean": {
+      "bytes": 6755000,
+      "sha256": "9f0e9bdd43382d2c133c4e93c681b491629d19e6eccbb63826d5183f11fbfd3d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "d938ad8e40b3a79099f43d6b9ff72c87f560a8649415b7c905939c5f9ff8cdf2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveApplyMachine.trace": {
+      "bytes": 3309,
+      "sha256": "baa7b757a135b97bca7e062f8c8471b7de478388ae84e940c2b67b75a5fe7921",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.olean": {
+      "bytes": 2664192,
+      "sha256": "f60cdb193a63ee0d685f6bdd3364c0c90b82de67d5632f38bc1308045b1571f9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "04f513d46abfa0635dc452385baf264445c7588bb77440bd86af084e3a3ee603",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/MoveParserMachine.trace": {
+      "bytes": 3282,
+      "sha256": "b8333c707cbb55a8fac4e6ec5d3bf5c8ba4fcbf93c302f58f892d4883f5f931f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.olean": {
+      "bytes": 2058480,
+      "sha256": "726d1944ec2084abbe3638304a68723658ed3714bf7a86ca374712bd8d287de2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "cd2db64401ab0da452ab62682a55356b97a12e4f44ba544166d363cb043cfca6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenDecoderMachine.trace": {
+      "bytes": 3299,
+      "sha256": "dc8d135465d80870841a2c3aeca7c40828ed05e6ba19dadd64b9975d50adedca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.olean": {
+      "bytes": 1907936,
+      "sha256": "0a9ecd6a6e78113df81862bd6d188a510d18c8de109f41d4771733f4d1afdc14",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "c7428e75da00dcb564d84019058ccf494d41cc0756629fa7503c00c1a0a12c43",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/OpenFramingMachine.trace": {
+      "bytes": 3293,
+      "sha256": "6063c9a48f6285f2ae27fd5526041a6201cc35c8428b37a4036f4bf5fc728fbe",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.olean": {
+      "bytes": 8080792,
+      "sha256": "037c0c954d5ddc5f26d464a6053aca1cbbb72f62f2647fb90e4500f1f0420b64",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "3ca27112a3e0f1fdfb39f9664373fe6bff14ba4b12d04aa4fa09bc185e91e578",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/PositionedRotationMachine.trace": {
+      "bytes": 4034,
+      "sha256": "2397943e2b21a7bfd41a88534bd898ef7c7d4ca7229a1c1a328523699cd2efc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.olean": {
+      "bytes": 10695992,
+      "sha256": "c709fc73044d0d15890390e73c0247f37f1aa20b3a896cf15580d80decb6ef18",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "149af66e970ce283f635f5fe601acdc7b36889c7e2618c3bc34819ed5ed56afc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/StreamMachine.trace": {
+      "bytes": 3522,
+      "sha256": "389be77df82098edb4bb9671773ae1cd42eaf73e218d5ea76a793f10aeec7295",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.olean": {
+      "bytes": 795504,
+      "sha256": "49a7057d3ac205ca68026dc1bb83da15bfcd52ca476400ffb01ca818dc7feca0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.olean.hash": {
+      "bytes": 16,
+      "sha256": "410153a94d30c97ef8afe23ff2f856b01bce1f6f198ffbcfc19d3e04be4e5487",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Streaming.trace": {
+      "bytes": 2998,
+      "sha256": "78fa5a9c44088b3f92801594fd8fb0c2369285dd786d8c95ad72be90d2b4c99a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.olean": {
+      "bytes": 1671344,
+      "sha256": "6ffa84c639e84e160ba27e3dd2594c3e73a32eccb545d11c812a4062c806fe01",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "9d7cace081f3d8da1d169e6ea66fa537d899d72f017e9f647a110de3bc30b4ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeEqualityMachine.trace": {
+      "bytes": 3738,
+      "sha256": "bb39c597241b67fc6270398bb72e69a9f7512488c5380a5bd3e60e6772641db7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.olean": {
+      "bytes": 569120,
+      "sha256": "e86e82d01c51d7eed4615e4108e02f984e139a4a5719a5096134f7b68736edcb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.olean.hash": {
+      "bytes": 16,
+      "sha256": "c1d5bed49461ef096c41ec4cd002f1e4d38b79fc6dd534fbe41be9413d33c9e8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParser.trace": {
+      "bytes": 3005,
+      "sha256": "0f0537c26c18110aff7884aa810e2ee11dc8293c682d68ba23afc635a3fd8635",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.olean": {
+      "bytes": 3479968,
+      "sha256": "620ea86fe7d8c6f1aef7a5b644b724bae793e4ee33ccb4a17bf31bf9b131e9a0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "019b74f16a49b9af8e6873753a3140730f28c5d43753f36da6124b7cdb0c7b2c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/TreeParserMachine.trace": {
+      "bytes": 3500,
+      "sha256": "bec8b7adf40da562a7aa7c3350dd0a99a5fce64888795c6254e3b7511ea6c136",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.olean": {
+      "bytes": 426176,
+      "sha256": "5a31b115159c4edc256cbf481b8867936cb0730c3128a0d01f808e6c4d70a9b5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.olean.hash": {
+      "bytes": 16,
+      "sha256": "d253e3830bc38846a09f42b6f41fd7c74ebdc5149d5abe0f32d10c48ba541484",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Verifier.trace": {
+      "bytes": 3433,
+      "sha256": "499be90dfd465e5bd573e522dfa40341a23cfb0a0e040911586980b6278f9187",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.olean": {
+      "bytes": 226936,
+      "sha256": "235d5c464ef4cb1114a37d7cded3c49ca0225b713cbf1a914253988f166c2dde",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.olean.hash": {
+      "bytes": 16,
+      "sha256": "464c315f56a303ca50b4212b64f364dd94a47f3e00bc12c72bda2f4930ea2cd8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/RotationCertificate/Witness.trace": {
+      "bytes": 3170,
+      "sha256": "dbb831bf61f5512d62324cbfe9de2c7d649ca3f5338e87ad7f2a52dadc693864",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.olean": {
+      "bytes": 391768,
+      "sha256": "1add138b50d50913afa895db0fdf812e85ee61d3c4ccc1b125dd9d72ae5279e8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.olean.hash": {
+      "bytes": 16,
+      "sha256": "89d8b63d0df72113525fc5b6bd6888f7c40af09bd120ac395ec33ed8f5c91fa6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteControl.trace": {
+      "bytes": 3164,
+      "sha256": "1b6b94263e53423ca8d23fb588e467921ed82c5db2876e2a1d64b73aafb4d8eb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.olean": {
+      "bytes": 484840,
+      "sha256": "00860246531bf66e327f8e140d2864eb5e9484b97fed6397bec4127d1c71fc42",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.olean.hash": {
+      "bytes": 16,
+      "sha256": "d5951dae3b84e3340151bc69b6b754f26e34d49b95c60b0003d24e9b5e78333d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/FiniteStackToTape.trace": {
+      "bytes": 3647,
+      "sha256": "32b703813e1b45b7cc3deb1d16bedc82fd8e67e7a323ddc387a8804a996f1e16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.olean": {
+      "bytes": 747704,
+      "sha256": "9db05a636f662c481e7bdb5d99b296f02915bb9a6d7e1c52bdab3ffdc309ddd3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.olean.hash": {
+      "bytes": 16,
+      "sha256": "6c73d33366d8471ccc6befbe3c026b7c3e0c1e352ac78253dda8319082e43905",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/MarkedInput.trace": {
+      "bytes": 3781,
+      "sha256": "5fbe945e8bbec907eb088c2716beffdcf4180bab278cf38700f672784d3fc3fb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.olean": {
+      "bytes": 209536,
+      "sha256": "42d10fbd3f48f54f362dd88ea02eb9be60b50dd8fde884a1e7e3f67195eb4b8a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.olean.hash": {
+      "bytes": 16,
+      "sha256": "564a11fe68a89dc1940fc4999b9b70357150d52907dc2d4d61a37bf2442546d6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/OrdinaryPackage.trace": {
+      "bytes": 3475,
+      "sha256": "f4b6b4951a0f52e968e8ef306a885a6060681cd8f590cc951114f252b6b02c58",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.olean": {
+      "bytes": 189472,
+      "sha256": "b66287eda7990a7be092788daab6a5df252bacda887d6861dde8b0f213b55dd9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.olean.hash": {
+      "bytes": 16,
+      "sha256": "dc2ac74043f95227b7f7dd6aef89d49cec6e060f5136527c9dbb4cf02a73c7b0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDecider.trace": {
+      "bytes": 3207,
+      "sha256": "d926120102d0d7173006d940c15df830bfa747ec739cbf75a31850fd92e3914f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.olean": {
+      "bytes": 250544,
+      "sha256": "f1e1793cc5d182ea8af73f4092c4170022fa465822b27fecbcc5d9388499bb07",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.olean.hash": {
+      "bytes": 16,
+      "sha256": "0d0919f0a4e74195ca53936b8d49b2ef0dc695cd8ee257b7c7eacd7df3a0b466",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.trace": {
+      "bytes": 3318,
+      "sha256": "2890fd1f4c0650c41704dee697bf44614f22a9438680916cd14dde95507ffb3a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.olean": {
+      "bytes": 1342632,
+      "sha256": "6ae549fa5d5dcb63d88e8c6b2bd91356ee331f22a479dd3d82ec6ce897e554c6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.olean.hash": {
+      "bytes": 16,
+      "sha256": "6470313fd6c7a42da5d05de8c0bc1e089a0bde390397070f2a4ac68b87a12493",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/PrintMove.trace": {
+      "bytes": 3796,
+      "sha256": "18060a9cc8228bb3cc86647ce0e83d2abb6925aa2462a049744f13819be2e3d1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.olean": {
+      "bytes": 168016,
+      "sha256": "68e55f2c87368a5ecd3cb3ea2da212e5e0723f4085b28df03a6274714452fa78",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.olean.hash": {
+      "bytes": 16,
+      "sha256": "f6a2cf96e673965df2691d460633a25631db30ecc7d4b2534e302fee1442cedb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/SingletonOutput.trace": {
+      "bytes": 3251,
+      "sha256": "877708e6425b547f17def90dcab4112d1419a5017d8ddbcc312098ba66c4184d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.olean": {
+      "bytes": 1152104,
+      "sha256": "264da792600beebcedd37dad6d17b309c4eee2c889dc2a4af7ad76d03241405d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.olean.hash": {
+      "bytes": 16,
+      "sha256": "50a3b04e63b144c2439526a5cc4f0cc19bb363dc69837bc6ebb551ca3ccf356d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/StackToTape.trace": {
+      "bytes": 2989,
+      "sha256": "ff7a3249b3d2451e518a3b35e9fbdfcc585e821308d50a4908280c35732706a0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.olean": {
+      "bytes": 216296,
+      "sha256": "d6e99ce8fa6755afbc1ef45cde0ad94bc68c5ea5a4a7754b91a599ede8ba83df",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.olean.hash": {
+      "bytes": 16,
+      "sha256": "1e4baeadc835dd2502f2e82e45d08772d461e77f15de1006c061833e11295522",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeReflection.trace": {
+      "bytes": 3008,
+      "sha256": "3bad7003381578f3f11eb745cd11677a756149780f33165a524d444d3fd4abb8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.olean": {
+      "bytes": 579872,
+      "sha256": "d4705eaf5161ef6004a473d936a6daa1e400d524ac1f050ded2385e5e37a3a21",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.olean.hash": {
+      "bytes": 16,
+      "sha256": "5418b6f3b246be1cca41fae41e530d9f819f5b1ad9d1dbccc24057f43da6ca36",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/TapeToPrimitive.trace": {
+      "bytes": 3017,
+      "sha256": "694746118401ee52b5543520552c9965aac8060e739f26f30149747307feeeac",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.olean": {
+      "bytes": 779072,
+      "sha256": "46804b3df512ccfd9430251a16810304ae31f732d47e2841b24463930e4d4eb8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.olean.hash": {
+      "bytes": 16,
+      "sha256": "dc1d2814c833d6ea39574cf084f4eadc1f760cd8b789e1023d355713175272c0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/TuringSimulation/VisitedSpace.trace": {
+      "bytes": 3487,
+      "sha256": "685e80ff327649f8c1226526d8475f1ee4967779e95c3c653a8c02e41a818b19",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.olean": {
+      "bytes": 148480,
+      "sha256": "ed02f5c0b7994a7943530b000c2c60c06528f88f3fbfa3dcdd9b189d92321b5c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.olean.hash": {
+      "bytes": 16,
+      "sha256": "2736719f5e3de36f1651884f384ca3aadf5851c2ca5eecd305f72633629562b6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Resources/Workload.trace": {
+      "bytes": 2939,
+      "sha256": "e550e8e095f12c0fa553559ac83db2606f4c78d8fa9e157c6e5887381b89dee6",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.olean": {
+      "bytes": 217464,
+      "sha256": "f54b68e87ffe0bcc07a33703a9b84a1e858ecee9999fc5e4a1b9028928f7ad6f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.olean.hash": {
+      "bytes": 16,
+      "sha256": "3c69bc424a1f06c7bedd987763fe7142c021830893b3c4eb4aba3feb66ba4fca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/BasicObservations.trace": {
+      "bytes": 2987,
+      "sha256": "e3a66d1edfce6bf3615bf15389a0d585605bd1f6d2d9ea9f1d30e3a20e79e974",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.olean": {
+      "bytes": 76856,
+      "sha256": "8e5950df52dfe17406257b6fee3dea36a13a8d491f4f855b8dfbb04c3fedae05",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.olean.hash": {
+      "bytes": 16,
+      "sha256": "81e40a11dd14f761d7a9a1d51aa5af8d4515890134de8359464132266b0a81a1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Direction.trace": {
+      "bytes": 2616,
+      "sha256": "9f772870b835eb669ca5c8f13d59b39c6acd3c35cb6078ab01b40fabaddbb132",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.olean": {
+      "bytes": 373504,
+      "sha256": "603cdc3695c1d9e72eecb4a6aa2cd275c0d262ae555b9d4feca7c376ab3c055f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.olean.hash": {
+      "bytes": 16,
+      "sha256": "a2dbc74cdfe41542145c292f85913c2e569318c578a22633d650003e96d5bca7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Enumeration.trace": {
+      "bytes": 3102,
+      "sha256": "ff65a494e4b54fd0d7c992462a40ea1b8aa02aad3b29b2c1071868361aa68094",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.olean": {
+      "bytes": 104360,
+      "sha256": "261630480ccba9e520832f510118da43e8dced6d51710b61a8ee1c41ee05214d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.olean.hash": {
+      "bytes": 16,
+      "sha256": "e1cb4b7bcc354171f93bf725416760bfb2c0e0f7fbe21d39583933050672a688",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Observations.trace": {
+      "bytes": 2936,
+      "sha256": "6ab968cb04f215e959545d33fa9070538192a10715d534648379af93fb9017e3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.olean": {
+      "bytes": 497136,
+      "sha256": "b4110c4ed52e8cf81d13d6834639a9f16cd2d382086efbde5c19a5c860db1909",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.olean.hash": {
+      "bytes": 16,
+      "sha256": "8e8c7bc21231ff6d1fcab3678db84a8f49c24467e78a7db10f30e9a814353663",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Basic.trace": {
+      "bytes": 3000,
+      "sha256": "d8ad09eea48dde6fdcc582ab0bafd515d6896d962ffa87c8d745d8abd3f04a9a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.olean": {
+      "bytes": 374920,
+      "sha256": "4e0e88851546e7cd10c7175349e6a191dff0b80be68d18873beaf45d4327738a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.olean.hash": {
+      "bytes": 16,
+      "sha256": "77a294c462d6a76a87b3fca9b60a2ba63025980093a5a236d2e5021d625bd8b0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Bounds.trace": {
+      "bytes": 3199,
+      "sha256": "2c4188a1b16766f688b78974f731c12c7bb55598201af93141a98313d7068109",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.olean": {
+      "bytes": 122976,
+      "sha256": "2b00f21ab3d6ffffecac8823f5d0f3cc2450586da3f7bba885ef0c72f6643fa5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.olean.hash": {
+      "bytes": 16,
+      "sha256": "628f475c377ad838293905cd631bb3d3902e3ac67aace371eae0cea855891438",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Distance.trace": {
+      "bytes": 3172,
+      "sha256": "60752343b78ce43a68ac638f93b6a356baa8f1c2de40a468c3b6a2e1effef8cb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.olean": {
+      "bytes": 308200,
+      "sha256": "854b94d984756ecff537ef0456ba54049be4c3cbab1c0f28ae08ec32014a4d3e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.olean.hash": {
+      "bytes": 16,
+      "sha256": "f616b373e54b15aec1da1f2f6f467605bd7f737c99343a33bb4d79376e9564b3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Mixed.trace": {
+      "bytes": 2833,
+      "sha256": "4a51f88d496958f31916a18eeea806720376dc7e76655c3d6ee1b1de76e61fe2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.olean": {
+      "bytes": 425680,
+      "sha256": "31691956f826f65556cc077ecac38da32edb7ab437f739220f0d42ed24c1f47c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.olean.hash": {
+      "bytes": 16,
+      "sha256": "cc06d9b274e117b9c4ce646fa851875718d600bdd9cfe02467f1e41103d19758",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Normalize.trace": {
+      "bytes": 2861,
+      "sha256": "61f63437641f9a615966ea97272c19e92e771fb1067cdd203d7efe28f7320008",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.olean": {
+      "bytes": 218472,
+      "sha256": "a687d7fcc0ab70036f15050f7e940de7adae060a5a4983e14a56f7a5809e1ee9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.olean.hash": {
+      "bytes": 16,
+      "sha256": "d132262add8ab6ae7042725823488b9e33e39fc877f20f1b805d8dab83affc9c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/Rotations/Position.trace": {
+      "bytes": 2848,
+      "sha256": "2ffa59817d876c2b2f2e76516c959875b1577d1da0c4fb660de95cad25d76196",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.olean": {
+      "bytes": 361128,
+      "sha256": "edb087e562a8c844664223e08e0eedb96994e946891b3255de440d1aff657700",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.olean.hash": {
+      "bytes": 16,
+      "sha256": "a6e8e4cae200a417e5845e36e9308b7fb32092b4ee51296dc25d14437e03e532",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Applications/Trees/TraversalWork.trace": {
+      "bytes": 3274,
+      "sha256": "d3d8dc035ea0b148dd8a67482c3a472ea86e35bd68441712432c0b37e571b354",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.olean": {
+      "bytes": 82696,
+      "sha256": "cbd5c54ca4bab6138b45a4bc1a604301c739b031542c98b1e557bc30c1598bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.olean.hash": {
+      "bytes": 16,
+      "sha256": "7f907f89c244cdb9cde4029d8330bcf063ebc7d47e3ce9f95f0dc29b1c6ce001",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateCorrespondence.trace": {
+      "bytes": 3117,
+      "sha256": "37217a94362e554aada16277066ee3d557deef2eabe8370349f8c1e1ecf13a59",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.olean": {
+      "bytes": 14575272,
+      "sha256": "b8d0f3193ef800a554ee3e06248f8a38023904c31c93e62c311f4bf2cda33709",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "8395cd68d4695ff303357093481833d42a465d3d663d6f595d2e9d564f4012e9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamMachine.trace": {
+      "bytes": 3859,
+      "sha256": "fecd07abfda5e2b75d6bdf46414b9d8af6a023368df52dcc5525d2c91aff7851",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.olean": {
+      "bytes": 392288,
+      "sha256": "20b4b806cbb15d3b0f3be17b4fe40f5c4ca9dc9973744783e4acddb41fe17f30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "2e003022fbe01a30c527d9370b6a9f79a8df5539d002d0ce53624ffab53a3f93",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateFrontEndStreamTapeMachine.trace": {
+      "bytes": 3668,
+      "sha256": "988ac2d099ffad9db47ee7f3bd28518511c5a08e8becf746e067168ae7c890c5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.olean": {
+      "bytes": 12947768,
+      "sha256": "702e721e626523f901dcc9f4dc0f5090a5f3f69c90ca2f8d6e84850161266572",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.olean.hash": {
+      "bytes": 16,
+      "sha256": "001bffadc16a0eedc93c92e60a2a5319f6c7c749daf15b1cca34277c37a03b30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationCertificateStreamMachine.trace": {
+      "bytes": 3585,
+      "sha256": "150edce9ae3da330fab62af9e2903e0f60b92ced374131706876d8cac79e6f5d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.olean": {
+      "bytes": 157136,
+      "sha256": "24ea73ac4b8acf69c394f014093e0ceeac17355eed34f64bc05d063e9e0b57ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.olean.hash": {
+      "bytes": 16,
+      "sha256": "4fdb59f37b9dc7ad854fb012dde813a6f56e1c3530553133a5308bc1f3faa360",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/RotationDistance.trace": {
+      "bytes": 2770,
+      "sha256": "c91129569ea9ae687ad492321412071008ee82a078e5c5b14d3ca38907960571",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.olean": {
+      "bytes": 1516936,
+      "sha256": "ccccdaca5aae36db5b23f099cb9d183fc005a491ca3697efccb35e87a80f2b87",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.olean.hash": {
+      "bytes": 16,
+      "sha256": "d5b1dce1e91bbed12b765ebb05121f3bea928563f72a9733cffbd3ddde02a9d1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Examples/TuringSimulation.trace": {
+      "bytes": 4986,
+      "sha256": "9b2c2592f393181f4d7ee6716942fdf50390484adfe4e50c9e534c8710c75cdf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.olean": {
+      "bytes": 114864,
+      "sha256": "7236341841d1f2dfbc5caee33e37cb10b04f3c9fe16ea34829cc971f8eb601bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.olean.hash": {
+      "bytes": 16,
+      "sha256": "e0b5b69cc82d32aa23f50eb81a337d4c471cbe203e3af581520e6926a2951bc3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/SquareKit/ListFusion.trace": {
+      "bytes": 2700,
+      "sha256": "2ab9877cdeb0e9360ca283240b2a3d561ba36c9b0280b3445e5ddda9e0fdaf71",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.olean": {
+      "bytes": 397408,
+      "sha256": "8f5981c72bfd62a0ec3a0ae74b5841269b10cb5dad2aedb8a269a9e229c21ffb",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.olean.hash": {
+      "bytes": 16,
+      "sha256": "69362eb3e35c4fcb6fc213839d6d07af9195fb0919454223fb2b2bc876597f31",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/.lake/build/lib/lean/Squares.trace": {
+      "bytes": 2469,
+      "sha256": "dcc900f5734c558eabeb6e6f2e76b1d1351d4ff4067f3b99b66a9e11ab0d66d7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter.lean": {
+      "bytes": 11446,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidth.lean": {
+      "bytes": 5441,
+      "sha256": "9b8483b02c0854773605d6b66a5818451bd34d3a1ba7dc23c4af26f0c5ad3007",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/CallCount.lean": {
+      "bytes": 2447,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Measured.lean": {
+      "bytes": 2906,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Potential.lean": {
+      "bytes": 13410,
+      "sha256": "c7dac5fcb51e02a688e39b60a3a3c5f6777a3d2c4e7222fce8e1c81cdf3f504d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Encoding.lean": {
+      "bytes": 9752,
+      "sha256": "621b093b3be69220da94f609c99fe2b7d40c96b6b4e8704494af8468cc9e38ca",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Execution.lean": {
+      "bytes": 15219,
+      "sha256": "6b3f6e386444a3dc9054932c6008e74dcf35d09d7f32643570fee7d761decc6c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/LinearParser.lean": {
+      "bytes": 18678,
+      "sha256": "941f096b10b022edc3f366e82eafd1f47cf7a6870c8d3c451eb51129b17d8ba1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/Workload.lean": {
+      "bytes": 3169,
+      "sha256": "3ab7b4911dbc5283d50d4bf24df4a3c0f41b21e54bc938d6270c9c2c03fc19b1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/BasicObservations.lean": {
+      "bytes": 5821,
+      "sha256": "251e7349a1bcc057d405d36dbe8c3d24e97bc85d43b723461b2d90bc46f71580",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Direction.lean": {
+      "bytes": 413,
+      "sha256": "4cd6daf3200fce9e5489bfff29aa850ab708c407d5779e9c4568bb27731be7af",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Enumeration.lean": {
+      "bytes": 6707,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Observations.lean": {
+      "bytes": 4119,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Basic.lean": {
+      "bytes": 6732,
+      "sha256": "0521be3f8943e171409674da1029a8507550e1ed8e972c0add6bd926d33fb3a4",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Bounds.lean": {
+      "bytes": 9603,
+      "sha256": "0af5ad28c3805ec928ea028d8ae5bed5b063e04922355bd317f144d68f21b0be",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Distance.lean": {
+      "bytes": 8589,
+      "sha256": "4cc00de6c2a487dccc8869f982c612111a8418fe6b162aca1a2bdeed54801218",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Mixed.lean": {
+      "bytes": 6653,
+      "sha256": "045283c6af61c87adfd1099a066ed498f90e62f49497774fb7ee5c565e3d3603",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Normalize.lean": {
+      "bytes": 5252,
+      "sha256": "5d1044733c7e9563d24baa86afd015737261737ffa8edafab995fd48789c33fd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/Rotations/Position.lean": {
+      "bytes": 8133,
+      "sha256": "929b1e6cdace1bb33950ac8f80a8db04e76663da5390ca8e4643ff0980776a24",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Trees/TraversalWork.lean": {
+      "bytes": 5427,
+      "sha256": "49762c33454e1cc90db706ebd2e16bf7dc395c0a74116bc21b3a63d0a282b85e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/RotationDistance.lean": {
+      "bytes": 7774,
+      "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/SquareKit/ListFusion.lean": {
+      "bytes": 6168,
+      "sha256": "91b913c29bc3198fe7c9c189d8c7c45bd9ed3752a825e660989f428f3b6df21e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/Squares.lean": {
+      "bytes": 11694,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/check.sh": {
+      "bytes": 74,
+      "sha256": "d4a16262232c26dd48191217c1113cbbeda7dbc8ea0826505ca1bf767d0f8acd",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lake-manifest.json": {
+      "bytes": 3138,
+      "sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lakefile.toml": {
+      "bytes": 722,
+      "sha256": "4a02b9bfe546ecee0a4cb5070f75939bac510c1b412315490a4ff854fb57db81",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/check.py": {
+      "bytes": 16215,
+      "sha256": "4c95900fb68b4efe792d143f2847472291ba5a3f13fc477a7815808be2186694",
+      "mode": "100755"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/lake_integrity.py": {
+      "bytes": 5781,
+      "sha256": "293c1e5bbf1a818b9fa49455194afc6e58d28b4194d5f6d2b7a2948f7894d90f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/project_sources.py": {
+      "bytes": 876,
+      "sha256": "47e8eb2d5ffeeebfa73ccabfc469df17f7c83296117f5c240780fd955643c30c",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/acceptance147/scripts/review_snapshot.py": {
+      "bytes": 20515,
+      "sha256": "935149f2408a240ca32e34f549be5900ffd577c4ce4c2ee64e5c69a136e8a1bf",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean": {
+      "bytes": 51093,
+      "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/MANIFEST.json": {
+      "bytes": 31256,
+      "sha256": "2cf3d3ec7edd80cf3897e02ac628c236c7430a580dbc034ad5ac3b9d4cb08761",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/native-runs147/run_recorded.py": {
+      "bytes": 4542,
+      "sha256": "a606ef4743c42fe85d47037e768f2b8b5e2ece5557eadbe13e471eb047e73ce0",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json": {
+      "bytes": 9735771,
+      "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+      "mode": "100644"
+    },
+    "/workspace/scratch/ae71b485b114/work/resume147/query-source-binding147.json": {
+      "bytes": 7363,
+      "sha256": "41487108f4e00ffb41a548bd23138414b1926bec3e801bd5c600afdf32772472",
+      "mode": "100644"
+    }
+  },
+  "sources_unchanged": true,
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+  "log_descriptor": {
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927",
+    "mode": "100644"
+  },
+  "child_exit_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.child-exit.json",
+    "bytes": 1292,
+    "sha256": "bde86756df21ab42b891ecaf1e09f8b19266e18c0d1903c78fdaeb651cfb9964",
+    "mode": "100644"
+  }
+}

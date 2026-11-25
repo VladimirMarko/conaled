@@ -1,0 +1,564 @@
+{
+  "schema": 1,
+  "status": "Round12 bounded source and supplied-query assessments reconciled: Standards Blocked only ST-V001; Spec Blocked only SP-V001. No new actionable source findings, no acceptance.",
+  "activated_utc": "2026-11-24T19:24:37.155480+00:00",
+  "coordinator": "/root/requirements_review147",
+  "loop": "Existing CTB-24/FDSA-5-93 full-scope loop, additive successor continuation; no reset.",
+  "original_coordinator": "/root/parser_review",
+  "original_axes": {
+    "Standards": "/root/parser_review/standards",
+    "Spec": "/root/parser_review/spec"
+  },
+  "predecessor_coordinator": "/root/requirements_review",
+  "predecessor_axes": {
+    "Standards": "/root/requirements_review/standards139",
+    "Spec": "/root/requirements_review/spec139"
+  },
+  "successor_reason": "Fresh workspace after wipe; earlier live axis handles are not assumed to survive. Requirements lines53349–53361 explicitly permit clearly identified successors in this same loop.",
+  "active_review_round": 12,
+  "original_seven_rounds_preserved": true,
+  "round8_C139_round9_C142_round10_C144_round11_C146_preserved": true,
+  "unreviewed_intervening145_remains_unreviewed": true,
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 63,
+  "scope_identity": "06196b9de2f9b3d8fce60d4b0deb0a242f1ba35c206d2a1e183b4373d361b0dd",
+  "content_identity": "32aad5666ed6d166197f3b03c9e4b4263e2624bd11d55188e30d5d9066a96a67",
+  "projection_identity": "53e829ca256e03ad1d74884c5477bc26c7c247c60161ee156d5a86dfdb717322",
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json",
+    "bytes": 9735771,
+    "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44"
+  },
+  "capture_identity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review147/capture-identity147.json",
+    "bytes": 27552,
+    "sha256": "49aa6e7cf9283513f840a9f26d589039bdaaa6fb158fb7e55238959ee07dd596"
+  },
+  "requirements": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/control/requirements.md",
+    "bytes": 2237283,
+    "sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7"
+  },
+  "integration_plan": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/README.md",
+    "bytes": 15616,
+    "sha256": "24101871aed313c2605b0eec928fde7ee04e110f305793484cdcdd0a05f6f593"
+  },
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/original136/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "last_review_continuity": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/review-continuity146.json",
+    "bytes": 12486,
+    "sha256": "dc0f7525b1db97b954d0fcf3e24b8209c41060e59a820ecd7f290a722062d15c"
+  },
+  "prior_reports": {
+    "Standards": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/standards146.json",
+      "bytes": 69396,
+      "sha256": "cf3055add88fc33d107bb8635adf951823ae45cb842270a035ff673fd76cdb15"
+    },
+    "Spec": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146.json",
+      "bytes": 47913,
+      "sha256": "c563b12fbbae1c1bd9bfe12f471ab92276a3f72bedb5a3f198e9c75570b29ba4"
+    }
+  },
+  "prior_finding_dispositions_preserved_verbatim": {
+    "ST-001": "Resolved on146 only",
+    "ST-002": "Resolved on146 only",
+    "ST-003": "Scoped source/elaboration defect resolved on146 only",
+    "SP-D001": "Resolved on146 only",
+    "SP-D002": "Resolved on146 only",
+    "SP-C001": "Scoped source/elaboration defect resolved on146 only",
+    "ST-V001": "Unresolved: matching ordinary/whole/audit/immediate verify/compare absent",
+    "SP-V001": "Unresolved: matching integrated validation absent; eight literal expanded visibility omissions retained"
+  },
+  "axes": {
+    "Standards": {
+      "identity": "/root/requirements_review147/standards147",
+      "status": "Final bounded source/query assessment complete within recorded fresh/reused reading limits; Blocked only ST-V001",
+      "same_original_successor_axis": true,
+      "finding_ids": [
+        "ST-001",
+        "ST-002",
+        "ST-003",
+        "ST-V001"
+      ],
+      "final_reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/standards147.md",
+          "bytes": 15496,
+          "sha256": "df4a33f4e4fe771bd4400375e30ca262617a05ca1b1f39ec112f84e04e190432"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/standards147.json",
+          "bytes": 30969,
+          "sha256": "1eecfd8d787a756095d95e6d36ccb439a8f08fab8094726cbc3cd86312d2a154"
+        },
+        "mechanical_evidence": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/standards147-mechanical-evidence.json",
+          "bytes": 19134,
+          "sha256": "235e6087aeecd4099ace41edc3a7fbe89bb7771773e527d3b8dfaa1e4c5d3585"
+        }
+      },
+      "same_axis_available_for_validation_followup": true
+    },
+    "Spec": {
+      "identity": "/root/requirements_review147/spec147",
+      "status": "Final bounded source/query assessment complete within recorded fresh/reused reading limits; Blocked only SP-V001",
+      "same_original_successor_axis": true,
+      "finding_ids": [
+        "SP-D001",
+        "SP-D002",
+        "SP-C001",
+        "SP-V001"
+      ],
+      "final_reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/spec147.md",
+          "bytes": 23747,
+          "sha256": "cb634a264345e66a4faf0013e71e246a12533b4ed01a4920cd6a407c01d7e752"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/spec147.json",
+          "bytes": 34294,
+          "sha256": "3a7c022e9e14b6beb75ddd6104a6d584bbb25d37234961565be7ec1d84b3b85a"
+        },
+        "source_checks": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-source-checks.json",
+          "bytes": 27253,
+          "sha256": "2b49b280d337d4b614356d0a2afcc6c40a7795dbc413a4f52559dbf37a360881"
+        },
+        "query_binding": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-query-binding.json",
+          "bytes": 21903,
+          "sha256": "210c38ea340d4c021516d8e74c63603b76cf8d14702b7e318bc1716e998a2dab"
+        },
+        "statement_reading": {
+          "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-statement-reading.json",
+          "bytes": 25099,
+          "sha256": "29cfe2afe3acbbbdbcb5a9160c7efae179bb9c4def4744cc7d217d4f9e51d6e7"
+        }
+      },
+      "bounded_checkpoint147_stage_preserved": {
+        "updated_utc": "2026-11-24T19:30:22.388604+00:00",
+        "stage": "Bounded source and focused ordinary-module assessment; actual query follow-up pending",
+        "checkpoint147_cutoff_utc": "2026-11-24T19:33:46.269192+00:00",
+        "frozen_json": {
+          "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-root/review/spec147.json",
+          "bytes": 28245,
+          "sha256": "d8fcd5f62e7824f8cd7b7963e66e6b7ff4fa7e22dd8915920ab176d9daa08438"
+        },
+        "frozen_markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-root/review/spec147.md",
+          "bytes": 14307,
+          "sha256": "13db4bfa2d50a99c77e18d6703e310b50420dcf00aa02044df47a447bceeb9ae"
+        },
+        "status": "Blocked",
+        "query_reading_counts_at_that_time": {
+          "readable": 0,
+          "expanded": 0,
+          "selected_roots": 0
+        },
+        "query_handoff_at_that_time": {
+          "reported_by": "/root/requirements_review147",
+          "reported_exit": 0,
+          "reported_seconds": 3.9892,
+          "reported_nonnull_invariant_bindings": 293,
+          "reported_log_bytes": 594334,
+          "reported_log_sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927",
+          "actual_binding_or_output_reviewed_by_this_axis": false
+        },
+        "available_current_query_output_review_complete_at_that_time": false,
+        "SP_V001_evidence_at_that_time": "Five matching focused ordinary builds passed and have been independently assessed. Current147 query success has just been supplied by coordinator but its actual output/binding assessment has not begun in this bounded report. Matching aggregate/whole build, exhaustive audit, immediate nonrepairing verification, supported final comparison and both-axis reconciliation remain pending. Historical eight expanded omissions and all reading limits remain.",
+        "later_evidence_does_not_rewrite_cutoff": true
+      },
+      "same_axis_available_for_validation_followup": true,
+      "visibility_clarification_utc": "2026-11-24T19:54:49.387103+00:00"
+    }
+  },
+  "current_validation": {
+    "supported_63_owner_pre_edit_baseline": "Actual exit0; same B/M and scope",
+    "supported_candidate_capture": "Actual exit0 with72nonnull stable inputs",
+    "ordinary_prerequisites": "Actual exit0,16.655972108999777s; full log and source bindings checked by coordinator",
+    "ordinary_new_owners_and_clients": "Three new owners, complete Examples.TuringSimulation and seven retained controller/certificate clients actual exit0 with matching source; aggregate/whole pending",
+    "statement_query": "Actual query147 exit0 with293nonnull invariant bindings; both axes assessed all589readable/26expanded-as-emitted/32selected-root outputs via239/7/9fresh tail and350/19/23qualified same-axis prior146 prefix analysis.",
+    "whole147_and_exhaustive_audit": "Root reports whole147 active with no terminal asof20:01:35UTC; coordinator refresh again finds no immediate child terminal or final result. No whole outcome inferred.",
+    "immediate_nonrepairing_verify": "Pending",
+    "supported_final_compare": "Pending"
+  },
+  "historical_whole139": {
+    "outer_terminal": "UNKNOWN after workspace/process loss",
+    "observed_child137_failures": 8,
+    "cause": "UNKNOWN",
+    "historical_axis_reports_boundary": "Prior146 axis reports recorded seven as then supplied. The later eighth observation is additive, without altering prior records or assigning an outer result."
+  },
+  "historical_null_bindings": "Five historical auxiliary expectation inputs remain null/null; three actual exit0/two exit1 retained. A separately present file never retroactively binds them.",
+  "historical_printer_omissions": [
+    4198,
+    4201,
+    4204,
+    4208,
+    4218,
+    4298,
+    5583,
+    5584
+  ],
+  "fixed_programme": {
+    "controller_domains": 96,
+    "independent_records": 84,
+    "positive_closed_fixtures": 81,
+    "qualification_changed": false,
+    "full_canonical_VFA_FDSA_PFDS_book_thesis_union": "OPEN",
+    "separate_ADWH_shared_library": "OPEN",
+    "FDSA5_92_exact_diameter": "OPEN",
+    "FDSA5_93_CTB24_formal_conventional_NP": "OPEN"
+  },
+  "coordinator_reading_limits": [
+    "Read AGENTS.md, task-authority.md, review-loop.md, code-review SKILL.md and implement SKILL.md; this supplies workflow coordination, not a third substantive review.",
+    "Read complete integration147 README and cumulative requirement lines53266–53784. Full cumulative requirements remain authoritative and supplied; no fresh complete53,784-line reading is claimed.",
+    "Read prior continuity identity/axis/finding/validation/limits objects, original136 role/continuity/round scalar/requirement/programme/checkpoint objects, current146 Standards findings/reading limits and Spec source/validation findings/remaining evidence/historical limits/current mathematical assessment. Did not fresh-read complete historical reports, all proof bodies or prior query logs.",
+    "Initial broad combined output and a later large Standards current_query object were truncated. No complete reading is claimed for omitted portions; the exact finding and limit fields used by this handoff were separately read.",
+    "All63 captured source bodies were mechanically hashed and matched to receipt object identities;55 unchanged146 bodies were compared. This is provenance checking, not semantic reading credit.",
+    "Read the complete bounded Spec147 Markdown report and its stable findings/status JSON fields. No third semantic review or independent output-reading credit follows.",
+    "Mechanically mapped all647 query outputs; current lines1–5723 exactly equal the complete retained C146 log, preserving both axes attributed prior analysis and its limits. New tail255 outputs indexed without semantic reading credit. Actual293nonnull bindings,63source hashes and192product/trace descriptors were independently compared to the supplied frozen records; no current output products were changed or reread during root whole build.",
+    "Read complete final Standards147 Markdown and final Spec147 Markdown (including dated query follow-up), and their exact identity/status/finding/reading-limit fields. Independently reconciled matching C147/B/M/scope and all reported group totals. This coordinator performed no third substantive source/type review, compiler run, source/config/product mutation, external message or acceptance action.",
+    "Read the same Spec axis completed19:54:49 ellipsis clarification and its current finding/visibility fields. Recorded its conclusion that no consequential binder/domain remains unassessed and no extra observation is required; no new substantive coordinator review or query was performed."
+  ],
+  "third_substantive_axis": false,
+  "coordinator_compiler_source_or_project_output_mutation": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "issue558_messages_or_publication": false,
+  "ordinary_module_evidence": [
+    {
+      "name": "prerequisites147",
+      "exit_code": 0,
+      "elapsed_seconds": 16.655972108999777,
+      "nonnull_unchanged_inputs": 75,
+      "all63_captured_source_bindings_match": true,
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.result.json",
+        "bytes": 38891,
+        "sha256": "63fec67ea4079593a9d9d29ee4cfbacaea3132c7c4b8a9af07bb50c13cdb63de"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.child-exit.json",
+        "bytes": 1566,
+        "sha256": "e73a79b528b915febc648db8e425acae958261c1fb97fbbcaa8baeed303a3702"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.log",
+        "bytes": 3347,
+        "sha256": "e7a1553f76dc71e0f210d1ee0b58793e547f5677a309b8bc40860a01b9cb9fb3"
+      },
+      "coordinator_log_read": "Complete; module-system migration import warnings present; no compiler was run by coordinator"
+    },
+    {
+      "name": "generic-owners147",
+      "exit_code": 0,
+      "elapsed_seconds": 3.378310486999908,
+      "nonnull_unchanged_inputs": 75,
+      "all63_captured_source_bindings_match": true,
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.result.json",
+        "bytes": 38638,
+        "sha256": "b90d5551b60e9f4bd2ca19722ddb22f11e602476d9e1bafddb1e8dc18bec8c19"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.child-exit.json",
+        "bytes": 1313,
+        "sha256": "ed241f285be073cbf562361ee25a8cbc42482c110575db6990cbf4a856b5e05e"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+        "bytes": 4204,
+        "sha256": "e8bc9e1463a901f51bb4290abeaafc130ef2f576f02156b5c90fffb5a6748312"
+      },
+      "coordinator_log_read": "Complete; module-system migration import warnings present; no compiler was run by coordinator"
+    },
+    {
+      "name": "polynomial-owner147",
+      "exit_code": 0,
+      "elapsed_seconds": 2.806057308000163,
+      "nonnull_unchanged_inputs": 75,
+      "all63_captured_source_bindings_match": true,
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.result.json",
+        "bytes": 38598,
+        "sha256": "5a59a54b19f9160695e835aab722e040936b1f128afb99c71cd0e79ba417ebcf"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.child-exit.json",
+        "bytes": 1273,
+        "sha256": "fdaf047b7e7e419020fc5a79eff7dea040b8b3d144d6bddb8c3c961c4edd17b6"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.log",
+        "bytes": 2184,
+        "sha256": "db4c21804cf0ed035cdf70a048c6bf9e79a31d6dab0ab7293f2a5e216ac5a045"
+      },
+      "coordinator_log_read": "Complete; module-system migration import warnings present; no compiler was run by coordinator"
+    },
+    {
+      "name": "turing-examples147",
+      "exit_code": 0,
+      "elapsed_seconds": 6.233093702000133,
+      "nonnull_unchanged_inputs": 75,
+      "all63_captured_source_bindings_match": true,
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.result.json",
+        "bytes": 38554,
+        "sha256": "a33871cbf2411cb3aac4fcb5d911d499e86d5655d25a5cb797b725d1deddc344"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.child-exit.json",
+        "bytes": 1229,
+        "sha256": "dd787ed26d04392034c0c5a36d6972872dee7a8872fc81430948fbc3c8f93657"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.log",
+        "bytes": 6536,
+        "sha256": "f079235fcb6c2c858ef83913413e420e5f51e13fdb57cc3f82fd65143a24c7e0"
+      },
+      "coordinator_log_read": "Complete; module-system migration import warnings present; no compiler was run by coordinator"
+    },
+    {
+      "name": "controller-clients147",
+      "exit_code": 0,
+      "elapsed_seconds": 104.59182915500014,
+      "nonnull_unchanged_inputs": 78,
+      "all63_captured_source_bindings_match": true,
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.result.json",
+        "bytes": 40306,
+        "sha256": "930ba9cfcacc4354c57755a0f35abbb29f124e45578936c7048d363a74ce4a59"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.child-exit.json",
+        "bytes": 1608,
+        "sha256": "fd2167bf2b2401c87e124fc3e6a995d4a3e55db78de21492813d0d25a0330a5c"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.log",
+        "bytes": 15941,
+        "sha256": "28c3228bfe7cd06770e867efae5938b0596f9b785a8c28f8cb319e4b166dd2da"
+      },
+      "coordinator_log_read": "Command and last18 of109log lines; full log descriptor checked. Module-system migration import warnings retained; no full log reading or compiler execution by coordinator claimed."
+    }
+  ],
+  "updated_utc": "2026-11-24T20:07:17.876052+00:00",
+  "query_output_binding": {
+    "path": "/workspace/scratch/ae71b485b114/work/review147/query-output-binding147.json",
+    "bytes": 120356,
+    "sha256": "48190050ef5a353d4b26630bc91dd6d687d6868fcfe7d21a85bf25530a81a7f1"
+  },
+  "printer_omissions": {
+    "literal_glyph_occurrences": 14,
+    "line_count": 8,
+    "lines": [
+      4198,
+      4201,
+      4204,
+      4208,
+      4218,
+      4298,
+      5583,
+      5584
+    ],
+    "byte_identical_to_prior146": true,
+    "new_tail_has_omissions": false
+  },
+  "checkpoint147_frozen_boundary": {
+    "cutoff_utc": "2026-11-24T19:33:46.269192+00:00",
+    "frozen_continuity_sha256": "a3461b58a978e5ba52c50128ee13bf52c1b62d03133dd8b17e9562f0fd133faa",
+    "frozen_copy": "/workspace/scratch/ae71b485b114/work/checkpoint147-root/review/review-continuity147.json",
+    "later_evidence_boundary": "Subsequent working review outputs belong to the next complete checkpoint; frozen cutoff records are not retroactively changed."
+  },
+  "reconciled_utc": "2026-11-24T19:48:42.547057+00:00",
+  "current147_finding_dispositions": {
+    "ST-001": "Resolved on C147 source with historical dispositions preserved",
+    "ST-002": "Resolved on C147 source with historical dispositions preserved",
+    "ST-003": "Resolved on C147 source/elaboration; complete ordinary client now validated",
+    "SP-D001": "Resolved on C147 source with historical dispositions preserved",
+    "SP-D002": "Resolved on C147 source with historical dispositions preserved",
+    "SP-C001": "Resolved on C147 source/elaboration; complete ordinary client now validated",
+    "ST-V001": "Unresolved: matching aggregate/whole terminal and exhaustive audit, immediate nonrepairing verify, supported final postvalidation comparison and ensuing same-axis reconciliation remain",
+    "SP-V001": "Unresolved solely on matching aggregate/whole and exhaustive-audit evidence, immediate nonrepairing verification, supported final comparison and ensuing same-axis acceptance reconciliation. The14glyphs on8oldlines are a nonfatal rendering limit; no consequential binder/domain is unassessed and no additional observation is required."
+  },
+  "whole147_observation": {
+    "observed_utc": "2026-11-24T19:48:42.547057+00:00",
+    "start": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/whole147.start.json",
+      "bytes": 32493,
+      "sha256": "8f021e6fb3f9874b43531783318c0252c10dbde2a51a287c54225c133a4d67d9"
+    },
+    "started_utc": "2026-11-24T19:28:14.410025+00:00",
+    "nonnull_start_bindings": 132,
+    "terminal_file_presence": {
+      "whole147.child-exit.json": false,
+      "whole147.result.json": false
+    },
+    "process_liveness_checked_by_coordinator": false,
+    "boundary": "Read-only receipt existence and start identity, not process control or a whole validation result."
+  },
+  "public_statement_reading_ledger": {
+    "actual_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+      "bytes": 594334,
+      "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+    },
+    "old_prefix_exact": {
+      "current_output_range_inclusive": [
+        1,
+        5723
+      ],
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01",
+      "entire_old_log_is_byte_identical_current_prefix": true,
+      "prior_log": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/current146-statements-attempt1.log",
+        "bytes": 431379,
+        "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+      },
+      "prior_output_index": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-output-index.json",
+        "bytes": 128676,
+        "sha256": "39011c024cd65b675674bed7ce41756ab0cc8eccf08034f3a4ef6ab8ddc4196a"
+      },
+      "all392_prior_index_bodies_names_and_groups_match_current": true,
+      "counts": {
+        "readable": 350,
+        "expanded": 19,
+        "axiom_roots": 23
+      },
+      "prior_reading_attribution": {
+        "Spec": "Prior Spec146 report records full actual output lines1–5723 read; successor may explicitly reuse that retained same-axis analysis with its limits. No fresh successor reading claimed by this comparison.",
+        "Standards": "Prior Standards146 report records 3 fresh+347 exact prior144 readable blocks,7 fresh+12 exact prior144 expanded blocks,and23 fresh roots. That qualified chain remains; no fresh successor reading claimed."
+      }
+    },
+    "new_tail_range_inclusive": [
+      5724,
+      7801
+    ],
+    "fresh_by_each_axis": {
+      "readable": 239,
+      "expanded_as_printed": 7,
+      "selected_roots": 9
+    },
+    "qualified_prior_by_each_axis": {
+      "readable": 350,
+      "expanded_as_printed": 19,
+      "selected_roots": 23
+    },
+    "total_assessed_by_each_axis": {
+      "readable": 589,
+      "expanded_as_printed": 26,
+      "selected_roots": 32
+    },
+    "Standards_prior_attribution": "Prior146 350readable=3fresh146+347exactprior144;19expanded=7fresh146+12exactprior144;23rootsfresh146. These are attributed prior-axis analysis, not fresh successor reading.",
+    "Spec_prior_attribution": "PriorSpec146 actual full5723-line output assessment, explicitly reused under independently checked byte identity with original limits; not fresh successor reading.",
+    "literal_elision_glyph_occurrences": 14,
+    "literal_elision_line_count": 8,
+    "literal_elision_lines": [
+      4198,
+      4201,
+      4204,
+      4208,
+      4218,
+      4298,
+      5583,
+      5584
+    ],
+    "new_tail_has_literal_elisions": false,
+    "hidden_output_reading_credit": false,
+    "selected_roots_replace_exhaustive_audit": false,
+    "coordinator_substantive_reading_credit": false,
+    "ellipsis_clarification": {
+      "observed_utc": "2026-11-24T19:54:49.387103+00:00",
+      "axis": "/root/requirements_review147/spec147",
+      "classification": "Retained truthful nonfatal expanded-rendering/reading limit, not a distinct acceptance gate within SP-V001.",
+      "distinct_acceptance_gate": false,
+      "consequential_binders_or_domains_unassessed": [],
+      "additional_observation_required": null,
+      "additional_narrow_rereads_inclusive": [
+        [
+          1070,
+          1144
+        ],
+        [
+          4188,
+          4325
+        ],
+        [
+          5560,
+          5587
+        ]
+      ],
+      "source_and_supporting_definitions_assessed_by_Spec": true,
+      "hidden_expanded_text_receives_reading_credit": false,
+      "unique_query_totals_changed": false,
+      "whole_old_prefix_claimed_freshly_read": false,
+      "details": {
+        "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-statement-reading.json",
+        "bytes": 25099,
+        "sha256": "29cfe2afe3acbbbdbcb5a9160c7efae179bb9c4def4744cc7d217d4f9e51d6e7"
+      }
+    }
+  },
+  "next_validation_followup": "Return actual matching whole147/exhaustive-audit result and receipt, immediate supported nonrepairing verification and supported final postvalidation comparison to these same two successor axes. Preserve existing C147/B/M and all limits; changed source requires supported new capture and corresponding review. The current bounded reconciliation does not complete future acceptance reconciliation.",
+  "reconciliation_markdown": {
+    "path": "/workspace/scratch/ae71b485b114/work/review147/round12-reconciliation147.md",
+    "bytes": 8933,
+    "sha256": "3740f3a24fa3d3039fd9c0b85df8ff1c3ab6617dd2a4ba4cbc63f55d00fc217e"
+  },
+  "ellipsis_clarification": {
+    "observed_utc": "2026-11-24T19:54:49.387103+00:00",
+    "axis": "/root/requirements_review147/spec147",
+    "classification": "Retained truthful nonfatal expanded-rendering/reading limit, not a distinct acceptance gate within SP-V001.",
+    "distinct_acceptance_gate": false,
+    "consequential_binders_or_domains_unassessed": [],
+    "additional_observation_required": null,
+    "additional_narrow_rereads_inclusive": [
+      [
+        1070,
+        1144
+      ],
+      [
+        4188,
+        4325
+      ],
+      [
+        5560,
+        5587
+      ]
+    ],
+    "source_and_supporting_definitions_assessed_by_Spec": true,
+    "hidden_expanded_text_receives_reading_credit": false,
+    "unique_query_totals_changed": false,
+    "whole_old_prefix_claimed_freshly_read": false,
+    "details": {
+      "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-statement-reading.json",
+      "bytes": 25099,
+      "sha256": "29cfe2afe3acbbbdbcb5a9160c7efae179bb9c4def4744cc7d217d4f9e51d6e7"
+    }
+  },
+  "source_scope_boundary_after_reconciliation": "C147 remains unchanged. New root/implementation drafts are uncompiled, outside C147 and outside this round12 review.",
+  "whole147_latest_observation": {
+    "observed_utc": "2026-11-24T20:07:17.876052+00:00",
+    "terminal_file_presence": {
+      "whole147.child-exit.json": false,
+      "whole147.result.json": false
+    },
+    "root_reported_active_as_of_utc": "2026-11-24T20:01:35+00:00",
+    "process_liveness_checked_by_coordinator": false,
+    "boundary": "Root relay plus read-only receipt-presence check; no whole outcome inferred."
+  },
+  "clarification_reconciled_utc": "2026-11-24T20:07:17.876052+00:00"
+}

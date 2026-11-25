@@ -1,0 +1,678 @@
+{
+  "schema": 1,
+  "status": "Frozen ordinary-module query carrier; not executed.",
+  "query_plan": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/QUERY_PLAN.json",
+    "bytes": 189998,
+    "sha256": "27b38175c9733f7de1900f67e26510a3187e73ee1dcba11c28371c41ae0b952c",
+    "mode": "0644"
+  },
+  "prior_source_map": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/query146/SOURCE_MAP.json",
+    "bytes": 50288,
+    "sha256": "f91adb0687cdbb24bf1fb05c792ee9d1919fc67c0cc22084934b56af7d7d6662",
+    "mode": "0644"
+  },
+  "owner_draft_manifest": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/MANIFEST.json",
+    "bytes": 30809,
+    "sha256": "7a1b65656b42369fe53dbe5185ef67fb5558bc62a861a2e621d9f9c8bd5338b9",
+    "mode": "0644"
+  },
+  "installation": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/installation147.json",
+    "bytes": 8093,
+    "sha256": "5db53bac408496b1015b8bebe6bd61cfe650a471efb8585ccc479e825ca0e212",
+    "mode": "0644"
+  },
+  "carrier": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean",
+    "bytes": 51093,
+    "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f",
+    "mode": "0644"
+  },
+  "normal_imports": [
+    {
+      "module": "Applications.Resources.RotationCertificate.CertificateCorrespondence",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+        "bytes": 5877,
+        "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+        "bytes": 5877,
+        "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+        "mtime_ns": 1795519785773406682
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.TapeReflection",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/TapeReflection.lean",
+        "bytes": 5232,
+        "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/TapeReflection.lean",
+        "bytes": 5232,
+        "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+        "mtime_ns": 1795519785772684688
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.FiniteControl",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+        "bytes": 16006,
+        "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+        "bytes": 16006,
+        "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+        "mtime_ns": 1795513226754707905
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.FiniteStackToTape",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+        "bytes": 17998,
+        "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+        "bytes": 17998,
+        "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+        "mtime_ns": 1795519785771629963
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.SingletonOutput",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+        "bytes": 4852,
+        "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/SingletonOutput.lean",
+        "bytes": 4852,
+        "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+        "mtime_ns": 1795519785773142405
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.MarkedInput",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+        "bytes": 21194,
+        "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/MarkedInput.lean",
+        "bytes": 21194,
+        "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+        "mtime_ns": 1795519785772971568
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.PolynomialDecider",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+        "bytes": 3223,
+        "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+        "bytes": 3223,
+        "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+        "mtime_ns": 1795519785773232010
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.VisitedSpace",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+        "bytes": 25433,
+        "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+        "bytes": 25433,
+        "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+        "mtime_ns": 1795519785773324188
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.TapeToPrimitive",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+        "bytes": 11817,
+        "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+        "bytes": 11817,
+        "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+        "mtime_ns": 1795513226753808627
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+        "bytes": 54742,
+        "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+        "bytes": 54742,
+        "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+        "mtime_ns": 1795519785773694604
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.RotationDistance",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationDistance.lean",
+        "bytes": 7774,
+        "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationDistance.lean",
+        "bytes": 7774,
+        "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+        "mtime_ns": 1795505942515037014
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.RotationCertificateCorrespondence",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateCorrespondence.lean",
+        "bytes": 9437,
+        "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateCorrespondence.lean",
+        "bytes": 9437,
+        "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+        "mtime_ns": 1795519785773486011
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.RotationCertificateStreamMachine",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateStreamMachine.lean",
+        "bytes": 487273,
+        "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateStreamMachine.lean",
+        "bytes": 487273,
+        "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+        "mtime_ns": 1795505944465661666
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.RotationCertificateFrontEndStreamMachine",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateFrontEndStreamMachine.lean",
+        "bytes": 639314,
+        "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateFrontEndStreamMachine.lean",
+        "bytes": 639314,
+        "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+        "mtime_ns": 1795522554334952312
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.RotationCertificateFrontEndStreamTapeMachine",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "bytes": 28016,
+        "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+        "bytes": 28016,
+        "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+        "mtime_ns": 1795521504995991247
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Examples.TuringSimulation",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/TuringSimulation.lean",
+        "bytes": 72694,
+        "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Examples/TuringSimulation.lean",
+        "bytes": 72694,
+        "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+        "mode": "0644"
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.OrdinaryPackage",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+        "bytes": 20702,
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+        "bytes": 20702,
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+        "mode": "0644"
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.PrintMove",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+        "bytes": 33332,
+        "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/PrintMove.lean",
+        "bytes": 33332,
+        "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+        "mode": "0644"
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    },
+    {
+      "module": "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+        "bytes": 7587,
+        "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+        "mode": "0644"
+      },
+      "expected_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+        "bytes": 7587,
+        "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+        "mode": "0644"
+      },
+      "binding_status": "Installed author source matches the exact retained/draft descriptor; isolated candidate binding is still required."
+    }
+  ],
+  "fragments": [
+    {
+      "label": "current146_public",
+      "canonical_extraction": {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/query146/PublicStatements146.body.lean",
+          "bytes": 26751,
+          "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57",
+          "mode": "0644"
+        },
+        "selection": "Complete exact retained query fragment.",
+        "source_byte_start": 0,
+        "source_byte_end_exclusive": 26751
+      },
+      "historical_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/PublicStatements146.body.lean",
+        "bytes": 26751,
+        "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57"
+      },
+      "historical_inclusive_lines": [
+        1,
+        360
+      ],
+      "selected_bytes": 26751,
+      "selected_sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57",
+      "carrier_byte_start": 1533,
+      "carrier_byte_end_exclusive": 28284,
+      "carrier_inclusive_lines": [
+        33,
+        392
+      ],
+      "source_to_carrier_line_rule": {
+        "carrier_line": "historical_source_line + offset",
+        "offset": 32
+      },
+      "counts": {
+        "readable": 350,
+        "expanded": 0,
+        "axiom_roots": 0
+      },
+      "ordered_commands_sha256": "ac4c80e8706ea309c6d300621cb6b47d19a33409de2200c5474bee8d25115123",
+      "all_planned_commands_and_local_print_settings_match": true
+    },
+    {
+      "label": "current146_expanded",
+      "canonical_extraction": {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/query146/ExpandedContracts146.body.lean",
+          "bytes": 2117,
+          "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876",
+          "mode": "0644"
+        },
+        "selection": "Complete exact retained query fragment.",
+        "source_byte_start": 0,
+        "source_byte_end_exclusive": 2117
+      },
+      "historical_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/ExpandedContracts146.body.lean",
+        "bytes": 2117,
+        "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876"
+      },
+      "historical_inclusive_lines": [
+        1,
+        60
+      ],
+      "selected_bytes": 2117,
+      "selected_sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876",
+      "carrier_byte_start": 28343,
+      "carrier_byte_end_exclusive": 30460,
+      "carrier_inclusive_lines": [
+        395,
+        454
+      ],
+      "source_to_carrier_line_rule": {
+        "carrier_line": "historical_source_line + offset",
+        "offset": 394
+      },
+      "counts": {
+        "readable": 0,
+        "expanded": 19,
+        "axiom_roots": 0
+      },
+      "ordered_commands_sha256": "c1bb8adb2cec1a71b6a419512f141be5b44a290bb6c9ad894c93976f1d0522f3",
+      "all_planned_commands_and_local_print_settings_match": true
+    },
+    {
+      "label": "current146_axioms",
+      "canonical_extraction": {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/query146/SelectedAxioms146.body.lean",
+          "bytes": 2188,
+          "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee",
+          "mode": "0644"
+        },
+        "selection": "Complete exact retained query fragment.",
+        "source_byte_start": 0,
+        "source_byte_end_exclusive": 2188
+      },
+      "historical_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SelectedAxioms146.body.lean",
+        "bytes": 2188,
+        "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee"
+      },
+      "historical_inclusive_lines": [
+        1,
+        27
+      ],
+      "selected_bytes": 2188,
+      "selected_sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee",
+      "carrier_byte_start": 30517,
+      "carrier_byte_end_exclusive": 32705,
+      "carrier_inclusive_lines": [
+        457,
+        483
+      ],
+      "source_to_carrier_line_rule": {
+        "carrier_line": "historical_source_line + offset",
+        "offset": 456
+      },
+      "counts": {
+        "readable": 0,
+        "expanded": 0,
+        "axiom_roots": 23
+      },
+      "ordered_commands_sha256": "9a990a9b4e658e06c912e11a0f3f9f6d47f225c1de55af234b43c67a64c95e54",
+      "all_planned_commands_and_local_print_settings_match": true
+    },
+    {
+      "label": "generic-ordinary",
+      "canonical_extraction": {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/reassembly/generic-ordinary.json",
+          "bytes": 20910,
+          "sha256": "23b9ccf60dd6904fb647eb346df4176bf44e1a4348ed8cfbccc14cbae4a55c31",
+          "mode": "0644"
+        },
+        "selection": "Exact decoded literal query tail; no proof/source-body reconstruction.",
+        "json_pointer": "/pieces/22/literal_utf8",
+        "decoded_literal_byte_start": 44,
+        "decoded_literal_byte_end_exclusive": 6986,
+        "decoded_literal_bytes": 6986,
+        "decoded_literal_sha256": "b63278fc5c404c6cc5275675d101820b4c6bb8137c46c267b2ebadd9c0a04dd9"
+      },
+      "historical_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/GenericOrdinary144b.lean",
+        "bytes": 122563,
+        "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+      },
+      "historical_inclusive_lines": [
+        2533,
+        2624
+      ],
+      "selected_bytes": 6942,
+      "selected_sha256": "03158c8f887cf12d1ba0a814ce4b96218f86e6f2cc33d63265c43a35983b8469",
+      "carrier_byte_start": 32761,
+      "carrier_byte_end_exclusive": 39703,
+      "carrier_inclusive_lines": [
+        486,
+        577
+      ],
+      "source_to_carrier_line_rule": {
+        "carrier_line": "historical_source_line + offset",
+        "offset": -2047
+      },
+      "counts": {
+        "readable": 80,
+        "expanded": 4,
+        "axiom_roots": 4
+      },
+      "ordered_commands_sha256": "b7af89ef16adcbc3e79f78ede845cf231d16024143d2d1441258d53a441ac4ab",
+      "all_planned_commands_and_local_print_settings_match": true
+    },
+    {
+      "label": "conventional",
+      "canonical_extraction": {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/reassembly/conventional.json",
+          "bytes": 17185,
+          "sha256": "75dc36e581201fcf0534de66663b7d399f54c08d1b78f7d597a34acdb2341405",
+          "mode": "0644"
+        },
+        "selection": "Exact decoded literal query tail; no proof/source-body reconstruction.",
+        "json_pointer": "/pieces/11/literal_utf8",
+        "decoded_literal_byte_start": 57,
+        "decoded_literal_byte_end_exclusive": 11394,
+        "decoded_literal_bytes": 11394,
+        "decoded_literal_sha256": "58d9fdeecf40010d2dd0331ccd2aed9846498828f5d60a6be285b5287d38afe6"
+      },
+      "historical_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+        "bytes": 70278,
+        "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+      },
+      "historical_inclusive_lines": [
+        1338,
+        1507
+      ],
+      "selected_bytes": 11337,
+      "selected_sha256": "7df869923fd423fe46953e47070c3a7ef9e80fccbe63c902c6057b8db6ffdffd",
+      "carrier_byte_start": 39755,
+      "carrier_byte_end_exclusive": 51092,
+      "carrier_inclusive_lines": [
+        580,
+        749
+      ],
+      "source_to_carrier_line_rule": {
+        "carrier_line": "historical_source_line + offset",
+        "offset": -758
+      },
+      "counts": {
+        "readable": 159,
+        "expanded": 3,
+        "axiom_roots": 5
+      },
+      "ordered_commands_sha256": "76791ea67122a9d6cecb4abd7603e6afeb4dbc837de63defbceab19648188c4e",
+      "all_planned_commands_and_local_print_settings_match": true
+    }
+  ],
+  "counts": {
+    "readable": 589,
+    "expanded": 26,
+    "axiom_roots": 32
+  },
+  "total_commands": 647,
+  "ordered_commands_sha256": "4a424ebfed8f128ed9958c35c1df2bb794844a55c18b374cbc26ea3f8e86bd39",
+  "command_deduplication": false,
+  "command_rewriting": false,
+  "copied_proof_bodies": false,
+  "compiler_invoked": false,
+  "existing18": [
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+      "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "retained_observation_count": 1
+    }
+  ],
+  "new_direct_fixture_queries_retained": 105,
+  "generic_decider_consumer_queries_retained": 11,
+  "assumptions_and_limits": [
+    "Root must bind these exact imported sources to the isolated captured147 checkout and normal module products before execution.",
+    "The author-source descriptors were checked before and after assembly; no compiler products were inspected or created by this helper.",
+    "Normal imports replace the prior combined proof context; successful elaboration of this carrier has not been observed.",
+    "Historical combined paths are provenance only. The exact query bytes are supplied by actual retained fragments and literal reassembly tails.",
+    "The query plan was read selectively; all planned commands were compared mechanically, with no claim of new theorem-type or output reading.",
+    "Selected axiom-root observations do not replace the exhaustive module-origin audit.",
+    "No repository edits, candidate capture, commits or independent review were performed."
+  ],
+  "generator": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/prepare.py",
+    "bytes": 11668,
+    "sha256": "8a1a239502e4f9779cd2ace47d5b8870527c65b69a861287836fbdfe3ddd010a",
+    "mode": "0644"
+  }
+}

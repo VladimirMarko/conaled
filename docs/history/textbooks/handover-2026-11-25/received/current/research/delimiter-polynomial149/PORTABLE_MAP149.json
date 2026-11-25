@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "status": "Proposed portability supplement; frozen six-file composition unchanged; no pack, restore, compiler or independent review performed.",
+  "recorded_workspace_root": "/workspace/scratch/ae71b485b114",
+  "parameters": [
+    "PACKET: freshly extracted complete checkpoint root",
+    "REPO: separately strictly restored C147 repository"
+  ],
+  "frozen_manifest": {
+    "recorded_path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/MANIFEST.json",
+    "proposed_packet_member": "current/research/delimiter-polynomial149/MANIFEST.json",
+    "bytes": 14229,
+    "sha256": "4cecdff2863748b4a2537c116d33d3ae1e6d26a14f21188fac045f08d3fc4c85"
+  },
+  "selected_parent_modules": [
+    {
+      "logical_staging_module": "NaturalPolynomialNormalForm149",
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/normal-form149-checks/NaturalPolynomialNormalForm149.lean",
+      "packet_member": "current/research/polynomial-normal-form149/NaturalPolynomialNormalForm149.lean",
+      "expected": {
+        "bytes": 3167,
+        "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a",
+        "mode": "0644"
+      },
+      "rule": "Require exact bytes before staging under the logical module name; neither filename nor namespace proves identity."
+    },
+    {
+      "logical_staging_module": "DelimiterNativeConsumer148",
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterNativeConsumer149d.lean",
+      "packet_member": "current/research/delimiter-consumer149/DelimiterNativeConsumer149d.lean",
+      "expected": {
+        "bytes": 14728,
+        "sha256": "f596cd55e0f6fc366a3b39591dd65bdcb8409a786ed582e72dd40f2af521586b",
+        "mode": "0644"
+      },
+      "rule": "Require exact bytes before staging under the logical module name; neither filename nor namespace proves identity."
+    },
+    {
+      "logical_staging_module": "SourceRunToOrdinary148",
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/SourceRunToOrdinary149b.lean",
+      "packet_member": "current/research/delimiter-consumer149/SourceRunToOrdinary149b.lean",
+      "expected": {
+        "bytes": 3764,
+        "sha256": "3943239fba68eb9133b6b1236fe08884998022f18982a054cebb1eab074fed23",
+        "mode": "0644"
+      },
+      "rule": "Require exact bytes before staging under the logical module name; neither filename nor namespace proves identity."
+    }
+  ],
+  "composition_family": {
+    "recorded_prefix": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/",
+    "proposed_packet_prefix": "current/research/delimiter-polynomial149/",
+    "selected_files": [
+      "EXPECTATIONS.json",
+      "DelimiterPolynomial149.lean",
+      "QUERY_PLAN.json",
+      "README.md",
+      "MANIFEST.json",
+      "SNAPSHOT.json"
+    ],
+    "rule": "Exact six original file bytes survive. Absolute paths in their manifest, snapshot, query plan and prose are provenance and are resolved using this supplement; do not rewrite the frozen files."
+  },
+  "unchanged_dependency_routes": [
+    {
+      "recorded_prefix": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/",
+      "packet_prefix": "current/research/delimiter/",
+      "rule": "The five exact body descriptors from the frozen manifest remain binding. Proposed149 selection obtains their identical bytes from recovered148."
+    },
+    {
+      "recorded_prefix": "/workspace/scratch/ae71b485b114/work/conaled/",
+      "resolved_prefix": "REPO/",
+      "rule": "Use restored current source, verified by each frozen descriptor; do not substitute an assumed surviving Git object."
+    },
+    {
+      "recorded_prefix": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/source/",
+      "packet_prefix": "current/source/",
+      "rule": "Source carrier descriptors are byte identities. Actual normal module imports still require the separately restored repository and matching build products."
+    }
+  ],
+  "retained_result_routes": [
+    {
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149c.result.json",
+      "packet_member": "current/evidence/research/normal-form149c.result.json"
+    },
+    {
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.result.json",
+      "packet_member": "current/evidence/research/delimiter-consumer149f.result.json"
+    }
+  ],
+  "historical_unavailable_references": [
+    {
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/delimiter-consumer148-draft/DelimiterNativeConsumer148.lean",
+      "expected_original": {
+        "bytes": 14394,
+        "sha256": "e42ffbe63a028446cc61e6215a4eef612fd5d8d1e6fc257c0b4ed05df72361f2"
+      },
+      "conclusion_member": "current/research/delimiter-consumer149/RETENTION149.json",
+      "original_carrier_reconstructible_here": false,
+      "rule": "Do not redirect this original148 identity to the selected149d body. Public contracts are retained, but bytes differ and original148 remains UNCOMPILED at its cutoff."
+    },
+    {
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/polynomial-normal-form148-draft/NaturalPolynomialNormalForm148.lean",
+      "expected_original": {
+        "bytes": 3095,
+        "sha256": "6537bd03c029b60489ce0ef0cb9a7f1b3198799c51e0138df65ef00c13f75ece"
+      },
+      "conclusion_member": "current/research/polynomial-normal-form149/STATUS149.json",
+      "original_carrier_reconstructible_here": false,
+      "rule": "Do not redirect the old core identity to corrected149. The repair and old failure limits survive in the status account."
+    },
+    {
+      "recorded_path": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149b.result.json",
+      "expected_original": {
+        "bytes": 71467,
+        "sha256": "a066ffe216088980dfd700236098bcaf6699d1828ee36e6c8939d47619887752"
+      },
+      "conclusion_member": "current/research/polynomial-normal-form149/STATUS149.json",
+      "original_carrier_reconstructible_here": false,
+      "rule": "The exact original receipt is historical provenance only; the selected status account preserves its actual outcome and identity, while the c full result survives."
+    }
+  ],
+  "expectations": {
+    "composition": "current/research/delimiter-polynomial149/EXPECTATIONS.json",
+    "consumer": "current/research/delimiter-consumer148/EXPECTATIONS.json",
+    "rule": "Retain the exact independent expectations. Source aliases do not rename, replace or weaken expectations."
+  },
+  "reading_limits": [
+    "Inspected frozen composition manifest/query plan and relevant imports; no edits to its six files.",
+    "Inspected proposed NORMAL_FORM_SELECTION149, consumer canonical path map/retention and relevant assembler route lines.",
+    "This is a proposed mapping, not verification of a packed or recovered149 archive.",
+    "No fresh compiler-log reading, compilation, output-product validation or independent mathematical review."
+  ]
+}

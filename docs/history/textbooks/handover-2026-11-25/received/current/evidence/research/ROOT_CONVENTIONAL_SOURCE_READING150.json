@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "reader": "/root",
+  "read_utc": "2026-11-24T22:02:06.354376+00:00",
+  "fully_read_files": {
+    "work/conventional-contract150-draft/ConventionalPolynomialDecider150.lean": {
+      "bytes": 9818,
+      "sha256": "97fb968d958ff5a4e5bb6460fd2be38afbf1d5acf9c23d0e707b1e67e6c1ac8a",
+      "mode": "100644"
+    },
+    "work/conventional-contract150-draft/DelimiterConventionalContract150.lean": {
+      "bytes": 6751,
+      "sha256": "16b40d61d40211a29510e511ef2a427628525ff699a98c5912cf791967e930db",
+      "mode": "100644"
+    },
+    "work/conventional-contract150-draft/EXPECTATIONS.json": {
+      "bytes": 5314,
+      "sha256": "7962fa0b7853f9d968b456cec76785f69814671843fa033ab58e840d9f4769fd",
+      "mode": "100644"
+    },
+    "work/conventional-contract150-draft/QUERY_PLAN.json": {
+      "bytes": 5299,
+      "sha256": "529691be183f898008a551e0668669cb7807449f6b7a304d3d0ca3219cc2b65e",
+      "mode": "100644"
+    },
+    "work/checking-criterion150-draft/ConventionalVerifierCriterion150.lean": {
+      "bytes": 6580,
+      "sha256": "453633c5d75a81442195778553ddaf633af82e572f87cc972b96187f238d3980",
+      "mode": "100644"
+    },
+    "work/checking-criterion150-draft/BinaryYesVerifierCriterion150.lean": {
+      "bytes": 6073,
+      "sha256": "fde6f18511f1b414fa417b221b87a45e013ed307208d46d64e19a877b357ed21",
+      "mode": "100644"
+    },
+    "work/checking-criterion150-draft/EXPECTATIONS.json": {
+      "bytes": 5452,
+      "sha256": "93acb2d8e243c1599258d9f93bb0fa8376d9c7e7ce1016e479bff6f9070f7205",
+      "mode": "100644"
+    }
+  },
+  "assessment": [
+    "Generic decider fixes finite alphabets/control, blank/start/terminals, injective nonblank letter map, exact terminal domain, actual machine and runtime exponent before raw input.",
+    "Actual eval acceptance uses finite reachability, stopping and Part.mem_unique; concrete machine consumes run_power, with full Run retained separately.",
+    "Checking relation recognizes exactly arbitrary-raw literal-pair language. Generic criterion fixes witness exponent before all instances; concrete instance uses existing verifyBitsRun_complete_small and verifyBitsRun_sound with exponent2.",
+    "Empty raw[], empty pair[none], concrete 0^2 witness and genuine encoded20-bit positive instance are distinct; 400/421 bounds preserve literal delimiter cost.",
+    "No semantic missing hypothesis identified in this bounded source reading; elaboration remains untested."
+  ],
+  "reading_limits": "No compiler output exists for these drafts. Dependency manifests and criterion query plan are not yet freshly fully read by root. Primary characterization reading was separately recorded; no NTM equivalence, independent Standards/Spec approval or qualification change.",
+  "status": "UNCOMPILED / UNINSTALLED",
+  "postcutoff_of": "conaled-textbooks-150-checkpoint-2026-11-24T213517Z"
+}

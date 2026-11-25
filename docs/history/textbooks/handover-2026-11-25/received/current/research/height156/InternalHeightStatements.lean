@@ -1,0 +1,56 @@
+import Applications.Resources.TuringSimulation.StackToTape
+import Examples.TuringSimulation
+
+/- Uncompiled normal-import carrier for the proposed InternalHeight owner
+exports. The unchanged C155 owners do not export these names. For a root-owned
+standalone draft check, append only this query block after the draft bodies. -/
+
+set_option autoImplicit false
+set_option warningAsError true
+set_option pp.all true
+
+#check Resources.TuringSimulation.StackToTape.InternalHeight
+#check Resources.TuringSimulation.StackToTape.internalHeight_stRun
+#check Resources.TuringSimulation.StackToTape.InternalHeight.mono
+#check Resources.TuringSimulation.StackToTape.internalHeight_of_reserve
+#check Resources.TuringSimulation.StackToTape.internalHeight_of_uniform_bound
+#check Examples.TuringSimulation.InternalHeightCases.emptyPeekBody
+#check Examples.TuringSimulation.InternalHeightCases.emptyPopBody
+#check Examples.TuringSimulation.InternalHeightCases.empty_peek_height_zero
+#check Examples.TuringSimulation.InternalHeightCases.empty_pop_height_zero
+#check Examples.TuringSimulation.InternalHeightCases.empty_peek_not_reserved
+#check Examples.TuringSimulation.InternalHeightCases.pushPop_height_and_empty_endpoints
+#check Examples.TuringSimulation.InternalHeightCases.pushPop_uniform_and_widening
+#check Examples.TuringSimulation.InternalHeightCases.loaded_true_height_three_not_two
+#check Examples.TuringSimulation.InternalHeightCases.loaded_false_height_zero
+
+#print Resources.TuringSimulation.StackToTape.InternalHeight
+#print Resources.TuringSimulation.StackToTape.internalHeight_stRun
+#print Resources.TuringSimulation.StackToTape.InternalHeight.mono
+#print Resources.TuringSimulation.StackToTape.internalHeight_of_reserve
+#print Resources.TuringSimulation.StackToTape.internalHeight_of_uniform_bound
+#print Examples.TuringSimulation.InternalHeightCases.emptyPeekBody
+#print Examples.TuringSimulation.InternalHeightCases.emptyPopBody
+#print Examples.TuringSimulation.InternalHeightCases.empty_peek_height_zero
+#print Examples.TuringSimulation.InternalHeightCases.empty_pop_height_zero
+#print Examples.TuringSimulation.InternalHeightCases.empty_peek_not_reserved
+#print Examples.TuringSimulation.InternalHeightCases.pushPop_height_and_empty_endpoints
+#print Examples.TuringSimulation.InternalHeightCases.pushPop_uniform_and_widening
+#print Examples.TuringSimulation.InternalHeightCases.loaded_true_height_three_not_two
+#print Examples.TuringSimulation.InternalHeightCases.loaded_false_height_zero
+
+#print axioms Resources.TuringSimulation.StackToTape.InternalHeight
+#print axioms Resources.TuringSimulation.StackToTape.internalHeight_stRun
+#print axioms Resources.TuringSimulation.StackToTape.InternalHeight.mono
+#print axioms Resources.TuringSimulation.StackToTape.internalHeight_of_reserve
+#print axioms Resources.TuringSimulation.StackToTape.internalHeight_of_uniform_bound
+#print axioms Examples.TuringSimulation.InternalHeightCases.emptyPeekBody
+#print axioms Examples.TuringSimulation.InternalHeightCases.emptyPopBody
+#print axioms Examples.TuringSimulation.InternalHeightCases.empty_peek_height_zero
+#print axioms Examples.TuringSimulation.InternalHeightCases.empty_pop_height_zero
+#print axioms Examples.TuringSimulation.InternalHeightCases.empty_peek_not_reserved
+#print axioms Examples.TuringSimulation.InternalHeightCases.pushPop_height_and_empty_endpoints
+#print axioms Examples.TuringSimulation.InternalHeightCases.pushPop_uniform_and_widening
+#print axioms Examples.TuringSimulation.InternalHeightCases.loaded_true_height_three_not_two
+#print axioms Examples.TuringSimulation.InternalHeightCases.loaded_false_height_zero
+

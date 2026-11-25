@@ -1,0 +1,1063 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-24T09:55:49.814571+00:00",
+  "loop": "Existing CTB-24/FDSA-5-93 full-scope loop, additive successor continuation; no reset.",
+  "coordinator": "/root/requirements_review",
+  "original_coordinator": "/root/parser_review",
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "governing_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/continuation-guidance138.json",
+    "bytes": 18913,
+    "sha256": "01a95213e4aaf1f1cefe796b0e8a65093841366cf4ee3747eca5c88fba2ee988"
+  },
+  "original_seven_rounds_preserved": 7,
+  "previous_successor_round": 8,
+  "dispatch_status": "Both same successor axes completed their round9 source/type assessments; overall Blocked, no passing acceptance",
+  "previous_round139_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity139.json",
+    "bytes": 55805,
+    "sha256": "b8ee227c79cac2575f737bcd2b6df992e9d831cc6be1cca9bbc5b4879aeb4d38"
+  },
+  "all_original_historical_unknowns_and_limits_unchanged": true,
+  "historical_ST001_C7c_fix_preserved": true,
+  "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+  "tree": "89c45ac0fda464a47eec42d4db1813c967e62355",
+  "ticket_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 53,
+  "scope_identity": "c72a77903b0cf83573225f4e22f07260979a2d0a5484ffd25b72923f723319ce",
+  "content_identity": "abe00a1381c340f23af5b48ad6eb40af484e844e2cf0358a7db0092048fb5c6e",
+  "projection_identity": "9ba5fd76e05224d822fce921af29dc9d6ad96324c75641cc44985bc60ceff565",
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142.json",
+    "bytes": 9731525,
+    "sha256": "245212dc08a030395d2b86845394835743e8e6a156c26ec2079277cb9b1d5944"
+  },
+  "identity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142-identity.json",
+    "bytes": 886,
+    "sha256": "ac2abcbc8710b05c27b8e3ba2dda66dcd1037e31f179bcc5d699dec8a30b0fcc"
+  },
+  "supported_scope_expansion_baseline": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/baseline141-scope53.json",
+    "bytes": 9725311,
+    "sha256": "fa8112014df9496a636109f855cc210095213325cfd5b1d7f6c2c646061ad7ed"
+  },
+  "baseline_actual_result": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/baseline141-scope53.result.json",
+    "bytes": 1175,
+    "sha256": "820ca3ec82d74587134ee1d949f61b9f4dc8682720c4905cba29ce81654f478f"
+  },
+  "capture_actual_result": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/candidate142-capture.result.json",
+    "bytes": 25428,
+    "sha256": "107afb08bbf764d4e3f8cb2ab5a23847220337a5e5afeb2d6b009d57f0d8bbb8"
+  },
+  "manifest": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/manifest141-planned.json",
+    "bytes": 3295,
+    "sha256": "3b0c4e1a3025e7194b7f4f7dd18c731dda9082c15b562481582e058591dfca2f"
+  },
+  "requirements": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+      "bytes": 2205749,
+      "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/controller-tape-addendum140.md",
+      "bytes": 5322,
+      "sha256": "cdd07335fff81761599f4ecf2074b3d065a13806997eb0b103cdd73160cad361"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/primitive-addendum141.md",
+      "bytes": 6738,
+      "sha256": "83f6d00bdc401d7b859b8b58c0b55a8f8d9398f49166cf46e06df29f8329420c"
+    }
+  ],
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "source_map": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate142-review-source-map.json",
+    "bytes": 37399,
+    "sha256": "8edb8bfcbb483204c3787748d6b8755e6658dcbc070389ff09912efbd7c60e9e"
+  },
+  "public_statement_reading_ledger": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/public-statement-reading-ledger142.json",
+    "bytes": 341912,
+    "sha256": "4c5d32b917a9d34218f9888ee789866d447f7b2c2aad01c0feb435aacd44136c"
+  },
+  "instructions": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-dispatch142.md",
+    "bytes": 12539,
+    "sha256": "86ae9f0b3a3dd1795ba0ea78785775780a4de47af3b21bcc7e56f4a064264620"
+  },
+  "axes": {
+    "Standards": {
+      "reviewer": "/root/requirements_review/standards139",
+      "same_successor_identity_as139": true,
+      "dispatch_status": "Round9 assessment completed by the same axis after root resumption",
+      "status": "Blocked",
+      "stable_finding_ids": [
+        "ST-001",
+        "ST-002",
+        "ST-V001"
+      ],
+      "planned_markdown": "/workspace/scratch/ae71b485b114/work/review/standards142.md",
+      "planned_json": "/workspace/scratch/ae71b485b114/work/review/standards142.json",
+      "actual142_report_exists": true,
+      "previous139_report": {
+        "observed_utc": "2026-11-24T09:26:21.369206+00:00",
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards139.md",
+          "bytes": 58590,
+          "sha256": "cb7e47d46e5d1372e80690d4848b351247cb87ed1b160f52ff1ba0c7c85d8306"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards139.json",
+          "bytes": 47366,
+          "sha256": "bf9540bdd080a08a00f1faad42f7eeb4134a36cdc6a000bdfe8b1c026392e9d1"
+        },
+        "outcome": "Blocked",
+        "provisional": true,
+        "source_assessment_complete": null,
+        "all_22_new_lean_source_bodies_fully_read": true,
+        "no_acceptance_inferred": true,
+        "provisional_field_reported": true
+      },
+      "no_compiler_or_output_writer": true,
+      "reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards142.md",
+          "bytes": 12694,
+          "sha256": "1a5224ec7e3423f0e6ca8006d6c7c83247673ac5654d5047a73afcb3b6092f64"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards142.json",
+          "bytes": 52280,
+          "sha256": "f30dd5fcb3a4ec501191c37a8627496918c98d1003d037795c8d5bfb269b5f10"
+        }
+      },
+      "source_assessment_complete": true,
+      "full_acceptance_assessment_complete": false,
+      "reporting_scope": "Final source/type assessment for the supplied immutable142 evidence and precise reused reading scope. Overall Blocked; not acceptance, complete requirements/paper fresh reading, or closure of full programme.",
+      "source_reading_limits": [
+        "Requirements15 and the complete preparation paper have not received a complete fresh reading; all inherited requirements remain in force.",
+        "Original rounds1\u20134 standalone report bodies are absent and were not reconstructed.",
+        "Historical C5b Git object is unavailable; historical descriptor comparison is not new source reading.",
+        "Original round6 Audit6 standalone client-type OUTPUT ranges9148\u201310335 and10401\u201311407 were unread then, in round7, and in successor round8. They have now been fully read from bound retained output in round9 (57 checks); no historical report is rewritten, no fresh142 execution is inferred.",
+        "Only stated actual143 type-output ranges are counted; an execution result, declaration index or author reading does not constitute this independent axis reading.",
+        "18 new controller-client named public declarations have full source reading but no corresponding actual elaborated output in the supplied244-check run.",
+        "Combined namespace checks do not establish ordinary installed-module import compilation, exhaustive axiom audit or full-candidate acceptance.",
+        "A full-paper output request with a1-token budget returned truncated content and was not counted as any additional paper reading; only the explicitly stated immutable source ranges/diffs count.",
+        "Outside142 research declarations in the readable output were read only as context; their source/proofs and integration are outside this assessment."
+      ],
+      "actual_type_reading": {
+        "readable_log": {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.log",
+          "bytes": 96332,
+          "sha256": "bd4fa3af0e2693e67102ebaa5166029ed7fbe205784b27904fc60130bf0a832b"
+        },
+        "lines": 1374,
+        "ranges_read_inclusive": [
+          [
+            1,
+            1374
+          ]
+        ],
+        "all202_current_checks_read": true,
+        "outside142_checks": "All42 read as output context only; not candidate142 source or independent approval of that research. Current checks end at879; outside checks start880.",
+        "explicit_log": {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.log",
+          "bytes": 333654,
+          "sha256": "5ee87d172f9f76edba492141239d15f1543029f7c4adcef32559a5c46f8c55f3"
+        },
+        "explicit_ranges_read_inclusive": [
+          [
+            31,
+            69
+          ],
+          [
+            120,
+            154
+          ],
+          [
+            197,
+            295
+          ],
+          [
+            635,
+            647
+          ],
+          [
+            714,
+            739
+          ],
+          [
+            1062,
+            1070
+          ],
+          [
+            1081,
+            1090
+          ],
+          [
+            1354,
+            1394
+          ],
+          [
+            1995,
+            2092
+          ],
+          [
+            2986,
+            3005
+          ],
+          [
+            4712,
+            4841
+          ]
+        ],
+        "new_controller_client_18_public_types": "Actual elaborated outputs absent; complete source reading does not close this gap.",
+        "legacy57_type_output_gap": "Newly read in round9 from exact preserved historical output; original round6/7 and successor round8 limits remain true for those rounds. No fresh142 execution is claimed.",
+        "prior_truncated_call": "An attempted1\u2013300 range before this continuation returned no type content because of context truncation and is not counted.",
+        "whole_readable_log_read": true,
+        "current_checks_output_lines_inclusive": [
+          1,
+          879
+        ],
+        "fully_read_expanded_current_contracts": [
+          {
+            "declaration": "Resources.TuringSimulation.TapeToPrimitive.statement_exact",
+            "output_lines_inclusive": [
+              31,
+              69
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.TapeToPrimitive.finite_run_bounded",
+            "output_lines_inclusive": [
+              120,
+              154
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.TapeToPrimitive.stack_run_bounded",
+            "output_lines_inclusive": [
+              197,
+              248
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.FiniteControl.map_iterate_option",
+            "output_lines_inclusive": [
+              249,
+              295
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.FiniteControl.restrict_init",
+            "output_lines_inclusive": [
+              635,
+              647
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.FiniteControl.restrictInitialEvalsToInTime",
+            "output_lines_inclusive": [
+              714,
+              739
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.StackToTape.Package.initial_eq_init",
+            "output_lines_inclusive": [
+              1062,
+              1070
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.StackToTape.Package.mapCfg_initial",
+            "output_lines_inclusive": [
+              1081,
+              1090
+            ]
+          },
+          {
+            "declaration": "Resources.TuringSimulation.StackToTape.Package.closedInitialRun",
+            "output_lines_inclusive": [
+              1354,
+              1394
+            ]
+          },
+          {
+            "declaration": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_run_polynomial",
+            "output_lines_inclusive": [
+              1995,
+              2063
+            ]
+          },
+          {
+            "declaration": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_outer_none",
+            "output_lines_inclusive": [
+              2064,
+              2092
+            ]
+          },
+          {
+            "declaration": "Examples.TuringSimulation.Primitive.two_primitive_bound",
+            "output_lines_inclusive": [
+              2986,
+              3005
+            ]
+          }
+        ],
+        "six_current_definition_prints_read": true,
+        "five_current_selected_axiom_roots_read": true,
+        "selected_axioms_observed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "exhaustive_whole_axiom_audit": false,
+        "compact_printing_limits": "Compact output can suppress instance terms/proof witnesses and some EvalsTo existential binder types. Every new/changed source contract was read;12 identity-sensitive contracts and six definition prints were additionally read in expanded output. The entire4850-line explicit log was not read. Both printed primitive recursive definitions use generated _f/brecOn constants; their full defining equations were read in immutable source.",
+        "counts_independently_reconciled": {
+          "queried_declarations": 244,
+          "candidate142": 202,
+          "outside142": 42
+        }
+      },
+      "other_axis_new_report_read_before_independent_assessment": false
+    },
+    "Spec": {
+      "reviewer": "/root/requirements_review/spec139",
+      "same_successor_identity_as139": true,
+      "dispatch_status": "Round9 assessment completed by the same axis after root resumption",
+      "status": "Blocked",
+      "stable_finding_ids": [
+        "SP-D001",
+        "SP-D002",
+        "SP-V001"
+      ],
+      "planned_markdown": "/workspace/scratch/ae71b485b114/work/review/spec142.md",
+      "planned_json": "/workspace/scratch/ae71b485b114/work/review/spec142.json",
+      "actual142_report_exists": true,
+      "previous139_report": {
+        "observed_utc": "2026-11-24T09:26:21.369206+00:00",
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec139.md",
+          "bytes": 36569,
+          "sha256": "157755201977cd70b794ed95f46d31a81e938b4ac5dada8bff04de3c564bceff"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec139.json",
+          "bytes": 35458,
+          "sha256": "899d612a5cf2161d19fe98bd7ad035966cfcdec50257799ae204b380f9d4c368"
+        },
+        "outcome": "Blocked",
+        "provisional": null,
+        "source_assessment_complete": true,
+        "all_22_new_lean_source_bodies_fully_read": false,
+        "no_acceptance_inferred": true,
+        "provisional_field_reported": false
+      },
+      "no_compiler_or_output_writer": true,
+      "reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec142.md",
+          "bytes": 30375,
+          "sha256": "32e1e43c4462219d34f3405680af9141c8d1c46a1f47039cbb5dfd057b1f76e0"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec142.json",
+          "bytes": 50082,
+          "sha256": "4986d5d1d64702ddc51cb1578b13785cfd3cc2a73d37e99501cfe7ad8443f635"
+        }
+      },
+      "source_assessment_complete": true,
+      "full_acceptance_assessment_complete": false,
+      "reporting_scope": "All53 intended current public claims, operational definitions, premises, affected dependencies, connected cases and active documentary changes assessed through new reading and explicitly attributed exact-body reuse. This is not all-proof/all-type-output/integrated acceptance.",
+      "source_reading_limits": [
+        "Complete53-owner assessment means intended public claims, actual operational definitions, premises, affected dependencies and connected cases assessed through independently read deltas and explicitly attributed exact-body prior analysis. It does not mean all historical proofs, all generated helper types or every requirements/paper/provenance line were reread.",
+        "Ordinary proof and intermediate trace omissions for unchanged owners remain exactly those recorded in spec139.json. Original-round7 analysis is attributed and matched; blocked historical reviews are not reused as approvals.",
+        "18 new controller-client declarations lack actual type output, despite full independent source/proof reading. No ordinary installed module success is inferred from amalgamated development results.",
+        "Only current142 output1-879 and1326-1365 and listed expanded ranges were read for this candidate. Outside142 output880-1004 was incidentally seen but not assessed; remaining research output and3 research axiom queries not read/approved.",
+        "All historical UNKNOWNs preserved; actual139 child137 exits do not establish cause or an outer result.",
+        "No ordinary Boolean encoder/output adapter, visited-space theorem, full formal NP theorem, FDSA-5-92, exact rotation diameter, whole VFA/FDSA/PFDS book/thesis union or ADWH programme completion is claimed."
+      ],
+      "actual_type_reading": {
+        "readable_log": {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.log",
+          "bytes": 96332,
+          "sha256": "bd4fa3af0e2693e67102ebaa5166029ed7fbe205784b27904fc60130bf0a832b"
+        },
+        "lines": 1374,
+        "current142_type_ranges_fully_read": [
+          [
+            1,
+            879
+          ]
+        ],
+        "all202_current142_named_checks_read": true,
+        "current142_definition_and_axiom_ranges_fully_read": [
+          [
+            1326,
+            1365
+          ]
+        ],
+        "definition_prints_read": 6,
+        "selected_current_axiom_queries_read": 5,
+        "selected_axiom_results": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "whole_log_read": false,
+        "outside142_checks": 42,
+        "outside142_type_range": [
+          880,
+          1325
+        ],
+        "outside142_axiom_range": [
+          1366,
+          1374
+        ],
+        "outside142_incidental_partial_output": [
+          880,
+          1004
+        ],
+        "outside142_semantic_assessment_claimed": false,
+        "expanded_log": {
+          "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.log",
+          "bytes": 333654,
+          "sha256": "5ee87d172f9f76edba492141239d15f1543029f7c4adcef32559a5c46f8c55f3"
+        },
+        "expanded_ranges_fully_read": [
+          [
+            635,
+            647
+          ],
+          [
+            1062,
+            1070
+          ],
+          [
+            1081,
+            1090
+          ],
+          [
+            1913,
+            2092
+          ],
+          [
+            2986,
+            3039
+          ],
+          [
+            3153,
+            3163
+          ],
+          [
+            3201,
+            3211
+          ],
+          [
+            4712,
+            4841
+          ]
+        ],
+        "expanded_entire4850_lines_read": false,
+        "index": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec142-type-output-index.json",
+          "bytes": 50293,
+          "sha256": "c8ed49a3a4e87cbcc0b35b7b2f9841647d24f952c0ee06feea01b3b72a118708"
+        },
+        "owner_counts": {
+          "Applications/Resources/TuringSimulation/TapeToPrimitive.lean": 14,
+          "Applications/Resources/TuringSimulation/FiniteControl.lean": 29,
+          "Applications/Resources/TuringSimulation/FiniteStackToTape.lean": 36,
+          "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": 14,
+          "Examples/TuringSimulation.lean": 109,
+          "outside142": 42
+        },
+        "missing_current_controller_client_declarations": [
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_tape",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 28,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_tape",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 45,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_tape",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 62,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_has_the_explicit_polynomial_bound",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 80,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.haltCaller",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 96,
+            "kind": "def",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.explicit_true_initial_registers",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 99,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_encoded_input_has_a_marker_without_a_raw_symbol",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 106,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_encoded_input_has_a_symbol_on_its_marker",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 113,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.the_boolean_answer_store_is_not_the_raw_input_store",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 120,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.empty_raw_rejects_on_finite_primitive",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 136,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.singleton_false_raw_rejects_on_finite_primitive",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 159,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_raw_accepts_on_finite_primitive",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 182,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_polynomial_bound",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 209,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.literal_equal_leaf_primitive_outer_none_pays_one_more",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 230,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_initial_uses_true_registers",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 244,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_empty_keeps_marker_and_absent_symbol",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 252,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_native_false_keeps_marker_and_present_false",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 260,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          },
+          {
+            "declaration": "Examples.RotationCertificateFrontEndStreamTapeMachine.finite_restriction_preserves_the_complete_tape",
+            "owner": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+            "owner_line": 268,
+            "kind": "theorem",
+            "owner_sha256": "0daf2530a1be9bb795f4412ed0f1beb1513edef382cb118af87788da9a1b403c",
+            "actual_type_output_in_development143": false,
+            "actual_type_reading": "pending",
+            "inventory_method": "Lexical named-declaration index, to be confirmed against complete source by reviewer"
+          }
+        ],
+        "missing_current_controller_client_count": 18,
+        "limits": [
+          "Default readable output elides some inferred existential witness types and proof arguments; complete explicit immutable source types were read, and critical package initialization/defaults and finite-controller/generic source-run types were additionally read with expanded implicit arguments.",
+          "Six definition prints expose source-level closed transition matches and actual supplied defaults; generated primitiveSteps._f/primitiveBound._f internals and proof terms behind ellipses are not claimed expanded. Full corresponding source bodies were independently read.",
+          "The202 queries are named declarations in the five matched amalgamated bodies, not every generated helper, anonymous example or every public declaration in the53-owner cumulative scope.",
+          "The18 new controller-client named declarations lack actual output; full source/proof reading does not close their actual type-output/ordinary-module gate.",
+          "Mechanical query-body comparison confirms all four producer namespace bodies and full generic-client namespace body match142 after discarding blank lines only. Amalgamated imports/context differ; no ordinary-module pass is inferred."
+        ]
+      },
+      "other_axis_new_report_read_before_independent_assessment": false
+    }
+  },
+  "findings": {
+    "ST-001": "Resolved on candidate142 only by Standards; historical C7c fix and139 recurrence preserved",
+    "SP-D001": "Resolved on candidate142 only by Spec;139 finding preserved historically",
+    "ST-002": "Open on142, low severity: paper75005 genuine-init wording overstates actual configured source-run example",
+    "SP-D002": "Open on142, P2: same independent Spec wording finding",
+    "ST-V001": "Unresolved: ordinary module/client and exact whole142/audit/verify/compare missing",
+    "SP-V001": "Unresolved:18 controller-client actual type outputs and ordinary/whole142 validation missing"
+  },
+  "validation": {
+    "combined_producer_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/controller142-attempt3.result.json",
+      "bytes": 5096,
+      "sha256": "364ecc47ef74845a63977c83fcf7e14037aa575401180b6b0538ae7e0981d263"
+    },
+    "combined_development_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/development-cases143-attempt2.result.json",
+      "bytes": 9805,
+      "sha256": "26ae8d19d658c4333d2cb6bceff36abb6d955d18397715d248c56abbd64c713a"
+    },
+    "ordinary_new_module_build": "Still pending in final axis reports",
+    "whole142": "Still pending; no successful whole/audit/final verify/compare supplied",
+    "final_verify142": null,
+    "final_compare142": null,
+    "whole139_failure_observation": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/whole139-failures-observed143.json",
+      "bytes": 14677,
+      "sha256": "62084d0c44c09bedf9aed2efc036f7b29a6d1fa37ff14fa9971f77e45ef1f42c"
+    },
+    "whole139_terminal_files_present_at_preparation": {
+      "whole139.child-exit.json": false,
+      "whole139.result.json": false
+    },
+    "whole139_failure_cause_established": false,
+    "whole139_retry_analysis": {
+      "path": "/workspace/scratch/ae71b485b114/work/environment/whole139-retry-analysis/OBSERVATIONS.json",
+      "bytes": 18093,
+      "sha256": "5e3f62e8dd77fa9be9da5e82dd587c794e4130c214f532ad8bbc4179f1623f34"
+    },
+    "success_conditional139_plan_applies_only_to139": true,
+    "readable_actual_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.result.json",
+      "bytes": 9809,
+      "sha256": "7b49bbf0f590e4e2a09d35a19bb0199282e5e9775a76082ccd179d72ac97928f"
+    },
+    "readable_actual_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/public-types143-readable.log",
+      "bytes": 96332,
+      "sha256": "bd4fa3af0e2693e67102ebaa5166029ed7fbe205784b27904fc60130bf0a832b"
+    },
+    "whole139_latest_parent_status": "Seven actual child exits137, no outer terminal supplied; cause unestablished",
+    "whole139_terminal_files_present_at_reconciliation": {
+      "whole139.child-exit.json": false,
+      "whole139.result.json": false
+    }
+  },
+  "outside142_work": [
+    "Controller output-observation extension and certificate correspondence/time consumers in combined development143",
+    "Prepared readable143 output; actual later completion/reading must be separately supplied"
+  ],
+  "same_full_programme_open": true,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "qualification_changed": false,
+  "third_substantive_axis": false,
+  "agents_spawned_or_resumed_by_this_preparation": false,
+  "compiler_or_output_or_repository_source_mutation": false,
+  "github_messages_or_publication": false,
+  "checkpoint_policy": "Include this additive continuity, exact sources/requirements/reports/actual evidence in the next single self-contained archive; source recovery and saving do not imply acceptance.",
+  "previous_preparation_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity142-before-round9-reconciliation.json",
+    "bytes": 10795,
+    "sha256": "04a27b8bfafa15ec9b18f7ca61be3e3cbcb49df5b5150e7ceda14f6fb16573d7"
+  },
+  "reconciled_utc": "2026-11-24T10:23:04.908937+00:00",
+  "prepared_round_number": 9,
+  "active_review_round": 9,
+  "next_round_if_new_candidate_supplied": 10,
+  "current_round_outcome": "Blocked",
+  "coordinator_report_reading": "Both final Markdown reports read completely and exact structured dispositions/limits reconciled; no third substantive assessment",
+  "exact_axis_finding_records": {
+    "Standards": [
+      {
+        "id": "ST-V001",
+        "status": "Unresolved",
+        "blocking": true,
+        "title": "Required matching cumulative validation is absent",
+        "evidence": "No actual whole142 terminal success, exhaustive axiom audit, immediate nonrepairing verification or supported final comparison has been supplied. Successful combined development runs are not ordinary-module/whole142 acceptance.",
+        "required_remedy": "Supply the exact immutable candidate ordinary-module and guarded whole build/audit, immediate nonrepairing verification, supported comparison and both continuing independent axes. Keep every historical UNKNOWN unchanged."
+      },
+      {
+        "id": "ST-001",
+        "status": "Resolved_on_candidate142_only",
+        "severity": "medium",
+        "blocking": false,
+        "title": "Operative continuation gates now agree with the actual cumulative53-owner stage",
+        "historical_disposition": "Historical C7c fix preserved; candidate139 recurrence remains an accurate unresolved finding on that immutable139. This resolution applies only to142.",
+        "locations": [
+          {
+            "path": "docs/textbooks/CTB.json",
+            "json_pointer": "/local_state/CTB-78/next_action",
+            "line": 236,
+            "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+          },
+          {
+            "path": "docs/textbooks/CTB.json",
+            "json_pointer": "/local_state/CTB-24/next_implementation_gate",
+            "line": 1564,
+            "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+          },
+          {
+            "path": "docs/textbooks/CTB.json",
+            "json_pointer": "/next_ticket_gate",
+            "line": 2440,
+            "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+          },
+          {
+            "path": "docs/textbooks/coverage.json",
+            "json_pointer": "/source_readiness/current_gate",
+            "line": 903,
+            "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+          },
+          {
+            "path": "docs/textbooks/coverage.json",
+            "json_pointer": "/qualification_basis/current_gate",
+            "line": 921,
+            "value_sha256": "4efc1dc1472a25a2841777832a640249ba0d298198ca2742765a63e0e90011e5"
+          }
+        ],
+        "evidence": "All five decoded immutable gate values were read in full. They agree on53 owners, retain original46 plus timing/controller/primitive additions, separate combined development evidence from pending ordinary module/type/whole checks, distinguish separately staged research, preserve fixed fixtures, full programme and every acceptance gate. Qualification counts are unchanged.",
+        "remedy_reviewed": true
+      },
+      {
+        "id": "ST-002",
+        "status": "Open_on_candidate142",
+        "severity": "low",
+        "blocking": true,
+        "category": "documentation statement-scope mismatch",
+        "title": "Preparation paper overstates the two-step fixture as genuine initialization",
+        "location": {
+          "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+          "line": 75005
+        },
+        "quoted_claim": "three-step empty peek and genuine-init live2/none3 boundary observations",
+        "source_evidence": [
+          {
+            "path": "Examples/TuringSimulation.lean",
+            "lines": [
+              521,
+              567
+            ],
+            "detail": "twoInitial T explicitly uses label some false, register true and arbitrary Tape T. two_native_steps and primitive live2/none3 conclusions concern this actual source run; they do not use TM1.init."
+          },
+          {
+            "dependency_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+            "path": "Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+            "lines": [
+              448,
+              449
+            ],
+            "detail": "TM1.init uses some default, default and Tape.mk\u2081 l; the usual Bool register default is false."
+          }
+        ],
+        "rules": [
+          {
+            "path": ".agents/skills/example-driven-development/SKILL.md",
+            "lines": [
+              70,
+              84
+            ],
+            "detail": "Statement/explanation must express the intended semantics, including initialization hypotheses."
+          },
+          {
+            "path": ".agents/skills/example-driven-development/SKILL.md",
+            "lines": [
+              104,
+              105
+            ],
+            "detail": "Statement review also applies to paper arguments."
+          },
+          {
+            "path": "docs/agents/formal-development.md",
+            "lines": [
+              7,
+              11
+            ],
+            "detail": "Required statement review."
+          }
+        ],
+        "consequence": "A reader can infer that this fixed true-register arbitrary-tape example validates native input/default initialization, which its public statement does not assert. The mathematical example itself is sound as an actual source-run case and matches the addendum.",
+        "remedy": "Replace genuine-init with actual two-step source-run, or an equally accurate phrase. Preserve the existing true-register case and its fixed expectations.",
+        "future_remedy": "Root acknowledged the wording issue and intends a separately captured successor correction. Mutable source or a future checkpoint is not a142 fix."
+      }
+    ],
+    "Spec_source": [
+      {
+        "id": "SP-D001",
+        "severity": "P2",
+        "status": "resolved in candidate142",
+        "carried_from_round": 8,
+        "reassessed_round": 9,
+        "title": "Active continuation gates still describe the pre-controller46-owner stage",
+        "evidence": "Independently read all five current53-owner gate fields and full139-to142 JSON delta. Four flagged undated fields now agree with CTB-24.next_implementation_gate on implemented but unaccepted53-owner source, ordinary module and whole acceptance pending. Dated earlier-stage records remain historical.",
+        "locations": [
+          {
+            "path": "docs/textbooks/CTB.json",
+            "line": 236,
+            "field": "local_state.CTB-78.next_action"
+          },
+          {
+            "path": "docs/textbooks/CTB.json",
+            "line": 1564,
+            "field": "local_state.CTB-24.next_implementation_gate"
+          },
+          {
+            "path": "docs/textbooks/CTB.json",
+            "line": 2440,
+            "field": "next_ticket_gate"
+          },
+          {
+            "path": "docs/textbooks/coverage.json",
+            "line": 903,
+            "field": "source_readiness.current_gate"
+          },
+          {
+            "path": "docs/textbooks/coverage.json",
+            "line": 921,
+            "field": "qualification_basis.current_gate"
+          }
+        ]
+      },
+      {
+        "id": "SP-D002",
+        "severity": "P2",
+        "status": "unresolved",
+        "title": "Current paper calls a configured live2/none3 example genuine-init",
+        "locations": [
+          {
+            "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+            "line": 75005
+          },
+          {
+            "path": "Examples/TuringSimulation.lean",
+            "line": 521
+          }
+        ],
+        "evidence": "Immutable paper75005 says genuine-init live2/none3 boundary observations. Immutable generic twoInitial521 is \u27e8some false,true,T\u27e9 for arbitrary Tape; two_native_steps/two_primitive_bound/twoPrimitiveRun/threePrimitiveOuterNone connect that actual configured source run. Pinned TM1.init448-449 uses some default/default/Tape.mk1; TM1to0 default497-498 uses some(M default),default. Expanded actual output2986-3039 uses instInhabitedBool and the explicit twoInitial, not a genuine TM0.init identity. The frozen3185-byte EXPECTATIONS explicitly requires the arbitrary-tape true-register actual source run. The count/endpoint proofs are valid; the stronger initialization label is unsupported.",
+        "remedy": "For a supported successor candidate, describe this as an actual source-run live2/none3 case, or prove the genuine initialization connection with explicit correct defaults and input tape. Retain actual literal counts.",
+        "root_proposed_future_remedy": "Root message reports successor-only wording correction applied10:04:17Z. This reviewer did not use later source or a new Standards report; it is not a remedy on immutable142.",
+        "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+        "requirement": "Primitive-addendum141 fixed cases: actual source two-label run with true registers and arbitrary tape; frozen primitive EXPECTATIONS explicitly distinguish local/configured source runs from genuine-init controller execution. Active paper must accurately describe proved initialization boundaries.",
+        "consequence": "The active preparation paper overstates which initialization boundary the connected case exercises, potentially confusing the actual configured source-run test with the package initialization results proved elsewhere.",
+        "exposure": "Independently identified while reading immutable142 paper append and complete generic client source. Root subsequently acknowledged the finding and reported a successor-only remedy. No new Standards142 report read."
+      }
+    ],
+    "Spec_validation": [
+      {
+        "id": "SP-V001",
+        "severity": "blocking acceptance",
+        "status": "unresolved",
+        "carried_from_round": 1,
+        "reassessed_round": 9,
+        "title": "Required exact-candidate integrated validation is unavailable",
+        "evidence": "Actual readable143 development query exited0 with stable bound inputs; all202 current142 checks, six current prints and five selected current axiom queries independently read.18 new controller-client declaration outputs remain absent; matching ordinary142 module validation, whole142/exhaustive audit, immediate supported nonrepairing final verification and supported final comparison remain unavailable. The seven recorded139 subprocess exits137 and absent outer terminal are separate historical evidence.",
+        "remedy": "Supply the actual matching ordinary module/client result and all18 missing controller-client statement outputs for independent reading, then successful exact cumulative whole build/exhaustive audit with stable input records, immediate supported nonrepairing verification and supported final comparison. Continue the same finding/axes; a source correction requires a new immutable supported candidate and explicit delta review.",
+        "requirement": "Unchanged requirements15 and timing138/controller140/primitive141 addenda; original review-loop exact-candidate build/audit/verify/compare and actual public-statement review gates."
+      }
+    ]
+  },
+  "proposed_successor_only_remedy": {
+    "record": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards-remedy143-applied.json",
+      "bytes": 719,
+      "sha256": "540f7edeee8501af32020bb4934a349f2fdbf01e128182d37a046733a8473752"
+    },
+    "applied_utc": "2026-11-24T10:04:17.028328+00:00",
+    "finding_ids": [
+      "ST-002",
+      "SP-D002"
+    ],
+    "old_candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+    "old_sha256": "f44923af91d83fbd0b1b657703dda3c6525d5d6b14d617cb41c7dffd8494e1fd",
+    "new_sha256": "005acd7927e073a866365aa8e53cf93e7a6c43764d4c047fc082a80ddf70f463",
+    "change": "genuine-init replaced with actual two-step source-run in the primitive example summary",
+    "capture_status_in_actual_record": "PENDING",
+    "independent_successor_resolution": "Pending; no change to142 dispositions",
+    "candidate142_unchanged": true,
+    "checkpoint142_unchanged": true
+  },
+  "public_statement_reading_summary": {
+    "both_axes_current_named_checks_read": 202,
+    "both_axes_current_definitions_read": 6,
+    "both_axes_current_selected_axiom_roots_read": 5,
+    "Standards_readable_output_total_lines_read": 1374,
+    "Spec_readable_current_ranges": [
+      [
+        1,
+        879
+      ],
+      [
+        1326,
+        1365
+      ]
+    ],
+    "missing_controller_client_actual_outputs": 18,
+    "legacy57_gap_closed_now_by_Standards": true,
+    "legacy_gap_is_retained_historical_output_not_fresh142_execution": true,
+    "earlier_round6_7_8_unread_status_preserved": true,
+    "no_complete4850_line_expanded_reading_inferred": true
+  },
+  "author_reading_record_and_correction": {
+    "original": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/author-public-statement-reading143.json",
+      "bytes": 4213,
+      "sha256": "3b6869ffa24c8262f7282285016afa1d5a636c263259f9a525d629ff2f238e12"
+    },
+    "correction": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/author-public-statement-reading143-correction1.json",
+      "bytes": 810,
+      "sha256": "d5cc298a310449bb2527464b9e7cf5fc37d8e94ea6cf59b8adcb550cabe69b45"
+    },
+    "corrected_name": "Resources.TuringSimulation.TapeToPrimitive.stack_run_bounded",
+    "original_record_unchanged": true,
+    "independent_approval": false
+  },
+  "checkpoint142_boundary": {
+    "cutoff_utc": "2026-11-24T09:52:47.059336+00:00",
+    "candidate": "b785e1298c1ba188fe59ac3ecd6e647a4b4f9f92",
+    "source_tree": "89c45ac0fda464a47eec42d4db1813c967e62355",
+    "completed": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint142-results/completed142.json",
+      "bytes": 8204,
+      "sha256": "0faf17ab7498cd74159f6c4ab6eacbb2d52edd5e9ffa8d08add999576f50f24c"
+    },
+    "readiness": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint142-results/readiness142.json",
+      "bytes": 7277,
+      "sha256": "56f73c0f297f9de9bcbc056634fd1a4c994954f5b08dce5578563cc618cfc163"
+    },
+    "save": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint142-results/library-save142.json",
+      "bytes": 857,
+      "sha256": "2ae0f2daec5b71efe6de57996a2eae99bc30eee7d5652b3bee400c7edc41a159"
+    },
+    "retirement_copies": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint142-results/retirement142-copies.json",
+      "bytes": 4247,
+      "sha256": "8aae551727301ceab2255ed1cebb66004d6780d04a9d3f16f6ae75b1fda1235a"
+    },
+    "retirement_stage": {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint142-results/retirement142-stage.json",
+      "bytes": 3431,
+      "sha256": "fd41aac2d0d0f51b492797234aa3f36b71b354f1482bb51a20e0b62594b19b8e"
+    },
+    "durably_saved": true,
+    "source_accepted": false,
+    "mathematical_acceptance": false,
+    "current_reconciliation_in_frozen_archive": false,
+    "current_reconciliation_destination": "Next single self-contained checkpoint only",
+    "no_completion_companion_archive": true,
+    "frozen_archive_not_modified": true
+  },
+  "current_reconciliation": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/reconciliation-round9-142.md",
+    "bytes": 8737,
+    "sha256": "3766f843758738cbcd32d657ef5a8a565664311d63bf0dcd3a2492bc74691ae4"
+  },
+  "next_required_evidence": [
+    "Supported immutable successor for the paper wording remedy, followed by same-axis delta/full-scope reassessment",
+    "Actual18 controller-client declaration output and independent reading",
+    "Matching ordinary module/client validation",
+    "Successful exact cumulative whole build and exhaustive audit",
+    "Immediate nonrepairing verification and supported final content comparison",
+    "Both same axes without unresolved findings on the same immutable candidate"
+  ],
+  "coordinator_current_state": "Final round9 reports reconciled; same identities remain available. Yielding slot; no compiler, source/output mutation or external message/publication."
+}

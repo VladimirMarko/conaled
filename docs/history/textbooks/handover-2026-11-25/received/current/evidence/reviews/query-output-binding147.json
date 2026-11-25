@@ -1,0 +1,2681 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T19:31:22.500459+00:00",
+  "role": "Coordinator mechanical execution/output binding only; no third substantive review or new statement-reading credit",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "query_carrier": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean",
+    "bytes": 51093,
+    "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f"
+  },
+  "query_result": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.result.json",
+    "bytes": 155507,
+    "sha256": "00d91abee5585bad7fad2f1ec4184df5688e586992392712e217ea15d2697153"
+  },
+  "query_child_exit": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.child-exit.json",
+    "bytes": 1292,
+    "sha256": "bde86756df21ab42b891ecaf1e09f8b19266e18c0d1903c78fdaeb651cfb9964"
+  },
+  "actual_exit_code": 0,
+  "actual_elapsed_seconds": 3.989197924999644,
+  "nonnull_invariant_bindings": 293,
+  "all63_captured_source_bindings_match": true,
+  "all192_root_product_descriptors_match_actual_bound_inputs": true,
+  "product_binding_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/query-products-binding147.json",
+    "bytes": 51459,
+    "sha256": "df5206784e787fbdd21e1db138e957d96602747d5745cdceb8cdaae291f10545"
+  },
+  "log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+  },
+  "log_lines": 7801,
+  "actual_indexed_query_count": 647,
+  "actual_indexed_counts": {
+    "readable": 589,
+    "expanded": 26,
+    "axiom_roots": 32
+  },
+  "prefix": {
+    "current_output_range_inclusive": [
+      1,
+      5723
+    ],
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01",
+    "entire_old_log_is_byte_identical_current_prefix": true,
+    "prior_log": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "prior_output_index": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-output-index.json",
+      "bytes": 128676,
+      "sha256": "39011c024cd65b675674bed7ce41756ab0cc8eccf08034f3a4ef6ab8ddc4196a"
+    },
+    "all392_prior_index_bodies_names_and_groups_match_current": true,
+    "counts": {
+      "readable": 350,
+      "expanded": 19,
+      "axiom_roots": 23
+    },
+    "prior_reading_attribution": {
+      "Spec": "Prior Spec146 report records full actual output lines1–5723 read; successor may explicitly reuse that retained same-axis analysis with its limits. No fresh successor reading claimed by this comparison.",
+      "Standards": "Prior Standards146 report records 3 fresh+347 exact prior144 readable blocks,7 fresh+12 exact prior144 expanded blocks,and23 fresh roots. That qualified chain remains; no fresh successor reading claimed."
+    }
+  },
+  "new_tail_range_inclusive": [
+    5724,
+    7801
+  ],
+  "new_tail_counts": {
+    "readable": 239,
+    "axiom_roots": 9,
+    "expanded": 7
+  },
+  "new_tail_entries": [
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet",
+      "query_source_line": 486,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet",
+      "start_line": 5724,
+      "end_line": 5724,
+      "body_sha256": "208b96bff0b18edcdf0048ddf3a089bd3c13a4c2a089247ba44cfe520c1037d0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control",
+      "query_source_line": 487,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control",
+      "start_line": 5725,
+      "end_line": 5725,
+      "body_sha256": "63948927ba03e1dc0d908ca65efbcc26f3fd6b9d8edecc0da6aae923d7d6cfff",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited",
+      "query_source_line": 488,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited",
+      "start_line": 5726,
+      "end_line": 5727,
+      "body_sha256": "fa2949e9fe2bd3a8e0e186f41c52e7a28b4b977b54812822a4e278f1f753330a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype",
+      "query_source_line": 489,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype",
+      "start_line": 5728,
+      "end_line": 5729,
+      "body_sha256": "085b3335ef0aa38bbcd1c2a4286060409948f645cb54db1ab0dd715736dcbd2f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype",
+      "query_source_line": 490,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype",
+      "start_line": 5730,
+      "end_line": 5731,
+      "body_sha256": "32bc26e3160bdb3cf2229740e9e55579036bf82256052c373a84facb07db65b6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault",
+      "query_source_line": 491,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault",
+      "start_line": 5732,
+      "end_line": 5733,
+      "body_sha256": "8a8e52b9adf8e1109b8934a2566fd079cbef2f35478145c26a5f1a80df3d7a6d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val",
+      "query_source_line": 492,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val",
+      "start_line": 5734,
+      "end_line": 5736,
+      "body_sha256": "554c67757c8a0f9e1356b9b79c58df1568fd6724ba997fd3bf6f8f315c037b52",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register",
+      "query_source_line": 493,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register",
+      "start_line": 5737,
+      "end_line": 5738,
+      "body_sha256": "c69bd1d608a3595f43890c7bd13a64e166aee25b0ff15b7e58ffe9c27244affb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default",
+      "query_source_line": 494,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default",
+      "start_line": 5739,
+      "end_line": 5740,
+      "body_sha256": "06e0a0d1a2169fe44bb1cde73281e8d27234252cd930d94df4fb790ec1d2542b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter",
+      "query_source_line": 495,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter",
+      "start_line": 5741,
+      "end_line": 5742,
+      "body_sha256": "f63891f9e8f73c58b1062b350a55d4331a66dd18f145a7c56f06aa50062c8192",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank",
+      "query_source_line": 496,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank",
+      "start_line": 5743,
+      "end_line": 5744,
+      "body_sha256": "009ae8a51455a0b87867830ebb607d4b03affd55e53d26b3f153accbe6cf4562",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected",
+      "query_source_line": 497,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected",
+      "start_line": 5745,
+      "end_line": 5746,
+      "body_sha256": "c8fa3c7f60f286009f60282de04fcf59dba04d6ed1da56b374cef358d1f0feac",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq",
+      "query_source_line": 498,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq",
+      "start_line": 5747,
+      "end_line": 5749,
+      "body_sha256": "915acc00c061308b38491c74f93a6a3954ef7f26e436a6d4ab8b2bb5b8e872e2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length",
+      "query_source_line": 499,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length",
+      "start_line": 5750,
+      "end_line": 5751,
+      "body_sha256": "75d48d5e06865d506914a82bd02dde1e46f4be27ed20c63a7b76f078580d7301",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter",
+      "query_source_line": 500,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter",
+      "start_line": 5752,
+      "end_line": 5755,
+      "body_sha256": "6b3753890c0991bf6f07d30972e6de20118d594865d9e177498b51d7079dff6f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output",
+      "query_source_line": 501,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output",
+      "start_line": 5756,
+      "end_line": 5757,
+      "body_sha256": "a08c5bf7c72bc32e61dd2cd7d97665f69320a23893b61337c761a660a6ec0278",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input",
+      "query_source_line": 502,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input",
+      "start_line": 5758,
+      "end_line": 5759,
+      "body_sha256": "7b57b2ce9e12dfeb7df832a2131bfade95151142074669a5445c6d3b8041854a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row",
+      "query_source_line": 503,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row",
+      "start_line": 5760,
+      "end_line": 5764,
+      "body_sha256": "916dcf3a2a5e1e10b68bc784f1435e40dc28b5370aba4fbde302643aee89b258",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback",
+      "query_source_line": 504,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback",
+      "start_line": 5765,
+      "end_line": 5770,
+      "body_sha256": "60233731721de8eca35226c359140bfa5631aef8776acdd97013dcb934892037",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "query_source_line": 505,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "start_line": 5771,
+      "end_line": 5774,
+      "body_sha256": "d88fd48a54fdbb3fbb9c10a7d85c36e7d3687cdacb40dc66f7e69650dbd7486f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact",
+      "query_source_line": 506,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact",
+      "start_line": 5775,
+      "end_line": 5787,
+      "body_sha256": "377199eab1ec446f72247f4ea0af372a29c3d66b160a3f7614561b39e2745974",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step",
+      "query_source_line": 507,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step",
+      "start_line": 5788,
+      "end_line": 5793,
+      "body_sha256": "694e3722a2ddefe63ec06bd02e2d9b8f3ef7264c2a5a6470867a39f2435fcf8d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget",
+      "query_source_line": 508,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget",
+      "start_line": 5794,
+      "end_line": 5794,
+      "body_sha256": "14943fa633213816e6bad76668bed20abb2ea1f79712c08e80612c3e8b0f24c4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget",
+      "query_source_line": 509,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget",
+      "start_line": 5795,
+      "end_line": 5798,
+      "body_sha256": "cf718f96743c25cd4b03c62c24884cd214f5d06ee463e2fec85f7fd795881ec4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape",
+      "query_source_line": 510,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape",
+      "start_line": 5799,
+      "end_line": 5801,
+      "body_sha256": "ddc0f59f6f28682364933b6b9bb8ce6e136043ca057ad5c6dbc5e34763b6369c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "query_source_line": 511,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "start_line": 5802,
+      "end_line": 5803,
+      "body_sha256": "9a85bdc573a07e4f9d2fc59704eb8974df6bb1bb2615d5a1412c6ed5f02647a1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg",
+      "query_source_line": 512,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg",
+      "start_line": 5804,
+      "end_line": 5807,
+      "body_sha256": "f389b4d63ff8dec0876bc2079f02c42765efe304cd6408ac6be8413c6dc3f24b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape",
+      "query_source_line": 513,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape",
+      "start_line": 5808,
+      "end_line": 5811,
+      "body_sha256": "fbfc13092e51d75432105eb7f4764e783c18c3432d0cdcc244daea60ae046f92",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped",
+      "query_source_line": 514,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped",
+      "start_line": 5812,
+      "end_line": 5816,
+      "body_sha256": "12640cc89dbbaf5d6dd7004873158729763d64ca2fc921fa6dc40adab8882e90",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton",
+      "query_source_line": 515,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton",
+      "start_line": 5817,
+      "end_line": 5821,
+      "body_sha256": "4aefd82b1b7f7f2d8fdb6bbcd416641106a7b63b6d560a2ec68f5eb7ce4b96be",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped",
+      "query_source_line": 516,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped",
+      "start_line": 5822,
+      "end_line": 5828,
+      "body_sha256": "b85bfdf7291de19092634c364e5c47a33268fe42374c1e5dedac25275dbcb5a4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun",
+      "query_source_line": 517,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun",
+      "start_line": 5829,
+      "end_line": 5838,
+      "body_sha256": "a7bfcbd3a0a961c1214f84fc819e90c6afad1c8b5c77fc46cc9776ea03c76463",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps",
+      "query_source_line": 518,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps",
+      "start_line": 5839,
+      "end_line": 5844,
+      "body_sha256": "61e746789c58e1a9e53c09733648898543565057fd45b6f3689509f0aedffc26",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+      "query_source_line": 519,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+      "start_line": 5845,
+      "end_line": 5852,
+      "body_sha256": "5eb04e39fe3a59e0df3406d63b90b4f50e1a2fd48d30c4dd6cd9850ed4089b1a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "query_source_line": 520,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "start_line": 5853,
+      "end_line": 5862,
+      "body_sha256": "4db308c52ef36b69501c9b7a9257e272097db4689333dd0de35be5e842659e90",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "query_source_line": 521,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "start_line": 5863,
+      "end_line": 5870,
+      "body_sha256": "8e869d2f53d1213c6cf3d2052a974a73a122bc51f7fc59459cea848e26ba9829",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+      "query_source_line": 522,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+      "start_line": 5871,
+      "end_line": 5878,
+      "body_sha256": "589b7453695e6ae263aac873be09cdf0b27a20147ac5c37f061d8c2e48161d17",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+      "query_source_line": 523,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+      "start_line": 5879,
+      "end_line": 5887,
+      "body_sha256": "d63e3ea0af696c09b6e5130d66800fd9ad1065511be9fb96094884883f0333a1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps",
+      "query_source_line": 524,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps",
+      "start_line": 5888,
+      "end_line": 5897,
+      "body_sha256": "dd73f628929ea62d6689407621f2d08e021532b9432ad5d9b97c448b13f63aaa",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval",
+      "query_source_line": 525,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval",
+      "start_line": 5898,
+      "end_line": 5919,
+      "body_sha256": "78b21f31cb6cd3e0217f4352e2d30d81baeef21b336dedb95eff5d6a846af62b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+      "query_source_line": 526,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet",
+      "start_line": 5920,
+      "end_line": 5920,
+      "body_sha256": "0de985c3f06570b67b0d1f1dd253720451dc2f59a6e511f04effa339e84710fa",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+      "query_source_line": 527,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.fixture",
+      "start_line": 5921,
+      "end_line": 5921,
+      "body_sha256": "1a4226d2378e65ab36ddfb250542d6688c901c469036dba61ce827e1fb7e2644",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+      "query_source_line": 528,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.outputLetter",
+      "start_line": 5922,
+      "end_line": 5922,
+      "body_sha256": "d27c6c55b749fd31166799217b59925a01556707336ac4153efb61b48f00a0c2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.cell",
+      "query_source_line": 529,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.cell",
+      "start_line": 5923,
+      "end_line": 5924,
+      "body_sha256": "69fd15a313b93206df60a49218405b80d1373c16f2bccdeed8f96392158a809f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+      "query_source_line": 530,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.nativeInput",
+      "start_line": 5925,
+      "end_line": 5928,
+      "body_sha256": "c496fa7492872f2ca23237cc4e1173776270b89dbf5f47f6666d47256df0f3f1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.M",
+      "query_source_line": 531,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.M",
+      "start_line": 5929,
+      "end_line": 5934,
+      "body_sha256": "728262d831ba1062b080f08dfff3672ed77d7023e4800e84dee7e48fb2e24d27",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+      "query_source_line": 532,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct",
+      "start_line": 5935,
+      "end_line": 5936,
+      "body_sha256": "d6446f33a27a5f8fd9b41ab908a915003bf4f6929036c7cfb0a515b661fe2aff",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+      "query_source_line": 533,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite",
+      "start_line": 5937,
+      "end_line": 5941,
+      "body_sha256": "c0f28ee1707c7a9c81f4ffb01f4418d7af923d705e44c38101563b0302aac620",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+      "query_source_line": 534,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols",
+      "start_line": 5942,
+      "end_line": 5946,
+      "body_sha256": "5062874e87ab8992aa0c41ef69c7684399e174761e6835a2a89e7da307dcbf89",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+      "query_source_line": 535,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite",
+      "start_line": 5947,
+      "end_line": 5951,
+      "body_sha256": "68d81c35a85a7e732229461f758b3846be5a62a761034a52646bdb578e06fb82",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+      "query_source_line": 536,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true",
+      "start_line": 5952,
+      "end_line": 5953,
+      "body_sha256": "512f6f1e8a7ee66e2ee925b822e3611ae18536f80d1850656337b2cb88e4f900",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+      "query_source_line": 537,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true",
+      "start_line": 5954,
+      "end_line": 5957,
+      "body_sha256": "1c03c7a927d9ce1ed0e96316fcb62078ac90493d4ce020892402c4b0afa46bb6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+      "query_source_line": 538,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control",
+      "start_line": 5958,
+      "end_line": 5962,
+      "body_sha256": "0d09d6d45282f1ec1f0a56c38c926f77727d154ae7eb7c6611b9973a0cf6cd92",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+      "query_source_line": 539,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude",
+      "start_line": 5963,
+      "end_line": 5964,
+      "body_sha256": "8644eeedfb0332213e47b4cc013480ac9e1a218622afa1dc757f640f0e949e7e",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+      "query_source_line": 540,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length",
+      "start_line": 5965,
+      "end_line": 5966,
+      "body_sha256": "2a01b07b7d34ec2278191654c7ba711e0ceaa7f4b03ddfef656288b94913d533",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+      "query_source_line": 541,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present",
+      "start_line": 5967,
+      "end_line": 5970,
+      "body_sha256": "165bbda1f1dc22ed8855e1e57fa2e2daeaa5b856b6040ba3ad62541ef756f44f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+      "query_source_line": 542,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present",
+      "start_line": 5971,
+      "end_line": 5974,
+      "body_sha256": "25d215064b23bb8b898d0d0a566cde7d18c51b33f98107048dfe472b8db17ffc",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+      "query_source_line": 543,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present",
+      "start_line": 5975,
+      "end_line": 5978,
+      "body_sha256": "063f1a13ae0b6d4085941a23b458c197f16d8f4be1908aa99d718eef579ccfbf",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+      "query_source_line": 544,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank",
+      "start_line": 5979,
+      "end_line": 5980,
+      "body_sha256": "7a21219bf72fd2c58e140f8322ce023790343b9da465e0e9a23434f0a9c6603f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+      "query_source_line": 545,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank",
+      "start_line": 5981,
+      "end_line": 5982,
+      "body_sha256": "826b95a57019ef60759acf1989dcfe09276c0aba413b7c60cee5c945fdcbac0d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+      "query_source_line": 546,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false",
+      "start_line": 5983,
+      "end_line": 5985,
+      "body_sha256": "1e42f99bd10ef1ad990c549c799d28634267ea4352adafa6bba9c9657cc3023d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+      "query_source_line": 547,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter",
+      "start_line": 5986,
+      "end_line": 5988,
+      "body_sha256": "9198157cf48539de6c7f10e78384f27695c4b1181d663f65128f82cceedb17fb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+      "query_source_line": 548,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step",
+      "start_line": 5989,
+      "end_line": 5998,
+      "body_sha256": "a773413da11be4cae2db1374db88c4934c73602d8b670146c3c684ff4fd897f3",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+      "query_source_line": 549,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps",
+      "start_line": 5999,
+      "end_line": 6009,
+      "body_sha256": "a6ca9a564fb977a7afcacd9cb6daf96e104eaa16540e95cefc6ec009cbcddc25",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+      "query_source_line": 550,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps",
+      "start_line": 6010,
+      "end_line": 6021,
+      "body_sha256": "423c288c3c1850845b3b6d754cb7bf2ae977f44a4740a24f2d1dcc01b5ff784f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+      "query_source_line": 551,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps",
+      "start_line": 6022,
+      "end_line": 6033,
+      "body_sha256": "146ea1c9d26f307cf85602598f3eb006a84dabafbea84310b724144868799690",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+      "query_source_line": 552,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps",
+      "start_line": 6034,
+      "end_line": 6050,
+      "body_sha256": "ffb03c27b149a1cd78cf1fca4ca0f9466465850fdfbb43b8da6ef5955dbb1e75",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+      "query_source_line": 553,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track",
+      "start_line": 6051,
+      "end_line": 6054,
+      "body_sha256": "2e2c21ee5b2469ab6e65267b6515237281cc31e72ec8782109bddf295c835898",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+      "query_source_line": 554,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track",
+      "start_line": 6055,
+      "end_line": 6058,
+      "body_sha256": "c64e813cf2d011cff3df0d75497a7e934fc9c60ead71638cd9fa6434de13676a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+      "query_source_line": 555,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback",
+      "start_line": 6059,
+      "end_line": 6065,
+      "body_sha256": "d4fbbb12448d22bff65b03d1f001aa9ec5335dbd7b9bbbe6ed7ba7553e47c171",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+      "query_source_line": 556,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback",
+      "start_line": 6066,
+      "end_line": 6072,
+      "body_sha256": "fe8b0524b60d0c0944ed49a772173526de3da2d9a6fc8a4e4d852c0b1539bb28",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+      "query_source_line": 557,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback",
+      "start_line": 6073,
+      "end_line": 6076,
+      "body_sha256": "f2ae0c62738ce7162c4eeb574d03bceae059a554ea8f0f66abbb2f1aae494843",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+      "query_source_line": 558,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.haltedControl",
+      "start_line": 6077,
+      "end_line": 6078,
+      "body_sha256": "c9eed6decd6f65340cd8ae80d46c186892e90cd7bfdd9711e114e14ede52b33c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+      "query_source_line": 559,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step",
+      "start_line": 6079,
+      "end_line": 6092,
+      "body_sha256": "aa0eaea6d83b810b548bc3b9450ef1e8d984fc6bb12ac8eedf186482e27c2b56",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+      "query_source_line": 560,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step",
+      "start_line": 6093,
+      "end_line": 6109,
+      "body_sha256": "3a0144712e695ed79e3e12b95c79e01f8c9d33b2b2ff52e2fceff9a723d0f5fb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+      "query_source_line": 561,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none",
+      "start_line": 6110,
+      "end_line": 6114,
+      "body_sha256": "c98f20a506093898033bffb29d1dec5cc61a924bab80e04f38fb34a826643f8b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+      "query_source_line": 562,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two",
+      "start_line": 6115,
+      "end_line": 6127,
+      "body_sha256": "b2d20817eefed786e56f182af619770373ab255b35ec5dca41e6c01934eba5c2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+      "query_source_line": 563,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals",
+      "start_line": 6128,
+      "end_line": 6131,
+      "body_sha256": "90e5768166c5fb8aa7b75e4329f8cb214c7d6556647058302f0dc9184441f12c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+      "query_source_line": 564,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.bound_literals",
+      "start_line": 6132,
+      "end_line": 6135,
+      "body_sha256": "2e9d86fd55a708a3e53c9f804c0ed611dc4e1b7138dbf92bfaa70ab238e60ec0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+      "query_source_line": 565,
+      "command": "#check Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals",
+      "start_line": 6136,
+      "end_line": 6142,
+      "body_sha256": "cb72c87dac3022cf6ca9f67ff1a24c05bb89b17b0df4678fcb6cfaa63748dc93",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "query_source_line": 566,
+      "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "start_line": 6143,
+      "end_line": 6145,
+      "body_sha256": "55bd8413304c8fce28aef7df51263cdc11c38b90002762d39f87770ae6ca1bea",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+      "query_source_line": 567,
+      "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+      "start_line": 6146,
+      "end_line": 6148,
+      "body_sha256": "3243de0e641fa5ec1fbbd240b8287e6a6684f501184a2b26d49cb2b8809d3e99",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+      "query_source_line": 568,
+      "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+      "start_line": 6149,
+      "end_line": 6151,
+      "body_sha256": "bd92325a9f05790eab87f9fdeefa88d8f0a98050368e9aab5cca78807cab46ad",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+      "query_source_line": 569,
+      "command": "#print axioms Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+      "start_line": 6152,
+      "end_line": 6154,
+      "body_sha256": "dacf69767efb7086f9de44674e7ed3296f8e7dbfa9b22cb64332aa7004762d2d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "query_source_line": 571,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "start_line": 6155,
+      "end_line": 6160,
+      "body_sha256": "211e379e468b035c55082469e330a3c53f3ed4bbb662d119f7eaeb85c4e8cff3",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "query_source_line": 573,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "start_line": 6161,
+      "end_line": 6163,
+      "body_sha256": "d50a9bb6bbb8ea5847e49c27b0ca094b64d8756ba273ad379fc26feb57fb15a7",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "query_source_line": 575,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "start_line": 6164,
+      "end_line": 6204,
+      "body_sha256": "cebed136dcd3d7d443a80176add31eb72cea2f02f9dec86810e1ffcd774d0acd",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "query_source_line": 577,
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "start_line": 6205,
+      "end_line": 6317,
+      "body_sha256": "210b94178715352b13296268e197340d22e7e786894333428a3dd55db039bd5a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Action",
+      "query_source_line": 580,
+      "command": "#check Resources.TuringSimulation.PrintMove.Action",
+      "start_line": 6318,
+      "end_line": 6318,
+      "body_sha256": "60997705c7aabc0e30ff1a9749445fa702556d1edfb4ec77edfba903c80d2aa6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Machine",
+      "query_source_line": 581,
+      "command": "#check Resources.TuringSimulation.PrintMove.Machine",
+      "start_line": 6319,
+      "end_line": 6319,
+      "body_sha256": "edd0df84794ec6c5cb054c18ee00f072e54028b4dc8b8912fe58009f28cb15cb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cfg",
+      "query_source_line": 582,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cfg",
+      "start_line": 6320,
+      "end_line": 6320,
+      "body_sha256": "7ad1d03744f8ae02ba0a20c9a8e1148be66454fad3d3eae7130cf013f8c196d2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.step",
+      "query_source_line": 583,
+      "command": "#check Resources.TuringSimulation.PrintMove.step",
+      "start_line": 6321,
+      "end_line": 6323,
+      "body_sha256": "79f5e4155bf0d35ac7de5a212ddc124d155eab9c22d13aaf35a3abfe951ebc77",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.init",
+      "query_source_line": 584,
+      "command": "#check Resources.TuringSimulation.PrintMove.init",
+      "start_line": 6324,
+      "end_line": 6325,
+      "body_sha256": "872057835c6b4d0361a9f6d6663d15260ffc5603288bd1cdb56bd88c776214a1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Control",
+      "query_source_line": 585,
+      "command": "#check Resources.TuringSimulation.PrintMove.Control",
+      "start_line": 6326,
+      "end_line": 6326,
+      "body_sha256": "12a4a75b591fcca36ae302098935d076d4bfc2f768d7d1ef63cd00cd558cc4d3",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.controlEquiv",
+      "query_source_line": 586,
+      "command": "#check Resources.TuringSimulation.PrintMove.controlEquiv",
+      "start_line": 6327,
+      "end_line": 6328,
+      "body_sha256": "745b4e41992d681e1999bdc8c05d70046dc9c744b42a5276f303321e6d7bd5ae",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.card_control",
+      "query_source_line": 587,
+      "command": "#check Resources.TuringSimulation.PrintMove.card_control",
+      "start_line": 6329,
+      "end_line": 6330,
+      "body_sha256": "4272f1ea5816ce5fc8c55818224202729584e571e908658947dcac3439464f7a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normal_ne_accept",
+      "query_source_line": 588,
+      "command": "#check Resources.TuringSimulation.PrintMove.normal_ne_accept",
+      "start_line": 6331,
+      "end_line": 6332,
+      "body_sha256": "2b23a0668392d135ec16c7428becbec8cba9df1e496e72a829f10246a9d29cc0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normal_ne_reject",
+      "query_source_line": 589,
+      "command": "#check Resources.TuringSimulation.PrintMove.normal_ne_reject",
+      "start_line": 6333,
+      "end_line": 6334,
+      "body_sha256": "560d6505f5a74a3237dd659abe8588a73d81909ee2a151d09aaa3f5d1e62dd24",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.accept_ne_reject",
+      "query_source_line": 590,
+      "command": "#check Resources.TuringSimulation.PrintMove.accept_ne_reject",
+      "start_line": 6335,
+      "end_line": 6336,
+      "body_sha256": "90dea5aeaed02b8cee123b693c51255d60bc990c88ffc848e3a80ee1edd2c0df",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Nonterminal",
+      "query_source_line": 591,
+      "command": "#check Resources.TuringSimulation.PrintMove.Nonterminal",
+      "start_line": 6337,
+      "end_line": 6338,
+      "body_sha256": "2877964f8fbae5c5cdaba6c6d716a6be6a8b0629678492d6b89cbbf5bb235335",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normalAction",
+      "query_source_line": 592,
+      "command": "#check Resources.TuringSimulation.PrintMove.normalAction",
+      "start_line": 6339,
+      "end_line": 6341,
+      "body_sha256": "70b4ba1ab21d55823b46b32ef4548d813e88a24e37c99b6296635f85486cb68a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.adapter",
+      "query_source_line": 593,
+      "command": "#check Resources.TuringSimulation.PrintMove.adapter",
+      "start_line": 6342,
+      "end_line": 6344,
+      "body_sha256": "858c29790593919db10048c4aa8b749a052ae6e3999c78eef6c617127d049949",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.delta",
+      "query_source_line": 594,
+      "command": "#check Resources.TuringSimulation.PrintMove.delta",
+      "start_line": 6345,
+      "end_line": 6347,
+      "body_sha256": "0eae9791ed44761a774b90f666c5dcc04bfeb612dd025fea52e9fcaed9e90b05",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.adapter_eq_none_iff",
+      "query_source_line": 595,
+      "command": "#check Resources.TuringSimulation.PrintMove.adapter_eq_none_iff",
+      "start_line": 6348,
+      "end_line": 6352,
+      "body_sha256": "146121583e7268c43c3fa968badce5abbc8c15efcbe3e1fe97c7847d150d2a7b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.adapter_delta",
+      "query_source_line": 596,
+      "command": "#check Resources.TuringSimulation.PrintMove.adapter_delta",
+      "start_line": 6353,
+      "end_line": 6357,
+      "body_sha256": "2a0105222f90d1a4090f84880154eb366c6f180257c5689b03a791b25045ef14",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normalCfg",
+      "query_source_line": 597,
+      "command": "#check Resources.TuringSimulation.PrintMove.normalCfg",
+      "start_line": 6358,
+      "end_line": 6359,
+      "body_sha256": "e313b004a8f5ab2c5fc9bb8cba4569213e79c49bee7ab15180fd38227730c017",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normalCfg_tape",
+      "query_source_line": 598,
+      "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_tape",
+      "start_line": 6360,
+      "end_line": 6361,
+      "body_sha256": "3cc7fac7c94797d24ff32b6d1bc40b75261b60240dec5e2d1c75a7134176d82b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normalCfg_init",
+      "query_source_line": 599,
+      "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_init",
+      "start_line": 6362,
+      "end_line": 6365,
+      "body_sha256": "3399dd88b9af416cd27cb6b8001ae393a63169fec8399a917ba95da77d9903ab",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.normalCfg_native_init",
+      "query_source_line": 600,
+      "command": "#check Resources.TuringSimulation.PrintMove.normalCfg_native_init",
+      "start_line": 6366,
+      "end_line": 6369,
+      "body_sha256": "a63da76bc9d80b763e3f55646396638077fa1bd7a72dda530d396bd00c58d0e9",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.step_delta",
+      "query_source_line": 601,
+      "command": "#check Resources.TuringSimulation.PrintMove.step_delta",
+      "start_line": 6370,
+      "end_line": 6379,
+      "body_sha256": "b0c9e6e2ede855e49bacfa569b829f517aeb9933e644c8c8de8e7484cf2a3cf5",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.move_step",
+      "query_source_line": 602,
+      "command": "#check Resources.TuringSimulation.PrintMove.move_step",
+      "start_line": 6380,
+      "end_line": 6385,
+      "body_sha256": "7ae89e6d2c8078760484f7662db73ea6f626e70a3c9ad4338eb90f7448e0c417",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.write_first_step",
+      "query_source_line": 603,
+      "command": "#check Resources.TuringSimulation.PrintMove.write_first_step",
+      "start_line": 6386,
+      "end_line": 6393,
+      "body_sha256": "13b26ba08079abd455dcc6ad0d2e666cd98d2bd6c97d85191973efd8ed0d68e4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.return_step",
+      "query_source_line": 604,
+      "command": "#check Resources.TuringSimulation.PrintMove.return_step",
+      "start_line": 6394,
+      "end_line": 6398,
+      "body_sha256": "987b5bc9bc3b79d24a55e2ac3c2155609dcfc509aa7e5fa8736c3d0c76bf93d2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.write_second_step",
+      "query_source_line": 605,
+      "command": "#check Resources.TuringSimulation.PrintMove.write_second_step",
+      "start_line": 6399,
+      "end_line": 6404,
+      "body_sha256": "0998453a0a5b56ef05a079a0282e92b1a824fa69ef4e7096d83e89d786ae5452",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.accept_step",
+      "query_source_line": 606,
+      "command": "#check Resources.TuringSimulation.PrintMove.accept_step",
+      "start_line": 6405,
+      "end_line": 6409,
+      "body_sha256": "7088aab94f1b4cb736bd4a4d736af603429979a8502bce4ad7b2d1c02d08c46b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.reject_step",
+      "query_source_line": 607,
+      "command": "#check Resources.TuringSimulation.PrintMove.reject_step",
+      "start_line": 6410,
+      "end_line": 6414,
+      "body_sha256": "1c2d8792912add2c77f0f9cb8030bf563371274ec11e688b7aeb34d01d73c811",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal",
+      "query_source_line": 608,
+      "command": "#check Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal",
+      "start_line": 6415,
+      "end_line": 6420,
+      "body_sha256": "ba2ee5eb5affe1d919b4952b628f2cf006be97032ded02d55ba9b654fa067f96",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.oneStep",
+      "query_source_line": 609,
+      "command": "#check Resources.TuringSimulation.PrintMove.oneStep",
+      "start_line": 6421,
+      "end_line": 6422,
+      "body_sha256": "730546b922995ef05a6f248a1b63782ed6efe91347dac74130cc7d235bae9896",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.commandCost",
+      "query_source_line": 610,
+      "command": "#check Resources.TuringSimulation.PrintMove.commandCost",
+      "start_line": 6423,
+      "end_line": 6424,
+      "body_sha256": "2fb317777ce71278336d25cd12cf32f757cd0eb50d81cd5f8b1a3a59128c1832",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.commandCost_le_two",
+      "query_source_line": 611,
+      "command": "#check Resources.TuringSimulation.PrintMove.commandCost_le_two",
+      "start_line": 6425,
+      "end_line": 6426,
+      "body_sha256": "683a7bf17260c3cb59cd177d90f2a0163e1aa87d0d83a9cc7bda0686136c557c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.moveRun",
+      "query_source_line": 612,
+      "command": "#check Resources.TuringSimulation.PrintMove.moveRun",
+      "start_line": 6427,
+      "end_line": 6433,
+      "body_sha256": "a10973d849076bdb8925c58c790f0671d584a451a3a6e15b60551822e80acc75",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.moveRun_steps",
+      "query_source_line": 613,
+      "command": "#check Resources.TuringSimulation.PrintMove.moveRun_steps",
+      "start_line": 6434,
+      "end_line": 6437,
+      "body_sha256": "a494eb629db97d9d86ba9404f75f6b9ea35944e7ef11a92b53c637001d2b05e4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.writeRun",
+      "query_source_line": 614,
+      "command": "#check Resources.TuringSimulation.PrintMove.writeRun",
+      "start_line": 6438,
+      "end_line": 6444,
+      "body_sha256": "9d8fc0dff4375b5c52b8276d578739f3c7014079d9f7404f57cb80daf983d1fb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.writeRun_steps",
+      "query_source_line": 615,
+      "command": "#check Resources.TuringSimulation.PrintMove.writeRun_steps",
+      "start_line": 6445,
+      "end_line": 6448,
+      "body_sha256": "c9be77f40aa9d6b361a7b7ff541edc676e4faf6568bef92a17d9c89be1c468e1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.native_step_exact",
+      "query_source_line": 616,
+      "command": "#check Resources.TuringSimulation.PrintMove.native_step_exact",
+      "start_line": 6449,
+      "end_line": 6452,
+      "body_sha256": "583fdfcc0f2e5d3d749861cf39ce6da104b0bd19912f9d301b23183a30c9ea5d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.nativePrefix",
+      "query_source_line": 617,
+      "command": "#check Resources.TuringSimulation.PrintMove.nativePrefix",
+      "start_line": 6453,
+      "end_line": 6454,
+      "body_sha256": "4363abc5f750fc844d606cb2638a595cf415b6e93ac2cd2e626a481079ef1b07",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.nativePrefix_succ",
+      "query_source_line": 618,
+      "command": "#check Resources.TuringSimulation.PrintMove.nativePrefix_succ",
+      "start_line": 6455,
+      "end_line": 6458,
+      "body_sha256": "275269673c132de4775b81409a006e5776ec50f1e77cb417894e9df9dcc5bf8d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.observedNativeCommand",
+      "query_source_line": 619,
+      "command": "#check Resources.TuringSimulation.PrintMove.observedNativeCommand",
+      "start_line": 6459,
+      "end_line": 6460,
+      "body_sha256": "fce5a99645dd8c6aa062ea58eaef52969c82355338c1b308047d06561e744f10",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live",
+      "query_source_line": 620,
+      "command": "#check Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live",
+      "start_line": 6461,
+      "end_line": 6464,
+      "body_sha256": "82c460b4bd9b042eca611357e1b234bd60a39a18b7c290724421aa63dbb66f65",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.simulationTime",
+      "query_source_line": 621,
+      "command": "#check Resources.TuringSimulation.PrintMove.simulationTime",
+      "start_line": 6465,
+      "end_line": 6466,
+      "body_sha256": "ce9727fee12438d4e538fe49633062040861be2c74c726dae69b96feaa8e089c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.simulationTime_le",
+      "query_source_line": 622,
+      "command": "#check Resources.TuringSimulation.PrintMove.simulationTime_le",
+      "start_line": 6467,
+      "end_line": 6469,
+      "body_sha256": "77e5c33d220991347b6c9c05f049734ae48452fafeb03156a2678c13d8b73209",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.finite_run_exact",
+      "query_source_line": 623,
+      "command": "#check Resources.TuringSimulation.PrintMove.finite_run_exact",
+      "start_line": 6470,
+      "end_line": 6473,
+      "body_sha256": "aaa1febcf77be7f6f3c16ad74d2a549d452fddd99a73271a981a53baaea7b44d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.lift_bounded_run",
+      "query_source_line": 624,
+      "command": "#check Resources.TuringSimulation.PrintMove.lift_bounded_run",
+      "start_line": 6474,
+      "end_line": 6479,
+      "body_sha256": "0e092d0e8c18d5a2c9b3ef713d058416319c0f87d9558659921fce8951f91412",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.terminalControl",
+      "query_source_line": 625,
+      "command": "#check Resources.TuringSimulation.PrintMove.terminalControl",
+      "start_line": 6480,
+      "end_line": 6481,
+      "body_sha256": "548bbc08383274ba7195f340d16e11426849ed19d6891fdbc2bb15b6600c6a3d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decidedCfg",
+      "query_source_line": 626,
+      "command": "#check Resources.TuringSimulation.PrintMove.decidedCfg",
+      "start_line": 6482,
+      "end_line": 6483,
+      "body_sha256": "f9ae91f09adf85f5622f1994c731f0908504473b1471e4e1b9de5ca806b2b8c2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.native_command_none_of_stopped",
+      "query_source_line": 627,
+      "command": "#check Resources.TuringSimulation.PrintMove.native_command_none_of_stopped",
+      "start_line": 6484,
+      "end_line": 6486,
+      "body_sha256": "c3b10bf18a7317eedde3d52d9fc36163dab590a4314f55a1d3455c7b72d70f66",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decision_step",
+      "query_source_line": 628,
+      "command": "#check Resources.TuringSimulation.PrintMove.decision_step",
+      "start_line": 6487,
+      "end_line": 6492,
+      "body_sha256": "dfccf3d406d6f497227d12a499b424704370849fec85edf8059973ec03cc1a2d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decisionRun",
+      "query_source_line": 629,
+      "command": "#check Resources.TuringSimulation.PrintMove.decisionRun",
+      "start_line": 6493,
+      "end_line": 6499,
+      "body_sha256": "9d29a7f2d3c1264dcecd72e080f3cf21a7a662aaa5c412ca70c681336a929625",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decisionRun_steps",
+      "query_source_line": 630,
+      "command": "#check Resources.TuringSimulation.PrintMove.decisionRun_steps",
+      "start_line": 6500,
+      "end_line": 6503,
+      "body_sha256": "a8236d86bd4d918904bfc84ca41bcb1867ea298b21c53034ad0c8212c4d2e1c4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decidedCfg_stopped",
+      "query_source_line": 631,
+      "command": "#check Resources.TuringSimulation.PrintMove.decidedCfg_stopped",
+      "start_line": 6504,
+      "end_line": 6508,
+      "body_sha256": "128de62be7b1a5b5ac90abb0cec3c0e7759265dcb0e884e712d0461f181183e4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "query_source_line": 632,
+      "command": "#check Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "start_line": 6509,
+      "end_line": 6518,
+      "body_sha256": "e04afdb70f455159134186ee1a8fba5b72d2e9f6d8dba5da04a83df6e2de1279",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.terminalOuterNone",
+      "query_source_line": 633,
+      "command": "#check Resources.TuringSimulation.PrintMove.terminalOuterNone",
+      "start_line": 6519,
+      "end_line": 6523,
+      "body_sha256": "687c17e4a2daeb7905a946aa17542c25d56426929b8a9da6902619f009c15364",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.terminalOuterNone_steps",
+      "query_source_line": 634,
+      "command": "#check Resources.TuringSimulation.PrintMove.terminalOuterNone_steps",
+      "start_line": 6524,
+      "end_line": 6526,
+      "body_sha256": "6e5917b13186d944eafcf6d85755bc74d8533f4fbedd0a752d353c1845f6e993",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.directionOffset",
+      "query_source_line": 635,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.directionOffset",
+      "start_line": 6527,
+      "end_line": 6527,
+      "body_sha256": "e8b313e98c3849078846949c7d7d002052f8ec05ed636c93c33a905a7b69f3f0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.actionOffset",
+      "query_source_line": 636,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionOffset",
+      "start_line": 6528,
+      "end_line": 6529,
+      "body_sha256": "f112529e7f5bc2ac08de37c59fb8254ceb2b36ea8bb1e95c70316458e723eaa9",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds",
+      "query_source_line": 637,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds",
+      "start_line": 6530,
+      "end_line": 6533,
+      "body_sha256": "4e8a517b335932545f12783d42a859960e2772d60b5a8ffc3fbbedba9774e1f0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.cfgAt",
+      "query_source_line": 638,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.cfgAt",
+      "start_line": 6534,
+      "end_line": 6536,
+      "body_sha256": "b0fe018030ff0350660735866a16973286a20d9eed2df5231f60813cd920b798",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ",
+      "query_source_line": 639,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ",
+      "start_line": 6537,
+      "end_line": 6541,
+      "body_sha256": "6eca351df071b1b422c4d9fe13c0c338c7fc2cee1620744fab6f50a0e83825a2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.actionAt",
+      "query_source_line": 640,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionAt",
+      "start_line": 6542,
+      "end_line": 6544,
+      "body_sha256": "4c0443bb4ff36fd8305147b6f4ca8f0ffa42b1fd82e6c6237619c63b5f88162d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition",
+      "query_source_line": 641,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition",
+      "start_line": 6545,
+      "end_line": 6547,
+      "body_sha256": "4d9de74999ce379ac7ea8de909aec71dea61e72867e21524a0fa88d932fcda25",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_succ",
+      "query_source_line": 642,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_succ",
+      "start_line": 6548,
+      "end_line": 6554,
+      "body_sha256": "9e93c5ab8c7a09652c3470ccd9d231d9f6755abdbb84ac50dda0bc75c8598b5f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds",
+      "query_source_line": 643,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds",
+      "start_line": 6555,
+      "end_line": 6561,
+      "body_sha256": "02b49bc5bc7f15ea1f96364bdddc00d8874ef3d1a7f4ca1c201181d02bc74ccc",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells",
+      "query_source_line": 644,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells",
+      "start_line": 6562,
+      "end_line": 6564,
+      "body_sha256": "f952562efc32717a28c0cda8134ec4fadc18e1a1d295e3acd1f43e9e663bebdf",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells",
+      "query_source_line": 645,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells",
+      "start_line": 6565,
+      "end_line": 6571,
+      "body_sha256": "2398a9d4c6c0b1b039399ec294c237af5be65408ea8924ab935cb8f64d5be898",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le",
+      "query_source_line": 646,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le",
+      "start_line": 6572,
+      "end_line": 6574,
+      "body_sha256": "6cd3dc62e714f19083dfb66f265c2518b8d7889af5c4355d2913fe9dfd616578",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.inputCells",
+      "query_source_line": 647,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.inputCells",
+      "start_line": 6575,
+      "end_line": 6575,
+      "body_sha256": "2022223724bd7db37660dd689efdf5151ce3bbe9195321fbff67aca0a4980dca",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.leftEdge",
+      "query_source_line": 648,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.leftEdge",
+      "start_line": 6576,
+      "end_line": 6578,
+      "body_sha256": "6b034db851c061c4c899662507c62f6c660f42ea0e25d5e6cea0e0744bd119f0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.rightEdge",
+      "query_source_line": 649,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.rightEdge",
+      "start_line": 6579,
+      "end_line": 6581,
+      "body_sha256": "07ccbae70819292e867da41d0672e63a9346cb62e830beaa877c6607daecd4c6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.visitedInterval",
+      "query_source_line": 650,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval",
+      "start_line": 6582,
+      "end_line": 6584,
+      "body_sha256": "ca02fc867250a0f69301ef76e31d233a1dd09e01d97fcbb793148a708c01c3e4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges",
+      "query_source_line": 651,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges",
+      "start_line": 6585,
+      "end_line": 6591,
+      "body_sha256": "e14161f97994fb04ba0951cf7897cd5390cf646772666b9757ec45410db36e8d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone",
+      "query_source_line": 652,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone",
+      "start_line": 6592,
+      "end_line": 6594,
+      "body_sha256": "ea86381752c675a2dec9190e151b53fca3da5496171125bb47a93fbfd0891c97",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone",
+      "query_source_line": 653,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone",
+      "start_line": 6595,
+      "end_line": 6597,
+      "body_sha256": "eb1706dc8f27bd6fbef42903497a198812f772163011171f861bf4f884c291b4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval",
+      "query_source_line": 654,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval",
+      "start_line": 6598,
+      "end_line": 6602,
+      "body_sha256": "133b91f8dfa35bd2493407ea14adfb53b37856e11f8ab2255119c36e19e7b1d6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval",
+      "query_source_line": 655,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval",
+      "start_line": 6603,
+      "end_line": 6607,
+      "body_sha256": "afc97996244d1f7e8d2582fa92648e32bb391ea92cdbf225bc44c6fc3227ccbe",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.interval_width_le",
+      "query_source_line": 656,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.interval_width_le",
+      "start_line": 6608,
+      "end_line": 6613,
+      "body_sha256": "1fafa62afd800aec796b736a943d48da2b8f9502f8482129ea108a43d600aafc",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le",
+      "query_source_line": 657,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le",
+      "start_line": 6614,
+      "end_line": 6617,
+      "body_sha256": "1cd91caea69bf0ac924a6541f47e24d1fd7fc86a6d647183772e61c2af3fbced",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none",
+      "query_source_line": 658,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none",
+      "start_line": 6618,
+      "end_line": 6622,
+      "body_sha256": "32f32e95be3dd48605b8fa24d1fe0e7c16e2a42579898a3d711151be45492860",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells",
+      "query_source_line": 659,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells",
+      "start_line": 6623,
+      "end_line": 6630,
+      "body_sha256": "716709250868d2ebc6a28edd76235d08c43f9196d8207ffc29411206628cd302",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run",
+      "query_source_line": 660,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run",
+      "start_line": 6631,
+      "end_line": 6637,
+      "body_sha256": "639702b9bd446b81b0a39266d92695394181091c839c9739a19ff9f2457d7c3c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate",
+      "query_source_line": 661,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate",
+      "start_line": 6638,
+      "end_line": 6642,
+      "body_sha256": "90436abe29e10949c417e177fac500b7f2c72ad6d257370b645b761867348bb2",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+      "query_source_line": 662,
+      "command": "#check Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+      "start_line": 6643,
+      "end_line": 6654,
+      "body_sha256": "c06f49ea5d63594ee757832b5c17e495a2823d19b94af534585ddce17559a9f0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.Cell",
+      "query_source_line": 663,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.Cell",
+      "start_line": 6655,
+      "end_line": 6655,
+      "body_sha256": "2f531ee985b87b3e55d5c321cd7113427c7d66b31f8dc4a514d546b2d270640a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.bit",
+      "query_source_line": 664,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.bit",
+      "start_line": 6656,
+      "end_line": 6656,
+      "body_sha256": "c2da80f61abb03095f4c96b126cafd5e8fcdfe2bd28dc7f43ee9375aeeaf1aae",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+      "query_source_line": 665,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedMachine",
+      "start_line": 6657,
+      "end_line": 6658,
+      "body_sha256": "b7b23eb1150411618fc8320e4eb217eb2a331fc90c19fdbd7fd84445a0eed8fb",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+      "query_source_line": 666,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.stoppedCfg",
+      "start_line": 6659,
+      "end_line": 6660,
+      "body_sha256": "256cc2c027885feaff45065e99185dbcd0d85d9d55c26387392e83026be5e197",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+      "query_source_line": 667,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun",
+      "start_line": 6661,
+      "end_line": 6664,
+      "body_sha256": "2638753087447112e7513e0a5d0fe41f3e9d5bdc1ae69797ae7f6806619ada7e",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+      "query_source_line": 668,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun",
+      "start_line": 6665,
+      "end_line": 6672,
+      "body_sha256": "1180f86e6cd178ce557263d19ff3d8cd87ad405932163eeef480359e260eb809",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+      "query_source_line": 669,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps",
+      "start_line": 6673,
+      "end_line": 6674,
+      "body_sha256": "f06aab1cb422e9b4c3dd9821a6603d79f057cd9235c5a4e93c4cfe0c996c6597",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+      "query_source_line": 670,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun",
+      "start_line": 6675,
+      "end_line": 6683,
+      "body_sha256": "0aaecd351a11bb03cb136a14326f3213d1c85a10c4ab22d69fccf2d029d07841",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+      "query_source_line": 671,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps",
+      "start_line": 6684,
+      "end_line": 6685,
+      "body_sha256": "cb1afa819626bae5e1fa362e2cb077993d8d255691aad9e3cb84f8b00cd3f59b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+      "query_source_line": 672,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound",
+      "start_line": 6686,
+      "end_line": 6686,
+      "body_sha256": "130c4df9fca3f2ecc61a341b13007cb624ce5d9d750d4b380c71bb2cda937d3a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+      "query_source_line": 673,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects",
+      "start_line": 6687,
+      "end_line": 6694,
+      "body_sha256": "acb13318ddfd5a44a10ad27a04d3d12dac4acab1a44659482776181d0c5938ab",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+      "query_source_line": 674,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts",
+      "start_line": 6695,
+      "end_line": 6702,
+      "body_sha256": "2018051e223f4bb230a61d22d1c968394b78288022298218d0502b00c0736d83",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+      "query_source_line": 675,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none",
+      "start_line": 6703,
+      "end_line": 6708,
+      "body_sha256": "846b9efa0f5ecc19291a0aa6f5e8ffdcd067cfee77aad8d6c932ffd169325d7a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+      "query_source_line": 676,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none",
+      "start_line": 6709,
+      "end_line": 6714,
+      "body_sha256": "f7516d2d46a9e66b4ab63f61efb00d9a0fa0ea5c3185bc8824baad504d455f61",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+      "query_source_line": 677,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin",
+      "start_line": 6715,
+      "end_line": 6721,
+      "body_sha256": "a486d2ca8ec102f1e0eba90bc37f484259fecff6054b14bc3988f6c4ddf0dc7c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+      "query_source_line": 678,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right",
+      "start_line": 6722,
+      "end_line": 6728,
+      "body_sha256": "bbeaaa117366996918e216a710140489cefe59d95187a0968a0a41b3f92f8eef",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+      "query_source_line": 679,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit",
+      "start_line": 6729,
+      "end_line": 6735,
+      "body_sha256": "98909a58bc09a448cf4fd1c47b536c153a51179f815ec0c30272f1e1f0e6edea",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+      "query_source_line": 680,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantMachine",
+      "start_line": 6736,
+      "end_line": 6737,
+      "body_sha256": "78a784615262d74302fdcb687831c0a2f40160cefeb226c6082e8fa9ed68e605",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantStart",
+      "query_source_line": 681,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantStart",
+      "start_line": 6738,
+      "end_line": 6739,
+      "body_sha256": "f22aa56f359bfbe17e2cc370bd849b2398f7f41abcfe634b0b4ab3e3eb7c1a2c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+      "query_source_line": 682,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantFinish",
+      "start_line": 6740,
+      "end_line": 6741,
+      "body_sha256": "874341a7d2a4f24ab010910413ba40ad6d9e8cfda0a136785a96076b88a070e3",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+      "query_source_line": 683,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantCombined",
+      "start_line": 6742,
+      "end_line": 6744,
+      "body_sha256": "2579d71771ba1a2b763f54ef07ff7a52eda6c365b886bedc99dc73e5a445f553",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+      "query_source_line": 684,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false",
+      "start_line": 6745,
+      "end_line": 6745,
+      "body_sha256": "319009ae5515efb9d276901e2c94a25ff417392baaa28b3593725ff4c4ab5b90",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+      "query_source_line": 685,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true",
+      "start_line": 6746,
+      "end_line": 6747,
+      "body_sha256": "a4feb711498946cc64f43d1c953504ac32b064c8de59f5d55fdf35c8b48e95de",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+      "query_source_line": 686,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true",
+      "start_line": 6748,
+      "end_line": 6750,
+      "body_sha256": "e5f1373ae929fba0be47457a4d9518b4827a21cf5ab62461976ca67bdf3fb07e",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+      "query_source_line": 687,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init",
+      "start_line": 6751,
+      "end_line": 6754,
+      "body_sha256": "50ba56bad287e8a67a5e5a04c33a686b22a1fd48e1023b1c42531ef2c6a36a8c",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+      "query_source_line": 688,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.empty_literal_head",
+      "start_line": 6755,
+      "end_line": 6756,
+      "body_sha256": "eef91e6a1abee941061ba9313a65b1786281b2148498904acd7ce243ce1ebcb1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+      "query_source_line": 689,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head",
+      "start_line": 6757,
+      "end_line": 6758,
+      "body_sha256": "0de036d453820deb9385b5448ff382f45a634a14b458c8ec419078e44cd94000",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+      "query_source_line": 690,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNativeRun",
+      "start_line": 6759,
+      "end_line": 6762,
+      "body_sha256": "d2ae71e51372011096a4997c81a12fe5664c93a6b28344ebb61efc89b6870c0b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+      "query_source_line": 691,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun",
+      "start_line": 6763,
+      "end_line": 6769,
+      "body_sha256": "ef09f4dc1b09bfd6f5a2ded5d59254028df2f610d12f5356b2fbcf62dc6abd9a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+      "query_source_line": 692,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps",
+      "start_line": 6770,
+      "end_line": 6771,
+      "body_sha256": "2e23e1bfc37e3e053a229cd4342ad8bc65ff6ff2f9ae13130a721bebbb51b1dc",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+      "query_source_line": 693,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun",
+      "start_line": 6772,
+      "end_line": 6778,
+      "body_sha256": "dfa6889f9cb3e3410a6ff0e73227e350fcaec143529a75bb7dc4786cd5d3aba4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+      "query_source_line": 694,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps",
+      "start_line": 6779,
+      "end_line": 6780,
+      "body_sha256": "bc463c8bf716ddfb891cc7857b0cc6eabdc65dbccc63e44b042076c06c6a55cf",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+      "query_source_line": 695,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun",
+      "start_line": 6781,
+      "end_line": 6784,
+      "body_sha256": "2cba3c9401ab2dc398ef577189d8eb042e24ddbd30c020271cb2d9af763e4474",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+      "query_source_line": 696,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps",
+      "start_line": 6785,
+      "end_line": 6786,
+      "body_sha256": "76811002bcd711ad3ff4f312131662f1ea100f51f49768aae2882308cd293ad3",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+      "query_source_line": 697,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts",
+      "start_line": 6787,
+      "end_line": 6791,
+      "body_sha256": "2d643e2c4d512b10c880e9e2c29d0abc340757309f5e854af2c1962e1a51f28a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+      "query_source_line": 698,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts",
+      "start_line": 6792,
+      "end_line": 6796,
+      "body_sha256": "d4cf54d3ed11f14d896c923a2f4abde9c597a20b015bc99a90757bb15181fdf4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+      "query_source_line": 699,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint",
+      "start_line": 6797,
+      "end_line": 6802,
+      "body_sha256": "bb271bfc9ca005631d891e4f15810e94d142a4eee7e39acfec4d5b16099bd9be",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+      "query_source_line": 700,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint",
+      "start_line": 6803,
+      "end_line": 6808,
+      "body_sha256": "1502f818b1f6abb4cf4b14957885990d49cbbab7add2b3652ceb5dda0dbae9a0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+      "query_source_line": 701,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint",
+      "start_line": 6809,
+      "end_line": 6816,
+      "body_sha256": "91a6e48462e921213789295b527d20390c608e2bc955f2293cc3412d6562cbae",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+      "query_source_line": 702,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint",
+      "start_line": 6817,
+      "end_line": 6824,
+      "body_sha256": "7093df92b2c203325afe87ece41e3cbe4668daa9048d7744ac3c38f1b4724efd",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+      "query_source_line": 703,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_positions",
+      "start_line": 6825,
+      "end_line": 6832,
+      "body_sha256": "85d2c12a3c16dd8f57a97abfb71fe2172025c3bc301cb475f2308daca14f8660",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+      "query_source_line": 704,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary",
+      "start_line": 6833,
+      "end_line": 6838,
+      "body_sha256": "9e4fa01a3c6a2121fff3481fde22059c07da18b765354f3201c41e5a3915aa68",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+      "query_source_line": 705,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits",
+      "start_line": 6839,
+      "end_line": 6844,
+      "body_sha256": "e7a7e30cdbf6523d7908372c1ee415b5e055ab9d933246ab8f295554d3a6d2e6",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.Phase",
+      "query_source_line": 706,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.Phase",
+      "start_line": 6845,
+      "end_line": 6845,
+      "body_sha256": "36a5a2d7a4f90cfe4208d67afaa3e05d633151a7a3ce844135156b46be31118b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+      "query_source_line": 707,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine",
+      "start_line": 6846,
+      "end_line": 6847,
+      "body_sha256": "4792d0c8a5f45fede0ba15f6b51de9895046f4d1810d3d6d451eb8f9db9a7bf0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+      "query_source_line": 708,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftTape",
+      "start_line": 6848,
+      "end_line": 6848,
+      "body_sha256": "fb2ff2c1c325467bc1f83d107d92483a51d1b52744a2dae37ee89f9f24b85400",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+      "query_source_line": 709,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftStart",
+      "start_line": 6849,
+      "end_line": 6850,
+      "body_sha256": "336e29575a9af8213d8c8c4bd8141c60ce34043b1655be3029f802f78f0bfda0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+      "query_source_line": 710,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish",
+      "start_line": 6851,
+      "end_line": 6852,
+      "body_sha256": "602a13829ec3accf4a92d7ef0751357031a3b66d1599bda90cc94187691ac81b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+      "query_source_line": 711,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun",
+      "start_line": 6853,
+      "end_line": 6856,
+      "body_sha256": "bf37a4b092bfdfe50154f3cf95b68779abd6f3a569861b0db186b0401ff44422",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+      "query_source_line": 712,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun",
+      "start_line": 6857,
+      "end_line": 6863,
+      "body_sha256": "f5f5b1b441e4ebfa62f5d12864aed73257cf8561af09f71b526492f9b90e8664",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+      "query_source_line": 713,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun",
+      "start_line": 6864,
+      "end_line": 6871,
+      "body_sha256": "800cfae99d11babdaf74797efeced084cf6d0b4f0813d9061df42b87aa221a65",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+      "query_source_line": 714,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts",
+      "start_line": 6872,
+      "end_line": 6874,
+      "body_sha256": "6bd143e965fd68ff1182b0cecc616c71f1f7360536b8e0add8cfc76633b66445",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+      "query_source_line": 715,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions",
+      "start_line": 6875,
+      "end_line": 6882,
+      "body_sha256": "63a0028f5e11807e9bba0581eb64b36dd4f82c1782e67ef73691d76792adeeee",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+      "query_source_line": 716,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits",
+      "start_line": 6883,
+      "end_line": 6888,
+      "body_sha256": "c4eb8987f82d54f2f3dde6e28e452fb88f729dc1d1a12a42a570a983daffaa8f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+      "query_source_line": 717,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine",
+      "start_line": 6889,
+      "end_line": 6890,
+      "body_sha256": "e70c05d2847247a1db14d9e0d4107c72e841a3b9f8f810398414163f158b2488",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.blankTape",
+      "query_source_line": 718,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.blankTape",
+      "start_line": 6891,
+      "end_line": 6891,
+      "body_sha256": "247936a84a4be247cd354f858322221e5663077c53a716a2b20428f7665724b1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+      "query_source_line": 719,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseStart",
+      "start_line": 6892,
+      "end_line": 6893,
+      "body_sha256": "bf31ce6a9dee75f5f8ebc744328fa96dbd6e9839a61e7f18ad3a1ad3117fa7cf",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+      "query_source_line": 720,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish",
+      "start_line": 6894,
+      "end_line": 6895,
+      "body_sha256": "db59c0e575e2d748e0688a880c74593b08c8e3751d5edc78dabefb722cb40c0d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+      "query_source_line": 721,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun",
+      "start_line": 6896,
+      "end_line": 6902,
+      "body_sha256": "0b44bfdc9d84f3a1ee410783c21924b235c82ca9dde7875e4fc7432e665fa586",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+      "query_source_line": 722,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_count",
+      "start_line": 6903,
+      "end_line": 6904,
+      "body_sha256": "7b677e1e26edc69304317af8e24375fc286611b3d75ae8a69b03f0057ea84764",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+      "query_source_line": 723,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_positions",
+      "start_line": 6905,
+      "end_line": 6912,
+      "body_sha256": "e2fdbf1617090299339d5e213e7e5e178a831630bde889867c50f2a4684ec36d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+      "query_source_line": 724,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_visits",
+      "start_line": 6913,
+      "end_line": 6918,
+      "body_sha256": "869491dc14be27e0d5ce6acfd7d208bca935741c61134d337813b8679bbe15ca",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+      "query_source_line": 725,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_interval",
+      "start_line": 6919,
+      "end_line": 6925,
+      "body_sha256": "16a157e8ed1f0d1afb71f3e8572d10e87238b48eb2a16147503ed979289f328d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+      "query_source_line": 726,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank",
+      "start_line": 6926,
+      "end_line": 6927,
+      "body_sha256": "ebaecaab4539b0819b8139344e659c9d292f5546be08925d1298fe0e7d5154ea",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+      "query_source_line": 727,
+      "command": "#check Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count",
+      "start_line": 6928,
+      "end_line": 6929,
+      "body_sha256": "41fff61366af8865d73bde71affdd91dc5957917e792fa353b58dd112f89f103",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+      "query_source_line": 728,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype",
+      "start_line": 6930,
+      "end_line": 6932,
+      "body_sha256": "50ddabecf7c6578a26f8d23cf8201a838dadf283d9f9de1cbb5a8fb2cb91ba3d",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+      "query_source_line": 729,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet",
+      "start_line": 6933,
+      "end_line": 6934,
+      "body_sha256": "59f799914a8e3e697e1d3ce9c360aafd932520b9476ccd5eaadd6f8c57b7b990",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+      "query_source_line": 730,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card",
+      "start_line": 6935,
+      "end_line": 6936,
+      "body_sha256": "98a46431daf2c969bdfaf094db45b4a4980d63a4d70e86c3a355634139a58efd",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+      "query_source_line": 731,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet",
+      "start_line": 6937,
+      "end_line": 6938,
+      "body_sha256": "f95c958be3eab461d5364813b2cb1879ee0aeab7388b974dd395f3a222b4ae81",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+      "query_source_line": 732,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime",
+      "start_line": 6939,
+      "end_line": 6940,
+      "body_sha256": "064b956a0ca1ed5cbaf494a88b6f0ba67a6441de5c5bc70ef3f8ddeddc58ec69",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+      "query_source_line": 733,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval",
+      "start_line": 6941,
+      "end_line": 6943,
+      "body_sha256": "f8ee09aa6da51000e6e198dd19f53ab22081360aed5d4af0fbe7da51157adbf0",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+      "query_source_line": 734,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine",
+      "start_line": 6944,
+      "end_line": 6946,
+      "body_sha256": "9ec92e44fafdb0ad4a1b6584a98579dc1d86584008db33d06e84c9ae814494e1",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "query_source_line": 735,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "start_line": 6947,
+      "end_line": 6960,
+      "body_sha256": "a1c4cd0be04e3bc70ce7a93c3cc20fc58ff0b8bd111616f8443369fbda018b86",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+      "query_source_line": 736,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space",
+      "start_line": 6961,
+      "end_line": 6972,
+      "body_sha256": "4b47eb743690fbd7e1009a41f984e5bcbf9edb83ea2b0e3717ed8a27ed3af141",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+      "query_source_line": 737,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine",
+      "start_line": 6973,
+      "end_line": 6975,
+      "body_sha256": "0d9bbd7715a76c74e64ebd561fd2bf866e5e1053c7267be0f48bf31cfc072d92",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "readable",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "query_source_line": 738,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "start_line": 6976,
+      "end_line": 6986,
+      "body_sha256": "c84ae6be58f70a564a7e242dc1bad7330ccd0091248ced5848de2ec3e343db6a",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PrintMove.finite_run_exact",
+      "query_source_line": 739,
+      "command": "#print axioms Resources.TuringSimulation.PrintMove.finite_run_exact",
+      "start_line": 6987,
+      "end_line": 6987,
+      "body_sha256": "d7a0f4c00f01eab4395998e7c69d06ab20571dd4af723e3ebe3910ece6c283f4",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "query_source_line": 740,
+      "command": "#print axioms Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "start_line": 6988,
+      "end_line": 6988,
+      "body_sha256": "b25aefebc378b53ead27996251c87f87bcdd395a3f46ebfff80d2a4c1deeed64",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+      "query_source_line": 741,
+      "command": "#print axioms Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+      "start_line": 6989,
+      "end_line": 6991,
+      "body_sha256": "39680a90e5bcfe4f0646a7005f5a3d61f2f03ed238a7b3527df0eef009ffb95f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "query_source_line": 742,
+      "command": "#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "start_line": 6992,
+      "end_line": 6994,
+      "body_sha256": "16f6eb53b65c50feea65525fa8196b9e987153b06c957080b0ab362315033e0b",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "axiom_roots",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "query_source_line": 743,
+      "command": "#print axioms Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "start_line": 6995,
+      "end_line": 6997,
+      "body_sha256": "166a383280c7689dc6daf8068b77bf6a8c336480ef8cf0ff1e9262ec9ab7d462",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.PrintMove.delta",
+      "query_source_line": 745,
+      "command": "#check Resources.TuringSimulation.PrintMove.delta",
+      "start_line": 6998,
+      "end_line": 7005,
+      "body_sha256": "39e9eda700763e014c432264dac11a0529a0ed5d0d564689b95ee0e3c400f723",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "query_source_line": 747,
+      "command": "#check Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "start_line": 7006,
+      "end_line": 7163,
+      "body_sha256": "eabc4715044ae2e3700de66fc18379beeb4074c0dba8d0346e1a8fbb7c1dca3f",
+      "actual_reading": "No reading credit from this mechanical index"
+    },
+    {
+      "group": "expanded",
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "query_source_line": 749,
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "start_line": 7164,
+      "end_line": 7801,
+      "body_sha256": "fc1a1f787a725c195379fef631eec7bd37a87b7719629dd86951b440d718b615",
+      "actual_reading": "No reading credit from this mechanical index"
+    }
+  ],
+  "literal_elision_line_count": 8,
+  "literal_elision_glyph_occurrences": 14,
+  "literal_elision_lines": [
+    {
+      "line": 4198,
+      "literal_glyph_count": 1,
+      "text": "  let tm : ⋯ :="
+    },
+    {
+      "line": 4201,
+      "literal_glyph_count": 1,
+      "text": "  have input : ⋯ :="
+    },
+    {
+      "line": 4204,
+      "literal_glyph_count": 1,
+      "text": "  have output : ⋯ :="
+    },
+    {
+      "line": 4208,
+      "literal_glyph_count": 1,
+      "text": "  have finish : ⋯ :="
+    },
+    {
+      "line": 4218,
+      "literal_glyph_count": 1,
+      "text": "  have B : ⋯ :="
+    },
+    {
+      "line": 4298,
+      "literal_glyph_count": 1,
+      "text": "    fun (run : ⋯) =>"
+    },
+    {
+      "line": 5583,
+      "literal_glyph_count": 7,
+      "text": "                    (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K ⋯) ⋯) ⋯ ⋯ ⋯ ⋯ ⋯))"
+    },
+    {
+      "line": 5584,
+      "literal_glyph_count": 1,
+      "text": "                ⋯)))))"
+    }
+  ],
+  "literal_elisions_identical_to146": true,
+  "whole_library_or_exhaustive_audit_credit": false,
+  "source_accepted": false
+}

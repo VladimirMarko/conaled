@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "activated_utc": "2026-11-24T12:26:04.298837+00:00",
+  "status": "Round11 reconciled: Standards Blocked only ST-V001; Spec Blocked only SP-V001. Source/documentary/case findings resolved on146 only; no source/receiving acceptance.",
+  "coordinator": "/root/requirements_review",
+  "loop": "Existing CTB-24/FDSA-5-93 full-scope loop, additive successor continuation; no reset.",
+  "original_coordinator": "/root/parser_review",
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "original_seven_rounds_preserved": 7,
+  "round8_C139_preserved": true,
+  "round9_C142_preserved": true,
+  "round10_C144": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-round10-144.json",
+    "bytes": 33941,
+    "sha256": "8293d995358e8eac25e5306ea75bdcb674b23fb8d94245ad789a4bb1c831f061"
+  },
+  "last_review_continuity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity144.json",
+    "bytes": 24270,
+    "sha256": "7402c1a4db981f7a0cc0bbd0590627d10406cf747aa179f38367af1f9a3293f7"
+  },
+  "unreviewed_intervening145": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/unreviewed-candidate145-validation-observation.json",
+    "bytes": 5668,
+    "sha256": "d7a25f81d6ebd06aecc953b6af18fbc5876fee69f6e9bb773913b1fbe0670c3c"
+  },
+  "preserved_HOLD": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity146-HOLD.json",
+    "bytes": 9635,
+    "sha256": "2571e73e332e0827c468f5dc4f1c1db5f1e3de9fabe2f5811042b5dba1dfa3e2"
+  },
+  "active_review_round": 11,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "tree": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 60,
+  "scope_identity": "6745d491eb3e2eb696661aad90a8e14538770105a7e3aca2c3561ee2b6cf39ec",
+  "content_identity": "f2984548febbaaa6b8bc57f651b386f60126b5b74f99c39d5e80c931c52e673b",
+  "projection_identity": "22b413ae8650b3d37c053b557aef75c659c9e3004d71f75ca0e0326ca639cb19",
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146.json",
+    "bytes": 9734476,
+    "sha256": "d85961dd8f7c4f147f204144ccffb46f5990f11195b9f4088af8969b0ad82b82"
+  },
+  "identity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146-identity.json",
+    "bytes": 1369,
+    "sha256": "859441dee9523a54ec381bc43f6790a075ea96ed8184608ef3d77d615f174a54"
+  },
+  "source_map": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146-review-source-map.json",
+    "bytes": 25008,
+    "sha256": "dbe0e0eab33c5ebb654eb67131842df0a2b55a3b29acb4f64bd3270a9ddc6af3"
+  },
+  "dispatch": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-dispatch146.md",
+    "bytes": 8019,
+    "sha256": "1ee3b8bc9cdf48859809f38caa7c80d62d74ec911cba5f5a688e59f71b3af884"
+  },
+  "requirements_carryforward": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/requirements-carryforward144.json",
+    "bytes": 23510,
+    "sha256": "c05318eae533a85c344dd3709e76b0253ec72d8609741ce87119fd6197a14a5a"
+  },
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "axes": {
+    "Standards": {
+      "identity": "/root/requirements_review/standards139",
+      "same_original_successor_axis": true,
+      "resumed_by_followup_task": true,
+      "assessment_started": true,
+      "status": "Final supplied source/query assessment complete within exact recorded limits; Blocked on ST-V001",
+      "finding_ids": [
+        "ST-001",
+        "ST-002",
+        "ST-003",
+        "ST-V001"
+      ],
+      "reports": [
+        "work/review/standards146.md",
+        "work/review/standards146.json"
+      ],
+      "final_reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards146.md",
+          "bytes": 15991,
+          "sha256": "a2ad96eac70181f177eca3628c476cf410446479d1db210b357e797836ee531f"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/standards146.json",
+          "bytes": 69396,
+          "sha256": "cf3055add88fc33d107bb8635adf951823ae45cb842270a035ff673fd76cdb15"
+        }
+      },
+      "same_axis_available_for_matching_validation_followup": true
+    },
+    "Spec": {
+      "identity": "/root/requirements_review/spec139",
+      "same_original_successor_axis": true,
+      "resumed_by_followup_task": true,
+      "assessment_started": true,
+      "status": "Final supplied source/query assessment complete within exact recorded limits; Blocked on SP-V001",
+      "finding_ids": [
+        "SP-D001",
+        "SP-D002",
+        "SP-C001",
+        "SP-V001"
+      ],
+      "reports": [
+        "work/review/spec146.md",
+        "work/review/spec146.json"
+      ],
+      "final_reports": {
+        "markdown": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec146.md",
+          "bytes": 25615,
+          "sha256": "54392bec8c11178192d5b1e22c252edac794c1e7eb27850646b7000b7b478ba2"
+        },
+        "json": {
+          "path": "/workspace/scratch/ae71b485b114/work/review/spec146.json",
+          "bytes": 47913,
+          "sha256": "c563b12fbbae1c1bd9bfe12f471ab92276a3f72bedb5a3f198e9c75570b29ba4"
+        }
+      },
+      "same_axis_available_for_matching_validation_followup": true
+    }
+  },
+  "current146_finding_dispositions": {
+    "ST-001": "Resolved on146 only",
+    "ST-002": "Resolved on146 only",
+    "ST-003": "Scoped source/elaboration defect resolved on146 only",
+    "SP-D001": "Resolved on146 only",
+    "SP-D002": "Resolved on146 only",
+    "SP-C001": "Scoped source/elaboration defect resolved on146 only",
+    "ST-V001": "Unresolved: matching ordinary/whole/audit/immediate verify/compare absent",
+    "SP-V001": "Unresolved: matching integrated validation absent; eight literal expanded visibility omissions retained"
+  },
+  "public_statement_reading_ledger": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/public-statement-reading-ledger146.json",
+    "bytes": 683573,
+    "sha256": "8a694e4769535fe35e77e65e53ef709a8f3c1e32d914831f1019cfefb6b3069c"
+  },
+  "query_execution_at_dispatch": {
+    "start": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.start.json",
+      "bytes": 78994,
+      "sha256": "828c675952157d2999213475d6231e901350bf08b103ece65786cd949a21bcc0"
+    },
+    "preparation": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1-preparation.json",
+      "bytes": 919,
+      "sha256": "afddd98cf13478d18202926312b5df8350a67ace1c1640c74dacb973e9d1f23e"
+    },
+    "name": "current146-statements-attempt1",
+    "started_utc": "2026-11-24T12:21:42.442138+00:00",
+    "bound_inputs": 305,
+    "null_inputs": 0,
+    "terminal_not_observed_by_coordinator": true,
+    "queries": {
+      "readable": 350,
+      "expanded": 19,
+      "axiom_roots": 23
+    },
+    "ordinary_module_validation": false,
+    "historical_start_observation_only": true
+  },
+  "historical_expectation_binding_observation": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/historical-expectation-binding-observation145.json",
+    "bytes": 6599,
+    "sha256": "20afe555e954f7e896e2784bc2c86b6350f2393317ca905389defc6eadc343c3"
+  },
+  "required_validation": {
+    "ordinary_module_graph_and_clients": "Pending",
+    "exact146_whole_and_exhaustive_audit": "Pending",
+    "immediate_nonrepairing_verify": "Pending",
+    "supported_final_compare": "Pending",
+    "whole139": "Older active candidate, seven known child137 exits; no outer terminal or established cause supplied."
+  },
+  "checkpoint_boundary": "Root is packing source144 at its exact11:55:59.937856 cutoff. All round11 records belong to next single complete checkpoint146.",
+  "all_historical_unknowns_and_reading_limits_preserved": true,
+  "full_programme_stays_open": true,
+  "qualification_changed": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "third_substantive_axis": false,
+  "coordinator_compiler_source_acceptance_or_project_output_mutation": false,
+  "issue558_messages_or_publication": false,
+  "reconciled_utc": "2026-11-24T12:50:05.309333+00:00",
+  "initial_dispatch_snapshot": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-continuity146-initial-dispatch-before-final146.json",
+    "bytes": 7290,
+    "sha256": "1ceeb1db61448a8c41327bef269ff1e4d3e608367339dba573bc06150271a2a5"
+  },
+  "final_round_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-round11-146.json",
+    "bytes": 27649,
+    "sha256": "a2b14094f141cd280a21bd07faad6991468e7ad91df4fc0c65f235f94136026c"
+  },
+  "reconciliation_markdown": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/reconciliation-round11-146.md",
+    "bytes": 10346,
+    "sha256": "b0feb3d54884ebd5113c66708c091746996ff7a14c7be0721adf29bc7862be5a"
+  },
+  "actual_query_final": {
+    "actual_result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.result.json",
+      "bytes": 157895,
+      "sha256": "d812c523b083299c6dab58fa7dcb0e1d399f88a07c329eae8fcdb45694f14374"
+    },
+    "actual_child": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.child-exit.json",
+      "bytes": 1328,
+      "sha256": "c8c66c93ca318bfd61d8ebb992efa77f1a183adabdc8371f1ab05b5f6f7dbfc7"
+    },
+    "actual_source": {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean",
+      "bytes": 1424668,
+      "sha256": "23d4265e4eed2fc5ac2000fd88f69cab95615dedbf8a3f33a3649020dee6d2b8"
+    },
+    "actual_log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "actual_log_lines": 5723,
+    "actual_exit_code": 0,
+    "started_utc": "2026-11-24T12:21:42.442138+00:00",
+    "finished_utc": "2026-11-24T12:26:56.224414+00:00",
+    "elapsed_seconds": 313.7760097340033,
+    "command": [
+      "python3",
+      "-B",
+      "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+      "--state",
+      "/workspace/scratch/ae71b485b114/work/native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/ae71b485b114/work/acceptance139",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "-EhasSorry",
+      "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean"
+    ],
+    "actual305_before_after_equal_nonnull": true,
+    "new_resource_or_time_limits": false,
+    "diagnostic_entries": []
+  },
+  "old18_current146_gap_closed": true,
+  "Standards_previous_expanded_emitted_reading_gaps_closed_on146": true,
+  "eight_printer_omissions_remaining": [
+    4198,
+    4201,
+    4204,
+    4208,
+    4218,
+    4298,
+    5583,
+    5584
+  ],
+  "fresh_vs_reused_reading": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/round11-output-comparison146.json",
+    "bytes": 359235,
+    "sha256": "f53667db6ebb96f7dfce2d0e57f14706ed96926c3d4b7264b70f5d53a02d020e"
+  },
+  "checkpoint_root_report": "C144 archive verified, extracted and durably saved; full repository restore pending disk guard. Recovery is not acceptance. All new round11 records belong to next single complete146 checkpoint.",
+  "next_validation_followup": "Same immutable146 and same original axes; preserve exact evidence identity and reading limits, no review-loop reset. A later source change requires its own supported capture and next candidate review."
+}

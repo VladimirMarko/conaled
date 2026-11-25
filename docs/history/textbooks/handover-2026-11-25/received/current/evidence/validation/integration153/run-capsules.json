@@ -1,0 +1,546 @@
+{
+  "schema": 1,
+  "kind": "exact-completed-run-receipt-capsules-with-explicit-map-deltas",
+  "canonical_member": "current/evidence/validation/integration153/run-capsules.json",
+  "anchor": {
+    "canonical_member": "current/evidence/validation/integration153/query-b.start.json",
+    "map_field": "source_bindings",
+    "binding_count": 4048,
+    "literal_receipt_id": "query-b.start"
+  },
+  "literal_files": [
+    {
+      "canonical_member": "current/evidence/validation/integration153/query-b.start.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.start.json",
+        "bytes": 1027113,
+        "sha256": "31ebba79886a6f0ae12bbbb5cd878b1df9b313dc394e8a13faf04013e3d0e06f",
+        "mode": "0644"
+      },
+      "purpose": "Literal current4048-binding anchor and complete query start receipt."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/owners-a.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.child-exit.json",
+        "bytes": 2159,
+        "sha256": "2b4ec3297698995b0c05143949cb5cfabeab8bfd7ff48732f35822fe06407c7f",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/owners-a.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.log",
+        "bytes": 20043,
+        "sha256": "cc1418e912f5e34ce8674de1384202381e0d30843e0da875cf262268e44d5732",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/owners-b.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.child-exit.json",
+        "bytes": 2159,
+        "sha256": "f6aaf2ffe0c1f2c1cfed32a701ffc8e5905a226c304a16c70817fe9cc6db0d60",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/owners-b.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.log",
+        "bytes": 16790,
+        "sha256": "3aa5cd0fd356ecc00ff5da2a86ec84dff35d4c7f9747189f5ae4cf72ee334498",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/query-b.child-exit.json",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.child-exit.json",
+        "bytes": 1313,
+        "sha256": "11f25ed8e5d91f21f3b6ae0ac47d3546b765b3729eb13b6164ff947180109f81",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    },
+    {
+      "canonical_member": "current/evidence/validation/integration153/query-b.log",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.log",
+        "bytes": 960006,
+        "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+        "mode": "0644"
+      },
+      "purpose": "Literal actual child terminal or complete captured compiler output."
+    }
+  ],
+  "projections": {
+    "owners-a": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [
+        "/workspace/scratch/ae71b485b114/work/integration153-root/REPAIR153b.json",
+        "/workspace/scratch/ae71b485b114/work/integration153-root/CANDIDATE153b.json",
+        "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.log",
+        "/workspace/scratch/ae71b485b114/work/integration153-root/focused153b.inputs.json"
+      ],
+      "descriptor_overrides": {
+        "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/BinaryYesVerifier.lean": {
+          "bytes": 12187,
+          "sha256": "2beebc75c62332ca8bb974f8fb7469d431867c0feed0bc4dc3274f596319455f",
+          "mode": "100644"
+        }
+      },
+      "binding_count": 4044,
+      "key_order": "Anchor order, exact omissions and explicit descriptor substitutions. Substitution preserves original failed-source identity."
+    },
+    "owners-b": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [],
+      "descriptor_overrides": {},
+      "binding_count": 4048,
+      "key_order": "Anchor order, exact omissions and explicit descriptor substitutions. Substitution preserves original failed-source identity."
+    },
+    "query-b": {
+      "anchor_map_field": "source_bindings",
+      "omitted_keys": [],
+      "descriptor_overrides": {},
+      "binding_count": 4048,
+      "key_order": "Anchor order, exact omissions and explicit descriptor substitutions. Substitution preserves original failed-source identity."
+    }
+  },
+  "records": [
+    {
+      "id": "owners-a.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.start.json",
+        "bytes": 1027068,
+        "sha256": "8f264f0e3b9cc278f9b2d63863b964116d2ccbc06bee05f3f6bacb2dda77539c",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners153-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T23:41:09.862066+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners-a"
+        }
+      }
+    },
+    {
+      "id": "owners-a.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.result.json",
+        "bytes": 2053145,
+        "sha256": "903126328fa536725875b19aa95c3ba8aa4f5b17023d5e95216586ebddfb755f",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners153-a",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T23:41:09.862066+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T23:41:59.815340+00:00",
+        "elapsed_seconds": 49.93705243899967,
+        "recorded_utc": "2026-11-24T23:41:59.926564+00:00",
+        "exit_code": 1,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.log",
+        "log_descriptor": {
+          "bytes": 20043,
+          "sha256": "cc1418e912f5e34ce8674de1384202381e0d30843e0da875cf262268e44d5732",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-a.child-exit.json",
+          "bytes": 2159,
+          "sha256": "2b4ec3297698995b0c05143949cb5cfabeab8bfd7ff48732f35822fe06407c7f",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners-a"
+        },
+        "source_bindings_after": {
+          "projection": "owners-a"
+        }
+      }
+    },
+    {
+      "id": "owners-b.start",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.start.json",
+        "bytes": 1027957,
+        "sha256": "f5c033f2a7efc24b614f944e58f4bb268e46465b0721f8e8f810b96330d45860",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners153-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T23:46:31.627322+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners-b"
+        }
+      }
+    },
+    {
+      "id": "owners-b.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.result.json",
+        "bytes": 2054923,
+        "sha256": "6f2d22d9a9a005adefebe67eaa1acf667ff385eb56200082d342dc6e607d1602",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "owners153-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "--no-cache",
+          "--rehash",
+          "build",
+          "Applications.Resources.PolynomialTime.NormalForm",
+          "Applications.Resources.TuringSimulation.OrdinaryPackage",
+          "Applications.Resources.RotationCertificate.DelimiterMachine",
+          "Applications.Resources.RotationCertificate.DelimiterExecution",
+          "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+          "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+          "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+          "Applications.Resources.TuringSimulation.ConventionalVerifier",
+          "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+          "Examples.TuringSimulation",
+          "Examples.RotationCertificateDelimiterMachine",
+          "Examples.RotationCertificateCorrespondence",
+          "Examples.RotationCertificateFrontEndStreamMachine",
+          "Examples.RotationCertificateFrontEndStreamTapeMachine",
+          "Examples.RotationCertificateStreamMachine",
+          "Examples.RotationDistance"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T23:46:31.627322+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T23:46:38.068272+00:00",
+        "elapsed_seconds": 6.425058723001712,
+        "recorded_utc": "2026-11-24T23:46:38.191650+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.log",
+        "log_descriptor": {
+          "bytes": 16790,
+          "sha256": "3aa5cd0fd356ecc00ff5da2a86ec84dff35d4c7f9747189f5ae4cf72ee334498",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.child-exit.json",
+          "bytes": 2159,
+          "sha256": "f6aaf2ffe0c1f2c1cfed32a701ffc8e5905a226c304a16c70817fe9cc6db0d60",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "owners-b"
+        },
+        "source_bindings_after": {
+          "projection": "owners-b"
+        }
+      }
+    },
+    {
+      "id": "query-b.result",
+      "original_descriptor": {
+        "original_path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.result.json",
+        "bytes": 2054078,
+        "sha256": "d2290063aae6709dfc0f45b42f0ecd4b16fdc32213a0acc9bd05ccf46bd80bde",
+        "mode": "0644"
+      },
+      "original_top_level_key_order": [
+        "schema",
+        "name",
+        "command",
+        "project",
+        "started_utc",
+        "source_bindings",
+        "resource_or_time_limits_added",
+        "boundary",
+        "finished_utc",
+        "elapsed_seconds",
+        "recorded_utc",
+        "exit_code",
+        "source_bindings_after",
+        "sources_unchanged",
+        "log",
+        "log_descriptor",
+        "child_exit_receipt"
+      ],
+      "nonmap_fields": {
+        "schema": 1,
+        "name": "query153-b",
+        "command": [
+          "python3",
+          "-B",
+          "/workspace/scratch/ae71b485b114/work/checkpoint152-corrected-stage/conaled-textbooks-152-checkpoint-2026-11-24T231500Z/operations/native/native_profile.py",
+          "--state",
+          "/workspace/scratch/ae71b485b114/work/native-state147",
+          "run",
+          "--project",
+          "/workspace/scratch/ae71b485b114/work/conaled",
+          "--",
+          "lake",
+          "env",
+          "lean",
+          "-EhasSorry",
+          "/workspace/scratch/ae71b485b114/work/integration153-preparation/generated/Integration153Statements.lean"
+        ],
+        "project": "/workspace/scratch/ae71b485b114/work/conaled",
+        "started_utc": "2026-11-24T23:48:10.619401+00:00",
+        "resource_or_time_limits_added": false,
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+        "finished_utc": "2026-11-24T23:48:15.229553+00:00",
+        "elapsed_seconds": 4.592770180002844,
+        "recorded_utc": "2026-11-24T23:48:15.345905+00:00",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "log": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.log",
+        "log_descriptor": {
+          "bytes": 960006,
+          "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+          "mode": "100644"
+        },
+        "child_exit_receipt": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.child-exit.json",
+          "bytes": 1313,
+          "sha256": "11f25ed8e5d91f21f3b6ae0ac47d3546b765b3729eb13b6164ff947180109f81",
+          "mode": "100644"
+        }
+      },
+      "map_fields": {
+        "source_bindings": {
+          "projection": "query-b"
+        },
+        "source_bindings_after": {
+          "projection": "query-b"
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "owners-a",
+      "start_record": "owners-a.start",
+      "result_record": "owners-a.result",
+      "child_member": "current/evidence/validation/integration153/owners-a.child-exit.json",
+      "log_member": "current/evidence/validation/integration153/owners-a.log",
+      "actual_exit_code": 1,
+      "nonnull_before_after_bindings": 4044,
+      "actual_before_after_equal": true
+    },
+    {
+      "id": "owners-b",
+      "start_record": "owners-b.start",
+      "result_record": "owners-b.result",
+      "child_member": "current/evidence/validation/integration153/owners-b.child-exit.json",
+      "log_member": "current/evidence/validation/integration153/owners-b.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 4048,
+      "actual_before_after_equal": true
+    },
+    {
+      "id": "query-b",
+      "start_record": "query-b.start",
+      "result_record": "query-b.result",
+      "child_member": "current/evidence/validation/integration153/query-b.child-exit.json",
+      "log_member": "current/evidence/validation/integration153/query-b.log",
+      "actual_exit_code": 0,
+      "nonnull_before_after_bindings": 4048,
+      "actual_before_after_equal": true
+    }
+  ],
+  "serialization": "UTF-8 json.dumps indent2 ensure_ascii=True sort_keys=False and finalLF; top-level/map insertion order preserved.",
+  "creation_verification": {
+    "original_receipts": 6,
+    "original_total_bytes": 9244284,
+    "all_original_bytes_reconstructed_exactly": true
+  },
+  "identity_boundary": "Original full-file descriptors are provenance and verification targets, never aliases to capsule bytes. Failed a remainsfailed with its original oldsource descriptor.",
+  "limits": "This reconstructs actual records and checks child/result/log identity, not compiler provenance, mathematical reading, whole audit or acceptance."
+}

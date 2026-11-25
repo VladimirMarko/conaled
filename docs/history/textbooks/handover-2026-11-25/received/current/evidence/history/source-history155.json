@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "prior_candidate": "8f299334a51a00b02c79850d73dd4f165c73e671",
+  "prior_tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "current_candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "current_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "retained_actual_baseline": "current/evidence/validation/baseline154-scope72.json",
+  "current_capture": "current/evidence/validation/candidate155.json",
+  "changed_paths": [
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "kind": "Insert exact checked generic block; all previous bytes retained in order.",
+      "before": {
+        "bytes": 25433,
+        "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5"
+      },
+      "after": {
+        "bytes": 26946,
+        "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496"
+      },
+      "mode": "100644"
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "kind": "Insert exact checked example namespace including unchanged literal statements and the recorded type annotation; all prior bytes retained in order.",
+      "before": {
+        "bytes": 74616,
+        "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4"
+      },
+      "after": {
+        "bytes": 79470,
+        "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906"
+      },
+      "mode": "100644"
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "kind": "Append source155 mathematical correspondence and exact prevalidation boundary; all prior text preserved.",
+      "before": {
+        "bytes": 3785863,
+        "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d"
+      },
+      "after": {
+        "bytes": 3789101,
+        "sha256": "9076cee65790498561b8b3a63b4c81ef21585baefc232271dcf53b579501800c"
+      },
+      "mode": "100644"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "kind": "Replace only 3 decoded current progress gate strings; all other bytes unchanged.",
+      "before": {
+        "bytes": 853606,
+        "sha256": "c71f097fcb63a555e8fbf898a0c3b6f5e09af9e5cc19d51959cb1bb27b99c540"
+      },
+      "after": {
+        "bytes": 853522,
+        "sha256": "c0dc06a2122f18c0d31fe9d5d40ab0bde8ca1bcb60b99b77800393b74a43ebbc"
+      },
+      "mode": "100644"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "kind": "Replace only 2 decoded current progress gate strings; all other bytes unchanged.",
+      "before": {
+        "bytes": 54127,
+        "sha256": "5ea3eba4889b2d1961ac3c3cf27edf10c5def2fb4841c56198bb4a713349d343"
+      },
+      "after": {
+        "bytes": 54071,
+        "sha256": "2d3d5204e3f621d23a467e2c378b4f7b97429fe7f5bb7c1a60624443e9d150de"
+      },
+      "mode": "100644"
+    }
+  ],
+  "old_capture_descriptor": {
+    "bytes": 9739739,
+    "sha256": "d3c736a61b4e91da77e87b959a49501063d1c0a9192c63a17fddab99dc27a69c",
+    "mode": "100644"
+  },
+  "old_capture_scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+  "old_capture_content_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+  "old_capture_actual_result": {
+    "schema": 1,
+    "name": "candidate154-scope72",
+    "command": [
+      "python3",
+      "-B",
+      "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+      "--state",
+      "/workspace/scratch/ae71b485b114/work/native-state154",
+      "run",
+      "--project",
+      "/workspace/scratch/ae71b485b114/work/conaled154",
+      "--",
+      "python3",
+      "-B",
+      "scripts/review_snapshot.py",
+      "candidate",
+      "--repo",
+      "/workspace/scratch/ae71b485b114/work/conaled154",
+      "--manifest",
+      "/workspace/scratch/ae71b485b114/work/resume154/manifest154-scope72.json",
+      "--record",
+      "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.log"
+    ],
+    "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+    "started_utc": "2026-11-25T04:59:49.003971+00:00",
+    "resource_or_time_limits_added": false,
+    "boundary": "Actual command result; focused compilation is not whole-library acceptance.",
+    "finished_utc": "2026-11-25T05:00:18.718209+00:00",
+    "elapsed_seconds": 29.71180708999964,
+    "recorded_utc": "2026-11-25T05:00:19.773519+00:00",
+    "exit_code": 0,
+    "sources_unchanged": true,
+    "log": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.log",
+    "log_descriptor": {
+      "bytes": 9739739,
+      "sha256": "d3c736a61b4e91da77e87b959a49501063d1c0a9192c63a17fddab99dc27a69c",
+      "mode": "100644"
+    },
+    "child_exit_receipt": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs154/candidate154-scope72.child-exit.json",
+      "bytes": 1512,
+      "sha256": "ea1e0962fa2a0f4aa9478f32f692e9bfda071f4b6274419718669d678bbe1f3b",
+      "mode": "100644"
+    }
+  },
+  "availability": "The obsolete full154 candidate map is retired. Its complete body is not reconstructed by this packet; prior saved154 retains it. Current complete capture plus real pre-edit baseline survive. Historical native results/reviews remain candidate-specific.",
+  "source_accepted": false,
+  "receiving_accepted": false
+}

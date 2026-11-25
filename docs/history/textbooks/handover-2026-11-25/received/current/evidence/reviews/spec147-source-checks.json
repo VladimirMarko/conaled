@@ -1,0 +1,676 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "reviewer": "/root/requirements_review147/spec147",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "time_utc": "2026-11-24T19:27:25.354708+00:00",
+  "source_bindings": {
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "mode": "100644"
+    },
+    "Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "100644"
+    },
+    "SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "100644"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "100644"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "100644"
+    },
+    "docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "mode": "100644"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "100644"
+    },
+    "docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "mode": "100644"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "mode": "100644"
+    }
+  },
+  "new_owners": [
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+    "Applications/Resources/TuringSimulation/PrintMove.lean"
+  ],
+  "changed_existing_owners": [
+    "Examples/TuringSimulation.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/coverage.json"
+  ],
+  "unchanged146_owners": [
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+    "Applications/Resources/RotationCertificate/BitCodec.lean",
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+    "Applications/Resources/RotationCertificate/InputParser.lean",
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+    "Applications/Resources/RotationCertificate/StreamMachine.lean",
+    "Applications/Resources/RotationCertificate/Streaming.lean",
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+    "Applications/Resources/RotationCertificate/TreeParser.lean",
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+    "Applications/Resources/RotationCertificate/Verifier.lean",
+    "Applications/Resources/RotationCertificate/Witness.lean",
+    "Applications/Resources/TuringSimulation/FiniteControl.lean",
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+    "Applications/Resources/TuringSimulation/MarkedInput.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+    "Applications/Resources/TuringSimulation/StackToTape.lean",
+    "Applications/Resources/TuringSimulation/TapeReflection.lean",
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Examples/RotationCertificateBinary.lean",
+    "Examples/RotationCertificateBitDecoderMachine.lean",
+    "Examples/RotationCertificateBitPairFraming.lean",
+    "Examples/RotationCertificateCorrespondence.lean",
+    "Examples/RotationCertificateFrontEndMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+    "Examples/RotationCertificateFuelMachine.lean",
+    "Examples/RotationCertificateInputParserMachine.lean",
+    "Examples/RotationCertificateMoveApplyMachine.lean",
+    "Examples/RotationCertificateMoveParserMachine.lean",
+    "Examples/RotationCertificateOpenDecoderMachine.lean",
+    "Examples/RotationCertificateOpenFramingMachine.lean",
+    "Examples/RotationCertificateParsing.lean",
+    "Examples/RotationCertificatePositionedRotationMachine.lean",
+    "Examples/RotationCertificateStreamMachine.lean",
+    "Examples/RotationCertificateTreeEqualityMachine.lean",
+    "Examples/RotationCertificateTreeParserMachine.lean",
+    "Examples/RotationCertificateVerification.lean",
+    "docs/textbooks/README.md",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md"
+  ],
+  "seven_bodies": {
+    "ordinary_machine": {
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "lines": [
+        24,
+        153
+      ],
+      "bytes": 6360,
+      "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565",
+      "full_body_freshly_read": true
+    },
+    "ordinary_run": {
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "lines": [
+        155,
+        388
+      ],
+      "bytes": 13314,
+      "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8",
+      "full_body_freshly_read": true
+    },
+    "ordinary_cases": {
+      "owner": "Examples/TuringSimulation.lean",
+      "lines": [
+        1179,
+        1426
+      ],
+      "bytes": 11348,
+      "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76",
+      "full_body_freshly_read": true
+    },
+    "printmove_adapter": {
+      "owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "lines": [
+        28,
+        492
+      ],
+      "bytes": 20492,
+      "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599",
+      "full_body_freshly_read": true
+    },
+    "printmove_trace": {
+      "owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "lines": [
+        494,
+        754
+      ],
+      "bytes": 11704,
+      "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8",
+      "full_body_freshly_read": true
+    },
+    "printmove_cases": {
+      "owner": "Examples/TuringSimulation.lean",
+      "lines": [
+        1428,
+        1716
+      ],
+      "bytes": 12692,
+      "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483",
+      "full_body_freshly_read": true
+    },
+    "polynomial_consumer": {
+      "owner": "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "lines": [
+        20,
+        149
+      ],
+      "bytes": 6791,
+      "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a",
+      "full_body_freshly_read": true
+    }
+  },
+  "existing_examples_and_aggregate_full_bodies_preserved": true,
+  "five_document_gate_changes": [
+    {
+      "owner": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-78",
+        "next_action"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "owner": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-24",
+        "next_implementation_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "owner": "docs/textbooks/CTB.json",
+      "path": [
+        "next_ticket_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "owner": "docs/textbooks/coverage.json",
+      "path": [
+        "source_readiness",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "owner": "docs/textbooks/coverage.json",
+      "path": [
+        "qualification_basis",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    }
+  ],
+  "all_other_decoded_values_unchanged": true,
+  "paper_full146_prefix_preserved": true,
+  "paper_addendum": {
+    "bytes": 3775,
+    "sha256": "3d9c1f42bb450fc2500d76215624d92afc1d379ff1f49690ea014189c6bde709",
+    "first_line": 75203,
+    "last_line": 75258
+  },
+  "four_focused_results": {
+    "prerequisites147": {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.result.json",
+        "bytes": 38891,
+        "sha256": "63fec67ea4079593a9d9d29ee4cfbacaea3132c7c4b8a9af07bb50c13cdb63de"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.child-exit.json",
+        "bytes": 1566,
+        "sha256": "e73a79b528b915febc648db8e425acae958261c1fb97fbbcaa8baeed303a3702"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.log",
+        "bytes": 3347,
+        "sha256": "e7a1553f76dc71e0f210d1ee0b58793e547f5677a309b8bc40860a01b9cb9fb3"
+      },
+      "elapsed_seconds": 16.655972108999777,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.FiniteControl",
+        "Applications.Resources.TuringSimulation.FiniteStackToTape",
+        "Applications.Resources.TuringSimulation.TapeReflection",
+        "Applications.Resources.TuringSimulation.SingletonOutput",
+        "Applications.Resources.TuringSimulation.MarkedInput",
+        "Applications.Resources.TuringSimulation.PolynomialDecider"
+      ],
+      "exit_code": 0,
+      "nonnull_unchanged_inputs": 75,
+      "all63_candidate_sources_match": true,
+      "full_log_freshly_read": true
+    },
+    "generic-owners147": {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.result.json",
+        "bytes": 38638,
+        "sha256": "b90d5551b60e9f4bd2ca19722ddb22f11e602476d9e1bafddb1e8dc18bec8c19"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.child-exit.json",
+        "bytes": 1313,
+        "sha256": "ed241f285be073cbf562361ee25a8cbc42482c110575db6990cbf4a856b5e05e"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+        "bytes": 4204,
+        "sha256": "e8bc9e1463a901f51bb4290abeaafc130ef2f576f02156b5c90fffb5a6748312"
+      },
+      "elapsed_seconds": 3.378310486999908,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PrintMove"
+      ],
+      "exit_code": 0,
+      "nonnull_unchanged_inputs": 75,
+      "all63_candidate_sources_match": true,
+      "full_log_freshly_read": true
+    },
+    "polynomial-owner147": {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.result.json",
+        "bytes": 38598,
+        "sha256": "5a59a54b19f9160695e835aab722e040936b1f128afb99c71cd0e79ba417ebcf"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.child-exit.json",
+        "bytes": 1273,
+        "sha256": "fdaf047b7e7e419020fc5a79eff7dea040b8b3d144d6bddb8c3c961c4edd17b6"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.log",
+        "bytes": 2184,
+        "sha256": "db4c21804cf0ed035cdf70a048c6bf9e79a31d6dab0ab7293f2a5e216ac5a045"
+      },
+      "elapsed_seconds": 2.806057308000163,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove"
+      ],
+      "exit_code": 0,
+      "nonnull_unchanged_inputs": 75,
+      "all63_candidate_sources_match": true,
+      "full_log_freshly_read": true
+    },
+    "turing-examples147": {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.result.json",
+        "bytes": 38554,
+        "sha256": "a33871cbf2411cb3aac4fcb5d911d499e86d5655d25a5cb797b725d1deddc344"
+      },
+      "child_exit": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.child-exit.json",
+        "bytes": 1229,
+        "sha256": "dd787ed26d04392034c0c5a36d6972872dee7a8872fc81430948fbc3c8f93657"
+      },
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.log",
+        "bytes": 6536,
+        "sha256": "f079235fcb6c2c858ef83913413e420e5f51e13fdb57cc3f82fd65143a24c7e0"
+      },
+      "elapsed_seconds": 6.233093702000133,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Examples.TuringSimulation"
+      ],
+      "exit_code": 0,
+      "nonnull_unchanged_inputs": 75,
+      "all63_candidate_sources_match": true,
+      "full_log_freshly_read": true
+    }
+  },
+  "boundary": "Mechanical source/capture/evidence checks plus explicitly attributed reading; no compiler, source mutation, query execution, whole validation or acceptance."
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "name": "prerequisites147",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "build",
+    "Applications.Resources.TuringSimulation.FiniteControl",
+    "Applications.Resources.TuringSimulation.FiniteStackToTape",
+    "Applications.Resources.TuringSimulation.TapeReflection",
+    "Applications.Resources.TuringSimulation.SingletonOutput",
+    "Applications.Resources.TuringSimulation.MarkedInput",
+    "Applications.Resources.TuringSimulation.PolynomialDecider"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/acceptance147",
+  "started_utc": "2026-11-24T19:22:42.945993+00:00",
+  "finished_utc": "2026-11-24T19:22:59.603345+00:00",
+  "elapsed_seconds": 16.655972108999777,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.start.json",
+    "bytes": 19635,
+    "sha256": "de17d3040eb7a1ac169caf6ef123790ea9c4bf62d4c3573e33b71ba0e824f794",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

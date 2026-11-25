@@ -1,0 +1,1143 @@
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (input cert : Resources.BinaryCounter.Bits),
+  Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral raw = some (input, cert) ↔
+    raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw = true ↔
+    ∃ input cert,
+      raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ∧
+        (Resources.RotationCertificate.verifyBitsRun input cert).1 = true
+Examples.DelimiterCheckingRelation150.empty_missing_rejects : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      [] =
+    none ∧
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited [] = false
+Examples.DelimiterCheckingRelation150.present_false_missing_rejects : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      [some false] =
+    none ∧
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited [some false] = false
+Examples.DelimiterCheckingRelation150.delimiter_only_parses : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+    [none] =
+  some ([], [])
+Examples.DelimiterCheckingRelation150.empty_input_false_certificate_parses : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+    [none, some false] =
+  some ([], [false])
+Examples.DelimiterCheckingRelation150.false_input_empty_certificate_parses : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+    [some false, none] =
+  some ([false], [])
+Examples.DelimiterCheckingRelation150.mixed_order_parses : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+    [some true, some false, none, some false, some true] =
+  some ([true, false], [false, true])
+Examples.DelimiterCheckingRelation150.mixed_pair_checker : Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+    [some true, some false, none, some false, some true] =
+  (Resources.RotationCertificate.verifyBitsRun [true, false] [false, true]).1
+Examples.DelimiterCheckingRelation150.two_delimiters_reject : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      [none, none] =
+    none ∧
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited [none, none] = false
+Examples.DelimiterCheckingRelation150.repeated_with_more_tail_rejects : Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral
+      [some false, none, some true, none, some false, none] =
+    none ∧
+  Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+      [some false, none, some true, none, some false, none] =
+    false
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) (input cert : Resources.BinaryCounter.Bits),
+  Iff
+    (@Eq.{1} (Option.{0} (Prod.{0, 0} Resources.BinaryCounter.Bits Resources.BinaryCounter.Bits))
+      (Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral raw)
+      (@Option.some.{0} (Prod.{0, 0} Resources.BinaryCounter.Bits Resources.BinaryCounter.Bits)
+        (@Prod.mk.{0, 0} Resources.BinaryCounter.Bits Resources.BinaryCounter.Bits input cert)))
+    (@Eq.{1} Resources.RotationCertificate.DelimiterPreludeDraft.Raw raw
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))
+Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  Iff (@Eq.{1} Bool (Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited raw) Bool.true)
+    (@Exists.{1} Resources.BinaryCounter.Bits fun (input : Resources.BinaryCounter.Bits) =>
+      @Exists.{1} Resources.BinaryCounter.Bits fun (cert : Resources.BinaryCounter.Bits) =>
+        And
+          (@Eq.{1} Resources.RotationCertificate.DelimiterPreludeDraft.Raw raw
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))
+          (@Eq.{1} Bool (@Prod.fst.{0, 0} Bool Nat (Resources.RotationCertificate.verifyBitsRun input cert)) Bool.true))
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff' depends on axioms: [propext]
+'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff' depends on axioms: [propext,
+ Quot.sound]
+'Examples.DelimiterCheckingRelation150.mixed_pair_checker' depends on axioms: [propext, Quot.sound]
+'Examples.DelimiterCheckingRelation150.repeated_with_more_tail_rejects' depends on axioms: [propext, Quot.sound]
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Input : Type) (f : List Input → Bool) :
+  Type 1
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine_eq_none_iff {Input : Type}
+  {f : List Input → Bool} (self : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (q : self.Control) (a : self.Alphabet) : self.machine q a = none ↔ q = self.accept ∨ q = self.reject
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run {Input : Type} {f : List Input → Bool}
+  (self : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) (raw : List Input) :
+  ∃ finish,
+    Nonempty
+        (StateTransition.EvalsToInTime (Resources.TuringSimulation.PrintMove.step self.machine)
+          (Resources.TuringSimulation.PrintMove.init self.start (List.map (⇑self.letter) raw)) (some finish)
+          (raw.length ^ self.exponent + self.exponent)) ∧
+      finish.q = if f raw = true then self.accept else self.reject
+Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run.{u_1} {σ : Type u_1} {f : σ → Option σ}
+  {a b : σ} (run : StateTransition.EvalsTo f a (some b)) : StateTransition.Reaches f a b
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.transition_some_of_nonterminal
+  {Input : Type} {f : List Input → Bool}
+  (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) (q : d.Control)
+  (a : d.Alphabet) (notAccept : q ≠ d.accept) (notReject : q ≠ d.reject) : ∃ action, d.machine q a = some action
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.literal_input_length {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (raw : List Input) : (List.map (⇑d.letter) raw).length = raw.length
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.step_eq_none_iff {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (c : Resources.TuringSimulation.PrintMove.Cfg d.Alphabet d.Control) :
+  Resources.TuringSimulation.PrintMove.step d.machine c = none ↔ c.q = d.accept ∨ c.q = d.reject
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run_and_stopped {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (raw : List Input) :
+  ∃ finish,
+    Nonempty
+        (StateTransition.EvalsToInTime (Resources.TuringSimulation.PrintMove.step d.machine)
+          (Resources.TuringSimulation.PrintMove.init d.start (List.map (⇑d.letter) raw)) (some finish)
+          (raw.length ^ d.exponent + d.exponent)) ∧
+      Resources.TuringSimulation.PrintMove.step d.machine finish = none ∧
+        finish.q = if f raw = true then d.accept else d.reject
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (raw : List Input) : Prop
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (raw : List Input) : d.Accepts raw ↔ f raw = true
+Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.empty_run {Input : Type}
+  {f : List Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) :
+  ∃ finish,
+    Nonempty
+        (StateTransition.EvalsToInTime (Resources.TuringSimulation.PrintMove.step d.machine)
+          (Resources.TuringSimulation.PrintMove.init d.start []) (some finish) (0 ^ d.exponent + d.exponent)) ∧
+      Resources.TuringSimulation.PrintMove.step d.machine finish = none ∧
+        finish.q = if f [] = true then d.accept else d.reject
+Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) [DecidableEq d.Alphabet] :
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Bool f
+Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative_accepts_iff {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) [DecidableEq d.Alphabet] (raw : List Bool) :
+  (Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative d).Accepts raw ↔ f raw = true
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider {R : Type} [Fintype R] (initial : R)
+  [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)] :
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Option Bool)
+    Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.machine_and_input {R : Type} [Fintype R]
+  (initial : R) [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)] :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).machine =
+      Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.conventionalMachine initial ∧
+    (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter =
+        Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.inputLetter initial ∧
+      (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).exponent =
+        Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.powerExponent
+          Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.full_run_refinement {R : Type} [Fintype R]
+  (initial : R) [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run initial raw
+    (List.length raw ^
+        (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).exponent +
+      (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).exponent)
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.accepts_iff_checking_relation {R : Type}
+  [Fintype R] (initial : R)
+  [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).Accepts raw ↔
+    ∃ input cert,
+      raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ∧
+        (Resources.RotationCertificate.verifyBitsRun input cert).1 = true
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair {R : Type}
+  [Fintype R] (initial : R)
+  [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.BinaryYes input ↔
+    ∃ cert,
+      List.length cert ≤ List.length input ^ 2 ∧
+        List.length (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert) ≤
+            List.length input ^ 2 + List.length input + 1 ∧
+          (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).Accepts
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert)
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.empty_rejects {R : Type} [Fintype R]
+  (initial : R) [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)] :
+  ¬(Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).Accepts []
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.missing_rejects {R : Type} [Fintype R]
+  (initial : R) [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (input : Resources.BinaryCounter.Bits) :
+  ¬(Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).Accepts
+      (List.map some input)
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.repeated_rejects {R : Type} [Fintype R]
+  (initial : R) [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)]
+  (input cert : Resources.BinaryCounter.Bits) (tail : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  ¬(Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).Accepts
+      (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ++ none :: tail)
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.three_nonblank_letters {R : Type}
+  [Fintype R] (initial : R)
+  [DecidableEq (Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet initial)] :
+  (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter none ≠
+      (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).blank ∧
+    (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter (some false) ≠
+        (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).blank ∧
+      (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter (some true) ≠
+          (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).blank ∧
+        (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter none ≠
+            (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter
+              (some false) ∧
+          (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter none ≠
+              (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter
+                (some true) ∧
+            (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter
+                (some false) ≠
+              (Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider initial).letter
+                (some true)
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unitDecider :
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Option Bool)
+    Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unitDecider.Accepts raw ↔
+    ∃ input cert,
+      raw = Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert ∧
+        (Resources.RotationCertificate.verifyBitsRun input cert).1 = true
+@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run : ∀ {Input : Type}
+  {f : List.{0} Input → Bool}
+  (self : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) (raw : List.{0} Input),
+  @Exists.{1}
+    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+      (@Inhabited.mk.{1}
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+    fun
+      (finish :
+        @Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))) =>
+    And
+      (Nonempty.{1}
+        (@StateTransition.EvalsToInTime.{0}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+          (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine Input f self))
+          (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start Input f self)
+            (@List.map.{0, 0} Input
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@DFunLike.coe.{1, 1, 1}
+                (Function.Embedding.{1, 1} Input
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self))
+                Input
+                (fun (x : Input) =>
+                  @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Function.instFunLikeEmbedding.{1, 1} Input
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self))
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter Input f self))
+              raw))
+          (@Option.some.{0}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+              (@Inhabited.mk.{1}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+            finish)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@List.length.{0} Input raw)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent Input f self))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent Input f self))))
+      (@Eq.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+        (@Turing.TM0.Cfg.q.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+          finish)
+        (@ite.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+          (@Eq.{1} Bool (f raw) Bool.true) (instDecidableEqBool (f raw) Bool.true)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f self)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject Input f self)))
+@Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run.{u_1} : ∀ {σ : Type u_1}
+  {f : σ → Option.{u_1} σ} {a b : σ} (run : @StateTransition.EvalsTo.{u_1} σ f a (@Option.some.{u_1} σ b)),
+  @StateTransition.Reaches.{u_1} σ f a b
+@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff : ∀ {Input : Type}
+  {f : List.{0} Input → Bool} (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f)
+  (raw : List.{0} Input),
+  Iff (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts Input f d raw)
+    (@Eq.{1} Bool (f raw) Bool.true)
+@Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative : {f : List.{0} Bool → Bool} →
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) →
+    [DecidableEq.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)] →
+      Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Bool f
+@Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider : {R : Type} →
+  [inst : Fintype.{0} R] →
+    (initial : R) →
+      [DecidableEq.{1}
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)] →
+        Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Option.{0} Bool)
+          Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+@Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair : ∀
+  {R : Type} [inst : Fintype.{0} R] (initial : R)
+  [inst_1 :
+    DecidableEq.{1} (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet R inst initial)]
+  (input : Resources.BinaryCounter.Bits),
+  Iff (Resources.RotationCertificate.BinaryYes input)
+    (@Exists.{1} Resources.BinaryCounter.Bits fun (cert : Resources.BinaryCounter.Bits) =>
+      And
+        (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@List.length.{0} Bool input) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (And
+          (@LE.le.{0} Nat instLENat
+            (@List.length.{0} (Option.{0} Bool)
+              (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{0} Bool input) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@List.length.{0} Bool input))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+            Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+            (@Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider R inst initial inst_1)
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))))
+Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  Iff
+    (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+      Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited
+      Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unitDecider raw)
+    (@Exists.{1} Resources.BinaryCounter.Bits fun (input : Resources.BinaryCounter.Bits) =>
+      @Exists.{1} Resources.BinaryCounter.Bits fun (cert : Resources.BinaryCounter.Bits) =>
+        And
+          (@Eq.{1} Resources.RotationCertificate.DelimiterPreludeDraft.Raw raw
+            (Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert))
+          (@Eq.{1} Bool (@Prod.fst.{0, 0} Bool Nat (Resources.RotationCertificate.verifyBitsRun input cert)) Bool.true))
+structure Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Input : Type)
+  (f : List.{0} Input → Bool) : Type 1
+number of parameters: 2
+fields:
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.inputFintype : Fintype.{0} Input
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet : Type
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control : Type
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.alphabetFintype : Fintype.{0}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.controlFintype : Fintype.{0}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet
+      Input f self
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control
+      Input f self
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control
+      Input f self
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control
+      Input f self
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start_ne_accept : @Ne.{1}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start_ne_reject : @Ne.{1}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept_ne_reject : @Ne.{1}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter : Function.Embedding.{1, 1} Input
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter_ne_blank : ∀ (a : Input),
+      @Ne.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+        (@DFunLike.coe.{1, 1, 1}
+          (Function.Embedding.{1, 1} Input
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self))
+          Input
+          (fun (x : Input) =>
+            @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+          (@Function.instFunLikeEmbedding.{1, 1} Input
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self))
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter Input f self) a)
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine : Resources.TuringSimulation.PrintMove.Machine.{0,
+        0}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine_eq_none_iff : ∀
+      (q : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+      (a : @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self),
+      Iff
+        (@Eq.{1}
+          (Option.{0}
+            (Resources.TuringSimulation.PrintMove.Action.{0, 0}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)))
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine Input f self q a)
+          (@Option.none.{0}
+            (Resources.TuringSimulation.PrintMove.Action.{0, 0}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self))))
+        (Or
+          (@Eq.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self) q
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f self))
+          (@Eq.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self) q
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject Input f self)))
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent : Nat
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run : ∀ (raw : List.{0} Input),
+      @Exists.{1}
+        (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+        fun
+          (finish :
+            @Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+              (@Inhabited.mk.{1}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))) =>
+        And
+          (Nonempty.{1}
+            (@StateTransition.EvalsToInTime.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+                (@Inhabited.mk.{1}
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+              (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+                (@Inhabited.mk.{1}
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine Input f self))
+              (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+                (@Inhabited.mk.{1}
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start Input f self)
+                (@List.map.{0, 0} Input
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                  (@DFunLike.coe.{1, 1, 1}
+                    (Function.Embedding.{1, 1} Input
+                      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f
+                        self))
+                    Input
+                    (fun (x : Input) =>
+                      @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f
+                        self)
+                    (@Function.instFunLikeEmbedding.{1, 1} Input
+                      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f
+                        self))
+                    (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter Input f self))
+                  raw))
+              (@Option.some.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+                  (@Inhabited.mk.{1}
+                    (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                    (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self)))
+                finish)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{0} Input raw)
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent Input f self))
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent Input f self))))
+          (@Eq.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+            (@Turing.TM0.Cfg.q.{0, 0}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+              (@Inhabited.mk.{1}
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f self)
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f self))
+              finish)
+            (@ite.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f self)
+              (@Eq.{1} Bool (f raw) Bool.true) (instDecidableEqBool (f raw) Bool.true)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f self)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.reject Input f self)))
+constructor:
+  Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.mk {Input : Type}
+    {f : List.{0} Input → Bool} (inputFintype : Fintype.{0} Input) (Alphabet Control : Type)
+    (alphabetFintype : Fintype.{0} Alphabet) (controlFintype : Fintype.{0} Control) (blank : Alphabet)
+    (start accept reject : Control) (start_ne_accept : @Ne.{1} Control start accept)
+    (start_ne_reject : @Ne.{1} Control start reject) (accept_ne_reject : @Ne.{1} Control accept reject)
+    (letter : Function.Embedding.{1, 1} Input Alphabet)
+    (letter_ne_blank :
+      ∀ (a : Input),
+        @Ne.{1} Alphabet
+          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} Input Alphabet) Input (fun (x : Input) => Alphabet)
+            (@Function.instFunLikeEmbedding.{1, 1} Input Alphabet) letter a)
+          blank)
+    (machine : Resources.TuringSimulation.PrintMove.Machine.{0, 0} Alphabet Control)
+    (machine_eq_none_iff :
+      ∀ (q : Control) (a : Alphabet),
+        Iff
+          (@Eq.{1} (Option.{0} (Resources.TuringSimulation.PrintMove.Action.{0, 0} Alphabet Control)) (machine q a)
+            (@Option.none.{0} (Resources.TuringSimulation.PrintMove.Action.{0, 0} Alphabet Control)))
+          (Or (@Eq.{1} Control q accept) (@Eq.{1} Control q reject)))
+    (exponent : Nat)
+    (run :
+      ∀ (raw : List.{0} Input),
+        @Exists.{1}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank))
+          fun
+            (finish :
+              @Resources.TuringSimulation.PrintMove.Cfg.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank)) =>
+          And
+            (Nonempty.{1}
+              (@StateTransition.EvalsToInTime.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank))
+                (@Resources.TuringSimulation.PrintMove.step.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank)
+                  machine)
+                (@Resources.TuringSimulation.PrintMove.init.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank)
+                  start
+                  (@List.map.{0, 0} Input Alphabet
+                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} Input Alphabet) Input
+                      (fun (x : Input) => Alphabet) (@Function.instFunLikeEmbedding.{1, 1} Input Alphabet) letter)
+                    raw))
+                (@Option.some.{0}
+                  (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank))
+                  finish)
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                    (@List.length.{0} Input raw) exponent)
+                  exponent)))
+            (@Eq.{1} Control (@Turing.TM0.Cfg.q.{0, 0} Alphabet Control (@Inhabited.mk.{1} Alphabet blank) finish)
+              (@ite.{1} Control (@Eq.{1} Bool (f raw) Bool.true) (instDecidableEqBool (f raw) Bool.true) accept
+                reject))) :
+    Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f
+def Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts : {Input : Type} →
+  {f : List.{0} Input → Bool} →
+    (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) →
+      (raw : List.{0} Input) → Prop :=
+fun {Input : Type} {f : List.{0} Input → Bool}
+    (d : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider Input f) (raw : List.{0} Input) =>
+  @Exists.{1}
+    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+      (@Inhabited.mk.{1}
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d)))
+    fun
+      (finish :
+        @Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))) =>
+    And
+      (@Membership.mem.{0, 0}
+        (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d)))
+        (Part.{0}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))))
+        (@Part.instMembership.{0}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))))
+        (@StateTransition.eval.{0}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d)))
+          (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.machine Input f d))
+          (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+            (@Inhabited.mk.{1}
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.start Input f d)
+            (@List.map.{0, 0} Input
+              (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+              (@DFunLike.coe.{1, 1, 1}
+                (Function.Embedding.{1, 1} Input
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d))
+                Input
+                (fun (x : Input) =>
+                  @Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+                (@Function.instFunLikeEmbedding.{1, 1} Input
+                  (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d))
+                (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.letter Input f d))
+              raw)))
+        finish)
+      (@Eq.{1} (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+        (@Turing.TM0.Cfg.q.{0, 0}
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Control Input f d)
+          (@Inhabited.mk.{1}
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Alphabet Input f d)
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.blank Input f d))
+          finish)
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accept Input f d))
+'Resources.TuringSimulation.ConventionalPolynomialDraft150.reaches_of_finite_run' depends on axioms: [propext,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.run_and_stopped' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.accepts_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalPolynomialDraft150.ofNative_accepts_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.decider' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.full_run_refinement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.accepts_iff_checking_relation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.binaryYes_iff_small_accepted_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.three_nonblank_letters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unit_language' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair
+  (input cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.Raw
+Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair_length
+  (input cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  List.length (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert) =
+    List.length input + List.length cert + 1
+Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair_eq_iff
+  (input cert otherInput otherCert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert =
+      Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair otherInput otherCert ↔
+    input = otherInput ∧ cert = otherCert
+Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair_ne_nil
+  (input cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert ≠ []
+Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage
+  (relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop)
+  (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw) : Prop
+Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation
+  (relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop) :
+  Type 1
+Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.language
+  {relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (self : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation)
+  (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw) :
+  self.decider.Accepts raw ↔ Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage relation raw
+Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.accepts_pair_iff
+  {relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (checking : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation)
+  (input cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  checking.decider.Accepts (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert) ↔
+    relation input cert
+Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.empty_raw_rejects
+  {relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (checking : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation) :
+  ¬checking.decider.Accepts []
+Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion
+  (language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop) : Type 1
+Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witness_iff
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (self : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language)
+  (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  language input ↔ ∃ cert, List.length cert ≤ List.length input ^ self.witnessExponent ∧ self.relation input cert
+Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.accepted_witness_iff
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (criterion : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language)
+  (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  language input ↔
+    ∃ cert,
+      List.length cert ≤ List.length input ^ criterion.witnessExponent ∧
+        criterion.checking.decider.Accepts
+          (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)
+Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.accepted_small_pair_iff
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (criterion : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language)
+  (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) :
+  language input ↔
+    ∃ cert,
+      List.length cert ≤ List.length input ^ criterion.witnessExponent ∧
+        List.length (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert) ≤
+            List.length input ^ criterion.witnessExponent + List.length input + 1 ∧
+          criterion.checking.decider.Accepts
+            (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)
+Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.exists_fixed_power
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (criterion : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language) :
+  ∃ k,
+    ∀ (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+      language input ↔
+        ∃ cert,
+          List.length cert ≤ List.length input ^ k ∧
+            criterion.checking.decider.Accepts
+              (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)
+Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+  (input cert : Resources.BinaryCounter.Bits) : Prop
+Resources.RotationCertificate.ConventionalVerifierCriterion150.literalPair_agrees
+  (input cert : Resources.BinaryCounter.Bits) :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert =
+    Resources.RotationCertificate.DelimiterPreludeDraft.literalPair input cert
+Resources.RotationCertificate.ConventionalVerifierCriterion150.checking :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation
+    Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion
+    Resources.RotationCertificate.BinaryYes
+Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_has_conventional_verifier :
+  Nonempty
+    (Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion
+      Resources.RotationCertificate.BinaryYes)
+Resources.RotationCertificate.ConventionalVerifierCriterion150.fixed_machine_and_witness_exponent :
+  Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion.checking.decider =
+      Resources.RotationCertificate.DelimiterPreludeDraft.ConventionalContract150.unitDecider ∧
+    Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion.witnessExponent = 2
+Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_iff_small_accepted_pair
+  (input : Resources.BinaryCounter.Bits) :
+  Resources.RotationCertificate.BinaryYes input ↔
+    ∃ cert,
+      List.length cert ≤ List.length input ^ 2 ∧
+        List.length (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert) ≤
+            List.length input ^ 2 + List.length input + 1 ∧
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.Accepts
+            (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)
+Resources.RotationCertificate.ConventionalVerifierCriterion150.accepted_pair_sound
+  (input cert : Resources.BinaryCounter.Bits)
+  (accepted :
+    Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.Accepts
+      (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)) :
+  Resources.RotationCertificate.BinaryYes input
+Resources.RotationCertificate.ConventionalVerifierCriterion150.full_run_refinement
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw) :
+  Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run () raw
+    (List.length raw ^ Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.exponent +
+      Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.exponent)
+Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_certificate_bound
+  (cert : Resources.BinaryCounter.Bits) :
+  List.length cert ≤
+      [].length ^ Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion.witnessExponent ↔
+    cert = []
+Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_pair_literal :
+  Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair [] [] = [none] ∧
+    List.length (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair [] []) = 1 ∧
+      Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair [] [] ≠ []
+Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_raw_rejects :
+  ¬Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.Accepts []
+Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_pair_rejects :
+  ¬Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.Accepts [none]
+Resources.RotationCertificate.ConventionalVerifierCriterion150.zero_node_zero_width (s t : Trees.Rotations.Shape 0) :
+  List.length (Resources.RotationCertificate.wordBits (Resources.RotationCertificate.inputCode ↑s ↑t [])) = 20 ∧
+    ∃ cert,
+      List.length cert ≤ 400 ∧
+        List.length
+              (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair
+                (Resources.RotationCertificate.wordBits (Resources.RotationCertificate.inputCode ↑s ↑t [])) cert) ≤
+            421 ∧
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.checking.decider.Accepts
+            (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair
+              (Resources.RotationCertificate.wordBits (Resources.RotationCertificate.inputCode ↑s ↑t [])) cert)
+@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.language : ∀
+  {relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (self : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation)
+  (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw),
+  Iff
+    (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+      (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer relation self)
+      (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider relation self) raw)
+    (Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage relation raw)
+@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witness_iff : ∀
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (self : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language)
+  (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+  Iff (language input)
+    (@Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+      fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+      And
+        (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@List.length.{0} Bool input)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witnessExponent
+              language self)))
+        (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation language self
+          input cert))
+@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.accepted_witness_iff : ∀
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (criterion : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language)
+  (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+  Iff (language input)
+    (@Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+      fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+      And
+        (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@List.length.{0} Bool input)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witnessExponent
+              language criterion)))
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation language
+              criterion)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.checking language
+              criterion))
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation language
+              criterion)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.checking language
+              criterion))
+          (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)))
+@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.exists_fixed_power : ∀
+  {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+  (criterion : Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language),
+  @Exists.{1} Nat fun (k : Nat) =>
+    ∀ (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+      Iff (language input)
+        (@Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+          fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+          And
+            (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@List.length.{0} Bool input) k))
+            (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+              (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+                (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation
+                  language criterion)
+                (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.checking
+                  language criterion))
+              (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+                (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation
+                  language criterion)
+                (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.checking
+                  language criterion))
+              (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert)))
+Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_has_conventional_verifier : Nonempty.{2}
+  (Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion
+    Resources.RotationCertificate.BinaryYes)
+Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_iff_small_accepted_pair : ∀
+  (input : Resources.BinaryCounter.Bits),
+  Iff (Resources.RotationCertificate.BinaryYes input)
+    (@Exists.{1} Resources.BinaryCounter.Bits fun (cert : Resources.BinaryCounter.Bits) =>
+      And
+        (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@List.length.{0} Bool input) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (And
+          (@LE.le.{0} Nat instLENat
+            (@List.length.{0} (Option.{0} Bool)
+              (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{0} Bool input) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (@List.length.{0} Bool input))
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+            (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert))))
+Resources.RotationCertificate.ConventionalVerifierCriterion150.full_run_refinement : ∀
+  (raw : Resources.RotationCertificate.DelimiterPreludeDraft.Raw),
+  @Resources.RotationCertificate.DelimiterPreludeDraft.PolynomialConsumer149.Run Unit PUnit.fintype.{0} Unit.unit
+    (Classical.decEq.{1}
+      (@Resources.RotationCertificate.DelimiterPreludeDraft.NativeConsumer148.Alphabet Unit PUnit.fintype.{0}
+        Unit.unit))
+    raw
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@List.length.{0} (Option.{0} Bool) raw)
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent (Option.{0} Bool)
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+            Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+            Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+            Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+            Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)))
+      (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.exponent (Option.{0} Bool)
+        (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+        (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+          Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)))
+Resources.RotationCertificate.ConventionalVerifierCriterion150.zero_node_zero_width : ∀
+  (s t : Trees.Rotations.Shape (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))),
+  And
+    (@Eq.{1} Nat
+      (@List.length.{0} Bool
+        (Resources.RotationCertificate.wordBits
+          (Resources.RotationCertificate.inputCode
+            (@Subtype.val.{1} (BinaryTree.{0} Unit)
+              (fun (t : BinaryTree.{0} Unit) =>
+                @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+              s)
+            (@Subtype.val.{1} (BinaryTree.{0} Unit)
+              (fun (t : BinaryTree.{0} Unit) =>
+                @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+              t)
+            (@List.nil.{0} Bool))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 20) (instOfNatNat (nat_lit 20))))
+    (@Exists.{1} Resources.BinaryCounter.Bits fun (cert : Resources.BinaryCounter.Bits) =>
+      And
+        (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+          (@OfNat.ofNat.{0} Nat (nat_lit 400) (instOfNatNat (nat_lit 400))))
+        (And
+          (@LE.le.{0} Nat instLENat
+            (@List.length.{0} (Option.{0} Bool)
+              (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair
+                (Resources.RotationCertificate.wordBits
+                  (Resources.RotationCertificate.inputCode
+                    (@Subtype.val.{1} (BinaryTree.{0} Unit)
+                      (fun (t : BinaryTree.{0} Unit) =>
+                        @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+                      s)
+                    (@Subtype.val.{1} (BinaryTree.{0} Unit)
+                      (fun (t : BinaryTree.{0} Unit) =>
+                        @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+                      t)
+                    (@List.nil.{0} Bool)))
+                cert))
+            (@OfNat.ofNat.{0} Nat (nat_lit 421) (instOfNatNat (nat_lit 421))))
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation
+              Resources.RotationCertificate.ConventionalVerifierCriterion150.checking)
+            (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair
+              (Resources.RotationCertificate.wordBits
+                (Resources.RotationCertificate.inputCode
+                  (@Subtype.val.{1} (BinaryTree.{0} Unit)
+                    (fun (t : BinaryTree.{0} Unit) =>
+                      @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+                    s)
+                  (@Subtype.val.{1} (BinaryTree.{0} Unit)
+                    (fun (t : BinaryTree.{0} Unit) =>
+                      @Eq.{1} Nat (@BinaryTree.numNodes.{0} Unit t)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+                    t)
+                  (@List.nil.{0} Bool)))
+              cert))))
+def Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage : (relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop) →
+  (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw) → Prop :=
+fun
+    (relation :
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+        Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop)
+    (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw) =>
+  @Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+    fun (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+    @Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+      fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+      And
+        (@Eq.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Raw raw
+          (Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair input cert))
+        (relation input cert)
+structure Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation
+  (relation :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop) :
+  Type 1
+number of parameters: 1
+fields:
+  Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw →
+      Bool
+  Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider
+      (Option.{0} Bool)
+      (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer relation self)
+  Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.language : ∀
+      (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw),
+      Iff
+        (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool)
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.answer relation self)
+          (@Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.decider relation self)
+          raw)
+        (Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage relation raw)
+constructor:
+  Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.mk
+    {relation :
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+        Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+    (answer : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw → Bool)
+    (decider : Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider (Option.{0} Bool) answer)
+    (language :
+      ∀ (raw : Resources.TuringSimulation.ConventionalVerifierDraft150.Raw),
+        Iff
+          (@Resources.TuringSimulation.ConventionalPolynomialDraft150.PolynomialDecider.Accepts (Option.{0} Bool) answer
+            decider raw)
+          (Resources.TuringSimulation.ConventionalVerifierDraft150.PairLanguage relation raw)) :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation
+structure Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion
+  (language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop) : Type 1
+number of parameters: 1
+fields:
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.checking : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation
+      (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation language self)
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witnessExponent : Nat
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witness_iff : ∀
+      (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+      Iff (language input)
+        (@Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+          fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+          And
+            (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@List.length.{0} Bool input)
+                (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.witnessExponent
+                  language self)))
+            (@Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.relation language
+              self input cert))
+constructor:
+  Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.mk
+    {language : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop}
+    (relation :
+      Resources.TuringSimulation.ConventionalVerifierDraft150.Bits →
+        Resources.TuringSimulation.ConventionalVerifierDraft150.Bits → Prop)
+    (checking : Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation relation)
+    (witnessExponent : Nat)
+    (witness_iff :
+      ∀ (input : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits),
+        Iff (language input)
+          (@Exists.{1} Resources.TuringSimulation.ConventionalVerifierDraft150.Bits
+            fun (cert : Resources.TuringSimulation.ConventionalVerifierDraft150.Bits) =>
+            And
+              (@LE.le.{0} Nat instLENat (@List.length.{0} Bool cert)
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                  (@List.length.{0} Bool input) witnessExponent))
+              (relation input cert))) :
+    Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion language
+def Resources.RotationCertificate.ConventionalVerifierCriterion150.CheckingRelation : (input cert :
+    Resources.BinaryCounter.Bits) →
+  Prop :=
+fun (input cert : Resources.BinaryCounter.Bits) =>
+  @Eq.{1} Bool (@Prod.fst.{0, 0} Bool Nat (Resources.RotationCertificate.verifyBitsRun input cert)) Bool.true
+'Resources.TuringSimulation.ConventionalVerifierDraft150.literalPair_eq_iff' depends on axioms: [propext, Quot.sound]
+'Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.accepts_pair_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalVerifierDraft150.PolynomialCheckingRelation.empty_raw_rejects' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.accepted_small_pair_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.ConventionalVerifierDraft150.ConventionalVerifierCriterion.exists_fixed_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.checking' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYesCriterion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_has_conventional_verifier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.binaryYes_iff_small_accepted_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.accepted_pair_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.full_run_refinement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_certificate_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.empty_pair_rejects' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.RotationCertificate.ConventionalVerifierCriterion150.zero_node_zero_width' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

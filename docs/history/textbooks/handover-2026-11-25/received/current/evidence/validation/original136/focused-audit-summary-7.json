@@ -1,0 +1,182 @@
+{
+  "status": "Actual scoped audit passed; complementary root and original Spec source/elaborated-output inspections complete",
+  "observed_at_utc": "2026-11-21T23:55:34.358210+00:00",
+  "candidate": "8c1ae22f3c29da427786e457cb3d42154584d7da",
+  "tree": "743351811890c0a8f2bef4246d8a8770d3248643",
+  "actual_result": "focused-audit-result-7.json",
+  "actual_exit_code": 0,
+  "safe_declarations": 3400,
+  "theorems": 2264,
+  "modules": 45,
+  "unsafe": 0,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all43_prior_module_counts_unchanged": true,
+  "new_module_counts": {
+    "Examples.RotationCertificateTreeParserMachine": [
+      131,
+      90,
+      0
+    ],
+    "Applications.Resources.RotationCertificate.TreeParserMachine": [
+      428,
+      272,
+      0
+    ]
+  },
+  "old_command_output_retained": {
+    "exact": true,
+    "old_start_offset": 5817,
+    "new_start_offset": 6093,
+    "bytes": 946982,
+    "sha256": "b4f1a0a8d527eb7636da8db7de4651e57947bb8eb08a14a5e574350092d632dc"
+  },
+  "new_command_counts": {
+    "check": 211,
+    "print": 76,
+    "synth": 20
+  },
+  "root_source_reading": "Earlier full initial/core proof and first client body reads, source-value helper, appended two-call workspace proof, plus complete final producer build9-to12 and client5-to6 byte-text diffs reconciled to immutable C7c; no actionable defect identified.",
+  "root_actual_new_type_reading": "All76 actual definition prints and20 syntheses plus14 selected public theorem types inspected. Full211 standalone checks were inspected by the same original Spec reviewer, whose immutable report is bound here; no duplicate root211-type reading is claimed.",
+  "original_spec": {
+    "reviewer": "/root/parser_review/spec",
+    "source_findings": 0,
+    "overall_outcome": "Blocked",
+    "unresolved_finding": "SP-V001",
+    "complete_actual_readback": {
+      "new_checks": 211,
+      "new_producer_public_types": 126,
+      "new_client_public_types": 85,
+      "new_prints": 76,
+      "new_syntheses": 20,
+      "cumulative_checks": 649,
+      "cumulative_prints": 211,
+      "cumulative_syntheses": 60,
+      "complete_new_core_source_lines": 1387,
+      "complete_new_client_source_lines": 1170,
+      "new_log_character_range": [
+        944693,
+        1513379
+      ],
+      "new_type_character_range": [
+        944693,
+        1350253
+      ],
+      "new_print_character_range": [
+        1350253,
+        1509130
+      ],
+      "new_synth_character_range": [
+        1509130,
+        1513379
+      ],
+      "new_actual_output_sha256": "c2ce21ef87da71957aa1fee6404ddffa39b619fdb87613bf4987ba853914a3fe",
+      "full_new_actual_output_read": true,
+      "printing": "Actual unmodified full namespace/universe/explicit-argument output read; Lean proof-term ellipses are not claimed expanded. Maintained source proofs read in full.",
+      "old_output_reuse": "All prior public output exactly matches Audit6; prior completed reading retained."
+    },
+    "reports": {
+      "spec-review-round7.md": {
+        "bytes": 47118,
+        "sha256": "12407d3879c50bdd77c7e21d0a5a232f038242c3e30223e2f3de453bf2bce287"
+      },
+      "spec-review-round7.json": {
+        "bytes": 231563,
+        "sha256": "eed3f653e2a1583145f3c5923567f39afab55ea8a4b8239e118b4e4de8916be4"
+      }
+    }
+  },
+  "whole_library_acceptance": false,
+  "source_accepted": false,
+  "root_actual_print_ranges": [
+    [
+      18364,
+      18844
+    ],
+    [
+      18845,
+      19330
+    ],
+    [
+      19331,
+      19980
+    ],
+    [
+      19981,
+      20598
+    ]
+  ],
+  "root_selected_type_ranges": [
+    [
+      13970,
+      13991
+    ],
+    [
+      13992,
+      14028
+    ],
+    [
+      14029,
+      14057
+    ],
+    [
+      14058,
+      14099
+    ],
+    [
+      14286,
+      14302
+    ],
+    [
+      14388,
+      14437
+    ],
+    [
+      14438,
+      14461
+    ],
+    [
+      14521,
+      14576
+    ],
+    [
+      14792,
+      14808
+    ],
+    [
+      14809,
+      14852
+    ],
+    [
+      14897,
+      14927
+    ],
+    [
+      15036,
+      15073
+    ],
+    [
+      15086,
+      15101
+    ],
+    [
+      18303,
+      18363
+    ]
+  ],
+  "root_display_transform": {
+    "aliases": {
+      "Resources.RotationCertificate.TreeParserMachine": "TPM",
+      "Examples.RotationCertificateTreeParserMachine": "TreeExamples",
+      "Resources.RotationCertificate": "RC"
+    },
+    "collision_checks": true,
+    "exact_inverse_checks": true,
+    "original_log_unchanged": true,
+    "initial_truncated_display_replaced_by_complete_bounded_ranges": true
+  },
+  "standards_status": "Original Standards7 active through disclosed same-context material bridge; its final assessment is not supplied by this summary."
+}

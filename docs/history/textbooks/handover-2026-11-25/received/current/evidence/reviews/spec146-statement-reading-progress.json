@@ -1,0 +1,526 @@
+{
+  "schema": 1,
+  "reviewer": "/root/requirements_review/spec139",
+  "round": 11,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "completed_utc": "2026-11-24T12:35:30.043411+00:00",
+  "actual_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+  },
+  "actual_log_lines": 5723,
+  "ranges_actually_read": [
+    [
+      1,
+      5723
+    ]
+  ],
+  "readable": {
+    "range": [
+      1,
+      2185
+    ],
+    "requested": 350,
+    "emitted": 350,
+    "read": 350,
+    "old18_read": 18,
+    "named_additions311_read": 311,
+    "selected_generated20_read": 20,
+    "additional_cleanup_binder_read": 1,
+    "unavailable": []
+  },
+  "expanded": {
+    "range": [
+      2186,
+      5668
+    ],
+    "requested": 19,
+    "as_actually_printed_read": 19,
+    "full_printed_blocks": [
+      {
+        "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+        "range": [
+          2186,
+          2339
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+        "range": [
+          2340,
+          2459
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.TapeReflection.machine",
+        "range": [
+          2460,
+          2461
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+        "range": [
+          2462,
+          2492
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.machine",
+        "range": [
+          2493,
+          2498
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+        "range": [
+          2499,
+          2553
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+        "range": [
+          2554,
+          2608
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+        "range": [
+          2609,
+          2650
+        ]
+      },
+      {
+        "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+        "range": [
+          2651,
+          2680
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+        "range": [
+          2681,
+          2695
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+        "range": [
+          2696,
+          2919
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+        "range": [
+          2920,
+          2923
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+        "range": [
+          2924,
+          3240
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+        "range": [
+          3241,
+          3581
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+        "range": [
+          3582,
+          4193
+        ]
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+        "range": [
+          4194,
+          5584
+        ]
+      },
+      {
+        "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+        "range": [
+          5585,
+          5595
+        ]
+      },
+      {
+        "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+        "range": [
+          5596,
+          5612
+        ]
+      },
+      {
+        "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+        "range": [
+          5613,
+          5668
+        ]
+      }
+    ],
+    "literal_elisions": [
+      4198,
+      4201,
+      4204,
+      4208,
+      4218,
+      4298,
+      5583,
+      5584
+    ],
+    "all_elisions_actually_seen": true,
+    "hidden_text_reconstructed": false
+  },
+  "selected_axiom_roots": [
+    {
+      "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+      "range": [
+        5669,
+        5669
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+      "range": [
+        5670,
+        5670
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+      "range": [
+        5671,
+        5671
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+      "range": [
+        5672,
+        5672
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+      "range": [
+        5673,
+        5675
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.SingletonOutput.related_package_halt_stopped",
+      "range": [
+        5676,
+        5678
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+      "range": [
+        5679,
+        5681
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.VisitedSpace.space_le_of_run",
+      "range": [
+        5682,
+        5682
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.VisitedSpace.init_nonblank_mem_interval_of_run",
+      "range": [
+        5683,
+        5685
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.VisitedSpace.halted_run_adds_no_cells",
+      "range": [
+        5686,
+        5688
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.binaryYes_code_iff",
+      "range": [
+        5689,
+        5691
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.CertificateCorrespondence.distance_le_iff_exists_small_framed_certificate",
+      "range": [
+        5692,
+        5694
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_finite_primitive_run",
+      "range": [
+        5695,
+        5697
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+      "range": [
+        5698,
+        5700
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+      "range": [
+        5701,
+        5703
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+      "range": [
+        5704,
+        5706
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+      "range": [
+        5707,
+        5709
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+      "range": [
+        5710,
+        5712
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+      "range": [
+        5713,
+        5715
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Examples.TuringSimulation.PrimitiveReflection.emptyPeekRun",
+      "range": [
+        5716,
+        5716
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Examples.TuringSimulation.VisitedSpace.peek_actual_prefixes",
+      "range": [
+        5717,
+        5717
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamTapeMachine.Ordinary.fixed_program_all_pairs",
+      "range": [
+        5718,
+        5720
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    },
+    {
+      "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+      "range": [
+        5721,
+        5723
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_read": true
+    }
+  ],
+  "complete_available_output_read": true,
+  "all_requested_names_available": true,
+  "all_expanded_text_fully_visible": false,
+  "public_statement_output_review_complete": false,
+  "readable_final_interval_equality": {
+    "range": [
+      1139,
+      1144
+    ],
+    "complete_actual_conjunct_read": true
+  },
+  "extra_cleanup": {
+    "readable": [
+      2164,
+      2185
+    ],
+    "expanded": [
+      5613,
+      5668
+    ],
+    "axioms": [
+      5721,
+      5723
+    ],
+    "all_actually_read": true,
+    "actual_parameters": "{K Λ R : Type} {Γ : K → Type} [DecidableEq K], caller, Fin16 i j, t, LocalData, Registers, arbitrary ctx, original ordered/within; no Fintype K",
+    "semantic_conclusion": "Only unused external finiteness premise is absent. Full exact iteration/cfg/clock/register/context contract preserved; selected roots standard."
+  },
+  "explicit_defaults_read": [
+    "PolynomialBooleanDecider machine/init/step use bundled Inhabited.mk start and blank; bit is Function.Embedding Bool Alphabet.",
+    "MarkedInput wrapper uses instInhabitedControl while source entry uses the supplied Q default.",
+    "Finite encoded run uses Package.controlInhabited tm in init and step.",
+    "Ordinary controllers use fixed wrapper start and package-supplied initial state.",
+    "constantRun uses Inhabited.mk Bool true, not ambient Bool default.",
+    "peekStart actual default selects translated normal source statement with false register, matching its own fixture."
+  ],
+  "boundary": "All actual emitted lines were freshly read in bounded tool outputs; no fresh-reading credit is borrowed from prior reports, root/helpers or the current Standards axis. Expanded omissions, historical144/145 failures, original limits and ordinary/whole/audit/verify/compare gaps remain."
+}

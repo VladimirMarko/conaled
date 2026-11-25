@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-25T05:03:03.218340+00:00",
+  "failed_command": "bind-source154-attempt1",
+  "actual_exit_code": 1,
+  "inputs_unchanged": true,
+  "source_binding_outputs_created_by_failed_attempt": false,
+  "cause": "Local binder incorrectly required baseline live-worktree sources to match the pre-integration153 baseline, although baseline entries/content correctly describe the identical public M.",
+  "observed_differences": "Exactly15 recorded INSTALL153 paths; candidate maps completely identical.",
+  "remedy": "Verify exact M entries/content/scope/projection; fresh baseline live map equals fresh capture; old baseline live values equal15 actual installation before-images. Preserve both live-source identities.",
+  "helper_changed": false,
+  "source_modified": false,
+  "compiler_run": false
+}

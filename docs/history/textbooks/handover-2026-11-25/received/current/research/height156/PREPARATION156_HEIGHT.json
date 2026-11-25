@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-25T06:31:58.637242+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "status": "UNCOMPILED; compiler sequencing owned by root; whole155 still active",
+  "root_reading": {
+    "EXPECTATIONS.md": "complete 64 lines",
+    "InternalHeight.lean": "complete 215 lines",
+    "InternalHeightStatements.lean": "complete 56 lines",
+    "README.md": "complete 64 lines",
+    "MANIFEST.json": "complete 1-170 and171-end; no truncated output"
+  },
+  "recipe": [
+    {
+      "file": "InternalHeight.lean",
+      "start": 0,
+      "end": 9272,
+      "descriptor": {
+        "bytes": 9272,
+        "sha256": "d971cad93995c2331c7015c9d1ae8a8883d2d4f8a69805f410724ca8e8fc6963"
+      }
+    },
+    {
+      "literal_hex": "0a"
+    },
+    {
+      "file": "InternalHeightStatements.lean",
+      "start": 327,
+      "end": 3630,
+      "whole_input_descriptor": {
+        "bytes": 3630,
+        "sha256": "fe26ebeda4f1b59e84840fe4b8cbd01f4674da1b5023fce4082b2c65ac471863"
+      }
+    }
+  ],
+  "probe": {
+    "path": "/workspace/scratch/ae71b485b114/work/height156-checks/revision-a/InternalHeight156aProbe.lean",
+    "bytes": 12576,
+    "sha256": "2a8a78ceb8d63be5fea654e6c3ebeaf2d6c49fb4b86d22349453bb580ad7b0a7",
+    "mode": "100444"
+  },
+  "query_counts": {
+    "check": 14,
+    "print": 14,
+    "print_axioms": 14
+  },
+  "no_source_or_product_mutation": true,
+  "fixed_expectations_unchanged": true,
+  "checkpoint_policy": "Preserve the five canonical draft files and this compact exact recipe; omit duplicate complete probe when no longer needed as literal unique evidence. This work is after the fixed155 cutoff and belongs to a later checkpoint."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "old_member": "current/evidence/validation/integration153/inputs-b.json",
+  "old_descriptor": {
+    "bytes": 462857,
+    "sha256": "bb6f88a9bb3a133106e8718c0f5758290458fb64aad87e216aca8e2e3bcdbd29",
+    "mode": "100644"
+  },
+  "canonical_anchor_member": "current/evidence/validation/integration153/query-b.start.json",
+  "canonical_anchor_descriptor": {
+    "bytes": 1027113,
+    "sha256": "31ebba79886a6f0ae12bbbb5cd878b1df9b313dc394e8a13faf04013e3d0e06f",
+    "mode": "100644"
+  },
+  "ordered_names_equal": true,
+  "count": 4048,
+  "original_serialization_equal": true,
+  "all_nonnull": true,
+  "boundary": "Drop the repeated standalone local-path array, retaining every ordered name and descriptor in the actual canonical start map. No new environment/provenance/compilation assertion; old hash aliases are not redirected to this summary."
+}

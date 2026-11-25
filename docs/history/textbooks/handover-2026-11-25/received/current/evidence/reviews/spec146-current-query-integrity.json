@@ -1,0 +1,756 @@
+{
+  "schema": 1,
+  "reviewer": "/root/requirements_review/spec139",
+  "round": 11,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "observed_utc": "2026-11-24T12:29:50.856869+00:00",
+  "actual_result": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.result.json",
+    "bytes": 157895,
+    "sha256": "d812c523b083299c6dab58fa7dcb0e1d399f88a07c329eae8fcdb45694f14374"
+  },
+  "actual_child": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.child-exit.json",
+    "bytes": 1328,
+    "sha256": "c8c66c93ca318bfd61d8ebb992efa77f1a183adabdc8371f1ab05b5f6f7dbfc7"
+  },
+  "actual_source": {
+    "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean",
+    "bytes": 1424668,
+    "sha256": "23d4265e4eed2fc5ac2000fd88f69cab95615dedbf8a3f33a3649020dee6d2b8"
+  },
+  "actual_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+  },
+  "actual_log_lines": 5723,
+  "actual_exit_code": 0,
+  "started_utc": "2026-11-24T12:21:42.442138+00:00",
+  "finished_utc": "2026-11-24T12:26:56.224414+00:00",
+  "elapsed_seconds": 313.7760097340033,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance139",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean"
+  ],
+  "actual305_before_after_equal_nonnull": true,
+  "new_resource_or_time_limits": false,
+  "all61_author_source_bindings_match_immutable146": [
+    {
+      "path": "Applications/Resources/BinaryCounter.lean",
+      "matches_actual_binding": true,
+      "sha256": "d990e0e8d9b09fff3f774180fa2396558f2d1abcf7e6231be648f5bd66f6f9c0"
+    },
+    {
+      "path": "Applications/Resources/BinaryCounter/FixedWidth.lean",
+      "matches_actual_binding": true,
+      "sha256": "9b8483b02c0854773605d6b66a5818451bd34d3a1ba7dc23c4af26f0c5ad3007"
+    },
+    {
+      "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76"
+    },
+    {
+      "path": "Applications/Resources/CallCount.lean",
+      "matches_actual_binding": true,
+      "sha256": "5bb2d9e1e43dde11fdcee3c492c44662351c72e9a27af385b79de53e8e76b2a8"
+    },
+    {
+      "path": "Applications/Resources/Measured.lean",
+      "matches_actual_binding": true,
+      "sha256": "feb5f2f3096b327d8cf636343f33fcc7be08d1324f3dc7ff6f168bf68a203f46"
+    },
+    {
+      "path": "Applications/Resources/Potential.lean",
+      "matches_actual_binding": true,
+      "sha256": "c7dac5fcb51e02a688e39b60a3a3c5f6777a3d2c4e7222fce8e1c81cdf3f504d"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "matches_actual_binding": true,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "matches_actual_binding": true,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "matches_actual_binding": true,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "matches_actual_binding": true,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Encoding.lean",
+      "matches_actual_binding": true,
+      "sha256": "621b093b3be69220da94f609c99fe2b7d40c96b6b4e8704494af8468cc9e38ca"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Execution.lean",
+      "matches_actual_binding": true,
+      "sha256": "6b3f6e386444a3dc9054932c6008e74dcf35d09d7f32643570fee7d761decc6c"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+      "matches_actual_binding": true,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/LinearParser.lean",
+      "matches_actual_binding": true,
+      "sha256": "941f096b10b022edc3f366e82eafd1f47cf7a6870c8d3c451eb51129b17d8ba1"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+      "matches_actual_binding": true,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "matches_actual_binding": true,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+      "matches_actual_binding": true,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Witness.lean",
+      "matches_actual_binding": true,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "matches_actual_binding": true,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "matches_actual_binding": true,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "matches_actual_binding": true,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "matches_actual_binding": true,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "matches_actual_binding": true,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "matches_actual_binding": true,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "matches_actual_binding": true,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "matches_actual_binding": true,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b"
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "matches_actual_binding": true,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5"
+    },
+    {
+      "path": "Applications/Resources/Workload.lean",
+      "matches_actual_binding": true,
+      "sha256": "3ab7b4911dbc5283d50d4bf24df4a3c0f41b21e54bc938d6270c9c2c03fc19b1"
+    },
+    {
+      "path": "Applications/Trees/BasicObservations.lean",
+      "matches_actual_binding": true,
+      "sha256": "251e7349a1bcc057d405d36dbe8c3d24e97bc85d43b723461b2d90bc46f71580"
+    },
+    {
+      "path": "Applications/Trees/Direction.lean",
+      "matches_actual_binding": true,
+      "sha256": "4cd6daf3200fce9e5489bfff29aa850ab708c407d5779e9c4568bb27731be7af"
+    },
+    {
+      "path": "Applications/Trees/Enumeration.lean",
+      "matches_actual_binding": true,
+      "sha256": "c5e91cbaf276843941d31eec5b5cf1693cfe885f43c8831fd9246559712249c3"
+    },
+    {
+      "path": "Applications/Trees/Observations.lean",
+      "matches_actual_binding": true,
+      "sha256": "c8fe22a39c7e690b05af3d2baa23df9ad8a55a179a165df0de7dd20171f4b752"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Basic.lean",
+      "matches_actual_binding": true,
+      "sha256": "0521be3f8943e171409674da1029a8507550e1ed8e972c0add6bd926d33fb3a4"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Bounds.lean",
+      "matches_actual_binding": true,
+      "sha256": "0af5ad28c3805ec928ea028d8ae5bed5b063e04922355bd317f144d68f21b0be"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Distance.lean",
+      "matches_actual_binding": true,
+      "sha256": "4cc00de6c2a487dccc8869f982c612111a8418fe6b162aca1a2bdeed54801218"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Mixed.lean",
+      "matches_actual_binding": true,
+      "sha256": "045283c6af61c87adfd1099a066ed498f90e62f49497774fb7ee5c565e3d3603"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Normalize.lean",
+      "matches_actual_binding": true,
+      "sha256": "5d1044733c7e9563d24baa86afd015737261737ffa8edafab995fd48789c33fd"
+    },
+    {
+      "path": "Applications/Trees/Rotations/Position.lean",
+      "matches_actual_binding": true,
+      "sha256": "929b1e6cdace1bb33950ac8f80a8db04e76663da5390ca8e4643ff0980776a24"
+    },
+    {
+      "path": "Applications/Trees/TraversalWork.lean",
+      "matches_actual_binding": true,
+      "sha256": "49762c33454e1cc90db706ebd2e16bf7dc395c0a74116bc21b3a63d0a282b85e"
+    },
+    {
+      "path": "Examples/RotationCertificateCorrespondence.lean",
+      "matches_actual_binding": true,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5"
+    },
+    {
+      "path": "Examples/RotationCertificateStreamMachine.lean",
+      "matches_actual_binding": true,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9"
+    },
+    {
+      "path": "Examples/RotationDistance.lean",
+      "matches_actual_binding": true,
+      "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd"
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "matches_actual_binding": true,
+      "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56"
+    },
+    {
+      "path": "SquareKit/ListFusion.lean",
+      "matches_actual_binding": true,
+      "sha256": "91b913c29bc3198fe7c9c189d8c7c45bd9ed3752a825e660989f428f3b6df21e"
+    },
+    {
+      "path": "Squares.lean",
+      "matches_actual_binding": true,
+      "sha256": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7"
+    }
+  ],
+  "all16_complete_retained_bodies_match": [
+    {
+      "path": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "ranges": [
+        {
+          "source_lines": [
+            2,
+            126
+          ],
+          "combined_lines": [
+            39,
+            163
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "ranges": [
+        {
+          "source_lines": [
+            2,
+            141
+          ],
+          "combined_lines": [
+            176,
+            315
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "ranges": [
+        {
+          "source_lines": [
+            3,
+            379
+          ],
+          "combined_lines": [
+            328,
+            704
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "ranges": [
+        {
+          "source_lines": [
+            5,
+            381
+          ],
+          "combined_lines": [
+            717,
+            1093
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "ranges": [
+        {
+          "source_lines": [
+            3,
+            117
+          ],
+          "combined_lines": [
+            1106,
+            1220
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "ranges": [
+        {
+          "source_lines": [
+            6,
+            468
+          ],
+          "combined_lines": [
+            1233,
+            1695
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "ranges": [
+        {
+          "source_lines": [
+            3,
+            82
+          ],
+          "combined_lines": [
+            1708,
+            1787
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "ranges": [
+        {
+          "source_lines": [
+            6,
+            573
+          ],
+          "combined_lines": [
+            1800,
+            2367
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "ranges": [
+        {
+          "source_lines": [
+            2,
+            262
+          ],
+          "combined_lines": [
+            2380,
+            2640
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "ranges": [
+        {
+          "source_lines": [
+            4,
+            4
+          ],
+          "combined_lines": [
+            2653,
+            2653
+          ],
+          "exact": true
+        },
+        {
+          "source_lines": [
+            8,
+            992
+          ],
+          "combined_lines": [
+            2654,
+            3638
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/RotationDistance.lean",
+      "sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+      "ranges": [
+        {
+          "source_lines": [
+            2,
+            174
+          ],
+          "combined_lines": [
+            3651,
+            3823
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateCorrespondence.lean",
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "ranges": [
+        {
+          "source_lines": [
+            3,
+            184
+          ],
+          "combined_lines": [
+            3836,
+            4017
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateStreamMachine.lean",
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "ranges": [
+        {
+          "source_lines": [
+            6,
+            6555
+          ],
+          "combined_lines": [
+            4030,
+            10579
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "ranges": [
+        {
+          "source_lines": [
+            7,
+            9924
+          ],
+          "combined_lines": [
+            10592,
+            20509
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "ranges": [
+        {
+          "source_lines": [
+            3,
+            3
+          ],
+          "combined_lines": [
+            20522,
+            20522
+          ],
+          "exact": true
+        },
+        {
+          "source_lines": [
+            6,
+            513
+          ],
+          "combined_lines": [
+            20523,
+            21030
+          ],
+          "exact": true
+        }
+      ]
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+      "ranges": [
+        {
+          "source_lines": [
+            5,
+            5
+          ],
+          "combined_lines": [
+            21043,
+            21043
+          ],
+          "exact": true
+        },
+        {
+          "source_lines": [
+            9,
+            1172
+          ],
+          "combined_lines": [
+            21044,
+            22207
+          ],
+          "exact": true
+        }
+      ]
+    }
+  ],
+  "three_query_fragments_exact": [
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/PublicStatements146.body.lean",
+        "bytes": 26751,
+        "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57"
+      },
+      "combined_lines": [
+        22212,
+        22571
+      ],
+      "matches_frozen145_fragment": true
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/ExpandedContracts146.body.lean",
+        "bytes": 2117,
+        "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876"
+      },
+      "combined_lines": [
+        22574,
+        22633
+      ],
+      "matches_frozen145_fragment": true
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SelectedAxioms146.body.lean",
+        "bytes": 2188,
+        "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee"
+      },
+      "combined_lines": [
+        22636,
+        22662
+      ],
+      "matches_frozen145_fragment": true
+    }
+  ],
+  "frozen_snapshot_members_checked": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/README_FIRST.md",
+      "bytes": 2646,
+      "sha256": "87bbde486220b1cf6553d7dd919371e0e7876b3caaef1d0d7beb49b0b0973bed"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/CAPTURE_BINDING.json",
+      "bytes": 329,
+      "sha256": "64ef5889130d9fad8290dabab928dcfcdb7bbeb9522003f8841dd65d3da875f7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean",
+      "bytes": 1424668,
+      "sha256": "23d4265e4eed2fc5ac2000fd88f69cab95615dedbf8a3f33a3649020dee6d2b8"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/PublicStatements146.body.lean",
+      "bytes": 26751,
+      "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/ExpandedContracts146.body.lean",
+      "bytes": 2117,
+      "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SelectedAxioms146.body.lean",
+      "bytes": 2188,
+      "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/generate.py",
+      "bytes": 30822,
+      "sha256": "a775ea50b4e96b312a2d897a0aea88a57b5a10ac99a9e97796739c243ca62ff1"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/DEPENDENCY_AVAILABILITY.json",
+      "bytes": 460429,
+      "sha256": "bc75f52d40385b898ecc236090ad844eac2027e00f657abc3189e3abd5ec4994"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SOURCE_MAP.json",
+      "bytes": 50288,
+      "sha256": "f91adb0687cdbb24bf1fb05c792ee9d1919fc67c0cc22084934b56af7d7d6662"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/INPUTS.json",
+      "bytes": 253783,
+      "sha256": "5843f384d6923caebf3e807b90864552d99e4590abef32d67ef5901567754d77"
+    }
+  ],
+  "diagnostic_entries": [],
+  "limits": "Mechanical source/input/range/hash comparison. Imported product and dependency body contents are not newly semantically read; actual before/after records supply invariance. No normal owner/module graph or whole validation follows from this combined no-output invocation."
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "query155",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state154",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/conaled154",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+  "started_utc": "2026-11-25T05:31:14.668933+00:00",
+  "finished_utc": "2026-11-25T05:31:19.262085+00:00",
+  "elapsed_seconds": 4.581935827000052,
+  "exit_code": 1,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.start.json",
+    "bytes": 1038265,
+    "sha256": "1ff3f9604382a9003e6285990d462c2d0f7110892af8817a13aa2b3d36314940",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs154/query155.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

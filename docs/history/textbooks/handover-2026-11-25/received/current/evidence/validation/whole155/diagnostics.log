@@ -1,0 +1,572 @@
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.
+Source/coverage/version checks: 22.25s
+Integrity guard: rebuilding Squares ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/Squares.trace')
+Integrity guard: rebuilding Applications.AD.Core ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/Applications/AD/Core.trace')
+Integrity guard: rebuilding Verification ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/Verification.trace')
+Integrity guard: rebuilding SquareApplications ([Errno 2] No such file or directory: '/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/SquareApplications.trace')
+Integrity guard: hashed 0 artifacts; 4164 modules invalidated (0.34s).
+Building 4164 project modules with Lake (incremental).
+ℹ [2614/2671] Built FirstOrder (2.9s)
+info: FirstOrder.lean:351:0: 'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+info: FirstOrder.lean:352:0: 'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+info: FirstOrder.lean:353:0: 'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+info: FirstOrder.lean:354:0: 'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+ℹ [3483/3508] Built Applications.AD.Verification (2.4s)
+info: Applications/AD/Verification.lean:7:0: 'Applications.AD.DMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:8:0: 'Applications.AD.tangent_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:9:0: 'Applications.AD.continuation_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:10:0: 'Applications.AD.continuation_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:11:0: 'Applications.AD.adjoint_square_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:12:0: 'Applications.AD.gradient_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:13:0: 'Applications.AD.FirstOrder.compile_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:14:0: 'Applications.AD.FirstOrder.sharedPolynomial_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:15:0: 'Applications.AD.Generalized.compile_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:16:0: 'Applications.AD.Generalized.compile_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:17:0: 'Applications.AD.Generalized.compile_reverse_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:18:0: 'Applications.AD.Generalized.modes_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:19:0: 'Applications.AD.Generalized.sharedPolynomial_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:20:0: 'Applications.AD.HigherOrder.eval_related' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:21:0: 'Applications.AD.HigherOrder.compileDual_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:22:0: 'Applications.AD.HigherOrder.compileCurveSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:23:0: 'Applications.AD.HigherOrder.higherOrder_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:24:0: 'Applications.AD.Jets.jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:25:0: 'Applications.AD.Jets.jet_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:26:0: 'Applications.AD.Jets.towerMulSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/AD/Verification.lean:27:0: 'Applications.AD.Jets.compile_jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3496/3520] Built Applications.Parallel.Examples (2.7s)
+warning: Applications/Parallel/Examples.lean: imports `Mathlib.Algebra.FreeMonoid.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Parallel/Examples.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: Applications/Parallel/Examples.lean:81:0: ([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],
+  [1, 2, 3, 4, 5, 6, 7, 8])
+info: Applications/Parallel/Examples.lean:82:0: ([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],
+  [1, 2, 3, 4, 5, 6, 7, 8])
+info: Applications/Parallel/Examples.lean:83:0: 49
+info: Applications/Parallel/Examples.lean:84:0: [10, 7, 15, 6]
+info: Applications/Parallel/Examples.lean:85:0: [2, 8, 14, 6, 13, 3, 12, 1]
+info: Applications/Parallel/Examples.lean:87:0: 'Applications.Parallel.Shape.scan_correct' depends on axioms: [propext, Quot.sound]
+info: Applications/Parallel/Examples.lean:88:0: 'Applications.Parallel.Shape.scanNestedWith_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:89:0: 'Applications.Parallel.ScanPlan.correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:90:0: 'Applications.Parallel.Scanner.powers_correct' depends on axioms: [propext, Quot.sound]
+info: Applications/Parallel/Examples.lean:91:0: 'Applications.Parallel.evaluatePolynomial_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:92:0: 'Applications.Parallel.Factor.twiddle_factorization' depends on axioms: [propext]
+info: Applications/Parallel/Examples.lean:93:0: 'Applications.Parallel.Factor.fft_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:94:0: 'Applications.Parallel.Factor.dft_eq_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:95:0: 'Applications.Parallel.Factor.fft_decode' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:96:0: 'Applications.Parallel.Factor.fourierRoot_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:97:0: 'Applications.Parallel.Factor.fourier_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Parallel/Examples.lean:98:0: 'Applications.Parallel.Examples.fourOutput_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3763/3841] Built Applications.Timing.Examples (2.0s)
+info: Applications/Timing/Examples.lean:54:0: [[(some (1 / 4), some (1 / 4)), (some (1 / 4), some (1 / 4))],
+  [(some (3 / 10), some (3 / 10)), (some (3 / 10), some (3 / 10))]]
+info: Applications/Timing/Examples.lean:55:0: [[(some (1 / 4), some (1 / 4)), (some (1 / 2), some (1 / 2)), (some (1 / 2), some (1 / 2))],
+  [(some (3 / 5), some (3 / 5)), (some (17 / 20), some (3 / 5)), (some (17 / 20), some (3 / 5))]]
+info: Applications/Timing/Examples.lean:56:0: [(0, true), (1 / 2, true), (7 / 10, false), (9 / 10, true), (1, true)]
+info: Applications/Timing/Examples.lean:58:0: 'Applications.Timing.Interval.empty_product_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:59:0: 'Applications.Timing.Digital.square_compose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:60:0: 'Applications.Timing.Digital.timingMatrixSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:61:0: 'Applications.Circuits.Circuit.compile_matrix_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:62:0: 'Applications.Timing.Adders.compiled_fullAdder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:63:0: 'Applications.Timing.Adders.fullAdder_addition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:64:0: 'Applications.Timing.Adders.fullAdder_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:65:0: 'Applications.Timing.Adders.hazard_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Applications/Timing/Examples.lean:66:0: 'Applications.Timing.Adders.carry_path_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [4258/4320] Built Applications.Sequences.LCA.ResidentInstallation (6.7s)
+warning: Applications/Sequences/LCA/ResidentInstallation.lean:232:5: Variable name `fit` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fit
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Applications/Sequences/LCA/ResidentInstallation.lean:232:55: Variable name `wide` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _wide
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Applications/Sequences/LCA/ResidentInstallation.lean:344:5: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [4492/4635] Built Examples.ArithmeticPipeline (2.6s)
+info: Examples/ArithmeticPipeline.lean:150:0: 'Examples.ArithmeticPipeline.compile_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Examples/ArithmeticPipeline.lean:151:0: 'Examples.ArithmeticPipeline.stack_after_update' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Examples/ArithmeticPipeline.lean:152:0: 'Examples.ArithmeticPipeline.stack_enclosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Examples/ArithmeticPipeline.lean:153:0: 'Examples.ArithmeticPipeline.incremental_output_enclosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [4513/4653] Built Examples.ArithmeticStaging (4.4s)
+info: Examples/ArithmeticStaging.lean:46:0: (147, PUnit.unit)
+info: Examples/ArithmeticStaging.lean:47:0: ["DUP", "SWAP", "PUSH", "DUP", "SWAP", "PUSH", "DUP", "SWAP", "PUSH", "SND", "POP", "SWAP", "PUSH", "DROP", "CONST 3",
+  "POP", "SND", "POP", "SWAP", "PUSH", "DUP", "SWAP", "PUSH", "SND", "POP", "SWAP", "PUSH", "DROP", "CONST 3", "POP",
+  "FST", "POP", "MUL", "POP", "SWAP", "PUSH", "POP", "DUP", "SWAP", "PUSH", "DUP", "SWAP", "PUSH", "FST", "SND", "POP",
+  "SWAP", "PUSH", "DROP", "CONST 3", "POP", ⋯]
+ℹ [9733/9859] Built Examples.BoundedArithmetic (3.1s)
+info: Examples/BoundedArithmetic.lean:131:0: bounded signed primitive runtime checks passed
+ℹ [9865/10007] Built Examples.BoundedMotionArithmetic (23s)
+info: Examples/BoundedMotionArithmetic.lean:240:0: some (29, 29, 29)
+info: Examples/BoundedMotionArithmetic.lean:241:0: some (-28, -28, -28)
+info: Examples/BoundedMotionArithmetic.lean:242:0: some (128, 128, 129)
+info: Examples/BoundedMotionArithmetic.lean:243:0: some (-65, -65, -64)
+info: Examples/BoundedMotionArithmetic.lean:244:0: some (40, 40, 41)
+info: Examples/BoundedMotionArithmetic.lean:245:0: true
+info: Examples/BoundedMotionArithmetic.lean:246:0: false
+info: Examples/BoundedMotionArithmetic.lean:248:0: bounded motion runtime checks passed
+ℹ [10069/10220] Built Examples.CertifiedIndexConversion (28s)
+info: Examples/CertifiedIndexConversion.lean:82:0: some { common := CertifiedIndexConversion.Expr.succ
+              (CertifiedIndexConversion.Expr.succ
+                (CertifiedIndexConversion.Expr.succ
+                  (CertifiedIndexConversion.Expr.succ (CertifiedIndexConversion.Expr.zero)))) }
+info: Examples/CertifiedIndexConversion.lean:83:0: true
+info: Examples/CertifiedIndexConversion.lean:84:0: false
+ℹ [10098/10231] Built Examples.BoundedMotion (28s)
+info: Examples/BoundedMotion.lean:166:0: bounded-motion smoke cases passed
+info: Examples/BoundedMotion.lean:195:0: bounded tol=1/4 representative=0: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),
+ (1 : Rat)/16,
+ (43 : Rat)/256,
+ 7,
+ 22,
+ 25,
+ 109,
+ 11,
+ { expressionNodes := 3591,
+   inputScalarConversions := 33,
+   outputScalarConversions := 30,
+   integerGuardUnits := 294,
+   scheduleAndSearchUnits := 25,
+   retainedPacketWrites := 5,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 25,
+   outputListCells := 11 })
+bounded elapsed_ns_including_render=6209076
+rational tol=1/4 representative=0: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=905819
+bounded tol=1/4 representative=1: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),
+ (1 : Rat)/16,
+ (43 : Rat)/256,
+ 7,
+ 22,
+ 25,
+ 109,
+ 11,
+ { expressionNodes := 3591,
+   inputScalarConversions := 33,
+   outputScalarConversions := 30,
+   integerGuardUnits := 294,
+   scheduleAndSearchUnits := 25,
+   retainedPacketWrites := 5,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 25,
+   outputListCells := 11 })
+bounded elapsed_ns_including_render=3155019
+rational tol=1/4 representative=1: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=364773
+bounded tol=1/4 representative=2: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),
+ (1 : Rat)/16,
+ (43 : Rat)/256,
+ 7,
+ 22,
+ 25,
+ 113,
+ 11,
+ { expressionNodes := 3591,
+   inputScalarConversions := 33,
+   outputScalarConversions := 30,
+   integerGuardUnits := 294,
+   scheduleAndSearchUnits := 25,
+   retainedPacketWrites := 5,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 25,
+   outputListCells := 11 })
+bounded elapsed_ns_including_render=2574263
+rational tol=1/4 representative=2: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=348770
+bounded tol=1/4 representative=3: (some (Orbifold.DiskTransport.Numerical.Bounded.Failure.precision),
+ (1 : Rat)/16,
+ (43 : Rat)/256,
+ 7,
+ 22,
+ 25,
+ 113,
+ 11,
+ { expressionNodes := 3591,
+   inputScalarConversions := 33,
+   outputScalarConversions := 30,
+   integerGuardUnits := 294,
+   scheduleAndSearchUnits := 25,
+   retainedPacketWrites := 5,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 25,
+   outputListCells := 11 })
+bounded elapsed_ns_including_render=2753250
+rational tol=1/4 representative=3: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=281409
+bounded tol=1/2 representative=0: (none,
+ (5 : Rat)/64,
+ (23 : Rat)/64,
+ 2,
+ 5,
+ 40,
+ 107,
+ 9,
+ { expressionNodes := 1026,
+   inputScalarConversions := 13,
+   outputScalarConversions := 42,
+   integerGuardUnits := 84,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+bounded elapsed_ns_including_render=1396930
+rational tol=1/2 representative=0: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=301679
+bounded tol=1/2 representative=1: (none,
+ (5 : Rat)/64,
+ (23 : Rat)/64,
+ 2,
+ 5,
+ 40,
+ 107,
+ 9,
+ { expressionNodes := 1026,
+   inputScalarConversions := 13,
+   outputScalarConversions := 42,
+   integerGuardUnits := 84,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+bounded elapsed_ns_including_render=983815
+rational tol=1/2 representative=1: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=200248
+bounded tol=1/2 representative=2: (none,
+ (5 : Rat)/64,
+ (93 : Rat)/256,
+ 2,
+ 5,
+ 40,
+ 111,
+ 9,
+ { expressionNodes := 1026,
+   inputScalarConversions := 13,
+   outputScalarConversions := 42,
+   integerGuardUnits := 84,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+bounded elapsed_ns_including_render=1088231
+rational tol=1/2 representative=2: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=259056
+bounded tol=1/2 representative=3: (none,
+ (5 : Rat)/64,
+ (93 : Rat)/256,
+ 2,
+ 5,
+ 40,
+ 111,
+ 9,
+ { expressionNodes := 1026,
+   inputScalarConversions := 13,
+   outputScalarConversions := 42,
+   integerGuardUnits := 84,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 1,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+bounded elapsed_ns_including_render=1143613
+rational tol=1/2 representative=3: (none,
+ (5 : Rat)/64,
+ (52777 : Rat)/262144,
+ 2,
+ 5,
+ 831,
+ 147,
+ 9,
+ { formulaNodes := 1026,
+   packetScalarBitScans := 20,
+   setupRationalCopies := 5,
+   outputRationalObservations := 42,
+   scheduleAndSearchUnits := 8,
+   retainedPacketWrites := 8,
+   setupAdmissionChecks := 0,
+   relabelScalarNegations := 2 },
+ { initialScalarSlots := 5,
+   initialPredicates := 2,
+   eventSlots := 4,
+   candidateCells := 12,
+   candidateChecks := 15,
+   scheduleSlots := 128,
+   stepSlots := 128,
+   relabelQuarterTurns := 9,
+   outputScalarSlots := 40,
+   outputListCells := 9 })
+rational elapsed_ns_including_render=173047
+✖ [10221/10307] Building Examples.FiniteUniverseLoops (70s)
+trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state154/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/recovered154-validation/Examples/FiniteUniverseLoops.lean -o /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/Examples/FiniteUniverseLoops.olean -i /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/Examples/FiniteUniverseLoops.ilean -c /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/ir/Examples/FiniteUniverseLoops.c --setup /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/ir/Examples/FiniteUniverseLoops.setup.json --json
+error: Lean exited with code 137
+⚠ [10540/10588] Built Examples.RecursiveCompilation (3.2s)
+warning: Examples/RecursiveCompilation.lean: imports `Mathlib.Algebra.Ring.Int.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: Examples/RecursiveCompilation.lean:158:0: (4, 7)
+info: Examples/RecursiveCompilation.lean:159:0: (14, 10)
+ℹ [10644/10711] Built Examples.CountedStackRun (50s)
+info: Examples/CountedStackRun.lean:34:0: counted stack controls passed
+✖ [10854/10927] Building SquareKit.Internal.Cubical.CocycleOrdinaryAction (96s)
+trace: .> LEAN_PATH=/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean /workspace/scratch/ae71b485b114/work/native-state154/profile/bin/lean -EhasSorry /workspace/scratch/ae71b485b114/work/recovered154-validation/SquareKit/Internal/Cubical/CocycleOrdinaryAction.lean -o /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.olean -i /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/lib/lean/SquareKit/Internal/Cubical/CocycleOrdinaryAction.ilean -c /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.c --setup /workspace/scratch/ae71b485b114/work/recovered154-validation/.lake/build/ir/SquareKit/Internal/Cubical/CocycleOrdinaryAction.setup.json --json
+error: Lean exited with code 137
+✔ [10923/10998] Built SquareKit.Internal.Cubical.Judgments.FillingTermEvaluation (1.3s)
+✔ [10925/10999] Built SquareKit.DependentPairDeclarations (1.1s)
+✔ [10926/11000] Built SquareKit.DependentPairEliminationJudgments (1.6s)
+⚠ [10927/11000] Built Examples.DependentPairTheoryModels (91s)
+warning: Examples/DependentPairTheoryModels.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file

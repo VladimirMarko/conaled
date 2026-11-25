@@ -1,0 +1,733 @@
+{
+  "schema": 1,
+  "status": "Frozen source assembly for root inspection; no Lean/compiler/candidate/review action by this helper.",
+  "workspace": "/workspace/scratch/ae71b485b114",
+  "source_repository": "/workspace/scratch/ae71b485b114/work/conaled",
+  "packet": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z",
+  "owner_plan": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/OWNER_PLAN.json",
+    "bytes": 37639,
+    "sha256": "4dfa5bc7a7b89a870c3ef52a91eed3c3580900c60659822a77139f352879c793",
+    "mode": "0644"
+  },
+  "current_candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "current_tree": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "incorporated_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "existing_scope_count": 60,
+  "proposed_scope_count": 63,
+  "blocks": {
+    "ordinary_machine": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/generic-ordinary/ordinary_machine.lean",
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565",
+        "mode": "0644"
+      },
+      "canonical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 6360,
+        "inclusive_lines": [
+          1,
+          130
+        ],
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/GenericOrdinary144b.lean",
+        "bytes": 122563,
+        "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          1883,
+          2012
+        ],
+        "byte_start": 83109,
+        "byte_end_exclusive": 89469
+      },
+      "namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+      "namespace_mapping": "identity",
+      "output_owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "output_selection": {
+        "byte_start": 1027,
+        "byte_end_exclusive": 7387,
+        "inclusive_lines": [
+          24,
+          153
+        ],
+        "bytes": 6360,
+        "sha256": "d7a3dcc2de4eb78a3cb8b0ca1908213c318a57badda5cdc1d59e8f7f182a7565"
+      }
+    },
+    "ordinary_run": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/generic-ordinary/ordinary_run.lean",
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8",
+        "mode": "0644"
+      },
+      "canonical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 13314,
+        "inclusive_lines": [
+          1,
+          234
+        ],
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/GenericOrdinary144b.lean",
+        "bytes": 122563,
+        "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          2032,
+          2265
+        ],
+        "byte_start": 90247,
+        "byte_end_exclusive": 103561
+      },
+      "namespace": "Resources.TuringSimulation.StackToTape.OrdinaryPackage",
+      "namespace_mapping": "identity",
+      "output_owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "output_selection": {
+        "byte_start": 7388,
+        "byte_end_exclusive": 20702,
+        "inclusive_lines": [
+          155,
+          388
+        ],
+        "bytes": 13314,
+        "sha256": "94b4e2732f95c305fad1eee5c406658c0496a20bf407c0eeb26c61328be500b8"
+      }
+    },
+    "ordinary_cases": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/generic-ordinary/ordinary_cases.lean",
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76",
+        "mode": "0644"
+      },
+      "canonical_selection": {
+        "byte_start": 0,
+        "byte_end_exclusive": 11348,
+        "inclusive_lines": [
+          1,
+          248
+        ],
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/GenericOrdinary144b.lean",
+        "bytes": 122563,
+        "sha256": "83b7b6c685cadedfd38efc7c624f4bfd94243366768c4be1c34bd2ad32da78e2"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          2283,
+          2530
+        ],
+        "byte_start": 104229,
+        "byte_end_exclusive": 115577
+      },
+      "namespace": "Examples.TuringSimulation.OrdinaryPackageCases",
+      "namespace_mapping": "identity",
+      "output_owner": "Examples/TuringSimulation.lean",
+      "output_selection": {
+        "byte_start": 48653,
+        "byte_end_exclusive": 60001,
+        "inclusive_lines": [
+          1179,
+          1426
+        ],
+        "bytes": 11348,
+        "sha256": "fc33d4b7cfec83ad5b92aba2f983fde0bbde342e853f888d5cdc104316deed76"
+      }
+    },
+    "printmove_adapter": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/PrintMoveAdapter.lean",
+        "bytes": 20923,
+        "sha256": "24befda9f470ab92f4ed4311799a87012e67d756b6a2c484cb2651ae01b66315",
+        "mode": "0444"
+      },
+      "canonical_selection": {
+        "byte_start": 430,
+        "byte_end_exclusive": 20922,
+        "inclusive_lines": [
+          14,
+          478
+        ],
+        "bytes": 20492,
+        "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+        "bytes": 70278,
+        "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          164,
+          628
+        ],
+        "byte_start": 6183,
+        "byte_end_exclusive": 26675
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove",
+      "namespace_mapping": "identity",
+      "output_owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "output_selection": {
+        "byte_start": 1135,
+        "byte_end_exclusive": 21627,
+        "inclusive_lines": [
+          28,
+          492
+        ],
+        "bytes": 20492,
+        "sha256": "7a1e3fcd828cde0fa0677d3e34485b7cf118ab9e7e825bf8c82056c5852e7599"
+      }
+    },
+    "printmove_trace": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/PrintMoveSpace.lean",
+        "bytes": 11986,
+        "sha256": "def140d467b4efa88d2a1be7dbfbb4f53a0c97f7ed723964fab4bfd506876121",
+        "mode": "0444"
+      },
+      "canonical_selection": {
+        "byte_start": 281,
+        "byte_end_exclusive": 11985,
+        "inclusive_lines": [
+          8,
+          268
+        ],
+        "bytes": 11704,
+        "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+        "bytes": 70278,
+        "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          638,
+          898
+        ],
+        "byte_start": 27000,
+        "byte_end_exclusive": 38704
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove.Trace",
+      "namespace_mapping": "identity",
+      "output_owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "output_selection": {
+        "byte_start": 21628,
+        "byte_end_exclusive": 33332,
+        "inclusive_lines": [
+          494,
+          754
+        ],
+        "bytes": 11704,
+        "sha256": "3b11e458e7bc476e19d17dcf428b92dc396407fb8926555b5fa2e89684a6c0b8"
+      }
+    },
+    "printmove_cases": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/PrintMoveCases.lean",
+        "bytes": 12916,
+        "sha256": "607482c044e65891e98e047b3bd0c89341cbd59b409edf3af6f259100d0dbc70",
+        "mode": "0444"
+      },
+      "canonical_selection": {
+        "byte_start": 223,
+        "byte_end_exclusive": 12915,
+        "inclusive_lines": [
+          7,
+          295
+        ],
+        "bytes": 12692,
+        "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+        "bytes": 70278,
+        "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          907,
+          1195
+        ],
+        "byte_start": 38971,
+        "byte_end_exclusive": 51663
+      },
+      "namespace": "Resources.TuringSimulation.PrintMove.Cases",
+      "namespace_mapping": "identity",
+      "output_owner": "Examples/TuringSimulation.lean",
+      "output_selection": {
+        "byte_start": 60002,
+        "byte_end_exclusive": 72694,
+        "inclusive_lines": [
+          1428,
+          1716
+        ],
+        "bytes": 12692,
+        "sha256": "d4223e1e6bf55221e349a5205c920c01937548d05de18b8d66dd84280fbfe483"
+      }
+    },
+    "polynomial_consumer": {
+      "canonical_source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/PolynomialDeciderPrintMove.lean",
+        "bytes": 7165,
+        "sha256": "802d3599d9ad5bc4fa16ac4790badde908cf959956ca457e5bedf2146f2181da",
+        "mode": "0444"
+      },
+      "canonical_selection": {
+        "byte_start": 373,
+        "byte_end_exclusive": 7164,
+        "inclusive_lines": [
+          9,
+          138
+        ],
+        "bytes": 6791,
+        "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a"
+      },
+      "historical_combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/ConventionalNative144a.lean",
+        "bytes": 70278,
+        "sha256": "851713367dc85513122f45b1499ca41df2c9415165e93694d5e55555f420e056"
+      },
+      "historical_combined_selection": {
+        "inclusive_lines": [
+          1206,
+          1335
+        ],
+        "byte_start": 52092,
+        "byte_end_exclusive": 58883
+      },
+      "namespace": "Resources.TuringSimulation.PolynomialBooleanDecider",
+      "namespace_mapping": "identity",
+      "output_owner": "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "output_selection": {
+        "byte_start": 796,
+        "byte_end_exclusive": 7587,
+        "inclusive_lines": [
+          20,
+          149
+        ],
+        "bytes": 6791,
+        "sha256": "71f4ce7af048448aabf9ffe5d8cc338734a78ed0ccc48ddd47874cdc58b4209a"
+      }
+    }
+  },
+  "outputs": [
+    {
+      "owner": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "output": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+        "bytes": 20702,
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+        "mode": "0644"
+      },
+      "imports_added": [
+        "Applications.Resources.TuringSimulation.MarkedInput",
+        "Applications.Resources.TuringSimulation.FiniteStackToTape",
+        "Applications.Resources.TuringSimulation.SingletonOutput"
+      ],
+      "body_blocks": [
+        "ordinary_machine",
+        "ordinary_run"
+      ],
+      "proof_or_statement_rewrites": [],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "module_doc_added": "/-!\n# Ordinary input and singleton output for finite stack packages\n\nThe wrapper fixes a native machine before the raw input is supplied. It uses\nthe package's work alphabet, its exact supported starting control, and an\ninjective nonblank letter map. Finiteness of the work alphabet requires finite\nalphabets at every source stack index.\n\n`runInTime` consumes an actual bounded encoded native run and a complete\n`TM2to1.TrCfg` relation to `haltList tm [answer]`. It composes the paid input\nprelude with the supplied run and one output write, reaching the whole singleton\noutput tape with blank tails. Its bound is `preludeSteps raw + B + 1`;\n`nextNoneRun` pays one additional step to observe outer `none`. The native\nevaluation theorem follows from this complete endpoint.\n-/\n"
+    },
+    {
+      "owner": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "output": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/PrintMove.lean",
+        "bytes": 33332,
+        "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+        "mode": "0644"
+      },
+      "imports_added": [
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Fintype.Sum",
+        "Mathlib.Tactic.DeriveFintype",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Int.Interval",
+        "Mathlib.Order.Monotone.Basic"
+      ],
+      "body_blocks": [
+        "printmove_adapter",
+        "printmove_trace"
+      ],
+      "proof_or_statement_rewrites": [],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "module_doc_added": "/-!\n# Native simulation by print-and-move transitions\n\nEach target action writes a symbol and moves exactly one square. The adapter\npreserves the native alphabet, supplied start and complete physical tape at\nnormal control boundaries. A native move costs one target action; a native\nwrite costs two, with its rightward excursion and return included. A final\ndecision action reaches an accepting or rejecting control and moves the tape\nright. For a stopped native endpoint with a Boolean output, a native bound `B`\ntherefore yields a deciding bound `2 * B + 1`.\n\nThe trace API observes every actual target prefix, including write excursions\nand the final decision. It bounds the input-inclusive visited interval by\n`max N 1 + U` for target time `U`. This interval observation does not assert\nbounded support for an arbitrary initial tape.\n-/\n"
+    },
+    {
+      "owner": "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+      "output": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+        "bytes": 7587,
+        "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+        "mode": "0644"
+      },
+      "imports_added": [
+        "Applications.Resources.TuringSimulation.PolynomialDecider",
+        "Applications.Resources.TuringSimulation.PrintMove"
+      ],
+      "body_blocks": [
+        "polynomial_consumer"
+      ],
+      "proof_or_statement_rewrites": [],
+      "options": [
+        "set_option autoImplicit false",
+        "set_option warningAsError true"
+      ],
+      "module_doc_added": "/-!\n# Print-and-move realization of native polynomial Boolean deciders\n\nThe construction fixes finite target control before the input, preserving the\nnative decider's blank, supplied start and injective nonblank Boolean letters.\nIts time polynomial evaluates to `2 * d.time.eval N + 1`. The run theorem\nretains actual native and target witnesses and the complete final tape; the\nspace theorem observes every target prefix on the literal input length.\n\n`printMoveMachine` uses supplied decidable alphabet equality. The classical variant\nprovides a noncomputable finite machine from the same native contract.\n-/\n"
+    },
+    {
+      "owner": "Examples/TuringSimulation.lean",
+      "output": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/Examples/TuringSimulation.lean",
+        "bytes": 72694,
+        "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+        "mode": "0644"
+      },
+      "imports_added": [
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Data.Fintype.Prod"
+      ],
+      "body_blocks": [
+        "ordinary_cases",
+        "printmove_cases"
+      ],
+      "proof_or_statement_rewrites": [],
+      "options": "existing bytes retained",
+      "existing_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/TuringSimulation.lean",
+        "bytes": 48440,
+        "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+        "mode": "0644"
+      },
+      "unchanged_existing_file_selection": {
+        "byte_start": 212,
+        "byte_end_exclusive": 48652,
+        "inclusive_lines": [
+          6,
+          1177
+        ],
+        "bytes": 48440,
+        "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56"
+      },
+      "reverse_transform": "Remove only the added import prefix and appended namespace blocks; retained contiguous bytes equal the complete original file."
+    },
+    {
+      "owner": "SquareApplications.lean",
+      "output": {
+        "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/SquareApplications.lean",
+        "bytes": 47067,
+        "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+        "mode": "0644"
+      },
+      "imports_added": [
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PrintMove",
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove"
+      ],
+      "body_blocks": [],
+      "proof_or_statement_rewrites": [],
+      "options": "existing bytes retained",
+      "existing_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/SquareApplications.lean",
+        "bytes": 46872,
+        "sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19",
+        "mode": "0644"
+      },
+      "unchanged_existing_file_selection": {
+        "byte_start": 195,
+        "byte_end_exclusive": 47067,
+        "inclusive_lines": [
+          5,
+          1304
+        ],
+        "bytes": 46872,
+        "sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19"
+      },
+      "reverse_transform": "Remove only the added import prefix and appended namespace blocks; retained contiguous bytes equal the complete original file."
+    }
+  ],
+  "assembly_checks": {
+    "seven_body_bytes_match_retained_plan": true,
+    "namespace_changes": [],
+    "both_existing_complete_files_preserved": true,
+    "author_inputs_unchanged": {
+      "Examples/TuringSimulation.lean": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/Examples/TuringSimulation.lean",
+        "bytes": 48440,
+        "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+        "mode": "0644"
+      },
+      "SquareApplications.lean": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/SquareApplications.lean",
+        "bytes": 46872,
+        "sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19",
+        "mode": "0644"
+      }
+    },
+    "compiler_invoked": false,
+    "repository_written": false
+  },
+  "guidance_fully_read": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/AGENTS.md",
+      "bytes": 2628,
+      "sha256": "c98741e0325029ca67e2d079239288a05af775b5d336b88f4b4046068db37db7",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/task-authority.md",
+      "bytes": 3817,
+      "sha256": "1873b383daa756a7b4fd2780868e66c75e5f2eb2695fa914cce57eda5f5f0e9a",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/.agents/skills/implement/SKILL.md",
+      "bytes": 5383,
+      "sha256": "1ee81882f7b87e2233bd513dc4304ebd9cfc3ac11551fb2736817b4caa1fe243",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/completion.md",
+      "bytes": 1772,
+      "sha256": "5cdd90762527df7999c196ea8d7532ae9b9fe43a030d522fe2ccd07fb1823db2",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/formal-development.md",
+      "bytes": 1038,
+      "sha256": "36065a7becbd4773f4889a970f826e2afe5092e21ba5ef30e56691921256adac",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/architectural-quality.md",
+      "bytes": 5409,
+      "sha256": "d64cdc8e5ffb02d5ee3509c9c798861bf9d0c7d0510e9584bbea6d9eb2249a4c",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/agents/review-loop.md",
+      "bytes": 16277,
+      "sha256": "c369ed734ff8b61c2a2745fc3cd5839f496654e1625b1a4ceaa6a04abb2ba80f",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/.agents/skills/example-driven-development/SKILL.md",
+      "bytes": 8691,
+      "sha256": "4c396c3f6142b6aeddff067756a451eb31d0b5aa3baac89d63228751ab2593ae",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/.agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/GLOSSARY.md",
+      "bytes": 4934,
+      "sha256": "20b2caab65426bf067ca8e12b1bae2151a8ef5ff7997604d93258a27d6cde8c9",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/adr/0006-stack-machine.md",
+      "bytes": 2341,
+      "sha256": "0c93a0510f03cd1b7e6307ee79b707a7eb9585549a451c600743250cf86cb5cf",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 8160,
+      "sha256": "ff80c10a835f6ed5d30b45719cc311d4af6be1fbeb08fd37eeeab085906e356e",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/docs/language-direction.md",
+      "bytes": 59914,
+      "sha256": "67027141798b659caba825757daabf4860d15a47c320ef36c9e97eb1fbbbaea4",
+      "mode": "0644"
+    }
+  ],
+  "additional_reading": [
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/README.md",
+        "bytes": 14876,
+        "sha256": "8450b5fef8363bf6c9226b13c34120fa9db7a7590cfb9673a5a84173f8140d8b",
+        "mode": "0644"
+      },
+      "lines": [
+        59,
+        136
+      ]
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+        "bytes": 43733,
+        "sha256": "9e49302ee4f6c270e136ec7135c07a9b27f94da4cadc3beabbf53faba8e37148",
+        "mode": "0644"
+      },
+      "lines": [
+        1,
+        110
+      ],
+      "purpose": "Its public StateTransition import provides the bounded-run API."
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/work/conaled/.lake/packages/mathlib/Mathlib/Computability/StateTransition.lean",
+        "bytes": 14068,
+        "sha256": "8c05afaf9ddd44cf6069f1a1a1a4267b17e74a61435aba582d62c95a5784704e",
+        "mode": "0644"
+      },
+      "reading": "Import/declaration lines only: public imports and EvalsToInTime structure/refl/trans locations."
+    }
+  ],
+  "historical_results": [
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/research/generic-ordinary144-attempt3.result.json",
+        "bytes": 9400,
+        "sha256": "0dd264c538995fd394cd22353464066d54f6a84d66c341186b2a69242932fd46",
+        "mode": "0644"
+      },
+      "result": {
+        "name": "generic-ordinary144-attempt3",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "elapsed_seconds": 195.44276024299688,
+        "finished_utc": "2026-11-24T11:53:02.182980+00:00",
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "limit": "Historical combined development check; not validation of these new ordinary modules."
+    },
+    {
+      "source": {
+        "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/research/conventional-native144-attempt2.result.json",
+        "bytes": 8864,
+        "sha256": "8cdf2815fc1c8e5511c72e8bc2f35e95650664840ef17536fe7c5578ab753092",
+        "mode": "0644"
+      },
+      "result": {
+        "name": "conventional-native144-attempt2",
+        "exit_code": 0,
+        "sources_unchanged": true,
+        "elapsed_seconds": 78.72401990800063,
+        "finished_utc": "2026-11-24T11:58:12.781935+00:00",
+        "boundary": "Actual command result; focused compilation is not whole-library acceptance."
+      },
+      "limit": "Historical combined development check; not validation of these new ordinary modules."
+    }
+  ],
+  "retained_contracts_and_query_plan": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/generic-ordinary/EXPECTATIONS.json",
+      "bytes": 5144,
+      "sha256": "cff19a58e80d40fa43fdec561da45461374059982603a1bbb2aad762088575d1",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/PUBLIC_CONTRACT.md",
+      "bytes": 5472,
+      "sha256": "0b635ad2cb32008498538053036371de52d9696162a9afe8c8e05af2e321b537",
+      "mode": "0444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/conventional/EXPECTATIONS.md",
+      "bytes": 4057,
+      "sha256": "90a248687dc2e4eabfc4a01d97ff6efe354aa9c09c49b2f282ce26c9051c7cf3",
+      "mode": "0444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/README.md",
+      "bytes": 15616,
+      "sha256": "24101871aed313c2605b0eec928fde7ee04e110f305793484cdcdd0a05f6f593",
+      "mode": "0644"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/QUERY_PLAN.json",
+      "bytes": 189998,
+      "sha256": "27b38175c9733f7de1900f67e26510a3187e73ee1dcba11c28371c41ae0b952c",
+      "mode": "0644"
+    }
+  ],
+  "reading_limits": [
+    "All seven canonical namespace blocks and fixed ordinary/conventional contracts were read in full.",
+    "Integration147 README and substantive owner plan fields were read; query plan metadata and selected names were read, not every query string.",
+    "Historical result JSON fields were inspected; complete historical compiler logs were not reread in this task.",
+    "Existing complete owner files were preserved and compared by bytes; this bounded task did not reread every old example proof.",
+    "No newly assembled ordinary module has been compiled by this helper; root owns isolated module validation and the existing review loop.",
+    "The previous whole139 result remains UNKNOWN after the workspace wipe; its old products are not reusable evidence here."
+  ],
+  "normal_validation_order": [
+    "Supported original-B/M baseline for complete proposed63 scope before installation",
+    "Root reconciles sole project-output writer and actual existing receipts",
+    "Unchanged native dependencies under ordinary module names",
+    "OrdinaryPackage and PrintMove after their respective dependencies",
+    "PolynomialDeciderPrintMove after PolynomialDecider and PrintMove",
+    "Complete Examples.TuringSimulation and retained complete controller/certificate clients",
+    "Aggregate import graph, matching statement observations, whole build and exhaustive audit",
+    "Immediate nonrepairing verification, supported comparison, continuing original Standards/Spec axes"
+  ],
+  "scope_limits": [
+    "delimiter research",
+    "new concrete controller printMove theorem",
+    "retrofitting existing controller ordinary proof",
+    "NP class or equivalence",
+    "finite enumerated transition-table export",
+    "sharper space",
+    "candidate or acceptance action",
+    "public working files"
+  ],
+  "generator": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-drafts/prepare.py",
+    "bytes": 13278,
+    "sha256": "663bf30145968d49e0add9d24c8003528d4c5445b36bb45b9181a39a9d04a674",
+    "mode": "0644"
+  }
+}

@@ -1,0 +1,594 @@
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet (tm : Turing.FinTM2) : Type
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control (tm : Turing.FinTM2) : Type
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited (tm : Turing.FinTM2) :
+  Inhabited (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.alphabetFintype (tm : Turing.FinTM2)
+  [(k : tm.K) → Fintype (tm.Γ k)] : Fintype (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlFintype (tm : Turing.FinTM2) :
+  Fintype (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault (tm : Turing.FinTM2) :
+  Resources.TuringSimulation.StackToTape.Package.Control tm
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_val (tm : Turing.FinTM2) :
+  ↑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault tm) =
+    (some (Turing.TM2to1.tr tm.m (Turing.TM2to1.Λ'.normal tm.main)), tm.initialState)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault_register (tm : Turing.FinTM2) :
+  (↑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault tm)).2 = tm.initialState
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.wrapper_default (tm : Turing.FinTM2) :
+  default = Resources.TuringSimulation.MarkedInput.Control.start
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter (tm : Turing.FinTM2) :
+  tm.Γ tm.k₀ ↪ Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_ne_blank (tm : Turing.FinTM2) (a : tm.Γ tm.k₀) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter tm) a ≠ default
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter_selected (tm : Turing.FinTM2) (a : tm.Γ tm.k₀) :
+  ((Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter tm) a).2 tm.k₀ = some a
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_eq (tm : Turing.FinTM2) (raw : List (tm.Γ tm.k₀)) :
+  List.map (⇑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter tm)) raw =
+    Resources.TuringSimulation.MarkedInput.input tm.k₀ raw
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.input_map_length (tm : Turing.FinTM2) (raw : List (tm.Γ tm.k₀)) :
+  (List.map (⇑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.inputLetter tm)) raw).length = raw.length
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁)
+  (a : Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm) :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_output (tm : Turing.FinTM2) (answer : tm.Γ tm.k₁) :
+  Resources.TuringSimulation.SingletonOutput.haltRow tm answer tm.k₁ = some answer
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.haltRow_input (tm : Turing.FinTM2) (answer : tm.Γ tm.k₁)
+  (separate : tm.k₀ ≠ tm.k₁) : Resources.TuringSimulation.SingletonOutput.haltRow tm answer tm.k₀ = none
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_row (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback answer : tm.Γ tm.k₁) :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter tm outputLetter fallback
+      (true, Resources.TuringSimulation.SingletonOutput.haltRow tm answer) =
+    Resources.TuringSimulation.MarkedInput.symbol tm.k₀ (outputLetter answer)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter_halt_readback (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback answer : tm.Γ tm.k₁) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter tm outputLetter fallback
+          (true, Resources.TuringSimulation.SingletonOutput.haltRow tm answer)).2
+      tm.k₀ =
+    some (outputLetter answer)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) :
+  Turing.TM0.Machine (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.prelude_exact (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) :
+  (flip bind
+          (Turing.TM0.step
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter
+              fallback)))^[Resources.TuringSimulation.MarkedInput.preludeSteps raw]
+      (some (Turing.TM0.init (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault tm),
+        Tape := Resources.TuringSimulation.TapeReflection.tape (Turing.Tape.mk₁ (Turing.TM2to1.trInit tm.k₀ raw)) }
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.done_step (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁)
+  (T : Turing.Tape (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)) :
+  Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+      { q := Resources.TuringSimulation.MarkedInput.Control.done, Tape := T } =
+    none
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget (tm : Turing.FinTM2) : Type
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget (tm : Turing.FinTM2)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm) :
+  Turing.TM0.Cfg (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+    (Resources.TuringSimulation.StackToTape.Package.Control tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget_tape (tm : Turing.FinTM2)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target).Tape = target.Tape
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun (tm : Turing.FinTM2) (raw : List (tm.Γ tm.k₀))
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm) (B : ℕ) : Type
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (answer : tm.Γ tm.k₁) :
+  Turing.TM0.Cfg (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_tape (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (answer : tm.Γ tm.k₁) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer).Tape =
+    Turing.Tape.mk₁ [Resources.TuringSimulation.MarkedInput.symbol tm.k₀ (outputLetter answer)]
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg_stopped (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback answer : tm.Γ tm.k₁) :
+  Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer) =
+    none
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_singleton (tm : Turing.FinTM2)
+  (answer : tm.Γ tm.k₁) (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target).Tape =
+    Turing.Tape.mk₁ [(true, Resources.TuringSimulation.SingletonOutput.haltRow tm answer)]
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.related_target_stopped (tm : Turing.FinTM2) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target)
+  (a : Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm) :
+  Resources.TuringSimulation.StackToTape.Package.closedMachine tm
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target).q a =
+    none
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun (tm : Turing.FinTM2) (raw : List (tm.Γ tm.k₀))
+  (answer : tm.Γ tm.k₁) (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  StateTransition.EvalsToInTime (Turing.TM0.step (Resources.TuringSimulation.StackToTape.Package.closedMachine tm))
+    (Turing.TM0.init (Turing.TM2to1.trInit tm.k₀ raw))
+    (some
+      { q := (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target).q,
+        Tape := Turing.Tape.mk₁ [(true, Resources.TuringSimulation.SingletonOutput.haltRow tm answer)] })
+    B
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun_steps (tm : Turing.FinTM2) (raw : List (tm.Γ tm.k₀))
+  (answer : tm.Γ tm.k₁) (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.singletonRun tm raw answer target related B before).steps =
+    before.steps
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) :
+  Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+      (Resources.TuringSimulation.MarkedInput.runConfiguration
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target)) =
+    some (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  StateTransition.EvalsToInTime
+    (Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+    (Turing.TM0.init (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw))
+    (some (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer))
+    (Resources.TuringSimulation.MarkedInput.preludeSteps raw + B + 1)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime tm outputLetter fallback raw answer target related B
+        before).steps =
+    1 + (before.steps + Resources.TuringSimulation.MarkedInput.preludeSteps raw)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  Turing.TM0.eval (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+      (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw) =
+    Part.some (Turing.ListBlank.mk [Resources.TuringSimulation.MarkedInput.symbol tm.k₀ (outputLetter answer)])
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  StateTransition.EvalsToInTime
+    (Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+    (Turing.TM0.init (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw)) none
+    (Resources.TuringSimulation.MarkedInput.preludeSteps raw + B + 2)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun_steps (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  (Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun tm outputLetter fallback raw answer target related
+        B before).steps =
+    1 +
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime tm outputLetter fallback raw answer target
+          related B before).steps
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.run_and_eval (tm : Turing.FinTM2)
+  (outputLetter : tm.Γ tm.k₁ → tm.Γ tm.k₀) (fallback : tm.Γ tm.k₁) (raw : List (tm.Γ tm.k₀)) (answer : tm.Γ tm.k₁)
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related : Turing.TM2to1.TrCfg (Turing.haltList tm [answer]) target) (B : ℕ)
+  (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  Nonempty
+      (StateTransition.EvalsToInTime
+        (Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+        (Turing.TM0.init (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw))
+        (some (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer))
+        (Resources.TuringSimulation.MarkedInput.preludeSteps raw + B + 1)) ∧
+    Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer) =
+        none ∧
+      Turing.TM0.eval (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback)
+            (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw) =
+          Part.some (Turing.ListBlank.mk [Resources.TuringSimulation.MarkedInput.symbol tm.k₀ (outputLetter answer)]) ∧
+        Nonempty
+          (StateTransition.EvalsToInTime
+            (Turing.TM0.step (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+            (Turing.TM0.init (List.map (Resources.TuringSimulation.MarkedInput.symbol tm.k₀) raw)) none
+            (Resources.TuringSimulation.MarkedInput.preludeSteps raw + B + 2))
+Examples.TuringSimulation.OrdinaryPackageCases.fixtureAlphabet : Bool → Type
+Examples.TuringSimulation.OrdinaryPackageCases.fixture : Turing.FinTM2
+Examples.TuringSimulation.OrdinaryPackageCases.outputLetter : Bool → Option Bool
+Examples.TuringSimulation.OrdinaryPackageCases.cell (a : Option Bool) :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet Examples.TuringSimulation.OrdinaryPackageCases.fixture
+Examples.TuringSimulation.OrdinaryPackageCases.nativeInput (raw : List (Option Bool)) :
+  List
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture)
+Examples.TuringSimulation.OrdinaryPackageCases.M :
+  Turing.TM0.Machine
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture)
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture)
+Examples.TuringSimulation.OrdinaryPackageCases.stores_are_distinct :
+  Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₀ ≠ Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₁
+Examples.TuringSimulation.OrdinaryPackageCases.alphabet_is_finite :
+  Nonempty
+    (Fintype
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet
+        Examples.TuringSimulation.OrdinaryPackageCases.fixture))
+Examples.TuringSimulation.OrdinaryPackageCases.working_alphabet_has_twenty_four_symbols :
+  Fintype.card
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet
+        Examples.TuringSimulation.OrdinaryPackageCases.fixture) =
+    24
+Examples.TuringSimulation.OrdinaryPackageCases.wrapper_control_is_finite :
+  Nonempty
+    (Fintype
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control
+        Examples.TuringSimulation.OrdinaryPackageCases.fixture))
+Examples.TuringSimulation.OrdinaryPackageCases.supplied_main_is_true :
+  Examples.TuringSimulation.OrdinaryPackageCases.fixture.main = true
+Examples.TuringSimulation.OrdinaryPackageCases.supplied_register_is_true :
+  (↑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+          Examples.TuringSimulation.OrdinaryPackageCases.fixture)).2 =
+    true
+Examples.TuringSimulation.OrdinaryPackageCases.supplied_source_control :
+  ↑(Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+        Examples.TuringSimulation.OrdinaryPackageCases.fixture) =
+    (some (Turing.TM2to1.tr Examples.TuringSimulation.OrdinaryPackageCases.fixture.m (Turing.TM2to1.Λ'.normal true)),
+      true)
+Examples.TuringSimulation.OrdinaryPackageCases.wrapper_starts_at_prelude :
+  default = Resources.TuringSimulation.MarkedInput.Control.start
+Examples.TuringSimulation.OrdinaryPackageCases.designated_input_preserves_length (raw : List (Option Bool)) :
+  (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput raw).length = raw.length
+Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_is_present :
+  (Examples.TuringSimulation.OrdinaryPackageCases.cell none).2
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₀ =
+    some none
+Examples.TuringSimulation.OrdinaryPackageCases.false_cell_is_present :
+  (Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)).2
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₀ =
+    some (some false)
+Examples.TuringSimulation.OrdinaryPackageCases.true_cell_is_present :
+  (Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)).2
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₀ =
+    some (some true)
+Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_blank :
+  Examples.TuringSimulation.OrdinaryPackageCases.cell none ≠ default
+Examples.TuringSimulation.OrdinaryPackageCases.false_cell_ne_blank :
+  Examples.TuringSimulation.OrdinaryPackageCases.cell (some false) ≠ default
+Examples.TuringSimulation.OrdinaryPackageCases.delimiter_cell_ne_false :
+  Examples.TuringSimulation.OrdinaryPackageCases.cell none ≠
+    Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)
+Examples.TuringSimulation.OrdinaryPackageCases.empty_input_ne_delimiter :
+  Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [] ≠
+    Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [none]
+Examples.TuringSimulation.OrdinaryPackageCases.empty_prelude_one_step :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[1]
+      (some (Turing.TM0.init (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput []))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+              Examples.TuringSimulation.OrdinaryPackageCases.fixture),
+        Tape := { head := (true, fun x => none), left := ∅, right := ∅ } }
+Examples.TuringSimulation.OrdinaryPackageCases.delimiter_prelude_three_steps :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[3]
+      (some (Turing.TM0.init (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [none]))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+              Examples.TuringSimulation.OrdinaryPackageCases.fixture),
+        Tape :=
+          { head := (true, (Examples.TuringSimulation.OrdinaryPackageCases.cell none).2), left := ∅, right := ∅ } }
+Examples.TuringSimulation.OrdinaryPackageCases.present_false_prelude_three_steps :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[3]
+      (some (Turing.TM0.init (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [some false]))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+              Examples.TuringSimulation.OrdinaryPackageCases.fixture),
+        Tape :=
+          { head := (true, (Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)).2), left := ∅,
+            right := ∅ } }
+Examples.TuringSimulation.OrdinaryPackageCases.present_true_prelude_three_steps :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[3]
+      (some (Turing.TM0.init (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [some true]))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+              Examples.TuringSimulation.OrdinaryPackageCases.fixture),
+        Tape :=
+          { head := (true, (Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)).2), left := ∅,
+            right := ∅ } }
+Examples.TuringSimulation.OrdinaryPackageCases.orientation_prelude_five_steps :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[5]
+      (some
+        (Turing.TM0.init (Examples.TuringSimulation.OrdinaryPackageCases.nativeInput [some false, none, some true]))) =
+    some
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.sourceDefault
+              Examples.TuringSimulation.OrdinaryPackageCases.fixture),
+        Tape :=
+          { head := (true, (Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)).2),
+            left :=
+              Turing.ListBlank.mk
+                [Examples.TuringSimulation.OrdinaryPackageCases.cell none,
+                  Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)],
+            right := ∅ } }
+Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_empty_input_track :
+  Resources.TuringSimulation.SingletonOutput.haltRow Examples.TuringSimulation.OrdinaryPackageCases.fixture false
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₀ =
+    none
+Examples.TuringSimulation.OrdinaryPackageCases.false_halt_has_present_output_track :
+  Resources.TuringSimulation.SingletonOutput.haltRow Examples.TuringSimulation.OrdinaryPackageCases.fixture false
+      Examples.TuringSimulation.OrdinaryPackageCases.fixture.k₁ =
+    some false
+Examples.TuringSimulation.OrdinaryPackageCases.false_output_ignores_true_fallback :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter Examples.TuringSimulation.OrdinaryPackageCases.fixture
+      Examples.TuringSimulation.OrdinaryPackageCases.outputLetter true
+      (true,
+        Resources.TuringSimulation.SingletonOutput.haltRow Examples.TuringSimulation.OrdinaryPackageCases.fixture
+          false) =
+    Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)
+Examples.TuringSimulation.OrdinaryPackageCases.true_output_ignores_false_fallback :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter Examples.TuringSimulation.OrdinaryPackageCases.fixture
+      Examples.TuringSimulation.OrdinaryPackageCases.outputLetter false
+      (true,
+        Resources.TuringSimulation.SingletonOutput.haltRow Examples.TuringSimulation.OrdinaryPackageCases.fixture
+          true) =
+    Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)
+Examples.TuringSimulation.OrdinaryPackageCases.blank_cell_uses_total_fallback :
+  Resources.TuringSimulation.StackToTape.OrdinaryPackage.emitter Examples.TuringSimulation.OrdinaryPackageCases.fixture
+      Examples.TuringSimulation.OrdinaryPackageCases.outputLetter true default =
+    Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)
+Examples.TuringSimulation.OrdinaryPackageCases.haltedControl :
+  Resources.TuringSimulation.StackToTape.Package.Control Examples.TuringSimulation.OrdinaryPackageCases.fixture
+Examples.TuringSimulation.OrdinaryPackageCases.false_output_one_step :
+  Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            Examples.TuringSimulation.OrdinaryPackageCases.haltedControl,
+        Tape :=
+          Turing.Tape.mk₁
+            [(true,
+                Resources.TuringSimulation.SingletonOutput.haltRow
+                  Examples.TuringSimulation.OrdinaryPackageCases.fixture false)] } =
+    some
+      { q := Resources.TuringSimulation.MarkedInput.Control.done,
+        Tape := Turing.Tape.mk₁ [Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)] }
+Examples.TuringSimulation.OrdinaryPackageCases.true_output_one_step :
+  Turing.TM0.step
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine
+        Examples.TuringSimulation.OrdinaryPackageCases.fixture
+        Examples.TuringSimulation.OrdinaryPackageCases.outputLetter false)
+      {
+        q :=
+          Resources.TuringSimulation.MarkedInput.Control.run
+            Examples.TuringSimulation.OrdinaryPackageCases.haltedControl,
+        Tape :=
+          Turing.Tape.mk₁
+            [(true,
+                Resources.TuringSimulation.SingletonOutput.haltRow
+                  Examples.TuringSimulation.OrdinaryPackageCases.fixture true)] } =
+    some
+      { q := Resources.TuringSimulation.MarkedInput.Control.done,
+        Tape := Turing.Tape.mk₁ [Examples.TuringSimulation.OrdinaryPackageCases.cell (some true)] }
+Examples.TuringSimulation.OrdinaryPackageCases.false_output_next_step_is_none :
+  Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M
+      { q := Resources.TuringSimulation.MarkedInput.Control.done,
+        Tape := Turing.Tape.mk₁ [Examples.TuringSimulation.OrdinaryPackageCases.cell (some false)] } =
+    none
+Examples.TuringSimulation.OrdinaryPackageCases.false_output_outer_none_at_two :
+  (flip bind (Turing.TM0.step Examples.TuringSimulation.OrdinaryPackageCases.M))^[2]
+      (some
+        {
+          q :=
+            Resources.TuringSimulation.MarkedInput.Control.run
+              Examples.TuringSimulation.OrdinaryPackageCases.haltedControl,
+          Tape :=
+            Turing.Tape.mk₁
+              [(true,
+                  Resources.TuringSimulation.SingletonOutput.haltRow
+                    Examples.TuringSimulation.OrdinaryPackageCases.fixture false)] }) =
+    none
+Examples.TuringSimulation.OrdinaryPackageCases.stored_count_literals :
+  1 + (7 + Resources.TuringSimulation.MarkedInput.preludeSteps []) = 9 ∧
+    1 + (7 + Resources.TuringSimulation.MarkedInput.preludeSteps [some false]) = 11 ∧
+      1 + (7 + Resources.TuringSimulation.MarkedInput.preludeSteps [some false, none, some true]) = 13
+Examples.TuringSimulation.OrdinaryPackageCases.bound_literals :
+  Resources.TuringSimulation.MarkedInput.preludeSteps [] + 10 + 1 = 12 ∧
+    Resources.TuringSimulation.MarkedInput.preludeSteps [some false] + 10 + 1 = 14 ∧
+      Resources.TuringSimulation.MarkedInput.preludeSteps [some false, none, some true] + 10 + 1 = 16
+Examples.TuringSimulation.OrdinaryPackageCases.distinct_outer_none_literals :
+  1 + 9 = 10 ∧
+    1 + 11 = 12 ∧
+      1 + 13 = 14 ∧
+        Resources.TuringSimulation.MarkedInput.preludeSteps [] + 10 + 2 = 13 ∧
+          Resources.TuringSimulation.MarkedInput.preludeSteps [some false] + 10 + 2 = 15 ∧
+            Resources.TuringSimulation.MarkedInput.preludeSteps [some false, none, some true] + 10 + 2 = 17
+'Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine (tm : Turing.FinTM2)
+  (outputLetter : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm) → Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+  (fallback : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)) :
+  @Turing.TM0.Machine.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+    (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited tm)
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun (tm : Turing.FinTM2)
+  (raw : List.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)))
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm) (B : Nat) : Type
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime (tm : Turing.FinTM2)
+  (outputLetter : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm) → Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+  (fallback : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)) (raw : List.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)))
+  (answer : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm))
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related :
+    @Turing.TM2to1.TrCfg.{0, 0, 0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm) (Turing.FinTM2.Λ tm)
+      (Turing.FinTM2.σ tm)
+      (Turing.haltList tm
+        (@List.cons.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)) answer
+          (@List.nil.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)))))
+      target)
+  (B : Nat) (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  @StateTransition.EvalsToInTime.{0}
+    (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+      (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+    (@Turing.TM0.step.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited tm)
+      (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+    (@Turing.TM0.init.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+      (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+        (Resources.TuringSimulation.StackToTape.Package.Control tm))
+      (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+      (@List.map.{0, 0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+        (@Resources.TuringSimulation.MarkedInput.symbol.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)
+          (Turing.FinTM2.decidableEqK tm) (Turing.FinTM2.k₀ tm))
+        raw))
+    (@Option.some.{0}
+      (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+      (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)) raw) B)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps (tm : Turing.FinTM2)
+  (outputLetter : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm) → Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+  (fallback : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)) (raw : List.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)))
+  (answer : Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm))
+  (target : Resources.TuringSimulation.StackToTape.OrdinaryPackage.NativeTarget tm)
+  (related :
+    @Turing.TM2to1.TrCfg.{0, 0, 0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm) (Turing.FinTM2.Λ tm)
+      (Turing.FinTM2.σ tm)
+      (Turing.haltList tm
+        (@List.cons.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)) answer
+          (@List.nil.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₁ tm)))))
+      target)
+  (B : Nat) (before : Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun tm raw target B) :
+  @Eq.{1} Nat
+    (@StateTransition.EvalsTo.steps.{0}
+      (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+      (@Turing.TM0.step.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited tm)
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+      (@Turing.TM0.init.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+        (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+          (Resources.TuringSimulation.StackToTape.Package.Control tm))
+        (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+        (@List.map.{0, 0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+          (@Resources.TuringSimulation.MarkedInput.symbol.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)
+            (Turing.FinTM2.decidableEqK tm) (Turing.FinTM2.k₀ tm))
+          raw))
+      (@Option.some.{0}
+        (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer))
+      (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+        (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+        (@Turing.TM0.step.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.controlInhabited tm)
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine tm outputLetter fallback))
+        (@Turing.TM0.init.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+          (@Resources.TuringSimulation.MarkedInput.instInhabitedControl.{0}
+            (Resources.TuringSimulation.StackToTape.Package.Control tm))
+          (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+          (@List.map.{0, 0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm))
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+            (@Resources.TuringSimulation.MarkedInput.symbol.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)
+              (Turing.FinTM2.decidableEqK tm) (Turing.FinTM2.k₀ tm))
+            raw))
+        (@Option.some.{0}
+          (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Alphabet tm)
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.Control tm)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+          (Resources.TuringSimulation.StackToTape.OrdinaryPackage.outputCfg tm outputLetter answer))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)) raw) B)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime tm outputLetter fallback raw answer target
+          related B before)))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@StateTransition.EvalsTo.steps.{0}
+          (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+            (Resources.TuringSimulation.StackToTape.Package.Control tm)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+          (@Turing.TM0.step.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+            (Resources.TuringSimulation.StackToTape.Package.Control tm)
+            (Resources.TuringSimulation.StackToTape.Package.controlInhabited tm)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+            (Resources.TuringSimulation.StackToTape.Package.closedMachine tm))
+          (@Turing.TM0.init.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+            (Resources.TuringSimulation.StackToTape.Package.Control tm)
+            (Resources.TuringSimulation.StackToTape.Package.controlInhabited tm)
+            (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+            (@Turing.TM2to1.trInit.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm) (Turing.FinTM2.decidableEqK tm)
+              (Turing.FinTM2.k₀ tm) raw))
+          (@Option.some.{0}
+            (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+              (Resources.TuringSimulation.StackToTape.Package.Control tm)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+            (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target))
+          (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+            (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+              (Resources.TuringSimulation.StackToTape.Package.Control tm)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+            (@Turing.TM0.step.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+              (Resources.TuringSimulation.StackToTape.Package.Control tm)
+              (Resources.TuringSimulation.StackToTape.Package.controlInhabited tm)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+              (Resources.TuringSimulation.StackToTape.Package.closedMachine tm))
+            (@Turing.TM0.init.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+              (Resources.TuringSimulation.StackToTape.Package.Control tm)
+              (Resources.TuringSimulation.StackToTape.Package.controlInhabited tm)
+              (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm))
+              (@Turing.TM2to1.trInit.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm) (Turing.FinTM2.decidableEqK tm)
+                (Turing.FinTM2.k₀ tm) raw))
+            (@Option.some.{0}
+              (@Turing.TM0.Cfg.{0, 0} (Resources.TuringSimulation.StackToTape.Package.Alphabet tm)
+                (Resources.TuringSimulation.StackToTape.Package.Control tm)
+                (@Turing.TM2to1.Γ'.inhabited.{0, 0} (Turing.FinTM2.K tm) (Turing.FinTM2.Γ tm)))
+              (Resources.TuringSimulation.StackToTape.OrdinaryPackage.mappedTarget tm target))
+            B before))
+        (@Resources.TuringSimulation.MarkedInput.preludeSteps.{0} (Turing.FinTM2.Γ tm (Turing.FinTM2.k₀ tm)) raw)))

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "trace155-draft-a",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state154",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/conaled154",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/conaled154",
+  "started_utc": "2026-11-25T05:22:17.645017+00:00",
+  "finished_utc": "2026-11-25T05:22:23.238104+00:00",
+  "elapsed_seconds": 5.582609249999223,
+  "exit_code": 1,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.start.json",
+    "bytes": 1037623,
+    "sha256": "2ddfd5ce2053e80910c82e60deb0dc38a89a551d98912d432d58942a3d6dec5a",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs154/trace155-draft-a.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

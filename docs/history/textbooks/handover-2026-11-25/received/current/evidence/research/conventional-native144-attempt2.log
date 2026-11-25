@@ -1,0 +1,1484 @@
+Resources.TuringSimulation.PrintMove.Action.{u_1, u_2} (Γ : Type u_1) (Q : Type u_2) : Type (max u_1 u_2)
+Resources.TuringSimulation.PrintMove.Machine.{u_1, u_2} (Γ : Type u_1) (Q : Type u_2) : Type (max (max u_1 u_2) u_2 u_1)
+Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} (Γ : Type u_1) (Q : Type u_2) [Inhabited Γ] : Type (max u_1 u_2)
+Resources.TuringSimulation.PrintMove.step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (c : Resources.TuringSimulation.PrintMove.Cfg Γ Q) :
+  Option (Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+Resources.TuringSimulation.PrintMove.init.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] (start : Q)
+  (input : List Γ) : Resources.TuringSimulation.PrintMove.Cfg Γ Q
+Resources.TuringSimulation.PrintMove.Control.{u_1} (Q : Type u_1) : Type u_1
+Resources.TuringSimulation.PrintMove.controlEquiv.{u_1} {Q : Type u_1} :
+  Resources.TuringSimulation.PrintMove.Control Q ≃ (Q ⊕ Q) ⊕ Bool
+Resources.TuringSimulation.PrintMove.card_control.{u_1} {Q : Type u_1} [Fintype Q] :
+  Fintype.card (Resources.TuringSimulation.PrintMove.Control Q) = 2 * Fintype.card Q + 2
+Resources.TuringSimulation.PrintMove.normal_ne_accept.{u_1} {Q : Type u_1} (q : Q) :
+  Resources.TuringSimulation.PrintMove.Control.normal q ≠ Resources.TuringSimulation.PrintMove.Control.accept
+Resources.TuringSimulation.PrintMove.normal_ne_reject.{u_1} {Q : Type u_1} (q : Q) :
+  Resources.TuringSimulation.PrintMove.Control.normal q ≠ Resources.TuringSimulation.PrintMove.Control.reject
+Resources.TuringSimulation.PrintMove.accept_ne_reject.{u_1} {Q : Type u_1} :
+  Resources.TuringSimulation.PrintMove.Control.accept ≠ Resources.TuringSimulation.PrintMove.Control.reject
+Resources.TuringSimulation.PrintMove.Nonterminal.{u_1} {Q : Type u_1}
+  (q : Resources.TuringSimulation.PrintMove.Control Q) : Prop
+Resources.TuringSimulation.PrintMove.normalAction.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Q] [DecidableEq Γ]
+  (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q : Q) (a : Γ) :
+  Resources.TuringSimulation.PrintMove.Action Γ (Resources.TuringSimulation.PrintMove.Control Q)
+Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Q] [DecidableEq Γ]
+  (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) :
+  Resources.TuringSimulation.PrintMove.Machine Γ (Resources.TuringSimulation.PrintMove.Control Q)
+Resources.TuringSimulation.PrintMove.delta.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Q] [DecidableEq Γ]
+  (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q : { q // Resources.TuringSimulation.PrintMove.Nonterminal q })
+  (a : Γ) : Resources.TuringSimulation.PrintMove.Action Γ (Resources.TuringSimulation.PrintMove.Control Q)
+Resources.TuringSimulation.PrintMove.adapter_eq_none_iff.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q : Resources.TuringSimulation.PrintMove.Control Q)
+  (a : Γ) :
+  Resources.TuringSimulation.PrintMove.adapter M trueLetter q a = none ↔
+    q = Resources.TuringSimulation.PrintMove.Control.accept ∨ q = Resources.TuringSimulation.PrintMove.Control.reject
+Resources.TuringSimulation.PrintMove.adapter_delta.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ)
+  (q : { q // Resources.TuringSimulation.PrintMove.Nonterminal q }) (a : Γ) :
+  Resources.TuringSimulation.PrintMove.adapter M trueLetter (↑q) a =
+    some (Resources.TuringSimulation.PrintMove.delta M trueLetter q a)
+Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (c : Turing.TM0.Cfg Γ Q) : Resources.TuringSimulation.PrintMove.Cfg Γ (Resources.TuringSimulation.PrintMove.Control Q)
+Resources.TuringSimulation.PrintMove.normalCfg_tape.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (c : Turing.TM0.Cfg Γ Q) : (Resources.TuringSimulation.PrintMove.normalCfg c).Tape = c.Tape
+Resources.TuringSimulation.PrintMove.normalCfg_init.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] (start : Q)
+  (input : List Γ) :
+  Resources.TuringSimulation.PrintMove.normalCfg { q := start, Tape := Turing.Tape.mk₁ input } =
+    Resources.TuringSimulation.PrintMove.init (Resources.TuringSimulation.PrintMove.Control.normal start) input
+Resources.TuringSimulation.PrintMove.normalCfg_native_init.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] (input : List Γ) :
+  Resources.TuringSimulation.PrintMove.normalCfg (Turing.TM0.init input) =
+    Resources.TuringSimulation.PrintMove.init (Resources.TuringSimulation.PrintMove.Control.normal default) input
+Resources.TuringSimulation.PrintMove.step_delta.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ)
+  (q : { q // Resources.TuringSimulation.PrintMove.Nonterminal q }) (T : Turing.Tape Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      { q := ↑q, Tape := T } =
+    some
+      { q := (Resources.TuringSimulation.PrintMove.delta M trueLetter q T.head).next,
+        Tape :=
+          Turing.Tape.move (Resources.TuringSimulation.PrintMove.delta M trueLetter q T.head).direction
+            (Turing.Tape.write (Resources.TuringSimulation.PrintMove.delta M trueLetter q T.head).letter T) }
+Resources.TuringSimulation.PrintMove.move_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (d : Turing.Dir)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.move d)) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      (Resources.TuringSimulation.PrintMove.normalCfg { q := q, Tape := T }) =
+    some (Resources.TuringSimulation.PrintMove.normalCfg { q := q', Tape := Turing.Tape.move d T })
+Resources.TuringSimulation.PrintMove.write_first_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (a : Γ)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.write a)) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      (Resources.TuringSimulation.PrintMove.normalCfg { q := q, Tape := T }) =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.returning q',
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.write a T) }
+Resources.TuringSimulation.PrintMove.return_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q : Q) (T : Turing.Tape Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      { q := Resources.TuringSimulation.PrintMove.Control.returning q, Tape := T } =
+    some (Resources.TuringSimulation.PrintMove.normalCfg { q := q, Tape := Turing.Tape.move Turing.Dir.left T })
+Resources.TuringSimulation.PrintMove.write_second_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q' : Q) (T : Turing.Tape Γ) (a : Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      { q := Resources.TuringSimulation.PrintMove.Control.returning q',
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.write a T) } =
+    some (Resources.TuringSimulation.PrintMove.normalCfg { q := q', Tape := Turing.Tape.write a T })
+Resources.TuringSimulation.PrintMove.accept_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (T : Turing.Tape Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      { q := Resources.TuringSimulation.PrintMove.Control.accept, Tape := T } =
+    none
+Resources.TuringSimulation.PrintMove.reject_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (T : Turing.Tape Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      { q := Resources.TuringSimulation.PrintMove.Control.reject, Tape := T } =
+    none
+Resources.TuringSimulation.PrintMove.step_eq_none_iff_terminal.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ)
+  (c : Resources.TuringSimulation.PrintMove.Cfg Γ (Resources.TuringSimulation.PrintMove.Control Q)) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter) c = none ↔
+    c.q = Resources.TuringSimulation.PrintMove.Control.accept ∨
+      c.q = Resources.TuringSimulation.PrintMove.Control.reject
+Resources.TuringSimulation.PrintMove.oneStep.{u_1} {α : Type u_1} (f : α → Option α) (a : α) (b : Option α)
+  (h : f a = b) : StateTransition.EvalsTo f a b
+Resources.TuringSimulation.PrintMove.commandCost.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} :
+  Option (Q × Turing.TM0.Stmt Γ) → ℕ
+Resources.TuringSimulation.PrintMove.commandCost_le_two.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  (a : Option (Q × Turing.TM0.Stmt Γ)) : Resources.TuringSimulation.PrintMove.commandCost a ≤ 2
+Resources.TuringSimulation.PrintMove.moveRun.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (d : Turing.Dir)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.move d)) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter))
+    (Resources.TuringSimulation.PrintMove.normalCfg { q := q, Tape := T })
+    (some (Resources.TuringSimulation.PrintMove.normalCfg { q := q', Tape := Turing.Tape.move d T }))
+Resources.TuringSimulation.PrintMove.moveRun_steps.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (d : Turing.Dir)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.move d)) :
+  (Resources.TuringSimulation.PrintMove.moveRun M trueLetter q q' T d h).steps = 1
+Resources.TuringSimulation.PrintMove.writeRun.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (a : Γ)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.write a)) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter))
+    (Resources.TuringSimulation.PrintMove.normalCfg { q := q, Tape := T })
+    (some (Resources.TuringSimulation.PrintMove.normalCfg { q := q', Tape := Turing.Tape.write a T }))
+Resources.TuringSimulation.PrintMove.writeRun_steps.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (q q' : Q) (T : Turing.Tape Γ) (a : Γ)
+  (h : M q T.head = some (q', Turing.TM0.Stmt.write a)) :
+  (Resources.TuringSimulation.PrintMove.writeRun M trueLetter q q' T a h).steps = 2
+Resources.TuringSimulation.PrintMove.native_step_exact.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (c finish : Turing.TM0.Cfg Γ Q)
+  (hstep : Turing.TM0.step M c = some finish) :
+  ∃ run, run.steps = Resources.TuringSimulation.PrintMove.commandCost (M c.q c.Tape.head)
+Resources.TuringSimulation.PrintMove.nativePrefix.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  (M : Turing.TM0.Machine Γ Q) (start : Turing.TM0.Cfg Γ Q) (n : ℕ) : Option (Turing.TM0.Cfg Γ Q)
+Resources.TuringSimulation.PrintMove.nativePrefix_succ.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] (M : Turing.TM0.Machine Γ Q) (start : Turing.TM0.Cfg Γ Q) (n : ℕ) :
+  Resources.TuringSimulation.PrintMove.nativePrefix M start (n + 1) =
+    (Resources.TuringSimulation.PrintMove.nativePrefix M start n).bind (Turing.TM0.step M)
+Resources.TuringSimulation.PrintMove.observedNativeCommand.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] (M : Turing.TM0.Machine Γ Q) (start : Turing.TM0.Cfg Γ Q) (n : ℕ) : Option (Q × Turing.TM0.Stmt Γ)
+Resources.TuringSimulation.PrintMove.observedNativeCommand_of_live.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] [Inhabited Q] (M : Turing.TM0.Machine Γ Q) (start c : Turing.TM0.Cfg Γ Q) (n : ℕ)
+  (h : Resources.TuringSimulation.PrintMove.nativePrefix M start n = some c) :
+  Resources.TuringSimulation.PrintMove.observedNativeCommand M start n = M c.q c.Tape.head
+Resources.TuringSimulation.PrintMove.simulationTime.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  (M : Turing.TM0.Machine Γ Q) (start : Turing.TM0.Cfg Γ Q) : ℕ → ℕ
+Resources.TuringSimulation.PrintMove.simulationTime_le.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] (M : Turing.TM0.Machine Γ Q) (start : Turing.TM0.Cfg Γ Q) (n : ℕ) :
+  Resources.TuringSimulation.PrintMove.simulationTime M start n ≤ 2 * n
+Resources.TuringSimulation.PrintMove.finite_run_exact.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (start finish : Turing.TM0.Cfg Γ Q)
+  (n : ℕ) (hrun : Resources.TuringSimulation.PrintMove.nativePrefix M start n = some finish) :
+  ∃ run, run.steps = Resources.TuringSimulation.PrintMove.simulationTime M start n
+Resources.TuringSimulation.PrintMove.lift_bounded_run.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (start finish : Turing.TM0.Cfg Γ Q)
+  (B : ℕ) (source : StateTransition.EvalsToInTime (Turing.TM0.step M) start (some finish) B) :
+  ∃ target,
+    target.steps = Resources.TuringSimulation.PrintMove.simulationTime M start source.steps ∧
+      target.steps ≤ 2 * source.steps
+Resources.TuringSimulation.PrintMove.terminalControl.{u_1} {Q : Type u_1} :
+  Bool → Resources.TuringSimulation.PrintMove.Control Q
+Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] (answer : Bool)
+  (T : Turing.Tape Γ) : Resources.TuringSimulation.PrintMove.Cfg Γ (Resources.TuringSimulation.PrintMove.Control Q)
+Resources.TuringSimulation.PrintMove.native_command_none_of_stopped.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] [Inhabited Q] (M : Turing.TM0.Machine Γ Q) (finish : Turing.TM0.Cfg Γ Q)
+  (stopped : Turing.TM0.step M finish = none) : M finish.q finish.Tape.head = none
+Resources.TuringSimulation.PrintMove.decision_step.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (bit : Bool ↪ Γ) (finish : Turing.TM0.Cfg Γ Q) (answer : Bool)
+  (stopped : Turing.TM0.step M finish = none) (output : finish.Tape.head = bit answer) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M (bit true))
+      (Resources.TuringSimulation.PrintMove.normalCfg finish) =
+    some (Resources.TuringSimulation.PrintMove.decidedCfg answer finish.Tape)
+Resources.TuringSimulation.PrintMove.decisionRun.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ] [Inhabited Q]
+  [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (bit : Bool ↪ Γ) (finish : Turing.TM0.Cfg Γ Q) (answer : Bool)
+  (stopped : Turing.TM0.step M finish = none) (output : finish.Tape.head = bit answer) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M (bit true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg finish)
+    (some (Resources.TuringSimulation.PrintMove.decidedCfg answer finish.Tape))
+Resources.TuringSimulation.PrintMove.decisionRun_steps.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (bit : Bool ↪ Γ) (finish : Turing.TM0.Cfg Γ Q)
+  (answer : Bool) (stopped : Turing.TM0.step M finish = none) (output : finish.Tape.head = bit answer) :
+  (Resources.TuringSimulation.PrintMove.decisionRun M bit finish answer stopped output).steps = 1
+Resources.TuringSimulation.PrintMove.decidedCfg_stopped.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (answer : Bool) (T : Turing.Tape Γ) :
+  Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter)
+      (Resources.TuringSimulation.PrintMove.decidedCfg answer T) =
+    none
+Resources.TuringSimulation.PrintMove.decide_of_native_run.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (bit : Bool ↪ Γ) (start finish : Turing.TM0.Cfg Γ Q)
+  (answer : Bool) (B : ℕ) (source : StateTransition.EvalsToInTime (Turing.TM0.step M) start (some finish) B)
+  (stopped : Turing.TM0.step M finish = none) (output : finish.Tape.head = bit answer) :
+  ∃ target,
+    target.steps = Resources.TuringSimulation.PrintMove.simulationTime M start source.steps + 1 ∧
+      target.steps ≤ 2 * source.steps + 1 ∧
+        Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M (bit true))
+            (Resources.TuringSimulation.PrintMove.decidedCfg answer finish.Tape) =
+          none
+Resources.TuringSimulation.PrintMove.terminalOuterNone.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (answer : Bool) (T : Turing.Tape Γ) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.adapter M trueLetter))
+    (Resources.TuringSimulation.PrintMove.decidedCfg answer T) none
+Resources.TuringSimulation.PrintMove.terminalOuterNone_steps.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (trueLetter : Γ) (answer : Bool) (T : Turing.Tape Γ) :
+  (Resources.TuringSimulation.PrintMove.terminalOuterNone M trueLetter answer T).steps = 1
+Resources.TuringSimulation.PrintMove.Trace.directionOffset : Turing.Dir → ℤ
+Resources.TuringSimulation.PrintMove.Trace.actionOffset.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} :
+  Option (Resources.TuringSimulation.PrintMove.Action Γ Q) → ℤ
+Resources.TuringSimulation.PrintMove.Trace.actionOffset_bounds.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  (a : Option (Resources.TuringSimulation.PrintMove.Action Γ Q)) :
+  -1 ≤ Resources.TuringSimulation.PrintMove.Trace.actionOffset a ∧
+    Resources.TuringSimulation.PrintMove.Trace.actionOffset a ≤ 1
+Resources.TuringSimulation.PrintMove.Trace.cfgAt.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (n : ℕ) : Option (Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+Resources.TuringSimulation.PrintMove.Trace.cfgAt_succ.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (n : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt M start (n + 1) =
+    (Resources.TuringSimulation.PrintMove.Trace.cfgAt M start n).bind (Resources.TuringSimulation.PrintMove.step M)
+Resources.TuringSimulation.PrintMove.Trace.actionAt.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (n : ℕ) : Option (Resources.TuringSimulation.PrintMove.Action Γ Q)
+Resources.TuringSimulation.PrintMove.Trace.headPosition.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) : ℕ → ℤ
+Resources.TuringSimulation.PrintMove.Trace.headPosition_succ.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (n : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin (n + 1) =
+    Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin n +
+      Resources.TuringSimulation.PrintMove.Trace.actionOffset
+        (Resources.TuringSimulation.PrintMove.Trace.actionAt M start n)
+Resources.TuringSimulation.PrintMove.Trace.headPosition_step_bounds.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (n : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin n - 1 ≤
+      Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin (n + 1) ∧
+    Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin (n + 1) ≤
+      Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin n + 1
+Resources.TuringSimulation.PrintMove.Trace.visitedCells.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (U : ℕ) : Finset ℤ
+Resources.TuringSimulation.PrintMove.Trace.mem_visitedCells.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (U : ℕ) (x : ℤ) :
+  x ∈ Resources.TuringSimulation.PrintMove.Trace.visitedCells M start origin U ↔
+    ∃ i ≤ U,
+      (Resources.TuringSimulation.PrintMove.Trace.cfgAt M start i).isSome = true ∧
+        Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin i = x
+Resources.TuringSimulation.PrintMove.Trace.visitedCells_card_le.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (U : ℕ) : (Resources.TuringSimulation.PrintMove.Trace.visitedCells M start origin U).card ≤ U + 1
+Resources.TuringSimulation.PrintMove.Trace.inputCells (origin : ℤ) (N : ℕ) : Finset ℤ
+Resources.TuringSimulation.PrintMove.Trace.leftEdge.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) : ℕ → ℤ
+Resources.TuringSimulation.PrintMove.Trace.rightEdge.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (N : ℕ) : ℕ → ℤ
+Resources.TuringSimulation.PrintMove.Trace.visitedInterval.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (N U : ℕ) : Finset ℤ
+Resources.TuringSimulation.PrintMove.Trace.headPosition_between_edges.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (N n : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.leftEdge M start origin n ≤
+      Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin n ∧
+    Resources.TuringSimulation.PrintMove.Trace.headPosition M start origin n ≤
+      Resources.TuringSimulation.PrintMove.Trace.rightEdge M start origin N n
+Resources.TuringSimulation.PrintMove.Trace.leftEdge_antitone.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) : Antitone (Resources.TuringSimulation.PrintMove.Trace.leftEdge M start origin)
+Resources.TuringSimulation.PrintMove.Trace.rightEdge_monotone.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (N : ℕ) : Monotone (Resources.TuringSimulation.PrintMove.Trace.rightEdge M start origin N)
+Resources.TuringSimulation.PrintMove.Trace.visitedCells_subset_interval.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (N U : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells M start origin U ⊆
+    Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N U
+Resources.TuringSimulation.PrintMove.Trace.inputCells_subset_interval.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (N U : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.inputCells origin N ⊆
+    Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N U
+Resources.TuringSimulation.PrintMove.Trace.interval_width_le.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (origin : ℤ) (N U : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.rightEdge M start origin N U + 1 -
+      Resources.TuringSimulation.PrintMove.Trace.leftEdge M start origin U ≤
+    ↑(max N 1 + U)
+Resources.TuringSimulation.PrintMove.Trace.visitedInterval_card_le.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (N U : ℕ) :
+  (Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N U).card ≤ max N 1 + U
+Resources.TuringSimulation.PrintMove.Trace.actionAt_eq_none_of_next_none.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (n : ℕ)
+  (hnext : Resources.TuringSimulation.PrintMove.Trace.cfgAt M start (n + 1) = none) :
+  Resources.TuringSimulation.PrintMove.Trace.actionAt M start n = none
+Resources.TuringSimulation.PrintMove.Trace.terminal_prefix_adds_no_cells.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited Γ] (M : Resources.TuringSimulation.PrintMove.Machine Γ Q)
+  (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q) (origin : ℤ) (N n : ℕ)
+  (hnext : Resources.TuringSimulation.PrintMove.Trace.cfgAt M start (n + 1) = none) :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells M start origin (n + 1) =
+      Resources.TuringSimulation.PrintMove.Trace.visitedCells M start origin n ∧
+    Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N (n + 1) =
+      Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N n
+Resources.TuringSimulation.PrintMove.Trace.interval_le_of_run.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  (M : Resources.TuringSimulation.PrintMove.Machine Γ Q) (start : Resources.TuringSimulation.PrintMove.Cfg Γ Q)
+  (endpoint : Option (Resources.TuringSimulation.PrintMove.Cfg Γ Q)) (B : ℕ)
+  (run : StateTransition.EvalsToInTime (Resources.TuringSimulation.PrintMove.step M) start endpoint B) (origin : ℤ)
+  (N : ℕ) :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt M start run.steps = endpoint ∧
+    ∀ i ≤ run.steps, (Resources.TuringSimulation.PrintMove.Trace.visitedInterval M start origin N i).card ≤ max N 1 + B
+Resources.TuringSimulation.PrintMove.Trace.printMove_nth_at_other_global_coordinate.{u_1} {Γ : Type u_1} [Inhabited Γ]
+  (T : Turing.Tape Γ) (a : Γ) (d : Turing.Dir) (x p : ℤ) (hne : x ≠ p) :
+  (Turing.Tape.move d (Turing.Tape.write a T)).nth
+      (x - (p + Resources.TuringSimulation.PrintMove.Trace.directionOffset d)) =
+    T.nth (x - p)
+Resources.TuringSimulation.PrintMove.Trace.paid_run_interval.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited Γ]
+  [Inhabited Q] [DecidableEq Γ] (M : Turing.TM0.Machine Γ Q) (bit : Bool ↪ Γ) (start finish : Turing.TM0.Cfg Γ Q)
+  (answer : Bool) (B N : ℕ) (origin : ℤ)
+  (source : StateTransition.EvalsToInTime (Turing.TM0.step M) start (some finish) B)
+  (stopped : Turing.TM0.step M finish = none) (output : finish.Tape.head = bit answer) :
+  ∃ target,
+    target.steps = Resources.TuringSimulation.PrintMove.simulationTime M start source.steps + 1 ∧
+      ∀ i ≤ target.steps,
+        (Resources.TuringSimulation.PrintMove.Trace.visitedInterval
+              (Resources.TuringSimulation.PrintMove.adapter M (bit true))
+              (Resources.TuringSimulation.PrintMove.normalCfg start) origin N i).card ≤
+          max N 1 + (2 * B + 1)
+Resources.TuringSimulation.PrintMove.Cases.Cell : Type
+Resources.TuringSimulation.PrintMove.Cases.bit : Bool ↪ Resources.TuringSimulation.PrintMove.Cases.Cell
+Resources.TuringSimulation.PrintMove.Cases.stoppedMachine :
+  Turing.TM0.Machine Resources.TuringSimulation.PrintMove.Cases.Cell Unit
+Resources.TuringSimulation.PrintMove.Cases.stoppedCfg (answer : Bool) :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Unit
+Resources.TuringSimulation.PrintMove.Cases.zeroNativeRun (answer : Bool) :
+  StateTransition.EvalsToInTime (Turing.TM0.step Resources.TuringSimulation.PrintMove.Cases.stoppedMachine)
+    (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer)
+    (some (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer)) 0
+Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun (answer : Bool) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer))
+    (some
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer)))
+Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun_steps (answer : Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.zeroNormalRun answer).steps = 0
+Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun (answer : Bool) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer))
+    (some
+      (Resources.TuringSimulation.PrintMove.decidedCfg answer
+        (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg answer).Tape))
+Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun_steps (answer : Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.zeroDecisionRun answer).steps = 1
+Resources.TuringSimulation.PrintMove.Cases.zero_paid_bound (answer : Bool) : ∃ run, run.steps = 1
+Resources.TuringSimulation.PrintMove.Cases.zero_false_rejects :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg false)) 1 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.reject,
+        Tape := Turing.Tape.move Turing.Dir.right (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg false).Tape }
+Resources.TuringSimulation.PrintMove.Cases.zero_true_accepts :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true)) 1 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.accept,
+        Tape := Turing.Tape.move Turing.Dir.right (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true).Tape }
+Resources.TuringSimulation.PrintMove.Cases.zero_false_outer_none :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg false)) 2 =
+    none
+Resources.TuringSimulation.PrintMove.Cases.zero_true_outer_none :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true)) 2 =
+    none
+Resources.TuringSimulation.PrintMove.Cases.zero_normal_visits_only_origin :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true)) 0
+      0 =
+    {0}
+Resources.TuringSimulation.PrintMove.Cases.zero_decision_visits_right :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true)) 0
+      1 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.zero_outer_none_adds_no_visit :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.stoppedMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.stoppedCfg true)) 0
+      2 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.constantMachine (answer : Bool) :
+  Turing.TM0.Machine Resources.TuringSimulation.PrintMove.Cases.Cell Bool
+Resources.TuringSimulation.PrintMove.Cases.constantStart (raw : List Bool) :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Bool
+Resources.TuringSimulation.PrintMove.Cases.constantFinish (answer : Bool) (raw : List Bool) :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Bool
+Resources.TuringSimulation.PrintMove.Cases.constantCombined (answer : Bool) :
+  Resources.TuringSimulation.PrintMove.Machine Resources.TuringSimulation.PrintMove.Cases.Cell
+    (Resources.TuringSimulation.PrintMove.Control Bool)
+Resources.TuringSimulation.PrintMove.Cases.ambient_bool_default_is_false : default = false
+Resources.TuringSimulation.PrintMove.Cases.supplied_native_control_is_true (raw : List Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.constantStart raw).q = true
+Resources.TuringSimulation.PrintMove.Cases.supplied_combined_control_is_normal_true (raw : List Bool) :
+  (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart raw)).q =
+    Resources.TuringSimulation.PrintMove.Control.normal true
+Resources.TuringSimulation.PrintMove.Cases.supplied_combined_literal_init (raw : List Bool) :
+  Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart raw) =
+    Resources.TuringSimulation.PrintMove.init (Resources.TuringSimulation.PrintMove.Control.normal true)
+      (List.map some raw)
+Resources.TuringSimulation.PrintMove.Cases.empty_literal_head :
+  (Resources.TuringSimulation.PrintMove.Cases.constantStart []).Tape.head = none
+Resources.TuringSimulation.PrintMove.Cases.present_false_literal_head :
+  (Resources.TuringSimulation.PrintMove.Cases.constantStart [false]).Tape.head = some false
+Resources.TuringSimulation.PrintMove.Cases.constantNativeRun (answer : Bool) (raw : List Bool) :
+  StateTransition.EvalsTo (Turing.TM0.step (Resources.TuringSimulation.PrintMove.Cases.constantMachine answer))
+    (Resources.TuringSimulation.PrintMove.Cases.constantStart raw)
+    (some (Resources.TuringSimulation.PrintMove.Cases.constantFinish answer raw))
+Resources.TuringSimulation.PrintMove.Cases.constantNormalRun (answer : Bool) (raw : List Bool) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.Cases.constantCombined answer))
+    (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart raw))
+    (some
+      (Resources.TuringSimulation.PrintMove.normalCfg
+        (Resources.TuringSimulation.PrintMove.Cases.constantFinish answer raw)))
+Resources.TuringSimulation.PrintMove.Cases.constantNormalRun_steps (answer : Bool) (raw : List Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.constantNormalRun answer raw).steps = 2
+Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun (answer : Bool) (raw : List Bool) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.Cases.constantCombined answer))
+    (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart raw))
+    (some
+      (Resources.TuringSimulation.PrintMove.decidedCfg answer
+        (Resources.TuringSimulation.PrintMove.Cases.constantFinish answer raw).Tape))
+Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun_steps (answer : Bool) (raw : List Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun answer raw).steps = 3
+Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun (answer : Bool) (raw : List Bool) :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step (Resources.TuringSimulation.PrintMove.Cases.constantCombined answer))
+    (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart raw)) none
+Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun_steps (answer : Bool) (raw : List Bool) :
+  (Resources.TuringSimulation.PrintMove.Cases.constantOuterNoneRun answer raw).steps = 4
+Resources.TuringSimulation.PrintMove.Cases.one_write_four_normal_counts :
+  (Resources.TuringSimulation.PrintMove.Cases.constantNormalRun false []).steps = 2 ∧
+    (Resources.TuringSimulation.PrintMove.Cases.constantNormalRun true []).steps = 2 ∧
+      (Resources.TuringSimulation.PrintMove.Cases.constantNormalRun false [false]).steps = 2 ∧
+        (Resources.TuringSimulation.PrintMove.Cases.constantNormalRun true [false]).steps = 2
+Resources.TuringSimulation.PrintMove.Cases.one_write_four_decision_counts :
+  (Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun false []).steps = 3 ∧
+    (Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun true []).steps = 3 ∧
+      (Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun false [false]).steps = 3 ∧
+        (Resources.TuringSimulation.PrintMove.Cases.constantDecisionRun true [false]).steps = 3
+Resources.TuringSimulation.PrintMove.Cases.one_write_false_empty_endpoint :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt (Resources.TuringSimulation.PrintMove.Cases.constantCombined false)
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart [])) 3 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.reject,
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.mk₁ [some false]) }
+Resources.TuringSimulation.PrintMove.Cases.one_write_true_empty_endpoint :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt (Resources.TuringSimulation.PrintMove.Cases.constantCombined true)
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart [])) 3 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.accept,
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.mk₁ [some true]) }
+Resources.TuringSimulation.PrintMove.Cases.one_write_false_present_false_endpoint :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt (Resources.TuringSimulation.PrintMove.Cases.constantCombined false)
+      (Resources.TuringSimulation.PrintMove.normalCfg
+        (Resources.TuringSimulation.PrintMove.Cases.constantStart [false]))
+      3 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.reject,
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.mk₁ [some false]) }
+Resources.TuringSimulation.PrintMove.Cases.one_write_true_present_false_endpoint :
+  Resources.TuringSimulation.PrintMove.Trace.cfgAt (Resources.TuringSimulation.PrintMove.Cases.constantCombined true)
+      (Resources.TuringSimulation.PrintMove.normalCfg
+        (Resources.TuringSimulation.PrintMove.Cases.constantStart [false]))
+      3 =
+    some
+      { q := Resources.TuringSimulation.PrintMove.Control.accept,
+        Tape := Turing.Tape.move Turing.Dir.right (Turing.Tape.mk₁ [some true]) }
+Resources.TuringSimulation.PrintMove.Cases.one_write_positions :
+  List.map
+      (Resources.TuringSimulation.PrintMove.Trace.headPosition
+        (Resources.TuringSimulation.PrintMove.Cases.constantCombined true)
+        (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart []))
+        0)
+      (List.range 4) =
+    [0, 1, 0, 1]
+Resources.TuringSimulation.PrintMove.Cases.one_write_retains_right_visit_at_boundary :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.Cases.constantCombined true)
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart [])) 0
+      2 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.one_write_outer_none_keeps_visits :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.Cases.constantCombined true)
+      (Resources.TuringSimulation.PrintMove.normalCfg (Resources.TuringSimulation.PrintMove.Cases.constantStart [])) 0
+      4 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.Phase : Type
+Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine :
+  Turing.TM0.Machine Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.rightLeftTape : Turing.Tape Resources.TuringSimulation.PrintMove.Cases.Cell
+Resources.TuringSimulation.PrintMove.Cases.rightLeftStart :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.rightLeftNativeRun :
+  StateTransition.EvalsTo (Turing.TM0.step Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine)
+    Resources.TuringSimulation.PrintMove.Cases.rightLeftStart
+    (some Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish)
+Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine
+        (some true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.rightLeftStart)
+    (some (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.rightLeftFinish))
+Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine
+        (some true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.rightLeftStart)
+    (some
+      (Resources.TuringSimulation.PrintMove.decidedCfg false Resources.TuringSimulation.PrintMove.Cases.rightLeftTape))
+Resources.TuringSimulation.PrintMove.Cases.rightLeft_counts :
+  Resources.TuringSimulation.PrintMove.Cases.rightLeftNormalRun.steps = 2 ∧
+    Resources.TuringSimulation.PrintMove.Cases.rightLeftDecisionRun.steps = 3
+Resources.TuringSimulation.PrintMove.Cases.rightLeft_positions :
+  List.map
+      (Resources.TuringSimulation.PrintMove.Trace.headPosition
+        (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine
+          (some true))
+        (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.rightLeftStart) 0)
+      (List.range 4) =
+    [0, 1, 0, 1]
+Resources.TuringSimulation.PrintMove.Cases.rightLeft_visits :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.rightLeftMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.rightLeftStart) 0 3 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine :
+  Turing.TM0.Machine Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.blankTape : Turing.Tape Resources.TuringSimulation.PrintMove.Cases.Cell
+Resources.TuringSimulation.PrintMove.Cases.writeEraseStart :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish :
+  Turing.TM0.Cfg Resources.TuringSimulation.PrintMove.Cases.Cell Resources.TuringSimulation.PrintMove.Cases.Phase
+Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun :
+  StateTransition.EvalsTo
+    (Resources.TuringSimulation.PrintMove.step
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine
+        (some true)))
+    (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.writeEraseStart)
+    (some (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish))
+Resources.TuringSimulation.PrintMove.Cases.writeErase_count :
+  Resources.TuringSimulation.PrintMove.Cases.writeEraseNormalRun.steps = 4
+Resources.TuringSimulation.PrintMove.Cases.writeErase_positions :
+  List.map
+      (Resources.TuringSimulation.PrintMove.Trace.headPosition
+        (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine
+          (some true))
+        (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.writeEraseStart) 0)
+      (List.range 5) =
+    [0, 1, 0, 1, 0]
+Resources.TuringSimulation.PrintMove.Cases.writeErase_visits :
+  Resources.TuringSimulation.PrintMove.Trace.visitedCells
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.writeEraseStart) 0 4 =
+    {0, 1}
+Resources.TuringSimulation.PrintMove.Cases.writeErase_interval :
+  Resources.TuringSimulation.PrintMove.Trace.visitedInterval
+      (Resources.TuringSimulation.PrintMove.adapter Resources.TuringSimulation.PrintMove.Cases.writeEraseMachine
+        (some true))
+      (Resources.TuringSimulation.PrintMove.normalCfg Resources.TuringSimulation.PrintMove.Cases.writeEraseStart) 0 0
+      4 =
+    Finset.Icc 0 1
+Resources.TuringSimulation.PrintMove.Cases.writeErase_head_is_blank :
+  Resources.TuringSimulation.PrintMove.Cases.writeEraseFinish.Tape.head = none
+Resources.TuringSimulation.PrintMove.Cases.finite_bool_control_count :
+  Fintype.card (Resources.TuringSimulation.PrintMove.Control Bool) = 6
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveControlFintype {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) :
+  Fintype (Resources.TuringSimulation.PrintMove.Control d.Control)
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) : Finset d.Alphabet
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveInputAlphabet_card {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) : d.printMoveInputAlphabet.card = 2
+Resources.TuringSimulation.PolynomialBooleanDecider.blank_not_mem_printMoveInputAlphabet {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) : d.blank ∉ d.printMoveInputAlphabet
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) : Polynomial ℕ
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime_eval {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) (n : ℕ) :
+  Polynomial.eval n d.printMoveTime = 2 * Polynomial.eval n d.time + 1
+Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) [DecidableEq d.Alphabet] :
+  Resources.TuringSimulation.PrintMove.Machine d.Alphabet (Resources.TuringSimulation.PrintMove.Control d.Control)
+Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) [DecidableEq d.Alphabet] (raw : List Bool) :
+  ∃ finish source,
+    Turing.TM0.step d.machine finish = none ∧
+      finish.Tape.head = d.bit (f raw) ∧
+        ∃ target,
+          target.steps =
+              Resources.TuringSimulation.PrintMove.simulationTime d.machine (Turing.TM0.init (List.map (⇑d.bit) raw))
+                  source.steps +
+                1 ∧
+            target.steps ≤ 2 * source.steps + 1 ∧
+              Resources.TuringSimulation.PrintMove.step d.printMoveMachine
+                  (Resources.TuringSimulation.PrintMove.decidedCfg (f raw) finish.Tape) =
+                none
+Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run_with_space {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) [DecidableEq d.Alphabet] (raw : List Bool) :
+  ∃ finish,
+    Turing.TM0.step d.machine finish = none ∧
+      finish.Tape.head = d.bit (f raw) ∧
+        ∃ target,
+          ∀ i ≤ target.steps,
+            (Resources.TuringSimulation.PrintMove.Trace.visitedInterval d.printMoveMachine
+                  (Resources.TuringSimulation.PrintMove.init
+                    (Resources.TuringSimulation.PrintMove.Control.normal d.start) (List.map (⇑d.bit) raw))
+                  0 raw.length i).card ≤
+              max raw.length 1 + (2 * Polynomial.eval raw.length d.time + 1)
+Resources.TuringSimulation.PolynomialBooleanDecider.classicalPrintMoveMachine {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) :
+  Resources.TuringSimulation.PrintMove.Machine d.Alphabet (Resources.TuringSimulation.PrintMove.Control d.Control)
+Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run {f : List Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f) (raw : List Bool) :
+  ∃ finish,
+    Turing.TM0.step d.machine finish = none ∧
+      finish.Tape.head = d.bit (f raw) ∧
+        Nonempty
+          (StateTransition.EvalsToInTime (Resources.TuringSimulation.PrintMove.step d.classicalPrintMoveMachine)
+            (Resources.TuringSimulation.PrintMove.init (Resources.TuringSimulation.PrintMove.Control.normal d.start)
+              (List.map (⇑d.bit) raw))
+            (some (Resources.TuringSimulation.PrintMove.decidedCfg (f raw) finish.Tape))
+            (Polynomial.eval raw.length d.printMoveTime))
+'Resources.TuringSimulation.PrintMove.finite_run_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Resources.TuringSimulation.PrintMove.decide_of_native_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Resources.TuringSimulation.PrintMove.Trace.paid_run_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Resources.TuringSimulation.PrintMove.delta.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2} [Inhabited.{u_2 + 1} Q]
+  [DecidableEq.{u_1 + 1} Γ] (M : @Turing.TM0.Machine.{u_1, u_2} Γ Q inst✝) (trueLetter : Γ)
+  (q :
+    @Subtype.{u_2 + 1} (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+      fun (q : Resources.TuringSimulation.PrintMove.Control.{u_2} Q) =>
+      @Resources.TuringSimulation.PrintMove.Nonterminal.{u_2} Q q)
+  (a : Γ) :
+  Resources.TuringSimulation.PrintMove.Action.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+Resources.TuringSimulation.PrintMove.decide_of_native_run.{u_1, u_2} {Γ : Type u_1} {Q : Type u_2}
+  [Inhabited.{u_1 + 1} Γ] [Inhabited.{u_2 + 1} Q] [DecidableEq.{u_1 + 1} Γ]
+  (M : @Turing.TM0.Machine.{u_1, u_2} Γ Q inst✝) (bit : Function.Embedding.{1, u_1 + 1} Bool Γ)
+  (start finish : @Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) (answer : Bool) (B : Nat)
+  (source :
+    @StateTransition.EvalsToInTime.{max u_2 u_1} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)
+      (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M) start
+      (@Option.some.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) finish) B)
+  (stopped :
+    @Eq.{max (u_1 + 1) (u_2 + 1)} (Option.{max u_2 u_1} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹))
+      (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M finish)
+      (@Option.none.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)))
+  (output :
+    @Eq.{u_1 + 1} Γ (@Turing.Tape.head.{u_1} Γ inst✝¹ (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish))
+      (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+        (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit answer)) :
+  @Exists.{1}
+    (@StateTransition.EvalsToInTime.{max u_2 u_1}
+      (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+        inst✝¹)
+      (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+        inst✝¹
+        (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+          (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+            (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+      (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+      (@Option.some.{max u_1 u_2}
+        (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+          inst✝¹)
+        (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+          (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    fun
+      (target :
+        @StateTransition.EvalsToInTime.{max u_2 u_1}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+            inst✝¹)
+          (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+            (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+            (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+              (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+                (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+          (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+          (@Option.some.{max u_1 u_2}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+            (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+              (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+    And
+      (@Eq.{1} Nat
+        (@StateTransition.EvalsTo.steps.{max u_1 u_2}
+          (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ (Resources.TuringSimulation.PrintMove.Control.{u_2} Q)
+            inst✝¹)
+          (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+            (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+            (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+              (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+                (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+          (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+          (@Option.some.{max u_1 u_2}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+            (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+              (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+          (@StateTransition.EvalsToInTime.toEvalsTo.{max u_2 u_1}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+            (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+              (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+                (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+                  (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+            (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+            (@Option.some.{max u_1 u_2}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+                (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+              (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+                (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            target))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Resources.TuringSimulation.PrintMove.simulationTime.{u_1, u_2} Γ Q inst✝¹ inst✝ M start
+            (@StateTransition.EvalsTo.steps.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)
+              (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M) start
+              (@Option.some.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) finish)
+              (@StateTransition.EvalsToInTime.toEvalsTo.{max u_2 u_1} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)
+                (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M) start
+                (@Option.some.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) finish) B source)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (And
+        (@LE.le.{0} Nat instLENat
+          (@StateTransition.EvalsTo.steps.{max u_1 u_2}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+            (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+              (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+                (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+                  (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+            (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+            (@Option.some.{max u_1 u_2}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+                (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+              (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+                (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+            (@StateTransition.EvalsToInTime.toEvalsTo.{max u_2 u_1}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+                (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+              (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+                (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+                (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+                  (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool
+                    (fun (x : Bool) => Γ) (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true)))
+              (@Resources.TuringSimulation.PrintMove.normalCfg.{u_1, u_2} Γ Q inst✝¹ start)
+              (@Option.some.{max u_1 u_2}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+                  (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹)
+                (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+                  (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              target))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@StateTransition.EvalsTo.steps.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)
+                (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M) start
+                (@Option.some.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) finish)
+                (@StateTransition.EvalsToInTime.toEvalsTo.{max u_2 u_1} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹)
+                  (@Turing.TM0.step.{u_1, u_2} Γ Q inst✝ inst✝¹ M) start
+                  (@Option.some.{max u_1 u_2} (@Turing.TM0.Cfg.{u_1, u_2} Γ Q inst✝¹) finish) B source)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Eq.{max (u_1 + 1) (u_2 + 1)}
+          (Option.{max u_2 u_1}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹))
+          (@Resources.TuringSimulation.PrintMove.step.{u_1, u_2} Γ
+            (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹
+            (@Resources.TuringSimulation.PrintMove.adapter.{u_1, u_2} Γ Q inst✝ inst✝² M
+              (@DFunLike.coe.{u_1 + 1, 1, u_1 + 1} (Function.Embedding.{1, u_1 + 1} Bool Γ) Bool (fun (x : Bool) => Γ)
+                (@Function.instFunLikeEmbedding.{1, u_1 + 1} Bool Γ) bit Bool.true))
+            (@Resources.TuringSimulation.PrintMove.decidedCfg.{u_1, u_2} Γ Q inst✝¹ answer
+              (@Turing.TM0.Cfg.Tape.{u_1, u_2} Γ Q inst✝¹ finish)))
+          (@Option.none.{max u_1 u_2}
+            (@Resources.TuringSimulation.PrintMove.Cfg.{u_1, u_2} Γ
+              (Resources.TuringSimulation.PrintMove.Control.{u_2} Q) inst✝¹))))
+Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run {f : List.{0} Bool → Bool}
+  (d : Resources.TuringSimulation.PolynomialBooleanDecider f)
+  [DecidableEq.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)] (raw : List.{0} Bool) :
+  @Exists.{1}
+    (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+    fun
+      (finish :
+        @Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))) =>
+    @Exists.{1}
+      (@StateTransition.EvalsToInTime.{0}
+        (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+        (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+        (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+          (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@DFunLike.coe.{1, 1, 1}
+              (Function.Embedding.{1, 1} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)) Bool
+              (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Function.instFunLikeEmbedding.{1, 1} Bool
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+            raw))
+        (@Option.some.{0}
+          (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+          finish)
+        (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+          (@Resources.TuringSimulation.PolynomialBooleanDecider.time f d)))
+      fun
+        (source :
+          @StateTransition.EvalsToInTime.{0}
+            (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+            (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+            (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+              (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@DFunLike.coe.{1, 1, 1}
+                  (Function.Embedding.{1, 1} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                  Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Function.instFunLikeEmbedding.{1, 1} Bool
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                raw))
+            (@Option.some.{0}
+              (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+              finish)
+            (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.time f d))) =>
+      And
+        (@Eq.{1}
+          (Option.{0}
+            (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))))
+          (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+            (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d) finish)
+          (@Option.none.{0}
+            (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))))
+        (And
+          (@Eq.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+            (@Turing.Tape.head.{0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+              (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                finish))
+            (@DFunLike.coe.{1, 1, 1}
+              (Function.Embedding.{1, 1} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)) Bool
+              (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+              (@Function.instFunLikeEmbedding.{1, 1} Bool
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+              (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d) (f raw)))
+          (@Exists.{1}
+            (@StateTransition.EvalsToInTime.{0}
+              (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+              (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+              (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                (Resources.TuringSimulation.PrintMove.Control.{0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@DFunLike.coe.{1, 1, 1}
+                    (Function.Embedding.{1, 1} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                    Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (@Function.instFunLikeEmbedding.{1, 1} Bool
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                  raw))
+              (@Option.some.{0}
+                (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (Resources.TuringSimulation.PrintMove.Control.{0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                  (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                  (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                  (f raw)
+                  (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    finish)))
+              (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime f d)))
+            fun
+              (target :
+                @StateTransition.EvalsToInTime.{0}
+                  (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                  (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+                  (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                    (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@DFunLike.coe.{1, 1, 1}
+                        (Function.Embedding.{1, 1} Bool
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                        Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Function.instFunLikeEmbedding.{1, 1} Bool
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                      raw))
+                  (@Option.some.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                    (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (f raw)
+                      (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        finish)))
+                  (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime f d))) =>
+            And
+              (@Eq.{1} Nat
+                (@StateTransition.EvalsTo.steps.{0}
+                  (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                  (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+                  (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                    (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@DFunLike.coe.{1, 1, 1}
+                        (Function.Embedding.{1, 1} Bool
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                        Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Function.instFunLikeEmbedding.{1, 1} Bool
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                      raw))
+                  (@Option.some.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                    (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (f raw)
+                      (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        finish)))
+                  (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                    (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+                    (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                      (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@DFunLike.coe.{1, 1, 1}
+                          (Function.Embedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Function.instFunLikeEmbedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                        raw))
+                    (@Option.some.{0}
+                      (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (Resources.TuringSimulation.PrintMove.Control.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                      (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (f raw)
+                        (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          finish)))
+                    (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime f d))
+                    target))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Resources.TuringSimulation.PrintMove.simulationTime.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d)
+                    (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@DFunLike.coe.{1, 1, 1}
+                          (Function.Embedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Function.instFunLikeEmbedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                        raw))
+                    (@StateTransition.EvalsTo.steps.{0}
+                      (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                      (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+                      (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@DFunLike.coe.{1, 1, 1}
+                            (Function.Embedding.{1, 1} Bool
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                            Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Function.instFunLikeEmbedding.{1, 1} Bool
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                          raw))
+                      (@Option.some.{0}
+                        (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                        finish)
+                      (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                        (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                        (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+                        (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@DFunLike.coe.{1, 1, 1}
+                              (Function.Embedding.{1, 1} Bool
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                              Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Function.instFunLikeEmbedding.{1, 1} Bool
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                            raw))
+                        (@Option.some.{0}
+                          (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                          finish)
+                        (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.time f d))
+                        source)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (And
+                (@LE.le.{0} Nat instLENat
+                  (@StateTransition.EvalsTo.steps.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                    (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+                    (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                      (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@DFunLike.coe.{1, 1, 1}
+                          (Function.Embedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Function.instFunLikeEmbedding.{1, 1} Bool
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                        raw))
+                    (@Option.some.{0}
+                      (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (Resources.TuringSimulation.PrintMove.Control.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                      (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (f raw)
+                        (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          finish)))
+                    (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                      (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (Resources.TuringSimulation.PrintMove.Control.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                      (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (Resources.TuringSimulation.PrintMove.Control.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝))
+                      (@Resources.TuringSimulation.PrintMove.init.{0, 0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (Resources.TuringSimulation.PrintMove.Control.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        (@Resources.TuringSimulation.PrintMove.Control.normal.{0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                        (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@DFunLike.coe.{1, 1, 1}
+                            (Function.Embedding.{1, 1} Bool
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                            Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Function.instFunLikeEmbedding.{1, 1} Bool
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                          raw))
+                      (@Option.some.{0}
+                        (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (Resources.TuringSimulation.PrintMove.Control.{0}
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                        (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          (f raw)
+                          (@Turing.TM0.Cfg.Tape.{0, 0}
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                            finish)))
+                      (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveTime f d))
+                      target))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (@StateTransition.EvalsTo.steps.{0}
+                        (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                        (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+                        (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                          (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                          (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@DFunLike.coe.{1, 1, 1}
+                              (Function.Embedding.{1, 1} Bool
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                              Bool (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Function.instFunLikeEmbedding.{1, 1} Bool
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                            raw))
+                        (@Option.some.{0}
+                          (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                          finish)
+                        (@StateTransition.EvalsToInTime.toEvalsTo.{0}
+                          (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                          (@Turing.TM0.step.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.machine f d))
+                          (@Turing.TM0.init.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.start f d))
+                            (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                            (@List.map.{0, 0} Bool (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@DFunLike.coe.{1, 1, 1}
+                                (Function.Embedding.{1, 1} Bool
+                                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                                Bool
+                                (fun (x : Bool) => @Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                                (@Function.instFunLikeEmbedding.{1, 1} Bool
+                                  (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d))
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.bit f d))
+                              raw))
+                          (@Option.some.{0}
+                            (@Turing.TM0.Cfg.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                              (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                              (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                                (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d)))
+                            finish)
+                          (@Polynomial.eval.{0} Nat Nat.instSemiring (@List.length.{0} Bool raw)
+                            (@Resources.TuringSimulation.PolynomialBooleanDecider.time f d))
+                          source)))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Eq.{1}
+                  (Option.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))))
+                  (@Resources.TuringSimulation.PrintMove.step.{0, 0}
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                    (Resources.TuringSimulation.PrintMove.Control.{0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                    (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                    (@Resources.TuringSimulation.PolynomialBooleanDecider.printMoveMachine f d inst✝)
+                    (@Resources.TuringSimulation.PrintMove.decidedCfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                      (f raw)
+                      (@Turing.TM0.Cfg.Tape.{0, 0} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d)
+                        (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                          (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))
+                        finish)))
+                  (@Option.none.{0}
+                    (@Resources.TuringSimulation.PrintMove.Cfg.{0, 0}
+                      (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                      (Resources.TuringSimulation.PrintMove.Control.{0}
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.Control f d))
+                      (@Inhabited.mk.{1} (@Resources.TuringSimulation.PolynomialBooleanDecider.Alphabet f d)
+                        (@Resources.TuringSimulation.PolynomialBooleanDecider.blank f d))))))))

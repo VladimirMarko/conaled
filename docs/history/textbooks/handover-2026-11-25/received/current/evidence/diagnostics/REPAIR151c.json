@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "prepared_utc": "2026-11-24T22:51:47.262379+00:00",
+  "failed_run": "conventional151-author-b",
+  "actual_exit_code": 1,
+  "input_count": 3863,
+  "all_inputs_unchanged": true,
+  "observed_errors": [
+    "Successful cases branch has already rewritten its goal; selected has original type, but rfl proves the rewritten equality.",
+    "Two normal_ne_accept/reject .start arguments lack inferred control type.",
+    "Projection type mismatches downstream of incomplete decider elaboration are preserved as actual failures, not silently declared fixed."
+  ],
+  "edits": [
+    {
+      "source": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/ConventionalPolynomialDecider151c.lean",
+      "old_sha256": "d4a1dc9adfab09c148ffd7293934ff5a07c1a431ce21210b3d281983929927dd",
+      "new_sha256": "307811ffd42a52158a59930db92ee6da4dfe64fa6906c971d4f57618feb2a035",
+      "old": "  | some action => exact ⟨action, selected⟩",
+      "new": "  | some action => exact ⟨action, rfl⟩"
+    },
+    {
+      "source": "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/DelimiterConventionalContract151c.lean",
+      "old_sha256": "16b40d61d40211a29510e511ef2a427628525ff699a98c5912cf791967e930db",
+      "new_sha256": "9b8ac5115a153428108425b7fabf59a7f7860b15423bead65daadd3f4d9d5767",
+      "edits": [
+        [
+          "PrintMove.normal_ne_accept .start",
+          "PrintMove.normal_ne_accept (.start : NativeConsumer148.Control initial)"
+        ],
+        [
+          "PrintMove.normal_ne_reject .start",
+          "PrintMove.normal_ne_reject (.start : NativeConsumer148.Control initial)"
+        ]
+      ]
+    }
+  ],
+  "hypotheses_conclusions_cases_settings_unchanged": true,
+  "carrier": {
+    "path": "Conventional151cProbe.lean",
+    "bytes": 166827,
+    "sha256": "b432cf39c0644a4083a3a442825df0bbcd8a3b79d60850be8de669eb25b28dec"
+  },
+  "compiler_run_for_revision": false
+}

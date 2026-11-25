@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T23:41:09.320777+00:00",
+  "candidate": "2c10ea82d95a58d09ad02e2f16c7aa117357b0b0",
+  "source_tree": "25a159f36ffff3acd638d675bc9e9c4955e58e8a",
+  "project_query_modules": 73,
+  "candidate_matched_project_config_and_scoped_paths": 98,
+  "all4044_inputs_present": true,
+  "planned_targets": [
+    "Applications.Resources.PolynomialTime.NormalForm",
+    "Applications.Resources.TuringSimulation.OrdinaryPackage",
+    "Applications.Resources.RotationCertificate.DelimiterMachine",
+    "Applications.Resources.RotationCertificate.DelimiterExecution",
+    "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+    "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+    "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+    "Applications.Resources.TuringSimulation.ConventionalVerifier",
+    "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+    "Examples.TuringSimulation",
+    "Examples.RotationCertificateDelimiterMachine",
+    "Examples.RotationCertificateCorrespondence",
+    "Examples.RotationCertificateFrontEndStreamMachine",
+    "Examples.RotationCertificateFrontEndStreamTapeMachine",
+    "Examples.RotationCertificateStreamMachine",
+    "Examples.RotationDistance"
+  ],
+  "excluded_aggregate": "SquareApplications",
+  "reason_aggregate_pending": "Full aggregate/whole build requires substantially more capacity than the remaining local storage; focused graph only.",
+  "available_bytes": 166506496,
+  "static_input_binding_is_not_full_compilation_provenance": true,
+  "source_changed": false,
+  "compiler_invoked": false
+}

@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "reviewer": "/root/requirements_review/spec139",
+  "round": 11,
+  "five_actual_null_null_bindings_independently_compared": [
+    {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt2.result.json",
+        "bytes": 9863,
+        "sha256": "96d6c337f428d2c74a0240f9f013e6e952b2a16899c9047a299e7620f1616c4c"
+      },
+      "actual_exit_code": 1,
+      "input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before": null,
+      "after": null,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt3.result.json",
+        "bytes": 11227,
+        "sha256": "fe95ff60d4ed917d17e33e197c59af8e63e8ddc966401b243148e301dc961a5e"
+      },
+      "actual_exit_code": 1,
+      "input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before": null,
+      "after": null,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-ordinary144-attempt4.result.json",
+        "bytes": 12592,
+        "sha256": "b82aac6241750448bcc10fe47dcfa901d1530701b24ff970b188180f0377867e"
+      },
+      "actual_exit_code": 0,
+      "input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before": null,
+      "after": null,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/native-space-decider-types144.result.json",
+        "bytes": 4478,
+        "sha256": "c652094c613c1ad892884595559018dc8ef40ac73e265690d351ed36a30a7a2e"
+      },
+      "actual_exit_code": 0,
+      "input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before": null,
+      "after": null,
+      "recorded_sources_unchanged": true
+    },
+    {
+      "result": {
+        "path": "/workspace/scratch/ae71b485b114/work/continuation/polynomial-decider143-attempt1.result.json",
+        "bytes": 3149,
+        "sha256": "e2554dc3cd63eeeaf4cc5de7149d6ad471c8a15bd5024db057e4d899774d3d83"
+      },
+      "actual_exit_code": 0,
+      "input_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+      "before": null,
+      "after": null,
+      "recorded_sources_unchanged": true
+    }
+  ],
+  "separate_present_file": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/native-decider-fixed-expectations143.json",
+    "bytes": 1108,
+    "sha256": "2a6e4636dc4b5c6e0b494f593298cc47beda5f24a60bdf22155f8854aba5d959"
+  },
+  "three_exit0_two_exit1_preserved": true,
+  "limitation": "Stable absent auxiliary path has no body, content binding or reading credit. The separately existing review file/literal spec does not retro-bind it. Compiler outcomes retained unchanged.",
+  "intervening145": {
+    "candidate": "92cd367cc027d7d47dd33f9523a4db880fb35ed4",
+    "review_round": null,
+    "result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current145-statements-attempt1.result.json",
+      "bytes": 156450,
+      "sha256": "c2de4b3964ca6477807b7291f9fc719ac24b6d83b66a4f125442cb138b018672"
+    },
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current145-statements-attempt1.log",
+      "bytes": 431530,
+      "sha256": "5c581188763477aa82a52cdbfee23727cd53c08383f9e75ac81ed9027a150837"
+    },
+    "actual_exit": 1,
+    "elapsed_seconds": 236.38986530200054,
+    "all302_bindings_equal_nonnull": true,
+    "diagnostics": [
+      {
+        "line": 1,
+        "text": "/workspace/scratch/ae71b485b114/work/current145-query-preparation/Current145Statements.lean:13885:78: error: unexpected token 'omit'; expected 'lemma'"
+      }
+    ],
+    "actual_log_read_ranges": [
+      [
+        1,
+        12
+      ]
+    ],
+    "full350_19_23_output_read_claimed": false,
+    "boundary": "Failure observation, no invented independent145 assessment, no retroactive144 closure."
+  }
+}

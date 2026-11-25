@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "status": "Exact historical checked source reconstructed from current147 owners and retained unfinished research; no new compilation or acceptance.",
+  "target": {
+    "path": "work/delimiter-research/query-repair3/DelimiterGeneral146b.lean",
+    "bytes": 153582,
+    "sha256": "626a70835cd01b2435c64c9b5726552a55b4d5b5bf63afe8923d2751973518ed"
+  },
+  "inputs": [
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/DelimiterPrelude144b.lean",
+      "bytes": 25107,
+      "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/DelimiterPreludeExamples144c.lean",
+      "bytes": 12989,
+      "sha256": "30e5cb81d457bc8d4c4fe889cfb7b00df600ea1691e8dcfe38a65a939accc208"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/NativeLoops144b.lean",
+      "bytes": 22886,
+      "sha256": "ece5e04f35bb69e71f9308ea62c30e0fdaecd634b737f6c48cf49b9cd8a32fd5"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/PrefixComposition144b.lean",
+      "bytes": 19761,
+      "sha256": "15dcaffb7fd2f57f76d13d8fce4beb94387ec9daff3b6354f035eff3863459ce"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/Protocol144b.lean",
+      "bytes": 11634,
+      "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da"
+    }
+  ],
+  "literal_glue_and_query_bytes": 19182,
+  "pieces": [
+    {
+      "literal_utf8": "import Applications.Resources.RotationCertificate.FrontEndStreamMachine\nimport Applications.Resources.TuringSimulation.StackToTape\nimport Mathlib.Computability.TuringMachine.Computable\nimport Mathlib.Data.Finset.Lattice.Fold\nimport Mathlib.Data.Fintype.Sets\nimport Applications.Trees.Rotations.Distance\nimport Mathlib.Data.Fintype.Basic\nimport Mathlib.Tactic.DeriveFintype\nimport Mathlib.Algebra.Polynomial.Eval.Defs\nimport Mathlib.Computability.TuringMachine.StackTuringMachine\nimport Mathlib.Computability.TuringMachine.PostTuringMachine\nimport Mathlib.Data.Finset.Card\nimport Mathlib.Data.Int.Interval\nimport Mathlib.Order.Monotone.Basic\n\n/-\nRoot combined controller checking draft. This file imports already produced\nordinary candidate139 modules through that candidate's native Lake environment.\nIt writes no compiled project output and changes no source in the frozen tree.\nA focused pass is not whole-candidate acceptance. The public ordinary owner\nfiles and connected fixture clients remain separately staged for integration.\n"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "byte_start": 636,
+      "byte_end_exclusive": 11817,
+      "slice_sha256": "a232d481662bb93f0c28d5fc54695c8886fa87de86065add9ec006eaab6fa9e8",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "byte_start": 892,
+      "byte_end_exclusive": 16006,
+      "slice_sha256": "f26311bf2bca0c9f3810d7d6b6fa1ccb4af3ace27e81d689f821779c2ef272fa",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "source": "work/conaled/Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "byte_start": 577,
+      "byte_end_exclusive": 17334,
+      "slice_sha256": "c4652064cde4f6b98a46aec979d7abf97580424a764aa300cd435e196ad71ea0",
+      "role": "current147_owner_exact_historical_slice"
+    },
+    {
+      "literal_utf8": "\n/- Exact research component: DelimiterPrelude144b.lean -/\n"
+    },
+    {
+      "source": "work/delimiter-research/general-repair3/DelimiterPrelude144b.lean",
+      "byte_start": 77,
+      "byte_end_exclusive": 25107,
+      "slice_sha256": "6802ca11621032a470374fb25e455512ca175497b7cc4703ba18e38922b5ca9d",
+      "role": "canonical_research"
+    },
+    {
+      "literal_utf8": "\n/- Exact research component: DelimiterPreludeExamples144b.lean -/\n/-!\nUNCOMPILED repair1 connected cases. The seventeen statements, literal inputs,\nclocks and complete old-initializer endpoints are unchanged. Proofs explicitly\ntransport the initializer through a Cfg Bool function and then use typed\nnext_some plus only the actual branch lemmas needed by each frozen case.\n"
+    },
+    {
+      "source": "work/delimiter-research/general-repair3/DelimiterPreludeExamples144c.lean",
+      "byte_start": 476,
+      "byte_end_exclusive": 12989,
+      "slice_sha256": "571786ef36747fbe9b453f316853baafad77121e310265af332f9b0af0948f40",
+      "role": "canonical_research"
+    },
+    {
+      "literal_utf8": "\n/- Exact research component: Protocol144a.lean -/\n/-!\nPure protocol extension of the frozen delimiter draft. UNCOMPILED.\n"
+    },
+    {
+      "source": "work/delimiter-research/general-repair3/Protocol144b.lean",
+      "byte_start": 108,
+      "byte_end_exclusive": 11634,
+      "slice_sha256": "50f55317cd6bc7b955521df61ea8df76ea16e94e45cba61feb277b5e58afab2e",
+      "role": "canonical_research"
+    },
+    {
+      "literal_utf8": "\n/- Exact research component: NativeLoops144a.lean -/\n/-!\nActual native TM2 loop composition for the frozen delimiter prelude.\nUNCOMPILED. The twelve local transition lemmas are implementation dependencies\n"
+    },
+    {
+      "source": "work/delimiter-research/general-repair3/NativeLoops144b.lean",
+      "byte_start": 181,
+      "byte_end_exclusive": 22886,
+      "slice_sha256": "f03d71386f88cc192ef7b9ec067317fef784e15354b55c2e02a88ce71ec855fe",
+      "role": "canonical_research"
+    },
+    {
+      "literal_utf8": "\n/- Exact research component: PrefixComposition144a.lean -/\n/-!\nAll actual prelude prefixes, complete physical occupancy, and composition with\nthe existing genuine controller initialization. UNCOMPILED proof draft.\n"
+    },
+    {
+      "source": "work/delimiter-research/general-repair3/PrefixComposition144b.lean",
+      "byte_start": 187,
+      "byte_end_exclusive": 19761,
+      "slice_sha256": "743415525c22e16df4a8db544ae9ffa9a42576dbb5e9d28b329962bf325b6754",
+      "role": "canonical_research"
+    },
+    {
+      "literal_utf8": "\n/- Actual-output queries; no result is claimed by their presence. -/\n#check Resources.RotationCertificate.DelimiterPreludeDraft.Raw\n#check Resources.RotationCertificate.DelimiterPreludeDraft.Scratch\n#check Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore\n#check Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase\n#check Resources.RotationCertificate.DelimiterPreludeDraft.CallerAlphabet\n#check Resources.RotationCertificate.DelimiterPreludeDraft.Registers\n#check Resources.RotationCertificate.DelimiterPreludeDraft.Statement\n#check Resources.RotationCertificate.DelimiterPreludeDraft.Cfg\n#check Resources.RotationCertificate.DelimiterPreludeDraft.inputIndex\n#check Resources.RotationCertificate.DelimiterPreludeDraft.workIndex\n#check Resources.RotationCertificate.DelimiterPreludeDraft.framedIndex\n#check Resources.RotationCertificate.DelimiterPreludeDraft.fuelIndex\n#check Resources.RotationCertificate.DelimiterPreludeDraft.oldMain\n#check Resources.RotationCertificate.DelimiterPreludeDraft.scratch\n#check Resources.RotationCertificate.DelimiterPreludeDraft.baseUser\n#check Resources.RotationCertificate.DelimiterPreludeDraft.setScratch\n#check Resources.RotationCertificate.DelimiterPreludeDraft.observeInput\n#check Resources.RotationCertificate.DelimiterPreludeDraft.observeWork\n#check Resources.RotationCertificate.DelimiterPreludeDraft.present\n#check Resources.RotationCertificate.DelimiterPreludeDraft.isBit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.bit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.reset\n#check Resources.RotationCertificate.DelimiterPreludeDraft.jump\n#check Resources.RotationCertificate.DelimiterPreludeDraft.handoff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.caller\n#check Resources.RotationCertificate.DelimiterPreludeDraft.program\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step\n#check Resources.RotationCertificate.DelimiterPreludeDraft.next\n#check Resources.RotationCertificate.DelimiterPreludeDraft.next_some\n#check Resources.RotationCertificate.DelimiterPreludeDraft.program_caller\n#check Resources.RotationCertificate.DelimiterPreludeDraft.caller_actionBound_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.callerContext\n#check Resources.RotationCertificate.DelimiterPreludeDraft.state\n#check Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machineAlphabetFintype\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_inputAlphabet\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_outputAlphabet\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_program_eq_old\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_initialState_eq_old\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_step_eq\n#check Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_step_eq\n#check Resources.RotationCertificate.DelimiterPreludeDraft.haltList_eq_old\n#check Resources.RotationCertificate.DelimiterPreludeDraft.machine_initList_eq\n#check Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_initList_eq\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_bit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_delimiter\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_empty\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_bit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_delimiter\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_empty\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_bit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_cons\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_empty\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_bit\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_empty\n#check Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_empty\n#check Resources.RotationCertificate.DelimiterPreludeDraft.literalPair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits\n#check Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral\n#check Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord\n#check Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited\n#check Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength\n#check Resources.RotationCertificate.DelimiterPreludeDraft.workLength\n#check Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps\n#check Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.workLength_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.literalPair_length\n#check Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits_map\n#check Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral_pair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord_pair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited_pair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.verifyFramed_handoffWord\n#check Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_delimited_certificate\n#check Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_small_delimited_certificate\n#check Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop\n#check Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop\n#check Resources.RotationCertificate.DelimiterPreludeDraft.PreludeInvariant\n#check Resources.RotationCertificate.DelimiterPreludeDraft.HandoffObligation\n#check Resources.RotationCertificate.DelimiterPreludeDraft.PrefixObligation\n#check Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps\n#check Resources.RotationCertificate.DelimiterPreludeDraft.sourceTimeBound\n#check Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum\n#check Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound\n#check Examples.DelimiterPreludeResearch.empty_missing_handoff\n#check Examples.DelimiterPreludeResearch.delimiter_only_handoff\n#check Examples.DelimiterPreludeResearch.prefix_false_handoff\n#check Examples.DelimiterPreludeResearch.prefix_true_handoff\n#check Examples.DelimiterPreludeResearch.certificate_false_handoff\n#check Examples.DelimiterPreludeResearch.certificate_true_handoff\n#check Examples.DelimiterPreludeResearch.two_certificate_bits_handoff\n#check Examples.DelimiterPreludeResearch.mixed_valid_handoff\n#check Examples.DelimiterPreludeResearch.missing_false_handoff\n#check Examples.DelimiterPreludeResearch.missing_true_handoff\n#check Examples.DelimiterPreludeResearch.missing_mixed_handoff\n#check Examples.DelimiterPreludeResearch.repeated_empty_handoff\n#check Examples.DelimiterPreludeResearch.repeated_tail_handoff\n#check Examples.DelimiterPreludeResearch.repeated_mixed_handoff\n#check Examples.DelimiterPreludeResearch.repeated_tail_has_delimiter_handoff\n#check Examples.DelimiterPreludeResearch.mixed_valid_initial_true_handoff\n#check Examples.DelimiterPreludeResearch.repeated_mixed_initial_true_handoff\n#check Examples.DelimiterPreludeResearch.empty_is_missing\n#check Examples.DelimiterPreludeResearch.delimiter_alone_is_valid\n#check Examples.DelimiterPreludeResearch.repeated_delimiter_is_invalid\n#check Examples.DelimiterPreludeResearch.delimiter_tail_is_fully_rejected\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.first_delimiter_cases\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.protocol_cases\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_map_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_map_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_before_delimiter\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_missing\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_repeated\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_iff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literalPair_injective\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_none_iff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixWorkLength_map_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_map_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_missing\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_pair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_repeated\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_length\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_missing\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair_frame\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated_frame\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_missing\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_repeated\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le_workLength\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_cons\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_cons\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.frame_reverse\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.next_some\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_one\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_trans\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_count\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.bits_split_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.pair_split_append\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_bits\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_bits\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_bits\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_words\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_bits\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_take\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_take\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_take\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_take\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_take\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.init_transport\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_word_congr\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_from_init\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_prefix\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_entry\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_prefix\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_finish\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_finish\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_handoff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_entry\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_prefix\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_handoff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_entry\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_prefix\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_entry\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_prefix\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_handoff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_obligation\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_missing_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_repeated_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_invariant\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_witness\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_boundary\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.callerContext_cells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_stackCells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.invariant_stackCells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_prefix_cells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.totalSourceSteps_le\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime_steps\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_outer_none\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output\n#check Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output\n\n/- Explicit public binder/axiom queries after the unused Fintype R omission. -/\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells\n\nset_option pp.all true in\n#check @Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells\n\n#print axioms Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells\n"
+    }
+  ],
+  "current_source_candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "current_source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d"
+}

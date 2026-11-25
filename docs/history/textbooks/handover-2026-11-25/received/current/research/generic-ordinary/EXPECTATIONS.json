@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "name": "generic-fixed-FinTM2-ordinary-wrapper",
+  "frozen_before_implementation_utc": "2026-11-24T10:53:56.939653+00:00",
+  "author": "/root/io_bridge",
+  "status": "Independent fixed requirements and literal cases; no implementation file or compiler feedback for this extraction yet.",
+  "parameters_before_raw": [
+    "tm : FinTM2",
+    "all-index finite alphabets",
+    "outputLetter : tm.\u0393 tm.k\u2081 \u2192 tm.\u0393 tm.k\u2080",
+    "fallback : tm.\u0393 tm.k\u2081"
+  ],
+  "working_alphabet": "Package.Alphabet tm = Bool \u00d7 (\u2200 k, Option (tm.\u0393 k))",
+  "blank": "(false, fun _ => none)",
+  "source_default": "Package.controlInhabited tm, retaining tm.main and tm.initialState",
+  "wrapper_default": "MarkedInput.Control.start",
+  "input": "raw.map (MarkedInput.symbol (\u0393 := tm.\u0393) tm.k\u2080), with no reversal, escaping, delimiter parsing or preprocessing hidden in this map",
+  "source_witness": {
+    "initial": "native TM0.init (TM2to1.trInit tm.k\u2080 raw) with the actual Package default",
+    "endpoint": "some (Package.mapCfg tm (TM1to0.trCfg (TM2to1.tr tm.m) target))",
+    "bound": "B",
+    "relation": "TM2to1.TrCfg (Turing.haltList tm [answer]) target"
+  },
+  "live_endpoint": "some \u27e8done, Tape.mk\u2081 [symbol tm.k\u2080 (outputLetter answer)]\u27e9",
+  "live_count": "1 + (before.steps + preludeSteps raw)",
+  "live_bound": "preludeSteps raw + B + 1",
+  "outer_none_count": "1 + live.steps",
+  "outer_none_bound": "preludeSteps raw + B + 2",
+  "native_eval": "Part.some (ListBlank.mk [symbol tm.k\u2080 (outputLetter answer)])",
+  "fixture": {
+    "K": "Bool",
+    "k0": false,
+    "k1": true,
+    "alphabet_false": "Option Bool",
+    "alphabet_true": "Bool",
+    "main": true,
+    "initialState": true,
+    "program": "halt at every label",
+    "outputLetter": "some",
+    "fallback": true,
+    "working_alphabet_cardinality": 24
+  },
+  "literal_cases": [
+    {
+      "name": "empty",
+      "raw": [],
+      "length": 0,
+      "prelude_steps": 1,
+      "head": "marked blank row",
+      "left": [],
+      "right": []
+    },
+    {
+      "name": "literal_delimiter",
+      "raw": [
+        "none"
+      ],
+      "length": 1,
+      "input_slot": "some none",
+      "prelude_steps": 3,
+      "head": "marked row storing some none at k0",
+      "left": [],
+      "right": []
+    },
+    {
+      "name": "present_false",
+      "raw": [
+        "some false"
+      ],
+      "length": 1,
+      "input_slot": "some (some false)",
+      "prelude_steps": 3,
+      "head": "marked row storing some (some false) at k0",
+      "left": [],
+      "right": []
+    },
+    {
+      "name": "present_true",
+      "raw": [
+        "some true"
+      ],
+      "length": 1,
+      "input_slot": "some (some true)",
+      "prelude_steps": 3,
+      "head": "marked row storing some (some true) at k0",
+      "left": [],
+      "right": []
+    },
+    {
+      "name": "orientation",
+      "raw": [
+        "some false",
+        "none",
+        "some true"
+      ],
+      "length": 3,
+      "prelude_steps": 5,
+      "head": "marked row storing some (some true) at k0",
+      "left_nearest_first": [
+        "symbol none",
+        "symbol (some false)"
+      ],
+      "right": []
+    },
+    {
+      "name": "false_output_ignores_true_fallback",
+      "halt_answer": false,
+      "fallback": true,
+      "input_track_at_halt": "none",
+      "output_track_at_halt": "some false",
+      "emitted_input_slot": "some (some false)",
+      "emitter_steps": 1,
+      "next_none_steps": 1
+    },
+    {
+      "name": "true_output_ignores_false_fallback",
+      "halt_answer": true,
+      "fallback": false,
+      "emitted_input_slot": "some (some true)",
+      "emitter_steps": 1,
+      "next_none_steps": 1
+    },
+    {
+      "name": "total_emitter_blank_fallback",
+      "input_cell": "blank",
+      "fallback": true,
+      "emitted_input_slot": "some (some true)",
+      "claim_scope": "function totality only, not a reachable accepted halt"
+    },
+    {
+      "name": "true_source_defaults",
+      "main": true,
+      "register": true,
+      "ambient_bool_default": false,
+      "wrapper_default": "start"
+    },
+    {
+      "name": "live_stored_count_empty",
+      "before_steps": 7,
+      "B": 10,
+      "prelude_steps": 1,
+      "live_steps": 9,
+      "live_bound": 12,
+      "outer_none_steps": 10,
+      "outer_none_bound": 13
+    },
+    {
+      "name": "live_stored_count_singleton",
+      "before_steps": 7,
+      "B": 10,
+      "prelude_steps": 3,
+      "live_steps": 11,
+      "live_bound": 14,
+      "outer_none_steps": 12,
+      "outer_none_bound": 15
+    },
+    {
+      "name": "live_stored_count_orientation",
+      "before_steps": 7,
+      "B": 10,
+      "prelude_steps": 5,
+      "live_steps": 13,
+      "live_bound": 16,
+      "outer_none_steps": 14,
+      "outer_none_bound": 17
+    }
+  ],
+  "explicit_exclusions": [
+    "No assumed polynomial-time predicate",
+    "No head-only singleton shortcut",
+    "No source timing proof supplied by this wrapper",
+    "No conventional NP claim",
+    "No uncharged delimiter serialization",
+    "No compiler or source installation by this agent"
+  ]
+}

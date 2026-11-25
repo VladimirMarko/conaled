@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "record_kind": "Conversation reconstruction and availability ledger; not a native validation receipt or new substantive review",
+  "created_utc": "2026-11-25T04:58:36.645494+00:00",
+  "writer": "/root/requirements_review147",
+  "recovery_directory": "/workspace/scratch/ae71b485b114/work/review154-recovered",
+  "original_workspace_wipe": {
+    "reported_by": "/root",
+    "approximately_utc": "2026-11-25T04:46:00+00:00",
+    "original_post153_local_files_lost": true,
+    "checkpoint153_durably_saved": true,
+    "checkpoint154_before_outage_assembled_packed_or_saved": false
+  },
+  "same_original_review_loop": {
+    "coordinator": "/root/requirements_review147",
+    "original_coordinator": "/root/parser_review",
+    "original_axes": [
+      "/root/parser_review/standards",
+      "/root/parser_review/spec"
+    ],
+    "current_same_axis_handles": [
+      "/root/requirements_review147/standards147",
+      "/root/requirements_review147/spec147"
+    ],
+    "new_axis_created": false,
+    "coordinator_is_substantive_third_axis": false
+  },
+  "exact_reconstructed_originals": [
+    {
+      "file": "FINAL_REVIEW153_FILES.json",
+      "bytes": 4835,
+      "sha256": "08f3f97bf1941ec494ee1d92cbd96b8a0d688b3c0086c20cbc06f39d838c3fcc",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    },
+    {
+      "file": "round13-reconciliation153.md",
+      "bytes": 11847,
+      "sha256": "29c5235dbea6226b1839a8b212a98068edcac8da668a458cf27b276f7d78ad74",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    },
+    {
+      "file": "standards153.md",
+      "bytes": 18498,
+      "sha256": "1f0849548c5f21add7b5739f95259ccbfc8f67e109abc7ec115d186be3b4e537",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    },
+    {
+      "file": "standards153.json",
+      "bytes": 22376,
+      "sha256": "8454b070701d6c5f698fea4b5988384b19446d142782fd606b393dfdb50615ae",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    },
+    {
+      "file": "spec153.md",
+      "bytes": 21637,
+      "sha256": "8d304042ae4117b4faf0e79bfe42f7dc101e28c14605d04e2276b85402f9a129",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    },
+    {
+      "file": "spec153.json",
+      "bytes": 11722,
+      "sha256": "23abdb87cb36890905dc291aa6726e7366184ba2622de248f63528dfa88e74be",
+      "original_size_and_sha256_match": true,
+      "provenance": "Reconstructed from retained conversation text; local reconstructed bytes then read and hashed."
+    }
+  ],
+  "exact_reconstructed_original_count": 6,
+  "exact_reconstructed_original_total_bytes": 90915,
+  "unavailable_ancillary_original_bodies": [
+    {
+      "file": "standards153-evidence.json",
+      "original_bytes": 20212,
+      "original_sha256": "deb32a7204aeeb6eb92a3921a4ea1dcf335434d059882318461cdef47dc4f0db",
+      "body_available_in_coordinator_recovery": false,
+      "body_reconstructed": false,
+      "reason": "The complete original body was not retained in this coordinator's visible conversation output. Selected fields and attributed conclusions survive in the exact main reports; these do not reconstruct the body."
+    },
+    {
+      "file": "spec153-source-checks.json",
+      "original_bytes": 25956,
+      "original_sha256": "a47411c4c1b89cbf9a2e58af27d8d80560f88ac6aa9d4407d734ea9f0b71bebb",
+      "body_available_in_coordinator_recovery": false,
+      "body_reconstructed": false,
+      "reason": "The complete original body was not retained in this coordinator's visible conversation output. Selected fields and attributed conclusions survive in the exact main reports; these do not reconstruct the body."
+    },
+    {
+      "file": "spec153-native-query-binding.json",
+      "original_bytes": 34606,
+      "original_sha256": "46304a49c8ce558f63f3007143cb73a0819f43f83aad373ed53ffe4ba0699f10",
+      "body_available_in_coordinator_recovery": false,
+      "body_reconstructed": false,
+      "reason": "The complete original body was not retained in this coordinator's visible conversation output. Selected fields and attributed conclusions survive in the exact main reports; these do not reconstruct the body."
+    },
+    {
+      "file": "spec153-statement-reading.json",
+      "original_bytes": 35374,
+      "original_sha256": "1e6d8e2b6586a5fbf97749fb5a1cb4f2a16eb753ab198cce75afdf0387e6f1be",
+      "body_available_in_coordinator_recovery": false,
+      "body_reconstructed": false,
+      "reason": "The complete original body was not retained in this coordinator's visible conversation output. Selected fields and attributed conclusions survive in the exact main reports; these do not reconstruct the body."
+    }
+  ],
+  "other_original_inventory_disposition": {
+    "authoritative_complete_original_descriptors": "FINAL_REVIEW153_FILES.json: 17 historical members, total 379361 bytes; manifest itself excluded from that total",
+    "reported_retained_in_canonical_P153_not_reread_here": [
+      "capture-identity153.json",
+      "capture-identity153b.json",
+      "native-validation153a.json",
+      "native-validation153b.json"
+    ],
+    "lost_final_bodies_not_reconstructed_here": [
+      "HANDOFF153.md",
+      "review-continuity153.json",
+      "query-output-index153b.json",
+      "query-output-index153b.md"
+    ],
+    "useful_attributed_conclusions_preserved_in": "Exact recovered reconciliation and four main axis reports",
+    "original_manifest_arithmetic": {
+      "unchanged_old_capture_native": {
+        "members": 4,
+        "bytes": 68342
+      },
+      "updated_handoff_continuity": {
+        "members": 2,
+        "bytes": 41456
+      },
+      "new": {
+        "members": 11,
+        "bytes": 269563
+      },
+      "total": {
+        "members": 17,
+        "bytes": 379361
+      }
+    }
+  },
+  "historical_candidate": {
+    "commit": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+    "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+    "incorporated_base_M": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+    "original_base_B": "bc95f503ccbf043136c6699992388f750270e8e6",
+    "scope_count": 72,
+    "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+    "content_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+    "old_private_commit_object_absent_after_wipe_reported_by_root": true,
+    "fresh_supported_capture_pending": true,
+    "new_candidate_automatically_approved": false
+  },
+  "preserved_assessment": {
+    "status": "Blocked; prior C153b source/query assessment complete within original limits",
+    "source_or_receiving_acceptance": false,
+    "new_concrete_defect_found_by_either_original_axis": false,
+    "open_findings": [
+      "ST-V001",
+      "SP-V001"
+    ],
+    "prior_resolved_remedies_retained": [
+      "ST-001",
+      "ST-002",
+      "ST-003",
+      "SP-D001",
+      "SP-D002",
+      "SP-C001"
+    ],
+    "remaining_gates": [
+      "Aggregate and whole validation with actual matching terminal evidence and required isolation/provenance",
+      "Exhaustive source, module-origin, generated-product-origin and axiom audit",
+      "Immediate supported nonrepairing verification",
+      "Supported final postvalidation comparison",
+      "Return of actual evidence to the same original axes and final acceptance reconciliation"
+    ],
+    "query": {
+      "carrier_bytes": 87360,
+      "carrier_sha256": "be70bb5a5812c615fee9940f5e62424f8cd41a79ecaef3ce30913558a3dc8599",
+      "output_bytes": 960006,
+      "output_lines": 12481,
+      "output_sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91",
+      "old_prefix_bytes": 594334,
+      "old_prefix_lines": 7801,
+      "new_tail_lines": [
+        7802,
+        12481
+      ],
+      "fresh_new_tail_lines_each_axis": 4680,
+      "new_observations": {
+        "readable": 334,
+        "expanded_checks": 28,
+        "axiom_roots": 55,
+        "definition_prints": 7
+      },
+      "total_ordered_commands": 1071,
+      "old_prefix_reuse_qualified_by_exact_identity_and_prior_attribution": true,
+      "new_selected_axiom_roots_only": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "selected_roots_are_not_exhaustive_audit": true,
+      "unchanged_printer_glyph_count": 14,
+      "unchanged_printer_glyph_lines": [
+        4198,
+        4201,
+        4204,
+        4208,
+        4218,
+        4298,
+        5583,
+        5584
+      ],
+      "new_tail_printer_glyph_count": 0,
+      "Spec_omission_clarification": "Nonfatal; no consequential binder/domain left unassessed; no extra query needed; hidden printer text receives no reading credit."
+    },
+    "historical_focused_native": {
+      "owners153_a_actual_exit": 1,
+      "owners153_b_actual_exit": 0,
+      "query153_b_actual_exit": 0,
+      "b_nonnull_stable_bindings": 4048,
+      "scoped_paths_in_focused_bindings": 54,
+      "scope_count": 72,
+      "generated_product_descriptors_in_focused_maps": 0,
+      "all28_direct_query_imports_within_focused_closure": true,
+      "current_reexecution_claimed": false
+    },
+    "substantive_limits": [
+      "Complete source/target configurations, full tapes and actual runs/counts assessed, not only informal allowances",
+      "Exponent fixed before all raw inputs including lengths zero and one; conventional combined print/move semantics and StateTransition.eval acceptance assessed",
+      "Fixed finite Unit verifier machine, pure certificate I squared witness and separate pair/runtime bounds assessed; unbounded-witness soundness retained",
+      "No independent NTM/NP class identity, executable transition table or programme qualification closure inferred"
+    ],
+    "historical_limits": [
+      "whole139/147/150 outer UNKNOWN; observed child137 counts 8/3/4; causes UNKNOWN",
+      "whole150 later ENOSPC and partial capture retained; no retroactive explanation or invented outer result",
+      "Original null bindings, earlier UNKNOWN runs, interruption without reading credit, unavailable early reports and exact prior-prefix attribution remain as in recovered reports",
+      "No old output quarantine is converted into validation acceptance; no resource, printing, linter or statement override introduced"
+    ]
+  },
+  "external_root_records": [
+    {
+      "original_path": "/workspace/scratch/ae71b485b114/work/reading153/ROOT_READING153.json",
+      "original_bytes": 20517,
+      "original_sha256": "54f1a46a3df90cfdfba98da045226997aefc1576575d28a753786dac845574a0",
+      "body_reconstructed_here": false,
+      "attribution": "Root separately read all 4680 new lines in 21 contiguous untruncated ranges; coordinator historically verified the complete root record and its ranges before the outage. No root reading credit is transferred to an axis."
+    },
+    {
+      "original_bytes": 1353,
+      "original_sha256": "f6eee837d2ad3055f0ecfb68a148de691572a697f998a0ae251ac6350646a87a",
+      "body_reconstructed_here": false,
+      "attribution": "Root reported this acknowledgment existed before outage and had read both complete axis Markdown reports; no inaccessible-file reread is claimed.",
+      "original_filename": "ROOT_AXIS_REPORT_READING153.json"
+    }
+  ],
+  "current_routing": {
+    "canonical_P153": "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z",
+    "exact_restore_verification": "Root reports unchanged checkpoint helper exit0 and inventory/source/mode verification; coordinator did not independently reread packet members in this task.",
+    "initial_restored154_tree_never_read_and_released": true,
+    "old_paths_in_exact_originals": "Historical provenance only; consult current root routing for live evidence.",
+    "root_owns_source_restore_fresh_capture_and_compilers": true
+  },
+  "status_document": {
+    "file": "RECONSTRUCTION_STATUS.md",
+    "bytes": 4764,
+    "sha256": "03b48beaf6db578917ae6446b6f54ba0a54a3cb6a433301c2f3d234022294800"
+  },
+  "preservation_guidance": "Retain the six exact recovered bodies, status and this compact ledger in the next single complete checkpoint. Keep full authority and canonical execution/source evidence via root's packet. Do not fabricate missing bodies or duplicate large raw maps just to restore lost filenames.",
+  "recovery_directory_is_standalone_checkpoint": false,
+  "coordinator_recovery_execution_or_source_review_credit": false,
+  "compiler_checker_project_source_config_product_or_external_write": false,
+  "archive_created_by_coordinator": false,
+  "recovery_writer_released_for_checkpoint_copy": true
+}

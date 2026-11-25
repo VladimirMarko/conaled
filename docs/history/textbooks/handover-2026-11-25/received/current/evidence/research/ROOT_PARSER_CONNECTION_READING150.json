@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "reader": "/root",
+  "read_utc": "2026-11-24T21:38:37.127728+00:00",
+  "source": {
+    "packet_member": "current/research/delimiter/Protocol144b.lean",
+    "bytes": 11634,
+    "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da"
+  },
+  "freshly_read_inclusive_lines": [
+    [
+      88,
+      111
+    ],
+    [
+      215,
+      243
+    ]
+  ],
+  "conclusion": "Existing GeneralProof1.splitLiteral_iff and verifyDelimited_accept_iff already provide the exact arbitrary-raw checking-relation language, including malformed-input exclusion. No new parser proof is needed.",
+  "limit": "Bounded source reading only; dependent protocol_cases source and whole old output not freshly fully read here. No new compiler/source/independent review credit.",
+  "postcutoff_of": "conaled-textbooks-150-checkpoint-2026-11-24T213517Z"
+}

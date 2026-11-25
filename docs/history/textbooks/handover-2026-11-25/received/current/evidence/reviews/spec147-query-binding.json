@@ -1,0 +1,495 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "reviewer": "/root/requirements_review147/spec147",
+  "stage": "independent actual147 query binding; semantic reading separately recorded",
+  "observed_utc": "2026-11-24T19:41:10.241615+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "query_result": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.result.json",
+    "bytes": 155507,
+    "sha256": "00d91abee5585bad7fad2f1ec4184df5688e586992392712e217ea15d2697153"
+  },
+  "query_child_exit": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.child-exit.json",
+    "bytes": 1292,
+    "sha256": "bde86756df21ab42b891ecaf1e09f8b19266e18c0d1903c78fdaeb651cfb9964"
+  },
+  "query_start": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.start.json",
+    "bytes": 77822,
+    "sha256": "8436266185b246ab81c8b4a59c90930e00efefe28ff84e83d445a0e1f73fa34d"
+  },
+  "log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+  },
+  "log_lines": 7801,
+  "exit_code": 0,
+  "elapsed_seconds": 3.989197924999644,
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean"
+  ],
+  "nonnull_before_after_equal_count": 293,
+  "start_bindings_equal": true,
+  "project_source_config_paths_matching_captured_git": [
+    "Applications/Resources/BinaryCounter.lean",
+    "Applications/Resources/BinaryCounter/FixedWidth.lean",
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+    "Applications/Resources/CallCount.lean",
+    "Applications/Resources/Measured.lean",
+    "Applications/Resources/Potential.lean",
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+    "Applications/Resources/RotationCertificate/BitCodec.lean",
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+    "Applications/Resources/RotationCertificate/Encoding.lean",
+    "Applications/Resources/RotationCertificate/Execution.lean",
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+    "Applications/Resources/RotationCertificate/InputParser.lean",
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+    "Applications/Resources/RotationCertificate/LinearParser.lean",
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+    "Applications/Resources/RotationCertificate/StreamMachine.lean",
+    "Applications/Resources/RotationCertificate/Streaming.lean",
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+    "Applications/Resources/RotationCertificate/TreeParser.lean",
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+    "Applications/Resources/RotationCertificate/Verifier.lean",
+    "Applications/Resources/RotationCertificate/Witness.lean",
+    "Applications/Resources/TuringSimulation/FiniteControl.lean",
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+    "Applications/Resources/TuringSimulation/MarkedInput.lean",
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+    "Applications/Resources/TuringSimulation/PrintMove.lean",
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+    "Applications/Resources/TuringSimulation/StackToTape.lean",
+    "Applications/Resources/TuringSimulation/TapeReflection.lean",
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Applications/Resources/Workload.lean",
+    "Applications/Trees/BasicObservations.lean",
+    "Applications/Trees/Direction.lean",
+    "Applications/Trees/Enumeration.lean",
+    "Applications/Trees/Observations.lean",
+    "Applications/Trees/Rotations/Basic.lean",
+    "Applications/Trees/Rotations/Bounds.lean",
+    "Applications/Trees/Rotations/Distance.lean",
+    "Applications/Trees/Rotations/Mixed.lean",
+    "Applications/Trees/Rotations/Normalize.lean",
+    "Applications/Trees/Rotations/Position.lean",
+    "Applications/Trees/TraversalWork.lean",
+    "Examples/RotationCertificateBinary.lean",
+    "Examples/RotationCertificateBitDecoderMachine.lean",
+    "Examples/RotationCertificateBitPairFraming.lean",
+    "Examples/RotationCertificateCorrespondence.lean",
+    "Examples/RotationCertificateFrontEndMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+    "Examples/RotationCertificateFuelMachine.lean",
+    "Examples/RotationCertificateInputParserMachine.lean",
+    "Examples/RotationCertificateMoveApplyMachine.lean",
+    "Examples/RotationCertificateMoveParserMachine.lean",
+    "Examples/RotationCertificateOpenDecoderMachine.lean",
+    "Examples/RotationCertificateOpenFramingMachine.lean",
+    "Examples/RotationCertificateParsing.lean",
+    "Examples/RotationCertificatePositionedRotationMachine.lean",
+    "Examples/RotationCertificateStreamMachine.lean",
+    "Examples/RotationCertificateTreeEqualityMachine.lean",
+    "Examples/RotationCertificateTreeParserMachine.lean",
+    "Examples/RotationCertificateVerification.lean",
+    "Examples/RotationDistance.lean",
+    "Examples/TuringSimulation.lean",
+    "SquareApplications.lean",
+    "SquareKit/ListFusion.lean",
+    "Squares.lean",
+    "check.sh",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/README.md",
+    "docs/textbooks/coverage.json",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md",
+    "lake-manifest.json",
+    "lakefile.toml",
+    "lean-toolchain",
+    "scripts/check.py",
+    "scripts/lake_integrity.py",
+    "scripts/project_sources.py",
+    "scripts/review_snapshot.py"
+  ],
+  "all63_scope_owners_bound_to_capture": true,
+  "other_current_bound_nonproduct_paths_count": 7,
+  "source_binding_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/query-source-binding147.json",
+    "bytes": 7363,
+    "sha256": "41487108f4e00ffb41a548bd23138414b1926bec3e801bd5c600afdf32772472"
+  },
+  "direct_imports": 19,
+  "direct_imports_sources_match_capture": true,
+  "product_binding_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/query-products-binding147.json",
+    "bytes": 51459,
+    "sha256": "df5206784e787fbdd21e1db138e957d96602747d5745cdceb8cdaae291f10545"
+  },
+  "product_triplets": 64,
+  "all192_products_and_traces_match_recorded_before_after": true,
+  "current_read_only_product_hashes_match": 192,
+  "trace_jsons_parsed": 64,
+  "trace_schema_key_sets": [
+    [
+      "depHash",
+      "inputs",
+      "log",
+      "outputs",
+      "schemaVersion",
+      "synthetic"
+    ]
+  ],
+  "all64_product_source_origins_bound_to_capture": true,
+  "normal_builds": [
+    {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.result.json",
+        "bytes": 38891,
+        "sha256": "63fec67ea4079593a9d9d29ee4cfbacaea3132c7c4b8a9af07bb50c13cdb63de"
+      },
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.FiniteControl",
+        "Applications.Resources.TuringSimulation.FiniteStackToTape",
+        "Applications.Resources.TuringSimulation.TapeReflection",
+        "Applications.Resources.TuringSimulation.SingletonOutput",
+        "Applications.Resources.TuringSimulation.MarkedInput",
+        "Applications.Resources.TuringSimulation.PolynomialDecider"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/prerequisites147.log",
+        "bytes": 3347,
+        "sha256": "e7a1553f76dc71e0f210d1ee0b58793e547f5677a309b8bc40860a01b9cb9fb3",
+        "mode": "100644"
+      }
+    },
+    {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.result.json",
+        "bytes": 38638,
+        "sha256": "b90d5551b60e9f4bd2ca19722ddb22f11e602476d9e1bafddb1e8dc18bec8c19"
+      },
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.TuringSimulation.PrintMove"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/generic-owners147.log",
+        "bytes": 4204,
+        "sha256": "e8bc9e1463a901f51bb4290abeaafc130ef2f576f02156b5c90fffb5a6748312",
+        "mode": "100644"
+      }
+    },
+    {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.result.json",
+        "bytes": 38598,
+        "sha256": "5a59a54b19f9160695e835aab722e040936b1f128afb99c71cd0e79ba417ebcf"
+      },
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/polynomial-owner147.log",
+        "bytes": 2184,
+        "sha256": "db4c21804cf0ed035cdf70a048c6bf9e79a31d6dab0ab7293f2a5e216ac5a045",
+        "mode": "100644"
+      }
+    },
+    {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.result.json",
+        "bytes": 38554,
+        "sha256": "a33871cbf2411cb3aac4fcb5d911d499e86d5655d25a5cb797b725d1deddc344"
+      },
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Examples.TuringSimulation"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/turing-examples147.log",
+        "bytes": 6536,
+        "sha256": "f079235fcb6c2c858ef83913413e420e5f51e13fdb57cc3f82fd65143a24c7e0",
+        "mode": "100644"
+      }
+    },
+    {
+      "record": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.result.json",
+        "bytes": 40306,
+        "sha256": "930ba9cfcacc4354c57755a0f35abbb29f124e45578936c7048d363a74ce4a59"
+      },
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state147",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/acceptance147",
+        "--",
+        "lake",
+        "build",
+        "Applications.Resources.RotationCertificate.CertificateCorrespondence",
+        "Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine",
+        "Examples.RotationDistance",
+        "Examples.RotationCertificateCorrespondence",
+        "Examples.RotationCertificateStreamMachine",
+        "Examples.RotationCertificateFrontEndStreamMachine",
+        "Examples.RotationCertificateFrontEndStreamTapeMachine"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "/workspace/scratch/ae71b485b114/work/native-runs147/controller-clients147.log",
+        "bytes": 15941,
+        "sha256": "28c3228bfe7cd06770e867efae5938b0596f9b785a8c28f8cb319e4b166dd2da",
+        "mode": "100644"
+      }
+    }
+  ],
+  "carrier": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/Current147Statements.lean",
+    "bytes": 51093,
+    "sha256": "d457aaa23477364e1c824b434a668b5f353247eb0364d21a0a0fdb49c15b9b0f"
+  },
+  "carrier_manifest": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration147-query-drafts/MANIFEST.json",
+    "bytes": 31256,
+    "sha256": "2cf3d3ec7edd80cf3897e02ac628c236c7430a580dbc034ad5ac3b9d4cb08761"
+  },
+  "canonical_fragments": [
+    {
+      "label": "current146_public",
+      "bytes": 26751,
+      "sha256": "081f089c3f1df187f0a9820275746dcb834aa41a613afcb69cde6f74d47f6c57",
+      "carrier_lines": [
+        33,
+        392
+      ],
+      "exact_canonical_selection": true
+    },
+    {
+      "label": "current146_expanded",
+      "bytes": 2117,
+      "sha256": "0e24cae939d9fa6777f3fa187ee8dd40cd140ba21278fd3b11001de728418876",
+      "carrier_lines": [
+        395,
+        454
+      ],
+      "exact_canonical_selection": true
+    },
+    {
+      "label": "current146_axioms",
+      "bytes": 2188,
+      "sha256": "9efd4cb582c71be7b58778553bcf4056ff99e411d4532640cd2ce8bd54881cee",
+      "carrier_lines": [
+        457,
+        483
+      ],
+      "exact_canonical_selection": true
+    },
+    {
+      "label": "generic-ordinary",
+      "bytes": 6942,
+      "sha256": "03158c8f887cf12d1ba0a814ce4b96218f86e6f2cc33d63265c43a35983b8469",
+      "carrier_lines": [
+        486,
+        577
+      ],
+      "exact_canonical_selection": true
+    },
+    {
+      "label": "conventional",
+      "bytes": 11337,
+      "sha256": "7df869923fd423fe46953e47070c3a7ef9e80fccbe63c902c6057b8db6ffdffd",
+      "carrier_lines": [
+        580,
+        749
+      ],
+      "exact_canonical_selection": true
+    }
+  ],
+  "carrier_outside_fragments": "import Applications.Resources.RotationCertificate.CertificateCorrespondence\nimport Applications.Resources.TuringSimulation.TapeReflection\nimport Applications.Resources.TuringSimulation.FiniteControl\nimport Applications.Resources.TuringSimulation.FiniteStackToTape\nimport Applications.Resources.TuringSimulation.SingletonOutput\nimport Applications.Resources.TuringSimulation.MarkedInput\nimport Applications.Resources.TuringSimulation.PolynomialDecider\nimport Applications.Resources.TuringSimulation.VisitedSpace\nimport Applications.Resources.TuringSimulation.TapeToPrimitive\nimport Applications.Resources.RotationCertificate.FrontEndStreamTapeMachine\nimport Examples.RotationDistance\nimport Examples.RotationCertificateCorrespondence\nimport Examples.RotationCertificateStreamMachine\nimport Examples.RotationCertificateFrontEndStreamMachine\nimport Examples.RotationCertificateFrontEndStreamTapeMachine\nimport Examples.TuringSimulation\nimport Applications.Resources.TuringSimulation.OrdinaryPackage\nimport Applications.Resources.TuringSimulation.PrintMove\nimport Applications.Resources.TuringSimulation.PolynomialDeciderPrintMove\n\nset_option autoImplicit false\nset_option warningAsError true\n\n/-!\n# Integration147 ordinary-module statement observations\n\nExact retained queries follow normal module imports. This carrier contains\nno copied proof bodies. Its selected roots do not replace the exhaustive\nmodule-origin audit. Root binds and runs it after matching modules build.\n-/\n\n/- Exact retained query fragment: current146_public. -/\n\n/- Exact retained query fragment: current146_expanded. -/\n\n/- Exact retained query fragment: current146_axioms. -/\n\n/- Exact retained query fragment: generic-ordinary. -/\n\n/- Exact retained query fragment: conventional. -/\n\n",
+  "command_count": 647,
+  "counts": {
+    "readable": 589,
+    "expanded": 26,
+    "axiom_roots": 32
+  },
+  "ordered_commands_sha256": "4a424ebfed8f128ed9958c35c1df2bb794844a55c18b374cbc26ea3f8e86bd39",
+  "prior_log_exact_prefix": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/current146-statements-attempt1.log",
+    "bytes": 431379,
+    "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+  },
+  "prior_prefix_lines": [
+    1,
+    5723
+  ],
+  "prior_index": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-output-index.json",
+    "bytes": 128676,
+    "sha256": "39011c024cd65b675674bed7ce41756ab0cc8eccf08034f3a4ef6ab8ddc4196a"
+  },
+  "prior392_entries_names_groups_hashes_match_current": true,
+  "prior_reading_ledger": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-statement-reading-progress.json",
+    "bytes": 12963,
+    "sha256": "575acaf21cbfd8f653796588d1fe15affa7c7ccdb3f329555d0f756c61f1ac77"
+  },
+  "prior_reading_attribution": "Same original Spec axis predecessor /root/requirements_review/spec139 round11; full available146 output1–5723 previously read. Reused only after exact bytes/block/name/group equality; not fresh successor reading. All original visibility and acceptance limits remain.",
+  "coordinator_index_mechanically_rechecked": {
+    "path": "/workspace/scratch/ae71b485b114/work/review147/query-output-binding147.json",
+    "bytes": 120356,
+    "sha256": "48190050ef5a353d4b26630bc91dd6d687d6868fcfe7d21a85bf25530a81a7f1"
+  },
+  "all647_output_entries_names_groups_ranges_hashes_rechecked": true,
+  "new_tail_lines": [
+    5724,
+    7801
+  ],
+  "new_tail_counts": {
+    "readable": 239,
+    "axiom_roots": 9,
+    "expanded": 7
+  },
+  "semantic_reading_credit_from_this_mechanical_record": 0,
+  "literal_elision_lines": [
+    {
+      "line": 4198,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4201,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4204,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4208,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4218,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4298,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 5583,
+      "literal_glyph_count": 7
+    },
+    {
+      "line": 5584,
+      "literal_glyph_count": 1
+    }
+  ],
+  "literal_elision_line_count": 8,
+  "literal_elision_glyph_occurrences": 14,
+  "new_tail_literal_elision_glyphs": 0,
+  "whole_library_or_exhaustive_audit_credit": false,
+  "source_accepted": false,
+  "boundary": "Read-only independent binding. All192 product descriptors/current hashes and64 corresponding captured sources plus traces are checked, but before/after or current hash equality does not prove absence of transient product replacement or an exhaustive module-origin/axiom audit. Compiler products were created by root normal builds. Mechanical indexing carries no semantic-reading credit; actual fresh tail reading is separately dated.",
+  "trace_origin_mechanical_followup": {
+    "observed_utc": "2026-11-24T19:43:33.480517+00:00",
+    "counts": {
+      "traces": 64,
+      "nonsynthetic": 64,
+      "exact_source_input": 64,
+      "exact_module_input": 64,
+      "native_profile_compile_command_with_expected_source_and_olean": 64,
+      "empty_module_leanArgs": 64,
+      "expected_lean_version_input": 64,
+      "olean_output_matches_lake_hash_file": 64
+    },
+    "trace_contents_freshly_read_in_full": [
+      "Applications/Resources/TuringSimulation/OrdinaryPackage.trace",
+      "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.trace"
+    ],
+    "other62_trace_contents": "Parsed and selected origin/version/command/hash fields mechanically checked; no full manual trace reading claim.",
+    "boundary": "Lake trace/hash fields corroborate ordinary-build origin within these64 modules, but are not an exhaustive audit of the full imported environment or a proof against transient manipulation."
+  }
+}

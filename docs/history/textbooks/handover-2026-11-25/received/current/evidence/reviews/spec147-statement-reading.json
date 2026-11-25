@@ -1,0 +1,683 @@
+{
+  "schema": 1,
+  "axis": "Spec",
+  "reviewer": "/root/requirements_review147/spec147",
+  "original_reviewer": "/root/parser_review/spec",
+  "round": 12,
+  "stage": "dated follow-up after checkpoint147 cutoff",
+  "completed_utc": "2026-11-24T19:45:56.770400+00:00",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "actual_log": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+    "bytes": 594334,
+    "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+  },
+  "actual_log_lines": 7801,
+  "independent_binding_evidence": {
+    "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-query-binding.json",
+    "bytes": 21903,
+    "sha256": "210c38ea340d4c021516d8e74c63603b76cf8d14702b7e318bc1716e998a2dab"
+  },
+  "fresh_new_tail_ranges_actually_read": [
+    [
+      5724,
+      5840
+    ],
+    [
+      5841,
+      6000
+    ],
+    [
+      6001,
+      6154
+    ],
+    [
+      6155,
+      6317
+    ],
+    [
+      6318,
+      6485
+    ],
+    [
+      6486,
+      6645
+    ],
+    [
+      6646,
+      6810
+    ],
+    [
+      6811,
+      6986
+    ],
+    [
+      6987,
+      7163
+    ],
+    [
+      7164,
+      7315
+    ],
+    [
+      7316,
+      7470
+    ],
+    [
+      7471,
+      7625
+    ],
+    [
+      7626,
+      7801
+    ]
+  ],
+  "fresh_complete_range": [
+    5724,
+    7801
+  ],
+  "fresh_counts": {
+    "readable": 239,
+    "expanded_as_printed": 7,
+    "selected_axiom_roots": 9
+  },
+  "fresh_readable_groups": [
+    {
+      "range": [
+        5724,
+        6142
+      ],
+      "count": 80,
+      "all_read": true,
+      "scope": "OrdinaryPackage contracts and complete OrdinaryPackageCases query group"
+    },
+    {
+      "range": [
+        6318,
+        6986
+      ],
+      "count": 159,
+      "all_read": true,
+      "scope": "PrintMove contracts, complete Cases query group and generic PolynomialBooleanDecider consumer"
+    }
+  ],
+  "fresh_expanded": [
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "range": [
+        6155,
+        6160
+      ],
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.machine",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "range": [
+        6161,
+        6163
+      ],
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.EncodedRun",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "range": [
+        6164,
+        6204
+      ],
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "range": [
+        6205,
+        6317
+      ],
+      "command": "#check Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime_steps",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.delta",
+      "range": [
+        6998,
+        7005
+      ],
+      "command": "#check Resources.TuringSimulation.PrintMove.delta",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "range": [
+        7006,
+        7163
+      ],
+      "command": "#check Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "range": [
+        7164,
+        7801
+      ],
+      "command": "#check Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "full_actual_block_freshly_read": true,
+      "literal_elision_glyphs": 0
+    }
+  ],
+  "fresh_selected_axiom_roots": [
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.runInTime",
+      "range": [
+        6143,
+        6145
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.nextNoneRun",
+      "range": [
+        6146,
+        6148
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.eval_of_run",
+      "range": [
+        6149,
+        6151
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.StackToTape.OrdinaryPackage.emit_related_halt_step",
+      "range": [
+        6152,
+        6154
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.finite_run_exact",
+      "range": [
+        6987,
+        6987
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.decide_of_native_run",
+      "range": [
+        6988,
+        6988
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PrintMove.Trace.paid_run_interval",
+      "range": [
+        6989,
+        6991
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.printMove_run",
+      "range": [
+        6992,
+        6994
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    },
+    {
+      "name": "Resources.TuringSimulation.PolynomialBooleanDecider.classical_printMove_run",
+      "range": [
+        6995,
+        6997
+      ],
+      "observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "full_actual_block_freshly_read": true
+    }
+  ],
+  "prior_exact_reuse": {
+    "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+    "reviewer": "/root/requirements_review/spec139",
+    "round": 11,
+    "actual_log": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/validation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "range": [
+      1,
+      5723
+    ],
+    "prior_output_index": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-output-index.json",
+      "bytes": 128676,
+      "sha256": "39011c024cd65b675674bed7ce41756ab0cc8eccf08034f3a4ef6ab8ddc4196a"
+    },
+    "prior_reading_ledger": {
+      "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/spec146-statement-reading-progress.json",
+      "bytes": 12963,
+      "sha256": "575acaf21cbfd8f653796588d1fe15affa7c7ccdb3f329555d0f756c61f1ac77"
+    },
+    "counts": {
+      "readable": 350,
+      "expanded_as_printed": 19,
+      "selected_axiom_roots": 23
+    },
+    "entire_old_log_and_all392_indexed_bodies_exact": true,
+    "fresh_successor_reading_credit": 0,
+    "attribution": "Reuses the same original Spec axis complete available146 output reading, with all original limits. No borrowing of author/helper/root/Standards semantic analysis."
+  },
+  "total_current_output_assessed_with_qualified_reuse": {
+    "readable": 589,
+    "expanded_as_printed": 26,
+    "selected_axiom_roots": 32
+  },
+  "complete_available_output_assessment": true,
+  "all_requested_output_names_available": true,
+  "all_new_tail_expanded_text_fully_visible_as_printed": true,
+  "all_cumulative_expanded_text_fully_visible": false,
+  "public_statement_output_review_complete": false,
+  "literal_elision_line_count": 8,
+  "literal_elision_glyph_occurrences": 14,
+  "literal_elision_lines": [
+    {
+      "line": 4198,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4201,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4204,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4208,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4218,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 4298,
+      "literal_glyph_count": 1
+    },
+    {
+      "line": 5583,
+      "literal_glyph_count": 7
+    },
+    {
+      "line": 5584,
+      "literal_glyph_count": 1
+    }
+  ],
+  "new_tail_literal_elision_glyphs": 0,
+  "hidden_old_text_reconstructed": false,
+  "semantic_assessment": [
+    {
+      "area": "OrdinaryPackage type parameters and finite alphabet",
+      "actual_ranges": [
+        [
+          5724,
+          5751
+        ],
+        [
+          6155,
+          6163
+        ]
+      ],
+      "assessment": "The package, output-letter function and fallback precede raw input. Supplied source control retains translated tm.main and tm.initialState; wrapper default is its own prelude start. alphabetFintype explicitly has every-index Fintype (tm.Γ k), while control finiteness requires no falsely strengthened FinTM2 premise. Input embedding, nonblankness, selected-track presence and literal length remain."
+    },
+    {
+      "area": "OrdinaryPackage full endpoint, run counts and evaluation",
+      "actual_ranges": [
+        [
+          5752,
+          5919
+        ],
+        [
+          6164,
+          6317
+        ]
+      ],
+      "assessment": "Full TrCfg (haltList tm [answer]) target is retained, supplying exact singleton whole tape. Stored singleton steps equal before.steps. Wrapper live steps are 1 + (before.steps + preludeSteps raw), its allowance is preludeSteps raw + B + 1, and outer None has one further stored step and allowance +2. Expanded init uses the wrapper prelude Inhabited, while the source run uses Package.controlInhabited and trInit. The output configuration, stoppedness and eval singleton are not replaced by head-only or allowance-only claims."
+    },
+    {
+      "area": "OrdinaryPackage fixed cases",
+      "actual_ranges": [
+        [
+          5920,
+          6142
+        ]
+      ],
+      "assessment": "All fixed-case outputs were read: 24-symbol work alphabet; supplied true main/register; distinct blank/delimiter/present false/present true; full 1/3/5-step prelude endpoints with orientation; opposite fallback behavior; paid false/true writes and separate None. The 7-stored/10-allowance literals remain arithmetic examples, not invented whole fixture runs."
+    },
+    {
+      "area": "PrintMove adapter and exact native simulation",
+      "actual_ranges": [
+        [
+          6318,
+          6483
+        ],
+        [
+          6998,
+          7005
+        ]
+      ],
+      "assessment": "The total delta accepts the nonterminal subtype and every letter. Control remains two native copies plus accept/reject. Actual steps write then move, native moves take one target step, and native writes perform the real right-and-return two-step excursion while preserving the whole normal endpoint. Actual observed-command prefix cost is bounded by 2*n; finite-run and bounded-run declarations retain their source execution premises. Readable existential inferred binder types are assessed together with the prior fresh source reading; no claim that every readable declaration is unfolded by #check."
+    },
+    {
+      "area": "Paid decision, zero case and full shifted tape",
+      "actual_ranges": [
+        [
+          6484,
+          6526
+        ],
+        [
+          6655,
+          6735
+        ],
+        [
+          7006,
+          7163
+        ]
+      ],
+      "assessment": "Paid decision retains actual bounded source run, native stoppedness and embedded Boolean head. Expanded target binder is EvalsToInTime from normalCfg start to some (decidedCfg answer finish.Tape) at 2*B+1. Its stored count is actual simulationTime at source.steps plus one; target.steps <= 2*source.steps+1 is distinct from B. Zero native run reaches accept/reject after one paid step, with full tape shifted right; outer None is the following separate observation."
+    },
+    {
+      "area": "Actual-prefix visited space",
+      "actual_ranges": [
+        [
+          6527,
+          6654
+        ]
+      ],
+      "assessment": "cfgAt/actionAt/headPosition use actual optional execution. visitedCells membership requires a live prefix; inputCells and their interval enclosure are distinct. The interval width/cardinality bound is max N 1 + U and paid bound max N 1 + (2*B+1). A terminal None prefix adds no visits or interval cells. No theorem here is read as bounding arbitrary initial nonblank support."
+    },
+    {
+      "area": "Conventional fixed cases",
+      "actual_ranges": [
+        [
+          6655,
+          6929
+        ]
+      ],
+      "assessment": "All zero-run, one-write, right-left and write-erase case declarations and endpoints were read. Empty and present false inputs differ; the supplied true native start differs from ambient Bool default false. One-write normal/decision/None counts are 2/3/4; zero decision/None counts are 1/2. Position lists expose right excursions; visit sets retain visited right cells after returning/erasing. Write-erase remains a normal simulation ending blank, not a Boolean decision claim. Finite Bool control has six states."
+    },
+    {
+      "area": "PolynomialBooleanDecider direct consumer and classical variant",
+      "actual_ranges": [
+        [
+          6930,
+          6986
+        ],
+        [
+          7164,
+          7801
+        ]
+      ],
+      "assessment": "The expanded printMove_run quantifies d and its supplied DecidableEq before raw input; all native configuration/init/step occurrences use d.blank and d.start. It retains an actual source EvalsToInTime witness at eval raw.length d.time and a target EvalsToInTime witness at eval raw.length d.printMoveTime, with full decidedCfg finish.Tape endpoint and actual stored-source-step timing. The readable evaluation identity is 2*eval n d.time+1. The source proof previously freshly read consumes d.run; type output alone is not credited as proof-body reading. The space consumer uses raw.length and actual target prefixes. The classical machine remains the previously source-assessed noncomputable variant, with no executable enumerated transition-table claim."
+    }
+  ],
+  "new_actionable_semantic_defect_found": false,
+  "stable_findings": {
+    "SP-D001": "Source resolution retained",
+    "SP-D002": "Source resolution retained",
+    "SP-C001": "Source/elaboration resolution retained; matching147 old-output prefix independently bound and predecessor analysis explicitly reused",
+    "SP-V001": "Unresolved blocking: matching aggregate/whole, exhaustive audit, immediate nonrepairing verify, supported comparison and both-axis reconciliation remain. The retained ellipsis-rendering limit is not a distinct blocker."
+  },
+  "acceptance": {
+    "whole_terminal_seen": false,
+    "exhaustive_module_origin_or_axiom_audit": false,
+    "immediate_nonrepairing_verification": false,
+    "supported_final_comparison": false,
+    "both_axis_reconciliation": false,
+    "source_accepted": false,
+    "receiving_accepted": false,
+    "qualification_changed": false
+  },
+  "limits": [
+    "At the initial query follow-up fresh semantic reading was exactly tail5724–7801, with byte-bound same-axis reuse of the prior146 prefix. The later ellipsis clarification freshly rereads only its explicitly listed old output/source ranges; no whole-prefix fresh-reading claim or double counting is introduced.",
+    "Seven new pp.all #check outputs are elaborated type observations as printed; no full proof-term or definition-body expansion is claimed. Ordinary readable prints can suppress inferred binder types; those are assessed against the separately fresh source reading and the selected expansions.",
+    "Fourteen literal ellipsis glyphs on eight old expanded-output lines remain; no hidden text is reconstructed and unelided rendering remains incomplete. They are a nonfatal truthful limit: consequential definitions/domains are assessed through the actual visible existential domain, complete readable type and captured source; no additional observation is required because of these glyphs.",
+    "All nine new roots contain only propext, Classical.choice and Quot.sound. Selected roots,64 checked project product/trace origins and before/after equality are not the exhaustive audit of the full imported environment.",
+    "No fresh full cumulative requirements, huge paper, all old proof bodies/TracePoint rows, original unavailable artifacts or historical raw logs are claimed. All prior failures, null bindings and UNKNOWNs remain.",
+    "No Standards147 report was read before or during this independent assessment. Root remains sole compiler/product writer."
+  ],
+  "ellipsis_clarification": {
+    "observed_utc": "2026-11-24T19:54:49.387103+00:00",
+    "requested_by": "/root",
+    "same_axis_and_finding_ids_preserved": true,
+    "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+    "classification": "Retained truthful nonfatal expanded-rendering/reading limit, not a distinct acceptance gate within SP-V001.",
+    "ellipsis_is_distinct_blocking_requirement": false,
+    "consequential_binders_or_domains_still_unassessed_due_to_these_ellipses": [],
+    "additional_supported_observation_required_due_to_these_ellipses": null,
+    "literal_elision_glyph_occurrences": 14,
+    "literal_elision_line_count": 8,
+    "hidden_expanded_text_read_or_reconstructed": false,
+    "full_unelided_expanded_rendering_claimed": false,
+    "fresh_narrow_old_output_ranges": [
+      [
+        1070,
+        1144
+      ],
+      [
+        4188,
+        4325
+      ],
+      [
+        5560,
+        5587
+      ]
+    ],
+    "fresh_source_binding_checks": [
+      {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+          "bytes": 54742,
+          "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f"
+        },
+        "fresh_ranges": [
+          [
+            475,
+            497
+          ],
+          [
+            574,
+            589
+          ],
+          [
+            915,
+            992
+          ]
+        ],
+        "matches_actual_query_capture_binding": true
+      },
+      {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+          "bytes": 484065,
+          "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1"
+        },
+        "fresh_ranges": [
+          [
+            8174,
+            8198
+          ]
+        ],
+        "matches_actual_query_capture_binding": true
+      },
+      {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/MarkedInput.lean",
+          "bytes": 21194,
+          "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d"
+        },
+        "fresh_ranges": [
+          [
+            17,
+            49
+          ]
+        ],
+        "matches_actual_query_capture_binding": true
+      },
+      {
+        "source": {
+          "path": "/workspace/scratch/ae71b485b114/work/acceptance147/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+          "bytes": 25433,
+          "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5"
+        },
+        "fresh_ranges": [
+          [
+            110,
+            124
+          ],
+          [
+            233,
+            247
+          ],
+          [
+            437,
+            467
+          ]
+        ],
+        "matches_actual_query_capture_binding": true
+      }
+    ],
+    "omission_assessment": [
+      {
+        "lines": [
+          4198,
+          4201,
+          4204,
+          4208,
+          4218
+        ],
+        "glyphs": 5,
+        "omission": "Repeated type annotations for tm, input, output, finish and B.",
+        "consequential_assessment": "Captured machine explicitly returns FinTM2; MarkedInput.input and symbol give List (Γ′ tm.K tm.Γ) and Γ′ tm.K tm.Γ; finish has the explicit native configuration type with MarkedInput.Control and complete singleton tape; ordinaryTimeBound explicitly returns Nat. Their definitions and theorem statement are assessed, including fixed caller/initial parameters and all required finiteness premises.",
+        "unassessed_consequential_domain": false
+      },
+      {
+        "lines": [
+          4298
+        ],
+        "glyphs": 1,
+        "omission": "Repeated lambda annotation for run.",
+        "consequential_assessment": "The complete existential domain is explicitly printed immediately before the abbreviated lambda, lines4222–4297: EvalsToInTime for the actual ordinaryMachine step from TM0.init input to some finish at B, with wrapper control and tape instances visible. It is also explicit in the captured theorem statement.",
+        "unassessed_consequential_domain": false
+      },
+      {
+        "lines": [
+          5583
+        ],
+        "glyphs": 7,
+        "omission": "Repeated implicit instance/type arguments and call arguments of the right-hand visitedCells term.",
+        "consequential_assessment": "The complete readable type1070–1144 and captured source explicitly use the same ordinaryMachine, native init, origin0 and run.steps. The source visitedCells definition is the finite set of actual live prefix positions. This is assessed semantics from actual readable output/source, not invented hidden expanded output.",
+        "unassessed_consequential_domain": false
+      },
+      {
+        "lines": [
+          5584
+        ],
+        "glyphs": 1,
+        "omission": "Final interval-equality conjunct.",
+        "consequential_assessment": "The complete equality is actually printed at1139–1144 and explicit in source: visitedInterval M init 0 raw.length (run.steps+1) = visitedInterval M init 0 raw.length run.steps. The source proof consumes halted_run_adds_no_cells with the actual run and stoppedness, and that helper retains the explicit actual run domain.",
+        "unassessed_consequential_domain": false
+      }
+    ],
+    "prior_report_identity": {
+      "json": {
+        "path": "/workspace/scratch/ae71b485b114/work/review147/spec147.json",
+        "bytes": 32772,
+        "sha256": "635e3f72b5ed278241a167f2e9ef67c4260c821b280d6e6bd3ec5551c69c647d"
+      },
+      "markdown": {
+        "path": "/workspace/scratch/ae71b485b114/work/review147/spec147.md",
+        "bytes": 21180,
+        "sha256": "2b2e22fb838511aeb7c41d31a90cb4c136e9fd88f245b914f6dc64e837519e65"
+      },
+      "statement_reading": {
+        "path": "/workspace/scratch/ae71b485b114/work/review147/spec147-statement-reading.json",
+        "bytes": 17436,
+        "sha256": "0a5bb92fdaf2f21153f86ffe321f60e71768c45d59843b7e32a9b2ef448be201"
+      }
+    },
+    "reading_count_policy": "No unique query counts increase. The initial follow-up remains239/7/9 fresh new-tail observations plus350/19/23 qualified same-axis reuse. This narrow clarification rereads the listed old portions without claiming fresh reading of the whole old prefix or erasing historical limits.",
+    "legacy_flag_interpretation": {
+      "all_expanded_text_fully_visible": false,
+      "public_statement_output_review_complete": false,
+      "meaning": "These retained false flags describe incomplete literal unelided expanded-output coverage. They do not identify an unassessed consequential semantic binder/domain or add a separate acceptance requirement."
+    },
+    "remaining_SP_V001_blockers": [
+      "Matching aggregate/whole terminal evidence",
+      "Exhaustive module-origin and axiom audit",
+      "Immediate supported nonrepairing verification",
+      "Supported final comparison",
+      "Both-axis evidence reconciliation"
+    ],
+    "whole_success_inferred": false,
+    "new_compiler_or_source_product_operation": false
+  }
+}

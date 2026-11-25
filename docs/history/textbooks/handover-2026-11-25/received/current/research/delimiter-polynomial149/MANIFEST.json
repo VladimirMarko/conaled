@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "status": "UNCOMPILED",
+  "role": "Bounded implementation assistance; no independent review or source acceptance.",
+  "source": {
+    "path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/DelimiterPolynomial149.lean",
+    "bytes": 7730,
+    "sha256": "127fa9829aeea2ea97035580d7a9425a201fb6e4d538e0bbc0fdf63f4fdac7cf",
+    "mode": "0644",
+    "relative_path": "DelimiterPolynomial149.lean"
+  },
+  "expectations": {
+    "path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/EXPECTATIONS.json",
+    "bytes": 2791,
+    "sha256": "832b91c45cbb3e910e423630420402bb746726046d8a23698caf2db899ca1079",
+    "mode": "0644",
+    "relative_path": "EXPECTATIONS.json"
+  },
+  "query_plan": {
+    "path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/QUERY_PLAN.json",
+    "bytes": 4226,
+    "sha256": "a1d09954f639ddff3284e57f0f059972a4dca49797ab67ee5c296c543711e2d8",
+    "mode": "0644",
+    "relative_path": "QUERY_PLAN.json"
+  },
+  "readme": {
+    "path": "/workspace/scratch/ae71b485b114/work/delimiter-polynomial149-draft/README.md",
+    "bytes": 5186,
+    "sha256": "dbd93e8ba0dec9cb39c7879fbc13755f7148b6f7ef3b3e38a4f41db0d9548d3a",
+    "mode": "0644",
+    "relative_path": "README.md"
+  },
+  "save_order": "EXPECTATIONS.json was created before DelimiterPolynomial149.lean; no compiler feedback on this composition exists.",
+  "selected_implementation_parents": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/normal-form149-checks/NaturalPolynomialNormalForm149.lean",
+      "bytes": 3167,
+      "sha256": "715157b146f677bff5f7d4ec884442dedc872725685900e7c3bdc9531624205a",
+      "mode": "0644",
+      "relative_path": "work/normal-form149-checks/NaturalPolynomialNormalForm149.lean",
+      "logical_module": "NaturalPolynomialNormalForm149",
+      "boundary": "Corrected normal-form core; preserves namespace NormalFormDraft148."
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-d/DelimiterNativeConsumer149d.lean",
+      "bytes": 14728,
+      "sha256": "f596cd55e0f6fc366a3b39591dd65bdcb8409a786ed582e72dd40f2af521586b",
+      "mode": "0644",
+      "relative_path": "work/delimiter149-checks/revision-d/DelimiterNativeConsumer149d.lean",
+      "logical_module": "DelimiterNativeConsumer148",
+      "boundary": "Logical staging import maps to selected corrected body; public NativeConsumer148 namespace and signatures unchanged."
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/delimiter149-checks/revision-b/SourceRunToOrdinary149b.lean",
+      "bytes": 3764,
+      "sha256": "3943239fba68eb9133b6b1236fe08884998022f18982a054cebb1eab074fed23",
+      "mode": "0644",
+      "relative_path": "work/delimiter149-checks/revision-b/SourceRunToOrdinary149b.lean",
+      "logical_module": "SourceRunToOrdinary148",
+      "boundary": "Upstream generic body registers exactly the bundled FinTM2 finite instances."
+    }
+  ],
+  "retained_delimiter_bodies": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/DelimiterPrelude144b.lean",
+      "bytes": 25107,
+      "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+      "mode": "0644",
+      "relative_path": "current/research/delimiter/DelimiterPrelude144b.lean"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/DelimiterPreludeExamples144c.lean",
+      "bytes": 12989,
+      "sha256": "30e5cb81d457bc8d4c4fe889cfb7b00df600ea1691e8dcfe38a65a939accc208",
+      "mode": "0644",
+      "relative_path": "current/research/delimiter/DelimiterPreludeExamples144c.lean"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/Protocol144b.lean",
+      "bytes": 11634,
+      "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da",
+      "mode": "0644",
+      "relative_path": "current/research/delimiter/Protocol144b.lean"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/NativeLoops144b.lean",
+      "bytes": 22886,
+      "sha256": "ece5e04f35bb69e71f9308ea62c30e0fdaecd634b737f6c48cf49b9cd8a32fd5",
+      "mode": "0644",
+      "relative_path": "current/research/delimiter/NativeLoops144b.lean"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/PrefixComposition144b.lean",
+      "bytes": 19761,
+      "sha256": "15dcaffb7fd2f57f76d13d8fce4beb94387ec9daff3b6354f035eff3863459ce",
+      "mode": "0644",
+      "relative_path": "current/research/delimiter/PrefixComposition144b.lean"
+    }
+  ],
+  "normal_project_sources": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "mode": "0644",
+      "relative_path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "captured_C147": {
+        "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/source/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+        "bytes": 54742,
+        "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+        "mode": "0644",
+        "relative_path": "current/source/Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean"
+      }
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "0644",
+      "relative_path": "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+      "captured_C147": {
+        "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+        "bytes": 20702,
+        "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+        "mode": "0644",
+        "relative_path": "current/source/Applications/Resources/TuringSimulation/OrdinaryPackage.lean"
+      }
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "0644",
+      "relative_path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "captured_C147": {
+        "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/source/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+        "bytes": 11817,
+        "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+        "mode": "0644",
+        "relative_path": "current/source/Applications/Resources/TuringSimulation/TapeToPrimitive.lean"
+      }
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled/Applications/Resources/TuringSimulation/PrintMove.lean",
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "0644",
+      "relative_path": "Applications/Resources/TuringSimulation/PrintMove.lean",
+      "captured_C147": {
+        "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/source/Applications/Resources/TuringSimulation/PrintMove.lean",
+        "bytes": 33332,
+        "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+        "mode": "0644",
+        "relative_path": "current/source/Applications/Resources/TuringSimulation/PrintMove.lean"
+      }
+    }
+  ],
+  "observed_parent_result_metadata": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149b.result.json",
+      "bytes": 71467,
+      "sha256": "a066ffe216088980dfd700236098bcaf6699d1828ee36e6c8939d47619887752",
+      "mode": "0644",
+      "relative_path": "work/native-runs147/normal-form149b.result.json",
+      "name": "normal-form149b",
+      "actual_exit_code": 0,
+      "sources_unchanged": true,
+      "elapsed_seconds": 2.4763076509989332,
+      "reading_limit": "Result metadata inspected only; this helper did not read the complete compiler log or perform independent review."
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/normal-form149c.result.json",
+      "bytes": 75302,
+      "sha256": "e77c982645ec0672be54f2ab6a17a581e7e3642b8249504c62ab550833b53f7b",
+      "mode": "0644",
+      "relative_path": "work/native-runs147/normal-form149c.result.json",
+      "name": "normal-form149c",
+      "actual_exit_code": 0,
+      "sources_unchanged": true,
+      "elapsed_seconds": 2.459646838999106,
+      "reading_limit": "Result metadata inspected only; this helper did not read the complete compiler log or perform independent review."
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/delimiter-consumer149f.result.json",
+      "bytes": 240535,
+      "sha256": "1bce7ccc5781633ef5a52c09a95a89a8aaff8e2f54ce8a00847ad5f2ca71d3bd",
+      "mode": "0644",
+      "relative_path": "work/native-runs147/delimiter-consumer149f.result.json",
+      "name": "delimiter-consumer149f",
+      "actual_exit_code": 0,
+      "sources_unchanged": true,
+      "elapsed_seconds": 6.6278316200005065,
+      "reading_limit": "Result metadata inspected only; this helper did not read the complete compiler log or perform independent review."
+    }
+  ],
+  "historical_contract_references": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/delimiter-consumer148-draft/DelimiterNativeConsumer148.lean",
+      "bytes": 14394,
+      "sha256": "e42ffbe63a028446cc61e6215a4eef612fd5d8d1e6fc257c0b4ed05df72361f2",
+      "mode": "0644",
+      "relative_path": "work/delimiter-consumer148-draft/DelimiterNativeConsumer148.lean"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/polynomial-normal-form148-draft/NaturalPolynomialNormalForm148.lean",
+      "bytes": 3095,
+      "sha256": "6537bd03c029b60489ce0ef0cb9a7f1b3198799c51e0138df65ef00c13f75ece",
+      "mode": "0644",
+      "relative_path": "work/polynomial-normal-form148-draft/NaturalPolynomialNormalForm148.lean"
+    }
+  ],
+  "dependency_order": [
+    "Existing normal C147 project imports",
+    "DelimiterPrelude144b",
+    "Protocol144b",
+    "NativeLoops144b",
+    "PrefixComposition144b",
+    "Selected generic SourceRunToOrdinary149b under logical SourceRunToOrdinary148",
+    "Selected concrete DelimiterNativeConsumer149d under logical DelimiterNativeConsumer148",
+    "Corrected NaturalPolynomialNormalForm149 (independent of delimiter family)",
+    "DelimiterPolynomial149",
+    "Normal import query commands from QUERY_PLAN.json"
+  ],
+  "fixture_note": "DelimiterPreludeExamples144c and existing consumer fixtures are retained parent evidence, not duplicated into the new source or dropped from their previous query plans.",
+  "actual_new_execution": {
+    "compiler_invoked": false,
+    "compiler_products_written": false,
+    "generated_carrier": false,
+    "source_installation": false
+  },
+  "public_declarations": [
+    "timePolynomial",
+    "timePolynomial_eval",
+    "powerExponent",
+    "polynomial_le_power",
+    "allowance_le_power",
+    "empty_allowance_slack",
+    "singleton_allowance",
+    "polynomial_zero_le_power",
+    "polynomial_one_le_power",
+    "Run",
+    "run_power",
+    "exists_fixed_power",
+    "empty_run",
+    "singleton_run",
+    "literal_pair_run"
+  ],
+  "mathematical_contract": {
+    "A": "Complete fixed-program actionMaximum before raw",
+    "p_eval": "2 * ordinaryTimeBound A N + 1",
+    "k": "NormalFormDraft148.exponent (timePolynomial A)",
+    "literal_size": "input.length + cert.length + 1",
+    "target_widening": "Reuse target.toEvalsTo unchanged; replace only steps_le_m",
+    "witnesses": "Run exposes the native and conventional EvalsToInTime witnesses, exact simulationTime+1, bound by 2*native.steps+1, whole configuration and stopped fact."
+  },
+  "remaining_uncertainty": [
+    "New composition has never been compiled",
+    "Polynomial evaluation simplification",
+    "Reduction of concrete Run existential wrapper",
+    "Dependent native initializer/default conversions inherited from parent",
+    "Definitionally unchanged steps after bound widening",
+    "Any new unused-variable or proof-linter diagnostics"
+  ],
+  "not_claimed": [
+    "NP equivalence",
+    "effectivity",
+    "executable transition table",
+    "new machine semantics",
+    "sharp space",
+    "accepted source",
+    "independent review"
+  ],
+  "reading_limits": [
+    "Corrected normal-form149 core read completely",
+    "Relevant original NativeConsumer148 APIs read and complete selected149d difference inspected",
+    "Generic149b bundled-instance change inspected; no new full review claim",
+    "Parent result metadata only, not full compiler logs",
+    "All new draft text read as authored"
+  ],
+  "minimal_retained_files": [
+    "EXPECTATIONS.json",
+    "DelimiterPolynomial149.lean",
+    "QUERY_PLAN.json",
+    "README.md",
+    "MANIFEST.json",
+    "SNAPSHOT.json"
+  ],
+  "recovery": "Retain this six-file directory once plus the canonical parent bodies at their existing routes. Root resolves logical staging module names to the recorded exact bodies and binds any later replacement separately. No absolute path is an assumption about a surviving Git object."
+}

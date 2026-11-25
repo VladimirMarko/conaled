@@ -1,0 +1,205 @@
+{
+  "schema": "space155-stationary-normal-dispatch-draft-v1",
+  "created_utc": "2026-11-25T05:39:53.231729+00:00",
+  "status": "uncompiled implementation draft; no acceptance or integration",
+  "role": "implementation assistance in existing review loop; no new review axis",
+  "source_identity": {
+    "authority": "root supplied identity, plus directly observed file hashes",
+    "project_root": "/workspace/scratch/ae71b485b114/work/conaled154",
+    "commit": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+    "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669"
+  },
+  "expectation_order": "EXPECTATIONS.md written and frozen before either proof file; no compiler feedback about these new drafts received",
+  "artifacts": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/EXPECTATIONS.md",
+      "bytes": 6862,
+      "lines": 64,
+      "sha256": "bb908a5d8ab2c86303dd760285a80ab45dc9708749768bf95183ec9f579a6015",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatch.lean",
+      "bytes": 9183,
+      "lines": 206,
+      "sha256": "44fdae2dabf4808f136be3c830003eed2c9a9a5c71786a9c4b4d4d019a58babe",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchContinuation.lean",
+      "bytes": 3900,
+      "lines": 84,
+      "sha256": "480504137e26ff00cb7114da68dd5e25609e621f7813af2668e04fb67c39ce67",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/NormalDispatchStatements.lean",
+      "bytes": 2426,
+      "lines": 42,
+      "sha256": "5d09d3a2e799fe3838e2508658fb4b6b03a6c28bfa7ada0abe784088c7ebd569",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/next/README.md",
+      "bytes": 9991,
+      "lines": 60,
+      "sha256": "04ac4e2bffe075be2a8ef978b8ead4902f325d9008b783bebcb065ea6be1ad11",
+      "mode": "0o444"
+    }
+  ],
+  "original_parent_artifacts_verified_unchanged": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/EXPECTATIONS.md",
+      "bytes": 6816,
+      "lines": 66,
+      "sha256": "d8ffae1a7d60fbe91b86f47e0beca5da8c1d80b9384cf098c6a3f72c65e31669",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/TraceConcatenation.lean",
+      "bytes": 7191,
+      "lines": 156,
+      "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/README.md",
+      "bytes": 7496,
+      "lines": 52,
+      "sha256": "df1de1b919d03058bc7bbc60fe4a66c911ae42870c18432e5aea9a77596a2030",
+      "mode": "0o444"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/space155/MANIFEST.json",
+      "bytes": 9747,
+      "lines": 232,
+      "sha256": "4c3723ef4c7acc3e0ec6b0bdde1a16676f99e16c42d056e42c9ee9f42ce155c6",
+      "mode": "0o444"
+    }
+  ],
+  "source_reads": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "bytes": 11817,
+      "lines": 262,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "mode": "0o644",
+      "relative_path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "read_coverage": "complete"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/StackToTape.lean",
+      "bytes": 28454,
+      "lines": 600,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "mode": "0o644",
+      "relative_path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "read_coverage": "lines 275-410 in this increment; earlier complete-owner reading retained separately"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "bytes": 26946,
+      "lines": 605,
+      "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496",
+      "mode": "0o644",
+      "relative_path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "read_coverage": "complete in preceding trace increment"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/Examples/TuringSimulation.lean",
+      "bytes": 79470,
+      "lines": 1871,
+      "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906",
+      "mode": "0o644",
+      "relative_path": "Examples/TuringSimulation.lean",
+      "read_coverage": "lines 35-105, 155-260, 390-465 in this increment; initialized peek read at 1010-1185 in preceding increment"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "bytes": 37335,
+      "lines": 808,
+      "sha256": "5957cf3776536e63c5bf8f79e182b7b8fa7549699a31165b10d4e7df4e38cf2f",
+      "mode": "0o644",
+      "relative_path": ".lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "read_coverage": "lines 390-520 in this increment"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/conaled154/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+      "bytes": 43733,
+      "lines": 1013,
+      "sha256": "9e49302ee4f6c270e136ec7135c07a9b27f94da4cadc3beabbf53faba8e37148",
+      "mode": "0o644",
+      "relative_path": ".lake/packages/mathlib/Mathlib/Computability/TuringMachine/PostTuringMachine.lean",
+      "read_coverage": "lines 1-210 and 480-525 in preceding increment; exact trAux source retained in active context"
+    }
+  ],
+  "guidance_record": "/workspace/scratch/ae71b485b114/work/space155/MANIFEST.json",
+  "proposed_public_theorems": [
+    "Resources.TuringSimulation.TapeToPrimitive.primitiveSteps_trNormal",
+    "Resources.TuringSimulation.TapeToPrimitive.trAux_trNormal_command",
+    "Resources.TuringSimulation.TapeToPrimitive.trNormal_prefix",
+    "Resources.TuringSimulation.TapeToPrimitive.normal_control_prefix",
+    "Resources.TuringSimulation.TapeToPrimitive.normal_control_resume",
+    "Examples.TuringSimulation.NormalDispatch.empty_peek_dispatch",
+    "Examples.TuringSimulation.NormalDispatch.loaded_true_dispatch",
+    "Examples.TuringSimulation.NormalDispatch.loaded_false_dispatch",
+    "Examples.TuringSimulation.NormalDispatch.empty_peek_resume"
+  ],
+  "query_counts": {
+    "check": 9,
+    "print": 9,
+    "print_axioms": 9
+  },
+  "dependency_map": {
+    "NormalDispatch.lean": "normal existing TapeToPrimitive/VisitedSpace/Examples imports; independent of the proposed concatenation declarations",
+    "NormalDispatchContinuation.lean": "requires this draft normal_control_prefix and the three proposed VisitedSpace concatenation lemmas; not yet exports of unchanged recovery154",
+    "NormalDispatchStatements.lean": "normal-import query for installed matching owner exports, or query block appended by root to an independently bound combined draft"
+  },
+  "source_integration_segments": [
+    {
+      "file": "NormalDispatch.lean",
+      "lines": [
+        16,
+        123
+      ],
+      "target_owner": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "additional_import": "Applications.Resources.TuringSimulation.VisitedSpace"
+    },
+    {
+      "file": "NormalDispatch.lean",
+      "lines": [
+        125,
+        206
+      ],
+      "target_owner": "Examples/TuringSimulation.lean"
+    },
+    {
+      "file": "NormalDispatchContinuation.lean",
+      "lines": [
+        18,
+        53
+      ],
+      "target_owner": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean"
+    },
+    {
+      "file": "NormalDispatchContinuation.lean",
+      "lines": [
+        55,
+        84
+      ],
+      "target_owner": "Examples/TuringSimulation.lean"
+    }
+  ],
+  "earlier_increment_feedback": "Root reported first concatenation check exit1 on a concrete calc type inference issue and owns the fresh repair; this record does not infer a successful overall result.",
+  "compiler_or_proof_checker_run_by_this_agent": false,
+  "project_or_product_writes_by_this_agent": false,
+  "resource_transparency_linter_overrides": false,
+  "new_agents_spawned": false,
+  "open_obligations": [
+    "actual native compilation and complete elaborated statement/axiom reading",
+    "matching normal owner integration and existing independent review/audit gates",
+    "InternalHeight and actual outward/action/return primitive-prefix intervals",
+    "general [-1,H] interval and H+2 visited span",
+    "finite-control, ordinary/reflected and combined print/move coordinate transports"
+  ]
+}

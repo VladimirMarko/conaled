@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T23:59:13.753899+00:00",
+  "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+  "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "status": "Actual focused owners/query success; no whole-source acceptance",
+  "record_checks_passed": true,
+  "record_check_failures": [],
+  "runs": {
+    "owners153-b": {
+      "records": {
+        "result": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.result.json",
+          "bytes": 2054923,
+          "sha256": "6f2d22d9a9a005adefebe67eaa1acf667ff385eb56200082d342dc6e607d1602"
+        },
+        "child": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.child-exit.json",
+          "bytes": 2159,
+          "sha256": "f6aaf2ffe0c1f2c1cfed32a701ffc8e5905a226c304a16c70817fe9cc6db0d60"
+        },
+        "start": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.start.json",
+          "bytes": 1027957,
+          "sha256": "f5c033f2a7efc24b614f944e58f4bb268e46465b0721f8e8f810b96330d45860"
+        },
+        "log": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/owners153-b.log",
+          "bytes": 16790,
+          "sha256": "3aa5cd0fd356ecc00ff5da2a86ec84dff35d4c7f9747189f5ae4cf72ee334498"
+        }
+      },
+      "actual_exit_code": 0,
+      "actual_child_exit_code": 0,
+      "elapsed_seconds": 6.425058723001712,
+      "started_utc": "2026-11-24T23:46:31.627322+00:00",
+      "finished_utc": "2026-11-24T23:46:38.068272+00:00",
+      "nonnull_unchanged_inputs": 4048,
+      "child_final_command_terminal_and_descriptors_match": true,
+      "log_lines": 96,
+      "no_added_resource_limits": true
+    },
+    "query153-b": {
+      "records": {
+        "result": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.result.json",
+          "bytes": 2054078,
+          "sha256": "d2290063aae6709dfc0f45b42f0ecd4b16fdc32213a0acc9bd05ccf46bd80bde"
+        },
+        "child": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.child-exit.json",
+          "bytes": 1313,
+          "sha256": "11f25ed8e5d91f21f3b6ae0ac47d3546b765b3729eb13b6164ff947180109f81"
+        },
+        "start": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.start.json",
+          "bytes": 1027113,
+          "sha256": "31ebba79886a6f0ae12bbbb5cd878b1df9b313dc394e8a13faf04013e3d0e06f"
+        },
+        "log": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query153-b.log",
+          "bytes": 960006,
+          "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91"
+        }
+      },
+      "actual_exit_code": 0,
+      "actual_child_exit_code": 0,
+      "elapsed_seconds": 4.592770180002844,
+      "started_utc": "2026-11-24T23:48:10.619401+00:00",
+      "finished_utc": "2026-11-24T23:48:15.229553+00:00",
+      "nonnull_unchanged_inputs": 4048,
+      "child_final_command_terminal_and_descriptors_match": true,
+      "log_lines": 12481,
+      "no_added_resource_limits": true,
+      "prior147_output_prefix": {
+        "prior": {
+          "path": "/workspace/scratch/ae71b485b114/work/native-runs147/query147.log",
+          "bytes": 594334,
+          "sha256": "4827a796b0076d23684d62845ff4d8ba46b0c9f9a34bc1a162b0ce09d857c927"
+        },
+        "bytes_equal": true,
+        "prior_lines": 7801,
+        "current_lines": 12481,
+        "new_tail_lines": 4680
+      },
+      "printer_omissions": {
+        "glyph": "⋯",
+        "count": 14,
+        "lines_1_based": [
+          4198,
+          4201,
+          4204,
+          4208,
+          4218,
+          4298,
+          5583,
+          5584
+        ]
+      },
+      "diagnostic_line_parse": {
+        "error_lines": [],
+        "warning_lines": [],
+        "semantic_reading_credit": false
+      },
+      "tool_poll_limit": "Root reported poll8477 returned Unknown process id, but matching actual durable child and final receipts finished23:48:15 are present and independently verified. This differs from old whole runs with no surviving terminal receipt."
+    }
+  },
+  "source_binding_limit": "4,048 nonnull endpoint input descriptors are the recorded focused static source/configuration/recipe set. This is not exhaustive whole-source/product-origin audit or evidence of undeclared dynamic reads. No independently generated product-origin binding is invented.",
+  "query_reading_limit": "Exact matching old147 output may support attributed reading reuse after axis input/source assessment. New4,680 lines receive zero coordinator/root/independent-axis semantic reading credit from these mechanical comparisons. Axis actual reading must be recorded separately.",
+  "historical_a_failure_preserved": {
+    "path": "/workspace/scratch/ae71b485b114/work/review153/native-validation153a.json",
+    "bytes": 4007,
+    "sha256": "6b4f257d4e9ae323b8e9b70238aac557e5bbfe3462728f229f0ca7ad047355a0"
+  },
+  "whole_audit_verify_compare_and_same_axes_acceptance_pending": true,
+  "coordinator_compiler_or_product_mutation": false,
+  "source_accepted": false,
+  "receiving_accepted": false
+}

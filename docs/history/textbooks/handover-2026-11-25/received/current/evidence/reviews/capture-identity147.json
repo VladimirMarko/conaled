@@ -1,0 +1,583 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T19:23:18.618881+00:00",
+  "coordinator": "/root/requirements_review147",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "merge_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "scope_count": 63,
+  "scope_identity": "06196b9de2f9b3d8fce60d4b0deb0a242f1ba35c206d2a1e183b4373d361b0dd",
+  "content_identity": "32aad5666ed6d166197f3b03c9e4b4263e2624bd11d55188e30d5d9066a96a67",
+  "projection_identity": "53e829ca256e03ad1d74884c5477bc26c7c247c60161ee156d5a86dfdb717322",
+  "scope": [
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+    "Applications/Resources/RotationCertificate/BitCodec.lean",
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+    "Applications/Resources/RotationCertificate/InputParser.lean",
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+    "Applications/Resources/RotationCertificate/StreamMachine.lean",
+    "Applications/Resources/RotationCertificate/Streaming.lean",
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+    "Applications/Resources/RotationCertificate/TreeParser.lean",
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+    "Applications/Resources/RotationCertificate/Verifier.lean",
+    "Applications/Resources/RotationCertificate/Witness.lean",
+    "Applications/Resources/TuringSimulation/FiniteControl.lean",
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+    "Applications/Resources/TuringSimulation/MarkedInput.lean",
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+    "Applications/Resources/TuringSimulation/PrintMove.lean",
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+    "Applications/Resources/TuringSimulation/StackToTape.lean",
+    "Applications/Resources/TuringSimulation/TapeReflection.lean",
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Examples/RotationCertificateBinary.lean",
+    "Examples/RotationCertificateBitDecoderMachine.lean",
+    "Examples/RotationCertificateBitPairFraming.lean",
+    "Examples/RotationCertificateCorrespondence.lean",
+    "Examples/RotationCertificateFrontEndMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+    "Examples/RotationCertificateFuelMachine.lean",
+    "Examples/RotationCertificateInputParserMachine.lean",
+    "Examples/RotationCertificateMoveApplyMachine.lean",
+    "Examples/RotationCertificateMoveParserMachine.lean",
+    "Examples/RotationCertificateOpenDecoderMachine.lean",
+    "Examples/RotationCertificateOpenFramingMachine.lean",
+    "Examples/RotationCertificateParsing.lean",
+    "Examples/RotationCertificatePositionedRotationMachine.lean",
+    "Examples/RotationCertificateStreamMachine.lean",
+    "Examples/RotationCertificateTreeEqualityMachine.lean",
+    "Examples/RotationCertificateTreeParserMachine.lean",
+    "Examples/RotationCertificateVerification.lean",
+    "Examples/TuringSimulation.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/README.md",
+    "docs/textbooks/coverage.json",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md"
+  ],
+  "source_bindings": {
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean": {
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "git_oid": "c02f260167179d1136824a64fb35876103fed54e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean": {
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "git_oid": "50506be88ae25ade87e11ad6a758830ace854d08",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitCodec.lean": {
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "git_oid": "d7bdbd79a3fc254a4e00f9aea2e3cbbf8f60bfd8",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean": {
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "git_oid": "77111c825ff6cdc5fe35f2d44a71907637657978",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean": {
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "git_oid": "08e782cc1e183d4cbfa014a3908984ebc9b29a40",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean": {
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "git_oid": "f1b70ad3bcc42f7622a7ccc67f39b89735c55963",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean": {
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "git_oid": "9fe20783760d6b2341bfcaa33612e3b7aa3520af",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean": {
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "git_oid": "f15088f4b409319e7bc0079ed2d422bddc291555",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean": {
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "git_oid": "aed6023fd84f24ed0f84c31a8fda9d6d60d1b09f",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean": {
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "git_oid": "5e2812e25a0f20db37c1e564c804ce0883e08cf5",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParser.lean": {
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "git_oid": "1b6ceb58313bd2b82b8b7f4b1070971d2076495b",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean": {
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "git_oid": "359c53cb14c22a4bebcc0f159f85d8323c50790a",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean": {
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "git_oid": "d780166bbec3a44fa9e954c238aa1825dc8e0d65",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean": {
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "git_oid": "0e9c8dea47aef826204955f36f3110700ba53566",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean": {
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "git_oid": "9334d9e7880b945a2ff0d3043d078c93280b5c1e",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean": {
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "git_oid": "bc91f1fbc2e31e9816e8d52f4f02a07647b7003b",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean": {
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "git_oid": "743d6c73407d1e981b4e61045f85eac3285c8f88",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/StreamMachine.lean": {
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "git_oid": "eee6f5b54af6635f00db8b97964fd574169874d6",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Streaming.lean": {
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "git_oid": "a80b694a876a0f16aeac9a4da2a731ea5ffba608",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean": {
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "git_oid": "5224631b3fd445a6e075b216f56b67e19c526c9c",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParser.lean": {
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "git_oid": "d14d28624a682873f854d156cf3f0e1eb5c49024",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean": {
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "git_oid": "5e3f862694cb3e5306fdfa8a0471dd78cee53b56",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Verifier.lean": {
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "git_oid": "0647e3a1084978742b8fdeb4136bb743f14cb162",
+      "mode": "100644"
+    },
+    "Applications/Resources/RotationCertificate/Witness.lean": {
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "git_oid": "ad006c49999da1be48779b3f2c31477728e46177",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/FiniteControl.lean": {
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "git_oid": "84edc05cd7864c3c721aa3cbfe79b28f4665974c",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean": {
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "git_oid": "4cb04ad0974fbf21052bd7acd356a46360a1b5ae",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/MarkedInput.lean": {
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "git_oid": "805aaf403051e7ece54f65393c2951f2cbce9e57",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "git_oid": "fd39b38d860fc03da9cf75857ae04711e783881b",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean": {
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "git_oid": "d55e08331e9840fde051ed56ad8b57bdcd9b07b0",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "git_oid": "b9e6810d628ddff469998b4ac6d779ddf88d3db4",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "git_oid": "8a0921e836207def23f0741143493690c0f9e546",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean": {
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "git_oid": "4a41242bb4bb093ab003005a08cc140929c3bf8b",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/StackToTape.lean": {
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "git_oid": "1b19817d8d34eaaa56da60ade3a499df2c0ae273",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/TapeReflection.lean": {
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "git_oid": "eb39b4f4e2af0a827a41c230ed9f29e3bce03d84",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean": {
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "git_oid": "5fb1147fc974e2c6ede18b8ce053fc2effa0b09d",
+      "mode": "100644"
+    },
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean": {
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "git_oid": "cef16966cb089680de8ea99668dcdc6b7f893901",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBinary.lean": {
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "git_oid": "25506f3b076befab01d8380d7fcbdd4b8faefe97",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitDecoderMachine.lean": {
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "git_oid": "6706bb6bb3cb1991f89aad57669301b0df508c85",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateBitPairFraming.lean": {
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "git_oid": "5c449e6936383af673425f600ffe8704fe87cb13",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateCorrespondence.lean": {
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "git_oid": "4e26a24584ef4d7548e3955fab0c98e8cfa50674",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndMachine.lean": {
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "git_oid": "6ca974d7e0e9e151a709b7ec3941318652e914b6",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndStreamMachine.lean": {
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "git_oid": "5c586608c4b3ed50565c880dfe83eb694330879e",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean": {
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "git_oid": "46f38cb476d555a85262ea15358eb4f2413534e5",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateFuelMachine.lean": {
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "git_oid": "57609eb0a260c752091e495e88434ed46f04dc89",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateInputParserMachine.lean": {
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "git_oid": "4f926cc82a199c4bcbe26e00871ddada447301b4",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateMoveApplyMachine.lean": {
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "git_oid": "a582f5fa6b3b4d45142f50cf94c6452f4f79e023",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateMoveParserMachine.lean": {
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "git_oid": "6f986b36e344297096506404ee14b0babe6f9792",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateOpenDecoderMachine.lean": {
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "git_oid": "a0f2a30f9057745530016a77af73c62dd2324354",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateOpenFramingMachine.lean": {
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "git_oid": "f410aaed80243efcc97cbd8a8f193338c258c8a7",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateParsing.lean": {
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "git_oid": "a3c6021180c9ea9889baea1e7a41c6a391426e1b",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificatePositionedRotationMachine.lean": {
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "git_oid": "116bc51f94524312c835b47b629955d3157612a0",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateStreamMachine.lean": {
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "git_oid": "a10d1803d60b86a115e690ce2ab7db14f023ef5c",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateTreeEqualityMachine.lean": {
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "git_oid": "44822445865a2e86c1acc1ca512fdd96c1ebedb0",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateTreeParserMachine.lean": {
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "git_oid": "c4c5fbb76a18d2fc82e89373037a794afb5c5dea",
+      "mode": "100644"
+    },
+    "Examples/RotationCertificateVerification.lean": {
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "git_oid": "37bf48a96757a5af557721a68f05be3e3cf2d98f",
+      "mode": "100644"
+    },
+    "Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "git_oid": "cfd1cd1fb612ff64f22fe42e292cfad829a3f0d5",
+      "mode": "100644"
+    },
+    "SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "git_oid": "429d5268ddb7fbebe02c646151f22b8403e90259",
+      "mode": "100644"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "git_oid": "e9487547aaece8f32a0336be9b43899d38d9fa0b",
+      "mode": "100644"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "git_oid": "95883fc2ac8feec2f0e4ef77f67c738174f89978",
+      "mode": "100644"
+    },
+    "docs/textbooks/README.md": {
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "git_oid": "ac85f309e8967fc5d178076c999f0b96718add53",
+      "mode": "100644"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "git_oid": "d94a001d11172b3ea880ee4efc634fdae68ebdc2",
+      "mode": "100644"
+    },
+    "docs/textbooks/external-agent.md": {
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "git_oid": "07a55bf2a64d9a935f397cf1f58b9a686258159c",
+      "mode": "100644"
+    },
+    "docs/textbooks/inbox/README.md": {
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "git_oid": "134aec86bc0723d004600445be8a796ea6ad4649",
+      "mode": "100644"
+    }
+  },
+  "new_owners": [
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean",
+    "Applications/Resources/TuringSimulation/PrintMove.lean"
+  ],
+  "changed_existing_owners": [
+    "Examples/TuringSimulation.lean",
+    "SquareApplications.lean",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/coverage.json"
+  ],
+  "byte_identical_146_owners": [
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+    "Applications/Resources/RotationCertificate/BitCodec.lean",
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+    "Applications/Resources/RotationCertificate/InputParser.lean",
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+    "Applications/Resources/RotationCertificate/StreamMachine.lean",
+    "Applications/Resources/RotationCertificate/Streaming.lean",
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+    "Applications/Resources/RotationCertificate/TreeParser.lean",
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+    "Applications/Resources/RotationCertificate/Verifier.lean",
+    "Applications/Resources/RotationCertificate/Witness.lean",
+    "Applications/Resources/TuringSimulation/FiniteControl.lean",
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+    "Applications/Resources/TuringSimulation/MarkedInput.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+    "Applications/Resources/TuringSimulation/StackToTape.lean",
+    "Applications/Resources/TuringSimulation/TapeReflection.lean",
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Examples/RotationCertificateBinary.lean",
+    "Examples/RotationCertificateBitDecoderMachine.lean",
+    "Examples/RotationCertificateBitPairFraming.lean",
+    "Examples/RotationCertificateCorrespondence.lean",
+    "Examples/RotationCertificateFrontEndMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+    "Examples/RotationCertificateFuelMachine.lean",
+    "Examples/RotationCertificateInputParserMachine.lean",
+    "Examples/RotationCertificateMoveApplyMachine.lean",
+    "Examples/RotationCertificateMoveParserMachine.lean",
+    "Examples/RotationCertificateOpenDecoderMachine.lean",
+    "Examples/RotationCertificateOpenFramingMachine.lean",
+    "Examples/RotationCertificateParsing.lean",
+    "Examples/RotationCertificatePositionedRotationMachine.lean",
+    "Examples/RotationCertificateStreamMachine.lean",
+    "Examples/RotationCertificateTreeEqualityMachine.lean",
+    "Examples/RotationCertificateTreeParserMachine.lean",
+    "Examples/RotationCertificateVerification.lean",
+    "docs/textbooks/README.md",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md"
+  ],
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json",
+    "bytes": 9735771,
+    "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44"
+  },
+  "baseline": {
+    "path": "/workspace/scratch/ae71b485b114/work/resume147/baseline147-scope63.json",
+    "bytes": 9728116,
+    "sha256": "3226878c830e097f5b31f57761149791dd4ac61d034ef3fc6e85e83d635f706c"
+  },
+  "capture_execution": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate147-scope63.result.json",
+    "bytes": 36739,
+    "sha256": "f335b44adab95ad500677c7cb9a5f504972636438acd8e10271004447bca726c"
+  },
+  "capture_exit_code": 0,
+  "capture_nonnull_unchanged_inputs": 72,
+  "diff_command": [
+    "git",
+    "-C",
+    "/workspace/scratch/ae71b485b114/work/conaled",
+    "diff",
+    "ec4949a94ed70084d70f5b273fb0cc6dca8b2647...5aed6b9726b5af6718e0240d81503b8e99bdc166"
+  ],
+  "commit_list": [
+    "5aed6b97 Immutable scoped review snapshot"
+  ],
+  "explicit_manifest_exclusions": [],
+  "requirements": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/control/requirements.md",
+    "bytes": 2237283,
+    "sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7"
+  },
+  "integration_plan": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/research/integration147/README.md",
+    "bytes": 15616,
+    "sha256": "24101871aed313c2605b0eec928fde7ee04e110f305793484cdcdd0a05f6f593"
+  },
+  "previous_continuity": {
+    "path": "/workspace/scratch/ae71b485b114/restored/checkpoint146/conaled-textbooks-146-checkpoint-2026-11-24T133951Z/current/evidence/reviews/review-continuity146.json",
+    "bytes": 12486,
+    "sha256": "dc0f7525b1db97b954d0fcf3e24b8209c41060e59a820ecd7f290a722062d15c"
+  },
+  "source_access": {
+    "isolated_checkout": "/workspace/scratch/ae71b485b114/work/acceptance147",
+    "immutable_git_repository": "/workspace/scratch/ae71b485b114/work/conaled",
+    "git_show": [
+      "git",
+      "-C",
+      "/workspace/scratch/ae71b485b114/work/conaled",
+      "show",
+      "5aed6b9726b5af6718e0240d81503b8e99bdc166:PATH"
+    ]
+  },
+  "boundary": "Mechanical exact-candidate/source identity checks; no new semantic review, compiler run, query reading, build or acceptance."
+}

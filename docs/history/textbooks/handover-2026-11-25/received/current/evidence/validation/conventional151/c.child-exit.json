@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "name": "conventional151-author-c",
+  "command": [
+    "python3",
+    "-B",
+    "/workspace/scratch/ae71b485b114/work/checkpoint151-stage/conaled-textbooks-151-checkpoint-2026-11-24T221423Z/operations/native/native_profile.py",
+    "--state",
+    "/workspace/scratch/ae71b485b114/work/native-state147",
+    "run",
+    "--project",
+    "/workspace/scratch/ae71b485b114/work/conaled",
+    "--",
+    "lake",
+    "env",
+    "lean",
+    "-EhasSorry",
+    "/workspace/scratch/ae71b485b114/work/conventional151-checks/revision-c/Conventional151cProbe.lean"
+  ],
+  "project": "/workspace/scratch/ae71b485b114/work/conaled",
+  "started_utc": "2026-11-24T22:52:13.693493+00:00",
+  "finished_utc": "2026-11-24T22:52:19.200025+00:00",
+  "elapsed_seconds": 5.490244058999451,
+  "exit_code": 0,
+  "start_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.start.json",
+    "bytes": 980668,
+    "sha256": "08d488da8c4a24be448de37640b2cf122f32d7517fc5e583d206a304811ca068",
+    "mode": "100644"
+  },
+  "log": "/workspace/scratch/ae71b485b114/work/native-runs147/conventional151-author-c.log",
+  "post_run_hashing_completed": false,
+  "resource_or_time_limits_added": false,
+  "boundary": "Actual native-route child exit only; input invariance and source acceptance are not inferred."
+}

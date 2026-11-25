@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "status": "Frozen before new bridge source and before any compiler feedback.",
+  "existing_fixture_source": {
+    "path": "/workspace/scratch/ae71b485b114/work/checkpoint147-recovery/extracted/conaled-textbooks-147-checkpoint-2026-11-24T193346Z/current/research/delimiter/FIXTURES.json",
+    "bytes": 8076,
+    "sha256": "dca8087533fbcf656442cc2e8e70bf3d79299bde10bf27ed7377d39b2cebafd3"
+  },
+  "selected_preexisting_rows": [
+    {
+      "name": "empty_missing",
+      "raw_notation": "",
+      "raw": [],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 2,
+      "expected_peak_cells": 0,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "delimiter_only",
+      "raw_notation": "#",
+      "raw": [
+        null
+      ],
+      "expected_frame_notation": "1",
+      "expected_frame": [
+        true
+      ],
+      "expected_steps": 4,
+      "expected_peak_cells": 1,
+      "initial_user": false,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "missing_false",
+      "raw_notation": "0",
+      "raw": [
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 5,
+      "expected_peak_cells": 2,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "mixed_valid_initial_true",
+      "raw_notation": "10#01",
+      "raw": [
+        true,
+        false,
+        null,
+        false,
+        true
+      ],
+      "expected_frame_notation": "0100101",
+      "expected_frame": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true
+      ],
+      "expected_steps": 14,
+      "expected_peak_cells": 7,
+      "initial_user": true,
+      "delimiter_valid": true,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_mixed_initial_true",
+      "raw_notation": "1#0#1",
+      "raw": [
+        true,
+        null,
+        false,
+        null,
+        true
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 11,
+      "expected_peak_cells": 6,
+      "initial_user": true,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    },
+    {
+      "name": "repeated_tail_has_delimiter",
+      "raw_notation": "#1##0",
+      "raw": [
+        null,
+        true,
+        null,
+        null,
+        false
+      ],
+      "expected_frame_notation": "",
+      "expected_frame": [],
+      "expected_steps": 9,
+      "expected_peak_cells": 5,
+      "initial_user": false,
+      "delimiter_valid": false,
+      "expected_final_caller_input": [],
+      "expected_final_caller_work": [],
+      "expected_final_scratch": "empty"
+    }
+  ],
+  "fixed_contracts": {
+    "input": "The literal List (Option Bool), mapped letter by letter into the fixed native work alphabet.",
+    "literal_pair": "input.map some ++ [none] ++ certificate.map some",
+    "present_delimiter_track": "some none",
+    "present_false_track": "some (some false)",
+    "blank_track": "none",
+    "output_letter": "some answer",
+    "fallback": "false, irrelevant on a proved singleton source halt",
+    "program_constant": "actionMaximum of the complete fixed program; not the caller-only upper bound3",
+    "source_stored_steps": "totalSourceSteps raw = preludeSteps raw + FrontEndStreamMachine.runSteps (handoffWord raw)",
+    "source_allowance": "sourceTimeBound N = 4*N*N + 23*N + 38",
+    "source_prefix_cells": "max (2*N) 1, weakened only arithmetically to2*N+1 for the already fixed simulator allowance",
+    "primitive_allowance": "encodedPrimitiveTimeBound A N = 3*sourceTimeBound N*(1+A*(2*(2*N+1+A)+2))",
+    "ordinary_stored_steps": "1 + (primitiveWitness.steps + MarkedInput.preludeSteps raw)",
+    "ordinary_next_none_stored_steps": "1 + ordinaryWitness.steps",
+    "ordinary_allowance": "MarkedInput.preludeSteps raw + encodedPrimitiveTimeBound A N + 1",
+    "ordinary_uniform_allowance": "N+3+encodedPrimitiveTimeBound A N",
+    "ordinary_empty_overhead": 2,
+    "ordinary_positive_overhead": "N+3",
+    "conventional_stored_steps": "PrintMove.simulationTime ordinaryMachine nativeInit ordinaryWitness.steps + 1",
+    "conventional_allowance": "2*ordinaryAllowance+1",
+    "endpoints": "Retain full TrCfg(haltList singleton), whole ordinary singleton tape and both blank tails; conventional endpoint is that whole tape moved right."
+  },
+  "proof_boundaries": [
+    "Existing delimiter source runs/handoffs/prefixes are historical combined-pass mathematics, outside current source owners.",
+    "New generic, native and any conventional consumers are uncompiled drafts.",
+    "No exact primitive count is guessed or equated to an upper bound.",
+    "No new sharp physical-space, NP/class-equivalence or executable transition-table claim."
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schema": "conaled.integration-installation.v1",
+  "status": "installed; capture and compiler validation pending",
+  "time_utc": "2026-11-24T19:19:51.381202+00:00",
+  "repository": "/workspace/scratch/ae71b485b114/work/conaled",
+  "source146_tree_before": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "incorporated_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 63,
+  "retained_owner_count": 60,
+  "changed_or_new_owners": {
+    "Applications/Resources/TuringSimulation/OrdinaryPackage.lean": {
+      "bytes": 20702,
+      "sha256": "3cdfa26a43f58e6658d68ec5549ef3b672aff758ce9be899654ef75c84745779",
+      "mode": "0o644"
+    },
+    "Applications/Resources/TuringSimulation/PolynomialDeciderPrintMove.lean": {
+      "bytes": 7587,
+      "sha256": "eb4519ab3ca559d9f740a8c963367428f2ae7c5dbefa6e198eb2bbb62c2ecb7f",
+      "mode": "0o644"
+    },
+    "Applications/Resources/TuringSimulation/PrintMove.lean": {
+      "bytes": 33332,
+      "sha256": "ce762c2b07cd1414f1e47b0dfef74d558a808a213db0d71e5d970fe1516c9fe4",
+      "mode": "0o644"
+    },
+    "Examples/TuringSimulation.lean": {
+      "bytes": 72694,
+      "sha256": "af90bed26c361fd248f39087d27456b820bca48cd1ec8491e5e3ec103416b9a2",
+      "mode": "0o644"
+    },
+    "SquareApplications.lean": {
+      "bytes": 47067,
+      "sha256": "c72dd28015c7981e2e698e9141ec2f909a59657ad52e36879e442c0c44910af1",
+      "mode": "0o644"
+    },
+    "docs/research/fdsa-rotation-certificate-preparation.md": {
+      "bytes": 3779789,
+      "sha256": "6227dfb99240e9857d950acbf85b0afcfc57429ed466f6c4b656bb2a9fff2b6e",
+      "mode": "0o644"
+    },
+    "docs/textbooks/CTB.json": {
+      "bytes": 855664,
+      "sha256": "cca7c85ff401fcb1bae025177834879354f31ad4dd43d4da3c1e44bd5b810bc1",
+      "mode": "0o644"
+    },
+    "docs/textbooks/coverage.json": {
+      "bytes": 55499,
+      "sha256": "e253113520678aa701e32a7e12c13a0350b6026c0d46fe6821c1790555e30738",
+      "mode": "0o644"
+    }
+  },
+  "unchanged_owners": [
+    "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+    "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+    "Applications/Resources/RotationCertificate/BitCodec.lean",
+    "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+    "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+    "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+    "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+    "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+    "Applications/Resources/RotationCertificate/InputParser.lean",
+    "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+    "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+    "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+    "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+    "Applications/Resources/RotationCertificate/StreamMachine.lean",
+    "Applications/Resources/RotationCertificate/Streaming.lean",
+    "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+    "Applications/Resources/RotationCertificate/TreeParser.lean",
+    "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+    "Applications/Resources/RotationCertificate/Verifier.lean",
+    "Applications/Resources/RotationCertificate/Witness.lean",
+    "Applications/Resources/TuringSimulation/FiniteControl.lean",
+    "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+    "Applications/Resources/TuringSimulation/MarkedInput.lean",
+    "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+    "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+    "Applications/Resources/TuringSimulation/StackToTape.lean",
+    "Applications/Resources/TuringSimulation/TapeReflection.lean",
+    "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Examples/RotationCertificateBinary.lean",
+    "Examples/RotationCertificateBitDecoderMachine.lean",
+    "Examples/RotationCertificateBitPairFraming.lean",
+    "Examples/RotationCertificateCorrespondence.lean",
+    "Examples/RotationCertificateFrontEndMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamMachine.lean",
+    "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+    "Examples/RotationCertificateFuelMachine.lean",
+    "Examples/RotationCertificateInputParserMachine.lean",
+    "Examples/RotationCertificateMoveApplyMachine.lean",
+    "Examples/RotationCertificateMoveParserMachine.lean",
+    "Examples/RotationCertificateOpenDecoderMachine.lean",
+    "Examples/RotationCertificateOpenFramingMachine.lean",
+    "Examples/RotationCertificateParsing.lean",
+    "Examples/RotationCertificatePositionedRotationMachine.lean",
+    "Examples/RotationCertificateStreamMachine.lean",
+    "Examples/RotationCertificateTreeEqualityMachine.lean",
+    "Examples/RotationCertificateTreeParserMachine.lean",
+    "Examples/RotationCertificateVerification.lean",
+    "docs/textbooks/README.md",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md"
+  ],
+  "seven_namespace_bodies_bytes": 82701,
+  "all_seven_body_bytes_equal": true,
+  "both_complete_existing_lean_files_preserved": true,
+  "paper_original_body_preserved": true,
+  "json_changes": [
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-78",
+        "next_action"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "local_state",
+        "CTB-24",
+        "next_implementation_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/CTB.json",
+      "path": [
+        "next_ticket_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/coverage.json",
+      "path": [
+        "source_readiness",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    },
+    {
+      "file": "docs/textbooks/coverage.json",
+      "path": [
+        "qualification_basis",
+        "current_gate"
+      ],
+      "old_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464",
+      "new_sha256": "76a122ddc80fff4bdaf3d49f7be1cbb34e81c186d03b455c4e44e6e5d82c0dba"
+    }
+  ],
+  "all_other_decoded_json_values_equal": true,
+  "fixed_domains_records_positive_cases": [
+    96,
+    84,
+    81
+  ],
+  "baseline_record": {
+    "bytes": 9728116,
+    "sha256": "3226878c830e097f5b31f57761149791dd4ac61d034ef3fc6e85e83d635f706c",
+    "mode": "0o644"
+  },
+  "source_draft_manifest": {
+    "bytes": 30809,
+    "sha256": "7a1b65656b42369fe53dbe5185ef67fb5558bc62a861a2e621d9f9c8bd5338b9",
+    "mode": "0o644"
+  },
+  "root_reading": "All seven installed namespace bodies, added module documentation, imports, both fixture bodies, gate text and paper addendum read in full. Complete preexisting proof bodies were preserved byte-for-byte; no fresh full rereading of those bodies is claimed.",
+  "source_acceptance": false,
+  "compiler_invoked_by_installation": false
+}

@@ -1,0 +1,710 @@
+{
+  "schema": 1,
+  "axis": "Standards",
+  "reviewer": "/root/requirements_review147/standards147",
+  "same_existing_loop": true,
+  "increment": 155,
+  "observed_utc": "2026-11-25T05:42:19.976756+00:00",
+  "candidate": "a5a917db8717977371b8d76d93f166389c9eec9b",
+  "tree": "394733a450268e8943048ea146440dcb75c7ceea",
+  "incorporated_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_full_spec_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "prior_candidate": "8f299334a51a00b02c79850d73dd4f165c73e671",
+  "prior_tree_exact_C153b": true,
+  "capture": {
+    "bytes": 9739739,
+    "sha256": "a346a3c042457e1f71e0e7a9ef202f618ea7ea1cd9612c341e6bb93baa45ab33",
+    "mode": "100644"
+  },
+  "scope_count": 72,
+  "scoped_source_descriptors_checked": 72,
+  "all_tree_entries_checked": 19407,
+  "changed_paths_since_C154": [
+    "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+    "Examples/TuringSimulation.lean",
+    "docs/research/fdsa-rotation-certificate-preparation.md",
+    "docs/textbooks/CTB.json",
+    "docs/textbooks/coverage.json"
+  ],
+  "unchanged_scoped_owners": 67,
+  "unchanged_other_tree_entries": 19402,
+  "M_to_C155_delta_exact_scope": true,
+  "manifest_entries": {},
+  "manifest_exclude": [],
+  "insertions": [
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "old": {
+        "bytes": 25433,
+        "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5"
+      },
+      "new": {
+        "bytes": 26946,
+        "sha256": "1c9282ccb208c3fc43d354735dd2bc78025f3752a762dcb9afcd0b309bdc3496"
+      },
+      "inserted_line_ranges": [
+        [
+          187,
+          218
+        ]
+      ],
+      "old_all_bytes_in_order": true
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "old": {
+        "bytes": 74616,
+        "sha256": "12356d14554ad5320ed922d6a09d919b6bd4b147dcc41d2f11700c98f93bbad4"
+      },
+      "new": {
+        "bytes": 79470,
+        "sha256": "a719108ab87a2b6c596b57fa90c124d4b4e64a209a859f889441fa3b08ee5906"
+      },
+      "inserted_line_ranges": [
+        [
+          1182,
+          1281
+        ]
+      ],
+      "old_all_bytes_in_order": true
+    }
+  ],
+  "paper": {
+    "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+    "old": {
+      "bytes": 3785863,
+      "sha256": "2703351e04daaef06780408f75b90106215abb8f32901696b4ba2ada9133101d"
+    },
+    "new": {
+      "bytes": 3789101,
+      "sha256": "9076cee65790498561b8b3a63b4c81ef21585baefc232271dcf53b579501800c"
+    },
+    "append": {
+      "bytes": 3238,
+      "sha256": "9daf7bd9a2ae0da7370bf8827d5ca2a7c871477ad12d79d16e8ed007712437a9"
+    }
+  },
+  "gate_changes": [
+    {
+      "path": "docs/textbooks/CTB.json",
+      "pointer": "/local_state/CTB-78/next_action",
+      "after_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "pointer": "/local_state/CTB-24/next_implementation_gate",
+      "after_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "pointer": "/next_ticket_gate",
+      "after_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "pointer": "/source_readiness/current_gate",
+      "after_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "pointer": "/qualification_basis/current_gate",
+      "after_sha256": "9f342d7183e2c82b5f761a88a64df40ec103fdc11cb353de807b141a4fb98c15"
+    }
+  ],
+  "all_other_decoded_values_unchanged": true,
+  "guidance_exact_current_M_and_same_axis147": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2628,
+      "sha256": "c98741e0325029ca67e2d079239288a05af775b5d336b88f4b4046068db37db7"
+    },
+    {
+      "path": "docs/agents/task-authority.md",
+      "bytes": 3817,
+      "sha256": "1873b383daa756a7b4fd2780868e66c75e5f2eb2695fa914cce57eda5f5f0e9a"
+    },
+    {
+      "path": "docs/agents/formal-development.md",
+      "bytes": 1038,
+      "sha256": "36065a7becbd4773f4889a970f826e2afe5092e21ba5ef30e56691921256adac"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 926,
+      "sha256": "2f27fd2dec160969245bceba26cf65a0bc45fd2be24f065f84c766e5e5537a7d"
+    },
+    {
+      "path": "docs/agents/architectural-quality.md",
+      "bytes": 5409,
+      "sha256": "d64cdc8e5ffb02d5ee3509c9c798861bf9d0c7d0510e9584bbea6d9eb2249a4c"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/SKILL.md",
+      "bytes": 8691,
+      "sha256": "4c396c3f6142b6aeddff067756a451eb31d0b5aa3baac89d63228751ab2593ae"
+    },
+    {
+      "path": ".agents/skills/example-driven-development/worked-example.md",
+      "bytes": 2356,
+      "sha256": "c949ad1fe16237c14e9fc355bbcb087a61900168d47bb07a3bbac0ee83e7de3c"
+    },
+    {
+      "path": ".agents/skills/code-review/SKILL.md",
+      "bytes": 7724,
+      "sha256": "9540911b44f0b184c3c78fa2cfb42b237cd76045d370c287bf3e97d4fc27e8f9"
+    },
+    {
+      "path": ".agents/skills/code-review/heuristics.md",
+      "bytes": 2232,
+      "sha256": "bdb5979d36895ccf5a1f124b551e752afbfcbc43c7bbdd1075ceb4462f741060"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 4934,
+      "sha256": "20b2caab65426bf067ca8e12b1bae2151a8ef5ff7997604d93258a27d6cde8c9"
+    },
+    {
+      "path": "docs/adr/README.md",
+      "bytes": 1547,
+      "sha256": "37cced167aa6b6479641f0e8c229d7b4d36ce9f96fef24ff9ffa4b093ed0a506"
+    },
+    {
+      "path": "README.md",
+      "bytes": 14876,
+      "sha256": "8450b5fef8363bf6c9226b13c34120fa9db7a7590cfb9673a5a84173f8140d8b"
+    },
+    {
+      "path": "docs/agents/review-loop.md",
+      "bytes": 16277,
+      "sha256": "c369ed734ff8b61c2a2745fc3cd5839f496654e1625b1a4ceaa6a04abb2ba80f"
+    },
+    {
+      "path": "docs/development.md",
+      "bytes": 21541,
+      "sha256": "e21fd90793a89acc8837f8624adf0e01ac93efebc6e641c9f6277389398e18bf"
+    },
+    {
+      "path": "docs/language-direction.md",
+      "bytes": 59914,
+      "sha256": "67027141798b659caba825757daabf4860d15a47c320ef36c9e97eb1fbbbaea4"
+    },
+    {
+      "path": "docs/adr/0006-stack-machine.md",
+      "bytes": 2341,
+      "sha256": "0c93a0510f03cd1b7e6307ee79b707a7eb9585549a451c600743250cf86cb5cf"
+    },
+    {
+      "path": "docs/adr/0010-composition-and-proof-audit.md",
+      "bytes": 8160,
+      "sha256": "ff80c10a835f6ed5d30b45719cc311d4af6be1fbeb08fd37eeeab085906e356e"
+    },
+    {
+      "path": "docs/adr/0001-modules-and-proof-dependencies.md",
+      "bytes": 2561,
+      "sha256": "83226e2d3ceb121348c97840026287a36fadaf638301b80ed9255383e322cae2"
+    }
+  ],
+  "requirements": {
+    "bytes": 2238214,
+    "sha256": "3e686f9f28a413c75dd98ccf4f9764badd613e623f08467fc760adae734728d0"
+  },
+  "prior_requirements_prefix": {
+    "bytes": 2237283,
+    "sha256": "82b925f979fc35114601206bd90e1d3b4dedaf5169f427205c0c8e916c681dd7"
+  },
+  "requirements154_continuation_bytes": 931,
+  "fixed_expectations": {
+    "bytes": 6816,
+    "sha256": "d8ffae1a7d60fbe91b86f47e0beca5da8c1d80b9384cf098c6a3f72c65e31669",
+    "mode": "100444"
+  },
+  "expectations_exact_saved154": true,
+  "native_runs": [
+    {
+      "name": "candidate155-scope72",
+      "exit_code": 0,
+      "elapsed_seconds": 33.50039868899967,
+      "inputs": 149,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 72,
+      "capture155_bound": false,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "python3",
+        "-B",
+        "scripts/review_snapshot.py",
+        "candidate",
+        "--repo",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--manifest",
+        "/workspace/scratch/ae71b485b114/work/resume154/manifest154-scope72.json",
+        "--record",
+        "/workspace/scratch/ae71b485b114/work/native-runs154/baseline154-scope72.log"
+      ],
+      "start": {
+        "bytes": 37264,
+        "sha256": "826b021eb8e2a3b73f3e936a6658a11fae7c5a9b1d0d50df166a6cb60886026e",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 1512,
+        "sha256": "18e1b4dfbb5bfeac0e136f8b796ab878e3f46a0ba68460bbe04901fd50ad38b6",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 74220,
+        "sha256": "d8fc54c3507d43679f83bb2dfe4615be7e07e82d38c557b6e34c84e05b1d55cc",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 9739739,
+        "sha256": "a346a3c042457e1f71e0e7a9ef202f618ea7ea1cd9612c341e6bb93baa45ab33",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    },
+    {
+      "name": "trace155-draft-a",
+      "exit_code": 1,
+      "elapsed_seconds": 5.582609249999223,
+      "inputs": 4063,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 67,
+      "capture155_bound": false,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-a/TraceConcatenation155aProbe.lean"
+      ],
+      "start": {
+        "bytes": 1037623,
+        "sha256": "2ddfd5ce2053e80910c82e60deb0dc38a89a551d98912d432d58942a3d6dec5a",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 1318,
+        "sha256": "115b0fb5deeb252f919caaa830508fb2a856a33fc70c375b0cee9ed24a3cf994",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 2075117,
+        "sha256": "b240194d94ced34c6277da988bf351212ccc2cca51c5b6179122764efebdda49",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 266930,
+        "sha256": "9e9c772bf62059fb312399a30b5362704671bcb18db97e579a784e8ae49156fe",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    },
+    {
+      "name": "trace155-draft-b",
+      "exit_code": 0,
+      "elapsed_seconds": 4.403153874000054,
+      "inputs": 4065,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 67,
+      "capture155_bound": false,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/space155-checks/revision-b/TraceConcatenation155bProbe.lean"
+      ],
+      "start": {
+        "bytes": 1038086,
+        "sha256": "7f4169f1358c2685b2c59a2af7d419e239daa2f9367826d262ebf7429be8c6ca",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 1318,
+        "sha256": "b69a2a55f4bada702cfb434f7e91872d67cca488909e08fe8e0bf3670918a09a",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 2076043,
+        "sha256": "5466f55b6105f13e8a34500b698e9dfabb1eb539fb2eeeb4adc88742ca6898b8",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 274807,
+        "sha256": "a9a89910914f2a3d0b0a6eb656021c33f6ddb6ba3b289463a5edd530de68be92",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    },
+    {
+      "name": "owners155",
+      "exit_code": 0,
+      "elapsed_seconds": 19.340161270000863,
+      "inputs": 4064,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 72,
+      "capture155_bound": true,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "--no-cache",
+        "--rehash",
+        "build",
+        "Applications.Resources.PolynomialTime.NormalForm",
+        "Applications.Resources.TuringSimulation.OrdinaryPackage",
+        "Applications.Resources.RotationCertificate.DelimiterMachine",
+        "Applications.Resources.RotationCertificate.DelimiterExecution",
+        "Applications.Resources.RotationCertificate.DelimiterTapeMachine",
+        "Applications.Resources.RotationCertificate.DelimiterPolynomialTime",
+        "Applications.Resources.TuringSimulation.ConventionalPolynomialDecider",
+        "Applications.Resources.TuringSimulation.ConventionalVerifier",
+        "Applications.Resources.RotationCertificate.BinaryYesVerifier",
+        "Examples.TuringSimulation",
+        "Examples.RotationCertificateDelimiterMachine",
+        "Examples.RotationCertificateCorrespondence",
+        "Examples.RotationCertificateFrontEndStreamMachine",
+        "Examples.RotationCertificateFrontEndStreamTapeMachine",
+        "Examples.RotationCertificateStreamMachine",
+        "Examples.RotationDistance"
+      ],
+      "start": {
+        "bytes": 1038691,
+        "sha256": "3faaf3cc36d32f219a3146944b4b766ecf03ba5af7cdebff0c605b92eab9f5fb",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 2148,
+        "sha256": "7d79738a3bc1177ba6048106530cdacc2337c8ceceaca361889385d7198d3da9",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 2076396,
+        "sha256": "32a23dbe1d61fbe19476d3acb259ea809f601c160904dc7edf7f6e95f6db1373",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 17422,
+        "sha256": "8ba057a7194da9d1b0a35b02a82d633c18df2bc9e8ae34fd1baeb5640d94de52",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    },
+    {
+      "name": "query155",
+      "exit_code": 1,
+      "elapsed_seconds": 4.581935827000052,
+      "inputs": 4066,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 72,
+      "capture155_bound": true,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155Statements.lean"
+      ],
+      "start": {
+        "bytes": 1038265,
+        "sha256": "1ff3f9604382a9003e6285990d462c2d0f7110892af8817a13aa2b3d36314940",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 1278,
+        "sha256": "56fed86b67cd2fa97aaa9e66c499a699f852f030dfba6f5b2e59bbe823ad463b",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 2076410,
+        "sha256": "a00220495b83df42bdd05e0597bece5057114268d406a9b44109a18c5cdef15c",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 1235007,
+        "sha256": "0936b4973f18ff8d4c4244cd9d2802291027ca1453158a55a571124fd72128eb",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    },
+    {
+      "name": "query155-b",
+      "exit_code": 0,
+      "elapsed_seconds": 3.774985086000015,
+      "inputs": 4068,
+      "all_nonnull_unchanged": true,
+      "scope_source_matches_C155": 72,
+      "capture155_bound": true,
+      "lake_build_product_bindings": 0,
+      "command": [
+        "python3",
+        "-B",
+        "/workspace/scratch/ae71b485b114/work/restored154-exact/conaled-textbooks-153-checkpoint-2026-11-25T000051Z/operations/native/native_profile.py",
+        "--state",
+        "/workspace/scratch/ae71b485b114/work/native-state154",
+        "run",
+        "--project",
+        "/workspace/scratch/ae71b485b114/work/conaled154",
+        "--",
+        "lake",
+        "env",
+        "lean",
+        "-EhasSorry",
+        "/workspace/scratch/ae71b485b114/work/validation155/Integration155bStatements.lean"
+      ],
+      "start": {
+        "bytes": 1038712,
+        "sha256": "ff403f1425148e5b5da3dcb18c79b8e739415ee52eac00a117f4eade1fb0002d",
+        "mode": "100644"
+      },
+      "child": {
+        "bytes": 1285,
+        "sha256": "37ec55089553b0479a3c5d4c9021075df837798975dda526f7b6dc5990a252ac",
+        "mode": "100644"
+      },
+      "final": {
+        "bytes": 2077305,
+        "sha256": "d0c2101f4df20804a3d7a278b6fda9d43fa06bdee720543cabd00a3c1671d4ec",
+        "mode": "100644"
+      },
+      "log": {
+        "bytes": 1252458,
+        "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106",
+        "mode": "100644"
+      },
+      "complete_chain_verified": true
+    }
+  ],
+  "query": {
+    "full": {
+      "bytes": 1252458,
+      "sha256": "8a7c19d44291595ab3975a13e890ef06900c6cef2c6372e867f36d7ba92f2106"
+    },
+    "lines": 16541,
+    "old_prefix": {
+      "bytes": 960006,
+      "sha256": "6e77461497967c5bcb53f3e6b6d0dc0bf55dec88076c3a01e48178d7a329ea91"
+    },
+    "old_prefix_lines": 12481,
+    "new_tail": {
+      "bytes": 292452,
+      "sha256": "6af1f63fba4a3b25836ffeafc58751a37c455caf41bbb9561db560474bdd9116"
+    },
+    "new_tail_lines": 4060,
+    "private": {
+      "bytes": 17626,
+      "sha256": "49707577682700e029d49ed3f06122a1539dfa9ad41adba7cb62c8600a28d195"
+    },
+    "private_tail_lines": [
+      3763,
+      4060
+    ],
+    "private_full_lines": [
+      16244,
+      16541
+    ],
+    "carrier": {
+      "bytes": 90010,
+      "sha256": "aceb16c7ad092f77b32efc2657770de536531ca2d45a733c78c095a14e582779"
+    },
+    "old_carrier_exact_prefix": true,
+    "original_7_7_7_query_blocks_preserved": true,
+    "query_repair_only_four_variable_renames": true,
+    "public_types_and_roots_byte_exact_local_b": true,
+    "new_tail_omission_glyphs": 0,
+    "old_literal_omissions": 14,
+    "old_omission_lines": [
+      4198,
+      4201,
+      4204,
+      4208,
+      4218,
+      4298,
+      5583,
+      5584
+    ],
+    "freshly_read_tail_ranges": [
+      [
+        1,
+        250
+      ],
+      [
+        3742,
+        4060
+      ]
+    ],
+    "freshly_read_full_ranges": [
+      [
+        12482,
+        12731
+      ],
+      [
+        16223,
+        16541
+      ]
+    ],
+    "unread_proof_print_tail_range": [
+      251,
+      3741
+    ],
+    "unread_proof_print_full_range": [
+      12732,
+      16222
+    ],
+    "mechanical_identity_does_not_supply_semantic_reading": true,
+    "new_tail_has_ellipsis_or_triple_dot": false
+  },
+  "active_whole155_log_read": false,
+  "compiler_or_project_mutation": false,
+  "draft_provenance": {
+    "original_draft": {
+      "bytes": 7191,
+      "sha256": "a9639107bc211e0ee999e6d30422e4429d298ab7b5c4ec418480e0dfceec0bcf"
+    },
+    "query": {
+      "bytes": 2133,
+      "sha256": "674c42c75663c8049692d3f9cab5541fb3359ba85c8a574148a87a6f7aaa7482"
+    },
+    "probe_a": {
+      "bytes": 8929,
+      "sha256": "c5edc769825e280d061e5188191a30bf0254f4a6d9d7692d389c2ff0db253abb"
+    },
+    "probe_b": {
+      "bytes": 8987,
+      "sha256": "09ee2b645f5735cc71240060b7fc334434f8345c126653711894cc4b91136dfa"
+    },
+    "a_exact_original_plus_LF_query_tail": true,
+    "b_only_58_byte_explicit_command_type_annotation": true,
+    "installed_complete_blocks_exact_revised_probe": [
+      {
+        "owner": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+        "exact_revised_probe_block": {
+          "bytes": 1510,
+          "sha256": "cda66b1497750d3886acbc3db630959186c7062b2793aba0af34ac09382b8ba8"
+        }
+      },
+      {
+        "owner": "Examples/TuringSimulation.lean",
+        "exact_revised_probe_block": {
+          "bytes": 4852,
+          "sha256": "2bb999b2bc041e40b66d622c82e45a6cd6198c73aea9b23462593209c070c525"
+        }
+      }
+    ],
+    "fixed_expectations_already_in_saved154_cutoff": "2026-11-25T05:19:03Z",
+    "draft_a_actual_start": "2026-11-25T05:22:17.645017+00:00",
+    "no_statement_or_case_changed": true,
+    "local_b_proof_print_middle_not_read_by_this_axis": true
+  },
+  "fresh_reading": {
+    "source": {
+      "Applications/Resources/TuringSimulation/VisitedSpace.lean": [
+        [
+          1,
+          240
+        ]
+      ],
+      "Examples/TuringSimulation.lean": [
+        [
+          855,
+          985
+        ],
+        [
+          1060,
+          1281
+        ]
+      ],
+      "complete_C154_to_C155_Lean_and_paper_diff": true,
+      "full_common_five_gate_prose": true
+    },
+    "owners155_log_complete_lines": 103,
+    "owners_log_truncation_repaired_by_lines": [
+      44,
+      58
+    ],
+    "failed_draft_a_diagnostic_lines": [
+      1,
+      17
+    ],
+    "failed_query_a_diagnostic_lines": [
+      16242,
+      16244
+    ],
+    "failed_query_full_body_not_freshly_read": true,
+    "requirements_931_byte_continuation_fresh": true,
+    "guidance_fresh": [
+      "AGENTS.md",
+      "docs/agents/task-authority.md",
+      "docs/agents/review-loop.md"
+    ],
+    "all18_same_axis147_guidance_rebound_exact": true
+  },
+  "recovery": {
+    "exact_prior_own_md": {
+      "bytes": 18498,
+      "sha256": "1f0849548c5f21add7b5739f95259ccbfc8f67e109abc7ec115d186be3b4e537"
+    },
+    "exact_prior_own_json": {
+      "bytes": 22376,
+      "sha256": "8454b070701d6c5f698fea4b5988384b19446d142782fd606b393dfdb50615ae"
+    },
+    "overlay": {
+      "bytes": 15774,
+      "sha256": "72d29684e5c55196d5844300dc5120c54cccb94a5725f4a9c29119e78670feae"
+    },
+    "supplement": {
+      "bytes": 6508,
+      "sha256": "9c316707bde6474a962cfa50ee849daaf0006d7445088dd0d7239bdaa92d0045"
+    },
+    "unavailable_own153_evidence_body": true,
+    "prior_recovery_limits_not_repaired_by_this_new_evidence": true
+  }
+}

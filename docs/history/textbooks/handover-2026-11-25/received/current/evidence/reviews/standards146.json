@@ -1,0 +1,1557 @@
+{
+  "schema": 1,
+  "axis": "Standards",
+  "review_round": 11,
+  "status": "Blocked",
+  "provisional": false,
+  "updated_utc": "2026-11-24T12:37:34.230192+00:00",
+  "reviewer": "/root/requirements_review/standards139",
+  "same_original_review_loop": true,
+  "original_seven_rounds_preserved": true,
+  "round8_139_round9_142_round10_144_preserved": true,
+  "candidate145_is_unreviewed_history": true,
+  "candidate": "c89baa3ab2257153819511af7bd5fcd1ce0c5a10",
+  "tree": "67739c61eb9ab6993b9885bc2a161b064139de1a",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 60,
+  "scope_identity": "6745d491eb3e2eb696661aad90a8e14538770105a7e3aca2c3561ee2b6cf39ec",
+  "content_identity": "f2984548febbaaa6b8bc57f651b386f60126b5b74f99c39d5e80c931c52e673b",
+  "projection_identity": "22b413ae8650b3d37c053b557aef75c659c9e3004d71f75ca0e0326ca639cb19",
+  "source_access": "Exact Git146 only; no mutable author or later candidate used as source.",
+  "receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146.json",
+    "bytes": 9734476,
+    "sha256": "d85961dd8f7c4f147f204144ccffb46f5990f11195b9f4088af8969b0ad82b82"
+  },
+  "identity": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146-identity.json",
+    "bytes": 1369,
+    "sha256": "859441dee9523a54ec381bc43f6790a075ea96ed8184608ef3d77d615f174a54"
+  },
+  "source_map": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/candidate146-review-source-map.json",
+    "bytes": 25008,
+    "sha256": "dbe0e0eab33c5ebb654eb67131842df0a2b55a3b29acb4f64bd3270a9ddc6af3"
+  },
+  "dispatch": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-dispatch146.md",
+    "bytes": 8019,
+    "sha256": "1ee3b8bc9cdf48859809f38caa7c80d62d74ec911cba5f5a688e59f71b3af884"
+  },
+  "requirements": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+      "bytes": 2205749,
+      "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/timing-addendum138.md",
+      "bytes": 5708,
+      "sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/controller-tape-addendum140.md",
+      "bytes": 5322,
+      "sha256": "cdd07335fff81761599f4ecf2074b3d065a13806997eb0b103cdd73160cad361"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/primitive-addendum141.md",
+      "bytes": 6738,
+      "sha256": "83f6d00bdc401d7b859b8b58c0b55a8f8d9398f49166cf46e06df29f8329420c"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/output-observation-addendum142.md",
+      "bytes": 2346,
+      "sha256": "43e4a3f46a1a825b02a894abf466a3087f4ef252d4f0b6c377a65d5ff3b84500"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/ordinary-io-addendum143.md",
+      "bytes": 3929,
+      "sha256": "b9e74e2c7282d4bf3b9622d809249d661d17237cadf5c454163991d9085c5e0a"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/ordinary-integration144-plan.md",
+      "bytes": 5884,
+      "sha256": "5d8b252df2ecb0206405b52da39004fd8e3806deef19e4e53706f9e3b172236a"
+    }
+  ],
+  "requirements15_actual_read_ranges_inclusive": [
+    [
+      1,
+      85
+    ],
+    [
+      7270,
+      7460
+    ],
+    [
+      7675,
+      7851
+    ],
+    [
+      8421,
+      9205
+    ]
+  ],
+  "requirements15_full_fresh_read": false,
+  "all_six_addenda_fully_read_in_inherited_rounds": true,
+  "all7_governing_document_hashes_independently_rechecked": true,
+  "original_review_record": {
+    "path": "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/evidence/review-record.json",
+    "bytes": 805915,
+    "sha256": "f2068a2d24aa03a297521e219ce96a742f956abc91488e19319f9fa019843c20"
+  },
+  "previous144_reports": {
+    "md": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards144.md",
+      "bytes": 14950,
+      "sha256": "41df584a55e1b3dcbaac139dd6ca60131dc8fdfb2924b9b0531f4df052c95331"
+    },
+    "json": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards144.json",
+      "bytes": 219972,
+      "sha256": "15c3bff485344b6f87193bcf7dfd0390999498656cf561e87f9fd25a3c0bc77d"
+    }
+  },
+  "prior_round_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/review-round10-144.json",
+    "bytes": 33941,
+    "sha256": "8293d995358e8eac25e5306ea75bdcb674b23fb8d94245ad789a4bb1c831f061"
+  },
+  "prior_reconciliation": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/reconciliation-round10-144.md",
+    "bytes": 11631,
+    "sha256": "e9794949a40bcdea7e59d6611b4149ca5b2a06ebaab170cf56eb4148f74141b2"
+  },
+  "all60_source_bindings": [
+    {
+      "path": "Applications/Resources/BinaryCounter/FixedWidthMachine.lean",
+      "mode": "100644",
+      "git_blob": "c02f260167179d1136824a64fb35876103fed54e",
+      "bytes": 40378,
+      "sha256": "005720a8f68c8140125a9e22724bdb007d096cc55bb253dc982cd2b6f3a86b76",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BinaryVerifier.lean",
+      "mode": "100644",
+      "git_blob": "50506be88ae25ade87e11ad6a758830ace854d08",
+      "bytes": 12641,
+      "sha256": "1fe9596dbc3fabe75e57583f6283d14eb2f6b19aeac503bdde3c1d56ad6c57bd",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitCodec.lean",
+      "mode": "100644",
+      "git_blob": "d7bdbd79a3fc254a4e00f9aea2e3cbbf8f60bfd8",
+      "bytes": 15284,
+      "sha256": "3d4ee905352fd99f544a9ef6cc2e5224bbfbba0d654c0835ccc4a94643d4f72e",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitDecoderMachine.lean",
+      "mode": "100644",
+      "git_blob": "77111c825ff6cdc5fe35f2d44a71907637657978",
+      "bytes": 20150,
+      "sha256": "9a666a7a75a6b70e2eb8efb50973042b9ef71494588f2d31aa3d58e1e225f267",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/BitPairFraming.lean",
+      "mode": "100644",
+      "git_blob": "08e782cc1e183d4cbfa014a3908984ebc9b29a40",
+      "bytes": 34844,
+      "sha256": "62b4b6cb63c9711a0582798a736f342f5a850325be8deb1962e096d4f028fa49",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+      "mode": "100644",
+      "git_blob": "f1b70ad3bcc42f7622a7ccc67f39b89735c55963",
+      "bytes": 5877,
+      "sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "mode": "100644",
+      "git_blob": "9fe20783760d6b2341bfcaa33612e3b7aa3520af",
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "mode": "100644",
+      "git_blob": "f15088f4b409319e7bc0079ed2d422bddc291555",
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "git_blob": "aed6023fd84f24ed0f84c31a8fda9d6d60d1b09f",
+      "bytes": 54742,
+      "sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FuelDispatchMachine.lean",
+      "mode": "100644",
+      "git_blob": "5e2812e25a0f20db37c1e564c804ce0883e08cf5",
+      "bytes": 28035,
+      "sha256": "a233cf25f0557e6bdad5c763e187c18199b2a7fbb1322b62ef2747f7127e665a",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParser.lean",
+      "mode": "100644",
+      "git_blob": "1b6ceb58313bd2b82b8b7f4b1070971d2076495b",
+      "bytes": 12371,
+      "sha256": "071227a01d3ed214a5fae42300a7b36e715a3fda0110e92ff8f71f2196b33e95",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "359c53cb14c22a4bebcc0f159f85d8323c50790a",
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "mode": "100644",
+      "git_blob": "d780166bbec3a44fa9e954c238aa1825dc8e0d65",
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "0e9c8dea47aef826204955f36f3110700ba53566",
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "mode": "100644",
+      "git_blob": "9334d9e7880b945a2ff0d3043d078c93280b5c1e",
+      "bytes": 45727,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "mode": "100644",
+      "git_blob": "bc91f1fbc2e31e9816e8d52f4f02a07647b7003b",
+      "bytes": 49570,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "mode": "100644",
+      "git_blob": "743d6c73407d1e981b4e61045f85eac3285c8f88",
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "mode": "100644",
+      "git_blob": "eee6f5b54af6635f00db8b97964fd574169874d6",
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Streaming.lean",
+      "mode": "100644",
+      "git_blob": "a80b694a876a0f16aeac9a4da2a731ea5ffba608",
+      "bytes": 16291,
+      "sha256": "5421a2b300c23d05fd25f548ee8d893441534a3124638f62a0c7a78efb9683ed",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "mode": "100644",
+      "git_blob": "5224631b3fd445a6e075b216f56b67e19c526c9c",
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParser.lean",
+      "mode": "100644",
+      "git_blob": "d14d28624a682873f854d156cf3f0e1eb5c49024",
+      "bytes": 11312,
+      "sha256": "be9ac0557d725aa5001631b2400936f354344a4c049f14e69dcdf2a0c7d9c2da",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "5e3f862694cb3e5306fdfa8a0471dd78cee53b56",
+      "bytes": 69147,
+      "sha256": "f24080d3817c3fdca2b93222348ee38f30e318f9830e908b1e61c37a87fbe92c",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Verifier.lean",
+      "mode": "100644",
+      "git_blob": "0647e3a1084978742b8fdeb4136bb743f14cb162",
+      "bytes": 7117,
+      "sha256": "777c78bbd3d9e22cdf9091df7480e753ef9215ce3d3353b61a47ed56f2c2d211",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/Witness.lean",
+      "mode": "100644",
+      "git_blob": "ad006c49999da1be48779b3f2c31477728e46177",
+      "bytes": 4494,
+      "sha256": "9c072519897b4da2f439b57d07aaa39666286064c852c811149af055460b7650",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+      "mode": "100644",
+      "git_blob": "84edc05cd7864c3c721aa3cbfe79b28f4665974c",
+      "bytes": 16006,
+      "sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+      "mode": "100644",
+      "git_blob": "4cb04ad0974fbf21052bd7acd356a46360a1b5ae",
+      "bytes": 17998,
+      "sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/MarkedInput.lean",
+      "mode": "100644",
+      "git_blob": "805aaf403051e7ece54f65393c2951f2cbce9e57",
+      "bytes": 21194,
+      "sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+      "mode": "100644",
+      "git_blob": "d55e08331e9840fde051ed56ad8b57bdcd9b07b0",
+      "bytes": 3223,
+      "sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+      "mode": "100644",
+      "git_blob": "4a41242bb4bb093ab003005a08cc140929c3bf8b",
+      "bytes": 4852,
+      "sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "mode": "100644",
+      "git_blob": "1b19817d8d34eaaa56da60ade3a499df2c0ae273",
+      "bytes": 28454,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeReflection.lean",
+      "mode": "100644",
+      "git_blob": "eb39b4f4e2af0a827a41c230ed9f29e3bce03d84",
+      "bytes": 5232,
+      "sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+      "mode": "100644",
+      "git_blob": "5fb1147fc974e2c6ede18b8ce053fc2effa0b09d",
+      "bytes": 11817,
+      "sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+      "mode": "100644",
+      "git_blob": "cef16966cb089680de8ea99668dcdc6b7f893901",
+      "bytes": 25433,
+      "sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateBinary.lean",
+      "mode": "100644",
+      "git_blob": "25506f3b076befab01d8380d7fcbdd4b8faefe97",
+      "bytes": 14837,
+      "sha256": "b73a0090e5d19eade84b4bb43b6314d2a3da2b46bba0569f17daf20d5a7c6673",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateBitDecoderMachine.lean",
+      "mode": "100644",
+      "git_blob": "6706bb6bb3cb1991f89aad57669301b0df508c85",
+      "bytes": 15665,
+      "sha256": "4e1f7f108e107b89d76493795d878be03d333e9ce5fade9d58c0f27be4f520ed",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateBitPairFraming.lean",
+      "mode": "100644",
+      "git_blob": "5c449e6936383af673425f600ffe8704fe87cb13",
+      "bytes": 27139,
+      "sha256": "871160b76b8c7842c7252516f207728e311a145e6219dd4e0582216c2e17a2e1",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateCorrespondence.lean",
+      "mode": "100644",
+      "git_blob": "4e26a24584ef4d7548e3955fab0c98e8cfa50674",
+      "bytes": 9437,
+      "sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndMachine.lean",
+      "mode": "100644",
+      "git_blob": "6ca974d7e0e9e151a709b7ec3941318652e914b6",
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "mode": "100644",
+      "git_blob": "5c586608c4b3ed50565c880dfe83eb694330879e",
+      "bytes": 639314,
+      "sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+      "matches_last_reviewed144": false,
+      "matches_unreviewed145": false
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "mode": "100644",
+      "git_blob": "46f38cb476d555a85262ea15358eb4f2413534e5",
+      "bytes": 28016,
+      "sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+      "matches_last_reviewed144": false,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateFuelMachine.lean",
+      "mode": "100644",
+      "git_blob": "57609eb0a260c752091e495e88434ed46f04dc89",
+      "bytes": 40502,
+      "sha256": "0e97492fa34beac791117d3e04cc35b450d23cf76ee9c001300f0a12b7fe375b",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateInputParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "4f926cc82a199c4bcbe26e00871ddada447301b4",
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateMoveApplyMachine.lean",
+      "mode": "100644",
+      "git_blob": "a582f5fa6b3b4d45142f50cf94c6452f4f79e023",
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateMoveParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "6f986b36e344297096506404ee14b0babe6f9792",
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "mode": "100644",
+      "git_blob": "a0f2a30f9057745530016a77af73c62dd2324354",
+      "bytes": 38027,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateOpenFramingMachine.lean",
+      "mode": "100644",
+      "git_blob": "f410aaed80243efcc97cbd8a8f193338c258c8a7",
+      "bytes": 33006,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateParsing.lean",
+      "mode": "100644",
+      "git_blob": "a3c6021180c9ea9889baea1e7a41c6a391426e1b",
+      "bytes": 12173,
+      "sha256": "1283fca9fcde79b2e603b1052a03b28af93e4dc6b0b187d792f1a6eaed86ce96",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "mode": "100644",
+      "git_blob": "116bc51f94524312c835b47b629955d3157612a0",
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateStreamMachine.lean",
+      "mode": "100644",
+      "git_blob": "a10d1803d60b86a115e690ce2ab7db14f023ef5c",
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "mode": "100644",
+      "git_blob": "44822445865a2e86c1acc1ca512fdd96c1ebedb0",
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateTreeParserMachine.lean",
+      "mode": "100644",
+      "git_blob": "c4c5fbb76a18d2fc82e89373037a794afb5c5dea",
+      "bytes": 64635,
+      "sha256": "7699dcb50d7187b1177dbb9356b90a06586ac1daae602333b136254e8598c664",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/RotationCertificateVerification.lean",
+      "mode": "100644",
+      "git_blob": "37bf48a96757a5af557721a68f05be3e3cf2d98f",
+      "bytes": 16154,
+      "sha256": "b1a71b06db5ccf357a45516256d2118690f5d42949c4097d630100f47aa96bc8",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "mode": "100644",
+      "git_blob": "6b06e7b4b7a5f24787597419252f695af086b75f",
+      "bytes": 48440,
+      "sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "SquareApplications.lean",
+      "mode": "100644",
+      "git_blob": "0510616812fcd6de1930eea6b90fd14dd8a8040c",
+      "bytes": 46872,
+      "sha256": "2b4b114a1973b0749ee0cd15f3e9c6958ba1cca00e6c27341a6fe49ebed62e19",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "mode": "100644",
+      "git_blob": "cc0f008f67ec64279bf79570da30383cc75b2601",
+      "bytes": 3776014,
+      "sha256": "a4ea35c9b0f4c23ce0544b5ec9001786759b36d5f9ee492e0fc56adf4155b8ec",
+      "matches_last_reviewed144": false,
+      "matches_unreviewed145": false
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "mode": "100644",
+      "git_blob": "33188d20b300da608c4f4b88916dd99646f3156c",
+      "bytes": 858478,
+      "sha256": "d94f99d9abe4990fbcb1012cbf6298f3361e1356bc8401c33f415af5989246bf",
+      "matches_last_reviewed144": false,
+      "matches_unreviewed145": false
+    },
+    {
+      "path": "docs/textbooks/README.md",
+      "mode": "100644",
+      "git_blob": "ac85f309e8967fc5d178076c999f0b96718add53",
+      "bytes": 8066,
+      "sha256": "6b17ea0d6614cc2b4cb95815a6559d61b40ba98cf146fd9ac87bcbe2d2c5abf7",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "mode": "100644",
+      "git_blob": "56d62a864e73adac2207f0f802e0ff991236def6",
+      "bytes": 57375,
+      "sha256": "7d8207993a0314efa433c9f5437eb20fc95971a551a014cddddc918ed84498ac",
+      "matches_last_reviewed144": false,
+      "matches_unreviewed145": false
+    },
+    {
+      "path": "docs/textbooks/external-agent.md",
+      "mode": "100644",
+      "git_blob": "07a55bf2a64d9a935f397cf1f58b9a686258159c",
+      "bytes": 7217,
+      "sha256": "a849bdfdb5e29213011c9063e97abd394c31f8b28600b2b099c6b3021d6e9d4a",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    },
+    {
+      "path": "docs/textbooks/inbox/README.md",
+      "mode": "100644",
+      "git_blob": "134aec86bc0723d004600445be8a796ea6ad4649",
+      "bytes": 16717,
+      "sha256": "dbf49c58b6b3c6643faf0b546e54bf9d99dbcb35348293afaf89c5f4f6159ec1",
+      "matches_last_reviewed144": true,
+      "matches_unreviewed145": true
+    }
+  ],
+  "independent_source_binding": {
+    "all60_bytes_sha256_mode_blob_match_capture_and_install": true,
+    "manifest_scope60_exact": true,
+    "manifest_entries_and_exclude_empty": true,
+    "M_and_original_B_are_ancestors": true,
+    "unchanged144": 55,
+    "changed144": 5,
+    "unchanged145": 56,
+    "changed145": 4,
+    "no_new_owners": true
+  },
+  "source_assessment_complete_for_delta": true,
+  "full_fresh_cumulative_source_read": false,
+  "source_reads": [
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "read": "Full144-to146 diff, full145-to146 code delta, and immutable146 source3288-3347 and8460-8510.",
+      "assessment": "omit removes unused Fintype K for exactly one cleanup-prefix declaration; complete statement/proof and finite16-slot bounds remain. Adjacent later theorem context is retained. Exact-peak proof removes only unused Nat.zero_add; no statement/count/endpoint change."
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+      "read": "Full144-to146 diff and immutable146 source94-128.",
+      "assessment": "Both length conjuncts now specify actual machine.Γ. Empty/present false, supplied true register, full three-conjunct observations and length1 remain unchanged."
+    },
+    {
+      "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+      "read": "Complete144-to146 append75144-75202; prior75005 wording remains unchanged.",
+      "assessment": "Separates failed144, unreviewed failed145 and proposed146; preserves whole programme and gates."
+    },
+    {
+      "path": "docs/textbooks/CTB.json",
+      "read": "Full recursive decoded144-to146 diff, exactly three active gate strings, all read in full."
+    },
+    {
+      "path": "docs/textbooks/coverage.json",
+      "read": "Full recursive decoded144-to146 diff, exactly two active gate strings, all read in full."
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "read": "Fresh immutable146 source925-992, including complete ordinary_native_run_with_visited_space statement935-962 and proof through990.",
+      "assessment": "Same exact bounded native run supplies complete singleton output, live-prefix cardinality and physical support, outer none and unchanged visited sets/interval on terminal observation. Actual printer omissions are cross-checked against this source and the exact prior-readable output, without inventing emitted text."
+    }
+  ],
+  "findings": [
+    {
+      "id": "ST-V001",
+      "status": "Unresolved",
+      "blocking": true,
+      "title": "Matching cumulative validation remains absent",
+      "evidence": "Actual146 combined query exited0 with305 real stable bindings and no indexed diagnostics. Independent supplied-query assessment completed with350 readable,19 expanded emitted-output assessments and23 selected roots, using explicitly recorded exact-output prior reuse and retaining printer elisions. Normal owner/client module validation, matching whole146/exhaustive audit, immediate nonrepairing verify and supported compare remain absent; earlier whole139 remains separate.",
+      "remedy": "Obtain and assess actual matching ordinary owner/client module and exact whole/audit/verify/compare evidence, then reconcile both continuing original axes. No repeat or expansion of completed query reading is required absent a new mismatch or source change."
+    },
+    {
+      "id": "ST-003",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "medium",
+      "locations": [
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 113
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "line": 120
+        }
+      ],
+      "evidence": "Both explicit actual-alphabet source remedies preserve literal observations and proofs. Actual matching combined146 exited0; both formerly unavailable types freshly read at90-125, preserving true marker, absent versus present-false selected symbol, true supplied package, length1. The failed144 finding remains historically open;145 remains unreviewed.",
+      "history": "Open on immutable144; no independent145 review or closure inferred.",
+      "resolution_boundary": "Scoped source/elaboration finding resolved by exact-source successful combined check and actual type reading. Normal owner/module and whole acceptance remain pending under ST-V001."
+    },
+    {
+      "id": "ST-001",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "medium",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-78/next_action",
+          "line": 236,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/local_state/CTB-24/next_implementation_gate",
+          "line": 1564,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "json_pointer": "/next_ticket_gate",
+          "line": 2440,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/source_readiness/current_gate",
+          "line": 903,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "json_pointer": "/qualification_basis/current_gate",
+          "line": 921,
+          "value_sha256": "1ec44b314d7d20b0964c2af6092db511a7eaf935af77362e4873d52261c13464"
+        }
+      ],
+      "decoded_value": "Source146 preserves the complete145 statements and proofs, moving only its omit command before the attached theorem doc comment so the declaration parses. The actual145 combined query exited1 with302 unchanged input bindings in236.389865302 seconds; its sole diagnostic was unexpected token omit after the doc comment. Its complete source, output and terminal remain failure evidence. No independent145 review round is invented; the next continuing same-axis assessment must receive an immutable146 identity. The two explicit-alphabet clients and all fixed observations remain unchanged. The proposed146 query keeps350 readable,19 expanded and23 root observations; no future execution is assumed. Continue the complete original-B cumulative60-owner scope and unchanged requirements1-15 plus timing138, controller140, primitive141, output-observation142, ordinary-I/O143 and ordinary-integration144. All96 controller domains,84 independent cases,81 positive closed fixtures, literal clocks, physical contracts and qualification counts remain unchanged. The seven new144 owners and all checked NativeOrdinary144c producer bodies remain unchanged in this146 successor. The actual current144 combined client/query run failed with296 stable bindings after377.240338989 seconds: two trInit length statements lacked an inferable dependent alphabet, two old example proofs triggered strict probe lints, and the two failed declarations caused downstream unknown-identifier queries. This successor explicitly supplies the actual machine alphabet in the empty and present-false cases, omits one unused Fintype K section binder, and removes one unused simp argument. No linter setting is suppressed. The cleanup-prefix public type must be read again because its unused binder is removed. The successor350-readable/19-expanded/23-root query plan is not an execution result. The failed144 run emitted347 readable types, including16 of the18 older clients; two were absent. Both original axes read the emitted types and selected roots with separately recorded expanded reading limits; no failed query is accepted. Source144 scope/wording findings were reassessed there, while ST-003/SP-C001 identify its two required case elaboration errors and ST-V001/SP-V001 remain. Matching146 source/output reassessment is still required; this author repair does not retroactively resolve144. Preserve fixed machine data before input, supplied starts/registers, full literal input and singleton output, exact stored run counts, every-prefix physical visited space, and separate live-halt/outer-none observations. The configured live2/none3 and genuine native-init Peek live5/none6 fixtures stay distinct. Whole139 is a separate older candidate with seven known child137 failures and no observed successful outer result; reconcile its actual latest receipt without inferring a cause. Normal ordinary modules and clients, matching whole build/exhaustive audit, immediate nonrepairing verification, supported final comparison and both original review approvals remain gates. The newly checked generic ordinary package remains outside60 owners, as do delimiter and conventional print-and-move research. Formal conventional certificate-class/NP correspondence, sharper space, exact rotation diameter and the full canonical VFA/FDSA/PFDS book/thesis-union and separate ADWH programme remain open. Keep every historical UNKNOWN, the same continuing review loop, one complete archive per cutoff, and no local progress posts to issue558. No textbook qualification follows from development checks or checkpoint recovery.",
+      "evidence": "All five operative gates agree on actual60-owner scope, prior failed query history, proposed current evidence and pending acceptance gates. All other decoded values including qualification unchanged. Historical dispositions preserved."
+    },
+    {
+      "id": "ST-002",
+      "status": "Resolved_on_candidate146_only",
+      "blocking": false,
+      "severity": "low",
+      "location": {
+        "path": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "line": 75005
+      },
+      "evidence": "144-to146 paper is append-only; actual two-step source-run phrase remains. Configured2/3 and native-init Peek5/6 source bodies unchanged. Historical142 finding remains historically open."
+    }
+  ],
+  "current146_query": {
+    "start": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.start.json",
+      "bytes": 78994,
+      "sha256": "828c675952157d2999213475d6231e901350bf08b103ece65786cd949a21bcc0"
+    },
+    "preparation": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1-preparation.json",
+      "bytes": 919,
+      "sha256": "afddd98cf13478d18202926312b5df8350a67ace1c1640c74dacb973e9d1f23e"
+    },
+    "start_scalar_control_fields_read": true,
+    "bound_inputs": 305,
+    "null_inputs": 0,
+    "actual_terminal_supplied": true,
+    "actual_output_read": true,
+    "planned_counts": {
+      "readable": 350,
+      "expanded": 19,
+      "selected_roots": 23
+    },
+    "no_poll_or_compiler_control": true,
+    "result": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.result.json",
+      "bytes": 157895,
+      "sha256": "d812c523b083299c6dab58fa7dcb0e1d399f88a07c329eae8fcdb45694f14374"
+    },
+    "result_scalar_fields_read": true,
+    "child_exit": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.child-exit.json",
+      "bytes": 1328,
+      "sha256": "c8c66c93ca318bfd61d8ebb992efa77f1a183adabdc8371f1ab05b5f6f7dbfc7"
+    },
+    "full_child_read": true,
+    "actual_exit_code": 0,
+    "actual_elapsed_seconds": 313.7760097340033,
+    "actual_finished_utc": "2026-11-24T12:26:56.224414+00:00",
+    "305_real_bindings_mechanically_equal_before_after": true,
+    "all305_descriptors_individually_read": false,
+    "log": {
+      "path": "/workspace/scratch/ae71b485b114/work/continuation/current146-statements-attempt1.log",
+      "bytes": 431379,
+      "sha256": "d27c3bf1fc5cb82c96032091bd0db0689b7d7d45050e67e733a2eb66f3c99b01"
+    },
+    "log_lines": 5723,
+    "diagnostics_error_warning_sorryAx_index": [],
+    "fresh_actual_read_ranges": [
+      [
+        90,
+        125
+      ],
+      [
+        2164,
+        2185
+      ],
+      [
+        2924,
+        5723
+      ]
+    ],
+    "all350_readable_actual_coverage": "Three fresh full types plus347 independently read prior144 types with exact output-block equality; not a claim of fresh350 reading.",
+    "fresh_selected_root_outputs_read": 23,
+    "common_expanded_output_binding": [
+      {
+        "name": "Resources.TuringSimulation.PolynomialBooleanDecider",
+        "start": 2186,
+        "actual_output_lines": [
+          2186,
+          2339
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2159,
+          2312
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.PolynomialBooleanDecider.run_and_outer_none",
+        "start": 2340,
+        "actual_output_lines": [
+          2340,
+          2459
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2313,
+          2432
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.TapeReflection.machine",
+        "start": 2460,
+        "actual_output_lines": [
+          2460,
+          2461
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2433,
+          2434
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.TapeReflection.iterate_option",
+        "start": 2462,
+        "actual_output_lines": [
+          2462,
+          2492
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2435,
+          2465
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.machine",
+        "start": 2493,
+        "actual_output_lines": [
+          2493,
+          2498
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2466,
+          2471
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.prelude_exact",
+        "start": 2499,
+        "actual_output_lines": [
+          2499,
+          2553
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2472,
+          2526
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.normalizedRunInTime",
+        "start": 2554,
+        "actual_output_lines": [
+          2554,
+          2608
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2527,
+          2581
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.MarkedInput.normalized_eval",
+        "start": 2609,
+        "actual_output_lines": [
+          2609,
+          2650
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2582,
+          2623
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.TuringSimulation.SingletonOutput.haltList_singleton_tape",
+        "start": 2651,
+        "actual_output_lines": [
+          2651,
+          2680
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2624,
+          2653
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryMachine",
+        "start": 2681,
+        "actual_output_lines": [
+          2681,
+          2695
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2654,
+          2668
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_run_and_eval",
+        "start": 2696,
+        "actual_output_lines": [
+          2696,
+          2919
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2669,
+          2892
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinaryPolynomialDecider",
+        "start": 2920,
+        "actual_output_lines": [
+          2920,
+          2923
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          2893,
+          2896
+        ],
+        "current146_reading": "Complete_actual_emitted_output_assessed_by_qualified_prior144_byte_identical_block"
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_pair_run_and_eval",
+        "start": 2924,
+        "actual_output_lines": [
+          2924,
+          3240
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Expanded_output_not_read; corresponding_readable_output_and_immutable_source_read",
+        "prior144_output_lines": [
+          2897,
+          3213
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read",
+        "current146_assessment": "Freshly read complete expanded output: fixed caller/initial machine, native init of marked bit-pair frame, verifier-bit singleton full-tape endpoint, polynomial in input length plus certificate length, outer none and matching Part eval. No extra premise or per-input machine."
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.binaryYes_small_ordinary_run",
+        "start": 3241,
+        "actual_output_lines": [
+          3241,
+          3581
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Expanded_output_not_read; corresponding_readable_output_and_immutable_source_read",
+        "prior144_output_lines": [
+          3214,
+          3554
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read",
+        "current146_assessment": "Freshly read complete expanded output: BinaryYes implies a certificate of length at most input length squared, framed input at most (input length+1)^2, native init, singleton marked true endpoint, witness polynomial evaluated on input length, outer none and matching eval. This remains a small-certificate direction, not final NP membership."
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.finite_encoded_primitive_visited_space",
+        "start": 3582,
+        "actual_output_lines": [
+          3582,
+          4193
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Expanded_output_not_read; corresponding_readable_output_and_immutable_source_read",
+        "prior144_output_lines": [
+          3555,
+          4166
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read",
+        "current146_assessment": "Freshly read complete expanded output: finite closed primitive control, native init of trInit input with explicit control default, existential related TM1 halt target and bounded run; actual cfgAt at run steps; for each prefix at most run steps, visited cells at most time+1, input-visited cells and interval at most max(raw length,1)+time, physical head and every nonblank x-head tape coordinate lie in the same interval."
+      },
+      {
+        "name": "Resources.RotationCertificate.FrontEndStreamMachine.ordinary_native_run_with_visited_space",
+        "start": 4194,
+        "actual_output_lines": [
+          4194,
+          5584
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Partial_actual_output_read",
+        "prior144_output_lines": [
+          4167,
+          5557
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read",
+        "current146_assessment": "Freshly read entire emitted1391-line expansion. The fully displayed Exists domain binds a bounded run of the fixed ordinary machine from actual TM0.init input to singleton finish. Actual cfgAt at run.steps, step finish none, matching singleton eval, every i<=run.steps visited-cell and interval bounds, physical head/nonblank support at x-headPosition, and cfgAt at run.steps+1 none are visible. Repeated visitedCells argument tail and last conjunct remain omitted by the printer; complete source935-962 and previously read byte-identical readable type supply those clauses without crediting unprinted output."
+      },
+      {
+        "name": "Examples.TuringSimulation.PolynomialDecider.constantRun",
+        "start": 5585,
+        "actual_output_lines": [
+          5585,
+          5595
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          5558,
+          5568
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read"
+      },
+      {
+        "name": "Examples.TuringSimulation.VisitedSpace.peekStart_actual_default",
+        "start": 5596,
+        "actual_output_lines": [
+          5596,
+          5612
+        ],
+        "byte_identical_to144_expansion": true,
+        "prior144_reading": "Complete_actual_emitted_output_read",
+        "prior144_output_lines": [
+          5569,
+          5585
+        ],
+        "current146_reading": "Complete_actual_emitted_output_freshly_read"
+      },
+      {
+        "name": "Examples.RotationCertificateFrontEndStreamMachine.every_indexed_cleanup_prefix_retains_all_nonactive_words",
+        "start": 5613,
+        "actual_output_lines": [
+          5613,
+          5668
+        ],
+        "prior144": "Not requested in144",
+        "current146_reading": "Complete_actual_emitted_output_freshly_read"
+      }
+    ],
+    "ordinary_module_acceptance": false,
+    "whole_audit_acceptance": false,
+    "fresh_actual_log_lines_read": 2858,
+    "whole5723_log_fresh_read_claimed": false,
+    "requested_readable_coverage": {
+      "complete": 350,
+      "fresh": 3,
+      "qualified_prior144_byte_identical_blocks": 347,
+      "missing": 0,
+      "boundary": "Prior347 actual144 blocks were independently fully read in round10; exact current block equality was independently checked. No source-author or Spec reading is borrowed."
+    },
+    "requested_expanded_coverage": {
+      "complete_emitted_output_assessment": 19,
+      "complete_fresh": 7,
+      "complete_by_qualified_prior144_byte_identical_output": 12,
+      "unread_emitted_ranges": [],
+      "printer_elisions_preserved": true,
+      "historical144_limits_unchanged": true
+    },
+    "requested_root_coverage": {
+      "requested": 23,
+      "freshly_read": 23,
+      "ranges_inclusive": [
+        5669,
+        5723
+      ],
+      "only_observed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "exhaustive_axiom_audit": false
+    },
+    "printer_elisions": [
+      {
+        "line": 4198,
+        "kind": "let tm type"
+      },
+      {
+        "line": 4201,
+        "kind": "input let type"
+      },
+      {
+        "line": 4204,
+        "kind": "output let type"
+      },
+      {
+        "line": 4208,
+        "kind": "finish let type"
+      },
+      {
+        "line": 4218,
+        "kind": "B let type"
+      },
+      {
+        "line": 4298,
+        "kind": "repeated run binder type; full Exists domain separately displayed and read"
+      },
+      {
+        "line": 5583,
+        "kind": "repeated visitedCells argument tail"
+      },
+      {
+        "line": 5584,
+        "kind": "final conjunction"
+      }
+    ],
+    "printer_elision_support": {
+      "exact_source_path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+      "fresh_source_ranges_inclusive": [
+        [
+          925,
+          992
+        ]
+      ],
+      "complete_statement_range": [
+        935,
+        962
+      ],
+      "readable_current_type_byte_identical_to_independently_read144": true,
+      "prior144_readable_range": [
+        1065,
+        1139
+      ],
+      "unprinted_text_never_claimed_as_emitted": true
+    },
+    "independent_preparation_binding": {
+      "completed_utc": "2026-11-24T12:37:34.230192+00:00",
+      "source_map": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SOURCE_MAP.json",
+        "bytes": 50288,
+        "sha256": "f91adb0687cdbb24bf1fb05c792ee9d1919fc67c0cc22084934b56af7d7d6662"
+      },
+      "dependency_inventory": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/DEPENDENCY_AVAILABILITY.json",
+        "bytes": 460429,
+        "sha256": "bc75f52d40385b898ecc236090ad844eac2027e00f657abc3189e3abd5ec4994"
+      },
+      "inputs": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/INPUTS.json",
+        "bytes": 253783,
+        "sha256": "5843f384d6923caebf3e807b90864552d99e4590abef32d67ef5901567754d77"
+      },
+      "snapshot": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/SNAPSHOT.json",
+        "bytes": 10069,
+        "sha256": "b5153f47f01c3e667f0828627f682c9e7ca97de5e4b852b2103c2edf29c07c15"
+      },
+      "combined_source": {
+        "path": "/workspace/scratch/ae71b485b114/work/current146-query-preparation/Current146Statements.lean",
+        "bytes": 1424668,
+        "sha256": "23d4265e4eed2fc5ac2000fd88f69cab95615dedbf8a3f33a3649020dee6d2b8"
+      },
+      "frozen_snapshot_member_count": 10,
+      "all10_file_hashes_bytes_modes_match_snapshot_and_actual_before_after_bindings": true,
+      "all61_project_source_hashes_bytes_match_exactGit146_and_actual_bindings": true,
+      "all16_complete_retained_bodies_match_exactGit146_after_only_import_removal": true,
+      "every_source_import_accounted_for": true,
+      "every_retained_source_line_accounted_for_once": true,
+      "all3_query_fragments_verbatim_in_combined_and_byte_identical145": true,
+      "expanded_query_commands": {
+        "check": 18,
+        "print": 1
+      },
+      "actual_INPUTS_distinct_descriptors": 297,
+      "all297_descriptors_match_actual305_nonnull_bindings": true,
+      "all45_imported_source_product_trace_sidecar_descriptor_bindings_match": true,
+      "all45_recorded_transitive_eligibility_fields_true": true,
+      "generated_non_body_non_query_text_all_read": true,
+      "wrappers": "Same18-import header; each complete body in an unnamed section with autoImplicit=false and warningAsError=true. No generated proof-resource/transparency/linter override or semantic rewrite.",
+      "body_mappings": [
+        {
+          "path": "Applications/Resources/RotationCertificate/CertificateCorrespondence.lean",
+          "source_sha256": "648cf1b251368065860deee7409aacff52a4f2ec2207f15bc152871db2fd43f1",
+          "retained_body_sha256": "7074908e01f2814e515dd9d0ea05d26ba6c49bad6ca4876672cd85dff476032a",
+          "combined_lines": [
+            39,
+            163
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/TapeReflection.lean",
+          "source_sha256": "da026a0c8556ad1d57725d8c71e621681f06861d6f7dd5aa19f8f64298fa890d",
+          "retained_body_sha256": "72b231969b4e5d59c2c2713a205d1eaaeeb662e5ef9e52ad6aa9e5272d2e97ac",
+          "combined_lines": [
+            176,
+            315
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/FiniteControl.lean",
+          "source_sha256": "114c1bcc8ea74a3b606c4bf76f44d48e262cfe87964de377d32b2b77eae28e30",
+          "retained_body_sha256": "fa8056854b7e74501436076a8616d268141134d7894de14f92a02aad0a3a03b0",
+          "combined_lines": [
+            328,
+            704
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/FiniteStackToTape.lean",
+          "source_sha256": "b0710bb1a866b7c054d8f83c4922809625a6bdd7daf6091b6ae4934387032c6d",
+          "retained_body_sha256": "eeabff09c803c62f251adfe1f6222c6d34926fe5d8fc8b3c288ca92556470216",
+          "combined_lines": [
+            717,
+            1093
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/SingletonOutput.lean",
+          "source_sha256": "49ef9372c39f91211c26c669f6bfc5f1668efcb09a2a2361149b7553c8db255e",
+          "retained_body_sha256": "7819b545f41a1fd5af987c0f92e768d6c88524373e872ec476fa5cc935b96004",
+          "combined_lines": [
+            1106,
+            1220
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/MarkedInput.lean",
+          "source_sha256": "0192f3f66b195aecd38ea31f63c1b3c795874e552bb205ead9f0fbeff9279c9d",
+          "retained_body_sha256": "10814253ea6177e48b5bcc5c852b8137efd93f31ef65f986cc123646a82f5f7c",
+          "combined_lines": [
+            1233,
+            1695
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/PolynomialDecider.lean",
+          "source_sha256": "7b4c0094fa40b3c05c293808470a658a86d187e78207274bcdfc1f2b25a92945",
+          "retained_body_sha256": "f5d3b1cde0ad9a0cff41d01be40eead30ef1a77fa11640d55041b94532dd72c4",
+          "combined_lines": [
+            1708,
+            1787
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/VisitedSpace.lean",
+          "source_sha256": "53dbf7cdf18785c4790cc5957d02344edb4397e2085ca2db5c3676e922f2f2f5",
+          "retained_body_sha256": "7181518b82d7dfad9d137620db2a5cd25e30c6978c505c361b81b156cf8edbe0",
+          "combined_lines": [
+            1800,
+            2367
+          ]
+        },
+        {
+          "path": "Applications/Resources/TuringSimulation/TapeToPrimitive.lean",
+          "source_sha256": "590a2f2c798f92c76b4b4d62be9acf23da27bfad654e555f0e73ff206f8f1b1b",
+          "retained_body_sha256": "9cd0d88a41c0ffb77dfddac727a4a471ed707ccaac930dab3a79f8633befbd30",
+          "combined_lines": [
+            2380,
+            2640
+          ]
+        },
+        {
+          "path": "Applications/Resources/RotationCertificate/FrontEndStreamTapeMachine.lean",
+          "source_sha256": "48027b139c3a73463569bcc9237cb70831ef49a21f6446898ebe108a0497824f",
+          "retained_body_sha256": "3608da732102483c8ba873a6d4f388f35513bb7ea11a4c460e787967dcf297db",
+          "combined_lines": [
+            2653,
+            3638
+          ]
+        },
+        {
+          "path": "Examples/RotationDistance.lean",
+          "source_sha256": "d07b9672091322c8c46f1981133bd83856b5ea4d547f1c3efa2e28ccf8881ecd",
+          "retained_body_sha256": "2c19f9d4a74bc3f7e75baa24d2889ca26f9f6beaaa5b8f6b38e032ff200e78b1",
+          "combined_lines": [
+            3651,
+            3823
+          ]
+        },
+        {
+          "path": "Examples/RotationCertificateCorrespondence.lean",
+          "source_sha256": "f61b9de86ed953a541f21d2f39847c6fc4cb2d71e011b8dd57b81c39413bb206",
+          "retained_body_sha256": "d54c4a8fc68c2d0ca02414572ba7eed6774280b749a7d5b7b89a7b5ef1795202",
+          "combined_lines": [
+            3836,
+            4017
+          ]
+        },
+        {
+          "path": "Examples/RotationCertificateStreamMachine.lean",
+          "source_sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9",
+          "retained_body_sha256": "5a5a41ad7c451e374487604e2cc7a1b6089faf0fdf13341fa1df3dd09ea5eb12",
+          "combined_lines": [
+            4030,
+            10579
+          ]
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+          "source_sha256": "6f2b3d0dae1b48e6d9eded85fd1c200f8f92853eedb2f3f42e80bd3373892b2a",
+          "retained_body_sha256": "105159d004c16da8b6730b8acdc1750677140012b0f47b70d44167db21b46c4d",
+          "combined_lines": [
+            10592,
+            20509
+          ]
+        },
+        {
+          "path": "Examples/RotationCertificateFrontEndStreamTapeMachine.lean",
+          "source_sha256": "ac0151604ea78b9f7db0d62a7d410617f16724e08c0a7fdef9850589fb148cd5",
+          "retained_body_sha256": "ba9c01126539a8614337518301123fe2c8e687e6a54d2f7099559684da4a02a2",
+          "combined_lines": [
+            20522,
+            21030
+          ]
+        },
+        {
+          "path": "Examples/TuringSimulation.lean",
+          "source_sha256": "0f64ac635ea029d9dfe20cec3189b48b7a6836eb4036e15f4b9315979f75bf56",
+          "retained_body_sha256": "7dbf96a4f1400a1900865e4b6200c12b5c5ba409cce1611a64ae17c0bc86f015",
+          "combined_lines": [
+            21043,
+            22207
+          ]
+        }
+      ],
+      "limitations": [
+        "Mechanical byte/range/source comparisons are provenance checks, not full fresh proof reading.",
+        "Recorded dependency trace fields and bound descriptors were compared; no fresh Lean/Lake trace replay or exhaustive dependency audit.",
+        "Combined elaboration is distinct from ordinary-module validation; no module acceptance inferred.",
+        "The frozen preparation honestly retains its pre-execution pending wording; later actual result and independent exactGit binding are additive."
+      ]
+    }
+  },
+  "pending_expanded_reading_obligations": [],
+  "inherited144_reading": {
+    "report": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards144.json",
+      "bytes": 219972,
+      "sha256": "15c3bff485344b6f87193bcf7dfd0390999498656cf561e87f9fd25a3c0bc77d"
+    },
+    "readable_emitted_read": 347,
+    "old18_emitted_read": 16,
+    "old18_absent_types": 2,
+    "expanded_full": 14,
+    "expanded_partial": 1,
+    "expanded_unread": 3,
+    "selected_roots_read": 22,
+    "not_current146_execution_or_reading": true
+  },
+  "historical_Audit6_57": "Actual Standards round9 reading remains credited; old6/7/8 limits remain historical, not fresh146 execution or Spec credit.",
+  "historical_null_expectation_bindings": {
+    "observation": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/historical-expectation-binding-observation145.json",
+      "bytes": 6599,
+      "sha256": "20afe555e954f7e896e2784bc2c86b6350f2393317ca905389defc6eadc343c3"
+    },
+    "all5_actual_result_descriptors_and_nulls_independently_verified": true,
+    "actual_statuses": {
+      "native-ordinary144-attempt2": 1,
+      "native-ordinary144-attempt3": 1,
+      "native-ordinary144-attempt4": 0,
+      "native-space-decider-types144": 0,
+      "polynomial-decider143-attempt1": 0
+    },
+    "absent_path": "/workspace/scratch/ae71b485b114/work/continuation/native-decider-fixed-expectations143.json",
+    "no_content_existence_reading_or_freeze_inferred_from_null_equality": true,
+    "separate_present_file_read_now": {
+      "path": "/workspace/scratch/ae71b485b114/work/review/native-decider-fixed-expectations143.json",
+      "bytes": 1108,
+      "sha256": "2a6e4636dc4b5c6e0b494f593298cc47beda5f24a60bdf22155f8854aba5d959"
+    },
+    "separate_file_not_retroactively_bound": true
+  },
+  "unreviewed145_observation": {
+    "path": "/workspace/scratch/ae71b485b114/work/review/unreviewed-candidate145-validation-observation.json",
+    "bytes": 5668,
+    "sha256": "d7a25f81d6ebd06aecc953b6af18fbc5876fee69f6e9bb773913b1fbe0670c3c"
+  },
+  "unreviewed145_no_new_independent_type_credit": true,
+  "full_programme": "OPEN; complete canonical VFA/FDSA/PFDS books/thesis union, separate ADWH, ordinary I/O, visited-space, final certificate correspondence/formal NP and exact rotation diameter remain. No qualification changes.",
+  "current_user_overrides_verbatim": [
+    "Just one archive per checkpoint time - this should make it clear what new chats like you need to restart the work and what they need to read within it. The idea behind the checkpoints themselves is to preserve progress across session changes and workspace wipes.",
+    "The previous session had been updating [https://github.com/VladimirMarko/conaled/issues/558](https://github.com/VladimirMarko/conaled/issues/558), but has cleaned that up, I believe. Updating it with progress here is not ideal, because the progress itself is not being shared there. This could confuse other agents working on `conaled`."
+  ],
+  "historical_unknowns": {
+    "whole115": "UNKNOWN",
+    "whole128": "UNKNOWN; terminal unavailable.",
+    "whole129": "UNKNOWN; prior owner29542 unavailable, no terminal child-exit/result receipt observed.",
+    "producer_module5": "UNKNOWN; prior owner48910 unavailable, no terminal receipt observed.",
+    "whole137": "UNKNOWN; latest supplied observation had no terminal receipt and former workspace is gone."
+  },
+  "whole139": "Seven previously supplied child137 exits, no outer terminal or established cause supplied to this axis.",
+  "reading_limits": [
+    "Full requirements15, huge paper and entire cumulative source not freshly reread; complete authority retained. Requirements15 actual read ranges and all six previously full-read addenda are recorded above.",
+    "55 unchanged144 owners use prior exact-source analysis with all original proof/trace/source reading limits; all19 original predecessor bodies remain qualified inherited analysis, not a new full fresh source read.",
+    "Current146 readable coverage is3 fresh full types plus347 independently read prior144 blocks proven byte-identical. Expanded emitted-output coverage is7 fresh full outputs plus12 prior full-read blocks proven byte-identical. All23 selected roots were freshly read. This does not claim every5723 current log line was freshly read.",
+    "The two formerly absent case types are now actually emitted and independently read on146. All previously incomplete expanded emitted ranges were actually read on146. Historical144 failed status, absent outputs and prior reading limits remain unchanged.",
+    "Eight current pp.all elision lines4198,4201,4204,4208,4218,4298,5583,5584 remain actual omissions. Complete source and readable type support the contract; no unprinted text receives output-reading credit. Older native144c/144 omissions remain historical.",
+    "All57 historical Audit6 declarations were actually read in Standards round9; this is neither146 execution evidence nor Spec reading credit. Original6/7/8 range limits remain historical output ranges.",
+    "Every original UNKNOWN, absent rounds1-4 standalone reports and unavailable C5b Git object is preserved.",
+    "The current query has305 non-null before/after bindings. All297 INPUTS descriptors and10 frozen member identities were checked mechanically; the raw305 descriptors were not individually displayed/read. All60 installation descriptors were mechanically compared, not all individually fresh-read.",
+    "Initial batched historical/install output truncated and supplied no complete middle reading; both historical observations were subsequently read fully. An attempted2924-3240 log output returned no delivered content before context transition; that range was then actually reread in smaller complete chunks.",
+    "No current Spec report or source-author type-reading report was used as independent Standards reading. No new heuristic objection is asserted."
+  ],
+  "spec146_report_read": false,
+  "third_substantive_axis": false,
+  "compiler_source_acceptance_dependency_output_mutation": false,
+  "issue558_or_publication": false,
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "full_acceptance_assessment_complete": false,
+  "preserved_provisional_reports": [
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123023457586Z.md",
+      "bytes": 4999,
+      "sha256": "46f6e7dc68a766bc0c8dbb69b30ede0cd2d5c46695eb392221102816e938f59d"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123023457586Z.json",
+      "bytes": 41576,
+      "sha256": "8fe6f9162074417d96d89db1c16bce07a8130a7f7b9c4c505f87c5732d0e15ce"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123320792717Z.md",
+      "bytes": 5443,
+      "sha256": "e96c994b13ad3ec7da3c80a8db98ba564aee4e7319074e4dddc95e8eee1cda23"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123320792717Z.json",
+      "bytes": 51621,
+      "sha256": "30476a3496b810120d4667101eb763ebf03e97f2543e5880dfe791a0bd4ace34"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123734230192Z.md",
+      "bytes": 5846,
+      "sha256": "25e4daa7375a86c5a5b317a147807732fc711ca48dfee6292f5eba827dc9cd33"
+    },
+    {
+      "path": "/workspace/scratch/ae71b485b114/work/review/standards146-provisional-20261124T123734230192Z.json",
+      "bytes": 53386,
+      "sha256": "469a6e777edf223c23fba1bd811722eea7aed04e043ef63082ad6c491bccff0f"
+    }
+  ],
+  "source_and_supplied_query_assessment_complete": true,
+  "historical_expanded_gap_discharge146": {
+    "prior144_full": 14,
+    "prior144_partial": 1,
+    "prior144_unread": 3,
+    "current146_previously_unread_ranges_actually_read": [
+      [
+        2924,
+        4193
+      ],
+      [
+        4318,
+        5563
+      ]
+    ],
+    "current_full_ordinary_space_range_freshly_read": [
+      4194,
+      5584
+    ],
+    "original144_reports_unchanged": true,
+    "unprinted_ellipses_not_discharged_as_printed_text": true
+  },
+  "no_new_concrete_source_standards_violation_found": true
+}

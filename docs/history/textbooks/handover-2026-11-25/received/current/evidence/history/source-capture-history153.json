@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "kind": "superseded-supported-scope63-capture-conclusions",
+  "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+  "source_tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+  "scope_owner_count": 63,
+  "public_base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "records": [
+    {
+      "member": "current/evidence/validation/baseline147-scope63.json",
+      "original_descriptor": {
+        "bytes": 9728116,
+        "sha256": "3226878c830e097f5b31f57761149791dd4ac61d034ef3fc6e85e83d635f706c",
+        "mode": "100644"
+      },
+      "status": "ok",
+      "candidate": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+      "tree": "2a6df7a7fce23ae73a8e46d3bde59cf386c958b8",
+      "scope_owner_count": 63,
+      "scope_identity": "06196b9de2f9b3d8fce60d4b0deb0a242f1ba35c206d2a1e183b4373d361b0dd",
+      "content_identity": "17b988471d5d3328e02927cd19e0fbb1533d3097d6a383d9afdaa66add7d2b8c",
+      "source_projection_identity": null,
+      "same_full_scope_paths_as_historical_C147": true
+    },
+    {
+      "member": "current/evidence/validation/candidate147.json",
+      "original_descriptor": {
+        "bytes": 9735771,
+        "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+        "mode": "100644"
+      },
+      "status": "ok",
+      "candidate": "5aed6b9726b5af6718e0240d81503b8e99bdc166",
+      "tree": "5714b04c8e1eb4812a4cf36944f2d0581e27519d",
+      "scope_owner_count": 63,
+      "scope_identity": "06196b9de2f9b3d8fce60d4b0deb0a242f1ba35c206d2a1e183b4373d361b0dd",
+      "content_identity": "32aad5666ed6d166197f3b03c9e4b4263e2624bd11d55188e30d5d9066a96a67",
+      "source_projection_identity": null,
+      "same_full_scope_paths_as_historical_C147": true
+    }
+  ],
+  "source_accepted": false,
+  "receiving_accepted": false,
+  "availability": "Full scope63 receipts are retired from this successor payload, not deleted locally. They are superseded for current source recovery by the two complete supported scope72 receipts. Commit identities and all184 historical outcome objects remain; no old hash alias is remapped to new receipt bytes.",
+  "active_historical_input_boundary": "The local work/resume147/candidate147-scope63.json remains bound by UNKNOWN historical invocations and must not be deleted by this payload selection.",
+  "reading_limits": "Retirement adds no new source, output or independent-review reading credit; historical conclusions retain their original candidate and stated limits.",
+  "intermediate153a": {
+    "candidate": "2c10ea82d95a58d09ad02e2f16c7aa117357b0b0",
+    "tree": "25a159f36ffff3acd638d675bc9e9c4955e58e8a",
+    "scope_owner_count": 72,
+    "complete_supported_capture_descriptor": {
+      "bytes": 9739736,
+      "sha256": "44950d0f7b370bebd296bb6ec4ef681b09f04d62bf297003d8983d236cd805bf",
+      "mode": "100644"
+    },
+    "capture_actual_exit_code": 0,
+    "capture_elapsed_seconds": 46.61765537099927,
+    "actual_failed_focused_command": "owners153-a",
+    "focused_actual_exit_code": 1,
+    "focused_elapsed_seconds": 49.93705243899967,
+    "focused_nonnull_unchanged_inputs": 4044,
+    "failure_diagnostic": "Ambiguous namespace PolynomialTime: compiler resolved intended local delimiter namespace but reported the alternative generic Resources.PolynomialTime.",
+    "repair_member": "current/evidence/installation/REPAIR153b.json",
+    "current_supported_capture_member": "current/evidence/validation/candidate153b.json",
+    "availability": "Superseded full153a capture is an unselected historical provenance body; its actual small capture result/child and identity remain selected. Undo the exact one-line repair to recover its only differing source body. Local capture remains untouched."
+  }
+}

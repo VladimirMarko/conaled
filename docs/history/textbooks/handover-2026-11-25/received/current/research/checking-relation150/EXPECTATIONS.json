@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "status": "Fixed contract and literal cases, saved before the new connected draft and any compiler feedback on it.",
+  "alphabet": "Raw = List (Option Bool); none is the delimiter, some false and some true are data.",
+  "literal_pair": "input.map some ++ [none] ++ cert.map some",
+  "parser_contract": "For every raw, input and cert: splitLiteral raw = some (input, cert) iff raw = literalPair input cert.",
+  "checking_contract": "For every raw: verifyDelimited raw = true iff exists input cert, raw = literalPair input cert and (verifyBitsRun input cert).1 = true.",
+  "malformed_contract": "Missing delimiter or a second delimiter, with any subsequent tail, gives splitLiteral raw = none and verifyDelimited raw = false.",
+  "existing_proofs": {
+    "parser": "GeneralProof1.splitLiteral_iff",
+    "checking": "GeneralProof1.verifyDelimited_accept_iff",
+    "classification": "GeneralProof1.protocol_cases and GeneralProof1.splitLiteral_none_iff"
+  },
+  "reuse_rule": "Consume the existing general proofs directly. Do not reprove the parser or present the requested equivalence as newly missing mathematics.",
+  "cases": [
+    {"name": "empty_missing", "raw": "[]", "parse": "none", "checking": "false"},
+    {"name": "present_false_missing", "raw": "[some false]", "parse": "none", "checking": "false"},
+    {"name": "delimiter_only", "raw": "[none]", "parse": "some ([], [])", "checking": "No fixed acceptance value asserted."},
+    {"name": "empty_input_false_certificate", "raw": "[none, some false]", "parse": "some ([], [false])"},
+    {"name": "false_input_empty_certificate", "raw": "[some false, none]", "parse": "some ([false], [])"},
+    {"name": "mixed_order", "raw": "[some true, some false, none, some false, some true]", "parse": "some ([true, false], [false, true])", "checking": "Exactly (verifyBitsRun [true, false] [false, true]).1; do not guess its value."},
+    {"name": "two_delimiters", "raw": "[none, none]", "parse": "none", "checking": "false"},
+    {"name": "repeated_with_more_tail", "raw": "[some false, none, some true, none, some false, none]", "parse": "none", "checking": "false"}
+  ],
+  "boundary": "The new connected draft remains UNCOMPILED. Proof-side parser/language facts are reused; this does not add machine execution, a class, NP equivalence, effectivity or acceptance."
+}

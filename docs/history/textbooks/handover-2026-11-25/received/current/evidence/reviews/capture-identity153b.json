@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-24T23:47:49.363876+00:00",
+  "status": "Mechanical corrected-candidate checks passed",
+  "failures": [],
+  "candidate": "0959a1c9d59660eec33ca4c9d971d74a8bc54378",
+  "tree": "655ddb1ee2a730d73a7b0fb5eda5a3e3c40eb669",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 72,
+  "scope_identity": "bf745d5d7605cc311158043596e688e6b50bc4a7d51d4824388d709b1b016365",
+  "projection_identity": "0990896e2cdb6da35d13581e1aff3ba7f661b03177a09d3995ec6c691a99e109",
+  "content_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+  "source_identity": "a40e24ce781bbdba8da2090c8646879557291adeba356e99590e4a4caf71806a",
+  "full_receipt": {
+    "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.log",
+    "bytes": 9739736,
+    "sha256": "36391b701b2832b75d0e57a9b108c8bf8915d48b3579382c4ae1963a7d446528"
+  },
+  "prior_C153a_mechanical_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/review153/capture-identity153.json",
+    "bytes": 53691,
+    "sha256": "bed424d36bc2d8c9fbdcca5e04a101e45f81de2351983618270091b6dcb2e13e"
+  },
+  "prior_C153a_actual_failed_run": {
+    "path": "/workspace/scratch/ae71b485b114/work/review153/native-validation153a.json",
+    "bytes": 4007,
+    "sha256": "6b4f257d4e9ae323b8e9b70238aac557e5bbfe3462728f229f0ca7ad047355a0"
+  },
+  "same_scope_M_delta_exact72": true,
+  "full_git_entries_equal_receipt": true,
+  "scope_entry_count": 19407,
+  "changed_paths_from_C153a": [
+    "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean"
+  ],
+  "all_other71_captured_files_exact_prior_descriptors": true,
+  "corrected_owner": {
+    "path": "Applications/Resources/RotationCertificate/BinaryYesVerifier.lean",
+    "mode": "100644",
+    "oid": "06ba7a0284cc31d587afbdfde8895737b41b9945",
+    "before": {
+      "bytes": 12187,
+      "sha256": "2beebc75c62332ca8bb974f8fb7469d431867c0feed0bc4dc3274f596319455f"
+    },
+    "after": {
+      "bytes": 12241,
+      "sha256": "849b5e6977c4041f5df850ba3205e4b79b8099c333b96cdacebcdd3766f564dc"
+    },
+    "exact_old": "open Native PolynomialTime\n",
+    "exact_new": "open Native _root_.Resources.RotationCertificate.DelimiterMachine.PolynomialTime\n",
+    "byte_offset_in_old_owner": 861,
+    "bytes_added": 54,
+    "original_block": "delimiter_conventional",
+    "original_mapping_site": {
+      "original_byte_start": 199,
+      "original_byte_end_exclusive": 220,
+      "staged_byte_start": 172,
+      "staged_byte_end_exclusive": 186,
+      "original_line_in_block": 6,
+      "before": "PolynomialConsumer149",
+      "after": "PolynomialTime",
+      "kind": "guarded_relative_identifier"
+    },
+    "old_source_recovered_by_undoing_one_qualification": true,
+    "complete16_original_blocks_recover_after_qualification_then83_original_edits": true,
+    "interpretation_limit": "Exact bytes and mapping-site recovery only; namespace semantic/elaboration assessment belongs to the two original axes and root actual normal builds."
+  },
+  "repair_record": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration153-root/REPAIR153b.json",
+    "bytes": 1653,
+    "sha256": "95ca7b2bba4b7fcf5950541b916e163ab26eac7e0087c7eaa5a4bdbe209f3bab"
+  },
+  "repair_record_temporal_note": "current_corrected_candidate_not_yet_captured=true is the true state when repair was recorded; the subsequent actual receipt supplies the capture. The original repair record is not rewritten.",
+  "native_capture": {
+    "result": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.result.json",
+      "bytes": 44833,
+      "sha256": "7a3d00031b743083627bc892182f5d8fedf7728844539534fb04648dfca79c66"
+    },
+    "child": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.child-exit.json",
+      "bytes": 1529,
+      "sha256": "eef0e60b5e7d9ff490a481334465bfb3f2741d90ce091be8b5c7438662b381d2"
+    },
+    "start": {
+      "path": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate153b-scope72.start.json",
+      "bytes": 22577,
+      "sha256": "c655dd46c562e076f4b865decde779579d6bd4ad45ee903d722474ff7dea6b1a"
+    },
+    "actual_exit": 0,
+    "elapsed_seconds": 45.62325622800199,
+    "started_utc": "2026-11-24T23:45:04.454975+00:00",
+    "finished_utc": "2026-11-24T23:45:50.079705+00:00",
+    "nonnull_unchanged_inputs": 88,
+    "all72_captured_source_bindings_match": true,
+    "no_added_resource_limits": true
+  },
+  "query_carrier_unchanged": {
+    "path": "/workspace/scratch/ae71b485b114/work/integration153-preparation/generated/Integration153Statements.lean",
+    "bytes": 87360,
+    "sha256": "be70bb5a5812c615fee9940f5e62424f8cd41a79ecaef3ce30913558a3dc8599"
+  },
+  "reuse_boundary": "The exact preceding mechanical record remains authoritative for71 identical owner bodies, all fixed requirements/expectations and prior receipts. It supplies no independent C153b approval or validation success.",
+  "review_loop": "Same original Standards/Spec loop and stable finding IDs; C153a preparation/failure retained, no new approval loop.",
+  "ordinary_validation_status": "Root reported owners153-b started on same16 targets with4,048 inputs; no terminal supplied at this record cutoff.",
+  "compiler_or_product_mutation_by_coordinator": false,
+  "source_accepted": false,
+  "receiving_accepted": false
+}

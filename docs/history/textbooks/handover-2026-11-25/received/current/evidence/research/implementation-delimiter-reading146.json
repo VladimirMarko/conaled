@@ -1,0 +1,2062 @@
+{
+  "schema": "implementation-delimiter-reading146-v1",
+  "recorded_utc": "2026-11-24T12:58:50.270140+00:00",
+  "reader": "/root/certificate_size",
+  "role": "implementation proof/output reading by a preceding proof author; not an independent reviewer axis",
+  "report": {
+    "path": "work/review/implementation-delimiter-reading146.md",
+    "bytes": 12771,
+    "lines": 225,
+    "sha256": "1af7ec3f49876a2ff76ff33730a14f9da96079ee74ca45677da64168c7f6cd1c",
+    "mode": "0644"
+  },
+  "actual_result": {
+    "exit_code": 0,
+    "elapsed_seconds": 40.35822616799851,
+    "started_utc": "2026-11-24T12:50:45.403450+00:00",
+    "finished_utc": "2026-11-24T12:51:25.769518+00:00",
+    "sources_unchanged": true,
+    "binding_count": 321,
+    "command": [
+      "python3",
+      "-B",
+      "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+      "--state",
+      "/workspace/scratch/ae71b485b114/work/native-state",
+      "run",
+      "--project",
+      "/workspace/scratch/ae71b485b114/work/acceptance139",
+      "--",
+      "lake",
+      "env",
+      "lean",
+      "-EhasSorry",
+      "/workspace/scratch/ae71b485b114/work/delimiter-research/query-repair3/DelimiterGeneral146b.lean"
+    ],
+    "project": "/workspace/scratch/ae71b485b114/work/acceptance139",
+    "resource_or_time_limits_added": false
+  },
+  "receipt_checks": {
+    "child_exit_matches_final_result": true,
+    "child_post_run_hashing_completed": false,
+    "child_digest_matches_final_result": true,
+    "log_digest_matches_final_result": true,
+    "actual_input_keys_unique_and_equal_to_all_binding_keys": true,
+    "entire_before_after_maps_equal": true,
+    "null_descriptors": 0,
+    "preparation_descriptors_matched": 316,
+    "preparation_descriptor_mismatches": 0,
+    "additional_runner_bindings": [
+      "/workspace/scratch/ae71b485b114/restored/conaled-textbooks-136-progress-2026-11-23/operations/native/native_profile.py",
+      "/workspace/scratch/ae71b485b114/work/continuation/delimiter-general146-attempt2-preparation.json",
+      "/workspace/scratch/ae71b485b114/work/continuation/run_recorded.py",
+      "/workspace/scratch/ae71b485b114/work/delimiter-research/query-repair3/INPUTS.json",
+      "/workspace/scratch/ae71b485b114/work/delimiter-research/query-repair3/SNAPSHOT.json"
+    ],
+    "all_bound_files_reopened": false
+  },
+  "source_identities": [
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.result.json",
+      "bytes": 164655,
+      "lines": 3255,
+      "sha256": "2886c5949ceef50d97dc5a050409cbef74336c32b3202f059c13ab8ab8d403fa",
+      "mode": "0644"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.child-exit.json",
+      "bytes": 1329,
+      "lines": 35,
+      "sha256": "f888dfce50d65728427fd98e5890ff101274366daf565eb3d843317c17d13a30",
+      "mode": "0644"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.log",
+      "bytes": 82702,
+      "lines": 1082,
+      "sha256": "c774ac143d3fb74750e056bd7ed2f2cf6b6b4089038e44dd18b7a6f11f38e83b",
+      "mode": "0644"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.inputs.json",
+      "bytes": 36778,
+      "lines": 323,
+      "sha256": "2441a1e2b8d87ed0404b9a76d117373fceb6809e6e5ee02e9dd7fed8474132f2",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/DelimiterGeneral146b.lean",
+      "bytes": 153582,
+      "lines": 3131,
+      "sha256": "626a70835cd01b2435c64c9b5726552a55b4d5b5bf63afe8923d2751973518ed",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/SOURCE_MAP.json",
+      "bytes": 1853,
+      "lines": 51,
+      "sha256": "c636c07aef9e4642dd01b2e54bbd26edfad2f02144b965e52fa858518e4b1322",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/INPUTS.json",
+      "bytes": 84506,
+      "lines": 1909,
+      "sha256": "a3ea27745c8418b978dd939ed2954a6699055311a0e532281cb873eef670357b",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/SNAPSHOT.json",
+      "bytes": 1489,
+      "lines": 44,
+      "sha256": "af745047f313cc894529b809b9a2809e76bec2c8cea6d2257385fd87412601aa",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair2/SOURCE_MAP.json",
+      "bytes": 11993,
+      "lines": 455,
+      "sha256": "a380420a2d9e8a92e75830bf358be06324d81bc1ebd51de3b4ab574b775a05de",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair2/DelimiterGeneral146.lean",
+      "bytes": 153582,
+      "lines": 3131,
+      "sha256": "ca2e94539932fbb6416d35c28fb1043d7e6e7496559b0a0fba28eafb150ff72e",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/CHANGES.diff",
+      "bytes": 630,
+      "lines": 11,
+      "sha256": "2128bca6b2f318d1260fa679c214e908cc33060630fa5ff92f79edba8abc0dee",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/MANIFEST.json",
+      "bytes": 3805,
+      "lines": 102,
+      "sha256": "dfa78a5800ef29441eb4556eb57ea72a375beea32bdd9dcdf2a7f22b337f2cab",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/README.md",
+      "bytes": 774,
+      "lines": 3,
+      "sha256": "87ee5e5fabb9cb5476fc267df30832e6c71f1036d69783009ac10284fe708d7b",
+      "mode": "0644"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/README.md",
+      "bytes": 493,
+      "lines": 3,
+      "sha256": "f7a73119eaf81dee073a106b9e1e22ae9ddb6d510310138587f9df5f94add745",
+      "mode": "0644"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt1.log",
+      "bytes": 83380,
+      "lines": 1092,
+      "sha256": "233c94ab7b381fe0946b4c781f5b7e52852747fd93efccecf12de953f554e3c4",
+      "mode": "0644"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt1.result.json",
+      "bytes": 157152,
+      "lines": 3095,
+      "sha256": "c1d29978cee0c474bfc84430e5558cae71a21bce9ebc74ae97ed0ff564b67bdd",
+      "mode": "0644"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "bytes": 484065,
+      "lines": 9086,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1",
+      "mode": "0644"
+    },
+    {
+      "path": "work/conaled/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/Computable.lean",
+      "bytes": 10385,
+      "lines": 273,
+      "sha256": "5ef637a9dd8791282f1770344cd7d80d5c196726c7ba435390a1c0f4a5ce1eae",
+      "mode": "0644"
+    }
+  ],
+  "final_source_body_matches": [
+    {
+      "source": {
+        "path": "work/delimiter-research/general-repair3/DelimiterPrelude144b.lean",
+        "bytes": 25107,
+        "lines": 634,
+        "sha256": "4f986f887f30cfe4ab90eec8894fe2c3b78d3d37cf516fcd4331a89aafe67408",
+        "mode": "0644"
+      },
+      "source_body_bytes": [
+        759,
+        25107
+      ],
+      "source_body_lines": [
+        18,
+        634
+      ],
+      "combined_body_bytes": [
+        44827,
+        69175
+      ],
+      "combined_body_lines": [
+        998,
+        1614
+      ],
+      "exact_body_match": true,
+      "unchanged_from_repair2": true
+    },
+    {
+      "source": {
+        "path": "work/delimiter-research/general-repair3/DelimiterPreludeExamples144c.lean",
+        "bytes": 12989,
+        "lines": 267,
+        "sha256": "30e5cb81d457bc8d4c4fe889cfb7b00df600ea1691e8dcfe38a65a939accc208",
+        "mode": "0644"
+      },
+      "source_body_bytes": [
+        622,
+        12989
+      ],
+      "source_body_lines": [
+        16,
+        267
+      ],
+      "combined_body_bytes": [
+        69695,
+        82062
+      ],
+      "combined_body_lines": [
+        1628,
+        1879
+      ],
+      "exact_body_match": true,
+      "unchanged_from_repair2": true
+    },
+    {
+      "source": {
+        "path": "work/delimiter-research/general-repair3/Protocol144b.lean",
+        "bytes": 11634,
+        "lines": 267,
+        "sha256": "44e41e29237af04093bef4896b4568601252d4e2480b576e0b72e3fee46379da",
+        "mode": "0644"
+      },
+      "source_body_bytes": [
+        324,
+        11634
+      ],
+      "source_body_lines": [
+        12,
+        267
+      ],
+      "combined_body_bytes": [
+        82400,
+        93710
+      ],
+      "combined_body_lines": [
+        1891,
+        2146
+      ],
+      "exact_body_match": true,
+      "unchanged_from_repair2": true
+    },
+    {
+      "source": {
+        "path": "work/delimiter-research/general-repair3/NativeLoops144b.lean",
+        "bytes": 22886,
+        "lines": 417,
+        "sha256": "ece5e04f35bb69e71f9308ea62c30e0fdaecd634b737f6c48cf49b9cd8a32fd5",
+        "mode": "0644"
+      },
+      "source_body_bytes": [
+        392,
+        22886
+      ],
+      "source_body_lines": [
+        13,
+        417
+      ],
+      "combined_body_bytes": [
+        94127,
+        116621
+      ],
+      "combined_body_lines": [
+        2159,
+        2563
+      ],
+      "exact_body_match": true,
+      "unchanged_from_repair2": false
+    },
+    {
+      "source": {
+        "path": "work/delimiter-research/general-repair3/PrefixComposition144b.lean",
+        "bytes": 19761,
+        "lines": 354,
+        "sha256": "15dcaffb7fd2f57f76d13d8fce4beb94387ec9daff3b6354f035eff3863459ce",
+        "mode": "0644"
+      },
+      "source_body_bytes": [
+        328,
+        19761
+      ],
+      "source_body_lines": [
+        12,
+        354
+      ],
+      "combined_body_bytes": [
+        116977,
+        136410
+      ],
+      "combined_body_lines": [
+        2575,
+        2917
+      ],
+      "exact_body_match": true,
+      "unchanged_from_repair2": true
+    }
+  ],
+  "repair3_change": {
+    "hunks": 1,
+    "changed_lines": 1,
+    "only_change": "Right-associate the congrArg append lambda in pair_split_append.",
+    "all_other_four_sources_identical": true,
+    "all_other_combined_bytes_identical": true,
+    "unchanged_prefix_bytes": 44086,
+    "unchanged_prefix_sha256": "0335a4359ddb39338f6e8b988b04c4dba90d306315885980c1f6517c34e25866",
+    "statements_premises_fixtures_machine_actions_changed": false
+  },
+  "reading_ranges": [
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.log",
+      "ranges": [
+        [
+          1,
+          200
+        ],
+        [
+          201,
+          400
+        ],
+        [
+          401,
+          600
+        ],
+        [
+          601,
+          800
+        ],
+        [
+          801,
+          1000
+        ],
+        [
+          1001,
+          1082
+        ]
+      ],
+      "coverage": "complete actual successful log"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/DelimiterPrelude144b.lean",
+      "ranges": [
+        [
+          1,
+          634
+        ]
+      ],
+      "coverage": "complete final source file freshly read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/DelimiterPreludeExamples144c.lean",
+      "ranges": [
+        [
+          1,
+          267
+        ]
+      ],
+      "coverage": "complete final source file freshly read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/Protocol144b.lean",
+      "ranges": [
+        [
+          1,
+          267
+        ]
+      ],
+      "coverage": "complete final source file freshly read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/NativeLoops144b.lean",
+      "ranges": [
+        [
+          1,
+          417
+        ]
+      ],
+      "coverage": "complete final source file freshly read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/PrefixComposition144b.lean",
+      "ranges": [
+        [
+          1,
+          354
+        ]
+      ],
+      "coverage": "complete final source file freshly read"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.child-exit.json",
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/SOURCE_MAP.json",
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/query-repair2/SOURCE_MAP.json",
+      "ranges": [
+        [
+          1,
+          455
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/SNAPSHOT.json",
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/MANIFEST.json",
+      "ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/CHANGES.diff",
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/general-repair3/README.md",
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/README.md",
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "coverage": "complete rendered content read"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.result.json",
+      "ranges": [
+        [
+          1,
+          3255
+        ]
+      ],
+      "coverage": "entire JSON parsed; scalar metadata inspected and all descriptor/list entries programmatically compared; not every bound file reopened"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt2.inputs.json",
+      "ranges": [
+        [
+          1,
+          323
+        ]
+      ],
+      "coverage": "entire JSON parsed; scalar metadata inspected and all descriptor/list entries programmatically compared; not every bound file reopened"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/INPUTS.json",
+      "ranges": [
+        [
+          1,
+          1909
+        ]
+      ],
+      "coverage": "entire JSON parsed; scalar metadata inspected and all descriptor/list entries programmatically compared; not every bound file reopened"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt1.result.json",
+      "ranges": [
+        [
+          1,
+          3095
+        ]
+      ],
+      "coverage": "entire JSON parsed; scalar metadata inspected and all descriptor/list entries programmatically compared; not every bound file reopened"
+    },
+    {
+      "path": "work/continuation/delimiter-general146-attempt1.log",
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "coverage": "complete sole diagnostic; remaining prior type/axiom output not freshly read"
+    },
+    {
+      "path": "work/delimiter-research/query-repair3/DelimiterGeneral146b.lean",
+      "ranges": [
+        [
+          3124,
+          3131
+        ]
+      ],
+      "coverage": "fresh direct query-tail reading; all five namespace bodies separately fully read and exact byte-matched; unchanged prefix identity-checked only"
+    },
+    {
+      "path": "work/conaled/Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "ranges": [
+        [
+          42,
+          90
+        ],
+        [
+          1935,
+          1979
+        ]
+      ],
+      "coverage": "actual local stores, complete configuration and physical-cell definitions"
+    },
+    {
+      "path": "work/conaled/.lake/packages/mathlib/Mathlib/Computability/TuringMachine/Computable.lean",
+      "ranges": [
+        [
+          100,
+          140
+        ]
+      ],
+      "coverage": "native complete initializer/halt and output-time definitions"
+    }
+  ],
+  "query_checks": {
+    "readable": 198,
+    "expanded": 1,
+    "type_commands": 199,
+    "reported_type_blocks": 199,
+    "type_target_multisets_equal": true,
+    "axiom_roots": 8,
+    "axiom_target_order_equal": true,
+    "error_headers": 0,
+    "warning_headers": 0,
+    "sorryAx_present": false,
+    "expanded_state_stackCells_has_Fintype_R_binder": false,
+    "expanded_state_stackCells_fixed_store_instance": "instFintypeCallerStore",
+    "display_option": "command-local pp.all true only"
+  },
+  "axiom_reports": [
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "root": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "all_printed_output_blocks": [
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.Raw : Type",
+      "start_line": 1,
+      "end_line": 1,
+      "sha256": "aee07bae7ba152cb410fa3d345da580864dc3088483fad5c3d61d5bc45d9ce9f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.Scratch : Type",
+      "start_line": 2,
+      "end_line": 2,
+      "sha256": "9c72972d5fed1e92cf2ffb789c0b3aaa172826756774e1eac1322db2f318c3c4"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.CallerStore : Type",
+      "start_line": 3,
+      "end_line": 3,
+      "sha256": "fa964c6fae1a8b0dbfb4b896ed956009417ef695bbe3a9cee7d6afa236b6851a"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.CallerPhase : Type",
+      "start_line": 4,
+      "end_line": 4,
+      "sha256": "2a25c41bc19a9e2d5959a54706d4002d0cc1290672464d1677ca6bfdb3ef4ac1"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.CallerAlphabet :",
+      "start_line": 5,
+      "end_line": 6,
+      "sha256": "8d9341d8a6b4139446f9958c71137dd29944189d39ace240cdead1737720b9c8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.Registers (R : Type) : Type",
+      "start_line": 7,
+      "end_line": 7,
+      "sha256": "25f78131d0bb61278b5223d99e90e7dcf87b497a809068037f3322a640851ded"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.Statement (R : Type) : Type",
+      "start_line": 8,
+      "end_line": 8,
+      "sha256": "662612c0dc7961f8e575847ca59f3c0ebec61d7e6151f09de1817c28c5433fc4"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.Cfg (R : Type) : Type",
+      "start_line": 9,
+      "end_line": 9,
+      "sha256": "b08025c3853bb4f123f137c5686e07f6890a383334ba59b8a10801fecccb8f8b"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.inputIndex :",
+      "start_line": 10,
+      "end_line": 12,
+      "sha256": "329776aacda17ba540040c770c5eea0eb7aa849c0c58c6c3df9d5fc7fc8e7bd2"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.workIndex :",
+      "start_line": 13,
+      "end_line": 15,
+      "sha256": "cbd015a63af44f709c33288447c1d0a9392361319aa6301c93daba78980bbc66"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.framedIndex :",
+      "start_line": 16,
+      "end_line": 18,
+      "sha256": "dde311d09f51fd0be93b7363e2aad97eb76d092b7dcaa00679ffc052f680328d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.fuelIndex :",
+      "start_line": 19,
+      "end_line": 21,
+      "sha256": "29c73a94f0bff56c23d44850f072b220b30479c89f1e6806e34aec2628b04354"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.oldMain :",
+      "start_line": 22,
+      "end_line": 24,
+      "sha256": "bf62edcb170fa55850298c103a1e005f704b0cb95712aaa6b83f9a8dab1064d3"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.scratch {R : Type}",
+      "start_line": 25,
+      "end_line": 27,
+      "sha256": "0a1310c44e0f0904511f55588b49cb0dca5808881deae16bc783cc5f1600608c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.baseUser {R : Type}",
+      "start_line": 28,
+      "end_line": 29,
+      "sha256": "e592cfae013c0508eb4d679bbc106f27b553c54da31cb6f9ee756b6672daa874"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.setScratch {R : Type}",
+      "start_line": 30,
+      "end_line": 33,
+      "sha256": "0cf118ba8b8d9039c816aac0799d378d895028f9a48e487d12e3088b70852cef"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.observeInput {R : Type}",
+      "start_line": 34,
+      "end_line": 36,
+      "sha256": "d7d7d03c4db6c6093ee8d96bedf7d87554366099bb00cc06702151217583ac48"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.observeWork {R : Type}",
+      "start_line": 37,
+      "end_line": 39,
+      "sha256": "33cd0edd9ed631af140b5e14d0fae4953ccaa325ffd2fc6a2ffaec5486d7388c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.present {R : Type}",
+      "start_line": 40,
+      "end_line": 41,
+      "sha256": "c78055f0494f64bbd064a5776ef2ed948e30845ea33efb6fba7b8007a1cb9337"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.isBit {R : Type}",
+      "start_line": 42,
+      "end_line": 43,
+      "sha256": "140c536a9fd6b8016acabaaa6503a637eb097b77ec49a083fe1a6f92222f2384"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.bit {R : Type}",
+      "start_line": 44,
+      "end_line": 45,
+      "sha256": "e4c6bc741ebd0d29a8fc5bc6158e833a4c6dc27765f64fca9ce4abb9082c00c2"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.reset {R : Type}",
+      "start_line": 46,
+      "end_line": 48,
+      "sha256": "6a9b07d86ff1ae318293379d2aeead6fea12b331ea19583adcd65aebe0608147"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.jump {R : Type}",
+      "start_line": 49,
+      "end_line": 51,
+      "sha256": "d85d365ca9091f863027d8ed42062cc033c14598078470b6d15336d087f688c7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.handoff {R : Type} :",
+      "start_line": 52,
+      "end_line": 53,
+      "sha256": "731e8beb671ffee596ccebbaa75ba9696aaf1652e9610f7f7d5188e5d9bca1e7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.caller {R : Type} :",
+      "start_line": 54,
+      "end_line": 56,
+      "sha256": "e758bc4934a126a545ca6441674eedc78e30786ffb81809b2c445df77f922fa3"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.program {R : Type} :",
+      "start_line": 57,
+      "end_line": 60,
+      "sha256": "0670232a49eaa4e0de53577643fce7e6bb9112c6674d127e38e466dd5c3faf71"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step {R : Type} :",
+      "start_line": 61,
+      "end_line": 63,
+      "sha256": "45f3ecd3074fd93a301500c4c2c8d016d86d16db6f724fa0fe609cbad600c620"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.next {R : Type}",
+      "start_line": 64,
+      "end_line": 66,
+      "sha256": "34401b678e3565c92152dce857cfb0a9ad77c0100ab8d0b806a28d980c5c56a7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.next_some {R : Type}",
+      "start_line": 67,
+      "end_line": 70,
+      "sha256": "6757fa29bfaa2ea5176cf7350469a5fa996e82afe89a00876159189097c2277c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.program_caller {R : Type}",
+      "start_line": 71,
+      "end_line": 75,
+      "sha256": "97df7e37048597218edadeb32f75eb47582ccf4c4528a7278cfec1cf2a8c58ff"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.caller_actionBound_le {R : Type}",
+      "start_line": 76,
+      "end_line": 78,
+      "sha256": "20b4b45780ffdfab395e213377c3f43a23871dec7dceb19893beb71c793e65b0"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.callerContext",
+      "start_line": 79,
+      "end_line": 82,
+      "sha256": "900ae6068d2001a7441fed4d2deef7a51b617a4e8d08bf0fa695d01bb5cae216"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.state {R : Type}",
+      "start_line": 83,
+      "end_line": 87,
+      "sha256": "a9f87a88458fd5a972736c3ffbbe65b6266d68834bf597e09c0e1ee70d1cbab6"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine {R : Type} [Fintype R] (initial : R) : Turing.FinTM2",
+      "start_line": 88,
+      "end_line": 88,
+      "sha256": "645f94c4c54a2467485ddf000522fb3ad4912b2796f5a7505cf2a10f5d9fb51d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine {R : Type} [Fintype R] (initial : R) : Turing.FinTM2",
+      "start_line": 89,
+      "end_line": 89,
+      "sha256": "81e82e057e5dae65affe9f8b88ce2abb677ad8b3f3e77b85fe75068347bfd586"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machineAlphabetFintype {R : Type} [Fintype R] (initial : R)",
+      "start_line": 90,
+      "end_line": 92,
+      "sha256": "c5942cdf85386955ff03a616a93e2c9b43d7a1336b1d5594cd5cd680c8ce1a3e"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_inputAlphabet {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 93,
+      "end_line": 96,
+      "sha256": "6424078c223ea7a35ae36bde5e638a95c90374b891aba912cc375392f615dd27"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_outputAlphabet {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 97,
+      "end_line": 100,
+      "sha256": "44df29102075e92f80bd8e2fd1b7ac7c00c76dc7776b9f4f221a9a739ca3f866"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_program_eq_old {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 101,
+      "end_line": 103,
+      "sha256": "c8ed5e370e2028cec8546995212ee8001c5ccbc33234a2285b6d494fdda04620"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_initialState_eq_old {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 104,
+      "end_line": 106,
+      "sha256": "90d18ba70967a85a28c0f7111cf06959b112dfad51e017d70ddbdd3117de5919"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_step_eq {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 107,
+      "end_line": 109,
+      "sha256": "75d0835e9c09bfceed44d834a0a52760f0ec4abeefcb9626ef150d4a2a75abe5"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_step_eq {R : Type} [Fintype R] (initial : R) :",
+      "start_line": 110,
+      "end_line": 112,
+      "sha256": "dff355f4153ff9c1e8e41259f836d2f481cfe1cf59b49e6f526ca8a634d625fb"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.haltList_eq_old {R : Type} [Fintype R] (initial : R)",
+      "start_line": 113,
+      "end_line": 116,
+      "sha256": "181b910fc0e645fdc33721d25a1fec50eb212d5915d9d7b693421d51a8c7cafa"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.machine_initList_eq {R : Type} [Fintype R] (initial : R)",
+      "start_line": 117,
+      "end_line": 121,
+      "sha256": "150a558851d5d57fa260cf16d3c0195754fe20d1cc85b3ac401a45daa4e1b450"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.oldMachine_initList_eq {R : Type} [Fintype R] (initial : R)",
+      "start_line": 122,
+      "end_line": 128,
+      "sha256": "29b3d323d194c07d9f9920b5485372134627e5a62d5357deb752163f4f92c84a"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_bit {R : Type} (initial : R)",
+      "start_line": 129,
+      "end_line": 139,
+      "sha256": "2b00aef2b8efbb3443dae5b0663dd6e09cd5221227d1c61dccda9606c9b1cc8b"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_delimiter {R : Type} (initial : R)",
+      "start_line": 140,
+      "end_line": 149,
+      "sha256": "4649dcbc8ecd87568ecc75553decb9399b1e658b2bd5cb3ada2a6d1f1d678d23"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_prefix_empty {R : Type} (initial : R)",
+      "start_line": 150,
+      "end_line": 157,
+      "sha256": "ca80bc15f7a1d6a6f76b0729b755a94463923d9cb45f948a1da27e50fabfbae8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_bit {R : Type} (initial : R)",
+      "start_line": 158,
+      "end_line": 168,
+      "sha256": "6762a60c8a3c0efb984d24f4f480a96f5c8c7c29a02ef97d75132ddaaf4d5145"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_delimiter {R : Type} (initial : R)",
+      "start_line": 169,
+      "end_line": 178,
+      "sha256": "1a9f8678b83007033fb1175a8459fe0673d2b6cf3b8ab503145dbca088a07fa7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_certificate_empty {R : Type} (initial : R)",
+      "start_line": 179,
+      "end_line": 186,
+      "sha256": "089a95653c7563b8361ae9b42dfc4a8596a4b87e2df577b0eff74a1f78c95e21"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_bit {R : Type} (initial : R)",
+      "start_line": 187,
+      "end_line": 196,
+      "sha256": "f9a98c4490c458ecd413b627a8efc1c4f065bc546af6ea53975443c254c4b971"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_cons {R : Type} (initial : R)",
+      "start_line": 197,
+      "end_line": 206,
+      "sha256": "270f2fa76d0dd6a422d0ace1afaf872612b5a428df2a3bc344bb9138cfb89d20"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_drainInput_empty {R : Type} (initial : R)",
+      "start_line": 207,
+      "end_line": 214,
+      "sha256": "54e022048f6bda319caa03d9171fda03e5575f8dddd0b0c3aa161d75f6a105e8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_bit {R : Type} (initial : R)",
+      "start_line": 215,
+      "end_line": 223,
+      "sha256": "31c16c901649298c042d2c114f40ba2ee7465aae3bde42d5dbcab2b948fd4692"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_reverse_empty {R : Type} [Fintype R] (initial : R)",
+      "start_line": 224,
+      "end_line": 229,
+      "sha256": "30504a7bc5a06c759aab9d84f8b9610cb803cc9fd6446c383037f1085dfda1c3"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.step_drainWork_empty {R : Type} [Fintype R] (initial : R)",
+      "start_line": 230,
+      "end_line": 235,
+      "sha256": "974977411782a9244145f326e0d3aaa36deac79e4e820c1a0eece84686de0f19"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.literalPair (input cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 236,
+      "end_line": 237,
+      "sha256": "2037303c149f4b35e9c2bc87d5fe999b071af853283cd9b12f49bd208edaf580"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits :",
+      "start_line": 238,
+      "end_line": 239,
+      "sha256": "587f2b0fb3aba392fda517acb41235ddd3eba37df033c4ba92849af8a2707668"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral :",
+      "start_line": 240,
+      "end_line": 242,
+      "sha256": "2770cfd1d6444e06efb8661ac0cd43e6a642647683498c03de5c90d814db42fd"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord",
+      "start_line": 243,
+      "end_line": 244,
+      "sha256": "04d7a98fc995080f40725a8078e39ffe9d32c0c3c2e2214f470c86028e3a53f9"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited",
+      "start_line": 245,
+      "end_line": 246,
+      "sha256": "a199e4c006d03a6c21fdf46178a1c9ea08ed05c51a2e5fd1f15bbb803d67c4b8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength :",
+      "start_line": 247,
+      "end_line": 248,
+      "sha256": "dbc65fd84c2ef06ef0971b4c7c61ef084efeea21e7e82879f4249092c10ff233"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.workLength :",
+      "start_line": 249,
+      "end_line": 250,
+      "sha256": "5a116f8885c76d7d9c3e8d2536fe53744dcd685a9ccedf43ac77ea2be4169754"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps",
+      "start_line": 251,
+      "end_line": 252,
+      "sha256": "b091185f1a7f6bb5e98754f528c50b032d26985184b717be327c90f5e06a04fe"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.suffixWorkLength_le",
+      "start_line": 253,
+      "end_line": 255,
+      "sha256": "156f1278e276a95d46a82774399c98730b8137e95157a8c971753942536a22d8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.workLength_le",
+      "start_line": 256,
+      "end_line": 258,
+      "sha256": "f0e51995dcd5e6a9d3671ed1b900c4e4d501681cd8780f6c6208463cd005b3a5"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.preludeSteps_le",
+      "start_line": 259,
+      "end_line": 261,
+      "sha256": "01bd6e9e1d1bd7f903790e46f667e2eaa35f6e6d689b07abd0078284359f1b2c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.literalPair_length (input cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 262,
+      "end_line": 264,
+      "sha256": "8a5d9b0ae2450ac80ef0015744ec7bcd38082c48a441ef95342e919b0d34ff9d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.suffixBits_map (cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 265,
+      "end_line": 266,
+      "sha256": "2b42b37bebdb074becc0636349814aec2b637aa91d345d5fbf954626d662c911"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.splitLiteral_pair (input cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 267,
+      "end_line": 270,
+      "sha256": "930fbb8f074cff86ce116cee63293999aa6297c27f0737416015066fddec6549"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.handoffWord_pair (input cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 271,
+      "end_line": 274,
+      "sha256": "c685dc3fdaa5cf63fd45821d5fef48f111e8da2ff6fbb074709ea343747c0f22"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.verifyDelimited_pair (input cert : Resources.BinaryCounter.Bits) :",
+      "start_line": 275,
+      "end_line": 278,
+      "sha256": "7cae35bc769428ce3af79fadc11ac5eee7bc5b05ecaa0433029da278cbb7d97d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.verifyFramed_handoffWord",
+      "start_line": 279,
+      "end_line": 283,
+      "sha256": "d9e33136b7e8e8f8f5616d1faa3efbc2204b15f50bac2a3976e7d8e473ac0dc7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_delimited_certificate",
+      "start_line": 284,
+      "end_line": 290,
+      "sha256": "e18b757bfa87d2a386f471d63b02536986fc3c21eea7a3661e1a95cc268c0003"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.binaryYes_iff_exists_small_delimited_certificate",
+      "start_line": 291,
+      "end_line": 300,
+      "sha256": "20136acb662525dc7794eb7efa0db302be94215020bf7d8c1ca7f6d5fa8c19af"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.lastInputPop",
+      "start_line": 301,
+      "end_line": 304,
+      "sha256": "af1ad8f84a9a5aac82fbf87990980821783cfefb7fd629259200826f4af701d3"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.lastBitPop",
+      "start_line": 305,
+      "end_line": 307,
+      "sha256": "a5618813165445b4fb5b546a40aea9cecf62c48163e345687bab4bbb5885a6b5"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.PreludeInvariant {R : Type} [Fintype R] (initial : R)",
+      "start_line": 308,
+      "end_line": 310,
+      "sha256": "44a41d5662489082de2e7cae7a9dea345dd1bcb3e86eff86f278157e1ebdf097"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.HandoffObligation {R : Type} [Fintype R] : Prop",
+      "start_line": 311,
+      "end_line": 311,
+      "sha256": "fa7655588ddbffbeb4d91081349ed74cfba6c30ab8c52cea707eec03b165ad21"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.PrefixObligation {R : Type} [Fintype R] : Prop",
+      "start_line": 312,
+      "end_line": 312,
+      "sha256": "b682bd8fec98fab1acf92e1d0ef81219b813645ebd03762028b46b4d5b45e01c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.totalSourceSteps",
+      "start_line": 313,
+      "end_line": 314,
+      "sha256": "20ef8727e0b3a07b2d8a280880824619ec9970eb8e28bd77bcfb4b1a355b59b7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.sourceTimeBound (N : ℕ) : ℕ",
+      "start_line": 315,
+      "end_line": 315,
+      "sha256": "92e735da1122aedddc4b3e5b4945f01d03eacb876468a2a53b1491cbab29da69"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.actionMaximum {R : Type} [Fintype R] : ℕ",
+      "start_line": 316,
+      "end_line": 316,
+      "sha256": "925ddfefd4c1695287109ada2da9a061aff4dbed2f587e9b9b80a585e4f5afbb"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.encodedPrimitiveTimeBound (A N : ℕ) : ℕ",
+      "start_line": 317,
+      "end_line": 317,
+      "sha256": "0b3ab72390927534e69a56d548d7e9c26d88f23d49241f36e72c5d99974843c8"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.empty_missing_handoff :",
+      "start_line": 318,
+      "end_line": 321,
+      "sha256": "e9d803eca7488a5b65bc82391987a713f5099c28c5f086db520554f63cc07583"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.delimiter_only_handoff :",
+      "start_line": 322,
+      "end_line": 325,
+      "sha256": "beb1736c3ec13170ab7ad8d479784029acf270632a97e216f5acf303d0663478"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.prefix_false_handoff :",
+      "start_line": 326,
+      "end_line": 329,
+      "sha256": "6080f50e64785630648bae9e53ce411575c68a6e74553924ab66d3e974c27b35"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.prefix_true_handoff :",
+      "start_line": 330,
+      "end_line": 333,
+      "sha256": "32a7e22b61a1e38c200002daa4ecece93b626e2a472bbb6630324925e064f02c"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.certificate_false_handoff :",
+      "start_line": 334,
+      "end_line": 337,
+      "sha256": "65a213a7478231b72c0a88ec59a3b78afa3f6ced54247a047b753487ad8117e7"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.certificate_true_handoff :",
+      "start_line": 338,
+      "end_line": 341,
+      "sha256": "d7c8e89d2fa6a4dc522666f8d1dd9e3c761ac86c943dd8ef4073c961a7bce7c0"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.two_certificate_bits_handoff :",
+      "start_line": 342,
+      "end_line": 347,
+      "sha256": "24f03f97c26f8b1068558d211d7933c47333b2054bdda3d7bf86b601362fd34b"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.mixed_valid_handoff :",
+      "start_line": 348,
+      "end_line": 355,
+      "sha256": "97a30c6f8d758cb6a92b832fd9ddab8a31f595102e502333f386b311451d749c"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.missing_false_handoff :",
+      "start_line": 356,
+      "end_line": 359,
+      "sha256": "f84b03a7ada5abe4acc60893e235278bad931e440fe0429e992cfa697b9f1dcb"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.missing_true_handoff :",
+      "start_line": 360,
+      "end_line": 363,
+      "sha256": "2eb79c98bc4a815a2ca4d1e7ed9afbe23101c307506fdb5fb38e3e165da20d26"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.missing_mixed_handoff :",
+      "start_line": 364,
+      "end_line": 368,
+      "sha256": "68b6baf572021969e24a00153c872e9d961682e70760e3f2fd687064c91a2bf9"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_empty_handoff :",
+      "start_line": 369,
+      "end_line": 372,
+      "sha256": "7653edbef11eb7d0b1afe9fca61a712902381afe1d74d5d6deb35a807592003f"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_tail_handoff :",
+      "start_line": 373,
+      "end_line": 378,
+      "sha256": "ef6e4af49fe2515f57a5547f6badb7fc06741663fcdc598122aa328a318b646a"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_mixed_handoff :",
+      "start_line": 379,
+      "end_line": 384,
+      "sha256": "a49ac593dd04cb6aba8ad1373c7fb99f551a460d9f012c6d30628cd1ef19712c"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_tail_has_delimiter_handoff :",
+      "start_line": 385,
+      "end_line": 390,
+      "sha256": "88891af834c2f921945cf0a5fe5f324004015edb8e8459211099af8287a7fdbc"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.mixed_valid_initial_true_handoff :",
+      "start_line": 391,
+      "end_line": 398,
+      "sha256": "054d677d4a33ce70cc54f650bc561aa01adfe33f7a5d2b6a9d78a850a55cfa3c"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_mixed_initial_true_handoff :",
+      "start_line": 399,
+      "end_line": 404,
+      "sha256": "ea28e74098354aae76509008be105d793afa91d868874d28c3a132ff7311ff35"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.empty_is_missing :",
+      "start_line": 405,
+      "end_line": 406,
+      "sha256": "ee6bc53170423c636781973d87d2804287718d85756a4622e66c1716de77833b"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.delimiter_alone_is_valid :",
+      "start_line": 407,
+      "end_line": 408,
+      "sha256": "8a2ca57a9bb3e2b1d6df17e04945966a6030588ebc758c44fbc3b546d54d72e9"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.repeated_delimiter_is_invalid :",
+      "start_line": 409,
+      "end_line": 410,
+      "sha256": "b70a1f38b74d9e0f0de65d7cd084ea20a6e5bf510f5388d0741d4237b4a0695a"
+    },
+    {
+      "first_line": "Examples.DelimiterPreludeResearch.delimiter_tail_is_fully_rejected :",
+      "start_line": 411,
+      "end_line": 412,
+      "sha256": "4c81875636f43785689936ae4e4f9779beab746e8abd2e8435914fc59327c4b8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.first_delimiter_cases",
+      "start_line": 413,
+      "end_line": 415,
+      "sha256": "1439e17407eb892d822979fd75b78fdbedf1e95619989b6ab5dcb45358bebb5c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.protocol_cases",
+      "start_line": 416,
+      "end_line": 421,
+      "sha256": "4f048b26082b8cc012f9d9bd31da9f77b4a775faedc010d554a5a8ce260d9542"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_map_append",
+      "start_line": 422,
+      "end_line": 425,
+      "sha256": "258c22377a7198d9ceb409cdb34a4061cf8d5209fa9560afd6ae4d9c03180495"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_map_append",
+      "start_line": 426,
+      "end_line": 430,
+      "sha256": "b23a4194ba18bd34452c89a5fe1abcadaf74e66242328edcf9dec908818f3309"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_before_delimiter",
+      "start_line": 431,
+      "end_line": 433,
+      "sha256": "bdc740f228c1269c47d6aabfc10baa3542473876a0f75758fd1ea9a9b9aae6b4"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_missing",
+      "start_line": 434,
+      "end_line": 436,
+      "sha256": "1f0132126be9be8b4e5ebedda28ae234adce0a01e6e3b061652fc8cf3b599215"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_repeated",
+      "start_line": 437,
+      "end_line": 441,
+      "sha256": "13227001ebbc241edd11a29678e8adc2bdbd9c65e52ff3dbc07202af48dc8857"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixBits_iff",
+      "start_line": 442,
+      "end_line": 444,
+      "sha256": "fd8ea15d7d2b0f87ab5d2ea1a974e232b96d4952dd39264a4d589626f0a21332"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_iff",
+      "start_line": 445,
+      "end_line": 448,
+      "sha256": "c84ec3d2ac4286dfd8814999df66647679171674eaa9194e85992c3aa76375b8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literalPair_injective :",
+      "start_line": 449,
+      "end_line": 450,
+      "sha256": "97a7c2590212da75ce2e92ce1deffdc55267aa0d06b50633da850fccb2bd94b6"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.splitLiteral_none_iff",
+      "start_line": 451,
+      "end_line": 456,
+      "sha256": "4e53bee7ced72d1c7a57aec98c39d1a1914d12ff2a1cb52044db53c096932e53"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.suffixWorkLength_map_append",
+      "start_line": 457,
+      "end_line": 460,
+      "sha256": "c0ca1ec73939d15407522c5b823057c142cfb05de178fa2fe240efb41cdca72b"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_map_append",
+      "start_line": 461,
+      "end_line": 464,
+      "sha256": "7f13496c1110a4bbda6a75648a7d08da2799bff3a88a119b3b1a8ba71256b19f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_missing",
+      "start_line": 465,
+      "end_line": 467,
+      "sha256": "e8524093d1bc0dee24dd59aee63e084457d8ea7b2fd810f022b0047b1b93792d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_pair",
+      "start_line": 468,
+      "end_line": 472,
+      "sha256": "9efe05c7fc350c5ec62088529d908e9670654c9d9cdb3305ad210e8ed66b8906"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.workLength_repeated",
+      "start_line": 473,
+      "end_line": 477,
+      "sha256": "52f1591d8512032005fb4b19fbc268c8f846ae1a1d74693fa303acd9912a71b1"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_length",
+      "start_line": 478,
+      "end_line": 481,
+      "sha256": "2b7becb854ccd96b5c004a214b1ab071df239b69d4de9fa94445f743634fb36f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_missing",
+      "start_line": 482,
+      "end_line": 484,
+      "sha256": "8b1fcaf8ebb267832d37b054a86c6ebf93b7a304559395882706174a1b01d11d"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair",
+      "start_line": 485,
+      "end_line": 489,
+      "sha256": "086b61d93527b387c3824c8fa1dccf9b46e609b687e7ef69d82ee6945ef1f4a9"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_pair_frame",
+      "start_line": 490,
+      "end_line": 496,
+      "sha256": "8e8a0dcdd464c67394045467b833af3096abe408143eb8b232df080ef8fd1aea"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated",
+      "start_line": 497,
+      "end_line": 501,
+      "sha256": "e9556f264e954f285caae0336bd58d1f02c6caa8e0320149dee7a3fddee0a555"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.preludeSteps_repeated_frame",
+      "start_line": 502,
+      "end_line": 508,
+      "sha256": "cf1a67a64be8b47b61d6792fc6a5f44be73dcd4c2b03324eb30424984f92b590"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_missing",
+      "start_line": 509,
+      "end_line": 511,
+      "sha256": "26a913e83fa93dc6d057c7afa871eb8dbfdc560b3c1dc0c11211d8b8ac389ca5"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_repeated",
+      "start_line": 512,
+      "end_line": 516,
+      "sha256": "937be53527310338e7541eaa32e0bccd1bce22770e9314683aec015b67b91137"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le_workLength",
+      "start_line": 517,
+      "end_line": 520,
+      "sha256": "c69ae3046a25b4a7948ac83d640f8aa3559c1b02ce9691d6d879c9f88614accb"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoffWord_length_le",
+      "start_line": 521,
+      "end_line": 523,
+      "sha256": "36698b6b239801ff857d7080f323c7ba963c92f2358d2997e3109f31b0919a3a"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.verifyDelimited_accept_iff",
+      "start_line": 524,
+      "end_line": 529,
+      "sha256": "4eb225d15ddec6db27bb4bdd426b6947539345e0619d2a6f6bd2bb475a87e4ab"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_cons",
+      "start_line": 530,
+      "end_line": 534,
+      "sha256": "c59ab96215e16999557058b7254100da97b347180a6fd6ddfbeb559fe474f791"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_cons",
+      "start_line": 535,
+      "end_line": 539,
+      "sha256": "c9f33677fb57a2d02e106ec451ba0dabf7c3e80b6760000430144a818573fd43"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastInputPop_append",
+      "start_line": 540,
+      "end_line": 545,
+      "sha256": "70b328e51d428c211bebdd63c9d5ceb23c79c71ccd8230b1ef96bf0ae465d738"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.lastBitPop_append",
+      "start_line": 546,
+      "end_line": 550,
+      "sha256": "c592f9fe7ad594971084ac897d8f33cd31ec9311d751b22f028f99395a7bf528"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.frame_reverse",
+      "start_line": 551,
+      "end_line": 554,
+      "sha256": "f76f394a6b1a57258b2de28f093c45798ea75fe643dc585b269a43c970c5f1af"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.next_some {R : Type}",
+      "start_line": 555,
+      "end_line": 558,
+      "sha256": "6ef719ee137caec5272ee870955337ceaeda910785c3c8b51046ae0b80c6f622"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_one {R : Type}",
+      "start_line": 559,
+      "end_line": 562,
+      "sha256": "94e9851f32aff7044b05d2f4ecd87b8a092a9410e9b8cde8cc8878d1bf3d8e7b"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_trans {R : Type}",
+      "start_line": 563,
+      "end_line": 567,
+      "sha256": "dd0efb9cec3a7be18c08b724269fe00fc3b483a365ef0650ce280a4807056c55"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.run_count {R : Type}",
+      "start_line": 568,
+      "end_line": 571,
+      "sha256": "19d306e108035f9b6abb527eb81df366835326b6aa5926a6e4589c0523490d62"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.bits_split_append",
+      "start_line": 572,
+      "end_line": 574,
+      "sha256": "10e00bc420bb6f621f61e48aabde0a590b252f7f9a8250ad8488ec11b4314094"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.pair_split_append",
+      "start_line": 575,
+      "end_line": 579,
+      "sha256": "cba861dd23a542769bd946b1d568b8e2fa384f0176dbf32c72f1786b4e0609f1"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_bits {R : Type} (initial : R)",
+      "start_line": 580,
+      "end_line": 592,
+      "sha256": "06ce993371022aceff808d41564e9ed525d588adfe324065e8efc1c52e54776f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_bits {R : Type} (initial : R)",
+      "start_line": 593,
+      "end_line": 605,
+      "sha256": "ad82e9918c8eb1bdb27ac8d337f185e889f4b6d410e5a7df299bbfac56ce0971"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_bits {R : Type} (initial : R)",
+      "start_line": 606,
+      "end_line": 618,
+      "sha256": "c17820a89a55e86462bdebd8af9e41fcc00057fc977a38017ccb65b63536bf30"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_words {R : Type} (initial : R)",
+      "start_line": 619,
+      "end_line": 631,
+      "sha256": "34154e8606bd3e12e48b3ba31cbfd69be7f8ebbb974203387390d83c0045ac75"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_bits {R : Type} (initial : R)",
+      "start_line": 632,
+      "end_line": 642,
+      "sha256": "283fa36e9ed7dae1b86c7c5b3c64cf5293b6100f87866e7dcdb59b0032dd4f02"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_take {R : Type} (initial : R)",
+      "start_line": 643,
+      "end_line": 657,
+      "sha256": "ee7a8a5cc2588c0862ad6f38de8c2b50a3898c36ac0ff5b2e4ccf8e57463f1f7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_take {R : Type} (initial : R)",
+      "start_line": 658,
+      "end_line": 671,
+      "sha256": "507fd116b8e05cad19fbbf4753c4164a17ac73ccad2cba17763112792b98aae6"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_take {R : Type} (initial : R)",
+      "start_line": 672,
+      "end_line": 683,
+      "sha256": "9c6797620276217cb8e2a171a33c9f901bafdfbdfcea9472dab246856916029c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_take {R : Type} (initial : R)",
+      "start_line": 684,
+      "end_line": 696,
+      "sha256": "2462067ee30eeae0e52e5dbf58265eddd0b2f8a9da577695e665cc2f521ceb01"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_take {R : Type} (initial : R)",
+      "start_line": 697,
+      "end_line": 708,
+      "sha256": "95c1a42762eb0569c1f3139f3afc23dfd6430a72d0b8f4dbd9b228cf79a93f8e"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.init_transport {R : Type} [Fintype R] (initial : R)",
+      "start_line": 709,
+      "end_line": 716,
+      "sha256": "de6a50ff95099da9fa666b7ee43c0baf9a3261e1cb74fdaa62dbc9c09551de3f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_word_congr {R : Type} [Fintype R]",
+      "start_line": 717,
+      "end_line": 720,
+      "sha256": "d25408bfaecddf36668552a47738abd9d6def51eabf55c638bcb1bd2d22e2397"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_from_init {R : Type} [Fintype R] (initial : R)",
+      "start_line": 721,
+      "end_line": 733,
+      "sha256": "d02db5151179f078b4235bc05a790cbfbf8cd9977301d945fd9b75bfb3b03f28"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_prefix {R : Type} [Fintype R]",
+      "start_line": 734,
+      "end_line": 746,
+      "sha256": "c5ecbbbfa0004682d0e44d992f5689a7fa317c89228504a4a01f28a6f6a4524f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_entry {R : Type} [Fintype R]",
+      "start_line": 747,
+      "end_line": 758,
+      "sha256": "4ab34e76cf278d2f5d416bf09ed3ff9c4f47d4747f0611a3dff5dadc2b788830"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_reverse_prefix {R : Type} [Fintype R]",
+      "start_line": 759,
+      "end_line": 775,
+      "sha256": "e8d29fe026613c0d1ca45c244d500c4ea886c0f8f4aa0c505d387c5cd8051ca0"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_finish {R : Type} [Fintype R] (initial : R)",
+      "start_line": 776,
+      "end_line": 784,
+      "sha256": "b37414e551657dc867067dd5409d48af83c9cbfba51597428ab97bd49e6257eb"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_work_finish {R : Type} [Fintype R] (initial : R)",
+      "start_line": 785,
+      "end_line": 791,
+      "sha256": "21d0e7290b989bf46cf0a247568f3c72308392238dadfc61ca6dad92e1de21d8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.valid_handoff {R : Type} [Fintype R] (initial : R)",
+      "start_line": 792,
+      "end_line": 801,
+      "sha256": "778162aebc19cda6bb15fcc67b6fbba247184d89b356da556c90c4dd850bd898"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_entry {R : Type} [Fintype R]",
+      "start_line": 802,
+      "end_line": 810,
+      "sha256": "37a28688e70029fbc99c1eda9e48e05be9d269736f97eb87275104ba9fb4e06f"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_drain_prefix {R : Type} [Fintype R]",
+      "start_line": 811,
+      "end_line": 822,
+      "sha256": "3f8f5d491a4d503ee37af8974d0869028b6991deb9b4841fe8346183f6737c94"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.missing_handoff {R : Type} [Fintype R] (initial : R)",
+      "start_line": 823,
+      "end_line": 829,
+      "sha256": "85b876bad7115a1269e33208fe4dae51233c549aa037c38039ceba08e8a4456e"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_entry {R : Type} [Fintype R]",
+      "start_line": 830,
+      "end_line": 840,
+      "sha256": "2bc72a99f45799e98b224ee88fb831de6db9f2f9282b9186ee19e0ccde03de83"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_input_prefix {R : Type} [Fintype R]",
+      "start_line": 841,
+      "end_line": 852,
+      "sha256": "0bdd047e31677d4227c999ac047392a139efc5dd62f7cbacee489b9904a095ef"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_entry {R : Type} [Fintype R]",
+      "start_line": 853,
+      "end_line": 865,
+      "sha256": "e56022a1ebae604076abcf0192582b0d988abec50b94a659b004deb400fb2a7c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_work_prefix {R : Type} [Fintype R]",
+      "start_line": 866,
+      "end_line": 882,
+      "sha256": "c023dd35d0df05290f600d9bcb54ad5e15055809635a42c085475abdb7a5b0c6"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.repeated_handoff {R : Type} [Fintype R] (initial : R)",
+      "start_line": 883,
+      "end_line": 890,
+      "sha256": "6fba90caa51d4b0e9bfef2e11c6547cc96f0e3a8feb239c51e78127289a019e2"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff {R : Type} [Fintype R] (initial : R)",
+      "start_line": 891,
+      "end_line": 898,
+      "sha256": "df3b5c33ce5ebf4fc33cfa22e702df627dc56af85ca6230ae1749279b0741b8e"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_obligation {R : Type} [Fintype R] :",
+      "start_line": 899,
+      "end_line": 900,
+      "sha256": "02e3d09bdebc05d0739037964b374d20a6d6dbee458417ee2bb149df4819da3a"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.BoundaryWitness {R : Type} [Fintype R] (initial : R)",
+      "start_line": 901,
+      "end_line": 902,
+      "sha256": "4932f2441c08f5e2a5e47056a7a9134ae21cc79284d7e5d36e4bc9eb7a606f61"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_witness {R : Type} [Fintype R] (initial : R)",
+      "start_line": 903,
+      "end_line": 907,
+      "sha256": "6e7e6a72e953ed9df6ddcebd75ea023d7d8a295b3fd3d154bfaa1eb1bf35c7e9"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.certificate_witness {R : Type} [Fintype R]",
+      "start_line": 908,
+      "end_line": 912,
+      "sha256": "f890c14d8cdbbc9f35642b09070daae38ba5da6df08b0a9a09dc6477e6cac8d7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.reverse_witness {R : Type} [Fintype R] (initial : R)",
+      "start_line": 913,
+      "end_line": 918,
+      "sha256": "b6ef69c490abc0f0651ec254bc592400a70fae45622c2dc88e76b8f6114f91fc"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_input_witness {R : Type} [Fintype R]",
+      "start_line": 919,
+      "end_line": 924,
+      "sha256": "e0528eb22838cfe79c686e7d6bf5dc0a334299ee87480d4b21456714a1e139d2"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_missing_witness {R : Type} [Fintype R]",
+      "start_line": 925,
+      "end_line": 929,
+      "sha256": "fc76447acd39c786cf8091fc51fc373f2949abf2df40ed55035c7aabdc3ba9f5"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.drain_repeated_witness {R : Type} [Fintype R]",
+      "start_line": 930,
+      "end_line": 936,
+      "sha256": "a29648d62b43c0079bdaf95092f28b15162930bbc0290cc536266c3d83d4ff18"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_invariant {R : Type} [Fintype R] (initial : R)",
+      "start_line": 937,
+      "end_line": 942,
+      "sha256": "180533bc088b99cc86b384885b46e28a0f6b613674524638e14f334a52f723ac"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.handoff_witness {R : Type} [Fintype R] (initial : R)",
+      "start_line": 943,
+      "end_line": 946,
+      "sha256": "1f492067ccd87827320998a5a56f850e2e275252976a7d863768d5fc7fdbdfe0"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_boundary {R : Type} [Fintype R] (initial : R)",
+      "start_line": 947,
+      "end_line": 950,
+      "sha256": "2997ee2d3cf851258847b715ce1d91ca4d9a48a42dca07c7ce2fe8d2930060fe"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.callerContext_cells",
+      "start_line": 951,
+      "end_line": 955,
+      "sha256": "f0b0281f21f6100db8798ba958f108dd6b947755b99d8640c6c89d296fd34092"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells {R : Type}",
+      "start_line": 956,
+      "end_line": 962,
+      "sha256": "b6c6968284f81156cac7cb59b69d1940dd6c604b621a730e83f67c06b08a7ac3"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.old_init_stackCells {R : Type} [Fintype R]",
+      "start_line": 963,
+      "end_line": 967,
+      "sha256": "b0eb6558426e02e347ec7a1d416b057fc2ed906522a135d2a8383429d468073c"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.invariant_stackCells {R : Type} [Fintype R]",
+      "start_line": 968,
+      "end_line": 972,
+      "sha256": "d361dc5d505cc96c80f4b1f6336c917f2f40bff1897145549fcb021c6eca92c0"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation {R : Type} [Fintype R] :",
+      "start_line": 973,
+      "end_line": 974,
+      "sha256": "b20e26fd8a29020d328fc651602e5f3e302a229c03bf074846293a116c32dfa0"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_prefix_cells {R : Type} [Fintype R]",
+      "start_line": 975,
+      "end_line": 983,
+      "sha256": "64ea46f50930ec53620af1305f4d515aac4c5dfa4862e52f2b76c50d5e5aa466"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate {R : Type} [Fintype R] (initial : R)",
+      "start_line": 984,
+      "end_line": 991,
+      "sha256": "b1fd76bf4596ba4bf5dbaea9cb68c8167b87c63673af6627a9465f3eddf3d6b7"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.totalSourceSteps_le",
+      "start_line": 992,
+      "end_line": 995,
+      "sha256": "f0c50dd32d3e783177d607523c803bb2f5d3664f9eee9776c67c1dfb746ac8fb"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells {R : Type} [Fintype R]",
+      "start_line": 996,
+      "end_line": 1002,
+      "sha256": "8c1bd757398da6aac951bda331cfc7bab71d4f54314928050aa2bf8953f17792"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime {R : Type} [Fintype R] (initial : R)",
+      "start_line": 1003,
+      "end_line": 1007,
+      "sha256": "ccdedbdedb7ea426220bcb2612ee5c9dc359fd10f57ae7b952ef54dd420a6ff8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime_steps {R : Type} [Fintype R]",
+      "start_line": 1008,
+      "end_line": 1011,
+      "sha256": "c4b4c99a9fff484beda4e9bb9010b7a9f7053671227d3cf94151a61d92972892"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_outer_none {R : Type} [Fintype R] (initial : R)",
+      "start_line": 1012,
+      "end_line": 1018,
+      "sha256": "94ddda3f176fb92c72bc2fa0769d15c72e4595a95092a3847aadac7a1e47d69b"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output {R : Type} [Fintype R]",
+      "start_line": 1019,
+      "end_line": 1028,
+      "sha256": "b60b03dd2cc78b578af6649c827b5a24f6b640aebe53772fe42f75d4037311c8"
+    },
+    {
+      "first_line": "Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output {R : Type} [Fintype R] (initial : R)",
+      "start_line": 1029,
+      "end_line": 1035,
+      "sha256": "7b6d8781aa2b2f0d3b8605ee60e0beff9ad96923f7fd94e8f9487f31983dd9af"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prelude_handoff' depends on axioms: [propext,",
+      "start_line": 1036,
+      "end_line": 1038,
+      "sha256": "6f1fff8f953a2358bd4aa2f62766800c60974cd8cd76ddbf0d81759e2c81b266"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.prefix_obligation' depends on axioms: [propext,",
+      "start_line": 1039,
+      "end_line": 1041,
+      "sha256": "0961c467ca289f0c5139c3d1b7789480babcd617cf2c41624d6e4010fcf252a8"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_iterate' depends on axioms: [propext,",
+      "start_line": 1042,
+      "end_line": 1044,
+      "sha256": "db2c8b81b20e21aa97d59f2b50067de8d7097c37247ff027955f7360552b9a3e"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.total_prefix_cells' depends on axioms: [propext,",
+      "start_line": 1045,
+      "end_line": 1047,
+      "sha256": "84f04986af49b505b1c09db6ead9766b5003711bebd770fbdb41ef238c80bf16"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.outputsInTime' depends on axioms: [propext,",
+      "start_line": 1048,
+      "end_line": 1050,
+      "sha256": "ee5c3c5daed12fe0d65ea843b66f5915f2bc9b1809716eb2051acf42264c5314"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.literal_pair_output' depends on axioms: [propext,",
+      "start_line": 1051,
+      "end_line": 1053,
+      "sha256": "9f59704572fb0ac817efdd3cf6bfbe98805336c2fef1db6cf9fa5f854e48d3ab"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.malformed_output' depends on axioms: [propext,",
+      "start_line": 1054,
+      "end_line": 1056,
+      "sha256": "95b4f68bcb2a9d9e3f76a645bb07af531e2574b5937983d0b145d472f0b8c215"
+    },
+    {
+      "first_line": "@Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells : ∀ {R : Type}",
+      "start_line": 1057,
+      "end_line": 1063,
+      "sha256": "6f09217898987dc9b6d547967f9c9e54d72ec8312e3577e6889ee9e54d3bb6d8"
+    },
+    {
+      "first_line": "@Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells : ∀ {R : Type}",
+      "start_line": 1064,
+      "end_line": 1079,
+      "sha256": "4f1ebf86da634593cc1da209e47d808d844c8a6244ee751cd61a396e9cda6469"
+    },
+    {
+      "first_line": "'Resources.RotationCertificate.DelimiterPreludeDraft.GeneralProof1.state_stackCells' depends on axioms: [propext,",
+      "start_line": 1080,
+      "end_line": 1082,
+      "sha256": "3bda6c64ea71e63a0e723087536f3c05987cf779fcf6bc4284ecebf45e4d827d"
+    }
+  ],
+  "fixed_fixture_statements": [
+    {
+      "name": "empty_missing_handoff",
+      "steps": 2,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "8c183c9dd4ae0c639fd993b3e7368d69a8fa7c281548c95b886f474341a0b673"
+    },
+    {
+      "name": "delimiter_only_handoff",
+      "steps": 4,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "c00c6eed0614f3b0f9c47bf4356847589cc9f74c8e1f1b8bd34a28ad3e2cd2ec"
+    },
+    {
+      "name": "prefix_false_handoff",
+      "steps": 7,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "63f24519069798120b3de2f0dd37f1098704677412bef18a4ff78e5cd7211927"
+    },
+    {
+      "name": "prefix_true_handoff",
+      "steps": 7,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "83ffa6b9fd1f9491b1483009ec1dc2dece010832d4d1b14e89cd4ac906d87d68"
+    },
+    {
+      "name": "certificate_false_handoff",
+      "steps": 6,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "43ce3df81166ecd806b85a40d02daf5f1bee6f1eb48d26de1f307adbfd430263"
+    },
+    {
+      "name": "certificate_true_handoff",
+      "steps": 6,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "f2c6744c79fdfee1840d44194b4557333ffea85a7c2aa3539b3402c1a4e016c9"
+    },
+    {
+      "name": "two_certificate_bits_handoff",
+      "steps": 8,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "0d8bba5701020779f62559def37af39b1d0394116963a78e66e9c534a2e01f87"
+    },
+    {
+      "name": "mixed_valid_handoff",
+      "steps": 14,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "e0f1ffb9e9d7bb056c921c3a6d289207bfe9ee21f867c1890799b99c901034c0"
+    },
+    {
+      "name": "missing_false_handoff",
+      "steps": 5,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "101bffafca0881fc65c61b355f03c8139c796789d1c238f9092bf967f2eb84ab"
+    },
+    {
+      "name": "missing_true_handoff",
+      "steps": 5,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "041c06f205990421d6fda0c08bb0e2229e83c75cfd522d3f86152f3b09b5e715"
+    },
+    {
+      "name": "missing_mixed_handoff",
+      "steps": 8,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "61d96b82b44a078b85dfd2dcdd1b3f437d11d9429aae735f87c2dd3c3968725c"
+    },
+    {
+      "name": "repeated_empty_handoff",
+      "steps": 5,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "44df1ce69ab1ebe95e5aeee5e63e4edb41f99982913a833a173a38fc703201ae"
+    },
+    {
+      "name": "repeated_tail_handoff",
+      "steps": 6,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "0d46905c6cf68028cea89b8afe5ab51baf90cc78bcc1c781217242e08f293eb0"
+    },
+    {
+      "name": "repeated_mixed_handoff",
+      "steps": 11,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "228a85c12da422c8316cd20df98745cc14028a8c7b05f243af38b0d6352ad330"
+    },
+    {
+      "name": "repeated_tail_has_delimiter_handoff",
+      "steps": 9,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "bcd2013fd83de0ee534fa8c8fa6c3a53de1e23540f9ee7bf90150dfd464d9894"
+    },
+    {
+      "name": "mixed_valid_initial_true_handoff",
+      "steps": 14,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "c78a9dac71756a95ada4c9c75a95abe34d008f33c7072507bdc810c3d8c214ac"
+    },
+    {
+      "name": "repeated_mixed_initial_true_handoff",
+      "steps": 11,
+      "statement_unchanged_from_repair1": true,
+      "statement_sha256": "81382eda39fa810d29e6d96a8fe502d9645a7592e6a3a4fc958077830461a51d"
+    }
+  ],
+  "semantic_assessment": {
+    "actual_new_initializer": true,
+    "full_old_initializer_handoff": true,
+    "literal_delimiter_distinct_from_empty_pop": true,
+    "exhaustive_missing_valid_repeated_inputs": true,
+    "arbitrary_repeated_tail_drained": true,
+    "caller_input_and_work_empty_at_handoff": true,
+    "all_old_stores_fixed_by_complete_configuration": true,
+    "old_registers_and_scratch_reset_base_user_preserved": true,
+    "literal_singleton_halt_with_other_stores_empty": true,
+    "no_added_run_time_or_space_premises_on_final_source_results": true,
+    "valid_steps": "3I+2C+4",
+    "missing_steps": "3N+2",
+    "repeated_steps": "3I+2C+r+5",
+    "prelude_steps_upper_bound": "3N+2",
+    "total_steps": "preludeSteps raw + FrontEndStreamMachine.runSteps (handoffWord raw)",
+    "total_source_bound": "4N^2+23N+38",
+    "every_inclusive_native_prefix_bound": "max(2N,1)",
+    "time_metric": "native TM2 source statement steps",
+    "space_metric": "sum of all actual stack lengths at native source-step boundaries",
+    "extra_outer_none_step_separately_proved": true,
+    "sharp_per_fixture_peak_theorems_supplied": false
+  },
+  "prior_failure": {
+    "exit_code": 1,
+    "elapsed_seconds": 45.72596734599938,
+    "unchanged_binding_count": 305,
+    "complete_diagnostic_lines_read": [
+      1,
+      8
+    ],
+    "retained_untouched": true
+  },
+  "actions": {
+    "compiler_run": false,
+    "source_or_output_installation": false,
+    "process_control_or_cache_mutation": false,
+    "public_M_content_reads": false,
+    "reviewer_actions": false,
+    "github_posts": false,
+    "only_written_files": [
+      "work/review/implementation-delimiter-reading146.md",
+      "work/review/implementation-delimiter-reading146.json"
+    ]
+  },
+  "limits": [
+    "Focused combined probe; no ordinary-source or whole-library acceptance inferred.",
+    "This reader helped author the preceding proofs and is not an independent review axis.",
+    "Unchanged 44086-byte compiler/controller prefix identity-checked, not freshly audited in full.",
+    "Every binding descriptor compared; dependency contents and compiled artifacts not all independently reread.",
+    "No fresh compiler or benchmark run.",
+    "No new primitive TM0/ordinary-I-O/visited-space consumer result or conventional NP/qualification claim.",
+    "Frozen source comments are preparation-time status; current success is bound to exact namespace bodies in the combined probe."
+  ]
+}

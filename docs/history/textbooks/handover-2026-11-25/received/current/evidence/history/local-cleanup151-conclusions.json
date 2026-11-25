@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "intent_utc": "2026-11-24T22:29:15.460345+00:00",
+      "completed_utc": "2026-11-24T22:29:15.470361+00:00",
+      "target": "/workspace/scratch/ae71b485b114/work/checkpoint149-recovery/extracted/conaled-textbooks-149-checkpoint-2026-11-24T211026Z",
+      "logical_bytes": 47250325,
+      "allocated_bytes": 48025600,
+      "members": 298,
+      "archive": "/workspace/scratch/ae71b485b114/deliverables/conaled-textbooks-149-checkpoint-2026-11-24T211026Z.tar.xz",
+      "archive_descriptor": {
+        "bytes": 4363208,
+        "sha256": "c2c6bac660cb8cd194dccae12496f4a6c0c82b386ae85a7e43aae9b57fb0d113",
+        "mode": "100644"
+      },
+      "saved_library_file_id": "libfile_fde3_f-d79c9cfa402081918c66a2d2d1481722_bcb09d6951dc8191bbb29f2ba3c27d9d",
+      "owned_consumers_clear": true,
+      "consumer_evidence": "Root active bindings/config checks and io_bridge explicit no-reader/writer confirmation; audit completed. No global cessation claim.",
+      "reason": "Only saved reproducible P149 extracted duplicate; ENOSPC requires reclaiming disposable capacity. Author source, active and quarantined build outputs untouched.",
+      "intent_file_writable_before_removal": false,
+      "intent_reason": "Immediate earlier mkdir failed with actual ENOSPC; intent emitted to tool stdout before deletion.",
+      "target_absent": true,
+      "source_changed": false,
+      "original_record_descriptor": {
+        "bytes": 1517,
+        "sha256": "8024d7e8e9724fe7c343564918fb1a0af21370261abfc152f6638aa90e611b33",
+        "mode": "100644"
+      },
+      "original_record_name": "retire-extracted149-151.json",
+      "availability": "Original completed cleanup journal is not selected; this compact conclusion preserves its material guards and result."
+    },
+    {
+      "intent_utc": "2026-11-24T22:31:06.655992+00:00",
+      "completed_utc": "2026-11-24T22:31:06.665864+00:00",
+      "reason": "Completed stdout captures exactly duplicate the retained supported baseline/candidate JSON receipts; byte identity verified. Neither is an active whole input. Current supported captures and all original result descriptors remain.",
+      "source_changed": false,
+      "all_targets_absent": true,
+      "entries": [
+        {
+          "retired": "/workspace/scratch/ae71b485b114/work/native-runs147/baseline147-scope63.log",
+          "surviving_exact_bytes": "/workspace/scratch/ae71b485b114/work/resume147/baseline147-scope63.json",
+          "bytes": 9728116,
+          "sha256": "3226878c830e097f5b31f57761149791dd4ac61d034ef3fc6e85e83d635f706c",
+          "mode": "100644",
+          "allocated_bytes": 9732096,
+          "actual_completed_exit": 0
+        },
+        {
+          "retired": "/workspace/scratch/ae71b485b114/work/native-runs147/candidate147-scope63.log",
+          "surviving_exact_bytes": "/workspace/scratch/ae71b485b114/work/resume147/candidate147-scope63.json",
+          "bytes": 9735771,
+          "sha256": "976570b07467baef1562cea594e14073aeb95563c1c9b9684d2c028a674b4e44",
+          "mode": "100644",
+          "allocated_bytes": 9736192,
+          "actual_completed_exit": 0
+        }
+      ],
+      "original_record_descriptor": {
+        "bytes": 1329,
+        "sha256": "ff891b7ed881221acf2bfc649dcd30114e349c3a720b72b8334f84619da9ea01",
+        "mode": "100644"
+      },
+      "original_record_name": "retire-duplicate-capture-logs151.json",
+      "availability": "Original completed cleanup journal is not selected; this compact conclusion preserves its material guards and result."
+    },
+    {
+      "intent_utc": "2026-11-24T22:32:55.560892+00:00",
+      "completed_utc": "2026-11-24T22:32:55.571032+00:00",
+      "target": "/workspace/scratch/ae71b485b114/work/checkpoint150-recovery/extracted/conaled-textbooks-150-checkpoint-2026-11-24T213517Z",
+      "logical_bytes": 48773549,
+      "allocated_bytes": 49577984,
+      "members": 310,
+      "archive": "/workspace/scratch/ae71b485b114/deliverables/conaled-textbooks-150-checkpoint-2026-11-24T213517Z.tar.xz",
+      "archive_descriptor": {
+        "bytes": 4406956,
+        "sha256": "5fea8deb037dd2da28a885e4a2f0f709f3d7a2d95f55a45d9d90c0843cd51f1a",
+        "mode": "100644"
+      },
+      "saved_library_file_id": "libfile_fde3_f-3d9f809e38e88191958a3cbbb37ee428_bcb09d6951dc8191bbb29f2ba3c27d9d",
+      "owned_consumers_clear": true,
+      "consumer_evidence": "Root old/current whole bindings checked; checkpoint_audit and io_bridge explicitly released all P150 readers/writers and rebound future inputs toP151. Completed151 pack/verify/save no longer active.",
+      "reason": "Saved reproducible extracted duplicate; retain complete currentP151 packet, all archives and receipts. No active or quarantined source/build/tool/cache deletion.",
+      "target_absent": true,
+      "source_changed": false,
+      "full151_restoration_still_pending": true,
+      "original_record_descriptor": {
+        "bytes": 1610,
+        "sha256": "57c60732b3facc2f127fdb00442947e44c2812c3f5e4b4fa2d5744821014ec8f",
+        "mode": "100644"
+      },
+      "original_record_name": "retire-extracted150-151.json",
+      "availability": "Original completed cleanup journal is not selected; this compact conclusion preserves its material guards and result."
+    }
+  ],
+  "source_or_quarantined_outputs_deleted": false,
+  "no_new_reading_or_acceptance": true
+}

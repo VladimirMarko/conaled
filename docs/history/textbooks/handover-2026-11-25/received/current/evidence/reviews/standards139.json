@@ -1,0 +1,618 @@
+{
+  "axis": "Standards",
+  "review_round": 8,
+  "status": "Blocked",
+  "provisional": true,
+  "reviewer": "/root/requirements_review/standards139",
+  "replaces_unavailable_reviewer": "/root/parser_review/standards",
+  "preserve_original_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "candidate": "50581179674f0ccf364ca3c372b5e07e5c70c80e",
+  "tree": "24195b45e05fcdcdfcf3956d6d3024dddee724c5",
+  "base": "ec4949a94ed70084d70f5b273fb0cc6dca8b2647",
+  "original_base": "bc95f503ccbf043136c6699992388f750270e8e6",
+  "scope_count": 48,
+  "source_access": "immutable git show only",
+  "findings": [
+    {
+      "id": "ST-V001",
+      "status": "Unresolved",
+      "blocking": true,
+      "reason": "Matching whole validation terminal evidence, immediate verification and supported comparison are pending."
+    },
+    {
+      "id": "ST-001",
+      "status": "reopened_against_candidate139",
+      "severity": "medium",
+      "blocking": true,
+      "historical_disposition": "fixed_with_review_evidence_in_C7c; unchanged",
+      "title": "Operative continuation gates still prescribe the earlier46-path scope and implementation stage",
+      "locations": [
+        {
+          "path": "docs/textbooks/CTB.json",
+          "line": 236,
+          "pointer": "/local_state/CTB-78/next_action"
+        },
+        {
+          "path": "docs/textbooks/CTB.json",
+          "line": 2427,
+          "pointer": "/next_ticket_gate"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "line": 903,
+          "pointer": "/source_readiness/current_gate"
+        },
+        {
+          "path": "docs/textbooks/coverage.json",
+          "line": 921,
+          "pointer": "/qualification_basis/current_gate"
+        }
+      ],
+      "evidence": "All four actual immutable values prescribe cumulative46 paths and implementation of the old96-label controller; candidate139 has48 scoped owners and CTB-24 next_implementation_gate correctly records the native timing extension.",
+      "consequence": "A successor can select an earlier subset and omit the2 timing owners or repeat a completed stage. No actual loss is alleged.",
+      "remedy": "Synchronize operative gates to complete actual current scope/stage and retained requirements, or explicitly label superseded instructions historical with a current authoritative pointer. Preserve historical/canonical/qualification objects and all validation gates.",
+      "correction_reviewed": false
+    }
+  ],
+  "requirements": {
+    "immutable_path": "restored/conaled-textbooks-136-progress-2026-11-23/evidence/requirements.txt",
+    "sha256": "73ef064c6dc6cdb737c1a27224b2bfb4e7e0092213107318723aff0a885aeb9d",
+    "bytes": 2205749,
+    "fresh_full_read": false,
+    "addendum_path": "work/review/timing-addendum138.md",
+    "addendum_sha256": "c6a043aab84600f557e03fb60465d230cb5a992ea57ac7338e85289df96283a7",
+    "addendum_full_read": true,
+    "fresh_read_ranges": [
+      [
+        1,
+        85
+      ],
+      [
+        7270,
+        7460
+      ],
+      [
+        7675,
+        7851
+      ],
+      [
+        8421,
+        9205
+      ]
+    ],
+    "range_scope": "Original authority clauses; fixed open-framer/decoder component design and case plans; complete fixed MoveParserMachine proposal and connected-case plan plus first lines of its historical model-check record. Full requirements15 remains unread."
+  },
+  "complete_source_reading": [
+    {
+      "path": "Applications/Resources/TuringSimulation/StackToTape.lean",
+      "lines": 600,
+      "sha256": "b6b763352010c82fd9ef0f3dca98ca7bcd9afa30ae3559e2c49fab3aa8e33006"
+    },
+    {
+      "path": "Examples/TuringSimulation.lean",
+      "lines": 357,
+      "sha256": "d66d068f0f5fa477c721305ed7c769d5fbc26ef9cc74f83ecb4d7f044b2ee7a6"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenFramingMachine.lean",
+      "lines": 973,
+      "sha256": "a8002e58586e8778e2e8557b9e22d0bea330e970ed48ea281ffabfa0f25c10f2"
+    },
+    {
+      "path": "Examples/RotationCertificateOpenFramingMachine.lean",
+      "lines": 598,
+      "sha256": "2f005d0874fd26700fe61b44b5e389adec579c902b21248a6f159613b92014f7"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/OpenDecoderMachine.lean",
+      "lines": 911,
+      "sha256": "c770f6b82ed2083ba7b6098e5aca86ee4dba98acaf1d289ceb1d6a11c5e45a34"
+    },
+    {
+      "path": "Examples/RotationCertificateOpenDecoderMachine.lean",
+      "lines": 703,
+      "sha256": "1de1c8769bd1199ddeba53d27164c2af3627e6ada9f2e447b615b1a1dd7e3b16"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/TreeEqualityMachine.lean",
+      "lines": 875,
+      "bytes": 39194,
+      "sha256": "3871f4871e48abdf6f8114744efe534bcccf6231a41ff9064660d46716fce7f8"
+    },
+    {
+      "path": "Examples/RotationCertificateTreeEqualityMachine.lean",
+      "lines": 1107,
+      "bytes": 59248,
+      "sha256": "db656748424df7447c5c24f2e69bcafb62e2dcfefabc8a010485da07602cb6a3"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveParserMachine.lean",
+      "lines": 1476,
+      "bytes": 74689,
+      "sha256": "95abcbb6242244483de5639248d813437af34aaf5e49404b13616c84d9f315af"
+    },
+    {
+      "path": "Examples/RotationCertificateMoveParserMachine.lean",
+      "lines": 999,
+      "bytes": 56609,
+      "sha256": "8026b2669618c575fb59399d18db9b8c38cc62942bdfa27e59e09d64ebafbac7"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/InputParserMachine.lean",
+      "lines": 2406,
+      "bytes": 130327,
+      "sha256": "376f96039c314bdc79b4297084fa3bfe30acff81fc388e1e8ee67a721ae94a0c"
+    },
+    {
+      "path": "Examples/RotationCertificateInputParserMachine.lean",
+      "lines": 1301,
+      "bytes": 77931,
+      "sha256": "3857aa5dc439ab7cafb0f808cefce940651e6361ec8b203727a22dfa2b9ec167"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndMachine.lean",
+      "lines": 1526,
+      "bytes": 92763,
+      "sha256": "f8739e3a9935e3a1983bffc6f2047e0dfdb44b81a0f39e27720b1686e51cca83"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndMachine.lean",
+      "lines": 2962,
+      "bytes": 153130,
+      "sha256": "0cb7e275128e9077e5709cf5fc67c378adf43644270d8915db47febe3edbec6e"
+    },
+    {
+      "path": "Examples/RotationCertificatePositionedRotationMachine.lean",
+      "lines": 2665,
+      "bytes": 146233,
+      "sha256": "0d3844fe80fc542dd1915951c627f598dbb3ef3b5271cada2788eaed12a24322"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/PositionedRotationMachine.lean",
+      "lines": 3883,
+      "bytes": 200743,
+      "sha256": "755b919c35eef12be7ef1e0a04c96aec83b4bb31b7e20317056d9700716274fc"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/MoveApplyMachine.lean",
+      "lines": 4585,
+      "bytes": 247070,
+      "sha256": "7f6a623077f04a90b5d6946c0e7b1ca535878ea3333f4dc3707277ff79295b8d"
+    },
+    {
+      "path": "Examples/RotationCertificateMoveApplyMachine.lean",
+      "lines": 3502,
+      "bytes": 206731,
+      "sha256": "37efddb3fa5e57146bb3efe8add96a072f778feaaed8fd3c2daab1eaf7207469"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/StreamMachine.lean",
+      "lines": 6788,
+      "bytes": 368040,
+      "sha256": "602ca29b87bc54a64f1035975697dfdbd8317f9328bb9ed3703d2e59552d9c33"
+    },
+    {
+      "path": "Examples/RotationCertificateStreamMachine.lean",
+      "lines": 6555,
+      "bytes": 487273,
+      "sha256": "a74fda1d86997a34a0ee62ee86223620275eab614497e413fa611741cc44e2a9"
+    },
+    {
+      "path": "Applications/Resources/RotationCertificate/FrontEndStreamMachine.lean",
+      "lines": 9086,
+      "bytes": 484065,
+      "sha256": "47f207696b26beec4eb01ce7ed72d089984c2ddd79e41010ff7096916bca50b1"
+    },
+    {
+      "path": "Examples/RotationCertificateFrontEndStreamMachine.lean",
+      "lines": 9923,
+      "bytes": 639308,
+      "sha256": "15641fa690a23b64cef84d03fe8ba908a7cb092b11385dcf5daeba139808dd5e"
+    }
+  ],
+  "whole_validation": "pending terminal evidence",
+  "verification": "pending",
+  "comparison": "pending",
+  "scope_reuse": {
+    "exact_original_round7_lean_bodies": 19,
+    "changed_original_owners": 5,
+    "new_owners": 24,
+    "prior_approval_transferred": false
+  },
+  "reading_limits": [
+    "Original round6 Audit6 standalone client-type OUTPUT ranges9148\u201310335 and10401\u201311407 were not read in that round and not reread in round7. These are historical elaborated-output ranges, not Lean-source line ranges; this successor has not newly read them either.",
+    "Requirements15 and the preparation paper have not received complete fresh reading.",
+    "Original round6 client ranges 9148-10335 and 10401-11407 were unread and not newly read in round7.",
+    "Original rounds1-4 standalone bodies are absent; no reconstruction.",
+    "Historical C5b Git object is unavailable; historical descriptor comparison is not new source reading."
+  ],
+  "current_user_overrides": [
+    "One self-contained archive per checkpoint time.",
+    "No local progress updates to GitHub issue558."
+  ],
+  "full_programme": "OPEN",
+  "spec_successor_report_read": false,
+  "no_new_source_findings_scope": "No additional concrete source violation identified in the22 completely read newly scoped Lean owners (all11producer/client pairs). Full cumulative reading, complete requirements15/preparation-paper, historical unread Audit6 standalone client-type output ranges and legacy elaborated-output review remain unclaimed. The19 identical historical Lean bodies retain attributed predecessor analyses with their original limitations; identity matching alone is not acceptance.",
+  "public_types139_log": {
+    "complete_read": true,
+    "bytes": 17549,
+    "sha256": "fe74e5f67d597d12639a588f5d865708f06bfc004c21e6e40f19c0f1c8e22e66",
+    "producer_types": 23,
+    "axiom_queries": 4,
+    "observed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "witness_binder_pretty_print_elisions": "Complete source statements also read."
+  },
+  "additional_complete_reads": [
+    "docs/textbooks/README.md",
+    "docs/textbooks/external-agent.md",
+    "docs/textbooks/inbox/README.md",
+    "docs/adr/0010-composition-and-proof-audit.md"
+  ],
+  "historical_standards_records": {
+    "rounds": [
+      5,
+      6,
+      7
+    ],
+    "read": "structured findings, assessments and reading limitations; attributed historical provenance only"
+  },
+  "dependency_reading": [
+    {
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Computability/TuringMachine/StackTuringMachine.lean",
+      "ranges": [
+        [
+          401,
+          545
+        ],
+        [
+          624,
+          670
+        ]
+      ]
+    },
+    {
+      "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "path": "Mathlib/Computability/StateTransition.lean",
+      "ranges": [
+        [
+          246,
+          312
+        ]
+      ]
+    }
+  ],
+  "partial_source_reading": [],
+  "mechanical_preservation": {
+    "basis": "Actual immutable B and C JSON object/leaf comparison; not full content reading",
+    "all44_complete_new_tickets_equal_B": true,
+    "canonical_requirement_owners_equal_B": true,
+    "source_correspondence_equal_B": true,
+    "authorized_scope_equal_B": true,
+    "historical_catalogs_equal_B": true,
+    "observed_upstream_owners_equal_B": true,
+    "original_CTB_numeric_boolean_null_leaves": 681,
+    "changed_original_CTB_numeric_boolean_null_leaves": [
+      {
+        "pointer": "/current_user_override/max_payload_bytes",
+        "before": 134217728,
+        "after": 536870912,
+        "authorization": "22 November explicit payload override retained by current guidance"
+      }
+    ],
+    "original_coverage_numeric_boolean_null_leaves": 129,
+    "changed_original_coverage_numeric_boolean_null_leaves": 0,
+    "original_B_paper_exact_prefix": false,
+    "paper_limit": "Initial paper sections were revised as earlier implementation progressed; this is not evidence of loss. First230lines of actual B-to-C diff inspected; no full paper preservation claim.",
+    "aggregate_diff": {
+      "comparison": "M...C exact immutable SquareApplications.lean diff fully read",
+      "added_imports": 41,
+      "removed_imports": 0,
+      "all_scoped_author_lean_owners_imported": true,
+      "full_aggregate_fresh_read": false
+    },
+    "resource_option_scan": {
+      "scope": "all42 scoped Lean paths",
+      "method": "lexical immutable source scan, not proof audit",
+      "options_observed": {
+        "autoImplicit false": 37,
+        "warningAsError true": 37
+      },
+      "compiler_resource_override_found": false
+    }
+  },
+  "candidate140_status": "Outside this immutable review. Live ST-001 correction not assessed as a139 fix.",
+  "component_assessments": [
+    {
+      "component": "OpenFramingMachine and connected client",
+      "source_reading": "complete",
+      "new_findings": [],
+      "observations": [
+        "Native5-block physical framer; callbacks read only actual overwritten finite temporary, with separate Bool outputs and no source parser callback.",
+        "Arbitrary dirty reverse/output domains, full data order, exact clocks, inclusive first handoff and all raw malformed cases preserved.",
+        "Actual rank decreases, source equivalence at first result, caller/context/reset laws and complete physical sum bound are connected to execution.",
+        "Client literal cases retain stale register and different alphabets, fixed14/18/8/6 clocks, actual timed composition14+1, live/outer-none distinction and constructive later-caller counterexamples."
+      ],
+      "limitations": [
+        "Complete fixed original requirements9 comparisons and legacy elaborated-output sections have not been freshly read by this axis.",
+        "Whole validation remains pending; full cumulative review is incomplete."
+      ]
+    },
+    {
+      "component": "OpenDecoderMachine and connected client",
+      "source_reading": "complete",
+      "new_findings": [],
+      "observations": [
+        "Actual3-block scan/emit/clear finite program with finite nibble decode and all5 temporary observations overwritten before use.",
+        "All16 tags retained including reserved grammar tags; every partial trailing block rejected with dirty reverse cleanup and old output preserved.",
+        "Exact scan count2*floor(raw.length/4)+2+oldReverse.length is connected to actual dirty execution; source tariff, machine boundary time, and input length remain distinct.",
+        "Owned rank/reset/frame/physical occupancy are actual-prefix properties; finite package uses distinct physical Bool input and Tag output and live result labels.",
+        "Independent client covers finite cardinalities, all16 codes,3-vs12 bit ordering, dirty orientations, same reached state bounds, actual6+1 timed composition, post-return allocation and manufactured-success counterexamples."
+      ],
+      "limitations": [
+        "Old fixed requirements9 and legacy elaborated output have not been freshly read in full.",
+        "Whole validation and cumulative source assessment remain incomplete."
+      ]
+    },
+    {
+      "component": "TreeEqualityMachine and connected client",
+      "source_reading": "complete",
+      "new_findings": [],
+      "observations": [
+        "One finite native compare block pops both actual stacks; callbacks compare only stored finite tags/optional observations, without whole-list equality in runtime.",
+        "Unconditional raw-word execution includes reserved tags, one-sided EOF, unequal heads and dirty registers; actual prefix drops, exact first boundary, local rank decrement and total physical cells remain connected to the same reached state.",
+        "Tree-code equality and source tariffs are proof-side specializations; machine count is common-prefix probes plus final probe, and source-work cost is separately calibrated.",
+        "Connected cases include nonpalindromic tree words, parseTree prefix versus whole-word equality, full actual caller/time composition, consumed mismatch suffixes, later manufactured equal label, true reentry, post-return allocation and external labels.",
+        "The real finite package has four physical stacks, four labels and68 register values in the client; one-input initialization with an empty target is explicitly distinguished from a separately executed two-word handoff."
+      ],
+      "limitations": [
+        "Full original requirements15 and prior elaborated-output readings are not claimed.",
+        "Whole validation and cumulative source assessment remain incomplete."
+      ]
+    },
+    {
+      "component": "MoveParserMachine and connected client",
+      "source_reading": "complete",
+      "fixed_design_case_plan_read": "requirements15:8421-9190 (and surrounding lines through9205)",
+      "new_findings": [],
+      "observations": [
+        "Seven native finite blocks, one OptionTag temporary and real Branch populations; no runtime list parser, rank, length, append/reverse or unbounded source value in callbacks.",
+        "Clean-reverse full entry physically restores the entire malformed input; generalized dirty scan explicitly restores the literal old reverse prefix as well. Dirty immediate start failure intentionally preserves its old reverse stack.",
+        "Actual phase rank decreases exactly; arbitrary dirty phase physical sum uses consumed direction/delimiter debt. Empty undo really increases physical cells by one while discharging debt, without extending clean-entry bounds to an invalid domain.",
+        "Exact successful time2*k+3, source work3*k+4, failed source work2*k+4 and the sharp all-input2*N+1 native bound remain separate and connected to actual execution.",
+        "Connected cases match the fixed plan including all16 heads, all13 foreign path tags, nonpalindromic transfers, dirty8/6 clocks, literal rollback, all17 stale values, real caller3/4/5 and1/2/3 stages, allocation and manufactured-success counterexamples.",
+        "Actual finite package selects Tag input and Branch output with5-stack/11-label/34-register concrete carriers and separately supplied finite alphabets."
+      ],
+      "limitations": [
+        "Full original requirements15, earlier source dependencies and legacy elaborated-output readings are not claimed.",
+        "Whole validation and cumulative source assessment remain incomplete."
+      ]
+    },
+    {
+      "component": "InputParserMachine and connected client",
+      "source_reading": "complete",
+      "new_findings": [],
+      "observations": [
+        "Literal native tree-core reuse with direct separator/result handlers and finite bit/rollback blocks; proof-side Runs is constructed from actual step equalities and owned prefixes, rather than a source parser callback.",
+        "All raw input exits are accounted for, with complete original word restoration on failure and forward literal tree/fuel data on success; dirty transfer prefixes expose old accumulator data and separate empty probes.",
+        "Exact source-dependent proof clocks are proved by actual phase composition; success2*N+3 and all-raw4*N+7 bounds are distinct from source event counts and have connected sharp cases.",
+        "Per-step effects preserve caller/register fields and delimiter-adjusted non-pending mass for dirty entries; pending invariant is explicitly conditional and proves clean-entry total physical cells at most2*N+U+1, attained by an actual all-node prefix.",
+        "First full handoff includes three intermediate tree-result labels as still owned, and source recognition is only at the complete first endpoint. Finite package selects Tag input and Bool fuel output, with actual9-stack/28-label/68-register concrete carriers and25 owned labels.",
+        "Client uses public executions for all malformed boundaries, dirty/nonpalindromic transfers, high-zero widths, source-versus-machine counterexamples, actual13/14/15 and5/6/7 sentinel stages, allocation and misleading-success counterexamples."
+      ],
+      "limitations": [
+        "Most generic client statements explicitly require finite ambient carriers, while producer execution theorems have weaker assumptions; no broader client domain is inferred.",
+        "The complete fixed Input preparation/case plan, legacy elaborated outputs and all dependency source bodies have not been freshly reread by this axis.",
+        "Whole validation and cumulative source assessment remain incomplete."
+      ]
+    },
+    {
+      "component": "PositionedRotationMachine and client (partial)",
+      "source_reading": "only exact partial ranges listed",
+      "new_findings": [],
+      "observations": [
+        "Actual finite blocks are separate from proof-side advance/evaluate; advance_step and countdown justify constructed execution on arbitrary dirty data rather than assuming source simulation.",
+        "Represented correspondence retains old saved word and arbitrary suffix and residual physically unvisited path; success-converse recovers both tree and suffix via existing prefix injectivity.",
+        "Raw-root recognition deliberately accepts partial patterns with arbitrary non-tree suffixes; client explicitly shows two malformed raw successes, so no full-parser claim is inferred.",
+        "Physical prefix bound includes label debt and source-length credit, including dirty-state potential, and one-input initialization has no implicit path.",
+        "Actual inverse caller pays one transition and physically reinstalls the consumed path when restoration of the original tree is intended; client distinguishes18 versus20 total steps and different endpoints."
+      ],
+      "limitations": [
+        "Scanner/rotation/invariant proof bodies and most client connections not yet read; no whole-pair no-findings or complete fixed-plan claim.",
+        "Whole validation and cumulative source assessment remain incomplete."
+      ]
+    },
+    {
+      "component": "MoveApplyMachine partial producer",
+      "finding": "No additional concrete violation identified in the listed producer ranges. Client connections remain unread at this point.",
+      "observations": [
+        "The paid dispatch executes one actual load/reset/goto activation, changes no stack, and is outside the imported component blocks.",
+        "Parser stages clear only the Tag temporary; paid dispatch then resets all three temporaries. Prefix contracts preserve this staging and use the actual reached configuration.",
+        "The physically shared path is parsed move.position followed by the old path. Represented correspondence includes arbitrary certificate and saved suffixes, and distinguishes parsed source data from the physicalMove used for rotation.",
+        "The certificate-only real initializer leaves the source store empty; installed source-tree executions use explicit typed configuration data."
+      ]
+    },
+    {
+      "component": "MoveApplyMachine selected client",
+      "finding": "No additional concrete violation identified in listed ranges; partial reading only.",
+      "observations": [
+        "Thirty fixed literal endpoint/time fixtures connect through the actual phase-execution theorem; every case dispatch was read, but its individual evaluator proofs mostly were not.",
+        "An explicit badDispatchProgram agrees on all23 imported phases but halts at the left-success dispatch, so imported agreement alone does not certify the join.",
+        "Concrete reentry is11+1+10=22 actual steps and not one first return; an8-step parse failure followed by a9th-step manufactured success remains a first failure.",
+        "The real certificate-only initializer leaves source empty and yields only parse or rotation failure; the client distinguishes its8-step root failure from an explicitly installed11-step tree rotation."
+      ]
+    },
+    {
+      "component": "StreamMachine initial partial reading",
+      "finding": "No additional concrete violation identified in the listed ranges.",
+      "observations": [
+        "Nine stores,39owned labels and306temporary values; eight component-result joins are explicit one-activation reset/goto bodies.",
+        "Well-founded recursion occurs only after actual full parser-start success consumes at least two certificate symbols, even when the reverse stack is dirty. No shrink claim is made for arbitrary partial phases.",
+        "Actual total runs are constructed by well-founded induction and transported component execution; the global rank/drop and future endpoint laws follow first-return uniqueness. Arbitrary partial entry is handled once before inspection recursion.",
+        "The live Boolean label is not an emitted output word; final cleanup is intentionally not part of this stream subroutine."
+      ]
+    },
+    {
+      "component": "StreamMachine selected client and staged registers",
+      "finding": "No additional concrete violation identified in listed ranges; pair remains partially read.",
+      "observations": [
+        "The client distinguishes34original fixtures from10explicitly post-read additions. Its44literal expected clocks/data/peaks do not use the producer evaluator as their definition.",
+        "Every-case connection theorem and19separate source observations were read. Complete A12 root-left25-step and D06 dirty-reverse30-step traces, adjacent actual transitions, strict ownership and physical-cell bounds were inspected; other case bodies mostly remain unread.",
+        "All8joins and11selected component reset contracts are connected to actual step laws. First outer join and exact staged-reset proof retain original time-zero registers and clear only active-component fields before the full reset.",
+        "Caller examples retain4-step live first result,5th-step allocation or certificate push,9-step reentry and live-halt5/outerNone6; the protected push exceeds the earlier physical peak.",
+        "Actual finite package has certificate Tag input and fuel Bool output but emits no Boolean; client separates4-step real initializer from25-step installed rotation."
+      ]
+    },
+    {
+      "component": "FrontEndMachine selected producer and complete client",
+      "finding": "No additional concrete violation identified within the exact read ranges and fully read client. Producer remains partial.",
+      "observations": [
+        "The fourteen-store finite runtime installs actual framer, two decoders and input parser with three owned handoffs; decoder calls share scratch but retain distinct physical input/output stores. Only the active finite component temporaries are borrowed.",
+        "Proof-side outcome recognition and exact run count are connected to actual strict-prefix trace composition for every clean raw input. The linear bound is 8 times raw length plus 13, with inclusive physical cells at most raw length plus protected cells.",
+        "All 1526 client lines were read, including independently fixed cumulative stage times 132/162/193/199 and 44/56/69/71, exact malformed routes, dirty reverse orientations, literal fuel widths/high zeros and nonpalindromic little-endian decoding.",
+        "Front-end syntax success explicitly permits unequal trees and reserved move tags; verification is later. Source emitter/verifier tariffs remain distinct from native machine time.",
+        "Actual caller stages separate first handoff, live halt and outer None; allocating and misleading-success callers give executed counterexamples beyond the first boundary. Staged register masks include the zero prefix and early-failure domains.",
+        "The genuine finite package reads framed raw Bool input and selects certificate Tag output; client execution and finite cardinalities are explicit, and a live result is not claimed as haltList."
+      ]
+    },
+    {
+      "component": "FrontEndMachine complete producer/client",
+      "finding": "No additional concrete violation identified in the completely read pair.",
+      "observations": [
+        "All 2962 producer lines and all 1526 client lines have now been read from candidate139. This supersedes the earlier partial producer range limits only for this pair.",
+        "The complete label partition and explicit inverses preserve each caller complement, all 25 input phases and all three owned handoffs. The two decoder scans are distinct physical calls.",
+        "The installed execution proofs require actual owned prefixes, construct actual endpoints and preserve literal dirty decoder output; component traces compose under the same global program.",
+        "Inclusive frame and physical-cell bounds quantify over the same actual reached configuration. Input parsing retains every certificate bit even on rollback, and only the finite active temporary fields are borrowed.",
+        "First-return uniqueness and caller independence apply through the owned boundary. Output recognition follows actual raw syntax parsing and tree-code injectivity. Later caller behavior remains outside those claims.",
+        "A complete fresh comparison with the full FrontEnd preparation plan and legacy elaborated-output log is not claimed."
+      ]
+    },
+    {
+      "component": "PositionedRotationMachine complete client",
+      "finding": "No additional concrete violation identified in the fully read client; producer remains partial.",
+      "observations": [
+        "All 2665 client lines were read, including all seven dirty transfer fixtures, twelve raw fixtures, thirteen represented rows and actual left/right literal boundary proofs.",
+        "Finite one-step cases distinguish empty/left/right path probes, all observed node/nonnode cases, and zero/one/multiple pending cells. Minimal segments contain actual seven-step left and six-step right rotations and all paid empty probes.",
+        "Every dirty phase is connected to an actual first live result; zero rank includes external live states and halt, and the natural countdown is explicitly distinct from the exact rank.",
+        "First-return equivalences and output converses retain arbitrary saved prefixes and suffixes, the actual path tail, old registers at zero and full dependent-sum physical cells.",
+        "All-n malformed families include zero and actual peak witnesses: left all-node failure costs 3*n+4 and reaches 2*n local cells; right all-node family retains its one-cell gap. Overlong and exactly exhausted paths have distinct actual routes.",
+        "The one-input package has no path or protected cells. The same finite package executes a 16-step root failure versus a 9-step success with an explicitly installed left path. Source costs and native clocks have distinct stopped-cursor formulas.",
+        "Paid inverse reentry, allocation and misleading-caller examples were previously read and are included in this complete client coverage. Full fixed preparation plan and legacy elaborated outputs remain unread."
+      ]
+    },
+    {
+      "component": "PositionedRotationMachine complete producer/client",
+      "finding": "No additional concrete violation identified in the fully read pair.",
+      "observations": [
+        "All 3883 producer lines are now read, completing the pair with its 2665-line client. Earlier exact partial limits for this pair are superseded.",
+        "Actual finite one-step transition proofs cover every owned phase. Proof-only advance/evaluate/countdown do not occur in runtime callbacks, and decreasing countdown constructs arbitrary dirty-state local execution before exact rank is derived.",
+        "Scanner segments preserve arbitrary old saved/scratch data and literal suffixes; zero accepted length retains stale registers, every positive step resets borrowed fields, and all empty cleanup probes are paid.",
+        "Represented execution, context-prefix cursor, raw-root pattern recognition and first-success output converse are connected to those physical segments, with distinct actual residual path and source observation.",
+        "Raw-origin and conserved-tag/debt proofs preserve complete literal rollback on failure. The physical potential includes source credit for pending cells and owed marker debt, giving an actual inclusive all-stack bound.",
+        "Sharp malformed and overlong-path families are built by actual transitions and include zero. They preserve the independently fixed endpoint/time/space distinctions in the client.",
+        "No full fresh fixed-plan or legacy elaborated-output review is claimed; whole139 validation remains pending."
+      ]
+    },
+    {
+      "component": "MoveApplyMachine extended producer through line2052",
+      "finding": "No additional concrete violation in these inspected ranges; producer remains partial.",
+      "observations": [
+        "The front-end sixteen-store mapping preserves all physical data and explicitly has no control-label component; it does not claim free executable control integration.",
+        "The actual prefix/ambient agreement requires all26 owned phases, including all three paid dispatch phases, rather than only the23 imported phases.",
+        "Actual total component-plus-dispatch runs precede rank decrement and final-state conservation, which follow first-return uniqueness.",
+        "Potential maps the complete physical sum and component boundary debt/credit. Successful dispatch consumes the two owed parser markers in the potential while preserving all physical stores, and parse-failure dispatch drops unused source credit."
+      ]
+    },
+    {
+      "component": "MoveApplyMachine complete producer",
+      "finding": "No additional concrete violation identified in all4585 producer lines; client remains partial.",
+      "observations": [
+        "The complete all-dirty domain, principal source observation, clean represented endpoints and converses are connected to actual transported parser/dispatch/rotation runs. Old physical path follows the parsed path, old saved data and certificate/tree suffixes remain literal.",
+        "Whole native timing is separate from source tariffs and retains paid dispatch; exact typed witnesses keep the actual count even under a larger linear bound.",
+        "Principal space first bounds the parser by the full initial physical sum, then bounds the rotation using the actual paid middle state. All-n malformed peak theorems take the maximum of entry and attained later states, retaining the certificate and protected data.",
+        "The real certificate-only initializer has only parse or rotation failure, with its exact live outcome, residual path and all-prefix input-length cell bound. No free tree or Boolean halt output is assumed.",
+        "Further installation requires complete carrier equivalences and agreement on every owned block, including dispatch. Arbitrary later iterations require agreement on caller labels too. Installed time and sum bounds use the same actual reached source configuration.",
+        "The historical scratch-check comment is not treated as current validation evidence. Full preparation plan and legacy elaborated-output reading remain unclaimed."
+      ]
+    },
+    {
+      "component": "MoveApplyMachine complete producer and client",
+      "finding": "No additional concrete violation identified in all4585 producer and3502 client lines. Earlier partial pair limits are superseded; full preparation plan and legacy elaborated outputs remain unclaimed.",
+      "observations": [
+        "All30 literal run fixtures and individual evaluation proofs, all13 represented connections and literal left/right/parser-failure boundary tables were read. Their first-run claims connect to actual phase execution or adjacent machine steps, with actual cell counts, strict ownership, register staging and the same reached configuration.",
+        "Dirty reverse/path/saved/pending cases distinguish parser failure before consumption from rotation failure after certificate consumption. Parsed path precedes old physical path; dirty old reverse is restored literally. Malformed root recognition is explicitly limited to a local pattern, not a whole-tree parse.",
+        "Sharp peak specializations include entry cells and attained later cells, including small parameters0,1,2. Empty undo spends marker debt while allocating a real cell; scanner pending growth spends actual source credit.",
+        "All26 owned labels are required for installation, including paid dispatches. A bad dispatch agrees with the23 imported component phases and still fails. All-label agreement is required for later caller iterations.",
+        "Actual finite package and installed timing keep exact steps under linear budgets. Certificate-only initialization, explicit installed tree data, first live result11, paid caller/halt12, outerNone13, reentry22 and manufactured later success remain distinct.",
+        "No additional concrete source finding; whole validation, full cumulative reading, preparation-plan comparison and legacy elaborated-output limits remain."
+      ]
+    },
+    {
+      "component": "StreamMachine complete producer",
+      "finding": "No additional concrete violation identified in all6788 producer lines. Client remains partial; full preparation plan and legacy elaborated outputs remain unclaimed.",
+      "observations": [
+        "Complete label/stack/register transports and actual owned-prefix lifts preserve all complementary local/external stores and caller register fields. Exact component timings and one-step paid joins use actual iterate witnesses.",
+        "All-state totality is constructed by actual component segments and certificate-decreasing full-start success. Exact rank, finalCfg conservation and caller-independent first return follow the constructed executions.",
+        "The recursive dirty allowance is an explicit maximum of endpoint-stage bounds. Inclusive prefix composition reindexes the actual iterate at the literal middle configuration and never treats an arbitrary trace maximum as a runtime allowance.",
+        "Clean source correspondence and output converses retain actual fuel/certificate/source/target data and all nine returned words. Source tariffs remain separate from native exact and bounded typed timing.",
+        "Staged register laws retain incoming zero-prefix fields and component-specific early resets, then full reset after the first paid outer join. Actual same-prefix frame and physical sum include every protected store.",
+        "Malformed all-parameter sharp families include source entry cells, retained certificate suffix/fuel/target/context, later attained marker peaks and paid final joins. Small-input maxima are handled explicitly.",
+        "FrontEnd physical compatibility explicitly has no control-label map. Real certificate-only initialization has an actual four-step live Boolean outcome with empty output, and complete installation requires all39 owned bodies/eight joins; later arbitrary iteration requires all-label agreement."
+      ]
+    },
+    {
+      "component": "StreamMachine complete producer and client",
+      "finding": "No additional concrete violation identified in all6788 producer and6555 client lines. All previous partial source-reading limits for this pair are superseded; full preparation-plan and legacy elaborated-output limits remain.",
+      "observations": [
+        "All44 literal fixtures, their complete adjacent actual-step proofs, strict-ownership proofs, physical-cell upper bounds, actual first-return and attained peak connections were read. The34 original cases retain distinct provenance from10 explicitly post-read additions;19 source observations remain separate.",
+        "Literal expected traces and clocks are independently fixed. Actual adjacent steps construct execution; first-return uniqueness subsequently identifies the producer evaluator. Exact peak includes the initial and endpoint configurations and an actual attaining prefix.",
+        "Fuel exhaustion, malformed certificate, failed rotation, dirty partial counter/restoration entries, one-sided equality EOF and malformed local rotation are distinct tested domains. Represented source claims are not inferred for deliberately malformed raw cases.",
+        "All8 paid join cases,11 reset cases,13 root and5 dirty boundaries retain the staged register contract: unchanged incoming fields at zero, active-component fields before the first outer join, full reset only after its paid step.",
+        "All39 owned labels and eight joins are required for installation. Stronger all-label agreement governs later caller steps. Full configuration inversion, time witnesses, frame, rank, register masks and physical sum refer to the same actual reached state.",
+        "Real11-stack42/43-label612-register finite packages select certificate Tag input and fuel Bool output. Their actual four-step initializer has a live Boolean outcome and no emitted Boolean word; an installed rotation is a separate25-step execution.",
+        "All-parameter malformed sharp families include zero and retained certificate suffix, fuel, target and protected stores;18 fixed n=0..8 connections were read. The current parsed-call maximum is expressly not substituted for the recursive whole-stream bound.",
+        "Caller examples pay for allocation or certificate push at step5 after first result4, reentry at9, and live halt5/outerNone6. Post-return protected allocation exceeds the earlier owned-prefix peak. Source tariffs, native counts and width-preserving fuel data remain distinct."
+      ]
+    },
+    {
+      "component": "FrontEndStreamMachine complete producer",
+      "finding": "No additional concrete violation identified in all9086 producer lines. Client remains partial; complete fixed preparation-plan comparison and legacy elaborated-output reading remain unclaimed.",
+      "observations": [
+        "Finite96-owned-label,16-store executable transports the actual front end and stream; four common joins are charged native activations. No proof-side endpoint, list parser or rank callback is installed in runtime bodies.",
+        "Each of16 cleanup blocks pops every literal cell and charges an additional empty probe, with fuel last. Emit pushes the saved answer before full reset and live halt. Arbitrary partial cleanup entry retains earlier stores, computes suffix time and literal prefix data, and has exact peak max(entry cells, retained prefix plus one).",
+        "All-dirty tree and Input endpoints are constructed by actual native component executions, including all25 Input owned controls and result handlers. Complete dirty FrontEnd execution precedes global exact rank and endpoint laws. The raw-length, pending and separator credits prove actual one-step potential bounds.",
+        "All-dirty combined first halt, strict ownership, positive rank, one-step decrement, exact time and all-natural prefix contracts follow constructed local runs. External and already-halted configurations have rank zero and retain their initial boundary; separately paid external reentry is not confused with that boundary.",
+        "The same actual prefix carries full16-plus-context physical cells, staged register values, user fields and protected stores. The explicit dirty allowance composes actual endpoint-stage bounds; clean raw runs have exact peak max(raw length,1)+context and native bound N*N+10*N+36.",
+        "Both Boolean source outcomes, literal singleton output, all auxiliary-store cleanup and source cost separation are connected to actual clean raw execution. Exact component, four-join, cleanup, emit and whole typed witnesses retain their actual counts; live halt and following outerNone differ by one.",
+        "The genuine finite package uses framed Bool input and selected Bool fuel output, fixed16-plus-context stores,96-plus-caller labels and140454-times-user register carrier. Every physical alphabet, initializer word and halt word is stated explicitly.",
+        "Further transport uses full stack, symbol, register and label equivalences and all96 owned body agreements. For an owned start those agreements suffice at all natural times because every owned run reaches live halt without entering a caller body, then outerNone. Arbitrary external starts remain separately delimited."
+      ]
+    },
+    {
+      "component": "FrontEndStreamMachine complete producer and client",
+      "finding": "No additional concrete violation identified in all9086producer and9923client lines. All previous partial source-reading limits for this pair are superseded; full preparation-plan, requirements15, historical-source and legacy elaborated-output limits remain.",
+      "observations": [
+        "All81positive literal closed cases and3separate liveness domains were inspected, including36raw,32partialclear,4emit,4join,4dirty-front-end andoneemptycleaner case. Allindividual native first-halt, intermediate-state and attained-peak connections were read, not only the aggregate statement.",
+        "The36rawfixtures compose the actual front end, paid dispatch or rejection, actual stream, paid Boolean result and cleanup. Complete literal traces use adjacent native transitions and strict ownership. Only afterward does actual first-halt uniqueness identify the proof-side clock. All36source observations and tariffs remain separate.",
+        "All32partial-clear cases preserve earlier stores and distinguish occupied pops from paid empty probes. Fuel is cleared last. Dirty direct emit prepends the saved answer to oldfuel while preserving other dirty stores; component endpoints remain globally owned until the paid controller joins.",
+        "Dirty front-end cases retain old moveReverse and path stores. Full configuration transport preserves actual reverse(oldReverse) followed by oldPath, and an explicit failed seek consumes the failing head before restoration. Stream and whole peaks include actual complementary words and attained entry or later witnesses.",
+        "All96domains have exact arbitrary-state first halt, rank, endpoint and shared prefix contracts. Timezero retains incomingregisters; active component masks apply until a common join; cleanupchanges onlyoccupancy until separate emit push and full reset. External and alreadyhalted starts have zero boundary; external reentry and allocation remain paid and cannot masquerade as owned first halt.",
+        "Theactual finite packages have18stores97/98labels280908registers for the concrete caller carriers. Everyrawfixture connects literalinitList to livehaltList and outernone oneactivationlater. Arbitrary installed context/userfields andpartialcleanup/dirtyemit have explicit counterexamples to equating their endpoints with the genuine packagehalt.",
+        "Complete stack,symbol,register,label equivalences preserve allfields,physicalsum andattainedpeaks. All96ownedbodyagreement suffices for ownedstarts atalltimes becausehaltclosesexecution; arbitraryexternal iterationsrequire all-labelagreement. Exacttyped source,component,join,cleanup,wholeandpackage recordsretain their actualstoredcounts, distinct frompolynomialupperbounds.",
+        "BothBooleanoutputsandcompleteframedlanguage/complement are connected to thefirsthalt endpoint. Representedclock includes actual residualstreammass; only anacceptancepremise reduces ittofuelwidth. Cleanspace is max(rawlength,1)+context onthe same reachedstate; dirtyallowance is anexplicit stagebound, notanexecutiontraceoracle."
+      ]
+    }
+  ]
+}
