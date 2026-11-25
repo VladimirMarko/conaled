@@ -1,119 +1,93 @@
 # Textbook continuation
 
-Start a new external session with the [continuation guide](external-agent.md)
-and its seed's exact published Git prerequisite. Current mathematical progress
-belongs in [CTB.json](CTB.json) and [coverage.json](coverage.json); the seed carries
-only current operations and useful work not yet present in that prerequisite.
+Continue textbook work in this repository under [AGENTS.md](../../AGENTS.md).
+External authoring is retired; no external agent or restart seed is needed.
+**ADWH, VFA, FDSA and PFDS all remain in the programme.**
 
-The repository covers four books:
+| Book | Requirements and continuation |
+|---|---|
+| Algorithm Design with Haskell (ADWH) | [Reconstruction map](../research/adwh-reconstruction-map.md), [#149](https://github.com/VladimirMarko/conaled/issues/149). |
+| Verified Functional Algorithms (VFA) | [Coverage paper](../research/vfa-coverage.md), [CTB](CTB.json) and [coverage](coverage.json). |
+| Functional Data Structures and Algorithms: A Proof Assistant Approach (FDSA) | CTB and coverage, including complete canonical chapter and appendix ledgers. |
+| Purely Functional Data Structures (PFDS) | CTB and coverage, including the book/thesis union, appendices and source corrections. |
 
-| Book | Prefix | Coverage and continuation owner |
-|---|---|---|
-| Algorithm Design with Haskell | ADWH | [Reconstruction map](../research/adwh-reconstruction-map.md), [#149](https://github.com/VladimirMarko/conaled/issues/149). |
-| Verified Functional Algorithms | VFA | [Coverage](../research/vfa-coverage.md), CTB and coverage below. |
-| Functional Data Structures and Algorithms: A Proof Assistant Approach | FDSA | CTB, coverage and their complete chapter/appendix requirement owners. |
-| Purely Functional Data Structures | PFDS | CTB, coverage and the retained book/thesis-union requirements. |
-
-CTB means **conaled textbooks** and continues the existing VFA/FDSA/PFDS
-programme. ADWH retains its existing owners. Current obligation names include
-the book and omit numeric padding, for example `FDSA-5-85`. The
-[obligation crosswalk](obligation-names.json) resolves historical names without
-changing their requirements. An obligation's ledger row is not necessarily a
-printed exercise number. Bare `#N` always refers to this repository's GitHub
-issue/PR namespace; `CTB-24` and `FDSA-5-85` are distinct task/obligation IDs.
+Use the [machine integration and next-work map](../research/textbook-machine-integration.md)
+for the current rotation-certificate work and the
+[inbox](inbox/README.md) for other unfinished mathematics. A bounded task does
+not replace the complete remaining book requirements.
 
 ## Receiving state
 
-[Issue #659](https://github.com/VladimirMarko/conaled/issues/659) records accepted
-075 integration, including the concrete balanced interval-tree obligation.
-[Issue #660](https://github.com/VladimirMarko/conaled/issues/660) owns the final
-084 intake, receiving checks and replacement seed. The latter restores donor
-`883cb842a8520a0ea4ab5859f1083007ae3d3f09` exactly from the declared public
-prerequisite `3ac996cc42ec4a57bb5c7052714052cca87c97ff`, without an earlier archive.
-Its SHA-256 is
-`20f8a8c4897653fea5b975ee76a5ec40cdc97f8657a7dfe9dab73f3d515dcd79`.
+[#713](https://github.com/VladimirMarko/conaled/issues/713) owns integration and
+retirement of the final external handoff. The
+[exact preserved handover](../history/textbooks/handover-2026-11-25/README.md)
+contains its source, drafts, cumulative requirements and validation evidence.
+The receiving acceptance record in #713 identifies the validated candidate,
+full build/audit, matching verification and independent Standards/Spec outcomes.
+Historical focused checks and UNKNOWN whole-run outcomes retain their original
+scope.
 
-Archive restoration, source acceptance and durable delivery are separate facts.
-The CTB acceptance index records actual receiving evidence. The external
-conversation's lost whole-build handle supplies no success receipt and does not
-block a new check in an independent receiving workspace. Historical qualification
-claims apply only to their recorded source and validation scope.
+Prior [#659](https://github.com/VladimirMarko/conaled/issues/659) and
+[#660](https://github.com/VladimirMarko/conaled/issues/660) acceptance retains its
+original scope and evidence in CTB. Chapter 5 remains 92/94, with FDSA-5-92
+and FDSA-5-93 open; Chapter 9 remains 61/110. Integrating useful machine
+components does not by itself qualify the complete NP/certificate obligation,
+prove the sharp rotation diameter, or finish a book.
 
-The [integration assessment](../research/textbook-integration.md#tree-cache-and-resource-integration-assessment)
-records shared interfaces and connected clients under
-[#658](https://github.com/VladimirMarko/conaled/issues/658). Integrate new results
-against those contracts, preserving original assumptions, raw behavior and
-resource observations. Full whole-library validation, independent Standards and
-Spec review, and final candidate verification precede receiving acceptance.
+The [shared-library integration assessment](../research/textbook-integration.md)
+records existing contracts and connected clients. Preserve their assumptions,
+raw behavior and resource observations when integrating further results.
 
-## Owners
+## Requirements and stable identities
 
-| Content | Owner |
+CTB means **conaled textbooks**. Its existing VFA/FDSA/PFDS task series continues;
+ADWH retains its separate owners. CTB-1 through CTB-78 and the complete original
+book requirements remain in the
+[canonical catalog](../history/textbooks/checkpoint-024/TICKETS.json) and
+[reference registry](../history/textbooks/issue-lineages.json).
+[CTB.json](CTB.json) retains all 44 literal CTB-79 through CTB-122 requirements
+and their references. The next unused CTB ID is 123. CTB-120/121/122 retain their
+original CTB-69 parent links and explicit CTB-28 mathematical owner.
+
+The canonical requirement commit is
+`c796ab0bf270bdf76ea4e980d1d606d8b6a9286e`; this identifies historical requirements,
+not the current receiving source. The final authoring increments additionally
+retain their [complete cumulative requirements](../history/textbooks/handover-2026-11-25/received/current/control/requirements.md).
+Their mathematical contracts and fixed expectations remain binding; historical
+external operating instructions do not override current repository guidance.
+
+Use book-qualified obligation names such as `FDSA-5-85`. The
+[obligation crosswalk](obligation-names.json) resolves historical names without
+changing the requirement. A ledger row need not be a printed exercise number.
+Bare `#N` denotes a repository GitHub issue or PR; `CTB-24`, `FDSA-5-93` and
+checkpoint numbers name different things. Historical tracker states retain their
+observation dates and do not imply a fresh lookup.
+
+## Owners and recovery
+
+| Content | Maintained owner |
 |---|---|
-| Current CTB state, CTB-79 through CTB-122 and future consecutive allocation | [CTB.json](CTB.json), schema 2, prefix `CTB`, `new_tickets`; next unused ID is 123. |
-| CTB-1 through CTB-78 and original complete book requirements | Existing [canonical catalog](../history/textbooks/checkpoint-024/TICKETS.json) and [reference registry](../history/textbooks/issue-lineages.json). Preserve their identities and full source/specification ledgers. |
-| Source editions, denominators, qualified rows and remaining coverage | [coverage.json](coverage.json), with the original canonical chapter/specification owners. |
-| Lean constructions and connected clients | Existing `Applications`, `SquareKit` and `Examples` owners. |
-| Paper mathematics, source/exercise correspondence and precise limitations | Ordinary `docs/research` owners, including attributed preparation papers. A useful paper can be retained while its formalization obligation remains open. |
-| Useful material still awaiting implementation or content reconciliation | [Unprocessed inbox](inbox/README.md), linked to actual paper owners or an explicit recoverable input. |
-| Environment, checkpoint producer and agent guidance | Current operational files and repository agent guidance, separately from mathematical requirements. |
+| Current task state and immutable task requirements | [CTB.json](CTB.json). |
+| Source editions, denominators and qualified rows | [coverage.json](coverage.json) and its canonical chapter references. |
+| Mathematical contracts and unfinished arguments | [Research papers](../research/), linked from the map and inbox. |
+| Formal definitions and checked clients | `Applications`, `SquareKit` and `Examples`. |
+| Final external source, exact drafts and original evidence | [Preserved handover](../history/textbooks/handover-2026-11-25/README.md). |
+| New implementation and acceptance workflow | [Repository guidance](../../AGENTS.md). |
 
-The user explicitly requires the persistent CTB continuation in `conaled`.
-Bare `#N` continues to mean the repository GitHub issue/PR namespace. This
-catalog grants no additional communication authority. External issue states in
-the catalog retain their recorded observation date; no fresh tracker lookup is
-implied by migration.
-
-## Requirements and qualification
-
-The canonical requirement commit remains
-`c796ab0bf270bdf76ea4e980d1d606d8b6a9286e`: it identifies the unchanged historical
-requirement owners, separately from the current receiving master. All 44 new
-tickets retain their complete `requirements` and `requirement_refs` values,
-including list and long-text formats, original parents/prerequisites and
-mathematical remaining obligations. CTB-120/121/122 retain their original CTB-69
-parent links and their explicit CTB-28 mathematical owner.
-
-The 20 November user instruction supersedes older blanket-retention, Page-only
-and 32 MiB process rules. The selected-payload limit is 128 MiB
-(134,217,728 bytes); anti-wrapping rules remain. CTB-119 and other dated full
-requirements remain literal historical text, with this current override made
-explicit in the catalog. Preserving those texts does not reinstate their old
-process instructions.
-
-## Historical references
-
-Current code and paper references resolve to repository paths. A
-`historical_ref` such as `saved072:CTB.json#/new_tickets/0/validation` selects a
-JSON Pointer in the separately saved072 catalog identified by
-`historical_catalogs`. It identifies historical metadata, not a current run or
-proof that an externally named raw receipt body is still available. The saved
-archive SHA256 is
-`c65f40d1c2bdddd9b8f58873c366afc633f7604cf1be21bb8daeafd7ca0d4c67`.
-
-Obsolete top-level checkpoint snapshots and repeated detailed validation bodies
-are absent from these current owners. Useful mathematical coverage/case fields
-remain. Full dated ticket records and earlier progress snapshots are available
-through saved072. Immutable requirement text may itself name its original
-scratch/provenance path; its complete content is retained here without treating
-that old path as a present repository artifact.
+A `historical_ref` such as `saved072:CTB.json#/new_tickets/0/validation`
+selects historical metadata in the separately saved archive described by
+`historical_catalogs`; it does not establish present availability of an external
+raw receipt. Final handover references instead resolve to preserved local files.
 
 ## Retention and recovery
 
-Completed mathematics belongs in source/research, requirements and current state
-in CTB/coverage, and reusable operating instructions in the continuation guide.
-Keep useful incomplete arguments in maintained papers linked from the inbox.
-Before retiring a mixed container, check every useful result, assumption, case
-and unresolved obligation in its destination. Remove processed inbox entries
-and repair their consumers after integration.
+Keep useful mathematics in source or maintained papers, with precise assumptions,
+source-reading limits, fixed cases and remaining obligations. Before removing a
+mixed historical carrier, account for every useful part and its surviving owner.
+Remove a processed inbox item only after repairing its consumers. The preserved
+handover remains available while that reconciliation continues.
 
-Each successor checkpoint pins the latest reconciled accepted published commit
-and carries the **entire** useful unreceived delta relative to it. Test restoration
-without an earlier archive or private donor objects. Once all delivered work is
-integrated, a new seed needs no source delta. The continuation guide owns the
-checkpoint contract; historical producer terminology does not add another source
-acceptance gate.
-
-Keep older archives separately. Preserve source editions, mathematical
-requirements and consequential limitations; do not carry repeated historical
-receipts, polling records or completed migration maps into each new seed.
+Current prose summarizes contracts and next actions; exact historical records
+remain linked separately. Dated checkpoint size limits, seeds, model directions
+and save loops belong to that historical external workflow. They create no
+current authoring or publication requirement.

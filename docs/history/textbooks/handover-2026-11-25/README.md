@@ -4,11 +4,12 @@ This directory preserves the last delivered external textbook work for continued
 formalization and integration in this repository. **ADWH, VFA, FDSA and PFDS
 remain in scope. Only external authoring is being retired.**
 
-This is a preservation intake on `integration/textbooks`, outside the integrated
-Lean build. It does not accept the supplied mathematics, change book coverage,
-or complete [#713](https://github.com/VladimirMarko/conaled/issues/713).
-Cleanup and integration may span several sessions. Start from this document,
-then the source and research below; do not resume the old agent's operating loop.
+The preserved payload is historical evidence, outside the integrated Lean build.
+The [receiving source map](../../../research/textbook-machine-integration.md)
+tracks active modules, their contracts and receiving acceptance under
+[#713](https://github.com/VladimirMarko/conaled/issues/713). Book coverage remains
+separate. Start from the maintained source map for current work; do not resume
+the old agent's operating loop.
 
 ## What is preserved
 
@@ -28,7 +29,7 @@ stores, dependency caches, build outputs or installed tools in this packet.
 
 | Material | Entry point and status |
 |---|---|
-| Complete source delta | [source manifest](received/SOURCE_MANIFEST.json), [source](received/current/source/): 66 Lean files and six documentation files, with no deletions. The aggregate is included among the 66. Unaccepted source. |
+| Complete source delta | [source manifest](received/SOURCE_MANIFEST.json), [source](received/current/source/): 66 Lean files and six documentation files, with no deletions. The aggregate is included among the 66. Exact donor source; see the receiving map for active modules and acceptance. |
 | Unfinished mathematics and fixed expectations | [research](received/current/research/), including [normal dispatch](received/current/research/space156/PREPARATION156.json) and [internal height](received/current/research/height156/). Those two increments are uncompiled and uninstalled. |
 | Maintained-paper input | [rotation-certificate preparation](received/current/source/docs/research/fdsa-rotation-certificate-preparation.md). Contains useful mathematics mixed with embedded operational records; needs content separation. |
 | Full requirements and task identities | [requirements](received/current/control/requirements.md), [CTB](received/current/source/docs/textbooks/CTB.json), [coverage](received/current/source/docs/textbooks/coverage.json). Historical records, not replacements for current repository policy or acceptance. |

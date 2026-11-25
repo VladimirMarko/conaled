@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "canonical_requirement_commit": "c796ab0bf270bdf76ea4e980d1d606d8b6a9286e",
-  "authority": "This catalog continues the user-authorized CTB series, retaining canonical CTB-1 through CTB-78 and all 44 literal CTB-79 through CTB-122 requirements. Receiving R2, checkpoint074 retention/save and #659 remain completed historical scopes. Cumulative084 receiving acceptance under #660 qualifies the complete measured sweep and four ordinary measured AVL rows; final acceptance evidence is owned by that issue. Remaining textbook obligations and future consecutive allocation are unchanged.",
+  "authority": "Repository-owned continuation of ADWH, VFA, FDSA and PFDS. CTB retains its canonical VFA/FDSA/PFDS task identities, complete requirements and next unused ID 123; ADWH retains #149. Prior receiving scopes under #659/#660 and R2 retain their evidence. The final external handover is preserved under #713; receiving acceptance evidence belongs to #713 and no new coverage row is qualified.",
   "canonical_requirement_owners": [
     "docs/history/textbooks/checkpoint-024/TICKETS.json",
     "docs/history/textbooks/issue-lineages.json",
@@ -225,7 +225,7 @@
         "CTB-122"
       ],
       "scope": "Inventory the full donor/upstream mathematical union and CTB requirements; assess missed reuse, interface changes and affected clients; integrate and rework; validate the exact receiving candidate before new textbook formalization.",
-      "work_sequence": "docs/textbooks/README.md#receiving-state",
+      "work_sequence": "docs/research/textbook-machine-integration.md",
       "unprocessed_inbox": "docs/textbooks/inbox/README.md",
       "integration_candidate": "99a2974c93e556088af814f033540eb36ba2d3a6",
       "whole_library_acceptance": "Passed; actual R2 evidence in integration_handoff/acceptance_evidence",
@@ -233,7 +233,7 @@
         "Standards": "Passed",
         "Spec": "Passed"
       },
-      "next_action": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+      "next_action": "Continue in the repository under the current AGENTS.md workflow. #713 owns exact-candidate receiving build/audit, verification and independent Standards/Spec evidence. No external author or restart seed is required. Use docs/research/textbook-machine-integration.md for bounded work; all four books and canonical open obligations remain in scope.",
       "remaining_gate": "No gate remains for completed R2 integration and checkpoint074 retention/save. The frozen FDSA-5-85 and bounded FDSA-5-90 slice has separate receiving source acceptance under GitHub issue #659; subsequent increments require their own checks.",
       "boundary": "R2 source integration and receiving validation/review are accepted and published; checkpoint074 later completed retention and durable saving. No new mathematical row is qualified. Historical donor checks and UNKNOWN outcomes retain their original scope.",
       "retention_policy": "docs/textbooks/README.md#retention-and-recovery",
@@ -1561,48 +1561,44 @@
         "FDSA-5-92",
         "FDSA-5-93"
       ],
-      "next_implementation_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+      "next_implementation_gate": "Continue in the repository under the current AGENTS.md workflow. #713 owns exact-candidate receiving build/audit, verification and independent Standards/Spec evidence. No external author or restart seed is required. Use docs/research/textbook-machine-integration.md for bounded work; all four books and canonical open obligations remain in scope.",
       "next_rows": [
         "FDSA-5-92",
         "FDSA-5-93"
       ],
-      "boundary": "Receiving #660 qualifies FDSA-5-90 and FDSA-9-39/40/41/60. Chapter 5 is 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 is 61/110 with FDSA-9-62 through FDSA-9-110 open. Source-event costs imply no allocation, physical-sharing, bit-cost or machine-runtime result. No whole-book completion or fresh restart-artifact delivery is asserted.",
+      "boundary": "Chapter 5 remains 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 remains 61/110. Final external machine source is present for integration, but neither complete-row qualification nor whole-book completion follows. Prior #659/#660 acceptance remains confined to its original source.",
       "current_work": {
         "row": "FDSA-5-93",
-        "status": "Receiving #660 accepts the concrete finite-alphabet codes, accumulator emitters, linear bit/path/move prefix parsers and structural execution foundations. The full FDSA-5-93 verifier, polynomial-checkability result and machine bridge remain open.",
-        "correspondence": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "status": "Repository integration of the final external source is pending receiving validation and review. The supplied source contains complete raw word/binary verifiers, finite controller realizations, native tape/primitive simulations, literal delimiter input, a combined print/move adapter and an explicit conventional verifier criterion. This does not identify that criterion with an independent nondeterministic NP definition.",
         "source_qualified": false,
-        "owners": [
-          "Applications/Resources/BinaryCounter/FixedWidth.lean",
-          "Applications/Resources/RotationCertificate/Execution.lean",
-          "Examples/MeasuredRotationCertificate.lean",
-          "Applications/Resources/RotationCertificate/Encoding.lean",
-          "Applications/Resources/RotationCertificate/LinearParser.lean",
-          "Examples/RotationCertificateCodecs.lean"
-        ],
+        "correspondence": "docs/research/fdsa-rotation-certificate-preparation.md",
+        "continuation": "docs/research/textbook-machine-integration.md",
         "components": [
-          "Actual fixed-width binary predecessor: failure iff zero, success iff positive, unchanged width and exact decrement, raw bound 3*b+2, zero-word cost 2*b+2, first-true borrow cost 3*(r+1).",
-          "Actual label-polymorphic partial root and positioned rotations: existing semantic erasure, callback result consumption, empty-position behavior at nil, missing-node short circuit, actual successful depth p+2<=n, success work 3*p+5 and raw work <=3*n+3.",
-          "Actual left-first Unit-shape equality: decision erasure, arbitrary skipped-right short circuit, work <=3*source_nodes+2 and exact self-comparison cost.",
-          "Connected finite examples: fixed-width versus canonical decrement; actual callback reconstruction; stale reached position; normalization route of length three versus attained minimum one.",
-          "Concrete Fin16 tree/bit/path/move/certificate/input codes with exact lengths; actual accumulator emitters with arbitrary suffix correctness and exact cost, including certificate cost 2W+1 and input cost+1=2M.",
-          "Actual bit/path/move prefix parsers: all-raw iff recognition, exact untouched suffix, successful cost, uniform raw-input bounds, consumed lengths, strict move suffix, prefix injectivity and actual emitter roundtrips.",
-          "Connected codec/parser cases: literal encodings and emissions, both branches/directions, missing and foreign delimiters, arbitrary untouched tails, every reserved tag11–15, high/all-zero width preservation and syntax versus actual rotation legality."
+          "Tree/input parsers preserve arbitrary raw recognition, exact suffixes, noncanonical fuel widths and uniform malformed-input work bounds.",
+          "Streaming execution consumes actual predecessor, parser and rotation results; attained-minimum witnesses meet the requested threshold and polynomial encoded-size bounds.",
+          "Fixed-four-bit encoding and binary verification preserve raw acceptance; complete certificate decoding is eager and does not inherit token-stream untouched-tail claims.",
+          "Finite machine stages implement decoding, framing, input/move parsing, binary fuel, equality, positioned rotation, move application and the full controller with cleanup and explicit outputs.",
+          "Native TM2-to-TM1 and TM1-to-TM0 simulations retain actual counts, complete configurations, finite support, supplied defaults and live-halt versus outer-none distinctions.",
+          "Ordinary literal delimiter inputs and the combined print/move adapter carry paid execution, polynomial bounds and an explicit bounded-witness criterion.",
+          "VisitedSpace supplies actual live-prefix configuration, complete-command and coordinate composition. Sharper internal-height and normal-dispatch drafts remain uncompiled historical research."
         ],
-        "tariff": "Primitive entry/dispatch and each new cons, tree node or returned Option/Bool literal cost one; control packaging, projections, aliases, reuse and measurement arithmetic are free. This is structural work, not a machine-time or bit-complexity result.",
         "remaining_full_row": [
-          "Implement the actual stack tree parser and complete input parser with exact prefix/suffix correctness, malformed/trailing-input behavior and raw-input work bounds.",
-          "Implement the actual streaming verifier using binary fuel, current reached tree and actual parser results; prove malformed-input and failure behavior.",
-          "Prove semantic soundness/completeness, attained-minimum witness length and polynomial certificate-size and verifier-work bounds.",
-          "Supply and qualify the source-required computational-model/NP correspondence; no assumed polynomial-time oracle field discharges it."
+          "Complete exact-candidate receiving build, exhaustive audit, nonrepairing verification and independent Standards/Spec review for integrated source and connected cases; resolve historical ST-V001/SP-V001 against new evidence.",
+          "Review full FDSA-5-93 source correspondence and close the computational-model/NP obligation without treating the current explicit verifier criterion as independent NTM/NP equivalence.",
+          "Retain every canonical requirement, raw rejection case, fixed literal expectation, source-work/machine-time distinction, and full FDSA-5-92 sharp-diameter obligation."
         ],
         "remaining_rows": [
           "FDSA-5-92",
           "FDSA-5-93"
         ],
-        "boundary": "Accepted foundations do not complete FDSA-5-93. FDSA-5-85 retains #659 qualification, and FDSA-5-90 is qualified under #660. FDSA-5-92 and all remaining canonical obligations remain open.",
-        "historical_author_source_base": "3ac996cc42ec4a57bb5c7052714052cca87c97ff",
-        "receiving_acceptance": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance"
+        "historical_progress": "docs/history/textbooks/handover-2026-11-25/received/current/source/docs/textbooks/CTB.json#/local_state/CTB-24",
+        "historical_complete_requirements": "docs/history/textbooks/handover-2026-11-25/received/current/control/requirements.md",
+        "prior_receiving_acceptance": "docs/textbooks/CTB.json#/integration_handoff/progress084/receiving_acceptance",
+        "prior_receiving_scope": "Cumulative084 foundations only; later parser/verifier/machine source does not inherit acceptance.",
+        "receiving_acceptance": {
+          "owner": "https://github.com/VladimirMarko/conaled/issues/713",
+          "evidence": "The receiving record identifies the exact candidate, full build/audit, matching verification and independent Standards/Spec outcomes. Historical focused results do not supply this evidence."
+        }
       },
       "receiving_qualification": {
         "qualified_rows": [
@@ -1785,14 +1781,14 @@
       "Before retiring provenance, preserve useful unfinished mathematics/case crosswalks and repair current CTB/research/index references; keep remaining book requirements open."
     ],
     "guidance_boundary": "Current docs/textbooks/README.md#receiving-state records the user-mandated sequence; apply the fetched repository guidance during integration. Earlier source CONTENT evidence retains its historical guidance identity.",
-    "current_stage": "Cumulative084 receiving source accepted under #660; prior R2/#659 acceptance and checkpoint074 retention/save remain complete. Fresh restart-seed creation and delivery follow publication.",
+    "current_stage": "Repository-owned integration of the preserved final external handover; receiving validation and independent review evidence is recorded under #713.",
     "work_sequence": "docs/textbooks/README.md#receiving-state",
     "unprocessed_inbox": "docs/textbooks/inbox/README.md",
     "next_formalization_ticket": "CTB-24",
-    "next_formalization_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+    "next_formalization_gate": "Continue in the repository under the current AGENTS.md workflow. #713 owns exact-candidate receiving build/audit, verification and independent Standards/Spec evidence. No external author or restart seed is required. Use docs/research/textbook-machine-integration.md for bounded work; all four books and canonical open obligations remain in scope.",
     "donor_content_approval_boundary": "approved_content_candidate records the accepted072 donor CONTENT candidate only, not current receiving integration approval.",
     "historical_receiving_boundary": "Indexed receiving070/072 interruption handoffs remain dated evidence. Historical UNKNOWN processes remain UNKNOWN; no current result is inferred.",
-    "retention_transition": "Checkpoint074 completed its original retention transition. Received084 useful source and paper mathematics now have maintained repository owners; prepare the fresh restart seed after publication, without embedded old carriers or recursive review history.",
+    "retention_transition": "External authoring retired; exact final source, requirements, drafts and evidence preserved at docs/history/textbooks/handover-2026-11-25/received. Current navigation: docs/research/textbook-machine-integration.md. No new seed.",
     "retention_policy": "docs/textbooks/README.md#retention-and-recovery",
     "integration_rework": [
       {
@@ -1880,7 +1876,7 @@
       "evidence": "Supplied checkpoint074 CURRENT.json and checkpoint075 recovery previous-secured-closure.json, corroborated by the author handoff dated 2026-11-20 14:16:07 UTC. The receiving inventory matched the actual archive size and SHA-256.",
       "reported_outcomes": "Both artifact review axes, fresh restoration, immediate comparison and durable save passed in the author closure. This is recovery of those recorded outcomes, not a new mathematical acceptance."
     },
-    "current_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+    "current_gate": "Continue in the repository under the current AGENTS.md workflow. #713 owns exact-candidate receiving build/audit, verification and independent Standards/Spec evidence. No external author or restart seed is required. Use docs/research/textbook-machine-integration.md for bounded work; all four books and canonical open obligations remain in scope.",
     "current_increment_handoff": {
       "ticket": "CTB-24",
       "rows": [
@@ -2003,17 +1999,24 @@
     "historical_r2_donor_source_tree": "0995ad74091115ed9bed77f3814b14fb57fd5ad7",
     "historical_r2_receiving_master_commit": "8ff71395e9841760c4e240c4e8b8741b355bda68",
     "historical_r2_receiving_master_tree": "2e8e4c7ef8203445c69128b84a1a0e7ccbec0355",
-    "historical_r2_master_observed_date": "2026-11-20"
+    "historical_r2_master_observed_date": "2026-11-20",
+    "final_external_handover": {
+      "issue": 713,
+      "preserved": "docs/history/textbooks/handover-2026-11-25/README.md",
+      "source_tree": "394733a450268e8943048ea146440dcb75c7ceea",
+      "reported_donor_commit": "a5a917db8717977371b8d76d93f166389c9eec9b",
+      "receiving_acceptance": "See #713 for the exact receiving candidate and validation/review outcomes.",
+      "newly_qualified_rows": [],
+      "current_map": "docs/research/textbook-machine-integration.md"
+    }
   },
-  "next_ticket_gate": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
+  "next_ticket_gate": "Continue in the repository under the current AGENTS.md workflow. #713 owns exact-candidate receiving build/audit, verification and independent Standards/Spec evidence. No external author or restart seed is required. Use docs/research/textbook-machine-integration.md for bounded work; all four books and canonical open obligations remain in scope.",
   "current_user_override": {
-    "date": "2026-11-21",
-    "sequence": "Complete receiving publication and create and deliver a fresh restart seed against the accepted published prerequisite. Then continue CTB-24/FDSA-5-93 with stack tree/input parsers and the streaming verifier; retain the full FDSA-5-92 and all remaining book obligations. Use docs/textbooks/external-agent.md, preserve Astra, and apply exact-candidate validation and independent reviews to later increments.",
-    "max_payload_bytes": 134217728,
-    "retention": "Completed mathematics belongs in repository source/research; requirements and state in CTB; guidance in operational owners. Empty processed inbox items after verified disposition. Retire obsolete provenance after receiving validation; do not perpetuate every historical receipt or wrap prior archives.",
-    "historical_instruction_boundary": "CTB-119 and other dated requirements remain literal history. Their former Page-only, blanket-retention and 32 MiB process requirements do not govern current work.",
-    "instructions": "docs/textbooks/README.md#receiving-state",
-    "ongoing_authorization": "Keep working until all the books are formalized and integrated and keep creating and uploading checkpoints. The user will relay requests from the conaled integration agent."
+    "date": "2026-11-25",
+    "workflow": "External authoring is retired. Continue formalization and integration in this repository; no external restart seed or checkpoint-production loop is needed.",
+    "scope": "ADWH, VFA, FDSA and PFDS remain in the programme. Preserve full requirements, useful mathematics, fixed cases, source attribution and validation limits.",
+    "historical_external_policy": "docs/history/textbooks/handover-2026-11-25/received/current/source/docs/textbooks/CTB.json#/current_user_override",
+    "boundary": "Historical checkpoint, model, capacity, seed and publication directions do not override current repository guidance or the current user."
   },
   "historical_catalogs": {
     "saved072": {
@@ -2025,9 +2028,16 @@
         "BOOKS.json": "conaled-textbooks/integration/coverage/BOOKS.json"
       },
       "boundary": "Separate saved historical archive; never embedded in this repository catalog or a successor checkpoint. External scratch receipt bodies are not implied to be inside it."
+    },
+    "handover156": {
+      "path": "docs/history/textbooks/handover-2026-11-25/received/current/source/docs/textbooks/CTB.json",
+      "coverage": "docs/history/textbooks/handover-2026-11-25/received/current/source/docs/textbooks/coverage.json",
+      "requirements": "docs/history/textbooks/handover-2026-11-25/received/current/control/requirements.md",
+      "preservation": "docs/history/textbooks/handover-2026-11-25/preservation.json",
+      "boundary": "Exact final external files; historical evidence, not present acceptance or operating instructions."
     }
   },
-  "state_boundary": "Historical qualification reviews retain their original literal claims, dates and candidates. Current receiving evidence is in integration_handoff/progress084; prior R2 and #659 evidence retains its original scope. Receiving #660 qualifies FDSA-5-90 and FDSA-9-39/40/41/60. Chapter 5 is 92/94 with FDSA-5-92 and FDSA-5-93 open; Chapter 9 is 61/110 with FDSA-9-62 through FDSA-9-110 open. Source-event costs imply no allocation, physical-sharing, bit-cost or machine-runtime result. No whole-book completion or fresh restart-artifact delivery is asserted.",
+  "state_boundary": "Prior accepted scopes are unchanged. Source155 and preparation156 are preserved in the final handover; current source integration requires its own receiving checks. Historical focused results and UNKNOWN whole-run outcomes are not receiving acceptance. Detailed historical progress is recoverable from the preserved catalog; active continuation is docs/research/textbook-machine-integration.md.",
   "new_tickets": [
     {
       "id": "CTB-79",

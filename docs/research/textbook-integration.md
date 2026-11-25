@@ -655,7 +655,8 @@ assessment's source identity or establish a general usability measurement.
 
 [Rotation certificate foundations](fdsa-rotation-certificate-preparation.md)
 retain actual binary predecessor, partial execution, equality, finite-word
-encoding and linear-prefix parsing. The complete checker and machine-complexity
-bridge remain open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
+encoding and linear-prefix parsing. The [final receiving integration](textbook-machine-integration.md) adds the
+complete checker and machine-complexity bridge, subject to its recorded
+receiving validation. Independent NP-class correspondence remains open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
 now also retains explicit finite flip tables and a tree-diagonal proof plan;
 its global sharp theorem and primary-family correspondence remain open.
