@@ -7,7 +7,7 @@ import unittest
 class StaticFunctionReactive(unittest.TestCase):
     def test_compiled_machine_and_restart(self):
         result = subprocess.run(
-            ['lake', 'env', 'lean', '--run', 'scripts/static-function-reactive-main.lean'],
+            ['lake', 'env', 'lean', '--run', 'scripts/StaticFunctionReactiveMain.lean'],
             text=True, capture_output=True, check=False,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

@@ -78,7 +78,7 @@ evidence requires a separately requested bounded experiment.
 
 - `Examples/RegionalSelection.lean`: independent native fixtures, arbitrary-state
   theorem specializations and separating admission/cost cases.
-- `scripts/regional-selection-main.lean`: continued executions, epoch changes,
+- `scripts/RegionalSelectionMain.lean`: continued executions, epoch changes,
   stale contexts, fallbacks and separately reported timing observations.
 - `scripts/test-regional-selection.py`: independent native-state oracle for
   1,296 continued runs and 17 public admission/evidence checks.

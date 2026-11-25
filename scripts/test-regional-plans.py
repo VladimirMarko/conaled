@@ -7,7 +7,7 @@ import unittest
 class RegionalPlans(unittest.TestCase):
     def test_compiled_runs_and_boundaries(self):
         result = subprocess.run(
-            ['lake', 'env', 'lean', '--run', 'scripts/regional-plans-main.lean'],
+            ['lake', 'env', 'lean', '--run', 'scripts/RegionalPlansMain.lean'],
             text=True, capture_output=True, check=True,
         )
         seen = 0

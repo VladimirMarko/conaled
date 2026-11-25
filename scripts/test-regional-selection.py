@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--measurements", type=Path)
 args = parser.parse_args()
 
-result = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/regional-selection-main.lean'],
+result = subprocess.run(['lake', 'env', 'lean', '--run', 'scripts/RegionalSelectionMain.lean'],
                         text=True, capture_output=True)
 if result.returncode:
     raise RuntimeError(result.stdout + result.stderr)

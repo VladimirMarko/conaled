@@ -7,7 +7,7 @@ import unittest
 class BoundedFold(unittest.TestCase):
     def test_frozen_fixture_and_continuations(self):
         result = subprocess.run(
-            ['lake', 'env', 'lean', '--run', 'scripts/bounded-fold-main.lean'],
+            ['lake', 'env', 'lean', '--run', 'scripts/BoundedFoldMain.lean'],
             text=True, capture_output=True, check=True,
         )
         lines = result.stdout.splitlines()
