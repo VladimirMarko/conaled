@@ -17,11 +17,11 @@ structure ProductCongr {Obj : Type u} {C : CategoryOps.{u,v} Obj}
 
 structure ProductLaws {Obj : Type u} {C : CategoryOps.{u,v} Obj}
     (E : WitnessEquivalence C) (P : ProductOps C) where
-  fst_pair : ∀ {a b c} (f : C.Hom a b) (g : C.Hom a c),
+  fstPair : ∀ {a b c} (f : C.Hom a b) (g : C.Hom a c),
     E.Rel (C.comp P.fst (P.pair f g)) f
-  snd_pair : ∀ {a b c} (f : C.Hom a b) (g : C.Hom a c),
+  sndPair : ∀ {a b c} (f : C.Hom a b) (g : C.Hom a c),
     E.Rel (C.comp P.snd (P.pair f g)) g
-  pair_eta : ∀ {a b c} (f : C.Hom a (P.prod b c)),
+  pairEta : ∀ {a b c} (f : C.Hom a (P.prod b c)),
     E.Rel (P.pair (C.comp P.fst f) (C.comp P.snd f)) f
 
 structure CoproductCongr (E : WitnessEquivalence C) (S : CoproductOps C) where
@@ -36,8 +36,8 @@ structure CoproductLaws (E : WitnessEquivalence C) (S : CoproductOps C) where
 
 structure DistributionLaws (E : WitnessEquivalence C) (P : ProductOps C) (S : CoproductOps C)
     (D : DistributionOps C P S) where
-  collect_distribute : ∀ a b c, E.Rel (C.comp (collect C P S (a := a) (b := b) (c := c)) D.distribute) C.ident
-  distribute_collect : ∀ a b c, E.Rel (C.comp (D.distribute (a := a) (b := b) (c := c)) (collect C P S)) C.ident
+  collectDistribute : ∀ a b c, E.Rel (C.comp (collect C P S (a := a) (b := b) (c := c)) D.distribute) C.ident
+  distributeCollect : ∀ a b c, E.Rel (C.comp (D.distribute (a := a) (b := b) (c := c)) (collect C P S)) C.ident
 
 structure ClosedCongr (E : WitnessEquivalence C) (P : ProductOps C) (H : ClosedOps C P) where
   curry : ∀ {x a b} {f g : C.Hom (P.prod x a) b}, E.Rel f g → E.Rel (H.curry f) (H.curry g)
@@ -62,7 +62,7 @@ theorem ProductCongr.erase {P : ProductOps C} (L : ProductCongr E P) :
     SquareKit.ProductCongr E.erase P := ⟨fun ⟨h⟩ ⟨k⟩ => ⟨L.pair h k⟩⟩
 theorem ProductLaws.erase {P : ProductOps C} (L : ProductLaws E P) :
     SquareKit.ProductLaws E.erase P :=
-  ⟨fun f g => ⟨L.fst_pair f g⟩, fun f g => ⟨L.snd_pair f g⟩, fun f => ⟨L.pair_eta f⟩⟩
+  ⟨fun f g => ⟨L.fstPair f g⟩, fun f g => ⟨L.sndPair f g⟩, fun f => ⟨L.pairEta f⟩⟩
 theorem CoproductCongr.erase {S : CoproductOps C} (L : CoproductCongr E S) :
     SquareKit.CoproductCongr C E.erase S := ⟨fun ⟨h⟩ ⟨k⟩ => ⟨L.copair h k⟩⟩
 theorem CoproductLaws.erase {S : CoproductOps C} (L : CoproductLaws E S) :
@@ -71,7 +71,7 @@ theorem CoproductLaws.erase {S : CoproductOps C} (L : CoproductLaws E S) :
 theorem DistributionLaws.erase {P : ProductOps C} {S : CoproductOps C}
     {D : DistributionOps C P S} (L : DistributionLaws E P S D) :
     SquareKit.DistributionLaws C E.erase P S D :=
-  ⟨fun a b c => ⟨L.collect_distribute a b c⟩, fun a b c => ⟨L.distribute_collect a b c⟩⟩
+  ⟨fun a b c => ⟨L.collectDistribute a b c⟩, fun a b c => ⟨L.distributeCollect a b c⟩⟩
 theorem ClosedCongr.erase {P : ProductOps C} {H : ClosedOps C P} (L : ClosedCongr E P H) :
     SquareKit.ClosedCongr E.erase P H := ⟨fun ⟨h⟩ => ⟨L.curry h⟩⟩
 theorem ClosedLaws.erase {P : ProductOps C} {H : ClosedOps C P} (L : ClosedLaws E P H) :

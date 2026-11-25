@@ -38,11 +38,11 @@ def ProductCongr.right {P : ProductOps C} (K : ProductCongr E P)
 def Cartesian.tensor_congr_left {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
     {a b c d} {f f' : C.Hom a c} (g : C.Hom b d) (h : E.Rel f f') :
     E.Rel (SquareKit.Cartesian.tensor P f g) (SquareKit.Cartesian.tensor P f' g) :=
-  Cartesian.tensor_congr K G h (E.refl _)
+  Cartesian.tensorCongr K G h (E.refl _)
 def Cartesian.tensor_congr_right {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
     {a b c d} (f : C.Hom a c) {g g' : C.Hom b d} (h : E.Rel g g') :
     E.Rel (SquareKit.Cartesian.tensor P f g) (SquareKit.Cartesian.tensor P f g') :=
-  Cartesian.tensor_congr K G (E.refl _) h
+  Cartesian.tensorCongr K G (E.refl _) h
 
 def InitialLaws.universal {T : InitialOps C} (L : InitialLaws E T) {a} (f : C.Hom T.zero a) :
     E.Rel T.initial f := E.symm (L.unique f)

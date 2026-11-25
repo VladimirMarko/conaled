@@ -52,6 +52,6 @@ example {A B C D : Obj} (h : Hom C D) (g : Hom B C) (f : Hom A B) :
 example (f g : Hom tagged tagged) :
     equiv.Rel (ops.comp (SquareKit.Cartesian.swap products)
       (products.pair f g)) (products.pair g f) :=
-  WitnessEquivalence.Cartesian.swap_pair congr laws product_congr product_laws f g
+  WitnessEquivalence.Cartesian.swapPair congr laws product_congr product_laws f g
 
 end Examples.WitnessSetoids

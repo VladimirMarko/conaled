@@ -32,9 +32,9 @@ variable {C : CategoryOps.{u₁,v₁} O} {D : CategoryOps.{u₂,v₂} P} {K : Ca
 
 def id_laws {E : WitnessEquivalence C} (L : Laws E) (S : CoproductOps C) :
     CoproductMapLaws E (SquareKit.CoproductMap.id S) where
-  inl := E.symm (L.id_comp _)
-  inr := E.symm (L.id_comp _)
-  copair _ _ := E.symm (L.comp_id _)
+  inl := E.symm (L.identComp _)
+  inr := E.symm (L.identComp _)
+  copair _ _ := E.symm (L.compIdent _)
 
 def comp_laws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
@@ -84,7 +84,7 @@ def transportLaws {F : RawMap C D} {E : WitnessEquivalence C} {H : WitnessEquiva
     apply H.trans (DC.comp (TC.copair (H.symm (DL.assoc _ _ _))
       (H.symm (DL.assoc _ _ _))) (H.refl _))
     apply H.trans (DC.comp (TL.eta _) (H.refl _))
-    exact H.trans (DL.assoc _ _ _) (H.trans (DC.comp (H.refl _) (I _ _).inv_hom) (DL.comp_id _))
+    exact H.trans (DL.assoc _ _ _) (H.trans (DC.comp (H.refl _) (I _ _).inv_hom) (DL.compIdent _))
 
 end CoproductMap
 end SquareKit.WitnessEquivalence

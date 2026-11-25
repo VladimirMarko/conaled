@@ -36,8 +36,8 @@ structure Congr (E : WitnessEquivalence C) where
     E.Rel g g' → E.Rel f f' → E.Rel (C.comp g f) (C.comp g' f')
 
 structure Laws (E : WitnessEquivalence C) where
-  id_comp : ∀ {a b} (f : C.Hom a b), E.Rel (C.comp C.ident f) f
-  comp_id : ∀ {a b} (f : C.Hom a b), E.Rel (C.comp f C.ident) f
+  identComp : ∀ {a b} (f : C.Hom a b), E.Rel (C.comp C.ident f) f
+  compIdent : ∀ {a b} (f : C.Hom a b), E.Rel (C.comp f C.ident) f
   assoc : ∀ {a b c d} (h : C.Hom c d) (g : C.Hom b c) (f : C.Hom a b),
     E.Rel (C.comp (C.comp h g) f) (C.comp h (C.comp g f))
 
@@ -45,16 +45,16 @@ theorem Congr.erase {E : WitnessEquivalence C} (K : E.Congr) : CategoryCongr C E
   comp := fun ⟨h⟩ ⟨k⟩ => ⟨K.comp h k⟩
 
 theorem Laws.erase {E : WitnessEquivalence C} (L : E.Laws) : CategoryLaws C E.erase where
-  id_comp f := ⟨L.id_comp f⟩
-  comp_id f := ⟨L.comp_id f⟩
+  id_comp f := ⟨L.identComp f⟩
+  comp_id f := ⟨L.compIdent f⟩
   assoc h g f := ⟨L.assoc h g f⟩
 
 def liftCongr {E : HomEquiv C} (K : CategoryCongr C E) : (ofHomEquiv E).Congr where
   comp h k := ⟨K.comp h.down k.down⟩
 
 def liftLaws {E : HomEquiv C} (L : CategoryLaws C E) : (ofHomEquiv E).Laws where
-  id_comp f := ⟨L.id_comp f⟩
-  comp_id f := ⟨L.comp_id f⟩
+  identComp f := ⟨L.id_comp f⟩
+  compIdent f := ⟨L.comp_id f⟩
   assoc h g f := ⟨L.assoc h g f⟩
 
 variable {P : Type u'} {D : CategoryOps.{u',v'} P}
@@ -87,8 +87,8 @@ def Reflection (F : RawMap C D) (E : WitnessEquivalence C)
 def transportLaws {F : RawMap C D} {E : WitnessEquivalence C}
     {H : WitnessEquivalence D} (L : Preservation F E H) (R : Reflection F E H)
     (HC : H.Congr) (HL : H.Laws) : E.Laws where
-  id_comp _f := R (H.trans (L.comp _ _) (H.trans (HC.comp L.ident (H.refl _)) (HL.id_comp _)))
-  comp_id _f := R (H.trans (L.comp _ _) (H.trans (HC.comp (H.refl _) L.ident) (HL.comp_id _)))
+  identComp _f := R (H.trans (L.comp _ _) (H.trans (HC.comp L.ident (H.refl _)) (HL.identComp _)))
+  compIdent _f := R (H.trans (L.comp _ _) (H.trans (HC.comp (H.refl _) L.ident) (HL.compIdent _)))
   assoc _h _g _f := R (H.trans (L.comp _ _) (H.trans (HC.comp (L.comp _ _) (H.refl _))
     (H.trans (HL.assoc _ _ _) (H.trans (HC.comp (H.refl _) (H.symm (L.comp _ _)))
       (H.symm (L.comp _ _))))))

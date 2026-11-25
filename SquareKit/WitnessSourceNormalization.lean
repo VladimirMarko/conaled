@@ -12,7 +12,7 @@ def sourceCollect (P : ProductOps C) (S : CoproductOps C) {a b c : O} :
 
 def sourceCollect_normalizes (A : E.Laws) (G : ProductCongr E P) (SC : CoproductCongr E S)
     (a b c : O) : E.Rel (sourceCollect P S (a := a) (b := b) (c := c)) (collect C P S) :=
-  SC.copair (G.pair (A.id_comp _) (E.refl _)) (G.pair (A.id_comp _) (E.refl _))
+  SC.copair (G.pair (A.identComp _) (E.refl _)) (G.pair (A.identComp _) (E.refl _))
 
 def sourceCollectRight (P : ProductOps C) (S : CoproductOps C) {a b c : O} :
     C.Hom (S.sum (P.prod b a) (P.prod c a)) (P.prod (S.sum b c) a) :=
@@ -21,7 +21,7 @@ def sourceCollectRight (P : ProductOps C) (S : CoproductOps C) {a b c : O} :
 def sourceCollectRight_normalizes (A : E.Laws) (G : ProductCongr E P)
     (SC : CoproductCongr E S) (a b c : O) :
     E.Rel (sourceCollectRight P S (a := a) (b := b) (c := c)) (collectRight P S) :=
-  SC.copair (G.pair (E.refl _) (A.id_comp _)) (G.pair (E.refl _) (A.id_comp _))
+  SC.copair (G.pair (E.refl _) (A.identComp _)) (G.pair (E.refl _) (A.identComp _))
 
 /-- Transport both selected inverse witnesses along a selected arrow comparison. -/
 def ComparisonLaws.replace_inverse (K : E.Congr) {a b} {f : C.Hom a b} {g g' : C.Hom b a}
@@ -34,7 +34,7 @@ def DistributionLaws.source (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
     (SC : CoproductCongr E S) {d : DistributionOps C P S} (L : DistributionLaws E P S d)
     (a b c : O) : ComparisonLaws E
       (⟨d.distribute (a := a) (b := b) (c := c), sourceCollect P S⟩ : Comparison C _ _) :=
-  ComparisonLaws.replace_inverse K ⟨L.distribute_collect a b c, L.collect_distribute a b c⟩
+  ComparisonLaws.replace_inverse K ⟨L.distributeCollect a b c, L.collectDistribute a b c⟩
     (E.symm (sourceCollect_normalizes A G SC a b c))
 
 def DistributionLaws.ofSource (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
@@ -42,15 +42,15 @@ def DistributionLaws.ofSource (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
     (L : ∀ a b c, ComparisonLaws E
       (⟨d.distribute (a := a) (b := b) (c := c), sourceCollect P S⟩ : Comparison C _ _)) :
     DistributionLaws E P S d where
-  collect_distribute a b c :=
+  collectDistribute a b c :=
     (ComparisonLaws.replace_inverse K (L a b c) (sourceCollect_normalizes A G SC a b c)).inv_hom
-  distribute_collect a b c :=
+  distributeCollect a b c :=
     (ComparisonLaws.replace_inverse K (L a b c) (sourceCollect_normalizes A G SC a b c)).hom_inv
 
 def ProductCongr.reverse (G : ProductCongr E P) : ProductCongr E P.reverse :=
   ⟨fun h k => G.pair k h⟩
 def ProductLaws.reverse (L : ProductLaws E P) : ProductLaws E P.reverse :=
-  ⟨fun f g => L.snd_pair g f, fun f g => L.fst_pair g f, L.pair_eta⟩
+  ⟨fun f g => L.sndPair g f, fun f g => L.fstPair g f, L.pairEta⟩
 
 def RightDistributionLaws.source (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
     (SC : CoproductCongr E S) {d : RightDistributionOps P S}
@@ -71,7 +71,7 @@ def sourceUncurry (H : ClosedOps C P) {x a b} (g : C.Hom x (H.exp a b)) : C.Hom 
 def sourceUncurry_normalizes (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
     (H : ClosedOps C P) {x a b} (g : C.Hom x (H.exp a b)) :
     E.Rel (sourceUncurry H g) (H.uncurry g) :=
-  K.comp (E.refl _) (G.pair (E.refl _) (A.id_comp _))
+  K.comp (E.refl _) (G.pair (E.refl _) (A.identComp _))
 
 structure SourceClosedUniversal (H : ClosedOps C P) where
   forward : ∀ {x a b} {f : C.Hom (P.prod x a) b} {g : C.Hom x (H.exp a b)},

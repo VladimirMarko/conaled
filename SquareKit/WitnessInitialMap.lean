@@ -16,7 +16,7 @@ variable {C : CategoryOps.{u,v} O} {D : CategoryOps.{w,z} Q} {K : CategoryOps.{r
 
 
 def id_laws {E : WitnessEquivalence C} (L : Laws E) (T : InitialOps C) :
-    InitialMapLaws E (SquareKit.InitialMap.id T) := ⟨E.symm (L.comp_id _)⟩
+    InitialMapLaws E (SquareKit.InitialMap.id T) := ⟨E.symm (L.compIdent _)⟩
 
 def comp_laws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
@@ -44,7 +44,7 @@ def transportLaws {F : RawMap C D} {E : WitnessEquivalence C} {H : WitnessEquiva
     (M : InitialMapLaws H i) (UL : InitialLaws H U) : InitialLaws E T where
   unique f := by
     apply R
-    apply H.trans (H.symm (DL.comp_id _))
+    apply H.trans (H.symm (DL.compIdent _))
     apply H.trans (DC.comp (H.refl _) (H.symm I))
     apply H.trans (H.symm (DL.assoc _ _ _))
     exact H.trans (DC.comp (UL.unique _) (H.refl _)) (H.symm M.initial)

@@ -43,7 +43,7 @@ def tensor_conjugate {a b c d : O} (f : C.Hom a c) (g : C.Hom b d) :
   simp only [tensor]
   (witness_rewrite H, DC, TC, (IL.pair); witness_rewrite H, DC, TC, (FL.comp); witness_rewrite H, DC, TC, (FL.comp); witness_rewrite H, DC, TC, (IL.fst); witness_rewrite H, DC, TC, (IL.snd))
   apply H.symm
-  (witness_rewrite H, DC, TC, (TL.pair_comp DC DL TC))
+  (witness_rewrite H, DC, TC, (TL.pairComp DC DL TC))
   (witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, (DL.assoc))
   all_goals exact H.refl _
 
@@ -68,7 +68,7 @@ def remove_comparison {a b c d : Q} (j : Comparison D a b) (k : Comparison D c d
     (JL : ComparisonLaws H j) {f : D.Hom a c} {g : D.Hom b d}
     (h : H.Rel f (D.comp k.inv (D.comp g j.hom))) :
     H.Rel (D.comp f j.inv) (D.comp k.inv g) := by
-  (witness_rewrite H, DC, TC, (h); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, (JL.hom_inv); witness_rewrite H, DC, TC, (DL.comp_id))
+  (witness_rewrite H, DC, TC, (h); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, (JL.hom_inv); witness_rewrite H, DC, TC, (DL.compIdent))
   all_goals exact H.refl _
 
 include DC DL TC TL FL IL in
@@ -110,7 +110,7 @@ def assocLeft_image_normal (a b c : O) :
 
     | (witness_rewrite H, DC, TC, (DL.assoc))
 
-    | (witness_rewrite H, DC, TC, (DL.id_comp))
+    | (witness_rewrite H, DC, TC, (DL.identComp))
 
   exact H.refl _
 include DC DL TC TL FL IL in
@@ -125,11 +125,11 @@ def assocLeft_comparison_normal (a b c : O) :
   simp only [assocLeft, first, second, tensor]
   repeat first
 
-    | (witness_rewrite H, DC, TC, (TL.pair_comp DC DL TC))
+    | (witness_rewrite H, DC, TC, (TL.pairComp DC DL TC))
     | (witness_rewrite H, DC, TC, (DL.assoc))
-    | (witness_rewrite H, DC, TC, (TL.fst_pair))
-    | (witness_rewrite H, DC, TC, (TL.snd_pair))
-    | (witness_rewrite H, DC, TC, (DL.id_comp))
+    | (witness_rewrite H, DC, TC, (TL.fstPair))
+    | (witness_rewrite H, DC, TC, (TL.sndPair))
+    | (witness_rewrite H, DC, TC, (DL.identComp))
   all_goals exact H.refl _
 include DC DL TC TL FL IL in
 def assocLeft_conjugate (a b c : O) :
@@ -154,16 +154,16 @@ def assocRight_conjugate (a b c : O) :
 
     | (witness_rewrite H, DC, TC, (DL.assoc))
 
-    | (witness_rewrite H, DC, TC, (DL.id_comp))
+    | (witness_rewrite H, DC, TC, (DL.identComp))
 
   apply H.symm
   repeat first
 
-    | (witness_rewrite H, DC, TC, (TL.pair_comp DC DL TC))
+    | (witness_rewrite H, DC, TC, (TL.pairComp DC DL TC))
     | (witness_rewrite H, DC, TC, (DL.assoc))
-    | (witness_rewrite H, DC, TC, (TL.fst_pair))
-    | (witness_rewrite H, DC, TC, (TL.snd_pair))
-    | (witness_rewrite H, DC, TC, (DL.id_comp))
+    | (witness_rewrite H, DC, TC, (TL.fstPair))
+    | (witness_rewrite H, DC, TC, (TL.sndPair))
+    | (witness_rewrite H, DC, TC, (DL.identComp))
   all_goals exact H.refl _
 
 include DC DL TC TL FL IL in
@@ -174,7 +174,7 @@ def assocLeft_preserved (I : ∀ a b, ComparisonLaws H (i a b)) (a b c : O) :
   (witness_rewrite H, DC, TC, (assocLeft_conjugate DC DL TC TL FL IL))
   repeat (witness_rewrite H, DC, TC, (DL.assoc))
   (witness_rewrite H, DC, TC, (DL.cancel_left DC (I _ _).hom_inv))
-  (witness_rewrite H, DC, TC, (second_inverse DC DL TC TL (I b c).hom_inv); witness_rewrite H, DC, TC, (DL.comp_id))
+  (witness_rewrite H, DC, TC, (secondLeftInverse DC DL TC TL (I b c).hom_inv); witness_rewrite H, DC, TC, (DL.compIdent))
   all_goals exact H.refl _
 
 include DC DL TC TL FL IL in
@@ -185,19 +185,19 @@ def assocRight_preserved (I : ∀ a b, ComparisonLaws H (i a b)) (a b c : O) :
   (witness_rewrite H, DC, TC, (assocRight_conjugate DC DL TC TL FL IL))
   repeat (witness_rewrite H, DC, TC, (DL.assoc))
   (witness_rewrite H, DC, TC, (DL.cancel_left DC (I _ _).hom_inv))
-  (witness_rewrite H, DC, TC, (first_inverse DC DL TC TL (I a b).hom_inv); witness_rewrite H, DC, TC, (DL.comp_id))
+  (witness_rewrite H, DC, TC, (firstLeftInverse DC DL TC TL (I a b).hom_inv); witness_rewrite H, DC, TC, (DL.compIdent))
   all_goals exact H.refl _
 
 include DC DL IL in
 def fst_after_inverse (I : ∀ a b, ComparisonLaws H (i a b)) (a b : O) :
     H.Rel (D.comp (F.map (P.fst (a := a) (b := b))) (i a b).inv) T.fst := by
-  (witness_rewrite H, DC, TC, (IL.fst); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, ((I a b).hom_inv); witness_rewrite H, DC, TC, (DL.comp_id))
+  (witness_rewrite H, DC, TC, (IL.fst); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, ((I a b).hom_inv); witness_rewrite H, DC, TC, (DL.compIdent))
   all_goals exact H.refl _
 
 include DC DL IL in
 def snd_after_inverse (I : ∀ a b, ComparisonLaws H (i a b)) (a b : O) :
     H.Rel (D.comp (F.map (P.snd (a := a) (b := b))) (i a b).inv) T.snd := by
-  (witness_rewrite H, DC, TC, (IL.snd); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, ((I a b).hom_inv); witness_rewrite H, DC, TC, (DL.comp_id))
+  (witness_rewrite H, DC, TC, (IL.snd); witness_rewrite H, DC, TC, (DL.assoc); witness_rewrite H, DC, TC, ((I a b).hom_inv); witness_rewrite H, DC, TC, (DL.compIdent))
   all_goals exact H.refl _
 
 include DC DL IL in

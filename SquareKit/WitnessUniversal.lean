@@ -13,12 +13,12 @@ structure ProductUniversal (P : ProductOps C) where
     E.Rel (C.comp P.fst k) f × E.Rel (C.comp P.snd k) g → E.Rel k (P.pair f g)
 
 def ProductUniversal.laws {P : ProductOps C} (U : ProductUniversal (E := E) P) : ProductLaws E P where
-  fst_pair _ _ := (U.forward (E.refl _)).1
-  snd_pair _ _ := (U.forward (E.refl _)).2
-  pair_eta _ := E.symm (U.backward ⟨E.refl _, E.refl _⟩)
+  fstPair _ _ := (U.forward (E.refl _)).1
+  sndPair _ _ := (U.forward (E.refl _)).2
+  pairEta _ := E.symm (U.backward ⟨E.refl _, E.refl _⟩)
 def ProductLaws.universal {P : ProductOps C} (L : ProductLaws E P)
     (K : E.Congr) (G : ProductCongr E P) : ProductUniversal (E := E) P :=
-  ⟨L.forward K, L.backward G⟩
+  ⟨L.projectionWitnesses K, L.pairWitness G⟩
 
 structure CoproductUniversal (S : CoproductOps C) where
   forward : ∀ {a b c} {f : C.Hom a c} {g : C.Hom b c} {k : C.Hom (S.sum a b) c},
@@ -58,7 +58,7 @@ def ClosedLaws.curry_evaluation {P : ProductOps C} {H : ClosedOps C P}
     E.Rel (C.ident (a := H.exp a b)) (H.curry H.evaluation) :=
   E.trans (E.symm (L.eta _)) (HC.curry
     (E.trans (K.comp (E.refl _)
-      (E.trans (G.pair (A.id_comp _) (E.refl _)) (PL.projections A G))) (A.comp_id _)))
+      (E.trans (G.pair (A.identComp _) (E.refl _)) (PL.pairProjections A G))) (A.compIdent _)))
 
 abbrev RightDistributionLaws (P : ProductOps C) (S : CoproductOps C)
     (d : RightDistributionOps P S) := DistributionLaws E P.reverse S d

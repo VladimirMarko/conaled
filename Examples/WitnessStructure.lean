@@ -21,18 +21,18 @@ def transported (chosen : Bool) : SquareKit.WitnessEquivalence.ProductLaws witne
     productCongr (productLaws false)
 
 theorem transport_keeps_selected_reflection :
-    (transported false).fst_pair (a := ()) (b := ()) (c := ()) () () ≠
-    (transported true).fst_pair (a := ()) (b := ()) (c := ()) () () := by
+    (transported false).fstPair (a := ()) (b := ()) (c := ()) () () ≠
+    (transported true).fstPair (a := ()) (b := ()) (c := ()) () () := by
   change false ≠ true
   decide
 
-def forward (chosen : Bool) :=
-  (productLaws chosen).forward congruence (a := ()) (b := ()) (c := ())
+def projectionWitnesses (chosen : Bool) :=
+  (productLaws chosen).projectionWitnesses congruence (a := ()) (b := ()) (c := ())
     (f := ()) (g := ()) (k := ()) true
 
-theorem projection_witnesses_computed : forward false = (true, true) := rfl
+theorem projection_witnesses_computed : projectionWitnesses false = (true, true) := rfl
 
-theorem erasedProducts : SquareKit.ProductLaws witnesses.erase products := (productLaws true).erase
+theorem erased_products : SquareKit.ProductLaws witnesses.erase products := (productLaws true).erase
 
 -- Raw arrows distinguish the selected comparison from identity.
 def arrows : CategoryOps Unit := ⟨fun _ _ => Bool, false, Bool.xor⟩
@@ -78,8 +78,8 @@ def sums : CoproductOps one := ⟨fun _ _ => (), (), (), fun _ _ => ()⟩
 def distribution : DistributionOps one products sums := ⟨()⟩
 def distributionWitnesses : SquareKit.WitnessEquivalence.DistributionLaws witnesses products sums distribution :=
   ⟨fun _ _ _ => true, fun _ _ _ => false⟩
-theorem distribution_witnesses_distinct : distributionWitnesses.collect_distribute () () () ≠
-    distributionWitnesses.distribute_collect () () () := by
+theorem distribution_witnesses_distinct : distributionWitnesses.collectDistribute () () () ≠
+    distributionWitnesses.distributeCollect () () () := by
   change true ≠ false
   decide
 theorem distribution_erasure : SquareKit.DistributionLaws one witnesses.erase products sums distribution :=

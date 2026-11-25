@@ -23,7 +23,7 @@ abbrev identityObj := @RawArrow.identityObj O C
 
 def identityHom (CL : E.Laws) {a b : O} (f : C.Hom a b) :
     Hom E (identityObj a) (identityObj b) :=
-  ⟨f,f,E.trans (CL.id_comp f) (E.symm (CL.comp_id f))⟩
+  ⟨f,f,E.trans (CL.identComp f) (E.symm (CL.compIdent f))⟩
 
 abbrev ops (CC : E.Congr) (CL : E.Laws) :=
   WitnessComma.ops CC CL (WitnessEquivalence.Preservation.id E) (WitnessEquivalence.Preservation.id E)

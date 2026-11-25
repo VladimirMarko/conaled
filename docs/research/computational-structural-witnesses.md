@@ -77,7 +77,7 @@ admit multiple witnesses and need not behave like equality proofs. The
 existing #453 example additionally demonstrates nonassociative witness
 transitivity. These are operations-only models, as required by the source.
 
-The example declarations `erasedProducts`, `nonidentity_erasure_recovers` and
+The example declarations `erased_products`, `nonidentity_erasure_recovers` and
 `distribution_erasure` instantiate the unchanged semantic records. Generic
 erasure of all other preservation records is in `WitnessErasure.lean`.
 This package does not by itself complete #8's comma/instance packages.
@@ -90,8 +90,8 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 |---|---|
 | [`obj`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L19) | Object universe parameter `O : Type u` |
 | [`Category`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L23) | `Laws` and `Congr` |
-| [`identityˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L29) | `Laws.id_comp` |
-| [`identityʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L30) | `Laws.comp_id` |
+| [`identityˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L29) | `Laws.identComp` |
+| [`identityʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L30) | `Laws.compIdent` |
 | [`assoc`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L31) | `Laws.assoc` |
 | [`∘≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L34) | `Congr.comp` |
 | [`∘-assocʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L37) | `Laws.assoc` |
@@ -106,49 +106,49 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`∀×←`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L74) | `ProductUniversal.backward` |
 | [`▵≈ˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L78) | `ProductCongr.left` |
 | [`▵≈ʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L81) | `ProductCongr.right` |
-| [`exl∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L88) | `ProductLaws.fst_pair` |
-| [`exr∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L91) | `ProductLaws.snd_pair` |
-| [`exl∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L95) | `Cartesian.fst_tensor` |
-| [`exr∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L97) | `Cartesian.snd_tensor` |
-| [`exl∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L100) | `Cartesian.fst_first` |
-| [`exr∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L103) | `Cartesian.snd_first` |
-| [`exl∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L106) | `Cartesian.fst_second` |
-| [`exr∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L109) | `Cartesian.snd_second` |
-| [`exl▵exr`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L112) | `ProductLaws.projections` |
-| [`⊗≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L115) | `Cartesian.tensor_congr` |
+| [`exl∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L88) | `ProductLaws.fstPair` |
+| [`exr∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L91) | `ProductLaws.sndPair` |
+| [`exl∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L95) | `Cartesian.fstTensor` |
+| [`exr∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L97) | `Cartesian.sndTensor` |
+| [`exl∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L100) | `Cartesian.fstFirst` |
+| [`exr∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L103) | `Cartesian.sndFirst` |
+| [`exl∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L106) | `Cartesian.fstSecond` |
+| [`exr∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L109) | `Cartesian.sndSecond` |
+| [`exl▵exr`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L112) | `ProductLaws.pairProjections` |
+| [`⊗≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L115) | `Cartesian.tensorCongr` |
 | [`⊗≈ˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L130) | `Cartesian.tensor_congr_left` |
 | [`⊗≈ʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L134) | `Cartesian.tensor_congr_right` |
-| [`id⊗id`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L138) | `Cartesian.tensor_ident` |
-| [`▵∘`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L141) | `ProductLaws.pair_comp` |
-| [`⊗∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L144) | `Cartesian.tensor_pair` |
-| [`first∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L159) | `Cartesian.first_pair` |
-| [`second∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L163) | `Cartesian.second_pair` |
-| [`⊗∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L167) | `Cartesian.tensor_comp` |
-| [`first∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L171) | `Cartesian.first_tensor` |
-| [`⊗∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L176) | `Cartesian.tensor_first` |
-| [`⊗∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L180) | `Cartesian.tensor_second` |
-| [`second∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L184) | `Cartesian.second_tensor` |
-| [`first∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L188) | `Cartesian.first_comp` |
-| [`second∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L192) | `Cartesian.second_comp` |
-| [`first∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L196) | `Cartesian.first_second` |
-| [`second∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L200) | `Cartesian.second_first` |
-| [`unitorᵉˡ∘unitorⁱˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L207) | `Cartesian.unitLeft_insertLeft` |
-| [`unitorᵉʳ∘unitorⁱʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L210) | `Cartesian.unitRight_insertRight` |
-| [`unitorⁱˡ∘unitorᵉˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L213) | `Cartesian.insertLeft_unitLeft` |
-| [`unitorⁱʳ∘unitorᵉʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L222) | `Cartesian.insertRight_unitRight` |
-| [`exl∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L234) | `Cartesian.fst_swap` |
-| [`exr∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L237) | `Cartesian.snd_swap` |
-| [`swap∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L240) | `Cartesian.swap_pair` |
-| [`swap∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L256) | `Cartesian.swap_swap` |
+| [`id⊗id`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L138) | `Cartesian.tensorIdent` |
+| [`▵∘`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L141) | `ProductLaws.pairComp` |
+| [`⊗∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L144) | `Cartesian.tensorPair` |
+| [`first∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L159) | `Cartesian.firstPair` |
+| [`second∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L163) | `Cartesian.secondPair` |
+| [`⊗∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L167) | `Cartesian.tensorComp` |
+| [`first∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L171) | `Cartesian.firstTensor` |
+| [`⊗∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L176) | `Cartesian.tensorFirst` |
+| [`⊗∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L180) | `Cartesian.tensorSecond` |
+| [`second∘⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L184) | `Cartesian.secondTensor` |
+| [`first∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L188) | `Cartesian.firstComp` |
+| [`second∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L192) | `Cartesian.secondComp` |
+| [`first∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L196) | `Cartesian.firstSecond` |
+| [`second∘first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L200) | `Cartesian.secondFirst` |
+| [`unitorᵉˡ∘unitorⁱˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L207) | `Cartesian.unitLeftInsertLeft` |
+| [`unitorᵉʳ∘unitorⁱʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L210) | `Cartesian.unitRightInsertRight` |
+| [`unitorⁱˡ∘unitorᵉˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L213) | `Cartesian.insertLeftUnitLeft` |
+| [`unitorⁱʳ∘unitorᵉʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L222) | `Cartesian.insertRightUnitRight` |
+| [`exl∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L234) | `Cartesian.fstSwap` |
+| [`exr∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L237) | `Cartesian.sndSwap` |
+| [`swap∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L240) | `Cartesian.swapPair` |
+| [`swap∘swap`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L256) | `Cartesian.swapSwap` |
 | [`Cocartesian`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L275) | `InitialLaws`, `CoproductUniversal`, `CoproductCongr` |
 | [`∀⊥`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L283) | `InitialLaws.universal` / `ofUniversal` (explicit symmetry for the accepted orientation) |
 | [`∀⊎`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L285) | `CoproductUniversal` |
 | [`▿≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L288) | `CoproductCongr.copair` |
 | [`Distributive`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L292) | `DistributionLaws` and `RightDistributionLaws`, with independent raw choices |
-| [`distribˡ∘distribˡ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L301) | `DistributionLaws.collect_distribute`; source formula via `DistributionLaws.source` |
-| [`distribˡ⁻¹∘distribˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L302) | `DistributionLaws.distribute_collect`; source formula via `DistributionLaws.source` |
-| [`distribʳ∘distribʳ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L303) | `RightDistributionLaws.collect_distribute`; source formula via `RightDistributionLaws.source` |
-| [`distribʳ⁻¹∘distribʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L304) | `RightDistributionLaws.distribute_collect`; source formula via `RightDistributionLaws.source` |
+| [`distribˡ∘distribˡ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L301) | `DistributionLaws.collectDistribute`; source formula via `DistributionLaws.source` |
+| [`distribˡ⁻¹∘distribˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L302) | `DistributionLaws.distributeCollect`; source formula via `DistributionLaws.source` |
+| [`distribʳ∘distribʳ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L303) | `RightDistributionLaws.collectDistribute`; source formula via `RightDistributionLaws.source` |
+| [`distribʳ⁻¹∘distribʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L304) | `RightDistributionLaws.distributeCollect`; source formula via `RightDistributionLaws.source` |
 | [`CartesianClosed`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L309) | `ClosedUniversal`, `ClosedCongr` |
 | [`∀⇛`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L319) | `SourceClosedUniversal` and `ClosedUniversal`, via explicit normalization |
 | [`curry≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L323) | `ClosedCongr.curry` |

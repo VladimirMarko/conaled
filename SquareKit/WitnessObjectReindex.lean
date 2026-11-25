@@ -10,7 +10,7 @@ def forget_laws (E : WitnessEquivalence C) : WitnessEquivalence.Preservation (fo
   ⟨fun h => h, E.refl _,fun _ _ => E.refl _⟩
 def congr {E : WitnessEquivalence C} (K : E.Congr) : (equiv F E).Congr := ⟨K.comp⟩
 def laws {E : WitnessEquivalence C} (L : E.Laws) : (equiv F E).Laws :=
-  ⟨L.id_comp,L.comp_id,L.assoc⟩
+  ⟨L.identComp,L.compIdent,L.assoc⟩
 variable {E : WitnessEquivalence C}
 def terminal_preserves (T : TerminalOps C) (unit : J) (i : Comparison C (F unit) T.unit) :
     WitnessEquivalence.TerminalMapLaws (F := forget C F) (T := terminal F T unit i) E i := ⟨E.refl _⟩

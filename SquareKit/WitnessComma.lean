@@ -32,7 +32,7 @@ def ident (KC : H.Congr) (KL : H.Laws)
   left := C.ident
   right := D.ident
   commutes := H.trans (KC.comp (H.refl _) FL.ident)
-    (H.trans (KL.comp_id _) (H.trans (H.symm (KL.id_comp _))
+    (H.trans (KL.compIdent _) (H.trans (H.symm (KL.identComp _))
       (KC.comp (H.symm GL.ident) (H.refl _))))
 
 def comp (KC : H.Congr) (KL : H.Laws)

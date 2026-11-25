@@ -34,9 +34,9 @@ def fstTerminal : TerminalMap (fst KC KL FL GL)
 def sndTerminal : TerminalMap (snd KC KL FL GL)
     (terminalOps KC KL FL GL fi gi FI FM GM KTL) DT := Comparison.id D _
 def fstTerminal_laws (CL : E.Laws) : WitnessEquivalence.TerminalMapLaws E
-    (fstTerminal KC KL FL GL fi gi FI FM GM KTL) := ⟨E.symm (CL.id_comp _)⟩
+    (fstTerminal KC KL FL GL fi gi FI FM GM KTL) := ⟨E.symm (CL.identComp _)⟩
 def sndTerminal_laws (DL : J.Laws) : WitnessEquivalence.TerminalMapLaws J
-    (sndTerminal KC KL FL GL fi gi FI FM GM KTL) := ⟨J.symm (DL.id_comp _)⟩
+    (sndTerminal KC KL FL GL fi gi FI FM GM KTL) := ⟨J.symm (DL.identComp _)⟩
 def fstTerminal_inverse (CL : E.Laws) : WitnessEquivalence.ComparisonLaws E
     (fstTerminal KC KL FL GL fi gi FI FM GM KTL) := WitnessEquivalence.Comparison.id_laws CL _
 def sndTerminal_inverse (DL : J.Laws) : WitnessEquivalence.ComparisonLaws J
@@ -64,20 +64,20 @@ def product_connector_comparison (a b : Obj F G) :
   apply KC.comp (H.refl _)
   apply H.trans (KPC.pair (KC.comp (H.refl _) FM.fst) (KC.comp (H.refl _) FM.snd))
   apply H.trans (KPC.pair (H.symm (KL.assoc _ _ _)) (H.symm (KL.assoc _ _ _)))
-  exact H.symm (WitnessEquivalence.ProductLaws.pair_comp KPL KC KL KPC _ _ _)
+  exact H.symm (WitnessEquivalence.ProductLaws.pairComp KPL KC KL KPC _ _ _)
 
 include KC KL GI GM KPL in
 def product_fst (a b : Obj F G) :
     H.Rel (K.comp (G.map DP.fst) (productObj (CP := CP) gi a b).connector)
       (K.comp a.connector (F.map CP.fst)) :=
   H.trans (KC.comp GM.fst (H.refl _))
-    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (GI _ _).hom_inv _ _) (KPL.fst_pair _ _))
+    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (GI _ _).hom_inv _ _) (KPL.fstPair _ _))
 include KC KL GI GM KPL in
 def product_snd (a b : Obj F G) :
     H.Rel (K.comp (G.map DP.snd) (productObj (CP := CP) gi a b).connector)
       (K.comp b.connector (F.map CP.snd)) :=
   H.trans (KC.comp GM.snd (H.refl _))
-    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (GI _ _).hom_inv _ _) (KPL.snd_pair _ _))
+    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (GI _ _).hom_inv _ _) (KPL.sndPair _ _))
 
 def first (a b : Obj F G) : Hom H (productObj (CP := CP) gi a b) a :=
   ⟨CP.fst, DP.fst, H.symm (product_fst KC KL gi GI GM KPL a b)⟩
@@ -88,25 +88,25 @@ include KC KL FI FM KPL in
 def map_fst_pair {a b c} (f : C.Hom a b) (g : C.Hom a c) :
     H.Rel (K.comp (F.map CP.fst) (F.map (CP.pair f g))) (F.map f) :=
   H.trans (KC.comp FM.fst (FM.pair f g))
-    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (FI _ _).hom_inv _ _) (KPL.fst_pair _ _))
+    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (FI _ _).hom_inv _ _) (KPL.fstPair _ _))
 include KC KL FI FM KPL in
 def map_snd_pair {a b c} (f : C.Hom a b) (g : C.Hom a c) :
     H.Rel (K.comp (F.map CP.snd) (F.map (CP.pair f g))) (F.map g) :=
   H.trans (KC.comp FM.snd (FM.pair f g))
-    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (FI _ _).hom_inv _ _) (KPL.snd_pair _ _))
+    (H.trans (WitnessEquivalence.Laws.cancel_middle KC KL (FI _ _).hom_inv _ _) (KPL.sndPair _ _))
 
 def fork {a b c : Obj F G} (f : Hom H a b) (g : Hom H a c) : Hom H a (productObj (CP := CP) gi b c) where
   left := CP.pair f.left g.left
   right := DP.pair f.right g.right
   commutes := by
     apply H.trans (KL.assoc _ _ _)
-    apply H.trans (KC.comp (H.refl _) (WitnessEquivalence.ProductLaws.pair_comp KPL KC KL KPC _ _ _))
+    apply H.trans (KC.comp (H.refl _) (WitnessEquivalence.ProductLaws.pairComp KPL KC KL KPC _ _ _))
     apply H.trans (KC.comp (H.refl _) (KPC.pair (KL.assoc _ _ _) (KL.assoc _ _ _)))
     apply H.trans (KC.comp (H.refl _) (KPC.pair
       (KC.comp (H.refl _) (map_fst_pair KC KL fi FI FM KPL _ _))
       (KC.comp (H.refl _) (map_snd_pair KC KL fi FI FM KPL _ _))))
     apply H.trans (KC.comp (H.refl _) (KPC.pair f.commutes g.commutes))
-    apply H.trans (KC.comp (H.refl _) (H.symm (WitnessEquivalence.ProductLaws.pair_comp KPL KC KL KPC _ _ _)))
+    apply H.trans (KC.comp (H.refl _) (H.symm (WitnessEquivalence.ProductLaws.pairComp KPL KC KL KPC _ _ _)))
     exact H.trans (H.symm (KL.assoc _ _ _)) (KC.comp (H.symm (GM.pair _ _)) (H.refl _))
 
 def productOps : ProductOps (ops KC KL FL GL) where
@@ -120,19 +120,19 @@ def productCongr (CC : WitnessEquivalence.ProductCongr E CP) (DC : WitnessEquiva
   pair hf hg := ⟨CC.pair hf.1 hg.1, DC.pair hf.2 hg.2⟩
 def productLaws (CL : WitnessEquivalence.ProductLaws E CP) (DL : WitnessEquivalence.ProductLaws J DP) :
     WitnessEquivalence.ProductLaws (equiv KC KL FL GL) (productOps KC KL FL GL fi gi FI GI FM GM KPC KPL) where
-  fst_pair f g := ⟨CL.fst_pair f.left g.left, DL.fst_pair f.right g.right⟩
-  snd_pair f g := ⟨CL.snd_pair f.left g.left, DL.snd_pair f.right g.right⟩
-  pair_eta f := ⟨CL.pair_eta f.left, DL.pair_eta f.right⟩
+  fstPair f g := ⟨CL.fstPair f.left g.left, DL.fstPair f.right g.right⟩
+  sndPair f g := ⟨CL.sndPair f.left g.left, DL.sndPair f.right g.right⟩
+  pairEta f := ⟨CL.pairEta f.left, DL.pairEta f.right⟩
 def fstProducts : ProductMap (fst KC KL FL GL)
     (productOps KC KL FL GL fi gi FI GI FM GM KPC KPL) CP := fun _ _ => Comparison.id C _
 def sndProducts : ProductMap (snd KC KL FL GL)
     (productOps KC KL FL GL fi gi FI GI FM GM KPC KPL) DP := fun _ _ => Comparison.id D _
 def fstProducts_laws (CL : E.Laws) : WitnessEquivalence.ProductMapLaws E
     (fstProducts KC KL FL GL fi gi FI GI FM GM KPC KPL) :=
-  ⟨E.symm (CL.comp_id _),E.symm (CL.comp_id _),fun _ _ => E.symm (CL.id_comp _)⟩
+  ⟨E.symm (CL.compIdent _),E.symm (CL.compIdent _),fun _ _ => E.symm (CL.identComp _)⟩
 def sndProducts_laws (DL : J.Laws) : WitnessEquivalence.ProductMapLaws J
     (sndProducts KC KL FL GL fi gi FI GI FM GM KPC KPL) :=
-  ⟨J.symm (DL.comp_id _),J.symm (DL.comp_id _),fun _ _ => J.symm (DL.id_comp _)⟩
+  ⟨J.symm (DL.compIdent _),J.symm (DL.compIdent _),fun _ _ => J.symm (DL.identComp _)⟩
 def fstProducts_inverse (CL : E.Laws) (a b : Obj F G) : WitnessEquivalence.ComparisonLaws E
     (fstProducts KC KL FL GL fi gi FI GI FM GM KPC KPL a b) := WitnessEquivalence.Comparison.id_laws CL _
 def sndProducts_inverse (DL : J.Laws) (a b : Obj F G) : WitnessEquivalence.ComparisonLaws J

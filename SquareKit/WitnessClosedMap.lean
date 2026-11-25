@@ -22,11 +22,11 @@ def uncurry_comp (CC : Congr E) (CL : Laws E)
   apply E.symm
   apply E.trans (CL.assoc _ _ _)
   apply CC.comp (E.refl _)
-  apply E.trans (PL.pair_comp CC CL PC _ _ _)
+  apply E.trans (PL.pairComp CC CL PC _ _ _)
   exact PC.pair
     (E.trans (CL.assoc _ _ _) (E.trans
-      (CC.comp (E.refl _) (PL.fst_pair _ _)) (E.symm (CL.assoc _ _ _))))
-    (PL.snd_pair _ _)
+      (CC.comp (E.refl _) (PL.fstPair _ _)) (E.symm (CL.assoc _ _ _))))
+    (PL.sndPair _ _)
 end ClosedOps
 
 namespace ClosedLaws
@@ -93,30 +93,30 @@ def map_uncurry (L : Preservation F E V)
   apply V.trans (DC.comp (V.symm (DL.assoc _ _ _)) (V.refl _))
   apply V.trans (DL.cancel_middle DC (I _ _).hom_inv _ _)
   apply V.trans (DL.assoc _ _ _)
-  apply V.trans (DC.comp (V.refl _) (TL.pair_comp DC DL TC _ _ _))
+  apply V.trans (DC.comp (V.refl _) (TL.pairComp DC DL TC _ _ _))
   apply V.trans (DC.comp (V.refl _) (TC.pair
-    (V.trans (DL.assoc _ _ _) (DC.comp (V.refl _) (TL.fst_pair _ _)))
-    (TL.snd_pair _ _)))
+    (V.trans (DL.assoc _ _ _) (DC.comp (V.refl _) (TL.fstPair _ _)))
+    (TL.sndPair _ _)))
   apply V.trans (DC.comp (V.refl _) (TC.pair
     (DC.comp (V.refl _) (V.trans (L.comp _ _) (DC.comp (V.refl _) PM.fst))) PM.snd))
   apply V.trans (DC.comp (V.refl _) (TC.pair
     (V.trans (V.symm (DL.assoc _ _ _)) (V.symm (DL.assoc _ _ _))) (V.refl _)))
-  apply V.trans (DC.comp (V.refl _) (V.symm (TL.pair_comp DC DL TC _ _ _)))
+  apply V.trans (DC.comp (V.refl _) (V.symm (TL.pairComp DC DL TC _ _ _)))
   exact V.symm (DL.assoc _ _ _)
 
 /-- Identity comparisons preserve the chosen operations modulo the selected laws. -/
 def id_laws (CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P) (HC : ClosedCongr E P H) :
     ClosedMapLaws E (ProductMap.id P) (SquareKit.ClosedMap.id H) where
-  curry f := E.symm (E.trans (CL.id_comp _) (HC.curry (CL.comp_id f)))
+  curry f := E.symm (E.trans (CL.identComp _) (HC.curry (CL.compIdent f)))
   evaluation := by
     intro a b
     apply E.symm
-    apply E.trans (CC.comp (E.refl _) (CL.comp_id _))
-    apply E.trans (CC.comp (E.refl _) (PC.pair (CL.id_comp _) (E.refl _)))
+    apply E.trans (CC.comp (E.refl _) (CL.compIdent _))
+    apply E.trans (CC.comp (E.refl _) (PC.pair (CL.identComp _) (E.refl _)))
     have h : E.Rel (P.pair (P.fst (a := H.exp a b) (b := a)) P.snd) C.ident :=
-      E.trans (E.symm (PC.pair (CL.comp_id _) (CL.comp_id _))) (PL.pair_eta _)
-    exact E.trans (CC.comp (E.refl _) h) (CL.comp_id _)
+      E.trans (E.symm (PC.pair (CL.compIdent _) (CL.compIdent _))) (PL.pairEta _)
+    exact E.trans (CC.comp (E.refl _) h) (CL.compIdent _)
 
 /-- Composition reuses the category and product comparisons, without source closed laws. -/
 def comp_laws {W : WitnessEquivalence K} (LG : Preservation G V W)
@@ -158,7 +158,7 @@ def uncurry_curry (DC : Congr V) (DL : Laws V)
     (ClosedOps.uncurry_congr J DC TC (DL.cancel_left DC (JJ _ _).hom_inv _)) (V.refl _))
   apply V.trans (DC.comp (JL.beta _) (V.refl _))
   exact V.trans (DL.assoc _ _ _) (V.trans
-    (DC.comp (V.refl _) (I _ _).inv_hom) (DL.comp_id _))
+    (DC.comp (V.refl _) (I _ _).inv_hom) (DL.compIdent _))
 
 def curry_uncurry (DC : Congr V) (DL : Laws V)
     (JC : ClosedCongr V T J) (JL : ClosedLaws V T J)
@@ -167,7 +167,7 @@ def curry_uncurry (DC : Congr V) (DL : Laws V)
     V.Rel (j.curry i (j.uncurry i f)) f := by
   apply V.trans (DC.comp (V.refl _) (JC.curry
     (V.trans (DL.assoc _ _ _) (V.trans
-      (DC.comp (V.refl _) (I _ _).hom_inv) (DL.comp_id _)))))
+      (DC.comp (V.refl _) (I _ _).hom_inv) (DL.compIdent _)))))
   exact V.trans (DC.comp (V.refl _) (JL.eta _)) (DL.cancel_left DC (JJ _ _).inv_hom _)
 
 def transportLaws (L : Preservation F E V) (R : Reflection F E V)

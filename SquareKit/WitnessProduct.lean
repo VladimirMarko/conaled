@@ -23,8 +23,8 @@ def congr {E : WitnessEquivalence C} {H : WitnessEquivalence D}
 def laws {E : WitnessEquivalence C} {H : WitnessEquivalence D}
     (CL : E.Laws) (DL : H.Laws) :
     (equiv C D E H).Laws :=
-  ⟨fun f => ⟨CL.id_comp f.1, DL.id_comp f.2⟩,
-   fun f => ⟨CL.comp_id f.1, DL.comp_id f.2⟩,
+  ⟨fun f => ⟨CL.identComp f.1, DL.identComp f.2⟩,
+   fun f => ⟨CL.compIdent f.1, DL.compIdent f.2⟩,
    fun h g f => ⟨CL.assoc h.1 g.1 f.1, DL.assoc h.2 g.2 f.2⟩⟩
 
 def terminalLaws {E : WitnessEquivalence C} {H : WitnessEquivalence D}
@@ -39,9 +39,9 @@ def productCongr {E : WitnessEquivalence C} {H : WitnessEquivalence D}
 def productLaws {E : WitnessEquivalence C} {H : WitnessEquivalence D}
     {P : ProductOps C} {T : ProductOps D} (PL : WitnessEquivalence.ProductLaws E P) (TL : WitnessEquivalence.ProductLaws H T) :
     WitnessEquivalence.ProductLaws (equiv C D E H) (products P T) :=
-  ⟨fun f g => ⟨PL.fst_pair f.1 g.1, TL.fst_pair f.2 g.2⟩,
-   fun f g => ⟨PL.snd_pair f.1 g.1, TL.snd_pair f.2 g.2⟩,
-   fun f => ⟨PL.pair_eta f.1, TL.pair_eta f.2⟩⟩
+  ⟨fun f g => ⟨PL.fstPair f.1 g.1, TL.fstPair f.2 g.2⟩,
+   fun f g => ⟨PL.sndPair f.1 g.1, TL.sndPair f.2 g.2⟩,
+   fun f => ⟨PL.pairEta f.1, TL.pairEta f.2⟩⟩
 
 def fst_laws (E : WitnessEquivalence C) (H : WitnessEquivalence D) : WitnessEquivalence.Preservation fst (equiv C D E H) E :=
   ⟨fun h => h.1, E.refl _, fun _ _ => E.refl _⟩
@@ -56,17 +56,17 @@ def pair_laws {K : CategoryOps.{r,s} R} {J : WitnessEquivalence K}
 
 def fstProducts_laws {E : WitnessEquivalence C} (CL : E.Laws)
     (P : ProductOps C) (T : ProductOps D) : WitnessEquivalence.ProductMapLaws E (fstProducts P T) :=
-  ⟨E.symm (CL.comp_id _), E.symm (CL.comp_id _), fun _ _ => E.symm (CL.id_comp _)⟩
+  ⟨E.symm (CL.compIdent _), E.symm (CL.compIdent _), fun _ _ => E.symm (CL.identComp _)⟩
 def sndProducts_laws {H : WitnessEquivalence D} (DL : H.Laws)
     (P : ProductOps C) (T : ProductOps D) : WitnessEquivalence.ProductMapLaws H (sndProducts P T) :=
-  ⟨H.symm (DL.comp_id _), H.symm (DL.comp_id _), fun _ _ => H.symm (DL.id_comp _)⟩
+  ⟨H.symm (DL.compIdent _), H.symm (DL.compIdent _), fun _ _ => H.symm (DL.identComp _)⟩
 
 def fstTerminal_laws {E : WitnessEquivalence C} (CL : E.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.TerminalMapLaws E (fstTerminal T U) :=
-  ⟨E.symm (CL.id_comp _)⟩
+  ⟨E.symm (CL.identComp _)⟩
 def sndTerminal_laws {H : WitnessEquivalence D} (DL : H.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.TerminalMapLaws H (sndTerminal T U) :=
-  ⟨H.symm (DL.id_comp _)⟩
+  ⟨H.symm (DL.identComp _)⟩
 
 def fstProducts_inverse {E : WitnessEquivalence C} (CL : E.Laws)
     (P : ProductOps C) (T : ProductOps D) (a b : O × Q) : WitnessEquivalence.ComparisonLaws E (fstProducts P T a b) :=
@@ -94,11 +94,11 @@ def productUniversal {E : WitnessEquivalence C} {H : WitnessEquivalence D}
 def fstCartesian {E : WitnessEquivalence C} (CL : E.Laws)
     (P : ProductOps C) (T : ProductOps D) :
     WitnessEquivalence.CartesianH (H := E) (fstProducts P T) :=
-  ⟨fun _ _ => CL.comp_id _,fun _ _ => CL.comp_id _,fun _ _ => E.symm (CL.id_comp _)⟩
+  ⟨fun _ _ => CL.compIdent _,fun _ _ => CL.compIdent _,fun _ _ => E.symm (CL.identComp _)⟩
 def sndCartesian {H : WitnessEquivalence D} (DL : H.Laws)
     (P : ProductOps C) (T : ProductOps D) :
     WitnessEquivalence.CartesianH (H := H) (sndProducts P T) :=
-  ⟨fun _ _ => DL.comp_id _,fun _ _ => DL.comp_id _,fun _ _ => H.symm (DL.id_comp _)⟩
+  ⟨fun _ _ => DL.compIdent _,fun _ _ => DL.compIdent _,fun _ _ => H.symm (DL.identComp _)⟩
 
 theorem erase_relation (E : WitnessEquivalence C) (H : WitnessEquivalence D)
     {a b} (f g : (ops C D).Hom a b) :

@@ -16,7 +16,7 @@ variable {C : CategoryOps.{u₁,v₁} O} {D : CategoryOps.{u₂,v₂} P}
 
 
 def id_laws {E : WitnessEquivalence C} (L : Laws E) (a : O) :
-    ComparisonLaws E (SquareKit.Comparison.id C a) := ⟨L.id_comp _, L.id_comp _⟩
+    ComparisonLaws E (SquareKit.Comparison.id C a) := ⟨L.identComp _, L.identComp _⟩
 
 def map_laws {F : RawMap C D} {E : WitnessEquivalence C} {H : WitnessEquivalence D}
     (L : Preservation F E H) {a b} {i : Comparison C a b} (I : ComparisonLaws E i) :
@@ -31,7 +31,7 @@ variable {O : Type u₁} {C : CategoryOps.{u₁,v₁} O} {E : WitnessEquivalence
 def cancel_left (K : Congr E) (L : Laws E) {a b c} {i : C.Hom b c} {j : C.Hom c b}
     (h : E.Rel (C.comp i j) C.ident) (f : C.Hom a c) :
     E.Rel (C.comp i (C.comp j f)) f :=
-  E.trans (E.symm (L.assoc _ _ _)) (E.trans (K.comp h (E.refl _)) (L.id_comp _))
+  E.trans (E.symm (L.assoc _ _ _)) (E.trans (K.comp h (E.refl _)) (L.identComp _))
 
 def cancel_middle (K : Congr E) (L : Laws E) {a b c d} {i : C.Hom b c} {j : C.Hom c b}
     (h : E.Rel (C.comp i j) C.ident) (g : C.Hom c d) (f : C.Hom a c) :
@@ -73,7 +73,7 @@ variable {C : CategoryOps.{u₁,v₁} O} {D : CategoryOps.{u₂,v₂} P} {K : Ca
 
 def id_laws {E : WitnessEquivalence C} (L : Laws E) (T : TerminalOps C) :
     TerminalMapLaws E (SquareKit.TerminalMap.id T) where
-  terminal := E.symm (L.id_comp _)
+  terminal := E.symm (L.identComp _)
 
 def comp_laws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
@@ -102,9 +102,9 @@ variable {C : CategoryOps.{u₁,v₁} O} {D : CategoryOps.{u₂,v₂} P} {K : Ca
 
 def id_laws {E : WitnessEquivalence C} (L : Laws E) (S : ProductOps C) :
     ProductMapLaws E (SquareKit.ProductMap.id S) where
-  fst := E.symm (L.comp_id _)
-  snd := E.symm (L.comp_id _)
-  pair _ _ := E.symm (L.id_comp _)
+  fst := E.symm (L.compIdent _)
+  snd := E.symm (L.compIdent _)
+  pair _ _ := E.symm (L.identComp _)
 
 def comp_laws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
@@ -132,17 +132,17 @@ def transportLaws {F : RawMap C D} {E : WitnessEquivalence C} {H : WitnessEquiva
     {S : ProductOps C} {T : ProductOps D} {i : ProductMap F S T}
     (I : ∀ a b, ComparisonLaws H (i a b)) (M : ProductMapLaws H i)
     (TC : ProductCongr H T) (TL : ProductLaws H T) : ProductLaws E S where
-  fst_pair f g := R (H.trans (L.comp _ _) (H.trans (DC.comp M.fst (M.pair f g))
-    (H.trans (DL.cancel_middle DC (I _ _).hom_inv _ _) (TL.fst_pair _ _))))
-  snd_pair f g := R (H.trans (L.comp _ _) (H.trans (DC.comp M.snd (M.pair f g))
-    (H.trans (DL.cancel_middle DC (I _ _).hom_inv _ _) (TL.snd_pair _ _))))
-  pair_eta f := by
+  fstPair f g := R (H.trans (L.comp _ _) (H.trans (DC.comp M.fst (M.pair f g))
+    (H.trans (DL.cancel_middle DC (I _ _).hom_inv _ _) (TL.fstPair _ _))))
+  sndPair f g := R (H.trans (L.comp _ _) (H.trans (DC.comp M.snd (M.pair f g))
+    (H.trans (DL.cancel_middle DC (I _ _).hom_inv _ _) (TL.sndPair _ _))))
+  pairEta f := by
     apply R
     apply H.trans (M.pair _ _)
     apply H.trans (DC.comp (H.refl _) (TC.pair (L.comp _ _) (L.comp _ _)))
     apply H.trans (DC.comp (H.refl _) (TC.pair (DC.comp M.fst (H.refl _)) (DC.comp M.snd (H.refl _))))
     apply H.trans (DC.comp (H.refl _) (TC.pair (DL.assoc _ _ _) (DL.assoc _ _ _)))
-    exact H.trans (DC.comp (H.refl _) (TL.pair_eta _)) (DL.cancel_left DC (I _ _).inv_hom _)
+    exact H.trans (DC.comp (H.refl _) (TL.pairEta _)) (DL.cancel_left DC (I _ _).inv_hom _)
 end ProductMap
 
 variable {O : Type u₁} {Q : Type u₂} {R : Type u₃}

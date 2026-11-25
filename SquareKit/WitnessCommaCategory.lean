@@ -29,8 +29,8 @@ def congr (CC : E.Congr) (DC : J.Congr) :
 
 def laws (CL : E.Laws) (DL : J.Laws) :
     (equiv KC KL FL GL).Laws where
-  id_comp f := ⟨CL.id_comp f.left, DL.id_comp f.right⟩
-  comp_id f := ⟨CL.comp_id f.left, DL.comp_id f.right⟩
+  identComp f := ⟨CL.identComp f.left, DL.identComp f.right⟩
+  compIdent f := ⟨CL.compIdent f.left, DL.compIdent f.right⟩
   assoc h g f := ⟨CL.assoc h.left g.left f.left, DL.assoc h.right g.right f.right⟩
 
 def fst : RawMap (ops KC KL FL GL) C := ⟨Obj.left, Hom.left⟩

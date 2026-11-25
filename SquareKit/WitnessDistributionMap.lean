@@ -44,7 +44,7 @@ def branch_normalize {a b c d x : Q} (k : D.Hom c d) (f : D.Hom b c)
       (T.pair (D.comp T.fst h) (D.comp k (D.comp f (D.comp T.snd h)))) := by
   apply H.trans (H.symm (DL.assoc _ _ _))
   apply H.trans (DC.comp (ProductOps.rightMap_pair T DC DL TC TL _ _ _) (H.refl _))
-  apply H.trans (TL.pair_comp DC DL TC _ _ _)
+  apply H.trans (TL.pairComp DC DL TC _ _ _)
   exact TC.pair (H.refl _) (H.trans (DL.assoc _ _ _) (DC.comp (H.refl _) (DL.assoc _ _ _)))
 
 include DC DL TC TL in
@@ -103,7 +103,7 @@ def transportLaws (L : Preservation F E H) (R : Reflection F E H)
       (domainComparison_laws DC DL TC TL I J a b c)
       (codomainComparison_laws DC DL UC UL I J a b c)
       _ ⟨e.distribute, collect D T U⟩
-      ⟨V.distribute_collect _ _ _, V.collect_distribute _ _ _⟩
+      ⟨V.distributeCollect _ _ _, V.collectDistribute _ _ _⟩
       (distribute_preserved DL K a b c) (collect_preserved DC DL TC TL UC UL L M N a b c)
   exact ⟨fun a b c => (h a b c).inv_hom, fun a b c => (h a b c).hom_inv⟩
 
@@ -141,12 +141,12 @@ def id_laws (d : DistributionOps D T U) :
   distribute := by
     intro a b c
     apply H.symm
-    apply H.trans (DL.id_comp _)
+    apply H.trans (DL.identComp _)
     apply H.trans (DC.comp (CoproductOps.map_id U DC DL UC UL _ _) (H.refl _))
-    apply H.trans (DL.id_comp _)
-    apply H.trans (DC.comp (H.refl _) (DL.comp_id _))
+    apply H.trans (DL.identComp _)
+    apply H.trans (DC.comp (H.refl _) (DL.compIdent _))
     apply H.trans (DC.comp (H.refl _) (ProductOps.rightMap_id T DC DL TC TL _ _))
-    exact DL.comp_id _
+    exact DL.compIdent _
 
 section Composition
 universe r s
@@ -168,7 +168,7 @@ def rightMap_preserved {a b c : Q} (f : D.Hom b c) :
   apply V.trans (M.pair _ _)
   apply V.trans (KC.comp (V.refl _) (WC.pair M.fst
     (V.trans (LG.comp _ _) (V.trans (KC.comp (V.refl _) M.snd) (V.symm (KL.assoc _ _ _))))))
-  exact KC.comp (V.refl _) (V.symm (WL.pair_comp KC KL WC _ _ _))
+  exact KC.comp (V.refl _) (V.symm (WL.pairComp KC KL WC _ _ _))
 
 include LG KC KL XC XL N in
 /-- The derived coproduct map is preserved. -/
@@ -196,7 +196,7 @@ def sumMap_natural_inv {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
   apply V.trans (KC.comp (sumMap_preserved LG KC KL XC XL N f g) (V.refl _))
   apply V.trans (KL.assoc _ _ _)
   apply KC.comp (V.refl _)
-  exact V.trans (KL.assoc _ _ _) (V.trans (KC.comp (V.refl _) (J a b)) (KL.comp_id _))
+  exact V.trans (KL.assoc _ _ _) (V.trans (KC.comp (V.refl _) (J a b)) (KL.compIdent _))
 
 include LG KC KL WC WL M I in
 /-- The induced domain comparison agrees with composing the two induced comparisons. -/

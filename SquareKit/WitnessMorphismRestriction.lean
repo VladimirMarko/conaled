@@ -12,7 +12,7 @@ def forget_laws (K : CategoryClosure C M) (E : WitnessEquivalence C) :
 def congr (K : CategoryClosure C M) {E : WitnessEquivalence C} (CC : E.Congr) :
     (equiv K E).Congr := ⟨CC.comp⟩
 def laws (K : CategoryClosure C M) {E : WitnessEquivalence C} (CL : E.Laws) :
-    (equiv K E).Laws := ⟨fun f => CL.id_comp f.arrow,fun f => CL.comp_id f.arrow,
+    (equiv K E).Laws := ⟨fun f => CL.identComp f.arrow,fun f => CL.compIdent f.arrow,
       fun h g f => CL.assoc h.arrow g.arrow f.arrow⟩
 def terminalLaws (K : CategoryClosure C M) (T : TerminalOps C)
     (KT : TerminalClosure (M := M) T) {E : WitnessEquivalence C} (L : WitnessEquivalence.TerminalLaws E T) :
@@ -25,17 +25,17 @@ def productCongr (K : CategoryClosure C M) (P : ProductOps C)
 def productLaws (K : CategoryClosure C M) (P : ProductOps C)
     (KP : ProductClosure (M := M) P) {E : WitnessEquivalence C} (L : WitnessEquivalence.ProductLaws E P) :
     WitnessEquivalence.ProductLaws (equiv K E) (products K P KP) :=
-  ⟨fun f g => L.fst_pair f.arrow g.arrow,
-    fun f g => L.snd_pair f.arrow g.arrow, fun f => L.pair_eta f.arrow⟩
+  ⟨fun f g => L.fstPair f.arrow g.arrow,
+    fun f g => L.sndPair f.arrow g.arrow, fun f => L.pairEta f.arrow⟩
 
 def forget_terminal (K : CategoryClosure C M) (T : TerminalOps C)
     (KT : TerminalClosure (M := M) T) {E : WitnessEquivalence C} (L : E.Laws) :
-    WitnessEquivalence.TerminalMapLaws E (terminalComparison K T KT) := ⟨E.symm (L.id_comp _)⟩
+    WitnessEquivalence.TerminalMapLaws E (terminalComparison K T KT) := ⟨E.symm (L.identComp _)⟩
 
 def forget_products (K : CategoryClosure C M) (P : ProductOps C)
     (KP : ProductClosure (M := M) P) {E : WitnessEquivalence C} (L : E.Laws) :
     WitnessEquivalence.ProductMapLaws E (productComparison K P KP) :=
-  ⟨E.symm (L.comp_id _),E.symm (L.comp_id _),fun _ _ => E.symm (L.id_comp _)⟩
+  ⟨E.symm (L.compIdent _),E.symm (L.compIdent _),fun _ _ => E.symm (L.identComp _)⟩
 
 def terminalComparison_inverse (K : CategoryClosure C M) (T : TerminalOps C)
     (KT : TerminalClosure (M := M) T) {E : WitnessEquivalence C} (L : E.Laws) :

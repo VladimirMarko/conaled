@@ -17,24 +17,24 @@ def rightMap_comp (CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P)
     {a b c d} (g : C.Hom c d) (f : C.Hom b c) :
     E.Rel (C.comp (P.rightMap (a := a) g) (P.rightMap f)) (P.rightMap (C.comp g f)) := by
-  apply E.trans (PL.pair_comp CC CL PC _ _ _)
-  apply PC.pair (PL.fst_pair _ _)
-  exact E.trans (CL.assoc _ _ _) (E.trans (CC.comp (E.refl _) (PL.snd_pair _ _))
+  apply E.trans (PL.pairComp CC CL PC _ _ _)
+  apply PC.pair (PL.fstPair _ _)
+  exact E.trans (CL.assoc _ _ _) (E.trans (CC.comp (E.refl _) (PL.sndPair _ _))
     (E.symm (CL.assoc _ _ _)))
 
 def rightMap_pair (CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P)
     {a b c d} (h : C.Hom b c) (f : C.Hom d a) (g : C.Hom d b) :
     E.Rel (C.comp (P.rightMap h) (P.pair f g)) (P.pair f (C.comp h g)) :=
-  E.trans (PL.pair_comp CC CL PC _ _ _)
-    (PC.pair (PL.fst_pair _ _) (E.trans (CL.assoc _ _ _)
-      (CC.comp (E.refl _) (PL.snd_pair _ _))))
+  E.trans (PL.pairComp CC CL PC _ _ _)
+    (PC.pair (PL.fstPair _ _) (E.trans (CL.assoc _ _ _)
+      (CC.comp (E.refl _) (PL.sndPair _ _))))
 
 def rightMap_id (_CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P) (a b : O) :
     E.Rel (P.rightMap (a := a) (C.ident (a := b))) C.ident :=
-  E.trans (PC.pair (E.refl _) (CL.id_comp _))
-    (E.trans (PC.pair (E.symm (CL.comp_id _)) (E.symm (CL.comp_id _))) (PL.pair_eta _))
+  E.trans (PC.pair (E.refl _) (CL.identComp _))
+    (E.trans (PC.pair (E.symm (CL.compIdent _)) (E.symm (CL.compIdent _))) (PL.pairEta _))
 end ProductOps
 
 namespace CoproductOps
@@ -59,8 +59,8 @@ def map_comp (CC : Congr E) (CL : Laws E)
 def map_id (_CC : Congr E) (CL : Laws E)
     (SC : CoproductCongr E S) (SL : CoproductLaws E S) (a b : O) :
     E.Rel (S.map (C.ident (a := a)) (C.ident (a := b))) C.ident :=
-  E.trans (SC.copair (CL.comp_id _) (CL.comp_id _))
-    (E.trans (SC.copair (E.symm (CL.id_comp _)) (E.symm (CL.id_comp _))) (SL.eta _))
+  E.trans (SC.copair (CL.compIdent _) (CL.compIdent _))
+    (E.trans (SC.copair (E.symm (CL.identComp _)) (E.symm (CL.identComp _))) (SL.eta _))
 end CoproductOps
 
 namespace Comparison
@@ -103,16 +103,16 @@ def conjugate_comp (CC : Congr E) (CL : Laws E)
 def conjugate_id (CC : Congr E) (CL : Laws E)
     {a b : O} (i : Comparison C a b) (I : ComparisonLaws E i) :
     E.Rel (SquareKit.Comparison.conjugate i i C.ident) C.ident :=
-  E.trans (CC.comp (E.refl _) (CL.id_comp _)) I.inv_hom
+  E.trans (CC.comp (E.refl _) (CL.identComp _)) I.inv_hom
 
 /-- A right inverse and a left inverse of the same arrow agree. -/
 def inverse_unique (CC : Congr E) (CL : Laws E)
     {a b : O} {f g : C.Hom a b} {h : C.Hom b a}
     (hf : E.Rel (C.comp f h) C.ident) (hg : E.Rel (C.comp h g) C.ident) : E.Rel f g :=
-  E.trans (E.symm (CL.comp_id _))
+  E.trans (E.symm (CL.compIdent _))
     (E.trans (CC.comp (E.refl _) (E.symm hg))
       (E.trans (E.symm (CL.assoc _ _ _))
-        (E.trans (CC.comp hf (E.refl _)) (CL.id_comp _))))
+        (E.trans (CC.comp hf (E.refl _)) (CL.identComp _))))
 
 end Comparison
 namespace RawMap

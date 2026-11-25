@@ -241,8 +241,8 @@ by their underlying arrows where no information would be lost.
 | [`f`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L26) | `MorphismRestriction.Hom.arrow` |
 | [`sat`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L27) | `MorphismRestriction.Hom.sat` |
 | [`refl↠`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L30) | `WitnessEquivalence.refl` |
-| [`identityʳ↠`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L33) | `WitnessEquivalence.Laws.comp_id` |
-| [`sym-identityˡ↠`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L38) | selected `E.symm (L.id_comp _)` |
+| [`identityʳ↠`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L33) | `WitnessEquivalence.Laws.compIdent` |
+| [`sym-identityˡ↠`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L38) | selected `E.symm (L.identComp _)` |
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L47) | `MorphismRestriction.forget` |
 | [`eq`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L50) | `WitnessMorphismRestriction.equiv` |
 | [`cat`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L53) | `MorphismRestriction.ops` |

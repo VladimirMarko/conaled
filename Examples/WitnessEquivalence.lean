@@ -38,7 +38,7 @@ def transported (chosen : Bool) : witnesses.Laws :=
   SquareKit.WitnessEquivalence.transportLaws preserves (reflection chosen) congruence laws
 
 theorem transport_retains_choice :
-    (transported false).id_comp (a := ()) (b := ()) () ≠ (transported true).id_comp (a := ()) (b := ()) () := by
+    (transported false).identComp (a := ()) (b := ()) () ≠ (transported true).identComp (a := ()) (b := ()) () := by
   change false ≠ true
   decide
 

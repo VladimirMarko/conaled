@@ -18,7 +18,7 @@ structure CartesianH {P : ProductOps C} {T : ProductOps D} (i : ProductMap F P T
 def Comparison.solve_right (K : H.Congr) (L : H.Laws) {a b c : Q}
     {i : Comparison D a b} (I : ComparisonLaws H i) {f : D.Hom a c} {g : D.Hom b c}
     (h : H.Rel (D.comp f i.inv) g) : H.Rel f (D.comp g i.hom) :=
-  H.trans (H.symm (H.trans (K.comp (H.refl _) I.inv_hom) (L.comp_id _)))
+  H.trans (H.symm (H.trans (K.comp (H.refl _) I.inv_hom) (L.compIdent _)))
     (H.trans (H.symm (L.assoc _ _ _)) (K.comp h (H.refl _)))
 
 def CartesianH.normalized {P : ProductOps C} {T : ProductOps D} {i : ProductMap F P T}
@@ -32,16 +32,16 @@ def ProductMapLaws.felix {P : ProductOps C} {T : ProductOps D} {i : ProductMap F
     (M : ProductMapLaws H i) (K : H.Congr) (L : H.Laws)
     (I : ∀ a b, ComparisonLaws H (i a b)) : CartesianH (H := H) i where
   fst a b := H.trans (K.comp M.fst (H.refl _))
-    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.comp_id _)))
+    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.compIdent _)))
   snd a b := H.trans (K.comp M.snd (H.refl _))
-    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.comp_id _)))
+    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.compIdent _)))
   pair := M.pair
 
 def CartesianH.id {P : ProductOps C} {E : WitnessEquivalence C} (L : E.Laws) :
     CartesianH (H := E) (SquareKit.ProductMap.id P) where
-  fst _ _ := L.comp_id _
-  snd _ _ := L.comp_id _
-  pair _ _ := E.symm (L.id_comp _)
+  fst _ _ := L.compIdent _
+  snd _ _ := L.compIdent _
+  pair _ _ := E.symm (L.identComp _)
 
 def CartesianH.compose {R : Type u''} {K : CategoryOps.{u'',v''} R}
     {G : RawMap D K} {J : WitnessEquivalence K} (LG : Preservation G H J)

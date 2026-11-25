@@ -61,7 +61,7 @@ example : (WitnessComma.vertical congruence laws (square false) (square true) fa
 
 def arrowSquareProducts := WitnessArrow.products congruence laws products productCongr (productLaws true)
 def arrowProductLaws := WitnessArrow.products_laws congruence laws products productCongr (productLaws true)
-example : arrowProductLaws.fst_pair (square false) (square true) = (true,true) := rfl
+example : arrowProductLaws.fstPair (square false) (square true) = (true,true) := rfl
 example : SquareKit.ProductLaws (WitnessArrow.equiv congruence laws).erase arrowSquareProducts :=
   arrowProductLaws.erase
 
@@ -109,7 +109,7 @@ def monoidRelation : WitnessMonoid.Relation Bool :=
   ⟨fun _ _ => Bool,fun _ => false,Bool.not,fun h k => !(h && k)⟩
 def monoidLaws : WitnessMonoid.Laws rawMonoid monoidRelation :=
   ⟨fun h k => h && k,fun _ => true,fun _ => false,fun _ _ _ => true⟩
-example : (WitnessMonoid.laws monoidLaws).id_comp (a := ()) (b := ()) true = true := rfl
+example : (WitnessMonoid.laws monoidLaws).identComp (a := ()) (b := ()) true = true := rfl
 example : SetoidMonoid.Laws rawMonoid monoidRelation.erase := monoidLaws.erase
 
 end Examples.WitnessConstructions
