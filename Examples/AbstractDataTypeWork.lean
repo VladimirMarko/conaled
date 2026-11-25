@@ -364,50 +364,50 @@ theorem type_valued_unique_update (key : Nat) (value : Type u) (bindings : Uniqu
 /-! ## Bridges to the chapter's exact source-facing wrappers -/
 
 theorem source_list_enqueue (queue : List Nat) (value : Nat) :
-    (listEnqueueRun queue value).1 = AbstractDataTypes.ListQueue.enq queue value :=
+    (listEnqueueRun queue value).1 = AbstractDataTypes.ListQueue.enqueue queue value :=
   listEnqueueRun_value queue value
 
 theorem source_pair_enqueue (queue : TwoList Nat) (value : Nat) :
-    (enqueueRun queue value).1 = AbstractDataTypes.TwoListQueueAbs.enq queue value := rfl
+    (enqueueRun queue value).1 = AbstractDataTypes.TwoListQueue.enqueue queue value := rfl
 
 theorem source_pair_peek (default : Nat) (queue : TwoList Nat) :
-    (peekRun default queue).1 = AbstractDataTypes.TwoListQueueAbs.peek default queue :=
+    (peekRun default queue).1 = AbstractDataTypes.TwoListQueue.peek default queue :=
   peekRun_value default queue
 
 theorem source_pair_linear_peek (default : Nat) (queue : TwoList Nat) :
-    (linearPeekRun default queue).1 = AbstractDataTypes.TwoListQueueAbs.peek default queue :=
+    (linearPeekRun default queue).1 = AbstractDataTypes.TwoListQueue.peek default queue :=
   linearPeekRun_value default queue
 
 theorem source_pair_dequeue (queue : TwoList Nat) :
-    (dequeueRun queue).1 = AbstractDataTypes.TwoListQueueAbs.deq queue :=
+    (dequeueRun queue).1 = AbstractDataTypes.TwoListQueue.dequeue queue :=
   dequeueRun_value queue
 
 theorem source_pair_linear_dequeue (queue : TwoList Nat) :
-    (linearDequeueRun queue).1 = AbstractDataTypes.TwoListQueueAbs.deq queue :=
+    (linearDequeueRun queue).1 = AbstractDataTypes.TwoListQueue.dequeue queue :=
   linearDequeueRun_value queue
 
 theorem source_history_peek (default : Nat) (commands : List (Command Nat)) (queue : TwoList Nat) :
     (peekRun default (Resources.run linearStep commands queue).1).1 =
-      AbstractDataTypes.TwoListQueueAbs.peek default
+      AbstractDataTypes.TwoListQueue.peek default
         (Sequences.AbstractFIFO.run (twoListFIFO Nat) commands queue) := by
   rw [linearRun_value, source_pair_peek]
 
-theorem source_unique_update (key : Nat) (value : α) (bindings : AbstractDataTypes.ListsETable.table α) :
-    (ListErase.setRun key value bindings).1 = AbstractDataTypes.ListsETable.set key value bindings :=
+theorem source_unique_update (key : Nat) (value : α) (bindings : AbstractDataTypes.UniqueListTable.Carrier α) :
+    (ListErase.setRun key value bindings).1 = AbstractDataTypes.UniqueListTable.set key value bindings :=
   ListErase.setRun_value key value bindings
 
 theorem source_unique_update_elements (key : Nat) (value : α)
-    (bindings : AbstractDataTypes.ListsETable.table α) :
+    (bindings : AbstractDataTypes.UniqueListTable.Carrier α) :
     (ListErase.setRun key value bindings).1.1 =
-      AbstractDataTypes.ListsETable.elements (AbstractDataTypes.ListsETable.set key value bindings) :=
+      AbstractDataTypes.UniqueListTable.elements (AbstractDataTypes.UniqueListTable.set key value bindings) :=
   congrArg Subtype.val (ListErase.setRun_value key value bindings)
 
 /-- The measured output supports the source get/bound laws even when value is default. -/
 theorem source_measured_update_lookup (default value : α) (key : Nat)
-    (bindings : AbstractDataTypes.ListsETable.table α) :
-    AbstractDataTypes.ListsETable.bound key (ListErase.setRun key value bindings).1 = true ∧
-      AbstractDataTypes.ListsETable.get default key (ListErase.setRun key value bindings).1 = value := by
-  apply AbstractDataTypes.ListsETable.correct default value key (ListErase.setRun key value bindings).1
+    (bindings : AbstractDataTypes.UniqueListTable.Carrier α) :
+    AbstractDataTypes.UniqueListTable.bound key (ListErase.setRun key value bindings).1 = true ∧
+      AbstractDataTypes.UniqueListTable.get default key (ListErase.setRun key value bindings).1 = value := by
+  apply AbstractDataTypes.UniqueListTable.correct default value key (ListErase.setRun key value bindings).1
   change (key, value) ∈ (ListErase.setRun key value bindings).1.1
   rw [ListErase.setRun_entries, ListErase.pairSetRun_value]
   exact List.mem_cons_self

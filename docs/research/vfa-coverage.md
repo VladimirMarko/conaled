@@ -1024,10 +1024,10 @@ The chapter's source identity and license use the owners already linked above.
 
 ### Public operations and exact assumptions
 
-`Examples.FunctionalMaps.total_map A` is exactly `Nat → A`; `t_empty value`
+`Examples.FunctionalMaps.TotalMap A` is exactly `Nat → A`; `totalEmpty value`
 is the constant function at the supplied value. The type carries no hidden
 default, membership operation, finite support or update-history representation.
-`partial_map A` is exactly `Nat → Option A`, with empty `none` and updates
+`PartialMap A` is exactly `Nat → Option A`, with empty `none` and updates
 writing `some value`. Empty and optional payload types remain valid.
 
 `Applications/Search/OrderedMap/FunctionUpdate.lean` extends the existing
@@ -1041,7 +1041,7 @@ partial-map write operation; they do not introduce another map carrier.
 
 The six total-map exercise proofs consume Mathlib's update laws. The six
 partial-map statements visibly specialize those total laws at `Option A`.
-The source's variable-order distinction is retained: total `t_update_neq`
+The source's variable-order distinction is retained: total `totalUpdate_neq`
 writes `x₁` and queries `x₂`, whereas partial `update_neq` writes `x₂` and
 queries `x₁`. The partial self-update law retains its successful-binding
 premise. Function equality uses extensionality; no executable function-equality
@@ -1055,28 +1055,28 @@ value equals the empty map's default.
 
 | Exact source inventory ID | Lean target and complete contract/proof route |
 |---|---|
-| `Maps.total_map@28` | `total_map`: exact `Nat → A`, at arbitrary payload universe. |
-| `Maps.t_empty@34` | `t_empty value`: the constant function, requiring only its supplied value. |
-| `Maps.t_update@42` | `t_update := Function.update`; `t_update_source` proves the exact written-key-first Nat Boolean branch as a whole-function equality through `Search.OrderedMap.update_nat_source`. |
-| `Maps.examplemap@54` | `examplemap`: exactly `t_update (t_update (t_empty false) 1 false) 3 true`; the default write at key 1 remains in the expression. |
-| `Maps.update_example1@61` | `update_example1`: the exact source map at 0 is false; consumes the two distinct-key laws and constant-empty law. |
-| `Maps.update_example2@64` | `update_example2`: at 1 is false; consumes outer distinct-key lookup and inner same-key lookup. |
-| `Maps.update_example3@67` | `update_example3`: at 2 is false; consumes both distinct-key laws and constant-empty law. |
-| `Maps.update_example4@70` | `update_example4`: at 3 is true; consumes the latest same-key update law. |
-| `Maps.t_apply_empty@83` | `t_apply_empty A x value`: constant map application equals the supplied value; reduction of the actual definition. Standard exercise 1/6. |
-| `Maps.t_update_eq@94` | `t_update_eq A m x value`: querying the written key returns the value, for arbitrary function `m`; directly `Function.update_self`. Standard exercise 2/6. |
-| `Maps.t_update_neq@107` | `t_update_neq X value x₁ x₂ m`: premise `x₁ ≠ x₂`; written key `x₁`, query `x₂`; directly `Function.update_of_ne (Ne.symm different)`. Standard exercise 3/6. |
-| `Maps.t_update_shadow@123` | `t_update_shadow A m first last x`: two writes at `x` equal the later write alone as complete functions; directly `Function.update_idem`. Standard exercise 4/6. |
-| `Maps.t_update_same@135` | `t_update_same X x m`: writing `m x` returns `m` as a complete function; directly `Function.update_eq_self`. Standard exercise 5/6. |
-| `Maps.t_update_permute@146` | `t_update_permute X v₁ v₂ x₁ x₂ m`: premise `x₂ ≠ x₁`; write `(x₂,v₂)` then `(x₁,v₁)` equals the reverse history, with exact source key/value order; directly `Function.update_comm different v₂ v₁ m`. Standard exercise 6/6. |
-| `Maps.partial_map@161` | `partial_map A := total_map (Option A)`: unrestricted optional-valued functions. |
-| `Maps.empty@163` | `empty := t_empty none`: absence is `none`, without selecting a default payload. |
-| `Maps.update@166` | `update m x value := t_update m x (some value)`; `update_eq_write` relates it to the existing generic partial-map `write`. |
-| `Maps.apply_empty@173` | `apply_empty A x`: returns `none`; explicitly `t_apply_empty (Option A) x none`. |
-| `Maps.update_eq@179` | `update_eq A m x value`: returns `some value`; explicitly `t_update_eq (Option A)`. |
-| `Maps.update_neq@186` | `update_neq X value x₁ x₂ m`: premise `x₂ ≠ x₁`, written key `x₂`, query `x₁`; explicitly calls total `t_update_neq (Option X) (some value) x₂ x₁`. |
-| `Maps.update_shadow@195` | `update_shadow A m first last x`: explicitly total `t_update_shadow (Option A)` at `some first`, `some last`. |
-| `Maps.update_same@202` | `update_same X value x m`: retains `m x = some value`; rewrites by that premise and consumes `t_update_same (Option X)`. Absence is not a stored default. |
+| `Maps.total_map@28` | `TotalMap`: exact `Nat → A`, at arbitrary payload universe. |
+| `Maps.t_empty@34` | `totalEmpty value`: the constant function, requiring only its supplied value. |
+| `Maps.t_update@42` | `totalUpdate := Function.update`; `totalUpdate_source` proves the exact written-key-first Nat Boolean branch as a whole-function equality through `Search.OrderedMap.update_nat_source`. |
+| `Maps.examplemap@54` | `exampleMap`: exactly `totalUpdate (totalUpdate (totalEmpty false) 1 false) 3 true`; the default write at key 1 remains in the expression. |
+| `Maps.update_example1@61` | `exampleMap_zero`: the exact source map at 0 is false; consumes the two distinct-key laws and constant-empty law. |
+| `Maps.update_example2@64` | `exampleMap_one`: at 1 is false; consumes outer distinct-key lookup and inner same-key lookup. |
+| `Maps.update_example3@67` | `exampleMap_two`: at 2 is false; consumes both distinct-key laws and constant-empty law. |
+| `Maps.update_example4@70` | `exampleMap_three`: at 3 is true; consumes the latest same-key update law. |
+| `Maps.t_apply_empty@83` | `totalEmpty_apply A x value`: constant map application equals the supplied value; reduction of the actual definition. Standard exercise 1/6. |
+| `Maps.t_update_eq@94` | `totalUpdate_eq A m x value`: querying the written key returns the value, for arbitrary function `m`; directly `Function.update_self`. Standard exercise 2/6. |
+| `Maps.t_update_neq@107` | `totalUpdate_neq X value x₁ x₂ m`: premise `x₁ ≠ x₂`; written key `x₁`, query `x₂`; directly `Function.update_of_ne (Ne.symm different)`. Standard exercise 3/6. |
+| `Maps.t_update_shadow@123` | `totalUpdate_shadow A m first last x`: two writes at `x` equal the later write alone as complete functions; directly `Function.update_idem`. Standard exercise 4/6. |
+| `Maps.t_update_same@135` | `totalUpdate_same X x m`: writing `m x` returns `m` as a complete function; directly `Function.update_eq_self`. Standard exercise 5/6. |
+| `Maps.t_update_permute@146` | `totalUpdate_permute X v₁ v₂ x₁ x₂ m`: premise `x₂ ≠ x₁`; write `(x₂,v₂)` then `(x₁,v₁)` equals the reverse history, with exact source key/value order; directly `Function.update_comm different v₂ v₁ m`. Standard exercise 6/6. |
+| `Maps.partial_map@161` | `PartialMap A := TotalMap (Option A)`: unrestricted optional-valued functions. |
+| `Maps.empty@163` | `empty := totalEmpty none`: absence is `none`, without selecting a default payload. |
+| `Maps.update@166` | `update m x value := totalUpdate m x (some value)`; `update_eq_write` relates it to the existing generic partial-map `write`. |
+| `Maps.apply_empty@173` | `apply_empty A x`: returns `none`; explicitly `totalEmpty_apply (Option A) x none`. |
+| `Maps.update_eq@179` | `update_eq A m x value`: returns `some value`; explicitly `totalUpdate_eq (Option A)`. |
+| `Maps.update_neq@186` | `update_neq X value x₁ x₂ m`: premise `x₂ ≠ x₁`, written key `x₂`, query `x₁`; explicitly calls total `totalUpdate_neq (Option X) (some value) x₂ x₁`. |
+| `Maps.update_shadow@195` | `update_shadow A m first last x`: explicitly total `totalUpdate_shadow (Option A)` at `some first`, `some last`. |
+| `Maps.update_same@202` | `update_same X value x m`: retains `m x = some value`; rewrites by that premise and consumes `totalUpdate_same (Option X)`. Absence is not a stored default. |
 | `Maps.update_permute@210` | `update_permute X v₁ v₂ x₁ x₂ m`: same exact ordering and `x₂ ≠ x₁` premise as the total law, explicitly specialized at optional values. |
 
 ### Connected clients and complete prose disposition
@@ -1097,7 +1097,7 @@ and a stored default. `empty_payload`, `optional_payload` and
 
 The exact source map is connected to the existing chronological two-write
 `Search.TotalTable.setAll` client. `table_two_writes` consumes the shared laws
-from any valid starting representation; `examplemap_eq_list_client` connects
+from any valid starting representation; `exampleMap_eq_list_client` connects
 the source's function implementation to the actual association-list realization
 through observation equality. No equality of list and function representations
 is claimed.
@@ -1718,7 +1718,7 @@ Type-valued clients check that these are actual universe-generic interfaces.
 | Source contract | Checked Lean contract and exact boundary |
 |---|---|
 | Table | `Examples.AbstractDataTypes.Table` uses `Search.TotalTable.Ops`. `Examples.AbstractDataTypes.TableLaws` instantiates the existing law family with validity `True`: empty/default, same-key, and distinct-key observations hold on every represented state. |
-| First ETable attempt | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws` adds both unrestricted membership directions to the unconditional table laws. The contract has valid-carrier instances, but `Examples.AbstractDataTypes.raw_tree_first_attempt_fails` refutes the supplied raw-tree attempt. |
+| First ETable attempt | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws` adds both unrestricted membership directions to the unconditional table laws. The contract has valid-carrier instances, but `Examples.AbstractDataTypes.raw_tree_unrestricted_enumeration_fails` refutes the supplied raw-tree attempt. |
 | ETable | `Search.OrderedMap.EnumeratedTable.Laws` keeps all Table laws and the three presence laws unrestricted. Its two membership directions alone require the separate validity predicate; valid empty and update preservation are additional fields. |
 | Strengthened elements exercise | `Search.OrderedMap.EnumeratedTable.StrongElements` distinguishes validity-qualified absence-implies-no-entry from raw no-entry-implies-absence, and separately proves strict projected-key order and projected-key nodup. The source Nat client also supplies the requested non-strict ordering. |
 | ETableAbs | `Search.OrderedMap.EnumeratedTable.ModelLaws` has exactly seven fields: valid empty, update preservation, empty decoding, and validity-qualified presence, get, update and enumeration refinements. It neither inherits raw membership soundness nor asserts finite support for every ambient optional function. |
@@ -1758,54 +1758,54 @@ demonstrated abstract-client typing boundary.
 | `ADT.Table.get_empty_default@78` | `Search.TotalTable.Laws.get_empty`; `Examples.AbstractDataTypes.TableLaws`. Unconditional source law through validity=True; any internal trivial validity argument imposes no state restriction. |
 | `ADT.Table.get_set_same@81` | `Search.TotalTable.Laws.get_set_same`; `Examples.AbstractDataTypes.TableLaws`. Unconditional source law through validity=True; any internal trivial validity argument imposes no state restriction. |
 | `ADT.Table.get_set_other@84` | `Search.TotalTable.Laws.get_set_other`; `Examples.AbstractDataTypes.TableLaws`. Unconditional source law through validity=True; any internal trivial validity argument imposes no state restriction. |
-| `ADT.ValType.V@101` | `Examples.AbstractDataTypes.FunTable`. Ordinary payload/default parameters represent this type requirement; no redundant module or typeclass. |
-| `ADT.ValType.default@102` | `Examples.AbstractDataTypes.FunTable`. Ordinary payload/default parameters represent this chosen value requirement; no redundant module or typeclass. |
-| `ADT.FunTable.V@113` | `Examples.AbstractDataTypes.FunTable`. The supplied arbitrary payload type is retained. |
-| `ADT.FunTable.default@114` | `Examples.AbstractDataTypes.FunTable`. The supplied default is explicit. |
-| `ADT.FunTable.key@115` | `Examples.AbstractDataTypes.FunTable`. Keys remain Nat. |
-| `ADT.FunTable.table@118` | `Examples.AbstractDataTypes.FunTable`. Actual function carrier Nat → V. |
-| `ADT.FunTable.empty@120` | `Examples.AbstractDataTypes.FunTable`; `Search.TotalTable.Ops.empty`. Constant supplied-default function. |
-| `ADT.FunTable.get@123` | `Examples.AbstractDataTypes.FunTable`; `Search.TotalTable.Ops.get`. Application to the queried Nat key. |
-| `ADT.FunTable.set@126` | `Examples.AbstractDataTypes.function_set_source`. Exact written-key-first Nat Boolean update branch, connected to Function.update. |
-| `ADT.FunTable.get_empty_default@132` | `Examples.AbstractDataTypes.FunTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.FunTable.get_set_same@136` | `Examples.AbstractDataTypes.FunTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.FunTable.get_set_other@140` | `Examples.AbstractDataTypes.FunTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.StringVal.V@149` | `Examples.AbstractDataTypes.StringVal.V`. Exactly String as in the source. |
-| `ADT.StringVal.default@150` | `Examples.AbstractDataTypes.StringVal.default`. Exactly the empty String as in the source. |
-| `ADT.FunTableExamples.ex1@159` | `Examples.AbstractDataTypes.function_ex1`. get 0 empty = empty String. Proof consumes the public function-table law. |
-| `ADT.FunTableExamples.ex2@162` | `Examples.AbstractDataTypes.function_ex2`. get 0 after writing (0,"A") = "A". Proof consumes the public function-table law. |
-| `ADT.FunTableExamples.ex3@165` | `Examples.AbstractDataTypes.function_ex3`. get 1 after writing (0,"A") = empty String. Proof consumes the public function-table law. |
-| `ADT.ListsTable.V@191` | `Examples.AbstractDataTypes.ListsTable`. The supplied arbitrary payload type is retained. |
-| `ADT.ListsTable.default@192` | `Examples.AbstractDataTypes.ListsTable`. The supplied default is explicit. |
-| `ADT.ListsTable.key@193` | `Examples.AbstractDataTypes.ListsTable`. Keys remain Nat. |
-| `ADT.ListsTable.table@194` | `Examples.AbstractDataTypes.ListsTable`. Actual raw List (Nat × V), allowing duplicates. |
-| `ADT.ListsTable.empty@196` | `Examples.AbstractDataTypes.ListsTable`; `Search.TotalTable.Ops.empty`. The empty pair list. |
-| `ADT.ListsTable.get@198` | `Examples.AbstractDataTypes.ListsTable`; `Search.TotalTable.Ops.get`. Existing first-match optional lookup followed by the supplied default. |
-| `ADT.ListsTable.set@201` | `Examples.AbstractDataTypes.lists_set_source`. Prepend the new pair; older duplicates remain shadowed. |
-| `ADT.ListsTable.get_empty_default@204` | `Examples.AbstractDataTypes.ListsTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.ListsTable.get_set_same@209` | `Examples.AbstractDataTypes.ListsTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.ListsTable.get_set_other@214` | `Examples.AbstractDataTypes.ListsTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.StringListsTableExamples.ex1@229` | `Examples.AbstractDataTypes.lists_ex1`. get 0 empty = empty String. Proof consumes the public list-table law. |
-| `ADT.StringListsTableExamples.ex2@233` | `Examples.AbstractDataTypes.lists_ex2`. get 0 after writing (0,"A") = "A". Proof consumes the public list-table law. |
-| `ADT.StringListsTableExamples.ex3@237` | `Examples.AbstractDataTypes.lists_ex3`. get 1 after writing (0,"A") = empty String. Proof consumes the public list-table law. |
-| `ADT.TreeTable.V@253` | `Examples.AbstractDataTypes.TreeTable`. The supplied arbitrary payload type is retained. |
-| `ADT.TreeTable.default@254` | `Examples.AbstractDataTypes.TreeTable`. The supplied default is explicit. |
-| `ADT.TreeTable.key@255` | `Examples.AbstractDataTypes.TreeTable`. Keys remain Nat. |
-| `ADT.TreeTable.table@256` | `Examples.AbstractDataTypes.TreeTable`. Existing raw source tree, without a BST subtype restriction. |
-| `ADT.TreeTable.empty@258` | `Examples.AbstractDataTypes.TreeTable`; `Search.TotalTable.Ops.empty`. The existing source empty tree. |
-| `ADT.TreeTable.get@261` | `Examples.AbstractDataTypes.TreeTable`; `Search.TotalTable.Ops.get`. Existing directed search with the supplied default. |
-| `ADT.TreeTable.set@264` | `Examples.AbstractDataTypes.tree_set_source`. Exactly the existing source insertion on every raw tree. |
-| `ADT.TreeTable.get_empty_default@271` | `Examples.AbstractDataTypes.TreeTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.TreeTable.get_set_same@277` | `Examples.AbstractDataTypes.TreeTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
-| `ADT.TreeTable.get_set_other@283` | `Examples.AbstractDataTypes.TreeTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.ValType.V@101` | `Examples.AbstractDataTypes.functionTable`. Ordinary payload/default parameters represent this type requirement; no redundant module or typeclass. |
+| `ADT.ValType.default@102` | `Examples.AbstractDataTypes.functionTable`. Ordinary payload/default parameters represent this chosen value requirement; no redundant module or typeclass. |
+| `ADT.FunTable.V@113` | `Examples.AbstractDataTypes.functionTable`. The supplied arbitrary payload type is retained. |
+| `ADT.FunTable.default@114` | `Examples.AbstractDataTypes.functionTable`. The supplied default is explicit. |
+| `ADT.FunTable.key@115` | `Examples.AbstractDataTypes.functionTable`. Keys remain Nat. |
+| `ADT.FunTable.table@118` | `Examples.AbstractDataTypes.functionTable`. Actual function carrier Nat → V. |
+| `ADT.FunTable.empty@120` | `Examples.AbstractDataTypes.functionTable`; `Search.TotalTable.Ops.empty`. Constant supplied-default function. |
+| `ADT.FunTable.get@123` | `Examples.AbstractDataTypes.functionTable`; `Search.TotalTable.Ops.get`. Application to the queried Nat key. |
+| `ADT.FunTable.set@126` | `Examples.AbstractDataTypes.functionTable_set_source`. Exact written-key-first Nat Boolean update branch, connected to Function.update. |
+| `ADT.FunTable.get_empty_default@132` | `Examples.AbstractDataTypes.functionTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.FunTable.get_set_same@136` | `Examples.AbstractDataTypes.functionTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.FunTable.get_set_other@140` | `Examples.AbstractDataTypes.functionTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.StringVal.V@149` | `Examples.AbstractDataTypes.StringPayload.Value`. Exactly String as in the source. |
+| `ADT.StringVal.default@150` | `Examples.AbstractDataTypes.StringPayload.default`. Exactly the empty String as in the source. |
+| `ADT.FunTableExamples.ex1@159` | `Examples.AbstractDataTypes.stringFunctionTable_empty`. get 0 empty = empty String. Proof consumes the public function-table law. |
+| `ADT.FunTableExamples.ex2@162` | `Examples.AbstractDataTypes.stringFunctionTable_same_key`. get 0 after writing (0,"A") = "A". Proof consumes the public function-table law. |
+| `ADT.FunTableExamples.ex3@165` | `Examples.AbstractDataTypes.stringFunctionTable_other_key`. get 1 after writing (0,"A") = empty String. Proof consumes the public function-table law. |
+| `ADT.ListsTable.V@191` | `Examples.AbstractDataTypes.listTable`. The supplied arbitrary payload type is retained. |
+| `ADT.ListsTable.default@192` | `Examples.AbstractDataTypes.listTable`. The supplied default is explicit. |
+| `ADT.ListsTable.key@193` | `Examples.AbstractDataTypes.listTable`. Keys remain Nat. |
+| `ADT.ListsTable.table@194` | `Examples.AbstractDataTypes.listTable`. Actual raw List (Nat × V), allowing duplicates. |
+| `ADT.ListsTable.empty@196` | `Examples.AbstractDataTypes.listTable`; `Search.TotalTable.Ops.empty`. The empty pair list. |
+| `ADT.ListsTable.get@198` | `Examples.AbstractDataTypes.listTable`; `Search.TotalTable.Ops.get`. Existing first-match optional lookup followed by the supplied default. |
+| `ADT.ListsTable.set@201` | `Examples.AbstractDataTypes.listTable_set_source`. Prepend the new pair; older duplicates remain shadowed. |
+| `ADT.ListsTable.get_empty_default@204` | `Examples.AbstractDataTypes.listTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.ListsTable.get_set_same@209` | `Examples.AbstractDataTypes.listTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.ListsTable.get_set_other@214` | `Examples.AbstractDataTypes.listTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.StringListsTableExamples.ex1@229` | `Examples.AbstractDataTypes.stringListTable_empty`. get 0 empty = empty String. Proof consumes the public list-table law. |
+| `ADT.StringListsTableExamples.ex2@233` | `Examples.AbstractDataTypes.stringListTable_same_key`. get 0 after writing (0,"A") = "A". Proof consumes the public list-table law. |
+| `ADT.StringListsTableExamples.ex3@237` | `Examples.AbstractDataTypes.stringListTable_other_key`. get 1 after writing (0,"A") = empty String. Proof consumes the public list-table law. |
+| `ADT.TreeTable.V@253` | `Examples.AbstractDataTypes.treeTable`. The supplied arbitrary payload type is retained. |
+| `ADT.TreeTable.default@254` | `Examples.AbstractDataTypes.treeTable`. The supplied default is explicit. |
+| `ADT.TreeTable.key@255` | `Examples.AbstractDataTypes.treeTable`. Keys remain Nat. |
+| `ADT.TreeTable.table@256` | `Examples.AbstractDataTypes.treeTable`. Existing raw source tree, without a BST subtype restriction. |
+| `ADT.TreeTable.empty@258` | `Examples.AbstractDataTypes.treeTable`; `Search.TotalTable.Ops.empty`. The existing source empty tree. |
+| `ADT.TreeTable.get@261` | `Examples.AbstractDataTypes.treeTable`; `Search.TotalTable.Ops.get`. Existing directed search with the supplied default. |
+| `ADT.TreeTable.set@264` | `Examples.AbstractDataTypes.treeTable_set_source`. Exactly the existing source insertion on every raw tree. |
+| `ADT.TreeTable.get_empty_default@271` | `Examples.AbstractDataTypes.treeTable_laws`; `Search.TotalTable.Laws.get_empty`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.TreeTable.get_set_same@277` | `Examples.AbstractDataTypes.treeTable_laws`; `Search.TotalTable.Laws.get_set_same`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
+| `ADT.TreeTable.get_set_other@283` | `Examples.AbstractDataTypes.treeTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
 | `ADT.ETable_first_attempt.bound@308` | `Search.OrderedMap.EnumeratedTable.Observations.bound`. Existing total-table operation data is extended with this separate observation. |
 | `ADT.ETable_first_attempt.elements@309` | `Search.OrderedMap.EnumeratedTable.Observations.elements`. Existing total-table operation data is extended with this separate observation. |
 | `ADT.ETable_first_attempt.elements_complete@311` | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws.elements_complete`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
 | `ADT.ETable_first_attempt.elements_correct@316` | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws.elements_correct`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
-| `ADT.TreeETable_first_attempt.bound@336` | `Examples.AbstractDataTypes.TreeETable.bound`. Reuse the existing raw source operation. |
-| `ADT.TreeETable_first_attempt.elements@339` | `Examples.AbstractDataTypes.TreeETable.elements`. Reuse the existing raw source operation. |
-| `ADT.TreeETable_first_attempt.elements_complete@342` | `Examples.AbstractDataTypes.TreeETable.elements_complete_raw`. Presence and get=value imply actual entry membership on every raw tree. |
-| `ADT.TreeETable_first_attempt.elements_correct@351` | `Examples.AbstractDataTypes.raw_tree_first_attempt_fails`; `Examples.AbstractDataTypes.malformed_tree_member`. The deliberately false raw soundness admission is refuted using the exact malformed predecessor tree; the corrected theorem retains BST. |
+| `ADT.TreeETable_first_attempt.bound@336` | `Examples.AbstractDataTypes.RawTreeTable.bound`. Reuse the existing raw source operation. |
+| `ADT.TreeETable_first_attempt.elements@339` | `Examples.AbstractDataTypes.RawTreeTable.elements`. Reuse the existing raw source operation. |
+| `ADT.TreeETable_first_attempt.elements_complete@342` | `Examples.AbstractDataTypes.RawTreeTable.elements_complete_raw`. Presence and get=value imply actual entry membership on every raw tree. |
+| `ADT.TreeETable_first_attempt.elements_correct@351` | `Examples.AbstractDataTypes.raw_tree_unrestricted_enumeration_fails`; `Examples.AbstractDataTypes.malformed_tree_member`. The deliberately false raw soundness admission is refuted using the exact malformed predecessor tree; the corrected theorem retains BST. |
 | `ADT.ETable.rep_ok@379` | `Search.OrderedMap.EnumeratedTable.Laws`. Separate Valid parameter, used by closure and membership laws only. |
 | `ADT.ETable.bound@380` | `Search.OrderedMap.EnumeratedTable.Observations.bound`. Public observation alongside the existing unconditional Table operations. |
 | `ADT.ETable.elements@381` | `Search.OrderedMap.EnumeratedTable.Observations.elements`. Public observation alongside the existing unconditional Table operations. |
@@ -1816,60 +1816,60 @@ demonstrated abstract-client typing boundary.
 | `ADT.ETable.bound_set_other@398` | `Search.OrderedMap.EnumeratedTable.Laws.bound_set_other`. Unconditional distinct-key presence preservation. |
 | `ADT.ETable.elements_complete@403` | `Search.OrderedMap.EnumeratedTable.Laws.elements_complete`. Validity, presence and returned value imply entry membership. |
 | `ADT.ETable.elements_correct@409` | `Search.OrderedMap.EnumeratedTable.Laws.elements_correct`. Validity and entry membership imply both presence and the default-valued get result. |
-| `ADT.TreeETable.rep_ok@420` | `Examples.AbstractDataTypes.TreeETable.rep_ok`. The actual BST predicate on raw source trees. |
-| `ADT.TreeETable.bound@423` | `Examples.AbstractDataTypes.TreeETable.bound`. Existing directed presence observation on every raw tree. |
-| `ADT.TreeETable.elements@426` | `Examples.AbstractDataTypes.TreeETable.elements`. Existing inorder entry list on every raw tree. |
-| `ADT.TreeETable.empty_ok@429` | `Examples.AbstractDataTypes.TreeETable.empty_ok`. Valid empty through the source BST proof. |
-| `ADT.TreeETable.set_ok@434` | `Examples.AbstractDataTypes.TreeETable.set_ok`. BST preserved by actual insertion. |
-| `ADT.TreeETable.bound_empty@440` | `Examples.AbstractDataTypes.TreeETable.bound_empty`. Raw empty-tree absence; no BST argument. |
-| `ADT.TreeETable.bound_set_same@446` | `Examples.AbstractDataTypes.TreeETable.bound_set_same`. Raw same-key presence; no BST argument. |
-| `ADT.TreeETable.bound_set_other@452` | `Examples.AbstractDataTypes.TreeETable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. |
-| `ADT.TreeETable.elements_complete@458` | `Examples.AbstractDataTypes.TreeETable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. |
-| `ADT.TreeETable.elements_correct@470` | `Examples.AbstractDataTypes.TreeETable.elements_correct`. Retains BST and returns both presence and the get value. |
+| `ADT.TreeETable.rep_ok@420` | `Examples.AbstractDataTypes.RawTreeTable.Valid`. The actual BST predicate on raw source trees. |
+| `ADT.TreeETable.bound@423` | `Examples.AbstractDataTypes.RawTreeTable.bound`. Existing directed presence observation on every raw tree. |
+| `ADT.TreeETable.elements@426` | `Examples.AbstractDataTypes.RawTreeTable.elements`. Existing inorder entry list on every raw tree. |
+| `ADT.TreeETable.empty_ok@429` | `Examples.AbstractDataTypes.RawTreeTable.empty_valid`. Valid empty through the source BST proof. |
+| `ADT.TreeETable.set_ok@434` | `Examples.AbstractDataTypes.RawTreeTable.set_valid`. BST preserved by actual insertion. |
+| `ADT.TreeETable.bound_empty@440` | `Examples.AbstractDataTypes.RawTreeTable.bound_empty`. Raw empty-tree absence; no BST argument. |
+| `ADT.TreeETable.bound_set_same@446` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_same`. Raw same-key presence; no BST argument. |
+| `ADT.TreeETable.bound_set_other@452` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. |
+| `ADT.TreeETable.elements_complete@458` | `Examples.AbstractDataTypes.RawTreeTable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. |
+| `ADT.TreeETable.elements_correct@470` | `Examples.AbstractDataTypes.RawTreeTable.elements_correct`. Retains BST and returns both presence and the get value. |
 | `ADT.StringTreeETableExample.ex1@491` | `Examples.AbstractDataTypes.string_tree_elements_example`. The exact (0,"A") membership after writing (1,"B") then (0,"A"), proved through validity, get, bound and membership laws. |
-| `ADT.exposed_trees_ex@508` | `Examples.AbstractDataTypes.exposed_trees_ex`. Exact exposed raw-tree lookup at key 0 returns "A". |
-| `ADT.TreeETableFullyEncapsulated.rep_ok@530` | `Examples.AbstractDataTypes.TreeETable.rep_ok`. The actual BST predicate on raw source trees. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.bound@533` | `Examples.AbstractDataTypes.TreeETable.bound`. Existing directed presence observation on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.elements@536` | `Examples.AbstractDataTypes.TreeETable.elements`. Existing inorder entry list on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.empty_ok@539` | `Examples.AbstractDataTypes.TreeETable.empty_ok`. Valid empty through the source BST proof. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.set_ok@544` | `Examples.AbstractDataTypes.TreeETable.set_ok`. BST preserved by actual insertion. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.bound_empty@550` | `Examples.AbstractDataTypes.TreeETable.bound_empty`. Raw empty-tree absence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.bound_set_same@556` | `Examples.AbstractDataTypes.TreeETable.bound_set_same`. Raw same-key presence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.bound_set_other@562` | `Examples.AbstractDataTypes.TreeETable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.elements_complete@568` | `Examples.AbstractDataTypes.TreeETable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.TreeETableFullyEncapsulated.elements_correct@580` | `Examples.AbstractDataTypes.TreeETable.elements_correct`. Retains BST and returns both presence and the get value. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.exposed_trees_ex@508` | `Examples.AbstractDataTypes.treeTable_singleton_lookup`. Exact exposed raw-tree lookup at key 0 returns "A". |
+| `ADT.TreeETableFullyEncapsulated.rep_ok@530` | `Examples.AbstractDataTypes.RawTreeTable.Valid`. The actual BST predicate on raw source trees. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.bound@533` | `Examples.AbstractDataTypes.RawTreeTable.bound`. Existing directed presence observation on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.elements@536` | `Examples.AbstractDataTypes.RawTreeTable.elements`. Existing inorder entry list on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.empty_ok@539` | `Examples.AbstractDataTypes.RawTreeTable.empty_valid`. Valid empty through the source BST proof. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.set_ok@544` | `Examples.AbstractDataTypes.RawTreeTable.set_valid`. BST preserved by actual insertion. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.bound_empty@550` | `Examples.AbstractDataTypes.RawTreeTable.bound_empty`. Raw empty-tree absence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.bound_set_same@556` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_same`. Raw same-key presence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.bound_set_other@562` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.elements_complete@568` | `Examples.AbstractDataTypes.RawTreeTable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.TreeETableFullyEncapsulated.elements_correct@580` | `Examples.AbstractDataTypes.RawTreeTable.elements_correct`. Retains BST and returns both presence and the get value. This checked component is reused by the generic abstract-client presentation described below. |
 | `ADT.OverlyEncapsulatedExample.ex1@601` | `Examples.AbstractDataTypes.abstract_empty_client`. Actual Lean rejection of a String literal at abstract V is checked inside the generic client; the result is then proved from the public empty law. |
-| `ADT.SimpleTable.key@627` | `Examples.AbstractDataTypes.SimpleTable.key`. Ordinary abstract key type, not fixed to Nat; key/payload/state universes remain independent. |
-| `ADT.SimpleTable.V@628` | `Examples.AbstractDataTypes.SimpleTable.V`. Ordinary abstract payload type; key/payload/state universes remain independent. |
-| `ADT.SimpleTable.default@629` | `Examples.AbstractDataTypes.SimpleTable.default`. Ordinary abstract supplied value at that payload type; key/payload/state universes remain independent. |
-| `ADT.SimpleTable.table@630` | `Examples.AbstractDataTypes.SimpleTable.table`. Ordinary abstract state carrier; key/payload/state universes remain independent. |
-| `ADT.SimpleStringTable1.key@635` | `Examples.AbstractDataTypes.simpleStringTable1`; `Examples.AbstractDataTypes.SimpleTable.key`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
-| `ADT.SimpleStringTable1.V@636` | `Examples.AbstractDataTypes.simpleStringTable1`; `Examples.AbstractDataTypes.SimpleTable.V`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
-| `ADT.SimpleStringTable1.default@637` | `Examples.AbstractDataTypes.simpleStringTable1`; `Examples.AbstractDataTypes.SimpleTable.default`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
-| `ADT.SimpleStringTable1.table@638` | `Examples.AbstractDataTypes.simpleStringTable1`; `Examples.AbstractDataTypes.SimpleTable.table`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
-| `ADT.SimpleStringTable2.key@647` | `Examples.AbstractDataTypes.simpleStringTable2`; `Examples.AbstractDataTypes.SimpleTable.key`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
-| `ADT.SimpleStringTable2.V@648` | `Examples.AbstractDataTypes.simpleStringTable2`; `Examples.AbstractDataTypes.SimpleTable.V`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
-| `ADT.SimpleStringTable2.default@649` | `Examples.AbstractDataTypes.simpleStringTable2`; `Examples.AbstractDataTypes.SimpleTable.default`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
-| `ADT.SimpleStringTable2.table@650` | `Examples.AbstractDataTypes.simpleStringTable2`; `Examples.AbstractDataTypes.SimpleTable.table`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
-| `ADT.SimpleStringTable3.key@662` | `Examples.AbstractDataTypes.simpleStringTable3`; `Examples.AbstractDataTypes.SimpleTable.key`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
-| `ADT.SimpleStringTable3.V@663` | `Examples.AbstractDataTypes.simpleStringTable3`; `Examples.AbstractDataTypes.SimpleTable.V`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
-| `ADT.SimpleStringTable3.default@664` | `Examples.AbstractDataTypes.simpleStringTable3`; `Examples.AbstractDataTypes.SimpleTable.default`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
-| `ADT.SimpleStringTable3.table@665` | `Examples.AbstractDataTypes.simpleStringTable3`; `Examples.AbstractDataTypes.SimpleTable.table`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
-| `ADT.rep_ok@679` | `Examples.AbstractDataTypes.TreeETable.rep_ok`. The actual BST predicate on raw source trees. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.bound@682` | `Examples.AbstractDataTypes.TreeETable.bound`. Existing directed presence observation on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.elements@685` | `Examples.AbstractDataTypes.TreeETable.elements`. Existing inorder entry list on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.empty_ok@688` | `Examples.AbstractDataTypes.TreeETable.empty_ok`. Valid empty through the source BST proof. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.set_ok@693` | `Examples.AbstractDataTypes.TreeETable.set_ok`. BST preserved by actual insertion. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.bound_empty@699` | `Examples.AbstractDataTypes.TreeETable.bound_empty`. Raw empty-tree absence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.bound_set_same@705` | `Examples.AbstractDataTypes.TreeETable.bound_set_same`. Raw same-key presence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.bound_set_other@711` | `Examples.AbstractDataTypes.TreeETable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.elements_complete@717` | `Examples.AbstractDataTypes.TreeETable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.elements_correct@729` | `Examples.AbstractDataTypes.TreeETable.elements_correct`. Retains BST and returns both presence and the get value. This checked component is reused by the generic abstract-client presentation described below. |
-| `ADT.NicelyEncapsulatedExample.ex1@748` | `Examples.AbstractDataTypes.nicely_encapsulated_client`; `Examples.AbstractDataTypes.nicely_encapsulated_tree`. Generic get-empty proof uses the law and checks failed reflexivity; its concrete String/tree instantiation preserves the source result. |
-| `ADT.NicelyEncapsulatedExample.ex2@758` | `Examples.AbstractDataTypes.nicely_encapsulated_client`. Actual Lean rejection of a raw tree constructor at abstract carrier T; no false mathematical theorem is introduced. |
-| `ADT.map_update@794` | `Examples.AbstractDataTypes.map_update`. Existing partial write, with source argument order key,value,map and some-value binding. |
-| `ADT.map_find@798` | `Examples.AbstractDataTypes.map_find`. Explicit-default getD observation with source default,key,map order. |
-| `ADT.empty_map@800` | `Examples.AbstractDataTypes.empty_map`. The none-valued function. |
+| `ADT.SimpleTable.key@627` | `Examples.AbstractDataTypes.TableSignature.Key`. Ordinary abstract key type, not fixed to Nat; key/payload/state universes remain independent. |
+| `ADT.SimpleTable.V@628` | `Examples.AbstractDataTypes.TableSignature.Payload`. Ordinary abstract payload type; key/payload/state universes remain independent. |
+| `ADT.SimpleTable.default@629` | `Examples.AbstractDataTypes.TableSignature.default`. Ordinary abstract supplied value at that payload type; key/payload/state universes remain independent. |
+| `ADT.SimpleTable.table@630` | `Examples.AbstractDataTypes.TableSignature.Carrier`. Ordinary abstract state carrier; key/payload/state universes remain independent. |
+| `ADT.SimpleStringTable1.key@635` | `Examples.AbstractDataTypes.stringTreeSignature`; `Examples.AbstractDataTypes.TableSignature.Key`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
+| `ADT.SimpleStringTable1.V@636` | `Examples.AbstractDataTypes.stringTreeSignature`; `Examples.AbstractDataTypes.TableSignature.Payload`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
+| `ADT.SimpleStringTable1.default@637` | `Examples.AbstractDataTypes.stringTreeSignature`; `Examples.AbstractDataTypes.TableSignature.default`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
+| `ADT.SimpleStringTable1.table@638` | `Examples.AbstractDataTypes.stringTreeSignature`; `Examples.AbstractDataTypes.TableSignature.Carrier`. Concrete Nat/String/empty-default/tree package; its Lean definition is transparent. Abstract exposure is demonstrated by generic clients, not asserted as sealing. |
+| `ADT.SimpleStringTable2.key@647` | `Examples.AbstractDataTypes.stringSignature`; `Examples.AbstractDataTypes.TableSignature.Key`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
+| `ADT.SimpleStringTable2.V@648` | `Examples.AbstractDataTypes.stringSignature`; `Examples.AbstractDataTypes.TableSignature.Payload`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
+| `ADT.SimpleStringTable2.default@649` | `Examples.AbstractDataTypes.stringSignature`; `Examples.AbstractDataTypes.TableSignature.default`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
+| `ADT.SimpleStringTable2.table@650` | `Examples.AbstractDataTypes.stringSignature`; `Examples.AbstractDataTypes.TableSignature.Carrier`. Payload is exposed as String while default remains a parameter; the source concrete package instantiates key/carrier/default to Nat/tree String/empty String. |
+| `ADT.SimpleStringTable3.key@662` | `Examples.AbstractDataTypes.emptyStringSignature`; `Examples.AbstractDataTypes.TableSignature.Key`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
+| `ADT.SimpleStringTable3.V@663` | `Examples.AbstractDataTypes.emptyStringSignature`; `Examples.AbstractDataTypes.TableSignature.Payload`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
+| `ADT.SimpleStringTable3.default@664` | `Examples.AbstractDataTypes.emptyStringSignature`; `Examples.AbstractDataTypes.TableSignature.default`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
+| `ADT.SimpleStringTable3.table@665` | `Examples.AbstractDataTypes.emptyStringSignature`; `Examples.AbstractDataTypes.TableSignature.Carrier`. Payload and empty-String default are exposed; key/carrier remain parameters until the source Nat/tree specialization. |
+| `ADT.rep_ok@679` | `Examples.AbstractDataTypes.RawTreeTable.Valid`. The actual BST predicate on raw source trees. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.bound@682` | `Examples.AbstractDataTypes.RawTreeTable.bound`. Existing directed presence observation on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.elements@685` | `Examples.AbstractDataTypes.RawTreeTable.elements`. Existing inorder entry list on every raw tree. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.empty_ok@688` | `Examples.AbstractDataTypes.RawTreeTable.empty_valid`. Valid empty through the source BST proof. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.set_ok@693` | `Examples.AbstractDataTypes.RawTreeTable.set_valid`. BST preserved by actual insertion. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.bound_empty@699` | `Examples.AbstractDataTypes.RawTreeTable.bound_empty`. Raw empty-tree absence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.bound_set_same@705` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_same`. Raw same-key presence; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.bound_set_other@711` | `Examples.AbstractDataTypes.RawTreeTable.bound_set_other`. Raw distinct-key preservation with written-key ≠ query; no BST argument. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.elements_complete@717` | `Examples.AbstractDataTypes.RawTreeTable.elements_complete`. Retains the source BST premise; the stronger raw completeness theorem remains separately available. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.elements_correct@729` | `Examples.AbstractDataTypes.RawTreeTable.elements_correct`. Retains BST and returns both presence and the get value. This checked component is reused by the generic abstract-client presentation described below. |
+| `ADT.NicelyEncapsulatedExample.ex1@748` | `Examples.AbstractDataTypes.abstract_carrier_empty_lookup`; `Examples.AbstractDataTypes.treeTable_empty_lookup`. Generic get-empty proof uses the law and checks failed reflexivity; its concrete String/tree instantiation preserves the source result. |
+| `ADT.NicelyEncapsulatedExample.ex2@758` | `Examples.AbstractDataTypes.abstract_carrier_empty_lookup`. Actual Lean rejection of a raw tree constructor at abstract carrier T; no false mathematical theorem is introduced. |
+| `ADT.map_update@794` | `Examples.AbstractDataTypes.mapUpdate`. Existing partial write, with source argument order key,value,map and some-value binding. |
+| `ADT.map_find@798` | `Examples.AbstractDataTypes.mapFind`. Explicit-default getD observation with source default,key,map order. |
+| `ADT.empty_map@800` | `Examples.AbstractDataTypes.emptyMap`. The none-valued function. |
 | `ADT.ETableAbs.table@808` | `Search.OrderedMap.EnumeratedTable.ModelLaws`. Independent concrete state parameter T. |
 | `ADT.ETableAbs.key@809` | `Search.OrderedMap.EnumeratedTable.ModelLaws`. Source specialization retains Nat keys. |
 | `ADT.ETableAbs.V@810` | `Search.OrderedMap.EnumeratedTable.ModelLaws`. Arbitrary payload parameter. |
@@ -1888,25 +1888,25 @@ demonstrated abstract-client typing boundary.
 | `ADT.ETableAbs.lookup_relate@835` | `Search.OrderedMap.EnumeratedTable.ModelLaws.get`. Under Valid, forgetting absence with the supplied default equals concrete get. |
 | `ADT.ETableAbs.insert_relate@839` | `Search.OrderedMap.EnumeratedTable.ModelLaws.set`. Under Valid, write key value (Abs t) = Abs (set key value t), in the source orientation. |
 | `ADT.ETableAbs.elements_relate@843` | `Search.OrderedMap.EnumeratedTable.ModelLaws.elements`. Under Valid, Abs t = listObserve (elements t), in the source orientation; raw member soundness does not follow. |
-| `ADT.ListETableAbs.V@856` | `Examples.AbstractDataTypes.ListETableAbs.table`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
-| `ADT.ListETableAbs.default@857` | `Examples.AbstractDataTypes.ListETableAbs.get`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
-| `ADT.ListETableAbs.key@858` | `Examples.AbstractDataTypes.ListETableAbs.table`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
-| `ADT.ListETableAbs.table@859` | `Examples.AbstractDataTypes.ListETableAbs.table`. Raw List (Nat × V), including shadowed duplicates. |
-| `ADT.ListETableAbs.empty@861` | `Examples.AbstractDataTypes.ListETableAbs.empty`. Actual empty pair list. |
-| `ADT.ListETableAbs.get@864` | `Examples.AbstractDataTypes.ListETableAbs.get`. Actual first-binding lookup followed by the explicit default. |
-| `ADT.ListETableAbs.set@867` | `Examples.AbstractDataTypes.ListETableAbs.set`. Prepend the pair, retaining old entries. |
-| `ADT.ListETableAbs.bound@870` | `Examples.AbstractDataTypes.ListETableAbs.bound`. isSome of the actual first-match lookup. |
-| `ADT.ListETableAbs.elements@873` | `Examples.AbstractDataTypes.ListETableAbs.elements`. Identity on the stored raw pair list. |
-| `ADT.ListETableAbs.Abs@876` | `Examples.AbstractDataTypes.ListETableAbs.Abs`. The existing head-wins listObserve decoder. |
-| `ADT.ListETableAbs.rep_ok@879` | `Examples.AbstractDataTypes.ListETableAbs.rep_ok`. Exactly True; all represented lists are valid for this model contract. |
-| `ADT.ListETableAbs.empty_ok@882` | `Examples.AbstractDataTypes.ListETableAbs.empty_ok`. Proves True for empty. |
-| `ADT.ListETableAbs.set_ok@886` | `Examples.AbstractDataTypes.ListETableAbs.set_ok`. Proves True is preserved. |
-| `ADT.ListETableAbs.empty_relate@891` | `Examples.AbstractDataTypes.ListETableAbs.empty_relate`. Empty decoder = empty optional map. |
-| `ADT.ListETableAbs.bound_relate@896` | `Examples.AbstractDataTypes.ListETableAbs.bound_relate`. Model/concrete presence equality, retaining the trivial source validity argument. |
-| `ADT.ListETableAbs.lookup_relate@902` | `Examples.AbstractDataTypes.ListETableAbs.lookup_relate`. Source-oriented default lookup equality. |
-| `ADT.ListETableAbs.insert_relate@908` | `Examples.AbstractDataTypes.ListETableAbs.insert_relate`. Source-oriented abstract write = decode after prepend. |
-| `ADT.ListETableAbs.elements_relate@914` | `Examples.AbstractDataTypes.ListETableAbs.elements_relate`. Source-oriented decoder = decoded identity enumeration; no nodup or raw member soundness asserted. |
-| `ADT.manual_grade_for_TreeTableModel@935` | `Examples.AbstractDataTypes.TreeTableModel`; `Examples.AbstractDataTypes.TreeTableModel'`. Grading metadata is omitted. Both optional full seven-law model realizations are proved, with distinct enumeration and direct structural decoders. |
+| `ADT.ListETableAbs.V@856` | `Examples.AbstractDataTypes.ShadowingListModel.Carrier`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
+| `ADT.ListETableAbs.default@857` | `Examples.AbstractDataTypes.ShadowingListModel.get`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
+| `ADT.ListETableAbs.key@858` | `Examples.AbstractDataTypes.ShadowingListModel.Carrier`. Ordinary supplied payload/default parameters and Nat keys, with the source argument positions. |
+| `ADT.ListETableAbs.table@859` | `Examples.AbstractDataTypes.ShadowingListModel.Carrier`. Raw List (Nat × V), including shadowed duplicates. |
+| `ADT.ListETableAbs.empty@861` | `Examples.AbstractDataTypes.ShadowingListModel.empty`. Actual empty pair list. |
+| `ADT.ListETableAbs.get@864` | `Examples.AbstractDataTypes.ShadowingListModel.get`. Actual first-binding lookup followed by the explicit default. |
+| `ADT.ListETableAbs.set@867` | `Examples.AbstractDataTypes.ShadowingListModel.set`. Prepend the pair, retaining old entries. |
+| `ADT.ListETableAbs.bound@870` | `Examples.AbstractDataTypes.ShadowingListModel.bound`. isSome of the actual first-match lookup. |
+| `ADT.ListETableAbs.elements@873` | `Examples.AbstractDataTypes.ShadowingListModel.elements`. Identity on the stored raw pair list. |
+| `ADT.ListETableAbs.Abs@876` | `Examples.AbstractDataTypes.ShadowingListModel.meaning`. The existing head-wins listObserve decoder. |
+| `ADT.ListETableAbs.rep_ok@879` | `Examples.AbstractDataTypes.ShadowingListModel.Valid`. Exactly True; all represented lists are valid for this model contract. |
+| `ADT.ListETableAbs.empty_ok@882` | `Examples.AbstractDataTypes.ShadowingListModel.empty_valid`. Proves True for empty. |
+| `ADT.ListETableAbs.set_ok@886` | `Examples.AbstractDataTypes.ShadowingListModel.set_valid`. Proves True is preserved. |
+| `ADT.ListETableAbs.empty_relate@891` | `Examples.AbstractDataTypes.ShadowingListModel.meaning_empty`. Empty decoder = empty optional map. |
+| `ADT.ListETableAbs.bound_relate@896` | `Examples.AbstractDataTypes.ShadowingListModel.meaning_bound`. Model/concrete presence equality, retaining the trivial source validity argument. |
+| `ADT.ListETableAbs.lookup_relate@902` | `Examples.AbstractDataTypes.ShadowingListModel.meaning_lookup`. Source-oriented default lookup equality. |
+| `ADT.ListETableAbs.insert_relate@908` | `Examples.AbstractDataTypes.ShadowingListModel.meaning_set`. Source-oriented abstract write = decode after prepend. |
+| `ADT.ListETableAbs.elements_relate@914` | `Examples.AbstractDataTypes.ShadowingListModel.meaning_elements`. Source-oriented decoder = decoded identity enumeration; no nodup or raw member soundness asserted. |
+| `ADT.manual_grade_for_TreeTableModel@935` | `Examples.AbstractDataTypes.treeTable_enumeration_model`; `Examples.AbstractDataTypes.treeTable_structural_model`. Grading metadata is omitted. Both optional full seven-law model realizations are proved, with distinct enumeration and direct structural decoders. |
 | `ADT.Queue.V@979` | `Examples.AbstractDataTypes.Queue`. Independent payload and state parameters of the source-shaped five-operation bundle. |
 | `ADT.Queue.queue@980` | `Examples.AbstractDataTypes.Queue`. Independent payload and state parameters of the source-shaped five-operation bundle. |
 | `ADT.Queue.empty@981` | `Sequences.SourceQueue.Ops.empty`. Exact source operation type and argument order; peek takes its default at each call. |
@@ -1920,19 +1920,19 @@ demonstrated abstract-client typing boundary.
 | `ADT.Queue.peek_nonempty@989` | `Sequences.SourceQueue.Laws.peek_enqueue`. The right-side peek default is the enqueued value. The actual list realization proves this requirement. |
 | `ADT.Queue.deq_empty@990` | `Sequences.SourceQueue.Laws.dequeue_empty`. Literal equality of dequeue empty and empty. The actual list realization proves this requirement. |
 | `ADT.Queue.deq_nonempty@991` | `Sequences.SourceQueue.Laws.dequeue_enqueue`. Literal state equality; the empty-test true branch is exactly the original q, not an abstract empty or decoded equality. The actual list realization proves this requirement. |
-| `ADT.ListQueue.V@1002` | `Examples.AbstractDataTypes.ListQueue.V`. Exact source Nat specialization. |
-| `ADT.ListQueue.queue@1003` | `Examples.AbstractDataTypes.ListQueue.queue`. Actual List Nat. |
+| `ADT.ListQueue.V@1002` | `Examples.AbstractDataTypes.ListQueue.Value`. Exact source Nat specialization. |
+| `ADT.ListQueue.queue@1003` | `Examples.AbstractDataTypes.ListQueue.Carrier`. Actual List Nat. |
 | `ADT.ListQueue.empty@1005` | `Examples.AbstractDataTypes.ListQueue.empty`. []. |
-| `ADT.ListQueue.is_empty@1008` | `Examples.AbstractDataTypes.ListQueue.is_empty`. List.isEmpty. |
-| `ADT.ListQueue.enq@1011` | `Examples.AbstractDataTypes.ListQueue.enq`. Actual append-singleton, q ++ [value]. |
-| `ADT.ListQueue.deq@1014` | `Examples.AbstractDataTypes.ListQueue.deq`. List.tail, total on []. |
+| `ADT.ListQueue.is_empty@1008` | `Examples.AbstractDataTypes.ListQueue.isEmpty`. List.isEmpty. |
+| `ADT.ListQueue.enq@1011` | `Examples.AbstractDataTypes.ListQueue.enqueue`. Actual append-singleton, q ++ [value]. |
+| `ADT.ListQueue.deq@1014` | `Examples.AbstractDataTypes.ListQueue.dequeue`. List.tail, total on []. |
 | `ADT.ListQueue.peek@1017` | `Examples.AbstractDataTypes.ListQueue.peek`. List.headD at the caller default. |
-| `ADT.ListQueue.is_empty_empty@1020` | `Examples.AbstractDataTypes.ListQueue.is_empty_empty`. Proved from the actual generic list-law instance. |
-| `ADT.ListQueue.is_empty_nonempty@1024` | `Examples.AbstractDataTypes.ListQueue.is_empty_nonempty`. Proved for every list and enqueued Nat. |
+| `ADT.ListQueue.is_empty_empty@1020` | `Examples.AbstractDataTypes.ListQueue.isEmpty_empty`. Proved from the actual generic list-law instance. |
+| `ADT.ListQueue.is_empty_nonempty@1024` | `Examples.AbstractDataTypes.ListQueue.isEmpty_enqueue`. Proved for every list and enqueued Nat. |
 | `ADT.ListQueue.peek_empty@1029` | `Examples.AbstractDataTypes.ListQueue.peek_empty`. Proved for every caller default. |
-| `ADT.ListQueue.peek_nonempty@1034` | `Examples.AbstractDataTypes.ListQueue.peek_nonempty`. Retains the enqueued value as the right-side default. |
-| `ADT.ListQueue.deq_empty@1039` | `Examples.AbstractDataTypes.ListQueue.deq_empty`. Literal empty-state equality. |
-| `ADT.ListQueue.deq_nonempty@1044` | `Examples.AbstractDataTypes.ListQueue.deq_nonempty`. Literal source if equation, with q itself in the empty branch. |
+| `ADT.ListQueue.peek_nonempty@1034` | `Examples.AbstractDataTypes.ListQueue.peek_enqueue`. Retains the enqueued value as the right-side default. |
+| `ADT.ListQueue.deq_empty@1039` | `Examples.AbstractDataTypes.ListQueue.dequeue_empty`. Literal empty-state equality. |
+| `ADT.ListQueue.deq_nonempty@1044` | `Examples.AbstractDataTypes.ListQueue.dequeue_enqueue`. Literal source if equation, with q itself in the empty branch. |
 | `ADT.QueueAbs.V@1058` | `Examples.AbstractDataTypes.Queue`. Same independent payload/state operation parameters. |
 | `ADT.QueueAbs.queue@1059` | `Examples.AbstractDataTypes.Queue`. Same independent payload/state operation parameters. |
 | `ADT.QueueAbs.empty@1060` | `Sequences.SourceQueue.Ops.empty`. Same concrete operation field. |
@@ -1945,38 +1945,38 @@ demonstrated abstract-client typing boundary.
 | `ADT.QueueAbs.enq_relate@1067` | `Sequences.SourceQueue.AbsLaws.enqueue`. One of exactly four unguarded source decoder laws; no invariant or extra empty-test requirement. |
 | `ADT.QueueAbs.peek_relate@1068` | `Sequences.SourceQueue.AbsLaws.peek`. One of exactly four unguarded source decoder laws; no invariant or extra empty-test requirement. |
 | `ADT.QueueAbs.deq_relate@1069` | `Sequences.SourceQueue.AbsLaws.dequeue`. One of exactly four unguarded source decoder laws; no invariant or extra empty-test requirement. |
-| `ADT.TwoListQueueAbs.V@1079` | `Examples.AbstractDataTypes.TwoListQueueAbs.V`. Exact source Nat specialization. |
-| `ADT.TwoListQueueAbs.queue@1081` | `Examples.AbstractDataTypes.TwoListQueueAbs.queue`. Every raw pair of Nat lists, without a normalization invariant. |
-| `ADT.TwoListQueueAbs.Abs@1085` | `Examples.AbstractDataTypes.TwoListQueueAbs.Abs`. Front ++ reverse back. |
-| `ADT.TwoListQueueAbs.empty@1088` | `Examples.AbstractDataTypes.TwoListQueueAbs.empty`. ([],[]). |
-| `ADT.TwoListQueueAbs.is_empty@1091` | `Examples.AbstractDataTypes.TwoListQueueAbs.is_empty`. Actual empty/empty pattern; separate is_empty_relate proves its concrete correctness. |
-| `ADT.TwoListQueueAbs.enq@1097` | `Examples.AbstractDataTypes.TwoListQueueAbs.enq`. (front,value::back), with no normalization. |
-| `ADT.TwoListQueueAbs.deq@1100` | `Examples.AbstractDataTypes.TwoListQueueAbs.deq`. Exact empty/empty, reversed nonempty-back, and nonempty-front source branches. |
-| `ADT.TwoListQueueAbs.peek@1111` | `Examples.AbstractDataTypes.TwoListQueueAbs.peek`. Exact source branches, returning only the observed value with no state update. |
-| `ADT.TwoListQueueAbs.empty_relate@1122` | `Examples.AbstractDataTypes.TwoListQueueAbs.empty_relate`. Empty decoder law. |
-| `ADT.TwoListQueueAbs.enq_relate@1126` | `Examples.AbstractDataTypes.TwoListQueueAbs.enq_relate`. All raw pairs; decode after enqueue = old decode ++ [value]. |
-| `ADT.TwoListQueueAbs.peek_relate@1131` | `Examples.AbstractDataTypes.TwoListQueueAbs.peek_relate`. All raw pairs and defaults; actual peek = decoded headD. |
-| `ADT.TwoListQueueAbs.deq_relate@1136` | `Examples.AbstractDataTypes.TwoListQueueAbs.deq_relate`. All raw pairs; decode after actual dequeue = decoded tail. |
-| `ADT.even_nat@1173` | `Examples.AbstractDataTypes.even_nat`. Exactly {n : Nat // Even n}. |
-| `ADT.two@1178` | `Examples.AbstractDataTypes.two'`. The actual failed bare-numeral construction is checked before explicitly providing the value and evenness proof. |
-| `ADT.Even2@1183` | `Examples.AbstractDataTypes.Even2`. Constructive evenness witness 1 for Nat 2. |
+| `ADT.TwoListQueueAbs.V@1079` | `Examples.AbstractDataTypes.TwoListQueue.Value`. Exact source Nat specialization. |
+| `ADT.TwoListQueueAbs.queue@1081` | `Examples.AbstractDataTypes.TwoListQueue.Carrier`. Every raw pair of Nat lists, without a normalization invariant. |
+| `ADT.TwoListQueueAbs.Abs@1085` | `Examples.AbstractDataTypes.TwoListQueue.decode`. Front ++ reverse back. |
+| `ADT.TwoListQueueAbs.empty@1088` | `Examples.AbstractDataTypes.TwoListQueue.empty`. ([],[]). |
+| `ADT.TwoListQueueAbs.is_empty@1091` | `Examples.AbstractDataTypes.TwoListQueue.isEmpty`. Actual empty/empty pattern; separate is_empty_relate proves its concrete correctness. |
+| `ADT.TwoListQueueAbs.enq@1097` | `Examples.AbstractDataTypes.TwoListQueue.enqueue`. (front,value::back), with no normalization. |
+| `ADT.TwoListQueueAbs.deq@1100` | `Examples.AbstractDataTypes.TwoListQueue.dequeue`. Exact empty/empty, reversed nonempty-back, and nonempty-front source branches. |
+| `ADT.TwoListQueueAbs.peek@1111` | `Examples.AbstractDataTypes.TwoListQueue.peek`. Exact source branches, returning only the observed value with no state update. |
+| `ADT.TwoListQueueAbs.empty_relate@1122` | `Examples.AbstractDataTypes.TwoListQueue.decode_empty`. Empty decoder law. |
+| `ADT.TwoListQueueAbs.enq_relate@1126` | `Examples.AbstractDataTypes.TwoListQueue.decode_enqueue`. All raw pairs; decode after enqueue = old decode ++ [value]. |
+| `ADT.TwoListQueueAbs.peek_relate@1131` | `Examples.AbstractDataTypes.TwoListQueue.peek_eq_headD_decode`. All raw pairs and defaults; actual peek = decoded headD. |
+| `ADT.TwoListQueueAbs.deq_relate@1136` | `Examples.AbstractDataTypes.TwoListQueue.decode_dequeue`. All raw pairs; decode after actual dequeue = decoded tail. |
+| `ADT.even_nat@1173` | `Examples.AbstractDataTypes.EvenNat`. Exactly {n : Nat // Even n}. |
+| `ADT.two@1178` | `Examples.AbstractDataTypes.twoInline`. The actual failed bare-numeral construction is checked before explicitly providing the value and evenness proof. |
+| `ADT.Even2@1183` | `Examples.AbstractDataTypes.even_two`. Constructive evenness witness 1 for Nat 2. |
 | `ADT.two@1192` | `Examples.AbstractDataTypes.two`. Actual subtype package containing 2 and Even2. |
-| `ADT.two'@1197` | `Examples.AbstractDataTypes.two'`. Executable proof-building definition of the same even value. |
+| `ADT.two'@1197` | `Examples.AbstractDataTypes.twoInline`. Executable proof-building definition of the same even value. |
 | `ADT.plus_two@1211` | `Examples.AbstractDataTypes.plus_two`; `Examples.AbstractDataTypes.plus_two_coercion`. The exact unannotated 1+two expression is rejected in Lean; explicit Nat-typed addition permits its standard subtype coercion. Both behaviors are checked. |
 | `ADT.plus_two@1215` | `Examples.AbstractDataTypes.plus_two`. Exactly 1+two.val=3. |
-| `ADT.Even2'@1220` | `Examples.AbstractDataTypes.Even2'`. The evenness theorem is the actual stored subtype property. |
-| `ADT.SigSandbox.sig@1233` | `Examples.AbstractDataTypes.SigSandbox.sig`. Alias to existing Subtype, with a computational witness. |
-| `ADT.SigSandbox.ex@1245` | `Examples.AbstractDataTypes.SigSandbox.ex`. Alias to existing Exists in Prop. |
-| `ADT.SigSandbox.proj1_sig@1254` | `Examples.AbstractDataTypes.SigSandbox.proj1_sig`. The actual subtype value projection. |
-| `ADT.SigSandbox.proj2_sig@1259` | `Examples.AbstractDataTypes.SigSandbox.proj2_sig`. The actual stored property of exactly the projected witness. |
-| `ADT.SigSandbox.proj1_ex@1264` | `Examples.AbstractDataTypes.SigSandbox.exists_propositional_elimination`. Actual rejection of executable generic witness extraction from Exists, with valid propositional elimination proved separately; no classical-choice replacement. |
-| `ADT.vector@1278` | `Examples.AbstractDataTypes.vector`. Exactly {p : List X × Nat // p.1.length=p.2}; no Array-vector substitution. |
-| `ADT.a_vector@1289` | `Examples.AbstractDataTypes.a_vector`. Concrete ([3,1,4],3) with a constructive length proof. |
-| `ADT.vector_cons@1300` | `Examples.AbstractDataTypes.vector_cons`. Executable prepend with stored length old+1 and a proof of the invariant. |
-| `ADT.list_of_vector@1306` | `Examples.AbstractDataTypes.list_of_vector`. Projection of the stored list. |
-| `ADT.vector_cons_correct@1309` | `Examples.AbstractDataTypes.vector_cons_correct`. Exact list projection x::old, for every payload type, value and vector. |
-| `ADT.vector_app@1320` | `Examples.AbstractDataTypes.vector_app`. Executable append with stored length first+second and its invariant proof. |
-| `ADT.vector_app_correct@1326` | `Examples.AbstractDataTypes.vector_app_correct`. Exact ordered append of both list projections, for every payload type. |
+| `ADT.Even2'@1220` | `Examples.AbstractDataTypes.even_two_from_subtype`. The evenness theorem is the actual stored subtype property. |
+| `ADT.SigSandbox.sig@1233` | `Examples.AbstractDataTypes.SubtypeExamples.Refinement`. Alias to existing Subtype, with a computational witness. |
+| `ADT.SigSandbox.ex@1245` | `Examples.AbstractDataTypes.SubtypeExamples.WitnessExists`. Alias to existing Exists in Prop. |
+| `ADT.SigSandbox.proj1_sig@1254` | `Examples.AbstractDataTypes.SubtypeExamples.value`. The actual subtype value projection. |
+| `ADT.SigSandbox.proj2_sig@1259` | `Examples.AbstractDataTypes.SubtypeExamples.property`. The actual stored property of exactly the projected witness. |
+| `ADT.SigSandbox.proj1_ex@1264` | `Examples.AbstractDataTypes.SubtypeExamples.exists_propositional_elimination`. Actual rejection of executable generic witness extraction from Exists, with valid propositional elimination proved separately; no classical-choice replacement. |
+| `ADT.vector@1278` | `Examples.AbstractDataTypes.StoredLengthVector`. Exactly {p : List X × Nat // p.1.length=p.2}; no Array-vector substitution. |
+| `ADT.a_vector@1289` | `Examples.AbstractDataTypes.exampleVector`. Concrete ([3,1,4],3) with a constructive length proof. |
+| `ADT.vector_cons@1300` | `Examples.AbstractDataTypes.vectorCons`. Executable prepend with stored length old+1 and a proof of the invariant. |
+| `ADT.list_of_vector@1306` | `Examples.AbstractDataTypes.vectorToList`. Projection of the stored list. |
+| `ADT.vector_cons_correct@1309` | `Examples.AbstractDataTypes.vectorToList_vectorCons`. Exact list projection x::old, for every payload type, value and vector. |
+| `ADT.vector_app@1320` | `Examples.AbstractDataTypes.vectorAppend`. Executable append with stored length first+second and its invariant proof. |
+| `ADT.vector_app_correct@1326` | `Examples.AbstractDataTypes.vectorToList_vectorAppend`. Exact ordered append of both list projections, for every payload type. |
 | `ADT.ETableSubset.bound@1348` | `Search.OrderedMap.EnumeratedTable.Observations.bound`. The same observation type; the concrete carrier stores its invariant. |
 | `ADT.ETableSubset.elements@1349` | `Search.OrderedMap.EnumeratedTable.Observations.elements`. The same observation type; the concrete carrier stores its invariant. |
 | `ADT.ETableSubset.bound_empty@1351` | `Search.OrderedMap.EnumeratedTable.SubsetLaws`; `Search.OrderedMap.EnumeratedTable.Laws.bound_empty`. Source law is unconditional on the subtype carrier. The internal True-validity witnesses add no public representation premise. |
@@ -1984,24 +1984,24 @@ demonstrated abstract-client typing boundary.
 | `ADT.ETableSubset.bound_set_other@1357` | `Search.OrderedMap.EnumeratedTable.SubsetLaws`; `Search.OrderedMap.EnumeratedTable.Laws.bound_set_other`. Source law is unconditional on the subtype carrier. The internal True-validity witnesses add no public representation premise. |
 | `ADT.ETableSubset.elements_complete@1360` | `Search.OrderedMap.EnumeratedTable.SubsetLaws`; `Search.OrderedMap.EnumeratedTable.Laws.elements_complete`. Source law is unconditional on the subtype carrier. The internal True-validity witnesses add no public representation premise. |
 | `ADT.ETableSubset.elements_correct@1365` | `Search.OrderedMap.EnumeratedTable.SubsetLaws`; `Search.OrderedMap.EnumeratedTable.Laws.elements_correct`. Source law is unconditional on the subtype carrier. The internal True-validity witnesses add no public representation premise. |
-| `ADT.TreeETableSubset.V@1373` | `Examples.AbstractDataTypes.TreeETableSubset.table`. Ordinary payload/default parameters and the source Nat key specialization. |
-| `ADT.TreeETableSubset.default@1374` | `Examples.AbstractDataTypes.TreeETableSubset.ops`. Ordinary payload/default parameters and the source Nat key specialization. |
-| `ADT.TreeETableSubset.key@1375` | `Examples.AbstractDataTypes.TreeETableSubset.table`. Ordinary payload/default parameters and the source Nat key specialization. |
-| `ADT.TreeETableSubset.table@1378` | `Examples.AbstractDataTypes.TreeETableSubset.table`. The existing OrderedMap.Tree Nat V, exactly a BST subtype of the source raw tree. |
-| `ADT.TreeETableSubset.empty@1383` | `Examples.AbstractDataTypes.TreeETableSubset.empty`. Existing executable empty tree packaged with its BST proof. |
-| `ADT.TreeETableSubset.get@1390` | `Examples.AbstractDataTypes.TreeETableSubset.get`. Raw lookup at t.val with the explicit default. |
-| `ADT.TreeETableSubset.set@1393` | `Examples.AbstractDataTypes.TreeETableSubset.set`. Existing insertion packaged with the preservation proof; no second tree algorithm. |
-| `ADT.TreeETableSubset.bound@1400` | `Examples.AbstractDataTypes.TreeETableSubset.bound`. Raw presence through the stored tree projection. |
-| `ADT.TreeETableSubset.elements@1403` | `Examples.AbstractDataTypes.TreeETableSubset.elements`. Actual inorder entries through the stored tree projection. |
-| `ADT.TreeETableSubset.get_empty_default@1406` | `Examples.AbstractDataTypes.TreeETableSubset.get_empty_default`. Unconditional carrier law through the proved empty construction. |
-| `ADT.TreeETableSubset.get_set_same@1416` | `Examples.AbstractDataTypes.TreeETableSubset.get_set_same`. Reuses the stronger raw same-key law after projection. |
-| `ADT.TreeETableSubset.get_set_other@1424` | `Examples.AbstractDataTypes.TreeETableSubset.get_set_other`. Reuses the stronger raw distinct-key law after projection. |
-| `ADT.TreeETableSubset.bound_empty@1432` | `Examples.AbstractDataTypes.TreeETableSubset.bound_empty`. Actual empty presence=false. |
-| `ADT.TreeETableSubset.bound_set_same@1438` | `Examples.AbstractDataTypes.TreeETableSubset.bound_set_same`. Raw same-key presence after projection. |
-| `ADT.TreeETableSubset.bound_set_other@1446` | `Examples.AbstractDataTypes.TreeETableSubset.bound_set_other`. Raw distinct-key preservation after projection. |
-| `ADT.TreeETableSubset.elements_complete@1454` | `Examples.AbstractDataTypes.TreeETableSubset.elements_complete`. Presence and returned value imply membership; no external validity argument. |
-| `ADT.TreeETableSubset.elements_correct@1465` | `Examples.AbstractDataTypes.TreeETableSubset.elements_correct`. Membership implies presence and get=value; the existing subtype property supplies BST internally. |
-| `ADT.manual_grade_for_ListsETable@1489` | `Examples.AbstractDataTypes.ListsETable.laws`; `Examples.AbstractDataTypes.ListsETable.elements_identity`; `Examples.AbstractDataTypes.ListsETable.elements_set`. Grading metadata is omitted. The complete unique-key pair-list subtype realization, identity enumeration and actual first-key replacement discharge the advanced exercise; measured work is mapped below. |
+| `ADT.TreeETableSubset.V@1373` | `Examples.AbstractDataTypes.ValidTreeTable.Carrier`. Ordinary payload/default parameters and the source Nat key specialization. |
+| `ADT.TreeETableSubset.default@1374` | `Examples.AbstractDataTypes.ValidTreeTable.ops`. Ordinary payload/default parameters and the source Nat key specialization. |
+| `ADT.TreeETableSubset.key@1375` | `Examples.AbstractDataTypes.ValidTreeTable.Carrier`. Ordinary payload/default parameters and the source Nat key specialization. |
+| `ADT.TreeETableSubset.table@1378` | `Examples.AbstractDataTypes.ValidTreeTable.Carrier`. The existing OrderedMap.Tree Nat V, exactly a BST subtype of the source raw tree. |
+| `ADT.TreeETableSubset.empty@1383` | `Examples.AbstractDataTypes.ValidTreeTable.empty`. Existing executable empty tree packaged with its BST proof. |
+| `ADT.TreeETableSubset.get@1390` | `Examples.AbstractDataTypes.ValidTreeTable.get`. Raw lookup at t.val with the explicit default. |
+| `ADT.TreeETableSubset.set@1393` | `Examples.AbstractDataTypes.ValidTreeTable.set`. Existing insertion packaged with the preservation proof; no second tree algorithm. |
+| `ADT.TreeETableSubset.bound@1400` | `Examples.AbstractDataTypes.ValidTreeTable.bound`. Raw presence through the stored tree projection. |
+| `ADT.TreeETableSubset.elements@1403` | `Examples.AbstractDataTypes.ValidTreeTable.elements`. Actual inorder entries through the stored tree projection. |
+| `ADT.TreeETableSubset.get_empty_default@1406` | `Examples.AbstractDataTypes.ValidTreeTable.get_empty_default`. Unconditional carrier law through the proved empty construction. |
+| `ADT.TreeETableSubset.get_set_same@1416` | `Examples.AbstractDataTypes.ValidTreeTable.get_set_same`. Reuses the stronger raw same-key law after projection. |
+| `ADT.TreeETableSubset.get_set_other@1424` | `Examples.AbstractDataTypes.ValidTreeTable.get_set_other`. Reuses the stronger raw distinct-key law after projection. |
+| `ADT.TreeETableSubset.bound_empty@1432` | `Examples.AbstractDataTypes.ValidTreeTable.bound_empty`. Actual empty presence=false. |
+| `ADT.TreeETableSubset.bound_set_same@1438` | `Examples.AbstractDataTypes.ValidTreeTable.bound_set_same`. Raw same-key presence after projection. |
+| `ADT.TreeETableSubset.bound_set_other@1446` | `Examples.AbstractDataTypes.ValidTreeTable.bound_set_other`. Raw distinct-key preservation after projection. |
+| `ADT.TreeETableSubset.elements_complete@1454` | `Examples.AbstractDataTypes.ValidTreeTable.elements_complete`. Presence and returned value imply membership; no external validity argument. |
+| `ADT.TreeETableSubset.elements_correct@1465` | `Examples.AbstractDataTypes.ValidTreeTable.elements_correct`. Membership implies presence and get=value; the existing subtype property supplies BST internally. |
+| `ADT.manual_grade_for_ListsETable@1489` | `Examples.AbstractDataTypes.UniqueListTable.laws`; `Examples.AbstractDataTypes.UniqueListTable.elements_identity`; `Examples.AbstractDataTypes.UniqueListTable.elements_set`. Grading metadata is omitted. The complete unique-key pair-list subtype realization, identity enumeration and actual first-key replacement discharge the advanced exercise; measured work is mapped below. |
 
 ### All 12 complete exercise prompts
 
@@ -2010,18 +2010,18 @@ The original labels are source metadata, not acceptance evidence.
 
 | Source exercise and lines | Stars; labels | Complete implementation |
 |---|---|---|
-| `NatFunTableExamples`, 170–180 | 2; standard, optional | `Examples.AbstractDataTypes.NatFunTable`; `Examples.AbstractDataTypes.nat_function_empty`; `Examples.AbstractDataTypes.nat_function_same`; `Examples.AbstractDataTypes.nat_function_other`; `Examples.AbstractDataTypes.nat_function_repeated`. Nat payload/default zero, with empty, same, other and repeated-write clients. |
-| `lists_table`, 185–243 | 3; standard | `Examples.AbstractDataTypes.ListsTable_laws`; `Examples.AbstractDataTypes.lists_ex1`; `Examples.AbstractDataTypes.lists_ex2`; `Examples.AbstractDataTypes.lists_ex3`. Actual raw pair list and prepend; all three Table laws and all three exact String observations. |
+| `NatFunTableExamples`, 170–180 | 2; standard, optional | `Examples.AbstractDataTypes.natFunctionTable`; `Examples.AbstractDataTypes.natFunctionTable_empty`; `Examples.AbstractDataTypes.natFunctionTable_same_key`; `Examples.AbstractDataTypes.natFunctionTable_other_key`; `Examples.AbstractDataTypes.natFunctionTable_repeated_write`. Nat payload/default zero, with empty, same, other and repeated-write clients. |
+| `lists_table`, 185–243 | 3; standard | `Examples.AbstractDataTypes.listTable_laws`; `Examples.AbstractDataTypes.stringListTable_empty`; `Examples.AbstractDataTypes.stringListTable_same_key`; `Examples.AbstractDataTypes.stringListTable_other_key`. Actual raw pair list and prepend; all three Table laws and all three exact String observations. |
 | `elements_spec`, 766–774 | 4; advanced, optional | `Search.OrderedMap.EnumeratedTable.StrongElements`; `Examples.AbstractDataTypes.strong_elements_client`; `Examples.AbstractDataTypes.strong_elements_inverse_raw`; `Examples.AbstractDataTypes.elements_spec`. Generic observation/law client and actual tree realization; both absence directions retain their distinct scopes, with accepted Nat sortedness and projected-key nodup. |
-| `list_etable_abs`, 849–925 | 4; standard | `Examples.AbstractDataTypes.ListETableAbs.laws`; `Examples.AbstractDataTypes.raw_list_shadowed_entry`. All operations and seven model laws with Valid=True, head-wins decoding and identity elements; shadowed entries remain legal. |
-| `TreeTableModel`, 927–937 | 3; standard, optional | `Examples.AbstractDataTypes.TreeTableModel`; `Examples.AbstractDataTypes.both_tree_model_histories`. All seven laws through enumeration Abs, plus arbitrary write histories. The grading constant is omitted. |
-| `TreeTableModel'`, 939–945 | 2; advanced, optional | `Examples.AbstractDataTypes.TreeTableModel'`; `Examples.AbstractDataTypes.both_tree_model_histories`. All seven laws through independent structural Abs′; only elements coherence uses the established decoder agreement. |
+| `list_etable_abs`, 849–925 | 4; standard | `Examples.AbstractDataTypes.ShadowingListModel.laws`; `Examples.AbstractDataTypes.raw_list_shadowed_entry`. All operations and seven model laws with Valid=True, head-wins decoding and identity elements; shadowed entries remain legal. |
+| `TreeTableModel`, 927–937 | 3; standard, optional | `Examples.AbstractDataTypes.treeTable_enumeration_model`; `Examples.AbstractDataTypes.both_tree_model_histories`. All seven laws through enumeration Abs, plus arbitrary write histories. The grading constant is omitted. |
+| `TreeTableModel'`, 939–945 | 2; advanced, optional | `Examples.AbstractDataTypes.treeTable_structural_model`; `Examples.AbstractDataTypes.both_tree_model_histories`. All seven laws through independent structural Abs′; only elements coherence uses the established decoder agreement. |
 | `list_queue`, 994–1051 | 3; standard | `Examples.AbstractDataTypes.ListQueue.ops`; `Sequences.SourceQueue.lists_laws`; `Examples.AbstractDataTypes.ListQueue.source_operations`. Actual Nat list operations and all six exact algebraic equations, including right-side value default and literal q branch. |
-| `two_list_queue`, 1072–1143 | 3; standard | `Examples.AbstractDataTypes.TwoListQueueAbs.ops`; `Sequences.SourceQueue.twoLists_absLaws`; `Examples.AbstractDataTypes.queue_source_client`. Every raw source pair branch, all four decoder equations, separate emptiness, actual optional-head client, raw-state counterexample and measured qualifications below. |
-| `a_vector`, 1285–1293 | 1; standard | `Examples.AbstractDataTypes.a_vector`; `Examples.AbstractDataTypes.vector_concrete_data`; `Examples.AbstractDataTypes.vector_concrete_length`. Nontrivial source-shaped list/stored-length package and checked projections. |
-| `vector_cons_correct`, 1295–1314 | 2; standard | `Examples.AbstractDataTypes.vector_cons`; `Examples.AbstractDataTypes.vector_cons_correct`; `Examples.AbstractDataTypes.vector_cons_length`. Executable construction, invariant proof, exact list and stored-length equations. |
-| `vector_app_correct`, 1316–1332 | 2; standard | `Examples.AbstractDataTypes.vector_app`; `Examples.AbstractDataTypes.vector_app_correct`; `Examples.AbstractDataTypes.vector_app_length`. Executable construction, invariant proof, exact ordered list append and stored-length addition. |
-| `ListsETable`, 1478–1490 | 4; advanced | `Examples.AbstractDataTypes.ListsETable.laws`; `Examples.AbstractDataTypes.ListsETable.elements_set`; `Search.OrderedMap.AssociationListEnumeration.toAList_set`; `Resources.ListErase.setRun_value`. Complete unsorted unique-key pair-list subtype contract, identity enumeration, exact first-key erasure/AList update bridge and measured linear worst case below. |
+| `two_list_queue`, 1072–1143 | 3; standard | `Examples.AbstractDataTypes.TwoListQueue.ops`; `Sequences.SourceQueue.twoLists_absLaws`; `Examples.AbstractDataTypes.queue_source_client`. Every raw source pair branch, all four decoder equations, separate emptiness, actual optional-head client, raw-state counterexample and measured qualifications below. |
+| `a_vector`, 1285–1293 | 1; standard | `Examples.AbstractDataTypes.exampleVector`; `Examples.AbstractDataTypes.exampleVector_append_data`; `Examples.AbstractDataTypes.exampleVector_append_length`. Nontrivial source-shaped list/stored-length package and checked projections. |
+| `vector_cons_correct`, 1295–1314 | 2; standard | `Examples.AbstractDataTypes.vectorCons`; `Examples.AbstractDataTypes.vectorToList_vectorCons`; `Examples.AbstractDataTypes.vectorCons_length`. Executable construction, invariant proof, exact list and stored-length equations. |
+| `vector_app_correct`, 1316–1332 | 2; standard | `Examples.AbstractDataTypes.vectorAppend`; `Examples.AbstractDataTypes.vectorToList_vectorAppend`; `Examples.AbstractDataTypes.vectorAppend_length`. Executable construction, invariant proof, exact ordered list append and stored-length addition. |
+| `ListsETable`, 1478–1490 | 4; advanced | `Examples.AbstractDataTypes.UniqueListTable.laws`; `Examples.AbstractDataTypes.UniqueListTable.elements_set`; `Search.OrderedMap.AssociationListEnumeration.toAList_set`; `Resources.ListErase.setRun_value`. Complete unsorted unique-key pair-list subtype contract, identity enumeration, exact first-key erasure/AList update bridge and measured linear worst case below. |
 
 ### All 39 module and module-type records
 
@@ -2034,44 +2034,44 @@ boundary is exercised by actual generic clients and rejected elaborations.
 | Actual source module and header line | Kind | Checked implementation or interface boundary |
 |---|---|---|
 | `ADT.Table`, 50 | module type | `Examples.AbstractDataTypes.TableLaws`. Abstract state/payload with Nat keys, explicit default and three unconditional laws. |
-| `ADT.ValType`, 100 | module type | `Examples.AbstractDataTypes.FunTable`. Payload and default are explicit parameters of the table construction. |
-| `ADT.FunTable`, 111 | module | `Examples.AbstractDataTypes.FunTable_laws`. Actual total-function provider and its complete law instance. |
-| `ADT.StringVal`, 148 | module | `Examples.AbstractDataTypes.StringVal.V`; `Examples.AbstractDataTypes.StringVal.default`. String and the empty String. |
-| `ADT.FunTableExamples`, 153 | module | `Examples.AbstractDataTypes.function_ex1`; `Examples.AbstractDataTypes.function_ex2`; `Examples.AbstractDataTypes.function_ex3`. All three exact observations use public laws. |
-| `ADT.FunTableExamples.StringFunTable`, 155 | module alias | `Examples.AbstractDataTypes.StringFunTable`. Concrete String/empty-default function-table instance. |
-| `ADT.NatFunTableExamples`, 176 | module | `Examples.AbstractDataTypes.NatFunTable`; `Examples.AbstractDataTypes.nat_function_empty`; `Examples.AbstractDataTypes.nat_function_same`; `Examples.AbstractDataTypes.nat_function_other`; `Examples.AbstractDataTypes.nat_function_repeated`. Complete optional Nat/zero instance and clients. |
-| `ADT.ListsTable`, 189 | module | `Examples.AbstractDataTypes.ListsTable_laws`. Raw pair-list prepend/first-match provider and all three laws. |
-| `ADT.StringListsTableExamples`, 223 | module | `Examples.AbstractDataTypes.lists_ex1`; `Examples.AbstractDataTypes.lists_ex2`; `Examples.AbstractDataTypes.lists_ex3`. All three exact String clients. |
-| `ADT.StringListsTableExamples.StringListsTable`, 225 | module alias | `Examples.AbstractDataTypes.StringListsTable`. Concrete String/empty-default raw-list instance. |
-| `ADT.TreeTable`, 251 | module | `Examples.AbstractDataTypes.TreeTable_laws`. Existing raw source tree with all three unconditional table laws. |
+| `ADT.ValType`, 100 | module type | `Examples.AbstractDataTypes.functionTable`. Payload and default are explicit parameters of the table construction. |
+| `ADT.FunTable`, 111 | module | `Examples.AbstractDataTypes.functionTable_laws`. Actual total-function provider and its complete law instance. |
+| `ADT.StringVal`, 148 | module | `Examples.AbstractDataTypes.StringPayload.Value`; `Examples.AbstractDataTypes.StringPayload.default`. String and the empty String. |
+| `ADT.FunTableExamples`, 153 | module | `Examples.AbstractDataTypes.stringFunctionTable_empty`; `Examples.AbstractDataTypes.stringFunctionTable_same_key`; `Examples.AbstractDataTypes.stringFunctionTable_other_key`. All three exact observations use public laws. |
+| `ADT.FunTableExamples.StringFunTable`, 155 | module alias | `Examples.AbstractDataTypes.stringFunctionTable`. Concrete String/empty-default function-table instance. |
+| `ADT.NatFunTableExamples`, 176 | module | `Examples.AbstractDataTypes.natFunctionTable`; `Examples.AbstractDataTypes.natFunctionTable_empty`; `Examples.AbstractDataTypes.natFunctionTable_same_key`; `Examples.AbstractDataTypes.natFunctionTable_other_key`; `Examples.AbstractDataTypes.natFunctionTable_repeated_write`. Complete optional Nat/zero instance and clients. |
+| `ADT.ListsTable`, 189 | module | `Examples.AbstractDataTypes.listTable_laws`. Raw pair-list prepend/first-match provider and all three laws. |
+| `ADT.StringListsTableExamples`, 223 | module | `Examples.AbstractDataTypes.stringListTable_empty`; `Examples.AbstractDataTypes.stringListTable_same_key`; `Examples.AbstractDataTypes.stringListTable_other_key`. All three exact String clients. |
+| `ADT.StringListsTableExamples.StringListsTable`, 225 | module alias | `Examples.AbstractDataTypes.stringListTable`. Concrete String/empty-default raw-list instance. |
+| `ADT.TreeTable`, 251 | module | `Examples.AbstractDataTypes.treeTable_laws`. Existing raw source tree with all three unconditional table laws. |
 | `ADT.ETable_first_attempt`, 300 | module type | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws`. The complete unconditional first-attempt interface. |
-| `ADT.TreeETable_first_attempt`, 326 | module | `Examples.AbstractDataTypes.TreeETable.elements_complete_raw`; `Examples.AbstractDataTypes.raw_tree_first_attempt_fails`. The valid raw completeness direction is proved; the false soundness direction is refuted. |
+| `ADT.TreeETable_first_attempt`, 326 | module | `Examples.AbstractDataTypes.RawTreeTable.elements_complete_raw`; `Examples.AbstractDataTypes.raw_tree_unrestricted_enumeration_fails`. The valid raw completeness direction is proved; the false soundness direction is refuted. |
 | `ADT.ETable`, 375 | module type | `Search.OrderedMap.EnumeratedTable.Laws`. The exact split between unconditional algebra/presence and validity-qualified enumeration. |
-| `ADT.TreeETable`, 416 | module | `Examples.AbstractDataTypes.TreeETable.laws`. Complete corrected raw-tree provider with BST validity. |
+| `ADT.TreeETable`, 416 | module | `Examples.AbstractDataTypes.RawTreeTable.laws`. Complete corrected raw-tree provider with BST validity. |
 | `ADT.StringTreeETableExample`, 485 | module | `Examples.AbstractDataTypes.string_tree_elements_example`. Exact source membership observation through the public laws. |
-| `ADT.StringTreeETableExample.StringTreeETable`, 487 | module alias | `Examples.AbstractDataTypes.TreeETable.laws`. String/empty-default specialization of the complete provider. |
-| `ADT.TreeETableFullyEncapsulated`, 527 | module | `Examples.AbstractDataTypes.TreeETable.laws`; `Examples.AbstractDataTypes.abstract_empty_client`. Reuse the complete provider; the generic client demonstrates the fully abstract payload/carrier/default boundary. |
+| `ADT.StringTreeETableExample.StringTreeETable`, 487 | module alias | `Examples.AbstractDataTypes.RawTreeTable.laws`. String/empty-default specialization of the complete provider. |
+| `ADT.TreeETableFullyEncapsulated`, 527 | module | `Examples.AbstractDataTypes.RawTreeTable.laws`; `Examples.AbstractDataTypes.abstract_empty_client`. Reuse the complete provider; the generic client demonstrates the fully abstract payload/carrier/default boundary. |
 | `ADT.OverlyEncapsulatedExample`, 595 | module | `Examples.AbstractDataTypes.abstract_empty_client`. Actual failed String-literal elaboration at abstract payload, followed by a lawful abstract client. |
 | `ADT.OverlyEncapsulatedExample.StringTreeETableFullyEncapsulated`, 597 | module alias | `Examples.AbstractDataTypes.abstract_empty_client`. Source String implementation is behind the abstract client signature; no transparent Lean namespace is claimed to seal it. |
-| `ADT.SimpleTable`, 626 | module type | `Examples.AbstractDataTypes.SimpleTable`. Key, payload, default and state fields remain explicit. |
-| `ADT.SimpleStringTable1`, 634 | module | `Examples.AbstractDataTypes.simpleStringTable1`. Actual concrete package; abstraction is tested at the generic signature boundary. |
-| `ADT.SimpleTable2`, 644 | module type alias | `Examples.AbstractDataTypes.simpleStringTable2_value`; `Examples.AbstractDataTypes.string_abstract_default_client`. The constrained presentation exposes String but retains default/key/carrier as parameters. |
-| `ADT.SimpleStringTable2`, 646 | module | `Examples.AbstractDataTypes.simpleStringTable2`. Its source specialization uses Nat, tree String and the empty String. |
-| `ADT.SimpleTable3`, 657 | module type alias | `Examples.AbstractDataTypes.simpleStringTable3_default`. The constrained presentation exposes String and the empty String, retaining key/carrier as parameters. |
-| `ADT.SimpleStringTable3`, 661 | module | `Examples.AbstractDataTypes.simpleStringTable3`. Its source specialization uses Nat and tree String. |
-| `ADT.TreeETableEncapsulated`, 675 | module | `Examples.AbstractDataTypes.TreeETable.laws`; `Examples.AbstractDataTypes.nicely_encapsulated_client`. Actual constrained-signature implementation, not an alias; complete provider and abstract-state client are both retained. |
-| `ADT.NicelyEncapsulatedExample`, 742 | module | `Examples.AbstractDataTypes.nicely_encapsulated_client`; `Examples.AbstractDataTypes.nicely_encapsulated_tree`. Public-law proof, failed reflexivity and failed raw constructor at abstract carrier; concrete source instantiation. |
-| `ADT.NicelyEncapsulatedExample.StringTreeETableEncapsulated`, 744 | module alias | `Examples.AbstractDataTypes.nicely_encapsulated_tree`. Concrete String/empty-default provider consumed through the abstract-state client. |
+| `ADT.SimpleTable`, 626 | module type | `Examples.AbstractDataTypes.TableSignature`. Key, payload, default and state fields remain explicit. |
+| `ADT.SimpleStringTable1`, 634 | module | `Examples.AbstractDataTypes.stringTreeSignature`. Actual concrete package; abstraction is tested at the generic signature boundary. |
+| `ADT.SimpleTable2`, 644 | module type alias | `Examples.AbstractDataTypes.stringSignature_payload`; `Examples.AbstractDataTypes.string_abstract_default_client`. The constrained presentation exposes String but retains default/key/carrier as parameters. |
+| `ADT.SimpleStringTable2`, 646 | module | `Examples.AbstractDataTypes.stringSignature`. Its source specialization uses Nat, tree String and the empty String. |
+| `ADT.SimpleTable3`, 657 | module type alias | `Examples.AbstractDataTypes.emptyStringSignature_default`. The constrained presentation exposes String and the empty String, retaining key/carrier as parameters. |
+| `ADT.SimpleStringTable3`, 661 | module | `Examples.AbstractDataTypes.emptyStringSignature`. Its source specialization uses Nat and tree String. |
+| `ADT.TreeETableEncapsulated`, 675 | module | `Examples.AbstractDataTypes.RawTreeTable.laws`; `Examples.AbstractDataTypes.abstract_carrier_empty_lookup`. Actual constrained-signature implementation, not an alias; complete provider and abstract-state client are both retained. |
+| `ADT.NicelyEncapsulatedExample`, 742 | module | `Examples.AbstractDataTypes.abstract_carrier_empty_lookup`; `Examples.AbstractDataTypes.treeTable_empty_lookup`. Public-law proof, failed reflexivity and failed raw constructor at abstract carrier; concrete source instantiation. |
+| `ADT.NicelyEncapsulatedExample.StringTreeETableEncapsulated`, 744 | module alias | `Examples.AbstractDataTypes.treeTable_empty_lookup`. Concrete String/empty-default provider consumed through the abstract-state client. |
 | `ADT.ETableAbs`, 806 | module type | `Search.OrderedMap.EnumeratedTable.ModelLaws`. Exactly seven model laws, with the source orientations and validity guards. |
-| `ADT.ListETableAbs`, 854 | module | `Examples.AbstractDataTypes.ListETableAbs.laws`. Complete raw duplicate-permitting list model, identity entries and head-wins decoder. |
-| `ADT.StringListETableAbs`, 923 | module alias | `Examples.AbstractDataTypes.ListETableAbs.laws`; `Examples.AbstractDataTypes.model_repeated_history_checked`. Specialize the complete model to String/default empty; the connected repeated-history client uses that actual specialization. |
+| `ADT.ListETableAbs`, 854 | module | `Examples.AbstractDataTypes.ShadowingListModel.laws`. Complete raw duplicate-permitting list model, identity entries and head-wins decoder. |
+| `ADT.StringListETableAbs`, 923 | module alias | `Examples.AbstractDataTypes.ShadowingListModel.laws`; `Examples.AbstractDataTypes.model_repeated_history_checked`. Specialize the complete model to String/default empty; the connected repeated-history client uses that actual specialization. |
 | `ADT.Queue`, 978 | module type | `Sequences.SourceQueue.Laws`. Exact five operations and six algebraic equations. |
 | `ADT.ListQueue`, 1001 | module | `Examples.AbstractDataTypes.ListQueue.ops`; `Sequences.SourceQueue.lists_laws`. Actual source Nat list completion and all six equations. |
 | `ADT.QueueAbs`, 1057 | module type | `Sequences.SourceQueue.AbsLaws`. Exactly four decoder laws; the empty test remains unspecified. |
-| `ADT.TwoListQueueAbs`, 1078 | module | `Examples.AbstractDataTypes.TwoListQueueAbs.ops`; `Sequences.SourceQueue.twoLists_absLaws`. Literal source pair operations on every raw state and all four decoder laws. |
-| `ADT.SigSandbox`, 1229 | module | `Examples.AbstractDataTypes.SigSandbox.sig`; `Examples.AbstractDataTypes.SigSandbox.ex`; `Examples.AbstractDataTypes.SigSandbox.exists_propositional_elimination`. Existing computational subtype and propositional existential, with their distinct elimination behavior. |
+| `ADT.TwoListQueueAbs`, 1078 | module | `Examples.AbstractDataTypes.TwoListQueue.ops`; `Sequences.SourceQueue.twoLists_absLaws`. Literal source pair operations on every raw state and all four decoder laws. |
+| `ADT.SigSandbox`, 1229 | module | `Examples.AbstractDataTypes.SubtypeExamples.Refinement`; `Examples.AbstractDataTypes.SubtypeExamples.WitnessExists`; `Examples.AbstractDataTypes.SubtypeExamples.exists_propositional_elimination`. Existing computational subtype and propositional existential, with their distinct elimination behavior. |
 | `ADT.ETableSubset`, 1342 | module type | `Search.OrderedMap.EnumeratedTable.SubsetLaws`. The full enumeration contract with intrinsic representation validity. |
-| `ADT.TreeETableSubset`, 1371 | module | `Examples.AbstractDataTypes.TreeETableSubset.laws`. Complete existing BST-subtype provider and all source laws. |
+| `ADT.TreeETableSubset`, 1371 | module | `Examples.AbstractDataTypes.ValidTreeTable.laws`. Complete existing BST-subtype provider and all source laws. |
 
 ### Inspection commands and intended failures
 
@@ -2081,49 +2081,49 @@ claiming identical Rocq and Lean elaborators.
 
 | Source command | Checked Lean observation |
 |---|---|
-| Check at 334 | `Search.TotalTable.Ops.get`; `Examples.AbstractDataTypes.TreeETable.laws`. Inspect the included get type and the complete enriched provider; get remains default-valued. |
+| Check at 334 | `Search.TotalTable.Ops.get`; `Examples.AbstractDataTypes.RawTreeTable.laws`. Inspect the included get type and the complete enriched provider; get remains default-valued. |
 | Print at 615 | `Examples.AbstractDataTypes.abstract_empty_client`. The generic payload is abstract, so a String literal is unavailable even if the eventual implementation is String. |
-| Print at 642 | `Examples.AbstractDataTypes.SimpleTable.V`; `Examples.AbstractDataTypes.abstract_empty_client`. The signature exposes only a payload type; the concrete first package is transparent in Lean, while the client demonstrates abstraction. |
-| Print at 654 | `Examples.AbstractDataTypes.simpleStringTable2_value`. The second presentation exposes its payload equality to String. |
-| Print at 655 | `Examples.AbstractDataTypes.simpleStringTable2_default`; `Examples.AbstractDataTypes.string_abstract_default_client`. The second presentation keeps default as a parameter; it cannot be identified with the empty String in the generic client. |
-| Print at 669 | `Examples.AbstractDataTypes.simpleStringTable3`. The third presentation visibly has String as payload. |
-| Print at 670 | `Examples.AbstractDataTypes.simpleStringTable3_default`. The third presentation fixes the default to the empty String. |
-| Fail at 751 | `Examples.AbstractDataTypes.nicely_encapsulated_client`. Actual failed reflexivity under abstract operations, followed by the public empty/get law. |
-| Check at 1190 | `Examples.AbstractDataTypes.SigSandbox.exist`. Inspect the existing subtype constructor with a computational value and its property proof. |
-| Check at 1213 | `Examples.AbstractDataTypes.SigSandbox.proj1_sig`. Inspect the computational value projection used by the valid Nat addition. |
-| Check at 1218 | `Examples.AbstractDataTypes.SigSandbox.proj2_sig`. Inspect the stored property of exactly the projected value. |
+| Print at 642 | `Examples.AbstractDataTypes.TableSignature.Payload`; `Examples.AbstractDataTypes.abstract_empty_client`. The signature exposes only a payload type; the concrete first package is transparent in Lean, while the client demonstrates abstraction. |
+| Print at 654 | `Examples.AbstractDataTypes.stringSignature_payload`. The second presentation exposes its payload equality to String. |
+| Print at 655 | `Examples.AbstractDataTypes.stringSignature_default`; `Examples.AbstractDataTypes.string_abstract_default_client`. The second presentation keeps default as a parameter; it cannot be identified with the empty String in the generic client. |
+| Print at 669 | `Examples.AbstractDataTypes.emptyStringSignature`. The third presentation visibly has String as payload. |
+| Print at 670 | `Examples.AbstractDataTypes.emptyStringSignature_default`. The third presentation fixes the default to the empty String. |
+| Fail at 751 | `Examples.AbstractDataTypes.abstract_carrier_empty_lookup`. Actual failed reflexivity under abstract operations, followed by the public empty/get law. |
+| Check at 1190 | `Examples.AbstractDataTypes.SubtypeExamples.pack`. Inspect the existing subtype constructor with a computational value and its property proof. |
+| Check at 1213 | `Examples.AbstractDataTypes.SubtypeExamples.value`. Inspect the computational value projection used by the valid Nat addition. |
+| Check at 1218 | `Examples.AbstractDataTypes.SubtypeExamples.property`. Inspect the stored property of exactly the projected value. |
 
 | Expected declaration failure | Checked disposition |
 |---|---|
 | `ADT.OverlyEncapsulatedExample.ex1@601` | `Examples.AbstractDataTypes.abstract_empty_client` rejects a String literal as an arbitrary payload and proves the valid abstract result from the public law. |
-| `ADT.NicelyEncapsulatedExample.ex2@758` | `Examples.AbstractDataTypes.nicely_encapsulated_client` rejects a raw tree constructor as an arbitrary carrier. |
-| `ADT.two@1178` | `Examples.AbstractDataTypes.two'` checks rejection of the bare numeral at the even-number subtype before constructing the value/proof pair. |
+| `ADT.NicelyEncapsulatedExample.ex2@758` | `Examples.AbstractDataTypes.abstract_carrier_empty_lookup` rejects a raw tree constructor as an arbitrary carrier. |
+| `ADT.two@1178` | `Examples.AbstractDataTypes.twoInline` checks rejection of the bare numeral at the even-number subtype before constructing the value/proof pair. |
 | `ADT.plus_two@1211` | `Examples.AbstractDataTypes.plus_two` checks rejection of the original unannotated addition expression. `Examples.AbstractDataTypes.plus_two_coercion` separately proves the explicitly Nat-typed expression, for which Lean supplies its subtype coercion. |
-| `ADT.SigSandbox.proj1_ex@1264` | `Examples.AbstractDataTypes.SigSandbox.exists_propositional_elimination` checks that generic executable witness extraction from `Exists` is rejected, and proves elimination into a proposition. |
+| `ADT.SigSandbox.proj1_ex@1264` | `Examples.AbstractDataTypes.SubtypeExamples.exists_propositional_elimination` checks that generic executable witness extraction from `Exists` is rejected, and proves elimination into a proposition. |
 
 ### Algebraic tables, independent models and complete clients
 
-`Examples.AbstractDataTypes.FunTable` uses the existing function table and
-an explicit default. `Examples.AbstractDataTypes.function_set_source`
+`Examples.AbstractDataTypes.functionTable` uses the existing function table and
+an explicit default. `Examples.AbstractDataTypes.functionTable_set_source`
 retains the source written-key-first Boolean conditional.
-`Examples.AbstractDataTypes.ListsTable` uses the existing first-binding
-list lookup; `Examples.AbstractDataTypes.lists_set_source` is prepend.
-`Examples.AbstractDataTypes.TreeTable` uses the existing raw tree owner;
-`Examples.AbstractDataTypes.tree_set_source` is the actual source insertion.
+`Examples.AbstractDataTypes.listTable` uses the existing first-binding
+list lookup; `Examples.AbstractDataTypes.listTable_set_source` is prepend.
+`Examples.AbstractDataTypes.treeTable` uses the existing raw tree owner;
+`Examples.AbstractDataTypes.treeTable_set_source` is the actual source insertion.
 All three complete Table instances are unconditional. The raw repeated-list
 shape and its new-value observation are checked by
-`Examples.AbstractDataTypes.lists_repeated_raw_shape` and
-`Examples.AbstractDataTypes.lists_repeated_lookup`.
+`Examples.AbstractDataTypes.stringListTable_repeated_raw_shape` and
+`Examples.AbstractDataTypes.stringListTable_repeated_lookup`.
 `Examples.AbstractDataTypes.malformed_table_update` confirms that the raw
 tree update laws do not silently acquire a BST premise.
 
 The first raw-tree membership attempt is false: the exact malformed tree
 contains an entry that directed lookup does not find. The checked
 `Examples.AbstractDataTypes.malformed_tree_member` and
-`Examples.AbstractDataTypes.raw_tree_first_attempt_fails` preserve that
-counterexample. Corrected `Examples.AbstractDataTypes.TreeETable.laws`
+`Examples.AbstractDataTypes.raw_tree_unrestricted_enumeration_fails` preserve that
+counterexample. Corrected `Examples.AbstractDataTypes.RawTreeTable.laws`
 retains BST for both source membership directions while
-`Examples.AbstractDataTypes.TreeETable.elements_complete_raw` exposes
+`Examples.AbstractDataTypes.RawTreeTable.elements_complete_raw` exposes
 the stronger direction that needs no BST. Presence laws remain raw.
 The source elements example is proved by
 `Examples.AbstractDataTypes.string_tree_elements_example` through the
@@ -2139,17 +2139,17 @@ to the actual tree. The sorting conclusion compares projected keys, with
 strict order in the reusable owner and the requested non-strict Nat order
 in the source client; the no-duplicate statement also concerns keys.
 
-`Examples.AbstractDataTypes.ListETableAbs.laws` proves all seven model
+`Examples.AbstractDataTypes.ShadowingListModel.laws` proves all seven model
 requirements with validity `True`, identity enumeration and the existing
 head-wins optional decoder. Thus a raw list can contain a shadowed entry
 without satisfying membership soundness.
 `Examples.AbstractDataTypes.raw_list_shadowed_entry` supplies the concrete
-two-binding witness and `Examples.AbstractDataTypes.raw_list_model_not_sound`
+two-binding witness and `Examples.AbstractDataTypes.raw_list_unrestricted_enumeration_fails`
 refutes the stronger first-attempt contract on that representation.
 
 The two optional tree models are separately realized:
-`Examples.AbstractDataTypes.TreeTableModel` uses the existing enumeration
-decoder, and `Examples.AbstractDataTypes.TreeTableModel'` uses the
+`Examples.AbstractDataTypes.treeTable_enumeration_model` uses the existing enumeration
+decoder, and `Examples.AbstractDataTypes.treeTable_structural_model` uses the
 independently proved structural decoder. The latter's insertion/presence/get
 route uses the direct structural model laws; its enumeration field uses
 the established valid-tree agreement. This is not a second proof that
@@ -2182,21 +2182,21 @@ default remains distinguishable from absence by bound.
 
 ### Intrinsic validity and the unsorted unique-list exercise
 
-`Examples.AbstractDataTypes.TreeETableSubset.table` is the existing
+`Examples.AbstractDataTypes.ValidTreeTable.Carrier` is the existing
 `Search.OrderedMap.Tree` carrier. Empty and insertion reuse the actual
 raw operations and their invariant proofs; get, bound and elements use the
 stored tree projection. Its full
-`Examples.AbstractDataTypes.TreeETableSubset.laws` and
-`Examples.AbstractDataTypes.TreeETableSubset.first_attempt_realized`
+`Examples.AbstractDataTypes.ValidTreeTable.laws` and
+`Examples.AbstractDataTypes.ValidTreeTable.unrestricted_enumeration_laws`
 need no external BST premise. There is no second tree datatype or insertion
 algorithm.
 
 `Search.OrderedMap.AssociationListEnumeration.UniqueList` is exactly a
 pair list whose projected keys are nodup. It does not impose sortedness.
-`Examples.AbstractDataTypes.ListsETable.laws` supplies the complete final
-interface, `Examples.AbstractDataTypes.ListsETable.elements_identity`
+`Examples.AbstractDataTypes.UniqueListTable.laws` supplies the complete final
+interface, `Examples.AbstractDataTypes.UniqueListTable.elements_identity`
 returns the stored list itself, and
-`Examples.AbstractDataTypes.ListsETable.elements_set` gives the chosen
+`Examples.AbstractDataTypes.UniqueListTable.elements_set` gives the chosen
 executable update: prepend the new pair after first-key erasure from the
 old pair list. The source leaves this exercise implementation open; this
 first-erasure update is the selected completion.
@@ -2230,52 +2230,52 @@ performance question under the measured choice below.
 
 ### Module-language adaptation, subsets and stored-length vectors
 
-`Examples.AbstractDataTypes.SimpleTable` keeps key, payload, default and
+`Examples.AbstractDataTypes.TableSignature` keeps key, payload, default and
 carrier abstract. The three simple String presentations expose progressively
 more information: the first concrete package is transparent in Lean; the
 second public presentation fixes String while taking default/key/carrier
 as parameters; the third fixes String and its empty default while taking
 key/carrier as parameters. The source's concrete instances are their
-Nat/tree specializations. `Examples.AbstractDataTypes.simpleStringTable2_value`,
-`Examples.AbstractDataTypes.simpleStringTable2_default` and
-`Examples.AbstractDataTypes.simpleStringTable3_default` make the exposed
+Nat/tree specializations. `Examples.AbstractDataTypes.stringSignature_payload`,
+`Examples.AbstractDataTypes.stringSignature_default` and
+`Examples.AbstractDataTypes.emptyStringSignature_default` make the exposed
 equalities precise.
 
 The generic clients are where abstraction matters.
 `Examples.AbstractDataTypes.abstract_empty_client` has abstract payload,
 carrier and default; `Examples.AbstractDataTypes.string_abstract_default_client`
 exposes String while keeping the default abstract;
-`Examples.AbstractDataTypes.nicely_encapsulated_client` exposes String
+`Examples.AbstractDataTypes.abstract_carrier_empty_lookup` exposes String
 and its empty default while keeping the state abstract.
 Each valid result uses the supplied public table law. The relevant failed
 literal, constructor, definitional-equality and reflexivity attempts are
 checked with actual failed elaborations inside the proof. Their concrete
-tree instantiation is `Examples.AbstractDataTypes.nicely_encapsulated_tree`.
+tree instantiation is `Examples.AbstractDataTypes.treeTable_empty_lookup`.
 This expresses the source's information-hiding lesson without claiming that
 a Lean namespace seals a transparent implementation.
 
-`Examples.AbstractDataTypes.even_nat` is the constructive even-number
+`Examples.AbstractDataTypes.EvenNat` is the constructive even-number
 subtype. `Examples.AbstractDataTypes.two` and
-`Examples.AbstractDataTypes.two'` contain the concrete value 2 and its
+`Examples.AbstractDataTypes.twoInline` contain the concrete value 2 and its
 evenness proof. Their value/proof projections remain executable/propositional
-respectively; `Examples.AbstractDataTypes.Even2'` uses the stored proof.
-The SigSandbox aliases use the existing `Subtype` and `Exists`, with actual
+respectively; `Examples.AbstractDataTypes.even_two_from_subtype` uses the stored proof.
+The SubtypeExamples aliases use the existing `Subtype` and `Exists`, with actual
 constructors and projections. No second set type or classical-choice program
 is introduced. The rejected generic extraction from an existential proposition
 is distinguished from permitted propositional elimination and from the
 computational witness already present in a subtype.
 
-`Examples.AbstractDataTypes.vector` retains the exact source representation:
+`Examples.AbstractDataTypes.StoredLengthVector` retains the exact source representation:
 a pair of a list and a stored Nat, with a proof that the list length equals
 that stored Nat. It is not replaced by an indexed vector with a different
-carrier. `Examples.AbstractDataTypes.a_vector` contains `([3,1,4],3)`.
-`Examples.AbstractDataTypes.vector_cons` constructs a prepended list and
-stored length plus one; `Examples.AbstractDataTypes.vector_app` constructs
+carrier. `Examples.AbstractDataTypes.exampleVector` contains `([3,1,4],3)`.
+`Examples.AbstractDataTypes.vectorCons` constructs a prepended list and
+stored length plus one; `Examples.AbstractDataTypes.vectorAppend` constructs
 ordered list append and the sum of stored lengths. The two correctness
 theorems prove exact list projections, and
-`Examples.AbstractDataTypes.vector_cons_length` and
-`Examples.AbstractDataTypes.vector_app_length` prove the stored-length
-equations. `Examples.AbstractDataTypes.vector_representation` connects
+`Examples.AbstractDataTypes.vectorCons_length` and
+`Examples.AbstractDataTypes.vectorAppend_length` prove the stored-length
+equations. `Examples.AbstractDataTypes.vectorToList_length` connects
 the stored count to actual length; the concrete combined example checks
 both its full list and its stored count of seven. These are constructive
 definitions with their invariant proofs, not existence-only replacements.

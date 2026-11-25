@@ -389,12 +389,12 @@ theorem function_payload (f : Unit → Nat) (t : Tree (Unit → Nat)) :
 
 /-! ## The enumeration abstraction and its exact source specializations -/
 
-abbrev mapOfList (bindings : List (Key × V)) : FunctionalMaps.partial_map V :=
+abbrev mapOfList (bindings : List (Key × V)) : FunctionalMaps.PartialMap V :=
   OrderedMap.listObserve bindings
-abbrev enumerationMeaning (t : Tree V) : FunctionalMaps.partial_map V := OrderedMap.SourceModel.enumAbs t
-abbrev find (default : V) (k : Key) (m : FunctionalMaps.partial_map V) :=
+abbrev enumerationMeaning (t : Tree V) : FunctionalMaps.PartialMap V := OrderedMap.SourceModel.enumAbs t
+abbrev find (default : V) (k : Key) (m : FunctionalMaps.PartialMap V) :=
   OrderedMap.withDefault default m k
-abbrev mapBound (k : Key) (m : FunctionalMaps.partial_map V) := OrderedMap.hasBinding m k
+abbrev mapBound (k : Key) (m : FunctionalMaps.PartialMap V) := OrderedMap.hasBinding m k
 
 theorem mapOfList_empty : mapOfList ([] : List (Key × V)) = FunctionalMaps.empty := rfl
 
@@ -434,37 +434,37 @@ theorem mapOfList_elements (t : Tree V) (_valid : BST t) : mapOfList (elements t
 
 /-! ## The independent structural abstraction -/
 
-abbrev collisionUnion (left right : FunctionalMaps.partial_map V) : FunctionalMaps.partial_map V :=
+abbrev collisionUnion (left right : FunctionalMaps.PartialMap V) : FunctionalMaps.PartialMap V :=
   OrderedMap.SourceModel.collisionUnion left right
 
-theorem collisionUnion_left (left right : FunctionalMaps.partial_map V) (k : Key)
+theorem collisionUnion_left (left right : FunctionalMaps.PartialMap V) (k : Key)
     (absent : right k = none) : collisionUnion left right k = left k :=
   OrderedMap.SourceModel.collisionUnion_left left right k absent
 
-theorem collisionUnion_right (left right : FunctionalMaps.partial_map V) (k : Key)
+theorem collisionUnion_right (left right : FunctionalMaps.PartialMap V) (k : Key)
     (absent : left k = none) : collisionUnion left right k = right k :=
   OrderedMap.SourceModel.collisionUnion_right left right k absent
 
-theorem collisionUnion_both (left right : FunctionalMaps.partial_map V) (k : Key) (a b : V)
+theorem collisionUnion_both (left right : FunctionalMaps.PartialMap V) (k : Key) (a b : V)
     (hl : left k = some a) (hr : right k = some b) : collisionUnion left right k = none :=
   OrderedMap.SourceModel.collisionUnion_both left right k a b hl hr
 
-theorem collisionUnion_update_right (left right : FunctionalMaps.partial_map V) (k : Key) (value : V)
+theorem collisionUnion_update_right (left right : FunctionalMaps.PartialMap V) (k : Key) (value : V)
     (absent : left k = none) :
     FunctionalMaps.update (collisionUnion left right) k value =
       collisionUnion left (FunctionalMaps.update right k value) := by
   simp only [FunctionalMaps.update_eq_write]
   exact OrderedMap.SourceModel.collisionUnion_write_right left right k value absent
 
-theorem collisionUnion_update_left (left right : FunctionalMaps.partial_map V) (k : Key) (value : V)
+theorem collisionUnion_update_left (left right : FunctionalMaps.PartialMap V) (k : Key) (value : V)
     (absent : right k = none) :
     FunctionalMaps.update (collisionUnion left right) k value =
       collisionUnion (FunctionalMaps.update left k value) right := by
   simp only [FunctionalMaps.update_eq_write]
   exact OrderedMap.SourceModel.collisionUnion_write_left left right k value absent
 
-abbrev mapOfTree (t : Tree V) : FunctionalMaps.partial_map V := OrderedMap.SourceModel.mapOfTree t
-abbrev structuralMeaning (t : Tree V) : FunctionalMaps.partial_map V := mapOfTree t
+abbrev mapOfTree (t : Tree V) : FunctionalMaps.PartialMap V := OrderedMap.SourceModel.mapOfTree t
+abbrev structuralMeaning (t : Tree V) : FunctionalMaps.PartialMap V := mapOfTree t
 
 theorem mapOfTree_node (left right : Tree V) (k : Key) (value : V) :
     mapOfTree (node left k value right) =
@@ -623,7 +623,7 @@ theorem rawTable_history_agrees (default : V) (t : Tree V) (writes : List (Key �
 /-- The exact Maps example, including the stored default at key 1, executes
 through the same total-table client on the source's tree representation. -/
 theorem function_example_eq_tree_client :
-    FunctionalMaps.examplemap = TotalTable.observe (rawTable false)
+    FunctionalMaps.exampleMap = TotalTable.observe (rawTable false)
       (TotalTable.setAll (rawTable false) [(1, false), (3, true)] emptyTree) := by
   rw [rawTable_history_agrees]
   rfl
@@ -634,7 +634,7 @@ theorem tree_client_agrees_with_list :
       TotalTable.observe (TotalTable.ofPartial (OrderedMap.lists Nat Bool) false)
         (TotalTable.setAll (TotalTable.ofPartial (OrderedMap.lists Nat Bool) false)
           [(1, false), (3, true)] []) :=
-  function_example_eq_tree_client.symm.trans FunctionalMaps.examplemap_eq_list_client
+  function_example_eq_tree_client.symm.trans FunctionalMaps.exampleMap_eq_list_client
 
 /-- Empty source trees and their partial abstractions need no payload value. -/
 theorem empty_payload (k : Key) :
