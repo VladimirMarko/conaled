@@ -265,7 +265,7 @@ theorem empty_success_is_present_before_the_post_halt_step :
   ⟨machine_run_code [], a_post_halt_step_discards_the_actual_result []⟩
 
 /-- Even the identity machine satisfies the outer-none target on every input. -/
-def identity_machine_reaches_outer_none (raw : Bits) :
+def identityMachineOuterNoneInTime (raw : Bits) :
     Turing.TM2OutputsInTime (Turing.idComputer Bool) raw none 2 where
   steps := 2
   evals_in_steps := rfl
@@ -317,7 +317,7 @@ theorem every_raw_input_uses_one_polynomial_machine (raw : Bits) :
   exact ⟨evidence.steps, evidence.steps_le_m, evidence.evals_in_steps⟩
 
 /-- The polynomial record itself produces the intended encoded word output. -/
-noncomputable def encoded_words_use_the_polynomial_machine (word : Word) :
+noncomputable def encodedWordOutputsInTime (word : Word) :
     Turing.TM2OutputsInTime computableInPolyTime.tm
       ((wordBits word).map computableInPolyTime.inputAlphabet.invFun)
       (some ((none :: word.map some).map computableInPolyTime.outputAlphabet.invFun))

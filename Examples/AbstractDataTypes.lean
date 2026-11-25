@@ -29,7 +29,7 @@ abbrev TableLaws {V : Type v} {T : Type w} (table : Table V T) (d : V) :=
 abbrev FunTable {V : Type v} (d : V) : Table V (Nat → V) := TotalTable.functions d
 abbrev ListsTable {V : Type v} (d : V) : Table V (List (Nat × V)) :=
   TotalTable.ofPartial (OrderedMap.lists Nat V) d
-abbrev TreeTable {V : Type v} (d : V) : Table V (SearchTrees.tree V) :=
+abbrev TreeTable {V : Type v} (d : V) : Table V (SearchTrees.Tree V) :=
   TotalTable.ofPartial (OrderedMap.rawTrees Nat V) d
 
 theorem FunTable_laws {V : Type v} (d : V) : TableLaws (FunTable d) d :=
@@ -49,7 +49,7 @@ theorem lists_set_source {V : Type v} (d value : V) (k : Nat)
     (t : List (Nat × V)) : (ListsTable d).set k value t = (k, value) :: t := rfl
 
 theorem tree_set_source {V : Type v} (d value : V) (k : Nat)
-    (t : SearchTrees.tree V) : (TreeTable d).set k value t = SearchTrees.insert k value t := rfl
+    (t : SearchTrees.Tree V) : (TreeTable d).set k value t = SearchTrees.insert k value t := rfl
 
 /-! ## The concrete String and optional Nat clients -/
 
@@ -113,7 +113,7 @@ theorem lists_repeated_lookup :
   (ListsTable_laws "").get_set_same 0 "B" [(0, "A")] trivial
 
 theorem exposed_trees_ex :
-    (TreeTable "").get 0 (SearchTrees.T SearchTrees.E 0 "A" SearchTrees.E) = "A" := rfl
+    (TreeTable "").get 0 (SearchTrees.node SearchTrees.nil 0 "A" SearchTrees.nil) = "A" := rfl
 
 /-! ## One chronological client on the three raw representations -/
 
@@ -183,28 +183,28 @@ theorem raw_client_results :
 /-- The all-raw-state table law continues to apply to the malformed source
 tree, independently of the enumeration invariant. -/
 theorem malformed_table_update :
-    (TreeTable "").get 2 ((TreeTable "").set 2 "new" SearchTrees.NotBst.t) = "new" :=
+    (TreeTable "").get 2 ((TreeTable "").set 2 "new" SearchTrees.Malformed.exampleTree) = "new" :=
   (TreeTable_laws "").get_set_same 2 "new" _ trivial
 
 /-- The attempted raw-tree membership soundness fails at an actual member. -/
 theorem malformed_tree_member :
-    (2, "two") ∈ SearchTrees.elements SearchTrees.NotBst.t ∧
-      SearchTrees.bound 2 SearchTrees.NotBst.t = false ∧
-      (TreeTable "").get 2 SearchTrees.NotBst.t = "" := by decide
+    (2, "two") ∈ SearchTrees.elements SearchTrees.Malformed.exampleTree ∧
+      SearchTrees.bound 2 SearchTrees.Malformed.exampleTree = false ∧
+      (TreeTable "").get 2 SearchTrees.Malformed.exampleTree = "" := by decide
 
 /-- Default-valued get does not recover the presence bit or elements. -/
 theorem table_default_forgets_presence :
-    TotalTable.observe (TreeTable false) (SearchTrees.T SearchTrees.E 0 false SearchTrees.E) =
-      TotalTable.observe (TreeTable false) SearchTrees.E ∧
-    SearchTrees.bound 0 (SearchTrees.T SearchTrees.E 0 false SearchTrees.E) = true ∧
-    SearchTrees.bound 0 (SearchTrees.E : SearchTrees.tree Bool) = false := by
+    TotalTable.observe (TreeTable false) (SearchTrees.node SearchTrees.nil 0 false SearchTrees.nil) =
+      TotalTable.observe (TreeTable false) SearchTrees.nil ∧
+    SearchTrees.bound 0 (SearchTrees.node SearchTrees.nil 0 false SearchTrees.nil) = true ∧
+    SearchTrees.bound 0 (SearchTrees.nil : SearchTrees.Tree Bool) = false := by
   obtain ⟨same, bound, absent, _⟩ := SearchTrees.explicit_default_and_absence
   exact ⟨funext same, bound, absent⟩
 
 /-! ## Corrected enumeration and both source abstraction routes -/
 
 namespace TreeETable
-abbrev table (V : Type v) := SearchTrees.tree V
+abbrev table (V : Type v) := SearchTrees.Tree V
 abbrev observations (V : Type v) :=
   OrderedMap.EnumeratedTable.rawTreeObservations (κ := Nat) (ν := V)
 abbrev rep_ok {V : Type v} (t : table V) := SearchTrees.BST t
@@ -260,10 +260,10 @@ theorem string_tree_elements_example :
     ((TreeETable.laws "").set_valid 1 "B" _ (TreeETable.laws "").empty_valid)
 
 theorem raw_tree_first_attempt_fails :
-    ¬ OrderedMap.EnumeratedTable.FirstAttemptLaws (TreeTable "")
+    ¬ OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws (TreeTable "")
       (TreeETable.observations String) "" := by
   intro law
-  have present := (law.elements_correct 2 "two" SearchTrees.NotBst.t malformed_tree_member.1).1
+  have present := (law.elements_correct 2 "two" SearchTrees.Malformed.exampleTree malformed_tree_member.1).1
   have impossible : (false : Bool) = true := present
   cases impossible
 
@@ -286,7 +286,7 @@ theorem strong_elements_inverse_raw {V : Type v} {T : Type w}
     (absent : ∀ value, (key, value) ∉ obs.elements t) : obs.bound key t = false :=
   law.no_entry_absent key t absent
 
-theorem elements_spec {V : Type v} (key : Nat) (value : V) (t : SearchTrees.tree V)
+theorem elements_spec {V : Type v} (key : Nat) (value : V) (t : SearchTrees.Tree V)
     (valid : SearchTrees.BST t) :
     (SearchTrees.bound key t = false → (key, value) ∉ SearchTrees.elements t) ∧
       InsertionSorting.sorted ((SearchTrees.elements t).map Prod.fst) ∧
@@ -325,7 +325,7 @@ theorem set_ok {V : Type v} (key : Nat) (value : V) (t : table V)
 theorem empty_relate (V : Type v) : Abs (empty : table V) = empty_map := rfl
 
 theorem bound_relate {V : Type v} (default : V) (t : table V) (key : Nat)
-    (valid : rep_ok t) : SearchTrees.map_bound key (Abs t) = bound key t :=
+    (valid : rep_ok t) : SearchTrees.mapBound key (Abs t) = bound key t :=
   (laws default).bound t key valid
 
 theorem lookup_relate {V : Type v} (default : V) (t : table V) (key : Nat)
@@ -337,26 +337,26 @@ theorem insert_relate {V : Type v} (default : V) (t : table V) (key : Nat) (valu
   (laws default).set t key value valid
 
 theorem elements_relate {V : Type v} (default : V) (t : table V) (valid : rep_ok t) :
-    Abs t = SearchTrees.map_of_list (elements t) := (laws default).elements t valid
+    Abs t = SearchTrees.mapOfList (elements t) := (laws default).elements t valid
 end ListETableAbs
 
 /-- Both optional model exercises realize every field of the seven-law contract. -/
 theorem TreeTableModel {V : Type v} (default : V) :
     OrderedMap.EnumeratedTable.ModelLaws (TreeTable default) (TreeETable.observations V)
-      default TreeETable.rep_ok SearchTrees.Abs :=
+      default TreeETable.rep_ok SearchTrees.enumerationMeaning :=
   OrderedMap.EnumeratedTable.rawTree_model_enum default
 
 theorem TreeTableModel' {V : Type v} (default : V) :
     OrderedMap.EnumeratedTable.ModelLaws (TreeTable default) (TreeETable.observations V)
-      default TreeETable.rep_ok SearchTrees.Abs' :=
+      default TreeETable.rep_ok SearchTrees.structuralMeaning :=
   OrderedMap.EnumeratedTable.rawTree_model_structural default
 
 theorem both_tree_model_histories {V : Type v} (default : V)
-    (writes : List (Nat × V)) (t : SearchTrees.tree V) (valid : SearchTrees.BST t) :
-    SearchTrees.Abs (TotalTable.setAll (TreeTable default) writes t) =
-        OrderedMap.writeAll writes (SearchTrees.Abs t) ∧
-      SearchTrees.Abs' (TotalTable.setAll (TreeTable default) writes t) =
-        OrderedMap.writeAll writes (SearchTrees.Abs' t) :=
+    (writes : List (Nat × V)) (t : SearchTrees.Tree V) (valid : SearchTrees.BST t) :
+    SearchTrees.enumerationMeaning (TotalTable.setAll (TreeTable default) writes t) =
+        OrderedMap.writeAll writes (SearchTrees.enumerationMeaning t) ∧
+      SearchTrees.structuralMeaning (TotalTable.setAll (TreeTable default) writes t) =
+        OrderedMap.writeAll writes (SearchTrees.structuralMeaning t) :=
   ⟨(TreeTableModel default).setAll writes valid,
     (TreeTableModel' default).setAll writes valid⟩
 
@@ -374,20 +374,20 @@ theorem raw_list_shadowed_entry :
   decide
 
 theorem raw_list_model_not_sound :
-    ¬ OrderedMap.EnumeratedTable.FirstAttemptLaws (ListsTable "")
+    ¬ OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws (ListsTable "")
       OrderedMap.EnumeratedTable.rawListObservations "" := by
   intro law
   have found := (law.elements_correct 0 "old" [(0, "new"), (0, "old")]
     raw_list_shadowed_entry.2.1).2
   exact raw_list_shadowed_entry.2.2 found
 
-theorem tree_models_agree_on_valid {V : Type v} (t : SearchTrees.tree V)
-    (valid : SearchTrees.BST t) : SearchTrees.Abs t = SearchTrees.Abs' t :=
+theorem tree_models_agree_on_valid {V : Type v} (t : SearchTrees.Tree V)
+    (valid : SearchTrees.BST t) : SearchTrees.enumerationMeaning t = SearchTrees.structuralMeaning t :=
   SearchTrees.abstractions_agree t valid
 
 theorem tree_models_differ_on_raw :
-    SearchTrees.Abs SearchTrees.collision_tree 0 = some "left" ∧
-      SearchTrees.Abs' SearchTrees.collision_tree 0 = none :=
+    SearchTrees.enumerationMeaning SearchTrees.collisionTree 0 = some "left" ∧
+      SearchTrees.structuralMeaning SearchTrees.collisionTree 0 = none :=
   SearchTrees.raw_abstractions_disagree
 
 /-! ## What an abstract client can see
@@ -405,7 +405,7 @@ structure SimpleTable where
   table : Type w
 
 def simpleStringTable1 : SimpleTable.{0, 0, 0} :=
-  ⟨Nat, String, "", SearchTrees.tree String⟩
+  ⟨Nat, String, "", SearchTrees.Tree String⟩
 
 def simpleStringTable2 (key : Type u) (table : Type w) (default : String) :
     SimpleTable.{u, 0, w} := ⟨key, String, default, table⟩
@@ -442,7 +442,7 @@ theorem string_abstract_default_client {T : Type w} (d : String)
 theorem nicely_encapsulated_client {T : Type w}
     (table : Table String T) (law : TableLaws table "") :
     table.get 0 table.empty = "" := by
-  fail_if_success have _ : T := SearchTrees.T SearchTrees.E 0 "A" SearchTrees.E
+  fail_if_success have _ : T := SearchTrees.node SearchTrees.nil 0 "A" SearchTrees.nil
   fail_if_success exact rfl
   exact law.get_empty 0
 
@@ -695,8 +695,8 @@ theorem elements_source {V : Type v} (t : table V) :
     elements t = SearchTrees.elements t.val := rfl
 
 theorem first_attempt_realized {V : Type v} (default : V) :
-    OrderedMap.EnumeratedTable.FirstAttemptLaws (ops default)
-      OrderedMap.EnumeratedTable.treeObservations default := (laws default).firstAttempt
+    OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws (ops default)
+      OrderedMap.EnumeratedTable.treeObservations default := (laws default).unrestrictedEnumerationLaws
 end TreeETableSubset
 
 namespace ListsETable
@@ -724,8 +724,8 @@ theorem elements_set {V : Type v} (key : Nat) (value : V) (t : table V) :
   OrderedMap.AssociationListEnumeration.set_entries key value t
 
 theorem first_attempt_realized {V : Type v} (default : V) :
-    OrderedMap.EnumeratedTable.FirstAttemptLaws (ops default)
-      OrderedMap.EnumeratedTable.uniqueListObservations default := (laws default).firstAttempt
+    OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws (ops default)
+      OrderedMap.EnumeratedTable.uniqueListObservations default := (laws default).unrestrictedEnumerationLaws
 
 theorem complete {V : Type v} (default value : V) (key : Nat) (t : table V)
     (present : bound key t = true) (found : get default key t = value) :
@@ -795,10 +795,10 @@ theorem tree_subset_source_member :
 theorem model_repeated_history_checked :
     ListETableAbs.Abs (TotalTable.setAll (ListsTable "") clientWrites [(0, "old")]) =
         OrderedMap.writeAll clientWrites (ListETableAbs.Abs [(0, "old")]) ∧
-      SearchTrees.Abs (TotalTable.setAll (TreeTable "") clientWrites (TreeTable "").empty) =
-        OrderedMap.writeAll clientWrites (SearchTrees.Abs (TreeTable "").empty) ∧
-      SearchTrees.Abs' (TotalTable.setAll (TreeTable "") clientWrites (TreeTable "").empty) =
-        OrderedMap.writeAll clientWrites (SearchTrees.Abs' (TreeTable "").empty) :=
+      SearchTrees.enumerationMeaning (TotalTable.setAll (TreeTable "") clientWrites (TreeTable "").empty) =
+        OrderedMap.writeAll clientWrites (SearchTrees.enumerationMeaning (TreeTable "").empty) ∧
+      SearchTrees.structuralMeaning (TotalTable.setAll (TreeTable "") clientWrites (TreeTable "").empty) =
+        OrderedMap.writeAll clientWrites (SearchTrees.structuralMeaning (TreeTable "").empty) :=
   ⟨raw_list_model_history "" clientWrites [(0, "old")],
     both_tree_model_histories "" clientWrites _ (TreeETable.empty_ok "")⟩
 

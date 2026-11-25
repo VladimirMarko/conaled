@@ -68,11 +68,11 @@ theorem source_entries :
   rw [color, palette_cardinal, sourceGraph_selection]
   decide
 
-theorem source_compatible : ColoringOK palette sourceGraph (color palette sourceGraph) :=
+theorem source_compatible : EdgeColoringCompatible palette sourceGraph (color palette sourceGraph) :=
   color_correct palette sourceGraph_noSelfLoop sourceGraph_undirected
 
-theorem source_allPalette : AllPalette palette (color palette sourceGraph) :=
-  allPalette_color palette sourceGraph
+theorem source_paletteValued : PaletteValued palette (color palette sourceGraph) :=
+  paletteValued_color palette sourceGraph
 
 theorem source_keys : SparseMap.keys (color palette sourceGraph) = SparseMap.keys sourceGraph := by
   rw [keys_color, palette_cardinal, sourceGraph_selection]
@@ -124,16 +124,16 @@ theorem isolated_has_no_edges (left right : Node) : ¬ Adjacent isolated left ri
   by_cases same : left = 1 <;>
     simp [Adjacent, adj, isolated, SparseMap.find_add, same]
 
-theorem isolated_weak_accepts : ColoringOK .nil isolated (SparseMap.add 1 7 .nil) :=
-  coloringOK_of_no_edges .nil _ isolated_has_no_edges
+theorem isolated_weak_accepts : EdgeColoringCompatible .nil isolated (SparseMap.add 1 7 .nil) :=
+  edgeColoringCompatible_of_no_edges .nil _ isolated_has_no_edges
 
-theorem isolated_outside_palette : ¬ AllPalette .nil (SparseMap.add 1 7 .nil) := by
+theorem isolated_outside_palette : ¬ PaletteValued .nil (SparseMap.add 1 7 .nil) := by
   intro paletteOnly
   have impossible := paletteOnly 1 7 rfl
   cases impossible
 
-theorem isolated_produced_palette : AllPalette oneColor (color oneColor isolated) :=
-  allPalette_color oneColor isolated
+theorem isolated_produced_palette : PaletteValued oneColor (color oneColor isolated) :=
+  paletteValued_color oneColor isolated
 
 theorem padded_coloring_observation :
     SparseMap.observe (color oneColor paddedIsolated) = SparseMap.observe (color oneColor isolated) :=
@@ -181,10 +181,10 @@ theorem directed_support : SparseMap.keys (color oneColor directed) = SparseMap.
   rw [keys_color, show KeySet.cardinal oneColor = 1 from rfl, directed_selection]
   decide
 
-theorem directed_palette : AllPalette oneColor (color oneColor directed) :=
-  allPalette_color oneColor directed
+theorem directed_palette : PaletteValued oneColor (color oneColor directed) :=
+  paletteValued_color oneColor directed
 
-theorem directed_incompatible : ¬ ColoringOK oneColor directed (color oneColor directed) := by
+theorem directed_incompatible : ¬ EdgeColoringCompatible oneColor directed (color oneColor directed) := by
   rw [directed_result]
   intro compatible
   exact (compatible 1 2 rfl).2 1 1 rfl rfl rfl
@@ -197,10 +197,10 @@ theorem selfLoop_support : SparseMap.keys (color twoColors selfLoop) = SparseMap
   rw [keys_color, show KeySet.cardinal twoColors = 2 from rfl, selfLoop_selection]
   decide
 
-theorem selfLoop_palette : AllPalette twoColors (color twoColors selfLoop) :=
-  allPalette_color twoColors selfLoop
+theorem selfLoop_palette : PaletteValued twoColors (color twoColors selfLoop) :=
+  paletteValued_color twoColors selfLoop
 
-theorem selfLoop_incompatible : ¬ ColoringOK twoColors selfLoop (color twoColors selfLoop) := by
+theorem selfLoop_incompatible : ¬ EdgeColoringCompatible twoColors selfLoop (color twoColors selfLoop) := by
   rw [selfLoop_result]
   intro compatible
   exact (compatible 1 1 selfLoop_present).2 1 1 rfl rfl rfl
@@ -220,16 +220,16 @@ theorem repeated_list_entries :
     SparseMap.elements (colorList twoColors pairGraph [1, 2, 1]) = [(2, 2), (1, 1)] := by
   decide
 
-theorem repeated_list_compatible : ColoringOK twoColors pairGraph (colorList twoColors pairGraph [1, 2, 1]) :=
-  coloringOK_colorList twoColors pairGraph_undirected pairGraph_noSelfLoop [1, 2, 1]
+theorem repeated_list_compatible : EdgeColoringCompatible twoColors pairGraph (colorList twoColors pairGraph [1, 2, 1]) :=
+  edgeColoringCompatible_colorList twoColors pairGraph_undirected pairGraph_noSelfLoop [1, 2, 1]
 
 theorem overwritten_vertex_present :
     SparseMap.find 1 (colorList twoColors pairGraph [2, 1]) = some 1 := rfl
 
 theorem overwrite_preserves_compatibility :
-    ColoringOK twoColors pairGraph (color1 twoColors pairGraph 1 (colorList twoColors pairGraph [2, 1])) :=
-  coloringOK_color1 pairGraph_undirected pairGraph_noSelfLoop
-    (coloringOK_colorList twoColors pairGraph_undirected pairGraph_noSelfLoop [2, 1])
+    EdgeColoringCompatible twoColors pairGraph (color1 twoColors pairGraph 1 (colorList twoColors pairGraph [2, 1])) :=
+  edgeColoringCompatible_color1 pairGraph_undirected pairGraph_noSelfLoop
+    (edgeColoringCompatible_colorList twoColors pairGraph_undirected pairGraph_noSelfLoop [2, 1])
 
 def cycleAssignment : Assignment :=
   SparseMap.add 1 1 (SparseMap.add 2 2 (SparseMap.add 3 1 (SparseMap.add 4 2 .nil)))
@@ -242,12 +242,12 @@ theorem cycleAssignment_entries :
 
 theorem cycleAssignment_total : SparseMap.keys cycleAssignment = SparseMap.keys fourCycle := by decide
 
-theorem cycleAssignment_palette : AllPalette twoColors cycleAssignment := by
+theorem cycleAssignment_palette : PaletteValued twoColors cycleAssignment := by
   intro node value found
   simp only [cycleAssignment, SparseMap.find_add, SparseMap.find_nil] at found
   split_ifs at found <;> cases found <;> decide
 
-theorem cycleAssignment_compatible : ColoringOK twoColors fourCycle cycleAssignment := by
+theorem cycleAssignment_compatible : EdgeColoringCompatible twoColors fourCycle cycleAssignment := by
   intro left right edge
   refine ⟨fun value found => cycleAssignment_palette left value found, ?_⟩
   intro first second foundLeft foundRight
@@ -261,7 +261,7 @@ theorem cycleAssignment_compatible : ColoringOK twoColors fourCycle cycleAssignm
 
 theorem edgeless_total (palette : NodeSet) (positive : 0 < KeySet.cardinal palette) (g : Graph)
     (edgeless : ∀ node, neighbors g node = ∅) :
-    ColoringOK palette g (color palette g) ∧ AllPalette palette (color palette g) ∧
+    EdgeColoringCompatible palette g (color palette g) ∧ PaletteValued palette (color palette g) ∧
       SparseMap.keys (color palette g) = SparseMap.keys g := by
   apply total_coloring_of_progress palette (fun current => ∀ node, neighbors current node = ∅)
     (g := g) (valid := edgeless)

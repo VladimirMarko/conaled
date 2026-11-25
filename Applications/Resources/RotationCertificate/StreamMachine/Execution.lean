@@ -375,13 +375,13 @@ theorem LocalRun.remaining {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller 
   | refl => omega
   | cons head tail ih => have first := local_step_remaining caller head; omega
 
-theorem LocalRun.finalCfg {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller n a b) :
+theorem LocalRun.finalCfg_eq {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller n a b) :
     finalCfg a = finalCfg b := by
   induction run with
   | refl => rfl
   | cons head tail ih => exact (finalCfg_step caller head).trans ih
 
-theorem LocalRun.phaseEndpoint {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
+theorem LocalRun.phase_endpoint {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
     {ctx outCtx : ∀ k, List (Γ k)} {n : Nat} {r : Bool}
     (run : LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx)
       (cfg (some (resultLabel r)) outRegs E outCtx)) :

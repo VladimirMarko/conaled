@@ -235,7 +235,7 @@ def trees (κ : Type u) (ν : Type v) [LinearOrder κ] : Ops κ ν (Tree κ ν) 
 def decode (t : Tree κ ν) : Meaning κ ν := observe t.1
 
 theorem trees_laws : Laws (trees κ ν) decode :=
-  Laws.ofValid (ops := rawTrees κ ν) (Valid := OrderedBy Prod.fst) (observe := observe)
+  Laws.of_valid (ops := rawTrees κ ν) (Valid := OrderedBy Prod.fst) (observe := observe)
     trivial (fun key value _ ordered => ordered_bind ordered key value)
     rfl (fun key value _ ordered => observe_bind ordered key value)
     (fun key _ ordered => lookup_correct ordered key)

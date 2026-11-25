@@ -374,7 +374,7 @@ def frontEndStacks : (∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphab
 theorem frontEnd_stack_cells [Fintype K]
     (data : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
     ∑ k, (frontEndStacks data k).length = ∑ k, (data k).length :=
-  FrontEndMachine.Transport.stackCells frontEndStackEquiv frontEndSymbolEquiv data
+  FrontEndMachine.Transport.stackEquiv_total_length frontEndStackEquiv frontEndSymbolEquiv data
 
 def frontEndAddedContext (B O : List Branch) (ctx : ∀ k, List (Γ k)) :
     ∀ k, List (frontEndAddedAlphabet Γ k)

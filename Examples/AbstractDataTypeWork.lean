@@ -113,6 +113,37 @@ theorem repeated_source_peeks :
   rw [three_back_source_peek]
   rfl
 
+/-- The archived constructor tariff counted six visits on the same reachable
+three-enqueue state; the current call tariff counts eleven. -/
+theorem three_back_constructor_peek :
+    constructorPeekRun 99 ([], [2, 9, 4]) = (4, 6) := by
+  rw [constructorPeekRun_back]
+  simp only [ListReversal.constructorVisits_cons, ListReversal.constructorVisits_nil,
+    List.length_cons, List.length_nil]
+  rfl
+
+theorem constructor_peek_boundaries (default first : α) (front back : List α) :
+    constructorPeekRun default twoListEmpty = (default, 0) ∧
+      constructorPeekRun default (first :: front, back) = (first, 0) :=
+  ⟨constructorPeekRun_empty default, constructorPeekRun_front default first front back⟩
+
+/-- The shared executor retains all three observations and the unchanged state. -/
+theorem repeated_constructor_peeks :
+    Resources.run (fun _ : Unit => constructorPeekStep 99) [(), (), ()] ([], [2, 9, 4]) =
+      (([], [2, 9, 4]), 18) := by
+  rw [run_constructorPeekStep, three_back_constructor_peek]
+  rfl
+
+/-- The exact old/new relation is fifteen additional terminal/dispatch calls,
+not a change of queue value, reachability or observing-peek semantics. -/
+theorem reachable_peek_tariff_recovery :
+    Sequences.AbstractFIFO.run (twoListFIFO Nat) threeEnqueues twoListEmpty = ([], [2, 9, 4]) ∧
+      (runPeeksUsing ListReversal.naiveRun 99 3 ([], [2, 9, 4])).2 =
+        (Resources.run (fun _ : Unit => constructorPeekStep 99) [(), (), ()]
+          ([], [2, 9, 4])).2 + 15 := by
+  refine ⟨three_enqueues_reachable, ?_⟩
+  exact run_peekStepUsing_cost_eq_constructor 99 [(), (), ()] ([], [2, 9, 4])
+
 theorem repeated_linear_peeks :
     runPeeksUsing (fun values => SymmetricCosts.reverseRun values []) 99 3 ([], [2, 9, 4]) =
       (([], [2, 9, 4]), 15) := by

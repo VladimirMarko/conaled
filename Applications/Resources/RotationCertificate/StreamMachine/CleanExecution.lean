@@ -1248,7 +1248,7 @@ theorem left_nodes_exact_clock (certificateRest : Word) (n : Nat) (target : Word
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runSteps [true] (moveCode ⟨.left, []⟩ ++ certificateRest) (List.replicate n nodeTag) target =
       3 * n + 13 :=
-  (LocalRun.phaseEndpoint caller (q := inspectPhase)
+  (LocalRun.phase_endpoint caller (q := inspectPhase)
     (left_nodes_run caller certificateRest n target regs ctx)).1
 
 include caller in
@@ -1256,7 +1256,7 @@ theorem right_nodes_exact_clock (certificateRest : Word) (m : Nat) (target : Wor
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runSteps [true] (moveCode ⟨.right, []⟩ ++ certificateRest) (List.replicate (m + 2) nodeTag) target =
       3 * m + 16 :=
-  (LocalRun.phaseEndpoint caller (q := inspectPhase)
+  (LocalRun.phase_endpoint caller (q := inspectPhase)
     (right_nodes_run caller certificateRest m target regs ctx)).1
 
 include caller in

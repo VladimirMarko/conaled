@@ -28,8 +28,8 @@ def rankTwo : BinaryTree Nat := .node 5 (.node 5 (singleton 5) (singleton 5)) .n
 
 def occupiedThree : Queue Nat := [singleton 5, rankOne, rankTwo]
 
-theorem occupiedThree_valid : priq occupiedThree := by
-  simp [occupiedThree, rankOne, rankTwo, singleton, priq, priqFrom, pow2heap, pow2heapAux]
+theorem occupiedThree_valid : Valid occupiedThree := by
+  simp [occupiedThree, rankOne, rankTwo, singleton, Valid, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem empty_bills : weighted unitPrices (emptyRun : Resources.Measured (Queue Nat) Cost).2 = 1 ∧
     (findMaxRun cmp []).1 = none ∧ calls (findMaxRun cmp []).2 = 1 ∧
@@ -152,9 +152,9 @@ def firstMaximum : Queue Nat := [singleton 9, rankOne, rankTwo]
 def middleMaximum : Queue Nat := [.nil, .node 9 (singleton 5) .nil, rankTwo]
 def finalMaximum : Queue Nat := [.nil, .nil, .node 9 (.node 5 (singleton 5) (singleton 5)) .nil]
 
-theorem selected_states_valid : priq firstMaximum ∧ priq middleMaximum ∧ priq finalMaximum := by
+theorem selected_states_valid : Valid firstMaximum ∧ Valid middleMaximum ∧ Valid finalMaximum := by
   simp [firstMaximum, middleMaximum, finalMaximum, rankOne, rankTwo, singleton,
-    priq, priqFrom, pow2heap, pow2heapAux]
+    Valid, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem first_selected_bill :
     (deleteMaxRun cmp firstMaximum).1 = some (9, [.nil, rankOne, rankTwo]) ∧
@@ -190,14 +190,14 @@ theorem selected_general_bound :
 
 def offsetMaximum : Queue Nat := [.node 9 (.node 5 (singleton 5) (singleton 5)) .nil]
 
-theorem rank_offset_bill : priqFrom 2 offsetMaximum ∧
+theorem rank_offset_bill : ValidFrom 2 offsetMaximum ∧
     (deleteMaxAuxRun cmp 9 offsetMaximum).1 = ([.nil], [singleton 5, rankOne]) ∧
     (deleteMaxAuxRun cmp 9 offsetMaximum).2 .deleteMaxAuxCalls = 1 ∧
     (deleteMaxAuxRun cmp 9 offsetMaximum).2 .unzipCalls = 3 ∧
     (deleteMaxAuxRun cmp 9 offsetMaximum).2 .cons = 3 ∧
     (deleteMaxAuxRun cmp 9 offsetMaximum).2 .nodes = 3 := by
   refine ⟨?_, by decide⟩
-  simp [offsetMaximum, singleton, priqFrom, pow2heap, pow2heapAux]
+  simp [offsetMaximum, singleton, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem rank_offset_connected :
     (deleteMaxAuxRun cmp 9 offsetMaximum).2 .unzipCalls = 3 := by
@@ -219,7 +219,7 @@ theorem malformed_fallback_bill :
     (deleteMaxAuxRun cmp 5 [.nil, .node 5 .nil (singleton 2)]).2 .comparisons = 0 := by decide
 
 theorem arbitrary_empty_padding (n : Nat) :
-    priq (List.replicate n (.nil : BinaryTree Nat)) ∧
+    Valid (List.replicate n (.nil : BinaryTree Nat)) ∧
     mass (List.replicate n (.nil : BinaryTree Nat)) = 0 ∧
     (findMaxRun cmp (List.replicate n .nil)).2 .findMaxCalls = n + 1 ∧
     calls (deleteMaxRun cmp (List.replicate n .nil)).2 = n + 2 := by
@@ -260,7 +260,7 @@ def mixedInstructions : List (Instruction Nat) :=
 
 theorem mixed_admissible : AdmissibleHistory cmp 0 3 mixedInstructions [] := by
   simp only [mixedInstructions, admissibleHistory_cons, admissibleHistory_nil, and_true]
-  simp only [Admissible, Capacity, priq, priqFrom, pow2heap, pow2heapAux, singleton]
+  simp only [Admissible, Capacity, Valid, ValidFrom, Pow2Heap, Pow2HeapAux, singleton]
   decide
 
 theorem mixed_history_value_and_bill :
@@ -268,7 +268,7 @@ theorem mixed_history_value_and_bill :
     weighted unitPrices (runCommands cmp mixedInstructions []).2 = 55 := by decide
 
 theorem mixed_history_capacity_connected :
-    priq (runCommands cmp mixedInstructions []).1 ∧
+    Valid (runCommands cmp mixedInstructions []).1 ∧
       mass (runCommands cmp mixedInstructions []).1 ≤ 3 ∧
       Capacity 0 3 (runCommands cmp mixedInstructions []).1 :=
   runCommands_invariant cmp cmp_correct 0 3 mixedInstructions [] trivial (by decide)

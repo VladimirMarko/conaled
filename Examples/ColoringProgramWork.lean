@@ -195,11 +195,11 @@ theorem source_program_entries : SparseMap.elements (colorRun unitPrices palette
   exact ColoringCorrectness.source_entries
 
 theorem source_program_semantics :
-    ColoringOK palette sourceGraph (colorRun unitPrices palette sourceGraph).1 ∧
-      AllPalette palette (colorRun unitPrices palette sourceGraph).1 ∧
+    EdgeColoringCompatible palette sourceGraph (colorRun unitPrices palette sourceGraph).1 ∧
+      PaletteValued palette (colorRun unitPrices palette sourceGraph).1 ∧
       SparseMap.keys (colorRun unitPrices palette sourceGraph).1 = SparseMap.keys sourceGraph := by
   rw [colorRun_value]
-  exact ⟨ColoringCorrectness.source_compatible, ColoringCorrectness.source_allPalette,
+  exact ⟨ColoringCorrectness.source_compatible, ColoringCorrectness.source_paletteValued,
     ColoringCorrectness.source_keys⟩
 
 theorem source_program_client_lookup (node : {key // key ∈ SparseMap.keys (color palette sourceGraph)}) :
@@ -348,11 +348,11 @@ theorem repeated_color_attempts :
   simp only [colorsOfRun_count, colorsOfRun_value, colorsOfRun_work]
   decide
 
-theorem directed_semantic_boundary : ¬ ColoringOK oneColor directed (colorRun unitPrices oneColor directed).1 := by
+theorem directed_semantic_boundary : ¬ EdgeColoringCompatible oneColor directed (colorRun unitPrices oneColor directed).1 := by
   rw [colorRun_value]
   exact directed_incompatible
 
-theorem self_loop_semantic_boundary : ¬ ColoringOK twoColors selfLoop (colorRun unitPrices twoColors selfLoop).1 := by
+theorem self_loop_semantic_boundary : ¬ EdgeColoringCompatible twoColors selfLoop (colorRun unitPrices twoColors selfLoop).1 := by
   rw [colorRun_value]
   exact selfLoop_incompatible
 

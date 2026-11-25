@@ -102,6 +102,42 @@ theorem accumulator_cost_lt (xs acc : List α) (hne : xs ≠ []) :
   have h := naiveRun_double_cost xs
   nlinarith [Nat.zero_le (xs.length * xs.length)]
 
+/-- Nonempty reverse/append constructor visits in the same structural reversal.
+The removed calls are one terminal reverse call plus one terminal append call
+per input element. This observation recovers the archived VFA queue tariff. -/
+def constructorVisits (xs : List α) : Nat :=
+  (naiveRun xs).2 - (xs.length + 1)
+
+/-- The subtraction in `constructorVisits` loses no count: all terminal calls
+are present in the measured recursion. -/
+theorem naiveRun_cost_eq_constructorVisits (xs : List α) :
+    (naiveRun xs).2 = constructorVisits xs + xs.length + 1 := by
+  have lower := accumulator_cost_le xs []
+  rw [SymmetricCosts.reverseRun_work] at lower
+  unfold constructorVisits
+  omega
+
+@[simp] theorem constructorVisits_nil : constructorVisits ([] : List α) = 0 := rfl
+
+/-- The historical tariff charges one nonempty reverse visit and the reversed
+tail's nonempty append visits; both terminal invocations cost zero. -/
+theorem constructorVisits_cons (x : α) (xs : List α) :
+    constructorVisits (x :: xs) = constructorVisits xs + xs.length + 1 := by
+  have current := naiveRun_cons_cost x xs
+  rw [appendRun_exact] at current
+  simp only [List.length_reverse] at current
+  have full := naiveRun_cost_eq_constructorVisits (x :: xs)
+  have tail := naiveRun_cost_eq_constructorVisits xs
+  simp only [List.length_cons] at full
+  omega
+
+/-- Exact historical constructor count, without division or truncated subtraction. -/
+theorem constructorVisits_double (xs : List α) :
+    2 * constructorVisits xs = xs.length * (xs.length + 1) := by
+  have calls := naiveRun_double_cost xs
+  rw [naiveRun_cost_eq_constructorVisits] at calls
+  nlinarith
+
 /-- The measured implementation is usable through the existing semantic square. -/
 def naiveSquare : Squares.Square ⟨List α, List α, id⟩
     ⟨Measured (List α) Nat, List α, Prod.fst⟩ :=

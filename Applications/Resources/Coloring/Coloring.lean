@@ -80,7 +80,7 @@ theorem colorsStep_value (f : Assignment) (key : Node) (used : NodeSet) :
     selectRun_value, colorListRun_value, color]
 
 theorem colorsOfRun_valid {bits : Nat} {palette : NodeSet} (valid : SetValid bits palette)
-    (f : Assignment) (colors : AllPalette palette f) (vertices : NodeSet) :
+    (f : Assignment) (colors : PaletteValued palette f) (vertices : NodeSet) :
     SetValid bits (colorsOfRun f vertices).1 := by
   rw [colorsOfRun_value]
   exact colorsOf_valid valid f colors vertices

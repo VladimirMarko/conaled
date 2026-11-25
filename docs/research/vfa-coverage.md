@@ -1157,7 +1157,7 @@ acceptance.
 | `Examples/SearchTreeWork.lean` | Connected concrete executions and source-wrapper erasure clients using the public resource results. |
 
 The carrier remains Mathlib's `BinaryTree`, with key/value pairs at internal
-nodes. `Examples.SearchTrees.E` and `Examples.SearchTrees.T` adapt the source
+nodes. `Examples.SearchTrees.nil` and `Examples.SearchTrees.node` adapt the source
 constructor interface; no second tree type is introduced. Source keys remain
 Nat. Generic algorithms compare only keys and allow key and payload types in
 independent universes; they impose no equality, order or inhabitance on payloads.
@@ -1205,7 +1205,7 @@ A misplaced binding can belong to the tree without being reachable by search.
 `Examples.SearchTrees.rawTable_history_agrees` connects a complete write
 history to the accepted function representation starting at the same observed
 function. The exact Maps Bool history, including the stored default at key 1,
-is connected by `Examples.SearchTrees.examplemap_eq_tree_client` and
+is connected by `Examples.SearchTrees.function_example_eq_tree_client` and
 `Examples.SearchTrees.tree_client_agrees_with_list` to the function and
 association-list clients. These are equalities of observations, with separate
 BST premises where enumeration is used.
@@ -1218,26 +1218,26 @@ the grading placeholder and the false Abort have explicit dispositions.
 
 | Exact source inventory ID | Lean target and complete contract/proof route |
 |---|---|
-| `SearchTree.key@38` | `Examples.SearchTrees.key := Nat`; the generic owner is separately polymorphic in ordered keys. |
-| `SearchTree.tree@44` | `Examples.SearchTrees.tree V := BinaryTree (Nat × V)`, with `Examples.SearchTrees.E` and `Examples.SearchTrees.T` constructor adapters; arbitrary raw trees remain representable. |
-| `SearchTree.ex_tree@59` | `Examples.SearchTrees.ex_tree`: root 4→`"four"`, left 2→`"two"`, right 5→`"five"`. |
-| `SearchTree.empty_tree@64` | `Examples.SearchTrees.empty_tree` is E, with no payload inhabitance assumption. |
+| `SearchTree.key@38` | `Examples.SearchTrees.Key := Nat`; the generic owner is separately polymorphic in ordered keys. |
+| `SearchTree.tree@44` | `Examples.SearchTrees.Tree V := BinaryTree (Nat × V)`, with `Examples.SearchTrees.nil` and `Examples.SearchTrees.node` constructor adapters; arbitrary raw trees remain representable. |
+| `SearchTree.ex_tree@59` | `Examples.SearchTrees.exampleTree`: root 4→`"four"`, left 2→`"two"`, right 5→`"five"`. |
+| `SearchTree.empty_tree@64` | `Examples.SearchTrees.emptyTree` is E, with no payload inhabitance assumption. |
 | `SearchTree.bound@69` | `Examples.SearchTrees.bound` and `Examples.SearchTrees.bound_node`: the presence bit of directed optional lookup; query/root comparison precedes root/query comparison. |
 | `SearchTree.lookup@80` | `Examples.SearchTrees.lookup` and `Examples.SearchTrees.lookup_node`: directed lookup with the caller's explicit default, preserving that comparison order. |
 | `SearchTree.insert@91` | `Examples.SearchTrees.insert`, `Examples.SearchTrees.insert_empty` and `Examples.SearchTrees.insert_node` specialize `Search.OrderedMap.bind`, including value replacement at the equal key. |
-| `SearchTree.Tests.bst_ex1@109` | `Examples.SearchTrees.bst_ex1`: inserting 4, then 2, then 5 into E yields the exact source tree. |
-| `SearchTree.Tests.bst_ex2@113` | `Examples.SearchTrees.bst_ex2`: lookup 5 with default `""` returns `"five"`. |
-| `SearchTree.Tests.bst_ex3@116` | `Examples.SearchTrees.bst_ex3`: lookup absent 3 with default `""` returns that default. |
-| `SearchTree.Tests.bst_ex4@119` | `Examples.SearchTrees.bst_ex4`: presence of 3 is false. |
-| `SearchTree.NotBst.t@141` | `Examples.SearchTrees.NotBst.t` retains root 4, misplaced left 5 and right 2, with the exact source payloads. |
-| `SearchTree.NotBst.not_bst_lookup_wrong@149` | `Examples.SearchTrees.NotBst.not_bst_lookup_wrong`: directed lookup of 2 does not return the physically present `"two"`. |
+| `SearchTree.Tests.bst_ex1@109` | `Examples.SearchTrees.insert_exampleTree`: inserting 4, then 2, then 5 into E yields the exact source tree. |
+| `SearchTree.Tests.bst_ex2@113` | `Examples.SearchTrees.lookup_exampleTree_present`: lookup 5 with default `""` returns `"five"`. |
+| `SearchTree.Tests.bst_ex3@116` | `Examples.SearchTrees.lookup_exampleTree_absent`: lookup absent 3 with default `""` returns that default. |
+| `SearchTree.Tests.bst_ex4@119` | `Examples.SearchTrees.bound_exampleTree_absent`: presence of 3 is false. |
+| `SearchTree.NotBst.t@141` | `Examples.SearchTrees.Malformed.exampleTree` retains root 4, misplaced left 5 and right 2, with the exact source payloads. |
+| `SearchTree.NotBst.not_bst_lookup_wrong@149` | `Examples.SearchTrees.Malformed.lookup_hidden_key_misses`: directed lookup of 2 does not return the physically present `"two"`. |
 | `SearchTree.ForallT@160` | `Examples.SearchTrees.ForallT` specializes `Search.OrderedTree.All` to key/value predicates; `Examples.SearchTrees.forallT_node` exposes the all-node constructor equation. |
 | `SearchTree.BST@174` | `Examples.SearchTrees.BST` specializes `Search.OrderedTree.OrderedBy Prod.fst`; `Examples.SearchTrees.bst_node` and `Examples.SearchTrees.bst_induction` retain both all-descendant strict separators. |
-| `SearchTree.is_BST_ex@188` | `Examples.SearchTrees.is_BST_ex` checks the complete source example against the actual invariant. |
-| `SearchTree.not_BST_ex@195` | `Examples.SearchTrees.not_BST_ex` proves the malformed source example violates that invariant. |
-| `SearchTree.empty_tree_BST@206` | `Examples.SearchTrees.empty_tree_BST`: E is valid for every payload type. |
-| `SearchTree.ForallT_insert@220` | `Examples.SearchTrees.ForallT_insert` consumes `Search.OrderedMap.all_bind`: all old labels satisfy P and the new binding satisfies P; no BST premise. |
-| `SearchTree.insert_BST@229` | `Examples.SearchTrees.insert_BST` consumes `Search.OrderedMap.ordered_bind` and preserves the full strict separator invariant. |
+| `SearchTree.is_BST_ex@188` | `Examples.SearchTrees.bst_exampleTree` checks the complete source example against the actual invariant. |
+| `SearchTree.not_BST_ex@195` | `Examples.SearchTrees.Malformed.not_bst_exampleTree` proves the malformed source example violates that invariant. |
+| `SearchTree.empty_tree_BST@206` | `Examples.SearchTrees.bst_emptyTree`: E is valid for every payload type. |
+| `SearchTree.ForallT_insert@220` | `Examples.SearchTrees.forallT_insert` consumes `Search.OrderedMap.all_bind`: all old labels satisfy P and the new binding satisfies P; no BST premise. |
+| `SearchTree.insert_BST@229` | `Examples.SearchTrees.bst_insert` consumes `Search.OrderedMap.ordered_bind` and preserves the full strict separator invariant. |
 | `SearchTree.lookup_empty@290` | `Examples.SearchTrees.lookup_empty`: every query on E returns the supplied default. |
 | `SearchTree.lookup_insert_eq@296` | `Examples.SearchTrees.lookup_insert_eq` derives the same-key observation from `Examples.SearchTrees.lookup_insert` on every raw tree. |
 | `SearchTree.bdestruct_guard@311` | Proof-automation disposition: checked Lean proofs split comparison/equality cases with `by_cases` and simplify the resulting propositions; no new mathematical constant or tactic framework. |
@@ -1253,12 +1253,12 @@ the grading placeholder and the false Abort have explicit dispositions.
 | `SearchTree.insert_same_equality_breaks@493` | `Examples.SearchTrees.insert_same_equality_breaks`: at every payload universe, an existential empty-tree/default-valued insertion changes the raw tree. |
 | `SearchTree.insert_permute_equality_breaks@499` | `Examples.SearchTrees.insert_permute_equality_breaks`: distinct keys 0 and 1 inserted in opposite orders give different roots, even with equal payloads. |
 | `SearchTree.elements@517` | `Examples.SearchTrees.elements := Search.OrderedTree.entries`; `Examples.SearchTrees.elements_node` states explicitly `elements left ++ ([(k,value)] ++ elements right)`. `Search.OrderedTree.entries_length` gives length = node count for every raw tree. |
-| `SearchTree.elements_ex@523` | `Examples.SearchTrees.elements_ex`: exactly [(2,`"two"`),(4,`"four"`),(5,`"five"`)] in inorder. |
-| `SearchTree.elements_complete_broken_spec@554` | `Examples.SearchTrees.elements_complete_broken_spec` retains the false universal proposition, including its BST premise and default-valued lookup antecedent. |
-| `SearchTree.elements_complete_broken@567` | The source Abort is disposed of by `Examples.SearchTrees.elements_complete_broken`, a proof of the proposition's negation using a valid empty tree. The false positive statement is not asserted. |
-| `SearchTree.elements_complete_spec@577` | `Examples.SearchTrees.elements_complete_spec` retains presence=true and lookup=value as separate antecedents, with no BST assumption. |
+| `SearchTree.elements_ex@523` | `Examples.SearchTrees.elements_exampleTree`: exactly [(2,`"two"`),(4,`"four"`),(5,`"five"`)] in inorder. |
+| `SearchTree.elements_complete_broken_spec@554` | `Examples.SearchTrees.DefaultLookupImpliesMembership` retains the false universal proposition, including its BST premise and default-valued lookup antecedent. |
+| `SearchTree.elements_complete_broken@567` | The source Abort is disposed of by `Examples.SearchTrees.not_defaultLookupImpliesMembership`, a proof of the proposition's negation using a valid empty tree. The false positive statement is not asserted. |
+| `SearchTree.elements_complete_spec@577` | `Examples.SearchTrees.ElementsComplete` retains presence=true and lookup=value as separate antecedents, with no BST assumption. |
 | `SearchTree.elements_complete@587` | `Examples.SearchTrees.elements_complete` uses `Search.OrderedMap.binding_iff`, directed successful-lookup membership and the shared entries/contains bridge. |
-| `SearchTree.elements_correct_spec@596` | `Examples.SearchTrees.elements_correct_spec`: on a BST, binding membership implies both presence and the value at the caller's default. |
+| `SearchTree.elements_correct_spec@596` | `Examples.SearchTrees.ElementsCorrect`: on a BST, binding membership implies both presence and the value at the caller's default. |
 | `SearchTree.uncurry@626` | Pair projections in `Examples.SearchTrees.elements_preserves_forall` express exactly `fun binding => P binding.1 binding.2`. This elementary adapter introduces no second predicate or carrier. |
 | `SearchTree.elements_preserves_forall@631` | `Examples.SearchTrees.elements_preserves_forall`: every listed pair satisfies the all-node predicate. Its membership-quantified conclusion is equivalent to `List.Forall` through `List.forall_iff_forall_mem`. |
 | `SearchTree.elements_preserves_relation@652` | `Examples.SearchTrees.elements_preserves_relation` specializes the all-node theorem at an arbitrary key relation and a fixed second key; no relation laws or BST premise. |
@@ -1267,47 +1267,47 @@ the grading placeholder and the false Abort have explicit dispositions.
 | `SearchTree.bound_value@703` | `Examples.SearchTrees.bound_value`: presence gives `∃ value, ∀ default, lookup default k t = value`; the witness precedes and is independent of the default, with no BST premise. |
 | `SearchTree.elements_correct_inverse@710` | `Examples.SearchTrees.elements_correct_inverse`: exclusion of every value at a key from entries implies absence, on every raw tree; uses the preceding witness and completeness. |
 | `SearchTree.sorted_app@731` | `Examples.SearchTrees.sorted_app` retains sorted left/right Nat lists and both strict separator predicates; the conclusion uses the accepted `Examples.InsertionSorting.sorted` adapter. |
-| `SearchTree.list_keys@745` | `Examples.SearchTrees.list_keys` is `List.map Prod.fst` on the actual binding list. |
+| `SearchTree.list_keys@745` | `Examples.SearchTrees.listKeys` is `List.map Prod.fst` on the actual binding list. |
 | `SearchTree.sorted_elements@751` | `Examples.SearchTrees.sorted_elements` derives accepted non-strict Nat sortedness from `Search.OrderedMap.ordered_entries_keys_pairwise` and the BST premise. |
-| `SearchTree.disjoint@772` | `Examples.SearchTrees.disjoint` is the source membership condition `∀ x, x ∈ left → x ∉ right`, for arbitrary element types. |
-| `SearchTree.NoDup_append@781` | `Examples.SearchTrees.NoDup_append` consumes `List.Nodup.append` with nodup on each operand and cross-list membership disjointness. |
+| `SearchTree.disjoint@772` | `Examples.SearchTrees.Disjoint` is the source membership condition `∀ x, x ∈ left → x ∉ right`, for arbitrary element types. |
+| `SearchTree.NoDup_append@781` | `Examples.SearchTrees.nodup_append` consumes `List.Nodup.append` with nodup on each operand and cross-list membership disjointness. |
 | `SearchTree.elements_nodup_keys@794` | `Examples.SearchTrees.elements_nodup_keys` consumes `Search.OrderedMap.ordered_entries_keys_nodup`; uniqueness concerns projected keys, not merely pairs. |
-| `SearchTree.fast_elements_tr@814` | `Examples.SearchTrees.fast_elements_tr` specializes `Search.OrderedMap.fastEntriesAcc`; `Examples.SearchTrees.fast_elements_tr_node` exposes the nested right-then-left accumulator recurrence. |
-| `SearchTree.fast_elements@821` | `Examples.SearchTrees.fast_elements` specializes `Search.OrderedMap.fastEntries` at the empty suffix. |
-| `SearchTree.fast_elements_tr_helper@829` | `Examples.SearchTrees.fast_elements_tr_helper` consumes `Search.OrderedMap.fastEntriesAcc_eq` for every raw tree and arbitrary suffix. |
-| `SearchTree.fast_elements_eq_elements@835` | `Examples.SearchTrees.fast_elements_eq_elements` specializes that arbitrary-suffix result to the empty suffix; no BST premise. |
-| `SearchTree.fast_elements_correct@846` | `Examples.SearchTrees.fast_elements_correct` rewrites the optimized list through its public equality and then invokes `Examples.SearchTrees.elements_correct`. The separate `Examples.SearchTrees.fast_elements_sorted` transfers sortedness in the same way. |
+| `SearchTree.fast_elements_tr@814` | `Examples.SearchTrees.fastElementsAcc` specializes `Search.OrderedMap.fastEntriesAcc`; `Examples.SearchTrees.fastElementsAcc_node` exposes the nested right-then-left accumulator recurrence. |
+| `SearchTree.fast_elements@821` | `Examples.SearchTrees.fastElements` specializes `Search.OrderedMap.fastEntries` at the empty suffix. |
+| `SearchTree.fast_elements_tr_helper@829` | `Examples.SearchTrees.fastElementsAcc_eq_append` consumes `Search.OrderedMap.fastEntriesAcc_eq` for every raw tree and arbitrary suffix. |
+| `SearchTree.fast_elements_eq_elements@835` | `Examples.SearchTrees.fastElements_eq_elements` specializes that arbitrary-suffix result to the empty suffix; no BST premise. |
+| `SearchTree.fast_elements_correct@846` | `Examples.SearchTrees.fastElements_correct` rewrites the optimized list through its public equality and then invokes `Examples.SearchTrees.elements_correct`. The separate `Examples.SearchTrees.fastElements_sorted` transfers sortedness in the same way. |
 | `SearchTree.elements_empty@874` | `Examples.SearchTrees.elements_empty`: E enumerates to [] for arbitrary payload types. |
-| `SearchTree.kvs_insert@886` | `Examples.SearchTrees.kvs_insert` specializes `Search.OrderedMap.kvsInsert`: insert before a greater head, recurse after a smaller head, replace at equality. |
-| `SearchTree.kvs_insert_split@902` | `Examples.SearchTrees.kvs_insert_split` consumes `Search.OrderedMap.kvsInsert_split` with both strict separator predicates. Its three source branches require neither list sortedness nor per-list nodup. |
-| `SearchTree.kvs_insert_elements@918` | `Examples.SearchTrees.kvs_insert_elements` consumes `Search.OrderedMap.entries_bind` under BST: enumeration after actual tree insertion equals the exact list insertion. |
-| `SearchTree.map_of_list@986` | `Examples.SearchTrees.map_of_list := Search.OrderedMap.listObserve`; `Examples.SearchTrees.map_of_list_empty` and `Examples.SearchTrees.map_of_list_cons` expose the empty and head-wins tail-update equations. |
-| `SearchTree.Abs@992` | `Examples.SearchTrees.Abs := Search.OrderedMap.SourceModel.enumAbs`, defined as the list decoder of the actual inorder entries for every raw tree. |
+| `SearchTree.kvs_insert@886` | `Examples.SearchTrees.kvsInsert` specializes `Search.OrderedMap.kvsInsert`: insert before a greater head, recurse after a smaller head, replace at equality. |
+| `SearchTree.kvs_insert_split@902` | `Examples.SearchTrees.kvsInsert_split` consumes `Search.OrderedMap.kvsInsert_split` with both strict separator predicates. Its three source branches require neither list sortedness nor per-list nodup. |
+| `SearchTree.kvs_insert_elements@918` | `Examples.SearchTrees.kvsInsert_elements` consumes `Search.OrderedMap.entries_bind` under BST: enumeration after actual tree insertion equals the exact list insertion. |
+| `SearchTree.map_of_list@986` | `Examples.SearchTrees.mapOfList := Search.OrderedMap.listObserve`; `Examples.SearchTrees.mapOfList_empty` and `Examples.SearchTrees.mapOfList_cons` expose the empty and head-wins tail-update equations. |
+| `SearchTree.Abs@992` | `Examples.SearchTrees.enumerationMeaning := Search.OrderedMap.SourceModel.enumAbs`, defined as the list decoder of the actual inorder entries for every raw tree. |
 | `SearchTree.find@1007` | `Examples.SearchTrees.find` specializes `Search.OrderedMap.withDefault`: the result is V after `Option.getD`, with no extra `some` in the codomain. |
-| `SearchTree.map_bound@1015` | `Examples.SearchTrees.map_bound` specializes `Search.OrderedMap.hasBinding` and returns the optional map's presence bit. |
+| `SearchTree.map_bound@1015` | `Examples.SearchTrees.mapBound` specializes `Search.OrderedMap.hasBinding` and returns the optional map's presence bit. |
 | `SearchTree.in_fst@1036` | `Examples.SearchTrees.in_fst` consumes `Search.OrderedMap.SourceModel.in_keys_of_mem` for arbitrary pair types in independent universes. |
-| `SearchTree.in_map_of_list@1043` | `Examples.SearchTrees.in_map_of_list` retains projected-key nodup plus actual pair membership; `Search.OrderedMap.SourceModel.listObserve_eq_some_of_mem` yields the stored value. |
-| `SearchTree.not_in_map_of_list@1051` | `Examples.SearchTrees.not_in_map_of_list` consumes `Search.OrderedMap.SourceModel.listObserve_none_of_not_mem`; key absence needs no nodup premise. |
-| `SearchTree.empty_relate@1057` | `Examples.SearchTrees.empty_relate`: the enumerating abstraction of E is the accepted optional empty map. |
-| `SearchTree.bound_relate@1065` | `Examples.SearchTrees.bound_relate` uses `Search.OrderedMap.SourceModel.enumAbs_bound` under BST. |
-| `SearchTree.lookup_relate@1075` | `Examples.SearchTrees.lookup_relate` uses `Search.OrderedMap.SourceModel.enumAbs_default` under BST, retaining the supplied default. |
-| `SearchTree.insert_relate@1082` | `Examples.SearchTrees.insert_relate` uses `Search.OrderedMap.SourceModel.enumAbs_bind`: the enumeration-insertion theorem and list-decoder insertion law establish the first model route. |
-| `SearchTree.elements_relate@1132` | `Examples.SearchTrees.elements_relate` retains the source BST argument and is definitional. `Search.OrderedMap.SourceModel.enumAbs_elements` exposes the stronger unconditional equality separately. |
-| `SearchTree.union@1154` | `Examples.SearchTrees.union := Search.OrderedMap.SourceModel.collisionUnion`: exactly one present operand survives; two present operands cancel even if their payloads are equal. |
-| `SearchTree.union_left@1167` | `Examples.SearchTrees.union_left` uses `Search.OrderedMap.SourceModel.collisionUnion_left` when the right operand is absent at this query. |
-| `SearchTree.union_right@1172` | `Examples.SearchTrees.union_right` uses `Search.OrderedMap.SourceModel.collisionUnion_right` when the left operand is absent at this query. |
-| `SearchTree.union_both@1178` | `Examples.SearchTrees.union_both` uses `Search.OrderedMap.SourceModel.collisionUnion_both`: two present values yield none. |
-| `SearchTree.union_update_right@1187` | `Examples.SearchTrees.union_update_right` uses `Search.OrderedMap.SourceModel.collisionUnion_write_right`, requiring the left operand absent only at the written key; a whole-function equality. |
-| `SearchTree.union_update_left@1193` | `Examples.SearchTrees.union_update_left` uses `Search.OrderedMap.SourceModel.collisionUnion_write_left`, requiring the right operand absent only at the written key; a whole-function equality. |
-| `SearchTree.map_of_tree@1204` | `Examples.SearchTrees.map_of_tree := Search.OrderedMap.SourceModel.mapOfTree`; `Examples.SearchTrees.map_of_tree_node` exposes root update over the collision union of independently decoded children. |
-| `SearchTree.map_of_tree_prop@1211` | `Examples.SearchTrees.map_of_tree_prop` consumes `Search.OrderedMap.SourceModel.mapOfTree_prop`: an all-node predicate holds of every successfully decoded binding, with no BST premise. |
-| `SearchTree.Abs'@1222` | `Examples.SearchTrees.Abs'` aliases the direct structural `Examples.SearchTrees.map_of_tree`, not the enumerating abstraction. |
-| `SearchTree.empty_relate'@1225` | `Examples.SearchTrees.empty_relate'`: the direct abstraction of E is the optional empty map. |
-| `SearchTree.bound_relate'@1232` | `Examples.SearchTrees.bound_relate'` uses `Search.OrderedMap.SourceModel.mapOfTree_bound` under BST, through the independently proved structural lookup correspondence. |
-| `SearchTree.lookup_relate'@1240` | `Examples.SearchTrees.lookup_relate'` uses `Search.OrderedMap.SourceModel.mapOfTree_default` under BST, retaining the supplied default. |
-| `SearchTree.insert_relate'@1247` | `Examples.SearchTrees.insert_relate'` uses `Search.OrderedMap.SourceModel.mapOfTree_bind`, proved independently by structural induction, union-update laws and separator-derived absence. |
-| `SearchTree.map_of_list_app@1258` | `Examples.SearchTrees.map_of_list_app` uses `Search.OrderedMap.SourceModel.listObserve_append_of_disjoint`. Only cross-list projected-key disjointness is required; either list may contain internal duplicate keys. |
-| `SearchTree.elements_relate'@1266` | `Examples.SearchTrees.elements_relate'` uses `Search.OrderedMap.SourceModel.enumAbs_eq_mapOfTree` under BST. This final coherence theorem follows the direct structural route rather than defining it. |
+| `SearchTree.in_map_of_list@1043` | `Examples.SearchTrees.mapOfList_eq_some_of_mem` retains projected-key nodup plus actual pair membership; `Search.OrderedMap.SourceModel.listObserve_eq_some_of_mem` yields the stored value. |
+| `SearchTree.not_in_map_of_list@1051` | `Examples.SearchTrees.mapOfList_eq_none_of_not_mem` consumes `Search.OrderedMap.SourceModel.listObserve_none_of_not_mem`; key absence needs no nodup premise. |
+| `SearchTree.empty_relate@1057` | `Examples.SearchTrees.enumerationMeaning_empty`: the enumerating abstraction of E is the accepted optional empty map. |
+| `SearchTree.bound_relate@1065` | `Examples.SearchTrees.enumerationMeaning_bound` uses `Search.OrderedMap.SourceModel.enumAbs_bound` under BST. |
+| `SearchTree.lookup_relate@1075` | `Examples.SearchTrees.enumerationMeaning_lookup` uses `Search.OrderedMap.SourceModel.enumAbs_default` under BST, retaining the supplied default. |
+| `SearchTree.insert_relate@1082` | `Examples.SearchTrees.enumerationMeaning_insert` uses `Search.OrderedMap.SourceModel.enumAbs_bind`: the enumeration-insertion theorem and list-decoder insertion law establish the first model route. |
+| `SearchTree.elements_relate@1132` | `Examples.SearchTrees.mapOfList_elements` retains the source BST argument and is definitional. `Search.OrderedMap.SourceModel.enumAbs_elements` exposes the stronger unconditional equality separately. |
+| `SearchTree.union@1154` | `Examples.SearchTrees.collisionUnion := Search.OrderedMap.SourceModel.collisionUnion`: exactly one present operand survives; two present operands cancel even if their payloads are equal. |
+| `SearchTree.union_left@1167` | `Examples.SearchTrees.collisionUnion_left` uses `Search.OrderedMap.SourceModel.collisionUnion_left` when the right operand is absent at this query. |
+| `SearchTree.union_right@1172` | `Examples.SearchTrees.collisionUnion_right` uses `Search.OrderedMap.SourceModel.collisionUnion_right` when the left operand is absent at this query. |
+| `SearchTree.union_both@1178` | `Examples.SearchTrees.collisionUnion_both` uses `Search.OrderedMap.SourceModel.collisionUnion_both`: two present values yield none. |
+| `SearchTree.union_update_right@1187` | `Examples.SearchTrees.collisionUnion_update_right` uses `Search.OrderedMap.SourceModel.collisionUnion_write_right`, requiring the left operand absent only at the written key; a whole-function equality. |
+| `SearchTree.union_update_left@1193` | `Examples.SearchTrees.collisionUnion_update_left` uses `Search.OrderedMap.SourceModel.collisionUnion_write_left`, requiring the right operand absent only at the written key; a whole-function equality. |
+| `SearchTree.map_of_tree@1204` | `Examples.SearchTrees.mapOfTree := Search.OrderedMap.SourceModel.mapOfTree`; `Examples.SearchTrees.mapOfTree_node` exposes root update over the collision union of independently decoded children. |
+| `SearchTree.map_of_tree_prop@1211` | `Examples.SearchTrees.mapOfTree_prop` consumes `Search.OrderedMap.SourceModel.mapOfTree_prop`: an all-node predicate holds of every successfully decoded binding, with no BST premise. |
+| `SearchTree.Abs'@1222` | `Examples.SearchTrees.structuralMeaning` aliases the direct structural `Examples.SearchTrees.mapOfTree`, not the enumerating abstraction. |
+| `SearchTree.empty_relate'@1225` | `Examples.SearchTrees.structuralMeaning_empty`: the direct abstraction of E is the optional empty map. |
+| `SearchTree.bound_relate'@1232` | `Examples.SearchTrees.structuralMeaning_bound` uses `Search.OrderedMap.SourceModel.mapOfTree_bound` under BST, through the independently proved structural lookup correspondence. |
+| `SearchTree.lookup_relate'@1240` | `Examples.SearchTrees.structuralMeaning_lookup` uses `Search.OrderedMap.SourceModel.mapOfTree_default` under BST, retaining the supplied default. |
+| `SearchTree.insert_relate'@1247` | `Examples.SearchTrees.structuralMeaning_insert` uses `Search.OrderedMap.SourceModel.mapOfTree_bind`, proved independently by structural induction, union-update laws and separator-derived absence. |
+| `SearchTree.map_of_list_app@1258` | `Examples.SearchTrees.mapOfList_append` uses `Search.OrderedMap.SourceModel.listObserve_append_of_disjoint`. Only cross-list projected-key disjointness is required; either list may contain internal duplicate keys. |
+| `SearchTree.elements_relate'@1266` | `Examples.SearchTrees.mapOfList_elements_eq_structuralMeaning` uses `Search.OrderedMap.SourceModel.enumAbs_eq_mapOfTree` under BST. This final coherence theorem follows the direct structural route rather than defining it. |
 
 ### All 35 exercise prompts
 
@@ -1317,8 +1317,8 @@ lemmas and all parts of the open-ended exercises.
 
 | Source exercise and lines | Stars; labels | Complete implementation |
 |---|---|---|
-| `empty_tree_BST`, 202–211 | 1; standard | `Examples.SearchTrees.empty_tree_BST`. |
-| `insert_BST`, 213–234 | 3; standard | Both `Examples.SearchTrees.ForallT_insert` and `Examples.SearchTrees.insert_BST`. |
+| `empty_tree_BST`, 202–211 | 1; standard | `Examples.SearchTrees.bst_emptyTree`. |
+| `insert_BST`, 213–234 | 3; standard | Both `Examples.SearchTrees.forallT_insert` and `Examples.SearchTrees.bst_insert`. |
 | `bound_correct`, 346–357 | 3; standard, optional | All three raw laws: `Examples.SearchTrees.bound_empty`, `Examples.SearchTrees.bound_insert_eq`, `Examples.SearchTrees.bound_insert_neq`; the grading stub adds no theorem. |
 | `bound_default`, 359–371 | 1; standard, optional | `Examples.SearchTrees.bound_default`, with the failed converse checked separately. |
 | `lookup_insert_shadow`, 430–439 | 2; standard, optional | `Examples.SearchTrees.lookup_insert_shadow` via the public raw lookup law. |
@@ -1332,26 +1332,26 @@ lemmas and all parts of the open-ended exercises.
 | `elements_complete_inverse`, 683–696 | 2; advanced | `Examples.SearchTrees.elements_complete_inverse` retaining BST. |
 | `elements_correct_inverse`, 698–717 | 4; advanced | Both `Examples.SearchTrees.bound_value` with `∃ value, ∀ default` and `Examples.SearchTrees.elements_correct_inverse`, without BST. |
 | `sorted_app`, 725–738 | 3; advanced | `Examples.SearchTrees.sorted_app` with both sorted-list and separator premises. |
-| `sorted_elements`, 740–755 | 4; advanced | `Examples.SearchTrees.list_keys` and `Examples.SearchTrees.sorted_elements` through the accepted sorting API. |
-| `NoDup_append`, 775–786 | 3; advanced, optional | `Examples.SearchTrees.NoDup_append` with two nodup premises and cross-list disjointness. |
+| `sorted_elements`, 740–755 | 4; advanced | `Examples.SearchTrees.listKeys` and `Examples.SearchTrees.sorted_elements` through the accepted sorting API. |
+| `NoDup_append`, 775–786 | 3; advanced, optional | `Examples.SearchTrees.nodup_append` with two nodup premises and cross-list disjointness. |
 | `elements_nodup_keys`, 788–800 | 4; advanced, optional | `Examples.SearchTrees.elements_nodup_keys` on projected keys. |
-| `fast_elements_eq_elements`, 824–840 | 3; standard | Both `Examples.SearchTrees.fast_elements_tr_helper` for arbitrary suffix and `Examples.SearchTrees.fast_elements_eq_elements`. |
-| `kvs_insert_split`, 901–915 | 3; standard, optional | `Examples.SearchTrees.kvs_insert_split`, all three branches and both separator premises. |
-| `kvs_insert_elements`, 917–924 | 3; standard, optional | `Examples.SearchTrees.kvs_insert_elements` for actual tree insertion under BST. |
+| `fast_elements_eq_elements`, 824–840 | 3; standard | Both `Examples.SearchTrees.fastElementsAcc_eq_append` for arbitrary suffix and `Examples.SearchTrees.fastElements_eq_elements`. |
+| `kvs_insert_split`, 901–915 | 3; standard, optional | `Examples.SearchTrees.kvsInsert_split`, all three branches and both separator premises. |
+| `kvs_insert_elements`, 917–924 | 3; standard, optional | `Examples.SearchTrees.kvsInsert_elements` for actual tree insertion under BST. |
 | `in_fst`, 1035–1040 | 2; standard, optional | `Examples.SearchTrees.in_fst` for arbitrary pair types. |
-| `in_map_of_list`, 1042–1048 | 2; standard, optional | `Examples.SearchTrees.in_map_of_list` with projected-key nodup. |
-| `not_in_map_of_list`, 1050–1055 | 2; standard, optional | `Examples.SearchTrees.not_in_map_of_list` without nodup. |
-| `bound_relate`, 1063–1071 | 3; standard, optional | `Examples.SearchTrees.bound_relate` through the first abstraction. |
-| `lookup_relate`, 1073–1079 | 3; standard, optional | `Examples.SearchTrees.lookup_relate` with the explicit default. |
-| `insert_relate`, 1081–1092 | 3; standard, optional | `Examples.SearchTrees.insert_relate` through enumeration/list insertion. |
-| `union_collapse`, 1166–1184 | 2; standard, optional | All three laws: `Examples.SearchTrees.union_left`, `Examples.SearchTrees.union_right`, `Examples.SearchTrees.union_both`. |
-| `union_update`, 1186–1198 | 3; standard, optional | Both `Examples.SearchTrees.union_update_right` and `Examples.SearchTrees.union_update_left` with only the written-key absence premise. |
-| `map_of_tree_prop`, 1210–1217 | 3; advanced, optional | `Examples.SearchTrees.map_of_tree_prop` from an all-node predicate, without BST. |
-| `bound_relate'`, 1231–1237 | 3; advanced, optional | `Examples.SearchTrees.bound_relate'` through independent structural lookup. |
-| `lookup_relate'`, 1239–1244 | 3; advanced, optional | `Examples.SearchTrees.lookup_relate'` through independent structural lookup. |
-| `insert_relate'`, 1246–1251 | 4; advanced, optional | `Examples.SearchTrees.insert_relate'` through independent structural insertion. |
-| `map_of_list_app`, 1257–1263 | 3; advanced, optional | `Examples.SearchTrees.map_of_list_app` with cross-list projected-key disjointness only. |
-| `elements_relate'`, 1265–1271 | 4; advanced, optional | `Examples.SearchTrees.elements_relate'` proves the final BST-dependent decoder coherence. |
+| `in_map_of_list`, 1042–1048 | 2; standard, optional | `Examples.SearchTrees.mapOfList_eq_some_of_mem` with projected-key nodup. |
+| `not_in_map_of_list`, 1050–1055 | 2; standard, optional | `Examples.SearchTrees.mapOfList_eq_none_of_not_mem` without nodup. |
+| `bound_relate`, 1063–1071 | 3; standard, optional | `Examples.SearchTrees.enumerationMeaning_bound` through the first abstraction. |
+| `lookup_relate`, 1073–1079 | 3; standard, optional | `Examples.SearchTrees.enumerationMeaning_lookup` with the explicit default. |
+| `insert_relate`, 1081–1092 | 3; standard, optional | `Examples.SearchTrees.enumerationMeaning_insert` through enumeration/list insertion. |
+| `union_collapse`, 1166–1184 | 2; standard, optional | All three laws: `Examples.SearchTrees.collisionUnion_left`, `Examples.SearchTrees.collisionUnion_right`, `Examples.SearchTrees.collisionUnion_both`. |
+| `union_update`, 1186–1198 | 3; standard, optional | Both `Examples.SearchTrees.collisionUnion_update_right` and `Examples.SearchTrees.collisionUnion_update_left` with only the written-key absence premise. |
+| `map_of_tree_prop`, 1210–1217 | 3; advanced, optional | `Examples.SearchTrees.mapOfTree_prop` from an all-node predicate, without BST. |
+| `bound_relate'`, 1231–1237 | 3; advanced, optional | `Examples.SearchTrees.structuralMeaning_bound` through independent structural lookup. |
+| `lookup_relate'`, 1239–1244 | 3; advanced, optional | `Examples.SearchTrees.structuralMeaning_lookup` through independent structural lookup. |
+| `insert_relate'`, 1246–1251 | 4; advanced, optional | `Examples.SearchTrees.structuralMeaning_insert` through independent structural insertion. |
+| `map_of_list_app`, 1257–1263 | 3; advanced, optional | `Examples.SearchTrees.mapOfList_append` with cross-list projected-key disjointness only. |
+| `elements_relate'`, 1265–1271 | 4; advanced, optional | `Examples.SearchTrees.mapOfList_elements_eq_structuralMeaning` proves the final BST-dependent decoder coherence. |
 
 ### Two independent models and canonical enumeration
 
@@ -1376,7 +1376,7 @@ the written key in the opposite operand. By contrast,
 cross-list disjointness of projected keys, while allowing duplicates within
 either operand. The collision operation is commutative but is not assumed to
 be an unrestricted associative union; the concrete
-`Examples.SearchTrees.union_not_associative` witness distinguishes the two
+`Examples.SearchTrees.collisionUnion_not_associative` witness distinguishes the two
 parenthesizations.
 
 `Search.OrderedMap.SourceModel.mapOfTree` is a separate structural recursion:
@@ -1525,8 +1525,8 @@ gives the unconditional quadratic family upper bound for exact node count n.
 suffix passed under the new pair to the left traversal.
 `Search.OrderedMap.fastEntriesAcc_eq` proves for **arbitrary** suffix xs
 that the returned list is `entries t ++ xs`; the empty-suffix equality follows
-afterwards. `Examples.SearchTrees.fast_elements_correct` and
-`Examples.SearchTrees.fast_elements_sorted` transport membership correctness
+afterwards. `Examples.SearchTrees.fastElements_correct` and
+`Examples.SearchTrees.fastElements_sorted` transport membership correctness
 and ordering through this public value equality.
 
 `Resources.TreeEnumeration.accumulatorRun` instruments that same recurrence
@@ -1591,9 +1591,9 @@ duplicate-key list member whose value is not observed.
 `Examples.SearchTrees.raw_abstractions_disagree` gives the concrete
 key-0 collision in both children of a key-1 root: inorder decoding preserves
 the left binding while structural decoding cancels both. Its failed BST
-witness is explicit in `Examples.SearchTrees.collision_tree_not_BST`.
-`Examples.SearchTrees.all_union_branches` includes equal-valued collision
-removal; `Examples.SearchTrees.union_update_without_absence_fails` checks
+witness is explicit in `Examples.SearchTrees.not_bst_collisionTree`.
+`Examples.SearchTrees.collisionUnion_cases` includes equal-valued collision
+removal; `Examples.SearchTrees.collisionUnion_update_without_absence_fails` checks
 the missing-premise counterexample.
 
 `Examples.SearchTrees.key_zero_replacement` consumes structural shadowing.
@@ -1718,7 +1718,7 @@ Type-valued clients check that these are actual universe-generic interfaces.
 | Source contract | Checked Lean contract and exact boundary |
 |---|---|
 | Table | `Examples.AbstractDataTypes.Table` uses `Search.TotalTable.Ops`. `Examples.AbstractDataTypes.TableLaws` instantiates the existing law family with validity `True`: empty/default, same-key, and distinct-key observations hold on every represented state. |
-| First ETable attempt | `Search.OrderedMap.EnumeratedTable.FirstAttemptLaws` adds both unrestricted membership directions to the unconditional table laws. The contract has valid-carrier instances, but `Examples.AbstractDataTypes.raw_tree_first_attempt_fails` refutes the supplied raw-tree attempt. |
+| First ETable attempt | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws` adds both unrestricted membership directions to the unconditional table laws. The contract has valid-carrier instances, but `Examples.AbstractDataTypes.raw_tree_first_attempt_fails` refutes the supplied raw-tree attempt. |
 | ETable | `Search.OrderedMap.EnumeratedTable.Laws` keeps all Table laws and the three presence laws unrestricted. Its two membership directions alone require the separate validity predicate; valid empty and update preservation are additional fields. |
 | Strengthened elements exercise | `Search.OrderedMap.EnumeratedTable.StrongElements` distinguishes validity-qualified absence-implies-no-entry from raw no-entry-implies-absence, and separately proves strict projected-key order and projected-key nodup. The source Nat client also supplies the requested non-strict ordering. |
 | ETableAbs | `Search.OrderedMap.EnumeratedTable.ModelLaws` has exactly seven fields: valid empty, update preservation, empty decoding, and validity-qualified presence, get, update and enumeration refinements. It neither inherits raw membership soundness nor asserts finite support for every ambient optional function. |
@@ -1800,8 +1800,8 @@ demonstrated abstract-client typing boundary.
 | `ADT.TreeTable.get_set_other@283` | `Examples.AbstractDataTypes.TreeTable_laws`; `Search.TotalTable.Laws.get_set_other`. The complete source empty/same/other-key law on all represented states; no BST or unique-key premise. |
 | `ADT.ETable_first_attempt.bound@308` | `Search.OrderedMap.EnumeratedTable.Observations.bound`. Existing total-table operation data is extended with this separate observation. |
 | `ADT.ETable_first_attempt.elements@309` | `Search.OrderedMap.EnumeratedTable.Observations.elements`. Existing total-table operation data is extended with this separate observation. |
-| `ADT.ETable_first_attempt.elements_complete@311` | `Search.OrderedMap.EnumeratedTable.FirstAttemptLaws.elements_complete`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
-| `ADT.ETable_first_attempt.elements_correct@316` | `Search.OrderedMap.EnumeratedTable.FirstAttemptLaws.elements_correct`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
+| `ADT.ETable_first_attempt.elements_complete@311` | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws.elements_complete`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
+| `ADT.ETable_first_attempt.elements_correct@316` | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws.elements_correct`. Unconditional membership requirement, with unrestricted base Table laws. The signature is realizable on valid carriers; its raw-tree soundness attempt fails. |
 | `ADT.TreeETable_first_attempt.bound@336` | `Examples.AbstractDataTypes.TreeETable.bound`. Reuse the existing raw source operation. |
 | `ADT.TreeETable_first_attempt.elements@339` | `Examples.AbstractDataTypes.TreeETable.elements`. Reuse the existing raw source operation. |
 | `ADT.TreeETable_first_attempt.elements_complete@342` | `Examples.AbstractDataTypes.TreeETable.elements_complete_raw`. Presence and get=value imply actual entry membership on every raw tree. |
@@ -2044,7 +2044,7 @@ boundary is exercised by actual generic clients and rejected elaborations.
 | `ADT.StringListsTableExamples`, 223 | module | `Examples.AbstractDataTypes.lists_ex1`; `Examples.AbstractDataTypes.lists_ex2`; `Examples.AbstractDataTypes.lists_ex3`. All three exact String clients. |
 | `ADT.StringListsTableExamples.StringListsTable`, 225 | module alias | `Examples.AbstractDataTypes.StringListsTable`. Concrete String/empty-default raw-list instance. |
 | `ADT.TreeTable`, 251 | module | `Examples.AbstractDataTypes.TreeTable_laws`. Existing raw source tree with all three unconditional table laws. |
-| `ADT.ETable_first_attempt`, 300 | module type | `Search.OrderedMap.EnumeratedTable.FirstAttemptLaws`. The complete unconditional first-attempt interface. |
+| `ADT.ETable_first_attempt`, 300 | module type | `Search.OrderedMap.EnumeratedTable.UnrestrictedEnumerationLaws`. The complete unconditional first-attempt interface. |
 | `ADT.TreeETable_first_attempt`, 326 | module | `Examples.AbstractDataTypes.TreeETable.elements_complete_raw`; `Examples.AbstractDataTypes.raw_tree_first_attempt_fails`. The valid raw completeness direction is proved; the false soundness direction is refuted. |
 | `ADT.ETable`, 375 | module type | `Search.OrderedMap.EnumeratedTable.Laws`. The exact split between unconditional algebra/presence and validity-qualified enumeration. |
 | `ADT.TreeETable`, 416 | module | `Examples.AbstractDataTypes.TreeETable.laws`. Complete corrected raw-tree provider with BST validity. |
@@ -2156,7 +2156,7 @@ the established valid-tree agreement. This is not a second proof that
 silently defines both abstractions through the same enumeration.
 `Examples.AbstractDataTypes.tree_models_agree_on_valid` and
 `Examples.AbstractDataTypes.tree_models_differ_on_raw` show the exact
-validity boundary. `Search.OrderedMap.EnumeratedTable.ModelLaws.totalLaws`
+validity boundary. `Search.OrderedMap.EnumeratedTable.ModelLaws.totalTable_laws`
 derives validity-qualified algebraic Table laws from a model contract;
 it does not upgrade that contract to raw laws.
 `Search.OrderedMap.EnumeratedTable.ModelLaws.finite_support` proves finite
@@ -2313,7 +2313,7 @@ the literal Queue equation fails.
 both states still decode to `[2]`, and
 `Sequences.SourceQueue.twoLists_not_laws` records failure of the complete
 six-law contract.
-Conversely `Sequences.SourceQueue.AbsLaws.withIsEmpty` proves that any
+Conversely `Sequences.SourceQueue.AbsLaws.with_isEmpty` proves that any
 replacement empty test preserves the four decoder laws;
 `Sequences.SourceQueue.model_empty_test_unconstrained` supplies one that
 returns false even at empty. Thus no extra law is inferred from QueueAbs.
@@ -2381,7 +2381,7 @@ Peek has a different limitation in both realizations.
 `Resources.SourceQueue.peekStepUsing` performs the actual observation and
 returns its original queue. `Resources.SourceQueue.runPeeksUsing` wraps
 the existing `Resources.run` on repeated unit commands.
-`Resources.SourceQueue.peekHistory_exact` and
+`Resources.SourceQueue.run_peekStepUsing` and
 `Resources.SourceQueue.runPeeksUsing_exact` prove return of the same queue
 with exactly the number of repetitions times the single-peek cost.
 `Resources.SourceQueue.EnqueueReachable` is defined through actual
@@ -2451,8 +2451,22 @@ The examples check empty/no-reversal dispatch, nonempty-front dispatch,
 singleton source versus linear costs 4 versus 3, and an actually enqueued
 back `[2,9,4]` whose front value is 4. Its source peek/dequeue cost is 11;
 the linear cost is 5. Three repeated observations return the original pair
-with costs 33 and 15. The old draft's zero-base scalar recurrence and
-historical counts are not carried as current results.
+with costs 33 and 15.
+
+The historical constructor tariff is recovered by
+`Resources.ListReversal.constructorVisits` and
+`Resources.SourceQueue.constructorPeekRun`. The exact law
+`naiveRun_cost_eq_constructorVisits` removes the terminal reverse call and
+one terminal append call per input element. For a nonempty back of length
+`n`, `peekRun_cost_eq_constructorPeekRun` adds back `n + 2` terminal and
+dispatch calls; other peek branches add one dispatch call. The history law
+`run_peekStepUsing_cost_eq_constructor` derives the repeated difference through
+`Resources.run`, preserving the unchanged queue state.
+`Examples.AbstractDataTypeWork.three_back_constructor_peek`,
+`repeated_constructor_peeks` and `reachable_peek_tariff_recovery` connect the
+historical costs 6 and 18 to the current call costs 11 and 33 on the same
+reachable three-enqueue state. These tariffs count different calls in the
+same source execution; neither is a wall-clock cost.
 
 `Examples.AbstractDataTypeWork.repeated_peeks_exceed_back_credit`
 checks failure even after supplying the ordinary back-length credit.
@@ -2846,12 +2860,12 @@ records; it does not discharge the separate execution commands.
 
 | Exact source record | Current declaration/application and preserved scope |
 | --- | --- |
-| `Extract.key@282` | `ET.key W` is exactly the supplied carrier, with no additional arithmetic structure. |
-| `Extract.tree@284` | `ET.tree W V`, `ET.E` and `ET.T` reuse `BinaryTree (W × V)`; `T` preserves source left/key/value/right argument order and independent universes. |
-| `Extract.empty_tree@291` | `ET.empty_tree` is `E`, without requiring a payload default. |
-| `Extract.lookup@293` | `ET.lookup` aliases `DK.lookup`; `ET.lookup_E`, `ET.lookup_T` and `DK.lookup?_node` expose the exact two Boolean tests and caller default on every raw tree. |
-| `Extract.insert@301` | `ET.insert` aliases `DK.insert`; `ET.insert_E`, `ET.insert_T` expose persistent insertion and the equality branch's replacement of both original key and value. |
-| `Extract.elements_aux@309` | `ET.elements_aux` aliases `DK.elementsAux`; `ET.elements_aux_E`, `elements_aux_T`, `elements_aux_eq` give the actual accumulator recurrence and `entries t ++ suffix` for every raw tree and arbitrary suffix. |
+| `Extract.key@282` | `ET.Key W` is exactly the supplied carrier, with no additional arithmetic structure. |
+| `Extract.tree@284` | `ET.Tree W V`, `ET.nil` and `ET.node` reuse `BinaryTree (W × V)`; `ET.node` preserves source left/key/value/right argument order and independent universes. |
+| `Extract.empty_tree@291` | `ET.emptyTree` is `ET.nil`, without requiring a payload default. |
+| `Extract.lookup@293` | `ET.lookup` aliases `DK.lookup`; `ET.lookup_nil`, `ET.lookup_node` and `DK.lookup?_node` expose the exact two Boolean tests and caller default on every raw tree. |
+| `Extract.insert@301` | `ET.insert` aliases `DK.insert`; `ET.insert_nil`, `ET.insert_node` expose persistent insertion and the equality branch's replacement of both original key and value. |
+| `Extract.elements_aux@309` | `ET.elementsAux` aliases `DK.elementsAux`; `ET.elementsAux_nil`, `elementsAux_node`, `elementsAux_eq` give the actual accumulator recurrence and `entries t ++ suffix` for every raw tree and arbitrary suffix. |
 | `Extract.elements@316` | `ET.elements` aliases the fast traversal at `[]`; `ET.elements_eq` records that definition, while `DK.elements_eq` identifies it with the existing inorder list on all raw trees. |
 | `Extract.lookup_empty@319` | `ET.lookup_empty` quantifies over any supplied Boolean comparison, key and caller default; no reflection, injection or invariant premise is added. |
 | `Extract.lookup_insert_eq@324` | `ET.lookup_insert_eq` uses strict reflection on every raw tree, arbitrary payload and caller default. `DK.lookup_insert_self_of_irrefl` exposes the still weaker sufficient premise. No decoder injection or BST is required. |

@@ -72,7 +72,7 @@ theorem lists_absLaws (V : Type u) : AbsLaws (lists V) id where
   dequeue _ := rfl
 
 /-- Replacing the empty test preserves all four model laws, for any state type. -/
-theorem AbsLaws.withIsEmpty {ops : Ops V Q} {decode : Q → List V}
+theorem AbsLaws.with_isEmpty {ops : Ops V Q} {decode : Q → List V}
     (laws : AbsLaws ops decode) (test : Q → Bool) :
     AbsLaws { ops with isEmpty := test } decode where
   empty := laws.empty
@@ -80,15 +80,15 @@ theorem AbsLaws.withIsEmpty {ops : Ops V Q} {decode : Q → List V}
   peek := laws.peek
   dequeue := laws.dequeue
 
-theorem lists_arbitraryEmptyTest (test : List V → Bool) :
+theorem lists_arbitrary_empty_test (test : List V → Bool) :
     AbsLaws { lists V with isEmpty := test } id :=
-  (lists_absLaws V).withIsEmpty test
+  (lists_absLaws V).with_isEmpty test
 
 /-- This lawful model's empty test is false even on its empty state. -/
 theorem model_empty_test_unconstrained (V : Type u) :
     AbsLaws { lists V with isEmpty := fun _ => false } id ∧
       ({ lists V with isEmpty := fun _ => false } : Ops V (List V)).isEmpty [] = false :=
-  ⟨lists_arbitraryEmptyTest _, rfl⟩
+  ⟨lists_arbitrary_empty_test _, rfl⟩
 
 /-- Every raw pair is a source state; no normalization invariant is imposed. -/
 abbrev TwoList (V : Type u) := List V × List V

@@ -770,7 +770,7 @@ theorem runSteps_frame_le_square (input cert : Bits) (small : cert.length ≤ in
     (Nat.add_le_add_right (Nat.mul_le_mul_left 2 (frame_length_le_square input cert small)) 2)
 
 /-- This timed record executes the framing machine, not the downstream verifier. -/
-def outputsInTime_small (input cert : Bits) (small : cert.length ≤ input.length ^ 2) :
+def outputsInTimeOfSmallCertificate (input cert : Bits) (small : cert.length ≤ input.length ^ 2) :
     Turing.TM2OutputsInTime machine (frame input cert)
       (some (resultCode (some (input, cert)))) (2 * (input.length + 1) ^ 2 + 2) where
   steps := runSteps (frame input cert)

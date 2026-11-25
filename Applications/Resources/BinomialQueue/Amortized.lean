@@ -263,7 +263,7 @@ def runCommands (cmp : K → K → Measured Bool Nat) (commands : List (Instruct
 satisfy rank validity and the same stored-capacity bound. -/
 def Admissible [LE K] (B H : Nat) : Instruction K → Queue K → Prop
   | .insert _, q => mass q + 1 ≤ H
-  | .merge stored, q => priq stored ∧ Capacity B H stored ∧ mass q + mass stored ≤ H
+  | .merge stored, q => Valid stored ∧ Capacity B H stored ∧ mass q + mass stored ≤ H
   | .deleteMax, _ => True
 
 /-- Conditions are checked at the actual state reached by each finite prefix. -/
@@ -310,35 +310,35 @@ variable (correct : ∀ x y, (cmp x y).1 = true ↔ ¬ x ≤ y)
 include correct
 
 theorem insertRun_capacity (B H : Nat) (key : K) (q : Queue K)
-    (valid : priq q) (capacity : Capacity B H q) (massBound : mass q + 1 ≤ H) :
+    (valid : Valid q) (capacity : Capacity B H q) (massBound : mass q + 1 ≤ H) :
     Capacity B H (insertRun cmp key q).1 := by
   change (insertRun cmp key q).1.length ≤ max B H.size
   rw [insertRun_value, insert_length _ correct key q valid]
   exact max_le capacity ((Nat.size_le_size massBound).trans (Nat.le_max_right _ _))
 
 theorem mergeRun_capacity (B H : Nat) (p q : Queue K)
-    (vp : priq p) (vq : priq q) (cp : Capacity B H p) (cq : Capacity B H q)
+    (vp : Valid p) (vq : Valid q) (cp : Capacity B H p) (cq : Capacity B H q)
     (massBound : mass p + mass q ≤ H) : Capacity B H (mergeRun cmp p q).1 := by
   change (mergeRun cmp p q).1.length ≤ max B H.size
   rw [mergeRun_value, merge_length _ correct p q vp vq]
   exact max_le (max_le cp cq) ((Nat.size_le_size massBound).trans (Nat.le_max_right _ _))
 
 theorem commandRun_invariant (B H : Nat) (instruction : Instruction K) (q : Queue K)
-    (valid : priq q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
+    (valid : Valid q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
     (admissible : Admissible B H instruction q) :
-    priq (commandRun cmp instruction q).1 ∧
+    Valid (commandRun cmp instruction q).1 ∧
       mass (commandRun cmp instruction q).1 ≤ H ∧
       Capacity B H (commandRun cmp instruction q).1 := by
   cases instruction with
   | insert key =>
-      have hv := insert_priq (fun x y => (cmp x y).1) correct key q valid
+      have hv := insert_valid (fun x y => (cmp x y).1) correct key q valid
       have hm := insert_mass (fun x y => (cmp x y).1) key q valid
       have hc := insertRun_capacity cmp correct B H key q valid capacity admissible
       simp only [commandRun, insertRun_value] at hc ⊢
       exact ⟨hv, hm ▸ admissible, hc⟩
   | merge stored =>
       rcases admissible with ⟨storedValid, storedCapacity, joinedMass⟩
-      have hv := merge_priq (fun x y => (cmp x y).1) correct q stored valid storedValid
+      have hv := merge_valid (fun x y => (cmp x y).1) correct q stored valid storedValid
       have hm := merge_mass (fun x y => (cmp x y).1) q stored valid storedValid
       have hc := mergeRun_capacity cmp correct B H q stored valid storedValid capacity storedCapacity joinedMass
       simp only [commandRun, mergeRun_value] at hc ⊢
@@ -350,7 +350,7 @@ theorem commandRun_invariant (B H : Nat) (instruction : Instruction K) (q : Queu
           rcases result with ⟨m, rest⟩
           have hd : deleteMax (fun x y => (cmp x y).1) q = some (m, rest) := by
             simpa only [deleteMaxRun_value] using found
-          have hv := deleteMax_some_priq correct q rest m valid hd
+          have hv := deleteMax_some_valid correct q rest m valid hd
           have hm := deleteMax_some_mass correct q rest m valid hd
           have hl := deleteMax_length correct q rest m valid hd
           simp only [commandRun, found]
@@ -362,9 +362,9 @@ theorem commandRun_invariant (B H : Nat) (instruction : Instruction K) (q : Queu
 /-- Historical capacity is preserved by the actual successive states, including
 native merges with independently bounded retained operands. -/
 theorem runCommands_invariant (B H : Nat) (commands : List (Instruction K)) (q : Queue K)
-    (valid : priq q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
+    (valid : Valid q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
     (history : AdmissibleHistory cmp B H commands q) :
-    priq (runCommands cmp commands q).1 ∧ mass (runCommands cmp commands q).1 ≤ H ∧
+    Valid (runCommands cmp commands q).1 ∧ mass (runCommands cmp commands q).1 ≤ H ∧
       Capacity B H (runCommands cmp commands q).1 := by
   induction commands generalizing q with
   | nil => exact ⟨valid, massBound, capacity⟩
@@ -374,9 +374,9 @@ theorem runCommands_invariant (B H : Nat) (commands : List (Instruction K)) (q :
       exact ih _ hs.1 hs.2.1 hs.2.2 tail
 
 theorem runCommands_prefix_invariant (B H : Nat) (commands before after : List (Instruction K))
-    (q : Queue K) (valid : priq q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
+    (q : Queue K) (valid : Valid q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
     (history : AdmissibleHistory cmp B H commands q) (split : commands = before ++ after) :
-    priq (runCommands cmp before q).1 ∧ mass (runCommands cmp before q).1 ≤ H ∧
+    Valid (runCommands cmp before q).1 ∧ mass (runCommands cmp before q).1 ≤ H ∧
       Capacity B H (runCommands cmp before q).1 := by
   apply runCommands_invariant cmp correct B H before q valid massBound capacity
   intro start instruction suffix decomposed
@@ -387,7 +387,7 @@ def commandPrice (prices : Cost) (C : Nat) : Nat :=
 
 theorem commandRun_weighted_le (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
     (B H : Nat) (instruction : Instruction K) (q : Queue K)
-    (valid : priq q) (capacity : Capacity B H q) (admissible : Admissible B H instruction q) :
+    (valid : Valid q) (capacity : Capacity B H q) (admissible : Admissible B H instruction q) :
     weighted prices (commandRun cmp instruction q).2 ≤
       (max B H.size + 2) * commandPrice prices C := by
   cases instruction with
@@ -409,7 +409,7 @@ theorem commandRun_weighted_le (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp 
 
 theorem runCommands_weighted_le (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
     (B H : Nat) (commands : List (Instruction K)) (q : Queue K)
-    (valid : priq q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
+    (valid : Valid q) (massBound : mass q ≤ H) (capacity : Capacity B H q)
     (history : AdmissibleHistory cmp B H commands q) :
     weighted prices (runCommands cmp commands q).2 ≤
       commands.length * ((max B H.size + 2) * commandPrice prices C) := by
@@ -431,7 +431,7 @@ actual prefix admissibility before this historical n·bitlength bound applies. -
 theorem runCommands_isBigO (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
     (B : Nat) (commands : Nat → List (Instruction K)) (initial : Nat → Queue K)
     (lengths : ∀ n, (commands n).length = n)
-    (valid : ∀ n, priq (initial n)) (massBound : ∀ n, mass (initial n) ≤ n)
+    (valid : ∀ n, Valid (initial n)) (massBound : ∀ n, mass (initial n) ≤ n)
     (capacity : ∀ n, Capacity B n (initial n))
     (history : ∀ n, AdmissibleHistory cmp B n (commands n) (initial n)) :
     Asymptotics.IsBigO Filter.atTop
@@ -443,16 +443,16 @@ theorem runCommands_isBigO (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y)
     (valid n) (massBound n) (capacity n) (history n)
   simpa only [lengths, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm] using h
 
-theorem insertionsRun_valid (keys : List K) (q : Queue K) (valid : priq q) :
-    priq (insertionsRun cmp keys q).1 := by
-  apply Resources.run_invariant (insertRun cmp) priq _ keys q valid
+theorem insertionsRun_valid (keys : List K) (q : Queue K) (valid : Valid q) :
+    Valid (insertionsRun cmp keys q).1 := by
+  apply Resources.run_invariant (insertRun cmp) Valid _ keys q valid
   intro key state hstate
   rw [insertRun_value]
-  exact insert_priq _ correct key state hstate
+  exact insert_valid _ correct key state hstate
 
-theorem insertionsRun_mass (keys : List K) (q : Queue K) (valid : priq q) :
+theorem insertionsRun_mass (keys : List K) (q : Queue K) (valid : Valid q) :
     mass (insertionsRun cmp keys q).1 = mass q + keys.length := by
-  have hbits := insertionsRun_binary_value cmp keys q (priqFrom_proper valid)
+  have hbits := insertionsRun_binary_value cmp keys q (validFrom_proper valid)
   have hinitial := mass_eq_value valid
   have hfinal := mass_eq_value (insertionsRun_valid cmp correct keys q valid)
   simp only [Nat.pow_zero, Nat.one_mul] at hinitial hfinal
@@ -466,8 +466,8 @@ theorem insertionsRun_empty_length (keys : List K) :
   simp
 
 /-- None retains the state; Some removes one occurrence without trimming slots. -/
-theorem deleteCommand_state (q : Queue K) (valid : priq q) :
-    priq (commandRun cmp .deleteMax q).1 ∧
+theorem deleteCommand_state (q : Queue K) (valid : Valid q) :
+    Valid (commandRun cmp .deleteMax q).1 ∧
       mass (commandRun cmp .deleteMax q).1 = mass q - 1 ∧
       (commandRun cmp .deleteMax q).1.length = q.length := by
   cases found : (deleteMaxRun cmp q).1 with
@@ -482,7 +482,7 @@ theorem deleteCommand_state (q : Queue K) (valid : priq q) :
       rcases result with ⟨m, rest⟩
       have hd : deleteMax (fun x y => (cmp x y).1) q = some (m, rest) := by
         simpa only [deleteMaxRun_value] using found
-      have hv := deleteMax_some_priq correct q rest m valid hd
+      have hv := deleteMax_some_valid correct q rest m valid hd
       have hm := deleteMax_some_mass correct q rest m valid hd
       have hl := deleteMax_length correct q rest m valid hd
       simp only [commandRun, found]
@@ -491,15 +491,15 @@ theorem deleteCommand_state (q : Queue K) (valid : priq q) :
 def drainRun (cmp : K → K → Measured Bool Nat) (n : Nat) (q : Queue K) : Measured (Queue K) Cost :=
   runCommands cmp (List.replicate n .deleteMax) q
 
-theorem drainRun_state (n : Nat) (q : Queue K) (valid : priq q) :
-    priq (drainRun cmp n q).1 ∧ mass (drainRun cmp n q).1 = mass q - n ∧
+theorem drainRun_state (n : Nat) (q : Queue K) (valid : Valid q) :
+    Valid (drainRun cmp n q).1 ∧ mass (drainRun cmp n q).1 = mass q - n ∧
       (drainRun cmp n q).1.length = q.length := by
   induction n generalizing q with
   | zero => exact ⟨valid, (Nat.sub_zero _).symm, rfl⟩
   | succ n ih =>
       have hs := deleteCommand_state cmp correct q valid
       have hr := ih (commandRun cmp .deleteMax q).1 hs.1
-      change priq (drainRun cmp n (commandRun cmp .deleteMax q).1).1 ∧
+      change Valid (drainRun cmp n (commandRun cmp .deleteMax q).1).1 ∧
         mass (drainRun cmp n (commandRun cmp .deleteMax q).1).1 = mass q - (n + 1) ∧
         (drainRun cmp n (commandRun cmp .deleteMax q).1).1.length = q.length
       exact ⟨hr.1, by omega, hr.2.2.trans hs.2.2⟩
@@ -619,7 +619,7 @@ theorem mergeRun_isBigO_log (cmp : K → K → Measured Bool Nat)
 theorem deleteMaxRun_isBigO_log [Preorder K] [Std.Total (fun x y : K => x ≤ y)]
     (cmp : K → K → Measured Bool Nat) (correct : ∀ x y, (cmp x y).1 = true ↔ ¬ x ≤ y)
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
-    (B : Nat) (queues : Nat → Queue K) (valid : ∀ n, priq (queues n))
+    (B : Nat) (queues : Nat → Queue K) (valid : ∀ n, Valid (queues n))
     (capacity : ∀ n, Capacity B n (queues n)) :
     Asymptotics.IsBigO Filter.atTop
       (fun n => (weighted prices (deleteMaxRun cmp (queues n)).2 : ℝ))
@@ -639,7 +639,7 @@ theorem runCommands_isBigO_n_log [Preorder K] [Std.Total (fun x y : K => x ≤ y
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
     (B : Nat) (commands : Nat → List (Instruction K)) (initial : Nat → Queue K)
     (lengths : ∀ n, (commands n).length = n)
-    (valid : ∀ n, priq (initial n)) (massBound : ∀ n, mass (initial n) ≤ n)
+    (valid : ∀ n, Valid (initial n)) (massBound : ∀ n, mass (initial n) ≤ n)
     (capacity : ∀ n, Capacity B n (initial n))
     (history : ∀ n, AdmissibleHistory cmp B n (commands n) (initial n)) :
     Asymptotics.IsBigO Filter.atTop

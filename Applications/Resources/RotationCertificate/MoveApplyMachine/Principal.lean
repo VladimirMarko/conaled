@@ -372,7 +372,7 @@ theorem run_none_data (raw : Word) (path : List Branch)
       runResult (Λ := Λ) regs raw path source saved scratch pending ctx =
         cfg (some (resultLabel parseFailure)) (reset regs)
           (entryData raw path source saved scratch pending) ctx :=
-  LocalRun.phaseEndpoint caller (q := movePhase .start)
+  LocalRun.phase_endpoint caller (q := movePhase .start)
     (run_of_none_localRun caller raw path source saved scratch pending regs ctx failed)
 
 theorem runSteps_of_none (raw : Word) (path : List Branch)
@@ -419,7 +419,7 @@ theorem run_some_data (raw : Word) (move : RotationMove) (rest : Word)
       runResult (Λ := Λ) regs raw path source saved scratch pending ctx =
         phaseResult (positionPhase (.seek move.direction)) regs
           (parsedData move rest (entryData raw path source saved scratch pending)) ctx :=
-  LocalRun.phaseEndpoint caller (q := movePhase .start)
+  LocalRun.phase_endpoint caller (q := movePhase .start)
     (run_of_some_localRun caller raw move rest path source saved scratch pending regs ctx parsed)
 
 theorem runSteps_of_some (raw : Word) (move : RotationMove) (rest : Word)
@@ -650,7 +650,7 @@ theorem represented_run_data (move : RotationMove) (certificateRest : Word)
         (treeCode s ++ suffix) saved [] [] ctx =
         cfg (some (resultLabel (representedResult move oldPath s))) (reset regs)
           (representedFinalData move certificateRest oldPath s saved suffix) ctx :=
-  LocalRun.phaseEndpoint caller (q := movePhase .start)
+  LocalRun.phase_endpoint caller (q := movePhase .start)
     (run_code_represented_localRun caller move certificateRest oldPath s saved suffix regs ctx)
 
 include caller in
@@ -752,7 +752,7 @@ theorem represented_success_localRun_iff (move : RotationMove)
         suffix = outputSuffix ∧ n = representedSteps move oldPath s saved := by
   constructor
   · intro run
-    have endpoint := LocalRun.phaseEndpoint caller (q := movePhase .start) run
+    have endpoint := LocalRun.phase_endpoint caller (q := movePhase .start) run
     have output := (represented_complete_output_success_iff caller move certificateRest outputCertificate
       oldPath s t saved suffix outputSuffix regs ctx).mp endpoint.2
     exact ⟨output.1, output.2.1, output.2.2,
@@ -930,7 +930,7 @@ theorem run_raw_data (move : RotationMove) (certificateRest : Word) (oldPath : L
       (result = .failure → output = source) ∧ (result = .success → rest = []) := by
   obtain ⟨result, output, rest, run, length, path, failed, succeeded⟩ :=
     run_raw caller move certificateRest oldPath source regs ctx
-  exact ⟨result, output, rest, (LocalRun.phaseEndpoint caller (q := movePhase .start) run).2,
+  exact ⟨result, output, rest, (LocalRun.phase_endpoint caller (q := movePhase .start) run).2,
     length, path, failed, succeeded⟩
 
 /-! ### Root recognition on arbitrary literal suffixes -/
@@ -1074,7 +1074,7 @@ theorem represented_raw_first_success_complete (raw outputCertificate : Word)
       representedValue move oldPath s = some t ∧ suffix = outputSuffix ∧
       n = representedSteps move oldPath s saved := by
   have run := LocalRun.of_iterate caller executed earlier
-  have endpoint := LocalRun.phaseEndpoint caller (q := movePhase .start) run
+  have endpoint := LocalRun.phase_endpoint caller (q := movePhase .start) run
   obtain ⟨move, parsed, returned, suffixEq⟩ :=
     (represented_output_success_iff caller raw outputCertificate oldPath s t saved suffix outputSuffix regs ctx).mp
       endpoint.2

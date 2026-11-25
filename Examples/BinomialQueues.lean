@@ -16,30 +16,30 @@ universe u
 
 def singleton (k : Nat) : BinaryTree Nat := .node k .nil .nil
 
-theorem singleton_rank (k : Nat) : pow2heap 0 (singleton k) := trivial
+theorem singleton_rank (k : Nat) : Pow2Heap 0 (singleton k) := trivial
 
 theorem singleton_mass (k : Nat) : (singleton k).numNodes = 1 :=
-  pow2heap_numNodes (singleton_rank k)
+  pow2Heap_numNodes (singleton_rank k)
 
 theorem singleton_height (k : Nat) : (singleton k).height = 1 :=
-  pow2heap_height (singleton_rank k)
+  pow2Heap_height (singleton_rank k)
 
 /-- This is the source command's left fold, not the adapter's right-fold batch. -/
 def build (xs : List Nat) (q : Queue Nat := empty) : Queue Nat :=
   xs.foldl (fun q k => insert natGreater k q) q
 
-theorem build_valid (xs : List Nat) (q : Queue Nat) (hq : priq q) : priq (build xs q) := by
+theorem build_valid (xs : List Nat) (q : Queue Nat) (hq : Valid q) : Valid (build xs q) := by
   induction xs generalizing q with
   | nil => exact hq
-  | cons k xs ih => exact ih _ (insert_priq natGreater natGreater_eq k q hq)
+  | cons k xs ih => exact ih _ (insert_valid natGreater natGreater_eq k q hq)
 
 theorem build_relate (xs : List Nat) (q : Queue Nat) (al : List Nat)
-    (hq : priq q) (hal : Abs q al) : Abs (build xs q) (xs.reverse ++ al) := by
+    (hq : Valid q) (hal : Abs q al) : Abs (build xs q) (xs.reverse ++ al) := by
   induction xs generalizing q al with
   | nil => exact hal
   | cons k xs ih =>
     have h := ih (insert natGreater k q) (k :: al)
-      (insert_priq natGreater natGreater_eq k q hq) (insert_relate natGreater q al k hq hal)
+      (insert_valid natGreater natGreater_eq k q hq) (insert_relate natGreater q al k hq hal)
     simpa [build, List.reverse_cons, List.append_assoc] using h
 
 def sourceInput : List Nat := [3, 1, 4, 1, 5, 9, 2, 3, 5]
@@ -54,12 +54,12 @@ def sourceForest : Queue Nat := [singleton 5, .nil, .nil, sourceRankThree]
 /-- The independent forest displayed by VFA, including the duplicate/tie shape. -/
 theorem source_fold_shape : build sourceInput empty = sourceForest := by decide
 
-theorem source_fold_valid : priq sourceForest := by
+theorem source_fold_valid : Valid sourceForest := by
   rw [← source_fold_shape]
-  exact build_valid sourceInput empty empty_priq
+  exact build_valid sourceInput empty empty_valid
 
 theorem source_fold_occurrences : Abs sourceForest sourceInput := by
-  have h := build_relate sourceInput empty [] empty_priq empty_relate
+  have h := build_relate sourceInput empty [] empty_valid empty_relate
   rw [source_fold_shape] at h
   exact priqueue_elems_ext sourceForest sourceInput.reverse sourceInput
     (by decide) (by simpa using h)
@@ -69,41 +69,41 @@ theorem source_fold_mass : mass sourceForest = 9 :=
 
 theorem source_fold_maximum : findMax natGreater sourceForest = some 9 := by decide
 
-theorem source_fold_rank_three : pow2heap 3 sourceRankThree :=
+theorem source_fold_rank_three : Pow2Heap 3 sourceRankThree :=
   source_fold_valid.2.2.2.1.resolve_left (by simp [sourceRankThree])
 
 theorem source_rank_three_size : sourceRankThree.numNodes = 8 :=
-  pow2heap_numNodes source_fold_rank_three
+  pow2Heap_numNodes source_fold_rank_three
 
 theorem source_rank_three_height : sourceRankThree.height = 4 :=
-  pow2heap_height source_fold_rank_three
+  pow2Heap_height source_fold_rank_three
 
 /-- The sibling 8 is allowed to exceed its left sibling 3 under outer root 10. -/
 def siblingExample : BinaryTree Nat :=
   .node 10 (.node 3 (singleton 1) (singleton 8)) .nil
 
-theorem sibling_example_rank : pow2heap 2 siblingExample := by
-  simp [siblingExample, singleton, pow2heap, pow2heapAux]
+theorem sibling_example_rank : Pow2Heap 2 siblingExample := by
+  simp [siblingExample, singleton, Pow2Heap, Pow2HeapAux]
 
 theorem sibling_example_size : siblingExample.numNodes = 4 :=
-  pow2heap_numNodes sibling_example_rank
+  pow2Heap_numNodes sibling_example_rank
 
 theorem sibling_example_bound : ∀ x ∈ treeContents siblingExample, x ≤ 10 :=
-  pow2heap_bound sibling_example_rank
+  pow2Heap_bound sibling_example_rank
 
 def tiedLeft : BinaryTree Nat := .node 5 (singleton 1) .nil
 def tiedRight : BinaryTree Nat := .node 5 (singleton 2) .nil
 
-theorem tied_left_rank : pow2heap 1 tiedLeft := by
-  simp [tiedLeft, singleton, pow2heap, pow2heapAux]
+theorem tied_left_rank : Pow2Heap 1 tiedLeft := by
+  simp [tiedLeft, singleton, Pow2Heap, Pow2HeapAux]
 
-theorem tied_right_rank : pow2heap 1 tiedRight := by
-  simp [tiedRight, singleton, pow2heap, pow2heapAux]
+theorem tied_right_rank : Pow2Heap 1 tiedRight := by
+  simp [tiedRight, singleton, Pow2Heap, Pow2HeapAux]
 
 theorem tied_smash_shape : smash natGreater tiedLeft tiedRight =
     .node 5 (.node 5 (singleton 1) (singleton 2)) .nil := by decide
 
-theorem tied_smash_rank : pow2heap 2 (smash natGreater tiedLeft tiedRight) :=
+theorem tied_smash_rank : Pow2Heap 2 (smash natGreater tiedLeft tiedRight) :=
   smash_valid natGreater natGreater_eq 1 tiedLeft tiedRight tied_left_rank tied_right_rank
 
 theorem tied_smash_occurrences : TreeElems (smash natGreater tiedLeft tiedRight) [5, 1, 5, 2] :=
@@ -124,14 +124,14 @@ def slot : Option Nat → BinaryTree Nat
   | none => .nil
   | some k => singleton k
 
-theorem slot_rank (key : Option Nat) : slot key = .nil ∨ pow2heap 0 (slot key) := by
+theorem slot_rank (key : Option Nat) : slot key = .nil ∨ Pow2Heap 0 (slot key) := by
   cases key with
   | none => exact Or.inl rfl
   | some k => exact Or.inr (singleton_rank k)
 
 /-- All eight occupancy choices use the same general rank-preservation theorem. -/
 theorem one_slot_join_valid (a b c : Option Nat) :
-    priq (join natGreater [slot a] [slot b] (slot c)) :=
+    Valid (join natGreater [slot a] [slot b] (slot c)) :=
   join_valid natGreater natGreater_eq 0 _ _ _ ⟨slot_rank a, trivial⟩
     ⟨slot_rank b, trivial⟩ (slot_rank c)
 
@@ -172,7 +172,7 @@ theorem carry_leaf_retains (q : Queue Nat) : carry natGreater q .nil = q := carr
 
 def lowThree : Queue Nat := build [1, 2, 3, 4, 5, 6, 7] empty
 
-theorem low_three_valid : priq lowThree := build_valid _ _ empty_priq
+theorem low_three_valid : Valid lowThree := build_valid _ _ empty_valid
 
 theorem low_three_occupancy : occupancy lowThree = [true, true, true] := by decide
 
@@ -204,7 +204,7 @@ theorem malformed_heap_delete : heapDeleteMax malformed = [] :=
 theorem malformed_aux : deleteMaxAux natGreater 9 [malformed] = ([], []) :=
   deleteMaxAux_bad natGreater 9 9 8 .nil .nil .nil []
 
-theorem padded_valid (n : Nat) : priq (List.replicate n (.nil : BinaryTree Nat)) :=
+theorem padded_valid (n : Nat) : Valid (List.replicate n (.nil : BinaryTree Nat)) :=
   replicate_nil_valid 0 n
 
 theorem padded_mass (n : Nat) : mass (List.replicate n (.nil : BinaryTree Nat)) = 0 :=
@@ -266,7 +266,7 @@ theorem padded_not_canonical (n : Nat) (hn : 0 < n) :
 
 /-- Stored slots are not bounded by live mass on the actual valid carrier. -/
 theorem zero_mass_arbitrary_padding (bound : Nat) :
-    ∃ q : Queue Nat, priq q ∧ mass q = 0 ∧ bound < q.length :=
+    ∃ q : Queue Nat, Valid q ∧ mass q = 0 ∧ bound < q.length :=
   ⟨List.replicate (bound + 1) .nil, padded_valid _, padded_mass _, by simp⟩
 
 end Examples.BinomialQueues

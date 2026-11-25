@@ -181,7 +181,7 @@ theorem installedCfg_stack_readback (c : Cfg Γ Λ R) (k : StackId K) :
 theorem installed_stack_cells [Fintype K] [Fintype K'] (c : Cfg Γ Λ R) :
     ∑ k, ((installedCfg names symbols registers labels c).stk k).length =
       ∑ k, (c.stk k).length :=
-  FrontEndMachine.Transport.stackCells names symbols c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length names symbols c.stk
 
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
@@ -224,7 +224,7 @@ theorem installed_iterate
   FrontEndMachine.Transport.iterate names symbols registers labels
     (program caller) ambient installed n start
 
-def installed_timed
+def installedTimed
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
@@ -235,12 +235,12 @@ def installed_timed
   FrontEndMachine.Transport.timed names symbols registers labels
     (program caller) ambient installed start final bound run
 
-@[simp] theorem installed_timed_steps
+@[simp] theorem installedTimed_steps
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
     (run : StateTransition.EvalsToInTime (step caller) start final bound) :
-    (installed_timed names symbols registers labels caller ambient installed start final bound run).steps =
+    (installedTimed names symbols registers labels caller ambient installed start final bound run).steps =
       run.steps := rfl
 
 end FurtherInstallation

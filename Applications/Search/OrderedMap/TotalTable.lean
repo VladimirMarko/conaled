@@ -144,7 +144,7 @@ theorem ofPartial_unrestricted [DecidableEq κ] {ops : OrderedMap.Ops κ ν T}
     {meaning : T → OrderedMap.Meaning κ ν} (h : OrderedMap.Laws ops meaning) (d : ν) :
     Laws (ofPartial ops d) d (fun _ => True) :=
   ofPartial_laws ops meaning (fun _ => True) d trivial (fun _ _ _ _ => trivial)
-    (OrderedMap.Laws.ofValid trivial (fun _ _ _ _ => trivial) h.empty
+    (OrderedMap.Laws.of_valid trivial (fun _ _ _ _ => trivial) h.empty
       (fun k v t _ => h.bind k v t) (fun k t _ => h.lookup k t))
 
 /-- The complete client agrees with the previously integrated weakening of

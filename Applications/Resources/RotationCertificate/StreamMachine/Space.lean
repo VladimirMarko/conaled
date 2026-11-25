@@ -51,13 +51,13 @@ theorem stackCells_cfg (label : Option (Label Λ)) (regs : Registers R) (D : Loc
 omit [DecidableEq K] in
 theorem stackCells_applyCfg (c : ApplyCfg Γ Λ R) :
     stackCells (applyCfg c) = MoveApplyMachine.stackCells c :=
-  FrontEndMachine.Transport.stackCells applyStackEquiv applySymbolEquiv c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length applyStackEquiv applySymbolEquiv c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_equalityCfg (c : EqualityCfg Γ Λ R) :
     stackCells (equalityCfg c) = TreeEqualityMachine.stackCells c := by
   rw [TreeEqualityMachine.stackCells_eq_sum]
-  exact FrontEndMachine.Transport.stackCells equalityStackEquiv equalitySymbolEquiv c.stk
+  exact FrontEndMachine.Transport.stackEquiv_total_length equalityStackEquiv equalitySymbolEquiv c.stk
 
 omit [DecidableEq K] in
 theorem fuelStackCells_eq_sum (c : FuelCfg Γ Λ R) :
@@ -73,7 +73,7 @@ omit [DecidableEq K] in
 theorem stackCells_fuelCfg (c : FuelCfg Γ Λ R) :
     stackCells (fuelCfg c) = FuelDispatchMachine.stackCells c := by
   rw [fuelStackCells_eq_sum]
-  exact FrontEndMachine.Transport.stackCells fuelStackEquiv fuelSymbolEquiv c.stk
+  exact FrontEndMachine.Transport.stackEquiv_total_length fuelStackEquiv fuelSymbolEquiv c.stk
 
 omit [DecidableEq K] in
 theorem applyContext_cells (D : LocalData) (ctx : ∀ k, List (Γ k)) :

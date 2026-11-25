@@ -7,7 +7,7 @@ import Mathlib.Data.Nat.Log
 /-!
 Dense rank validity, left-child/right-sibling bounds, and exact mass. The
 source permits trailing empty slots. Canonicality and stored slot length are
-separate observations, never extra premises hidden inside `priq`.
+separate observations, never extra premises hidden inside `Valid`.
 -/
 set_option autoImplicit false
 set_option warningAsError true
@@ -20,64 +20,64 @@ variable {K : Type u}
 section Predicates
 variable [LE K]
 
-def pow2heapAux : Nat → K → BinaryTree K → Prop
+def Pow2HeapAux : Nat → K → BinaryTree K → Prop
   | 0, _, .nil => True
   | 0, _, .node _ _ _ => False
   | _ + 1, _, .nil => False
   | n + 1, m, .node k l r =>
-      k ≤ m ∧ pow2heapAux n k l ∧ pow2heapAux n m r
+      k ≤ m ∧ Pow2HeapAux n k l ∧ Pow2HeapAux n m r
 
-def pow2heap (n : Nat) : BinaryTree K → Prop
-  | .node m a .nil => pow2heapAux n m a
+def Pow2Heap (n : Nat) : BinaryTree K → Prop
+  | .node m a .nil => Pow2HeapAux n m a
   | _ => False
 
-def priqFrom (i : Nat) : Queue K → Prop
+def ValidFrom (i : Nat) : Queue K → Prop
   | [] => True
-  | t :: q => (t = .nil ∨ pow2heap i t) ∧ priqFrom (i + 1) q
+  | t :: q => (t = .nil ∨ Pow2Heap i t) ∧ ValidFrom (i + 1) q
 
-abbrev priq (q : Queue K) : Prop := priqFrom 0 q
+abbrev Valid (q : Queue K) : Prop := ValidFrom 0 q
 
-@[simp] theorem pow2heapAux_zero (m : K) (t : BinaryTree K) :
-    pow2heapAux 0 m t ↔ t = .nil := by cases t <;> simp [pow2heapAux]
+@[simp] theorem pow2HeapAux_zero (m : K) (t : BinaryTree K) :
+    Pow2HeapAux 0 m t ↔ t = .nil := by cases t <;> simp [Pow2HeapAux]
 
-@[simp] theorem pow2heapAux_succ_nil (n : Nat) (m : K) :
-    ¬ pow2heapAux (n + 1) m .nil := id
+@[simp] theorem pow2HeapAux_succ_nil (n : Nat) (m : K) :
+    ¬ Pow2HeapAux (n + 1) m .nil := id
 
-@[simp] theorem pow2heapAux_succ_node (n : Nat) (m k : K) (l r : BinaryTree K) :
-    pow2heapAux (n + 1) m (.node k l r) ↔
-      k ≤ m ∧ pow2heapAux n k l ∧ pow2heapAux n m r := Iff.rfl
+@[simp] theorem pow2HeapAux_succ_node (n : Nat) (m k : K) (l r : BinaryTree K) :
+    Pow2HeapAux (n + 1) m (.node k l r) ↔
+      k ≤ m ∧ Pow2HeapAux n k l ∧ Pow2HeapAux n m r := Iff.rfl
 
-@[simp] theorem pow2heap_nil (n : Nat) : ¬ pow2heap n (.nil : BinaryTree K) := id
+@[simp] theorem pow2Heap_nil (n : Nat) : ¬ Pow2Heap n (.nil : BinaryTree K) := id
 
-@[simp] theorem pow2heap_node (n : Nat) (m : K) (a : BinaryTree K) :
-    pow2heap n (.node m a .nil) ↔ pow2heapAux n m a := Iff.rfl
+@[simp] theorem pow2Heap_node (n : Nat) (m : K) (a : BinaryTree K) :
+    Pow2Heap n (.node m a .nil) ↔ Pow2HeapAux n m a := Iff.rfl
 
-theorem pow2heap_iff (n : Nat) (t : BinaryTree K) :
-    pow2heap n t ↔ ∃ m a, t = .node m a .nil ∧ pow2heapAux n m a := by
+theorem pow2Heap_iff (n : Nat) (t : BinaryTree K) :
+    Pow2Heap n t ↔ ∃ m a, t = .node m a .nil ∧ Pow2HeapAux n m a := by
   cases t with
-  | nil => simp [pow2heap]
-  | node m a r => cases r <;> simp [pow2heap]
+  | nil => simp [Pow2Heap]
+  | node m a r => cases r <;> simp [Pow2Heap]
 
-theorem pow2heap_proper {n : Nat} {t : BinaryTree K} (h : pow2heap n t) : Proper t := by
-  obtain ⟨m, a, rfl, _⟩ := (pow2heap_iff _ _).mp h
+theorem pow2Heap_proper {n : Nat} {t : BinaryTree K} (h : Pow2Heap n t) : Proper t := by
+  obtain ⟨m, a, rfl, _⟩ := (pow2Heap_iff _ _).mp h
   rfl
 
-theorem pow2heap_ne_nil {n : Nat} {t : BinaryTree K} (h : pow2heap n t) : t ≠ .nil := by
+theorem pow2Heap_ne_nil {n : Nat} {t : BinaryTree K} (h : Pow2Heap n t) : t ≠ .nil := by
   rintro rfl
   exact h
 
-@[simp] theorem priqFrom_nil (i : Nat) : priqFrom i ([] : Queue K) := trivial
+@[simp] theorem validFrom_nil (i : Nat) : ValidFrom i ([] : Queue K) := trivial
 
-@[simp] theorem priqFrom_cons (i : Nat) (t : BinaryTree K) (q : Queue K) :
-    priqFrom i (t :: q) ↔ (t = .nil ∨ pow2heap i t) ∧ priqFrom (i + 1) q := Iff.rfl
+@[simp] theorem validFrom_cons (i : Nat) (t : BinaryTree K) (q : Queue K) :
+    ValidFrom i (t :: q) ↔ (t = .nil ∨ Pow2Heap i t) ∧ ValidFrom (i + 1) q := Iff.rfl
 
-theorem priqFrom_append (i : Nat) (p q : Queue K) :
-    priqFrom i (p ++ q) ↔ priqFrom i p ∧ priqFrom (i + p.length) q := by
+theorem validFrom_append (i : Nat) (p q : Queue K) :
+    ValidFrom i (p ++ q) ↔ ValidFrom i p ∧ ValidFrom (i + p.length) q := by
   induction p generalizing i with
   | nil => simp
   | cons t p ih => simp [ih, Nat.add_comm, Nat.add_left_comm, and_assoc]
 
-theorem priqFrom_proper {i : Nat} {q : Queue K} (h : priqFrom i q) :
+theorem validFrom_proper {i : Nat} {q : Queue K} (h : ValidFrom i q) :
     ∀ t ∈ q, Proper t := by
   induction q generalizing i with
   | nil => simp
@@ -87,13 +87,13 @@ theorem priqFrom_proper {i : Nat} {q : Queue K} (h : priqFrom i q) :
     rcases List.mem_cons.mp hu with rfl | hu
     · rcases ht with rfl | ht
       · exact proper_nil
-      · exact pow2heap_proper ht
+      · exact pow2Heap_proper ht
     · exact ih hq u hu
 
-theorem pow2heapAux_numNodes {n : Nat} {m : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) : t.numNodes + 1 = 2 ^ n := by
+theorem pow2HeapAux_numNodes {n : Nat} {m : K} {t : BinaryTree K}
+    (h : Pow2HeapAux n m t) : t.numNodes + 1 = 2 ^ n := by
   induction n generalizing m t with
-  | zero => have ht := (pow2heapAux_zero _ _).mp h; subst t; rfl
+  | zero => have ht := (pow2HeapAux_zero _ _).mp h; subst t; rfl
   | succ n ih =>
     cases t with
     | nil => exact False.elim h
@@ -103,83 +103,83 @@ theorem pow2heapAux_numNodes {n : Nat} {m : K} {t : BinaryTree K}
       simp only [BinaryTree.numNodes, Nat.pow_succ]
       omega
 
-theorem pow2heapAux_height {n : Nat} {m : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) : t.height = n := by
+theorem pow2HeapAux_height {n : Nat} {m : K} {t : BinaryTree K}
+    (h : Pow2HeapAux n m t) : t.height = n := by
   induction n generalizing m t with
-  | zero => have ht := (pow2heapAux_zero _ _).mp h; subst t; rfl
+  | zero => have ht := (pow2HeapAux_zero _ _).mp h; subst t; rfl
   | succ n ih =>
     cases t with
     | nil => exact False.elim h
     | node k l r => simp only [BinaryTree.height, ih h.2.1, ih h.2.2, max_self]
 
-theorem pow2heap_numNodes {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : t.numNodes = 2 ^ n := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff _ _).mp h
-  simpa using pow2heapAux_numNodes ha
+theorem pow2Heap_numNodes {n : Nat} {t : BinaryTree K}
+    (h : Pow2Heap n t) : t.numNodes = 2 ^ n := by
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp h
+  simpa using pow2HeapAux_numNodes ha
 
-theorem pow2heap_height {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : t.height = n + 1 := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff _ _).mp h
-  simp [pow2heapAux_height ha]
+theorem pow2Heap_height {n : Nat} {t : BinaryTree K}
+    (h : Pow2Heap n t) : t.height = n + 1 := by
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp h
+  simp [pow2HeapAux_height ha]
 
-theorem empty_priq : priq (empty : Queue K) := trivial
+theorem empty_valid : Valid (empty : Queue K) := trivial
 
-theorem abs_perm (q : Queue K) (a b : List K) (_hq : priq q)
+theorem abs_perm (q : Queue K) (a b : List K) (_hq : Valid q)
     (ha : Abs q a) (hb : Abs q b) : a.Perm b := abs_perm_raw q a b ha hb
 
-theorem can_relate (q : Queue K) (_hq : priq q) : ∃ a, Abs q a := can_relate_raw q
+theorem can_relate (q : Queue K) (_hq : Valid q) : ∃ a, Abs q a := can_relate_raw q
 
 theorem smash_elems (greater : K → K → Bool) (n : Nat) (t u : BinaryTree K)
-    (bt bu : List K) (ht : pow2heap n t) (hu : pow2heap n u)
+    (bt bu : List K) (ht : Pow2Heap n t) (hu : Pow2Heap n u)
     (hbt : TreeElems t bt) (hbu : TreeElems u bu) :
     TreeElems (smash greater t u) (bt ++ bu) := by
-  obtain ⟨x, a, rfl, _⟩ := (pow2heap_iff _ _).mp ht
-  obtain ⟨y, b, rfl, _⟩ := (pow2heap_iff _ _).mp hu
+  obtain ⟨x, a, rfl, _⟩ := (pow2Heap_iff _ _).mp ht
+  obtain ⟨y, b, rfl, _⟩ := (pow2Heap_iff _ _).mp hu
   apply (tree_elems_iff _ _).mpr
   exact (((tree_elems_iff _ _).mp hbt).append ((tree_elems_iff _ _).mp hbu)).trans
     (smash_contents_nodes greater x y a b).symm
 
 theorem carry_elems (greater : K → K → Bool) (n : Nat) (q : Queue K)
-    (t : BinaryTree K) (eq et : List K) (hq : priqFrom n q)
-    (ht : t = .nil ∨ pow2heap n t) (heq : Abs q eq) (het : TreeElems t et) :
+    (t : BinaryTree K) (eq et : List K) (hq : ValidFrom n q)
+    (ht : t = .nil ∨ Pow2Heap n t) (heq : Abs q eq) (het : TreeElems t et) :
     Abs (carry greater q t) (eq ++ et) := by
-  have htp : Proper t := ht.elim (fun h => h ▸ proper_nil) pow2heap_proper
+  have htp : Proper t := ht.elim (fun h => h ▸ proper_nil) pow2Heap_proper
   apply (queue_elems_iff _ _).mpr
   exact (((queue_elems_iff _ _).mp heq).append ((tree_elems_iff _ _).mp het)).trans
-    (carry_contents greater q t (priqFrom_proper hq) htp).symm
+    (carry_contents greater q t (validFrom_proper hq) htp).symm
 
 theorem insert_relate (greater : K → K → Bool) (q : Queue K) (al : List K)
-    (k : K) (hq : priq q) (hal : Abs q al) : Abs (insert greater k q) (k :: al) := by
+    (k : K) (hq : Valid q) (hal : Abs q al) : Abs (insert greater k q) (k :: al) := by
   have h := carry_elems greater 0 q (.node k .nil .nil) al [k] hq
     (Or.inr trivial) hal (tree_elems_contents _)
   exact priqueue_elems_ext _ _ _ (by simp) h
 
 theorem join_elems (greater : K → K → Bool) (n : Nat) (p q : Queue K)
-    (c : BinaryTree K) (pe qe ce : List K) (hp : priqFrom n p) (hq : priqFrom n q)
-    (hc : c = .nil ∨ pow2heap n c) (hpe : Abs p pe) (hqe : Abs q qe)
+    (c : BinaryTree K) (pe qe ce : List K) (hp : ValidFrom n p) (hq : ValidFrom n q)
+    (hc : c = .nil ∨ Pow2Heap n c) (hpe : Abs p pe) (hqe : Abs q qe)
     (hce : TreeElems c ce) : Abs (join greater p q c) (ce ++ pe ++ qe) := by
-  have hcp : Proper c := hc.elim (fun h => h ▸ proper_nil) pow2heap_proper
+  have hcp : Proper c := hc.elim (fun h => h ▸ proper_nil) pow2Heap_proper
   apply (queue_elems_iff _ _).mpr
   exact ((((tree_elems_iff _ _).mp hce).append ((queue_elems_iff _ _).mp hpe)).append
     ((queue_elems_iff _ _).mp hqe)).trans
-    (join_contents greater p q c (priqFrom_proper hp) (priqFrom_proper hq) hcp).symm
+    (join_contents greater p q c (validFrom_proper hp) (validFrom_proper hq) hcp).symm
 
 theorem merge_abs (greater : K → K → Bool) (p q : Queue K) (pl ql : List K)
-    (hp : priq p) (hq : priq q) (hpl : Abs p pl) (hql : Abs q ql) :
+    (hp : Valid p) (hq : Valid q) (hpl : Abs p pl) (hql : Abs q ql) :
     Abs (merge greater p q) (pl ++ ql) :=
   join_elems greater 0 p q .nil pl ql [] hp hq (Or.inl rfl) hpl hql TreeElems.nil
 
 theorem merge_relate (greater : K → K → Bool) (p q : Queue K) (pl ql al : List K)
-    (hp : priq p) (hq : priq q) (hpl : Abs p pl) (hql : Abs q ql)
+    (hp : Valid p) (hq : Valid q) (hpl : Abs p pl) (hql : Abs q ql)
     (hal : Abs (merge greater p q) al) : al.Perm (pl ++ ql) :=
   abs_perm_raw _ _ _ hal (merge_abs greater p q pl ql hp hq hpl hql)
 
-theorem insert_mass (greater : K → K → Bool) (k : K) (q : Queue K) (hq : priq q) :
+theorem insert_mass (greater : K → K → Bool) (k : K) (q : Queue K) (hq : Valid q) :
     mass (insert greater k q) = mass q + 1 := by
   have h := abs_length _ _ (insert_relate greater q (contents q) k hq (queue_elems_contents q))
   simpa [contents_length] using h.symm
 
-theorem merge_mass (greater : K → K → Bool) (p q : Queue K) (hp : priq p) (hq : priq q) :
+theorem merge_mass (greater : K → K → Bool) (p q : Queue K) (hp : Valid p) (hq : Valid q) :
     mass (merge greater p q) = mass p + mass q := by
   have h := abs_length _ _ (merge_abs greater p q (contents p) (contents q) hp hq
     (queue_elems_contents p) (queue_elems_contents q))
@@ -190,19 +190,19 @@ end Predicates
 section Ordered
 variable [Preorder K]
 
-theorem pow2heapAux_mono {n : Nat} {m M : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) (hm : m ≤ M) : pow2heapAux n M t := by
+theorem pow2HeapAux_mono {n : Nat} {m M : K} {t : BinaryTree K}
+    (h : Pow2HeapAux n m t) (hm : m ≤ M) : Pow2HeapAux n M t := by
   induction n generalizing m M t with
-  | zero => simpa only [pow2heapAux_zero] using h
+  | zero => simpa only [pow2HeapAux_zero] using h
   | succ n ih =>
     cases t with
     | nil => exact False.elim h
     | node k l r => exact ⟨h.1.trans hm, h.2.1, ih h.2.2 hm⟩
 
-theorem pow2heapAux_bound {n : Nat} {m : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) : ∀ x ∈ treeContents t, x ≤ m := by
+theorem pow2HeapAux_bound {n : Nat} {m : K} {t : BinaryTree K}
+    (h : Pow2HeapAux n m t) : ∀ x ∈ treeContents t, x ≤ m := by
   induction n generalizing m t with
-  | zero => have ht := (pow2heapAux_zero _ _).mp h; subst t; simp [treeContents]
+  | zero => have ht := (pow2HeapAux_zero _ _).mp h; subst t; simp [treeContents]
   | succ n ih =>
     cases t with
     | nil => exact False.elim h
@@ -214,15 +214,15 @@ theorem pow2heapAux_bound {n : Nat} {m : K} {t : BinaryTree K}
       · exact (ih h.2.1 x hx).trans h.1
       · exact ih h.2.2 x hx
 
-theorem pow2heap_bound {n : Nat} {m : K} {a : BinaryTree K}
-    (h : pow2heap n (.node m a .nil)) :
+theorem pow2Heap_bound {n : Nat} {m : K} {a : BinaryTree K}
+    (h : Pow2Heap n (.node m a .nil)) :
     ∀ x ∈ treeContents (.node m a .nil), x ≤ m := by
   intro x hx
   simp only [treeContents, Trees.preorder_node, Trees.preorder_nil,
     List.append_nil, List.mem_cons] at hx
   rcases hx with rfl | hx
   · exact le_rfl
-  · exact pow2heapAux_bound h x hx
+  · exact pow2HeapAux_bound h x hx
 
 variable [Std.Total (fun x y : K => x ≤ y)]
 variable (greater : K → K → Bool)
@@ -230,10 +230,10 @@ variable (hgreater : ∀ x y, greater x y = true ↔ ¬ x ≤ y)
 include hgreater
 
 theorem smash_valid (n : Nat) (t u : BinaryTree K)
-    (ht : pow2heap n t) (hu : pow2heap n u) :
-    pow2heap (n + 1) (smash greater t u) := by
-  obtain ⟨x, a, rfl, ha⟩ := (pow2heap_iff _ _).mp ht
-  obtain ⟨y, b, rfl, hb⟩ := (pow2heap_iff _ _).mp hu
+    (ht : Pow2Heap n t) (hu : Pow2Heap n u) :
+    Pow2Heap (n + 1) (smash greater t u) := by
+  obtain ⟨x, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp ht
+  obtain ⟨y, b, rfl, hb⟩ := (pow2Heap_iff _ _).mp hu
   rw [smash_nodes]
   split
   · rename_i h
@@ -247,8 +247,8 @@ theorem smash_valid (n : Nat) (t u : BinaryTree K)
     exact ⟨hxy, ha, hb⟩
 
 theorem carry_valid (n : Nat) (q : Queue K) (t : BinaryTree K)
-    (hq : priqFrom n q) (ht : t = .nil ∨ pow2heap n t) :
-    priqFrom n (carry greater q t) := by
+    (hq : ValidFrom n q) (ht : t = .nil ∨ Pow2Heap n t) :
+    ValidFrom n (carry greater q t) := by
   induction q generalizing n t with
   | nil =>
     cases t with
@@ -257,21 +257,21 @@ theorem carry_valid (n : Nat) (q : Queue K) (t : BinaryTree K)
   | cons u q ih =>
     rcases hq with ⟨hu, hq⟩
     cases u with
-    | nil => simpa only [carry_hole, priqFrom_cons] using And.intro ht hq
+    | nil => simpa only [carry_hole, validFrom_cons] using And.intro ht hq
     | node x a b =>
       cases t with
-      | nil => simpa only [carry_leaf, priqFrom_cons] using And.intro hu hq
+      | nil => simpa only [carry_leaf, validFrom_cons] using And.intro hu hq
       | node y c d =>
         refine ⟨Or.inl rfl, ih (n + 1) _ hq (Or.inr ?_)⟩
         exact smash_valid greater hgreater n _ _
           (ht.resolve_left (by simp)) (hu.resolve_left (by simp))
 
-theorem insert_priq (k : K) (q : Queue K) (hq : priq q) : priq (insert greater k q) :=
+theorem insert_valid (k : K) (q : Queue K) (hq : Valid q) : Valid (insert greater k q) :=
   carry_valid greater hgreater 0 q (.node k .nil .nil) hq (Or.inr trivial)
 
 theorem join_valid (n : Nat) (p q : Queue K) (c : BinaryTree K)
-    (hp : priqFrom n p) (hq : priqFrom n q) (hc : c = .nil ∨ pow2heap n c) :
-    priqFrom n (join greater p q c) := by
+    (hp : ValidFrom n p) (hq : ValidFrom n q) (hc : c = .nil ∨ Pow2Heap n c) :
+    ValidFrom n (join greater p q c) := by
   induction p generalizing n q c with
   | nil => exact carry_valid greater hgreater n q c hq hc
   | cons p₀ p ih =>
@@ -281,12 +281,12 @@ theorem join_valid (n : Nat) (p q : Queue K) (c : BinaryTree K)
     | cons q₀ q =>
       rcases hq with ⟨hq₀, hqt⟩
       have recNil := ih (n + 1) q .nil hpt hqt (Or.inl rfl)
-      have recSmash (a b : BinaryTree K) (ha : pow2heap n a) (hb : pow2heap n b) :=
+      have recSmash (a b : BinaryTree K) (ha : Pow2Heap n a) (hb : Pow2Heap n b) :=
         ih (n + 1) q (smash greater a b) hpt hqt
           (Or.inr (smash_valid greater hgreater n a b ha hb))
       cases p₀ <;> cases q₀ <;> cases c <;>
         simp only [join_holes, join_hole_node_leaf, join_hole_node_node,
-          join_node_hole_leaf, join_node_hole_node, join_nodes, priqFrom_cons]
+          join_node_hole_leaf, join_node_hole_node, join_nodes, validFrom_cons]
       all_goals constructor
       all_goals first
         | exact hc
@@ -299,8 +299,8 @@ theorem join_valid (n : Nat) (p q : Queue K) (c : BinaryTree K)
             | exact hp₀.resolve_left (by simp)
             | exact hq₀.resolve_left (by simp))
 
-theorem merge_priq (p q : Queue K) (hp : priq p) (hq : priq q) :
-    priq (merge greater p q) := join_valid greater hgreater 0 p q .nil hp hq (Or.inl rfl)
+theorem merge_valid (p q : Queue K) (hp : Valid p) (hq : Valid q) :
+    Valid (merge greater p q) := join_valid greater hgreater 0 p q .nil hp hq (Or.inl rfl)
 
 end Ordered
 
@@ -458,8 +458,8 @@ theorem occupancy_carry (greater : K → K → Bool) (q : Queue K) (t : BinaryTr
 section Mass
 variable [LE K]
 
-theorem priqFrom_getElem {i : Nat} {q : Queue K} (hq : priqFrom i q)
-    (j : Nat) (hj : j < q.length) : q[j] = .nil ∨ pow2heap (i + j) q[j] := by
+theorem validFrom_getElem {i : Nat} {q : Queue K} (hq : ValidFrom i q)
+    (j : Nat) (hj : j < q.length) : q[j] = .nil ∨ Pow2Heap (i + j) q[j] := by
   induction q generalizing i j with
   | nil => simp at hj
   | cons t q ih =>
@@ -469,18 +469,18 @@ theorem priqFrom_getElem {i : Nat} {q : Queue K} (hq : priqFrom i q)
       have h := ih hq.2 j (by simpa using hj)
       simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using h
 
-theorem getElem_numNodes {i : Nat} {q : Queue K} (hq : priqFrom i q)
+theorem getElem_numNodes {i : Nat} {q : Queue K} (hq : ValidFrom i q)
     (j : Nat) (hj : j < q.length) :
     q[j].numNodes = if occupied q[j] then 2 ^ (i + j) else 0 := by
-  rcases priqFrom_getElem hq j hj with ht | ht
+  rcases validFrom_getElem hq j hj with ht | ht
   · simp [ht]
-  · simp [(occupied_eq_true _).mpr (pow2heap_ne_nil ht), pow2heap_numNodes ht]
+  · simp [(occupied_eq_true _).mpr (pow2Heap_ne_nil ht), pow2Heap_numNodes ht]
 
-theorem occupancy_insert (greater : K → K → Bool) (k : K) (q : Queue K) (hq : priq q) :
+theorem occupancy_insert (greater : K → K → Bool) (k : K) (q : Queue K) (hq : Valid q) :
     occupancy (insert greater k q) = Resources.BinaryCounter.inc (occupancy q) :=
-  occupancy_carry greater q (.node k .nil .nil) (priqFrom_proper hq) rfl (by simp)
+  occupancy_carry greater q (.node k .nil .nil) (validFrom_proper hq) rfl (by simp)
 
-theorem mass_eq_value {i : Nat} {q : Queue K} (hq : priqFrom i q) :
+theorem mass_eq_value {i : Nat} {q : Queue K} (hq : ValidFrom i q) :
     mass q = 2 ^ i * Resources.BinaryCounter.value (occupancy q) := by
   induction q generalizing i with
   | nil => simp [Resources.BinaryCounter.value]
@@ -489,28 +489,28 @@ theorem mass_eq_value {i : Nat} {q : Queue K} (hq : priqFrom i q) :
     rcases ht with rfl | ht
     · simp only [mass_cons, BinaryTree.numNodes, Nat.zero_add, occupancy_cons, occupied_nil,
         Resources.BinaryCounter.value, ih hq, Nat.pow_succ, Nat.mul_assoc]
-    · have hn := pow2heap_ne_nil ht
-      simp only [mass_cons, pow2heap_numNodes ht, occupancy_cons,
+    · have hn := pow2Heap_ne_nil ht
+      simp only [mass_cons, pow2Heap_numNodes ht, occupancy_cons,
         (occupied_eq_true t).mpr hn, Resources.BinaryCounter.value, ih hq,
         Nat.pow_succ, Nat.mul_add, Nat.mul_one, Nat.mul_assoc]
 
-theorem mass_lt_pow_length {q : Queue K} (hq : priq q) : mass q < 2 ^ q.length := by
+theorem mass_lt_pow_length {q : Queue K} (hq : Valid q) : mass q < 2 ^ q.length := by
   have h := Resources.BinaryCounter.value_lt_two_pow_length (occupancy q)
   simpa [mass_eq_value hq] using h
 
-theorem size_mass_le_length {q : Queue K} (hq : priq q) : (mass q).size ≤ q.length :=
+theorem size_mass_le_length {q : Queue K} (hq : Valid q) : (mass q).size ≤ q.length :=
   Nat.size_le.mpr (mass_lt_pow_length hq)
 
-theorem canonical_mass_lower {q : Queue K} (hq : priq q) (hc : Canonical q) (hn : q ≠ []) :
+theorem canonical_mass_lower {q : Queue K} (hq : Valid q) (hc : Canonical q) (hn : q ≠ []) :
     2 ^ (q.length - 1) ≤ mass q := by
   obtain ⟨p, t, rfl, ht⟩ := (canonical_iff q).mp hc |>.resolve_left hn
-  have hv := ((priqFrom_append 0 p [t]).mp hq).2.1
-  have hv' : pow2heap p.length t := by simpa using hv.resolve_left ht
+  have hv := ((validFrom_append 0 p [t]).mp hq).2.1
+  have hv' : Pow2Heap p.length t := by simpa using hv.resolve_left ht
   simp only [List.length_append, List.length_singleton, Nat.add_sub_cancel,
-    mass_append, mass_cons, mass_nil, Nat.add_zero, pow2heap_numNodes hv']
+    mass_append, mass_cons, mass_nil, Nat.add_zero, pow2Heap_numNodes hv']
   omega
 
-theorem canonical_length {q : Queue K} (hq : priq q) (hc : Canonical q) :
+theorem canonical_length {q : Queue K} (hq : Valid q) (hc : Canonical q) :
     q.length = (mass q).size := by
   have upper := size_mass_le_length hq
   by_cases hn : q = []
@@ -519,14 +519,14 @@ theorem canonical_length {q : Queue K} (hq : priq q) (hc : Canonical q) :
     have hp : 0 < q.length := Nat.pos_of_ne_zero (fun he => hn (List.length_eq_zero_iff.mp he))
     omega
 
-theorem canonical_log_length {q : Queue K} (hq : priq q) (hc : Canonical q) (hn : q ≠ []) :
+theorem canonical_log_length {q : Queue K} (hq : Valid q) (hc : Canonical q) (hn : q ≠ []) :
     q.length = Nat.log 2 (mass q) + 1 := by
   have hp : 0 < q.length := Nat.pos_of_ne_zero (fun he => hn (List.length_eq_zero_iff.mp he))
   have hlog := Nat.log_eq_of_pow_le_of_lt_pow (canonical_mass_lower hq hc hn)
     (by simpa [Nat.sub_add_cancel hp] using mass_lt_pow_length hq)
   omega
 
-theorem replicate_nil_valid (i n : Nat) : priqFrom i (List.replicate n (.nil : BinaryTree K)) := by
+theorem replicate_nil_valid (i n : Nat) : ValidFrom i (List.replicate n (.nil : BinaryTree K)) := by
   induction n generalizing i with
   | zero => trivial
   | succ n ih => exact ⟨Or.inl rfl, ih (i + 1)⟩
@@ -545,9 +545,9 @@ variable (greater : K → K → Bool)
 variable (hgreater : ∀ x y, greater x y = true ↔ ¬ x ≤ y)
 include hgreater
 
-theorem insert_length (k : K) (q : Queue K) (hq : priq q) :
+theorem insert_length (k : K) (q : Queue K) (hq : Valid q) :
     (insert greater k q).length = max q.length (mass q + 1).size := by
-  have hv := insert_priq greater hgreater k q hq
+  have hv := insert_valid greater hgreater k q hq
   have hlo := (carry_length_bounds greater q (.node k .nil .nil)).1
   have hsize := size_mass_le_length hv
   rw [insert_mass greater k q hq] at hsize
@@ -559,10 +559,10 @@ theorem insert_length (k : K) (q : Queue K) (hq : priq q) :
   · change q.length ≤ (insert greater k q).length at hlo
     omega
 
-theorem merge_length (p q : Queue K) (hp : priq p) (hq : priq q) :
+theorem merge_length (p q : Queue K) (hp : Valid p) (hq : Valid q) :
     (merge greater p q).length =
       max (max p.length q.length) (mass p + mass q).size := by
-  have hv := merge_priq greater hgreater p q hp hq
+  have hv := merge_valid greater hgreater p q hp hq
   have hlo := (join_length_bounds greater p q .nil).1
   have hsize := size_mass_le_length hv
   rw [merge_mass greater p q hp hq] at hsize

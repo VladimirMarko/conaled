@@ -300,6 +300,45 @@ assessment's source identity or establish a general usability measurement.
 [Rotation certificate foundations](fdsa-rotation-certificate-preparation.md)
 retain actual binary predecessor, partial execution, equality, finite-word
 encoding and linear-prefix parsing. The complete checker and machine-complexity
-bridge remain open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
+bridge are now integrated in the [final receiving source](textbook-machine-integration.md);
+independent NP-class correspondence remains open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
 now also retains explicit finite flip tables and a tree-diagonal proof plan;
 its global sharp theorem and primary-family correspondence remain open.
+
+## Settled-interface adoption checkpoint
+
+The final textbook intake at `6e6805dc` discharges #712's external-delivery wait.
+The [remaining textbook-family assessment](textbook-integration.md#sorting-maps-queues-and-coloring-assessment)
+finds connected sorting, map, queue and coloring clients with explicit recovery
+limits. Their synchronization, valid-state adapters and reachable fold fusion
+already serve the inspected operation contracts. A categorical wrapper would
+add requirements without removing an identified repeated proof. Retain these
+interfaces and their separate costs, multiplicities and malformed-input behavior.
+
+The first [#712](https://github.com/VladimirMarko/conaled/issues/712) implementation
+instead selects a raw interpretation comparison in
+[Linear.Maps](../../Applications/Linear/Maps.lean). `coordinateDecode` packages
+coordinate decoding as a `RawTransformation`; `matrixDecode` prewhiskers it
+through matrix evaluation. Shared naturality recovers the existing
+`interpretation_commutes` equation. The
+[compiler client](../../Applications/Linear/FirstOrderNaturality.lean)
+uses that equation for arbitrary compiled terms and arbitrary coordinate inputs,
+then derives the retained linear-combination example. The coordinate theorem
+needs no semiring instance; matrix evaluation retains its original commutative
+semiring assumption. This exposes reusable composition and whiskering for one
+existing comparison. It does not establish a general reduction in author effort.
+
+| Settled direction and inspected caller | Decision, retained contract and checked evidence | Next checkpoint |
+|---|---|---|
+| Raw transformations: `Linear.Maps.interpretation_commutes` | Adopt `coordinateDecode` and its prewhiskered matrix interpretation. Preserve actual decode components, arbitrary inputs and the old equality orientation. `compile_decode` connects the public transformation to compiled source evaluation; the Bool unit-to-product case checks the weaker coordinate assumptions. | Review this batch with original matrix/compiler clients. At the next #235 planning review inspect another repeated interpretation comparison before broadening migration. |
+| Comma universal properties: [CommaVertical](../../SquareKit/CommaVertical.lean) and [WitnessCommaVertical](../../SquareKit/WitnessCommaVertical.lean) | Retain primitive vertical pasting: it accepts target congruence/associativity and a middle-arrow relation, with Type-valued connectors in the witness version. Replacing it with an ordinary lawful comma cone would strengthen assumptions. `ofSquare_vertical` and `erase_vertical` retain the corresponding data/erasure contracts. | At the next #235 planning review inspect a lawful comma client such as MatrixDoubling for a repeated cone construction that the delivered universal-property adapter can replace. |
+| Lawful quotient equivalence: [CommaLawful](../../SquareKit/CommaLawful.lean) | Retain the raw-operation quotient bridge and `quotientMap_eq_iff` component-class observation. It does not start with the ordinary category and congruent `HomRel` required by the settled lawful equivalence in [CategoryQuotient](../../SquareKit/CategoryQuotient.lean). No representative recovery follows. | At the same review inspect old ordinary-category quotient consumers against those source-law requirements. The inspected textbook dependencies supplied no duplicated lawful quotient construction. |
+| Canonical spans: [SpanInterpretation](../../SquareKit/SpanInterpretation.lean), [composition](../../SquareKit/SpanInterpretationComposition.lean), [DependentBaseChange](../../SquareKit/DependentBaseChange.lean) | Retain existing constructors from functors, chosen pullbacks and pullback preservation. Keep full comparison arrows and operation restrictions; ordinary lawful slice clients can keep Mathlib natural transformations. No duplicate older constructor was identified in this sample. | At the same review inspect callers constructing `compositionIso` or `actionIso` manually, comparing full maps and preservation hypotheses before choosing a migration. |
+| Coherent-family totalization: [CoherentSheafOver](../../SquareKit/Internal/CoherentSheafOver.lean) versus [CoherentFamilyFibration](../../SquareKit/Internal/CoherentFamilyFibration.lean) | Retain fiberwise sheaf classification and its local-property full subcategory, together with the existing varying-context `reindex`, `reindexId`, `reindexComp` and decode compatibility equations. These are not yet packaged as a total category. The selected total bridge separately covers its particular coherent-family system and cartesian arrows. | At the same review assess whether the existing substitution data can be packaged through the shared totalization machinery, including the remaining coherence obligations, dense-site assumptions, locality and universes. Select a base-changing arrow client before claiming recovery; adapters beyond the settled bridge remain #708 research. |
+
+These are bounded caller dispositions, not completion of #712. The next #235
+planning review is the review event even if no further textbook delivery occurs;
+the four-book programme is no longer a waiting condition. A new consequential
+architecture choice still needs its own assessment. #618's naming migration
+can accompany a selected caller while preserving valid embedded identifiers,
+acronyms and the mathematical distinctions above.

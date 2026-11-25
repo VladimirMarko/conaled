@@ -159,7 +159,7 @@ def compiledBody (x : Val Nat s) := FirstOrderCompiler.compile (FoldCompiler.sca
 @[simp] theorem body_value (x : Val Nat s) : (compiledBody meaning charge p x).1 = step meaning p x :=
   FirstOrderCompiler.compile_sound _ (FoldCompiler.scalarSound meaning charge) p.body _
 
-theorem targetDecrease (rank : Val Nat s → Nat)
+theorem target_decrease (rank : Val Nat s → Nat)
     (decreases : ∀ x, done meaning p x = false → rank (step meaning p x) < rank x) :
     ∀ x, (guard meaning charge p x).1 = false → rank (compiledBody meaning charge p x).1 < rank x := by
   exact rank_pullback (done meaning p) (fun x => (guard meaning charge p x).1)
@@ -173,7 +173,7 @@ def execute (rank : Val Nat s → Nat)
     (x : Val Nat i) : Measured (Val Nat o) Nat :=
   bind (FirstOrderCompiler.compile (FoldCompiler.scalar meaning charge) p.seed ((), x)) fun initial =>
   bind (run (guard meaning charge p) (compiledBody meaning charge p) rank
-    (targetDecrease meaning charge p rank decreases) initial) fun final =>
+    (target_decrease meaning charge p rank decreases) initial) fun final =>
   FirstOrderCompiler.compile (FoldCompiler.scalar meaning charge) p.post ((), final)
 
 /-- A source finite execution determines the complete compiled bill and result. -/
@@ -187,7 +187,7 @@ theorem execute_of_steps (rank : Val Nat s → Nat)
   have hs : (FirstOrderCompiler.compile (FoldCompiler.scalar meaning charge) p.seed ((), x)).1 =
       start meaning p x := FirstOrderCompiler.compile_sound _ (FoldCompiler.scalarSound meaning charge) _ _
   have hr := run_of_steps (guard meaning charge p) (compiledBody meaning charge p) rank
-    (targetDecrease meaning charge p rank decreases) (Test.cost charge p.test)
+    (target_decrease meaning charge p rank decreases) (Test.cost charge p.test)
     (FoldCompiler.bodyCost charge p.body)
     (by intro z; simp [guard, Test.compile_eq])
     (by intro z; exact FoldCompiler.scalar_cost _ _ _ _) (by simpa only [guard_value, body_value] using h)

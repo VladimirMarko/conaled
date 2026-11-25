@@ -798,7 +798,7 @@ theorem arbitrary_callers_agree_through_the_same_first_exit
 def allRawInLinearTime (raw : Bits) :
     StateTransition.EvalsToInTime (step caller) (entry regs raw ctx)
       (some (resultCfg regs ctx (sourceOutcome raw))) (8 * raw.length + 13) :=
-  run_timed_linear caller regs raw ctx
+  runTimedLinear caller regs raw ctx
 
 def appendActualContinuation (raw : Bits) (extra : Nat) (finish : Option (Cfg Γ Λ R))
     (continuation : StateTransition.EvalsToInTime (step caller)

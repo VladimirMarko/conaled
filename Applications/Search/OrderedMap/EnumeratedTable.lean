@@ -31,7 +31,7 @@ structure Observations (κ : Type u) (ν : Type v) (T : Type w) where
 
 /-- The initial source signature is realizable by valid carriers, although the
 attempted unrestricted raw-tree realization cannot supply its soundness field. -/
-structure FirstAttemptLaws (table : TotalTable.Ops κ ν T)
+structure UnrestrictedEnumerationLaws (table : TotalTable.Ops κ ν T)
     (obs : Observations κ ν T) (default : ν) : Prop where
   table_laws : TotalTable.Laws table default (fun _ => True)
   elements_complete : ∀ key value t, obs.bound key t = true → table.get key t = value →
@@ -58,9 +58,9 @@ structure Laws (table : TotalTable.Ops κ ν T) (obs : Observations κ ν T)
 abbrev SubsetLaws (table : TotalTable.Ops κ ν T) (obs : Observations κ ν T)
     (default : ν) := Laws table obs default (fun _ => True)
 
-theorem SubsetLaws.firstAttempt {table : TotalTable.Ops κ ν T}
+theorem SubsetLaws.unrestrictedEnumerationLaws {table : TotalTable.Ops κ ν T}
     {obs : Observations κ ν T} {default : ν} (h : SubsetLaws table obs default) :
-    FirstAttemptLaws table obs default where
+    UnrestrictedEnumerationLaws table obs default where
   table_laws := h.table_laws
   elements_complete key value t := h.elements_complete key value t trivial
   elements_correct key value t := h.elements_correct key value t trivial
@@ -107,7 +107,7 @@ theorem Laws.absent_no_entry {table : TotalTable.Ops κ ν T}
 section DecidableKeys
 variable [DecidableEq κ]
 
-theorem ModelLaws.totalLaws {table : TotalTable.Ops κ ν T}
+theorem ModelLaws.totalTable_laws {table : TotalTable.Ops κ ν T}
     {obs : Observations κ ν T} {default : ν} {Valid : T → Prop}
     {Abs : T → Meaning κ ν} (h : ModelLaws table obs default Valid Abs) :
     TotalTable.Laws table default Valid where

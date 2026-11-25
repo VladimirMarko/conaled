@@ -218,7 +218,7 @@ An explicitly supplied observation and its abstraction-witness proof connect
 the relational source contract to `ExactQueue`. `exactQueueOfAllValid` keeps
 the raw carrier when all states are valid. In general, `validOperations`
 restricts execution to `{q // Valid q}` and obtains the residual proof from the
-actual successful source result. `validLaws` proves the full relational
+actual successful source result. `valid_laws` proves the full relational
 contract on that subtype, and `exactQueueOnValid` then supplies the existing
 exact interface. The raw operation projection theorems preserve all four
 source operations, including native merge. No arbitrary abstraction witness

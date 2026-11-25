@@ -466,7 +466,7 @@ def exact_installed_clean_timing (regs : Registers R) (fuel : Bits)
       (installedCfg names symbols registers labels (entry regs fuel certificate source target ctx))
       (some (installedCfg names symbols registers labels (runResult regs fuel certificate source target ctx)))
       (runSteps fuel certificate source target) :=
-  installed_owned_timed names symbols registers labels caller ambient installed
+  installedOwnedTimed names symbols registers labels caller ambient installed
     (entry regs fuel certificate source target ctx)
 
 def polynomial_installed_clean_timing (regs : Registers R) (fuel : Bits)

@@ -86,13 +86,13 @@ theorem the_genuine_package_peak_is_both_an_upper_bound_and_attained
 
 def arbitraryPackageConfigurationTime (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (machine caller initial).step start
-      (some (finalCfg start)) (remainingSteps start) := machine_cfgInTime caller initial start
+      (some (finalCfg start)) (remainingSteps start) := machineCfgInTime caller initial start
 
 def arbitraryPackagePhaseTime (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (cfg (some (phaseLabel q)) regs D ctx) (some (phaseResult q regs D ctx)) (phaseSteps q D) :=
-  machine_phaseInTime caller initial q D regs ctx
+  machinePhaseInTime caller initial q D regs ctx
 
 theorem arbitrary_package_time_records_do_not_assume_actual_initialization
     (start : Cfg Γ Λ R) (q : Phase) (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -158,7 +158,7 @@ def installedConfigurationExactTime (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels start)
       (some (installedCfg names symbols registers labels (finalCfg start))) (remainingSteps start) :=
-  installed_ownedInTime names symbols registers labels caller ambient installed start
+  installedOwnedInTime names symbols registers labels caller ambient installed start
 
 include installed in
 def installedPhaseExactTime (q : Phase) (D : LocalData) (regs : Registers R)
@@ -166,13 +166,13 @@ def installedPhaseExactTime (q : Phase) (D : LocalData) (regs : Registers R)
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels (cfg (some (phaseLabel q)) regs D ctx))
       (some (installedCfg names symbols registers labels (phaseResult q regs D ctx))) (phaseSteps q D) :=
-  installed_phaseInTime names symbols registers labels caller ambient installed q D regs ctx
+  installedPhaseInTime names symbols registers labels caller ambient installed q D regs ctx
 
 include installed in
 def installedOuterNoneExactTime (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels start) none (remainingSteps start + 1) :=
-  installed_haltNoneInTime names symbols registers labels caller ambient installed start halted
+  installedHaltNoneInTime names symbols registers labels caller ambient installed start halted
 
 theorem installed_type_valued_records_retain_the_exact_source_counts
     (start : Cfg Γ Λ R) (q : Phase) (D : LocalData) (regs : Registers R) (ctx : ∀ k, List (Γ k))

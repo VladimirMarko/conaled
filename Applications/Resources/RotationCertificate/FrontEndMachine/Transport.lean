@@ -99,7 +99,7 @@ theorem stackEquiv_update (data : ∀ k, List (Γ k)) (k : K) (value : List (Γ 
     simp only [stackEquiv_apply, Function.update_of_ne equal, Function.update_of_ne different]
 
 /-- The proof follows each actual primitive in the pinned TM2 evaluator. -/
-theorem stepAux (body : Turing.TM2.Stmt Γ Λ R) (regs : R) (data : ∀ k, List (Γ k)) :
+theorem stepAux_statement (body : Turing.TM2.Stmt Γ Λ R) (regs : R) (data : ∀ k, List (Γ k)) :
     Turing.TM2.stepAux (statement names symbols registers labels body)
         (registers regs) (stackEquiv names symbols data) =
       cfg names symbols registers labels (Turing.TM2.stepAux body regs data) := by
@@ -135,7 +135,7 @@ theorem step (source : Λ → Turing.TM2.Stmt Γ Λ R)
   | none => rfl
   | some label =>
       simp only [cfg, Option.map_some, Turing.TM2.step, installed]
-      exact congrArg some (stepAux names symbols registers labels (source label) regs data)
+      exact congrArg some (stepAux_statement names symbols registers labels (source label) regs data)
 
 def next (program : Λ → Turing.TM2.Stmt Γ Λ R) :
     Option (Turing.TM2.Cfg Γ Λ R) → Option (Turing.TM2.Cfg Γ Λ R) :=
@@ -191,7 +191,7 @@ theorem step_owned (source : Λ → Turing.TM2.Stmt Γ Λ R)
   | none => rfl
   | some label =>
       simp only [cfg, Option.map_some, Turing.TM2.step, installed label ownership]
-      exact congrArg some (stepAux names symbols registers labels (source label) regs data)
+      exact congrArg some (stepAux_statement names symbols registers labels (source label) regs data)
 
 theorem iterate_owned (source : Λ → Turing.TM2.Stmt Γ Λ R)
     (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R') (owned : Option Λ → Prop)
@@ -212,7 +212,7 @@ theorem iterate_owned (source : Λ → Turing.TM2.Stmt Γ Λ R)
 variable [Fintype K] [Fintype K']
 
 omit [DecidableEq K] [DecidableEq K'] in
-theorem stackCells (data : ∀ k, List (Γ k)) :
+theorem stackEquiv_total_length (data : ∀ k, List (Γ k)) :
     ∑ j, (stackEquiv names symbols data j).length = ∑ k, (data k).length := by
   symm
   apply Fintype.sum_equiv names

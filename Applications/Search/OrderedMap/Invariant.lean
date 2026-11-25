@@ -54,7 +54,7 @@ theorem Laws.restrict_iff [DecidableEq κ] (ops : Ops κ ν M)
 
 /-- A convenient constructor for existing raw implementations with a proved
 invariant. All subsequent arbitrary binding-list clients reuse `Laws`. -/
-theorem Laws.ofValid [DecidableEq κ] {ops : Ops κ ν M}
+theorem Laws.of_valid [DecidableEq κ] {ops : Ops κ ν M}
     {Valid : M → Prop} {observe : M → Meaning κ ν}
     (empty_valid : Valid ops.empty)
     (bind_valid : ∀ key value m, Valid m → Valid (ops.bind key value m))

@@ -70,7 +70,7 @@ theorem selectRun_work_le {bits : Nat} {g : Graph} (valid : GraphValid bits g)
 
 theorem colorsStep_work_le {nodeBits colorBits : Nat} {palette vertices : NodeSet}
     (neighborValid : SetValid nodeBits vertices) (paletteValid : SetValid colorBits palette)
-    (f : Assignment) (colors : AllPalette palette f) (key : Node)
+    (f : Assignment) (colors : PaletteValued palette f) (key : Node)
     (member : KeySet.mem key vertices = true) (used : NodeSet) :
     work (colorsStep f key used).2 ≤ nodeBits + 2 * colorBits := by
   have lookupBound := (lookup_work_le key f).trans (neighborValid.bounded key member)
@@ -86,7 +86,7 @@ theorem colorsStep_work_le {nodeBits colorBits : Nat} {palette vertices : NodeSe
 
 theorem colorsOfRun_work_le {nodeBits colorBits : Nat} {palette vertices : NodeSet}
     (neighborValid : SetValid nodeBits vertices) (paletteValid : SetValid colorBits palette)
-    (f : Assignment) (colors : AllPalette palette f) :
+    (f : Assignment) (colors : PaletteValued palette f) :
     work (colorsOfRun f vertices).2 ≤
       7 * KeySet.cardinal vertices * nodeBits + 2 * KeySet.cardinal vertices * colorBits + 2 := by
   have h := run_work_le_sum (colorsStep f) (fun key => KeySet.mem key vertices = true)
@@ -106,7 +106,7 @@ theorem availableColors_cardinal_le (palette : NodeSet) (g : Graph) (key : Node)
 
 theorem color1Run_work_le {nodeBits colorBits : Nat} {g : Graph} {palette : NodeSet}
     (graphValid : GraphValid nodeBits g) (paletteValid : SetValid colorBits palette)
-    (key : Node) (keyBound : bitLength key ≤ nodeBits) (f : Assignment) (colors : AllPalette palette f) :
+    (key : Node) (keyBound : bitLength key ≤ nodeBits) (f : Assignment) (colors : PaletteValued palette f) :
     work (color1Run palette g key f).2 ≤
       3 * nodeBits + 7 * degree g key * nodeBits + 2 * degree g key * colorBits +
         7 * KeySet.cardinal palette * colorBits + 7 := by
@@ -144,10 +144,10 @@ theorem colorListRun_work_le {nodeBits colorBits : Nat} {g : Graph} {palette : N
         2 * (vertices.map (degree g)).sum * colorBits +
         7 * vertices.length * KeySet.cardinal palette * colorBits + 9 * vertices.length + 2 := by
   have h := listFold_work_le_sum (color1Run palette g) (fun key => bitLength key ≤ nodeBits)
-    (AllPalette palette) (colorStepBound g nodeBits colorBits (KeySet.cardinal palette))
-    (fun key f _ colors => by rw [color1Run_value]; exact allPalette_color1 colors)
+    (PaletteValued palette) (colorStepBound g nodeBits colorBits (KeySet.cardinal palette))
+    (fun key f _ colors => by rw [color1Run_value]; exact paletteValued_color1 colors)
     (fun key f bound colors => color1Run_work_le graphValid paletteValid key bound f colors)
-    vertices bounded .nil (allPalette_nil palette)
+    vertices bounded .nil (paletteValued_nil palette)
   rw [sum_colorStepBound] at h
   rw [colorListRun, enter_work]
   omega

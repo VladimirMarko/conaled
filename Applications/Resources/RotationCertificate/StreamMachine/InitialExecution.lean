@@ -299,7 +299,7 @@ theorem installed_firstRun_iff
   · rintro ⟨rfl, rfl⟩
     exact canonical
 
-def installed_owned_timed
+def installedOwnedTimed
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -313,15 +313,15 @@ def installed_owned_timed
     (installed_owned_firstRun names symbols registers labels caller ambient installed start).1
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_owned_timed_steps
+@[simp] theorem installedOwnedTimed_steps
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) :
-    (installed_owned_timed names symbols registers labels caller ambient installed start).steps =
+    (installedOwnedTimed names symbols registers labels caller ambient installed start).steps =
       remainingSteps start := rfl
 
-def installed_owned_prefix_timed
+def installedOwnedPrefixTimed
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -339,13 +339,13 @@ def installed_owned_prefix_timed
     rfl
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_owned_prefix_timed_steps
+@[simp] theorem installedOwnedPrefixTimed_steps
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (n : Nat) (bound : n ≤ remainingSteps start)
     (reached : Cfg Γ Λ R) (executed : (next caller)^[n] (some start) = some reached) :
-    (installed_owned_prefix_timed names symbols registers labels caller ambient installed start n
+    (installedOwnedPrefixTimed names symbols registers labels caller ambient installed start n
       bound reached executed).steps = n := rfl
 
 /-- Pull an actual source prefix bound through the complete physical map for

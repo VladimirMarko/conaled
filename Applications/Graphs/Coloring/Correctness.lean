@@ -15,16 +15,16 @@ namespace Graphs.Coloring
 
 open Search.PositiveTrie
 
-def ColoringOK (palette : NodeSet) (g : Graph) (f : Assignment) : Prop :=
+def EdgeColoringCompatible (palette : NodeSet) (g : Graph) (f : Assignment) : Prop :=
   ∀ left right, Adjacent g left right →
     (∀ color, SparseMap.find left f = some color → KeySet.mem color palette = true) ∧
     (∀ first second, SparseMap.find left f = some first →
       SparseMap.find right f = some second → first ≠ second)
 
-def AllPalette (palette : NodeSet) (f : Assignment) : Prop :=
+def PaletteValued (palette : NodeSet) (f : Assignment) : Prop :=
   ∀ node color, SparseMap.find node f = some color → KeySet.mem color palette = true
 
-theorem coloringOK_nil (palette : NodeSet) (g : Graph) : ColoringOK palette g .nil := by
+theorem edgeColoringCompatible_nil (palette : NodeSet) (g : Graph) : EdgeColoringCompatible palette g .nil := by
   intro left _ _
   constructor
   · intro _ found
@@ -34,13 +34,13 @@ theorem coloringOK_nil (palette : NodeSet) (g : Graph) : ColoringOK palette g .n
     simp only [SparseMap.find_nil] at found
     cases found
 
-theorem allPalette_nil (palette : NodeSet) : AllPalette palette .nil := by
+theorem paletteValued_nil (palette : NodeSet) : PaletteValued palette .nil := by
   intro _ _ found
   simp only [SparseMap.find_nil] at found
   cases found
 
-theorem allPalette_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Assignment}
-    (previous : AllPalette palette f) : AllPalette palette (color1 palette g node f) := by
+theorem paletteValued_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Assignment}
+    (previous : PaletteValued palette f) : PaletteValued palette (color1 palette g node f) := by
   cases chosen : KeySet.choose (availableColors palette g node f) with
   | none => rwa [color1_of_none chosen]
   | some color =>
@@ -54,9 +54,9 @@ theorem allPalette_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Ass
       · rw [SparseMap.find_add_other node query color f same] at found
         exact previous query value found
 
-theorem coloringOK_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Assignment}
-    (symmetric : Undirected g) (loopless : NoSelfLoop g) (previous : ColoringOK palette g f) :
-    ColoringOK palette g (color1 palette g node f) := by
+theorem edgeColoringCompatible_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Assignment}
+    (symmetric : Undirected g) (loopless : NoSelfLoop g) (previous : EdgeColoringCompatible palette g f) :
+    EdgeColoringCompatible palette g (color1 palette g node f) := by
   cases chosen : KeySet.choose (availableColors palette g node f) with
   | none => rwa [color1_of_none chosen]
   | some color =>
@@ -90,29 +90,29 @@ theorem coloringOK_color1 {palette : NodeSet} {g : Graph} {node : Node} {f : Ass
           · rw [SparseMap.find_add_other node right color f rightSame] at foundRight
             exact (previous left right edge).2 first second foundLeft foundRight
 
-theorem allPalette_colorList (palette : NodeSet) (g : Graph) (vertices : List Node) :
-    AllPalette palette (colorList palette g vertices) := by
+theorem paletteValued_colorList (palette : NodeSet) (g : Graph) (vertices : List Node) :
+    PaletteValued palette (colorList palette g vertices) := by
   induction vertices with
-  | nil => exact allPalette_nil palette
-  | cons node vertices ih => exact allPalette_color1 ih
+  | nil => exact paletteValued_nil palette
+  | cons node vertices ih => exact paletteValued_color1 ih
 
-theorem coloringOK_colorList (palette : NodeSet) {g : Graph}
+theorem edgeColoringCompatible_colorList (palette : NodeSet) {g : Graph}
     (symmetric : Undirected g) (loopless : NoSelfLoop g) (vertices : List Node) :
-    ColoringOK palette g (colorList palette g vertices) := by
+    EdgeColoringCompatible palette g (colorList palette g vertices) := by
   induction vertices with
-  | nil => exact coloringOK_nil palette g
-  | cons node vertices ih => exact coloringOK_color1 symmetric loopless ih
+  | nil => exact edgeColoringCompatible_nil palette g
+  | cons node vertices ih => exact edgeColoringCompatible_color1 symmetric loopless ih
 
-theorem allPalette_color (palette : NodeSet) (g : Graph) : AllPalette palette (color palette g) :=
-  allPalette_colorList palette g _
+theorem paletteValued_color (palette : NodeSet) (g : Graph) : PaletteValued palette (color palette g) :=
+  paletteValued_colorList palette g _
 
 /-- Source color_correct, specialized to the actual computed selection list. -/
 theorem color_correct (palette : NodeSet) {g : Graph}
-    (loopless : NoSelfLoop g) (symmetric : Undirected g) : ColoringOK palette g (color palette g) :=
-  coloringOK_colorList palette symmetric loopless _
+    (loopless : NoSelfLoop g) (symmetric : Undirected g) : EdgeColoringCompatible palette g (color palette g) :=
+  edgeColoringCompatible_colorList palette symmetric loopless _
 
-theorem coloringOK_of_no_edges (palette : NodeSet) {g : Graph} (f : Assignment)
-    (edgeless : ∀ left right, ¬ Adjacent g left right) : ColoringOK palette g f :=
+theorem edgeColoringCompatible_of_no_edges (palette : NodeSet) {g : Graph} (f : Assignment)
+    (edgeless : ∀ left right, ¬ Adjacent g left right) : EdgeColoringCompatible palette g f :=
   fun left right edge => (edgeless left right edge).elim
 
 end Graphs.Coloring

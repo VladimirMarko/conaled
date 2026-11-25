@@ -38,9 +38,9 @@ theorem empty_raw_rejects_on_tape :
   have output : BitPairFraming.verifyFramed ([] : Bits) = false :=
     Examples.RotationCertificateFrontEndStreamMachine.source_F01_has_its_original_component_tariffs.2
   have clock : runSteps ([] : Bits) = 20 :=
-    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.raw_F01
+    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_F01_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
+      (Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
   have result := encoded_tape_run_bound caller initial []
   rw [output, clock] at result
   exact result
@@ -55,9 +55,9 @@ theorem singleton_false_raw_rejects_on_tape :
   have output : BitPairFraming.verifyFramed ([false] : Bits) = false :=
     Examples.RotationCertificateFrontEndStreamMachine.source_F02_has_its_original_component_tariffs.2
   have clock : runSteps ([false] : Bits) = 20 :=
-    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.raw_F02
+    (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock caller Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_F02_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
+      (Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture_actual_first_halt caller (initialRegisters initial) (fun _ => []))).symm
   have result := encoded_tape_run_bound caller initial [false]
   rw [output, clock] at result
   exact result
@@ -151,9 +151,9 @@ theorem empty_raw_rejects_on_finite_primitive :
     Examples.RotationCertificateFrontEndStreamMachine.source_F01_has_its_original_component_tariffs.2
   have clock : runSteps ([] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock
-      caller Examples.RotationCertificateFrontEndStreamMachine.raw_F01
+      caller Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_F01_actual_first_halt
+      (Examples.RotationCertificateFrontEndStreamMachine.emptyRawFixture_actual_first_halt
         caller (initialRegisters initial) (fun _ => []))).symm
   have result := finite_encoded_primitive_run_bound caller initial []
   rw [output, clock] at result
@@ -174,9 +174,9 @@ theorem singleton_false_raw_rejects_on_finite_primitive :
     Examples.RotationCertificateFrontEndStreamMachine.source_F02_has_its_original_component_tariffs.2
   have clock : runSteps ([false] : Bits) = 20 :=
     (Examples.RotationCertificateFrontEndStreamMachine.an_actual_raw_fixture_has_the_canonical_clock
-      caller Examples.RotationCertificateFrontEndStreamMachine.raw_F02
+      caller Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture
       (initialRegisters initial) (fun _ => [])
-      (Examples.RotationCertificateFrontEndStreamMachine.raw_F02_actual_first_halt
+      (Examples.RotationCertificateFrontEndStreamMachine.truncatedPrefixFixture_actual_first_halt
         caller (initialRegisters initial) (fun _ => []))).symm
   have result := finite_encoded_primitive_run_bound caller initial [false]
   rw [output, clock] at result

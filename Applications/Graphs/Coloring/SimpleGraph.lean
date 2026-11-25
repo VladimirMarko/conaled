@@ -62,19 +62,19 @@ theorem palette_value_count (palette : NodeSet) :
     Fintype.card {value // value ∈ KeySet.observe palette} = KeySet.cardinal palette := by
   rw [Fintype.card_coe, KeySet.observe_card]
 
-def paletteValue (palette : NodeSet) (f : Assignment) (paletteOnly : AllPalette palette f)
+def paletteValue (palette : NodeSet) (f : Assignment) (paletteOnly : PaletteValued palette f)
     (node : {n // n ∈ SparseMap.keys f}) : {value // value ∈ KeySet.observe palette} :=
   ⟨valueAt f node, (KeySet.mem_observe _ _).mpr
     (paletteOnly node.val _ (find_valueAt f node))⟩
 
 theorem paletteValue_lookup (palette : NodeSet) (f : Assignment)
-    (paletteOnly : AllPalette palette f) (node : {n // n ∈ SparseMap.keys f}) :
+    (paletteOnly : PaletteValued palette f) (node : {n // n ∈ SparseMap.keys f}) :
     SparseMap.find node.val f = some (paletteValue palette f paletteOnly node).val :=
   find_valueAt f node
 
 def properColoring (palette : NodeSet) (g : Graph)
     (symmetric : Undirected g) (loopless : NoSelfLoop g) (f : Assignment)
-    (compatible : ColoringOK palette g f) (paletteOnly : AllPalette palette f) :
+    (compatible : EdgeColoringCompatible palette g f) (paletteOnly : PaletteValued palette f) :
     (coloredGraph g symmetric loopless f).Coloring {value // value ∈ KeySet.observe palette} := by
   apply SimpleGraph.Coloring.mk (paletteValue palette f paletteOnly)
   intro left right edge same
@@ -83,7 +83,7 @@ def properColoring (palette : NodeSet) (g : Graph)
 
 theorem properColoring_lookup (palette : NodeSet) (g : Graph)
     (symmetric : Undirected g) (loopless : NoSelfLoop g) (f : Assignment)
-    (compatible : ColoringOK palette g f) (paletteOnly : AllPalette palette f)
+    (compatible : EdgeColoringCompatible palette g f) (paletteOnly : PaletteValued palette f)
     (node : {n // n ∈ SparseMap.keys f}) :
     SparseMap.find node.val f =
       some ((properColoring palette g symmetric loopless f compatible paletteOnly) node).val :=
@@ -94,7 +94,7 @@ def producedColoring (palette : NodeSet) (g : Graph)
     (coloredGraph g symmetric loopless (color palette g)).Coloring
       {value // value ∈ KeySet.observe palette} :=
   properColoring palette g symmetric loopless (color palette g)
-    (color_correct palette loopless symmetric) (allPalette_color palette g)
+    (color_correct palette loopless symmetric) (paletteValued_color palette g)
 
 theorem producedColoring_lookup (palette : NodeSet) (g : Graph)
     (symmetric : Undirected g) (loopless : NoSelfLoop g)

@@ -360,10 +360,10 @@ variable [LE K]
 
 /-- The descending sibling spine is returned as exactly n increasing-rank slots. -/
 theorem unzip_length {n : Nat} {m : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) : (unzip t id).length = n := by
+    (h : Pow2HeapAux n m t) : (unzip t id).length = n := by
   induction n generalizing m t with
   | zero =>
-      have ht := (pow2heapAux_zero _ _).mp h
+      have ht := (pow2HeapAux_zero _ _).mp h
       subst t
       rfl
   | succ n ih =>
@@ -374,10 +374,10 @@ theorem unzip_length {n : Nat} {m : K} {t : BinaryTree K}
 
 /-- The detached child forest always starts at rank zero. -/
 theorem unzip_valid {n : Nat} {m : K} {t : BinaryTree K}
-    (h : pow2heapAux n m t) : priq (unzip t id) := by
+    (h : Pow2HeapAux n m t) : Valid (unzip t id) := by
   induction n generalizing m t with
   | zero =>
-      have ht := (pow2heapAux_zero _ _).mp h
+      have ht := (pow2HeapAux_zero _ _).mp h
       subst t
       trivial
   | succ n ih =>
@@ -385,53 +385,53 @@ theorem unzip_valid {n : Nat} {m : K} {t : BinaryTree K}
       | nil => exact False.elim h
       | node k l r =>
           rw [unzip_node_id]
-          change priqFrom 0 (unzip r id ++ [.node k l .nil])
-          rw [priqFrom_append]
+          change ValidFrom 0 (unzip r id ++ [.node k l .nil])
+          rw [validFrom_append]
           refine ⟨ih h.2.2, ?_⟩
           rw [unzip_length h.2.2, Nat.zero_add]
           exact ⟨Or.inr h.2.1, trivial⟩
 
 theorem heapDeleteMax_valid {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : priq (heapDeleteMax t) := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff _ _).mp h
+    (h : Pow2Heap n t) : Valid (heapDeleteMax t) := by
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp h
   exact unzip_valid ha
 
 theorem heapDeleteMax_length {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : (heapDeleteMax t).length = n := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff _ _).mp h
+    (h : Pow2Heap n t) : (heapDeleteMax t).length = n := by
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp h
   exact unzip_length ha
 
 theorem heapDeleteMax_occupied {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : ∀ s ∈ heapDeleteMax t, occupied s = true := by
-  obtain ⟨m, a, rfl, _⟩ := (pow2heap_iff _ _).mp h
+    (h : Pow2Heap n t) : ∀ s ∈ heapDeleteMax t, occupied s = true := by
+  obtain ⟨m, a, rfl, _⟩ := (pow2Heap_iff _ _).mp h
   exact unzip_occupied a
 
 theorem heapDeleteMax_mass_add_one {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : mass (heapDeleteMax t) + 1 = 2 ^ n := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff _ _).mp h
+    (h : Pow2Heap n t) : mass (heapDeleteMax t) + 1 = 2 ^ n := by
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff _ _).mp h
   have hp := (heapDeleteMax_contents m a).length_eq
-  have hn := pow2heapAux_numNodes ha
+  have hn := pow2HeapAux_numNodes ha
   simp only [treeContents, Trees.preorder_length, List.length_cons, contents_length,
     BinaryTree.numNodes] at hp
   omega
 
 theorem heapDeleteMax_mass {n : Nat} {t : BinaryTree K}
-    (h : pow2heap n t) : mass (heapDeleteMax t) = 2 ^ n - 1 := by
+    (h : Pow2Heap n t) : mass (heapDeleteMax t) = 2 ^ n - 1 := by
   have he := heapDeleteMax_mass_add_one h
   omega
 
 /-- The source None wrapper retains its validity premise and orientation. -/
-theorem deleteMax_none_relate (greater : K → K → Bool) (q : Queue K) (_hq : priq q) :
+theorem deleteMax_none_relate (greater : K → K → Bool) (q : Queue K) (_hq : Valid q) :
     Abs q [] ↔ deleteMax greater q = none := deleteMax_none_relate_raw greater q
 
 end ChildRanks
 
 /-- Every detached descendant remains bounded by its removed root. -/
 theorem heapDeleteMax_bound [Preorder K] {n : Nat} {m : K} {a : BinaryTree K}
-    (h : pow2heap n (.node m a .nil)) :
+    (h : Pow2Heap n (.node m a .nil)) :
     ∀ x ∈ contents (heapDeleteMax (.node m a .nil)), x ≤ m := by
   intro x hx
-  exact pow2heapAux_bound h x ((unzip_contents a).mem_iff.mp hx)
+  exact pow2HeapAux_bound h x ((unzip_contents a).mem_iff.mp hx)
 
 section RankedDeletion
 variable [Preorder K] [Std.Total (fun x y : K => x ≤ y)]
@@ -441,91 +441,91 @@ include hgreater
 
 /-- Successful provenance identifies the literal root and its absolute rank. -/
 theorem findMax_some_valid_split (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
     ∃ before a after, q = before ++ .node m a .nil :: after ∧
-      pow2heap (i + before.length) (.node m a .nil) ∧
+      Pow2Heap (i + before.length) (.node m a .nil) ∧
       (∀ x l r, .node x l r ∈ before → greater m x = true) ∧
       (∀ x l r, .node x l r ∈ after → x ≤ m) := by
   obtain ⟨before, a, b, after, he, hp, hs⟩ := findMax_some_split hgreater q m hm
-  have hv := (priqFrom_append i before (.node m a b :: after)).mp (he ▸ hq)
+  have hv := (validFrom_append i before (.node m a b :: after)).mp (he ▸ hq)
   have ht := hv.2.1.resolve_left (by simp)
-  have hb : b = .nil := pow2heap_proper ht
+  have hb : b = .nil := pow2Heap_proper ht
   subst b
   exact ⟨before, a, after, he, ht, hp, hs⟩
 
 /-- Both auxiliary outputs have their actual bases: i for the replaced forest,
 zero for the child forest. -/
 theorem deleteMaxAux_valid (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
-    priqFrom i (deleteMaxAux greater m q).1 ∧ priq (deleteMaxAux greater m q).2 := by
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
+    ValidFrom i (deleteMaxAux greater m q).1 ∧ Valid (deleteMaxAux greater m q).2 := by
   obtain ⟨before, a, after, he, ht, hp, _⟩ := findMax_some_valid_split hgreater i q m hq hm
-  have hv := (priqFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
+  have hv := (validFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
   have hself : greater m m = false := by
     cases h : greater m m with
     | false => rfl
     | true => exact False.elim ((hgreater m m).mp h le_rfl)
-  rw [he, deleteMaxAux_of_split greater m before a after (priqFrom_proper hv.1) hp hself]
+  rw [he, deleteMaxAux_of_split greater m before a after (validFrom_proper hv.1) hp hself]
   constructor
-  · exact (priqFrom_append i before (.nil :: after)).mpr ⟨hv.1, Or.inl rfl, hv.2.2⟩
+  · exact (validFrom_append i before (.nil :: after)).mpr ⟨hv.1, Or.inl rfl, hv.2.2⟩
   · exact heapDeleteMax_valid ht
 
 /-- Replacing the selected root by a hole preserves every stored slot. -/
 theorem deleteMaxAux_fst_length (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
     (deleteMaxAux greater m q).1.length = q.length := by
   obtain ⟨before, a, after, he, _, hp, _⟩ := findMax_some_valid_split hgreater i q m hq hm
-  have hv := (priqFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
+  have hv := (validFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
   have hself : greater m m = false := by
     cases h : greater m m with
     | false => rfl
     | true => exact False.elim ((hgreater m m).mp h le_rfl)
-  rw [he, deleteMaxAux_of_split greater m before a after (priqFrom_proper hv.1) hp hself]
+  rw [he, deleteMaxAux_of_split greater m before a after (validFrom_proper hv.1) hp hself]
   simp only [List.length_append, List.length_cons]
 
 /-- The selected rank is strictly before the end of the generalized forest. -/
 theorem deleteMaxAux_snd_length_lt (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
     (deleteMaxAux greater m q).2.length < i + q.length := by
   obtain ⟨before, a, after, he, ht, hp, _⟩ := findMax_some_valid_split hgreater i q m hq hm
-  have hv := (priqFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
+  have hv := (validFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
   have hself : greater m m = false := by
     cases h : greater m m with
     | false => rfl
     | true => exact False.elim ((hgreater m m).mp h le_rfl)
-  rw [he, deleteMaxAux_of_split greater m before a after (priqFrom_proper hv.1) hp hself]
+  rw [he, deleteMaxAux_of_split greater m before a after (validFrom_proper hv.1) hp hself]
   simp only [heapDeleteMax_length ht, List.length_append, List.length_cons]
   omega
 
 theorem deleteMaxAux_contents (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
     (contents q).Perm
       (m :: (contents (deleteMaxAux greater m q).1 ++ contents (deleteMaxAux greater m q).2)) := by
   obtain ⟨before, a, after, he, _, hp, _⟩ := findMax_some_valid_split hgreater i q m hq hm
-  have hv := (priqFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
+  have hv := (validFrom_append i before (.node m a .nil :: after)).mp (he ▸ hq)
   have hself : greater m m = false := by
     cases h : greater m m with
     | false => rfl
     | true => exact False.elim ((hgreater m m).mp h le_rfl)
   rw [he]
-  exact deleteMaxAux_split_contents greater m before a after (priqFrom_proper hv.1) hp hself
+  exact deleteMaxAux_split_contents greater m before a after (validFrom_proper hv.1) hp hself
 
 /-- The full source chain preserves rank validity after an actual success. -/
-theorem deleteMax_some_priq (q rest : Queue K) (m : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) : priq rest := by
+theorem deleteMax_some_valid (q rest : Queue K) (m : K)
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) : Valid rest := by
   obtain ⟨hf, hj⟩ := (deleteMax_some_iff greater q m rest).mp hd
   have hv := deleteMaxAux_valid hgreater 0 q m hq hf
   rw [← hj]
   exact join_valid greater hgreater 0 _ _ .nil hv.1 hv.2 (Or.inl rfl)
 
 theorem deleteMax_some_contents (q rest : Queue K) (m : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) :
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) :
     (contents q).Perm (m :: contents rest) :=
-  deleteMax_some_contents_of_proper hgreater q rest m (priqFrom_proper hq) hd
+  deleteMax_some_contents_of_proper hgreater q rest m (validFrom_proper hq) hd
 
 omit [Std.Total (fun x y : K => x ≤ y)] hgreater in
 /-- A rank-valid forest is bounded once all occupied roots are bounded. -/
-theorem priqFrom_contents_le (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q)
+theorem validFrom_contents_le (i : Nat) (q : Queue K) (m : K)
+    (hq : ValidFrom i q)
     (hroots : ∀ x a b, .node x a b ∈ q → x ≤ m) :
     ∀ x ∈ contents q, x ≤ m := by
   induction q generalizing i with
@@ -539,19 +539,19 @@ theorem priqFrom_contents_le (i : Nat) (q : Queue K) (m : K)
         | nil => simp [treeContents] at hx
         | node k a b =>
             have hv := ht.resolve_left (by simp)
-            have hb : b = .nil := pow2heap_proper hv
+            have hb : b = .nil := pow2Heap_proper hv
             subst b
-            exact (pow2heap_bound hv x hx).trans (hroots k a .nil List.mem_cons_self)
+            exact (pow2Heap_bound hv x hx).trans (hroots k a .nil List.mem_cons_self)
       · exact htail x hx
 
 theorem findMax_some_bound (i : Nat) (q : Queue K) (m : K)
-    (hq : priqFrom i q) (hm : findMax greater q = some m) :
+    (hq : ValidFrom i q) (hm : findMax greater q = some m) :
     ∀ x ∈ contents q, x ≤ m :=
-  priqFrom_contents_le i q m hq (findMax_some_roots_le hgreater q m hm)
+  validFrom_contents_le i q m hq (findMax_some_roots_le hgreater q m hm)
 
 /-- The source relational success law applies to every abstraction witness. -/
 theorem deleteMax_some_relate (q rest : Queue K) (m : K) (xs ys : List K)
-    (hq : priq q) (hxs : Abs q xs) (hd : deleteMax greater q = some (m, rest))
+    (hq : Valid q) (hxs : Abs q xs) (hd : deleteMax greater q = some (m, rest))
     (hys : Abs rest ys) : xs.Perm (m :: ys) ∧ ∀ x ∈ ys, x ≤ m := by
   have hp := deleteMax_some_contents hgreater q rest m hq hd
   have hx := (queue_elems_iff q xs).mp hxs
@@ -564,18 +564,18 @@ theorem deleteMax_some_relate (q rest : Queue K) (m : K) (xs ys : List K)
       (hp.mem_iff.mpr (List.mem_cons_of_mem _ (hy.mem_iff.mp hxy)))
 
 theorem deleteMax_some_mem (q rest : Queue K) (m : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) : m ∈ contents q :=
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) : m ∈ contents q :=
   (deleteMax_some_contents hgreater q rest m hq hd).mem_iff.mpr List.mem_cons_self
 
 theorem deleteMax_some_mass (q rest : Queue K) (m : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) :
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) :
     mass rest + 1 = mass q := by
   simpa only [List.length_cons, contents_length] using
     (deleteMax_some_contents hgreater q rest m hq hd).length_eq.symm
 
 /-- An occurrence equation, not a set equation: exactly one selected key is removed. -/
 theorem deleteMax_some_count [DecidableEq K] (q rest : Queue K) (m query : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) :
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) :
     (contents q).count query = (contents rest).count query + if query = m then 1 else 0 := by
   have hp := deleteMax_some_contents hgreater q rest m hq hd
   have hc := congrFun (Sequences.Multiplicity.perm_contents hp) query
@@ -586,7 +586,7 @@ theorem deleteMax_some_count [DecidableEq K] (q rest : Queue K) (m query : K)
 
 /-- Source deletion never trims padding and never grows the stored forest. -/
 theorem deleteMax_length (q rest : Queue K) (m : K)
-    (hq : priq q) (hd : deleteMax greater q = some (m, rest)) :
+    (hq : Valid q) (hd : deleteMax greater q = some (m, rest)) :
     rest.length = q.length := by
   obtain ⟨hf, hj⟩ := (deleteMax_some_iff greater q m rest).mp hd
   have hfst := deleteMaxAux_fst_length hgreater 0 q m hq hf
@@ -605,7 +605,7 @@ theorem deleteMax_length (q rest : Queue K) (m : K)
     apply join_growth_canonical greater
     rw [hmax, hj]
     exact hgrow
-  have hv := deleteMax_some_priq hgreater q rest m hq hd
+  have hv := deleteMax_some_valid hgreater q rest m hq hd
   have hlen := canonical_length hv hc
   have hm := deleteMax_some_mass hgreater q rest m hq hd
   have hs := Nat.size_le_size (show mass rest ≤ mass q by omega)

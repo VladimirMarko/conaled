@@ -42,12 +42,12 @@ omit [DecidableEq K] in
 theorem stackCells_moveCfg (c : MoveCfg Γ Λ R) :
     stackCells (moveCfg c) = MoveParserMachine.stackCells c := by
   rw [MoveParserMachine.stackCells_eq_sum]
-  exact FrontEndMachine.Transport.stackCells moveStackEquiv moveSymbolEquiv c.stk
+  exact FrontEndMachine.Transport.stackEquiv_total_length moveStackEquiv moveSymbolEquiv c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_positionCfg (c : PositionCfg Γ Λ R) :
     stackCells (positionCfg c) = PositionedRotationMachine.stackCells c :=
-  FrontEndMachine.Transport.stackCells positionStackEquiv positionSymbolEquiv c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length positionStackEquiv positionSymbolEquiv c.stk
 
 omit [DecidableEq K] in
 theorem moveContext_cells (D : LocalData) (ctx : ∀ k, List (Γ k)) :

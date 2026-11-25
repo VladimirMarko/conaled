@@ -102,54 +102,53 @@ administrative disposition.
 | `Binom.BinomQueue.find_max'@104` (definition) | Definition and literal provenance checked | `findMaxAux`, `findMaxAux_eq_or_mem`, `findMaxAux_first` | B.tagged_first_scan; B.tagged_distinct_equivalent. The actual accumulator returns its literal seed or the first literal root in the winning preorder class; equal priorities do not force key equality. |
 | `Binom.BinomQueue.find_max@111` (definition) | Definition and first-maximum specification checked | `findMax`, `findMax_eq_none_iff`, `findMax_some_split`, `findMax_some_valid_split`, `findMax_some_bound` | A.source_fold_maximum; B.tagged_first_scan; B.padded_empty_delete. Skip nil, initialize at the first occupied root, then use the strict scan. None means all slots nil; some 0 remains distinct. |
 | `Binom.BinomQueue.delete_max_aux@118` (definition) | Definition and exact reconstructed split checked | `deleteMaxAux`, `deleteMaxAux_of_split`, `deleteMaxAux_valid`, `deleteMaxAux_contents`, `deleteMaxAux_fst_length`, `deleteMaxAux_snd_length_lt` | B.middle_auxiliary; B.last_auxiliary; B.shifted_child_base_zero; B.malformed_auxiliary_prefix. The first output is prefix ++ nil :: suffix with unchanged base/length. The selected absolute rank is i+prefix.length; the detached children always start at zero. Preserve the raw fallback. |
-| `Binom.BinomQueue.delete_max@129` (definition) | Definition and complete source chain checked | `deleteMax`, `deleteMax_some_iff`, `deleteMax_some_priq`, `deleteMax_some_relate`, `deleteMax_some_count`, `deleteMax_length` | B.first_delete; B.middle_delete; B.last_full_contract; B.repeated_counts. Use actual find, auxiliary split and native join. Successful deletion removes exactly one literal maximum occurrence, preserves validity and stored slot length. |
-| `Binom.BinomQueue.merge@136` (definition) | Native definition checked | `merge`, `merge_eq`, `merge_priq`, `merge_relate`, `mergeValid_entries` | B.native_meld_shape; B.native_meld_entries. Merge is join p q nil, never reinsertion or sorting. Its source relation and separate ExactQueue native-meld observation retain all occurrences. |
-| `Binom.BinomQueue.pow2heap'@143` (definition) | Predicate and shape/bound facts checked | `pow2heapAux`, `pow2heapAux_mono`, `pow2heapAux_bound`, `pow2heapAux_numNodes`, `pow2heapAux_height` | A.sibling_example_rank; B.rankTwo_not_binary_heap_order. At successor rank, the left child uses the current root bound and the right sibling keeps the external bound. Inner size+1 is 2^n and height is n. |
-| `Binom.BinomQueue.pow2heap@154` (definition) | Predicate and exact size facts checked | `pow2heap`, `pow2heap_iff`, `pow2heap_numNodes`, `pow2heap_height` | A.source_fold_rank_three; A.source_rank_three_size; A.source_rank_three_height. A proper outer root wraps the inner predicate; outer rank n means 2^n keys and BinaryTree.height n+1. |
-| `Binom.BinomQueue.priq'@162` (definition) | Generalized predicate checked | `priqFrom`, `priqFrom_cons`, `priqFrom_append`, `priqFrom_getElem`, `getElem_numNodes` | B.shifted_valid; B.shifted_first_base_two. Every position advances the absolute rank, including nil. Splits and indexed slots use i+offset. |
-| `Binom.BinomQueue.priq@170` (definition) | Base-zero specialization checked | `priq` | A.padded_valid; B.lastForest_valid. The source invariant permits arbitrary trailing holes; it does not include canonicality. |
-| `Binom.BinomQueue.empty_priq@182` (source_admission) | Admitted source theorem proved | `empty_priq` | A.build_valid; natLaws.empty_valid. The actual empty value is valid; no premise or extra axiom. |
+| `Binom.BinomQueue.delete_max@129` (definition) | Definition and complete source chain checked | `deleteMax`, `deleteMax_some_iff`, `deleteMax_some_valid`, `deleteMax_some_relate`, `deleteMax_some_count`, `deleteMax_length` | B.first_delete; B.middle_delete; B.last_full_contract; B.repeated_counts. Use actual find, auxiliary split and native join. Successful deletion removes exactly one literal maximum occurrence, preserves validity and stored slot length. |
+| `Binom.BinomQueue.merge@136` (definition) | Native definition checked | `merge`, `merge_eq`, `merge_valid`, `merge_relate`, `mergeValid_entries` | B.native_meld_shape; B.native_meld_entries. Merge is join p q nil, never reinsertion or sorting. Its source relation and separate ExactQueue native-meld observation retain all occurrences. |
+| `Binom.BinomQueue.pow2heap'@143` (definition) | Predicate and shape/bound facts checked | `Pow2HeapAux`, `pow2HeapAux_mono`, `pow2HeapAux_bound`, `pow2HeapAux_numNodes`, `pow2HeapAux_height` | A.sibling_example_rank; B.rankTwo_not_binary_heap_order. At successor rank, the left child uses the current root bound and the right sibling keeps the external bound. Inner size+1 is 2^n and height is n. |
+| `Binom.BinomQueue.pow2heap@154` (definition) | Predicate and exact size facts checked | `Pow2Heap`, `pow2Heap_iff`, `pow2Heap_numNodes`, `pow2Heap_height` | A.source_fold_rank_three; A.source_rank_three_size; A.source_rank_three_height. A proper outer root wraps the inner predicate; outer rank n means 2^n keys and BinaryTree.height n+1. |
+| `Binom.BinomQueue.priq'@162` (definition) | Generalized predicate checked | `ValidFrom`, `validFrom_cons`, `validFrom_append`, `validFrom_getElem`, `getElem_numNodes` | B.shifted_valid; B.shifted_first_base_two. Every position advances the absolute rank, including nil. Splits and indexed slots use i+offset. |
+| `Binom.BinomQueue.priq@170` (definition) | Base-zero specialization checked | `Valid` | A.padded_valid; B.lastForest_valid. The source invariant permits arbitrary trailing holes; it does not include canonicality. |
+| `Binom.BinomQueue.empty_priq@182` (source_admission) | Admitted source theorem proved | `empty_valid` | A.build_valid; nat_laws.empty_valid. The actual empty value is valid; no premise or extra axiom. |
 | `Binom.BinomQueue.smash_valid@187` (source_admission) | Admitted source theorem proved | `smash_valid` | A.tied_smash_rank; B.rankThree_valid. Equal-rank proper heaps link to rank n+1 under the lawful total-preorder comparator contract. |
-| `Binom.BinomQueue.carry_valid@193` (source_admission) | Admitted source theorem proved | `carry_valid` | A.carry_three_places; insert_priq. Preserve arbitrary starting rank n and the source nil-or-rank-n carry premise. |
-| `Binom.BinomQueue.insert_priq@200` (source_admission) | Admitted source theorem proved | `insert_priq` | A.build_valid; natLaws.insert_valid. Insert the rank-zero singleton into a valid base-zero forest. |
-| `Binom.BinomQueue.join_valid@207` (source_admission) | Admitted source theorem proved | `join_valid` | A.one_slot_join_valid; deleteMax_some_priq. Both forests and the nil-or-rank-n carry retain the same generalized starting rank n. |
-| `Binom.BinomQueue.merge_priq@211` (proved_in_source) | Source proof completed through checked dependencies | `merge_priq` | mergeValid; natLaws.merge_valid. Reuse the proved join_valid with nil carry; the original source proof no longer depends on an admission. |
-| `Binom.BinomQueue.delete_max_Some_priq@217` (source_admission) | Admitted source theorem proved | `deleteMax_some_priq` | B.last_full_contract; B.tagged_deletion_contract; natLaws.deleteMax_valid. Actual successful deletion of a valid forest returns a valid forest through both correctly based auxiliary outputs and join. |
+| `Binom.BinomQueue.carry_valid@193` (source_admission) | Admitted source theorem proved | `carry_valid` | A.carry_three_places; insert_valid. Preserve arbitrary starting rank n and the source nil-or-rank-n carry premise. |
+| `Binom.BinomQueue.insert_priq@200` (source_admission) | Admitted source theorem proved | `insert_valid` | A.build_valid; nat_laws.insert_valid. Insert the rank-zero singleton into a valid base-zero forest. |
+| `Binom.BinomQueue.join_valid@207` (source_admission) | Admitted source theorem proved | `join_valid` | A.one_slot_join_valid; deleteMax_some_valid. Both forests and the nil-or-rank-n carry retain the same generalized starting rank n. |
+| `Binom.BinomQueue.merge_priq@211` (proved_in_source) | Source proof completed through checked dependencies | `merge_valid` | mergeValid; nat_laws.merge_valid. Reuse the proved join_valid with nil carry; the original source proof no longer depends on an admission. |
+| `Binom.BinomQueue.delete_max_Some_priq@217` (source_admission) | Admitted source theorem proved | `deleteMax_some_valid` | B.last_full_contract; B.tagged_deletion_contract; nat_laws.deleteMax_valid. Actual successful deletion of a valid forest returns a valid forest through both correctly based auxiliary outputs and join. |
 | `Binom.BinomQueue.tree_elems@228` (definition) | Inductive occurrence relation checked | `TreeElems`, `TreeElems.nil`, `TreeElems.node`, `tree_elems_iff` | A.tied_smash_occurrences; A.tied_smash_permuted_witness. Genuine nil/node constructors include arbitrary permutation witnesses in the original direction; equivalence to Trees.preorder holds on all raw trees. |
 | `Binom.BinomQueue.priqueue_elems@247` (definition) | Missing source relation constructed and checked | `QueueElems`, `QueueElems.nil`, `QueueElems.cons`, `queue_elems_iff` | A.source_fold_occurrences; B.repeated_source_contract. The empty placeholder is completed with genuine nil/cons constructors and arbitrary Perm witnesses; all raw forests have witnesses, closure and uniqueness. |
 | `Binom.BinomQueue.manual_grade_for_priqueue_elems@251` (grading_metadata) | Administrative disposition; no theorem credit | `QueueElems` | The completed relation and its independent witnesses. The source None-valued grading hook is metadata. No Lean grading stub, axiom or algorithm is added; the mathematical exercise is discharged by QueueElems and its laws. |
-| `Binom.BinomQueue.Abs@254` (definition) | Definition checked | `Abs` | natLaws; B.padded_empty_abs. Abs aliases the completed forest relation; it is not state equality and does not erase duplicates. |
+| `Binom.BinomQueue.Abs@254` (definition) | Definition checked | `Abs` | nat_laws; B.padded_empty_abs. Abs aliases the completed forest relation; it is not state equality and does not erase duplicates. |
 | `Binom.BinomQueue.tree_elems_ext@263` (source_admission) | Admitted source theorem proved | `tree_elems_ext` | A.tied_smash_permuted_witness. Permutation transports an existing witness in the source direction; contents equivalence supplies the proof. |
 | `Binom.BinomQueue.tree_perm@269` (source_admission) | Admitted source theorem proved | `tree_perm` | A.tied_smash_occurrences and A.tied_smash_permuted_witness inhabit its premises. Any two witnesses of the same raw tree are permutations. No order or validity assumption is introduced. |
 | `Binom.BinomQueue.priqueue_elems_ext@279` (source_admission) | Admitted source theorem proved | `priqueue_elems_ext` | A.source_fold_occurrences. Every permutation of an existing forest witness is a witness; the full source direction is preserved. |
-| `Binom.BinomQueue.abs_perm@285` (source_admission) | Admitted source theorem proved | `abs_perm`, `abs_perm_raw` | natLaws.abs_perm; B.repeated_source_contract. The source validity-guarded wrapper is retained; the stronger raw witness uniqueness is available separately. |
+| `Binom.BinomQueue.abs_perm@285` (source_admission) | Admitted source theorem proved | `abs_perm`, `abs_perm_raw` | nat_laws.abs_perm; B.repeated_source_contract. The source validity-guarded wrapper is retained; the stronger raw witness uniqueness is available separately. |
 | `Binom.BinomQueue.tree_can_relate@292` (source_admission) | Admitted source theorem proved | `tree_can_relate`, `tree_elems_contents` | A.tied_smash_occurrences. Every raw tree has the explicit preorder witness, without choice. |
-| `Binom.BinomQueue.can_relate@296` (source_admission) | Admitted source theorem proved | `can_relate`, `can_relate_raw`, `queue_elems_contents` | natLaws.can_relate; exactQueue. The source validity premise remains visible; explicit contents witnesses exist even on raw forests. |
-| `Binom.BinomQueue.empty_relate@304` (source_admission) | Admitted source theorem proved | `empty_relate` | A.build_relate; natLaws.empty_relate. The actual empty queue has the literal empty witness, ensuring nonvacuity. |
+| `Binom.BinomQueue.can_relate@296` (source_admission) | Admitted source theorem proved | `can_relate`, `can_relate_raw`, `queue_elems_contents` | nat_laws.can_relate; exactQueue. The source validity premise remains visible; explicit contents witnesses exist even on raw forests. |
+| `Binom.BinomQueue.empty_relate@304` (source_admission) | Admitted source theorem proved | `empty_relate` | A.build_relate; nat_laws.empty_relate. The actual empty queue has the literal empty witness, ensuring nonvacuity. |
 | `Binom.BinomQueue.smash_elems@313` (source_admission) | Admitted source theorem proved | `smash_elems`, `smash_contents_nodes` | A.tied_smash_occurrences; A.tied_smash_two_maxima. The result witnesses bt ++ bu, keeping every duplicate. The source equal-rank shape hypotheses remain visible. |
 | `Binom.BinomQueue.carry_elems@326` (source_admission) | Admitted source theorem proved | `carry_elems`, `carry_contents` | insert_relate; A.build_relate. The source witness order is eq ++ et, with generalized rank and a nil-or-rank-n carry premise. The separate contents theorem needs only proper outer shapes. |
-| `Binom.BinomQueue.insert_relate@336` (source_admission) | Admitted source theorem proved | `insert_relate` | A.build_relate; natLaws.insert_relate. The output witness is k :: al. The left-fold example separately accounts for reversed insertion order up to permutation. |
+| `Binom.BinomQueue.insert_relate@336` (source_admission) | Admitted source theorem proved | `insert_relate` | A.build_relate; nat_laws.insert_relate. The output witness is k :: al. The left-fold example separately accounts for reversed insertion order up to permutation. |
 | `Binom.BinomQueue.join_elems@342` (source_admission) | Admitted source theorem proved | `join_elems`, `join_contents` | A.join_three_occurrences; merge_abs. The source observation is ce ++ pe ++ qe, with all three validity premises retained. |
-| `Binom.BinomQueue.merge_relate@356` (source_admission) | Admitted source theorem proved | `merge_abs`, `merge_relate` | mergeValid_entries; B.native_meld_entries; natLaws.merge_relate. Construct pl ++ ql as a witness, then prove the source permutation claim for every supplied output witness al. |
-| `Binom.BinomQueue.delete_max_None_relate@366` (source_admission) | Admitted source theorem proved | `deleteMax_none_relate`, `deleteMax_none_relate_raw` | B.padded_empty_abs; B.padded_empty_delete; natLaws.deleteMax_none. Preserve Abs p [] iff deleteMax p=none under the source validity premise; allnil padding is included. |
-| `Binom.BinomQueue.delete_max_Some_relate@372` (source_admission) | Admitted source theorem proved | `deleteMax_some_relate`, `deleteMax_some_mem`, `findMax_some_bound`, `deleteMax_some_count`, `deleteMax_some_mass` | B.last_full_contract; B.repeated_source_contract; B.tagged_deletion_contract; natLaws.deleteMax_relate. For all actual witnesses, input permutes to selected::residual and every residual key is <= selected. Membership, original bound, exact count loss and mass loss follow without dropping repeated maxima. |
+| `Binom.BinomQueue.merge_relate@356` (source_admission) | Admitted source theorem proved | `merge_abs`, `merge_relate` | mergeValid_entries; B.native_meld_entries; nat_laws.merge_relate. Construct pl ++ ql as a witness, then prove the source permutation claim for every supplied output witness al. |
+| `Binom.BinomQueue.delete_max_None_relate@366` (source_admission) | Admitted source theorem proved | `deleteMax_none_relate`, `deleteMax_none_relate_raw` | B.padded_empty_abs; B.padded_empty_delete; nat_laws.deleteMax_none. Preserve Abs p [] iff deleteMax p=none under the source validity premise; allnil padding is included. |
+| `Binom.BinomQueue.delete_max_Some_relate@372` (source_admission) | Admitted source theorem proved | `deleteMax_some_relate`, `deleteMax_some_mem`, `findMax_some_bound`, `deleteMax_some_count`, `deleteMax_some_mass` | B.last_full_contract; B.repeated_source_contract; B.tagged_deletion_contract; nat_laws.deleteMax_relate. For all actual witnesses, input permutes to selected::residual and every residual key is <= selected. Membership, original bound, exact count loss and mass loss follow without dropping repeated maxima. |
 
 ## All 21 exercise headings
 
 The source spelling of an exercise can differ from its theorem spelling:
-`insert_valid` is witnessed by `insert_priq`; `insert_elems` is witnessed by
-`insert_relate`. `can_relate` includes both the tree lemma and forest theorem.
+`insert_elems` is witnessed by `insert_relate`. `can_relate` includes both the tree lemma and forest theorem.
 The `priqueue_elems` exercise includes the administrative grading hook, which
 adds no theorem credit. Optional status changes no completion obligation.
 
 | Exercise heading and source span | Stars / optional | Witness and execution boundary |
 | --- | --- | --- |
-| `empty_priq` at 181–184 | 1 / no | Checked body: `empty_priq`. |
+| `empty_priq` at 181–184 | 1 / no | Checked body: `empty_valid`. |
 | `smash_valid` at 186–190 | 2 / no | Checked body: `smash_valid`. |
 | `carry_valid` at 192–197 | 3 / no | Checked body: `carry_valid`. |
-| `insert_valid` at 199–202 | 2 / yes | Checked body: `insert_priq`. |
+| `insert_valid` at 199–202 | 2 / yes | Checked body: `insert_valid`. |
 | `join_valid` at 204–209 | 3 / yes | Checked body: `join_valid`. |
-| `delete_max_Some_priq` at 216–220 | 5 / yes | Checked body: `deleteMax_some_priq`. |
+| `delete_max_Some_priq` at 216–220 | 5 / yes | Checked body: `deleteMax_some_valid`. |
 | `priqueue_elems` at 236–252 | 3 / no | Checked body: `QueueElems`, `QueueElems.nil`, `QueueElems.cons`, `queue_elems_iff`. Grading metadata is administrative only. |
 | `tree_elems_ext` at 259–266 | 2 / no | Checked body: `tree_elems_ext`. |
 | `tree_perm` at 268–272 | 2 / no | Checked body: `tree_perm`. |
@@ -170,30 +169,30 @@ adds no theorem credit. Optional status changes no completion obligation.
 
 The single `BinomQueue <: PRIQUEUE` module at line 28, ending at 386, is adapted
 as Lean namespaces, explicit operation parameters and a concrete law record.
-`natOperations` uses source empty/insert/deleteMax/merge, and `natLaws` supplies
-all eleven conditional fields with `priq` and the completed `Abs`. The explicit
+`natOperations` uses source empty/insert/deleteMax/merge, and `nat_laws` supplies
+all eleven conditional fields with `Valid` and the completed `Abs`. The explicit
 `queue_elems_contents` witness and empty witness rule out a vacuous realization.
 The existing valid-state adapter supplies the Unit/OrderDual Nat exact queue;
 `mergeValid_entries` supplies native merge's separate occurrence law. No source
 admission, module emulator or global queue axiom is assumed.
 
-The checked `natLaws` field assignment is explicit:
+The checked `nat_laws` field assignment is explicit:
 
 | Accepted source-contract field | Actual provider |
 | --- | --- |
 | `can_relate` | `can_relate` |
 | `abs_perm` | `abs_perm` |
-| `empty_valid` | `empty_priq` |
+| `empty_valid` | `empty_valid` |
 | `empty_relate` | `empty_relate` |
-| `insert_valid` | `insert_priq natGreater natGreater_eq` |
+| `insert_valid` | `insert_valid natGreater natGreater_eq` |
 | `insert_relate` | `insert_relate natGreater` |
 | `deleteMax_none` | `deleteMax_none_relate natGreater` |
-| `deleteMax_valid` | `deleteMax_some_priq natGreater_eq` |
+| `deleteMax_valid` | `deleteMax_some_valid natGreater_eq` |
 | `deleteMax_relate` | `deleteMax_some_relate natGreater_eq` |
-| `merge_valid` | `merge_priq natGreater natGreater_eq` |
+| `merge_valid` | `merge_valid natGreater natGreater_eq` |
 | `merge_relate` | `merge_relate natGreater` |
 
-The adapter's carrier is `{q : Queue Nat // priq q}`; its contents are mapped
+The adapter's carrier is `{q : Queue Nat // Valid q}`; its contents are mapped
 through the accepted Unit/OrderDual Nat encoding. `exactQueue_remove_some` and
 `exactQueue_remove_val` expose the literal source deletion, while
 `exactQueue_add_singleton_val` and `exactQueue_add_val` expose source insertion.
@@ -248,7 +247,7 @@ receiving rebuilt executable and workload checks separately.
 | Lines 11–19, both required readings | Authenticated identities and exact read/visual attribution above; preserve the child/sibling distinction and Sedgewick comparison-count claim. |
 | Lines 24–26, imports | Reuse accepted Lean dependencies. Strings.String is for grading metadata; no missing mathematical grading framework remains. |
 | Lines 28 and 381–386, source module/final claim | All eleven conditional Nat laws and explicit valid-subtype ExactQueue realization have concrete checked proofs. Full source qualification awaits the later chapter gates. |
-| Lines 36–42, rank slots | `priqFrom_getElem`, `getElem_numNodes` and `mass_eq_value` preserve rank offsets and holes. Occupied position is not a compact tree index. |
+| Lines 36–42, rank slots | `validFrom_getElem`, `getElem_numNodes` and `mass_eq_value` preserve rank offsets and holes. Occupied position is not a compact tree index. |
 | Lines 68–78, Eval and output | Exact kernel forest plus separately retained actual driver execution, as above. |
 | Lines 141–170, invariant explanation | Preserve perfect inner shape and its two bounds; outer rank n has height n+1; trailing holes are permitted. |
 | Lines 178–220, validity exercise guidance | Every admission, including five-star optional deletion validity, has a matching checked proof. Induction implementation may differ without changing hypotheses. |
@@ -263,7 +262,7 @@ receiving rebuilt executable and workload checks separately.
 The raw representation is dense `List (BinaryTree K)` with actual nil slots;
 there is no sparse heap, sorted-list substitution, rank cache or normalization
 pass. A `Node`'s left child describes smaller-rank children, while the right
-pointer is a sibling chain. In `pow2heapAux (n+1) m (node k l r)`, the left
+pointer is a sibling chain. In `Pow2HeapAux (n+1) m (node k l r)`, the left
 recursive bound is k and the right recursive bound stays m. The checked example
 `node 10 (node 3 (node 1 nil nil) (node 8 nil nil)) nil` is valid at rank 2 even
 though 8 exceeds 3. Treating this as an ordinary binary max heap would reject the
@@ -302,7 +301,7 @@ on preservation theorems are material and cannot be erased.
 ## Rank accounting, stored capacity and the performance claim
 
 The existing `Resources.BinaryCounter` observation is reused on the actual
-occupancy list. Checked rank facts give, under `priqFrom i q`,
+occupancy list. Checked rank facts give, under `ValidFrom i q`,
 `mass q = 2^i * BinaryCounter.value (occupancy q)`, with each occupied slot j
 contributing exactly `2^(i+j)`. Base-zero validity gives
 `mass q < 2^q.length`, hence `Nat.size (mass q) ≤ q.length`.

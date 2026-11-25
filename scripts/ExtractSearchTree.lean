@@ -395,7 +395,7 @@ private def wordBoundaries : IO Lean.Json := do
   let decodedKeys ← IO.lazyPure fun _ => keys.map BitVec.toInt
   let tree ← IO.lazyPure fun _ => Search.OrderedMap.bindAll
     (Search.OrderedMap.DecodedKeys.ops Representations.SignedComparison.wordLtb)
-    (keys.zip [7, 8, 9]) (Examples.ExtractedTrees.empty_tree : BinaryTree (BitVec 0 × Nat))
+    (keys.zip [7, 8, 9]) (Examples.ExtractedTrees.emptyTree : BinaryTree (BitVec 0 × Nat))
   let strict ← IO.lazyPure fun _ => Representations.SignedComparison.wordLtb
     (BitVec.ofInt 0 (-3)) (BitVec.ofInt 0 99)
   let nonstrict ← IO.lazyPure fun _ => Representations.SignedComparison.wordLeb
@@ -585,17 +585,17 @@ private def examples : IO Lean.Json := do
     throw (IO.userError "four-bit signed and unsigned comparisons did not differ as expected")
   let intTable ← tableCase "int" (fun _ => true) id id
     (Search.OrderedMap.DecodedKeys.ops Representations.SignedComparison.intLtb)
-    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elements_aux (ordinaryTreeObservation id)
+    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elementsAux (ordinaryTreeObservation id)
   let wordTable ← tableCase "word63"
     (fun key => decide (-(2 : Int)^62 ≤ key ∧ key < (2 : Int)^62))
     (BitVec.ofInt 63) BitVec.toInt
     (Search.OrderedMap.DecodedKeys.ops Representations.SignedComparison.wordLtb)
-    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elements_aux (ordinaryTreeObservation BitVec.toInt)
+    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elementsAux (ordinaryTreeObservation BitVec.toInt)
   let int64Table ← tableCase "int64"
     (fun key => decide (-(2 : Int)^63 ≤ key ∧ key < (2 : Int)^63))
     Int64.ofInt Int64.toInt
     (Search.OrderedMap.DecodedKeys.ops Representations.SignedComparison.int64Ltb)
-    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elements_aux (ordinaryTreeObservation Int64.toInt)
+    Examples.ExtractedTrees.elements Examples.ExtractedTrees.elementsAux (ordinaryTreeObservation Int64.toInt)
   let boundaries ← wordBoundaries
   return Lean.Json.mkObj [
     ("schema", Lean.toJson (1 : Nat)),

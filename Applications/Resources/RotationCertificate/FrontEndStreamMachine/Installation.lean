@@ -79,7 +79,7 @@ theorem installedCfg_stack_readback (c : Cfg Γ Λ R) (k : StackId K) :
 theorem installed_stack_cells [Fintype K] [Fintype K'] (c : Cfg Γ Λ R) :
     ∑ k, ((installedCfg names symbols registers labels c).stk k).length =
       ∑ k, (c.stk k).length :=
-  FrontEndMachine.Transport.stackCells names symbols c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length names symbols c.stk
 
 variable [DecidableEq K] [DecidableEq K']
 variable (caller : Λ → Statement Γ Λ R)
@@ -154,7 +154,7 @@ theorem installed_iterate
   FrontEndMachine.Transport.iterate names symbols registers labels
     (program caller) ambient installed n start
 
-def installed_timed
+def installedTimed
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
@@ -165,12 +165,12 @@ def installed_timed
   FrontEndMachine.Transport.timed names symbols registers labels
     (program caller) ambient installed start final bound run
 
-@[simp] theorem installed_timed_steps
+@[simp] theorem installedTimed_steps
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
     (run : StateTransition.EvalsToInTime (step caller) start final bound) :
-    (installed_timed names symbols registers labels caller ambient installed start final bound run).steps =
+    (installedTimed names symbols registers labels caller ambient installed start final bound run).steps =
       run.steps := rfl
 
 end FurtherInstallation
@@ -330,22 +330,22 @@ theorem init_prefix (initial : R) (raw : Bits) (n : Nat) (bound : n ≤ runSteps
   · exact retained.trans (user_initialRegisters initial)
   · simpa only [contextCells, List.length_nil, Finset.sum_const_zero, Nat.add_zero] using cells
 
-def machine_cfgInTime (initial : R) (start : Cfg Γ Λ R) :
+def machineCfgInTime (initial : R) (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (machine caller initial).step start
       (some (finalCfg start)) (remainingSteps start) := cfgInTime caller start
 
-@[simp] theorem machine_cfgInTime_steps (initial : R) (start : Cfg Γ Λ R) :
-    (machine_cfgInTime caller initial start).steps = remainingSteps start := rfl
+@[simp] theorem machineCfgInTime_steps (initial : R) (start : Cfg Γ Λ R) :
+    (machineCfgInTime caller initial start).steps = remainingSteps start := rfl
 
-def machine_phaseInTime (initial : R) (q : Phase) (D : LocalData) (regs : Registers R)
+def machinePhaseInTime (initial : R) (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (cfg (some (phaseLabel q)) regs D ctx) (some (phaseResult q regs D ctx)) (phaseSteps q D) :=
   phaseInTime caller q D regs ctx
 
-@[simp] theorem machine_phaseInTime_steps (initial : R) (q : Phase) (D : LocalData)
+@[simp] theorem machinePhaseInTime_steps (initial : R) (q : Phase) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
-    (machine_phaseInTime caller initial q D regs ctx).steps = phaseSteps q D := rfl
+    (machinePhaseInTime caller initial q D regs ctx).steps = phaseSteps q D := rfl
 
 end Resources.RotationCertificate.FrontEndStreamMachine
 
@@ -489,7 +489,7 @@ theorem installed_owned_prefix_frame (start : Cfg Γ Λ R) (n : Nat) (bound : n 
     rw [installedCfg_stack, frame k]
 
 include installed in
-def installed_ownedInTime (start : Cfg Γ Λ R) :
+def installedOwnedInTime (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels start)
       (some (installedCfg names symbols registers labels (finalCfg start))) (remainingSteps start) where
@@ -497,12 +497,12 @@ def installed_ownedInTime (start : Cfg Γ Λ R) :
   evals_in_steps := installed_cfg_iterate names symbols registers labels caller ambient installed start
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_ownedInTime_steps (start : Cfg Γ Λ R) :
-    (installed_ownedInTime names symbols registers labels caller ambient installed start).steps =
+@[simp] theorem installedOwnedInTime_steps (start : Cfg Γ Λ R) :
+    (installedOwnedInTime names symbols registers labels caller ambient installed start).steps =
       remainingSteps start := rfl
 
 include installed in
-def installed_phaseInTime (q : Phase) (D : LocalData) (regs : Registers R)
+def installedPhaseInTime (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels (cfg (some (phaseLabel q)) regs D ctx))
@@ -512,21 +512,21 @@ def installed_phaseInTime (q : Phase) (D : LocalData) (regs : Registers R)
     (phase_localRun caller q D regs ctx)
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_phaseInTime_steps (q : Phase) (D : LocalData) (regs : Registers R)
+@[simp] theorem installedPhaseInTime_steps (q : Phase) (D : LocalData) (regs : Registers R)
     (ctx : ∀ k, List (Γ k)) :
-    (installed_phaseInTime names symbols registers labels caller ambient installed q D regs ctx).steps =
+    (installedPhaseInTime names symbols registers labels caller ambient installed q D regs ctx).steps =
       phaseSteps q D := rfl
 
 include installed in
-def installed_haltNoneInTime (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
+def installedHaltNoneInTime (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (installedCfg names symbols registers labels start) none (remainingSteps start + 1) where
   steps := remainingSteps start + 1
   evals_in_steps := installed_halt_then_none names symbols registers labels caller ambient installed start halted
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_haltNoneInTime_steps (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
-    (installed_haltNoneInTime names symbols registers labels caller ambient installed start halted).steps =
+@[simp] theorem installedHaltNoneInTime_steps (start : Cfg Γ Λ R) (halted : (finalCfg start).l = none) :
+    (installedHaltNoneInTime names symbols registers labels caller ambient installed start halted).steps =
       remainingSteps start + 1 := rfl
 
 section PhysicalSpace

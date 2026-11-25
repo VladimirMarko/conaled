@@ -635,7 +635,7 @@ theorem buildRun_lookup_agrees (decode : κ → Int) (cmp : κ → κ → Measur
     simpa only [agreement] using hlt
   have validRB := buildRun_bst decode cmp reflected writes (Search.RedBlack.bst_nil decode)
   have laws := Search.OrderedMap.DecodedKeys.model_enum_laws decode ltb hinj hlt default
-  have validOrdinary := laws.totalLaws.setAll_valid writes laws.empty_valid
+  have validOrdinary := laws.totalTable_laws.setAll_valid writes laws.empty_valid
   change Search.OrderedMap.DecodedKeys.BST decode
     (Search.TotalTable.setAll
       (Search.TotalTable.ofPartial (Search.OrderedMap.DecodedKeys.ops ltb) default)

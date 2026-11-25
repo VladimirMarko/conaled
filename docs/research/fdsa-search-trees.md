@@ -282,9 +282,9 @@ finite cases are supplementary evidence.
 | G12 | `OrderedSetRefinement.deletion_whole_cases`, `deletion_whole_consumer`, `deletion_weak_premise_fails` |
 | G13 | `OrderedTreeDeletion.split_cases`, `split_outputs_ordered`, `union_cases`, `union_observations`, `union_result_ordered` |
 | G14 | `OrderedSetRefinement.successor_prefix_shapes`, `join_prefix_shapes`, `mixed_prefix_observations`, `every_mixed_prefix_valid`, `every_mixed_word_meaning`, `every_mixed_word_refines` |
-| G15 | `TreeJoin.extraction_loses_position`; `OrderedSetRefinement.shape_and_work_loss`, `set_order_loss`, `set_multiplicity_loss`, `flagRefinement`, `flagLaws`, `flag_separation` |
+| G15 | `TreeJoin.extraction_loses_position`; `OrderedSetRefinement.shape_and_work_loss`, `set_order_loss`, `set_multiplicity_loss`, `flag_refinement`, `flag_laws`, `flag_separation` |
 | G16 | `OrderedTreeDeletion.optionalMap_ordered`, `optional_lookup_cases`, `optional_delete_cases`, `optional_map_sizes`, `malformed_map_path_changes`, `malformed_map_arbitrary_payload` |
-| G17 | `OrderedSetRefinement.liftedSetLaws`, `lifted_set_recovery`, `lifted_set_execution`, `lifted_set_mixed_meaning`, `lifted_set_prefix_ordered`, `lifted_set_word_finishes_empty`, `liftMapLaws`, `lifted_map_recovery`, `lifted_map_consumers`, `lifted_projected_bindAll` |
+| G17 | `OrderedSetRefinement.liftedSetOps_laws`, `lifted_set_recovery`, `lifted_set_execution`, `lifted_set_mixed_meaning`, `lifted_set_prefix_ordered`, `lifted_set_word_finishes_empty`, `liftMapOps_laws`, `lifted_map_recovery`, `lifted_map_consumers`, `lifted_projected_bindAll` |
 
 Example namespaces in the last table are prefixed by `Examples.`. The frozen
 cases precede implementation. Source equations, complete declaration/member

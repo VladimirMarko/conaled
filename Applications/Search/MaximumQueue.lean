@@ -368,7 +368,7 @@ theorem validOperations_deleteMax_some (ops : Operations Q) (laws : Laws ops Val
 
 /-- The guarded relational contract becomes an all-valid contract on the subtype,
 with exactly the same abstraction relation on underlying states. -/
-theorem validLaws (ops : Operations Q) (laws : Laws ops Valid Abs) :
+theorem valid_laws (ops : Operations Q) (laws : Laws ops Valid Abs) :
     Laws (validOperations ops laws) (fun _ => True) (fun q al => Abs q.val al) where
   can_relate := fun p _ => laws.can_relate p.val p.property
   abs_perm := fun p al bl _ hal hbl => laws.abs_perm p.val al bl p.property hal hbl
@@ -391,7 +391,7 @@ queue interface on valid states. The supplied observation remains explicit. -/
 def exactQueueOnValid (ops : Operations Q) (laws : Laws ops Valid Abs)
     (observe : Q → List Nat) (observe_spec : ∀ q, Valid q → Abs q (observe q)) :
     PriorityInterface.ExactQueue.{0,0,u} Unit (OrderDual Nat) :=
-  exactQueueOfAllValid (validOperations ops laws) (validLaws ops laws)
+  exactQueueOfAllValid (validOperations ops laws) (valid_laws ops laws)
     (fun q => observe q.val) (fun q _ => observe_spec q.val q.property) (fun _ => trivial)
 
 @[simp] theorem exactQueueOnValid_entries (ops : Operations Q) (laws : Laws ops Valid Abs)

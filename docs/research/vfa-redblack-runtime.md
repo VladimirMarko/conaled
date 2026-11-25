@@ -32,7 +32,7 @@ The driver imports [RedBlack.Models](../../Applications/Search/RedBlack/Models.l
 | Optional search | Existing `DecodedKeys.lookup? ltb` | Actual `Search.RedBlack.lookup? ltb`, using the colored carrier's `find?` with the source's two short-circuit Boolean tests |
 | Default search | Actual optional result followed by `Option.getD default` | The same adapter, definitionally the body of `Search.RedBlack.lookup` |
 | Full enumeration | `Examples.ExtractedTrees.elements` | `Search.RedBlack.elements`, the actual carrier's `toList` |
-| Enumeration with suffix | `Examples.ExtractedTrees.elements_aux` | `Search.RedBlack.elementsAux`, the actual carrier's right fold with `List.cons` |
+| Enumeration with suffix | `Examples.ExtractedTrees.elementsAux` | `Search.RedBlack.elementsAux`, the actual carrier's right fold with `List.cons` |
 | Size and maximum height | Actual `BinaryTree.numNodes` and `BinaryTree.height` | Actual colored-tree `size` and `Search.RedBlack.height`, the carrier's `depth` |
 
 [RedBlack.Basic](../../Applications/Search/RedBlack/Basic.lean) owns the source insertion algorithm. Recursive `ins` calls its full `balance` after either descent. Its matcher prioritizes left-left, left-right, right-left and right-right, after the red-root bypass, and then falls back to the unchanged arrangement. Public insertion blackens the resulting root. The driver does not call the provider's separate insertion algorithm or a Python reconstruction of red-black insertion. The provider supplies the existing datatype, search, fold, root blackening and structural observations.

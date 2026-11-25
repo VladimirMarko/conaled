@@ -400,14 +400,14 @@ theorem run_prefix (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k))
       iff_of_false (Nat.lt_irrefl _) (resultCfg_not_owned regs ctx (sourceOutcome raw))⟩
 
 /-- The exact clock reaches a live exit, never an outer failure or a halt convention. -/
-def run_timed (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
+def runTimed (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (entry regs raw ctx)
       (some (resultCfg regs ctx (sourceOutcome raw))) (runSteps raw) where
   steps := runSteps raw
   evals_in_steps := run_source caller regs raw ctx
   steps_le_m := Nat.le_refl _
 
-def run_timed_linear (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
+def runTimedLinear (regs : Registers R) (raw : Bits) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (step caller) (entry regs raw ctx)
       (some (resultCfg regs ctx (sourceOutcome raw))) (8 * raw.length + 13) where
   steps := runSteps raw
@@ -586,25 +586,25 @@ omit [DecidableEq K] in
 theorem stackCells_framerCfg (c : FramerCfg Γ Λ R) :
     stackCells (framerCfg c) = OpenFramingMachine.stackCells c := by
   rw [OpenFramingMachine.stackCells_eq_sum]
-  exact Transport.stackCells framerStackEquiv (framerSymbolEquiv (Γ := Γ)) c.stk
+  exact Transport.stackEquiv_total_length framerStackEquiv (framerSymbolEquiv (Γ := Γ)) c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_inputCfg (c : InputCfg Γ Λ R) :
     stackCells (inputCfg c) = InputParserMachine.stackCells c := by
   rw [inputStackCells_eq_sum]
-  exact Transport.stackCells inputStackEquiv (inputSymbolEquiv (Γ := Γ)) c.stk
+  exact Transport.stackEquiv_total_length inputStackEquiv (inputSymbolEquiv (Γ := Γ)) c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_inputDecoderCfg (c : InputDecoderCfg Γ Λ R) :
     stackCells (inputDecoderCfg c) = OpenDecoderMachine.stackCells c := by
   rw [decoderStackCells_eq_sum]
-  exact Transport.stackCells (decoderStackEquiv .input) (decoderSymbolEquiv (Γ := Γ) .input) c.stk
+  exact Transport.stackEquiv_total_length (decoderStackEquiv .input) (decoderSymbolEquiv (Γ := Γ) .input) c.stk
 
 omit [DecidableEq K] in
 theorem stackCells_certificateDecoderCfg (c : CertificateDecoderCfg Γ Λ R) :
     stackCells (certificateDecoderCfg c) = OpenDecoderMachine.stackCells c := by
   rw [decoderStackCells_eq_sum]
-  exact Transport.stackCells (decoderStackEquiv .certificate) (decoderSymbolEquiv (Γ := Γ) .certificate) c.stk
+  exact Transport.stackEquiv_total_length (decoderStackEquiv .certificate) (decoderSymbolEquiv (Γ := Γ) .certificate) c.stk
 
 /-- An inclusive bound on actual prefixes of one fixed program. -/
 def PrefixBound (start : Cfg Γ Λ R) (ticks budget : Nat) : Prop :=

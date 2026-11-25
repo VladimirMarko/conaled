@@ -367,7 +367,7 @@ theorem model_structural_laws (default : ν) :
 theorem table_laws (default : ν) :
     TotalTable.Laws (table ltb default) default (BST decode) := by
   let _ := Representations.SignedComparison.linearOrderOfStrict decode ltb hinj hlt
-  exact (model_enum_laws decode ltb hinj hlt default).totalLaws
+  exact (model_enum_laws decode ltb hinj hlt default).totalTable_laws
 
 theorem strong_elements :
     letI : LT κ := Representations.SignedComparison.strictOrder decode
@@ -386,7 +386,7 @@ theorem partial_enum_laws :
     OrderedMap.Laws (validOps (ν := ν) decode ltb hlt)
       (fun t => enumAbs decode ltb hinj hlt t.1) := by
   let _ := Representations.SignedComparison.linearOrderOfStrict decode ltb hinj hlt
-  exact OrderedMap.Laws.ofValid (bst_nil decode)
+  exact OrderedMap.Laws.of_valid (bst_nil decode)
     (fun key value _ valid => insert_bst decode ltb hlt valid key value)
     (enumAbs_empty decode ltb hinj hlt)
     (fun key value _ valid => enumAbs_insert decode ltb hinj hlt valid key value)
@@ -397,7 +397,7 @@ theorem partial_structural_laws :
     OrderedMap.Laws (validOps (ν := ν) decode ltb hlt)
       (fun t => mapOfTree decode ltb hinj hlt t.1) := by
   let _ := Representations.SignedComparison.linearOrderOfStrict decode ltb hinj hlt
-  exact OrderedMap.Laws.ofValid (bst_nil decode)
+  exact OrderedMap.Laws.of_valid (bst_nil decode)
     (fun key value _ valid => insert_bst decode ltb hlt valid key value)
     (mapOfTree_empty decode ltb hinj hlt)
     (fun key value _ valid => mapOfTree_insert decode ltb hinj hlt valid key value)

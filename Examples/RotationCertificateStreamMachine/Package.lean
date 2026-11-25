@@ -20,7 +20,7 @@ def twoLabelPackage
     (caller : External (Fin 2) → Statement IndependentAlphabet (Fin 2) Bool)
     (initial : Bool) : Turing.FinTM2 := machine caller initial
 
-theorem the_actual_unit_label_package_has_eleven_stacks_fortytwo_labels_and_612_registers
+theorem independentPackage_card
     (caller : ExampleCaller) (initial : Bool) :
     @Fintype.card (independentPackage caller initial).K (independentPackage caller initial).kFin = 11 ∧
       @Fintype.card (independentPackage caller initial).Λ (independentPackage caller initial).ΛFin = 42 ∧
@@ -32,7 +32,7 @@ theorem the_actual_unit_label_package_has_eleven_stacks_fortytwo_labels_and_612_
     by simpa using machine_card_label caller initial,
     by simpa using machine_card_registers caller initial⟩
 
-theorem the_actual_two_label_package_has_eleven_stacks_fortythree_labels_and_612_registers
+theorem twoLabelPackage_card
     (caller : External (Fin 2) → Statement IndependentAlphabet (Fin 2) Bool)
     (initial : Bool) :
     @Fintype.card (twoLabelPackage caller initial).K (twoLabelPackage caller initial).kFin = 11 ∧
@@ -50,48 +50,48 @@ variable {K Λ R : Type} {Γ : K → Type} [DecidableEq K]
 variable [Fintype K] [Fintype Λ] [Fintype R] [∀ k, Fintype (Γ k)]
 variable (caller : External Λ → Statement Γ Λ R) (initial : R)
 
-theorem actual_package_indices_and_alphabets_are_certificate_tag_and_fuel_bool :
+theorem machine_io_indices_alphabets :
     (machine caller initial).k₀ = Sum.inl LocalStack.certificate ∧
       (machine caller initial).k₁ = Sum.inl LocalStack.fuel ∧
       (machine caller initial).Γ (machine caller initial).k₀ = Tag ∧
       (machine caller initial).Γ (machine caller initial).k₁ = Bool :=
   ⟨rfl, rfl, rfl, rfl⟩
 
-abbrev actual_package_every_physical_alphabet_is_finite (k : (machine caller initial).K) :
+abbrev packageAlphabetFintype (k : (machine caller initial).K) :
     Fintype ((machine caller initial).Γ k) := machineAlphabetFintype caller initial k
 
-theorem actual_package_step_is_the_same_literal_runtime (c : Cfg Γ Λ R) :
+theorem machine_step (c : Cfg Γ Λ R) :
     (machine caller initial).step c = step caller c := machine_step_eq caller initial c
 
-theorem actual_package_retains_arbitrary_installed_registers_and_dirty_words
+theorem machine_firstRun
     (start : Cfg Γ Λ R) :
     FirstRun (machine caller initial).step start (remainingSteps start) (finalCfg start) :=
   machine_cfg_first_return caller initial start
 
-theorem actual_package_first_result_converse_uses_the_complete_installed_endpoint
+theorem machine_firstRun_iff
     (start finish : Cfg Γ Λ R) (ticks : Nat) :
     FirstRun (machine caller initial).step start ticks finish ↔
       ticks = remainingSteps start ∧ finish = finalCfg start :=
   machineFirstRun_iff caller initial start finish ticks
 
-def actual_package_installed_timing (start : Cfg Γ Λ R) :
+def packageCfgInTime (start : Cfg Γ Λ R) :
     StateTransition.EvalsToInTime (machine caller initial).step start
       (some (finalCfg start)) (remainingSteps start) := machineCfgInTime caller initial start
 
-theorem actual_package_installed_timing_stores_the_exact_clock (start : Cfg Γ Λ R) :
-    (actual_package_installed_timing caller initial start).steps = remainingSteps start := rfl
+theorem packageCfgInTime_steps (start : Cfg Γ Λ R) :
+    (packageCfgInTime caller initial start).steps = remainingSteps start := rfl
 
-theorem the_genuine_initializer_installs_only_the_supplied_certificate (raw : Word) :
+theorem machine_initList_eq (raw : Word) :
     Turing.initList (machine caller initial) raw =
       cfg (some (phaseLabel inspectPhase)) (initialRegisters initial)
         {certificate := raw} (fun _ => []) := initList_eq caller initial raw
 
-theorem every_genuine_certificate_input_reaches_its_live_boolean_in_four_steps (raw : Word) :
+theorem machine_initList_firstRun (raw : Word) :
     FirstRun (machine caller initial).step (Turing.initList (machine caller initial) raw) 4
       (cfg (some (resultLabel raw.isEmpty)) (initialRegisters initial)
         {certificate := raw} (fun _ => [])) := machine_init_first_return caller initial raw
 
-theorem the_genuine_initializer_has_exact_rank_four_and_never_emits_a_fuel_output (raw : Word) :
+theorem machine_initList_invariants (raw : Word) :
     remainingSteps (Turing.initList (machine caller initial) raw) = 4 ∧
       (finalCfg (Turing.initList (machine caller initial) raw)).stk (machine caller initial).k₁ = [] ∧
       (finalCfg (Turing.initList (machine caller initial) raw)).stk (.inl .certificate) = raw ∧
@@ -99,30 +99,30 @@ theorem the_genuine_initializer_has_exact_rank_four_and_never_emits_a_fuel_outpu
   ⟨machine_init_exact_rank caller initial raw, machine_init_final_output_empty caller initial raw,
     machine_init_final_certificate caller initial raw, machine_init_endpoint_live caller initial raw⟩
 
-def actual_initializer_timing (raw : Word) :
+def packageInitInTime (raw : Word) :
     StateTransition.EvalsToInTime (machine caller initial).step
       (Turing.initList (machine caller initial) raw)
       (some (cfg (some (resultLabel raw.isEmpty)) (initialRegisters initial)
         {certificate := raw} (fun _ => []))) 4 := machineInitInTimeExact caller initial raw
 
-theorem actual_initializer_timing_stores_four (raw : Word) :
-    (actual_initializer_timing caller initial raw).steps = 4 := rfl
+theorem packageInitInTime_steps (raw : Word) :
+    (packageInitInTime caller initial raw).steps = 4 := rfl
 
-theorem every_actual_initializer_prefix_has_exactly_the_input_cell_count
+theorem machine_initList_prefix_physicalCells
     (raw : Word) (n : Nat) (bound : n ≤ 4) (reached : Cfg Γ Λ R)
     (executed : Runs (machine caller initial).step
       (Turing.initList (machine caller initial) raw) n reached) :
     physicalCells reached = raw.length :=
   machine_init_prefix_cells caller initial raw n bound reached executed
 
-theorem every_genuine_initializer_has_the_exact_inclusive_input_peak (raw : Word) :
+theorem machine_initList_exactPeak (raw : Word) :
     ExactPeak (machine caller initial).step
       (Turing.initList (machine caller initial) raw) 4 raw.length :=
   machine_init_exact_peak caller initial raw
 
 end GenericPackageConnections
 
-theorem both_literal_genuine_inputs_use_the_actual_package_initializer
+theorem independentPackage_literal_inputs_firstRun
     (caller : ExampleCaller) (initial : Bool) :
     FirstRun (independentPackage caller initial).step
       (Turing.initList (independentPackage caller initial) ([] : Word)) 4
@@ -132,7 +132,7 @@ theorem both_literal_genuine_inputs_use_the_actual_package_initializer
       (cfg (some (resultLabel false)) (clean initial) {certificate := [15]} (fun _ => [])) :=
   ⟨machine_init_first_return caller initial [], machine_init_first_return caller initial [15]⟩
 
-theorem the_same_actual_package_runs_the_installed_rotation_input_for_twentyfive_steps
+theorem independentPackage_rotation_firstRun
     (caller : ExampleCaller) (initial flag : Bool) :
     FirstRun (independentPackage caller initial).step (a12.start (stale flag) ordinaryContext)
       25 (a12.finish (stale flag) ordinaryContext) :=
@@ -140,7 +140,7 @@ theorem the_same_actual_package_runs_the_installed_rotation_input_for_twentyfive
 
 /-! ## Complete FrontEnd physical compatibility and explicit installed entries -/
 
-theorem all_front_end_physical_indices_and_symbols_have_complete_inverses
+theorem frontEndStackEquiv_symbolEquiv_roundtrip
     {K : Type} {Γ : K → Type}
     (k : FrontEndMachine.StackId (NewBranchStores ⊕ K))
     (j : StackId (FrontEndProtected ⊕ K))
@@ -151,7 +151,7 @@ theorem all_front_end_physical_indices_and_symbols_have_complete_inverses
   ⟨frontEndStackEquiv.symm_apply_apply k, frontEndStackEquiv.apply_symm_apply j,
     (frontEndSymbolEquiv k).symm_apply_apply symbol⟩
 
-theorem the_front_end_register_map_preserves_all_decoder_and_branch_fields
+theorem frontEndRegisterEquiv_fields
     {R : Type} (regs : FrontEndMachine.Registers (Option Branch × R)) :
     frontEndRegisterEquiv.symm (frontEndRegisterEquiv regs) = regs ∧
       (frontEndRegisterEquiv regs).1 = regs.2.1.b0 ∧
@@ -161,13 +161,13 @@ theorem the_front_end_register_map_preserves_all_decoder_and_branch_fields
       (frontEndRegisterEquiv regs).2.2.2 = regs.2.2.2 :=
   ⟨frontEndRegisterEquiv.symm_apply_apply regs, rfl, rfl, rfl, rfl⟩
 
-theorem front_end_reset_really_retains_the_incoming_branch_register
+theorem frontEndRegisterEquiv_reset_fields
     {R : Type} (regs : FrontEndMachine.Registers (Option Branch × R)) :
     frontEndRegisterEquiv (FrontEndMachine.reset regs) =
       (none, ((regs.2.2.1, (none, none)), (frontEndDecoderZero, regs.2.2.2))) :=
   frontEndRegisterEquiv_reset regs
 
-theorem complete_front_end_physical_cardinalities
+theorem frontEnd_card
     {K R : Type} [Fintype K] [Fintype R] :
     Fintype.card (FrontEndMachine.StackId (NewBranchStores ⊕ K)) = 16 + Fintype.card K ∧
       Fintype.card (StackId (FrontEndProtected ⊕ K)) = 16 + Fintype.card K ∧
@@ -177,7 +177,7 @@ theorem complete_front_end_physical_cardinalities
   ⟨frontEnd_source_stack_card, frontEnd_stack_card, frontEnd_decoder_complement_card,
     frontEnd_source_register_card, frontEnd_register_card⟩
 
-theorem the_front_end_map_preserves_the_sum_over_every_physical_stack
+theorem frontEndStacks_total_length
     {K : Type} {Γ : K → Type} [Fintype K]
     (allWords : ∀ k, List (FrontEndMachine.alphabet (frontEndAddedAlphabet Γ) k)) :
     ∑ k, (frontEndStacks allWords k).length = ∑ k, (allWords k).length :=
@@ -191,7 +191,7 @@ def frontEndInstalledEntry {K Λ R : Type} {Γ : K → Type}
   cfg (some (phaseLabel inspectPhase)) (frontEndRegisterEquiv (FrontEndMachine.reset regs))
     (frontEndSuccessData source target fuel certificate B O) (frontEndSuccessContext ctx)
 
-theorem the_actual_front_end_success_matches_the_installed_physical_data
+theorem frontEndPhysicalData_success
     {K Λ R : Type} {Γ : K → Type}
     (regs : FrontEndMachine.Registers (Option Branch × R))
     (B O : List Branch) (ctx : ∀ k, List (Γ k))
@@ -211,13 +211,13 @@ def frontEndDirtyEntry (flag : Bool) :
   frontEndInstalledEntry (staleFrontEndRegisters flag) [.right] [.left] ordinaryContext
     rightTwo leftTwo [true] [6, 10]
 
-theorem front_end_dirty_entry_retains_both_physical_branch_words_and_stale_branch
+theorem frontEndDirtyEntry_eq
     (flag : Bool) :
     frontEndDirtyEntry flag = r10.start
       (none, ((some .right, (none, none)), (frontEndDecoderZero, flag)))
       (frontEndSuccessContext ordinaryContext) := rfl
 
-theorem the_actual_dirty_front_end_data_has_the_fixed_twenty_step_false_result
+theorem frontEndDirtyEntry_firstRun_exactPeak
     (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     FirstRun (step caller) (frontEndDirtyEntry flag) 20
@@ -236,14 +236,14 @@ theorem the_actual_dirty_front_end_data_has_the_fixed_twenty_step_false_result
     exact (frontEnd_success_context_cells ordinaryContext).trans
       ordinary_protected_context_has_five_physical_cells
   refine ⟨first, ?_⟩
-  rw [front_end_dirty_entry_retains_both_physical_branch_words_and_stale_branch]
+  rw [frontEndDirtyEntry_eq]
   have exactPeak : r10.peak + externalCells (frontEndSuccessContext ordinaryContext) = 20 := by
     rw [external]
     rfl
   rw [exactPeak] at peak
   exact peak
 
-theorem the_dirty_front_end_selected_boundaries_use_the_same_actual_registers
+theorem frontEndDirtyEntry_boundaries
     (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     ∀ b ∈ frontEndDirtyBoundaries,
@@ -254,7 +254,7 @@ theorem the_dirty_front_end_selected_boundaries_use_the_same_actual_registers
     (none, ((some .right, (none, none)), (frontEndDecoderZero, flag)))
     (frontEndSuccessContext ordinaryContext)
 
-theorem explicitly_empty_added_branch_words_give_the_clean_front_end_example
+theorem frontEndInstalledEntry_empty_branches_firstRun
     (caller : External Unit → Statement (frontEndProtectedAlphabet IndependentAlphabet)
       Unit (FrontEndDecoderComplement × Bool)) (flag : Bool) :
     FirstRun (step caller)
@@ -274,7 +274,7 @@ variable {K Λ R K' Λ' R' : Type} {Γ : K → Type} {Γ' : K' → Type}
 variable (names : StackId K ≃ K') (symbols : ∀ k, alphabet Γ k ≃ Γ' (names k))
   (registers : Registers R ≃ R') (labels : Label Λ ≃ Λ')
 
-theorem further_installation_has_a_complete_configuration_inverse
+theorem installedCfgEquiv_roundtrip
     (source : Cfg Γ Λ R) (target : Turing.TM2.Cfg Γ' Λ' R') :
     (installedCfgEquiv names symbols registers labels).symm
         (installedCfg names symbols registers labels source) = source ∧
@@ -283,7 +283,7 @@ theorem further_installation_has_a_complete_configuration_inverse
   ⟨(installedCfgEquiv names symbols registers labels).symm_apply_apply source,
     (installedCfgEquiv names symbols registers labels).apply_symm_apply target⟩
 
-theorem further_installation_recovers_every_register_and_physical_word
+theorem installedCfg_readback
     (source : Cfg Γ Λ R) :
     registers.symm (installedCfg names symbols registers labels source).var = source.var ∧
     ∀ k, ((installedCfg names symbols registers labels source).stk (names k)).map
@@ -291,7 +291,7 @@ theorem further_installation_recovers_every_register_and_physical_word
   ⟨installedCfg_registers_readback names symbols registers labels source,
     installedCfg_stack_readback names symbols registers labels source⟩
 
-theorem further_installation_preserves_the_complete_physical_sum
+theorem installedCfg_physicalCells
     [Fintype K] [Fintype K'] (source : Cfg Γ Λ R) :
     ∑ k, ((installedCfg names symbols registers labels source).stk k).length =
       physicalCells source := installed_stack_cells names symbols registers labels source
@@ -300,7 +300,7 @@ variable [DecidableEq K] [DecidableEq K']
 variable (caller : External Λ → Statement Γ Λ R)
 variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 
-theorem all_thirtynine_owned_bodies_suffice_for_each_actual_local_prefix
+theorem installedCfg_owned_prefix
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -310,7 +310,7 @@ theorem all_thirtynine_owned_bodies_suffice_for_each_actual_local_prefix
       ((next caller)^[n] (some start)).map (installedCfg names symbols registers labels) :=
   installed_owned_prefix names symbols registers labels caller ambient installed start n bound
 
-theorem further_installation_fixes_the_first_time_and_the_entire_first_endpoint
+theorem installedCfg_firstRun_iff
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -326,7 +326,7 @@ theorem further_installation_fixes_the_first_time_and_the_entire_first_endpoint
       finish = installedCfg names symbols registers labels (finalCfg start) :=
   installed_firstRun_iff names symbols registers labels caller ambient installed start n finish
 
-def exact_owned_installation_timing
+def ownedInstallationInTime
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -335,17 +335,17 @@ def exact_owned_installation_timing
       (installedCfg names symbols registers labels start)
       (some (installedCfg names symbols registers labels (finalCfg start)))
       (remainingSteps start) :=
-  installed_owned_timed names symbols registers labels caller ambient installed start
+  installedOwnedTimed names symbols registers labels caller ambient installed start
 
-theorem exact_owned_installation_timing_stores_the_actual_clock
+theorem ownedInstallationInTime_steps
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) :
-    (exact_owned_installation_timing names symbols registers labels caller ambient installed start).steps =
+    (ownedInstallationInTime names symbols registers labels caller ambient installed start).steps =
       remainingSteps start := rfl
 
-theorem an_actual_installed_prefix_keeps_its_source_physical_bound
+theorem installedCfg_prefix_physicalCells_le
     [Fintype K] [Fintype K']
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
@@ -359,7 +359,7 @@ theorem an_actual_installed_prefix_keeps_its_source_physical_bound
   installed_prefix_cells_of_source_bound names symbols registers labels caller ambient installed
     start n bound budget estimate reached executed
 
-theorem agreement_at_every_label_transports_arbitrary_later_caller_iterations
+theorem installedCfg_iterate
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (n : Nat) (start : Option (Cfg Γ Λ R)) :

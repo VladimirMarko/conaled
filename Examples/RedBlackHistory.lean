@@ -57,7 +57,7 @@ theorem ordinary_history_valid {ν : Type u} (default : ν) (bindings : List (In
   let _ : DecidableEq Int :=
     (linearOrderOfStrict id intLtb int_decode_injective intLtb_true_iff).toDecidableEq
   have law := DecodedKeys.model_enum_laws id intLtb int_decode_injective intLtb_true_iff default
-  have valid := law.totalLaws.setAll_valid bindings law.empty_valid
+  have valid := law.totalTable_laws.setAll_valid bindings law.empty_valid
   change DecodedKeys.BST id
     (Search.TotalTable.setAll (Search.TotalTable.ofPartial (DecodedKeys.ops intLtb) default)
       bindings .nil) at valid

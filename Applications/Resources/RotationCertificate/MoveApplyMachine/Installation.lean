@@ -45,7 +45,7 @@ theorem installed_owned_prefix
   obtain ⟨reached, executed, _, _, ownership⟩ := owned_prefix caller start j (by omega)
   exact ⟨reached, executed, ownership.mp (by omega)⟩
 
-def installed_owned_timed
+def installedOwnedTimed
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -63,15 +63,15 @@ def installed_owned_timed
     rfl
   steps_le_m := Nat.le_refl _
 
-@[simp] theorem installed_owned_timed_steps
+@[simp] theorem installedOwnedTimed_steps
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) :
-    (installed_owned_timed caller names symbols registers labels ambient installed start).steps =
+    (installedOwnedTimed caller names symbols registers labels ambient installed start).steps =
       remainingSteps start := rfl
 
-def installed_owned_prefix_timed
+def installedOwnedPrefixTimed
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -98,7 +98,7 @@ theorem installed_iterate
       ((next caller)^[n] start).map (installedCfg names symbols registers labels) :=
   FrontEndMachine.Transport.iterate names symbols registers labels (program caller) ambient installed n start
 
-def installed_timed
+def installedTimed
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
@@ -109,18 +109,18 @@ def installed_timed
   FrontEndMachine.Transport.timed names symbols registers labels
     (program caller) ambient installed start final bound run
 
-@[simp] theorem installed_timed_steps
+@[simp] theorem installedTimed_steps
     (installed : ∀ label, ambient (labels label) =
       FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
     (start : Cfg Γ Λ R) (final : Option (Cfg Γ Λ R)) (bound : Nat)
     (run : StateTransition.EvalsToInTime (step caller) start final bound) :
-    (installed_timed caller names symbols registers labels ambient installed start final bound run).steps =
+    (installedTimed caller names symbols registers labels ambient installed start final bound run).steps =
       run.steps := rfl
 
 omit [DecidableEq K] [DecidableEq K'] in
 theorem installed_stack_cells [Fintype K] [Fintype K'] (c : Cfg Γ Λ R) :
     ∑ k, ((installedCfg names symbols registers labels c).stk k).length = stackCells c :=
-  FrontEndMachine.Transport.stackCells names symbols c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length names symbols c.stk
 
 theorem installed_owned_prefix_space [Fintype K] [Fintype K']
     (installed : ∀ label, Owned (some label) →
@@ -151,7 +151,7 @@ variable (ambient : Λ' → Turing.TM2.Stmt Γ' Λ' R')
 variable (installed : ∀ label, Owned (some label) → ambient (labels label) =
   FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
 
-def installed_runInTimeExact (raw : Word) (path : List Branch)
+def installedRunInTimeExact (raw : Word) (path : List Branch)
     (source saved scratch : Word) (pending : List Unit)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
@@ -159,10 +159,10 @@ def installed_runInTimeExact (raw : Word) (path : List Branch)
       (some (installedCfg names symbols registers labels
         (runResult regs raw path source saved scratch pending ctx)))
       (runSteps raw path source saved scratch pending) :=
-  installed_owned_timed caller names symbols registers labels ambient installed
+  installedOwnedTimed caller names symbols registers labels ambient installed
     (entry regs raw path source saved scratch pending ctx)
 
-def installed_runInLinearTime (raw : Word) (path : List Branch)
+def installedRunInLinearTime (raw : Word) (path : List Branch)
     (source saved scratch : Word) (pending : List Unit)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
@@ -172,11 +172,11 @@ def installed_runInLinearTime (raw : Word) (path : List Branch)
       (3 * raw.length + 3 * source.length + saved.length + scratch.length +
         pending.length + path.length + 3) where
   steps := runSteps raw path source saved scratch pending
-  evals_in_steps := (installed_runInTimeExact caller names symbols registers labels ambient installed
+  evals_in_steps := (installedRunInTimeExact caller names symbols registers labels ambient installed
     raw path source saved scratch pending regs ctx).evals_in_steps
   steps_le_m := runSteps_le raw path source saved scratch pending
 
-def installed_parsedRunInLinearTime (raw : Word) (move : RotationMove) (rest : Word)
+def installedParsedRunInLinearTime (raw : Word) (move : RotationMove) (rest : Word)
     (path : List Branch) (source saved scratch : Word) (pending : List Unit)
     (regs : Registers R) (ctx : ∀ k, List (Γ k))
     (parsed : (parseMoveRun raw).1 = some (move, rest)) :
@@ -187,11 +187,11 @@ def installed_parsedRunInLinearTime (raw : Word) (move : RotationMove) (rest : W
       (3 * source.length + saved.length + scratch.length + pending.length +
         3 * move.position.length + path.length + 9) where
   steps := runSteps raw path source saved scratch pending
-  evals_in_steps := (installed_runInTimeExact caller names symbols registers labels ambient installed
+  evals_in_steps := (installedRunInTimeExact caller names symbols registers labels ambient installed
     raw path source saved scratch pending regs ctx).evals_in_steps
   steps_le_m := runSteps_le_of_some raw move rest path source saved scratch pending parsed
 
-def installed_representedInTime (move : RotationMove) (certificateRest : Word)
+def installedRepresentedInTime (move : RotationMove) (certificateRest : Word)
     (oldPath : List Branch) (s : BinaryTree Unit) (saved suffix : Word)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
@@ -206,7 +206,7 @@ def installed_representedInTime (move : RotationMove) (certificateRest : Word)
     change representedSteps move oldPath s saved ≤
       runSteps (moveCode move ++ certificateRest) oldPath (treeCode s ++ suffix) saved [] []
     rw [(represented_run_data caller move certificateRest oldPath s saved suffix regs ctx).1]
-  exact installed_owned_prefix_timed caller names symbols registers labels ambient installed
+  exact installedOwnedPrefixTimed caller names symbols registers labels ambient installed
     (entry regs (moveCode move ++ certificateRest) oldPath (treeCode s ++ suffix) saved [] [] ctx)
     (representedSteps move oldPath s saved) bounded _
     (run_code_represented caller move certificateRest oldPath s saved suffix regs ctx)

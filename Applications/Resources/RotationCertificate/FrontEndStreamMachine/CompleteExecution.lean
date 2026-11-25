@@ -601,13 +601,13 @@ theorem LocalRun.remaining {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller 
   | refl => omega
   | cons head tail ih => have first := local_step_remaining caller head; omega
 
-theorem LocalRun.finalCfg {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller n a b) :
+theorem LocalRun.finalCfg_eq {n : Nat} {a b : Cfg Γ Λ R} (run : LocalRun caller n a b) :
     finalCfg a = finalCfg b := by
   induction run with
   | refl => rfl
   | cons head tail ih => exact (finalCfg_step caller head).trans ih
 
-theorem LocalRun.phaseEndpoint {q : Phase} {D : LocalData} {regs : Registers R}
+theorem LocalRun.phase_endpoint {q : Phase} {D : LocalData} {regs : Registers R}
     {ctx : ∀ k, List (Γ k)} {n : Nat} {finish : Cfg Γ Λ R}
     (run : LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx) finish)
     (halted : finish.l = none) :
@@ -1054,7 +1054,7 @@ theorem clean_canonical_evaluation (raw : Bits) :
   let localCaller : Empty → Statement (fun _ : Empty => Empty) Empty Unit := fun _ => .halt
   let regs : Registers Unit := ((none, none), BitDecoderMachine.zeroRegisters, (none, ()))
   let ctx : Empty → List Empty := fun k => Empty.elim k
-  have endpoints := (run_localRun localCaller regs raw ctx).phaseEndpoint localCaller rfl
+  have endpoints := (run_localRun localCaller regs raw ctx).phase_endpoint localCaller rfl
   refine ⟨endpoints.1, ?_⟩
   have same := congrArg dataOfCfg endpoints.2
   change (evaluate entryPhase (answer regs) (cleanData raw)).data = (runEvaluation raw).data at same

@@ -1,4 +1,5 @@
 import SquareKit.CartesianMap
+import SquareKit.RawTransformation
 import SquareKit.FunctionCategory
 import SquareKit.FirstOrderCategory
 import Applications.Linear.Operations
@@ -40,6 +41,18 @@ def coordinateFunctions : RawMap (coordinates R) FunctionCategory.ops where
 def values : RawMap (coordinates R) FunctionCategory.ops where
   obj := Val R
   map {a b} f x := decode b (f (encode a x))
+
+/-- Decode every coordinate space into its nested value representation. -/
+def coordinateDecode : RawTransformation (coordinateFunctions R) (values R) where
+  app := decode
+
+omit [CommSemiring R] in
+theorem coordinateDecode_natural :
+    RawTransformation.Natural (equality FunctionCategory.ops) (coordinateDecode R) := by
+  intro a b f
+  funext x
+  change decode b (f (encode a (decode a x))) = decode b (f x)
+  rw [encode_decode]
 
 omit [CommSemiring R] in
 theorem coordinateFunctions_laws :
@@ -100,23 +113,23 @@ theorem coordinateFunctionProducts_laws :
   pair _ _ := rfl
 
 omit [CommSemiring R] in
-theorem coordinateLaws : CategoryLaws (coordinates R) (equality _) :=
+theorem coordinate_laws : CategoryLaws (coordinates R) (equality _) :=
   RawMap.transportLaws (coordinateFunctions_laws R) (fun h => h)
     (equalityCongr _) FunctionCategory.laws
 
 omit [CommSemiring R] in
-theorem coordinateTerminalLaws : TerminalLaws (equality _) (coordinateTerminal R) :=
+theorem coordinateTerminal_laws : TerminalLaws (equality _) (coordinateTerminal R) :=
   TerminalMap.transportLaws (fun h => h) (equalityCongr _) FunctionCategory.laws
     (coordinateFunctionTerminal_inverse R) (coordinateFunctionTerminal_laws R)
     FunctionCategory.terminalLaws
 
 omit [CommSemiring R] in
-theorem coordinateProductCongr : ProductCongr (equality _) (coordinateProducts R) :=
+theorem coordinateProducts_congr : ProductCongr (equality _) (coordinateProducts R) :=
   ProductMap.transportCongr (coordinateFunctions_laws R) (fun h => h) (equalityCongr _)
     (coordinateFunctionProducts_laws R) FunctionCategory.productCongr
 
 omit [CommSemiring R] in
-theorem coordinateProductLaws : ProductLaws (equality _) (coordinateProducts R) :=
+theorem coordinateProducts_laws : ProductLaws (equality _) (coordinateProducts R) :=
   ProductMap.transportLaws (coordinateFunctions_laws R) (fun h => h) (equalityCongr _)
     FunctionCategory.laws (coordinateFunctionProducts_inverse R)
     (coordinateFunctionProducts_laws R) FunctionCategory.productCongr FunctionCategory.productLaws
@@ -178,11 +191,19 @@ theorem matrixFunctionProducts_laws : ProductMapLaws (equality _) (matrixFunctio
 theorem matrixFunctionProducts_inverse (a b : Ty) :
     ComparisonLaws (equality _) (matrixFunctionProducts R a b) :=
   Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
-    (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinateLaws R) _))
+    (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (coordinateFunctionProducts_inverse R a b)
 
 /-- The nested-value interpretation factors through the same coordinate action. -/
 def matrixValues : RawMap (matrices R) FunctionCategory.ops := (evaluate R).comp (values R)
+
+/-- Matrix evaluation inherits the coordinate decoder by prewhiskering. -/
+def matrixDecode : RawTransformation (matrixFunctions R) (matrixValues R) :=
+  RawTransformation.whiskerLeft (evaluate R) (coordinateDecode R)
+
+theorem matrixDecode_natural :
+    RawTransformation.Natural (equality FunctionCategory.ops) (matrixDecode R) :=
+  RawTransformation.whiskerLeft_natural (evaluate R) (coordinateDecode_natural R)
 
 theorem matrixValues_laws : MapLaws (matrixValues R) (equality _) (equality _) :=
   RawMap.comp_laws (evaluate_laws R) (values_laws R)
@@ -198,12 +219,11 @@ theorem matrixValues_denote {a b : Ty} (M : Code R a b) (x : Val R a) :
     (matrixValues R).map M x = denote R M x := rfl
 
 theorem interpretation_commutes {a b : Ty} (M : Code R a b) (x : Slots a → R) :
-    decode b ((matrixFunctions R).map M x) = (matrixValues R).map M (decode a x) := by
-  change decode b (M.mulVec x) = decode b (M.mulVec (encode a (decode a x)))
-  rw [encode_decode]
+    decode b ((matrixFunctions R).map M x) = (matrixValues R).map M (decode a x) :=
+  (congrFun (matrixDecode_natural R M) x).symm
 
 /-- The generic transport recovers product laws for arbitrary matrices modulo action. -/
-theorem matrixProductLaws :
+theorem matrixProducts_laws :
     ProductLaws ((matrixFunctions R).induced (equality _)) (matrixProducts R) := by
   let L : MapLaws (matrixFunctions R) ((matrixFunctions R).induced (equality _)) (equality _) := {
     congr := fun h => h
@@ -222,10 +242,10 @@ theorem matrixFunctionTerminal_laws : TerminalMapLaws (equality _) (matrixFuncti
 
 theorem matrixFunctionTerminal_inverse : ComparisonLaws (equality _) (matrixFunctionTerminal R) :=
   Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
-    (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinateLaws R) _))
+    (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (coordinateFunctionTerminal_inverse R)
 
-theorem matrixTerminalLaws :
+theorem matrixTerminal_laws :
     TerminalLaws ((matrixFunctions R).induced (equality _)) (matrixTerminal R) :=
   TerminalMap.transportLaws ((matrixFunctions R).induced_reflects _) (equalityCongr _)
     FunctionCategory.laws (matrixFunctionTerminal_inverse R)
@@ -234,7 +254,7 @@ theorem matrixTerminalLaws :
 theorem matrixValueProducts_inverse (a b : Ty) :
     ComparisonLaws (equality _) (matrixValueProducts R a b) :=
   Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
-    (Comparison.map_laws (values_laws R) (Comparison.id_laws (coordinateLaws R) _))
+    (Comparison.map_laws (values_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (valueProducts_inverse R a b)
 
 /-- This comparison changes a sum-indexed coordinate vector into two vectors. -/

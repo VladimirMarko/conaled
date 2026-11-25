@@ -158,9 +158,9 @@ theorem total_coloring_of_progress (palette : NodeSet) (property : Graph → Pro
     (progress : ∀ g, property g → (SparseMap.keys g).Nonempty →
       ∃ node, KeySet.mem node (eligible (KeySet.cardinal palette) g) = true)
     (g : Graph) (valid : property g) (symmetric : Undirected g) (loopless : NoSelfLoop g) :
-    ColoringOK palette g (color palette g) ∧ AllPalette palette (color palette g) ∧
+    EdgeColoringCompatible palette g (color palette g) ∧ PaletteValued palette (color palette g) ∧
       SparseMap.keys (color palette g) = SparseMap.keys g :=
-  ⟨color_correct palette loopless symmetric, allPalette_color palette g,
+  ⟨color_correct palette loopless symmetric, paletteValued_color palette g,
     keys_color_of_progress palette property closed progress g valid⟩
 
 end Graphs.Coloring

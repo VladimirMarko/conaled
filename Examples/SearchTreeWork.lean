@@ -250,47 +250,47 @@ and accumulator suffixes. No BST premise is introduced for these execution
 equalities; the invariant remains necessary for independent-map semantics. -/
 
 theorem source_lookup_erasure {V : Type u} (default : V) (key : Nat)
-    (tree : SearchTrees.tree V) :
+    (tree : SearchTrees.Tree V) :
     (SearchTree.lookupRun key tree).1.getD default = SearchTrees.lookup default key tree := by
   rw [SearchTree.lookupRun_value]
   rfl
 
-theorem source_bound_erasure {V : Type u} (key : Nat) (tree : SearchTrees.tree V) :
+theorem source_bound_erasure {V : Type u} (key : Nat) (tree : SearchTrees.Tree V) :
     (SearchTree.lookupRun key tree).1.isSome = SearchTrees.bound key tree := by
   rw [SearchTree.lookupRun_value]
   rfl
 
 theorem source_insert_erasure {V : Type u} (key : Nat) (value : V)
-    (tree : SearchTrees.tree V) :
+    (tree : SearchTrees.Tree V) :
     (SearchTree.insertRun key value tree).1 = SearchTrees.insert key value tree :=
   SearchTree.insertRun_value key value tree
 
-theorem source_elements_erasure {V : Type u} (tree : SearchTrees.tree V) :
+theorem source_elements_erasure {V : Type u} (tree : SearchTrees.Tree V) :
     (TreeEnumeration.copyRun tree).1 = SearchTrees.elements tree :=
   TreeEnumeration.copyRun_entries tree
 
-theorem source_accumulator_erasure {V : Type u} (tree : SearchTrees.tree V)
+theorem source_accumulator_erasure {V : Type u} (tree : SearchTrees.Tree V)
     (suffix : List (Nat × V)) :
-    (TreeEnumeration.accumulatorRun tree suffix).1 = SearchTrees.fast_elements_tr tree suffix :=
+    (TreeEnumeration.accumulatorRun tree suffix).1 = SearchTrees.fastElementsAcc tree suffix :=
   TreeEnumeration.accumulatorRun_fastEntriesAcc tree suffix
 
-theorem source_fast_elements_erasure {V : Type u} (tree : SearchTrees.tree V) :
-    (TreeEnumeration.accumulatorRun tree []).1 = SearchTrees.fast_elements tree :=
+theorem source_fast_elements_erasure {V : Type u} (tree : SearchTrees.Tree V) :
+    (TreeEnumeration.accumulatorRun tree []).1 = SearchTrees.fastElements tree :=
   TreeEnumeration.accumulatorRun_fastEntriesAcc tree []
 
 /-- Exact source ex_tree execution, independently expected comparator counts,
 and the source-facing two-append enumeration. -/
 theorem source_ex_tree_runs :
-    SearchTree.lookupRun 5 SearchTrees.ex_tree = (some "five", (2, 4)) ∧
-    TreeEnumeration.copyRun SearchTrees.ex_tree =
+    SearchTree.lookupRun 5 SearchTrees.exampleTree = (some "five", (2, 4)) ∧
+    TreeEnumeration.copyRun SearchTrees.exampleTree =
       ([(2, "two"), (4, "four"), (5, "five")], 4) := by
   constructor
-  · simp [SearchTrees.ex_tree, SearchTrees.T, SearchTrees.E, SearchTree.lookupRun_node]
-  · simp [SearchTrees.ex_tree, SearchTrees.T, SearchTrees.E, TreeEnumeration.copyRun_node]
+  · simp [SearchTrees.exampleTree, SearchTrees.node, SearchTrees.nil, SearchTree.lookupRun_node]
+  · simp [SearchTrees.exampleTree, SearchTrees.node, SearchTrees.nil, TreeEnumeration.copyRun_node]
 
 theorem source_nonempty_suffix :
-    TreeEnumeration.accumulatorRun SearchTrees.ex_tree [(9, "suffix")] =
-      (SearchTrees.fast_elements_tr SearchTrees.ex_tree [(9, "suffix")], (7, 3)) := by
+    TreeEnumeration.accumulatorRun SearchTrees.exampleTree [(9, "suffix")] =
+      (SearchTrees.fastElementsAcc SearchTrees.exampleTree [(9, "suffix")], (7, 3)) := by
   apply Prod.ext
   · exact source_accumulator_erasure _ _
   · rw [TreeEnumeration.accumulatorRun_work]
@@ -299,8 +299,8 @@ theorem source_nonempty_suffix :
 /-- The earlier source lookup theorem is a client of the measured erasure,
 retaining its concrete default and its independently specified returned value. -/
 theorem source_default_lookup_client :
-    (SearchTree.lookupRun 5 SearchTrees.ex_tree).1.getD "" = "five" := by
+    (SearchTree.lookupRun 5 SearchTrees.exampleTree).1.getD "" = "five" := by
   rw [source_lookup_erasure]
-  exact SearchTrees.bst_ex2
+  exact SearchTrees.lookup_exampleTree_present
 
 end Examples.SearchTreeWork

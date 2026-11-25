@@ -881,7 +881,7 @@ theorem run_code_localRun (d : RotationDirection) (p : List Branch) (s : BinaryT
                   actual, treeCode, List.reverse_cons, List.reverse_append, List.append_assoc] <;> omega
 
 /-- An owned segment to a live result determines the evaluator's exact count and endpoint. -/
-theorem LocalRun.phaseEndpoint {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
+theorem LocalRun.phase_endpoint {q : Phase} {D E : LocalData} {regs outRegs : Registers R}
     {ctx outCtx : ∀ k, List (Γ k)} {n : Nat} {r : Result}
     (run : LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx)
       (cfg (some (resultLabel r)) outRegs E outCtx)) :
@@ -904,7 +904,7 @@ theorem phaseResult_code (caller : External Λ → Statement Γ Λ R) (d : Rotat
         cfg (some (resultLabel (sourceResult (applyMoveRun ⟨d, p⟩ s).1))) (reset regs)
           { source := f.reverse ++ treeCode ((applyMoveRun ⟨d, p⟩ s).1.getD s) ++ z,
             path := remainingPath p s } ctx :=
-  LocalRun.phaseEndpoint caller (run_code_localRun caller d p s f z regs ctx)
+  LocalRun.phase_endpoint caller (run_code_localRun caller d p s f z regs ctx)
 
 /-- Exact ordinary iteration, retaining the old saved word, suffix and actual residual path. -/
 theorem run_code (d : RotationDirection) (p : List Branch) (s : BinaryTree Unit)
@@ -971,7 +971,7 @@ theorem LocalRun.not_phaseSuccess {q : Phase} {D E : LocalData} {regs outRegs : 
     (run : LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx)
       (cfg (some (resultLabel .failure)) outRegs E outCtx)) :
     (phaseResult (Λ := Λ) q regs D ctx).l ≠ some (resultLabel .success) := by
-  rw [(LocalRun.phaseEndpoint caller run).2]
+  rw [(LocalRun.phase_endpoint caller run).2]
   intro impossible
   cases impossible
 
@@ -1019,7 +1019,7 @@ theorem root_left_phaseResult_success_iff (caller : External Λ → Statement Γ
             (root_nonnode_localRun caller .left (tag :: raw) f node regs ctx)
           exact (blocked success).elim
   · rintro ⟨A, z, rfl⟩
-    rw [(LocalRun.phaseEndpoint caller (root_left_pattern_localRun caller A z f regs ctx)).2]
+    rw [(LocalRun.phase_endpoint caller (root_left_pattern_localRun caller A z f regs ctx)).2]
     rfl
 
 /-- Literal right-root recognition includes the scanner's final in-block marker insertion. -/
@@ -1064,7 +1064,7 @@ theorem root_right_phaseResult_success_iff (caller : External Λ → Statement �
             (root_nonnode_localRun caller .right (first :: raw) f node regs ctx)
           exact (blocked success).elim
   · rintro ⟨A, z, rfl⟩
-    rw [(LocalRun.phaseEndpoint caller (root_right_pattern_localRun caller A z f regs ctx)).2]
+    rw [(LocalRun.phase_endpoint caller (root_right_pattern_localRun caller A z f regs ctx)).2]
     rfl
 
 /-- All strict earlier steps are owned: LocalRun cannot continue through an external caller. -/
@@ -1376,7 +1376,7 @@ theorem run_code_success_iff (d : RotationDirection) (p : List Branch) (s t : Bi
         n = representedClock d p s + f.length := by
   constructor
   · intro run
-    have endpoint := LocalRun.phaseEndpoint caller run
+    have endpoint := LocalRun.phase_endpoint caller run
     have decoded := (phaseResult_code_success_iff caller d p s t f z outSuffix regs ctx).mp endpoint.2
     exact ⟨decoded.1, decoded.2,
       endpoint.1.symm.trans (phaseResult_code caller d p s f z regs ctx).1⟩

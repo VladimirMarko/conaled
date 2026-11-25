@@ -6,6 +6,13 @@ namespace MatrixCompiler.Naturality
 open SquareKit FirstOrderCompiler MatrixCompiler Maps
 variable (R : Type) [CommSemiring R]
 
+/-- Empty coordinates and a product result need no semiring structure. -/
+example (f : (Slots .unit → Bool) → (Slots (.prod .base .base) → Bool)) :
+    (values Bool).map f () =
+      decode (.prod .base .base) (f (fun i => nomatch i)) :=
+  congrFun (coordinateDecode_natural Bool (a := .unit) (b := .prod .base .base) f)
+    (fun i => nomatch i)
+
 /-- Compile into coordinate functions using the non-strict product comparison.
 The primitives are matrix actions; pairing splits and rejoins finite coordinates. -/
 def coordinateModel : FirstOrderNaturality.Model FunctionCategory.ops (Prim R) (fun a => Slots a → R) :=
@@ -35,12 +42,22 @@ theorem compile_values (t : Term (Prim R) Γ a) (ρ : Val R (context Γ)) :
     denote R (FirstOrderCompiler.compile (target R) t) ρ = eval (meaning R) t ρ :=
   FirstOrderNaturality.compile_sound (target R) (sound R) t ρ
 
+/-- The shared decode transformation connects coordinate compilation to source
+evaluation for arbitrary coordinate inputs, including product contexts. -/
+theorem compile_decode (t : Term (Prim R) Γ a) (x : Slots (context Γ) → R) :
+    decode a (FirstOrderNaturality.compile (coordinateModel R) t x) =
+      eval (meaning R) t (decode (context Γ) x) := by
+  rw [← compile_coordinates]
+  exact (interpretation_commutes R (FirstOrderCompiler.compile (target R) t) x).trans
+    (compile_values R t (decode (context Γ) x))
+
 /-- Independent expected arithmetic, connected to the new non-strict compiler. -/
 theorem coordinate_linearCombination (x y : R) :
     decode .base (FirstOrderNaturality.compile (coordinateModel R) (linearCombination R)
       (encode _ ((), (x, y)))) = 2*x + 3*y := by
-  rw [← compile_coordinates]
-  exact compile_values R (linearCombination R) ((), (x, y))
+  have h := compile_decode R (linearCombination R) (encode _ ((), (x, y)))
+  rw [decode_encode] at h
+  exact h
 
 /-- The compatibility theorem also retains the binder example for every input. -/
 theorem additive_let (x y : Nat) :

@@ -18,13 +18,13 @@ def rankTwo : BinaryTree Nat :=
 def childrenTwo : Queue Nat :=
   [.node 8 .nil .nil, .node 3 (.node 1 .nil .nil) .nil]
 
-theorem rankTwo_valid : pow2heap 2 rankTwo := by simp [rankTwo, pow2heap, pow2heapAux]
+theorem rankTwo_valid : Pow2Heap 2 rankTwo := by simp [rankTwo, Pow2Heap, Pow2HeapAux]
 
 theorem rankTwo_not_binary_heap_order : ¬ (8 ≤ (3 : Nat)) := by decide
 
 theorem rankTwo_unzip : heapDeleteMax rankTwo = childrenTwo := rfl
 
-theorem rankTwo_children_ranks : priq childrenTwo ∧ childrenTwo.length = 2 :=
+theorem rankTwo_children_ranks : Valid childrenTwo ∧ childrenTwo.length = 2 :=
   ⟨heapDeleteMax_valid rankTwo_valid, heapDeleteMax_length rankTwo_valid⟩
 
 theorem rankTwo_children_mass : mass childrenTwo = 3 :=
@@ -54,8 +54,8 @@ def firstForest : Queue Nat :=
 
 def firstRest : Queue Nat := [.nil, .node 5 (.node 1 .nil .nil) .nil]
 
-theorem firstForest_valid : priq firstForest := by
-  simp [priq, firstForest, priqFrom, pow2heap, pow2heapAux]
+theorem firstForest_valid : Valid firstForest := by
+  simp [Valid, firstForest, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem first_auxiliary : deleteMaxAux natGreater 9 firstForest = (firstRest, []) := rfl
 
@@ -69,8 +69,8 @@ def middleRest : Queue Nat :=
   [.node 2 .nil .nil, .nil,
     .node 7 (.node 3 (.node 1 .nil .nil) (.node 6 .nil .nil)) .nil]
 
-theorem middleForest_valid : priq middleForest := by
-  simp [priq, middleForest, priqFrom, pow2heap, pow2heapAux]
+theorem middleForest_valid : Valid middleForest := by
+  simp [Valid, middleForest, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem middle_auxiliary : deleteMaxAux natGreater 9 middleForest =
     ([.nil, .nil, .node 7 (.node 3 (.node 1 .nil .nil) (.node 6 .nil .nil)) .nil],
@@ -83,8 +83,8 @@ def lastForest : Queue Nat := [.node 0 .nil .nil, .nil, rankTwo]
 def lastRest : Queue Nat :=
   [.nil, .nil, .node 8 (.node 3 (.node 1 .nil .nil) (.node 0 .nil .nil)) .nil]
 
-theorem lastForest_valid : priq lastForest := by
-  simp [priq, lastForest, rankTwo, priqFrom, pow2heap, pow2heapAux]
+theorem lastForest_valid : Valid lastForest := by
+  simp [Valid, lastForest, rankTwo, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem last_auxiliary : deleteMaxAux natGreater 10 lastForest =
     ([.node 0 .nil .nil, .nil, .nil], childrenTwo) := rfl
@@ -92,9 +92,9 @@ theorem last_auxiliary : deleteMaxAux natGreater 10 lastForest =
 theorem last_delete : deleteMax natGreater lastForest = some (10, lastRest) := rfl
 
 theorem last_full_contract :
-    priq lastRest ∧ (contents lastForest).Perm (10 :: contents lastRest) ∧
+    Valid lastRest ∧ (contents lastForest).Perm (10 :: contents lastRest) ∧
       ∀ x ∈ contents lastRest, x ≤ 10 :=
-  ⟨deleteMax_some_priq natGreater_eq lastForest lastRest 10 lastForest_valid last_delete,
+  ⟨deleteMax_some_valid natGreater_eq lastForest lastRest 10 lastForest_valid last_delete,
     deleteMax_some_relate natGreater_eq lastForest lastRest 10 _ _ lastForest_valid
       (queue_elems_contents _) last_delete (queue_elems_contents _)⟩
 
@@ -106,10 +106,10 @@ theorem last_stored_length : lastRest.length = lastForest.length :=
 
 def rankThree : BinaryTree Nat := smash natGreater rankTwo rankTwo
 
-theorem rankThree_valid : pow2heap 3 rankThree :=
+theorem rankThree_valid : Pow2Heap 3 rankThree :=
   smash_valid natGreater natGreater_eq 2 _ _ rankTwo_valid rankTwo_valid
 
-theorem shifted_valid : priqFrom 2 [.nil, rankThree] :=
+theorem shifted_valid : ValidFrom 2 [.nil, rankThree] :=
   ⟨Or.inl rfl, Or.inr rankThree_valid, trivial⟩
 
 theorem shifted_find : findMax natGreater [.nil, rankThree] = some 10 := rfl
@@ -118,13 +118,13 @@ theorem shifted_auxiliary : deleteMaxAux natGreater 10 [.nil, rankThree] =
     ([.nil, .nil], heapDeleteMax rankThree) := rfl
 
 theorem shifted_child_base_zero :
-    priq (deleteMaxAux natGreater 10 [.nil, rankThree]).2 ∧
+    Valid (deleteMaxAux natGreater 10 [.nil, rankThree]).2 ∧
       (deleteMaxAux natGreater 10 [.nil, rankThree]).2.length = 3 :=
   ⟨(deleteMaxAux_valid natGreater_eq 2 _ _ shifted_valid shifted_find).2,
     heapDeleteMax_length rankThree_valid⟩
 
 theorem shifted_first_base_two :
-    priqFrom 2 (deleteMaxAux natGreater 10 [.nil, rankThree]).1 :=
+    ValidFrom 2 (deleteMaxAux natGreater 10 [.nil, rankThree]).1 :=
   (deleteMaxAux_valid natGreater_eq 2 _ _ shifted_valid shifted_find).1
 
 theorem empty_delete : deleteMax natGreater [] = none := rfl
@@ -145,8 +145,8 @@ def repeated : Queue Nat := [.node 7 .nil .nil, .node 7 (.node 1 .nil .nil) .nil
 def repeatedOnce : Queue Nat := [.nil, .node 7 (.node 1 .nil .nil) .nil]
 def repeatedTwice : Queue Nat := [.node 1 .nil .nil, .nil]
 
-theorem repeated_valid : priq repeated := by
-  simp [priq, repeated, priqFrom, pow2heap, pow2heapAux]
+theorem repeated_valid : Valid repeated := by
+  simp [Valid, repeated, ValidFrom, Pow2Heap, Pow2HeapAux]
 
 theorem repeated_first : deleteMax natGreater repeated = some (7, repeatedOnce) := rfl
 
@@ -157,13 +157,13 @@ theorem repeated_counts : (contents repeated).count 7 = 2 ∧
 
 theorem repeated_source_contract :
     [7, 1, 7].Perm (7 :: [1, 7]) ∧ ∀ x ∈ [1, 7], x ≤ (7 : Nat) :=
-  natLaws.deleteMax_relate repeated repeatedOnce 7 [7, 1, 7] [1, 7] repeated_valid
+  nat_laws.deleteMax_relate repeated repeatedOnce 7 [7, 1, 7] [1, 7] repeated_valid
     ((queue_elems_iff _ _).mpr (by decide)) repeated_first
     ((queue_elems_iff _ _).mpr (by decide))
 
-def repeatedQueue : {q : Queue Nat // priq q} := ⟨repeated, repeated_valid⟩
-def repeatedOnceQueue : {q : Queue Nat // priq q} := ⟨repeatedOnce, by
-  simp [priq, repeatedOnce, priqFrom, pow2heap, pow2heapAux]⟩
+def repeatedQueue : {q : Queue Nat // Valid q} := ⟨repeated, repeated_valid⟩
+def repeatedOnceQueue : {q : Queue Nat // Valid q} := ⟨repeatedOnce, by
+  simp [Valid, repeatedOnce, ValidFrom, Pow2Heap, Pow2HeapAux]⟩
 
 theorem repeated_exact_remove :
     exactQueue.remove repeatedQueue = some (Search.MaximumQueue.encode 7, repeatedOnceQueue) :=
@@ -173,8 +173,8 @@ theorem repeated_exact_entries :
     exactQueue.entries repeatedQueue =
       [Search.MaximumQueue.encode 7, Search.MaximumQueue.encode 7, Search.MaximumQueue.encode 1] := rfl
 
-def singletonSeven : {q : Queue Nat // priq q} := ⟨[.node 7 .nil .nil], by
-  simp [priq, priqFrom, pow2heap, pow2heapAux]⟩
+def singletonSeven : {q : Queue Nat // Valid q} := ⟨[.node 7 .nil .nil], by
+  simp [Valid, ValidFrom, Pow2Heap, Pow2HeapAux]⟩
 
 theorem native_meld_shape :
     (mergeValid singletonSeven singletonSeven).val =
@@ -187,7 +187,7 @@ theorem native_meld_entries :
 
 def malformed : BinaryTree Nat := .node 9 .nil (.node 0 .nil .nil)
 
-theorem malformed_not_heap (n : Nat) : ¬ pow2heap n malformed := by simp [pow2heap, malformed]
+theorem malformed_not_heap (n : Nat) : ¬ Pow2Heap n malformed := by simp [Pow2Heap, malformed]
 
 theorem malformed_heap_fallback : heapDeleteMax malformed = [] := rfl
 
@@ -230,7 +230,7 @@ theorem tagged_distinct_equivalent : (7, false) ≠ (7, true) ∧
     (7, false) ≤ (7, true) ∧ ((7, true) : Nat × Bool) ≤ (7, false) :=
   ⟨by decide, Nat.le_refl 7, Nat.le_refl 7⟩
 
-theorem taggedForest_valid : priq taggedForest := by
+theorem taggedForest_valid : Valid taggedForest := by
   refine ⟨Or.inr trivial, Or.inr ?_, trivial⟩
   exact ⟨show (1 : Nat) ≤ 7 by decide, trivial, trivial⟩
 
@@ -241,10 +241,10 @@ theorem tagged_first_delete :
 
 theorem tagged_other_maximum_retained : (7, true) ∈ contents taggedRest := by decide
 
-theorem tagged_deletion_contract : priq taggedRest ∧
+theorem tagged_deletion_contract : Valid taggedRest ∧
     (contents taggedForest).Perm ((7, false) :: contents taggedRest) ∧
       ∀ x ∈ contents taggedRest, x ≤ (7, false) :=
-  ⟨deleteMax_some_priq taggedGreater_law _ _ _ taggedForest_valid tagged_first_delete,
+  ⟨deleteMax_some_valid taggedGreater_law _ _ _ taggedForest_valid tagged_first_delete,
     deleteMax_some_relate taggedGreater_law _ _ _ _ _ taggedForest_valid
       (queue_elems_contents _) tagged_first_delete (queue_elems_contents _)⟩
 

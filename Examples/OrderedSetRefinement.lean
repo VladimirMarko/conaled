@@ -166,9 +166,9 @@ def flagOps : AbstractSet.DeleteOps Nat (BinaryTree Nat × Bool) where
   delete x s := (delete x s.1, s.2)
 
 def flagView (s : BinaryTree Nat × Bool) : List Nat := Trees.inorder s.1
-def flagAux (s : BinaryTree Nat × Bool) : Prop := s.2 = true
+def FlagAux (s : BinaryTree Nat × Bool) : Prop := s.2 = true
 
-theorem flagRefinement : AbstractSet.Refinement flagOps OrderedList.ops flagView flagAux OrderedList.Strict where
+theorem flag_refinement : AbstractSet.Refinement flagOps OrderedList.ops flagView FlagAux OrderedList.Strict where
   empty := rfl
   auxiliary_empty := rfl
   insert x _ _ hs := inorder_insert x hs
@@ -177,14 +177,14 @@ theorem flagRefinement : AbstractSet.Refinement flagOps OrderedList.ops flagView
   auxiliary_delete _ _ ha _ := ha
   member x _ _ hs := member_inorder x hs
 
-theorem flagLaws : AbstractSet.DeleteLaws flagOps (fun s x => x ∈ flagView s)
-    (AbstractSet.Refinement.Valid flagView flagAux OrderedList.Strict) :=
-  flagRefinement.laws OrderedList.laws
+theorem flag_laws : AbstractSet.DeleteLaws flagOps (fun s x => x ∈ flagView s)
+    (AbstractSet.Refinement.Valid flagView FlagAux OrderedList.Strict) :=
+  flag_refinement.laws OrderedList.laws
 
 theorem flag_separation :
     flagView (aTree, true) = flagView (aTree, false) ∧
-    AbstractSet.Refinement.Valid flagView flagAux OrderedList.Strict (aTree, true) ∧
-    ¬ AbstractSet.Refinement.Valid flagView flagAux OrderedList.Strict (aTree, false) := by
+    AbstractSet.Refinement.Valid flagView FlagAux OrderedList.Strict (aTree, true) ∧
+    ¬ AbstractSet.Refinement.Valid flagView FlagAux OrderedList.Strict (aTree, false) := by
   refine ⟨rfl, ⟨rfl, (ordered_iff_inorder_pairwise aTree).mp aTree_ordered⟩, ?_⟩
   intro h
   cases h.1
@@ -199,7 +199,7 @@ def liftedSetOps : AbstractSet.DeleteOps Nat LiftedSet where
 
 def liftedSetObserve (s : LiftedSet) : Nat → Prop := Trees.setTree s.down.1
 
-theorem liftedSetLaws : AbstractSet.DeleteLaws liftedSetOps liftedSetObserve (fun _ => True) where
+theorem liftedSetOps_laws : AbstractSet.DeleteLaws liftedSetOps liftedSetObserve (fun _ => True) where
   empty_valid := trivial
   empty x := validDeleteLaws.empty x
   insert_valid _ _ _ := trivial
@@ -227,7 +227,7 @@ theorem lifted_set_execution (updates : List (AbstractSet.Update Nat)) (s : Lift
 theorem lifted_set_mixed_meaning (updates : List (AbstractSet.Update Nat)) (s : LiftedSet) :
     liftedSetObserve (AbstractSet.execute liftedSetOps updates s) =
       updates.foldl AbstractSet.meaningStep (liftedSetObserve s) :=
-  liftedSetLaws.execute_observe updates trivial
+  liftedSetOps_laws.execute_observe updates trivial
 
 theorem lifted_set_prefix_ordered (updates : List (AbstractSet.Update Nat)) (n : Nat) (s : LiftedSet) :
     Ordered (AbstractSet.execute liftedSetOps (updates.take n) s).down.1 :=
@@ -245,7 +245,7 @@ def liftMapOps (base : OrderedMap.DeleteOps Nat HighPayload (OrderedMap.Tree Nat
 
 def liftMapObserve (s : HighMap) : OrderedMap.Meaning Nat HighPayload := OrderedMap.decode s.down
 
-theorem liftMapLaws (base : OrderedMap.DeleteOps Nat HighPayload (OrderedMap.Tree Nat HighPayload))
+theorem liftMapOps_laws (base : OrderedMap.DeleteOps Nat HighPayload (OrderedMap.Tree Nat HighPayload))
     (h : OrderedMap.DeleteLaws base OrderedMap.decode) :
     OrderedMap.DeleteLaws (liftMapOps base) liftMapObserve where
   empty := h.empty
@@ -269,8 +269,8 @@ theorem lifted_map_consumers (query key : Nat) (value : HighPayload) (s : HighMa
       (if query = key then none else some value) ∧
     j.lookup query (j.delete key (j.bind query value s)) =
       (if query = key then none else some value) :=
-  ⟨(liftMapLaws _ OrderedMap.deleteTrees_laws).lookup_delete_bind query key value s,
-    (liftMapLaws _ OrderedMap.deleteJoinTrees_laws).lookup_delete_bind query key value s⟩
+  ⟨(liftMapOps_laws _ OrderedMap.deleteTrees_laws).lookup_delete_bind query key value s,
+    (liftMapOps_laws _ OrderedMap.deleteJoinTrees_laws).lookup_delete_bind query key value s⟩
 
 theorem lifted_projected_bindAll (bindings : List (Nat × HighPayload)) (s : HighMap) (query : Nat) :
     let d := liftMapOps (OrderedMap.deleteTrees Nat HighPayload)
@@ -279,8 +279,8 @@ theorem lifted_projected_bindAll (bindings : List (Nat × HighPayload)) (s : Hig
       OrderedMap.writeAll bindings (liftMapObserve s) query ∧
     j.lookup query (OrderedMap.bindAll j.toOps bindings s) =
       OrderedMap.writeAll bindings (liftMapObserve s) query :=
-  ⟨(liftMapLaws _ OrderedMap.deleteTrees_laws).toLaws.lookup_bindAll bindings s query,
-    (liftMapLaws _ OrderedMap.deleteJoinTrees_laws).toLaws.lookup_bindAll bindings s query⟩
+  ⟨(liftMapOps_laws _ OrderedMap.deleteTrees_laws).toLaws.lookup_bindAll bindings s query,
+    (liftMapOps_laws _ OrderedMap.deleteJoinTrees_laws).toLaws.lookup_bindAll bindings s query⟩
 
 theorem lifted_set_word_finishes_empty :
     (AbstractSet.execute liftedSetOps mixedWord liftedSetOps.empty).down.1 = .nil := by decide

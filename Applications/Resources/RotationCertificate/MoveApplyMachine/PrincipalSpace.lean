@@ -214,12 +214,12 @@ theorem right_nodes_run (certificateRest : Word) (m : Nat) (regs : Registers R) 
 include caller in
 theorem left_nodes_exact_clock (certificateRest : Word) (n : Nat) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runSteps (moveCode ⟨.left, []⟩ ++ certificateRest) [] (List.replicate n nodeTag) [] [] [] = 3 * n + 8 :=
-  (LocalRun.phaseEndpoint caller (q := movePhase .start) (left_nodes_run caller certificateRest n regs ctx)).1
+  (LocalRun.phase_endpoint caller (q := movePhase .start) (left_nodes_run caller certificateRest n regs ctx)).1
 
 include caller in
 theorem right_nodes_exact_clock (certificateRest : Word) (m : Nat) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runSteps (moveCode ⟨.right, []⟩ ++ certificateRest) [] (List.replicate (m + 2) nodeTag) [] [] [] = 3 * m + 11 :=
-  (LocalRun.phaseEndpoint caller (q := movePhase .start) (right_nodes_run caller certificateRest m regs ctx)).1
+  (LocalRun.phase_endpoint caller (q := movePhase .start) (right_nodes_run caller certificateRest m regs ctx)).1
 
 include caller in
 theorem left_nodes_drop_rank (certificateRest : Word) (n : Nat) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -291,7 +291,7 @@ theorem parser_eof_exact_clock (k : Nat) (path : List Branch) (source saved scra
     (pending : List Unit) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     runSteps (rotateLeftTag :: List.replicate k pathLeftTag) path source saved scratch pending =
       2 * k + 4 :=
-  (LocalRun.phaseEndpoint caller (q := movePhase .start) (parser_eof_run caller k path source saved scratch pending regs ctx)).1
+  (LocalRun.phase_endpoint caller (q := movePhase .start) (parser_eof_run caller k path source saved scratch pending regs ctx)).1
 
 section SharpPhysicalSpace
 variable [Fintype K]

@@ -21,7 +21,7 @@ theorem every_clean_raw_parse_returns_the_actual_physical_suffix_and_cleanup
     RawExpected caller regs ctx mv rest X O := by
   obtain ⟨r, Y, remaining, actual, length, suffix, failed, succeeded⟩ :=
     run_raw caller mv rest O X regs ctx
-  have exactClock := (LocalRun.phaseEndpoint caller (q := MoveApplyMachine.movePhase .start) actual).1
+  have exactClock := (LocalRun.phase_endpoint caller (q := MoveApplyMachine.movePhase .start) actual).1
   refine ⟨r, Y, remaining, ?_, length, ?_, failed, succeeded⟩
   · rw [show phaseSteps (movePhase .start) (data (moveCode mv ++ rest) [] O X [] [] []) =
       2 * mv.position.length + 4 +

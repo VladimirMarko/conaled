@@ -171,9 +171,9 @@ theorem all_81_positive_closed_cases_have_their_actual_first_halt_and_exact_peak
     List.map_cons, List.map_nil, List.cons_append, List.nil_append,
     List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-  · have checked := raw_F01_expected caller (staleFields.withUser value) ctx
+  · have checked := emptyRawFixture_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
-  · have checked := raw_F02_expected caller (staleFields.withUser value) ctx
+  · have checked := truncatedPrefixFixture_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩
   · have checked := raw_F03_expected caller (staleFields.withUser value) ctx
     exact ⟨checked.1, checked.2.2.2⟩

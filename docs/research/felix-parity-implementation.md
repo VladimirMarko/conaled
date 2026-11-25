@@ -299,9 +299,9 @@ representation boundary in full. They are not counted as deleted caller work:
   `matrixFunctionTerminal_laws`, `matrixFunctionTerminal_inverse`,
   `matrixValues`, `matrixValues_laws`, `matrixValueProducts`,
   `matrixValueProducts_laws`, `matrixValueProducts_inverse`.
-- Derived laws and compatibility: `coordinateLaws`, `coordinateTerminalLaws`,
-  `coordinateProductCongr`, `coordinateProductLaws`, `matrixProductLaws`,
-  `matrixTerminalLaws`, `matrixValues_denote`, `interpretation_commutes`,
+- Derived laws and compatibility: `coordinate_laws`, `coordinateTerminal_laws`,
+  `coordinateProducts_congr`, `coordinateProducts_laws`, `matrixProducts_laws`,
+  `matrixTerminal_laws`, `matrixValues_denote`, `interpretation_commutes`,
   `matrix_product_comparison`, `composed_matrix_action`.
 
 Inverse/preservation proofs for concrete comparisons remain local. Composed

@@ -660,3 +660,98 @@ complete checker and machine-complexity bridge, subject to its recorded
 receiving validation. Independent NP-class correspondence remains open. [Sharp diameter preparation](fdsa-rotation-diameter-preparation.md)
 now also retains explicit finite flip tables and a tree-diagonal proof plan;
 its global sharp theorem and primary-family correspondence remain open.
+
+## Sorting, maps, queues and coloring assessment
+
+This remaining-family pass for [#658](https://github.com/VladimirMarko/conaled/issues/658)
+inspected the accepted `6e6805dcded9cfe7ae26391917cf6136ae7cb43c` source on
+25 November 2026. It follows public contracts, central adapter proofs and the
+connected clients below. It samples helper proofs and does not requalify every
+textbook theorem. The accompanying naming changes preserve these contracts;
+the queue tariff bridge adds the specific historical observation described below.
+The earlier tree/cache assessment retains its own source identity and scope.
+
+### Shared proofs and recovery boundaries
+
+| Family and public interface | Inspected derivation and connected consumer | Disposition and retained boundary |
+|---|---|---|
+| [Sorting specifications](../../Applications/Sorting/Specification.lean) and [multiplicity](../../Applications/Sorting/Multiplicity.lean) | Optional and bounded indexing recover pairwise order; adjacent indexing separately needs transitivity. Lawful Boolean equality recovers permutation from counts by occurrence splitting. [MultiplicityClients](../../Examples/MultiplicityClients.lean) derives equality of the actual quicksort and floor-split merge-sort outputs through `sorters_eq_of_contents`. | Retain the shared bridges and native algorithms. Complete-value antisymmetry is needed for ordinary uniqueness; equal-key stability remains a separate contract. Unrestricted count functions need not be list observations. The nonlawful-equality, lost-multiplicity and equal-key reversal controls prevent stronger conclusions. #560's bridge does not equate costs. |
+| [Ordered maps](../../Applications/Search/OrderedMap/Interface.lean), [validity restriction](../../Applications/Search/OrderedMap/Invariant.lean), and [total tables](../../Applications/Search/OrderedMap/TotalTable.lean) | Primitive empty/write/lookup laws derive chronological history agreement. The valid subtype retains raw operations and explicit closure; partial-to-total adaptation preserves the executor. [TextbookMaps](../../Examples/TextbookMaps.lean) synchronizes lists and valid trees, then uses the default-observation square. [TotalTables](../../Examples/TotalTables.lean) uses one query client with functions, lists, tagged states and trees. | Retain partial meaning, presence and default lookup as distinct observations. Presence plus lookup recovers partial meaning; lookup alone loses stored defaults. Generic algebra retains independent key/value/state universes; the Square specialization uses a common universe. No invalid-input laws are inferred. #559 remains completed within its scope. |
+| [Independent tree models](../../Applications/Search/OrderedMap/SourceModel.lean) and [decoded keys](../../Applications/Search/OrderedMap/DecodedKeysModels.lean) | Structural update is proved directly from separator/union laws; its agreement with enumeration is derived under strict ordering. Decoded-key transport reuses the original operations and model laws. [ExtractedTrees](../../Examples/ExtractedTrees.lean) consumes both public history theorems and retains decoder-collision and malformed-tree controls. | Retain both models. Collision-dropping union is neither ordinary biased union nor associative in general. Enumeration soundness needs strict comparison reflection and validity; original-key completeness additionally needs decoder injectivity. Exact enumeration recovery does not recover tree shape or execution cost. |
+| [Set refinement](../../Applications/Search/AbstractSet/Refinement.lean) | Primitive operational equations and invariant closure derive the source laws; reachable fold fusion proves observed execution agreement. [OrderedSetRefinement](../../Examples/OrderedSetRefinement.lean) applies it to arbitrary words and prefixes, independent deletion recipes and independent universes. | Retain the existing construction. Shape, work and multiplicity are not recovered from set observation. #587 still owns full Map/Modify correspondence and mixed deletion clients. #588 still needs its Boolean-function and metadata-bearing realizations; a valid/invalid flag control is not the requested pair of distinct valid states. |
+| [Maximum queues](../../Applications/Search/MaximumQueue.lean) and [binomial adapter](../../Applications/Search/BinomialQueue/Contract.lean) | The eleven guarded laws derive successful removal existence, maximality and exact residual occurrences. Restricting to valid states meets the stronger all-state `ExactQueue` contract. [MaximumQueueClients](../../Examples/MaximumQueueClients.lean) and [BinomialQueueClients](../../Examples/BinomialQueueClients.lean) compare actual build/merge/two-removal runs across lists, leftist and binomial queues. | Retain guarded raw laws and the derived valid-state adapter. Witness existence follows from the laws; the abstraction need not contain every permutation of a witness. Repeated maxima and zero versus absence survive. Native meld has its own theorem because `ExactQueue` has no meld field. Persistence here concerns retained values, not physical sharing. |
+| [Source FIFO](../../Applications/Sequences/SourceQueue.lean) and [measured execution](../../Applications/Resources/SourceQueue.lean) | Raw-state laws and decoded-list laws are separate; decoded-list laws alone leave the empty test unconstrained. The concrete optional-head implementation supports histories and representation independence. [AbstractDataTypeWork](../../Examples/AbstractDataTypeWork.lean) uses reachable back-only states and repeated unchanged peeks. | Retain source-style peek: it observes reversal without returning a normalized state. The constructor-visit correspondence below preserves the older cost counterexample under #563. Alternative linear reversal retains a different tariff. |
+| [Graph observation](../../Applications/Graphs/Coloring/Graph.lean), [support](../../Applications/Graphs/Coloring/Support.lean), and [Mathlib coloring](../../Applications/Graphs/Coloring/SimpleGraph.lean) | Stored keys plus neighbors recover finite-map observation. Under symmetry/looplessness, the stored domain plus Mathlib adjacency recovers that observation. [ColoringCorrectness](../../Examples/ColoringCorrectness.lean) consumes the produced coloring on successfully assigned support and checks edgeless progress, overwrite, isolated-vertex and four-cycle cases. | Retain the edge-guarded compatibility predicate separately from global palette membership. A proper coloring is obtained on successful support; total coverage needs removal-closed validity and progress on every nonempty residual graph. A colorable four-cycle on which the algorithm returns empty prevents unconditional completeness. #589's invariant-restricted relation composition remains a separate task. |
+
+These consumers reuse synchronization, vertical pasting, primitive-law transport
+and reachable fold fusion. Authors still supply comparison reflection, validity
+closure, palette/progress hypotheses or an execution tariff where the mathematics
+needs them. No repeated categorical proof was found in these operation APIs that
+would justify changing their contract. The [settled-interface adoption ledger](reconstructible-presentations-search.md#settled-interface-adoption-checkpoint)
+records a separate linear-algebra caller selected under #712.
+
+### Historical queue tariff
+
+The [archived queue counterexample](../history/textbooks/checkpoint-012/books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean)
+counts nonempty reversal/append visits and gives terminal visits cost zero.
+Its reversal count is `C(0) = 0`, `C(n+1) = C(n) + n + 1`.
+Current [ListReversal](../../Applications/Resources/ListReversal.lean) counts
+terminal calls too: `R(n) = C(n) + n + 1`. Current queue peek adds one dispatch.
+For a nonempty back of length `n` and empty front, its excess over the archived
+peek is therefore `n + 2`; for an empty queue or nonempty front it is one.
+
+The added constructor-visit observation and recovery equations connect these
+tariffs without changing the returned value or raw queue. Repeated peeks use the
+existing executor and multiply the difference by the number of observations.
+The reachable three-element example consequently retains both historical 6/18
+and current 11/33 counts. This correction depends on the queue state; it is not
+a scalar additive homomorphism or a runtime benchmark. Positive-key and unary
+comparison correspondence remain in [the VFA record](vfa-coverage.md).
+
+### Review evidence and remaining work
+
+The [CTB acceptance record](../textbooks/CTB.json) identifies R2 `99a2974c`,
+its exact tree, clean build/audit, runtime checks and passing independent
+Standards/Spec report hashes. #559 and #560 retain issue-specific acceptance
+summaries. The archived [sorting statement review](../history/textbooks/checkpoint-012/books/common/evidence/sorting-statement-review.md)
+explains the permutation/common-specification route and its stability/cost
+limits. These records establish recorded review within their stated scopes.
+The search for the original R2 report bodies did not recover them, so exactly
+which queue/coloring statements those reviewers read remains unknown. Later
+tree/resource reviews and the final #713 intake review have different scopes.
+Their whole-library audits do not supply retroactive semantic inspection.
+
+This pass directly inspects the contracts and central derivations listed above.
+It does not re-examine every binomial helper, decoded-machine adapter or coloring
+resource proof; their existing acceptance remains prior evidence. It found no
+contract defect in the inspected bridges. The demonstrated missing connection
+was #563's historical tariff, addressed alongside this assessment.
+
+The optional duplicate finite-fixture decision procedures noted in the earlier
+tree pass remain local: neither a new client nor this assessment needs a shared
+instance. Reconsider extraction under #558 when a further fixture requires it,
+preserving local instance scope and the public annotation assumptions. #561
+retains capability-level historical dispositions; #562 retains the sampler
+connection; #587/#588/#589 retain their specified mathematical extensions.
+None is discharged by this assessment or a naming change. The four-textbook
+programme continues under #558, and continuing architectural reassessment belongs
+to #235 rather than reopening the completed #636 guidance decision.
+
+### Naming scope
+
+The accompanying [#618](https://github.com/VladimirMarko/conaled/issues/618)
+batch corrects proof/predicate/value casing in inspected clients and replaces
+opaque names where their meaning is known. Search-tree enumeration and structural
+meaning receive distinct descriptive names; malformed fixtures describe their
+role. Queue validity names replace source abbreviations. Coloring names distinguish
+edge compatibility from being palette-valued. Maintained clients and source
+correspondence are updated together; archived checkpoints retain their exact bytes.
+
+This is a bounded migration. Repository-wide #618 still includes the foundation,
+remaining applications/examples, tools, fields/constructors and maintained
+experiments. A syntax search is only screening: inferred result types distinguish
+proofs, predicates and data certificates, while embedded identifiers and acronym
+groups must retain valid Mathlib spelling. This batch also renames selected machine timing certificates and opaque
+numbered fixtures, preserving external receipt identifiers and actual clock/memory
+contracts. The rest of the machine family still needs a naming audit. Frozen trial sources need
+an explicit historical disposition rather than mechanical rewriting.

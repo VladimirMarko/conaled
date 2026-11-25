@@ -25,64 +25,64 @@ open Search.OrderedTree (entries)
 open Search.OrderedMap
 
 /-- The source key is the supplied word carrier, without added arithmetic. -/
-abbrev key (W : Type u) := W
+abbrev Key (W : Type u) := W
 
-abbrev tree (W : Type u) (V : Type v) := BinaryTree (W × V)
+abbrev Tree (W : Type u) (V : Type v) := BinaryTree (W × V)
 
-abbrev E : tree W V := .nil
+abbrev nil : Tree W V := .nil
 
 /-- Preserve the source's left/key/value/right constructor argument order. -/
-abbrev T (left : tree W V) (k : W) (value : V) (right : tree W V) : tree W V :=
+abbrev node (left : Tree W V) (k : W) (value : V) (right : Tree W V) : Tree W V :=
   .node (k, value) left right
 
-abbrev empty_tree : tree W V := E
+abbrev emptyTree : Tree W V := nil
 
-abbrev lookup (ltb : W → W → Bool) : V → W → tree W V → V := DecodedKeys.lookup ltb
-abbrev insert (ltb : W → W → Bool) : W → V → tree W V → tree W V := DecodedKeys.insert ltb
-abbrev elements_aux : tree W V → List (W × V) → List (W × V) := DecodedKeys.elementsAux
-abbrev elements : tree W V → List (W × V) := DecodedKeys.elements
+abbrev lookup (ltb : W → W → Bool) : V → W → Tree W V → V := DecodedKeys.lookup ltb
+abbrev insert (ltb : W → W → Bool) : W → V → Tree W V → Tree W V := DecodedKeys.insert ltb
+abbrev elementsAux : Tree W V → List (W × V) → List (W × V) := DecodedKeys.elementsAux
+abbrev elements : Tree W V → List (W × V) := DecodedKeys.elements
 
-theorem lookup_E (ltb : W → W → Bool) (default : V) (k : W) :
-    lookup ltb default k E = default := DecodedKeys.lookup_empty ltb default k
+theorem lookup_nil (ltb : W → W → Bool) (default : V) (k : W) :
+    lookup ltb default k nil = default := DecodedKeys.lookup_empty ltb default k
 
-theorem lookup_T (ltb : W → W → Bool) (default : V) (query k : W) (value : V)
-    (left right : tree W V) :
-    lookup ltb default query (T left k value right) =
+theorem lookup_node (ltb : W → W → Bool) (default : V) (query k : W) (value : V)
+    (left right : Tree W V) :
+    lookup ltb default query (node left k value right) =
       if ltb query k then lookup ltb default query left
       else if ltb k query then lookup ltb default query right else value :=
   DecodedKeys.lookup_node ltb default query (k, value) left right
 
-theorem insert_E (ltb : W → W → Bool) (k : W) (value : V) :
-    insert ltb k value E = T E k value E := DecodedKeys.insert_empty ltb k value
+theorem insert_nil (ltb : W → W → Bool) (k : W) (value : V) :
+    insert ltb k value nil = node nil k value nil := DecodedKeys.insert_empty ltb k value
 
-theorem insert_T (ltb : W → W → Bool) (k old : W) (value previous : V)
-    (left right : tree W V) :
-    insert ltb k value (T left old previous right) =
-      if ltb k old then T (insert ltb k value left) old previous right
-      else if ltb old k then T left old previous (insert ltb k value right)
-      else T left k value right := DecodedKeys.insert_node ltb k value (old, previous) left right
+theorem insert_node (ltb : W → W → Bool) (k old : W) (value previous : V)
+    (left right : Tree W V) :
+    insert ltb k value (node left old previous right) =
+      if ltb k old then node (insert ltb k value left) old previous right
+      else if ltb old k then node left old previous (insert ltb k value right)
+      else node left k value right := DecodedKeys.insert_node ltb k value (old, previous) left right
 
-theorem elements_aux_E (suffix : List (W × V)) : elements_aux E suffix = suffix :=
+theorem elementsAux_nil (suffix : List (W × V)) : elementsAux nil suffix = suffix :=
   DecodedKeys.elementsAux_empty suffix
 
-theorem elements_aux_T (left right : tree W V) (k : W) (value : V)
+theorem elementsAux_node (left right : Tree W V) (k : W) (value : V)
     (suffix : List (W × V)) :
-    elements_aux (T left k value right) suffix =
-      elements_aux left ((k, value) :: elements_aux right suffix) :=
+    elementsAux (node left k value right) suffix =
+      elementsAux left ((k, value) :: elementsAux right suffix) :=
   DecodedKeys.elementsAux_node (k, value) left right suffix
 
-theorem elements_aux_eq (t : tree W V) (suffix : List (W × V)) :
-    elements_aux t suffix = entries t ++ suffix := DecodedKeys.elementsAux_eq t suffix
+theorem elementsAux_eq (t : Tree W V) (suffix : List (W × V)) :
+    elementsAux t suffix = entries t ++ suffix := DecodedKeys.elementsAux_eq t suffix
 
-theorem elements_eq (t : tree W V) : elements t = elements_aux t [] := rfl
+theorem elements_eq (t : Tree W V) : elements t = elementsAux t [] := rfl
 
 theorem lookup_empty (ltb : W → W → Bool) (default : V) (k : W) :
-    lookup ltb default k empty_tree = default := lookup_E ltb default k
+    lookup ltb default k emptyTree = default := lookup_nil ltb default k
 
 /-- The first source tree exercise holds on all raw trees under weak reflection. -/
 theorem lookup_insert_eq (decode : W → Int) (ltb : W → W → Bool)
     (hlt : ∀ a b, ltb a b = true ↔ decode a < decode b)
-    (default : V) (t : tree W V) (k : W) (value : V) :
+    (default : V) (t : Tree W V) (k : W) (value : V) :
     lookup ltb default k (insert ltb k value t) = value :=
   DecodedKeys.lookup_insert_eq decode ltb hlt default k value t
 
@@ -90,32 +90,32 @@ theorem lookup_insert_eq (decode : W → Int) (ltb : W → W → Bool)
 theorem lookup_insert_neq (decode : W → Int) (ltb : W → W → Bool)
     (hinj : Function.Injective decode)
     (hlt : ∀ a b, ltb a b = true ↔ decode a < decode b)
-    (default : V) (t : tree W V) (k query : W) (value : V) (different : k ≠ query) :
+    (default : V) (t : Tree W V) (k query : W) (value : V) (different : k ≠ query) :
     lookup ltb default query (insert ltb k value t) = lookup ltb default query t :=
   DecodedKeys.lookup_insert_neq decode ltb hinj hlt default k query value t different
 
-theorem word_lookup_insert_eq {w : Nat} (default : V) (t : tree (BitVec w) V)
+theorem word_lookup_insert_eq {w : Nat} (default : V) (t : Tree (BitVec w) V)
     (k : BitVec w) (value : V) : lookup wordLtb default k (insert wordLtb k value t) = value :=
   lookup_insert_eq BitVec.toInt wordLtb wordLtb_true_iff default t k value
 
-theorem word_lookup_insert_neq {w : Nat} (default : V) (t : tree (BitVec w) V)
+theorem word_lookup_insert_neq {w : Nat} (default : V) (t : Tree (BitVec w) V)
     (k query : BitVec w) (value : V) (different : k ≠ query) :
     lookup wordLtb default query (insert wordLtb k value t) = lookup wordLtb default query t :=
   lookup_insert_neq BitVec.toInt wordLtb (word_decode_injective w) wordLtb_true_iff
     default t k query value different
 
-theorem int64_lookup_insert_eq (default : V) (t : tree Int64 V) (k : Int64) (value : V) :
+theorem int64_lookup_insert_eq (default : V) (t : Tree Int64 V) (k : Int64) (value : V) :
     lookup int64Ltb default k (insert int64Ltb k value t) = value :=
   lookup_insert_eq Int64.toInt int64Ltb int64Ltb_true_iff default t k value
 
-theorem int64_lookup_insert_neq (default : V) (t : tree Int64 V)
+theorem int64_lookup_insert_neq (default : V) (t : Tree Int64 V)
     (k query : Int64) (value : V) (different : k ≠ query) :
     lookup int64Ltb default query (insert int64Ltb k value t) =
       lookup int64Ltb default query t :=
   lookup_insert_neq Int64.toInt int64Ltb int64_decode_injective int64Ltb_true_iff
     default t k query value different
 
-theorem zero_width_replacement (default : V) (t : tree (BitVec 0) V)
+theorem zero_width_replacement (default : V) (t : Tree (BitVec 0) V)
     (k query : BitVec 0) (value : V) :
     lookup wordLtb default query (insert wordLtb k value t) = value := by
   have same : k = query := word_decode_injective 0 (by simp only [BitVec.toInt_zero_length])
@@ -125,8 +125,8 @@ theorem zero_width_replacement (default : V) (t : tree (BitVec 0) V)
 /-- Weak decoder transport applies to the actual returned tree and supplied suffix. -/
 theorem decoded_history_step (decode : W → Int) (ltb : W → W → Bool)
     (hlt : ∀ a b, ltb a b = true ↔ decode a < decode b)
-    (k : W) (value : V) (t : tree W V) (suffix : List (W × V)) :
-    (elements_aux (insert ltb k value t) suffix).map
+    (k : W) (value : V) (t : Tree W V) (suffix : List (W × V)) :
+    (elementsAux (insert ltb k value t) suffix).map
         (fun binding => (decode binding.1, binding.2)) =
       DecodedKeys.elementsAux
         (Search.OrderedMap.bind (decode k) value (DecodedKeys.mapKeys decode t))
@@ -135,12 +135,12 @@ theorem decoded_history_step (decode : W → Int) (ltb : W → W → Bool)
 
 /-- A type-valued payload remains ordinary data in its independent universe. -/
 theorem type_payload_update (default value : Type v) (k : Int)
-    (t : tree Int (Type v)) : lookup intLtb default k (insert intLtb k value t) = value :=
+    (t : Tree Int (Type v)) : lookup intLtb default k (insert intLtb k value t) = value :=
   lookup_insert_eq id intLtb intLtb_true_iff default t k value
 
 /-- Repeated signed writes replace the payload while retaining the other key. -/
-def signedHistory : tree Int Nat :=
-  insert intLtb (-3) 9 (insert intLtb 4 8 (insert intLtb (-3) 7 E))
+def signedHistory : Tree Int Nat :=
+  insert intLtb (-3) 9 (insert intLtb 4 8 (insert intLtb (-3) 7 nil))
 
 theorem signed_history_last_write (default : Nat) :
     lookup intLtb default (-3) signedHistory = 9 :=
@@ -187,7 +187,7 @@ theorem signed_history_models :
 theorem history_models (decode : W → Int) (ltb : W → W → Bool)
     (hinj : Function.Injective decode)
     (hlt : ∀ a b, ltb a b = true ↔ decode a < decode b)
-    (default : V) (writes : List (W × V)) {t : tree W V} (valid : DecodedKeys.BST decode t) :
+    (default : V) (writes : List (W × V)) {t : Tree W V} (valid : DecodedKeys.BST decode t) :
     letI := linearOrderOfStrict decode ltb hinj hlt
     DecodedKeys.enumAbs decode ltb hinj hlt
           (Search.TotalTable.setAll (DecodedKeys.table ltb default) writes t) =
@@ -203,32 +203,32 @@ theorem colliding_original_keys :
     ¬ Function.Injective (fun _ : Bool => (0 : Int)) ∧
       lookup (fun _ _ : Bool => false) 0 false
           (insert (fun _ _ : Bool => false) true 2
-            (insert (fun _ _ : Bool => false) false 1 E)) = 2 ∧
+            (insert (fun _ _ : Bool => false) false 1 nil)) = 2 ∧
       lookup (fun _ _ : Bool => false) 0 false
-          (insert (fun _ _ : Bool => false) false 1 E) = 1 :=
+          (insert (fun _ _ : Bool => false) false 1 nil) = 1 :=
   ⟨ExtractedPrograms.constant_decoder_not_injective, DecodedKeys.colliding_keys_counterexample⟩
 
 theorem stored_default_not_canonical :
     (∀ query : Int,
-      lookup intLtb 0 query (E : tree Int Nat) =
-        lookup intLtb 0 query (insert intLtb 0 0 E)) ∧
-      elements (E : tree Int Nat) ≠ elements (insert intLtb 0 0 E) :=
+      lookup intLtb 0 query (nil : Tree Int Nat) =
+        lookup intLtb 0 query (insert intLtb 0 0 nil)) ∧
+      elements (nil : Tree Int Nat) ≠ elements (insert intLtb 0 0 nil) :=
   DecodedKeys.default_observation_not_canonical
 
 theorem malformed_membership :
-    let t : tree Int Nat := T (T E 1 7 E) 0 0 E
+    let t : Tree Int Nat := node (node nil 1 7 nil) 0 0 nil
     (1, 7) ∈ elements t ∧ lookup intLtb 99 1 t = 99 ∧
       DecodedKeys.bound intLtb 1 t = false :=
   DecodedKeys.malformed_membership_boundary
 
 theorem malformed_not_valid :
-    ¬ DecodedKeys.BST id (T (T E (1 : Int) (7 : Nat) E) 0 0 E) := by
+    ¬ DecodedKeys.BST id (node (node nil (1 : Int) (7 : Nat) nil) 0 0 nil) := by
   simp [DecodedKeys.BST, Search.OrderedTree.OrderedBy, Search.OrderedTree.All]
 
 /-- Signed endpoint keys pass through the supplied primitive, preserving payloads. -/
 theorem four_bit_endpoints :
     (elements (insert wordLtb (BitVec.ofInt 4 7) 2
-      (insert wordLtb (BitVec.ofInt 4 (-8)) 1 E))).map
+      (insert wordLtb (BitVec.ofInt 4 (-8)) 1 nil))).map
         (fun binding => (binding.1.toInt, binding.2)) = [(-8, 1), (7, 2)] := by
   rw [DecodedKeys.map_elements,
     DecodedKeys.mapKeys_insert BitVec.toInt wordLtb wordLtb_true_iff,
@@ -238,7 +238,7 @@ theorem four_bit_endpoints :
 
 theorem int64_endpoints :
     (elements (insert int64Ltb (Int64.ofInt ((2 : Int) ^ 63 - 1)) 2
-      (insert int64Ltb (Int64.ofInt (-(2 : Int) ^ 63)) 1 E))).map
+      (insert int64Ltb (Int64.ofInt (-(2 : Int) ^ 63)) 1 nil))).map
         (fun binding => (binding.1.toInt, binding.2)) =
       [(-(2 : Int) ^ 63, 1), ((2 : Int) ^ 63 - 1, 2)] := by
   rw [DecodedKeys.map_elements,
@@ -259,9 +259,9 @@ theorem source_workload_default (writes : List (Int × V)) (default : V) (query 
   congrArg (fun result => result.getD default) (source_workload_lookup writes query)
 
 theorem source_workload_history (writes : List (Int × V)) (default : V) :
-    Search.TotalTable.setAll (DecodedKeys.table intLtb default) writes E = Workload.build writes := by
+    Search.TotalTable.setAll (DecodedKeys.table intLtb default) writes nil = Workload.build writes := by
   rw [DecodedKeys.table_eq_rawTreeTable intLtb intLtb_true_iff default]
-  exact (Workload.buildFrom_eq_setAll default writes E).symm
+  exact (Workload.buildFrom_eq_setAll default writes nil).symm
 
 /-- Complete partial meaning, rather than one default view, fixes canonical entries. -/
 theorem canonical_workload_histories (first second : List (Int × V))

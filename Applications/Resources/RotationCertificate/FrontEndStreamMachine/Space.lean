@@ -43,12 +43,12 @@ theorem stackCells_cfg (label : Option (Label Λ)) (regs : Registers R) (D : Loc
 omit caller [DecidableEq K] in
 theorem stackCells_frontEndCfg (c : FrontEndCfg Γ Λ R) :
     stackCells (frontEndCfg c) = FrontEndMachine.stackCells c :=
-  FrontEndMachine.Transport.stackCells (Equiv.refl _) (fun _ => Equiv.refl _) c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length (Equiv.refl _) (fun _ => Equiv.refl _) c.stk
 
 omit caller [DecidableEq K] in
 theorem stackCells_streamCfg (c : StreamCfg Γ Λ R) :
     stackCells (streamCfg c) = StreamMachine.stackCells c :=
-  FrontEndMachine.Transport.stackCells streamStackEquiv streamSymbolEquiv c.stk
+  FrontEndMachine.Transport.stackEquiv_total_length streamStackEquiv streamSymbolEquiv c.stk
 
 omit caller [DecidableEq K] in
 theorem streamContext_cells (D : LocalData) (ctx : ∀ k, List (Γ k)) :

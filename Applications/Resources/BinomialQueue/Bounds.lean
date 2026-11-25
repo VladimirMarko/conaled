@@ -715,16 +715,16 @@ theorem deleteMaxAuxRun_split_weighted_le (cmp : K → K → Measured Bool Nat)
   omega
 
 theorem heapDeleteMaxRun_rank_cost [LE K] {n : Nat} {t : BinaryTree K}
-    (valid : pow2heap n t) :
+    (valid : Pow2Heap n t) :
     (heapDeleteMaxRun t).2 =
       charge .heapDeleteMaxCalls 1 + unzipBill n + charge .applications 1 := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff n t).mp valid
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff n t).mp valid
   rw [heapDeleteMaxRun_proper_cost, unzip_length ha]
 
 theorem heapDeleteMaxRun_rank_weighted_le [LE K] (prices : Cost)
-    {n : Nat} {t : BinaryTree K} (valid : pow2heap n t) :
+    {n : Nat} {t : BinaryTree K} (valid : Pow2Heap n t) :
     weighted prices (heapDeleteMaxRun t).2 ≤ (n + 1) * heapPrice prices := by
-  obtain ⟨m, a, rfl, ha⟩ := (pow2heap_iff n t).mp valid
+  obtain ⟨m, a, rfl, ha⟩ := (pow2Heap_iff n t).mp valid
   simpa only [unzip_length ha] using heapDeleteMaxRun_weighted_le prices m a
 
 /-- Both join prices are explicit: its bound uses L+2, which is at most 2(L+1). -/
@@ -741,7 +741,7 @@ include correct
 
 /-- The selected slot j has absolute rank i+j; child work retains that offset. -/
 theorem deleteMaxAuxRun_selected_counts (i : Nat) (q : Queue K) (m : K)
-    (valid : priqFrom i q) (found : findMax (fun x y => (cmp x y).1) q = some m) :
+    (valid : ValidFrom i q) (found : findMax (fun x y => (cmp x y).1) q = some m) :
     ∃ j < q.length,
       (deleteMaxAuxRun cmp m q).2 .deleteMaxAuxCalls = j + 1 ∧
       (deleteMaxAuxRun cmp m q).2 .comparisons ≤ j + 1 ∧
@@ -752,12 +752,12 @@ theorem deleteMaxAuxRun_selected_counts (i : Nat) (q : Queue K) (m : K)
       (deleteMaxAuxRun cmp m q).2 .applications = i + j + 1 := by
   obtain ⟨before, child, after, shape, ranked, smaller, _⟩ :=
     findMax_some_valid_split correct i q m valid found
-  have hp := ((priqFrom_append i before (.node m child .nil :: after)).mp (shape ▸ valid)).1
+  have hp := ((validFrom_append i before (.node m child .nil :: after)).mp (shape ▸ valid)).1
   have self : (cmp m m).1 = false := by
     cases h : (cmp m m).1 with
     | false => rfl
     | true => exact False.elim ((correct m m).mp h le_rfl)
-  have hc := deleteMaxAuxRun_split_counts cmp m before child after (priqFrom_proper hp) smaller self
+  have hc := deleteMaxAuxRun_split_counts cmp m before child after (validFrom_proper hp) smaller self
   have ho := BinaryCounter.ones_le_length (occupancy before)
   have hr := unzip_length ranked
   rw [occupancy_length] at ho
@@ -771,18 +771,18 @@ theorem deleteMaxAuxRun_selected_counts (i : Nat) (q : Queue K) (m : K)
 
 theorem deleteMaxAuxRun_weighted_le (prices : Cost) (C : Nat)
     (bound : ∀ x y, (cmp x y).2 ≤ C) (q : Queue K) (m : K)
-    (valid : priq q) (found : findMax (fun x y => (cmp x y).1) q = some m) :
+    (valid : Valid q) (found : findMax (fun x y => (cmp x y).1) q = some m) :
     weighted prices (deleteMaxAuxRun cmp m q).2 ≤
       q.length * (auxiliaryPrice prices C + heapPrice prices) := by
   obtain ⟨before, child, after, shape, ranked, smaller, _⟩ :=
     findMax_some_valid_split correct 0 q m valid found
-  have hp := ((priqFrom_append 0 before (.node m child .nil :: after)).mp (shape ▸ valid)).1
+  have hp := ((validFrom_append 0 before (.node m child .nil :: after)).mp (shape ▸ valid)).1
   have self : (cmp m m).1 = false := by
     cases h : (cmp m m).1 with
     | false => rfl
     | true => exact False.elim ((correct m m).mp h le_rfl)
   have h := deleteMaxAuxRun_split_weighted_le cmp prices C bound m before child after
-    (priqFrom_proper hp) smaller self
+    (validFrom_proper hp) smaller self
   have hr : (unzip child id).length = before.length := by simpa using unzip_length ranked
   rw [← shape, hr] at h
   have hlen : before.length + 1 ≤ q.length := by
@@ -794,7 +794,7 @@ theorem deleteMaxAuxRun_weighted_le (prices : Cost) (C : Nat)
 
 /-- All phases are charged, even when no maximum is found. -/
 theorem deleteMaxRun_weighted_le (prices : Cost) (C : Nat)
-    (bound : ∀ x y, (cmp x y).2 ≤ C) (q : Queue K) (valid : priq q) :
+    (bound : ∀ x y, (cmp x y).2 ≤ C) (q : Queue K) (valid : Valid q) :
     weighted prices (deleteMaxRun cmp q).2 ≤ (q.length + 1) * deletePrice prices C := by
   have hs := findMaxRun_weighted_le cmp prices C bound q
   cases found : (findMaxRun cmp q).1 with
@@ -822,7 +822,7 @@ theorem deleteMaxRun_weighted_le (prices : Cost) (C : Nat)
       simp only [deletePrice, Nat.mul_add, Nat.add_mul, Nat.one_mul] at *
       omega
 
-theorem deleteMaxRun_comparisons_le (q : Queue K) (valid : priq q) :
+theorem deleteMaxRun_comparisons_le (q : Queue K) (valid : Valid q) :
     (deleteMaxRun cmp q).2 .comparisons ≤ 3 * q.length := by
   have hs := (findMaxRun_counts cmp q).2
   have ho := BinaryCounter.ones_le_length (occupancy q)
@@ -853,14 +853,14 @@ theorem deleteMaxRun_comparisons_le (q : Queue K) (valid : priq q) :
 
 theorem deleteMaxRun_canonical_bound (prices : Cost) (C : Nat)
     (bound : ∀ x y, (cmp x y).2 ≤ C) (q : Queue K)
-    (valid : priq q) (canonical : Canonical q) :
+    (valid : Valid q) (canonical : Canonical q) :
     weighted prices (deleteMaxRun cmp q).2 ≤ ((mass q).size + 1) * deletePrice prices C := by
   simpa only [canonical_length valid canonical] using
     deleteMaxRun_weighted_le cmp correct prices C bound q valid
 
 theorem deleteMaxRun_log_bound (prices : Cost) (C : Nat)
     (bound : ∀ x y, (cmp x y).2 ≤ C) (q : Queue K)
-    (valid : priq q) (canonical : Canonical q) (nonempty : q ≠ []) :
+    (valid : Valid q) (canonical : Canonical q) (nonempty : q ≠ []) :
     weighted prices (deleteMaxRun cmp q).2 ≤ (Nat.log 2 (mass q) + 2) * deletePrice prices C := by
   simpa only [canonical_log_length valid canonical nonempty, Nat.add_assoc] using
     deleteMaxRun_weighted_le cmp correct prices C bound q valid
@@ -869,13 +869,13 @@ end OrderedDeletion
 
 theorem insertRun_canonical_bound [LE K] (cmp : K → K → Measured Bool Nat)
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C) (key : K) (q : Queue K)
-    (valid : priq q) (canonical : Canonical q) :
+    (valid : Valid q) (canonical : Canonical q) :
     weighted prices (insertRun cmp key q).2 ≤ ((mass q).size + 1) * insertPrice prices C := by
   simpa only [canonical_length valid canonical] using insertRun_weighted_le cmp prices C bound key q
 
 theorem mergeRun_canonical_bound [LE K] (cmp : K → K → Measured Bool Nat)
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C) (p q : Queue K)
-    (vp : priq p) (vq : priq q) (cp : Canonical p) (cq : Canonical q) :
+    (vp : Valid p) (vq : Valid q) (cp : Canonical p) (cq : Canonical q) :
     weighted prices (mergeRun cmp p q).2 ≤
       (max (mass p).size (mass q).size + 2) * (prices .mergeCalls + joinPrice prices C) := by
   simpa only [canonical_length vp cp, canonical_length vq cq] using
@@ -902,7 +902,7 @@ theorem mergeRun_capacity_bound (cmp : K → K → Measured Bool Nat)
 theorem deleteMaxRun_capacity_bound [Preorder K] [Std.Total (fun x y : K => x ≤ y)]
     (cmp : K → K → Measured Bool Nat) (correct : ∀ x y, (cmp x y).1 = true ↔ ¬ x ≤ y)
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
-    (B H : Nat) (q : Queue K) (valid : priq q) (capacity : Capacity B H q) :
+    (B H : Nat) (q : Queue K) (valid : Valid q) (capacity : Capacity B H q) :
     weighted prices (deleteMaxRun cmp q).2 ≤ (max B H.size + 1) * deletePrice prices C :=
   (deleteMaxRun_weighted_le cmp correct prices C bound q valid).trans
     (Nat.mul_le_mul_right _ (Nat.add_le_add_right capacity 1))

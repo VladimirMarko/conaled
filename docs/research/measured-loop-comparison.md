@@ -88,7 +88,7 @@ in the relation. It does not assert global target termination. Its graph-relatio
 specialization `transport_map` recovers the contract of `UntilSpec.map`.
 
 `rank_pullback` separately requires an erasure from target states to source
-states that preserves guards and continuing steps. `Program.targetDecrease`
+states that preserves guards and continuing steps. `Program.target_decrease`
 uses this construction with identity state erasure and scalar compatibility.
 The measured backend retains the source state representation; it is not a
 proof of executability for arbitrary relational targets. Seed and post remain

@@ -262,7 +262,7 @@ inductive LivenessFixture
       (words : LocalData) (afterBits : Bits) (afterTags : Word) (afterCells : Nat)
 
 /-! ## Literal fixed raw cases -/
-def raw_F01 : RawFixture where
+def emptyRawFixture : RawFixture where
   name := "raw/F01"
   raw := []
   result := false
@@ -278,7 +278,7 @@ def raw_F01 : RawFixture where
   ticks := 20
   peak := 1
 
-def raw_F02 : RawFixture where
+def truncatedPrefixFixture : RawFixture where
   name := "raw/F02"
   raw := [false]
   result := false
@@ -839,7 +839,7 @@ def raw_V18 : RawFixture where
   peak := 113
 
 def rawCases : List RawFixture :=
-  [raw_F01, raw_F02, raw_F03, raw_F04, raw_F05, raw_F06, raw_F07, raw_F08, raw_I01, raw_I02, raw_I03, raw_I04, raw_I05, raw_I06, raw_I07, raw_C01, raw_C02, raw_C03, raw_V01, raw_V02, raw_V03, raw_V04, raw_V05, raw_V06, raw_V07, raw_V08, raw_V09, raw_V10, raw_V11, raw_V12, raw_V13, raw_V14, raw_V15, raw_V16, raw_V17, raw_V18]
+  [emptyRawFixture, truncatedPrefixFixture, raw_F03, raw_F04, raw_F05, raw_F06, raw_F07, raw_F08, raw_I01, raw_I02, raw_I03, raw_I04, raw_I05, raw_I06, raw_I07, raw_C01, raw_C02, raw_C03, raw_V01, raw_V02, raw_V03, raw_V04, raw_V05, raw_V06, raw_V07, raw_V08, raw_V09, raw_V10, raw_V11, raw_V12, raw_V13, raw_V14, raw_V15, raw_V16, raw_V17, raw_V18]
 
 theorem raw_cases_count : rawCases.length = 36 := rfl
 

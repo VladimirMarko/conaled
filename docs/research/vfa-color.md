@@ -479,25 +479,25 @@ program transport and unconditional support result.
 
 ### Two distinct correctness conclusions
 
-`ColoringOK palette g f` preserves the source predicate literally. For every
+`EdgeColoringCompatible palette g f` preserves the source predicate literally. For every
 edge i→j, successful colors at i lie in the palette, and any two successful
 endpoint colors differ. The edge premise guards both clauses. Thus arbitrary
 out-of-palette assignments at isolated vertices can satisfy this weak predicate.
 The isolated assignment1:7 with the empty palette is a checked separating case.
 
-`coloringOK_color1` proves preservation for every already-compatible assignment
+`edgeColoringCompatible_color1` proves preservation for every already-compatible assignment
 under precisely `Undirected g` and `NoSelfLoop g`. It handles overwrites: the
 new left endpoint uses exclusion, the new right endpoint uses the reversed edge,
 and equality of both endpoints contradicts looplessness. Existing bindings
-elsewhere use the previous invariant. `coloringOK_colorList` therefore covers
+elsewhere use the previous invariant. `edgeColoringCompatible_colorList` therefore covers
 every finite list, including repeated vertices, without degree or selection
 premises. `color_correct` specializes it to the actual selection computation.
 On one undirected edge, the repeated list[1,2,1] is checked through this theorem
 and yields entries[(2,2),(1,1)].
 
-`AllPalette palette f` separately quantifies over every successful binding,
+`PaletteValued palette f` separately quantifies over every successful binding,
 including isolated ones. Its actual update/fold invariant yields
-`allPalette_color` for every raw graph, without symmetry or looplessness.
+`paletteValued_color` for every raw graph, without symmetry or looplessness.
 The weak source predicate and this stronger result are not conflated.
 
 ### Exact selected support and totality conditions
@@ -536,21 +536,21 @@ and empty graph remain distinguishable by that observation.
 `coloredGraph` restricts to successful assignment keys. `paletteValue` uses their
 actual lookup values to construct elements of the finite palette subtype.
 `properColoring` discharges `SimpleGraph.Coloring.mk` from compatibility and
-AllPalette; `producedColoring` supplies those proofs for the actual program.
+PaletteValued; `producedColoring` supplies those proofs for the actual program.
 Its lookup equation exposes the precise original value. Finite vertex and
 palette cardinalities agree with the occupied map and set cardinalities.
 
 The exact source selection[4,1,2,6,5] is processed as5,6,2,1,4. The successive
 assigned colors are1,2,3,2,1, giving ordered map entries
 `[(4,1),(2,3),(6,2),(1,2),(5,1)]`. `source_entries` kernel-checks this exact
-program. The source graph hypotheses instantiate compatibility, AllPalette,
+program. The source graph hypotheses instantiate compatibility, PaletteValued,
 exact domain coverage and the SimpleGraph client on the same produced result.
 The finite client has five vertices and three palette values, with node1 mapped
 to color2. Both original source Computes are included in the execution probes.
 
 The directed graph with edge1→2 and palette{1} selects[2,1] and assigns both
 vertices1. The one-vertex self-loop with palette{1,2} selects[1] and assigns1.
-Their exact supports and AllPalette properties still hold, while their edge
+Their exact supports and PaletteValued properties still hold, while their edge
 compatibility is proved false. The four-cycle at palette size2 produces the
 empty coloring because selection stops, yet the explicit total assignment
 1:1,2:2,3:1,4:2 satisfies palette membership and all eight directed edge views.
@@ -778,7 +778,7 @@ Every one of the53 inventory IDs occurs once below, in source order.
 | `Color.colors_of@530` | Coloring semantics: `colorsOf`, actual ordered neighbor-color fold; exact `mem_colorsOf` and finite image bound. |
 | `Color.color1@533` | Coloring semantics: `color1`, actual available-set choose, overwrite on success and unchanged input on failure; exact lookup laws. |
 | `Color.color@539` | Coloring semantics: `color`, actual right fold over the computed selection, always using original adjacency. |
-| `Color.coloring_ok@549` | Coloring semantics: `ColoringOK`, with both palette and endpoint-distinctness clauses guarded by an edge. |
+| `Color.coloring_ok@549` | Coloring semantics: `EdgeColoringCompatible`, with both palette and endpoint-distinctness clauses guarded by an edge. |
 | `Color.adj_ext@555` | Graph selection: `adj_ext`, literal node equality gives raw adjacency equality. |
 | `Color.in_colors_of_1@560` | Coloring semantics: `in_colorsOf`, from the stronger exact membership theorem and actual successful lookup. |
 | `Color.color_correct@566` | Coloring semantics: `color_correct`, under exactly looplessness and symmetry, via arbitrary-list compatibility including repeats. |
@@ -1172,7 +1172,7 @@ has six stage entries/choices,15 predicates/cardinality requests/comparisons,
 ten candidate insertions, five removals and ten adjacency erase attempts.
 Painting in order5,6,2,1,4 takes callback work43,55,83,69,51, with fourteen
 lookups, seven successes/insertion attempts and five writes. Measured value
-erasure connects to the earlier exact entries, compatibility, AllPalette,
+erasure connects to the earlier exact entries, compatibility, PaletteValued,
 domain and `sourceClient` SimpleGraph lookup. Both primary Computes remain
 separate actual execution probes.
 

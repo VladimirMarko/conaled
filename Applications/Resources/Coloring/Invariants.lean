@@ -34,7 +34,7 @@ structure GraphValid (bits : Nat) (g : Graph) : Prop where
 structure AssignmentValid (bits : Nat) (palette : NodeSet) (f : Assignment) : Prop where
   normal : SparseMap.Normalized f
   keyBits : ∀ key value, SparseMap.find key f = some value → bitLength key ≤ bits
-  paletteOnly : AllPalette palette f
+  paletteOnly : PaletteValued palette f
 
 theorem SetValid.nil (bits : Nat) : SetValid bits .nil := by
   refine ⟨KeySet.normalized_nil, ?_⟩
@@ -278,7 +278,7 @@ theorem GraphValid.adjacency_nodes_le {bits : Nat} {g : Graph} (valid : GraphVal
     _ = degreeMass g * bits := (Finset.sum_mul _ _ _).symm
 
 theorem AssignmentValid.nil (bits : Nat) (palette : NodeSet) : AssignmentValid bits palette .nil := by
-  refine ⟨SparseMap.normalized_nil, ?_, allPalette_nil palette⟩
+  refine ⟨SparseMap.normalized_nil, ?_, paletteValued_nil palette⟩
   intro key value found
   simp only [SparseMap.find_nil, reduceCtorEq] at found
 
@@ -323,7 +323,7 @@ theorem color_valid {bits : Nat} {g : Graph} (valid : GraphValid bits g) (palett
     (fun _key member => valid.mem_bits (mem_select _ _ member))
 
 theorem colorsOf_valid {bits : Nat} {palette : NodeSet} (valid : SetValid bits palette)
-    (f : Assignment) (colors : AllPalette palette f) (vertices : NodeSet) :
+    (f : Assignment) (colors : PaletteValued palette f) (vertices : NodeSet) :
     SetValid bits (colorsOf f vertices) := by
   let step (key : Node) (state : NodeSet) : Measured NodeSet Nat :=
     (match SparseMap.find key f with

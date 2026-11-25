@@ -550,13 +550,13 @@ def SourceObservation.Expected (observation : SourceObservation) : Prop :=
   BitPairFraming.verifyFramed observation.fixture.raw = observation.fixture.result
 
 def source_F01 : SourceObservation :=
-  ⟨raw_F01, ⟨2, none, none, none, none, none, none, 2⟩⟩
+  ⟨emptyRawFixture, ⟨2, none, none, none, none, none, none, 2⟩⟩
 
 theorem source_F01_has_its_original_component_tariffs : source_F01.Expected := by
   constructor <;> rfl
 
 def source_F02 : SourceObservation :=
-  ⟨raw_F02, ⟨2, none, none, none, none, none, none, 2⟩⟩
+  ⟨truncatedPrefixFixture, ⟨2, none, none, none, none, none, none, 2⟩⟩
 
 theorem source_F02_has_its_original_component_tariffs : source_F02.Expected := by
   constructor <;> rfl

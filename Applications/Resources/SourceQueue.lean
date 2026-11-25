@@ -173,6 +173,53 @@ theorem peekRun_back_double_cost (default value : α) (back : List α) :
   change 2 * ((ListReversal.naiveRun (value :: back)).2 + 1) = _
   omega
 
+/-- Terminal reversal/append calls and the queue dispatch omitted by the
+historical constructor-visit tariff. Empty and front peeks only dispatch. -/
+def peekCallOverhead : TwoList α → Nat
+  | ([], []) => 1
+  | ([], value :: back) => (value :: back).length + 2
+  | (_ :: _, _) => 1
+
+/-- The same observing peek, with the historical zero-terminal, zero-dispatch
+tariff. Its value comes from the current measured source execution. -/
+def constructorPeekRun (default : α) (queue : TwoList α) : Measured α Nat :=
+  ((peekRun default queue).1, (peekRun default queue).2 - peekCallOverhead queue)
+
+@[simp] theorem constructorPeekRun_empty (default : α) :
+    constructorPeekRun default twoListEmpty = (default, 0) := rfl
+
+@[simp] theorem constructorPeekRun_front (default value : α) (front back : List α) :
+    constructorPeekRun default (value :: front, back) = (value, 0) := rfl
+
+theorem constructorPeekRun_back (default value : α) (back : List α) :
+    constructorPeekRun default ([], value :: back) =
+      ((value :: back).reverse.headD default, ListReversal.constructorVisits (value :: back)) := by
+  simp only [constructorPeekRun, peekRun_back, peekCallOverhead]
+  rw [ListReversal.naiveRun_cost_eq_constructorVisits]
+  congr 1
+  omega
+
+theorem constructorPeekRun_value (default : α) (queue : TwoList α) :
+    (constructorPeekRun default queue).1 = twoListPeek default queue :=
+  peekRun_value default queue
+
+/-- Exact recovery on every raw state, including branches which never reverse.
+The correction depends on the input state, not only the scalar cost. -/
+theorem peekRun_cost_eq_constructorPeekRun (default : α) (queue : TwoList α) :
+    (peekRun default queue).2 =
+      (constructorPeekRun default queue).2 + peekCallOverhead queue := by
+  rcases queue with ⟨front, back⟩
+  cases front with
+  | nil =>
+      cases back with
+      | nil => rfl
+      | cons value back =>
+          rw [peekRun_back, constructorPeekRun_back]
+          simp only [peekCallOverhead]
+          rw [ListReversal.naiveRun_cost_eq_constructorVisits]
+          omega
+  | cons value front => rfl
+
 theorem linearDequeueRun_back (value : α) (back : List α) :
     linearDequeueRun ([], value :: back) =
       (((value :: back).reverse.tail, []), (value :: back).length + 2) := by
@@ -208,8 +255,8 @@ theorem linearPeekRun_back_cost_lt (default value : α) (back : List α) :
   rw [peekUsing_back, peekUsing_back]
   exact Nat.add_lt_add_right (ListReversal.accumulator_cost_lt _ [] (by simp)) 1
 
-/-- The discarded draft's zero-base reversal count is not reused. This bound
-comes from the actual current reversal executions and their comparison theorem. -/
+/-- This lower bound concerns the current call tariff; `constructorVisits`
+separately recovers the historical zero-terminal count. -/
 theorem naiveRun_length_le (values : List α) : values.length ≤ (ListReversal.naiveRun values).2 := by
   have bound := ListReversal.accumulator_cost_le values []
   rw [SymmetricCosts.reverseRun_work] at bound
@@ -331,7 +378,7 @@ def runPeeksUsing (reverse : List α → Measured (List α) Nat) (default : α)
     (count : Nat) (queue : TwoList α) : Measured (TwoList α) Nat :=
   Resources.run (fun _ : Unit => peekStepUsing reverse default) (List.replicate count ()) queue
 
-theorem peekHistory_exact (reverse : List α → Measured (List α) Nat)
+theorem run_peekStepUsing (reverse : List α → Measured (List α) Nat)
     (default : α) (inputs : List Unit) (queue : TwoList α) :
     Resources.run (fun _ : Unit => peekStepUsing reverse default) inputs queue =
       (queue, inputs.length * (peekUsing reverse default queue).2) := by
@@ -344,7 +391,30 @@ theorem runPeeksUsing_exact (reverse : List α → Measured (List α) Nat)
     (default : α) (count : Nat) (queue : TwoList α) :
     runPeeksUsing reverse default count queue =
       (queue, count * (peekUsing reverse default queue).2) := by
-  simp [runPeeksUsing, peekHistory_exact]
+  simp [runPeeksUsing, run_peekStepUsing]
+
+/-- Observing peek retains the entire raw state under the constructor tariff. -/
+def constructorPeekStep (default : α) (queue : TwoList α) : Measured (TwoList α) Nat :=
+  (queue, (constructorPeekRun default queue).2)
+
+/-- The historical observations run through the same shared history executor. -/
+theorem run_constructorPeekStep (default : α) (inputs : List Unit) (queue : TwoList α) :
+    Resources.run (fun _ : Unit => constructorPeekStep default) inputs queue =
+      (queue, inputs.length * (constructorPeekRun default queue).2) := by
+  induction inputs with
+  | nil => simp [Resources.run, pure]
+  | cons input inputs ih =>
+      simp [Resources.run, constructorPeekStep, bind, ih, Nat.add_mul, Nat.add_comm]
+
+/-- Every repeated observing peek pays the same terminal/dispatch difference;
+neither execution installs the reversed front list. -/
+theorem run_peekStepUsing_cost_eq_constructor (default : α) (inputs : List Unit) (queue : TwoList α) :
+    (Resources.run (fun _ : Unit => peekStepUsing ListReversal.naiveRun default) inputs queue).2 =
+      (Resources.run (fun _ : Unit => constructorPeekStep default) inputs queue).2 +
+        inputs.length * peekCallOverhead queue := by
+  rw [run_peekStepUsing, run_constructorPeekStep]
+  change inputs.length * (peekRun default queue).2 = _
+  rw [peekRun_cost_eq_constructorPeekRun, Nat.mul_add]
 
 theorem peek_local_charge_iff (reverse : List α → Measured (List α) Nat)
     (default : α) (potential : TwoList α → Nat) (charge : Nat) (queue : TwoList α) :

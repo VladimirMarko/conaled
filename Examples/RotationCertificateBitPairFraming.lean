@@ -390,7 +390,7 @@ theorem every_raw_input_uses_one_polynomial_machine (raw : Bits) :
   let evidence := computableInPolyTime.outputsFun raw
   exact ⟨evidence.steps, evidence.steps_le_m, evidence.evals_in_steps⟩
 
-noncomputable def framed_pairs_use_the_constructed_polynomial_record (input cert : Bits) :
+noncomputable def framedPairOutputsInTime (input cert : Bits) :
     Turing.TM2OutputsInTime computableInPolyTime.tm
       ((frame input cert).map computableInPolyTime.inputAlphabet.invFun)
       (some ((resultCode (some (input, cert))).map
@@ -522,7 +522,7 @@ theorem a_single_small_witness_has_acceptance_time_and_space
         Turing.TM2.Reaches program (Turing.initList machine (frame input cert)) reached →
           stackCells reached ≤ (input.length + 1) ^ 2 + 1 := by
   obtain ⟨cert, small, frameSmall, accepted⟩ := verifyFramed_complete_small input yes
-  refine ⟨cert, small, frameSmall, accepted, ⟨outputsInTime_small input cert small⟩, ?_⟩
+  refine ⟨cert, small, frameSmall, accepted, ⟨outputsInTimeOfSmallCertificate input cert small⟩, ?_⟩
   intro reached run
   exact reachable_framed_stackCells_le input cert small reached run
 

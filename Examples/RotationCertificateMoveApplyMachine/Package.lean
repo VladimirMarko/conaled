@@ -172,7 +172,7 @@ def furtherInstallationInActualTime (start : Cfg Γ Λ R) :
       (FrontEndMachine.Transport.cfg names symbols registers labels start)
       (some (FrontEndMachine.Transport.cfg names symbols registers labels (finalCfg start)))
       (remainingSteps start) :=
-  installed_owned_timed caller names symbols registers labels ambient installed start
+  installedOwnedTimed caller names symbols registers labels ambient installed start
 
 theorem complete_installed_timing_keeps_the_exact_local_steps (start : Cfg Γ Λ R) :
     (furtherInstallationInActualTime caller names symbols registers labels ambient installed start).steps =
@@ -183,7 +183,7 @@ def furtherPrefixInActualTime (start reached : Cfg Γ Λ R) (n : Nat)
     StateTransition.EvalsToInTime (Turing.TM2.step ambient)
       (FrontEndMachine.Transport.cfg names symbols registers labels start)
       (some (FrontEndMachine.Transport.cfg names symbols registers labels reached)) n :=
-  installed_owned_prefix_timed caller names symbols registers labels ambient installed
+  installedOwnedPrefixTimed caller names symbols registers labels ambient installed
     start n bound reached actual
 
 section Physical
@@ -326,7 +326,7 @@ theorem arbitrary_sentinel_callers_agree_through_eleven_and_differ_at_twelve
   constructor
   · intro n bound
     apply prefix_caller_independent (sentinelHaltCaller marker) (sentinelHaltCaller other)
-    have clock := (LocalRun.phaseEndpoint (sentinelHaltCaller marker)
+    have clock := (LocalRun.phase_endpoint (sentinelHaltCaller marker)
       (q := MoveApplyMachine.movePhase .start)
       (root_left_segment_with_arbitrary_certificate_suffix
         (sentinelHaltCaller marker) (stale flag) authorContext [])).1
@@ -492,7 +492,7 @@ def representedFurtherInstallationInActualTime (mv : RotationMove) (rest : Word)
             [] [] []) ctx)))
       (2 * mv.position.length + 4 +
         PositionedRotationMachine.representedClock mv.direction (mv.position ++ O) s + F.length) :=
-  installed_representedInTime caller names symbols registers labels ambient installed
+  installedRepresentedInTime caller names symbols registers labels ambient installed
     mv rest O s F z regs ctx
 
 theorem further_installed_represented_timing_keeps_the_source_and_saved_word_clock
