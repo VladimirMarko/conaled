@@ -63,14 +63,14 @@ terminal comparison changes the foundation's `Unit` to universe-polymorphic
 |---|---|---|
 | `CodeCategory.congruence` | `RawMap.transportCongr` | Evaluation congruence and operation preservation |
 | `CodeCategory.laws` | `RawMap.transportLaws` | Evaluation reflects `Equivalent` |
-| `CodeCategory.terminalLaws` | `TerminalMap.transportLaws` | Terminal comparison and preservation |
-| `CodeCategory.productCongr` | `ProductMap.transportCongr` | Pair preservation |
-| `CodeCategory.productLaws` | `ProductMap.transportLaws` | Projection/pair preservation and comparison inverses |
+| `CodeCategory.terminal_laws` | `TerminalMap.transportLaws` | Terminal comparison and preservation |
+| `CodeCategory.products_congr` | `ProductMap.transportCongr` | Pair preservation |
+| `CodeCategory.products_laws` | `ProductMap.transportLaws` | Projection/pair preservation and comparison inverses |
 
 The five declarations retain their public statements. The added local adapters
-are `evaluation`, `evaluationLaws`, `evaluationReflects`, `terminalComparison`,
-`terminalComparisonLaws`, `evaluationTerminal`, `productComparison`,
-`productComparisonLaws`, and `evaluationProducts`. Their proofs concern the
+are `evaluation`, `evaluation_laws`, `evaluation_reflects`, `terminalComparison`,
+`terminalComparison_laws`, `evaluation_preserves_terminal`, `productComparison`,
+`productComparison_laws`, and `evaluation_preserves_products`. Their proofs concern the
 chosen evaluation and comparisons; category and cartesian algebra is supplied
 once in the shared modules. The dependency-free root `Compiler.lean` stays
 unchanged, including its public `category_assoc`, `product_beta`, and

@@ -117,7 +117,7 @@ functions with `Nat` as the atom interpretation. `two_models` uses
 `STLCNaturality.naturality` and the existing `soundMap` preservation package.
 Raw code has category and closed laws under `CodeCategory.equiv meaning`, which
 observes evaluation, not under equality of its syntax trees. Checked instances
-reuse `CodeCategory.laws` and `CodeCategory.closedLaws`.
+reuse `CodeCategory.laws` and `CodeCategory.closed_laws`.
 
 `composed` then uses `STLCNaturality.naturality_comp` to compose code interpretation
 with `FunctionCategory.toTypes`. The final bundled-function adapter reuses the

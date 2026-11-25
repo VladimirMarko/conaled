@@ -81,7 +81,7 @@ example : CategoryLaws (CodeCategory.ops NoPrim) (CodeCategory.equiv (B := Nat) 
   CodeCategory.laws meaning
 example : ClosedLaws (CodeCategory.equiv (B := Nat) meaning)
     (CodeCategory.products NoPrim) (CodeCategory.closed NoPrim) :=
-  CodeCategory.closedLaws meaning
+  CodeCategory.closed_laws meaning
 
 theorem interpretation_preserves :
     STLCNaturality.Preserves interpretation (equality _) codeModel functionModel :=

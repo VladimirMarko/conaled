@@ -49,15 +49,15 @@ abbrev wrapped := Wrapped.distribution.right
 theorem wrappedLaws : RightDistributionLaws (E := equality _) Wrapped.products
     Wrapped.coproducts wrapped :=
   DistributionOps.right_laws (equalityCongr _) FunctionCategory.laws
-    Wrapped.productCongr Wrapped.productLaws Wrapped.coproductCongr Wrapped.coproductLaws
-    Wrapped.distributionLaws
+    Wrapped.products_congr Wrapped.products_laws Wrapped.coproducts_congr Wrapped.coproducts_laws
+    Wrapped.distribution_laws
 
 theorem wrapPreserves : DistributionMapLaws (equality _)
     Wrapped.wrapProducts.reverse Wrapped.wrapCoproducts functions wrapped :=
   RightDistributionMap.of_laws (equalityCongr _) FunctionCategory.laws
-    Wrapped.productCongr Wrapped.productLaws Wrapped.coproductCongr Wrapped.coproductLaws
-    (RawMap.id_laws _) Wrapped.wrapPreservesProducts Wrapped.wrapPreservesCoproducts
-    Wrapped.wrapProductInverse Wrapped.wrapCoproductInverse functionLaws wrappedLaws
+    Wrapped.products_congr Wrapped.products_laws Wrapped.coproducts_congr Wrapped.coproducts_laws
+    (RawMap.id_laws _) Wrapped.wrapProducts_preserves_products Wrapped.wrapCoproducts_preserves_coproducts
+    Wrapped.wrapProducts_laws Wrapped.wrapCoproducts_laws functionLaws wrappedLaws
 
 example : wrapped.distribute (a := Nat) (b := Bool) (c := Nat) ⟨(⟨.inl true⟩, 3)⟩ =
     (⟨.inl ⟨(true, 3)⟩⟩ : Box (Sum (Box (Bool × Nat)) (Box (Nat × Nat)))) := rfl
@@ -73,9 +73,9 @@ abbrev codeRight := (CodeCategory.distribution Prim).right
 theorem codeLaws : RightDistributionLaws (E := CodeCategory.equiv meaning)
     (CodeCategory.products Prim) (CodeCategory.coproducts Prim) (codeRight (Prim := Prim)) :=
   DistributionOps.right_laws (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-    (CodeCategory.productCongr meaning) (CodeCategory.productLaws meaning)
-    (CodeCategory.coproductCongr meaning) (CodeCategory.coproductLaws meaning)
-    (CodeCategory.distributionLaws meaning)
+    (CodeCategory.products_congr meaning) (CodeCategory.products_laws meaning)
+    (CodeCategory.coproducts_congr meaning) (CodeCategory.coproducts_laws meaning)
+    (CodeCategory.distribution_laws meaning)
 
 theorem evaluationPreserves : DistributionMapLaws (equality _)
     (CodeCategory.productComparison meaning).reverse (CodeCategory.coproductComparison meaning)
@@ -83,20 +83,20 @@ theorem evaluationPreserves : DistributionMapLaws (equality _)
   RightDistributionMap.of_laws (equalityCongr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws
     FunctionCategory.coproductCongr FunctionCategory.coproductLaws
-    (CodeCategory.evaluationLaws meaning) (CodeCategory.evaluationProducts meaning)
-    (CodeCategory.evaluationCoproducts meaning) (CodeCategory.productComparisonLaws meaning)
-    (CodeCategory.coproductComparisonLaws meaning) (codeLaws meaning) functionLaws
+    (CodeCategory.evaluation_laws meaning) (CodeCategory.evaluation_preserves_products meaning)
+    (CodeCategory.evaluation_preserves_coproducts meaning) (CodeCategory.productComparison_laws meaning)
+    (CodeCategory.coproductComparison_laws meaning) (codeLaws meaning) functionLaws
 
 /-- Compose existing contracts through the changed product/sum presentation. -/
 theorem composedPreserves : DistributionMapLaws (equality _)
     ((CodeCategory.productComparison meaning).reverse.comp Wrapped.wrapProducts.reverse)
-    (composedCoproducts meaning) (codeRight (Prim := Prim)) wrapped :=
+    (composedCoproductComparison meaning) (codeRight (Prim := Prim)) wrapped :=
   DistributionMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
-    (ProductOps.reverse_congr Wrapped.productCongr) (ProductOps.reverse_laws Wrapped.productLaws)
-    Wrapped.coproductCongr Wrapped.coproductLaws
-    (ProductMap.reverse_laws Wrapped.wrapPreservesProducts) Wrapped.wrapPreservesCoproducts
-    (fun a b => (Wrapped.wrapProductInverse b a).hom_inv)
-    (fun a b => (Wrapped.wrapCoproductInverse a b).hom_inv)
+    (ProductOps.reverse_congr Wrapped.products_congr) (ProductOps.reverse_laws Wrapped.products_laws)
+    Wrapped.coproducts_congr Wrapped.coproducts_laws
+    (ProductMap.reverse_laws Wrapped.wrapProducts_preserves_products) Wrapped.wrapCoproducts_preserves_coproducts
+    (fun a b => (Wrapped.wrapProducts_laws b a).hom_inv)
+    (fun a b => (Wrapped.wrapCoproducts_laws a b).hom_inv)
     (evaluationPreserves meaning) wrapPreserves
 
 /-- A separately selected raw inverse includes an extra identity instruction. -/
@@ -118,9 +118,9 @@ theorem padded_agrees (a b c : Ty) :
     (CodeCategory.equiv meaning).Rel (padded.distribute (a := a) (b := b) (c := c))
       codeRight.distribute :=
   DistributionOps.right_unique (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-    (CodeCategory.productCongr meaning) (CodeCategory.productLaws meaning)
-    (CodeCategory.coproductCongr meaning) (CodeCategory.coproductLaws meaning)
-    (CodeCategory.distributionLaws meaning) (paddedLaws meaning).distribute_collect a b c
+    (CodeCategory.products_congr meaning) (CodeCategory.products_laws meaning)
+    (CodeCategory.coproducts_congr meaning) (CodeCategory.coproducts_laws meaning)
+    (CodeCategory.distribution_laws meaning) (paddedLaws meaning).distribute_collect a b c
 
 /-- Uniqueness never identifies the different constructor trees. -/
 theorem padded_not_equal :

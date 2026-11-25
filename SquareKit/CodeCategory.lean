@@ -55,81 +55,81 @@ def evaluation : RawMap (ops Prim) FunctionCategory.ops where
   obj := Val B
   map := run meaning
 
-theorem evaluationLaws : MapLaws (evaluation meaning) (equiv meaning)
+theorem evaluation_laws : MapLaws (evaluation meaning) (equiv meaning)
     (equality FunctionCategory.ops) where
   congr h := funext h
   ident := rfl
   comp _ _ := rfl
 
-theorem evaluationReflects : (evaluation meaning).Reflects (equiv meaning)
+theorem evaluation_reflects : (evaluation meaning).Reflects (equiv meaning)
     (equality FunctionCategory.ops) := fun h x => congrFun h x
 
 theorem congruence : CategoryCongr (ops Prim) (equiv meaning) :=
-  RawMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
+  RawMap.transportCongr (evaluation_laws meaning) (evaluation_reflects meaning)
     (equalityCongr _)
 
 theorem laws : CategoryLaws (ops Prim) (equiv meaning) :=
-  RawMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+  RawMap.transportLaws (evaluation_laws meaning) (evaluation_reflects meaning)
     (equalityCongr _) FunctionCategory.laws
 
 def terminalComparison : TerminalMap (evaluation meaning) (terminal Prim) FunctionCategory.terminal where
   hom := fun _ => PUnit.unit
   inv := fun _ => ()
 
-theorem terminalComparisonLaws : ComparisonLaws (equality _) (terminalComparison meaning) where
+theorem terminalComparison_laws : ComparisonLaws (equality _) (terminalComparison meaning) where
   hom_inv := rfl
   inv_hom := rfl
 
-theorem evaluationTerminal : TerminalMapLaws (equality _) (terminalComparison meaning) where
+theorem evaluation_preserves_terminal : TerminalMapLaws (equality _) (terminalComparison meaning) where
   terminal := rfl
 
 /-- Evaluation preserves product objects strictly. -/
 def productComparison : ProductMap (evaluation meaning) (products Prim) FunctionCategory.products :=
   fun _ _ => ⟨id, id⟩
 
-theorem productComparisonLaws (a b : Ty) :
+theorem productComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (productComparison meaning a b) := ⟨rfl, rfl⟩
 
-theorem evaluationProducts : ProductMapLaws (equality _) (productComparison meaning) where
+theorem evaluation_preserves_products : ProductMapLaws (equality _) (productComparison meaning) where
   fst := rfl
   snd := rfl
   pair _ _ := rfl
 
-theorem terminalLaws : TerminalLaws (equiv meaning) (terminal Prim) :=
-  TerminalMap.transportLaws (evaluationReflects meaning) (equalityCongr _) FunctionCategory.laws
-    (terminalComparisonLaws meaning) (evaluationTerminal meaning) FunctionCategory.terminalLaws
+theorem terminal_laws : TerminalLaws (equiv meaning) (terminal Prim) :=
+  TerminalMap.transportLaws (evaluation_reflects meaning) (equalityCongr _) FunctionCategory.laws
+    (terminalComparison_laws meaning) (evaluation_preserves_terminal meaning) FunctionCategory.terminalLaws
 
-theorem productCongr : ProductCongr (equiv meaning) (products Prim) :=
-  ProductMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
-    (equalityCongr _) (evaluationProducts meaning) FunctionCategory.productCongr
+theorem products_congr : ProductCongr (equiv meaning) (products Prim) :=
+  ProductMap.transportCongr (evaluation_laws meaning) (evaluation_reflects meaning)
+    (equalityCongr _) (evaluation_preserves_products meaning) FunctionCategory.productCongr
 
-theorem productLaws : ProductLaws (equiv meaning) (products Prim) :=
-  ProductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
-    (equalityCongr _) FunctionCategory.laws (productComparisonLaws meaning)
-    (evaluationProducts meaning) FunctionCategory.productCongr FunctionCategory.productLaws
+theorem products_laws : ProductLaws (equiv meaning) (products Prim) :=
+  ProductMap.transportLaws (evaluation_laws meaning) (evaluation_reflects meaning)
+    (equalityCongr _) FunctionCategory.laws (productComparison_laws meaning)
+    (evaluation_preserves_products meaning) FunctionCategory.productCongr FunctionCategory.productLaws
 
 /-- Evaluation compares sum values without identifying raw syntax trees. -/
 def coproductComparison : CoproductMap (evaluation meaning) (coproducts Prim)
     FunctionCategory.coproducts := fun _ _ => ⟨id, id⟩
 
-theorem coproductComparisonLaws (a b : Ty) :
+theorem coproductComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (coproductComparison meaning a b) := ⟨rfl, rfl⟩
 
-theorem evaluationCoproducts : CoproductMapLaws (equality _) (coproductComparison meaning) where
+theorem evaluation_preserves_coproducts : CoproductMapLaws (equality _) (coproductComparison meaning) where
   inl := rfl
   inr := rfl
   copair _ _ := rfl
 
-theorem coproductCongr : CoproductCongr (ops Prim) (equiv meaning) (coproducts Prim) :=
-  CoproductMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
-    (equalityCongr _) (evaluationCoproducts meaning) FunctionCategory.coproductCongr
+theorem coproducts_congr : CoproductCongr (ops Prim) (equiv meaning) (coproducts Prim) :=
+  CoproductMap.transportCongr (evaluation_laws meaning) (evaluation_reflects meaning)
+    (equalityCongr _) (evaluation_preserves_coproducts meaning) FunctionCategory.coproductCongr
 
-theorem coproductLaws : CoproductLaws (ops Prim) (equiv meaning) (coproducts Prim) :=
-  CoproductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
-    (equalityCongr _) FunctionCategory.laws (coproductComparisonLaws meaning)
-    (evaluationCoproducts meaning) FunctionCategory.coproductCongr FunctionCategory.coproductLaws
+theorem coproducts_laws : CoproductLaws (ops Prim) (equiv meaning) (coproducts Prim) :=
+  CoproductMap.transportLaws (evaluation_laws meaning) (evaluation_reflects meaning)
+    (equalityCongr _) FunctionCategory.laws (coproductComparison_laws meaning)
+    (evaluation_preserves_coproducts meaning) FunctionCategory.coproductCongr FunctionCategory.coproductLaws
 
-theorem evaluationDistribution : DistributionMapLaws (equality _)
+theorem evaluation_preserves_distribution : DistributionMapLaws (equality _)
     (productComparison meaning) (coproductComparison meaning)
     (distribution Prim) FunctionCategory.distribution where
   distribute := by
@@ -137,44 +137,44 @@ theorem evaluationDistribution : DistributionMapLaws (equality _)
     funext x
     rcases x with ⟨x, y | y⟩ <;> rfl
 
-theorem distributionLaws : DistributionLaws (ops Prim) (equiv meaning)
+theorem distribution_laws : DistributionLaws (ops Prim) (equiv meaning)
     (products Prim) (coproducts Prim) (distribution Prim) :=
   DistributionMap.transportLaws (equalityCongr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws
     FunctionCategory.coproductCongr FunctionCategory.coproductLaws
-    (evaluationLaws meaning) (evaluationReflects meaning)
-    (evaluationProducts meaning) (evaluationCoproducts meaning)
-    (productComparisonLaws meaning) (coproductComparisonLaws meaning)
-    (evaluationDistribution meaning) FunctionCategory.distributionLaws
+    (evaluation_laws meaning) (evaluation_reflects meaning)
+    (evaluation_preserves_products meaning) (evaluation_preserves_coproducts meaning)
+    (productComparison_laws meaning) (coproductComparison_laws meaning)
+    (evaluation_preserves_distribution meaning) FunctionCategory.distributionLaws
 
 /-- Raw closures are interpreted as functions; comparison arrows are explicit. -/
 def closedComparison : ClosedMap (evaluation meaning) (closed Prim) FunctionCategory.closed :=
   fun _ _ => ⟨id, id⟩
 
-theorem closedComparisonLaws (a b : Ty) :
+theorem closedComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (closedComparison meaning a b) := ⟨rfl, rfl⟩
 
-theorem evaluationClosed : ClosedMapLaws (equality _) (productComparison meaning)
+theorem evaluation_preserves_closed : ClosedMapLaws (equality _) (productComparison meaning)
     (closedComparison meaning) where
   curry _ := rfl
   evaluation := rfl
 
-theorem closedCongr : ClosedCongr (equiv meaning) (products Prim) (closed Prim) :=
-  ClosedMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
-    (equalityCongr _) FunctionCategory.closedCongr (evaluationClosed meaning)
+theorem closed_congr : ClosedCongr (equiv meaning) (products Prim) (closed Prim) :=
+  ClosedMap.transportCongr (evaluation_laws meaning) (evaluation_reflects meaning)
+    (equalityCongr _) FunctionCategory.closedCongr (evaluation_preserves_closed meaning)
 
 /-- Beta, eta and naturality use shared transport, with no induction on raw code. -/
-theorem closedLaws : ClosedLaws (equiv meaning) (products Prim) (closed Prim) :=
-  ClosedMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+theorem closed_laws : ClosedLaws (equiv meaning) (products Prim) (closed Prim) :=
+  ClosedMap.transportLaws (evaluation_laws meaning) (evaluation_reflects meaning)
     (equalityCongr _) FunctionCategory.laws FunctionCategory.productCongr
     FunctionCategory.productLaws FunctionCategory.closedCongr FunctionCategory.closedLaws
-    (productComparisonLaws meaning) (closedComparisonLaws meaning)
-    (evaluationProducts meaning) (evaluationClosed meaning)
+    (productComparison_laws meaning) (closedComparison_laws meaning)
+    (evaluation_preserves_products meaning) (evaluation_preserves_closed meaning)
 
 /-- Recovery of `CategoricalCompiler.closed_eta` through the public transport interface. -/
 theorem closed_eta {a b c : Ty} (f : Code Prim a (.arr b c)) :
     Equivalent meaning (.curry (.comp .apply (.pair (.comp f .fst) .snd))) f :=
-  (closedLaws meaning).eta f
+  (closed_laws meaning).eta f
 
 /-- Semantic eta does not identify the closure constructor with the original tree. -/
 theorem closed_eta_not_equal :
@@ -200,5 +200,5 @@ theorem association_classes {a b c d : Ty}
 theorem product_classes {a b c : Ty} (f : Code Prim a (.prod b c)) :
     HomQuotient.classOf (E := equiv meaning) (.pair (.comp .fst f) (.comp .snd f)) =
       HomQuotient.classOf f :=
-  (HomQuotient.mk_eq_iff _ _).mpr ((productLaws meaning).pair_eta f)
+  (HomQuotient.mk_eq_iff _ _).mpr ((products_laws meaning).pair_eta f)
 end SquareKit.CodeCategory

@@ -27,7 +27,7 @@ theorem preserves : InitialMapLaws (equality _) comparison :=
   ⟨funext fun x => Empty.elim x⟩
 
 theorem codeInitialLaws : InitialLaws (CodeCategory.equiv meaning) codeInitial :=
-  InitialMap.transportLaws (CodeCategory.evaluationReflects meaning) (equalityCongr _)
+  InitialMap.transportLaws (CodeCategory.evaluation_reflects meaning) (equalityCongr _)
     FunctionCategory.laws inverse.inv_hom preserves FunctionCategory.initialLaws
 
 /-- Initial uniqueness holds for every raw arrow out of the interpreted empty base. -/
@@ -67,7 +67,7 @@ theorem composedInverse : ComparisonLaws (equality _) composed :=
 
 /-- Initial laws are recovered after two interpretations, without product assumptions. -/
 example : InitialLaws (CodeCategory.equiv meaning) codeInitial :=
-  InitialMap.transportLaws (CodeCategory.evaluationReflects meaning) (equalityCongr _)
+  InitialMap.transportLaws (CodeCategory.evaluation_reflects meaning) (equalityCongr _)
     FunctionCategory.laws composedInverse.inv_hom composedPreserves wrappedLaws
 
 /-- Quotienting retains precisely the selected semantic relation. -/

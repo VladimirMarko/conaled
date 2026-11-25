@@ -12,7 +12,7 @@ def bundledEvaluation := (CodeCategory.evaluation meaning).comp FunctionCategory
 
 theorem bundledEvaluationLaws : MapLaws (bundledEvaluation meaning) (CodeCategory.equiv meaning)
     (equality (ofCategory (Type))) :=
-  RawMap.comp_laws (CodeCategory.evaluationLaws meaning) FunctionCategory.toTypes_laws
+  RawMap.comp_laws (CodeCategory.evaluation_laws meaning) FunctionCategory.toTypes_laws
 
 /-- Associativity is inherited under semantic equivalence, including distinct raw trees. -/
 theorem induced_association {a b c d : Ty}
@@ -25,7 +25,7 @@ theorem induced_association {a b c d : Ty}
 
 /-- The quotient adapter is a Mathlib functor between lawful models. -/
 def evaluationOnClasses := RawMap.quotientFunctor (CodeCategory.evaluation meaning)
-  (CodeCategory.evaluationLaws meaning) (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
+  (CodeCategory.evaluation_laws meaning) (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
   (equalityCongr _) FunctionCategory.laws
 
 theorem evaluationOnClasses_apply {a b : Ty} (f : Code Prim a b) :
@@ -48,10 +48,10 @@ theorem evaluationPreservesProducts (a b : Ty) :
       (evaluationOnClasses meaning) :=
   HomQuotient.preservesBinaryProduct
     (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-    (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluationLaws meaning)
-    (CodeCategory.productCongr meaning) FunctionCategory.productCongr
-    (CodeCategory.productLaws meaning) FunctionCategory.productLaws
-    (CodeCategory.productComparisonLaws meaning) (CodeCategory.evaluationProducts meaning) ⟨a⟩ ⟨b⟩
+    (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluation_laws meaning)
+    (CodeCategory.products_congr meaning) FunctionCategory.productCongr
+    (CodeCategory.products_laws meaning) FunctionCategory.productLaws
+    (CodeCategory.productComparison_laws meaning) (CodeCategory.evaluation_preserves_products meaning) ⟨a⟩ ⟨b⟩
 
 /-- The same quotient functor preserves the empty-diagram limit. -/
 theorem evaluationPreservesTerminal :
@@ -62,8 +62,8 @@ theorem evaluationPreservesTerminal :
       (evaluationOnClasses meaning) :=
   HomQuotient.preservesTerminal
     (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-    (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluationLaws meaning)
-    (CodeCategory.terminalComparisonLaws meaning)
-    (CodeCategory.terminalLaws meaning) FunctionCategory.terminalLaws
+    (equalityCongr _) FunctionCategory.laws (CodeCategory.evaluation_laws meaning)
+    (CodeCategory.terminalComparison_laws meaning)
+    (CodeCategory.terminal_laws meaning) FunctionCategory.terminalLaws
 
 end Examples.CategoryMaps

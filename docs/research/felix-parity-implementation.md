@@ -74,10 +74,10 @@ splitting the work into tickets does not lose a requirement.
 3. `RawMap.induced`, `induced_reflects`, `transportLaws`,
    `TerminalMap.transportLaws`, `ProductMap.transportLaws` require induced
    equivalence or reflection. None infers raw equality from preservation alone.
-4. `CodeCategory.laws`, `terminalLaws`, `productLaws` derive associativity,
+4. `CodeCategory.laws`, `terminal_laws`, `products_laws` derive associativity,
    uniqueness and beta/eta from evaluation. `Examples.CategoryMaps` checks
    composed evaluation through Mathlib Type arrows.
-5. `CodeCategory.evaluationProducts` is strict; `MatrixCompiler.Maps`
+5. `CodeCategory.evaluation_preserves_products` is strict; `MatrixCompiler.Maps`
    composes coordinate and nested-value interpretations with encode/decode.
    [Map transport evidence](category-map-transport.md) states the pinned
    `LawfulCategoryᶠ` and `LawfulCartesianᶠ` hypotheses.
@@ -322,8 +322,8 @@ transport exclusions do not describe this extension.
 | Uncurrying preservation | `ClosedMap.map_uncurry`: category/product/evaluation preservation, target category/product laws and product comparison inverses. No source closed laws or exponential inverse equations are needed for this lemma. |
 | Beta, eta and naturality | `ClosedMap.transportLaws`: lawful target category/products/closure, local preservation, both comparison inverses and reflection. `RawMap.induced` and `induced_reflects` supply the source relation without injectivity. |
 | Identity and composition | `ClosedMap.id`, `comp`, `id_laws`, `comp_laws`, `id_inverse`, `comp_inverse`; reuse `RawMap.comp_laws`, `ProductMap.comp` and comparison composition. |
-| Raw-code consumer | `CodeCategory.closedCongr`, `closedLaws`, `closed_eta` use the existing evaluation map. `closed_eta_not_equal` retains the distinction between raw trees and semantic equivalence. |
-| Non-strict and composed uses | `Examples.ClosedTransport.Wrapped.closedLaws` transports through `Box (a × b)` and `Box (a → b)` comparisons. `composedClosedLaws` interprets raw code through ordinary functions into wrapped operations using shared composition and the induced relation. |
+| Raw-code consumer | `CodeCategory.closed_congr`, `closed_laws`, `closed_eta` use the existing evaluation map. `closed_eta_not_equal` retains the distinction between raw trees and semantic equivalence. |
+| Non-strict and composed uses | `Examples.ClosedTransport.Wrapped.closed_laws` transports through `Box (a × b)` and `Box (a → b)` comparisons. `composedInterpretation_closed_laws` interprets raw code through ordinary functions into wrapped operations using shared composition and the induced relation. |
 
 The existing `ClosedMapLaws` fields and comparison inverse equations suffice.
 `map_uncurry` derives the needed coherence from evaluation and product
@@ -357,7 +357,7 @@ chosen hom setoids without quotienting executable representatives.
 Statement review checked all new declarations against those hypotheses and
 relations. Raw eta was already provable in the foundation; the missing piece
 was its derivation through the shared interface. The retained cases connect
-beta, eta and environment naturality to `CodeCategory.closedLaws`, check both
+beta, eta and environment naturality to `CodeCategory.closed_laws`, check both
 inverse equations for genuinely wrapped carriers, and derive source laws after
 composing interpretations. `Wrapped.captured_offset` checks the expected
 addition result for arbitrary captured and applied values. No claim concerns
