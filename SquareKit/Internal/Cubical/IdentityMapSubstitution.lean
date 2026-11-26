@@ -14,13 +14,13 @@ theorem normalizedIdentityMap_substitution (x : Δ.Elements)
       ((normalizedIdentityMap (Functor.whiskerLeft σ.mapElements f) (a.reindex σ) (b.reindex σ)).app x q) := by
   have hq : q = ((identityReindex A a b σ).app x p.fromLocal).toLocal :=
     eq_of_heq (hpq.symm.trans ((heq_of_eq p.toLocal_fromLocal).symm.trans
-      (identityToLocal_substitution A a b σ x p.fromLocal)))
+      (identityReindex_toLocal_heq A a b σ x p.fromLocal)))
   subst q
   change HEq (IdentityElement.map f p.fromLocal).toLocal
     (IdentityElement.map (Functor.whiskerLeft σ.mapElements f)
       (((identityReindex A a b σ).app x p.fromLocal).toLocal.fromLocal)).toLocal
   rw [LocalIdentity.fromLocal_toLocal]
-  exact identityToLocal_substitution B (a.map f) (b.map f) σ x (IdentityElement.map f p.fromLocal)
+  exact identityReindex_toLocal_heq B (a.map f) (b.map f) σ x (IdentityElement.map f p.fromLocal)
 
 theorem normalizedIdentityMap_reindex (p : Term (normalizedIdentity A a b)) :
     ((p.map (normalizedIdentityMap f a b)).reindex σ).convert

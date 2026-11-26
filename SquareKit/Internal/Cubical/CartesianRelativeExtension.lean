@@ -48,7 +48,7 @@ theorem introOver_reindex (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) (b : Term (reindex A
     Term.reindex (introOver A a σ b p) τ =
       introOver A a (τ ≫ σ) (Term.reindex b τ) (homogeneousReindex p τ) := by
   exact congrArg (sigmaIntro (B := reindex (paths A a) (liftSub A (τ ≫ σ))) (Term.reindex b τ))
-    (Homotopy.pathInverse_reindex (intervalCoefficient (reindex A (projection A)))
+    (Homotopy.pathReindexIso_inv_reindex (intervalCoefficient (reindex A (projection A)))
       (Term.reindex a (projection A)) (generic A) (pair σ b) τ p)
 
 theorem introOver_congr (σ : Δ ⟶ Γ) (b b' : Term (reindex A σ))
@@ -118,7 +118,7 @@ theorem Homotopy.fiberReindexIso_comp {Γ Δ Θ : Context.{u}} {A B : Family Γ}
   rfl
 
 set_option backward.isDefEq.respectTransparency false in
-theorem Homotopy.fiberReindexInverse_map {Γ Δ Θ : Context.{u}} {A B : Family Γ}
+theorem Homotopy.fiberReindexIso_symm_map_reindex {Γ Δ Θ : Context.{u}} {A B : Family Γ}
     (f : A ⟶ B) (b : Term B) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (c : Contractible (fiber (Functor.whiskerLeft σ.mapElements f) (Term.reindex b σ))) :
     Contractible.map (fiberReindexIso f b (τ ≫ σ)).symm
@@ -148,7 +148,7 @@ theorem encodeContr_reindex {Γ Δ : Context.{u}} {A : Family Γ}
   change decodeContr _ = decodeContr _
   rw [decodeContr_reindex, decode_encodeContr, decode_encodeContr]
 
-theorem piInverse_reindex {Γ Δ Θ : Context.{u}} (A : Family Γ) (B : Family (total A))
+theorem piReindexIso_inv_reindex {Γ Δ Θ : Context.{u}} (A : Family Γ) (B : Family (total A))
     (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (p : Term (pi (reindex A σ) (reindex B (liftSub A σ)))) :
     Term.reindex (Term.map (piReindexIso A B σ).inv p) τ =
@@ -164,7 +164,7 @@ theorem piInverse_reindex {Γ Δ Θ : Context.{u}} (A : Family Γ) (B : Family (
     (p.val (τ.mapElements.obj x)))).trans
     (c.inv_hom_id_app_apply x (d.hom.app x (p.val (τ.mapElements.obj x)))).symm
 
-theorem contrInverse_reindex {Γ Δ Θ : Context.{u}} (A : Family Γ)
+theorem contrReindexIso_inv_reindex {Γ Δ Θ : Context.{u}} (A : Family Γ)
     (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) (p : Term (contr (reindex A σ))) :
     Term.reindex (Term.map (contrReindexIso A σ).inv p) τ =
       Term.map (contrReindexIso A (τ ≫ σ)).inv
@@ -211,13 +211,13 @@ theorem reindexedIsEquivSections_comp {Γ Δ Θ : Context.{u}} {A B : Family Γ}
       Term.map (piReindexIso B (contr C) (τ ≫ σ)).inv
         (lam (Term.map (contrReindexIso C (liftSub B (τ ≫ σ))).inv
           (encodeContr (c.reindex (liftSub (reindex B σ) τ)))))
-  rw [piInverse_reindex]
+  rw [piReindexIso_inv_reindex]
   rw [show (piReindexIso (reindex B σ) (reindex (contr C) (liftSub B σ)) τ).hom =
     piReindex (reindex B σ) (reindex (contr C) (liftSub B σ)) τ from rfl]
   rw [lam_reindex]
   apply congrArg (Term.map (piReindexIso B (contr C) (τ ≫ σ)).inv)
   apply congrArg lam
-  rw [contrInverse_reindex, encodeContr_reindex]
+  rw [contrReindexIso_inv_reindex, encodeContr_reindex]
   rfl
 
 /-- Sequential substitution preserves every chosen fiber contraction. -/
@@ -231,7 +231,7 @@ theorem isEquivReindexSections_comp {Γ Δ Θ : Context.{u}} {A B : Family Γ}
   change Term.reindex (reindexedIsEquivSections f σ (Contractible.map i.symm E.fibers)) τ = _
   rw [reindexedIsEquivSections_comp]
   apply congrArg (reindexedIsEquivSections f (τ ≫ σ))
-  exact (Homotopy.fiberReindexInverse_map
+  exact (Homotopy.fiberReindexIso_symm_map_reindex
     (Functor.whiskerLeft (projection B).mapElements f) (generic B) (liftSub B σ)
     (liftSub (reindex B σ) τ) E.fibers).symm
 
@@ -280,7 +280,7 @@ theorem mapReindexSections_comp {Γ Δ Θ : Context.{u}} (A B : Family Γ) (σ :
     Term.reindex (mapReindexSections A B σ f) τ =
       mapReindexSections A B (τ ≫ σ) (Functor.whiskerLeft τ.mapElements f) := by
   change Term.reindex (Term.map (piReindexIso A (reindex B (projection A)) σ).inv (encodeMap f)) τ = _
-  rw [piInverse_reindex]
+  rw [piReindexIso_inv_reindex]
   apply congrArg (Term.map (piReindexIso A (reindex B (projection A)) (τ ≫ σ)).inv)
   exact lam_reindex (Term.map (Functor.whiskerLeft (projection (reindex A σ)).mapElements f) (generic (reindex A σ))) τ
 
@@ -520,13 +520,13 @@ noncomputable def squareTerm : Term (reindex A (NativeSquare.squareBase Γ)) :=
   Term.reindex (filling F hF p) (endpointSub (square (Γ := Γ)) true)
 
 include hF in
-theorem filling_onY (z : (total (interval (square (Γ := Γ)))).Elements)
+theorem filling_on_faceY (z : (total (interval (square (Γ := Γ)))).Elements)
     (h : (faceY (Γ := Γ)).Holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
     (filling F hF p).val z = (tubeY F p).val z h :=
   ((hF.fills _ _ _ (box F hF p)).2 z (Or.inl h)).trans
     (glueValue_left (tubeY F p) (tubeX F p) z (Or.inl h) h)
 include hF in
-theorem filling_onX (z : (total (interval (square (Γ := Γ)))).Elements)
+theorem filling_on_faceX (z : (total (interval (square (Γ := Γ)))).Elements)
     (h : (faceX (Γ := Γ)).Holds ((projection (interval (square (Γ := Γ)))).mapElements.obj z)) :
     (filling F hF p).val z = (tubeX F p).val z h :=
   ((hF.fills _ _ _ (box F hF p)).2 z (Or.inr h)).trans
@@ -539,7 +539,7 @@ theorem bottom : Term.reindex (squareTerm F hF p) (endpointSub (line (Γ := Γ))
   intro x
   let z := (endpointSub (square (Γ := Γ)) true).mapElements.obj
     ((endpointSub (line (Γ := Γ)) false).mapElements.obj x)
-  exact (filling_onY F hF p z (Or.inl rfl)).trans
+  exact (filling_on_faceY F hF p z (Or.inl rfl)).trans
     (NativeSquare.tube_left (A := intervalCoefficient A) _ _ z rfl)
 
 include hF in
@@ -548,7 +548,7 @@ theorem top : Term.reindex (squareTerm F hF p) (endpointSub (line (Γ := Γ)) tr
   intro x
   let z := (endpointSub (square (Γ := Γ)) true).mapElements.obj
     ((endpointSub (line (Γ := Γ)) true).mapElements.obj x)
-  exact (filling_onY F hF p z (Or.inr rfl)).trans
+  exact (filling_on_faceY F hF p z (Or.inr rfl)).trans
     ((NativeSquare.tube_right (A := intervalCoefficient A) _ _ z rfl).trans
       (congrArg (fun t => t.val x)
         (NativeSquare.fill_right F hF false (Term.reindex a (projection (interval Γ)))
@@ -561,7 +561,7 @@ theorem left : Term.reindex (squareTerm F hF p) (intervalSub (endpointSub Γ fal
   intro x
   let z := (endpointSub (square (Γ := Γ)) true).mapElements.obj
     ((intervalSub (endpointSub Γ false)).mapElements.obj x)
-  exact (filling_onX F hF p z (Or.inl rfl)).trans
+  exact (filling_on_faceX F hF p z (Or.inl rfl)).trans
     (NativeSquare.tube_left (A := intervalCoefficient A) _ _ ((swapXY (Γ := Γ)).mapElements.obj z) rfl)
 
 include hF in
@@ -570,7 +570,7 @@ theorem right : Term.reindex (squareTerm F hF p) (intervalSub (endpointSub Γ tr
   intro x
   let z := (endpointSub (square (Γ := Γ)) true).mapElements.obj
     ((intervalSub (endpointSub Γ true)).mapElements.obj x)
-  exact (filling_onX F hF p z (Or.inr rfl)).trans
+  exact (filling_on_faceX F hF p z (Or.inr rfl)).trans
     ((NativeSquare.tube_right (A := intervalCoefficient A) _ _ ((swapXY (Γ := Γ)).mapElements.obj z) rfl).trans
       (congrArg (fun t => t.val x)
         (NativeSquare.fill_right F hF false (Term.reindex a (projection (interval Γ)))

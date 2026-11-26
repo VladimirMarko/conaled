@@ -66,7 +66,7 @@ lemma unit_aggregate :
     (aggregate f).hom = (f i).hom at h
   simpa only [Category.assoc, Sigma.ι_comp_desc] using h
 
-lemma imageSieve_presheafDesc {U : C} (x : X.obj.obj (op U)) :
+lemma imageSieve_presheaf_desc {U : C} (x : X.obj.obj (op U)) :
     Presheaf.imageSieve (Sigma.desc (fun i => (f i).hom)) x = imageSieve f x := by
   ext V k
   constructor
@@ -89,9 +89,9 @@ theorem jointlyLocallySurjective_iff_aggregate :
   rw [← Presheaf.isLocallySurjective_iff_of_fac J (unit_aggregate f)]
   constructor
   · intro h
-    exact ⟨fun x => (imageSieve_presheafDesc f x).symm ▸ h x⟩
+    exact ⟨fun x => (imageSieve_presheaf_desc f x).symm ▸ h x⟩
   · intro h U x
-    rw [← imageSieve_presheafDesc]
+    rw [← imageSieve_presheaf_desc]
     exact Presheaf.imageSieve_mem J (Sigma.desc (fun i => (f i).hom)) x
 
 theorem aggregate_comparison :
@@ -99,7 +99,7 @@ theorem aggregate_comparison :
   (coproductIsColimit Y).coconePointUniqueUpToIso_hom_desc (coproductIsCoproduct Y)
 
 /-- The comparison also holds for Mathlib's chosen sheaf coproduct map. -/
-theorem jointlyLocallySurjective_iff_sigmaDesc :
+theorem jointlyLocallySurjective_iff_isLocallySurjective_desc :
     JointlyLocallySurjective f ↔ Presheaf.IsLocallySurjective J (Sigma.desc f).hom := by
   rw [jointlyLocallySurjective_iff_aggregate]
   exact Presheaf.isLocallySurjective_iff_of_fac J

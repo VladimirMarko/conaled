@@ -23,7 +23,7 @@ theorem normalizedPathIso_reindex {Γ Δ : Context.{u}} (B : Family (total (inte
     cases e
     rfl
   exact eq_of_heq ((cast_heq (normalizedPath_reindex B a₀ a₁ σ) p.toLocal).trans
-    (pathToLocal_substitution B a₀ a₁ σ x p))
+    (pathReindex_toLocal_heq B a₀ a₁ σ x p))
 
 noncomputable def normalizedPathFilling {Γ : Context.{u}} {B : Family (total (interval Γ))}
     (F : Filling B) (hF : F.Lawful)

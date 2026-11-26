@@ -58,7 +58,7 @@ theorem localPath_substitution {Γ Δ : Context.{u}} (B : Family (total (interva
     (fun p => p.val.toLocal) (fun p => p.val.toLocal)
     (fun p => (toLocal_substitution (interval Γ) B σ x p.val).symm)
 
-theorem pathToLocal_substitution {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
+theorem pathReindex_toLocal_heq {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
     (a₁ : Term (reindex B (endpointSub Γ true))) (σ : Δ ⟶ Γ) (x : Δ.Elements)
     (p : PathElement B a₀ a₁ (σ.mapElements.obj x)) :
@@ -102,18 +102,18 @@ theorem normalizedPath_reindex {Γ Δ : Context.{u}} (B : Family (total (interva
     localPath_substitution B a₀ a₁ σ
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro s t hst
   change LocalPath B a₀ a₁ (σ.mapElements.obj x) at s
   change LocalPath (reindex B (liftSub (interval Γ) σ)) (a₀.reindex σ) (a₁.reindex σ) x at t
   have ht : t = ((pathReindex B a₀ a₁ σ).app x s.fromLocal).toLocal :=
     eq_of_heq (hst.symm.trans ((heq_of_eq s.toLocal_fromLocal).symm.trans
-      (pathToLocal_substitution B a₀ a₁ σ x s.fromLocal)))
+      (pathReindex_toLocal_heq B a₀ a₁ σ x s.fromLocal)))
   subst t
   change HEq ((path B a₀ a₁).map (σ.mapElements.map f) s.fromLocal).toLocal
     ((path (reindex B (liftSub (interval Γ) σ)) (a₀.reindex σ) (a₁.reindex σ)).map f
       (((pathReindex B a₀ a₁ σ).app x s.fromLocal).toLocal.fromLocal)).toLocal
-  exact (pathToLocal_substitution B a₀ a₁ σ y
+  exact (pathReindex_toLocal_heq B a₀ a₁ σ y
     ((path B a₀ a₁).map (σ.mapElements.map f) s.fromLocal)).trans
       (heq_of_eq (congrArg (fun p =>
         ((path (reindex B (liftSub (interval Γ) σ)) (a₀.reindex σ) (a₁.reindex σ)).map f p).toLocal)

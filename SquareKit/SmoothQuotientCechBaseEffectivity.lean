@@ -40,7 +40,7 @@ variable {H : Type} [Group H] {M X : Sheaf topology Type}
 variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 variable {Γ γ} (hΓ : Typed.CtxDeriv.{2} Γ γ)
 
-theorem baseVariable_functor (Y : Sheaf topology Type) :
+theorem baseFunctor_variable_source (Y : Sheaf topology Type) :
     baseFunctor ((Typed.Authoring.BasePoint.variable hΓ).code
       (SmoothQuotientSource.model a Y)).down =
     CechMatching.Comprehension.Constant.fiberFunctor
@@ -68,7 +68,7 @@ theorem baseCoefficientProjection_variable :
         (Grpd.of (AsSmall.{0} (Object a (SplitSheaf.extension A)))) from
       eq_of_heq (CechMatching.Comprehension.Constant.projectionOfEq_localMap
         (relativeFamilyData_base a hΓ A) _ _)]
-    exact (baseVariable_functor a hΓ (SplitSheaf.extension A)).symm
+    exact (baseFunctor_variable_source a hΓ (SplitSheaf.extension A)).symm
   · change (baseCoefficientProjection a A hΓ).doubleMap = _
     rw [show (baseCoefficientProjection a A hΓ).doubleMap =
       CechMatching.Comprehension.Constant.fiberFunctor
@@ -76,7 +76,7 @@ theorem baseCoefficientProjection_variable :
         (Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Cech.double A)))) from
       eq_of_heq (CechMatching.Comprehension.Constant.projectionOfEq_doubleMap
         (relativeFamilyData_base a hΓ A) _ _)]
-    exact (baseVariable_functor a hΓ (SplitSheaf.Cech.double A)).symm
+    exact (baseFunctor_variable_source a hΓ (SplitSheaf.Cech.double A)).symm
   · change (baseCoefficientProjection a A hΓ).tripleMap = _
     rw [show (baseCoefficientProjection a A hΓ).tripleMap =
       CechMatching.Comprehension.Constant.fiberFunctor
@@ -84,7 +84,7 @@ theorem baseCoefficientProjection_variable :
         (Grpd.of (AsSmall.{0} (Object a (SplitSheaf.Cech.triple A)))) from
       eq_of_heq (CechMatching.Comprehension.Constant.projectionOfEq_tripleMap
         (relativeFamilyData_base a hΓ A) _ _)]
-    exact (baseVariable_functor a hΓ (SplitSheaf.Cech.triple A)).symm
+    exact (baseFunctor_variable_source a hΓ (SplitSheaf.Cech.triple A)).symm
 
 theorem baseCoefficientProjection_variable_functor :
     (generatedToRelative a hΓ (.base hΓ) A).functor ⋙
@@ -93,7 +93,7 @@ theorem baseCoefficientProjection_variable_functor :
       (Typed.Authoring.BasePoint.variable hΓ).deriv A).functor := by
   rw [← CechMatching.StrictMap.functor_comp, baseCoefficientProjection_variable]
 
-theorem baseVariable_sourceFunctor :
+theorem baseFunctor_variable_cech :
     baseFunctor ((Typed.Authoring.BasePoint.variable hΓ).code (model a A)).down =
     CechMatching.Comprehension.Constant.fiberFunctor
       (show Grpd.{1,1} from γ (model a A))
@@ -105,11 +105,11 @@ theorem baseVariable_sourceFunctor :
   rw [he]
   rfl
 
-theorem baseVariable_fiber (c : (show Grpd.{1,1} from γ (model a A))) :
+theorem baseFunctor_variable_fiber (c : (show Grpd.{1,1} from γ (model a A))) :
     Grothendieck.ι (Typed.baseCode γ (model a A) ⋙ Grpd.forgetToCat) c ⋙
       baseFunctor ((Typed.Authoring.BasePoint.variable hΓ).code (model a A)).down =
     𝟭 (AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A)) := by
-  rw [baseVariable_sourceFunctor]
+  rw [baseFunctor_variable_cech]
   rfl
 
 /-- A whole-functor base-term identity determines the actual fixed-base
@@ -127,7 +127,7 @@ theorem fiber_coefficient_evaluation_of_term
     dsimp only [fiberTotalEvaluation, totalMatchingEvaluation]
     rw [Functor.assoc, Functor.assoc]
     rw [baseCoefficientProjection_variable_functor, hF, ← Functor.assoc,
-      baseVariable_fiber]
+      baseFunctor_variable_fiber]
     rfl
 
 def baseEvaluationComparisonOfTerm

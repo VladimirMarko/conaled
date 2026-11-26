@@ -163,7 +163,7 @@ private theorem fiberReindexIso_comp {Ξ Ω Λ : Context.{u}} {C D : Family Ξ}
   rfl
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem fiberPresentation_reindex {Ξ Ω Λ : Context.{u}} {C D : Family Ξ}
+private theorem fiberReindexIso_comp_eqToIso {Ξ Ω Λ : Context.{u}} {C D : Family Ξ}
     (k : C ⟶ D) (b : Term D) (ρ : Ω ⟶ Ξ) (τ : Λ ⟶ Ω)
     {l : Presheaf.reindex C ρ ⟶ Presheaf.reindex D ρ}
     (h : Functor.whiskerLeft ρ.mapElements k = l) :
@@ -184,9 +184,9 @@ theorem start_reindex :
       start (f := Functor.whiskerLeft σ.mapElements f) (Functor.whiskerLeft σ.mapElements g)
         (homogeneousReindex H (liftSub A σ)) := by
   let b := (generic B).reindex (projection (interval (total B)))
-  have hl := fiberPresentation_reindex (movingMap g H) b
+  have hl := fiberReindexIso_comp_eqToIso (movingMap g H) b
     (endpointSub (total B) false) (liftSub B σ) (movingMap_zero g H)
-  have hr := fiberPresentation_reindex (movingMap g H) b
+  have hr := fiberReindexIso_comp_eqToIso (movingMap g H) b
     (liftSub (interval (total B)) (liftSub B σ))
     (endpointSub (total (Presheaf.reindex B σ)) false) (movingMap_reindex g H σ)
   let q := eqToIso (congrArg (fun k => homotopyFiber k (generic (Presheaf.reindex B σ)))
@@ -207,9 +207,9 @@ theorem finish_reindex :
       finish (f := Functor.whiskerLeft σ.mapElements f) (Functor.whiskerLeft σ.mapElements g)
         (homogeneousReindex H (liftSub A σ)) := by
   let b := (generic B).reindex (projection (interval (total B)))
-  have hl := fiberPresentation_reindex (movingMap g H) b
+  have hl := fiberReindexIso_comp_eqToIso (movingMap g H) b
     (endpointSub (total B) true) (liftSub B σ) (movingMap_one g H)
-  have hr := fiberPresentation_reindex (movingMap g H) b
+  have hr := fiberReindexIso_comp_eqToIso (movingMap g H) b
     (liftSub (interval (total B)) (liftSub B σ))
     (endpointSub (total (Presheaf.reindex B σ)) true) (movingMap_reindex g H σ)
   let q := eqToIso (congrArg (fun k => homotopyFiber k (generic (Presheaf.reindex B σ)))
@@ -224,7 +224,7 @@ theorem finish_reindex :
 
 variable (FA : Filling A) (hFA : FA.Lawful) (FB : Filling B) (hFB : FB.Lawful)
 
-private theorem fiberFilling_congr {Ξ : Context.{u}} {C D : Family Ξ} {k l : C ⟶ D}
+private theorem homotopyFiberFilling_congr {Ξ : Context.{u}} {C D : Family Ξ} {k l : C ⟶ D}
     (h : k = l) (b : Term D) (F : Filling C) (hF : F.Lawful) (G : Filling D) (hG : G.Lawful) :
     (homotopyFiberFilling k b F hF G hG).transport
       (eqToIso (congrArg (fun m => homotopyFiber m b) h)) = homotopyFiberFilling l b F hF G hG := by
@@ -245,7 +245,7 @@ theorem filling_reindex :
   refine (congrArg (Filling.transport q)
     (SelectedMapHomotopySubstitution.homotopyFiberFilling_reindex (movingMap g H) _
       (FA.reindex baseSub) (hFA.reindex _) (FB.reindex baseSub) (hFB.reindex _) L)).trans ?_
-  exact fiberFilling_congr (movingMap_reindex g H σ) _ _ _ _ _
+  exact homotopyFiberFilling_congr (movingMap_reindex g H σ) _ _ _ _ _
 
 theorem equivalence_reindex :
     HEq (((equivalence g H FA hFA FB hFB).reindex (liftSub B σ)).conjugateIso

@@ -33,7 +33,7 @@ def restrictionComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) :
         SmoothQuotientCechLocal.localMap a A hΓ :=
   eqToIso (context_restriction a A hΓ) ≪≫ contextLocalComparison a A hΓ
 
-theorem primitiveRestrictionOverlap_eq :
+theorem baseEquivalence_restriction_overlap :
     ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A)) ⋙
       restriction (SplitSheaf.Cech.first A) =
     ((baseEquivalence a A).functor ⋙ restriction (SplitSheaf.p A)) ⋙
@@ -43,7 +43,7 @@ theorem primitiveRestrictionOverlap_eq :
 theorem localComparison_overlap :
     isoWhiskerRight (localComparison a A) (restriction (SplitSheaf.Cech.first A)) ≪≫
       SmoothQuotientCechLocal.overlap a A =
-    eqToIso (primitiveRestrictionOverlap_eq a A) ≪≫
+    eqToIso (baseEquivalence_restriction_overlap a A) ≪≫
       isoWhiskerRight (localComparison a A) (restriction (SplitSheaf.Cech.second A)) := by
   apply Iso.ext
   apply NatTrans.ext
@@ -80,7 +80,7 @@ def parameterRecovery (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (parameterRestrictedFiber a A f) (SmoothQuotientCechLocal.parameterFiber a A f)
     (localComparison_restrict_square a A f) hΓ
 
-theorem primitiveRecovery_cocycle :
+theorem localComparison_cocycle :
     isoWhiskerRight (localComparison a A) (restriction (SplitSheaf.Cech.first A)) ≪≫
       SmoothQuotientCechLocal.overlap a A =
     isoWhiskerRight (localComparison a A) (restriction (SplitSheaf.Cech.second A)) := by
@@ -109,14 +109,14 @@ def recoveryTriangle : AlignedTriangle
   α' := parameterRestrictedFiber a A (SplitSheaf.Cech.second A)
   δ' := SmoothQuotientCechLocal.secondFiber a A
   hm := rfl
-  hf := primitiveRestrictionOverlap_eq a A
+  hf := baseEquivalence_restriction_overlap a A
   hl := rfl
   ha := HEq.rfl
   hb := HEq.rfl
   hd := HEq.rfl
   cocycle := by
     simpa only [eqToIso_refl, Iso.trans_refl, Iso.refl_symm, Iso.refl_trans] using
-      primitiveRecovery_cocycle a A
+      localComparison_cocycle a A
   squareη := localComparison_restrict_square a A (SplitSheaf.Cech.first A)
   squareθ := SmoothQuotientCechLocal.overlap_square a A
   squareζ := localComparison_restrict_square a A (SplitSheaf.Cech.second A)

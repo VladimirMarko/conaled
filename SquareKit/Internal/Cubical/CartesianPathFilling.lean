@@ -303,7 +303,7 @@ variable {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
   (ht : (pathFillingBox p φ r b).Fills t)
 
 include ht
-theorem pathFillingBody_zero :
+theorem pathFillingBodyPath_zero :
     (Term.reindex ((Term.reindex t (swapIntervals Δ))) (endpointSub (total (interval Δ)) false)) = (Term.reindex a₀ p) := by
   apply Term.ext
   intro x
@@ -318,7 +318,7 @@ theorem pathFillingBody_zero :
     (intervalFace_iff false _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_zero ((swapIntervals Δ).mapElements.obj z) hp hz))
 
-theorem pathFillingBody_one :
+theorem pathFillingBodyPath_one :
     (Term.reindex ((Term.reindex t (swapIntervals Δ))) (endpointSub (total (interval Δ)) true)) = (Term.reindex a₁ p) := by
   apply Term.ext
   intro x
@@ -334,7 +334,7 @@ theorem pathFillingBody_one :
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_one ((swapIntervals Δ).mapElements.obj z) hp hz))
 
 def pathFillingBodyPath : Term (path (reindex B (liftSub (interval Γ) p)) ((Term.reindex a₀ p)) ((Term.reindex a₁ p))) :=
-  pathLam ((Term.reindex t (swapIntervals Δ))) (pathFillingBody_zero p φ r b t ht) (pathFillingBody_one p φ r b t ht)
+  pathLam ((Term.reindex t (swapIntervals Δ))) (pathFillingBodyPath_zero p φ r b t ht) (pathFillingBodyPath_one p φ r b t ht)
 
 end
 

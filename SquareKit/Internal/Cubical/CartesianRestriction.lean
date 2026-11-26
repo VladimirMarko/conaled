@@ -58,7 +58,7 @@ def totalMap {Γ : Context.{u}} (A : Family Γ) {I J : Cubeᵒᵖ} (f : I ⟶ J)
     Σ y : Γ.obj J, A.obj (Γ.elementsMk J y) :=
   ⟨Γ.map f z.1, A.map (Functor.Elements.homMk f rfl) z.2⟩
 
-theorem totalMap_ofHom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
+theorem totalMap_hom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) (a : A.obj x) :
     totalMap A f.hom ⟨x.val, a⟩ = ⟨y.val, A.map f a⟩ := by
   rcases x with @⟨I, x⟩
@@ -76,7 +76,7 @@ def total {Γ : Context.{u}} (A : Family Γ) : Context.{u} where
     apply ConcreteCategory.hom_ext
     intro z
     rcases z with ⟨x,a⟩
-    simpa using totalMap_ofHom A (𝟙 (Γ.elementsMk I x)) a
+    simpa using totalMap_hom A (𝟙 (Γ.elementsMk I x)) a
   map_comp f g := by
     apply ConcreteCategory.hom_ext
     intro z
@@ -87,10 +87,10 @@ def total {Γ : Context.{u}} (A : Family Γ) : Context.{u} where
       Functor.Elements.homMk g rfl
     change totalMap A (f ≫ g) ⟨x,a⟩ = totalMap A g (totalMap A f ⟨x,a⟩)
     calc
-      _ = ⟨Γ.map g (Γ.map f x), A.map (p ≫ q) a⟩ := totalMap_ofHom A (p ≫ q) a
+      _ = ⟨Γ.map g (Γ.map f x), A.map (p ≫ q) a⟩ := totalMap_hom A (p ≫ q) a
       _ = ⟨Γ.map g (Γ.map f x), A.map q (A.map p a)⟩ := by simp
-      _ = totalMap A g ⟨Γ.map f x, A.map p a⟩ := (totalMap_ofHom A q _).symm
-      _ = _ := congrArg (totalMap A g) (totalMap_ofHom A p a).symm
+      _ = totalMap A g ⟨Γ.map f x, A.map p a⟩ := (totalMap_hom A q _).symm
+      _ = _ := congrArg (totalMap A g) (totalMap_hom A p a).symm
 
 /-- Both comprehension presentations have exactly the same dependent pairs. -/
 def totalComparison {Γ : Presheaf.Context.{u}} (A : Presheaf.Family Γ) :
@@ -111,19 +111,19 @@ def extendObj {Γ : Context.{u}} (A : Family Γ) (x : Γ.Elements) (a : A.obj x)
 
 def extendHom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) (a : A.obj x) : extendObj A x a ⟶ extendObj A y (A.map f a) :=
-  Functor.Elements.homMk f.hom (totalMap_ofHom A f a)
+  Functor.Elements.homMk f.hom (totalMap_hom A f a)
 
 def extendAlong {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) {a : A.obj x} {a' : A.obj y} (h : A.map f a = a') :
     extendObj A x a ⟶ extendObj A y a' :=
-  Functor.Elements.homMk f.hom ((totalMap_ofHom A f a).trans (by rw [h]; rfl))
+  Functor.Elements.homMk f.hom ((totalMap_hom A f a).trans (by rw [h]; rfl))
 
 def sigmaMap {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
     {x y : Γ.Elements} (f : x ⟶ y) (z : Σ a : A.obj x, B.obj (extendObj A x a)) :
     Σ a : A.obj y, B.obj (extendObj A y a) :=
   ⟨A.map f z.1, B.map (extendHom A f z.1) z.2⟩
 
-theorem sigmaMap_ofHom {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
+theorem sigmaMap_extendAlong {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
     {x y : Γ.Elements} (f : x ⟶ y) {a : A.obj x} {a' : A.obj y}
     (h : A.map f a = a') (b : B.obj (extendObj A x a)) :
     sigmaMap A B f ⟨a,b⟩ = ⟨a', B.map (extendAlong A f h) b⟩ := by
@@ -141,7 +141,7 @@ def sigma {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ 
     have h : A.map (𝟙 x) a = a := by simp
     have he : extendAlong A (𝟙 x) h = 𝟙 (extendObj A x a) := rfl
     change sigmaMap A B (𝟙 x) ⟨a,b⟩ = ⟨a,b⟩
-    simpa only [he, Functor.map_id, types_id_apply] using sigmaMap_ofHom A B (𝟙 x) h b
+    simpa only [he, Functor.map_id, types_id_apply] using sigmaMap_extendAlong A B (𝟙 x) h b
   map_comp f g := by
     apply ConcreteCategory.hom_ext
     intro z
@@ -149,7 +149,7 @@ def sigma {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ 
     have h : A.map (f ≫ g) a = A.map g (A.map f a) := by simp
     have he : extendAlong A (f ≫ g) h = extendHom A f a ≫ extendHom A g (A.map f a) := rfl
     change sigmaMap A B (f ≫ g) ⟨a,b⟩ = sigmaMap A B g (sigmaMap A B f ⟨a,b⟩)
-    have hs := sigmaMap_ofHom A B (f ≫ g) h b
+    have hs := sigmaMap_extendAlong A B (f ≫ g) h b
     rw [he, B.map_comp] at hs
     exact hs
 

@@ -94,7 +94,7 @@ def sigmaMap (f : A ⟶ B) (C : Family (total B)) :
   naturality x y g := by
     apply ConcreteCategory.hom_ext
     intro z
-    exact (sigmaMap_ofHom B C g (a := f.app x z.1)
+    exact (sigmaMap_extendAlong B C g (a := f.app x z.1)
       (a' := f.app y (A.map g z.1)) (f.naturality_apply g z.1).symm z.2).symm
 
 private theorem eqToIso_inv_value {Δ : Context.{u}} {C D : Family Δ} (h : C = D)

@@ -6,7 +6,7 @@ namespace SquareKit.Cubical.Presheaf
 open CategoryTheory
 universe u
 
-private theorem compositionReindex_heq {Γ Δ : Context.{u}} {A : Family Γ} (G : Composition A)
+private theorem composition_reindex_heq {Γ Δ : Context.{u}} {A : Family Γ} (G : Composition A)
     {σ τ : Δ ⟶ Γ} (e : σ = τ) : HEq (G.reindex σ) (G.reindex τ) := by cases e; rfl
 
 private theorem eliminate_heq {Γ : Context.{u}} (A : Family Γ) (a : Term A)
@@ -28,7 +28,7 @@ private theorem eliminate_square {Γ Ω Ξ Ξ' : Context.{u}} (A : Family Γ) (a
     (hd : HEq d d') (G : Composition C) :
     HEq (IdentityElimination.eliminate A a (reindex (reindex C σ) s) d ((G.reindex σ).reindex s))
       (IdentityElimination.eliminate A a (reindex (reindex C τ) t) d' ((G.reindex τ).reindex t)) :=
-  eliminate_heq A a (congrArg (reindex C) hs) hd (compositionReindex_heq G hs)
+  eliminate_heq A a (congrArg (reindex C) hs) hd (composition_reindex_heq G hs)
 
 namespace NormalizedIdentityElimination
 set_option backward.isDefEq.respectTransparency true

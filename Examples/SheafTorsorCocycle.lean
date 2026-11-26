@@ -100,7 +100,7 @@ open SmoothTorsors Orbifolds.QuarterTurn Examples.SheafFamilyDescent
 abbrev aggregate := Sigma.desc charts
 abbrev cover := SplitSheaf.ofDisplay aggregate
 local instance : Presheaf.IsLocallySurjective SmoothOpenSite.topology aggregate.hom :=
-  (SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc charts).mp charts_joint
+  (SheafFamilyCover.jointlyLocallySurjective_iff_isLocallySurjective_desc charts).mp charts_joint
 
 /-- The admitted object is the existing nontrivial torsor on a proper two-chart cover. -/
 def admitted : Admitted (G := SmoothTorsors.group) cover := ⟨nontrivialTorsor,
@@ -138,7 +138,7 @@ example {c d : Datum SmoothTorsors.group cover} (g : Gauge c d) :
 
 abbrev swappedCover := SplitSheaf.ofDisplay (Sigma.desc swappedCharts)
 local instance : Presheaf.IsLocallySurjective SmoothOpenSite.topology (Sigma.desc swappedCharts).hom :=
-  (SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc swappedCharts).mp swappedCharts_joint
+  (SheafFamilyCover.jointlyLocallySurjective_iff_isLocallySurjective_desc swappedCharts).mp swappedCharts_joint
 
 def swap : CoverMap (𝟙 SmoothClutching.base) cover swappedCover :=
   CoverMap.ofSquare aggregate (Sigma.desc swappedCharts)

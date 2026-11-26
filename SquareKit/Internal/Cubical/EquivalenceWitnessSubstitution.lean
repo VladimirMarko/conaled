@@ -14,7 +14,7 @@ private theorem contrReindexIso_comp {Γ Δ Θ : Context.{u}} (A : Family Γ)
   apply Iso.ext
   rfl
 
-private theorem reindexedDecode_reindex {Γ Δ Θ : Context.{u}} {A B : Family Γ}
+private theorem reindexedIsEquivSections_symm_reindex {Γ Δ Θ : Context.{u}} {A B : Family Γ}
     (f : A ⟶ B) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (s : Term (reindex (isEquiv f) σ)) :
     (reindexedIsEquivSections f (τ ≫ σ)).symm (s.reindex τ) =
@@ -54,7 +54,7 @@ theorem isEquivReindexSections_decode_reindex {Γ Δ Θ : Context.{u}} {A B : Fa
   have h'' := congrArg (fun i => (c.reindex ρ).transport i)
     (genericFiberReindexIso_comp f σ τ)
   exact (congrArg (fun d => d.transport (genericFiberReindexIso f (τ ≫ σ)))
-      (reindexedDecode_reindex f σ τ s)).trans
+      (reindexedIsEquivSections_symm_reindex f σ τ s)).trans
     (((congrArg (fun d => d.transport
       (genericFiberReindexIso (Functor.whiskerLeft σ.mapElements f) τ)) h).trans h').trans h'').symm
 

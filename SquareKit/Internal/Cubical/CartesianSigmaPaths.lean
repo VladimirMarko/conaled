@@ -44,7 +44,7 @@ def second {x : Γ.Elements} (p : (whole z₀ z₁).obj x) : DependentPath z₀ 
   val f r := (p.val.val f r).2
   naturality f g r := by
     have h := p.val.naturality f g r
-    have e := sigmaMap_ofHom A B g (congrArg Sigma.fst h) (p.val.val f r).2
+    have e := sigmaMap_extendAlong A B g (congrArg Sigma.fst h) (p.val.val f r).2
     exact (Sigma.mk.inj (e.symm.trans h)).2.eq
   zero f := (p.property f).1
   one f := (p.property f).2
@@ -53,7 +53,7 @@ def assemble {x : Γ.Elements} (p : (base z₀ z₁).obj x) (q : DependentPath z
     (whole z₀ z₁).obj x :=
   ⟨{ val := fun f r => ⟨p.val.val f r, q.val f r⟩
      naturality := fun f g r =>
-       (sigmaMap_ofHom A B g (p.val.naturality f g r) (q.val f r)).trans
+       (sigmaMap_extendAlong A B g (p.val.naturality f g r) (q.val f r)).trans
          (congrArg (Sigma.mk _) (q.naturality f g r)) }, fun f => ⟨q.zero f,q.one f⟩⟩
 
 def equiv (x : Γ.Elements) : (whole z₀ z₁).obj x ≃

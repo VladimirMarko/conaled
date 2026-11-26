@@ -83,26 +83,26 @@ theorem localMap_hat (i : I) : hat (t.localMap i).val (t.localMap i).property =
   unfold localMap hat
   rw [ManifoldRealization.map_reconstruct, Iso.inv_hom_id_assoc]
 
-theorem localValue_factorization :
+theorem sectionMap_localSection :
     (reindex P A.cover).sectionMap t.localSection = t.sectionMap ≫ P.totalMap := by
   change SplitSheaf.pair P.torsor.family A.cover t.localSection ≫ P.totalMap = _
   rw [localSection, SplitSheaf.pair_read]
 
-theorem localValue_chart (i : I) :
+theorem inclusion_sectionMap_localSection (i : I) :
     A.inclusion i ≫ (reindex P A.cover).sectionMap t.localSection =
       hat (t.localMap i).val (t.localMap i).property := by
-  rw [localValue_factorization, ← Category.assoc, sectionMap,
+  rw [sectionMap_localSection, ← Category.assoc, sectionMap,
     SheafCoproductLocal.inclusion_desc, localMap_hat]
   rfl
 
 /-- All reconstructed smooth maps assemble to the actual chosen local value map. -/
-theorem localValue_assembled :
+theorem desc_localMap_eq_sectionMap :
     SheafCoproductLocal.desc A.family (fun i => hat (t.localMap i).val (t.localMap i).property) =
       (reindex P A.cover).sectionMap t.localSection := by
   apply colimit.hom_ext
   intro ⟨i⟩
   change A.inclusion i ≫ _ = A.inclusion i ≫ _
-  rw [SheafCoproductLocal.inclusion_desc, localValue_chart]
+  rw [SheafCoproductLocal.inclusion_desc, inclusion_sectionMap_localSection]
 
 def splitRegularization : SheafActionQuotient.Arrow
     (chart (representation smoothAction).action
@@ -125,7 +125,7 @@ theorem regularDescent_localObject : (Cech.ofDescent t.regularDescent).localObje
     chart (representation smoothAction).action
       ((SplitSheaf.displayIso A.cover).hom ≫ assembledMap t.localMap) := by
   change chart _ (_ ≫ (reindex P A.cover).sectionMap t.localSection) = _
-  rw [← t.localValue_assembled]
+  rw [← t.desc_localMap_eq_sectionMap]
 
 /-- Extract independent ordinary maps and transitions from the admitted object. -/
 def extractedDatum : Datum (d := d) (G := G) (M := M) A :=
@@ -283,7 +283,7 @@ theorem extractedDatum_overlapLabel :
     rfl
   rw [extractedDatum, RegularLabels.datum_label]
   exact aux _ t.splitRegularization (congrArg
-    (fun v => (SplitSheaf.displayIso A.cover).hom ≫ v) t.localValue_assembled.symm)
+    (fun v => (SplitSheaf.displayIso A.cover).hom ≫ v) t.desc_localMap_eq_sectionMap.symm)
 
 /-- A forward ordinary transition is the inverse of the actual regular-torsor
 transport label. -/
@@ -363,7 +363,7 @@ theorem splitRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)
 
 /-- The extraction round-trip equality has no effect on regular-torsor
 coordinates. -/
-theorem extractedLocalRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)
+theorem splitRegularization_eqToHom_apply (U : SmoothPresentationSite.Siteᵒᵖ)
     (z : (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)).obj.obj U)
     (g : (locallyConstantGroup G).obj.obj U) :
     ((eqToHom (congrArg
@@ -384,7 +384,7 @@ theorem extractedLocalRegularization_apply (U : SmoothPresentationSite.Siteᵒ�
     cases h
     rfl
   exact aux _ _ (congrArg (fun v => (SplitSheaf.displayIso A.cover).hom ≫ v)
-    t.localValue_assembled) t.splitRegularization
+    t.desc_localMap_eq_sectionMap) t.splitRegularization
 
 /-- Recovering an extracted object after the inverse local descent comparison
 returns exactly the chosen split-cover trivialization. -/
@@ -409,7 +409,7 @@ theorem extractedRecovery_comparison_apply (U : SmoothPresentationSite.Siteᵒ�
       t.extractedDatum_descent)).comp t.splitRegularization).torsorArrow.iso.hom.app y
       (c.torsorArrow.iso.hom.app y (c.torsorArrow.iso.inv.app y g)) at h
   rw [hc] at h
-  exact h.trans (t.extractedLocalRegularization_apply U z g)
+  exact h.trans (t.splitRegularization_eqToHom_apply U z g)
 
 /-- On each represented chart, descent followed by the selected recovery is
 exactly the supplied trivialization, at every stage and every group element. -/
@@ -465,7 +465,7 @@ variable {X : Sheaf topology Type} {I : Type} {A : Atlas X I}
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (modelWithCorners d) ∞ M]
 variable {smoothAction : ∀ g : G, ContMDiff (modelWithCorners d) (modelWithCorners d) ∞ (fun x : M => g • x)}
-private theorem descentArrow_inverse
+private theorem descent_arrow_inverse
     {q r : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover)}
     (h : Descent.Map q r) :
     (Descent.Map.arrow (inv (C := Descent.Datum (a := (representation smoothAction).action)
@@ -533,7 +533,7 @@ theorem canonicalArrowMap_agreement {Q : Object (representation smoothAction).ac
   have hi : (Descent.Map.arrow (inv (C := Descent.Datum (a := (representation smoothAction).action)
       (SplitSheaf.ofDisplay A.cover)) t.canonicalDescentMap)) =
       t.canonicalDescentMap.arrow.inverse := by
-    exact descentArrow_inverse t.canonicalDescentMap
+    exact descent_arrow_inverse t.canonicalDescentMap
   have hf : interpretedHomEquiv smoothAction _ _ f = (f.cechMap smoothAction).toDescent.arrow := rfl
   rw [hi, hf, ← ht, ← hu]
   dsimp only [Arrow.toIso]

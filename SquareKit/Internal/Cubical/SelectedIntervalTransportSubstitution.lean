@@ -57,7 +57,7 @@ theorem endpointBoundary_map (e : A ⟶ B)
       (Term.map (Functor.whiskerLeft (endpointSub Γ true).mapElements e) a₁) =
       (endpointBoundary A a₀ a₁).map e :=
   (PartialSection.glue_congr (endpointSection_map e false a₀) (endpointSection_map e true a₁) _ _).trans
-    (Glue.partialGlue_map e _ _ _).symm
+    (Glue.partial_glue_map e _ _ _).symm
 
 theorem boundary_map (e : A ⟶ B)
     {a₀ : Term (reindex A (endpointSub Γ false))}
@@ -69,7 +69,7 @@ theorem boundary_map (e : A ⟶ B)
     intro x hx
     rfl
   exact (PartialSection.glue_congr ha (endpointBoundary_map e a₀ a₁) _ _).trans
-    (Glue.partialGlue_map e s.pathApp (endpointBoundary A a₀ a₁) s.pathApp_boundary_compatible).symm
+    (Glue.partial_glue_map e s.pathApp (endpointBoundary A a₀ a₁) s.pathApp_boundary_compatible).symm
 
 theorem box_map {Δ : Context.{u}} (e : A ⟶ B)
     {a₀ : Term (reindex A (endpointSub Γ false))}
@@ -423,7 +423,7 @@ theorem localSquare_map :
   have hp : HEq (FiberExtension.localPath (F.transport e) (Filling.transport_lawful e F hF)
       (changed e F) (conjugate_map e F hF) ρ (input e F ρ z))
       (endpointPath d (F.reindex τ) (hF.reindex τ) a b q) :=
-    pathTerm_hext _ _ (localPath_map e F hF ρ z)
+    heq_of_pathApp_eq _ _ (localPath_map e F hF ρ z)
   exact (endpointSquare_congr ((F.transport e).reindex τ)
     ((Filling.transport_lawful e F hF).reindex τ) _ _ (localSource_map e F ρ z)
       _ _ (localTarget_map e ρ) _ _ hp).trans
@@ -670,11 +670,11 @@ theorem extend_map :
       (changed e F) (conjugate_map e F hF) ρ (input e F ρ z) =
     Term.map (Functor.whiskerLeft ρ.mapElements (fiberIso e F).hom)
       (FiberExtension.extend F hF (original F) rfl (ρ ≫ target e) z) := by
-  apply genericFiberTerm_ext (changed e F) ρ
+  apply generic_fiber_term_ext (changed e F) ρ
   · exact (fullSource_map e F hF ρ z).trans
       (EquivalenceIsoTransport.fiberIso_fst (atEndpoint e false).symm (atEndpoint e true)
         (original F) ρ (FiberExtension.extend F hF (original F) rfl (ρ ≫ target e) z)).symm
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     have hn := genericFiberPath_intro (changed e F) ρ
       (FiberExtension.fullSource (F.transport e) (Filling.transport_lawful e F hF)
         (changed e F) (conjugate_map e F hF) ρ (input e F ρ z))
@@ -771,7 +771,7 @@ theorem retract_reindex (c : HomotopyContractible A) (F : Filling B) (hF : F.Law
       (homogeneousReindex h (liftSub B σ)) := by
   refine HomotopyContractible.ext ?_ ?_
   · rfl
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   let p := homogeneousPathMap (Functor.whiskerLeft (projection B).mapElements f)
     ((c.reindex (projection B)).pathTo
       (Term.map (Functor.whiskerLeft (projection B).mapElements g) (generic B)))
@@ -941,7 +941,7 @@ theorem retract_transport
     intro x
     exact (congrArg (fun v => j.hom.app x (f.app x v))
       (ConcreteCategory.congr_hom (NatTrans.congr_app i.hom_inv_id x) (c.center.val x))).symm
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     let σ := EquivalenceIsoTransport.targetSub j
     let d := Functor.isoWhiskerLeft (projection B').mapElements j
     let p := homogeneousPathMap (Functor.whiskerLeft (projection B).mapElements f)

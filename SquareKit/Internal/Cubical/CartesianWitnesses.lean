@@ -64,7 +64,7 @@ def Contractible.map {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B)
     rw [c.naturality]
     rw [e.inv.naturality_apply]
 
-private theorem sourceContraction_comp {Γ : Presheaf.Context.{u}} {A : Presheaf.Family Γ}
+private theorem source_contraction_comp {Γ : Presheaf.Context.{u}} {A : Presheaf.Family Γ}
     (c : Presheaf.HomotopyContractible A) {x y z : Γ.Elements}
     (a : A.obj x) (f : x ⟶ y) (g : y ⟶ z)
     (r : (Presheaf.interval Γ).obj z) :
@@ -134,7 +134,7 @@ def restrictContractible {Γ : Presheaf.Context.{u}} {A : Presheaf.Family Γ}
     change (c.contraction.val (Presheaf.extendObj A ((elements Γ).obj x) a)).val.val
       (Presheaf.extendHom A ((elements Γ).map (f ≫ g)) a) ⟨inclusion.map r.down⟩ = _
     rw [(elements Γ).map_comp]
-    exact (sourceContraction_comp c a ((elements Γ).map f) ((elements Γ).map g)
+    exact (source_contraction_comp c a ((elements Γ).map f) ((elements Γ).map g)
       ⟨inclusion.map r.down⟩).trans h
 
 

@@ -49,7 +49,7 @@ theorem normalizedPathLam_reindex {Δ : Context.{u}} (b : Term B)
   apply Term.convert_eq
   apply Term.hext (normalizedPath_reindex B a₀ a₁ σ)
   intro x
-  exact pathToLocal_substitution B a₀ a₁ σ x ((pathLam b h₀ h₁).val (σ.mapElements.obj x))
+  exact pathReindex_toLocal_heq B a₀ a₁ σ x ((pathLam b h₀ h₁).val (σ.mapElements.obj x))
 
 theorem normalizedPathApp_reindex {Δ : Context.{u}}
     (p : Term (normalizedPath B a₀ a₁)) (σ : Δ ⟶ Γ) :

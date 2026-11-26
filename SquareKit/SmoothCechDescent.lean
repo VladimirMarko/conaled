@@ -152,8 +152,8 @@ theorem splitLabel_relation :
         SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover) ≫ p.splitLocalMap := by
   have h := congrArg (fun f => (SheafCoverCech.splitDoubleIso A.cover).hom ≫ f)
     (p.overlapLabel_relation smoothAction)
-  simp only [onMap_precomp, ← Category.assoc, SheafCoverCech.splitDouble_first,
-    SheafCoverCech.splitDouble_second] at h
+  simp only [onMap_precomp, ← Category.assoc, SheafCoverCech.splitDoubleIso_first,
+    SheafCoverCech.splitDoubleIso_second] at h
   simpa only [splitLabel, splitLocalMap, Category.assoc] using h
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
@@ -161,7 +161,7 @@ theorem splitLabel_diagonal :
     SplitSheaf.Cech.diagonal (SplitSheaf.ofDisplay A.cover) ≫ p.splitLabel smoothAction =
       labelOne (SplitSheaf.extension (SplitSheaf.ofDisplay A.cover)) := by
   unfold splitLabel
-  rw [← Category.assoc, SheafCoverCech.splitDouble_diagonal, Category.assoc,
+  rw [← Category.assoc, SheafCoverCech.splitDoubleIso_diagonal, Category.assoc,
     overlapLabel_diagonal, labelOne_precomp]
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
@@ -171,8 +171,8 @@ theorem splitLabel_cocycle :
         (SplitSheaf.Cech.secondThird (SplitSheaf.ofDisplay A.cover) ≫ p.splitLabel smoothAction) := by
   have h := congrArg (fun f => (SheafCoverCech.splitTripleIso A.cover).hom ≫ f)
     (p.overlapLabel_cocycle smoothAction)
-  simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitTriple_firstThird,
-    SheafCoverCech.splitTriple_firstSecond, SheafCoverCech.splitTriple_secondThird] at h
+  simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitTripleIso_firstThird,
+    SheafCoverCech.splitTripleIso_firstSecond, SheafCoverCech.splitTripleIso_secondThird] at h
   simpa only [splitLabel, Category.assoc] using h
 
 /-- The ordinary cocycle supplies actual quotient Čech descent data. -/

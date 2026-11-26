@@ -85,7 +85,7 @@ over the actual `Object a X` context. After reindexing and the actual deformatio
 fiber comparison, `globalSectionRecovery` recovers the supplied local section
 on objects and arrows. Its base components are identity arrows, and the
 naturality equation is exposed for every compatible local map.
-`globalSection_recoverFiber` identifies its object recovery with the original
+`fiberEquivalence_globalSection` identifies its object recovery with the original
 `fiberEquivalence`, including the supplied matching local deformation. Compatibility
 as parameters and covers vary remains a separate obligation.
 

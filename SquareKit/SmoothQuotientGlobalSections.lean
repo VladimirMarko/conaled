@@ -54,7 +54,7 @@ theorem CocycleDatum.globalSectionRecovery_base
 
 /-- On deformation objects, recovery is the original gluing equivalence,
 not merely an unspecified isomorphism between endpoints. -/
-theorem CocycleDatum.globalSection_recoverFiber
+theorem CocycleDatum.fiberEquivalence_globalSection
     (s : Section (setFamily (fiberFamily (a := a) (A := A))))
     (d : Descent.Datum (a := a) A) :
     fiberEquivalence d (((globalSection s).obj d.object).as) = (s.obj d).as := by

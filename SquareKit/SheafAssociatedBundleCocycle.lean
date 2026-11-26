@@ -371,7 +371,7 @@ private theorem datum_transport_ext {A : SplitSheaf.Ty X}
 set_option backward.isDefEq.respectTransparency false in
 omit [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] in
 /-- The extension transition is exactly right translation by the changed cocycle label. -/
-theorem cocycleExtensionData_eq (φ : G ⟶ H) (c : SheafTorsor.Cocycle.Datum G A) :
+theorem cocycleDatum_eq_toDisplayDatum (φ : G ⟶ H) (c : SheafTorsor.Cocycle.Datum G A) :
     cocycleDatum (SheafStructureGroupExtension.rightInverseAction φ) c =
       (mappedCocycle φ c).toDescent.toDisplayDatum := by
   apply datum_transport_ext
@@ -392,7 +392,7 @@ private theorem evaluate_eqToIso {A : SplitSheaf.Ty X}
 def cocycleExtensionFamily (φ : G ⟶ H) (c : SheafTorsor.Cocycle.Datum G A) : (SheafStructureGroupExtension.extension φ c.glue.obj).family ≅
     (mappedCocycle φ c).glue.obj.family :=
   cocycleComparison (SheafStructureGroupExtension.rightInverseAction φ) c ≪≫
-    eqToIso (congrArg SplitSheafDescent.family (cocycleExtensionData_eq φ c))
+    eqToIso (congrArg SplitSheafDescent.family (cocycleDatum_eq_toDisplayDatum φ c))
 
 set_option backward.isDefEq.respectTransparency false in
 theorem cocycleExtensionFamily_evaluate (φ : G ⟶ H) (c : SheafTorsor.Cocycle.Datum G A) (x : X.obj.Elements) (p : A.family.obj x)
@@ -400,9 +400,9 @@ theorem cocycleExtensionFamily_evaluate (φ : G ⟶ H) (c : SheafTorsor.Cocycle.
     cocycleEvaluation (mappedCocycle φ c) x p ((cocycleExtensionFamily φ c).hom.app x s) =
       evaluate c.glue.obj (SheafStructureGroupExtension.rightInverseAction φ) x (cocyclePoint c x p) s := by
   change SplitSheafDescent.evaluationEquiv (mappedCocycle φ c).toDescent.toDisplayDatum x p
-    ((eqToIso (congrArg SplitSheafDescent.family (cocycleExtensionData_eq φ c))).hom.app x
+    ((eqToIso (congrArg SplitSheafDescent.family (cocycleDatum_eq_toDisplayDatum φ c))).hom.app x
       ((cocycleComparison (SheafStructureGroupExtension.rightInverseAction φ) c).hom.app x s)) = _
-  exact (evaluate_eqToIso (cocycleExtensionData_eq φ c) x p _).trans
+  exact (evaluate_eqToIso (cocycleDatum_eq_toDisplayDatum φ c) x p _).trans
     (cocycleComparison_hom_evaluate (SheafStructureGroupExtension.rightInverseAction φ) x p s)
 
 set_option backward.isDefEq.respectTransparency false in
@@ -458,7 +458,7 @@ theorem mappedGauge_comp {c d e : SheafTorsor.Cocycle.Datum G A}
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Maps into a glued cocycle torsor are determined in every local coordinate. -/
-theorem cocycleHom_ext (e : SheafTorsor.Cocycle.Datum H A) {T : SplitSheaf.Ty X}
+theorem cocycleEvaluation_hom_ext (e : SheafTorsor.Cocycle.Datum H A) {T : SplitSheaf.Ty X}
     (f g : T ⟶ e.glue.obj.family)
     (h : ∀ (x : X.obj.Elements) (p : A.family.obj x) (s : T.family.obj x),
       cocycleEvaluation e x p (f.app x s) = cocycleEvaluation e x p (g.app x s)) : f = g := by
@@ -482,7 +482,7 @@ theorem cocycleExtensionComparison_natural {c d : SheafTorsor.Cocycle.Datum G A}
     SheafStructureGroupExtension.extensionMap φ g.glue.hom ≫ cocycleExtensionComparison φ d =
       cocycleExtensionComparison φ c ≫ (mappedGauge φ g).glue.hom := by
   apply SheafTorsor.Arrow.ext
-  apply cocycleHom_ext (mappedCocycle φ d)
+  apply cocycleEvaluation_hom_ext (mappedCocycle φ d)
   intro y p s
   change cocycleEvaluation (mappedCocycle φ d) y p
       ((cocycleExtensionFamily φ d).hom.app y

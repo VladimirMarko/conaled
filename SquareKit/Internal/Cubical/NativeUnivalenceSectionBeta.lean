@@ -27,7 +27,7 @@ theorem genericPath_pair (σ : Δ ⟶ Γ) (p : Term (reindex (paths a b) σ)) :
       Term.map (pathReindex (reindex (family Γ) (projection (interval Γ)))
         (term a) (term b) σ) p := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   rfl
 
 private theorem pathToEquivalence_congr {p q : Term (paths a b)} (h : p = q) :
@@ -60,7 +60,7 @@ theorem reindexPath_section_reindex_pair {C : Family Γ}
       Term.map (pathReindex (reindex (family Γ) (projection (interval Γ)))
         (term a) (term b) σ) (s.reindex (pair (A := C) σ c)) := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   rfl
 
 theorem equivalencePathSection_reindex_pair (σ : Δ ⟶ Γ)

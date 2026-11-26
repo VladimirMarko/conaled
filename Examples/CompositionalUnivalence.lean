@@ -35,7 +35,7 @@ theorem nativeInput_action {S T : Type} (e : S ≃ T) (s : S) :
 
 theorem observe_path {S : Type} {x y : Term (liftedDecode (code S))}
     (p : Term (homogeneousPath (liftedDecode (code S)) x y)) : observe x = observe y :=
-  discretePath_endpoints (homogeneousPathMap (constantLocal terminal S).decodeCodeIso.hom
+  constantFamily_path_endpoints (homogeneousPathMap (constantLocal terminal S).decodeCodeIso.hom
     (Raising.lowerPath p))
 
 noncomputable def equivalencePath {S T : Type} (e : S ≃ T) :=

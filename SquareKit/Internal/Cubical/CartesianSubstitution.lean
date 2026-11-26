@@ -91,7 +91,7 @@ def piReindexInv {Γ Δ : Context.{u}} (A : Family Γ) (B : Family (total A))
     rw [piInverseValue_map, piInverseValue_map]
     rfl
 
-theorem piInverse_reindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
+theorem piInverseElement_piReindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     (σ : Δ ⟶ Γ) {x : Δ.Elements} (p : PiElement A B (σ.mapElements.obj x)) :
     piInverseElement σ ((piReindex A B σ).app x p) = p := by
   apply PiElement.ext
@@ -117,7 +117,7 @@ def piReindexIso {Γ Δ : Context.{u}} (A : Family Γ) (B : Family (total A)) (�
   inv := piReindexInv A B σ
   hom_inv_id := by
     ext x p
-    exact piInverse_reindex σ p
+    exact piInverseElement_piReindex σ p
   inv_hom_id := by
     ext x p
     exact piReindex_inverse σ p
@@ -155,7 +155,7 @@ def pathReindexIso {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
   hom_inv_id := by
     ext x p
     apply Subtype.ext
-    exact piInverse_reindex σ p.val
+    exact piInverseElement_piReindex σ p.val
   inv_hom_id := by
     ext x p
     apply Subtype.ext

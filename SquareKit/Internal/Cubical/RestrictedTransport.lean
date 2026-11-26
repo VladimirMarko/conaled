@@ -95,10 +95,10 @@ theorem discreteFamily_constant {Γ : Context.{u}} {T : Type u}
   have hq : q = (q.reindex (endpointSub Γ false)).reindex (projection (interval Γ)) := by
     apply Term.ext
     intro x
-    exact (discreteIndex_zero q x).symm
+    exact (constantFamily_term_zero q x).symm
   exact congrArg (fun q => discreteFamily q S) hq
 
-theorem discreteFamily_restrictedConstant {Γ : Context.{u}} {T : Type u}
+theorem restrictedConstancy_discreteFamily {Γ : Context.{u}} {T : Type u}
     (q : Term (constantFamily (total (interval Γ)) T)) (S : T → Type u) (φ : Cofibration Γ) :
     RestrictedConstancy (discreteFamily q S) φ :=
   congrArg (fun A => reindex A (restrictInclusion (φ.reindex (projection (interval Γ)))))

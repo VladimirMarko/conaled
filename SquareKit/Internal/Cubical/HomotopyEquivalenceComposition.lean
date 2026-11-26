@@ -58,7 +58,7 @@ theorem intermediate_reindex {Θ : Context.{u}} (σ : Δ ⟶ total C)
     intermediate f g (τ ≫ σ) (z.reindex τ) = (intermediate f g σ z).reindex τ :=
 by
   exact (genericFiberIntro_congr g (τ ≫ σ) _ _ rfl _ _
-    (pathTerm_hext _ _ rfl)).trans
+    (heq_of_pathApp_eq _ _ rfl)).trans
       (genericFiberIntro_reindex g σ
         (Term.map (Functor.whiskerLeft (σ ≫ projection C).mapElements f)
           (genericFiberFst (f ≫ g) σ z)) (genericFiberPath (f ≫ g) σ z) τ)
@@ -136,7 +136,7 @@ theorem target_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
   congrArg (fun z => pair (τ ≫ σ ≫ projection C) (genericFiberFst g (τ ≫ σ) z))
     (middle_reindex f g D FB hFB FC hFC σ s τ)
 
-private theorem fiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
+private theorem genericFiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
     (z : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ))
     (z' : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ'))
     (hz : HEq z z') : HEq (genericFiberFst f ρ z) (genericFiberFst f ρ' z') := by
@@ -144,7 +144,7 @@ private theorem fiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ :
   cases hz
   rfl
 
-private theorem fiberLine_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
+private theorem pathApp_homogeneousReverse_genericFiberPath_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
     (z : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ))
     (z' : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ'))
     (hz : HEq z z') : HEq (pathApp (homogeneousReverse (genericFiberPath f ρ z)))
@@ -156,13 +156,13 @@ private theorem fiberLine_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ 
 theorem source_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     source f g E D FA hFA FB hFB FC hFC (τ ≫ σ) (s.reindex τ) =
       (source f g E D FA hFA FB hFB FC hFC σ s).reindex τ :=
-  eq_of_heq (fiberFst_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
+  eq_of_heq (genericFiberFst_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
     _ _ (sourceFiber_reindex f g E D FA hFA FB hFB FC hFC σ s τ))
 
 theorem middleLine_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     middleLine f g E D FA hFA FB hFB FC hFC (τ ≫ σ) (s.reindex τ) =
       (middleLine f g E D FA hFA FB hFB FC hFC σ s).reindex (liftSub (interval Δ) τ) :=
-  eq_of_heq (fiberLine_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
+  eq_of_heq (pathApp_homogeneousReverse_genericFiberPath_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
     _ _ (sourceFiber_reindex f g E D FA hFA FB hFB FC hFC σ s τ))
 
 noncomputable def box : OpenBox
@@ -255,7 +255,7 @@ theorem extend_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     congrArg (fun z => pathApp (genericFiberPath g (τ ≫ σ) z))
       (endpoint_reindex f g E D FA hFA FB hFB FC hFC σ s τ)
   exact (genericFiberIntro_congr (f ≫ g) (τ ≫ σ) _ _
-    (source_reindex f g E D FA hFA FB hFB FC hFC σ s τ) _ _ (pathTerm_hext _ _ hp)).trans
+    (source_reindex f g E D FA hFA FB hFB FC hFC σ s τ) _ _ (heq_of_pathApp_eq _ _ hp)).trans
     (genericFiberIntro_reindex (f ≫ g) σ (source f g E D FA hFA FB hFB FC hFC σ s)
       (finalPath f g E D FA hFA FB hFB FC hFC σ s) τ)
 
@@ -309,7 +309,7 @@ theorem extend_restricted :
     (source f g E D FA hFA FB hFB FC hFC σ s)
     (finalPath f g E D FA hFA FB hFB FC hFC σ s) (restrictInclusion φ)).symm.trans
     ((genericFiberIntro_congr (f ≫ g) (restrictInclusion φ ≫ σ) _ _ ha _ _
-      (pathTerm_hext _ _ (finalPath_restricted f g E D FA hFA FB hFB FC hFC σ s))).trans
+      (heq_of_pathApp_eq _ _ (finalPath_restricted f g E D FA hFA FB hFB FC hFC σ s))).trans
       (genericFiberIntro_eta (f ≫ g) (restrictInclusion φ ≫ σ) s.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :

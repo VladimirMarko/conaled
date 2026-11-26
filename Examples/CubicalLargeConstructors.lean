@@ -163,7 +163,7 @@ noncomputable def incompatiblePath := LargeConstructors.path
 theorem incompatible_endpoints_rejected : ¬ Nonempty (Term (liftedDecode incompatiblePath.code)) := by
   rintro ⟨z⟩
   have q := Term.map incompatiblePath.decoding.hom z
-  have h := discretePath_endpoints (homogeneousPathMap observeNatural q)
+  have h := constantFamily_path_endpoints (homogeneousPathMap observeNatural q)
   have e := congrArg (fun t => (t.val (point 0)).down) h
   change (CubicalSmallFamilies.natDecode.hom.app _
       (CubicalSmallFamilies.natDecode.inv.app _ (0 : Nat))) =

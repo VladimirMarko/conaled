@@ -18,8 +18,8 @@ theorem restrictedComparison_cocycle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     eqToIso (triple_first_map a A hΓ) ≪≫
       restrictedComparison a A hΓ (SplitSheaf.Cech.firstThird A) ≪≫
       (eqToIso (triple_last_map a A hΓ)).symm := by
-  rw [firstSecondComparison_triangle, secondThirdComparison_triangle, firstThirdComparison_triangle,
-    tripleMiddleIso_triangle, tripleFirstIso_triangle, tripleLastIso_triangle]
+  rw [restrictedComparison_firstSecond_triangle, restrictedComparison_secondThird_triangle, restrictedComparison_firstThird_triangle,
+    triple_middle_eqToIso_triangle, triple_first_eqToIso_triangle, triple_last_eqToIso_triangle]
   exact (primitiveTriangle a A).generated_cocycle hΓ
 
 end SquareKit.SmoothQuotientCechLocal

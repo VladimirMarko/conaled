@@ -27,9 +27,9 @@ theorem transportEnvironment_valid (Γ : Context.{u}) (B : Family (total (Preshe
   · exact ⟨total (Presheaf.interval Γ),B,F,hI,rfl,rfl,hF⟩
   · exact ⟨Γ,φ,rfl,rfl⟩
   · exact ⟨Γ,reindex B (Presheaf.endpointSub Γ false),a,rfl,hB0,rfl⟩
-  · have hleft := restrictedType_eval (intervalContext (.var (0 : Fin 5))) (.var 1)
+  · have hleft := subTy_inclusion_eval (intervalContext (.var (0 : Fin 5))) (.var 1)
       (intervalFace (.var 0) (.var 3)) ρ _ B _ hI rfl hface
-    have hright := restrictedType_eval (intervalContext (.var (0 : Fin 5)))
+    have hright := subTy_inclusion_eval (intervalContext (.var (0 : Fin 5)))
       (subTy (subTy (.var 1) (endpointSub (.var 0) false)) (projection (.var 0)))
       (intervalFace (.var 0) (.var 3)) ρ _ _ _ hI hBconst hface
     exact hleft.trans ((congrArg (Value.family _) hc).trans hright.symm)

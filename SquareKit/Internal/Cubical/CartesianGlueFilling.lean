@@ -979,7 +979,7 @@ theorem extendedFace_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
   congrArg (genericFiberFst f (target θ B (τ ≫ p) (Term.reindex a τ)))
     (fiber_reindex θ B U f p E F hF G hG s a h τ)
 
-theorem correctionTube_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
+theorem restrictedPathTube_extensionPath_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     restrictedPathTube (θ.reindex (τ ≫ p)) (Term.reindex a τ)
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ (τ ≫ p)).mapElements f)
         (extendedFace θ B U f (τ ≫ p) E F hF G hG (substitutePartial θ B U f p τ s) (Term.reindex a τ)
@@ -1015,7 +1015,7 @@ theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
   apply OpenBox.ext
   · apply PartialSection.ext
     intro x hx
-    have ht := correctionTube_reindex θ B U f p E F hF G hG s a h τ
+    have ht := restrictedPathTube_extensionPath_reindex θ B U f p E F hF G hG s a h τ
     let t₀ := restrictedPathTube (θ.reindex p) a
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
         (extendedFace θ B U f p E F hF G hG s a h))
@@ -1163,7 +1163,7 @@ theorem fills_of_boxPartial {Θ : Context.{u}} {B : Family (total (interval Θ))
     have hu : (boxFace ψ r).Holds x := Or.inl hx
     exact (h x hu).trans (glueValue_left b.tube (sourceSection B r b.base) x hu hx)
 
-theorem partialGlue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
+theorem partial_glue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
     {ψ χ : Subcontext Θ} (b : PartialSection B ψ) (c : PartialSection B χ)
     (h : b.Compatible c) :
     (b.glue c h).map η = (b.map η).glue (c.map η) (fun x hp hq => congrArg (η.app x) (h x hp hq)) := by
@@ -1179,7 +1179,7 @@ theorem boxPartial_map {Θ : Context.{u}} {B C : Family (total (interval Θ))}
     (η : B ⟶ C) {ψ : Subcontext Θ} {r : Term (interval Θ)} (b : OpenBox B ψ r) :
     boxPartial (b.map η) = (boxPartial b).map η :=
   (PartialSection.glue_congr rfl (sourceSection_map η r b.base).symm _ _).trans
-    (partialGlue_map η b.tube (sourceSection B r b.base) (source_compatible b)).symm
+    (partial_glue_map η b.tube (sourceSection B r b.base) (source_compatible b)).symm
 
 theorem boxPartial_reindex {Θ Λ : Context.{u}} {B : Family (total (interval Θ))}
     {ψ : Subcontext Θ} {r : Term (interval Θ)} (b : OpenBox B ψ r) (σ : Λ ⟶ Θ) :
@@ -1241,12 +1241,12 @@ theorem inputIso_natural {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
       Functor.whiskerLeft (intervalSub σ).mapElements (inputIso φ A T e p).hom ≫
         inputComparison φ A T e p σ := rfl
 
-theorem inputBox_natural (ψ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (family φ A T e) p) ψ r)
+theorem box_map_inputIso_natural (ψ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (family φ A T e) p) ψ r)
     {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     (b.reindex σ).map (inputIso φ A T e (intervalSub σ ≫ p)).hom =
       ((b.map (inputIso φ A T e p).hom).reindex σ).map (inputComparison φ A T e p σ) := rfl
 
-theorem inputPartial_natural (ψ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (family φ A T e) p) ψ r)
+theorem boxPartial_inputIso_natural (ψ : Subcontext Δ) (r : Term (interval Δ)) (b : OpenBox (reindex (family φ A T e) p) ψ r)
     {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     boxPartial ((b.reindex σ).map (inputIso φ A T e (intervalSub σ ≫ p)).hom) =
       AmbientExtension.substitutePartial φ A T e p (intervalSub σ)
@@ -1275,7 +1275,7 @@ theorem preliminaryCompatibleFill_reindex (E : HomotopyEquivalence e)
   have h₀ := boxPartial_image_filled m₀ b₀ a₀ (hG.fills p ψ r (b₀.map m₀))
   have h₁ := boxPartial_image_filled m₁ b₁ a₁ (hG.fills (τ ≫ p) (ψ.reindex σ) (Term.reindex r σ) (b₁.map m₁))
   have hs : boxPartial b₁ = AmbientExtension.substitutePartial φ A T e p τ (boxPartial b₀) :=
-    inputPartial_natural φ A T e p ψ r b σ
+    boxPartial_inputIso_natural φ A T e p ψ r b σ
   have ha : a₁ = Term.reindex a₀ τ := hG.uniform p ψ r (b₀.map m₀) σ
   exact (AmbientExtension.extendSection_congr φ A T e (τ ≫ p) E F hF G hG
     (boxPartial b₁) a₁ h₁ (AmbientExtension.substitutePartial φ A T e p τ (boxPartial b₀))
@@ -1470,7 +1470,7 @@ theorem inputIso_input_reindex :
       (congrArg (fun m => m.app (q.mapElements.obj x) z') i.inv_hom_id)
 
 
-theorem inputBox_input_reindex (ψ : Subcontext Δ) (s₀ : Term (interval Δ))
+theorem box_map_inputIso_reindex (ψ : Subcontext Δ) (s₀ : Term (interval Δ))
     (b : OpenBox (reindex (family φ A T e) (q ≫ σ)) ψ s₀) :
     (b.map (Functor.whiskerLeft q.mapElements (reindexIso φ A T e σ).hom)).map
       (inputIso (φ.reindex σ) (reindex A σ) (reindex T (restrictSubstitution φ σ))
@@ -1498,7 +1498,7 @@ theorem preliminaryCompatibleFill_input_reindex (E : HomotopyEquivalence e)
       (hF.reindex _) (G.reindex σ) (hG.reindex _) (boxPartial c)
       (G.fill (q ≫ σ) ψ s₀ (c.map m))
       (boxPartial_image_filled m c _ (hG.fills (q ≫ σ) ψ s₀ (c.map m)))
-  exact (congrArg K (inputBox_input_reindex φ A T e σ q ψ s₀ b)).trans
+  exact (congrArg K (box_map_inputIso_reindex φ A T e σ q ψ s₀ b)).trans
     (AmbientExtension.extendSection_input_reindex φ A T e σ q E F hF G hG _ _ _)
 
 
@@ -1645,7 +1645,7 @@ theorem filling_input_reindex (E : HomotopyEquivalence e)
     apply OpenBox.ext
     · exact (PartialSection.glue_congr rfl (selectedFaceTube_input_reindex φ A T e σ q F ψ s₀ b)
         hc' (fun x hp hq => congrArg (r.app x) (hc x hp hq))).trans
-        (partialGlue_map r b.tube t hc).symm
+        (partial_glue_map r b.tube t hc).symm
     · rfl
   exact (congrArg (preliminaryFill (φ.reindex σ) (reindex A σ)
     (reindex T (restrictSubstitution φ σ))
@@ -1753,7 +1753,7 @@ end SquareKit.Cubical.Cartesian
 namespace SquareKit.Cubical.Cartesian
 open CategoryTheory Glue
 universe u
-theorem pathTerm_hext {Γ : Context.{u}} {B : Family (total (interval Γ))}
+theorem heq_of_pathApp_eq {Γ : Context.{u}} {B : Family (total (interval Γ))}
     {a₀ b₀ : Term (reindex B (endpointSub Γ false))}
     {a₁ b₁ : Term (reindex B (endpointSub Γ true))}
     (p : Term (path B a₀ a₁)) (q : Term (path B b₀ b₁)) (h : pathApp p = pathApp q) :
@@ -1795,7 +1795,7 @@ open CategoryTheory
 universe u
 noncomputable section
 
-private theorem fiberIntro_path {Γ Δ : Context.{u}} {B D : Family Γ} (f : B ⟶ D)
+private theorem genericFiberPath_genericFiberIntro {Γ Δ : Context.{u}} {B D : Family Γ} (f : B ⟶ D)
     (σ : Δ ⟶ total D) (b : Term (reindex B (σ ≫ projection D)))
     (q : Term (homogeneousPath (reindex D (σ ≫ projection D))
       (Term.map (Functor.whiskerLeft (σ ≫ projection D).mapElements f) b)
@@ -1803,7 +1803,7 @@ private theorem fiberIntro_path {Γ Δ : Context.{u}} {B D : Family Γ} (f : B �
     genericFiberPath f σ (genericFiberIntro f σ b q) = q :=
   Term.map_iso_roundtrip (genericFiberPathIso f σ b).symm q
 
-private theorem fiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
+private theorem genericFiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
     (f : B ⟶ D) (σ : Δ ⟶ total D) (a : Term (reindex B (σ ≫ projection D)))
     (p : Term (homogeneousPath (reindex D (σ ≫ projection D))
       (Term.map (Functor.whiskerLeft (σ ≫ projection D).mapElements f) a)
@@ -1815,7 +1815,7 @@ private theorem fiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
     Term.reindex (genericFiberIntro f σ a p) τ = z := by
   let q := homogeneousReindex p τ
   have hq : HEq q (genericFiberPath f (τ ≫ σ) z) :=
-    pathTerm_hext q (genericFiberPath f (τ ≫ σ) z) hp
+    heq_of_pathApp_eq q (genericFiberPath f (τ ≫ σ) z) hp
   have hc := genericFiberIntro_congr f (τ ≫ σ) (Term.reindex a τ) (genericFiberFst f (τ ≫ σ) z)
     ha q (genericFiberPath f (τ ≫ σ) z) hq
   exact (genericFiberIntro_reindex f σ a p τ).trans
@@ -1924,7 +1924,7 @@ theorem facePartial_path :
     Term.reindex (pathApp (partialPath φ A T e σ s))
       (liftSub (interval (restrictContext ψ)) (intersectionToPartial φ A σ)) := by
   dsimp only [facePartial]
-  exact congrArg pathApp (fiberIntro_path e _ _ _)
+  exact congrArg pathApp (genericFiberPath_genericFiberIntro e _ _ _)
 
 theorem tubes_compatible :
     (faceTube φ A T e σ s E F hF G hG).Compatible (partialTube φ A T e σ s) := by
@@ -2089,7 +2089,7 @@ theorem resultPath_boundary :
 
 theorem extension_restricted :
     Term.reindex (extension φ A T e σ s E F hF G hG) (restrictInclusion ψ) = s.toRestricted :=
-  fiberIntro_reindex_eq (f φ A T e) σ (domain φ A T e σ s E F hF G hG)
+  genericFiberIntro_reindex_eq (f φ A T e) σ (domain φ A T e σ s E F hF G hG)
     (resultPath φ A T e σ s E F hF G hG) (restrictInclusion ψ) s.toRestricted
     (domain_boundary φ A T e σ s E F hF G hG) (resultPath_boundary φ A T e σ s E F hF G hG)
 

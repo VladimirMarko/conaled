@@ -508,7 +508,7 @@ noncomputable def squareTopOfSection
   squareTop F hF l r (Term.map (pathReindexIso B l r (endpointSub Γ false)).inv
     (pathLam z h₀ h₁))
 
-private theorem squareInitialOfSection_reindex {Δ : Context.{u}}
+private theorem squareInitialReindex_pathLam {Δ : Context.{u}}
     (z : Term (reindex B (liftSub (interval (total (interval Γ))) (endpointSub Γ false))))
     (h₀ : z.reindex (endpointSub Γ false) = l.reindex (endpointSub Γ false))
     (h₁ : z.reindex (endpointSub Γ true) = r.reindex (endpointSub Γ false)) (σ : Δ ⟶ Γ) :
@@ -546,7 +546,7 @@ theorem squareTopOfSection_body_reindex {Δ : Context.{u}}
   (congrArg (fun t => pathApp (squareTop
     (F.reindex (liftSub (interval (total (interval Γ))) (liftSub (interval Γ) σ)))
       (hF.reindex _) (l.reindex (liftSub (interval Γ) σ)) (r.reindex (liftSub (interval Γ) σ)) t))
-    (squareInitialOfSection_reindex l r z h₀ h₁ σ).symm).trans
+    (squareInitialReindex_pathLam l r z h₀ h₁ σ).symm).trans
     (squareTop_body_reindex F hF l r _ σ)
 
 private theorem squareTopOfSection_body_heq
@@ -658,7 +658,7 @@ noncomputable def concatTopSection (x : Term (fiber B a)) :
     (concatBottom F hF B G hG p q x))).convert (squareFamily_one F hF B p q)
 
 include hG in
-theorem concatTop_zero (x : Term (fiber B a)) :
+theorem concatTopSection_zero (x : Term (fiber B a)) :
     (concatTopSection F hF B G hG p q x).reindex (endpointSub Γ false) =
       x.convert (line_zero B (homogeneousConcat F hF p q)).symm := by
   apply eq_of_heq
@@ -671,7 +671,7 @@ theorem concatTop_zero (x : Term (fiber B a)) :
         (Term.convert_heq _ x).symm))
 
 include hG in
-theorem concatTop_one (x : Term (fiber B a)) :
+theorem concatTopSection_one (x : Term (fiber B a)) :
     ((concatTopSection F hF B G hG p q x).reindex (endpointSub Γ true)).convert
       (line_one B (homogeneousConcat F hF p q)) =
       Term.map (along B q G) (Term.map (along B p G) x) := by
@@ -694,7 +694,7 @@ noncomputable def concatComparison (x : Term (fiber B a)) :
   alongComparison B (homogeneousConcat F hF p q) G hG x
     (Term.map (along B q G) (Term.map (along B p G) x))
     (concatTopSection F hF B G hG p q x)
-    (concatTop_zero F hF B G hG p q x) (concatTop_one F hF B G hG p q x)
+    (concatTopSection_zero F hF B G hG p q x) (concatTopSection_one F hF B G hG p q x)
 
 section Substitution
 variable {Δ : Context.{u}} (σ : Δ ⟶ Γ)
@@ -788,13 +788,13 @@ theorem concatComparison_body_reindex (x : Term (fiber B a)) :
     (pathApp (concatComparison F hF B G hG p q x)).reindex (liftSub (interval Γ) σ) :=
   alongComparison_body_natural B (homogeneousConcat F hF p q) G hG x
     (Term.map (along B q G) (Term.map (along B p G) x)) (concatTopSection F hF B G hG p q x)
-    (concatTop_zero F hF B G hG p q x) (concatTop_one F hF B G hG p q x) σ
+    (concatTopSection_zero F hF B G hG p q x) (concatTopSection_one F hF B G hG p q x) σ
     (homogeneousConcat (F.reindex σ) (hF.reindex _) (homogeneousReindex p σ) (homogeneousReindex q σ))
     (homogeneousConcat_reindex F hF p q σ).symm _ _ _
     (concatTopSection_reindex F hF B G hG p q σ x)
-    (concatTop_zero (F.reindex σ) (hF.reindex _) (reindex B (liftSub A σ)) (G.reindex (liftSub A σ))
+    (concatTopSection_zero (F.reindex σ) (hF.reindex _) (reindex B (liftSub A σ)) (G.reindex (liftSub A σ))
       (hG.reindex _) (homogeneousReindex p σ) (homogeneousReindex q σ) (x.reindex σ))
-    (concatTop_one (F.reindex σ) (hF.reindex _) (reindex B (liftSub A σ)) (G.reindex (liftSub A σ))
+    (concatTopSection_one (F.reindex σ) (hF.reindex _) (reindex B (liftSub A σ)) (G.reindex (liftSub A σ))
       (hG.reindex _) (homogeneousReindex p σ) (homogeneousReindex q σ) (x.reindex σ))
 
 end Substitution

@@ -563,7 +563,7 @@ theorem extend_on_face : (extend F hF f hf ρ z).reindex (restrictInclusion φ) 
   (genericFiberIntro_reindex f ρ (fullSource F hF f hf ρ z) (finalPath F hF f hf ρ z)
     (restrictInclusion φ)).symm.trans
     ((genericFiberIntro_congr f (restrictInclusion φ ≫ ρ) _ _ (fullSource_on_face F hF f hf ρ z)
-      _ _ (pathTerm_hext _ _ (pathApp_finalPath_on_face F hF f hf ρ z))).trans
+      _ _ (heq_of_pathApp_eq _ _ (pathApp_finalPath_on_face F hF f hf ρ z))).trans
         (genericFiberIntro_eta f (restrictInclusion φ ≫ ρ) z.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
@@ -736,7 +736,7 @@ theorem finalPath_body_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
 theorem extend_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     extend F hF f hf (τ ≫ ρ) (z.reindex τ) = (extend F hF f hf ρ z).reindex τ :=
   (genericFiberIntro_congr f (τ ≫ ρ) _ _ (fullSource_reindex F hF f hf ρ z τ)
-    _ _ (pathTerm_hext _ _ (finalPath_body_reindex F hF f hf ρ z τ))).trans
+    _ _ (heq_of_pathApp_eq _ _ (finalPath_body_reindex F hF f hf ρ z τ))).trans
     (genericFiberIntro_reindex f ρ (fullSource F hF f hf ρ z) (finalPath F hF f hf ρ z) τ)
 
 end FiberExtension
@@ -819,7 +819,7 @@ theorem FiberExtension.extend_input_reindex :
   have hs := congrArg (fun t => t.reindex (endpointSub Δ false))
     (fullPath_input_reindex F hF f hf σ ρ z)
   exact (genericFiberIntro_congr (Functor.whiskerLeft σ.mapElements f) ρ _ _ hs
-    _ _ (pathTerm_hext _ _ (finalPath_body_input_reindex F hF f hf σ ρ z))).trans
+    _ _ (heq_of_pathApp_eq _ _ (finalPath_body_input_reindex F hF f hf σ ρ z))).trans
     (genericFiberIntro_input f σ ρ (fullSource F hF f hf (ρ ≫ liftSub (reindex A (endpointSub Γ true)) σ) z)
       (finalPath F hF f hf (ρ ≫ liftSub (reindex A (endpointSub Γ true)) σ) z))
 

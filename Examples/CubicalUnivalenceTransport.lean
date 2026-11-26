@@ -45,7 +45,7 @@ theorem codeIso_action (e : S ≃ T) (s : S) :
 /-- This observes the actual ua transport, rather than reusing the supplied
 bijection as the implementation of transport. -/
 theorem observed_eq (e : S ≃ T) (s : S) : observed e s = constantSection (e s) :=
-  (discretePath_endpoints (homogeneousPathMap (constantLocal terminal T).decodeCodeIso.hom
+  (constantFamily_path_endpoints (homogeneousPathMap (constantLocal terminal T).decodeCodeIso.hom
     (Univalence.comparison _ _ (codeIso e).hom (HomotopyEquivalence.ofIso (codeIso e))
       (input s)))).symm.trans (codeIso_action e s)
 

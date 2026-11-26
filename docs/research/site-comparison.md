@@ -78,7 +78,7 @@ faithful, with explicit recovery of arrows. They preserve the regular torsor
 and reflect trivializations. The concrete consumer is therefore the original
 nontrivial torsor, transported through a proved bridge.
 
-For the original-site constructions of #657 and #665, `contextStructure_eq`
+For the original-site constructions of #657 and #665, `structureOf_eq_elementStructure`
 and `targetMap_slice` identify the structures used here with
 `SheafifiedSliceTorsor.elementStructure` and the existing slice target map.
 `sliceTorsorRecovery` and `sliceQuotientRecovery` whisker the existing #665

@@ -165,7 +165,7 @@ theorem fills_of_boxPartial {Θ : Context.{u}} {B : Family (total (interval Θ))
     have hu : (scaledFace ψ).Full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
     exact (h x hu).trans (glueValue_left b.tube (endpointSection B false b.base) x hu hx)
 
-theorem partialGlue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
+theorem partial_glue_map {Θ : Context.{u}} {B C : Family Θ} (η : B ⟶ C)
     {ψ χ : Cofibration Θ} (b : PartialSection B ψ) (c : PartialSection B χ)
     (h : b.Compatible c) :
     (b.glue c h).map η = (b.map η).glue (c.map η) (fun x hp hq => congrArg (η.app x) (h x hp hq)) := by
@@ -181,7 +181,7 @@ theorem boxPartial_map {Θ : Context.{u}} {B C : Family (total (interval Θ))}
     (η : B ⟶ C) {ψ : Cofibration Θ} (b : OpenBox B ψ) :
     boxPartial (b.map η) = (boxPartial b).map η :=
   (PartialSection.glue_congr rfl (endpointSection_map η false b.base) _ _).trans
-    (partialGlue_map η b.tube (endpointSection B false b.base) b.endpoint_compatible).symm
+    (partial_glue_map η b.tube (endpointSection B false b.base) b.endpoint_compatible).symm
 
 theorem boxPartial_reindex {Θ Λ : Context.{u}} {B : Family (total (interval Θ))}
     {ψ : Cofibration Θ} (b : OpenBox B ψ) (σ : Λ ⟶ Θ) :
@@ -243,12 +243,12 @@ theorem inputIso_natural {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
       Functor.whiskerLeft (liftSub (interval Δ) σ).mapElements (inputIso φ A T e p).hom ≫
         inputComparison φ A T e p σ := rfl
 
-theorem inputBox_natural (ψ : Cofibration Δ) (b : OpenBox (reindex (family φ A T e) p) ψ)
+theorem box_map_inputIso_natural (ψ : Cofibration Δ) (b : OpenBox (reindex (family φ A T e) p) ψ)
     {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     (b.reindex σ).map (inputIso φ A T e (liftSub (interval Δ) σ ≫ p)).hom =
       ((b.map (inputIso φ A T e p).hom).reindex σ).map (inputComparison φ A T e p σ) := rfl
 
-theorem inputPartial_natural (ψ : Cofibration Δ) (b : OpenBox (reindex (family φ A T e) p) ψ)
+theorem boxPartial_inputIso_natural (ψ : Cofibration Δ) (b : OpenBox (reindex (family φ A T e) p) ψ)
     {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
     boxPartial ((b.reindex σ).map (inputIso φ A T e (liftSub (interval Δ) σ ≫ p)).hom) =
       AmbientExtension.substitutePartial φ A T e p (liftSub (interval Δ) σ)
@@ -277,7 +277,7 @@ theorem preliminaryCompatibleFill_reindex (E : HomotopyEquivalence e)
   have h₀ := boxPartial_image_filled m₀ b₀ a₀ (hG.fills p ψ (b₀.map m₀))
   have h₁ := boxPartial_image_filled m₁ b₁ a₁ (hG.fills (τ ≫ p) (ψ.reindex σ) (b₁.map m₁))
   have hs : boxPartial b₁ = AmbientExtension.substitutePartial φ A T e p τ (boxPartial b₀) :=
-    inputPartial_natural φ A T e p ψ b σ
+    boxPartial_inputIso_natural φ A T e p ψ b σ
   have ha : a₁ = a₀.reindex τ := hG.uniform p ψ (b₀.map m₀) σ
   exact (AmbientExtension.extendSection_congr φ A T e (τ ≫ p) E F hF G hG
     (boxPartial b₁) a₁ h₁ (AmbientExtension.substitutePartial φ A T e p τ (boxPartial b₀))
@@ -672,7 +672,7 @@ theorem inputIso_input_reindex :
       (congrArg (fun m => m.app (q.mapElements.obj x) z') i.inv_hom_id)
 
 
-theorem inputBox_input_reindex (ψ : Cofibration Δ)
+theorem box_map_inputIso_reindex (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) (q ≫ σ)) ψ) :
     (b.map (Functor.whiskerLeft q.mapElements (reindexIso φ A T e σ).hom)).map
       (inputIso (φ.reindex σ) (reindex A σ) (reindex T (restrictSubstitution φ σ))
@@ -700,7 +700,7 @@ theorem preliminaryCompatibleFill_input_reindex (E : HomotopyEquivalence e)
       (hF.reindex _) (G.reindex σ) (hG.reindex _) (boxPartial c)
       (G.fill (q ≫ σ) ψ (c.map m))
       (boxPartial_image_filled m c _ (hG.fills (q ≫ σ) ψ (c.map m)))
-  exact (congrArg K (inputBox_input_reindex φ A T e σ q ψ b)).trans
+  exact (congrArg K (box_map_inputIso_reindex φ A T e σ q ψ b)).trans
     (AmbientExtension.extendSection_input_reindex φ A T e σ q E F hF G hG _ _ _)
 
 
@@ -847,7 +847,7 @@ theorem filling_input_reindex (E : HomotopyEquivalence e)
     apply OpenBox.ext
     · exact (PartialSection.glue_congr rfl (selectedFaceTube_input_reindex φ A T e σ q F ψ b)
         hc' (fun x hp hq => congrArg (r.app x) (hc x hp hq))).trans
-        (partialGlue_map r b.tube t hc).symm
+        (partial_glue_map r b.tube t hc).symm
     · rfl
   exact (congrArg (preliminaryFill (φ.reindex σ) (reindex A σ)
     (reindex T (restrictSubstitution φ σ))

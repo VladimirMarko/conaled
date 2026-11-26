@@ -15,7 +15,7 @@ theorem genericFiberPath_intro {Γ Δ : Context.{u}} {A B : Family Γ}
     genericFiberPath f σ (genericFiberIntro f σ a p) = p :=
   Term.map_iso_roundtrip (genericFiberPathIso f σ a).symm p
 
-theorem genericFiberTerm_ext {Γ Δ : Context.{u}} {A B : Family Γ}
+theorem generic_fiber_term_ext {Γ Δ : Context.{u}} {A B : Family Γ}
     (f : A ⟶ B) (σ : Δ ⟶ total B)
     (z w : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f)
       (generic B)) σ))
@@ -41,7 +41,7 @@ theorem genericFiberIntro_input_reindex {Γ Δ Θ : Context.{u}} {A B : Family �
     (genericFiberPath_input_reindex f σ ρ z).trans (genericFiberPath_intro (A := A) (B := B) f (ρ ≫ liftSub B σ) a p)
   let g := Functor.whiskerLeft σ.mapElements f
   have hq := genericFiberPath_intro (A := reindex A σ) (B := reindex B σ) g ρ a p
-  exact genericFiberTerm_ext (A := reindex A σ) (B := reindex B σ) g ρ w
+  exact generic_fiber_term_ext (A := reindex A σ) (B := reindex B σ) g ρ w
     (genericFiberIntro g ρ a p) rfl (heq_of_eq (hp.trans hq.symm))
 
 theorem isoFiberCenter_reindex {Γ Δ : Context.{u}} {A B : Family Γ}

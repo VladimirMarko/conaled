@@ -77,7 +77,7 @@ noncomputable def backward (z : Term (reindex (fiber (conjugate i j f)) σ)) :
     (Term.map (Functor.whiskerLeft (σ ≫ projection B').mapElements i.hom)
       (genericFiberFst (conjugate i j f) σ z)) (backwardPath i j f σ z)
 
-private theorem fiberPath_reindex {Θ : Context.{u}} (f : A ⟶ B)
+private theorem pathApp_genericFiberPath_reindex {Θ : Context.{u}} (f : A ⟶ B)
     (ρ : Δ ⟶ total B) (z : Term (reindex (fiber f) ρ)) (τ : Θ ⟶ Δ) :
     pathApp (genericFiberPath f (τ ≫ ρ) (z.reindex τ)) =
       (pathApp (genericFiberPath f ρ z)).reindex (liftSub (interval Δ) τ) := by
@@ -90,10 +90,10 @@ theorem forward_natural {Θ : Context.{u}} (τ : Θ ⟶ Δ)
     forward i j f (τ ≫ σ) (z.reindex τ) = (forward i j f σ z).reindex τ := by
   let p := forwardPath i j f σ z
   have hp : HEq (homogeneousReindex p τ) (forwardPath i j f (τ ≫ σ) (z.reindex τ)) := by
-    apply pathTerm_hext
+    apply heq_of_pathApp_eq
     exact (congrArg (Term.map (Functor.whiskerLeft
       (projection (interval Θ) ≫ τ ≫ σ ≫ projection B').mapElements j.hom))
-      (fiberPath_reindex f (σ ≫ targetSub j) z τ)).symm
+      (pathApp_genericFiberPath_reindex f (σ ≫ targetSub j) z τ)).symm
   exact ((genericFiberIntro_reindex (conjugate i j f) σ _ p τ).symm.trans
     (genericFiberIntro_congr (conjugate i j f) (τ ≫ σ) _ _ rfl _ _ hp)).symm
 
@@ -102,20 +102,20 @@ theorem backward_natural {Θ : Context.{u}} (τ : Θ ⟶ Δ)
     backward i j f (τ ≫ σ) (z.reindex τ) = (backward i j f σ z).reindex τ := by
   let p := backwardPath i j f σ z
   have hp : HEq (homogeneousReindex p τ) (backwardPath i j f (τ ≫ σ) (z.reindex τ)) := by
-    apply pathTerm_hext
+    apply heq_of_pathApp_eq
     exact (congrArg (Term.map (Functor.whiskerLeft
       (projection (interval Θ) ≫ τ ≫ σ ≫ projection B').mapElements j.inv))
-      (fiberPath_reindex (conjugate i j f) σ z τ)).symm
+      (pathApp_genericFiberPath_reindex (conjugate i j f) σ z τ)).symm
   exact ((genericFiberIntro_reindex f (σ ≫ targetSub j) _ p τ).symm.trans
     (genericFiberIntro_congr f (τ ≫ σ ≫ targetSub j) _ _ rfl _ _ hp)).symm
 
 
 theorem backward_forward (z : Term (reindex (oldFiber j f) σ)) :
     backward i j f σ (forward i j f σ z) = z := by
-  apply genericFiberTerm_ext f (σ ≫ targetSub j)
+  apply generic_fiber_term_ext f (σ ≫ targetSub j)
   · exact Term.map_iso_roundtrip (Functor.isoWhiskerLeft (σ ≫ projection B').mapElements i).symm
       (genericFiberFst f (σ ≫ targetSub j) z)
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     have h := genericFiberPath_intro (conjugate i j f) σ
       (Term.map (Functor.whiskerLeft (σ ≫ projection B').mapElements i.inv)
         (genericFiberFst f (σ ≫ targetSub j) z)) (forwardPath i j f σ z)
@@ -133,10 +133,10 @@ theorem backward_forward (z : Term (reindex (oldFiber j f) σ)) :
 
 theorem forward_backward (z : Term (reindex (fiber (conjugate i j f)) σ)) :
     forward i j f σ (backward i j f σ z) = z := by
-  apply genericFiberTerm_ext (conjugate i j f) σ
+  apply generic_fiber_term_ext (conjugate i j f) σ
   · exact Term.map_iso_roundtrip (Functor.isoWhiskerLeft (σ ≫ projection B').mapElements i)
       (genericFiberFst (conjugate i j f) σ z)
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     have h := genericFiberPath_intro f (σ ≫ targetSub j)
       (Term.map (Functor.whiskerLeft (σ ≫ projection B').mapElements i.hom)
         (genericFiberFst (conjugate i j f) σ z)) (backwardPath i j f σ z)

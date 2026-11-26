@@ -89,7 +89,7 @@ theorem sourceFiber_input_reindex :
       ((E.reindex ν).extendAlong (FA.reindex ν) (hFA.reindex _) (FB.reindex ν) (hFB.reindex _) β)
       hi).trans he))
 
-private theorem fiberFst_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
+private theorem genericFiberFst_inputMap {Ω Ξ Λ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
     (τ : Ξ ⟶ Ω) (β : Λ ⟶ total (reindex Q τ))
     (z : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection Q).mapElements k) (generic Q))
       (β ≫ liftSub Q τ))) :
@@ -103,7 +103,7 @@ theorem middlePoint_input_reindex :
       middlePoint f g D FB hFB FC hFC (ρ ≫ liftSub C ν) s :=
   (congrArg (genericFiberFst (pulled g ν) ρ)
     (middle_input_reindex f g D FB hFB FC hFC ν ρ s)).trans
-      (fiberFst_input g ν ρ (middle f g D FB hFB FC hFC (ρ ≫ liftSub C ν) s))
+      (genericFiberFst_inputMap g ν ρ (middle f g D FB hFB FC hFC (ρ ≫ liftSub C ν) s))
 
 theorem inputTarget_eq :
     target (pulled f ν) (pulled g ν) (D.reindex ν)
@@ -112,7 +112,7 @@ theorem inputTarget_eq :
   congrArg (pair (A := reindex B ν) (ρ ≫ projection (reindex C ν)))
     (middlePoint_input_reindex f g D FB hFB FC hFC ν ρ s)
 
-private theorem fiberLine_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
+private theorem pathApp_homogeneousReverse_genericFiberPath_inputMap {Ω Ξ Λ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
     (τ : Ξ ⟶ Ω) (β : Λ ⟶ total (reindex Q τ))
     (z : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection Q).mapElements k) (generic Q))
       (β ≫ liftSub Q τ))) :
@@ -158,14 +158,14 @@ private theorem extendAlong_line_congr {Ω Ξ : Context.{u}} {P Q : Family Ω}
   cases hb
   rfl
 
-private theorem fiberFst_congr {Ω Ξ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
+private theorem genericFiberFst_congr {Ω Ξ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
     (β : Ξ ⟶ total Q)
     {z z' : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection Q).mapElements k) (generic Q)) β)}
     (h : z = z') : genericFiberFst k β z = genericFiberFst k β z' := by
   cases h
   rfl
 
-private theorem fiberLine_congr {Ω Ξ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
+private theorem pathApp_homogeneousReverse_genericFiberPath_congr {Ω Ξ : Context.{u}} {P Q : Family Ω} (k : P ⟶ Q)
     (β : Ξ ⟶ total Q)
     {z z' : Term (reindex (homotopyFiber (Functor.whiskerLeft (projection Q).mapElements k) (generic Q)) β)}
     (h : z = z') :
@@ -188,8 +188,8 @@ private theorem extendAlong_fst_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)
   have hc := (congrArg ((K.reindex τ).extendAlong (FP.reindex τ) (hFP.reindex _)
     (FQ.reindex τ) (hFQ.reindex _) β) hi).trans he
-  exact (fiberFst_congr (pulled k τ) β hc).trans
-    (fiberFst_input k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
+  exact (genericFiberFst_congr (pulled k τ) β hc).trans
+    (genericFiberFst_inputMap k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
 
 private theorem extendAlong_line_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
@@ -205,8 +205,8 @@ private theorem extendAlong_line_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω
     (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)
   have hc := (congrArg ((K.reindex τ).extendAlong (FP.reindex τ) (hFP.reindex _)
     (FQ.reindex τ) (hFQ.reindex _) β) hi).trans he
-  exact (fiberLine_congr (pulled k τ) β hc).trans
-    (fiberLine_input k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
+  exact (pathApp_homogeneousReverse_genericFiberPath_congr (pulled k τ) β hc).trans
+    (pathApp_homogeneousReverse_genericFiberPath_inputMap k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
 
 private theorem extendAlong_fst_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
@@ -390,7 +390,7 @@ theorem extend_input_reindex :
       (congrArg pathApp (genericFiberPath_input_reindex g ν ρ _))
   exact (genericFiberIntro_congr (pulled (f ≫ g) ν) ρ _ _
     (source_input_reindex f g E D FA hFA FB hFB FC hFC ν ρ s) _ _
-    (pathTerm_hext _ _ hp)).trans
+    (heq_of_pathApp_eq _ _ hp)).trans
     (genericFiberIntro_input_reindex (f ≫ g) ν ρ _ _).symm
 
 end EquivalenceComposition

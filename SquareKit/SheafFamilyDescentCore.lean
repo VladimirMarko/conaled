@@ -88,7 +88,7 @@ theorem isStackFor_joint
   have := CoproductDescent.aggregateRestriction_isEquivalence c
     (SheafCoproductGeometry.total_isVanKampenColimit Y) hF (Sigma.desc f)
   have := (F.isStackFor_ofArrows_iff _).mp
-    (hSingle (Sigma.desc f) ((SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc f).mp hf))
+    (hSingle (Sigma.desc f) ((SheafFamilyCover.jointlyLocallySurjective_iff_isLocallySurjective_desc f).mp hf))
   have h := Functor.isEquivalence_of_iso
     (CoproductDescent.toDescentDataAggregateRestrictionIso (F := F) c (Sigma.desc f))
   change (F.toDescentData (fun i => Sigma.ι Y i ≫ Sigma.desc f)).IsEquivalence at h

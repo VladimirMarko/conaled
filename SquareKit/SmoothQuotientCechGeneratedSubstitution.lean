@@ -27,7 +27,7 @@ theorem parameterMap_substitution (f : Y ⟶ SplitSheaf.extension A) :
       parameterMap a A hΔ f ⋙ (s (SmoothQuotientSource.model a Y)).down :=
   generatedSubstitution_commutes (parameterSignature a A f) hΓ hΔ hs
 
-theorem localComposite_substitution (f : Y ⟶ SplitSheaf.extension A) :
+theorem localMap_restriction_substitution (f : Y ⟶ SplitSheaf.extension A) :
     (s (model a A)).down ⋙
         (localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f) =
       (localMap a A hΔ ⋙ SmoothQuotientGeneratedMatching.restriction a hΔ f) ⋙
@@ -37,8 +37,8 @@ theorem localComposite_substitution (f : Y ⟶ SplitSheaf.extension A) :
 
 theorem generatedOverlap_substitution :
     isoWhiskerLeft (s (model a A)).down (generatedOverlap a A hΓ) ≪≫
-      eqToIso (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A)) =
-    eqToIso (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A)) ≪≫
+      eqToIso (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A)) =
+    eqToIso (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A)) ≪≫
       isoWhiskerRight (generatedOverlap a A hΔ)
         (s (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down := by
   have h := alignedContextComparison_substitution (overlap a A)
@@ -54,8 +54,8 @@ theorem generatedOverlap_substitution :
     (localMap_restriction a A hΔ (SplitSheaf.Cech.second A)).symm
     (parameterMap_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
     (parameterMap_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A))
-    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
-    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A)) h
+    (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
+    (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A)) h
 
 /-- Complete matching evaluation, including its overlap, commutes with substitution. -/
 theorem matchingEvaluation_substitution :
@@ -73,8 +73,8 @@ theorem matchingEvaluation_substitution :
     (localMap a A hΔ) (localMap a A hΓ) (s (model a A)).down
     (generatedOverlap a A hΔ) (generatedOverlap a A hΓ)
     (localMap_substitution a A hΓ hΔ hs).symm
-    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
-    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A))
+    (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
+    (localMap_restriction_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A))
     (generatedOverlap_substitution a A hΓ hΔ hs)
 
 end SquareKit.SmoothQuotientCechLocal

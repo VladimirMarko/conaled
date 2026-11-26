@@ -42,7 +42,7 @@ def strictDiagram : CechMatching.StrictDiagram.{1} where
 
 abbrev Datum := CechMatching.Datum (strictDiagram a hΓ f).toDiagram
 
-theorem restrictionOverlap_eq :
+theorem restriction_overlap_eq :
     restriction a hΓ f ⋙ (strictDiagram a hΓ f).first =
       restriction a hΓ f ⋙ (strictDiagram a hΓ f).second := by
   change restriction a hΓ f ⋙ restriction a hΓ _ = restriction a hΓ f ⋙ restriction a hΓ _
@@ -51,7 +51,7 @@ theorem restrictionOverlap_eq :
 
 /-- The original global-to-local functor uses actual restriction along f. -/
 def restrictionFunctor : context a hΓ X ⥤ Datum a hΓ f :=
-  (strictDiagram a hΓ f).equalFunctor (restriction a hΓ f) (restrictionOverlap_eq a hΓ f)
+  (strictDiagram a hΓ f).equalFunctor (restriction a hΓ f) (restriction_overlap_eq a hΓ f)
 
 /-- Transfer uses restriction along the three actual cover isomorphisms. -/
 def toSplitMap : CechMatching.StrictMap (strictDiagram a hΓ f)
@@ -62,27 +62,27 @@ def toSplitMap : CechMatching.StrictMap (strictDiagram a hΓ f)
   first := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDouble_first]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDoubleIso_first]
   second := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDouble_second]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDoubleIso_second]
   diagonal := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDouble_diagonal]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitDoubleIso_diagonal]
   firstSecond := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTriple_firstSecond]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTripleIso_firstSecond]
   firstThird := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTriple_firstThird]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTripleIso_firstThird]
   secondThird := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
-    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTriple_secondThird]
+    rw [restriction_comp, restriction_comp, SheafCoverCech.splitTripleIso_secondThird]
 
 private theorem inverse_square {A B A' B' : Sheaf topology Type}
     (e : A ≅ A') (i : B ≅ B') (p : A ⟶ B) (q : A' ⟶ B')
@@ -102,37 +102,37 @@ def fromSplitMap : CechMatching.StrictMap
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SheafCoverCech.splitDoubleIso f) (SplitSheaf.displayIso f) _ _ (SheafCoverCech.splitDouble_first f)).symm
+      (inverse_square (SheafCoverCech.splitDoubleIso f) (SplitSheaf.displayIso f) _ _ (SheafCoverCech.splitDoubleIso_first f)).symm
   second := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SheafCoverCech.splitDoubleIso f) (SplitSheaf.displayIso f) _ _ (SheafCoverCech.splitDouble_second f)).symm
+      (inverse_square (SheafCoverCech.splitDoubleIso f) (SplitSheaf.displayIso f) _ _ (SheafCoverCech.splitDoubleIso_second f)).symm
   diagonal := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SplitSheaf.displayIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitDouble_diagonal f).symm).symm
+      (inverse_square (SplitSheaf.displayIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitDoubleIso_diagonal f).symm).symm
   firstSecond := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTriple_firstSecond f)).symm
+      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTripleIso_firstSecond f)).symm
   firstThird := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTriple_firstThird f)).symm
+      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTripleIso_firstThird f)).symm
   secondThird := by
     change restriction a hΓ _ ⋙ restriction a hΓ _ =
       restriction a hΓ _ ⋙ restriction a hΓ _
     rw [restriction_comp, restriction_comp]
     exact congrArg (restriction a hΓ)
-      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTriple_secondThird f)).symm
+      (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTripleIso_secondThird f)).symm
 
 theorem toSplitMap_comp_fromSplitMap : (toSplitMap a hΓ f).comp (fromSplitMap a hΓ f) =
     CechMatching.StrictMap.id (strictDiagram a hΓ f) := by
@@ -175,9 +175,9 @@ theorem restrictionFunctor_comp_matchingEquivalence_functor : restrictionFunctor
     (restriction a hΓ f ⋙ (toSplitMap a hΓ f).localMap) ⋙
       (SmoothQuotientGeneratedMatching.strictDiagram a hΓ (SplitSheaf.ofDisplay f)).second := by
     rw [hl]
-    exact SmoothQuotientGeneratedMatching.restrictionOverlap_eq a hΓ (SplitSheaf.ofDisplay f)
+    exact SmoothQuotientGeneratedMatching.restriction_overlap_eq a hΓ (SplitSheaf.ofDisplay f)
   have h := (toSplitMap a hΓ f).equalFunctor_map (restriction a hΓ f)
-    (restrictionOverlap_eq a hΓ f) he
+    (restriction_overlap_eq a hΓ f) he
   simpa only [hl, restrictionFunctor, matchingEquivalence,
     CechMatching.StrictMap.equivalence, SmoothQuotientGeneratedMatching.restrictionFunctor] using h
 

@@ -30,28 +30,28 @@ theorem parameterRecovery_postcompose (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (SmoothQuotientCechLocal.localFiber a A) (restrictionFamily f)
     (localComparison_square a A) (localComparison_restrict_square a A f) hΓ
 
-theorem globalRestrictionOverlap_eq (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem contextEquivalence_restriction_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     ((contextEquivalence a A hΓ).functor ⋙
       SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.p A)) ⋙
         SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.first A) =
     ((contextEquivalence a A hΓ).functor ⋙
       SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.p A)) ⋙
         SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A) := by
-  rw [Functor.assoc, Functor.assoc, SmoothQuotientGeneratedMatching.restrictionOverlap_eq]
+  rw [Functor.assoc, Functor.assoc, SmoothQuotientGeneratedMatching.restriction_overlap_eq]
 
-theorem restrictedOverlap_eq (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem generatedContextMap_restricted_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     generatedContextMap (restrictedSignature a A) hΓ ⋙
         SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.first A) =
     generatedContextMap (restrictedSignature a A) hΓ ⋙
         SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A) := by
   rw [← context_restriction a A hΓ]
-  exact globalRestrictionOverlap_eq a A hΓ
+  exact contextEquivalence_restriction_overlap a A hΓ
 
 theorem contextLocalComparison_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     isoWhiskerRight (contextLocalComparison a A hΓ)
       (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.first A)) ≪≫
         SmoothQuotientCechLocal.generatedOverlap a A hΓ =
-    eqToIso (restrictedOverlap_eq a A hΓ) ≪≫
+    eqToIso (generatedContextMap_restricted_overlap a A hΓ) ≪≫
       isoWhiskerRight (contextLocalComparison a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A)) := by
   have h := alignedRecovery_square
@@ -65,7 +65,7 @@ theorem contextLocalComparison_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (localComparison_restrict_square a A (SplitSheaf.Cech.first A))
     (localComparison_restrict_square a A (SplitSheaf.Cech.second A))
     (SmoothQuotientCechLocal.overlap_square a A)
-    (primitiveRestrictionOverlap_eq a A) HEq.rfl (localComparison_overlap a A) hΓ
+    (baseEquivalence_restriction_overlap a A) HEq.rfl (localComparison_overlap a A) hΓ
   apply Iso.ext
   simpa only [contextLocalComparison, SmoothQuotientCechLocal.generatedOverlap,
     Iso.trans_hom, Iso.symm_hom, eqToIso.hom, eqToIso.inv,

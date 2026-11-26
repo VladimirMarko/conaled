@@ -68,7 +68,7 @@ Neither a global extension nor a cocycle-model interpretation is an input. -/
 abbrev Datum (A : SplitSheaf.Ty X) := CechMatching.Datum (diagram a hΓ A)
 
 /-- Restricting along the two overlap projections gives the same functor. -/
-theorem restrictionOverlap_eq (A : SplitSheaf.Ty X) :
+theorem restriction_overlap_eq (A : SplitSheaf.Ty X) :
     restriction a hΓ (SplitSheaf.p A) ⋙ restriction a hΓ (SplitSheaf.Cech.first A) =
       restriction a hΓ (SplitSheaf.p A) ⋙ restriction a hΓ (SplitSheaf.Cech.second A) := by
   rw [restriction_comp, restriction_comp]
@@ -78,11 +78,11 @@ theorem restrictionOverlap_eq (A : SplitSheaf.Ty X) :
 choosing a new local representative. -/
 def restrictDatum (A : SplitSheaf.Ty X) (x : context a hΓ X) : Datum a hΓ A :=
   (strictDiagram a hΓ A).equalDatum ((restriction a hΓ (SplitSheaf.p A)).obj x)
-    (Functor.congr_obj (restrictionOverlap_eq a hΓ A) x)
+    (Functor.congr_obj (restriction_overlap_eq a hΓ A) x)
 
 /-- The full global-to-local functor uses the actual restriction on arrows. -/
 def restrictionFunctor (A : SplitSheaf.Ty X) : context a hΓ X ⥤ Datum a hΓ A :=
   (strictDiagram a hΓ A).equalFunctor (restriction a hΓ (SplitSheaf.p A))
-    (restrictionOverlap_eq a hΓ A)
+    (restriction_overlap_eq a hΓ A)
 
 end SquareKit.SmoothQuotientGeneratedMatching

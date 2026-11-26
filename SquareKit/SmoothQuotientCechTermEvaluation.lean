@@ -16,7 +16,7 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 variable {Γ γ B b x ξ} (hΓ : Typed.CtxDeriv.{2} Γ γ)
 variable (hB : Typed.TyDeriv.{2} Γ γ B b) (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
 
-theorem termDiagram_asSubstitution :
+theorem termDiagram_comp_relativeToGenerated :
     (termDiagram a hΓ hB hx A).comp (relativeToGenerated a hΓ hB A) =
       substitutionDiagram a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) A := by
   apply CechMatching.StrictMap.ext
@@ -35,7 +35,7 @@ theorem section_matchingEvaluation :
     (Typed.SubDeriv.section hΓ hB hx)
   change matchingEvaluation a A hΓ ⋙
     (substitutionDiagram a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) A).functor = _ at hh
-  rw [← termDiagram_asSubstitution a A hΓ hB hx, CechMatching.StrictMap.functor_comp] at hh
+  rw [← termDiagram_comp_relativeToGenerated a A hΓ hB hx, CechMatching.StrictMap.functor_comp] at hh
   have hs : ((Typed.sectionCode b ξ) (model a A)).down = (ξ (model a A)).down.lift :=
     Typed.sectionCode_universeLift (SheafActionQuotient.Cech.Datum (a := a) A)
       (SmoothQuotientDeformations.Cech.family (a := a) (A := A)) b ξ
@@ -62,7 +62,7 @@ def familyEvaluationTermComparison :=
     (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation_projection a A hΓ hB) (ξ (model a A)).down
-    (termDiagram a hΓ hB hx A).functor (termMatching_projection a hΓ hB hx A)
+    (termDiagram a hΓ hB hx A).functor (termDiagram_functor_projection a hΓ hB hx A)
     (section_totalMatchingEvaluation a A hΓ hB hx)
 
 /-- The section endpoint expressed in the actual fixed-base total functor. -/

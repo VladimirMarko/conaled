@@ -47,17 +47,17 @@ theorem localMap_extend_fiber
   totalMap_obj_fiber_heq (localMap a A hΓ) (localFamilyMap a A hΓ hB)
     (localMap a A (.ext hΓ hB)) (localMap_extend a A hΓ hB) ⟨c,x⟩
 
-theorem localMatching_fiber
+theorem fiberTotalEvaluation_localObject_fiber
     (c : (show Grpd.{1,1} from γ (model a A))) (x : (b (model a A)).obj c) :
     HEq (((fiberTotalEvaluation a A hΓ hB c).obj x).localObject.fiber)
       (((localMap a A (.ext hΓ hB)).obj ⟨c,x⟩).fiber) :=
   HEq.rfl
 
-theorem familyEvaluation_localComponent
+theorem familyEvaluation_localFiber_heq_localFamilyMap
     (c : (show Grpd.{1,1} from γ (model a A))) (x : (b (model a A)).obj c) :
     HEq ((familyEvaluation a A hΓ hB c).obj x).localFiber
       (((localFamilyMap a A hΓ hB).app c).obj x) :=
   (familyEvaluation_localFiber a A hΓ hB c x).trans
-    ((localMatching_fiber a A hΓ hB c x).trans (localMap_extend_fiber a A hΓ hB c x))
+    ((fiberTotalEvaluation_localObject_fiber a A hΓ hB c x).trans (localMap_extend_fiber a A hΓ hB c x))
 
 end SquareKit.SmoothQuotientCechLocal

@@ -460,18 +460,18 @@ def splitDouble : SplitSheaf.Cech.double (SplitSheaf.ofDisplay B.cover) ⟶
       SplitSheaf.Cech.first (SplitSheaf.ofDisplay B.cover) ≫ r.splitTotal := by
   apply (cancel_mono (SplitSheaf.displayIso A.cover).hom).1
   simp only [splitDouble, splitTotal, Category.assoc, Iso.inv_hom_id, Category.comp_id]
-  rw [← SheafCoverCech.splitDouble_first A.cover]
+  rw [← SheafCoverCech.splitDoubleIso_first A.cover]
   simp only [Iso.inv_hom_id_assoc, SheafCoverCech.mapDouble_first,
-    SheafCoverCech.splitDouble_first_assoc]
+    SheafCoverCech.splitDoubleIso_first_assoc]
 
 @[simp, reassoc] theorem splitDouble_second :
     r.splitDouble ≫ SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover) =
       SplitSheaf.Cech.second (SplitSheaf.ofDisplay B.cover) ≫ r.splitTotal := by
   apply (cancel_mono (SplitSheaf.displayIso A.cover).hom).1
   simp only [splitDouble, splitTotal, Category.assoc, Iso.inv_hom_id, Category.comp_id]
-  rw [← SheafCoverCech.splitDouble_second A.cover]
+  rw [← SheafCoverCech.splitDoubleIso_second A.cover]
   simp only [Iso.inv_hom_id_assoc, SheafCoverCech.mapDouble_second,
-    SheafCoverCech.splitDouble_second_assoc]
+    SheafCoverCech.splitDoubleIso_second_assoc]
 
 end SquareKit.SmoothRepresentedCover.AtlasMap
 

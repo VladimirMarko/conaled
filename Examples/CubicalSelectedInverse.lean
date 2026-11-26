@@ -52,7 +52,7 @@ theorem recoverEquivalence_reindex {Δ : Context.{0}} (σ : Δ ⟶ Γ) :
 /-- Discreteness turns the retained right recovery path into ambient equality. -/
 theorem recovered_ambient (x : Γ.Elements) (b : Bool) :
     (forget φ).app x ((recover φ).app x b) = b := by
-  have h := discretePath_endpoints (recoverRight φ)
+  have h := constantFamily_path_endpoints (recoverRight φ)
   exact congrArg (fun t => t.val ((total (constantFamily Γ Bool)).elementsMk x.obj ⟨x.val,b⟩)) h
 
 /-- Every face observation is the opposite Boolean, including faces exposed

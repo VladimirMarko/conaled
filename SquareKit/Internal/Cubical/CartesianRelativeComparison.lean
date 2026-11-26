@@ -136,8 +136,8 @@ theorem ext {Δ : Context.{u}} (σ : Δ ⟶ Γ)
     (z w : Term (reindex (family f p) σ))
     (h : Term.map (Functor.whiskerLeft σ.mapElements (projectionMap f p)) z =
       Term.map (Functor.whiskerLeft σ.mapElements (projectionMap f p)) w) : z = w := by
-  apply genericFiberTerm_ext f (σ ≫ targetSub f p) z w h
-  apply pathTerm_hext
+  apply generic_fiber_term_ext f (σ ≫ targetSub f p) z w h
+  apply heq_of_pathApp_eq
   apply Term.ext
   intro x
   let y := (Presheaf.projection (interval Δ)).mapElements.obj x

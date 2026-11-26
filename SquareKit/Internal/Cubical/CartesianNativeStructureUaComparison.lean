@@ -857,7 +857,7 @@ private theorem uaPath_moving :
   let π := projection (SIP.targetData D a)
   let σ := π ≫ SIP.carrierProjection a
   let q := Term.reindex (generic (EquivalenceFamilies.equiv A B)) (π ≫ SIP.unpackCarriers a)
-  have hd := decodeEquivalence_reindex A B (SIP.carrierProjection a) π
+  have hd := equivReindexSections_symm_reindex A B (SIP.carrierProjection a) π
     (Term.reindex (generic (EquivalenceFamilies.equiv A B)) (SIP.unpackCarriers a))
   have hb := SmallUniverse.NativeUnivalence.equivToPath_reindex_beta (a := a₀) (b := b₀) σ q
   have hu := congrArg (fun e : Σ f : reindex A σ ⟶ reindex B σ, HomotopyEquivalence f =>

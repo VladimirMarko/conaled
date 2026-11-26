@@ -26,7 +26,7 @@ The result classifies closed loop components without constructing a quotient.
 This classification requires an argument for discreteness. A native
 contractible-fiber equivalence between constant families induces a bijection
 of their sections: its inverse takes the chosen fiber center, and its inverse
-laws follow from native contraction paths and `discretePath_endpoints`.
+laws follow from native contraction paths and `constantFamily_path_endpoints`.
 Over the terminal context, naturality along the map to the zero-dimensional
 cube makes each section constant. `closedSections` identifies these sections
 with their values. No premise equating arbitrary native paths with host

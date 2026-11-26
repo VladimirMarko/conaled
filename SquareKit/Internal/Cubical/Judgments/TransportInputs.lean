@@ -33,9 +33,9 @@ theorem transpSchema_inputs (out : Judgment (Fin 5)) (ρ : Fin 5 → Value.{u})
   have hBconst := subTy_eval (subTy (.var 1) (endpointSub (.var 0) false)) (projection (.var 0))
     ρ _ _ _ _ hB0 hp
   have hface := intervalFace_eval (.var (0 : Fin 5)) (.var 3) ρ Γ φ hΓ hφ
-  have hleft := restrictedType_eval (intervalContext (.var (0 : Fin 5))) (.var 1)
+  have hleft := subTy_inclusion_eval (intervalContext (.var (0 : Fin 5))) (.var 1)
     (intervalFace (.var 0) (.var 3)) ρ _ B _ hI hB hface
-  have hright := restrictedType_eval (intervalContext (.var (0 : Fin 5)))
+  have hright := subTy_inclusion_eval (intervalContext (.var (0 : Fin 5)))
     (subTy (subTy (.var 1) (endpointSub (.var 0) false)) (projection (.var 0)))
     (intervalFace (.var 0) (.var 3)) ρ _ _ _ hI hBconst hface
   have hc := h 3

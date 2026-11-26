@@ -19,7 +19,7 @@ noncomputable def observedNative (s : S) : Term (constantFamily terminal T) :=
 
 /-- The observation comes from the actual universal-El filler on the generic native ua line. -/
 theorem observedNative_eq (s : S) : observedNative e s = constantSection (e s) :=
-  (discretePath_endpoints (homogeneousPathMap (constantLocal terminal T).decodeCodeIso.hom
+  (constantFamily_path_endpoints (homogeneousPathMap (constantLocal terminal T).decodeCodeIso.hom
     (Raising.lowerPath (uaComparison (constantLocal terminal S).code (constantLocal terminal T).code
       (Raising.map (codeIso e).hom) (HomotopyEquivalence.ofIso (Raising.iso (codeIso e)))
       (Raising.raiseTerm (input s)))))).symm.trans (codeIso_action e s)

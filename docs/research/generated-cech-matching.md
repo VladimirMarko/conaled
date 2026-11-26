@@ -304,7 +304,7 @@ Independent review, the parent fresh build and exhaustive audit remain part of
 candidate acceptance. This checkpoint does not close #445 or #433.
 
 The actual extracted `familyEvaluation` now has checked local-component
-recovery: `familyEvaluation_localComponent` identifies its supplied local fiber
+recovery: `familyEvaluation_localFiber_heq_localFamilyMap` identifies its supplied local fiber
 with the component of `localFamilyMap`, which is the original
 `generatedFamilyMap` for the local signature. This applies to every generated
 family and every supplied source fiber object, without a discreteness premise.

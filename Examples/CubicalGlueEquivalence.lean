@@ -42,6 +42,6 @@ theorem center_unglue (φ : Cofibration Γ) :
       (Glue.unglue φ (constantFamily Γ Bool)
         (reindex (constantFamily Γ Bool) (restrictInclusion φ)) (faceFlip φ).hom))
       (genericFiberFst _ (𝟙 _) (equivalence φ).fibers.center) = generic (constantFamily Γ Bool) :=
-  discretePath_endpoints (genericFiberPath _ (𝟙 _) (equivalence φ).fibers.center)
+  constantFamily_path_endpoints (genericFiberPath _ (𝟙 _) (equivalence φ).fibers.center)
 
 end Examples.CubicalGlueEquivalence

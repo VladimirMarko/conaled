@@ -27,7 +27,7 @@ theorem toLocal_substitution {Γ Δ : Context.{u}} (A : Family Γ) (B : Family (
     (localArrow (σ.mapElements.obj x) f)
     (elementHom_hext rfl hy _ _ HEq.rfl) a b hab
 
-theorem typeHom_hext {X X' Y Y' : Type u} (hx : X = X') (hy : Y = Y')
+theorem type_hom_hext {X X' Y Y' : Type u} (hx : X = X') (hy : Y = Y')
     (f : X ⟶ Y) (g : X' ⟶ Y')
     (h : ∀ x x', HEq x x' → HEq (f x) (g x')) : HEq f g := by
   cases hx
@@ -46,7 +46,7 @@ theorem normalizedPi_reindex {Γ Δ : Context.{u}} (A : Family Γ) (B : Family (
     fun x => (localPi_substitution A B σ x).symm
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro s t hst
   change LocalPi A B (σ.mapElements.obj x) at s
   change LocalPi (reindex A σ) (reindex B (liftSub A σ)) x at t

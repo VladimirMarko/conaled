@@ -38,7 +38,7 @@ def torsorFunctor : SheafTorsor.Torsor G X ⥤
 
 variable [F.Full] [F.Faithful] [F.IsDenseSubsite J K]
 
-instance elementComparison_dense (X : Sheaf K (Type u)) :
+instance comparison_isDenseSubsite (X : Sheaf K (Type u)) :
     (ElementSite.comparison F X.obj).IsDenseSubsite
       (ElementSite.topology (sheaf J K F X).obj J) (ElementSite.topology X.obj K) :=
   ElementSite.comparison_isDenseSubsite F X.obj J K
@@ -60,7 +60,7 @@ theorem equivariant_of_restrict {P Q : SheafTorsor.Torsor G X}
       ((elementEquivalence J K F X).inverse.map f)) :
     PrincipalSheaf.Equivariant (PrincipalSheafContext.structureOf X G P)
       (PrincipalSheafContext.structureOf X G Q) f := by
-  let := elementComparison_dense J K F X
+  let := comparison_isDenseSubsite J K F X
   exact (PrincipalSheaf.equivariant_iff _ _ (ElementSite.comparison F X.obj) _ _ f).mpr h
 
 def liftTorsorArrow {P Q : SheafTorsor.Torsor G X}
@@ -201,7 +201,7 @@ variable (U : D)
 
 omit [F.Full] [F.Faithful] [F.IsDenseSubsite J K] in
 /-- The general parameter structure specializes to the existing original-slice structure. -/
-theorem contextStructure_eq (P : SheafTorsor.Torsor G (SheafifiedSliceTorsor.context K U)) :
+theorem structureOf_eq_elementStructure (P : SheafTorsor.Torsor G (SheafifiedSliceTorsor.context K U)) :
     PrincipalSheafContext.structureOf _ G P = SheafifiedSliceTorsor.elementStructure K U P := rfl
 
 /-- The original-slice recovery unit remains natural after site restriction. -/

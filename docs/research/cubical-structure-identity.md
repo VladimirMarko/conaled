@@ -134,7 +134,7 @@ and `reindexTerm_comp` govern substitution of every description;
 native preservation family, and `lawReindexIso` covers all admitted formulas,
 including quantification over function fields.
 
-`decodeEquivalence_reindex` and `genericEquivalence_at` retain the complete
+`equivReindexSections_symm_reindex` and `genericEquivalence_at` retain the complete
 pair of a carrier map and its selected contractible-fiber witness. These laws
 do not assert that independently selected homotopy inverses compose strictly.
 The selected-ua comparisons and native recovery homotopies state their own

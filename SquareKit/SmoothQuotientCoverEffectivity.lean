@@ -25,7 +25,7 @@ def descentEquivalence : context a hΓ X ≌ Datum a hΓ f := by
   exact (restrictionFunctor a hΓ f).asEquivalence
 
 /-- Recovery is natural in every supplied matching arrow. -/
-theorem descentRecovery_natural {d e : Datum a hΓ f} (p : d ⟶ e) :
+theorem descentEquivalence_counitIso_natural {d e : Datum a hΓ f} (p : d ⟶ e) :
     (restrictionFunctor a hΓ f).map ((descentEquivalence a hΓ f).inverse.map p) ≫
         ((descentEquivalence a hΓ f).counitIso.app e).hom =
       ((descentEquivalence a hΓ f).counitIso.app d).hom ≫ p :=

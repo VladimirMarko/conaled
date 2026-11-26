@@ -7,7 +7,7 @@ namespace SquareKit.Cubical.Presheaf.Glue
 open CategoryTheory
 universe u
 
-private theorem fiberIntro_path {Γ Δ : Context.{u}} {B D : Family Γ} (f : B ⟶ D)
+private theorem genericFiberPath_genericFiberIntro {Γ Δ : Context.{u}} {B D : Family Γ} (f : B ⟶ D)
     (σ : Δ ⟶ total D) (b : Term (reindex B (σ ≫ projection D)))
     (q : Term (homogeneousPath (reindex D (σ ≫ projection D))
       (Term.map (Functor.whiskerLeft (σ ≫ projection D).mapElements f) b)
@@ -27,7 +27,7 @@ private theorem reverse_pathApp_twice {Ω : Context.{u}} {B : Family Ω} {a b : 
         (@Category.comp_id Cube _ x.obj.unop ⟨1⟩ x.val.2.down))
   exact congrArg (fun r => (show B.obj y from (q.val y).val.val (𝟙 y) (ULift.up r))) hr
 
-private theorem fiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
+private theorem genericFiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
     (f : B ⟶ D) (σ : Δ ⟶ total D) (a : Term (reindex B (σ ≫ projection D)))
     (p : Term (homogeneousPath (reindex D (σ ≫ projection D))
       (Term.map (Functor.whiskerLeft (σ ≫ projection D).mapElements f) a)
@@ -39,7 +39,7 @@ private theorem fiberIntro_reindex_eq {Γ Δ Ξ : Context.{u}} {B D : Family Γ}
     (genericFiberIntro f σ a p).reindex τ = z := by
   let q := homogeneousReindex p τ
   have hq : HEq q (genericFiberPath f (τ ≫ σ) z) :=
-    pathTerm_hext q (genericFiberPath f (τ ≫ σ) z) hp
+    heq_of_pathApp_eq q (genericFiberPath f (τ ≫ σ) z) hp
   have hc := genericFiberIntro_congr f (τ ≫ σ) (a.reindex τ) (genericFiberFst f (τ ≫ σ) z)
     ha q (genericFiberPath f (τ ≫ σ) z) hq
   exact (genericFiberIntro_reindex f σ a p τ).symm.trans
@@ -148,7 +148,7 @@ theorem facePartial_path :
     (pathApp (partialPath φ A T e σ s)).reindex
       (liftSub (interval (restrictContext ψ)) (intersectionToPartial φ A σ)) := by
   dsimp only [facePartial]
-  exact congrArg pathApp (fiberIntro_path e _ _ _)
+  exact congrArg pathApp (genericFiberPath_genericFiberIntro e _ _ _)
 
 theorem tubes_compatible :
     (faceTube φ A T e σ s E F hF G hG).Compatible (partialTube φ A T e σ s) := by
@@ -316,7 +316,7 @@ theorem resultPath_boundary :
 
 theorem extension_restricted :
     (extension φ A T e σ s E F hF G hG).reindex (restrictInclusion ψ) = s.toRestricted :=
-  fiberIntro_reindex_eq (f φ A T e) σ (domain φ A T e σ s E F hF G hG)
+  genericFiberIntro_reindex_eq (f φ A T e) σ (domain φ A T e σ s E F hF G hG)
     (resultPath φ A T e σ s E F hF G hG) (restrictInclusion ψ) s.toRestricted
     (domain_boundary φ A T e σ s E F hF G hG) (resultPath_boundary φ A T e σ s E F hF G hG)
 

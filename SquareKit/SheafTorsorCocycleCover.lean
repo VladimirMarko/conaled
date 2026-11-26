@@ -83,27 +83,27 @@ namespace OverlapDatum
 def toSplit (c : OverlapDatum (G := G) f) : SplitOverlapDatum G (SplitSheaf.ofDisplay f) where
   label := (SheafCoverCech.splitDoubleIso f).hom ≫ c.label
   diagonal := by
-    rw [← Category.assoc, SheafCoverCech.splitDouble_diagonal, Category.assoc, c.diagonal]
+    rw [← Category.assoc, SheafCoverCech.splitDoubleIso_diagonal, Category.assoc, c.diagonal]
     rfl
   cocycle := by
     have h := congrArg (fun k => (SheafCoverCech.splitTripleIso f).hom ≫ k) c.cocycle
     simp only [labelMul_precomp, ← Category.assoc] at h
-    rw [SheafCoverCech.splitTriple_firstSecond, SheafCoverCech.splitTriple_secondThird,
-      SheafCoverCech.splitTriple_firstThird] at h
+    rw [SheafCoverCech.splitTripleIso_firstSecond, SheafCoverCech.splitTripleIso_secondThird,
+      SheafCoverCech.splitTripleIso_firstThird] at h
     simpa only [Category.assoc] using h
 
 def ofSplit (c : SplitOverlapDatum G (SplitSheaf.ofDisplay f)) : OverlapDatum (G := G) f where
   label := (SheafCoverCech.splitDoubleIso f).inv ≫ c.label
   diagonal := by
     apply (cancel_epi (SplitSheaf.displayIso f).hom).mp
-    rw [← Category.assoc, ← SheafCoverCech.splitDouble_diagonal, Category.assoc,
+    rw [← Category.assoc, ← SheafCoverCech.splitDoubleIso_diagonal, Category.assoc,
       Iso.hom_inv_id_assoc, c.diagonal]
     rfl
   cocycle := by
     apply (cancel_epi (SheafCoverCech.splitTripleIso f).hom).mp
     simp only [labelMul_precomp, ← Category.assoc]
-    rw [SheafCoverCech.splitTriple_firstSecond, SheafCoverCech.splitTriple_secondThird,
-      SheafCoverCech.splitTriple_firstThird]
+    rw [SheafCoverCech.splitTripleIso_firstSecond, SheafCoverCech.splitTripleIso_secondThird,
+      SheafCoverCech.splitTripleIso_firstThird]
     simpa only [Category.assoc, Iso.hom_inv_id_assoc] using c.cocycle
 
 end OverlapDatum

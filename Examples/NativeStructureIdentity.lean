@@ -90,7 +90,7 @@ theorem codedSwap_rejects_unchanged (x : Γ.Elements) :
       (codedTrue admission) (codedFalse admission))) := by
   rintro ⟨p⟩
   let q := Term.map (HomotopyLevels.pathMap admission.decoding.hom _ _) p
-  have h := discretePath_endpoints q
+  have h := constantFamily_path_endpoints q
   have h' := congrArg (fun s => (s.val x).down) h
   change (admission.decoding.hom.app x ((codedTrue admission).val x)).down =
     (admission.decoding.hom.app x ((codedFalse admission).val x)).down at h'

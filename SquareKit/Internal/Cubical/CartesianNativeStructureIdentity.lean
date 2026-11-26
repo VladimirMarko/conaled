@@ -24,7 +24,7 @@ def map : source f C ⟶ target C where
   naturality x y g := by
     apply ConcreteCategory.hom_ext
     intro z
-    have h := sigmaMap_ofHom B C g (a := f.app x z.1) (a' := f.app y (A.map g z.1)) (f.naturality_apply g z.1).symm z.2
+    have h := sigmaMap_extendAlong B C g (a := f.app x z.1) (a' := f.app y (A.map g z.1)) (f.naturality_apply g z.1).symm z.2
     exact h.symm
 
 def firstMap : target C ⟶ B where
@@ -194,7 +194,7 @@ theorem extend_on_face :
     (totalPath f C E FA hFA FB hFB σ s FC hFC) (restrictInclusion φ)).trans
     ((genericFiberIntro_congr (map f C) (restrictInclusion φ ≫ σ) _ _
       (sourceSection_on_face f C E FA hFA FB hFB σ s FC hFC) _ _
-      (pathTerm_hext _ _ (totalPath_on_face f C E FA hFA FB hFB σ s FC hFC))).trans
+      (heq_of_pathApp_eq _ _ (totalPath_on_face f C E FA hFA FB hFB σ s FC hFC))).trans
       (genericFiberIntro_eta (map f C) (restrictInclusion φ ≫ σ) s.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :

@@ -96,7 +96,7 @@ theorem rejects_unchanged (x : Γ.Elements) :
       (Term.map (composite admitted).map (point admitted 0)) (point admitted 0))) := by
   rintro ⟨p⟩
   have h := homogeneousPathMap admitted.decoding.hom p
-  have he := discretePath_endpoints h
+  have he := constantFamily_path_endpoints h
   have hx := congrArg (fun t => (t.val x).down) he
   rw [composite_point] at hx
   change (admitted.decoding.hom.app x ((point admitted 3).val x)).down =

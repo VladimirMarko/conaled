@@ -472,7 +472,7 @@ theorem extendedFace_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
   congrArg (genericFiberFst f (target θ B (τ ≫ p) (a.reindex τ)))
     (fiber_reindex θ B U f p E F hF G hG s a h τ)
 
-theorem correctionTube_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
+theorem restrictedPathTube_extensionPath_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     restrictedPathTube (θ.reindex (τ ≫ p)) (a.reindex τ)
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ (τ ≫ p)).mapElements f)
         (extendedFace θ B U f (τ ≫ p) E F hF G hG (substitutePartial θ B U f p τ s) (a.reindex τ)
@@ -486,7 +486,7 @@ theorem correctionTube_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
   have hp := (congrArg (fun z => pathApp (homogeneousReverse
     (genericFiberPath f (target θ B (τ ≫ p) (a.reindex τ)) z)))
       (fiber_reindex θ B U f p E F hF G hG s a h τ)).trans
-        (genericFiberReverse_reindex f (target θ B p a) (fiber θ B U f p E F hF G hG s a h)
+        (pathApp_homogeneousReverse_genericFiberPath_reindex f (target θ B p a) (fiber θ B U f p E F hF G hG s a h)
           (restrictSubstitution (θ.reindex p) τ))
   apply PartialSection.ext
   intro x hx
@@ -509,7 +509,7 @@ theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
   apply OpenBox.ext
   · apply PartialSection.ext
     intro x hx
-    have ht := correctionTube_reindex θ B U f p E F hF G hG s a h τ
+    have ht := restrictedPathTube_extensionPath_reindex θ B U f p E F hF G hG s a h τ
     let t₀ := restrictedPathTube (θ.reindex p) a
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
         (extendedFace θ B U f p E F hF G hG s a h))

@@ -335,7 +335,7 @@ def contextCompIso (f : V ⟶ U) (g : W ⟶ V) :
       simp [ElementFamilies.vertical])
 
 /-- The restriction comparisons commute with composing two ordinary base maps. -/
-theorem restrictionElement_comp (f : V ⟶ U) (g : W ⟶ V) (X : (Over W)ᵒᵖ) :
+theorem restrictionElementIso_comp (f : V ⟶ U) (g : W ⟶ V) (X : (Over W)ᵒᵖ) :
     ((SheafifiedYoneda.functor J).map f).hom.mapElements.map
         ((restrictionElementIso J g).hom.app X) ≫
       (restrictionElementIso J f).hom.app ((Over.map g).op.obj X) =
@@ -362,7 +362,7 @@ def contextIdIso (U : C) :
       simp [ElementFamilies.vertical])
 
 /-- Identity restriction commutes with the actual slice and context identity comparisons. -/
-theorem restrictionElement_id (X : (Over U)ᵒᵖ) :
+theorem restrictionElementIso_id (X : (Over U)ᵒᵖ) :
     (restrictionElementIso J (𝟙 U)).hom.app X ≫
       (Functor.isoWhiskerRight (NatIso.op (Over.mapId U)).symm
         (sliceElements J U)).hom.app X =

@@ -60,7 +60,7 @@ theorem no_forward_at_false (p : Term (reindex (forwardPaths (Γ := terminal)) f
     (reindex (carrier (Γ := terminal))
       (projection (interval (total carrier)) ≫ projection carrier))
     (truth.reindex (projection carrier)) (generic carrier) falseSub).hom p
-  have h := discretePath_endpoints q
+  have h := constantFamily_path_endpoints q
   have hb := congrArg (fun t => t.val (terminal.elementsMk (Opposite.op ⟨0⟩) PUnit.unit)) h
   exact Bool.false_ne_true hb.symm
 

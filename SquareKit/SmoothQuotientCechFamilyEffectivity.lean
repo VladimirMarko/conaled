@@ -31,9 +31,9 @@ theorem familyEvaluation_isEquivalence (hB : Typed.TyDeriv.{2} Γ γ B b)
     exact familyEvaluation_fiber_isEquivalence a A hΓ hx c
   · intro Γ γ B b x ξ y η hB hx hy ih hΓ c
     let := ih hΓ c
-    exact identityEvaluation_isEquivalence a A hΓ hB hx hy c
+    exact familyEvaluation_identity_isEquivalence a A hΓ hB hx hy c
   · intro Γ γ B b Δ δ σ s hB hs ih hΔ c
     let := ih hB.context ((s (model a A)).down.obj c)
-    exact substitutionEvaluation_isEquivalence a A hB.context hΔ hB hs c
+    exact familyEvaluation_sub_isEquivalence a A hB.context hΔ hB hs c
 
 end SquareKit.SmoothQuotientCechLocal

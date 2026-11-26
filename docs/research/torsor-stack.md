@@ -171,7 +171,7 @@ in `Type (max u v)`. A family is jointly locally surjective when the sieve of
 restrictions admitting a lift through some member covers every target section.
 This local-lift definition does not mention an aggregate map.
 
-`jointlyLocallySurjective_iff_sigmaDesc` compares this condition with local
+`jointlyLocallySurjective_iff_isLocallySurjective_desc` compares this condition with local
 surjectivity of the induced map from Mathlib's categorical coproduct of the
 sheaves. The construction first takes the coproduct in presheaves, then applies
 Mathlib's `sheafifyCocone` and proves its colimit property. `coproductIso`

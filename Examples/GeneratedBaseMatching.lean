@@ -14,12 +14,12 @@ variable {Γ γ} (hΓ : Typed.CtxDeriv.{2} Γ γ) (A : SplitSheaf.Ty X)
 /-- An arbitrary primitive matching object retains its local quotient object. -/
 example (e : AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A)) :
     AsSmall.down.obj (((baseCoefficientEquivalence a A).functor.obj e).localObject) =
-      (AsSmall.down.obj e).localObject := baseCoefficient_local a A e
+      (AsSmall.down.obj e).localObject := baseCoefficientEquivalence_localObject a A e
 
 /-- A selected primitive matching arrow survives the universe bridge unchanged. -/
 example {e f : AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A)} (g : e ⟶ f) :
     HEq (((baseCoefficientComparison a A).equivalence.functor.map g).localArrow)
-      (((liftedCoefficientIso a A).hom.map g).localArrow) := baseCoefficient_localArrow a A g
+      (((liftedCoefficientIso a A).hom.map g).localArrow) := baseCoefficientComparison_localArrow a A g
 
 /-- The actual base-binder fiber recovers every independently supplied primitive
 matching datum over every independently supplied context datum. -/

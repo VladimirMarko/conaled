@@ -72,7 +72,7 @@ example := universalTransfer_restriction SmoothQuarterTurnQuotient.diskRepresent
   (ArbitraryCoverSections.twoSheet SmoothQuarterTurnQuotient.realBase)
 
 /-- The same original-cover equation covers the retained dependent-tail J caller. -/
-example := sourceSection_totalRestriction a (ArbitraryCoverSections.twoSheet X)
+example := source_section_totalRestriction a (ArbitraryCoverSections.twoSheet X)
   SignatureInterpretationMaps.DependentTail.withFiber
   SignatureInterpretationMaps.DependentTail.command.motive.typing
   SignatureInterpretationMaps.DependentTail.generic

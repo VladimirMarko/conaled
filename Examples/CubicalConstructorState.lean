@@ -238,7 +238,7 @@ private theorem decoded_observation {V : Type 1} {Γ : Context.{1}} {C D : Famil
     (j : C ≅ D) (o : D ⟶ constantFamily Γ V)
     (s : Term C) (t : Term D) (p : Term (homogeneousPath C s (Term.map j.inv t))) :
     Term.map (j.hom ≫ o) s = Term.map o t := by
-  have h := discretePath_endpoints (homogeneousPathMap (j.hom ≫ o) p)
+  have h := constantFamily_path_endpoints (homogeneousPathMap (j.hom ≫ o) p)
   have hr := Term.map_iso_roundtrip j.symm t
   exact h.trans (congrArg (Term.map o) hr)
 

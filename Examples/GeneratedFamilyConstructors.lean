@@ -144,7 +144,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
     [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Full]
     [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Faithful] :
     (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
-  SmoothQuotientCechLocal.identityEvaluation_isEquivalence a A hΓ hB hx hy c
+  SmoothQuotientCechLocal.familyEvaluation_identity_isEquivalence a A hΓ hB hx hy c
 
 /-- Arbitrary substitutions preserve the actual fiber evaluation equivalence. -/
 example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
@@ -153,7 +153,7 @@ example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
     [(SmoothQuotientCechLocal.familyEvaluation a A hΓ hB
       ((s (SmoothQuotientCechLocal.model a A)).down.obj c)).IsEquivalence] :
     (SmoothQuotientCechLocal.familyEvaluation a A hΔ (.sub hB hs) c).IsEquivalence :=
-  SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence a A hΓ hΔ hB hs c
+  SmoothQuotientCechLocal.familyEvaluation_sub_isEquivalence a A hΓ hΔ hB hs c
 
 /-- Weakening applies to an arbitrary extended context, without an equivalence
 hypothesis on the projection substitution. -/
@@ -164,7 +164,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
       ((Typed.weakenCode γ t (SmoothQuotientCechLocal.model a A)).down.obj c)).IsEquivalence] :
     (SmoothQuotientCechLocal.familyEvaluation a A (.ext hΓ hC)
       (.sub hB (.weaken hΓ hC)) c).IsEquivalence :=
-  SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence a A hΓ (.ext hΓ hC)
+  SmoothQuotientCechLocal.familyEvaluation_sub_isEquivalence a A hΓ (.ext hΓ hC)
     hB (.weaken hΓ hC) c
 
 /-- A substituted identity family is effective without any recursive

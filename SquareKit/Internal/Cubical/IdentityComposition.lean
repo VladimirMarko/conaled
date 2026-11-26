@@ -68,7 +68,7 @@ theorem result_path (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
   apply Term.ext
   intro x
   apply Subtype.ext
-  exact piInverse_reindex (endpointSub Δ true ≫ p) (r.val x).val
+  exact piInverseElement_piReindex (endpointSub Δ true ≫ p) (r.val x).val
 
 theorem result_face (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
     (b : OpenBox (reindex (identity A a₀ a₁) p) φ)

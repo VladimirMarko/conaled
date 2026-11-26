@@ -27,7 +27,7 @@ def dependentComprehensionEquivalence :
   (CechMatching.Comprehension.equivalence (relativeFamilyData a hΓ hB f)
     (relativeFamilyData_coherence a hΓ hB f)).trans (relativeMatchingEquivalence a hΓ hB f)
 
-theorem relativeProjection_eq :
+theorem relativeToGenerated_projection :
     (relativeToGenerated a hΓ hB f).functor ⋙ projection a hΓ hB f =
       ((relativeFamilyData a hΓ hB f).projection
         (relativeFamilyData_coherence a hΓ hB f)).functor := by
@@ -42,7 +42,7 @@ def dependentComprehensionProjection :
       Grothendieck.forget (relativeMatchingFamily a hΓ hB f ⋙ Grpd.forgetToCat) := by
   change (CechMatching.Comprehension.totalFunctor _ _ ⋙
     (relativeToGenerated a hΓ hB f).functor) ⋙ projection a hΓ hB f ≅ _
-  rw [Functor.assoc, relativeProjection_eq]
+  rw [Functor.assoc, relativeToGenerated_projection]
   exact CechMatching.Comprehension.projectionComparison _ _
 
 end SquareKit.SmoothQuotientCoverMatching

@@ -18,14 +18,14 @@ theorem restrictionComparison_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     isoWhiskerRight (restrictionComparison a A hΓ)
       (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.first A)) ≪≫
         SmoothQuotientCechLocal.generatedOverlap a A hΓ =
-    eqToIso (globalRestrictionOverlap_eq a A hΓ) ≪≫
+    eqToIso (contextEquivalence_restriction_overlap a A hΓ) ≪≫
       isoWhiskerRight (restrictionComparison a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A)) :=
   CechMatching.canonicalSquare_relabel
     (D := SmoothQuotientGeneratedMatching.diagram a hΓ A)
     (context_restriction a A hΓ) (contextLocalComparison a A hΓ)
     (SmoothQuotientCechLocal.generatedOverlap a A hΓ)
-    (globalRestrictionOverlap_eq a A hΓ) (restrictedOverlap_eq a A hΓ)
+    (contextEquivalence_restriction_overlap a A hΓ) (generatedContextMap_restricted_overlap a A hΓ)
     (contextLocalComparison_overlap a A hΓ)
 
 /-- The component retains the selected local descent recovery arrow. -/
@@ -37,13 +37,13 @@ def matchingComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (D := SmoothQuotientGeneratedMatching.strictDiagram a hΓ A)
     (contextEquivalence a A hΓ).functor
     (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.p A))
-    (SmoothQuotientGeneratedMatching.restrictionOverlap_eq a hΓ A)
+    (SmoothQuotientGeneratedMatching.restriction_overlap_eq a hΓ A)
     (SmoothQuotientCechLocal.localMap a A hΓ) (SmoothQuotientCechLocal.generatedOverlap a A hΓ)
     (SmoothQuotientCechLocal.generated_coneLaws a A hΓ) (restrictionComparison a A hΓ)
     (by
       rw [isoWhiskerLeft_eqToIso (contextEquivalence a A hΓ).functor
-        (SmoothQuotientGeneratedMatching.restrictionOverlap_eq a hΓ A)
-        (globalRestrictionOverlap_eq a A hΓ)]
+        (SmoothQuotientGeneratedMatching.restriction_overlap_eq a hΓ A)
+        (contextEquivalence_restriction_overlap a A hΓ)]
       exact restrictionComparison_overlap a A hΓ)
 
 theorem restrictionFunctor_isEquivalence (hΓ : Typed.CtxDeriv.{2} Γ γ)

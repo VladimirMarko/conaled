@@ -1037,7 +1037,7 @@ def extendFullyFaithful : (extendFunctor (G := G) (f := f)).FullyFaithful where
 
 set_option backward.defeqAttrib.useBackward true in
 /-- Canonical original-site transitions are the transport of the equality of base maps. -/
-lemma canonicalHom_eq (P : Torsor G (represented S))
+lemma canonical_hom_eq (P : Torsor G (represented S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
     (((torsorPseudofunctor G).toDescentData f).obj P).hom q a b ha hb =
@@ -1052,7 +1052,7 @@ lemma canonicalHom_eq (P : Torsor G (represented S))
 
 set_option backward.defeqAttrib.useBackward true in
 /-- Canonical sheaf-context transitions use the same equality transport. -/
-lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
+lemma sheaf_canonical_hom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     (f : ∀ i, Y i ⟶ X) (P : Torsor G X)
     {Z : Sheaf J (Type u)} (q : Z ⟶ X) {i j : I} (a : Z ⟶ Y i) (b : Z ⟶ Y j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
@@ -1086,7 +1086,7 @@ lemma rawNat_canonical (P : Torsor G (represented S))
   rw [familyComparison_hom_app]
   change evaluate ((((torsorPseudofunctor G).toDescentData f).obj P).hom
     (q.app x.obj x.val) (a.app x.obj x.val) (b.app x.obj x.val) _ _) p = _
-  rw [canonicalHom_eq]
+  rw [canonical_hom_eq]
   dsimp only [evaluate]
   have he : (SheafifiedYoneda.functor J).map (a.app x.obj x.val) ≫
       (SheafifiedYoneda.functor J).map (f i) =
@@ -1149,7 +1149,7 @@ lemma extend_canonical_hom (P : Torsor G (represented S))
       (((SheafTorsor.Stack.pseudofunctor G).toDescentData
         (fun i => (SheafifiedYoneda.functor J).map (f i))).obj P).hom q a b ha hb := by
   unfold extendHom overlapHom
-  rw [sheafifyHom_canonical, sheafCanonicalHom_eq]
+  rw [sheafifyHom_canonical, sheaf_canonical_hom_eq]
   exact pullArrow_eqToHom P _ _ _ _
     (sheaf_canonical_condition (overlapFst i j ≫ yoneda.map (f i))
       (overlapFst i j) (overlapSnd i j) rfl pullback.condition.symm)

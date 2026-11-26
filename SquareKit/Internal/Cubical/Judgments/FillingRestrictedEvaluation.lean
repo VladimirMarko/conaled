@@ -15,7 +15,7 @@ theorem intervalFace_eval (γ p : Expression V) (ρ : V → Value.{u})
     (projection γ).eval algebra ρ] = _
   rw [intervalContext_eval γ ρ Γ hΓ,projection_eval γ ρ Γ hΓ,hΓ,hφ,extra_subFace]
 
-theorem restrictedType_eval (γ a p : Expression V) (ρ : V → Value.{u})
+theorem subTy_inclusion_eval (γ a p : Expression V) (ρ : V → Value.{u})
     (Γ : Context.{u}) (A : Family Γ) (φ : Cofibration Γ)
     (hΓ : γ.eval algebra ρ = .context Γ) (hA : a.eval algebra ρ = .family Γ A)
     (hφ : p.eval algebra ρ = .cofibration Γ φ) :
@@ -33,7 +33,7 @@ theorem restrictedTerm_input (γ a p t : Expression V) (ρ : V → Value.{u})
       t.eval algebra ρ = .term (restrictContext φ) (reindex A (restrictInclusion φ)) s := by
   change Source.Predicate .term ![extraOperation .restriction ![γ.eval algebra ρ,p.eval algebra ρ],
     (subTy a (inclusion γ p)).eval algebra ρ,t.eval algebra ρ] at h
-  rw [restrictedType_eval γ a p ρ Γ A φ hΓ hA hφ,hΓ,hφ,extra_restriction] at h
+  rw [subTy_inclusion_eval γ a p ρ Γ A φ hΓ hA hφ,hΓ,hφ,extra_restriction] at h
   exact Value.term_input _ _ _ h
 
 end SquareKit.Cubical.Source.Fillings

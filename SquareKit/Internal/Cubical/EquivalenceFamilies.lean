@@ -419,7 +419,7 @@ theorem contrTransport_roundtrip {Γ : Context.{u}} {A B : Family Γ}
     (e : A ≅ B) (c : HomotopyContractible A) : (c.transport e).transport e.symm = c := by
   apply HomotopyContractible.ext
   · exact Term.map_iso_roundtrip e c.center
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     apply Term.ext
     intro x
     let y := (projection (interval (total A)) ≫ projection A).mapElements.obj x

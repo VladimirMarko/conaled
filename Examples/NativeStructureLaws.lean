@@ -46,7 +46,7 @@ theorem bool_not_proposition (x : Γ.Elements) :
   rintro ⟨p⟩
   let a : Term (constantFamily Γ (ULift.{u} Bool)) := ⟨fun _ => ⟨false⟩, fun _ => rfl⟩
   let b : Term (constantFamily Γ (ULift.{u} Bool)) := ⟨fun _ => ⟨true⟩, fun _ => rfl⟩
-  have h := discretePath_endpoints (HomotopyLevels.path p a b)
+  have h := constantFamily_path_endpoints (HomotopyLevels.path p a b)
   have := congrArg (fun z => (z.val x).down) h
   contradiction
 
@@ -96,7 +96,7 @@ def lawfulModel : Term (modelsFamily fixedPointSpecification (boolCarrier (Γ :=
 theorem negation_rejects_fixed_point (x : Γ.Elements) :
     ¬ Nonempty (Term (lawFamily fixedPointLaw (selected (Γ := Γ)) unitContext)) := by
   rintro ⟨p⟩
-  have h := discretePath_endpoints p
+  have h := constantFamily_path_endpoints p
   have h' := congrArg (fun s => (s.val x).down) h
   contradiction
 

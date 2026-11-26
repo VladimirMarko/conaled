@@ -227,7 +227,7 @@ theorem family_full : reindex (family φ A T e) (restrictInclusion φ) = T := by
     fun x => fiber_full φ A T e ((restrictInclusion φ).mapElements.obj x) x.val.property
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro a t hat
   let q := (restrictInclusion φ).mapElements.map f
   have hx := fiberEquiv_full φ A T e x.val.property a t hat

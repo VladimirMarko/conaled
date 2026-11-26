@@ -23,7 +23,7 @@ theorem normalizedIdentityIso_reindex {Γ Δ : Context.{u}} (B : Family Γ)
     cases e
     rfl
   exact eq_of_heq ((cast_heq (normalizedIdentity_reindex B a₀ a₁ σ) p.toLocal).trans
-    (identityToLocal_substitution B a₀ a₁ σ x p))
+    (identityReindex_toLocal_heq B a₀ a₁ σ x p))
 
 noncomputable def normalizedIdentityFilling {Γ : Context.{u}} {B : Family Γ}
     (F : Filling B) (hF : F.Lawful)

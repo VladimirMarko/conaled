@@ -14,7 +14,7 @@ private theorem family_eq_of_iso_heq {Γ : Context.{u}} {A B : Family Γ} (i : A
     (hi : ∀ x (a : A.obj x), HEq (i.hom.app x a) a) : A = B := by
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro a b hab
   have hx : i.hom.app x a = b := eq_of_heq ((hi x a).trans hab)
   have hn := ConcreteCategory.congr_hom (i.hom.naturality f) a
@@ -268,7 +268,7 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
     fun x => (D.smallFiber_substitution σ x).symm
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro s t hst
   have ht : t = ((D.reindex σ).smallFiberEquiv x).symm
       ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x
@@ -311,7 +311,7 @@ theorem Datum.smallFamily_full {Γ : Context.{u}} (D : Datum Γ) :
     fun x => dite_eq_left x.val.property
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply type_hom_hext (ho x) (ho y)
   intro a t hat
   let q := (restrictInclusion D.face).mapElements.map f
   have hx := D.smallFiberEquiv_full x.val.property a t hat

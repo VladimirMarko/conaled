@@ -24,7 +24,7 @@ def sigmaMap {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
     Σ a : A.obj y, B.obj (extendObj A y a) :=
   ⟨A.map f z.1, B.map (extendHom A f z.1) z.2⟩
 
-theorem sigmaMap_ofHom {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
+theorem sigmaMap_extendAlong {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
     {x y : Γ.Elements} (f : x ⟶ y) {a : A.obj x} {a' : A.obj y}
     (h : A.map f a = a') (b : B.obj (extendObj A x a)) :
     sigmaMap A B f ⟨a,b⟩ = ⟨a', B.map (extendAlong A f h) b⟩ := by
@@ -42,7 +42,7 @@ def sigma {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ 
     have h : A.map (𝟙 x) a = a := by simp
     have he : extendAlong A (𝟙 x) h = 𝟙 (extendObj A x a) := rfl
     change sigmaMap A B (𝟙 x) ⟨a,b⟩ = ⟨a,b⟩
-    simpa only [he, Functor.map_id, types_id_apply] using sigmaMap_ofHom A B (𝟙 x) h b
+    simpa only [he, Functor.map_id, types_id_apply] using sigmaMap_extendAlong A B (𝟙 x) h b
   map_comp f g := by
     apply ConcreteCategory.hom_ext
     intro z
@@ -50,7 +50,7 @@ def sigma {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ 
     have h : A.map (f ≫ g) a = A.map g (A.map f a) := by simp
     have he : extendAlong A (f ≫ g) h = extendHom A f a ≫ extendHom A g (A.map f a) := rfl
     change sigmaMap A B (f ≫ g) ⟨a,b⟩ = sigmaMap A B g (sigmaMap A B f ⟨a,b⟩)
-    have hs := sigmaMap_ofHom A B (f ≫ g) h b
+    have hs := sigmaMap_extendAlong A B (f ≫ g) h b
     rw [he, B.map_comp] at hs
     exact hs
 
@@ -59,7 +59,7 @@ def sigmaIntro {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     (a : Term A) (b : Term (reindex B (pair (𝟙 Γ) a))) : Term (sigma A B) where
   val x := ⟨a.val x, b.val x⟩
   property {x y} f := by
-    have h := sigmaMap_ofHom A B f (a.property f) (b.val x)
+    have h := sigmaMap_extendAlong A B f (a.property f) (b.val x)
     have hb := b.property f
     exact h.trans (congrArg (Sigma.mk _) hb)
 
@@ -75,7 +75,7 @@ def sigmaSnd {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
   val x := (s.val x).2
   property {x y} f := by
     have h := s.property f
-    have he := sigmaMap_ofHom A B f ((sigmaFst s).property f) (s.val x).2
+    have he := sigmaMap_extendAlong A B f ((sigmaFst s).property f) (s.val x).2
     change sigmaMap A B f (s.val x) = s.val y at h
     have h' := he.symm.trans h
     exact (Sigma.mk.inj h').2.eq

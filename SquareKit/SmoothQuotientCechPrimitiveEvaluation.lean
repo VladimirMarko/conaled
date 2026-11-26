@@ -19,7 +19,7 @@ theorem familyEvaluation_fiber_local
     (x : ((Typed.fiberCode ξ) (model a A)).obj c) :
     ((familyEvaluation a A hΓ (.fiber hx) c).obj x).localFiber =
       (((localFamilyMap a A hΓ (.fiber hx)).app c).obj x) :=
-  eq_of_heq (familyEvaluation_localComponent a A hΓ (.fiber hx) c x)
+  eq_of_heq (familyEvaluation_localFiber_heq_localFamilyMap a A hΓ (.fiber hx) c x)
 
 theorem familyEvaluation_fiber_value
     (c : (show Grpd.{1,1} from γ (model a A)))
@@ -61,7 +61,7 @@ theorem familyEvaluation_fiber_matching_value
       (ULift.up.{1} x.as.down.val) :=
   familyEvaluation_fiber_coefficient_value a A hΓ hx c x
 
-theorem primitiveValue_cast_eq
+theorem fiber_cast_eq_of_val_heq
     {d e : SheafActionQuotient.Cech.Datum (a := a) A} (q : d = e)
     (x : ULift.{1} (SmoothQuotientDeformations.Cech.Fiber d))
     (y : ULift.{1} (SmoothQuotientDeformations.Cech.Fiber e))

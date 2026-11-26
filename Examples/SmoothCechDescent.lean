@@ -396,7 +396,7 @@ theorem extracted_overlap (G : Type) [Group G] [TopologicalSpace G]
     have h : A.pairMap false true ≫ (SheafCoverCech.splitDoubleIso A.cover).inv ≫
         SplitSheaf.Cech.first (SplitSheaf.ofDisplay A.cover) ≫ (SplitSheaf.displayIso A.cover).hom =
         embedding.map (A.left false true) ≫ A.inclusion false := by
-      rw [← SheafCoverCech.splitDouble_first]
+      rw [← SheafCoverCech.splitDoubleIso_first]
       simp only [Iso.inv_hom_id_assoc, A.pairMap_first]
     exact congrArg (fun f => f.hom.app U x) h
   have second : (SplitSheaf.displayIso A.cover).hom.hom.app U b =
@@ -404,7 +404,7 @@ theorem extracted_overlap (G : Type) [Group G] [TopologicalSpace G]
     have h : A.pairMap false true ≫ (SheafCoverCech.splitDoubleIso A.cover).inv ≫
         SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover) ≫ (SplitSheaf.displayIso A.cover).hom =
         embedding.map (A.right false true) ≫ A.inclusion true := by
-      rw [← SheafCoverCech.splitDouble_second]
+      rw [← SheafCoverCech.splitDoubleIso_second]
       simp only [Iso.inv_hom_id_assoc, A.pairMap_second]
     exact congrArg (fun f => f.hom.app U x) h
   have cancel := congrArg (fun f => f.app eb

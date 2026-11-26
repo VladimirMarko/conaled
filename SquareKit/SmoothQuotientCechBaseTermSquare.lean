@@ -14,7 +14,7 @@ universe u v w
 private theorem lifted_id_down {C : Type u} [Groupoid.{v} C] (c : AsSmall.{w} C) :
     ULift.down (𝟙 c) = 𝟙 (ULift.down c) := rfl
 
-private theorem baseTermSquare_relabel
+private theorem whiskering_square_relabel
     {C D E F : Type u} [Category.{v} C] [Category.{v} D]
     [Category.{v} E] [Category.{v} F]
     (s : C ⥤ D) (t : E ⥤ F)
@@ -94,7 +94,7 @@ theorem generatedOverlap_base_term :
     eqToIso (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.first A)) ≪≫
       isoWhiskerRight (generatedOverlap a A hΓ)
         (baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down) := by
-  exact baseTermSquare_relabel
+  exact whiskering_square_relabel
     (baseFunctor (ξ (model a A)).down)
     (baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down)
     _ _

@@ -31,7 +31,7 @@ theorem hcompEnvironment_valid (Γ : Context.{u}) (A : Family Γ) (F : Filling A
     · change extraOperation .restriction ![(intervalContext (.var 0)).eval algebra ρ,
         (intervalFace (.var 0) (.var 3)).eval algebra ρ] = _
       rw [hI,hface,extra_restriction]
-    · exact restrictedType_eval (intervalContext (.var 0)) (subTy (.var 1) (projection (.var 0)))
+    · exact subTy_inclusion_eval (intervalContext (.var 0)) (subTy (.var 1) (projection (.var 0)))
         (intervalFace (.var 0) (.var 3)) ρ _ _ _ hI hB hface
   · exact ⟨Γ,A,b.base,rfl,rfl,rfl⟩
   · have hzero := tubeEndpoint_eval (.var (0 : Fin 6)) (.var 3) (.var 4) ρ Γ _ φ

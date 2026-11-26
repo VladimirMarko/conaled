@@ -29,7 +29,7 @@ private theorem forward_input_reindex (σ : Δ ⟶ Γ) (ρ : Θ ⟶ total (reind
   apply Eq.trans ?_ h.symm
   apply genericFiberIntro_congr
   · rfl
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     apply Term.ext
     intro x
     rfl
@@ -62,9 +62,9 @@ theorem forward_trans {A'' B'' : Family Γ} (k : A'' ≅ A') (l : B' ≅ B'')
     (ρ : Δ ⟶ total B'') (z : Term (reindex (oldFiber (j ≪≫ l) f) ρ)) :
     forward k l (conjugate i j f) ρ (forward i j f (ρ ≫ targetSub l) z) =
       forward (k ≪≫ i) (j ≪≫ l) f ρ z := by
-  apply genericFiberTerm_ext (conjugate (k ≪≫ i) (j ≪≫ l) f) ρ
+  apply generic_fiber_term_ext (conjugate (k ≪≫ i) (j ≪≫ l) f) ρ
   · rfl
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     have hp := genericFiberPath_intro (conjugate i j f) (ρ ≫ targetSub l)
       (Term.map (Functor.whiskerLeft (ρ ≫ targetSub l ≫ projection B').mapElements i.inv)
         (genericFiberFst f (ρ ≫ targetSub l ≫ targetSub j) z))

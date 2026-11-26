@@ -27,7 +27,7 @@ presentation isomorphism, rather than just of its endpoints. -/
 theorem selectedRight_reindex (E : HomotopyEquivalence f) (σ : Δ ⟶ Γ) :
     HEq (E.reindex σ).selectedRight
       (homogeneousReindex E.selectedRight (liftSub B σ)) := by
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   apply Term.ext
   intro x
   rfl
@@ -82,10 +82,10 @@ theorem selectedLeft_reindex (E : HomotopyEquivalence f) (σ : Δ ⟶ Γ) :
   have hr := congrArg (fun t => Term.map m
     (Term.map (Functor.whiskerLeft (projection (interval (total (Presheaf.reindex A σ))) ≫ τ).mapElements
       (genericFiberReindexIso f σ).hom) (pathApp (((E.fibers.reindex (liftSub B σ)).reindex τ).pathTo t)))) hz₀
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   exact hp.trans (hq.trans (hr.trans (by apply Term.ext; intro x; rfl)))
 
-private theorem comparisonPoint_reindex (g : B ⟶ A)
+private theorem genericFiberReindexIso_inv_genericFiberIntro (g : B ⟶ A)
     (h : Term (homogeneousPath (Presheaf.reindex B (projection B))
       (Term.map (Functor.whiskerLeft (projection B).mapElements f)
         (Term.map (Functor.whiskerLeft (projection B).mapElements g) (generic B))) (generic B)))
@@ -146,7 +146,7 @@ theorem selectedComparison_reindex (E : HomotopyEquivalence f) (g : B ⟶ A)
   let n := Functor.whiskerLeft τ.mapElements
     (firstMap (Presheaf.reindex A (projection B)) (genericFiberPathFamily f))
   have hz : z' = Term.map i.hom z := (Term.map_iso_roundtrip i.symm z').symm.trans
-    (congrArg (Term.map i.hom) (comparisonPoint_reindex g h σ))
+    (congrArg (Term.map i.hom) (genericFiberReindexIso_inv_genericFiberIntro g h σ))
   have hp := congrArg (fun t => pathApp (homogeneousPathMap m ((E.reindex σ).fibers.pathTo t))) hz
   have hq := projected_pathTo_transport (E.fibers.reindex τ) i m n rfl z
   have hr : pathApp (homogeneousPathMap m ((E.reindex σ).fibers.pathTo z')) =
@@ -156,7 +156,7 @@ theorem selectedComparison_reindex (E : HomotopyEquivalence f) (g : B ⟶ A)
           (Term.map (Functor.whiskerLeft (projection B).mapElements g) (generic B)) h)))).reindex
             (liftSub (interval (total B)) τ) :=
     hp.trans (hq.trans (by apply Term.ext; intro x; rfl))
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   exact congrArg (fun t => t.reindex (reverseInterval (total (Presheaf.reindex B σ)))) hr
 
 end SquareKit.Cubical.Presheaf.HomotopyEquivalence
@@ -495,7 +495,7 @@ theorem auxiliaryRight_reindex :
     (C := reindex B (projection B)) τ e
     (F.reindex (liftSub (interval Γ) (projection B))) (hF.reindex _) (K.reindex ρ)
     hf g k hm a b ha
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   exact (congrArg (fun t => t.reindex (reverseInterval (total (reindex B σ)))) hh).symm
 
 end SquareKit.Cubical.Presheaf.NativeEquivalenceLine

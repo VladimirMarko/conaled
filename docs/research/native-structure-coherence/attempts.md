@@ -29,8 +29,19 @@ or an upstream Lean defect.
 ## Reproduce the paired map-path probes
 
 The `.lean.txt` files are exact saved probe sources. Their extension keeps
-experimental declarations out of the library build and proof audit. Run from
-the repository root with the development environment available:
+experimental declarations out of the library build and proof audit. Replay all
+probes in this section from a complete checkout of
+`b202bc865dc3aaf135e117b647bef23bf3b269fa`, using that checkout’s development
+environment and dependencies. This published #687 tree matches reviewed
+candidate `7add87fc05c35013d93ee3f91ae4b5aeab398566`; the
+[completion record](https://github.com/VladimirMarko/conaled/issues/687#issuecomment-7120177908)
+records its validation. Build the required imports in that historical checkout
+before running the probes. Later library naming changes mean that these saved
+sources are not current-checkout replay inputs.
+
+Run the following commands from the historical repository root. The timings
+above are the original observations; this source pin does not claim that the
+probes have been rerun or that their wall-clock results are machine-independent:
 
 ```bash
 trial_dir=$(mktemp -d)

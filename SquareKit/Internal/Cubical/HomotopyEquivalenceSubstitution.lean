@@ -16,7 +16,7 @@ universe u
 theorem HomotopyContractible.ext_pathApp {Γ : Context.{u}} {A : Family Γ}
     {c d : HomotopyContractible A} (hc : c.center = d.center)
     (hp : pathApp c.contraction = pathApp d.contraction) : c = d :=
-  HomotopyContractible.ext hc (pathTerm_hext c.contraction d.contraction hp)
+  HomotopyContractible.ext hc (heq_of_pathApp_eq c.contraction d.contraction hp)
 
 theorem HomotopyContractible.reindex_comp {Γ Δ Θ : Context.{u}} {A : Family Γ}
     (c : HomotopyContractible A) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) :

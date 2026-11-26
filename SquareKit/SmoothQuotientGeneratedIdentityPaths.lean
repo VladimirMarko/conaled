@@ -19,7 +19,7 @@ variable {Γ γ B b x ξ y η} (hΓ : Typed.CtxDeriv.{2} Γ γ)
 variable (hB : Typed.TyDeriv.{2} Γ γ B b)
 variable (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
 
-theorem identityValue_square (A : SplitSheaf.Ty X) (d : Datum a hΓ A)
+theorem identitySetData_square_iff (A : SplitSheaf.Ty X) (d : Datum a hΓ A)
     (p : (identitySetData a hΓ hB hx hy A).localFamily.obj d.localObject) :
     (identitySetData a hΓ hB hx hy A).doubleFamily.map d.overlap.hom
         ((identitySetData a hΓ hB hx hy A).first.app d.localObject p) =
@@ -49,11 +49,11 @@ def identityDatumArrowEquiv (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
       {p : (termDiagram a hΓ hB hx A).functor.obj d ⟶
           (termDiagram a hΓ hB hy A).functor.obj d //
         ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)).functor.map p ≫
-          eqToHom (Functor.congr_obj (termMatching_projection a hΓ hB hy A) d) =
-            eqToHom (Functor.congr_obj (termMatching_projection a hΓ hB hx A) d)} where
+          eqToHom (Functor.congr_obj (termDiagram_functor_projection a hΓ hB hy A) d) =
+            eqToHom (Functor.congr_obj (termDiagram_functor_projection a hΓ hB hx A) d)} where
   toFun p := ⟨⟨(Grothendieck.ι
     ((relativeFamilyData a hΓ hB A).localFamily ⋙ Grpd.forgetToCat) d.localObject).map p.val,
-      (identityValue_square a hΓ hB hx hy A d p.val).mp p.property⟩, by
+      (identitySetData_square_iff a hΓ hB hx hy A d p.val).mp p.property⟩, by
         apply CechMatching.Datum.Hom.ext
         simp only [CechMatching.Datum.comp_localArrow, CechMatching.Datum.eqToHom_localArrow]
         change (𝟙 d.localObject) ≫ eqToHom _ = eqToHom _
@@ -66,7 +66,7 @@ def identityDatumArrowEquiv (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
       exact (Category.comp_id p.val.localArrow.base).symm.trans hh
     refine ⟨GrothendieckVertical.arrow
       ((relativeFamilyData a hΓ hB A).localFamily ⋙ Grpd.forgetToCat) p.val.localArrow hv, ?_⟩
-    apply (identityValue_square a hΓ hB hx hy A d _).mpr
+    apply (identitySetData_square_iff a hΓ hB hx hy A d _).mpr
     erw [GrothendieckVertical.inclusion_arrow]
     exact p.val.commutes
   left_inv p := by

@@ -55,18 +55,18 @@ theorem split_double_square :
 def splitDoubleIso : SplitSheaf.Cech.double (SplitSheaf.ofDisplay f) ≅ double f :=
   (split_double_square f).isoPullback
 
-@[simp, reassoc] theorem splitDouble_first :
+@[simp, reassoc] theorem splitDoubleIso_first :
     (splitDoubleIso f).hom ≫ first f =
       SplitSheaf.Cech.first (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom :=
   (split_double_square f).isoPullback_hom_fst
 
-@[simp, reassoc] theorem splitDouble_second :
+@[simp, reassoc] theorem splitDoubleIso_second :
     (splitDoubleIso f).hom ≫ second f =
       SplitSheaf.Cech.second (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom :=
   (split_double_square f).isoPullback_hom_snd
 
 /-- The chosen diagonal is preserved as a map, not merely on sections. -/
-theorem splitDouble_diagonal :
+theorem splitDoubleIso_diagonal :
     SplitSheaf.Cech.diagonal (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom =
       (SplitSheaf.displayIso f).hom ≫ diagonal f := by
   apply pullback.hom_ext <;> simp [Category.assoc, ← Category.assoc
@@ -87,41 +87,41 @@ theorem split_triple_square :
         (Iso.refl _) (splitDoubleIso f) (SplitSheaf.displayIso f) (Iso.refl _)
   · simp
   · simp
-  · simp only [Iso.refl_hom, Category.comp_id, splitDouble_first_assoc,
+  · simp only [Iso.refl_hom, Category.comp_id, splitDoubleIso_first_assoc,
       SplitSheaf.displayIso_projection]
   · simpa using (SplitSheaf.displayIso_projection f).symm
 
 def splitTripleIso : SplitSheaf.Cech.triple (SplitSheaf.ofDisplay f) ≅ triple f :=
   (split_triple_square f).isoPullback
 
-@[simp, reassoc] theorem splitTriple_firstSecond :
+@[simp, reassoc] theorem splitTripleIso_firstSecond :
     (splitTripleIso f).hom ≫ firstSecond f =
       SplitSheaf.Cech.firstSecond (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom :=
   (split_triple_square f).isoPullback_hom_fst
 
-@[simp, reassoc] theorem splitTriple_third :
+@[simp, reassoc] theorem splitTripleIso_third :
     (splitTripleIso f).hom ≫ third f = splitThird f ≫ (SplitSheaf.displayIso f).hom :=
   (split_triple_square f).isoPullback_hom_snd
 
 /-- Both selected pair projections are preserved through the triple overlap. -/
-theorem splitTriple_firstThird :
+theorem splitTripleIso_firstThird :
     (splitTripleIso f).hom ≫ firstThird f =
       SplitSheaf.Cech.firstThird (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom := by
   apply pullback.hom_ext
-  · simp only [Category.assoc, firstThird_first, splitTriple_firstSecond_assoc,
-      Category.assoc, splitDouble_first]
+  · simp only [Category.assoc, firstThird_first, splitTripleIso_firstSecond_assoc,
+      Category.assoc, splitDoubleIso_first]
     rfl
-  · simp only [Category.assoc, firstThird_second, splitTriple_third, splitDouble_second]
+  · simp only [Category.assoc, firstThird_second, splitTripleIso_third, splitDoubleIso_second]
     rfl
 
-theorem splitTriple_secondThird :
+theorem splitTripleIso_secondThird :
     (splitTripleIso f).hom ≫ secondThird f =
       SplitSheaf.Cech.secondThird (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom := by
   apply pullback.hom_ext
-  · simp only [Category.assoc, secondThird_first, splitTriple_firstSecond_assoc,
-      Category.assoc, splitDouble_second, splitDouble_first]
+  · simp only [Category.assoc, secondThird_first, splitTripleIso_firstSecond_assoc,
+      Category.assoc, splitDoubleIso_second, splitDoubleIso_first]
     rfl
-  · simp only [Category.assoc, secondThird_second, splitTriple_third, splitDouble_second]
+  · simp only [Category.assoc, secondThird_second, splitTripleIso_third, splitDoubleIso_second]
     rfl
 
 end SquareKit.SheafCoverCech

@@ -458,7 +458,7 @@ private theorem family_hom_app_heq {Γ : Context.{u}} {A B : Family Γ} (e : A �
   cases hab
   rfl
 
-theorem sigmaSecondMap_box_snd {Γ : Context.{u}} {A : Family (total (interval Γ))}
+theorem sigmaSecondIso_box_snd {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {B C : Family (total A)} (e : B ≅ C) {φ : Subcontext Γ}
     (r : Term (interval Γ)) (b : OpenBox (sigma A B) φ r) (a : Term A) (ha : b.sigmaFst.Fills a) :
     OpenBox.sigmaSnd (B := C) (b.map ((Homotopy.sigmaSecondIso A e).hom)) a ha =
@@ -492,7 +492,7 @@ theorem sigmaFilling_transport_second {Γ : Context.{u}} {A : Family Γ}
   let a := F.fill p φ r first
   have ha : first.Fills a := hF.fills p φ r first
   let i := Functor.isoWhiskerLeft (liftSub A p).mapElements e
-  have hs := sigmaSecondMap_box_snd i.symm r b a ha
+  have hs := sigmaSecondIso_box_snd i.symm r b a ha
   exact congrArg (fun c => sigmaIntro (B := Cartesian.reindex C (liftSub A p)) a
     (Term.map (Functor.whiskerLeft (pair p a).mapElements e.hom) (G.fill (pair p a) φ r c))) hs
 

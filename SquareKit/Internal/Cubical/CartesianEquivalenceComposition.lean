@@ -84,7 +84,7 @@ theorem intermediate_reindex {Θ : Context.{u}} (σ : Δ ⟶ total C)
     intermediate f g (τ ≫ σ) (Term.reindex z τ) = Term.reindex (intermediate f g σ z) τ :=
 by
   exact (genericFiberIntro_congr g (τ ≫ σ) _ _ rfl _ _
-    (pathTerm_hext _ _ rfl)).trans
+    (heq_of_pathApp_eq _ _ rfl)).trans
       (genericFiberIntro_reindex g σ
         (Term.map (Functor.whiskerLeft (σ ≫ projection C).mapElements f)
           (genericFiberFst (f ≫ g) σ z)) (genericFiberPath (f ≫ g) σ z) τ).symm
@@ -162,7 +162,7 @@ theorem target_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
   congrArg (fun z => pair (τ ≫ σ ≫ projection C) (genericFiberFst g (τ ≫ σ) z))
     (middle_reindex f g D FB hFB FC hFC σ s τ)
 
-private theorem fiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
+private theorem genericFiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
     (z : Term (reindex (Homotopy.fiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ))
     (z' : Term (reindex (Homotopy.fiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ'))
     (hz : HEq z z') : HEq (genericFiberFst f ρ z) (genericFiberFst f ρ' z') := by
@@ -170,7 +170,7 @@ private theorem fiberFst_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ :
   cases hz
   rfl
 
-private theorem fiberLine_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
+private theorem pathApp_genericFiberPath_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ : ρ = ρ')
     (z : Term (reindex (Homotopy.fiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ))
     (z' : Term (reindex (Homotopy.fiber (Functor.whiskerLeft (projection B).mapElements f) (generic B)) ρ'))
     (hz : HEq z z') : HEq (pathApp ((genericFiberPath f ρ z)))
@@ -182,13 +182,13 @@ private theorem fiberLine_heq {Ω : Context.{u}} (ρ ρ' : Ω ⟶ total B) (hρ 
 theorem source_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     source f g E D FA hFA FB hFB FC hFC (τ ≫ σ) (s.reindex τ) =
       Term.reindex (source f g E D FA hFA FB hFB FC hFC σ s) τ :=
-  eq_of_heq (fiberFst_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
+  eq_of_heq (genericFiberFst_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
     _ _ (sourceFiber_reindex f g E D FA hFA FB hFB FC hFC σ s τ))
 
 theorem middleLine_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     middleLine f g E D FA hFA FB hFB FC hFC (τ ≫ σ) (s.reindex τ) =
       Term.reindex (middleLine f g E D FA hFA FB hFB FC hFC σ s) (liftSub (interval Δ) τ) :=
-  eq_of_heq (fiberLine_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
+  eq_of_heq (pathApp_genericFiberPath_heq f _ _ (target_reindex f g D FB hFB FC hFC σ s τ)
     _ _ (sourceFiber_reindex f g E D FA hFA FB hFB FC hFC σ s τ))
 
 noncomputable def box : OpenBox
@@ -281,7 +281,7 @@ theorem extend_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
     congrArg (fun z => pathApp (genericFiberPath g (τ ≫ σ) z))
       (endpoint_reindex f g E D FA hFA FB hFB FC hFC σ s τ)
   exact (genericFiberIntro_congr (f ≫ g) (τ ≫ σ) _ _
-    (source_reindex f g E D FA hFA FB hFB FC hFC σ s τ) _ _ (pathTerm_hext _ _ hp)).trans
+    (source_reindex f g E D FA hFA FB hFB FC hFC σ s τ) _ _ (heq_of_pathApp_eq _ _ hp)).trans
     (genericFiberIntro_reindex (f ≫ g) σ (source f g E D FA hFA FB hFB FC hFC σ s)
       (finalPath f g E D FA hFA FB hFB FC hFC σ s) τ).symm
 
@@ -335,7 +335,7 @@ theorem extend_restricted :
     (source f g E D FA hFA FB hFB FC hFC σ s)
     (finalPath f g E D FA hFA FB hFB FC hFC σ s) (restrictInclusion φ)).symm.symm.trans
     ((genericFiberIntro_congr (f ≫ g) (restrictInclusion φ ≫ σ) _ _ ha _ _
-      (pathTerm_hext _ _ (finalPath_restricted f g E D FA hFA FB hFB FC hFC σ s))).trans
+      (heq_of_pathApp_eq _ _ (finalPath_restricted f g E D FA hFA FB hFB FC hFC σ s))).trans
       (genericFiberIntro_eta (f ≫ g) (restrictInclusion φ ≫ σ) s.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :
@@ -379,7 +379,7 @@ set_option maxHeartbeats 1600000 in
       (restrictInclusion φ ≫ ρ) (inputPartial f g τ ρ s).toRestricted =
       Term.map (Functor.whiskerLeft (restrictInclusion φ ≫ ρ).mapElements (genericFiberReindexIso g τ).hom)
         (intermediate f g (restrictInclusion φ ≫ ρ ≫ liftSub C τ) s.toRestricted) := by
-    apply genericFiberTerm_ext (Functor.whiskerLeft τ.mapElements g) (restrictInclusion φ ≫ ρ)
+    apply generic_fiber_term_ext (Functor.whiskerLeft τ.mapElements g) (restrictInclusion φ ≫ ρ)
     · rfl
     apply heq_of_eq
     rw [genericFiberPath_input_reindex]
@@ -415,7 +415,7 @@ theorem fillOver_transport {Γ Δ : Context.{u}} {X : Family Γ}
     Term.map (Functor.whiskerLeft σ.mapElements (Homotopy.sigmaSecondIso X e).hom)
       (fillOver F σ (b.map (Functor.whiskerLeft σ.mapElements (Homotopy.sigmaSecondIso X e).inv)) x h) := by
   let i := Functor.isoWhiskerLeft (liftSub X σ).mapElements e
-  have hs := sigmaSecondMap_box_snd i.symm r b x h
+  have hs := sigmaSecondIso_box_snd i.symm r b x h
   exact congrArg (fun c => sigmaIntro (B := reindex B (liftSub X σ)) x
     (Term.map (Functor.whiskerLeft (pair σ x).mapElements e.hom) (F.fill (pair σ x) φ r c))) hs.symm
 end ContractibleTotals
@@ -467,7 +467,7 @@ variable {Γ Δ Θ : Context.{u}} {A B C : Family Γ}
   (τ : Δ ⟶ Γ) (ρ : Θ ⟶ total (reindex C τ)) {φ : Subcontext Θ}
   (s : PartialSection (fiber f g (ρ ≫ liftSub C τ)) φ)
 
-theorem sourceStep_input (θ : Θ ⟶ total (reindex B τ))
+theorem extendAlong_genericFiberPartialIntro_reindex (θ : Θ ⟶ total (reindex B τ))
     (p : PartialSection (reindex A (θ ≫ projection (reindex B τ) ≫ τ)) φ)
     (h : p.map (Functor.whiskerLeft (θ ≫ projection (reindex B τ) ≫ τ).mapElements f) =
       PartialSection.ofTerm φ (Term.reindex (generic (reindex B τ)) θ)) :
@@ -482,7 +482,7 @@ theorem sourceStep_input (θ : Θ ⟶ total (reindex B τ))
     (genericFiberPartialIntro_input_reindex f τ θ p h)).trans
     (E.extendAlong_input_reindex FA hFA FB hFB τ θ _)
 
-theorem sourceStep_fst_congr (σ : Θ ⟶ Γ)
+theorem genericFiberFst_extendAlong_congr (σ : Θ ⟶ Γ)
     (p : PartialSection (reindex A σ) φ) (b b' : Term (reindex B σ)) (hb : b = b')
     (h : p.map (Functor.whiskerLeft σ.mapElements f) = PartialSection.ofTerm φ b)
     (h' : p.map (Functor.whiskerLeft σ.mapElements f) = PartialSection.ofTerm φ b') :

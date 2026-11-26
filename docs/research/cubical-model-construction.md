@@ -688,7 +688,7 @@ no final functor law or additional adapter hypothesis has been moved into the
 caller interface. The original native facades and term operations remain.
 
 This transport does not prove strict substitution compatibility. The separate
-`toLocal_substitution` and `pathToLocal_substitution` proofs still establish
+`toLocal_substitution` and `pathReindex_toLocal_heq` proofs still establish
 compatibility of the chosen representations with the original substitution
 comparisons. `normalizedPi_reindex` and `normalizedPath_reindex` retain their
 original hypotheses and proofs. Their term conversion and source soundness

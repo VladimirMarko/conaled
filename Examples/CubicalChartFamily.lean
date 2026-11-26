@@ -122,7 +122,7 @@ theorem incompatible_endpoints : ¬ Nonempty (Term (liftedDecode badData.outerRe
   let p := badData.selectedNativePath q
   let σ := ρ ≫ badData.display ≫ successorSub
   let obs := Functor.whiskerLeft σ.mapElements observeNatural
-  have h := discretePath_endpoints (homogeneousPathMap obs p)
+  have h := constantFamily_path_endpoints (homogeneousPathMap obs p)
   have e := congrArg (fun t => (t.val (point 1)).down) h
   let x := (Raising.lowerElements CubicalPresheaf.naturals).obj
     ((σ ≫ baseProjection).mapElements.obj (point 1))

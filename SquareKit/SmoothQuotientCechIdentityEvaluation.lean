@@ -28,7 +28,7 @@ theorem identityEvaluationValues_local (p : (ξ (model a A)).down.obj c ⟶ (η 
   have h₀ := identityMatchingEquivalence_value a hΓ hB hx hy A
     ((matchingEvaluation a A hΓ).obj c)
     ((familyEvaluation a A hΓ (.identity hB hx hy) c).obj (Discrete.mk p))
-  have h₁ := familyEvaluation_localComponent a A hΓ (.identity hB hx hy) c (Discrete.mk p)
+  have h₁ := familyEvaluation_localFiber_heq_localFamilyMap a A hΓ (.identity hB hx hy) c (Discrete.mk p)
   have h₂ := congrArg Discrete.as (eq_of_heq h₁)
   change _ = (((generatedFamilyMap (signature a A) hΓ (.identity hB hx hy)).app c).obj
     (Discrete.mk p)).as at h₂
@@ -53,7 +53,7 @@ theorem identityEvaluationValues_included
         ((matchingEvaluation a A hΓ).obj c).localObject).map q)
       (identityEvaluationValues_local a A hΓ hB hx hy c p))
 
-theorem identityEvaluation_conjugateLocal
+theorem generatedIdentitySetMap_conjugate_local
     (ex : (localMap a A (.ext hΓ hB)).obj ((ξ (model a A)).down.lift.obj c) =
       (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift.obj ((localMap a A hΓ).obj c))
     (ey : (localMap a A (.ext hΓ hB)).obj ((η (model a A)).down.lift.obj c) =
@@ -91,8 +91,8 @@ theorem identity_values_effectivity_at
     ((ξ (model a A)).down.obj c) ((η (model a A)).down.obj c)
     ((termDiagram a hΓ hB hx A).functor.obj ((matchingEvaluation a A hΓ).obj c))
     ((termDiagram a hΓ hB hy A).functor.obj ((matchingEvaluation a A hΓ).obj c))
-    (Functor.congr_obj (termMatching_projection a hΓ hB hx A) _)
-    (Functor.congr_obj (termMatching_projection a hΓ hB hy A) _)
+    (Functor.congr_obj (termDiagram_functor_projection a hΓ hB hx A) _)
+    (Functor.congr_obj (termDiagram_functor_projection a hΓ hB hy A) _)
     ex
     ey
     (identityDatumArrowEquiv a hΓ hB hx hy A ((matchingEvaluation a A hΓ).obj c))
@@ -103,7 +103,7 @@ theorem identity_values_effectivity_at
     (fun p => (localMap a A (.ext hΓ hB)).map
       ((Grothendieck.ι (b (model a A) ⋙ Grpd.forgetToCat) c).map p))
     (identityEvaluationValues_included a A hΓ hB hx hy c)
-    (fun p => identityEvaluation_conjugateLocal a A hΓ hB hx hy c
+    (fun p => generatedIdentitySetMap_conjugate_local a A hΓ hB hx hy c
       (congrArg CechMatching.Datum.localObject
         ex)
       (congrArg CechMatching.Datum.localObject
@@ -112,7 +112,7 @@ theorem identity_values_effectivity_at
 
 /-- Identity evaluation is effective as soon as the underlying actual family
 comparison is fully faithful. Surjectivity of underlying objects is unnecessary. -/
-theorem identityEvaluation_isEquivalenceAt
+theorem familyEvaluation_identity_isEquivalence_of_endpoints
     (ex : (fiberTotalEvaluation a A hΓ hB c).obj ((ξ (model a A)).down.obj c) =
       (termDiagram a hΓ hB hx A).functor.obj ((matchingEvaluation a A hΓ).obj c))
     (ey : (fiberTotalEvaluation a A hΓ hB c).obj ((η (model a A)).down.obj c) =
@@ -126,10 +126,10 @@ theorem identityEvaluation_isEquivalenceAt
       ex ey
   exact Functor.isEquivalence_of_comp_right _ G.functor
 
-theorem identityEvaluation_isEquivalence
+theorem familyEvaluation_identity_isEquivalence
     [ (familyEvaluation a A hΓ hB c).Full] [ (familyEvaluation a A hΓ hB c).Faithful] :
     (familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
-  identityEvaluation_isEquivalenceAt a A hΓ hB hx hy c
+  familyEvaluation_identity_isEquivalence_of_endpoints a A hΓ hB hx hy c
     (section_fiber_endpoint a A hΓ hB hx c)
     (section_fiber_endpoint a A hΓ hB hy c)
 

@@ -142,14 +142,14 @@ def fromCech (c : SheafActionQuotient.Cech.Datum
            relation := ?_, diagonal := ?_, cocycle := ?_ }
   · apply (cancel_epi (SheafCoverCech.splitDoubleIso A.cover).hom).mp
     simp only [Datum.onMap_precomp, Iso.hom_inv_id_assoc]
-    simpa only [SheafCoverCech.splitDouble_first_assoc,
-      SheafCoverCech.splitDouble_second_assoc] using hr
+    simpa only [SheafCoverCech.splitDoubleIso_first_assoc,
+      SheafCoverCech.splitDoubleIso_second_assoc] using hr
   · apply (cancel_epi (SplitSheaf.displayIso A.cover).hom).mp
-    rw [← Category.assoc, ← SheafCoverCech.splitDouble_diagonal,
+    rw [← Category.assoc, ← SheafCoverCech.splitDoubleIso_diagonal,
       Category.assoc, Iso.hom_inv_id_assoc, hid, labelOne_precomp]
   · apply (cancel_epi (SheafCoverCech.splitTripleIso A.cover).hom).mp
-    simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitTriple_firstThird,
-      SheafCoverCech.splitTriple_firstSecond, SheafCoverCech.splitTriple_secondThird]
+    simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitTripleIso_firstThird,
+      SheafCoverCech.splitTripleIso_firstSecond, SheafCoverCech.splitTripleIso_secondThird]
     simpa only [Category.assoc, Iso.hom_inv_id_assoc] using hcomp
 
 omit [TopologicalSpace G] [DiscreteTopology G] in

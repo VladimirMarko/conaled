@@ -125,9 +125,9 @@ theorem restriction_square :
       (strictDiagram a hΓ k).first =
       (restriction a hΓ f ⋙ (squareMap a hΓ u v square).localMap) ⋙
         (strictDiagram a hΓ k).second := by
-    rw [hl, Functor.assoc, Functor.assoc, restrictionOverlap_eq]
+    rw [hl, Functor.assoc, Functor.assoc, restriction_overlap_eq]
   have hm := (squareMap a hΓ u v square).equalFunctor_map
-    (restriction a hΓ f) (restrictionOverlap_eq a hΓ f) he
+    (restriction a hΓ f) (restriction_overlap_eq a hΓ f) he
   change (strictDiagram a hΓ f).equalFunctor _ _ ⋙ (squareMap a hΓ u v square).functor = _
   rw [hm]
   simp only [hl]

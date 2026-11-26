@@ -160,7 +160,7 @@ theorem recover_local {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.extension 
     _ = restrict q (((s.sections g).obj P).as) := (s.natural g q P).symm
 
 /-- Sections of a discrete family are determined by their object values. -/
-theorem setSection_ext {Γ : Type*} [Category* Γ] (F : Γ ⥤ Type*)
+theorem setFamily_section_ext {Γ : Type*} [Category* Γ] (F : Γ ⥤ Type*)
     {s t : Section (setFamily F)} (h : ∀ γ, (s.obj γ).as = (t.obj γ).as) : s = t := by
   cases s with
   | mk so sm si sc =>
@@ -179,20 +179,20 @@ arrow maps. No groupoid-context arrows are replaced by mere endpoints. -/
 theorem glue_natural_section {Y : Sheaf topology Type} (f : Y ⟶ X) :
     restrictSection f s.glue = (s.baseChange f).glue.reindex
       (SheafActionQuotient.restriction f) :=
-  setSection_ext _ (s.glue_natural f)
+  setFamily_section_ext _ (s.glue_natural f)
 
 /-- Recovery is equality of the complete local section, so its entire selected
 context-arrow action is retained. Discrete fibers justify this stronger form. -/
 theorem recover_local_section {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.extension A) :
     (s.baseChange (g ≫ SplitSheaf.p A)).glue = s.sections g :=
-  setSection_ext _ (s.recover_local g)
+  setFamily_section_ext _ (s.recover_local g)
 
 /-- The glued value is uniquely determined by the local covering values. -/
 theorem glue_unique (t : Section (setFamily (family a X)))
     (h : ∀ P, restrict (SplitSheaf.p A) ((t.obj P).as) =
       (((s.sections (𝟙 (SplitSheaf.extension A))).obj (reindex P (SplitSheaf.p A))).as)) :
     t = s.glue := by
-  apply setSection_ext
+  apply setFamily_section_ext
   intro P
   apply SmoothQuotientDeformations.restrict_injective (SplitSheaf.p A)
   exact (h P).trans (s.glue_restrict P).symm

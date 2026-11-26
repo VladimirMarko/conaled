@@ -4,7 +4,7 @@ namespace SquareKit.Cubical.Presheaf
 open CategoryTheory
 universe u
 
-theorem normalizedIdentity_fromReindexed {Γ Δ : Context.{u}} (A : Family Γ)
+theorem normalizedIdentity_from_reindexed {Γ Δ : Context.{u}} (A : Family Γ)
     (a b : Term A) (σ : Δ ⟶ Γ)
     (p : Term (normalizedIdentity (reindex A σ) (a.reindex σ) (b.reindex σ))) :
     Term.map (Functor.whiskerLeft σ.mapElements (normalizedIdentityIso A a b).hom)

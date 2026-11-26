@@ -74,7 +74,7 @@ for arbitrary local objects without a chosen cocycle is not asserted here. -/
 theorem glue_recover (d : Descent.Datum (a := a) A) :
     transport d.comparison (restrict (SplitSheaf.p A)
       (((glue s hs).obj d.object).as)) = (s.obj d.localObject).as :=
-  congrArg Subtype.val (CocycleDatum.globalSection_recoverFiber (onCocycles s hs) d)
+  congrArg Subtype.val (CocycleDatum.fiberEquivalence_globalSection (onCocycles s hs) d)
 
 /-- Recovery also holds on the restriction of every global quotient object,
 using its canonical cocycle and the section's actual arrow action. -/

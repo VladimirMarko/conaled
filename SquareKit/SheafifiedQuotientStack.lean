@@ -226,7 +226,7 @@ def extendFullyFaithful : (extendFunctor (act := act) (f := f)).FullyFaithful wh
   preimage_map _ := by apply Pseudofunctor.DescentData.hom_ext; intro i; rfl
 
 set_option backward.defeqAttrib.useBackward true in
-lemma canonicalHom_eq_of_functor (L : C ⥤ Sheaf J (Type u)) (P : Object act (L.obj S))
+lemma canonical_hom_eq_of_functor (L : C ⥤ Sheaf J (Type u)) (P : Object act (L.obj S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
     ((((L.op ⋙ SheafActionQuotient.Stack.functor act).toPseudofunctor').toDescentData f).obj P).hom q a b ha hb =
@@ -239,13 +239,13 @@ lemma canonicalHom_eq_of_functor (L : C ⥤ Sheaf J (Type u)) (P : Object act (L
     PrelaxFunctor.map₂Iso_eqToIso, Iso.trans_hom, Iso.trans_inv, eqToIso.hom,
     eqToIso.inv, eqToHom_trans, Cat.eqToHom_app]
 
-abbrev canonicalHom_eq (P : Object act (represented S))
+abbrev canonical_hom_eq (P : Object act (represented S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :=
-  canonicalHom_eq_of_functor (SheafifiedYoneda.functor J) P q a b ha hb
+  canonical_hom_eq_of_functor (SheafifiedYoneda.functor J) P q a b ha hb
 
 set_option backward.defeqAttrib.useBackward true in
-lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
+lemma sheaf_canonical_hom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     (f : ∀ i, Y i ⟶ X) (P : Object act X)
     {Z : Sheaf J (Type u)} (q : Z ⟶ X) {i j : I} (a : Z ⟶ Y i) (b : Z ⟶ Y j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
@@ -266,7 +266,7 @@ lemma underlying_canonical_hom (P : Object act (represented S))
     (underlyingData (((quotientPseudofunctor act).toDescentData f).obj P)).hom q a b ha hb =
       (((torsorPseudofunctor G).toDescentData f).obj P.torsor).hom q a b ha hb := by
   change ((((quotientPseudofunctor act).toDescentData f).obj P).hom q a b ha hb).torsorArrow = _
-  rw [canonicalHom_eq, TorsorExtension.canonicalHom_eq, eqToHom_torsorArrow]
+  rw [canonical_hom_eq, TorsorExtension.canonical_hom_eq, eqToHom_torsorArrow]
 
 lemma underlying_canonical (P : Object act (represented S)) :
     underlyingData (((quotientPseudofunctor act).toDescentData f).obj P) =
@@ -308,7 +308,7 @@ lemma extend_canonical_hom (P : Object act (represented S))
     Category.id_comp, Category.comp_id] at h
   apply h.symm.trans
   rw [TorsorExtension.extend_canonical_hom,
-    TorsorExtension.sheafCanonicalHom_eq, sheafCanonicalHom_eq, eqToHom_torsorArrow]
+    TorsorExtension.sheaf_canonical_hom_eq, sheaf_canonical_hom_eq, eqToHom_torsorArrow]
 
 /-- Quotient extension commutes with canonical descent, including target maps. -/
 def canonicalIso : (quotientPseudofunctor act).toDescentData f ⋙ extendFunctor ≅

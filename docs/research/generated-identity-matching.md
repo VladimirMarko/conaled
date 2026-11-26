@@ -149,7 +149,7 @@ accesses its endpoint field for an arbitrary generated term. This establishes
 endpoint recovery, while identity-overlap compatibility still requires its own
 comparison with the local path square.
 
-`SmoothQuotientGeneratedIdentityPaths.identityValue_square` now identifies the
+`SmoothQuotientGeneratedMatching.identitySetData_square_iff` now identifies the
 actual identity matching equation with the square between the two descended
 term diagrams. The proof first converts identity transport to the square of
 section lifts, then uses `generatedIdentity_included` to retain the selected
@@ -167,7 +167,7 @@ Identifying the actual identity evaluation with the underlying family's hom
 map remains a separate obligation before claiming constructor effectivity.
 
 The actual constructor obligation is now discharged by
-`SmoothQuotientCechLocal.identityEvaluation_isEquivalence`. Its only hypotheses
+`SmoothQuotientCechLocal.familyEvaluation_identity_isEquivalence`. Its only hypotheses
 are full faithfulness of the underlying actual `familyEvaluation` at the supplied
 source context. It does not require essential surjectivity of that functor or
 assume effectivity of the identity type. `identityEvaluationValues_local` recovers

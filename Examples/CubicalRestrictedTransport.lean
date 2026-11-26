@@ -10,7 +10,7 @@ abbrev q := index.reindex (projection (interval naturals))
 abbrev lineFamily := discreteFamily q (fun n => Fin (n+1))
 abbrev filler := discreteFilling q (fun n => Fin (n+1))
 abbrev face := Cofibration.top naturals
-abbrev constancy := discreteFamily_restrictedConstant q (fun n => Fin (n+1)) face
+abbrev constancy := restrictedConstancy_discreteFamily q (fun n => Fin (n+1)) face
 abbrev transported := filler.transp face constancy finiteLast
 
 theorem computes (x : naturals.Elements) : transported.val x = finiteLast.val x :=

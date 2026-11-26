@@ -395,7 +395,7 @@ theorem genericFiberPartialIntro_reindex {Γ Δ Θ : Context.{u}} {A B : Family 
     (congrArg (fun s => s.reindex τ) h) x hx g r).trans
       (genericFiberPartialIntro_path f σ a h (τ.mapElements.obj x) hx g r).symm
 
-theorem genericFiberReverse_reindex {Γ Δ Θ : Context.{u}} {A B : Family Γ} (f : A ⟶ B)
+theorem pathApp_homogeneousReverse_genericFiberPath_reindex {Γ Δ Θ : Context.{u}} {A B : Family Γ} (f : A ⟶ B)
     (σ : Δ ⟶ total B)
     (z : Term (Presheaf.reindex (homotopyFiber (Functor.whiskerLeft (projection B).mapElements f)
       (generic B)) σ)) (τ : Θ ⟶ Δ) :
@@ -470,7 +470,7 @@ theorem HomotopyContractible.ofExtensions_reindex {Γ Ξ : Context.{u}} {A : Fam
     ⟨fun _ h => (Bool.false_ne_true h).elim, fun _ h => (Bool.false_ne_true h).elim⟩
   have hc : c.center.reindex σ = d.center := (uniform (𝟙 Γ) (Cofibration.bot Γ) empty σ).symm
   apply HomotopyContractible.ext hc
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   let τ := liftSub A σ
   let p := projection (interval (total A)) ≫ projection A
   let φ := (intervalFace (total A) false).join (intervalFace (total A) true)
@@ -486,7 +486,7 @@ theorem HomotopyContractible.ofExtensions_reindex {Γ Ξ : Context.{u}} {A : Fam
       ((intervalFace (total (Presheaf.reindex A σ)) false).join
         (intervalFace (total (Presheaf.reindex A σ)) true))) (hb.trans hd))
 
-private theorem homogeneousBoundary_map {Γ : Context.{u}} {A B : Family Γ}
+private theorem endpointBoundary_map {Γ : Context.{u}} {A B : Family Γ}
     (f : A ⟶ B) (a₀ a₁ : Term A) :
     (endpointBoundary (Presheaf.reindex A (projection (interval Γ))) a₀ a₁).map
       (Functor.whiskerLeft (projection (interval Γ)).mapElements f) =
@@ -540,7 +540,7 @@ theorem HomotopyContractible.ofExtensions_iso {Γ : Context.{u}} {A B : Family �
     (compat (𝟙 Γ) (Cofibration.bot Γ) emptyA).trans
       (congrArg (extendB (𝟙 Γ) (Cofibration.bot Γ)) he)
   apply HomotopyContractible.ext hc
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   let k := pair (projection B) (Term.map (Functor.whiskerLeft (projection B).mapElements e.inv) (generic B))
   let α := liftSub (interval (total A)) k
   let p := projection (interval (total A)) ≫ projection A
@@ -551,7 +551,7 @@ theorem HomotopyContractible.ofExtensions_iso {Γ : Context.{u}} {A B : Family �
   have hb : (b.reindex α).map (Functor.whiskerLeft q.mapElements e.hom) =
       endpointBoundary (Presheaf.reindex B q) (d.center.reindex (projection B)) (generic B) := by
     have hbr := endpointBoundary_reindex (Presheaf.reindex A p) (c.center.reindex (projection A)) (generic A) k
-    have hbm := homogeneousBoundary_map (Functor.whiskerLeft (projection B).mapElements e.hom)
+    have hbm := endpointBoundary_map (Functor.whiskerLeft (projection B).mapElements e.hom)
       (c.center.reindex (projection B))
       (Term.map (Functor.whiskerLeft (projection B).mapElements e.inv) (generic B))
     exact (congrArg (fun s => s.map (Functor.whiskerLeft q.mapElements e.hom)) hbr).trans

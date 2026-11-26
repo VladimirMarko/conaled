@@ -45,7 +45,7 @@ def sigmaSecondIso {Γ : Context.{u}} (A : Family Γ) {B C : Family (total A)}
     ext x z
     exact congrArg (Sigma.mk z.1) (e.inv_hom_id_app_apply (extendObj A x z.1) z.2)
 
-theorem pathInverse_reindex {Γ Δ Θ : Context.{u}} (B : Family (total (interval Γ)))
+theorem pathReindexIso_inv_reindex {Γ Δ Θ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
     (a₁ : Term (reindex B (endpointSub Γ true))) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (p : Term (path (reindex B (liftSub (interval Γ) σ))
@@ -332,7 +332,7 @@ theorem Homotopy.fiberIntroOver_reindex {Γ Δ Θ : Context.{u}} {A B : Family �
   exact congrArg (sigmaIntro (B := reindex (homogeneousPath (reindex B (projection A))
     (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A))
     (Term.reindex b (projection A))) (liftSub A (τ ≫ σ))) (Term.reindex a τ))
-    (pathInverse_reindex (intervalCoefficient (reindex B (projection A)))
+    (pathReindexIso_inv_reindex (intervalCoefficient (reindex B (projection A)))
       (Term.map (Functor.whiskerLeft (projection A).mapElements f) (generic A))
       (Term.reindex b (projection A)) (pair σ a) τ p)
 
@@ -462,7 +462,7 @@ noncomputable def identityFiberContractible {Γ : Context.{u}} {A : Family Γ}
         true c (pathApp p) c rfl (pathApp_one p).symm)
   exact Contractible.ofContraction center (pathLam body hzero hone)
 
-theorem pathApp_castLeft {Γ : Context.{u}} {A : Family Γ} {a a' b : Term A}
+theorem pathApp_cast_left {Γ : Context.{u}} {A : Family Γ} {a a' b : Term A}
     (h : a = a') (p : Term (homogeneousPath A a b)) :
     pathApp (h ▸ p) = pathApp p := by subst a'; rfl
 
@@ -547,7 +547,7 @@ theorem fill_reindex (F : Filling A) (hF : F.Lawful) (ε : Bool)
     (box ε l r base h₀ h₁) (intervalSub σ)
 end NativeSquare
 namespace Homotopy
-theorem fiberReindexIso_introOver {Γ Δ : Context.{u}} {A B : Family Γ}
+theorem fiberReindexIso_fiberIntroOver {Γ Δ : Context.{u}} {A B : Family Γ}
     (f : A ⟶ B) (b : Term B) (σ : Δ ⟶ Γ) (a : Term (reindex A σ))
     (p : Term (homogeneousPath (reindex B σ)
       (Term.map (Functor.whiskerLeft σ.mapElements f) a) (Term.reindex b σ))) :
@@ -582,7 +582,7 @@ theorem homogeneous_eval_extend {Γ : Context.{u}} {A B : Family Γ}
       (extendObj A x a)) (r : (interval Γ).obj y) :
     p.val (extendHom A g a) r = p.val
       (show extendObj A x a ⟶ extendObj A y a' from Functor.Elements.homMk g.hom
-        ((totalMap_ofHom A g a).trans (congrArg (Sigma.mk y.val) ha))) r := by
+        ((totalMap_hom A g a).trans (congrArg (Sigma.mk y.val) ha))) r := by
   subst a'
   rfl
 
@@ -616,7 +616,7 @@ def fiberContextMap {Γ Δ : Context.{u}} {A B : Family Γ} (f : A ⟶ B) (b : T
       (Term.reindex b σ))).mapElements (fiberReindexIso f b σ).inv)
       (generic (fiber (Functor.whiskerLeft σ.mapElements f) (Term.reindex b σ))))
 
-theorem genericFiberPath_reindex {Γ Δ : Context.{u}} {A B : Family Γ} (f : A ⟶ B) (b : Term B)
+theorem fiberPathOver_generic_reindex {Γ Δ : Context.{u}} {A B : Family Γ} (f : A ⟶ B) (b : Term B)
     (σ : Δ ⟶ Γ) :
     Term.reindex (pathApp (fiberPathOver f b (projection (fiber f b)) (generic (fiber f b))))
       (intervalSub (fiberContextMap f b σ)) =
@@ -646,7 +646,7 @@ theorem fiberSquare_reindex {Γ Δ : Context.{u}} {A B : Family Γ} (f : A ⟶ B
   have h := (NativeSquare.fill_reindex (F.reindex (projection (fiber f b)))
     (hF.reindex _) true c (pathApp p) c rfl (pathApp_one p).symm (fiberContextMap f b σ)).symm
   refine h.trans ?_
-  exact NativeSquare.fill_congr_right _ _ _ _ _ _ _ _ _ (genericFiberPath_reindex f b σ)
+  exact NativeSquare.fill_congr_right _ _ _ _ _ _ _ _ _ (fiberPathOver_generic_reindex f b σ)
 
 def squarePoint {Γ : Context.{u}} (x : Γ.Elements)
     (r s : (interval Γ).obj x) :=
@@ -731,7 +731,7 @@ theorem isoFiberContractible_reindex {Γ Δ : Context.{u}} {A B : Family Γ}
         (Term.map_iso_roundtrip e.symm b).symm rfl
     have h := Homotopy.fiberIntroOver_reindex e.hom b (𝟙 Γ) σ (Term.map e.inv b) p
     exact (congrArg (Term.map (Homotopy.fiberReindexIso e.hom b σ).hom) h).trans
-      (Homotopy.fiberReindexIso_introOver e.hom b σ (Term.reindex (Term.map e.inv b) σ)
+      (Homotopy.fiberReindexIso_fiberIntroOver e.hom b σ (Term.reindex (Term.map e.inv b) σ)
         (homogeneousReindex p σ))
   · intro x a y f r
     apply Homotopy.fiber_element_ext

@@ -179,7 +179,7 @@ theorem carrierEquivalence_at
   let B := SmallUniverse.liftedDecode (SmallUniverse.NativeUnivalence.movingTarget (Γ := Γ))
   let E := EquivalenceFamilies.equiv A B
   let τ := pair (A := carrierBase a) (𝟙 Γ) (carrierPointOf a e)
-  have h := decodeEquivalence_reindex A B (carrierProjection a) τ
+  have h := equivReindexSections_symm_reindex A B (carrierProjection a) τ
     (Term.reindex (Cartesian.generic E) (unpackCarriers a))
   refine h.symm.trans ?_
   let σ := pair (A := SmallUniverse.family Γ) (𝟙 Γ) (SmallUniverse.term a)
@@ -443,11 +443,11 @@ private theorem relation_equivalence_at :
     ⟨Functor.whiskerLeft κ.mapElements e'.1, e'.2.reindex κ⟩
   have h₀ : (EquivalenceFamilies.equivReindexSections A B (π₀ ≫ σ)).symm
       (generic (reindex E τ)) = E₀ :=
-    decodeEquivalence_reindex A B (carrierProjection a) (ρ ≫ π)
+    equivReindexSections_symm_reindex A B (carrierProjection a) (ρ ≫ π)
       (Term.reindex (generic (EquivalenceFamilies.equiv A B)) (unpackCarriers a))
   have h₁ : (EquivalenceFamilies.equivReindexSections (reindex A σ) (reindex B σ) π₀).symm
       (Term.map (Functor.whiskerLeft π₀.mapElements i.hom) (generic (reindex E τ))) = E₁ :=
-    decodeEquivalence_reindex (reindex A σ) (reindex B σ) π' κ (generic C')
+    equivReindexSections_symm_reindex (reindex A σ) (reindex B σ) π' κ (generic C')
   have h := congrArg
     (EquivalenceFamilies.equivReindexSections (reindex A σ) (reindex B σ) π₀).symm
     (EquivalenceFamilies.equivReindexIso_hom_reindex_sections A B σ π₀ (generic (reindex E τ)))

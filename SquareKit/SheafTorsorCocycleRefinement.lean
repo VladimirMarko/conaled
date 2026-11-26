@@ -112,7 +112,7 @@ def CoverMap.comparison (c : Datum G A) : Arrow (r.pull c).glue.obj (reindex c.g
       eqToHom (congrArg (fun d : Datum G B => d.glue.obj) (r.chosen_pull c).symm)).comp
         (chosenRecovery (reindex c.glue.obj f) (r.localTrivialization c))
 
-private theorem cocycleComparison_eqToHom {c d : Datum G B} (h : c = d) :
+private theorem cocycle_comparison_eqToHom {c d : Datum G B} (h : c = d) :
     ((show Arrow c.glue.obj d.glue.obj from
       eqToHom (congrArg (fun e : Datum G B => e.glue.obj) h)).reindex (SplitSheaf.p B)).comp
         (Descent.comparison d.toDescent) = Descent.comparison c.toDescent := by
@@ -129,7 +129,7 @@ theorem CoverMap.comparison_reindex (c : Datum G A) :
         ((chosenRecovery (reindex c.glue.obj f) (r.localTrivialization c)).reindex _) = _
   rw [chosenRecovery_reindex]
   exact congrArg (fun k => k.comp (r.localTrivialization c))
-    (cocycleComparison_eqToHom (r.chosen_pull c).symm)
+    (cocycle_comparison_eqToHom (r.chosen_pull c).symm)
 
 /-- Evaluating after the comparison agrees with evaluation on the refined cover. -/
 theorem CoverMap.comparison_evaluation (c : Datum G A) (x : Y.obj.Elements)

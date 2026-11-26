@@ -61,7 +61,7 @@ theorem pathToEquivalence_reindex (p : Term (paths a b)) (σ : Δ ⟶ Γ) :
 theorem reindexPath_generic (p : Term (paths a b)) :
     reindexPath (genericPath a b) (pair (A := paths a b) (𝟙 Γ) p) = p := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   rfl
 
 theorem reindexPath_section_pair {C : Family Γ}
@@ -71,7 +71,7 @@ theorem reindexPath_section_pair {C : Family Γ}
         (term a) (term b) (projection C)) s) (pair (A := C) (𝟙 Γ) c) =
       s.reindex (pair (A := C) (𝟙 Γ) c) := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   rfl
 
 private theorem pathToEquivalence_congr {p q : Term (paths a b)} (h : p = q) :
@@ -130,7 +130,7 @@ theorem ua_reindex (a b : Γ ⟶ smallFamilyCodes.{u})
     reindexPath (ua a b f E) σ =
       ua (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ) := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   exact uaLine_reindex a b f E σ
 
 theorem equivalencePathSection_pair (c : Term (equivalences a b)) :

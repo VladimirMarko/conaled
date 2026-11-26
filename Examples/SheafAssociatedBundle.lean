@@ -167,9 +167,9 @@ end EdgeCases
 namespace ProperCover
 open Examples.SheafTorsorCocycle.ProperCover Examples.SheafFamilyDescent
 local instance : Presheaf.IsLocallySurjective SmoothOpenSite.topology aggregate.hom :=
-  (SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc charts).mp charts_joint
+  (SheafFamilyCover.jointlyLocallySurjective_iff_isLocallySurjective_desc charts).mp charts_joint
 local instance : Presheaf.IsLocallySurjective SmoothOpenSite.topology (Limits.Sigma.desc swappedCharts).hom :=
-  (SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc swappedCharts).mp swappedCharts_joint
+  (SheafFamilyCover.jointlyLocallySurjective_iff_isLocallySurjective_desc swappedCharts).mp swappedCharts_joint
 
 /-- Named inputs keep concrete smooth algebra and gluing internals out of comparison elaboration. -/
 def scalingTorsor :=

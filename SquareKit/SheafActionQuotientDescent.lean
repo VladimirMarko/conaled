@@ -71,7 +71,7 @@ instance cover_isLocallySurjective : Presheaf.IsLocallySurjective J d.cover.hom 
 def localObjectOver : Object a (SplitSheaf.extension A) :=
   d.localObject.transfer (SheafTorsor.Descent.comparison d.torsorDatum)
 
-theorem localMap_fiber_constant (U : Cᵒᵖ)
+theorem localObjectOver_totalMap_fiber_constant (U : Cᵒᵖ)
     (p q : (SplitSheaf.extension (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A))).obj.obj U)
     (h : d.cover.hom.app U p = d.cover.hom.app U q) :
     d.localObjectOver.totalMap.hom.app U p = d.localObjectOver.totalMap.hom.app U q := by
@@ -90,10 +90,10 @@ theorem localMap_fiber_constant (U : Cᵒᵖ)
   exact (d.value_compatible z b c _).symm
 
 def totalMap : SplitSheaf.extension d.descendedTorsor.family ⟶ M :=
-  descendMap d.cover d.localObjectOver.totalMap d.localMap_fiber_constant
+  descendMap d.cover d.localObjectOver.totalMap d.localObjectOver_totalMap_fiber_constant
 
 theorem totalMap_fac : d.cover ≫ d.totalMap = d.localObjectOver.totalMap :=
-  descendMap_fac d.cover d.localObjectOver.totalMap d.localMap_fiber_constant
+  descendMap_fac d.cover d.localObjectOver.totalMap d.localObjectOver_totalMap_fiber_constant
 
 def value (x : X.obj.Elements) (t : d.descendedTorsor.family.family.obj x) : M.obj.obj x.obj :=
   d.totalMap.hom.app x.obj ⟨x.val,t⟩

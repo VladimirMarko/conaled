@@ -23,7 +23,7 @@ theorem rootSub_eq {Γ : Presheaf.Context.{u}} (A : LawfulFamily Γ) (a : ULift.
   let y := generic A.family
   let σ := pair (𝟙 Γ) a.down
   let p := normalizedIdentityRefl a.down
-  have h := normalizedIdentity_fromReindexed C x y σ p
+  have h := normalizedIdentity_from_reindexed C x y σ p
   have he : Term.map (normalizedIdentityIso (reindex C σ) (x.reindex σ) (y.reindex σ)).inv p = identityRefl a.down :=
     Term.map_iso_roundtrip (normalizedIdentityIso A.family a.down a.down) (identityRefl a.down)
   rw [he] at h

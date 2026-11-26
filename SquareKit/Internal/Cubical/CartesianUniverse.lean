@@ -883,7 +883,7 @@ theorem partialBody_reindex :
 
 theorem fiberContractible_reindex : (fiberContractible f σ e).reindex (liftSub (reindex B σ) τ) =
     fiberContractible f (τ ≫ σ) (e.reindex τ) := by
-  exact (Homotopy.fiberReindexInverse_map
+  exact (Homotopy.fiberReindexIso_symm_map_reindex
     (Functor.whiskerLeft (projection B).mapElements f) (generic B) (liftSub B σ)
     (liftSub (reindex B σ) τ) e.fibers).symm
 
@@ -1244,7 +1244,7 @@ theorem contrReindexIso_inv_id {Γ : Context.{u}} (B : Family Γ) :
 theorem contrMap_encode {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B) (c : Contractible A) :
     Term.map (contrMap e) (encodeContr c) = encodeContr (Contractible.map e c) := by
   unfold contrMap
-  rw [map_decodeMap_lam, contrInverse_reindex]
+  rw [map_decodeMap_lam, contrReindexIso_inv_reindex]
   rw [encodeContr_reindex]
   rw [Contractible.map_reindex]
   rw [← decodeContr_reindex]
@@ -1284,7 +1284,7 @@ universe u
       (encodeContr (Contractible.map (Functor.isoWhiskerLeft (projection (contr A)).mapElements e)
         (decodeContr (Term.map (contrReindexIso A (projection (contr A))).hom (generic (contr A)))))))
     (pair σ s) = _
-  rw [contrInverse_reindex, encodeContr_reindex, Contractible.map_reindex, ← decodeContr_reindex]
+  rw [contrReindexIso_inv_reindex, encodeContr_reindex, Contractible.map_reindex, ← decodeContr_reindex]
   have hc : Term.map (contrReindexIso (reindex A (projection (contr A))) (pair σ s)).hom
       (Term.reindex (Term.map (contrReindexIso A (projection (contr A))).hom (generic (contr A)))
         (pair σ s)) = Term.map (contrReindexIso A σ).hom s := by

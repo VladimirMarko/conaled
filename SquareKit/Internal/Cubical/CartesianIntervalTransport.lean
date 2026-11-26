@@ -819,7 +819,7 @@ theorem extend_input_reindex (L : MapLifting f) (hL : L.Uniform) :
   refine (congrArg (Term.map (Homotopy.fiberReindexIso j a σ).hom)
     (Homotopy.fiberIntroOver_reindex j a (𝟙 Γ) σ
       (newB (f := f) j F a z) (resultPath L j hj F hF a z))).trans ?_
-  refine (Homotopy.fiberReindexIso_introOver j a σ _ _).trans ?_
+  refine (Homotopy.fiberReindexIso_fiberIntroOver j a σ _ _).trans ?_
   exact Homotopy.fiberIntroOver_congr j' (Term.reindex a σ) (𝟙 Δ)
     (Term.reindex (newB (f := f) j F a z) σ)
     (newB (f := Functor.whiskerLeft σ.mapElements f) j' (F.reindex σ) (Term.reindex a σ) (pulled j a z σ))
@@ -935,7 +935,7 @@ theorem extend_input_reindex (hL : L.Uniform) :
       extend (L.reindex σ) (F.reindex σ) (hF.reindex _) (Term.reindex b σ) (pulled b z σ) := by
   refine (congrArg (Term.map (Homotopy.fiberReindexIso f b σ).hom)
     (Homotopy.fiberIntroOver_reindex f b (𝟙 Γ) σ (finalA L F hF b z) (finalP L F hF b z))).trans ?_
-  refine (Homotopy.fiberReindexIso_introOver f b σ _ _).trans ?_
+  refine (Homotopy.fiberReindexIso_fiberIntroOver f b σ _ _).trans ?_
   exact Homotopy.fiberIntroOver_congr (Functor.whiskerLeft σ.mapElements f) (Term.reindex b σ) (𝟙 Δ)
     (Term.reindex (finalA L F hF b z) σ)
     (finalA (L.reindex σ) (F.reindex σ) (hF.reindex _) (Term.reindex b σ) (pulled b z σ))

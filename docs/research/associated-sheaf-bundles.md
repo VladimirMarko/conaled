@@ -57,7 +57,7 @@ extension and base restriction. The underlying display equations agree with
 
 The cocycle implementation starts with independently supplied labels. For the
 library's right-translation cocycle convention, the associated transition acts
-by the inverse cocycle label. `cocycleExtensionData_eq` identifies the extension
+by the inverse cocycle label. `cocycleDatum_eq_toDisplayDatum` identifies the extension
 transition with right translation by the homomorphism-applied label.
 `cocycleExtensionComparison` is an equivariant arrow of actual glued torsors,
 not just an equality of transition formulas. Gauge labels and covering maps

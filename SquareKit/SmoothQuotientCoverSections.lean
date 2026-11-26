@@ -272,7 +272,7 @@ theorem glue_alongSquare_section {X' Y' : Sheaf topology Type} {k : Y' ⟶ X'}
     (square : v ≫ f = k ≫ u) :
     restrictSection u s.glue = (s.alongSquare u v square).glue.reindex
       (SheafActionQuotient.restriction u) :=
-  LocalSection.ParameterFamily.setSection_ext _ (s.glue_alongSquare u v square)
+  LocalSection.ParameterFamily.setFamily_section_ext _ (s.glue_alongSquare u v square)
 
 /-- Naturality uses the actual categorical pullback of the original cover. -/
 theorem glue_baseChange_section (s : CoverSectionFamily (a := a) f)

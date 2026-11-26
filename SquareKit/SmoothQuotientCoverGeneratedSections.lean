@@ -23,8 +23,8 @@ theorem restriction_substitution :
       (s (SmoothQuotientSource.model a X)).down ⋙ restrictionFunctor a hΓ f :=
   CechMatching.canonical_square (substitutionDiagram a hΓ hΔ hs f)
     (restriction a hΔ f) (s (SmoothQuotientSource.model a X)).down
-    (restriction a hΓ f) (restrictionOverlap_eq a hΔ f)
-    (restrictionOverlap_eq a hΓ f)
+    (restriction a hΓ f) (restriction_overlap_eq a hΔ f)
+    (restriction_overlap_eq a hΓ f)
     (generatedSubstitution_commutes (SmoothQuotientComparison.signature (a := a) f)
       hΓ hΔ hs).symm
 

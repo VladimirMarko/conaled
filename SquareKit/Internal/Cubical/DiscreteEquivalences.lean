@@ -23,7 +23,7 @@ noncomputable def inverseSection (b : Term (constantFamily Γ T)) : Term (consta
 
 theorem map_inverseSection (b : Term (constantFamily Γ T)) :
     Term.map f (inverseSection f E b) = b :=
-  discretePath_endpoints (genericFiberPath f (pair (𝟙 Γ) b)
+  constantFamily_path_endpoints (genericFiberPath f (pair (𝟙 Γ) b)
     (E.fibers.center.reindex (pair (𝟙 Γ) b)))
 
 theorem inverseSection_map (a : Term (constantFamily Γ S)) :
@@ -31,7 +31,7 @@ theorem inverseSection_map (a : Term (constantFamily Γ S)) :
   let τ := pair (A := constantFamily Γ T) (𝟙 Γ) (Term.map f a)
   let c := E.fibers.reindex τ
   let z := genericFiberIntro f τ a (homogeneousRefl (Term.map f a))
-  exact discretePath_endpoints (homogeneousPathMap
+  exact constantFamily_path_endpoints (homogeneousPathMap
     (firstMap (constantFamily Γ S)
       (reindex (genericFiberPathFamily f) (liftSub (reindex (constantFamily Γ S)
         (projection (constantFamily Γ T))) τ))) (c.pathTo z))
@@ -48,7 +48,7 @@ def constant (s : S) : Term (constantFamily Γ S) where
 
 def point : terminal.{u}.Elements := terminal.elementsMk (Opposite.op ⟨0⟩) PUnit.unit
 
-theorem closedSection_eq (t : Term (constantFamily terminal S)) : t = constant (t.val point) := by
+theorem closed_section_eq_constant (t : Term (constantFamily terminal S)) : t = constant (t.val point) := by
   apply Term.ext
   intro x
   let k : point ⟶ x := Functor.Elements.homMk
@@ -61,7 +61,7 @@ theorem closedSection_eq (t : Term (constantFamily terminal S)) : t = constant (
 def closedSections : Term (constantFamily terminal S) ≃ S where
   toFun t := t.val point
   invFun := constant
-  left_inv t := (closedSection_eq t).symm
+  left_inv t := (closed_section_eq_constant t).symm
   right_inv _ := rfl
 
 /-- This classifies section observations, not native equivalence witnesses. -/
@@ -72,7 +72,7 @@ noncomputable def closedEquiv
 theorem closedEquiv_app
     (f : constantFamily terminal S ⟶ constantFamily terminal T) (E : HomotopyEquivalence f)
     (x : terminal.Elements) (s : S) : f.app x s = closedEquiv f E s :=
-  congrArg (fun t => t.val x) (closedSection_eq (Term.map f (constant s)))
+  congrArg (fun t => t.val x) (closed_section_eq_constant (Term.map f (constant s)))
 
 end SquareKit.Cubical.Presheaf.DiscreteEquivalences
 
@@ -86,7 +86,7 @@ def PathDiscrete {Γ : Context.{u}} (A : Family Γ) : Prop :=
     Term (homogeneousPath (reindex A σ) a b) → a = b
 
 theorem constant_pathDiscrete {Γ : Context.{u}} (S : Type u) :
-    PathDiscrete (constantFamily Γ S) := fun _ _ => discretePath_endpoints
+    PathDiscrete (constantFamily Γ S) := fun _ _ => constantFamily_path_endpoints
 
 theorem PathDiscrete.of_iso {Γ : Context.{u}} {A B : Family Γ}
     (h : PathDiscrete B) (e : A ≅ B) : PathDiscrete A := by

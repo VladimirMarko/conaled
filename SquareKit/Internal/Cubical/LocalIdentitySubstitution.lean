@@ -23,26 +23,26 @@ theorem identityData_substitution {Γ Δ : Context.{u}} (A : Family Γ)
   congrArg (fun X => X × Face.Carrier x.obj.unop.dimension)
     (localPath_substitution (reindex A (projection (interval Γ))) a b σ x)
 
-theorem identityLocalData_substitution {Γ Δ : Context.{u}} (A : Family Γ)
+theorem identityReindex_localData_heq {Γ Δ : Context.{u}} (A : Family Γ)
     (a b : Term A) (σ : Δ ⟶ Γ) (x : Δ.Elements)
     (p : IdentityElement A a b (σ.mapElements.obj x)) :
     HEq p.localData (((identityReindex A a b σ).app x p).localData) :=
-  prod_heq (pathToLocal_substitution (reindex A (projection (interval Γ))) a b σ x p.path) p.face
+  prod_heq (pathReindex_toLocal_heq (reindex A (projection (interval Γ))) a b σ x p.path) p.face
 
 theorem localIdentity_substitution {Γ Δ : Context.{u}} (A : Family Γ)
     (a b : Term A) (σ : Δ ⟶ Γ) (x : Δ.Elements) :
     LocalIdentity A a b (σ.mapElements.obj x) =
       LocalIdentity (reindex A σ) (a.reindex σ) (b.reindex σ) x :=
   rangeSubtype_eq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
-    IdentityElement.localData IdentityElement.localData (identityLocalData_substitution A a b σ x)
+    IdentityElement.localData IdentityElement.localData (identityReindex_localData_heq A a b σ x)
 
-theorem identityToLocal_substitution {Γ Δ : Context.{u}} (A : Family Γ)
+theorem identityReindex_toLocal_heq {Γ Δ : Context.{u}} (A : Family Γ)
     (a b : Term A) (σ : Δ ⟶ Γ) (x : Δ.Elements)
     (p : IdentityElement A a b (σ.mapElements.obj x)) :
     HEq p.toLocal (((identityReindex A a b σ).app x p).toLocal) := by
   apply (Subtype.heq_iff_coe_heq (identityData_substitution A a b σ x)
     (rangePredicate_heq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
-      IdentityElement.localData IdentityElement.localData (identityLocalData_substitution A a b σ x))).mpr
-  exact identityLocalData_substitution A a b σ x p
+      IdentityElement.localData IdentityElement.localData (identityReindex_localData_heq A a b σ x))).mpr
+  exact identityReindex_localData_heq A a b σ x p
 
 end SquareKit.Cubical.Presheaf

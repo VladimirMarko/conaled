@@ -22,7 +22,7 @@ def pair {Γ Δ : Context.{u}} {A : Family Γ} (σ : Δ ⟶ Γ)
     intro x
     let p : Δ.elementsMk I x ⟶ Δ.elementsMk J (Δ.map f x) :=
       Functor.Elements.homMk f rfl
-    have h := totalMap_ofHom A (σ.mapElements.map p) (t.val (Δ.elementsMk I x))
+    have h := totalMap_hom A (σ.mapElements.map p) (t.val (Δ.elementsMk I x))
     change ⟨σ.app J (Δ.map f x), t.val (Δ.elementsMk J (Δ.map f x))⟩ =
       totalMap A f ⟨σ.app I x, t.val (Δ.elementsMk I x)⟩
     exact (h.trans (congrArg (Sigma.mk _) (t.property p))).symm
@@ -47,7 +47,7 @@ def sigmaIntro {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     (a : Term A) (b : Term (reindex B (pair (𝟙 Γ) a))) : Term (sigma A B) where
   val x := ⟨a.val x, b.val x⟩
   property {x y} f := by
-    have h := sigmaMap_ofHom A B f (a.property f) (b.val x)
+    have h := sigmaMap_extendAlong A B f (a.property f) (b.val x)
     have hb := b.property f
     exact h.trans (congrArg (Sigma.mk _) hb)
 
@@ -63,7 +63,7 @@ def sigmaSnd {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
   val x := (s.val x).2
   property {x y} f := by
     have h := s.property f
-    have he := sigmaMap_ofHom A B f ((sigmaFst s).property f) (s.val x).2
+    have he := sigmaMap_extendAlong A B f ((sigmaFst s).property f) (s.val x).2
     change sigmaMap A B f (s.val x) = s.val y at h
     have h' := he.symm.trans h
     exact (Sigma.mk.inj h').2.eq

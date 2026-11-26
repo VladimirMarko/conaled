@@ -12,11 +12,11 @@ local notation "G" => locallyConstantGroup H
 local notation "D" => PresentationGeometry.infinitesimal topology
 variable (a : SheafActionQuotient.Action (locallyConstantGroup H) M)
 
-instance zeroRestriction_full (X : Sheaf topology Type) :
+instance restriction_parameterZero_full (X : Sheaf topology Type) :
     (SheafTorsor.restriction («G» := G) (parameterZero X)).Full :=
   inferInstanceAs (parameterTorsorEquivalence (H := H) X).inverse.Full
 
-instance zeroRestriction_faithful (X : Sheaf topology Type) :
+instance restriction_parameterZero_faithful (X : Sheaf topology Type) :
     (SheafTorsor.restriction («G» := G) (parameterZero X)).Faithful :=
   inferInstanceAs (parameterTorsorEquivalence (H := H) X).inverse.Faithful
 
@@ -54,7 +54,7 @@ theorem chartFunctor_restriction {X Y : Sheaf topology Type} (f : Y ⟶ X) :
   · intro m
     rfl
 
-theorem chartMap_reindex {X Y : Sheaf topology Type} (f : Y ⟶ X)
+theorem chartFunctor_map_reindex {X Y : Sheaf topology Type} (f : Y ⟶ X)
     {m n : Discrete (X ⟶ M)} (h : m ⟶ n) :
     ((chartFunctor a X).map h).reindex f =
       (chartFunctor a Y).map ((DiscreteSheaf.restriction M f).map h) := by
@@ -74,7 +74,7 @@ def baseChange {X Y : Sheaf topology Type} (f : Y ⟶ X) : Pointed a X ⥤ Point
     right := h.right.reindex (parameterMap D f)
     w := by
       have hw := congrArg (fun k => k.reindex f) h.w
-      have hc := chartMap_reindex a f h.left
+      have hc := chartFunctor_map_reindex a f h.left
       apply SheafActionQuotient.Arrow.ext
       apply SheafTorsor.Arrow.ext
       ext x g
@@ -124,7 +124,7 @@ theorem baseChange_comp {X Y Z : Sheaf topology Type} (f : Y ⟶ X) (g : Z ⟶ Y
       rfl
 
 /-- The uncurried comparison retains its boundary under base change. -/
-theorem arcComparison_natural {X Y : Sheaf topology Type} (f : Y ⟶ X) :
+theorem comparison_parameterZero_natural {X Y : Sheaf topology Type} (f : Y ⟶ X) :
     DiscreteSheaf.restriction M (parameterMap D f) ⋙
         QuotientPointedArcs.comparison a (parameterZero Y) =
       QuotientPointedArcs.comparison a (parameterZero X) ⋙ baseChange a f := by
@@ -154,7 +154,7 @@ theorem comparison_natural {X Y : Sheaf topology Type} (f : Y ⟶ X) :
     ((DiscreteSheaf.mappingEquiv D M X).functor ⋙
       QuotientPointedArcs.comparison a (parameterZero X)) ⋙ baseChange a f
   rw [← CategoryTheory.Functor.assoc, DiscreteSheaf.mappingEquiv_natural,
-    CategoryTheory.Functor.assoc, arcComparison_natural, CategoryTheory.Functor.assoc]
+    CategoryTheory.Functor.assoc, comparison_parameterZero_natural, CategoryTheory.Functor.assoc]
 
 /-- The comparison's boundary really is identity on the restricted chart. -/
 theorem comparison_boundary (X : Sheaf topology Type) (h : X ⟶ exponential D M) :

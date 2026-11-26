@@ -51,7 +51,7 @@ theorem reconstructedConstant_on_descended (d : Descent.Datum (a := a) A) :
     ((reconstructedConstant (a := a) (A := A)).obj d.object).as =
       SmoothQuotientDeformations.constant d.object :=
   (CocycleDatum.fiberEquivalence d).injective
-    (CocycleDatum.globalSection_recoverFiber (constantLocal (a := a) (A := A)) d)
+    (CocycleDatum.fiberEquivalence_globalSection (constantLocal (a := a) (A := A)) d)
 
 variable (H : Type) [Group H] (c : H) (A : SplitSheaf.Ty SmoothClutching.base)
 variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]

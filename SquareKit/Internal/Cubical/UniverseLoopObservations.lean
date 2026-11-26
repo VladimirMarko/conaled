@@ -38,7 +38,7 @@ theorem two_path_discrete_observation {S : Type (u+1)}
     (o : liftedDecode b ⟶ constantFamily Γ S) {p q : Term (paths a b)}
     (h : Term (homogeneousPath (paths a b) p q)) (x : Term (liftedDecode a)) :
     Term.map o (Term.map (pathToMap p) x) = Term.map o (Term.map (pathToMap q) x) :=
-  discretePath_endpoints (homogeneousPathMap o (transportTwoPath a b h x))
+  constantFamily_path_endpoints (homogeneousPathMap o (transportTwoPath a b h x))
 
 noncomputable def recoverLoop (p : Term (paths a a)) :=
   Term.map (equivToPath a a) (Term.map (pathToEquiv a a) p)

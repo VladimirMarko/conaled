@@ -49,7 +49,7 @@ theorem OpenBox.Fills.reindex {Γ Δ : Context.{u}} {A : Family (total (interval
 
 /-- A discrete index is constant along each generalized interval, even when
 presented as a section over the whole interval extension. -/
-theorem discreteIndex_zero {Γ : Context.{u}} {T : Type u}
+theorem constantFamily_term_zero {Γ : Context.{u}} {T : Type u}
     (q : Term (constantFamily (total (interval Γ)) T))
     (x : (total (interval Γ)).Elements) :
     q.val ((endpointSub Γ false).mapElements.obj ((projection (interval Γ)).mapElements.obj x)) =
@@ -60,7 +60,7 @@ theorem discreteIndex_zero {Γ : Context.{u}} {T : Type u}
 def OpenBox.discreteFill {Γ : Context.{u}} {T : Type u}
     {q : Term (constantFamily (total (interval Γ)) T)} {S : T → Type u}
     {φ : Cofibration Γ} (b : OpenBox (discreteFamily q S) φ) : Term (discreteFamily q S) where
-  val x := cast (congrArg S (discreteIndex_zero q x))
+  val x := cast (congrArg S (constantFamily_term_zero q x))
     (b.base.val ((projection (interval Γ)).mapElements.obj x))
   property {x y} f := by
     apply eq_of_heq

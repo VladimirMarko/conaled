@@ -66,7 +66,7 @@ theorem forwardArcTransport_natural {Y : Sheaf SmoothOpenSite.topology Type} (g 
 open SmoothPresentationSite SmoothGeometricKL EuclideanOpen
 
 /-- Zero evaluation of a parameterized open-domain arc is exactly its base coefficient. -/
-theorem openCoefficients_base (U : Domain) {X : Sheaf SmoothOpenSite.topology Type}
+theorem parameterCoefficients_base (U : Domain) {X : Sheaf SmoothOpenSite.topology Type}
     (h : product D X ⟶ embedding.obj U) :
     parameterZero X ≫ h = SmoothOpenArcs.parameterCoefficients U X h ≫ fst _ _ := by
   ext A x
@@ -98,7 +98,7 @@ def openFixedCoefficients (U : Domain) {X : Sheaf SmoothOpenSite.topology Type}
     QuotientFixedArcs.Arcs (parameterZero X) m ≃ (X ⟶ scalarPower U.dimension) where
   toFun h := SmoothOpenArcs.parameterCoefficients U X h.val ≫ snd _ _
   invFun v := ⟨(SmoothOpenArcs.parameterCoefficients U X).symm (lift m v), by
-    rw [openCoefficients_base, Equiv.apply_symm_apply]
+    rw [parameterCoefficients_base, Equiv.apply_symm_apply]
     rfl⟩
   left_inv h := by
     apply Subtype.ext
@@ -107,7 +107,7 @@ def openFixedCoefficients (U : Domain) {X : Sheaf SmoothOpenSite.topology Type}
     ext A x
     apply Prod.ext
     · exact congrArg (fun k : X ⟶ embedding.obj U => k.hom.app A x)
-        ((openCoefficients_base U h.val).symm.trans h.property).symm
+        ((parameterCoefficients_base U h.val).symm.trans h.property).symm
     · rfl
   right_inv v := by
     change (SmoothOpenArcs.parameterCoefficients U X)

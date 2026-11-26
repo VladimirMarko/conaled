@@ -40,7 +40,7 @@ packages it as a section of the internal equivalence family, retaining the
 chosen contractions as well as the function.
 
 `no_path` proves that the native cubical path family between these codes has
-no section. It uses `discretePath_endpoints` and evaluates the resulting
+no section. It uses `constantFamily_path_endpoints` and evaluates the resulting
 endpoint equation at the zero-dimensional point. This is stronger than
 observing that the two Lean Boolean values are unequal. Same-tag reflexivity
 provides a positive path control.

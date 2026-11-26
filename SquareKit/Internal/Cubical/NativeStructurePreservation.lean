@@ -443,7 +443,7 @@ noncomputable def genericEquivalence (A B : Family Γ) :
   (EquivalenceFamilies.equivReindexSections A B π).symm
     (generic (EquivalenceFamilies.equiv A B))
 
-theorem decodeEquivalence_reindex (A B : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
+theorem equivReindexSections_symm_reindex (A B : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (s : Term (reindex (EquivalenceFamilies.equiv A B) σ)) :
     (EquivalenceFamilies.equivReindexSections A B (τ ≫ σ)).symm (Term.reindex s τ) =
       ⟨Functor.whiskerLeft τ.mapElements ((EquivalenceFamilies.equivReindexSections A B σ).symm s).1,
@@ -459,7 +459,7 @@ theorem genericEquivalence_at (A B : Family Γ) (f : A ⟶ B) (E : HomotopyEquiv
     (⟨Functor.whiskerLeft σ.mapElements (genericEquivalence A B).1,
         (genericEquivalence A B).2.reindex σ⟩ : Σ g : A ⟶ B, HomotopyEquivalence g) = ⟨f,E⟩ := by
   let σ := pair (A := EquivalenceFamilies.equiv A B) (𝟙 Γ) (EquivalenceFamilies.equivSections A B ⟨f,E⟩)
-  have h := decodeEquivalence_reindex A B (projection (EquivalenceFamilies.equiv A B)) σ
+  have h := equivReindexSections_symm_reindex A B (projection (EquivalenceFamilies.equiv A B)) σ
     (generic (EquivalenceFamilies.equiv A B))
   refine h.symm.trans ?_
   change (EquivalenceFamilies.equivReindexSections A B (𝟙 Γ)).symm
@@ -793,7 +793,7 @@ theorem objectOf_reindex (D : Description.{u}) (a : Γ ⟶ smallFamilyCodes.{u})
   · exact heq_of_eq (congrArg (fun m => m.app x (s.val (σ.mapElements.obj x))) q)
 
 
-theorem decodeEquivalence_reindexIso (A B : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
+theorem equivReindexSections_symm_equivReindexIso (A B : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
     (s : Term (reindex (EquivalenceFamilies.equiv A B) (τ ≫ σ))) :
     (EquivalenceFamilies.equivReindexSections (reindex A σ) (reindex B σ) τ).symm
       (Term.map (Functor.whiskerLeft τ.mapElements (EquivalenceFamilies.equivReindexIso A B σ).hom) s) =
@@ -822,10 +822,10 @@ noncomputable def equivalencesReindexIso (D : Description.{u}) {A B : Family Γ}
     ⟨Functor.whiskerLeft κ.mapElements E'.1, E'.2.reindex κ⟩
   have h₀ : (EquivalenceFamilies.equivReindexSections A B (π₀ ≫ σ)).symm
       (generic (reindex C σ)) = E₀ :=
-    decodeEquivalence_reindex A B π ρ (generic C)
+    equivReindexSections_symm_reindex A B π ρ (generic C)
   have h₁ : (EquivalenceFamilies.equivReindexSections (reindex A σ) (reindex B σ) π₀).symm
       (Term.map (Functor.whiskerLeft π₀.mapElements e.hom) (generic (reindex C σ))) = E₁ :=
-    decodeEquivalence_reindex (reindex A σ) (reindex B σ) π' κ (generic C')
+    equivReindexSections_symm_reindex (reindex A σ) (reindex B σ) π' κ (generic C')
   have he : E₀ = E₁ := by
     have h := congrArg
       (EquivalenceFamilies.equivReindexSections (reindex A σ) (reindex B σ) π₀).symm

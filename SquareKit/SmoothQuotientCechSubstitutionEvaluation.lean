@@ -51,7 +51,7 @@ theorem fiberTotalEvaluation_substitution (c : (show Grpd.{1,1} from δ (model a
     (inclusion_pre (b (model a A) ⋙ Grpd.forgetToCat) (s (model a A)).down c)
 
 /-- Substitution preserves effectiveness of the actual evaluation at the selected base object. -/
-theorem substitutionEvaluation_isEquivalence
+theorem familyEvaluation_sub_isEquivalence
     (c : (show Grpd.{1,1} from δ (model a A)))
     [(familyEvaluation a A hΓ hB ((s (model a A)).down.obj c)).IsEquivalence] :
     (familyEvaluation a A hΔ (.sub hB hs) c).IsEquivalence := by

@@ -55,7 +55,7 @@ noncomputable def pathEquivalence {Γ : Context.{0}} {a b : Term (codes Γ)}
 
 theorem no_path : IsEmpty (Term (homogeneousPath (codes terminal) (tag false) (tag true))) :=
   ⟨fun p => Bool.false_ne_true
-    (congrArg (fun t => t.val DiscreteEquivalences.point) (discretePath_endpoints p))⟩
+    (congrArg (fun t => t.val DiscreteEquivalences.point) (constantFamily_path_endpoints p))⟩
 
 def sameFiber : decoded (tag (Γ := terminal) false) ≅ decoded (tag (Γ := terminal) true) := Iso.refl _
 

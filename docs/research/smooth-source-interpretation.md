@@ -143,7 +143,7 @@ overlaps and arrows in both directions. The presentation section comparison
 uses an equivalence of total dependent matching categories and its explicit
 base projection comparison, rather than equality of arbitrary groupoid objects.
 
-`sourceSection_totalRestriction` and `universalTransfer_restriction` connect
+`source_section_totalRestriction` and `universalTransfer_restriction` connect
 the exact interpreted source section to the original-cover total matching
 restriction on objects and arrows. `Examples.OriginalCoverGeneratedSections`
 specializes this to the disk action and the dependent-tail J caller.

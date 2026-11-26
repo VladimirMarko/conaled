@@ -22,7 +22,7 @@ theorem matchingEvaluation_derivation_iff (hΓ kΓ : Typed.CtxDeriv.{2} Γ γ) :
       (SmoothQuotientGeneratedMatching.strictDiagram_derivation a A hΓ kΓ))
     (matchingEvaluation_derivation a A hΓ kΓ)
 
-theorem plainContextEvaluation_isEquivalence (hΓ : Typed.PlainCtxDeriv.{2} Γ γ) :
+theorem matchingEvaluation_isEquivalence_of_plain (hΓ : Typed.PlainCtxDeriv.{2} Γ γ) :
     (matchingEvaluation a A hΓ.derivation).IsEquivalence := by
   induction hΓ with
   | empty => exact matchingEvaluation_empty_equivalence a A
@@ -34,7 +34,7 @@ theorem plainContextEvaluation_isEquivalence (hΓ : Typed.PlainCtxDeriv.{2} Γ �
 theorem matchingEvaluation_isEquivalence (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (matchingEvaluation a A hΓ).IsEquivalence :=
   (matchingEvaluation_derivation_iff a A hΓ hΓ.normalize.derivation).mpr
-    (plainContextEvaluation_isEquivalence a A hΓ.normalize)
+    (matchingEvaluation_isEquivalence_of_plain a A hΓ.normalize)
 
 def evaluationEquivalence (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (show Grpd.{1,1} from γ (model a A)) ≌ SmoothQuotientGeneratedMatching.Datum a hΓ A := by

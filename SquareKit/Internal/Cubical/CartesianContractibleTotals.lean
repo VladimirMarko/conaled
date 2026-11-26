@@ -732,7 +732,7 @@ theorem extend_on_face :
     (endpointPath f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB) (restrictInclusion φ)).trans
     ((genericFiberIntro_congr f (restrictInclusion φ ≫ σ) _ _
       (endpointA_on_face f σ s cA FA hFA cB FB hFB GA hGA) _ _
-      (pathTerm_hext _ _ (endpointPath_on_face f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB))).trans
+      (heq_of_pathApp_eq _ _ (endpointPath_on_face f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB))).trans
       (genericFiberIntro_eta f (restrictInclusion φ ≫ σ) s.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Holds x) :

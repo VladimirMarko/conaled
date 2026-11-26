@@ -15,7 +15,7 @@ variable {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
   (ht : (pathFillingBox p φ b).Fills t)
 
 include ht
-theorem pathFillingBody_zero :
+theorem pathFillingBodyPath_zero :
     (t.reindex (swapIntervals Δ)).reindex (endpointSub (total (interval Δ)) false) = a₀.reindex p := by
   apply Term.ext
   intro x
@@ -30,7 +30,7 @@ theorem pathFillingBody_zero :
     (Cofibration.full_endpoint (generic (interval (total (interval Δ)))) false _).mpr rfl
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_zero ((swapIntervals Δ).mapElements.obj z) hp hz))
 
-theorem pathFillingBody_one :
+theorem pathFillingBodyPath_one :
     (t.reindex (swapIntervals Δ)).reindex (endpointSub (total (interval Δ)) true) = a₁.reindex p := by
   apply Term.ext
   intro x
@@ -46,7 +46,7 @@ theorem pathFillingBody_one :
   exact eq_of_heq ((heq_of_eq h).trans (s.pathBoundary_one ((swapIntervals Δ).mapElements.obj z) hp hz))
 
 def pathFillingBodyPath : Term (path (reindex B (liftSub (interval Γ) p)) (a₀.reindex p) (a₁.reindex p)) :=
-  pathLam (t.reindex (swapIntervals Δ)) (pathFillingBody_zero p φ b t ht) (pathFillingBody_one p φ b t ht)
+  pathLam (t.reindex (swapIntervals Δ)) (pathFillingBodyPath_zero p φ b t ht) (pathFillingBodyPath_one p φ b t ht)
 
 end
 end SquareKit.Cubical.Presheaf

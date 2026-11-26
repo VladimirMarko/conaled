@@ -142,7 +142,7 @@ def homogeneousPathMap {Γ : Context.{u}} {A B : Family Γ} (f : A ⟶ B)
     (congrArg (Term.map f) (pathApp_zero p)) (congrArg (Term.map f) (pathApp_one p))
 
 /-- Native paths with constant discrete coefficients have equal endpoints. -/
-theorem discretePath_endpoints {Γ : Context.{u}} {S : Type u}
+theorem constantFamily_path_endpoints {Γ : Context.{u}} {S : Type u}
     {a b : Term (constantFamily Γ S)} (p : Term (homogeneousPath (constantFamily Γ S) a b)) :
     a = b := by
   apply Term.ext
@@ -154,8 +154,8 @@ theorem discretePath_endpoints {Γ : Context.{u}} {S : Type u}
 theorem HomotopyContractible.discrete_observations {Γ : Context.{u}} {A : Family Γ}
     (c : HomotopyContractible A) {S : Type u} (f : A ⟶ constantFamily Γ S) (a b : Term A) :
     Term.map f a = Term.map f b :=
-  (discretePath_endpoints (homogeneousPathMap f (c.pathTo a))).symm.trans
-    (discretePath_endpoints (homogeneousPathMap f (c.pathTo b)))
+  (constantFamily_path_endpoints (homogeneousPathMap f (c.pathTo a))).symm.trans
+    (constantFamily_path_endpoints (homogeneousPathMap f (c.pathTo b)))
 
 /-- The fiber retains a point in the domain and a native path to the target. -/
 def homotopyFiber {Γ : Context.{u}} {A B : Family Γ} (f : A ⟶ B) (b : Term B) : Family Γ :=
@@ -281,7 +281,7 @@ theorem genericFiberIntro_eta {Γ Δ : Context.{u}} {A B : Family Γ}
       (sigmaSnd (B := reindex (genericFiberPathFamily f) (liftSub (reindex A (projection B)) σ)) z))
 
 /-- Equality of whole path sections also identifies their endpoint-indexed terms. -/
-theorem pathTerm_hext {Γ : Context.{u}} {B : Family (total (interval Γ))}
+theorem heq_of_pathApp_eq {Γ : Context.{u}} {B : Family (total (interval Γ))}
     {a₀ b₀ : Term (reindex B (endpointSub Γ false))}
     {a₁ b₁ : Term (reindex B (endpointSub Γ true))}
     (p : Term (path B a₀ a₁)) (q : Term (path B b₀ b₁)) (h : pathApp p = pathApp q) :
@@ -462,7 +462,7 @@ theorem isoFiberContractionSection_zero {Γ : Context.{u}} {A B : Family Γ} (e 
     (Term.map_iso_roundtrip ic.symm (generic B)).symm rfl
   let τ := endpointSub (total H) false
   have hp : HEq (homogeneousReindex t τ) (homogeneousReindex tc π) :=
-    pathTerm_hext _ _ (homogeneousTail_start p)
+    heq_of_pathApp_eq _ _ (homogeneousTail_start p)
   have ha : a.reindex τ = ac.reindex π := isoFiberContractionSection_zero_fst e
   exact (genericFiberIntro_reindex e.hom r a t τ).symm.trans
     ((genericFiberIntro_congr e.hom π _ _ ha _ _ hp).trans
@@ -482,7 +482,7 @@ theorem isoFiberContractionSection_one {Γ : Context.{u}} {A B : Family Γ} (e :
     ((pathApp_zero (homogeneousTail p)).trans (Term.map_iso_roundtrip i.symm q).symm)
     (pathApp_one (homogeneousTail p))
   let τ := endpointSub (total H) true
-  have hp : HEq (homogeneousReindex t τ) p := pathTerm_hext _ _ (homogeneousTail_finish p)
+  have hp : HEq (homogeneousReindex t τ) p := heq_of_pathApp_eq _ _ (homogeneousTail_finish p)
   have ha : a.reindex τ = genericFiberFst e.hom π (generic H) := isoFiberContractionSection_one_fst e
   exact (genericFiberIntro_reindex e.hom r a t τ).symm.trans
     ((genericFiberIntro_congr e.hom π _ _ ha _ _ hp).trans

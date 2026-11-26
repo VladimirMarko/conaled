@@ -84,8 +84,8 @@ theorem splitLabel_commutes :
       (SplitSheaf.Cech.second (SplitSheaf.ofDisplay A.cover) ≫ f.splitLabel smoothAction) := by
   have h := congrArg (fun h => (SheafCoverCech.splitDoubleIso A.cover).hom ≫ h)
     (f.localLabel_commutes smoothAction)
-  simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitDouble_first,
-    SheafCoverCech.splitDouble_second] at h
+  simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitDoubleIso_first,
+    SheafCoverCech.splitDoubleIso_second] at h
   simpa only [splitLabel, Datum.splitLabel, Category.assoc] using h
 
 /-- Compatible external families yield the full commuting quotient arrow. -/
@@ -214,8 +214,8 @@ def ofCechMap (f : SheafActionQuotient.Cech.Map (p.cech smoothAction) (q.cech sm
     exact h
   commutes := by
     apply (cancel_epi (SheafCoverCech.splitDoubleIso A.cover).hom).mp
-    simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitDouble_first,
-      SheafCoverCech.splitDouble_second]
+    simp only [labelMul_precomp, ← Category.assoc, SheafCoverCech.splitDoubleIso_first,
+      SheafCoverCech.splitDoubleIso_second]
     simp only [Category.assoc, Iso.hom_inv_id_assoc]
     ext U x
     have h := congrArg (fun a => a.torsorArrow.iso.hom.app

@@ -63,7 +63,7 @@ conditional split-effectivity premise using #445. The only cover hypothesis is
 local surjectivity of the original sheaf map. `descentEquivalence` retains the
 actual original canonical restriction, and `descentSquare` compares chosen
 gluing along arbitrary commuting cover squares by a selected natural iso.
-Neither square map is assumed invertible. `descentRecovery_natural` retains
+Neither square map is assumed invertible. `descentEquivalence_counitIso_natural` retains
 every matching arrow in the chosen counit recovery.
 `gluedSectionLiftNaturalityIso` applies the selected extended-context descent square
 to complete supplied matching-section lifts and their local comparison. It
@@ -93,7 +93,7 @@ selected recovery and vertical-transformation bijections. They require no cover
 hypothesis because presentation change itself is an equivalence.
 
 `relativeSquareMap` and `familySquare` act on independent relative matching
-under arbitrary parameter-cover squares. `relativeSquare_projection` supplies
+under arbitrary parameter-cover squares. `relativeSquareMap_projection` supplies
 the actual base square; `familySquareRecoveryIso` and its arrow naturality retain
 the full total comparison. Identity/composition are strict at the total matching
 functor level, while fixed-fiber normalization uses selected isomorphisms.
@@ -101,7 +101,7 @@ functor level, while fixed-fiber normalization uses selected isomorphisms.
 extended-context square. No injectivity or equivalence of parameter restriction
 is assumed.
 
-`sourceSection_totalRestriction` connects an interpreted typed term directly to
+`source_section_totalRestriction` connects an interpreted typed term directly to
 the original canonical matching restriction, on objects and arrows.
 `universalTransfer_restriction` specializes it to the unchanged source proof
 used by the classical quarter-turn tangent consumer. The generated examples

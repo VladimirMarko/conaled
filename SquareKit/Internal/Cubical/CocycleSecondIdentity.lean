@@ -8,7 +8,7 @@ theorem normalizedSquareIdentity_val_reindex {Γ Δ : Context.{0}}
     (r : Term (interval Γ)) (σ : Δ ⟶ Γ) (x : Δ.Elements) :
     HEq ((normalizedSquareIdentity r).val (σ.mapElements.obj x))
       ((normalizedSquareIdentity (r.reindex σ)).val x) :=
-  identityToLocal_substitution (cocycleFamily Γ) (zeroTerm Γ) (zeroTerm Γ) σ x
+  identityReindex_toLocal_heq (cocycleFamily Γ) (zeroTerm Γ) (zeroTerm Γ) σ x
     ((squareIdentity r).val (σ.mapElements.obj x))
 
 noncomputable def secondIdentityBody (Γ : Context.{0}) :

@@ -9,7 +9,7 @@ theorem secondIdentityBody_eval (Γ : Context.{0}) (x : Γ.Elements)
     (r s : (interval Γ).obj x) :
     (((secondIdentityBody Γ).val (extendObj (interval Γ) x r)).fromLocal).path.val.val (𝟙 x) s =
       squareValue r.down s.down := by
-  have e := normalizedIdentity_fromReindexed (cocycleFamily Γ) (zeroTerm Γ) (zeroTerm Γ)
+  have e := normalizedIdentity_from_reindexed (cocycleFamily Γ) (zeroTerm Γ) (zeroTerm Γ)
     (projection (interval Γ)) (normalizedSquareIdentity (generic (interval Γ)))
   have en : Term.map (normalizedIdentityIso (cocycleFamily (total (interval Γ)))
       (zeroTerm (total (interval Γ))) (zeroTerm (total (interval Γ)))).inv

@@ -706,7 +706,7 @@ theorem ua_reindex (a b : Γ ⟶ smallFamilyCodes.{u})
     reindexPath (ua a b f E) σ =
       ua (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ) := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   exact coherentLine_reindex a b f E σ
 
 
@@ -719,7 +719,7 @@ theorem reindexPath_section_reindex_pair {C : Family Γ}
       Term.map (pathReindex (Cartesian.reindex (family Γ) (projection (interval Γ)))
         (term a) (term b) σ) (Term.reindex s (pair (A := C) σ c)) := by
   apply eq_of_heq
-  apply pathTerm_hext
+  apply heq_of_pathApp_eq
   rfl
 
 theorem equivalencePathSection_reindex_pair (σ : Δ ⟶ Γ)

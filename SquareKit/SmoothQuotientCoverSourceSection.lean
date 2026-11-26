@@ -16,7 +16,7 @@ variable {Γ γ B b x ξ} (hΓ : Typed.CtxDeriv.{2} Γ γ)
 variable (hB : Typed.TyDeriv.{2} Γ γ B b) (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
 
 /-- The whole interpreted section, on objects and arrows, restricts canonically. -/
-theorem sourceSection_restriction :
+theorem source_section_restriction :
     (ξ (SmoothQuotientSource.model a X)).down.lift ⋙ restrictionFunctor a (.ext hΓ hB) f =
       restrictionFunctor a hΓ f ⋙
         substitution a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) f := by
@@ -29,17 +29,17 @@ theorem sourceSection_restriction :
   exact hh.symm
 
 /-- Independent relative matching receives the very same interpreted source section. -/
-theorem sourceSection_totalRestriction :
+theorem source_section_totalRestriction :
     (ξ (SmoothQuotientSource.model a X)).down.lift ⋙ totalRestriction a f hΓ hB =
       restrictionFunctor a hΓ f ⋙
         substitution a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) f ⋙
         (generatedToRelative a hΓ hB f).functor := by
   dsimp only [totalRestriction]
-  rw [← Functor.assoc, sourceSection_restriction a f hΓ hB hx]
+  rw [← Functor.assoc, source_section_restriction a f hΓ hB hx]
   rfl
 
 /-- This is the exact proof consumed by the classical tangent-composition theorem. -/
-abbrev universalTransfer_restriction := sourceSection_totalRestriction a f
+abbrev universalTransfer_restriction := source_section_totalRestriction a f
   Typed.Authoring.UniversalTransfer.context Typed.Authoring.UniversalTransfer.type
   Typed.Authoring.UniversalTransfer.proof
 

@@ -21,7 +21,7 @@ def secondRestrictionFiber (f : Y ⟶ SplitSheaf.Cech.double A) :=
     (SheafActionQuotient.Cech.localFunctor ⋙ restriction (SplitSheaf.Cech.second A))
     (restrictionFamily f)
 
-theorem overlapRestriction_square (f : Y ⟶ SplitSheaf.Cech.double A) :
+theorem overlap_restriction_square (f : Y ⟶ SplitSheaf.Cech.double A) :
     firstRestrictionFiber a A f ≫
       whiskerRight (isoWhiskerRight (overlap a A) (restriction f)).hom (family a Y) =
     secondRestrictionFiber a A f := by
@@ -39,7 +39,7 @@ def restrictedComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.
   alignedContextComparison (isoWhiskerRight (overlap a A) (restriction f))
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A)) (family a Y)
     (firstRestrictionFiber a A f) (secondRestrictionFiber a A f)
-    (overlapRestriction_square a A f) hΓ
+    (overlap_restriction_square a A f) hΓ
 
 theorem restrictedComparison_formula (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (f : Y ⟶ SplitSheaf.Cech.double A) :
@@ -62,7 +62,7 @@ theorem restrictedComparison_formula (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a (SplitSheaf.Cech.double A)) (restriction f) (family a Y)
     (overlap a A) (firstFiber a A) (secondFiber a A) (restrictionFamily f)
-    (overlap_square a A) (overlapRestriction_square a A f) hΓ
+    (overlap_square a A) (overlap_restriction_square a A f) hΓ
 
 theorem restrictedComparison_diagonal (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     restrictedComparison a A hΓ (SplitSheaf.Cech.diagonal A) =
@@ -81,7 +81,7 @@ theorem firstRestrictionFiber_triple :
   apply Deformation.ext
   rfl
 
-theorem middleRestrictionFiber_triple :
+theorem restriction_fiber_triple_middle :
     secondRestrictionFiber a A (SplitSheaf.Cech.firstSecond A) =
       firstRestrictionFiber a A (SplitSheaf.Cech.secondThird A) := by
   apply NatTrans.ext
@@ -91,7 +91,7 @@ theorem middleRestrictionFiber_triple :
   apply Deformation.ext
   rfl
 
-theorem lastRestrictionFiber_triple :
+theorem secondRestrictionFiber_triple_last :
     secondRestrictionFiber a A (SplitSheaf.Cech.secondThird A) =
       secondRestrictionFiber a A (SplitSheaf.Cech.firstThird A) := by
   apply NatTrans.ext

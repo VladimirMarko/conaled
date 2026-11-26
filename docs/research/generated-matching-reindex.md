@@ -1,6 +1,6 @@
 # Generated matching under substitution (#445)
 
-`SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence` proves effectiveness
+`SmoothQuotientCechLocal.familyEvaluation_sub_isEquivalence` proves effectiveness
 of the actual substituted-family evaluation at an arbitrary source context object.
 Its sole mathematical hypothesis is effectiveness of the underlying family
 evaluation at that object's substituted image. The substitution may forget arrows

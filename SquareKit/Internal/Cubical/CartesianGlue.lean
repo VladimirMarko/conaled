@@ -226,7 +226,7 @@ theorem fiberEquiv_symm_full {x : Γ.Elements} (h : φ.Holds x)
   simp only [fiberEquiv, dite_eq_left h]
   exact cast_heq _ _
 
-private theorem typeHom_hext {A B C D : Type u} {f : A → B} {g : C → D}
+private theorem ofHom_hext {A B C D : Type u} {f : A → B} {g : C → D}
     (ha : A = C) (hb : B = D) (h : ∀ a c, HEq a c → HEq (f a) (g c)) :
     HEq (TypeCat.ofHom f) (TypeCat.ofHom g) := by
   cases ha
@@ -241,7 +241,7 @@ theorem family_full : reindex (family φ A T e) (restrictInclusion φ) = T := by
     fun x => fiber_full φ A T e ((restrictInclusion φ).mapElements.obj x) x.val.property
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply ofHom_hext (ho x) (ho y)
   intro a t hat
   let q := (restrictInclusion φ).mapElements.map f
   have hx := fiberEquiv_full φ A T e x.val.property a t hat
@@ -491,7 +491,7 @@ theorem Datum.localCarrierEquiv_symm {Γ : Context.{u}} (D : Datum Γ) (x : Γ.E
     (s : D.compatible.obj x) :
     (D.localCarrierEquiv x).symm s = D.chartMap (represented x) x (represented_generic_source x) s := rfl
 
-theorem Datum.toLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
+theorem Datum.localCarrierEquiv_symm_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) (s : D.compatible.obj (σ.mapElements.obj x)) :
     HEq ((D.localCarrierEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).localCarrierEquiv x).symm
@@ -501,7 +501,7 @@ theorem Datum.toLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (congrArg σ.mapElements.obj (represented_generic_source x)) s).trans
       (heq_of_eq (D.chartMap_substitution σ (represented x) x (represented_generic_source x) s).symm)
 
-theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
+theorem Datum.smallFiberEquiv_symm_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) (s : D.compatible.obj (σ.mapElements.obj x)) :
     HEq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).smallFiberEquiv x).symm
@@ -512,7 +512,7 @@ theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     exact (cast_heq _ _).trans (cast_heq _ _).symm
   · have h' : ¬(D.reindex σ).face.Holds x := h
     simp only [smallFiberEquiv, dite_eq_right h, dite_eq_right h']
-    exact (cast_heq _ _).trans ((D.toLocal_substitution σ x s).trans (cast_heq _ _).symm)
+    exact (cast_heq _ _).trans ((D.localCarrierEquiv_symm_substitution σ x s).trans (cast_heq _ _).symm)
 
 theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ : Δ ⟶ Γ) :
     Cartesian.reindex D.smallFamily σ = (D.reindex σ).smallFamily := by
@@ -520,14 +520,14 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
     fun x => (D.smallFiber_substitution σ x).symm
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply ofHom_hext (ho x) (ho y)
   intro s t hst
   have ht : t = ((D.reindex σ).smallFiberEquiv x).symm
       ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x
         (D.smallFiberEquiv (σ.mapElements.obj x) s)) :=
     eq_of_heq (hst.symm.trans
       ((heq_of_eq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm_apply_apply s)).symm.trans
-        (D.smallToLocal_substitution σ x (D.smallFiberEquiv (σ.mapElements.obj x) s))))
+        (D.smallFiberEquiv_symm_substitution σ x (D.smallFiberEquiv (σ.mapElements.obj x) s))))
   subst t
   change HEq ((D.smallFiberEquiv (σ.mapElements.obj y)).symm
     (D.compatible.map (σ.mapElements.map f) (D.smallFiberEquiv (σ.mapElements.obj x) s)))
@@ -536,7 +536,7 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
         (((D.reindex σ).smallFiberEquiv x).symm
           ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x
             (D.smallFiberEquiv (σ.mapElements.obj x) s))))))
-  exact (D.smallToLocal_substitution σ y
+  exact (D.smallFiberEquiv_symm_substitution σ y
     (D.compatible.map (σ.mapElements.map f) (D.smallFiberEquiv (σ.mapElements.obj x) s))).trans
       (heq_of_eq (congrArg (fun a => ((D.reindex σ).smallFiberEquiv y).symm
         ((D.reindex σ).compatible.map f a))
@@ -563,7 +563,7 @@ theorem Datum.smallFamily_full {Γ : Context.{u}} (D : Datum Γ) :
     fun x => dite_eq_left x.val.property
   apply Functor.hext ho
   intro x y f
-  apply typeHom_hext (ho x) (ho y)
+  apply ofHom_hext (ho x) (ho y)
   intro a t hat
   let q := (restrictInclusion D.face).mapElements.map f
   have hx := D.smallFiberEquiv_full x.val.property a t hat
@@ -619,7 +619,7 @@ theorem Datum.nativeIso_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ : 
       (Cartesian.reindex D.faceFamily (restrictSubstitution D.face σ))
       (Functor.whiskerLeft (restrictSubstitution D.face σ).mapElements D.map)).inv_hom_id
   exact eq_of_heq ((family_eqToIso_hom_heq (D.smallFamily_substitution σ) x _).trans
-    ((D.smallToLocal_substitution σ x ((familyIso D.face D.ambient D.faceFamily D.map).hom.app
+    ((D.smallFiberEquiv_symm_substitution σ x ((familyIso D.face D.ambient D.faceFamily D.map).hom.app
       (σ.mapElements.obj x) z)).trans
         (heq_of_eq (congrArg ((D.reindex σ).smallFiberEquiv x).symm hnew).symm)))
 

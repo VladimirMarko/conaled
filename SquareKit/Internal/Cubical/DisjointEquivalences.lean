@@ -110,7 +110,7 @@ theorem contractible_left : (contractible φ ψ cover disjoint a b).reindex (res
     intro x
     exact section_left φ ψ cover disjoint (PartialSection.ofRestricted a.center)
       (PartialSection.ofRestricted b.center) ((restrictInclusion φ).mapElements.obj x) x.val.property
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     apply Term.ext
     intro x
     exact contractionSection_left φ ψ cover disjoint a b
@@ -123,7 +123,7 @@ theorem contractible_right : (contractible φ ψ cover disjoint a b).reindex (re
     intro x
     exact section_right φ ψ cover disjoint (PartialSection.ofRestricted a.center)
       (PartialSection.ofRestricted b.center) ((restrictInclusion ψ).mapElements.obj x) x.val.property
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     apply Term.ext
     intro x
     exact contractionSection_right φ ψ cover disjoint a b
@@ -139,7 +139,7 @@ theorem contractible_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
   · apply Term.ext
     intro x
     rfl
-  · apply pathTerm_hext
+  · apply heq_of_pathApp_eq
     apply Term.ext
     intro x
     rfl

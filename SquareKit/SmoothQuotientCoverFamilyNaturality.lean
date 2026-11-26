@@ -24,7 +24,7 @@ def relativeSquareMap : CechMatching.StrictMap
   ((relativeToGenerated a hΓ hB f).comp (squareMap a (.ext hΓ hB) u v square)).comp
     (generatedToRelative a hΓ hB k)
 
-theorem relativeSquare_projection :
+theorem relativeSquareMap_projection :
     (relativeSquareMap a hΓ hB u v square).comp
       ((relativeFamilyData a hΓ hB k).projection (relativeFamilyData_coherence a hΓ hB k)) =
     ((relativeFamilyData a hΓ hB f).projection (relativeFamilyData_coherence a hΓ hB f)).comp
@@ -60,7 +60,7 @@ def familySquare (d : Datum a hΓ f) :
     (relativeMatchingFamily a hΓ hB f).obj d ⥤
       (relativeMatchingFamily a hΓ hB k).obj ((squareFunctor a hΓ u v square).obj d) :=
   CechMatching.Comprehension.fiberMap (squareMap a hΓ u v square)
-    (relativeSquareMap a hΓ hB u v square) (relativeSquare_projection a hΓ hB u v square) d
+    (relativeSquareMap a hΓ hB u v square) (relativeSquareMap_projection a hΓ hB u v square) d
 
 /-- Extraction recovers the complete total square functor through selected
 base-transport isomorphisms, including all matching arrows. -/

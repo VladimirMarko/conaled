@@ -27,7 +27,7 @@ def primitiveEvaluationRecovery :
     familyEvaluation a A hΓ (.fiber hx) c ⋙ (primitiveRecoveryEquivalence a A hΓ hx c q).functor ≅
       𝟭 (((Typed.fiberCode ξ) (model a A)).obj c) :=
   NatIso.ofComponents (fun x => eqToIso (Discrete.ext
-    (primitiveValue_cast_eq a A q _ x.as (familyEvaluation_fiber_matching_value a A hΓ hx c x))))
+    (fiber_cast_eq_of_val_heq a A q _ x.as (familyEvaluation_fiber_matching_value a A hΓ hx c x))))
     (by
       intro x y f
       change @Eq (Discrete.mk _ ⟶ Discrete.mk _) _ _

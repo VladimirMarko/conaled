@@ -33,7 +33,7 @@ theorem termDiagram_projection (A : SplitSheaf.Ty X) :
         CechMatching.StrictMap.id (strictDiagram a hΓ A) :=
   CechMatching.StrictMap.ext _ _ rfl rfl rfl
 
-theorem termMatching_projection (A : SplitSheaf.Ty X) :
+theorem termDiagram_functor_projection (A : SplitSheaf.Ty X) :
     (termDiagram a hΓ hB hx A).functor ⋙
       ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)).functor =
         𝟭 (Datum a hΓ A) := by
@@ -45,7 +45,7 @@ def termFiber (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
     CechMatching.Comprehension.Fiber (relativeFamilyData a hΓ hB A)
       (relativeFamilyData_coherence a hΓ hB A) d :=
   CechMatching.Comprehension.Fiber.ofDatum ((termDiagram a hΓ hB hx A).functor.obj d)
-    (Functor.congr_obj (termMatching_projection a hΓ hB hx A) d)
+    (Functor.congr_obj (termDiagram_functor_projection a hΓ hB hx A) d)
 
 theorem termFiber_local (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
     (termFiber a hΓ hB hx A d).localFiber =
