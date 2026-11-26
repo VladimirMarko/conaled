@@ -25,7 +25,7 @@ noncomputable def SelectedSourceConjugation : Prop :=
   (fixedPathBetaSection M R.family R.x R.y).down R.h.down
 theorem selectedSourceConjugation_of_action (ha : SelectedIdentityFiberAction C D R) :
  SelectedSourceConjugation C D R :=
- identityFiberValue_conjugation R.family R.x.down R.y.down R.p.down R.p'.down (T).down
+ identityFiberValueConjugationAt_of_formula R.family R.x.down R.y.down R.p.down R.p'.down (T).down
   (ordinaryActionFamily C D I R.p.down R.p'.down (T).down)
   (fun h => (ordinaryApValue M I I ⟨(T).down⟩ ⟨R.p.down⟩ ⟨R.p'.down⟩ ⟨h⟩).down)
   (fixedPathBetaSection M R.family R.x R.y).down ha R.h.down

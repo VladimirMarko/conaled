@@ -16,7 +16,7 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 theorem parameterRecovery_postcompose (hΓ : Typed.CtxDeriv.{2} Γ γ)
     {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.extension A) :
     parameterRecovery a A hΓ f =
-      (eqToIso (alignedGenerated_comp
+      (eqToIso (generatedContextMap_aligned_comp
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.extension A)) (restriction f) (family a Y)
         (restrictedFiber a A) (restrictionFamily f) hΓ)).symm ≪≫
@@ -54,7 +54,7 @@ theorem contextLocalComparison_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     eqToIso (generatedContextMap_restricted_overlap a A hΓ) ≪≫
       isoWhiskerRight (contextLocalComparison a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A)) := by
-  have h := alignedRecovery_square
+  have h := alignedContextComparison_recovery_square
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a (SplitSheaf.extension A)) (family a (SplitSheaf.Cech.double A))
     (localComparison a A) (restriction (SplitSheaf.Cech.first A))

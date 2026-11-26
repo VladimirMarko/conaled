@@ -43,7 +43,7 @@ theorem coherentLift_contractionBack_reflexive :
     change k.comp ((contractionBack (r.comp i) η E).comp (coherentLiftRight η E)) = k
     rw [liftedContraction_target]
     exact StrictTwoTransformation.functor_comp_id k
-  apply cartesianStrong_hext E eF eG
+  apply cartesian_strong_hext E eF eG
   · intro x
     change HEq (η.app (i.obj x.base)) (𝟙 (i.obj x.base))
     exact strongTrans_app_heq (contraction_reflexive_source i r hi)
@@ -56,11 +56,11 @@ theorem coherentLift_contractionBack_reflexive :
     change HEq (η.naturality (i.map p.base)).hom _
     exact (strongTrans_naturality_hom_heq (contraction_reflexive_source i r hi)
       (StrictTwoTransformation.functor_comp_id i) _ _ hη p.base).trans
-        (identityReindex_comparison_base E i p).symm
+        (strong_id_reindex_naturality_base E i p).symm
   · intro x y p
     exact coherentLiftCell_equalityFiber η E (b.map (k.map p))
   · intro x y p
-    exact identityStrong_equalityFiber E k p
+    exact strong_id_equalityFiber E k p
 include hi hη in
 theorem contractionRetractionHomotopy_reflexive :
     HEq (strongPrecomp (contractionRetractionHomotopy i r η E) (reindexHigher E i))

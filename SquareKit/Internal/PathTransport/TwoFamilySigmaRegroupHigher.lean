@@ -38,19 +38,19 @@ def sigmaUngroup : StrictPseudofunctor (Total B) (Total (sigmaFamily F B)) :=
 
 theorem sigmaRegroup_ungroup : (sigmaRegroup F B).comp (sigmaUngroup F B) =
     StrictPseudofunctor.id (Total (sigmaFamily F B)) :=
-  strictFunctorData_ext (sigmaRegroupData_ungroup F B)
+  strictPseudofunctor_ext_toPrelaxFunctorStruct (sigmaRegroupData_ungroup F B)
 
 theorem sigmaUngroup_regroup : (sigmaUngroup F B).comp (sigmaRegroup F B) =
     StrictPseudofunctor.id (Total B) :=
-  strictFunctorData_ext (sigmaUngroupData_regroup F B)
+  strictPseudofunctor_ext_toPrelaxFunctorStruct (sigmaUngroupData_regroup F B)
 
 theorem sigmaRegroup_projection : (sigmaRegroup F B).comp (projectionHigher B) =
-    sigmaFirst F B := strictFunctorData_ext rfl
+    sigmaFirst F B := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 
 theorem sigmaUngroup_first : (sigmaUngroup F B).comp (sigmaFirst F B) =
-    projectionHigher B := strictFunctorData_ext rfl
+    projectionHigher B := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 
 theorem sigmaUngroup_projection :
     (sigmaUngroup F B).comp (projectionHigher (sigmaFamily F B)) =
-      (projectionHigher B).comp (projectionHigher F) := strictFunctorData_ext rfl
+      (projectionHigher B).comp (projectionHigher F) := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 end SquareKit.Internal.PathTransport.TwoFamily

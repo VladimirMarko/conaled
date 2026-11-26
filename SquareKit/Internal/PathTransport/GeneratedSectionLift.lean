@@ -22,10 +22,10 @@ variable (S : Signature.{u})
 local notation "L" => Instance.fullModel S.base.left S.leftFiber
 local notation "R" => Instance.fullModel S.base.right S.rightFiber
 
-theorem generatedSectionLift_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem totalMap_generatedFamilyMap_section_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (hx : Typed.TmDeriv.{u+1} Γ γ A a x ξ) :
     (ξ L).down.lift ⋙ totalMap (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA) =
       generatedContextMap S hΓ ⋙ (ξ R).down.lift :=
-  section_lift_commutes _ _ _ _ (generatedTerm_commutes S hΓ hA hx)
+  section_lift_commutes _ _ _ _ (generatedFamilyMap_term_commutes S hΓ hA hx)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

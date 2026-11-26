@@ -83,7 +83,7 @@ theorem localMap_comp_restriction_base_term (f : Y ⟶ SplitSheaf.extension A) :
       (localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f) ⋙
         baseFunctor (ξ (SmoothQuotientSource.model a Y)).down := by
   rw [localMap_restriction]
-  exact generatedBaseTerm_commutes (parameterSignature a A f) hΓ hx
+  exact baseFunctor_generatedContextMap_commutes (parameterSignature a A f) hΓ hx
 
 theorem generatedOverlap_base_term :
     isoWhiskerLeft (baseFunctor (ξ (model a A)).down)
@@ -121,12 +121,12 @@ theorem matchingEvaluation_baseTermDiagram :
     (localMap a A hΓ) (primitiveLocalMap a A) (baseFunctor (ξ (model a A)).down)
     (generatedOverlap a A hΓ) (primitiveOverlap a A)
     (generated_coneLaws a A hΓ) (primitive_coneLaws a A)
-    (generatedBaseTerm_commutes (signature a A) hΓ hx).symm
+    (baseFunctor_generatedContextMap_commutes (signature a A) hΓ hx).symm
   exact CechMatching.ConeMap.transportedOverlap_of_square
     (SmoothQuotientGeneratedMatching.baseTermDiagram a hΓ hx A)
     (localMap a A hΓ) (primitiveLocalMap a A) (baseFunctor (ξ (model a A)).down)
     (generatedOverlap a A hΓ) (primitiveOverlap a A)
-    (generatedBaseTerm_commutes (signature a A) hΓ hx).symm
+    (baseFunctor_generatedContextMap_commutes (signature a A) hΓ hx).symm
     (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.first A))
     (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.second A))
     (generatedOverlap_base_term a A hΓ hx)

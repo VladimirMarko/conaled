@@ -56,7 +56,7 @@ theorem inverseFamilyContraction_reflexive :
   let iα : ∀x, IsIso ((strongPrecomp α i).app x) := fun x =>
     inferInstanceAs (IsIso (α.app (i.obj x)))
   have h1 := strongInverse_precomp α i
-  have h2 := strongInverse_heq (iη := iα) (iθ := fun x => strongId_isIso x) (retractionJ_source_beta i r hi E) rfl
+  have h2 := strongInverse_heq (iη := iα) (iθ := fun x => strong_id_app_isIso x) (retractionJ_source_beta i r hi E) rfl
     (strongPrecomp α i) (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor)
     (forwardFamilyContraction_reflexive i r η hi hη E)
   have h3 := heq_of_eq (strongInverse_id (F := reindex i E))

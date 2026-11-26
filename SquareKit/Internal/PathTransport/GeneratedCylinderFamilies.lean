@@ -37,7 +37,7 @@ theorem familyTotalIso_base (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     isoWhiskerRight_hom, whiskerLeft_app, whiskerRight_app, eqToIso.hom, eqToHom_app] at hh
   have he := congrArg (fun k => k ≫ eqToHom
     (congrArg (fun K => K.obj x)
-      (generatedSubstitution_commutes T hΓ (.ext hΓ hA) (.weaken hΓ hA)).symm)) hh
+      (generatedContextMap_substitution_commutes T hΓ (.ext hΓ hA) (.weaken hΓ hA)).symm)) hh
   simp only [Category.assoc, eqToHom_trans, eqToHom_refl, Category.comp_id] at he
   change (contextComparison F P η Q α β h hΓ).hom.app x.base =
     _ ≫ ((contextComparison F P η Q α β h (.ext hΓ hA)).hom.app x).base ≫ _ at he

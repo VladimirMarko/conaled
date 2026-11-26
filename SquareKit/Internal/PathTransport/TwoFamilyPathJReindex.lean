@@ -23,8 +23,8 @@ theorem pathJ_reindex (d : Section (reindex (pathReflexivity F) E)) :
   let η := strongPostcomp (pathContraction F) E
   let η' := strongPostcomp (pathContraction (reindex σ F)) E'
   have h1 := Section.cast_heq (reindex_id E') (s'.map η')
-  have h2 := Section.map_heq (pathJSource_reindex F σ E) (pathJTarget_reindex F σ E)
-    η' (strongPrecomp η (pathReindex F σ)) (pathJMotive_reindex F σ E)
+  have h2 := Section.map_heq (reindex_contractionRetract_pathReindex F σ E) (reindex_id_pathReindex F σ E)
+    η' (strongPrecomp η (pathReindex F σ)) (strongPostcomp_pathContraction_reindex F σ E)
     s' (s.reindex _ (pathReindex F σ)) (pathJInput_reindex F E σ d)
   have h3 := (heq_of_eq (Section.map_reindex η (pathReindex F σ) s)).symm
   have h4 := Section.reindex_heq (reindex_id E) (s.map η) (pathJ F E d)

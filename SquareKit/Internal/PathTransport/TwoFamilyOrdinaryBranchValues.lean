@@ -11,7 +11,7 @@ def SectionIdentityValues (E F : Family Γ) (s : ULift.{u+1} (TwoFamily.Section 
  (t : ULift.{u+1} (TwoFamily.Section F.data)) : Prop :=
  ∀ γ, HEq (sectionValue E s γ)
   (show LocallyDiscrete (sectionValue F t γ ⟶ sectionValue F t γ) from ⟨𝟙 _⟩)
-theorem castReflexivity_identityValues (E F : Family Γ)
+theorem closedReflexivity_cast_sectionIdentityValues (E F : Family Γ)
  (t : ULift.{u+1} (TwoFamily.Section F.data)) (e : E = F.identity t.down t.down) :
  SectionIdentityValues E F
   (cast (congrArg (fun H => ULift.{u+1} (TwoFamily.Section H.data)) e.symm)
@@ -26,5 +26,5 @@ local notation "M" => fullModel C D
 theorem ordinaryApBranch_identity :
  SectionIdentityValues ((M).subTy (ordinaryApMotive M A B t x) ((M).toStructuralModel.rootSub A x)) B
   (ordinaryApBranch M A B t x) (ordinaryApply M A B t x) :=
- castReflexivity_identityValues _ _ _ (ordinaryApMotive_root M A B t x)
+ closedReflexivity_cast_sectionIdentityValues _ _ _ (ordinaryApMotive_root M A B t x)
 end SquareKit.Internal.PathTransport.HigherInterpretation

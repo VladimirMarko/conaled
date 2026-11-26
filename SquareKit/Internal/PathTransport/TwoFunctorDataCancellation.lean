@@ -10,7 +10,7 @@ variable [Quiver A] [∀ x y : A, Quiver (x ⟶ y)]
 variable [Quiver B] [∀ x y : B, Quiver (x ⟶ y)]
 variable [Quiver C] [∀ x y : C, Quiver (x ⟶ y)]
 
-theorem rawPostcomp_injective (P : PrelaxFunctorStruct A B)
+theorem prelaxFunctorStruct_comp_right_injective (P : PrelaxFunctorStruct A B)
     (ho : Function.Injective P.obj)
     (hm : ∀ {x y : A}, Function.Injective (P.map (X := x) (Y := y)))
     (hc : ∀ {x y : A} {p q : x ⟶ y}, Function.Injective (P.map₂ (f := p) (g := q))) :
@@ -41,7 +41,7 @@ theorem raw_left_inverse_of_right (P : PrelaxFunctorStruct A B) (D : PrelaxFunct
     (hc : ∀ {x y : A} {p q : x ⟶ y}, Function.Injective (P.map₂ (f := p) (g := q)))
     (hR : D.comp P = PrelaxFunctorStruct.id B) :
     P.comp D = PrelaxFunctorStruct.id A := by
-  apply rawPostcomp_injective P ho @hm @hc
+  apply prelaxFunctorStruct_comp_right_injective P ho @hm @hc
   change P.comp (D.comp P) = P
   rw [hR]
   rfl

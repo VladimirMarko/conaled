@@ -567,7 +567,7 @@ theorem jBranch_heq (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
   N.castSection_heq _ _ _
 
 
-theorem reindexedRootTelescope_total (F : StructuralMap M N) {Γ Δ n} (A : M.Family Γ)
+theorem reindexed_root_telescope_total (F : StructuralMap M N) {Γ Δ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n)
     (σ : M.Substitution Δ Γ) :
     F.context (Telescope.total M (Telescope.pullback M (M.pathTail A x T σ)
@@ -595,7 +595,7 @@ theorem reindexBranch (F : StructuralMap M N) {Γ Δ n} (A : M.Family Γ)
   apply (F.section_heq rfl (heq_of_eq (M.branchMap_type A x T σ C)) (cast_heq _ _)).trans
   apply (F.subTm _ _).trans
   apply HEq.trans _ (cast_heq _ _).symm
-  exact N.subTm_heq (F.root_telescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
+  exact N.subTm_heq (F.root_telescope_total A x T) (F.reindexed_root_telescope_total A x T σ)
     (F.jBranch_type A x T C) (F.jBranch_heq A x T C d).symm (F.branchMap A x T σ)
 
 

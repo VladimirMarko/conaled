@@ -85,7 +85,7 @@ example :
     strictFunctorOfInverseData
       (StrictPseudofunctor.id (TwoFamily.Total (TwoFamily.sigmaFamily integerFamily laterFamily)))
       (PrelaxFunctorStruct.id (TwoFamily.Total (TwoFamily.sigmaFamily integerFamily laterFamily)))
-      rfl rfl = StrictPseudofunctor.id _ := strictFunctorData_ext rfl
+      rfl rfl = StrictPseudofunctor.id _ := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 example (k m n : ℤ) :
     TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell k m n ▷ totalArrow) =
       eqToHom (TwoFamily.sigmaRegroupMap_comp integerFamily laterFamily totalArrow totalArrow) ≫

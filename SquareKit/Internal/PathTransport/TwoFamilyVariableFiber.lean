@@ -10,11 +10,11 @@ set_option backward.defeqAttrib.useBackward true
 set_option maxHeartbeats 100000
 universe u
 variable {Γ : Context.{u}} (A : Family Γ) (γ : Γ)
-theorem variableFamily_fiber :
+theorem reindex_projection_fiber_constantFamily :
  reindex (fiberInclusion A.data γ) (reindex (projectionHigher A.data) A.data) =
  constantFamily (A.data.obj γ) (A.data.obj γ) := by
- apply strictFunctorData_ext
- apply prelaxData_ext
+ apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+ apply prelaxFunctorStruct_ext
  · intro x; rfl
  · intro x y p
    change HEq (A.data.map (𝟙 γ)) (StrictPseudofunctor.id (A.data.obj γ))
@@ -25,7 +25,7 @@ theorem variableFamily_fiber :
    exact congr_arg_heq (fun H => 𝟙 H) (A.data.map_id γ)
 noncomputable def variableSectionFiber
  (s : TwoFamily.Section (reindex (projectionHigher A.data) A.data)) :=
- TwoFamily.Section.cast (variableFamily_fiber A γ)
+ TwoFamily.Section.cast (reindex_projection_fiber_constantFamily A γ)
   (s.reindex _ (fiberInclusion A.data γ))
 noncomputable def closedSectionCast {Ξ : Type u} [Bicategory.{u,u} Ξ] [Strict Ξ]
  {F G : TwoFamily.Family.{u,u,u,u,u,u} Ξ}
@@ -42,7 +42,7 @@ local instance : ∀ a : A.data.obj γ, IsLocallyGroupoid ((constantFamily (A.da
 noncomputable def variableComparisonFiber
  (s t : TwoFamily.Section (reindex (projectionHigher A.data) A.data))
  (p : TwoFamily.Section (closedId (reindex (projectionHigher A.data) A.data) s t)) :=
- closedSectionCast (variableFamily_fiber A γ) _ _
+ closedSectionCast (reindex_projection_fiber_constantFamily A γ) _ _
   (TwoFamily.Section.cast
    (closedId_reindex (reindex (projectionHigher A.data) A.data) (fiberInclusion A.data γ) s t)
    (p.reindex _ (fiberInclusion A.data γ)))

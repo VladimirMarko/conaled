@@ -15,21 +15,21 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) (σ : StrictPseudofunctor Δ Γ)
 variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 variable (E : Family.{_,_,_,uE,vE,wE} (PathContext F))
 /-- The contraction's source motive commutes with substitution. -/
-theorem pathJSource_reindex :
+theorem reindex_contractionRetract_pathReindex :
     reindex (contractionRetract (reindex σ F)) (reindex (pathReindex F σ) E) =
       reindex (pathReindex F σ) (reindex (contractionRetract F) E) :=
   (reindex_comp E (pathReindex F σ) (contractionRetract (reindex σ F))).trans
     ((congrArg (fun H => reindex H E) (pathReindex_retract F σ)).trans
       (reindex_comp E (contractionRetract F) (pathReindex F σ)).symm)
 /-- The contraction's target motive commutes with substitution. -/
-theorem pathJTarget_reindex :
+theorem reindex_id_pathReindex :
     reindex (StrictPseudofunctor.id (PathContext (reindex σ F))) (reindex (pathReindex F σ) E) =
       reindex (pathReindex F σ) (reindex (StrictPseudofunctor.id (PathContext F)) E) :=
   (reindex_id (reindex (pathReindex F σ) E)).trans
     (congrArg (fun G => reindex (pathReindex F σ) G) (reindex_id E)).symm
 variable [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ]
 /-- The actual coherent contraction action on any motive is stable under substitution. -/
-theorem pathJMotive_reindex :
+theorem strongPostcomp_pathContraction_reindex :
     HEq (strongPostcomp (pathContraction (reindex σ F)) (reindex (pathReindex F σ) E))
       (strongPrecomp (strongPostcomp (pathContraction F) E) (pathReindex F σ)) := by
   have h1 := (strongPostcomp_comp (pathContraction (reindex σ F)) (pathReindex F σ) E).symm

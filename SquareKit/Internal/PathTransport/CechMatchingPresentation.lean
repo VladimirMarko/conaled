@@ -24,7 +24,7 @@ theorem functor_equivalence_iff (q : D = E)
   cases eq_of_heq qF
   rfl
 
-theorem mappedFunctor_heq {D E T U : StrictDiagram.{u,v}}
+theorem functor_comp_heq {D E T U : StrictDiagram.{u,v}}
     (q : D = E) (r : T = U)
     {F : C ⥤ Datum D.toDiagram} {G : C ⥤ Datum E.toDiagram} (qF : HEq F G)
     {S : StrictMap D T} {R : StrictMap E U} (qS : HEq S R) :
@@ -43,7 +43,7 @@ theorem total_eq {A B : FamilyData D} (q : A = B)
   rfl
 
 variable {Z W : Type v} [Category.{u} Z] [Category.{u} W]
-theorem fixedBase_precomp_equivalence_iff {A B : FamilyData D} (q : A = B)
+theorem fixedBaseFunctor_precomp_isEquivalence_iff {A B : FamilyData D} (q : A = B)
     (h : A.Coherence) (k : B.Coherence)
     {F : Z ⥤ Datum (A.total h).toDiagram}
     {G : Z ⥤ Datum (B.total k).toDiagram} (qF : HEq F G)

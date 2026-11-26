@@ -22,7 +22,7 @@ theorem squareLift_down_eq {Γ Δ Γ' Δ' : Context.{u}}
         (congrArg ULift.down h) A.data := by
   unfold Typed.StructuralModel.squareLift
   dsimp only [structuralModel]
-  have hc := sectionCast_down
+  have hc := section_cast_down
     ((M).square_variable_type F F' K L h A).symm
     (ULift.up (TwoFamily.variableSection ((A.reindex K.down).reindex F'.down).data))
   have hp := congrArg (fun t => TwoFamily.pairLift (A.reindex F.down).data

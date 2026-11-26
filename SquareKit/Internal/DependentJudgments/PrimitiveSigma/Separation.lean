@@ -52,7 +52,7 @@ theorem conclusion_false : ¬ splitEtaRule.conclusion.Eval (algebra M S) valuati
 
 /-- No derivation of this rule from its well-typed premises exists in the
 selected weak source theory. The model also supplies stable elimination and J. -/
-theorem splitEta_not_derivable :
+theorem splitEtaRule_not_derivable :
     Derivation theory (List.ofFn splitEtaRule.premise) splitEtaRule.conclusion → False := by
   intro d
   apply conclusion_false
@@ -63,7 +63,7 @@ theorem splitEta_not_derivable :
 
 /-- The same obstruction remains after admitting all selected context
 substitution rules. -/
-theorem stable_splitEta_not_derivable :
+theorem stable_splitEtaRule_not_derivable :
     Derivation Reindexing.theory (List.ofFn splitEtaRule.premise)
       splitEtaRule.conclusion → False := by
   intro d

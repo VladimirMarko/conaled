@@ -23,7 +23,7 @@ def fixedLift : StrictPseudofunctor Context.empty emptyA.total :=
   }
 def fixed : TwoFamily.Section emptyA.data where
   lift := fixedLift
-  over := strictFunctorData_ext rfl
+  over := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 end Examples.TwoFamilyFrozenPoint
 namespace Examples.TwoFamilyFrozenPoint
 open CategoryTheory Bicategory SquareKit

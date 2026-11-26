@@ -150,8 +150,8 @@ theorem sigmaCell_reindex {γ δ : Δ} {f g : γ ⟶ δ} (α : f ⟶ g) :
 theorem sigmaFamily_reindex :
     sigmaFamily (reindex σ F) (reindex (reindexHigher F σ) B) =
       reindex σ (sigmaFamily F B) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro γ
     exact congrArg (fun H : Family (F.obj (σ.obj γ)) => (⟨Total H⟩ : StrictTwoCategory))
       (fiberRestriction_reindex F σ B γ)

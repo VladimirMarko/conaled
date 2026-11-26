@@ -86,7 +86,7 @@ def generatedFamilyMap (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
 
 /-- Every generated term respects the extracted restriction on whole sections.
 This includes contextual J and conversion through generic preservation. -/
-theorem generatedTerm_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedFamilyMap_term_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (h : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     (x L).down.familyImage (generatedFamilyMap S hΓ hA) =
       (x R).down.reindex (generatedContextMap S hΓ) :=
@@ -96,7 +96,7 @@ theorem generatedTerm_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     ((leftSignatureMap S).generated_tm h).2 ((rightSignatureMap S).generated_tm h).2
 
 /-- Every generated substitution gives a commuting square of whole functors. -/
-theorem generatedSubstitution_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedContextMap_substitution_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hΔ : Typed.CtxDeriv.{u+1} Δ δ) (h : Typed.SubDeriv.{u+1} Δ δ Γ γ σ s) :
     (s L).down ⋙ generatedContextMap S hΓ = generatedContextMap S hΔ ⋙ (s R).down :=
   (s M).relabel_commutes ((leftSignatureMap S).generated_ctx hΓ)

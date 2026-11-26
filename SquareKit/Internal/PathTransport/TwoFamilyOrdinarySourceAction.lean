@@ -20,7 +20,7 @@ variable {Γ Δ Θ : Context.{u}} {i : StrictPseudofunctor Δ Γ} (c : SourceCon
  (F : Family Γ) (t : TwoFamily.Section F.data)
  (σ : StrictPseudofunctor Θ Γ) (G : Family Θ) (p : TwoFamily.Section G.data)
  (V : Γ → Type u) (v : ∀ z, V z)
-theorem rightEndpointValue_action (hr : c.ReducedIdentityEndpointAction F t σ G p)
+theorem rightEndpointValueFormula_of_action (hr : c.ReducedIdentityEndpointAction F t σ G p)
  (ht : ∀ z, HEq (t.normalMap F.data (c.homotopy.app z)).fiber (v z)) :
  RightEndpointValueFormula σ G p V v := by
  intro γ
@@ -50,7 +50,7 @@ def OrdinaryApVerticalAction : Prop :=
 set_option linter.defProp false
 theorem ordinaryApValue_vertical_action [∀γ, Subsingleton (A.data.obj γ)] :
  OrdinaryApVerticalAction C D A t x y p := by
- have f := SourceContraction.rightEndpointValue_action (rootContraction C D A x).val
+ have f := SourceContraction.rightEndpointValueFormula_of_action (rootContraction C D A x).val
   (motive M A ((M).subTy A ((M).weaken Γ A)) x) (ordinaryApRight M A A t x).down
   ((M).endpointSub A x y p).down
   ((M).identity A (ordinaryApply M A A t x) (ordinaryApply M A A t y))
@@ -73,7 +73,7 @@ theorem identityValueArrow_eq {V : Type u} (v : V) {C : Type u} [Category.{u} C]
  cases type_eq_of_heq h
  cases eq_of_heq h
  rfl
-theorem identityValue_conjugation {C : Type u} [Category.{u} C]
+theorem identityValueArrow_conjugation {C : Type u} [Category.{u} C]
  (T : C ⥤ C) (β : T ⟶ 𝟭 C) {a b : C} [IsIso (β.app a)]
  (h : a ⟶ b) {V : Type u} (v : V)
  (hv : HEq v (LocallyDiscrete.mk (Discrete.mk (T.map h)))) :

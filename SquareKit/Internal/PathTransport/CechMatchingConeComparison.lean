@@ -48,7 +48,7 @@ def precomposedCanonicalComparison {D : StrictDiagram.{u,v}}
       exact e.hom.naturality f)
 
 /-- Relabeling the source local functor preserves its selected overlap square. -/
-theorem canonicalSquare_relabel {D : Diagram.{u,v}}
+theorem canonical_square_relabel {D : Diagram.{u,v}}
     {L L' K : C ⥤ D.localCategory} (h : L = L') (e : L' ≅ K)
     (θ : K ⋙ D.first ≅ K ⋙ D.second)
     (hL : L ⋙ D.first = L ⋙ D.second) (hL' : L' ⋙ D.first = L' ⋙ D.second)

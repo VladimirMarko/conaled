@@ -158,8 +158,8 @@ theorem total_functor_hext_family {F' G' : Family.{uΔ,vΔ,wΔ,u,v,w} Δ}
   cases e
   cases e'
   apply heq_of_eq
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x; exact eq_of_heq (ho x x HEq.rfl)
   · intro x y p; exact hm HEq.rfl HEq.rfl p p HEq.rfl
   · intro x y p q α; exact hc HEq.rfl HEq.rfl HEq.rfl HEq.rfl α α HEq.rfl

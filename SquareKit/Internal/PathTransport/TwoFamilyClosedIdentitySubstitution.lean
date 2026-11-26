@@ -15,7 +15,7 @@ variable {Δ : Type*} [Bicategory Δ] [Strict Δ] (σ : StrictPseudofunctor Δ �
 theorem endpointReindex_projection (side : Bool) :
     (endpointReindex F σ).comp (endpointProjection F side) =
       (endpointProjection (reindex σ F) side).comp (reindexHigher F σ) := by
-  cases side <;> exact strictFunctorData_ext rfl
+  cases side <;> exact strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 
 variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 private theorem higher_comp_assoc {A B C D : Type*} [Bicategory A] [Bicategory B]

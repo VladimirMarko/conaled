@@ -70,7 +70,7 @@ def transportJCode (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElemen
 
 /-- The concrete contextual eliminator is determined by its primitive-fiber
 reflexive branch. -/
-theorem canonicalJ_transport {G : Grpd.{u,u}}
+theorem contextualJ_transport {G : Grpd.{u,u}}
     (x : Section (constant (Γ := G) C)) (b : Section (primitiveFiber B x)) :
     (Instance.contextualJ C B (Γ := G) (constant C) ⟨x⟩ .nil
       (primitiveFiber B (DerivedSemantics.endpoint x)) ⟨b⟩).down =
@@ -84,7 +84,7 @@ theorem canonicalJ_transport {G : Grpd.{u,u}}
   exact congrArg (fun s => s.obj g) hh
 
 /-- Evaluate the source generic J, including its motive and branch annotations. -/
-theorem transportJ_eval (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElement x) :
+theorem transportJCode_eval (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElement x) :
     HEq (transportJCode hΓ x b M)
       (ULift.up.{u+1} (DerivedSemantics.transport B (x.code M).down (b.code M).down)) := by
   have hm : fiberCode (moving hΓ x).code M =
@@ -95,7 +95,7 @@ theorem transportJ_eval (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberE
     (telNil (pathCode (baseCode γ) x.code) M) hm
     (castCode (transportMotive_root hΓ x).symm b.code M)
     (b.code M) (castCode_eval _ _ M)
-  have hc := canonicalJ_transport C B
+  have hc := contextualJ_transport C B
     (G := show Grpd.{u,u} from γ M) (x.code M).down (b.code M).down
   have hu : (M).j (baseCode γ M) (x.code M)
       (telNil (pathCode (baseCode γ) x.code) M)
@@ -127,7 +127,7 @@ theorem transport_section (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
       primitiveFiber B (DerivedSemantics.endpoint (x.code M).down) := by
     change primitiveFiber B ((moving hΓ x).code M).down = _
     rw [moving_eval]
-  have hs := (M).toStructuralModel.subTm_congr hm (transportJ_eval C B hΓ x b)
+  have hs := (M).toStructuralModel.subTm_congr hm (transportJCode_eval C B hΓ x b)
     (endpointCode (baseCode γ) x.code y.code p.code M)
   have ht := hraw.trans hs
   rw [endpointCode_eval] at ht

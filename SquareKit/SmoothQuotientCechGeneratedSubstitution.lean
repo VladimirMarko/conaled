@@ -20,12 +20,12 @@ include hs
 theorem localMap_substitution :
     (s (model a A)).down ⋙ localMap a A hΓ =
       localMap a A hΔ ⋙ (s (SmoothQuotientSource.model a (SplitSheaf.extension A))).down :=
-  generatedSubstitution_commutes (signature a A) hΓ hΔ hs
+  generatedContextMap_substitution_commutes (signature a A) hΓ hΔ hs
 
 theorem parameterMap_substitution (f : Y ⟶ SplitSheaf.extension A) :
     (s (model a A)).down ⋙ parameterMap a A hΓ f =
       parameterMap a A hΔ f ⋙ (s (SmoothQuotientSource.model a Y)).down :=
-  generatedSubstitution_commutes (parameterSignature a A f) hΓ hΔ hs
+  generatedContextMap_substitution_commutes (parameterSignature a A f) hΓ hΔ hs
 
 theorem localMap_restriction_substitution (f : Y ⟶ SplitSheaf.extension A) :
     (s (model a A)).down ⋙
@@ -45,7 +45,7 @@ theorem generatedOverlap_substitution :
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a (SplitSheaf.Cech.double A)) (firstFiber a A) (secondFiber a A)
     (overlap_square a A) hΓ hΔ hs
-  exact isoSquare_relabel (s (model a A)).down
+  exact iso_square_relabel (s (model a A)).down
     (s (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down
     _ _
     (localMap_restriction a A hΓ (SplitSheaf.Cech.first A)).symm

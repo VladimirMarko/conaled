@@ -24,9 +24,9 @@ theorem contextComparison_formula {G : C ⥤ D} (η : F ≅ G)
     (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q) (β : P ⟶ G ⋙ Q)
     (h : α ≫ whiskerRight η.hom Q = β) (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     contextComparison F P η Q α β h hΓ =
-      (eqToIso (generatedInclusion_evaluation F P Q α hΓ)).symm ≪≫
+      (eqToIso (generatedContextMap_inclusion_evaluation F P Q α hΓ)).symm ≪≫
         generatedComparison F P η Q α hΓ ≪≫
-        eqToIso (generatedEndpoint_evaluation F P η Q α hΓ) ≪≫
+        eqToIso (generatedContextMap_endpoint_evaluation F P η Q α hΓ) ≪≫
         eqToIso (show generatedContextMap (Signature.mk (Context.mk C D G) P Q
           (α ≫ whiskerRight η.hom Q)) hΓ =
           generatedContextMap (Signature.mk (Context.mk C D G) P Q β) hΓ by cases h; rfl) := by

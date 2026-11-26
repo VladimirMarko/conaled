@@ -22,7 +22,7 @@ theorem sectionCode_lift (C : Grpd.{u,u}) (P : C ⥤ Type u)
 
 universe v w
 
-theorem sectionCode_universeLift (C : Type u) [Groupoid.{v} C] (P : C ⥤ Type w)
+theorem sectionCode_universeModel_lift (C : Type u) [Groupoid.{v} C] (P : C ⥤ Type w)
     {γ : CtxCode.{max u v w + 1}} (b : TyCode γ) (ξ : TmCode γ b) :
     ((sectionCode b ξ) (GroupoidModel.Instance.universeModel C P)).down =
       (ξ (GroupoidModel.Instance.universeModel C P)).down.lift :=

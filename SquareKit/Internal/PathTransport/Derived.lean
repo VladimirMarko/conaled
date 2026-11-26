@@ -102,6 +102,6 @@ def transportBeta (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) (b : FiberElement
     exact (castCode_heq _ _).trans ((subTmCode_substitution_heq _ hcomp).trans (castCode_heq _ _).symm)
   · apply eq_of_heq
     exact (castCode_heq _ _).trans ((castCode_heq _ _).trans
-      ((subTmId_heq _).trans (castCode_heq _ _)))
+      ((subTmCode_id_heq _).trans (castCode_heq _ _)))
 
 end SquareKit.Internal.PathTransport.Typed.Authoring

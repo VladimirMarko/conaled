@@ -23,7 +23,7 @@ def sigmaUngroupData : PrelaxFunctorStruct (Total B) (Total (sigmaFamily F B)) w
 
 theorem sigmaUngroupData_regroup : (sigmaUngroupData F B).comp (sigmaRegroupData F B) =
     PrelaxFunctorStruct.id (Total B) := by
-  apply prelaxData_ext
+  apply prelaxFunctorStruct_ext
   · intro x; exact sigmaRegroupObj_ungroup F B x
   · intro x y p; exact heq_of_eq (sigmaRegroupMap_ungroup F B p)
   · intro x y p q α; exact sigmaRegroupCell_ungroup_heq F B α

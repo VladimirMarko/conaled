@@ -55,7 +55,7 @@ theorem sigmaRegroup_reindex_map {x y : Total (substitutedSigma F σ B)} {x' y' 
     cases eq_of_heq hpb
     exact total_hom_fiber_heq_family (fiberRestriction_reindex F σ B c)
       (sigmaMap_reindex_obj F σ B f b b' hxf) hyf hpf
-private theorem sigmaSecond_cell_heq {x y : Total (substitutedSigma F σ B)} {x' y' : Total (pulledSigma F σ B)}
+private theorem sigma_second_cell_heq {x y : Total (substitutedSigma F σ B)} {x' y' : Total (pulledSigma F σ B)}
   (hx : HEq x x') (hy : HEq y y') {p q : x ⟶ y} {p' q' : x' ⟶ y'}
   (hp : HEq p p') (hq : HEq q q') (α : p ⟶ q) (β : p' ⟶ q') (hα : HEq α β) :
   HEq α.fiber.fiber β.fiber.fiber := by
@@ -101,7 +101,7 @@ theorem sigmaRegroup_reindex_cell {x y : Total (substitutedSigma F σ B)} {x' y'
   · exact sigmaFirst_reindex_cell F σ B hx hy hp hq α β hα
   · apply HEq.trans (sigmaRegroupCell_fiber_heq (reindex σ F) (reindex (reindexHigher F σ) B) α)
     apply HEq.trans _ (sigmaRegroupCell_fiber_heq F B ((reindexHigher (sigmaFamily F B) σ).map₂ β)).symm
-    exact sigmaSecond_cell_heq F σ B hx hy hp hq α β hα
+    exact sigma_second_cell_heq F σ B hx hy hp hq α β hα
 theorem sigmaRegroup_reindex_heq : HEq (regroupAfterSubstitution F σ B) (substitutionAfterRegroup F σ B) :=
   total_functor_hext_source_family (sigmaFamily_reindex F σ B) _ _
     (sigmaRegroup_reindex_obj F σ B) (sigmaRegroup_reindex_map F σ B) (sigmaRegroup_reindex_cell F σ B)

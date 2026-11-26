@@ -202,7 +202,7 @@ private theorem reindex_branch_type (F : StructuralMap M N) {Γ Δ n}
   apply (heq_of_eq (F.subTy _ _)).trans
   apply HEq.trans _ (heq_of_eq (N.branchMap_type (F.family A) (F.mapTm x)
     (F.pathTelescope A x T) (F.substitution σ) (F.jMotive A x T C))).symm
-  exact N.subTy_heq (F.root_telescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
+  exact N.subTy_heq (F.root_telescope_total A x T) (F.reindexed_root_telescope_total A x T σ)
     (F.jBranch_type A x T C) (F.branchMap A x T σ)
 
 theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
@@ -375,7 +375,7 @@ theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
         simp only [operation, Function.comp_apply, hp, hm]
         simpa [operation, hp, hm, hs', Function.comp_def, Value.map, Tail.map, Point.map] using
           Value.substitution_heq_eq (f.root_telescope_total p.family p.term p.telescope)
-            (f.reindexedRootTelescope_total p.family p.term p.telescope τ)
+            (f.reindexed_root_telescope_total p.family p.term p.telescope τ)
             (f.branchMap p.family p.term p.telescope τ)
   | reindexBranch =>
     cases hp : problem M.toStructuralModel (args 0) (args 1) (args 2) (args 4) (args 5) with
@@ -391,7 +391,7 @@ theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
         have hm := problem_map f hp
         simp only [operation, Function.comp_apply, hp, hm]
         simpa [operation, hp, hm, hs', Function.comp_def, Value.map, Problem.map, Tail.map, Point.map] using
-          Value.term_heq_eq (f.reindexedRootTelescope_total p.family p.term p.telescope τ)
+          Value.term_heq_eq (f.reindexed_root_telescope_total p.family p.term p.telescope τ)
             (reindex_branch_type f p.family p.term p.telescope τ p.motive)
             (f.reindexBranch p.family p.term p.telescope τ p.motive p.branch)
   | j =>

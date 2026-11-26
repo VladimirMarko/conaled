@@ -209,13 +209,13 @@ example :
     (DisplayMap.identity A).termCompose coherentWrap diagonal ≪≫
       DisplayMap.termLeftUnit coherentWrap diagonal =
     coherentWrap.mapComparison (DisplayMap.termIdentity diagonal) :=
-  DisplayMap.termCompose_leftUnit coherentWrap diagonal
+  DisplayMap.termCompose_termLeftUnit coherentWrap diagonal
 
 example :
     coherentWrap.termCompose (DisplayMap.identity B) diagonal ≪≫
       DisplayMap.termRightUnit coherentWrap diagonal =
     DisplayMap.termIdentity (coherentWrap.term diagonal) :=
-  DisplayMap.termCompose_rightUnit coherentWrap diagonal
+  DisplayMap.termCompose_termRightUnit coherentWrap diagonal
 
 abbrev pathBase := @Grpd.of (PathComparison.PathCtx A diagonal) Groupoid.ofIsGroupoid
 

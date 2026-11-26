@@ -18,13 +18,13 @@ local notation "L" => Instance.fullModel C P
 local notation "R" => Instance.fullModel D Q
 
 /-- Pairing the actual interpreted term gives its entire section functor. -/
-theorem generatedSection_commutes (K : Signature.{u})
+theorem generatedContextMap_section_commutes (K : Signature.{u})
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) (hA : Typed.TyDeriv.{u+1} Γ γ A a)
     (hx : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     (x (Instance.fullModel K.base.left K.leftFiber)).down.lift ⋙
         generatedContextMap K (.ext hΓ hA) =
       generatedContextMap K hΓ ⋙ (x (Instance.fullModel K.base.right K.rightFiber)).down.lift :=
-  generatedSubstitution_commutes K (.ext hΓ hA) hΓ
+  generatedContextMap_substitution_commutes K (.ext hΓ hA) hΓ
     (.pair hA (.id hΓ) (.sub hx (.id hΓ)))
 
 /-- An isomorphism-valued square for the actual interpreted section functors.
@@ -32,8 +32,8 @@ The term may use contextual J with arbitrary supported finite dependent tails. -
 theorem contextComparison_section (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (hx : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     isoWhiskerLeft (x L).down.lift (contextComparison F P η Q α β h (.ext hΓ hA)) ≪≫
-        eqToIso (generatedSection_commutes T hΓ hA hx) =
-      eqToIso (generatedSection_commutes S hΓ hA hx) ≪≫
+        eqToIso (generatedContextMap_section_commutes T hΓ hA hx) =
+      eqToIso (generatedContextMap_section_commutes S hΓ hA hx) ≪≫
         isoWhiskerRight (contextComparison F P η Q α β h hΓ) (x R).down.lift :=
   contextComparison_substitution F P η Q α β h (.ext hΓ hA) hΓ
     (.pair hA (.id hΓ) (.sub hx (.id hΓ)))
@@ -42,8 +42,8 @@ theorem contextComparison_section (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
 def SectionCoherence (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (_hx : Typed.TmDeriv.{u+1} Γ γ A a t x) : Prop :=
     isoWhiskerLeft (x L).down.lift (contextComparison F P η Q α β h (.ext hΓ hA)) ≪≫
-        eqToIso (generatedSection_commutes T hΓ hA _hx) =
-      eqToIso (generatedSection_commutes S hΓ hA _hx) ≪≫
+        eqToIso (generatedContextMap_section_commutes T hΓ hA _hx) =
+      eqToIso (generatedContextMap_section_commutes S hΓ hA _hx) ≪≫
         isoWhiskerRight (contextComparison F P η Q α β h hΓ) (x R).down.lift
 
 theorem sectionCoherence (hΓ : Typed.CtxDeriv.{u+1} Γ γ)

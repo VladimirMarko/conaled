@@ -406,7 +406,7 @@ def variablePairDerivation : Derivation comprehensionTheory
 
 /-- The derivation is reusable at a new interpretation by supplying its model
 and its five schematic arguments. No old all-model annotation is reconstructed. -/
-theorem interpret_variablePair (M : StructuralModel.{u}) (Γ Δ : M.Context)
+theorem variablePairRule_eval (M : StructuralModel.{u}) (Γ Δ : M.Context)
     (A : M.Family Γ) (σ : M.Substitution Δ Γ) (t : M.Section Δ (M.subTy A σ)) :
     variablePairRule.conclusion.Eval (algebra M)
       ![.context Γ, .context Δ, .family Γ A, .substitution Δ Γ σ,

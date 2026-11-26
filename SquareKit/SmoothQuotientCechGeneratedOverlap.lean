@@ -44,7 +44,7 @@ def restrictedComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.
 theorem restrictedComparison_formula (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (f : Y ⟶ SplitSheaf.Cech.double A) :
     restrictedComparison a A hΓ f =
-      (eqToIso (alignedGenerated_comp
+      (eqToIso (generatedContextMap_aligned_comp
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.Cech.double A)) (restriction f) (family a Y)
         (firstFiber a A) (restrictionFamily f) hΓ)).symm ≪≫
@@ -54,7 +54,7 @@ theorem restrictedComparison_formula (hΓ : Typed.CtxDeriv.{2} Γ γ)
           (family a (SplitSheaf.Cech.double A)) (firstFiber a A) (secondFiber a A)
           (overlap_square a A) hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ f) ≪≫
-      eqToIso (alignedGenerated_comp
+      eqToIso (generatedContextMap_aligned_comp
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.Cech.double A)) (restriction f) (family a Y)
         (secondFiber a A) (restrictionFamily f) hΓ) :=

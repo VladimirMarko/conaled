@@ -44,8 +44,8 @@ theorem empty_cell_heq {x y x' y' : Context.empty.{u}} {f g : x ⟶ y} {f' g' : 
   exact heq_of_eq (Discrete.hom_eq (f := α) (g := β))
 
 theorem empty_functor_eq (F G : StrictPseudofunctor Γ Context.empty.{u}) : F = G := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x; exact empty_obj_eq _ _
   · intro x y f; exact empty_hom_heq _ _
   · intro x y f g α; exact empty_cell_heq _ _

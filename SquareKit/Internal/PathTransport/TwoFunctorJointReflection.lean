@@ -122,8 +122,8 @@ theorem strictPseudofunctor_joint_ext
   have hm : ∀ {x y} (p : x ⟶ y), HEq (H.map p) (K.map p) := fun {x y} p =>
     reflect_hom_heq P Q rh (ho x) (ho y) _ _
       (congr_arg_heq (fun L => L.map p) hP) (congr_arg_heq (fun L => L.map p) hQ)
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · exact ho
   · exact hm
   · intro x y p q α

@@ -15,7 +15,7 @@ namespace SignatureCylinder
 variable {C D : Grpd.{u,u}} (F : C ⥤ D) (P : C ⥤ Type u)
 variable {G : C ⥤ D} (η : F ≅ G)
 
-theorem generatedInclusion_projection (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
+theorem generatedContextMap_inclusion_projection (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (inclusionSignature F P) hΓ ⋙
       generatedContextMap (projectionSignature F P) hΓ = 𝟭 _ := by
   have hc := Context.relabel_composition
@@ -28,7 +28,7 @@ theorem generatedInclusion_projection (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
   rw [generatedContextMap_identity] at hc
   exact hc
 
-theorem generatedEndpoint_projection (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
+theorem generatedContextMap_endpoint_projection (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (endpointSignature F P η) hΓ ⋙
       generatedContextMap (projectionSignature F P) hΓ = 𝟭 _ := by
   have hc := Context.relabel_composition
@@ -51,8 +51,8 @@ def generatedEndpointIso (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
   letI := generatedContextMap_equivalence (projectionSignature F P)
     (fun _ => Function.bijective_id) hΓ
   exact fullyFaithfulCancelRight (generatedContextMap (projectionSignature F P) hΓ)
-    (eqToIso (generatedInclusion_projection F P hΓ) ≪≫
-      (eqToIso (generatedEndpoint_projection F P η hΓ)).symm)
+    (eqToIso (generatedContextMap_inclusion_projection F P hΓ) ≪≫
+      (eqToIso (generatedContextMap_endpoint_projection F P η hΓ)).symm)
 
 /-- Comparison at the target is induced by the cylinder's signature map;
 no equivalence hypothesis is imposed on that map. -/
@@ -71,7 +71,7 @@ theorem generatedContextMap_heq {S T : Signature.{u}} (h : S = T)
   cases h
   rfl
 
-theorem generatedInclusion_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
+theorem generatedContextMap_inclusion_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (inclusionSignature F P) hΓ ⋙
       generatedContextMap (evaluationSignature F P Q α) hΓ =
@@ -85,7 +85,7 @@ theorem generatedInclusion_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
   exact eq_of_heq ((heq_of_eq hc).trans
     (generatedContextMap_heq (inclusion_evaluation_signature F P Q α) hΓ))
 
-theorem generatedEndpoint_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
+theorem generatedContextMap_endpoint_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (endpointSignature F P η) hΓ ⋙
       generatedContextMap (evaluationSignature F P Q α) hΓ =
@@ -107,9 +107,9 @@ def contextComparison (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q) (β : P ⟶ G ⋙ 
     generatedContextMap ⟨⟨C, D, F⟩, P, Q, α⟩ hΓ ≅
       generatedContextMap ⟨⟨C, D, G⟩, P, Q, β⟩ hΓ := by
   cases h
-  exact (eqToIso (generatedInclusion_evaluation F P Q α hΓ)).symm ≪≫
+  exact (eqToIso (generatedContextMap_inclusion_evaluation F P Q α hΓ)).symm ≪≫
     generatedComparison F P η Q α hΓ ≪≫
-      eqToIso (generatedEndpoint_evaluation F P η Q α hΓ)
+      eqToIso (generatedContextMap_endpoint_evaluation F P η Q α hΓ)
 
 end SignatureCylinder
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

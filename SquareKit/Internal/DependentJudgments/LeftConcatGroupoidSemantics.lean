@@ -106,7 +106,7 @@ theorem qType_eval {G : Grpd.{u,u}} (x y z : Section (constant (Γ := G) C))
     StructuralModel.pathContext, StructuralModel.pathFamily]
   constructor <;> rfl
 
-theorem rootMap_eval {G : Grpd.{u,u}} (x y z : Section (constant (Γ := G) C))
+theorem telescope_map_root_eval {G : Grpd.{u,u}} (x y z : Section (constant (Γ := G) C))
     (p : Section (identityFamily (constant C) x y))
     (q : Section (identityFamily (constant C) y z)) :
     ((LeftConcatFrame.tail (.var 0) (.var 1) (.var 2)).map (.var 0) (root (.var 1) (.var 2))).eval
@@ -160,7 +160,7 @@ theorem branch_eval {G : Grpd.{u,u}} (x y z : Section (constant (Γ := G) C))
     rw [hctx, hq]
     simp [DependentJudgments.operation]
     rfl
-  exact DerivedSemantics.subTm_eval M _ _ _ _ _ _ _ _ hv (rootMap_eval C B x y z p q)
+  exact DerivedSemantics.subTm_eval M _ _ _ _ _ _ _ _ hv (telescope_map_root_eval C B x y z p q)
 
 def arguments {G : Grpd.{u,u}} (x y z : Section (constant (Γ := G) C))
     (p : Section (identityFamily (constant C) x y))

@@ -35,7 +35,7 @@ theorem alignedContextComparison_trans (η : F ≅ G) (θ : G ≅ K)
 
 /-- Equality of primitive fiber maps induces equality of the generated maps,
 without reducing the full generated interpretation. -/
-theorem alignedGenerated_fiber_eq {α β : P ⟶ F ⋙ Q} (h : α = β)
+theorem generatedContextMap_aligned_fiber_congr {α β : P ⟶ F ⋙ Q} (h : α = β)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     generatedContextMap (alignedUniverseSignature F P Q α) hΓ =
       generatedContextMap (alignedUniverseSignature F P Q β) hΓ := by
@@ -49,9 +49,9 @@ theorem alignedContextComparison_congr (η θ : F ≅ G)
     (h' : α' ≫ whiskerRight θ.hom Q = β')
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison η P Q α β h hΓ =
-      eqToIso (alignedGenerated_fiber_eq P Q hα hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_fiber_congr P Q hα hΓ) ≪≫
         alignedContextComparison θ P Q α' β' h' hΓ ≪≫
-        (eqToIso (alignedGenerated_fiber_eq P Q hβ hΓ)).symm := by
+        (eqToIso (generatedContextMap_aligned_fiber_congr P Q hβ hΓ)).symm := by
   cases hη
   cases hα
   cases hβ
@@ -65,7 +65,7 @@ theorem alignedContextComparison_trans_transport (η : F ≅ G) (θ : G ≅ K)
     (hηθ : α ≫ whiskerRight (η ≪≫ θ).hom Q = δ)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison η P Q α β hη hΓ ≪≫
-      eqToIso (alignedGenerated_fiber_eq P Q he hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_fiber_congr P Q he hΓ) ≪≫
       alignedContextComparison θ P Q β' δ hθ hΓ =
     alignedContextComparison (η ≪≫ θ) P Q α δ hηθ hΓ := by
   cases he
@@ -81,17 +81,17 @@ theorem alignedContextComparison_cocycle (η : F ≅ G) (θ : G ≅ K) (ζ : F �
     (hζ : α' ≫ whiskerRight ζ.hom Q = δ')
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison η P Q α β hη hΓ ≪≫
-      eqToIso (alignedGenerated_fiber_eq P Q hb hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_fiber_congr P Q hb hΓ) ≪≫
       alignedContextComparison θ P Q β' δ hθ hΓ =
-    eqToIso (alignedGenerated_fiber_eq P Q ha hΓ) ≪≫
+    eqToIso (generatedContextMap_aligned_fiber_congr P Q ha hΓ) ≪≫
       alignedContextComparison ζ P Q α' δ' hζ hΓ ≪≫
-      (eqToIso (alignedGenerated_fiber_eq P Q hd hΓ)).symm := by
+      (eqToIso (generatedContextMap_aligned_fiber_congr P Q hd hΓ)).symm := by
   subst α'; subst β'; subst δ'; subst ζ
   simp only [eqToIso_refl, Iso.refl_symm, Iso.refl_trans, Iso.trans_refl]
   exact (alignedContextComparison_trans P Q η θ α β δ hη hθ hζ hΓ).symm
 
 /-- Equality of signatures at explicitly identified primitive base functors. -/
-theorem alignedGenerated_eq {F' : C ⥤ D} {α : P ⟶ F ⋙ Q} {α' : P ⟶ F' ⋙ Q}
+theorem generatedContextMap_aligned_congr {F' : C ⥤ D} {α : P ⟶ F ⋙ Q} {α' : P ⟶ F' ⋙ Q}
     (hF : F = F') (hα : HEq α α') (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     generatedContextMap (alignedUniverseSignature F P Q α) hΓ =
       generatedContextMap (alignedUniverseSignature F' P Q α') hΓ := by
@@ -114,11 +114,11 @@ theorem alignedContextComparison_cocycle_presentations
     (hζ : α' ≫ whiskerRight ζ.hom Q = δ')
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison η P Q α β hη hΓ ≪≫
-      eqToIso (alignedGenerated_eq P Q hm hb hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_congr P Q hm hb hΓ) ≪≫
       alignedContextComparison θ P Q β' δ hθ hΓ =
-    eqToIso (alignedGenerated_eq P Q hf ha hΓ) ≪≫
+    eqToIso (generatedContextMap_aligned_congr P Q hf ha hΓ) ≪≫
       alignedContextComparison ζ P Q α' δ' hζ hΓ ≪≫
-      (eqToIso (alignedGenerated_eq P Q hl hd hΓ)).symm := by
+      (eqToIso (generatedContextMap_aligned_congr P Q hl hd hΓ)).symm := by
   subst G₁; subst H₁; subst H₂
   cases eq_of_heq ha; cases eq_of_heq hb; cases eq_of_heq hd
   simp only [eqToIso_refl, Iso.refl_symm, Iso.refl_trans, Iso.trans_refl] at hηθ ⊢
@@ -158,11 +158,11 @@ variable {P Q} (T : AlignedTriangle P Q)
 
 theorem generated_cocycle (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison T.η P Q T.α T.β T.squareη hΓ ≪≫
-      eqToIso (alignedGenerated_eq P Q T.hm T.hb hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_congr P Q T.hm T.hb hΓ) ≪≫
       alignedContextComparison T.θ P Q T.β' T.δ T.squareθ hΓ =
-    eqToIso (alignedGenerated_eq P Q T.hf T.ha hΓ) ≪≫
+    eqToIso (generatedContextMap_aligned_congr P Q T.hf T.ha hΓ) ≪≫
       alignedContextComparison T.ζ P Q T.α' T.δ' T.squareζ hΓ ≪≫
-      (eqToIso (alignedGenerated_eq P Q T.hl T.hd hΓ)).symm :=
+      (eqToIso (generatedContextMap_aligned_congr P Q T.hl T.hd hΓ)).symm :=
   alignedContextComparison_cocycle_presentations P Q T.η T.θ T.ζ
     T.α T.β T.β' T.δ T.α' T.δ' T.hm T.hf T.hl T.ha T.hb T.hd
     T.cocycle T.squareη T.squareθ T.squareζ hΓ
@@ -171,7 +171,7 @@ end AlignedTriangle
 
 variable {E : Type u} [Groupoid.{v} E] (L : D ⥤ E) (R : E ⥤ Type w)
 
-theorem alignedGenerated_comp (α : P ⟶ F ⋙ Q) (κ : Q ⟶ L ⋙ R)
+theorem generatedContextMap_aligned_comp (α : P ⟶ F ⋙ Q) (κ : Q ⟶ L ⋙ R)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     generatedContextMap (alignedUniverseSignature F P Q α) hΓ ⋙
       generatedContextMap (alignedUniverseSignature L Q R κ) hΓ =
@@ -189,10 +189,10 @@ theorem alignedContextComparison_postcompose (η : F ≅ G)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison (isoWhiskerRight η L) P R
       (α ≫ whiskerLeft F κ) (β ≫ whiskerLeft G κ) hk hΓ =
-      (eqToIso (alignedGenerated_comp P Q L R α κ hΓ)).symm ≪≫
+      (eqToIso (generatedContextMap_aligned_comp P Q L R α κ hΓ)).symm ≪≫
         isoWhiskerRight (alignedContextComparison η P Q α β h hΓ)
           (generatedContextMap (alignedUniverseSignature L Q R κ) hΓ) ≪≫
-        eqToIso (alignedGenerated_comp P Q L R β κ hΓ) := by
+        eqToIso (generatedContextMap_aligned_comp P Q L R β κ hΓ) := by
   exact SignatureCylinder.contextComparison_postcompose
     (alignedUniverseSignature F P Q α).base.map
     (alignedUniverseSignature L Q R κ).base.map
@@ -203,8 +203,8 @@ theorem alignedContextComparison_postcompose (η : F ≅ G)
     (alignedUniverseSignature L Q R κ).fiberMap
     (alignedBaseIso η P Q α β)
     (alignedUniverseSignature G P Q β).fiberMap
-    (alignedFiber_square η P Q α β h)
-    (alignedFiber_square (isoWhiskerRight η L) P R
+    (alignedUniverseSignature_fiberMap_square η P Q α β h)
+    (alignedUniverseSignature_fiberMap_square (isoWhiskerRight η L) P R
       (α ≫ whiskerLeft F κ) (β ≫ whiskerLeft G κ) hk) hΓ
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

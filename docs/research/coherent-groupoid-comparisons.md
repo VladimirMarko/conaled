@@ -57,8 +57,8 @@ preserves identity and composition. `termAssociator` compares the two
 parenthesizations of a composite through their common raw image;
 `termCompose_assoc` proves that the two orders of composing three selected
 term comparisons agree. `termIdentity` is the identity map's retained
-normalization isomorphism. `termCompose_leftUnit` and
-`termCompose_rightUnit` compare insertion and removal of identity maps with
+normalization isomorphism. `termCompose_termLeftUnit` and
+`termCompose_termRightUnit` compare insertion and removal of identity maps with
 that selected unitor. These unit equations concern natural isomorphisms; an
 additional equality of `termIdentity` with `eqToIso term_identity` is not
 claimed. The proofs use Mathlib's natural isomorphism composition and

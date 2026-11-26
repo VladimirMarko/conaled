@@ -17,7 +17,7 @@ def pathWitnessSection {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :
 def pathBetaMotive {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :=
   M.identity (motive M A (M.toStructuralModel.pathFamily A x) x)
     (pathTransportSection M A x) (pathWitnessSection M A x)
-theorem pathWitness_root {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :
+theorem pathWitnessSection_root {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :
     HEq (M.subTm (pathWitnessSection M A x) (M.toStructuralModel.rootSub A x)) (M.reflexivity A x) :=
   (M.variable_pair _ _ _).trans (cast_heq _ _)
 theorem pathBetaMotive_root {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :
@@ -28,7 +28,7 @@ theorem pathBetaMotive_root {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ
   exact M.toStructuralModel.identity_congr
     ((motive_root M A (M.toStructuralModel.pathFamily A x) x).trans (M.toStructuralModel.pathFamily_root A x))
     ((transportSection_root M A (M.toStructuralModel.pathFamily A x) x (pathTransportBranch M A x)).trans (cast_heq _ _))
-    (pathWitness_root M A x)
+    (pathWitnessSection_root M A x)
 def pathBetaSection {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A) :
     M.Section (M.toStructuralModel.pathContext A x) (pathBetaMotive M A x) :=
   M.j A x .nil (pathBetaMotive M A x)
@@ -49,7 +49,7 @@ theorem pathTransportSection_endpoint {Γ : M.Context} (A : M.Family Γ) (x y : 
       (pathTransportValue M A x y p) := by
   unfold pathTransportValue transportValue
   exact ((cast_heq _ _).trans (cast_heq _ _)).symm
-theorem pathWitness_endpoint {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
+theorem pathWitnessSection_endpoint {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) :
     HEq (M.subTm (pathWitnessSection M A x) (M.toStructuralModel.endpointSub A x y p)) p :=
   (M.variable_pair _ _ _).trans (cast_heq _ _)
@@ -61,7 +61,7 @@ theorem pathBetaMotive_endpoint {Γ : M.Context} (A : M.Family Γ) (x y : M.Sect
   rw [M.identity_sub]
   exact M.toStructuralModel.identity_congr
     ((motive_endpoint M A (M.toStructuralModel.pathFamily A x) x y p).trans (M.toStructuralModel.pathFamily_at A x y))
-    (pathTransportSection_endpoint M A x y p) (pathWitness_endpoint M A x y p)
+    (pathTransportSection_endpoint M A x y p) (pathWitnessSection_endpoint M A x y p)
 def pathBetaValue {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) :
     M.Section Γ (M.identity (M.identity A x y) (pathTransportValue M A x y p) p) :=

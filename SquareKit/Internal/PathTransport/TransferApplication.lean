@@ -36,15 +36,15 @@ def sourceEndpoint := SubDeriv.rawTransport (endpoint_raw x y z p q b).symm (end
 
 theorem fixed_at : baseReindexCode (TransferFrame.fixed hΓ x).code
     (substitutionCode (endpoint hΓ x y z p q b)) = x.code :=
-  (baseReindex_weaken_pair _ _ _ _).trans (ConcatApplication.fixed_at hΓ x y z p q)
+  (baseReindexCode_weaken_pair _ _ _ _).trans (ConcatApplication.fixed_at hΓ x y z p q)
 
 theorem moving_at : baseReindexCode (TransferFrame.moving hΓ x).code
     (substitutionCode (endpoint hΓ x y z p q b)) = y.code :=
-  (baseReindex_weaken_pair _ _ _ _).trans (ConcatApplication.y_at hΓ x y z p q)
+  (baseReindexCode_weaken_pair _ _ _ _).trans (ConcatApplication.y_at hΓ x y z p q)
 
 theorem last_at : baseReindexCode (TransferFrame.last hΓ x).code
     (substitutionCode (endpoint hΓ x y z p q b)) = z.code :=
-  (baseReindex_weaken_pair _ _ _ _).trans (ConcatApplication.z_at hΓ x y z p q)
+  (baseReindexCode_weaken_pair _ _ _ _).trans (ConcatApplication.z_at hΓ x y z p q)
 
 theorem element_at (M : Model) :
     HEq (M.subTm ((TransferFrame.element hΓ x).code M)

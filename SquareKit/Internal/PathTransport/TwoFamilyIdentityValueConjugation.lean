@@ -29,7 +29,7 @@ def IdentityFiberValueConjugationAt
   (inv ((identityFiberBeta A x y γ s β).app (identitySectionValue A x y p γ)))
   ((identityFiberBeta A x y γ s β).app (identitySectionValue A x y q γ))
   ((v h).normalObj G.data γ).fiber
-theorem identityFiberValue_conjugation
+theorem identityFiberValueConjugationAt_of_formula
  (p q : TwoFamily.Section (I).data)
  (s : TwoFamily.Section (reindex (projectionHigher (I).data) (I).data))
  (G : Family Γ) (v : TwoFamily.Section (closedId (I).data p q) → TwoFamily.Section G.data)
@@ -37,7 +37,7 @@ theorem identityFiberValue_conjugation
  (ha : IdentityFiberValueFormula A x y p q s G v)
  (h : TwoFamily.Section (closedId (I).data p q)) : IdentityFiberValueConjugationAt A x y p q s G v β h := by
  intro γ
- have hc := identityFiber_conjugation A x y γ s β (identitySectionCell A x y p q h γ)
+ have hc := identityFiberBeta_conjugation A x y γ s β (identitySectionCell A x y p q h γ)
  have hv := ha h γ
  have f := valueConjugation_of_heq
   (identitySectionCell A x y p q h γ)

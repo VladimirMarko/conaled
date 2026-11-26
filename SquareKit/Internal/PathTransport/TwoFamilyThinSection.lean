@@ -34,8 +34,8 @@ theorem Section.ext_thin_fibers (s t : Section F)
     apply cell_hext_thin F (hobj x) (hobj y) (hmap p) (hmap q)
     exact (congr_arg_heq (fun H => H.map₂ α) s.over).trans
       (congr_arg_heq (fun H => H.map₂ α) t.over).symm
-  have hl : s.lift = t.lift := strictFunctorData_ext
-    (prelaxData_ext _ _ hobj (fun p => hmap p) (fun α => hcell α))
+  have hl : s.lift = t.lift := strictPseudofunctor_ext_toPrelaxFunctorStruct
+    (prelaxFunctorStruct_ext _ _ hobj (fun p => hmap p) (fun α => hcell α))
   cases s
   cases t
   cases hl

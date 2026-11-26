@@ -64,7 +64,7 @@ theorem generatedIdentitySetMap_conjugate_local
         ((generatedIdentitySetMap (signature a A) hΓ hB hx hy).app c p) =
       eqToHom ex.symm ≫ (localMap a A (.ext hΓ hB)).map
         ((Grothendieck.ι (b (model a A) ⋙ Grpd.forgetToCat) c).map p) ≫ eqToHom ey :=
-  generatedIdentity_conjugate (signature a A) hΓ hB hx hy
+  generatedIdentitySetMap_conjugate (signature a A) hΓ hB hx hy
     (localMap a A (.ext hΓ hB)) (localMap_extend a A hΓ hB) c ex ey p
 
 theorem identity_values_effectivity_at
@@ -84,7 +84,7 @@ theorem identity_values_effectivity_at
     (fiberTotalEvaluation a A hΓ hB c) ((matchingEvaluation a A hΓ).obj c)
     (fiberTotalEvaluation_projection a A hΓ hB c)).Faithful :=
       inferInstanceAs (familyEvaluation a A hΓ hB c).Faithful
-  CechMatching.Comprehension.identityValues_isEquivalence
+  CechMatching.Comprehension.identity_values_isEquivalence
     (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (fiberTotalEvaluation a A hΓ hB c) ((matchingEvaluation a A hΓ).obj c)
     (fiberTotalEvaluation_projection a A hΓ hB c)

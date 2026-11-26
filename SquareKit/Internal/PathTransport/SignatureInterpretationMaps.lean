@@ -62,14 +62,14 @@ private theorem identity_pres {γ : CtxCode} {a : TyCode γ} {x y : TmCode γ a}
   ⟨hx.1.1, (heq_of_eq (F.identity _ _ _)).trans
     (N.toStructuralModel.identity_heq hx.1.1 hx.1.2 hx.2 hy.2)⟩
 
-private theorem subTy_pres {γ δ : CtxCode} {a : TyCode γ} {s : SubCode δ γ}
+private theorem subTyCode_pres {γ δ : CtxCode} {a : TyCode γ} {s : SubCode δ γ}
     (ha : F.TyPres a) (hs : F.SubPres s) : F.TyPres (subTyCode a s) :=
   ⟨hs.1, (heq_of_eq (F.subTy _ _)).trans
     (N.toStructuralModel.subTy_heq ha.1 hs.1 ha.2 hs.2.2)⟩
 
-private theorem subTm_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a}
+private theorem subTmCode_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a}
     {s : SubCode δ γ} (hx : F.TmPres x) (hs : F.SubPres s) : F.TmPres (subTmCode x s) :=
-  ⟨subTy_pres F hx.1 hs, (F.subTm _ _).trans
+  ⟨subTyCode_pres F hx.1 hs, (F.subTm _ _).trans
     (N.toStructuralModel.subTm_heq hx.1.1 hs.1 hx.1.2 hx.2 hs.2.2)⟩
 
 private theorem weaken_pres {γ : CtxCode} {a : TyCode γ} (ha : F.TyPres a) :
@@ -78,7 +78,7 @@ private theorem weaken_pres {γ : CtxCode} {a : TyCode γ} (ha : F.TyPres a) :
 
 private theorem var_pres {γ : CtxCode} {a : TyCode γ} (ha : F.TyPres a) :
     F.TmPres (varCode γ a) :=
-  ⟨subTy_pres F ha (weaken_pres F ha),
+  ⟨subTyCode_pres F ha (weaken_pres F ha),
     (F.genericVariable_preserved _).trans (N.toStructuralModel.variable_heq ha.1 ha.2)⟩
 
 private theorem refl_heq {Γ Δ : N.Context} {A : N.Family Γ} {B : N.Family Δ}
@@ -150,7 +150,7 @@ private theorem rootTail_congr {Γ Γ' : N.Context} (hΓ : Γ = Γ')
     HEq (N.toStructuralModel.rootTail A x T) (N.toStructuralModel.rootTail A' x' T') := by
   cases hΓ; cases eq_of_heq hA; cases eq_of_heq hx; cases eq_of_heq hT; rfl
 
-private theorem rootTail_pres {γ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
+private theorem rootTailCode_pres {γ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
     {T : TelCode (pathCode a x) n} (hx : F.TmPres x) (hT : F.TelPres T) :
     F.SubPres (rootTailCode a x T) :=
   ⟨branch_pres F hx hT, total_pres F hT, (F.rootTail _ _ _).trans
@@ -166,11 +166,11 @@ private theorem pathTail_congr {Γ Γ' Δ Δ' : N.Context} (hΓ : Γ = Γ') (hΔ
   cases hΓ; cases hΔ; cases eq_of_heq hA; cases eq_of_heq hx
   cases eq_of_heq hT; cases eq_of_heq hs; rfl
 
-private theorem pathTail_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
+private theorem pathTailCode_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
     {T : TelCode (pathCode a x) n} {s : SubCode δ γ}
     (hx : F.TmPres x) (hT : F.TelPres T) (hs : F.SubPres s) :
     F.TelPres (pathTailCode a x T s) :=
-  ⟨path_pres F (subTm_pres F hx hs), (F.pathTail _ _ _ _).trans
+  ⟨path_pres F (subTmCode_pres F hx hs), (F.pathTail _ _ _ _).trans
     (pathTail_congr hx.1.1 hs.1 hx.1.2 hx.2 ((cast_heq _ _).trans hT.2) hs.2.2)⟩
 
 private theorem pathTailMap_congr {Γ Γ' Δ Δ' : N.Context} (hΓ : Γ = Γ') (hΔ : Δ = Δ')
@@ -184,11 +184,11 @@ private theorem pathTailMap_congr {Γ Γ' Δ Δ' : N.Context} (hΓ : Γ = Γ') (
   cases hΓ; cases hΔ; cases eq_of_heq hA; cases eq_of_heq hx
   cases eq_of_heq hT; cases eq_of_heq hs; rfl
 
-private theorem pathTailMap_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
+private theorem pathTailMapCode_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
     {T : TelCode (pathCode a x) n} {s : SubCode δ γ}
     (hx : F.TmPres x) (hT : F.TelPres T) (hs : F.SubPres s) :
     F.SubPres (pathTailMapCode a x T s) :=
-  ⟨total_pres F (pathTail_pres F hx hT hs), total_pres F hT, (F.pathTailMap _ _ _ _).trans
+  ⟨total_pres F (pathTailCode_pres F hx hT hs), total_pres F hT, (F.pathTailMap _ _ _ _).trans
     (pathTailMap_congr hx.1.1 hs.1 hx.1.2 hx.2 ((cast_heq _ _).trans hT.2) hs.2.2)⟩
 
 private theorem j_pres {γ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
@@ -214,13 +214,13 @@ private theorem reindexBranch_congr {Γ Γ' Δ Δ' : N.Context} (hΓ : Γ = Γ')
   cases hΓ; cases hΔ; cases eq_of_heq hA; cases eq_of_heq hx
   cases eq_of_heq hT; cases eq_of_heq hs; cases eq_of_heq hC; cases eq_of_heq hd; rfl
 
-private theorem reindexBranch_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
+private theorem reindexBranchCode_pres {γ δ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
     {T : TelCode (pathCode a x) n} {c : TyCode (telTotal T)}
     {d : TmCode (branchCode a x T) (subTyCode c (rootTailCode a x T))} {s : SubCode δ γ}
     (hx : F.TmPres x) (hT : F.TelPres T) (hc : F.TyPres c) (hd : F.TmPres d)
     (hs : F.SubPres s) : F.TmPres (reindexBranchCode a x T c d s) :=
-  ⟨subTy_pres F (subTy_pres F hc (pathTailMap_pres F hx hT hs))
-      (rootTail_pres F (subTm_pres F hx hs) (pathTail_pres F hx hT hs)),
+  ⟨subTyCode_pres F (subTyCode_pres F hc (pathTailMapCode_pres F hx hT hs))
+      (rootTailCode_pres F (subTmCode_pres F hx hs) (pathTailCode_pres F hx hT hs)),
     (F.reindexBranch _ _ _ _ _ _).trans (reindexBranch_congr hx.1.1 hs.1 hx.1.2 hx.2
       ((cast_heq _ _).trans hT.2) hs.2.2 ((cast_heq _ _).trans hc.2)
       ((F.jBranch_heq _ _ _ _ _).trans hd.2))⟩
@@ -248,7 +248,7 @@ theorem generated_tel (h : TelDeriv Γ γ n Δ T) : F.TelPres T :=
   | .cons ha hT => cons_pres F (generated_ty ha) (generated_tel hT)
   | .pullback hT hs => pullback_pres F (generated_tel hT) (generated_sub hs)
   | .pathReindex _ _ hx hT hs =>
-      pathTail_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
+      pathTailCode_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
 termination_by sizeOf h
 
 /-- Signature preservation suffices for all generated families. -/
@@ -257,7 +257,7 @@ theorem generated_ty (h : TyDeriv Γ γ A a) : F.TyPres a :=
   | .base hγ => base_pres F (generated_ctx hγ)
   | .fiber hx => fiber_pres F (generated_tm hx)
   | .identity _ hx hy => identity_pres F (generated_tm hx) (generated_tm hy)
-  | .sub ha hs => subTy_pres F (generated_ty ha) (generated_sub hs)
+  | .sub ha hs => subTyCode_pres F (generated_ty ha) (generated_sub hs)
 termination_by sizeOf h
 
 /-- This includes generic J, reindexed branches, and generated conversion. -/
@@ -265,17 +265,17 @@ theorem generated_tm (h : TmDeriv Γ γ A a t x) : F.TmPres x :=
   match h with
   | .var _ ha => var_pres F (generated_ty ha)
   | .refl _ hx => refl_pres F (generated_tm hx)
-  | .sub hx hs => subTm_pres F (generated_tm hx) (generated_sub hs)
+  | .sub hx hs => subTmCode_pres F (generated_tm hx) (generated_sub hs)
   | .pathInduction _ _ hx hT hc hd _ _ hs =>
-      subTm_pres F (j_pres F (generated_tm hx) (generated_tel hT)
+      subTmCode_pres F (j_pres F (generated_tm hx) (generated_tel hT)
         (generated_ty hc) (generated_tm hd)) (generated_sub hs)
   | .pathInductionReindex _ _ hx hT hc hd _ _ _ hs =>
-      subTm_pres F (j_pres F (generated_tm hx) (generated_tel hT)
+      subTmCode_pres F (j_pres F (generated_tm hx) (generated_tel hT)
         (generated_ty hc) (generated_tm hd)) (generated_sub hs)
   | .genericJ _ _ hx hT hc hd =>
       j_pres F (generated_tm hx) (generated_tel hT) (generated_ty hc) (generated_tm hd)
   | .reindexJBranch _ _ hx hT hc hd hs =>
-      reindexBranch_pres F (generated_tm hx) (generated_tel hT)
+      reindexBranchCode_pres F (generated_tm hx) (generated_tel hT)
         (generated_ty hc) (generated_tm hd) (generated_sub hs)
   | .conv hx _ e => cast_pres F e (generated_tm hx)
 termination_by sizeOf h
@@ -288,9 +288,9 @@ theorem generated_sub (h : SubDeriv Δ δ Γ γ σ s) : F.SubPres s :=
   | .weaken _ ha => weaken_pres F (generated_ty ha)
   | .projection _ hT => projection_pres F (generated_tel hT)
   | .root _ _ hx => root_pres F (generated_tm hx)
-  | .rootTail _ _ hx hT => rootTail_pres F (generated_tm hx) (generated_tel hT)
+  | .rootTail _ _ hx hT => rootTailCode_pres F (generated_tm hx) (generated_tel hT)
   | .pathTailMap _ _ hx hT hs =>
-      pathTailMap_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
+      pathTailMapCode_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
   | .pair ha hs hx => pair_pres F (generated_ty ha) (generated_sub hs) (generated_tm hx)
 termination_by sizeOf h
 end

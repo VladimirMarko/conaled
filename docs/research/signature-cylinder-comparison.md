@@ -76,9 +76,9 @@ an isomorphism class.
 
 ## Root, counit, branches and J
 
-`GeneratedContractionSquares.generatedRootTail_square` uses the actual native
+`Comparison.rootTailEquivalence_generated_square` uses the actual native
 normalized root/tail contractions at the direct endpoints, including their
-chosen inverse functors and counits. `contextComparison_rootTail_counit`
+chosen inverse functors and counits. `contextComparison_rootTailEquivalence_counitInv`
 derives the selected external counit square from the root substitution square.
 Its branch comparison is the same `contextComparison` at the generated branch
 context; finite dependent tails are unrestricted within the supported syntax.

@@ -16,8 +16,8 @@ set_option backward.isDefEq.respectTransparency.types true in
 theorem pathReindex_reflexivity :
     (pathReflexivity (reindex σ F)).comp (pathReindex F σ) =
       (reindexHigher F σ).comp (pathReflexivity F) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x
     rfl
   · intro x y p
@@ -45,8 +45,8 @@ set_option backward.isDefEq.respectTransparency.types true in
 theorem pathReindex_first :
     (pathReindex F σ).comp (pathFirst F) =
       (pathFirst (reindex σ F)).comp (reindexHigher F σ) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x
     rfl
   · intro x y p

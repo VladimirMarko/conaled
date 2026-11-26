@@ -11,7 +11,7 @@ variable {B : Type u'} [Bicategory.{w',v'} B] [Bicategory.Strict B]
 variable {F G : StrictPseudofunctor A B}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
 variable [∀ x, IsIso (η.app x)]
-instance inverseMate_isIso {a b : A} {f : F.obj a ⟶ F.obj b} {g : G.obj a ⟶ G.obj b}
+instance mateEquiv_inverseAdjunction_isIso {a b : A} {f : F.obj a ⟶ F.obj b} {g : G.obj a ⟶ G.obj b}
     (α : f ≫ η.app b ⟶ η.app a ≫ g) [IsIso α] :
     IsIso (mateEquiv (TwoIdentityTransport.inverseAdjunction (η.app a))
       (TwoIdentityTransport.inverseAdjunction (η.app b)) α) := by

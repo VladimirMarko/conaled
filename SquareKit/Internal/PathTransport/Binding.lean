@@ -11,11 +11,11 @@ def substitutionCode {s : SubCode δ γ} (_hs : SubDeriv Δ δ Γ γ σ s) : Sub
 def bindBase (hΓ : CtxDeriv Γ γ) (hs : SubDeriv Ω ω Γ γ σ s) (z : BasePoint Ω ω) :=
   SubDeriv.pair (.base hΓ) hs (z.deriv.annotateType (subTyCode_baseCode s).symm)
 
-theorem baseReindex_weaken_pair (ξ : TmCode γ (baseCode γ)) (a : TyCode γ)
+theorem baseReindexCode_weaken_pair (ξ : TmCode γ (baseCode γ)) (a : TyCode γ)
     (s : SubCode δ γ) (t : TmCode δ (subTyCode a s)) :
     baseReindexCode (baseReindexCode ξ (weakenCode γ a)) (pairCode a s t) =
       baseReindexCode ξ s :=
-  (baseReindex_comp _ _ _).trans
+  (baseReindexCode_comp _ _ _).trans
     (congrArg (baseReindexCode ξ) (funext fun M => M.weaken_pair _ _ _))
 
 theorem variable_bindBase (hΓ : CtxDeriv Γ γ) (hs : SubDeriv Ω ω Γ γ σ s) (z : BasePoint Ω ω) :

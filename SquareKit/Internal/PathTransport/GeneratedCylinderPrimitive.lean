@@ -18,7 +18,7 @@ def primitiveFunctor {C D : Grpd.{u,u}} (F : C ⥤ D) :
     (show constant C (Γ := Discrete PUnit.{u+1}) ⟶ constant D from
       { app := fun _ => F, naturality := fun {_ _} _ => rfl }) Grpd.forgetToCat)
 
-theorem generatedPrimitive_map (S : Signature.{u}) :
+theorem generatedContextMap_primitiveContext (S : Signature.{u}) :
     generatedContextMap S primitiveContext = primitiveFunctor S.base.map := by
   rw [generatedContextMap_extend, generatedFamilyMap_base, generatedContextMap_empty]
   rfl
@@ -36,9 +36,9 @@ variable {C D : Grpd.{u,u}} (F : C ⥤ D) (P : C ⥤ Type u) {G : C ⥤ D} (η :
 
 theorem generatedEndpointIso_primitive :
     generatedEndpointIso F P η primitiveContext =
-      eqToIso (generatedPrimitive_map (inclusionSignature F P)) ≪≫
+      eqToIso (generatedContextMap_primitiveContext (inclusionSignature F P)) ≪≫
         primitiveIso (endpointIso F η) ≪≫
-        (eqToIso (generatedPrimitive_map (endpointSignature F P η))).symm := by
+        (eqToIso (generatedContextMap_primitiveContext (endpointSignature F P η))).symm := by
   let : (projectionSignature F P).base.map.IsEquivalence :=
     inferInstanceAs (projection F).IsEquivalence
   let := generatedContextMap_equivalence (projectionSignature F P)
@@ -48,11 +48,11 @@ theorem generatedEndpointIso_primitive :
   ext x
   simp only [Iso.trans_hom, NatTrans.comp_app, isoWhiskerRight_hom,
     whiskerRight_app, eqToIso.hom, Iso.symm_hom, eqToIso.inv, eqToHom_app, Functor.map_comp, eqToHom_map]
-  have hn := (eqToHom (generatedPrimitive_map (projectionSignature F P))).naturality
+  have hn := (eqToHom (generatedContextMap_primitiveContext (projectionSignature F P))).naturality
     ((primitiveIso (endpointIso F η)).hom.app x)
   have hn' := congrArg (fun f => f ≫ eqToHom (congrArg
     (fun J => J.obj ((primitiveFunctor (endpoint F η)).obj x))
-      (generatedPrimitive_map (projectionSignature F P)).symm)) hn
+      (generatedContextMap_primitiveContext (projectionSignature F P)).symm)) hn
   simp only [eqToHom_refl, Category.comp_id, Category.id_comp, NatTrans.id_app] at hn'
   rw [hn']
   simp [primitiveFunctor, primitiveIso, FamilyModification.totalIso,
@@ -66,9 +66,9 @@ variable (h : α ≫ whiskerRight η.hom Q = β)
 
 theorem contextComparison_primitive :
     contextComparison F P η Q α β h primitiveContext =
-      eqToIso (generatedPrimitive_map (Signature.mk (Context.mk C D F) P Q α)) ≪≫
+      eqToIso (generatedContextMap_primitiveContext (Signature.mk (Context.mk C D F) P Q α)) ≪≫
         primitiveIso η ≪≫
-        (eqToIso (generatedPrimitive_map (Signature.mk (Context.mk C D G) P Q β))).symm := by
+        (eqToIso (generatedContextMap_primitiveContext (Signature.mk (Context.mk C D G) P Q β))).symm := by
   cases h
   rw [contextComparison_formula]
   simp only [generatedComparison, generatedEndpointIso_primitive]
@@ -76,7 +76,7 @@ theorem contextComparison_primitive :
   simp only [Iso.trans_hom, NatTrans.comp_app, isoWhiskerRight_hom,
     whiskerRight_app, eqToIso.hom, Iso.symm_hom, eqToIso.inv, eqToHom_app,
     Functor.map_comp, eqToHom_map]
-  have hn := (eqToHom (generatedPrimitive_map (evaluationSignature F P Q α))).naturality
+  have hn := (eqToHom (generatedContextMap_primitiveContext (evaluationSignature F P Q α))).naturality
     ((primitiveIso (endpointIso F η)).hom.app x)
   simp only [eqToHom_refl, NatTrans.id_app, Category.id_comp, Category.comp_id] at hn
   rw [hn]
@@ -91,9 +91,9 @@ theorem contextComparison_primitive :
 
 /-- Normalize only the generated endpoint functors, retaining the chosen arrow. -/
 def normalizedPrimitiveComparison : primitiveFunctor F ≅ primitiveFunctor G :=
-  (eqToIso (generatedPrimitive_map (Signature.mk (Context.mk C D F) P Q α))).symm ≪≫
+  (eqToIso (generatedContextMap_primitiveContext (Signature.mk (Context.mk C D F) P Q α))).symm ≪≫
     contextComparison F P η Q α β h primitiveContext ≪≫
-    eqToIso (generatedPrimitive_map (Signature.mk (Context.mk C D G) P Q β))
+    eqToIso (generatedContextMap_primitiveContext (Signature.mk (Context.mk C D G) P Q β))
 
 theorem normalizedPrimitiveComparison_eq :
     normalizedPrimitiveComparison F P η Q α β h = primitiveIso η := by

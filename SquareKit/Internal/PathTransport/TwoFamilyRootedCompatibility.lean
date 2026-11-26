@@ -90,7 +90,7 @@ private theorem strongPostcomp_right_id {A B : Type*} [Bicategory A] [Bicategory
 theorem rootedContraction_compatibility :
     HEq (strongPostcomp (rootedBaseContraction F x) (rootedEndpoint F x))
       (strongPostcomp (rootedContractionMapped F x) (projectionHigher (openIdHigher F))) := by
-  apply endpointStrong_hext F
+  apply endpoint_strong_hext F
     (reindex_strong_boundary (openIdHigher F) (rootedEndpoint F x) (rootedDirectRetract F x))
     (reindex_strong_boundary (openIdHigher F) (rootedEndpoint F x) (StrictPseudofunctor.id _))
   · have h1 := strongPostcomp_comp (rootedBaseContraction F x) (rootedEndpoint F x) (endpointProjection F true)

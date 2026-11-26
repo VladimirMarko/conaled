@@ -35,7 +35,7 @@ theorem equalityFiber_hext {x y x' y' : Total E} (hx : x = x') (hy : y = y')
   exact heq_of_eq (equalityFiber_ext E (eq_of_heq hb) hα hβ)
 
 variable {A : Type*} [Bicategory A]
-theorem cartesianStrong_hext {F G F' G' : StrictPseudofunctor A (Total E)}
+theorem cartesian_strong_hext {F G F' G' : StrictPseudofunctor A (Total E)}
     (eF : F = F') (eG : G = G')
     (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (θ : Pseudofunctor.StrongTrans F'.toPseudofunctor G'.toPseudofunctor)
@@ -58,7 +58,7 @@ theorem equalityHomFiber_identity (x : Total E) : EqualityHomFiber E (𝟙 x) :=
 theorem equalityHomFiber_cartesian {x y : Γ} (f : x ⟶ y) (a : E.obj x) :
     EqualityHomFiber E (cartesianLift E f a) := ⟨rfl, rfl⟩
 
-theorem identityStrong_equalityFiber (H : StrictPseudofunctor A (Total E))
+theorem strong_id_equalityFiber (H : StrictPseudofunctor A (Total E))
     {x y : A} (p : x ⟶ y) :
     EqualityFiber E ((Pseudofunctor.StrongTrans.id H.toPseudofunctor).naturality p).hom := by
   simp only [Pseudofunctor.StrongTrans.id, Iso.trans_hom, Iso.symm_hom,
@@ -66,7 +66,7 @@ theorem identityStrong_equalityFiber (H : StrictPseudofunctor A (Total E))
   exact equalityFiber_comp E (equalityFiber_cast E _) (equalityFiber_cast E _)
 
 variable [Strict A] (i : StrictPseudofunctor A Γ)
-theorem identityReindex_comparison_base {x y : Total (reindex i E)} (p : x ⟶ y) :
+theorem strong_id_reindex_naturality_base {x y : Total (reindex i E)} (p : x ⟶ y) :
     HEq (((Pseudofunctor.StrongTrans.id (reindexHigher E i).toPseudofunctor).naturality p).hom).base
       ((Pseudofunctor.StrongTrans.id i.toPseudofunctor).naturality p.base).hom := by
   simp only [Pseudofunctor.StrongTrans.id, Iso.trans_hom, Iso.symm_hom,

@@ -20,11 +20,11 @@ theorem alignedContextComparison_base_term (h : α ≫ whiskerRight η.hom Q = �
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
     (hx : Typed.TmDeriv.{max u v w + 1} Γ γ .base (Typed.baseCode γ) x ξ) :
     isoWhiskerLeft (baseFunctor (ξ L).down) (alignedBaseIso η P Q α β) ≪≫
-        eqToIso (generatedBaseTerm_commutes T hΓ hx) =
-      eqToIso (generatedBaseTerm_commutes S hΓ hx) ≪≫
+        eqToIso (baseFunctor_generatedContextMap_commutes T hΓ hx) =
+      eqToIso (baseFunctor_generatedContextMap_commutes S hΓ hx) ≪≫
         isoWhiskerRight (alignedContextComparison η P Q α β h hΓ)
           (baseFunctor (ξ R).down) :=
   SignatureCylinder.contextComparison_base_term _ _ (alignedBaseIso η P Q α β) _ _ _
-    (alignedFiber_square η P Q α β h) hΓ hx
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ hx
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

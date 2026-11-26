@@ -20,12 +20,12 @@ def termDiagram (A : SplitSheaf.Ty X) :
   localMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift
   doubleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down.lift
   tripleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down.lift
-  first := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.first A)) hΓ hB hx
-  second := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.second A)) hΓ hB hx
-  diagonal := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.diagonal A)) hΓ hB hx
-  firstSecond := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.firstSecond A)) hΓ hB hx
-  firstThird := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.firstThird A)) hΓ hB hx
-  secondThird := generatedSectionLift_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.secondThird A)) hΓ hB hx
+  first := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.first A)) hΓ hB hx
+  second := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.second A)) hΓ hB hx
+  diagonal := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.diagonal A)) hΓ hB hx
+  firstSecond := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.firstSecond A)) hΓ hB hx
+  firstThird := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.firstThird A)) hΓ hB hx
+  secondThird := totalMap_generatedFamilyMap_section_commutes (SmoothQuotientComparison.signature (SplitSheaf.Cech.secondThird A)) hΓ hB hx
 
 theorem termDiagram_projection (A : SplitSheaf.Ty X) :
     (termDiagram a hΓ hB hx A).comp

@@ -24,7 +24,7 @@ theorem source_section_restriction :
     (Typed.SubDeriv.section hΓ hB hx)
   have hs : ((Typed.sectionCode b ξ) (SmoothQuotientSource.model a X)).down =
       (ξ (SmoothQuotientSource.model a X)).down.lift :=
-    Typed.sectionCode_universeLift (Object a X) (SmoothQuotientDeformations.family a X) b ξ
+    Typed.sectionCode_universeModel_lift (Object a X) (SmoothQuotientDeformations.family a X) b ξ
   rw [hs] at hh
   exact hh.symm
 

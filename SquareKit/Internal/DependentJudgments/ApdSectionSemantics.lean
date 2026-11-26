@@ -8,7 +8,7 @@ universe u
 variable (M : PathTransport.Typed.Model.{u})
 def apdBranchValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
  (x : M.Section Γ A) (t : M.Section (M.extend Γ A) B) :=
- cast (congrArg (M.Section Γ) (apdMotive_root M A B x t).symm)
+ cast (congrArg (M.Section Γ) (apdMotiveValue_root M A B x t).symm)
   (M.reflexivity _ (M.subTm t (M.toStructuralModel.sectionSub A x)))
 def apdSectionValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
  (x : M.Section Γ A) (t : M.Section (M.extend Γ A) B) :=
@@ -17,7 +17,7 @@ theorem apdValue_section {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.ext
  (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y))
  (t : M.Section (M.extend Γ A) B) :
  apdValue M A B x y p t =
- cast (congrArg (M.Section Γ) (apdMotive_endpoint M A B x y p t))
+ cast (congrArg (M.Section Γ) (apdMotiveValue_endpoint M A B x y p t))
   (M.subTm (apdSectionValue M A B x t) (M.toStructuralModel.endpointSub A x y p)) := rfl
 theorem apdSectionValue_root {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
  (x : M.Section Γ A) (t : M.Section (M.extend Γ A) B) :

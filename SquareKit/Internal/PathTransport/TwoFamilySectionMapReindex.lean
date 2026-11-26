@@ -17,7 +17,7 @@ variable (σ : StrictPseudofunctor Δ Γ)
 theorem StrongMap.reindex_square :
     (StrongMap.toHigher (strongPrecomp η σ)).comp (reindexHigher G σ) =
       (reindexHigher F σ).comp (StrongMap.toHigher η) :=
-  strictFunctorData_ext rfl
+  strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 /-- Coherent transport of a section commutes with arbitrary context substitution. -/
 theorem Section.map_reindex (s : Section F) :
     (s.map η).reindex G σ = (s.reindex F σ).map (strongPrecomp η σ) := by
@@ -25,14 +25,14 @@ theorem Section.map_reindex (s : Section F) :
   calc
     ((s.map η).reindex G σ).lift.comp (reindexHigher G σ) = σ.comp (s.map η).lift :=
       (s.map η).reindex_lift G σ
-    _ = (σ.comp s.lift).comp (StrongMap.toHigher η) := strictFunctorData_ext rfl
+    _ = (σ.comp s.lift).comp (StrongMap.toHigher η) := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
     _ = ((s.reindex F σ).lift.comp (reindexHigher F σ)).comp (StrongMap.toHigher η) :=
       congrArg (fun H => H.comp (StrongMap.toHigher η)) (s.reindex_lift F σ).symm
     _ = (s.reindex F σ).lift.comp ((reindexHigher F σ).comp (StrongMap.toHigher η)) :=
-      strictFunctorData_ext rfl
+      strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
     _ = (s.reindex F σ).lift.comp
         ((StrongMap.toHigher (strongPrecomp η σ)).comp (reindexHigher G σ)) :=
       congrArg (fun H => (s.reindex F σ).lift.comp H) (StrongMap.reindex_square η σ).symm
     _ = ((s.reindex F σ).map (strongPrecomp η σ)).lift.comp (reindexHigher G σ) :=
-      strictFunctorData_ext rfl
+      strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 end SquareKit.Internal.PathTransport.TwoFamily

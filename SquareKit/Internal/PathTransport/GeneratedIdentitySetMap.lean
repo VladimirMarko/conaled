@@ -19,7 +19,7 @@ def generatedIdentitySetMap (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
       generatedContextMap S hΓ ⋙ directIdentity (a R) (ξ R).down (η R).down :=
   directIdentityMap (generatedFamilyMap S hΓ hA) (ξ L).down (η L).down ≫
     eqToHom (by
-      rw [generatedTerm_commutes S hΓ hA hx, generatedTerm_commutes S hΓ hA hy]
+      rw [generatedFamilyMap_term_commutes S hΓ hA hx, generatedFamilyMap_term_commutes S hΓ hA hy]
       rfl)
 
 theorem generatedFamilyMap_identity_set (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
@@ -27,7 +27,7 @@ theorem generatedFamilyMap_identity_set (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ A a x ξ) (hy : Typed.TmDeriv.{u+1} Γ γ A a y η) :
     generatedFamilyMap S hΓ (.identity hA hx hy) =
       whiskerRight (generatedIdentitySetMap S hΓ hA hx hy) discrete := by
-  rw [generatedFamilyMap_identityType]
+  rw [generatedFamilyMap_identity_type]
   apply NatTrans.ext
   funext c
   simp only [generatedIdentitySetMap, identityMap, NatTrans.comp_app,

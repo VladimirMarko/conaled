@@ -24,7 +24,7 @@ private theorem whiskerRight_congr_heq {B : Type*} [Bicategory B]
   cases e
   rfl
 
-private theorem mixedWhisker_congr_heq {B : Type*} [Bicategory B]
+private theorem whiskerLeft_whiskerRight_congr_heq {B : Type*} [Bicategory B]
     {a b c d : B} {f g : a ⟶ b} (e : f = g)
     {i j : b ⟶ c} (α : i ⟶ j) {q r : c ⟶ d} (e' : q = r) :
     HEq ((f ◁ α) ▷ q) ((g ◁ α) ▷ r) := by
@@ -94,6 +94,6 @@ theorem inverseMate_map {A B : Type*} [Bicategory A] [Bicategory B]
   apply eq_of_heq
   simp only [eqToHom_comp_heq_iff, comp_eqToHom_heq_iff,
     heq_eqToHom_comp_iff, heq_comp_eqToHom_iff]
-  exact mixedWhisker_congr_heq hu.symm (inv (G.map₂ ρ)) hu'.symm
+  exact whiskerLeft_whiskerRight_congr_heq hu.symm (inv (G.map₂ ρ)) hu'.symm
 
 end SquareKit.Internal.PathTransport.TwoIdentityTransport

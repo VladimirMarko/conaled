@@ -49,7 +49,7 @@ def pathWitness {G : Type u} [Category.{u} G] (x : Section (constant (Γ := G) C
       (x.reindex (PathComparison.retract (constant C) x)) (DerivedSemantics.endpoint x)) :=
   «variable» (PathComparison.pathComparisonFamily (constant C) x)
 
-theorem baseReindex_eval {δ : CtxCode.{u+1}} (t : TmCode γ (baseCode γ)) (s : SubCode δ γ) :
+theorem baseReindexCode_eval {δ : CtxCode.{u+1}} (t : TmCode γ (baseCode γ)) (s : SubCode δ γ) :
     baseReindexCode t s M = ⟨(t M).down.reindex (s M).down⟩ :=
   eq_of_heq (castCode_eval _ _ M)
 
@@ -69,7 +69,7 @@ theorem fixed_eval : (ConcatFrame.fixed hΓ x).code M =
 
 theorem y_eval : (ConcatFrame.yAtQ hΓ x).code M =
     ⟨(DerivedSemantics.endpoint (x.code M).down).reindex (projection C B hΓ x)⟩ := by
-  rw [ConcatFrame.y_projection, baseReindex_eval, SourceSemantics.moving_eval]
+  rw [ConcatFrame.y_projection, baseReindexCode_eval, SourceSemantics.moving_eval]
   rfl
 
 def firstPathRaw := (pathWitness C (x.code M).down).reindex (projection C B hΓ x)
@@ -112,7 +112,7 @@ theorem root_projection : rootFunctor C B hΓ x ⋙ projection C B hΓ x =
     (projectionCode (telPullback (ConcatFrame.tailCode hΓ x) (rootCode (baseCode γ) x.code)) M).down ⋙
       PathComparison.reflexive (constant C) (x.code M).down := by
   have h := congrArg (fun s => (s M).down)
-    (projectionLift_code (ConcatFrame.tailCode hΓ x) (rootCode (baseCode γ) x.code))
+    (projectionCode_liftSub (ConcatFrame.tailCode hΓ x) (rootCode (baseCode γ) x.code))
   exact h
 theorem pathWitness_root {G H : Type u} [Category.{u} G] [Category.{u} H]
     (a : Section (constant (Γ := G) C))
@@ -144,7 +144,7 @@ theorem canonicalConcat_root :
     (canonicalConcat C B hΓ x).reindex (rootFunctor C B hΓ x) =
       ((ConcatFrame.command hΓ x).motive.branchCode M).down := by
   have hy := congrArg (fun t => t M) (ConcatFrame.y_root hΓ x)
-  simp only [baseReindex_eval] at hy
+  simp only [baseReindexCode_eval] at hy
   have hy' := congrArg ULift.down hy
   have hc := composePaths_root C
     (((ConcatFrame.fixed hΓ x).code M).down.reindex (rootFunctor C B hΓ x))
@@ -164,7 +164,7 @@ def concatJCode := jCode (baseCode γ) x.code (ConcatFrame.tailCode hΓ x)
   (ConcatFrame.command hΓ x).motive.code (ConcatFrame.command hΓ x).motive.branchCode
 
 /-- The actual first-path J command agrees with canonical composition over its tail. -/
-theorem concatJ_eval : (concatJCode hΓ x M).down = canonicalConcat C B hΓ x := by
+theorem concatJCode_eval : (concatJCode hΓ x M).down = canonicalConcat C B hΓ x := by
   exact Instance.contextualJ_unique C B (baseCode γ M) (x.code M)
     (ConcatFrame.tailCode hΓ x M)
     (identityFamily (constant C) ((ConcatFrame.fixed hΓ x).code M).down
@@ -204,7 +204,7 @@ theorem firstPath_at : HEq ((firstPath C B hΓ x).reindex (endpointFunctor C B h
     (p.code M).down := by
   have ha := congrArg (fun t => t M) (ConcatApplication.fixed_at hΓ x y z p q)
   have hb := congrArg (fun t => t M) (ConcatApplication.y_at hΓ x y z p q)
-  simp only [baseReindex_eval] at ha hb
+  simp only [baseReindexCode_eval] at ha hb
   have haf := congrArg ULift.down ha
   have hbf := congrArg ULift.down hb
   have hf : endpointFunctor C B hΓ x p q ⋙
@@ -234,7 +234,7 @@ theorem canonicalConcat_at :
   have ha := congrArg (fun t => t M) (ConcatApplication.fixed_at hΓ x y z p q)
   have hb := congrArg (fun t => t M) (ConcatApplication.y_at hΓ x y z p q)
   have hc := congrArg (fun t => t M) (ConcatApplication.z_at hΓ x y z p q)
-  simp only [baseReindex_eval] at ha hb hc
+  simp only [baseReindexCode_eval] at ha hb hc
   have haf := congrArg ULift.down ha
   have hbf := congrArg ULift.down hb
   have hcf := congrArg ULift.down hc
@@ -268,7 +268,7 @@ theorem concat_section : ((concat hΓ p q).code M).down =
   have he : (subTmCode (concatJCode hΓ x)
       (substitutionCode (ConcatApplication.endpoint hΓ x y z p q)) M).down =
       (canonicalConcat C B hΓ x).reindex (endpointFunctor C B hΓ x p q) := by
-    rw [subTmCode_eval, concatJ_eval]
+    rw [subTmCode_eval, concatJCode_eval]
     rfl
   have ht := hd.trans (heq_of_eq he)
   exact eq_of_heq (ht.trans (canonicalConcat_at C B hΓ x p q))

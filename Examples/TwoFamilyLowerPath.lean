@@ -40,7 +40,7 @@ def fixedLift : StrictPseudofunctor Context.empty emptyA.total :=
   }
 def fixed : TwoFamily.Section emptyA.data where
   lift := fixedLift
-  over := strictFunctorData_ext rfl
+  over := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 abbrev emptyB : Family emptyA.total := Family.identity
   (emptyA.reindex (TwoFamily.projectionHigher emptyA.data))
   (fixed.reindex emptyA.data (TwoFamily.projectionHigher emptyA.data))

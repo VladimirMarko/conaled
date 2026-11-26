@@ -25,9 +25,9 @@ theorem pathJInput_reindex (d : Section (reindex (pathReflexivity F) E)) :
   have h1 := Section.cast_heq
     (reindex_comp (reindex (pathReindex F σ) E) (pathReflexivity (reindex σ F)) (pathFirst (reindex σ F)))
     ((pathBranchReindex F σ E d).reindex _ (pathFirst (reindex σ F)))
-  have h2 := Section.reindex_heq (pathMotive_reindex F σ E).symm
+  have h2 := Section.reindex_heq (reindex_pathReflexivity_pathReindex F σ E).symm
     (pathBranchReindex F σ E d) (d.reindex _ (reindexHigher F σ))
-    (Section.cast_heq (pathMotive_reindex F σ E) (d.reindex _ (reindexHigher F σ)))
+    (Section.cast_heq (reindex_pathReflexivity_pathReindex F σ E) (d.reindex _ (reindexHigher F σ)))
     (pathFirst (reindex σ F))
   have h3 := d.reindex_comp_heq (reindexHigher F σ) (pathFirst (reindex σ F))
   have h4 := d.reindex_functor_heq (pathReindex_first F σ).symm

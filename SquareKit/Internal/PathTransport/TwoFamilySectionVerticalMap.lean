@@ -31,7 +31,7 @@ theorem Section.reindex_normalMap_vertical (s : Section F) (σ : StrictPseudofun
  ((s.reindex F σ).normalMap_fiber_heq _ f).trans
   ((s.reindex_map_fiber F σ f).trans (s.map_fiber_vertical F ha hb _ hf))
 variable {Ξ : Type*} [Bicategory Ξ] [Strict Ξ]
-theorem Section.doubleReindex_normalMap_vertical (s : Section F)
+theorem Section.double_reindex_normalMap_vertical (s : Section F)
  (σ : StrictPseudofunctor Δ Γ) (τ : StrictPseudofunctor Ξ Δ)
  {a b : Ξ} (f : a ⟶ b) (c : Γ) (ha : σ.obj (τ.obj a) = c) (hb : σ.obj (τ.obj b) = c)
  (hf : HEq (σ.map (τ.map f)) (𝟙 c)) :

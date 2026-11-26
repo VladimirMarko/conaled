@@ -97,8 +97,8 @@ source-consuming milestones remain in place; full #433 remains open.
 
 `GeneratedComparisonRestriction` extracts functors and family transformations
 between the same generated codes in the two direct models, using proved
-projection equalities to transport indices. `generatedTerm_commutes` is an
-equality of whole sections; `generatedSubstitution_commutes` is an equality of
+projection equalities to transport indices. `generatedFamilyMap_term_commutes` is an
+equality of whole sections; `generatedContextMap_substitution_commutes` is an equality of
 whole functors. Both include arrow actions and cover J and conversion.
 
 `ComparisonDiagonal` proves the identity comparison's comprehension,

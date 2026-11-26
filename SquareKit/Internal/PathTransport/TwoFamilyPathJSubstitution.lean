@@ -13,14 +13,14 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) (σ : StrictPseudofunctor Δ Γ)
 variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 variable (E : Family.{_,_,_,uE,vE,wE} (PathContext F))
 /-- The reflexive motive commutes with the constructed path substitution. -/
-theorem pathMotive_reindex :
+theorem reindex_pathReflexivity_pathReindex :
     reindex (reindexHigher F σ) (reindex (pathReflexivity F) E) =
       reindex (pathReflexivity (reindex σ F)) (reindex (pathReindex F σ) E) := by
   rw [reindex_comp, reindex_comp, pathReindex_reflexivity]
 /-- Substitute an arbitrary supplied reflexive branch, with its full higher action. -/
 noncomputable def pathBranchReindex (d : Section (reindex (pathReflexivity F) E)) :
     Section (reindex (pathReflexivity (reindex σ F)) (reindex (pathReindex F σ) E)) :=
-  Section.cast (pathMotive_reindex F σ E) (d.reindex _ (reindexHigher F σ))
+  Section.cast (reindex_pathReflexivity_pathReindex F σ E) (d.reindex _ (reindexHigher F σ))
 set_option backward.isDefEq.respectTransparency true in
 set_option backward.isDefEq.respectTransparency.types true in
 /-- Substituting a branch preserves its chosen fiber object. -/
@@ -28,7 +28,7 @@ theorem pathBranchReindex_obj (d : Section (reindex (pathReflexivity F) E))
     (x : Total (reindex σ F)) :
     HEq ((pathBranchReindex F σ E d).lift.obj x).fiber
       (d.lift.obj ((reindexHigher F σ).obj x)).fiber := by
-  have h1 := Section.cast_obj_fiber (pathMotive_reindex F σ E)
+  have h1 := Section.cast_obj_fiber (reindex_pathReflexivity_pathReindex F σ E)
     (d.reindex (reindex (pathReflexivity F) E) (reindexHigher F σ)) x
   have h2 := d.reindex_obj_fiber (reindex (pathReflexivity F) E) (reindexHigher F σ) x
   run_tac Lean.Elab.Tactic.withMainContext do
@@ -48,7 +48,7 @@ theorem pathBranchReindex_map (d : Section (reindex (pathReflexivity F) E))
     {x y : Total (reindex σ F)} (p : x ⟶ y) :
     HEq ((pathBranchReindex F σ E d).lift.map p).fiber
       (d.lift.map ((reindexHigher F σ).map p)).fiber := by
-  have h1 := Section.cast_map_fiber (pathMotive_reindex F σ E)
+  have h1 := Section.cast_map_fiber (reindex_pathReflexivity_pathReindex F σ E)
     (d.reindex (reindex (pathReflexivity F) E) (reindexHigher F σ)) p
   have h2 := d.reindex_map_fiber (reindex (pathReflexivity F) E) (reindexHigher F σ) p
   run_tac Lean.Elab.Tactic.withMainContext do
@@ -68,7 +68,7 @@ theorem pathBranchReindex_cell (d : Section (reindex (pathReflexivity F) E))
     {x y : Total (reindex σ F)} {p q : x ⟶ y} (α : p ⟶ q) :
     HEq ((pathBranchReindex F σ E d).lift.map₂ α).fiber
       (d.lift.map₂ ((reindexHigher F σ).map₂ α)).fiber := by
-  have h1 := Section.cast_cell_fiber (pathMotive_reindex F σ E)
+  have h1 := Section.cast_cell_fiber (reindex_pathReflexivity_pathReindex F σ E)
     (d.reindex (reindex (pathReflexivity F) E) (reindexHigher F σ)) α
   have h2 := d.reindex_cell_fiber (reindex (pathReflexivity F) E) (reindexHigher F σ) α
   run_tac Lean.Elab.Tactic.withMainContext do

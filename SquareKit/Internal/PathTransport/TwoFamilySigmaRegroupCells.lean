@@ -57,7 +57,7 @@ theorem sigmaRegroupCell_fiber_heq {x y : Total (sigmaFamily F B)}
   change HEq (eqToHom _ ◁ α.fiber.fiber ≫ eqToHom _) _
   exact (comp_eqToHom_heq _ _).trans (eqToHom_left_heq _ _)
 
-private theorem castsFrom_heq {C : Type*} [Category C] {a b c : C}
+private theorem eqToHom_heq_same_source {C : Type*} [Category C] {a b c : C}
     (h : a = b) (k : a = c) : HEq (eqToHom h) (eqToHom k) := by
   cases h
   cases k
@@ -75,5 +75,5 @@ theorem sigmaRegroupCell_id {x y : Total (sigmaFamily F B)} (p : x ⟶ y) :
   change HEq (eqToHom _) (eqToHom (rfl : sigmaRegroupMap F B p = _)).fiber
   symm
   apply HEq.trans (heq_of_eq (total_eqToHom_fiber B (rfl : sigmaRegroupMap F B p = _)))
-  exact castsFrom_heq _ _
+  exact eqToHom_heq_same_source _ _
 end SquareKit.Internal.PathTransport.TwoFamily

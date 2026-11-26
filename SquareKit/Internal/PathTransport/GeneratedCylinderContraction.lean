@@ -18,11 +18,11 @@ local notation "U" => Signature.mk (Context.mk C D G) P Q β
 local notation "L" => Instance.fullModel C P
 local notation "R" => Instance.fullModel D Q
 
-theorem contextComparison_rootTail_counit (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem contextComparison_rootTailEquivalence_counitInv (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (hx : Typed.TmDeriv.{u+1} Γ γ A a t x)
     (hT : Typed.TelDeriv.{u+1} (pathCtx Γ A t) (Typed.pathCode a x) n Δ T) :
-    let s := generatedRootTail_square S hΓ hA hx hT
-    let q := generatedRootTail_square U hΓ hA hx hT
+    let s := rootTailEquivalence_generated_square S hΓ hA hx hT
+    let q := rootTailEquivalence_generated_square U hΓ hA hx hT
     let e := (Instance.rootTailEquivalence D Q (a R) (x R).down (T R)).equiv
     let e' := (Instance.rootTailEquivalence C P (a L) (x L).down (T L)).equiv
     let k := contextComparison F P η Q α β h (.telescope (.path hΓ hA hx) hT)
@@ -31,8 +31,8 @@ theorem contextComparison_rootTail_counit (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
         whiskerLeft e'.inverse (whiskerRight l.hom e.functor) =
       k.hom ≫ whiskerLeft _ e.counitInv ≫
         eqToHom (congrArg (· ⋙ e.functor) q.inverse) := by
-  apply EquivalenceSquare.selectedCounit_square
-    (generatedRootTail_square S hΓ hA hx hT) (generatedRootTail_square U hΓ hA hx hT)
+  apply EquivalenceSquare.counitInv_square
+    (rootTailEquivalence_generated_square S hΓ hA hx hT) (rootTailEquivalence_generated_square U hΓ hA hx hT)
   exact contextComparison_substitution F P η Q α β h
     (.telescope (.path hΓ hA hx) hT) (.branch hΓ hA hx hT) (.rootTail hΓ hA hx hT)
 

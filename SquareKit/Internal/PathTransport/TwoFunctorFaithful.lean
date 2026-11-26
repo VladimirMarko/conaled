@@ -24,8 +24,8 @@ theorem strictPseudofunctor_postcomp_injective {F G : StrictPseudofunctor A B}
   have hO (a : A) : F.obj a = G.obj a := ho (congrArg (fun K => K.obj a) h)
   have hM {a b : A} (p : a ⟶ b) : HEq (F.map p) (G.map p) :=
     map_heq_reflect H (@hm) (hO a) (hO b) _ _ (congr_arg_heq (fun K => K.map p) h)
-  apply strictFunctorData_ext
-  apply prelaxData_ext _ _ hO
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext _ _ hO
   · exact @hM
   · intro a b p q α
     exact cell_heq_reflect H (@hc) (hO a) (hO b) (hM p) (hM q) _ _

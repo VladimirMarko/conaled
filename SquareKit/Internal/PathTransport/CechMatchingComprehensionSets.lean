@@ -12,7 +12,7 @@ set_option backward.isDefEq.respectTransparency.types false
 set_option backward.defeqAttrib.useBackward true
 universe u
 
-private theorem totalArrow_ext {C : Grpd.{u,u}} (F : C ⥤ Grpd.{u,u})
+private theorem total_arrow_ext {C : Grpd.{u,u}} (F : C ⥤ Grpd.{u,u})
     [∀ c, Quiver.IsThin (F.obj c)] {x y : Extend F} (f g : x ⟶ y)
     (hb : f.base = g.base) : f = g :=
   Grothendieck.ext f g hb (Subsingleton.elim _ _)
@@ -30,7 +30,7 @@ def Fiber.ofOverlap (d : Datum D.toDiagram) (x : A.localFamily.obj d.localObject
   overlap := i
   base_overlap := hb
   diagonal := by
-    apply totalArrow_ext A.localFamily
+    apply total_arrow_ext A.localFamily
     change D.diagonal.map i.hom.base = _
     rw [hb]
     change D.diagonal.map d.overlap.hom =
@@ -44,7 +44,7 @@ def Fiber.ofOverlap (d : Datum D.toDiagram) (x : A.localFamily.obj d.localObject
     rw [Grothendieck.base_eqToHom, Grothendieck.base_eqToHom]
     simpa only [StrictDiagram.toDiagram, eqToIso.hom, eqToIso.inv, eqToHom_app] using d.diagonal
   cocycle := by
-    apply totalArrow_ext A.tripleFamily
+    apply total_arrow_ext A.tripleFamily
     change D.firstSecond.map i.hom.base ≫
       ((eqToHom h.triple_middle).app (liftLocal A d x)).base ≫
         D.secondThird.map i.hom.base =
@@ -113,7 +113,7 @@ def fromSet (x : S.MatchingSet d) : Fiber S.toFamilyData hs d :=
   refine Datum.ext (d := (S.fromSet hs d (S.toSet hs d x)).datum) (e := x.datum) rfl ?_
   apply heq_of_eq
   apply Iso.ext
-  apply totalArrow_ext S.toFamilyData.doubleFamily
+  apply total_arrow_ext S.toFamilyData.doubleFamily
   exact x.base_overlap.symm
 
 /-- The general relative fiber is exactly the local values satisfying the
@@ -135,7 +135,7 @@ instance (x y : Fiber S.toFamilyData hs d) : Subsingleton (x ⟶ y) where
   allEq f g := by
     apply Fiber.Hom.ext
     apply Datum.Hom.ext
-    exact totalArrow_ext S.toFamilyData.localFamily _ _ (f.vertical.trans g.vertical.symm)
+    exact total_arrow_ext S.toFamilyData.localFamily _ _ (f.vertical.trans g.vertical.symm)
 
 /-- A vertical arrow of set matching exists precisely when the matching values
 are equal; there are no additional path witnesses in these fibers. -/

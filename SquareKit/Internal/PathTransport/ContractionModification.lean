@@ -10,7 +10,7 @@ set_option backward.defeqAttrib.useBackward true
 variable {C D C' D' : Type*} [Category* C] [Category* D] [Category* C'] [Category* D']
 variable {e : D ≌ C} {e' : D' ≌ C'} {K K' : C' ⥤ C} {L L' : D' ⥤ D}
 
-theorem selectedCounit_square (s : Square e e' K L) (t : Square e e' K' L')
+theorem counitInv_square (s : Square e e' K L) (t : Square e e' K' L')
     (η : K ≅ K') (θ : L ≅ L')
     (h : isoWhiskerLeft e'.functor η ≪≫ eqToIso t.forward =
       eqToIso s.forward ≪≫ isoWhiskerRight θ e.functor) :

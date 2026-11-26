@@ -8,7 +8,7 @@ variable {A : Type u} [Bicategory.{w,v} A] [Strict A]
 variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B]
 omit [Strict A] [Strict B] in
 /-- Extensional equality of raw higher-functor data retains all dependent boundaries. -/
-theorem prelaxData_ext (D E : PrelaxFunctorStruct A B)
+theorem prelaxFunctorStruct_ext (D E : PrelaxFunctorStruct A B)
     (ho : ∀ x, D.obj x = E.obj x)
     (hm : ∀ {x y} (p : x ⟶ y), HEq (D.map p) (E.map p))
     (hc : ∀ {x y} {p q : x ⟶ y} (α : p ⟶ q), HEq (D.map₂ α) (E.map₂ α)) : D = E := by
@@ -28,7 +28,7 @@ theorem prelaxData_ext (D E : PrelaxFunctorStruct A B)
 
 omit [Strict A] [Strict B] in
 /-- Equality of raw object, arrow, and cell operations determines a strict functor. -/
-theorem strictFunctorData_ext {F G : StrictPseudofunctor A B}
+theorem strictPseudofunctor_ext_toPrelaxFunctorStruct {F G : StrictPseudofunctor A B}
     (h : F.toPrelaxFunctorStruct = G.toPrelaxFunctorStruct) : F = G := by
   apply StrictTwoTransformation.functor_ext
   have aux (H K : PrelaxFunctor A B)

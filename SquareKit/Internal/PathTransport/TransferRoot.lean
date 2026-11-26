@@ -12,7 +12,7 @@ def tailCode : TelCode (pathCode (baseCode γ) x.code) 3 :=
 theorem moving_projection : (moving hΓ x).code =
     baseReindexCode (Authoring.moving hΓ x).code (projectionCode (tailCode hΓ x)) := by
   change baseReindexCode (ConcatFrame.yAtQ hΓ x).code _ = _
-  rw [ConcatFrame.y_projection, baseReindex_comp]
+  rw [ConcatFrame.y_projection, baseReindexCode_comp]
   congr 1
   funext M
   simp only [projectionCode, tailCode, ConcatFrame.tailCode, telCons, telNil,
@@ -22,7 +22,7 @@ theorem moving_projection : (moving hΓ x).code =
 theorem fixed_projection : (fixed hΓ x).code =
     baseReindexCode (x.reindex (pathProjection hΓ x)).code (projectionCode (tailCode hΓ x)) := by
   change baseReindexCode (baseReindexCode _ (projectionCode (ConcatFrame.tailCode hΓ x))) _ = _
-  rw [baseReindex_comp]
+  rw [baseReindexCode_comp]
   congr 1
   funext M
   simp only [projectionCode, tailCode, ConcatFrame.tailCode, telCons, telNil,
@@ -35,10 +35,10 @@ theorem moving_root_code : ((moving hΓ x).reindex (root hΓ x)).code =
   change baseReindexCode _ (rootTailCode (baseCode γ) x.code (tailCode hΓ x)) =
     baseReindexCode _ (rootTailCode (baseCode γ) x.code (tailCode hΓ x))
   rw [moving_projection, fixed_projection]
-  exact (baseReindex_lift _ _ _).trans
+  exact (baseReindexCode_lift _ _ _).trans
     ((congrArg (fun t => baseReindexCode t _) (moving_at_root hΓ x)).trans
       ((congrArg (fun t => baseReindexCode t _) (fixed_at_root hΓ x)).symm.trans
-        (baseReindex_lift _ _ _).symm))
+        (baseReindexCode_lift _ _ _).symm))
 
 theorem moving_root_raw : ((moving hΓ x).reindex (root hΓ x)).raw =
     ((fixed hΓ x).reindex (root hΓ x)).raw := by
@@ -73,13 +73,13 @@ theorem first_projection_type :
     identityCode (baseCode _) (fixed hΓ x).code (moving hΓ x).code =
       subTyCode (identityCode (baseCode _) (x.reindex (pathProjection hΓ x)).code
         (Authoring.moving hΓ x).code) (projectionCode (tailCode hΓ x)) := by
-  rw [identityBaseSub_code, fixed_projection, moving_projection]
+  rw [subTyCode_identityCode_base, fixed_projection, moving_projection]
   rfl
 
 theorem witness_root_type : subTyCode
     (identityCode (baseCode _) (x.reindex (pathProjection hΓ x)).code (Authoring.moving hΓ x).code)
     (rootCode (baseCode γ) x.code) = identityCode (baseCode γ) x.code x.code := by
-  rw [identityBaseSub_code, fixed_at_root, moving_at_root]
+  rw [subTyCode_identityCode_base, fixed_at_root, moving_at_root]
 
 theorem witness_root (M : Model) :
     HEq (M.subTm ((pathWitness hΓ x).code M) (rootCode (baseCode γ) x.code M))
@@ -105,7 +105,7 @@ theorem first_root_eval (M : Model) :
     (first_projection hΓ x M) _).trans
   apply (M.subTm_comp _ _ _).trans
   apply (subTm_substitution_heq M _ (congrArg (fun s => s M)
-    (projectionLift_code (tailCode hΓ x) (rootCode (baseCode γ) x.code)))).trans
+    (projectionCode_liftSub (tailCode hΓ x) (rootCode (baseCode γ) x.code)))).trans
   apply (M.subTm_comp _ _ _).symm.trans
   apply (M.subTm_congr (congrArg (fun a => a M) (witness_root_type hΓ x))
     (witness_root hΓ x M) (P M)).trans
@@ -113,7 +113,7 @@ theorem first_root_eval (M : Model) :
   have hf : ((fixed hΓ x).reindex (root hΓ x)).code = baseReindexCode x.code P := by
     change baseReindexCode (fixed hΓ x).code _ = _
     rw [fixed_projection]
-    exact (baseReindex_lift _ _ _).trans
+    exact (baseReindexCode_lift _ _ _).trans
       (congrArg (fun t => baseReindexCode t P) (fixed_at_root hΓ x))
   rw [hf]
   exact refl_heq M (M.base_sub (P M)) (castCode_eval (subTyCode_baseCode P) (subTmCode x.code P) M).symm

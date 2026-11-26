@@ -71,6 +71,6 @@ example : M.Section (M.extend PUnit (S.sigma (Γ := PUnit) PUnit PUnit))
 
 example : SquareKit.GuardedTheory.Derivation PrimitiveSigma.Reindexing.theory
     (List.ofFn PrimitiveSigma.splitEtaRule.premise) PrimitiveSigma.splitEtaRule.conclusion → False :=
-  PrimitiveSigma.Separation.stable_splitEta_not_derivable
+  PrimitiveSigma.Separation.stable_splitEtaRule_not_derivable
 end Separator
 end Examples.PrimitiveDependentSums

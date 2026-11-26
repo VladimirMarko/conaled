@@ -13,14 +13,14 @@ variable (hm : ∀{x y : B}, Function.Injective (fun p : x ⟶ y => H.map p))
 variable (hc : ∀{x y : B} {p q : x ⟶ y}, Function.Injective (H.map₂ (f := p) (g := q)))
 omit [Strict B] [Strict C] in
 include hc in
-private theorem mappedCell_heq_reflect {x y : B} {p q p' q' : x ⟶ y}
+private theorem map₂_heq_reflect {x y : B} {p q p' q' : x ⟶ y}
     (hp : p = p') (hq : q = q') (α : p ⟶ q) (β : p' ⟶ q')
     (h : HEq (H.map₂ α) (H.map₂ β)) : HEq α β := by
   cases hp; cases hq
   exact heq_of_eq (hc (eq_of_heq h))
 
 omit [Strict C] in
-private theorem strongNaturality_heq {F G : Pseudofunctor A C}
+private theorem strongTrans_naturality_hom_heq {F G : Pseudofunctor A C}
     {α β : Pseudofunctor.StrongTrans F G} (h : α = β) {x y : A} (p : x ⟶ y) :
     HEq (α.naturality p).hom (β.naturality p).hom := by cases h; rfl
 
@@ -36,10 +36,10 @@ theorem strongPostcomp_heq_reflect {F G F' G' : StrictPseudofunctor A B}
   apply heq_of_eq
   apply strongTrans_ext α β ha
   intro x y p
-  have hn := strongNaturality_heq he p
+  have hn := strongTrans_naturality_hom_heq he p
   have hk := (strongPostcomp_naturality_heq α H p).symm.trans
     (hn.trans (strongPostcomp_naturality_heq β H p))
-  exact mappedCell_heq_reflect H (@hc)
+  exact map₂_heq_reflect H (@hc)
     (congrArg (fun a => F.map p ≫ a) (ha y))
     (congrArg (fun a => a ≫ G.map p) (ha x)) _ _ hk
 end SquareKit.Internal.PathTransport

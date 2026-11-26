@@ -74,7 +74,7 @@ theorem selectedSectionIso_transport (P : B ⥤ A) [P.Full] [P.Faithful]
 
 /-- Postcomposition transports a selected square across a strictly commuting
 square of target functors. All endpoint identifications are explicit. -/
-theorem isoSquare_postcompose {E E' : Type u} [Category.{v} E] [Category.{v} E']
+theorem iso_square_postcompose {E E' : Type u} [Category.{v} E] [Category.{v} E']
     {I J : A ⥤ B} {I' J' : A' ⥤ B'}
     (s : A' ⥤ A) (t : B' ⥤ B) (r : E' ⥤ E)
     (K : B ⥤ E) (K' : B' ⥤ E') (ht : t ⋙ K = K' ⋙ r)
@@ -101,7 +101,7 @@ theorem isoSquare_postcompose {E E' : Type u} [Category.{v} E] [Category.{v} E']
       congrArg (fun T => T.obj (J'.obj x)) ht)) hh
   simpa [Category.assoc] using hfinal
 
-theorem isoSquare_relabel {I J L R : A ⥤ B} {I' J' L' R' : A' ⥤ B'}
+theorem iso_square_relabel {I J L R : A ⥤ B} {I' J' L' R' : A' ⥤ B'}
     (s : A' ⥤ A) (t : B' ⥤ B)
     (e : I ≅ J) (e' : I' ≅ J')
     (hI : I = L) (hJ : J = R) (hI' : I' = L') (hJ' : J' = R')

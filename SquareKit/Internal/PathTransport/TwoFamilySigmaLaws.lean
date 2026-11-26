@@ -111,8 +111,8 @@ theorem sigmaMap_cell_id_heq (γ : Γ) {x y : sigmaFiber F γ B} {p q : x ⟶ y}
 
 /-- Identity base transport is the whole identity higher functor, including genuine cells. -/
 theorem sigmaMap_id (γ : Γ) : sigmaMap F B (𝟙 γ) = StrictPseudofunctor.id (sigmaFiber F γ B) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · exact sigmaMap_obj_id F B γ
   · exact fun p => sigmaMap_map_id_heq F B γ p
   · exact fun α => sigmaMap_cell_id_heq F B γ α
@@ -227,8 +227,8 @@ theorem sigmaMap_cell_comp_heq {γ δ ε : Γ} (f : γ ⟶ δ) (g : δ ⟶ ε)
 /-- Sigma transport composes as whole higher functors, without erasing either cell component. -/
 theorem sigmaMap_comp {γ δ ε : Γ} (f : γ ⟶ δ) (g : δ ⟶ ε) :
     sigmaMap F B (f ≫ g) = (sigmaMap F B f).comp (sigmaMap F B g) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · exact sigmaMap_obj_comp F B f g
   · exact fun p => sigmaMap_map_comp_heq F B f g p
   · exact fun α => sigmaMap_cell_comp_heq F B f g α

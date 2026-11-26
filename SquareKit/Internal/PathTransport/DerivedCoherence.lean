@@ -27,7 +27,7 @@ end StructuralModel
 def baseReindexCode (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) : TmCode δ (baseCode δ) :=
   castCode (subTyCode_baseCode s) (subTmCode ξ s)
 
-theorem baseReindex_comp (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) (t : SubCode θ δ) :
+theorem baseReindexCode_comp (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) (t : SubCode θ δ) :
     baseReindexCode (baseReindexCode ξ s) t = baseReindexCode ξ (compCode s t) := by
   funext M
   apply eq_of_heq
@@ -35,11 +35,11 @@ theorem baseReindex_comp (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) (t :
     ((M.subTm_comp _ _ _).trans
       (castCode_eval (subTyCode_baseCode (compCode s t)) (subTmCode ξ (compCode s t)) M).symm))
 
-theorem baseReindex_id (ξ : TmCode γ (baseCode γ)) : baseReindexCode ξ (idCode γ) = ξ := by
+theorem baseReindexCode_id (ξ : TmCode γ (baseCode γ)) : baseReindexCode ξ (idCode γ) = ξ := by
   funext M
   exact eq_of_heq ((castCode_eval _ _ M).trans (M.subTm_id _))
 
-theorem identityBaseSub_code (ξ η : TmCode γ (baseCode γ)) (s : SubCode δ γ) :
+theorem subTyCode_identityCode_base (ξ η : TmCode γ (baseCode γ)) (s : SubCode δ γ) :
     subTyCode (identityCode (baseCode γ) ξ η) s =
       identityCode (baseCode δ) (baseReindexCode ξ s) (baseReindexCode η s) := by
   funext M
@@ -48,7 +48,7 @@ theorem identityBaseSub_code (ξ η : TmCode γ (baseCode γ)) (s : SubCode δ �
     (castCode_eval (subTyCode_baseCode s) (subTmCode ξ s) M).symm
     (castCode_eval (subTyCode_baseCode s) (subTmCode η s) M).symm
 
-theorem projectionLift_code (T : TelCode γ n) (s : SubCode δ γ) :
+theorem projectionCode_liftSub (T : TelCode γ n) (s : SubCode δ γ) :
     compCode (projectionCode T)
       (fun M => StructuralModel.Telescope.liftSub M.toStructuralModel (T M) (s M)) =
       compCode s (projectionCode (telPullback T s)) := by
@@ -65,12 +65,12 @@ theorem compCode_assoc (s : SubCode δ γ) (t : SubCode θ δ) (v : SubCode χ �
     compCode (compCode s t) v = compCode s (compCode t v) :=
   funext fun M => M.comp_assoc _ _ _
 
-theorem baseReindex_lift (ξ : TmCode γ (baseCode γ)) (T : TelCode γ n) (s : SubCode δ γ) :
+theorem baseReindexCode_lift (ξ : TmCode γ (baseCode γ)) (T : TelCode γ n) (s : SubCode δ γ) :
     baseReindexCode (baseReindexCode ξ (projectionCode T))
       (fun M => StructuralModel.Telescope.liftSub M.toStructuralModel (T M) (s M)) =
       baseReindexCode (baseReindexCode ξ s) (projectionCode (telPullback T s)) :=
-  (baseReindex_comp _ _ _).trans
-    ((congrArg (baseReindexCode ξ) (projectionLift_code T s)).trans (baseReindex_comp _ _ _).symm)
+  (baseReindexCode_comp _ _ _).trans
+    ((congrArg (baseReindexCode ξ) (projectionCode_liftSub T s)).trans (baseReindexCode_comp _ _ _).symm)
 
 namespace Authoring
 
@@ -90,7 +90,7 @@ theorem fixed_at_root (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) :
       (weakenCode (extendCode γ (baseCode γ)) (pathFamilyCode (baseCode γ) x.code)))
       (rootCode (baseCode γ) x.code) = idCode γ :=
     (congrArg (compCode _) hr).symm.trans h
-  exact (baseReindex_comp _ _ _).trans ((congrArg (baseReindexCode x.code) h').trans (baseReindex_id _))
+  exact (baseReindexCode_comp _ _ _).trans ((congrArg (baseReindexCode x.code) h').trans (baseReindexCode_id _))
 
 theorem moving_at_root (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) :
     baseReindexCode (moving hΓ x).code (rootCode (baseCode γ) x.code) = x.code :=

@@ -18,8 +18,8 @@ theorem alignedContextComparison_substitution (h : α ≫ whiskerRight η.hom Q 
     (hs : Typed.SubDeriv.{max u v w + 1} Δ δ Γ γ σ s) :
     isoWhiskerLeft (s (Instance.universeModel C P)).down
         (alignedContextComparison η P Q α β h hΓ) ≪≫
-      eqToIso (generatedSubstitution_commutes (alignedUniverseSignature G P Q β) hΓ hΔ hs) =
-    eqToIso (generatedSubstitution_commutes (alignedUniverseSignature F P Q α) hΓ hΔ hs) ≪≫
+      eqToIso (generatedContextMap_substitution_commutes (alignedUniverseSignature G P Q β) hΓ hΔ hs) =
+    eqToIso (generatedContextMap_substitution_commutes (alignedUniverseSignature F P Q α) hΓ hΔ hs) ≪≫
       isoWhiskerRight (alignedContextComparison η P Q α β h hΔ)
         (s (Instance.universeModel D Q)).down :=
   SignatureCylinder.contextComparison_substitution
@@ -29,6 +29,6 @@ theorem alignedContextComparison_substitution (h : α ≫ whiskerRight η.hom Q 
     (alignedUniverseSignature F P Q α).rightFiber
     (alignedUniverseSignature F P Q α).fiberMap
     (alignedUniverseSignature G P Q β).fiberMap
-    (alignedFiber_square η P Q α β h) hΓ hΔ hs
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ hΔ hs
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

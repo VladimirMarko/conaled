@@ -14,7 +14,7 @@ variable {Z : Type u} [Category.{u} Z]
 variable (E : Z ⥤ Datum (A.total h).toDiagram) (d : Datum D.toDiagram)
 variable (he : E ⋙ (A.projection h).functor = (Functor.const Z).obj d)
 
-theorem identityValues_isEquivalence [ (fixedBaseFunctor A h E d he).Full]
+theorem identity_values_isEquivalence [ (fixedBaseFunctor A h E d he).Full]
     [ (fixedBaseFunctor A h E d he).Faithful]
     (x y : Z) (e f : Datum (A.total h).toDiagram)
     (hep : (A.projection h).functor.obj e = d) (hfp : (A.projection h).functor.obj f = d)
@@ -38,7 +38,7 @@ theorem identityValues_isEquivalence [ (fixedBaseFunctor A h E d he).Full]
     change (Fiber.ofDatum _ _).datum = _
     rw [Fiber.datum_ofDatum, Fiber.datum_ofDatum]
     exact ey
-  apply discreteHomEvaluation_isEquivalence (fixedBaseFunctor A h E d he) x y hx hy
+  apply discrete_hom_evaluation_isEquivalence (fixedBaseFunctor A h E d he) x y hx hy
     (k.trans (ofDatumArrowEquiv hep hfp)) V
   intro p
   refine fixedBaseArrow_endpoint A h E d he p e f hep hfp ex ey hx hy

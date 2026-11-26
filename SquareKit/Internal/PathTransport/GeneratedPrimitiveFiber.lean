@@ -35,11 +35,11 @@ local notation "M" => fullModel S
 local notation "L" => Instance.fullModel S.base.left S.leftFiber
 local notation "R" => Instance.fullModel S.base.right S.rightFiber
 
-theorem generatedBaseTerm_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem baseFunctor_generatedContextMap_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
     baseFunctor (ξ L).down ⋙ S.base.map =
       generatedContextMap S hΓ ⋙ baseFunctor (ξ R).down := by
-  have ht := generatedTerm_commutes S hΓ (.base hΓ) hx
+  have ht := generatedFamilyMap_term_commutes S hΓ (.base hΓ) hx
   rw [generatedFamilyMap_base] at ht
   have hb := congrArg baseFunctor ht
   rw [baseFunctor_familyImage_constant, baseFunctor_reindex] at hb
@@ -51,7 +51,7 @@ theorem generatedFamilyMap_fiber (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     generatedFamilyMap S hΓ (.fiber hx) =
       whiskerLeft (baseFunctor (ξ L).down) (whiskerRight S.fiberMap discrete) ≫
         eqToHom (congrArg (· ⋙ setFamily S.rightFiber)
-          (generatedBaseTerm_commutes S hΓ hx)) := by
+          (baseFunctor_generatedContextMap_commutes S hΓ hx)) := by
   apply eq_of_heq
   apply (Family.relabelMap_heq _ _ _ _ _).trans
   exact Family.reindex_map_heq S.primitive (S.baseSubstitution (ξ M)) rfl rfl
@@ -61,7 +61,7 @@ theorem generatedFamilyMap_fiber (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
       ((leftSignatureMap S).generated_tm hx).2)
     (baseFunctor_up_heq _ ((rightSignatureMap S).generated_ctx hΓ)
       ((rightSignatureMap S).generated_tm hx).2)
-    (generatedBaseTerm_commutes S hΓ hx)
+    (baseFunctor_generatedContextMap_commutes S hΓ hx)
 
 /-- Underlying set-valued restriction for a generated primitive fiber. -/
 def generatedFiberSetMap (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
@@ -69,7 +69,7 @@ def generatedFiberSetMap (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     baseFunctor (ξ L).down ⋙ S.leftFiber ⟶
       generatedContextMap S hΓ ⋙ baseFunctor (ξ R).down ⋙ S.rightFiber :=
   whiskerLeft (baseFunctor (ξ L).down) S.fiberMap ≫
-    eqToHom (congrArg (· ⋙ S.rightFiber) (generatedBaseTerm_commutes S hΓ hx))
+    eqToHom (congrArg (· ⋙ S.rightFiber) (baseFunctor_generatedContextMap_commutes S hΓ hx))
 
 /-- Discretizing the set-valued map recovers the complete family restriction. -/
 theorem generatedFamilyMap_fiber_set (hΓ : Typed.CtxDeriv.{u+1} Γ γ)

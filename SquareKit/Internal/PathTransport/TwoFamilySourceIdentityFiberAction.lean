@@ -38,7 +38,7 @@ theorem sourceIdentityFiberAction (A : Family Γ) (x y : TwoFamily.Section A.dat
  (s : TwoFamily.Section (reindex (projectionHigher (A.identity x y).data) (A.identity x y).data))
  [∀ γ, Subsingleton ((A.identity x y).data.obj γ)] :
  SourceIdentityFiberAction C D A x y p q s := by
- have hf := endpointSub_fiber_action C D A x y p q s
+ have hf := endpointSubNative_fiber_action C D A x y p q s
  have hv := sourceOrdinaryVerticalAction C D (A.identity x y) p q s
  have f := identityFiberValueFormula_of_vertical A x y p q s
   (endpointSubNative C D (A.identity x y) p q)

@@ -14,12 +14,12 @@ noncomputable def identityFiberConjugated
   (identityFiberFunctor A x y γ s).map h ≫ (identityFiberBeta A x y γ s p).app b
 theorem identityFiberConjugated_eq
  {a b : (x.normalObj A.data γ).fiber ⟶ (y.normalObj A.data γ).fiber} (h : a ⟶ b) :
- identityFiberConjugated A x y γ s p h = h := identityFiber_conjugation A x y γ s p h
+ identityFiberConjugated A x y γ s p h = h := identityFiberBeta_conjugation A x y γ s p h
 /-- The entire conjugation equation, quantified over every arrow of the identity fiber. -/
 def IdentityFiberConjugation : Prop :=
  ∀ {a b : (x.normalObj A.data γ).fiber ⟶ (y.normalObj A.data γ).fiber} (h : a ⟶ b),
  inv ((identityFiberBeta A x y γ s p).app a) ≫
   (identityFiberFunctor A x y γ s).map h ≫ (identityFiberBeta A x y γ s p).app b = h
 theorem identityFiberConjugation : IdentityFiberConjugation A x y γ s p :=
- identityFiber_conjugation A x y γ s p
+ identityFiberBeta_conjugation A x y γ s p
 end SquareKit.Internal.PathTransport.HigherInterpretation

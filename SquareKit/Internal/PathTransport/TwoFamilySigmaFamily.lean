@@ -12,7 +12,7 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Bicategory.Strict Γ]
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable (B : Family.{max uΓ u,max vΓ v,max wΓ w,uB,vB,wB} (Total F))
 
-private theorem comparisonTarget_comp {γ δ ε : Γ} (f : γ ⟶ δ) (g : δ ⟶ ε) (a : F.obj γ) :
+private theorem fiberInclusion_map_comp_obj {γ δ ε : Γ} (f : γ ⟶ δ) (g : δ ⟶ ε) (a : F.obj γ) :
     (fiberInclusion F ε).obj ((F.map (f ≫ g)).obj a) =
       (fiberInclusion F ε).obj ((F.map g).obj ((F.map f).obj a)) :=
   congrArg ((fiberInclusion F ε).obj)
@@ -28,7 +28,7 @@ theorem cartesianComparisonCell_left_source_heq {γ δ ε : Γ} (f : γ ⟶ δ)
     (y := ⟨ε,(F.map (f ≫ h)).obj a⟩) ⟨f ≫ g,(F.map₂ (f ◁ α)).app a⟩]
   rw [cartesianLift_factorization F (x := ⟨δ,(F.map f).obj a⟩)
     (y := ⟨ε,(F.map h).obj ((F.map f).obj a)⟩) ⟨g,(F.map₂ α).app ((F.map f).obj a)⟩]
-  apply total_hom_hext F rfl (comparisonTarget_comp F f h a)
+  apply total_hom_hext F rfl (fiberInclusion_map_comp_obj F f h a)
   · rfl
   · change HEq ((F.map₂ (f ◁ α)).app a)
       (eqToHom _ ≫ (F.map g).map (𝟙 _) ≫ (F.map₂ α).app ((F.map f).obj a))
@@ -50,7 +50,7 @@ theorem cartesianComparisonCell_left_heq {γ δ ε : Γ} (f : γ ⟶ δ)
     {g h : δ ⟶ ε} (α : g ⟶ h) (a : F.obj γ) :
     HEq (cartesianComparisonCell F (f ◁ α) a)
       (cartesianLift F f a ◁ cartesianComparisonCell F α ((F.map f).obj a)) := by
-  apply equalityFiber_hext F rfl (comparisonTarget_comp F f h a)
+  apply equalityFiber_hext F rfl (fiberInclusion_map_comp_obj F f h a)
     (cartesianComparisonCell_left_source_heq F f α a) (cartesianLift_comp_heq F f h a)
   · change HEq (cartesianComparisonCell F (f ◁ α) a).base
       (f ◁ (cartesianComparisonCell F α ((F.map f).obj a)).base)
@@ -82,7 +82,7 @@ theorem sigmaCellComponent_left_heq {γ δ ε : Γ} (f : γ ⟶ δ)
     simp only [compBoundary, eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
     rfl
   · apply HEq.trans (sigmaCellComponent_fiber_heq F B (f ◁ α) x)
-    have hmap := mapped_cell_heq F B (comparisonTarget_comp F f h x.base)
+    have hmap := mapped_cell_heq F B (fiberInclusion_map_comp_obj F f h x.base)
       (cartesianComparisonCell_left_source_heq F f α x.base)
       (cartesianLift_comp_heq F f h x.base)
       (cartesianComparisonCell_left_heq F f α x.base) x.fiber
@@ -119,7 +119,7 @@ theorem cartesianComparisonCell_right_source_heq {γ δ ε : Γ}
   rw [cartesianLift_factorization F (x := ⟨δ,(F.map f).obj a⟩)
     (y := ⟨ε,(F.map h).obj ((F.map g).obj a)⟩)
       ⟨h,(F.map h).map ((F.map₂ α).app a)⟩]
-  apply total_hom_hext F rfl (comparisonTarget_comp F g h a)
+  apply total_hom_hext F rfl (fiberInclusion_map_comp_obj F g h a)
   · rfl
   · change HEq ((F.map₂ (α ▷ h)).app a)
       (eqToHom _ ≫ (F.map h).map (𝟙 _) ≫ (F.map h).map ((F.map₂ α).app a))
@@ -132,7 +132,7 @@ theorem cartesianComparisonCell_right_heq {γ δ ε : Γ}
     {f g : γ ⟶ δ} (α : f ⟶ g) (h : δ ⟶ ε) (a : F.obj γ) :
     HEq (cartesianComparisonCell F (α ▷ h) a)
       (cartesianComparisonCell F α a ▷ cartesianLift F h ((F.map g).obj a)) := by
-  apply equalityFiber_hext F rfl (comparisonTarget_comp F g h a)
+  apply equalityFiber_hext F rfl (fiberInclusion_map_comp_obj F g h a)
     (cartesianComparisonCell_right_source_heq F α h a) (cartesianLift_comp_heq F g h a)
   · change HEq (cartesianComparisonCell F (α ▷ h) a).base
       ((cartesianComparisonCell F α a).base ▷ h)
@@ -154,7 +154,7 @@ theorem sigmaCellComponent_right_heq {γ δ ε : Γ}
     simp only [compBoundary, eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
     rfl
   · apply HEq.trans (sigmaCellComponent_fiber_heq F B (α ▷ h) x)
-    have hmap := mapped_cell_heq F B (comparisonTarget_comp F g h x.base)
+    have hmap := mapped_cell_heq F B (fiberInclusion_map_comp_obj F g h x.base)
       (cartesianComparisonCell_right_source_heq F α h x.base)
       (cartesianLift_comp_heq F g h x.base)
       (cartesianComparisonCell_right_heq F α h x.base) x.fiber

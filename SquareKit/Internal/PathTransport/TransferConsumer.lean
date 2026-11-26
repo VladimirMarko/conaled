@@ -56,15 +56,15 @@ theorem consume {t : Expr} {ξ : TmCode γ (resultCode hΓ x y z p q b)}
     SourceSemantics.transport_obj, ConcatSemantics.concat_obj] at e
   have hx : ((TransferFrame.fixed hΓ x).code M).down.reindex (s M).down = (x.code M).down := by
     have h := congrArg (fun a => a M) (TransferApplication.fixed_at hΓ x y z p q b)
-    rw [ConcatSemantics.baseReindex_eval] at h
+    rw [ConcatSemantics.baseReindexCode_eval] at h
     exact congrArg ULift.down h
   have hy : ((TransferFrame.moving hΓ x).code M).down.reindex (s M).down = (y.code M).down := by
     have h := congrArg (fun a => a M) (TransferApplication.moving_at hΓ x y z p q b)
-    rw [ConcatSemantics.baseReindex_eval] at h
+    rw [ConcatSemantics.baseReindexCode_eval] at h
     exact congrArg ULift.down h
   have hz : ((TransferFrame.last hΓ x).code M).down.reindex (s M).down = (z.code M).down := by
     have h := congrArg (fun a => a M) (TransferApplication.last_at hΓ x y z p q b)
-    rw [ConcatSemantics.baseReindex_eval] at h
+    rw [ConcatSemantics.baseReindexCode_eval] at h
     exact congrArg ULift.down h
   exact action_relabel C B hx hy hz
     ((M).subTm ((TransferFrame.first hΓ x).code M) (s M))

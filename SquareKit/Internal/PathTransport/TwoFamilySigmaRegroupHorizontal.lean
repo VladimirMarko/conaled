@@ -149,7 +149,7 @@ private theorem right_fiber_heq {C : Type*} [Bicategory C] [Strict C]
   exact boundary_right_heq _ _ _
 
 set_option maxHeartbeats 1200000 in
-theorem sigmaWhiskerRight_second_heq {x y z : Total (sigmaFamily F B)}
+theorem sigma_whiskerRight_second_heq {x y z : Total (sigmaFamily F B)}
     {p q : x ⟶ y} (α : p ⟶ q) (r : y ⟶ z) :
     HEq (α ▷ r).fiber.fiber
       (((fiberRestriction F z.base B).map r.fiber.base).map₂

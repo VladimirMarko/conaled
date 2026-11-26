@@ -28,7 +28,7 @@ def ApdSectionActionFormula : Prop :=
   (transportSection M A B x ((M).subTm t ((M).toStructuralModel.sectionSub A x))).down
   ((M).subTm t ((M).weaken _ ((M).toStructuralModel.pathFamily A x))).down
   (apdBranchValue M A B x t).down (apdSectionValue M A B x t).down
-theorem apdSection_action : ApdSectionActionFormula C D A B x t :=
+theorem apdSectionValue_action : ApdSectionActionFormula C D A B x t :=
  SourceContraction.ValueFormula.identity_action (rootContraction C D A x).val
-  (motive M A B x) _ _ _ _ (apdSection_objects C D A B x t)
+  (motive M A B x) _ _ _ _ (apdSectionValue_objects C D A B x t)
 end SquareKit.Internal.PathTransport.HigherInterpretation

@@ -57,7 +57,7 @@ private theorem mapped_component_right_heq {C D E : Type*}
   rw [StrictTwoTransformation.Trans.eqToHom_app]
   exact mapped_boundary_right_heq _ _ _ _
 
-private theorem totalRightCast_base {C : Type*} [Bicategory C] [Strict C] (H : Family C)
+private theorem total_right_cast_base {C : Type*} [Bicategory C] [Strict C] (H : Family C)
     {x y z : Total H} {p q : x ⟶ y} (α : p ⟶ q) (r : y ⟶ z)
     {s t : x ⟶ z} (hs : s = p ≫ r) (ht : t = q ≫ r) :
     (eqToHom hs ≫ α ▷ r ≫ eqToHom ht.symm).base =
@@ -80,7 +80,7 @@ theorem sigmaRegroup_right_fiber {x y z : Total (sigmaFamily F B)}
     {p q : x ⟶ y} (α : p ⟶ q) (r : y ⟶ z) :
     HEq (α ▷ r).fiber.fiber
       (sigmaRegroupCell F B α ▷ sigmaRegroupMap F B r).fiber := by
-  apply HEq.trans (sigmaWhiskerRight_second_heq F B α r)
+  apply HEq.trans (sigma_whiskerRight_second_heq F B α r)
   apply HEq.trans _ (sigmaRegroup_right_target_heq F B α r).symm
   change HEq
     ((B.map ((fiberInclusion F z.base).map r.fiber.base)).map₂
@@ -104,7 +104,7 @@ theorem sigmaRegroupCell_whiskerRight {x y z : Total (sigmaFamily F B)}
   refine Pseudofunctor.CoGrothendieck.Hom.ext _ _ ?_ ?_
   · have h := (sigmaFirst F B).map₂_whisker_right α r
     simp only [(sigmaFirst F B).mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv] at h
-    exact h.trans (totalRightCast_base B (sigmaRegroupCell F B α)
+    exact h.trans (total_right_cast_base B (sigmaRegroupCell F B α)
       (sigmaRegroupMap F B r) (sigmaRegroupMap_comp F B p r)
         (sigmaRegroupMap_comp F B q r)).symm
   · apply eq_of_heq

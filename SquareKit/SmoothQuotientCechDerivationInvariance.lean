@@ -58,7 +58,7 @@ theorem matchingEvaluation_derivation (hΓ kΓ : Typed.CtxDeriv.{2} Γ γ) :
 
 theorem totalMatchingEvaluation_derivation :
     HEq (totalMatchingEvaluation a A hΓ hB) (totalMatchingEvaluation a A hΓ kB) := by
-  exact CechMatching.mappedFunctor_heq
+  exact CechMatching.functor_comp_heq
     (SmoothQuotientGeneratedMatching.strictDiagram_derivation a A (.ext hΓ hB) (.ext hΓ kB))
     (CechMatching.Comprehension.total_eq
       (SmoothQuotientGeneratedMatching.relativeFamilyData_derivation a A hΓ hB kB) _ _)
@@ -68,7 +68,7 @@ theorem totalMatchingEvaluation_derivation :
 theorem familyEvaluation_derivation_iff (c : (show Grpd.{1,1} from γ (model a A))) :
     (familyEvaluation a A hΓ hB c).IsEquivalence ↔
       (familyEvaluation a A hΓ kB c).IsEquivalence := by
-  exact CechMatching.Comprehension.fixedBase_precomp_equivalence_iff
+  exact CechMatching.Comprehension.fixedBaseFunctor_precomp_isEquivalence_iff
     (SmoothQuotientGeneratedMatching.relativeFamilyData_derivation a A hΓ hB kB) _ _
     (totalMatchingEvaluation_derivation a A hΓ hB kB) _ _ _ _
 

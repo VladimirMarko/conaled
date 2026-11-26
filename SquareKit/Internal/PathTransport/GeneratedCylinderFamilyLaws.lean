@@ -44,14 +44,14 @@ local notation "V" => Signature.mk (Context.mk D E K) Q R κ
 local notation "SK" => Signature.mk (Context.mk C E (F ⋙ K)) P R (α ≫ whiskerLeft F κ)
 local notation "UK" => Signature.mk (Context.mk C E (G ⋙ K)) P R (β ≫ whiskerLeft G κ)
 
-theorem familyTotalMap_comp (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem totalMap_generatedFamilyMap_comp (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) :
     totalMap (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA) ⋙
       totalMap (generatedContextMap V hΓ) (generatedFamilyMap V hΓ hA) =
     totalMap (generatedContextMap SK hΓ) (generatedFamilyMap SK hΓ hA) := by
   rw [← generatedContextMap_extend S hΓ hA, ← generatedContextMap_extend V hΓ hA,
     ← generatedContextMap_extend SK hΓ hA]
-  exact generatedPostcompose_signature F K P Q R α κ (.ext hΓ hA)
+  exact generatedContextMap_signature_comp F K P Q R α κ (.ext hΓ hA)
 
 theorem familyTotalIso_postcompose
     (hk : (α ≫ whiskerLeft F κ) ≫ whiskerRight (isoWhiskerRight η K).hom R =
@@ -59,10 +59,10 @@ theorem familyTotalIso_postcompose
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) (hA : Typed.TyDeriv.{u+1} Γ γ A a) :
     familyTotalIso (F ⋙ K) P (isoWhiskerRight η K) R
       (α ≫ whiskerLeft F κ) (β ≫ whiskerLeft G κ) hk hΓ hA =
-    (eqToIso (familyTotalMap_comp P Q α K R κ hΓ hA)).symm ≪≫
+    (eqToIso (totalMap_generatedFamilyMap_comp P Q α K R κ hΓ hA)).symm ≪≫
       isoWhiskerRight (familyTotalIso F P η Q α β hη hΓ hA)
         (totalMap (generatedContextMap V hΓ) (generatedFamilyMap V hΓ hA)) ≪≫
-      eqToIso (familyTotalMap_comp P Q β K R κ hΓ hA) := by
+      eqToIso (totalMap_generatedFamilyMap_comp P Q β K R κ hΓ hA) := by
   have hc := congrArg (fun e =>
       (eqToIso (generatedContextMap_extend SK hΓ hA)).symm ≪≫ e ≪≫
       eqToIso (generatedContextMap_extend UK hΓ hA))
@@ -91,13 +91,13 @@ local notation "V" => Signature.mk (Context.mk B C K) O P κ
 local notation "KS" => Signature.mk (Context.mk B D (K ⋙ F)) O Q (κ ≫ whiskerLeft K α)
 local notation "KU" => Signature.mk (Context.mk B D (K ⋙ G)) O Q (κ ≫ whiskerLeft K β)
 
-theorem familyPrecompose_map (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedContextMap_family_precompose (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) :
     generatedContextMap V (.ext hΓ hA) ⋙
       totalMap (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA) =
     totalMap (generatedContextMap KS hΓ) (generatedFamilyMap KS hΓ hA) := by
   rw [← generatedContextMap_extend S hΓ hA, ← generatedContextMap_extend KS hΓ hA]
-  exact generatedPostcompose_signature K F O P Q κ α (.ext hΓ hA)
+  exact generatedContextMap_signature_comp K F O P Q κ α (.ext hΓ hA)
 
 theorem familyTotalIso_precompose
     (hk : (κ ≫ whiskerLeft K α) ≫ whiskerRight (isoWhiskerLeft K η).hom Q =
@@ -105,20 +105,20 @@ theorem familyTotalIso_precompose
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) (hA : Typed.TyDeriv.{u+1} Γ γ A a) :
     isoWhiskerLeft (generatedContextMap V (.ext hΓ hA))
         (familyTotalIso F P η Q α β hη hΓ hA) ≪≫
-      eqToIso (familyPrecompose_map P Q β K O κ hΓ hA) =
-    eqToIso (familyPrecompose_map P Q α K O κ hΓ hA) ≪≫
+      eqToIso (generatedContextMap_family_precompose P Q β K O κ hΓ hA) =
+    eqToIso (generatedContextMap_family_precompose P Q α K O κ hΓ hA) ≪≫
       familyTotalIso (K ⋙ F) O (isoWhiskerLeft K η) Q
         (κ ≫ whiskerLeft K α) (κ ≫ whiskerLeft K β) hk hΓ hA := by
-  have hh := isoSquare_relabel (generatedContextMap V (.ext hΓ hA)) (𝟭 _)
+  have hh := iso_square_relabel (generatedContextMap V (.ext hΓ hA)) (𝟭 _)
     (contextComparison F P η Q α β hη (.ext hΓ hA))
     (contextComparison (K ⋙ F) O (isoWhiskerLeft K η) Q
       (κ ≫ whiskerLeft K α) (κ ≫ whiskerLeft K β) hk (.ext hΓ hA))
     (generatedContextMap_extend S hΓ hA) (generatedContextMap_extend U hΓ hA)
     (generatedContextMap_extend KS hΓ hA) (generatedContextMap_extend KU hΓ hA)
-    (generatedPostcompose_signature K F O P Q κ α (.ext hΓ hA))
-    (generatedPostcompose_signature K G O P Q κ β (.ext hΓ hA))
-    (familyPrecompose_map P Q α K O κ hΓ hA)
-    (familyPrecompose_map P Q β K O κ hΓ hA)
+    (generatedContextMap_signature_comp K F O P Q κ α (.ext hΓ hA))
+    (generatedContextMap_signature_comp K G O P Q κ β (.ext hΓ hA))
+    (generatedContextMap_family_precompose P Q α K O κ hΓ hA)
+    (generatedContextMap_family_precompose P Q β K O κ hΓ hA)
     (contextComparison_precompose K F O P κ Q α η β hη hk (.ext hΓ hA))
   ext x
   exact congrArg (fun e => e.hom.app x) hh

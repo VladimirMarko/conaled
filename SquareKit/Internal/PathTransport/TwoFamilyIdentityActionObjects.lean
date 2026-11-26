@@ -18,7 +18,7 @@ def IdentityActionFormula (p : Section (closedId F s t)) : Prop :=
  inv (s.normalMap F (η.app z)).fiber ≫
   (F.map (η.app z)).map (d.normalObj (reindex i (closedId F s t)) (r.obj z)).fiber.as ≫
   (t.normalMap F (η.app z)).fiber
-theorem retractionJ_identityAction :
+theorem retractionJ_identityActionFormula :
  IdentityActionFormula i r η F s t d (retractionJ i r η (closedId F s t) d) := by
  intro z
  rw [retractionJ_normalObj, closedId_map_obj]

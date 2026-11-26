@@ -319,7 +319,7 @@ theorem interpret_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
 
 /-- The generated variable-pair expression is defined by its checked derivation,
 and therefore commutes at every structural map admitting the given inputs. -/
-theorem variablePair_expression_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
+theorem variablePairRule_expression_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
     (F : StructuralMap M N) (Γ Δ : M.Context) (A : M.Family Γ)
     (σ : M.Substitution Δ Γ) (t : M.Section Δ (M.subTy A σ)) :
     let e : Expression (Fin 5) := subTm (generic (.var 0) (.var 2))
@@ -327,7 +327,7 @@ theorem variablePair_expression_map {M : StructuralModel.{u}} {N : StructuralMod
     Value.map F (e.eval (algebra M) (pairingEnvironment M Γ Δ A σ t)) =
       e.eval (algebra N) (Value.map F ∘ pairingEnvironment M Γ Δ A σ t) := by
   apply interpret_map
-  have hv := interpret_variablePair M Γ Δ A σ t
+  have hv := variablePairRule_eval M Γ Δ A σ t
   change (subTm (generic (.var 0) (.var 2)) (pair (.var 2) (.var 3) (.var 4))).eval
     (algebra M) (pairingEnvironment M Γ Δ A σ t) = .term Δ (M.subTy A σ) t at hv
   rw [hv]

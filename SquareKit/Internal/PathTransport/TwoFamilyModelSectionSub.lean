@@ -14,7 +14,7 @@ theorem sectionSub_down_eq {Γ : Context.{u}} (A : Family Γ)
     ((M).sectionSub A x).down = x.down.lift := by
   unfold Typed.StructuralModel.sectionSub
   dsimp only [structuralModel]
-  have hc := sectionCast_down (Family.reindex_id A).symm x
+  have hc := section_cast_down (Family.reindex_id A).symm x
   have hp := congrArg (fun t => TwoFamily.pairLift A.data (StrictPseudofunctor.id Γ) t) hc
   exact hp.trans (TwoFamily.pairLift_id A.data x.down)
 end SquareKit.Internal.PathTransport.HigherInterpretation

@@ -324,7 +324,7 @@ instance : loopComponent.Full where
   map_surjective f := ⟨f.1, Prod.ext rfl (Subsingleton.elim _ _)⟩
 
 example : (𝟭 (Discrete (star ⟶ star))).IsEquivalence :=
-  SquareKit.Internal.PathTransport.discreteHomEvaluation_isEquivalence loopComponent star star
+  SquareKit.Internal.PathTransport.discrete_hom_evaluation_isEquivalence loopComponent star star
     rfl rfl ((Functor.FullyFaithful.ofFullyFaithful loopComponent).homEquiv)
     (𝟭 _) (fun _ => by
       simp only [Functor.id_obj, eqToHom_refl, Category.id_comp, Category.comp_id]

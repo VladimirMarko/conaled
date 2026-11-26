@@ -21,17 +21,17 @@ def substitutionDiagram (f : Y ⟶ X) :
   localMap := (s (SmoothQuotientSource.model a Y)).down
   doubleMap := (s (SmoothQuotientSource.model a (SheafCoverCech.double f))).down
   tripleMap := (s (SmoothQuotientSource.model a (SheafCoverCech.triple f))).down
-  first := generatedSubstitution_commutes
+  first := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.first f)) hΓ hΔ hs
-  second := generatedSubstitution_commutes
+  second := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.second f)) hΓ hΔ hs
-  diagonal := generatedSubstitution_commutes
+  diagonal := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.diagonal f)) hΓ hΔ hs
-  firstSecond := generatedSubstitution_commutes
+  firstSecond := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.firstSecond f)) hΓ hΔ hs
-  firstThird := generatedSubstitution_commutes
+  firstThird := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.firstThird f)) hΓ hΔ hs
-  secondThird := generatedSubstitution_commutes
+  secondThird := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.secondThird f)) hΓ hΔ hs
 
 /-- Independent local data are mapped through the generated substitution. -/

@@ -31,7 +31,7 @@ theorem JValueFormula.reindex_cast
  (F : Family Θ) (e : (M).subTy E σ = F) :
  JReindexedValueFormula C D A x E d σ F
   (cast (congrArg ((M).Section Θ) e) ((M).subTm s σ)) := by
- have hc := sectionCast_down e ((M).subTm s σ)
+ have hc := section_cast_down e ((M).subTm s σ)
  have r := @SourceContraction.ValueFormula.reindex_cast
   ((M).toStructuralModel.pathContext A x) Γ Θ ((M).toStructuralModel.rootSub A x).down
   (rootContraction C D A x).val E d.down s.down h σ.down F e

@@ -21,17 +21,17 @@ def substitutionDiagram (A : SplitSheaf.Ty X) :
   localMap := (s (SmoothQuotientSource.model a (SplitSheaf.extension A))).down
   doubleMap := (s (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down
   tripleMap := (s (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down
-  first := generatedSubstitution_commutes
+  first := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.first A)) hΓ hΔ hs
-  second := generatedSubstitution_commutes
+  second := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.second A)) hΓ hΔ hs
-  diagonal := generatedSubstitution_commutes
+  diagonal := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.diagonal A)) hΓ hΔ hs
-  firstSecond := generatedSubstitution_commutes
+  firstSecond := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.firstSecond A)) hΓ hΔ hs
-  firstThird := generatedSubstitution_commutes
+  firstThird := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.firstThird A)) hΓ hΔ hs
-  secondThird := generatedSubstitution_commutes
+  secondThird := generatedContextMap_substitution_commutes
     (SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.secondThird A)) hΓ hΔ hs
 
 /-- Independent local data are mapped through the generated substitution. -/

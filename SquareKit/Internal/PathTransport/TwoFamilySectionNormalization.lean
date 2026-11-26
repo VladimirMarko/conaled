@@ -97,7 +97,7 @@ def normalData : PrelaxFunctorStruct Γ (Total F) where
   map₂ := s.normalCell F
 
 theorem normalData_eq : s.normalData F = s.lift.toPrelaxFunctorStruct :=
-  prelaxData_ext _ _ (s.normalObj_eq F) (fun p => s.normalMap_heq F p)
+  prelaxFunctorStruct_ext _ _ (s.normalObj_eq F) (fun p => s.normalMap_heq F p)
     (fun α => s.normalCell_heq F α)
 
 def normalized : Section F where

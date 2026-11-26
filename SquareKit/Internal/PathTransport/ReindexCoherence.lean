@@ -66,7 +66,7 @@ theorem fiber_heq {Γ Γ' : M.Context} (hΓ : Γ = Γ')
   cases eq_of_heq hx
   rfl
 
-theorem movingMotive_sub {Γ Δ} (x : M.Section Γ (M.base Γ)) (s : M.Substitution Δ Γ) :
+theorem fiber_baseMoving_sub {Γ Δ} (x : M.Section Γ (M.base Γ)) (s : M.Substitution Δ Γ) :
     M.subTy (M.fiber (M.baseMoving (M.base Γ) x rfl)) (M.pathSub (M.base Γ) x s) =
       M.fiber (M.baseMoving (M.subTy (M.base Γ) s) (M.subTm x s) (M.base_sub s)) :=
   (M.fiber_sub _ _).trans (congrArg M.fiber
@@ -87,7 +87,7 @@ theorem baseMoving_root {Γ} (A : M.Family Γ) (x : M.Section Γ A) (e : A = M.b
   (M.subTm_congr (M.baseMoving_type A x e).symm (cast_heq _ _) _).trans
     ((M.moving_root A x).trans (cast_heq _ _).symm)
 
-theorem movingMotive_root {Γ} (A : M.Family Γ) (x : M.Section Γ A) (e : A = M.base Γ) :
+theorem fiber_baseMoving_root {Γ} (A : M.Family Γ) (x : M.Section Γ A) (e : A = M.base Γ) :
     M.subTy (M.fiber (M.baseMoving A x e)) (M.rootSub A x) =
       M.fiber (cast (congrArg (M.Section Γ) e) x) :=
   (M.fiber_sub _ _).trans (congrArg M.fiber
@@ -126,7 +126,7 @@ def transportGeneric {Γ} (A : M.Family Γ) (x : M.Section Γ A) (e : A = M.base
     (b : M.Section Γ (M.fiber (cast (congrArg (M.Section Γ) e) x))) :
     M.Section (M.toStructuralModel.pathContext A x) (M.fiber (M.toStructuralModel.baseMoving A x e)) :=
   M.j A x .nil (M.fiber (M.toStructuralModel.baseMoving A x e))
-    (cast (congrArg (M.Section Γ) (M.toStructuralModel.movingMotive_root A x e).symm) b)
+    (cast (congrArg (M.Section Γ) (M.toStructuralModel.fiber_baseMoving_root A x e).symm) b)
 
 theorem transportGeneric_congr {Γ} {A A' : M.Family Γ} (hA : A = A')
     {x : M.Section Γ A} {x' : M.Section Γ A'} (hx : HEq x x')
@@ -145,7 +145,7 @@ theorem transportGeneric_sub {Γ Δ} (x : M.Section Γ (M.base Γ))
         (cast (congrArg (M.Section Δ) (M.fiber_sub x s)) (M.subTm b s))) := by
   apply (M.j_sub (M.base Γ) x .nil _ _ s).trans
   apply M.j_heq rfl HEq.rfl HEq.rfl HEq.rfl
-    (heq_of_eq (M.toStructuralModel.movingMotive_sub x s))
+    (heq_of_eq (M.toStructuralModel.fiber_baseMoving_sub x s))
   apply (cast_heq _ _).trans
   have hbranch : M.toStructuralModel.branchMap (M.base Γ) x .nil s = s :=
     congrArg Subtype.val (StructuralModel.Telescope.square.eq_1 M.toStructuralModel
@@ -153,7 +153,7 @@ theorem transportGeneric_sub {Γ Δ} (x : M.Section Γ (M.base Γ))
       (M.toStructuralModel.rootSub (M.subTy (M.base Γ) s) (M.subTm x s))
       (M.toStructuralModel.pathSub (M.base Γ) x s) s (M.toStructuralModel.pathSub_root _ _ _))
   apply (Authoring.subTm_substitution_heq M _ hbranch).trans
-  apply (M.toStructuralModel.subTm_congr (M.toStructuralModel.movingMotive_root (M.base Γ) x rfl)
+  apply (M.toStructuralModel.subTm_congr (M.toStructuralModel.fiber_baseMoving_root (M.base Γ) x rfl)
     (cast_heq _ _) s).trans
   exact (cast_heq _ _).symm.trans (cast_heq _ _).symm
 
@@ -186,7 +186,7 @@ theorem transportApply_sub {Γ Δ} (x y : M.Section Γ (M.base Γ))
   apply (M.subTm_comp _ _ _).trans
   apply (Authoring.subTm_substitution_heq M _ (M.toStructuralModel.endpoint_sub _ _ _ _ _).symm).trans
   apply (M.subTm_comp _ _ _).symm.trans
-  exact M.toStructuralModel.subTm_congr (M.toStructuralModel.movingMotive_sub x s)
+  exact M.toStructuralModel.subTm_congr (M.toStructuralModel.fiber_baseMoving_sub x s)
     (M.transportGeneric_sub x b s) _
 
 end Model

@@ -13,7 +13,7 @@ def homEndpointEquiv {a b c d : D} (h : a = c) (k : b = d) : (a ⟶ b) ≃ (c �
   left_inv p := by simp [Category.assoc]
   right_inv p := by simp [Category.assoc]
 
-theorem discreteHomEvaluation_isEquivalence (R : C ⥤ D) [R.Full] [R.Faithful]
+theorem discrete_hom_evaluation_isEquivalence (R : C ⥤ D) [R.Full] [R.Faithful]
     (x y : C) {a b : D} (hx : R.obj x = a) (hy : R.obj y = b)
     {I : Type z} (e : I ≃ (a ⟶ b)) (F : Discrete (x ⟶ y) ⥤ Discrete I)
     (hF : ∀ p, e (F.obj (Discrete.mk p)).as = eqToHom hx.symm ≫ R.map p ≫ eqToHom hy) :

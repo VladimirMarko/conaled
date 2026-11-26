@@ -28,7 +28,7 @@ theorem rootedRightSectionFormula_of_rootedVerticalFormula
  (hv : RootedVerticalFormula F x η) : RootedRightSectionFormula F x s η := by
  intro z
  have hs1 := congrArg (fun K => K.obj z) hs
- have hs2 := (reindexNormalObj_total F x z.base).symm
+ have hs2 := (reindex_normalObj_total F x z.base).symm
  have hs3 := hs1.trans hs2
  exact s.reindex_normalMap_heq _ (projectionHigher (rootedPathFamily F x)) (η.app z)
   ((fiberInclusion F z.base.base).map z.fiber.as) hs3 (ht z) (hv z)
@@ -40,7 +40,7 @@ theorem rootedRightSourceEndpoint_comp : RootedRightSourceEndpoint F x
 omit [IsLocallyGroupoid Γ] in
 theorem rootedRightTargetEndpoint_id : RootedRightTargetEndpoint F x (StrictPseudofunctor.id _) := by
  intro z
- exact (variableNormalObj_total F z.base).symm
+ exact (variableSection_normalObj_total F z.base).symm
 theorem rootedRightSectionFormula_rootedContraction : RootedRightSectionFormula F x s (rootedContraction F x) :=
  rootedRightSectionFormula_of_rootedVerticalFormula F x s (rootedContraction F x)
   (rootedRightSourceEndpoint_comp F x) (rootedRightTargetEndpoint_id F x) (rootedContraction_vertical F x)

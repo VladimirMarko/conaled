@@ -38,7 +38,7 @@ theorem identityFiberFunctor_map_fiber
  {a b : (x.normalObj A.data γ).fiber ⟶ (y.normalObj A.data γ).fiber} (h : a ⟶ b) :
  HEq (s.lift.map ((fiberInclusion (I).data γ).map (show (⟨a⟩ : LocallyDiscrete _) ⟶ ⟨b⟩ from ⟨h⟩))).fiber
  (Discrete.mk ((identityFiberFunctor A x y γ s).map h)) := by
- have hh := (TwoFamily.Section.cast_map_fiber (variableFamily_fiber I γ)
+ have hh := (TwoFamily.Section.cast_map_fiber (reindex_projection_fiber_constantFamily I γ)
    (s.reindex _ (fiberInclusion (I).data γ)) (show (⟨a⟩ : LocallyDiscrete _) ⟶ ⟨b⟩ from ⟨h⟩)).trans
   (s.reindex_map_fiber _ (fiberInclusion (I).data γ) (show (⟨a⟩ : LocallyDiscrete _) ⟶ ⟨b⟩ from ⟨h⟩))
  exact hh.symm

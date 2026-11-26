@@ -87,9 +87,9 @@ source development.
 
 The source comparison is now retained in `SourceSemantics.lean`.
 `moving_eval` and `endpoint_obj` normalize the generated source context helpers
-to the actual semantic path context. `transportJ_eval` compares the generic
+to the actual semantic path context. `transportJCode_eval` compares the generic
 source J, including its annotation casts, with the canonical transport section.
-The proof of `canonicalJ_transport` uses `eliminateSection_beta` and
+The proof of `contextualJ_transport` uses `eliminateSection_beta` and
 `DerivedSemantics.transport_unique`. It checks the reflexive restriction on
 objects and uses discrete section extensionality, avoiding expansion of the
 normalized eliminator's arrow implementation.
@@ -116,7 +116,7 @@ The proof follows the command's actual two-entry tail (`z`, then `q : Id y z`).
 `firstPath_root` uses the telescope projection/lift square to show that this
 witness becomes reflexivity along the full root map. `canonicalConcat_root`
 then compares composition with the source's retained `q` branch, including its
-annotation casts. `Instance.contextualJ_unique`, specialized by `concatJ_eval`,
+annotation casts. `Instance.contextualJ_unique`, specialized by `concatJCode_eval`,
 uses discreteness of the identity motive to identify the chosen J section.
 Finally `canonicalConcat_at` evaluates the source endpoint substitution and
 `concat_section` removes the result annotation. Both source paths are evaluated

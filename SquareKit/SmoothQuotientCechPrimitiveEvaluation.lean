@@ -40,7 +40,7 @@ theorem familyEvaluation_fiber_value_heq
   exact type_comp_eqToHom_apply_heq
     (whiskerLeft (baseFunctor (ξ (model a A)).down) (signature a A).fiberMap)
     (congrArg (· ⋙ (signature a A).rightFiber)
-      (generatedBaseTerm_commutes (signature a A) hΓ hx)) c x.as
+      (baseFunctor_generatedContextMap_commutes (signature a A) hΓ hx)) c x.as
 
 theorem familyEvaluation_fiber_coefficient_value
     (c : (show Grpd.{1,1} from γ (model a A)))

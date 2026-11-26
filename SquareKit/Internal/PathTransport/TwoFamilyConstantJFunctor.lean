@@ -9,8 +9,8 @@ universe u
 variable {Γ Δ : Type u} [Bicategory.{u,u} Γ] [Strict Γ] [Bicategory.{u,u} Δ] [Strict Δ]
 theorem constantFamily_reindex (C : StrictTwoCategory.{u,u,u}) (σ : StrictPseudofunctor Δ Γ) :
  reindex σ (constantFamily Γ C) = constantFamily Δ C := by
- apply strictFunctorData_ext
- apply prelaxData_ext
+ apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+ apply prelaxFunctorStruct_ext
  · intro x; rfl
  · intro x y f; rfl
  · intro x y f g α; rfl

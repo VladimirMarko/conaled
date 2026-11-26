@@ -365,7 +365,7 @@ canonical matching cone is still in progress; no direct-restriction
 equivalence is claimed at this checkpoint.
 
 
-The direct restriction bridge is now checked. Generic `alignedRecovery_square`
+The direct restriction bridge is now checked. Generic `alignedContextComparison_recovery_square`
 normalizes the selected generated recovery triangle before concrete model
 specialization. `SmoothQuotientCechGlobalCoherence.contextLocalComparison_overlap`
 then proves the actual overlap square. `matchingComparison` in

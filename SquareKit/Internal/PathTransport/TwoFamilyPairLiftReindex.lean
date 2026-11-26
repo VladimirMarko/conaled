@@ -18,7 +18,7 @@ theorem Section.cast_lift {G H : Family.{uΓ,vΓ,wΓ,u,v,w} Γ} (e : G = H) (s :
 
 theorem variableLift_recombined :
     (variableSection F).lift.comp (reindexHigher F (projectionHigher F)) = StrictPseudofunctor.id (Total F) := by
-  exact strictFunctorData_ext rfl
+  exact strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 
 theorem pairLift_reindex :
     pairLift F ((projectionHigher (reindex σ F)).comp σ)

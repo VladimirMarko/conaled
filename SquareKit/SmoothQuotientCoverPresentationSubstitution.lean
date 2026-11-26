@@ -19,11 +19,11 @@ theorem toSplitMap_comp_substitutionDiagram :
         (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs (SplitSheaf.ofDisplay f)) =
       (substitutionDiagram a hΓ hΔ hs f).comp (toSplitMap a hΓ f) := by
   apply CechMatching.StrictMap.ext
-  · exact (generatedSubstitution_commutes
+  · exact (generatedContextMap_substitution_commutes
       (SmoothQuotientComparison.signature (a := a) (SplitSheaf.displayIso f).hom) hΓ hΔ hs).symm
-  · exact (generatedSubstitution_commutes
+  · exact (generatedContextMap_substitution_commutes
       (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.splitDoubleIso f).hom) hΓ hΔ hs).symm
-  · exact (generatedSubstitution_commutes
+  · exact (generatedContextMap_substitution_commutes
       (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.splitTripleIso f).hom) hΓ hΔ hs).symm
 
 theorem matchingEquivalence_functor_comp_substitution :

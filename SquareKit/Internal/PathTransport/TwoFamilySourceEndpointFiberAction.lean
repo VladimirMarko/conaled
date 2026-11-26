@@ -34,7 +34,7 @@ def SourceEndpointIdentityFiberAction
  (p q : TwoFamily.Section (I).data)
  (s : TwoFamily.Section (reindex (projectionHigher (I).data) (I).data)) : Prop :=
  EndpointIdentityFiberAction A x y p q s (endpointSubNative C D I p q)
-theorem endpointSub_fiber_action
+theorem endpointSubNative_fiber_action
  (p q : TwoFamily.Section (I).data)
  (s : TwoFamily.Section (reindex (projectionHigher (I).data) (I).data)) :
  SourceEndpointIdentityFiberAction C D A x y p q s := by

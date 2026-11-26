@@ -17,7 +17,7 @@ noncomputable def closedId (s t : Section F) : Family.{uΓ,vΓ,wΓ,v,w,w} Γ :=
 
 instance closedId_groupoid (s t : Section F) (γ : Γ) : IsGroupoid ((closedId F s t).obj γ) :=
   inferInstanceAs (IsGroupoid ((openIdHigher F).obj ((endpointPair F s t).lift.obj γ)))
-instance closedId_locallyGroupoid (s t : Section F) (γ : Γ) : IsLocallyGroupoid ((closedId F s t).obj γ) :=
+instance closedId_isLocallyGroupoid (s t : Section F) (γ : Γ) : IsLocallyGroupoid ((closedId F s t).obj γ) :=
   inferInstanceAs (IsLocallyGroupoid ((openIdHigher F).obj ((endpointPair F s t).lift.obj γ)))
 
 theorem closedReflexivity_base (s : Section F) :

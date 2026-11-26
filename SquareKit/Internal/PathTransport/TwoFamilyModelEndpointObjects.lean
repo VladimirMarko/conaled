@@ -23,7 +23,7 @@ theorem endpointSub_objects :
         ((M).sectionSub A y).down
         (TwoFamily.Section.cast (congrArg Family.data ((M).pathFamily_at A x y).symm) p)) := by
     funext p
-    have hc := sectionCast_down ((M).pathFamily_at A x y).symm (ULift.up p)
+    have hc := section_cast_down ((M).pathFamily_at A x y).symm (ULift.up p)
     have he := congrArg (TwoFamily.pairLift (TwoFamily.rootedPathFamily A.data x.down)
       ((M).sectionSub A y).down) hc
     run_tac Lean.Elab.Tactic.withMainContext do

@@ -33,14 +33,14 @@ theorem identitySetData_square_iff (A : SplitSheaf.Ty X) (d : Datum a hΓ A)
             d.localObject).map p) := by
   let S₀ := SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.first A)
   let S₁ := SmoothQuotientComparison.signature (a := a) (SplitSheaf.Cech.second A)
-  have hp := generatedIdentity_included S₀ hΓ hB hx hy d.localObject p
-  have hr := generatedIdentity_included S₁ hΓ hB hx hy d.localObject p
+  have hp := generatedIdentitySetMap_included S₀ hΓ hB hx hy d.localObject p
+  have hr := generatedIdentitySetMap_included S₁ hΓ hB hx hy d.localObject p
   exact (identity_transport_iff_square _ _ _ d.overlap.hom _ _).trans
     (eq_comm.trans (conjugated_square_iff
-      (eqToIso (Functor.congr_obj (generatedSectionLift_commutes S₀ hΓ hB hx) d.localObject))
-      (eqToIso (Functor.congr_obj (generatedSectionLift_commutes S₀ hΓ hB hy) d.localObject))
-      (eqToIso (Functor.congr_obj (generatedSectionLift_commutes S₁ hΓ hB hx) d.localObject))
-      (eqToIso (Functor.congr_obj (generatedSectionLift_commutes S₁ hΓ hB hy) d.localObject))
+      (eqToIso (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S₀ hΓ hB hx) d.localObject))
+      (eqToIso (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S₀ hΓ hB hy) d.localObject))
+      (eqToIso (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S₁ hΓ hB hx) d.localObject))
+      (eqToIso (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S₁ hΓ hB hy) d.localObject))
       _ _ _ _ _ _ hp hr))
 
 

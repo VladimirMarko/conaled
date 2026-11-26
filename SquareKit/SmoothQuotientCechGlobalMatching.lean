@@ -21,7 +21,7 @@ theorem restrictionComparison_overlap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     eqToIso (contextEquivalence_restriction_overlap a A hΓ) ≪≫
       isoWhiskerRight (restrictionComparison a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.second A)) :=
-  CechMatching.canonicalSquare_relabel
+  CechMatching.canonical_square_relabel
     (D := SmoothQuotientGeneratedMatching.diagram a hΓ A)
     (context_restriction a A hΓ) (contextLocalComparison a A hΓ)
     (SmoothQuotientCechLocal.generatedOverlap a A hΓ)

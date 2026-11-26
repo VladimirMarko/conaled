@@ -61,7 +61,7 @@ example := SmoothQuotientGeneratedDescent.contextEquivalence a A withFiber
 example := SmoothQuotientGeneratedDescent.family_equivalences a A withFiber command.motive.typing
 
 /-- The local proof interpretation uses the same source-derived J section. -/
-example := generatedTerm_commutes (SmoothQuotientGeneratedDescent.signature a A)
+example := generatedFamilyMap_term_commutes (SmoothQuotientGeneratedDescent.signature a A)
   withFiber command.motive.typing generic
 
 end Smooth

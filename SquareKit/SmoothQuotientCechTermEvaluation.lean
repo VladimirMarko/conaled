@@ -20,11 +20,11 @@ theorem termDiagram_comp_relativeToGenerated :
     (termDiagram a hΓ hB hx A).comp (relativeToGenerated a hΓ hB A) =
       substitutionDiagram a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) A := by
   apply CechMatching.StrictMap.ext
-  · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.extension A))
+  · exact (Typed.sectionCode_universeModel_lift (Object a (SplitSheaf.extension A))
       (SmoothQuotientDeformations.family a (SplitSheaf.extension A)) b ξ).symm
-  · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Cech.double A))
+  · exact (Typed.sectionCode_universeModel_lift (Object a (SplitSheaf.Cech.double A))
       (SmoothQuotientDeformations.family a (SplitSheaf.Cech.double A)) b ξ).symm
-  · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Cech.triple A))
+  · exact (Typed.sectionCode_universeModel_lift (Object a (SplitSheaf.Cech.triple A))
       (SmoothQuotientDeformations.family a (SplitSheaf.Cech.triple A)) b ξ).symm
 
 theorem section_matchingEvaluation :
@@ -37,7 +37,7 @@ theorem section_matchingEvaluation :
     (substitutionDiagram a (.ext hΓ hB) hΓ (Typed.SubDeriv.section hΓ hB hx) A).functor = _ at hh
   rw [← termDiagram_comp_relativeToGenerated a A hΓ hB hx, CechMatching.StrictMap.functor_comp] at hh
   have hs : ((Typed.sectionCode b ξ) (model a A)).down = (ξ (model a A)).down.lift :=
-    Typed.sectionCode_universeLift (SheafActionQuotient.Cech.Datum (a := a) A)
+    Typed.sectionCode_universeModel_lift (SheafActionQuotient.Cech.Datum (a := a) A)
       (SmoothQuotientDeformations.Cech.family (a := a) (A := A)) b ξ
   rw [hs] at hh
   exact hh.symm

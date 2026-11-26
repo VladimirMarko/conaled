@@ -7,7 +7,7 @@ set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
 set_option backward.defeqAttrib.useBackward true
 universe u
-private theorem sectionCast_up {Γ : Context.{u}} {A B : Family Γ} (e : A = B)
+private theorem section_cast_up {Γ : Context.{u}} {A B : Family Γ} (e : A = B)
     (b : TwoFamily.Section A.data) :
     cast (congrArg (fun F => ULift.{u+1} (TwoFamily.Section F.data)) e) (ULift.up b) =
       ULift.up (TwoFamily.Section.cast (congrArg Family.data e) b) := by
@@ -33,7 +33,7 @@ theorem transportSection_objects :
     funext b
     unfold transportSection
     apply congrArg (fun d => ((M).j A x .nil (motive M A B x) d).down)
-    exact sectionCast_up (motive_root M A B x).symm b
+    exact section_cast_up (motive_root M A B x).symm b
   rw [e]
   exact h
 end SquareKit.Internal.PathTransport.HigherInterpretation

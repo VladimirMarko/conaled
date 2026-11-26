@@ -19,7 +19,7 @@ theorem j_restriction (S : Comparison.Signature.{0}) :
     (interpretTm (Instance.fullModel S.base.right S.rightFiber) generic).down.reindex
       (generatedContextMap S withFiber) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact generatedTerm_commutes S withFiber command.motive.typing generic
+  exact generatedFamilyMap_term_commutes S withFiber command.motive.typing generic
 
 /-- The open weakening substitution gives a square on objects and arrows. -/
 theorem weakening_restriction (S : Comparison.Signature.{0}) :
@@ -28,7 +28,7 @@ theorem weakening_restriction (S : Comparison.Signature.{0}) :
     generatedContextMap S (CtxDeriv.ext context (TyDeriv.fiber point.deriv)) ⋙
       (interpretSub (Instance.fullModel S.base.right S.rightFiber) weakening).down := by
   rw [interpretSub_agrees, interpretSub_agrees]
-  exact generatedSubstitution_commutes S context
+  exact generatedContextMap_substitution_commutes S context
     (CtxDeriv.ext context (TyDeriv.fiber point.deriv)) weakening
 
 example := j_restriction GroupoidComparison.signature

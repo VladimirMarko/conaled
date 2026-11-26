@@ -24,7 +24,7 @@ theorem restriction_substitution :
     (restriction a hΔ (SplitSheaf.p A)) (s (SmoothQuotientSource.model a X)).down
     (restriction a hΓ (SplitSheaf.p A)) (restriction_overlap_eq a hΔ A)
     (restriction_overlap_eq a hΓ A)
-    (generatedSubstitution_commutes (SmoothQuotientComparison.signature (a := a) (SplitSheaf.p A))
+    (generatedContextMap_substitution_commutes (SmoothQuotientComparison.signature (a := a) (SplitSheaf.p A))
       hΓ hΔ hs).symm
 
 variable {B b} (hB : Typed.TyDeriv.{2} Γ γ B b)

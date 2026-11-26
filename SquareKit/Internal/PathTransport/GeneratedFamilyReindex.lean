@@ -38,7 +38,7 @@ theorem generatedFamilyMap_sub (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     generatedFamilyMap S hΔ (.sub hA hs) =
       whiskerLeft (s L).down (generatedFamilyMap S hΓ hA) ≫
         eqToHom (congrArg (· ⋙ (show (show Grpd.{u,u} from γ R) ⥤ Grpd.{u,u} from a R))
-          (generatedSubstitution_commutes S hΓ hΔ hs)) := by
+          (generatedContextMap_substitution_commutes S hΓ hΔ hs)) := by
   apply eq_of_heq
   apply (Family.relabelMap_heq _ _ _ _ _).trans
   exact Family.reindex_map_heq (a M) (s M)
@@ -47,6 +47,6 @@ theorem generatedFamilyMap_sub (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2
     (by exact ((leftSignatureMap S).generated_sub hs).2.2)
     (by exact ((rightSignatureMap S).generated_sub hs).2.2)
-    (generatedSubstitution_commutes S hΓ hΔ hs)
+    (generatedContextMap_substitution_commutes S hΓ hΔ hs)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

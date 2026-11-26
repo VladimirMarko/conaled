@@ -145,7 +145,7 @@ theorem right_code (hy : y.raw.sub σ = x.raw.sub σ)
       (ConcatFrame.zAtQ hΓ x).code)
       (substitutionCode (ConcatApplication.endpoint hΓ x y z p q)) =
       identityCode (baseCode γ) y.code z.code :=
-    (identityBaseSub_code _ _ _).trans
+    (subTyCode_identityCode_base _ _ _).trans
       (congrArg₂ (identityCode (baseCode γ)) (ConcatApplication.y_at hΓ x y z p q)
         (ConcatApplication.z_at hΓ x y z p q))
   apply (M.toStructuralModel.subTm_congr
@@ -232,7 +232,7 @@ theorem concat_root_type :
       (substitutionCode (root hΓ x)) =
       subTyCode (identityCode (baseCode _) (fixed hΓ x).code (last hΓ x).code)
         (substitutionCode (root hΓ x)) := by
-  rw [identityBaseSub_code, identityBaseSub_code]
+  rw [subTyCode_identityCode_base, subTyCode_identityCode_base]
   exact congrArg (fun a => identityCode (baseCode _) a _ ) (moving_root_code hΓ x)
 
 def concatRootBeta := ConcatReindexBeta.beta (context hΓ x)
@@ -247,14 +247,14 @@ def secondRootPath := ((second hΓ x).reindex (context hΓ x) (root hΓ x)).with
   (moving_root_raw hΓ x) rfl (moving_root_code hΓ x) rfl
 
 theorem concat_root_left_annotation :
-    castCode (identityBaseSub_code (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))
+    castCode (subTyCode_identityCode_base (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))
       (subTmCode (concat (context hΓ x) (first hΓ x) (second hΓ x)).code
         (substitutionCode (root hΓ x))) = (concatRootPath hΓ x).code := by
   unfold concatRootPath Path.reindex
   exact eq_of_heq ((castCode_heq _ _).trans (castCode_heq _ _).symm)
 
 theorem concat_root_right_annotation :
-    castCode (identityBaseSub_code (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))
+    castCode (subTyCode_identityCode_base (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))
       (castCode (concat_root_type hΓ x)
         (subTmCode (second hΓ x).code (substitutionCode (root hΓ x)))) =
       (secondRootPath hΓ x).code := by
@@ -266,7 +266,7 @@ theorem concat_root_right_annotation :
 second path, with both endpoints normalized in the reflexive branch. -/
 def concatRootNormalized :=
   ((concatRootBeta hΓ x).annotateType
-    (identityBaseSub_code (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))).annotate
+    (subTyCode_identityCode_base (fixed hΓ x).code (last hΓ x).code (substitutionCode (root hΓ x)))).annotate
       (concat_root_left_annotation hΓ x) (concat_root_right_annotation hΓ x)
 
 end TransferFrame

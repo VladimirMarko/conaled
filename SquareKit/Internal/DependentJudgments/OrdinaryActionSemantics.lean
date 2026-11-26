@@ -19,7 +19,7 @@ def ordinaryApRight (x : M.Section Γ A) :=
 def ordinaryApMotive (x : M.Section Γ A) :=
  M.identity (motive M A (M.subTy C (M.weaken Γ A)) x)
   (ordinaryApLeft M A C t x) (ordinaryApRight M A C t x)
-theorem ordinaryAp_type_endpoint (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y)) :
+theorem motive_weaken_endpoint (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y)) :
  M.subTy (motive M A (M.subTy C (M.weaken Γ A)) x)
   (M.toStructuralModel.endpointSub A x y p) = C :=
  (motive_endpoint M A _ x y p).trans (M.toStructuralModel.weaken_section_type A y C)
@@ -41,7 +41,7 @@ theorem ordinaryApMotive_endpoint (x y : M.Section Γ A) (p : M.Section Γ (M.id
  M.subTy (ordinaryApMotive M A C t x) (M.toStructuralModel.endpointSub A x y p) =
  M.identity C (ordinaryApply M A C t x) (ordinaryApply M A C t y) := by
  rw [ordinaryApMotive, M.identity_sub]
- exact M.toStructuralModel.identity_congr (ordinaryAp_type_endpoint M A C x y p)
+ exact M.toStructuralModel.identity_congr (motive_weaken_endpoint M A C x y p)
   (ordinaryApLeft_endpoint M A C t x y p) (ordinaryApRight_endpoint M A C t x y p)
 theorem ordinaryApLeft_root (x : M.Section Γ A) :
  HEq (M.subTm (ordinaryApLeft M A C t x) (M.toStructuralModel.rootSub A x))

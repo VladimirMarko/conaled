@@ -33,7 +33,7 @@ def canonicalFiber : Fiber A h d :=
 theorem canonicalFiber_local : (canonicalFiber A h e d hd x hx).localFiber = x :=
   eq_of_heq (Fiber.localFiber_ofDatum _ _)
 
-private theorem canonicalArrow_vertical :
+private theorem rebaseArrow_canonical_vertical :
     (A.projection h).functor.map (e.rebaseArrow (eqToIso hx)) ≫
       eqToHom (canonicalDatum_projection A h e d hd x hx) = eqToHom hd := by
   apply (Datum.localFunctor).map_injective
@@ -45,6 +45,6 @@ private theorem canonicalArrow_vertical :
 
 def canonicalFiberIso : Fiber.ofDatum e hd ≅ canonicalFiber A h e d hd x hx :=
   asIso (ofDatumArrow hd (canonicalDatum_projection A h e d hd x hx)
-    (e.rebaseArrow (eqToIso hx)) (canonicalArrow_vertical A h e d hd x hx))
+    (e.rebaseArrow (eqToIso hx)) (rebaseArrow_canonical_vertical A h e d hd x hx))
 
 end SquareKit.Internal.PathTransport.CechMatching.Comprehension

@@ -75,7 +75,7 @@ variable {G : Family.{uΔ,vΔ,wΔ,u,v,w} Δ} (e : G = reindex σ F)
 
 include hob hof hmb hmf hcb hcf
 /-- The six component observations determine the exact existing substitution map. -/
-theorem reindexData_eq : D = (reindexFromEqualFamily F σ e).toPrelaxFunctorStruct := by
+theorem eq_reindexFromEqualFamily_data : D = (reindexFromEqualFamily F σ e).toPrelaxFunctorStruct := by
   have ho (x : Total G) : D.obj x = (reindexFromEqualFamily F σ e).obj x := by
     apply total_obj_hext F
     · exact (hob x).trans (congrArg σ.obj (totalCast_obj_base e x)).symm
@@ -86,7 +86,7 @@ theorem reindexData_eq : D = (reindexFromEqualFamily F σ e).toPrelaxFunctorStru
     · exact (hmb p).trans (higher_map_heq σ (totalCast_obj_base e x)
         (totalCast_obj_base e y) (totalCast_map_base e p)).symm
     · exact (hmf p).trans (totalCast_map_fiber e p).symm
-  apply prelaxData_ext D _ ho (fun p => hm p)
+  apply prelaxFunctorStruct_ext D _ ho (fun p => hm p)
   intro x y p q α
   apply total_cell_hext F (ho x) (ho y) (hm p) (hm q)
   · exact (hcb α).trans (higher_cell_heq σ (totalCast_obj_base e x)
@@ -98,5 +98,5 @@ theorem reindexData_eq : D = (reindexFromEqualFamily F σ e).toPrelaxFunctorStru
 The observations mention only base/fiber data; no final coherence law is supplied. -/
 def reindexOfData : StrictPseudofunctor (Total G) (Total F) :=
   strictFunctorOfEqualData (reindexFromEqualFamily F σ e) D
-    (reindexData_eq F σ e D hob hof hmb hmf hcb hcf)
+    (eq_reindexFromEqualFamily_data F σ e D hob hof hmb hmf hcb hcf)
 end SquareKit.Internal.PathTransport.TwoFamily

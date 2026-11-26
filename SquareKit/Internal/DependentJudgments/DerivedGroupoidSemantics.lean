@@ -22,7 +22,7 @@ theorem transportSection_action {G : Grpd.{u,u}}
     (x : Section (constant (Γ := G) C)) (b : Section (primitiveFiber B x)) :
     (transportSection M (constant C) (genericFiber C B G) ⟨x⟩ ⟨b⟩).down =
       PathTransport.GroupoidModel.DerivedSemantics.transport B x b := by
-  exact PathTransport.GroupoidModel.SourceSemantics.canonicalJ_transport C B x b
+  exact PathTransport.GroupoidModel.SourceSemantics.contextualJ_transport C B x b
 
 /-- Applying the generated transport recipe at its actual endpoint acts by
 B.map on the selected path, with no loss of the selected fiber element. -/

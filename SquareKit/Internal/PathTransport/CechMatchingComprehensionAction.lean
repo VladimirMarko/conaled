@@ -115,7 +115,7 @@ def transportFunctor (f : d ⟶ e) : Fiber A h d ⥤ Fiber A h e where
   obtain ⟨p, hp⟩ := aux _ (transport_datum f x).symm
   exact hp
 
-private theorem transportLocal_id (x : Fiber A h d) :
+private theorem transportedDatum_localObject_id (x : Fiber A h d) :
     (transportedDatum (𝟙 d) x).localObject = x.datum.localObject := by
   change (⟨d.localObject, (A.localFamily.map (𝟙 d.localObject)).obj x.localFiber⟩ :
     Extend A.localFamily) = ⟨d.localObject, x.localFiber⟩
@@ -123,24 +123,24 @@ private theorem transportLocal_id (x : Fiber A h d) :
   rfl
 
 private theorem transportArrow_id (x : Fiber A h d) :
-    (transportArrow (𝟙 d) x).localArrow = eqToHom (transportLocal_id x).symm := by
+    (transportArrow (𝟙 d) x).localArrow = eqToHom (transportedDatum_localObject_id x).symm := by
   refine Grothendieck.ext _ _ ?_ ?_
-  · change 𝟙 d.localObject = (eqToHom (transportLocal_id x).symm).base
+  · change 𝟙 d.localObject = (eqToHom (transportedDatum_localObject_id x).symm).base
     rw [Grothendieck.base_eqToHom]
     rfl
-  · change eqToHom _ ≫ 𝟙 _ = (eqToHom (transportLocal_id x).symm).fiber
+  · change eqToHom _ ≫ 𝟙 _ = (eqToHom (transportedDatum_localObject_id x).symm).fiber
     rw [Grothendieck.fiber_eqToHom]
     simp
 
 @[simp] theorem transport_id (x : Fiber A h d) : transport (𝟙 d) x = x := by
   apply datum_injective
   rw [transport_datum]
-  apply Datum.target_eq (transportArrow (𝟙 d) x) (𝟙 x.datum) (transportLocal_id x)
+  apply Datum.target_eq (transportArrow (𝟙 d) x) (𝟙 x.datum) (transportedDatum_localObject_id x)
   rw [transportArrow_id]
   simp only [Datum.id_localArrow]
   exact eqToHom_heq_id_dom _ _ _
 
-private theorem transportLocal_comp {k : Datum D.toDiagram}
+private theorem transport_localObject_comp {k : Datum D.toDiagram}
     (f : d ⟶ e) (g : e ⟶ k) (x : Fiber A h d) :
     (transport (f ≫ g) x).datum.localObject =
       (transport g (transport f x)).datum.localObject := by
@@ -153,11 +153,11 @@ private theorem transportLocal_comp {k : Datum D.toDiagram}
 
 private theorem lift_local_comp {k : Datum D.toDiagram}
     (f : d ⟶ e) (g : e ⟶ k) (x : Fiber A h d) :
-    (lift (f ≫ g) x).localArrow ≫ eqToHom (transportLocal_comp f g x) =
+    (lift (f ≫ g) x).localArrow ≫ eqToHom (transport_localObject_comp f g x) =
       (lift f x).localArrow ≫ (lift g (transport f x)).localArrow := by
   refine Grothendieck.ext _ _ ?_ ?_
   · change (lift (f ≫ g) x).localArrow.base ≫
-      (eqToHom (transportLocal_comp f g x)).base =
+      (eqToHom (transport_localObject_comp f g x)).base =
         (lift f x).localArrow.base ≫ (lift g (transport f x)).localArrow.base
     rw [Grothendieck.base_eqToHom, lift_base, lift_base, lift_base]
     exact Category.comp_id _
@@ -171,8 +171,8 @@ private theorem lift_local_comp {k : Datum D.toDiagram}
     transport (f ≫ g) x = transport g (transport f x) := by
   apply datum_injective
   apply Datum.target_eq (lift (f ≫ g) x) (lift f x ≫ lift g (transport f x))
-    (transportLocal_comp f g x)
-  apply (comp_eqToHom_heq _ (transportLocal_comp f g x)).symm.trans
+    (transport_localObject_comp f g x)
+  apply (comp_eqToHom_heq _ (transport_localObject_comp f g x)).symm.trans
   exact heq_of_eq (lift_local_comp f g x)
 
 @[simp] theorem lift_id (x : Fiber A h d) :

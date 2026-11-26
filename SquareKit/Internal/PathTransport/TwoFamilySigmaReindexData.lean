@@ -39,8 +39,8 @@ theorem fiberInclusion_reindex_cell_heq (γ : Δ) {a b : F.obj (σ.obj γ)}
 theorem fiberInclusion_reindex (γ : Δ) :
     (fiberInclusion (reindex σ F) γ).comp (reindexHigher F σ) =
       fiberInclusion F (σ.obj γ) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro a; rfl
   · exact fun p => fiberInclusion_reindex_map_heq F σ γ p
   · exact fun α => fiberInclusion_reindex_cell_heq F σ γ α

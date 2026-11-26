@@ -12,7 +12,7 @@ variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 variable [IsLocallyGroupoid Γ]
 variable (E : Family.{_,_,_,uE,vE,wE} (PathContext F))
 /-- Every higher motive sends the normalized reflexive component to identity action. -/
-theorem contractionTransport_obj_refl (x : Total F)
+theorem map_pathContraction_app_obj_refl (x : Total F)
     (a : E.obj ((contractionRetract F).obj ((pathReflexivity F).obj x))) :
     HEq ((E.map ((pathContraction F).app ((pathReflexivity F).obj x))).obj a) a := by
   have h := congrArg E.map (pathContraction_app_refl F x)
@@ -29,7 +29,7 @@ theorem transport_obj_refl (s : Section (reindex (contractionRetract F) E)) (x :
       (a : E.obj ((contractionRetract F).obj b)) :
       HEq ((E.map ((pathContraction F).app b)).obj a) a := by
     subst b
-    exact contractionTransport_obj_refl F E x a
+    exact map_pathContraction_app_obj_refl F E x a
   exact h _ hb _
 
 /-- The constructed eliminator recovers each supplied fiber object at reflexivity. -/

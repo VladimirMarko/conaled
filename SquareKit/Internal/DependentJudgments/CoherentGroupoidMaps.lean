@@ -249,14 +249,14 @@ def termRightUnit (f : DisplayMap A B) (s : Section A) :
   (f.compose (identity B)).termComparison s ≪≫ (f.termComparison s).symm
 
 /-- Left unit compatibility for the chosen composition and unit comparisons. -/
-theorem termCompose_leftUnit (f : DisplayMap A B) (s : Section A) :
+theorem termCompose_termLeftUnit (f : DisplayMap A B) (s : Section A) :
     (identity A).termCompose f s ≪≫ termLeftUnit f s =
       f.mapComparison (termIdentity s) := by
   ext x
   simp [termCompose, termLeftUnit, mapComparison, termIdentity]
 
 /-- Right unit compatibility for the chosen composition and unit comparisons. -/
-theorem termCompose_rightUnit (f : DisplayMap A B) (s : Section A) :
+theorem termCompose_termRightUnit (f : DisplayMap A B) (s : Section A) :
     f.termCompose (identity B) s ≪≫ termRightUnit f s =
       termIdentity (f.term s) := by
   ext x

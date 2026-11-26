@@ -9,7 +9,7 @@ set_option backward.defeqAttrib.useBackward true
 universe u
 variable (C D : Context.{u})
 local notation "M" => fullModel C D
-theorem branchArrowIdentity_of_sourceValues {Γ Δ : Context.{u}}
+theorem branchArrowIdentity_of_sectionIdentityValues {Γ Δ : Context.{u}}
  (F : Family Γ) (s t : ULift.{u+1} (TwoFamily.Section F.data))
  (σ : ULift.{u+1} (StrictPseudofunctor Δ Γ))
  (d : ULift.{u+1} (TwoFamily.Section (reindex σ.down (closedId F.data s.down t.down))))
@@ -22,18 +22,18 @@ theorem branchArrowIdentity_of_sourceValues {Γ Δ : Context.{u}}
 variable {Γ : Context.{u}} (A B : Family Γ)
 variable (t : ULift.{u+1} (TwoFamily.Section (reindex (projectionHigher A.data) B.data)))
 variable (x : ULift.{u+1} (TwoFamily.Section A.data))
-theorem ordinaryApCodomain_root :
+theorem motive_weaken_root :
  (motive M A ((M).subTy B ((M).weaken Γ A)) x).reindex ((M).toStructuralModel.rootSub A x).down = B :=
  (motive_root M A _ x).trans ((M).toStructuralModel.weaken_section_type A x B)
 variable [∀γ, Subsingleton (B.data.obj γ)]
 set_option linter.defProp false
 def ordinaryApBranch_arrow_identity :=
- branchArrowIdentity_of_sourceValues C D
+ branchArrowIdentity_of_sectionIdentityValues C D
  (motive M A ((M).subTy B ((M).weaken Γ A)) x)
  (ordinaryApLeft M A B t x) (ordinaryApRight M A B t x)
  ((M).toStructuralModel.rootSub A x)
  (ordinaryApBranch M A B t x) B
- (ordinaryApply M A B t x) (ordinaryApCodomain_root C D A B x)
+ (ordinaryApply M A B t x) (motive_weaken_root C D A B x)
  (ordinaryApBranch_identity C D A B t x)
 def ordinaryApLeft_arrow_identity := by
  letI : ∀z, Subsingleton ((motive M A ((M).subTy B ((M).weaken Γ A)) x).data.obj z) :=

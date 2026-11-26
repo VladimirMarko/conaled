@@ -85,7 +85,7 @@ Grothendieck projections. It uses the existing `transportIso`; its base componen
 recovers the supplied arrow exactly. The checked integer-loop case works for
 any fiber family and a supplied fiber object, retaining the nonidentity label.
 `GeneratedIdentityFamilyMap` extracts the identity-type constructor on the
-complete family comparison. `generatedIdentityMap_arrow` applies it to every
+complete family comparison. `generatedFamilyMap_identity_type_arrow` applies it to every
 supplied identity arrow: first use the component functor's map, then the
 endpoint transport determined by the two generated term comparisons. The
 open identity type in `Authoring.CongruenceCaller` specializes the constructor
@@ -135,7 +135,7 @@ constructor-effectivity step remains separate.
 
 Generated term endpoints now descend independently through `termDiagram`, whose
 three components are the interpreted section lifts. All six restriction squares
-come from `generatedSectionLift_commutes`; its proof uses the existing generated
+come from `totalMap_generatedFamilyMap_section_commutes`; its proof uses the existing generated
 term equality. Projection is the identity, and `termFiber_local` recovers the
 literal local term value over any supplied matching context.
 
@@ -152,7 +152,7 @@ comparison with the local path square.
 `SmoothQuotientGeneratedMatching.identitySetData_square_iff` now identifies the
 actual identity matching equation with the square between the two descended
 term diagrams. The proof first converts identity transport to the square of
-section lifts, then uses `generatedIdentity_included` to retain the selected
+section lifts, then uses `generatedIdentitySetMap_included` to retain the selected
 vertical arrow under restriction and its explicit endpoint transports.
 `identityDatumArrowEquiv` gives a bijection with vertical matching arrows;
 `identityFiberArrowEquiv` reconstructs the same arrows in the relative fiber.

@@ -31,7 +31,7 @@ theorem transportValue_objects :
         ((transportSection M A B x ⟨b⟩).down.reindex (motive M A B x).data
           ((M).toStructuralModel.endpointSub A x y p).down)) := by
     funext b
-    have he := sectionCast_down (motive_endpoint M A B x y p)
+    have he := section_cast_down (motive_endpoint M A B x y p)
       ((M).subTm (transportSection M A B x ⟨b⟩) ((M).toStructuralModel.endpointSub A x y p))
     run_tac Lean.Elab.Tactic.withMainContext do
       let he ← Lean.Meta.getLocalDeclFromUserName `he

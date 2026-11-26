@@ -18,13 +18,13 @@ example : HEq (completeModel.subTm selectedAction (completeModel.toStructuralMod
 example : JValueFormula integerContext integerContext display chosen
  (apdMotiveValue completeModel display copyFamily chosen copy)
  (apdBranchValue completeModel display copyFamily chosen copy) selectedAction :=
- apdSection_objects integerContext integerContext display copyFamily chosen copy
+ apdSectionValue_objects integerContext integerContext display copyFamily chosen copy
 example : SectionRootIdentity
  (apdMotiveValue completeModel display copyFamily chosen copy) selectedAction
  (completeModel.toStructuralModel.rootSub display chosen).down
  (completeModel.subTy copyFamily (completeModel.toStructuralModel.sectionSub display chosen))
  (completeModel.subTm copy (completeModel.toStructuralModel.sectionSub display chosen)) :=
- apdSection_root_identity integerContext integerContext display copyFamily chosen copy
+ apdSectionValue_root_identity integerContext integerContext display copyFamily chosen copy
 example : ApdSectionActionFormula integerContext integerContext display copyFamily chosen copy :=
- apdSection_action integerContext integerContext display copyFamily chosen copy
+ apdSectionValue_action integerContext integerContext display copyFamily chosen copy
 end Examples.TwoFamilyApd

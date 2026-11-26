@@ -12,11 +12,11 @@ variable {Γ : Type u} [Bicategory.{u,u} Γ] [Strict Γ] [IsLocallyGroupoid Γ]
 variable (F : Family.{u,u,u,u,u,u} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)] (x : Section F)
 omit [IsLocallyGroupoid Γ] [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)] in
-theorem reindexNormalObj_total (z : Total F) :
+theorem reindex_normalObj_total (z : Total F) :
  (⟨z.base, ((x.reindex F (projectionHigher F)).normalObj (reindex (projectionHigher F) F) z).fiber⟩ : Total F) = x.lift.obj z.base :=
  (congrArg (fun a => (⟨z.base, a⟩ : Total F)) (x.reindex_normalObj F (projectionHigher F) z)).trans (x.normalObj_eq F z.base)
 omit [IsLocallyGroupoid Γ] [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)] in
-theorem variableNormalObj_total (z : Total F) :
+theorem variableSection_normalObj_total (z : Total F) :
  (⟨z.base, ((variableSection F).normalObj (reindex (projectionHigher F) F) z).fiber⟩ : Total F) = z :=
  congrArg (fun a => (⟨z.base, a⟩ : Total F)) (eq_of_heq ((variableSection F).normalObj_fiber_heq _ z))
 theorem pathContraction_second_vertical (w : PathContext F) :

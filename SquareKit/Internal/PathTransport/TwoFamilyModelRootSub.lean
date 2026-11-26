@@ -24,7 +24,7 @@ theorem rootSub_down_eq {Γ : Context.{u}} (A : Family Γ)
     ((M).rootSub A x).down = TwoFamily.rootedReflexivity A.data x.down := by
   unfold Typed.StructuralModel.rootSub
   dsimp only [structuralModel]
-  have hc := sectionCast_down ((M).pathFamily_root A x).symm
+  have hc := section_cast_down ((M).pathFamily_root A x).symm
     (ULift.up (TwoFamily.closedReflexivity A.data x.down))
   have hp := congrArg (fun t => TwoFamily.pairLift (TwoFamily.rootedPathFamily A.data x.down)
     (((M).sectionSub A x).down) t) hc

@@ -16,7 +16,7 @@ theorem Signature.middle_model (S T : Signature.{u})
   cases baseS; cases baseT; dsimp at h; cases h
   dsimp at hB; cases eq_of_heq hB; rfl
 
-theorem Signature.horizontal_leftModel (S T : Signature.{u})
+theorem Signature.horizontal_left_fullModel (S T : Signature.{u})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber) :
     Instance.fullModel (S.horizontal T h hB).base.left (S.horizontal T h hB).leftFiber =
       Instance.fullModel S.base.left S.leftFiber := by
@@ -24,7 +24,7 @@ theorem Signature.horizontal_leftModel (S T : Signature.{u})
   cases baseS; cases baseT; dsimp at h; cases h
   dsimp at hB; cases eq_of_heq hB; rfl
 
-theorem Signature.horizontal_rightModel (S T : Signature.{u})
+theorem Signature.horizontal_right_fullModel (S T : Signature.{u})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber) :
     Instance.fullModel (S.horizontal T h hB).base.right (S.horizontal T h hB).rightFiber =
       Instance.fullModel T.base.right T.rightFiber := by
@@ -59,28 +59,28 @@ theorem generated_left_section (hx : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     HEq (ULift.up.{u+1} (x (fullModel S)).left)
       (ULift.up.{u+1} (x (fullModel (S.horizontal T h hB))).left) :=
   ((leftSignatureMap S).generated_tm hx).2.trans
-    ((code_heq x (S.horizontal_leftModel T h hB).symm).trans
+    ((code_heq x (S.horizontal_left_fullModel T h hB).symm).trans
       ((leftSignatureMap (S.horizontal T h hB)).generated_tm hx).2.symm)
 
 theorem generated_right_section (hx : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     HEq (ULift.up.{u+1} (x (fullModel T)).right)
       (ULift.up.{u+1} (x (fullModel (S.horizontal T h hB))).right) :=
   ((rightSignatureMap T).generated_tm hx).2.trans
-    ((code_heq x (S.horizontal_rightModel T h hB).symm).trans
+    ((code_heq x (S.horizontal_right_fullModel T h hB).symm).trans
       ((rightSignatureMap (S.horizontal T h hB)).generated_tm hx).2.symm)
 
 theorem generated_left_substitution (hx : Typed.SubDeriv.{u+1} Δ δ Γ γ σ x) :
     HEq (ULift.up.{u+1} (x (fullModel S)).left)
       (ULift.up.{u+1} (x (fullModel (S.horizontal T h hB))).left) :=
   ((leftSignatureMap S).generated_sub hx).2.2.trans
-    ((code_heq x (S.horizontal_leftModel T h hB).symm).trans
+    ((code_heq x (S.horizontal_left_fullModel T h hB).symm).trans
       ((leftSignatureMap (S.horizontal T h hB)).generated_sub hx).2.2.symm)
 
 theorem generated_right_substitution (hx : Typed.SubDeriv.{u+1} Δ δ Γ γ σ x) :
     HEq (ULift.up.{u+1} (x (fullModel T)).right)
       (ULift.up.{u+1} (x (fullModel (S.horizontal T h hB))).right) :=
   ((rightSignatureMap T).generated_sub hx).2.2.trans
-    ((code_heq x (S.horizontal_rightModel T h hB).symm).trans
+    ((code_heq x (S.horizontal_right_fullModel T h hB).symm).trans
       ((rightSignatureMap (S.horizontal T h hB)).generated_sub hx).2.2.symm)
 
 theorem generated_middle_substitution (hx : Typed.SubDeriv.{u+1} Δ δ Γ γ σ x) :

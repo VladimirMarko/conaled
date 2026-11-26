@@ -45,7 +45,7 @@ def path (x y : (γ : Γ) → A γ)
     (S).Section Δ ((S).identity A' ⟨f.term x⟩ ⟨f.term y⟩) :=
   ⟨(f.identityFamily x y).term p.down⟩
 
-theorem identitySection_unique (x y : (γ : Γ) → A γ)
+theorem identity_section_unique (x y : (γ : Γ) → A γ)
     (p q : (S).Section Γ ((S).identity A ⟨x⟩ ⟨y⟩)) : p = q := by
   apply ULift.ext
   funext γ
@@ -62,10 +62,10 @@ theorem transport_compare (x y : (γ : Γ) → A γ)
         ⟨(atSection f g x).term b.down⟩).down := by
   have he : x = y := funext (fun γ => (p.down γ).down.down)
   subst y
-  have hp : p = (M).reflexivity A ⟨x⟩ := identitySection_unique x x _ _
+  have hp : p = (M).reflexivity A ⟨x⟩ := identity_section_unique x x _ _
   rw [hp, transportValue_refl]
   have hpath : path f x x ((M).reflexivity A ⟨x⟩) =
-      (M).reflexivity A' ⟨f.term x⟩ := identitySection_unique (f.term x) (f.term x) _ _
+      (M).reflexivity A' ⟨f.term x⟩ := identity_section_unique (f.term x) (f.term x) _ _
   rw [hpath, transportValue_refl]
 
 theorem concat_compare (x y z : (γ : Γ) → A γ)
@@ -73,7 +73,7 @@ theorem concat_compare (x y z : (γ : Γ) → A γ)
     (q : (S).Section Γ ((S).identity A ⟨y⟩ ⟨z⟩)) :
     path f x z (concatValue M A ⟨x⟩ ⟨y⟩ ⟨z⟩ p q) =
       concatValue M A' ⟨f.term x⟩ ⟨f.term y⟩ ⟨f.term z⟩ (path f x y p) (path f y z q) :=
-  identitySection_unique (f.term x) (f.term z) _ _
+  identity_section_unique (f.term x) (f.term z) _ _
 
 theorem iterated_transport_compare (x y z : (γ : Γ) → A γ)
     (p : (S).Section Γ ((S).identity A ⟨x⟩ ⟨y⟩))
@@ -306,7 +306,7 @@ def EtaPresentation.DependentActionCompared
         ⟨(f.identityFamily x y).term p⟩ ⟨(f.identityFamily x y).term p'⟩
         (path (f.identityFamily x y) p p' h) E.target)
 
-theorem EtaPresentation.dependentAction_compare
+theorem EtaPresentation.dependentActionCompared
     (E : EtaPresentation (Base := Base) (Fiber := Fiber) f x y (f.identityFamily x y).total)
     (p p' : (γ : Γ) → PathFamily x y γ)
     (h : (S).Section Γ ((S).identity (PathFamily x y) ⟨p⟩ ⟨p'⟩)) :
@@ -319,7 +319,7 @@ theorem apd_eta_compare
     (p p' : (γ : Γ) → PathFamily x y γ)
     (h : (S).Section Γ ((S).identity (PathFamily x y) ⟨p⟩ ⟨p'⟩)) :
     (etaPresentation f g x y z q b).DependentActionCompared f x y p p' h :=
-  (etaPresentation f g x y z q b).dependentAction_compare f x y p p' h
+  (etaPresentation f g x y z q b).dependentActionCompared f x y p p' h
 
 end CertificateSection
 end SquareKit.Internal.DependentJudgments.NativeDerivedComparisons

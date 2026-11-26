@@ -115,9 +115,9 @@ def strictFunctorOfInverseData : StrictPseudofunctor B A :=
   }
 theorem strictFunctorOfInverseData_left_inverse :
     F.comp (strictFunctorOfInverseData F D hL hR) = StrictPseudofunctor.id A :=
-  strictFunctorData_ext hL
+  strictPseudofunctor_ext_toPrelaxFunctorStruct hL
 
 theorem strictFunctorOfInverseData_right_inverse :
     (strictFunctorOfInverseData F D hL hR).comp F = StrictPseudofunctor.id B :=
-  strictFunctorData_ext hR
+  strictPseudofunctor_ext_toPrelaxFunctorStruct hR
 end SquareKit.Internal.PathTransport

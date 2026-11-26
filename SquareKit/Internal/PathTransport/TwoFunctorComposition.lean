@@ -6,11 +6,11 @@ variable {A B C D : Type*} [Bicategory A] [Bicategory B] [Bicategory C] [Bicateg
 theorem strictPseudofunctor_comp_assoc (F : StrictPseudofunctor A B)
     (G : StrictPseudofunctor B C) (H : StrictPseudofunctor C D) :
     (F.comp G).comp H = F.comp (G.comp H) :=
-  strictFunctorData_ext rfl
+  strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 /-- Identity on the source leaves the entire strict higher functor unchanged. -/
 theorem strictPseudofunctor_id_comp (F : StrictPseudofunctor A B) :
-    (StrictPseudofunctor.id A).comp F = F := strictFunctorData_ext rfl
+    (StrictPseudofunctor.id A).comp F = F := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 /-- Identity on the target leaves the entire strict higher functor unchanged. -/
 theorem strictPseudofunctor_comp_id (F : StrictPseudofunctor A B) :
-    F.comp (StrictPseudofunctor.id B) = F := strictFunctorData_ext rfl
+    F.comp (StrictPseudofunctor.id B) = F := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
 end SquareKit.Internal.PathTransport

@@ -13,7 +13,7 @@ variable (x y : ULift.{u+1} (TwoFamily.Section A.data))
 variable (p : ULift.{u+1} (TwoFamily.Section (TwoFamily.closedId A.data x.down y.down)))
 variable (t : ULift.{u+1} (TwoFamily.Section B.data))
 local notation "M" => fullModel C D
-theorem apdSection_objects :
+theorem apdSectionValue_objects :
  JValueFormula C D A x (apdMotiveValue M A B x t)
   (apdBranchValue M A B x t) (apdSectionValue M A B x t) :=
  j_value_objects C D A x (apdMotiveValue M A B x t) (apdBranchValue M A B x t)
@@ -26,8 +26,8 @@ theorem apdValue_objects :
   (apdValue M A B x y p t) := by
  have h := JValueFormula.reindex_cast C D A x (apdMotiveValue M A B x t)
   (apdBranchValue M A B x t) (apdSectionValue M A B x t)
-  (apdSection_objects C D A B x t) ((M).toStructuralModel.endpointSub A x y p)
-  _ (apdMotive_endpoint M A B x y p t)
+  (apdSectionValue_objects C D A B x t) ((M).toStructuralModel.endpointSub A x y p)
+  _ (apdMotiveValue_endpoint M A B x y p t)
  exact (congrArg (JReindexedValueFormula C D A x (apdMotiveValue M A B x t)
   (apdBranchValue M A B x t) ((M).toStructuralModel.endpointSub A x y p) _)
   (apdValue_section M A B x y p t)).mpr h

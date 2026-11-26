@@ -26,11 +26,11 @@ theorem contextComparison_trans (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
   simp only [Iso.trans_hom, NatTrans.comp_app, isoWhiskerRight_hom, whiskerRight_app,
     eqToIso.hom, Iso.symm_hom, eqToIso.inv, eqToHom_app, Functor.map_comp,
     Category.assoc, eqToHom_map]
-  have hn := (eqToHom (generatedChange_evaluation η P Q α hΓ)).naturality
+  have hn := (eqToHom (generatedContextMap_changeReference_evaluation η P Q α hΓ)).naturality
     ((generatedEndpointIso G P θ hΓ).hom.app x)
   have hn' := congrArg (fun f => f ≫ eqToHom (congrArg
     (fun K => K.obj ((generatedContextMap (endpointSignature G P θ) hΓ).obj x))
-      (generatedChange_evaluation η P Q α hΓ).symm)) hn
+      (generatedContextMap_changeReference_evaluation η P Q α hΓ).symm)) hn
   simp only [Functor.comp_map, eqToHom_app, Category.assoc, eqToHom_trans,
     eqToHom_refl, Category.comp_id] at hn'
   rw [hn']

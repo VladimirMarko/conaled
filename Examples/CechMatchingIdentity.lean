@@ -158,7 +158,7 @@ example (F : Loops ⥤ Cat.{0,0}) (x : F.obj star) :
       (h : z.base = star), e.hom.base ≫ eqToHom h = loop :=
   GrothendieckProjectionLifts.lift_base F ⟨star,x⟩ ⟨star,x⟩ loop
 /-- The extracted constructor formula applies to a checked open identity type. -/
-example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
+example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identity_type S
   Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
   Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
 

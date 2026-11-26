@@ -133,7 +133,7 @@ theorem branchReindex_down {Γ Δ Γ' Δ' : (M).Context} {n}
       retractionBranchReindex (T.liftSub M F).down ((T.pullback M K).liftSub M F').down
         (T.liftSub M K).down (T.square M F F' K L h).val.down
         (congrArg ULift.down (T.square M F F' K L h).property) E.data b.down := by
-  exact sectionCast_down
+  exact section_cast_down
     ((M).square_type (T.liftSub M F) ((T.pullback M K).liftSub M F') (T.liftSub M K)
       (T.square M F F' K L h).val (T.square M F F' K L h).property E).symm
     ((M).subTm b (T.square M F F' K L h).val)

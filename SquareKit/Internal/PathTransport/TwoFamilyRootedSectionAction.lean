@@ -23,7 +23,7 @@ theorem rootedSectionActionFormula_of_rootedBaseFormula
  (ht : K.comp (rootedRetraction F x) = rootedRetraction F x)
  (hb : RootedBaseFormula F x η) : RootedSectionActionFormula F B x s η := by
  intro z
- exact s.doubleReindex_normalMap_vertical B (projectionHigher F) (projectionHigher (rootedPathFamily F x))
+ exact s.double_reindex_normalMap_vertical B (projectionHigher F) (projectionHigher (rootedPathFamily F x))
   (η.app z) z.base.base (congrArg (fun L => L.obj z) hs) (congrArg (fun L => L.obj z) ht) (hb z)
 theorem rootedSectionActionFormula_rootedContraction : RootedSectionActionFormula F B x s (rootedContraction F x) := by
  apply rootedSectionActionFormula_of_rootedBaseFormula F B x s (rootedContraction F x)

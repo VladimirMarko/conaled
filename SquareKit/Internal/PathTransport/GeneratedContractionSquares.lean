@@ -43,7 +43,7 @@ local notation "M" => fullModel S
 local notation "L" => Instance.fullModel S.base.left S.leftFiber
 local notation "R" => Instance.fullModel S.base.right S.rightFiber
 
-theorem generatedRootTail_left (hΓ : CtxDeriv.{u+1} Γ γ)
+theorem rootTail_left_heq_rootTailEquivalence (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a) (hx : TmDeriv.{u+1} Γ γ A a t x)
     (hT : TelDeriv.{u+1} (pathCtx Γ A t) (pathCode a x) n Δ T) :
     HEq (rootTail S (a M) (x M) (T M)).left
@@ -55,7 +55,7 @@ theorem generatedRootTail_left (hΓ : CtxDeriv.{u+1} Γ γ)
       ((leftSignatureMap S).generated_tm hx).2
       ((cast_heq _ _).trans ((leftSignatureMap S).generated_tel hT).2))
 
-theorem generatedRootTail_right (hΓ : CtxDeriv.{u+1} Γ γ)
+theorem rootTail_right_heq_rootTailEquivalence (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a) (hx : TmDeriv.{u+1} Γ γ A a t x)
     (hT : TelDeriv.{u+1} (pathCtx Γ A t) (pathCode a x) n Δ T) :
     HEq (rootTail S (a M) (x M) (T M)).right
@@ -69,7 +69,7 @@ theorem generatedRootTail_right (hΓ : CtxDeriv.{u+1} Γ γ)
 
 /-- Both native contractions, inverse functors and chosen counits are retained
 through the same extracted generated comparison maps. -/
-theorem generatedRootTail_square (hΓ : CtxDeriv.{u+1} Γ γ)
+theorem rootTailEquivalence_generated_square (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a) (hx : TmDeriv.{u+1} Γ γ A a t x)
     (hT : TelDeriv.{u+1} (pathCtx Γ A t) (pathCode a x) n Δ T) :
     EquivalenceSquare.Square
@@ -82,6 +82,6 @@ theorem generatedRootTail_square (hΓ : CtxDeriv.{u+1} Γ γ)
     ((rightSignatureMap S).generated_ctx (.telescope (.path hΓ hA hx) hT))
     ((leftSignatureMap S).generated_ctx (.branch hΓ hA hx hT))
     ((rightSignatureMap S).generated_ctx (.branch hΓ hA hx hT)) _ _
-    (generatedRootTail_left S hΓ hA hx hT) (generatedRootTail_right S hΓ hA hx hT)
+    (rootTail_left_heq_rootTailEquivalence S hΓ hA hx hT) (rootTail_right_heq_rootTailEquivalence S hΓ hA hx hT)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

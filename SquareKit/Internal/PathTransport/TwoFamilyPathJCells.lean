@@ -19,13 +19,13 @@ private theorem comparison_at {x y : Total F} (p : x ⟶ y)
   subst bx
   subst byctx
   cases eq_of_heq hr
-  exact contractionTransport_comparison_refl F E p
+  exact pathContraction_postcomp_naturality_refl F E p
 private theorem cell_at (y : Total F) (byctx : PathContext F)
     (hy : byctx = (pathReflexivity F).obj y)
     {a b : E.obj ((contractionRetract F).obj byctx)} {f g : a ⟶ b} (α : f ⟶ g) :
     HEq ((E.map ((pathContraction F).app byctx)).map₂ α) α := by
   subst byctx
-  exact congr_arg_heq (fun H => H.map₂ α) (contractionTransport_functor_refl F E y)
+  exact congr_arg_heq (fun H => H.map₂ α) (map_pathContraction_app_refl F E y)
 /-- Transport retains every genuine 2-cell of an arbitrary motive section at reflexivity. -/
 theorem transport_cell_refl (s : Section (reindex (contractionRetract F) E))
     {x y : Total F} {p q : x ⟶ y} (α : p ⟶ q) :

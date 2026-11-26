@@ -38,22 +38,22 @@ variable (S : Signature.{u})
 local notation "L" => Instance.fullModel S.base.left S.leftFiber
 local notation "T" => Instance.fullModel S.base.right S.rightFiber
 
-theorem generatedIdentity_included (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedIdentitySetMap_included (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ F f)
     (hx : Typed.TmDeriv.{u+1} Γ γ F f xx ξ) (hy : Typed.TmDeriv.{u+1} Γ γ F f yy η)
     (c : (show Grpd.{u,u} from γ L)) (p : (ξ L).down.obj c ⟶ (η L).down.obj c) :
     (totalMap (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA)).map
       ((Grothendieck.ι (f L ⋙ Grpd.forgetToCat) c).map p) ≫
-        eqToHom (Functor.congr_obj (generatedSectionLift_commutes S hΓ hA hy) c) =
-      eqToHom (Functor.congr_obj (generatedSectionLift_commutes S hΓ hA hx) c) ≫
+        eqToHom (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S hΓ hA hy) c) =
+      eqToHom (Functor.congr_obj (totalMap_generatedFamilyMap_section_commutes S hΓ hA hx) c) ≫
         (Grothendieck.ι (f T ⋙ Grpd.forgetToCat) ((generatedContextMap S hΓ).obj c)).map
           ((generatedIdentitySetMap S hΓ hA hx hy).app c p) :=
   identity_restriction_square (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA)
     (ξ L).down (η L).down ((ξ T).down.reindex _) ((η T).down.reindex _)
-    (generatedTerm_commutes S hΓ hA hx) (generatedTerm_commutes S hΓ hA hy) c p
+    (generatedFamilyMap_term_commutes S hΓ hA hx) (generatedFamilyMap_term_commutes S hΓ hA hy) c p
 
 /-- The same selected identity arrow after any equal presentation of the total map. -/
-theorem generatedIdentity_conjugate (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedIdentitySetMap_conjugate (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ F f)
     (hx : Typed.TmDeriv.{u+1} Γ γ F f xx ξ) (hy : Typed.TmDeriv.{u+1} Γ γ F f yy η)
     (Q : Extend (f L) ⥤ Extend (f T))
@@ -66,7 +66,7 @@ theorem generatedIdentity_conjugate (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
         ((generatedIdentitySetMap S hΓ hA hx hy).app c p) =
       eqToHom ex.symm ≫ Q.map ((Grothendieck.ι (f L ⋙ Grpd.forgetToCat) c).map p) ≫ eqToHom ey := by
   subst Q
-  have hh := generatedIdentity_included S hΓ hA hx hy c p
+  have hh := generatedIdentitySetMap_included S hΓ hA hx hy c p
   have hh' := congrArg (fun k => eqToHom ex.symm ≫ k) hh
   simpa only [Category.assoc, eqToHom_trans_assoc, eqToHom_refl, Category.id_comp] using hh'.symm
 

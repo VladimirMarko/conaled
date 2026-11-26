@@ -12,14 +12,14 @@ variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 variable [IsLocallyGroupoid Γ]
 variable (E : Family.{_,_,_,uE,vE,wE} (PathContext F))
 /-- The transported component acts as the identity functor at reflexivity. -/
-theorem contractionTransport_functor_refl (x : Total F) :
+theorem map_pathContraction_app_refl (x : Total F) :
     E.map ((pathContraction F).app ((pathReflexivity F).obj x)) =
       𝟙 (E.obj ((pathReflexivity F).obj x)) := by
   exact (congrArg E.map (pathContraction_app_refl F x)).trans
     (E.map_id ((pathReflexivity F).obj x))
 
 /-- The inverse comparison at a reflexive arrow is only its typed boundary. -/
-theorem contractionTransport_comparison_refl {x y : Total F} (p : x ⟶ y) :
+theorem pathContraction_postcomp_naturality_refl {x y : Total F} (p : x ⟶ y) :
     ∃ e, ((strongPostcomp (pathContraction F) E).naturality
       ((pathReflexivity F).map p)).inv = eqToHom e := by
   dsimp only [strongPostcomp]
@@ -41,17 +41,17 @@ theorem contractionTransport_comparison_refl {x y : Total F} (p : x ⟶ y) :
     exact congrArg E.map ((contraction_refl_right F p).trans (contraction_refl_left F p).symm)
   · rfl
 /-- Transport retains an arbitrary motive arrow over a reflexive path arrow. -/
-theorem contractionTransport_map_refl {x y : Total F} (p : x ⟶ y)
+theorem pathContraction_postcomp_map_refl {x y : Total F} (p : x ⟶ y)
     (a : E.obj ((contractionRetract F).obj ((pathReflexivity F).obj x)))
     (b : E.obj ((contractionRetract F).obj ((pathReflexivity F).obj y)))
     (q : (E.map ((contractionRetract F).map ((pathReflexivity F).map p))).obj a ⟶ b) :
     HEq (((strongPostcomp (pathContraction F) E).naturality
       ((pathReflexivity F).map p)).inv.app a ≫
       (E.map ((pathContraction F).app ((pathReflexivity F).obj y))).map q) q := by
-  obtain ⟨e, he⟩ := contractionTransport_comparison_refl F E p
+  obtain ⟨e, he⟩ := pathContraction_postcomp_naturality_refl F E p
   rw [he, StrongMap.classifier_eqToHom_app]
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
-  exact congr_arg_heq (fun H => H.map q) (contractionTransport_functor_refl F E y)
+  exact congr_arg_heq (fun H => H.map q) (map_pathContraction_app_refl F E y)
 /-- Transport retains every arrow of a section along reflexivity. -/
 theorem transport_map_refl (s : Section (reindex (contractionRetract F) E))
     {x y : Total F} (p : x ⟶ y) :
@@ -74,7 +74,7 @@ theorem transport_map_refl (s : Section (reindex (contractionRetract F) E))
     subst bx
     subst byctx
     cases eq_of_heq hr
-    exact contractionTransport_map_refl F E p a b q
+    exact pathContraction_postcomp_map_refl F E p a b q
   exact h _ _ (hb x) (hb y) _ _ _ hp _
 
 set_option backward.isDefEq.respectTransparency true in

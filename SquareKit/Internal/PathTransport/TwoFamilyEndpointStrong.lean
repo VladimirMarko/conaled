@@ -17,7 +17,7 @@ private theorem endpoint_cell_hext {x y : Total (endpointFamily E)} {p q p' q' :
   cases hp; cases hq
   exact heq_of_eq (endpoint_cell_ext E _ _ (eq_of_heq h1) (eq_of_heq h2))
 omit [Strict A] in
-theorem endpointStrong_hext {F G F' G' : StrictPseudofunctor A (Total (endpointFamily E))}
+theorem endpoint_strong_hext {F G F' G' : StrictPseudofunctor A (Total (endpointFamily E))}
     (eF : F = F') (eG : G = G')
     (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (η : Pseudofunctor.StrongTrans F'.toPseudofunctor G'.toPseudofunctor)

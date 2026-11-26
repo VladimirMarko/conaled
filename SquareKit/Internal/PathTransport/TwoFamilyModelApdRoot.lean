@@ -38,17 +38,17 @@ theorem sectionRootIdentity_of_values (E : Family Γ) (s : ULift.{u+1} (TwoFamil
 variable (C D : Context.{u}) (A : Family Γ) (B : Family A.total)
 variable (x : ULift.{u+1} (TwoFamily.Section A.data)) (t : ULift.{u+1} (TwoFamily.Section B.data))
 local notation "M" => fullModel C D
-theorem apdSection_root_values :
+theorem apdSectionValue_root_values :
  SectionRootValues (apdMotiveValue M A B x t) (apdSectionValue M A B x t)
   ((M).toStructuralModel.rootSub A x).down
   ((M).identity ((M).subTy B ((M).toStructuralModel.sectionSub A x))
    ((M).subTm t ((M).toStructuralModel.sectionSub A x)) ((M).subTm t ((M).toStructuralModel.sectionSub A x)))
   ((M).reflexivity _ ((M).subTm t ((M).toStructuralModel.sectionSub A x))) :=
- sectionRootValues_of_beta _ _ _ _ _ (apdMotive_root M A B x t) (apdSectionValue_root M A B x t)
-theorem apdSection_root_identity :
+ sectionRootValues_of_beta _ _ _ _ _ (apdMotiveValue_root M A B x t) (apdSectionValue_root M A B x t)
+theorem apdSectionValue_root_identity :
  SectionRootIdentity (apdMotiveValue M A B x t) (apdSectionValue M A B x t)
   ((M).toStructuralModel.rootSub A x).down
   ((M).subTy B ((M).toStructuralModel.sectionSub A x))
   ((M).subTm t ((M).toStructuralModel.sectionSub A x)) :=
- sectionRootIdentity_of_values _ _ _ _ _ (apdSection_root_values C D A B x t)
+ sectionRootIdentity_of_values _ _ _ _ _ (apdSectionValue_root_values C D A B x t)
 end SquareKit.Internal.PathTransport.HigherInterpretation

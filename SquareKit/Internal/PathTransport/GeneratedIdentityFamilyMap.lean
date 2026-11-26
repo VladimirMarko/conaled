@@ -39,13 +39,13 @@ local notation "M" => fullModel S
 local notation "L" => Instance.fullModel S.base.left S.leftFiber
 local notation "R" => Instance.fullModel S.base.right S.rightFiber
 
-theorem generatedFamilyMap_identityType (hΓ : CtxDeriv.{u+1} Γ γ)
+theorem generatedFamilyMap_identity_type (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a)
     (hx : TmDeriv.{u+1} Γ γ A a x ξ) (hy : TmDeriv.{u+1} Γ γ A a y η) :
     generatedFamilyMap S hΓ (.identity hA hx hy) =
       identityMap (generatedFamilyMap S hΓ hA) (ξ L).down (η L).down ≫
-        eqToHom (by rw [generatedTerm_commutes S hΓ hA hx,
-          generatedTerm_commutes S hΓ hA hy]; rfl) :=
+        eqToHom (by rw [generatedFamilyMap_term_commutes S hΓ hA hx,
+          generatedFamilyMap_term_commutes S hΓ hA hy]; rfl) :=
   Family.identity_relabel (a M) (ξ M) (η M)
     ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
     ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2
@@ -56,7 +56,7 @@ theorem generatedFamilyMap_identityType (hΓ : CtxDeriv.{u+1} Γ γ)
 
 /-- The formula applies to every supplied identity arrow, retaining its image
 before the explicit endpoint comparison transports it. -/
-theorem generatedIdentityMap_arrow (hΓ : CtxDeriv.{u+1} Γ γ)
+theorem generatedFamilyMap_identity_type_arrow (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a)
     (hx : TmDeriv.{u+1} Γ γ A a x ξ) (hy : TmDeriv.{u+1} Γ γ A a y η)
     (c : (show Grpd.{u,u} from γ L)) (p : (ξ L).down.obj c ⟶ (η L).down.obj c) :
@@ -65,10 +65,10 @@ theorem generatedIdentityMap_arrow (hΓ : CtxDeriv.{u+1} Γ γ)
         ((ξ L).down.familyImage (generatedFamilyMap S hΓ hA))
         ((η L).down.familyImage (generatedFamilyMap S hΓ hA)) =
         generatedContextMap S hΓ ⋙ identityFamily _ (ξ R).down (η R).down by
-          rw [generatedTerm_commutes S hΓ hA hx, generatedTerm_commutes S hΓ hA hy]
+          rw [generatedFamilyMap_term_commutes S hΓ hA hx, generatedFamilyMap_term_commutes S hΓ hA hy]
           rfl)).app c).obj
         (Discrete.mk (((generatedFamilyMap S hΓ hA).app c).map p)) := by
-  rw [generatedFamilyMap_identityType]
+  rw [generatedFamilyMap_identity_type]
   rfl
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

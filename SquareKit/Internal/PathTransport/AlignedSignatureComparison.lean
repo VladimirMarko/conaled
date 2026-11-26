@@ -15,7 +15,7 @@ def alignedBaseIso : (alignedUniverseSignature F P Q α).base.map ≅
     (alignedUniverseSignature G P Q β).base.map :=
   isoWhiskerLeft AsSmall.down (isoWhiskerRight η AsSmall.up)
 
-theorem alignedFiber_square (h : α ≫ whiskerRight η.hom Q = β) :
+theorem alignedUniverseSignature_fiberMap_square (h : α ≫ whiskerRight η.hom Q = β) :
     (alignedUniverseSignature F P Q α).fiberMap ≫
       whiskerRight (alignedBaseIso η P Q α β).hom
         (alignedUniverseSignature G P Q β).rightFiber =
@@ -35,7 +35,7 @@ def alignedContextComparison (h : α ≫ whiskerRight η.hom Q = β)
     generatedContextMap (alignedUniverseSignature F P Q α) hΓ ≅
       generatedContextMap (alignedUniverseSignature G P Q β) hΓ :=
   SignatureCylinder.contextComparison _ _ (alignedBaseIso η P Q α β) _ _ _
-    (alignedFiber_square η P Q α β h) hΓ
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ
 
 def alignedFamilyComparison (h : α ≫ whiskerRight η.hom Q = β)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
@@ -44,14 +44,14 @@ def alignedFamilyComparison (h : α ≫ whiskerRight η.hom Q = β)
       (generatedFamilyMap (alignedUniverseSignature F P Q α) hΓ hA)
       (generatedFamilyMap (alignedUniverseSignature G P Q β) hΓ hA) :=
   SignatureCylinder.familyComparison _ _ (alignedBaseIso η P Q α β) _ _ _
-    (alignedFiber_square η P Q α β h) hΓ hA
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ hA
 
 def AlignedSectionCoherence (h : α ≫ whiskerRight η.hom Q = β)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
     (hA : Typed.TyDeriv.{max u v w + 1} Γ γ A a)
     (hx : Typed.TmDeriv.{max u v w + 1} Γ γ A a t x) : Prop :=
   SignatureCylinder.SectionCoherence _ _ (alignedBaseIso η P Q α β) _ _ _
-    (alignedFiber_square η P Q α β h) hΓ hA hx
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ hA hx
 
 theorem alignedSectionCoherence (h : α ≫ whiskerRight η.hom Q = β)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
@@ -59,6 +59,6 @@ theorem alignedSectionCoherence (h : α ≫ whiskerRight η.hom Q = β)
     (hx : Typed.TmDeriv.{max u v w + 1} Γ γ A a t x) :
     AlignedSectionCoherence η P Q α β h hΓ hA hx :=
   SignatureCylinder.sectionCoherence _ _ (alignedBaseIso η P Q α β) _ _ _
-    (alignedFiber_square η P Q α β h) hΓ hA hx
+    (alignedUniverseSignature_fiberMap_square η P Q α β h) hΓ hA hx
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

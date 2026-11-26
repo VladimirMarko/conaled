@@ -19,7 +19,7 @@ theorem variableSectionFiber_obj (B : Family Γ) (δ : Γ) (a : B.data.obj δ) :
    (TwoFamily.Section.reindex_obj_fiber _ _ _ a)
 theorem variableSectionFiber_map (B : Family Γ) (δ : Γ) {a b : B.data.obj δ} (f : a ⟶ b) :
  HEq ((variableSectionFiber B δ (variableSection B.data)).lift.map f).fiber f := by
- have h1 := TwoFamily.Section.cast_map_fiber (variableFamily_fiber B δ)
+ have h1 := TwoFamily.Section.cast_map_fiber (reindex_projection_fiber_constantFamily B δ)
    ((variableSection B.data).reindex _ (fiberInclusion B.data δ)) f
  have h2 := TwoFamily.Section.reindex_map_fiber _ (variableSection B.data) (fiberInclusion B.data δ) f
  have h3 : HEq ((variableSection B.data).lift.map ((fiberInclusion B.data δ).map f)).fiber f :=
@@ -62,7 +62,7 @@ instance identityFiberBeta_app_isIso
  (p : TwoFamily.Section (closedId (reindex (projectionHigher (I).data) (I).data) s (variableSection (I).data)))
  (a : (openIdCat A.data).obj ((endpointPair A.data x y).lift.obj γ)) :
  IsIso ((identityFiberBeta A x y γ s p).app a) := IsGroupoid.all_isIso _
-theorem identityFiber_conjugation
+theorem identityFiberBeta_conjugation
  (s : TwoFamily.Section (reindex (projectionHigher (I).data) (I).data))
  (p : TwoFamily.Section (closedId (reindex (projectionHigher (I).data) (I).data) s (variableSection (I).data)))
  {a b : (x.normalObj A.data γ).fiber ⟶ (y.normalObj A.data γ).fiber} (h : a ⟶ b) :

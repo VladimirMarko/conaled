@@ -37,7 +37,7 @@ theorem ordinaryAp_eval (g a c sx sy sp st : Expression V)
    change DependentJudgments.operation M.toStructuralModel .weaken ![g.eval (algebra M) ρ, a.eval (algebra M) ρ] = _
    rw [hg, ha]
    simp [DependentJudgments.operation]
- have hpath := pathProjection_eval M ρ g a sx Γ A x hg ha hx
+ have hpath := weaken_pathFamily_eval M ρ g a sx Γ A x hg ha hx
  have hCw := subTy_eval M ρ c _ _ _ C _ hc hw
  have hDty := subTy_eval M ρ _ _ _ _ _ _ hCw hpath
  have htx := ordinaryApply_eval M ρ g a sx st Γ A C t x hg ha hx ht

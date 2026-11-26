@@ -116,7 +116,7 @@ theorem endpoint_eval (g a sx sy sp : Expression V)
   rw [he, Value.termAt_term]
   rfl
 
-theorem pathProjection_eval (g a sx : Expression V)
+theorem weaken_pathFamily_eval (g a sx : Expression V)
     (Γ : M.Context) (A : M.Family Γ) (x : M.Section Γ A)
     (hg : g.eval (algebra M) ρ = .context Γ)
     (ha : a.eval (algebra M) ρ = .family Γ A)
@@ -187,7 +187,7 @@ theorem transportGeneric_eval (g a sb sx su : Expression V)
     (hb : su.eval (algebra M) ρ = .term Γ (M.subTy B (M.toStructuralModel.sectionSub A x)) b) :
     (transportGeneric g a sb sx su).eval (algebra M) ρ =
       .term (M.toStructuralModel.pathContext A x) (motive M A B x) (transportSection M A B x b) := by
-  have hw := pathProjection_eval M ρ g a sx Γ A x hg ha hx
+  have hw := weaken_pathFamily_eval M ρ g a sx Γ A x hg ha hx
   have hm := subTy_eval M ρ sb _ _ _ B _ hB hw
   exact basedJ_eval M ρ a sx _ su Γ A x (motive M A B x) _ ha hx hm
     (hb.trans (Value.term_eq (motive_root M A B x).symm (cast_heq _ _).symm))
@@ -283,7 +283,7 @@ theorem transportSection_root {Γ : M.Context} (A : M.Family Γ)
     HEq (M.subTm (transportSection M A B x b) (M.toStructuralModel.rootSub A x)) b :=
   (M.j_beta A x .nil _ _).trans (cast_heq _ _)
 
-theorem apdMotive_root {Γ : M.Context} (A : M.Family Γ)
+theorem apdMotiveValue_root {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x : M.Section Γ A) (t : M.Section (M.extend Γ A) B) :
     M.subTy (apdMotiveValue M A B x t) (M.toStructuralModel.rootSub A x) =
       M.identity (M.subTy B (M.toStructuralModel.sectionSub A x))
@@ -295,7 +295,7 @@ theorem apdMotive_root {Γ : M.Context} (A : M.Family Γ)
   apply (M.subTm_comp _ _ _).trans
   rw [M.toStructuralModel.weaken_root]
 
-theorem apdMotive_endpoint {Γ : M.Context} (A : M.Family Γ)
+theorem apdMotiveValue_endpoint {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) (t : M.Section (M.extend Γ A) B) :
     M.subTy (apdMotiveValue M A B x t) (M.toStructuralModel.endpointSub A x y p) =
@@ -315,9 +315,9 @@ def apdValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
     M.Section Γ (M.identity (M.subTy B (M.toStructuralModel.sectionSub A y))
       (transportValue M A B x y p (M.subTm t (M.toStructuralModel.sectionSub A x)))
       (M.subTm t (M.toStructuralModel.sectionSub A y))) :=
-  cast (congrArg (M.Section Γ) (apdMotive_endpoint M A B x y p t))
+  cast (congrArg (M.Section Γ) (apdMotiveValue_endpoint M A B x y p t))
     (M.subTm (M.j A x .nil (apdMotiveValue M A B x t)
-      (cast (congrArg (M.Section Γ) (apdMotive_root M A B x t).symm)
+      (cast (congrArg (M.Section Γ) (apdMotiveValue_root M A B x t).symm)
         (M.reflexivity _ (M.subTm t (M.toStructuralModel.sectionSub A x)))))
       (M.toStructuralModel.endpointSub A x y p))
 
@@ -339,7 +339,7 @@ theorem apd_eval (g a sb sx sy sp st : Expression V)
         (transportValue M A B x y p (M.subTm t (M.toStructuralModel.sectionSub A x)))
         (M.subTm t (M.toStructuralModel.sectionSub A y))) (apdValue M A B x y p t) := by
   have hs := sectionSub_eval M ρ g a sx Γ A x hg ha hx
-  have hw := pathProjection_eval M ρ g a sx Γ A x hg ha hx
+  have hw := weaken_pathFamily_eval M ρ g a sx Γ A x hg ha hx
   have htx := subTm_eval M ρ st _ _ _ B t _ ht hs
   have hBx := subTy_eval M ρ sb _ _ _ B _ hB hs
   have hBt := subTy_eval M ρ sb _ _ _ B _ hB hw
@@ -347,14 +347,14 @@ theorem apd_eval (g a sb sx sy sp st : Expression V)
   have hright := subTm_eval M ρ st _ _ _ B t _ ht hw
   have hD := identity_eval M ρ _ _ _ _ _ _ _ hBt hleft hright
   have hb := reflexivity_eval M ρ _ _ _ _ _ hBx htx
-  let d := cast (congrArg (M.Section Γ) (apdMotive_root M A B x t).symm)
+  let d := cast (congrArg (M.Section Γ) (apdMotiveValue_root M A B x t).symm)
     (M.reflexivity _ (M.subTm t (M.toStructuralModel.sectionSub A x)))
   have hj := basedJ_eval M ρ a sx (apdMotive g a sb sx st) (apdBranch g a sb sx st)
     Γ A x (apdMotiveValue M A B x t) d ha hx hD
-    (hb.trans (Value.term_eq (apdMotive_root M A B x t).symm (cast_heq _ _).symm))
+    (hb.trans (Value.term_eq (apdMotiveValue_root M A B x t).symm (cast_heq _ _).symm))
   have he := endpoint_eval M ρ g a sx sy sp Γ A x y p hg ha hx hy hp
   have h := subTm_eval M ρ _ _ _ _ _ _ _ hj he
-  exact h.trans (Value.term_eq (apdMotive_endpoint M A B x y p t) (cast_heq _ _).symm)
+  exact h.trans (Value.term_eq (apdMotiveValue_endpoint M A B x y p t) (cast_heq _ _).symm)
 
 /-- The path-context map sends a generic q to the selected concat(p,q). -/
 def concatMapValue {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
@@ -365,12 +365,12 @@ def concatMapValue {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (transportSection M A (M.toStructuralModel.pathFamily A x) y
       (cast (congrArg (M.Section Γ) (M.toStructuralModel.pathFamily_at A x y).symm) p))
 
-theorem concatMap_projection {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
+theorem concatMapValue_projection {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) :
     M.compSub (M.weaken _ (M.toStructuralModel.pathFamily A x)) (concatMapValue M A x y p) =
       M.weaken _ (M.toStructuralModel.pathFamily A y) := M.weaken_pair _ _ _
 
-theorem concatMap_root {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
+theorem concatMapValue_root {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) :
     M.compSub (concatMapValue M A x y p) (M.toStructuralModel.rootSub A y) =
       M.toStructuralModel.endpointSub A x y p := by
@@ -381,7 +381,7 @@ theorem concatMap_root {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
     (heq_of_eq (M.toStructuralModel.weaken_root A y))
   exact (cast_heq _ _).trans (transportSection_root M A _ y _)
 
-theorem concatMap_endpoint {Γ : M.Context} (A : M.Family Γ) (x y z : M.Section Γ A)
+theorem concatMapValue_endpoint {Γ : M.Context} (A : M.Family Γ) (x y z : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) (q : M.Section Γ (M.identity A y z)) :
     M.compSub (concatMapValue M A x y p) (M.toStructuralModel.endpointSub A y z q) =
       M.toStructuralModel.endpointSub A x z (concatValue M A x y z p q) := by
@@ -393,18 +393,18 @@ theorem concatMap_endpoint {Γ : M.Context} (A : M.Family Γ) (x y z : M.Section
   exact (cast_heq _ _).trans
     ((cast_heq _ _).symm.trans ((cast_heq _ _).symm.trans (cast_heq _ _).symm))
 
-theorem etaRight_type {Γ : M.Context} (A : M.Family Γ)
+theorem etaRightValue_type {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) :
     M.subTy (motive M A B x) (concatMapValue M A x y p) = motive M A B y := by
-  rw [motive, M.subTy_comp, concatMap_projection]
+  rw [motive, M.subTy_comp, concatMapValue_projection]
   rfl
 
 def etaRightValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
     (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y))
     (b : M.Section Γ (M.subTy B (M.toStructuralModel.sectionSub A x))) :
     M.Section (M.toStructuralModel.pathContext A y) (motive M A B y) :=
-  cast (congrArg (M.Section _) (etaRight_type M A B x y p))
+  cast (congrArg (M.Section _) (etaRightValue_type M A B x y p))
     (M.subTm (transportSection M A B x b) (concatMapValue M A x y p))
 
 def etaMotiveValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
@@ -414,36 +414,36 @@ def etaMotiveValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ
   M.identity (motive M A B y) (transportSection M A B y (transportValue M A B x y p b))
     (etaRightValue M A B x y p b)
 
-theorem etaRight_root {Γ : M.Context} (A : M.Family Γ)
+theorem etaRightValue_root {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y))
     (b : M.Section Γ (M.subTy B (M.toStructuralModel.sectionSub A x))) :
     HEq (M.subTm (etaRightValue M A B x y p b) (M.toStructuralModel.rootSub A y))
       (transportValue M A B x y p b) := by
-  apply (M.toStructuralModel.subTm_congr (etaRight_type M A B x y p).symm (cast_heq _ _) _).trans
+  apply (M.toStructuralModel.subTm_congr (etaRightValue_type M A B x y p).symm (cast_heq _ _) _).trans
   apply (M.subTm_comp _ _ _).trans
   have h : HEq (M.subTm (transportSection M A B x b)
       (M.compSub (concatMapValue M A x y p) (M.toStructuralModel.rootSub A y)))
       (M.subTm (transportSection M A B x b) (M.toStructuralModel.endpointSub A x y p)) := by
-    rw [concatMap_root]
+    rw [concatMapValue_root]
   exact h.trans (cast_heq _ _).symm
 
-theorem etaRight_endpoint {Γ : M.Context} (A : M.Family Γ)
+theorem etaRightValue_endpoint {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y z : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) (q : M.Section Γ (M.identity A y z))
     (b : M.Section Γ (M.subTy B (M.toStructuralModel.sectionSub A x))) :
     HEq (M.subTm (etaRightValue M A B x y p b) (M.toStructuralModel.endpointSub A y z q))
       (transportValue M A B x z (concatValue M A x y z p q) b) := by
-  apply (M.toStructuralModel.subTm_congr (etaRight_type M A B x y p).symm (cast_heq _ _) _).trans
+  apply (M.toStructuralModel.subTm_congr (etaRightValue_type M A B x y p).symm (cast_heq _ _) _).trans
   apply (M.subTm_comp _ _ _).trans
   have h : HEq (M.subTm (transportSection M A B x b)
       (M.compSub (concatMapValue M A x y p) (M.toStructuralModel.endpointSub A y z q)))
       (M.subTm (transportSection M A B x b)
         (M.toStructuralModel.endpointSub A x z (concatValue M A x y z p q))) := by
-    rw [concatMap_endpoint]
+    rw [concatMapValue_endpoint]
   exact h.trans (cast_heq _ _).symm
 
-theorem etaMotive_root {Γ : M.Context} (A : M.Family Γ)
+theorem etaMotiveValue_root {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y))
     (b : M.Section Γ (M.subTy B (M.toStructuralModel.sectionSub A x))) :
@@ -452,9 +452,9 @@ theorem etaMotive_root {Γ : M.Context} (A : M.Family Γ)
         (transportValue M A B x y p b) (transportValue M A B x y p b) := by
   rw [etaMotiveValue, M.identity_sub]
   exact M.toStructuralModel.identity_congr (motive_root M A B y)
-    (transportSection_root M A B y _) (etaRight_root M A B x y p b)
+    (transportSection_root M A B y _) (etaRightValue_root M A B x y p b)
 
-theorem etaMotive_endpoint {Γ : M.Context} (A : M.Family Γ)
+theorem etaMotiveValue_endpoint {Γ : M.Context} (A : M.Family Γ)
     (B : M.Family (M.extend Γ A)) (x y z : M.Section Γ A)
     (p : M.Section Γ (M.identity A x y)) (q : M.Section Γ (M.identity A y z))
     (b : M.Section Γ (M.subTy B (M.toStructuralModel.sectionSub A x))) :
@@ -464,7 +464,7 @@ theorem etaMotive_endpoint {Γ : M.Context} (A : M.Family Γ)
         (transportValue M A B x z (concatValue M A x y z p q) b) := by
   rw [etaMotiveValue, M.identity_sub]
   exact M.toStructuralModel.identity_congr (motive_endpoint M A B y z q)
-    (cast_heq _ _).symm (etaRight_endpoint M A B x y z p q b)
+    (cast_heq _ _).symm (etaRightValue_endpoint M A B x y z p q b)
 
 /-- The selected semantic composition certificate uses the same right-path J
 as the generated recipe; its branch is reflexivity at the retained value. -/
@@ -475,9 +475,9 @@ def etaValue {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
     M.Section Γ (M.identity (M.subTy B (M.toStructuralModel.sectionSub A z))
       (transportValue M A B y z q (transportValue M A B x y p b))
       (transportValue M A B x z (concatValue M A x y z p q) b)) :=
-  cast (congrArg (M.Section Γ) (etaMotive_endpoint M A B x y z p q b))
+  cast (congrArg (M.Section Γ) (etaMotiveValue_endpoint M A B x y z p q b))
     (M.subTm (M.j A y .nil (etaMotiveValue M A B x y p b)
-      (cast (congrArg (M.Section Γ) (etaMotive_root M A B x y p b).symm)
+      (cast (congrArg (M.Section Γ) (etaMotiveValue_root M A B x y p b).symm)
         (M.reflexivity _ (transportValue M A B x y p b))))
       (M.toStructuralModel.endpointSub A y z q))
 
@@ -493,7 +493,7 @@ theorem concatMap_eval (g a sx sy sp : Expression V)
       .substitution (M.toStructuralModel.pathContext A y) (M.toStructuralModel.pathContext A x)
         (concatMapValue M A x y p) := by
   have hf := pathFamily_eval M ρ g a sx Γ A x hg ha hx
-  have hw := pathProjection_eval M ρ g a sy Γ A y hg ha hy
+  have hw := weaken_pathFamily_eval M ρ g a sy Γ A y hg ha hy
   let b := cast (congrArg (M.Section Γ) (M.toStructuralModel.pathFamily_at A x y).symm) p
   have ht := transportGeneric_eval M ρ g a (Contextual.pathFamily g a sx) sy sp
     Γ A (M.toStructuralModel.pathFamily A x) y b hg ha hf hy
@@ -527,21 +527,21 @@ theorem eta_eval (g a sb sx sy sz sp sq su : Expression V)
   have hraw := subTm_eval M ρ _ _ _ _ _ _ _ hgen hmap
   have hright : (etaRight g a sb sx sy sp su).eval (algebra M) ρ =
       .term (M.toStructuralModel.pathContext A y) (motive M A B y) (etaRightValue M A B x y p b) :=
-    hraw.trans (Value.term_eq (etaRight_type M A B x y p) (cast_heq _ _).symm)
-  have hw := pathProjection_eval M ρ g a sy Γ A y hg ha hy
+    hraw.trans (Value.term_eq (etaRightValue_type M A B x y p) (cast_heq _ _).symm)
+  have hw := weaken_pathFamily_eval M ρ g a sy Γ A y hg ha hy
   have hBt := subTy_eval M ρ sb _ _ _ B _ hB hw
   have hD := identity_eval M ρ _ _ _ _ _ _ _ hBt hleft hright
   have hs := sectionSub_eval M ρ g a sy Γ A y hg ha hy
   have hBy := subTy_eval M ρ sb _ _ _ B _ hB hs
   have hbranch := reflexivity_eval M ρ _ _ _ _ _ hBy htr
-  let d := cast (congrArg (M.Section Γ) (etaMotive_root M A B x y p b).symm)
+  let d := cast (congrArg (M.Section Γ) (etaMotiveValue_root M A B x y p b).symm)
     (M.reflexivity _ (transportValue M A B x y p b))
   have hj := basedJ_eval M ρ a sy (etaMotive g a sb sx sy sp su) (etaBranch g a sb sx sy sp su)
     Γ A y (etaMotiveValue M A B x y p b) d ha hy hD
-    (hbranch.trans (Value.term_eq (etaMotive_root M A B x y p b).symm (cast_heq _ _).symm))
+    (hbranch.trans (Value.term_eq (etaMotiveValue_root M A B x y p b).symm (cast_heq _ _).symm))
   have he := endpoint_eval M ρ g a sy sz sq Γ A y z q hg ha hy hz hq
   have h := subTm_eval M ρ _ _ _ _ _ _ _ hj he
-  exact h.trans (Value.term_eq (etaMotive_endpoint M A B x y z p q b) (cast_heq _ _).symm)
+  exact h.trans (Value.term_eq (etaMotiveValue_endpoint M A B x y z p q b) (cast_heq _ _).symm)
 
 end SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics
 

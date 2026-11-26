@@ -58,7 +58,7 @@ private theorem branch_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     CtxPres S T h hB (branchCode a x Ts) :=
   (ht.pullback (root_pres S T h hB hΓ hA hx ha)).total
 
-private theorem pathTail_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
+private theorem pathTailCode_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     (hx : TmDeriv Γ γ A a t x)
     {n Δ Ts} (_hT : TelDeriv (pathCtx Γ A t) (pathCode a x) n Δ Ts)
     (hs : SubDeriv Ω ω Γ γ σ s)
@@ -71,7 +71,7 @@ private theorem pathTail_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     (path_pres S T h hB hsection) (path_pres S T h hB (hsection.reindex hsub))
   exact ht.pullback hpath
 
-private theorem reindexBranch_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
+private theorem reindexed_branch_type_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     (hx : TmDeriv Γ γ A a t x)
     {n Δ Ts} (hT : TelDeriv (pathCtx Γ A t) (pathCode a x) n Δ Ts)
     {C c} (_hc : TyDeriv (Δ ++ pathCtx Γ A t) (telTotal Ts) C c)
@@ -80,7 +80,7 @@ private theorem reindexBranch_pres (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A 
     (hc : TyPres S T h hB c) (hh : SubPres S T h hB s) :
     TyPres S T h hB (subTyCode (subTyCode c (pathTailMapCode a x Ts s))
       (rootTailCode (subTyCode a s) (subTmCode x s) (pathTailCode a x Ts s))) := by
-  have ht' := pathTail_pres S T h hB hΓ hA hx hT hs ha ht hh
+  have ht' := pathTailCode_pres S T h hB hΓ hA hx hT hs ha ht hh
   have ha' := ha.reindex (substitution_pres S T h hB hs hh)
   have hmap := generated_substitution_composes S T h hB (.pathTailMap hΓ hA hx hT hs)
     ht.total ht'.total
@@ -112,7 +112,7 @@ theorem generated_tel (deriv : TelDeriv.{u+1} Γ γ n Δ Ts) : TelPres S T h hB 
   | .cons ha ht => .cons (generated_ty ha) (generated_tel ht)
   | .pullback ht hs => (generated_tel ht).pullback (substitution_pres S T h hB hs (generated_sub_contexts hs))
   | .pathReindex hΓ ha hx ht hs =>
-      pathTail_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx) (generated_tel ht) (generated_sub_contexts hs)
+      pathTailCode_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx) (generated_tel ht) (generated_sub_contexts hs)
 termination_by sizeOf deriv
 
 theorem generated_ty (deriv : TyDeriv.{u+1} Γ γ A a) : TyPres S T h hB a :=
@@ -138,7 +138,7 @@ theorem generated_tm_type (deriv : TmDeriv.{u+1} Γ γ A a t x) : TyPres S T h h
       (generated_ty hc).reindex (substitution_pres S T h hB hs (generated_sub_contexts hs))
   | .genericJ _ _ _ _ hc _ => generated_ty hc
   | .reindexJBranch hΓ ha hx ht hc _ hs =>
-      reindexBranch_pres S T h hB hΓ ha hx ht hc hs
+      reindexed_branch_type_pres S T h hB hΓ ha hx ht hc hs
         (generated_tm_type hx) (generated_tel ht) (generated_ty hc) (generated_sub_contexts hs)
   | .conv hx _ e => cast_pres S T h hB e (generated_tm_type hx)
 termination_by sizeOf deriv
@@ -154,7 +154,7 @@ theorem generated_sub_contexts (deriv : SubDeriv.{u+1} Δ δ Γ γ σ s) : SubPr
   | .rootTail hΓ ha hx ht =>
       ⟨branch_pres S T h hB hΓ ha hx ht (generated_tm_type hx) (generated_tel ht), (generated_tel ht).total⟩
   | .pathTailMap hΓ ha hx ht hs =>
-      ⟨(pathTail_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx)
+      ⟨(pathTailCode_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx)
         (generated_tel ht) (generated_sub_contexts hs)).total, (generated_tel ht).total⟩
   | .pair ha hs _ => ⟨(generated_sub_contexts hs).1, (generated_ty ha).extend⟩
 termination_by sizeOf deriv

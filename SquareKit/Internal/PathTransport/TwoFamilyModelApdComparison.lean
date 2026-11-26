@@ -16,7 +16,7 @@ noncomputable def apdSectionComparison :=
   (transportSection M A B x ((M).subTm t ((M).toStructuralModel.sectionSub A x))).down
   ((M).subTm t ((M).weaken _ ((M).toStructuralModel.pathFamily A x))).down
   (apdSectionValue M A B x t).down
- theorem apdSection_components :
+ theorem apdSectionValue_components :
  ClosedComparisonComponentFormula (motive M A B x).data
   (transportSection M A B x ((M).subTm t ((M).toStructuralModel.sectionSub A x))).down
   ((M).subTm t ((M).weaken _ ((M).toStructuralModel.pathFamily A x))).down

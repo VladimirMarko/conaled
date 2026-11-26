@@ -21,15 +21,15 @@ variable (hf : F ⋙ K₁ = F ⋙ K₂) (hα : HEq (α ≫ whiskerLeft F κ₁) 
 variable (hc : isoWhiskerRight η K₁ ≪≫ θ = eqToIso hf ≪≫ isoWhiskerRight η K₂)
 
 include h₁ h₂ hc in
-theorem alignedRecovery_square (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
+theorem alignedContextComparison_recovery_square (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     isoWhiskerRight (alignedContextComparison η P Q α β hη hΓ)
       (generatedContextMap (alignedUniverseSignature K₁ Q R κ₁) hΓ) ≪≫
-      (eqToIso (alignedGenerated_comp P Q K₁ R β κ₁ hΓ) ≪≫
+      (eqToIso (generatedContextMap_aligned_comp P Q K₁ R β κ₁ hΓ) ≪≫
         alignedContextComparison θ P R (β ≫ whiskerLeft G κ₁) (β ≫ whiskerLeft G κ₂) hθ hΓ ≪≫
-        (eqToIso (alignedGenerated_comp P Q K₂ R β κ₂ hΓ)).symm) =
-    (eqToIso (alignedGenerated_comp P Q K₁ R α κ₁ hΓ) ≪≫
-      eqToIso (alignedGenerated_eq P R hf hα hΓ) ≪≫
-      (eqToIso (alignedGenerated_comp P Q K₂ R α κ₂ hΓ)).symm) ≪≫
+        (eqToIso (generatedContextMap_aligned_comp P Q K₂ R β κ₂ hΓ)).symm) =
+    (eqToIso (generatedContextMap_aligned_comp P Q K₁ R α κ₁ hΓ) ≪≫
+      eqToIso (generatedContextMap_aligned_congr P R hf hα hΓ) ≪≫
+      (eqToIso (generatedContextMap_aligned_comp P Q K₂ R α κ₂ hΓ)).symm) ≪≫
       isoWhiskerRight (alignedContextComparison η P Q α β hη hΓ)
         (generatedContextMap (alignedUniverseSignature K₂ Q R κ₂) hΓ) := by
   have h := alignedContextComparison_cocycle_presentations P R
@@ -41,8 +41,8 @@ theorem alignedRecovery_square (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     (by simpa only [eqToIso_refl, Iso.trans_refl, Iso.refl_trans, Iso.refl_symm] using hc) h₁ hθ h₂ hΓ
   rw [alignedContextComparison_postcompose P Q K₁ R η α β κ₁ hη h₁ hΓ,
     alignedContextComparison_postcompose P Q K₂ R η α β κ₂ hη h₂ hΓ] at h
-  have hn := congrArg (fun i => eqToIso (alignedGenerated_comp P Q K₁ R α κ₁ hΓ) ≪≫ i ≪≫
-    (eqToIso (alignedGenerated_comp P Q K₂ R β κ₂ hΓ)).symm) h
+  have hn := congrArg (fun i => eqToIso (generatedContextMap_aligned_comp P Q K₁ R α κ₁ hΓ) ≪≫ i ≪≫
+    (eqToIso (generatedContextMap_aligned_comp P Q K₂ R β κ₂ hΓ)).symm) h
   simpa [Iso.trans_assoc] using hn
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

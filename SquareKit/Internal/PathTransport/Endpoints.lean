@@ -36,7 +36,7 @@ theorem sectionCode_eval (a : TyCode γ) (ξ : TmCode γ a) (M : Model) :
   congr 1
   exact eq_of_heq ((castCode_eval _ _ M).trans (cast_heq _ _).symm)
 
-theorem pathFamilyAt_code (a : TyCode γ) (ξ υ : TmCode γ a) :
+theorem subTyCode_pathFamilyCode_sectionCode (a : TyCode γ) (ξ υ : TmCode γ a) :
     subTyCode (pathFamilyCode a ξ) (sectionCode a υ) = identityCode a ξ υ := by
   funext M
   change M.subTy _ (sectionCode a υ M) = _
@@ -45,7 +45,7 @@ theorem pathFamilyAt_code (a : TyCode γ) (ξ υ : TmCode γ a) :
 
 def endpointCode (a : TyCode γ) (ξ υ : TmCode γ a)
     (π : TmCode γ (identityCode a ξ υ)) : SubCode γ (pathCode a ξ) :=
-  pairCode (pathFamilyCode a ξ) (sectionCode a υ) (castCode (pathFamilyAt_code a ξ υ).symm π)
+  pairCode (pathFamilyCode a ξ) (sectionCode a υ) (castCode (subTyCode_pathFamilyCode_sectionCode a ξ υ).symm π)
 
 theorem endpointCode_eval (a : TyCode γ) (ξ υ : TmCode γ a)
     (π : TmCode γ (identityCode a ξ υ)) (M : Model) :
@@ -83,7 +83,7 @@ theorem subTmCode_substitution_heq {γ δ : CtxCode} {a : TyCode γ}
     (ξ : TmCode γ a) {s t : SubCode δ γ} (h : s = t) : HEq (subTmCode ξ s) (subTmCode ξ t) := by
   cases h; rfl
 
-theorem subTmId_heq {γ : CtxCode} {a : TyCode γ} (ξ : TmCode γ a) :
+theorem subTmCode_id_heq {γ : CtxCode} {a : TyCode γ} (ξ : TmCode γ a) :
     HEq (subTmCode ξ (idCode γ)) ξ :=
   (castCode_heq _ _).symm.trans (heq_of_eq (castCode_subTmCode_idCode ξ))
 
@@ -100,7 +100,7 @@ def SubDeriv.section (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     SubDeriv Γ γ (A :: Γ) (extendCode γ a) (consSub x Expr.var) (sectionCode a ξ) :=
   .pair hA (.id hΓ) (hx.convert (.symm (.subId hA)))
 
-theorem pathFamilyRaw_at (A x y : Expr) :
+theorem identity_rename_sub_consSub (A x y : Expr) :
     (Expr.identity (A.rename Nat.succ) (x.rename Nat.succ) (.var 0)).sub (consSub y Expr.var) =
       .identity A x y := by
   simp only [Expr.sub, Expr.sub_rename]
@@ -114,6 +114,6 @@ def SubDeriv.endpoint (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     SubDeriv Γ γ (pathCtx Γ A x) (pathCode a ξ) (consSub p (consSub y Expr.var))
       (endpointCode a ξ υ π) :=
   .pair (.pathFamily hΓ hA hx) (.section hΓ hA hy)
-    ((hp.rawType (pathFamilyRaw_at A x y).symm).annotateType (pathFamilyAt_code a ξ υ).symm)
+    ((hp.rawType (identity_rename_sub_consSub A x y).symm).annotateType (subTyCode_pathFamilyCode_sectionCode a ξ υ).symm)
 
 end SquareKit.Internal.PathTransport.Typed

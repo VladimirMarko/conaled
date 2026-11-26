@@ -63,7 +63,7 @@ theorem coherentLift_contractionBack_reindex :
     rw [liftedContraction_target, liftedContraction_target]
     exact (StrictTwoTransformation.functor_id_comp k).trans
       (StrictTwoTransformation.functor_comp_id k).symm
-  apply cartesianStrong_hext E eF eG
+  apply cartesian_strong_hext E eF eG
   · intro x
     change HEq (σ.map (η'.app x.base)) (η.app (σ.obj x.base))
     exact strongTrans_app_heq (retraction_source_square i r i' r' σ σ₀ hi hr)
@@ -74,7 +74,7 @@ theorem coherentLift_contractionBack_reindex :
   · intro x
     exact equalityHomFiber_cartesian E _ _
   · intro x y p
-    have h1 := postcompReindex_comparison_base E σ
+    have h1 := strongPostcomp_reindexHigher_naturality_base E σ
       (strongPrecomp (coherentLift η' (reindex σ E)) b') p
     have h2 := (strongPostcomp_naturality_heq η' σ p.base).symm
     have h3 := strongTrans_naturality_hom_heq (retraction_source_square i r i' r' σ σ₀ hi hr)
@@ -82,7 +82,7 @@ theorem coherentLift_contractionBack_reindex :
       _ _ hη p.base
     exact h1.trans (h2.trans h3)
   · intro x y p
-    exact postcompReindex_equalityFiber E σ _ p (coherentLiftCell_equalityFiber η' (reindex σ E) (b'.map p))
+    exact strongPostcomp_reindexHigher_equalityFiber E σ _ p (coherentLiftCell_equalityFiber η' (reindex σ E) (b'.map p))
   · intro x y p
     exact coherentLiftCell_equalityFiber η E (b.map (k.map p))
 include hi hr hη in

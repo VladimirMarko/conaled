@@ -70,7 +70,7 @@ example : (Comparison.SignatureCylinder.evaluation left).map
 
 /-- The chosen comparison respects the selected counit for a two-binder
 root/tail contraction whose second binder depends on the first. -/
-example := Comparison.SignatureCylinder.contextComparison_rootTail_counit
+example := Comparison.SignatureCylinder.contextComparison_rootTailEquivalence_counitInv
   left before comparison after alpha beta rfl
   SignatureInterpretationMaps.DependentTail.context
   (.base SignatureInterpretationMaps.DependentTail.context)

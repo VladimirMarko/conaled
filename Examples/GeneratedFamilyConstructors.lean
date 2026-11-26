@@ -36,7 +36,7 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ)
     generatedFamilyMap S hΓ (.fiber hx) =
       whiskerLeft (baseFunctor (ξ L).down) (whiskerRight (S).fiberMap discrete) ≫
         eqToHom (congrArg (· ⋙ setFamily (S).rightFiber)
-          (generatedBaseTerm_commutes S hΓ hx)) :=
+          (baseFunctor_generatedContextMap_commutes S hΓ hx)) :=
   generatedFamilyMap_fiber S hΓ hx
 
 /-- The same equation applies to any generated substitution, including root
@@ -46,7 +46,7 @@ example (_hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
     generatedFamilyMap S hΔ (.sub hB hs) =
       whiskerLeft (s L).down (generatedFamilyMap S hΓ hB) ≫
         eqToHom (congrArg (· ⋙ (show (show Grpd.{1,1} from γ R) ⥤ Grpd.{1,1} from b R))
-          (generatedSubstitution_commutes S hΓ hΔ hs)) :=
+          (generatedContextMap_substitution_commutes S hΓ hΔ hs)) :=
   generatedFamilyMap_sub S hΓ hΔ hB hs
 
 /-- Independent primitive matching recovers an arbitrary supplied local value. -/

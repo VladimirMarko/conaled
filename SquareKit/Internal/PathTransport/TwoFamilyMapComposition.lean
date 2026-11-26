@@ -69,8 +69,8 @@ private theorem comp_cell {x y : Total F} {p q : x ⟶ y} (α : p ⟶ q) :
 
 theorem toHigher_vcomp : (toHigher η).comp (toHigher θ) =
     toHigher (Pseudofunctor.StrongTrans.vcomp η θ) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x; rfl
   · intro x y p; exact comp_map η θ p
   · intro x y p q α; exact comp_cell η θ α
@@ -88,8 +88,8 @@ private theorem id_map {x y : Total F} (p : x ⟶ y) :
 
 theorem toHigher_id : toHigher (Pseudofunctor.StrongTrans.id F.toPseudofunctor) =
     StrictPseudofunctor.id (Total F) := by
-  apply strictFunctorData_ext
-  apply prelaxData_ext
+  apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+  apply prelaxFunctorStruct_ext
   · intro x; rfl
   · intro x y p; exact id_map F p
   · intro x y p q α

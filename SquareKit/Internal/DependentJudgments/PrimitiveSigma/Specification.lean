@@ -85,7 +85,7 @@ noncomputable def strongerArgument :
 /-- A reverse view fixing this syntax would prove the known false eta rule. -/
 theorem no_reverse_view : ¬ Nonempty (RuleInterpretation etaTheory Reindexing.theory) := by
   rintro ⟨F⟩
-  exact Separation.stable_splitEta_not_derivable (F.transport strongerArgument)
+  exact Separation.stable_splitEtaRule_not_derivable (F.transport strongerArgument)
 
 /-- Stability's extra rules do not invalidate the shared derivation. -/
 theorem weak_interpretation (ρ : Fin 5 → Value Separation.M.toStructuralModel)

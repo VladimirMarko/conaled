@@ -25,7 +25,7 @@ theorem strong_vcomp_id : η.vcomp (Pseudofunctor.StrongTrans.id G.toPseudofunct
       eqToHom_trans_assoc, eqToHom_trans, eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
     rfl
 
-noncomputable instance strongId_isIso (x : A) :
+noncomputable instance strong_id_app_isIso (x : A) :
     IsIso ((Pseudofunctor.StrongTrans.id F.toPseudofunctor).app x) := inferInstanceAs (IsIso (𝟙 (F.obj x)))
 
 omit [Strict A] in

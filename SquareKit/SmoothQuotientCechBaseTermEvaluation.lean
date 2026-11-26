@@ -26,7 +26,7 @@ theorem evaluatedBaseTerm_local :
     evaluatedBaseTerm a A hΓ hx ⋙ SheafActionQuotient.Cech.localFunctor =
       sourceBaseTerm a A hx ⋙ SheafActionQuotient.Cech.localFunctor := by
   have hh := congrArg (fun F => F ⋙ AsSmall.down)
-    (generatedBaseTerm_commutes (signature a A) hΓ hx)
+    (baseFunctor_generatedContextMap_commutes (signature a A) hΓ hx)
   exact hh.symm
 
 end SquareKit.SmoothQuotientCechLocal

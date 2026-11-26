@@ -9,7 +9,7 @@ set_option backward.defeqAttrib.useBackward true
 universe u v
 variable {D E : StrictDiagram.{u,v}} {C : Type v} [Category.{u} C]
 
-private theorem map_equalDatum (F : StrictMap D E) (R : C ⥤ D.localCategory)
+private theorem functor_obj_equalFunctor (F : StrictMap D E) (R : C ⥤ D.localCategory)
     (hD : R ⋙ D.first = R ⋙ D.second)
     (hE : (R ⋙ F.localMap) ⋙ E.first = (R ⋙ F.localMap) ⋙ E.second) (x : C) :
     F.functor.obj ((D.equalFunctor R hD).obj x) =
@@ -26,7 +26,7 @@ theorem equalFunctor_map (F : StrictMap D E) (R : C ⥤ D.localCategory)
     (hD : R ⋙ D.first = R ⋙ D.second)
     (hE : (R ⋙ F.localMap) ⋙ E.first = (R ⋙ F.localMap) ⋙ E.second) :
     D.equalFunctor R hD ⋙ F.functor = E.equalFunctor (R ⋙ F.localMap) hE := by
-  refine CategoryTheory.Functor.ext (map_equalDatum F R hD hE) ?_
+  refine CategoryTheory.Functor.ext (functor_obj_equalFunctor F R hD hE) ?_
   intro x y f
   apply Datum.Hom.ext
   simp only [Functor.comp_map, functor, StrictDiagram.equalFunctor,

@@ -32,7 +32,7 @@ theorem endpointProjectionData_eq (side : Bool) :
     endpointProjectionData F side = (endpointProjectionOriginal F side).toPrelaxFunctorStruct := by
   cases side
   all_goals
-    apply prelaxData_ext
+    apply prelaxFunctorStruct_ext
     · intro x; rfl
     · intro x y p
       apply total_hom_hext F rfl rfl
@@ -127,12 +127,12 @@ def endpointPair : Section (endpointFamily F) where
 
 theorem endpointPair_first : (endpointPair F s t).lift.comp (endpointProjection F true) = s.lift := by
   have h : (endpointPair F s t).lift.comp (endpointProjection F true) =
-      (s.normalized F).lift := strictFunctorData_ext rfl
+      (s.normalized F).lift := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
   exact h.trans (congrArg Section.lift (s.normalized_eq F))
 
 theorem endpointPair_second : (endpointPair F s t).lift.comp (endpointProjection F false) = t.lift := by
   have h : (endpointPair F s t).lift.comp (endpointProjection F false) =
-      (t.normalized F).lift := strictFunctorData_ext rfl
+      (t.normalized F).lift := strictPseudofunctor_ext_toPrelaxFunctorStruct rfl
   exact h.trans (congrArg Section.lift (t.normalized_eq F))
 end SquareKit.Internal.PathTransport.TwoFamily
 
@@ -169,8 +169,8 @@ theorem diagonal_endpoint (side : Bool) :
     (diagonalTotal F).comp (endpointProjection F side) = StrictPseudofunctor.id (Total F) := by
   cases side
   all_goals
-    apply strictFunctorData_ext
-    apply prelaxData_ext
+    apply strictPseudofunctor_ext_toPrelaxFunctorStruct
+    apply prelaxFunctorStruct_ext
     · intro x; rfl
     · intro x y p
       apply total_hom_hext F rfl rfl
