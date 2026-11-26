@@ -21,11 +21,11 @@ def emptySubstitution {Γ : Expression V} : GeneratedContext Ω Γ → Expressio
   | .empty => identitySub Contextual.empty
   | @GeneratedContext.extend _ _ Γ A hΓ _ => Contextual.comp hΓ.emptySubstitution (Contextual.weaken Γ A)
 
-def emptySubstitution_typed {Γ : Expression V} (hΓ : GeneratedContext Ω Γ) :
+def emptySubstitutionTyping {Γ : Expression V} (hΓ : GeneratedContext Ω Γ) :
     Sub (Ω := Ω) Γ Contextual.empty hΓ.emptySubstitution :=
   match hΓ with
   | .empty => Ctx.empty.identity
-  | .extend hΓ hA => hΓ.emptySubstitution_typed.comp hA.weaken
+  | .extend hΓ hA => hΓ.emptySubstitutionTyping.comp hA.weaken
 
 /-- The constructed empty map inherits model-map preservation, just like any
 other generated substitution. Its existence does not assert uniqueness. -/
@@ -35,7 +35,7 @@ theorem emptySubstitution_map {Γ : Expression V} (hΓ : GeneratedContext Ω Γ)
     (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
     Value.map F.toStructuralMap (hΓ.emptySubstitution.eval (algebra M) ρ) =
       hΓ.emptySubstitution.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
-  interpret_map F hΓ.emptySubstitution ρ ((Defined.substitution hΓ.emptySubstitution_typed).sound M ρ hΩ)
+  interpret_map F hΓ.emptySubstitution ρ ((Defined.substitution hΓ.emptySubstitutionTyping).sound M ρ hΩ)
 
 /-- The second extension may depend on the first generic variable. -/
 def twoExtensions {A B : Expression V}

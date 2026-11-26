@@ -9,98 +9,98 @@ noncomputable section
 variable {V : Type} {Ω : List (Judgment V)} (F : Parameters Ω)
 variable {Δ σ : Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ)
 
-private def pathType_reindex := F.x_typed.identitySub F.y_typed hσ
+private def pathTypeReindex := F.xTyping.identitySub F.yTyping hσ
 
 private def pathLift : Sub (Ω := Ω) (F.reindex hσ).pathContext F.pathContext (lift Δ F.pathType σ) :=
-  (hσ.lift F.pathTypeFormation).resource (Equal.extend (.reflexive Δ) (F.pathType_reindex hσ))
+  (hσ.lift F.pathTypeFormation).resource (Equal.extend (.reflexive Δ) (F.pathTypeReindex hσ))
 
-private def pathLift_square : Equal (Ω := Ω)
+private def pathLiftSquare : Equal (Ω := Ω)
     (comp F.pathProjection (lift Δ F.pathType σ))
     (comp σ (F.reindex hσ).pathProjection) :=
   (hσ.liftWeaken F.pathTypeFormation).transitive
-    (Equal.comp (.reflexive σ) (Equal.weaken (.reflexive Δ) (F.pathType_reindex hσ)))
+    (Equal.comp (.reflexive σ) (Equal.weaken (.reflexive Δ) (F.pathTypeReindex hσ)))
 
-private def varyingTerm_reindex {A t : Expression V} (ht : Tm (Ω := Ω) F.Γ A t) :
+private def varyingTermReindex {A t : Expression V} (ht : Tm (Ω := Ω) F.Γ A t) :
     Equal (Ω := Ω) (subTm (subTm t F.pathProjection) (lift Δ F.pathType σ))
       (subTm (subTm t σ) (F.reindex hσ).pathProjection) :=
   ((ht.subComp F.pathTypeFormation.weaken (F.pathLift hσ)).transitive
-    (Equal.subTm (.reflexive t) (F.pathLift_square hσ))).transitive
+    (Equal.subTm (.reflexive t) (F.pathLiftSquare hσ))).transitive
       (ht.subComp hσ (F.reindex hσ).pathTypeFormation.weaken).symmetric
 
-private def varyingType_reindex : Equal (Ω := Ω)
+private def varyingTypeReindex : Equal (Ω := Ω)
     (subTy F.varying.A (lift Δ F.pathType σ)) (F.reindex hσ).varying.A :=
-  ((F.x_typed.family.subComp F.pathTypeFormation.weaken (F.pathLift hσ)).transitive
-    (Equal.subTy (.reflexive F.A) (F.pathLift_square hσ))).transitive
-      (F.x_typed.family.subComp hσ (F.reindex hσ).pathTypeFormation.weaken).symmetric
+  ((F.xTyping.family.subComp F.pathTypeFormation.weaken (F.pathLift hσ)).transitive
+    (Equal.subTy (.reflexive F.A) (F.pathLiftSquare hσ))).transitive
+      (F.xTyping.family.subComp hσ (F.reindex hσ).pathTypeFormation.weaken).symmetric
 
-private def varyingDisplay_reindex : Equal (Ω := Ω)
+private def varyingDisplayReindex : Equal (Ω := Ω)
     (subTy F.varying.B (lift (F.reindex hσ).pathContext F.varying.A (lift Δ F.pathType σ)))
     (F.reindex hσ).varying.B := by
   have hπ := F.pathTypeFormation.weaken
   have hπ' := (F.reindex hσ).pathTypeFormation.weaken
   have hL := F.pathLift hσ
-  have e := ((hπ.liftComp hL F.x_typed.family).transitive
-    (Equal.lift (.reflexive _) (.reflexive _) (F.pathLift_square hσ))).transitive
-      (hσ.liftComp hπ' F.x_typed.family).symmetric
-  exact ((F.B_typed.subComp (hπ.lift F.x_typed.family) (hL.lift F.varying.x_typed.family)).transitive
+  have e := ((hπ.liftComp hL F.xTyping.family).transitive
+    (Equal.lift (.reflexive _) (.reflexive _) (F.pathLiftSquare hσ))).transitive
+      (hσ.liftComp hπ' F.xTyping.family).symmetric
+  exact ((F.familyFormation.subComp (hπ.lift F.xTyping.family) (hL.lift F.varying.xTyping.family)).transitive
     (Equal.subTy (.reflexive F.B) e)).transitive
-      (F.B_typed.subComp (hσ.lift F.x_typed.family) (hπ'.lift (F.x_typed.family.substitute hσ))).symmetric
+      (F.familyFormation.subComp (hσ.lift F.xTyping.family) (hπ'.lift (F.xTyping.family.substitute hσ))).symmetric
 
-private def variablePath_reindex : Equal (Ω := Ω)
+private def variablePathReindex : Equal (Ω := Ω)
     (subTm F.variablePath (lift Δ F.pathType σ)) (F.reindex hσ).variablePath :=
   (hσ.liftGeneric F.pathTypeFormation).transitive
-    (Equal.generic (.reflexive Δ) (F.pathType_reindex hσ))
+    (Equal.generic (.reflexive Δ) (F.pathTypeReindex hσ))
 
 /-- The selected eta section is reconstructed after lifting the substitution
 through the varying path binder. -/
-def certificateSection_reindex : Equal (Ω := Ω)
+def certificateSectionReindex : Equal (Ω := Ω)
     (subTm F.certificateSection (lift Δ F.pathType σ)) (F.reindex hσ).certificateSection :=
-  (Tm.etaSub F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping
-    F.varying.u_typed (F.pathLift hσ) F.varying.z_typed F.varying.q_typed).transitive
-      (Equal.eta (.reflexive _) (F.varyingType_reindex hσ) (F.varyingDisplay_reindex hσ)
-        (F.varyingTerm_reindex hσ F.x_typed) (F.varyingTerm_reindex hσ F.y_typed)
-        (F.varyingTerm_reindex hσ F.z_typed) (F.variablePath_reindex hσ)
-        (F.varyingTerm_reindex hσ F.q_typed) (F.varyingTerm_reindex hσ F.u_typed))
+  (Tm.etaSub F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping
+    F.varying.uTyping (F.pathLift hσ) F.varying.zTyping F.varying.qTyping).transitive
+      (Equal.eta (.reflexive _) (F.varyingTypeReindex hσ) (F.varyingDisplayReindex hσ)
+        (F.varyingTermReindex hσ F.xTyping) (F.varyingTermReindex hσ F.yTyping)
+        (F.varyingTermReindex hσ F.zTyping) (F.variablePathReindex hσ)
+        (F.varyingTermReindex hσ F.qTyping) (F.varyingTermReindex hσ F.uTyping))
 
-private def varyingValue_reindex : Equal (Ω := Ω)
+private def varyingValueReindex : Equal (Ω := Ω)
     (subTm F.varyingValue (lift Δ F.pathType σ)) (F.reindex hσ).varyingValue := by
-  have inner := Tm.transport F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed
-  have ei := (Tm.transportSub F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping
-    F.varying.u_typed (F.pathLift hσ)).transitive
-      (Equal.transport (.reflexive _) (F.varyingType_reindex hσ) (F.varyingDisplay_reindex hσ)
-        (F.varyingTerm_reindex hσ F.x_typed) (F.varyingTerm_reindex hσ F.y_typed)
-        (F.variablePath_reindex hσ) (F.varyingTerm_reindex hσ F.u_typed))
-  exact (Tm.transportSub F.varying.B_typed F.varying.y_typed F.varying.z_typed F.varying.q_typed
+  have inner := Tm.transport F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping
+  have ei := (Tm.transportSub F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping
+    F.varying.uTyping (F.pathLift hσ)).transitive
+      (Equal.transport (.reflexive _) (F.varyingTypeReindex hσ) (F.varyingDisplayReindex hσ)
+        (F.varyingTermReindex hσ F.xTyping) (F.varyingTermReindex hσ F.yTyping)
+        (F.variablePathReindex hσ) (F.varyingTermReindex hσ F.uTyping))
+  exact (Tm.transportSub F.varying.familyFormation F.varying.yTyping F.varying.zTyping F.varying.qTyping
     inner (F.pathLift hσ)).transitive
-      (Equal.transport (.reflexive _) (F.varyingType_reindex hσ) (F.varyingDisplay_reindex hσ)
-        (F.varyingTerm_reindex hσ F.y_typed) (F.varyingTerm_reindex hσ F.z_typed)
-        (F.varyingTerm_reindex hσ F.q_typed) ei)
+      (Equal.transport (.reflexive _) (F.varyingTypeReindex hσ) (F.varyingDisplayReindex hσ)
+        (F.varyingTermReindex hσ F.yTyping) (F.varyingTermReindex hσ F.zTyping)
+        (F.varyingTermReindex hσ F.qTyping) ei)
 
-private def varyingCompositeValue_reindex : Equal (Ω := Ω)
+private def varyingCompositeValueReindex : Equal (Ω := Ω)
     (subTm F.varyingCompositeValue (lift Δ F.pathType σ)) (F.reindex hσ).varyingCompositeValue := by
-  have hc := F.varying.x_typed.concat F.varying.y_typed F.varying.z_typed F.variablePathTyping F.varying.q_typed
-  have ec := (F.varying.x_typed.concatSub F.varying.y_typed F.varying.z_typed F.variablePathTyping
-    F.varying.q_typed (F.pathLift hσ)).transitive
-      (Equal.concat (.reflexive _) (F.varyingType_reindex hσ)
-        (F.varyingTerm_reindex hσ F.x_typed) (F.varyingTerm_reindex hσ F.y_typed)
-        (F.varyingTerm_reindex hσ F.z_typed) (F.variablePath_reindex hσ) (F.varyingTerm_reindex hσ F.q_typed))
-  exact (Tm.transportSub F.varying.B_typed F.varying.x_typed F.varying.z_typed hc F.varying.u_typed (F.pathLift hσ)).transitive
-    (Equal.transport (.reflexive _) (F.varyingType_reindex hσ) (F.varyingDisplay_reindex hσ)
-      (F.varyingTerm_reindex hσ F.x_typed) (F.varyingTerm_reindex hσ F.z_typed)
-      ec (F.varyingTerm_reindex hσ F.u_typed))
+  have hc := F.varying.xTyping.concat F.varying.yTyping F.varying.zTyping F.variablePathTyping F.varying.qTyping
+  have ec := (F.varying.xTyping.concatSub F.varying.yTyping F.varying.zTyping F.variablePathTyping
+    F.varying.qTyping (F.pathLift hσ)).transitive
+      (Equal.concat (.reflexive _) (F.varyingTypeReindex hσ)
+        (F.varyingTermReindex hσ F.xTyping) (F.varyingTermReindex hσ F.yTyping)
+        (F.varyingTermReindex hσ F.zTyping) (F.variablePathReindex hσ) (F.varyingTermReindex hσ F.qTyping))
+  exact (Tm.transportSub F.varying.familyFormation F.varying.xTyping F.varying.zTyping hc F.varying.uTyping (F.pathLift hσ)).transitive
+    (Equal.transport (.reflexive _) (F.varyingTypeReindex hσ) (F.varyingDisplayReindex hσ)
+      (F.varyingTermReindex hσ F.xTyping) (F.varyingTermReindex hσ F.zTyping)
+      ec (F.varyingTermReindex hσ F.uTyping))
 
-private def varyingFiber_reindex : Equal (Ω := Ω)
+private def varyingFiberReindex : Equal (Ω := Ω)
     (subTy F.varyingFiber (lift Δ F.pathType σ)) (F.reindex hσ).varyingFiber :=
-  (F.varying.B_typed.sectionLift (F.pathLift hσ) F.varying.z_typed).symmetric.transitive
-    (Equal.subTy (F.varyingDisplay_reindex hσ)
-      (Equal.sectionSub (.reflexive _) (F.varyingType_reindex hσ) (F.varyingTerm_reindex hσ F.z_typed)))
+  (F.varying.familyFormation.sectionLift (F.pathLift hσ) F.varying.zTyping).symmetric.transitive
+    (Equal.subTy (F.varyingDisplayReindex hσ)
+      (Equal.sectionSub (.reflexive _) (F.varyingTypeReindex hσ) (F.varyingTermReindex hσ F.zTyping)))
 
 /-- The entire certificate family, including both value-dependent endpoints,
 is reconstructed under the lifted context arrow. -/
-def certificateFamily_reindex : Equal (Ω := Ω)
+def certificateFamilyReindex : Equal (Ω := Ω)
     (subTy F.certificateFamily (lift Δ F.pathType σ)) (F.reindex hσ).certificateFamily :=
   (F.varyingValueTyping.identitySub F.varyingCompositeValueTyping (F.pathLift hσ)).transitive
-    (Equal.identity (F.varyingFiber_reindex hσ) (F.varyingValue_reindex hσ) (F.varyingCompositeValue_reindex hσ))
+    (Equal.identity (F.varyingFiberReindex hσ) (F.varyingValueReindex hσ) (F.varyingCompositeValueReindex hσ))
 
 private def apdCongr {A A' B B' t t' x y p : Expression V}
     (eA : Equal (Ω := Ω) A A') (eB : Equal (Ω := Ω) B B') (et : Equal (Ω := Ω) t t') :
@@ -118,17 +118,17 @@ variable {p p' h : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
 
 /-- Fresh reconstruction preserves the chosen dependent action, including
 its constructed varying family and chosen eta section. -/
-def dependentAction_fresh : Equal (Ω := Ω) (subTm (F.dependentAction p p' h) σ)
+def dependentActionFresh : Equal (Ω := Ω) (subTm (F.dependentAction p p' h) σ)
     ((F.reindex hσ).dependentAction (subTm p σ) (subTm p' σ) (subTm h σ)) :=
-  (F.dependentAction_reindex hp hσ hp' hh).transitive
-    (apdCongr (F.pathType_reindex hσ) (F.certificateFamily_reindex hσ) (F.certificateSection_reindex hσ))
+  (F.dependentActionReindex hp hσ hp' hh).transitive
+    (apdCongr (F.pathTypeReindex hσ) (F.certificateFamilyReindex hσ) (F.certificateSectionReindex hσ))
 
 /-- The transported source also agrees with fresh reconstruction. -/
-def transportedCertificate_fresh : Equal (Ω := Ω) (subTm (F.transportedCertificate p p' h) σ)
+def transportedCertificateFresh : Equal (Ω := Ω) (subTm (F.transportedCertificate p p' h) σ)
     ((F.reindex hσ).transportedCertificate (subTm p σ) (subTm p' σ) (subTm h σ)) :=
   (Tm.transportSub F.certificateSectionTyping.family hp hp' hh (F.certificateTyping hp) hσ).transitive
-    (Equal.transport (.reflexive Δ) (F.pathType_reindex hσ) (F.certificateFamily_reindex hσ)
-      (.reflexive _) (.reflexive _) (.reflexive _) (F.certificate_reindex hp hσ))
+    (Equal.transport (.reflexive Δ) (F.pathTypeReindex hσ) (F.certificateFamilyReindex hσ)
+      (.reflexive _) (.reflexive _) (.reflexive _) (F.certificateReindex hp hσ))
 
 end
 end SquareKit.Internal.DependentJudgments.Contextual.Memo.Parameters

@@ -62,27 +62,27 @@ def compEquality {σ σ' τ τ' : Expression V}
 
 /-- The canonical projection to empty is stable under every closed generated
 arrow. This is a source derivation, not equality in one chosen model. -/
-def empty_natural {hΔ : GeneratedContext Ω Δ} {hΓ : GeneratedContext Ω Γ}
+def emptyNaturality {hΔ : GeneratedContext Ω Δ} {hΓ : GeneratedContext Ω Γ}
     (f : GeneratedArrow closedArrows Ω hΔ hΓ σ) :
     Equal (Ω := Ω) (Contextual.comp hΓ.emptySubstitution σ) hΔ.emptySubstitution :=
   match f with
-  | .identity hΓ => hΓ.emptySubstitution_typed.idRight
+  | .identity hΓ => hΓ.emptySubstitutionTyping.idRight
   | .comp (hΓ := hΓ) f g =>
-      (Sub.assoc hΓ.emptySubstitution_typed f.typing g.typing).symmetric.transitive
-        ((compEquality f.empty_natural (.reflexive _)).transitive g.empty_natural)
+      (Sub.assoc hΓ.emptySubstitutionTyping f.typing g.typing).symmetric.transitive
+        ((compEquality f.emptyNaturality (.reflexive _)).transitive g.emptyNaturality)
   | .weaken _ _ => .reflexive _
   | .pair (hΓ := hΓ) hA f ht =>
-      (Sub.assoc hΓ.emptySubstitution_typed hA.weaken (Sub.pair hA f.typing ht)).transitive
+      (Sub.assoc hΓ.emptySubstitutionTyping hA.weaken (Sub.pair hA f.typing ht)).transitive
         ((compEquality (.reflexive _) (hA.weakenPair f.typing ht)).transitive
-          f.empty_natural)
-  | .convert f e => (compEquality (.reflexive _) e).symmetric.transitive f.empty_natural
+          f.emptyNaturality)
+  | .convert f e => (compEquality (.reflexive _) e).symmetric.transitive f.emptyNaturality
   | .generator _ _ h _ => False.elim h
 
 /-- A closed generated arrow to empty equals the constructed projection. -/
-def empty_unique {hΔ : GeneratedContext Ω Δ}
+def emptyUniqueness {hΔ : GeneratedContext Ω Δ}
     (f : GeneratedArrow closedArrows Ω hΔ .empty σ) :
     Equal (Ω := Ω) σ hΔ.emptySubstitution :=
-  f.typing.idLeft.symmetric.transitive f.empty_natural
+  f.typing.idLeft.symmetric.transitive f.emptyNaturality
 
 /-- The constructed projection belongs to the same generated-arrow grammar. -/
 def toEmpty (hΓ : GeneratedContext Ω Γ) :
@@ -131,7 +131,7 @@ element. Equality is the quotient by source derivability at fixed boundaries. -/
 instance emptyUnique (Δ : Object closedArrows Ω) :
     Unique (Δ ⟶ emptyObject closedArrows Ω) where
   default := Quotient.mk _ ⟨Δ.2.emptySubstitution, GeneratedArrow.toEmpty Δ.2⟩
-  uniq f := Quotient.inductionOn f fun f => Quotient.sound ⟨f.2.empty_unique⟩
+  uniq f := Quotient.inductionOn f fun f => Quotient.sound ⟨f.2.emptyUniqueness⟩
 
 end GeneratedCategory
 end SquareKit.Internal.DependentJudgments.Contextual

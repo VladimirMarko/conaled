@@ -23,7 +23,7 @@ def pairThenForget_eq (hA : Ty (Ω := Ω) empty A)
     (ht : Tm (Ω := Ω) empty (subTy A (identitySub empty)) t) :
     Equal (Ω := Ω)
       (comp (weaken empty A) (pair A (identitySub empty) t))
-      (identitySub empty) := (pairThenForget hA ht).empty_unique
+      (identitySub empty) := (pairThenForget hA ht).emptyUniqueness
 
 /-- Two dependent extensions have the canonical iterated projection as the
 unique arrow to empty, including composites and equality conversions. -/
@@ -32,7 +32,7 @@ def dependentTail_unique {B σ : Expression V}
     (f : GeneratedArrow closedArrows Ω (GeneratedContext.twoExtensions hA hB) .empty σ) :
     Equal (Ω := Ω) σ
       (comp (comp (identitySub empty) (weaken empty A))
-        (weaken (extend empty A) B)) := f.empty_unique
+        (weaken (extend empty A) B)) := f.emptyUniqueness
 
 end Closed
 
@@ -118,7 +118,7 @@ theorem not_equal : ¬ Nonempty (Equal (Ω := assumptions) arrow (identitySub em
 theorem not_closed :
     ¬ Nonempty (GeneratedArrow closedArrows assumptions .empty .empty arrow) := by
   rintro ⟨f⟩
-  exact not_equal ⟨f.empty_unique⟩
+  exact not_equal ⟨f.emptyUniqueness⟩
 
 def object : GeneratedCategory.Object (hypothesisArrows assumptions) assumptions :=
   GeneratedCategory.emptyObject _ _

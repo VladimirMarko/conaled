@@ -26,14 +26,14 @@ noncomputable def prepareJ {Γ A x D d : Expression V} {T : Tail V}
   have hA := unary (Tm.family (Γ := Γ) (A := A) (t := x) (.hypothesis (by simp))) hx
   have hΓ := unary (Ty.context (Γ := Γ) (A := A) (.hypothesis (by simp))) hA
   have hr := unary (Tm.root (Γ := Γ) (A := A) (x := x) (.hypothesis (by simp))) hx
-  have eT := hT.total_eq
+  have eT := hT.totalEquality
   have hD' : Target (Ω := Ω) (family (total (T.code (path A x))) D) :=
     Derivation.conversion (T := TelescopePresentation.theory) (Sum.inl Predicate.family)
       (Fin.cases (.symmetric eT) (Fin.cases (.reflexive D) (fun i => nomatch i))) hD
-  have ep := hT.pullback_eq hΓ hr
+  have ep := hT.pullbackEquality hΓ hr
   have eb : Target (Ω := Ω) (.eq (total (pullback (T.code (path A x)) (root A x)))
       ((T.reindex Γ (root A x)).total Γ)) := by
-    apply Derivation.transitive _ ((hT.reindex hΓ hr).total_eq)
+    apply Derivation.transitive _ ((hT.reindex hΓ hr).totalEquality)
     exact Derivation.congruence (T := TelescopePresentation.theory) (Sum.inr Operation.total)
       (Fin.cases ep (fun i => nomatch i))
   have er : Target (Ω := Ω) (.eq (rootTail A x (T.code (path A x)))
@@ -44,7 +44,7 @@ noncomputable def prepareJ {Γ A x D d : Expression V} {T : Tail V}
         (Fin.cases (by simpa [Target, TelescopePresentation.theory, extraRule] using hT.typing)
           (fun i => nomatch i)))
     simpa [Target, TelescopePresentation.theory, extraRule, Atom.subst] using r
-  have em := Derivation.transitive er (hT.map_eq hΓ hr)
+  have em := Derivation.transitive er (hT.mapEquality hΓ hr)
   have ed : Target (Ω := Ω) (.eq (subTy D (rootTail A x (T.code (path A x))))
       (subTy D (T.map Γ (root A x)))) :=
     Derivation.congruence (T := TelescopePresentation.theory) (Sum.inl .subTy)

@@ -155,37 +155,37 @@ abbrev tailP : Tail V := .cons (xyz ha hb).pathType
   (.cons (uType ha hb) .nil))))
 abbrev tailZ : Tail V := .cons (xy ha hb).A (tailP ha hb)
 
-def tailP_typed : Derives Ξ (.tail (xyz ha hb).Γ (tailP ha hb)) :=
+def tailPFormation : Derives Ξ (.tail (xyz ha hb).Γ (tailP ha hb)) :=
   .cons (xyz ha hb).hPath (.cons (withP ha hb).toPoints.hPath
     (.cons (withParallel ha hb).hIdentity (.cons (.identity (withH ha hb).hy (withH ha hb).hz)
       (.cons (.subTy (withQ ha hb).hB (Derives.sectionMap (withQ ha hb).hx))
         (.nil (.extend (.subTy (withQ ha hb).hB (Derives.sectionMap (withQ ha hb).hx))))))))
 
-def tailZ_typed : Derives Ξ (.tail (xy ha hb).Γ (tailZ ha hb)) :=
-  .cons (xy ha hb).hx.termFamily (tailP_typed ha hb)
+def tailZFormation : Derives Ξ (.tail (xy ha hb).Γ (tailZ ha hb)) :=
+  .cons (xy ha hb).hx.termFamily (tailPFormation ha hb)
 
 abbrev duplicate := sectionSub (point ha hb).Γ (point ha hb).A (point ha hb).x
 abbrev deltaTail := (tailZ ha hb).reindex (point ha hb).Γ (duplicate ha hb)
 abbrev delta := (deltaTail ha hb).total (point ha hb).Γ
 abbrev sigma := (tailZ ha hb).map (point ha hb).Γ (duplicate ha hb)
-def sigma_typed : Derives Ξ (.has (.sub (delta ha hb) (input ha hb).Γ) (sigma ha hb)) :=
-  Derives.tailMap (tailZ_typed ha hb) (Derives.sectionMap (point ha hb).hx)
+def sigmaTyping : Derives Ξ (.has (.sub (delta ha hb) (input ha hb).Γ) (sigma ha hb)) :=
+  Derives.tailMap (tailZFormation ha hb) (Derives.sectionMap (point ha hb).hx)
 
 abbrev deltaZType := subTy (xy ha hb).A (duplicate ha hb)
 def deltaX : Derives Ξ (.has (.tm (point ha hb).Γ (deltaZType ha hb)) (point ha hb).x) :=
   .convert (point ha hb).hx (.eqSymm (Derives.weakenSectionType (point ha hb).hx.termFamily (point ha hb).hx))
 abbrev deltaAfterZ := (tailP ha hb).reindex (extend (point ha hb).Γ (deltaZType ha hb))
   (liftSyntax (point ha hb).Γ (xy ha hb).A (duplicate ha hb))
-def deltaAfterZ_typed : Derives Ξ
+def deltaAfterZFormation : Derives Ξ
     (.tail (extend (point ha hb).Γ (deltaZType ha hb)) (deltaAfterZ ha hb)) :=
-  Derives.reindexTail (tailP_typed ha hb)
+  Derives.reindexTail (tailPFormation ha hb)
     (Derives.lift (xy ha hb).hx.termFamily (Derives.sectionMap (point ha hb).hx))
 abbrev replaceZ := sectionSub (point ha hb).Γ (deltaZType ha hb) (point ha hb).x
 abbrev thetaTail := (deltaAfterZ ha hb).reindex (point ha hb).Γ (replaceZ ha hb)
 abbrev theta := (thetaTail ha hb).total (point ha hb).Γ
 abbrev tau := (deltaAfterZ ha hb).map (point ha hb).Γ (replaceZ ha hb)
-def tau_typed : Derives Ξ (.has (.sub (theta ha hb) (delta ha hb)) (tau ha hb)) :=
-  Derives.tailMap (deltaAfterZ_typed ha hb) (Derives.sectionMap (deltaX ha hb))
+def tauTyping : Derives Ξ (.has (.sub (theta ha hb) (delta ha hb)) (tau ha hb)) :=
+  Derives.tailMap (deltaAfterZFormation ha hb) (Derives.sectionMap (deltaX ha hb))
 end Substitutions
 
 end FrozenInput

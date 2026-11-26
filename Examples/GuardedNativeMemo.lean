@@ -35,12 +35,12 @@ def parameters : Memo.Parameters premises where
   z := point
   q := Contextual.reflexivity alpha point
   u := input
-  x_typed := point_typed
-  y_typed := point_typed
-  z_typed := point_typed
-  B_typed := family_typed
-  q_typed := point_typed.reflexivity
-  u_typed := input_typed
+  xTyping := point_typed
+  yTyping := point_typed
+  zTyping := point_typed
+  familyFormation := family_typed
+  qTyping := point_typed.reflexivity
+  uTyping := input_typed
 
 abbrev loop := Contextual.reflexivity alpha point
 abbrev directValue := Contextual.transport gamma alpha beta point point loop
@@ -117,7 +117,7 @@ normalization, retaining the exact chosen certificate. -/
 theorem selectedValue_eval :
     (parameters.value loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (M.subTy B (M.toStructuralModel.sectionSub A x)) b := by
-  have he := Contextual.interpret (parameters.value_atPath point_typed.reflexivity)
+  have he := Contextual.interpret (parameters.valueAtPath point_typed.reflexivity)
     M (environment M Γ A B x b) (inputs M Γ A B x b)
   exact he.trans (directValue_eval M Γ A B x b)
 
@@ -125,7 +125,7 @@ theorem selectedCertificate_eval :
     (parameters.certificate loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (semanticCertificateType M Γ A B x b)
         (etaValue M A B x x x (M.reflexivity A x) (M.reflexivity A x) b) := by
-  have he := Contextual.interpret (parameters.certificate_atPath point_typed.reflexivity)
+  have he := Contextual.interpret (parameters.certificateAtPath point_typed.reflexivity)
     M (environment M Γ A B x b) (inputs M Γ A B x b)
   exact he.trans (directCertificate_eval M Γ A B x b)
 

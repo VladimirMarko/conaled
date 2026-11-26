@@ -91,9 +91,9 @@ example : SquareKit.ProductLaws (WitnessObjectReindex.equiv collapse arrowWitnes
   reindexedProductLaws.erase
 
 -- Morphism admissibility and semantic witnesses are separate pieces of data.
-def admissible : {a b : Unit} → one.Hom a b → Type := fun _ => Bool
-def closure : MorphismRestriction.CategoryClosure one admissible := ⟨false,fun h k => h && k⟩
-def restricted (b : Bool) : MorphismRestriction.Hom one admissible () () := ⟨(),b⟩
+def Admissible : {a b : Unit} → one.Hom a b → Type := fun _ => Bool
+def closure : MorphismRestriction.CategoryClosure one Admissible := ⟨false,fun h k => h && k⟩
+def restricted (b : Bool) : MorphismRestriction.Hom one Admissible () () := ⟨(),b⟩
 example : restricted false ≠ restricted true := by
   intro h
   exact Bool.false_ne_true (congrArg MorphismRestriction.Hom.sat h)

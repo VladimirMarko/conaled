@@ -46,26 +46,26 @@ theorem certificate_twice_map :
       ((subTm (subTm (S.input.parameters.certificate S.input.p) S.sigma) S.tau).eval (algebra M) ρ) =
     (subTm (subTm (S.input.parameters.certificate S.input.p) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (((S.input.parameters.certificateTyping S.input.hp).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
+  (((S.input.parameters.certificateTyping S.input.hp).substitute S.sigmaTyping).substitute S.tauTyping).interpret_map map ρ hΩ
 
 theorem dependentAction_twice_map :
     Value.map map.toStructuralMap
       ((subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval (algebra M) ρ) =
     (subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  (((S.input.parameters.dependentActionTyping S.input.hp S.input.hp' S.input.hh).substitute S.sigma_typed).substitute S.tau_typed).interpret_map map ρ hΩ
+  (((S.input.parameters.dependentActionTyping S.input.hp S.input.hp' S.input.hh).substitute S.sigmaTyping).substitute S.tauTyping).interpret_map map ρ hΩ
 
 /-- Reusing the complete target derivation transports typed equality premises;
 the resulting comparison is the generated fresh-action equation. -/
 theorem freshAction_target (typed : TypedAssumptions Ω) :
     (subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) =
-    (((S.input.reindex S.sigma_typed).reindex S.tau_typed).parameters.dependentAction
+    (((S.input.reindex S.sigmaTyping).reindex S.tauTyping).parameters.dependentAction
       (subTm (subTm S.input.p S.sigma) S.tau)
       (subTm (subTm S.input.p' S.sigma) S.tau)
       (subTm (subTm S.input.h S.sigma) S.tau)).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) :=
-  interpret_target S.dependentAction_twice map typed ρ hΩ
+  interpret_target S.dependentActionTwice map typed ρ hΩ
 
 end Frozen.Signature
 end SquareKit.Internal.DependentJudgments.Contextual.Memo

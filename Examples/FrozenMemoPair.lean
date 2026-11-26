@@ -28,7 +28,7 @@ theorem resultFamily_eval : (F.parameters.fiber F.p).eval (Contextual.algebra M)
     .family R.context R.resultFamily := by
   have hs := sectionSub_eval M ρ F.Γ F.A F.z R.context R.family R.z
     R.context_eval R.family_eval R.z_eval
-  exact (Contextual.interpret (F.parameters.fiber_atPath F.hp) M ρ hΩ).trans
+  exact (Contextual.interpret (F.parameters.fiberAtPath F.hp) M ρ hΩ).trans
     (subTy_eval M ρ F.B _ _ _ R.fiber _ R.fiber_eval hs)
 
 include hΩ in
@@ -48,7 +48,7 @@ noncomputable def pair_typed :
           (F.parameters.compositeValue F.p)).inl Sigma.extraSignature))
       (MemoPair.sourcePair F.Γ (F.parameters.fiber F.p) (F.parameters.compositeValue F.p)
         (F.parameters.value F.p) (F.parameters.certificate F.p)) :=
-  MemoPair.sourcePair_typed
+  MemoPair.sourcePairTyping
     (F.parameters.varyingCompositeValueTyping.substitute F.hp.section)
     (F.parameters.valueTyping F.hp)
     ((F.parameters.certificateTyping F.hp).convert (F.parameters.certificateTypeNormalization F.hp))
@@ -88,10 +88,10 @@ theorem pair_twice : ∃ (D T : M.Context) (σ : M.Substitution D R.context)
         (F.input.parameters.certificate F.input.p))
       (F.sigma.inl Sigma.extraSignature)) (F.tau.inl Sigma.extraSignature)).eval (Sigma.algebra M S) ρ =
       .term T _ (M.subTm (M.subTm (R.selectedPair S) σ) τ) := by
-  rcases Contextual.interpret F.sigma_typed M ρ hΩ with ⟨D,G,σ,hD,hG,hs⟩
+  rcases Contextual.interpret F.sigmaTyping M ρ hΩ with ⟨D,G,σ,hD,hG,hs⟩
   have eG := Value.context.inj (hG.symm.trans R.context_eval)
   subst G
-  rcases Contextual.interpret F.tau_typed M ρ hΩ with ⟨T,D',τ,hT,hD',ht⟩
+  rcases Contextual.interpret F.tauTyping M ρ hΩ with ⟨T,D',τ,hT,hD',ht⟩
   have eD := Value.context.inj (hD'.symm.trans hD)
   subst D'
   exact ⟨D,T,σ,τ,hs,ht,R.pair_twice_eval S hΩ F.sigma F.tau σ τ hs ht⟩

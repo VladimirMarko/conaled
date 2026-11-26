@@ -89,7 +89,7 @@ theorem closure_reduct (M : PathTransport.Typed.Model.{u}) (S : Capability M.toS
     (closureModel M S).restrictLeft = model M S := rfl
 
 /-- The two inclusions compose for every old derivation. -/
-noncomputable def retain_twice {V : Type} {Ω : List (Contextual.Judgment V)}
+noncomputable def retainTwice {V : Type} {Ω : List (Contextual.Judgment V)}
     {a : Contextual.Judgment V} (d : Derivation Contextual.theory Ω a) :
     Derivation closureTheory ((Ω.map (Atom.inl extraSignature)).map (Atom.inl lawSignature))
       ((a.inl extraSignature).inl lawSignature) := (retain d).inl closureRule

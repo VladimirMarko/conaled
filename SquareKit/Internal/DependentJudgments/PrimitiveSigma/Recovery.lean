@@ -11,12 +11,12 @@ variable {V : Type} {Ω : List (Contextual.Judgment V)}
 variable (F : Contextual.Memo.Parameters Ω)
 
 /-- The selected certificate section is retained as the same source argument. -/
-noncomputable def retain_certificate : Derivation theory (Ω.map (Atom.inl extraSignature))
+noncomputable def retainCertificate : Derivation theory (Ω.map (Atom.inl extraSignature))
     ((Contextual.term F.pathContext F.certificateFamily F.certificateSection).inl extraSignature) :=
   retain F.certificateSectionTyping
 
 /-- The higher dependent action keeps its transported source boundary. -/
-noncomputable def retain_dependentAction {p p' h : Contextual.Expression V}
+noncomputable def retainDependentAction {p p' h : Contextual.Expression V}
     (hp : Contextual.Tm (Ω := Ω) F.Γ F.pathType p)
     (hp' : Contextual.Tm (Ω := Ω) F.Γ F.pathType p')
     (hh : Contextual.Tm (Ω := Ω) F.Γ (Contextual.identity F.pathType p p') h) :
@@ -48,10 +48,10 @@ theorem recover_value (p : Contextual.Expression V) :
 
 /-- The selected certificate survives both constructor admission and the later
 substitution-law extension. -/
-noncomputable def retain_certificate_twice : Derivation Reindexing.theory
+noncomputable def retainCertificateTwice : Derivation Reindexing.theory
     (Ω.map (Atom.inl extraSignature))
     ((Contextual.term F.pathContext F.certificateFamily F.certificateSection).inl extraSignature) :=
-  Reindexing.retain (retain_certificate F)
+  Reindexing.retain (retainCertificate F)
 
 theorem recover_certificate_twice (T : Stable M.toStructuralModel) :
     (F.certificateSection.inl extraSignature).eval (Reindexing.model M T).toAlgebra ρ =

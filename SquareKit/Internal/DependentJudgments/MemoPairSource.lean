@@ -20,11 +20,11 @@ abbrev sourcePair (g a c v η : Contextual.Expression V) : Sigma.Expression V :=
 
 variable {g a c v η : Contextual.Expression V}
 
-def sourceCertificateFamily_typed (hc : Contextual.Tm (Ω := Ω) g a c) :
+def sourceCertificateFamilyFormation (hc : Contextual.Tm (Ω := Ω) g a c) :
     Contextual.Ty (Ω := Ω) (Contextual.extend g a) (sourceCertificateFamily g a c) :=
   hc.family.generic.identity (hc.substitute hc.family.weaken)
 
-def sourceCertificateFamily_at (hc : Contextual.Tm (Ω := Ω) g a c)
+def sourceCertificateFamilyAtValue (hc : Contextual.Tm (Ω := Ω) g a c)
     (hv : Contextual.Tm (Ω := Ω) g a v) :
     Contextual.Equal (Ω := Ω)
       (Contextual.subTy (sourceCertificateFamily g a c) (Contextual.sectionSub g a v))
@@ -33,7 +33,7 @@ def sourceCertificateFamily_at (hc : Contextual.Tm (Ω := Ω) g a c)
     (Contextual.Equal.identity (hc.family.weakenSection hv) hv.sectionGeneric
       (hc.weakenSection hv))
 
-noncomputable def sourcePair_typed (hc : Contextual.Tm (Ω := Ω) g a c)
+noncomputable def sourcePairTyping (hc : Contextual.Tm (Ω := Ω) g a c)
     (hv : Contextual.Tm (Ω := Ω) g a v)
     (hη : Contextual.Tm (Ω := Ω) g (Contextual.identity a v c) η) :
     Sigma.Tm (Ω := Ω.map (Atom.inl Sigma.extraSignature)) (g.inl Sigma.extraSignature)
@@ -44,7 +44,7 @@ noncomputable def sourcePair_typed (hc : Contextual.Tm (Ω := Ω) g a c)
     · convert Sigma.retain hc.family using 1
       apply congrArg (Atom.pred _); funext i
       fin_cases i <;> rfl
-    · convert Sigma.retain (sourceCertificateFamily_typed hc) using 1
+    · convert Sigma.retain (sourceCertificateFamilyFormation hc) using 1
       apply congrArg (Atom.pred _)
       funext i
       fin_cases i
@@ -55,7 +55,7 @@ noncomputable def sourcePair_typed (hc : Contextual.Tm (Ω := Ω) g a c)
     · convert Sigma.retain hv using 1
       apply congrArg (Atom.pred _); funext i
       fin_cases i <;> rfl
-    · convert Sigma.retain (hη.convert (sourceCertificateFamily_at hc hv).symmetric) using 1
+    · convert Sigma.retain (hη.convert (sourceCertificateFamilyAtValue hc hv).symmetric) using 1
       apply congrArg (Atom.pred _)
       funext i
       fin_cases i

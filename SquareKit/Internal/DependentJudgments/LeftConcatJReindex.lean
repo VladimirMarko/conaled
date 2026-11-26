@@ -35,7 +35,7 @@ def branchSub : Equal (Ω := Ω)
       (subTm (q Γ A x) ((LeftConcatFrame.tail Γ A x).map Γ (root A x))))
     (subTm (q Δ (subTy A σ) (subTm x σ))
       ((LeftConcatFrame.tail Δ (subTy A σ) (subTm x σ)).map Δ (root (subTy A σ) (subTm x σ)))) := by
-  have hD := (motiveTyped hx).recontext (tailTyped hx).total_eq.symmetric
+  have hD := (motiveTyped hx).recontext (tailTyped hx).totalEquality.symmetric
   have hd := Presented.branch hx (tailTyped hx) (branch hx)
   have e := Derivation.rule (T := theory) (Sum.inr (.reindexBranchDef 2))
     ![Γ,A,x,(LeftConcatFrame.tail Γ A x).code (path A x),motive Γ A x,
@@ -51,7 +51,7 @@ def branchSub : Equal (Ω := Ω)
       (subTm (subTm (q Γ A x) ((LeftConcatFrame.tail Γ A x).map Γ (root A x)))
         (branchMap A x ((LeftConcatFrame.tail Γ A x).code (path A x)) σ)) := by
     simpa [Equal, theory, extraRule, Atom.subst] using e
-  have hq := (qTyped hx).recontext (tailTyped hx).total_eq.symmetric
+  have hq := (qTyped hx).recontext (tailTyped hx).totalEquality.symmetric
   exact h.transitive ((Equal.subTm
     (Equal.subTm (.reflexive _) (Presented.rootMap hx (tailTyped hx)).symmetric) (.reflexive _)).transitive
       ((hq.subComp (hx.rootTail (tailTyped hx).typing) (hx.branchMap (tailTyped hx).typing hs)).transitive
@@ -69,7 +69,7 @@ def genericSub : Equal (Ω := Ω)
       (subTm (q Δ (subTy A σ) (subTm x σ))
         ((LeftConcatFrame.tail Δ (subTy A σ) (subTm x σ)).map Δ (root (subTy A σ) (subTm x σ))))) :=
   (Equal.subTm (.reflexive _) (pathTailMapEq hx hs).symmetric).transitive
-    ((hx.jSub (tailTyped hx).typing ((motiveTyped hx).recontext (tailTyped hx).total_eq.symmetric)
+    ((hx.jSub (tailTyped hx).typing ((motiveTyped hx).recontext (tailTyped hx).totalEquality.symmetric)
       (Presented.branch hx (tailTyped hx) (branch hx)) hs).transitive
       (Equal.j (.reflexive _) (.reflexive _) (pathTailEq hx hs)
         ((Equal.subTy (.reflexive _) (pathTailMapEq hx hs)).transitive (motiveSub hx hs))

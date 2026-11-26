@@ -29,9 +29,9 @@ def projection {Γ} : Display Ω Γ → Expression V
   | .nil _ => identitySub Γ
   | .cons (A := A) _ tail => comp (weaken Γ A) tail.projection
 
-def projection_typed {Γ} : (D : Display Ω Γ) → Sub (Ω := Ω) D.total Γ D.projection
+def projectionTyping {Γ} : (D : Display Ω Γ) → Sub (Ω := Ω) D.total Γ D.projection
   | .nil hΓ => hΓ.identity
-  | .cons hA tail => hA.weaken.comp tail.projection_typed
+  | .cons hA tail => hA.weaken.comp tail.projectionTyping
 
 def pullback {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
     (hσ : Sub (Ω := Ω) Δ Γ σ) : Display Ω Δ :=
@@ -45,15 +45,15 @@ def square {Γ} (D : Display Ω Γ) {Δ σ} (hσ : Sub (Ω := Ω) Δ Γ σ) : Ex
   | .nil _ => σ
   | .cons hA tail => tail.square (hσ.lift hA)
 
-def square_typed {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
+def squareTyping {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
     (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Sub (Ω := Ω) (D.pullback hΔ hσ).total D.total (D.square hσ) :=
   match D with
   | .nil _ => hσ
-  | .cons hA tail => tail.square_typed (hA.substitute hσ).extend (hσ.lift hA)
+  | .cons hA tail => tail.squareTyping (hA.substitute hσ).extend (hσ.lift hA)
 
 /-- The square commutes with the projection to its original base. -/
-def square_projection {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
+def squareProjection {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
     (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (comp D.projection (D.square hσ))
       (comp σ (D.pullback hΔ hσ).projection) := by
@@ -62,25 +62,25 @@ def square_projection {Γ} (D : Display Ω Γ) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
   | @cons Γ A hA tail ih =>
       let hAs := hA.substitute hσ
       let hL := hσ.lift hA
-      have hS := tail.square_typed hAs.extend hL
-      have hP := (tail.pullback hAs.extend hL).projection_typed
+      have hS := tail.squareTyping hAs.extend hL
+      have hP := (tail.pullback hAs.extend hL).projectionTyping
       have hW := hA.weakenPair (hσ.comp hAs.weaken)
         (hAs.generic.convert (hA.subComp hσ hAs.weaken))
       simp only [projection, square, pullback]
-      exact ((hA.weaken.assoc tail.projection_typed hS).transitive
+      exact ((hA.weaken.assoc tail.projectionTyping hS).transitive
         (Equal.comp (.reflexive _) (ih hAs.extend hL))).transitive
         ((hA.weaken.assoc hL hP).symmetric.transitive
           ((Equal.comp hW (.reflexive _)).transitive (hσ.assoc hAs.weaken hP)))
 
 /-- A term pulled along the square agrees with pulling it along the base map.
 The family is also reindexed by the same source substitutions. -/
-def term_square {Γ A t} (D : Display Ω Γ) (ht : Tm (Ω := Ω) Γ A t)
+def termSquare {Γ A t} (D : Display Ω Γ) (ht : Tm (Ω := Ω) Γ A t)
     {Δ σ} (hΔ : Ctx (Ω := Ω) Δ) (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (subTm (subTm t D.projection) (D.square hσ))
       (subTm (subTm t σ) (D.pullback hΔ hσ).projection) :=
-  (ht.subComp D.projection_typed (D.square_typed hΔ hσ)).transitive
-    ((Equal.subTm (.reflexive _) (D.square_projection hΔ hσ)).transitive
-      (ht.subComp hσ (D.pullback hΔ hσ).projection_typed).symmetric)
+  (ht.subComp D.projectionTyping (D.squareTyping hΔ hσ)).transitive
+    ((Equal.subTm (.reflexive _) (D.squareProjection hΔ hσ)).transitive
+      (ht.subComp hσ (D.pullback hΔ hσ).projectionTyping).symmetric)
 
 /-- A displayed variable from the base, weakened through the actual binders. -/
 def weakenTerm {Γ} (D : Display Ω Γ) (t : Expression V) : Expression V :=
@@ -88,22 +88,22 @@ def weakenTerm {Γ} (D : Display Ω Γ) (t : Expression V) : Expression V :=
   | .nil _ => t
   | .cons (A := A) _ tail => tail.weakenTerm (subTm t (weaken Γ A))
 
-def weakenTerm_projection {Γ A t} (D : Display Ω Γ)
+def weakenTermProjection {Γ A t} (D : Display Ω Γ)
     (ht : Tm (Ω := Ω) Γ A t) :
     Equal (Ω := Ω) (D.weakenTerm t) (subTm t D.projection) := by
   induction D generalizing A t with
   | nil hΓ => exact ht.subId.symmetric
   | cons hB tail ih =>
-      exact (ih (ht.substitute hB.weaken)).transitive (ht.subComp hB.weaken tail.projection_typed)
+      exact (ih (ht.substitute hB.weaken)).transitive (ht.subComp hB.weaken tail.projectionTyping)
 
-def weakenTerm_square {Γ A t} (D : Display Ω Γ)
+def weakenTermSquare {Γ A t} (D : Display Ω Γ)
     (ht : Tm (Ω := Ω) Γ A t) {Δ σ} (hΔ : Ctx (Ω := Ω) Δ)
     (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (subTm (D.weakenTerm t) (D.square hσ))
       ((D.pullback hΔ hσ).weakenTerm (subTm t σ)) :=
-  (Equal.subTm (D.weakenTerm_projection ht) (.reflexive _)).transitive
-    ((D.term_square ht hΔ hσ).transitive
-      ((D.pullback hΔ hσ).weakenTerm_projection (ht.substitute hσ)).symmetric)
+  (Equal.subTm (D.weakenTermProjection ht) (.reflexive _)).transitive
+    ((D.termSquare ht hΔ hσ).transitive
+      ((D.pullback hΔ hσ).weakenTermProjection (ht.substitute hσ)).symmetric)
 
 /-- Map into the pullback of a nonempty display after replacing its first
 variable. Stating this at an abstract tail avoids unfolding a concrete tail. -/
@@ -115,7 +115,7 @@ def replaceHead {Γ A Δ σ Θ τ} (hA : Ty (Ω := Ω) Γ A)
       ((tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).pullback hΘ hτ).total
       ((Display.cons hA tail).pullback hΔ hσ).total
       ((tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).square hτ) :=
-  (tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).square_typed hΘ hτ
+  (tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).squareTyping hΘ hτ
 
 def weakenEqual {Γ t u} (D : Display Ω Γ) (e : Equal (Ω := Ω) t u) :
     Equal (Ω := Ω) (D.weakenTerm t) (D.weakenTerm u) :=
@@ -125,36 +125,36 @@ def weakenEqual {Γ t u} (D : Display Ω Γ) (e : Equal (Ω := Ω) t u) :
 
 /-- Pullback retains the freshly bound variable, including every later
  dependent binder. This applies to paths and to identity witnesses as data. -/
-def head_square {Γ A Δ σ} (hA : Ty (Ω := Ω) Γ A)
+def headSquare {Γ A Δ σ} (hA : Ty (Ω := Ω) Γ A)
     (tail : Display Ω (extend Γ A)) (_hΔ : Ctx (Ω := Ω) Δ)
     (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω)
       (subTm (tail.weakenTerm (generic Γ A)) ((Display.cons hA tail).square hσ))
       ((tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).weakenTerm
         (generic Δ (subTy A σ))) :=
-  (tail.weakenTerm_square hA.generic (hA.substitute hσ).extend (hσ.lift hA)).transitive
+  (tail.weakenTermSquare hA.generic (hA.substitute hσ).extend (hσ.lift hA)).transitive
     ((tail.pullback (hA.substitute hσ).extend (hσ.lift hA)).weakenEqual
       (hA.variablePair (hσ.comp (hA.substitute hσ).weaken)
         ((hA.substitute hσ).generic.convert (hA.subComp hσ (hA.substitute hσ).weaken))))
 
 /-- Replacing a head variable retains every term from its base. -/
-def replace_base {Γ A B t x} (hA : Ty (Ω := Ω) Γ A)
+def replaceBase {Γ A B t x} (hA : Ty (Ω := Ω) Γ A)
     (tail : Display Ω (extend Γ A)) (hΓ : Ctx (Ω := Ω) Γ)
     (ht : Tm (Ω := Ω) Γ B t) (hx : Tm (Ω := Ω) Γ A x) :
     Equal (Ω := Ω)
       (subTm ((Display.cons hA tail).weakenTerm t) (tail.square hx.section))
       ((tail.pullback hΓ hx.section).weakenTerm t) :=
-  (tail.weakenTerm_square (ht.substitute hA.weaken) hΓ hx.section).transitive
+  (tail.weakenTermSquare (ht.substitute hA.weaken) hΓ hx.section).transitive
     ((tail.pullback hΓ hx.section).weakenEqual (ht.weakenSection hx))
 
 /-- The replaced variable becomes its supplied section, through the full tail. -/
-def replace_variable {Γ A x} (hA : Ty (Ω := Ω) Γ A)
+def replaceVariable {Γ A x} (hA : Ty (Ω := Ω) Γ A)
     (tail : Display Ω (extend Γ A)) (hΓ : Ctx (Ω := Ω) Γ)
     (hx : Tm (Ω := Ω) Γ A x) :
     Equal (Ω := Ω)
       (subTm (tail.weakenTerm (generic Γ A)) (tail.square hx.section))
       ((tail.pullback hΓ hx.section).weakenTerm x) :=
-  (tail.weakenTerm_square hA.generic hΓ hx.section).transitive
+  (tail.weakenTermSquare hA.generic hΓ hx.section).transitive
     ((tail.pullback hΓ hx.section).weakenEqual hx.sectionGeneric)
 
 inductive Variable : {Γ : Expression V} → Display Ω Γ → Type where
@@ -182,7 +182,7 @@ def preserved {Γ} {D : Display Ω Γ} (i : Variable D) {Δ σ}
     (hΔ : Ctx (Ω := Ω) Δ) (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (subTm i.term (D.square hσ)) (i.pullback hΔ hσ).term :=
   match i with
-  | .here hA tail => Display.head_square hA tail hΔ hσ
+  | .here hA tail => Display.headSquare hA tail hΔ hσ
   | .there hA _ i => i.preserved (hA.substitute hσ).extend (hσ.lift hA)
 
 end Variable
@@ -325,12 +325,12 @@ def parameters : Parameters Ω where
   z := F.z
   q := F.q
   u := F.u
-  x_typed := F.hx
-  y_typed := F.hy
-  z_typed := F.hz
-  B_typed := F.hB
-  q_typed := F.hq
-  u_typed := F.hu
+  xTyping := F.hx
+  yTyping := F.hy
+  zTyping := F.hz
+  familyFormation := F.hB
+  qTyping := F.hq
+  uTyping := F.hu
 end Input
 
 def WithQ.addU (F : WithQ Ω) : Input Ω where
@@ -381,153 +381,153 @@ def tailZ : Display Ω S.xy.Γ := .cons S.xy.hx.family S.tailP
 def gamma : Expression V := S.input.Γ
 
 def duplicate : Expression V := sectionSub S.point.Γ S.point.A S.point.x
-def duplicate_typed : Sub (Ω := Ω) S.point.Γ S.xy.Γ S.duplicate := S.point.hx.section
+def duplicateTyping : Sub (Ω := Ω) S.point.Γ S.xy.Γ S.duplicate := S.point.hx.section
 
 /-- Duplicate `x` into the `y` slot, then pull back every subsequent binder. -/
-def deltaTail : Display Ω S.point.Γ := S.tailZ.pullback S.point.hx.family.context S.duplicate_typed
+def deltaTail : Display Ω S.point.Γ := S.tailZ.pullback S.point.hx.family.context S.duplicateTyping
 def delta : Expression V := S.deltaTail.total
-def sigma : Expression V := S.tailZ.square S.duplicate_typed
+def sigma : Expression V := S.tailZ.square S.duplicateTyping
 
-def sigma_typed : Sub (Ω := Ω) S.delta S.gamma S.sigma :=
-  S.tailZ.square_typed S.point.hx.family.context S.duplicate_typed
+def sigmaTyping : Sub (Ω := Ω) S.delta S.gamma S.sigma :=
+  S.tailZ.squareTyping S.point.hx.family.context S.duplicateTyping
 
 def deltaZType : Expression V := subTy S.xy.A S.duplicate
-def deltaZType_eq : Equal (Ω := Ω) S.deltaZType S.point.A :=
+def deltaZTypeEquality : Equal (Ω := Ω) S.deltaZType S.point.A :=
   S.point.hx.family.weakenSection S.point.hx
 
-def deltaX_as_z : Tm (Ω := Ω) S.point.Γ S.deltaZType S.point.x :=
-  S.point.hx.convert S.deltaZType_eq.symmetric
+def deltaXTypingAsZ : Tm (Ω := Ω) S.point.Γ S.deltaZType S.point.x :=
+  S.point.hx.convert S.deltaZTypeEquality.symmetric
 
 def deltaAfterZ : Display Ω (extend S.point.Γ S.deltaZType) :=
-  S.tailP.pullback (S.xy.hx.family.substitute S.duplicate_typed).extend
-    (S.duplicate_typed.lift S.xy.hx.family)
+  S.tailP.pullback (S.xy.hx.family.substitute S.duplicateTyping).extend
+    (S.duplicateTyping.lift S.xy.hx.family)
 
 /-- Duplicate `x` into the remaining `z` slot and retain every later binder. -/
 def thetaTail : Display Ω S.point.Γ :=
-  S.deltaAfterZ.pullback S.point.hx.family.context S.deltaX_as_z.section
+  S.deltaAfterZ.pullback S.point.hx.family.context S.deltaXTypingAsZ.section
 def theta : Expression V := S.thetaTail.total
-def tau : Expression V := S.deltaAfterZ.square S.deltaX_as_z.section
+def tau : Expression V := S.deltaAfterZ.square S.deltaXTypingAsZ.section
 
-def tau_typed : Sub (Ω := Ω) S.theta S.delta S.tau :=
-  Display.replaceHead S.xy.hx.family S.tailP S.point.hx.family.context S.duplicate_typed
-    S.point.hx.family.context S.deltaX_as_z.section
+def tauTyping : Sub (Ω := Ω) S.theta S.delta S.tau :=
+  Display.replaceHead S.xy.hx.family S.tailP S.point.hx.family.context S.duplicateTyping
+    S.point.hx.family.context S.deltaXTypingAsZ.section
 
-def deltaInput : Input Ω := S.input.reindex S.sigma_typed
-def thetaInput : Input Ω := S.deltaInput.reindex S.tau_typed
+def deltaInput : Input Ω := S.input.reindex S.sigmaTyping
+def thetaInput : Input Ω := S.deltaInput.reindex S.tauTyping
 
 /-- Both old endpoints land at the same retained `x`; the later binders
 remain present in the pulled-back display. -/
-def sigma_y : Equal (Ω := Ω) (subTm S.input.y S.sigma)
+def sigmaY : Equal (Ω := Ω) (subTm S.input.y S.sigma)
     (S.deltaTail.weakenTerm S.point.x) :=
-  (S.tailZ.weakenTerm_square S.xy.hy S.point.hx.family.context S.duplicate_typed).transitive
+  (S.tailZ.weakenTermSquare S.xy.hy S.point.hx.family.context S.duplicateTyping).transitive
     (S.deltaTail.weakenEqual S.point.hx.sectionGeneric)
 
-def sigma_x : Equal (Ω := Ω) (subTm S.input.x S.sigma)
+def sigmaX : Equal (Ω := Ω) (subTm S.input.x S.sigma)
     (S.deltaTail.weakenTerm S.point.x) :=
-  (S.tailZ.weakenTerm_square S.xy.hx S.point.hx.family.context S.duplicate_typed).transitive
+  (S.tailZ.weakenTermSquare S.xy.hx S.point.hx.family.context S.duplicateTyping).transitive
     (S.deltaTail.weakenEqual (S.point.hx.weakenSection S.point.hx))
 
-def delta_y_eq_x : Equal (Ω := Ω) S.deltaInput.y S.deltaInput.x :=
-  S.sigma_y.transitive S.sigma_x.symmetric
+def deltaYEqX : Equal (Ω := Ω) S.deltaInput.y S.deltaInput.x :=
+  S.sigmaY.transitive S.sigmaX.symmetric
 
 /-- The `z` variable is retained as the first binder in Delta. -/
-def sigma_z : Equal (Ω := Ω) (subTm S.input.z S.sigma)
+def sigmaZ : Equal (Ω := Ω) (subTm S.input.z S.sigma)
     (S.deltaAfterZ.weakenTerm (generic S.point.Γ S.deltaZType)) :=
-  Display.head_square S.xy.hx.family S.tailP S.point.hx.family.context S.duplicate_typed
+  Display.headSquare S.xy.hx.family S.tailP S.point.hx.family.context S.duplicateTyping
 
 /-- The first frozen map turns the two parallel paths into loops without
  replacing the paths by reflexivity. -/
-def delta_loop : Tm (Ω := Ω) S.deltaInput.Γ
+def deltaLoopTyping : Tm (Ω := Ω) S.deltaInput.Γ
     (identity S.deltaInput.A S.deltaInput.x S.deltaInput.x) S.deltaInput.p :=
-  S.deltaInput.hp.convert (Equal.identity (.reflexive _) (.reflexive _) S.delta_y_eq_x)
+  S.deltaInput.hp.convert (Equal.identity (.reflexive _) (.reflexive _) S.deltaYEqX)
 
-def delta_loop' : Tm (Ω := Ω) S.deltaInput.Γ
+def deltaParallelLoopTyping : Tm (Ω := Ω) S.deltaInput.Γ
     (identity S.deltaInput.A S.deltaInput.x S.deltaInput.x) S.deltaInput.p' :=
-  S.deltaInput.hp'.convert (Equal.identity (.reflexive _) (.reflexive _) S.delta_y_eq_x)
+  S.deltaInput.hp'.convert (Equal.identity (.reflexive _) (.reflexive _) S.deltaYEqX)
 
-def tau_x : Equal (Ω := Ω) (subTm S.deltaInput.x S.tau)
+def tauX : Equal (Ω := Ω) (subTm S.deltaInput.x S.tau)
     (S.thetaTail.weakenTerm S.point.x) :=
-  (Equal.subTm S.sigma_x (.reflexive _)).transitive
-    (Display.replace_base (S.xy.hx.family.substitute S.duplicate_typed) S.deltaAfterZ
-      S.point.hx.family.context S.point.hx S.deltaX_as_z)
+  (Equal.subTm S.sigmaX (.reflexive _)).transitive
+    (Display.replaceBase (S.xy.hx.family.substitute S.duplicateTyping) S.deltaAfterZ
+      S.point.hx.family.context S.point.hx S.deltaXTypingAsZ)
 
-def tau_z : Equal (Ω := Ω) (subTm S.deltaInput.z S.tau)
+def tauZ : Equal (Ω := Ω) (subTm S.deltaInput.z S.tau)
     (S.thetaTail.weakenTerm S.point.x) :=
-  (Equal.subTm S.sigma_z (.reflexive _)).transitive
-    (Display.replace_variable (S.xy.hx.family.substitute S.duplicate_typed) S.deltaAfterZ
-      S.point.hx.family.context S.deltaX_as_z)
+  (Equal.subTm S.sigmaZ (.reflexive _)).transitive
+    (Display.replaceVariable (S.xy.hx.family.substitute S.duplicateTyping) S.deltaAfterZ
+      S.point.hx.family.context S.deltaXTypingAsZ)
 
-def theta_z_eq_x : Equal (Ω := Ω) S.thetaInput.z S.thetaInput.x :=
-  S.tau_z.transitive S.tau_x.symmetric
+def thetaZEqX : Equal (Ω := Ω) S.thetaInput.z S.thetaInput.x :=
+  S.tauZ.transitive S.tauX.symmetric
 
-def theta_y_eq_x : Equal (Ω := Ω) S.thetaInput.y S.thetaInput.x :=
-  Equal.subTm S.delta_y_eq_x (.reflexive _)
+def thetaYEqX : Equal (Ω := Ω) S.thetaInput.y S.thetaInput.x :=
+  Equal.subTm S.deltaYEqX (.reflexive _)
 
 /-- The second map turns the retained `q` into the loop `k`, without erasure. -/
-def theta_loop_q : Tm (Ω := Ω) S.thetaInput.Γ
+def thetaQLoopTyping : Tm (Ω := Ω) S.thetaInput.Γ
     (identity S.thetaInput.A S.thetaInput.x S.thetaInput.x) S.thetaInput.q :=
-  S.thetaInput.hq.convert (Equal.identity (.reflexive _) S.theta_y_eq_x S.theta_z_eq_x)
+  S.thetaInput.hq.convert (Equal.identity (.reflexive _) S.thetaYEqX S.thetaZEqX)
 
 /-- Positions of the retained path, witness and value binders. -/
 def pSlot : Display.Variable S.tailZ := .there _ _ (.here _ _)
-def delta_pSlot : Display.Variable S.deltaAfterZ := .here _ _
+def deltaPSlot : Display.Variable S.deltaAfterZ := .here _ _
 
-def sigma_p_retained : Equal (Ω := Ω) (subTm S.input.p S.sigma)
-    (S.pSlot.pullback S.point.hx.family.context S.duplicate_typed).term :=
-  S.pSlot.preserved S.point.hx.family.context S.duplicate_typed
+def sigmaPRetained : Equal (Ω := Ω) (subTm S.input.p S.sigma)
+    (S.pSlot.pullback S.point.hx.family.context S.duplicateTyping).term :=
+  S.pSlot.preserved S.point.hx.family.context S.duplicateTyping
 
-def tau_p_retained : Equal (Ω := Ω) S.thetaInput.p
-    (S.delta_pSlot.pullback S.point.hx.family.context S.deltaX_as_z.section).term :=
-  (Equal.subTm S.sigma_p_retained (.reflexive _)).transitive
-    (S.delta_pSlot.preserved S.point.hx.family.context S.deltaX_as_z.section)
+def tauPRetained : Equal (Ω := Ω) S.thetaInput.p
+    (S.deltaPSlot.pullback S.point.hx.family.context S.deltaXTypingAsZ.section).term :=
+  (Equal.subTm S.sigmaPRetained (.reflexive _)).transitive
+    (S.deltaPSlot.preserved S.point.hx.family.context S.deltaXTypingAsZ.section)
 
 def parallelSlot : Display.Variable S.tailZ := .there _ _ (.there _ _ (.here _ _))
-def delta_parallelSlot : Display.Variable S.deltaAfterZ := .there _ _ (.here _ _)
+def deltaParallelSlot : Display.Variable S.deltaAfterZ := .there _ _ (.here _ _)
 
-def sigma_parallel_retained : Equal (Ω := Ω) (subTm S.input.p' S.sigma)
-    (S.parallelSlot.pullback S.point.hx.family.context S.duplicate_typed).term :=
-  S.parallelSlot.preserved S.point.hx.family.context S.duplicate_typed
+def sigmaParallelRetained : Equal (Ω := Ω) (subTm S.input.p' S.sigma)
+    (S.parallelSlot.pullback S.point.hx.family.context S.duplicateTyping).term :=
+  S.parallelSlot.preserved S.point.hx.family.context S.duplicateTyping
 
-def tau_parallel_retained : Equal (Ω := Ω) S.thetaInput.p'
-    (S.delta_parallelSlot.pullback S.point.hx.family.context S.deltaX_as_z.section).term :=
-  (Equal.subTm S.sigma_parallel_retained (.reflexive _)).transitive
-    (S.delta_parallelSlot.preserved S.point.hx.family.context S.deltaX_as_z.section)
+def tauParallelRetained : Equal (Ω := Ω) S.thetaInput.p'
+    (S.deltaParallelSlot.pullback S.point.hx.family.context S.deltaXTypingAsZ.section).term :=
+  (Equal.subTm S.sigmaParallelRetained (.reflexive _)).transitive
+    (S.deltaParallelSlot.preserved S.point.hx.family.context S.deltaXTypingAsZ.section)
 
 def homotopySlot : Display.Variable S.tailZ := .there _ _ (.there _ _ (.there _ _ (.here _ _)))
-def delta_homotopySlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.here _ _))
+def deltaHomotopySlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.here _ _))
 
-def sigma_homotopy_retained : Equal (Ω := Ω) (subTm S.input.h S.sigma)
-    (S.homotopySlot.pullback S.point.hx.family.context S.duplicate_typed).term :=
-  S.homotopySlot.preserved S.point.hx.family.context S.duplicate_typed
+def sigmaHomotopyRetained : Equal (Ω := Ω) (subTm S.input.h S.sigma)
+    (S.homotopySlot.pullback S.point.hx.family.context S.duplicateTyping).term :=
+  S.homotopySlot.preserved S.point.hx.family.context S.duplicateTyping
 
-def tau_homotopy_retained : Equal (Ω := Ω) S.thetaInput.h
-    (S.delta_homotopySlot.pullback S.point.hx.family.context S.deltaX_as_z.section).term :=
-  (Equal.subTm S.sigma_homotopy_retained (.reflexive _)).transitive
-    (S.delta_homotopySlot.preserved S.point.hx.family.context S.deltaX_as_z.section)
+def tauHomotopyRetained : Equal (Ω := Ω) S.thetaInput.h
+    (S.deltaHomotopySlot.pullback S.point.hx.family.context S.deltaXTypingAsZ.section).term :=
+  (Equal.subTm S.sigmaHomotopyRetained (.reflexive _)).transitive
+    (S.deltaHomotopySlot.preserved S.point.hx.family.context S.deltaXTypingAsZ.section)
 
 def qSlot : Display.Variable S.tailZ := .there _ _ (.there _ _ (.there _ _ (.there _ _ (.here _ _))))
-def delta_qSlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.there _ _ (.here _ _)))
+def deltaQSlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.there _ _ (.here _ _)))
 
-def sigma_q_retained : Equal (Ω := Ω) (subTm S.input.q S.sigma)
-    (S.qSlot.pullback S.point.hx.family.context S.duplicate_typed).term :=
-  S.qSlot.preserved S.point.hx.family.context S.duplicate_typed
+def sigmaQRetained : Equal (Ω := Ω) (subTm S.input.q S.sigma)
+    (S.qSlot.pullback S.point.hx.family.context S.duplicateTyping).term :=
+  S.qSlot.preserved S.point.hx.family.context S.duplicateTyping
 
-def tau_q_retained : Equal (Ω := Ω) S.thetaInput.q
-    (S.delta_qSlot.pullback S.point.hx.family.context S.deltaX_as_z.section).term :=
-  (Equal.subTm S.sigma_q_retained (.reflexive _)).transitive
-    (S.delta_qSlot.preserved S.point.hx.family.context S.deltaX_as_z.section)
+def tauQRetained : Equal (Ω := Ω) S.thetaInput.q
+    (S.deltaQSlot.pullback S.point.hx.family.context S.deltaXTypingAsZ.section).term :=
+  (Equal.subTm S.sigmaQRetained (.reflexive _)).transitive
+    (S.deltaQSlot.preserved S.point.hx.family.context S.deltaXTypingAsZ.section)
 
 def uSlot : Display.Variable S.tailZ := .there _ _ (.there _ _ (.there _ _ (.there _ _ (.there _ _ (.here _ _)))))
-def delta_uSlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.there _ _ (.there _ _ (.here _ _))))
+def deltaUSlot : Display.Variable S.deltaAfterZ := .there _ _ (.there _ _ (.there _ _ (.there _ _ (.here _ _))))
 
-def sigma_u_retained : Equal (Ω := Ω) (subTm S.input.u S.sigma)
-    (S.uSlot.pullback S.point.hx.family.context S.duplicate_typed).term :=
-  S.uSlot.preserved S.point.hx.family.context S.duplicate_typed
+def sigmaURetained : Equal (Ω := Ω) (subTm S.input.u S.sigma)
+    (S.uSlot.pullback S.point.hx.family.context S.duplicateTyping).term :=
+  S.uSlot.preserved S.point.hx.family.context S.duplicateTyping
 
-def tau_u_retained : Equal (Ω := Ω) S.thetaInput.u
-    (S.delta_uSlot.pullback S.point.hx.family.context S.deltaX_as_z.section).term :=
-  (Equal.subTm S.sigma_u_retained (.reflexive _)).transitive
-    (S.delta_uSlot.preserved S.point.hx.family.context S.deltaX_as_z.section)
+def tauURetained : Equal (Ω := Ω) S.thetaInput.u
+    (S.deltaUSlot.pullback S.point.hx.family.context S.deltaXTypingAsZ.section).term :=
+  (Equal.subTm S.sigmaURetained (.reflexive _)).transitive
+    (S.deltaUSlot.preserved S.point.hx.family.context S.deltaXTypingAsZ.section)
 
 
 end Signature

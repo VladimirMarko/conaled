@@ -58,7 +58,7 @@ equal.
 ## Closed generation gives uniqueness
 
 Write `eΓ` for the existing canonical projection from generated context Γ to
-empty. `GeneratedArrow.empty_natural` constructs a source derivation of
+empty. `GeneratedArrow.emptyNaturality` constructs a source derivation of
 
 ```text
 eΓ ∘ σ = eΔ
@@ -70,7 +70,7 @@ of the canonical projection at an extension. Pairing uses the existing
 weakening-after-pairing equation. Equality conversion uses congruence and
 transitivity. The primitive case is impossible under `closedArrows`.
 
-At Γ = empty, `eΓ` is identity, so `empty_unique` gives `σ = eΔ` as a source
+At Γ = empty, `eΓ` is identity, so `emptyUniqueness` gives `σ = eΔ` as a source
 derivation. The canonical projection itself belongs to this same grammar by
 `toEmpty`. Consequently `GeneratedCategory.emptyUnique` constructs a `Unique`
 instance for each hom-set into the empty object: existence and uniqueness in

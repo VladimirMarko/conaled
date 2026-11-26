@@ -18,12 +18,12 @@ structure Parameters (Ω : List (Judgment V)) where
   z : Expression V
   q : Expression V
   u : Expression V
-  x_typed : Tm (Ω := Ω) Γ A x
-  y_typed : Tm (Ω := Ω) Γ A y
-  z_typed : Tm (Ω := Ω) Γ A z
-  B_typed : Ty (Ω := Ω) (extend Γ A) B
-  q_typed : Tm (Ω := Ω) Γ (identity A y z) q
-  u_typed : Tm (Ω := Ω) Γ (subTy B (sectionSub Γ A x)) u
+  xTyping : Tm (Ω := Ω) Γ A x
+  yTyping : Tm (Ω := Ω) Γ A y
+  zTyping : Tm (Ω := Ω) Γ A z
+  familyFormation : Ty (Ω := Ω) (extend Γ A) B
+  qTyping : Tm (Ω := Ω) Γ (identity A y z) q
+  uTyping : Tm (Ω := Ω) Γ (subTy B (sectionSub Γ A x)) u
 
 namespace Parameters
 variable (F : Parameters Ω)
@@ -32,7 +32,7 @@ abbrev pathType := identity F.A F.x F.y
 abbrev pathContext := extend F.Γ F.pathType
 abbrev pathProjection := weaken F.Γ F.pathType
 
-def pathTypeFormation : Ty (Ω := Ω) F.Γ F.pathType := F.x_typed.identity F.y_typed
+def pathTypeFormation : Ty (Ω := Ω) F.Γ F.pathType := F.xTyping.identity F.yTyping
 
 def reindex {Δ σ : Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ) : Parameters Ω where
   Γ := Δ
@@ -43,12 +43,12 @@ def reindex {Δ σ : Expression V} (hσ : Sub (Ω := Ω) Δ F.Γ σ) : Parameter
   z := subTm F.z σ
   q := subTm F.q σ
   u := subTm F.u σ
-  x_typed := F.x_typed.substitute hσ
-  y_typed := F.y_typed.substitute hσ
-  z_typed := F.z_typed.substitute hσ
-  B_typed := F.B_typed.substitute (hσ.lift F.x_typed.family)
-  q_typed := (F.q_typed.substitute hσ).convert (F.y_typed.identitySub F.z_typed hσ)
-  u_typed := (F.u_typed.substitute hσ).convert (F.B_typed.sectionLift hσ F.x_typed).symmetric
+  xTyping := F.xTyping.substitute hσ
+  yTyping := F.yTyping.substitute hσ
+  zTyping := F.zTyping.substitute hσ
+  familyFormation := F.familyFormation.substitute (hσ.lift F.xTyping.family)
+  qTyping := (F.qTyping.substitute hσ).convert (F.yTyping.identitySub F.zTyping hσ)
+  uTyping := (F.uTyping.substitute hσ).convert (F.familyFormation.sectionLift hσ F.xTyping).symmetric
 
 /-- Expose a genuinely varying first path, retaining all other parameters. -/
 def varying : Parameters Ω := F.reindex F.pathTypeFormation.weaken
@@ -56,7 +56,7 @@ abbrev variablePath : Expression V := generic F.Γ F.pathType
 
 def variablePathTyping : Tm (Ω := Ω) F.pathContext
     (identity F.varying.A F.varying.x F.varying.y) F.variablePath :=
-  F.pathTypeFormation.generic.convert (F.x_typed.identitySub F.y_typed F.pathTypeFormation.weaken)
+  F.pathTypeFormation.generic.convert (F.xTyping.identitySub F.yTyping F.pathTypeFormation.weaken)
 
 abbrev varyingValue : Expression V :=
   transport F.varying.Γ F.varying.A F.varying.B F.varying.y F.varying.z F.varying.q
@@ -70,16 +70,16 @@ abbrev certificateSection : Expression V :=
   eta F.varying.Γ F.varying.A F.varying.B F.varying.x F.varying.y F.varying.z F.variablePath F.varying.q F.varying.u
 
 def varyingValueTyping : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingValue :=
-  Tm.transport F.varying.B_typed F.varying.y_typed F.varying.z_typed F.varying.q_typed
-    (Tm.transport F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed)
+  Tm.transport F.varying.familyFormation F.varying.yTyping F.varying.zTyping F.varying.qTyping
+    (Tm.transport F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping)
 
 def varyingCompositeValueTyping : Tm (Ω := Ω) F.pathContext F.varyingFiber F.varyingCompositeValue :=
-  Tm.transport F.varying.B_typed F.varying.x_typed F.varying.z_typed
-    (F.varying.x_typed.concat F.varying.y_typed F.varying.z_typed F.variablePathTyping F.varying.q_typed) F.varying.u_typed
+  Tm.transport F.varying.familyFormation F.varying.xTyping F.varying.zTyping
+    (F.varying.xTyping.concat F.varying.yTyping F.varying.zTyping F.variablePathTyping F.varying.qTyping) F.varying.uTyping
 
 def certificateSectionTyping : Tm (Ω := Ω) F.pathContext F.certificateFamily F.certificateSection :=
-  Tm.eta F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed
-    F.varying.z_typed F.varying.q_typed
+  Tm.eta F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping
+    F.varying.zTyping F.varying.qTyping
 
 abbrev atPath (p : Expression V) := sectionSub F.Γ F.pathType p
 abbrev value (p : Expression V) := subTm F.varyingValue (F.atPath p)

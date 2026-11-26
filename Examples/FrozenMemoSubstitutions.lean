@@ -22,7 +22,7 @@ theorem certificate_sigma_eval :
     (Contextual.subTm (S.input.parameters.certificate S.input.p) S.sigma).eval
       (Contextual.algebra M) ρ =
       .term deltaRealization.context _ deltaRealization.selectedCertificate :=
-  (Contextual.interpret S.certificate_sigma M ρ hΩ).trans
+  (Contextual.interpret S.certificateSigma M ρ hΩ).trans
     (deltaRealization.certificate_eval hΩ)
 
 include hΩ in
@@ -30,7 +30,7 @@ theorem certificate_tau_eval :
     (Contextual.subTm (S.deltaInput.parameters.certificate S.deltaInput.p) S.tau).eval
       (Contextual.algebra M) ρ =
       .term thetaRealization.context _ thetaRealization.selectedCertificate :=
-  (Contextual.interpret S.certificate_tau M ρ hΩ).trans
+  (Contextual.interpret S.certificateTau M ρ hΩ).trans
     (thetaRealization.certificate_eval hΩ)
 
 include hΩ in
@@ -38,7 +38,7 @@ theorem certificate_twice_eval :
     (Contextual.subTm (Contextual.subTm (S.input.parameters.certificate S.input.p) S.sigma)
       S.tau).eval (Contextual.algebra M) ρ =
       .term thetaRealization.context _ thetaRealization.selectedCertificate :=
-  (Contextual.interpret S.certificate_twice M ρ hΩ).trans
+  (Contextual.interpret S.certificateTwice M ρ hΩ).trans
     (thetaRealization.certificate_eval hΩ)
 
 /- Each result is the action of the freshly constructed varying certificate
@@ -48,7 +48,7 @@ theorem dependentAction_sigma_eval :
     (Contextual.subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h)
       S.sigma).eval (Contextual.algebra M) ρ =
       .term deltaRealization.context deltaRealization.dependentActionFamily deltaRealization.dependentAction :=
-  (Contextual.interpret S.dependentAction_sigma M ρ hΩ).trans
+  (Contextual.interpret S.dependentActionSigma M ρ hΩ).trans
     (deltaRealization.dependentAction_eval hΩ)
 
 include hΩ in
@@ -56,7 +56,7 @@ theorem dependentAction_tau_eval :
     (Contextual.subTm (S.deltaInput.parameters.dependentAction S.deltaInput.p S.deltaInput.p' S.deltaInput.h)
       S.tau).eval (Contextual.algebra M) ρ =
       .term thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction :=
-  (Contextual.interpret S.dependentAction_tau M ρ hΩ).trans
+  (Contextual.interpret S.dependentActionTau M ρ hΩ).trans
     (thetaRealization.dependentAction_eval hΩ)
 
 include hΩ in
@@ -65,7 +65,7 @@ theorem dependentAction_twice_eval :
       (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma)
       S.tau).eval (Contextual.algebra M) ρ =
       .term thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction :=
-  (Contextual.interpret S.dependentAction_twice M ρ hΩ).trans
+  (Contextual.interpret S.dependentActionTwice M ρ hΩ).trans
     (thetaRealization.dependentAction_eval hΩ)
 
 include hΩ in
@@ -73,7 +73,7 @@ theorem transportedCertificate_sigma_eval :
     (Contextual.subTm (S.input.parameters.transportedCertificate S.input.p S.input.p' S.input.h)
       S.sigma).eval (Contextual.algebra M) ρ =
       .term deltaRealization.context _ deltaRealization.transportedCertificate :=
-  (Contextual.interpret S.transportedCertificate_sigma M ρ hΩ).trans
+  (Contextual.interpret S.transportedCertificateSigma M ρ hΩ).trans
     (deltaRealization.transportedCertificate_eval hΩ)
 
 include hΩ in
@@ -81,7 +81,7 @@ theorem transportedCertificate_tau_eval :
     (Contextual.subTm (S.deltaInput.parameters.transportedCertificate S.deltaInput.p S.deltaInput.p' S.deltaInput.h)
       S.tau).eval (Contextual.algebra M) ρ =
       .term thetaRealization.context _ thetaRealization.transportedCertificate :=
-  (Contextual.interpret S.transportedCertificate_tau M ρ hΩ).trans
+  (Contextual.interpret S.transportedCertificateTau M ρ hΩ).trans
     (thetaRealization.transportedCertificate_eval hΩ)
 
 include hΩ in
@@ -90,7 +90,7 @@ theorem transportedCertificate_twice_eval :
       (S.input.parameters.transportedCertificate S.input.p S.input.p' S.input.h) S.sigma)
       S.tau).eval (Contextual.algebra M) ρ =
       .term thetaRealization.context _ thetaRealization.transportedCertificate :=
-  (Contextual.interpret S.transportedCertificate_twice M ρ hΩ).trans
+  (Contextual.interpret S.transportedCertificateTwice M ρ hΩ).trans
     (thetaRealization.transportedCertificate_eval hΩ)
 
 /- The twice-substituted dependent-action type retains its transported source. -/
@@ -104,7 +104,7 @@ theorem dependentActionType_twice_eval :
       .family thetaRealization.context thetaRealization.dependentActionFamily :=
   family_of_eval M ρ
     (((S.input.parameters.dependentActionTyping S.input.hp S.input.hp' S.input.hh).substitute
-      S.sigma_typed).substitute S.tau_typed) hΩ
+      S.sigmaTyping).substitute S.tauTyping) hΩ
     thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction (dependentAction_twice_eval M ρ hΩ S thetaRealization)
 
 

@@ -41,13 +41,13 @@ theorem duplicate_eval : signature.duplicate.eval (Contextual.algebra M) env =
  sectionSub_eval M env _ _ _ _ _ _ (initial_eval M A B).context_eval
   (initial_eval M A B).family_eval (initial_eval M A B).x_eval
 
-def sigmaData := (tailZData M A B).pullback signature.point.hx.family.context signature.duplicate_typed
+def sigmaData := (tailZData M A B).pullback signature.point.hx.family.context signature.duplicateTyping
  (Points.initial (M := S) A B).context (duplicate M A B)
  (initial_eval M A B).context_eval (duplicate_eval M A B)
 
 def afterZData := (tailPData M A B).pullback
- (signature.xy.hx.family.substitute signature.duplicate_typed).extend
- (signature.duplicate_typed.lift signature.xy.hx.family)
+ (signature.xy.hx.family.substitute signature.duplicateTyping).extend
+ (signature.duplicateTyping.lift signature.xy.hx.family)
  (M.extend (Points.initial (M := S) A B).context
    (M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B)))
  (M.lift ((Points.initial (M := S) A B).addY).family (duplicate M A B))
@@ -69,7 +69,7 @@ theorem deltaZ_eval : signature.deltaZType.eval (Contextual.algebra M) env =
   (M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B)) :=
  subTy_eval M env _ _ _ _ _ _ ((initial_eval M A B).addY).family_eval (duplicate_eval M A B)
 
-def tauData := (afterZData M A B).display.pullback signature.point.hx.family.context signature.deltaX_as_z.section
+def tauData := (afterZData M A B).display.pullback signature.point.hx.family.context signature.deltaXTypingAsZ.section
  (Points.initial (M := S) A B).context
  ((S).sectionSub (M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B)) (deltaX M A B))
  (initial_eval M A B).context_eval

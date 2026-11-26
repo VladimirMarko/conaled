@@ -71,8 +71,8 @@ abbrev sigma := FrozenInput.Substitutions.sigma hA hB
 abbrev tau := FrozenInput.Substitutions.tau hA hB
 abbrev delta := FrozenInput.Substitutions.delta hA hB
 abbrev theta := FrozenInput.Substitutions.theta hA hB
-abbrev sigma_typed := FrozenInput.Substitutions.sigma_typed hA hB
-abbrev tau_typed := FrozenInput.Substitutions.tau_typed hA hB
+abbrev sigma_typed := FrozenInput.Substitutions.sigmaTyping hA hB
+abbrev tau_typed := FrozenInput.Substitutions.tauTyping hA hB
 
 def action_once := Derives.subTm action_typed sigma_typed
 def action_twice := Derives.subTm action_once tau_typed

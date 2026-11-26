@@ -14,59 +14,59 @@ namespace Input
 variable (I : Input Ω) {Δ Θ σ τ : Expression V}
   (hσ : Sub (Ω := Ω) Δ I.Γ σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
 
-def memoValue_subComp := I.parameters.valueSubComp I.hp hσ hτ
-def memoFiber_subComp := I.parameters.fiberSubComp I.hp hσ hτ
-def memoCertificate_subComp := I.parameters.certificateSubComp I.hp hσ hτ
-def memoCertificateType_subComp := I.parameters.certificateTypeSubComp I.hp hσ hτ
-def memoAction_subComp := I.parameters.dependentActionSubComp I.hp I.hp' I.hh hσ hτ
-def memoTransportedSource_subComp := I.parameters.transportedCertificateSubComp I.hp I.hp' I.hh hσ hτ
-def memoActionType_subComp := I.parameters.dependentActionTypeSubComp I.hp I.hp' I.hh hσ hτ
+def memoValueSubComp := I.parameters.valueSubComp I.hp hσ hτ
+def memoFiberSubComp := I.parameters.fiberSubComp I.hp hσ hτ
+def memoCertificateSubComp := I.parameters.certificateSubComp I.hp hσ hτ
+def memoCertificateTypeSubComp := I.parameters.certificateTypeSubComp I.hp hσ hτ
+def memoActionSubComp := I.parameters.dependentActionSubComp I.hp I.hp' I.hh hσ hτ
+def memoTransportedSourceSubComp := I.parameters.transportedCertificateSubComp I.hp I.hp' I.hh hσ hτ
+def memoActionTypeSubComp := I.parameters.dependentActionTypeSubComp I.hp I.hp' I.hh hσ hτ
 
-def memoValue_reindex : Equal (Ω := Ω) (subTm (I.parameters.value I.p) σ)
+def memoValueReindex : Equal (Ω := Ω) (subTm (I.parameters.value I.p) σ)
     ((I.reindex hσ).parameters.value (subTm I.p σ)) :=
-  I.parameters.value_reindex I.hp hσ
+  I.parameters.valueReindex I.hp hσ
 
-def memoCertificate_reindex : Equal (Ω := Ω) (subTm (I.parameters.certificate I.p) σ)
+def memoCertificateReindex : Equal (Ω := Ω) (subTm (I.parameters.certificate I.p) σ)
     ((I.reindex hσ).parameters.certificate (subTm I.p σ)) :=
-  I.parameters.certificate_reindex I.hp hσ
+  I.parameters.certificateReindex I.hp hσ
 
-def memoFiber_reindex : Equal (Ω := Ω) (subTy (I.parameters.fiber I.p) σ)
+def memoFiberReindex : Equal (Ω := Ω) (subTy (I.parameters.fiber I.p) σ)
     ((I.reindex hσ).parameters.fiber (subTm I.p σ)) :=
-  I.parameters.fiber_reindex I.hp hσ
+  I.parameters.fiberReindex I.hp hσ
 
-def memoCertificateType_reindex : Equal (Ω := Ω) (subTy (I.parameters.certificateType I.p) σ)
+def memoCertificateTypeReindex : Equal (Ω := Ω) (subTy (I.parameters.certificateType I.p) σ)
     ((I.reindex hσ).parameters.certificateType (subTm I.p σ)) :=
-  I.parameters.certificateType_reindex I.hp hσ
+  I.parameters.certificateTypeReindex I.hp hσ
 
-def memoValue_twice : Equal (Ω := Ω) (subTm (subTm (I.parameters.value I.p) σ) τ)
+def memoValueTwice : Equal (Ω := Ω) (subTm (subTm (I.parameters.value I.p) σ) τ)
     (((I.reindex hσ).reindex hτ).parameters.value (subTm (subTm I.p σ) τ)) :=
-  (Equal.subTm (I.memoValue_reindex hσ) (.reflexive τ)).transitive
-    ((I.reindex hσ).memoValue_reindex hτ)
+  (Equal.subTm (I.memoValueReindex hσ) (.reflexive τ)).transitive
+    ((I.reindex hσ).memoValueReindex hτ)
 
-def memoCertificate_twice : Equal (Ω := Ω) (subTm (subTm (I.parameters.certificate I.p) σ) τ)
+def memoCertificateTwice : Equal (Ω := Ω) (subTm (subTm (I.parameters.certificate I.p) σ) τ)
     (((I.reindex hσ).reindex hτ).parameters.certificate (subTm (subTm I.p σ) τ)) :=
-  (Equal.subTm (I.memoCertificate_reindex hσ) (.reflexive τ)).transitive
-    ((I.reindex hσ).memoCertificate_reindex hτ)
+  (Equal.subTm (I.memoCertificateReindex hσ) (.reflexive τ)).transitive
+    ((I.reindex hσ).memoCertificateReindex hτ)
 
-def memoAction_reindex : Equal (Ω := Ω) (subTm (I.parameters.dependentAction I.p I.p' I.h) σ)
+def memoActionReindex : Equal (Ω := Ω) (subTm (I.parameters.dependentAction I.p I.p' I.h) σ)
     ((I.reindex hσ).parameters.dependentAction (subTm I.p σ) (subTm I.p' σ) (subTm I.h σ)) :=
-  I.parameters.dependentAction_fresh hσ I.hp I.hp' I.hh
+  I.parameters.dependentActionFresh hσ I.hp I.hp' I.hh
 
-def memoTransportedSource_reindex : Equal (Ω := Ω) (subTm (I.parameters.transportedCertificate I.p I.p' I.h) σ)
+def memoTransportedSourceReindex : Equal (Ω := Ω) (subTm (I.parameters.transportedCertificate I.p I.p' I.h) σ)
     ((I.reindex hσ).parameters.transportedCertificate (subTm I.p σ) (subTm I.p' σ) (subTm I.h σ)) :=
-  I.parameters.transportedCertificate_fresh hσ I.hp I.hp' I.hh
+  I.parameters.transportedCertificateFresh hσ I.hp I.hp' I.hh
 
-def memoAction_twice : Equal (Ω := Ω) (subTm (subTm (I.parameters.dependentAction I.p I.p' I.h) σ) τ)
+def memoActionTwice : Equal (Ω := Ω) (subTm (subTm (I.parameters.dependentAction I.p I.p' I.h) σ) τ)
     (((I.reindex hσ).reindex hτ).parameters.dependentAction
       (subTm (subTm I.p σ) τ) (subTm (subTm I.p' σ) τ) (subTm (subTm I.h σ) τ)) :=
-  (Equal.subTm (I.memoAction_reindex hσ) (.reflexive τ)).transitive
-    ((I.reindex hσ).memoAction_reindex hτ)
+  (Equal.subTm (I.memoActionReindex hσ) (.reflexive τ)).transitive
+    ((I.reindex hσ).memoActionReindex hτ)
 
-def memoTransportedSource_twice : Equal (Ω := Ω) (subTm (subTm (I.parameters.transportedCertificate I.p I.p' I.h) σ) τ)
+def memoTransportedSourceTwice : Equal (Ω := Ω) (subTm (subTm (I.parameters.transportedCertificate I.p I.p' I.h) σ) τ)
     (((I.reindex hσ).reindex hτ).parameters.transportedCertificate
       (subTm (subTm I.p σ) τ) (subTm (subTm I.p' σ) τ) (subTm (subTm I.h σ) τ)) :=
-  (Equal.subTm (I.memoTransportedSource_reindex hσ) (.reflexive τ)).transitive
-    ((I.reindex hσ).memoTransportedSource_reindex hτ)
+  (Equal.subTm (I.memoTransportedSourceReindex hσ) (.reflexive τ)).transitive
+    ((I.reindex hσ).memoTransportedSourceReindex hτ)
 
 end Input
 
@@ -74,46 +74,46 @@ namespace Signature
 variable (S : Signature Ω)
 
 /-- Successive frozen assignments versus their composite, for the value. -/
-def value_subComp := S.input.memoValue_subComp S.sigma_typed S.tau_typed
-def fiber_subComp := S.input.memoFiber_subComp S.sigma_typed S.tau_typed
-def certificate_subComp := S.input.memoCertificate_subComp S.sigma_typed S.tau_typed
-def certificateType_subComp := S.input.memoCertificateType_subComp S.sigma_typed S.tau_typed
-def dependentAction_subComp := S.input.memoAction_subComp S.sigma_typed S.tau_typed
-def transportedCertificate_subComp := S.input.memoTransportedSource_subComp S.sigma_typed S.tau_typed
-def dependentActionType_subComp := S.input.memoActionType_subComp S.sigma_typed S.tau_typed
+def valueSubComp := S.input.memoValueSubComp S.sigmaTyping S.tauTyping
+def fiberSubComp := S.input.memoFiberSubComp S.sigmaTyping S.tauTyping
+def certificateSubComp := S.input.memoCertificateSubComp S.sigmaTyping S.tauTyping
+def certificateTypeSubComp := S.input.memoCertificateTypeSubComp S.sigmaTyping S.tauTyping
+def dependentActionSubComp := S.input.memoActionSubComp S.sigmaTyping S.tauTyping
+def transportedCertificateSubComp := S.input.memoTransportedSourceSubComp S.sigmaTyping S.tauTyping
+def dependentActionTypeSubComp := S.input.memoActionTypeSubComp S.sigmaTyping S.tauTyping
 
 /-- The first assignment reconstructs the actual selected memo. -/
-def value_sigma := S.input.memoValue_reindex S.sigma_typed
-def certificate_sigma := S.input.memoCertificate_reindex S.sigma_typed
-def fiber_sigma := S.input.memoFiber_reindex S.sigma_typed
-def certificateType_sigma := S.input.memoCertificateType_reindex S.sigma_typed
+def valueSigma := S.input.memoValueReindex S.sigmaTyping
+def certificateSigma := S.input.memoCertificateReindex S.sigmaTyping
+def fiberSigma := S.input.memoFiberReindex S.sigmaTyping
+def certificateTypeSigma := S.input.memoCertificateTypeReindex S.sigmaTyping
 
 /-- The second assignment reconstructs the selected memo over Theta. -/
-def value_tau := S.deltaInput.memoValue_reindex S.tau_typed
-def certificate_tau := S.deltaInput.memoCertificate_reindex S.tau_typed
-def fiber_tau := S.deltaInput.memoFiber_reindex S.tau_typed
-def certificateType_tau := S.deltaInput.memoCertificateType_reindex S.tau_typed
+def valueTau := S.deltaInput.memoValueReindex S.tauTyping
+def certificateTau := S.deltaInput.memoCertificateReindex S.tauTyping
+def fiberTau := S.deltaInput.memoFiberReindex S.tauTyping
+def certificateTypeTau := S.deltaInput.memoCertificateTypeReindex S.tauTyping
 
-def value_twice := S.input.memoValue_twice S.sigma_typed S.tau_typed
-def certificate_twice := S.input.memoCertificate_twice S.sigma_typed S.tau_typed
+def valueTwice := S.input.memoValueTwice S.sigmaTyping S.tauTyping
+def certificateTwice := S.input.memoCertificateTwice S.sigmaTyping S.tauTyping
 
-def dependentAction_sigma := S.input.memoAction_reindex S.sigma_typed
-def transportedCertificate_sigma := S.input.memoTransportedSource_reindex S.sigma_typed
-def dependentAction_tau := S.deltaInput.memoAction_reindex S.tau_typed
-def transportedCertificate_tau := S.deltaInput.memoTransportedSource_reindex S.tau_typed
-def dependentAction_twice := S.input.memoAction_twice S.sigma_typed S.tau_typed
-def transportedCertificate_twice := S.input.memoTransportedSource_twice S.sigma_typed S.tau_typed
+def dependentActionSigma := S.input.memoActionReindex S.sigmaTyping
+def transportedCertificateSigma := S.input.memoTransportedSourceReindex S.sigmaTyping
+def dependentActionTau := S.deltaInput.memoActionReindex S.tauTyping
+def transportedCertificateTau := S.deltaInput.memoTransportedSourceReindex S.tauTyping
+def dependentActionTwice := S.input.memoActionTwice S.sigmaTyping S.tauTyping
+def transportedCertificateTwice := S.input.memoTransportedSourceTwice S.sigmaTyping S.tauTyping
 
-def value_formula := S.input.parameters.value_atPath S.input.hp
-def certificate_formula := S.input.parameters.certificate_atPath S.input.hp
-def deltaValue_formula := S.deltaInput.parameters.value_atPath S.deltaInput.hp
-def deltaCertificate_formula := S.deltaInput.parameters.certificate_atPath S.deltaInput.hp
-def thetaValue_formula := S.thetaInput.parameters.value_atPath S.thetaInput.hp
-def thetaCertificate_formula := S.thetaInput.parameters.certificate_atPath S.thetaInput.hp
+def valueFormula := S.input.parameters.valueAtPath S.input.hp
+def certificateFormula := S.input.parameters.certificateAtPath S.input.hp
+def deltaValueFormula := S.deltaInput.parameters.valueAtPath S.deltaInput.hp
+def deltaCertificateFormula := S.deltaInput.parameters.certificateAtPath S.deltaInput.hp
+def thetaValueFormula := S.thetaInput.parameters.valueAtPath S.thetaInput.hp
+def thetaCertificateFormula := S.thetaInput.parameters.certificateAtPath S.thetaInput.hp
 
-def dependentAction_normalized := S.input.parameters.dependentAction_normalized S.input.hp S.input.hp' S.input.hh
-def deltaDependentAction_normalized := S.deltaInput.parameters.dependentAction_normalized S.deltaInput.hp S.deltaInput.hp' S.deltaInput.hh
-def thetaDependentAction_normalized := S.thetaInput.parameters.dependentAction_normalized S.thetaInput.hp S.thetaInput.hp' S.thetaInput.hh
+def normalizedDependentActionTyping := S.input.parameters.normalizedDependentActionTyping S.input.hp S.input.hp' S.input.hh
+def deltaNormalizedDependentActionTyping := S.deltaInput.parameters.normalizedDependentActionTyping S.deltaInput.hp S.deltaInput.hp' S.deltaInput.hh
+def thetaNormalizedDependentActionTyping := S.thetaInput.parameters.normalizedDependentActionTyping S.thetaInput.hp S.thetaInput.hp' S.thetaInput.hh
 
 end Signature
 end

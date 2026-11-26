@@ -139,11 +139,11 @@ theorem forward_empty_unique (Δ : Object Ξ) (f : Quotient (equality Δ (emptyO
 /-- The earlier closed generated-arrow result remains available in the new
 presentation on its exact original domain. This is not a landing theorem for
 all reference terms or all guarded substitution judgments. -/
-def original_generated_empty_unique {Ω : List (Judgment V)} {Δ σ : Expression V}
+def originalGeneratedEmptyUniqueness {Ω : List (Judgment V)} {Δ σ : Expression V}
     {hΔ : Contextual.GeneratedContext Ω Δ}
     (f : Contextual.GeneratedArrow Contextual.closedArrows Ω hΔ .empty σ) :
     Target (Ω := Ω) (.eq σ hΔ.emptySubstitution) :=
-  TelescopePresentation.embed f.empty_unique
+  TelescopePresentation.embed f.emptyUniqueness
 
 end
 end GeneratedCategory

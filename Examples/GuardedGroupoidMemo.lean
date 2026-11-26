@@ -394,7 +394,7 @@ def selectedValue : Section (primitiveFiber B R.z) :=
 include hΩ in
 theorem value_eval : (F.parameters.value F.p).eval (Contextual.algebra M) ρ =
     .term R.context (primitiveFiber B R.z) ⟨R.selectedValue⟩ := by
-  have e := Contextual.interpret (F.parameters.value_atPath F.hp) M ρ hΩ
+  have e := Contextual.interpret (F.parameters.valueAtPath F.hp) M ρ hΩ
   change (F.parameters.value F.p).eval (Contextual.algebra M) ρ = _ at e
   rw [e]
   have hp := transport_eval M ρ F.Γ F.A F.B F.x F.y F.p F.u R.context (constant C)
@@ -432,7 +432,7 @@ def selectedCertificate :=
 include hΩ in
 theorem certificate_eval : (F.parameters.certificate F.p).eval (Contextual.algebra M) ρ =
     .term R.context _ R.selectedCertificate := by
-  have e := Contextual.interpret (F.parameters.certificate_atPath F.hp) M ρ hΩ
+  have e := Contextual.interpret (F.parameters.certificateAtPath F.hp) M ρ hΩ
   change (F.parameters.certificate F.p).eval (Contextual.algebra M) ρ = _ at e
   rw [e]
   exact eta_eval M ρ F.Γ F.A F.B F.x F.y F.z F.p F.q F.u R.context (constant C)
@@ -681,11 +681,11 @@ theorem duplicate_eval : signature.duplicate.eval (Contextual.algebra IM) enviro
   sectionSub_eval IM environment signature.point.Γ signature.point.A signature.point.x pointData.context
     (constant Integers) ⟨pointData.x⟩ pointData.context_eval pointData.family_eval pointData.x_eval
 
-def sigmaData := tailZData.pullback signature.point.hx.family.context signature.duplicate_typed
+def sigmaData := tailZData.pullback signature.point.hx.family.context signature.duplicateTyping
   pointData.context ⟨duplicate⟩ pointData.context_eval duplicate_eval
 
 def deltaRealization : InputRealization Integers translation environment signature.deltaInput :=
-  realization.reindex signature.sigma_typed sigmaData.display.total sigmaData.map.down
+  realization.reindex signature.sigmaTyping sigmaData.display.total sigmaData.map.down
     (sigmaData.display.total_eval pointData.context_eval) sigmaData.map_eval
 
 def deltaAssignment (p q b : Int) : deltaRealization.context :=
@@ -701,8 +701,8 @@ def duplicateLift : Extend (constant (Γ := pointData.context) Integers) ⥤ xyz
     («variable» (constant Integers))
 
 def afterZData := tailPData.pullback
-  (signature.xy.hx.family.substitute signature.duplicate_typed).extend
-  (signature.duplicate_typed.lift signature.xy.hx.family)
+  (signature.xy.hx.family.substitute signature.duplicateTyping).extend
+  (signature.duplicateTyping.lift signature.xy.hx.family)
   ((IS).extend pointData.context (constant Integers)) ⟨duplicateLift⟩
   (extend_eval IM environment signature.point.Γ signature.deltaZType pointData.context (constant Integers)
     pointData.context_eval (subTy_eval IM environment signature.xy.A signature.duplicate
@@ -710,7 +710,7 @@ def afterZData := tailPData.pullback
   (lift_eval IM environment signature.point.Γ signature.xy.A signature.duplicate xyData.context pointData.context
     (constant Integers) ⟨duplicate⟩ pointData.context_eval xyData.family_eval duplicate_eval)
 
-def tauData := afterZData.display.pullback signature.point.hx.family.context signature.deltaX_as_z.section
+def tauData := afterZData.display.pullback signature.point.hx.family.context signature.deltaXTypingAsZ.section
   pointData.context ⟨duplicate⟩ pointData.context_eval
   (sectionSub_eval IM environment signature.point.Γ signature.deltaZType signature.point.x pointData.context
     (constant Integers) ⟨pointData.x⟩ pointData.context_eval
@@ -718,7 +718,7 @@ def tauData := afterZData.display.pullback signature.point.hx.family.context sig
       (constant Integers) ⟨duplicate⟩ xyData.family_eval duplicate_eval) pointData.x_eval)
 
 def thetaRealization : InputRealization Integers translation environment signature.thetaInput :=
-  deltaRealization.reindex signature.tau_typed tauData.display.total tauData.map.down
+  deltaRealization.reindex signature.tauTyping tauData.display.total tauData.map.down
     (tauData.display.total_eval pointData.context_eval) tauData.map_eval
 
 def thetaAssignment (p q b : Int) : thetaRealization.context :=
@@ -769,21 +769,21 @@ theorem certificate_sigma_eval :
     (Contextual.subTm (signature.input.parameters.certificate signature.input.p) signature.sigma).eval
       (Contextual.algebra IM) environment =
       .term deltaRealization.context _ deltaRealization.selectedCertificate :=
-  (Contextual.interpret signature.certificate_sigma IM environment inputs).trans
+  (Contextual.interpret signature.certificateSigma IM environment inputs).trans
     (deltaRealization.certificate_eval inputs)
 
 theorem certificate_tau_eval :
     (Contextual.subTm (signature.deltaInput.parameters.certificate signature.deltaInput.p) signature.tau).eval
       (Contextual.algebra IM) environment =
       .term thetaRealization.context _ thetaRealization.selectedCertificate :=
-  (Contextual.interpret signature.certificate_tau IM environment inputs).trans
+  (Contextual.interpret signature.certificateTau IM environment inputs).trans
     (thetaRealization.certificate_eval inputs)
 
 theorem certificate_twice_eval :
     (Contextual.subTm (Contextual.subTm (signature.input.parameters.certificate signature.input.p) signature.sigma)
       signature.tau).eval (Contextual.algebra IM) environment =
       .term thetaRealization.context _ thetaRealization.selectedCertificate :=
-  (Contextual.interpret signature.certificate_twice IM environment inputs).trans
+  (Contextual.interpret signature.certificateTwice IM environment inputs).trans
     (thetaRealization.certificate_eval inputs)
 
 /-- Each result is the action of the freshly constructed varying certificate
@@ -792,14 +792,14 @@ theorem dependentAction_sigma_eval :
     (Contextual.subTm (signature.input.parameters.dependentAction signature.input.p signature.input.p' signature.input.h)
       signature.sigma).eval (Contextual.algebra IM) environment =
       .term deltaRealization.context deltaRealization.dependentActionFamily deltaRealization.dependentAction :=
-  (Contextual.interpret signature.dependentAction_sigma IM environment inputs).trans
+  (Contextual.interpret signature.dependentActionSigma IM environment inputs).trans
     (deltaRealization.dependentAction_eval inputs)
 
 theorem dependentAction_tau_eval :
     (Contextual.subTm (signature.deltaInput.parameters.dependentAction signature.deltaInput.p signature.deltaInput.p' signature.deltaInput.h)
       signature.tau).eval (Contextual.algebra IM) environment =
       .term thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction :=
-  (Contextual.interpret signature.dependentAction_tau IM environment inputs).trans
+  (Contextual.interpret signature.dependentActionTau IM environment inputs).trans
     (thetaRealization.dependentAction_eval inputs)
 
 theorem dependentAction_twice_eval :
@@ -807,21 +807,21 @@ theorem dependentAction_twice_eval :
       (signature.input.parameters.dependentAction signature.input.p signature.input.p' signature.input.h) signature.sigma)
       signature.tau).eval (Contextual.algebra IM) environment =
       .term thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction :=
-  (Contextual.interpret signature.dependentAction_twice IM environment inputs).trans
+  (Contextual.interpret signature.dependentActionTwice IM environment inputs).trans
     (thetaRealization.dependentAction_eval inputs)
 
 theorem transportedCertificate_sigma_eval :
     (Contextual.subTm (signature.input.parameters.transportedCertificate signature.input.p signature.input.p' signature.input.h)
       signature.sigma).eval (Contextual.algebra IM) environment =
       .term deltaRealization.context _ deltaRealization.transportedCertificate :=
-  (Contextual.interpret signature.transportedCertificate_sigma IM environment inputs).trans
+  (Contextual.interpret signature.transportedCertificateSigma IM environment inputs).trans
     (deltaRealization.transportedCertificate_eval inputs)
 
 theorem transportedCertificate_tau_eval :
     (Contextual.subTm (signature.deltaInput.parameters.transportedCertificate signature.deltaInput.p signature.deltaInput.p' signature.deltaInput.h)
       signature.tau).eval (Contextual.algebra IM) environment =
       .term thetaRealization.context _ thetaRealization.transportedCertificate :=
-  (Contextual.interpret signature.transportedCertificate_tau IM environment inputs).trans
+  (Contextual.interpret signature.transportedCertificateTau IM environment inputs).trans
     (thetaRealization.transportedCertificate_eval inputs)
 
 theorem transportedCertificate_twice_eval :
@@ -829,7 +829,7 @@ theorem transportedCertificate_twice_eval :
       (signature.input.parameters.transportedCertificate signature.input.p signature.input.p' signature.input.h) signature.sigma)
       signature.tau).eval (Contextual.algebra IM) environment =
       .term thetaRealization.context _ thetaRealization.transportedCertificate :=
-  (Contextual.interpret signature.transportedCertificate_twice IM environment inputs).trans
+  (Contextual.interpret signature.transportedCertificateTwice IM environment inputs).trans
     (thetaRealization.transportedCertificate_eval inputs)
 
 /-- The twice-substituted dependent-action type retains its transported source. -/
@@ -842,7 +842,7 @@ theorem dependentActionType_twice_eval :
       .family thetaRealization.context thetaRealization.dependentActionFamily :=
   family_of_eval IM environment
     (((signature.input.parameters.dependentActionTyping signature.input.hp signature.input.hp' signature.input.hh).substitute
-      signature.sigma_typed).substitute signature.tau_typed) inputs
+      signature.sigmaTyping).substitute signature.tauTyping) inputs
     thetaRealization.context thetaRealization.dependentActionFamily thetaRealization.dependentAction dependentAction_twice_eval
 
 /-- Both substitutions retain the negative control as well as the value three. -/

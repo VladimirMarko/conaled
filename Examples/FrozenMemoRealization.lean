@@ -54,7 +54,7 @@ def selectedCertificate := etaValue M R.family R.fiber R.x R.y R.z R.p R.q R.ele
 include hΩ in
 theorem value_eval : (F.parameters.value F.p).eval (Contextual.algebra M) ρ =
     .term R.context _ R.selectedValue := by
-  have e := Contextual.interpret (F.parameters.value_atPath F.hp) M ρ hΩ
+  have e := Contextual.interpret (F.parameters.valueAtPath F.hp) M ρ hΩ
   change (F.parameters.value F.p).eval (Contextual.algebra M) ρ = _ at e
   rw [e]
   have hp := transport_eval M ρ F.Γ F.A F.B F.x F.y F.p F.u R.context R.family
@@ -66,7 +66,7 @@ theorem value_eval : (F.parameters.value F.p).eval (Contextual.algebra M) ρ =
 include hΩ in
 theorem composite_eval : (F.parameters.compositeValue F.p).eval (Contextual.algebra M) ρ =
     .term R.context _ R.selectedComposite := by
-  have e := Contextual.interpret (F.parameters.compositeValue_atPath F.hp) M ρ hΩ
+  have e := Contextual.interpret (F.parameters.compositeValueAtPath F.hp) M ρ hΩ
   change (F.parameters.compositeValue F.p).eval (Contextual.algebra M) ρ = _ at e
   rw [e]
   have hpq := concat_eval M ρ F.Γ F.A F.x F.y F.z F.p F.q R.context R.family
@@ -78,7 +78,7 @@ theorem composite_eval : (F.parameters.compositeValue F.p).eval (Contextual.alge
 include hΩ in
 theorem certificate_eval : (F.parameters.certificate F.p).eval (Contextual.algebra M) ρ =
     .term R.context _ R.selectedCertificate := by
-  have e := Contextual.interpret (F.parameters.certificate_atPath F.hp) M ρ hΩ
+  have e := Contextual.interpret (F.parameters.certificateAtPath F.hp) M ρ hΩ
   change (F.parameters.certificate F.p).eval (Contextual.algebra M) ρ = _ at e
   rw [e]
   exact eta_eval M ρ F.Γ F.A F.B F.x F.y F.z F.p F.q F.u R.context R.family R.fiber

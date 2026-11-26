@@ -25,7 +25,7 @@ theorem erase_ident (A : Obj.{u,v}) : eraseHom (ops.ident (a := A)) =
 theorem erase_comp {A B C : Obj.{u,v}} (g : Hom B C) (f : Hom A B) :
     eraseHom (ops.comp g f) = SetoidCategory.ops.comp (eraseHom g) (eraseHom f) := rfl
 
-theorem eraseLaws : MapLaws eraseMap.{u,v} equiv.erase SetoidCategory.equiv where
+theorem eraseMap_laws : MapLaws eraseMap.{u,v} equiv.erase SetoidCategory.equiv where
   congr := fun ⟨h⟩ x => ⟨h x⟩
   ident := fun {A} _ => ⟨A.refl _⟩
   comp := fun {_ _ C} _ _ _ => ⟨C.refl _⟩

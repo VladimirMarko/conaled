@@ -59,7 +59,7 @@ theorem evaluatedFresh_value (M : SquareKit.Internal.PathTransport.Typed.Model.{
         (M.subTy p.motive (M.toStructuralModel.pathTailMap p.family p.term p.telescope σ))
         (M.subTm (M.j p.family p.term p.telescope p.motive p.branch)
           (M.toStructuralModel.pathTailMap p.family p.term p.telescope σ)) := by
-  have h := interpret ((command p.length).substituted_eq_fresh (substitution p.length))
+  have h := interpret ((command p.length).substitutedFreshEquality (substitution p.length))
     M (substitutedEnvironment M.toStructuralModel p Δ σ) (inputs M p Δ σ)
   rcases p with ⟨⟨⟨Γ, A, x⟩, n, T⟩, D, d⟩
   change _ = evaluatedFresh M _ Δ σ at h

@@ -13,18 +13,18 @@ private def extension (a : Extra) (θ : Fin (extraRule a).parameterCount → Exp
   Derivation.rule (T := TelescopePresentation.theory) (Sum.inr a) θ h
 
 namespace Presented
-noncomputable def root_context_eq {T : Tail V} (hT : Presented Ω (path A x) T)
+noncomputable def rootContextEquality {T : Tail V} (hT : Presented Ω (path A x) T)
     (hx : Target (Ω := Ω) (term Γ A x)) :
     Target (Ω := Ω) (.eq (total (pullback (T.code (path A x)) (root A x)))
       (T.rootDomain Γ A x)) := by
   have hA := unary (Tm.family (Γ := Γ) (A := A) (t := x) (.hypothesis (by simp))) hx
   have hΓ := unary (Ty.context (Γ := Γ) (A := A) (.hypothesis (by simp))) hA
   have hr := unary (Tm.root (Γ := Γ) (A := A) (x := x) (.hypothesis (by simp))) hx
-  apply Derivation.transitive _ ((hT.reindex hΓ hr).total_eq)
+  apply Derivation.transitive _ ((hT.reindex hΓ hr).totalEquality)
   exact Derivation.congruence (T := TelescopePresentation.theory) (.inr .total)
-    (Fin.cases (hT.pullback_eq hΓ hr) (fun i => nomatch i))
+    (Fin.cases (hT.pullbackEquality hΓ hr) (fun i => nomatch i))
 
-noncomputable def root_map_eq {T : Tail V} (hT : Presented Ω (path A x) T)
+noncomputable def rootMapEquality {T : Tail V} (hT : Presented Ω (path A x) T)
     (hx : Target (Ω := Ω) (term Γ A x)) :
     Target (Ω := Ω) (.eq (rootTail A x (T.code (path A x))) (T.map Γ (root A x))) := by
   have hA := unary (Tm.family (Γ := Γ) (A := A) (t := x) (.hypothesis (by simp))) hx
@@ -35,7 +35,7 @@ noncomputable def root_map_eq {T : Tail V} (hT : Presented Ω (path A x) T)
       (Fin.cases (by simpa [extraRule] using hT.typing) (fun i => nomatch i)))
   have er : Target (Ω := Ω) (.eq (rootTail A x (T.code (path A x)))
       (tailMap (T.code (path A x)) (root A x))) := by simpa [extraRule] using e
-  exact .transitive er (hT.map_eq hΓ hr)
+  exact .transitive er (hT.mapEquality hΓ hr)
 
 noncomputable def alongPath {T : Tail V} (hT : Presented Ω (path A x) T)
     (hx : Target (Ω := Ω) (term Γ A x)) (hs : Target (Ω := Ω) (substitution Δ Γ σ)) :
@@ -47,7 +47,7 @@ noncomputable def alongPath {T : Tail V} (hT : Presented Ω (path A x) T)
   have hc := unary (Tm.path (Γ := Δ) (A := subTy A σ) (x := subTm x σ) (.hypothesis (by simp))) hxs
   exact hT.reindex hc hp
 
-noncomputable def path_code_eq {T : Tail V} (hT : Presented Ω (path A x) T)
+noncomputable def pathCodeEquality {T : Tail V} (hT : Presented Ω (path A x) T)
     (hx : Target (Ω := Ω) (term Γ A x)) (hs : Target (Ω := Ω) (substitution Δ Γ σ)) :
     Target (Ω := Ω) (.eq (pathTail A x (T.code (path A x)) σ)
       ((T.alongPath A x σ).code (path (subTy A σ) (subTm x σ)))) := by
@@ -62,9 +62,9 @@ noncomputable def path_code_eq {T : Tail V} (hT : Presented Ω (path A x) T)
   have hxs := binary (Tm.substitute (Γ := Γ) (Δ := Δ) (A := A) (t := x) (σ := σ)
     (.hypothesis (by simp)) (.hypothesis (by simp))) hx hs
   have hc := unary (Tm.path (Γ := Δ) (A := subTy A σ) (x := subTm x σ) (.hypothesis (by simp))) hxs
-  exact .transitive e' (hT.pullback_eq hc hp)
+  exact .transitive e' (hT.pullbackEquality hc hp)
 
-noncomputable def path_map_eq {T : Tail V} (hT : Presented Ω (path A x) T)
+noncomputable def pathMapEquality {T : Tail V} (hT : Presented Ω (path A x) T)
     (hx : Target (Ω := Ω) (term Γ A x)) (hs : Target (Ω := Ω) (substitution Δ Γ σ)) :
     Target (Ω := Ω) (.eq (pathTailMap A x (T.code (path A x)) σ) (T.alongPathMap A x σ)) := by
   have e := extension (Ω := Ω) (.pathTailMapDef T.length) ![Γ, A, x, T.code (path A x), Δ, σ]
@@ -78,7 +78,7 @@ noncomputable def path_map_eq {T : Tail V} (hT : Presented Ω (path A x) T)
   have hxs := binary (Tm.substitute (Γ := Γ) (Δ := Δ) (A := A) (t := x) (σ := σ)
     (.hypothesis (by simp)) (.hypothesis (by simp))) hx hs
   have hc := unary (Tm.path (Γ := Δ) (A := subTy A σ) (x := subTm x σ) (.hypothesis (by simp))) hxs
-  exact .transitive e' (hT.map_eq hc hp)
+  exact .transitive e' (hT.mapEquality hc hp)
 
 end Presented
 end SquareKit.Internal.DependentJudgments.Contextual.Reference

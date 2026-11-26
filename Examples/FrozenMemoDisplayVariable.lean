@@ -41,16 +41,16 @@ local notation "S" => M.toStructuralModel
 def sigmaHomotopy : DisplayTerm M env (sigmaData M A B).display.total
  (Contextual.subTm signature.input.h signature.sigma) := by
  let v := displayVariable (sigmaData M A B).display (initial_eval M A B).context_eval
-  (signature.homotopySlot.pullback signature.point.hx.family.context signature.duplicate_typed)
+  (signature.homotopySlot.pullback signature.point.hx.family.context signature.duplicateTyping)
  exact ⟨v.family, v.value,
-  (Contextual.interpret signature.sigma_homotopy_retained M env
+  (Contextual.interpret signature.sigmaHomotopyRetained M env
    (Examples.FrozenMemoSignature.inputs M A B)).trans v.eval⟩
 
 def tauHomotopy : DisplayTerm M env (tauData M A B).display.total signature.thetaInput.h := by
  let v := displayVariable (tauData M A B).display (initial_eval M A B).context_eval
-  (signature.delta_homotopySlot.pullback signature.point.hx.family.context signature.deltaX_as_z.section)
+  (signature.deltaHomotopySlot.pullback signature.point.hx.family.context signature.deltaXTypingAsZ.section)
  exact ⟨v.family, v.value,
-  (Contextual.interpret signature.tau_homotopy_retained M env
+  (Contextual.interpret signature.tauHomotopyRetained M env
    (Examples.FrozenMemoSignature.inputs M A B)).trans v.eval⟩
 end Examples.FrozenMemoStages
 

@@ -27,10 +27,10 @@ noncomputable def branchContextEq {Γ Δ A x σ : Expression V} {T : Tail V}
       ((T.alongPath A x σ).rootDomain Δ (subTy A σ) (subTm x σ))) := by
   have hxs := binary (Tm.substitute (Γ := Γ) (Δ := Δ) (A := A) (t := x) (σ := σ)
     (.hypothesis (by simp)) (.hypothesis (by simp))) hx hs
-  apply Derivation.transitive _ ((hT.alongPath hx hs).root_context_eq hxs)
+  apply Derivation.transitive _ ((hT.alongPath hx hs).rootContextEquality hxs)
   exact Derivation.congruence (T := TelescopePresentation.theory) (.inr .total)
     (Fin.cases (Derivation.congruence (T := TelescopePresentation.theory) (.inr .pullback)
-      (Fin.cases (hT.path_code_eq hx hs) (Fin.cases (.reflexive _) (fun i => nomatch i))))
+      (Fin.cases (hT.pathCodeEquality hx hs) (Fin.cases (.reflexive _) (fun i => nomatch i))))
       (fun i => nomatch i))
 
 noncomputable def translateBranchMap {Γ Δ A x σ : Expression V} {T : Tail V}
@@ -48,7 +48,7 @@ noncomputable def translateBranchMap {Γ Δ A x σ : Expression V} {T : Tail V}
       (total (pullback (T.code (path A x)) (root A x)))
       (branchMap A x (T.code (path A x)) σ)) := by simpa [Contextual.rule] using r
   exact Derivation.conversion (T := TelescopePresentation.theory) (.inl .substitution)
-    (Fin.cases (branchContextEq hx hT hs) (Fin.cases (hT.root_context_eq hx)
+    (Fin.cases (branchContextEq hx hT hs) (Fin.cases (hT.rootContextEquality hx)
       (Fin.cases (.reflexive _) (fun i => nomatch i)))) hb
 
 noncomputable def translateBranchSquare {Γ Δ A x σ : Expression V} {T : Tail V}
@@ -72,15 +72,15 @@ noncomputable def translateBranchSquare {Γ Δ A x σ : Expression V} {T : Tail 
   have er : Target (Ω := Ω) (.eq
       (rootTail (subTy A σ) (subTm x σ) (pathTail A x (T.code (path A x)) σ))
       ((T.alongPath A x σ).map Δ (root (subTy A σ) (subTm x σ)))) := by
-    apply Derivation.transitive _ ((hT.alongPath hx hs).root_map_eq hxs)
+    apply Derivation.transitive _ ((hT.alongPath hx hs).rootMapEquality hxs)
     exact Derivation.congruence (T := TelescopePresentation.theory) (.inr .rootTail)
       (Fin.cases (.reflexive _) (Fin.cases (.reflexive _)
-        (Fin.cases (hT.path_code_eq hx hs) (fun i => nomatch i))))
+        (Fin.cases (hT.pathCodeEquality hx hs) (fun i => nomatch i))))
   apply Derivation.transitive _ (Derivation.transitive e _)
   · exact Derivation.congruence (T := TelescopePresentation.theory) (.inl .comp)
-      (Fin.cases (.symmetric (hT.path_map_eq hx hs)) (Fin.cases (.symmetric er) (fun i => nomatch i)))
+      (Fin.cases (.symmetric (hT.pathMapEquality hx hs)) (Fin.cases (.symmetric er) (fun i => nomatch i)))
   · exact Derivation.congruence (T := TelescopePresentation.theory) (.inl .comp)
-      (Fin.cases (hT.root_map_eq hx) (Fin.cases (.reflexive _) (fun i => nomatch i)))
+      (Fin.cases (hT.rootMapEquality hx) (Fin.cases (.reflexive _) (fun i => nomatch i)))
 
 noncomputable def translateJSub {Γ Δ A x D d σ : Expression V} {T : Tail V}
     (hx : Target (Ω := Ω) (term Γ A x)) (hT : Presented Ω (path A x) T)
@@ -115,8 +115,8 @@ noncomputable def translateJSub {Γ Δ A x D d σ : Expression V} {T : Tail V}
             (Fin.cases (by simpa [extraRule] using hs) (fun i => nomatch i))))))
   have ed : Target (Ω := Ω) (.eq (reindexBranch A x (T.code (path A x)) σ D d)
       (subTm d (branchMap A x (T.code (path A x)) σ))) := by simpa [extraRule] using er
-  have ec := hT.path_code_eq hx hs
-  have em := hT.path_map_eq hx hs
+  have ec := hT.pathCodeEquality hx hs
+  have em := hT.pathMapEquality hx hs
   have eD : Target (Ω := Ω) (.eq (subTy D (pathTailMap A x (T.code (path A x)) σ))
       (subTy D (T.alongPathMap A x σ))) :=
     Derivation.congruence (T := TelescopePresentation.theory) (.inl .subTy) (Fin.cases (.reflexive D) (Fin.cases em (fun i => nomatch i)))

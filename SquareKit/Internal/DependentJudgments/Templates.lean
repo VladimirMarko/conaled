@@ -54,7 +54,7 @@ def Command.fresh (c : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
 
 /-- Substitution of a command and fresh construction have the same judgmental
 meaning, by the generated J substitution derivation. -/
-def Command.substituted_eq_fresh (c : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+def Command.substitutedFreshEquality (c : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (subTm c.expression (pathTailMap A x c.tail σ)) (c.fresh hσ).expression :=
   c.point.jSub c.tailTyping c.motiveTyping c.branchTyping hσ
 
@@ -78,6 +78,6 @@ def Command.comparison (c : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
       (subTm c.expression (pathTailMap A x c.tail σ)) (c.fresh hσ).expression where
   left := c.typing.substitute (c.point.pathTailMap c.tailTyping hσ)
   right := (c.fresh hσ).typing
-  equality := c.substituted_eq_fresh hσ
+  equality := c.substitutedFreshEquality hσ
 
 end SquareKit.Internal.DependentJudgments.Contextual

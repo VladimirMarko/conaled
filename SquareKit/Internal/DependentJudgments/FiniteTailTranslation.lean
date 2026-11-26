@@ -53,7 +53,7 @@ noncomputable def typing {T : Tail V} (h : Presented Ω Γ T) :
   | nil hΓ => exact unary (Ctx.nil (.hypothesis (by simp))) hΓ
   | cons hA hT ih => exact binary (Ty.cons (.hypothesis (by simp)) (.hypothesis (by simp))) hA ih
 
-noncomputable def total_eq {T : Tail V} (h : Presented Ω Γ T) :
+noncomputable def totalEquality {T : Tail V} (h : Presented Ω Γ T) :
     Target (Ω := Ω) (.eq (Contextual.total (T.code Γ)) (T.total Γ)) := by
   induction h with
   | nil hΓ => exact unary (Ctx.totalNil (.hypothesis (by simp))) hΓ
@@ -78,7 +78,7 @@ noncomputable def reindex {T : Tail V} (h : Presented Ω Γ T)
     have hB := Target.substitute hA hs
     exact .cons hB (ih (Target.extend hB) (Target.lift hA hs))
 
-noncomputable def pullback_eq {T : Tail V} (h : Presented Ω Γ T)
+noncomputable def pullbackEquality {T : Tail V} (h : Presented Ω Γ T)
     (hΔ : Target (Ω := Ω) (context Δ))
     (hs : Target (Ω := Ω) (substitution Δ Γ σ)) :
     Target (Ω := Ω) (.eq (pullback (T.code Γ) σ) ((T.reindex Δ σ).code Δ)) := by
@@ -100,7 +100,7 @@ noncomputable def pullback_eq {T : Tail V} (h : Presented Ω Γ T)
       (Fin.cases (.reflexive _) (Fin.cases
         (ih (Target.extend hB) (Target.lift hA hs)) (fun i => nomatch i)))
 
-noncomputable def map_eq {T : Tail V} (h : Presented Ω Γ T)
+noncomputable def mapEquality {T : Tail V} (h : Presented Ω Γ T)
     (hΔ : Target (Ω := Ω) (context Δ))
     (hs : Target (Ω := Ω) (substitution Δ Γ σ)) :
     Target (Ω := Ω) (.eq (tailMap (T.code Γ) σ) (T.map Δ σ)) := by

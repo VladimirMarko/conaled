@@ -64,7 +64,7 @@ locally constructed semantic program using their native naturality proof. -/
 def compiledActionCode : Code M env (.term (R).context (R).dependentActionFamily (R).dependentAction) := by
   refine ⟨(actionJudgment.term.subst firstTemplate).subst secondTemplate, ?_⟩
   rw [compiled_expression]
-  exact (Contextual.interpret (S).dependentAction_twice M env
+  exact (Contextual.interpret (S).dependentActionTwice M env
     (FrozenMemoSignature.inputs M A B)).trans (semanticAction M A B).realizes
 
 def firstCompatible := SelectedMeaning.compatible M declarations firstTemplate

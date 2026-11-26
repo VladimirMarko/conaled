@@ -187,7 +187,7 @@ syntactically typed substitution or for arbitrary raw assumptions.
 
 The original-engine result from
 [#330](https://github.com/VladimirMarko/conaled/issues/330) is consumed separately
-by `original_generated_empty_unique` on exactly its `closedArrows` grammar.
+by `originalGeneratedEmptyUniqueness` on exactly its `closedArrows` grammar.
 The new J terms are not claimed to land in that older generated grammar.
 The old result and its explicit primitive-arrow policy remain intact; allowing
 arbitrary primitive substitutions into empty cannot silently acquire terminality.

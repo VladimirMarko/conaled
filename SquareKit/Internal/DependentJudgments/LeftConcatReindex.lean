@@ -123,7 +123,7 @@ def pathTailMapEq : Equal (Ω := Ω)
       (pathTailMap A x ((LeftConcatFrame.tail Γ A x).code (path A x)) σ)
       (tailMap ((LeftConcatFrame.tail Γ A x).code (path A x)) (pathSub A x σ)) := by
     simpa [Equal, theory, extraRule, Atom.subst] using e
-  exact h.transitive (((tailTyped hx).map_eq (hx.substitute hs).path (hx.pathSub hs)).transitive
+  exact h.transitive (((tailTyped hx).mapEquality (hx.substitute hs).path (hx.pathSub hs)).transitive
     (presentedMap hx hs))
 def pathTailEq : Equal (Ω := Ω)
     (pathTail A x ((LeftConcatFrame.tail Γ A x).code (path A x)) σ)
@@ -137,7 +137,7 @@ def pathTailEq : Equal (Ω := Ω)
       (pathTail A x ((LeftConcatFrame.tail Γ A x).code (path A x)) σ)
       (pullback ((LeftConcatFrame.tail Γ A x).code (path A x)) (pathSub A x σ)) := by
     simpa [Equal, theory, extraRule, Atom.subst] using e
-  exact h.transitive (((tailTyped hx).pullback_eq (hx.substitute hs).path (hx.pathSub hs)).transitive
+  exact h.transitive (((tailTyped hx).pullbackEquality (hx.substitute hs).path (hx.pathSub hs)).transitive
     (presentedCode hx hs))
 
 end LeftConcatReindex

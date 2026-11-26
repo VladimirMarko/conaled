@@ -11,76 +11,76 @@ noncomputable section
 variable {V : Type} {Ω : List (Judgment V)} (F : Parameters Ω)
 variable {p : Expression V} (hp : Tm (Ω := Ω) F.Γ F.pathType p)
 
-private def A_atPath : Equal (Ω := Ω) (subTy F.varying.A (F.atPath p)) F.A :=
-  F.x_typed.family.weakenSection hp
+private def baseTypeAtPath : Equal (Ω := Ω) (subTy F.varying.A (F.atPath p)) F.A :=
+  F.xTyping.family.weakenSection hp
 
-private def B_atPath : Equal (Ω := Ω) (subTy F.varying.B (lift F.Γ F.varying.A (F.atPath p))) F.B :=
-  F.B_typed.displayWeakenSection F.x_typed.family hp
+private def dependentFamilyAtPath : Equal (Ω := Ω) (subTy F.varying.B (lift F.Γ F.varying.A (F.atPath p))) F.B :=
+  F.familyFormation.displayWeakenSection F.xTyping.family hp
 
-private def x_atPath : Equal (Ω := Ω) (subTm F.varying.x (F.atPath p)) F.x := F.x_typed.weakenSection hp
-private def y_atPath : Equal (Ω := Ω) (subTm F.varying.y (F.atPath p)) F.y := F.y_typed.weakenSection hp
-private def z_atPath : Equal (Ω := Ω) (subTm F.varying.z (F.atPath p)) F.z := F.z_typed.weakenSection hp
-private def q_atPath : Equal (Ω := Ω) (subTm F.varying.q (F.atPath p)) F.q := F.q_typed.weakenSection hp
-private def u_atPath : Equal (Ω := Ω) (subTm F.varying.u (F.atPath p)) F.u := F.u_typed.weakenSection hp
-private def p_atPath : Equal (Ω := Ω) (subTm F.variablePath (F.atPath p)) p := hp.sectionGeneric
+private def xAtPath : Equal (Ω := Ω) (subTm F.varying.x (F.atPath p)) F.x := F.xTyping.weakenSection hp
+private def yAtPath : Equal (Ω := Ω) (subTm F.varying.y (F.atPath p)) F.y := F.yTyping.weakenSection hp
+private def zAtPath : Equal (Ω := Ω) (subTm F.varying.z (F.atPath p)) F.z := F.zTyping.weakenSection hp
+private def qAtPath : Equal (Ω := Ω) (subTm F.varying.q (F.atPath p)) F.q := F.qTyping.weakenSection hp
+private def uAtPath : Equal (Ω := Ω) (subTm F.varying.u (F.atPath p)) F.u := F.uTyping.weakenSection hp
+private def pAtPath : Equal (Ω := Ω) (subTm F.variablePath (F.atPath p)) p := hp.sectionGeneric
 
-private def innerValue_atPath : Equal (Ω := Ω)
+private def innerValueAtPath : Equal (Ω := Ω)
     (subTm (transport F.varying.Γ F.varying.A F.varying.B F.varying.x F.varying.y F.variablePath F.varying.u) (F.atPath p))
     (transport F.Γ F.A F.B F.x F.y p F.u) :=
-  (Tm.transportSub F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed hp.section).transitive
-    (Equal.transport (.reflexive F.Γ) (A_atPath F hp) (B_atPath F hp) (x_atPath F hp) (y_atPath F hp) (p_atPath F hp) (u_atPath F hp))
+  (Tm.transportSub F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping hp.section).transitive
+    (Equal.transport (.reflexive F.Γ) (baseTypeAtPath F hp) (dependentFamilyAtPath F hp) (xAtPath F hp) (yAtPath F hp) (pAtPath F hp) (uAtPath F hp))
 
 /-- Specializing the varying value reconstructs the original two transports. -/
-def value_atPath : Equal (Ω := Ω) (F.value p)
+def valueAtPath : Equal (Ω := Ω) (F.value p)
     (transport F.Γ F.A F.B F.y F.z F.q (transport F.Γ F.A F.B F.x F.y p F.u)) :=
-  (Tm.transportSub F.varying.B_typed F.varying.y_typed F.varying.z_typed F.varying.q_typed
-    (Tm.transport F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed) hp.section).transitive
-      (Equal.transport (.reflexive F.Γ) (A_atPath F hp) (B_atPath F hp) (y_atPath F hp) (z_atPath F hp)
-        (q_atPath F hp) (innerValue_atPath F hp))
+  (Tm.transportSub F.varying.familyFormation F.varying.yTyping F.varying.zTyping F.varying.qTyping
+    (Tm.transport F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping) hp.section).transitive
+      (Equal.transport (.reflexive F.Γ) (baseTypeAtPath F hp) (dependentFamilyAtPath F hp) (yAtPath F hp) (zAtPath F hp)
+        (qAtPath F hp) (innerValueAtPath F hp))
 
-private def compositePath_atPath : Equal (Ω := Ω)
+private def compositePathAtPath : Equal (Ω := Ω)
     (subTm (concat F.varying.Γ F.varying.A F.varying.x F.varying.y F.varying.z F.variablePath F.varying.q) (F.atPath p))
     (concat F.Γ F.A F.x F.y F.z p F.q) :=
-  (F.varying.x_typed.concatSub F.varying.y_typed F.varying.z_typed F.variablePathTyping F.varying.q_typed hp.section).transitive
-    (Equal.concat (.reflexive F.Γ) (A_atPath F hp) (x_atPath F hp) (y_atPath F hp) (z_atPath F hp) (p_atPath F hp) (q_atPath F hp))
+  (F.varying.xTyping.concatSub F.varying.yTyping F.varying.zTyping F.variablePathTyping F.varying.qTyping hp.section).transitive
+    (Equal.concat (.reflexive F.Γ) (baseTypeAtPath F hp) (xAtPath F hp) (yAtPath F hp) (zAtPath F hp) (pAtPath F hp) (qAtPath F hp))
 
-def compositeValue_atPath : Equal (Ω := Ω) (F.compositeValue p)
+def compositeValueAtPath : Equal (Ω := Ω) (F.compositeValue p)
     (transport F.Γ F.A F.B F.x F.z (concat F.Γ F.A F.x F.y F.z p F.q) F.u) :=
-  (Tm.transportSub F.varying.B_typed F.varying.x_typed F.varying.z_typed
-    (F.varying.x_typed.concat F.varying.y_typed F.varying.z_typed F.variablePathTyping F.varying.q_typed)
-    F.varying.u_typed hp.section).transitive
-      (Equal.transport (.reflexive F.Γ) (A_atPath F hp) (B_atPath F hp) (x_atPath F hp) (z_atPath F hp)
-        (compositePath_atPath F hp) (u_atPath F hp))
+  (Tm.transportSub F.varying.familyFormation F.varying.xTyping F.varying.zTyping
+    (F.varying.xTyping.concat F.varying.yTyping F.varying.zTyping F.variablePathTyping F.varying.qTyping)
+    F.varying.uTyping hp.section).transitive
+      (Equal.transport (.reflexive F.Γ) (baseTypeAtPath F hp) (dependentFamilyAtPath F hp) (xAtPath F hp) (zAtPath F hp)
+        (compositePathAtPath F hp) (uAtPath F hp))
 
 /-- This compares the selected certificate itself, not only its endpoints. -/
-def certificate_atPath : Equal (Ω := Ω) (F.certificate p) (eta F.Γ F.A F.B F.x F.y F.z p F.q F.u) :=
-  (Tm.etaSub F.varying.B_typed F.varying.x_typed F.varying.y_typed F.variablePathTyping F.varying.u_typed
-    hp.section F.varying.z_typed F.varying.q_typed).transitive
-      (Equal.eta (.reflexive F.Γ) (A_atPath F hp) (B_atPath F hp) (x_atPath F hp) (y_atPath F hp) (z_atPath F hp)
-        (p_atPath F hp) (q_atPath F hp) (u_atPath F hp))
+def certificateAtPath : Equal (Ω := Ω) (F.certificate p) (eta F.Γ F.A F.B F.x F.y F.z p F.q F.u) :=
+  (Tm.etaSub F.varying.familyFormation F.varying.xTyping F.varying.yTyping F.variablePathTyping F.varying.uTyping
+    hp.section F.varying.zTyping F.varying.qTyping).transitive
+      (Equal.eta (.reflexive F.Γ) (baseTypeAtPath F hp) (dependentFamilyAtPath F hp) (xAtPath F hp) (yAtPath F hp) (zAtPath F hp)
+        (pAtPath F hp) (qAtPath F hp) (uAtPath F hp))
 
-def fiber_atPath : Equal (Ω := Ω) (F.fiber p) (subTy F.B (sectionSub F.Γ F.A F.z)) :=
-  (F.varying.B_typed.sectionLift hp.section F.varying.z_typed).symmetric.transitive
-    (Equal.subTy (B_atPath F hp) (Equal.sectionSub (.reflexive F.Γ) (A_atPath F hp) (z_atPath F hp)))
+def fiberAtPath : Equal (Ω := Ω) (F.fiber p) (subTy F.B (sectionSub F.Γ F.A F.z)) :=
+  (F.varying.familyFormation.sectionLift hp.section F.varying.zTyping).symmetric.transitive
+    (Equal.subTy (dependentFamilyAtPath F hp) (Equal.sectionSub (.reflexive F.Γ) (baseTypeAtPath F hp) (zAtPath F hp)))
 
-def certificateType_atPath : Equal (Ω := Ω) (F.certificateType p)
+def certificateTypeAtPath : Equal (Ω := Ω) (F.certificateType p)
     (identity (subTy F.B (sectionSub F.Γ F.A F.z))
       (transport F.Γ F.A F.B F.y F.z F.q (transport F.Γ F.A F.B F.x F.y p F.u))
       (transport F.Γ F.A F.B F.x F.z (concat F.Γ F.A F.x F.y F.z p F.q) F.u)) :=
   (F.certificateTypeNormalization hp).transitive
-    (Equal.identity (F.fiber_atPath hp) (F.value_atPath hp) (F.compositeValue_atPath hp))
+    (Equal.identity (F.fiberAtPath hp) (F.valueAtPath hp) (F.compositeValueAtPath hp))
 
 variable {p' h : Expression V} (hp' : Tm (Ω := Ω) F.Γ F.pathType p')
   (hh : Tm (Ω := Ω) F.Γ (identity F.pathType p p') h)
 
 /-- The first endpoint of dependent action keeps its actual transport in the
 varying certificate family; only its selected source value is normalized. -/
-def transportedCertificate_atPath : Equal (Ω := Ω) (F.transportedCertificate p p' h)
+def transportedCertificateAtPath : Equal (Ω := Ω) (F.transportedCertificate p p' h)
     (transport F.Γ F.pathType F.certificateFamily p p' h (eta F.Γ F.A F.B F.x F.y F.z p F.q F.u)) :=
   Equal.transport (.reflexive _) (.reflexive _) (.reflexive _) (.reflexive _) (.reflexive _) (.reflexive _)
-    (F.certificate_atPath hp)
+    (F.certificateAtPath hp)
 
-def dependentAction_normalized : Tm (Ω := Ω) F.Γ
+def normalizedDependentActionTyping : Tm (Ω := Ω) F.Γ
     (identity
       (identity (subTy F.B (sectionSub F.Γ F.A F.z))
         (transport F.Γ F.A F.B F.y F.z F.q (transport F.Γ F.A F.B F.x F.y p' F.u))
@@ -89,7 +89,7 @@ def dependentAction_normalized : Tm (Ω := Ω) F.Γ
       (eta F.Γ F.A F.B F.x F.y F.z p' F.q F.u))
     (F.dependentAction p p' h) :=
   (F.dependentActionTyping hp hp' hh).convert
-    (Equal.identity (F.certificateType_atPath hp') (F.transportedCertificate_atPath hp) (F.certificate_atPath hp'))
+    (Equal.identity (F.certificateTypeAtPath hp') (F.transportedCertificateAtPath hp) (F.certificateAtPath hp'))
 
 end
 end SquareKit.Internal.DependentJudgments.Contextual.Memo.Parameters
