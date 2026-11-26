@@ -6,6 +6,7 @@ import json
 import importlib.util
 import time
 import subprocess
+import shutil
 import sys
 import tempfile
 import unittest
@@ -15,6 +16,62 @@ LEAN = subprocess.check_output(['elan', 'which', 'lean'], cwd=HERE, text=True).s
 
 
 class AcceptanceControls(unittest.TestCase):
+    def plan_fixture(self, source, *, broken_helper=False):
+        with tempfile.TemporaryDirectory(prefix='source-preflight-control-') as tmp:
+            root = Path(tmp)
+            paths = ['lean-toolchain', 'scripts/check.py', 'scripts/lake_integrity.py',
+                     'scripts/project_sources.py', 'scripts/verification_status.py',
+                     'scripts/LeanSourceInfo.lean',
+                     'experiments/relative-graph/reproduce-acceptance.py']
+            for relative in paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(HERE.parents[1] / relative, target)
+            (root / 'Dep.lean').write_text('def dep : Nat := 7\n')
+            (root / 'experiments/relative-graph/Main.lean').write_text(source)
+            if broken_helper:
+                (root / 'scripts/LeanSourceInfo.lean').write_text('def broken : Nat := false\n')
+            return subprocess.run([sys.executable,
+                str(root / 'experiments/relative-graph/reproduce-acceptance.py'), '--plan'],
+                cwd='/', capture_output=True, text=True, timeout=30)
+
+    def test_native_header_and_literal_handling(self):
+        result = self.plan_fixture('module\npublic import\n /- nested /- import Missing -/ -/ Dep\n'
+            'def text := r#"axiom sorry unsafe import Missing"#\n')
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        plan = json.loads(result.stdout)
+        self.assertEqual(plan['native'], ['Dep'])
+        self.assertEqual(plan['graph'], ['Main'])
+
+    def test_native_policy_and_header_fail_closed(self):
+        for source, diagnostic in [
+            ('axiom forbidden : False\n', 'Forbidden source construct'),
+            ('/-! module documentation -/\nimport Dep\n', 'imports must precede commands'),
+            ('import (\n', 'Invalid Lean module header'),
+        ]:
+            with self.subTest(source=source):
+                result = self.plan_fixture(source)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(diagnostic, result.stdout + result.stderr)
+                self.assertNotIn('"graph"', result.stdout)
+
+    def test_native_helper_failure_cannot_produce_plan(self):
+        result = self.plan_fixture('import Dep\n', broken_helper=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertNotIn('"graph"', result.stdout)
+
+    def test_native_implicit_and_explicit_init_imports(self):
+        spec = importlib.util.spec_from_file_location('acceptance_runner', HERE / 'reproduce-acceptance.py')
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp) / f'Case{i}.lean' for i in range(3)]
+            for path, source in zip(paths, ['import Lean\n',
+                    'prelude\nimport Lean\n', 'import Init\nimport Lean\n'], strict=True):
+                path.write_text(source)
+            self.assertEqual(runner.source_imports(paths),
+                [['Init', 'Init', 'Lean'], ['Lean'], ['Init', 'Init', 'Init', 'Lean']])
+
     def test_command_deadline_applies_after_output_closes(self):
         spec = importlib.util.spec_from_file_location('acceptance_runner', HERE / 'reproduce-acceptance.py')
         runner = importlib.util.module_from_spec(spec)
@@ -30,7 +87,7 @@ class AcceptanceControls(unittest.TestCase):
 
     def test_plan_includes_actual_emission_and_native_dependencies(self):
         result = subprocess.run([sys.executable, str(HERE / 'reproduce-acceptance.py'), '--plan'],
-                                cwd='/', capture_output=True, text=True, timeout=10)
+                                cwd='/', capture_output=True, text=True, timeout=120)
         self.assertEqual(result.returncode, 0, result.stderr)
         plan = json.loads(result.stdout)
         self.assertIn('EmittedEnvironment', plan['graph'])

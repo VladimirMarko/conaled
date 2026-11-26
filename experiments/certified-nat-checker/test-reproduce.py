@@ -12,7 +12,7 @@ SCRIPT = Path(__file__).with_name('reproduce.py')
 class SelectionTests(unittest.TestCase):
     def invoke(self, *args):
         return subprocess.run([sys.executable, str(SCRIPT), '--prepare-only', *map(str, args)],
-                              capture_output=True, text=True, timeout=30)
+                              cwd='/', capture_output=True, text=True, timeout=60)
 
     def test_fresh_selection_and_inverse(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -23,6 +23,8 @@ class SelectionTests(unittest.TestCase):
             self.assertFalse(receipt['complete'])
             self.assertEqual(len(receipt['selected']), 20)
             self.assertTrue(receipt['inverse_correspondence'])
+            self.assertIn('scripts/LeanSourceInfo.lean', receipt['source_preflight_inputs'])
+            self.assertIn('scripts/project_sources.py', receipt['source_preflight_inputs'])
             self.assertFalse((out / 'output').exists())
 
     def test_comparison_selects_corrected_proof_and_retains_client_support(self):

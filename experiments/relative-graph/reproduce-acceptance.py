@@ -12,26 +12,59 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import re
 import selectors
 import signal
 import subprocess
 import sys
 import time
+import tempfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from check import executable_source, FORBIDDEN, candidate_identity, compiler_version, clean_commit
+from check import candidate_identity, compiler_version, clean_commit
 
 PIN = '8e166ca53cd1f864b63c13cc1d326d38316d00ea'
-IMPORT = re.compile(r'^[ \t]*(?:(?:public|meta)\s+)*import[ \t]+([^\n]+)', re.MULTILINE)
 DIAGNOSTICS = {'Lean4LeanAudit', 'ConLecheAudit'}
 
 
+# Include the parser and imported validation helpers in isolated-run receipts.
+SOURCE_CHECK_INPUTS = tuple(ROOT / name for name in (
+    'scripts/LeanSourceInfo.lean', 'scripts/check.py', 'scripts/lake_integrity.py',
+    'scripts/project_sources.py', 'scripts/verification_status.py', 'lean-toolchain'))
+
+
+def source_imports(paths):
+    """Parse headers and enforce source policy with the pinned native helper."""
+    paths = [Path(path).resolve() for path in paths]
+    inputs = {path: hashlib.sha256(path.read_bytes()).hexdigest()
+              for path in [*paths, *SOURCE_CHECK_INPUTS]}
+    env = dict(os.environ)
+    env.pop('LEAN_PATH', None)
+    env.pop('LEAN_SRC_PATH', None)
+    lean = output(['elan', 'which', 'lean'])
+    compiler_version(True, dict(env, LEAN=lean))
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.json') as manifest:
+        json.dump([str(path) for path in paths], manifest)
+        manifest.flush()
+        result = subprocess.run([lean, '--run', str(ROOT / 'scripts/LeanSourceInfo.lean'),
+                                 manifest.name], cwd=ROOT, env=env, capture_output=True,
+                                text=True, timeout=120)
+    if result.returncode:
+        raise RuntimeError('Native source preflight failed:\n' + result.stdout + result.stderr)
+    if any(hashlib.sha256(path.read_bytes()).hexdigest() != digest
+           for path, digest in inputs.items()):
+        raise RuntimeError('Source preflight inputs changed during parsing')
+    imports_by_source = json.loads(result.stdout)
+    if (not isinstance(imports_by_source, list) or len(imports_by_source) != len(paths)
+            or any(not isinstance(row, list) or any(not isinstance(name, str) for name in row)
+                   for row in imports_by_source)):
+        raise RuntimeError('Invalid native source import inventory')
+    return imports_by_source
+
+
 def imports(path):
-    return [item for match in IMPORT.finditer(executable_source(path.read_text()))
-            for item in match.group(1).split()]
+    return source_imports([path])[0]
 
 
 def inventory():
@@ -39,6 +72,25 @@ def inventory():
     sources = dict(graph)
     native = set()
     upstream = {'ConLeche.MainTheorem'}
+    dependencies = {}
+    pending = sorted(graph)
+    while pending:
+        headers = source_imports([sources[name] for name in pending])
+        following = []
+        for name, deps in zip(pending, headers, strict=True):
+            dependencies[name] = deps
+            for dep in deps:
+                if dep.startswith('ConLeche.'):
+                    upstream.add(dep)
+                    continue
+                local = ROOT.joinpath(*dep.split('.')).with_suffix('.lean')
+                if dep not in sources and local.is_file():
+                    sources[dep] = local
+                    native.add(dep)
+                    following.append(dep)
+                elif dep not in sources and dep.startswith(('SquareKit.', 'Applications.', 'Examples.')):
+                    raise RuntimeError(f'Missing local source: {dep}')
+        pending = following
     order, finished, visiting = [], set(), set()
 
     def visit(name):
@@ -47,19 +99,9 @@ def inventory():
         if name in visiting:
             raise RuntimeError(f'Import cycle: {name}')
         visiting.add(name)
-        path = sources[name]
-        for dep in imports(path):
-            if dep.startswith('ConLeche.'):
-                upstream.add(dep)
-                continue
-            local = ROOT.joinpath(*dep.split('.')).with_suffix('.lean')
-            if dep not in sources and local.is_file():
-                sources[dep] = local
-                native.add(dep)
+        for dep in dependencies[name]:
             if dep in sources:
                 visit(dep)
-            elif dep.startswith(('SquareKit.', 'Applications.', 'Examples.')):
-                raise RuntimeError(f'Missing local source: {dep}')
         visiting.remove(name)
         finished.add(name)
         order.append(name)
@@ -149,13 +191,8 @@ def main():
     tracked = set(output(['git', 'ls-files']).splitlines())
     if any(str(p.relative_to(ROOT)) not in tracked for p in sources.values()):
         raise RuntimeError('Every isolated source must be tracked in the candidate')
-    for name, source in sources.items():
-        bad = FORBIDDEN.search(executable_source(source.read_text()))
-        if bad:
-            raise RuntimeError(f'Forbidden source construct in {name}: {bad.group()}')
     inputs = hashes([*sources.values(), Path(__file__), HERE / 'test-reproduce-acceptance.py',
-                     ROOT / 'scripts/check.py', ROOT / 'scripts/lake_integrity.py',
-                     ROOT / 'lean-toolchain', ROOT / 'lake-manifest.json', ROOT / 'flake.lock'])
+                     *SOURCE_CHECK_INPUTS, ROOT / 'lake-manifest.json', ROOT / 'flake.lock'])
     run = args.run_dir.resolve()
     run.mkdir(parents=True)
     env = dict(os.environ)

@@ -25,7 +25,7 @@ ARCHIVE_SHA = '8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63'
 COMPILER_COMMIT = 'eb6cafb7290e8bd5f2937522d8d804f58f02bafc'
 GATE = 'next-iteration/restricted-nat-checker/gate/source-manifest.json'
 SHARED = ROOT / 'experiments/relative-graph'
-# Reuse the existing bounded command executor and source-policy scanner.
+# Reuse the existing bounded command executor and native source preflight.
 spec = importlib.util.spec_from_file_location('isolated_acceptance', SHARED / 'reproduce-acceptance.py')
 shared = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(shared)
@@ -76,6 +76,9 @@ def selection_file(selection):
 
 
 def prepare(out, archive_path, profile):
+    preflight_paths = [*shared.SOURCE_CHECK_INPUTS, Path(shared.__file__),
+                       Path(__file__), selection_file(profile)]
+    preflight_inputs = shared.hashes(preflight_paths)
     if sha(archive_path) != ARCHIVE_SHA:
         raise RuntimeError('Archive hash mismatch')
     out.mkdir()  # Refuse existing output directories, including stale receipts.
@@ -89,7 +92,7 @@ def prepare(out, archive_path, profile):
     with zipfile.ZipFile(archive_path) as archive:
         inverse = verify_inverse(archive, rows)
         correction = verify_reflection_correction(archive) if profile != 'checker' else None
-        seen = set()
+        paths = []
         for row in rows:
             name = row['module']
             if any(not part.isidentifier() for part in name.split('.')):
@@ -100,18 +103,24 @@ def prepare(out, archive_path, profile):
             path = source.joinpath(*name.split('.')).with_suffix('.lean')
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(content)
-            deps = shared.imports(path)
-            if deps != row['imports']:
+            paths.append(path)
+        headers = shared.source_imports(paths)
+        seen = set()
+        for row, deps in zip(rows, headers, strict=True):
+            name = row['module']
+            # Frozen manifests record explicit imports; Lean also reports its
+            # implicit runtime and meta Init imports unless it uses prelude.
+            if deps not in (row['imports'], ['Init', 'Init', *row['imports']]):
                 raise RuntimeError(f'Import inventory mismatch: {name}')
             for dep in deps:
                 if dep not in seen and dep != 'Init' and dep != 'Std' and not dep.startswith(('Init.', 'Std.', 'Lean.')):
                     raise RuntimeError(f'Import missing or out of order: {name} imports {dep}')
-            if shared.FORBIDDEN.search(shared.executable_source(content.decode())):
-                raise RuntimeError(f'Forbidden source construct: {name}')
             seen.add(name)
+    if shared.hashes(preflight_paths) != preflight_inputs:
+        raise RuntimeError('Source preflight helpers changed during preparation')
     return {'complete': False, 'archive_sha256': ARCHIVE_SHA, 'selected': rows,
             'inverse_correspondence': inverse, 'selection': profile,
-            'reflection_correction': correction}
+            'reflection_correction': correction, 'source_preflight_inputs': preflight_inputs}
 
 
 def main():
@@ -135,7 +144,7 @@ def main():
         local_clients = [] if args.selection == 'native' else ['Squares', 'CheckerClient'] + (['ReflectionClient'] if args.selection == 'comparison' else [])
         inputs = [selection_file(args.selection), HERE / 'reproduce.py', HERE / 'CheckerClient.lean',
                   SHARED / 'reproduce-acceptance.py', SHARED / 'ClosureAudit.lean',
-                  ROOT / 'scripts/check.py', ROOT / 'Squares.lean', ROOT / 'lean-toolchain',
+                  *shared.SOURCE_CHECK_INPUTS, ROOT / 'Squares.lean',
                   ROOT / 'flake.nix', ROOT / 'flake.lock']
         if args.selection == 'native':
             inputs.append(HERE / 'native.py')
@@ -165,9 +174,7 @@ def main():
         for name, original in local_sources.items():
             (source / f'{name}.lean').write_bytes(original.read_bytes())
         names = [r['module'] for r in receipt['selected']] + local_clients
-        for name in local_clients:
-            if shared.FORBIDDEN.search(shared.executable_source((source / f'{name}.lean').read_text())):
-                raise RuntimeError(f'Forbidden local source construct: {name}')
+        shared.source_imports([source / f'{name}.lean' for name in local_sources])
         audit = '\n'.join('import ' + name for name in names + ['ClosureAudit'])
         audit += '\n#audit_closure [' + ', '.join(names) + '] local [' + ', '.join(names) + ']\n'
         (source / 'SelectionAudit.lean').write_text(audit)
