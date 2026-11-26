@@ -46,15 +46,15 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .restriction => restriction_valid
     | .inr .inclusion => inclusion_valid
     | .inr .faceJoin => faceJoin_valid
-    | .inr .faceSub => faceSub_valid
+    | .inr .faceSub => faceSubRule_valid
     | .inr .restrictedSub => restrictedSub_valid
-    | .inr .providerSub => providerSub_valid
+    | .inr .providerSub => providerSubRule_valid
     | .inr .hcomp => hcomp_valid
-    | .inr .hcompBoundary => hcompBoundary_valid
-    | .inr .hcompSub => hcompSub_valid
+    | .inr .hcompBoundary => hcompBoundaryRule_valid
+    | .inr .hcompSub => hcompSubRule_valid
     | .inr .transp => transp_valid
-    | .inr .transpBoundary => transpBoundary_valid
-    | .inr .transpSub => transpSub_valid
+    | .inr .transpBoundary => transpBoundaryRule_valid
+    | .inr .transpSub => transpSubRule_valid
     | .inr (.faceEndpoint b) => faceEndpoint_valid b
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}

@@ -428,7 +428,7 @@ theorem equivariantMap_ext {Y : Sheaf J (Type (max u v))} {S T : Torsor G Y}
       rfl
 
 /-- A map of descended families is determined by its evaluations at local lifts. -/
-theorem familyMap_ext {d : Datum A P} {e : Datum A Q}
+theorem family_map_ext {d : Datum A P} {e : Datum A Q}
     (h k : (family d).family ⟶ (family e).family)
     (he : ∀ (x : X.obj.Elements) (a : A.family.obj x) (t : (family d).family.obj x),
       evaluationEquiv e x a (h.app x t) = evaluationEquiv e x a (k.app x t)) : h = k := by
@@ -462,7 +462,7 @@ theorem Map.equivariantMap_ofEquivariantMap {d : Datum A P} {e : Datum A Q}
     (k : EquivariantMap (torsor d) (torsor e)) :
     (ofEquivariantMap k).equivariantMap = k := by
   have hh : (ofEquivariantMap k).descend = k.hom := by
-    apply familyMap_ext
+    apply family_map_ext
     intro x a t
     rw [(ofEquivariantMap k).evaluation]
     change evaluationEquiv e x a (k.hom.app x

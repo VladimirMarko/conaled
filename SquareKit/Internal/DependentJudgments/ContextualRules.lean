@@ -77,7 +77,7 @@ abbrev identitySubRule := identitySubSchema
   (.eq (subTy (identity (.var 1) (.var 2) (.var 3)) (.var 5))
     (identity (subTy (.var 1) (.var 5)) (subTm (.var 2) (.var 5)) (subTm (.var 3) (.var 5))))
 
-theorem identitySub_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) identitySubRule := by
+theorem identitySubRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) identitySubRule := by
   apply identitySubSchema_valid
   intro Γ Δ A x y σ
   change Term.eval (algebra M) _ _ = _

@@ -159,7 +159,7 @@ theorem constant_key_payload_law {α : Type u} (tags : List α) :
     PMF.map Prod.snd
         (runOn (Prod.fst : Nat × α → Nat) (tags.map (fun tag => (7, tag)))) =
       PMF.pure (2 * tags.length ^ 2 + 2 * tags.length + 1, 3 * tags.length) := by
-  have h := jointCostLaw_of_constant_key (Prod.fst : Nat × α → Nat)
+  have h := joint_cost_law_of_constant_key (Prod.fst : Nat × α → Nat)
     (tags.map (fun tag => (7, tag))) 7 (by
       intro x hx
       obtain ⟨tag, _, rfl⟩ := List.mem_map.mp hx
@@ -176,14 +176,14 @@ theorem arbitrary_payload_exercise_bound {α : Type u} (xs : List (Nat × α))
     (result : Measured (List (Nat × α)) (Nat × Nat))
     (hr : result ∈ (runOn Prod.fst xs).support) :
     result.2.1 ≤ 2 * xs.length ^ 2 + 2 * xs.length + 1 :=
-  exerciseCost_le _ xs result hr
+  exercise_cost_le _ xs result hr
 
 theorem arbitrary_payload_append_bridge {α : Type u} (xs : List (Nat × α))
     (result : Measured (List (Nat × α)) (Nat × Nat))
     (hr : result ∈ (runOn Prod.fst xs).support) :
     result.2.1 ≤ result.2.1 + result.2.2 ∧
       result.2.1 + result.2.2 ≤ 2 * result.2.1 :=
-  literalCost_comparison _ xs result hr
+  append_inclusive_cost_bounds _ xs result hr
 
 theorem arbitrary_payload_finite_cost_support {α : Type u} (xs : List (Nat × α)) :
     (exerciseLaw (fun a b => decide (a.1 < b.1)) xs).support.Finite :=

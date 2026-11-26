@@ -42,13 +42,13 @@ theorem consSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat)
   subst ρ
   exact valid Γ A T
 
-theorem totalCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem totalConsRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (totalConsRule n) := by
   apply consSchema_valid
   intro Γ A T
   simp [Atom.Eval, Term.eval, algebra, operation, Telescope.total]
 
-theorem projectionCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem projectionConsRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (projectionConsRule n) := by
   apply consSchema_valid
   intro Γ A T
@@ -101,7 +101,7 @@ theorem consSubSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat)
   subst ρ
   exact valid Γ Δ A T σ
 
-theorem pullbackCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem pullbackConsRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (pullbackConsRule n) := by
   apply consSubSchema_valid
   intro Γ Δ A T σ
@@ -114,7 +114,7 @@ theorem pullbackCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
   simp [Term.eval, FinitaryTerm.fold, algebra, operation, DependentJudgments.operation,
     hl, Telescope.pullback, Telescope.reindex]
 
-theorem tailMapCons_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem tailMapConsRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (tailMapConsRule n) := by
   apply consSubSchema_valid
   intro Γ Δ A T σ
@@ -135,20 +135,20 @@ abbrev rootTailDefRule (n : Nat) := tailSchema n
   (.eq (rootTail (.var 1) (.var 2) (.var 3))
     (tailMap (.var 3) (root (.var 1) (.var 2))))
 
-theorem projectionNil_valid (M : PathTransport.Typed.Model.{u}) :
+theorem projectionNilRule_valid (M : PathTransport.Typed.Model.{u}) :
     Satisfies (algebra M) projectionNilRule := by
   apply contextSchema_valid
   intro Γ
   rfl
 
-theorem tailMapNil_valid (M : PathTransport.Typed.Model.{u}) :
+theorem tailMapNilRule_valid (M : PathTransport.Typed.Model.{u}) :
     Satisfies (algebra M) tailMapNilRule := by
   apply subSchema_valid
   intro Γ Δ σ
   simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation,
     Telescope.liftSub, Telescope.reindex, Telescope.pullback, Telescope.total]
 
-theorem rootTailDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem rootTailDefRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (rootTailDefRule n) := by
   apply tailSchema_valid
   intro Γ A x T
@@ -169,20 +169,20 @@ abbrev branchSquareRule (n : Nat) := tailSubSchema n
     (comp (rootTail (.var 1) (.var 2) (.var 3))
       (branchMap (.var 1) (.var 2) (.var 3) (.var 5))))
 
-theorem pathTailDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem pathTailDefRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (pathTailDefRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   simp [Atom.Eval, Term.eval, algebra, operation, StructuralModel.pathTail]
 
-theorem pathTailMapDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem pathTailMapDefRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (pathTailMapDefRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   simp [Atom.Eval, Term.eval, algebra, operation, StructuralModel.pathTailMap,
     StructuralModel.pathTail]
 
-theorem branchSquare_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem branchSquareRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (branchSquareRule n) := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
@@ -193,7 +193,7 @@ abbrev reindexBranchDefRule (n : Nat) := jSubSchema n
   (.eq (reindexBranch (.var 1) (.var 2) (.var 3) (.var 7) (.var 4) (.var 5))
     (subTm (.var 5) (branchMap (.var 1) (.var 2) (.var 3) (.var 7))))
 
-theorem reindexBranchDef_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem reindexBranchDefRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (reindexBranchDefRule n) := by
   apply jSubSchema_valid
   intro p Δ σ
@@ -242,18 +242,18 @@ an expansion of these models, not an expansion theorem for all guarded models. -
 noncomputable def model (M : PathTransport.Typed.Model.{u}) : GuardedTheory.Model theory where
   toAlgebra := algebra M
   rules
-    | .inr (.reindexBranchDef n) => reindexBranchDef_valid M n
-    | .inr (.pathTailDef n) => pathTailDef_valid M n
-    | .inr (.pathTailMapDef n) => pathTailMapDef_valid M n
-    | .inr (.branchSquare n) => branchSquare_valid M n
+    | .inr (.reindexBranchDef n) => reindexBranchDefRule_valid M n
+    | .inr (.pathTailDef n) => pathTailDefRule_valid M n
+    | .inr (.pathTailMapDef n) => pathTailMapDefRule_valid M n
+    | .inr (.branchSquare n) => branchSquareRule_valid M n
     | .inl a => (Contextual.model M).rules a
-    | .inr .projectionNil => projectionNil_valid M
-    | .inr .tailMapNil => tailMapNil_valid M
-    | .inr (.rootTailDef n) => rootTailDef_valid M n
-    | .inr (.totalCons n) => totalCons_valid M n
-    | .inr (.projectionCons n) => projectionCons_valid M n
-    | .inr (.pullbackCons n) => pullbackCons_valid M n
-    | .inr (.tailMapCons n) => tailMapCons_valid M n
+    | .inr .projectionNil => projectionNilRule_valid M
+    | .inr .tailMapNil => tailMapNilRule_valid M
+    | .inr (.rootTailDef n) => rootTailDefRule_valid M n
+    | .inr (.totalCons n) => totalConsRule_valid M n
+    | .inr (.projectionCons n) => projectionConsRule_valid M n
+    | .inr (.pullbackCons n) => pullbackConsRule_valid M n
+    | .inr (.tailMapCons n) => tailMapConsRule_valid M n
 
 /-- Forgetting added rules preserves the underlying algebra exactly. -/
 def reduct (M : GuardedTheory.Model theory) : GuardedTheory.Model Contextual.theory where

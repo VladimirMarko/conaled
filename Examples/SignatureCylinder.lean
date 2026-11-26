@@ -56,7 +56,7 @@ def generated := Comparison.SignatureCylinder.contextComparison left before comp
 
 /-- The base variable retains the supplied unequal-endpoint comparison, even
 when the primitive coefficient map identifies distinct values. -/
-example := Comparison.SignatureCylinder.contextComparison_baseTerm
+example := Comparison.SignatureCylinder.contextComparison_base_term
   left before comparison after alpha beta rfl
   SignatureInterpretationMaps.DependentTail.context
   SignatureInterpretationMaps.DependentTail.point.deriv

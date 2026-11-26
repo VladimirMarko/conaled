@@ -39,15 +39,15 @@ noncomputable def coreModel : GuardedTheory.Model.{0,u+1} coreTheory where
     | .subTy => subTy_valid
     | .subTm => subTm_valid
     | .comp => comp_valid
-    | .compIdLeft => compIdLeft_valid
-    | .compIdRight => compIdRight_valid
-    | .compAssoc => compAssoc_valid
-    | .subTyId => subTyId_valid
-    | .subTmId => subTmId_valid
-    | .subTyComp => subTyComp_valid
-    | .subTmComp => subTmComp_valid
-    | .termFamily => termFamily_valid
-    | .familyContext => familyContext_valid
+    | .compIdLeft => compIdLeftRule_valid
+    | .compIdRight => compIdRightRule_valid
+    | .compAssoc => compAssocRule_valid
+    | .subTyId => subTyIdRule_valid
+    | .subTmId => subTmIdRule_valid
+    | .subTyComp => subTyCompRule_valid
+    | .subTmComp => subTmCompRule_valid
+    | .termFamily => termFamilyRule_valid
+    | .familyContext => familyContextRule_valid
 
 theorem core_interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation coreTheory Ω a) (ρ : V → Value.{u})

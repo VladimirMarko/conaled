@@ -68,7 +68,7 @@ theorem eliminate {E E' : Cat.{u,u}} {R : E' ⥤ E} {D D' : Cat.{u,u}} (T : Chan
       (T.propagate e e' L sq).val ⋙ s) :
     (T.source.reindex e').2.2.eliminate s' hs' ⋙ Grothendieck.map α ⋙ Grothendieck.pre A R =
       R ⋙ (T.target.reindex e).2.2.eliminate s hs :=
-  EquivalenceSquare.eliminate_familyMap _ _ R _ (T.propagate e e' L sq).property A B α s hs s' hs' hb
+  EquivalenceSquare.eliminate_family_map _ _ R _ (T.propagate e e' L sq).property A B α s hs s' hs' hb
 
 end ChangingTail
 end SquareKit.Internal.PathTransport.GroupoidModel

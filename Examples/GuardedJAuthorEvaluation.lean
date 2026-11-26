@@ -67,14 +67,14 @@ private theorem weaken_value {Γ : RawCtx} {γ : CtxCode.{1}} {A : Expr} {a : Ty
     (p : BasePoint Γ γ) (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     (z : extendCode γ a native) :
     ((p.weaken hΓ hA).code native).down z = (p.code native).down z.1 := by
-  have e := eq_of_heq (castCode_eval (baseSub_code (weakenCode γ a))
+  have e := eq_of_heq (castCode_eval (subTyCode_baseCode (weakenCode γ a))
     (subTmCode p.code (weakenCode γ a)) native)
   exact congrArg (fun t => t.down z) e
 
 private theorem variable_value {Γ : RawCtx} {γ : CtxCode.{1}}
     (hΓ : CtxDeriv Γ γ) (z : extendCode γ (baseCode γ) native) :
     ((BasePoint.variable hΓ).code native).down z = z.2 := by
-  have e := eq_of_heq (castCode_eval (baseSub_code (weakenCode γ (baseCode γ)))
+  have e := eq_of_heq (castCode_eval (subTyCode_baseCode (weakenCode γ (baseCode γ)))
     (varCode γ (baseCode γ)) native)
   exact congrArg (fun t => t.down z) e
 

@@ -235,7 +235,7 @@ at every sheaf stage, including stages with nilpotents. -/
 theorem normal_isPullback : CategoryTheory.IsPullback
     (embedding.map A.normalParameterMap) (embedding.map A.levelToPoint)
     (embedding.map A.normalDifferenceMap) (embedding.map (Coordinates.zero p)) := by
-  apply (Coordinates.restricted_zeroFiber_isPullback (m+n-p) p
+  apply (Coordinates.restricted_zero_fiber_isPullback (m+n-p) p
     (targetDomain A.finiteChart).defining).of_iso'
       (embedding.mapIso A.levelPrincipalIso)
       (embedding.mapIso (A.normalPrincipalIso.trans

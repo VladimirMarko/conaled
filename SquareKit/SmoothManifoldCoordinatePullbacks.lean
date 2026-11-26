@@ -34,18 +34,18 @@ theorem product_isPullback (n k : ℕ) :
       (realize (EuclideanOpen.Coordinates.toPoint n)) (realize (EuclideanOpen.Coordinates.toPoint k)) :=
   realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.product_isPullback n k)
 
-theorem zeroFiber_isPullback (n k : ℕ) :
+theorem zero_fiber_isPullback (n k : ℕ) :
     IsPullback (realize (EuclideanOpen.Coordinates.insertZero n k))
       (realize (EuclideanOpen.Coordinates.toPoint n))
       (realize (EuclideanOpen.Coordinates.last n k)) (realize (EuclideanOpen.Coordinates.zero k)) :=
-  realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.zeroFiber_isPullback n k)
+  realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.zero_fiber_isPullback n k)
 
-theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
+theorem restricted_zero_fiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
     IsPullback (realize (inverseRestriction (EuclideanOpen.Coordinates.insertZero n k) q))
       (realize (subInclusion (full n) (inverseDefining (EuclideanOpen.Coordinates.insertZero n k) q) ≫
         EuclideanOpen.Coordinates.toPoint n))
       (realize (subInclusion (full (n+k)) q ≫ EuclideanOpen.Coordinates.last n k))
       (realize (EuclideanOpen.Coordinates.zero k)) :=
-  realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.restricted_zeroFiber_isPullback n k q)
+  realized_isPullback _ _ _ _ (EuclideanOpen.Coordinates.restricted_zero_fiber_isPullback n k q)
 
 end SquareKit.ManifoldRealization.Coordinates

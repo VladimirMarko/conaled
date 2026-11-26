@@ -8,7 +8,7 @@ variable (hΓ : CtxDeriv Γ γ) (x y z : BasePoint Γ γ)
 
 theorem fiber_type_at : subTyCode (fiberCode (ConcatFrame.fixed hΓ x).code)
     (substitutionCode (ConcatApplication.endpoint hΓ x y z p q)) = fiberCode x.code :=
-  (fiberSub_code _ _).trans (congrArg fiberCode (ConcatApplication.fixed_at hΓ x y z p q))
+  (subTyCode_fiberCode _ _).trans (congrArg fiberCode (ConcatApplication.fixed_at hΓ x y z p q))
 
 theorem fixed_at_raw : (ConcatFrame.fixed hΓ x).raw.sub
     (consSub q.raw (consSub z.raw (consSub p.raw (consSub y.raw Expr.var)))) = x.raw := by

@@ -43,22 +43,22 @@ abbrev totalNilRule := contextSchema (.eq (total (telNil (.var 0))) (.var 0))
 abbrev pullbackNilRule := subSchema
   (.eq (pullback (telNil (.var 0)) (.var 2)) (telNil (.var 1)))
 
-theorem totalNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) totalNilRule := by
+theorem totalNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) totalNilRule := by
   apply contextSchema_valid
   intro Γ
   rfl
 
-theorem pullbackNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pullbackNilRule := by
+theorem pullbackNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pullbackNilRule := by
   apply subSchema_valid
   intro Γ Δ σ
   simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.reindex]
 
-theorem rootTailNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) rootTailNilRule := by
+theorem rootTailNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) rootTailNilRule := by
   apply pointSchema_valid
   intro Γ A x
   simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, Telescope.pullback, Telescope.total, StructuralModel.rootTail, Telescope.liftSub, Telescope.reindex]
 
-theorem pathDef_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathDefRule := by
+theorem pathDefRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathDefRule := by
   apply pointSchema_valid
   intro Γ A x
   change Term.eval (algebra M) _ _ = _
@@ -82,7 +82,7 @@ private theorem sectionSub_eval (M : PathTransport.Typed.Model.{u}) {V : Type}
   rw [hx, Value.termAt_term]
   rfl
 
-theorem rootProjection_valid (M : PathTransport.Typed.Model.{u}) :
+theorem rootProjectionRule_valid (M : PathTransport.Typed.Model.{u}) :
     Satisfies (algebra M) rootProjectionRule := by
   apply pointSchema_valid
   intro Γ A x
@@ -92,7 +92,7 @@ theorem rootProjection_valid (M : PathTransport.Typed.Model.{u}) :
     pathFamily, StructuralModel.pathContext, StructuralModel.pathFamily]
   exact M.toStructuralModel.weaken_root A x
 
-theorem rootDef_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) rootDefRule := by
+theorem rootDefRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) rootDefRule := by
   apply pointSchema_valid
   intro Γ A x
   change Term.eval (algebra M) _ _ = _

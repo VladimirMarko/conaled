@@ -25,7 +25,7 @@ termination_by sizeOf T
 end StructuralModel
 
 def baseReindexCode (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) : TmCode δ (baseCode δ) :=
-  castCode (baseSub_code s) (subTmCode ξ s)
+  castCode (subTyCode_baseCode s) (subTmCode ξ s)
 
 theorem baseReindex_comp (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) (t : SubCode θ δ) :
     baseReindexCode (baseReindexCode ξ s) t = baseReindexCode ξ (compCode s t) := by
@@ -33,7 +33,7 @@ theorem baseReindex_comp (ξ : TmCode γ (baseCode γ)) (s : SubCode δ γ) (t :
   apply eq_of_heq
   exact (castCode_eval _ _ M).trans ((Authoring.subTm_cast_eval _ _ _ M).trans
     ((M.subTm_comp _ _ _).trans
-      (castCode_eval (baseSub_code (compCode s t)) (subTmCode ξ (compCode s t)) M).symm))
+      (castCode_eval (subTyCode_baseCode (compCode s t)) (subTmCode ξ (compCode s t)) M).symm))
 
 theorem baseReindex_id (ξ : TmCode γ (baseCode γ)) : baseReindexCode ξ (idCode γ) = ξ := by
   funext M
@@ -45,8 +45,8 @@ theorem identityBaseSub_code (ξ η : TmCode γ (baseCode γ)) (s : SubCode δ �
   funext M
   apply (M.identity_sub _ _ _ _).trans
   exact M.toStructuralModel.identity_congr (M.base_sub (s M))
-    (castCode_eval (baseSub_code s) (subTmCode ξ s) M).symm
-    (castCode_eval (baseSub_code s) (subTmCode η s) M).symm
+    (castCode_eval (subTyCode_baseCode s) (subTmCode ξ s) M).symm
+    (castCode_eval (subTyCode_baseCode s) (subTmCode η s) M).symm
 
 theorem projectionLift_code (T : TelCode γ n) (s : SubCode δ γ) :
     compCode (projectionCode T)

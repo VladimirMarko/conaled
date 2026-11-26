@@ -6,7 +6,7 @@ set_option backward.isDefEq.respectTransparency false
 open GuardedTheory Presheaf CategoryTheory
 universe u
 
-theorem hcompSub_valid : Satisfies algebra.{u} hcompSubRule := by
+theorem hcompSubRule_valid : Satisfies algebra.{u} hcompSubRule := by
   apply hcompSubSchema_valid
   intro Γ Δ A F φ b σ hF
   let ρ : Fin 8 → Value := ![.context Γ,.context Δ,.family Γ A,.filling Γ A F,.cofibration Γ φ,

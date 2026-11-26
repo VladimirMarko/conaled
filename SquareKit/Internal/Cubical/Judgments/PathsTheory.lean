@@ -35,9 +35,9 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .app => app_valid
     | .inr .beta => beta_valid
     | .inr .eta => eta_valid
-    | .inr .pathSub => pathSub_valid
-    | .inr .lamSub => lamSub_valid
-    | .inr .appSub => appSub_valid
+    | .inr .pathSub => pathSubRule_valid
+    | .inr .lamSub => lamSubRule_valid
+    | .inr .appSub => appSubRule_valid
     | .inr (.endpoint b) => endpoint_valid b
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}

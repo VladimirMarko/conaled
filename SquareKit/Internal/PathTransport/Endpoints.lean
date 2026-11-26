@@ -25,7 +25,7 @@ def endpointSub {Γ : M.Context} (A : M.Family Γ) (x y : M.Section Γ A)
 end StructuralModel
 
 def sectionCode (a : TyCode γ) (ξ : TmCode γ a) : SubCode γ (extendCode γ a) :=
-  pairCode a (idCode γ) (castCode (subTyId_code a).symm ξ)
+  pairCode a (idCode γ) (castCode (subTyCode_idCode a).symm ξ)
 
 def pathFamilyCode (a : TyCode γ) (ξ : TmCode γ a) : TyCode (extendCode γ a) :=
   identityCode (subTyCode a (weakenCode γ a)) (subTmCode ξ (weakenCode γ a)) (varCode γ a)
@@ -85,7 +85,7 @@ theorem subTmCode_substitution_heq {γ δ : CtxCode} {a : TyCode γ}
 
 theorem subTmId_heq {γ : CtxCode} {a : TyCode γ} (ξ : TmCode γ a) :
     HEq (subTmCode ξ (idCode γ)) ξ :=
-  (castCode_heq _ _).symm.trans (heq_of_eq (subTmId_code ξ))
+  (castCode_heq _ _).symm.trans (heq_of_eq (castCode_subTmCode_idCode ξ))
 
 def TyDeriv.pathFamily (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a)
     (hx : TmDeriv Γ γ A a x ξ) :

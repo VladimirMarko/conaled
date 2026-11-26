@@ -28,7 +28,7 @@ theorem elimination_valid : Satisfies algebra.{u} eliminationRule := by
   rw [extra_nat]
   simp [Source.operation]
 
-theorem zeroBeta_valid : Satisfies algebra.{u} zeroBetaRule := by
+theorem zeroBetaRule_valid : Satisfies algebra.{u} zeroBetaRule := by
   apply eliminationSchema_valid
   intro Γ B z s
   have hz := zeroSub_eval (.var (0 : Fin 4))
@@ -43,7 +43,7 @@ theorem zeroBeta_valid : Satisfies algebra.{u} zeroBetaRule := by
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term]
   rfl
 
-theorem successorBeta_valid : Satisfies algebra.{u} successorBetaRule := by
+theorem successorBetaRule_valid : Satisfies algebra.{u} successorBetaRule := by
   apply eliminationSchema_valid
   intro Γ B z s
   have hs := successorSub_eval (.var (0 : Fin 4))
@@ -71,21 +71,21 @@ theorem successorBeta_valid : Satisfies algebra.{u} successorBetaRule := by
   simp only [Value.termIn_term]
   rfl
 
-theorem natSub_valid : Satisfies algebra.{u} natSubRule := by
+theorem natSubRule_valid : Satisfies algebra.{u} natSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ σ
   change Source.operation .subTy ![extraOperation .nat ![.context Γ],.substitution Δ Γ σ] = extraOperation .nat ![.context Δ]
   rw [extra_nat,extra_nat]
   simp [Source.operation]
 
-theorem zeroSub_valid : Satisfies algebra.{u} zeroSubRule := by
+theorem zeroSubRule_valid : Satisfies algebra.{u} zeroSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ σ
   change Source.operation .subTm ![extraOperation .zero ![.context Γ],.substitution Δ Γ σ] = extraOperation .zero ![.context Δ]
   rw [extra_zero,extra_zero]
   simp [Source.operation]
 
-theorem successorSub_valid : Satisfies algebra.{u} successorSubRule := by
+theorem successorSubRule_valid : Satisfies algebra.{u} successorSubRule := by
   apply successorSubstitutionSchema_valid
   intro Γ Δ σ n
   change Source.operation .subTm ![extraOperation .succ ![.context Γ,.term Γ (natFamily Γ) n],.substitution Δ Γ σ] =
@@ -94,7 +94,7 @@ theorem successorSub_valid : Satisfies algebra.{u} successorSubRule := by
   simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term]
   exact (extra_succ Δ (n.reindex σ)).symm
 
-theorem eliminationSub_valid : Satisfies algebra.{u} eliminationSubRule := by
+theorem eliminationSubRule_valid : Satisfies algebra.{u} eliminationSubRule := by
   apply eliminationSubstitutionSchema_valid
   intro Γ Δ B z s σ
   let ρ : Fin 6 → Value := ![.context Γ,.family (total (natFamily Γ)) B,

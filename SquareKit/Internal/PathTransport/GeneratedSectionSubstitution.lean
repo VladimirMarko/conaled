@@ -14,8 +14,8 @@ theorem sectionCode_lift (C : Grpd.{u,u}) (P : C ⥤ Type u)
     {γ : CtxCode.{u+1}} (b : TyCode γ) (ξ : TmCode γ b) :
     ((sectionCode b ξ) (GroupoidModel.Instance.fullModel C P)).down =
       (ξ (GroupoidModel.Instance.fullModel C P)).down.lift := by
-  have ht := castCode_eval (subTyId_code b).symm ξ (GroupoidModel.Instance.fullModel C P)
-  change GroupoidModel.pair _ (𝟭 _) ((castCode (subTyId_code b).symm ξ)
+  have ht := castCode_eval (subTyCode_idCode b).symm ξ (GroupoidModel.Instance.fullModel C P)
+  change GroupoidModel.pair _ (𝟭 _) ((castCode (subTyCode_idCode b).symm ξ)
     (GroupoidModel.Instance.fullModel C P)).down = _
   rw [eq_of_heq ht]
   rfl

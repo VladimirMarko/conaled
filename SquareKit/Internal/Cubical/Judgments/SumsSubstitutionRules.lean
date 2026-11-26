@@ -29,7 +29,7 @@ theorem liftB_eval (Γ Δ : Context.{u}) (A : Family Γ) (B : Family (total A)) 
   · rfl
   · exact liftA_eval Γ Δ A B σ
 
-theorem packSub_valid : Satisfies algebra.{u} packSubRule := by
+theorem packSubRule_valid : Satisfies algebra.{u} packSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ A B σ
   let ρ := substitutionEnvironment Γ Δ A B σ
@@ -51,7 +51,7 @@ theorem packSub_valid : Satisfies algebra.{u} packSubRule := by
   rw [ht]
   rfl
 
-theorem unpackSub_valid : Satisfies algebra.{u} unpackSubRule := by
+theorem unpackSubRule_valid : Satisfies algebra.{u} unpackSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ A B σ
   let ρ := substitutionEnvironment Γ Δ A B σ

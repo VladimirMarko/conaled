@@ -16,7 +16,7 @@ abbrev splitEtaRule : Rule signature where
     term (extend (.var 0) (sigma (.var 1) (.var 2))) (.var 3) (.var 4)]
   conclusion := .eq (split (.var 1) (.var 2) (subTm (.var 4) (pack (.var 1) (.var 2)))) (.var 4)
 
-theorem splitEta_valid (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel) :
+theorem splitEtaRule_valid (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel) :
     Satisfies (algebra M S) splitEtaRule := by
   intro ρ h
   let ρ₀ : Fin 3 → Value M.toStructuralModel := fun i => ρ (i.castAdd 2)
@@ -83,7 +83,7 @@ noncomputable def closureModel (M : PathTransport.Typed.Model.{u}) (S : Capabili
     | .inr () => by
       intro ρ h
       simp only [closureTheory, Theory.extend, closureRule, Rule.inl, Atom.eval_inl] at h ⊢
-      exact splitEta_valid M S ρ h
+      exact splitEtaRule_valid M S ρ h
 
 theorem closure_reduct (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel) :
     (closureModel M S).restrictLeft = model M S := rfl

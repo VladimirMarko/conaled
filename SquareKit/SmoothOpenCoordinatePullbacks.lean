@@ -98,21 +98,21 @@ theorem product_isPullback (n k : ℕ) :
     (first_comparison n k).symm (last_comparison n k).symm
     (toPoint_comparison n).symm (toPoint_comparison k).symm
 
-theorem zeroFiber_isPullback (n k : ℕ) :
+theorem zero_fiber_isPullback (n k : ℕ) :
     IsPullback (embedding.map (insertZero n k)) (embedding.map (toPoint n))
       (embedding.map (last n k)) (embedding.map (zero k)) :=
-  (SmoothOpenSite.Coordinates.zeroFiber_isPullback n k).of_iso'
+  (SmoothOpenSite.Coordinates.zero_fiber_isPullback n k).of_iso'
     (fullPowerIso n) (fullPowerIso (n+k)) (fullPowerIso 0) (fullPowerIso k)
     (insertZero_comparison n k).symm (toPoint_comparison n).symm
     (last_comparison n k).symm (zero_comparison k).symm
 
 /-- The coordinate zero fiber inside any ordinary principal ambient open. -/
-theorem restricted_zeroFiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
+theorem restricted_zero_fiber_isPullback (n k : ℕ) (q : freeAlgebra (n+k)) :
     IsPullback (embedding.map (inverseRestriction (insertZero n k) q))
       (embedding.map (subInclusion (full n) (inverseDefining (insertZero n k) q) ≫ toPoint n))
       (embedding.map (subInclusion (full (n+k)) q ≫ last n k)) (embedding.map (zero k)) := by
   simpa only [embedding.map_comp] using
-    (inverse_sheaf_pullback (insertZero n k) q).flip.paste_vert (zeroFiber_isPullback n k)
+    (inverse_sheaf_pullback (insertZero n k) q).flip.paste_vert (zero_fiber_isPullback n k)
 
 theorem restricted_points (n k : ℕ) (q : freeAlgebra (n+k)) (x : Points (full n)) :
     (inverseDefining (insertZero n k) q).val x.val ≠ 0 ↔
@@ -139,7 +139,7 @@ theorem restrict_isPullback {P X Y Z : Domain} (fst : P ⟶ X) (snd : P ⟶ Y)
   simpa only [embedding.map_comp] using (inverse_sheaf_pullback fst q).flip.paste_vert h
 
 /-- A second principal restriction retains the composite actual projections. -/
-theorem twice_restricted_zeroFiber_isPullback (n k : ℕ) (q r : freeAlgebra (n+k)) :
+theorem twice_restricted_zero_fiber_isPullback (n k : ℕ) (q r : freeAlgebra (n+k)) :
     IsPullback
       (embedding.map (inverseRestriction (inverseRestriction (insertZero n k) q) r))
       (embedding.map
@@ -148,7 +148,7 @@ theorem twice_restricted_zeroFiber_isPullback (n k : ℕ) (q r : freeAlgebra (n+
           (subInclusion (full n) (inverseDefining (insertZero n k) q) ≫ toPoint n)))
       (embedding.map (subInclusion (subdomain (full (n+k)) q) r ≫
         (subInclusion (full (n+k)) q ≫ last n k))) (embedding.map (zero k)) :=
-  restrict_isPullback _ _ _ _ (restricted_zeroFiber_isPullback n k q) r
+  restrict_isPullback _ _ _ _ (restricted_zero_fiber_isPullback n k q) r
 
 /-- The chosen ordinary inverse image commutes with both actual localization
 bases, even though its defining function is selected by smooth support. -/

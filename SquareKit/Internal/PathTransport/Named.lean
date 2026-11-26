@@ -13,7 +13,7 @@ def _root_.SquareKit.Internal.PathTransport.Typed.TmDeriv.rawType (h : A = B) (t
 
 def BasePoint.reindex (x : BasePoint Γ γ) (hs : SubDeriv Δ δ Γ γ σ s) : BasePoint Δ δ where
   raw := x.raw.sub σ
-  code := castCode (baseSub_code s) (subTmCode x.code s)
+  code := castCode (subTyCode_baseCode s) (subTmCode x.code s)
   deriv := (TmDeriv.sub x.deriv hs).convert (.baseSub hs)
 
 structure Path {Γ : RawCtx} {γ : CtxCode.{u}} (x y : BasePoint Γ γ) where

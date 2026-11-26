@@ -6,7 +6,7 @@ set_option backward.isDefEq.respectTransparency false
 open GuardedTheory Presheaf CategoryTheory
 universe u
 
-theorem transpSub_valid : Satisfies algebra.{u} transpSubRule := by
+theorem transpSubRule_valid : Satisfies algebra.{u} transpSubRule := by
   apply transpSubSchema_valid
   intro Γ Δ B F φ a σ hF hc
   let ρ : Fin 7 → Value := ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,

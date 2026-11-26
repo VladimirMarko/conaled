@@ -17,7 +17,7 @@ theorem restriction_isEquivalence : (restrictionFunctor a hΓ f).IsEquivalence :
   let : (SmoothQuotientGeneratedMatching.restrictionFunctor a hΓ (SplitSheaf.ofDisplay f)).IsEquivalence :=
     SmoothQuotientGeneratedMatching.restriction_isEquivalence a (SplitSheaf.ofDisplay f) hΓ
   let : (restrictionFunctor a hΓ f ⋙ (matchingEquivalence a hΓ f).functor).IsEquivalence :=
-    Functor.isEquivalence_of_iso (eqToIso (restriction_toSplit a hΓ f)).symm
+    Functor.isEquivalence_of_iso (eqToIso (restrictionFunctor_comp_matchingEquivalence_functor a hΓ f)).symm
   exact Functor.isEquivalence_of_comp_right _ (matchingEquivalence a hΓ f).functor
 
 def descentEquivalence : context a hΓ X ≌ Datum a hΓ f := by

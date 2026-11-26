@@ -137,7 +137,7 @@ The inputs do not require local objects to extend globally.
 For an original locally surjective sheaf map f, the corresponding public APIs
 are `SmoothQuotientCoverMatching.descentEquivalence`, `relativeMatchingFamily`
 and `sectionDescent`. Their Čech diagram uses f's actual categorical double and
-triple pullbacks. `restriction_toSplit` identifies canonical restriction with
+triple pullbacks. `restrictionFunctor_comp_matchingEquivalence_functor` identifies canonical restriction with
 the split presentation; `matchingEquivalence` recovers all local objects,
 overlaps and arrows in both directions. The presentation section comparison
 uses an equivalence of total dependent matching categories and its explicit

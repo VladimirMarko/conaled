@@ -93,7 +93,7 @@ theorem fiberLift_unique (u : Hom (freeAlgebra (n+k)) A) (w : Hom (freeAlgebra n
     (hw : w.comp (zeroSection n k) = u) : w = fiberLift u := by
   rw [fiberLift, ← hw, ← Hom.comp_assoc, zeroSection_left, Hom.comp_ident]
 
-theorem zeroFiber_universal (u : Hom (freeAlgebra (n+k)) A) (v : Hom (freeAlgebra 0) A)
+theorem zero_fiber_universal (u : Hom (freeAlgebra (n+k)) A) (v : Hom (freeAlgebra 0) A)
     (hc : u.comp (right n k) = v.comp (zero k)) :
     ∃! w : Hom (freeAlgebra n) A, w.comp (zeroSection n k) = u ∧ w.comp (constants n) = v :=
   ⟨fiberLift u, ⟨fiberLift_zeroSection u v hc, fiberLift_constants u v⟩,

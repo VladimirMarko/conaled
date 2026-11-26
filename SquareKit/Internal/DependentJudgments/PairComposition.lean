@@ -14,7 +14,7 @@ abbrev pairCompRule : Rule signature where
   conclusion := .eq (comp (pair (.var 3) (.var 4) (.var 5)) (.var 6))
     (pair (.var 3) (comp (.var 4) (.var 6)) (subTm (.var 5) (.var 6)))
 
-theorem pairComp_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pairCompRule := by
+theorem pairCompRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pairCompRule := by
   intro ρ h
   have hp : ∀ i, (variablePairRule.premise i).Eval (DependentJudgments.algebra M.toStructuralModel)
       ![ρ 0, ρ 1, ρ 3, ρ 4, ρ 5] := by

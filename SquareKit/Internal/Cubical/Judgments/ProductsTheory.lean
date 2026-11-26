@@ -34,9 +34,9 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .app => app_valid
     | .inr .beta => beta_valid
     | .inr .eta => eta_valid
-    | .inr .piSub => piSub_valid
-    | .inr .lamSub => lamSub_valid
-    | .inr .appSub => appSub_valid
+    | .inr .piSub => piSubRule_valid
+    | .inr .lamSub => lamSubRule_valid
+    | .inr .appSub => appSubRule_valid
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})

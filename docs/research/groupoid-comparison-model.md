@@ -17,7 +17,7 @@ fields and laws of `ComparisonStructuralModel`.
 
 `ComparisonPath` identifies the actual path-context map with the map in the
 shared family-comparison square. `ComparisonElimination` uses that square and
-`EquivalenceSquare.eliminate_familyMap`; dependent extension constructs the next
+`EquivalenceSquare.eliminate_family_map`; dependent extension constructs the next
 square through `lift_changing_square`. `ComparisonTelescope` recurses through
 arbitrary finite structural telescopes and constructs contextual J and beta.
 The final root/tail square and J compatibility are not input model fields.

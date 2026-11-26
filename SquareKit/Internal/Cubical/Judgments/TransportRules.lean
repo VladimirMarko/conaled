@@ -26,7 +26,7 @@ theorem transp_valid : Satisfies algebra.{u} transpRule := by
       (endpointSub_eval (.var 0) _ Γ rfl true)
   · exact extra_transp Γ B F φ hc a
 
-theorem transpBoundary_valid : Satisfies algebra.{u} transpBoundaryRule := by
+theorem transpBoundaryRule_valid : Satisfies algebra.{u} transpBoundaryRule := by
   apply transpSchema_valid
   intro Γ B F φ a hF hc
   change Source.operation .subTm ![extraOperation .transp ![.context Γ,

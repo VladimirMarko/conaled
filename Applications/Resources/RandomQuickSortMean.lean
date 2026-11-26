@@ -283,7 +283,7 @@ theorem literalMean_comparison (lt : α → α → Bool) (xs : List α) :
     rw [exercise_lintegral_run, literal_lintegral_run]
     apply weighted_mono_support
     intro result hr
-    exact_mod_cast (literalCost_comparison lt xs result hr).1
+    exact_mod_cast (append_inclusive_cost_bounds lt xs result hr).1
   have hup :
       (∫⁻ k : Nat, (k : ℝ≥0∞) ∂(literalLaw lt xs).toMeasure) ≤
         2 * (∫⁻ k : Nat, (k : ℝ≥0∞) ∂(exerciseLaw lt xs).toMeasure) := by
@@ -292,7 +292,7 @@ theorem literalMean_comparison (lt : α → α → Bool) (xs : List α) :
       _ ≤ ∑' result, run lt xs result * (2 * (result.2.1 : ℝ≥0∞)) := by
         apply weighted_mono_support
         intro result hr
-        exact_mod_cast (literalCost_comparison lt xs result hr).2
+        exact_mod_cast (append_inclusive_cost_bounds lt xs result hr).2
       _ = _ := by
         rw [← ENNReal.tsum_mul_left]
         apply tsum_congr
@@ -312,7 +312,7 @@ theorem exerciseMean_of_all_false (lt : α → α → Bool) (xs : List α)
     (hf : ∀ a ∈ xs, ∀ b ∈ xs, lt a b = false) :
     exerciseMean lt xs = ((2 * xs.length ^ 2 + 2 * xs.length + 1 : Nat) : ℝ) := by
   have h := congrArg (PMF.map (Prod.fst : Nat × Nat → Nat))
-    (jointCostLaw_of_all_false lt xs hf)
+    (joint_cost_law_of_all_false lt xs hf)
   have hp : exerciseLaw lt xs = PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1) := by
     simpa only [exerciseLaw, PMF.map_comp, Function.comp_def, PMF.pure_map] using h
   simp [exerciseMean, hp, PMF.toMeasure_pure]
@@ -322,7 +322,7 @@ theorem literalMean_of_all_false (lt : α → α → Bool) (xs : List α)
     (hf : ∀ a ∈ xs, ∀ b ∈ xs, lt a b = false) :
     literalMean lt xs = ((2 * xs.length ^ 2 + 5 * xs.length + 1 : Nat) : ℝ) := by
   have h := congrArg (PMF.map (fun cost : Nat × Nat => cost.1 + cost.2))
-    (jointCostLaw_of_all_false lt xs hf)
+    (joint_cost_law_of_all_false lt xs hf)
   have hp : literalLaw lt xs =
       PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1 + 3 * xs.length) := by
     simpa only [literalLaw, PMF.map_comp, Function.comp_def, PMF.pure_map] using h

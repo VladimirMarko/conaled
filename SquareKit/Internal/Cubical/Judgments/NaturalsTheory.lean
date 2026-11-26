@@ -34,12 +34,12 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .zero => zero_valid
     | .inr .successor => successor_valid
     | .inr .elimination => elimination_valid
-    | .inr .zeroBeta => zeroBeta_valid
-    | .inr .successorBeta => successorBeta_valid
-    | .inr .natSub => natSub_valid
-    | .inr .zeroSub => zeroSub_valid
-    | .inr .successorSub => successorSub_valid
-    | .inr .eliminationSub => eliminationSub_valid
+    | .inr .zeroBeta => zeroBetaRule_valid
+    | .inr .successorBeta => successorBetaRule_valid
+    | .inr .natSub => natSubRule_valid
+    | .inr .zeroSub => zeroSubRule_valid
+    | .inr .successorSub => successorSubRule_valid
+    | .inr .eliminationSub => eliminationSubRule_valid
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})

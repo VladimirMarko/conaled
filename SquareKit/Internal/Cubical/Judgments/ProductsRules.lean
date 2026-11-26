@@ -43,7 +43,7 @@ theorem eta_valid : Satisfies algebra.{u} etaRule := by
   rw [extra_app, extra_lam, normalizedLam_app]
   rfl
 
-theorem piSub_valid : Satisfies algebra.{u} piSubRule := by
+theorem piSubRule_valid : Satisfies algebra.{u} piSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ A B σ
   have hl : (lift (.var 1) (.var 2) (.var 4) : Expression (Fin 5)).eval algebra
@@ -62,7 +62,7 @@ theorem piSub_valid : Satisfies algebra.{u} piSubRule := by
 private theorem convert_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
     (t : Presheaf.Term A) : HEq (t.convert h) t := by cases h; rfl
 
-theorem lamSub_valid : Satisfies algebra.{u} lamSubRule := by
+theorem lamSubRule_valid : Satisfies algebra.{u} lamSubRule := by
   apply lamSubSchema_valid
   intro Γ Δ A B σ b
   let ρ : Fin 6 → Value := ![.context Γ,.context Δ,.family Γ A,.family (total A) B,
@@ -80,7 +80,7 @@ theorem lamSub_valid : Satisfies algebra.{u} lamSubRule := by
     (heq_of_eq (normalizedLam_reindex b σ))
   exact (Value.term_eq (normalizedPi_reindex A B σ) he).trans (extra_lam _ _ _ _).symm
 
-theorem appSub_valid : Satisfies algebra.{u} appSubRule := by
+theorem appSubRule_valid : Satisfies algebra.{u} appSubRule := by
   apply appSubSchema_valid
   intro Γ Δ A B σ p
   let ρ : Fin 6 → Value := ![.context Γ,.context Δ,.family Γ A,.family (total A) B,

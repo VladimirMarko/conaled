@@ -15,7 +15,7 @@ abbrev pairEtaRule : Rule signature where
     (pair (.var 2) (comp (weaken (.var 0) (.var 2)) (.var 3)) (subTm (generic (.var 0) (.var 2)) (.var 3)))
     (.var 3)
 
-theorem pairEta_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pairEtaRule := by
+theorem pairEtaRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pairEtaRule := by
   intro ρ h
   rcases h 0 with ⟨Γ, A, hΓ, hA⟩
   change ρ 0 = .context Γ at hΓ

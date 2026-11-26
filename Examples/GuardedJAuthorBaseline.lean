@@ -58,7 +58,7 @@ def rootRight := by
   have result := (TmDeriv.sub cmd.motive.branchTyping cmd.branchArguments).convert
     (TyEqDeriv.subComp cmd.motive.typing r cmd.branchArguments)
   change TmDeriv _ _ _ _ _
-    (castCode (subTyComp_code cmd.motive.code (rootTailCode a ξ T)
+    (castCode (subTyCode_subTyCode cmd.motive.code (rootTailCode a ξ T)
       (idCode (branchCode a ξ T)))
       (subTmCode cmd.motive.branchCode (idCode (branchCode a ξ T)))) at result
   rw [reflexive_compose] at result

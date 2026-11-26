@@ -615,7 +615,7 @@ noncomputable def endpointBody : Term (reindex B (projection (interval Δ) ≫ �
     (endpointEdge_base f σ s K hK cA FA hFA cB FB hFB GA hGA GB)
 
 
-private theorem familyMap_heq {Ξ : Context.{u}} {D E : Family Ξ} (g : D ⟶ E)
+private theorem family_hom_app_heq {Ξ : Context.{u}} {D E : Family Ξ} (g : D ⟶ E)
     {x y : Ξ.Elements} (h : x = y) {a : D.obj x} {b : D.obj y} (hab : HEq a b) :
     HEq (g.app x a) (g.app y b) := by
   cases h
@@ -647,7 +647,7 @@ theorem endpointBody_zero :
   have ha := Term.sigmaSndOver_val (B := reindex A (liftSub X (baseSub σ)))
     (sourceEndpoint f σ s cA FA hFA cB FB hFB GA) (basePoint σ)
     (sourceEndpoint_base f σ s cA FA hFA cB FB hFB GA) x
-  have hm := familyMap_heq f (congrArg (extendObj X ((baseSub σ).mapElements.obj x)) hb) ha
+  have hm := family_hom_app_heq f (congrArg (extendObj X ((baseSub σ).mapElements.obj x)) hb) ha
   have he := (Sigma.mk.inj (congrArg (fun t => t.val x)
     (endpointEdge_zero f σ s K hK cA FA hFA cB FB hFB GA hGA GB hGB))).2
   exact eq_of_heq ((Term.sigmaSndOver_val

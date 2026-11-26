@@ -125,22 +125,22 @@ def peekAfterLeft : TM1.Stmt StackAlphabet StackControl Bool :=
   .load (fun a _ => (a.2 ()).isNone) (.move Dir.right gotoRet)
 
 /-- The primitive trace exposes the left excursion hidden by TM1.stepAux. -/
-theorem emptyPeek_first_moves_left :
+theorem empty_peek_first_moves_left :
     primitiveStep (goCfg peekIsNone false emptyTape) =
       some ⟨(some peekAfterLeft, false), emptyTape.move Dir.left⟩ := rfl
 
-theorem emptyPeek_left_is_off_bottom : (emptyTape.move Dir.left).head.1 = false := rfl
+theorem emptyTape_move_left_head_eq_false : (emptyTape.move Dir.left).head.1 = false := rfl
 
 /-- The second primitive folds the load and returns to the bottom; the goto
 still remains in the actual primitive control state. -/
-theorem emptyPeek_second_returns :
+theorem empty_peek_second_returns :
     primitiveStep ⟨(some peekAfterLeft, false), emptyTape.move Dir.left⟩ =
       some ⟨(some gotoRet, true), emptyTape⟩ := by
   change some (⟨(some gotoRet, true), (emptyTape.move Dir.left).move Dir.right⟩ :
       PrimitiveCfg) = _
   rw [Tape.move_left_right]
 
-theorem emptyPeek_third_selects_ret :
+theorem empty_peek_third_selects_ret :
     primitiveStep ⟨(some gotoRet, true), emptyTape⟩ = some (retCfg true emptyTape) := by
   change some (⟨(some (tapeProgram (TM2to1.Λ'.ret .halt)), true),
     emptyTape.write emptyTape.head⟩ : PrimitiveCfg) = _
@@ -222,18 +222,18 @@ open Resources.TuringSimulation
 def reflectedStep : PrimitiveCfg → Option PrimitiveCfg :=
   TM0.step (TapeReflection.machine (TM1to0.tr tapeProgram))
 
-theorem emptyPeek_first_moves_right :
+theorem empty_peek_first_moves_right :
     reflectedStep (TapeReflection.configuration (goCfg peekIsNone false emptyTape)) =
       some ⟨(some peekAfterLeft, false), emptyTape.move Dir.right⟩ := by
   rw [reflectedStep, TapeReflection.step]
   change (primitiveStep (goCfg peekIsNone false emptyTape)).map
     TapeReflection.configuration = _
-  rw [emptyPeek_first_moves_left]
+  rw [empty_peek_first_moves_left]
   rfl
 
-theorem emptyPeek_right_is_off_bottom : (emptyTape.move Dir.right).head.1 = false := rfl
+theorem emptyTape_move_right_head_eq_false : (emptyTape.move Dir.right).head.1 = false := rfl
 
-theorem emptyPeek_second_returns_left :
+theorem empty_peek_second_returns_left :
     reflectedStep ⟨(some peekAfterLeft, false), emptyTape.move Dir.right⟩ =
       some ⟨(some gotoRet, true), emptyTape⟩ := by
   change reflectedStep (TapeReflection.configuration
@@ -241,10 +241,10 @@ theorem emptyPeek_second_returns_left :
   rw [reflectedStep, TapeReflection.step]
   change (primitiveStep ⟨(some peekAfterLeft, false), emptyTape.move Dir.left⟩).map
     TapeReflection.configuration = _
-  rw [emptyPeek_second_returns]
+  rw [empty_peek_second_returns]
   rfl
 
-theorem emptyPeek_third_still_selects_ret :
+theorem empty_peek_third_still_selects_ret :
     reflectedStep ⟨(some gotoRet, true), emptyTape⟩ =
       some (retCfg true emptyTape) := by
   change reflectedStep (TapeReflection.configuration
@@ -252,7 +252,7 @@ theorem emptyPeek_third_still_selects_ret :
   rw [reflectedStep, TapeReflection.step]
   change (primitiveStep ⟨(some gotoRet, true), emptyTape⟩).map
     TapeReflection.configuration = _
-  rw [emptyPeek_third_selects_ret]
+  rw [empty_peek_third_selects_ret]
   rfl
 
 /-- The actual existing native witness is transported, retaining its entire

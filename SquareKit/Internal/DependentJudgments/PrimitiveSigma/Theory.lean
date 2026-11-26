@@ -24,10 +24,10 @@ theorem rule_valid (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStruc
     ∀ a, Satisfies (algebra M S) (rule a)
   | .formation => formation_valid M S
   | .pack => pack_valid M S
-  | .packOver => packOver_valid M S
+  | .packOver => packOverRule_valid M S
   | .pair => pair_valid M S
   | .split => split_valid M S
-  | .splitBeta => splitBeta_valid M S
+  | .splitBeta => splitBetaRule_valid M S
 
 noncomputable def model (M : PathTransport.Typed.Model.{u}) (S : Capability M.toStructuralModel) :
     GuardedTheory.Model theory where

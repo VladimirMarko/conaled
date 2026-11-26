@@ -16,7 +16,7 @@ local notation "T" => alignedUniverseSignature G P Q β
 local notation "L" => Instance.universeModel C P
 local notation "R" => Instance.universeModel D Q
 
-theorem alignedContextComparison_baseTerm (h : α ≫ whiskerRight η.hom Q = β)
+theorem alignedContextComparison_base_term (h : α ≫ whiskerRight η.hom Q = β)
     (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
     (hx : Typed.TmDeriv.{max u v w + 1} Γ γ .base (Typed.baseCode γ) x ξ) :
     isoWhiskerLeft (baseFunctor (ξ L).down) (alignedBaseIso η P Q α β) ≪≫
@@ -24,7 +24,7 @@ theorem alignedContextComparison_baseTerm (h : α ≫ whiskerRight η.hom Q = β
       eqToIso (generatedBaseTerm_commutes S hΓ hx) ≪≫
         isoWhiskerRight (alignedContextComparison η P Q α β h hΓ)
           (baseFunctor (ξ R).down) :=
-  SignatureCylinder.contextComparison_baseTerm _ _ (alignedBaseIso η P Q α β) _ _ _
+  SignatureCylinder.contextComparison_base_term _ _ (alignedBaseIso η P Q α β) _ _ _
     (alignedFiber_square η P Q α β h) hΓ hx
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

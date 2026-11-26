@@ -103,7 +103,7 @@ theorem transport_reindex {B : Family Γ} (e : A ≅ B) {Δ : Context.{u}} (σ :
     (c.transport e).reindex σ = (c.reindex σ).transport (Functor.isoWhiskerLeft σ.mapElements e) := rfl
 
 end HomotopyContractible
-private theorem familyMap_value_heq {Γ : Context.{u}} {A B : Family Γ} (e : A ⟶ B)
+private theorem family_hom_app_heq {Γ : Context.{u}} {A B : Family Γ} (e : A ⟶ B)
     {x y : Γ.Elements} (h : x = y) {a : A.obj x} {b : A.obj y} (hab : HEq a b) :
     HEq (e.app x a) (e.app y b) := by
   cases h
@@ -120,7 +120,7 @@ theorem sigmaSecondMap_box_snd {Γ : Context.{u}} {A : Family (total (interval �
     intro x hx
     have hl := PartialSection.sigmaSnd_val (B := C)
       (b.tube.map (sigmaSecondMap A e)) a ha.2 x hx
-    have hr := familyMap_value_heq e (congrArg (extendObj A x) (ha.2 x hx))
+    have hr := family_hom_app_heq e (congrArg (extendObj A x) (ha.2 x hx))
       (PartialSection.sigmaSnd_val b.tube a ha.2 x hx)
     exact eq_of_heq (hl.trans hr.symm)
   · apply Term.ext
@@ -129,7 +129,7 @@ theorem sigmaSecondMap_box_snd {Γ : Context.{u}} {A : Family (total (interval �
     have hl := Term.sigmaSndOver_val (B := Presheaf.reindex C (liftSub A σ))
       (Term.map (Functor.whiskerLeft σ.mapElements (sigmaSecondMap A e)) b.base)
       (a.reindex σ) ha.1 x
-    have hr := familyMap_value_heq e
+    have hr := family_hom_app_heq e
       (congrArg (extendObj A (σ.mapElements.obj x)) (congrArg (fun t => t.val x) ha.1))
       (Term.sigmaSndOver_val (B := Presheaf.reindex B (liftSub A σ))
         b.base (a.reindex σ) ha.1 x)

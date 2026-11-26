@@ -21,7 +21,7 @@ variable (hE : compCode (rootCode (baseCode γ) x.code) s =
   compCode (endpointCode (baseCode γ) x.code y.code p.code) s)
 
 def zArgs := SubDeriv.pair (ConcatBeta.zType hΓ x) hs
-  ((z.reindex hs).deriv.annotateType ((subTyComp_code _ _ _).trans (baseSub_code _)).symm)
+  ((z.reindex hs).deriv.annotateType ((subTyCode_subTyCode _ _ _).trans (subTyCode_baseCode _)).symm)
 
 include hE in
 theorem z_endpoint : compCode (substitutionCode (ConcatBeta.liftRoot hΓ x))
@@ -39,9 +39,9 @@ theorem q_type_at : subTyCode
       (substitutionCode (ConcatBeta.liftRoot hΓ x)))
     (substitutionCode (zArgs hΓ x z hs)) =
     subTyCode (identityCode (baseCode γ) y.code z.code) s := by
-  apply (subTyComp_code _ _ _).trans
+  apply (subTyCode_subTyCode _ _ _).trans
   apply (congrArg (subTyCode _) (z_endpoint hΓ x y z p hs hE)).trans
-  apply (subTyComp_code _ _ _).symm.trans
+  apply (subTyCode_subTyCode _ _ _).symm.trans
   exact congrArg (fun a => subTyCode a s) (ConcatApplication.q_type_at hΓ x y z p)
 
 theorem q_raw_at (hy : y.raw.sub σ = x.raw.sub σ) :
@@ -105,7 +105,7 @@ theorem result_type (hy : y.raw.sub σ = x.raw.sub σ) :
         (substitutionCode (args hΓ x y z p q hs hE hy))) =
     subTyCode (identityCode (baseCode γ) x.code z.code) s :=
   (congrArg (subTyCode _) (endpoint_eq hΓ x y z p q hs hE hy)).trans
-    ((subTyComp_code _ _ _).symm.trans
+    ((subTyCode_subTyCode _ _ _).symm.trans
       (congrArg (fun a => subTyCode a s) (ConcatApplication.motive_at hΓ x y z p q)))
 
 theorem left_code (hy : y.raw.sub σ = x.raw.sub σ) :
@@ -127,7 +127,7 @@ theorem right_code (hy : y.raw.sub σ = x.raw.sub σ)
     (hQ : subTyCode (identityCode (baseCode γ) y.code z.code) s =
       subTyCode (identityCode (baseCode γ) x.code z.code) s) :
     castCode (result_type hΓ x y z p q hs hE hy)
-      (castCode (subTyComp_code (ConcatFrame.command hΓ x).motive.code
+      (castCode (subTyCode_subTyCode (ConcatFrame.command hΓ x).motive.code
         (rootTailCode (baseCode γ) x.code (ConcatFrame.tailCode hΓ x))
         (substitutionCode (args hΓ x y z p q hs hE hy)))
         (subTmCode (ConcatFrame.command hΓ x).motive.branchCode
@@ -215,9 +215,9 @@ theorem concat_root_endpoint :
   rw [compCode, compCode, endpointCode_eval]
   apply endpoint_root_sub M.toStructuralModel
   · apply eq_of_heq
-    exact (castCode_eval (baseSub_code _) (subTmCode (moving hΓ x).code _) M).symm.trans
+    exact (castCode_eval (subTyCode_baseCode _) (subTmCode (moving hΓ x).code _) M).symm.trans
       ((heq_of_eq (congrFun (moving_root_code hΓ x) M)).trans
-        (castCode_eval (baseSub_code _) (subTmCode (fixed hΓ x).code _) M))
+        (castCode_eval (subTyCode_baseCode _) (subTmCode (fixed hΓ x).code _) M))
   · have hf : HEq (((first hΓ x).reindex (context hΓ x) (root hΓ x)).code M)
         (M.subTm ((first hΓ x).code M) (substitutionCode (root hΓ x) M)) := by
       unfold Path.reindex
@@ -225,7 +225,7 @@ theorem concat_root_endpoint :
     apply hf.symm.trans (first_root_eval hΓ x M |>.trans ?_)
     symm
     apply refl_heq M (M.base_sub _)
-    exact (castCode_eval (baseSub_code _) (subTmCode (fixed hΓ x).code _) M).symm
+    exact (castCode_eval (subTyCode_baseCode _) (subTmCode (fixed hΓ x).code _) M).symm
 
 theorem concat_root_type :
     subTyCode (identityCode (baseCode _) (moving hΓ x).code (last hΓ x).code)

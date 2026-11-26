@@ -156,7 +156,7 @@ On resumption, keep #107's acceptance criteria and change the next design step:
    first experiment represents reusable operations as fixed open source terms
    applied through typed argument substitutions. Investigate whether application
    reindexing can be handled by substitution composition, using the existing
-   `subTyComp_code` and `subTmComp_code` laws. Construct and check the dependent
+   `subTyCode_subTyCode` and `castCode_subTmCode_subTmCode` laws. Construct and check the dependent
    argument environments; do not assume that a template representation removes
    their coherence obligations.
 2. Compare that experiment with a reusable comparison of pulled-back and fresh

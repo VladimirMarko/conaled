@@ -46,7 +46,7 @@ theorem baseVariable_functor (Y : Sheaf topology Type) :
     CechMatching.Comprehension.Constant.fiberFunctor
       (context a hΓ Y) (Grpd.of (AsSmall.{0} (Object a Y))) := by
   have hh := Typed.castCode_eval
-    (Typed.baseSub_code (Typed.weakenCode γ (Typed.baseCode γ)))
+    (Typed.subTyCode_baseCode (Typed.weakenCode γ (Typed.baseCode γ)))
     (Typed.varCode γ (Typed.baseCode γ)) (SmoothQuotientSource.model a Y)
   have he := eq_of_heq hh
   dsimp only [Typed.Authoring.BasePoint.variable]
@@ -99,7 +99,7 @@ theorem baseVariable_sourceFunctor :
       (show Grpd.{1,1} from γ (model a A))
       (Grpd.of (AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A))) := by
   have he := eq_of_heq (Typed.castCode_eval
-    (Typed.baseSub_code (Typed.weakenCode γ (Typed.baseCode γ)))
+    (Typed.subTyCode_baseCode (Typed.weakenCode γ (Typed.baseCode γ)))
     (Typed.varCode γ (Typed.baseCode γ)) (model a A))
   dsimp only [Typed.Authoring.BasePoint.variable]
   rw [he]
@@ -171,7 +171,7 @@ theorem familyEvaluation_base_isEquivalence
     (primitiveCoefficientEquivalence a A).isEquivalence_functor
   exact familyEvaluation_base_isEquivalence_of_term a A hΓ
     (primitiveCoefficientFunctor a A)
-    (matchingEvaluation_baseTerm a A (.ext hΓ (.base hΓ))
+    (matchingEvaluation_baseTermDiagram a A (.ext hΓ (.base hΓ))
       (Typed.Authoring.BasePoint.variable hΓ).deriv) c
 
 end SquareKit.SmoothQuotientCechLocal

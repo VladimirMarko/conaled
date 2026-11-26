@@ -37,14 +37,14 @@ def pairCode (A : TyCode Γ) (σ : SubCode Δ Γ) (t : TmCode Δ (subTyCode A σ
     SubCode Δ (extendCode Γ A) := fun M => M.pairSub (A M) (σ M) (t M)
 def castCode {a b : TyCode Γ} (h : a = b) (ξ : TmCode Γ a) : TmCode Γ b := h ▸ ξ
 
-theorem subTyId_code (A : TyCode Γ) : subTyCode A (idCode Γ) = A := by
+theorem subTyCode_idCode (A : TyCode Γ) : subTyCode A (idCode Γ) = A := by
   funext M; exact M.subTy_id _
-theorem subTyComp_code (A : TyCode Γ) (σ : SubCode Δ Γ) (τ : SubCode Θ Δ) :
+theorem subTyCode_subTyCode (A : TyCode Γ) (σ : SubCode Δ Γ) (τ : SubCode Θ Δ) :
     subTyCode (subTyCode A σ) τ = subTyCode A (compCode σ τ) := by
   funext M; exact M.subTy_comp _ _ _
-theorem baseSub_code (σ : SubCode Δ Γ) : subTyCode (baseCode Γ) σ = baseCode Δ := by
+theorem subTyCode_baseCode (σ : SubCode Δ Γ) : subTyCode (baseCode Γ) σ = baseCode Δ := by
   funext M; exact M.base_sub _
-theorem identitySub_code (A : TyCode Γ) (x y : TmCode Γ A) (σ : SubCode Δ Γ) :
+theorem subTyCode_identityCode (A : TyCode Γ) (x y : TmCode Γ A) (σ : SubCode Δ Γ) :
     subTyCode (identityCode A x y) σ =
       identityCode (subTyCode A σ) (subTmCode x σ) (subTmCode y σ) := by
   funext M; exact M.identity_sub _ _ _ _
@@ -52,55 +52,55 @@ theorem identitySub_code (A : TyCode Γ) (x y : TmCode Γ A) (σ : SubCode Δ Γ
 theorem castCode_eval {a b : TyCode Γ} (h : a = b) (ξ : TmCode Γ a) (M : Model) :
     HEq (castCode h ξ M) (ξ M) := by cases h; rfl
 
-theorem fiberSub_code (ξ : TmCode Γ (baseCode Γ)) (s : SubCode Δ Γ) :
-    subTyCode (fiberCode ξ) s = fiberCode (castCode (baseSub_code s) (subTmCode ξ s)) := by
+theorem subTyCode_fiberCode (ξ : TmCode Γ (baseCode Γ)) (s : SubCode Δ Γ) :
+    subTyCode (fiberCode ξ) s = fiberCode (castCode (subTyCode_baseCode s) (subTmCode ξ s)) := by
   funext M
   dsimp [subTyCode, fiberCode, baseCode]
   apply (M.fiber_sub (ξ M) (s M)).trans
   apply congrArg M.fiber
   apply eq_of_heq
-  exact (cast_heq _ _).trans (castCode_eval (baseSub_code s) (subTmCode ξ s) M).symm
+  exact (cast_heq _ _).trans (castCode_eval (subTyCode_baseCode s) (subTmCode ξ s) M).symm
 
-theorem subTmId_code (ξ : TmCode Γ a) :
-    castCode (subTyId_code a) (subTmCode ξ (idCode Γ)) = ξ := by
+theorem castCode_subTmCode_idCode (ξ : TmCode Γ a) :
+    castCode (subTyCode_idCode a) (subTmCode ξ (idCode Γ)) = ξ := by
   funext M
   exact eq_of_heq ((castCode_eval _ _ M).trans (M.subTm_id (ξ M)))
 
-theorem subTmComp_code (ξ : TmCode Γ a) (s : SubCode Δ Γ) (t : SubCode Θ Δ) :
-    castCode (subTyComp_code a s t) (subTmCode (subTmCode ξ s) t) =
+theorem castCode_subTmCode_subTmCode (ξ : TmCode Γ a) (s : SubCode Δ Γ) (t : SubCode Θ Δ) :
+    castCode (subTyCode_subTyCode a s t) (subTmCode (subTmCode ξ s) t) =
       subTmCode ξ (compCode s t) := by
   funext M
   exact eq_of_heq ((castCode_eval _ _ M).trans (M.subTm_comp (ξ M) (s M) (t M)))
 
-theorem reflSub_code (a : TyCode Γ) (ξ : TmCode Γ a) (s : SubCode Δ Γ) :
-    castCode (identitySub_code a ξ ξ s) (subTmCode (reflCode a ξ) s) =
+theorem castCode_subTmCode_reflCode (a : TyCode Γ) (ξ : TmCode Γ a) (s : SubCode Δ Γ) :
+    castCode (subTyCode_identityCode a ξ ξ s) (subTmCode (reflCode a ξ) s) =
       reflCode (subTyCode a s) (subTmCode ξ s) := by
   funext M
   exact eq_of_heq ((castCode_eval _ _ M).trans (M.refl_sub (a M) (ξ M) (s M)))
 
 
-theorem weakenPair_code (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
+theorem compCode_weakenCode_pairCode (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
     compCode (weakenCode Γ a) (pairCode a s ξ) = s := by
   funext M; exact M.weaken_pair _ _ _
 
-theorem variablePair_type (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
+theorem subTyCode_weakenCode_pairCode (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
     subTyCode (subTyCode a (weakenCode Γ a)) (pairCode a s ξ) = subTyCode a s := by
-  rw [subTyComp_code, weakenPair_code]
+  rw [subTyCode_subTyCode, compCode_weakenCode_pairCode]
 
-theorem variablePair_code (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
-    castCode (variablePair_type a s ξ) (subTmCode (varCode Γ a) (pairCode a s ξ)) = ξ := by
+theorem castCode_subTmCode_varCode_pairCode (a : TyCode Γ) (s : SubCode Δ Γ) (ξ : TmCode Δ (subTyCode a s)) :
+    castCode (subTyCode_weakenCode_pairCode a s ξ) (subTmCode (varCode Γ a) (pairCode a s ξ)) = ξ := by
   funext M
   exact eq_of_heq ((castCode_eval _ _ M).trans (M.variable_pair (a M) (s M) (ξ M)))
 
 def etaPairCode (a : TyCode Γ) (s : SubCode Δ (extendCode Γ a)) : SubCode Δ (extendCode Γ a) :=
   pairCode a (compCode (weakenCode Γ a) s)
-    (castCode (subTyComp_code a (weakenCode Γ a) s) (subTmCode (varCode Γ a) s))
+    (castCode (subTyCode_subTyCode a (weakenCode Γ a) s) (subTmCode (varCode Γ a) s))
 
-theorem etaPair_code (a : TyCode Γ) (s : SubCode Δ (extendCode Γ a)) : etaPairCode a s = s := by
+theorem etaPairCode_eq (a : TyCode Γ) (s : SubCode Δ (extendCode Γ a)) : etaPairCode a s = s := by
   funext M
   apply Eq.trans _ (M.pair_eta (a M) (s M))
   apply congrArg (M.pairSub (a M) (M.compSub (M.weaken (Γ M) (a M)) (s M)))
-  exact eq_of_heq ((castCode_eval (subTyComp_code a (weakenCode Γ a) s)
+  exact eq_of_heq ((castCode_eval (subTyCode_subTyCode a (weakenCode Γ a) s)
     (subTmCode (varCode Γ a) s) M).trans (cast_heq _ _).symm)
 
 
@@ -132,11 +132,11 @@ def jCode (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode a ξ) n)
     TmCode (telTotal T) c := fun M => M.j (a M) (ξ M) (T M) (c M) (d M)
 
 
-theorem jBetaSub_code (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode a ξ) n)
+theorem subTmCode_jCode_compCode_rootTailCode (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode a ξ) n)
     (c : TyCode (telTotal T)) (d : TmCode (branchCode a ξ T) (subTyCode c (rootTailCode a ξ T)))
     (s : SubCode δ (branchCode a ξ T)) :
     subTmCode (jCode a ξ T c d) (compCode (rootTailCode a ξ T) s) =
-      castCode (subTyComp_code c (rootTailCode a ξ T) s) (subTmCode d s) := by
+      castCode (subTyCode_subTyCode c (rootTailCode a ξ T) s) (subTmCode d s) := by
   funext M
   apply eq_of_heq
   apply (M.subTm_comp (M.j (a M) (ξ M) (T M) (c M) (d M))
@@ -144,7 +144,7 @@ theorem jBetaSub_code (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode 
   have hb := eq_of_heq (M.j_beta (a M) (ξ M) (T M) (c M) (d M))
   have he := congrArg (fun z => M.subTm z (s M)) hb
   exact (heq_of_eq he).trans
-    (castCode_eval (subTyComp_code c (rootTailCode a ξ T) s) (subTmCode d s) M).symm
+    (castCode_eval (subTyCode_subTyCode c (rootTailCode a ξ T) s) (subTmCode d s) M).symm
 
 /-- Contextual J at the generic endpoint, path and tail variables. Ambient
 parameters are weakened across the full telescope; each binder is preserved. -/
@@ -176,7 +176,7 @@ def reindexBranchCode (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode 
 
 /-- Rebuilt J uses the pulled-back telescope and the constructed branch
 comparison, rather than merely reindexing an already constructed section. -/
-theorem jSub_code (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode a ξ) n)
+theorem subTmCode_jCode_pathTailMapCode (a : TyCode γ) (ξ : TmCode γ a) (T : TelCode (pathCode a ξ) n)
     (c : TyCode (telTotal T)) (η : TmCode (branchCode a ξ T) (subTyCode c (rootTailCode a ξ T)))
     (s : SubCode δ γ) :
     subTmCode (jCode a ξ T c η) (pathTailMapCode a ξ T s) =
@@ -320,7 +320,7 @@ inductive TyEqDeriv : (Γ : RawCtx) → (γ : CtxCode.{u}) →
       TyEqDeriv Δ δ .base (subTyCode (baseCode γ) s) .base (baseCode δ)
   | fiberSub : TmDeriv Γ γ .base (baseCode γ) x ξ → SubDeriv Δ δ Γ γ σ s →
       TyEqDeriv Δ δ (.fiber (x.sub σ)) (subTyCode (fiberCode ξ) s)
-        (.fiber (x.sub σ)) (fiberCode (castCode (baseSub_code s) (subTmCode ξ s)))
+        (.fiber (x.sub σ)) (fiberCode (castCode (subTyCode_baseCode s) (subTmCode ξ s)))
   | identitySub : TyDeriv Γ γ A a → TmDeriv Γ γ A a x ξ → TmDeriv Γ γ A a y η →
       SubDeriv Δ δ Γ γ σ s →
       TyEqDeriv Δ δ ((Expr.identity A x y).sub σ) (subTyCode (identityCode a ξ η) s)
@@ -340,15 +340,15 @@ inductive TmEqDeriv : (Γ : RawCtx) → (γ : CtxCode.{u}) →
         (v.sub σ) (subTmCode ν s)
   | subId : TmDeriv Γ γ A a x ξ →
       TmEqDeriv Γ γ A a (x.sub Expr.var)
-        (castCode (subTyId_code a) (subTmCode ξ (idCode γ))) x ξ
+        (castCode (subTyCode_idCode a) (subTmCode ξ (idCode γ))) x ξ
   | subComp : TmDeriv Γ γ A a x ξ → SubDeriv Δ δ Γ γ σ s → SubDeriv Θ θ Δ δ τ t →
       TmEqDeriv Θ θ (A.sub (fun n => (σ n).sub τ)) (subTyCode a (compCode s t))
-        ((x.sub σ).sub τ) (castCode (subTyComp_code a s t) (subTmCode (subTmCode ξ s) t))
+        ((x.sub σ).sub τ) (castCode (subTyCode_subTyCode a s t) (subTmCode (subTmCode ξ s) t))
         (x.sub (fun n => (σ n).sub τ)) (subTmCode ξ (compCode s t))
   | reflSub : TyDeriv Γ γ A a → TmDeriv Γ γ A a x ξ → SubDeriv Δ δ Γ γ σ s →
       TmEqDeriv Δ δ (.identity (A.sub σ) (x.sub σ) (x.sub σ))
         (identityCode (subTyCode a s) (subTmCode ξ s) (subTmCode ξ s))
-        ((Expr.refl x).sub σ) (castCode (identitySub_code a ξ ξ s) (subTmCode (reflCode a ξ) s))
+        ((Expr.refl x).sub σ) (castCode (subTyCode_identityCode a ξ ξ s) (subTmCode (reflCode a ξ) s))
         (.refl (x.sub σ)) (reflCode (subTyCode a s) (subTmCode ξ s))
 
   | reflCongr : TmEqDeriv Γ γ A a x ξ y η → (h : ξ = η) →
@@ -361,7 +361,7 @@ inductive TmEqDeriv : (Γ : RawCtx) → (γ : CtxCode.{u}) →
   | variablePair : TyDeriv Γ γ A a → SubDeriv Δ δ Γ γ σ s →
       TmDeriv Δ δ (A.sub σ) (subTyCode a s) t ξ →
       TmEqDeriv Δ δ (A.sub σ) (subTyCode a s) t
-        (castCode (variablePair_type a s ξ) (subTmCode (varCode γ a) (pairCode a s ξ))) t ξ
+        (castCode (subTyCode_weakenCode_pairCode a s ξ) (subTmCode (varCode γ a) (pairCode a s ξ))) t ξ
 
   /-- Congruence in the motive and branch of contextual J. The branch
   comparison is in the left motive; its cast is guarded by source conversion. -/
@@ -421,7 +421,7 @@ inductive TmEqDeriv : (Γ : RawCtx) → (γ : CtxCode.{u}) →
         (.pathInduction n A x C d x (.refl x) args)
         (subTmCode (jCode a ξ T c η) (compCode (rootTailCode a ξ T) s))
         (d.sub (argsSub args Expr.var))
-        (castCode (subTyComp_code c (rootTailCode a ξ T) s) (subTmCode η s))
+        (castCode (subTyCode_subTyCode c (rootTailCode a ξ T) s) (subTmCode η s))
 
   | jBetaReindex {Γ Ω : RawCtx} {γ ω : CtxCode} {A x C d : Expr} {a : TyCode γ}
       {ξ : TmCode γ a} {n : Nat} {Δ : RawCtx} {T : TelCode (pathCode a ξ) n}
@@ -441,7 +441,7 @@ inductive TmEqDeriv : (Γ : RawCtx) → (γ : CtxCode.{u}) →
           (d.sub (Expr.liftSubN n ρ)) (x.sub ρ) (.refl (x.sub ρ)) args)
         (subTmCode (jCode a ξ T c η) (compCode (rootTailCode a ξ T) s))
         (d.sub (argsSub args ρ))
-        (castCode (subTyComp_code c (rootTailCode a ξ T) s) (subTmCode η s))
+        (castCode (subTyCode_subTyCode c (rootTailCode a ξ T) s) (subTmCode η s))
 
   | jSub {Γ Ω : RawCtx} {γ ω : CtxCode} {A x C d : Expr} {a : TyCode γ}
       {ξ : TmCode γ a} {n : Nat} {Δ : RawCtx} {T : TelCode (pathCode a ξ) n}
@@ -507,11 +507,11 @@ theorem type_sound (e : TyEqDeriv Γ γ A a B b) : a = b :=
   | .identityType _ h _ _ => by cases h; rfl
   | .subCongr _ e => by rw [sub_sound e]
   | .sub e _ => by rw [type_sound e]
-  | .subId _ => subTyId_code _
-  | .subComp _ _ _ => subTyComp_code _ _ _
-  | .baseSub _ => baseSub_code _
-  | .fiberSub _ _ => fiberSub_code _ _
-  | .identitySub _ _ _ _ => identitySub_code _ _ _ _
+  | .subId _ => subTyCode_idCode _
+  | .subComp _ _ _ => subTyCode_subTyCode _ _ _
+  | .baseSub _ => subTyCode_baseCode _
+  | .fiberSub _ _ => subTyCode_fiberCode _ _
+  | .identitySub _ _ _ _ => subTyCode_identityCode _ _ _ _
 termination_by sizeOf e
 
 theorem term_sound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
@@ -521,12 +521,12 @@ theorem term_sound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
   | .trans e f => (term_sound e).trans (term_sound f)
   | .conv e _ _ => by rw [term_sound e]
   | .sub e _ => by rw [term_sound e]
-  | .subId _ => subTmId_code _
-  | .subComp _ _ _ => subTmComp_code _ _ _
-  | .reflSub _ _ _ => reflSub_code _ _ _
+  | .subId _ => castCode_subTmCode_idCode _
+  | .subComp _ _ _ => castCode_subTmCode_subTmCode _ _ _
+  | .reflSub _ _ _ => castCode_subTmCode_reflCode _ _ _
   | .reflCongr _ h => by cases h; rfl
   | .subCongr _ _ h => by cases h; rfl
-  | .variablePair _ _ _ => variablePair_code _ _ _
+  | .variablePair _ _ _ => castCode_subTmCode_varCode_pairCode _ _ _
   | .jCongr _ _ _ _ _ h e => by
     have he := term_sound e
     cases h
@@ -538,9 +538,9 @@ theorem term_sound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
     cases k
     simp only [castCode] at he ⊢
     rw [he]
-  | .jBeta _ _ _ => jBetaSub_code _ _ _ _ _ _
-  | .jBetaReindex _ _ _ => jBetaSub_code _ _ _ _ _ _
-  | .jSub _ _ _ _ _ _ _ => jSub_code _ _ _ _ _ _
+  | .jBeta _ _ _ => subTmCode_jCode_compCode_rootTailCode _ _ _ _ _ _
+  | .jBetaReindex _ _ _ => subTmCode_jCode_compCode_rootTailCode _ _ _ _ _ _
+  | .jSub _ _ _ _ _ _ _ => subTmCode_jCode_pathTailMapCode _ _ _ _ _ _
 termination_by sizeOf e
 
 theorem sub_sound (e : SubEqDeriv Δ δ Γ γ σ s τ t) : s = t :=
@@ -557,8 +557,8 @@ theorem sub_sound (e : SubEqDeriv Δ δ Γ γ σ s τ t) : s = t :=
   | .idLeft _ => funext fun M => M.comp_id_left _
   | .idRight _ => funext fun M => M.comp_id_right _
   | .assoc _ _ _ => funext fun M => M.comp_assoc _ _ _
-  | .weakenPair _ _ _ => weakenPair_code _ _ _
-  | .pairEta _ _ => etaPair_code _ _
+  | .weakenPair _ _ _ => compCode_weakenCode_pairCode _ _ _
+  | .pairEta _ _ => etaPairCode_eq _ _
 termination_by sizeOf e
 end
 
@@ -927,7 +927,7 @@ def TmEqDeriv.contextualBeta
       (.pathInduction n A x C d x (.refl x) args)
       (subTmCode (jCode a ξ T c η) (compCode (rootTailCode a ξ T) s))
       (d.sub (argsSub args Expr.var))
-      (castCode (subTyComp_code c (rootTailCode a ξ T) s) (subTmCode η s)) :=
+      (castCode (subTyCode_subTyCode c (rootTailCode a ξ T) s) (subTmCode η s)) :=
   .jBeta (TmDeriv.reflexiveJ hΓ hA hx hT hC hd hs) hd hs
 
 /-- The guarded coherence proof cannot change the resulting source derivation. -/

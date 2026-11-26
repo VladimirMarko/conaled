@@ -21,7 +21,7 @@ def associator (t : ℝ) : ℂ := displacement (leftInput t)-displacement (right
 @[simp] theorem leftLinear_zero : leftLinear 0 = 0 := by simp [leftLinear]
 @[simp] theorem rightLinear_zero : rightLinear 0 = 0 := by simp [rightLinear]
 
-@[local fun_prop] theorem realCast_smooth : ContDiffAt ℝ ⊤ (fun t : ℝ => (t : ℂ)) 0 :=
+@[local fun_prop] theorem ofReal_smooth : ContDiffAt ℝ ⊤ (fun t : ℝ => (t : ℂ)) 0 :=
   Complex.ofRealCLM.contDiff.contDiffAt
 
 theorem xy_smooth : ContDiffAt ℝ ⊤ xy 0 := by unfold xy; fun_prop

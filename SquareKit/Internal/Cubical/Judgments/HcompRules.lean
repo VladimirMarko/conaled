@@ -24,7 +24,7 @@ theorem hcomp_valid : Satisfies algebra.{u} hcompRule := by
   intro Γ A F φ b _
   exact ⟨Γ,A,F.hcomp φ b,rfl,rfl,extra_hcomp Γ A F φ b⟩
 
-theorem hcompBoundary_valid : Satisfies algebra.{u} hcompBoundaryRule := by
+theorem hcompBoundaryRule_valid : Satisfies algebra.{u} hcompBoundaryRule := by
   apply hcompSchema_valid
   intro Γ A F φ b hF
   have ht := tubeEndpoint_eval (.var (0 : Fin 6)) (.var 3) (.var 4)

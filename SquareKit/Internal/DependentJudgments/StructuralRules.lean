@@ -73,7 +73,7 @@ theorem subTm_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) 
   refine ⟨Δ, M.subTy A σ, M.subTm t σ, rfl, ?_, ?_⟩ <;>
     simp [Term.eval, algebra, DependentJudgments.operation]
 
-theorem reflSub_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) reflSubRule := by
+theorem reflSubRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) reflSubRule := by
   apply termSubSchema_valid
   intro Γ Δ A t σ
   change Term.eval (algebra M) _ _ = _
@@ -100,13 +100,13 @@ theorem subSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (Fin
 abbrev compIdLeftRule := subSchema (.eq (comp (identitySub (.var 0)) (.var 2)) (.var 2))
 abbrev compIdRightRule := subSchema (.eq (comp (.var 2) (identitySub (.var 1))) (.var 2))
 
-theorem compIdLeft_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compIdLeftRule := by
+theorem compIdLeftRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compIdLeftRule := by
   apply subSchema_valid
   intro Γ Δ σ
   change Term.eval (algebra M) _ _ = _
   simp [Term.eval, algebra, DependentJudgments.operation, M.comp_id_left]
 
-theorem compIdRight_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compIdRightRule := by
+theorem compIdRightRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compIdRightRule := by
   apply subSchema_valid
   intro Γ Δ σ
   change Term.eval (algebra M) _ _ = _
@@ -134,25 +134,25 @@ abbrev subTmIdRule := pointSchema (.eq (subTm (.var 2) (identitySub (.var 0))) (
 abbrev termFamilyRule := pointSchema (family (.var 0) (.var 1))
 abbrev familyContextRule := familySchema (context (.var 0))
 
-theorem subTyId_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTyIdRule := by
+theorem subTyIdRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTyIdRule := by
   apply familySchema_valid
   intro Γ A
   change Term.eval (algebra M) _ _ = _
   simp [Term.eval, algebra, DependentJudgments.operation, M.subTy_id]
 
-theorem subTmId_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTmIdRule := by
+theorem subTmIdRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTmIdRule := by
   apply pointSchema_valid
   intro Γ A t
   change Term.eval (algebra M) _ _ = _
   simpa [Term.eval, algebra, DependentJudgments.operation]
     using Value.term_eq (M.subTy_id A) (M.subTm_id t)
 
-theorem termFamily_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) termFamilyRule := by
+theorem termFamilyRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) termFamilyRule := by
   apply pointSchema_valid
   intro Γ A _
   exact ⟨Γ, A, rfl, rfl⟩
 
-theorem familyContext_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) familyContextRule := by
+theorem familyContextRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) familyContextRule := by
   apply familySchema_valid
   intro Γ _
   exact ⟨Γ, rfl⟩
@@ -222,7 +222,7 @@ theorem familyCompSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgme
 abbrev subTyCompRule := familyCompSchema
   (.eq (subTy (subTy (.var 3) (.var 4)) (.var 5)) (subTy (.var 3) (comp (.var 4) (.var 5))))
 
-theorem subTyComp_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTyCompRule := by
+theorem subTyCompRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTyCompRule := by
   apply familyCompSchema_valid
   intro Γ Δ Θ A σ τ
   change Term.eval (algebra M) _ _ = _
@@ -262,7 +262,7 @@ theorem termCompSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment
 abbrev subTmCompRule := termCompSchema
   (.eq (subTm (subTm (.var 4) (.var 5)) (.var 6)) (subTm (.var 4) (comp (.var 5) (.var 6))))
 
-theorem subTmComp_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTmCompRule := by
+theorem subTmCompRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) subTmCompRule := by
   apply termCompSchema_valid
   intro Γ Δ Θ A t σ τ
   change Term.eval (algebra M) _ _ = _
@@ -303,7 +303,7 @@ theorem assocSchema_valid (M : PathTransport.Typed.Model.{u}) (out : Judgment (F
 abbrev compAssocRule := assocSchema
   (.eq (comp (comp (.var 4) (.var 5)) (.var 6)) (comp (.var 4) (comp (.var 5) (.var 6))))
 
-theorem compAssoc_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compAssocRule := by
+theorem compAssocRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) compAssocRule := by
   apply assocSchema_valid
   intro Γ Δ Θ Ξ σ τ υ
   change Term.eval (algebra M) _ _ = _

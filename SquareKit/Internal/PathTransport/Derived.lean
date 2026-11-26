@@ -43,7 +43,7 @@ def transportMotive (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) :=
 theorem transportMotive_at (hΓ : CtxDeriv Γ γ) (x y : BasePoint Γ γ) (p : Path x y) :
     subTyCode (fiberCode (moving hΓ x).code) (endpointCode (baseCode γ) x.code y.code p.code) =
       fiberCode y.code :=
-  (fiberSub_code _ _).trans (congrArg fiberCode (moving_at hΓ x y p))
+  (subTyCode_fiberCode _ _).trans (congrArg fiberCode (moving_at hΓ x y p))
 
 theorem transportMotive_root (hΓ : CtxDeriv Γ γ) (x : BasePoint Γ γ) :
     subTyCode (fiberCode (moving hΓ x).code) (rootCode (baseCode γ) x.code) = fiberCode x.code := by

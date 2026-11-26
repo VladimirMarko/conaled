@@ -48,7 +48,7 @@ theorem composition_valid {m n : ℕ} (e : Expr (Fin m)) (σ : Fin m → Expr (F
     funext (fun k => extra_dimension Γ (σ k) r)
   rw [h,extra_dimension,extra_dimension,intervalDimension_subst]
 
-theorem intervalSub_valid : Satisfies algebra.{u} intervalSubRule := by
+theorem intervalSubRule_valid : Satisfies algebra.{u} intervalSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ σ r
   change Source.operation .subTy ![extraOperation .interval ![.context Γ],.substitution Δ Γ σ] =
@@ -56,7 +56,7 @@ theorem intervalSub_valid : Satisfies algebra.{u} intervalSubRule := by
   rw [extra_interval,extra_interval]
   simp [Source.operation]
 
-theorem dimensionSub_valid {n : ℕ} (e : Expr (Fin n)) : Satisfies algebra.{u} (dimensionSubRule e) := by
+theorem dimensionSubRule_valid {n : ℕ} (e : Expr (Fin n)) : Satisfies algebra.{u} (dimensionSubRule e) := by
   apply substitutionSchema_valid
   intro Γ Δ σ r
   change Source.operation .subTm ![extraOperation (.dimension e)

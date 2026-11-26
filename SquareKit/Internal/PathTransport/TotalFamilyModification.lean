@@ -68,8 +68,8 @@ private theorem fiber_congr {X Y : Extend B} {f g : X ⟶ Y} (h : f = g) :
   simp
 
 theorem component_naturality (m : TotalFamilyModification F α β) {c d : C} (f : c ⟶ d) :
-    isoWhiskerLeft (A.map f) (m.component d) ≪≫ eqToIso (familyMap_naturality β f) =
-      eqToIso (familyMap_naturality α f) ≪≫
+    isoWhiskerLeft (A.map f) (m.component d) ≪≫ eqToIso (family_map_naturality β f) =
+      eqToIso (family_map_naturality α f) ≪≫
         isoWhiskerRight (m.component c) (B.map (F.map f)) := by
   ext x
   have hn := m.total.hom.naturality (Grothendieck.toTransport
@@ -84,8 +84,8 @@ theorem component_naturality (m : TotalFamilyModification F α β) {c d : C} (f 
   have hh := congrArg (fun k =>
     eqToHom (show (α.app d).obj ((A.map f).obj x) =
       (B.map (𝟙 (F.obj c) ≫ F.map f)).obj ((α.app c).obj x) from by
-        simpa using congrArg (fun K => K.obj x) (familyMap_naturality α f)) ≫ k ≫
-      eqToHom (congrArg (fun K => K.obj x) (familyMap_naturality β f))) hf
+        simpa using congrArg (fun K => K.obj x) (family_map_naturality α f)) ≫ k ≫
+      eqToHom (congrArg (fun K => K.obj x) (family_map_naturality β f))) hf
   simpa [Category.assoc] using hh
 
 /-- Actual-arrow naturality of the extracted components is forced by the

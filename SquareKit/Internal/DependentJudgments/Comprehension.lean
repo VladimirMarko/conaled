@@ -251,7 +251,7 @@ theorem pairing_inputs (M : StructuralModel.{u}) :
     Matrix.cons_val_succ] using (by first | exact hΓ | exact hΔ | exact hA | exact hσ | exact ht)
 
 /-- Soundness of the guarded rule, for every actual structural model. -/
-theorem variablePair_valid (M : StructuralModel.{u}) :
+theorem variablePairRule_valid (M : StructuralModel.{u}) :
     Satisfies (algebra M) variablePairRule := by
   intro ρ h
   rcases pairing_inputs M ρ h with ⟨Γ, Δ, A, σ, t, rfl⟩
@@ -283,7 +283,7 @@ theorem pairing_valid (M : StructuralModel.{u}) : Satisfies (algebra M) pairingR
   · simp [pairingRule, substitution, pair, apply3, pairingEnvironment,
       Term.eval, algebra, operation]
 
-theorem weakenPair_valid (M : StructuralModel.{u}) : Satisfies (algebra M) weakenPairRule := by
+theorem weakenPairRule_valid (M : StructuralModel.{u}) : Satisfies (algebra M) weakenPairRule := by
   intro ρ h
   rcases pairing_inputs M ρ h with ⟨Γ, Δ, A, σ, t, rfl⟩
   change operation M .comp
@@ -387,9 +387,9 @@ noncomputable def comprehensionModel (M : StructuralModel.{u}) :
     GuardedTheory.Model comprehensionTheory where
   toAlgebra := algebra M
   rules
-    | .variablePair => variablePair_valid M
+    | .variablePair => variablePairRule_valid M
     | .pairing => pairing_valid M
-    | .weakenPair => weakenPair_valid M
+    | .weakenPair => weakenPairRule_valid M
     | .extension => extension_valid M
     | .weakening => weakening_valid M
     | .generic => generic_valid M

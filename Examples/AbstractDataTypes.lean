@@ -213,7 +213,7 @@ abbrev elements {V : Type v} (t : Carrier V) := SearchTrees.elements t
 
 theorem laws {V : Type v} (d : V) :
     OrderedMap.EnumeratedTable.Laws (treeTable d) (observations V) d Valid :=
-  OrderedMap.EnumeratedTable.rawTree_laws d
+  OrderedMap.EnumeratedTable.rawTreeTable_laws d
 
 theorem empty_valid {V : Type v} (d : V) : Valid (treeTable d).empty :=
   (laws d).empty_valid
@@ -236,7 +236,7 @@ theorem bound_set_other {V : Type v} (d value : V) (key query : Nat) (t : Carrie
 theorem elements_complete_raw {V : Type v} (d value : V) (key : Nat) (t : Carrier V)
     (present : bound key t = true) (found : (treeTable d).get key t = value) :
     (key, value) ∈ elements t :=
-  OrderedMap.EnumeratedTable.rawTree_elements_complete d key value t present found
+  OrderedMap.EnumeratedTable.rawTreeObservations_elements_complete d key value t present found
 
 theorem elements_complete {V : Type v} (d value : V) (key : Nat) (t : Carrier V)
     (valid : Valid t) (present : bound key t = true) (found : (treeTable d).get key t = value) :
@@ -249,7 +249,7 @@ theorem elements_correct {V : Type v} (d value : V) (key : Nat) (t : Carrier V)
 
 theorem strong {V : Type v} :
     OrderedMap.EnumeratedTable.StrongElements (observations V) Valid :=
-  OrderedMap.EnumeratedTable.rawTree_strong
+  OrderedMap.EnumeratedTable.rawTreeObservations_strongElements
 end RawTreeTable
 
 /-- This is the exact source membership example proved through interface laws. -/
@@ -344,12 +344,12 @@ end ShadowingListModel
 theorem treeTable_enumeration_model {V : Type v} (default : V) :
     OrderedMap.EnumeratedTable.ModelLaws (treeTable default) (RawTreeTable.observations V)
       default RawTreeTable.Valid SearchTrees.enumerationMeaning :=
-  OrderedMap.EnumeratedTable.rawTree_model_enum default
+  OrderedMap.EnumeratedTable.rawTreeTable_model_enumAbs default
 
 theorem treeTable_structural_model {V : Type v} (default : V) :
     OrderedMap.EnumeratedTable.ModelLaws (treeTable default) (RawTreeTable.observations V)
       default RawTreeTable.Valid SearchTrees.structuralMeaning :=
-  OrderedMap.EnumeratedTable.rawTree_model_structural default
+  OrderedMap.EnumeratedTable.rawTreeTable_model_mapOfTree default
 
 theorem both_tree_model_histories {V : Type v} (default : V)
     (writes : List (Nat × V)) (t : SearchTrees.Tree V) (valid : SearchTrees.BST t) :

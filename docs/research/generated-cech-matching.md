@@ -320,7 +320,7 @@ source Čech deformation, retaining its overlap equation. The selected
 `primitiveEvaluationRecovery` in `SmoothQuotientCechPrimitiveEffectivity`
 compares evaluation followed by the independent matching equivalence with the
 identity functor. Its sole remaining input is equality of the evaluated and
-source base-term data; `primitiveEvaluation_isEquivalence_of_baseTerm` then
+source base-term data; `familyEvaluation_fiber_isEquivalence_of_base_term_eq` then
 proves equivalence of the actual primitive fiber evaluation. That input is a
 base-term coherence statement, not an assumed matching equivalence or global
 extension. The arbitrary-deformation consumer checks the selected value
@@ -329,9 +329,9 @@ being integrated separately.
 
 
 The selected base-term square is now checked in
-`SmoothQuotientCechBaseTermSquare`: `matchingEvaluation_baseTerm` compares
+`SmoothQuotientCechBaseTermSquare`: `matchingEvaluation_baseTermDiagram` compares
 complete functors and `evaluatedBaseTerm_eq_source` recovers the original
-primitive datum. Consequently `primitiveEvaluation_isEquivalence` is
+primitive datum. Consequently `familyEvaluation_fiber_isEquivalence` is
 unconditional for every generated base term and every source context object.
 It neither assumes context evaluation is an equivalence nor imposes a global
 extension on local matching data. The retained generated consumer checks this

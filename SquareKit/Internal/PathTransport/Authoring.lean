@@ -17,13 +17,13 @@ structure BasePoint (Γ : RawCtx) (γ : CtxCode.{u}) where
 def BasePoint.variable (hΓ : CtxDeriv Γ γ) :
     BasePoint (.base :: Γ) (extendCode γ (baseCode γ)) where
   raw := .var 0
-  code := castCode (baseSub_code (weakenCode γ (baseCode γ))) (varCode γ (baseCode γ))
+  code := castCode (subTyCode_baseCode (weakenCode γ (baseCode γ))) (varCode γ (baseCode γ))
   deriv := (TmDeriv.var hΓ (.base hΓ)).convert (.baseSub (.weaken hΓ (.base hΓ)))
 
 def BasePoint.weaken (x : BasePoint Γ γ) (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a) :
     BasePoint (A :: Γ) (extendCode γ a) where
   raw := x.raw.sub (Expr.var ∘ Nat.succ)
-  code := castCode (baseSub_code (weakenCode γ a)) (subTmCode x.code (weakenCode γ a))
+  code := castCode (subTyCode_baseCode (weakenCode γ a)) (subTmCode x.code (weakenCode γ a))
   deriv := (TmDeriv.sub x.deriv (.weaken hΓ hA)).convert (.baseSub (.weaken hΓ hA))
 
 /-- Source motive and reflexive branch for a generalized path-induction command. -/
@@ -155,7 +155,7 @@ theorem PathCommand.interpreted_reflexiveBeta
     (cmd : @PathCommand Γ γ A x a ξ n Δ T) (M : Model) :
     subTmCode (jCode a ξ T cmd.motive.code cmd.motive.branchCode)
         (compCode (rootTailCode a ξ T) (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))) M =
-      castCode (subTyComp_code cmd.motive.code (rootTailCode a ξ T)
+      castCode (subTyCode_subTyCode cmd.motive.code (rootTailCode a ξ T)
         (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T)))
         (subTmCode cmd.motive.branchCode (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))) M :=
   congrFun (term_sound cmd.reflexiveBeta) M

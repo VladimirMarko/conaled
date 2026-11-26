@@ -69,7 +69,7 @@ theorem faceSubSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u})
   funext i
   fin_cases i <;> first | exact hΔ | exact hΓ | exact hφ | exact hσ
 
-theorem faceSub_valid : Satisfies algebra.{u} faceSubRule := by
+theorem faceSubRule_valid : Satisfies algebra.{u} faceSubRule := by
   intro ρ h
   obtain ⟨Γ,Δ,φ,σ,rfl⟩ := faceSubSchema_inputs _ ρ h
   exact ⟨Δ,φ.reindex σ,rfl,extra_subFace Γ Δ φ σ⟩
@@ -84,7 +84,7 @@ theorem restrictedSub_valid : Satisfies algebra.{u} restrictedSubRule := by
   · exact extra_restriction Γ φ
   · exact extra_restrictedSub Γ Δ φ σ
 
-theorem providerSub_valid : Satisfies algebra.{u} providerSubRule := by
+theorem providerSubRule_valid : Satisfies algebra.{u} providerSubRule := by
   intro ρ h
   obtain ⟨Γ,A,F,hΓ,hA,hF,hFL⟩ := h 0
   change ρ 1 = .context Γ at hΓ

@@ -46,8 +46,8 @@ theorem transport_code_reindex (hΓ : CtxDeriv Γ γ) (hΔ : CtxDeriv Δ δ)
   apply (M.transportApply_sub (x.code M) (y.code M) (p.code M) (b.code M) (s M)).trans
   apply HEq.trans _ (transport_model hΔ (p.reindex hΓ hs) (b.reindex hs) M).symm
   apply M.transportApply_congr (M.base_sub (s M))
-    (castCode_eval (baseSub_code s) (subTmCode x.code s) M).symm
-    (castCode_eval (baseSub_code s) (subTmCode y.code s) M).symm
+    (castCode_eval (subTyCode_baseCode s) (subTmCode x.code s) M).symm
+    (castCode_eval (subTyCode_baseCode s) (subTmCode y.code s) M).symm
   · apply (cast_heq _ _).trans
     symm
     unfold Path.reindex

@@ -49,14 +49,14 @@ abbrev pathTailMapNilRule := tailSubSchema 0 (.eq
 abbrev reindexBranchNilRule := jSubSchema 0 (.eq
   (reindexBranch (.var 1) (.var 2) (.var 3) (.var 7) (.var 4) (.var 5)) (subTm (.var 5) (.var 7)))
 
-theorem pathTailNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailNilRule := by
+theorem pathTailNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailNilRule := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   cases T
   simp [Atom.Eval, Term.eval, FinitaryTerm.fold, algebra, operation, DependentJudgments.operation,
     StructuralModel.pathTail, Telescope.pullback, Telescope.reindex]
 
-theorem pathTailMapNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailMapNilRule := by
+theorem pathTailMapNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailMapNilRule := by
   apply tailSubSchema_valid
   intro Γ Δ A x T σ
   cases T
@@ -64,7 +64,7 @@ theorem pathTailMapNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (al
     StructuralModel.pathTail, StructuralModel.pathTailMap, Telescope.pullback, Telescope.liftSub,
     Telescope.reindex, Telescope.total]
 
-theorem reindexBranchNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) reindexBranchNilRule := by
+theorem reindexBranchNilRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) reindexBranchNilRule := by
   apply jSubSchema_valid_length
   intro p hn Δ σ
   rcases p with ⟨⟨⟨Γ, A, x⟩, n, T⟩, D, d⟩

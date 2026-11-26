@@ -116,7 +116,7 @@ theorem first_root_eval (M : Model) :
     exact (baseReindex_lift _ _ _).trans
       (congrArg (fun t => baseReindexCode t P) (fixed_at_root hΓ x))
   rw [hf]
-  exact refl_heq M (M.base_sub (P M)) (castCode_eval (baseSub_code P) (subTmCode x.code P) M).symm
+  exact refl_heq M (M.base_sub (P M)) (castCode_eval (subTyCode_baseCode P) (subTmCode x.code P) M).symm
 
 theorem first_root_code :
     HEq (((first hΓ x).reindex (context hΓ x) (root hΓ x)).code)

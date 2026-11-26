@@ -33,7 +33,7 @@ def eliminate (e : Contraction Δ Γ) (A : Family Γ) (d : Section (A.reindex e.
         Γ.map ⋙ (eliminateSection e.right A.right d.right).lift
     rw [GroupoidModel.Section.familyImage_lift]
     simp only [eliminateSection, GroupoidModel.Section.ofOver_lift]
-    exact EquivalenceSquare.eliminate_familyMap e.right e.left Γ.map Δ.map e.square
+    exact EquivalenceSquare.eliminate_family_map e.right e.left Γ.map Δ.map e.square
       (A.right ⋙ Grpd.forgetToCat) (A.left ⋙ Grpd.forgetToCat)
       (whiskerRight A.map Grpd.forgetToCat)
       (GroupoidModel.pair A.right e.right.equiv.functor d.right) rfl

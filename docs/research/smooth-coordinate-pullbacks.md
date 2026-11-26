@@ -14,7 +14,7 @@ hypothesis is required.
 
 `SmoothCoordinatePullbacks` constructs the corresponding scalar-power maps
 through the existing tuple interface. `product_isPullback` and
-`zeroFiber_isPullback` quantify over arbitrary sheaf test objects. `fiberLift`
+`zero_fiber_isPullback` quantify over arbitrary sheaf test objects. `fiberLift`
 keeps the free block; its two projection equations and uniqueness justify the
 inverse. Named component equations identify the coordinate projections with
 the free-algebra maps. Restriction laws use every presentation-stage arrow,
@@ -23,10 +23,10 @@ including identity and composition.
 `SmoothOpenCoordinatePullbacks.coordinateMap_comparison` identifies an actual
 ordinary tuple of smooth operations with the scalar-power tuple under
 `fullPowerIso`. This gives the ordinary coordinate squares and their principal
-restrictions. `restricted_zeroFiber_isPullback` has ambient open defined by an
+restrictions. `restricted_zero_fiber_isPullback` has ambient open defined by an
 arbitrary `q`; the fiber open consists exactly of coordinates where
 `q(x,0) ≠ 0`. `restrict_isPullback` and
-`twice_restricted_zeroFiber_isPullback` retain the composite actual inclusions.
+`twice_restricted_zero_fiber_isPullback` retain the composite actual inclusions.
 `inverse_localization_square` compares those inclusions with the localization
 bases through `subdomainIso`. These proofs use the existing inverse-image and
 overlap interfaces; they do not identify independently chosen smooth support

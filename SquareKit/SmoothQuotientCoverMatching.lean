@@ -134,7 +134,7 @@ def fromSplitMap : CechMatching.StrictMap
     exact congrArg (restriction a hΓ)
       (inverse_square (SheafCoverCech.splitTripleIso f) (SheafCoverCech.splitDoubleIso f) _ _ (SheafCoverCech.splitTriple_secondThird f)).symm
 
-theorem toSplit_fromSplit : (toSplitMap a hΓ f).comp (fromSplitMap a hΓ f) =
+theorem toSplitMap_comp_fromSplitMap : (toSplitMap a hΓ f).comp (fromSplitMap a hΓ f) =
     CechMatching.StrictMap.id (strictDiagram a hΓ f) := by
   apply CechMatching.StrictMap.ext
   · change restriction a hΓ _ ⋙ restriction a hΓ _ = 𝟭 _
@@ -144,7 +144,7 @@ theorem toSplit_fromSplit : (toSplitMap a hΓ f).comp (fromSplitMap a hΓ f) =
   · change restriction a hΓ _ ⋙ restriction a hΓ _ = 𝟭 _
     rw [restriction_comp, Iso.inv_hom_id, restriction_id]
 
-theorem fromSplit_toSplit : (fromSplitMap a hΓ f).comp (toSplitMap a hΓ f) =
+theorem fromSplitMap_comp_toSplitMap : (fromSplitMap a hΓ f).comp (toSplitMap a hΓ f) =
     CechMatching.StrictMap.id
       (SmoothQuotientGeneratedMatching.strictDiagram a hΓ (SplitSheaf.ofDisplay f)) := by
   apply CechMatching.StrictMap.ext
@@ -160,11 +160,11 @@ isomorphisms and selected local arrows, for every supported generated context. -
 def matchingEquivalence : Datum a hΓ f ≌
     SmoothQuotientGeneratedMatching.Datum a hΓ (SplitSheaf.ofDisplay f) :=
   CechMatching.StrictMap.equivalence (toSplitMap a hΓ f) (fromSplitMap a hΓ f)
-    (toSplit_fromSplit a hΓ f) (fromSplit_toSplit a hΓ f)
+    (toSplitMap_comp_fromSplitMap a hΓ f) (fromSplitMap_comp_toSplitMap a hΓ f)
 
 /-- The canonical global restriction commutes with the presentation change,
 including its overlap and selected local arrows. -/
-theorem restriction_toSplit : restrictionFunctor a hΓ f ⋙ (matchingEquivalence a hΓ f).functor =
+theorem restrictionFunctor_comp_matchingEquivalence_functor : restrictionFunctor a hΓ f ⋙ (matchingEquivalence a hΓ f).functor =
     SmoothQuotientGeneratedMatching.restrictionFunctor a hΓ (SplitSheaf.ofDisplay f) := by
   have hl : restriction a hΓ f ⋙ (toSplitMap a hΓ f).localMap =
       restriction a hΓ (SplitSheaf.p (SplitSheaf.ofDisplay f)) := by

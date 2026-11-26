@@ -78,20 +78,20 @@ theorem primitive_coneLaws : CechMatching.ConeLaws
 
 include hx
 
-theorem localComposite_baseTerm (f : Y ⟶ SplitSheaf.extension A) :
+theorem localMap_comp_restriction_base_term (f : Y ⟶ SplitSheaf.extension A) :
     baseFunctor (ξ (model a A)).down ⋙ (parameterSignature a A f).base.map =
       (localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f) ⋙
         baseFunctor (ξ (SmoothQuotientSource.model a Y)).down := by
   rw [localMap_restriction]
   exact generatedBaseTerm_commutes (parameterSignature a A f) hΓ hx
 
-theorem generatedOverlap_baseTerm :
+theorem generatedOverlap_base_term :
     isoWhiskerLeft (baseFunctor (ξ (model a A)).down)
         (alignedBaseIso (overlap a A)
           (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
           (family a (SplitSheaf.Cech.double A)) (firstFiber a A) (secondFiber a A)) ≪≫
-      eqToIso (localComposite_baseTerm a A hΓ hx (SplitSheaf.Cech.second A)) =
-    eqToIso (localComposite_baseTerm a A hΓ hx (SplitSheaf.Cech.first A)) ≪≫
+      eqToIso (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.second A)) =
+    eqToIso (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.first A)) ≪≫
       isoWhiskerRight (generatedOverlap a A hΓ)
         (baseFunctor (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down) := by
   exact baseTermSquare_relabel
@@ -101,7 +101,7 @@ theorem generatedOverlap_baseTerm :
     (localMap_restriction a A hΓ (SplitSheaf.Cech.first A))
     (localMap_restriction a A hΓ (SplitSheaf.Cech.second A))
     _ _ _ _
-    (alignedContextComparison_baseTerm (overlap a A)
+    (alignedContextComparison_base_term (overlap a A)
       (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
       (family a (SplitSheaf.Cech.double A)) (firstFiber a A) (secondFiber a A)
       (overlap_square a A) hΓ hx)
@@ -112,7 +112,7 @@ def primitiveCoefficientFunctor :
   CechMatching.coneFunctor (primitiveLocalMap a A) (primitiveOverlap a A)
     (primitive_coneLaws a A)
 
-theorem matchingEvaluation_baseTerm :
+theorem matchingEvaluation_baseTermDiagram :
     matchingEvaluation a A hΓ ⋙
         (SmoothQuotientGeneratedMatching.baseTermDiagram a hΓ hx A).functor =
       baseFunctor (ξ (model a A)).down ⋙ primitiveCoefficientFunctor a A := by
@@ -127,9 +127,9 @@ theorem matchingEvaluation_baseTerm :
     (localMap a A hΓ) (primitiveLocalMap a A) (baseFunctor (ξ (model a A)).down)
     (generatedOverlap a A hΓ) (primitiveOverlap a A)
     (generatedBaseTerm_commutes (signature a A) hΓ hx).symm
-    (localComposite_baseTerm a A hΓ hx (SplitSheaf.Cech.first A))
-    (localComposite_baseTerm a A hΓ hx (SplitSheaf.Cech.second A))
-    (generatedOverlap_baseTerm a A hΓ hx)
+    (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.first A))
+    (localMap_comp_restriction_base_term a A hΓ hx (SplitSheaf.Cech.second A))
+    (generatedOverlap_base_term a A hΓ hx)
 
 omit hx in
 theorem primitiveCoefficientFunctor_recovery :
@@ -148,7 +148,7 @@ def primitiveCoefficientEquivalence :
 theorem evaluatedBaseTerm_eq_source :
     evaluatedBaseTerm a A hΓ hx = sourceBaseTerm a A hx := by
   dsimp only [evaluatedBaseTerm, sourceBaseTerm]
-  rw [← Functor.assoc, matchingEvaluation_baseTerm, Functor.assoc,
+  rw [← Functor.assoc, matchingEvaluation_baseTermDiagram, Functor.assoc,
     primitiveCoefficientFunctor_recovery]
 
 end SquareKit.SmoothQuotientCechLocal

@@ -43,7 +43,7 @@ example :
         (ArbitraryCoverSections.twoSheet X)).functor =
       SmoothQuotientGeneratedMatching.restrictionFunctor a hΓ
         (SplitSheaf.ofDisplay (ArbitraryCoverSections.twoSheet X)) :=
-  SmoothQuotientCoverMatching.restriction_toSplit a hΓ _
+  SmoothQuotientCoverMatching.restrictionFunctor_comp_matchingEquivalence_functor a hΓ _
 
 /-- An arbitrary parameter map uses the actual pullback cover and its square. -/
 example (u : Y ⟶ X) :

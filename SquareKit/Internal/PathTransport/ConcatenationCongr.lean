@@ -16,7 +16,7 @@ def concatEndpointsCongr (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
       (identityCode (baseCode γ) x.code y.code) p.raw p.code p'.raw p'.code) := by
   let e0 := endpointCongr hΓ x y p p' ep
   let ez := SubEqDeriv.pairingConverted (ConcatFrame.zType hΓ x) e0 rfl
-    (baseSub_code _) (baseSub_code _) (.refl z.deriv)
+    (subTyCode_baseCode _) (subTyCode_baseCode _) (.refl z.deriv)
   exact SubEqDeriv.pairingConverted (ConcatFrame.qType hΓ x) ez rfl
     (ConcatApplication.q_type_at hΓ x y z p)
     (ConcatApplication.q_type_at hΓ x y z p') (.refl q.deriv)

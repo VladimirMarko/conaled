@@ -22,7 +22,7 @@ theorem endpointIso_selected : endpointIso F η =
   rw [selectedSectionIso_map]
   simp [endpointIso, projection, inclusion]
 
-theorem generatedEndpointIso_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedEndpointIso_base_term (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
     isoWhiskerLeft (baseFunctor (ξ L).down) (endpointIso F η) ≪≫
         eqToIso (generatedBaseTerm_commutes (endpointSignature F P η) hΓ hx) =
@@ -44,7 +44,7 @@ theorem generatedEndpointIso_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
 variable (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
 local notation "R" => Instance.fullModel D Q
 
-private theorem evaluatedInclusion_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+private theorem inclusion_comp_evaluation_base_term (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
     baseFunctor (ξ L).down ⋙ (inclusion F ⋙ evaluation F) =
       (generatedContextMap (inclusionSignature F P) hΓ ⋙
@@ -53,7 +53,7 @@ private theorem evaluatedInclusion_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
   rw [inclusion_evaluation, generatedInclusion_evaluation]
   exact generatedBaseTerm_commutes ⟨⟨C, D, F⟩, P, Q, α⟩ hΓ hx
 
-private theorem evaluatedEndpoint_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+private theorem endpoint_comp_evaluation_base_term (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
     baseFunctor (ξ L).down ⋙ (endpoint F η ⋙ evaluation F) =
       (generatedContextMap (endpointSignature F P η) hΓ ⋙
@@ -63,12 +63,12 @@ private theorem evaluatedEndpoint_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
   exact generatedBaseTerm_commutes
     ⟨⟨C, D, G⟩, P, Q, α ≫ whiskerRight η.hom Q⟩ hΓ hx
 
-theorem generatedComparison_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+theorem generatedComparison_base_term (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
     isoWhiskerLeft (baseFunctor (ξ L).down)
         (isoWhiskerRight (endpointIso F η) (evaluation F)) ≪≫
-        eqToIso (evaluatedEndpoint_baseTerm F P η Q α hΓ hx) =
-      eqToIso (evaluatedInclusion_baseTerm F P Q α hΓ hx) ≪≫
+        eqToIso (endpoint_comp_evaluation_base_term F P η Q α hΓ hx) =
+      eqToIso (inclusion_comp_evaluation_base_term F P Q α hΓ hx) ≪≫
         isoWhiskerRight (generatedComparison F P η Q α hΓ)
           (baseFunctor (ξ R).down) :=
   isoSquare_postcompose (baseFunctor (ξ L).down) (baseFunctor (ξ M).down)
@@ -76,7 +76,7 @@ theorem generatedComparison_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (generatedBaseTerm_commutes (evaluationSignature F P Q α) hΓ hx)
     (generatedBaseTerm_commutes (inclusionSignature F P) hΓ hx)
     (generatedBaseTerm_commutes (endpointSignature F P η) hΓ hx)
-    _ _ (generatedEndpointIso_baseTerm F P η hΓ hx) _ _
+    _ _ (generatedEndpointIso_base_term F P η hΓ hx) _ _
 
 theorem normalized_endpointIso :
     (eqToIso (inclusion_evaluation F)).symm ≪≫
@@ -87,7 +87,7 @@ theorem normalized_endpointIso :
 
 /-- The actual generated base-term square commutes with the chosen comparison,
 including its morphism components. Neither endpoint map must be invertible. -/
-theorem contextComparison_baseTerm (β : P ⟶ G ⋙ Q)
+theorem contextComparison_base_term (β : P ⟶ G ⋙ Q)
     (h : α ≫ whiskerRight η.hom Q = β)
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hx : Typed.TmDeriv.{u+1} Γ γ .base (Typed.baseCode γ) x ξ) :
@@ -105,7 +105,7 @@ theorem contextComparison_baseTerm (β : P ⟶ G ⋙ Q)
     (generatedEndpoint_evaluation F P η Q α hΓ)
     _ _ (generatedBaseTerm_commutes ⟨⟨C, D, F⟩, P, Q, α⟩ hΓ hx)
     (generatedBaseTerm_commutes ⟨⟨C, D, G⟩, P, Q, α ≫ whiskerRight η.hom Q⟩ hΓ hx)
-    (generatedComparison_baseTerm F P η Q α hΓ hx)
+    (generatedComparison_base_term F P η Q α hΓ hx)
   rw [normalized_endpointIso] at hh
   exact hh
 

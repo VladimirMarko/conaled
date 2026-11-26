@@ -63,7 +63,7 @@ variable {D C D' C' : Cat.{u,u}}
 /-- Compare elimination across a coherent contraction square and a genuinely
 changing family. The branch equation retains the entire functor, including
 arrows; no target theorem or eliminator compatibility is assumed. -/
-theorem eliminate_familyMap (e : NormalizedEquivalence D C)
+theorem eliminate_family_map (e : NormalizedEquivalence D C)
     (e' : NormalizedEquivalence D' C') (K : C' ⥤ C) (L : D' ⥤ D)
     (sq : Square e.equiv e'.equiv K L)
     (A : C ⥤ Cat.{u,u}) (B : C' ⥤ Cat.{u,u}) (α : B ⟶ K ⋙ A)

@@ -59,7 +59,7 @@ the pullback of the other.
 All three fields of `EquivalenceSquare.Square` are established with the existing
 strict equations and explicit equality transports. The final elimination
 comparison is strict equality of functors, including arrows, through the
-previously checked `eliminate_familyMap`. No natural isomorphism is silently
+previously checked `eliminate_family_map`. No natural isomorphism is silently
 promoted to equality.
 
 ## Arbitrary finite changing tails
@@ -79,7 +79,7 @@ It does not take the final square as an assumption.
 
 `PathComparison.changingTail_eliminate` starts from the general base/family data,
 constructs the root square, propagates it through the finite changing tail, and
-passes that proof to `eliminate_familyMap`. Its remaining section hypothesis is
+passes that proof to `eliminate_family_map`. Its remaining section hypothesis is
 the ordinary mapped-branch equation. It does not assume the conclusion that
 elimination commutes. Motives at the final contexts may also change under an
 arbitrary natural transformation.

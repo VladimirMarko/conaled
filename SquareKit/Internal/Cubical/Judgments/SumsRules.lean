@@ -48,7 +48,7 @@ theorem eta_valid : Satisfies algebra.{u} etaRule := by
   rw [extra_pack,extra_unpack,extra_sigma]
   simp [Source.operation]
 
-theorem sigmaSub_valid : Satisfies algebra.{u} sigmaSubRule := by
+theorem sigmaSubRule_valid : Satisfies algebra.{u} sigmaSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ A B σ
   have hl := lifted_eval Γ Δ A B σ
@@ -74,7 +74,7 @@ theorem elimination_valid : Satisfies algebra.{u} eliminationRule := by
     simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term]
     rfl
 
-theorem eliminationBeta_valid : Satisfies algebra.{u} eliminationBetaRule := by
+theorem eliminationBetaRule_valid : Satisfies algebra.{u} eliminationBetaRule := by
   apply eliminationSchema_valid
   intro Γ A B C b
   change Source.operation .subTm ![Source.operation .subTm ![.term (total B) (reindex C (sigmaPack A B)) b,

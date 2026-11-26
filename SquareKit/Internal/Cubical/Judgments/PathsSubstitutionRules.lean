@@ -5,7 +5,7 @@ set_option backward.isDefEq.respectTransparency false
 open GuardedTheory Presheaf
 universe u
 
-theorem pathSub_valid : Satisfies algebra.{u} pathSubRule := by
+theorem pathSubRule_valid : Satisfies algebra.{u} pathSubRule := by
   apply substitutionSchema_valid
   intro Γ Δ B a₀ a₁ σ
   let ρ : Fin 6 → Value := ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,
@@ -27,7 +27,7 @@ theorem pathSub_valid : Satisfies algebra.{u} pathSubRule := by
 private theorem convert_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
     (t : Presheaf.Term A) : HEq (t.convert h) t := by cases h; rfl
 
-theorem lamSub_valid : Satisfies algebra.{u} lamSubRule := by
+theorem lamSubRule_valid : Satisfies algebra.{u} lamSubRule := by
   apply bodySubstitutionSchema_valid
   intro Γ Δ B a₀ a₁ b σ h₀ h₁
   let ρ : Fin 7 → Value := ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,
@@ -52,7 +52,7 @@ theorem lamSub_valid : Satisfies algebra.{u} lamSubRule := by
       (b.reindex (liftSub (Presheaf.interval Γ) σ))
       (congrArg (fun t => t.reindex σ) h₀) (congrArg (fun t => t.reindex σ) h₁)).symm
 
-theorem appSub_valid : Satisfies algebra.{u} appSubRule := by
+theorem appSubRule_valid : Satisfies algebra.{u} appSubRule := by
   apply functionSubstitutionSchema_valid
   intro Γ Δ B a₀ a₁ p σ
   let ρ : Fin 7 → Value := ![.context Γ,.context Δ,.family (total (Presheaf.interval Γ)) B,

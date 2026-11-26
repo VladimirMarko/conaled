@@ -21,7 +21,7 @@ theorem restriction_equivalence_of_split
       (SplitSheaf.ofDisplay f)).IsEquivalence] :
     (restrictionFunctor a hΓ f).IsEquivalence := by
   let : (restrictionFunctor a hΓ f ⋙ (matchingEquivalence a hΓ f).functor).IsEquivalence := by
-    rw [restriction_toSplit]
+    rw [restrictionFunctor_comp_matchingEquivalence_functor]
     infer_instance
   exact Functor.isEquivalence_of_comp_right _ (matchingEquivalence a hΓ f).functor
 

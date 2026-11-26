@@ -36,11 +36,11 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .unpack => unpack_valid
     | .inr .beta => beta_valid
     | .inr .eta => eta_valid
-    | .inr .sigmaSub => sigmaSub_valid
+    | .inr .sigmaSub => sigmaSubRule_valid
     | .inr .elimination => elimination_valid
-    | .inr .eliminationBeta => eliminationBeta_valid
-    | .inr .packSub => packSub_valid
-    | .inr .unpackSub => unpackSub_valid
+    | .inr .eliminationBeta => eliminationBetaRule_valid
+    | .inr .packSub => packSubRule_valid
+    | .inr .unpackSub => unpackSubRule_valid
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})

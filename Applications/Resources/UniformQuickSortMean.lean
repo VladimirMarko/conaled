@@ -314,7 +314,7 @@ theorem conditional_mean (positions : List I) (hnd : positions.Nodup)
   simp
 
 omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in
-theorem firstEvents_disjoint (positions : List I) (S : Finset I) :
+theorem firstEvent_pairwise_disjoint (positions : List I) (S : Finset I) :
     Set.Pairwise (S : Set I)
       (fun a b => Disjoint (firstEvent (restrictedOrder positions S) a)
         (firstEvent (restrictedOrder positions S) b)) := by
@@ -324,7 +324,7 @@ theorem firstEvents_disjoint (positions : List I) (S : Finset I) :
   exact hab (Option.some.inj (hπa.symm.trans hπb))
 
 omit [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)] in
-theorem firstEvents_cover (positions : List I) (hnd : positions.Nodup)
+theorem iUnion_firstEvent (positions : List I) (hnd : positions.Nodup)
     (hcomplete : ∀ b, b ∈ positions) (S : Finset I) (hS : S.Nonempty) :
     (⋃ a ∈ S, firstEvent (restrictedOrder positions S) a) = Set.univ := by
   apply Set.eq_univ_of_forall
@@ -367,9 +367,9 @@ theorem meanBy_recurrence (positions : List I) (hnd : positions.Nodup)
   let := Fintype.ofList positions hcomplete
   have hsplit := integral_biUnion_finset S
     (fun a _ => (Set.toFinite (firstEvent (restrictedOrder positions S) a)).measurableSet)
-    (firstEvents_disjoint positions S)
+    (firstEvent_pairwise_disjoint positions S)
     (fun _ _ => (integrable_observedCost positions hcomplete lt S).integrableOn)
-  rw [firstEvents_cover positions hnd hcomplete S hS, Measure.restrict_univ] at hsplit
+  rw [iUnion_firstEvent positions hnd hcomplete S hS, Measure.restrict_univ] at hsplit
   change meanBy positions lt S = _ at hsplit
   rw [hsplit, Finset.mul_sum]
   exact Finset.sum_congr rfl (fun a ha => first_integral positions hnd hcomplete lt S a ha)
@@ -642,7 +642,7 @@ noncomputable def inputMeanBy (lt : α → α → Bool) (xs : List α) : ℝ :=
   ∫ π, (QuickSort.exerciseCost lt (occurrenceInput xs π) : ℝ)
     ∂uniformOn (Set.univ : Set (Equiv.Perm (Fin xs.length)))
 
-theorem integrable_inputCost (lt : α → α → Bool) (xs : List α) :
+theorem integrable_exerciseCost_occurrenceInput (lt : α → α → Bool) (xs : List α) :
     Integrable (fun π => (QuickSort.exerciseCost lt (occurrenceInput xs π) : ℝ))
       (uniformOn (Set.univ : Set (Equiv.Perm (Fin xs.length)))) := Integrable.of_finite
 
@@ -758,7 +758,7 @@ noncomputable def inputLiteralMean (key : α → κ) (xs : List α) : ℝ :=
 theorem inputLiteralMean_bounds (key : α → κ) (xs : List α) :
     inputMean key xs ≤ inputLiteralMean key xs ∧
       inputLiteralMean key xs ≤ 2 * inputMean key xs := by
-  have hT := integrable_inputCost (fun a b => decide (key a < key b)) xs
+  have hT := integrable_exerciseCost_occurrenceInput (fun a b => decide (key a < key b)) xs
   have hF : Integrable
       (fun π => (QuickSort.literalCost (fun a b => decide (key a < key b))
         (occurrenceInput xs π) : ℝ))

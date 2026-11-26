@@ -353,7 +353,7 @@ theorem j_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
   refine ⟨T.total, D, M.j A x T D d, ?_, rfl, ?_⟩ <;>
     simp [Term.eval, algebra, operation, problemEnvironment]
 
-theorem jBeta_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem jBetaRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (jBetaRule n) := by
   apply jSchema_valid
   intro p
@@ -425,7 +425,7 @@ theorem jSubSchema_valid (M : PathTransport.Typed.Model.{u}) (n : Nat)
   subst ρ
   exact valid p Δ σ
 
-theorem jSub_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
+theorem jSubRule_valid (M : PathTransport.Typed.Model.{u}) (n : Nat) :
     Satisfies (algebra M) (jSubRule n) := by
   apply jSubSchema_valid
   intro p Δ σ

@@ -38,7 +38,7 @@ abbrev pathSubDefRule := termSubSchema (.eq
     (generic (extend (.var 1) (subTy (.var 2) (.var 4)))
       (pathFamily (.var 1) (subTy (.var 2) (.var 4)) (subTm (.var 3) (.var 4))))))
 
-theorem pathSubDef_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathSubDefRule := by
+theorem pathSubDefRule_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathSubDefRule := by
   apply termSubSchema_valid
   intro Γ Δ A x σ
   change Term.eval (algebra M) _ _ = _

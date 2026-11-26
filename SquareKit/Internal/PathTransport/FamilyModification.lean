@@ -11,7 +11,7 @@ universe u
 variable {C : Type u} [Category.{u} C] {A B : C ⥤ Grpd.{u,u}}
 
 /-- Family-map naturality expressed as equality of fiber functors. -/
-theorem familyMap_naturality (α : A ⟶ B) {c d : C} (f : c ⟶ d) :
+theorem family_map_naturality (α : A ⟶ B) {c d : C} (f : c ⟶ d) :
     (A.map f ⋙ α.app d : A.obj c ⥤ B.obj d) = α.app c ⋙ B.map f := α.naturality f
 
 /-- Component isomorphisms commute with every base arrow, as an equation of
@@ -19,8 +19,8 @@ natural isomorphisms of functors between the actual fibers. -/
 structure FamilyModification (α β : A ⟶ B) where
   app : ∀ c, (show A.obj c ⥤ B.obj c from α.app c) ≅ β.app c
   naturality : ∀ {c d} (f : c ⟶ d),
-    isoWhiskerLeft (A.map f) (app d) ≪≫ eqToIso (familyMap_naturality β f) =
-      eqToIso (familyMap_naturality α f) ≪≫ isoWhiskerRight (app c) (B.map f)
+    isoWhiskerLeft (A.map f) (app d) ≪≫ eqToIso (family_map_naturality β f) =
+      eqToIso (family_map_naturality α f) ≪≫ isoWhiskerRight (app c) (B.map f)
 
 namespace FamilyModification
 variable {α β : A ⟶ B}
@@ -55,8 +55,8 @@ theorem totalComponent_naturality (m : FamilyModification α β)
     rw [hf]
     simp only [Iso.trans_hom, eqToIso.hom, NatTrans.comp_app, eqToHom_app] at hn
     have he := congrArg (fun k =>
-      eqToHom (congrArg (fun F => F.obj x.fiber) (familyMap_naturality α f.base).symm) ≫ k ≫
-        eqToHom (congrArg (fun F => F.obj x.fiber) (familyMap_naturality β f.base).symm) ≫
+      eqToHom (congrArg (fun F => F.obj x.fiber) (family_map_naturality α f.base).symm) ≫ k ≫
+        eqToHom (congrArg (fun F => F.obj x.fiber) (family_map_naturality β f.base).symm) ≫
           (β.app y.base).map f.fiber) hn
     dsimp only [Grpd.forgetToCat] at he ⊢
     simp only [isoWhiskerLeft_hom, isoWhiskerRight_hom, whiskerLeft_app,

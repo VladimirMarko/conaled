@@ -17,7 +17,7 @@ theorem two_freeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (
       w.comp (SmoothAlgebra.Coordinates.zeroSection 2 1) =
         evaluate (Fin.addCases ![a,b] (fun _ : Fin 1 => 0)) ∧
       w.comp (SmoothAlgebra.Coordinates.constants 2) = evaluate Fin.elim0 := by
-  apply SmoothAlgebra.Coordinates.zeroFiber_universal
+  apply SmoothAlgebra.Coordinates.zero_fiber_universal
   apply hom_ext_generators
   intro i
   change evaluate (Fin.addCases ![a,b] (fun _ : Fin 1 => 0))
@@ -258,7 +258,7 @@ example : IsPullback
     (embedding.map (subInclusion (subdomain (full 2) support) otherSupport ≫
       (subInclusion (full 2) support ≫ EuclideanOpen.Coordinates.last 1 1)))
     (embedding.map (EuclideanOpen.Coordinates.zero 1)) :=
-  EuclideanOpen.Coordinates.twice_restricted_zeroFiber_isPullback 1 1 support otherSupport
+  EuclideanOpen.Coordinates.twice_restricted_zero_fiber_isPullback 1 1 support otherSupport
 
 /-- The empty principal ambient open has an initial sheaf realization. -/
 example : IsInitial (embedding.obj (subdomain (full 2) 0)) := zeroSubdomainIsInitial _
@@ -274,15 +274,15 @@ example : IsPullback
       (inverseDefining (EuclideanOpen.Coordinates.insertZero 1 1) 0) ≫ EuclideanOpen.Coordinates.toPoint 1))
     (embedding.map (subInclusion (full 2) 0 ≫ EuclideanOpen.Coordinates.last 1 1))
     (embedding.map (EuclideanOpen.Coordinates.zero 1)) :=
-  EuclideanOpen.Coordinates.restricted_zeroFiber_isPullback 1 1 0
+  EuclideanOpen.Coordinates.restricted_zero_fiber_isPullback 1 1 0
 
 /-- No free coordinates and no constrained coordinates are both supported. -/
 example (k : ℕ) : IsPullback (SmoothOpenSite.Coordinates.insertZero 0 k)
     (SmoothOpenSite.Coordinates.toPoint 0) (SmoothOpenSite.Coordinates.last 0 k)
-    (SmoothOpenSite.Coordinates.zero k) := SmoothOpenSite.Coordinates.zeroFiber_isPullback 0 k
+    (SmoothOpenSite.Coordinates.zero k) := SmoothOpenSite.Coordinates.zero_fiber_isPullback 0 k
 
 example (n : ℕ) : IsPullback (SmoothOpenSite.Coordinates.insertZero n 0)
     (SmoothOpenSite.Coordinates.toPoint n) (SmoothOpenSite.Coordinates.last n 0)
-    (SmoothOpenSite.Coordinates.zero 0) := SmoothOpenSite.Coordinates.zeroFiber_isPullback n 0
+    (SmoothOpenSite.Coordinates.zero 0) := SmoothOpenSite.Coordinates.zero_fiber_isPullback n 0
 
 end Examples.SmoothCoordinatePullbacks

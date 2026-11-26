@@ -13,7 +13,7 @@ def withZ := CtxDeriv.ext hΓ (zType hΓ x)
 def liftRoot := liftSubstitution hΓ (ConcatFrame.zType hΓ x) (root hΓ x)
 def qType := TyDeriv.sub (ConcatFrame.qType hΓ x) (liftRoot hΓ x)
 def zArgs := SubDeriv.pair (zType hΓ x) (.id hΓ)
-  (z.deriv.annotateType ((subTyId_code _).trans (baseSub_code (rootCode (baseCode γ) x.code))).symm)
+  (z.deriv.annotateType ((subTyCode_idCode _).trans (subTyCode_baseCode (rootCode (baseCode γ) x.code))).symm)
 
 theorem z_endpoint : compCode (substitutionCode (liftRoot hΓ x)) (substitutionCode (zArgs hΓ x z)) =
     substitutionCode (ConcatApplication.endpointZ hΓ x x z (Path.reflexivity hΓ x)) := by
@@ -21,14 +21,14 @@ theorem z_endpoint : compCode (substitutionCode (liftRoot hΓ x)) (substitutionC
   apply M.toStructuralModel.lift_pair_congr
   · exact (M.comp_id_right _).trans (congrFun (endpointCode_root (baseCode γ) x.code) M).symm
   · exact (castCode_eval _ _ M).trans
-      (castCode_eval (baseSub_code (endpointCode (baseCode γ) x.code x.code
+      (castCode_eval (subTyCode_baseCode (endpointCode (baseCode γ) x.code x.code
         (reflCode (baseCode γ) x.code))).symm z.code M).symm
 
 theorem q_type_at : subTyCode (subTyCode
     (identityCode (baseCode _) (ConcatFrame.yAtZ hΓ x).code (ConcatFrame.z hΓ x).code)
     (substitutionCode (liftRoot hΓ x))) (substitutionCode (zArgs hΓ x z)) =
     identityCode (baseCode γ) x.code z.code :=
-  (subTyComp_code _ _ _).trans
+  (subTyCode_subTyCode _ _ _).trans
     ((congrArg (subTyCode _) (z_endpoint hΓ x z)).trans
       (ConcatApplication.q_type_at hΓ x x z (Path.reflexivity hΓ x)))
 

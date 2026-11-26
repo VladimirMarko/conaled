@@ -303,44 +303,44 @@ decreasing_by
   all_goals exact filter_eraseIdx_length_lt _ _ _ i.isLt
 
 /-- The exercise bound holds on every actual random branch, with duplicates. -/
-theorem exerciseCost_le (lt : α → α → Bool) (xs : List α)
+theorem exercise_cost_le (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     result.2.1 ≤ 2 * xs.length ^ 2 + 2 * xs.length + 1 :=
   (support_cost_bounds lt xs result hr).1
 
-theorem appendCost_lower (lt : α → α → Bool) (xs : List α)
+theorem three_mul_length_le_append_cost (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     3 * xs.length ≤ result.2.2 := (support_cost_bounds lt xs result hr).2.1
 
-theorem appendCost_double_le (lt : α → α → Bool) (xs : List α)
+theorem two_mul_append_cost_le (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     2 * result.2.2 ≤ xs.length ^ 2 + 5 * xs.length :=
   (support_cost_bounds lt xs result hr).2.2.1
 
-theorem appendCost_le_exerciseCost (lt : α → α → Bool) (xs : List α)
+theorem append_cost_le_exercise_cost (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     result.2.2 ≤ result.2.1 := (support_cost_bounds lt xs result hr).2.2.2
 
 /-- Append-inclusive source-body observation. Selection, lookup/removal and
 random bits are still outside this tariff. -/
-theorem literalCost_comparison (lt : α → α → Bool) (xs : List α)
+theorem append_inclusive_cost_bounds (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     result.2.1 ≤ result.2.1 + result.2.2 ∧
       result.2.1 + result.2.2 ≤ 2 * result.2.1 := by
-  have ha := appendCost_le_exerciseCost lt xs result hr
+  have ha := append_cost_le_exercise_cost lt xs result hr
   omega
 
-theorem literalCost_double_le (lt : α → α → Bool) (xs : List α)
+theorem two_mul_append_inclusive_cost_le (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     2 * (result.2.1 + result.2.2) ≤ 5 * xs.length ^ 2 + 9 * xs.length + 2 := by
-  have ht := exerciseCost_le lt xs result hr
-  have ha := appendCost_double_le lt xs result hr
+  have ht := exercise_cost_le lt xs result hr
+  have ha := two_mul_append_cost_le lt xs result hr
   omega
 
-theorem literalCost_le (lt : α → α → Bool) (xs : List α)
+theorem append_inclusive_cost_le (lt : α → α → Bool) (xs : List α)
     (result : Measured (List α) (Nat × Nat)) (hr : result ∈ (run lt xs).support) :
     result.2.1 + result.2.2 ≤ (5 * xs.length ^ 2 + 9 * xs.length + 2) / 2 := by
-  have h := literalCost_double_le lt xs result hr
+  have h := two_mul_append_inclusive_cost_le lt xs result hr
   omega
 
 /-- Project the actual observation to a countable carrier before introducing
@@ -382,7 +382,7 @@ theorem exerciseLaw_support (lt : α → α → Bool) (xs : List α) :
   intro cost hc
   obtain ⟨result, hr, he⟩ := (PMF.mem_support_map_iff _ _ _).mp hc
   rw [← he]
-  exact exerciseCost_le lt xs result hr
+  exact exercise_cost_le lt xs result hr
 
 theorem exerciseLaw_support_finite (lt : α → α → Bool) (xs : List α) :
     (exerciseLaw lt xs).support.Finite :=
@@ -393,7 +393,7 @@ theorem literalLaw_support (lt : α → α → Bool) (xs : List α) :
   intro cost hc
   obtain ⟨result, hr, he⟩ := (PMF.mem_support_map_iff _ _ _).mp hc
   rw [← he]
-  exact literalCost_le lt xs result hr
+  exact append_inclusive_cost_le lt xs result hr
 
 theorem literalLaw_support_finite (lt : α → α → Bool) (xs : List α) :
     (literalLaw lt xs).support.Finite :=
@@ -465,7 +465,7 @@ decreasing_by
   exact eraseIdx_length_lt _ _ i.isLt
 
 /-- The joint cost law can be deterministic even when the value order is not. -/
-theorem jointCostLaw_of_all_false (lt : α → α → Bool) (xs : List α)
+theorem joint_cost_law_of_all_false (lt : α → α → Bool) (xs : List α)
     (hf : ∀ a ∈ xs, ∀ b ∈ xs, lt a b = false) :
     PMF.map Prod.snd (run lt xs) =
       PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length) := by
@@ -484,11 +484,11 @@ theorem costs_of_constant_key [LinearOrder κ] (key : α → κ) (xs : List α) 
   simp [hk a ha, hk b hb]
 
 /-- Equal keys remain quadratic for every pivot choice, even with distinct tags. -/
-theorem jointCostLaw_of_constant_key [LinearOrder κ] (key : α → κ) (xs : List α) (c : κ)
+theorem joint_cost_law_of_constant_key [LinearOrder κ] (key : α → κ) (xs : List α) (c : κ)
     (hk : ∀ x ∈ xs, key x = c) :
     PMF.map Prod.snd (runOn key xs) =
       PMF.pure (2 * xs.length ^ 2 + 2 * xs.length + 1, 3 * xs.length) := by
-  apply jointCostLaw_of_all_false
+  apply joint_cost_law_of_all_false
   intro a ha b hb
   simp [hk a ha, hk b hb]
 

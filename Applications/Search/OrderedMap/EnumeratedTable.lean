@@ -251,13 +251,13 @@ def rawTreeObservations : Observations κ ν (BinaryTree (κ × ν)) :=
 
 /-- The first attempted realization's completeness theorem is valid for every
 raw tree; it never required the invariant that its soundness theorem needs. -/
-theorem rawTree_elements_complete (default : ν) (key : κ) (value : ν)
+theorem rawTreeObservations_elements_complete (default : ν) (key : κ) (value : ν)
     (t : BinaryTree (κ × ν)) (bound : rawTreeObservations.bound key t = true)
     (found : (rawTreeTable default).get key t = value) :
     (key, value) ∈ rawTreeObservations.elements t :=
   mem_entries_of_lookup ((binding_iff default (pathObserve t) key value).mpr ⟨bound, found⟩)
 
-theorem rawTree_laws (default : ν) :
+theorem rawTreeTable_laws (default : ν) :
     Laws (rawTreeTable (κ := κ) default) rawTreeObservations default (OrderedBy Prod.fst) :=
   Laws.ofPartial (rawTrees κ ν) pathObserve entries default (OrderedBy Prod.fst)
     rawTrees_laws trivial (fun key value _ ordered => ordered_bind ordered key value)
@@ -265,7 +265,7 @@ theorem rawTree_laws (default : ν) :
     (fun key value _ ordered member =>
       (lookup_eq_some_iff_mem_entries ordered key value).mpr member)
 
-theorem rawTree_strong :
+theorem rawTreeObservations_strongElements :
     StrongElements (rawTreeObservations : Observations κ ν _) (OrderedBy Prod.fst) where
   absent_no_entry key t ordered absent value member := by
     have found := (lookup_eq_some_iff_mem_entries ordered key value).mpr member
@@ -280,7 +280,7 @@ theorem rawTree_strong :
   keys_sorted _ ordered := ordered_entries_keys_pairwise ordered
   keys_nodup _ ordered := ordered_entries_keys_nodup ordered
 
-theorem rawTree_model_enum (default : ν) :
+theorem rawTreeTable_model_enumAbs (default : ν) :
     ModelLaws (rawTreeTable (κ := κ) default) rawTreeObservations default
       (OrderedBy Prod.fst) SourceModel.enumAbs where
   empty_valid := trivial
@@ -293,7 +293,7 @@ theorem rawTree_model_enum (default : ν) :
 
 /-- Search and update refinement here use the independent structural proofs;
 only the elements field needs the established agreement with enumeration. -/
-theorem rawTree_model_structural (default : ν) :
+theorem rawTreeTable_model_mapOfTree (default : ν) :
     ModelLaws (rawTreeTable (κ := κ) default) rawTreeObservations default
       (OrderedBy Prod.fst) SourceModel.mapOfTree where
   empty_valid := trivial
@@ -320,10 +320,10 @@ theorem tree_laws (default : ν) :
 
 theorem tree_strong :
     StrongElements (treeObservations : Observations κ ν _) (fun _ => True) where
-  absent_no_entry key t _ := rawTree_strong.absent_no_entry key t.1 t.2
-  no_entry_absent key t := rawTree_strong.no_entry_absent key t.1
-  keys_sorted t _ := rawTree_strong.keys_sorted t.1 t.2
-  keys_nodup t _ := rawTree_strong.keys_nodup t.1 t.2
+  absent_no_entry key t _ := rawTreeObservations_strongElements.absent_no_entry key t.1 t.2
+  no_entry_absent key t := rawTreeObservations_strongElements.no_entry_absent key t.1
+  keys_sorted t _ := rawTreeObservations_strongElements.keys_sorted t.1 t.2
+  keys_nodup t _ := rawTreeObservations_strongElements.keys_nodup t.1 t.2
 
 end LinearOrder
 end Search.OrderedMap.EnumeratedTable

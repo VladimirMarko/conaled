@@ -14,7 +14,7 @@ variable (a : Action (locallyConstantGroup H) M) (f : Y ⟶ X)
 variable (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
 variable (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
 
-theorem toSplit_substitutionMap :
+theorem toSplitMap_comp_substitutionDiagram :
     (toSplitMap a hΔ f).comp
         (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs (SplitSheaf.ofDisplay f)) =
       (substitutionDiagram a hΓ hΔ hs f).comp (toSplitMap a hΓ f) := by
@@ -26,14 +26,14 @@ theorem toSplit_substitutionMap :
   · exact (generatedSubstitution_commutes
       (SmoothQuotientComparison.signature (a := a) (SheafCoverCech.splitTripleIso f).hom) hΓ hΔ hs).symm
 
-theorem toSplit_substitution :
+theorem matchingEquivalence_functor_comp_substitution :
     (matchingEquivalence a hΔ f).functor ⋙
         SmoothQuotientGeneratedMatching.substitution a hΓ hΔ hs (SplitSheaf.ofDisplay f) =
       substitution a hΓ hΔ hs f ⋙ (matchingEquivalence a hΓ f).functor := by
   change (toSplitMap a hΔ f).functor ⋙
     (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs (SplitSheaf.ofDisplay f)).functor =
     (substitutionDiagram a hΓ hΔ hs f).functor ⋙ (toSplitMap a hΓ f).functor
-  rw [← CechMatching.StrictMap.functor_comp, toSplit_substitutionMap,
+  rw [← CechMatching.StrictMap.functor_comp, toSplitMap_comp_substitutionDiagram,
     CechMatching.StrictMap.functor_comp]
 
 end SquareKit.SmoothQuotientCoverMatching

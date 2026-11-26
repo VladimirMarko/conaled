@@ -196,7 +196,7 @@ theorem extreme_first_mass :
     law (firstEvent (restrictedOrder positions selected) low ∪
       firstEvent (restrictedOrder positions selected) high) = 2 / 3 := by
   rw [measure_union
-    (firstEvents_disjoint positions selected (by decide : low ∈ selected)
+    (firstEvent_pairwise_disjoint positions selected (by decide : low ∈ selected)
       (by decide : high ∈ selected) (by decide : low ≠ high)) (by trivial),
     low_first_mass, high_first_mass]
   have h : (1 / 3 : NNReal) + 1 / 3 = 2 / 3 := by norm_num

@@ -148,7 +148,7 @@ consumers with direct semantic transport calculations.
 
 ## Validation boundary
 
-`GeneratedBaseTermComparison.contextComparison_baseTerm` extends the selected
+`GeneratedBaseTermComparison.contextComparison_base_term` extends the selected
 square to every generated base term. The conclusion compares whole natural
 isomorphisms, including the chosen morphism components and the actual strict
 base-term restriction equalities. It uses the auxiliary fully faithful cylinder

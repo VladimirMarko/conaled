@@ -34,8 +34,8 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
         algebra,Algebra.restrictLeft,Naturals.algebra] at h ⊢
       exact Naturals.model.rules a ρ h
     | .inr .formation => formation_valid
-    | .inr .intervalSub => intervalSub_valid
-    | .inr (.dimensionSub e) => dimensionSub_valid e
+    | .inr .intervalSub => intervalSubRule_valid
+    | .inr (.dimensionSub e) => dimensionSubRule_valid e
     | .inr (.dimension e) => dimension_valid e
     | .inr (.variable k) => variable_valid k
     | .inr (.conversion h) => conversion_valid h

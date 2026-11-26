@@ -92,7 +92,7 @@ theorem splitSquareMap_local : (splitSquareMap a hΓ u v square).localMap =
   rw [← Functor.assoc, restriction_comp, restriction_comp]
   rfl
 
-theorem toSplit_square : (toSplitMap a hΓ f).comp (splitSquareMap a hΓ u v square) =
+theorem toSplitMap_comp_splitSquareMap : (toSplitMap a hΓ f).comp (splitSquareMap a hΓ u v square) =
     (squareMap a hΓ u v square).comp (toSplitMap a hΓ k) := by
   change (toSplitMap a hΓ f).comp ((fromSplitMap a hΓ f).comp _) = _
   have h : (toSplitMap a hΓ f).comp
@@ -100,7 +100,7 @@ theorem toSplit_square : (toSplitMap a hΓ f).comp (splitSquareMap a hΓ u v squ
     ((toSplitMap a hΓ f).comp (fromSplitMap a hΓ f)).comp
       ((squareMap a hΓ u v square).comp (toSplitMap a hΓ k)) := by
     apply CechMatching.StrictMap.ext <;> rfl
-  rw [h, toSplit_fromSplit]
+  rw [h, toSplitMap_comp_fromSplitMap]
   apply CechMatching.StrictMap.ext <;> rfl
 
 /-- Original-to-split matching equivalences commute with arbitrary parameter
@@ -110,7 +110,7 @@ theorem matchingEquivalence_natural :
       squareFunctor a hΓ u v square ⋙ (matchingEquivalence a hΓ k).functor := by
   change (toSplitMap a hΓ f).functor ⋙ (splitSquareMap a hΓ u v square).functor =
     (squareMap a hΓ u v square).functor ⋙ (toSplitMap a hΓ k).functor
-  rw [← CechMatching.StrictMap.functor_comp, toSplit_square, CechMatching.StrictMap.functor_comp]
+  rw [← CechMatching.StrictMap.functor_comp, toSplitMap_comp_splitSquareMap, CechMatching.StrictMap.functor_comp]
 
 /-- Global restriction commutes with every original cover square, retaining
 canonical overlap data and all local arrows. -/

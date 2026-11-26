@@ -43,7 +43,7 @@ theorem eta_valid : Satisfies (algebra M S) etaRule := by
   simpa [Term.eval, algebra, operation, Contextual.algebra, DependentJudgments.operation]
     using congrArg (Value.substitution _ _) (S.pack_unpack A B)
 
-theorem packOver_valid : Satisfies (algebra M S) packOverRule := by
+theorem packOverRule_valid : Satisfies (algebra M S) packOverRule := by
   apply formationSchema_valid
   intro Γ A B
   change (comp (weaken (.var 0) (sigma (.var 1) (.var 2))) (pack (.var 1) (.var 2))).eval _ _ = _
@@ -125,7 +125,7 @@ theorem split_valid : Satisfies (algebra M S) splitRule := by
       Value.termIn_term]
     exact Value.term_eq (S.split_type A B C) (S.split_heq A B C d).symm
 
-theorem splitBeta_valid : Satisfies (algebra M S) splitBetaRule := by
+theorem splitBetaRule_valid : Satisfies (algebra M S) splitBetaRule := by
   apply splitSchema_valid
   intro Γ A B C d
   change (subTm (split (.var 1) (.var 2) (.var 4)) (pack (.var 1) (.var 2))).eval _ _ = _

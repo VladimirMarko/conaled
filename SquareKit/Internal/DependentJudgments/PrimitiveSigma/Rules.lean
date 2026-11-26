@@ -23,7 +23,7 @@ theorem pack_valid : Satisfies (algebra M S) packRule := by
   refine ⟨M.extend (M.extend Γ A) B, M.extend Γ (S.sigma A B), S.pack A B, ?_, ?_, ?_⟩ <;>
     eval_simp
 
-theorem packOver_valid : Satisfies (algebra M S) packOverRule := by
+theorem packOverRule_valid : Satisfies (algebra M S) packOverRule := by
   apply formationSchema_valid
   intro Γ A B
   change (comp (weaken (.var 0) (sigma (.var 1) (.var 2))) (pack (.var 1) (.var 2))).eval _ _ = _
@@ -98,7 +98,7 @@ theorem split_valid : Satisfies (algebra M S) splitRule := by
   intro Γ A B C d
   refine ⟨M.extend Γ (S.sigma A B), C, S.split A B C d, ?_, rfl, ?_⟩ <;> eval_simp
 
-theorem splitBeta_valid : Satisfies (algebra M S) splitBetaRule := by
+theorem splitBetaRule_valid : Satisfies (algebra M S) splitBetaRule := by
   apply splitSchema_valid
   intro Γ A B C d
   change (subTm (split (.var 1) (.var 2) (.var 3) (.var 4)) (pack (.var 1) (.var 2))).eval _ _ = _

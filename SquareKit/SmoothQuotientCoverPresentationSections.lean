@@ -58,7 +58,7 @@ def presentationTotalProjection :
       (matchingEquivalence a (.ext hΓ hB) f).functor)
     (splitInverseProjection a f hΓ hB) ≪≫
   isoWhiskerLeft (dependentComprehensionEquivalence a hΓ hB f).functor
-    (eqToIso (toSplit_substitution a f hΓ (.ext hΓ hB) (.weaken hΓ hB))) ≪≫
+    (eqToIso (matchingEquivalence_functor_comp_substitution a f hΓ (.ext hΓ hB) (.weaken hΓ hB))) ≪≫
   isoWhiskerRight (dependentComprehensionProjection a hΓ hB f)
     (matchingEquivalence a hΓ f).functor
 

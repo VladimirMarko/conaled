@@ -24,8 +24,15 @@ The case file is checked together with both private reference bodies in
 entrypoint for the ordinary exhaustive audit. The generated module hoists
 imports and concatenates the unchanged source bodies; the validator checks
 that transformation byte-for-byte and requires a nonzero audited declaration
-count for the module. Neither author handoff includes this module. Run from
-the repository's development shell:
+count for the module. Neither author handoff includes this module.
+
+These checks reproduce the frozen trial. Run them from a complete checkout of
+reviewed commit `497daa15afc2a38a0640eccfcc5e96100709aa74`, using that checkout's
+development shell. The validator expects the original integrated source bytes.
+The current `Examples.GuardedJRetestValidation` is maintained independently,
+including naming updates, and is checked by the ordinary repository audit.
+
+For the historical replay, run:
 
 ```sh
 python3 experiments/guarded-j-retest/preparation/validate_references.py NewCheckName --audit

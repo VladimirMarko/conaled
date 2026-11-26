@@ -626,7 +626,7 @@ theorem closedSection_le_real {A : Set ℚ} {v : ℝ}
 
 /-- A finite real LUB is equivalent to the complete rational observation cut.
 The image lives in ℝ, so the empty raw set has no finite LUB. -/
-theorem isLUB_realCast_iff (A : Set ℚ) (v : ℝ) :
+theorem isLUB_ratCast_iff (A : Set ℚ) (v : ℝ) :
     IsLUB (((↑) : ℚ → ℝ) '' A) v ↔
       ∀ q : ℚ, q ∈ closedSection A ↔ (q : ℝ) ≤ v := by
   constructor
@@ -659,7 +659,7 @@ theorem rel_coe_iff_isLUB (A : Set ℚ) (v : ℝ≥0) :
       IsLUB (((↑) : ℚ → ℝ) '' A) (v : ℝ) := by
   change ((∀ q ∈ A, 0 ≤ q) ∧
     ∀ q : ℚ, q ∈ closedSection A ↔ (q : ℝ) ≤ (v : ℝ)) ↔ _
-  exact and_congr Iff.rfl (isLUB_realCast_iff A (v : ℝ)).symm
+  exact and_congr Iff.rfl (isLUB_ratCast_iff A (v : ℝ)).symm
 
 /-- A raw member is nonnegative even when the related value is not assumed valid. -/
 theorem rel_nonneg {A : Set ℚ} {v : Value} (h : Rel A v)
@@ -694,7 +694,7 @@ theorem mem_closedSection_singleton (r x : ℚ) :
     x ∈ closedSection ({r} : Set ℚ) ↔ x ≤ r := by
   have h : IsLUB (((↑) : ℚ → ℝ) '' ({r} : Set ℚ)) (r : ℝ) := by
     simpa only [Set.image_singleton] using (isLUB_singleton : IsLUB ({(r : ℝ)} : Set ℝ) (r : ℝ))
-  exact ((isLUB_realCast_iff ({r} : Set ℚ) (r : ℝ)).mp h x).trans Rat.cast_le
+  exact ((isLUB_ratCast_iff ({r} : Set ℚ) (r : ℝ)).mp h x).trans Rat.cast_le
 
 /-- The negative query -2 distinguishes a valid zero section from emptiness. -/
 theorem negative_query_zero_section : (-2 : ℚ) ∈ closedSection ({0} : Set ℚ) := by
@@ -713,7 +713,7 @@ namespace SquareKit.NonnegativeArithmetic
 noncomputable section
 open scoped Pointwise
 
-theorem realCast_image2_add (A B : Set ℚ) :
+theorem ratCast_image2_add (A B : Set ℚ) :
     (((↑) : ℚ → ℝ) '' Set.image2 (fun x y : ℚ => x + y) A B) =
       Set.image2 (fun x y : ℝ => x + y)
         (((↑) : ℚ → ℝ) '' A) (((↑) : ℚ → ℝ) '' B) := by
@@ -721,7 +721,7 @@ theorem realCast_image2_add (A B : Set ℚ) :
   intro a b
   exact Rat.cast_add a b
 
-theorem realCast_image2_mul (A B : Set ℚ) :
+theorem ratCast_image2_mul (A B : Set ℚ) :
     (((↑) : ℚ → ℝ) '' Set.image2 (fun x y : ℚ => x * y) A B) =
       Set.image2 (fun x y : ℝ => x * y)
         (((↑) : ℚ → ℝ) '' A) (((↑) : ℚ → ℝ) '' B) := by
@@ -768,7 +768,7 @@ theorem rel_image2_add {A B : Set ℚ} {v w : Value}
       constructor
       · rintro _ ⟨a, ha, b, hb, rfl⟩
         exact add_nonneg (hA0 a ha) (hB0 b hb)
-      · rw [realCast_image2_add]
+      · rw [ratCast_image2_add]
         change IsLUB (Set.image2 (fun x y : ℝ => x + y)
           (((↑) : ℚ → ℝ) '' A) (((↑) : ℚ → ℝ) '' B)) ((v : ℝ) + (w : ℝ))
         simpa only [Set.image2_add] using hALUB.add hBLUB
@@ -797,7 +797,7 @@ theorem rel_image2_mul {A B : Set ℚ} {v w : Value}
       constructor
       · rintro _ ⟨a, ha, b, hb, rfl⟩
         exact mul_nonneg (hA0 a ha) (hB0 b hb)
-      · rw [realCast_image2_mul]
+      · rw [ratCast_image2_mul]
         change IsLUB (Set.image2 (fun x y : ℝ => x * y)
           (((↑) : ℚ → ℝ) '' A) (((↑) : ℚ → ℝ) '' B)) ((v : ℝ) * (w : ℝ))
         apply isLUB_image2_mul_nonneg hALUB hBLUB v.property

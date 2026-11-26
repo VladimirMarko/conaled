@@ -28,7 +28,7 @@ theorem familyEvaluation_isEquivalence (hB : Typed.TyDeriv.{2} Γ γ B b)
     exact (familyEvaluation_derivation_iff a A hΓ (.base hΓ) (.base hΓ') c).mp
       (familyEvaluation_base_isEquivalence a A hΓ c)
   · intro Γ γ x ξ hx hΓ c
-    exact primitiveEvaluation_isEquivalence a A hΓ hx c
+    exact familyEvaluation_fiber_isEquivalence a A hΓ hx c
   · intro Γ γ B b x ξ y η hB hx hy ih hΓ c
     let := ih hΓ c
     exact identityEvaluation_isEquivalence a A hΓ hB hx hy c

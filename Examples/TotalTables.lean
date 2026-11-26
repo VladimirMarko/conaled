@@ -108,20 +108,20 @@ theorem tagged_function_client (writes : List (Bool × Nat))
 
 /-- The existing ordered-tree validity proof supplies the raw total-table
 contract. This instantiates the raw adapter, not only its True specialization. -/
-theorem rawTree_laws {κ ν : Type u} [LinearOrder κ] (d : ν) :
+theorem ofPartial_rawTrees_laws {κ ν : Type u} [LinearOrder κ] (d : ν) :
     TotalTable.Laws (TotalTable.ofPartial (OrderedMap.rawTrees κ ν) d) d
       (Search.OrderedTree.OrderedBy Prod.fst) :=
   TotalTable.ofPartial_laws (OrderedMap.rawTrees κ ν) OrderedMap.observe
     (Search.OrderedTree.OrderedBy Prod.fst) d trivial
     (fun k v _ ht => OrderedMap.ordered_bind ht k v) OrderedMap.trees_laws
 
-theorem rawTree_client {κ ν : Type u} [LinearOrder κ] (d : ν)
+theorem queryAfter_ofPartial_rawTrees {κ ν : Type u} [LinearOrder κ] (d : ν)
     (writes : List (κ × ν)) (t : BinaryTree (κ × ν))
     (ht : Search.OrderedTree.OrderedBy Prod.fst t) (q : κ) :
     queryAfter (TotalTable.ofPartial (OrderedMap.rawTrees κ ν) d) writes t q =
       queryAfter (TotalTable.functions d) writes
         (OrderedMap.withDefault d (OrderedMap.observe t)) q := by
-  apply congrFun ((rawTree_laws d).setAll_agrees (TotalTable.functions_laws d)
+  apply congrFun ((ofPartial_rawTrees_laws d).setAll_agrees (TotalTable.functions_laws d)
     writes ht trivial ?_) q
   funext k
   change (OrderedMap.lookup k t).getD d = (OrderedMap.observe t k).getD d

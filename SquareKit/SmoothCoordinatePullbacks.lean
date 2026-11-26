@@ -108,7 +108,7 @@ theorem fiberLift_unique (u : F ⟶ scalarPower (n+k)) (w : F ⟶ scalarPower n)
     (hw : w ≫ insertZero n k = u) : w = fiberLift u := by
   rw [fiberLift, ← hw, Category.assoc, insertZero_first, Category.comp_id]
 
-theorem zeroFiber_isPullback (n k : ℕ) :
+theorem zero_fiber_isPullback (n k : ℕ) :
     IsPullback (insertZero n k) (toPoint n) (last n k) (zero k) := by
   exact IsPullback.of_isLimit (PullbackCone.IsLimit.mk (insertZero_last n k)
     (fun c => fiberLift c.fst) (fun c => fiberLift_insertZero c.fst c.snd c.condition)

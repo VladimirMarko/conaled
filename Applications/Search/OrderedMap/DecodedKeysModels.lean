@@ -203,7 +203,7 @@ theorem enumerated_laws (default : ν) :
   have validEq : BST (ν := ν) decode = OrderedBy Prod.fst :=
     funext fun t => propext (bst_iff_ordered decode (fun _ _ => Iff.rfl) t)
   rw [table_eq_rawTreeTable ltb hlt, observations_eq_rawTreeObservations ltb hlt, validEq]
-  exact EnumeratedTable.rawTree_laws default
+  exact EnumeratedTable.rawTreeTable_laws default
 
 theorem table_laws (default : ν) :
     TotalTable.Laws (table ltb default) default (fun _ => True) :=
@@ -444,7 +444,7 @@ theorem model_enum_laws (default : ν) :
   change EnumeratedTable.ModelLaws (table ltb default) (observations ltb) default
     (BST decode) SourceModel.enumAbs
   rw [table_eq_rawTreeTable ltb hlt, observations_eq_rawTreeObservations ltb hlt, validEq]
-  exact EnumeratedTable.rawTree_model_enum default
+  exact EnumeratedTable.rawTreeTable_model_enumAbs default
 
 theorem model_structural_laws (default : ν) :
     letI := Representations.SignedComparison.linearOrderOfStrict decode ltb hinj hlt
@@ -458,7 +458,7 @@ theorem model_structural_laws (default : ν) :
   change EnumeratedTable.ModelLaws (table ltb default) (observations ltb) default
     (BST decode) SourceModel.mapOfTree
   rw [table_eq_rawTreeTable ltb hlt, observations_eq_rawTreeObservations ltb hlt, validEq]
-  exact EnumeratedTable.rawTree_model_structural default
+  exact EnumeratedTable.rawTreeTable_model_mapOfTree default
 
 /-- Reuse the existing arbitrary chronological history client. -/
 theorem enumAbs_setAll (default : ν) (writes : List (κ × ν))

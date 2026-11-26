@@ -27,14 +27,14 @@ def primitiveEvaluationRecovery :
     familyEvaluation a A hΓ (.fiber hx) c ⋙ (primitiveRecoveryEquivalence a A hΓ hx c q).functor ≅
       𝟭 (((Typed.fiberCode ξ) (model a A)).obj c) :=
   NatIso.ofComponents (fun x => eqToIso (Discrete.ext
-    (primitiveValue_cast_eq a A q _ x.as (primitiveEvaluation_matching_value a A hΓ hx c x))))
+    (primitiveValue_cast_eq a A q _ x.as (familyEvaluation_fiber_matching_value a A hΓ hx c x))))
     (by
       intro x y f
       change @Eq (Discrete.mk _ ⟶ Discrete.mk _) _ _
       apply Subsingleton.elim)
 
 include q in
-theorem primitiveEvaluation_isEquivalence_of_baseTerm :
+theorem familyEvaluation_fiber_isEquivalence_of_base_term_eq :
     (familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence := by
   have : (familyEvaluation a A hΓ (.fiber hx) c ⋙
       (primitiveRecoveryEquivalence a A hΓ hx c q).functor).IsEquivalence :=
@@ -43,9 +43,9 @@ theorem primitiveEvaluation_isEquivalence_of_baseTerm :
     (primitiveRecoveryEquivalence a A hΓ hx c q).functor
 
 /-- Primitive matching is effective for every generated base term. -/
-theorem primitiveEvaluation_isEquivalence :
+theorem familyEvaluation_fiber_isEquivalence :
     (familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence :=
-  primitiveEvaluation_isEquivalence_of_baseTerm a A hΓ hx c
+  familyEvaluation_fiber_isEquivalence_of_base_term_eq a A hΓ hx c
     (Functor.congr_obj (evaluatedBaseTerm_eq_source a A hΓ hx) c)
 
 end SquareKit.SmoothQuotientCechLocal

@@ -90,13 +90,13 @@ def endpointZ := bindBase (ConcatFrame.paths hΓ x)
 
 theorem y_at_z : baseReindexCode (ConcatFrame.yAtZ hΓ x).code
     (pairCode (baseCode _) (endpointCode (baseCode γ) x.code y.code p.code)
-      (castCode (baseSub_code _).symm z.code)) = y.code :=
+      (castCode (subTyCode_baseCode _).symm z.code)) = y.code :=
   (baseReindex_weaken_pair _ _ _ _).trans (moving_at hΓ x y p)
 
 theorem q_type_at : subTyCode (identityCode (baseCode _)
     (ConcatFrame.yAtZ hΓ x).code (ConcatFrame.z hΓ x).code)
     (pairCode (baseCode _) (endpointCode (baseCode γ) x.code y.code p.code)
-      (castCode (baseSub_code _).symm z.code)) =
+      (castCode (subTyCode_baseCode _).symm z.code)) =
     identityCode (baseCode γ) y.code z.code :=
   (identityBaseSub_code _ _ _).trans (congrArg₂ (identityCode (baseCode γ))
     (y_at_z hΓ x y z p)

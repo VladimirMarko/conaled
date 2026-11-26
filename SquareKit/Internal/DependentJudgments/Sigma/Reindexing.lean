@@ -124,7 +124,7 @@ private theorem comp_eval {V : Type} (ρ : V → Value M.toStructuralModel)
   change DependentJudgments.operation _ .comp ![s.eval (algebra M S.toCapability) ρ, t.eval (algebra M S.toCapability) ρ] = _
   simp [hs, ht, DependentJudgments.operation]
 
-theorem sigmaSub_valid : Satisfies (algebra M S.toCapability) sigmaSubRule := by
+theorem sigmaSubRule_valid : Satisfies (algebra M S.toCapability) sigmaSubRule := by
   apply schema_valid
   intro Γ A B Δ σ
   let ρ : Fin 5 → Value M.toStructuralModel :=
@@ -163,7 +163,7 @@ private theorem extend_eval {V : Type} (ρ : V → Value M.toStructuralModel)
   change DependentJudgments.operation _ .extend ![g.eval (algebra M S.toCapability) ρ, a.eval (algebra M S.toCapability) ρ] = _
   simp [hg, ha, DependentJudgments.operation]
 
-theorem packSub_valid : Satisfies (algebra M S.toCapability) packSubRule := by
+theorem packSubRule_valid : Satisfies (algebra M S.toCapability) packSubRule := by
   apply schema_valid
   intro Γ A B Δ σ
   let ρ : Fin 5 → Value M.toStructuralModel :=
@@ -182,7 +182,7 @@ theorem packSub_valid : Satisfies (algebra M S.toCapability) packSubRule := by
   rw [comp_eval M S ρ _ _ _ _ _ _ _ hsl hp', comp_eval M S ρ _ _ _ _ _ _ _ hp hbl]
   exact congrArg (Value.substitution _ _) (S.pack_sub A B σ)
 
-theorem unpackSub_valid : Satisfies (algebra M S.toCapability) unpackSubRule := by
+theorem unpackSubRule_valid : Satisfies (algebra M S.toCapability) unpackSubRule := by
   apply schema_valid
   intro Γ A B Δ σ
   let ρ : Fin 5 → Value M.toStructuralModel :=
@@ -267,7 +267,7 @@ private theorem subTm_eval {V : Type} (ρ : V → Value M.toStructuralModel)
   change DependentJudgments.operation _ .subTm ![t.eval (algebra M S.toCapability) ρ, s.eval (algebra M S.toCapability) ρ] = _
   simp [ht, hs, DependentJudgments.operation]
 
-theorem splitSub_valid : Satisfies (algebra M S.toCapability) splitSubRule := by
+theorem splitSubRule_valid : Satisfies (algebra M S.toCapability) splitSubRule := by
   apply splitSchema_valid
   intro Γ A B C d Δ σ
   let ρ : Fin 7 → Value M.toStructuralModel :=
@@ -295,7 +295,7 @@ theorem splitSub_valid : Satisfies (algebra M S.toCapability) splitSubRule := by
     rw [S.unpack_sub]
     exact (M.subTm_comp _ _ _).symm
 
-theorem branchType_valid : Satisfies (algebra M S.toCapability) branchTypeRule := by
+theorem branchTypeRule_valid : Satisfies (algebra M S.toCapability) branchTypeRule := by
   apply splitSchema_valid
   intro Γ A B C d Δ σ
   let ρ : Fin 7 → Value M.toStructuralModel :=
@@ -385,7 +385,7 @@ theorem pairSchema_valid (out : Judgment (Fin 7))
   subst ρ
   exact valid Γ A B a b Δ σ
 
-theorem pairSub_valid : Satisfies (algebra M S.toCapability) pairSubRule := by
+theorem pairSubRule_valid : Satisfies (algebra M S.toCapability) pairSubRule := by
   apply pairSchema_valid
   intro Γ A B a b Δ σ
   let ρ : Fin 7 → Value M.toStructuralModel :=
@@ -413,7 +413,7 @@ abbrev pairSecondRule := pairSchema (.eq
   (subTy (subTy (.var 2) (pairSub (.var 1) (identitySub (.var 0)) (.var 3))) (.var 6))
   (subTy splitSecond (pairSub splitFirst (identitySub (.var 5)) (subTm (.var 3) (.var 6)))))
 
-theorem pairSecond_valid : Satisfies (algebra M S.toCapability) pairSecondRule := by
+theorem pairSecondRule_valid : Satisfies (algebra M S.toCapability) pairSecondRule := by
   apply pairSchema_valid
   intro Γ A B a b Δ σ
   let ρ : Fin 7 → Value M.toStructuralModel :=
@@ -455,13 +455,13 @@ def theory : Theory signature where
     | .inr a => rule a
 
 theorem rule_valid : ∀ a, Satisfies (algebra M S.toCapability) (rule a)
-  | .sigmaSub => sigmaSub_valid M S
-  | .packSub => packSub_valid M S
-  | .unpackSub => unpackSub_valid M S
-  | .pairSub => pairSub_valid M S
-  | .pairSecond => pairSecond_valid M S
-  | .splitSub => splitSub_valid M S
-  | .branchType => branchType_valid M S
+  | .sigmaSub => sigmaSubRule_valid M S
+  | .packSub => packSubRule_valid M S
+  | .unpackSub => unpackSubRule_valid M S
+  | .pairSub => pairSubRule_valid M S
+  | .pairSecond => pairSecondRule_valid M S
+  | .splitSub => splitSubRule_valid M S
+  | .branchType => branchTypeRule_valid M S
 
 noncomputable def model : GuardedTheory.Model theory where
   toAlgebra := algebra M S.toCapability
