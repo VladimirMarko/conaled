@@ -301,7 +301,7 @@ theorem rotateRightRun_exact (left : Tree κ ν) (binding : κ × ν)
   simp [rotateRightRun, bind, nodeRun, ← tick_add]
 
 
-private theorem balanceRight_value (left : Tree κ ν) (key : κ) (value : ν)
+private theorem balance_right_value (left : Tree κ ν) (key : κ) (value : ν)
     (right : Tree κ ν) :
     (bind (leftPairRun right) fun
       | some parts => rotateRightRun left (key, value) parts
@@ -341,32 +341,32 @@ theorem balanceRun_value (color : RBTree.RBColor) (left : Tree κ ν)
   | red => rfl
   | black =>
       cases left with
-      | nil => exact balanceRight_value _ _ _ _
+      | nil => exact balance_right_value _ _ _ _
       | node color l binding r =>
           cases color with
-          | black => exact balanceRight_value _ _ _ _
+          | black => exact balance_right_value _ _ _ _
           | red =>
               cases l with
               | nil =>
                   cases r with
-                  | nil => exact balanceRight_value _ _ _ _
+                  | nil => exact balance_right_value _ _ _ _
                   | node color a x b => cases color with
                       | red => rfl
-                      | black => exact balanceRight_value _ _ _ _
+                      | black => exact balance_right_value _ _ _ _
               | node color a x b =>
                   cases color with
                   | red => rfl
                   | black =>
                       cases r with
-                      | nil => exact balanceRight_value _ _ _ _
+                      | nil => exact balance_right_value _ _ _ _
                       | node color c y d => cases color with
                           | red => rfl
-                          | black => exact balanceRight_value _ _ _ _
+                          | black => exact balance_right_value _ _ _ _
 
 
 
 /-- The first successful left-left recognition supplies both the result and exact costs. -/
-theorem balanceRun_leftLeft (left : Tree κ ν) (key : κ) (value : ν)
+theorem balanceRun_left_left (left : Tree κ ν) (key : κ) (value : ν)
     (right : Tree κ ν) (parts : RedPair κ ν)
     (selected : (leftPairRun left).1 = some parts) :
     balanceRun .black left key value right =
@@ -397,7 +397,7 @@ theorem balanceRun_left_right (left : Tree κ ν) (key : κ) (value : ν)
     cases metric <;> simp [tick, leftPairRun_other, rightPairRun_other, Nat.add_assoc]
 
 /-- Both left-side attempts fail before right-left can be selected. -/
-theorem balanceRun_rightLeft (left : Tree κ ν) (key : κ) (value : ν)
+theorem balanceRun_right_left (left : Tree κ ν) (key : κ) (value : ν)
     (right : Tree κ ν) (parts : RedPair κ ν)
     (notLeftLeft : (leftPairRun left).1 = none)
     (notLeftRight : (rightPairRun left).1 = none)
@@ -477,7 +477,7 @@ theorem balanceRun_cost_form (color : RBTree.RBColor) (left : Tree κ ν)
       cases hll : (leftPairRun left).1 with
       | some parts =>
           refine ⟨2, 1 + (leftPairRun left).2 .datatypeObservations, 3,
-            congrArg Prod.snd (balanceRun_leftLeft left key value right parts hll),
+            congrArg Prod.snd (balanceRun_left_left left key value right parts hll),
             by decide, by decide, ?_, ?_, Or.inr rfl⟩ <;> omega
       | none =>
           cases hlr : (rightPairRun left).1 with
@@ -492,7 +492,7 @@ theorem balanceRun_cost_form (color : RBTree.RBColor) (left : Tree κ ν)
                   refine ⟨4, 1 + (leftPairRun left).2 .datatypeObservations +
                     (rightPairRun left).2 .datatypeObservations +
                     (leftPairRun right).2 .datatypeObservations, 3,
-                    congrArg Prod.snd (balanceRun_rightLeft left key value right parts hll hlr hrl),
+                    congrArg Prod.snd (balanceRun_right_left left key value right parts hll hlr hrl),
                     by decide, by decide, ?_, ?_, Or.inr rfl⟩ <;> omega
               | none =>
                   cases hrr : (rightPairRun right).1 with

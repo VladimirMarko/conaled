@@ -752,7 +752,7 @@ theorem forceThunks_callbacks (ts : List (Thunk β)) :
     rw [ih]
     simp [callbackBills]
 
-theorem accumulate_callbackLists (k : List α → Measured β Trace) (x : α) (xs : List α) :
+theorem accumulate_callbackBills (k : List α → Measured β Trace) (x : α) (xs : List α) :
     (accumulate k x xs).1.map (fun t => callbackBills (t ()).2) =
       Sequences.Permutations.insertsWith (fun ys => callbackBills (k ys).2) x xs := by
   induction xs generalizing k with
@@ -765,7 +765,7 @@ theorem accumulate_callbackLists (k : List α → Measured β Trace) (x : α) (x
 theorem accumulating_all_callbacks (f : List α → Measured β Nat) (x : α) (xs : List α) :
     callbackBills (forceThunks (accumulating f x xs).1).2 =
       (List.permutations'Aux x xs).map (fun ys => (f ys).2) := by
-  rw [forceThunks_callbacks, accumulating, accumulate_callbackLists,
+  rw [forceThunks_callbacks, accumulating, accumulate_callbackBills,
     Sequences.Permutations.insertsWith_eq_map]
   generalize List.permutations'Aux x xs = zs
   induction zs <;> simp_all [callbackBills]

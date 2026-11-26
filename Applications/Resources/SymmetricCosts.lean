@@ -269,7 +269,7 @@ theorem head_observation (s : SymList α) (h : Inv s) :
 
 theorem last_observation (s : SymList α) (h : Inv s) :
     (execute .last s).observation = some (fromSL s).getLast? := by
-  simp [execute, lastSL_eq_getLast s h]
+  simp [execute, lastSL_eq_getLast? s h]
 
 theorem initial_potential_needed :
     Inv (([0], [1, 2, 3]) : SymList Nat) ∧

@@ -1350,7 +1350,7 @@ theorem firstSuccess_iff (d : D) (raw : Word) (t : BinaryTree Unit) (rest : Word
         have outputEq := congrArg (fun c : Cfg D Γ Λ R => c.stk (.inl (.output d))) equal
         change suffix = rest at rawEq
         simp only [resultCfg, cfg, Function.update_self] at outputEq
-        have treeEq := (parseTreeRun_prefix_injective actual t (outputs d) (outputs d) outputEq).1
+        have treeEq := (treeCode_prefix_injective actual t (outputs d) (outputs d) outputEq).1
         simp only [treeEq, rawEq]
   · exact run_of_some caller d raw t rest regs outputs ctx
 

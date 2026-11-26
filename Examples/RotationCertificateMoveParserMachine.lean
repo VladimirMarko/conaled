@@ -994,6 +994,6 @@ theorem package_returns_a_live_result_before_its_caller :
 theorem source_prefix_injectivity_preserves_move_and_suffix
     (move other : RotationMove) (rest suffix : Word)
     (same : moveCode move ++ rest = moveCode other ++ suffix) :
-    move = other ∧ rest = suffix := parseMoveRun_prefix_injective move other rest suffix same
+    move = other ∧ rest = suffix := moveCode_prefix_injective move other rest suffix same
 
 end Examples.RotationCertificateMoveParserMachine

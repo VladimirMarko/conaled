@@ -234,7 +234,7 @@ theorem parseInputRun_sizes_le (raw : Word) (source target : BinaryTree Unit) (b
   have length := parseInputRun_length raw source target bs returned
   omega
 
-theorem parseInputRun_injective (source target : BinaryTree Unit) (bs : Bits)
+theorem inputCode_injective (source target : BinaryTree Unit) (bs : Bits)
     (otherSource otherTarget : BinaryTree Unit) (otherBits : Bits)
     (encoded : inputCode source target bs = inputCode otherSource otherTarget otherBits) :
     source = otherSource ∧ target = otherTarget ∧ bs = otherBits := by

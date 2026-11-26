@@ -402,7 +402,7 @@ attribute [local instance] FinTM2.kFin FinTM2.ΛFin
 /-- An actual finite source computation yields the encoded primitive witness
 required by the ordinary wrapper, retaining its complete related endpoint.
 The finite action maximum belongs to the fixed complete source program. -/
-theorem encodedRun_of_outputsInTime (tm : FinTM2)
+theorem encodedRun_of_tm2OutputsInTime (tm : FinTM2)
     (raw : List (tm.Γ tm.k₀)) (out : List (tm.Γ tm.k₁)) (T B : ℕ)
     (source : TM2OutputsInTime tm raw (some out) T)
     (hprefix : ∀ (i : ℕ) (c : tm.Cfg), i < source.steps →

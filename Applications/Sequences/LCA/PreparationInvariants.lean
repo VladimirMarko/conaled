@@ -44,7 +44,7 @@ theorem keySource_fits (steps code : Nat) (start i : Nat)
   simp only [Fits,depthKey,ofLex_toLex]
   exact ⟨by omega,by omega,by omega⟩
 
-theorem microRowFill_fits (steps code : Nat) (start : Fin (steps+1)) (len : Nat)
+theorem rowFill_canonicalHeights_fits (steps code : Nat) (start : Fin (steps+1)) (len : Nat)
     (hlen : len ≤ steps+1) (j : Fin (steps+1)) :
     Fits (steps : Int) (2*steps+1) (2*(steps+1))
       (lookup (MicroExecution.rowFill

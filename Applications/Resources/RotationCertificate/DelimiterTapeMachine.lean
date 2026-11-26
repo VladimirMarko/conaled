@@ -127,7 +127,7 @@ theorem encoded_native_run (initial : R) (raw : Raw) :
       TM2to1.TrCfg (haltList (machine initial) [verifyDelimited raw]) target ∧
       Nonempty (OrdinaryPackage.EncodedRun (machine initial) raw target
         (encodedPrimitiveTimeBound (actionMaximum (R := R)) raw.length)) := by
-  obtain ⟨target, related, ⟨run⟩⟩ := OrdinaryPackage.encodedRun_of_outputsInTime
+  obtain ⟨target, related, ⟨run⟩⟩ := OrdinaryPackage.encodedRun_of_tm2OutputsInTime
     (machine initial) raw [verifyDelimited raw] (sourceTimeBound raw.length)
     (2 * raw.length + 1) (Execution.outputsInTime initial raw)
     (source_prefix_occupancy initial raw)

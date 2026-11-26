@@ -86,7 +86,7 @@ theorem line_natural {x y : Γ.Elements} (f : x ⟶ y)
     (v : Vertex y.obj.unop.dimension) (hy : φ.Holds (vertexPoint y v))
     (hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
     line b y v hy = line b x (Cube.vertices f.hom.unop v) hx := by
-  have he := vertexValue_natural f v
+  have he := map_vertex_natural f v
   change closedLine b _ hy = closedLine b _ hx
   have hh : (⟨Γ.map (Quiver.Hom.op (Cube.vertex v)) y.val, hy⟩ :
       {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =

@@ -226,18 +226,18 @@ theorem bit_prefix_uniquely_determines_both_results (first second : Bits)
     (rest suffix : Word)
     (same : bitTags first ++ [endInputTag] ++ rest =
       bitTags second ++ [endInputTag] ++ suffix) : first = second ∧ rest = suffix :=
-  parseBitsRun_prefix_injective first second rest suffix same
+  bitTags_prefix_injective first second rest suffix same
 
 theorem path_prefix_uniquely_determines_both_results (first second : List Branch)
     (rest suffix : Word)
     (same : pathTags first ++ [endMoveTag] ++ rest =
       pathTags second ++ [endMoveTag] ++ suffix) : first = second ∧ rest = suffix :=
-  parsePathRun_prefix_injective first second rest suffix same
+  pathTags_prefix_injective first second rest suffix same
 
 theorem move_prefix_uniquely_determines_both_results (first second : RotationMove)
     (rest suffix : Word) (same : moveCode first ++ rest = moveCode second ++ suffix) :
     first = second ∧ rest = suffix :=
-  parseMoveRun_prefix_injective first second rest suffix same
+  moveCode_prefix_injective first second rest suffix same
 
 theorem high_zero_width_survives_the_actual_roundtrip (width : Nat) (rest : Word) :
     parseBitsRun (emitBitsRun (true :: List.replicate width false) (endInputTag :: rest)).1 =

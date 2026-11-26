@@ -16,22 +16,22 @@ def conjugationCube := ordinaryConjugationCube cocycleBase cocycleRootedFamily a
 
 theorem source_transport_face : conjugationCube.pullback (Over.map (face3 1 false)) =
     sourceActionSquare (t := assignedTransport) sourceHigherAction :=
-  ordinaryConjugation_start cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy
+  ordinaryConjugationCube_start cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy
 
 theorem witness_face : conjugationCube.pullback (Over.map (face3 1 true)) =
     secondSquare selectedNormalizedHomotopy :=
-  ordinaryConjugation_finish cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy
+  ordinaryConjugationCube_finish cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy
 
 theorem endpoint_faces (e : Bool) : conjugationCube.pullback (Over.map (face3 0 e)) =
     comparisonRootSquare assignedBeta :=
-  ordinaryConjugation_root cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy e
+  ordinaryConjugationCube_root cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy e
 
 theorem remaining_faces (e : Bool) : conjugationCube.pullback (Over.map (face3 2 e)) =
     zeroCocycle (Over (⟨2⟩ : Cube)) :=
-  ordinaryConjugation_side cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy e
+  ordinaryConjugationCube_side cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy e
 
 theorem source_higher_observation : observeSquare (sourceActionSquare (t := assignedTransport) sourceHigherAction) = 1 :=
-  (ordinaryConjugation_observation cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy).trans
+  (cocycleOrdinaryAction_observation cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy).trans
     frozen_higher_observation
 
 theorem sourceHigher_no_erasure : sourceActionSquare (t := assignedTransport) sourceHigherAction ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by

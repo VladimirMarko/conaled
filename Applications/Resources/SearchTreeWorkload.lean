@@ -96,7 +96,7 @@ theorem queryHits_cons (query : κ) (queries : List κ) (tree : BinaryTree (κ �
   split <;> simp_all
   omega
 
-theorem queryRunFrom_value (queries : List κ) (tree : BinaryTree (κ × Nat)) (count : Nat) :
+theorem run_queryStep_value (queries : List κ) (tree : BinaryTree (κ × Nat)) (count : Nat) :
     (Resources.run (queryStep tree) queries count).1 =
       count + Search.OrderedMap.Workload.queryHits queries tree := by
   induction queries generalizing count with
@@ -108,7 +108,7 @@ theorem queryRunFrom_value (queries : List κ) (tree : BinaryTree (κ × Nat)) (
 
 theorem queryRun_value (queries : List κ) (tree : BinaryTree (κ × Nat)) :
     (queryRun queries tree).1 = Search.OrderedMap.Workload.queryHits queries tree := by
-  simpa [queryRun] using queryRunFrom_value queries tree 0
+  simpa [queryRun] using run_queryStep_value queries tree 0
 
 theorem queryRun_work (queries : List κ) (tree : BinaryTree (κ × Nat)) :
     (queryRun queries tree).2 =
@@ -409,7 +409,7 @@ theorem buildKeys_mapKeys (decode : κ → Int)
   simpa only [buildKeysRun_value] using
     congrArg Prod.fst (buildKeysRun_mapKeys decode compatible keys)
 
-theorem queryHistory_mapKeys (decode : κ → Int)
+theorem run_queryStep_mapKeys (decode : κ → Int)
     (compatible : ∀ a b, a < b ↔ decode a < decode b)
     (queries : List κ) (tree : BinaryTree (κ × Nat)) (count : Nat) :
     Resources.run (queryStep (mapKeys decode tree)) (queries.map decode) count =
@@ -427,7 +427,7 @@ theorem queryRun_mapKeys (decode : κ → Int)
     (compatible : ∀ a b, a < b ↔ decode a < decode b)
     (queries : List κ) (tree : BinaryTree (κ × Nat)) :
     queryRun (queries.map decode) (mapKeys decode tree) = queryRun queries tree :=
-  queryHistory_mapKeys decode compatible queries tree 0
+  run_queryStep_mapKeys decode compatible queries tree 0
 
 theorem sourceRun_mapKeys (decode : κ → Int)
     (compatible : ∀ a b, a < b ↔ decode a < decode b) (inserted queries : List κ) :
@@ -556,7 +556,7 @@ theorem encoded_last_query (decode : κ → Int)
     (n - 1) (by omega)
   simpa only [Nat.sub_add_cancel (show 1 ≤ n by omega)] using found
 
-theorem encodedSourceRun_exact (decode : κ → Int)
+theorem sourceRun_encodedKeys_exact (decode : κ → Int)
     (compatible : ∀ a b, a < b ↔ decode a < decode b)
     (encode : Nat → κ) (n : Nat)
     (representable : ∀ k, k < n → decode (encode k) = (k : Int)) :

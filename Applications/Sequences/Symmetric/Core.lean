@@ -172,7 +172,7 @@ theorem lastSL_eq_headSL_reverseSL (s : SymList α) : lastSL s = headSL (reverse
   rcases s with ⟨xs, ys⟩
   cases ys <;> rfl
 
-theorem lastSL_eq_getLast (s : SymList α) (h : Inv s) : lastSL s = (fromSL s).getLast? := by
+theorem lastSL_eq_getLast? (s : SymList α) (h : Inv s) : lastSL s = (fromSL s).getLast? := by
   rw [lastSL_eq_headSL_reverseSL, headSL_eq_head _ (inv_reverseSL _ h), fromSL_reverseSL]
   exact List.head?_reverse
 

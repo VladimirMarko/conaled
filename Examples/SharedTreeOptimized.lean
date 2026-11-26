@@ -72,10 +72,10 @@ theorem combined_comparison_bound :
 root-value observer, including the initially empty input. -/
 theorem first_insert_root_observation :
     (insertCandidateRun (empty : Store Nat) none 7).1.map rootValue = some (some 7) :=
-  insertCandidateRootValue_correct Represents.nil 7
+  insertCandidateRun_rootValue_correct Represents.nil 7
 
 theorem duplicate_root_observation :
     (insertAbortRun initial.1 initial.2 1).1.map rootValue = some (some 2) :=
-  insertAbortRootValue_correct initial_represents 1
+  insertAbortRun_rootValue_correct initial_represents 1
 
 end Examples.SharedTreeOptimized

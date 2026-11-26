@@ -223,7 +223,7 @@ theorem smallSection_permutation (p : Term (loops (Fin 3)))
   have hB : PathDiscrete (liftedDecode (code (Fin 3))) :=
     PathDiscrete.of_iso (constant_pathDiscrete (ULift.{1} (Fin 3)))
       (Raising.iso (Examples.CubicalGlue.constantLocal terminal (Fin 3)).decodeCodeIso)
-  have h := pathToMap_of_smallSection p hB s c d hc hd
+  have h := pathToMap_of_small_section p hB s c d hc hd
   have hi : Raising.raiseTerm c = nativeInput (carrierEquiv c) :=
     congrArg Raising.raiseTerm (carrierEquiv.symm_apply_apply c).symm
   rw [hi] at h

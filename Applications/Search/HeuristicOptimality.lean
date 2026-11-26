@@ -61,7 +61,7 @@ def CorrectResult (g : Graph V) (goal : V → Bool) (s : V) : Option (Path V) �
   | none => NoGoal g goal s
   | some p => Minimum g goal s p
 
-theorem reopenRun_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
+theorem run_reopen_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (s : V) (ho : Optimistic g h goal) (fuel : Nat)
     (st : Store V) (q : Q.Carrier) (hv : Q.Valid q) (hs : Sound Q g s q)
     (hc : Consistent Q h q) (hi : Coverage Q g goal s st q)
@@ -106,7 +106,7 @@ theorem astar_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (s : V) (ho : Optimistic g h goal) (fuel : Nat)
     {out : Option (Path V)} (hr : run Q .reopen g h goal fuel [] (start Q h s) = some out) :
     CorrectResult g goal s out :=
-  reopenRun_correct Q g h goal s ho fuel [] (start Q h s) (start_valid Q h s)
+  run_reopen_correct Q g h goal s ho fuel [] (start Q h s) (start_valid Q h s)
     (start_sound Q g h s) (start_consistent Q h s) (coverage_start Q g h goal s) hr
 
 /-- Stored costs in M* are already globally minimal to their vertices. -/
@@ -205,7 +205,7 @@ theorem coverage_closed (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
         exact Or.inl ⟨b',hb',Nat.le_trans hle hb⟩
     · exact keep v (c+d) (hi.edges u c (by simpa [st',heq] using hlook) v d hedge)
 
-theorem closedRun_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
+theorem run_closed_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (s : V) (hm : Monotonic g h) (hz : ∀ v, goal v = true → h v = 0)
     (fuel : Nat) (st : Store V) (q : Q.Carrier) (hv : Q.Valid q) (hs : Sound Q g s q)
     (hc : Consistent Q h q) (hi : Coverage Q g goal s st q) (hmin : StoreMinimum g s st)
@@ -254,7 +254,7 @@ theorem mstar_correct (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (fuel : Nat) {out : Option (Path V)}
     (hr : run Q .closed g h goal fuel [] (start Q h s) = some out) :
     CorrectResult g goal s out :=
-  closedRun_correct Q g h goal s hm hz fuel [] (start Q h s) (start_valid Q h s)
+  run_closed_correct Q g h goal s hm hz fuel [] (start Q h s) (start_valid Q h s)
     (start_sound Q g h s) (start_consistent Q h s) (coverage_start Q g h goal s)
     (by simp [StoreMinimum]) hr
 

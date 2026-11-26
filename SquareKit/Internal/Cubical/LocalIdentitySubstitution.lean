@@ -33,7 +33,7 @@ theorem localIdentity_substitution {Γ Δ : Context.{u}} (A : Family Γ)
     (a b : Term A) (σ : Δ ⟶ Γ) (x : Δ.Elements) :
     LocalIdentity A a b (σ.mapElements.obj x) =
       LocalIdentity (reindex A σ) (a.reindex σ) (b.reindex σ) x :=
-  rangeSubtype_eq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
+  range_subtype_eq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
     IdentityElement.localData IdentityElement.localData (identityReindex_localData_heq A a b σ x)
 
 theorem identityReindex_toLocal_heq {Γ Δ : Context.{u}} (A : Family Γ)
@@ -41,7 +41,7 @@ theorem identityReindex_toLocal_heq {Γ Δ : Context.{u}} (A : Family Γ)
     (p : IdentityElement A a b (σ.mapElements.obj x)) :
     HEq p.toLocal (((identityReindex A a b σ).app x p).toLocal) := by
   apply (Subtype.heq_iff_coe_heq (identityData_substitution A a b σ x)
-    (rangePredicate_heq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
+    (range_predicate_heq (identitySubstitutionEquiv A a b σ x) (identityData_substitution A a b σ x)
       IdentityElement.localData IdentityElement.localData (identityReindex_localData_heq A a b σ x))).mpr
   exact identityReindex_localData_heq A a b σ x p
 

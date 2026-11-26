@@ -217,7 +217,7 @@ def Equivalence.selectedInverse {Γ : Presheaf.Context.{u}} {A B : Presheaf.Fami
     intro b
     let k : (restrict (Presheaf.total B)).elementsMk x.obj ⟨x.val,b⟩ ⟶
         (restrict (Presheaf.total B)).elementsMk y.obj ⟨y.val, (restrictFamily B).map g b⟩ :=
-      Functor.Elements.homMk g.hom (Presheaf.totalMap_ofHom B ((elements Γ).map g) b)
+      Functor.Elements.homMk g.hom (Presheaf.totalMap_hom B ((elements Γ).map g) b)
     exact (congrArg Sigma.fst (E.fibers.center.property k)).symm
 
 

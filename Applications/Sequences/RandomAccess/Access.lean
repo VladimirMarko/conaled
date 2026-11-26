@@ -10,7 +10,7 @@ variable {α : Type u}
 /-- Compatibility name for standard optional List indexing. -/
 abbrev fetch (k : Nat) (xs : List α) : Option α := xs[k]?
 
-theorem fetch_eq_getElem (k : Nat) (xs : List α) : fetch k xs = xs[k]? := rfl
+theorem fetch_eq_getElem? (k : Nat) (xs : List α) : fetch k xs = xs[k]? := rfl
 
 def fetchT (k : Nat) : Tree α → Option α
   | .leaf x => if k = 0 then some x else none
@@ -55,7 +55,7 @@ theorem fetchRA_refinement {rank : Nat} {ds : RAList α} (h : Valid rank ds) (k 
         omega
 
 theorem fetchRA_toRA (k : Nat) (xs : List α) : fetchRA k (toRA xs) = fetch k xs := by
-  rw [fetchRA_refinement (inv_toRA xs), fromRA_toRA, fetch_eq_getElem]
+  rw [fetchRA_refinement (inv_toRA xs), fromRA_toRA, fetch_eq_getElem?]
 
 def updateT (k : Nat) (x : α) : Tree α → Tree α
   | .leaf y => if k = 0 then .leaf x else .leaf y

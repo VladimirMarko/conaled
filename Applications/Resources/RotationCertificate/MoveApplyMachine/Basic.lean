@@ -330,7 +330,7 @@ def frontEndRegisterEquiv : FrontEndMachine.Registers (Option Branch × R) ≃
     resetMove (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
       frontEndRegisterEquiv (FrontEndMachine.reset regs) := rfl
 
-@[simp] theorem frontEndRegisterEquiv_fullReset
+@[simp] theorem reset_frontEndRegisterEquiv_reset
     (regs : FrontEndMachine.Registers (Option Branch × R)) :
     reset (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
       ((none, (none, none)), (BitDecoderMachine.zeroRegisters, regs.2.2.2)) := rfl

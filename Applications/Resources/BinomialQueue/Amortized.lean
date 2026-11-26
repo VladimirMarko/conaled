@@ -466,7 +466,7 @@ theorem insertionsRun_empty_length (keys : List K) :
   simp
 
 /-- None retains the state; Some removes one occurrence without trimming slots. -/
-theorem deleteCommand_state (q : Queue K) (valid : Valid q) :
+theorem commandRun_deleteMax_state (q : Queue K) (valid : Valid q) :
     Valid (commandRun cmp .deleteMax q).1 ∧
       mass (commandRun cmp .deleteMax q).1 = mass q - 1 ∧
       (commandRun cmp .deleteMax q).1.length = q.length := by
@@ -497,7 +497,7 @@ theorem drainRun_state (n : Nat) (q : Queue K) (valid : Valid q) :
   induction n generalizing q with
   | zero => exact ⟨valid, (Nat.sub_zero _).symm, rfl⟩
   | succ n ih =>
-      have hs := deleteCommand_state cmp correct q valid
+      have hs := commandRun_deleteMax_state cmp correct q valid
       have hr := ih (commandRun cmp .deleteMax q).1 hs.1
       change Valid (drainRun cmp n (commandRun cmp .deleteMax q).1).1 ∧
         mass (drainRun cmp n (commandRun cmp .deleteMax q).1).1 = mass q - (n + 1) ∧
@@ -545,7 +545,7 @@ theorem size_le_clog_add_one (n : Nat) (positive : 0 < n) :
 
 /-- With fixed initial padding, the historical capacity scale has ordinary
 real logarithmic growth once the size parameter is at least two. -/
-theorem capacityScale_cast_le (B n : Nat) (hn : 2 ≤ n) :
+theorem capacity_scale_cast_le (B n : Nat) (hn : 2 ≤ n) :
     ((max B n.size + 2 : Nat) : ℝ) ≤ ((B : ℝ) + 5) * Real.logb 2 n := by
   have hs := size_le_clog_add_one n (by omega)
   have hn' : (2 : ℝ) ≤ n := by exact_mod_cast hn
@@ -560,7 +560,7 @@ theorem capacityScale_cast_le (B n : Nat) (hn : 2 ≤ n) :
   have hB := mul_le_mul_of_nonneg_left hlog (Nat.cast_nonneg B)
   nlinarith
 
-theorem capacityScale_isBigO_log (B : Nat) :
+theorem capacity_scale_isBigO_log (B : Nat) :
     Asymptotics.IsBigO Filter.atTop (fun n : Nat => ((max B n.size + 2 : Nat) : ℝ))
       (fun n => Real.logb 2 n) := by
   apply Asymptotics.isBigO_iff.mpr
@@ -568,9 +568,9 @@ theorem capacityScale_isBigO_log (B : Nat) :
   intro n hn
   have hlog : 0 ≤ Real.logb 2 n :=
     Real.logb_nonneg (by norm_num) (by exact_mod_cast (show 1 ≤ n by omega))
-  simpa only [Real.norm_natCast, Real.norm_of_nonneg hlog] using capacityScale_cast_le B n hn
+  simpa only [Real.norm_natCast, Real.norm_of_nonneg hlog] using capacity_scale_cast_le B n hn
 
-theorem n_capacityScale_isBigO_log (B : Nat) :
+theorem n_capacity_scale_isBigO_log (B : Nat) :
     Asymptotics.IsBigO Filter.atTop
       (fun n : Nat => ((n * (max B n.size + 2) : Nat) : ℝ))
       (fun n => (n : ℝ) * Real.logb 2 n) := by
@@ -579,7 +579,7 @@ theorem n_capacityScale_isBigO_log (B : Nat) :
   intro n hn
   have hlog : 0 ≤ Real.logb 2 n :=
     Real.logb_nonneg (by norm_num) (by exact_mod_cast (show 1 ≤ n by omega))
-  have h := mul_le_mul_of_nonneg_left (capacityScale_cast_le B n hn) (Nat.cast_nonneg n)
+  have h := mul_le_mul_of_nonneg_left (capacity_scale_cast_le B n hn) (Nat.cast_nonneg n)
   rw [Real.norm_natCast, Real.norm_of_nonneg (mul_nonneg (Nat.cast_nonneg n) hlog)]
   simpa only [Nat.cast_mul, mul_assoc, mul_comm, mul_left_comm] using h
 
@@ -600,7 +600,7 @@ theorem insertRun_isBigO_log (cmp : K → K → Measured Bool Nat)
         _ ≤ (max B n.size + 2) * insertPrice prices C :=
           Nat.mul_le_mul_right _ (by omega)
         _ = insertPrice prices C * (max B n.size + 2) := Nat.mul_comm _ _)
-  exact h.trans (capacityScale_isBigO_log B)
+  exact h.trans (capacity_scale_isBigO_log B)
 
 theorem mergeRun_isBigO_log (cmp : K → K → Measured Bool Nat)
     (prices : Cost) (C : Nat) (bound : ∀ x y, (cmp x y).2 ≤ C)
@@ -614,7 +614,7 @@ theorem mergeRun_isBigO_log (cmp : K → K → Measured Bool Nat)
     (fun n => max B n.size + 2) (prices .mergeCalls + joinPrice prices C) 0 (fun n _ => by
       simpa only [Nat.mul_comm] using
         mergeRun_capacity_bound cmp prices C bound B n (left n) (right n) (cl n) (cr n))
-  exact h.trans (capacityScale_isBigO_log B)
+  exact h.trans (capacity_scale_isBigO_log B)
 
 theorem deleteMaxRun_isBigO_log [Preorder K] [Std.Total (fun x y : K => x ≤ y)]
     (cmp : K → K → Measured Bool Nat) (correct : ∀ x y, (cmp x y).1 = true ↔ ¬ x ≤ y)
@@ -632,7 +632,7 @@ theorem deleteMaxRun_isBigO_log [Preorder K] [Std.Total (fun x y : K => x ≤ y)
           deleteMaxRun_capacity_bound cmp correct prices C bound B n (queues n) (valid n) (capacity n)
         _ ≤ (max B n.size + 2) * deletePrice prices C := Nat.mul_le_mul_right _ (by omega)
         _ = deletePrice prices C * (max B n.size + 2) := Nat.mul_comm _ _)
-  exact h.trans (capacityScale_isBigO_log B)
+  exact h.trans (capacity_scale_isBigO_log B)
 
 theorem runCommands_isBigO_n_log [Preorder K] [Std.Total (fun x y : K => x ≤ y)]
     (cmp : K → K → Measured Bool Nat) (correct : ∀ x y, (cmp x y).1 = true ↔ ¬ x ≤ y)
@@ -646,6 +646,6 @@ theorem runCommands_isBigO_n_log [Preorder K] [Std.Total (fun x y : K => x ≤ y
       (fun n => (weighted prices (runCommands cmp (commands n) (initial n)).2 : ℝ))
       (fun n => (n : ℝ) * Real.logb 2 n) :=
   (runCommands_isBigO cmp correct prices C bound B commands initial lengths valid massBound capacity history).trans
-    (n_capacityScale_isBigO_log B)
+    (n_capacity_scale_isBigO_log B)
 
 end Resources.BinomialQueue

@@ -57,7 +57,7 @@ theorem machine_alphabet_finite (initial : R) (k : (machine caller initial).K) :
   let := machineAlphabetFintype caller initial k
   infer_instance
 
-theorem machine_inputIndex (initial : R) :
+theorem machine_input_index (initial : R) :
     (machine caller initial).k₀ = Sum.inl FrontEndMachine.LocalStack.framedRaw := rfl
 
 theorem machine_output_index (initial : R) :
@@ -68,7 +68,7 @@ theorem machine_input_ne_output (initial : R) :
   intro h
   cases h
 
-theorem machine_inputAlphabet (initial : R) :
+theorem machine_input_alphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₀ = Bool := rfl
 
 theorem machine_output_alphabet (initial : R) :

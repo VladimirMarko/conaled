@@ -99,13 +99,13 @@ theorem lookup_square_instance :
 /-- The physically composed client observes a stored optional-none value. -/
 theorem composed_present_none :
     (Map.bindThenLookupSquare 1 (some 8) 3).impl initial = some (some none) := by
-  have h := Map.bindThenLookup_correct initial_rep 1 (some 8) 3
+  have h := Map.bindThenLookupSquare_correct initial_rep 1 (some 8) 3
   exact h.trans (by rfl)
 
 /-- A successful physical bind followed by a missing lookup is distinct. -/
 theorem composed_missing :
     (Map.bindThenLookupSquare 1 (some 8) 4).impl initial = some none := by
-  have h := Map.bindThenLookup_correct initial_rep 1 (some 8) 4
+  have h := Map.bindThenLookupSquare_correct initial_rep 1 (some 8) 4
   exact h.trans (by rfl)
 
 end Examples.SharedTreeMap

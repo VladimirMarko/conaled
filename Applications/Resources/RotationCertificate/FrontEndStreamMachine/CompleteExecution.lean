@@ -305,7 +305,7 @@ def frontEndComponentCfg (q : FrontEndMachine.OwnedLabels) (D : LocalData) (regs
     (frontEndFinishRegisters q D regs) (frontEndFinishData q D) ctx
 
 omit caller [DecidableEq K] in
-theorem frontEndCfg_phaseResult (q : FrontEndMachine.OwnedLabels) (D : LocalData)
+theorem frontEndCfg_frontEndPhaseResult (q : FrontEndMachine.OwnedLabels) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     frontEndCfg (DirtyFrontEnd.frontEndPhaseResult (Λ := FrontEndCallerLabel Λ) q regs
       (frontEndData D) (frontEndContext D ctx)) = frontEndComponentCfg q D regs ctx := by
@@ -328,7 +328,7 @@ theorem front_end_phase_localRun (q : FrontEndMachine.OwnedLabels) (D : LocalDat
   simp only [Option.map_some, frontEndLabelEquiv_owned] at start
   change frontEndCfg (FrontEndMachine.cfg (some (FrontEndMachine.ownedLabelEquiv q).val)
     regs (frontEndData D) (frontEndContext D ctx)) = _ at start
-  rw [start, frontEndCfg_phaseResult] at transported
+  rw [start, frontEndCfg_frontEndPhaseResult] at transported
   exact transported
 
 omit caller [DecidableEq K] in
@@ -1153,18 +1153,18 @@ def sourceObservation (raw : Bits) : Option (Bool × Nat) :=
   (BitPairFraming.unframe raw).map (fun pair => verifyBitsRun pair.1 pair.2)
 
 omit caller [DecidableEq K] in
-theorem sourceObservation_frameFailure (raw : Bits) (failed : BitPairFraming.unframe raw = none) :
+theorem sourceObservation_frame_failure (raw : Bits) (failed : BitPairFraming.unframe raw = none) :
     sourceObservation raw = none := by simp only [sourceObservation, failed, Option.map_none]
 
 omit caller [DecidableEq K] in
-theorem sourceObservation_inputDecodeFailure (raw input cert : Bits)
+theorem sourceObservation_input_decode_failure (raw input cert : Bits)
     (framed : BitPairFraming.unframe raw = some (input, cert))
     (failed : (unpackWordRun input).1 = none) :
     sourceObservation raw = some (false, (unpackWordRun input).2 + 2) := by
   simp only [sourceObservation, framed, Option.map_some, verifyBitsRun_input_none input cert failed]
 
 omit caller [DecidableEq K] in
-theorem sourceObservation_inputParseFailure (raw input cert : Bits) (word : Word)
+theorem sourceObservation_input_parse_failure (raw input cert : Bits) (word : Word)
     (framed : BitPairFraming.unframe raw = some (input, cert))
     (decoded : (unpackWordRun input).1 = some word) (failed : (parseInputRun word).1 = none) :
     sourceObservation raw = some (false, (unpackWordRun input).2 + (parseInputRun word).2 + 2) := by
@@ -1172,7 +1172,7 @@ theorem sourceObservation_inputParseFailure (raw input cert : Bits) (word : Word
     verifyBitsRun_parse_none input cert word decoded failed]
 
 omit caller [DecidableEq K] in
-theorem sourceObservation_certificateDecodeFailure (raw input cert : Bits) (word : Word)
+theorem sourceObservation_certificate_decode_failure (raw input cert : Bits) (word : Word)
     (source target : BinaryTree Unit) (fuel : Bits)
     (framed : BitPairFraming.unframe raw = some (input, cert))
     (decoded : (unpackWordRun input).1 = some word)

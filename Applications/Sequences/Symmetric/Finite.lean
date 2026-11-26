@@ -99,20 +99,20 @@ theorem finitePrefix_foldl_shift (f : β → α → β) (e : β) (σ : Nat → �
   rw [← sourceScanState_eq_foldl, ← sourceScanState_eq_foldl]
   rfl
 
-theorem scanState_symmetric_inv (σ : Nat → α) (n : Nat) :
+theorem finitePrefix_foldl_snocSL_inv (σ : Nat → α) (n : Nat) :
     Inv ((finitePrefix σ n).foldl (fun s x => snocSL x s) nilSL) := by
   induction n with
   | zero => exact inv_nilSL
   | succ n _ => simp only [prefix_succ, List.foldl_append, List.foldl_cons, List.foldl_nil]; exact inv_snocSL _ _
 
-theorem scanState_symmetric_value (σ : Nat → α) (n : Nat) :
+theorem finitePrefix_foldl_snocSL_value (σ : Nat → α) (n : Nat) :
     fromSL ((finitePrefix σ n).foldl (fun s x => snocSL x s) nilSL) = finitePrefix σ n := by
   have fusion := SquareKit.ListFusion.foldl_reachable
     (fun s x => snocSL x s) (fun ys x => ys ++ [x]) fromSL Inv nilSL inv_nilSL
     (fun s x _ => inv_snocSL x s) (fun s x h => fromSL_snocSL x s h) (finitePrefix σ n)
   simpa [← List.flatMap_def] using fusion
 
-theorem scanState_reverse_value (σ : Nat → α) (n : Nat) :
+theorem finitePrefix_foldl_cons_reverse (σ : Nat → α) (n : Nat) :
     ((finitePrefix σ n).foldl (fun ys x => x :: ys) []).reverse = finitePrefix σ n := by
   simp
 

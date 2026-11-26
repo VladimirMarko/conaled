@@ -36,7 +36,7 @@ theorem ascending : run natLT natCompare [0, 1, 2] = ([0, 1, 2], 2) :=
 
 theorem ascending_zero_merge :
     Resources.BottomUpSorting.allComparisons natCompare (runsBy natLT [0, 1, 2]) = 0 :=
-  mergeComparisons_of_sorted id natCompare [0, 1, 2] (by decide) (by simp)
+  allComparisons_runsOn_of_sorted id natCompare [0, 1, 2] (by decide) (by simp)
 
 theorem descending : run natLT natCompare [2, 1, 0] = ([0, 1, 2], 2) := by
   change run (fun a b : Nat => decide (a < b)) natCompare [2, 1, 0] = ([0, 1, 2], 2)

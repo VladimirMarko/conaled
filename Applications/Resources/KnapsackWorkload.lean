@@ -171,14 +171,14 @@ theorem sourceObserve_exact (s : Selection α) : sourceObserve s = (s,3*s.names.
   cases s
   simp [sourceObserve,hm,Nat.add_assoc]
 
-theorem rowsMeasured_sourceScalar (capacity : Nat) (items : List (Item α)) :
+theorem rowsMeasured_source_scalar (capacity : Nat) (items : List (Item α)) :
     reweight (fun w : Work => w.2.2.2) (rowsMeasured capacity items) = sourceRowsRun capacity items := by
   induction items with
   | nil => rfl
   | cons i items ih =>
     have hv := congrArg Prod.fst ih
     have hc := congrArg Prod.snd ih
-    have hs := stepMeasured_sourceScalar capacity i (rowsMeasured capacity items).1
+    have hs := stepMeasured_source_scalar capacity i (rowsMeasured capacity items).1
     have hsv := congrArg Prod.fst hs
     have hsc := congrArg Prod.snd hs
     dsimp [reweight] at hv hc hsv hsc
@@ -187,9 +187,9 @@ theorem rowsMeasured_sourceScalar (capacity : Nat) (items : List (Item α)) :
     rw [hc,hsv,hsc]
     simp [Nat.add_assoc]
 
-theorem runMeasured_sourceScalar (capacity : Nat) (items : List (Item α)) :
+theorem runMeasured_source_scalar (capacity : Nat) (items : List (Item α)) :
     reweight (fun w : Work => w.2.2.2) (runMeasured capacity items) = sourceRun capacity items := by
-  have hr := rowsMeasured_sourceScalar capacity items
+  have hr := rowsMeasured_source_scalar capacity items
   have hv := congrArg Prod.fst hr
   have hc := congrArg Prod.snd hr
   dsimp [reweight] at hv hc
@@ -198,23 +198,23 @@ theorem runMeasured_sourceScalar (capacity : Nat) (items : List (Item α)) :
 
 theorem sourceRun_value (capacity : Nat) (items : List (Item α)) :
     (sourceRun capacity items).1 = select capacity items := by
-  rw [← runMeasured_sourceScalar]
+  rw [← runMeasured_source_scalar]
   exact runMeasured_value capacity items
 
 theorem sourceRun_bound (capacity : Nat) (items : List (Item α)) :
     (sourceRun capacity items).2 ≤ 80*(items.length+1)*(capacity+1) := by
-  rw [← runMeasured_sourceScalar]
+  rw [← runMeasured_source_scalar]
   exact runMeasured_bound capacity items
 
 theorem sourceRowsRun_value (capacity : Nat) (items : List (Item α)) :
     (sourceRowsRun capacity items).1 = table capacity items := by
-  rw [← rowsMeasured_sourceScalar]
+  rw [← rowsMeasured_source_scalar]
   exact rowsMeasured_value capacity items
 
 theorem sourceRowsRun_bound (capacity : Nat) (items : List (Item α)) :
     (sourceRowsRun capacity items).2 ≤
       items.length*(50*(capacity+1)+11)+3*(capacity+1)+3 := by
-  rw [← rowsMeasured_sourceScalar]
+  rw [← rowsMeasured_source_scalar]
   exact rowsMeasured_bound capacity items
 
 theorem sourceRun_optimal (capacity : Nat) (items : List (Item α)) :

@@ -195,7 +195,7 @@ noncomputable def ofNative {f : List Bool → Bool}
     let : Inhabited d.Control := ⟨d.start⟩
     intro raw
     obtain ⟨finish, _source, _stopped, _output, target, _exact, _relative, _halted⟩ :=
-      d.printMove_run raw
+      d.printMoveMachine_run raw
     let widened : StateTransition.EvalsToInTime (PrintMove.step d.printMoveMachine)
         (PrintMove.init (.normal d.start) (raw.map d.bit))
         (some (PrintMove.decidedCfg (f raw) finish.Tape))

@@ -90,13 +90,13 @@ theorem binary_history_interval_upper :
     Asymptotics.IsBigO Filter.atTop
       (fun n : Nat => (signedHistoryWork (List.range' n n) : ℝ))
       (fun n => (n : ℝ) ^ 2 * Real.logb 2 n) :=
-  signedHistory_isBigO (fun n => List.range' n n) (by intro n; simp) interval_key_bound
+  signedHistoryWork_isBigO (fun n => List.range' n n) (by intro n; simp) interval_key_bound
 
 theorem redblack_interval_upper :
     Asymptotics.IsBigO Filter.atTop
       (fun n : Nat => (redBlackWork (List.range' n n) : ℝ))
       (fun n => (n : ℝ) * Real.logb 2 n ^ 2) :=
-  redBlack_isBigO (fun n => List.range' n n) (by intro n; simp) interval_key_bound
+  redBlackWork_isBigO (fun n => List.range' n n) (by intro n; simp) interval_key_bound
 
 theorem trie_interval_upper :
     Asymptotics.IsBigO Filter.atTop

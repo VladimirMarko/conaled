@@ -234,7 +234,7 @@ def sourceObservationCost (raw : Word) (move : RotationMove) (oldPath : List Bra
     (s : BinaryTree Unit) : Nat :=
   (parseMoveRun raw).2 + (applyMoveRun (physicalMove move oldPath) s).2
 
-theorem representedValue_eq_applyMove (move : RotationMove) (oldPath : List Branch)
+theorem representedValue_eq_applyMove? (move : RotationMove) (oldPath : List Branch)
     (s : BinaryTree Unit) :
     representedValue move oldPath s = Trees.Rotations.applyMove? (physicalMove move oldPath) s :=
   applyMoveRun_value (physicalMove move oldPath) s
@@ -280,7 +280,7 @@ theorem representedSource_success_injective (move : RotationMove) (oldPath : Lis
   have prefixed : saved.reverse ++ (treeCode t ++ suffix) =
       saved.reverse ++ (treeCode other ++ otherSuffix) := by
     simpa only [List.append_assoc] using output
-  exact parseTreeRun_prefix_injective t other suffix otherSuffix
+  exact treeCode_prefix_injective t other suffix otherSuffix
     (List.append_cancel_left prefixed)
 
 theorem source_application_cost_of_some (move : RotationMove) (oldPath : List Branch)
@@ -314,7 +314,7 @@ theorem parsed_prefix_unique (raw : Word) (move other : RotationMove) (rest othe
     move = other ∧ rest = otherRest := by
   have left := (parseMoveRun_iff raw move rest).mp first
   have right := (parseMoveRun_iff raw other otherRest).mp second
-  exact parseMoveRun_prefix_injective move other rest otherRest (left.symm.trans right)
+  exact moveCode_prefix_injective move other rest otherRest (left.symm.trans right)
 
 theorem sourceObservationCost_of_some (raw : Word) (move : RotationMove) (rest : Word)
     (oldPath : List Branch) (s t : BinaryTree Unit)

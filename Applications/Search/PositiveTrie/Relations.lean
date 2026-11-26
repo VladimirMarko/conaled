@@ -56,7 +56,7 @@ theorem forall₂_keyEq_of_sorted {xs ys : List Key}
   rintro a a' b b' rfl rfl
   rfl
 
-theorem eq_of_bitSorted_sameRelated {xs ys : List Key}
+theorem eq_of_isChain_bitLt_sameRelatedMembers {xs ys : List Key}
     (sortedXs : xs.IsChain BitLt) (sortedYs : ys.IsChain BitLt)
     (sameMembers : SameRelatedMembers KeyEq xs ys) : xs = ys :=
   (forall₂_keyEq_iff_eq xs ys).mp (forall₂_keyEq_of_sorted sortedXs sortedYs sameMembers)

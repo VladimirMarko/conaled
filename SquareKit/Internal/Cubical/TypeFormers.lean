@@ -12,12 +12,12 @@ def extendObj {Γ : Context.{u}} (A : Family Γ) (x : Γ.Elements) (a : A.obj x)
 /-- Restriction in a family gives the corresponding comprehension arrow. -/
 def extendHom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) (a : A.obj x) : extendObj A x a ⟶ extendObj A y (A.map f a) :=
-  Functor.Elements.homMk f.hom (totalMap_ofHom A f a)
+  Functor.Elements.homMk f.hom (totalMap_hom A f a)
 
 def extendAlong {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) {a : A.obj x} {a' : A.obj y} (h : A.map f a = a') :
     extendObj A x a ⟶ extendObj A y a' :=
-  Functor.Elements.homMk f.hom ((totalMap_ofHom A f a).trans (by rw [h]; rfl))
+  Functor.Elements.homMk f.hom ((totalMap_hom A f a).trans (by rw [h]; rfl))
 
 def sigmaMap {Γ : Context.{u}} (A : Family Γ) (B : Family (total A))
     {x y : Γ.Elements} (f : x ⟶ y) (z : Σ a : A.obj x, B.obj (extendObj A x a)) :

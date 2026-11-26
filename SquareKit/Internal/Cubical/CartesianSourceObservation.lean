@@ -152,14 +152,14 @@ noncomputable def transportEquivalence (v w : Vertex I.dimension) :
 def constantVertexFamily (v : Vertex I.dimension) :=
   Presheaf.reindex (vertexFamily A v) (terminalSub (Presheaf.representable I))
 
-theorem contractionFamily_zero (v : Vertex I.dimension) :
+theorem reindex_contractionMap_zero (v : Vertex I.dimension) :
     Presheaf.reindex (Presheaf.reindex A.family (contractionMap v))
       (endpointSub (Presheaf.representable I) false) = constantVertexFamily A v := by
   change Presheaf.reindex A.family (endpointSub _ false ≫ contractionMap v) = _
   rw [contractionMap_zero]
   rfl
 
-theorem contractionFamily_one (v : Vertex I.dimension) :
+theorem reindex_contractionMap_one (v : Vertex I.dimension) :
     Presheaf.reindex (Presheaf.reindex A.family (contractionMap v))
       (endpointSub (Presheaf.representable I) true) = A.family := by
   change Presheaf.reindex A.family (endpointSub _ true ≫ contractionMap v) = _
@@ -168,26 +168,26 @@ theorem contractionFamily_one (v : Vertex I.dimension) :
 
 noncomputable def globalTransport (v : Vertex I.dimension) : constantVertexFamily A v ⟶ A.family :=
   IntervalTransport.mapTo (A.toNative.filling.reindex (contractionMap v)) _ _
-    (contractionFamily_zero A v) (contractionFamily_one A v)
+    (reindex_contractionMap_zero A v) (reindex_contractionMap_one A v)
 
 noncomputable def globalTransportEquivalence (v : Vertex I.dimension) :
     HomotopyEquivalence (globalTransport A v) :=
   IntervalTransport.equivalenceTo (A.toNative.filling.reindex (contractionMap v))
-    (A.toNative.lawful.reindex _) _ _ (contractionFamily_zero A v) (contractionFamily_one A v)
+    (A.toNative.lawful.reindex _) _ _ (reindex_contractionMap_zero A v) (reindex_contractionMap_one A v)
 
-theorem constantVertex_reindex (v : Vertex I.dimension) :
+theorem constantVertexFamily_reindex (v : Vertex I.dimension) :
     Presheaf.reindex (constantVertexFamily A v) (vertexMap v) = vertexFamily A v := by
   change Presheaf.reindex (vertexFamily A v) (vertexMap v ≫ terminalSub (Presheaf.representable I)) = _
   rw [vertexMap_terminal]
   rfl
 
 noncomputable def returnMap (v : Vertex I.dimension) : vertexFamily A v ⟶ vertexFamily A v :=
-  eqToHom (constantVertex_reindex A v).symm ≫
+  eqToHom (constantVertexFamily_reindex A v).symm ≫
     Functor.whiskerLeft (vertexMap v).mapElements (globalTransport A v)
 
 noncomputable def returnEquivalence (v : Vertex I.dimension) : HomotopyEquivalence (returnMap A v) := by
   let E := (globalTransportEquivalence A v).reindex (vertexMap v)
-  exact E.conjugateIso (eqToIso (constantVertex_reindex A v)).symm (Iso.refl _)
+  exact E.conjugateIso (eqToIso (constantVertexFamily_reindex A v)).symm (Iso.refl _)
 
 /-- Only closed vertex decoders are required to have finite constant presentations. -/
 structure FiniteVertices where
@@ -224,7 +224,7 @@ theorem extendSection_vertex (P : FiniteVertices A) (v : Vertex I.dimension)
     (extendSection A P v a).reindex (vertexMap v) = a := by
   let b := Presheaf.Term.map (returnIso A P v).inv a
   have hb : b.reindex (vertexMap v ≫ terminalSub (Presheaf.representable I)) =
-      Presheaf.Term.map (eqToHom (constantVertex_reindex A v).symm) b := by
+      Presheaf.Term.map (eqToHom (constantVertexFamily_reindex A v).symm) b := by
     apply eq_of_heq
     have hn : HEq (b.reindex (vertexMap v ≫ terminalSub (Presheaf.representable I))) b := by
       generalize vertexMap v ≫ terminalSub (Presheaf.representable I) = σ at *
@@ -379,7 +379,7 @@ theorem system_reindex (P : FiniteVertices A) {J : SquareKit.Cubical.Cube}
     exact sectionEquiv_heq (vertexFamily_reindex A f v) (vertexFamily_reindex A f w)
       _ _ (arrow_reindex A P f v w)
 
-theorem lineFamily_endpoint (p : (⟨1⟩ : SquareKit.Cubical.Cube) ⟶ I)
+theorem reindex_lineMap_endpoint (p : (⟨1⟩ : SquareKit.Cubical.Cube) ⟶ I)
     (b : Bool) (v : Vertex I.dimension) (h : dmVertices p (fun _ => b) = v) :
     Presheaf.reindex (Presheaf.reindex A.family (lineMap p)) (endpointSub terminal b) =
       vertexFamily A v := by
@@ -392,7 +392,7 @@ noncomputable def lineTransport (p : (⟨1⟩ : SquareKit.Cubical.Cube) ⟶ I)
     (h₀ : dmVertices p (fun _ => false) = v)
     (h₁ : dmVertices p (fun _ => true) = w) : vertexFamily A v ⟶ vertexFamily A w :=
   IntervalTransport.mapTo (A.toNative.filling.reindex (lineMap p)) _ _
-    (lineFamily_endpoint A p false v h₀) (lineFamily_endpoint A p true w h₁)
+    (reindex_lineMap_endpoint A p false v h₀) (reindex_lineMap_endpoint A p true w h₁)
 
 /-- Every dimension line with the stated endpoints induces the same bijection;
 the chosen filling need not be regular. -/
@@ -405,7 +405,7 @@ theorem lineTransport_arrow (P : FiniteVertices A)
   let s := extendSection A P v a
   have hz := DiscreteRecords.mapTo_section (A.toNative.filling.reindex (lineMap p))
     (A.toNative.lawful.reindex _) (s.reindex (lineMap p))
-    (lineFamily_endpoint A p false v h₀) (lineFamily_endpoint A p true w h₁)
+    (reindex_lineMap_endpoint A p false v h₀) (reindex_lineMap_endpoint A p true w h₁)
     (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w))
     (s.reindex (vertexMap v)) (s.reindex (vertexMap w))
     (reindex_heq s (σ := endpointSub terminal false ≫ lineMap p)
@@ -429,7 +429,7 @@ theorem arrow_of_line_section (P : FiniteVertices A)
   (lineTransport_arrow A P p v w h₀ h₁ a).symm.trans
     (DiscreteRecords.mapTo_section (A.toNative.filling.reindex (lineMap p))
       (A.toNative.lawful.reindex _) s
-      (lineFamily_endpoint A p false v h₀) (lineFamily_endpoint A p true w h₁)
+      (reindex_lineMap_endpoint A p false v h₀) (reindex_lineMap_endpoint A p true w h₁)
       (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w)) a b ha hb)
 
 end SquareKit.Cubical.Cartesian.SourceObservation

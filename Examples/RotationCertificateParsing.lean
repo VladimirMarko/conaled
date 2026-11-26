@@ -75,7 +75,7 @@ theorem actual_tree_success_retains_consumption_and_work
 theorem tree_prefix_uniquely_determines_both_results (source target : BinaryTree Unit)
     (rest suffix : Word) (same : treeCode source ++ rest = treeCode target ++ suffix) :
     source = target ∧ rest = suffix :=
-  parseTreeRun_prefix_injective source target rest suffix same
+  treeCode_prefix_injective source target rest suffix same
 
 theorem actual_tree_emitter_parser_roundtrip (tree : BinaryTree Unit) (suffix : Word) :
     parseTreeRun (emitTreeRun tree suffix).1 =
@@ -211,7 +211,7 @@ theorem input_code_uniquely_determines_all_fields
     (source target source' target' : BinaryTree Unit) (bs bs' : Bits)
     (same : inputCode source target bs = inputCode source' target' bs') :
     source = source' ∧ target = target' ∧ bs = bs' :=
-  parseInputRun_injective source target bs source' target' bs' same
+  inputCode_injective source target bs source' target' bs' same
 
 theorem actual_input_parser_emitter_restores_raw (raw : Word)
     (source target : BinaryTree Unit) (bs : Bits)

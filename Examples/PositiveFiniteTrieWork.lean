@@ -140,10 +140,10 @@ theorem set8_written_lookup_client :
 
 theorem map8_composed_cost :
     (Resources.bind (mapAddRun 8 42 (.nil : SparseMap Nat)) (findRun 8)).2 = (8, 4) :=
-  mapAdd_find_cost 8 42 .nil
+  mapAddRun_findRun_cost 8 42 .nil
 
 theorem set8_composed_cost :
-    (Resources.bind (setAddRun 8 .nil) (memRun 8)).2 = (8, 4) := setAdd_mem_cost 8 .nil
+    (Resources.bind (setAddRun 8 .nil) (memRun 8)).2 = (8, 4) := setAddRun_memRun_cost 8 .nil
 
 def longSingleton (height : Nat) : SparseMap Nat :=
   SparseMap.add (Resources.PositiveTrie.longKey height) 42 .nil

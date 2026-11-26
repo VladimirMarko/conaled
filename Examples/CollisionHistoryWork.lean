@@ -141,7 +141,7 @@ theorem interval_boundaries_and_three :
   decide
 
 theorem interval_three_lower : 12 ≤ total (unaryRun (List.range' 3 3)).2 :=
-  unaryInterval_lower 3
+  unaryRun_interval_lower 3
 
 theorem signed_prefix_nonnegative (xs : List ZNum) :
     0 ≤ ((signedRun xs).1.1.toZNum : Int) ∧ ((signedRun xs).1.1 : Nat) ≤ xs.length := by

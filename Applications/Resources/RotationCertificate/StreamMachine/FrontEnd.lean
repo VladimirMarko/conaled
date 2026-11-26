@@ -155,7 +155,7 @@ def frontEndRegisterEquiv : FrontEndMachine.Registers (Option Branch × R) ≃
     resetMove (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
       frontEndRegisterEquiv (FrontEndMachine.reset regs) := rfl
 
-@[simp] theorem frontEndRegisterEquiv_fullReset
+@[simp] theorem resetAll_frontEndRegisterEquiv_reset
     (regs : FrontEndMachine.Registers (Option Branch × R)) :
     resetAll (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
       (none, ((none, (none, none)), (frontEndDecoderZero, regs.2.2.2))) := rfl

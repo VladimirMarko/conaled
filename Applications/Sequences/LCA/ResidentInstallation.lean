@@ -168,22 +168,22 @@ theorem ofState_eq_resident (input : Input m)
   change Resident.mk _ _ _ _ _ _ = Resident.mk _ _ _ _ _ _
   congr 1
 
-theorem innerWords_le_shared (m : Nat) :
+theorem words_le_sharedSlots (m : Nat) :
     FlatTable.words (blockSize m) (blockSize m) ≤ sharedSlots m := by
   have hc : 1 ≤ 2^(blockSize m-1) := Nat.one_le_pow _ _ (by decide)
   have hh := Nat.mul_le_mul_right (blockSize m*blockSize m+blockSize m+1) hc
   unfold FlatTable.words sharedSlots
   nlinarith
 
-theorem macroWords_le (hn : 0 < m) : FlatTable.words (levels m+1) (blocks m) ≤ 26*m := by
-  have hs := sparseSlots_le hn
+theorem words_levels_blocks_le (hn : 0 < m) : FlatTable.words (levels m+1) (blocks m) ≤ 26*m := by
+  have hs := retainedSlots_blocks_levels_le hn
   unfold FlatTable.words SparseExecution.retainedSlots at *
   nlinarith
 
 theorem installWork_le (hn : 0 < m) : installWork m ≤ 512*m := by
-  have hn' := innerWords_le_shared m
+  have hn' := words_le_sharedSlots m
   have hs := sharedSlots_le hn
-  have hm := macroWords_le hn
+  have hm := words_levels_blocks_le hn
   have he : 2^(blockSize m-1)*(12*FlatTable.words (blockSize m) (blockSize m)+10) ≤ 12*sharedSlots m := by
     have heq : 2^(blockSize m-1)*(12*FlatTable.words (blockSize m) (blockSize m)+10)+2*2^(blockSize m-1) = 12*sharedSlots m := by
       unfold FlatTable.words sharedSlots; ring
@@ -211,9 +211,9 @@ theorem allocated_eq (r : Resident m width)
 theorem allocated_le (r : Resident m width)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords) : allocated r h ≤ 64*m := by
   rw [allocated_eq]
-  have hn := innerWords_le_shared m
+  have hn := words_le_sharedSlots m
   have hs := sharedSlots_le h.positive
-  have hm := macroWords_le h.positive
+  have hm := words_levels_blocks_le h.positive
   omega
 
 theorem packResident_linear (r : Resident m width)
@@ -452,7 +452,7 @@ theorem convertWork_le (hn : 0 < m) : convertWork m ≤ 4096*m := by
   have hk := blocks_le hn
   have hb := blockSize_le hn
   have hs := sharedSlots_le hn
-  have hsp := sparseSlots_le hn
+  have hsp := retainedSlots_blocks_levels_le hn
   have ht : 2^(blockSize m-1)*(3*blockSize m+blockSize m*(11*blockSize m+7)+7) ≤ 11*sharedSlots m := by
     have he : 2^(blockSize m-1)*(3*blockSize m+blockSize m*(11*blockSize m+7)+7)+
         2^(blockSize m-1)*(blockSize m+4)=11*sharedSlots m := by unfold sharedSlots; ring

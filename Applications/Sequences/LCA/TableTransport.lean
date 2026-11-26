@@ -86,7 +86,7 @@ theorem nextRow_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a)
 def rowsMap (f : α → β) (rows : Vector (Vector α n × Nat) k) : Vector (Vector β n × Nat) k :=
   rows.map fun row => (row.1.map f,row.2)
 
-theorem sparseBuild_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a) (f b))
+theorem sparse_build_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a) (f b))
     (seed : α) (input : Vector α n) (levels : Nat) :
     SparseExecution.build (f seed) (input.map f) levels =
       transport (rowsMap f) (SparseExecution.build seed input levels) := by
@@ -103,11 +103,11 @@ theorem sparseBuild_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (
     rw [nextRow_transport f hf]
     simp [transport, Vector.map_push]
 
-theorem sparsePrepare_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a) (f b))
+theorem sparse_prepare_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a) (f b))
     (seed : α) (input : Vector α n) (levels : Nat) :
     SparseExecution.prepare (f seed) (input.map f) levels =
       transport (fun pair => (rowsMap f pair.1,pair.2)) (SparseExecution.prepare seed input levels) := by
-  simp [SparseExecution.prepare, sparseBuild_transport f hf, transport, Resources.bind, Resources.pure]
+  simp [SparseExecution.prepare, sparse_build_transport f hf, transport, Resources.bind, Resources.pure]
 
 /-- Finite-word specialization, covering every intermediate initialized row
 and preserving the complete preparation's primitive-event count. -/
@@ -116,7 +116,7 @@ theorem word_sparse_prepare (seed : WordKey.Cell offset heights stride)
     SparseExecution.prepare (WordKey.cellWord seed) (WordKey.encodeStore input) levels =
       transport (fun pair => (rowsMap WordKey.cellWord pair.1,pair.2))
         (SparseExecution.prepare seed input levels) :=
-  sparsePrepare_transport WordKey.cellWord WordKey.cellWord_min seed input levels
+  sparse_prepare_transport WordKey.cellWord WordKey.cellWord_min seed input levels
 
 theorem word_buildRow (seed : WordKey.Cell offset heights stride)
     (source : Nat → Measured (WordKey.Cell offset heights stride) Nat) (n : Nat) :

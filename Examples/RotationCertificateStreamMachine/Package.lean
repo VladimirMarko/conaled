@@ -324,7 +324,7 @@ theorem installedCfg_firstRun_iff
         Owned (reached.l.map labels.symm)) ↔
     n = remainingSteps start ∧
       finish = installedCfg names symbols registers labels (finalCfg start) :=
-  installed_firstRun_iff names symbols registers labels caller ambient installed start n finish
+  installedFirstRun_iff names symbols registers labels caller ambient installed start n finish
 
 def ownedInstallationInTime
     (installed : ∀ label, Owned (some label) →

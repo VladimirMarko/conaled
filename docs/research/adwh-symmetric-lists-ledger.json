@@ -276,7 +276,7 @@
       "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
       "declaration": "lastSL_eq_getLast",
       "status": "adapted",
-      "destination": "Sequences.Symmetric.lastSL_eq_getLast",
+      "destination": "Sequences.Symmetric.lastSL_eq_getLast?",
       "file": "Applications/Sequences/Symmetric/Core.lean",
       "note": "Original premises retained; see grouped statement review."
     },
@@ -836,7 +836,7 @@
       "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
       "declaration": "scanState_symmetric_inv",
       "status": "adapted",
-      "destination": "Sequences.Symmetric.scanState_symmetric_inv",
+      "destination": "Sequences.Symmetric.finitePrefix_foldl_snocSL_inv",
       "file": "Applications/Sequences/Symmetric/Finite.lean",
       "note": "Original premises retained; see grouped statement review."
     },
@@ -844,7 +844,7 @@
       "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
       "declaration": "scanState_symmetric_value",
       "status": "adapted",
-      "destination": "Sequences.Symmetric.scanState_symmetric_value",
+      "destination": "Sequences.Symmetric.finitePrefix_foldl_snocSL_value",
       "file": "Applications/Sequences/Symmetric/Finite.lean",
       "note": "Original premises retained; see grouped statement review."
     },
@@ -852,7 +852,7 @@
       "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
       "declaration": "scanState_reverse_value",
       "status": "reused",
-      "destination": "Sequences.Symmetric.scanState_reverse_value",
+      "destination": "Sequences.Symmetric.finitePrefix_foldl_cons_reverse",
       "file": "Applications/Sequences/Symmetric/Finite.lean",
       "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
     },

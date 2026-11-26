@@ -113,7 +113,7 @@ theorem sharedSlots_le (hn : 0 < n) : sharedSlots n ≤ 6*n := by
   unfold sharedSlots
   nlinarith
 
-theorem sparseSlots_le (hn : 0 < n) :
+theorem retainedSlots_blocks_levels_le (hn : 0 < n) :
     SparseExecution.retainedSlots (blocks n) (levels n) ≤ 26*n := by
   have he := macro_entries_le hn
   have hb := blocks_le hn
@@ -133,7 +133,7 @@ theorem retainedSlots_le (hn : 0 < n) : retainedSlots n ≤ 36*n := by
   have hp := paddedCapacity_le hn
   have hb := blocks_le hn
   have hs := sharedSlots_le hn
-  have hm := sparseSlots_le hn
+  have hm := retainedSlots_blocks_levels_le hn
   unfold retainedSlots
   omega
 

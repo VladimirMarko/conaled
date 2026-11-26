@@ -30,7 +30,7 @@ theorem init_evaluate (raw : Word) :
       rw [evaluate_inspect, evaluateInspect_nonempty _ (by simp)]
       rfl
 
-theorem initClock_eq (raw : Word) : phaseSteps inspectPhase { certificate := raw } = 4 := by
+theorem phaseSteps_inspectPhase (raw : Word) : phaseSteps inspectPhase { certificate := raw } = 4 := by
   exact congrArg Evaluation.steps (init_evaluate raw)
 
 theorem init_result_eq (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -45,7 +45,7 @@ theorem init_input_firstRun (raw : Word) (regs : Registers R) (ctx : ∀ k, List
     FirstRun caller (cfg (some (phaseLabel inspectPhase)) regs { certificate := raw } ctx)
       4 (cfg (some (resultLabel raw.isEmpty)) (resetAll regs) { certificate := raw } ctx) := by
   have actual := phase_firstRun caller inspectPhase { certificate := raw } regs ctx
-  rw [initClock_eq, init_result_eq] at actual
+  rw [phaseSteps_inspectPhase, init_result_eq] at actual
   exact actual
 
 section StreamPackageExecution
@@ -156,7 +156,7 @@ theorem machine_init_first_return (initial : R) (raw : Word) :
 
 theorem machine_init_exact_rank (initial : R) (raw : Word) :
     remainingSteps (Turing.initList (machine caller initial) raw) = 4 := by
-  rw [initList_eq, remainingSteps_phase_cfg, initClock_eq]
+  rw [initList_eq, remainingSteps_phase_cfg, phaseSteps_inspectPhase]
 
 theorem machine_init_finalCfg (initial : R) (raw : Word) :
     finalCfg (Turing.initList (machine caller initial) raw) =
@@ -249,7 +249,7 @@ theorem installed_owned_prefix
   obtain ⟨reached, executed, _, _, ownership⟩ := owned_prefix caller start j (by omega)
   exact ⟨reached, executed, ownership.mp (by omega)⟩
 
-theorem installed_owned_firstRun
+theorem installedFirstRun_owned
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -273,7 +273,7 @@ theorem installed_owned_firstRun
 
 /-- A later caller result cannot count as the first return. This converse uses
 the actual strict-earlier ownership witnesses in the candidate run. -/
-theorem installed_firstRun_iff
+theorem installedFirstRun_iff
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))
@@ -281,7 +281,7 @@ theorem installed_firstRun_iff
     InstalledFirstRun labels ambient (installedCfg names symbols registers labels start) n finish ↔
       n = remainingSteps start ∧
         finish = installedCfg names symbols registers labels (finalCfg start) := by
-  have canonical := installed_owned_firstRun names symbols registers labels caller ambient installed start
+  have canonical := installedFirstRun_owned names symbols registers labels caller ambient installed start
   constructor
   · rintro ⟨run, returned, earlier⟩
     have count : n = remainingSteps start := by
@@ -310,7 +310,7 @@ def installedOwnedTimed
       (remainingSteps start) where
   steps := remainingSteps start
   evals_in_steps :=
-    (installed_owned_firstRun names symbols registers labels caller ambient installed start).1
+    (installedFirstRun_owned names symbols registers labels caller ambient installed start).1
   steps_le_m := Nat.le_refl _
 
 @[simp] theorem installedOwnedTimed_steps

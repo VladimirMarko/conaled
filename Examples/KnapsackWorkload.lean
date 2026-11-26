@@ -93,7 +93,7 @@ theorem actual_copies_charged : (copyCharges 2 repeated).sum = 14 := by
   rfl
 
 theorem source_scalar_consumer : sourceRun 2 repeated = (⟨["same","same"],7,2⟩,275) := by
-  rw [← runMeasured_sourceScalar,repeated_labels]
+  rw [← runMeasured_source_scalar,repeated_labels]
   rfl
 
 theorem source_bound : (sourceRun 2 repeated).2 ≤ 720 := sourceRun_bound 2 repeated

@@ -25,7 +25,7 @@ theorem toLocal_substitution {Γ Δ : Context.{u}} (A : Family Γ) (B : Family (
     congrArg (Γ.elementsMk f.right) (σ.naturality_apply f.hom x.val)
   exact p.pair_heq hy (σ.mapElements.map (localArrow x f))
     (localArrow (σ.mapElements.obj x) f)
-    (elementHom_hext rfl hy _ _ HEq.rfl) a b hab
+    (elements_hom_hext rfl hy _ _ HEq.rfl) a b hab
 
 theorem type_hom_hext {X X' Y Y' : Type u} (hx : X = X') (hy : Y = Y')
     (f : X ⟶ Y) (g : X' ⟶ Y')

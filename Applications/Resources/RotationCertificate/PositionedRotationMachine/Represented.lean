@@ -1068,7 +1068,7 @@ theorem root_right_phaseResult_success_iff (caller : External Λ → Statement �
     rfl
 
 /-- All strict earlier steps are owned: LocalRun cannot continue through an external caller. -/
-theorem firstSuccess_iff_phaseResult (q : Phase) (D : LocalData)
+theorem localRun_success_iff_phaseResult (q : Phase) (D : LocalData)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     (∃ n reached, LocalRun caller n (cfg (some (phaseLabel q)) regs D ctx) reached ∧
       reached.l = some (resultLabel .success)) ↔
@@ -1095,7 +1095,7 @@ theorem root_left_first_success_iff (w f : Word) (regs : Registers R)
       (cfg (some (phaseLabel (.seek .left))) regs { source := w, saved := f } ctx) reached ∧
         reached.l = some (resultLabel .success)) ↔
       ∃ A : BinaryTree Unit, ∃ z : Word, w = nodeTag :: (treeCode A ++ nodeTag :: z) := by
-  rw [firstSuccess_iff_phaseResult caller, root_left_phaseResult_success_iff caller]
+  rw [localRun_success_iff_phaseResult caller, root_left_phaseResult_success_iff caller]
 
 /-- Exact right raw-root success iff; no whole-input parser premise is imposed. -/
 theorem root_right_first_success_iff (w f : Word) (regs : Registers R)
@@ -1104,7 +1104,7 @@ theorem root_right_first_success_iff (w f : Word) (regs : Registers R)
       (cfg (some (phaseLabel (.seek .right))) regs { source := w, saved := f } ctx) reached ∧
         reached.l = some (resultLabel .success)) ↔
       ∃ A : BinaryTree Unit, ∃ z : Word, w = nodeTag :: nodeTag :: (treeCode A ++ z) := by
-  rw [firstSuccess_iff_phaseResult caller, root_right_phaseResult_success_iff caller]
+  rw [localRun_success_iff_phaseResult caller, root_right_phaseResult_success_iff caller]
 
 /-- Actual successful navigation frames, ordered from the focused subtree outwards. -/
 def navigationFrames : List Branch → BinaryTree Unit → List PositionFrame
@@ -1357,7 +1357,7 @@ theorem phaseResult_code_success_iff (caller : External Λ → Statement Γ Λ R
           simpa only [dataOfCfg_cfg, actual, Option.getD_some, List.append_assoc] using source
         have codes : treeCode u ++ z = treeCode t ++ outSuffix :=
           List.append_cancel_left prefixed
-        obtain ⟨tree, suffix⟩ := parseTreeRun_prefix_injective u t z outSuffix codes
+        obtain ⟨tree, suffix⟩ := treeCode_prefix_injective u t z outSuffix codes
         exact ⟨congrArg some tree, suffix⟩
   · rintro ⟨returned, rfl⟩
     simpa only [returned, sourceResult, Option.isSome_some, ite_true, Option.getD_some,

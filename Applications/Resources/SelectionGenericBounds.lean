@@ -27,7 +27,7 @@ variable {α : Type u} [LinearOrder α]
 noncomputable section
 
 /-- The actual median-list size is exactly the generic scalar's first child. -/
-theorem chunkMediansRun_length_eq_groupPivotChild (d : Nat) (xs : List α)
+theorem chunkMediansRun_length_eq_pivotChild (d : Nat) (xs : List α)
     (hd : 0 < d) :
     (chunkMediansRun d xs).1.length = GroupSelectionRecurrence.pivotChild d xs.length := by
   rw [chunkMediansRun_length]
@@ -49,7 +49,7 @@ theorem selectRunWith_pivot_size_bounds (d cutoff : Nat)
   have counts := medianOfMedians_count_bounds d xs p (by omega) hpm
   have hm : xs.length ⌈/⌉ d = GroupSelectionRecurrence.pivotChild d xs.length := by
     simpa only [chunkMediansRun_length] using
-      chunkMediansRun_length_eq_groupPivotChild d xs (by omega)
+      chunkMediansRun_length_eq_pivotChild d xs (by omega)
   rw [hm] at counts
   have hl : (partition3 p xs).1.length = xs.countP (fun x => decide (x < p)) := by
     simp only [partition3_eq_filters, List.countP_eq_length_filter]
@@ -96,7 +96,7 @@ theorem genericSelectionMajorant_monotone (d cutoff : Nat) (hd : 5 ≤ d) :
 
 /-- Either cutoff can determine the finite prefix. The bound uses actual
 execution and does not take a supremum over arbitrary payload values. -/
-theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)
+theorem selectRunWith_cost_le_genericSelectionBase_of_prefix (d cutoff : Nat)
     (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)
     (hprefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :
     (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff :=
@@ -104,7 +104,7 @@ theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)
     (prefix_max_bound d cutoff (GroupSelectionRecurrence.cutoff d) xs.length hprefix)
 
 /-- The entry-and-length cost of every invalid rank fits the same scalar. -/
-theorem invalid_cost_le_groupMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :
+theorem invalid_cost_le_genericSelectionMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :
     n + 2 ≤ genericSelectionMajorant d cutoff hd n := by
   by_cases small : n ≤ GroupSelectionRecurrence.cutoff d
   · rw [genericSelectionMajorant_small d cutoff hd n small]
@@ -119,7 +119,7 @@ theorem invalid_cost_le_groupMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) 
 /-- Actual valid executions are bounded by the contracting group scalar.
 The finite prefix is proved uniformly before this induction; no desired
 runtime, growth or payload-finiteness hypothesis is assumed. -/
-theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)
+theorem selectRunWith_cost_le_genericSelectionMajorant_of_lt (d cutoff : Nat)
     (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α)
     (hk : k < xs.length) :
     (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length := by
@@ -132,7 +132,7 @@ theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)
   | ind n ih =>
     intro ys hyn j hj
     by_cases hprefix : ys.length ≤ cutoff ∨ ys.length ≤ GroupSelectionRecurrence.cutoff d
-    · have bounded := selectRunWith_cost_le_groupBase_of_prefix d cutoff hd hc j ys hprefix
+    · have bounded := selectRunWith_cost_le_genericSelectionBase_of_prefix d cutoff hd hc j ys hprefix
       exact bounded.trans (genericSelectionBase_le_majorant d cutoff hgroup n)
     · have large : cutoff < ys.length := by omega
       have large_n : GroupSelectionRecurrence.cutoff d < n := by omega
@@ -143,7 +143,7 @@ theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)
       have hmshort : ms.length < n := by omega
       have hm : ms.length = GroupSelectionRecurrence.pivotChild d n := by
         dsimp only [ms]
-        rw [chunkMediansRun_length_eq_groupPivotChild d ys (by omega), hyn]
+        rw [chunkMediansRun_length_eq_pivotChild d ys (by omega), hyn]
       have hi : i < ms.length := by
         have hmlen : ms.length = ys.length ⌈/⌉ d := chunkMediansRun_length d ys
         dsimp only [i]
@@ -206,13 +206,13 @@ theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)
           omega
 
 /-- The same bound covers all ranks, including the actual invalid extension. -/
-theorem selectRunWith_cost_le_groupMajorant (d cutoff : Nat)
+theorem selectRunWith_cost_le_genericSelectionMajorant (d cutoff : Nat)
     (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (hgroup : 5 ≤ d) (k : Nat) (xs : List α) :
     (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionMajorant d cutoff hgroup xs.length := by
   by_cases hk : k < xs.length
-  · exact selectRunWith_cost_le_groupMajorant_of_lt d cutoff hd hc hgroup k xs hk
+  · exact selectRunWith_cost_le_genericSelectionMajorant_of_lt d cutoff hd hc hgroup k xs hk
   · rw [selectRunWith_of_invalid d cutoff hd hc k xs (Nat.le_of_not_gt hk)]
-    exact invalid_cost_le_groupMajorant d cutoff hgroup xs.length
+    exact invalid_cost_le_genericSelectionMajorant d cutoff hgroup xs.length
 
 /-- The constants depend on the fixed group and cutoff, before any payload
 type, list or rank is supplied. The all-size statement includes empty inputs. -/
@@ -224,7 +224,7 @@ theorem selectRunWith_exists_uniform_affine_bound (d cutoff : Nat)
     (genericSelectionBase d cutoff) (tollCoefficient d) 7 hgroup
   refine ⟨A, B, ?_⟩
   intro β inst ys j
-  exact (selectRunWith_cost_le_groupMajorant d cutoff hd hc hgroup j ys).trans (bound ys.length)
+  exact (selectRunWith_cost_le_genericSelectionMajorant d cutoff hd hc hgroup j ys).trans (bound ys.length)
 
 /-- A single multiplicative constant works at every positive input size.
 The empty input retains its separate cost two and the all-size affine bound. -/

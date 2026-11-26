@@ -239,7 +239,7 @@ theorem parseTreeRun_rest_length_lt (raw : Word) (t : BinaryTree Unit) (rest : W
   have consumed := parseTreeRun_consumed_length raw t rest returned
   omega
 
-theorem parseTreeRun_prefix_injective (s t : BinaryTree Unit) (rest suffix : Word)
+theorem treeCode_prefix_injective (s t : BinaryTree Unit) (rest suffix : Word)
     (encoded : treeCode s ++ rest = treeCode t ++ suffix) : s = t ∧ rest = suffix := by
   have observed := congrArg (fun raw => (parseTreeRun raw).1) encoded
   simpa only [parseTreeRun_code, Option.some.injEq, Prod.mk.injEq] using observed

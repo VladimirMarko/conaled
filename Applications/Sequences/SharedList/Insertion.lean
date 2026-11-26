@@ -148,7 +148,7 @@ def insertSquare (rel : α → α → Prop) [DecidableRel rel] (x : α) :
     (insertMeasuredSquare rel x)
 
 /-- A consumer composes the existing optional-head observation with insertion. -/
-theorem insertHead_correct (rel : α → α → Prop) [DecidableRel rel] (x : α)
+theorem insertRun_head_correct (rel : α → α → Prop) [DecidableRel rel] (x : α)
     {s : Store α} {r : Root} {xs : List α} (h : Represents s.heap r xs) :
     ((insertRun rel x s r).1.bind fun state => head state.1 state.2) =
       (List.orderedInsert rel x xs).head? :=

@@ -17,24 +17,24 @@ variable (h : Term (secondIdentityFamily terminal.{0}))
 def ordinaryConjugationCube := sourceConjugationCube β h
   (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h)
 
-theorem ordinaryConjugation_start : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 1 false)) =
+theorem ordinaryConjugationCube_start : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 1 false)) =
     sourceActionSquare (cocycleOrdinaryAction Base Fiber F hF t h) :=
   sourceConjugationCube_start β h (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h)
 
-theorem ordinaryConjugation_finish : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 1 true)) =
+theorem ordinaryConjugationCube_finish : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 1 true)) =
     secondSquare h :=
   sourceConjugationCube_finish β h (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h)
 
-theorem ordinaryConjugation_root (e : Bool) : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 0 e)) =
+theorem ordinaryConjugationCube_root (e : Bool) : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 0 e)) =
     comparisonRootSquare β :=
   sourceConjugationCube_root β h (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h) e
 
-theorem ordinaryConjugation_side (e : Bool) : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 2 e)) =
+theorem ordinaryConjugationCube_side (e : Bool) : (ordinaryConjugationCube Base Fiber F hF t β h).pullback (Over.map (face3 2 e)) =
     zeroCocycle (Over (⟨2⟩ : Cube)) :=
   sourceConjugationCube_side β h (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h) e
 
 include β in
-theorem ordinaryConjugation_observation : observeSquare (sourceActionSquare (cocycleOrdinaryAction Base Fiber F hF t h)) =
+theorem cocycleOrdinaryAction_observation : observeSquare (sourceActionSquare (cocycleOrdinaryAction Base Fiber F hF t h)) =
     secondObservation h :=
   sourceActionSquare_observation β h (cocycleOrdinaryAction Base Fiber F hF t h) (cocycleOrdinaryBridge Base Fiber F hF t h)
 

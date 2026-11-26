@@ -168,7 +168,7 @@ theorem system_reindex {I J : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.o
   rw [V.map_comp]
   rfl
 
-private theorem typeHom_heq {A B C D : Type u} {f : A → B} {g : C → D}
+private theorem ofHom_heq {A B C D : Type u} {f : A → B} {g : C → D}
     (ha : A = C) (hb : B = D) (h : HEq f g) : HEq (TypeCat.ofHom f) (TypeCat.ofHom g) := by
   subst C
   subst D
@@ -184,7 +184,7 @@ theorem family_reindex {I J : SquareKit.Cubical.Cube} (T : VertexSystem.{u} (V.o
     fun x => congrArg VertexSystem.Tuple (system_reindex V T h x)
   apply Functor.hext hobj
   intro x y f
-  apply typeHom_heq (hobj x) (hobj y)
+  apply ofHom_heq (hobj x) (hobj y)
   apply Function.hfunext (hobj x)
   intro a b hab
   apply VertexSystem.Tuple.hext (system_reindex V T h y)
@@ -282,7 +282,7 @@ def realizeCartesian : finiteNerve.{u} ⟶ restrict Presheaf.smallFamilyCodes.{u
   nerveRestriction.inv ≫ restrictMap realizeDM
 
 /-- Decoding a realized nerve preserves the complete tuple restriction action. -/
-theorem realizedDecode_map_coordinate {x y : dmFiniteNerve.{u}.Elements}
+theorem decode_realizeDM_map_coordinate {x y : dmFiniteNerve.{u}.Elements}
     (f : x ⟶ y) (a : ((Presheaf.SmallUniverse.decode realizeDM).obj x))
     (w : Vertex y.obj.unop.dimension) :
     HEq (((Presheaf.SmallUniverse.decode realizeDM).map f a).val w)
@@ -302,15 +302,15 @@ theorem realizedDecode_map_coordinate {x y : dmFiniteNerve.{u}.Elements}
     (VertexChart.family_map_coordinate dmVertexFunctor (fun _ _ => false) x.val
       (Presheaf.representableGenericHom f.hom.unop) a w)
 
-theorem decodedTuple_map_coordinate {Γ : Presheaf.Context.{u}}
+theorem decode_comp_realizeDM_map_coordinate {Γ : Presheaf.Context.{u}}
     (c : Presheaf.raisedContext Γ ⟶ dmFiniteNerve.{u}) {x y : Γ.Elements}
     (f : x ⟶ y) (a : (Presheaf.decode (c ≫ realizeDM)).obj x)
     (w : Vertex y.obj.unop.dimension) :
     HEq (((Presheaf.decode (c ≫ realizeDM)).map f a).val w)
       (a.val (dmVertices f.hom.unop w)) :=
-  realizedDecode_map_coordinate (c.mapElements.map ((Presheaf.raisedElements Γ).map f)) a w
+  decode_realizeDM_map_coordinate (c.mapElements.map ((Presheaf.raisedElements Γ).map f)) a w
 
-private theorem tupleValue_heq {V : Type} {T : VertexSystem.{u} V}
+private theorem tuple_val_heq_of_index_eq {V : Type} {T : VertexSystem.{u} V}
     (a : T.Tuple) {v w : V} (h : v = w) : HEq (a.val v) (a.val w) := by
   subst w
   rfl
@@ -328,11 +328,11 @@ def realizedDecoderIso :
       apply ULift.ext
       apply VertexSystem.Tuple.ext
       intro w
-      have hs := realizedDecode_map_coordinate ((elements dmFiniteNerve).map f) a.down w
+      have hs := decode_realizeDM_map_coordinate ((elements dmFiniteNerve).map f) a.down w
       have ht := TupleDecoder.mapEquiv_coordinate (nerveRestriction.hom.mapElements.map f) a.down w
       have hi : HEq (a.down.val (dmVertices (inclusion.map f.hom.unop) w))
           (a.down.val (Cube.vertices f.hom.unop w)) :=
-        tupleValue_heq a.down (dmVertices_inclusion f.hom.unop w)
+        tuple_val_heq_of_index_eq a.down (dmVertices_inclusion f.hom.unop w)
       exact eq_of_heq (hs.trans (hi.trans ht.symm)) }
   inv := {
     app := fun _ => TypeCat.ofHom (fun a => a)
@@ -343,16 +343,16 @@ def realizedDecoderIso :
       apply ULift.ext
       apply VertexSystem.Tuple.ext
       intro w
-      have hs := realizedDecode_map_coordinate ((elements dmFiniteNerve).map f) a.down w
+      have hs := decode_realizeDM_map_coordinate ((elements dmFiniteNerve).map f) a.down w
       have ht := TupleDecoder.mapEquiv_coordinate (nerveRestriction.hom.mapElements.map f) a.down w
       have hi : HEq (a.down.val (dmVertices (inclusion.map f.hom.unop) w))
           (a.down.val (Cube.vertices f.hom.unop w)) :=
-        tupleValue_heq a.down (dmVertices_inclusion f.hom.unop w)
+        tuple_val_heq_of_index_eq a.down (dmVertices_inclusion f.hom.unop w)
       exact eq_of_heq (ht.trans (hi.symm.trans hs.symm)) }
 
 /-- Any realized decoded section with the box's source is the complete selected
 Cartesian filler, after the explicit decoder identification. -/
-theorem realizedDecoder_fill_eq {Γ : Context.{u+1}}
+theorem realizedDecoderIso_fill_eq {Γ : Context.{u+1}}
     (p : total (interval Γ) ⟶ restrict dmFiniteNerve.{u})
     (φ : Subcontext Γ) (r : Term (interval Γ))
     (b : OpenBox (reindex TupleDecoder.family (p ≫ nerveRestriction.hom)) φ r)
@@ -385,7 +385,7 @@ private theorem raiseTerm_heq {B C : Family Γ} (h : B = C)
 
 /-- An actual small decoded section computes universal native transport when
 the endpoint is discrete; no equality of selected filling recipes is required. -/
-theorem pathToMap_of_smallSection (hB : PathDiscrete (liftedDecode b))
+theorem pathToMap_of_small_section (hB : PathDiscrete (liftedDecode b))
     (s : Term (Presheaf.decode ((raisedIntervalIso Γ).hom ≫ codeOfPath p)))
     (c : Term (Presheaf.decode a)) (d : Term (Presheaf.decode b))
     (hc : HEq (s.reindex (endpointSub Γ false)) c)

@@ -9,7 +9,7 @@ open CategoryTheory Presheaf
 variable {Γ : Context.{0}} {φ : Cofibration Γ}
 variable (b : OpenBox (cocycleFamily (total (interval Γ))) φ)
 
-theorem boxPrimitive_zeroCap {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) :
+theorem extendZero_boxPrimitive_intervalCap_false {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) :
     extendZero (boxPrimitive b) ((intervalCap Γ false).mapElements.op.map f) = 0 := by
   classical
   unfold extendZero
@@ -22,8 +22,8 @@ theorem boxCocycle_cap :
       (boxBaseCocycle b).pullback (intervalCap Γ false).mapElements.op := by
   apply Cocycle2.ext
   funext X Y Z f g
-  exact relativeExtension_zero _ _ _ _ (boxPrimitive_zeroCap b f)
-    (boxPrimitive_zeroCap b g) (boxPrimitive_zeroCap b (f ≫ g))
+  exact relativeExtension_zero _ _ _ _ (extendZero_boxPrimitive_intervalCap_false b f)
+    (extendZero_boxPrimitive_intervalCap_false b g) (extendZero_boxPrimitive_intervalCap_false b (f ≫ g))
 
 noncomputable def boxFill : Term (cocycleFamily (total (interval Γ))) := cocycleSection (boxCocycle b)
 

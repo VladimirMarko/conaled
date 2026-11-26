@@ -34,7 +34,7 @@ theorem fork_square_observes :
     (s := (.node 7 .nil .nil, .node 7 .nil .nil)) ⟨leaf_observes, leaf_observes⟩
 
 theorem fork_root_value : rootValue fork = some 9 :=
-  allocatedValue_correct leaf_observes leaf_observes 9
+  rootValue_allocate leaf_observes leaf_observes 9
 
 theorem empty_success :
     (optionalRepresentation Nat).Rel (some (empty, none)) (some .nil) :=

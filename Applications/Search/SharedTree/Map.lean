@@ -348,7 +348,7 @@ def bindThenLookupSquare (key : κ) (value : ν) (query : κ) :
       ⟨Option (Option ν), Option (Option ν), Eq⟩ :=
   Relational.compose (optionalLookupSquare query) (bindSquare key value)
 
-theorem bindThenLookup_correct {s : Store (κ × ν)} {root : Root}
+theorem bindThenLookupSquare_correct {s : Store (κ × ν)} {root : Root}
     {t : BinaryTree (κ × ν)} (h : Represents s.heap root t)
     (key : κ) (value : ν) (query : κ) :
     (bindThenLookupSquare key value query).impl (s, root) =

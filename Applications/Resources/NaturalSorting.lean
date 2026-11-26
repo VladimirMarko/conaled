@@ -153,7 +153,7 @@ theorem run_of_descending_chain (lt cmp : α → α → Bool) (xs : List α)
     run lt cmp xs = (xs.reverse, xs.length - 1) :=
   run_of_runs_eq_singleton lt cmp xs xs.reverse (runsBy_of_descending_chain lt xs hne h)
 
-theorem mergeComparisons_of_sorted [LinearOrder κ] (key : α → κ)
+theorem allComparisons_runsOn_of_sorted [LinearOrder κ] (key : α → κ)
     (cmp : α → α → Bool) (xs : List α) (hs : KeySorted key xs) (hne : xs ≠ []) :
     BottomUpSorting.allComparisons cmp (runsOn key xs) = 0 := by
   rw [runsOn_of_sorted key xs hs hne, BottomUpSorting.allComparisons_singleton]
@@ -173,7 +173,7 @@ theorem comparisons_of_sorted [LinearOrder κ] (key : α → κ)
   | cons a xs =>
     exact congrArg Prod.snd (run_of_sorted key cmp (a :: xs) hs (by simp))
 
-theorem mergeComparisons_of_strictly_descending [LT κ] [DecidableLT κ]
+theorem allComparisons_runsOn_of_strictly_descending [LT κ] [DecidableLT κ]
     (key : α → κ) (cmp : α → α → Bool) (xs : List α)
     (hs : xs.Pairwise (fun a b => key b < key a)) (hne : xs ≠ []) :
     BottomUpSorting.allComparisons cmp (runsOn key xs) = 0 := by

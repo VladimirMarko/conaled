@@ -81,20 +81,20 @@ theorem memRun_setAddRun_cost (key : PosNum) (tree : KeySet) :
   rw [setAddRun_value]
   exact lookRun_ins_cost false key true tree
 
-theorem mapAdd_find_value (key : PosNum) (value : α) (tree : SparseMap α) :
+theorem mapAddRun_findRun_value (key : PosNum) (value : α) (tree : SparseMap α) :
     (bind (mapAddRun key value tree) (findRun key)).1 = some value :=
   findRun_mapAddRun_value key value tree
 
-theorem mapAdd_find_cost (key : PosNum) (value : α) (tree : SparseMap α) :
+theorem mapAddRun_findRun_cost (key : PosNum) (value : α) (tree : SparseMap α) :
     (bind (mapAddRun key value tree) (findRun key)).2 =
       (2 * bitLength key, bitLength key) := by
   simp only [bind, mapAddRun_cost, findRun_mapAddRun_cost, Prod.mk_add_mk,
     Nat.add_zero, two_mul]
 
-theorem setAdd_mem_value (key : PosNum) (tree : KeySet) :
+theorem setAddRun_memRun_value (key : PosNum) (tree : KeySet) :
     (bind (setAddRun key tree) (memRun key)).1 = true := memRun_setAddRun_value key tree
 
-theorem setAdd_mem_cost (key : PosNum) (tree : KeySet) :
+theorem setAddRun_memRun_cost (key : PosNum) (tree : KeySet) :
     (bind (setAddRun key tree) (memRun key)).2 = (2 * bitLength key, bitLength key) := by
   simp only [bind, setAddRun_cost, memRun_setAddRun_cost, Prod.mk_add_mk,
     Nat.add_zero, two_mul]

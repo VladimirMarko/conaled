@@ -60,7 +60,7 @@ theorem insertion_preserves_order : Search.OrderedTree.Ordered
 /-- Composition retains the outer execution result and the inner root label. -/
 theorem inserted_root_observation :
     (insertRun original.1 original.2 2).1.map rootValue = some (some 3) :=
-  insertRootValue_correct original_rep 2
+  insertRun_rootValue_correct original_rep 2
 
 /-- The physical execution supplies a valid set insertion and retains the
 original version, with membership described independently of its search path. -/

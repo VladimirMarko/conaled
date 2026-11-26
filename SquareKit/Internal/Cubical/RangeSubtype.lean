@@ -4,7 +4,7 @@ import Mathlib.Logic.Equiv.Basic
 namespace SquareKit.Cubical.Presheaf
 universe u
 
-theorem rangePredicate_heq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
+theorem range_predicate_heq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
     (f : X → A) (g : Y → B) (he : ∀ x, HEq (f x) (g (e x))) :
     HEq (fun a => ∃ x, f x = a) (fun b => ∃ y, g y = b) := by
   cases h
@@ -18,10 +18,10 @@ theorem rangePredicate_heq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
     obtain ⟨x,rfl⟩ := e.surjective y
     exact ⟨x,eq_of_heq (he x)⟩
 
-theorem rangeSubtype_eq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
+theorem range_subtype_eq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
     (f : X → A) (g : Y → B) (he : ∀ x, HEq (f x) (g (e x))) :
     {a : A // ∃ x, f x = a} = {b : B // ∃ y, g y = b} := by
   cases h
-  exact congrArg Subtype (eq_of_heq (rangePredicate_heq e rfl f g he))
+  exact congrArg Subtype (eq_of_heq (range_predicate_heq e rfl f g he))
 
 end SquareKit.Cubical.Presheaf

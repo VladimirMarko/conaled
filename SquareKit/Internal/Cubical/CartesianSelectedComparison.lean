@@ -57,7 +57,7 @@ def concatenatedSystem (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
 theorem concatenatedSystem_eq (S : FiniteCode.{u}) (e d : S.Carrier ≃ S.Carrier) :
     concatenatedSystem S e d = loopSystem S (e.trans d) := rfl
 
-theorem loopTuple_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier)
+theorem loopSystem_tuple_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier)
     (t : (loopSystem S e).Tuple) : e (t.val (fun _ => false)) = t.val (fun _ => true) :=
   t.property (fun _ => false) (fun _ => true)
 
@@ -264,7 +264,7 @@ def loopSection (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrie
   property {x y} f := by
     apply VertexSystem.Tuple.ext
     intro w
-    have h := decodedTuple_map_coordinate
+    have h := decode_comp_realizeDM_map_coordinate
       ((SmallUniverse.raisedIntervalIso terminal).hom ≫ loopNerve _ S e) f (loopTuple S e x.val.2.down s) w
     have hr : f.hom.unop ≫ x.val.2.down = y.val.2.down :=
       congrArg ULift.down (eq_of_heq (Sigma.mk.inj f.map_val).2)
@@ -380,7 +380,7 @@ def raisedConstantIso (Γ : Presheaf.Context.{u}) (S : Type u) :
 theorem loop_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e))
       (Raising.raiseTerm (loopInput S s)) = Raising.raiseTerm (loopInput S (e s)) :=
-  SmallUniverse.NativeUnivalence.pathToMap_of_smallSection (realizedLoop S e)
+  SmallUniverse.NativeUnivalence.pathToMap_of_small_section (realizedLoop S e)
     (PathDiscrete.of_iso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
       (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _))
     (loopSection S e s) (loopInput S s) (loopInput S (e s))
@@ -443,7 +443,7 @@ noncomputable def nativeRecordPresentation (S : FiniteCode.{u})
   DiscreteRecords.constantPresentationIso (Raising.iso ea ≪≫ raisedConstantIso _ _)
     (Raising.iso ea ≪≫ raisedConstantIso _ _)
 
-theorem recordFilling_eq (S : FiniteCode.{u})
+theorem presentationFilling_nativeRecordPresentation_eq (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
     (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
     (F : Presheaf.Filling (SmallUniverse.liftedDecode a)) (hF : F.Lawful) :

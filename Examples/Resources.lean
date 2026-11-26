@@ -68,7 +68,7 @@ theorem skip_on_value_tie :
 
 theorem scalar_source_recovered :
     reweight (fun w : Knapsack.Work => w.2.2.2) (Knapsack.stepMeasured 2 item old) =
-      Knapsack.sourceStepRun 2 item old := Knapsack.stepMeasured_sourceScalar _ _ _
+      Knapsack.sourceStepRun 2 item old := Knapsack.stepMeasured_source_scalar _ _ _
 
 theorem row_bound : (Knapsack.stepMeasured 2 item old).2.2.2.2 ≤ 160 :=
   Knapsack.stepMeasured_bound _ _ _ rfl

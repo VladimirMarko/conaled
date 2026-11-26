@@ -84,7 +84,7 @@ for the exact visit and shared-space functions use the existing
 [`SharedList.Observation`](../../Applications/Sequences/SharedList/Observation.lean)
 provides ordinary `RelSquare` adapters. Optional results preserve the
 success/failure distinction, without choosing a decoder for invalid heaps.
-`appendHeadSquare` composes the append and head contracts; `updateHead_correct`
+`appendHeadSquare` composes the append and head contracts; `updateRun_head_correct`
 composes partial replacement with optional head observation. Such observation
 can forget a distinction (for example, failure and a successful empty list both
 have no head) without equating the underlying representations.

@@ -141,7 +141,7 @@ theorem lookupRun_getD (cmp : κ → κ → Measured Bool Nat) (default : ν)
   rfl
 
 /-- The old ordinary-tree execution receives exactly the visit/work projection. -/
-theorem lookupRun_searchTree (cmp : κ → κ → Measured Bool Nat) (query : κ)
+theorem lookupRun_lookupWithRun (cmp : κ → κ → Measured Bool Nat) (query : κ)
     (t : Tree κ ν) :
     reweight (fun c : Cost => (c .visits, c .comparatorWork)) (lookupRun cmp query t) =
       Resources.SearchTree.lookupWithRun cmp query (Search.RedBlack.eraseColors t) := by
@@ -165,7 +165,7 @@ theorem lookupRun_visits_le_height (cmp : κ → κ → Measured Bool Nat) (quer
     (t : Tree κ ν) : (lookupRun cmp query t).2 .visits ≤ Search.RedBlack.height t := by
   have h := Resources.SearchTree.lookupWithRun_visits_le_height cmp query
     (Search.RedBlack.eraseColors t)
-  rw [← lookupRun_searchTree, Search.RedBlack.eraseColors_height] at h
+  rw [← lookupRun_lookupWithRun, Search.RedBlack.eraseColors_height] at h
   exact h
 
 /-- This finite-input premise bounds only comparisons against labels in this tree. -/
@@ -177,7 +177,7 @@ theorem lookupRun_comparatorWork_le_visits (cmp : κ → κ → Measured Bool Na
   have h := Resources.SearchTree.lookupWithRun_work_le_visits cmp query
     (Search.RedBlack.eraseColors t) K
     ((Search.RedBlack.eraseColors_forallT _ t).mpr local_bound)
-  rw [← lookupRun_searchTree] at h
+  rw [← lookupRun_lookupWithRun] at h
   exact h
 
 theorem lookupRun_comparatorWork_le_height (cmp : κ → κ → Measured Bool Nat)
@@ -301,7 +301,7 @@ theorem elementsRun_value (t : Tree κ ν) :
   elementsAuxRun_value t []
 
 /-- Project to the accepted accumulator execution, retaining its actual suffix. -/
-theorem elementsAuxRun_treeEnumeration (t : Tree κ ν) (suffix : List (κ × ν)) :
+theorem elementsAuxRun_accumulatorRun (t : Tree κ ν) (suffix : List (κ × ν)) :
     reweight (fun c : Cost => (c .enumerationCalls, c .consConstructions))
       (elementsAuxRun t suffix) =
       Resources.TreeEnumeration.accumulatorRun (Search.RedBlack.eraseColors t) suffix := by
@@ -322,7 +322,7 @@ theorem elementsAuxRun_counts (t : Tree κ ν) (suffix : List (κ × ν)) :
     ((elementsAuxRun t suffix).2 .enumerationCalls,
       (elementsAuxRun t suffix).2 .consConstructions) = (2 * t.size + 1, t.size) := by
   have h := Resources.TreeEnumeration.accumulatorRun_work (Search.RedBlack.eraseColors t) suffix
-  rw [← elementsAuxRun_treeEnumeration, Search.RedBlack.eraseColors_numNodes] at h
+  rw [← elementsAuxRun_accumulatorRun, Search.RedBlack.eraseColors_numNodes] at h
   exact h
 
 theorem elementsAuxRun_enumerationCalls (t : Tree κ ν) (suffix : List (κ × ν)) :

@@ -323,7 +323,7 @@ theorem encodedSourceRun_exact (encode : Nat → κ) (n : Nat)
     encodedSourceRun ltb encode n = (n, (n * n, 2 * (n * n))) := by
   let _ : LinearOrder κ := linearOrderOfStrict decode ltb hinj hlt
   rw [encodedSourceRun, sourceRun_eq_ordered decode ltb hinj hlt]
-  exact SearchTreeWorkload.encodedSourceRun_exact decode (fun _ _ => Iff.rfl)
+  exact SearchTreeWorkload.sourceRun_encodedKeys_exact decode (fun _ _ => Iff.rfl)
     encode n representable
 
 theorem encoded_source_schedule (encode : Nat → κ) (n : Nat)
@@ -434,24 +434,24 @@ theorem word_source_schedule (w n : Nat) (positive_width : 0 < w)
   encoded_source_schedule BitVec.toInt wordLtb (word_decode_injective w) wordLtb_true_iff
     (BitVec.ofNat w) n (word_prefix_representable w n positive_width bound)
 
-theorem word63BuildRun_transport (n : Nat) (bound : n ≤ 2 ^ 62) :
+theorem wordBuildRun_63_transport (n : Nat) (bound : n ≤ 2 ^ 62) :
     (mapKeys BitVec.toInt (wordBuildRun 63 n).1, (wordBuildRun 63 n).2) =
       (mapKeys (fun k : Nat => (k : Int)) (SearchTree.rightSpine 1 0 n),
         (SearchTreeWorkload.consecutiveBuildRun n).2) :=
   wordBuildRun_transport 63 n (by decide) bound
 
-theorem word63BuildRun_counts (n : Nat) (bound : n ≤ 2 ^ 62) :
+theorem wordBuildRun_63_counts (n : Nat) (bound : n ≤ 2 ^ 62) :
     2 * (wordBuildRun 63 n).2.1 = n * (n - 1) ∧
       (wordBuildRun 63 n).2.2 = n * (n - 1) :=
   wordBuildRun_counts 63 n (by decide) bound
 
-theorem word63QueryRun_counts (n : Nat) (bound : n ≤ 2 ^ 62) :
+theorem wordQueryRun_63_counts (n : Nat) (bound : n ≤ 2 ^ 62) :
     (wordQueryRun 63 n).1 = n ∧
       2 * (wordQueryRun 63 n).2.1 = n * (n + 1) ∧
       (wordQueryRun 63 n).2.2 = n * (n + 1) :=
   wordQueryRun_counts 63 n (by decide) bound
 
-theorem word63SourceRun_exact (n : Nat) (bound : n ≤ 2 ^ 62) :
+theorem wordSourceRun_63_exact (n : Nat) (bound : n ≤ 2 ^ 62) :
     wordSourceRun 63 n = (n, (n * n, 2 * (n * n))) :=
   wordSourceRun_exact 63 n (by decide) bound
 

@@ -86,7 +86,7 @@ def allocatedValueSquare (x : α) :
     Relational.RelSquare (pairInput α) ⟨Option α, Option α, Eq⟩ :=
   Relational.compose (rootValueSquare α) (allocateSquare x)
 
-theorem allocatedValue_correct {s : Store α} {l r : Root} {lt rt : BinaryTree α}
+theorem rootValue_allocate {s : Store α} {l r : Root} {lt rt : BinaryTree α}
     (hl : Represents s.heap l lt) (hr : Represents s.heap r rt) (x : α) :
     rootValue (allocate s x l r) = some x :=
   (allocatedValueSquare x).preserves (r := (s, l, r)) (s := (lt, rt)) ⟨hl, hr⟩

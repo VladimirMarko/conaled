@@ -56,7 +56,7 @@ theorem pointwiseApSection_root :
     HEq ((M).subTm (pointwiseApSection Base Fiber A C t x) ((M).toStructuralModel.rootSub A ⟨x⟩))
       ((M).reflexivity C (ordinaryApply M A C ⟨t⟩ ⟨x⟩)) := by
   apply up_heq
-  apply (convert_reindex_heq (pointwiseMotive_eq Base Fiber A C t x).symm
+  apply (convert_reindex_heq (ordinaryApMotive_family_eq Base Fiber A C t x).symm
     (pointwiseResult Base Fiber A C t x) ((M).toStructuralModel.rootSub A ⟨x⟩).down).trans
   apply (pointwiseResult_root Base Fiber A C t x).trans
   exact refl_congr (ordinaryApply_down Base Fiber A C t x).symm

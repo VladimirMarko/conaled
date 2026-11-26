@@ -62,10 +62,10 @@ example : (structuralSizeRun (erase unbalanced)).1 = 3 := structuralSizeRun_valu
 example : (structuralSizeRun (erase unbalanced)).2 + 1 = 6 := structuralSizeRun_work _
 example : ((observedStructuralSize Nat).impl ⟨unbalanced,unbalanced_cached⟩).down.1 =
     (cachedSizeSquare.impl ⟨unbalanced,unbalanced_cached⟩).down.1 :=
-  (observedSize_comparison ⟨unbalanced,unbalanced_cached⟩).1
+  (observedStructuralSize_comparison ⟨unbalanced,unbalanced_cached⟩).1
 example : ((observedStructuralSize Nat).impl ⟨unbalanced,unbalanced_cached⟩).down.2 = 5 ∧
     (cachedSizeSquare.impl ⟨unbalanced,unbalanced_cached⟩).down.2 = 1 := by
-  have h := observedSize_comparison ⟨unbalanced,unbalanced_cached⟩
+  have h := observedStructuralSize_comparison ⟨unbalanced,unbalanced_cached⟩
   exact ⟨by have := h.2.1; change _ + 1 = 6 at this; omega, h.2.2⟩
 example : cachedSizeRun (.node 99 (.leaf 1) (.leaf 2)) = (99,1) := cachedSizeRun_exact _
 example : (structuralSizeRun (erase (.node 99 (.leaf 1) (.leaf 2)))).1 = 2 :=

@@ -198,7 +198,7 @@ theorem lookup_family_isBigO (prices : Metric → Nat)
     (fun i => lookupRun_weighted_height prices (comparators i) (queries i) (trees i) K
       (comparison_bounds i))
 
-theorem unitComparator_localBound (ltb : κ → κ → Bool) (query : κ) (tree : Tree κ ν) :
+theorem unitComparator_local_bound (ltb : κ → κ → Bool) (query : κ) (tree : Tree κ ν) :
     Search.RedBlack.ForallT
       (fun key _ => (unitComparator ltb query key).2 ≤ 1 ∧
         (unitComparator ltb key query).2 ≤ 1) tree := by
@@ -215,7 +215,7 @@ theorem lookup_unit_family_isBigO (prices : Metric → Nat)
       (fun i => (weighted prices (lookupRun (unitComparator ltb) (queries i) (trees i)).2 : ℝ))
       (fun i => ((1 + ((trees i).size + 1).log2 : Nat) : ℝ)) :=
   lookup_family_isBigO prices (fun _ => unitComparator ltb) queries trees 1
-    (fun i => unitComparator_localBound ltb (queries i) (trees i)) shapes
+    (fun i => unitComparator_local_bound ltb (queries i) (trees i)) shapes
 
 /-- The complete insertion envelope includes every balance and final blackening. -/
 theorem insertRun_cost_le (cmp : κ → κ → Measured Bool Nat) (key : κ) (value : ν)
@@ -283,7 +283,7 @@ theorem insert_unit_family_isBigO (prices : Metric → Nat)
       (fun i => (weighted prices (insertRun (unitComparator ltb) (keys i) (values i) (trees i)).2 : ℝ))
       (fun i => ((1 + ((trees i).size + 1).log2 : Nat) : ℝ)) :=
   insert_family_isBigO prices (fun _ => unitComparator ltb) keys values trees 1
-    (fun i => unitComparator_localBound ltb (keys i) (trees i)) shapes
+    (fun i => unitComparator_local_bound ltb (keys i) (trees i)) shapes
 
 private theorem coefficient_bound (base comparison terminal K : Nat) :
     2 * (base + K * comparison) + terminal ≤

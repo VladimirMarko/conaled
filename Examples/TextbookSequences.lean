@@ -71,7 +71,7 @@ theorem append_head_materialize {ops : Ops α S} {rel : S → List α → Prop}
     (hs : rel s xs) (ht : rel t ys) {fuel : Nat} (enough : xs.length ≤ fuel) :
     ((appendRun ops fuel s t).1.bind ops.head) = (materialize xs ys).1.head? := by
   rw [materialize_eq]
-  exact appendHead_correct laws hs ht enough
+  exact appendRun_head_correct laws hs ht enough
 
 private def taggedLeft : Stack (Nat × Bool) := .cons (3, true) (.cons (3, true) .nil)
 private def taggedRight : Stack (Nat × Bool) := .cons (5, false) .nil

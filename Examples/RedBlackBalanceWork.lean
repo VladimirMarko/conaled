@@ -32,7 +32,7 @@ private def expectedCost (patterns observations constructions : Nat) : Cost :=
 theorem left_left_exact :
     balanceRun black (node red (r 0 100) (1, 101) nil) 2 102 nil =
       (node red (b 0 100) (1, 101) (b 2 102), expectedCost 2 5 3) :=
-  balanceRun_leftLeft _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl
+  balanceRun_left_left _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl
 
 /-- The failed LL attempt observes three fields; the succeeding LR attempt observes four. -/
 theorem left_right_exact :
@@ -44,7 +44,7 @@ theorem left_right_exact :
 theorem right_left_exact :
     balanceRun black nil 0 100 (node red (r 1 101) (2, 102) nil) =
       (node red (b 0 100) (1, 101) (b 2 102), expectedCost 4 7 3) :=
-  balanceRun_rightLeft _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), nil⟩ rfl rfl rfl
+  balanceRun_right_left _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), nil⟩ rfl rfl rfl
 
 /-- RR also pays the failed RL attempt, which stops at its nil child. -/
 theorem right_right_exact :
@@ -69,7 +69,7 @@ theorem left_overlap_exact :
     balanceRun black (node red (r 0 100) (1, 101) (r 2 102)) 3 103 nil =
       (node red (b 0 100) (1, 101) (node black (r 2 102) (3, 103) nil),
         expectedCost 2 5 3) :=
-  balanceRun_leftLeft _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), r 2 102⟩ rfl
+  balanceRun_left_left _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), r 2 102⟩ rfl
 
 /-- A matching right side is not examined after the left-left success. -/
 theorem both_sides_exact :
@@ -78,14 +78,14 @@ theorem both_sides_exact :
       (node red (b 0 100) (1, 101)
         (node black nil (3, 103) (node red (r 4 104) (5, 105) nil)),
         expectedCost 2 5 3) :=
-  balanceRun_leftLeft _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl
+  balanceRun_left_left _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl
 
 /-- Both right patterns match; the source still promotes key1, with the RL cost. -/
 theorem right_overlap_exact :
     balanceRun black nil 0 100 (node red (r 1 101) (2, 102) (r 3 103)) =
       (node red (b 0 100) (1, 101) (node black nil (2, 102) (r 3 103)),
         expectedCost 4 7 3) :=
-  balanceRun_rightLeft _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), r 3 103⟩ rfl rfl rfl
+  balanceRun_right_left _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), r 3 103⟩ rfl rfl rfl
 
 theorem right_overlap_both_recognizers :
     (leftPairRun (node red (r 1 101) (2, 102) (r 3 103))).1 =

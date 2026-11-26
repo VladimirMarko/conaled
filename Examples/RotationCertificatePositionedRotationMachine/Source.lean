@@ -91,7 +91,7 @@ theorem represented_first_success_iff_the_actual_source_result
         have codes : treeCode t ++ z = treeCode u ++ z :=
           List.append_cancel_left (as := F.reverse)
             (by simpa [actual, cfg, data, List.append_assoc] using source)
-        have equal := (parseTreeRun_prefix_injective t u z z codes).1
+        have equal := (treeCode_prefix_injective t u z z codes).1
         simp only [equal]
   · intro actual
     exact ⟨representedClock d p s + F.length,

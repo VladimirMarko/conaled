@@ -29,7 +29,7 @@ def sourceStepRun (capacity : Nat) (i : Item α) (old : Array (Selection α)) : 
   let w := sourceWritesRun c.1 m.1
   (w.1,m.2+c.2+w.2+3*(capacity+1)+6)
 
-theorem sourceEntries_exact (i : Item α) (old : Array (Selection α)) (js : List Nat) :
+theorem sourceMapRun_entries_exact (i : Item α) (old : Array (Selection α)) (js : List Nat) :
     sourceMapRun (fun j => let r := sourceNextRun i old j; ((j,r.1),r.2+1)) js =
       (js.map (fun j => (j,next i old j)), 10*js.length+23*fits i.weight js+1) := by
   induction js with
@@ -42,17 +42,17 @@ theorem sourceEntries_exact (i : Item α) (old : Array (Selection α)) (js : Lis
     · simp [sourceNextRun, next, h, fits, Nat.mul_add]
       omega
 
-theorem sourceWrites_exact (old : Array (Selection α)) (ps : List (Nat × Selection α)) :
+theorem sourceWritesRun_exact (old : Array (Selection α)) (ps : List (Nat × Selection α)) :
     sourceWritesRun old ps = (assign old ps, 8*ps.length+1) := by
   induction ps generalizing old with
   | nil => rfl
   | cons p ps ih => simp [sourceWritesRun, ih, assign, DynamicProgramming.arrayAssign, Nat.mul_add, Nat.add_assoc]
 
-theorem stepMeasured_sourceScalar (capacity : Nat) (i : Item α) (old : Array (Selection α)) :
+theorem stepMeasured_source_scalar (capacity : Nat) (i : Item α) (old : Array (Selection α)) :
     reweight (fun w : Work => w.2.2.2) (stepMeasured capacity i old) =
       sourceStepRun capacity i old := by
   rw [stepMeasured_exact]
-  simp [reweight, sourceStepRun, sourceEntries_exact, sourceWrites_exact,
+  simp [reweight, sourceStepRun, sourceMapRun_entries_exact, sourceWritesRun_exact,
     sourceCopyRun, step, fits_range, Nat.mul_add]
   omega
 

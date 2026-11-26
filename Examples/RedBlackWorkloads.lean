@@ -69,9 +69,9 @@ theorem empty_log_bounds :
     weighted prices (insertRun (unitComparator intLtb) 0 1 (.nil : Tree Int Nat)).2 ≤ 38 := by
   constructor
   · exact lookupRun_weighted_log prices (unitComparator intLtb) 0 .nil 1
-      (unitComparator_localBound intLtb 0 .nil) (Search.RedBlack.RB.nil .red)
+      (unitComparator_local_bound intLtb 0 .nil) (Search.RedBlack.RB.nil .red)
   · exact insertRun_weighted_log prices (unitComparator intLtb) 0 1 .nil 1
-      (unitComparator_localBound intLtb 0 .nil) (Search.RedBlack.RB.nil .red)
+      (unitComparator_local_bound intLtb 0 .nil) (Search.RedBlack.RB.nil .red)
 
 /-- The singleton has log2(size+1)=1; these bounds use its actual shape proof. -/
 theorem singleton_log_bounds :
@@ -79,9 +79,9 @@ theorem singleton_log_bounds :
     weighted prices (insertRun (unitComparator intLtb) 0 1 singleton).2 ≤ 116 := by
   constructor
   · exact lookupRun_weighted_log prices (unitComparator intLtb) 0 singleton 1
-      (unitComparator_localBound intLtb 0 singleton) singleton_shape
+      (unitComparator_local_bound intLtb 0 singleton) singleton_shape
   · exact insertRun_weighted_log prices (unitComparator intLtb) 0 1 singleton 1
-      (unitComparator_localBound intLtb 0 singleton) singleton_shape
+      (unitComparator_local_bound intLtb 0 singleton) singleton_shape
 
 /-- Index i builds the chronological integer keys 0 through i-1 with payload one. -/
 private def integerPrefix (i : Nat) : Tree Int Nat :=
@@ -201,7 +201,7 @@ theorem history_weighted : weighted prices history.2 = 224 := by
 theorem history_weighted_log_budget : weighted prices history.2 ≤ 386 := by
   exact buildRun_weighted_log_sum prices (unitComparator intLtb)
     Examples.RedBlackHistory.writes (.nil : Tree Int Nat) (fun _ _ => 1)
-    (fun entry _ => unitComparator_localBound intLtb entry.1.1 entry.2)
+    (fun entry _ => unitComparator_local_bound intLtb entry.1.1 entry.2)
     ⟨0, Search.RedBlack.RB.nil .red⟩
 
 theorem history_prefix_invariants :
@@ -265,7 +265,7 @@ theorem history_query_log_budget :
   rw [history_value]
   exact queryRun_weighted_log_sum prices (unitComparator intLtb) [-2, 1, 2, 3]
     Examples.RedBlackHistory.balanced (fun _ => 1)
-    (fun query _ => unitComparator_localBound intLtb query Examples.RedBlackHistory.balanced)
+    (fun query _ => unitComparator_local_bound intLtb query Examples.RedBlackHistory.balanced)
     Examples.RedBlackHistory.balanced_rb
 
 /-- Only enumeration calls and cons operations are priced here; the suffix is untouched. -/

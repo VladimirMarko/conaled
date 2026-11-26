@@ -54,7 +54,7 @@ theorem localPath_substitution {Γ Δ : Context.{u}} (B : Family (total (interva
     (a₁ : Term (reindex B (endpointSub Γ true))) (σ : Δ ⟶ Γ) (x : Δ.Elements) :
     LocalPath B a₀ a₁ (σ.mapElements.obj x) =
       LocalPath (reindex B (liftSub (interval Γ) σ)) (a₀.reindex σ) (a₁.reindex σ) x := by
-  exact rangeSubtype_eq (pathSubstitutionEquiv B a₀ a₁ σ x) (localPi_substitution (interval Γ) B σ x).symm
+  exact range_subtype_eq (pathSubstitutionEquiv B a₀ a₁ σ x) (localPi_substitution (interval Γ) B σ x).symm
     (fun p => p.val.toLocal) (fun p => p.val.toLocal)
     (fun p => (toLocal_substitution (interval Γ) B σ x p.val).symm)
 
@@ -64,7 +64,7 @@ theorem pathReindex_toLocal_heq {Γ Δ : Context.{u}} (B : Family (total (interv
     (p : PathElement B a₀ a₁ (σ.mapElements.obj x)) :
     HEq p.toLocal (((pathReindex B a₀ a₁ σ).app x p).toLocal) := by
   apply (Subtype.heq_iff_coe_heq (localPi_substitution (interval Γ) B σ x).symm
-    (rangePredicate_heq (pathSubstitutionEquiv B a₀ a₁ σ x)
+    (range_predicate_heq (pathSubstitutionEquiv B a₀ a₁ σ x)
       (localPi_substitution (interval Γ) B σ x).symm
       (fun p => p.val.toLocal) (fun p => p.val.toLocal)
       (fun p => (toLocal_substitution (interval Γ) B σ x p.val).symm))).mpr

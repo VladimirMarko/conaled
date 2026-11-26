@@ -44,13 +44,13 @@ def insertCandidateRootValueSquare (x : α) :
       ⟨Option (Option α), Option (Option α), Eq⟩ :=
   Relational.compose (optionalRootValueSquare α) (insertCandidateSquare x)
 
-theorem insertAbortRootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
+theorem insertAbortRun_rootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
     (h : Represents s.heap root t) (x : α) :
     (insertAbortRun s root x).1.map rootValue =
       some (treeValue (OrderedTree.insertAbort x t)) :=
   (insertAbortRootValueSquare x).preserves (r := (s, root)) (s := t) h
 
-theorem insertCandidateRootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
+theorem insertCandidateRun_rootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
     (h : Represents s.heap root t) (x : α) :
     (insertCandidateRun s root x).1.map rootValue =
       some (treeValue (OrderedTree.insertCandidate x t)) :=

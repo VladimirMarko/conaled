@@ -30,7 +30,7 @@ def insertRootValueSquare (x : α) :
       ⟨Option (Option α), Option (Option α), Eq⟩ :=
   Relational.compose (optionalRootValueSquare α) (insertSquare x)
 
-theorem insertRootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
+theorem insertRun_rootValue_correct {s : Store α} {root : Root} {t : BinaryTree α}
     (h : Represents s.heap root t) (x : α) :
     (insertRun s root x).1.map rootValue = some (treeValue (OrderedTree.insert x t)) :=
   (insertRootValueSquare x).preserves (r := (s, root)) (s := t) h

@@ -61,7 +61,7 @@ theorem empty_every_sufficient_group (d cutoff : Nat) (hd : 2 ≤ d)
   constructor
   · exact selectRunWith_nil d cutoff hd hc k
   · simpa only [List.length_nil] using
-      selectRunWith_cost_le_groupMajorant d cutoff hd hc hgroup k ([] : List (Fin 0))
+      selectRunWith_cost_le_genericSelectionMajorant d cutoff hd hc hgroup k ([] : List (Fin 0))
 
 theorem five_repeated_prefix :
     (selectRunWith 5 1 (by decide) (by decide) 2 ([3, 1, 2, 2] : List Nat)).1 = some 2 ∧
@@ -74,7 +74,7 @@ theorem five_repeated_prefix :
   · rw [genericSelectionMajorant_small 5 1 (by decide) 4 (by omega)]
     simp only [genericSelectionBase, cut, show max (1 : Nat) 71 = 71 from by decide]
   · simpa only [List.length_cons, List.length_nil] using
-      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 5 1 (by decide) (by decide) (by decide)
         2 ([3, 1, 2, 2] : List Nat)
 
 theorem six_repeated_prefix :
@@ -88,7 +88,7 @@ theorem six_repeated_prefix :
   · rw [genericSelectionMajorant_small 6 1 (by decide) 4 (by omega)]
     simp only [genericSelectionBase, cut, show max (1 : Nat) 97 = 97 from by decide]
   · simpa only [List.length_cons, List.length_nil] using
-      selectRunWith_cost_le_groupMajorant 6 1 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 6 1 (by decide) (by decide) (by decide)
         2 ([3, 1, 2, 2] : List Nat)
 
 /-- The book selector already recurses at 21, while this generic scalar is
@@ -103,7 +103,7 @@ theorem book_recurses_inside_scalar_prefix :
   · rw [genericSelectionMajorant_small 5 20 (by decide) 21 (by omega)]
     simp only [genericSelectionBase, cut, show max (20 : Nat) 71 = 71 from by decide]
   · simpa only [selectRun, List.length_range] using
-      selectRunWith_cost_le_groupMajorant 5 20 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 5 20 (by decide) (by decide) (by decide)
         0 (List.range 21)
 
 /-- Children 15 and 56 use the base; the actual local budget is 57*72+7. -/
@@ -114,7 +114,7 @@ theorem first_five_recursive_budget :
   constructor
   · exact range_value 5 1 (by decide) (by decide) 72 0 (by decide)
   · simpa only [List.length_range, first_five_scalar] using
-      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 5 1 (by decide) (by decide) (by decide)
         0 (List.range 72)
 
 /-- The first even sufficient size has children 17 and 80, and toll 72*98+7. -/
@@ -125,7 +125,7 @@ theorem first_six_recursive_budget :
   constructor
   · exact range_value 6 1 (by decide) (by decide) 98 97 (by decide)
   · simpa only [List.length_range, first_six_scalar] using
-      selectRunWith_cost_le_groupMajorant 6 1 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 6 1 (by decide) (by decide) (by decide)
         97 (List.range 98)
 
 /-- At size 80 the actual cutoff 100 gives a small branch, while the scalar
@@ -139,13 +139,13 @@ theorem actual_cutoff_above_scalar :
   have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=
     Examples.GroupSelectionRecurrence.explicit_cutoffs.1
   refine ⟨by omega, range_value 5 100 (by decide) (by decide) 80 0 (by decide), ?_, ?_⟩
-  · have hprefix := selectRunWith_cost_le_groupBase_of_prefix 5 100 (by decide) (by decide)
+  · have hprefix := selectRunWith_cost_le_genericSelectionBase_of_prefix 5 100 (by decide) (by decide)
       0 (List.range 80) (Or.inl (by
         simpa only [List.length_range] using (show (80 : Nat) ≤ 100 from by decide)))
     simpa only [genericSelectionBase, cut, show max (100 : Nat) 71 = 100 from by decide]
       using hprefix
   · simpa only [List.length_range] using
-      selectRunWith_cost_le_groupMajorant 5 100 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 5 100 (by decide) (by decide) (by decide)
         0 (List.range 80)
 
 theorem invalid_above_scalar :
@@ -157,7 +157,7 @@ theorem invalid_above_scalar :
       selectRunWith_of_invalid 5 1 (by decide) (by decide) 72 (List.range 72)
         (by simp only [List.length_range, Nat.le_refl])
   · simpa only [List.length_range, first_five_scalar] using
-      selectRunWith_cost_le_groupMajorant 5 1 (by decide) (by decide) (by decide)
+      selectRunWith_cost_le_genericSelectionMajorant 5 1 (by decide) (by decide) (by decide)
         72 (List.range 72)
 
 /-- Coefficient equality at three/four leaves their checked value correctness

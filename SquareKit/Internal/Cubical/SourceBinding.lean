@@ -142,7 +142,7 @@ theorem source_characterization_unique (X : Context.{u})
     ∀ n, c n = contractCube X n := by
   intro n
   induction n with
-  | zero => exact zero.trans (sourceZero_contract X)
+  | zero => exact zero.trans (projection_interval_cubes_zero_eq_contractCube X)
   | succ n ih => exact (successor n).trans ((congrArg (sourceStep X n) ih).trans
       (sourceStep_contract X n))
 

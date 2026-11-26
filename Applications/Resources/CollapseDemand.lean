@@ -191,7 +191,7 @@ theorem plainAux_sumInputs_le_output (acc : List Int) (blocks : List (List Int))
           simp
         · exact ih (acc ++ block) xs hx
 
-theorem sumInputs_work_le (inputs : List (List Int)) (n : Nat)
+theorem sum_inputs_work_le (inputs : List (List Int)) (n : Nat)
     (h : ∀ xs ∈ inputs, xs.length ≤ n) :
     (inputs.map (fun xs => 2 * xs.length + 1)).sum ≤ inputs.length * (2 * n + 1) := by
   induction inputs with
@@ -208,7 +208,7 @@ theorem plainAux_sumWork_le_output (acc : List Int) (blocks : List (List Int)) :
       ((plainAux acc blocks).used.length + 1) *
         (2 * (plainAux acc blocks).value.length + 1) := by
   rw [plainAux_sumWork, ← plainAux_sumInputs_length]
-  exact sumInputs_work_le _ _ (plainAux_sumInputs_le_output acc blocks)
+  exact sum_inputs_work_le _ _ (plainAux_sumInputs_le_output acc blocks)
 
 theorem plain_sumWork_le (blocks : List (List Int)) :
     (plain blocks).sumWork ≤ (blocks.length + 1) * (2 * blocks.flatten.length + 1) := by

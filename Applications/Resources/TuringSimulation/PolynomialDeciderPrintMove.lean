@@ -64,7 +64,7 @@ def printMoveMachine : PrintMove.Machine d.Alphabet (PrintMove.Control d.Control
 /-- Preserve the actual native witness and output evidence while constructing
 the paid conventional run on the literal per-letter initialized input. The
 target's complete tape is the native endpoint tape moved right. -/
-theorem printMove_run :
+theorem printMoveMachine_run :
     letI : Inhabited d.Alphabet := ⟨d.blank⟩
     letI : Inhabited d.Control := ⟨d.start⟩
     ∀ raw : List Bool, ∃ finish : TM0.Cfg d.Alphabet d.Control,
@@ -96,7 +96,7 @@ theorem printMove_run :
 
 /-- The head positions of every actual combined prefix are counted, including
 the temporary stationary-write excursions and the final decision movement. -/
-theorem printMove_run_with_space :
+theorem printMoveMachine_run_with_space :
     letI : Inhabited d.Alphabet := ⟨d.blank⟩
     letI : Inhabited d.Control := ⟨d.start⟩
     ∀ raw : List Bool, ∃ finish : TM0.Cfg d.Alphabet d.Control,
@@ -111,7 +111,7 @@ theorem printMove_run_with_space :
   let : Inhabited d.Alphabet := ⟨d.blank⟩
   let : Inhabited d.Control := ⟨d.start⟩
   intro raw
-  obtain ⟨finish, _source, stopped, output, target, _hcount, _hbound, _hhalt⟩ := printMove_run d raw
+  obtain ⟨finish, _source, stopped, output, target, _hcount, _hbound, _hhalt⟩ := printMoveMachine_run d raw
   refine ⟨finish, stopped, output, target, ?_⟩
   have hspace := (PrintMove.Trace.interval_le_of_run (printMoveMachine d)
     (PrintMove.init (.normal d.start) (raw.map d.bit))
@@ -131,7 +131,7 @@ noncomputable def classicalPrintMoveMachine :
 
 /-- Unconditional existence consumer of the existing native decider package.
 The computationally explicit supplied-equality route above remains separate. -/
-theorem classical_printMove_run :
+theorem classicalPrintMoveMachine_run :
     letI : Inhabited d.Alphabet := ⟨d.blank⟩
     letI : Inhabited d.Control := ⟨d.start⟩
     ∀ raw : List Bool, ∃ finish : TM0.Cfg d.Alphabet d.Control,
@@ -143,7 +143,7 @@ theorem classical_printMove_run :
   let : Inhabited d.Alphabet := ⟨d.blank⟩
   let : Inhabited d.Control := ⟨d.start⟩
   intro raw
-  obtain ⟨finish, _source, stopped, output, target, _hcount, _hbound, _hhalt⟩ := printMove_run d raw
+  obtain ⟨finish, _source, stopped, output, target, _hcount, _hbound, _hhalt⟩ := printMoveMachine_run d raw
   exact ⟨finish, stopped, output, ⟨target⟩⟩
 
 end Resources.TuringSimulation.PolynomialBooleanDecider

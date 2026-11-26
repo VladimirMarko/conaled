@@ -48,13 +48,13 @@ def machine (initial : R) : Turing.FinTM2 where
 def machineAlphabetFintype (initial : R) (k : (machine caller initial).K) :
     Fintype ((machine caller initial).Γ k) := alphabetFintype k
 
-theorem machine_inputIndex (initial : R) :
+theorem machine_input_index (initial : R) :
     (machine caller initial).k₀ = Sum.inl LocalStack.certificate := rfl
 
 theorem machine_output_index (initial : R) :
     (machine caller initial).k₁ = Sum.inl LocalStack.fuel := rfl
 
-theorem machine_inputAlphabet (initial : R) :
+theorem machine_input_alphabet (initial : R) :
     (machine caller initial).Γ (machine caller initial).k₀ = Tag := rfl
 
 theorem machine_output_alphabet (initial : R) :

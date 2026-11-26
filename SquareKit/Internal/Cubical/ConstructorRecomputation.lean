@@ -140,7 +140,7 @@ noncomputable def Result.compareRebuiltTwice
 
 /-- A necessary consequence of exact equality of normalized chosen bodies.
 A decoder/filler comparison cannot be inferred merely from their common finish. -/
-theorem Result.transport_eq_of_comparisonBody_eq {C D : Family (total (interval Ξ))}
+theorem Result.transportInFamily_eq_of_pathApp_eq {C D : Family (total (interval Ξ))}
     (R : Result C) (S : Result D) (e : C ≅ D)
     (z : Term C) (w : Term D) (hw : Term.map e.hom z = w)
     (h : pathApp (R.comparisonInFamily z) = pathApp (S.rebuiltComparison e z w hw)) :

@@ -242,7 +242,7 @@ theorem rowIndexWord_refines (n i span : Nat) (hw : i+span < 2^width) :
   have hr : (i+span)%n < 2^width := (Nat.mod_le _ _).trans_lt hw
   simp [rowIndexWord,Resources.bind,scalar,TableTransport.transport,word_of_lt hw,word_of_lt hr]
 
-theorem selected_rowIndex (h : MachineCapacity.WordEligible m width capacity)
+theorem selected_rowIndexWord (h : MachineCapacity.WordEligible m width capacity)
     (i : Fin (PreparationBounds.blocks m)) (k : Nat) (hk : k ≤ PreparationBounds.levels m) :
     TableTransport.transport Fin.val
       (rowIndexWord width (PreparationBounds.blocks m) i.val (2^k)) =

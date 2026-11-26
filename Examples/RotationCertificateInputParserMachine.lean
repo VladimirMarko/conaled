@@ -993,7 +993,7 @@ theorem actual_first_result_iff_source_result
     (raw : Word) (observed : Option ParsedInput) :
     (next caller)^[inputSteps raw] (some (entry regs raw ctx)) =
         some (resultCfg regs raw ctx observed) ↔ (parseInputRun raw).1 = observed :=
-  firstResult_iff caller raw regs ctx observed
+  iterate_inputSteps_eq_resultCfg_iff caller raw regs ctx observed
 
 /-- The first live success recognizes both exact shapes and the literal finite-width fuel word. -/
 theorem actual_first_success_iff_exact_input_word

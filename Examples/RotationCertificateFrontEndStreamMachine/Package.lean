@@ -66,8 +66,8 @@ theorem the_actual_package_uses_distinct_existing_boolean_input_and_output_store
     (machine caller initial).Γ (machine caller initial).k₁ = Bool ∧
     (machine caller initial).main = phaseLabel rawEntryPhase ∧
     (machine caller initial).initialState = initialRegisters initial :=
-  ⟨machine_inputIndex caller initial, machine_output_index caller initial,
-    machine_input_ne_output caller initial, machine_inputAlphabet caller initial,
+  ⟨machine_input_index caller initial, machine_output_index caller initial,
+    machine_input_ne_output caller initial, machine_input_alphabet caller initial,
     machine_output_alphabet caller initial, machine_main caller initial,
     machine_initialState caller initial⟩
 
@@ -740,20 +740,20 @@ end RepresentedCompleteOutputs
 
 theorem framing_failure_has_no_invented_bit_verifier_observation
     (raw : Bits) (failed : BitPairFraming.unframe raw = none) : sourceObservation raw = none :=
-  sourceObservation_frameFailure raw failed
+  sourceObservation_frame_failure raw failed
 
 theorem input_decoder_failure_retains_its_existing_source_tariff
     (raw input cert : Bits) (framed : BitPairFraming.unframe raw = some (input, cert))
     (failed : (unpackWordRun input).1 = none) :
     sourceObservation raw = some (false, (unpackWordRun input).2 + 2) :=
-  sourceObservation_inputDecodeFailure raw input cert framed failed
+  sourceObservation_input_decode_failure raw input cert framed failed
 
 theorem input_parser_failure_retains_its_existing_source_tariff
     (raw input cert : Bits) (word : Word)
     (framed : BitPairFraming.unframe raw = some (input, cert))
     (decoded : (unpackWordRun input).1 = some word) (failed : (parseInputRun word).1 = none) :
     sourceObservation raw = some (false, (unpackWordRun input).2 + (parseInputRun word).2 + 2) :=
-  sourceObservation_inputParseFailure raw input cert word framed decoded failed
+  sourceObservation_input_parse_failure raw input cert word framed decoded failed
 
 theorem certificate_decoder_failure_retains_its_existing_source_tariff
     (raw input cert : Bits) (word : Word) (source target : BinaryTree Unit) (fuel : Bits)
@@ -763,7 +763,7 @@ theorem certificate_decoder_failure_retains_its_existing_source_tariff
     (failed : (unpackWordRun cert).1 = none) :
     sourceObservation raw = some (false, (unpackWordRun input).2 + (parseInputRun word).2 +
       (unpackWordRun cert).2 + 2) :=
-  sourceObservation_certificateDecodeFailure raw input cert word source target fuel framed decoded parsed failed
+  sourceObservation_certificate_decode_failure raw input cert word source target fuel framed decoded parsed failed
 
 theorem successful_decoding_retains_the_actual_stream_source_tariff
     (raw input cert : Bits) (word moves : Word) (source target : BinaryTree Unit) (fuel : Bits)

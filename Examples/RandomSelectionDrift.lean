@@ -52,7 +52,7 @@ theorem singleton_next_size (k : Nat) (x : α) (i : Fin 1) : nextSize k [x] i = 
     have hlt : (Resources.RandomQuickSort.occurrenceRank id [x] i).val < 1 :=
       (Resources.RandomQuickSort.occurrenceRank id [x] i).isLt
     omega
-  have h := nextSize_le_rankSide k [x] i
+  have h := nextSize_le_max_occurrenceRank k [x] i
   simpa [hr] using h
 
 theorem duplicate_next_choices (i : Fin 3) :

@@ -11,7 +11,7 @@ open RandomAccess
 universe u
 variable {α : Type u}
 
-theorem structuralSize_erasure (t : Tree α) :
+theorem size_erase_eq_length_fromT (t : Tree α) :
     Bracketing.size (erase t) = (fromT t).length := by
   rw [fromT_eq_fringe, Bracketing.fringeSpec_length]
 

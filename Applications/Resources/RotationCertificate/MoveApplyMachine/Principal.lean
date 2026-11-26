@@ -796,7 +796,7 @@ theorem represented_success_semantics (move : RotationMove) (certificateRest : W
   have returned := ((represented_complete_output_success_iff caller move certificateRest certificateRest
     oldPath s t saved suffix suffix regs ctx).mp endpoint).1
   have nodes := representedValue_numNodes move oldPath s t returned
-  refine ⟨(representedValue_eq_applyMove move oldPath s).symm.trans returned,
+  refine ⟨(representedValue_eq_applyMove? move oldPath s).symm.trans returned,
     nodes, source_application_cost_of_some move oldPath s t returned, ?_⟩
   simp only [List.length_append, List.length_reverse, treeCode_length, nodes, Nat.add_assoc]
 

@@ -314,7 +314,7 @@ def Valid {V : Type v} (_ : Carrier V) : Prop := True
 theorem laws {V : Type v} (default : V) :
     OrderedMap.EnumeratedTable.ModelLaws (listTable default)
       OrderedMap.EnumeratedTable.rawListObservations default Valid meaning :=
-  OrderedMap.EnumeratedTable.rawList_model default
+  OrderedMap.EnumeratedTable.rawListTable_model default
 
 theorem empty_valid {V : Type v} : Valid (empty : Carrier V) := trivial
 

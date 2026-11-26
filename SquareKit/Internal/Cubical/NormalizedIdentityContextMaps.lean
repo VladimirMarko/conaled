@@ -21,7 +21,7 @@ def directMap : context (reindex A σ) (a.reindex σ) ⟶ context A a :=
   familyReindexMap (fiber A a) (fiber (reindex A σ) (a.reindex σ)) (liftSub A σ)
     (eqToHom (family_equality A a σ).symm)
 
-theorem rawMap_eq :
+theorem familyReindexMap_eq_reindexMap :
     familyReindexMap (IdentitySingleton.fiber A a) (IdentitySingleton.fiber (reindex A σ) (a.reindex σ))
       (liftSub A σ) (identityReindexIso (reindex A (projection A)) (a.reindex (projection A))
         (generic A) (liftSub A σ)).inv = IdentitySingleton.reindexMap A a σ := rfl
@@ -41,7 +41,7 @@ theorem presentation_directMap :
     (normalizedIdentityIso (reindex A (projection A)) (a.reindex (projection A)) (generic A))
     (normalizedIdentityIso (reindex (reindex A σ) (projection (reindex A σ)))
       ((a.reindex σ).reindex (projection (reindex A σ))) (generic (reindex A σ))) (liftSub A σ)
-    _ _ h).trans (congrArg (fun f => f ≫ (presentation A a).hom) (rawMap_eq A a σ))
+    _ _ h).trans (congrArg (fun f => f ≫ (presentation A a).hom) (familyReindexMap_eq_reindexMap A a σ))
 
 theorem directMap_eq : directMap A a σ = reindexMap A a σ := by
   apply (cancel_epi (presentation (reindex A σ) (a.reindex σ)).hom).mp

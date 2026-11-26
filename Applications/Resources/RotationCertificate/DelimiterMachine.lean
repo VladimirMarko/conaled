@@ -180,7 +180,7 @@ def machineAlphabetFintype (initial : R) (k : (machine initial).K) :
     Fintype ((machine initial).Γ k) :=
   FrontEndStreamMachine.machineAlphabetFintype caller (none, initial) k
 
-theorem machine_inputAlphabet (initial : R) :
+theorem machine_input_alphabet (initial : R) :
     (machine initial).Γ (machine initial).k₀ = Option Bool := rfl
 
 theorem machine_output_alphabet (initial : R) :

@@ -51,7 +51,7 @@ def pointwiseMap := Functor.whiskerLeft (actionProjection Base Fiber A x).mapEle
 def pointwiseResult := (pointwiseInput Base Fiber A x).map
   (normalizedIdentityMap (pointwiseMap Base Fiber A C t x) _ _)
 
-theorem pointwiseMotive_eq : (ordinaryApMotive M A C ⟨t⟩ ⟨x⟩).family =
+theorem ordinaryApMotive_family_eq : (ordinaryApMotive M A C ⟨t⟩ ⟨x⟩).family =
     normalizedIdentity (reindex C.family (actionProjection Base Fiber A x))
       ((x.reindex (actionProjection Base Fiber A x)).map (pointwiseMap Base Fiber A C t x))
       (((generic A.family).reindex (projection (actionPathFamily Base Fiber A x).family)).map
@@ -64,6 +64,6 @@ theorem pointwiseMotive_eq : (ordinaryApMotive M A C ⟨t⟩ ⟨x⟩).family =
 
 def pointwiseApSection : (M).Section (actionContext Base Fiber A x)
     (ordinaryApMotive M A C ⟨t⟩ ⟨x⟩) :=
-  ⟨(pointwiseResult Base Fiber A C t x).convert (pointwiseMotive_eq Base Fiber A C t x).symm⟩
+  ⟨(pointwiseResult Base Fiber A C t x).convert (ordinaryApMotive_family_eq Base Fiber A C t x).symm⟩
 
 end SquareKit.Cubical.Contextual

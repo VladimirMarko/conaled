@@ -285,10 +285,10 @@ theorem word63_finite_family (n : Nat) (bound : n ≤ 2 ^ 62) :
         2 * (DecodedSearchTreeWorkload.wordQueryRun 63 n).2.1 = n * (n + 1) ∧
         (DecodedSearchTreeWorkload.wordQueryRun 63 n).2.2 = n * (n + 1)) ∧
       DecodedSearchTreeWorkload.wordSourceRun 63 n = (n, (n * n, 2 * (n * n))) :=
-  ⟨DecodedSearchTreeWorkload.word63BuildRun_transport n bound,
-    DecodedSearchTreeWorkload.word63BuildRun_counts n bound,
-    DecodedSearchTreeWorkload.word63QueryRun_counts n bound,
-    DecodedSearchTreeWorkload.word63SourceRun_exact n bound⟩
+  ⟨DecodedSearchTreeWorkload.wordBuildRun_63_transport n bound,
+    DecodedSearchTreeWorkload.wordBuildRun_63_counts n bound,
+    DecodedSearchTreeWorkload.wordQueryRun_63_counts n bound,
+    DecodedSearchTreeWorkload.wordSourceRun_63_exact n bound⟩
 
 theorem int64_finite_family (n : Nat) (bound : n ≤ 2 ^ 63) :
     (DecodedKeys.mapKeys Int64.toInt (DecodedSearchTreeWorkload.int64BuildRun n).1,

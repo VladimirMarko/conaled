@@ -49,7 +49,7 @@ theorem pointwiseApValue_map : HEq (pointwiseApValue Base Fiber A C t x y p).dow
   have h₁ := cast_down (ordinaryApMotive_endpoint M A C ⟨t⟩ ⟨x⟩ ⟨y⟩ ⟨p⟩)
     ((M).subTm (pointwiseApSection Base Fiber A C t x)
       ((M).toStructuralModel.endpointSub A ⟨x⟩ ⟨y⟩ ⟨p⟩))
-  have h₂ := convert_reindex_heq (pointwiseMotive_eq Base Fiber A C t x).symm
+  have h₂ := convert_reindex_heq (ordinaryApMotive_family_eq Base Fiber A C t x).symm
     (pointwiseResult Base Fiber A C t x) ((M).toStructuralModel.endpointSub A ⟨x⟩ ⟨y⟩ ⟨p⟩).down
   have h₃ := pointwiseResult_endpoint Base Fiber A C t x y p
   run_tac Lean.Elab.Tactic.withMainContext do

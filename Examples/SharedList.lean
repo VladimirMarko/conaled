@@ -56,7 +56,7 @@ theorem append_shares : ∃ out,
 
 theorem append_client :
     ((appendRun left.1 left.2 right.2).1.bind fun state => head state.1 state.2) = some 1 :=
-  appendHead_correct left_represents right_retained
+  appendRun_head_correct left_represents right_retained
 
 def initial : Store Nat × Root := load [1, 2, 3]
 
@@ -75,7 +75,7 @@ theorem update_past_end : updateRun initial.1 initial.2 3 9 = (none, 4) :=
 /-- The separately composed client preserves the specified failure. -/
 theorem update_client_failure :
     ((updateRun initial.1 initial.2 3 9).1.bind fun state => head state.1 state.2) = none :=
-  updateHead_correct (load_represents [1, 2, 3]) 3 9
+  updateRun_head_correct (load_represents [1, 2, 3]) 3 9
 
 theorem suffixes_share : ∃ roots,
     suffixesRun initial.1 initial.2 = (some roots, 4) ∧

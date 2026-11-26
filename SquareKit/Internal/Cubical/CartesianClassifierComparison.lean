@@ -97,7 +97,7 @@ theorem system_reindex {I J : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
     T.reindex (Cube.vertices (x.val.down ≫ h))
   exact congrArg T.reindex (funext (Cube.vertices_comp x.val.down h)).symm
 
-private theorem typeHom_heq {A B C D : Type u} {f : A → B} {g : C → D}
+private theorem ofHom_heq {A B C D : Type u} {f : A → B} {g : C → D}
     (ha : A = C) (hb : B = D) (h : HEq f g) : HEq (TypeCat.ofHom f) (TypeCat.ofHom g) := by
   subst C
   subst D
@@ -113,7 +113,7 @@ theorem family_reindex {I J : Cube} (T : VertexSystem.{u} (Vertex I.dimension))
     fun x => congrArg VertexSystem.Tuple (system_reindex T h x)
   apply Functor.hext hobj
   intro x y f
-  apply typeHom_heq (hobj x) (hobj y)
+  apply ofHom_heq (hobj x) (hobj y)
   apply Function.hfunext (hobj x)
   intro a b hab
   apply VertexSystem.Tuple.hext (system_reindex T h y)
@@ -235,7 +235,7 @@ theorem tupleDecoder_filling_unique (F : Filling TupleDecoder.family.{u}) (hF : 
     exact (TupleDecoder.fill_eq p φ r b _ (hF.fills p φ r b).1).symm
 
 /-- An independently built decoded operation recovers the old exact chosen filler. -/
-theorem tupleDecoder_filling_recovery (F : Filling liftedDecodedFinite.{u}) (hF : F.Lawful) :
+theorem tupleDecoderIso_filling_recovery (F : Filling liftedDecodedFinite.{u}) (hF : F.Lawful) :
     F.transport tupleDecoderIso = TupleDecoder.filling :=
   tupleDecoder_filling_unique _ (Filling.transport_lawful tupleDecoderIso F hF)
 
@@ -250,7 +250,7 @@ theorem classifiedFilling_lawful : classifiedFilling.{u}.Lawful :=
 /-- Recover the old whole filling record from the actual new decoder operation. -/
 theorem classifiedFilling_recovers_tuple :
     classifiedFilling.{u}.transport tupleDecoderIso = TupleDecoder.filling :=
-  tupleDecoder_filling_recovery classifiedFilling classifiedFilling_lawful
+  tupleDecoderIso_filling_recovery classifiedFilling classifiedFilling_lawful
 
 namespace DiscreteRecords
 theorem constant_path_value {Γ : Context.{u}} {S : Type u}
@@ -1363,7 +1363,7 @@ theorem cast_component_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
     (x : Γ.Elements) (a : A.obj x) : HEq ((eqToHom h).app x a) a := by
   subst B; rfl
 
-theorem loopCode_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (b : Bool) :
+theorem realizedLoopCode_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (b : Bool) :
     endpointSub (raisedContext point) b ≫ realizedLoopCode S e = realizedConstant S := by
   cases b
   · exact SmallUniverse.codeOfPath_zero (realizedLoop S e)
@@ -1373,7 +1373,7 @@ theorem ulift_heq {A B : Type u} {a : A} {b : B} (h : HEq a b) :
 theorem loop_endpoint (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier)
     (b : Bool) :
     Term.map (eqToHom (congrArg SmallUniverse.liftedDecode
-      (loopCode_endpoint S e b)))
+      (realizedLoopCode_endpoint S e b)))
       (Term.reindex (loopTuple S e s) (endpointSub (raisedContext point) b)) =
         constantElement S (if b then e s else s) := by
   cases b
@@ -1400,15 +1400,15 @@ theorem native_coe_section (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s
   have h := cast_section
     (UniversalTransport.selectedMap (realizedLoopCode S e)
       (endpoint (raisedContext point) false) (endpoint (raisedContext point) true))
-    (congrArg SmallUniverse.liftedDecode (loopCode_endpoint S e false))
-    (congrArg SmallUniverse.liftedDecode (loopCode_endpoint S e true)) (loopBase S e s)
+    (congrArg SmallUniverse.liftedDecode (realizedLoopCode_endpoint S e false))
+    (congrArg SmallUniverse.liftedDecode (realizedLoopCode_endpoint S e true)) (loopBase S e s)
   have hs := loop_endpoint S e s false
   have ht := loop_endpoint S e s true
   change Term.map _ (loopBase S e s) = constantElement S s at hs
   change Term.map _ (Term.reindex (loopTuple S e s) (endpointSub (raisedContext point) true)) =
     constantElement S (e s) at ht
   exact ((congrArg (Term.map (SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e))) hs.symm).trans h).trans ((congrArg (Term.map (eqToHom
-    (congrArg SmallUniverse.liftedDecode (loopCode_endpoint S e true))))
+    (congrArg SmallUniverse.liftedDecode (realizedLoopCode_endpoint S e true))))
       (selected_transport_section S e s)).trans ht)
 
 theorem native_coe_map (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) :

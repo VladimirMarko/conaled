@@ -133,7 +133,7 @@ def cachedSizeSquare : Square (cachedTreeRepresentation α) measuredSizeRepresen
     change ULift.up (cachedSizeRun t.val).1 = ULift.up (Bracketing.size (erase t.val))
     rw [cachedSizeRun_exact, cached_size_erasure t.val t.property]
 
-theorem observedSize_comparison (t : {t : Tree α // Cached t}) :
+theorem observedStructuralSize_comparison (t : {t : Tree α // Cached t}) :
     ((observedStructuralSize α).impl t).down.1 = (cachedSizeSquare.impl t).down.1 ∧
       ((observedStructuralSize α).impl t).down.2 + 1 =
         2 * (cachedSizeSquare.impl t).down.1 ∧

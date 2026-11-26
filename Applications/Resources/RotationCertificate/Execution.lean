@@ -208,7 +208,7 @@ private theorem rotate_depth_le (d : RotationDirection) (s t : BinaryTree α)
       simp only [BinaryTree.numNodes]
       omega
 
-private theorem applyAtRotate_depth_le (d : RotationDirection) (p : List Branch)
+private theorem applyAt?_apply?_depth_le (d : RotationDirection) (p : List Branch)
     (s t : BinaryTree α) (run : Trees.Rotations.applyAt? d.apply? p s = some t) :
     p.length + 2 ≤ s.numNodes := by
   induction p generalizing s t with
@@ -238,15 +238,15 @@ private theorem applyAtRotate_depth_le (d : RotationDirection) (p : List Branch)
                   omega
 
 /-- A legal root needs two nodes beyond the actually traversed ancestors. -/
-theorem applyMove_depth_le (move : RotationMove) (s t : BinaryTree α)
+theorem applyMove?_depth_le (move : RotationMove) (s t : BinaryTree α)
     (run : Trees.Rotations.applyMove? move s = some t) :
     move.position.length + 2 ≤ s.numNodes :=
-  applyAtRotate_depth_le move.direction move.position s t run
+  applyAt?_apply?_depth_le move.direction move.position s t run
 
 theorem applyMoveRun_depth_le (move : RotationMove) (s t : BinaryTree α)
     (returned : (applyMoveRun move s).1 = some t) :
     move.position.length + 2 ≤ s.numNodes :=
-  applyMove_depth_le move s t ((applyMoveRun_value move s).symm.trans returned)
+  applyMove?_depth_le move s t ((applyMoveRun_value move s).symm.trans returned)
 
 theorem applyMoveRun_cost_of_some (move : RotationMove) (s t : BinaryTree α)
     (returned : (applyMoveRun move s).1 = some t) :
@@ -255,7 +255,7 @@ theorem applyMoveRun_cost_of_some (move : RotationMove) (s t : BinaryTree α)
     applyAtRun_cost_of_some (rotateRun move.direction) move.position s t 4
       (rotateRun_cost_of_some move.direction) returned
 
-private theorem applyAtRotate_cost_le (d : RotationDirection) (p : List Branch)
+private theorem applyAtRun_rotateRun_cost_le (d : RotationDirection) (p : List Branch)
     (s : BinaryTree α) : (applyAtRun (rotateRun d) p s).2 ≤ 3 * s.numNodes + 3 := by
   induction p generalizing s with
   | nil =>
@@ -282,7 +282,7 @@ private theorem applyAtRotate_cost_le (d : RotationDirection) (p : List Branch)
 /-- Includes arbitrary overlong positions, which stop when a node is missing. -/
 theorem applyMoveRun_cost_le (move : RotationMove) (s : BinaryTree α) :
     (applyMoveRun move s).2 ≤ 3 * s.numNodes + 3 :=
-  applyAtRotate_cost_le move.direction move.position s
+  applyAtRun_rotateRun_cost_le move.direction move.position s
 
 theorem applyMoveRun_numNodes (move : RotationMove) (s t : BinaryTree α)
     (returned : (applyMoveRun move s).1 = some t) : t.numNodes = s.numNodes :=

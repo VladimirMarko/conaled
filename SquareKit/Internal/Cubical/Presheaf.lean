@@ -42,7 +42,7 @@ def totalMap {Γ : Context.{u}} (A : Family Γ) {I J : Cubeᵒᵖ} (f : I ⟶ J)
     Σ y : Γ.obj J, A.obj (Γ.elementsMk J y) :=
   ⟨Γ.map f z.1, A.map (Functor.Elements.homMk f rfl) z.2⟩
 
-theorem totalMap_ofHom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
+theorem totalMap_hom {Γ : Context.{u}} (A : Family Γ) {x y : Γ.Elements}
     (f : x ⟶ y) (a : A.obj x) :
     totalMap A f.hom ⟨x.val, a⟩ = ⟨y.val, A.map f a⟩ := by
   rcases x with @⟨I, x⟩
@@ -61,7 +61,7 @@ def total {Γ : Context.{u}} (A : Family Γ) : Context.{u} where
     apply ConcreteCategory.hom_ext
     intro z
     rcases z with ⟨x,a⟩
-    simpa using totalMap_ofHom A (𝟙 (Γ.elementsMk I x)) a
+    simpa using totalMap_hom A (𝟙 (Γ.elementsMk I x)) a
   map_comp f g := by
     apply ConcreteCategory.hom_ext
     intro z
@@ -72,10 +72,10 @@ def total {Γ : Context.{u}} (A : Family Γ) : Context.{u} where
       Functor.Elements.homMk g rfl
     change totalMap A (f ≫ g) ⟨x,a⟩ = totalMap A g (totalMap A f ⟨x,a⟩)
     calc
-      _ = ⟨Γ.map g (Γ.map f x), A.map (p ≫ q) a⟩ := totalMap_ofHom A (p ≫ q) a
+      _ = ⟨Γ.map g (Γ.map f x), A.map (p ≫ q) a⟩ := totalMap_hom A (p ≫ q) a
       _ = ⟨Γ.map g (Γ.map f x), A.map q (A.map p a)⟩ := by simp
-      _ = totalMap A g ⟨Γ.map f x, A.map p a⟩ := (totalMap_ofHom A q _).symm
-      _ = _ := congrArg (totalMap A g) (totalMap_ofHom A p a).symm
+      _ = totalMap A g ⟨Γ.map f x, A.map p a⟩ := (totalMap_hom A q _).symm
+      _ = _ := congrArg (totalMap A g) (totalMap_hom A p a).symm
 
 /-- Comprehension projection is natural, not a choice of representatives. -/
 def projection {Γ : Context.{u}} (A : Family Γ) : total A ⟶ Γ where
@@ -91,7 +91,7 @@ def pair {Γ Δ : Context.{u}} {A : Family Γ} (σ : Δ ⟶ Γ)
     intro x
     let p : Δ.elementsMk I x ⟶ Δ.elementsMk J (Δ.map f x) :=
       Functor.Elements.homMk f rfl
-    have h := totalMap_ofHom A (σ.mapElements.map p) (t.val (Δ.elementsMk I x))
+    have h := totalMap_hom A (σ.mapElements.map p) (t.val (Δ.elementsMk I x))
     change ⟨σ.app J (Δ.map f x), t.val (Δ.elementsMk J (Δ.map f x))⟩ =
       totalMap A f ⟨σ.app I x, t.val (Δ.elementsMk I x)⟩
     exact (h.trans (congrArg (Sigma.mk _) (t.property p))).symm

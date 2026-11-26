@@ -55,12 +55,12 @@ def evidence := training ctx "direct" "sparse"
 example : PolicyChoice.chooseTree req starSource context 1 fixed none = some .direct := by decide
 example : PolicyChoice.chooseTree req starSource context 1 fixed evidence = some .sparse := by decide
 example : (PolicyChoice.treeService .sparse starSource [siblingQuery]).1 = [0] := by
-  rw [PolicyChoice.treeChosen_correct (by decide :
+  rw [PolicyChoice.treeService_correct_of_chooseTree (by decide :
     PolicyChoice.chooseTree req starSource context 1 fixed evidence = some .sparse)]
   rfl
 example : ((PolicyChoice.treeOps 4 .sparse).answer
     ((PolicyChoice.treeOps 4 .sparse).prepare starSource).1 siblingQuery).2 ≤ req.deadline :=
-  PolicyChoice.treeChosen_query_bound (by decide :
+  PolicyChoice.treeOps_query_bound_of_chooseTree (by decide :
     PolicyChoice.chooseTree req starSource context 1 fixed evidence = some .sparse) siblingQuery
 end Tree
 end Examples.PolicyChoiceClients

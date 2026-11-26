@@ -192,11 +192,11 @@ def rawListTable (default : ν) : TotalTable.Ops κ ν (List (κ × ν)) :=
 def rawListObservations : Observations κ ν (List (κ × ν)) :=
   observationsOfPartial (lists κ ν) id
 
-theorem rawList_table_laws (default : ν) :
+theorem rawListTable_laws (default : ν) :
     TotalTable.Laws (rawListTable (κ := κ) default) default (fun _ => True) :=
   TotalTable.ofPartial_unrestricted lists_laws default
 
-theorem rawList_model (default : ν) :
+theorem rawListTable_model (default : ν) :
     ModelLaws (rawListTable (κ := κ) default) rawListObservations default
       (fun _ => True) listObserve where
   empty_valid := trivial

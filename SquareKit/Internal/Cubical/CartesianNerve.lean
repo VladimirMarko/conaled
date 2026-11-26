@@ -367,7 +367,7 @@ theorem vertexPoint_natural {Γ : Context.{u}} {x y : Γ.Elements} (f : x ⟶ y)
     congrArg Quiver.Hom.op (Cube.vertex_comp v f.hom.unop)
   rw [← types_comp_apply, ← Γ.map_comp, hc]
 
-theorem vertexValue_natural {Γ : Context.{u}} {x y : Γ.Elements} (f : x ⟶ y)
+theorem map_vertex_natural {Γ : Context.{u}} {x y : Γ.Elements} (f : x ⟶ y)
     (v : Vertex y.obj.unop.dimension) :
     Γ.map (Quiver.Hom.op (Cube.vertex v)) y.val =
       Γ.map (Quiver.Hom.op (Cube.vertex (Cube.vertices f.hom.unop v))) x.val := by
@@ -418,7 +418,7 @@ theorem line_natural {x y : Γ.Elements} (f : x ⟶ y)
     (v : Vertex y.obj.unop.dimension) (hy : φ.Holds (vertexPoint y v))
     (hx : φ.Holds (vertexPoint x (Cube.vertices f.hom.unop v))) :
     line b y v hy = line b x (Cube.vertices f.hom.unop v) hx := by
-  have he := vertexValue_natural f v
+  have he := map_vertex_natural f v
   change closedLine b _ hy = closedLine b _ hx
   have hh : (⟨Γ.map (Quiver.Hom.op (Cube.vertex v)) y.val, hy⟩ :
       {γ : Γ.obj (.op ⟨0⟩) // φ.Holds (Γ.elementsMk (.op ⟨0⟩) γ)}) =
@@ -767,7 +767,7 @@ theorem reindexEquiv_apply {V W : Type} (T : VertexSystem.{u} V) (f : W → V)
   intro z
   exact a.property (f w) (f z)
 
-theorem tupleCast_coordinate {V : Type} {T U : VertexSystem.{u} V} (h : T = U)
+theorem cast_tuple_val_heq {V : Type} {T U : VertexSystem.{u} V} (h : T = U)
     (a : T.Tuple) (v : V) :
     HEq ((cast (congrArg Tuple h) a).val v) (a.val v) := by
   subst U
@@ -788,11 +788,11 @@ theorem mapEquiv_coordinate {x y : finiteNerve.{u}.Elements} (f : x ⟶ y)
   unfold mapEquiv
   change HEq ((cast (congrArg VertexSystem.Tuple f.map_val)
     (VertexSystem.reindexEquiv x.val (Cube.vertices f.hom.unop) (fun _ => false) a)).val v) _
-  exact (VertexSystem.tupleCast_coordinate f.map_val _ v).trans
+  exact (VertexSystem.cast_tuple_val_heq f.map_val _ v).trans
     (heq_of_eq (congrArg (fun z => z.val v)
       (VertexSystem.reindexEquiv_apply x.val (Cube.vertices f.hom.unop) (fun _ => false) a)))
 
-private theorem tupleIndex_heq {V : Type} {T : VertexSystem.{u} V} (a : T.Tuple)
+private theorem tuple_val_heq_of_index_eq {V : Type} {T : VertexSystem.{u} V} (a : T.Tuple)
     {v w : V} (h : v = w) : HEq (a.val v) (a.val w) := by
   subst w
   rfl
@@ -814,7 +814,7 @@ noncomputable def family : Family finiteNerve.{u} where
     apply VertexSystem.Tuple.ext
     intro v
     exact eq_of_heq ((mapEquiv_coordinate (f ≫ g) a.down v).trans
-      ((tupleIndex_heq a.down (Cube.vertices_comp g.hom.unop f.hom.unop v)).trans
+      ((tuple_val_heq_of_index_eq a.down (Cube.vertices_comp g.hom.unop f.hom.unop v)).trans
         ((mapEquiv_coordinate f a.down (Cube.vertices g.hom.unop v)).symm.trans
           (mapEquiv_coordinate g (mapEquiv f a.down) v).symm)))
 

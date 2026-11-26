@@ -1560,10 +1560,10 @@ theorem resultCfg_injective (raw : Word) (regs : Registers R) (ctx : ∀ k, List
           change bs = otherBits at bitsEq
           have encoded : inputCode source target bs = inputCode otherSource otherTarget otherBits := by
             simp only [inputCode, sourceEq, targetEq, bitsEq]
-          obtain ⟨rfl, rfl, rfl⟩ := parseInputRun_injective source target bs otherSource otherTarget otherBits encoded
+          obtain ⟨rfl, rfl, rfl⟩ := inputCode_injective source target bs otherSource otherTarget otherBits encoded
           rfl
 
-theorem firstResult_iff (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k))
+theorem iterate_inputSteps_eq_resultCfg_iff (raw : Word) (regs : Registers R) (ctx : ∀ k, List (Γ k))
     (observed : Option ParsedInput) :
     (next caller)^[inputSteps raw] (some (entry regs raw ctx)) = some (resultCfg regs raw ctx observed) ↔
       (parseInputRun raw).1 = observed := by
@@ -1579,7 +1579,7 @@ theorem firstSuccess_iff (raw : Word) (source target : BinaryTree Unit) (bs : Bi
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
     FirstSuccess caller raw source target bs regs ctx ↔
       (parseInputRun raw).1 = some (source, target, bs) :=
-  firstResult_iff caller raw regs ctx (some (source, target, bs))
+  iterate_inputSteps_eq_resultCfg_iff caller raw regs ctx (some (source, target, bs))
 
 theorem firstSuccess_code_iff (raw : Word) (source target : BinaryTree Unit) (bs : Bits)
     (regs : Registers R) (ctx : ∀ k, List (Γ k)) :
@@ -1928,7 +1928,7 @@ theorem tree_step_effect (d : TreeSide) (phase : TreeParserMachine.Phase)
             change pending.length ≤ M + 1
             omega
 
-private theorem toReverse_step_effect (d : TreeSide) (raw rev : Word) (pending : List Unit)
+private theorem toReversePhase_step_effect (d : TreeSide) (raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) {after : Cfg Γ Λ R}
     (executed : step caller (cfg (some (phaseLabel (toReversePhase d))) regs raw rev pending
@@ -1959,7 +1959,7 @@ private theorem toReverse_step_effect (d : TreeSide) (raw rev : Word) (pending :
       · intro M _ slots
         exact slots
 
-private theorem toRaw_step_effect (d : TreeSide) (raw rev : Word) (pending : List Unit)
+private theorem toRawPhase_step_effect (d : TreeSide) (raw rev : Word) (pending : List Unit)
     (regs : Registers R) (outputs : TreeSide → Word) (fuel bitsReverse : Bits)
     (ctx : ∀ k, List (Γ k)) {after : Cfg Γ Λ R}
     (executed : step caller (cfg (some (phaseLabel (toRawPhase d))) regs raw rev pending
@@ -2124,10 +2124,10 @@ theorem phase_step_effect (phase : Phase) (raw rev : Word) (pending : List Unit)
       apply cfg_effect
       · simp only [debt_phase, phaseDebt, List.length_cons]; omega
       · intro M _ slots; exact slots
-  | targetToReverse => exact toReverse_step_effect caller .target raw rev pending regs outputs fuel bitsReverse ctx executed
-  | sourceToReverse => exact toReverse_step_effect caller .source raw rev pending regs outputs fuel bitsReverse ctx executed
-  | targetToRaw => exact toRaw_step_effect caller .target raw rev pending regs outputs fuel bitsReverse ctx executed
-  | sourceToRaw => exact toRaw_step_effect caller .source raw rev pending regs outputs fuel bitsReverse ctx executed
+  | targetToReverse => exact toReversePhase_step_effect caller .target raw rev pending regs outputs fuel bitsReverse ctx executed
+  | sourceToReverse => exact toReversePhase_step_effect caller .source raw rev pending regs outputs fuel bitsReverse ctx executed
+  | targetToRaw => exact toRawPhase_step_effect caller .target raw rev pending regs outputs fuel bitsReverse ctx executed
+  | sourceToRaw => exact toRawPhase_step_effect caller .source raw rev pending regs outputs fuel bitsReverse ctx executed
   | restoreSep1 =>
       apply effect_of_step_eq caller executed
         (restoreSep1_step caller raw rev pending regs outputs fuel bitsReverse ctx)

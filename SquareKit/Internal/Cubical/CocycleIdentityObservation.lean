@@ -52,7 +52,7 @@ def terminalPoint (I : Cube) : terminal.{0}.Elements := terminal.elementsMk (Opp
 
 def squareAxis (k : Fin 2) : (⟨2⟩ : Cube) ⟶ (⟨1⟩ : Cube) := Cube.ofRaw (fun _ => Expr.var k)
 
-private theorem squareAxes_pair : Cube.pair (squareAxis 1) (squareAxis 0) = 𝟙 (⟨2⟩ : Cube) := by
+private theorem pair_squareAxis_eq_id : Cube.pair (squareAxis 1) (squareAxis 0) = 𝟙 (⟨2⟩ : Cube) := by
   apply congrArg (@Cube.ofRaw ⟨2⟩ ⟨2⟩)
   decide
 
@@ -65,7 +65,7 @@ noncomputable def secondObservation (t : Term (secondIdentityFamily terminal.{0}
 theorem secondSquare_selected : secondSquare (secondIdentity terminal.{0}) = squareCocycle := by
   refine (secondValue_selected terminal (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩).trans ?_
   exact (congrArg (fun f : (⟨2⟩ : Cube) ⟶ (⟨2⟩ : Cube) => cocycles.map f.op squareCocycle)
-    squareAxes_pair).trans (cocycles.map_id_apply _ _)
+    pair_squareAxis_eq_id).trans (cocycles.map_id_apply _ _)
 
 theorem secondObservation_selected : secondObservation (secondIdentity terminal.{0}) = 1 :=
   (congrArg observeSquare secondSquare_selected).trans observeSquare_witness

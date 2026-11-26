@@ -113,7 +113,7 @@ theorem start_domain (Q : Frontier.{u,z} V) (h : Heuristic V) (domain : List V)
   exact hs
 
 /-- Every finite-domain A* computation terminates, even without optimism. -/
-theorem reopenRun_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
+theorem run_reopen_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (domain : List V)
     (closed : ∀ u ∈ domain, ∀ v d, (v,d) ∈ g u → v ∈ domain)
     (st : Store V) (q : Q.Carrier) (hv : Q.Valid q) (hi : InDomain Q domain q) :
@@ -175,7 +175,7 @@ theorem reopenRun_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic
 /-- Sufficient M* observation budget, including the final empty-frontier test. -/
 def closedBudget (domain : List V) (degree : Nat) : Nat := domain.length*(degree+1)+2
 
-theorem closedRun_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
+theorem run_closed_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (domain : List V) (degree : Nat)
     (closed : ∀ u ∈ domain, ∀ v d, (v,d) ∈ g u → v ∈ domain)
     (bounded : ∀ v ∈ domain, (g v).length ≤ degree)
@@ -214,7 +214,7 @@ theorem astar_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (goal : V → Bool) (domain : List V) (s : V) (hs : s ∈ domain)
     (closed : ∀ u ∈ domain, ∀ v d, (v,d) ∈ g u → v ∈ domain) :
     ∃ fuel out, run Q .reopen g h goal fuel [] (start Q h s) = some out :=
-  reopenRun_terminates Q g h goal domain closed [] (start Q h s)
+  run_reopen_terminates Q g h goal domain closed [] (start Q h s)
     (start_valid Q h s) (start_domain Q h domain s hs)
 
 theorem mstar_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
@@ -222,7 +222,7 @@ theorem mstar_terminates (Q : Frontier.{u,z} V) (g : Graph V) (h : Heuristic V)
     (closed : ∀ u ∈ domain, ∀ v d, (v,d) ∈ g u → v ∈ domain)
     (bounded : ∀ v ∈ domain, (g v).length ≤ degree) :
     ∃ out, run Q .closed g h goal (closedBudget domain degree) [] (start Q h s) = some out := by
-  apply closedRun_terminates Q g h goal domain degree closed bounded _ [] _
+  apply run_closed_terminates Q g h goal domain degree closed bounded _ [] _
     (start_valid Q h s) (start_domain Q h domain s hs)
   have hl := Q.add_length [(root s,h s)] Q.empty
   simp only [Q.empty_entries,List.length_singleton,List.length_nil,Nat.add_zero] at hl

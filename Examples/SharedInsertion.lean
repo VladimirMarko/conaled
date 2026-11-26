@@ -82,7 +82,7 @@ theorem source_cell_price {s : Store Nat} {r : Root} (tail : List Nat)
 theorem source_head {s : Store Nat} {r : Root} (tail : List Nat)
     (h : Represents s.heap r ([1, 3, 4, 8] ++ tail)) :
     ((insertRun (· ≤ ·) 7 s r).1.bind fun state => head state.1 state.2) = some 1 := by
-  simpa [List.orderedInsert] using insertHead_correct (· ≤ ·) 7 h
+  simpa [List.orderedInsert] using insertRun_head_correct (· ≤ ·) 7 h
 
 theorem empty_insertion (s : Store Nat) :
     insertRun (· ≤ ·) 7 s none = (some (allocate s 7 none), (0, 1)) := by

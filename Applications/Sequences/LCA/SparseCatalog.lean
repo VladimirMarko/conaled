@@ -182,12 +182,12 @@ theorem bounds (m : Nat) : Bounds (ops m) Valid (storage m) (profile m) where
   preparePeak := preparationPeak_le
   queryPeak _ state _ := by simp [storage, profile, stateWords_eq]; omega
 
-theorem preparationControl_value (input : Input m) :
+theorem control_sparseRun_value (input : Input m) :
     (Control.sparseRun (toLex (0,0)) (keysControl input).value (Nat.log 2 m)).value =
       ((ops m).prepare input).1 := by
   simp [Control.sparseRun_value, keysControl_value, ops, Resources.bind, keysM_value]
 
-theorem preparationBuffers_value (input : Input m) :
+theorem workspace_sparseRun_value (input : Input m) :
     (Workspace.sparseRun (toLex (0,0)) (keys input) (Nat.log 2 m)).value =
       ((ops m).prepare input).1 := by
   simp [Workspace.sparseRun_value, ops, Resources.bind, keysM_value]

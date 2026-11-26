@@ -296,7 +296,7 @@ the category of elements. Reindexing composes with the substitution's actual
 including dependent term types.
 
 Comprehension is constructed pointwise from dependent pairs, with restriction
-using the family functor's map. `totalMap_ofHom` relates that operation to
+using the family functor's map. `totalMap_hom` relates that operation to
 arbitrary element-category arrows and proves identity/composition without
 postulating a comprehension law. `projection`, `generic` and `pair` satisfy
 both projection equations and `pair_eta`, recovering every map into
@@ -402,7 +402,7 @@ provides the recursion bridge:
 | Source judgment or conversion | Constructed interpretation and checked connection |
 |---|---|
 | Fixed parameter `X`; `n : Nat` | `methodFamily X` is a Nat-indexed family of global natural contraction operations. Each operation has context `(c,j)` and returns a complete `n`-cube. |
-| Zero branch `refl` | `sourceZero` projects off `j`; `sourceZero_contract` connects it to the zero-dimensional coordinate construction. |
+| Zero branch `refl` | `sourceZero` projects off `j`; `projection_interval_cubes_zero_eq_contractCube` connects it to the zero-dimensional coordinate construction. |
 | Successor body with `c,j,i` | `sourceStepBody` applies the lower method to `c.apply (meet i j)` and `j`; naturality is proved using interval meet and function application. |
 | Abstraction of `i` and successor cube conversion | `sourceStep` uses `cubeLam` and `cubeUncurry`. `sourceStepBody_contract` is proved through the exact recursive equation `contractCube_apply`; `sourceStep_contract` uses abstraction/application β/η and the currying inverse law. |
 | Dependent recursion on `n` | `sourceRecursion` calls the constructed `natElim`. `interpretedContraction_zero` and `interpretedContraction_successor` use its public computation rules. |

@@ -42,7 +42,7 @@ theorem binaryYes_code_iff {n : Nat} (s t : Shape n) (bs : Bits) :
     obtain ⟨source, target, fuel, moves, inputEq, run, bound⟩ :=
       (yes_iff_trace (inputCode s.val t.val bs)).1 yes
     obtain ⟨sourceEq, targetEq, fuelEq⟩ :=
-      parseInputRun_injective s.val t.val bs source target fuel inputEq
+      inputCode_injective s.val t.val bs source target fuel inputEq
     rw [← sourceEq, ← targetEq] at run
     rw [← fuelEq] at bound
     exact (Shape.distance_le_length s t run).trans bound
@@ -67,7 +67,7 @@ theorem verifyFramed_code_iff_trace (source target : BinaryTree Unit)
   · intro accepted
     obtain ⟨otherSource, otherTarget, fuel, moves, inputEq, certEq, run, bound⟩ :=
       (verifyBitsRun_accept_iff_trace _ cert).1 accepted
-    obtain ⟨sourceEq, targetEq, fuelEq⟩ := parseInputRun_injective
+    obtain ⟨sourceEq, targetEq, fuelEq⟩ := inputCode_injective
       source target bs otherSource otherTarget fuel (wordBits_injective inputEq)
     rw [← sourceEq, ← targetEq] at run
     rw [← fuelEq] at bound

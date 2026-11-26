@@ -4,7 +4,7 @@ import SquareKit.Internal.Cubical.CocyclePresheaf
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory
 
-private theorem overHom_heq {N : Cube} {X X' Y Y' : Over N}
+private theorem over_hom_heq {N : Cube} {X X' Y Y' : Over N}
     (hX : X = X') (hY : Y = Y') (f : X ⟶ Y) (g : X' ⟶ Y')
     (h : HEq f.left g.left) : HEq f g := by
   cases hX; cases hY
@@ -31,7 +31,7 @@ theorem CubeCocycle.closed_eval {N I J K L : Cube} (z : CubeCocycle N)
   simp only [eval,δ2] at *
   convert e using 1; congr 2 <;> simp [Over.mk,CostructuredArrow.mk,Over.homMk,CostructuredArrow.homMk]
   all_goals congr 1
-  all_goals first | simp only [Category.assoc] | apply overHom_heq <;> simp [Category.assoc]
+  all_goals first | simp only [Category.assoc] | apply over_hom_heq <;> simp [Category.assoc]
 
 theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
     (σ : M ⟶ N) (f : I ⟶ J) (g : J ⟶ K) (t : K ⟶ M) :
@@ -39,7 +39,7 @@ theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
   simp only [eval,Cocycle2.pullback]
   congr 1 <;> simp [Over.mk,CostructuredArrow.mk,Over.map,Comma.mapRight,Over.homMk,
     CostructuredArrow.homMk,Category.assoc]
-  all_goals apply overHom_heq <;> simp [Category.assoc]
+  all_goals apply over_hom_heq <;> simp [Category.assoc]
 
 /-- Evaluating the underlying flag of actual slice arrows recovers their cochain value. -/
 theorem CubeCocycle.eval_arrows {N : Cube} (z : CubeCocycle N)
@@ -51,6 +51,6 @@ theorem CubeCocycle.eval_arrows {N : Cube} (z : CubeCocycle N)
   unfold eval
   congr 1
   all_goals first |
-    exact overHom_heq hx hy _ _ HEq.rfl | exact overHom_heq hy hz _ _ HEq.rfl
+    exact over_hom_heq hx hy _ _ HEq.rfl | exact over_hom_heq hy hz _ _ HEq.rfl
 
 end SquareKit.Cubical.CategoryCocycles

@@ -200,7 +200,7 @@ def nextSize (k : Nat) (xs : List α) (i : Fin xs.length) : Nat :=
   | Sum.inr _ => 0
 
 /-- The larger rank side is a pathwise majorant for the chosen child. -/
-theorem nextSize_le_rankSide (k : Nat) (xs : List α) (i : Fin xs.length) :
+theorem nextSize_le_max_occurrenceRank (k : Nat) (xs : List α) (i : Fin xs.length) :
     nextSize k xs i ≤
       max (RandomQuickSort.occurrenceRank id xs i).val
         (xs.length - 1 - (RandomQuickSort.occurrenceRank id xs i).val) := by
@@ -219,7 +219,7 @@ theorem nextSize_sum_le (k : Nat) (xs : List α) :
     _ ≤ ∑ i : Fin xs.length, max (ρ i).val (xs.length - 1 - (ρ i).val) := by
       apply Finset.sum_le_sum
       intro i _
-      exact nextSize_le_rankSide k xs i
+      exact nextSize_le_max_occurrenceRank k xs i
     _ = ∑ r : Fin xs.length, max r.val (xs.length - 1 - r.val) :=
       Equiv.sum_comp ρ (fun r => max r.val (xs.length - 1 - r.val))
     _ = rankSideSum xs.length :=

@@ -70,7 +70,7 @@ theorem signedCmpRun_cost_le_right (x y : ZNum) : (signedCmpRun x y).2 ≤ bZ y 
   cases x <;> cases y <;>
     simp only [signedCmpRun, bZ_pos, bZ_neg, PositiveArithmetic.cmpRun_cost] <;> omega
 
-theorem signedCmp_eq_iff (x y : ZNum) : ZNum.cmp x y = .eq ↔ x = y := by
+theorem zNumCmp_eq_iff (x y : ZNum) : ZNum.cmp x y = .eq ↔ x = y := by
   constructor
   · intro h
     simpa only [h] using ZNum.cmp_to_int x y
@@ -93,7 +93,7 @@ def signedLtRun (x y : ZNum) : Measured Bool Nat :=
 /-- Extensional source equality realization, not a cost assertion about DecidableEq. -/
 theorem signedEqRun_value (x y : ZNum) :
     (signedEqRun x y).1 = Search.Collisions.RatherSlow.eqb x y := by
-  simp [signedEqRun, signedCmpRun_value, signedCmp_eq_iff, Search.Collisions.RatherSlow.eqb]
+  simp [signedEqRun, signedCmpRun_value, zNumCmp_eq_iff, Search.Collisions.RatherSlow.eqb]
 
 theorem signedEqRun_int (x y : ZNum) :
     (signedEqRun x y).1 = decide ((x : Int) = (y : Int)) :=
@@ -880,7 +880,7 @@ theorem unary_distinct_lower (xs : List Nat) (counter : Nat) (history : History 
       nlinarith
 
 /-- The source adversarial family is exactly the n distinct keys n through 2n-1. -/
-theorem unaryInterval_lower_sum (n : Nat) :
+theorem unaryRun_interval_lower_sum (n : Nat) :
     (n + 1) * (List.range n).sum ≤ (unaryRun (List.range' n n)).2 .keyWork := by
   have lower := unary_distinct_lower (List.range' n n) 0 [] (n + 1) List.nodup_range'
     (by simp) (by
@@ -889,7 +889,7 @@ theorem unaryInterval_lower_sum (n : Nat) :
       omega) (by simp)
   simpa [unaryRun] using lower
 
-theorem unaryInterval_keyWork_lower (n : Nat) :
+theorem unaryRun_interval_keyWork_lower (n : Nat) :
     (n + 1) * n * (n - 1) / 2 ≤ (unaryRun (List.range' n n)).2 .keyWork := by
   have range_finset : (List.range n).toFinset = Finset.range n := by ext key; simp
   have sum_bridge := List.sum_toFinset (fun key : Nat => key)
@@ -899,18 +899,18 @@ theorem unaryInterval_keyWork_lower (n : Nat) :
     rw [← sum_bridge, Nat.mul_assoc, Finset.sum_range_id_mul_two]
     ring
   rw [← doubled, Nat.mul_div_cancel _ Nat.zero_lt_two]
-  exact unaryInterval_lower_sum n
+  exact unaryRun_interval_lower_sum n
 
 /-- A lower bound on complete work for this family, valid also at n=0 and n=1.
 It makes no lower-bound claim about arbitrary input lists. -/
-theorem unaryInterval_lower (n : Nat) :
+theorem unaryRun_interval_lower (n : Nat) :
     (n + 1) * n * (n - 1) / 2 ≤ total (unaryRun (List.range' n n)).2 := by
-  have lower := unaryInterval_keyWork_lower n
+  have lower := unaryRun_interval_keyWork_lower n
   unfold total
   omega
 
 /-- The same actual family has an explicit cubic upper polynomial. -/
-theorem unaryInterval_total_le (n : Nat) :
+theorem unaryRun_interval_total_le (n : Nat) :
     total (unaryRun (List.range' n n)).2 ≤ 2 * n ^ 3 + 3 * n ^ 2 + 5 * n + 1 := by
   have bound := unaryRun_total_le (List.range' n n) (2 * n) (by
     intro key member

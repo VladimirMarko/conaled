@@ -287,7 +287,7 @@ theorem dmPathSquare_relative_vertices {I : SquareKit.Cubical.Cube}
 
 /-- The non-Boolean excluded-middle path can be deformed to one relative to
 its two endpoints, without equating the original dimension expressions. -/
-theorem dmExcludedMiddleSquare_boundary (b : Bool) :
+theorem dmPathSquare_excluded_middle_boundary (b : Bool) :
     dmSquareVertical b ≫ dmPathSquare
       (I := ⟨1⟩) (fun _ => .join (.var 0) (.neg (.var 0))) (fun _ => .one) =
       SquareKit.Cubical.Cube.ofRaw (fun _ => .one) := by
@@ -302,7 +302,7 @@ theorem dmExcludedMiddleSquare_boundary (b : Bool) :
   cases b <;> simpa only [SourceVertexExpr.eval, SourceVertexExpr.endpoint,
     Bool.not_false, Bool.not_true, Bool.false_or, Bool.true_or, ite_true] using hh
 
-theorem dmExcludedMiddle_ne_one :
+theorem ofRaw_excluded_middle_ne_one :
     SquareKit.Cubical.Cube.ofRaw (a := ⟨1⟩) (b := ⟨1⟩)
       (fun _ => .join (.var 0) (.neg (.var 0))) ≠
     SquareKit.Cubical.Cube.ofRaw (fun _ => .one) := by

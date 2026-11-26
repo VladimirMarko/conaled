@@ -41,7 +41,7 @@ theorem encoded_bitLength_le (n key : Nat) (bound : key < 2 * n) :
 
 /-- Signed magnitude uses the same corrected scale. The positive encoding of
 the absolute magnitude is a mathematical size bound, not a conversion run. -/
-theorem signed_bitLength_le (n : Nat) (key : ZNum)
+theorem bZ_add_one_le_logScale (n : Nat) (key : ZNum)
     (bound : Int.natAbs (key : Int) < 2 * n) :
     CollisionHistory.bZ key + 1 ≤ logScale n := by
   have length : CollisionHistory.bZ key ≤ bitLength (encode (Int.natAbs (key : Int))) := by
@@ -53,7 +53,7 @@ theorem signed_bitLength_le (n : Nat) (key : ZNum)
 
 theorem natCast_signed_bitLength_le (n key : Nat) (bound : key < 2 * n) :
     CollisionHistory.bZ (key : ZNum) + 1 ≤ logScale n := by
-  apply signed_bitLength_le n (key : ZNum)
+  apply bZ_add_one_le_logScale n (key : ZNum)
   simpa only [ZNum.of_natCast, Int.natAbs_natCast] using bound
 
 theorem natCast_signed_injective : Function.Injective (fun n : Nat => (n : ZNum)) := by
@@ -218,7 +218,7 @@ theorem signedHistoryWork_bound (n : Nat) (keys : List Nat) (length : keys.lengt
   change CollisionHistory.total (CollisionHistory.signedRun signed).2 ≤ _
   nlinarith
 
-theorem signedHistory_isBigO (inputs : Nat → List Nat)
+theorem signedHistoryWork_isBigO (inputs : Nat → List Nat)
     (length : ∀ n, (inputs n).length ≤ n)
     (keyBound : ∀ n key, key ∈ inputs n → key < 2 * n) :
     Asymptotics.IsBigO Filter.atTop (fun n => (signedHistoryWork (inputs n) : ℝ))
@@ -260,7 +260,7 @@ theorem redBlackWork_bound (n : Nat) (keys : List Nat) (length : keys.length ≤
   change CollisionRedBlack.totalWork (fun _ => 1) (CollisionRedBlack.signedCollisions signed).2 ≤ _
   nlinarith
 
-theorem redBlack_isBigO (inputs : Nat → List Nat)
+theorem redBlackWork_isBigO (inputs : Nat → List Nat)
     (length : ∀ n, (inputs n).length ≤ n)
     (keyBound : ∀ n key, key ∈ inputs n → key < 2 * n) :
     Asymptotics.IsBigO Filter.atTop (fun n => (redBlackWork (inputs n) : ℝ))
@@ -327,7 +327,7 @@ theorem interval_key_bound (n key : Nat) (member : key ∈ List.range' n n) :
 theorem unary_interval_bounds (n : Nat) :
     (n + 1) * n * (n - 1) / 2 ≤ unaryWork (List.range' n n) ∧
       unaryWork (List.range' n n) ≤ 4 * (n + 1) ^ 3 := by
-  refine ⟨CollisionHistory.unaryInterval_lower n, ?_⟩
+  refine ⟨CollisionHistory.unaryRun_interval_lower n, ?_⟩
   exact unaryWork_bound n (List.range' n n) (by simp) (interval_key_bound n)
 
 /-- Tight cubic work on this explicit distinct interval family. Other input

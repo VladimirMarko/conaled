@@ -1516,7 +1516,7 @@ theorem front_end_reset_keeps_its_protected_branch_until_the_paid_dispatch
       reset (frontEndRegisterEquiv (FrontEndMachine.reset regs)) =
         ((none, (none, none)), (BitDecoderMachine.zeroRegisters, regs.2.2.2)) :=
   ⟨frontEndRegisterEquiv_reset regs, frontEndRegisterEquiv_resetMove regs,
-    frontEndRegisterEquiv_fullReset regs⟩
+    reset_frontEndRegisterEquiv_reset regs⟩
 
 theorem actual_front_end_success_has_the_complete_label_neutral_physical_data
     (regs : FrontEndMachine.Registers (Option Branch × R)) (B O : List Branch)

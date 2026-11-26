@@ -133,7 +133,7 @@ theorem minima_wide_input (input : TreeReduction.Input m)
     (he : PrefixAgrees (m := m) mem (arena input h)) :
     (minima m mem).1 =
       (WordKey.encodeStore (liftVector
-        (BlockedRMQ.blockMinima (state input).micro (blocks_pos m)) (macroMinima_fits input))).map
+        (BlockedRMQ.blockMinima (state input).micro (blocks_pos m)) (blockMinima_fits input))).map
         (widen ((KeyBounds.macro_capacity_le (paddedCapacity_le input.positive)).trans h.keys)) := by
   have hh := minima_value input h mem he
   apply Vector.ext

@@ -136,7 +136,7 @@ def headSquare {ops : Ops α S} {rel : S → List α → Prop} (laws : Laws ops 
       | some xs => exact laws.head r xs h
 
 /-- Pasting the two existing relational contracts gives an observable client. -/
-theorem appendHead_correct {ops : Ops α S} {rel : S → List α → Prop}
+theorem appendRun_head_correct {ops : Ops α S} {rel : S → List α → Prop}
     (laws : Laws ops rel) {s t : S} {xs ys : List α}
     (hs : rel s xs) (ht : rel t ys) {fuel : Nat} (enough : xs.length ≤ fuel) :
     ((appendRun ops fuel s t).1.bind ops.head) = (xs ++ ys).head? :=

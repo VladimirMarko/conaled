@@ -59,7 +59,7 @@ theorem sourceStep_contract (X : Context.{u}) (n : ℕ) :
   rw [sourceStepBody_contract, cubeLam_app, Category.assoc, cubeCurry_uncurry, Category.comp_id]
 
 /-- The zero source body is reflexivity, interpreted as projection off j. -/
-theorem sourceZero_contract (X : Context.{u}) :
+theorem projection_interval_cubes_zero_eq_contractCube (X : Context.{u}) :
     projection (interval (cubes X 0)) = contractCube X 0 := by
   ext I z
   exact (contractCube_dimension_zero X z.1 z.2.down).symm
@@ -113,7 +113,7 @@ zero/successor computation rules and the checked source binding equation. -/
 theorem interpretedContraction_eq (X : Context.{u}) (n : ℕ) :
     interpretedContraction X n = contractCube X n := by
   induction n with
-  | zero => exact (interpretedContraction_zero X).trans (sourceZero_contract X)
+  | zero => exact (interpretedContraction_zero X).trans (projection_interval_cubes_zero_eq_contractCube X)
   | succ n ih =>
     rw [interpretedContraction_successor, ih]
     exact sourceStep_contract X n

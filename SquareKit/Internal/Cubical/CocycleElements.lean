@@ -23,7 +23,7 @@ def elementRestriction {Γ : Presheaf.Context.{u}} (x : Γ.Elements) :
     apply Functor.Elements.Hom.ext
     rfl
 
-private theorem elementOppHom_hext {Γ : Presheaf.Context.{u}}
+private theorem elements_op_hom_hext {Γ : Presheaf.Context.{u}}
     {x x' y y' : Γ.Elementsᵒᵖ} (hx : x = x') (hy : y = y')
     (f : x ⟶ y) (g : x' ⟶ y') (h : HEq f.unop.hom g.unop.hom) : HEq f g := by
   cases hx; cases hy
@@ -44,7 +44,7 @@ theorem elementRestriction_restriction {Γ : Presheaf.Context.{u}}
       (congrArg (Γ.map A.hom.op) f.map_val)
   apply Functor.hext ho
   intro A B g
-  exact elementOppHom_hext (ho A) (ho B) _ _ HEq.rfl
+  exact elements_op_hom_hext (ho A) (ho B) _ _ HEq.rfl
 
 /-- Context substitutions preserve restriction diagrams by equality. -/
 theorem elementRestriction_substitution {Γ Δ : Presheaf.Context.{u}}
@@ -58,7 +58,7 @@ theorem elementRestriction_substitution {Γ Δ : Presheaf.Context.{u}}
     exact congrArg (Γ.elementsMk (Opposite.op A.left)) (σ.naturality_apply A.hom.op x.val)
   apply Functor.hext ho
   intro A B f
-  exact elementOppHom_hext (ho A) (ho B) _ _ HEq.rfl
+  exact elements_op_hom_hext (ho A) (ho B) _ _ HEq.rfl
 
 /-- Global closed cochains give strictly coherent slice cocycles. -/
 def restrictCocycle {Γ : Presheaf.Context.{u}} (z : Cocycle2 Γ.Elementsᵒᵖ)

@@ -76,7 +76,7 @@ def chooseTree {n : Nat} (req : Requirements) (source : Source n) (context : Con
   Optimization.Choice.choose catalog (fun c => Feasible req (treeProfile n c) source)
     identify (scope n req {context with site := context.site ++ ":tree"}) repetitions fixed evidence
 
-theorem treeChosen_correct {n : Nat} {req : Requirements} {source : Source n}
+theorem treeService_correct_of_chooseTree {n : Nat} {req : Requirements} {source : Source n}
     {context : Context} {repetitions : Nat} {fixed : Strategy → Nat}
     {evidence : Option Epoch} {c : Strategy}
     (h : chooseTree req source context repetitions fixed evidence = some c) (qs : List (Query n)) :
@@ -84,7 +84,7 @@ theorem treeChosen_correct {n : Nat} {req : Requirements} {source : Source n}
   choose_contract (fun c => (treeService c source qs).1 = qs.map (sourceLCA source))
     (fun c _ _ => treeService_correct c source qs) h
 
-theorem treeChosen_query_bound {n : Nat} {req : Requirements} {source : Source n}
+theorem treeOps_query_bound_of_chooseTree {n : Nat} {req : Requirements} {source : Source n}
     {context : Context} {repetitions : Nat} {fixed : Strategy → Nat}
     {evidence : Option Epoch} {c : Strategy}
     (h : chooseTree req source context repetitions fixed evidence = some c) (q : Query n) :

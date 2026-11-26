@@ -11,7 +11,7 @@ example (s : SymList Nat) (hs : s = ([7], []) ∨ s = ([], [7])) :
     headSL s = some 7 ∧ lastSL s = some 7 ∧ fromSL (tailSL s) = [] ∧
       fromSL (initSL s) = [] := by
   have h : Inv s := by rcases hs with rfl | rfl <;> simp [Sequences.Symmetric.Inv]
-  rw [headSL_eq_head _ h, lastSL_eq_getLast _ h, fromSL_tailSL _ h, fromSL_initSL _ h]
+  rw [headSL_eq_head _ h, lastSL_eq_getLast? _ h, fromSL_tailSL _ h, fromSL_initSL _ h]
   rcases hs with rfl | rfl <;> simp [fromSL]
 
 example (a b c d : α) (s : SymList α) (h : Inv s) (he : fromSL s = [a,b,c,d]) :
@@ -75,7 +75,7 @@ example : ([1,2].scanl (fun s x => snocSL x s) ([9],[])).map fromSL =
   simpa [inits, fromSL] using scanl_snocSL_refinement [1,2] ([9],[]) (by simp [Sequences.Symmetric.Inv])
 
 example : Inv ((finitePrefix (fun n => n + 10) 3).foldl (fun s x => snocSL x s) nilSL) :=
-  scanState_symmetric_inv _ _
+  finitePrefix_foldl_snocSL_inv _ _
 
 example : initsViaSL [1,2,1] = [[],[1],[1,2],[1,2,1]] := initsViaSL_eq_inits _
 example : initsReverseScan [1,2,1] = [[],[1],[1,2],[1,2,1]] := initsReverseScan_eq_inits _
@@ -91,11 +91,11 @@ example : ((prefixLengths (α := Nat)).impl nilSL).down = [0] :=
   prefixLengths_correct _ inv_nilSL
 
 example : fromSL ((finitePrefix (fun n => n + 10) 0).foldl (fun s x => snocSL x s) nilSL) = [] :=
-  scanState_symmetric_value _ _
+  finitePrefix_foldl_snocSL_value _ _
 example : fromSL ((finitePrefix (fun n => n + 10) 3).foldl (fun s x => snocSL x s) nilSL) = [10,11,12] :=
-  scanState_symmetric_value _ _
+  finitePrefix_foldl_snocSL_value _ _
 example : ((finitePrefix (fun n => n + 10) 3).foldl (fun ys x => x :: ys) []).reverse = [10,11,12] :=
-  scanState_reverse_value _ _
+  finitePrefix_foldl_cons_reverse _ _
 example (f : β → α → β) (e : β) (σ : Nat → α) :
     (finitePrefix σ 3).foldl f e = (finitePrefix (fun k => σ (k+1)) 2).foldl f (f e (σ 0)) :=
   finitePrefix_foldl_shift _ _ _ _

@@ -32,7 +32,7 @@ theorem liftSource_at (seed : Cell offset heights stride) (source : Nat → Meas
     transport Subtype.val (liftSource seed source len hs i) = source i := by
   simp [transport,liftSource,hi]
 
-theorem liftedRow_erases (seed : Cell offset heights stride) (source : Nat → Measured Key Nat)
+theorem rowFill_liftSource_erases (seed : Cell offset heights stride) (source : Nat → Measured Key Nat)
     (capacity len : Nat) (hl : len ≤ capacity)
     (hs : ∀ i, i < len → Fits offset heights stride (source i).1) :
     transport (Vector.map Subtype.val)
@@ -62,7 +62,7 @@ theorem wordRow_refines (seed : Cell offset heights stride) (source : Nat → Me
     transport (Vector.map Fin.val) (wordRow seed source capacity len hl hs) =
       transport (Vector.map (encodeKey (offset := offset) (stride := stride)))
         (MicroExecution.rowFill seed.val source capacity len hl) := by
-  rw [wordRow_transport,← liftedRow_erases seed source capacity len hl hs]
+  rw [wordRow_transport,← rowFill_liftSource_erases seed source capacity len hl hs]
   simp [transport,Vector.map_map,Function.comp_def,WordKey.cellWord,encodeKey]
 
 theorem wordRow_cost (seed : Cell offset heights stride) (source : Nat → Measured Key Nat)
@@ -87,12 +87,12 @@ def wordSparse (seed : Cell offset heights stride) (input : Vector Key n)
     (hi : ∀ i : Fin n, Fits offset heights stride input[i.val]) (levels : Nat) :=
   SparseExecution.prepare (WordKey.cellWord seed) (WordKey.encodeStore (liftVector input hi)) levels
 
-theorem liftedSparse_erases (seed : Cell offset heights stride) (input : Vector Key n)
+theorem prepare_liftVector_erases (seed : Cell offset heights stride) (input : Vector Key n)
     (hi : ∀ i : Fin n, Fits offset heights stride input[i.val]) (levels : Nat) :
     transport (fun pair => (rowsMap Subtype.val pair.1,pair.2))
       (SparseExecution.prepare seed (liftVector input hi) levels) =
       SparseExecution.prepare seed.val input levels := by
-  rw [← sparsePrepare_transport Subtype.val cell_val_min,liftVector_erases]
+  rw [← sparse_prepare_transport Subtype.val cell_val_min,liftVector_erases]
 
 theorem wordSparse_refines (seed : Cell offset heights stride) (input : Vector Key n)
     (hi : ∀ i : Fin n, Fits offset heights stride input[i.val]) (levels : Nat) :
@@ -100,7 +100,7 @@ theorem wordSparse_refines (seed : Cell offset heights stride) (input : Vector K
       transport (fun pair => (rowsMap (encodeKey (offset := offset) (stride := stride)) pair.1,pair.2))
         (SparseExecution.prepare seed.val input levels) := by
   unfold wordSparse
-  rw [word_sparse_prepare,← liftedSparse_erases seed input hi levels]
+  rw [word_sparse_prepare,← prepare_liftVector_erases seed input hi levels]
   simp [transport,rowsMap,Vector.map_map,Function.comp_def,WordKey.cellWord,encodeKey]
 
 theorem wordSparse_cost (seed : Cell offset heights stride) (input : Vector Key n)
@@ -127,7 +127,7 @@ theorem microRow_refines (steps code : Nat) (start : Fin (steps+1)) (len : Nat) 
 def HeightDomain (steps : Nat) (heights : Heights steps) : Prop :=
   ∀ i, -(steps : Int) ≤ boundedDepth heights i ∧ boundedDepth heights i ≤ (steps : Int)
 
-theorem heightSource_fits (heights : Heights steps) (hh : HeightDomain steps heights)
+theorem keySource_fits (heights : Heights steps) (hh : HeightDomain steps heights)
     (start i : Nat) (hs : start < steps+1) (hi : i < steps+1) :
     Fits (steps : Int) (2*steps+1) (2*(steps+1)) (MicroExecution.keySource heights start i).1 := by
   rw [MicroExecution.keySource_exact]
@@ -137,14 +137,14 @@ theorem heightSource_fits (heights : Heights steps) (hh : HeightDomain steps hei
 
 def classSeed (heights : Heights steps) (hh : HeightDomain steps heights) :
     Cell (steps : Int) (2*steps+1) (2*(steps+1)) :=
-  ⟨(MicroExecution.keySource heights 0 0).1,heightSource_fits heights hh 0 0 (by omega) (by omega)⟩
+  ⟨(MicroExecution.keySource heights 0 0).1,keySource_fits heights hh 0 0 (by omega) (by omega)⟩
 
 def classProgram (heights : Heights steps) (hh : HeightDomain steps heights) :=
   bind (WordKey.cellWord (classSeed heights hh),(MicroExecution.keySource heights 0 0).2) fun seed =>
   bind (TableExecution.initStore seed (steps+1)) fun seedRow =>
   TableExecution.tabulate seedRow (fun start : Fin (steps+1) =>
     wordRow (classSeed heights hh) (MicroExecution.keySource heights start.val) (steps+1) (steps+1) le_rfl
-      (fun i hi => heightSource_fits heights hh start.val i start.isLt hi))
+      (fun i hi => keySource_fits heights hh start.val i start.isLt hi))
 
 theorem classProgram_refines (heights : Heights steps) (hh : HeightDomain steps heights) :
     transport (Vector.map (Vector.map Fin.val)) (classProgram heights hh) =
@@ -153,12 +153,12 @@ theorem classProgram_refines (heights : Heights steps) (hh : HeightDomain steps 
   simp only [classProgram,MicroExecution.buildClassM,Resources.bind,TableExecution.initStore_exact]
   have hw := fun start : Fin (steps+1) =>
     wordRow_refines (classSeed heights hh) (MicroExecution.keySource heights start.val)
-      (steps+1) (steps+1) le_rfl (fun i hi => heightSource_fits heights hh start.val i start.isLt hi)
+      (steps+1) (steps+1) le_rfl (fun i hi => keySource_fits heights hh start.val i start.isLt hi)
   have ht := tabulate_transport (Vector.map Fin.val)
     (Vector.replicate (steps+1) (WordKey.cellWord (classSeed heights hh)))
     (fun start : Fin (steps+1) => wordRow (classSeed heights hh)
       (MicroExecution.keySource heights start.val) (steps+1) (steps+1) le_rfl
-      (fun i hi => heightSource_fits heights hh start.val i start.isLt hi))
+      (fun i hi => keySource_fits heights hh start.val i start.isLt hi))
   have he := tabulate_transport
     (Vector.map (encodeKey (offset := (steps : Int)) (stride := 2*(steps+1))))
     (Vector.replicate (steps+1) (MicroExecution.keySource heights 0 0).1)
@@ -171,7 +171,7 @@ theorem classProgram_refines (heights : Heights steps) (hh : HeightDomain steps 
   rw [hseeds] at ht
   have hsource : (fun start : Fin (steps+1) => transport (Vector.map Fin.val)
       (wordRow (classSeed heights hh) (MicroExecution.keySource heights start.val)
-        (steps+1) (steps+1) le_rfl (fun i hi => heightSource_fits heights hh start.val i start.isLt hi))) =
+        (steps+1) (steps+1) le_rfl (fun i hi => keySource_fits heights hh start.val i start.isLt hi))) =
       fun start : Fin (steps+1) => transport
         (Vector.map (encodeKey (offset := (steps : Int)) (stride := 2*(steps+1))))
         (MicroExecution.buildRow (MicroExecution.keySource heights 0 0).1
@@ -247,7 +247,7 @@ def macroSeed (input : Input m) : Cell 0 (2*m) (paddedCapacity m) :=
     simp only [ofLex_toLex,Int.add_zero]
     exact ⟨by omega,by omega,by omega⟩⟩
 
-theorem macroMinima_fits (input : Input m) (i : Fin (blocks m)) :
+theorem blockMinima_fits (input : Input m) (i : Fin (blocks m)) :
     Fits 0 (2*m) (paddedCapacity m)
       (BlockedRMQ.blockMinima (state input).micro (blocks_pos m))[i.val] := by
   rw [state_eq]
@@ -257,7 +257,7 @@ theorem macroMinima_fits (input : Input m) (i : Fin (blocks m)) :
 
 def macroProgram (input : Input m) :=
   wordSparse (macroSeed input) (BlockedRMQ.blockMinima (state input).micro (blocks_pos m))
-    (macroMinima_fits input) (levels m)
+    (blockMinima_fits input) (levels m)
 
 theorem macroProgram_refines (input : Input m) :
     transport (fun pair => (rowsMap Fin.val pair.1,pair.2)) (macroProgram input) =
@@ -415,7 +415,7 @@ def wideMacroProgram (input : Input m) (h : MachineCapacity.WordEligible m width
   let bound := (KeyBounds.macro_capacity_le (paddedCapacity_le input.positive)).trans h.keys
   SparseExecution.prepare (widen bound (WordKey.cellWord (macroSeed input)))
     ((WordKey.encodeStore (liftVector
-      (BlockedRMQ.blockMinima (state input).micro (blocks_pos m)) (macroMinima_fits input))).map (widen bound))
+      (BlockedRMQ.blockMinima (state input).micro (blocks_pos m)) (blockMinima_fits input))).map (widen bound))
     (levels m)
 
 theorem wideMacroProgram_refines (input : Input m) (h : MachineCapacity.WordEligible m width capacity) :
@@ -423,7 +423,7 @@ theorem wideMacroProgram_refines (input : Input m) (h : MachineCapacity.WordElig
       transport (fun pair => (rowsMap
         (widen ((KeyBounds.macro_capacity_le (paddedCapacity_le input.positive)).trans h.keys)) pair.1,pair.2))
         (macroProgram input) :=
-  sparsePrepare_transport _ (widen_min _) _ _ _
+  sparse_prepare_transport _ (widen_min _) _ _ _
 
 example : ((sharedProgram 1).1[0][0][1]).val = 1 := by decide
 example : ((sharedProgram 1).1[0][0][1]).val % 4 = 1 := by decide

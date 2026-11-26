@@ -15,7 +15,7 @@ def localize (Γ : Context.{u}) (x : Γ.Elements) : Under x.obj ⥤ Γ.Elements 
   map_id _ := rfl
   map_comp _ _ := rfl
 
-theorem elementHom_hext {Γ : Context.{u}} {x x' y y' : Γ.Elements}
+theorem elements_hom_hext {Γ : Context.{u}} {x x' y y' : Γ.Elements}
     (hx : x = x') (hy : y = y') (f : x ⟶ y) (g : x' ⟶ y')
     (h : HEq f.hom g.hom) : HEq f g := by
   subst x'
@@ -33,7 +33,7 @@ theorem localize_substitution {Γ Δ : Context.{u}} (σ : Δ ⟶ Γ) (x : Δ.Ele
     exact congrArg (Γ.elementsMk f.right) (σ.naturality_apply f.hom x.val)
   apply Functor.hext ho
   intro f g h
-  exact elementHom_hext (ho f) (ho g) _ _ (HEq.rfl)
+  exact elements_hom_hext (ho f) (ho g) _ _ (HEq.rfl)
 
 /-- Restriction of the base element is also equality of localized diagrams. -/
 theorem localize_restriction {Γ : Context.{u}} {x y : Γ.Elements} (f : x ⟶ y) :
@@ -45,7 +45,7 @@ theorem localize_restriction {Γ : Context.{u}} {x y : Γ.Elements} (f : x ⟶ y
     exact (Γ.map_comp_apply f.hom g.hom x.val).trans (congrArg (Γ.map g.hom) f.map_val)
   apply Functor.hext ho
   intro g h k
-  exact elementHom_hext (ho g) (ho h) _ _ (HEq.rfl)
+  exact elements_hom_hext (ho g) (ho h) _ _ (HEq.rfl)
 
 /-- Forgetting an arrow of elements and then lifting it recovers its target. -/
 theorem localize_forget {Γ : Context.{u}} (x : Γ.Elements) :
@@ -57,10 +57,10 @@ theorem localize_forget {Γ : Context.{u}} (x : Γ.Elements) :
     exact congrArg (Γ.elementsMk f.right.obj) f.hom.map_val
   apply Functor.hext ho
   intro f g h
-  exact elementHom_hext (ho f) (ho g) _ _ (HEq.rfl)
+  exact elements_hom_hext (ho f) (ho g) _ _ (HEq.rfl)
 
 /-- Localization of a family commutes with substitution by equality. -/
-theorem localFamily_substitution {Γ Δ : Context.{u}} (A : Family Γ)
+theorem localize_reindex {Γ Δ : Context.{u}} (A : Family Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) :
     localize Δ x ⋙ reindex A σ = localize Γ (σ.mapElements.obj x) ⋙ A := by
   change (localize Δ x ⋙ σ.mapElements) ⋙ A = _

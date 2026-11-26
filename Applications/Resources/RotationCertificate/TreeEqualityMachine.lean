@@ -703,7 +703,7 @@ theorem initial_space_sharp (xs ys : Word) (regs : Registers R) (ctx : ∀ k, Li
 omit [DecidableEq K] [Fintype K] in
 theorem treeCode_injective : Function.Injective treeCode := by
   intro s t encoded
-  exact (parseTreeRun_prefix_injective s t [] [] (by simpa using encoded)).1
+  exact (treeCode_prefix_injective s t [] [] (by simpa using encoded)).1
 
 omit [DecidableEq K] [Fintype K] in
 theorem wordResult_code_equal_iff (s t : BinaryTree Unit) :

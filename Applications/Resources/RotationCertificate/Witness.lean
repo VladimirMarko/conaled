@@ -19,7 +19,7 @@ open Trees.Rotations (RotationMove Shape applyMoves?)
 open Resources.BinaryCounter (Bits value)
 
 /-- The bound follows the actual intermediate tree after every successful move. -/
-theorem certCode_length_le_of_applyMoves (moves : List RotationMove)
+theorem certCode_length_le_of_applyMoves? (moves : List RotationMove)
     (s t : BinaryTree Unit) (run : applyMoves? moves s = some t) :
     (certCode moves).length ≤ moves.length * s.numNodes := by
   induction moves generalizing s with
@@ -29,7 +29,7 @@ theorem certCode_length_le_of_applyMoves (moves : List RotationMove)
       | none => simp [first] at run
       | some next =>
           simp only [Trees.Rotations.applyMoves?_cons, first, Option.bind_some] at run
-          have depth := applyMove_depth_le move s next first
+          have depth := applyMove?_depth_le move s next first
           have same := applyMoveRun_numNodes move s next (by
             simpa only [applyMoveRun_value] using first)
           have tail := ih next run
@@ -45,7 +45,7 @@ theorem minimum_certificate_bound {n : Nat} (s t : Shape n) :
       (certCode moves).length ≤ n * (2 * n - 2) := by
   obtain ⟨moves, run, length⟩ := Shape.distance_spec s t
   refine ⟨moves, run, length, ?_⟩
-  have encoded := certCode_length_le_of_applyMoves moves s.val t.val run
+  have encoded := certCode_length_le_of_applyMoves? moves s.val t.val run
   rw [s.property, length] at encoded
   calc
     (certCode moves).length ≤ Shape.distance s t * n := encoded

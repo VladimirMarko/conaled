@@ -119,7 +119,7 @@ theorem packM_slots (cells : Vector (Vector (WordMachine.Word width) cols) rows)
 
 variable {classes : Nat} [NeZero rows]
 
-private instance innerWords_neZero : NeZero (FlatTable.words rows cols) := by
+private instance words_neZero : NeZero (FlatTable.words rows cols) := by
   constructor
   have hr := NeZero.pos rows
   unfold FlatTable.words

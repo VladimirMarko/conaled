@@ -72,7 +72,7 @@ memory, bit complexity or wall-clock performance.
 the existing `sourceStepRun`. `sourceObserve` uses the already reconstructed
 `sourceMapRun` at per-element charge one; this specializes the source's
 constant-tariff identity map and retains its terminal and cons charges.
-`rowsMeasured_sourceScalar` and `runMeasured_sourceScalar` prove full pair
+`rowsMeasured_source_scalar` and `runMeasured_source_scalar` prove full pair
 projection equality, including selection values. The source value, whole-row
 bound, complete-run bound and array component of `complete_variants_optimal`
 follow through that projection. Recursive and list-workload scalar models are

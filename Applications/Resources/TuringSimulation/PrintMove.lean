@@ -709,7 +709,7 @@ theorem interval_le_of_run (M : Machine Γ Q) (start : Cfg Γ Q)
 
 /-- Actual combined printing/movement respects global cell coordinates. This
 also identifies exactly the one global cell that a combined write may alter. -/
-theorem printMove_nth_at_other_global_coordinate (T : Tape Γ) (a : Γ)
+theorem write_move_nth_at_other_global_coordinate (T : Tape Γ) (a : Γ)
     (d : Dir) (x p : ℤ) (hne : x ≠ p) :
     ((T.write a).move d).nth (x - (p + directionOffset d)) = T.nth (x - p) := by
   have hframe : ((T.write a).move d).nth (x - (p + directionOffset d)) =

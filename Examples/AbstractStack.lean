@@ -21,7 +21,7 @@ theorem custom_append : ∃ r, appendRun (custom Nat) 2 left right = (some r, 9)
 /-- The observable client is proved by composition, not a second append proof. -/
 theorem custom_append_head :
     ((appendRun (custom Nat) 2 left right).1.bind (custom Nat).head) = some 1 :=
-  appendHead_correct (custom_laws Nat) (xs := [1, 2]) (ys := [3]) rfl rfl (by decide)
+  appendRun_head_correct (custom_laws Nat) (xs := [1, 2]) (ys := [3]) rfl rfl (by decide)
 
 theorem empty_tail_fails : (custom Nat).tail .nil = none :=
   (custom_laws Nat).tail_nil _ rfl

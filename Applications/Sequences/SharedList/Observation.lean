@@ -73,13 +73,13 @@ def appendHeadSquare (α : Type) : Relational.RelSquare (appendInput α)
     ⟨Option α, Option α, Eq⟩ :=
   Relational.compose (headSquare α) (appendSquare α)
 
-theorem appendHead_correct {s : Store α} {r q : Root} {xs ys : List α}
+theorem appendRun_head_correct {s : Store α} {r q : Root} {xs ys : List α}
     (hx : Represents s.heap r xs) (hy : Represents s.heap q ys) :
     ((appendRun s r q).1.bind fun state => head state.1 state.2) =
       (xs ++ ys).head? :=
   (appendHeadSquare α).preserves (r := (s, (r, q))) (s := (xs, ys)) ⟨hx, hy⟩
 
-theorem updateHead_correct {s : Store α} {r : Root} {xs : List α}
+theorem updateRun_head_correct {s : Store α} {r : Root} {xs : List α}
     (h : Represents s.heap r xs) (i : Nat) (x : α) :
     ((updateRun s r i x).1.bind fun state => head state.1 state.2) =
       (updateValue xs i x).bind List.head? :=

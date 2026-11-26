@@ -143,7 +143,7 @@ theorem parseBitsRun_consumed_length (raw : Word) (bs : Bits) (rest : Word)
   rw [(parseBitsRun_iff raw bs rest).1 returned]
   simp only [List.length_append, bitTags_length, List.length_cons, List.length_nil]
 
-theorem parseBitsRun_prefix_injective (bs cs : Bits) (rest suffix : Word)
+theorem bitTags_prefix_injective (bs cs : Bits) (rest suffix : Word)
     (encoded : bitTags bs ++ [endInputTag] ++ rest =
       bitTags cs ++ [endInputTag] ++ suffix) : bs = cs ∧ rest = suffix := by
   have observed := congrArg (fun raw => (parseBitsRun raw).1) encoded
@@ -278,7 +278,7 @@ theorem parsePathRun_consumed_length (raw : Word) (path : List Branch) (rest : W
   rw [(parsePathRun_iff raw path rest).1 returned]
   simp only [List.length_append, pathTags_length, List.length_cons, List.length_nil]
 
-theorem parsePathRun_prefix_injective (path other : List Branch) (rest suffix : Word)
+theorem pathTags_prefix_injective (path other : List Branch) (rest suffix : Word)
     (encoded : pathTags path ++ [endMoveTag] ++ rest =
       pathTags other ++ [endMoveTag] ++ suffix) : path = other ∧ rest = suffix := by
   have observed := congrArg (fun raw => (parsePathRun raw).1) encoded
@@ -409,7 +409,7 @@ theorem parseMoveRun_rest_length_lt (raw : Word) (move : RotationMove) (rest : W
   have length := parseMoveRun_consumed_length raw move rest returned
   omega
 
-theorem parseMoveRun_prefix_injective (move other : RotationMove) (rest suffix : Word)
+theorem moveCode_prefix_injective (move other : RotationMove) (rest suffix : Word)
     (encoded : moveCode move ++ rest = moveCode other ++ suffix) :
     move = other ∧ rest = suffix := by
   have observed := congrArg (fun raw => (parseMoveRun raw).1) encoded

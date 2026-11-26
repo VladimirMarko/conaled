@@ -74,7 +74,7 @@ pathApp (R.comparisonInFamily z) =
 For substitution, `R` here is the restricted original result, and `S` is the
 constructor freshly rebuilt from substituted codes. The right side uses
 `NativeDecode.filling S.code`; the left side uses the restriction of
-`NativeDecode.filling R_original.code`. `transport_eq_of_comparisonBody_eq`
+`NativeDecode.filling R_original.code`. `transportInFamily_eq_of_pathApp_eq`
 checks a necessary consequence: their actual transported starts must agree
 under the endpoint adapter. The common finish alone does not supply this
 condition or the whole-body equation.

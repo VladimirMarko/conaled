@@ -62,7 +62,7 @@ value comparisons and update calls. These counts exclude initialization,
 indexed-read latency, scalar arithmetic, list construction and copies.
 
 The fourth observation recovers `KnapsackWork.arrayStepRun` through
-`stepMeasured_sourceScalar`, using separately retained literal scalar routines.
+`stepMeasured_source_scalar`, using separately retained literal scalar routines.
 Entry tariffs are 7 on the skip branch and 30 on the fitting branch. Association
 construction and map traversal add three per cell and one terminal charge;
 writes add eight each and one terminal charge. The explicit bulk copy adds
