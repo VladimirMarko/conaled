@@ -93,14 +93,14 @@ theorem ordered_blocks_invalid_index :
   rfl
 
 theorem duplicate_lower_median : lowerMedianWith List.head? ([1, 1] : List Nat) = some 1 := by
-  rw [lowerMedian_value _ head_pivot_valid]
+  rw [lowerMedianWith_value _ head_pivot_valid]
   apply ranked_iff_index.mp
   exact ranked_iff_count_bounds.mpr (by decide)
 
 theorem duplicate_median_counts :
     ([1, 1] : List Nat).countP (fun x => decide (x < 1)) ≤ 0 ∧
       ([1, 1] : List Nat).countP (fun x => decide (1 < x)) ≤ 1 :=
-  lowerMedian_count_bounds _ head_pivot_valid _ _ duplicate_lower_median
+  lowerMedianWith_count_bounds _ head_pivot_valid _ _ duplicate_lower_median
 
 /-- A monotone relabeling can create ties and still preserves the count
 specification through the existing occurrence-rank transport law. -/

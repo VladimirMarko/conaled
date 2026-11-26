@@ -10,7 +10,7 @@ client is `Examples/FiniteUniverseLoops.lean`; the reusable arguments are in
 For a host type `S : Type`, `loops S` is the native path family from the constant
 code for `S` to itself, over the raised terminal context. `loopPermutation p`
 assigns a host permutation to each closed section `p` of this family.
-`twoPath_iff_permutation` proves
+`nonempty_homogeneousPath_iff_loopPermutation_eq` proves
 
 ```
 Nonempty (Term (homogeneousPath (loops S) p q)) ↔
@@ -51,7 +51,7 @@ that all choices of contraction are definitionally equal.
 `booleanPermutation_cases` proves that a Boolean permutation is identity or
 negation. `booleanLoop_cases` therefore gives a native two-path from every
 closed Boolean loop to one of those two representatives.
-`booleanLoops_no_twoPath` separates the representatives: identity transports
+`booleanLoops_no_two_path` separates the representatives: identity transports
 `true` to `true`, while negation transports it to `false`.
 `booleanLoops_not_path_unique` states precisely the resulting failure of
 native path uniqueness for this closed Boolean loop family.
@@ -59,7 +59,7 @@ native path uniqueness for this closed Boolean loop family.
 For `Fin 3`, `swap01` exchanges 0 and 1, and `swap12` exchanges 1 and 2.
 Concatenation applies the first loop's permutation first:
 `loopPermutation_concat e d` yields `e.trans d`. In the two orders, input 0
-produces 2 and 1, respectively. `compositeLoops_no_twoPath` rules out a native
+produces 2 and 1, respectively. `compositeLoops_no_two_path` rules out a native
 two-path between those actual concatenated loops using these transport
 observations. `swaps_do_not_commute` records the corresponding permutation
 inequality.

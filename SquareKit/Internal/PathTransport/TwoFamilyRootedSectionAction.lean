@@ -27,8 +27,8 @@ theorem rootedSection_action_of_base
   (η.app z) z.base.base (congrArg (fun L => L.obj z) hs) (congrArg (fun L => L.obj z) ht) (hb z)
 theorem rootedSection_action : RootedSectionActionFormula F B x s (rootedContraction F x) := by
  apply rootedSection_action_of_base F B x s (rootedContraction F x)
- · rw [strictFunctor_comp_assoc, rootedReflexivity_retraction, strictFunctor_comp_id]
- · exact strictFunctor_id_comp _
+ · rw [strictPseudofunctor_comp_assoc, rootedReflexivity_retraction, strictPseudofunctor_comp_id]
+ · exact strictPseudofunctor_id_comp _
  · exact rootedContraction_base F x
 omit [IsLocallyGroupoid Γ] in
 theorem RootedSectionActionFormula.congr

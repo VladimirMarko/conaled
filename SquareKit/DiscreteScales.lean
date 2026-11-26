@@ -63,7 +63,7 @@ theorem cubic_lower_terms_bounds (n : ℕ) :
   constructor <;> omega
 
 /-- A rational log band is bounded by twice the floor logarithm from two onward. -/
-theorem logBand_bounds {l : ℕ → ℚ}
+theorem log_band_bounds {l : ℕ → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1))
     {n : ℕ} (hn : 2 ≤ n) :
     (Nat.log2 n : ℚ) ≤ l n ∧ l n ≤ 2 * (Nat.log2 n : ℚ) := by
@@ -74,7 +74,7 @@ theorem logBand_bounds {l : ℕ → ℚ}
   exact ⟨hb.1, by linarith [hb.2]⟩
 
 /-- A rational root band is bounded by twice the floor root at every positive index. -/
-theorem rootBand_bounds {s : ℕ → ℚ}
+theorem root_band_bounds {s : ℕ → ℚ}
     (hs : ∀ n, 1 ≤ n → s n ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1))
     {n : ℕ} (hn : 1 ≤ n) :
     (Nat.sqrt n : ℚ) ≤ s n ∧ s n ≤ 2 * (Nat.sqrt n : ℚ) := by
@@ -84,11 +84,11 @@ theorem rootBand_bounds {s : ℕ → ℚ}
   exact ⟨hb.1, by linarith [hb.2]⟩
 
 /-- The finite log/root comparison transports to arbitrary rational bands. -/
-theorem mul_logBand_le_two_mul_rootBand {l s : ℕ → ℚ}
+theorem mul_log_band_le_two_mul_root_band {l s : ℕ → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1))
     (hs : ∀ n, 1 ≤ n → s n ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1))
     {n : ℕ} (hn : 16 ≤ n) : (n : ℚ) * l n ≤ 2 * ((n : ℚ) * s n) := by
-  have hlog := logBand_bounds hl (show 2 ≤ n by omega)
+  have hlog := log_band_bounds hl (show 2 ≤ n by omega)
   have hroot := (hs n (by omega)).1
   have hcompare : (Nat.log2 n : ℚ) ≤ (Nat.sqrt n : ℚ) := by
     exact_mod_cast log2_le_sqrt hn
@@ -158,9 +158,9 @@ theorem band_counterexample {l s : ℕ → ℚ}
   have hnN : N ≤ n := (le_max_left N 2).trans hn
   have hn2 : 2 ≤ n := (le_max_right N 2).trans hn
   have hlog : (Nat.log2 n : ℚ) ≤ l n ∧ l n ≤ 2 * (Nat.log2 n : ℚ) :=
-    logBand_bounds (l := l) hl (n := n) hn2
+    log_band_bounds (l := l) hl (n := n) hn2
   have hroot : (Nat.sqrt n : ℚ) ≤ s n ∧ s n ≤ 2 * (Nat.sqrt n : ℚ) :=
-    rootBand_bounds (s := s) hs (n := n) (show 1 ≤ n by omega)
+    root_band_bounds (s := s) hs (n := n) (show 1 ≤ n by omega)
   have hl0 : (0 : ℚ) ≤ l n := (Nat.cast_nonneg (Nat.log2 n)).trans hlog.1
   have htwoRoot : (0 : ℚ) ≤ 2 * (Nat.sqrt n : ℚ) :=
     mul_nonneg (by norm_num : (0 : ℚ) ≤ 2) (Nat.cast_nonneg (Nat.sqrt n))

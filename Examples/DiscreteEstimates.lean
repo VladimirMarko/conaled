@@ -200,13 +200,13 @@ namespace Examples.DiscreteEstimates
 open SquareKit.DiscreteScales
 
 /-- The native floor logarithm itself satisfies the positive-index band hypothesis. -/
-theorem floor_logBand_mem : ∀ n : ℕ, 1 ≤ n →
+theorem natCast_log2_mem_Icc : ∀ n : ℕ, 1 ≤ n →
     (Nat.log2 n : ℚ) ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1) := by
   intro n _
   exact ⟨le_rfl, le_add_of_nonneg_right (by norm_num)⟩
 
 /-- The native floor root itself satisfies the positive-index band hypothesis. -/
-theorem floor_rootBand_mem : ∀ n : ℕ, 1 ≤ n →
+theorem natCast_sqrt_mem_Icc : ∀ n : ℕ, 1 ≤ n →
     (Nat.sqrt n : ℚ) ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1) := by
   intro n _
   exact ⟨le_rfl, le_add_of_nonneg_right (by norm_num)⟩
@@ -244,13 +244,13 @@ theorem halfOffset_bounds (logZero rootZero : ℚ) {n : ℕ} (hn : 2 ≤ n) :
       halfOffsetLog logZero n ≤ 2 * (Nat.log2 n : ℚ)) ∧
     ((Nat.sqrt n : ℚ) ≤ halfOffsetRoot rootZero n ∧
       halfOffsetRoot rootZero n ≤ 2 * (Nat.sqrt n : ℚ)) :=
-  ⟨logBand_bounds (halfOffsetLog_mem logZero) hn,
-    rootBand_bounds (halfOffsetRoot_mem rootZero) (by omega)⟩
+  ⟨log_band_bounds (halfOffsetLog_mem logZero) hn,
+    root_band_bounds (halfOffsetRoot_mem rootZero) (by omega)⟩
 
 /-- The finite coefficient-two comparison uses the same two offset bands. -/
 theorem halfOffset_interpolation (logZero rootZero : ℚ) {n : ℕ} (hn : 16 ≤ n) :
     (n : ℚ) * halfOffsetLog logZero n ≤ 2 * ((n : ℚ) * halfOffsetRoot rootZero n) :=
-  mul_logBand_le_two_mul_rootBand
+  mul_log_band_le_two_mul_root_band
     (halfOffsetLog_mem logZero) (halfOffsetRoot_mem rootZero) hn
 
 /-- Arbitrary zero values do not obstruct the universal strict counterfamily. -/
@@ -261,7 +261,7 @@ theorem halfOffset_counterfamily (logZero rootZero C : ℚ) (hC : 0 < C) (N : �
   band_counterexample (halfOffsetLog_mem logZero) (halfOffsetRoot_mem rootZero) C hC N
 
 /-- An admissible whole log band with value one at one breaks the twice-floor bound. -/
-theorem logBand_one_failure :
+theorem exists_log_band_one_not_le_two_mul_log2 :
     ∃ l : ℕ → ℚ,
       (∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1)) ∧
       l 1 = 1 ∧ ¬ l 1 ≤ 2 * (Nat.log2 1 : ℚ) := by
@@ -545,7 +545,7 @@ namespace Examples.DiscreteEstimates
 open Filter Asymptotics SquareKit.DiscreteScales
 
 /-- Every admissible log band has the native norm order of the floor logarithm. -/
-theorem logBand_isTheta {l : ℕ → ℚ}
+theorem isTheta_log2_of_log_band {l : ℕ → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1)) :
     l =Θ[atTop] (fun n : ℕ => (Nat.log2 n : ℚ)) := by
   have hband : ∀ᶠ n : ℕ in atTop, 0 ≤ l n := by
@@ -558,14 +558,14 @@ theorem logBand_isTheta {l : ℕ → ℚ}
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hband hfloor).mpr
     refine ⟨2, by norm_num, eventually_atTop.mpr ⟨2, ?_⟩⟩
     intro n hn
-    exact (logBand_bounds hl hn).2
+    exact (log_band_bounds hl hn).2
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hfloor hband).mpr
     refine ⟨1, by norm_num, eventually_atTop.mpr ⟨2, ?_⟩⟩
     intro n hn
-    simpa only [one_mul] using (logBand_bounds hl hn).1
+    simpa only [one_mul] using (log_band_bounds hl hn).1
 
 /-- Every admissible root band has the native norm order of the floor root. -/
-theorem rootBand_isTheta {s : ℕ → ℚ}
+theorem isTheta_sqrt_of_root_band {s : ℕ → ℚ}
     (hs : ∀ n, 1 ≤ n → s n ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1)) :
     s =Θ[atTop] (fun n : ℕ => (Nat.sqrt n : ℚ)) := by
   have hband : ∀ᶠ n : ℕ in atTop, 0 ≤ s n := by
@@ -578,14 +578,14 @@ theorem rootBand_isTheta {s : ℕ → ℚ}
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hband hfloor).mpr
     refine ⟨2, by norm_num, eventually_atTop.mpr ⟨1, ?_⟩⟩
     intro n hn
-    exact (rootBand_bounds hs hn).2
+    exact (root_band_bounds hs hn).2
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hfloor hband).mpr
     refine ⟨1, by norm_num, eventually_atTop.mpr ⟨1, ?_⟩⟩
     intro n hn
-    simpa only [one_mul] using (rootBand_bounds hs hn).1
+    simpa only [one_mul] using (root_band_bounds hs hn).1
 
 /-- The finite coefficient-two band comparison gives native norm Big O. -/
-theorem mul_logBand_isBigO_mul_rootBand {l s : ℕ → ℚ}
+theorem mul_log_band_isBigO_mul_root_band {l s : ℕ → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1))
     (hs : ∀ n, 1 ≤ n → s n ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1)) :
     (fun n : ℕ => (n : ℚ) * l n) =O[atTop] (fun n : ℕ => (n : ℚ) * s n) := by
@@ -602,7 +602,7 @@ theorem mul_logBand_isBigO_mul_rootBand {l s : ℕ → ℚ}
   apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hleft hright).mpr
   refine ⟨2, by norm_num, eventually_atTop.mpr ⟨16, ?_⟩⟩
   intro n hn
-  exact mul_logBand_le_two_mul_rootBand hl hs hn
+  exact mul_log_band_le_two_mul_root_band hl hs hn
 
 /-- No native norm Big-O coefficient bounds the linear-plus-root function by root times log. -/
 theorem linear_add_sqrt_not_isBigO_sqrt_log2 :
@@ -621,7 +621,7 @@ theorem linear_add_sqrt_not_isBigO_sqrt_log2 :
   exact (not_lt_of_ge (hN n hn)) hstrict
 
 /-- The native norm failure persists for arbitrary bands, with no sign condition at zero. -/
-theorem linear_add_rootBand_not_isBigO_rootBand_mul_logBand {l s : ℕ → ℚ}
+theorem linear_add_root_band_not_isBigO_root_band_mul_log_band {l s : ℕ → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (Nat.log2 n : ℚ) ((Nat.log2 n : ℚ) + 1))
     (hs : ∀ n, 1 ≤ n → s n ∈ Set.Icc (Nat.sqrt n : ℚ) ((Nat.sqrt n : ℚ) + 1)) :
     ¬ ((fun n : ℕ => (n : ℚ) + s n) =O[atTop] (fun n : ℕ => s n * l n)) := by
@@ -684,7 +684,7 @@ theorem harmonic_isTheta_log2 :
     linarith
 
 /-- A rational band is constrained only at positive indices; its value at zero remains free. -/
-theorem harmonic_isTheta_logBand {l : Nat → ℚ}
+theorem harmonic_isTheta_of_log_band {l : Nat → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (n.log2 : ℚ) ((n.log2 : ℚ) + 1)) :
     Asymptotics.IsTheta Filter.atTop harmonic l := by
   have hH : ∀ᶠ n : Nat in Filter.atTop, (0 : ℚ) ≤ harmonic n :=
@@ -698,11 +698,11 @@ theorem harmonic_isTheta_logBand {l : Nat → ℚ}
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hH hL).mpr
     refine ⟨3, by norm_num, Filter.eventually_atTop.mpr ⟨2, ?_⟩⟩
     intro n hn
-    exact (SquareKit.HarmonicBounds.harmonic_logBand_coefficients hl n hn).2
+    exact (SquareKit.HarmonicBounds.harmonic_log_band_coefficients hl n hn).2
   · apply (Resources.isBigO_rat_iff_eventually_le_mul _ _ hL hH).mpr
     refine ⟨4, by norm_num, Filter.eventually_atTop.mpr ⟨2, ?_⟩⟩
     intro n hn
-    have h := (SquareKit.HarmonicBounds.harmonic_logBand_coefficients hl n hn).1
+    have h := (SquareKit.HarmonicBounds.harmonic_log_band_coefficients hl n hn).1
     linarith
 
 /-- The actual nonnegative index products retain the same native rational Theta constants. -/
@@ -853,26 +853,26 @@ namespace Examples.DiscreteEstimates
 open Filter Asymptotics
 
 /-- The log band really has a negative initial value, yet its native norm order is unchanged. -/
-theorem negative_logBand_isTheta :
+theorem halfOffsetLog_neg_seven_isTheta_log2 :
     halfOffsetLog (-7) =Θ[atTop] (fun n : ℕ => (Nat.log2 n : ℚ)) :=
-  logBand_isTheta (halfOffsetLog_mem (-7))
+  isTheta_log2_of_log_band (halfOffsetLog_mem (-7))
 
 /-- The independently chosen negative root prefix is admitted by the same native contract. -/
-theorem negative_rootBand_isTheta :
+theorem halfOffsetRoot_neg_three_isTheta_sqrt :
     halfOffsetRoot (-3) =Θ[atTop] (fun n : ℕ => (Nat.sqrt n : ℚ)) :=
-  rootBand_isTheta (halfOffsetRoot_mem (-3))
+  isTheta_sqrt_of_root_band (halfOffsetRoot_mem (-3))
 
 /-- The two negative-prefix functions specialize the actual product norm comparison. -/
 theorem negative_bands_mul_isBigO :
     (fun n : ℕ => (n : ℚ) * halfOffsetLog (-7) n) =O[atTop]
       (fun n : ℕ => (n : ℚ) * halfOffsetRoot (-3) n) :=
-  mul_logBand_isBigO_mul_rootBand (halfOffsetLog_mem (-7)) (halfOffsetRoot_mem (-3))
+  mul_log_band_isBigO_mul_root_band (halfOffsetLog_mem (-7)) (halfOffsetRoot_mem (-3))
 
 /-- Negative initial values also coexist with the fully quantified native norm failure. -/
 theorem negative_bands_not_isBigO :
     ¬ ((fun n : ℕ => (n : ℚ) + halfOffsetRoot (-3) n) =O[atTop]
       (fun n : ℕ => halfOffsetRoot (-3) n * halfOffsetLog (-7) n)) :=
-  linear_add_rootBand_not_isBigO_rootBand_mul_logBand
+  linear_add_root_band_not_isBigO_root_band_mul_log_band
     (halfOffsetLog_mem (-7)) (halfOffsetRoot_mem (-3))
 
 end Examples.DiscreteEstimates

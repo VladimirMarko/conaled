@@ -21,14 +21,14 @@ theorem rootedContraction_embedding_source :
     ((rootedRetraction F x).comp (rootedReflexivity F x)).comp (rootedPathEmbedding F x) =
       (rootedPathEmbedding F x).comp (contractionRetract F) := by
   change _ = (rootedPathEmbedding F x).comp ((pathFirst F).comp (pathReflexivity F))
-  rw [strictFunctor_comp_assoc, rootedReflexivity_embedding, ← strictFunctor_comp_assoc,
-    ← strictFunctor_comp_assoc, rootedPathEmbedding_first]
+  rw [strictPseudofunctor_comp_assoc, rootedReflexivity_embedding, ← strictPseudofunctor_comp_assoc,
+    ← strictPseudofunctor_comp_assoc, rootedPathEmbedding_first]
   rfl
 omit [IsLocallyGroupoid Γ] in
 theorem rootedContraction_embedding_target :
     (StrictPseudofunctor.id _).comp (rootedPathEmbedding F x) =
       (rootedPathEmbedding F x).comp (StrictPseudofunctor.id _) := by
-  rw [strictFunctor_id_comp, strictFunctor_comp_id]
+  rw [strictPseudofunctor_id_comp, strictPseudofunctor_comp_id]
 
 theorem rootedContraction_reflexive_mapped :
     HEq (strongPostcomp (strongPrecomp (rootedContraction F x) (rootedReflexivity F x))

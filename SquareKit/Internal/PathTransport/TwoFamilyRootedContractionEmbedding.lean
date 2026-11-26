@@ -13,13 +13,13 @@ variable (x : Section F)
 omit [IsLocallyGroupoid Γ] in
 theorem rootedEmbedding_cancel :
     (familyCast (rootedPathFamily_direct F x).symm).comp (rootedPathEmbedding F x) = rootedDirectEmbedding F x := by
-  rw [← rootedPathEmbedding_direct, ← strictFunctor_comp_assoc, familyCast_comp]
-  exact strictFunctor_id_comp _
+  rw [← rootedPathEmbedding_direct, ← strictPseudofunctor_comp_assoc, familyCast_comp]
+  exact strictPseudofunctor_id_comp _
 omit [IsLocallyGroupoid Γ] in
 theorem rootedReflexivity_embedding :
     (rootedReflexivity F x).comp (rootedPathEmbedding F x) = x.lift.comp (pathReflexivity F) := by
   unfold rootedReflexivity
-  rw [strictFunctor_comp_assoc, rootedEmbedding_cancel, rootedReflexivityDirect_embedding]
+  rw [strictPseudofunctor_comp_assoc, rootedEmbedding_cancel, rootedReflexivityDirect_embedding]
 theorem rootedContraction_embedding :
     HEq (strongPostcomp (rootedContraction F x) (rootedPathEmbedding F x))
       (strongPrecomp (pathContraction F) (rootedPathEmbedding F x)) := by

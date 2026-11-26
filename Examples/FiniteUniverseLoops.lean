@@ -64,7 +64,7 @@ noncomputable def classifyLoop {S : Type} (p : Term (loops S)) :
     (nativeEquivalence (loopPermutation p)) p
     (by rw [permutation_map]; exact homogeneousRefl _)
 
-theorem twoPath_permutation {S : Type} {p q : Term (loops S)}
+theorem loopPermutation_eq_of_homogeneousPath {S : Type} {p q : Term (loops S)}
     (h : Term (homogeneousPath (loops S) p q)) : loopPermutation p = loopPermutation q := by
   apply Equiv.ext
   intro s
@@ -80,9 +80,9 @@ noncomputable def samePermutationPath {S : Type} (p q : Term (loops S))
 
 /-- Classification of closed loop components by actual permutations, stated
 without introducing a quotient or claiming a native-family isomorphism. -/
-theorem twoPath_iff_permutation {S : Type} (p q : Term (loops S)) :
+theorem nonempty_homogeneousPath_iff_loopPermutation_eq {S : Type} (p q : Term (loops S)) :
     Nonempty (Term (homogeneousPath (loops S) p q)) ↔ loopPermutation p = loopPermutation q :=
-  ⟨fun ⟨h⟩ => twoPath_permutation h, fun h => ⟨samePermutationPath p q h⟩⟩
+  ⟨fun ⟨h⟩ => loopPermutation_eq_of_homogeneousPath h, fun h => ⟨samePermutationPath p q h⟩⟩
 
 /-- Native family classification still retains the entire equivalence witness. -/
 noncomputable def booleanLoopFamilyEquivalence := univalence (code Bool) (code Bool)
@@ -138,10 +138,10 @@ theorem booleanLoop_cases (p : Term (loops Bool)) :
   · exact Or.inr ⟨samePermutationPath p booleanNegationLoop (h.trans (loopPermutation_ua booleanTransposition).symm)⟩
 
 /-- A native two-path would identify the transported values of true. -/
-theorem booleanLoops_no_twoPath :
+theorem booleanLoops_no_two_path :
     ¬ Nonempty (Term (homogeneousPath (loops Bool) booleanIdentityLoop booleanNegationLoop)) := by
   rintro ⟨h⟩
-  have he := twoPath_permutation h
+  have he := loopPermutation_eq_of_homogeneousPath h
   change loopPermutation (homogeneousRefl (term (code Bool))) =
     loopPermutation (equivalencePath booleanTransposition) at he
   rw [loopPermutation_refl, loopPermutation_ua] at he
@@ -151,7 +151,7 @@ theorem booleanLoops_no_twoPath :
 connect every pair of points by a native path. -/
 theorem booleanLoops_not_path_unique :
     ¬ ∀ p q : Term (loops Bool), Nonempty (Term (homogeneousPath (loops Bool) p q)) :=
-  fun h => booleanLoops_no_twoPath (h booleanIdentityLoop booleanNegationLoop)
+  fun h => booleanLoops_no_two_path (h booleanIdentityLoop booleanNegationLoop)
 
 def swap01 : Fin 3 ≃ Fin 3 := Equiv.swap 0 1
 def swap12 : Fin 3 ≃ Fin 3 := Equiv.swap 1 2
@@ -175,7 +175,7 @@ theorem swaps_do_not_commute : swap01.trans swap12 ≠ swap12.trans swap01 := by
   exact (by decide : (2 : Fin 3) ≠ 1) bad
 
 /-- Different actual transport observations prohibit a native two-path. -/
-theorem compositeLoops_no_twoPath :
+theorem compositeLoops_no_two_path :
     ¬ Nonempty (Term (homogeneousPath (loops (Fin 3)) forwardLoop backwardLoop)) := by
   rintro ⟨h⟩
   have ho := observe_path (transportTwoPath (code (Fin 3)) (code (Fin 3)) h (nativeInput 0))

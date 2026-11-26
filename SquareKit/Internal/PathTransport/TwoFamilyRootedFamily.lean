@@ -21,14 +21,14 @@ omit [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)] in
 theorem rootedEndpoint_first (x : Section F) :
     (rootedEndpoint F x).comp (endpointProjection F true) = (projectionHigher F).comp x.lift := by
   unfold rootedEndpoint
-  rw [strictFunctor_comp_assoc, endpointReindex_projection, ← strictFunctor_comp_assoc,
+  rw [strictPseudofunctor_comp_assoc, endpointReindex_projection, ← strictPseudofunctor_comp_assoc,
     endpointPair_first, Section.reindex_lift]
 
 omit [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)] in
 theorem rootedEndpoint_second (x : Section F) :
     (rootedEndpoint F x).comp (endpointProjection F false) = StrictPseudofunctor.id (Total F) := by
   unfold rootedEndpoint
-  rw [strictFunctor_comp_assoc, endpointReindex_projection, ← strictFunctor_comp_assoc,
+  rw [strictPseudofunctor_comp_assoc, endpointReindex_projection, ← strictPseudofunctor_comp_assoc,
     endpointPair_second, variableLift_recombined]
 
 theorem rootedPathFamily_direct (x : Section F) :
@@ -40,5 +40,5 @@ theorem rootedPathFamily_direct (x : Section F) :
     (fun H => (endpointPair (reindex (projectionHigher F) F)
       (x.reindex F (projectionHigher F)) (variableSection F)).lift.comp H)
     (openIdHigher_reindex F (projectionHigher F))
-  exact h.trans (strictFunctor_comp_assoc _ _ _).symm
+  exact h.trans (strictPseudofunctor_comp_assoc _ _ _).symm
 end SquareKit.Internal.PathTransport.TwoFamily

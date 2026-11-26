@@ -17,7 +17,7 @@ omit [Strict A] in
 theorem reindex_strong_boundary (K : StrictPseudofunctor A (Total (reindex σ E))) :
     (K.comp (projectionHigher (reindex σ E))).comp σ =
       (K.comp (reindexHigher E σ)).comp (projectionHigher E) := by
-  rw [strictFunctor_comp_assoc, strictFunctor_comp_assoc, reindexHigher_projection]
+  rw [strictPseudofunctor_comp_assoc, strictPseudofunctor_comp_assoc, reindexHigher_projection]
 variable (β : Pseudofunctor.StrongTrans (F.comp (projectionHigher (reindex σ E))).toPseudofunctor
     (G.comp (projectionHigher (reindex σ E))).toPseudofunctor)
 variable (θ : Pseudofunctor.StrongTrans (F.comp (reindexHigher E σ)).toPseudofunctor

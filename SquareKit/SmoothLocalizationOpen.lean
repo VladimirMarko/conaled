@@ -19,7 +19,7 @@ def graphRestriction (f : freeAlgebra n) : Hom (freeAlgebra (n+1)) (functionAlge
   toFun H := ⟨fun x => H.val (SmoothInverseGraph.graph f.val x.val), by
     apply (OpenFunctions.representative_iff _ (fun x => H.val (SmoothInverseGraph.graph f.val x)) (fun _ => rfl)).mpr
     exact (show ContDiff ℝ ∞ H.val from H.property).comp_contDiffOn
-      (SmoothInverseGraph.graph_smoothOn f.property)⟩
+      (SmoothInverseGraph.graph_contDiffOn f.property)⟩
   map_act _ _ := rfl
 
 theorem relation_apply (f : freeAlgebra n) (z : Fin (n+1) → ℝ) :

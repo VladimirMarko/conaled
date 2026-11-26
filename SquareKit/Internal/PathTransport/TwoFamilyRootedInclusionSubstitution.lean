@@ -31,12 +31,12 @@ omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem rootedSubstitution_reflexivity :
     (rootedReflexivity (reindex σ F) (x.reindex F σ)).comp (rootedSubstitution F x σ) =
       σ.comp (rootedReflexivity F x) := by
-  apply strictFunctor_postcomp_injective (rootedPathEmbedding F x)
+  apply strictPseudofunctor_postcomp_injective (rootedPathEmbedding F x)
     (rootedPathEmbedding_obj_injective F x)
     (fun {_ _} => rootedPathEmbedding_map_injective F x)
     (fun {_ _ _ _} => rootedPathEmbedding_cell_injective F x)
-  rw [strictFunctor_comp_assoc, rootedSubstitution_embedding, ← strictFunctor_comp_assoc,
-    rootedReflexivity_embedding, strictFunctor_comp_assoc, pathReindex_reflexivity,
-    ← strictFunctor_comp_assoc, Section.reindex_lift,
-    strictFunctor_comp_assoc, strictFunctor_comp_assoc, rootedReflexivity_embedding]
+  rw [strictPseudofunctor_comp_assoc, rootedSubstitution_embedding, ← strictPseudofunctor_comp_assoc,
+    rootedReflexivity_embedding, strictPseudofunctor_comp_assoc, pathReindex_reflexivity,
+    ← strictPseudofunctor_comp_assoc, Section.reindex_lift,
+    strictPseudofunctor_comp_assoc, strictPseudofunctor_comp_assoc, rootedReflexivity_embedding]
 end SquareKit.Internal.PathTransport.TwoFamily

@@ -160,7 +160,7 @@ theorem reduceToMedian_value (choose : List α → Option α) (hv : PivotValid c
     (k : Nat) (xs : List α) (hk : k < xs.length) :
     lowerMedianWith choose (reduceToMedian k xs) = selectFixed k xs := by
   obtain ⟨a, ha, hr⟩ := selectFixed_spec k xs hk
-  rw [lowerMedian_value choose hv]
+  rw [lowerMedianWith_value choose hv]
   exact (ranked_iff_index.mp (reduceToMedian_ranked k xs a hr)).trans ha.symm
 
 theorem reduceToMedian_payload_value (k : Nat) (xs : List α)

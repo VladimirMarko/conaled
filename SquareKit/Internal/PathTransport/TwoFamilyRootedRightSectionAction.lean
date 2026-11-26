@@ -36,7 +36,7 @@ omit [IsLocallyGroupoid Γ] in
 theorem rootedRight_source_endpoint : RootedRightSourceEndpoint F x
  ((rootedRetraction F x).comp (rootedReflexivity F x)) := by
  unfold RootedRightSourceEndpoint
- rw [strictFunctor_comp_assoc, rootedReflexivity_projection]
+ rw [strictPseudofunctor_comp_assoc, rootedReflexivity_projection]
 omit [IsLocallyGroupoid Γ] in
 theorem rootedRight_target_endpoint : RootedRightTargetEndpoint F x (StrictPseudofunctor.id _) := by
  intro z

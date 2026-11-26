@@ -30,7 +30,7 @@ def reindexMap : reindex (family φ A T e) σ ⟶
       (familyIso (φ.reindex σ) (reindex A σ) (reindex T (restrictSubstitution φ σ))
         (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)).inv
 
-theorem compatibleReindex_intro (t : Term T) (a : Term A)
+theorem compatibleReindexMap_compatibleIntro (t : Term T) (a : Term A)
     (h : Term.map e t = a.reindex (restrictInclusion φ)) :
     Term.map (compatibleReindexMap φ A T e σ)
       ((compatibleIntro φ A T e t a h).reindex σ) =

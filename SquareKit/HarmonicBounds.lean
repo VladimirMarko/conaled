@@ -145,7 +145,7 @@ theorem mul_harmonic_log2_coefficients (n : Nat) (hn : 2 ≤ n) :
       _ = 3 * ((n : ℚ) * (n.log2 : ℚ)) := by ring
 
 /-- Every rational log band has the stated finite coefficients; its value at zero is unrestricted. -/
-theorem harmonic_logBand_coefficients {l : Nat → ℚ}
+theorem harmonic_log_band_coefficients {l : Nat → ℚ}
     (hl : ∀ n, 1 ≤ n → l n ∈ Set.Icc (n.log2 : ℚ) ((n.log2 : ℚ) + 1))
     (n : Nat) (hn : 2 ≤ n) :
     (1 / 4 : ℚ) * l n ≤ harmonic n ∧ harmonic n ≤ 3 * l n := by

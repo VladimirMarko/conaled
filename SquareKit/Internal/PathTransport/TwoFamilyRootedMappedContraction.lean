@@ -17,24 +17,24 @@ noncomputable abbrev rootedDirectEmbedding := reindexHigher (openIdHigher F) (ro
 noncomputable abbrev rootedDirectRetract := (rootedRetractionDirect F x).comp (rootedReflexivityDirect F x)
 theorem rootedDirectEmbedding_first :
     (rootedDirectEmbedding F x).comp (pathFirst F) = (rootedRetractionDirect F x).comp x.lift := by
-  rw [pathFirst_normal, ← strictFunctor_comp_assoc]
+  rw [pathFirst_normal, ← strictPseudofunctor_comp_assoc]
   change ((reindexHigher (openIdHigher F) (rootedEndpoint F x)).comp
     (projectionHigher (openIdHigher F))).comp (endpointProjection F true) = _
-  rw [reindexHigher_projection, strictFunctor_comp_assoc, rootedEndpoint_first, ← strictFunctor_comp_assoc]
+  rw [reindexHigher_projection, strictPseudofunctor_comp_assoc, rootedEndpoint_first, ← strictPseudofunctor_comp_assoc]
   rfl
 theorem rootedDirectEmbedding_second :
     (rootedDirectEmbedding F x).comp (pathSecond F) = projectionHigher (rootedDirectFamily F x) := by
-  rw [pathSecond_normal, ← strictFunctor_comp_assoc]
+  rw [pathSecond_normal, ← strictPseudofunctor_comp_assoc]
   change ((reindexHigher (openIdHigher F) (rootedEndpoint F x)).comp
     (projectionHigher (openIdHigher F))).comp (endpointProjection F false) = _
-  rw [reindexHigher_projection, strictFunctor_comp_assoc, rootedEndpoint_second, strictFunctor_comp_id]
+  rw [reindexHigher_projection, strictPseudofunctor_comp_assoc, rootedEndpoint_second, strictPseudofunctor_comp_id]
 
 theorem rootedContractionMapped_source :
     (rootedDirectEmbedding F x).comp (contractionRetract F) =
       (rootedDirectRetract F x).comp (rootedDirectEmbedding F x) := by
   change (rootedDirectEmbedding F x).comp ((pathFirst F).comp (pathReflexivity F)) = _
-  rw [← strictFunctor_comp_assoc, rootedDirectEmbedding_first, strictFunctor_comp_assoc,
-    ← rootedReflexivityDirect_embedding, ← strictFunctor_comp_assoc]
+  rw [← strictPseudofunctor_comp_assoc, rootedDirectEmbedding_first, strictPseudofunctor_comp_assoc,
+    ← rootedReflexivityDirect_embedding, ← strictPseudofunctor_comp_assoc]
 theorem rootedContractionMapped_target :
     (rootedDirectEmbedding F x).comp (StrictPseudofunctor.id (PathContext F)) =
       (StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x) :=
@@ -52,12 +52,12 @@ omit [IsLocallyGroupoid Γ] in
 theorem rootedBaseContraction_source :
     ((rootedDirectRetract F x).comp (rootedDirectEmbedding F x)).comp (pathSecond F) =
       (rootedDirectRetract F x).comp (projectionHigher (rootedDirectFamily F x)) := by
-  rw [strictFunctor_comp_assoc, rootedDirectEmbedding_second]
+  rw [strictPseudofunctor_comp_assoc, rootedDirectEmbedding_second]
 omit [IsLocallyGroupoid Γ] in
 theorem rootedBaseContraction_target :
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x)).comp (pathSecond F) =
       (StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (projectionHigher (rootedDirectFamily F x)) := by
-  rw [strictFunctor_comp_assoc, rootedDirectEmbedding_second]
+  rw [strictPseudofunctor_comp_assoc, rootedDirectEmbedding_second]
 noncomputable def rootedBaseContraction : Pseudofunctor.StrongTrans
     ((rootedDirectRetract F x).comp (projectionHigher (rootedDirectFamily F x))).toPseudofunctor
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (projectionHigher (rootedDirectFamily F x))).toPseudofunctor :=

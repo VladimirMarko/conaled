@@ -24,7 +24,7 @@ theorem pathContraction_first :
       (Pseudofunctor.StrongTrans.id (pathFirst F).toPseudofunctor) := by
   have hF : (contractionRetract F).comp (pathFirst F) = pathFirst F := by
     change ((pathFirst F).comp (pathReflexivity F)).comp (pathFirst F) = _
-    rw [strictFunctor_comp_assoc, pathReflexivity_first, StrictTwoTransformation.functor_comp_id]
+    rw [strictPseudofunctor_comp_assoc, pathReflexivity_first, StrictTwoTransformation.functor_comp_id]
   apply strongTrans_hext (congrArg (fun K => K.toPseudofunctor) hF)
     (congrArg (fun K => K.toPseudofunctor) (StrictTwoTransformation.functor_id_comp (pathFirst F)))
   · intro x

@@ -12,8 +12,8 @@ omit [Strict A] [Strict B] [Strict C] [Strict D] in
 theorem strongPrecomp_comp (H : StrictPseudofunctor C A) (K : StrictPseudofunctor D C) :
     HEq (strongPrecomp (strongPrecomp θ H) K) (strongPrecomp θ (K.comp H)) := by
   apply strongTrans_hext
-    (congrArg (fun L => L.toPseudofunctor) (strictFunctor_comp_assoc K H F).symm)
-    (congrArg (fun L => L.toPseudofunctor) (strictFunctor_comp_assoc K H G).symm)
+    (congrArg (fun L => L.toPseudofunctor) (strictPseudofunctor_comp_assoc K H F).symm)
+    (congrArg (fun L => L.toPseudofunctor) (strictPseudofunctor_comp_assoc K H G).symm)
   · intro x; rfl
   · intro x y p; rfl
 omit [Strict A] [Strict B] [Strict C] in

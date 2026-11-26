@@ -334,8 +334,8 @@ cube represents the terminal presheaf, so a closed section of a restricted
 presheaf is determined by its zero-cube element. For the iterated path
 families with these fixed closed endpoints, κ² identifies that element with
 the corresponding source element. A putative closed target two-path would
-therefore yield a source two-path, contradicting `booleanLoops_no_twoPath`
-or `compositeLoops_no_twoPath`. This uses representability of the closed
+therefore yield a source two-path, contradicting `booleanLoops_no_two_path`
+or `compositeLoops_no_two_path`. This uses representability of the closed
 context; faithfulness alone would not exclude new target sections over an
 arbitrary context.
 

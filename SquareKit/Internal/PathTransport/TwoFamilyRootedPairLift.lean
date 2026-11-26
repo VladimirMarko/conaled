@@ -16,7 +16,7 @@ theorem rootedPathFamily_root :
   rw [rootedPathFamily_direct]
   change x.lift.comp ((rootedEndpoint F x).comp (openIdHigher F)) =
     (endpointPair F x x).lift.comp (openIdHigher F)
-  rw [← strictFunctor_comp_assoc, rootedEndpoint_reflexive, endpointPair_diagonal]
+  rw [← strictPseudofunctor_comp_assoc, rootedEndpoint_reflexive, endpointPair_diagonal]
 
 theorem rootedReflexivity_pairLift :
     pairLift (rootedPathFamily F x) x.lift
@@ -25,8 +25,8 @@ theorem rootedReflexivity_pairLift :
   unfold pairLift closedReflexivity rootedReflexivity rootedReflexivityDirect reindexLiftFunctor
   rw [Section.cast_lift, Section.cast_lift]
   unfold familySubstitution
-  simp only [strictFunctor_comp_assoc]
+  simp only [strictPseudofunctor_comp_assoc]
   rw [familyCast_reindex_square]
-  simp only [← strictFunctor_comp_assoc, familyCast_comp]
+  simp only [← strictPseudofunctor_comp_assoc, familyCast_comp]
   rfl
 end SquareKit.Internal.PathTransport.TwoFamily

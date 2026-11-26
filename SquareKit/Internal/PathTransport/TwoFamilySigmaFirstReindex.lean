@@ -106,7 +106,7 @@ private theorem cast_lift_recover {C : Type*} [Bicategory C] [Strict C]
     {H K : Family C} (e : H = K) (s : Section H) :
     (Section.cast e s).lift.comp (familyCast e.symm) = s.lift := by
   cases e
-  exact strictFunctor_comp_id s.lift
+  exact strictPseudofunctor_comp_id s.lift
 
 theorem Section.sigmaFirst_reindex (s : Section (sigmaFamily F B)) :
     (Section.cast (sigmaFamily_reindex F σ B).symm (s.reindex _ σ)).sigmaFirst
@@ -116,8 +116,8 @@ theorem Section.sigmaFirst_reindex (s : Section (sigmaFamily F B)) :
   change (((Section.cast (sigmaFamily_reindex F σ B).symm (s.reindex _ σ)).lift.comp
     (TwoFamily.sigmaFirst (TwoFamily.reindex σ F) (TwoFamily.reindex (reindexHigher F σ) B))).comp
       (reindexHigher F σ)) = _
-  rw [strictFunctor_comp_assoc, TwoFamily.sigmaFirst_reindex, ← strictFunctor_comp_assoc,
-    cast_lift_recover, ← strictFunctor_comp_assoc, Section.reindex_lift, strictFunctor_comp_assoc,
+  rw [strictPseudofunctor_comp_assoc, TwoFamily.sigmaFirst_reindex, ← strictPseudofunctor_comp_assoc,
+    cast_lift_recover, ← strictPseudofunctor_comp_assoc, Section.reindex_lift, strictPseudofunctor_comp_assoc,
     Section.reindex_lift]
   rfl
 end SquareKit.Internal.PathTransport.TwoFamily

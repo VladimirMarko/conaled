@@ -30,8 +30,8 @@ theorem rootedFamily_action_of_base
   _ (hb z)
 theorem rootedFamily_action : RootedFamilyActionFormula F B x (rootedContraction F x) := by
  apply rootedFamily_action_of_base F B x (rootedContraction F x)
- · rw [strictFunctor_comp_assoc, rootedReflexivity_retraction, strictFunctor_comp_id]
- · exact strictFunctor_id_comp _
+ · rw [strictPseudofunctor_comp_assoc, rootedReflexivity_retraction, strictPseudofunctor_comp_id]
+ · exact strictPseudofunctor_id_comp _
  · exact rootedContraction_base F x
 omit [IsLocallyGroupoid Γ] in
 theorem RootedFamilyActionFormula.congr

@@ -330,7 +330,7 @@ def wholeFaceLineOn : total (interval (restrictContext δ)) ⟶
     apply Subtype.ext
     exact p.naturality_apply f ⟨z.1.val,z.2⟩
 
-theorem wholeFaceLine_inclusionOn :
+theorem wholeFaceLineOn_inclusion :
     wholeFaceLineOn φ p δ hδ ≫ restrictInclusion φ =
       liftSub (interval Δ) (restrictInclusion δ) ≫ p := rfl
 
@@ -357,7 +357,7 @@ noncomputable def selectedFaceTubeOn (F : Filling T) (ψ : Cofibration Δ)
   PartialSection.ofRestricted
     ((selectedFaceFillOn φ A T e p δ hδ F ψ b).reindex (restrictedInterval δ))
 
-theorem selectedFaceFill_fillsOn (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
+theorem selectedFaceFillOn_fills (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ) :
     (b.reindex (restrictInclusion δ)).Fills
       (selectedFaceFillOn φ A T e p δ hδ F ψ b) := by
@@ -375,23 +375,23 @@ theorem selectedFaceFill_fillsOn (F : Filling T) (hF : F.Lawful) (ψ : Cofibrati
     exact (congrArg (q.inv.app x) (h.2 x hx)).trans
       (congrArg (fun f => f.app x ((b.reindex i).tube.val x hx)) q.hom_inv_id)
 
-theorem selectedFaceTube_compatibleOn (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
+theorem selectedFaceTubeOn_compatible (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ) :
     b.tube.Compatible (selectedFaceTubeOn φ A T e p δ hδ F ψ b) := by
   intro x hp hq
   rcases x with @⟨I,⟨γ,r⟩⟩
-  exact ((selectedFaceFill_fillsOn φ A T e p δ hδ F hF ψ b).2
+  exact ((selectedFaceFillOn_fills φ A T e p δ hδ F hF ψ b).2
     ((total (interval (restrictContext δ))).elementsMk I
       ⟨⟨γ,hq⟩,r⟩) hp).symm
 
-theorem selectedFaceTube_zeroOn (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
+theorem selectedFaceTubeOn_base (F : Filling T) (hF : F.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
     (x : Δ.Elements) (hx : δ.Full x) :
     (selectedFaceTubeOn φ A T e p δ hδ F ψ b).val ((endpointSub Δ false).mapElements.obj x) hx =
       b.base.val x := by
   exact congrArg (fun t => t.val
     ((restrictContext δ).elementsMk x.obj ⟨x.val,hx⟩))
-    (selectedFaceFill_fillsOn φ A T e p δ hδ F hF ψ b).1
+    (selectedFaceFillOn_fills φ A T e p δ hδ F hF ψ b).1
 
 /-- A preliminary lawful filler can be repaired to retain the selected whole face filler. -/
 noncomputable def preserveSelectedFaceOn (F : Filling T) (hF : F.Lawful)
@@ -399,16 +399,16 @@ noncomputable def preserveSelectedFaceOn (F : Filling T) (hF : F.Lawful)
     (b : OpenBox (reindex (family φ A T e) p) ψ) : Term (reindex (family φ A T e) p) :=
   H.fill p (ψ.join δ)
     (addTube b (selectedFaceTubeOn φ A T e p δ hδ F ψ b)
-      (selectedFaceTube_compatibleOn φ A T e p δ hδ F hF ψ b)
-      (selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ b))
+      (selectedFaceTubeOn_compatible φ A T e p δ hδ F hF ψ b)
+      (selectedFaceTubeOn_base φ A T e p δ hδ F hF ψ b))
 
-theorem preserveSelectedFace_fillsOn (F : Filling T) (hF : F.Lawful)
+theorem preserveSelectedFaceOn_fills (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ) :
     b.Fills (preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ b) := by
   let t := selectedFaceTubeOn φ A T e p δ hδ F ψ b
-  let h := selectedFaceTube_compatibleOn φ A T e p δ hδ F hF ψ b
-  let h₀ := selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ b
+  let h := selectedFaceTubeOn_compatible φ A T e p δ hδ F hF ψ b
+  let h₀ := selectedFaceTubeOn_base φ A T e p δ hδ F hF ψ b
   have hf := hH.fills p (ψ.join δ) (addTube b t h h₀)
   constructor
   · exact hf.1
@@ -418,7 +418,7 @@ theorem preserveSelectedFace_fillsOn (F : Filling T) (hF : F.Lawful)
         ((projection (interval Δ)).mapElements.obj x)).mpr (Or.inl hx)
     exact (hf.2 x hu).trans (glueValue_left b.tube t x hu hx)
 
-theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
+theorem preserveSelectedFaceOn_whole (F : Filling T) (hF : F.Lawful)
     (H : Filling (family φ A T e)) (hH : H.Lawful) (ψ : Cofibration Δ)
     (b : OpenBox (reindex (family φ A T e) p) ψ)
     (x : (total (interval Δ)).Elements)
@@ -426,8 +426,8 @@ theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
     (preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ b).val x =
       (selectedFaceTubeOn φ A T e p δ hδ F ψ b).val x hx :=
   addTube_preserves_whole H hH p b (selectedFaceTubeOn φ A T e p δ hδ F ψ b)
-    (selectedFaceTube_compatibleOn φ A T e p δ hδ F hF ψ b)
-    (selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ b) x hx
+    (selectedFaceTubeOn_compatible φ A T e p δ hδ F hF ψ b)
+    (selectedFaceTubeOn_base φ A T e p δ hδ F hF ψ b) x hx
 
 
 theorem reindex_eqToIso {Ξ Ω : Context.{u}} (B C : Family Ξ) (h : B = C) (σ : Ω ⟶ Ξ) :
@@ -503,13 +503,13 @@ theorem preserveSelectedFaceOn_reindex (F : Filling T) (hF : F.Lawful)
       (fun x hx r => hδ (σ.mapElements.obj x) hx r) F hF H (ψ.reindex σ) (b.reindex σ) =
     (preserveSelectedFaceOn φ A T e p δ hδ F hF H ψ b).reindex (liftSub (interval Δ) σ) := by
   let t := selectedFaceTubeOn φ A T e p δ hδ F ψ b
-  let hc := selectedFaceTube_compatibleOn φ A T e p δ hδ F hF ψ b
-  let hz := selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ b
+  let hc := selectedFaceTubeOn_compatible φ A T e p δ hδ F hF ψ b
+  let hz := selectedFaceTubeOn_base φ A T e p δ hδ F hF ψ b
   let t' := selectedFaceTubeOn φ A T e (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
     (fun x hx r => hδ (σ.mapElements.obj x) hx r) F (ψ.reindex σ) (b.reindex σ)
-  let hc' := selectedFaceTube_compatibleOn φ A T e (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
+  let hc' := selectedFaceTubeOn_compatible φ A T e (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
     (fun x hx r => hδ (σ.mapElements.obj x) hx r) F hF (ψ.reindex σ) (b.reindex σ)
-  let hz' := selectedFaceTube_zeroOn φ A T e (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
+  let hz' := selectedFaceTubeOn_base φ A T e (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
     (fun x hx r => hδ (σ.mapElements.obj x) hx r) F hF (ψ.reindex σ) (b.reindex σ)
   have hb : addTube (b.reindex σ) t' hc' hz' = (addTube b t hc hz).reindex σ :=
     (addTube_congr (b.reindex σ) t' (t.reindex (liftSub (interval Δ) σ))

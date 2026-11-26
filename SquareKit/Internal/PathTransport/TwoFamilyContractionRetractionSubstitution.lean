@@ -50,8 +50,8 @@ theorem contractionRetraction_reindex :
     (familySubstitution (reindex i E) σ₀ (retractionBranch_family i i' σ σ₀ hi E).symm) =
     (reindexHigher E σ).comp ((contractionBack (r.comp i) η E).comp
       (familySubstitution (reindex i E) r (reindex_comp E i r).symm))
-  rw [strictFunctor_comp_assoc, familySubstitution_comp,
-    ← strictFunctor_comp_assoc, ← hb, strictFunctor_comp_assoc, familySubstitution_comp]
+  rw [strictPseudofunctor_comp_assoc, familySubstitution_comp,
+    ← strictPseudofunctor_comp_assoc, ← hb, strictPseudofunctor_comp_assoc, familySubstitution_comp]
   congr 1
   exact familySubstitution_congr (reindex i E) hr _ _
 end SquareKit.Internal.PathTransport.TwoFamily

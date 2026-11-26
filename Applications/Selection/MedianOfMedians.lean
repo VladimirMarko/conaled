@@ -42,13 +42,13 @@ theorem lowerMedianValue_mem (xs : List α) (hx : xs ≠ []) :
 theorem lowerMedianWith_eq_some_value (choose : List α → Option α)
     (hv : PivotValid choose) (xs : List α) (hx : xs ≠ []) :
     lowerMedianWith choose xs = some (lowerMedianValue xs hx) := by
-  rw [lowerMedian_value choose hv xs]
+  rw [lowerMedianWith_value choose hv xs]
   exact ranked_iff_index.mp (lowerMedianValue_ranked xs hx)
 
 theorem lowerMedianValue_count_bounds (xs : List α) (hx : xs ≠ []) :
     xs.countP (fun x => decide (x < lowerMedianValue xs hx)) ≤ (xs.length - 1) / 2 ∧
       xs.countP (fun x => decide (lowerMedianValue xs hx < x)) ≤ xs.length / 2 :=
-  lowerMedian_count_bounds _ head_pivot_valid xs _
+  lowerMedianWith_count_bounds _ head_pivot_valid xs _
     (lowerMedianWith_eq_some_value _ head_pivot_valid xs hx)
 
 /-- Mapping proof-carrying nonempty chunks produces payloads directly. -/
@@ -79,15 +79,15 @@ def medianOfMedians (d : Nat) (xs : List α) : Option α :=
 theorem medianOfMedians_some_iff_ranked (d : Nat) (xs : List α) (p : α) :
     medianOfMedians d xs = some p ↔
       RankedAt (chunkMedians d xs) (((chunkMedians d xs).length - 1) / 2) p := by
-  rw [medianOfMedians, lowerMedian_value _ head_pivot_valid, ranked_iff_index]
+  rw [medianOfMedians, lowerMedianWith_value _ head_pivot_valid, ranked_iff_index]
 
 theorem medianOfMedians_none (d : Nat) (xs : List α) :
     medianOfMedians d xs = none ↔ d = 0 ∨ xs = [] := by
-  rw [medianOfMedians, lowerMedian_none _ head_pivot_valid, chunkMedians_eq_nil_iff]
+  rw [medianOfMedians, lowerMedianWith_none _ head_pivot_valid, chunkMedians_eq_nil_iff]
 
 theorem medianOfMedians_mem (d : Nat) (xs : List α) (p : α)
     (hp : medianOfMedians d xs = some p) : p ∈ xs :=
-  mem_chunkMedians d xs p (lowerMedian_mem _ head_pivot_valid _ p hp)
+  mem_chunkMedians d xs p (lowerMedianWith_mem _ head_pivot_valid _ p hp)
 
 theorem medianOfMedians_pivot_valid (d : Nat) (hd : 0 < d) :
     PivotValid (medianOfMedians d : List α → Option α) := by
@@ -104,7 +104,7 @@ theorem medianOfMedians_median_counts (d : Nat) (xs : List α) (p : α)
     (hp : medianOfMedians d xs = some p) :
     (chunkMedians d xs).countP (fun x => decide (x < p)) ≤ (xs.length ⌈/⌉ d) / 2 ∧
       (chunkMedians d xs).countP (fun x => decide (p < x)) ≤ (xs.length ⌈/⌉ d) / 2 := by
-  have hm := lowerMedian_count_bounds _ head_pivot_valid (chunkMedians d xs) p hp
+  have hm := lowerMedianWith_count_bounds _ head_pivot_valid (chunkMedians d xs) p hp
   rw [length_chunkMedians] at hm
   constructor <;> omega
 

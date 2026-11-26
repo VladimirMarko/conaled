@@ -15,15 +15,15 @@ omit [∀ (γ : Γ), IsGroupoid (F.obj γ).Carrier] [∀ (γ : Γ), IsLocallyGro
 theorem rootedEndpoint_reflexive :
     x.lift.comp (rootedEndpoint F x) = x.lift.comp (diagonalTotal F) := by
   apply endpoint_functor_ext F
-  · rw [strictFunctor_comp_assoc, rootedEndpoint_first, ← strictFunctor_comp_assoc, x.over,
-      strictFunctor_id_comp, strictFunctor_comp_assoc, diagonal_endpoint, strictFunctor_comp_id]
-  · rw [strictFunctor_comp_assoc, rootedEndpoint_second, strictFunctor_comp_id,
-      strictFunctor_comp_assoc, diagonal_endpoint, strictFunctor_comp_id]
+  · rw [strictPseudofunctor_comp_assoc, rootedEndpoint_first, ← strictPseudofunctor_comp_assoc, x.over,
+      strictPseudofunctor_id_comp, strictPseudofunctor_comp_assoc, diagonal_endpoint, strictPseudofunctor_comp_id]
+  · rw [strictPseudofunctor_comp_assoc, rootedEndpoint_second, strictPseudofunctor_comp_id,
+      strictPseudofunctor_comp_assoc, diagonal_endpoint, strictPseudofunctor_comp_id]
 
 theorem rootedReflexivity_base :
     (x.lift.comp (pathReflexivity F)).comp (projectionHigher (openIdHigher F)) =
       x.lift.comp (rootedEndpoint F x) := by
-  rw [strictFunctor_comp_assoc]
+  rw [strictPseudofunctor_comp_assoc]
   change x.lift.comp ((pathReflexivity F).comp (pathEndpoints F)) = _
   rw [pathReflexivity_endpoints]
   exact (rootedEndpoint_reflexive F x).symm
@@ -46,6 +46,6 @@ noncomputable def rootedRetractionDirect :
 theorem rootedReflexivityDirect_retraction :
     (rootedReflexivityDirect F x).comp (rootedRetractionDirect F x) = StrictPseudofunctor.id Γ := by
   unfold rootedRetractionDirect
-  rw [← strictFunctor_comp_assoc, rootedReflexivityDirect_projection]
+  rw [← strictPseudofunctor_comp_assoc, rootedReflexivityDirect_projection]
   exact x.over
 end SquareKit.Internal.PathTransport.TwoFamily

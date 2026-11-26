@@ -53,7 +53,7 @@ theorem extension {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f)
     (hg.comp base_smooth.contDiffOn (fun _ hz => hz))
   exact ⟨H,hH,fun x hx => by simpa using he (graph f x) (relation_graph hx)⟩
 
-theorem graph_smoothOn {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f) :
+theorem graph_contDiffOn {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f) :
     ContDiffOn ℝ ∞ (graph f) {x | f x ≠ 0} := by
   apply contDiffOn_pi.mpr
   intro i
@@ -62,9 +62,9 @@ theorem graph_smoothOn {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f) :
     exact hf.contDiffOn.inv (fun _ hx => hx)
   · simpa [graph] using (contDiff_apply ℝ (fun _ : Fin n => ℝ) j).contDiffOn
 
-theorem graph_base_smoothOn {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f) :
+theorem graph_base_contDiffOn {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f) :
     ContDiffOn ℝ ∞ (fun z => graph f (base z)) {z : Fin (n+1) → ℝ | f (base z) ≠ 0} :=
-  (graph_smoothOn hf).comp base_smooth.contDiffOn (fun _ hz => hz)
+  (graph_contDiffOn hf).comp base_smooth.contDiffOn (fun _ hz => hz)
 
 /-- Hadamard along the single added coordinate, with the base coordinates fixed. -/
 theorem vertical_factor {H : (Fin (n+1) → ℝ) → ℝ} (hH : ContDiff ℝ ∞ H)
@@ -88,7 +88,7 @@ theorem divisibility {f : (Fin n → ℝ) → ℝ} (hf : ContDiff ℝ ∞ f)
   let q := fun z => SmoothHadamard.coefficient H (Fin.last n) (z,graph f (base z)) / f (base z)
   have hq : ContDiffOn ℝ ∞ q W :=
     ((SmoothHadamard.coefficient_smooth hH (Fin.last n)).comp_contDiffOn
-      (contDiffOn_id.prodMk (graph_base_smoothOn hf))).div (hf.comp base_smooth).contDiffOn
+      (contDiffOn_id.prodMk (graph_base_contDiffOn hf))).div (hf.comp base_smooth).contDiffOn
         (fun _ hz => hz)
   have hqe (z) (hz : z ∈ W) : relation f z * q z = H z := by
     have he := vertical_factor hH f z

@@ -21,13 +21,13 @@ theorem sigmaUngroup_reindex :
   calc
     T.comp (sigmaUngroup F B) =
         ((sigmaUngroup A B').comp (sigmaRegroup A B')).comp (T.comp (sigmaUngroup F B)) := by
-      rw [sigmaUngroup_regroup, strictFunctor_id_comp]
+      rw [sigmaUngroup_regroup, strictPseudofunctor_id_comp]
     _ = (sigmaUngroup A B').comp (((sigmaRegroup A B').comp T).comp (sigmaUngroup F B)) := by
-      simp only [strictFunctor_comp_assoc]
+      simp only [strictPseudofunctor_comp_assoc]
     _ = (sigmaUngroup A B').comp (((familyCast (sigmaFamily_reindex F σ B)).comp
         ((reindexHigher (sigmaFamily F B) σ).comp (sigmaRegroup F B))).comp (sigmaUngroup F B)) := by
       rw [sigmaRegroup_reindex]
     _ = _ := by
-      simp only [strictFunctor_comp_assoc, sigmaRegroup_ungroup, strictFunctor_comp_id]
+      simp only [strictPseudofunctor_comp_assoc, sigmaRegroup_ungroup, strictPseudofunctor_comp_id]
       rfl
 end SquareKit.Internal.PathTransport.TwoFamily

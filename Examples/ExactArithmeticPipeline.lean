@@ -138,7 +138,7 @@ theorem source_log_three_upper : (2 : ℚ) ∉ sectionOf (logarithm 3) := by
   norm_num at h
   exact h
 
-theorem source_expLog_three (x : ℚ) :
+theorem source_exponentiatedLogarithm_three (x : ℚ) :
     x ∈ sectionOf (exponentiatedLogarithm 3) ↔ x ≤ 3 := by
   exact exponentiatedLogarithm_section_iff 3 (by decide) x
 
@@ -254,29 +254,29 @@ theorem nonpositive_zero_atom_observations (q : ℚ) (hq : q ≤ 0) :
   ⟨(rational_zero_section q).mpr hq, (root_zero_section q).mpr hq,
     (log_one_section q).mpr hq⟩
 
-theorem expLog_zero_value : value (exponentiatedLogarithm 0) = ⊥ := by
+theorem exponentiatedLogarithm_zero_value : value (exponentiatedLogarithm 0) = ⊥ := by
   simp [value_exponentiatedLogarithm, exponentiatedLogarithmValue]
 
-theorem expLog_zero_raw : raw (exponentiatedLogarithm 0) = ∅ :=
-  (value_eq_bot_iff _).mp expLog_zero_value
+theorem exponentiatedLogarithm_zero_raw : raw (exponentiatedLogarithm 0) = ∅ :=
+  (value_eq_bot_iff _).mp exponentiatedLogarithm_zero_value
 
-theorem expLog_zero_section : sectionOf (exponentiatedLogarithm 0) = ∅ :=
-  (value_eq_bot_iff_sectionOf_empty _).mp expLog_zero_value
+theorem exponentiatedLogarithm_zero_section : sectionOf (exponentiatedLogarithm 0) = ∅ :=
+  (value_eq_bot_iff_sectionOf_empty _).mp exponentiatedLogarithm_zero_value
 
 /-- The standard totalized real expression gives one at zero; the native source
 atom deliberately remains invalid, with no raw or closed observations. -/
-theorem expLog_zero_totalized_real : (2 : ℝ) ^ Real.logb 2 (0 : ℝ) = 1 := by
+theorem two_rpow_logb_zero : (2 : ℝ) ^ Real.logb 2 (0 : ℝ) = 1 := by
   simp
 
-theorem expLog_three_raw_endpoint_absent :
+theorem exponentiatedLogarithm_three_raw_endpoint_absent :
     (3 : ℚ) ∉ raw (exponentiatedLogarithm 3) := by
   simpa only [raw_exponentiatedLogarithm] using expLogApprox_three_not_mem
 
-theorem expLog_three_closed_endpoint :
+theorem exponentiatedLogarithm_three_closed_endpoint :
     (3 : ℚ) ∈ sectionOf (exponentiatedLogarithm 3) :=
   (exponentiatedLogarithm_section_iff 3 (by decide) 3).mpr le_rfl
 
-theorem expLog_four_raw_endpoint : (4 : ℚ) ∈ raw (exponentiatedLogarithm 4) := by
+theorem exponentiatedLogarithm_four_raw_endpoint : (4 : ℚ) ∈ raw (exponentiatedLogarithm 4) := by
   simpa only [raw_exponentiatedLogarithm] using expLogApprox_four_mem
 
 end
@@ -317,7 +317,7 @@ theorem interval_log_three :
   change logarithmInterval 10 3 = some ⟨3 / 2, 8 / 5⟩
   exact logInterval_ten_three
 
-theorem interval_expLog_three :
+theorem interval_exponentiatedLogarithm_three :
     ((IntervalAnalysis.Exact.compile 10 (by decide)
       (exponentiatedLogarithm 3 : ClosedTerm)).impl ()) = some ⟨29 / 10, 3⟩ := by
   change exponentiatedLogarithmInterval 10 3 = some ⟨29 / 10, 3⟩
@@ -375,7 +375,7 @@ theorem interval_log_zero (q : ℕ) (hq : 0 < q) :
   change logarithmInterval q 0 = none
   simp [logarithmInterval]
 
-theorem interval_expLog_zero (q : ℕ) (hq : 0 < q) :
+theorem interval_exponentiatedLogarithm_zero (q : ℕ) (hq : 0 < q) :
     ((IntervalAnalysis.Exact.compile q hq
       (exponentiatedLogarithm 0 : ClosedTerm)).impl ()) = none := by
   change exponentiatedLogarithmInterval q 0 = none

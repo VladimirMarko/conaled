@@ -15,14 +15,14 @@ omit [IsLocallyGroupoid Γ]
     [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).Carrier] in
 theorem rootedEndpoint_map_injective {a b : Total F} :
     Function.Injective ((rootedEndpoint F x).map (X := a) (Y := b)) :=
-  inverseData_map_injective (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct
+  map_injective_of_inverse_data (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct
     (congrArg (fun K => K.toPrelaxFunctorStruct) (rootedEndpoint_second F x))
 omit [IsLocallyGroupoid Γ]
     [∀ (γ : Γ), IsGroupoid (F.obj γ).Carrier]
     [∀ (γ : Γ), IsLocallyGroupoid (F.obj γ).Carrier] in
 theorem rootedEndpoint_cell_injective {a b : Total F} {p q : a ⟶ b} :
     Function.Injective ((rootedEndpoint F x).map₂ (f := p) (g := q)) :=
-  inverseData_cell_injective (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct
+  map₂_injective_of_inverse_data (rootedEndpoint F x) (endpointProjection F false).toPrelaxFunctorStruct
     (congrArg (fun K => K.toPrelaxFunctorStruct) (rootedEndpoint_second F x))
 noncomputable def rootedContractionDirect : Pseudofunctor.StrongTrans
     (rootedDirectRetract F x).toPseudofunctor

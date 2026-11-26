@@ -36,7 +36,7 @@ theorem rawLift_reflexive :
   let b := contractionBack (r.comp i) η E
   have eF : k.comp (b.comp (coherentLiftLeft (F := r.comp i) E)) = k := by
     change k.comp (contractionLift (r.comp i) η E) = k
-    rw [← contractionRetraction_inclusion i r η E, ← strictFunctor_comp_assoc]
+    rw [← contractionRetraction_inclusion i r η E, ← strictPseudofunctor_comp_assoc]
     rw [contractionRetraction_reflexive i r η hi hη E]
     exact StrictTwoTransformation.functor_id_comp k
   have eG : k.comp (b.comp (coherentLiftRight η E)) = k := by

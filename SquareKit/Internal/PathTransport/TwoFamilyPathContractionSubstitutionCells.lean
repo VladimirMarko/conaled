@@ -19,14 +19,14 @@ theorem pathReindex_retract :
   calc
     (contractionRetract (reindex σ F)).comp (pathReindex F σ) =
         (pathFirst (reindex σ F)).comp ((pathReflexivity (reindex σ F)).comp (pathReindex F σ)) :=
-      strictFunctor_comp_assoc _ _ _
+      strictPseudofunctor_comp_assoc _ _ _
     _ = (pathFirst (reindex σ F)).comp ((reindexHigher F σ).comp (pathReflexivity F)) :=
       congrArg (fun H => (pathFirst (reindex σ F)).comp H) (pathReindex_reflexivity F σ)
     _ = ((pathFirst (reindex σ F)).comp (reindexHigher F σ)).comp (pathReflexivity F) :=
-      (strictFunctor_comp_assoc _ _ _).symm
+      (strictPseudofunctor_comp_assoc _ _ _).symm
     _ = ((pathReindex F σ).comp (pathFirst F)).comp (pathReflexivity F) :=
       congrArg (fun H => H.comp (pathReflexivity F)) (pathReindex_first F σ).symm
-    _ = (pathReindex F σ).comp (contractionRetract F) := strictFunctor_comp_assoc _ _ _
+    _ = (pathReindex F σ).comp (contractionRetract F) := strictPseudofunctor_comp_assoc _ _ _
 /-- The left boundary of the contraction comparison is preserved by substitution. -/
 theorem contractionLeft_reindex {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
     (pathReindex F σ).map ((contractionRetract (reindex σ F)).map p ≫

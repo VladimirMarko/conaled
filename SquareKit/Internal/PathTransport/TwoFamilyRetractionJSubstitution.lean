@@ -28,7 +28,7 @@ def retractionBranchReindex (d : Section (reindex i E)) : Section (reindex i' (r
 include hi hr in
 omit [Strict Γ] [Strict Δ] [Strict A] [Strict B] in
 theorem retractionSource_square : (r'.comp i').comp σ = σ.comp (r.comp i) := by
-  rw [strictFunctor_comp_assoc, hi, ← strictFunctor_comp_assoc, hr, strictFunctor_comp_assoc]
+  rw [strictPseudofunctor_comp_assoc, hi, ← strictPseudofunctor_comp_assoc, hr, strictPseudofunctor_comp_assoc]
 
 include hi hr in
 omit [Strict A] [Strict B] in

@@ -17,5 +17,5 @@ theorem endpointSub_retraction :
  have k := h.trans y.down.over
  have e := rootContraction_retraction C D A x
  rw [e]
- exact (strictFunctor_comp_assoc _ _ _).symm.trans k
+ exact (strictPseudofunctor_comp_assoc _ _ _).symm.trans k
 end SquareKit.Internal.PathTransport.HigherInterpretation

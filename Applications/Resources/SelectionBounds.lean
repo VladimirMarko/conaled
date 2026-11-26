@@ -36,7 +36,7 @@ theorem selectRun_median_value (xs : List α) :
     (selectRun (((xs.length ⌈/⌉ 5) - 1) / 2) (chunkMediansRun 5 xs).1).1 =
       medianOfMedians 5 xs := by
   rw [selectRun_value, chunkMediansRun_value, medianOfMedians,
-    lowerMedian_value _ head_pivot_valid, length_chunkMedians]
+    lowerMedianWith_value _ head_pivot_valid, length_chunkMedians]
 
 /-- The observed recursive pivot controls both strict sides, even with ties. -/
 theorem selectRun_pivot_size_bounds (xs : List α) (p : α)

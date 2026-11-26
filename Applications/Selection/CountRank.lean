@@ -261,7 +261,7 @@ theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}
         ih (List.pairwise_cons.mp hs).2 ht
 
 /-- The lower occurrence convention is also valid for empty input as none. -/
-theorem lowerMedian_value (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_value (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) : lowerMedianWith choose xs = (ordered xs)[(xs.length - 1) / 2]? := by
   by_cases hx : xs = []
   · subst xs
@@ -271,16 +271,16 @@ theorem lowerMedian_value (choose : List α → Option α) (hv : PivotValid choo
     congr 1
     omega
 
-theorem lowerMedian_count_bounds (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_count_bounds (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) :
     xs.countP (fun x => decide (x < a)) ≤ (xs.length - 1) / 2 ∧
       xs.countP (fun x => decide (a < x)) ≤ xs.length / 2 := by
-  rw [lowerMedian_value choose hv xs] at ha
+  rw [lowerMedianWith_value choose hv xs] at ha
   have h := (ranked_iff_index.mpr ha).count_bounds
   omega
 
-theorem lowerMedian_mem (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_mem (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) : a ∈ xs :=
-  (lowerMedian_ranked choose hv xs a ha).mem
+  (lowerMedianWith_rankedAt choose hv xs a ha).mem
 
 end Applications.Selection

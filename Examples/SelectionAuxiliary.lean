@@ -64,7 +64,7 @@ theorem empty_payload_median : slowMedianRun ([] : List (Fin 0)) = (none, 3) := 
 
 theorem singleton_median : slowMedianRun [7] = (some 7, 6) := by
   apply Prod.ext
-  · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
+  · rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid]
     norm_num only [List.length_cons, List.length_nil, List.length_range, List.length_reverse]
     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
       (show (Applications.Sorting.insertionOn id ([7] : List Nat))[0]? = some 7 by
@@ -74,7 +74,7 @@ theorem singleton_median : slowMedianRun [7] = (some 7, 6) := by
 
 theorem lower_even_median : slowMedianRun [7, 2] = (some 2, 10) := by
   apply Prod.ext
-  · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
+  · rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid]
     norm_num only [List.length_cons, List.length_nil, List.length_range, List.length_reverse]
     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
       (show (Applications.Sorting.insertionOn id ([7, 2] : List Nat))[0]? = some 2 by
@@ -84,7 +84,7 @@ theorem lower_even_median : slowMedianRun [7, 2] = (some 2, 10) := by
 
 theorem repeated_central_values : slowMedianRun [4, 4] = (some 4, 9) := by
   apply Prod.ext
-  · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
+  · rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid]
     norm_num only [List.length_cons, List.length_nil, List.length_range, List.length_reverse]
     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
       (show (Applications.Sorting.insertionOn id ([4, 4] : List Nat))[0]? = some 4 by
@@ -94,7 +94,7 @@ theorem repeated_central_values : slowMedianRun [4, 4] = (some 4, 9) := by
 
 theorem ascending_five_median : slowMedianRun (List.range 5) = (some 2, 20) := by
   apply Prod.ext
-  · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
+  · rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid]
     norm_num only [List.length_cons, List.length_nil, List.length_range, List.length_reverse]
     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
       (show (Applications.Sorting.insertionOn id (List.range 5))[2]? = some 2 by
@@ -105,7 +105,7 @@ theorem ascending_five_median : slowMedianRun (List.range 5) = (some 2, 20) := b
 
 theorem descending_five_median : slowMedianRun (List.range 5).reverse = (some 2, 30) := by
   apply Prod.ext
-  · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
+  · rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid]
     norm_num only [List.length_cons, List.length_nil, List.length_range, List.length_reverse]
     simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
       (show (Applications.Sorting.insertionOn id (List.range 5).reverse)[2]? = some 2 by

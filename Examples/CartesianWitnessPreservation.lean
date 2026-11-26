@@ -104,18 +104,18 @@ open Examples.CompositionalUnivalence FiniteUniverseLoops
 noncomputable def cartesianLoop {S : Type} (p : Term (loops S)) := Cartesian.homogeneousTerm p
 noncomputable abbrev cartesianTwoPaths {S : Type} (p q : Term (loops S)) :=
   Cartesian.homogeneousPath _ (cartesianLoop p) (cartesianLoop q)
-theorem reflect_closed_twoPath {S : Type} (p q : Term (loops S))
+theorem reflect_closed_two_path {S : Type} (p q : Term (loops S))
     (h : Cartesian.Term (cartesianTwoPaths p q)) :
     Nonempty (Term (homogeneousPath (loops S) p q)) := by
   let e := Cartesian.twoPathIso (family (raisedContext terminal)) (term (code S)) (term (code S)) p q
   exact ⟨Cartesian.recoverClosedTerm (fun _ => (show Subsingleton (ULift PUnit) from inferInstance)) (ULift.up PUnit.unit)
     (Cartesian.Term.map e.inv h)⟩
-theorem boolean_no_twoPath :
+theorem boolean_no_two_path :
     ¬ Nonempty (Cartesian.Term (cartesianTwoPaths booleanIdentityLoop booleanNegationLoop)) :=
-  fun ⟨h⟩ => booleanLoops_no_twoPath (reflect_closed_twoPath _ _ h)
-theorem fin3_no_twoPath :
+  fun ⟨h⟩ => booleanLoops_no_two_path (reflect_closed_two_path _ _ h)
+theorem fin3_no_two_path :
     ¬ Nonempty (Cartesian.Term (cartesianTwoPaths forwardLoop backwardLoop)) :=
-  fun ⟨h⟩ => compositeLoops_no_twoPath (reflect_closed_twoPath _ _ h)
+  fun ⟨h⟩ => compositeLoops_no_two_path (reflect_closed_two_path _ _ h)
 end Examples.CartesianWitnessPreservation
 namespace Examples.CartesianWitnessPreservation
 open CategoryTheory SquareKit.Cubical

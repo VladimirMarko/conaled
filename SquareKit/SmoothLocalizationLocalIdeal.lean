@@ -16,7 +16,7 @@ abbrev graphValue (p : freeAlgebra n) (H : freeAlgebra (n+1)) : (Fin n → ℝ) 
 
 theorem graphValue_smooth (p : freeAlgebra n) (H : freeAlgebra (n+1)) :
     ContDiffOn ℝ ∞ (graphValue p H) {x | p.val x ≠ 0} :=
-  (show ContDiff ℝ ∞ H.val from H.property).comp_contDiffOn (graph_smoothOn p.property)
+  (show ContDiff ℝ ∞ H.val from H.property).comp_contDiffOn (graph_contDiffOn p.property)
 
 private theorem relation_graph_value (r : Fin m → freeAlgebra n) (p : freeAlgebra n)
     (x : Fin n → ℝ) (hx : p.val x ≠ 0) :
@@ -69,7 +69,7 @@ theorem zero_iff_local (r : Fin m → freeAlgebra n) (p : freeAlgebra n) (H : fr
         (z,graph p.val (SmoothInverseGraph.base z)) / p.val (SmoothInverseGraph.base z)
       have hq : ContDiffOn ℝ ∞ q W :=
         ((SmoothHadamard.coefficient_smooth (show ContDiff ℝ ∞ H.val from H.property) (Fin.last n)).comp_contDiffOn
-          (contDiffOn_id.prodMk (graph_base_smoothOn p.property))).div
+          (contDiffOn_id.prodMk (graph_base_contDiffOn p.property))).div
             ((show ContDiff ℝ ∞ p.val from p.property).comp base_smooth).contDiffOn (fun _ h => h)
       refine ⟨V,hv,fun y => Fin.snoc (c (SmoothInverseGraph.base y)) (q y),?_,?_⟩
       · apply contDiffOn_pi.mpr

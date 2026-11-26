@@ -26,6 +26,6 @@ theorem rootedSubstitution_retraction :
     (rootedSubstitution F x σ).comp (rootedRetraction F x) =
       (rootedRetraction (reindex σ F) (x.reindex F σ)).comp σ := by
   unfold rootedRetraction rootedSubstitution
-  rw [← strictFunctor_comp_assoc, familySubstitution_projection, strictFunctor_comp_assoc,
-    reindexHigher_projection, ← strictFunctor_comp_assoc]
+  rw [← strictPseudofunctor_comp_assoc, familySubstitution_projection, strictPseudofunctor_comp_assoc,
+    reindexHigher_projection, ← strictPseudofunctor_comp_assoc]
 end SquareKit.Internal.PathTransport.TwoFamily

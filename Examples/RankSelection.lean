@@ -78,25 +78,25 @@ example : runWith lastPivot 4 2 ([1, 2, 2, 3] : List Nat) = some 2 := by
   exact ranked_iff_index.mp duplicate_rank
 
 theorem even_median : lowerMedianWith lastPivot ([8, 1, 7, 2] : List Nat) = some 2 := by
-  rw [lowerMedian_even_index _ last_pivot_valid _ 2 (by decide) (by decide)]
+  rw [lowerMedianWith_even_index _ last_pivot_valid _ 2 (by decide) (by decide)]
   simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
   decide +kernel
 
 example : ([8, 1, 7, 2] : List Nat).countP (fun x => decide (x < 2)) = 1 ∧
     ([8, 1, 7, 2] : List Nat).countP (fun x => decide (2 < x)) = 2 :=
-  lowerMedian_even_counts _ last_pivot_valid _ _ 2 (by decide) (by decide) even_median
+  lowerMedianWith_even_counts _ last_pivot_valid _ _ 2 (by decide) (by decide) even_median
 
 theorem odd_median : lowerMedianWith List.head? ([7, 2, 4] : List Nat) = some 4 := by
-  rw [lowerMedian_odd_index _ head_pivot_valid _ 1 (by decide)]
+  rw [lowerMedianWith_odd_index _ head_pivot_valid _ 1 (by decide)]
   simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn]
   decide +kernel
 
 example : ([7, 2, 4] : List Nat).countP (fun x => decide (x < 4)) = 1 ∧
     ([7, 2, 4] : List Nat).countP (fun x => decide (4 < x)) = 1 :=
-  lowerMedian_odd_counts _ head_pivot_valid _ _ 1 (by decide) (by decide) odd_median
+  lowerMedianWith_odd_counts _ head_pivot_valid _ _ 1 (by decide) (by decide) odd_median
 
 example : lowerMedianWith lastPivot ([] : List Nat) = none :=
-  (lowerMedian_none _ last_pivot_valid []).mpr rfl
+  (lowerMedianWith_none _ last_pivot_valid []).mpr rfl
 
 -- Division by two identifies adjacent values but preserves order and rank values.
 theorem halve_monotone : Monotone (fun x : Nat => x / 2) :=

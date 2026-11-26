@@ -95,7 +95,7 @@ def slowMedianRun (xs : List α) : Measured (Option α) Nat :=
 theorem slowMedianRun_value (xs : List α) :
     (slowMedianRun xs).1 = lowerMedianWith List.head? xs := by
   simp only [slowMedianRun, bind_value, SymmetricCosts.lengthRun_exact, slowSelectRun_value]
-  exact (lowerMedian_value List.head? head_pivot_valid xs).symm
+  exact (lowerMedianWith_value List.head? head_pivot_valid xs).symm
 
 theorem slowMedianRun_cost (xs : List α) :
     (slowMedianRun xs).2 = (SymmetricCosts.lengthRun xs).2 +
@@ -104,11 +104,11 @@ theorem slowMedianRun_cost (xs : List α) :
 
 theorem slowMedianRun_some_iff (xs : List α) (a : α) :
     (slowMedianRun xs).1 = some a ↔ RankedAt xs ((xs.length - 1) / 2) a := by
-  rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid, ← ranked_iff_index]
+  rw [slowMedianRun_value, lowerMedianWith_value List.head? head_pivot_valid, ← ranked_iff_index]
 
 theorem slowMedianRun_none (xs : List α) :
     (slowMedianRun xs).1 = none ↔ xs = [] := by
-  rw [slowMedianRun_value, lowerMedian_none List.head? head_pivot_valid]
+  rw [slowMedianRun_value, lowerMedianWith_none List.head? head_pivot_valid]
 
 theorem slowMedianRun_mem (xs : List α) (a : α)
     (ha : (slowMedianRun xs).1 = some a) : a ∈ xs :=

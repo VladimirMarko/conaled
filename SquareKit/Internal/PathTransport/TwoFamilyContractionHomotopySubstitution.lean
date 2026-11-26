@@ -54,10 +54,10 @@ theorem rawContraction_reindex :
       k.comp (b.comp (coherentLiftLeft (F := r.comp i) E)) := by
     change (contractionLift (r'.comp i') η' (reindex σ E)).comp k = k.comp (contractionLift (r.comp i) η E)
     rw [← contractionRetraction_inclusion i' r' η' (reindex σ E),
-      ← contractionRetraction_inclusion i r η E, strictFunctor_comp_assoc,
-      contractionInclusion_reindex i i' σ σ₀ hi E, ← strictFunctor_comp_assoc,
+      ← contractionRetraction_inclusion i r η E, strictPseudofunctor_comp_assoc,
+      contractionInclusion_reindex i i' σ σ₀ hi E, ← strictPseudofunctor_comp_assoc,
       contractionRetraction_reindex i r i' r' σ σ₀ hi hr η η' hη E,
-      strictFunctor_comp_assoc]
+      strictPseudofunctor_comp_assoc]
   have eG : (b'.comp (coherentLiftRight η' (reindex σ E))).comp k =
       k.comp (b.comp (coherentLiftRight η E)) := by
     rw [contractionLift_target, contractionLift_target]

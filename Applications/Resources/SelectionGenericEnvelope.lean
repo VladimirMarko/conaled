@@ -27,7 +27,7 @@ theorem selectRunWith_median_value (d cutoff : Nat) (hd : 2 ≤ d) (hc : 1 ≤ c
     (selectRunWith d cutoff hd hc (((xs.length ⌈/⌉ d) - 1) / 2)
       (chunkMediansRun d xs).1).1 = medianOfMedians d xs := by
   rw [selectRunWith_value, chunkMediansRun_value, medianOfMedians,
-    lowerMedian_value _ head_pivot_valid, length_chunkMedians]
+    lowerMedianWith_value _ head_pivot_valid, length_chunkMedians]
 
 /-- The generic worker's first recursive list is nonempty and smaller above
 singleton size. This statement requires neither pivot balance nor a cost law. -/

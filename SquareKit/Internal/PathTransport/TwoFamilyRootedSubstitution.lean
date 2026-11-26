@@ -16,13 +16,13 @@ theorem rootedEndpoint_reindex :
     (rootedEndpoint (reindex σ F) (x.reindex F σ)).comp (endpointReindex F σ) =
       (reindexHigher F σ).comp (rootedEndpoint F x) := by
   apply endpoint_functor_ext F
-  · rw [strictFunctor_comp_assoc, endpointReindex_projection, ← strictFunctor_comp_assoc,
-      rootedEndpoint_first, strictFunctor_comp_assoc, Section.reindex_lift,
-      strictFunctor_comp_assoc, rootedEndpoint_first]
-    rw [← strictFunctor_comp_assoc (reindexHigher F σ), reindexHigher_projection, strictFunctor_comp_assoc]
-  · rw [strictFunctor_comp_assoc, endpointReindex_projection, ← strictFunctor_comp_assoc,
-      rootedEndpoint_second, strictFunctor_id_comp, strictFunctor_comp_assoc,
-      rootedEndpoint_second, strictFunctor_comp_id]
+  · rw [strictPseudofunctor_comp_assoc, endpointReindex_projection, ← strictPseudofunctor_comp_assoc,
+      rootedEndpoint_first, strictPseudofunctor_comp_assoc, Section.reindex_lift,
+      strictPseudofunctor_comp_assoc, rootedEndpoint_first]
+    rw [← strictPseudofunctor_comp_assoc (reindexHigher F σ), reindexHigher_projection, strictPseudofunctor_comp_assoc]
+  · rw [strictPseudofunctor_comp_assoc, endpointReindex_projection, ← strictPseudofunctor_comp_assoc,
+      rootedEndpoint_second, strictPseudofunctor_id_comp, strictPseudofunctor_comp_assoc,
+      rootedEndpoint_second, strictPseudofunctor_comp_id]
 
 theorem rootedPathFamily_reindex :
     reindex (reindexHigher F σ) (rootedPathFamily F x) =
@@ -30,7 +30,7 @@ theorem rootedPathFamily_reindex :
   rw [rootedPathFamily_direct, rootedPathFamily_direct]
   change (reindexHigher F σ).comp ((rootedEndpoint F x).comp (openIdHigher F)) =
     (rootedEndpoint (reindex σ F) (x.reindex F σ)).comp (openIdHigher (reindex σ F))
-  rw [← strictFunctor_comp_assoc, ← rootedEndpoint_reindex, strictFunctor_comp_assoc]
+  rw [← strictPseudofunctor_comp_assoc, ← rootedEndpoint_reindex, strictPseudofunctor_comp_assoc]
   exact congrArg (fun H => (rootedEndpoint (reindex σ F) (x.reindex F σ)).comp H)
     (openIdHigher_reindex F σ).symm
 

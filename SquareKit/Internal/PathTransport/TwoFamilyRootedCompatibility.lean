@@ -20,18 +20,18 @@ private theorem strongId_heq {A B : Type*} [Bicategory A] [Bicategory B]
 omit [IsLocallyGroupoid Γ] in
 theorem pathContraction_first_source : (contractionRetract F).comp (pathFirst F) = pathFirst F := by
   change ((pathFirst F).comp (pathReflexivity F)).comp (pathFirst F) = _
-  rw [strictFunctor_comp_assoc, pathReflexivity_first, strictFunctor_comp_id]
+  rw [strictPseudofunctor_comp_assoc, pathReflexivity_first, strictPseudofunctor_comp_id]
 
 omit [IsLocallyGroupoid Γ] in
 theorem rootedMappedFirst_source :
     ((rootedDirectRetract F x).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
-  rw [← rootedContractionMapped_source, strictFunctor_comp_assoc, pathContraction_first_source]
+  rw [← rootedContractionMapped_source, strictPseudofunctor_comp_assoc, pathContraction_first_source]
 omit [IsLocallyGroupoid Γ] in
 theorem rootedMappedFirst_target :
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
-  rw [strictFunctor_id_comp]
+  rw [strictPseudofunctor_id_comp]
 
 theorem rootedContractionMapped_first :
     HEq (strongPostcomp (rootedContractionMapped F x) (pathFirst F))
@@ -49,15 +49,15 @@ omit [IsLocallyGroupoid Γ] in
 theorem pathEndpoints_same_base :
     (pathSecond F).comp (projectionHigher F) = (pathFirst F).comp (projectionHigher F) := by
   unfold pathSecond pathFirst
-  rw [strictFunctor_comp_assoc, strictFunctor_comp_assoc,
+  rw [strictPseudofunctor_comp_assoc, strictPseudofunctor_comp_assoc,
     StrongMap.toHigher_projection, StrongMap.toHigher_projection]
 
 omit [IsLocallyGroupoid Γ] in
 theorem rootedMappedFirst_section :
     ((rootedDirectEmbedding F x).comp (pathFirst F)).comp ((projectionHigher F).comp x.lift) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
-  rw [rootedDirectEmbedding_first, strictFunctor_comp_assoc, ← strictFunctor_comp_assoc x.lift,
-    x.over, strictFunctor_id_comp]
+  rw [rootedDirectEmbedding_first, strictPseudofunctor_comp_assoc, ← strictPseudofunctor_comp_assoc x.lift,
+    x.over, strictPseudofunctor_id_comp]
 
 theorem rootedBaseContraction_first :
     HEq (strongPostcomp (rootedBaseContraction F x) ((projectionHigher F).comp x.lift))
@@ -69,7 +69,7 @@ theorem rootedBaseContraction_first :
   have h2 := strongPostcomp_comp (rootedContractionMapped F x) (pathSecond F) M
   have e : (pathSecond F).comp M = (pathFirst F).comp M := by
     unfold M
-    rw [← strictFunctor_comp_assoc, pathEndpoints_same_base, strictFunctor_comp_assoc]
+    rw [← strictPseudofunctor_comp_assoc, pathEndpoints_same_base, strictPseudofunctor_comp_assoc]
   have h3 := strongPostcomp_functor_heq (rootedContractionMapped F x) e
   have h4 := (strongPostcomp_comp (rootedContractionMapped F x) (pathFirst F) M).symm
   have h5 := strongPostcomp_heq (rootedMappedFirst_source F x) (rootedMappedFirst_target F x)

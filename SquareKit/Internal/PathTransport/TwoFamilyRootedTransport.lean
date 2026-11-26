@@ -35,10 +35,10 @@ noncomputable def rootedRetraction (x : Section F) : StrictPseudofunctor (Total 
 theorem rootedReflexivity_projection (x : Section F) :
     (rootedReflexivity F x).comp (projectionHigher (rootedPathFamily F x)) = x.lift := by
   unfold rootedReflexivity
-  rw [strictFunctor_comp_assoc, familyCast_projection, rootedReflexivityDirect_projection]
+  rw [strictPseudofunctor_comp_assoc, familyCast_projection, rootedReflexivityDirect_projection]
 theorem rootedReflexivity_retraction (x : Section F) :
     (rootedReflexivity F x).comp (rootedRetraction F x) = StrictPseudofunctor.id Γ := by
   unfold rootedRetraction
-  rw [← strictFunctor_comp_assoc, rootedReflexivity_projection]
+  rw [← strictPseudofunctor_comp_assoc, rootedReflexivity_projection]
   exact x.over
 end SquareKit.Internal.PathTransport.TwoFamily

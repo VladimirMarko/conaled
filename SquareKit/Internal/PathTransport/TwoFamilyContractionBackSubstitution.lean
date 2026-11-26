@@ -68,7 +68,7 @@ theorem contractionBack_reindex :
       (familySubstitution (reindex R E) σ (contraction_reindex_family R R' σ hR E)) =
         (reindexHigher E σ).comp (contractionBack R η E) := by
   unfold familySubstitution
-  rw [← strictFunctor_comp_assoc]
+  rw [← strictPseudofunctor_comp_assoc]
   change ((StrongMap.toHigher (inverseFamilyContraction R' η' (reindex σ E))).comp
     (familyCast (contraction_reindex_family R R' σ hR E))).comp _ = _
   have k := strongMap_codomain_cast (contraction_reindex_family R R' σ hR E)

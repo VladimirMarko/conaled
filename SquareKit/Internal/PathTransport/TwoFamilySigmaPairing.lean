@@ -18,7 +18,7 @@ def Section.sigmaPair (a : Section F) (b : Section (TwoFamily.reindex a.lift B))
     Section (sigmaFamily F B) where
   lift := (pairLift B a.lift b).comp (sigmaUngroup F B)
   over := by
-    rw [strictFunctor_comp_assoc, sigmaUngroup_projection, ← strictFunctor_comp_assoc,
+    rw [strictPseudofunctor_comp_assoc, sigmaUngroup_projection, ← strictPseudofunctor_comp_assoc,
       pairLift_projection]
     exact a.over
 
@@ -26,14 +26,14 @@ theorem Section.sigmaPair_first (a : Section F) (b : Section (TwoFamily.reindex 
     (a.sigmaPair F B b).sigmaFirst F B = a := by
   apply Section.ext_lift
   change ((pairLift B a.lift b).comp (sigmaUngroup F B)).comp (TwoFamily.sigmaFirst F B) = a.lift
-  rw [strictFunctor_comp_assoc, sigmaUngroup_first, pairLift_projection]
+  rw [strictPseudofunctor_comp_assoc, sigmaUngroup_first, pairLift_projection]
 
 theorem sigmaSecond_family (s : Section (sigmaFamily F B)) :
     reindex (factorBase B (s.lift.comp (sigmaRegroup F B))) B =
       reindex (s.sigmaFirst F B).lift B := by
   apply congrArg (fun k => TwoFamily.reindex k B)
   change (s.lift.comp (sigmaRegroup F B)).comp (projectionHigher B) = _
-  rw [strictFunctor_comp_assoc, sigmaRegroup_projection]
+  rw [strictPseudofunctor_comp_assoc, sigmaRegroup_projection]
   rfl
 
 def Section.sigmaSecond (s : Section (sigmaFamily F B)) :
@@ -43,7 +43,7 @@ def Section.sigmaSecond (s : Section (sigmaFamily F B)) :
 theorem Section.sigmaPair_regroup (a : Section F) (b : Section (TwoFamily.reindex a.lift B)) :
     (a.sigmaPair F B b).lift.comp (sigmaRegroup F B) = pairLift B a.lift b := by
   change ((pairLift B a.lift b).comp (sigmaUngroup F B)).comp (sigmaRegroup F B) = _
-  rw [strictFunctor_comp_assoc, sigmaUngroup_regroup, strictFunctor_comp_id]
+  rw [strictPseudofunctor_comp_assoc, sigmaUngroup_regroup, strictPseudofunctor_comp_id]
 
 theorem Section.sigmaPair_second_heq (a : Section F) (b : Section (TwoFamily.reindex a.lift B)) :
     HEq ((a.sigmaPair F B b).sigmaSecond F B) b := by
@@ -59,13 +59,13 @@ theorem Section.sigmaPair_eta (s : Section (sigmaFamily F B)) :
       (sigmaUngroup F B) = s.lift
   have e : factorBase B (s.lift.comp (sigmaRegroup F B)) = (s.sigmaFirst F B).lift := by
     change (s.lift.comp (sigmaRegroup F B)).comp (projectionHigher B) = _
-    rw [strictFunctor_comp_assoc, sigmaRegroup_projection]
+    rw [strictPseudofunctor_comp_assoc, sigmaRegroup_projection]
     rfl
   rw [pairLift_cast_base B e]
   change ((factorHigher B (s.lift.comp (sigmaRegroup F B))).comp
     (reindexHigher B (factorBase B (s.lift.comp (sigmaRegroup F B))))).comp (sigmaUngroup F B) = _
-  rw [factorHigher_reindex, strictFunctor_comp_assoc,
-    sigmaRegroup_ungroup, strictFunctor_comp_id]
+  rw [factorHigher_reindex, strictPseudofunctor_comp_assoc,
+    sigmaRegroup_ungroup, strictPseudofunctor_comp_id]
 
 theorem Section.sigmaPair_second (a : Section F) (b : Section (TwoFamily.reindex a.lift B)) :
     Section.cast

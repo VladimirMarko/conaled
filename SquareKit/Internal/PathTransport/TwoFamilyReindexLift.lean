@@ -39,7 +39,7 @@ theorem familySubstitution_projection {F : Family.{uD,vD,wD,uE,vE,wE} Δ}
     (e : F = reindex σ E) :
     (familySubstitution E σ e).comp (projectionHigher E) = (projectionHigher F).comp σ := by
   unfold familySubstitution
-  rw [strictFunctor_comp_assoc, reindexHigher_projection, ← strictFunctor_comp_assoc, familyCast_projection]
+  rw [strictPseudofunctor_comp_assoc, reindexHigher_projection, ← strictPseudofunctor_comp_assoc, familyCast_projection]
 variable {A : Type*} [Bicategory A] [Strict A]
 def reindexLiftFunctor (b : StrictPseudofunctor A Δ) (H : StrictPseudofunctor A (Total E))
     (h : H.comp (projectionHigher E) = b.comp σ) :
@@ -50,14 +50,14 @@ theorem reindexLiftFunctor_map (b : StrictPseudofunctor A Δ) (H : StrictPseudof
     (h : H.comp (projectionHigher E) = b.comp σ) :
     (reindexLiftFunctor E σ b H h).comp (reindexHigher E σ) = H := by
   unfold reindexLiftFunctor
-  rw [strictFunctor_comp_assoc, ← familySubstitution_reindex E σ, familySubstitution_comp]
+  rw [strictPseudofunctor_comp_assoc, ← familySubstitution_reindex E σ, familySubstitution_comp]
   rw [familySubstitution_congr E h.symm _ rfl, familySubstitution_reindex]
   exact factorHigher_reindex E H
 theorem reindexLiftFunctor_projection (b : StrictPseudofunctor A Δ) (H : StrictPseudofunctor A (Total E))
     (h : H.comp (projectionHigher E) = b.comp σ) :
     (reindexLiftFunctor E σ b H h).comp (projectionHigher (reindex σ E)) = b := by
   unfold reindexLiftFunctor
-  rw [strictFunctor_comp_assoc, familySubstitution_projection, ← strictFunctor_comp_assoc]
+  rw [strictPseudofunctor_comp_assoc, familySubstitution_projection, ← strictPseudofunctor_comp_assoc]
   change ((sectionOfLift E H).lift.comp (projectionHigher _)).comp b = b
   rw [(sectionOfLift E H).over]
   exact StrictTwoTransformation.functor_id_comp _

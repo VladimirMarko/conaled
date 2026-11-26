@@ -34,7 +34,7 @@ theorem pathJMotive_reindex :
       (strongPrecomp (strongPostcomp (pathContraction F) E) (pathReindex F σ)) := by
   have h1 := (strongPostcomp_comp (pathContraction (reindex σ F)) (pathReindex F σ) E).symm
   have h2 := strongPostcomp_heq (pathReindex_retract F σ)
-    ((strictFunctor_id_comp (pathReindex F σ)).trans (strictFunctor_comp_id (pathReindex F σ)).symm)
+    ((strictPseudofunctor_id_comp (pathReindex F σ)).trans (strictPseudofunctor_comp_id (pathReindex F σ)).symm)
     (strongPostcomp (pathContraction (reindex σ F)) (pathReindex F σ))
     (strongPrecomp (pathContraction F) (pathReindex F σ)) (pathContraction_reindex F σ) E
   have h3 := strongPostcomp_precomp (pathContraction F) (pathReindex F σ) E

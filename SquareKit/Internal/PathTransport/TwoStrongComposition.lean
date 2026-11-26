@@ -17,8 +17,8 @@ omit [Strict A] in
 theorem strongPostcomp_comp (H : StrictPseudofunctor B C) (K : StrictPseudofunctor C D) :
     HEq (strongPostcomp (strongPostcomp η H) K) (strongPostcomp η (H.comp K)) := by
   apply strongTrans_hext
-    (congrArg (fun L : StrictPseudofunctor A D => L.toPseudofunctor) (strictFunctor_comp_assoc F H K))
-    (congrArg (fun L : StrictPseudofunctor A D => L.toPseudofunctor) (strictFunctor_comp_assoc G H K))
+    (congrArg (fun L : StrictPseudofunctor A D => L.toPseudofunctor) (strictPseudofunctor_comp_assoc F H K))
+    (congrArg (fun L : StrictPseudofunctor A D => L.toPseudofunctor) (strictPseudofunctor_comp_assoc G H K))
   · intro x
     rfl
   · intro x y p
@@ -32,8 +32,8 @@ omit [Strict A] [Strict C] in
 theorem strongPostcomp_precomp (H : StrictPseudofunctor C A) (K : StrictPseudofunctor B D) :
     HEq (strongPostcomp (strongPrecomp η H) K) (strongPrecomp (strongPostcomp η K) H) := by
   apply strongTrans_hext
-    (congrArg (fun L : StrictPseudofunctor C D => L.toPseudofunctor) (strictFunctor_comp_assoc H F K))
-    (congrArg (fun L : StrictPseudofunctor C D => L.toPseudofunctor) (strictFunctor_comp_assoc H G K))
+    (congrArg (fun L : StrictPseudofunctor C D => L.toPseudofunctor) (strictPseudofunctor_comp_assoc H F K))
+    (congrArg (fun L : StrictPseudofunctor C D => L.toPseudofunctor) (strictPseudofunctor_comp_assoc H G K))
   · intro x
     rfl
   · intro x y p

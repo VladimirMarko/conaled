@@ -18,8 +18,8 @@ theorem rootedSubstitution_retract :
     ((rootedRetraction (reindex σ F) (x.reindex F σ)).comp
       (rootedReflexivity (reindex σ F) (x.reindex F σ))).comp (rootedSubstitution F x σ) =
       (rootedSubstitution F x σ).comp ((rootedRetraction F x).comp (rootedReflexivity F x)) := by
-  rw [strictFunctor_comp_assoc, rootedSubstitution_reflexivity, ← strictFunctor_comp_assoc,
-    ← rootedSubstitution_retraction, strictFunctor_comp_assoc]
+  rw [strictPseudofunctor_comp_assoc, rootedSubstitution_reflexivity, ← strictPseudofunctor_comp_assoc,
+    ← rootedSubstitution_retraction, strictPseudofunctor_comp_assoc]
 
 theorem rootedContraction_reindex_mapped :
     HEq (strongPostcomp (strongPostcomp (rootedContraction (reindex σ F) (x.reindex F σ))
@@ -38,7 +38,7 @@ theorem rootedContraction_reindex_mapped :
     (rootedContraction_embedding_target F' x') _ _ (rootedContraction_embedding F' x') P
   have h5 := strongPostcomp_precomp (pathContraction F') H' P
   have h6 := strongPrecomp_heq (pathReindex_retract F σ)
-    ((strictFunctor_id_comp P).trans (strictFunctor_comp_id P).symm)
+    ((strictPseudofunctor_id_comp P).trans (strictPseudofunctor_comp_id P).symm)
     _ _ (pathContraction_reindex F σ) H'
   have h7 := strongPrecomp_comp (pathContraction F) P H'
   have h8 := strongPrecomp_functor_heq (pathContraction F) (rootedSubstitution_embedding F x σ).symm
@@ -55,6 +55,6 @@ theorem rootedContraction_reindex :
     (fun {_ _} => rootedPathEmbedding_map_injective F x)
     (fun {_ _ _ _} => rootedPathEmbedding_cell_injective F x)
     (rootedSubstitution_retract F x σ)
-    ((strictFunctor_id_comp _).trans (strictFunctor_comp_id _).symm)
+    ((strictPseudofunctor_id_comp _).trans (strictPseudofunctor_comp_id _).symm)
     _ _ (rootedContraction_reindex_mapped F x σ)
 end SquareKit.Internal.PathTransport.TwoFamily

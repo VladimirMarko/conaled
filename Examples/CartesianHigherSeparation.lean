@@ -371,7 +371,7 @@ theorem nativeSquare_top {g h : Two}
   exact (congrArg₂ (evalSquare H (cubePoint 2) (axis 1) (axis 0)).arrow (hv false) (hv true)).symm.trans ha
 
 /-- The obstruction concerns actual native path bodies, not just distinct observations. -/
-theorem no_native_twoPath :
+theorem no_native_two_path :
     IsEmpty (Term (homogeneousPath loops (nativeLoop 1) (nativeLoop nontrivial))) := ⟨fun H =>
   no_relative_square (nativeSquare H) (nativeSquare_side H false) (nativeSquare_side H true)
     (nativeSquare_bottom H) (nativeSquare_top H)⟩
@@ -406,12 +406,12 @@ theorem completeEquivLoop_evaluate (g : Two) :
   exact EquivalenceFamilies.evaluate_isoLoop _ _ (both_lawful 1) _ _ _
 
 /-- Full equivalence witnesses cannot identify the two identity-equivalence loops. -/
-theorem no_completeEquiv_twoPath :
+theorem no_completeEquiv_two_path :
     IsEmpty (Term (homogeneousPath _ (completeEquivLoop 1) (completeEquivLoop nontrivial))) := by
   refine ⟨fun H => ?_⟩
   have q := homogeneousPathMap completeLoopEvaluation H
   rw [completeEquivLoop_evaluate, completeEquivLoop_evaluate] at q
-  exact no_native_twoPath.false q
+  exact no_native_two_path.false q
 abbrev fullFace : Subcontext point := Subcontext.top
 noncomputable def faceChoice : LocalFamily (restrictContext fullFace) :=
   (classified nontrivial).reindex (restrictInclusion fullFace)

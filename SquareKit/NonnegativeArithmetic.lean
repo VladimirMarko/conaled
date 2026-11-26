@@ -351,7 +351,7 @@ theorem mem_rootApprox_iff (n : ℕ) (a : ℚ) :
     exact ⟨p, q, hq, rfl, (nat_fraction_le_sqrt_iff n p q hq).mp ha⟩
 
 /-- The usual real inverse identity is used only on the source's valid domain. -/
-theorem expLog_rpow_identity (n : ℕ) (hn : 1 ≤ n) :
+theorem two_rpow_logb_natCast (n : ℕ) (hn : 1 ≤ n) :
     (2 : ℝ) ^ Real.logb 2 (n : ℝ) = (n : ℝ) := by
   exact Real.rpow_logb (by norm_num : (0 : ℝ) < 2)
     (by norm_num : (2 : ℝ) ≠ 1)
@@ -487,7 +487,7 @@ theorem rawBounds_image2_mul {A B : Set ℚ} {a b c d : ℚ}
   have hb0 : 0 ≤ b := (hA0 a hA.1).trans (hA.2 hA.1)
   exact mul_le_mul (hA.2 hx) (hB.2 hy) (hB0 y hy) hb0
 
-theorem rawBounds_expLog (n : ℕ) (hn : 1 ≤ n) :
+theorem rawBounds_expLogApprox (n : ℕ) (hn : 1 ≤ n) :
     RawBounds (expLogApprox n) 0 (n : ℚ) := by
   refine ⟨expLogApprox_of_nonneg_lt n (le_refl 0) ?_, fun _ ha => expLogApprox_upper n ha⟩
   exact_mod_cast (show 0 < n by omega)
@@ -1299,9 +1299,9 @@ theorem section_of_exact_bounds {e : ClosedTerm} {r : ℚ}
     (he : Bounded e r r) (x : ℚ) : x ∈ sectionOf e ↔ x ≤ r :=
   rawBounds_closedSection_exact he x
 
-theorem bounded_expLog (n : ℕ) (hn : 1 ≤ n) :
+theorem bounded_exponentiatedLogarithm (n : ℕ) (hn : 1 ≤ n) :
     Bounded (exponentiatedLogarithm n) 0 (n : ℚ) := by
-  simpa only [Bounded, raw_exponentiatedLogarithm] using rawBounds_expLog n hn
+  simpa only [Bounded, raw_exponentiatedLogarithm] using rawBounds_expLogApprox n hn
 
 theorem log_bounded_precision (n q : ℕ) (hn : 1 ≤ n) (hq : 0 < q) :
     Bounded (logarithm n)

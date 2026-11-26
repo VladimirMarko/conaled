@@ -67,7 +67,7 @@ theorem singleton_unchanged {α : Type} [LinearOrder α] (x : α) :
 theorem empty_median_failure (k : Nat) :
     lowerMedianWith List.head? (reduceToMedian k ([] : List Nat)) = none := by
   rw [reduceToMedian_nil]
-  exact (lowerMedian_none _ head_pivot_valid _).mpr rfl
+  exact (lowerMedianWith_none _ head_pivot_valid _).mpr rfl
 
 /-- The lower median after padding agrees even with a different valid policy. -/
 theorem lower_middle_median :
@@ -160,7 +160,7 @@ theorem invalid_rank_values :
       selectFixed 1 ([7] : List Nat) = none := by
   constructor
   · rw [show reduceToMedian 1 ([7] : List Nat) = [7, 7, 7] from rfl,
-      lowerMedian_value _ head_pivot_valid]
+      lowerMedianWith_value _ head_pivot_valid]
     exact ranked_iff_index.mp (ranked_iff_count_bounds.mpr (by decide))
   · exact (selectFixed_none_iff 1 [7]).mpr (by decide)
 

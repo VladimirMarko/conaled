@@ -380,7 +380,7 @@ noncomputable def exactQ : Cartesian.VertexSystem (Cartesian.Vertex 2) := source
 
 theorem exact_observation : exactQ = sectionCompositionSquare :=
   sourceSystem_composition swapComposition swap01 swap12
-    ((twoPath_permutation swapComposition).trans (loopPermutation_concat swap01 swap12))
+    ((loopPermutation_eq_of_homogeneousPath swapComposition).trans (loopPermutation_concat swap01 swap12))
 
 theorem exact_horizontal (b : Bool) :
     exactQ.reindex (fun v : Cartesian.Vertex 1 => vertex b (v 0)) =

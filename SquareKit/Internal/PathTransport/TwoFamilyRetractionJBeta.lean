@@ -21,7 +21,7 @@ variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hi
 omit [Strict Γ] [Strict A] in
 theorem contraction_reflexive_source : i.comp (r.comp i) = i := by
-  rw [← strictFunctor_comp_assoc, hi, StrictTwoTransformation.functor_id_comp]
+  rw [← strictPseudofunctor_comp_assoc, hi, StrictTwoTransformation.functor_id_comp]
 
 theorem retractionJSource_beta : reindex i (reindex (r.comp i) E) = reindex i E :=
   (reindex_comp E (r.comp i) i).trans

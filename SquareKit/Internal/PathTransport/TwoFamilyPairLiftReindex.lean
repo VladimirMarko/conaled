@@ -14,7 +14,7 @@ variable {Δ : Type*} [Bicategory Δ] [Strict Δ] (σ : StrictPseudofunctor Δ �
 theorem Section.cast_lift {G H : Family.{uΓ,vΓ,wΓ,u,v,w} Γ} (e : G = H) (s : Section G) :
     (Section.cast e s).lift = s.lift.comp (familyCast e) := by
   cases e
-  exact (strictFunctor_comp_id s.lift).symm
+  exact (strictPseudofunctor_comp_id s.lift).symm
 
 theorem variableLift_recombined :
     (variableSection F).lift.comp (reindexHigher F (projectionHigher F)) = StrictPseudofunctor.id (Total F) := by
@@ -25,8 +25,8 @@ theorem pairLift_reindex :
       (Section.cast (reindex_comp F σ (projectionHigher (reindex σ F)))
         (variableSection (reindex σ F))) = reindexHigher F σ := by
   unfold pairLift
-  rw [Section.cast_lift, strictFunctor_comp_assoc]
+  rw [Section.cast_lift, strictPseudofunctor_comp_assoc]
   rw [familyCast_precomp_eq_of_heq (reindex_comp F σ (projectionHigher (reindex σ F)))
     _ _ (reindexHigher_comp_heq F σ (projectionHigher (reindex σ F)))]
-  rw [← strictFunctor_comp_assoc, variableLift_recombined, strictFunctor_id_comp]
+  rw [← strictPseudofunctor_comp_assoc, variableLift_recombined, strictPseudofunctor_id_comp]
 end SquareKit.Internal.PathTransport.TwoFamily

@@ -94,9 +94,9 @@ n ≥ 16 ⇒  n*l(n) ≤ 2*(n*s(n)),
 ```
 
 with natural quantities cast to `ℚ`. The source's eventual-order constants
-remain explicit in the native norm consequences. `logBand_isTheta` uses
+remain explicit in the native norm consequences. `isTheta_log2_of_log_band` uses
 forward coefficient two and reverse coefficient one at threshold two;
-`rootBand_isTheta` uses the same coefficients at threshold one. The product
+`isTheta_sqrt_of_root_band` uses the same coefficients at threshold one. The product
 comparison uses coefficient two at threshold 16.
 
 Every use of `Resources.isBigO_rat_iff_eventually_le_mul` supplies eventual

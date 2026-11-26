@@ -99,14 +99,14 @@ theorem contractionRetraction_reflexive [∀x, IsLocallyGroupoid (E.obj x)] :
           ((reindexHigher (reindex r (reindex i E)) i).comp (reindexHigher (reindex i E) r))) := by
     unfold contractionRetraction
     change (reindexHigher E i).comp ((StrongMap.toHigher α).comp _) = _
-    rw [← strictFunctor_comp_assoc, ← hsquare]
+    rw [← strictPseudofunctor_comp_assoc, ← hsquare]
     erw [hs]
     change ((familyCast (retractionJSource_beta i r hi E).symm).comp
       (reindexHigher (reindex (r.comp i) E) i)).comp
         ((familyCast (reindex_comp E i r).symm).comp (reindexHigher (reindex i E) r)) = _
-    simp only [strictFunctor_comp_assoc]
-    rw [← strictFunctor_comp_assoc (reindexHigher (reindex (r.comp i) E) i), hc]
-    simp only [strictFunctor_comp_assoc]
+    simp only [strictPseudofunctor_comp_assoc]
+    rw [← strictPseudofunctor_comp_assoc (reindexHigher (reindex (r.comp i) E) i), hc]
+    simp only [strictPseudofunctor_comp_assoc]
   rw [hform]
   have h1 := familyCast_precomp_heq (retractionJSource_beta i r hi E).symm
     ((familyCast (congrArg (reindex i) (reindex_comp E i r).symm)).comp

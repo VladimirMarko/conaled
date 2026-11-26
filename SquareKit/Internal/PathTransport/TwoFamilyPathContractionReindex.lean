@@ -20,8 +20,8 @@ theorem pathContraction_reindex :
     (congrArg (fun H : StrictPseudofunctor (PathContext (reindex σ F)) (PathContext F) =>
       H.toPseudofunctor) (pathReindex_retract F σ))
     (congrArg (fun H : StrictPseudofunctor (PathContext (reindex σ F)) (PathContext F) =>
-      H.toPseudofunctor) ((strictFunctor_id_comp (pathReindex F σ)).trans
-        (strictFunctor_comp_id (pathReindex F σ)).symm))
+      H.toPseudofunctor) ((strictPseudofunctor_id_comp (pathReindex F σ)).trans
+        (strictPseudofunctor_comp_id (pathReindex F σ)).symm))
   · intro x
     exact heq_of_eq (contractionComponent_reindex F σ x)
   · intro x y p

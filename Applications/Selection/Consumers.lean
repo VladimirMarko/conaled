@@ -49,7 +49,7 @@ theorem ranked_strict_counts (xs : List α) (k : Nat) (a : α)
 def lowerMedianWith (choose : List α → Option α) (xs : List α) : Option α :=
   selectWith choose ((xs.length + 1) / 2) xs
 
-theorem lowerMedian_none (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_none (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) : lowerMedianWith choose xs = none ↔ xs = [] := by
   rw [lowerMedianWith, selectWith_none choose hv]
   constructor
@@ -59,12 +59,12 @@ theorem lowerMedian_none (choose : List α → Option α) (hv : PivotValid choos
   · rintro rfl
     simp
 
-theorem lowerMedian_ranked (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_rankedAt (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (ha : lowerMedianWith choose xs = some a) :
     RankedAt xs ((xs.length + 1) / 2 - 1) a :=
   ((selectWith_some_iff choose hv xs _ a).mp ha).2
 
-theorem lowerMedian_odd_index (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_odd_index (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (r : Nat) (hl : xs.length = 2 * r + 1) :
     lowerMedianWith choose xs = (ordered xs)[r]? := by
   unfold lowerMedianWith
@@ -72,7 +72,7 @@ theorem lowerMedian_odd_index (choose : List α → Option α) (hv : PivotValid 
   congr 1
   omega
 
-theorem lowerMedian_even_index (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_even_index (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (r : Nat) (hr : 0 < r) (hl : xs.length = 2 * r) :
     lowerMedianWith choose xs = (ordered xs)[r - 1]? := by
   unfold lowerMedianWith
@@ -80,28 +80,28 @@ theorem lowerMedian_even_index (choose : List α → Option α) (hv : PivotValid
   congr 1
   omega
 
-theorem lowerMedian_strict_counts (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_strict_counts (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (hn : xs.Nodup) (ha : lowerMedianWith choose xs = some a) :
     xs.countP (fun x => decide (x < a)) = (xs.length + 1) / 2 - 1 ∧
       xs.countP (fun x => decide (a < x)) = xs.length - (xs.length + 1) / 2 := by
-  have h := ranked_strict_counts xs _ a hn (lowerMedian_ranked choose hv xs a ha)
+  have h := ranked_strict_counts xs _ a hn (lowerMedianWith_rankedAt choose hv xs a ha)
   have hk := ((selectWith_some_iff choose hv xs _ a).mp ha).1
   omega
 
-theorem lowerMedian_odd_counts (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_odd_counts (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (r : Nat) (hn : xs.Nodup) (hl : xs.length = 2 * r + 1)
     (ha : lowerMedianWith choose xs = some a) :
     xs.countP (fun x => decide (x < a)) = r ∧
       xs.countP (fun x => decide (a < x)) = r := by
-  have h := lowerMedian_strict_counts choose hv xs a hn ha
+  have h := lowerMedianWith_strict_counts choose hv xs a hn ha
   omega
 
-theorem lowerMedian_even_counts (choose : List α → Option α) (hv : PivotValid choose)
+theorem lowerMedianWith_even_counts (choose : List α → Option α) (hv : PivotValid choose)
     (xs : List α) (a : α) (r : Nat) (hn : xs.Nodup) (hl : xs.length = 2 * r)
     (ha : lowerMedianWith choose xs = some a) :
     xs.countP (fun x => decide (x < a)) = r - 1 ∧
       xs.countP (fun x => decide (a < x)) = r := by
-  have h := lowerMedian_strict_counts choose hv xs a hn ha
+  have h := lowerMedianWith_strict_counts choose hv xs a hn ha
   omega
 
 /-- Noninjective monotone maps preserve selected values, for any valid policies. -/

@@ -54,7 +54,7 @@ def concatTemplateBeta := (ConcatFrame.command hΓ x).reflexiveBeta
 
 /-- The generic source template really has the retained named concat syntax
 when applied to its original argument environment. -/
-theorem concatApplicationRaw :
+theorem genericJRaw_sub_eq_concat_raw :
     (genericJRaw 2 .base x.raw (ConcatFrame.command hΓ x).motive.raw
       (ConcatFrame.command hΓ x).motive.branch).sub
       (eliminationSub y.raw p.raw (ConcatApplication.arguments y z q)) =
@@ -83,14 +83,14 @@ def transportApplicationReindex := TmEqDeriv.subComp (transportOpen hΓ b)
 
 /-- Existing presentation coherence DOES additionally reach freshly built
 transport. This result is stronger than fixed-template composition. -/
-theorem transportFreshComparison :
+theorem reindex_transport_code :
     ((transport hΓ p b).reindex hs).code =
       (transport hΔ (p.reindex hΓ hs) (b.reindex hs)).code :=
   transport_code_reindex hΓ hΔ p b hs
 
 /-- The concatenation raw syntax also reaches fresh construction. The missing
 parallel result concerns its all-model annotation, not expression substitution. -/
-theorem concatFreshRawComparison :
+theorem sub_concat_raw :
     (concat hΓ p q).raw.sub σ =
       (concat hΔ (p.reindex hΓ hs) (q.reindex hΓ hs)).raw :=
   concat_raw_reindex hΓ hΔ p q hs

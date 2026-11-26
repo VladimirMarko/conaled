@@ -14,7 +14,7 @@ variable (hR : D.comp F.toPrelaxFunctorStruct = PrelaxFunctorStruct.id B)
 
 omit [Strict A] [Strict B] in
 include hL in
-theorem inverseData_map_injective {x y : A} : Function.Injective (F.map (X := x) (Y := y)) := by
+theorem map_injective_of_inverse_data {x y : A} : Function.Injective (F.map (X := x) (Y := y)) := by
   intro p q h
   have hd := congrArg (fun k : F.obj x ⟶ F.obj y => D.map k) h
   exact eq_of_heq ((congr_arg_heq (fun G => G.map p) hL).symm.trans
@@ -22,7 +22,7 @@ theorem inverseData_map_injective {x y : A} : Function.Injective (F.map (X := x)
 
 omit [Strict A] [Strict B] in
 include hL in
-theorem inverseData_cell_injective {x y : A} {p q : x ⟶ y} :
+theorem map₂_injective_of_inverse_data {x y : A} {p q : x ⟶ y} :
     Function.Injective (F.map₂ (f := p) (g := q)) := by
   intro α β h
   have hd := congrArg (fun k : F.map p ⟶ F.map q => D.map₂ k) h
@@ -31,34 +31,34 @@ theorem inverseData_cell_injective {x y : A} {p q : x ⟶ y} :
 
 include hL hR in
 omit [Strict A] [Strict B] in
-theorem inverseData_map_id (x : B) : D.map (𝟙 x) = 𝟙 (D.obj x) := by
-  apply inverseData_map_injective F D hL
+theorem inverse_data_map_id (x : B) : D.map (𝟙 x) = 𝟙 (D.obj x) := by
+  apply map_injective_of_inverse_data F D hL
   rw [F.map_id]
   exact eq_of_heq ((congr_arg_heq (fun G => G.map (𝟙 x)) hR).trans
     (congr_arg_heq (fun G => 𝟙 (G.obj x)) hR).symm)
 
 include hL hR in
 omit [Strict A] [Strict B] in
-theorem inverseData_map_comp {x y z : B} (p : x ⟶ y) (q : y ⟶ z) :
+theorem inverse_data_map_comp {x y z : B} (p : x ⟶ y) (q : y ⟶ z) :
     D.map (p ≫ q) = D.map p ≫ D.map q := by
-  apply inverseData_map_injective F D hL
+  apply map_injective_of_inverse_data F D hL
   rw [F.map_comp]
   exact eq_of_heq ((congr_arg_heq (fun G => G.map (p ≫ q)) hR).trans
     (congr_arg_heq (fun G => G.map p ≫ G.map q) hR).symm)
 
 include hL hR in
 omit [Strict A] [Strict B] in
-theorem inverseData_cell_id {x y : B} (p : x ⟶ y) : D.map₂ (𝟙 p) = 𝟙 (D.map p) := by
-  apply inverseData_cell_injective F D hL
+theorem inverse_data_map₂_id {x y : B} (p : x ⟶ y) : D.map₂ (𝟙 p) = 𝟙 (D.map p) := by
+  apply map₂_injective_of_inverse_data F D hL
   rw [F.map₂_id]
   exact eq_of_heq ((congr_arg_heq (fun G => G.map₂ (𝟙 p)) hR).trans
     (congr_arg_heq (fun G => 𝟙 (G.map p)) hR).symm)
 
 include hL hR in
 omit [Strict A] [Strict B] in
-theorem inverseData_cell_comp {x y : B} {p q r : x ⟶ y} (α : p ⟶ q) (β : q ⟶ r) :
+theorem inverse_data_map₂_comp {x y : B} {p q r : x ⟶ y} (α : p ⟶ q) (β : q ⟶ r) :
     D.map₂ (α ≫ β) = D.map₂ α ≫ D.map₂ β := by
-  apply inverseData_cell_injective F D hL
+  apply map₂_injective_of_inverse_data F D hL
   rw [F.map₂_comp]
   exact eq_of_heq ((congr_arg_heq (fun G => G.map₂ (α ≫ β)) hR).trans
     (congr_arg_heq (fun G => G.map₂ α ≫ G.map₂ β) hR).symm)
@@ -90,27 +90,27 @@ private theorem mapped_right_cast_heq {x y z : A} {p q : x ⟶ y} (α : p ⟶ q)
 def strictFunctorOfInverseData : StrictPseudofunctor B A :=
   StrictPseudofunctor.mk'' {
     toPrelaxFunctorStruct := D
-    map_id := inverseData_map_id F D hL hR
-    map_comp := inverseData_map_comp F D hL hR
-    map₂_id := inverseData_cell_id F D hL hR
-    map₂_comp := inverseData_cell_comp F D hL hR
+    map_id := inverse_data_map_id F D hL hR
+    map_comp := inverse_data_map_comp F D hL hR
+    map₂_id := inverse_data_map₂_id F D hL hR
+    map₂_comp := inverse_data_map₂_comp F D hL hR
     map₂_whisker_left := by
       intro x y z p q r α
-      apply inverseData_cell_injective F D hL
+      apply map₂_injective_of_inverse_data F D hL
       apply eq_of_heq
       apply HEq.trans (congr_arg_heq (fun G => G.map₂ (p ◁ α)) hR)
       symm
       apply HEq.trans (mapped_left_cast_heq F (D.map p) (D.map₂ α)
-        (inverseData_map_comp F D hL hR p q) (inverseData_map_comp F D hL hR p r))
+        (inverse_data_map_comp F D hL hR p q) (inverse_data_map_comp F D hL hR p r))
       exact congr_arg_heq (fun G => G.map p ◁ G.map₂ α) hR
     map₂_whisker_right := by
       intro x y z p q α r
-      apply inverseData_cell_injective F D hL
+      apply map₂_injective_of_inverse_data F D hL
       apply eq_of_heq
       apply HEq.trans (congr_arg_heq (fun G => G.map₂ (α ▷ r)) hR)
       symm
       apply HEq.trans (mapped_right_cast_heq F (D.map₂ α) (D.map r)
-        (inverseData_map_comp F D hL hR p r) (inverseData_map_comp F D hL hR q r))
+        (inverse_data_map_comp F D hL hR p r) (inverse_data_map_comp F D hL hR q r))
       exact congr_arg_heq (fun G => G.map₂ α ▷ G.map r) hR
   }
 theorem strictFunctorOfInverseData_left_inverse :

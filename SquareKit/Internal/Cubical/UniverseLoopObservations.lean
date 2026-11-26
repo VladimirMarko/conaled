@@ -34,7 +34,7 @@ noncomputable def transportTwoPath {p q : Term (paths a b)}
     ((pathApp_one r).trans (transportEvaluation_beta a b x q))
 
 /-- Only a supplied observation into constant coefficients is reflected to Eq. -/
-theorem twoPath_discrete_observation {S : Type (u+1)}
+theorem two_path_discrete_observation {S : Type (u+1)}
     (o : liftedDecode b ⟶ constantFamily Γ S) {p q : Term (paths a b)}
     (h : Term (homogeneousPath (paths a b) p q)) (x : Term (liftedDecode a)) :
     Term.map o (Term.map (pathToMap p) x) = Term.map o (Term.map (pathToMap q) x) :=

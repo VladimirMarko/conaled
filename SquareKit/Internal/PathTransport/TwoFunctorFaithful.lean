@@ -19,7 +19,7 @@ private theorem cell_heq_reflect {x y x' y' : B} (hx : x = x') (hy : y = y')
   cases eq_of_heq hp; cases eq_of_heq hq
   exact heq_of_eq (hc (eq_of_heq h))
 include ho hm hc in
-theorem strictFunctor_postcomp_injective {F G : StrictPseudofunctor A B}
+theorem strictPseudofunctor_postcomp_injective {F G : StrictPseudofunctor A B}
     (h : F.comp H = G.comp H) : F = G := by
   have hO (a : A) : F.obj a = G.obj a := ho (congrArg (fun K => K.obj a) h)
   have hM {a b : A} (p : a ⟶ b) : HEq (F.map p) (G.map p) :=

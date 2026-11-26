@@ -32,19 +32,19 @@ theorem pathSecond_normal : pathSecond F = (pathEndpoints F).comp (endpointProje
 theorem closedPathEmbedding_first (s t : Section F) :
     (closedPathEmbedding F s t).comp (pathFirst F) =
       (projectionHigher (closedId F s t)).comp s.lift := by
-  rw [pathFirst_normal, ← strictFunctor_comp_assoc]
+  rw [pathFirst_normal, ← strictPseudofunctor_comp_assoc]
   change ((reindexHigher (openIdHigher F) (endpointPair F s t).lift).comp
     (projectionHigher (openIdHigher F))).comp (endpointProjection F true) = _
-  rw [reindexHigher_projection, strictFunctor_comp_assoc, endpointPair_first]
+  rw [reindexHigher_projection, strictPseudofunctor_comp_assoc, endpointPair_first]
   rfl
 
 theorem closedPathEmbedding_second (s t : Section F) :
     (closedPathEmbedding F s t).comp (pathSecond F) =
       (projectionHigher (closedId F s t)).comp t.lift := by
-  rw [pathSecond_normal, ← strictFunctor_comp_assoc]
+  rw [pathSecond_normal, ← strictPseudofunctor_comp_assoc]
   change ((reindexHigher (openIdHigher F) (endpointPair F s t).lift).comp
     (projectionHigher (openIdHigher F))).comp (endpointProjection F false) = _
-  rw [reindexHigher_projection, strictFunctor_comp_assoc, endpointPair_second]
+  rw [reindexHigher_projection, strictPseudofunctor_comp_assoc, endpointPair_second]
   rfl
 
 theorem closedReflexivity_embedding (s : Section F) :
@@ -69,24 +69,24 @@ theorem rootedPathEmbedding_first (x : Section F) :
     (rootedPathEmbedding F x).comp (pathFirst F) =
       ((projectionHigher (rootedPathFamily F x)).comp (projectionHigher F)).comp x.lift := by
   unfold rootedPathEmbedding
-  rw [strictFunctor_comp_assoc, pathReindex_first, ← strictFunctor_comp_assoc,
-    closedPathEmbedding_first, strictFunctor_comp_assoc, Section.reindex_lift,
-    ← strictFunctor_comp_assoc]
+  rw [strictPseudofunctor_comp_assoc, pathReindex_first, ← strictPseudofunctor_comp_assoc,
+    closedPathEmbedding_first, strictPseudofunctor_comp_assoc, Section.reindex_lift,
+    ← strictPseudofunctor_comp_assoc]
   rfl
 theorem pathReindex_second {Δ : Type*} [Bicategory Δ] [Strict Δ]
     (σ : StrictPseudofunctor Δ Γ) :
     (pathReindex F σ).comp (pathSecond F) =
       (pathSecond (reindex σ F)).comp (reindexHigher F σ) := by
-  rw [pathSecond_normal, ← strictFunctor_comp_assoc, pathReindex_endpoints,
-    strictFunctor_comp_assoc, endpointReindex_projection, ← strictFunctor_comp_assoc,
+  rw [pathSecond_normal, ← strictPseudofunctor_comp_assoc, pathReindex_endpoints,
+    strictPseudofunctor_comp_assoc, endpointReindex_projection, ← strictPseudofunctor_comp_assoc,
     ← pathSecond_normal]
 
 theorem rootedPathEmbedding_second (x : Section F) :
     (rootedPathEmbedding F x).comp (pathSecond F) = projectionHigher (rootedPathFamily F x) := by
   unfold rootedPathEmbedding
-  rw [strictFunctor_comp_assoc, pathReindex_second, ← strictFunctor_comp_assoc,
-    closedPathEmbedding_second, strictFunctor_comp_assoc, variableLift_recombined,
-    strictFunctor_comp_id]
+  rw [strictPseudofunctor_comp_assoc, pathReindex_second, ← strictPseudofunctor_comp_assoc,
+    closedPathEmbedding_second, strictPseudofunctor_comp_assoc, variableLift_recombined,
+    strictPseudofunctor_comp_id]
   rfl
 
 end SquareKit.Internal.PathTransport.TwoFamily
