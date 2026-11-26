@@ -15,26 +15,26 @@ structure CartesianH {P : ProductOps C} {T : ProductOps D} (i : ProductMap F P T
   pair : ∀ {a b c} (f : C.Hom a b) (g : C.Hom a c),
     H.Rel (F.map (P.pair f g)) (D.comp (i b c).inv (T.pair (F.map f) (F.map g)))
 
-def Comparison.solve_right (K : H.Congr) (L : H.Laws) {a b c : Q}
+def Comparison.solveRightComparison (K : H.Congr) (L : H.Laws) {a b c : Q}
     {i : Comparison D a b} (I : ComparisonLaws H i) {f : D.Hom a c} {g : D.Hom b c}
     (h : H.Rel (D.comp f i.inv) g) : H.Rel f (D.comp g i.hom) :=
-  H.trans (H.symm (H.trans (K.comp (H.refl _) I.inv_hom) (L.compIdent _)))
+  H.trans (H.symm (H.trans (K.comp (H.refl _) I.invHom) (L.compIdent _)))
     (H.trans (H.symm (L.assoc _ _ _)) (K.comp h (H.refl _)))
 
 def CartesianH.normalized {P : ProductOps C} {T : ProductOps D} {i : ProductMap F P T}
     (M : CartesianH (H := H) i) (K : H.Congr) (L : H.Laws)
     (I : ∀ a b, ComparisonLaws H (i a b)) : ProductMapLaws H i where
-  fst := Comparison.solve_right K L (I _ _) (M.fst _ _)
-  snd := Comparison.solve_right K L (I _ _) (M.snd _ _)
+  fst := Comparison.solveRightComparison K L (I _ _) (M.fst _ _)
+  snd := Comparison.solveRightComparison K L (I _ _) (M.snd _ _)
   pair := M.pair
 
 def ProductMapLaws.felix {P : ProductOps C} {T : ProductOps D} {i : ProductMap F P T}
     (M : ProductMapLaws H i) (K : H.Congr) (L : H.Laws)
     (I : ∀ a b, ComparisonLaws H (i a b)) : CartesianH (H := H) i where
   fst a b := H.trans (K.comp M.fst (H.refl _))
-    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.compIdent _)))
+    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).homInv) (L.compIdent _)))
   snd a b := H.trans (K.comp M.snd (H.refl _))
-    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).hom_inv) (L.compIdent _)))
+    (H.trans (L.assoc _ _ _) (H.trans (K.comp (H.refl _) (I a b).homInv) (L.compIdent _)))
   pair := M.pair
 
 def CartesianH.id {P : ProductOps C} {E : WitnessEquivalence C} (L : E.Laws) :
@@ -67,15 +67,15 @@ structure CocartesianH {S : CoproductOps C} {T : CoproductOps D} (i : CoproductM
 def CocartesianH.normalized {S : CoproductOps C} {T : CoproductOps D}
     {i : CoproductMap F S T} (M : CocartesianH (H := H) i) (K : H.Congr) (L : H.Laws)
     (I : ∀ a b, ComparisonLaws H (i a b)) : CoproductMapLaws H i where
-  inl := H.trans (H.symm (L.cancel_left K (I _ _).inv_hom _)) (K.comp (H.refl _) (M.inl _ _))
-  inr := H.trans (H.symm (L.cancel_left K (I _ _).inv_hom _)) (K.comp (H.refl _) (M.inr _ _))
+  inl := H.trans (H.symm (L.cancelLeft K (I _ _).invHom _)) (K.comp (H.refl _) (M.inl _ _))
+  inr := H.trans (H.symm (L.cancelLeft K (I _ _).invHom _)) (K.comp (H.refl _) (M.inr _ _))
   copair := M.copair
 
 def CoproductMapLaws.felix {S : CoproductOps C} {T : CoproductOps D}
     {i : CoproductMap F S T} (M : CoproductMapLaws H i) (K : H.Congr) (L : H.Laws)
     (I : ∀ a b, ComparisonLaws H (i a b)) : CocartesianH (H := H) i where
-  inl _ _ := H.trans (K.comp (H.refl _) M.inl) (L.cancel_left K (I _ _).hom_inv _)
-  inr _ _ := H.trans (K.comp (H.refl _) M.inr) (L.cancel_left K (I _ _).hom_inv _)
+  inl _ _ := H.trans (K.comp (H.refl _) M.inl) (L.cancelLeft K (I _ _).homInv _)
+  inr _ _ := H.trans (K.comp (H.refl _) M.inr) (L.cancelLeft K (I _ _).homInv _)
   copair := M.copair
 
 def Preservation.induced {E : WitnessEquivalence C} (L : Preservation F E H) :

@@ -11,8 +11,8 @@ def rightWitness : component.Rel (a := ((),())) (b := ((),())) ((),()) ((),()) :
 example : leftWitness ≠ rightWitness := by
   change (true,false) ≠ (false,true)
   decide
-example : (WitnessProduct.fst_laws witnesses witnesses).congr (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) leftWitness = true := rfl
-example : (WitnessProduct.snd_laws witnesses witnesses).congr (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) leftWitness = false := rfl
+example : (WitnessProduct.fstPreservation witnesses witnesses).congr (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) leftWitness = true := rfl
+example : (WitnessProduct.sndPreservation witnesses witnesses).congr (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) leftWitness = false := rfl
 example : component.symm (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) leftWitness = (false,true) := rfl
 
 end Examples.WitnessProduct

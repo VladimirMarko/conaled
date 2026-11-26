@@ -11,13 +11,13 @@ variable {O : Type u} {C : CategoryOps.{u,v} O} {P : ProductOps C}
 variable {E : WitnessEquivalence C} (CC : E.Congr) (CL : E.Laws)
 variable (PC : WitnessEquivalence.ProductCongr E P) (PL : WitnessEquivalence.ProductLaws E P)
 include CC CL PC PL in
-def map_laws : WitnessEquivalence.Preservation (unsquare P) (WitnessProduct.equiv C C E E) E :=
+def unsquarePreservation : WitnessEquivalence.Preservation (unsquare P) (WitnessProduct.equiv C C E E) E :=
   ⟨fun h => WitnessEquivalence.Cartesian.tensorCongr CC PC h.1 h.2,
     WitnessEquivalence.Cartesian.tensorIdent CL PC PL _ _,
     fun g f => E.symm (WitnessEquivalence.Cartesian.tensorComp CC CL PC PL g.1 g.2 f.1 f.2)⟩
 
 include CC CL PC PL in
-def transpose_pair {x a b c d : O} (f : C.Hom x a) (g : C.Hom x b)
+def transposePair {x a b c d : O} (f : C.Hom x a) (g : C.Hom x b)
     (h : C.Hom x c) (k : C.Hom x d) :
     E.Rel (C.comp (transpose P) (P.pair (P.pair f g) (P.pair h k)))
       (P.pair (P.pair f h) (P.pair g k)) := by
@@ -33,15 +33,15 @@ def transpose_pair {x a b c d : O} (f : C.Hom x a) (g : C.Hom x b)
     · exact E.trans (CL.assoc _ _ _) (E.trans (CC.comp (E.refl _) (PL.sndPair _ _)) (PL.sndPair _ _))
 
 include CC CL PC PL in
-def transpose_transpose (a b c d : O) :
+def transposeTranspose (a b c d : O) :
     E.Rel (C.comp (transpose P) (transpose P (a := a) (b := b) (c := c) (d := d))) C.ident :=
-  E.trans (transpose_pair CC CL PC PL _ _ _ _)
+  E.trans (transposePair CC CL PC PL _ _ _ _)
     (E.trans (PC.pair (PL.pairEta _) (PL.pairEta _)) (PL.pairProjections CL PC))
 include CC CL PC PL in
-def productMap_inverse (a b : O × O) : WitnessEquivalence.ComparisonLaws E (productMap (P := P) a b) :=
-  ⟨transpose_transpose CC CL PC PL _ _ _ _,transpose_transpose CC CL PC PL _ _ _ _⟩
+def productMapComparisonLaws (a b : O × O) : WitnessEquivalence.ComparisonLaws E (productMap (P := P) a b) :=
+  ⟨transposeTranspose CC CL PC PL _ _ _ _,transposeTranspose CC CL PC PL _ _ _ _⟩
 include CC CL PC PL in
-def productMap_laws : WitnessEquivalence.ProductMapLaws E (productMap (P := P)) := by
+def productMapLaws : WitnessEquivalence.ProductMapLaws E (productMap (P := P)) := by
   constructor
   · intro a b
     exact E.symm (PL.fstPair _ _)
@@ -51,18 +51,18 @@ def productMap_laws : WitnessEquivalence.ProductMapLaws E (productMap (P := P)) 
     change E.Rel (tensor P (P.pair f.1 g.1) (P.pair f.2 g.2))
       (C.comp (transpose P) (P.pair (tensor P f.1 f.2) (tensor P g.1 g.2)))
     apply E.symm
-    exact E.trans (transpose_pair CC CL PC PL _ _ _ _)
+    exact E.trans (transposePair CC CL PC PL _ _ _ _)
       (PC.pair (E.symm (PL.pairComp CC CL PC _ _ _))
         (E.symm (PL.pairComp CC CL PC _ _ _)))
 
 variable (T : TerminalOps C)
 include CC CL PC PL in
-def terminalMap_inverse (TL : WitnessEquivalence.TerminalLaws E T) :
+def terminalMapComparisonLaws (TL : WitnessEquivalence.TerminalLaws E T) :
     WitnessEquivalence.ComparisonLaws E (terminalMap (P := P) T) :=
   ⟨WitnessEquivalence.Cartesian.unitRightInsertRight PL T _,
     WitnessEquivalence.Cartesian.insertRightUnitRight CC CL PC PL T TL _⟩
 include CC CL PC PL in
-def terminalMap_laws (TL : WitnessEquivalence.TerminalLaws E T) :
+def terminalMapLaws (TL : WitnessEquivalence.TerminalLaws E T) :
     WitnessEquivalence.TerminalMapLaws E (terminalMap (P := P) T) := by
   constructor
   intro a
@@ -74,11 +74,11 @@ def terminalMap_laws (TL : WitnessEquivalence.TerminalLaws E T) :
 def induced (P : ProductOps C) (E : WitnessEquivalence C) :=
   WitnessEquivalence.induced (unsquare P) E
 include CC CL PC PL in
-def induced_laws : (induced P E).Laws :=
-  WitnessEquivalence.transportLaws (map_laws CC CL PC PL).induced (fun h => h) CC CL
+def inducedLaws : (induced P E).Laws :=
+  WitnessEquivalence.transportLaws (unsquarePreservation CC CL PC PL).induced (fun h => h) CC CL
 include CC CL PC PL in
-def induced_congr : (induced P E).Congr :=
-  WitnessEquivalence.transportCongr (map_laws CC CL PC PL).induced (fun h => h) CC
+def inducedCongr : (induced P E).Congr :=
+  WitnessEquivalence.transportCongr (unsquarePreservation CC CL PC PL).induced (fun h => h) CC
 
 theorem erase_induced (P : ProductOps C) (E : WitnessEquivalence C) :
     (induced P E).erase = (unsquare P).induced E.erase := rfl

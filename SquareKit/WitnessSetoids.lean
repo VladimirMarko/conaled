@@ -91,19 +91,19 @@ def coproducts : CoproductOps ops.{u,v} where
     · exact h.elim
     · exact g.congr h⟩
 
-def terminal_laws : WitnessEquivalence.TerminalLaws equiv terminal.{u,v} := ⟨fun _ _ => PUnit.unit⟩
-def initial_laws : WitnessEquivalence.InitialLaws equiv initial.{u,v} := ⟨fun _ x => x.elim⟩
-def product_congr : WitnessEquivalence.ProductCongr equiv products.{u,v} := ⟨fun h k x => ⟨h x,k x⟩⟩
-def product_laws : WitnessEquivalence.ProductLaws equiv products.{u,v} :=
+def terminalLaws : WitnessEquivalence.TerminalLaws equiv terminal.{u,v} := ⟨fun _ _ => PUnit.unit⟩
+def initialLaws : WitnessEquivalence.InitialLaws equiv initial.{u,v} := ⟨fun _ x => x.elim⟩
+def productCongr : WitnessEquivalence.ProductCongr equiv products.{u,v} := ⟨fun h k x => ⟨h x,k x⟩⟩
+def productLaws : WitnessEquivalence.ProductLaws equiv products.{u,v} :=
   ⟨fun {_ b _} _ _ _ => b.refl _,fun {_ _ c} _ _ _ => c.refl _,
     fun {_ b c} _ _ => ⟨b.refl _,c.refl _⟩⟩
-def coproduct_congr : WitnessEquivalence.CoproductCongr equiv coproducts.{u,v} := by
+def coproductCongr : WitnessEquivalence.CoproductCongr equiv coproducts.{u,v} := by
   constructor
   intro a b c f f' g g' h k x
   cases x with
   | inl x => exact h x
   | inr x => exact k x
-def coproduct_laws : WitnessEquivalence.CoproductLaws equiv coproducts.{u,v} := by
+def coproductLaws : WitnessEquivalence.CoproductLaws equiv coproducts.{u,v} := by
   constructor
   · intro a b c f g x; exact c.refl _
   · intro a b c f g x; exact c.refl _

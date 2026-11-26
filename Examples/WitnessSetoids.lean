@@ -39,9 +39,9 @@ example : (rightDistribution.distribute (a := tagged) (b := tagged) (c := tagged
     (true,false) := rfl
 
 /-- Direct universal-property operations retain the supplied Boolean witnesses. -/
-example : (product_universal.forward
+example : (productUniversal.forward
     (fun _ => (true,false) : equiv.Rel (products.pair keep keep) (products.pair keep keep))).1 false = true := rfl
-example : coproduct_universal.backward (k := coproducts.copair keep keep)
+example : coproductUniversal.backward (k := coproducts.copair keep keep)
     (f := keep) (g := keep) ⟨yes,no⟩
     (Sum.inr false) = false := rfl
 example {A B C D : Obj} (h : Hom C D) (g : Hom B C) (f : Hom A B) :
@@ -52,6 +52,6 @@ example {A B C D : Obj} (h : Hom C D) (g : Hom B C) (f : Hom A B) :
 example (f g : Hom tagged tagged) :
     equiv.Rel (ops.comp (SquareKit.Cartesian.swap products)
       (products.pair f g)) (products.pair g f) :=
-  WitnessEquivalence.Cartesian.swapPair congr laws product_congr product_laws f g
+  WitnessEquivalence.Cartesian.swapPair congr laws productCongr productLaws f g
 
 end Examples.WitnessSetoids

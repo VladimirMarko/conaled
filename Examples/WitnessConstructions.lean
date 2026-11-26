@@ -13,9 +13,9 @@ open Examples.WitnessStructure (products productCongr productLaws)
 -- Independent expectations: projection preserves the chosen component, and
 -- square equality must retain its commutativity witness even when side relations ignore it.
 def productRelation := WitnessProduct.equiv one one witnesses witnesses
-example : (WitnessProduct.fst_laws witnesses witnesses).congr
+example : (WitnessProduct.fstPreservation witnesses witnesses).congr
     (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) (true,false) = true := rfl
-example : (WitnessProduct.snd_laws witnesses witnesses).congr
+example : (WitnessProduct.sndPreservation witnesses witnesses).congr
     (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) (true,false) = false := rfl
 
 def universalLeft : SquareKit.WitnessEquivalence.ProductUniversal (E := witnesses) products :=
@@ -32,12 +32,12 @@ example : (SquareKit.WitnessEquivalence.Preservation.id witnesses).congr
 def commaRelation := WitnessComma.equiv congruence laws preserves preserves
 example : commaRelation.Rel (square false) (square true) := (true,false)
 example : square false ≠ square true := squares_distinct
-example : (WitnessComma.toProduct_laws congruence laws preserves preserves).congr
+example : (WitnessComma.toProductPreservation congruence laws preserves preserves).congr
     (f := square false) (g := square true) (true,false) = (true,false) := rfl
 
 def composedProjection := SquareKit.WitnessEquivalence.Preservation.compose
-  (WitnessComma.toProduct_laws congruence laws preserves preserves)
-  (WitnessProduct.fst_laws witnesses witnesses)
+  (WitnessComma.toProductPreservation congruence laws preserves preserves)
+  (WitnessProduct.fstPreservation witnesses witnesses)
 example : composedProjection.congr (f := square false) (g := square true) (true,false) = true := rfl
 example : (commaRelation.erase.Rel (square false) (square true)) ↔
     (Comma.equiv congruence.erase laws.erase preserves.erase preserves.erase).Rel
@@ -60,7 +60,7 @@ example : (WitnessComma.vertical congruence laws (square false) (square true) fa
   WitnessComma.erase_vertical _ _ _ _ _
 
 def arrowSquareProducts := WitnessArrow.products congruence laws products productCongr (productLaws true)
-def arrowProductLaws := WitnessArrow.products_laws congruence laws products productCongr (productLaws true)
+def arrowProductLaws := WitnessArrow.productsLaws congruence laws products productCongr (productLaws true)
 example : arrowProductLaws.fstPair (square false) (square true) = (true,true) := rfl
 example : SquareKit.ProductLaws (WitnessArrow.equiv congruence laws).erase arrowSquareProducts :=
   arrowProductLaws.erase
@@ -68,11 +68,11 @@ example : SquareKit.ProductLaws (WitnessArrow.equiv congruence laws).erase arrow
 -- Squared has one target witness, whereas Product has two independently chosen witnesses.
 def squaredRelation := WitnessSquared.induced products witnesses
 example : squaredRelation.Rel (a := ((),())) (b := ((),())) ((),()) ((),()) := true
-example : (WitnessSquared.map_laws congruence laws productCongr (productLaws false)).congr
+example : (WitnessSquared.unsquarePreservation congruence laws productCongr (productLaws false)).congr
     (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) (true,false) = false := rfl
 example : (squaredRelation.erase) = (Squared.unsquare products).induced witnesses.erase :=
   WitnessSquared.erase_induced products witnesses
-example : squaredRelation.Laws := WitnessSquared.induced_laws congruence laws productCongr (productLaws false)
+example : squaredRelation.Laws := WitnessSquared.inducedLaws congruence laws productCongr (productLaws false)
 
 -- Object reindexing permits a noninjective object map and nonidentity product comparisons.
 open Examples.WitnessStructure (arrows arrowWitnesses arrowProducts arrowCongr arrowLaws)
@@ -83,7 +83,7 @@ def compareLaws (a b : Bool) : SquareKit.WitnessEquivalence.ComparisonLaws arrow
   ⟨false,true⟩
 def reindexedProductLaws : SquareKit.WitnessEquivalence.ProductLaws
     (WitnessObjectReindex.equiv collapse arrowWitnesses) reindexedProducts :=
-  WitnessObjectReindex.product_laws collapse arrowCongr arrowLaws arrowProducts (fun x _ => x)
+  WitnessObjectReindex.productLaws collapse arrowCongr arrowLaws arrowProducts (fun x _ => x)
     compare compareLaws ⟨fun p q => p && q⟩ ⟨fun _ _ => false,fun _ _ => true,fun _ => false⟩
 example : (ObjectReindex.products collapse arrowProducts (fun x _ => x) compare).fst
     (a := false) (b := true) = true := rfl
@@ -98,7 +98,7 @@ example : restricted false ≠ restricted true := by
   intro h
   exact Bool.false_ne_true (congrArg MorphismRestriction.Hom.sat h)
 example : (WitnessMorphismRestriction.equiv closure witnesses).Rel (restricted false) (restricted true) := true
-example : (WitnessMorphismRestriction.forget_laws closure witnesses).congr
+example : (WitnessMorphismRestriction.forgetPreservation closure witnesses).congr
     (f := restricted false) (g := restricted true) true = true := rfl
 example : (WitnessMorphismRestriction.equiv closure witnesses).Laws :=
   WitnessMorphismRestriction.laws closure laws

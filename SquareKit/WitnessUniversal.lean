@@ -49,10 +49,10 @@ def ClosedUniversal.laws {P : ProductOps C} {H : ClosedOps C P}
 def ClosedLaws.universal {P : ProductOps C} {H : ClosedOps C P}
     (L : ClosedLaws E P H) (K : E.Congr) (G : ProductCongr E P)
     (HC : ClosedCongr E P H) : ClosedUniversal (E := E) H where
-  forward h := E.symm (E.trans (ClosedOps.uncurry_congr H K G h) (L.beta _))
+  forward h := E.symm (E.trans (ClosedOps.uncurryCongr H K G h) (L.beta _))
   backward h := E.symm (E.trans (HC.curry h) (L.eta _))
 
-def ClosedLaws.curry_evaluation {P : ProductOps C} {H : ClosedOps C P}
+def ClosedLaws.identCurryEvaluation {P : ProductOps C} {H : ClosedOps C P}
     (L : ClosedLaws E P H) (K : E.Congr) (A : E.Laws) (G : ProductCongr E P)
     (PL : ProductLaws E P) (HC : ClosedCongr E P H) (a b : O) :
     E.Rel (C.ident (a := H.exp a b)) (H.curry H.evaluation) :=

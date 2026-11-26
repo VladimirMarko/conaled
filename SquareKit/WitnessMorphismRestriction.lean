@@ -6,7 +6,7 @@ universe u v w
 variable {O : Type u} {C : CategoryOps.{u,v} O} {M : {a b : O} → C.Hom a b → Type w}
 def equiv (K : CategoryClosure C M) (E : WitnessEquivalence C) : WitnessEquivalence (ops K) :=
   WitnessEquivalence.induced (forget K) E
-def forget_laws (K : CategoryClosure C M) (E : WitnessEquivalence C) :
+def forgetPreservation (K : CategoryClosure C M) (E : WitnessEquivalence C) :
     WitnessEquivalence.Preservation (forget K) (equiv K E) E :=
   ⟨fun h => h,E.refl _,fun _ _ => E.refl _⟩
 def congr (K : CategoryClosure C M) {E : WitnessEquivalence C} (CC : E.Congr) :
@@ -28,21 +28,21 @@ def productLaws (K : CategoryClosure C M) (P : ProductOps C)
   ⟨fun f g => L.fstPair f.arrow g.arrow,
     fun f g => L.sndPair f.arrow g.arrow, fun f => L.pairEta f.arrow⟩
 
-def forget_terminal (K : CategoryClosure C M) (T : TerminalOps C)
+def forgetTerminalLaws (K : CategoryClosure C M) (T : TerminalOps C)
     (KT : TerminalClosure (M := M) T) {E : WitnessEquivalence C} (L : E.Laws) :
     WitnessEquivalence.TerminalMapLaws E (terminalComparison K T KT) := ⟨E.symm (L.identComp _)⟩
 
-def forget_products (K : CategoryClosure C M) (P : ProductOps C)
+def forgetProductLaws (K : CategoryClosure C M) (P : ProductOps C)
     (KP : ProductClosure (M := M) P) {E : WitnessEquivalence C} (L : E.Laws) :
     WitnessEquivalence.ProductMapLaws E (productComparison K P KP) :=
   ⟨E.symm (L.compIdent _),E.symm (L.compIdent _),fun _ _ => E.symm (L.identComp _)⟩
 
-def terminalComparison_inverse (K : CategoryClosure C M) (T : TerminalOps C)
+def terminalComparisonLaws (K : CategoryClosure C M) (T : TerminalOps C)
     (KT : TerminalClosure (M := M) T) {E : WitnessEquivalence C} (L : E.Laws) :
-    WitnessEquivalence.ComparisonLaws E (terminalComparison K T KT) := WitnessEquivalence.Comparison.id_laws L _
-def productComparison_inverse (K : CategoryClosure C M) (P : ProductOps C)
+    WitnessEquivalence.ComparisonLaws E (terminalComparison K T KT) := WitnessEquivalence.Comparison.idLaws L _
+def productComparisonLaws (K : CategoryClosure C M) (P : ProductOps C)
     (KP : ProductClosure (M := M) P) {E : WitnessEquivalence C} (L : E.Laws) (a b : O) :
-    WitnessEquivalence.ComparisonLaws E (productComparison K P KP a b) := WitnessEquivalence.Comparison.id_laws L _
+    WitnessEquivalence.ComparisonLaws E (productComparison K P KP a b) := WitnessEquivalence.Comparison.idLaws L _
 theorem erase_equiv (K : CategoryClosure C M) (E : WitnessEquivalence C) :
     (equiv K E).erase = MorphismRestriction.equiv K E.erase := rfl
 end SquareKit.WitnessMorphismRestriction

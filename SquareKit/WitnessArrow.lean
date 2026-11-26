@@ -33,7 +33,7 @@ abbrev equiv (CC : E.Congr) (CL : E.Laws) :=
 def identityMap (CC : E.Congr) (CL : E.Laws) : RawMap C (ops CC CL) :=
   ⟨identityObj, identityHom CL⟩
 
-def identityMap_laws (CC : E.Congr) (CL : E.Laws) :
+def identityMapPreservation (CC : E.Congr) (CL : E.Laws) :
     WitnessEquivalence.Preservation (identityMap CC CL) E (equiv CC CL) :=
   ⟨fun h => ⟨h,h⟩, ⟨E.refl _,E.refl _⟩, fun _ _ => ⟨E.refl _,E.refl _⟩⟩
 
@@ -71,16 +71,16 @@ def products (CC : E.Congr) (CL : E.Laws) (P : ProductOps C)
     (PC : WitnessEquivalence.ProductCongr E P) (PL : WitnessEquivalence.ProductLaws E P) : ProductOps (ops CC CL) :=
   WitnessComma.productOps CC CL (WitnessEquivalence.Preservation.id E) (WitnessEquivalence.Preservation.id E)
     (ProductMap.id P) (ProductMap.id P)
-    (fun _ _ => WitnessEquivalence.Comparison.id_laws CL _) (fun _ _ => WitnessEquivalence.Comparison.id_laws CL _)
-    (WitnessEquivalence.ProductMap.id_laws CL P) (WitnessEquivalence.ProductMap.id_laws CL P) PC PL
+    (fun _ _ => WitnessEquivalence.Comparison.idLaws CL _) (fun _ _ => WitnessEquivalence.Comparison.idLaws CL _)
+    (WitnessEquivalence.ProductMap.idLaws CL P) (WitnessEquivalence.ProductMap.idLaws CL P) PC PL
 
-def products_laws (CC : E.Congr) (CL : E.Laws) (P : ProductOps C)
+def productsLaws (CC : E.Congr) (CL : E.Laws) (P : ProductOps C)
     (PC : WitnessEquivalence.ProductCongr E P) (PL : WitnessEquivalence.ProductLaws E P) :
     WitnessEquivalence.ProductLaws (equiv CC CL) (products CC CL P PC PL) :=
   WitnessComma.productLaws CC CL (WitnessEquivalence.Preservation.id E) (WitnessEquivalence.Preservation.id E)
     (ProductMap.id P) (ProductMap.id P)
-    (fun _ _ => WitnessEquivalence.Comparison.id_laws CL _) (fun _ _ => WitnessEquivalence.Comparison.id_laws CL _)
-    (WitnessEquivalence.ProductMap.id_laws CL P) (WitnessEquivalence.ProductMap.id_laws CL P) PC PL PL PL
+    (fun _ _ => WitnessEquivalence.Comparison.idLaws CL _) (fun _ _ => WitnessEquivalence.Comparison.idLaws CL _)
+    (WitnessEquivalence.ProductMap.idLaws CL P) (WitnessEquivalence.ProductMap.idLaws CL P) PC PL PL PL
 theorem erase_transpose {a b : Obj C} (f : Hom E a b) :
     (transpose f).erase = RawArrow.transpose f.erase := Comma.Hom.ext rfl rfl
 
@@ -93,14 +93,14 @@ def terminal (CC : E.Congr) (CL : E.Laws) (T : TerminalOps C)
     (TL : WitnessEquivalence.TerminalLaws E T) : TerminalOps (ops CC CL) :=
   WitnessComma.terminalOps CC CL (WitnessEquivalence.Preservation.id E)
     (WitnessEquivalence.Preservation.id E) (TerminalMap.id T) (TerminalMap.id T)
-    (WitnessEquivalence.Comparison.id_laws CL _)
-    (WitnessEquivalence.TerminalMap.id_laws CL T) (WitnessEquivalence.TerminalMap.id_laws CL T) TL
+    (WitnessEquivalence.Comparison.idLaws CL _)
+    (WitnessEquivalence.TerminalMap.idLaws CL T) (WitnessEquivalence.TerminalMap.idLaws CL T) TL
 
-def terminal_laws (CC : E.Congr) (CL : E.Laws) (T : TerminalOps C)
+def terminalLaws (CC : E.Congr) (CL : E.Laws) (T : TerminalOps C)
     (TL : WitnessEquivalence.TerminalLaws E T) :
     WitnessEquivalence.TerminalLaws (equiv CC CL) (terminal CC CL T TL) :=
   ⟨fun f => ⟨TL.unique f.left,TL.unique f.right⟩⟩
-def products_congr (CC : E.Congr) (CL : E.Laws) (P : ProductOps C)
+def productsCongr (CC : E.Congr) (CL : E.Laws) (P : ProductOps C)
     (PC : WitnessEquivalence.ProductCongr E P) (PL : WitnessEquivalence.ProductLaws E P) :
     WitnessEquivalence.ProductCongr (equiv CC CL) (products CC CL P PC PL) :=
   ⟨fun h k => ⟨PC.pair h.1 k.1,PC.pair h.2 k.2⟩⟩

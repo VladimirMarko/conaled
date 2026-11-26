@@ -8,13 +8,13 @@ namespace ClosedOps
 variable {O : Type u₁} {C : CategoryOps.{u₁,v₁} O} {E : WitnessEquivalence C}
 variable {P : ProductOps C} (H : ClosedOps C P)
 
-def uncurry_congr (CC : Congr E) (PC : ProductCongr E P)
+def uncurryCongr (CC : Congr E) (PC : ProductCongr E P)
     {x a b} {f g : C.Hom x (H.exp a b)} (h : E.Rel f g) :
     E.Rel (H.uncurry f) (H.uncurry g) :=
   CC.comp (E.refl _) (PC.pair (CC.comp h (E.refl _)) (E.refl _))
 
 /-- Uncurrying commutes with substitution in the captured environment. -/
-def uncurry_comp (CC : Congr E) (CL : Laws E)
+def uncurryComp (CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P)
     {x y a b} (f : C.Hom x (H.exp a b)) (g : C.Hom y x) :
     E.Rel (H.uncurry (C.comp f g))
@@ -42,7 +42,7 @@ def ofBetaEta (CC : Congr E) (CL : Laws E)
   beta := beta
   eta := eta
   natural f _g := E.trans (HC.curry (CC.comp (E.symm (beta f)) (E.refl _)))
-    (E.trans (HC.curry (E.symm (ClosedOps.uncurry_comp H CC CL PC PL _ _))) (eta _))
+    (E.trans (HC.curry (E.symm (ClosedOps.uncurryComp H CC CL PC PL _ _))) (eta _))
 end ClosedLaws
 
 namespace ClosedMap
@@ -57,16 +57,16 @@ variable {i : ProductMap F P T} {j : ClosedMap F H J}
 
 
 
-def id_inverse (CL : Laws E) (a b : O) :
-    ComparisonLaws E (SquareKit.ClosedMap.id H a b) := Comparison.id_laws CL _
+def idComparisonLaws (CL : Laws E) (a b : O) :
+    ComparisonLaws E (SquareKit.ClosedMap.id H a b) := Comparison.idLaws CL _
 
-def comp_inverse {W : WitnessEquivalence K} (LG : Preservation G V W)
+def compComparisonLaws {W : WitnessEquivalence K} (LG : Preservation G V W)
     (KC : Congr W) (KL : Laws W)
     {k : ClosedMap G J N}
     (JJ : ∀ a b, ComparisonLaws V (j a b))
     (KK : ∀ a b, ComparisonLaws W (k a b)) (a b : O) :
     ComparisonLaws W (j.comp k a b) :=
-  Comparison.comp_laws KC KL (Comparison.map_laws LG (JJ a b)) (KK _ _)
+  Comparison.compLaws KC KL (Comparison.mapLaws LG (JJ a b)) (KK _ _)
 
 /-- Image of uncurrying, expressed on target product objects. -/
 def uncurry (i : ProductMap F P T) (j : ClosedMap F H J) {x a b}
@@ -81,7 +81,7 @@ def transportCongr (L : Preservation F E V) (R : Reflection F E V)
     (V.symm (M.curry _))))
 
 /-- Evaluation and product preservation already imply uncurrying preservation. -/
-def map_uncurry (L : Preservation F E V)
+def mapUncurry (L : Preservation F E V)
     (DC : Congr V) (DL : Laws V)
     (TC : ProductCongr V T) (TL : ProductLaws V T)
     (I : ∀ a b, ComparisonLaws V (i a b))
@@ -91,7 +91,7 @@ def map_uncurry (L : Preservation F E V)
   apply V.trans (L.comp _ _)
   apply V.trans (DC.comp M.evaluation (PM.pair _ _))
   apply V.trans (DC.comp (V.symm (DL.assoc _ _ _)) (V.refl _))
-  apply V.trans (DL.cancel_middle DC (I _ _).hom_inv _ _)
+  apply V.trans (DL.cancelMiddle DC (I _ _).homInv _ _)
   apply V.trans (DL.assoc _ _ _)
   apply V.trans (DC.comp (V.refl _) (TL.pairComp DC DL TC _ _ _))
   apply V.trans (DC.comp (V.refl _) (TC.pair
@@ -105,7 +105,7 @@ def map_uncurry (L : Preservation F E V)
   exact V.symm (DL.assoc _ _ _)
 
 /-- Identity comparisons preserve the chosen operations modulo the selected laws. -/
-def id_laws (CC : Congr E) (CL : Laws E)
+def idLaws (CC : Congr E) (CL : Laws E)
     (PC : ProductCongr E P) (PL : ProductLaws E P) (HC : ClosedCongr E P H) :
     ClosedMapLaws E (ProductMap.id P) (SquareKit.ClosedMap.id H) where
   curry f := E.symm (E.trans (CL.identComp _) (HC.curry (CL.compIdent f)))
@@ -119,7 +119,7 @@ def id_laws (CC : Congr E) (CL : Laws E)
     exact E.trans (CC.comp (E.refl _) h) (CL.compIdent _)
 
 /-- Composition reuses the category and product comparisons, without source closed laws. -/
-def comp_laws {W : WitnessEquivalence K} (LG : Preservation G V W)
+def compLaws {W : WitnessEquivalence K} (LG : Preservation G V W)
     (KC : Congr W) (KL : Laws W)
     (UC : ProductCongr W U) (UL : ProductLaws W U) (NC : ClosedCongr W U N)
     {r : ProductMap G T U} {k : ClosedMap G J N}
@@ -141,7 +141,7 @@ def comp_laws {W : WitnessEquivalence K} (LG : Preservation G V W)
     apply W.trans (KC.comp (W.refl _) (LG.comp _ _))
     apply W.trans (W.symm (KL.assoc _ _ _))
     apply W.trans (KC.comp (W.symm (LG.comp _ _)) (W.refl _))
-    apply W.trans (KC.comp (map_uncurry LG KC KL UC UL RI RM NN _) (W.refl _))
+    apply W.trans (KC.comp (mapUncurry LG KC KL UC UL RI RM NN _) (W.refl _))
     apply W.trans (KL.assoc _ _ _)
     apply W.trans (KL.assoc _ _ _)
     apply KC.comp (W.refl _)
@@ -149,26 +149,26 @@ def comp_laws {W : WitnessEquivalence K} (LG : Preservation G V W)
     exact W.refl _
 
 /-- The target curry/uncurry bijection survives conjugation by both comparisons. -/
-def uncurry_curry (DC : Congr V) (DL : Laws V)
+def uncurryCurry (DC : Congr V) (DL : Laws V)
     (TC : ProductCongr V T) (JL : ClosedLaws V T J)
     (I : ∀ a b, ComparisonLaws V (i a b)) (JJ : ∀ a b, ComparisonLaws V (j a b))
     {x a b} (f : D.Hom (F.obj (P.prod x a)) (F.obj b)) :
     V.Rel (j.uncurry i (j.curry i f)) f := by
   apply V.trans (DC.comp
-    (ClosedOps.uncurry_congr J DC TC (DL.cancel_left DC (JJ _ _).hom_inv _)) (V.refl _))
+    (ClosedOps.uncurryCongr J DC TC (DL.cancelLeft DC (JJ _ _).homInv _)) (V.refl _))
   apply V.trans (DC.comp (JL.beta _) (V.refl _))
   exact V.trans (DL.assoc _ _ _) (V.trans
-    (DC.comp (V.refl _) (I _ _).inv_hom) (DL.compIdent _))
+    (DC.comp (V.refl _) (I _ _).invHom) (DL.compIdent _))
 
-def curry_uncurry (DC : Congr V) (DL : Laws V)
+def curryUncurry (DC : Congr V) (DL : Laws V)
     (JC : ClosedCongr V T J) (JL : ClosedLaws V T J)
     (I : ∀ a b, ComparisonLaws V (i a b)) (JJ : ∀ a b, ComparisonLaws V (j a b))
     {x a b} (f : D.Hom (F.obj x) (F.obj (H.exp a b))) :
     V.Rel (j.curry i (j.uncurry i f)) f := by
   apply V.trans (DC.comp (V.refl _) (JC.curry
     (V.trans (DL.assoc _ _ _) (V.trans
-      (DC.comp (V.refl _) (I _ _).hom_inv) (DL.compIdent _)))))
-  exact V.trans (DC.comp (V.refl _) (JL.eta _)) (DL.cancel_left DC (JJ _ _).inv_hom _)
+      (DC.comp (V.refl _) (I _ _).homInv) (DL.compIdent _)))))
+  exact V.trans (DC.comp (V.refl _) (JL.eta _)) (DL.cancelLeft DC (JJ _ _).invHom _)
 
 def transportLaws (L : Preservation F E V) (R : Reflection F E V)
     (DC : Congr V) (DL : Laws V)
@@ -182,14 +182,14 @@ def transportLaws (L : Preservation F E V) (R : Reflection F E V)
     (ProductMap.transportLaws L R DC DL I PM TC TL) (transportCongr L R DC JC M)
   · intro x a b f
     apply R
-    apply V.trans (map_uncurry L DC DL TC TL I PM M _)
-    apply V.trans (DC.comp (ClosedOps.uncurry_congr J DC TC (DC.comp (V.refl _) (M.curry _))) (V.refl _))
-    exact uncurry_curry DC DL TC JL I JJ (F.map f)
+    apply V.trans (mapUncurry L DC DL TC TL I PM M _)
+    apply V.trans (DC.comp (ClosedOps.uncurryCongr J DC TC (DC.comp (V.refl _) (M.curry _))) (V.refl _))
+    exact uncurryCurry DC DL TC JL I JJ (F.map f)
   · intro x a b f
     apply R
     apply V.trans (M.curry _)
     apply V.trans (DC.comp (V.refl _) (JC.curry
-      (DC.comp (map_uncurry L DC DL TC TL I PM M _) (V.refl _))))
-    exact curry_uncurry DC DL JC JL I JJ (F.map f)
+      (DC.comp (mapUncurry L DC DL TC TL I PM M _) (V.refl _))))
+    exact curryUncurry DC DL JC JL I JJ (F.map f)
 end ClosedMap
 end SquareKit.WitnessEquivalence

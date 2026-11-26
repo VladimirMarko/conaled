@@ -49,7 +49,7 @@ theorem comparison_is_not_identity : (nonidentity () ()).hom ≠ arrows.ident (a
   change true ≠ false
   decide
 theorem selected_inverse_witnesses_differ :
-    (nonidentityInverse () ()).hom_inv ≠ (nonidentityInverse () ()).inv_hom := by
+    (nonidentityInverse () ()).homInv ≠ (nonidentityInverse () ()).invHom := by
   change false ≠ true
   decide
 theorem nonidentity_erasure_recovers : SquareKit.ProductMapLaws arrowWitnesses.erase

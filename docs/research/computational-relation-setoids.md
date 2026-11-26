@@ -55,9 +55,9 @@ the checked swap/pair specialization exercises it on this instance.
 | `Zoid`, `_⟶_` | `Obj`, `Hom` |
 | `products`, `coproducts`, `exponentials` | `unit`, `prod`, `zero`, `sum`, `exponential` |
 | `rawCategory`, `equivalent`, `category` | `ops`, `equiv`, `congr`, `laws` |
-| `rawCartesian`, `cartesian` | `terminal`, `products`, their congruence/laws, `product_universal` |
-| `rawCocartesian`, `cocartesian` | `initial`, `coproducts`, their congruence/laws, `coproduct_universal` |
-| `rawCartesianClosed`, `cartesianClosed` | `closed`, `closed_congr`, `closed_laws`, `closed_universal` |
+| `rawCartesian`, `cartesian` | `terminal`, `products`, their congruence/laws, `productUniversal` |
+| `rawCocartesian`, `cocartesian` | `initial`, `coproducts`, their congruence/laws, `coproductUniversal` |
+| `rawCartesianClosed`, `cartesianClosed` | `closed`, `closedCongr`, `closedLaws`, `closedUniversal` |
 | `rawDistributive`, `distributive` | `distribution`, `rightDistribution`, both witness law packages |
 | inherited active structural reasoning | #455 generic operations, laws, preservation and transport specialized to these packages |
 

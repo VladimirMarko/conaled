@@ -95,7 +95,7 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`assoc`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L31) | `Laws.assoc` |
 | [`∘≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L34) | `Congr.comp` |
 | [`∘-assocʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L37) | `Laws.assoc` |
-| [`∘-assocˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L40) | `Laws.assoc_reverse` |
+| [`∘-assocˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L40) | `Laws.assocReverse` |
 | [`∘≈ˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L43) | `Congr.left` |
 | [`∘≈ʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L46) | `Congr.right` |
 | [`Cartesian`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L54) | `TerminalLaws`, `ProductUniversal`, `ProductCongr` |
@@ -116,8 +116,8 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`exr∘second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L109) | `Cartesian.sndSecond` |
 | [`exl▵exr`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L112) | `ProductLaws.pairProjections` |
 | [`⊗≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L115) | `Cartesian.tensorCongr` |
-| [`⊗≈ˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L130) | `Cartesian.tensor_congr_left` |
-| [`⊗≈ʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L134) | `Cartesian.tensor_congr_right` |
+| [`⊗≈ˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L130) | `Cartesian.tensorCongrLeft` |
+| [`⊗≈ʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L134) | `Cartesian.tensorCongrRight` |
 | [`id⊗id`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L138) | `Cartesian.tensorIdent` |
 | [`▵∘`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L141) | `ProductLaws.pairComp` |
 | [`⊗∘▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L144) | `Cartesian.tensorPair` |
@@ -154,7 +154,7 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`curry≈`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L323) | `ClosedCongr.curry` |
 | [`∀⇛→`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L325) | `SourceClosedUniversal.forward`, `ClosedUniversal.forward` |
 | [`∀⇛←`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L329) | `SourceClosedUniversal.backward`, `ClosedUniversal.backward` |
-| [`curry-apply`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L333) | `ClosedLaws.curry_evaluation` |
+| [`curry-apply`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda#L333) | `ClosedLaws.identCurryEvaluation` |
 
 ## Homomorphism.agda
 
@@ -166,10 +166,10 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`F-cong`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L29) | `Preservation.congr` |
 | [`F-id`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L30) | `Preservation.ident` |
 | [`F-∘`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L31) | `Preservation.comp` |
-| [`F-∘³`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L37) | `CartesianPreservation.map_comp3` |
-| [`F-∘⁴`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L42) | `CartesianPreservation.map_comp4` |
-| [`F-∘⁵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L47) | `CartesianPreservation.map_comp5` |
-| [`F-∘⁶`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L53) | `CartesianPreservation.map_comp6` |
+| [`F-∘³`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L37) | `CartesianPreservation.mapComp3` |
+| [`F-∘⁴`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L42) | `CartesianPreservation.mapComp4` |
+| [`F-∘⁵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L47) | `CartesianPreservation.mapComp5` |
+| [`F-∘⁶`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L53) | `CartesianPreservation.mapComp6` |
 | [`id-CategoryH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L62) | `Preservation.id` |
 | [`_∘-CategoryH_`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L70) | `Preservation.compose` |
 | [`compose-CategoryH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L92) | `Preservation.compose` |
@@ -181,32 +181,32 @@ Names below are under `SquareKit.WitnessEquivalence` unless marked raw.
 | [`id-ProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L146) | Raw `SquareKit.TerminalMap.id` and `SquareKit.ProductMap.id` |
 | [`compose-ProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L152) | Raw `SquareKit.TerminalMap.comp` and `SquareKit.ProductMap.comp` |
 | [`StrongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L168) | `ComparisonLaws` for the terminal comparison and each product comparison |
-| [`ε⁻¹∘ε`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L179) | Terminal `ComparisonLaws.hom_inv` |
-| [`ε∘ε⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L180) | Terminal `ComparisonLaws.inv_hom` |
-| [`μ⁻¹∘μ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L182) | Product `ComparisonLaws.hom_inv` |
-| [`μ∘μ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L183) | Product `ComparisonLaws.inv_hom` |
-| [`id-StrongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L187) | `Comparison.id_laws` |
+| [`ε⁻¹∘ε`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L179) | Terminal `ComparisonLaws.homInv` |
+| [`ε∘ε⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L180) | Terminal `ComparisonLaws.invHom` |
+| [`μ⁻¹∘μ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L182) | Product `ComparisonLaws.homInv` |
+| [`μ∘μ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L183) | Product `ComparisonLaws.invHom` |
+| [`id-StrongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L187) | `Comparison.idLaws` |
 | [`CartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L203) | `TerminalMapLaws` and native `CartesianH` |
 | [`F-!`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L214) | `TerminalMapLaws.terminal` |
 | [`F-▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L215) | `CartesianH.pair` |
 | [`F-exl`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L216) | `CartesianH.fst` |
 | [`F-exr`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L217) | `CartesianH.snd` |
-| [`F-!′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L222) | `CartesianPreservation.terminal_after_comparison` |
-| [`F-▵′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L225) | `CartesianPreservation.pair_after_comparison` |
+| [`F-!′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L222) | `CartesianPreservation.terminalAfterComparison` |
+| [`F-▵′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L225) | `CartesianPreservation.pairAfterComparison` |
 | [`F-exl′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L228) | `CartesianH.normalized` → `ProductMapLaws.fst` |
 | [`F-exr′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L231) | `CartesianH.normalized` → `ProductMapLaws.snd` |
-| [`F-⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L236) | `CartesianPreservation.tensor_preserved` |
-| [`F-⊗′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L250) | `CartesianPreservation.tensor_conjugate` |
-| [`F-first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L262) | `CartesianPreservation.first_preserved` |
-| [`F-first′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L266) | `CartesianPreservation.first_conjugate` |
-| [`F-second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L270) | `CartesianPreservation.second_preserved` |
-| [`F-second′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L274) | `CartesianPreservation.second_conjugate` |
-| [`F-assocˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L278) | `CartesianPreservation.assocLeft_preserved` |
-| [`F-assocˡ′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L301) | `CartesianPreservation.assocLeft_conjugate` |
-| [`F-assocʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L312) | `CartesianPreservation.assocRight_preserved` |
-| [`F-assocʳ′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L347) | `CartesianPreservation.assocRight_conjugate` |
-| [`id-CartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L360) | `TerminalMap.id_laws` and `CartesianH.id` |
-| [`_∘-CartesianH_`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L374) | `TerminalMap.comp_laws` and `CartesianH.compose`; no inverse evidence required |
+| [`F-⊗`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L236) | `CartesianPreservation.tensorPreserved` |
+| [`F-⊗′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L250) | `CartesianPreservation.tensorConjugate` |
+| [`F-first`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L262) | `CartesianPreservation.firstPreserved` |
+| [`F-first′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L266) | `CartesianPreservation.firstConjugate` |
+| [`F-second`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L270) | `CartesianPreservation.secondPreserved` |
+| [`F-second′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L274) | `CartesianPreservation.secondConjugate` |
+| [`F-assocˡ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L278) | `CartesianPreservation.assocLeftPreserved` |
+| [`F-assocˡ′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L301) | `CartesianPreservation.assocLeftConjugate` |
+| [`F-assocʳ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L312) | `CartesianPreservation.assocRightPreserved` |
+| [`F-assocʳ′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L347) | `CartesianPreservation.assocRightConjugate` |
+| [`id-CartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L360) | `TerminalMap.idLaws` and `CartesianH.id` |
+| [`_∘-CartesianH_`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L374) | `TerminalMap.compLaws` and `CartesianH.compose`; no inverse evidence required |
 | [`CoproductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L435) | Existing raw `SquareKit.InitialMap` and `SquareKit.CoproductMap` |
 | [`δ⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L443) | Raw initial comparison `.inv` |
 | [`ν⁻¹`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Homomorphism.agda#L444) | Raw coproduct comparison `.inv` |

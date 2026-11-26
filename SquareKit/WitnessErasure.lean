@@ -26,7 +26,7 @@ def Congr.left (K : E.Congr) {a b c} {f g : C.Hom b c} (h : E.Rel f g) (k : C.Ho
     E.Rel (C.comp f k) (C.comp g k) := K.comp h (E.refl _)
 def Congr.right (K : E.Congr) {a b c} (k : C.Hom b c) {f g : C.Hom a b} (h : E.Rel f g) :
     E.Rel (C.comp k f) (C.comp k g) := K.comp (E.refl _) h
-def Laws.assoc_reverse (L : E.Laws) {a b c d} (h : C.Hom c d) (g : C.Hom b c) (f : C.Hom a b) :
+def Laws.assocReverse (L : E.Laws) {a b c d} (h : C.Hom c d) (g : C.Hom b c) (f : C.Hom a b) :
     E.Rel (C.comp h (C.comp g f)) (C.comp (C.comp h g) f) := E.symm (L.assoc h g f)
 def ProductCongr.left {P : ProductOps C} (K : ProductCongr E P)
     {a b c} {f g : C.Hom a b} (h : E.Rel f g) (k : C.Hom a c) :
@@ -35,11 +35,11 @@ def ProductCongr.right {P : ProductOps C} (K : ProductCongr E P)
     {a b c} (k : C.Hom a b) {f g : C.Hom a c} (h : E.Rel f g) :
     E.Rel (P.pair k f) (P.pair k g) := K.pair (E.refl _) h
 
-def Cartesian.tensor_congr_left {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
+def Cartesian.tensorCongrLeft {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
     {a b c d} {f f' : C.Hom a c} (g : C.Hom b d) (h : E.Rel f f') :
     E.Rel (SquareKit.Cartesian.tensor P f g) (SquareKit.Cartesian.tensor P f' g) :=
   Cartesian.tensorCongr K G h (E.refl _)
-def Cartesian.tensor_congr_right {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
+def Cartesian.tensorCongrRight {P : ProductOps C} (K : E.Congr) (G : ProductCongr E P)
     {a b c d} (f : C.Hom a c) {g g' : C.Hom b d} (h : E.Rel g g') :
     E.Rel (SquareKit.Cartesian.tensor P f g) (SquareKit.Cartesian.tensor P f g') :=
   Cartesian.tensorCongr K G (E.refl _) h

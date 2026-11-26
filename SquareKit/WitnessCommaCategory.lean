@@ -36,12 +36,12 @@ def laws (CL : E.Laws) (DL : J.Laws) :
 def fst : RawMap (ops KC KL FL GL) C := ⟨Obj.left, Hom.left⟩
 def snd : RawMap (ops KC KL FL GL) D := ⟨Obj.right, Hom.right⟩
 
-def fst_laws : WitnessEquivalence.Preservation (fst KC KL FL GL) (equiv KC KL FL GL) E where
+def fstPreservation : WitnessEquivalence.Preservation (fst KC KL FL GL) (equiv KC KL FL GL) E where
   congr h := h.1
   ident := E.refl _
   comp _ _ := E.refl _
 
-def snd_laws : WitnessEquivalence.Preservation (snd KC KL FL GL) (equiv KC KL FL GL) J where
+def sndPreservation : WitnessEquivalence.Preservation (snd KC KL FL GL) (equiv KC KL FL GL) J where
   congr h := h.2
   ident := J.refl _
   comp _ _ := J.refl _
@@ -49,9 +49,9 @@ def snd_laws : WitnessEquivalence.Preservation (snd KC KL FL GL) (equiv KC KL FL
 /-- The source forgetful map into the product retains the pair of sides. -/
 def toProduct : RawMap (ops KC KL FL GL) (CategoryProduct.ops C D) :=
   CategoryProduct.pair (fst KC KL FL GL) (snd KC KL FL GL)
-def toProduct_laws : WitnessEquivalence.Preservation (toProduct KC KL FL GL)
+def toProductPreservation : WitnessEquivalence.Preservation (toProduct KC KL FL GL)
     (equiv KC KL FL GL) (WitnessProduct.equiv C D E J) :=
-  WitnessProduct.pair_laws (fst_laws KC KL FL GL) (snd_laws KC KL FL GL)
+  WitnessProduct.pairPreservation (fstPreservation KC KL FL GL) (sndPreservation KC KL FL GL)
 
 def eraseMap : RawMap (ops KC KL FL GL) (Comma.ops KC.erase KL.erase FL.erase GL.erase) :=
   ⟨id, Hom.erase⟩

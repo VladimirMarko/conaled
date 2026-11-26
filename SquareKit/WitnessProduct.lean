@@ -43,43 +43,43 @@ def productLaws {E : WitnessEquivalence C} {H : WitnessEquivalence D}
    fun f g => ⟨PL.sndPair f.1 g.1, TL.sndPair f.2 g.2⟩,
    fun f => ⟨PL.pairEta f.1, TL.pairEta f.2⟩⟩
 
-def fst_laws (E : WitnessEquivalence C) (H : WitnessEquivalence D) : WitnessEquivalence.Preservation fst (equiv C D E H) E :=
+def fstPreservation (E : WitnessEquivalence C) (H : WitnessEquivalence D) : WitnessEquivalence.Preservation fst (equiv C D E H) E :=
   ⟨fun h => h.1, E.refl _, fun _ _ => E.refl _⟩
-def snd_laws (E : WitnessEquivalence C) (H : WitnessEquivalence D) : WitnessEquivalence.Preservation snd (equiv C D E H) H :=
+def sndPreservation (E : WitnessEquivalence C) (H : WitnessEquivalence D) : WitnessEquivalence.Preservation snd (equiv C D E H) H :=
   ⟨fun h => h.2, H.refl _, fun _ _ => H.refl _⟩
 
-def pair_laws {K : CategoryOps.{r,s} R} {J : WitnessEquivalence K}
+def pairPreservation {K : CategoryOps.{r,s} R} {J : WitnessEquivalence K}
     {E : WitnessEquivalence C} {H : WitnessEquivalence D} {F : RawMap K C} {G : RawMap K D}
     (LF : WitnessEquivalence.Preservation F J E) (LG : WitnessEquivalence.Preservation G J H) : WitnessEquivalence.Preservation (pair F G) J (equiv C D E H) :=
   ⟨fun h => ⟨LF.congr h, LG.congr h⟩, ⟨LF.ident, LG.ident⟩,
     fun g f => ⟨LF.comp g f, LG.comp g f⟩⟩
 
-def fstProducts_laws {E : WitnessEquivalence C} (CL : E.Laws)
+def fstProductsLaws {E : WitnessEquivalence C} (CL : E.Laws)
     (P : ProductOps C) (T : ProductOps D) : WitnessEquivalence.ProductMapLaws E (fstProducts P T) :=
   ⟨E.symm (CL.compIdent _), E.symm (CL.compIdent _), fun _ _ => E.symm (CL.identComp _)⟩
-def sndProducts_laws {H : WitnessEquivalence D} (DL : H.Laws)
+def sndProductsLaws {H : WitnessEquivalence D} (DL : H.Laws)
     (P : ProductOps C) (T : ProductOps D) : WitnessEquivalence.ProductMapLaws H (sndProducts P T) :=
   ⟨H.symm (DL.compIdent _), H.symm (DL.compIdent _), fun _ _ => H.symm (DL.identComp _)⟩
 
-def fstTerminal_laws {E : WitnessEquivalence C} (CL : E.Laws)
+def fstTerminalLaws {E : WitnessEquivalence C} (CL : E.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.TerminalMapLaws E (fstTerminal T U) :=
   ⟨E.symm (CL.identComp _)⟩
-def sndTerminal_laws {H : WitnessEquivalence D} (DL : H.Laws)
+def sndTerminalLaws {H : WitnessEquivalence D} (DL : H.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.TerminalMapLaws H (sndTerminal T U) :=
   ⟨H.symm (DL.identComp _)⟩
 
-def fstProducts_inverse {E : WitnessEquivalence C} (CL : E.Laws)
+def fstProductsComparisonLaws {E : WitnessEquivalence C} (CL : E.Laws)
     (P : ProductOps C) (T : ProductOps D) (a b : O × Q) : WitnessEquivalence.ComparisonLaws E (fstProducts P T a b) :=
-  WitnessEquivalence.Comparison.id_laws CL _
-def sndProducts_inverse {H : WitnessEquivalence D} (DL : H.Laws)
+  WitnessEquivalence.Comparison.idLaws CL _
+def sndProductsComparisonLaws {H : WitnessEquivalence D} (DL : H.Laws)
     (P : ProductOps C) (T : ProductOps D) (a b : O × Q) : WitnessEquivalence.ComparisonLaws H (sndProducts P T a b) :=
-  WitnessEquivalence.Comparison.id_laws DL _
-def fstTerminal_inverse {E : WitnessEquivalence C} (CL : E.Laws)
+  WitnessEquivalence.Comparison.idLaws DL _
+def fstTerminalComparisonLaws {E : WitnessEquivalence C} (CL : E.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.ComparisonLaws E (fstTerminal T U) :=
-  WitnessEquivalence.Comparison.id_laws CL _
-def sndTerminal_inverse {H : WitnessEquivalence D} (DL : H.Laws)
+  WitnessEquivalence.Comparison.idLaws CL _
+def sndTerminalComparisonLaws {H : WitnessEquivalence D} (DL : H.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.ComparisonLaws H (sndTerminal T U) :=
-  WitnessEquivalence.Comparison.id_laws DL _
+  WitnessEquivalence.Comparison.idLaws DL _
 
 /-- The source universal-property functions are applied componentwise, retaining their choices. -/
 def productUniversal {E : WitnessEquivalence C} {H : WitnessEquivalence D}

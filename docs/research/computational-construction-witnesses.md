@@ -20,7 +20,7 @@ of source-side relation witnesses; it imposes no equality between the square
 witnesses. Category and Cartesian laws concern this relation. Target category
 laws and interpretation preservation construct raw composition. Source laws
 are required only for the resulting sidewise laws. The raw product connector
-uses the accepted normalized formula; `product_connector_comparison` returns
+uses the accepted normalized formula; `productConnectorConjugation` returns
 a selected target witness relating it to Felix's conjugated tensor formula.
 It does not assert equality of raw connectors or selected proof expressions.
 
@@ -99,14 +99,14 @@ by their underlying arrows where no information would be lost.
 | [`H₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L135) | `CategoryProduct.fst.map` |
 | [`Hₒ₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L138) | `CategoryProduct.snd.obj` |
 | [`H₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L141) | `CategoryProduct.snd.map` |
-| [`catH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L144) | `WitnessProduct.fst_laws` |
-| [`catH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L148) | `WitnessProduct.snd_laws` |
+| [`catH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L144) | `WitnessProduct.fstPreservation` |
+| [`catH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L148) | `WitnessProduct.sndPreservation` |
 | [`pH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L152) | `CategoryProduct.fstTerminal`, `fstProducts` |
-| [`spH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L155) | `WitnessProduct.fstTerminal_inverse`, `fstProducts_inverse` |
+| [`spH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L155) | `WitnessProduct.fstTerminalComparisonLaws`, `fstProductsComparisonLaws` |
 | [`pH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L164) | `CategoryProduct.sndTerminal`, `sndProducts` |
-| [`spH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L167) | `WitnessProduct.sndTerminal_inverse`, `sndProducts_inverse` |
-| [`cartesianH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L176) | `WitnessProduct.fstTerminal_laws`, `fstCartesian` |
-| [`cartesianH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L187) | `WitnessProduct.sndTerminal_laws`, `sndCartesian` |
+| [`spH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L167) | `WitnessProduct.sndTerminalComparisonLaws`, `sndProductsComparisonLaws` |
+| [`cartesianH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L176) | `WitnessProduct.fstTerminalLaws`, `fstCartesian` |
+| [`cartesianH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Product.agda#L187) | `WitnessProduct.sndTerminalLaws`, `sndCartesian` |
 
 ### Construct/Squared.agda
 
@@ -115,12 +115,12 @@ by their underlying arrows where no information would be lost.
 | [`unsquare`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L23) | `Squared.unsquare` |
 | [`Hₒ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L32) | `Squared.unsquare.obj` |
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L36) | `Squared.unsquare.map` |
-| [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L40) | `WitnessSquared.map_laws` |
+| [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L40) | `WitnessSquared.unsquarePreservation` |
 | [`pH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L43) | `Squared.terminalMap`, `productMap` |
-| [`spH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L46) | `WitnessSquared.terminalMap_inverse`, `productMap_inverse` |
-| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L52) | `WitnessSquared.terminalMap_laws`, `productMap_laws`, then `ProductMapLaws.felix` |
+| [`spH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L46) | `WitnessSquared.terminalMapComparisonLaws`, `productMapComparisonLaws` |
+| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L52) | `WitnessSquared.terminalMapLaws`, `productMapLaws`, then `ProductMapLaws.felix` |
 | [`equivalent`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L61) | `WitnessSquared.induced` |
-| [`catL`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L67) | `WitnessSquared.induced_congr`, `induced_laws` |
+| [`catL`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Squared.agda#L67) | `WitnessSquared.inducedCongr`, `inducedLaws` |
 
 ### Construct/Monoid.agda
 
@@ -162,7 +162,7 @@ by their underlying arrows where no information would be lost.
 | [`id′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L47) | `WitnessComma.ident` |
 | [`comp`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L66) | `WitnessComma.comp` |
 | [`category`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L73) | `WitnessComma.ops` |
-| [`products`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L87) | `Comma.terminalObj`, `productObj`; connector comparison: `WitnessComma.product_connector_comparison` |
+| [`products`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L87) | `Comma.terminalObj`, `productObj`; connector comparison: `WitnessComma.productConnectorConjugation` |
 | [`!′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L107) | `WitnessComma.terminate` |
 | [`fork`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L124) | `WitnessComma.fork` |
 | [`exl′`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Raw.agda#L146) | `WitnessComma.first` |
@@ -173,8 +173,8 @@ by their underlying arrows where no information would be lost.
 
 | Pinned declaration | Computational counterpart |
 |---|---|
-| [`categoryH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Homomorphism.agda#L32) | `WitnessComma.fst_laws` |
-| [`categoryH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Homomorphism.agda#L36) | `WitnessComma.snd_laws` |
+| [`categoryH₁`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Homomorphism.agda#L32) | `WitnessComma.fstPreservation` |
+| [`categoryH₂`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Homomorphism.agda#L36) | `WitnessComma.sndPreservation` |
 
 ### Construct/Comma/Vertical.agda
 
@@ -190,8 +190,8 @@ by their underlying arrows where no information would be lost.
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L23) | `RawMap.id.map` |
 | [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L26) | `WitnessEquivalence.Preservation.id` |
 | [`productsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L40) | `TerminalMap.id`, `ProductMap.id` |
-| [`strongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L43) | `WitnessEquivalence.Comparison.id_laws` |
-| [`cartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L46) | `WitnessEquivalence.TerminalMap.id_laws`, `CartesianH.id` |
+| [`strongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L43) | `WitnessEquivalence.Comparison.idLaws` |
+| [`cartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L46) | `WitnessEquivalence.TerminalMap.idLaws`, `CartesianH.id` |
 | [`_ᵀ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L57) | `WitnessArrow.transpose` |
 | [`composableᵒ`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L63) | middle-object equality argument of `WitnessArrow.compose` |
 | [`_○_`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Arrow.agda#L67) | `WitnessArrow.compose` (reuses `RawArrow.compose`) |
@@ -208,8 +208,8 @@ by their underlying arrows where no information would be lost.
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L21) | `RawMap.id.map` |
 | [`pH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L24) | `TerminalMap.id`, `ProductMap.id` |
 | [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L36) | `WitnessEquivalence.Preservation.id` |
-| [`spH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L39) | `WitnessEquivalence.Comparison.id_laws` |
-| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L42) | `WitnessEquivalence.TerminalMap.id_laws`, `CartesianH.id` |
+| [`spH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L39) | `WitnessEquivalence.Comparison.idLaws` |
+| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Instances/Identity.agda#L42) | `WitnessEquivalence.TerminalMap.idLaws`, `CartesianH.id` |
 
 ### Subcategory/Object.agda
 
@@ -225,12 +225,12 @@ by their underlying arrows where no information would be lost.
 | [`traced`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L61) | existing `SelectedFeedback.reindex` (Type-valued WF unchanged) |
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L69) | `ObjectReindex.forget` |
 | [`equivalent`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L72) | `WitnessObjectReindex.equiv` |
-| [`categoryH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L75) | `WitnessObjectReindex.forget_laws` |
+| [`categoryH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L75) | `WitnessObjectReindex.forgetPreservation` |
 | [`productsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L78) | `TerminalMap.id`, `ProductMap.id` on the reindexed raw operations |
-| [`strongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L82) | `WitnessEquivalence.Comparison.id_laws (WitnessObjectReindex.laws F L)` |
-| [`cartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L92) | `WitnessObjectReindex.terminal_preserves`, `products_preserve`, then `ProductMapLaws.felix` with selected inverse witnesses |
+| [`strongProductsH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L82) | `WitnessEquivalence.Comparison.idLaws (WitnessObjectReindex.laws F L)` |
+| [`cartesianH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L92) | `WitnessObjectReindex.forgetTerminalLaws`, `forgetProductLaws`, then `ProductMapLaws.felix` with selected inverse witnesses |
 | [`l-category`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L104) | `WitnessObjectReindex.congr`, `laws` |
-| [`l-cartesian`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L107) | `WitnessObjectReindex.terminal_laws`, `product_congr`, `product_laws`, then `ProductLaws.universal` |
+| [`l-cartesian`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Object.agda#L107) | `WitnessObjectReindex.terminalLaws`, `productCongr`, `productLaws`, then `ProductLaws.universal` |
 
 ### Subcategory/Morphism.agda
 
@@ -246,10 +246,10 @@ by their underlying arrows where no information would be lost.
 | [`H`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L47) | `MorphismRestriction.forget` |
 | [`eq`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L50) | `WitnessMorphismRestriction.equiv` |
 | [`cat`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L53) | `MorphismRestriction.ops` |
-| [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L59) | `WitnessMorphismRestriction.forget_laws` |
+| [`catH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L59) | `WitnessMorphismRestriction.forgetPreservation` |
 | [`l-category`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L64) | `WitnessMorphismRestriction.congr`, `laws` |
 | [`cart`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L69) | `MorphismRestriction.terminal`, `products` |
-| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L77) | `WitnessMorphismRestriction.forget_terminal`, `forget_products`, then `ProductMapLaws.felix` |
+| [`cartH`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L77) | `WitnessMorphismRestriction.forgetTerminalLaws`, `forgetProductLaws`, then `ProductMapLaws.felix` |
 | [`l-cartesian`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Subcategory/Morphism.agda#L85) | `WitnessMorphismRestriction.terminalLaws`, `productCongr`, `productLaws`, then `ProductLaws.universal` |
 
 `Construct/Comma.agda` only reexports its constituent modules. The source

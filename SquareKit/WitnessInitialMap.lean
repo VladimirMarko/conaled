@@ -15,10 +15,10 @@ variable {C : CategoryOps.{u,v} O} {D : CategoryOps.{w,z} Q} {K : CategoryOps.{r
 
 
 
-def id_laws {E : WitnessEquivalence C} (L : Laws E) (T : InitialOps C) :
+def idLaws {E : WitnessEquivalence C} (L : Laws E) (T : InitialOps C) :
     InitialMapLaws E (SquareKit.InitialMap.id T) := ⟨E.symm (L.compIdent _)⟩
 
-def comp_laws {F : RawMap C D} {G : RawMap D K}
+def compLaws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
     (KC : Congr J) (KL : Laws J)
     {T : InitialOps C} {U : InitialOps D} {V : InitialOps K}
@@ -27,13 +27,13 @@ def comp_laws {F : RawMap C D} {G : RawMap D K}
   initial := J.trans (LG.congr I.initial) (J.trans (LG.comp _ _)
     (J.trans (KC.comp JJ.initial (J.refl _)) (KL.assoc _ _ _)))
 
-def comp_inverse {F : RawMap C D} {G : RawMap D K}
+def compComparisonLaws {F : RawMap C D} {G : RawMap D K}
     {H : WitnessEquivalence D} {J : WitnessEquivalence K} (LG : Preservation G H J)
     (KC : Congr J) (KL : Laws J)
     {T : InitialOps C} {U : InitialOps D} {V : InitialOps K}
     {i : InitialMap F T U} {j : InitialMap G U V}
     (I : ComparisonLaws H i) (JJ : ComparisonLaws J j) : ComparisonLaws J (SquareKit.InitialMap.comp i j) :=
-  Comparison.comp_laws KC KL (Comparison.map_laws LG I) JJ
+  Comparison.compLaws KC KL (Comparison.mapLaws LG I) JJ
 
 /-- Reflection is needed only for the separately selected source relation.
 Only the inverse equation at the interpreted source initial object is used. -/
