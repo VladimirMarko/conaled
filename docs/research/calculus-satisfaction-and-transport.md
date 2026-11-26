@@ -52,8 +52,8 @@ argument, forward preservation alone does not justify that use.
 
 [CategoryMap](../../SquareKit/CategoryMap.lean) separates raw maps, equivalence,
 and operation-preservation laws. `RawMap.induced` defines source equivalence
-by equivalence of observations. `inducedLaws` needs preservation of identity
-and composition; `comp_laws` composes lawful maps. `transportLaws` transfers
+by equivalence of observations. `induced_laws` needs preservation of identity
+and composition; `comp_laws` composes lawful maps. `transport_laws` transfers
 category laws using preservation and reflection of the chosen equivalence.
 For the induced equivalence, `induced_reflects` supplies reflection directly.
 It does not require an injective decoder or equality of raw representations.

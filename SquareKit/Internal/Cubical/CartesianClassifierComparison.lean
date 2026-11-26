@@ -1243,7 +1243,7 @@ variable {Γ : Context.{u}} {X D : Family Γ} {S : Type u}
 
 /-- The target-selected comparison is constructed before a nerve square or
 its endpoints are supplied. -/
-noncomputable def H : Term (homogeneousPath X p q) :=
+noncomputable def selectedPath : Term (homogeneousPath X p q) :=
   RelativeComparison.connect f E F hF G hG p q h
 
 variable {P Q : Term X} (hp : Term.map f P = Term.map f p)
@@ -1256,8 +1256,8 @@ noncomputable def aligned := BoundaryAlignment.aligned F hF
   (deltaP f E F hF G hG p hp) (deltaQ f E F hF G hG q hq) K
 
 noncomputable def omega : Term (homogeneousPath (homogeneousPath X p q)
-    (H f E F hF G hG p q h) (aligned f E F hF G hG p q hp hq K)) :=
-  RelativeComparison.compare f E e F hF G hG (H f E F hF G hG p q h)
+    (selectedPath f E F hF G hG p q h) (aligned f E F hF G hG p q hp hq K)) :=
+  RelativeComparison.compare f E e F hF G hG (selectedPath f E F hF G hG p q h)
     (aligned f E F hF G hG p q hp hq K)
 
 theorem alignment_original :
@@ -1278,7 +1278,7 @@ theorem alignment_right :
   BoundaryAlignment.square_right _ _ _ _ _
 
 theorem omega_independent : Term.reindex (pathApp (omega f E e F hF G hG p q h hp hq K))
-    (endpointSub Γ false) = H f E F hF G hG p q h := pathApp_zero _
+    (endpointSub Γ false) = selectedPath f E F hF G hG p q h := pathApp_zero _
 theorem omega_aligned : Term.reindex (pathApp (omega f E e F hF G hG p q h hp hq K))
     (endpointSub Γ true) = aligned f E F hF G hG p q hp hq K := pathApp_one _
 
@@ -1572,7 +1572,7 @@ theorem observed_endpoints : Term.map (coe S) (uaConcatenation S e d) = Term.map
   (uaConcatenation_observation S e d).trans (uaComposite_observation S e d).symm
 
 /-- Chosen from the actual univalence fiber before the common nerve square is used. -/
-noncomputable def H := SelectedSpan.H (coe S) (coeEquivalence S)
+noncomputable def selectedPath := SelectedSpan.selectedPath (coe S) (coeEquivalence S)
   (loopFilling S) (loopFilling_lawful S) (recordFilling S) (recordFilling_lawful S)
   (uaComposite S e d) (uaConcatenation S e d) (observed_endpoints S e d)
 noncomputable def deltaP := SelectedSpan.deltaP (coe S) (coeEquivalence S)
@@ -1587,7 +1587,7 @@ noncomputable def aligned := BoundaryAlignment.aligned (loopFilling S) (loopFill
   (deltaP S e d) (deltaQ S e d) (NativeNerve.realizedComposition S e d)
 noncomputable def omegaU := RelativeComparison.compare (coe S) (coeEquivalence S) (nativeRecordPresentation S)
   (loopFilling S) (loopFilling_lawful S) (recordFilling S) (recordFilling_lawful S)
-  (H S e d) (aligned S e d)
+  (selectedPath S e d) (aligned S e d)
 
 theorem alignment_original : Term.reindex (alignmentL S e d)
     (endpointSub (total (interval (raisedContext point))) false) = pathApp (NativeNerve.realizedComposition S e d) :=
@@ -1605,7 +1605,7 @@ theorem alignment_right : Term.reindex (alignmentL S e d)
   BoundaryAlignment.square_right _ _ _ _ _
 
 theorem omega_independent : Term.reindex (pathApp (omegaU S e d))
-    (endpointSub (raisedContext point) false) = H S e d := pathApp_zero _
+    (endpointSub (raisedContext point) false) = selectedPath S e d := pathApp_zero _
 theorem omega_aligned : Term.reindex (pathApp (omegaU S e d))
     (endpointSub (raisedContext point) true) = aligned S e d := pathApp_one _
 theorem omega_start : Term.reindex (RelativeComparison.squareBody (omegaU S e d))
@@ -1630,7 +1630,7 @@ theorem alignmentAt_comp {Δ Θ : Context.{u+1}} (σ : Δ ⟶ raisedContext poin
 theorem alignmentAt_id : alignmentAt S e d (𝟙 (raisedContext point)) = alignmentL S e d := rfl
 
 theorem omegaAt_independent {Δ : Context.{u+1}} (σ : Δ ⟶ raisedContext point) :
-    Term.reindex (pathApp (omegaAt S e d σ)) (endpointSub Δ false) = homogeneousReindex (H S e d) σ :=
+    Term.reindex (pathApp (omegaAt S e d σ)) (endpointSub Δ false) = homogeneousReindex (selectedPath S e d) σ :=
   pathApp_zero _
 theorem omegaAt_aligned {Δ : Context.{u+1}} (σ : Δ ⟶ raisedContext point) :
     Term.reindex (pathApp (omegaAt S e d σ)) (endpointSub Δ true) = homogeneousReindex (aligned S e d) σ :=

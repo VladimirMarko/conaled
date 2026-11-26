@@ -103,7 +103,7 @@ end BaseChange
 comparisons of both right adjoints. -/
 abbrev terminalProjection_baseChange (A Γ : Sheaf J (Type (max u v))) :=
   baseChange_comparison (SheafTerminalProduct.terminalMap A)
-    (SheafProjectionProduct.projectionSquare A Γ)
+    (SheafProjectionProduct.projection_square A Γ)
     (SheafTerminalProduct.adjunction A) (SheafProjectionProduct.adjunction A Γ)
 
 end SquareKit.SheafDependentProduct

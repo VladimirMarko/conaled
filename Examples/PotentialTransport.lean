@@ -31,7 +31,7 @@ theorem realRun_transport (n : Nat) (bs : Bits) :
     (fun (_ : Unit) => incWithCost) (List.replicate n ()) bs).symm
 
 /-- Map the existing Nat budget along the unchanged state trajectory. -/
-theorem realBudget (n : Nat) (bs : Bits) :
+theorem real_budget (n : Nat) (bs : Bits) :
     budget realStep (fun _ _ => (2 : ℝ)) (List.replicate n ()) bs = 2 * (n : ℝ) := by
   calc
     budget realStep (fun _ _ => (2 : ℝ)) (List.replicate n ()) bs =
@@ -53,7 +53,7 @@ theorem realRun_potential (n : Nat) (bs : Bits) :
     (run realStep (List.replicate n ()) bs).2 +
         (ones (run realStep (List.replicate n ()) bs).1 : ℝ) =
       (ones bs : ℝ) + 2 * (n : ℝ) := by
-  simpa only [realBudget] using
+  simpa only [real_budget] using
     run_potential_exact realStep (fun _ _ => (2 : ℝ))
       (fun bs => (ones bs : ℝ)) realStep_potential (List.replicate n ()) bs
 
@@ -61,7 +61,7 @@ theorem realRun_bound (n : Nat) (bs : Bits) :
     (run realStep (List.replicate n ()) bs).2 ≤ (ones bs : ℝ) + 2 * (n : ℝ) := by
   have hfinal : 0 ≤ (ones (run realStep (List.replicate n ()) bs).1 : ℝ) :=
     Nat.cast_nonneg _
-  simpa only [realBudget] using
+  simpa only [real_budget] using
     run_cost_le_of_nonneg_final realStep (fun _ _ => (2 : ℝ))
       (fun bs => (ones bs : ℝ)) (fun i bs => le_of_eq (realStep_potential i bs))
       (List.replicate n ()) bs hfinal

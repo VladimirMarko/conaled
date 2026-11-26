@@ -33,7 +33,7 @@ renaming of carriers. It remains an observation comparison of a named fragment,
 not an all-context interpretation of cubical type theory.
 
 `pathBijection_apply` identifies each target output with the decoded native
-transport of that input. `bijectionMap` reconstructs the entire native carrier
+transport of that input. `bijection_map` reconstructs the entire native carrier
 map in this constant-code fragment. `transport_input` connects its image to the
 native input constructor. `pathBijection_loop` identifies the endomorphism
 specialization with #531's existing permutation observer, preserving its loop

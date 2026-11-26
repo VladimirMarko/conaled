@@ -97,75 +97,75 @@ private theorem cast_pres {γ : CtxCode.{u+1}} {a b : TyCode γ} (e : a = b)
 
 mutual
 
-theorem generatedCtx (deriv : CtxDeriv.{u+1} Γ γ) : CtxPres S T h hB γ :=
+theorem generated_ctx (deriv : CtxDeriv.{u+1} Γ γ) : CtxPres S T h hB γ :=
   match deriv with
   | .empty => ⟨rfl, rfl⟩
-  | .ext _ ha => (generatedTy ha).extend
-  | .path _ _ hx => path_pres S T h hB (section_pres S T h hB hx (generatedTmType hx))
-  | .telescope _ ht => (generatedTel ht).total
-  | .branch hΓ ha hx ht => branch_pres S T h hB hΓ ha hx ht (generatedTmType hx) (generatedTel ht)
+  | .ext _ ha => (generated_ty ha).extend
+  | .path _ _ hx => path_pres S T h hB (section_pres S T h hB hx (generated_tm_type hx))
+  | .telescope _ ht => (generated_tel ht).total
+  | .branch hΓ ha hx ht => branch_pres S T h hB hΓ ha hx ht (generated_tm_type hx) (generated_tel ht)
 termination_by sizeOf deriv
 
-theorem generatedTel (deriv : TelDeriv.{u+1} Γ γ n Δ Ts) : TelPres S T h hB Ts :=
+theorem generated_tel (deriv : TelDeriv.{u+1} Γ γ n Δ Ts) : TelPres S T h hB Ts :=
   match deriv with
-  | .nil hΓ => .nil (generatedCtx hΓ)
-  | .cons ha ht => .cons (generatedTy ha) (generatedTel ht)
-  | .pullback ht hs => (generatedTel ht).pullback (substitution_pres S T h hB hs (generatedSubContexts hs))
+  | .nil hΓ => .nil (generated_ctx hΓ)
+  | .cons ha ht => .cons (generated_ty ha) (generated_tel ht)
+  | .pullback ht hs => (generated_tel ht).pullback (substitution_pres S T h hB hs (generated_sub_contexts hs))
   | .pathReindex hΓ ha hx ht hs =>
-      pathTail_pres S T h hB hΓ ha hx ht hs (generatedTmType hx) (generatedTel ht) (generatedSubContexts hs)
+      pathTail_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx) (generated_tel ht) (generated_sub_contexts hs)
 termination_by sizeOf deriv
 
-theorem generatedTy (deriv : TyDeriv.{u+1} Γ γ A a) : TyPres S T h hB a :=
+theorem generated_ty (deriv : TyDeriv.{u+1} Γ γ A a) : TyPres S T h hB a :=
   match deriv with
-  | .base hΓ => S.baseFamily_composes T h hB (generatedCtx hΓ)
-  | .fiber hx => S.fiber_composes T h hB (section_pres S T h hB hx (generatedTmType hx))
+  | .base hΓ => S.baseFamily_composes T h hB (generated_ctx hΓ)
+  | .fiber hx => S.fiber_composes T h hB (section_pres S T h hB hx (generated_tm_type hx))
   | .identity _ hx hy =>
-      (section_pres S T h hB hx (generatedTmType hx)).identity (section_pres S T h hB hy (generatedTmType hy))
-  | .sub ha hs => (generatedTy ha).reindex (substitution_pres S T h hB hs (generatedSubContexts hs))
+      (section_pres S T h hB hx (generated_tm_type hx)).identity (section_pres S T h hB hy (generated_tm_type hy))
+  | .sub ha hs => (generated_ty ha).reindex (substitution_pres S T h hB hs (generated_sub_contexts hs))
 termination_by sizeOf deriv
 
 /-- The family invariant for every generated term; the full section relation
 then follows from the already-proved generated endpoint preservation. -/
-theorem generatedTmType (deriv : TmDeriv.{u+1} Γ γ A a t x) : TyPres S T h hB a :=
+theorem generated_tm_type (deriv : TmDeriv.{u+1} Γ γ A a t x) : TyPres S T h hB a :=
   match deriv with
-  | .var _ ha => (generatedTy ha).reindex (generatedTy ha).weaken
+  | .var _ ha => (generated_ty ha).reindex (generated_ty ha).weaken
   | .refl _ hx =>
-      (section_pres S T h hB hx (generatedTmType hx)).identity (section_pres S T h hB hx (generatedTmType hx))
-  | .sub hx hs => (generatedTmType hx).reindex (substitution_pres S T h hB hs (generatedSubContexts hs))
+      (section_pres S T h hB hx (generated_tm_type hx)).identity (section_pres S T h hB hx (generated_tm_type hx))
+  | .sub hx hs => (generated_tm_type hx).reindex (substitution_pres S T h hB hs (generated_sub_contexts hs))
   | .pathInduction _ _ _ _ hc _ _ _ hs =>
-      (generatedTy hc).reindex (substitution_pres S T h hB hs (generatedSubContexts hs))
+      (generated_ty hc).reindex (substitution_pres S T h hB hs (generated_sub_contexts hs))
   | .pathInductionReindex _ _ _ _ hc _ _ _ _ hs =>
-      (generatedTy hc).reindex (substitution_pres S T h hB hs (generatedSubContexts hs))
-  | .genericJ _ _ _ _ hc _ => generatedTy hc
+      (generated_ty hc).reindex (substitution_pres S T h hB hs (generated_sub_contexts hs))
+  | .genericJ _ _ _ _ hc _ => generated_ty hc
   | .reindexJBranch hΓ ha hx ht hc _ hs =>
       reindexBranch_pres S T h hB hΓ ha hx ht hc hs
-        (generatedTmType hx) (generatedTel ht) (generatedTy hc) (generatedSubContexts hs)
-  | .conv hx _ e => cast_pres S T h hB e (generatedTmType hx)
+        (generated_tm_type hx) (generated_tel ht) (generated_ty hc) (generated_sub_contexts hs)
+  | .conv hx _ e => cast_pres S T h hB e (generated_tm_type hx)
 termination_by sizeOf deriv
 
-theorem generatedSubContexts (deriv : SubDeriv.{u+1} Δ δ Γ γ σ s) : SubPres S T h hB s :=
+theorem generated_sub_contexts (deriv : SubDeriv.{u+1} Δ δ Γ γ σ s) : SubPres S T h hB s :=
   match deriv with
-  | .id hΓ => ⟨generatedCtx hΓ, generatedCtx hΓ⟩
-  | .comp hs ht => ⟨(generatedSubContexts ht).1, (generatedSubContexts hs).2⟩
-  | .weaken _ ha => ⟨(generatedTy ha).extend, (generatedTy ha).context⟩
-  | .projection _ ht => ⟨(generatedTel ht).total, (generatedTel ht).context⟩
+  | .id hΓ => ⟨generated_ctx hΓ, generated_ctx hΓ⟩
+  | .comp hs ht => ⟨(generated_sub_contexts ht).1, (generated_sub_contexts hs).2⟩
+  | .weaken _ ha => ⟨(generated_ty ha).extend, (generated_ty ha).context⟩
+  | .projection _ ht => ⟨(generated_tel ht).total, (generated_tel ht).context⟩
   | .root _ _ hx =>
-      ⟨(generatedTmType hx).context, path_pres S T h hB (section_pres S T h hB hx (generatedTmType hx))⟩
+      ⟨(generated_tm_type hx).context, path_pres S T h hB (section_pres S T h hB hx (generated_tm_type hx))⟩
   | .rootTail hΓ ha hx ht =>
-      ⟨branch_pres S T h hB hΓ ha hx ht (generatedTmType hx) (generatedTel ht), (generatedTel ht).total⟩
+      ⟨branch_pres S T h hB hΓ ha hx ht (generated_tm_type hx) (generated_tel ht), (generated_tel ht).total⟩
   | .pathTailMap hΓ ha hx ht hs =>
-      ⟨(pathTail_pres S T h hB hΓ ha hx ht hs (generatedTmType hx)
-        (generatedTel ht) (generatedSubContexts hs)).total, (generatedTel ht).total⟩
-  | .pair ha hs _ => ⟨(generatedSubContexts hs).1, (generatedTy ha).extend⟩
+      ⟨(pathTail_pres S T h hB hΓ ha hx ht hs (generated_tm_type hx)
+        (generated_tel ht) (generated_sub_contexts hs)).total, (generated_tel ht).total⟩
+  | .pair ha hs _ => ⟨(generated_sub_contexts hs).1, (generated_ty ha).extend⟩
 termination_by sizeOf deriv
 end
 
-theorem generatedTm (deriv : TmDeriv.{u+1} Γ γ A a t x) :
+theorem generated_tm (deriv : TmDeriv.{u+1} Γ γ A a t x) :
     (x L).Composes (x R) (x N) :=
-  section_pres S T h hB deriv (generatedTmType S T h hB deriv)
+  section_pres S T h hB deriv (generated_tm_type S T h hB deriv)
 
-theorem generatedSub (deriv : SubDeriv.{u+1} Δ δ Γ γ σ s) :
+theorem generated_sub (deriv : SubDeriv.{u+1} Δ δ Γ γ σ s) :
     (s L).Composes (s R) (s N) :=
-  substitution_pres S T h hB deriv (generatedSubContexts S T h hB deriv)
+  substitution_pres S T h hB deriv (generated_sub_contexts S T h hB deriv)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison.GeneratedComposition

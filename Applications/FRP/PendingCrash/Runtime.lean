@@ -63,8 +63,8 @@ structure Observation (before : Durability.Machine Frame) (beforePeer : Peer) ex
   native : match journalEvent with
     | none => system.adapter.journal.machine = before
     | some event => Durability.Step event before system.adapter.journal.machine := by rfl
-  peerNative : system.peer = (peerExecute beforePeer peerCommands).peer := by rfl
-  peerEffects : effect.toList = (peerExecute beforePeer peerCommands).effects := by rfl
+  peer_native : system.peer = (peerExecute beforePeer peerCommands).peer := by rfl
+  peer_effects : effect.toList = (peerExecute beforePeer peerCommands).effects := by rfl
 
 def idle (s : System) : Bool :=
   !s.adapter.stopped && s.adapter.current.isSome &&
@@ -285,7 +285,7 @@ def network (s : System) (deliverReply : Bool) : Observation s.adapter.journal.m
   | [] => reject s
   | (identity, command) :: rest =>
     let result := peerStep s.peer identity command
-    {system := {s with peer := result.peer, outbound := rest, inbound := if deliverReply then s.inbound ++ [result.receipt] else s.inbound}, status := .handled, effect := result.effect.map (fun y => (identity,y)), prevented := result.prevented.map (fun x => (identity,x)), peerCommands := [(identity, command)], peerEffects := by simp [peerExecute, result, Option.toList_map], work := result.work ++ [.messageCheck, .release 1] ++
+    {system := {s with peer := result.peer, outbound := rest, inbound := if deliverReply then s.inbound ++ [result.receipt] else s.inbound}, status := .handled, effect := result.effect.map (fun y => (identity,y)), prevented := result.prevented.map (fun x => (identity,x)), peerCommands := [(identity, command)], peer_effects := by simp [peerExecute, result, Option.toList_map], work := result.work ++ [.messageCheck, .release 1] ++
         (if deliverReply then [.allocate (s.inbound.length + 1), .copy s.inbound.length, .release s.inbound.length] else [])}
 
 def receiveNetwork (s : System) : Observation s.adapter.journal.machine s.peer :=
@@ -575,14 +575,14 @@ theorem execute_peer (s : System) (commands : List Command) :
     have rest := ih result.system
     have composition := peerExecute_append s.peer result.peerCommands
       (execute result.system commands).peerCommands
-    rw [← result.peerNative] at composition
+    rw [← result.peer_native] at composition
     constructor
     · exact rest.1.trans composition.1.symm
     · have hs : (execute s (command :: commands)).effects =
           result.effect.toList ++ (execute result.system commands).effects := by
         cases h : result.effect <;> simp only [result] at h <;>
           simp [execute, Execution.effects, h, result]
-      rw [hs, result.peerEffects, rest.2]
+      rw [hs, result.peer_effects, rest.2]
       exact composition.2.symm
 
 /-- No lifetime identity can cause two external effects in any finite runtime

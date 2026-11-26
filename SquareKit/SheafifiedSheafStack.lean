@@ -1064,7 +1064,7 @@ lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     eqToIso.inv, eqToHom_trans, Cat.eqToHom_app]
 
 
-lemma rawCanonicalCondition {Z : Cᵒᵖ ⥤ Type u} (q : Z ⟶ yoneda.obj S) {i j : I}
+lemma raw_canonical_condition {Z : Cᵒᵖ ⥤ Type u} (q : Z ⟶ yoneda.obj S) {i j : I}
     (a : Z ⟶ yoneda.obj (V i)) (b : Z ⟶ yoneda.obj (V j))
     (ha : a ≫ yoneda.map (f i) = q) (hb : b ≫ yoneda.map (f j) = q) :
     (a ≫ toSheafify J (yoneda.obj (V i))) ≫ ((SheafifiedYoneda.functor J).map (f i)).hom =
@@ -1081,7 +1081,7 @@ lemma rawNat_canonical (P : Torsor G (represented S))
     (a : Z ⟶ yoneda.obj (V i)) (b : Z ⟶ yoneda.obj (V j))
     (ha : a ≫ yoneda.map (f i) = q) (hb : b ≫ yoneda.map (f j) = q) :
     rawNat (((torsorPseudofunctor G).toDescentData f).obj P) q a b ha hb =
-      (familyComparison P (rawCanonicalCondition q a b ha hb)).hom := by
+      (familyComparison P (raw_canonical_condition q a b ha hb)).hom := by
   ext x p
   rw [familyComparison_hom_app]
   change evaluate ((((torsorPseudofunctor G).toDescentData f).obj P).hom
@@ -1107,7 +1107,7 @@ lemma rawNat_canonical (P : Torsor G (represented S))
   simp [ElementFamilies.vertical]
 
 
-lemma sheafCanonicalCondition {Z : Cᵒᵖ ⥤ Type u} (q : Z ⟶ yoneda.obj S) {i j : I}
+lemma sheaf_canonical_condition {Z : Cᵒᵖ ⥤ Type u} (q : Z ⟶ yoneda.obj S) {i j : I}
     (a : Z ⟶ yoneda.obj (V i)) (b : Z ⟶ yoneda.obj (V j))
     (ha : a ≫ yoneda.map (f i) = q) (hb : b ≫ yoneda.map (f j) = q) :
     (presheafToSheaf J (Type u)).map a ≫ (SheafifiedYoneda.functor J).map (f i) =
@@ -1121,10 +1121,10 @@ lemma sheafifyHom_canonical (P : Torsor G (represented S))
     (a : Z ⟶ yoneda.obj (V i)) (b : Z ⟶ yoneda.obj (V j))
     (ha : a ≫ yoneda.map (f i) = q) (hb : b ≫ yoneda.map (f j) = q) :
     sheafifyHom (((torsorPseudofunctor G).toDescentData f).obj P) q a b ha hb =
-      eqToHom (congrArg (reindex P) (sheafCanonicalCondition q a b ha hb)) := by
+      eqToHom (congrArg (reindex P) (sheaf_canonical_condition q a b ha hb)) := by
   apply LocalPresentation.arrow_ext (toSheafify J Z)
   rw [sheafifyHom_restrict, whiskerLeft_eqToHom_reindex P (toSheafify J Z)
-    (sheafCanonicalCondition q a b ha hb)]
+    (sheaf_canonical_condition q a b ha hb)]
   simp only [comparisonToRaw_hom, comparisonToRaw_inv, rawIso_hom, rawNat_canonical]
   erw [familyComparison_reindex, familyComparison_reindex]
   simp only [familyComparison_trans]
@@ -1140,7 +1140,7 @@ lemma pullArrow_eqToHom {X Y A B T : Sheaf J (Type u)} (P : Torsor G T)
     (eqToHom (congrArg (reindex P) h)) ≫ eqToHom _ = _
   rw [eqToHom_map, eqToHom_trans, eqToHom_trans]
 
-lemma extendCanonicalHom (P : Torsor G (represented S))
+lemma extend_canonical_hom (P : Torsor G (represented S))
     {Z : Sheaf J (Type u)} (q : Z ⟶ represented S) {i j : I}
     (a : Z ⟶ represented (V i)) (b : Z ⟶ represented (V j))
     (ha : a ≫ (SheafifiedYoneda.functor J).map (f i) = q)
@@ -1151,7 +1151,7 @@ lemma extendCanonicalHom (P : Torsor G (represented S))
   unfold extendHom overlapHom
   rw [sheafifyHom_canonical, sheafCanonicalHom_eq]
   exact pullArrow_eqToHom P _ _ _ _
-    (sheafCanonicalCondition (overlapFst i j ≫ yoneda.map (f i))
+    (sheaf_canonical_condition (overlapFst i j ≫ yoneda.map (f i))
       (overlapFst i j) (overlapSnd i j) rfl pullback.condition.symm)
     _ _ _ _ _ (ha.trans hb.symm)
 
@@ -1163,7 +1163,7 @@ def canonicalIso : (torsorPseudofunctor G).toDescentData f ⋙ extendFunctor ≅
       intro Z q i j a b ha hb
       change 𝟙 _ ≫ _ = _ ≫ 𝟙 _
       rw [Category.id_comp, Category.comp_id]
-      exact (extendCanonicalHom P q a b ha hb).symm))
+      exact (extend_canonical_hom P q a b ha hb).symm))
     (by
       intro P Q h
       apply Pseudofunctor.DescentData.hom_ext

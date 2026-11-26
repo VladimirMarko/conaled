@@ -48,7 +48,7 @@ theorem PoolObserved.map {before after : Frame} {floor : Nat} {outcomes : List O
     obtain ⟨old,oldMember,rfl⟩ := List.mem_map.mp member
     exact complete old oldMember
 
-theorem PoolObserved.raiseLocal {frame : Frame} {floor target : Nat} {outcomes : List Outcome}
+theorem PoolObserved.raise_local {frame : Frame} {floor target : Nat} {outcomes : List Outcome}
     (h : PoolObserved frame floor outcomes) (increasing : floor ≤ target) :
     PoolObserved frame target outcomes :=
   ⟨h.unique,fun name lower upper => h.covered name (increasing.trans lower) upper,h.status,h.completed⟩
@@ -71,7 +71,7 @@ theorem remember_floor (s : LocalSnapshot) (receipt : Receipt) :
   unfold FRPSpec.PendingRetention.remember
   split <;> dsimp only <;> split <;> rfl
 
-theorem PoolObserved.mapAnswer {frame : Frame} {floor : Nat} {outcomes : List Outcome}
+theorem PoolObserved.map_answer {frame : Frame} {floor : Nat} {outcomes : List Outcome}
     (h : PoolObserved frame floor outcomes) (answer : Answer) (predicate : Outcome → Bool)
     (terminal : terminalAnswer answer = true) :
     PoolObserved frame floor (outcomes.map fun record =>
@@ -90,7 +90,7 @@ theorem PoolObserved.remember {s : LocalSnapshot}
   rw [remember_frame,remember_floor]
   rcases receipt with ⟨identity,answer⟩
   cases answer <;> dsimp [FRPSpec.PendingRetention.remember,terminalAnswer] <;> try exact h
-  all_goals apply h.mapAnswer; rfl
+  all_goals apply h.map_answer; rfl
 
 theorem PoolObserved.accept {frame : Frame} {floor : Nat} {outcomes : List Outcome}
     (h : PoolObserved frame floor outcomes) (below : ∀ o ∈ outcomes, o.identity < frame.nextIdentity)

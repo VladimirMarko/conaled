@@ -249,12 +249,12 @@ theorem substituted_source_quote (ops) : (substitutedSourceCode ops).sourceQuote
   exact compiled_source_quote _
 
 theorem substituted_target_quote (ops) : (substitutedTargetCode ops).targetQuote =
-    Expr.subst (fun v => G.act (tauRaw v))
-      (Expr.subst (fun v => G.act (successorSub v)) (targetTerm (.second (index ops)))) := by
+    Expr.subst (fun v => projectionToElimination.act (tauRaw v))
+      (Expr.subst (fun v => projectionToElimination.act (successorSub v)) (targetTerm (.second (index ops)))) := by
   unfold substitutedTargetCode
   rw [compiled_target_quote]
   unfold targetTerm sourceTerm
-  rw [← G.substitution, ← G.substitution, term_twice]
+  rw [← projectionToElimination.substitution, ← projectionToElimination.substitution, term_twice]
 
 -- Numerical cases consume the arbitrary-schedule preservation theorems.
 theorem demo_execution : (targetCode Examples.IncrementalDependentTrialSpec.demo).run (env 3) =
@@ -277,18 +277,18 @@ theorem reject_wrong : (substitutedTargetCode Examples.IncrementalDependentTrial
 
 
 theorem target_pack_split (ops) : (targetCode ops).targetQuote =
-    Elimination.second (G.act N) (G.act familyB)
-      (Elimination.pack (G.act N) (G.act familyB)
-        (G.act (s (index ops).expression)) (G.act (t (index ops).expression))) := by
+    Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB)
+      (Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB)
+        (projectionToElimination.act (s (index ops).expression)) (projectionToElimination.act (t (index ops).expression))) := by
   rw [target_quote, target_second]
   change Elimination.second _ _ (targetTerm (.packet (index ops))) = _
   rw [target_pair]
 
 theorem substituted_target_type (ops) :
-    Expr.subst (fun v => G.act (tauRaw v))
-      (Expr.subst (fun v => G.act (successorSub v)) (G.act (resultType (index ops)))) =
-    G.act (resultType (afterTwice ops)) := by
-  rw [← G.substitution, ← G.substitution, type_twice]
+    Expr.subst (fun v => projectionToElimination.act (tauRaw v))
+      (Expr.subst (fun v => projectionToElimination.act (successorSub v)) (projectionToElimination.act (resultType (index ops)))) =
+    projectionToElimination.act (resultType (afterTwice ops)) := by
+  rw [← projectionToElimination.substitution, ← projectionToElimination.substitution, type_twice]
 
 theorem sourceCode_index (e) : compileCode (indexProof .source e) = Code.index .source e := by
   induction e with

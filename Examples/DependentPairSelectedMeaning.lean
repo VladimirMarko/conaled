@@ -11,16 +11,16 @@ def eliminationExpression : IndexTerm V → EExpr V
   | .successor e => DependentPairDeclarations.Elimination.s (eliminationExpression e)
   | .double e => DependentPairDeclarations.Elimination.d (eliminationExpression e)
 
-theorem translated_index (e : IndexTerm V) : G.act e.expression = eliminationExpression e := by
+theorem translated_index (e : IndexTerm V) : projectionToElimination.act e.expression = eliminationExpression e := by
   induction e with
-  | var v => exact G.on_var v
+  | var v => exact projectionToElimination.on_var v
   | successor e ih =>
-    change G.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection e.expression) = _
-    rw [DependentPairDeclarations.G_s, ih]
+    change projectionToElimination.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection e.expression) = _
+    rw [DependentPairDeclarations.projectionToElimination_s, ih]
     rfl
   | double e ih =>
-    change G.act (DependentPairDeclarations.Terms.d DependentPairDeclarations.projection e.expression) = _
-    rw [DependentPairDeclarations.G_d, ih]
+    change projectionToElimination.act (DependentPairDeclarations.Terms.d DependentPairDeclarations.projection e.expression) = _
+    rw [DependentPairDeclarations.projectionToElimination_d, ih]
     rfl
 
 /-- The full selected dependent tuple, including its index and both witnesses. -/
@@ -36,11 +36,11 @@ inductive EliminationMeaning (ρ : V → Nat) : EExpr V → DependentPairTheoryM
 
 /-- The relation retains the whole selected tuple, rather than its inhabitation. -/
 theorem meaning_preserved {ρ : V → Nat} {e : PExpr V} {value : DependentPairTheoryModels.ClientContext}
-    (h : ProjectionMeaning ρ e value) : EliminationMeaning ρ (G.act e) value := by
+    (h : ProjectionMeaning ρ e value) : EliminationMeaning ρ (projectionToElimination.act e) value := by
   cases h with
   | selected e =>
-    change EliminationMeaning ρ (G.act (DependentPairDeclarations.Terms.u DependentPairDeclarations.projection e.expression)) _
-    rw [DependentPairDeclarations.G_u, translated_index]
+    change EliminationMeaning ρ (projectionToElimination.act (DependentPairDeclarations.Terms.u DependentPairDeclarations.projection e.expression)) _
+    rw [DependentPairDeclarations.projectionToElimination_u, translated_index]
     exact .selected e
 
 def finalValue : DependentPairTheoryModels.ClientContext := ⟨5, ⟨5, by decide⟩, ⟨6, by decide⟩⟩
@@ -50,7 +50,7 @@ theorem source_selected : ProjectionMeaning (fun _ : SingleV => 2)
     (u (d (.var m))) finalValue := .selected finalIndex
 
 theorem target_selected : EliminationMeaning (fun _ : SingleV => 2)
-    (G.act (u (d (.var m)))) finalValue := meaning_preserved source_selected
+    (projectionToElimination.act (u (d (.var m)))) finalValue := meaning_preserved source_selected
 
 theorem same_fixture : finalValue = DependentPairTheoryModels.sigma (DependentPairTheoryModels.tau 2) := rfl
 

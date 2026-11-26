@@ -31,8 +31,8 @@ structure Journal where
   nextAddress : Nat
   disk_eq : machine.disk = cellHeap cells
   fresh : ∀ i, nextAddress ≤ i → machine.disk i = none ∧ i ∉ machine.used
-  logRoot : machine.root.checkpoint = none
-  pendingRoot : ∀ p, machine.pending = some p → p.root.checkpoint = none
+  root_checkpoint_eq_none : machine.root.checkpoint = none
+  pending_root_checkpoint_eq_none : ∀ p, machine.pending = some p → p.root.checkpoint = none
   support : ∀ p, machine.pending = some p → ∀ i c, p.writes i = some c → i < nextAddress
   singleton : ∀ p, machine.pending = some p → ∀ i, i ≠ nextAddress - 1 → p.writes i = none
   safe : ∃ a, Related machine a
@@ -43,8 +43,8 @@ def initialJournal : Journal where
   nextAddress := 0
   disk_eq := rfl
   fresh := by intro i _; exact ⟨rfl, by simp [Durability.initial]⟩
-  logRoot := rfl
-  pendingRoot := by simp [Durability.initial]
+  root_checkpoint_eq_none := rfl
+  pending_root_checkpoint_eq_none := by simp [Durability.initial]
   support := by simp [Durability.initial]
   singleton := by simp [Durability.initial]
   safe := ⟨_, related_initial⟩
@@ -167,12 +167,12 @@ def journalPrepare (s : Journal) : JournalAttempt s :=
             rintro ⟨c,hc⟩
             have ne : i ≠ address := by dsimp [address]; omega
             simp [p, appendPlan, put, ne] at hc
-          logRoot := s.logRoot
-          pendingRoot := by
+          root_checkpoint_eq_none := s.root_checkpoint_eq_none
+          pending_root_checkpoint_eq_none := by
             intro q hq
             have eq : p = q := Option.some.inj hq
             subst q
-            exact s.logRoot
+            exact s.root_checkpoint_eq_none
           support := by
             intro q hq i c hw
             have eq : p = q := Option.some.inj hq
@@ -261,8 +261,8 @@ def journalPublish (s : Journal) : JournalAttempt s :=
           cases ha : p.appended <;> simpa only [event, t, Durability.publishState, ha] using h
         .done ⟨{s with
           machine := t
-          logRoot := s.pendingRoot p hp
-          pendingRoot := by simp [t]
+          root_checkpoint_eq_none := s.pending_root_checkpoint_eq_none p hp
+          pending_root_checkpoint_eq_none := by simp [t]
           support := by simp [t]
           singleton := by simp [t]
           safe := advance_safe s step},
@@ -288,7 +288,7 @@ def journalCrash (s : Journal) : JournalResult s :=
   let step : Durability.Step .crash s.machine t := .crash
   ⟨{s with
     machine := t
-    pendingRoot := by simp [t]
+    pending_root_checkpoint_eq_none := by simp [t]
     support := by simp [t]
     singleton := by simp [t]
     safe := advance_safe s step}, .crash, step,
@@ -304,7 +304,7 @@ def journalStartRead (s : Journal) : JournalAttempt s :=
     if hr : s.machine.cursor = none then
       let cursor := Cursor.tailCells s.machine.root.tail [] []
       let t := {s.machine with cursor := some cursor}
-      let step : Durability.Step .internal s.machine t := .startRead hc hr (.log s.logRoot)
+      let step : Durability.Step .internal s.machine t := .startRead hc hr (.log s.root_checkpoint_eq_none)
       .done ⟨{s with machine := t, safe := advance_safe s step}, .internal, step, [.reconstruct]⟩
     else .failed [.attempt 0]
   else .failed [.attempt 0]

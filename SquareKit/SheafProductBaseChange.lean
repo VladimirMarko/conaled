@@ -11,7 +11,7 @@ universe u v
 variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable (A Γ : Sheaf J (Type (max u v)))
 
-abbrev square := SheafProjectionProduct.projectionSquare A Γ
+abbrev square := SheafProjectionProduct.projection_square A Γ
 abbrev mate := DependentBaseChange.WithAdjunction.mate (square A Γ)
   (SheafTerminalProduct.adjunction A) (SheafProjectionProduct.adjunction A Γ)
 abbrev iso := DependentBaseChange.WithAdjunction.iso (square A Γ)

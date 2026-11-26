@@ -143,7 +143,7 @@ theorem finite_square : IsPullback (sub (forget.lift (b := e))) proj proj (sub f
 theorem context_top : localImage ⊤ (proj (s := e) (Γ := [])) = ⊤ := by
   have hs : IsPullback (singletonIso e).hom proj toTerminal emptyIso.hom :=
     IsPullback.of_horiz_isIso ⟨projection_comparison.symm⟩
-  have h := beckChevalley (⊤ : Subfunctor E.obj) hs
+  have h := beck_chevalley (⊤ : Subfunctor E.obj) hs
   have ht : (⊤ : Subfunctor E.obj).preimage (singletonIso e).hom.hom = ⊤ := rfl
   rw [ht, Examples.SheafImage.localImage_top] at h
   exact h.symm
@@ -216,6 +216,6 @@ theorem twice_neg_value (x : Bool) :
 
 -- Ordinary callers retain their existing graph interface.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafContexts

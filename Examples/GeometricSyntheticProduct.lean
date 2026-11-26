@@ -80,7 +80,7 @@ theorem proper_cover_coefficient (x : Carrier SmoothGeometricSite.line) :
       (principalSieve SmoothGeometricSite.line SmoothGeometricSite.lineOpens) SmoothGeometricSite.line_cover =
       (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x * (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x +
       (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x * (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x :=
-  (SmoothGeometricLocality.gluedDerivative _ _ _ _ _).trans (product_coefficient _ _)
+  (SmoothGeometricLocality.glued_derivative _ _ _ _ _).trans (product_coefficient _ _)
 
 theorem cover_is_proper :
     principalSieve SmoothGeometricSite.line SmoothGeometricSite.lineOpens ≠ ⊤ :=

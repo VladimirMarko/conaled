@@ -42,19 +42,19 @@ def baseDiagram : CechMatching.StrictDiagram.{1,1} where
   firstSecond := liftedRestriction a (SplitSheaf.Cech.firstSecond A)
   firstThird := liftedRestriction a (SplitSheaf.Cech.firstThird A)
   secondThird := liftedRestriction a (SplitSheaf.Cech.secondThird A)
-  diagonalFirst := by
+  diagonal_first := by
     rw [liftedRestriction_comp]
     exact liftedRestriction_id a _
-  diagonalSecond := by
+  diagonal_second := by
     rw [liftedRestriction_comp]
     exact liftedRestriction_id a _
-  tripleFirst := by
+  triple_first := by
     rw [liftedRestriction_comp, liftedRestriction_comp]
     rfl
-  tripleMiddle := by
+  triple_middle := by
     rw [liftedRestriction_comp, liftedRestriction_comp]
     rfl
-  tripleLast := by
+  triple_last := by
     rw [liftedRestriction_comp, liftedRestriction_comp]
     rfl
 
@@ -64,17 +64,17 @@ theorem relativeFamilyData_base : relativeFamilyData a hΓ (.base hΓ) A =
   simp only [generatedFamilyMap_base]
   rfl
 
-theorem baseCoherence : (CechMatching.Comprehension.Constant.data
+theorem base_coherence : (CechMatching.Comprehension.Constant.data
     (strictDiagram a hΓ A) (baseDiagram a A)).Coherence := by
   rw [← relativeFamilyData_base a hΓ A]
-  exact relativeFamilyCoherence a hΓ (.base hΓ) A
+  exact relativeFamilyData_coherence a hΓ (.base hΓ) A
 
 /-- Base matching coefficients are independent of the supplied context datum,
 including their action on context arrows. -/
 def baseFamilyIso : relativeMatchingFamily a hΓ (.base hΓ) A ≅
     (Functor.const (Datum a hΓ A)).obj (Grpd.of (CechMatching.Datum (baseDiagram a A).toDiagram)) := by
   exact CechMatching.Comprehension.Constant.familyIsoOfEq (relativeFamilyData_base a hΓ A)
-    (relativeFamilyCoherence a hΓ (.base hΓ) A) (baseCoherence a hΓ A) ≪≫
+    (relativeFamilyData_coherence a hΓ (.base hΓ) A) (base_coherence a hΓ A) ≪≫
       CechMatching.Comprehension.Constant.familyIso _ _ _
 
 theorem baseDiagram_eq : (baseDiagram a A).toDiagram =
@@ -134,7 +134,7 @@ def baseComprehensionProjection :
 
 variable (d : Datum a hΓ A)
 variable (x : CechMatching.Comprehension.Fiber (relativeFamilyData a hΓ (.base hΓ) A)
-  (relativeFamilyCoherence a hΓ (.base hΓ) A) d)
+  (relativeFamilyData_coherence a hΓ (.base hΓ) A) d)
 
 theorem baseFamilyIso_local : (((baseFamilyIso a hΓ A).hom.app d).obj x).localObject =
     x.localFiber := by
@@ -150,7 +150,7 @@ theorem baseFamilyIso_overlap : HEq
 
 theorem baseFamilyIso_localArrow
     {x y : CechMatching.Comprehension.Fiber (relativeFamilyData a hΓ (.base hΓ) A)
-      (relativeFamilyCoherence a hΓ (.base hΓ) A) d} (f : x ⟶ y) :
+      (relativeFamilyData_coherence a hΓ (.base hΓ) A) d} (f : x ⟶ y) :
     HEq (((baseFamilyIso a hΓ A).hom.app d).map f).localArrow f.matchingArrow.localArrow.fiber :=
   CechMatching.Comprehension.Constant.familyIsoOfEq_arrow (relativeFamilyData_base a hΓ A) _ _ d f
 

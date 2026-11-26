@@ -38,7 +38,7 @@ example : (descriptorM (width := 4) 1 2 0 3).1.val = 3 :=
 theorem descriptorM_cost (base rows cols i : Nat) :
     (descriptorM (width := width) base rows cols i).2 = 3 := rfl
 
-private theorem descriptorFits (fit : base+FlatTable.words rows cols ≤ capacity)
+private theorem descriptor_fits (fit : base+FlatTable.words rows cols ≤ capacity)
     (wide : capacity ≤ 2^width) (i : Fin rows) : base+rows+i.val*cols < 2^width := by
   have hp := NeZero.pos cols
   have hm := Nat.mul_le_mul_right cols (show i.val+1≤rows by omega)
@@ -79,7 +79,7 @@ theorem packCell_value (cells : Vector (Vector (WordMachine.Word width) cols) ro
   by_cases hi : i.val<rows
   · apply Fin.ext
     simp only [packCell,hi,dite_true]
-    rw [descriptorM_value (descriptorFits fit wide ⟨i.val,hi⟩)]
+    rw [descriptorM_value (descriptor_fits fit wide ⟨i.val,hi⟩)]
     exact (FlatTable.descriptor_read cells fit wide ⟨i.val,hi⟩).symm
   · have hp : i.val-rows < rows*cols := by have := i.isLt; unfold FlatTable.words at this; omega
     let r : Fin rows := ⟨(i.val-rows)/cols,(Nat.div_lt_iff_lt_mul (NeZero.pos cols)).2 hp⟩
@@ -146,7 +146,7 @@ def tensorClassM (cells : Vector (Vector (Vector (WordMachine.Word width) cols) 
   let pointer := descriptorM (width := width) base classes (FlatTable.words rows cols) code.val
   let resident := TableExecution.read cells code
   let packed := packM resident.1 pointer.1.val capacity (by
-    rw [descriptorM_value (descriptorFits fit wide code)]
+    rw [descriptorM_value (descriptor_fits fit wide code)]
     exact inner_fit fit code) wide
   (packed.1,pointer.2+resident.2+packed.2)
 
@@ -156,7 +156,7 @@ theorem tensorClassM_value (cells : Vector (Vector (Vector (WordMachine.Word wid
     (tensorClassM cells base capacity fit wide code).1 =
       FlatTable.pack cells[code.val] (base+classes+code.val*FlatTable.words rows cols) capacity (inner_fit fit code) wide := by
   simp only [tensorClassM,packM_value,TableExecution.read,lookup,
-    descriptorM_value (descriptorFits fit wide code)]
+    descriptorM_value (descriptor_fits fit wide code)]
 
 theorem tensorClassM_cost (cells : Vector (Vector (Vector (WordMachine.Word width) cols) rows) classes)
     (fit : base+FlatTable.words classes (FlatTable.words rows cols) ≤ capacity)
@@ -166,7 +166,7 @@ theorem tensorClassM_cost (cells : Vector (Vector (Vector (WordMachine.Word widt
   have hh := packM_cost (TableExecution.read cells code).1
     (show (descriptorM (width := width) base classes (FlatTable.words rows cols) code.val).1.val+
       FlatTable.words rows cols ≤ capacity by
-      rw [descriptorM_value (descriptorFits fit wide code)]; exact inner_fit fit code) wide
+      rw [descriptorM_value (descriptor_fits fit wide code)]; exact inner_fit fit code) wide
   simp only [descriptorM_cost,TableExecution.read] at hh ⊢
   omega
 

@@ -7,7 +7,7 @@ open Nat.Partrec (Code)
 
 /-- Full-cut labels need not be canonical: the compiler observes termination. -/
 theorem search_keeps_selected (p : Code)
-    (hp : Tracks (prod N iterationCuts) (programLift N) p.eval
+    (hp : Tracks (prod natAssembly iterationCuts) (programLift natAssembly) p.eval
       (strictIteration liftedNaturals chooseParameter).toFun) :
     17 ∈ run (encode (searchCode (encode (observerCode p 17)) (encode (Code.const 99)))) := by
   apply (cutSearch_mem hp (γ := (17 : Nat)) rfl _ _).mpr
@@ -15,7 +15,7 @@ theorem search_keeps_selected (p : Code)
 
 /-- The tracker emits a partial program even when no finite observation succeeds. -/
 theorem search_zero_cut_diverges (p : Code)
-    (hp : Tracks (prod N iterationCuts) (programLift N) p.eval
+    (hp : Tracks (prod natAssembly iterationCuts) (programLift natAssembly) p.eval
       (strictIteration liftedNaturals chooseParameter).toFun) :
     ¬ (run (encode (searchCode (encode (observerCode p 17)) (encode (cutCode 0))))).Dom := by
   intro hd
@@ -27,7 +27,7 @@ theorem search_zero_cut_diverges (p : Code)
   cases hnvalue
 
 example : ∃ p : Code,
-    Tracks (prod N iterationCuts) (programLift N) p.eval
+    Tracks (prod natAssembly iterationCuts) (programLift natAssembly) p.eval
       (strictIteration liftedNaturals chooseParameter).toFun ∧
     17 ∈ run (encode (searchCode (encode (observerCode p 17)) (encode (Code.const 99)))) ∧
     ¬ (run (encode (searchCode (encode (observerCode p 17)) (encode (cutCode 0))))).Dom := by
@@ -39,7 +39,7 @@ def emptyContext : Assembly where
   Realizes _ _ := False
   inhabited x := x.elim
 
-example : Function.Bijective (fun h : Hom (prod emptyContext finalCuts) (programLift N) =>
+example : Function.Bijective (fun h : Hom (prod emptyContext finalCuts) (programLift natAssembly) =>
     (cutContextInclusion emptyContext).comp h) := liftNat_cutComplete emptyContext
 
 end CompleteAssemblySearch

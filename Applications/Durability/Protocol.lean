@@ -124,7 +124,7 @@ theorem Related.offline {P : Type} {s : Machine P} {a : Abstract P}
   rw [rel.cache] at hc
   cases eq : a.online <;> simp_all
 
-theorem Related.noCursor {P : Type} {s : Machine P} {a : Abstract P}
+theorem Related.no_cursor {P : Type} {s : Machine P} {a : Abstract P}
     (rel : Related s a) (online : a.online = true) : s.cursor = none := by
   cases eq : s.cursor with
   | none => rfl

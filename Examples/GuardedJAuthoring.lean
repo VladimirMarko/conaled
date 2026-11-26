@@ -63,7 +63,7 @@ theorem interpreted :
 include hσ hτ hΩ in
 /-- Reuse the established Sigma embedding and exact-reduct theorem, retaining
 the chosen expression and its full twice-substituted source type. -/
-theorem extensionSelected :
+theorem extension_selected :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
       (subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ)).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
@@ -72,6 +72,6 @@ theorem extensionSelected :
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       (subTm (subTm (Command.reflexivity hx hT hp).expression σ) τ).eval (algebra M) ρ :=
-  DependentAuthorTrial.Candidate.extensionSelectedTwice hx hT hp hσ hτ M S ρ hΩ
+  DependentAuthorTrial.Candidate.extension_selected_twice hx hT hp hσ hτ M S ρ hΩ
 
 end Examples.GuardedJAuthoring

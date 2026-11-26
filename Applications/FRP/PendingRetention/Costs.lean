@@ -140,8 +140,8 @@ def PeerCauseBound (cfg : Config) : PeerCause → Prop
 
 /-- Representation bounds only: source provenance is a separate invariant. -/
 structure ResourceBound (cfg : Config) (s : System) : Prop where
-  localBanks : LocalBanksBound cfg s.localBank
-  peerBanks : PeerBanksBound cfg s.peer
+  localBanksBound : LocalBanksBound cfg s.localBank
+  peerBanksBound : PeerBanksBound cfg s.peer
   localCause : ∀ c ∈ s.localCause, LocalCauseBound cfg c
   peerCause : ∀ c ∈ s.peerCause, PeerCauseBound cfg c
   localOut : s.localOut.length ≤ cfg.queueCapacity ∧ ∀ p ∈ s.localOut, RequestBound cfg p
@@ -154,13 +154,13 @@ structure ResourceBound (cfg : Config) (s : System) : Prop where
 theorem ResourceBound.beginLocal {cfg : Config} {s : System} (hs : ResourceBound cfg s)
     (t : LocalSnapshot) (c : LocalCause) (ht : LocalBound cfg t) (hc : LocalCauseBound cfg c) :
     ResourceBound cfg (beginLocal s t c).system := by
-  exact ⟨hs.localBanks.begin ht,hs.peerBanks,by simpa [FRPSpec.PendingRetention.beginLocal] using hc,
+  exact ⟨hs.localBanksBound.begin ht,hs.peerBanksBound,by simpa [FRPSpec.PendingRetention.beginLocal] using hc,
     hs.peerCause,hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
 
 theorem ResourceBound.beginPeer {cfg : Config} {s : System} (hs : ResourceBound cfg s)
     (t : PeerSnapshot) (c : PeerCause) (ht : PeerBound cfg t) (hc : PeerCauseBound cfg c) :
     ResourceBound cfg (beginPeer s t c).system := by
-  exact ⟨hs.localBanks,hs.peerBanks.begin ht,hs.localCause,by simpa [FRPSpec.PendingRetention.beginPeer] using hc,
+  exact ⟨hs.localBanksBound,hs.peerBanksBound.begin ht,hs.localCause,by simpa [FRPSpec.PendingRetention.beginPeer] using hc,
     hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
 
 theorem ResourceBound.pushRequest {cfg : Config} {s : System} (hs : ResourceBound cfg s)
@@ -168,7 +168,7 @@ theorem ResourceBound.pushRequest {cfg : Config} {s : System} (hs : ResourceBoun
     ResourceBound cfg (pushRequest cfg s p).system := by
   unfold FRPSpec.PendingRetention.pushRequest
   split
-  · refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,?_,hs.peerIn,
+  · refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,?_,hs.peerIn,
       hs.peerOut,hs.localIn,hs.retirement⟩
     constructor
     · simp only [List.length_append,List.length_singleton]; omega
@@ -183,7 +183,7 @@ theorem ResourceBound.pushReply {cfg : Config} {s : System} (hs : ResourceBound 
     ResourceBound cfg (pushReply cfg s p).system := by
   unfold FRPSpec.PendingRetention.pushReply
   split
-  · refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+  · refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
       ?_,hs.localIn,hs.retirement⟩
     constructor
     · simp only [List.length_append,List.length_singleton]; omega
@@ -213,7 +213,7 @@ theorem ResourceBound.localStep {cfg : Config} {s : System} (hs : ResourceBound 
       · split
         · exact hs
         · exact (show ResourceBound cfg {s with prepared := some _} from
-            ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+            ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
               hs.peerOut,hs.localIn,hs.retirement⟩).beginLocal _ _ hb hc
 
 theorem ResourceBound.startRetirement {cfg : Config} {s : System} (hs : ResourceBound cfg s)
@@ -222,19 +222,19 @@ theorem ResourceBound.startRetirement {cfg : Config} {s : System} (hs : Resource
   dsimp only
   repeat' first | split | exact hs
   rename_i h₁ h₂ h₃ h₄
-  refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+  refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
     hs.peerOut,hs.localIn,?_⟩
   intro p hp
   simp only [Option.mem_def,Option.some.injEq] at hp
   subst p
-  have hb := hs.localBanks.selected
+  have hb := hs.localBanksBound.selected
   exact ⟨by have := hb.2.1; omega,hb.2.2.1⟩
 
 theorem ResourceBound.scanRetirement {cfg : Config} {s : System} (hs : ResourceBound cfg s)
     (target cursor : Nat) (ht : target ≤ cfg.lifetime) :
     ResourceBound cfg (scanRetirement s target cursor).system := by
   have cleared : ResourceBound cfg {s with retirementScan := none} :=
-    ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+    ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
       hs.peerOut,hs.localIn,by simp⟩
   unfold FRPSpec.PendingRetention.scanRetirement
   dsimp only
@@ -242,7 +242,7 @@ theorem ResourceBound.scanRetirement {cfg : Config} {s : System} (hs : ResourceB
   · split
     · exact cleared
     · split
-      · refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+      · refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
           hs.peerOut,hs.localIn,?_⟩
         intro p hp
         simp only [Option.mem_def,Option.some.injEq] at hp
@@ -250,7 +250,7 @@ theorem ResourceBound.scanRetirement {cfg : Config} {s : System} (hs : ResourceB
         exact ⟨ht,by omega⟩
       · exact cleared
   · apply cleared.beginLocal
-    · have hb := hs.localBanks.selected
+    · have hb := hs.localBanksBound.selected
       exact ⟨hb.1,hb.2.1,ht,by simpa using ht,hb.2.2.2.2⟩
     · exact ht
 
@@ -266,7 +266,7 @@ theorem ResourceBound.requestStep {cfg : Config} {s : System} (hs : ResourceBoun
     | cons packet rest =>
       have hp := hs.peerIn.2 packet (by simp [he])
       have consumed : ResourceBound cfg {s with peerIn := rest} := by
-        refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,?_,
+        refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,?_,
           hs.peerOut,hs.localIn,hs.retirement⟩
         exact ⟨by have := hs.peerIn.1; simp [he] at this; dsimp only; omega,
           fun p h => hs.peerIn.2 p (by simp [he,h])⟩
@@ -289,7 +289,7 @@ theorem ResourceBound.requestStep {cfg : Config} {s : System} (hs : ResourceBoun
         · split
           · exact consumed.pushReply _ hp
           · apply consumed.beginPeer
-            · have hb := hs.peerBanks.selected
+            · have hb := hs.peerBanksBound.selected
               exact ⟨hp,by simpa [RequestBound] using hp,hb.2.2⟩
             · exact hp
 
@@ -315,7 +315,7 @@ theorem ResourceBound.replyStep {cfg : Config} {s : System} (hs : ResourceBound 
     | cons packet rest =>
       have hp := hs.localIn.2 packet (by simp [he])
       have consumed : ResourceBound cfg {s with localIn := rest} := by
-        refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
+        refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,
           hs.peerOut,?_,hs.retirement⟩
         exact ⟨by have := hs.localIn.1; simp [he] at this; dsimp only; omega,
           fun p h => hs.localIn.2 p (by simp [he,h])⟩
@@ -326,7 +326,7 @@ theorem ResourceBound.replyStep {cfg : Config} {s : System} (hs : ResourceBound 
         split
         · exact consumed
         · rename_i next hn
-          exact consumed.beginLocal _ _ (finishRetirement_bound hs.localBanks.selected hn) hp
+          exact consumed.beginLocal _ _ (finishRetirement_bound hs.localBanksBound.selected hn) hp
       | receipt receipt =>
         dsimp only
         split
@@ -340,11 +340,11 @@ theorem ResourceBound.replyStep {cfg : Config} {s : System} (hs : ResourceBound 
 theorem ResourceBound.localPublished {cfg : Config} {s : System} (hs : ResourceBound cfg s)
     (cause : LocalCause) : ResourceBound cfg (localPublished s cause).system := by
   have base : ResourceBound cfg {s with localCause := none, active := some (reconstruct s.localBank.selected.frame), prepared := none} :=
-    ⟨hs.localBanks,hs.peerBanks,by simp,hs.peerCause,hs.localOut,hs.peerIn,
+    ⟨hs.localBanksBound,hs.peerBanksBound,by simp,hs.peerCause,hs.localOut,hs.peerIn,
       hs.peerOut,hs.localIn,hs.retirement⟩
   unfold FRPSpec.PendingRetention.localPublished
   cases cause with
-  | frame c => cases c <;> exact ⟨hs.localBanks,hs.peerBanks,by simp,hs.peerCause,
+  | frame c => cases c <;> exact ⟨hs.localBanksBound,hs.peerBanksBound,by simp,hs.peerCause,
       hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
   | relinquish _ => exact base
   | finish _ => exact base
@@ -353,7 +353,7 @@ theorem ResourceBound.peerPublished {cfg : Config} {s : System} (hs : ResourceBo
     (cause : PeerCause) (hc : PeerCauseBound cfg cause) :
     ResourceBound cfg (peerPublished cfg s cause).system := by
   have base : ResourceBound cfg {s with peerCause := none} :=
-    ⟨hs.localBanks,hs.peerBanks,hs.localCause,by simp,hs.localOut,hs.peerIn,
+    ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,by simp,hs.localOut,hs.peerIn,
       hs.peerOut,hs.localIn,hs.retirement⟩
   cases cause with
   | business i c r e p => exact base.pushReply _ hc.2
@@ -380,7 +380,7 @@ theorem ResourceBound.progress {cfg : Config} {s : System} (hs : ResourceBound c
         split
         · exact hs
         · have next : ResourceBound cfg {s with localBank := s.localBank.progress.1} :=
-            ⟨hs.localBanks.progress,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,
+            ⟨hs.localBanksBound.progress,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,
               hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
           split
           · simpa only [hr,hl] using next.localPublished cause
@@ -393,7 +393,7 @@ theorem ResourceBound.progress {cfg : Config} {s : System} (hs : ResourceBound c
           split
           · exact hs
           · have next : ResourceBound cfg {s with peer := s.peer.progress.1} :=
-              ⟨hs.localBanks,hs.peerBanks.progress,hs.localCause,hs.peerCause,hs.localOut,
+              ⟨hs.localBanksBound,hs.peerBanksBound.progress,hs.localCause,hs.peerCause,hs.localOut,
                 hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
             split
             · simpa only [hr,hl,hp] using next.peerPublished cause (hs.peerCause cause hp)
@@ -440,13 +440,13 @@ theorem ResourceBound.duplicateQueue {cfg : Config} {s : System} (hs : ResourceB
   all_goals rename_i next hn
   all_goals simp only [Option.map_eq_some_iff] at hn
   all_goals obtain ⟨q,hq,rfl⟩ := hn
-  · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+  · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
       duplicateList_bound _ hs.localOut hq,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
-  · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+  · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
       hs.localOut,duplicateList_bound _ hs.peerIn hq,hs.peerOut,hs.localIn,hs.retirement⟩
-  · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+  · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
       hs.localOut,hs.peerIn,duplicateList_bound _ hs.peerOut hq,hs.localIn,hs.retirement⟩
-  · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+  · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
       hs.localOut,hs.peerIn,hs.peerOut,duplicateList_bound _ hs.localIn hq,hs.retirement⟩
 
 theorem list_tail_bound {α : Type} (p : α → Prop) {n : Nat} {xs : List α}
@@ -467,7 +467,7 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
       · split
         · exact hs
         · rename_i packet hp
-          exact hs.pushRequest _ (businessPacket_bound hs.localBanks.selected hp)
+          exact hs.pushRequest _ (businessPacket_bound hs.localBanksBound.selected hp)
   | relinquishBefore target => exact hs.startRetirement target
   | retryRetirement =>
     simp only [FRPSpec.PendingRetention.step]
@@ -476,7 +476,7 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
     · split
       · exact hs
       · rename_i target ht
-        exact hs.pushRequest _ (hs.localBanks.selected.2.2.2.1 target ht)
+        exact hs.pushRequest _ (hs.localBanksBound.selected.2.2.2.1 target ht)
   | resumeDeletion =>
     simp only [FRPSpec.PendingRetention.step]
     split
@@ -485,11 +485,11 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
       · exact hs
       · rename_i target ht
         apply hs.beginPeer
-        · have hb := hs.peerBanks.selected
+        · have hb := hs.peerBanksBound.selected
           refine ⟨hb.1,by simp,?_,?_⟩
           · exact (List.length_filter_le _ _).trans hb.2.2.1
           · intro r hr; exact hb.2.2.2 r (List.mem_of_mem_filter hr)
-        · exact hs.peerBanks.selected.2.1 target ht
+        · exact hs.peerBanksBound.selected.2.1 target ht
   | transferRequest =>
     simp only [FRPSpec.PendingRetention.step]
     split
@@ -497,7 +497,7 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
     · cases he : s.localOut with
       | nil => exact hs
       | cons p rest =>
-        refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,?_,?_,
+        refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,?_,?_,
           hs.peerOut,hs.localIn,hs.retirement⟩
         · simpa [he] using list_tail_bound _ hs.localOut
         · constructor
@@ -514,7 +514,7 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
     · cases he : s.peerOut with
       | nil => exact hs
       | cons p rest =>
-        refine ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,?_,?_,hs.retirement⟩
+        refine ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,hs.peerIn,?_,?_,hs.retirement⟩
         · simpa [he] using list_tail_bound _ hs.peerOut
         · constructor
           · simp only [List.length_append,List.length_singleton]; omega
@@ -526,36 +526,36 @@ theorem ResourceBound.step {cfg : Config} {s : System} (hs : ResourceBound cfg s
   | duplicate q i => exact hs.duplicateQueue q i
   | drop q =>
     cases q
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,list_tail_bound _ hs.localOut,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,list_tail_bound _ hs.localOut,
         hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,
         list_tail_bound _ hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,
         hs.peerIn,list_tail_bound _ hs.peerOut,hs.localIn,hs.retirement⟩
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,hs.localOut,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,hs.localOut,
         hs.peerIn,hs.peerOut,list_tail_bound _ hs.localIn,hs.retirement⟩
   | deliverRequest => exact hs.requestStep
   | deliverReply => exact hs.replyStep
   | progress => exact hs.progress
   | crashLocal =>
-    exact ⟨hs.localBanks.crash,hs.peerBanks,by simp [FRPSpec.PendingRetention.step],hs.peerCause,
+    exact ⟨hs.localBanksBound.crash,hs.peerBanksBound,by simp [FRPSpec.PendingRetention.step],hs.peerCause,
       hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,by simp [FRPSpec.PendingRetention.step]⟩
   | crashPeer =>
-    exact ⟨hs.localBanks,hs.peerBanks.crash,hs.localCause,by simp [FRPSpec.PendingRetention.step],
+    exact ⟨hs.localBanksBound,hs.peerBanksBound.crash,hs.localCause,by simp [FRPSpec.PendingRetention.step],
       hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
   | recoverLocal =>
     simp only [FRPSpec.PendingRetention.step]
     split
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
         hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
     · exact hs
   | recoverPeer =>
     simp only [FRPSpec.PendingRetention.step]
     split
-    · exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+    · exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
         hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
     · exact hs
-  | cleanup => exact ⟨hs.localBanks,hs.peerBanks,hs.localCause,hs.peerCause,
+  | cleanup => exact ⟨hs.localBanksBound,hs.peerBanksBound,hs.localCause,hs.peerCause,
       hs.localOut,hs.peerIn,hs.peerOut,hs.localIn,hs.retirement⟩
   | inspect => simp only [FRPSpec.PendingRetention.step]; split <;> exact hs
   | query _ => simp only [FRPSpec.PendingRetention.step]; split <;> exact hs
@@ -637,7 +637,7 @@ theorem ResourceBound.encodes {cfg : Config} {s : System} (h : ResourceBound cfg
   simp only [Encoding.system,Encoding.fields_success,Encoding.product_success,
     Encoding.optional_success,Encoding.sequence,Encoding.cells_success,
     Encoding.identity,Encoding.backend,Encoding.number_success]
-  refine ⟨h.localBanks.encodes,h.peerBanks.encodes,?_,?_,?_,?_,?_,?_,by simp,by simp,?_,?_,?_,?_⟩
+  refine ⟨h.localBanksBound.encodes,h.peerBanksBound.encodes,?_,?_,?_,?_,?_,?_,by simp,by simp,?_,?_,?_,?_⟩
   · exact fun c hc => (h.localCause c hc).encodes
   · exact fun c hc => (h.peerCause c hc).encodes
   · exact ⟨h.localOut.1,fun p hp => (Encoding.requestPacket_success cfg p).mpr (h.localOut.2 p hp)⟩
@@ -820,7 +820,7 @@ theorem local_access_in_range {cfg : Config} {s : System} (h : Reachable cfg s)
     (op : Durability.SnapshotBanks.Primitive LocalHeader Outcome)
     (ho : s.localBank.nextOperation = some op) :
     op.Bounded (LocalHeaderBound cfg) (fun r => r.identity ≤ cfg.lifetime) cfg.outcomeCapacity := by
-  have hb := (reachable_resourceBound h).localBanks.2
+  have hb := (reachable_resourceBound h).localBanksBound.2
   exact Durability.SnapshotBanks.scheduleAt_bounded _ _ _ _ _ 0 _ _ hb.1 hb.2.2
     (by simpa using hb.2.1) ho
 
@@ -828,7 +828,7 @@ theorem peer_access_in_range {cfg : Config} {s : System} (h : Reachable cfg s)
     (op : Durability.SnapshotBanks.Primitive PeerHeader (Nat × Ledger))
     (ho : s.peer.nextOperation = some op) :
     op.Bounded (PeerHeaderBound cfg) (fun r => r.1 ≤ cfg.lifetime) cfg.outcomeCapacity := by
-  have hb := (reachable_resourceBound h).peerBanks.2
+  have hb := (reachable_resourceBound h).peerBanksBound.2
   exact Durability.SnapshotBanks.scheduleAt_bounded _ _ _ _ _ 0 _ _ hb.1 hb.2.2
     (by simpa using hb.2.1) ho
 

@@ -357,7 +357,7 @@ The source endpoint is initially written in target coordinates. The theorem
 `sourcePackage_eq` recovers `p` through the actual endpoint carrier decoder.
 `targetPackage_eq` identifies the transported package with conjugation, and
 `transported_recovery` recovers the entire native section produced by the
-selected package filler. `preservesPath_pathPreserves` proves equality of
+selected package filler. `preservesPath_path_preserves` proves equality of
 native path sections by applying the section-injectivity theorem to their
 bodies. The other recovery equation is equality in the stated proposition
 `Preserves`. This is stronger than an equivalence of mere existence statements.

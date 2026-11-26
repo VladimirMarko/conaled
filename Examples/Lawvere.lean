@@ -22,7 +22,7 @@ def smoothSymbol : (s : Symbol) → smoothOperations.Op (pointedInvolution.arity
   | .zero => SmoothAlgebra.constant 0 0
   | .neg => ⟨fun x => -x 0, (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) 0).neg⟩
 
-theorem smoothEquation (e : pointedInvolution.Equation) :
+theorem smooth_equation (e : pointedInvolution.Equation) :
     pointedInvolution.evaluate smoothSymbol (pointedInvolution.lhs e) =
       pointedInvolution.evaluate smoothSymbol (pointedInvolution.rhs e) := by
   apply Subtype.ext
@@ -30,7 +30,7 @@ theorem smoothEquation (e : pointedInvolution.Equation) :
   exact neg_neg (x 0)
 
 noncomputable abbrev toSmooth : Hom pointedInvolution.operations.theory smoothOperations.theory :=
-  (pointedInvolution.interpretation smoothSymbol smoothEquation).theoryHom
+  (pointedInvolution.interpretation smoothSymbol smooth_equation).theoryHom
 
 noncomputable abbrev realModel : Model pointedInvolution.operations.theory (Type) :=
   (Model.restrict toSmooth).obj (smoothAlgebra ℝ).model

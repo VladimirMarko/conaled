@@ -40,21 +40,21 @@ def strictDiagram (A : SplitSheaf.Ty X) : CechMatching.StrictDiagram.{1} where
   firstSecond := restriction a hΓ (SplitSheaf.Cech.firstSecond A)
   firstThird := restriction a hΓ (SplitSheaf.Cech.firstThird A)
   secondThird := restriction a hΓ (SplitSheaf.Cech.secondThird A)
-  diagonalFirst := by
+  diagonal_first := by
     rw [restriction_comp]
     exact restriction_id a hΓ _
-  diagonalSecond := by
+  diagonal_second := by
     rw [restriction_comp]
     exact restriction_id a hΓ _
-  tripleFirst := by
+  triple_first := by
     rw [restriction_comp,
       restriction_comp]
     rfl
-  tripleMiddle := by
+  triple_middle := by
     rw [restriction_comp,
       restriction_comp]
     rfl
-  tripleLast := by
+  triple_last := by
     rw [restriction_comp,
       restriction_comp]
     rfl

@@ -113,8 +113,8 @@ theorem equivalence_subsingleton {Γ : Context.{u}} {A B : Family Γ} {S T : Typ
     Subsingleton (HomotopyEquivalence f) := by
   constructor
   intro E H
-  let k := E.discreteIso (PathDiscrete.ofIso (constant_pathDiscrete S) i) F hF
-    (PathDiscrete.ofIso (constant_pathDiscrete T) j)
+  let k := E.discreteIso (PathDiscrete.of_iso (constant_pathDiscrete S) i) F hF
+    (PathDiscrete.of_iso (constant_pathDiscrete T) j)
   have hi (x : Γ.Elements) : Function.Injective (f.app x) := by
     intro a b h
     have hl (a : A.obj x) : k.inv.app x (f.app x a) = a :=
@@ -166,8 +166,8 @@ noncomputable def recordSections {Γ : Context.{u}} {A B : Family Γ} {S T : Typ
     (F : Filling A) (hF : F.Lawful) :
     (Σ f : A ⟶ B, HomotopyEquivalence f) ≃ Term (constantFamily Γ (S ≃ T)) where
   toFun p := isoSection (i.symm ≪≫ p.2.discreteIso
-    (PathDiscrete.ofIso (constant_pathDiscrete S) i) F hF
-    (PathDiscrete.ofIso (constant_pathDiscrete T) j) ≪≫ j)
+    (PathDiscrete.of_iso (constant_pathDiscrete S) i) F hF
+    (PathDiscrete.of_iso (constant_pathDiscrete T) j) ≪≫ j)
   invFun t := ⟨(i ≪≫ sectionIso t ≪≫ j.symm).hom,
     HomotopyEquivalence.ofIso (i ≪≫ sectionIso t ≪≫ j.symm)⟩
   left_inv p := by
@@ -333,7 +333,7 @@ theorem finThree_encoded_apply {Γ Δ : Context} (σ : Δ ⟶ Γ)
 theorem centerInverse_eq {Γ : Context.{u}} {A B : Family Γ} {T : Type u}
     (j : B ≅ constantFamily Γ T) (k : A ≅ B) (E : HomotopyEquivalence k.hom) :
     E.discreteInverse = k.inv := by
-  have h := E.discrete_right (PathDiscrete.ofIso (constant_pathDiscrete T) j)
+  have h := E.discrete_right (PathDiscrete.of_iso (constant_pathDiscrete T) j)
   calc
     E.discreteInverse = (E.discreteInverse ≫ k.hom) ≫ k.inv := by simp
     _ = k.inv := by rw [h]; exact Category.id_comp _
@@ -352,7 +352,7 @@ theorem universeInverse_eq : inverseMap a b k.hom E = k.inv := by
   let σ := projection (liftedDecode a)
   have h := inverseLeft (σ ≫ a) (σ ≫ b)
     (Functor.whiskerLeft σ.mapElements k.hom) (E.reindex σ) (generic (liftedDecode a))
-  have he := (PathDiscrete.ofIso (constant_pathDiscrete S) i) σ h
+  have he := (PathDiscrete.of_iso (constant_pathDiscrete S) i) σ h
   have hn := inverseMap_reindex a b k.hom E σ
   have hc : k.hom ≫ inverseMap a b k.hom E = 𝟙 (liftedDecode a) := by
     ext x t

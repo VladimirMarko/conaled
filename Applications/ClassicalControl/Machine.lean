@@ -35,11 +35,11 @@ inductive Step : State → State → Prop where
   | odd (h : L[j]? = some (2*a+1)) : Step (.run (.test k L j O) π) (.run (.ret (.odd a)) π)
   | even (h : L[j]? = some (2*a)) : Step (.run (.test k L j O) π)
       (.run k (.arg (.ret (.found j (2*a) a O)) π))
-  | lastOdd (h : L[j]? = some (2*a+1)) : Step (.run (.last L j c O) π)
+  | last_odd (h : L[j]? = some (2*a+1)) : Step (.run (.last L j c O) π)
       (.run (.last L (j+1) c (O++[a])) π)
-  | lastEven (h : L[j]? = some (2*a)) : Step (.run (.last L j c O) π)
+  | last_even (h : L[j]? = some (2*a)) : Step (.run (.last L j c O) π)
       (.run (.last L (j+1) (some (j,2*a,a)) O) π)
-  | lastEnd : Step (.run (.last L L.length c O) π) (.run (.ret (finish c O)) π)
+  | last_end : Step (.run (.last L L.length c O) π) (.run (.ret (finish c O)) π)
 
 abbrev Runs := Relation.ReflTransGen Step
 
@@ -159,27 +159,27 @@ theorem clean_runs {s t} (h : Runs s t) (hs : Clean s) : Clean t := by
   | refl => exact hs
   | tail _ step ih => exact clean_step step ih
 
-abbrev L₀ : List Nat := [1,2,4]
+abbrev poleList : List Nat := [1,2,4]
 
 def goodPole : Pole where
-  Holds s := ∃ z, Weak L₀ z ∧ Runs s (.deliver L₀ z)
+  Holds s := ∃ z, Weak poleList z ∧ Runs s (.deliver poleList z)
   backwards h hs := by
     obtain ⟨z, hz, path⟩ := hs
     exact ⟨z, hz, (Relation.ReflTransGen.single h).trans path⟩
 
 theorem terminal_pgood (L : List Nat) (z : Value) :
-    goodPole.Holds (.deliver L z) ↔ L = L₀ ∧ Weak L₀ z := by
+    goodPole.Holds (.deliver L z) ↔ L = poleList ∧ Weak poleList z := by
   constructor
   · rintro ⟨w, hw, hr⟩
-    have he : State.deliver L₀ w = .deliver L z := terminal_runs hr
+    have he : State.deliver poleList w = .deliver L z := terminal_runs hr
     cases he
     exact ⟨rfl, hw⟩
   · rintro ⟨rfl, hz⟩; exact ⟨z, hz, .refl⟩
 
-theorem good_nonempty : goodPole.Holds (.run (.ret (.found 1 2 1 [0])) (.out L₀)) :=
+theorem good_nonempty : goodPole.Holds (.run (.ret (.found 1 2 1 [0])) (.out poleList)) :=
   ⟨.found 1 2 1 [0], by simp [Weak], Relation.ReflTransGen.single .output⟩
 
-theorem invalid_terminal : ¬ goodPole.Holds (.deliver L₀ (.found 0 1 0 [])) := by
+theorem invalid_terminal : ¬ goodPole.Holds (.deliver poleList (.found 0 1 0 [])) := by
   rw [terminal_pgood]; simp [Weak]
 
 theorem restricted_coherence (t : Term 0) (h : Pure t) :
@@ -189,12 +189,12 @@ theorem restricted_coherence (t : Term 0) (h : Pure t) :
 
 def universalPole : Pole := ⟨fun _ => True, fun _ _ => trivial⟩
 
-theorem universal_accepts_invalid : universalPole.Holds (.deliver L₀ (.found 0 1 0 [])) := trivial
+theorem universal_accepts_invalid : universalPole.Holds (.deliver poleList (.found 0 1 0 [])) := trivial
 
-theorem later_even_in_pole : goodPole.Holds (.deliver L₀ (.found 2 4 2 [])) :=
+theorem later_even_in_pole : goodPole.Holds (.deliver poleList (.found 2 4 2 [])) :=
   ⟨_, by simp [Weak], .refl⟩
 
-theorem later_even_not_first : ¬ First L₀ (.found 2 4 2 []) := by
+theorem later_even_not_first : ¬ First poleList (.found 2 4 2 []) := by
   simp [First]
 
 end Source

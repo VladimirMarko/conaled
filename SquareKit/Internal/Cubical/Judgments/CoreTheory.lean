@@ -49,28 +49,28 @@ noncomputable def coreModel : GuardedTheory.Model.{0,u+1} coreTheory where
     | .termFamily => termFamily_valid
     | .familyContext => familyContext_valid
 
-theorem coreInterpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
+theorem core_interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation coreTheory Ω a) (ρ : V → Value.{u})
     (h : ∀ p ∈ Ω, p.Eval algebra ρ) : a.Eval algebra ρ :=
   d.sound coreModel ρ h
 
 /-- This is substitution for schematic names, distinct from the interpreted
 object-context substitutions expressed by subTy/subTm and their source rules. -/
-theorem coreInterpret_substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment V}
+theorem core_interpret_substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation coreTheory Ω a) (σ : V → Expression W) (ρ : W → Value.{u})
     (h : ∀ p ∈ Ω, p.Eval algebra (fun x => (σ x).eval algebra ρ)) :
     (a.subst σ).Eval algebra ρ := by
   rw [Atom.eval_subst]
-  exact coreInterpret d _ h
+  exact core_interpret d _ h
 
 /-- Interpretation of an equality proof gives literal equality of dependent
 family representations, with no conversion to isomorphisms. -/
-theorem coreFamilyEquality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
+theorem core_family_equality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
     (d : Derivation coreTheory Ω (.eq a b)) (ρ : V → Value.{u})
     (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Semantics.Context.{u})
     (A B : Semantics.Family Γ) (ha : a.eval algebra ρ = .family Γ A)
     (hb : b.eval algebra ρ = .family Γ B) : A = B := by
-  have he := coreInterpret d ρ h
+  have he := core_interpret d ρ h
   change a.eval algebra ρ = b.eval algebra ρ at he
   have hv := ha.symm.trans (he.trans hb)
   cases hv

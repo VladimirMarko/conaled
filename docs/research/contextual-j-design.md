@@ -149,7 +149,7 @@ metatheory; ambient equality of semantic context codes is not a substitute.
 including endpoint-instantiated J, and inside an identity proof supplied as
 a later dependent substitution component. It also changes an identity motive
 using that beta equality. The cases construct actual typed terms and
-substitutions on both sides and consume `termSound` or `subSound` together
+substitutions on both sides and consume `term_sound` or `sub_sound` together
 with interpretation agreement. `beta_sides_distinct` and
 `nested_sides_distinct` check that the compared raw syntax differs. The
 normalization of interpretation annotations in this caller keeps the raw
@@ -225,12 +225,12 @@ proves the functor and section comparisons.
 [`GroupoidSoundness.lean`](../../SquareKit/Internal/PathTransport/GroupoidSoundness.lean)
 connects them to the structural model in four steps: `squareLift_eq`
 identifies the pair/cast map with Mathlib's Grothendieck map/precomposition;
-`telescopeModelSquare` recurses on the exact `Telescope.square` map;
-`rootTailModelSquare` preserves the canonical forward-functor choices; and
+`telescope_model_square` recurses on the exact `Telescope.square` map;
+`rootTail_model_square` preserves the canonical forward-functor choices; and
 `contextualJ_sub` proves equality with the rebuilt section and reindexed
 branch. The source `TmEqDeriv.jSub` rule in
 [`Typed.lean`](../../SquareKit/Internal/PathTransport/Typed.lean) consumes
-that law through generic `termSound`. The named weakening example in
+that law through generic `term_sound`. The named weakening example in
 [`Authoring.lean`](../../SquareKit/Internal/PathTransport/Authoring.lean)
 compares actual substituted and rebuilt source J terms.
 
@@ -247,7 +247,7 @@ motive by reflexivity. It exposed whether tail formation and beta typing
 could be automated, but it did not demonstrate interpretation of that caller.
 The retained `Authoring.NamedCaller.reflexiveApplication` now constructs the
 source J term in the interpreted core. Its `interpreted_beta` theorem uses
-`interpretTm_agrees` and the generic `termSound` theorem.
+`interpretTm_agrees` and the generic `term_sound` theorem.
 
 One early beta constructor asked the caller for a typing derivation of the
 computed right-hand side. That obligation was derivable from the J premises

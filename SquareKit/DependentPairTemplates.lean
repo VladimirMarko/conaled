@@ -176,13 +176,13 @@ theorem gTemplate_operation (s : ProjectionSymbol)
     funext i
     exact eval_generic_bound a i
 
-theorem gTemplate_act (e : PExpr V) : (TemplateMap.toSyntax gTemplate).act e = G.act e := by
+theorem gTemplate_act (e : PExpr V) : (TemplateMap.toSyntax gTemplate).act e = projectionToElimination.act e := by
   induction e with
   | var => rfl
   | app s es ih =>
     change (TemplateMap.operations gTemplate).operation s
       (fun i => (TemplateMap.toSyntax gTemplate).act (es i)) =
-      gOperation s (fun i => G.act (es i))
+      gOperation s (fun i => projectionToElimination.act (es i))
     rw [gTemplate_operation]
     congr 1
     funext i

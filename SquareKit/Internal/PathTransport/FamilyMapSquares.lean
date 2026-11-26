@@ -19,11 +19,11 @@ theorem Square.comp {e : D ≌ C} {e' : D' ≌ C'} {e'' : D'' ≌ C''}
     CategoryTheory.Functor.assoc, s.forward]; rfl
   inverse := by rw [CategoryTheory.Functor.assoc, s.inverse,
     ← CategoryTheory.Functor.assoc, t.inverse]; rfl
-  counitInv := by
+  counitInv_compatibility := by
     apply NatTrans.ext
     funext a
-    have hs := congrArg (fun q => q.app (K'.obj a)) s.counitInv
-    have ht := congrArg (fun q => K.map (q.app a)) t.counitInv
+    have hs := congrArg (fun q => q.app (K'.obj a)) s.counitInv_compatibility
+    have ht := congrArg (fun q => K.map (q.app a)) t.counitInv_compatibility
     simp only [NatTrans.comp_app, whiskerRight_app, whiskerLeft_app, eqToHom_app,
       CategoryTheory.Functor.map_comp, eqToHom_map] at hs ht ⊢
     have ht' := congrArg (fun f => f ≫ eqToHom
@@ -43,7 +43,7 @@ variable {C D : Type u} [Category.{u} C] [Category.{u} D]
 
 /-- A changing dependent family induces a coherent square between the lifted
 contractions. No equivalence assumption is made on the family transformation. -/
-theorem familyLiftSquare (e : D ≌ C) {A B : C ⥤ Cat.{u,u}} (α : A ⟶ B) :
+theorem family_lift_square (e : D ≌ C) {A B : C ⥤ Cat.{u,u}} (α : A ⟶ B) :
     Square (Grothendieck.preEquivalence B e) (Grothendieck.preEquivalence A e)
       (Grothendieck.map α) (Grothendieck.map (whiskerLeft e.functor α)) where
   forward := rfl
@@ -61,7 +61,7 @@ theorem familyLiftSquare (e : D ≌ C) {A B : C ⥤ Cat.{u,u}} (α : A ⟶ B) :
     apply NatTrans.ext
     funext c
     exact (α.naturality (e.counitInv.app c)).symm
-  counitInv := by
+  counitInv_compatibility := by
     apply NatTrans.ext
     funext a
     simp only [NatTrans.comp_app, whiskerRight_app, whiskerLeft_app, eqToHom_app]
@@ -83,12 +83,12 @@ variable {C D C' D' : Type u}
 
 /-- Extend a coherent contraction square by independently specified dependent
 families and their natural comparison. -/
-theorem liftChangingSquare (e : D ≌ C) (e' : D' ≌ C') (K : C' ⥤ C) (L : D' ⥤ D)
+theorem lift_changing_square (e : D ≌ C) (e' : D' ≌ C') (K : C' ⥤ C) (L : D' ⥤ D)
     (sq : Square e e' K L) (A : C ⥤ Cat.{u,u}) (B : C' ⥤ Cat.{u,u}) (α : B ⟶ K ⋙ A) :
     Square (Grothendieck.preEquivalence A e) (Grothendieck.preEquivalence B e')
       (Grothendieck.map α ⋙ Grothendieck.pre A K)
       (Grothendieck.map (whiskerLeft e'.functor α) ⋙ branchMap e e' K L sq A) :=
-  (liftSquare e e' K L sq A).comp (familyLiftSquare e' α)
+  (lift_square e e' K L sq A).comp (family_lift_square e' α)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.EquivalenceSquare
 
@@ -105,22 +105,22 @@ def familyMapTo (α : A ⟶ B) (x : Section A) (y : Section B)
     (h : x.familyImage α = y) : PathCtx A x ⥤ PathCtx B y := h ▸ familyMap α x
 
 variable [IsGroupoid Γ]
-theorem familyMapToSquare (α : A ⟶ B) (x : Section A) (y : Section B)
+theorem familyMapTo_square (α : A ⟶ B) (x : Section A) (y : Section B)
     (h : x.familyImage α = y) :
     EquivalenceSquare.Square (pathEquivalence B y) (pathEquivalence A x)
       (familyMapTo α x y h) (𝟭 Γ) := by
   cases h
-  exact familyMapSquare α x
+  exact familyMap_square α x
 
 variable [IsGroupoid Δ]
 
 /-- A general base/family map induces the actual path-contraction comparison.
 The endpoint equation is equality of sections, including their arrow action. -/
-theorem baseFamilySquare (A : Γ ⥤ Grpd.{u,u}) (B : Δ ⥤ Grpd.{u,u})
+theorem base_family_square (A : Γ ⥤ Grpd.{u,u}) (B : Δ ⥤ Grpd.{u,u})
     (K : Δ ⥤ Γ) (α : B ⟶ K ⋙ A) (x : Section A) (y : Section B)
     (h : y.familyImage α = x.reindex K) :
     EquivalenceSquare.Square (pathEquivalence A x) (pathEquivalence B y)
       (familyMapTo α y (x.reindex K) h ⋙ substitution A x K) K :=
-  (EquivalenceSquare.rootSquare A x K).comp (familyMapToSquare α y (x.reindex K) h)
+  (EquivalenceSquare.root_square A x K).comp (familyMapTo_square α y (x.reindex K) h)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.PathComparison

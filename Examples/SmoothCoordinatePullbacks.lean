@@ -12,7 +12,7 @@ open SquareKit.SmoothOpenSite
 local notation "P" => SmoothOpenSite.scalarPower
 
 /-- The free smooth-algebra statement retains two arbitrary, independent inputs. -/
-theorem twoFreeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (a b : A) :
+theorem two_freeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (a b : A) :
     ∃! w : Hom (freeAlgebra 2) A,
       w.comp (SmoothAlgebra.Coordinates.zeroSection 2 1) =
         evaluate (Fin.addCases ![a,b] (fun _ : Fin 1 => 0)) ∧
@@ -27,7 +27,7 @@ theorem twoFreeAlgebra {A : Type*} [CommRing A] [Algebra ℝ A] [Structure A] (a
   exact (evaluate (Fin.elim0 : Fin 0 → A)).toAlgHom.map_zero.symm
 
 /-- Two independent coordinates survive the last-coordinate zero equation. -/
-theorem twoFreeCoordinates {F : Sheaf SmoothOpenSite.topology Type}
+theorem two_free_coordinates {F : Sheaf SmoothOpenSite.topology Type}
     (a b : F ⟶ SmoothOpenSite.scalar) :
     SmoothOpenSite.Coordinates.fiberLift (SmoothOpenSite.Coordinates.join (SmoothOpenSite.tuple ![a,b])
       (SmoothOpenSite.tuple ![a,b] ≫ SmoothOpenSite.Coordinates.toPoint 2 ≫ SmoothOpenSite.Coordinates.zero 1)) =

@@ -101,18 +101,18 @@ set_option maxHeartbeats 4000000 in
 def assignFinal : terminal.{0} ⟶ display.total := pair assignQ assignedU
 
 set_option maxHeartbeats 4000000 in
-theorem retainedTauHomotopy :
+theorem retained_tauHomotopy :
  HEq ((tauHomotopy cocycleModel cocycleBase cocycleRootedFamily).value.down.reindex assignFinal)
  (secondIdentity terminal.{0}) :=
  Term.convert_heq h_at_assignment.symm (secondIdentity terminal)
 
 /-- Normalize only the proved family equality; retain the interpreted selected value. -/
 def normalizedTauHomotopy : Term (secondIdentityFamily terminal.{0}) :=
- cast (type_eq_of_heq retainedTauHomotopy)
+ cast (type_eq_of_heq retained_tauHomotopy)
   ((tauHomotopy cocycleModel cocycleBase cocycleRootedFamily).value.down.reindex assignFinal)
 
 theorem normalizedTauHomotopy_eq : normalizedTauHomotopy = secondIdentity terminal.{0} :=
- eq_of_heq ((cast_heq _ _).trans retainedTauHomotopy)
+ eq_of_heq ((cast_heq _ _).trans retained_tauHomotopy)
 
 theorem tauObservation_one : secondObservation normalizedTauHomotopy = 1 :=
  (congrArg secondObservation normalizedTauHomotopy_eq).trans secondObservation_selected
@@ -123,7 +123,7 @@ theorem tauObservation_no_erasure : normalizedTauHomotopy ≠ secondZero termina
  exact Int.one_ne_zero (tauObservation_one.symm.trans e)
 
 /-- The later dependent tail retains the same rooted-family section. -/
-theorem retainedU : HEq assignedU Examples.CubicalCocycleAssignment.assignedU :=
+theorem assignedU_heq : HEq assignedU Examples.CubicalCocycleAssignment.assignedU :=
  (Term.convert_heq u_at_assignment.symm (normalizedIdentityRefl (zeroTerm terminal))).trans
  (Term.convert_heq Examples.CubicalCocycleAssignment.u_at_assignment.symm
    (normalizedIdentityRefl (zeroTerm terminal))).symm

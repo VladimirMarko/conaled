@@ -35,10 +35,10 @@ def totalRestriction := restrictionFunctor a (.ext hΓ hB) f ⋙
 
 theorem totalRestriction_projection :
     totalRestriction a f hΓ hB ⋙
-      ((relativeFamilyData a hΓ hB f).projection (relativeFamilyCoherence a hΓ hB f)).functor =
+      ((relativeFamilyData a hΓ hB f).projection (relativeFamilyData_coherence a hΓ hB f)).functor =
     weaken (b (SmoothQuotientSource.model a X)) ⋙ restrictionFunctor a hΓ f := by
   have hp : (generatedToRelative a hΓ hB f).functor ⋙
-      ((relativeFamilyData a hΓ hB f).projection (relativeFamilyCoherence a hΓ hB f)).functor =
+      ((relativeFamilyData a hΓ hB f).projection (relativeFamilyData_coherence a hΓ hB f)).functor =
       projection a hΓ hB f := by
     rw [← CechMatching.StrictMap.functor_comp]
     congr 1
@@ -53,14 +53,14 @@ def sectionTotalEquivalence :
   (descentEquivalence a (.ext hΓ hB) f).trans
     ((relativeMatchingEquivalence a hΓ hB f).symm.trans
       (CechMatching.Comprehension.equivalence (relativeFamilyData a hΓ hB f)
-        (relativeFamilyCoherence a hΓ hB f)).symm)
+        (relativeFamilyData_coherence a hΓ hB f)).symm)
 
 def sectionTotalProjection :
     (sectionTotalEquivalence a f hΓ hB).functor ⋙ weaken (relativeMatchingFamily a hΓ hB f) ≅
       weaken (b (SmoothQuotientSource.model a X)) ⋙ (descentEquivalence a hΓ f).functor :=
   isoWhiskerLeft (totalRestriction a f hΓ hB)
     (CechMatching.Comprehension.inverseProjectionComparison
-      (relativeFamilyData a hΓ hB f) (relativeFamilyCoherence a hΓ hB f)) ≪≫
+      (relativeFamilyData a hΓ hB f) (relativeFamilyData_coherence a hΓ hB f)) ≪≫
     eqToIso (totalRestriction_projection a f hΓ hB)
 
 /-- Reconstruction and all vertical comparisons for independently supplied matching sections. -/

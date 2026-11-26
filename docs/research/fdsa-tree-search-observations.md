@@ -57,7 +57,7 @@ the observer. Its premise is pointwise observer equivalence on Valid states.
 The proof uses the original `empty_valid` and `insert_valid` facts precisely
 where those observations are needed. It imposes no global observer equality.
 
-`baselineSetLaws` and `candidateSetLaws` apply that theorem to the already proved
+`baseline_set_laws` and `candidate_set_laws` apply that theorem to the already proved
 tree realizations. Thus the same operations and Ordered invariant satisfy the
 independent FDSA `Trees.setTree` specification without duplicating the five
 fields of AbstractSet.Laws. Existing Contains-based clients still work directly.

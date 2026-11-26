@@ -83,7 +83,7 @@ variable [HasPushouts F]
 
 omit [CartesianMonoidalCategory F] [HasFiniteLimits B] [HasStrictInitialObjects B] [HasPushouts F] in
 /-- The inverse image of the canonical presentation is still a pushout. -/
-theorem presentationPushout (a : Arrow B) :
+theorem presentation_pushout (a : Arrow B) :
     IsPushout (k.morphism.inverseImage.map (ArrowPresentation.boundary a.left))
       (k.morphism.inverseImage.map ((ArrowGeometry.initialArrow B).map a.hom))
       (k.morphism.inverseImage.map (ArrowPresentation.domain a))
@@ -108,7 +108,7 @@ instance (a : Arrow B) : IsIso (spanComparison k a) := by
 def objectIso (a : Arrow B) : k.morphism.inverseImage.obj a ≅
     (ArrowPushout.interpretation (k.morphism.inverseImage.obj (Sierpinski.generic B))).obj
       (h.inverseImage.mapArrow.obj a) :=
-  (presentationPushout k a).isoPushout ≪≫ asIso (spanComparison k a)
+  (presentation_pushout k a).isoPushout ≪≫ asIso (spanComparison k a)
 
 @[reassoc (attr := simp)] theorem objectIso_domain (a : Arrow B) :
     k.morphism.inverseImage.map (ArrowPresentation.domain a) ≫ (objectIso k a).hom =
@@ -125,7 +125,7 @@ def reconstruction : k.morphism.inverseImage ≅ h.inverseImage.mapArrow ⋙
     ArrowPushout.interpretation (k.morphism.inverseImage.obj (Sierpinski.generic B)) :=
   NatIso.ofComponents (objectIso k) (by
     intro a b f
-    apply (presentationPushout k a).hom_ext
+    apply (presentation_pushout k a).hom_ext
     · dsimp only [Functor.comp_map]
       rw [← Category.assoc, ← k.morphism.inverseImage.map_comp,
         ← ArrowPresentation.domain_natural, k.morphism.inverseImage.map_comp,

@@ -15,8 +15,8 @@ variable (S : Comparison.Signature.{0}) [S.base.map.IsEquivalence]
 
 example := generatedContextEquivalence S hF withFiber
 example := generatedFamilyMap_equivalences S hF withFiber command.motive.typing
-example := GeneratedEquivalence.generatedTel S hF tail
-example := GeneratedEquivalence.generatedTel S hF (.pathReindex context (.base context)
+example := GeneratedEquivalence.generated_tel S hF tail
+example := GeneratedEquivalence.generated_tel S hF (.pathReindex context (.base context)
   point.deriv tail weakening)
 
 /-- The unchanged dependent J term is compared by its entire interpreted section. -/
@@ -44,11 +44,11 @@ def c4Signature : Comparison.Signature.{0} := Signature.diagonal
 instance : c4Signature.base.map.IsEquivalence :=
   inferInstanceAs (Functor.IsEquivalence (𝟭 _))
 
-theorem c4FiberBijective : ∀ c, Function.Bijective (c4Signature.fiberMap.app c) :=
+theorem c4_fiber_bijective : ∀ c, Function.Bijective (c4Signature.fiberMap.app c) :=
   fun _ => Function.bijective_id
 
-example := selected_arrow_injective c4Signature c4FiberBijective
-example := generatedContextEquivalence c4Signature c4FiberBijective
+example := selected_arrow_injective c4Signature c4_fiber_bijective
+example := generatedContextEquivalence c4Signature c4_fiber_bijective
   (.telescope paths tail)
 
 section Smooth
@@ -58,7 +58,7 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 
 example := SmoothQuotientGeneratedDescent.contextEquivalence a A withFiber
-example := SmoothQuotientGeneratedDescent.familyEquivalences a A withFiber command.motive.typing
+example := SmoothQuotientGeneratedDescent.family_equivalences a A withFiber command.motive.typing
 
 /-- The local proof interpretation uses the same source-derived J section. -/
 example := generatedTerm_commutes (SmoothQuotientGeneratedDescent.signature a A)

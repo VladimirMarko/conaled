@@ -413,7 +413,7 @@ variable (E : HomotopyEquivalence f) (F : Filling U) (hF : F.Lawful)
   (h : s.map (compatibleUnglue (θ.reindex p) (reindex B p) (reindex U (restrictSubstitution θ p))
     (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)) = PartialSection.ofTerm χ a)
 
-theorem correctionCompatible :
+theorem correction_compatible :
     (restrictedPathTube (θ.reindex p) a
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
         (extendedFace θ B U f p E F hF G hG s a h))
@@ -431,7 +431,7 @@ noncomputable def corrected : Term (reindex B p) :=
     (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
       (extendedFace θ B U f p E F hF G hG s a h))
     (extensionPath θ B U f p E F hF G hG s a h)
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
 
 theorem corrected_face :
     Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
@@ -440,7 +440,7 @@ theorem corrected_face :
   apply Term.ext
   intro x
   exact (correctAmbient_face (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
       ((restrictInclusion (θ.reindex p)).mapElements.obj x) x.val.property).symm
 
 noncomputable def extendSection : Term (pulledCompatible θ B U f p) :=
@@ -454,7 +454,7 @@ theorem extendSection_boundary (x : Ω.Elements) (hx : χ.Full x) :
     (extendSection θ B U f p E F hF G hG s a h).val x = s.val x hx := by
   apply CompatibleElement.ext
   · exact (correctAmbient_fixed (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
-      (correctionCompatible θ B U f p E F hF G hG s a h) x hx).trans
+      (correction_compatible θ B U f p E F hF G hG s a h) x hx).trans
         (congrArg (fun t => t.val x hx) h).symm
   · intro y k hy
     have he := extendedFace_boundary θ B U f p E F hF G hG s a h
@@ -500,7 +500,7 @@ noncomputable def correctionInput :
     (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
       (extendedFace θ B U f p E F hF G hG s a h))
     (extensionPath θ B U f p E F hF G hG s a h)
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
 
 theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     correctionInput θ B U f (τ ≫ p) E F hF G hG (substitutePartial θ B U f p τ s) (a.reindex τ)

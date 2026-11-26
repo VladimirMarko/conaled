@@ -39,7 +39,7 @@ def geometric [HasInitial C] (h : GeometricMorphism D C) :
   inverseImage := h.inverseImage.mapArrow
   directImage := h.directImage.mapArrow
   adjunction := adjunction h.adjunction
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- Applying a functor to identity arrows agrees naturally with the diagonal. -/
 def diagonalIso (F : C ⥤ D) : ArrowGeometry.diagonal C ⋙ F.mapArrow ≅

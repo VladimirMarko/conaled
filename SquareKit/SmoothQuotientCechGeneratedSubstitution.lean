@@ -66,7 +66,7 @@ theorem matchingEvaluation_substitution :
     (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs A)
     (localMap a A hΔ) (localMap a A hΓ) (s (model a A)).down
     (generatedOverlap a A hΔ) (generatedOverlap a A hΓ)
-    (generatedConeLaws a A hΔ) (generatedConeLaws a A hΓ)
+    (generated_coneLaws a A hΔ) (generated_coneLaws a A hΓ)
     (localMap_substitution a A hΓ hΔ hs).symm
   exact CechMatching.ConeMap.transportedOverlap_of_square
     (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs A)

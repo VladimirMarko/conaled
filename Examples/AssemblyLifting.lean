@@ -9,22 +9,22 @@ open Realizability Realizability.Assembly CategoryTheory
 open Encodable
 open Nat.Partrec (Code)
 
-abbrev N := encoded Nat
+abbrev natAssembly := encoded Nat
 
-theorem join_defined : (programLiftMul N).toFun (some (some (17 : Nat))) = some (17 : Nat) := rfl
+theorem join_defined : (programLiftMul natAssembly).toFun (some (some (17 : Nat))) = some (17 : Nat) := rfl
 
-theorem join_inner_bottom : (programLiftMul N).toFun (some none) = none := rfl
+theorem join_inner_bottom : (programLiftMul natAssembly).toFun (some none) = none := rfl
 
-theorem join_outer_bottom : (programLiftMul N).toFun none = none := rfl
+theorem join_outer_bottom : (programLiftMul natAssembly).toFun none = none := rfl
 
 theorem flatten_loses_outer_definedness :
-    (some none : (programLift (programLift N)).Carrier) ≠ none ∧
-      (programLiftMul N).toFun (some none) = (programLiftMul N).toFun none :=
+    (some none : (programLift (programLift natAssembly)).Carrier) ≠ none ∧
+      (programLiftMul natAssembly).toFun (some none) = (programLiftMul natAssembly).toFun none :=
   ⟨(by intro h; cases h), rfl⟩
 
 /-- This realizer terminates twice, returning the selected natural number. -/
 theorem nested_program_realizes :
-    (programLift (programLift N)).Realizes
+    (programLift (programLift natAssembly)).Realizes
       (encode (Code.const (encode (Code.const (17 : Nat))))) (some (some (17 : Nat))) := by
   refine ⟨encode (Code.const (17 : Nat)), ?_, (17 : Nat), ?_, rfl⟩ <;> simp [Code.eval_const]
 
@@ -33,27 +33,27 @@ constructed nested program; its output realizes exactly 17. -/
 theorem multiplication_tracks_selected :
     ∃ φ, Nat.Partrec φ ∧ ∃ n,
       n ∈ φ (encode (Code.const (encode (Code.const (17 : Nat))))) ∧
-        (programLift N).Realizes n (some (17 : Nat)) := by
-  obtain ⟨φ, hp, ht⟩ := (programLiftMul N).tracked
+        (programLift natAssembly).Realizes n (some (17 : Nat)) := by
+  obtain ⟨φ, hp, ht⟩ := (programLiftMul natAssembly).tracked
   exact ⟨φ, hp, ht _ _ nested_program_realizes⟩
 
-def successor : Hom N N := ofComputable Nat.succ Computable.succ
+def successor : Hom natAssembly natAssembly := ofComputable Nat.succ Computable.succ
 
-example : (programLiftMap (programLiftMap successor)).comp (programLiftMul N) =
-    (programLiftMul N).comp (programLiftMap successor) := programLiftMul_natural successor
+example : (programLiftMap (programLiftMap successor)).comp (programLiftMul natAssembly) =
+    (programLiftMul natAssembly).comp (programLiftMap successor) := programLiftMul_natural successor
 
-example : (programLiftUnit (programLift N)).comp (programLiftMul N) =
-    Hom.id (programLift N) := programLiftMul_left_unit N
+example : (programLiftUnit (programLift natAssembly)).comp (programLiftMul natAssembly) =
+    Hom.id (programLift natAssembly) := programLiftMul_left_unit natAssembly
 
-example : (programLiftMap (programLiftUnit N)).comp (programLiftMul N) =
-    Hom.id (programLift N) := programLiftMul_right_unit N
+example : (programLiftMap (programLiftUnit natAssembly)).comp (programLiftMul natAssembly) =
+    Hom.id (programLift natAssembly) := programLiftMul_right_unit natAssembly
 
-example : (programLiftMap (programLiftMul N)).comp (programLiftMul N) =
-    (programLiftMul (programLift N)).comp (programLiftMul N) := programLiftMul_assoc N
+example : (programLiftMap (programLiftMul natAssembly)).comp (programLiftMul natAssembly) =
+    (programLiftMul (programLift natAssembly)).comp (programLiftMul natAssembly) := programLiftMul_assoc natAssembly
 
 /-- A genuine varying family: the first coordinate determines the fiber,
 while the second is selected data which must survive base change. -/
-def family : Hom (prod N N) N := fst N N
+def family : Hom (prod natAssembly natAssembly) natAssembly := fst natAssembly natAssembly
 
 def selectedInput : (pullback (successor.comp successor) (sliceBase family)).Carrier :=
   ⟨((3 : Nat), ⟨((5 : Nat), some ((5 : Nat), (17 : Nat))), fun _ h => by cases h; rfl⟩), rfl⟩
@@ -82,9 +82,9 @@ theorem comparison_inverse_recovers :
       ((baseChangeLift family (successor.comp successor)).toFun selectedInput) = selectedInput :=
   congrArg (fun k => k.toFun selectedInput) (baseChangeLift_unlift _ _)
 
-example : (baseChangeUnlift family (Hom.id N)).comp (pullbackIdentity (sliceBase family)) =
-    sliceMap (pullbackFst (Hom.id N) family) family (pullbackIdentity family)
-      (pullback_square (Hom.id N) family).symm := baseChange_identity family
+example : (baseChangeUnlift family (Hom.id natAssembly)).comp (pullbackIdentity (sliceBase family)) =
+    sliceMap (pullbackFst (Hom.id natAssembly) family) family (pullbackIdentity family)
+      (pullback_square (Hom.id natAssembly) family).symm := baseChange_identity family
 
 /-- The two-step coherence theorem applies to two nonidentity changes and
 therefore preserves the chosen 17 through the iterated pullback route. -/
@@ -100,8 +100,8 @@ example :
 
 /-- A slice classifier handles the undecidable halting domain from P1,
 retaining its selected input index and total base. -/
-noncomputable def haltingSlice : Hom N (sliceLift (Hom.id N)) :=
-  sliceClassify (Hom.id N) (Hom.id N) AssemblyPartialMaps.haltingIdentity (fun _ _ => rfl)
+noncomputable def haltingSlice : Hom natAssembly (sliceLift (Hom.id natAssembly)) :=
+  sliceClassify (Hom.id natAssembly) (Hom.id natAssembly) AssemblyPartialMaps.haltingIdentity (fun _ _ => rfl)
 
 theorem haltingSlice_graph (n m : Nat) :
     (haltingSlice.toFun n).val.2 = some m ↔ (run n).Dom ∧ n = m :=

@@ -17,7 +17,7 @@ structure Resident (m width : Nat) where
   spans : Vector (WordMachine.Word width) (levels m+1)
   logs : Vector (WordMachine.Word width) (blocks m+1)
 
-theorem sharedFits (h : MachineCapacity.Eligible m width capacity inputWords frameWords) :
+theorem shared_fits (h : MachineCapacity.Eligible m width capacity inputWords frameWords) :
     paddedCapacity m+blocks m+
       FlatTable.words (2^(blockSize m-1)) (FlatTable.words (blockSize m-1+1) (blockSize m-1+1)) ≤ capacity := by
   rw [FlatTable.sharedPack_size,dimension]
@@ -30,7 +30,7 @@ def packResident (r : Resident m width)
     Measured (Representation m width) Nat :=
   let : NeZero (blocks m) := ⟨Nat.ne_of_gt (blocks_pos m)⟩
   bind (Installation.sharedM (blockSize m-1) r.shared (paddedCapacity m+blocks m) capacity
-    (sharedFits h) h.addresses) fun shared =>
+    (shared_fits h) h.addresses) fun shared =>
   bind (Installation.packM r.macroRows (macroBase m) capacity (macro_fit h) h.addresses) fun packedMacro =>
   pure ⟨r.depths,r.classes,shared,packedMacro,r.spans,r.logs⟩
 
@@ -93,7 +93,7 @@ theorem packResident_cost (r : Resident m width)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords) :
     (packResident r h).2 ≤ installWork m := by
   let : NeZero (blocks m) := ⟨Nat.ne_of_gt (blocks_pos m)⟩
-  have hs := Installation.sharedM_cost (blockSize m-1) r.shared (sharedFits h) h.addresses
+  have hs := Installation.sharedM_cost (blockSize m-1) r.shared (shared_fits h) h.addresses
   have hm := Installation.packM_cost r.macroRows (macro_fit h) h.addresses
   simp only [packResident,Resources.bind,Resources.pure]
   simp only [dimension] at hs
@@ -197,7 +197,7 @@ The resident input is additional; scalar fields are aliased. -/
 def allocated (r : Resident m width)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords) : Nat :=
   let : NeZero (blocks m) := ⟨Nat.ne_of_gt (blocks_pos m)⟩
-  Installation.tensorSlotsObserved r.shared (paddedCapacity m+blocks m) capacity (sharedFits h) h.addresses +
+  Installation.tensorSlotsObserved r.shared (paddedCapacity m+blocks m) capacity (shared_fits h) h.addresses +
     (Installation.packM r.macroRows (macroBase m) capacity (macro_fit h) h.addresses).1.toArray.size
 
 theorem allocated_eq (r : Resident m width)

@@ -25,7 +25,7 @@ theorem fillers_lawful : fillers.Lawful :=
   ⟨discreteFilling_lawful singletonIndex (fun _ => ℕ),
     discreteFilling_lawful firstIndex (fun n => Fin (n+1)), True.intro⟩
 abbrev motiveFiller := secondFiller.reindex (projection second)
-abbrev motiveLawful := (discreteFilling_lawful firstIndex (fun n => Fin (n+1))).reindex (projection second)
+abbrev motiveFilling_lawful := (discreteFilling_lawful firstIndex (fun n => Fin (n+1))).reindex (projection second)
 abbrev root := NormalizedIdentitySingleton.reflexivity argument chosen
 abbrev branch : Term (reindex motive (tail.map root)) := (generic second).reindex (tail.map root)
 noncomputable abbrev eliminated : Term motive :=
@@ -33,7 +33,7 @@ noncomputable abbrev eliminated : Term motive :=
 
 theorem strict_branch : eliminated.reindex (tail.map root) = branch :=
   NormalizedTelescopeIdentityElimination.eliminate_beta argument chosen tail motive branch fillers fillers_lawful
-    motiveFiller motiveLawful
+    motiveFiller motiveFilling_lawful
 
 theorem retains_second_variable :
     (eliminated.reindex (tail.map root)).val

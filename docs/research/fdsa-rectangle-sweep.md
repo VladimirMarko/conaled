@@ -170,7 +170,7 @@ only under the stated order hypotheses.
 
 The executable reference query uses `List.any` to decide overlap with a projected
 complete key. Its observation theorem holds for any list. Strictness belongs
-to the existing `OrderedList` update laws, so `orderedListLaws` combines these
+to the existing `OrderedList` update laws, so `orderedList_laws` combines these
 independent facts without adding a sweep-specific invariant. Int coordinates
 work directly, without adjoining a bottom element. This reference uses linear
 list operations and makes no logarithmic complexity claim.
@@ -179,7 +179,7 @@ list operations and makes no logarithmic complexity claim.
 lexicographic complete-key order. In the strict first-component case it reuses
 `IntervalKey.low_le_of_le`; in the equal-interval case the lows are equal even
 though the IDs differ. This discharges the existing
-`IntervalTree.intervalSetLaws` compatibility premise. The concrete tree's
+`IntervalTree.intervalSet_laws` compatibility premise. The concrete tree's
 OrderBot assumption remains local to that realization, as does its current
 unbalanced implementation. Projected intervals need not be injective.
 

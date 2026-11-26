@@ -24,10 +24,10 @@ coproduct laws.
 `MapLaws`, `ProductMapLaws`, and `CoproductMapLaws`. It requires neither
 comparison inverse equations nor distribution laws. In particular, callers do
 not supply preservation of `collect` as an additional field.
-`transportLaws` then reflects the inverse equations between `collect` and the
+`transport_laws` then reflects the inverse equations between `collect` and the
 chosen distribution arrow. It requires comparison inverses, target distribution
 laws, and the existing `DistributionMapLaws` field, but no source distribution
-law. `RawMap.transportComparisonLaws` contains the shared inverse-law argument.
+law. `RawMap.transport_comparisonLaws` contains the shared inverse-law argument.
 
 The source relation can be induced by interpretation, with no injectivity
 requirement, or chosen independently with a reflection proof. The checked raw

@@ -124,15 +124,15 @@ theorem swap_over : swapFillers ⋙ projection = projection := rfl
 
 abbrev nativeMotive : C2 × I ⥤ I := CategoryTheory.Prod.snd C2 I
 
-theorem nativeBranch : zeroFiber ⋙ projection = constructor C2 ⋙ nativeMotive := rfl
+theorem native_branch : zeroFiber ⋙ projection = constructor C2 ⋙ nativeMotive := rfl
 
-def repaired : C2 × I ⥤ Total := direct projection nonsplit nativeMotive zeroFiber nativeBranch
+def repaired : C2 × I ⥤ Total := direct projection nonsplit nativeMotive zeroFiber native_branch
 
 theorem repaired_beta : constructor C2 ⋙ repaired = zeroFiber :=
-  direct_beta projection nonsplit nativeMotive zeroFiber nativeBranch
+  direct_beta projection nonsplit nativeMotive zeroFiber native_branch
 
 theorem repaired_projection : repaired ⋙ projection = nativeMotive :=
-  direct_projection projection nonsplit nativeMotive zeroFiber nativeBranch
+  direct_projection projection nonsplit nativeMotive zeroFiber native_branch
 
 theorem repaired_forward :
     (repaired.map (false ×ₘ () : (C2.point,zero) ⟶ (C2.point,one))).2 = true := rfl
@@ -159,12 +159,12 @@ def erase : C2 ⥤ C2 where
 theorem repeated_substitution :
     direct projection nonsplit ((erase ⋙ erase).prod (𝟭 I) ⋙ nativeMotive)
       ((erase ⋙ erase) ⋙ zeroFiber)
-      (reindexBranch projection nativeMotive zeroFiber nativeBranch (erase ⋙ erase)) =
+      (reindex_branch projection nativeMotive zeroFiber native_branch (erase ⋙ erase)) =
     erase.prod (𝟭 I) ⋙ erase.prod (𝟭 I) ⋙ repaired :=
-  direct_composite_substitution projection nonsplit nativeMotive zeroFiber nativeBranch erase erase
+  direct_composite_substitution projection nonsplit nativeMotive zeroFiber native_branch erase erase
 
 theorem native_generic_agreement :
-    (name projection nativeMotive zeroFiber nativeBranch).prod (𝟭 I) ⋙ generic projection nonsplit =
-      repaired := instantiated_agreement projection nonsplit nativeMotive zeroFiber nativeBranch
+    (name projection nativeMotive zeroFiber native_branch).prod (𝟭 I) ⋙ generic projection nonsplit =
+      repaired := instantiated_agreement projection nonsplit nativeMotive zeroFiber native_branch
 
 end LocalUniverses.WeakUnit.Examples

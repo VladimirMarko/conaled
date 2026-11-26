@@ -20,7 +20,7 @@ theorem totalMatchingEvaluation_isEquivalence
     (totalMatchingEvaluation a A hΓ hB).IsEquivalence :=
   CechMatching.Comprehension.Effectivity.isEquivalence
     (SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A)
-    (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)
+    (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)
     (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation_projection a A hΓ hB) families
 

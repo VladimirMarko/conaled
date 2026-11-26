@@ -217,7 +217,7 @@ calculation or invent a new proof that proof and compiler meanings agree.
 These are source-level obligation comparisons, not measured productivity data.
 Agent productivity remains sufficient for the MVP, but no speedup is claimed.
 
-MakeLawful and local `RawMap.inducedLaws`/`transportLaws` already organize laws
+MakeLawful and local `RawMap.induced_laws`/`transport_laws` already organize laws
 under an induced or reflected equivalence. They do not supply changing formula
 constructors or selected parser decisions. This experiment keeps those
 foundations intact and uses the existing square and parser composition where

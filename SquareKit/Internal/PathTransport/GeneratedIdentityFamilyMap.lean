@@ -47,12 +47,12 @@ theorem generatedFamilyMap_identityType (hΓ : CtxDeriv.{u+1} Γ γ)
         eqToHom (by rw [generatedTerm_commutes S hΓ hA hx,
           generatedTerm_commutes S hΓ hA hy]; rfl) :=
   Family.identity_relabel (a M) (ξ M) (η M)
-    ((leftSignatureMap S).generatedCtx hΓ) ((rightSignatureMap S).generatedCtx hΓ)
-    ((leftSignatureMap S).generatedTy hA).2 ((rightSignatureMap S).generatedTy hA).2
-    ((leftSignatureMap S).generatedTm hx).2 ((rightSignatureMap S).generatedTm hx).2
-    ((leftSignatureMap S).generatedTm hy).2 ((rightSignatureMap S).generatedTm hy).2
-    ((leftSignatureMap S).generatedTy (.identity hA hx hy)).2
-    ((rightSignatureMap S).generatedTy (.identity hA hx hy)).2
+    ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
+    ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2
+    ((leftSignatureMap S).generated_tm hx).2 ((rightSignatureMap S).generated_tm hx).2
+    ((leftSignatureMap S).generated_tm hy).2 ((rightSignatureMap S).generated_tm hy).2
+    ((leftSignatureMap S).generated_ty (.identity hA hx hy)).2
+    ((rightSignatureMap S).generated_ty (.identity hA hx hy)).2
 
 /-- The formula applies to every supplied identity arrow, retaining its image
 before the explicit endpoint comparison transports it. -/

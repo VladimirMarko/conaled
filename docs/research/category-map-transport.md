@@ -15,7 +15,7 @@ The law-transport theorems require target congruence and laws. They conclude
 laws under the source's chosen relation only when the semantic map reflects
 that relation. `RawMap.induced` and `induced_reflects` provide the standard
 case: source arrows are equivalent exactly when their images are equivalent.
-`inducedLaws` then needs only local identity/composition preservation.
+`induced_laws` then needs only local identity/composition preservation.
 None of these theorems turns semantic equality into equality of syntax trees.
 `CodeCategory.association_not_equal` remains a checked counterexample to that
 stronger conclusion.
@@ -23,8 +23,8 @@ stronger conclusion.
 `CartesianMapQuotient` descends comparisons and their preservation equations to
 hom classes. `Comparison.toIso` and `HomQuotient.comparisonIso` expose genuine
 Mathlib isomorphisms. `binaryFanIsLimit` and `terminalIsTerminal` turn the chosen
-raw universal properties into Mathlib limits. `HomQuotient.preservesBinaryProduct`
-and `preservesTerminal` prove actual `PreservesLimit` instances for the quotient
+raw universal properties into Mathlib limits. `HomQuotient.preserves_binary_product`
+and `preserves_terminal` prove actual `PreservesLimit` instances for the quotient
 functor, including non-strict product objects. The Code evaluation specializations
 in `Examples.CategoryMaps` exercise both adapters. Terminal preservation needs
 the terminal comparison isomorphism; product preservation also uses projection
@@ -45,8 +45,8 @@ arrows. Identity/composition of these maps reuse the category map's preservation
 proofs. `Comparison.map_laws` and `comp_laws` prove the inverse equations for
 composed comparisons.
 
-`ProductMap.transportLaws` derives beta and eta using both inverse equations.
-`transportCongr` needs no inverse equations. Terminal uniqueness needs only the
+`ProductMap.transport_laws` derives beta and eta using both inverse equations.
+`transport_congr` needs no inverse equations. Terminal uniqueness needs only the
 relevant inverse equation, target category/terminal laws, and reflection;
 it does not need source category laws. Operations, equivalence, congruence,
 and laws remain separately selectable.
@@ -61,11 +61,11 @@ terminal comparison changes the foundation's `Unit` to universe-polymorphic
 
 | Existing declaration | Shared result now used | Local obligation retained |
 |---|---|---|
-| `CodeCategory.congruence` | `RawMap.transportCongr` | Evaluation congruence and operation preservation |
-| `CodeCategory.laws` | `RawMap.transportLaws` | Evaluation reflects `Equivalent` |
-| `CodeCategory.terminal_laws` | `TerminalMap.transportLaws` | Terminal comparison and preservation |
-| `CodeCategory.products_congr` | `ProductMap.transportCongr` | Pair preservation |
-| `CodeCategory.products_laws` | `ProductMap.transportLaws` | Projection/pair preservation and comparison inverses |
+| `CodeCategory.congruence` | `RawMap.transport_congr` | Evaluation congruence and operation preservation |
+| `CodeCategory.laws` | `RawMap.transport_laws` | Evaluation reflects `Equivalent` |
+| `CodeCategory.terminal_laws` | `TerminalMap.transport_laws` | Terminal comparison and preservation |
+| `CodeCategory.products_congr` | `ProductMap.transport_congr` | Pair preservation |
+| `CodeCategory.products_laws` | `ProductMap.transport_laws` | Projection/pair preservation and comparison inverses |
 
 The five declarations retain their public statements. The added local adapters
 are `evaluation`, `evaluation_laws`, `evaluation_reflects`, `terminalComparison`,
@@ -98,7 +98,7 @@ and also allow an explicitly reflected source relation.
 
 Generic closed-law transport was outside the original #10 scope, matching the
 explicit TODO in the pinned `MakeLawful.agda`. The #37 implementation now supplies
-`ClosedMap.transportLaws` and checked raw-code and nonidentity-comparison clients;
+`ClosedMap.transport_laws` and checked raw-code and nonidentity-comparison clients;
 see the [current parity record](felix-parity-implementation.md#closed-law-transport-37).
 The #333 extension adds [coproduct and distribution transport](optional-law-transport.md).
 These extensions do not claim that arbitrary comma categories have exponentials

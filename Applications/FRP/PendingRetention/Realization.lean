@@ -14,7 +14,7 @@ structure Realized (s : System) : Prop where
     | some (.frame (.migrate kind)) => some (Migration.realize kind s.localBank.selected.frame.logical)
     | _ => none
   former : ∀ backend ∈ s.former, backend.logical = s.localBank.selected.frame.logical
-  formerIdle : s.former.isSome = true →
+  former_idle : s.former.isSome = true →
     s.localCause = none ∧ s.peerCause = none ∧ s.retirementScan = none
 
 theorem realized_initial : Realized initial := by
@@ -48,7 +48,7 @@ theorem Realized.congr {s t : System} (realized : Realized s)
   · simpa only [selected,down,active] using realized.active
   · simpa only [selected,localCause,prepared] using realized.prepared
   · simpa only [selected,former] using realized.former
-  · simpa only [former,localCause,peerCause,scan] using realized.formerIdle
+  · simpa only [former,localCause,peerCause,scan] using realized.former_idle
 
 theorem realized_iff (s : System) : Realized s ↔
     (s.active = if s.localDown then none else some (reconstruct s.localBank.selected.frame)) ∧
@@ -57,7 +57,7 @@ theorem realized_iff (s : System) : Realized s ↔
       | _ => none) ∧
     (∀ backend ∈ s.former, backend.logical = s.localBank.selected.frame.logical) ∧
     (s.former.isSome = true → s.localCause = none ∧ s.peerCause = none ∧ s.retirementScan = none) :=
-  ⟨fun h => ⟨h.active,h.prepared,h.former,h.formerIdle⟩,
+  ⟨fun h => ⟨h.active,h.prepared,h.former,h.former_idle⟩,
    fun h => ⟨h.1,h.2.1,h.2.2.1,h.2.2.2⟩⟩
 
 set_option maxHeartbeats 400000 in
@@ -101,7 +101,7 @@ theorem Realized.former_none_of_local {s : System} (realized : Realized s)
   cases former : s.former with
   | none => rfl
   | some backend =>
-    have impossible := (realized.formerIdle (by simp [former])).1
+    have impossible := (realized.former_idle (by simp [former])).1
     simp [pending] at impossible
 
 theorem Realized.localPublished {cfg : Config} {s : System} (realized : Realized s)
@@ -143,7 +143,7 @@ theorem Realized.scan {s : System} (realized : Realized s) (owners : Serialized 
     cases former : s.former with
     | none => rfl
     | some backend =>
-      have impossible := (realized.formerIdle (by simp [former])).2.2
+      have impossible := (realized.former_idle (by simp [former])).2.2
       simp [scan] at impossible
   have preparedNone : s.prepared = none := by simpa [localNone] using realized.prepared
   unfold scanRetirement

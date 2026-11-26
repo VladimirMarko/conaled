@@ -21,7 +21,7 @@ equality is exactly that relation. The `mk_ident`, `mk_comp`, `mk_terminal`,
 The quotient leaves the raw representatives available and adds no runtime
 normalization algorithm.
 
-For equality-lawful inputs, `ofCategory` and `ofCategoryLaws` consume Mathlib's
+For equality-lawful inputs, `ofCategory` and `ofCategory_laws` consume Mathlib's
 `Category`. `LawfulQuotient.homEquiv` compares the raw hom-setoid quotient with
 Mathlib's `CategoryTheory.Quotient` under an arbitrary Mathlib congruence. Its
 inverse equations are checked, and `LawfulQuotient.comparison` proves identity

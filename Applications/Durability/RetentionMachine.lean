@@ -102,7 +102,7 @@ inductive GhostStep (c : Config) : Label → Service (List Bool) → Service (Li
   | internal {s} : GhostStep c .internal s s
   | command {s cmd} : GhostStep c (.response cmd (command c (ghostOps c) s cmd).1)
       s (command c (ghostOps c) s cmd).2
-  | pendingBusy {s cmd} : s.control.pending.isSome = true → s.control.committed = false → BusyRequest cmd →
+  | pending_busy {s cmd} : s.control.pending.isSome = true → s.control.committed = false → BusyRequest cmd →
       GhostStep c (.response cmd .busy) s s
 
 def MachineRelated (c : Config) (m : Machine) (a : Service (List Bool)) : Prop :=
@@ -167,7 +167,7 @@ theorem machine_step_refines {c : Config} {m n : Machine} {event : Label}
     · exact GhostStep.command (cmd := .crash)
     · exact idle_related ⟨rel.1, rfl⟩
   | busy request unpublished =>
-    exact ⟨a, .pendingBusy (by rw [← rel.2.1]; exact rel.2.2 _ _ _ _ rfl)
+    exact ⟨a, .pending_busy (by rw [← rel.2.1]; exact rel.2.2 _ _ _ _ rfl)
       (by rw [← rel.2.1]; exact unpublished) request, rel⟩
   | @fenced cells target ctl pc cmd stale =>
     refine ⟨a, ?_, rel⟩

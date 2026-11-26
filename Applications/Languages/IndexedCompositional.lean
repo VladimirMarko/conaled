@@ -122,7 +122,7 @@ def rule : Rule (signature (α := α)) behavior where
     | .star _ _ => .yes ⟨[], rfl⟩
   step := step
 
-theorem sourceCompatible [DecidableEq α] :
+theorem source_compatible [DecidableEq α] :
     (rule (α := α)).Compatible sourceAlgebra source where
   output j op xs := by
     cases op with
@@ -157,7 +157,7 @@ theorem sourceCompatible [DecidableEq α] :
       | zero => exact nomatch a
       | succ n => rfl
 
-theorem targetCompatible : (rule (α := α)).Compatible targetAlgebra target where
+theorem target_compatible : (rule (α := α)).Compatible targetAlgebra target where
   output j op xs := by
     cases op with
     | union P Q n =>
@@ -287,8 +287,8 @@ theorem recovered [DecidableEq α] {P : Language α} {n}
     (t : Term signature Source (P,n)) (word : List α) (bound : word.length ≤ n) :
     (Term.fold targetAlgebra unfold t).lookup word bound =
       (Term.fold sourceAlgebra (fun _ x => x) t).parse word := by
-  have ht := (rule (α := α)).fold_morphism targetAlgebra target targetCompatible source unfold unfold_morphism
-  have hs := (rule (α := α)).fold_morphism sourceAlgebra source sourceCompatible source (fun _ x => x)
+  have ht := (rule (α := α)).fold_morphism targetAlgebra target target_compatible source unfold unfold_morphism
+  have hs := (rule (α := α)).fold_morphism sourceAlgebra source source_compatible source (fun _ x => x)
     ⟨fun _ _ => rfl, fun _ _ _ => rfl⟩
   rw [← read_target, read_morphism _ _ _ ht]
   rw [← read_morphism _ _ _ hs, read_source]
@@ -338,7 +338,7 @@ theorem recovered_trie {P : Language α} {n} (t : Term signature Target (P,n))
     (word : List α) (bound : word.length ≤ n) :
     read (rule.lift target) t word bound =
       (Term.fold targetAlgebra (fun _ x => x) t).lookup word bound := by
-  have ht := (rule (α := α)).fold_morphism targetAlgebra target targetCompatible target (fun _ x => x)
+  have ht := (rule (α := α)).fold_morphism targetAlgebra target target_compatible target (fun _ x => x)
     ⟨fun _ _ => rfl, fun _ _ _ => rfl⟩
   rw [← read_morphism _ _ _ ht, read_target]
 end LanguageWitnesses.IndexedCompositional

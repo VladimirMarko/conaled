@@ -47,7 +47,7 @@ structure Input (m : Nat) where
   cells : TourStore m
   positive : 0 < m
   bounded : ∀ i : Fin m, (lookup cells i).2 < m
-  identityBound : ∀ i : Fin m, (lookup cells i).1 < m
+  identity_bound : ∀ i : Fin m, (lookup cells i).1 < m
   unit : ∀ i (hi : i+1 < m),
     (lookup cells ⟨i+1,hi⟩).2 = (lookup cells ⟨i,by omega⟩).2 + 1 ∨
     (lookup cells ⟨i,by omega⟩).2 = (lookup cells ⟨i+1,hi⟩).2 + 1
@@ -66,7 +66,7 @@ def toInput {n : Nat} (s : Source n) (maps : Maps s.val) (hv : Valid s.val maps)
     have hl := source_length s
     dsimp
     omega
-  identityBound i := by
+  identity_bound i := by
     rw [reindex_tour s maps hv]
     have hc := Tree.code_lt (s.val.visit i.val)
     have hs := Tree.size_pos s.val

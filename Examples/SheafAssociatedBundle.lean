@@ -324,7 +324,7 @@ theorem twice_value : twice.iso.hom.app x
 /-- Applied cocycle labels give the actual extension torsor, including all gauge arrows. -/
 def changedCocycle := cocycleExtensionComparison diagonal Examples.SheafTorsorCocycle.datum
 
-theorem changedGauge : type_of%
+theorem changed_gauge : type_of%
     (cocycleExtensionComparison_natural diagonal (Examples.SheafTorsorCocycle.gauge swap)) :=
   cocycleExtensionComparison_natural diagonal (Examples.SheafTorsorCocycle.gauge swap)
 

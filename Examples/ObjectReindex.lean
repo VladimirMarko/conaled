@@ -17,7 +17,7 @@ def products := SquareKit.ObjectReindex.products carrier FunctionCategory.produc
 theorem productComparison_inverse (a b : Tagged.{u}) :
     ComparisonLaws (equality _) (productComparison a b) := ⟨rfl,rfl⟩
 theorem product_laws : ProductLaws (SquareKit.ObjectReindex.equiv carrier (equality _)) products.{u} :=
-  SquareKit.ObjectReindex.product_laws carrier (equalityCongr _) FunctionCategory.laws
+  SquareKit.ObjectReindex.product_laws carrier (equality_congr _) FunctionCategory.laws
     FunctionCategory.products productObject productComparison productComparison_inverse
     FunctionCategory.productCongr FunctionCategory.productLaws
 
@@ -31,7 +31,7 @@ theorem sumComparison_inverse (a b : Tagged.{u}) :
     ComparisonLaws (equality _) (sumComparison a b) := by
   constructor <;> funext x <;> cases x <;> rfl
 theorem coproduct_laws : CoproductLaws _ (SquareKit.ObjectReindex.equiv carrier (equality _)) coproducts.{u} :=
-  SquareKit.ObjectReindex.coproduct_laws carrier (equalityCongr _) FunctionCategory.laws
+  SquareKit.ObjectReindex.coproduct_laws carrier (equality_congr _) FunctionCategory.laws
     FunctionCategory.coproducts sumObject sumComparison sumComparison_inverse
     FunctionCategory.coproductCongr FunctionCategory.coproductLaws
 
@@ -64,13 +64,13 @@ theorem bad_product_law_rejected : ¬ ProductLaws
 def taggedTerminal := SquareKit.ObjectReindex.terminal carrier FunctionCategory.terminal
   (PUnit,false) ⟨id,id⟩
 theorem taggedTerminal_laws : TerminalLaws (SquareKit.ObjectReindex.equiv carrier (equality _)) taggedTerminal.{u} :=
-  SquareKit.ObjectReindex.terminal_laws carrier (equalityCongr _) FunctionCategory.laws
+  SquareKit.ObjectReindex.terminal_laws carrier (equality_congr _) FunctionCategory.laws
     FunctionCategory.terminal (PUnit,false) ⟨id,id⟩ ⟨rfl,rfl⟩ FunctionCategory.terminalLaws
 
 def taggedInitial := SquareKit.ObjectReindex.initial carrier FunctionCategory.initial
   (PEmpty,false) ⟨id,id⟩
 theorem taggedInitial_laws : InitialLaws (SquareKit.ObjectReindex.equiv carrier (equality _)) taggedInitial.{u} :=
-  SquareKit.ObjectReindex.initial_laws carrier (equalityCongr _) FunctionCategory.laws
+  SquareKit.ObjectReindex.initial_laws carrier (equality_congr _) FunctionCategory.laws
     FunctionCategory.initial (PEmpty,false) ⟨id,id⟩ ⟨rfl,rfl⟩ FunctionCategory.initialLaws
 
 def badSumComparison (_ _ : Unit) : Comparison FunctionCategory.ops Bool (Sum Bool Bool) :=

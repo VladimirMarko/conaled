@@ -69,12 +69,12 @@ def equiv (L : DesignatedLaws S) (E : HomEquiv C) : HomEquiv (S.ops L) :=
 
 theorem forget_laws (L : DesignatedLaws S) (E : HomEquiv C) :
     MapLaws (S.forget L) (S.equiv L E) E :=
-  (S.forget L).inducedLaws E (E.refl _) (fun _ _ => E.refl _)
+  (S.forget L).induced_laws E (E.refl _) (fun _ _ => E.refl _)
 
 theorem laws (L : DesignatedLaws S) {E : HomEquiv C}
     (CC : CategoryCongr C E) (CL : CategoryLaws C E) :
     CategoryLaws (S.ops L) (S.equiv L E) :=
-  RawMap.transportLaws (S.forget_laws L E) ((S.forget L).induced_reflects E) CC CL
+  RawMap.transport_laws (S.forget_laws L E) ((S.forget L).induced_reflects E) CC CL
 
 def all (C : CategoryOps.{u,v} O) : Designated C := ⟨fun _ => True⟩
 theorem all_laws : DesignatedLaws (all C) := ⟨True.intro, fun _ _ => True.intro⟩

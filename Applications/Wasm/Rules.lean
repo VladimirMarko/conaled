@@ -45,12 +45,12 @@ inductive Step {I : Type} (s : ExtendedStore F O) : Frame → List (Admin I) →
   | context (c : Context I) {fr fr' : Frame} {code code' : List (Admin I)}
       (step : Step (I := I) s fr code fr' code') :
       Step (I := I) s fr (c.fill code) fr' (c.fill code')
-  | inFrame (outer inner inner' : Frame) (n : Nat) (code code' : List (Admin I))
+  | in_frame (outer inner inner' : Frame) (n : Nat) (code code' : List (Admin I))
       (step : Step (I := I) s inner code inner' code') :
       Step (I := I) s outer [.frame n inner code] outer [.frame n inner' code']
   | trap (fr : Frame) (c : Context I) (nonempty : c.fill [.trap] ≠ [.trap]) :
       Step (I := I) s fr (c.fill [.trap]) fr [.trap]
-  | trapFrame (outer inner : Frame) (n : Nat) :
+  | trap_frame (outer inner : Frame) (n : Nat) :
       Step (I := I) s outer [.frame n inner [.trap]] outer [.trap]
 
 /-- Finite standard reduction, with the store fixed throughout. -/
@@ -75,11 +75,11 @@ theorem Steps.context (h : Steps (I := I) s fr code fr' code') (c : Context I) :
   | refl => exact .refl _ _
   | cons head _ ih => exact .cons (.context c head) ih
 
-theorem Steps.inFrame (h : Steps (I := I) s fr code fr' code') (outer : Frame) (n : Nat) :
+theorem Steps.in_frame (h : Steps (I := I) s fr code fr' code') (outer : Frame) (n : Nat) :
     Steps (I := I) s outer [.frame n fr code] outer [.frame n fr' code'] := by
   induction h with
   | refl => exact .refl _ _
-  | cons head _ ih => exact .cons (.inFrame _ _ _ _ _ _ head) ih
+  | cons head _ ih => exact .cons (.in_frame _ _ _ _ _ _ head) ih
 
 /-- Straight-line instruction typing on ordinary, reachable stacks. These rules
 use an arbitrary typed prefix; no unreachable-polymorphic code is emitted. -/
@@ -332,7 +332,7 @@ theorem Step.decreases {s : ExtendedStore F O} {fr fr' : Frame}
   | label => simp [weight, Admin.weight]
   | frame => simp [weight, Admin.weight]
   | context c step ih => rw [Context.weight_fill, Context.weight_fill]; omega
-  | inFrame outer inner inner' n code code' step ih =>
+  | in_frame outer inner inner' n code code' step ih =>
     simp only [weight, List.map_cons, List.map_nil, List.sum_cons, List.sum_nil,
       Nat.add_zero, Admin.weight] at *
     omega
@@ -342,7 +342,7 @@ theorem Step.decreases {s : ExtendedStore F O} {fr fr' : Frame}
       intro hz
       exact nonempty (c.fill_of_weight_zero _ hz _)
     omega
-  | trapFrame => simp [weight, Admin.weight]
+  | trap_frame => simp [weight, Admin.weight]
 
 theorem Step.chain_bound (s : ExtendedStore F O) (states : Nat → Frame × List (Admin I))
     (n : Nat) (steps : ∀ i, i < n → Step s (states i).1 (states i).2 (states (i+1)).1 (states (i+1)).2) :
@@ -412,10 +412,10 @@ theorem Step.traps_le {s : ExtendedStore F O} {fr fr' : Frame}
   | label => simp [traps, Admin.traps]
   | frame => simp [traps, Admin.traps]
   | context c step ih => rw [Context.traps_fill, Context.traps_fill]; omega
-  | inFrame outer inner inner' n code code' step ih =>
+  | in_frame outer inner inner' n code code' step ih =>
     simpa [traps, Admin.traps] using ih
   | trap => rw [Context.traps_fill]; omega
-  | trapFrame => simp [traps, Admin.traps]
+  | trap_frame => simp [traps, Admin.traps]
 
 theorem Steps.traps_le {s : ExtendedStore F O} {fr fr' : Frame}
     {code code' : List (Admin I)} (h : Steps s fr code fr' code') : traps code' ≤ traps code := by
@@ -742,12 +742,12 @@ theorem Step.focus_or_trap (h : Step (I := I) s fr code fr' out) :
     rcases ih with ih | ih
     · exact .inl (focus_context _ _ _ _ _ ih c)
     · exact .inr (.context c ih)
-  | inFrame outer inner inner' n code code' step ih =>
+  | in_frame outer inner inner' n code code' step ih =>
     rcases ih with ih | ih
     · exact .inl (by simp [focus, ih, values])
     · exact .inr (.frame n inner ih)
   | trap fr c nonempty => exact .inr (.context c .root)
-  | trapFrame outer inner n => exact .inr (.frame n inner .root)
+  | trap_frame outer inner n => exact .inr (.frame n inner .root)
 
 theorem Step.focus_eq (h : Step (I := I) s fr code fr' out)
     (run : focus s fr [] code = some (other, result)) : fr' = other ∧ out = result := by
@@ -844,9 +844,9 @@ theorem Step.outside_le (h : Step (I := I) s fr code fr' out) : outside s out �
   | label => simp [outside, Admin.outside]
   | frame => simp [outside, Admin.outside]
   | context c step ih => rw [Context.outside_fill, Context.outside_fill]; omega
-  | inFrame outer inner inner' n code code' step ih => simpa [outside, Admin.outside] using ih
+  | in_frame outer inner inner' n code code' step ih => simpa [outside, Admin.outside] using ih
   | trap => simp [outside, Admin.outside]
-  | trapFrame => simp [outside, Admin.outside]
+  | trap_frame => simp [outside, Admin.outside]
 
 theorem Steps.outside_le (h : Steps (I := I) s fr code fr' out) : outside s out ≤ outside s code := by
   induction h with

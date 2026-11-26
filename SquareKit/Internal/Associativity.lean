@@ -20,24 +20,24 @@ def right (r : P a b) (s : P b c) (t : P c d) : Formula F [a, d] P :=
 
 theorem forward (r : P a b) (s : P b c) (t : P c d) :
     Derives (left (F := F) r s t) (right r s t) := by
-  apply Rules.existsElim
-  apply Rules.cut (Rules.andIntro Rules.andRight Rules.andLeft)
-  apply Rules.existsElimWith
-  apply Rules.existsWitness (.var .zero)
-  apply Rules.andIntro
-  · exact Rules.cut Rules.andRight Rules.andLeft
-  · apply Rules.existsWitness (.var (.succ .zero))
-    exact Rules.andIntro (Rules.cut Rules.andRight Rules.andRight) Rules.andLeft
+  apply Rules.exists_elim
+  apply Rules.cut (Rules.and_intro Rules.and_right Rules.and_left)
+  apply Rules.exists_elim_with
+  apply Rules.exists_witness (.var .zero)
+  apply Rules.and_intro
+  · exact Rules.cut Rules.and_right Rules.and_left
+  · apply Rules.exists_witness (.var (.succ .zero))
+    exact Rules.and_intro (Rules.cut Rules.and_right Rules.and_right) Rules.and_left
 
 theorem backward (r : P a b) (s : P b c) (t : P c d) :
     Derives (right (F := F) r s t) (left r s t) := by
-  apply Rules.existsElim
-  apply Rules.existsElimWith
-  apply Rules.existsWitness (.var .zero)
-  apply Rules.andIntro
-  · apply Rules.existsWitness (.var (.succ .zero))
-    exact Rules.andIntro Rules.andLeft (Rules.cut Rules.andRight Rules.andLeft)
-  · exact Rules.cut Rules.andRight Rules.andRight
+  apply Rules.exists_elim
+  apply Rules.exists_elim_with
+  apply Rules.exists_witness (.var .zero)
+  apply Rules.and_intro
+  · apply Rules.exists_witness (.var (.succ .zero))
+    exact Rules.and_intro Rules.and_left (Rules.cut Rules.and_right Rules.and_left)
+  · exact Rules.cut Rules.and_right Rules.and_right
 
 inductive RelSort where | input | first | second | output
 abbrev Arrow (_ _ : RelSort) := Empty
@@ -57,7 +57,7 @@ def environment {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
   Env.extend a (Env.extend d (fun {_} (i : Var [] _) => nomatch i))
 
 /-- Validity is obtained from the derivations, without carrier assumptions. -/
-theorem inSet {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
+theorem in_set {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
     (T : C → D → Prop) (a : A) (d : D) :
     (∃ c, (∃ b, R a b ∧ S b c) ∧ T c d) ↔
       (∃ b, R a b ∧ ∃ c, S b c ∧ T c d) :=

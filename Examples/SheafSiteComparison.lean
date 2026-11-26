@@ -21,7 +21,7 @@ abbrev chartTopology := ChartElementSite.topology charts
 abbrev comparison := ChartElementSite.inclusion charts
 
 instance comparison_dense : comparison.IsCoverDense baseTopology :=
-  ChartElementSite.coverDense charts SheafFamilyDescent.charts_joint
+  ChartElementSite.cover_dense charts SheafFamilyDescent.charts_joint
 
 instance comparison_denseSubsite : comparison.IsDenseSubsite chartTopology baseTopology :=
   inferInstanceAs (comparison.IsDenseSubsite (comparison.inducedTopology baseTopology) baseTopology)
@@ -35,7 +35,7 @@ theorem single_chart_not_dense (b : Bool) :
   intro h
   apply SheafFamilyDescent.chart_not_surjective b
   exact (SquareKit.SheafFamilyCover.singleton_iff (charts b)).mp
-    ((ChartElementSite.coverDense_iff (fun _ : PUnit => charts b)).mp h)
+    ((ChartElementSite.cover_dense_iff (fun _ : PUnit => charts b)).mp h)
 
 example : Sieve.ofArrows (fun _ : Bool => SmoothClutching.lineSheaf) charts ≠ ⊤ :=
   SheafFamilyDescent.charts_proper

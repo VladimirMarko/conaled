@@ -30,12 +30,12 @@ theorem remaining_faces (e : Bool) : conjugationCube.pullback (Over.map (face3 2
     zeroCocycle (Over (⟨2⟩ : Cube)) :=
   ordinaryConjugation_side cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy e
 
-theorem sourceHigherObservation : observeSquare (sourceActionSquare (t := assignedTransport) sourceHigherAction) = 1 :=
+theorem source_higher_observation : observeSquare (sourceActionSquare (t := assignedTransport) sourceHigherAction) = 1 :=
   (ordinaryConjugation_observation cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy).trans
-    frozenHigherObservation
+    frozen_higher_observation
 
 theorem sourceHigher_no_erasure : sourceActionSquare (t := assignedTransport) sourceHigherAction ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by
   intro h
-  exact Int.one_ne_zero (sourceHigherObservation.symm.trans ((congrArg observeSquare h).trans observeSquare_zero))
+  exact Int.one_ne_zero (source_higher_observation.symm.trans ((congrArg observeSquare h).trans observeSquare_zero))
 
 end Examples.CubicalFrozenOrdinaryAction

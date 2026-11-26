@@ -8,7 +8,7 @@ partial rational observations, separate operation laws and certificate bounds.
 
 ## Actual arithmetic supplies the local laws
 
-`stepLaws64` and `stepLaws32` specialize the existing `StepLaws` proposition to
+`stepLaws_64` and `stepLaws_32` specialize the existing `StepLaws` proposition to
 the actual `operations64`/`operations32` data and `decode64`/`decode32` decoders.
 The formatted addition and division-by-ten contracts from local 1019 supply
 their operation fields; existing proper-digit observations supply exact natural
@@ -36,7 +36,7 @@ owners.
 For every finite list of proper decimal digits, the contracts construct
 a successful certificate and observation of the actual floating fold. The
 certificate has one recorded step per input digit. Every conversion, addition
-and division has a finite observation, and `stagesFinite64`/`stagesFinite32`
+and division has a finite observation, and `stagesFinite_64`/`stagesFinite_32`
 transport this to the actual format's `isFinite` predicate.
 
 The final observed rational lies in closed `[0,1]`. Its error relative to the

@@ -9,8 +9,8 @@ set_option backward.isDefEq.respectTransparency.types false
 namespace SquareKit.MatrixDoubling
 open MatrixCategory
 universe u
-abbrev M := MatrixCategory.ops.{u} Nat
-abbrev P : ProductOps M.{u} := MatrixCategory.products Nat
+abbrev matrixOps := MatrixCategory.ops.{u} Nat
+abbrev matrixProducts : ProductOps matrixOps.{u} := MatrixCategory.products Nat
 /-- Tags distinguish the two source families without changing their matrices. -/
 structure Source (tag : Bool) where
   coordinates : Coordinates.{u}
@@ -29,12 +29,12 @@ abbrev sourceProducts (tag) : ProductOps (sourceOps.{u} tag) where
   snd := fun i => Sum.elim (fun _ => 0) (fun j => if i = j then 1 else 0)
   pair f g := Sum.elim f g
 
-abbrev identityMap : RawMap (sourceOps.{u} false) M :=
+abbrev identityMap : RawMap (sourceOps.{u} false) matrixOps :=
   ⟨fun a => ⟨a.coordinates⟩, fun f => f⟩
 def duplicate {a b : Type u} (f : Matrix b a Nat) : Matrix (b ⊕ b) (a ⊕ a) Nat :=
   Matrix.fromBlocks f 0 0 f
 
-abbrev doublingMap : RawMap (sourceOps.{u} true) M :=
+abbrev doublingMap : RawMap (sourceOps.{u} true) matrixOps :=
   ⟨fun a => ⟨Coordinates.sum a.coordinates a.coordinates⟩, duplicate⟩
 
 theorem duplicate_id (a : Coordinates.{u}) : duplicate (1 : Matrix a a Nat) = 1 :=
@@ -81,11 +81,11 @@ theorem permutation_id {a : Type u} [DecidableEq a] : permutation (Equiv.refl a)
   funext i j
   simp [permutation, Matrix.one_apply]
 
-def doublingProducts : ProductMap doublingMap (sourceProducts true) P := fun a b =>
+def doublingProducts : ProductMap doublingMap (sourceProducts true) matrixProducts := fun a b =>
   ⟨permutation (shuffle a b), permutation (shuffle a b).symm⟩
 
 theorem doublingProducts_inverse (a b : Source.{u} true) :
-    ComparisonLaws (equality M) (doublingProducts a b) where
+    ComparisonLaws (equality matrixOps) (doublingProducts a b) where
   hom_inv := by
     change permutation (shuffle a b) * permutation (shuffle a b).symm = 1
     rw [permutation_mul]
@@ -115,14 +115,14 @@ theorem permutation_mul_matrix {a b c : Type u} [Fintype b] [DecidableEq a] [Dec
         simp only [ite_eq_right h, ite_eq_right h']
     _ = _ := by simp
 
-theorem doublingProducts_laws : ProductMapLaws (equality M) doublingProducts.{u} where
+theorem doublingProducts_laws : ProductMapLaws (equality matrixOps) doublingProducts.{u} where
   fst := by
     intro a b
     change duplicate (sourceProducts true).fst = (_ : Matrix (a ⊕ a) ((a ⊕ a) ⊕ (b ⊕ b)) Nat) * permutation (shuffle a b)
     rw [mul_permutation]
     funext i j
     rcases i with i | i <;> rcases j with (j | j) | (j | j) <;>
-      simp [duplicate, Matrix.fromBlocks, sourceProducts, P, MatrixCategory.products,
+      simp [duplicate, Matrix.fromBlocks, sourceProducts, matrixProducts, MatrixCategory.products,
         Coordinates.sum, Matrix.submatrix, shuffle, Equiv.coe_fn_mk]
   snd := by
     intro a b
@@ -130,7 +130,7 @@ theorem doublingProducts_laws : ProductMapLaws (equality M) doublingProducts.{u}
     rw [mul_permutation]
     funext i j
     rcases i with i | i <;> rcases j with (j | j) | (j | j) <;>
-      simp [duplicate, Matrix.fromBlocks, sourceProducts, P, MatrixCategory.products,
+      simp [duplicate, Matrix.fromBlocks, sourceProducts, matrixProducts, MatrixCategory.products,
         Coordinates.sum, Matrix.submatrix, shuffle, Equiv.coe_fn_mk]
   pair := by
     intro a b c f g
@@ -140,22 +140,22 @@ theorem doublingProducts_laws : ProductMapLaws (equality M) doublingProducts.{u}
     rcases i with (i | i) | (i | i) <;> rcases j with j | j <;>
       simp [duplicate, Matrix.fromBlocks, Matrix.fromRows, Matrix.submatrix, shuffle, Equiv.coe_fn_mk]
 
-def identityProducts : ProductMap identityMap (sourceProducts false) P :=
+def identityProducts : ProductMap identityMap (sourceProducts false) matrixProducts :=
   fun a b => ⟨(1 : Matrix (a ⊕ b) (a ⊕ b) Nat), (1 : Matrix (a ⊕ b) (a ⊕ b) Nat)⟩
 theorem identityProducts_inverse (a b : Source.{u} false) :
-    ComparisonLaws (equality M) (identityProducts a b) :=
+    ComparisonLaws (equality matrixOps) (identityProducts a b) :=
   ⟨Matrix.one_mul _, Matrix.one_mul _⟩
-theorem identityProducts_laws : ProductMapLaws (equality M) identityProducts.{u} where
+theorem identityProducts_laws : ProductMapLaws (equality matrixOps) identityProducts.{u} where
   fst := (Matrix.mul_one _).symm
   snd := (Matrix.mul_one _).symm
   pair _f _g := (Matrix.one_mul _).symm
 
 abbrev Object := Comma.Obj identityMap.{u} doublingMap
-abbrev Arrow (a b : Object.{u}) := Comma.Hom (equality M) a b
-abbrev categoryOps : CategoryOps Object.{u} := Comma.ops (equalityCongr M)
-  (ofCategoryLaws _) identityMap_laws doublingMap_laws
-abbrev products : ProductOps categoryOps.{u} := Comma.productOps (equalityCongr M)
-  (ofCategoryLaws _) identityMap_laws doublingMap_laws identityProducts doublingProducts
+abbrev Arrow (a b : Object.{u}) := Comma.Hom (equality matrixOps) a b
+abbrev categoryOps : CategoryOps Object.{u} := Comma.ops (equality_congr matrixOps)
+  (ofCategory_laws _) identityMap_laws doublingMap_laws
+abbrev products : ProductOps categoryOps.{u} := Comma.productOps (equality_congr matrixOps)
+  (ofCategory_laws _) identityMap_laws doublingMap_laws identityProducts doublingProducts
   identityProducts_inverse doublingProducts_inverse identityProducts_laws doublingProducts_laws
   (MatrixCategory.productCongr Nat) (MatrixCategory.productLaws Nat)
 
@@ -175,11 +175,11 @@ def embedArrow {a b : Coordinates.{u}} (f : Matrix b a Nat) : Arrow (embed a) (e
     embedArrow (g * f) = categoryOps.comp (embedArrow g) (embedArrow f) := rfl
 
 theorem matrix_product_commutes {a b c : Object.{u}} (f : Arrow a b) (g : Arrow a c) :
-    M.comp (products.prod b c).connector (identityMap.map (products.pair f g).left) =
-      M.comp (doublingMap.map (products.pair f g).right) a.connector :=
+    matrixOps.comp (products.prod b c).connector (identityMap.map (products.pair f g).left) =
+      matrixOps.comp (doublingMap.map (products.pair f g).right) a.connector :=
   (products.pair f g).commutes
 
-theorem sourceProductLaws (tag) : ProductLaws (equality (sourceOps.{u} tag)) (sourceProducts tag) where
+theorem sourceProducts_laws (tag) : ProductLaws (equality (sourceOps.{u} tag)) (sourceProducts tag) where
   fst_pair := by
     intro a b c f g
     exact (MatrixCategory.productLaws Nat).fst_pair
@@ -193,9 +193,9 @@ theorem sourceProductLaws (tag) : ProductLaws (equality (sourceOps.{u} tag)) (so
     exact (MatrixCategory.productLaws Nat).pair_eta
       (a := ⟨a.coordinates⟩) (b := ⟨b.coordinates⟩) (c := ⟨c.coordinates⟩) f
 
-theorem products_laws : ProductLaws (Comma.equiv (equalityCongr M) (ofCategoryLaws _)
+theorem products_laws : ProductLaws (Comma.equiv (equality_congr matrixOps) (ofCategory_laws _)
     identityMap_laws doublingMap_laws) products.{u} :=
-  Comma.productLaws _ _ _ _ _ _ _ _ _ _ _ _ (sourceProductLaws false) (sourceProductLaws true)
+  Comma.productLaws _ _ _ _ _ _ _ _ _ _ _ _ (sourceProducts_laws false) (sourceProducts_laws true)
 
 theorem first_fork {a b c : Object.{u}} (f : Arrow a b) (g : Arrow a c) :
     categoryOps.comp products.fst (products.pair f g) = f := by
@@ -223,8 +223,8 @@ theorem triple_nonidentity : triple ≠ categoryOps.ident := by
   contradiction
 
 /-- The square has connector [1;0], left side [3], and right interpretation diag(3,3). -/
-theorem triple_commutes : M.comp (embed oneCoordinate).connector (identityMap.map triple.left) =
-    M.comp (doublingMap.map triple.right) (embed oneCoordinate).connector := triple.commutes
+theorem triple_commutes : matrixOps.comp (embed oneCoordinate).connector (identityMap.map triple.left) =
+    matrixOps.comp (doublingMap.map triple.right) (embed oneCoordinate).connector := triple.commutes
 
 theorem shuffle_moves_middle :
     shuffle (Fin 1) (Fin 1) (.inl (.inr 0)) = .inr (.inl 0) := rfl
@@ -245,13 +245,13 @@ theorem comparison_nonidentity :
   contradiction
 
 theorem matrix_identity_commutes (a : Object.{u}) :
-    M.comp a.connector (identityMap.map (categoryOps.ident (a := a)).left) =
-      M.comp (doublingMap.map (categoryOps.ident (a := a)).right) a.connector :=
+    matrixOps.comp a.connector (identityMap.map (categoryOps.ident (a := a)).left) =
+      matrixOps.comp (doublingMap.map (categoryOps.ident (a := a)).right) a.connector :=
   (categoryOps.ident (a := a)).commutes
 
 theorem matrix_comp_commutes {a b c : Object.{u}} (g : Arrow b c) (f : Arrow a b) :
-    M.comp c.connector (identityMap.map (categoryOps.comp g f).left) =
-      M.comp (doublingMap.map (categoryOps.comp g f).right) a.connector :=
+    matrixOps.comp c.connector (identityMap.map (categoryOps.comp g f).left) =
+      matrixOps.comp (doublingMap.map (categoryOps.comp g f).right) a.connector :=
   (categoryOps.comp g f).commutes
 
 abbrev sourceTerminal (tag) : TerminalOps (sourceOps.{u} tag) where
@@ -262,18 +262,18 @@ def identityTerminal : TerminalMap identityMap (sourceTerminal false) (MatrixCat
   ⟨(fun e => nomatch e), (fun e => nomatch e)⟩
 def doublingTerminal : TerminalMap doublingMap (sourceTerminal true) (MatrixCategory.terminal Nat) :=
   ⟨(fun e => nomatch e), (fun e => match e with | .inl e => nomatch e | .inr e => nomatch e)⟩
-theorem identityTerminal_inverse : ComparisonLaws (equality M) identityTerminal.{u} where
+theorem identityTerminal_inverse : ComparisonLaws (equality matrixOps) identityTerminal.{u} where
   hom_inv := by funext e; exact nomatch e
   inv_hom := by funext e; exact nomatch e
-theorem doublingTerminal_inverse : ComparisonLaws (equality M) doublingTerminal.{u} where
+theorem doublingTerminal_inverse : ComparisonLaws (equality matrixOps) doublingTerminal.{u} where
   hom_inv := by funext e; exact nomatch e
   inv_hom := by funext e; rcases e with e | e <;> exact nomatch e
-theorem identityTerminal_laws : TerminalMapLaws (equality M) identityTerminal.{u} where
+theorem identityTerminal_laws : TerminalMapLaws (equality matrixOps) identityTerminal.{u} where
   terminal := by intros; funext e; exact nomatch e
-theorem doublingTerminal_laws : TerminalMapLaws (equality M) doublingTerminal.{u} where
+theorem doublingTerminal_laws : TerminalMapLaws (equality matrixOps) doublingTerminal.{u} where
   terminal := by intros; funext e; rcases e with e | e <;> exact nomatch e
-abbrev terminal : TerminalOps categoryOps.{u} := Comma.terminalOps (equalityCongr M)
-  (ofCategoryLaws _) identityMap_laws doublingMap_laws identityTerminal doublingTerminal
+abbrev terminal : TerminalOps categoryOps.{u} := Comma.terminalOps (equality_congr matrixOps)
+  (ofCategory_laws _) identityMap_laws doublingMap_laws identityTerminal doublingTerminal
   identityTerminal_inverse identityTerminal_laws doublingTerminal_laws (MatrixCategory.terminalLaws Nat)
 
 end SquareKit.MatrixDoubling

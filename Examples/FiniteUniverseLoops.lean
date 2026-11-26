@@ -40,7 +40,7 @@ theorem loopPermutation_apply {S : Type} (p : Term (loops S)) (s : S) :
     loopPermutation p s =
       (observe (Term.map (pathToMap p) (nativeInput s))).val DiscreteEquivalences.point := rfl
 
-theorem permutationMap {S : Type} (p : Term (loops S)) :
+theorem permutation_map {S : Type} (p : Term (loops S)) :
     nativeMap (loopPermutation p) = pathToMap p := by
   let i := (constantLocal terminal S).decodeCodeIso
   have hc : (constantIso (loopPermutation p)).hom = observedMap p := by
@@ -62,7 +62,7 @@ noncomputable def classifyLoop {S : Type} (p : Term (loops S)) :
     Term (homogeneousPath (loops S) (equivalencePath (loopPermutation p)) p) :=
   uaOfTransportHomotopy (code S) (code S) (nativeMap (loopPermutation p))
     (nativeEquivalence (loopPermutation p)) p
-    (by rw [permutationMap]; exact homogeneousRefl _)
+    (by rw [permutation_map]; exact homogeneousRefl _)
 
 theorem twoPath_permutation {S : Type} {p q : Term (loops S)}
     (h : Term (homogeneousPath (loops S) p q)) : loopPermutation p = loopPermutation q := by

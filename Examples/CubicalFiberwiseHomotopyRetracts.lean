@@ -45,7 +45,7 @@ noncomputable def contractReversedPoint
 
 /-- Total-space contractibility still does not assert inhabitation at every
 base point: reversal would otherwise yield the impossible forward path at false. -/
-theorem noBackwardAtFalse (p : Term (reindex (backwardPaths (Γ := terminal)) falseSub)) : False :=
-  noForwardAtFalse (Term.map (Functor.whiskerLeft falseSub.mapElements reversal.inv) p)
+theorem no_backward_at_false (p : Term (reindex (backwardPaths (Γ := terminal)) falseSub)) : False :=
+  no_forward_at_false (Term.map (Functor.whiskerLeft falseSub.mapElements reversal.inv) p)
 
 end Examples.CubicalFiberwiseHomotopyRetracts

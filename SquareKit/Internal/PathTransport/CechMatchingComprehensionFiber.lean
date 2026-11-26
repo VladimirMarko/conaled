@@ -19,14 +19,14 @@ structure Fiber (d : Datum D.toDiagram) where
   localFiber : A.localFamily.obj d.localObject
   overlap : A.firstMap.obj (liftLocal A d localFiber) ≅ A.secondMap.obj (liftLocal A d localFiber)
   diagonal : A.diagonalMap.map overlap.hom =
-    (eqToHom h.diagonalFirst).app (liftLocal A d localFiber) ≫
-      (eqToHom h.diagonalSecond.symm).app (liftLocal A d localFiber)
+    (eqToHom h.diagonal_first).app (liftLocal A d localFiber) ≫
+      (eqToHom h.diagonal_second.symm).app (liftLocal A d localFiber)
   cocycle : A.firstSecondMap.map overlap.hom ≫
-      (eqToHom h.tripleMiddle).app (liftLocal A d localFiber) ≫
+      (eqToHom h.triple_middle).app (liftLocal A d localFiber) ≫
         A.secondThirdMap.map overlap.hom =
-    (eqToHom h.tripleFirst).app (liftLocal A d localFiber) ≫
+    (eqToHom h.triple_first).app (liftLocal A d localFiber) ≫
       A.firstThirdMap.map overlap.hom ≫
-        (eqToHom h.tripleLast).app (liftLocal A d localFiber)
+        (eqToHom h.triple_last).app (liftLocal A d localFiber)
   base_overlap : overlap.hom.base = d.overlap.hom
 
 namespace Fiber

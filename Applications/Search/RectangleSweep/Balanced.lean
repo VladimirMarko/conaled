@@ -25,6 +25,6 @@ def balancedSweep (rs : List (Rectangle α β)) : Bool :=
 theorem balancedSweep_eq_true_iff_hasIntersection (rs : List (Rectangle α β)) :
     balancedSweep rs = true ↔ Rectangle.HasIntersection rs :=
   sweep_eq_true_iff_hasIntersection
-    (IntervalTree.Balanced.intervalSetLaws keyInterval keyInterval_low_le_of_lt) rs
+    (IntervalTree.Balanced.intervalSet_laws keyInterval keyInterval_low_le_of_lt) rs
 
 end Search.RectangleSweep

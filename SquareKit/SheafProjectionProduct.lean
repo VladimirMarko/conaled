@@ -12,7 +12,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable (A Γ : Sheaf J (Type (max u v)))
 
 /-- The explicit product is the actual pullback of a terminal display. -/
-theorem projectionSquare : IsPullback (snd A Γ) (fst A Γ)
+theorem projection_square : IsPullback (snd A Γ) (fst A Γ)
     (SheafTerminalProduct.terminalMap Γ) (SheafTerminalProduct.terminalMap A) := by
   apply IsPullback.flip
   apply IsPullback.of_is_product' _ CartesianMonoidalCategory.isTerminalTensorUnit
@@ -27,17 +27,17 @@ theorem projectionSquare : IsPullback (snd A Γ) (fst A Γ)
 def pi : Over (product A Γ) ⥤ Over Γ :=
   ExponentiablePullback.squareRightAdjoint
     (SheafTerminalProduct.terminalMap A) (SheafTerminalProduct.terminalMap Γ)
-    (SheafTerminalProduct.adjunction A) (projectionSquare A Γ)
+    (SheafTerminalProduct.adjunction A) (projection_square A Γ)
 
 def adjunction : Over.pullback (snd A Γ) ⊣ pi A Γ :=
   ExponentiablePullback.squareAdjunction
     (SheafTerminalProduct.terminalMap A) (SheafTerminalProduct.terminalMap Γ)
-    (SheafTerminalProduct.adjunction A) (projectionSquare A Γ)
+    (SheafTerminalProduct.adjunction A) (projection_square A Γ)
 
 /-- An explicit Mathlib witness, with ordinary limit-based pullbacks. -/
 abbrev exponentiable := ExponentiablePullback.exponentiable
   (SheafTerminalProduct.terminalMap A) (SheafTerminalProduct.terminalMap Γ)
-  (SheafTerminalProduct.adjunction A) (projectionSquare A Γ)
+  (SheafTerminalProduct.adjunction A) (projection_square A Γ)
 
 /-- Compare the ordinary chosen pullback with explicit argument/parameter pairs. -/
 def parameterIso (X : Over Γ) : pullback X.hom (snd A Γ) ≅ product A X.left :=

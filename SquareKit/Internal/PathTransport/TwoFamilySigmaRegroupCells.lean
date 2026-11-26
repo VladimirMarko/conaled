@@ -22,7 +22,7 @@ private theorem classifier_comp_app {A C : StrictTwoCategory.{uB,vB,wB}}
 def sigmaRegroupCell {x y : Total (sigmaFamily F B)} {p q : x ⟶ y} (α : p ⟶ q) :
     sigmaRegroupMap F B p ⟶ sigmaRegroupMap F B q := by
   refine ⟨sigmaRegroupBaseCell F B α,
-    eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ◁ α.fiber.fiber ≫ eqToHom ?_⟩
+    eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ◁ α.fiber.fiber ≫ eqToHom ?_⟩
   change eqToHom _ ≫
     ((fiberRestriction F y.base B).map₂ α.fiber.base).app ((sigmaMap F B p.base).obj x.fiber).fiber ≫
       ((sigmaCellComponent F B α.base x.fiber ≫ q.fiber).fiber) =

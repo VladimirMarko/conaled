@@ -14,40 +14,40 @@ theorem generatedChange_inclusion  (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (inclusionSignature G P) hΓ ⋙ generatedContextMap (changeReferenceSignature η P) hΓ =
       generatedContextMap (endpointSignature F P η) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (inclusionSignature G P) (changeReferenceSignature η P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (inclusionSignature G P) (changeReferenceSignature η P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (inclusion_changeReference_signature η P) hΓ))
 
 theorem generatedChange_endpoint (θ : G ≅ H) (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (endpointSignature G P θ) hΓ ⋙ generatedContextMap (changeReferenceSignature η P) hΓ =
       generatedContextMap (endpointSignature F P (η ≪≫ θ)) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (endpointSignature G P θ) (changeReferenceSignature η P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (endpointSignature G P θ) (changeReferenceSignature η P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (endpoint_changeReference_signature η P θ) hΓ))
 
 theorem generatedChange_projection  (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (changeReferenceSignature η P) hΓ ⋙ generatedContextMap (projectionSignature F P) hΓ =
       generatedContextMap (projectionSignature G P) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (changeReferenceSignature η P) (projectionSignature F P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (changeReferenceSignature η P) (projectionSignature F P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (changeReference_projection_signature η P) hΓ))
 
 theorem generatedChange_evaluation (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q) (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (changeReferenceSignature η P) hΓ ⋙ generatedContextMap (evaluationSignature F P Q α) hΓ =
       generatedContextMap (evaluationSignature G P Q (α ≫ whiskerRight η.hom Q)) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (changeReferenceSignature η P) (evaluationSignature F P Q α) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (changeReferenceSignature η P) (evaluationSignature F P Q α) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (changeReference_evaluation_signature η P Q α) hΓ))
 
 theorem generatedEndpointIso_trans (θ : G ≅ H) (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :

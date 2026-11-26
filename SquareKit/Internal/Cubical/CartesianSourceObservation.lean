@@ -197,16 +197,16 @@ structure FiniteVertices where
 noncomputable def arrow (P : FiniteVertices A) (v w : Vertex I.dimension) :
     Presheaf.Term (vertexFamily A v) ≃ Presheaf.Term (vertexFamily A w) :=
   sectionEquiv ((transportEquivalence A v w).discreteIso
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation v))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation v))
     (vertexFilling A v) (A.toNative.lawful.reindex _)
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation w)))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w)))
 
 noncomputable def returnIso (P : FiniteVertices A) (v : Vertex I.dimension) :
     vertexFamily A v ≅ vertexFamily A v :=
   (returnEquivalence A v).discreteIso
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation v))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation v))
     (vertexFilling A v) (A.toNative.lawful.reindex _)
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation v))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation v))
 
 noncomputable def extendSection (P : FiniteVertices A) (v : Vertex I.dimension)
     (a : Presheaf.Term (vertexFamily A v)) : Presheaf.Term A.family :=
@@ -252,7 +252,7 @@ theorem arrow_section (P : FiniteVertices A) (v w : Vertex I.dimension)
     (A.toNative.filling.reindex (lineMap (dmCanonicalPath v w)))
     (A.toNative.lawful.reindex _) (s.reindex (lineMap (dmCanonicalPath v w)))
     (canonicalLine_zero A v w) (canonicalLine_one A v w)
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation w))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w))
   · exact reindex_heq s (σ := endpointSub terminal false ≫ lineMap (dmCanonicalPath v w))
       (τ := vertexMap v) (by rw [lineMap_endpoint, canonical_vertices_zero])
   · exact reindex_heq s (σ := endpointSub terminal true ≫ lineMap (dmCanonicalPath v w))
@@ -406,7 +406,7 @@ theorem lineTransport_arrow (P : FiniteVertices A)
   have hz := DiscreteRecords.mapTo_section (A.toNative.filling.reindex (lineMap p))
     (A.toNative.lawful.reindex _) (s.reindex (lineMap p))
     (lineFamily_endpoint A p false v h₀) (lineFamily_endpoint A p true w h₁)
-    (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation w))
+    (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w))
     (s.reindex (vertexMap v)) (s.reindex (vertexMap w))
     (reindex_heq s (σ := endpointSub terminal false ≫ lineMap p)
       (τ := vertexMap v) (by rw [lineMap_endpoint, h₀]))
@@ -430,6 +430,6 @@ theorem arrow_of_line_section (P : FiniteVertices A)
     (DiscreteRecords.mapTo_section (A.toNative.filling.reindex (lineMap p))
       (A.toNative.lawful.reindex _) s
       (lineFamily_endpoint A p false v h₀) (lineFamily_endpoint A p true w h₁)
-      (PathDiscrete.ofIso (constant_pathDiscrete _) (P.presentation w)) a b ha hb)
+      (PathDiscrete.of_iso (constant_pathDiscrete _) (P.presentation w)) a b ha hb)
 
 end SquareKit.Cubical.Cartesian.SourceObservation

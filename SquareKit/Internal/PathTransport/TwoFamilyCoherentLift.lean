@@ -19,7 +19,7 @@ def coherentLiftApp (x : Total (reindex F E)) :
   cartesianLift E (η.app x.base) x.fiber
 
 omit [Strict Γ] in
-theorem coherentLiftPrefix {γ δ : Γ} (f : γ ⟶ δ) (a : E.obj (F.obj γ)) :
+theorem coherentLift_prefix {γ δ : Γ} (f : γ ⟶ δ) (a : E.obj (F.obj γ)) :
     (E.map₂ (η.naturality f).hom).app a ≫
       compBoundary E (η.app γ) (G.map f) a ≫
       ((strongPostcomp η E).naturality f).inv.app a =
@@ -37,7 +37,7 @@ theorem coherentLiftPrefix {γ δ : Γ} (f : γ ⟶ δ) (a : E.obj (F.obj γ)) :
     (E.map₂ (η.naturality f).inv).app a ≫ _ = _
   rw [← Category.assoc, h, Category.id_comp]
 
-theorem coherentLiftBoundary {x y : Total (reindex F E)} (p : x ⟶ y) :
+theorem coherentLift_boundary {x y : Total (reindex F E)} (p : x ⟶ y) :
     ((coherentLiftLeft (F := F) E).map p ≫ coherentLiftApp η E y).fiber =
       (E.map₂ (η.naturality p.base).hom).app x.fiber ≫
         (coherentLiftApp η E x ≫ (coherentLiftRight η E).map p).fiber := by
@@ -64,7 +64,7 @@ theorem coherentLiftBoundary {x y : Total (reindex F E)} (p : x ⟶ y) :
 def coherentLiftCell {x y : Total (reindex F E)} (p : x ⟶ y) :
     (coherentLiftLeft (F := F) E).map p ≫ coherentLiftApp η E y ⟶
       coherentLiftApp η E x ≫ (coherentLiftRight η E).map p :=
-  ⟨(η.naturality p.base).hom, eqToHom (coherentLiftBoundary η E p)⟩
+  ⟨(η.naturality p.base).hom, eqToHom (coherentLift_boundary η E p)⟩
 
 private theorem totalCellComp_base {x y : Total E} {p q r : x ⟶ y}
     (α : p ⟶ q) (β : q ⟶ r) : (α ≫ β).base = α.base ≫ β.base := rfl
@@ -82,7 +82,7 @@ theorem coherentLiftCell_base {x y : Total (reindex F E)} (p : x ⟶ y) :
     (coherentLiftCell η E p).base = (η.naturality p.base).hom := rfl
 
 theorem coherentLiftCell_equalityFiber {x y : Total (reindex F E)} (p : x ⟶ y) :
-    EqualityFiber E (coherentLiftCell η E p) := ⟨coherentLiftBoundary η E p, rfl⟩
+    EqualityFiber E (coherentLiftCell η E p) := ⟨coherentLift_boundary η E p, rfl⟩
 
 theorem coherentLiftCell_id (x : Total (reindex F E)) :
     coherentLiftCell η E (𝟙 x) ≫ coherentLiftApp η E x ◁
@@ -137,7 +137,7 @@ private theorem coherentLift_left_fiber_heq {x y : Total (reindex F E)}
       coherentLiftCell η E q).fiber) ((E.map (η.app y.base)).map₂ α.fiber) := by
   rw [fiber_comp]
   change HEq ((((coherentLiftLeft (F := F) E).map₂ α ▷ coherentLiftApp η E y).fiber) ≫
-    _ ◁ eqToHom (coherentLiftBoundary η E q) ≫ eqToHom _) _
+    _ ◁ eqToHom (coherentLift_boundary η E q) ≫ eqToHom _) _
   simp only [Bicategory.whiskerLeft_eqToHom, eqToHom_trans]
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
   change HEq (eqToHom _ ≫ (compBoundary E _ _ _ ◁
@@ -153,7 +153,7 @@ private theorem coherentLift_right_fiber_heq {x y : Total (reindex F E)}
     HEq ((coherentLiftCell η E p ≫ coherentLiftApp η E x ◁
       (coherentLiftRight η E).map₂ α).fiber) ((E.map (η.app y.base)).map₂ α.fiber) := by
   rw [fiber_comp]
-  change HEq (eqToHom (coherentLiftBoundary η E p) ≫ (E.map₂ (η.naturality p.base).hom).app x.fiber ◁
+  change HEq (eqToHom (coherentLift_boundary η E p) ≫ (E.map₂ (η.naturality p.base).hom).app x.fiber ◁
     (_) ≫ eqToHom _) _
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
@@ -175,7 +175,7 @@ private theorem coherentLift_right_fiber_heq {x y : Total (reindex F E)}
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
   refine HEq.trans (eqToHom_comp_heq _ _) ?_
   refine HEq.trans (comp_eqToHom_heq _ _) ?_
-  rw [coherentLiftPrefix]
+  rw [coherentLift_prefix]
   exact eqToHom_left_heq (B := E.obj (G.obj y.base)) _ _
 
 theorem coherentLiftCell_naturality {x y : Total (reindex F E)}

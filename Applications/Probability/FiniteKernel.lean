@@ -134,7 +134,7 @@ noncomputable def tableEquiv := tableMeaning.induced (SquareKit.equality stochOp
 
 theorem tableMeaning_laws :
     SquareKit.MapLaws tableMeaning tableEquiv (SquareKit.equality stochOps) := by
-  apply SquareKit.RawMap.inducedLaws
+  apply SquareKit.RawMap.induced_laws
   · intro X
     change tableMeaning.map (Table.deterministic id : Table X X) = _
     apply CategoryTheory.WideSubcategory.hom_ext
@@ -146,10 +146,10 @@ theorem tableMeaning_laws :
     exact Table.kernel_comp g f
 
 /-- Existing transport establishes the category laws for executable tables. -/
-theorem tableCategoryLaws : SquareKit.CategoryLaws tableOps tableEquiv :=
-  SquareKit.RawMap.transportLaws tableMeaning_laws
-    (tableMeaning.induced_reflects _) (SquareKit.equalityCongr _)
-    (SquareKit.ofCategoryLaws Stoch)
+theorem table_categoryLaws : SquareKit.CategoryLaws tableOps tableEquiv :=
+  SquareKit.RawMap.transport_laws tableMeaning_laws
+    (tableMeaning.induced_reflects _) (SquareKit.equality_congr _)
+    (SquareKit.ofCategory_laws Stoch)
 
 noncomputable def kernelSteps {α : Type*} [MeasurableSpace α] (k : Kernel α α) :
     ℕ → Kernel α α

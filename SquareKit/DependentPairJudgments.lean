@@ -213,7 +213,7 @@ def Pβ := closedRules (ProjectionRule.schema (hasEta := false))
 def Pη := closedRules (ProjectionRule.schema (hasEta := true))
 
 /-- Replay structural rules and the independently specified source table. -/
-def F : TheoryMap Pβ Pη id where
+def betaToEta : TheoryMap Pβ Pη id where
   certificate r := by
     cases r with
     | inl s => exact Derivation.rule (R := Pη) (.inl s) (fun i => .hyp ⟨i, rfl⟩)

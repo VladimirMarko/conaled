@@ -160,6 +160,6 @@ example (j k : Diamondᵒᵖ) (f : j ⟶ k) (ρ : Env (relModel.fiber j) [b])
 
 -- Formula semantics remains opt-in beside the ordinary graph interface.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafFormula

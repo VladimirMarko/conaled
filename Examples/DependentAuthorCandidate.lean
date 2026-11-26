@@ -114,7 +114,7 @@ def dependentWeakeningComparison :=
 
 
 -- The recipe is retained as source syntax; this is not a UIP claim.
-theorem selectedRecipe : selected hx hT hp =
+theorem selected_recipe : selected hx hT hp =
     j A x T (identity Q p p)
       (reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))) := rfl
 
@@ -135,33 +135,33 @@ variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 
 include hp hΩ in
-theorem originalValueValidity : (term (total T) Q p).Eval (algebra M) ρ :=
+theorem original_value_validity : (term (total T) Q p).Eval (algebra M) ρ :=
   interpret hp M ρ hΩ
 
 include hΩ in
-theorem originalCertificateValidity :
+theorem original_certificate_validity :
     (term (total T) (identity Q p p) (selected hx hT hp)).Eval (algebra M) ρ :=
   interpret (certificate hx hT hp) M ρ hΩ
 
 include hp hσ hτ hΩ in
-theorem valueValidity :
+theorem value_validity :
     (term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)).Eval (algebra M) ρ :=
   interpret (valueTwice hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
-theorem certificateValidity :
+theorem certificate_validity :
     (term Θ (subTy (subTy (identity Q p p) σ) τ)
       (subTm (subTm (selected hx hT hp) σ) τ)).Eval (algebra M) ρ :=
   interpret (certificateTwice hx hT hp hσ hτ) M ρ hΩ
 
 include hp hσ hτ hΩ in
-theorem certificateTypeValidity :
+theorem certificate_type_validity :
     (subTy (subTy (identity Q p p) σ) τ).eval (algebra M) ρ =
       (subTy (identity Q p p) (comp σ τ)).eval (algebra M) ρ :=
   interpret (certificateTypeComparison hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
-theorem certificateComparisonValidity :
+theorem certificateComparison_validity :
     (subTm (subTm (selected hx hT hp) σ) τ).eval (algebra M) ρ =
       (subTm (selected hx hT hp) (comp σ τ)).eval (algebra M) ρ :=
   interpret (certificateComparison hx hT hp hσ hτ) M ρ hΩ
@@ -179,46 +179,46 @@ noncomputable def extendedValue := SquareKit.Internal.DependentJudgments.Sigma.r
 noncomputable def extendedType := SquareKit.Internal.DependentJudgments.Sigma.retain (certificateTypeComparison hp hσ hτ)
 
 include hΩ in
-theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
+theorem extended_assumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
     a.Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
   intro a ha
   obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
   simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
 
 include hΩ in
-theorem extendedValidity :
+theorem extended_validity :
     ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedCertificate hx hT hp) M S.toCapability ρ
-    (extendedAssumptions M S ρ hΩ)
+    (extended_assumptions M S ρ hΩ)
 
 include hσ hτ hΩ in
-theorem extendedTwiceValidity :
+theorem extended_twice_validity :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
       (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedCertificateTwice hx hT hp hσ hτ) M S.toCapability ρ
-    (extendedAssumptions M S ρ hΩ)
+    (extended_assumptions M S ρ hΩ)
 
 -- Recovery includes validity, so malformed expressions cannot discharge it.
 include hΩ in
-theorem extensionSelected :
+theorem extension_selected :
     ((term (total T) (identity Q p p) (selected hx hT hp)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((selected hx hT hp).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       (selected hx hT hp).eval (algebra M) ρ :=
-  ⟨extendedValidity hx hT hp M S ρ hΩ, SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
+  ⟨extended_validity hx hT hp M S ρ hΩ, SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 
 include hp hΩ in
-theorem extensionValue :
+theorem extension_value :
     ((term (total T) Q p).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     (p.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       p.eval (algebra M) ρ :=
-  ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedValue hp) M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
+  ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedValue hp) M S.toCapability ρ (extended_assumptions M S ρ hΩ),
     SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 
 include hp hσ hτ hΩ in
-theorem extensionType :
+theorem extension_type :
     ((subTy (subTy (identity Q p p) σ) τ).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       ((subTy (identity Q p p) (comp σ τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
@@ -227,22 +227,22 @@ theorem extensionType :
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       (subTy (identity Q p p) (comp σ τ)).eval (algebra M) ρ :=
   ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret (extendedType hp hσ hτ) M S.toCapability ρ
-    (extendedAssumptions M S ρ hΩ), SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
+    (extended_assumptions M S ρ hΩ), SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 
 include hσ hτ hΩ in
-theorem extensionSelectedTwice :
+theorem extension_selected_twice :
     ((term Θ (subTy (subTy (identity Q p p) σ) τ)
       (subTm (subTm (selected hx hT hp) σ) τ)).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
     ((subTm (subTm (selected hx hT hp) σ) τ).inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature).eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ =
       (subTm (subTm (selected hx hT hp) σ) τ).eval (algebra M) ρ :=
-  ⟨extendedTwiceValidity hx hT hp hσ hτ M S ρ hΩ, SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
+  ⟨extended_twice_validity hx hT hp hσ hτ M S ρ hΩ, SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 
 
 
 include hp hσ hτ hΩ in
-theorem extensionValueTwice :
+theorem extension_valueTwice :
     ((term Θ (subTy (subTy Q σ) τ) (subTm (subTm p σ) τ)).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ ∧
@@ -251,17 +251,17 @@ theorem extensionValueTwice :
       (subTm (subTm p σ) τ).eval (algebra M) ρ :=
   ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret
     (SquareKit.Internal.DependentJudgments.Sigma.retain (valueTwice hp hσ hτ))
-    M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
+    M S.toCapability ρ (extended_assumptions M S ρ hΩ),
     SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 
 include hσ hτ hΩ in
-theorem extensionAlignedValidity :
+theorem extension_aligned_validity :
     ((term Θ (subTy (identity Q p p) (comp σ τ))
       (subTm (subTm (selected hx hT hp) σ) τ)).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
       (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ :=
   SquareKit.Internal.DependentJudgments.Sigma.interpret
     (extendedCertificateAligned hx hT hp hσ hτ) M S.toCapability ρ
-    (extendedAssumptions M S ρ hΩ)
+    (extended_assumptions M S ρ hΩ)
 
 end DependentAuthorTrial.Candidate

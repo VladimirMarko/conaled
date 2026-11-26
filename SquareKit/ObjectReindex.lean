@@ -44,14 +44,14 @@ include CC CL in
 theorem terminal_laws (T : TerminalOps C) (unit : J) (i : Comparison C (F unit) T.unit)
     (I : ComparisonLaws E i) (TL : TerminalLaws E T) :
     TerminalLaws (equiv F E) (terminal F T unit i) :=
-  TerminalMap.transportLaws ((forget C F).induced_reflects E) CC CL I
+  TerminalMap.transport_laws ((forget C F).induced_reflects E) CC CL I
     (terminal_preserves F T unit i) TL
 
 include CC in
 theorem product_congr (P : ProductOps C) (p : J → J → J)
     (i : ∀ a b, Comparison C (F (p a b)) (P.prod (F a) (F b))) (PC : ProductCongr E P) :
     ProductCongr (equiv F E) (products F P p i) :=
-  ProductMap.transportCongr (forget_laws F E) ((forget C F).induced_reflects E) CC
+  ProductMap.transport_congr (forget_laws F E) ((forget C F).induced_reflects E) CC
     (products_preserve F P p i) PC
 
 include CC CL in
@@ -59,21 +59,21 @@ theorem product_laws (P : ProductOps C) (p : J → J → J)
     (i : ∀ a b, Comparison C (F (p a b)) (P.prod (F a) (F b)))
     (I : ∀ a b, ComparisonLaws E (i a b)) (PC : ProductCongr E P) (PL : ProductLaws E P) :
     ProductLaws (equiv F E) (products F P p i) :=
-  ProductMap.transportLaws (forget_laws F E) ((forget C F).induced_reflects E) CC CL I
+  ProductMap.transport_laws (forget_laws F E) ((forget C F).induced_reflects E) CC CL I
     (products_preserve F P p i) PC PL
 
 include CC CL in
 theorem initial_laws (T : InitialOps C) (zero : J) (i : Comparison C (F zero) T.zero)
     (I : ComparisonLaws E i) (TL : InitialLaws E T) :
     InitialLaws (equiv F E) (initial F T zero i) :=
-  InitialMap.transportLaws ((forget C F).induced_reflects E) CC CL I.inv_hom
+  InitialMap.transport_laws ((forget C F).induced_reflects E) CC CL I.inv_hom
     (initial_preserves F T zero i) TL
 
 include CC in
 theorem coproduct_congr (S : CoproductOps C) (s : J → J → J)
     (i : ∀ a b, Comparison C (F (s a b)) (S.sum (F a) (F b))) (SC : CoproductCongr C E S) :
     CoproductCongr (ops C F) (equiv F E) (coproducts F S s i) :=
-  CoproductMap.transportCongr (forget_laws F E) ((forget C F).induced_reflects E) CC
+  CoproductMap.transport_congr (forget_laws F E) ((forget C F).induced_reflects E) CC
     (coproducts_preserve F S s i) SC
 
 include CC CL in
@@ -81,7 +81,7 @@ theorem coproduct_laws (S : CoproductOps C) (s : J → J → J)
     (i : ∀ a b, Comparison C (F (s a b)) (S.sum (F a) (F b)))
     (I : ∀ a b, ComparisonLaws E (i a b)) (SC : CoproductCongr C E S) (SL : CoproductLaws C E S) :
     CoproductLaws (ops C F) (equiv F E) (coproducts F S s i) :=
-  CoproductMap.transportLaws (forget_laws F E) ((forget C F).induced_reflects E) CC CL I
+  CoproductMap.transport_laws (forget_laws F E) ((forget C F).induced_reflects E) CC CL I
     (coproducts_preserve F S s i) SC SL
 
 /-- Mathlib's wrapper adds no condition on the object map. -/

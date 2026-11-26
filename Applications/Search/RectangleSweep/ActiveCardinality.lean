@@ -88,13 +88,13 @@ theorem balanced_stateAfter_take_numNodes_eq (rs : List (Rectangle α β)) (k : 
     (stateAfter (IntervalTree.Balanced.deleteOps keyInterval) .nil
       ((events rs).take k)).numNodes = {i : Fin rs.length | Active rs k i}.ncard := by
   have valid := stateAfter_take_valid
-    (IntervalTree.Balanced.setLaws (keyInterval (α := α))) rs k
+    (IntervalTree.Balanced.set_laws (keyInterval (α := α))) rs k
   change IntervalTree.Balanced.Valid keyInterval
     (stateAfter (IntervalTree.Balanced.deleteOps keyInterval) .nil
       ((events rs).take k)) at valid
   rw [← balanced_observe_ncard_eq_numNodes _ valid.2]
   exact stateAfter_take_observe_ncard_eq
-    (IntervalTree.Balanced.setLaws (keyInterval (α := α))) rs k
+    (IntervalTree.Balanced.set_laws (keyInterval (α := α))) rs k
 
 /-- The selected balanced active representation has at most one node per input
 occurrence at every mathematical prefix, also beyond schedule exhaustion. -/

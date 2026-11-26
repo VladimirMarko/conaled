@@ -283,24 +283,24 @@ private def exampleDepth : Nat → Int
   | 3 => 1
   | _ => 0
 
-private theorem exampleSteps : UnitSteps (5-1) exampleDepth := by
+private theorem example_steps : UnitSteps (5-1) exampleDepth := by
   intro i hi
   interval_cases i <;> decide
 
 /-- Three blocks, a nonempty macro middle, duplicate minima in distinct blocks,
 and a short final block. The answer is the first of the tied zero depths. -/
 example : query (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 0 4 = 2 := by
-  rw [query_padded_eq exampleDepth (by decide) exampleSteps 1 (by decide) (by decide)]
+  rw [query_padded_eq exampleDepth (by decide) example_steps 1 (by decide) (by decide)]
   decide
 
 /-- The adjacent-block route includes the final original position. -/
 example : query (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 3 4 = 4 := by
-  rw [query_padded_eq exampleDepth (by decide) exampleSteps 1 (by decide) (by decide)]
+  rw [query_padded_eq exampleDepth (by decide) example_steps 1 (by decide) (by decide)]
   decide
 
 /-- Equal endpoints take the shared within-block route. -/
 example : query (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 3 3 = 3 := by
-  rw [query_padded_eq exampleDepth (by decide) exampleSteps 1 (by decide) (by decide)]
+  rw [query_padded_eq exampleDepth (by decide) example_steps 1 (by decide) (by decide)]
   decide
 
 example : query (buildPadded (fun _ => 7) 1 0) (blockCount_pos 1 0) 0 0 = 0 := by
@@ -313,7 +313,7 @@ example :
     (queryMeasured (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 0 4).2 = 54 := by
   constructor
   · rw [queryMeasured_value,
-      query_padded_eq exampleDepth (by decide) exampleSteps 1 (by decide) (by decide)]
+      query_padded_eq exampleDepth (by decide) example_steps 1 (by decide) (by decide)]
     decide
   · decide
 

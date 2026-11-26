@@ -197,12 +197,12 @@ theorem queryRun_cost_le (t : Tree α) (query : IntervalKey α) :
 theorem insertRun_valid (a : Key α) (t : Tree α) (valid : IntervalTree.Balanced.Valid keyInterval t) :
     IntervalTree.Balanced.Valid keyInterval (insertRun a t).1 := by
   rw [insertRun_value]
-  exact (IntervalTree.Balanced.setLaws keyInterval).insert_valid a t valid
+  exact (IntervalTree.Balanced.set_laws keyInterval).insert_valid a t valid
 
 theorem deleteRun_valid (a : Key α) (t : Tree α) (valid : IntervalTree.Balanced.Valid keyInterval t) :
     IntervalTree.Balanced.Valid keyInterval (deleteRun a t).1 := by
   rw [deleteRun_value]
-  exact (IntervalTree.Balanced.setLaws keyInterval).delete_valid a t valid
+  exact (IntervalTree.Balanced.set_laws keyInterval).delete_valid a t valid
 
 /-- Composition adds no wrapper charge to the established early-return scan. -/
 def scanRun (t : Tree α) (es : List (Event α β)) : Measured Bool Nat :=

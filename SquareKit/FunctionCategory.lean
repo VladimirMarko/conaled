@@ -49,6 +49,6 @@ theorem toTypes_reflects : toTypes.Reflects (equality _) (equality _) := by
   exact funext (fun x => congrArg (fun k : a ⟶ b => k x) h)
 
 theorem laws : CategoryLaws ops (equality ops) :=
-  RawMap.transportLaws toTypes_laws toTypes_reflects (equalityCongr _) (ofCategoryLaws _)
+  RawMap.transport_laws toTypes_laws toTypes_reflects (equality_congr _) (ofCategory_laws _)
 
 end SquareKit.FunctionCategory

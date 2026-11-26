@@ -39,11 +39,11 @@ abbrev firstThirdMap := Comparison.totalMap D.firstThird A.firstThird
 abbrev secondThirdMap := Comparison.totalMap D.secondThird A.secondThird
 
 structure Coherence : Prop where
-  diagonalFirst : A.firstMap ⋙ A.diagonalMap = 𝟭 A.localTotal
-  diagonalSecond : A.secondMap ⋙ A.diagonalMap = 𝟭 A.localTotal
-  tripleFirst : A.firstMap ⋙ A.firstSecondMap = A.firstMap ⋙ A.firstThirdMap
-  tripleMiddle : A.secondMap ⋙ A.firstSecondMap = A.firstMap ⋙ A.secondThirdMap
-  tripleLast : A.secondMap ⋙ A.firstThirdMap = A.secondMap ⋙ A.secondThirdMap
+  diagonal_first : A.firstMap ⋙ A.diagonalMap = 𝟭 A.localTotal
+  diagonal_second : A.secondMap ⋙ A.diagonalMap = 𝟭 A.localTotal
+  triple_first : A.firstMap ⋙ A.firstSecondMap = A.firstMap ⋙ A.firstThirdMap
+  triple_middle : A.secondMap ⋙ A.firstSecondMap = A.firstMap ⋙ A.secondThirdMap
+  triple_last : A.secondMap ⋙ A.firstThirdMap = A.secondMap ⋙ A.secondThirdMap
 
 def total (h : A.Coherence) : StrictDiagram.{u,u} where
   localCategory := A.localTotal
@@ -55,11 +55,11 @@ def total (h : A.Coherence) : StrictDiagram.{u,u} where
   firstSecond := A.firstSecondMap
   firstThird := A.firstThirdMap
   secondThird := A.secondThirdMap
-  diagonalFirst := h.diagonalFirst
-  diagonalSecond := h.diagonalSecond
-  tripleFirst := h.tripleFirst
-  tripleMiddle := h.tripleMiddle
-  tripleLast := h.tripleLast
+  diagonal_first := h.diagonal_first
+  diagonal_second := h.diagonal_second
+  triple_first := h.triple_first
+  triple_middle := h.triple_middle
+  triple_last := h.triple_last
 
 def projection (h : A.Coherence) : StrictMap (A.total h) D where
   localMap := Grothendieck.forget _

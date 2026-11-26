@@ -15,7 +15,7 @@ theorem top_closed (A B : Sheaf topology Type) :
   intros; trivial
 
 /-- All endpoint pairs can be joined locally through E, using the prior local-image proof. -/
-theorem throughE (A B : Sheaf topology Type) : comp (⊤ : Relation A E) (⊤ : Relation E B) = ⊤ := by
+theorem through_E (A B : Sheaf topology Type) : comp (⊤ : Relation A E) (⊤ : Relation E B) = ⊤ := by
   apply top_unique
   intro U p _
   apply (mem_comp _ _ p).mpr
@@ -26,7 +26,7 @@ theorem throughE (A B : Sheaf topology Type) : comp (⊤ : Relation A E) (⊤ : 
   exact (witness_comp _ _ f p.1 p.2).mpr ⟨e, trivial, trivial⟩
 
 /-- Bool supplies an actual intermediate section for every endpoint pair. -/
-theorem throughBool (A B : Sheaf topology Type) : comp (⊤ : Relation A D) (⊤ : Relation D B) = ⊤ := by
+theorem through_bool (A B : Sheaf topology Type) : comp (⊤ : Relation A D) (⊤ : Relation D B) = ⊤ := by
   apply top_unique
   intro U p _
   exact (Subfunctor.le_sheafify _ _ _) ⟨(false,p), ⟨trivial,trivial⟩, rfl⟩
@@ -41,7 +41,7 @@ theorem both_at_X (b : Bool) :
     (comp (comp (⊤ : Relation terminal E) (⊤ : Relation E D)) (⊤ : Relation D D)).obj (op X) ((),b) ∧
     (comp (⊤ : Relation terminal E) (comp (⊤ : Relation E D) (⊤ : Relation D D))).obj (op X) ((),b) := by
   have hl : (comp (comp (⊤ : Relation terminal E) (⊤ : Relation E D)) (⊤ : Relation D D)).obj
-      (op X) ((),b) := by rw [throughE, throughBool]; trivial
+      (op X) ((),b) := by rw [through_E, through_bool]; trivial
   exact ⟨hl, top_associative ▸ hl⟩
 
 theorem no_intermediate_pair_at_X : ¬ ∃ _e : E.obj.obj (op X), ∃ _b : D.obj.obj (op X), True := by
@@ -76,7 +76,7 @@ theorem selected_associative :
 
 theorem selected_chain :
     comp (⊤ : Relation terminal E) (comp (⊤ : Relation E D) selectedLast) = support := by
-  rw [← selected_associative, throughE, selected_composition]
+  rw [← selected_associative, through_E, selected_composition]
 
 theorem selected_at_U (b : Bool) :
     (comp (⊤ : Relation terminal E) (comp (⊤ : Relation E D) selectedLast)).obj (op U) ((),b) := by
@@ -91,6 +91,6 @@ theorem selected_not_X (b : Bool) :
   rw [selected_chain]; change ¬ (X = W ∨ X = U); decide
 
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (SquareKit.Internal.Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (SquareKit.Internal.Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafRelations

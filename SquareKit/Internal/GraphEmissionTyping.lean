@@ -54,9 +54,9 @@ theorem term_typed {Γ : List Ty} {a : Assignment Γ} (hm : ModelTyped C m) (ha 
 theorem formula_typed {Γ : List Ty} {a : Assignment Γ} (hm : ModelTyped C m) (ha : AssignmentTyped C m a)
     (p : GraphTarget.Formula Γ) : HasType C (formula m a p) (.sort .zero) := by
   induction p generalizing C m with
-  | eq x y => exact .eqType (hm.carrier _) (term_typed hm ha x) (term_typed hm ha y)
-  | conj p q hp hq => exact .andType (hp hm ha) (hq hm ha)
-  | @ex s Γ p ih => exact .existsType (hm.carrier s) (ih (hm.shift _) (AssignmentTyped.extend ha s))
+  | eq x y => exact .eq_type (hm.carrier _) (term_typed hm ha x) (term_typed hm ha y)
+  | conj p q hp hq => exact .and_type (hp hm ha) (hq hm ha)
+  | @ex s Γ p ih => exact .exists_type (hm.carrier s) (ih (hm.shift _) (AssignmentTyped.extend ha s))
 
 theorem code_typed {a : Assignment Γ} {p q : GraphTarget.Formula Γ} (d : Code p q)
     (hm : ModelTyped C m) (ha : AssignmentTyped C m a)
@@ -64,28 +64,28 @@ theorem code_typed {a : Assignment Γ} {p q : GraphTarget.Formula Γ} (d : Code 
   induction d generalizing C m h with
   | ident => exact hh
   | cut d e hd he => exact he hm ha (hd hm ha hh)
-  | left => exact .andLeft (formula_typed hm ha _) (formula_typed hm ha _) hh
-  | right => exact .andRight (formula_typed hm ha _) (formula_typed hm ha _) hh
+  | left => exact .and_left (formula_typed hm ha _) (formula_typed hm ha _) hh
+  | right => exact .and_right (formula_typed hm ha _) (formula_typed hm ha _) hh
   | pair d e hd he =>
-    exact .andIntro (formula_typed hm ha _) (formula_typed hm ha _)
+    exact .and_intro (formula_typed hm ha _) (formula_typed hm ha _)
       (hd hm ha hh) (he hm ha hh)
-  | refl => exact .eqRefl (hm.carrier _) (term_typed hm ha _)
-  | symm d ih => exact .eqSymm (hm.carrier _) (term_typed hm ha _) (term_typed hm ha _) (ih hm ha hh)
+  | refl => exact .eq_refl (hm.carrier _) (term_typed hm ha _)
+  | symm d ih => exact .eq_symm (hm.carrier _) (term_typed hm ha _) (term_typed hm ha _) (ih hm ha hh)
   | trans d e hd he =>
-    exact .eqTrans (hm.carrier _) (term_typed hm ha _) (term_typed hm ha _) (term_typed hm ha _)
+    exact .eq_trans (hm.carrier _) (term_typed hm ha _) (term_typed hm ha _) (term_typed hm ha _)
       (hd hm ha hh) (he hm ha hh)
   | congr d ih =>
     exact .congrArg (hm.carrier _) (hm.carrier _) (term_typed hm ha _) (term_typed hm ha _)
       (hm.arrow _) (ih hm ha hh)
   | intro p t =>
-    apply HasType.existsIntro (hm.carrier _) (formula_typed (hm.shift _) (AssignmentTyped.extend ha _) p)
+    apply HasType.exists_intro (hm.carrier _) (formula_typed (hm.shift _) (AssignmentTyped.extend ha _) p)
       (term_typed hm ha t)
     simpa only [formula_instantiate, instantiate_eq] using hh
   | subst σ d ih =>
     simp only [code, formula_subst] at hh ⊢
     exact ih hm (fun i => term_typed hm ha (σ i)) hh
   | @elim Γ s p q d ih =>
-    apply HasType.existsElim (hm.carrier s) (formula_typed (hm.shift _) (AssignmentTyped.extend ha s) p)
+    apply HasType.exists_elim (hm.carrier s) (formula_typed (hm.shift _) (AssignmentTyped.extend ha s) p)
       (formula_typed hm ha q) hh
     have hb : HasType
         (formula m.shift (GraphEmissionPure.extend (s := s) (GraphEmissionPure.shift a) (.bvar 0)) p :: m.carrier s :: C)
@@ -94,16 +94,16 @@ theorem code_typed {a : Assignment Γ} {p q : GraphTarget.Formula Γ} (d : Code 
     have hr := ih ((hm.shift _).shift _) (AssignmentTyped.shift (AssignmentTyped.extend ha s) _) hb
     simpa only [formula_weaken, formula_shift] using hr
   | @elimWith Γ s p b q d ih =>
-    apply HasType.existsElim (hm.carrier s) (formula_typed (hm.shift _) (AssignmentTyped.extend ha s) p)
+    apply HasType.exists_elim (hm.carrier s) (formula_typed (hm.shift _) (AssignmentTyped.extend ha s) p)
       (formula_typed hm ha q)
-      (.andRight (formula_typed hm ha b) (formula_typed hm ha (.ex p)) hh)
+      (.and_right (formula_typed hm ha b) (formula_typed hm ha (.ex p)) hh)
     have hw : HasType
         (formula m.shift (GraphEmissionPure.extend (s := s) (GraphEmissionPure.shift a) (.bvar 0)) p :: m.carrier s :: C)
         (.bvar 0) (formula m.shift.shift (shift (extend (GraphEmissionPure.shift a) (.bvar 0))) p) := by
       rw [formula_weaken]; exact .var .zero
     have hb := HasType.weaken (b := formula m.shift (GraphEmissionPure.extend (s := s) (GraphEmissionPure.shift a) (.bvar 0)) p)
       (HasType.weaken (b := m.carrier s)
-        (HasType.andLeft (formula_typed hm ha b) (formula_typed hm ha (.ex p)) hh))
+        (HasType.and_left (formula_typed hm ha b) (formula_typed hm ha (.ex p)) hh))
     have hb' : HasType
         (formula m.shift (GraphEmissionPure.extend (s := s) (GraphEmissionPure.shift a) (.bvar 0)) p :: m.carrier s :: C)
         (Expr.apps (.const ``And.left []) [formula m a b, formula m a (.ex p), h]).shift.shift
@@ -114,7 +114,7 @@ theorem code_typed {a : Assignment Γ} {p q : GraphTarget.Formula Γ} (d : Code 
         (formula m.shift (extend (shift a) (.bvar 0)) p :: m.carrier s :: C)
         m.shift.shift (shift (extend (shift a) (.bvar 0))) :=
       AssignmentTyped.shift (AssignmentTyped.extend ha s) _
-    have hp := HasType.andIntro (formula_typed hm' ha' b.shift) (formula_typed hm' ha' p) hb' hw
+    have hp := HasType.and_intro (formula_typed hm' ha' b.shift) (formula_typed hm' ha' p) hb' hw
     have hr := ih hm' ha' hp
     simpa only [formula_weaken, formula_shift] using hr
 

@@ -51,7 +51,7 @@ def codeObject (a : Ty) : Comma.Obj (CodeCategory.evaluation meaning)
 def codeSquare {a b : Ty} (f : Code Prim a b) : Comma.Hom (equality FunctionCategory.ops)
     (codeObject meaning a) (codeObject meaning b) := ⟨f, run meaning f, rfl⟩
 
-abbrev codeOps := Comma.ops (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+abbrev codeOps := Comma.ops (equality_congr FunctionCategory.ops) FunctionCategory.laws
   (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops))
 
 /-- Every pair of raw programs composes through the comma public operations. -/
@@ -64,7 +64,7 @@ theorem code_identity (a : Ty) :
 
 theorem code_association {a b c d : Ty}
     (h : Code Prim c d) (g : Code Prim b c) (f : Code Prim a b) :
-    (Comma.equiv (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    (Comma.equiv (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops))).Rel
       ((codeOps meaning).comp ((codeOps meaning).comp (codeSquare meaning h)
         (codeSquare meaning g)) (codeSquare meaning f))
@@ -81,8 +81,8 @@ theorem code_association_raw_ne :
 
 def codeQuotientMap := Comma.quotientMap
   (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-  (equalityCongr FunctionCategory.ops) FunctionCategory.laws
-  (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+  (equality_congr FunctionCategory.ops) FunctionCategory.laws
+  (equality_congr FunctionCategory.ops) FunctionCategory.laws
   (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops))
 
 /-- The same unequal representatives become equal in Mathlib's comma of the
@@ -92,17 +92,17 @@ theorem code_quotient_association {a b c d : Ty}
     (codeQuotientMap meaning).map (codeSquare meaning (.comp (.comp h g) f)) =
       (codeQuotientMap meaning).map (codeSquare meaning (.comp h (.comp g f))) :=
   (Comma.quotientMap_laws (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-    (equalityCongr FunctionCategory.ops) FunctionCategory.laws
-    (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    (equality_congr FunctionCategory.ops) FunctionCategory.laws
+    (equality_congr FunctionCategory.ops) FunctionCategory.laws
     (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops))).congr
       (code_association meaning h g f)
 
 /-- Projection followed by evaluation reuses shared map composition proofs. -/
 theorem semantic_projection_laws : MapLaws
-    ((Comma.fst (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    ((Comma.fst (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops))).comp
       (CodeCategory.evaluation meaning))
-    (Comma.equiv (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    (Comma.equiv (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (CodeCategory.evaluation_laws meaning) (RawMap.id_laws (equality FunctionCategory.ops)))
     (equality FunctionCategory.ops) :=
   RawMap.comp_laws (Comma.fst_laws _ _ _ _) (CodeCategory.evaluation_laws meaning)

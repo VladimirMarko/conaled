@@ -174,7 +174,7 @@ def atlas {K : Type} (f : K → freeAlgebra 1) (hf : Covers line f) :
   triple i j k := principal (product i.1 k.1 (product i.1 j.1 (f i.2) (f j.2)) (f k.2))
   firstSecond i j k := productLeft i.1 k.1 (product i.1 j.1 (f i.2) (f j.2)) (f k.2)
   third i j k := productRight i.1 k.1 (product i.1 j.1 (f i.2) (f j.2)) (f k.2)
-  tripleSquare i j k := by
+  triple_isPullback i j k := by
     have he : productLeft i.1 j.1 (f i.2) (f j.2) ≫ toLine (f i.2) =
         toLine (product i.1 j.1 (f i.2) (f j.2)) := OpenFunctions.Map.ext (fun _ => rfl)
     change IsPullback _ _ (_ ≫ (embedding.map (toLine _) ≫ _)) _

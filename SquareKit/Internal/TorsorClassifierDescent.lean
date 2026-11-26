@@ -66,7 +66,7 @@ instance decoded_locallySurjective (P : Torsor G X) :
 def decoded (P : Torsor G X) : Torsor G X where
   toAction := decodedAction P
   principal := decoded_principal P
-  locallySurjective := decoded_locallySurjective P
+  isLocallySurjective := decoded_locallySurjective P
 
 def comparison (P : Torsor G X) : Arrow (decoded P) P where
   iso := recovery P

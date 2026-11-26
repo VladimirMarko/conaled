@@ -121,44 +121,44 @@ def gSecondCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) (p p' : PExpr V) :
     GCongruenceCertificate (.second Γ A A' B B' p p') := by
   let premise := gCongruencePremises (.second Γ A A' B B' p p')
-  have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map G)) := .hyp (0 : Fin 10)
-  have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A)) := .hyp (1 : Fin 10)
-  have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A')) := .hyp (2 : Fin 10)
-  have hB : EFullCertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A)) (G.act B)) := .hyp (3 : Fin 10)
-  have hB' : EFullCertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A')) (G.act B')) := .hyp (4 : Fin 10)
-  have hAA' : EFullCertificate.Cert (premise := premise) (typeEq (Γ.map G) (G.act A) (G.act A')) := .hyp (5 : Fin 10)
-  have hBB' : EFullCertificate.Cert (premise := premise) (typeEq ((Γ.map G).extend (G.act A)) (G.act B) (G.act B')) := .hyp (6 : Fin 10)
-  have hpp' : EFullCertificate.Cert (premise := premise) (termEq (Γ.map G) (G.act p) (G.act p') (S (G.act A) (G.act B))) := by
+  have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map projectionToElimination)) := .hyp (0 : Fin 10)
+  have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A)) := .hyp (1 : Fin 10)
+  have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A')) := .hyp (2 : Fin 10)
+  have hB : EFullCertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B)) := .hyp (3 : Fin 10)
+  have hB' : EFullCertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A')) (projectionToElimination.act B')) := .hyp (4 : Fin 10)
+  have hAA' : EFullCertificate.Cert (premise := premise) (typeEq (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act A')) := .hyp (5 : Fin 10)
+  have hBB' : EFullCertificate.Cert (premise := premise) (typeEq ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B) (projectionToElimination.act B')) := .hyp (6 : Fin 10)
+  have hpp' : EFullCertificate.Cert (premise := premise) (termEq (Γ.map projectionToElimination) (projectionToElimination.act p) (projectionToElimination.act p') (S (projectionToElimination.act A) (projectionToElimination.act B))) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (7 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (termEq Γ p p' (Projection.P A B))) at h
-    simpa only [map, mapForm, termEq, G_P] using h
+    change EFullCertificate.Cert (map projectionToElimination (termEq Γ p p' (Projection.P A B))) at h
+    simpa only [map, mapForm, termEq, projectionToElimination_P] using h
 
-  have family : EFullCertificate.Family (premise := premise) (Γ.map G) (G.act A) (G.act B) :=
+  have family : EFullCertificate.Family (premise := premise) (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act B) :=
     by
     intro W Δ σ env
     exact MetavariableCertificate.apply (premise := premise) (3 : Fin 10) Δ σ env.context env.component
-  have family' : EFullCertificate.Family (premise := premise) (Γ.map G) (G.act A') (G.act B') :=
+  have family' : EFullCertificate.Family (premise := premise) (Γ.map projectionToElimination) (projectionToElimination.act A') (projectionToElimination.act B') :=
     by
     intro W Δ σ env
     exact MetavariableCertificate.apply (premise := premise) (4 : Fin 10) Δ σ env.context env.component
   have eqFamily : ∀ {W} (Δ : Context eliminationSignature W) (σ : Fin 1 ⊕ V → EExpr W),
       CertificateEnvironment.Env (R := eliminationPresentation) (premise := premise)
-        ((Γ.map G).extend (G.act A)) Δ σ →
-      EFullCertificate.Cert (premise := premise) (typeEq Δ (Expr.subst σ (G.act B)) (Expr.subst σ (G.act B'))) :=
+        ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) Δ σ →
+      EFullCertificate.Cert (premise := premise) (typeEq Δ (Expr.subst σ (projectionToElimination.act B)) (Expr.subst σ (projectionToElimination.act B'))) :=
     by
     intro W Δ σ env
     exact MetavariableCertificate.apply (premise := premise) (6 : Fin 10) Δ σ env.context env.component
   have hDD' := EFullCertificate.secondMotiveCong hΓ hA hA' hB hB' hAA' family family' eqFamily
-  have cΓ : ECertificate.Cert (premise := premise) (ctx (Γ.map G)) := .hyp (0 : Fin 10)
-  have cA : ECertificate.Cert (premise := premise) (type (Γ.map G) (G.act A)) := .hyp (1 : Fin 10)
-  have cA' : ECertificate.Cert (premise := premise) (type (Γ.map G) (G.act A')) := .hyp (2 : Fin 10)
-  have cB : ECertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A)) (G.act B)) := .hyp (3 : Fin 10)
-  have cB' : ECertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A')) (G.act B')) := .hyp (4 : Fin 10)
-  have cf : ECertificate.Family (premise := premise) (Γ.map G) (G.act A) (G.act B) :=
+  have cΓ : ECertificate.Cert (premise := premise) (ctx (Γ.map projectionToElimination)) := .hyp (0 : Fin 10)
+  have cA : ECertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A)) := .hyp (1 : Fin 10)
+  have cA' : ECertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A')) := .hyp (2 : Fin 10)
+  have cB : ECertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B)) := .hyp (3 : Fin 10)
+  have cB' : ECertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A')) (projectionToElimination.act B')) := .hyp (4 : Fin 10)
+  have cf : ECertificate.Family (premise := premise) (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act B) :=
     by
     intro W Δ σ env
     exact MetavariableCertificate.apply (premise := premise) (3 : Fin 10) Δ σ env.context env.component
-  have cf' : ECertificate.Family (premise := premise) (Γ.map G) (G.act A') (G.act B') :=
+  have cf' : ECertificate.Family (premise := premise) (Γ.map projectionToElimination) (projectionToElimination.act A') (projectionToElimination.act B') :=
     by
     intro W Δ σ env
     exact MetavariableCertificate.apply (premise := premise) (4 : Fin 10) Δ σ env.context env.component
@@ -166,43 +166,43 @@ def gSecondCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
   have hD' := (ECertificate.secondMotiveType cΓ cA' cB' cf').mapRules eliminationInclusion
   have he := (ECertificate.secondBranch cΓ cA cB cf).mapRules eliminationInclusion
   have he' := (ECertificate.secondBranch cΓ cA' cB' cf').mapRules eliminationInclusion
-  have hee' := EFullCertificate.structural (.termRefl (branchContext (Γ.map G) (G.act A) (G.act B))
+  have hee' := EFullCertificate.structural (.termRefl (branchContext (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act B))
     (Expr.rename flattenToNested (.var (.inl 1)))
-    (branchType (G.act A) (G.act B) (secondMotive (G.act A) (G.act B))))
+    (branchType (projectionToElimination.act A) (projectionToElimination.act B) (secondMotive (projectionToElimination.act A) (projectionToElimination.act B))))
     (Fin.cases he (fun i => nomatch i))
-  have hp : EFullCertificate.Cert (premise := premise) (term (Γ.map G)
-      (Elimination.split (G.act A) (G.act B) (secondMotive (G.act A) (G.act B)) (.var (.inl 1)) (G.act p))
-      (instantiate (secondMotive (G.act A) (G.act B)) (G.act p))) := by
+  have hp : EFullCertificate.Cert (premise := premise) (term (Γ.map projectionToElimination)
+      (Elimination.split (projectionToElimination.act A) (projectionToElimination.act B) (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (.var (.inl 1)) (projectionToElimination.act p))
+      (instantiate (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (projectionToElimination.act p))) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (8 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (term Γ (Projection.snd A B p) (instantiate B (Projection.fst A B p)))) at h
+    change EFullCertificate.Cert (map projectionToElimination (term Γ (Projection.snd A B p) (instantiate B (Projection.fst A B p)))) at h
     rw [secondMotive_at]
-    simpa only [map, mapForm, term, G_second, GCertificates.map_instantiate, G_first,
+    simpa only [map, mapForm, term, projectionToElimination_second, GCertificates.map_instantiate, projectionToElimination_first,
       secondMotive_at, Elimination.second, secondMotive] using h
-  have hp' : EFullCertificate.Cert (premise := premise) (term (Γ.map G)
-      (Elimination.split (G.act A') (G.act B') (secondMotive (G.act A') (G.act B')) (.var (.inl 1)) (G.act p'))
-      (instantiate (secondMotive (G.act A) (G.act B)) (G.act p))) := by
+  have hp' : EFullCertificate.Cert (premise := premise) (term (Γ.map projectionToElimination)
+      (Elimination.split (projectionToElimination.act A') (projectionToElimination.act B') (secondMotive (projectionToElimination.act A') (projectionToElimination.act B')) (.var (.inl 1)) (projectionToElimination.act p'))
+      (instantiate (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (projectionToElimination.act p))) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (9 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (term Γ (Projection.snd A' B' p') (instantiate B (Projection.fst A B p)))) at h
+    change EFullCertificate.Cert (map projectionToElimination (term Γ (Projection.snd A' B' p') (instantiate B (Projection.fst A B p)))) at h
     rw [secondMotive_at]
-    simpa only [map, mapForm, term, G_second, GCertificates.map_instantiate, G_first,
+    simpa only [map, mapForm, term, projectionToElimination_second, GCertificates.map_instantiate, projectionToElimination_first,
       secondMotive_at, Elimination.second, secondMotive] using h
-  let r := EliminationCongruence.split (Γ.map G) (G.act A) (G.act A') (G.act B) (G.act B')
-    (secondMotive (G.act A) (G.act B)) (secondMotive (G.act A') (G.act B'))
-    (.var (.inl 1)) (.var (.inl 1)) (G.act p) (G.act p')
+  let r := EliminationCongruence.split (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act A') (projectionToElimination.act B) (projectionToElimination.act B')
+    (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (secondMotive (projectionToElimination.act A') (projectionToElimination.act B'))
+    (.var (.inl 1)) (.var (.inl 1)) (projectionToElimination.act p) (projectionToElimination.act p')
   let ps : ∀ i : Fin 16, EFullCertificate.Cert (premise := premise) (r.schema.premises.get i) :=
     Fin.cases hΓ (Fin.cases hA (Fin.cases hA' (Fin.cases hB (Fin.cases hB' (Fin.cases hAA' (Fin.cases hBB'
       (Fin.cases hD (Fin.cases hD' (Fin.cases hDD' (Fin.cases he (Fin.cases he'
       (Fin.cases hee' (Fin.cases hpp' (Fin.cases hp (Fin.cases hp' (fun i => nomatch i))))))))))))))))
   have result : EFullCertificate.Cert (premise := premise) r.schema.conclusion := CertificateEnvironment.replay (fun _ h => h.property ▸ ps h.val)
     (TypedSubstitution.fullEliminationCongruence.certificate r)
-  change EFullCertificate.Cert (premise := premise) (termEq (Γ.map G)
-    (Elimination.split (G.act A) (G.act B) (secondMotive (G.act A) (G.act B)) (.var (.inl 1)) (G.act p))
-    (Elimination.split (G.act A') (G.act B') (secondMotive (G.act A') (G.act B')) (.var (.inl 1)) (G.act p'))
-    (instantiate (secondMotive (G.act A) (G.act B)) (G.act p))) at result
+  change EFullCertificate.Cert (premise := premise) (termEq (Γ.map projectionToElimination)
+    (Elimination.split (projectionToElimination.act A) (projectionToElimination.act B) (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (.var (.inl 1)) (projectionToElimination.act p))
+    (Elimination.split (projectionToElimination.act A') (projectionToElimination.act B') (secondMotive (projectionToElimination.act A') (projectionToElimination.act B')) (.var (.inl 1)) (projectionToElimination.act p'))
+    (instantiate (secondMotive (projectionToElimination.act A) (projectionToElimination.act B)) (projectionToElimination.act p))) at result
   rw [secondMotive_at] at result
   change EFullCertificate.Cert (premise := premise)
-    (map G (termEq Γ (Projection.snd A B p) (Projection.snd A' B' p') (instantiate B (Projection.fst A B p))))
-  simpa only [r, EliminationCongruence.schema, map, mapForm, termEq, G_second,
-    GCertificates.map_instantiate, G_first, Elimination.second, secondMotive_at, secondMotive] using result
+    (map projectionToElimination (termEq Γ (Projection.snd A B p) (Projection.snd A' B' p') (instantiate B (Projection.fst A B p))))
+  simpa only [r, EliminationCongruence.schema, map, mapForm, termEq, projectionToElimination_second,
+    GCertificates.map_instantiate, projectionToElimination_first, Elimination.second, secondMotive_at, secondMotive] using result
 
 end SquareKit.DependentPairJudgments

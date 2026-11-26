@@ -19,11 +19,11 @@ def ops : CategoryOps Obj.{u,w} where
 def forget : RawMap ops.{u,w} FunctionCategory.ops.{u} := ⟨Obj.Carrier,Hom.toFun⟩
 def equiv : HomEquiv ops.{u,w} := forget.induced (equality _)
 theorem forget_laws : MapLaws forget.{u,w} equiv (equality _) :=
-  forget.inducedLaws _ rfl (fun _ _ => rfl)
+  forget.induced_laws _ rfl (fun _ _ => rfl)
 theorem congr : CategoryCongr ops.{u,w} equiv :=
-  RawMap.transportCongr forget_laws (forget.induced_reflects _) (equalityCongr _)
+  RawMap.transport_congr forget_laws (forget.induced_reflects _) (equality_congr _)
 theorem laws : CategoryLaws ops.{u,w} equiv :=
-  RawMap.transportLaws forget_laws (forget.induced_reflects _) (equalityCongr _) FunctionCategory.laws
+  RawMap.transport_laws forget_laws (forget.induced_reflects _) (equality_congr _) FunctionCategory.laws
 
 def terminal : TerminalOps ops.{u,w} where
   unit := ⟨PUnit,fun _ => PUnit⟩

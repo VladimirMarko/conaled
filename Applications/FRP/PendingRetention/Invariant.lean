@@ -129,7 +129,7 @@ theorem businessPacket_safe {s : LocalSnapshot} {history : Peer} {identity opera
           simpa only [RequestSafe, ready.1.1] using safe
       · simp at produced
 
-theorem PoolSafe.simpleMessages {s : LocalSnapshot} {history : Peer}
+theorem PoolSafe.simple_messages {s : LocalSnapshot} {history : Peer}
     (safe : PoolSafe s.frame history s.outcomes) (valid : s.frame.Valid)
     (r : Outcome) (member : r ∈ s.outcomes) :
     MessageSafe s.frame history (.request r.identity (.reserve r.input)) ∧
@@ -341,7 +341,7 @@ theorem QueuesSafe.send {s : System} {history : Peer} (cfg : Config)
     · split
       · exact safe
       · rename_i packet produced
-        exact safe.pushRequest cfg packet (businessPacket_safe valid (pool.simpleMessages valid) produced)
+        exact safe.pushRequest cfg packet (businessPacket_safe valid (pool.simple_messages valid) produced)
 
 /-- The selected retained state is related to an unbounded proof ledger. No
 ledger field or copy of it is stored by the executable service. -/
@@ -355,8 +355,8 @@ structure RetainedRelation (localState : LocalSnapshot) (peerState : PeerSnapsho
   counter : localState.floor ≤ localState.frame.nextIdentity
   live : LiveAbove localState.frame localState.floor
   extension : PeerExtension peerState.floor peerState.entries history
-  localPending : ∀ target ∈ localState.pending, target = localState.floor
-  peerPending : ∀ target ∈ peerState.pending, target = peerState.floor
+  local_pending : ∀ target ∈ localState.pending, target = localState.floor
+  peer_pending : ∀ target ∈ peerState.pending, target = peerState.floor
 
 theorem RetainedRelation.initial : RetainedRelation {} {} [] := by
   refine ⟨initialFrame_valid _,FramePeer.initial _,?_,PoolSafe.initial,
@@ -378,7 +378,7 @@ theorem RetainedRelation.localChange {cfg : Config} {s t : LocalSnapshot} {p : P
   refine ⟨localChange_frame_valid changed,
     localChange_framePeer history related.coupled fresh authentic changed,?_,
     related.pool.localChange related.valid related.coupled command authentic changed,
-    ?_,?_,?_,related.extension,?_,related.peerPending⟩
+    ?_,?_,?_,related.extension,?_,related.peer_pending⟩
   · intro i e member
     exact (related.names i e member).trans_le grows
   · simpa only [metadata.1] using related.floors
@@ -387,45 +387,45 @@ theorem RetainedRelation.localChange {cfg : Config} {s t : LocalSnapshot} {p : P
     exact localChange_liveAbove s.floor related.live related.counter changed
   · intro target member
     rw [metadata.1]
-    exact related.localPending target (metadata.2 ▸ member)
+    exact related.local_pending target (metadata.2 ▸ member)
 
-theorem RetainedRelation.raiseLocal {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
+theorem RetainedRelation.raise_local {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
     (related : RetainedRelation s p history) (target : Nat)
     (monotone : s.floor ≤ target) (counter : target ≤ s.frame.nextIdentity)
     (live : LiveAbove s.frame target) :
     RetainedRelation {s with floor := target,pending := some target} p history :=
   ⟨related.valid,related.coupled,related.names,related.pool,related.floors.trans monotone,
-   counter,live,related.extension,by intro t ht; cases ht; rfl,related.peerPending⟩
+   counter,live,related.extension,by intro t ht; cases ht; rfl,related.peer_pending⟩
 
-theorem RetainedRelation.finishLocal {s t : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
+theorem RetainedRelation.finish_local {s t : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
     (related : RetainedRelation s p history) (target : Nat)
     (changed : finishRetirement s target = some t) : RetainedRelation t p history := by
   unfold finishRetirement at changed
   split at changed <;> try contradiction
   next matching =>
     have same : s.pending = some target := by simpa using matching
-    have floor : target = s.floor := related.localPending target (by simp [same])
+    have floor : target = s.floor := related.local_pending target (by simp [same])
     cases changed
     refine ⟨related.valid,related.coupled,related.names,?_,related.floors,related.counter,
-      related.live,related.extension,by simp,related.peerPending⟩
+      related.live,related.extension,by simp,related.peer_pending⟩
     exact related.pool.filter target (by simpa only [floor,LiveAbove] using related.live)
 
-theorem RetainedRelation.raisePeer {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
+theorem RetainedRelation.raise_peer {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
     (related : RetainedRelation s p history) (target : Nat)
     (monotone : p.floor ≤ target) (authorized : target ≤ s.floor) :
     RetainedRelation s {p with floor := target,pending := some target} history :=
   ⟨related.valid,related.coupled,related.names,related.pool,authorized,related.counter,
-   related.live,related.extension.raise monotone,related.localPending,
+   related.live,related.extension.raise monotone,related.local_pending,
    by intro t ht; cases ht; rfl⟩
 
-theorem RetainedRelation.deletePeer {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
+theorem RetainedRelation.delete_peer {s : LocalSnapshot} {p : PeerSnapshot} {history : Peer}
     (related : RetainedRelation s p history) (target : Nat)
     (pending : p.pending = some target) :
     RetainedRelation s {p with pending := none,entries := p.entries.filter (fun e => target ≤ e.1)}
       history := by
-  have floor := related.peerPending target (by simp [pending])
+  have floor := related.peer_pending target (by simp [pending])
   refine ⟨related.valid,related.coupled,related.names,related.pool,related.floors,related.counter,
-    related.live,?_,related.localPending,by simp⟩
+    related.live,?_,related.local_pending,by simp⟩
   simpa only [floor] using related.extension.filter
 
 theorem RetainedRelation.peerDecision {cfg : Config} {s : LocalSnapshot}
@@ -445,7 +445,7 @@ theorem RetainedRelation.peerDecision {cfg : Config} {s : LocalSnapshot}
       related.names.peerStep identity command
         (FrameTraffic.identity_lt _ _ _ _ related.valid related.names message.1),
       related.pool.peerStep identity command,related.floors,related.counter,related.live,
-      related.extension.step identity command above,related.localPending,related.peerPending⟩
+      related.extension.step identity command above,related.local_pending,related.peer_pending⟩
 
 theorem PeerExtension.authentic {floor : Nat} {retained history : Peer}
     (extension : PeerExtension floor retained history) (receipt : Receipt)
@@ -469,11 +469,11 @@ theorem peerDecision_reply_unchanged {cfg : Config} {p : PeerSnapshot} {history 
     rw [← sameEntries] at authentic
     exact extension.authentic _ (by simpa only [peerStep_receipt_identity] using above) authentic
 
-theorem QueuesSafe.consumeRequest {s : System} {history : Peer} (safe : QueuesSafe s history) :
+theorem QueuesSafe.consume_request {s : System} {history : Peer} (safe : QueuesSafe s history) :
     QueuesSafe {s with peerIn := s.peerIn.tail} history :=
   ⟨safe.localOut,fun p hp => safe.peerIn p (List.mem_of_mem_tail hp),safe.peerOut,safe.localIn⟩
 
-theorem QueuesSafe.consumeReply {s : System} {history : Peer} (safe : QueuesSafe s history) :
+theorem QueuesSafe.consume_reply {s : System} {history : Peer} (safe : QueuesSafe s history) :
     QueuesSafe {s with localIn := s.localIn.tail} history :=
   ⟨safe.localOut,safe.peerIn,safe.peerOut,fun p hp => safe.localIn p (List.mem_of_mem_tail hp)⟩
 
@@ -488,7 +488,7 @@ theorem QueuesSafe.requestStep {s : System} {history : Peer} (cfg : Config)
     | nil => exact safe
     | cons packet rest =>
       have consumed : QueuesSafe {s with peerIn := rest} history := by
-        simpa only [pending,List.tail_cons] using safe.consumeRequest
+        simpa only [pending,List.tail_cons] using safe.consume_request
       cases packet with
       | business identity command =>
         dsimp only
@@ -520,7 +520,7 @@ theorem QueuesSafe.replyStep {s : System} {history : Peer} (cfg : Config)
     | nil => exact safe
     | cons packet rest =>
       have consumed : QueuesSafe {s with localIn := rest} history := by
-        simpa only [pending,List.tail_cons] using safe.consumeReply
+        simpa only [pending,List.tail_cons] using safe.consume_reply
       cases packet with
       | expired i f => exact consumed
       | deleted target =>

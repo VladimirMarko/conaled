@@ -31,14 +31,14 @@ connect the consumer to the source calculus.
 laws, including composition through lifted substitutions. The head-witness
 cancellation law states that inserting a context variable below a binder and
 then instantiating at that variable restores the original formula body.
-`Rules.existsHere` uses this equality with the existing existential introduction
+`Rules.exists_here` uses this equality with the existing existential introduction
 rule. It proves `P ⊢ (∃ P).shift` without a semantic premise.
 
 `Frobenius.forward` and `backward` derive
 `H ∧ (∃ x, P) ⊣⊢ ∃ x, H.shift ∧ P`. `H` is a formula in the outer context;
 it cannot mention the new witness. The forward proof uses retained-assumption
 elimination. The reverse eliminates the witness and builds the conjunction.
-`Frobenius.inSet` applies Set soundness to these exact derivations.
+`Frobenius.in_set` applies Set soundness to these exact derivations.
 
 `Presheaf.frobenius_valid` applies `Model.sound` to the same proofs and obtains
 equality of context subfunctors. `frobenius_semantic_comparison` independently
@@ -69,17 +69,17 @@ a unique contained point is introduced.
 | Caller obligation | Named rules and direct syntax | Bounded helper variant |
 |---|---|---|
 | Formula construction and variable addressing | Typed `.zero`/`.succ` positions; graph context `[a,c]`, associativity `[a,d]`; author calculates positions under each binder. | Identical formulas and positions. Helpers do not name or infer variables. |
-| Arbitrary-body shifting | Direct Frobenius writes the lifted shift, `.zero` witness, and cancellation rewrite in each direction. | One `existsHere` call per direction discharges those insertion and cancellation obligations. Author still writes `H.shift` and chooses which body to introduce. |
-| Witness selection | Graph reverse chooses `f(a)`; each associativity direction chooses the head and then the next variable. | Same witnesses. The graph reverse uses the already-existing `existsWitness`; the helper does not find a witness. |
-| Assumption rearrangement | Associativity forward explicitly swaps the conjunction before `existsElimWith`. Nested proofs project H and cut the other branch through associativity. | `eliminateLeft` owns the swap; `frame` owns the projections and cut. Remaining projections in associativity are unchanged. |
-| Required annotations | Sort/signature parameters, formula context types, and explicit `F := F` where relations alone cannot determine the arrow signature. The direct head-introduction proof specifies its body and lifted substitution. | Same declaration annotations. `existsHere` needs the body, but no separate substitution annotation. Helpers infer retained assumptions from the expected sequent. |
-| Repeated proof work | General syntactic cancellation must be proved once, then applied explicitly at each arbitrary-body witness introduction. | Same cancellation proof, hidden at call sites by `existsHere`. Graph forward and associativity backward receive no new benefit. |
+| Arbitrary-body shifting | Direct Frobenius writes the lifted shift, `.zero` witness, and cancellation rewrite in each direction. | One `exists_here` call per direction discharges those insertion and cancellation obligations. Author still writes `H.shift` and chooses which body to introduce. |
+| Witness selection | Graph reverse chooses `f(a)`; each associativity direction chooses the head and then the next variable. | Same witnesses. The graph reverse uses the already-existing `exists_witness`; the helper does not find a witness. |
+| Assumption rearrangement | Associativity forward explicitly swaps the conjunction before `exists_elim_with`. Nested proofs project H and cut the other branch through associativity. | `eliminate_left` owns the swap; `frame` owns the projections and cut. Remaining projections in associativity are unchanged. |
+| Required annotations | Sort/signature parameters, formula context types, and explicit `F := F` where relations alone cannot determine the arrow signature. The direct head-introduction proof specifies its body and lifted substitution. | Same declaration annotations. `exists_here` needs the body, but no separate substitution annotation. Helpers infer retained assumptions from the expected sequent. |
+| Repeated proof work | General syntactic cancellation must be proved once, then applied explicitly at each arbitrary-body witness introduction. | Same cancellation proof, hidden at call sites by `exists_here`. Graph forward and associativity backward receive no new benefit. |
 | Set model adapter | Carriers, arrows, relation predicates; use `sound`. | Identical. No helper-specific interpretation or soundness proof. |
 | Presheaf model adapter | Sort functors, natural arrows, stable product predicates; use `Model.sound` and `evaluation`. | Identical. No new naturality, substitution or Frobenius fields. |
 | Ordinary application caller | Supply R, S, T, H and endpoints to `compRel_condition`, or R, T, input and output to the interval specialization. Establish hypotheses for concrete instances. | Identical public calls. No syntax, environment, model argument, conversion, instance setup, or repeated logical proof. |
 
 These are obligations visible in the checked source, not timings or a count of
-proof lines. `frame` and `eliminateLeft` remove specific rearrangements, but
+proof lines. `frame` and `eliminate_left` remove specific rearrangements, but
 leave typed addressing, witness selection and most projections untouched.
 The graph regression confirms that adding helpers does not automatically
 improve an already short proof. The comparison does not test a custom
@@ -108,14 +108,14 @@ independent expectations to the public interpreted results:
   existential; `formula_restrict` transports it to the coarse object. The
   semantic comparison is instantiated on the same nonconstant model.
 - A local sequent notation mixes direct and helper proofs beside unchanged
-  `Graph.inSet`, interval addition and rational numeral instances. The helpers
+  `Graph.in_set`, interval addition and rational numeral instances. The helpers
   install no notation or instances; the local notation ends with its section.
 
 Statement review covered every new declaration by the following dependency
 groups. Syntax laws quantify over arbitrary typed substitutions, including
 under binders; their conclusions are equalities of syntax, not semantic
 validity. `lift_shift_instantiate` identifies the head witness and keeps every
-older variable's position. `existsHere`, Frobenius, framing and left elimination
+older variable's position. `exists_here`, Frobenius, framing and left elimination
 produce restricted sequents only. They add no constructors, assumptions,
 connectives or inhabitedness requirements. The direct and helper graph,
 associativity and nested statements have identical endpoints and conjunction
@@ -165,9 +165,9 @@ soundness, and evaluation comparison. This investigation adds a source
 Frobenius proof reused across those models, a two-witness interval consumer,
 and a checked comparison of bounded authoring helpers.
 
-Adopt `Rules.existsHere` as a bounded helper alongside the current named rules.
+Adopt `Rules.exists_here` as a bounded helper alongside the current named rules.
 It removes a repeated, formula-generic substitution obligation in both
-Frobenius directions. Keep `frame` and `eliminateLeft` as preserved experimental
+Frobenius directions. Keep `frame` and `eliminate_left` as preserved experimental
 evidence for now: the cases demonstrate their limited effect but do not yet
 justify a broader assumption-management interface. Existing callers need no
 migration. If another proof needs repeated framing or right-retained

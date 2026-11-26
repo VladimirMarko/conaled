@@ -69,7 +69,7 @@ def environment (q : ℚ) : Env model [.value] :=
 -- Free output and bound witness have the same sort. The condition stays on z.
 theorem same_sort (z : ℚ) :
     (0 ≤ z ∧ ∃ x : ℚ, x = z) ↔ ∃ x : ℚ, 0 ≤ z ∧ x = z :=
-  SquareKit.Internal.Frobenius.inSet condition predicate model (environment z)
+  SquareKit.Internal.Frobenius.in_set condition predicate model (environment z)
 
 -- A condition accidentally placed on the witness would accept this false case.
 def reflexive : Formula Arrow [.value, .value] Relation := .eq (.var .zero) (.var .zero)
@@ -77,7 +77,7 @@ def reflexive : Formula Arrow [.value, .value] Relation := .eq (.var .zero) (.va
 theorem shifted_rejects :
     ¬ (Formula.ex (.conj condition.shift reflexive)).Eval model (environment (-1)) := by
   intro h
-  have hh := (SquareKit.Internal.Frobenius.inSet condition reflexive model (environment (-1))).mpr h
+  have hh := (SquareKit.Internal.Frobenius.in_set condition reflexive model (environment (-1))).mpr h
   change (0 : ℚ) ≤ -1 ∧ _ at hh
   norm_num at hh
 
@@ -138,7 +138,7 @@ example : (Formula.conj Capture.condition (.ex Capture.predicate)) ⊢₅₀
     (.ex (.conj Capture.condition.shift Capture.predicate)) :=
   InternalAuthoring.Direct.frobenius_forward _ _
 example : (∃ b : ℚ, b = 3 + 1 ∧ 8 = b * 2) :=
-  (Graph.inSet (fun x : ℚ => x + 1) (fun x => x * 2) 3 8).mpr (by norm_num)
+  (Graph.in_set (fun x : ℚ => x + 1) (fun x => x * 2) 3 8).mpr (by norm_num)
 example : Contains (add (singleton 1) (singleton 2)) 3 :=
   by
     convert add_contains (singleton_contains 1) (singleton_contains 2) using 1

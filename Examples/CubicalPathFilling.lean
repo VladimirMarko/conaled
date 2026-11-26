@@ -9,13 +9,13 @@ open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf CubicalPresheaf
 abbrev fiber := discreteFamily index (fun n => Fin (n+1))
 abbrev body := reindex fiber (projection (interval naturals))
 abbrev bodyFilling := discreteFilling (index.reindex (projection (interval naturals))) (fun n => Fin (n+1))
-abbrev bodyLawful := discreteFilling_lawful (index.reindex (projection (interval naturals))) (fun n => Fin (n+1))
+abbrev bodyFilling_lawful := discreteFilling_lawful (index.reindex (projection (interval naturals))) (fun n => Fin (n+1))
 
 abbrev chosenPath : Term (path body finiteLast finiteLast) :=
   pathLam (finiteLast.reindex (projection (interval naturals))) rfl rfl
 
-noncomputable abbrev paths := pathFilling bodyFilling bodyLawful finiteLast finiteLast
-abbrev pathsLawful := pathFilling_lawful bodyFilling bodyLawful finiteLast finiteLast
+noncomputable abbrev paths := pathFilling bodyFilling bodyFilling_lawful finiteLast finiteLast
+abbrev paths_lawful := pathFilling_lawful bodyFilling bodyFilling_lawful finiteLast finiteLast
 abbrev emptyBox := OpenBox.empty
   (reindex (path body finiteLast finiteLast) (projection (interval naturals))) chosenPath
 noncomputable abbrev filled := paths.hcomp (Cofibration.bot naturals) emptyBox
@@ -36,8 +36,8 @@ theorem two_substitutions :
       (((Cofibration.bot naturals).reindex successor).reindex twice)
       ((emptyBox.reindex successor).reindex twice)) =
       (filled.reindex successor).reindex twice := by
-  exact (Filling.hcomp_reindex (pathsLawful.reindex successor) _ (emptyBox.reindex successor) twice).trans
-    (congrArg (fun t => t.reindex twice) (Filling.hcomp_reindex pathsLawful _ emptyBox successor))
+  exact (Filling.hcomp_reindex (paths_lawful.reindex successor) _ (emptyBox.reindex successor) twice).trans
+    (congrArg (fun t => t.reindex twice) (Filling.hcomp_reindex paths_lawful _ emptyBox successor))
 
 theorem retained_value :
     ((pathApp filled).reindex (liftSub (interval naturals) (twice ≫ successor))).val

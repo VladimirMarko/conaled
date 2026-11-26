@@ -39,7 +39,7 @@ theorem pathBijection_loop (p : Term (FiniteUniverseLoops.loops S)) :
     pathBijection p = FiniteUniverseLoops.loopPermutation p := rfl
 
 /-- Recover the entire native carrier map in this constant-code fragment. -/
-theorem bijectionMap (p : Term (paths (code S) (code T))) :
+theorem bijection_map (p : Term (paths (code S) (code T))) :
     nativeMap (pathBijection p) = pathToMap p := by
   let i := (constantLocal terminal S).decodeCodeIso
   let j := (constantLocal terminal T).decodeCodeIso
@@ -58,7 +58,7 @@ theorem bijectionMap (p : Term (paths (code S) (code T))) :
 
 theorem transport_input (p : Term (paths (code S) (code T))) (s : S) :
     Term.map (pathToMap p) (nativeInput s) = nativeInput (pathBijection p s) := by
-  rw [← bijectionMap p]
+  rw [← bijection_map p]
   exact nativeInput_action _ _
 
 theorem pathBijection_ua (e : S ≃ T) : pathBijection (equivalencePath e) = e := by

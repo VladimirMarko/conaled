@@ -260,7 +260,7 @@ lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
 -- 400000 checks this statement without changing the construction or global budgets.
 set_option backward.defeqAttrib.useBackward true in
 set_option maxHeartbeats 400000 in
-lemma underlyingCanonicalHom (P : Object act (represented S))
+lemma underlying_canonical_hom (P : Object act (represented S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
     (underlyingData (((quotientPseudofunctor act).toDescentData f).obj P)).hom q a b ha hb =
@@ -268,13 +268,13 @@ lemma underlyingCanonicalHom (P : Object act (represented S))
   change ((((quotientPseudofunctor act).toDescentData f).obj P).hom q a b ha hb).torsorArrow = _
   rw [canonicalHom_eq, TorsorExtension.canonicalHom_eq, eqToHom_torsorArrow]
 
-lemma underlyingCanonical (P : Object act (represented S)) :
+lemma underlying_canonical (P : Object act (represented S)) :
     underlyingData (((quotientPseudofunctor act).toDescentData f).obj P) =
       ((torsorPseudofunctor G).toDescentData f).obj P.torsor := by
   unfold underlyingData Pseudofunctor.toDescentData Pseudofunctor.DescentData.ofObj
   congr 1
   funext U q i j a b ha hb
-  exact underlyingCanonicalHom P q a b ha hb
+  exact underlying_canonical_hom P q a b ha hb
 
 set_option maxHeartbeats 400000 in
 def underlyingCanonicalIso (P : Object act (represented S)) :
@@ -284,7 +284,7 @@ def underlyingCanonicalIso (P : Object act (represented S)) :
     intro U q i j a b ha hb
     change 𝟙 _ ≫ _ = _ ≫ 𝟙 _
     rw [Category.id_comp, Category.comp_id]
-    exact (underlyingCanonicalHom P q a b ha hb).symm)
+    exact (underlying_canonical_hom P q a b ha hb).symm)
 
 lemma underlyingCanonicalIso_hom_hom (P : Object act (represented S)) (i : I) :
     (underlyingCanonicalIso (f := f) P).hom.hom i = 𝟙 _ := rfl
@@ -292,7 +292,7 @@ lemma underlyingCanonicalIso_hom_hom (P : Object act (represented S)) (i : I) :
 lemma torsor_reindex_identity {X Y : Sheaf J (Type u)} (P : SheafTorsor.Torsor G X)
     (a : Y ⟶ X) : (𝟙 P : P ⟶ P).reindex a = 𝟙 (SheafTorsor.reindex P a) := rfl
 
-lemma extendCanonicalHom (P : Object act (represented S))
+lemma extend_canonical_hom (P : Object act (represented S))
     {Z : Sheaf J (Type u)} (q : Z ⟶ represented S) {i j : I}
     (a : Z ⟶ represented (V i)) (b : Z ⟶ represented (V j))
     (ha : a ≫ (SheafifiedYoneda.functor J).map (f i) = q)
@@ -307,7 +307,7 @@ lemma extendCanonicalHom (P : Object act (represented S))
   rw [torsor_reindex_identity _ a, torsor_reindex_identity _ b,
     Category.id_comp, Category.comp_id] at h
   apply h.symm.trans
-  rw [TorsorExtension.extendCanonicalHom,
+  rw [TorsorExtension.extend_canonical_hom,
     TorsorExtension.sheafCanonicalHom_eq, sheafCanonicalHom_eq, eqToHom_torsorArrow]
 
 /-- Quotient extension commutes with canonical descent, including target maps. -/
@@ -318,7 +318,7 @@ def canonicalIso : (quotientPseudofunctor act).toDescentData f ⋙ extendFunctor
       intro Z q i j a b ha hb
       change 𝟙 _ ≫ _ = _ ≫ 𝟙 _
       rw [Category.id_comp, Category.comp_id]
-      exact (extendCanonicalHom P q a b ha hb).symm))
+      exact (extend_canonical_hom P q a b ha hb).symm))
     (by
       intro P Q h
       apply Pseudofunctor.DescentData.hom_ext

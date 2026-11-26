@@ -23,7 +23,7 @@ def diagonalStructuralMap (C : Grpd.{u,u}) (B : C ⥤ Type u) :
   subTy A σ := (Family.diagonal_reindex A σ.down).symm
   subTm s σ := Section.hext (Family.diagonal_reindex _ _).symm HEq.rfl HEq.rfl
   weaken A := Substitution.context_hext rfl (Family.diagonal_extend A).symm HEq.rfl HEq.rfl
-  mapVariable A := Section.context_hext (Family.diagonal_extend A).symm
+  genericVariable_preserved A := Section.context_hext (Family.diagonal_extend A).symm
     (by
       apply (heq_of_eq (@Family.diagonal_reindex _ (@Grpd.of (Extend A) Groupoid.ofIsGroupoid) A (GroupoidModel.weaken A)).symm).trans
       exact Family.reindex_heq rfl (Family.diagonal_extend A).symm HEq.rfl
@@ -53,7 +53,7 @@ private theorem projected_j {M N P : Typed.Model.{u}}
         ((Typed.StructuralMap.compose G.toStructuralMap F).pathTelescope A x T)
         ((Typed.StructuralMap.compose G.toStructuralMap F).jMotive A x T D)
         ((Typed.StructuralMap.compose G.toStructuralMap F).jBranch A x T D d)) := by
-  apply (G.mapJ _ _ _ _ _).trans
+  apply (G.j_preserved _ _ _ _ _).trans
   apply P.j_heq rfl HEq.rfl HEq.rfl
     (heq_of_eq (Typed.StructuralMap.pathTelescope_compose G.toStructuralMap F A x T).symm)
   · apply (cast_heq _ _).trans
@@ -61,7 +61,7 @@ private theorem projected_j {M N P : Typed.Model.{u}}
     exact G.family_heq (F.pathTelescope_total A x T).symm (cast_heq _ _)
   · apply (G.jBranch_heq _ _ _ _ _).trans
     apply HEq.trans _ (Typed.StructuralMap.jBranch_heq _ A x T D d).symm
-    exact G.section_heq (F.rootTelescope_total A x T).symm (F.jBranch_type A x T D).symm
+    exact G.section_heq (F.root_telescope_total A x T).symm (F.jBranch_type A x T D).symm
       (F.jBranch_heq A x T D d)
 
 
@@ -77,7 +77,7 @@ private theorem projected_j_identity {M N : Typed.Model.{u}}
       (M.j A x T D d) := by
   have hp := projected_j F G A x T D d
   rw [h] at hp
-  exact hp.trans ((Typed.ModelMap.identityMap M).mapJ A x T D d).symm
+  exact hp.trans ((Typed.ModelMap.identityMap M).j_preserved A x T D d).symm
 
 private theorem projected_j_retract {M N : Typed.Model.{u}}
     (F : Typed.StructuralMap M.toStructuralModel N.toStructuralModel)
@@ -123,7 +123,7 @@ private def reflectedModelMap {M N : Typed.Model.{u}}
       HEq (G.mapTm s) (G.mapTm t) → HEq (H.mapTm s) (H.mapTm t) → HEq s t) :
     Typed.ModelMap M N where
   toStructuralMap := F
-  mapJ A x T D d := reflect (F.pathTelescope_total A x T) (cast_heq _ _).symm
+  j_preserved A x T D d := reflect (F.pathTelescope_total A x T) (cast_heq _ _).symm
     (projected_j_retract F G hG A x T D d) (projected_j_retract F H hH A x T D d)
 
 def diagonalModelMap (C : Grpd.{u,u}) (B : C ⥤ Type u) :

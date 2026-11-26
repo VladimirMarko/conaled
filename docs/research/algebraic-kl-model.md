@@ -262,7 +262,7 @@ form a natural sheaf arrow. Naturality along `dualLift(id,d)` gives
 existing affine map using the ordinary exponential's curry, beta and eta.
 `extract_curry` connects this inverse with coefficients of arbitrary operations.
 `coefficients_unique` uses the resulting isomorphism and transposition;
-`allParameters` gives unique natural maps `a,b : X → R` for every parameter
+`existsUnique_affineEquation` gives unique natural maps `a,b : X → R` for every parameter
 sheaf `X`, with the affine equation at every stage and every square-zero input.
 `coefficients_parameter` proves compatibility with every parameter substitution.
 
@@ -804,7 +804,7 @@ after extending its parameter. Natural reconstruction and both coefficient
 inverse laws are proved for every parameter sheaf in these universes.
 `SmoothKL.kl` is an isomorphism from the scalar pair to the existing categorical
 sheaf exponential `R^D`; its forward arrow is the actual affine map.
-`allParameters`, `coefficients_unique` and `coefficients_parameter` give affine
+`existsUnique_affineEquation`, `coefficients_unique` and `coefficients_parameter` give affine
 existence, uniqueness and substitution for arbitrary parameter presheaves.
 They do not quantify over unrelated external functions on one stage's points.
 

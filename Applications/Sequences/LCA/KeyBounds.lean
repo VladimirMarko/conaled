@@ -289,10 +289,10 @@ example : (encodedMicroRow (steps := 2) 0 0)[(2 : Fin 3).val].val = 2 := by
   decide
 
 private def smallDepth (i : Nat) : Int := if i = 1 then 0 else 1
-private theorem smallSteps : UnitSteps (3-1) smallDepth := by
+private theorem small_steps : UnitSteps (3-1) smallDepth := by
   intro i hi
   interval_cases i <;> decide
-private theorem smallBounds : ∀ i, i < 3 → 0 ≤ smallDepth i ∧ smallDepth i < (3 : Int) := by
+private theorem small_bounds : ∀ i, i < 3 → 0 ≤ smallDepth i ∧ smallDepth i < (3 : Int) := by
   intro i _
   unfold smallDepth
   split_ifs <;> omega
@@ -301,8 +301,8 @@ private theorem smallBounds : ∀ i, i < 3 → 0 ≤ smallDepth i ∧ smallDepth
 unused sparse-query tail cell, but its key is still bounded and encodable. -/
 example :
     (encodedMacroRow (steps := 1) (blocks := 2) smallDepth (by decide) (by decide)
-      smallSteps smallBounds (by decide) (1 : Fin 2))[(1 : Fin 2).val].val = 1 := by
-  rw [encodedMacroRow_read smallDepth (by decide) (by decide) smallSteps smallBounds
+      small_steps small_bounds (by decide) (1 : Fin 2))[(1 : Fin 2).val].val = 1 := by
+  rw [encodedMacroRow_read smallDepth (by decide) (by decide) small_steps small_bounds
     (show 2*(1+1) ≤ 2*3 by decide) (1 : Fin 2) (1 : Fin 2)]
   decide
 

@@ -15,7 +15,7 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 def CocycleDatum.sectionTotal :
     Extend (setFamily (Descent.descentFunctor a A ⋙ family a X)) ⥤
       Extend (setFamily (fiberFamily (a := a) (A := A))) :=
-  (SectionDescent.totalEquivalence (hβ := sectionEquivalences)
+  (SectionDescent.totalEquivalence (hβ := section_equivalences)
     (B := setFamily (fiberFamily (a := a) (A := A)))
     CategoryTheory.Equivalence.refl (sectionComparison (a := a) (A := A))).functor
 

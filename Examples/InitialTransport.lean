@@ -26,13 +26,13 @@ theorem inverse : ComparisonLaws (equality _) comparison :=
 theorem preserves : InitialMapLaws (equality _) comparison :=
   ⟨funext fun x => Empty.elim x⟩
 
-theorem codeInitialLaws : InitialLaws (CodeCategory.equiv meaning) codeInitial :=
-  InitialMap.transportLaws (CodeCategory.evaluation_reflects meaning) (equalityCongr _)
+theorem codeInitial_laws : InitialLaws (CodeCategory.equiv meaning) codeInitial :=
+  InitialMap.transport_laws (CodeCategory.evaluation_reflects meaning) (equality_congr _)
     FunctionCategory.laws inverse.inv_hom preserves FunctionCategory.initialLaws
 
 /-- Initial uniqueness holds for every raw arrow out of the interpreted empty base. -/
 example {a : Ty} (f : Code Prim .base a) :
-    CodeCategory.equiv meaning |>.Rel f (.primitive .eliminate) := codeInitialLaws.unique f
+    CodeCategory.equiv meaning |>.Rel f (.primitive .eliminate) := codeInitial_laws.unique f
 
 /-- These witnesses are semantic laws, not constructor equations. -/
 theorem raw_initial_not_unique : ¬ InitialLaws (equality _) codeInitial := by
@@ -48,33 +48,33 @@ def wrappedInitial : InitialOps FunctionCategory.ops where
 def wrap : InitialMap (RawMap.id FunctionCategory.ops) FunctionCategory.initial wrappedInitial :=
   ⟨Box.mk, Box.value⟩
 
-theorem wrapInverse : ComparisonLaws (equality _) wrap := ⟨rfl, rfl⟩
-theorem wrapPreserves : InitialMapLaws (equality _) wrap :=
+theorem wrap_inverse : ComparisonLaws (equality _) wrap := ⟨rfl, rfl⟩
+theorem wrap_preserves : InitialMapLaws (equality _) wrap :=
   ⟨funext fun x => PEmpty.elim x⟩
 
-theorem wrappedLaws : InitialLaws (equality _) wrappedInitial :=
+theorem wrapped_laws : InitialLaws (equality _) wrappedInitial :=
   ⟨fun _ => funext fun x => PEmpty.elim x.value⟩
 
 def composed := InitialMap.comp comparison wrap
 
-theorem composedPreserves : InitialMapLaws (equality _) composed :=
-  InitialMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
-    preserves wrapPreserves
+theorem composed_preserves : InitialMapLaws (equality _) composed :=
+  InitialMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
+    preserves wrap_preserves
 
-theorem composedInverse : ComparisonLaws (equality _) composed :=
-  InitialMap.comp_inverse (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
-    inverse wrapInverse
+theorem composed_inverse : ComparisonLaws (equality _) composed :=
+  InitialMap.comp_inverse (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
+    inverse wrap_inverse
 
 /-- Initial laws are recovered after two interpretations, without product assumptions. -/
 example : InitialLaws (CodeCategory.equiv meaning) codeInitial :=
-  InitialMap.transportLaws (CodeCategory.evaluation_reflects meaning) (equalityCongr _)
-    FunctionCategory.laws composedInverse.inv_hom composedPreserves wrappedLaws
+  InitialMap.transport_laws (CodeCategory.evaluation_reflects meaning) (equality_congr _)
+    FunctionCategory.laws composed_inverse.inv_hom composed_preserves wrapped_laws
 
 /-- Quotienting retains precisely the selected semantic relation. -/
 example {a : Ty} (f : Code Prim .base a) :
     HomQuotient.classOf (E := CodeCategory.equiv meaning) f =
       HomQuotient.classOf (E := CodeCategory.equiv meaning) (Code.primitive (Prim.eliminate (a := a))) :=
-  (HomQuotient.mk_eq_iff _ _).mpr (codeInitialLaws.unique f)
+  (HomQuotient.mk_eq_iff _ _).mpr (codeInitial_laws.unique f)
 
 noncomputable def quotientInitial :
     letI := HomQuotient.category (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
@@ -82,7 +82,7 @@ noncomputable def quotientInitial :
       (HomQuotient.initial (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
         codeInitial).zero := by
   letI := HomQuotient.category (CodeCategory.congruence meaning) (CodeCategory.laws meaning)
-  exact InitialOps.isInitial _ (HomQuotient.initialLaws _ _ _ codeInitialLaws)
+  exact InitialOps.isInitial _ (HomQuotient.initialLaws _ _ _ codeInitial_laws)
 
 /-- The lawful adapter recovers the chosen initial arrow into a nonempty target. -/
 example :

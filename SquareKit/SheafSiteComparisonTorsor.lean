@@ -25,7 +25,7 @@ def torsor (P : SheafTorsor.Torsor G X) :
   mul_act x := P.mul_act ((elements K F X).obj x)
   natural f := P.natural ((elements K F X).map f)
   principal x := P.principal ((elements K F X).obj x)
-  locallySurjective := ⟨fun x => F.cover_lift J K
+  isLocallySurjective := ⟨fun x => F.cover_lift J K
     (Presheaf.imageSieve_mem K (SplitSheaf.p P.family).hom x)⟩
 
 /-- Restriction on every equivariant arrow is componentwise restriction. -/

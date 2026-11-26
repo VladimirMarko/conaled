@@ -106,7 +106,7 @@ abbrev charts : EuclideanOpen.Charts M where
 
 abbrev atlas : EuclideanOpen.Atlas M where
   toCharts := A.charts
-  openEmbedding i := chartPoint_openEmbedding (A.chart i)
+  isOpenEmbedding i := chartPoint_openEmbedding (A.chart i)
   covers x := by
     obtain ⟨i,hi⟩ := A.covers x
     refine ⟨i,⟨A.chart i x,?_⟩, (A.chart i).left_inv hi⟩

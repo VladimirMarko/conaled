@@ -26,7 +26,7 @@ theorem orderedListSearch_correct (iv : κ → IntervalKey α) (xs : List κ)
   rw [hasOverlap_image_iff]
   simp [orderedListSearch, List.any_eq_true]
 
-theorem orderedListLaws [LinearOrder κ] (iv : κ → IntervalKey α) :
+theorem orderedList_laws [LinearOrder κ] (iv : κ → IntervalKey α) :
     Laws OrderedList.ops (orderedListSearch iv) iv
       (fun xs key => key ∈ xs) OrderedList.Strict where
   toDeleteLaws := OrderedList.laws

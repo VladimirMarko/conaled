@@ -5,24 +5,24 @@ import Examples.NominalTelescope
 namespace Examples.NominalBodies
 open SquareKit.Internal.NominalTelescope
 open SquareKit.Internal.NominalBodies
-open Examples.NominalTelescope (N Z σ τ ρ selectedA selectedB selectedR)
+open Examples.NominalTelescope (nExpr zExpr σ τ ρ selectedA selectedB selectedR)
 
 /-- Uses both bound data and a free leaf occurring only in the body. -/
 def mixed : Body := .add (.add .first .second) (.free (.var 2))
 def sum : Body := .add .first .second
 
-def q : SquareKit.Internal.NominalBodies.Abstraction N Z := abstractBody N Z mixed
+def q : SquareKit.Internal.NominalBodies.Abstraction nExpr zExpr := abstractBody nExpr zExpr mixed
 
 /-- At the same free parameters and input, the old selection is 1 whereas
 addition of bound inputs is 3. A fixed projection cannot implement both. -/
 theorem sum_selected : observeAbstract
-    (substitute τ (substitute σ (abstractBody N Z sum))) selectedA selectedB =
+    (substitute τ (substitute σ (abstractBody nExpr zExpr sum))) selectedA selectedB =
       (⟨7, ⟨3, by decide⟩⟩ : Observation) := by
   exact (two_substitutions _ σ τ ρ selectedA selectedB).trans
     ((observeAbstract_eq _ _ _).trans rfl)
 
 theorem second_selected : observeAbstract
-    (substitute τ (substitute σ (abstractBody N Z .second))) selectedA selectedB =
+    (substitute τ (substitute σ (abstractBody nExpr zExpr .second))) selectedA selectedB =
       (⟨7, ⟨1, by decide⟩⟩ : Observation) := by
   exact (two_substitutions _ σ τ ρ selectedA selectedB).trans
     ((second_specialization _ _).trans rfl)
@@ -32,13 +32,13 @@ theorem mixed_selected : observeAbstract (substitute τ (substitute σ q))
   exact (two_substitutions _ σ τ ρ selectedA selectedB).trans
     ((observeAbstract_eq _ _ _).trans rfl)
 
-example : (substituteProgram τ (substituteProgram σ ⟨N,Z,q⟩)) =
-    substituteProgram (fun x => (σ x).subst τ) ⟨N,Z,q⟩ := substitute_comp _ σ τ
-example : substituteProgram .var ⟨N,Z,q⟩ = ⟨N,Z,q⟩ := substitute_id _
+example : (substituteProgram τ (substituteProgram σ ⟨nExpr,zExpr,q⟩)) =
+    substituteProgram (fun x => (σ x).subst τ) ⟨nExpr,zExpr,q⟩ := substitute_comp _ σ τ
+example : substituteProgram .var ⟨nExpr,zExpr,q⟩ = ⟨nExpr,zExpr,q⟩ := substitute_id _
 
 /-- Alpha quotient retains the generated body, even if numerical observations
 at some inputs happen to agree. -/
-example : abstractBody N Z sum ≠ abstractBody N Z .second := by
+example : abstractBody nExpr zExpr sum ≠ abstractBody nExpr zExpr .second := by
   intro h
   have hh := congrArg body h
   change sum = Body.second at hh
@@ -46,8 +46,8 @@ example : abstractBody N Z sum ≠ abstractBody N Z .second := by
 
 /-- Replacing the varied body by the old projection changes selected data. -/
 theorem reset_body_fails :
-    observeAbstract (substitute τ (substitute σ (abstractBody N Z sum))) selectedA selectedB ≠
-    observeAbstract (substitute τ (substitute σ (abstractBody N Z .second))) selectedA selectedB := by
+    observeAbstract (substitute τ (substitute σ (abstractBody nExpr zExpr sum))) selectedA selectedB ≠
+    observeAbstract (substitute τ (substitute σ (abstractBody nExpr zExpr .second))) selectedA selectedB := by
   rw [sum_selected, second_selected]
   decide
 
@@ -97,7 +97,7 @@ theorem third_selected : selectedTail (Z := Examples.NominalTelescope.finalZ)
   let f := Frame.canonical (SquareKit.Internal.NominalTelescope.support
     Examples.NominalTelescope.finalN Examples.NominalTelescope.finalZ)
   exact (tail_comparison f selectedA selectedB selectedR).symm.trans
-    ((tail_two_substitutions N Z σ τ ρ f selectedA selectedB selectedR).trans rfl)
+    ((tail_two_substitutions nExpr zExpr σ τ ρ f selectedA selectedB selectedR).trans rfl)
 
 example : (⟨(selectedTail (Z := Examples.NominalTelescope.finalZ)
     selectedA selectedB selectedR).1,

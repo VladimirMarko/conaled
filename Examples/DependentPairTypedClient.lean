@@ -9,29 +9,29 @@ open DependentTheoryMaps DependentPairPresentations DependentPairJudgments
 open DependentPairTheoryTransport
 open Elimination (instantiate)
 
-abbrev R := projectionPresentation false
-abbrev Proof (j : Judgment projectionSignature) := Derivation R (fun _ => Empty) j
+abbrev projectionRules := projectionPresentation false
+abbrev Proof (j : Judgment projectionSignature) := Derivation projectionRules (fun _ => Empty) j
 
 def structural (r : StructuralRule projectionSignature)
     (ps : ∀ i : Fin (StructuralRule.schema r).premises.length,
       Proof ((StructuralRule.schema r).premises.get i)) : Proof (StructuralRule.schema r).conclusion :=
-  Derivation.rule (R := R) (.inl r) ps
+  Derivation.rule (R := projectionRules) (.inl r) ps
 
 def declaration (r : DependentPairDeclarations.Rule projectionSignature)
     (ps : ∀ i : Fin (r.schema DependentPairDeclarations.projection).premises.length,
       Proof ((r.schema DependentPairDeclarations.projection).premises.get i)) :
     Proof (r.schema DependentPairDeclarations.projection).conclusion :=
-  Derivation.rule (R := R) (.inr (.inr (.inr (.inl r)))) ps
+  Derivation.rule (R := projectionRules) (.inr (.inr (.inr (.inl r)))) ps
 
 def pairRule (r : ProjectionRule false)
     (ps : ∀ i : Fin r.schema.premises.length, Proof (r.schema.premises.get i)) :
-    Proof r.schema.conclusion := Derivation.rule (R := R) (.inr (.inl r)) ps
+    Proof r.schema.conclusion := Derivation.rule (R := projectionRules) (.inr (.inl r)) ps
 
 def declarationCongruence (r : DependentPairDeclarations.Congruence projectionSignature)
     (ps : ∀ i : Fin (r.schema DependentPairDeclarations.projection).premises.length,
       Proof ((r.schema DependentPairDeclarations.projection).premises.get i)) :
     Proof (r.schema DependentPairDeclarations.projection).conclusion :=
-  Derivation.rule (R := R) (.inr (.inr (.inr (.inr r)))) ps
+  Derivation.rule (R := projectionRules) (.inr (.inr (.inr (.inr r)))) ps
 
 def Γn : Context projectionSignature SingleV := .extend .empty N
 def Γny : Context projectionSignature (Fin 1 ⊕ SingleV) := .extend Γn (B (.var (.inl 0)))
@@ -108,7 +108,7 @@ def selectedClient : Proof (term Γ selectedRaw clientType) := by
 
 open TypedSubstitution
 
-def sigmaTyped : Typed (R := R) (H := fun _ => Empty) Γ Γn sigmaRaw where
+def sigmaTyped : Typed (R := projectionRules) (H := fun _ => Empty) Γ Γn sigmaRaw where
   context := contextN
   component v := by
     have hs := declaration (.s Γn (.var m))
@@ -142,7 +142,7 @@ def sigmaTyped : Typed (R := R) (H := fun _ => Empty) Γ Γn sigmaRaw where
         Proof, TypedSubstitution.Proof, Judgment.term] using hs
         | inr v => exact Empty.elim v
 
-def tauTyped : Typed (R := R) (H := fun _ => Empty) Γn Γn tauRaw where
+def tauTyped : Typed (R := projectionRules) (H := fun _ => Empty) Γn Γn tauRaw where
   context := contextN
   component v := by
     cases v with

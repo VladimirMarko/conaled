@@ -17,7 +17,7 @@ def CocycleDatum.sectionComparison :
       setFamily (fiberFamily (a := a) (A := A)) :=
   Functor.whiskerRight (fiberComparison (a := a) (A := A)).hom discrete
 
-theorem CocycleDatum.sectionEquivalences : ∀ d : Descent.Datum (a := a) A,
+theorem CocycleDatum.section_equivalences : ∀ d : Descent.Datum (a := a) A,
     Functor.IsEquivalence ((CocycleDatum.sectionComparison (a := a) (A := A)).app d) :=
   fun d => (Discrete.equivalence (CocycleDatum.fiberEquivalence d)).isEquivalence_functor
 
@@ -27,18 +27,18 @@ This is a fixed-cover comparison, not parameter-compatible local-section gluing.
 def CocycleDatum.descendSection
     (s : Section (setFamily (fiberFamily (a := a) (A := A)))) :
     Section (setFamily (Descent.descentFunctor a A ⋙ family a X)) :=
-  SectionDescent.descendFibers (hβ := sectionEquivalences) CategoryTheory.Equivalence.refl s sectionComparison
+  SectionDescent.descendFibers (hβ := section_equivalences) CategoryTheory.Equivalence.refl s sectionComparison
 
 /-- The reconstructed section recovers the supplied local section on objects
 and arrows through the actual deformation gluing comparison. -/
 def CocycleDatum.descendSectionRecovery
     (s : Section (setFamily (fiberFamily (a := a) (A := A)))) :
     (descendSection s).lift ⋙
-        (SectionDescent.totalEquivalence (hβ := sectionEquivalences)
+        (SectionDescent.totalEquivalence (hβ := section_equivalences)
           (B := setFamily (fiberFamily (a := a) (A := A)))
           CategoryTheory.Equivalence.refl (sectionComparison (a := a) (A := A))).functor ≅
       s.lift :=
-  SectionDescent.recoverFibers (hβ := sectionEquivalences) CategoryTheory.Equivalence.refl s sectionComparison
+  SectionDescent.recoverFibers (hβ := section_equivalences) CategoryTheory.Equivalence.refl s sectionComparison
 
 /-- Recovery preserves the selected cocycle context rather than changing it
 by an arbitrary automorphism. -/
@@ -46,6 +46,6 @@ theorem CocycleDatum.descendSectionRecovery_base
     (s : Section (setFamily (fiberFamily (a := a) (A := A))))
     (d : Descent.Datum (a := a) A) :
     ((descendSectionRecovery s).hom.app d).base = 𝟙 d :=
-  SectionDescent.recoverFibers_base (hβ := sectionEquivalences) CategoryTheory.Equivalence.refl s sectionComparison d
+  SectionDescent.recoverFibers_base (hβ := section_equivalences) CategoryTheory.Equivalence.refl s sectionComparison d
 
 end SquareKit.SmoothQuotientDeformations

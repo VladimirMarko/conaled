@@ -53,7 +53,7 @@ noncomputable abbrev M := GroupoidModel.Instance.structuralModel C4 GroupoidRout
 The varying binary action therefore has an actual comprehension pullback. -/
 example {Γ Δ : Grpd} (A : M.Family Γ) (σ : M.Substitution Δ Γ) :
     IsPullback (C := M.ContextCat) (M.weaken Δ (M.subTy A σ)) (M.lift A σ)
-      σ (M.weaken Γ A) := M.displayPullback A σ
+      σ (M.weaken Γ A) := M.display_pullback A σ
 
 example {Γ Δ Θ : M.Context} (A : M.Family Γ) (σ : M.Substitution Δ Γ)
     (τ : M.Substitution Θ Δ) :

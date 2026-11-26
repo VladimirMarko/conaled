@@ -93,7 +93,7 @@ example (e : Examples.Lawvere.pointedInvolution.Equation) :
     Examples.Lawvere.pointedInvolution.evaluate Examples.Lawvere.smoothSymbol
         (Examples.Lawvere.pointedInvolution.lhs e) =
       Examples.Lawvere.pointedInvolution.evaluate Examples.Lawvere.smoothSymbol
-        (Examples.Lawvere.pointedInvolution.rhs e) := Examples.Lawvere.smoothEquation e
+        (Examples.Lawvere.pointedInvolution.rhs e) := Examples.Lawvere.smooth_equation e
 
 open Examples.LawvereRecovery in
 def toTagged : Hom smoothOperations.theory taggedTheory where

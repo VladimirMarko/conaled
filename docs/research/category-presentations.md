@@ -213,7 +213,7 @@ than missing library mathematics.
 
 [CartesianMapQuotient](../../SquareKit/CartesianMapQuotient.lean) supplies the
 project bridge: `binaryFanIsLimit`, `terminalIsTerminal`,
-`preservesBinaryProduct` and `preservesTerminal` turn the raw beta/eta and
+`preserves_binary_product` and `preserves_terminal` turn the raw beta/eta and
 comparison laws into ordinary universal properties after the stated laws and
 congruence are supplied. [FamilyCoherence](../../SquareKit/FamilyCoherence.lean)
 proves naturality, units and associativity for chosen pullback substitution.

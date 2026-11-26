@@ -70,7 +70,7 @@ def natAnn : HeightBalance.HeightAnnotation NKey (Nat × Nat) := Balanced.annota
 
 theorem nat_contract : IntervalSet.Laws (Balanced.deleteOps (id : NKey → NKey))
     (Balanced.search id) id (fun t => setTree (Cached.erase t)) (Balanced.Valid id) :=
-  Balanced.intervalSetLaws id (fun _ _ h => IntervalKey.low_le_of_le h.le)
+  Balanced.intervalSet_laws id (fun _ _ h => IntervalKey.low_le_of_le h.le)
 
 /-! R1–R4: both single and both double rotations rebuild complete annotations. -/
 def rrA : NKey := point 1
@@ -167,7 +167,7 @@ theorem deletion_tie_results_valid :
 theorem indexed_contract : IntervalSet.Laws (Balanced.deleteOps indexedInterval)
     (Balanced.search indexedInterval) indexedInterval
     (fun t => setTree (Cached.erase t)) (Balanced.Valid indexedInterval) :=
-  Balanced.intervalSetLaws indexedInterval IntervalTreeSearch.indexed_compatible
+  Balanced.intervalSet_laws indexedInterval IntervalTreeSearch.indexed_compatible
 
 def indexedPrefix (n : Nat) : BinaryTree (IndexedKey × (Nat × Nat)) :=
   AbstractSet.execute (Balanced.deleteOps indexedInterval)
@@ -421,7 +421,7 @@ theorem sweep_surviving_occurrence :
       OrderedMap.containsKey sweepKey1 (leaf RectangleSweep.keyInterval sweepKey1) = true ∧
       Balanced.search RectangleSweep.keyInterval (leaf RectangleSweep.keyInterval sweepKey1) (point 1) = true := by
   refine ⟨by decide, rfl, rfl, ?_⟩
-  apply ((Balanced.intervalSetLaws RectangleSweep.keyInterval
+  apply ((Balanced.intervalSet_laws RectangleSweep.keyInterval
     RectangleSweep.keyInterval_low_le_of_lt).overlap _ (by decide) (point 1)).mpr
   apply (IntervalSet.hasOverlap_image_iff RectangleSweep.keyInterval _ (point 1)).mpr
   exact ⟨sweepKey1, by simp [leaf], by decide⟩

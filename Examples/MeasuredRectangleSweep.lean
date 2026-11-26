@@ -215,16 +215,16 @@ the interval need not preserve this cardinality.
 
 theorem prefix_keys_finite (rs : List (Rectangle Int Int)) (k : Nat) :
     {key | key ∈ prefixState rs k}.Finite :=
-  stateAfter_take_observe_finite listLaws.toDeleteLaws rs k
+  stateAfter_take_observe_finite list_laws.toDeleteLaws rs k
 
 theorem prefix_card_eq_active (rs : List (Rectangle Int Int)) (k : Nat) :
     {key | key ∈ prefixState rs k}.ncard =
       {i : Fin rs.length | Active rs k i}.ncard :=
-  stateAfter_take_observe_ncard_eq listLaws.toDeleteLaws rs k
+  stateAfter_take_observe_ncard_eq list_laws.toDeleteLaws rs k
 
 theorem prefix_card_le (rs : List (Rectangle Int Int)) (k : Nat) :
     {key | key ∈ prefixState rs k}.ncard ≤ rs.length :=
-  stateAfter_take_observe_ncard_le listLaws.toDeleteLaws rs k
+  stateAfter_take_observe_ncard_le list_laws.toDeleteLaws rs k
 
 theorem initial_prefix_card (rs : List (Rectangle Int Int)) :
     {key | key ∈ prefixState rs 0}.ncard = 0 := by

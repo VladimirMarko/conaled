@@ -108,14 +108,14 @@ example (cs : List (Engine.Command ℚ Nat)) (h : Engine.Corresponds FRPTrace.pa
       let d := Feedback.run (responseMealy (batches jointSpec)) jointSpec.initial events
       (⟨Engine.reference FRPTrace.start FRPTrace.packets FRPDemand.early cs.length,d.2⟩,
         events.zip d.1) :=
-  compiled_reference K sound jointSeed jointBody List.sum FRPTrace.start FRPTrace.packets
+  compiled_reference scalarCompiler sound jointSeed jointBody List.sum FRPTrace.start FRPTrace.packets
     FRPDemand.early cs h
 
 example : Pipeline.run jointConsumer (Pipeline.init FRPTrace.start jointConsumer) FRPEngine.referenceScript =
     let events := Engine.referenceEvents FRPTrace.start FRPTrace.packets FRPDemand.early 0 8
     let d := Feedback.run (responseMealy (batches jointSpec)) jointSpec.initial events
     (⟨Engine.reference FRPTrace.start FRPTrace.packets FRPDemand.early 8,d.2⟩,events.zip d.1) :=
-  compiled_reference K sound jointSeed jointBody List.sum FRPTrace.start FRPTrace.packets
+  compiled_reference scalarCompiler sound jointSeed jointBody List.sum FRPTrace.start FRPTrace.packets
     FRPDemand.early FRPEngine.referenceScript FRPEngine.referenceScript_corresponds
 
 example (n : Nat) (s : Nat × Nat) :

@@ -33,8 +33,8 @@ def overlap (d : Datum D.toDiagram) :
 
 private theorem diagonal_law (d : Datum D.toDiagram) :
     E.diagonal.map (F.overlap d).hom =
-      (eqToHom E.diagonalFirst).app (F.localMap.obj d.localObject) ≫
-        (eqToHom E.diagonalSecond.symm).app (F.localMap.obj d.localObject) := by
+      (eqToHom E.diagonal_first).app (F.localMap.obj d.localObject) ≫
+        (eqToHom E.diagonal_second.symm).app (F.localMap.obj d.localObject) := by
   dsimp only [overlap, Iso.trans_hom, Iso.symm_hom, eqToIso.hom, eqToIso.inv,
     Functor.mapIso_hom]
   simp only [Functor.map_comp, eqToHom_map, eqToHom_app]
@@ -49,11 +49,11 @@ private theorem diagonal_law (d : Datum D.toDiagram) :
 
 private theorem cocycle_law (d : Datum D.toDiagram) :
     E.firstSecond.map (F.overlap d).hom ≫
-      (eqToHom E.tripleMiddle).app (F.localMap.obj d.localObject) ≫
+      (eqToHom E.triple_middle).app (F.localMap.obj d.localObject) ≫
         E.secondThird.map (F.overlap d).hom =
-      (eqToHom E.tripleFirst).app (F.localMap.obj d.localObject) ≫
+      (eqToHom E.triple_first).app (F.localMap.obj d.localObject) ≫
         E.firstThird.map (F.overlap d).hom ≫
-          (eqToHom E.tripleLast).app (F.localMap.obj d.localObject) := by
+          (eqToHom E.triple_last).app (F.localMap.obj d.localObject) := by
   dsimp only [overlap, Iso.trans_hom, Iso.symm_hom, eqToIso.hom, eqToIso.inv,
     Functor.mapIso_hom]
   simp only [Functor.map_comp, eqToHom_map, eqToHom_app]

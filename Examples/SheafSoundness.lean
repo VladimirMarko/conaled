@@ -25,13 +25,13 @@ theorem no_global_premise (x : Bool) :
   exact no_pointwise_witness ⟨ρ .zero, trivial, rfl⟩
 
 /-- The source rule eliminates E into a conclusion independent of E. -/
-theorem eliminateE : Derives (.ex eRefl) bRefl := .elim .refl
+theorem eliminate_eRefl : Derives (.ex eRefl) bRefl := .elim .refl
 
 theorem elimination_at_X (x : Bool) : (interp bRefl).obj (op X) (boolEnv (op X) x) :=
-  SquareKit.Internal.SheafContexts.sound relModel sort_sheaves relation_sheaves eliminateE
+  SquareKit.Internal.SheafContexts.sound relModel sort_sheaves relation_sheaves eliminate_eRefl
     (op X) (local_premise x)
 
-/-- Frobenius.forward uses elimWith; both hypotheses here hold at X. -/
+/-- Frobenius.forward uses elim_with; both hypotheses here hold at X. -/
 theorem frobenius_at_X (x : Bool) :
     (interp (.ex (.conj bRefl.shift eRefl))).obj (op X) (boolEnv (op X) x) :=
   SquareKit.Internal.SheafContexts.sound relModel sort_sheaves relation_sheaves
@@ -98,6 +98,6 @@ theorem substituted_introduction_at_X (x : Bool) :
 
 -- Ordinary graph clients remain available without sheaf parameters.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafSoundness

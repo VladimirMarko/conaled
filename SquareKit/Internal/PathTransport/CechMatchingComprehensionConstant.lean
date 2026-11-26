@@ -106,53 +106,53 @@ def fromDatum (d : Datum D.toDiagram) (e : Datum E.toDiagram) : Fiber (data D E)
     · change D.diagonal.map d.overlap.hom = _
       simp only [eqToHom_app]
       change D.diagonal.map d.overlap.hom =
-        (Grothendieck.comp (eqToHom (Functor.congr_obj h.diagonalFirst (liftLocal (data D E) d e.localObject)))
-          (eqToHom (Functor.congr_obj h.diagonalSecond.symm (liftLocal (data D E) d e.localObject)))).base
+        (Grothendieck.comp (eqToHom (Functor.congr_obj h.diagonal_first (liftLocal (data D E) d e.localObject)))
+          (eqToHom (Functor.congr_obj h.diagonal_second.symm (liftLocal (data D E) d e.localObject)))).base
       dsimp only [Grothendieck.comp]
       rw [Grothendieck.base_eqToHom, Grothendieck.base_eqToHom]
       simpa only [StrictDiagram.toDiagram, eqToIso.hom, eqToIso.inv, eqToHom_app] using d.diagonal
     · change eqToHom _ ≫ (𝟙 _ ≫ E.diagonal.map e.overlap.hom) =
-        (Grothendieck.comp ((eqToHom h.diagonalFirst).app (liftLocal (data D E) d e.localObject))
-          ((eqToHom h.diagonalSecond.symm).app (liftLocal (data D E) d e.localObject))).fiber
+        (Grothendieck.comp ((eqToHom h.diagonal_first).app (liftLocal (data D E) d e.localObject))
+          ((eqToHom h.diagonal_second.symm).app (liftLocal (data D E) d e.localObject))).fiber
       dsimp only [Grothendieck.comp]
       have h1 := eqToHom_app_fiber (B := D.localCategory) (C := E.localCategory)
-        h.diagonalFirst (liftLocal (data D E) d e.localObject)
+        h.diagonal_first (liftLocal (data D E) d e.localObject)
       have h2 := eqToHom_app_fiber (B := D.localCategory) (C := E.localCategory)
-        h.diagonalSecond.symm (liftLocal (data D E) d e.localObject)
+        h.diagonal_second.symm (liftLocal (data D E) d e.localObject)
       rw [h1, h2]
       change (𝟙 _) ≫ (𝟙 _ ≫ E.diagonal.map e.overlap.hom) =
-        (𝟙 _) ≫ eqToHom (Functor.congr_obj E.diagonalFirst e.localObject) ≫
-          eqToHom (Functor.congr_obj E.diagonalSecond.symm e.localObject)
+        (𝟙 _) ≫ eqToHom (Functor.congr_obj E.diagonal_first e.localObject) ≫
+          eqToHom (Functor.congr_obj E.diagonal_second.symm e.localObject)
       simpa only [eqToHom_refl, Category.id_comp, Functor.id_map, StrictDiagram.toDiagram,
         eqToIso.hom, eqToIso.inv, eqToHom_app] using e.diagonal
   cocycle := by
     refine Grothendieck.ext _ _ ?_ ?_
     · change D.firstSecond.map d.overlap.hom ≫
-        ((eqToHom h.tripleMiddle).app (liftLocal (data D E) d e.localObject)).base ≫ D.secondThird.map d.overlap.hom =
-        ((eqToHom h.tripleFirst).app (liftLocal (data D E) d e.localObject)).base ≫ D.firstThird.map d.overlap.hom ≫
-          ((eqToHom h.tripleLast).app (liftLocal (data D E) d e.localObject)).base
+        ((eqToHom h.triple_middle).app (liftLocal (data D E) d e.localObject)).base ≫ D.secondThird.map d.overlap.hom =
+        ((eqToHom h.triple_first).app (liftLocal (data D E) d e.localObject)).base ≫ D.firstThird.map d.overlap.hom ≫
+          ((eqToHom h.triple_last).app (liftLocal (data D E) d e.localObject)).base
       simp only [eqToHom_app, Grothendieck.base_eqToHom]
       simpa only [StrictDiagram.toDiagram, eqToIso.hom, eqToHom_app] using d.cocycle
     · change eqToHom _ ≫ (Grothendieck.comp
         ((data D E).firstSecondMap.map (overlap D E d e).hom)
-        (Grothendieck.comp ((eqToHom h.tripleMiddle).app (liftLocal (data D E) d e.localObject))
+        (Grothendieck.comp ((eqToHom h.triple_middle).app (liftLocal (data D E) d e.localObject))
           ((data D E).secondThirdMap.map (overlap D E d e).hom))).fiber =
-        (Grothendieck.comp ((eqToHom h.tripleFirst).app (liftLocal (data D E) d e.localObject))
+        (Grothendieck.comp ((eqToHom h.triple_first).app (liftLocal (data D E) d e.localObject))
           (Grothendieck.comp ((data D E).firstThirdMap.map (overlap D E d e).hom)
-            ((eqToHom h.tripleLast).app (liftLocal (data D E) d e.localObject)))).fiber
+            ((eqToHom h.triple_last).app (liftLocal (data D E) d e.localObject)))).fiber
       dsimp only [Grothendieck.comp]
       have h1 := eqToHom_app_fiber (B := D.tripleCategory) (C := E.tripleCategory)
-        h.tripleFirst (liftLocal (data D E) d e.localObject)
+        h.triple_first (liftLocal (data D E) d e.localObject)
       have h2 := eqToHom_app_fiber (B := D.tripleCategory) (C := E.tripleCategory)
-        h.tripleMiddle (liftLocal (data D E) d e.localObject)
+        h.triple_middle (liftLocal (data D E) d e.localObject)
       have h3 := eqToHom_app_fiber (B := D.tripleCategory) (C := E.tripleCategory)
-        h.tripleLast (liftLocal (data D E) d e.localObject)
+        h.triple_last (liftLocal (data D E) d e.localObject)
       rw [h1, h2, h3]
       change (𝟙 _) ≫ ((𝟙 _) ≫ (𝟙 _ ≫ E.firstSecond.map e.overlap.hom) ≫
-        (𝟙 _ ≫ eqToHom (Functor.congr_obj E.tripleMiddle e.localObject) ≫ (𝟙 _ ≫ E.secondThird.map e.overlap.hom))) =
-        (𝟙 _) ≫ eqToHom (Functor.congr_obj E.tripleFirst e.localObject) ≫
+        (𝟙 _ ≫ eqToHom (Functor.congr_obj E.triple_middle e.localObject) ≫ (𝟙 _ ≫ E.secondThird.map e.overlap.hom))) =
+        (𝟙 _) ≫ eqToHom (Functor.congr_obj E.triple_first e.localObject) ≫
           (𝟙 _ ≫ (𝟙 _ ≫ E.firstThird.map e.overlap.hom) ≫
-            eqToHom (Functor.congr_obj E.tripleLast e.localObject))
+            eqToHom (Functor.congr_obj E.triple_last e.localObject))
       simpa only [eqToHom_refl, Category.id_comp, Functor.id_map, StrictDiagram.toDiagram,
         eqToIso.hom, eqToHom_app] using e.cocycle
 

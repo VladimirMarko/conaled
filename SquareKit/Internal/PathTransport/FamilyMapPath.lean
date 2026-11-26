@@ -87,12 +87,12 @@ theorem familyMap_arrow (a : PathCtx A x) :
 
 variable [IsGroupoid Γ]
 
-theorem familyMapSquare : EquivalenceSquare.Square
+theorem familyMap_square : EquivalenceSquare.Square
     (pathEquivalence B (x.familyImage α)) (pathEquivalence A x)
     (familyMap α x) (𝟭 Γ) where
   forward := familyMap_reflexive α x
   inverse := rfl
-  counitInv := by
+  counitInv_compatibility := by
     apply NatTrans.ext
     funext a
     apply (weaken (pathComparisonFamily B (x.familyImage α))).map_injective

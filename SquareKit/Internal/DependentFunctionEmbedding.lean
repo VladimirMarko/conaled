@@ -44,10 +44,10 @@ theorem recover_type : {n : Nat} → (Γ : Old n) → (v : DVar (context Γ)) �
     | .top => rfl
     | .family w => recover_type Γ w
 
-theorem noFunction : {n : Nat} → (Γ : Old n) → FVar (context Γ) → False
+theorem no_function : {n : Nat} → (Γ : Old n) → FVar (context Γ) → False
   | _, .nil, v => nomatch v
-  | _, .base Γ, v => match v with | .base w => noFunction Γ w
-  | _, .family Γ _, v => match v with | .family w => noFunction Γ w
+  | _, .base Γ, v => match v with | .base w => no_function Γ w
+  | _, .family Γ _, v => match v with | .family w => no_function Γ w
 
 def dep {n} {Γ : Old n} : DependentStructural.Dep Γ → Dep (context Γ)
   | .var v => .var (embedVar v)
@@ -69,13 +69,13 @@ def term {n} {Γ : Old n} : {A : DependentStructural.Ty n} → DependentStructur
 def substitution {n m} {Γ : Old n} {Δ : Old m} (σ : DependentStructural.Sub Δ Γ) : Sub (context Δ) (context Γ) where
   base := σ.base
   dep v := dep (σ.dep (recover Γ v))
-  func v := False.elim (noFunction Γ v)
+  func v := False.elim (no_function Γ v)
 
 theorem substitution_typed {n m} {Γ : Old n} {Δ : Old m} (σ : DependentStructural.Sub Δ Γ) :
     (substitution σ).Typed where
   dep v := (dep_type _).trans ((σ.typed (recover Γ v)).trans
     (congrArg (Base.sub σ.base) (recover_type Γ v)))
-  func v := False.elim (noFunction Γ v)
+  func v := False.elim (no_function Γ v)
 
 theorem substitution_dep {n m} {Γ : Old n} {Δ : Old m} (σ : DependentStructural.Sub Δ Γ) (t : DependentStructural.Dep Γ) :
     (substitution σ).depSub (dep t) = dep (σ.depSub t) := by
@@ -100,7 +100,7 @@ def environment (E : DependentStructural.SheafSem.Env M Γ) : SheafSem.Env M (co
   base := E.base
   dep v := readTerm M.A (E.dep (recover Γ v))
     ((E.typed (recover Γ v)).trans (congrArg (evalBase M E.base) (recover_type Γ v)))
-  func v := False.elim (noFunction Γ v)
+  func v := False.elim (no_function Γ v)
 
 theorem interpretation (E : DependentStructural.SheafSem.Env M Γ) (t : DependentStructural.Dep Γ) :
     HEq (SheafSem.evalDep M (environment M E) (dep t))

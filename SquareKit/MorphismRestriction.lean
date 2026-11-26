@@ -28,15 +28,15 @@ def equiv (K : CategoryClosure C M) (E : HomEquiv C) : HomEquiv (ops K) :=
 
 theorem forget_laws (K : CategoryClosure C M) (E : HomEquiv C) :
     MapLaws (forget K) (equiv K E) E :=
-  RawMap.inducedLaws (forget K) E (E.refl _) (fun _ _ => E.refl _)
+  RawMap.induced_laws (forget K) E (E.refl _) (fun _ _ => E.refl _)
 
 theorem congr (K : CategoryClosure C M) {E : HomEquiv C} (CC : CategoryCongr C E) :
     CategoryCongr (ops K) (equiv K E) :=
-  RawMap.transportCongr (forget_laws K E) ((forget K).induced_reflects E) CC
+  RawMap.transport_congr (forget_laws K E) ((forget K).induced_reflects E) CC
 
 theorem laws (K : CategoryClosure C M) {E : HomEquiv C}
     (CC : CategoryCongr C E) (CL : CategoryLaws C E) : CategoryLaws (ops K) (equiv K E) :=
-  RawMap.transportLaws (forget_laws K E) ((forget K).induced_reflects E) CC CL
+  RawMap.transport_laws (forget_laws K E) ((forget K).induced_reflects E) CC CL
 
 structure TerminalClosure (T : TerminalOps C) where
   terminal : ∀ {a}, M (T.terminal (a := a))

@@ -100,6 +100,6 @@ theorem exists_substitution (Q : Subfunctor (M.context (s :: Γ))) (σ : Sub F �
         (substitution M hM σ).hom =
       SquareKit.SheafImage.localImage
         (Q.preimage (substitution M hM σ.lift).hom) (projection M hM) :=
-  SquareKit.SheafImage.beckChevalley Q (context_pullback M hM σ s)
+  SquareKit.SheafImage.beck_chevalley Q (context_pullback M hM σ s)
 
 end SquareKit.Internal.SheafContexts

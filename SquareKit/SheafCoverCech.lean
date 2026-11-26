@@ -40,7 +40,7 @@ def secondThird : triple f ⟶ double f :=
   pullback.lift_snd _ _ _
 
 /-- The first two split overlap projections form the actual pullback of f. -/
-theorem splitDoubleSquare :
+theorem split_double_square :
     IsPullback
       (SplitSheaf.Cech.first (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom)
       (SplitSheaf.Cech.second (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom) f f := by
@@ -53,17 +53,17 @@ theorem splitDoubleSquare :
   · simpa using (SplitSheaf.displayIso_projection f).symm
 
 def splitDoubleIso : SplitSheaf.Cech.double (SplitSheaf.ofDisplay f) ≅ double f :=
-  (splitDoubleSquare f).isoPullback
+  (split_double_square f).isoPullback
 
 @[simp, reassoc] theorem splitDouble_first :
     (splitDoubleIso f).hom ≫ first f =
       SplitSheaf.Cech.first (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom :=
-  (splitDoubleSquare f).isoPullback_hom_fst
+  (split_double_square f).isoPullback_hom_fst
 
 @[simp, reassoc] theorem splitDouble_second :
     (splitDoubleIso f).hom ≫ second f =
       SplitSheaf.Cech.second (SplitSheaf.ofDisplay f) ≫ (SplitSheaf.displayIso f).hom :=
-  (splitDoubleSquare f).isoPullback_hom_snd
+  (split_double_square f).isoPullback_hom_snd
 
 /-- The chosen diagonal is preserved as a map, not merely on sections. -/
 theorem splitDouble_diagonal :
@@ -77,7 +77,7 @@ abbrev splitThird : SplitSheaf.Cech.triple (SplitSheaf.ofDisplay f) ⟶
   SplitSheaf.lift (SplitSheaf.ofDisplay f)
     (SplitSheaf.Cech.first (SplitSheaf.ofDisplay f) ≫ SplitSheaf.p (SplitSheaf.ofDisplay f))
 
-theorem splitTripleSquare :
+theorem split_triple_square :
     IsPullback
       (SplitSheaf.Cech.firstSecond (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom)
       (splitThird f ≫ (SplitSheaf.displayIso f).hom) (first f ≫ f) f := by
@@ -92,16 +92,16 @@ theorem splitTripleSquare :
   · simpa using (SplitSheaf.displayIso_projection f).symm
 
 def splitTripleIso : SplitSheaf.Cech.triple (SplitSheaf.ofDisplay f) ≅ triple f :=
-  (splitTripleSquare f).isoPullback
+  (split_triple_square f).isoPullback
 
 @[simp, reassoc] theorem splitTriple_firstSecond :
     (splitTripleIso f).hom ≫ firstSecond f =
       SplitSheaf.Cech.firstSecond (SplitSheaf.ofDisplay f) ≫ (splitDoubleIso f).hom :=
-  (splitTripleSquare f).isoPullback_hom_fst
+  (split_triple_square f).isoPullback_hom_fst
 
 @[simp, reassoc] theorem splitTriple_third :
     (splitTripleIso f).hom ≫ third f = splitThird f ≫ (SplitSheaf.displayIso f).hom :=
-  (splitTripleSquare f).isoPullback_hom_snd
+  (split_triple_square f).isoPullback_hom_snd
 
 /-- Both selected pair projections are preserved through the triple overlap. -/
 theorem splitTriple_firstThird :

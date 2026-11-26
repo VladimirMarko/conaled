@@ -206,7 +206,7 @@ theorem execution_validator_workspace (cfg : Config) (history : List Command)
       (Encoding.sequence (Encoding.frameCommand cfg.lifetime) 12).decode code.1 =
         possibleCommands (execute cfg initial history).system.localBank.selected.frame ∧
       (Encoding.frame (cfg.lifetime+1)).decode code.2.2.2.1 = candidate := by
-  have h := (execution_resourceBound cfg history).localBanks.selected
+  have h := (execution_resourceBound cfg history).localBanksBound.selected
   exact actual_codes h.1 h.2.1 command proposed cut
 
 /-- Three frame traversals cover the outer proposal and the two validity

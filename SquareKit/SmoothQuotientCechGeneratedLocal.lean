@@ -41,7 +41,7 @@ theorem localMap_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSh
     localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f =
       generatedContextMap (parameterSignature a A f) hΓ :=
   Context.relabel_composition
-    (GeneratedComposition.generatedCtx (signature a A)
+    (GeneratedComposition.generated_ctx (signature a A)
       (SmoothQuotientComparison.signature (a := a) f) rfl HEq.rfl hΓ)
     _ _ _ _ _ _
 

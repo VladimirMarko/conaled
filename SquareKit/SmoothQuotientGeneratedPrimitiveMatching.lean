@@ -47,10 +47,10 @@ theorem relativeFamilyData_fiber (A : SplitSheaf.Ty X) :
   simp only [generatedFamilyMap_fiber_set]
   rfl
 
-theorem primitiveSetCoherence (A : SplitSheaf.Ty X) :
+theorem primitiveSetData_coherence (A : SplitSheaf.Ty X) :
     (primitiveSetData a hΓ hx A).toFamilyData.Coherence := by
   rw [← relativeFamilyData_fiber a hΓ hx A]
-  exact relativeFamilyCoherence a hΓ (.fiber hx) A
+  exact relativeFamilyData_coherence a hΓ (.fiber hx) A
 
 /-- Primitive relative matching is exactly the discrete set of local values
 satisfying the actual overlap equation over the supplied base datum. -/
@@ -59,8 +59,8 @@ def primitiveMatchingEquivalence (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
       Discrete ((primitiveSetData a hΓ hx A).MatchingSet d) :=
   (CechMatching.Comprehension.Constant.equivalenceOfGrpdIso
     ((CechMatching.Comprehension.Constant.familyIsoOfEq (relativeFamilyData_fiber a hΓ hx A)
-      (relativeFamilyCoherence a hΓ (.fiber hx) A) (primitiveSetCoherence a hΓ hx A)).app d)).trans
-    ((primitiveSetData a hΓ hx A).discreteEquivalence (primitiveSetCoherence a hΓ hx A) d)
+      (relativeFamilyData_coherence a hΓ (.fiber hx) A) (primitiveSetData_coherence a hΓ hx A)).app d)).trans
+    ((primitiveSetData a hΓ hx A).discreteEquivalence (primitiveSetData_coherence a hΓ hx A) d)
 
 theorem primitiveMatchingEquivalence_value (A : SplitSheaf.Ty X) (d : Datum a hΓ A)
     (z : (relativeMatchingFamily a hΓ (.fiber hx) A).obj d) :
@@ -68,7 +68,7 @@ theorem primitiveMatchingEquivalence_value (A : SplitSheaf.Ty X) (d : Datum a h�
       z.localFiber.as := by
   have hh := CechMatching.Comprehension.Constant.familyIsoOfEq_localFiber
     (relativeFamilyData_fiber a hΓ hx A)
-    (relativeFamilyCoherence a hΓ (.fiber hx) A) (primitiveSetCoherence a hΓ hx A) d z
+    (relativeFamilyData_coherence a hΓ (.fiber hx) A) (primitiveSetData_coherence a hΓ hx A) d z
   exact heq_of_eq (congrArg Discrete.as (eq_of_heq hh))
 
 end SquareKit.SmoothQuotientGeneratedMatching

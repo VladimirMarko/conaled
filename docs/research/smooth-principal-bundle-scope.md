@@ -40,7 +40,7 @@ The following inventory records declarations that exist in source, rather than p
 | `SquareKit/SmoothManifoldPrincipalMaps.lean`, `principalIso_naturality`, `openMapOfContMDiff` | Principal-open realizations compare naturally with the Euclidean-open embedding. |
 | `SquareKit/SmoothOpenOverlap.lean`, `overlap_universal`, `overlap_site_pullback`, `overlap_sheaf_pullback` | Intersections of two principal restrictions of one domain are pullbacks at every stage. The algebraic proof allows arbitrary smooth target algebras. |
 | `SquareKit/SmoothOrdinaryCoverLifting.lean`, `covering_local_inclusion` | Every covering sieve pulled back to an ordinary test contains a coordinate inclusion near each ordinary point. |
-| `SquareKit/SheafTorsor.lean`, `Torsor.locallySurjective`, `ofSection` | Local existence is part of a torsor; a selected section gives an equivariant isomorphism from the regular torsor. |
+| `SquareKit/SheafTorsor.lean`, `Torsor.isLocallySurjective`, `ofSection` | Local existence is part of a torsor; a selected section gives an equivariant isomorphism from the regular torsor. |
 | `SquareKit/SmoothRepresentedCover.lean`, `Atlas` | Requires actual site covering, represented pairs and triples, and their categorical pullback witnesses. These are not yet automatically provided for arbitrary manifold realizations. |
 | `SquareKit/SmoothManifoldAction.lean`, `representation`, `hat` | Smooth manifold actions and smooth target maps already have interpretation APIs. |
 | `SquareKit/SmoothCechRecovery.lean`, `TrivializedOn.extractedDatum`, `extractedRecovery`, `arrowEquiv`, both roundtrips | Extraction, selected recovery and complete-arrow equivalence are available after a represented atlas and its local trivializations have been constructed. |

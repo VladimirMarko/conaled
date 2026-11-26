@@ -163,7 +163,7 @@ def start : Term (family f p) := lift f p (𝟙 Γ) p rfl
 
 def finish {q : Term X} (H : Term (homogeneousPath X p q)) : Term (family f p) :=
   lift f p (𝟙 Γ) q
-    (PathDiscrete.ofIso (constant_pathDiscrete S) e (𝟙 Γ) (homogeneousPathMap f H)).symm
+    (PathDiscrete.of_iso (constant_pathDiscrete S) e (𝟙 Γ) (homogeneousPathMap f H)).symm
 
 
 def liftedLine {q : Term X} (H : Term (homogeneousPath X p q)) :

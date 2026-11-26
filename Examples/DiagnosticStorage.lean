@@ -320,7 +320,7 @@ example := assessment_numbers
 /-- Root/descriptor reads are tied to the concrete published split layout. -/
 theorem descriptor_read : StorageStep [.readRoot,.readDescriptor] (crashState published)
     {crashState published with cursor := some (.prefixCells [20,21,22,23,24,25,26,27] [] (some 29))} :=
-  .readCheckpointRoot rfl rfl rfl rfl
+  .read_checkpoint_root rfl rfl rfl rfl
 
 /-- Summing the witnessed construction traversal, eleven actual cell pairs,
 root installation and ten actual reclamations gives the proposed copy cost.

@@ -20,18 +20,18 @@ abbrev rootLeft := GuardedJRetest.Baseline.workedLeft
 abbrev rootRight := GuardedJRetest.Baseline.workedRight
   earlier base x.deriv generalized qAtBType qAtB
 
-theorem comparisonSound : interpretTm native rootLeft = interpretTm native rootRight :=
-  GuardedJRetest.Baseline.comparisonSound
+theorem comparison_sound : interpretTm native rootLeft = interpretTm native rootRight :=
+  GuardedJRetest.Baseline.comparison_sound
     earlier base x.deriv generalized qAtBType qAtB
     (GuardedJRetest.Baseline.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
     native
 
-theorem retainedSelected :
-    type_of% (GuardedJRetest.Baseline.extensionSelected
+theorem retained_selected :
+    type_of% (GuardedJRetest.Baseline.extension_selected
       earlier base x.deriv generalized qAtBType qAtB
       (GuardedJRetest.Baseline.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
       native stable) :=
-  GuardedJRetest.Baseline.extensionSelected
+  GuardedJRetest.Baseline.extension_selected
     earlier base x.deriv generalized qAtBType qAtB
     (GuardedJRetest.Baseline.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
     native stable
@@ -158,7 +158,7 @@ theorem assumptions_valid : ∀ j ∈ assumptions, j.Eval (Contextual.algebra na
 private abbrev cmd := GuardedJRetest.Candidate.outer point tail value
 private abbrev arrow := GuardedJRetest.Candidate.dependentWeakening point tail value
 
-theorem interpretedLeft :
+theorem interpreted_left :
     type_of% (Contextual.interpret
       (GuardedJRetest.Candidate.workedLeft point tail value)
       native environment assumptions_valid) :=
@@ -166,7 +166,7 @@ theorem interpretedLeft :
     (GuardedJRetest.Candidate.workedLeft point tail value)
     native environment assumptions_valid
 
-theorem interpretedRight :
+theorem interpreted_right :
     type_of% (Contextual.interpret
       (GuardedJRetest.Candidate.workedRight point tail value)
       native environment assumptions_valid) :=
@@ -174,25 +174,25 @@ theorem interpretedRight :
     (GuardedJRetest.Candidate.workedRight point tail value)
     native environment assumptions_valid
 
-theorem comparisonSound :
-    type_of% (GuardedJRetest.Candidate.comparisonSound
+theorem comparison_sound :
+    type_of% (GuardedJRetest.Candidate.comparison_sound
       point tail value arrow native environment assumptions_valid) :=
-  GuardedJRetest.Candidate.comparisonSound
+  GuardedJRetest.Candidate.comparison_sound
     point tail value arrow native environment assumptions_valid
 
-theorem retainedSelected :
-    type_of% (GuardedJRetest.Candidate.extensionSelected
+theorem retained_selected :
+    type_of% (GuardedJRetest.Candidate.extension_selected
       point tail value arrow native stable environment assumptions_valid) :=
-  GuardedJRetest.Candidate.extensionSelected
+  GuardedJRetest.Candidate.extension_selected
     point tail value arrow native stable environment assumptions_valid
 
-theorem exactRecipe : cmd.expression =
+theorem exact_recipe : cmd.expression =
     j a x t (identity (identity q p p)
       (GuardedJRetest.Candidate.calibration point tail value).expression
       (GuardedJRetest.Candidate.calibration point tail value).expression)
       (reflexivity (subTy (identity q p p) (rootTail a x t))
         (subTm (GuardedJRetest.Candidate.calibration point tail value).expression (rootTail a x t))) :=
-  GuardedJRetest.Candidate.selectedRecipe point tail value
+  GuardedJRetest.Candidate.selected_recipe point tail value
 
 end Candidate
 end GuardedJRetest.AuthorNativeCases
@@ -211,7 +211,7 @@ variable (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a) (hx : TmDeriv Γ γ A a
   (hp : TmDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q p π)
 
 
-theorem selectedCommand : GuardedJRetest.Baseline.outer hΓ hA hx hT hQ hp =
+theorem selected_command : GuardedJRetest.Baseline.outer hΓ hA hx hT hQ hp =
     GuardedJRetest.BaselineReference.outer hΓ hA hx hT hQ hp := rfl
 end Baseline
 namespace Candidate
@@ -224,7 +224,7 @@ variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
   (hp : Tm (Ω := Ω) (total T) Q p)
 
 
-theorem selectedCommand : GuardedJRetest.Candidate.outer hx hT hp =
+theorem selected_command : GuardedJRetest.Candidate.outer hx hT hp =
     GuardedJRetest.CandidateReference.outer hx hT hp := rfl
 end Candidate
 end GuardedJRetest.AuthorReferenceComparison

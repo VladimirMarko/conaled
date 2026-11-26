@@ -39,9 +39,9 @@ def matchingComparison (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.p A))
     (SmoothQuotientGeneratedMatching.restrictionOverlap_eq a hΓ A)
     (SmoothQuotientCechLocal.localMap a A hΓ) (SmoothQuotientCechLocal.generatedOverlap a A hΓ)
-    (SmoothQuotientCechLocal.generatedConeLaws a A hΓ) (restrictionComparison a A hΓ)
+    (SmoothQuotientCechLocal.generated_coneLaws a A hΓ) (restrictionComparison a A hΓ)
     (by
-      rw [leftEq (contextEquivalence a A hΓ).functor
+      rw [isoWhiskerLeft_eqToIso (contextEquivalence a A hΓ).functor
         (SmoothQuotientGeneratedMatching.restrictionOverlap_eq a hΓ A)
         (globalRestrictionOverlap_eq a A hΓ)]
       exact restrictionComparison_overlap a A hΓ)

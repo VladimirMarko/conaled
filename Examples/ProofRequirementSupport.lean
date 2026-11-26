@@ -6,7 +6,7 @@ namespace ProofRequirementTrial
 namespace Source
 
 /-- Concrete source argument for the equational task. -/
-theorem reverseBlocks (_ambient : ∀ t : List Nat, t ++ [] = t)
+theorem reverse_blocks (_ambient : ∀ t : List Nat, t ++ [] = t)
     (x y z : List Nat) :
     (x ++ (y ++ z)).reverse = (z.reverse ++ y.reverse) ++ x.reverse := by
   calc

@@ -360,7 +360,7 @@ theorem DeletionSafe.progress {cfg : Config} {s : System} {history : Peer}
           · split
             · rename_i published
               simpa only [scan,localCause,peerCause] using h.peerPublished _ cause
-                ((peerCause ▸ safe.staging.2).publication published) safe.semantic.relation.peerPending
+                ((peerCause ▸ safe.staging.2).publication published) safe.semantic.relation.peer_pending
             · rename_i silent
               simpa only [scan,localCause,peerCause] using h.congr
                 (t := {s with peer := s.peer.progress.1})

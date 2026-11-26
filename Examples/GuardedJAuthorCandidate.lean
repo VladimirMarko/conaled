@@ -15,13 +15,13 @@ def calibrationBranch : Tm (Ω := Ω) (total (pullback T (root A x)))
     (subTy (identity Q p p) (rootTail A x T))
     (reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))) :=
   hp.reflexivitySub (rootMap hx hT)
-theorem calibrationRecipe : (calibration hx hT hp).expression =
+theorem calibration_recipe : (calibration hx hT hp).expression =
     j A x T (identity Q p p)
       (reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))) := rfl
 
 
 def outer : Command Ω Γ A x := Command.reflexivity hx hT (inner hx hT hp)
-theorem selectedRecipe : (outer hx hT hp).expression =
+theorem selected_recipe : (outer hx hT hp).expression =
     j A x T (identity (identity Q p p) (calibration hx hT hp).expression
       (calibration hx hT hp).expression)
       (reflexivity (subTy (identity Q p p) (rootTail A x T))
@@ -88,7 +88,7 @@ def comparison : TypedEquality Ω Δ (selectedFamily (σ := σ) hx hT hp)
   equality := substitutedBeta hx hT hp
 
 include hσ in
-theorem comparisonSound (M : Internal.PathTransport.Typed.Model.{u})
+theorem comparison_sound (M : Internal.PathTransport.Typed.Model.{u})
     (ρ : V → Value M.toStructuralModel)
     (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
     (term Δ (selectedFamily (σ := σ) hx hT hp) (selectedLeft (σ := σ) hx hT hp)).Eval (algebra M) ρ ∧
@@ -115,7 +115,7 @@ noncomputable def extensionBeta : Derivation Internal.DependentJudgments.Sigma.t
       (selectedRight (σ := σ) hx hT hp)).inl Internal.DependentJudgments.Sigma.extraSignature) :=
   Internal.DependentJudgments.Sigma.retain (substitutedBeta hx hT hp)
 
-theorem extensionAssumptions (M : Internal.PathTransport.Typed.Model.{u})
+theorem extension_assumptions (M : Internal.PathTransport.Typed.Model.{u})
     (S : Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel)
     (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
     ∀ a ∈ Ω.map (Atom.inl Internal.DependentJudgments.Sigma.extraSignature), a.Eval (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
@@ -125,7 +125,7 @@ theorem extensionAssumptions (M : Internal.PathTransport.Typed.Model.{u})
   exact hΩ b hb
 
 include hσ in
-theorem extensionSelected (M : Internal.PathTransport.Typed.Model.{u})
+theorem extension_selected (M : Internal.PathTransport.Typed.Model.{u})
     (S : Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel)
     (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ) :
     ((term Δ (selectedFamily (σ := σ) hx hT hp)
@@ -143,7 +143,7 @@ theorem extensionSelected (M : Internal.PathTransport.Typed.Model.{u})
     ((selectedFamily (σ := σ) hx hT hp).inl Internal.DependentJudgments.Sigma.extraSignature).eval
       (Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ = (selectedFamily (σ := σ) hx hT hp).eval (algebra M) ρ ∧
     (Internal.DependentJudgments.Sigma.model M S.toCapability).restrictLeft = model M := by
-  have h := extensionAssumptions M S ρ hΩ
+  have h := extension_assumptions M S ρ hΩ
   exact ⟨Internal.DependentJudgments.Sigma.interpret (extensionLeft hx hT hp hσ) M S.toCapability ρ h,
     Internal.DependentJudgments.Sigma.interpret (extensionRight hx hT hp hσ) M S.toCapability ρ h,
     Internal.DependentJudgments.Sigma.interpret (extensionBeta (σ := σ) hx hT hp) M S.toCapability ρ h,

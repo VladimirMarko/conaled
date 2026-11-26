@@ -17,7 +17,7 @@ variable {α : Type u} {β : Type v}
 def mixedInsertSquare [LinearOrder α] (x y : α) :
     Relational.RelSquare (AbstractSet.representation (Trees.setTree (α := α)) Ordered)
       (AbstractSet.representation (Trees.setTree (α := α)) Ordered) :=
-  Relational.compose (candidateSetLaws.insertSquare y) (baselineSetLaws.insertSquare x)
+  Relational.compose (candidate_set_laws.insertSquare y) (baseline_set_laws.insertSquare x)
 
 theorem mixed_insert_contract [LinearOrder α] (x y : α) {t : BinaryTree α}
     (ordered : Ordered t) :
@@ -30,8 +30,8 @@ theorem mixed_insert_contract [LinearOrder α] (x y : α) {t : BinaryTree α}
 theorem insertion_words_same_set [LinearOrder α] (xs : List α) :
     Trees.setTree (AbstractSet.insertMany baselineOps xs baselineOps.empty) =
       Trees.setTree (AbstractSet.insertMany candidateOps xs candidateOps.empty) := by
-  rw [baselineSetLaws.insertMany_observe xs baselineSetLaws.empty_valid,
-    candidateSetLaws.insertMany_observe xs candidateSetLaws.empty_valid]
+  rw [baseline_set_laws.insertMany_observe xs baseline_set_laws.empty_valid,
+    candidate_set_laws.insertMany_observe xs candidate_set_laws.empty_valid]
   rfl
 
 theorem repeated_word_membership (x : Nat) :
@@ -39,15 +39,15 @@ theorem repeated_word_membership (x : Nat) :
         (AbstractSet.insertMany baselineOps [3, 1, 3, 2] baselineOps.empty) = true ↔
       (candidateOps : AbstractSet.Ops Nat (BinaryTree Nat)).member x
         (AbstractSet.insertMany candidateOps [3, 1, 3, 2] candidateOps.empty) = true :=
-  (baselineSetLaws.member_from_empty [3, 1, 3, 2] x).trans
-    (candidateSetLaws.member_from_empty [3, 1, 3, 2] x).symm
+  (baseline_set_laws.member_from_empty [3, 1, 3, 2] x).trans
+    (candidate_set_laws.member_from_empty [3, 1, 3, 2] x).symm
 
 theorem repeated_word_contains_two :
     2 ∈ Trees.setTree
       (AbstractSet.insertMany candidateOps [3, 1, 3, 2] candidateOps.empty) := by
-  have valid := candidateSetLaws.insertMany_valid [3, 1, 3, 2] candidateSetLaws.empty_valid
-  apply (candidateSetLaws.member 2 _ valid).mp
-  exact (candidateSetLaws.member_from_empty [3, 1, 3, 2] 2).mpr (by simp)
+  have valid := candidate_set_laws.insertMany_valid [3, 1, 3, 2] candidate_set_laws.empty_valid
+  apply (candidate_set_laws.member 2 _ valid).mp
+  exact (candidate_set_laws.member_from_empty [3, 1, 3, 2] 2).mpr (by simp)
 
 theorem mixed_duplicate_contract :
     Ordered (insertCandidate 1 (insert 4 Examples.OrderedTree.sample)) ∧

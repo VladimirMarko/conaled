@@ -34,22 +34,22 @@ def Fiber.ofOverlap (d : Datum D.toDiagram) (x : A.localFamily.obj d.localObject
     change D.diagonal.map i.hom.base = _
     rw [hb]
     change D.diagonal.map d.overlap.hom =
-      ((eqToHom h.diagonalFirst).app (liftLocal A d x) ≫
-        (eqToHom h.diagonalSecond.symm).app (liftLocal A d x)).base
+      ((eqToHom h.diagonal_first).app (liftLocal A d x) ≫
+        (eqToHom h.diagonal_second.symm).app (liftLocal A d x)).base
     simp only [eqToHom_app]
     change D.diagonal.map d.overlap.hom =
-      (Grothendieck.comp (eqToHom (CategoryTheory.Functor.congr_obj h.diagonalFirst (liftLocal A d x)))
-        (eqToHom (CategoryTheory.Functor.congr_obj h.diagonalSecond.symm (liftLocal A d x)))).base
+      (Grothendieck.comp (eqToHom (CategoryTheory.Functor.congr_obj h.diagonal_first (liftLocal A d x)))
+        (eqToHom (CategoryTheory.Functor.congr_obj h.diagonal_second.symm (liftLocal A d x)))).base
     dsimp only [Grothendieck.comp]
     rw [Grothendieck.base_eqToHom, Grothendieck.base_eqToHom]
     simpa only [StrictDiagram.toDiagram, eqToIso.hom, eqToIso.inv, eqToHom_app] using d.diagonal
   cocycle := by
     apply totalArrow_ext A.tripleFamily
     change D.firstSecond.map i.hom.base ≫
-      ((eqToHom h.tripleMiddle).app (liftLocal A d x)).base ≫
+      ((eqToHom h.triple_middle).app (liftLocal A d x)).base ≫
         D.secondThird.map i.hom.base =
-      ((eqToHom h.tripleFirst).app (liftLocal A d x)).base ≫
-        D.firstThird.map i.hom.base ≫ ((eqToHom h.tripleLast).app (liftLocal A d x)).base
+      ((eqToHom h.triple_first).app (liftLocal A d x)).base ≫
+        D.firstThird.map i.hom.base ≫ ((eqToHom h.triple_last).app (liftLocal A d x)).base
     rw [hb]
     simp only [eqToHom_app]
     rw [Grothendieck.base_eqToHom, Grothendieck.base_eqToHom, Grothendieck.base_eqToHom]

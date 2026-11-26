@@ -6,7 +6,7 @@ of primitives, sums, or let is imposed here. -/
 namespace CategoricalCompiler
 namespace Term
 
-private theorem binaryCongr (f : α → β → γ) {a a' : α} {b b' : β}
+private theorem binary_congr (f : α → β → γ) {a a' : α} {b b' : β}
     (h : a = a') (k : b = b') : f a b = f a' b' := by cases h; cases k; rfl
 
 abbrev Ren (Γ Δ : Ctx) := {a : Ty} → Var Γ a → Var Δ a
@@ -69,11 +69,11 @@ theorem eval_rename {B : Type} (m : {a b : Ty} → P a b → Val B a → Val B b
   induction t generalizing Δ with
   | var v => exact h v
   | unit => rfl
-  | pair t u it iu => exact binaryCongr Prod.mk (it r ρ τ h) (iu r ρ τ h)
+  | pair t u it iu => exact binary_congr Prod.mk (it r ρ τ h) (iu r ρ τ h)
   | fst t it => exact congrArg Prod.fst (it r ρ τ h)
   | snd t it => exact congrArg Prod.snd (it r ρ τ h)
   | lam t it => exact funext (fun x => it _ _ _ (liftRen_agrees r ρ τ h x))
-  | app t u it iu => exact binaryCongr (fun f x => f x) (it r ρ τ h) (iu r ρ τ h)
+  | app t u it iu => exact binary_congr (fun f x => f x) (it r ρ τ h) (iu r ρ τ h)
   | letE t u it iu =>
     simp only [rename, eval, it r ρ τ h]
     exact iu _ _ _ (liftRen_agrees r ρ τ h _)
@@ -102,11 +102,11 @@ theorem eval_subst {B : Type} (m : {a b : Ty} → P a b → Val B a → Val B b)
   induction t generalizing Δ with
   | var v => exact h v
   | unit => rfl
-  | pair t u it iu => exact binaryCongr Prod.mk (it s ρ τ h) (iu s ρ τ h)
+  | pair t u it iu => exact binary_congr Prod.mk (it s ρ τ h) (iu s ρ τ h)
   | fst t it => exact congrArg Prod.fst (it s ρ τ h)
   | snd t it => exact congrArg Prod.snd (it s ρ τ h)
   | lam t it => exact funext (fun x => it _ _ _ (liftSub_agrees m s ρ τ h x))
-  | app t u it iu => exact binaryCongr (fun f x => f x) (it s ρ τ h) (iu s ρ τ h)
+  | app t u it iu => exact binary_congr (fun f x => f x) (it s ρ τ h) (iu s ρ τ h)
   | letE t u it iu =>
     simp only [subst, eval, it s ρ τ h]
     exact iu _ _ _ (liftSub_agrees m s ρ τ h _)
@@ -130,30 +130,30 @@ primitive operations, sums or let are asserted by this relation. -/
 inductive Step : Term P Γ a → Term P Γ a → Prop where
   | beta (t : Term P (a :: Γ) b) (u : Term P Γ a) :
       Step (.app (.lam t) u) (subst (single u) t)
-  | fstPair (t : Term P Γ a) (u : Term P Γ b) : Step (.fst (.pair t u)) t
-  | sndPair (t : Term P Γ a) (u : Term P Γ b) : Step (.snd (.pair t u)) u
-  | pairLeft : Step t t' → Step (.pair t u) (.pair t' u)
-  | pairRight : Step u u' → Step (.pair t u) (.pair t u')
+  | fst_pair (t : Term P Γ a) (u : Term P Γ b) : Step (.fst (.pair t u)) t
+  | snd_pair (t : Term P Γ a) (u : Term P Γ b) : Step (.snd (.pair t u)) u
+  | pair_left : Step t t' → Step (.pair t u) (.pair t' u)
+  | pair_right : Step u u' → Step (.pair t u) (.pair t u')
   | fst : Step t t' → Step (.fst t) (.fst t')
   | snd : Step t t' → Step (.snd t) (.snd t')
   | lam : Step t t' → Step (.lam t) (.lam t')
-  | appLeft : Step t t' → Step (.app t u) (.app t' u)
-  | appRight : Step u u' → Step (.app t u) (.app t u')
+  | app_left : Step t t' → Step (.app t u) (.app t' u)
+  | app_right : Step u u' → Step (.app t u) (.app t u')
 
 theorem Step.sound {P : Ty → Ty → Type} {Γ : Ctx} {a : Ty}
     {t u : Term P Γ a} {B : Type} (m : {a b : Ty} → P a b → Val B a → Val B b)
     (h : Step t u) (ρ : Val B (context Γ)) : eval m t ρ = eval m u ρ := by
   induction h with
   | beta t u => exact (eval_single m t u ρ).symm
-  | fstPair => rfl
-  | sndPair => rfl
-  | pairLeft h ih => exact congrArg (fun x => (x, _)) (ih ρ)
-  | pairRight h ih => exact congrArg (fun x => (_, x)) (ih ρ)
+  | fst_pair => rfl
+  | snd_pair => rfl
+  | pair_left h ih => exact congrArg (fun x => (x, _)) (ih ρ)
+  | pair_right h ih => exact congrArg (fun x => (_, x)) (ih ρ)
   | fst h ih => exact congrArg Prod.fst (ih ρ)
   | snd h ih => exact congrArg Prod.snd (ih ρ)
   | lam h ih => exact funext (fun x => ih (ρ, x))
-  | appLeft h ih => simp only [eval, ih ρ]
-  | appRight h ih => simp only [eval, ih ρ]
+  | app_left h ih => simp only [eval, ih ρ]
+  | app_right h ih => simp only [eval, ih ρ]
 
 end Term
 end CategoricalCompiler

@@ -80,7 +80,7 @@ theorem member_inorder (x : α) {t : BinaryTree α}
   exact (member_correct (ordered_of_inorder_pairwise strict) x).trans
     (contains_iff_mem_entries x t)
 
-theorem inorderRefinement : AbstractSet.Refinement
+theorem inorder_refinement : AbstractSet.Refinement
     (deleteOps : AbstractSet.DeleteOps α (BinaryTree α)) OrderedList.ops Trees.inorder
     (fun _ => True) OrderedList.Strict where
   empty := rfl
@@ -91,7 +91,7 @@ theorem inorderRefinement : AbstractSet.Refinement
   auxiliary_delete _ _ _ _ := trivial
   member x _ _ hs := member_inorder x hs
 
-theorem inorderJoinRefinement : AbstractSet.Refinement
+theorem inorder_join_refinement : AbstractSet.Refinement
     (deleteJoinOps : AbstractSet.DeleteOps α (BinaryTree α)) OrderedList.ops Trees.inorder
     (fun _ => True) OrderedList.Strict where
   empty := rfl
@@ -106,14 +106,14 @@ theorem inorder_valid_iff (t : BinaryTree α) :
     AbstractSet.Refinement.Valid Trees.inorder (fun _ => True) OrderedList.Strict t ↔ Ordered t := by
   exact (and_iff_right trivial).trans (ordered_iff_inorder_pairwise t).symm
 
-theorem refinedDeleteSetLaws : AbstractSet.DeleteLaws
+theorem refined_delete_set_laws : AbstractSet.DeleteLaws
     (deleteOps : AbstractSet.DeleteOps α (BinaryTree α)) Trees.setTree Ordered :=
-  ((inorderRefinement.laws OrderedList.laws).congr_valid inorder_valid_iff).congr_observe
+  ((inorder_refinement.laws OrderedList.laws).congr_valid inorder_valid_iff).congr_observe
     (fun t _ x => (contains_iff_mem_entries x t).symm.trans (contains_iff_mem_setTree x t))
 
-theorem refinedDeleteJoinSetLaws : AbstractSet.DeleteLaws
+theorem refined_deleteJoin_set_laws : AbstractSet.DeleteLaws
     (deleteJoinOps : AbstractSet.DeleteOps α (BinaryTree α)) Trees.setTree Ordered :=
-  ((inorderJoinRefinement.laws OrderedList.laws).congr_valid inorder_valid_iff).congr_observe
+  ((inorder_join_refinement.laws OrderedList.laws).congr_valid inorder_valid_iff).congr_observe
     (fun t _ x => (contains_iff_mem_entries x t).symm.trans (contains_iff_mem_setTree x t))
 
 end Search.OrderedTree

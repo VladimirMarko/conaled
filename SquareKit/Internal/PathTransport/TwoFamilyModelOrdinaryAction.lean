@@ -24,7 +24,7 @@ def OrdinaryApActionFormula : Prop :=
   (ordinaryApLeft M A B t x).down (ordinaryApRight M A B t x).down
   (ordinaryApBranch M A B t x).down (ordinaryApSection M A B t x).down
 theorem ordinaryApSection_action : OrdinaryApActionFormula C D A B t x :=
- SourceContraction.ValueFormula.identityAction (rootContraction C D A x).val
+ SourceContraction.ValueFormula.identity_action (rootContraction C D A x).val
   (motive M A ((M).subTy B ((M).weaken Γ A)) x) _ _ _ _
   (ordinaryApSection_objects C D A B t x)
 theorem ordinaryApSection_root_identity :

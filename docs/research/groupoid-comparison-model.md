@@ -18,7 +18,7 @@ fields and laws of `ComparisonStructuralModel`.
 `ComparisonPath` identifies the actual path-context map with the map in the
 shared family-comparison square. `ComparisonElimination` uses that square and
 `EquivalenceSquare.eliminate_familyMap`; dependent extension constructs the next
-square through `liftChangingSquare`. `ComparisonTelescope` recurses through
+square through `lift_changing_square`. `ComparisonTelescope` recurses through
 arbitrary finite structural telescopes and constructs contextual J and beta.
 The final root/tail square and J compatibility are not input model fields.
 
@@ -138,9 +138,9 @@ invariant by mutual induction over all five generated derivation families.
 It covers path and branch contexts, dependent telescopes and their pullbacks,
 all primitive types, both instantiated elimination forms, generic J, reindexed
 J branches, path-tail substitutions and conversion. Its internal
-`generatedTmType` establishes the family invariant; the public `generatedTm`
+`generated_tm_type` establishes the family invariant; the public `generated_tm`
 combines this with the already-proved endpoint interpretation to obtain full
-section composition. `generatedSub` similarly obtains whole-substitution
+section composition. `generated_sub` similarly obtains whole-substitution
 composition. No new J proof or source rule is introduced. The private
 source-context helper derives a context judgment from existing substitution
 constructors.

@@ -33,18 +33,18 @@ example {a b : Arrow (Type u)} (f : a ⟶ b) :
   (falseToTrue (Type u)).naturality f
 
 /-- A reverse geometric transformation would send the true witness to false. -/
-theorem noReverse : IsEmpty (truePoint (Type u) ⟶ falsePoint (Type u)) :=
+theorem no_reverse : IsEmpty (truePoint (Type u) ⟶ falsePoint (Type u)) :=
   ⟨fun α => PEmpty.elim (α.app generic PUnit.unit)⟩
 
 /-- In particular the transformation retained by the interface is not invertible. -/
 theorem falseToTrue_not_isIso : ¬ IsIso (falseToTrue (Type u)) := by
   intro h
   let := h
-  exact noReverse.false (inv (falseToTrue (Type u)))
+  exact no_reverse.false (inv (falseToTrue (Type u)))
 
 /-- The same obstruction holds in the category over the base. -/
-theorem noReverseOver : IsEmpty (trueLift (Type u) ⟶ falseLift (Type u)) :=
-  ⟨fun α => noReverse.false α.transformation⟩
+theorem no_reverse_over : IsEmpty (trueLift (Type u) ⟶ falseLift (Type u)) :=
+  ⟨fun α => no_reverse.false α.transformation⟩
 
 /-- These are the actual models obtained by generic-model evaluation. -/
 abbrev falseModel : MonoOver (⊤_ (Type u)) :=
@@ -59,7 +59,7 @@ def modelMap : falseModel ⟶ trueModel :=
 example : modelMap.hom.left = (Sierpinski.generic (Type u)).hom := rfl
 
 /-- A reverse model map would produce an inhabitant of the initial set. -/
-theorem noReverseModel : IsEmpty (trueModel.{u} ⟶ falseModel.{u}) := by
+theorem no_reverse_model : IsEmpty (trueModel.{u} ⟶ falseModel.{u}) := by
   refine ⟨fun q => ?_⟩
   let empty := (initialIsInitial (C := Type u)).to (PEmpty.{u + 1})
   let witness := ((Types.isTerminalPUnit.{u}).uniqueUpToIso terminalIsTerminal).hom PUnit.unit
@@ -68,11 +68,11 @@ theorem noReverseModel : IsEmpty (trueModel.{u} ⟶ falseModel.{u}) := by
 theorem modelMap_not_isIso : ¬ IsIso (modelMap.{u}) := by
   intro h
   let := h
-  exact noReverseModel.false (inv modelMap)
+  exact no_reverse_model.false (inv modelMap)
 
 /-- A groupoid cannot be equivalent to the full model category: it would make
 false-to-true invertible. In particular, passing to a core loses information. -/
-theorem noGroupoidEquivalence {C : Type*} [Groupoid C]
+theorem no_groupoid_equivalence {C : Type*} [Groupoid C]
     (e : MonoOver (⊤_ (Type u)) ≌ C) : False := by
   have : IsIso (modelMap.{u}) := isIso_of_reflects_iso modelMap e.functor
   exact modelMap_not_isIso this

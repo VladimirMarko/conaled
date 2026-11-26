@@ -222,7 +222,7 @@ def projection : total G c ⟶ base :=
 
 /-- Each chart pulls the constructed display map back to the genuine product
 with the locally constant group sheaf. This is effective gluing in sheaves. -/
-theorem localTrivial :
+theorem local_trivial :
     IsPullback (totalChartLeft G c) (lineProjection G) (projection G c) left ∧
     IsPullback (totalChartRight G c) (lineProjection G) (projection G c) right := by
   apply (Adhesive.van_kampen (IsPushout.of_hasPushout inclusion inclusion)
@@ -248,8 +248,8 @@ clutching equation on the punctured-line sheaf. -/
 theorem section_labels (s : base ⟶ total G c) (hs : s ≫ projection G c = 𝟙 _) :
     ∃ a b : lineSheaf ⟶ locallyConstantGroupSheaf G,
       multiply G (inclusion ≫ a) (transition G c) = inclusion ≫ b := by
-  let pl := (localTrivial G c).1
-  let pr := (localTrivial G c).2
+  let pl := (local_trivial G c).1
+  let pr := (local_trivial G c).2
   let l := pl.lift (left ≫ s) (𝟙 _) (by simp [Category.assoc, hs])
   let r := pr.lift (right ≫ s) (𝟙 _) (by simp [Category.assoc, hs])
   have hl : l ≫ lineProjection G = 𝟙 _ := pl.lift_snd _ _ _
@@ -650,10 +650,10 @@ instance projection_locallySurjective :
     rcases hf with ⟨y, hy⟩ | ⟨y, hy⟩
     · refine ⟨(totalChartLeft G c).hom.app (op V)
         (pairSection lineSheaf (locallyConstantGroupSheaf G) (op V) y (1 : (locallyConstantGroup G).obj.obj (op V))), ?_⟩
-      exact (projection_chart G c left (totalChartLeft G c) (localTrivial G c).1.w _ y 1).trans hy
+      exact (projection_chart G c left (totalChartLeft G c) (local_trivial G c).1.w _ y 1).trans hy
     · refine ⟨(totalChartRight G c).hom.app (op V)
         (pairSection lineSheaf (locallyConstantGroupSheaf G) (op V) y (1 : (locallyConstantGroup G).obj.obj (op V))), ?_⟩
-      exact (projection_chart G c right (totalChartRight G c) (localTrivial G c).2.w _ y 1).trans hy
+      exact (projection_chart G c right (totalChartRight G c) (local_trivial G c).2.w _ y 1).trans hy
 
 instance action_locallySurjective : Presheaf.IsLocallySurjective SmoothOpenSite.topology
     (SplitSheaf.p (action G c).family).hom := by

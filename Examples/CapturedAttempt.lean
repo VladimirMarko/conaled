@@ -11,11 +11,11 @@ open Interaction Interaction.CapturedAttempt Interaction.Measurement
 def ReadsA (h : Bool × Bool) (a : Bool) : Prop := a = h.1
 def ReadsB (h : Bool × Bool) (b : Bool) : Prop := b = h.2
 
-theorem mixedChain : CaptureChain ReadsA ReadsB (false, false) (true, true)
+theorem mixed_chain : CaptureChain ReadsA ReadsB (false, false) (true, true)
     (false, true) (false, true) (false, true) := ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 theorem mixed_execution : CapturedExecution ReadsA ReadsB (false, false) (true, true)
-    (false, true) (false, true) := capture_chain mixedChain
+    (false, true) (false, true) := capture_chain mixed_chain
 
 theorem mixed_not_revision : (false, true) ∉ Snapshot.history := Snapshot.never_coexisted
 
@@ -27,7 +27,7 @@ theorem wrong_live_input : ¬ CapturedExecution ReadsA ReadsB (false, false) (tr
 
 theorem mixed_snapshot : Snapshot.CompileCaptured
     ⟨(true, true), (false, true), none⟩
-    ⟨(true, true), (false, true), some (false, true)⟩ := captured_step mixedChain
+    ⟨(true, true), (false, true), some (false, true)⟩ := captured_step mixed_chain
 
 theorem partial_capture_cannot_launch : sealedValue (CaptureState.readB false true) = none := rfl
 
@@ -81,7 +81,7 @@ theorem good_evidence : Evidence finished good := by
 
 theorem both_consumers : CapturedExecution ReadsA ReadsB (false, false) (true, true)
     (false, true) (false, true) ∧ Completed finished :=
-  accepted_capture mixedChain good_evidence (record issued.controller good) rfl rfl
+  accepted_capture mixed_chain good_evidence (record issued.controller good) rfl rfl
 
 theorem duplicate_authorization_rejected : runEvents {} [.authorize, .authorize] = none := rfl
 

@@ -16,10 +16,10 @@ def eliminationInclusion : TheoryMap Eη eliminationPresentation id where
 /-- A presentation map assembles one certificate per constructor rule; the
 subsequent proof translator is the generic derivation induction. -/
 def fullGWithCongruence (congruence : ∀ r, GCongruenceCertificate r) :
-    MetavariableTheoryMap (projectionPresentation true) eliminationPresentation (map G) where
+    MetavariableTheoryMap (projectionPresentation true) eliminationPresentation (map projectionToElimination) where
   certificate r := match r with
     | .inl r => MetavariableCertificate.mapRules fullEliminationStructural
-        ((MetavariableTheoryMap.ofTheoryMap (structuralMap G)).certificate r)
+        ((MetavariableTheoryMap.ofTheoryMap (structuralMap projectionToElimination)).certificate r)
     | .inr (.inl r) => MetavariableCertificate.mapRules eliminationInclusion (gPrimitiveCertificate r)
     | .inr (.inr (.inl r)) => congruence r
     | .inr (.inr (.inr (.inl r))) => MetavariableCertificate.mapRules fullEliminationDeclaration
@@ -30,7 +30,7 @@ def fullGWithCongruence (congruence : ∀ r, GCongruenceCertificate r) :
 /-- Composition retains the ordinary proof tree obtained by first transporting
 through beta-to-eta inclusion and then replaying the projection templates. -/
 def pairPipelineWithCongruence (congruence : ∀ r, GCongruenceCertificate r) :
-    CertificatePipeline (projectionPresentation false) eliminationPresentation (map G ∘ id) :=
+    CertificatePipeline (projectionPresentation false) eliminationPresentation (map projectionToElimination ∘ id) :=
   (CertificatePipeline.step (MetavariableTheoryMap.ofTheoryMap projectionInclusion)
     (fullProjectionLocal true _)).comp
     (.step (fullGWithCongruence congruence) (fullEliminationLocal _))

@@ -28,13 +28,13 @@ structure SetValid (bits : Nat) (set : NodeSet) : Prop where
 
 structure GraphValid (bits : Nat) (g : Graph) : Prop where
   normal : SparseMap.Normalized g
-  keyBits : ∀ key value, SparseMap.find key g = some value → bitLength key ≤ bits
+  bitLength_le : ∀ key value, SparseMap.find key g = some value → bitLength key ≤ bits
   payload : ∀ key value, SparseMap.find key g = some value → SetValid bits value
 
 structure AssignmentValid (bits : Nat) (palette : NodeSet) (f : Assignment) : Prop where
   normal : SparseMap.Normalized f
-  keyBits : ∀ key value, SparseMap.find key f = some value → bitLength key ≤ bits
-  paletteOnly : PaletteValued palette f
+  bitLength_le : ∀ key value, SparseMap.find key f = some value → bitLength key ≤ bits
+  paletteValued : PaletteValued palette f
 
 theorem SetValid.nil (bits : Nat) : SetValid bits .nil := by
   refine ⟨KeySet.normalized_nil, ?_⟩
@@ -83,7 +83,7 @@ theorem GraphValid.adj {bits : Nat} {g : Graph} (valid : GraphValid bits g) (key
 theorem GraphValid.mem_bits {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     {key : Node} (member : key ∈ SparseMap.keys g) : bitLength key ≤ bits := by
   obtain ⟨value, found⟩ := (SparseMap.mem_keys key g).mp member
-  exact valid.keyBits key value found
+  exact valid.bitLength_le key value found
 
 theorem GraphValid.add {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     (key : Node) (value : NodeSet) (keyBound : bitLength key ≤ bits) (payload : SetValid bits value) :
@@ -93,7 +93,7 @@ theorem GraphValid.add {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     rw [SparseMap.find_add] at found
     split_ifs at found with same
     · simpa only [same] using keyBound
-    · exact valid.keyBits query result found
+    · exact valid.bitLength_le query result found
   · intro query result found
     rw [SparseMap.find_add] at found
     split_ifs at found with same
@@ -117,7 +117,7 @@ theorem GraphValid.remove {bits : Nat} {g : Graph} (valid : GraphValid bits g) (
   refine ⟨SparseMap.normalized_map _ (SparseMap.normalized_erase erased valid.normal), ?_, ?_⟩
   · intro query value found
     obtain ⟨old, oldFound, _⟩ := original query value found
-    exact valid.keyBits query old oldFound
+    exact valid.bitLength_le query old oldFound
   · intro query value found
     obtain ⟨old, oldFound, rfl⟩ := original query value found
     exact (valid.payload query old oldFound).erase erased
@@ -131,7 +131,7 @@ theorem GraphValid.erase {bits : Nat} {g : Graph} (valid : GraphValid bits g) (e
     · simp only [SparseMap.find_erase, same, ite_true, reduceCtorEq] at found
     · simpa only [SparseMap.find_erase, ite_eq_right same] using found
   exact ⟨SparseMap.normalized_erase erased valid.normal,
-    fun query value found => valid.keyBits query value (original query value found),
+    fun query value found => valid.bitLength_le query value (original query value found),
     fun query value found => valid.payload query value (original query value found)⟩
 
 theorem GraphValid.removeNodes {bits : Nat} {g : Graph} (valid : GraphValid bits g)
@@ -157,7 +157,7 @@ theorem mkGraph_valid (bits : Nat) (edges : List (Node × Node))
 
 theorem GraphValid.nodes_le {bits : Nat} {g : Graph} (valid : GraphValid bits g) :
     g.numNodes ≤ SparseMap.cardinal g * bits :=
-  SparseMap.numNodes_le_cardinal_mul valid.normal bits valid.keyBits
+  SparseMap.numNodes_le_cardinal_mul valid.normal bits valid.bitLength_le
 
 theorem GraphValid.eq_nil_of_cardinal_zero {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     (empty : SparseMap.cardinal g = 0) : g = .nil :=
@@ -172,7 +172,7 @@ theorem subsetNodes_valid {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     (fun entry state found hs => by
       dsimp only [step]
       split_ifs
-      · exact hs.add entry.1 (valid.keyBits entry.1 entry.2 found)
+      · exact hs.add entry.1 (valid.bitLength_le entry.1 entry.2 found)
       · exact hs)
     (SparseMap.elements g)
     (fun entry member => (SparseMap.mem_elements entry.1 entry.2 g).mp member)
@@ -290,14 +290,14 @@ theorem AssignmentValid.add {bits : Nat} {palette : NodeSet} {f : Assignment}
   · intro query value found
     by_cases same : query = key
     · simpa only [same] using bounded
-    · exact valid.keyBits query value (by rwa [SparseMap.find_add_other key query color f same] at found)
+    · exact valid.bitLength_le query value (by rwa [SparseMap.find_add_other key query color f same] at found)
   · intro query value found
     by_cases same : query = key
     · subst query
       rw [SparseMap.find_add_same] at found
       cases found
       exact member
-    · exact valid.paletteOnly query value (by rwa [SparseMap.find_add_other key query color f same] at found)
+    · exact valid.paletteValued query value (by rwa [SparseMap.find_add_other key query color f same] at found)
 
 theorem AssignmentValid.color1 {bits : Nat} {palette : NodeSet} {f : Assignment}
     (valid : AssignmentValid bits palette f) (g : Graph) (key : Node)

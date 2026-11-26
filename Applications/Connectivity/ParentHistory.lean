@@ -178,7 +178,7 @@ theorem requestHistory_nonpositive_iff (n : Int) (requests : List (Int × Int))
 private def historyMid : DSA := ⟨#[1, 2, 2], #[1, 2, 1]⟩
 private def historyFinal : DSA := ⟨#[2, 2, 2], #[1, 3, 1]⟩
 
-private theorem historyExample : RequestHistory 3 [(2, 3), (1, 2)] historyFinal := by
+private theorem history_example : RequestHistory 3 [(2, 3), (1, 2)] historyFinal := by
   have first : RequestStep (startDSA 3) 2 3 historyMid := by
     refine ⟨2, 3, ?_, ?_, ?_, ?_⟩ <;> decide +kernel
   have second : RequestStep historyMid 1 2 historyFinal := by

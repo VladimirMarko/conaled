@@ -16,7 +16,7 @@ example {A B : Type u} (f : A → B) : functionMap id id f = f :=
 example {A A' A'' B B' B'' : Type u} (i : A' → A) (i' : A'' → A')
     (j : B → B') (j' : B' → B'') (f : A → B) :
     functionMap i' j' (functionMap i j f) = functionMap (i ∘ i') (j' ∘ j) f :=
-  HomVariance.comp (equalityCongr _) FunctionCategory.laws i i' j j' f
+  HomVariance.comp (equality_congr _) FunctionCategory.laws i i' j j' f
 
 /-- Both input maps are injective, but their action on functions is not. -/
 def falseOnly : Unit → Bool := fun _ => false
@@ -48,12 +48,12 @@ example {A A' B B' : Type u}
     (f : (Designated.all FunctionCategory.ops).Evidence A B) :
     (HomVariance.map (C := (Designated.all FunctionCategory.ops).ops Designated.all_laws) i j f).val =
       functionMap i.val j.val f.val :=
-  HomVariance.interpret _ (Designated.forget_laws _ _ _) (equalityCongr _) i j f
+  HomVariance.interpret _ (Designated.forget_laws _ _ _) (equality_congr _) i j f
 
 /-- Designated injective arrows inherit the existing semantic category laws. -/
 example : CategoryLaws (injectiveMaps.ops injective_laws)
     (injectiveMaps.equiv injective_laws (equality _)) :=
-  Designated.laws _ _ (equalityCongr _) FunctionCategory.laws
+  Designated.laws _ _ (equality_congr _) FunctionCategory.laws
 
 example : injectiveMaps.PreservedBy injectiveMaps
     ((RawMap.id FunctionCategory.ops).comp (RawMap.id FunctionCategory.ops)) :=
@@ -85,7 +85,7 @@ example {X : Type u} {P' P Q Q' : Set X}
     (predicateInterpretation X).map (HomVariance.map i j f) =
       functionMap ((predicateInterpretation X).map i) ((predicateInterpretation X).map j)
         ((predicateInterpretation X).map f) :=
-  HomVariance.interpret _ (predicateInterpretation_laws X) (equalityCongr _) i j f
+  HomVariance.interpret _ (predicateInterpretation_laws X) (equality_congr _) i j f
 
 /-- Requirement transport along a designated function retains the chosen predicate. -/
 example {X Y : Type u} (f : X → Y) (Q : Set Y) :

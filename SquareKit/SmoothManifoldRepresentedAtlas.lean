@@ -45,7 +45,7 @@ def representedAtlas : SmoothRepresentedCover.Atlas A.charts.realization A.Index
   triple := A.triple
   firstSecond := A.firstSecond
   third := A.third
-  tripleSquare := A.triple_pullback
+  triple_isPullback := A.triple_pullback
 
 end SquareKit.ManifoldRealization.ChartFamily
 
@@ -134,8 +134,8 @@ def transport : Atlas Y I where
   triple := A.triple
   firstSecond := A.firstSecond
   third := A.third
-  tripleSquare i j k := by
-    have h := (A.tripleSquare i j k).of_iso (Iso.refl _) (Iso.refl _) (Iso.refl _) e
+  triple_isPullback i j k := by
+    have h := (A.triple_isPullback i j k).of_iso (Iso.refl _) (Iso.refl _) (Iso.refl _) e
       (fst' := embedding.map (A.firstSecond i j k)) (snd' := embedding.map (A.third i j k))
       (f' := (embedding.map (A.left i j) ≫ A.chart i) ≫ e.hom)
       (g' := A.chart k ≫ e.hom) (by simp) (by simp) (by simp) (by simp)

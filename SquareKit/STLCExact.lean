@@ -57,7 +57,7 @@ theorem preserves : STLCNaturality.Preserves (inclusion P) (equality _)
 /-- Every legacy exact compiled square is recovered through shared naturality. -/
 theorem compile_comparison (t : Term Prim Γ a) :
     ofSquare (compile (SquareCompiler.target base P) t) = STLCNaturality.compile (model P) t := by
-  have h := STLCNaturality.naturality (inclusion_laws P) (equalityCongr _)
+  have h := STLCNaturality.naturality (inclusion_laws P) (equality_congr _)
     (model_congr P) (preserves P) t
   change ofSquare (STLCNaturality.compile (STLCNaturality.ofTarget (SquareCompiler.target base P)) t) = _ at h
   rw [STLCNaturality.compile_ofTarget] at h

@@ -65,11 +65,11 @@ def ofCategory (Obj : Type u) [CategoryTheory.Category.{v} Obj] : CategoryOps Ob
 def equality {Obj : Type u} (C : CategoryOps.{u,v} Obj) : HomEquiv C where
   homSetoid _ _ := ⟨Eq, ⟨Eq.refl, Eq.symm, Eq.trans⟩⟩
 
-theorem equalityCongr {Obj : Type u} (C : CategoryOps.{u,v} Obj) :
+theorem equality_congr {Obj : Type u} (C : CategoryOps.{u,v} Obj) :
     CategoryCongr C (equality C) where
   comp := by intros; subst_vars; rfl
 
-theorem ofCategoryLaws (Obj : Type u) [CategoryTheory.Category.{v} Obj] :
+theorem ofCategory_laws (Obj : Type u) [CategoryTheory.Category.{v} Obj] :
     CategoryLaws (ofCategory Obj) (equality (ofCategory Obj)) where
   id_comp := CategoryTheory.Category.comp_id
   comp_id := CategoryTheory.Category.id_comp

@@ -14,7 +14,7 @@ def meaning : {a b : Ty} → NatPrim a b → Val Nat a → Val Nat b
   | _, _, .literal n, _ => n
   | _, _, .add, (x,y) => x+y
 
-abbrev K := ListFoldCompiler.functionScalar meaning
+abbrev scalarCompiler := ListFoldCompiler.functionScalar meaning
 abbrev sound := ListFoldCompiler.functionScalarSound meaning
 
 def lit {Γ : Ctx} (n : Nat) : Term NatPrim Γ .base := .prim (.literal n) .unit
@@ -31,46 +31,46 @@ def jointBody : Term NatPrim [.base,pairTy] (.prod pairTy pairTy) :=
   .letE jointNext (.pair (.var .here) (.var .here))
 
 /-- Compiled data is stored before the runtime step closure is formed. -/
-def jointCode := ReactiveCompiler.compile K jointSeed jointBody
+def jointCode := ReactiveCompiler.compile scalarCompiler jointSeed jointBody
 def jointMachine : Initialized Nat (Nat × Nat) (Nat × Nat) :=
-  ReactiveCompiler.realize K sound.denote jointCode
+  ReactiveCompiler.realize scalarCompiler sound.denote jointCode
 
 def jointSpec : Initialized Nat (Nat × Nat) (Nat × Nat) where
   initial := (0,0)
   step := fun (x,k,total) => ((k+1,total+x),(k+1,total+x))
 
 theorem joint_correct : jointMachine = jointSpec := by
-  exact ReactiveCompiler.realize_compile K sound jointSeed jointBody
+  exact ReactiveCompiler.realize_compile scalarCompiler sound jointSeed jointBody
 
 def countBody : Term NatPrim [.base,.base] (.prod .base .base) :=
   .letE (add (.var (.there .here)) (lit 1)) (.pair (.var .here) (.var .here))
 def totalBody : Term NatPrim [.base,.base] (.prod .base .base) :=
   .letE (add (.var (.there .here)) (.var .here)) (.pair (.var .here) (.var .here))
-def countCode := ReactiveCompiler.compile K (lit 0) countBody
-def totalCode := ReactiveCompiler.compile K (lit 0) totalBody
-def countMachine : Initialized Nat Nat Nat := ReactiveCompiler.realize K sound.denote countCode
-def totalMachine : Initialized Nat Nat Nat := ReactiveCompiler.realize K sound.denote totalCode
+def countCode := ReactiveCompiler.compile scalarCompiler (lit 0) countBody
+def totalCode := ReactiveCompiler.compile scalarCompiler (lit 0) totalBody
+def countMachine : Initialized Nat Nat Nat := ReactiveCompiler.realize scalarCompiler sound.denote countCode
+def totalMachine : Initialized Nat Nat Nat := ReactiveCompiler.realize scalarCompiler sound.denote totalCode
 
 def countSpec : Initialized Nat Nat Nat := ⟨fun (_,k) => (k+1,k+1),0⟩
 def totalSpec : Initialized Nat Nat Nat := ⟨fun (x,total) => (total+x,total+x),0⟩
 theorem count_correct : countMachine = countSpec :=
-  ReactiveCompiler.realize_compile K sound (lit 0) countBody
+  ReactiveCompiler.realize_compile scalarCompiler sound (lit 0) countBody
 theorem total_correct : totalMachine = totalSpec :=
-  ReactiveCompiler.realize_compile K sound (lit 0) totalBody
+  ReactiveCompiler.realize_compile scalarCompiler sound (lit 0) totalBody
 
 def duplicate : Term NatPrim [.base] pairTy := .pair (.var .here) (.var .here)
 def finish : Term NatPrim [pairTy] pairTy :=
   .pair (.fst (.var .here)) (add (.snd (.var .here)) (.fst (.var .here)))
-def duplicateCode := ReactiveCompiler.compileMap K duplicate
-def finishCode := ReactiveCompiler.compileMap K finish
+def duplicateCode := ReactiveCompiler.compileMap scalarCompiler duplicate
+def finishCode := ReactiveCompiler.compileMap scalarCompiler finish
 
-def duplicateFn : Nat → Nat × Nat := ReactiveCompiler.realizeMap K sound.denote duplicateCode
-def finishFn : Nat × Nat → Nat × Nat := ReactiveCompiler.realizeMap K sound.denote finishCode
+def duplicateFn : Nat → Nat × Nat := ReactiveCompiler.realizeMap scalarCompiler sound.denote duplicateCode
+def finishFn : Nat × Nat → Nat × Nat := ReactiveCompiler.realizeMap scalarCompiler sound.denote finishCode
 
 theorem duplicate_correct (x : Nat) : duplicateFn x = (x,x) :=
-  ReactiveCompiler.map_sound K sound duplicate x
+  ReactiveCompiler.map_sound scalarCompiler sound duplicate x
 theorem finish_correct (p : Nat × Nat) : finishFn p = (p.1,p.2+p.1) :=
-  ReactiveCompiler.map_sound K sound finish p
+  ReactiveCompiler.map_sound scalarCompiler sound finish p
 
 abbrev WiredState : Type := (PUnit × (Nat × Nat)) × PUnit
 
@@ -139,13 +139,13 @@ theorem consume_wired (xs : List (Option (List Nat))) :
 /-- A delayed body emits the old state and only then installs its input. -/
 def delayBody : Term NatPrim [.base,.base] (.prod .base .base) :=
   .pair (.var (.there .here)) (.var .here)
-def delayCode := ReactiveCompiler.compile K (lit 42) delayBody
-def delayed : Initialized Nat Nat Nat := ReactiveCompiler.realize K sound.denote delayCode
+def delayCode := ReactiveCompiler.compile scalarCompiler (lit 42) delayBody
+def delayed : Initialized Nat Nat Nat := ReactiveCompiler.realize scalarCompiler sound.denote delayCode
 
 theorem delayed_step (x s : Nat) : delayed.step (x,s) = (s,x) :=
-  ReactiveCompiler.step_sound K sound (lit 42) delayBody x s
+  ReactiveCompiler.step_sound scalarCompiler sound (lit 42) delayBody x s
 
 theorem delayed_initial : delayed.initial = 42 :=
-  ReactiveCompiler.initial_sound K sound (lit 42) delayBody
+  ReactiveCompiler.initial_sound scalarCompiler sound (lit 42) delayBody
 
 end FRPSpec.Reactive

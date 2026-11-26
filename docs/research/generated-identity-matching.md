@@ -139,7 +139,7 @@ come from `generatedSectionLift_commutes`; its proof uses the existing generated
 term equality. Projection is the identity, and `termFiber_local` recovers the
 literal local term value over any supplied matching context.
 
-`sectionTotalMatchingEvaluation` compares actual evaluation with this descended
+`section_totalMatchingEvaluation` compares actual evaluation with this descended
 section as a whole functor. It applies the existing typed section substitution
 and whole-functor substitution theorem. `familyEvaluationTermComparison`
 packages the natural comparison and exact fiber endpoint equality through a
@@ -177,7 +177,7 @@ recovery, then uses the underlying functor's hom equivalence. Cancellation of
 the independently constructed discrete matching equivalence gives effectivity
 of the original identity evaluation functor.
 
-The endpoint equalities are proved through `sectionFiberEndpoint`, whose generic
+The endpoint equalities are proved through `section_fiber_endpoint`, whose generic
 statement uses the literal fixed-base inclusion. Stating this adapter separately
 avoids normalizing the entire generated matching construction at each use. The
 intermediate criterion accepts endpoint equalities as parameters; the final

@@ -99,7 +99,7 @@ theorem every_shortest_changes (s : Tree table shortcutLabels q) (h : Shortest s
 
 theorem fixed_base_no_recovery :
     ¬ ∃ recover : Derivable (base table shortcutLabels) q → List Label,
-      ∀ t : Tree table shortcutLabels q, recover (eraseTree t) = trace t :=
+      ∀ t : Tree table shortcutLabels q, recover (erase_tree t) = trace t :=
   no_trace_recovery _ _ reselection_changes
 
 theorem minus_p : Derivable (base table replacedLabels) p :=

@@ -44,7 +44,7 @@ def elementStructure (P : SheafTorsor.Torsor G (context J U)) :
   mul_act X g h p := P.mul_act _ g h p
   natural f := P.natural f.unop.unop
   principal _ := P.principal _
-  locallyInhabited X := by
+  locally_inhabited X := by
     apply J.superset_covering ?_
       (Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom X.unop.val)
     rintro V f ⟨⟨x,p⟩, hp⟩
@@ -63,10 +63,10 @@ def forwardObject (P : SheafTorsor.Torsor G (context J U)) : SheafSliceTorsor.To
   natural f := P.natural (((unitSite J U).map
     ((RepresentableElementSite.overElement U).map f.unop)).unop)
   principal _ := P.principal _
-  locallyInhabited X :=
+  locally_inhabited X :=
     (RepresentableElementSite.overElement U).cover_lift (J.over U) (rawTopology J U)
       ((PrincipalSheaf.restrict (rawTopology J U) (elementTopology J U) (unitSite J U)
-        (elementStructure J U P)).locallyInhabited
+        (elementStructure J U P)).locally_inhabited
           ((RepresentableElementSite.overElement U).obj X))
 
 def forward : SheafTorsor.Torsor G (context J U) ⥤ SheafSliceTorsor.Torsor J U G where
@@ -91,8 +91,8 @@ def rawStructure (Q : SheafSliceTorsor.Torsor J U G) :
   mul_act X g h p := Q.mul_act (op (Over.mk X.unop.unop.val)) g h p
   natural f := Q.natural (((RepresentableElementSite.elementOver U).map f.unop).op)
   principal _ := Q.principal _
-  locallyInhabited X := (RepresentableElementSite.elementOver U).cover_lift
-    (rawTopology J U) (J.over U) (Q.locallyInhabited
+  locally_inhabited X := (RepresentableElementSite.elementOver U).cover_lift
+    (rawTopology J U) (J.over U) (Q.locally_inhabited
       ((RepresentableElementSite.elementOver U).obj X))
 
 abbrev extensionSheaf (Q : SheafSliceTorsor.Torsor J U G) :=
@@ -114,9 +114,9 @@ def backwardObject (Q : SheafSliceTorsor.Torsor J U G) : SheafTorsor.Torsor G (c
   mul_act x g h p := (extensionStructure J U Q).mul_act (op (op x)) g h p
   natural f := (extensionStructure J U Q).natural f.op.op
   principal _ := (extensionStructure J U Q).principal _
-  locallySurjective := ⟨by
+  isLocallySurjective := ⟨by
     intro V x
-    apply J.superset_covering ?_ ((extensionStructure J U Q).locallyInhabited
+    apply J.superset_covering ?_ ((extensionStructure J U Q).locally_inhabited
       (ElementSite.point (context J U).obj V x))
     rintro W f ⟨y, hy, ⟨p⟩⟩
     exact ⟨⟨y,p⟩, hy.symm⟩⟩

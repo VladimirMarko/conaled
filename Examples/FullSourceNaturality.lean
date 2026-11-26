@@ -129,12 +129,12 @@ theorem preserves : STLCNaturality.Preserves map (equality _) source image :=
     distribution_preserves closed_preserves Nat primitive _ (fun _ => rfl)
 
 theorem image_congr : STLCNaturality.ModelCongr (equality _) image :=
-  STLCNaturality.image_congr (equalityCongr _) productCongr coproductCongr closedCongr Nat _
+  STLCNaturality.image_congr (equality_congr _) productCongr coproductCongr closedCongr Nat _
 
 /-- All full-source terms, with explicit non-strict optional comparison obligations. -/
 theorem naturality (t : Term Primitive Γ a) :
     map.map (STLCNaturality.compile source t) = STLCNaturality.compile image t :=
-  STLCNaturality.structured_naturality distribution map_laws (equalityCongr _)
+  STLCNaturality.structured_naturality distribution map_laws (equality_congr _)
     productCongr coproductCongr closedCongr terminal_preserves products_preserve sums_preserve
     distribution_preserves closed_preserves Nat primitive _ (fun _ => rfl) t
 
@@ -144,7 +144,7 @@ theorem composed_naturality (t : Term Primitive Γ a) :
     FunctionCategory.toTypes.map (map.map (STLCNaturality.compile source t)) =
       STLCNaturality.compile (bundle image) t :=
   STLCNaturality.naturality_comp map_laws FunctionCategory.toTypes_laws
-    (equalityCongr _) (bundle_congr image) preserves (bundle_preserves image) t
+    (equality_congr _) (bundle_congr image) preserves (bundle_preserves image) t
 
 /-- A lambda captures the older variable and uses a local primitive. -/
 def capture : Term Primitive [.base] (.arr .base .base) :=

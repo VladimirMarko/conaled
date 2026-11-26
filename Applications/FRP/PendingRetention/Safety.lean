@@ -20,8 +20,8 @@ theorem LocalEdit.related {cfg : Config} {before after : LocalSnapshot}
   | frame changed => exact related.localChange _ (authentic _ rfl) changed
   | relinquish target =>
     obtain ⟨monotone,counter,live⟩ := authorized target rfl
-    exact related.raiseLocal target monotone counter live
-  | finish changed => exact related.finishLocal _ changed
+    exact related.raise_local target monotone counter live
+  | finish changed => exact related.finish_local _ changed
 
 theorem LocalEdit.extension {cfg : Config} {before after : LocalSnapshot}
     {history : Peer} {cause : LocalCause}
@@ -77,8 +77,8 @@ theorem PeerEdit.related {cfg : Config} {localState : LocalSnapshot} {before aft
     exact related.peerDecision (traffic _ _ _ _ _ rfl)
       (PeerEdit.business_above (.business changed different)) changed
   | floor target increasing =>
-    exact related.raisePeer target (Nat.le_of_lt increasing) (authorized _ rfl)
-  | deletion target pending => exact related.deletePeer target pending
+    exact related.raise_peer target (Nat.le_of_lt increasing) (authorized _ rfl)
+  | deletion target pending => exact related.delete_peer target pending
 
 theorem PeerEdit.reply {cfg : Config} {before after : PeerSnapshot} {history : Peer}
     {identity : Nat} {command : PeerCommand} {reply : ReplyPacket} {effect prevented : Option Bool}

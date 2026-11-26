@@ -18,11 +18,11 @@ def result (f : F a b) (g : F b c) : Formula F [a, c] :=
   .eq (.var (.succ .zero)) (.app g (.app f (.var .zero)))
 
 theorem forward (f : F a b) (g : F b c) : Derives (composite f g) (result f g) :=
-  Rules.existsElim (Rules.eqTrans Rules.andRight (Rules.eqCongr g Rules.andLeft))
+  Rules.exists_elim (Rules.eq_trans Rules.and_right (Rules.eq_congr g Rules.and_left))
 
 theorem backward (f : F a b) (g : F b c) : Derives (result f g) (composite f g) :=
-  Rules.cut (Rules.andIntro Rules.eqRefl Rules.hypothesis)
-    (Rules.existsIntro (body f g) (.app f (.var .zero)))
+  Rules.cut (Rules.and_intro Rules.eq_refl Rules.hypothesis)
+    (Rules.exists_intro (body f g) (.app f (.var .zero)))
 
 /-- Three distinct syntactic sorts, even when their carriers coincide. -/
 inductive GraphSort where | input | middle | output
@@ -39,7 +39,7 @@ def environment {A B C : Type v} (f : A → B) (g : B → C) (a : A) (c : C) :
   Env.extend a (Env.extend c (fun {_} (i : Var [] _) => nomatch i))
 
 /-- No inhabited-carrier premise: the witness in the reverse sequent is f(a). -/
-theorem inSet {A B C : Type v} (f : A → B) (g : B → C) (a : A) (c : C) :
+theorem in_set {A B C : Type v} (f : A → B) (g : B → C) (a : A) (c : C) :
     (∃ b, b = f a ∧ c = g b) ↔ c = g (f a) :=
   ⟨sound (model f g) (forward Arrow.first Arrow.second) (environment f g a c),
    sound (model f g) (backward Arrow.first Arrow.second) (environment f g a c)⟩

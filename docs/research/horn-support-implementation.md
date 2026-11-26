@@ -48,7 +48,7 @@ is not an inclusion: the repair fixture uses a fresh label `bprime`.
 copies a selected tree under inclusion; its identity and composition laws are
 actual tree equalities. `trace` visits children in premise order, then the root.
 `size` counts its entries, one per node. `trace_map` and `size_map` preserve those
-observations. `eraseTree` supplies atomic derivability of the finite erased
+observations. `erase_tree` supplies atomic derivability of the finite erased
 base. `erase_map` compares proofs of that target proposition; proof irrelevance
 makes it a commuting square, not an equality or recovery of trees.
 

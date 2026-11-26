@@ -18,7 +18,7 @@ example {A B C : Type v} (f : A → B) (g : B → C) (x : A) (z : C)
 
 example {A B C : Type v} (f : A → B) (g : B → C) (x : A) (z : C)
     (h : z = g (f x)) :
-    GraphEmitted.backward A B C f g z x h = (Graph.inSet f g x z).mpr h :=
+    GraphEmitted.backward A B C f g z x h = (Graph.in_set f g x z).mpr h :=
   Subsingleton.elim _ _
 
 example (x : Nat) : (x, true) = (x, true) :=
@@ -92,7 +92,7 @@ namespace GraphEmissionChecked
 open SquareKit.Internal
 open GraphTarget
 
-/-- An outer equality survives both the object and proof binders of elimWith. -/
+/-- An outer equality survives both the object and proof binders of elim_with. -/
 def retained : GraphTarget.Formula [.input, .input] := .eq (.var .zero) (.var (.succ .zero))
 def witness : GraphTarget.Formula [.middle, .input, .input] :=
   .eq (.var .zero) (.app .first (.var (.succ .zero)))

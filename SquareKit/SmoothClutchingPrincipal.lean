@@ -78,10 +78,10 @@ theorem principal (x : base.obj.Elements) (p q : (action G c).family.family.obj 
       intro V f hf
       rcases hf with ⟨y, hy⟩ | ⟨y, hy⟩
       · exact (action G c).principal_at_lift left
-          (reindex_chart_principal G c left (totalChartLeft G c) (localTrivial G c).1
+          (reindex_chart_principal G c left (totalChartLeft G c) (local_trivial G c).1
             (actionMap_left G c)) _ _ _ rfl y hy
       · exact (action G c).principal_at_lift right
-          (reindex_chart_principal G c right (totalChartRight G c) (localTrivial G c).2
+          (reindex_chart_principal G c right (totalChartRight G c) (local_trivial G c).2
             (actionMap_right G c)) _ _ _ rfl y hy)
   refine ⟨g, eq_of_heq (Sigma.mk.inj_iff.mp hg).2, ?_⟩
   intro h hh
@@ -91,7 +91,7 @@ theorem principal (x : base.obj.Elements) (p q : (action G c).family.family.obj 
 def torsor : SheafTorsor.Torsor (locallyConstantGroup G) base where
   toAction := action G c
   principal := principal G c
-  locallySurjective := action_locallySurjective G c
+  isLocallySurjective := action_locallySurjective G c
 
 /-- A split global section would give a forbidden section of the actual glued display. -/
 theorem no_global_section (hc : c ≠ 1) : ¬ Nonempty (SplitSheaf.Tm (torsor G c).family) := by

@@ -71,7 +71,7 @@ theorem productSections_naturality {a b : Diamondᵒᵖ} (f : a ⟶ b) (p : P.ob
 
 /-- The public substitution law computes the base-changed top image. -/
 theorem baseChanged_top : localImage ⊤ down = ⊤ := by
-  have h := beckChevalley (⊤ : Subfunctor E.obj) square
+  have h := beck_chevalley (⊤ : Subfunctor E.obj) square
   have htop : (⊤ : Subfunctor E.obj).preimage left.hom = ⊤ := rfl
   rw [htop, Examples.SheafImage.localImage_top] at h
   exact h.symm
@@ -96,7 +96,7 @@ theorem baseChanged_selective :
       selective.preimage base.hom := by
   have hs : localImage (selective.preimage toTerminal.hom) toTerminal = selective := by
     simpa using selective_image
-  rw [← beckChevalley _ square, hs]
+  rw [← beck_chevalley _ square, hs]
 
 theorem selective_at_U (b : Bool) :
     (localImage ((selective.preimage toTerminal.hom).preimage left.hom) down).obj (op U) b := by
@@ -118,10 +118,10 @@ theorem selective_not_X (b : Bool) :
 example (Q : Subfunctor E.obj) :
     Presieve.IsSheaf topology ((localImage Q toTerminal).preimage base.hom).toFunctor ∧
     Presieve.IsSheaf topology (localImage (Q.preimage left.hom) down).toFunctor :=
-  beckChevalley_isSheaf Q left down toTerminal base
+  beck_chevalley_isSheaf Q left down toTerminal base
 
 -- The opt-in sheaf application retains ordinary graph calls.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (SquareKit.Internal.Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (SquareKit.Internal.Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafBaseChange

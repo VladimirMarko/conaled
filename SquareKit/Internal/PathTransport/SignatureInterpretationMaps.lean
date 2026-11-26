@@ -79,7 +79,7 @@ private theorem weaken_pres {γ : CtxCode} {a : TyCode γ} (ha : F.TyPres a) :
 private theorem var_pres {γ : CtxCode} {a : TyCode γ} (ha : F.TyPres a) :
     F.TmPres (varCode γ a) :=
   ⟨subTy_pres F ha (weaken_pres F ha),
-    (F.mapVariable _).trans (N.toStructuralModel.variable_heq ha.1 ha.2)⟩
+    (F.genericVariable_preserved _).trans (N.toStructuralModel.variable_heq ha.1 ha.2)⟩
 
 private theorem refl_heq {Γ Δ : N.Context} {A : N.Family Γ} {B : N.Family Δ}
     {x : N.Section Γ A} {y : N.Section Δ B} (hΓ : Γ = Δ) (hA : HEq A B) (hx : HEq x y) :
@@ -196,7 +196,7 @@ private theorem j_pres {γ : CtxCode} {a : TyCode γ} {x : TmCode γ a} {n}
     {d : TmCode (branchCode a x T) (subTyCode c (rootTailCode a x T))}
     (hx : F.TmPres x) (hT : F.TelPres T) (hc : F.TyPres c) (hd : F.TmPres d) :
     F.TmPres (jCode a x T c d) :=
-  ⟨hc, (F.mapJ _ _ _ _ _).trans (N.j_heq hx.1.1 hx.1.2 hx.2
+  ⟨hc, (F.j_preserved _ _ _ _ _).trans (N.j_heq hx.1.1 hx.1.2 hx.2
     ((cast_heq _ _).trans hT.2) ((cast_heq _ _).trans hc.2)
     ((F.jBranch_heq _ _ _ _ _).trans hd.2))⟩
 
@@ -232,66 +232,66 @@ private theorem cast_pres {γ : CtxCode} {a b : TyCode γ} {x : TmCode γ a}
 
 mutual
 /-- Preservation is proved for generated contexts, including path and branch contexts. -/
-theorem generatedCtx (h : CtxDeriv Γ γ) : F.CtxPres γ :=
+theorem generated_ctx (h : CtxDeriv Γ γ) : F.CtxPres γ :=
   match h with
   | .empty => F.empty
-  | .ext _ ha => extend_pres F (generatedTy ha)
-  | .path _ _ hx => path_pres F (generatedTm hx)
-  | .telescope _ hT => total_pres F (generatedTel hT)
-  | .branch _ _ hx hT => branch_pres F (generatedTm hx) (generatedTel hT)
+  | .ext _ ha => extend_pres F (generated_ty ha)
+  | .path _ _ hx => path_pres F (generated_tm hx)
+  | .telescope _ hT => total_pres F (generated_tel hT)
+  | .branch _ _ hx hT => branch_pres F (generated_tm hx) (generated_tel hT)
 termination_by sizeOf h
 
 /-- Every binder and every generated pullback is preserved. -/
-theorem generatedTel (h : TelDeriv Γ γ n Δ T) : F.TelPres T :=
+theorem generated_tel (h : TelDeriv Γ γ n Δ T) : F.TelPres T :=
   match h with
-  | .nil hγ => nil_pres F (generatedCtx hγ)
-  | .cons ha hT => cons_pres F (generatedTy ha) (generatedTel hT)
-  | .pullback hT hs => pullback_pres F (generatedTel hT) (generatedSub hs)
+  | .nil hγ => nil_pres F (generated_ctx hγ)
+  | .cons ha hT => cons_pres F (generated_ty ha) (generated_tel hT)
+  | .pullback hT hs => pullback_pres F (generated_tel hT) (generated_sub hs)
   | .pathReindex _ _ hx hT hs =>
-      pathTail_pres F (generatedTm hx) (generatedTel hT) (generatedSub hs)
+      pathTail_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
 termination_by sizeOf h
 
 /-- Signature preservation suffices for all generated families. -/
-theorem generatedTy (h : TyDeriv Γ γ A a) : F.TyPres a :=
+theorem generated_ty (h : TyDeriv Γ γ A a) : F.TyPres a :=
   match h with
-  | .base hγ => base_pres F (generatedCtx hγ)
-  | .fiber hx => fiber_pres F (generatedTm hx)
-  | .identity _ hx hy => identity_pres F (generatedTm hx) (generatedTm hy)
-  | .sub ha hs => subTy_pres F (generatedTy ha) (generatedSub hs)
+  | .base hγ => base_pres F (generated_ctx hγ)
+  | .fiber hx => fiber_pres F (generated_tm hx)
+  | .identity _ hx hy => identity_pres F (generated_tm hx) (generated_tm hy)
+  | .sub ha hs => subTy_pres F (generated_ty ha) (generated_sub hs)
 termination_by sizeOf h
 
 /-- This includes generic J, reindexed branches, and generated conversion. -/
-theorem generatedTm (h : TmDeriv Γ γ A a t x) : F.TmPres x :=
+theorem generated_tm (h : TmDeriv Γ γ A a t x) : F.TmPres x :=
   match h with
-  | .var _ ha => var_pres F (generatedTy ha)
-  | .refl _ hx => refl_pres F (generatedTm hx)
-  | .sub hx hs => subTm_pres F (generatedTm hx) (generatedSub hs)
+  | .var _ ha => var_pres F (generated_ty ha)
+  | .refl _ hx => refl_pres F (generated_tm hx)
+  | .sub hx hs => subTm_pres F (generated_tm hx) (generated_sub hs)
   | .pathInduction _ _ hx hT hc hd _ _ hs =>
-      subTm_pres F (j_pres F (generatedTm hx) (generatedTel hT)
-        (generatedTy hc) (generatedTm hd)) (generatedSub hs)
+      subTm_pres F (j_pres F (generated_tm hx) (generated_tel hT)
+        (generated_ty hc) (generated_tm hd)) (generated_sub hs)
   | .pathInductionReindex _ _ hx hT hc hd _ _ _ hs =>
-      subTm_pres F (j_pres F (generatedTm hx) (generatedTel hT)
-        (generatedTy hc) (generatedTm hd)) (generatedSub hs)
+      subTm_pres F (j_pres F (generated_tm hx) (generated_tel hT)
+        (generated_ty hc) (generated_tm hd)) (generated_sub hs)
   | .genericJ _ _ hx hT hc hd =>
-      j_pres F (generatedTm hx) (generatedTel hT) (generatedTy hc) (generatedTm hd)
+      j_pres F (generated_tm hx) (generated_tel hT) (generated_ty hc) (generated_tm hd)
   | .reindexJBranch _ _ hx hT hc hd hs =>
-      reindexBranch_pres F (generatedTm hx) (generatedTel hT)
-        (generatedTy hc) (generatedTm hd) (generatedSub hs)
-  | .conv hx _ e => cast_pres F e (generatedTm hx)
+      reindexBranch_pres F (generated_tm hx) (generated_tel hT)
+        (generated_ty hc) (generated_tm hd) (generated_sub hs)
+  | .conv hx _ e => cast_pres F e (generated_tm hx)
 termination_by sizeOf h
 
 /-- The substitution result retains both endpoint context equalities. -/
-theorem generatedSub (h : SubDeriv Δ δ Γ γ σ s) : F.SubPres s :=
+theorem generated_sub (h : SubDeriv Δ δ Γ γ σ s) : F.SubPres s :=
   match h with
-  | .id hγ => id_pres F (generatedCtx hγ)
-  | .comp hs ht => comp_pres F (generatedSub hs) (generatedSub ht)
-  | .weaken _ ha => weaken_pres F (generatedTy ha)
-  | .projection _ hT => projection_pres F (generatedTel hT)
-  | .root _ _ hx => root_pres F (generatedTm hx)
-  | .rootTail _ _ hx hT => rootTail_pres F (generatedTm hx) (generatedTel hT)
+  | .id hγ => id_pres F (generated_ctx hγ)
+  | .comp hs ht => comp_pres F (generated_sub hs) (generated_sub ht)
+  | .weaken _ ha => weaken_pres F (generated_ty ha)
+  | .projection _ hT => projection_pres F (generated_tel hT)
+  | .root _ _ hx => root_pres F (generated_tm hx)
+  | .rootTail _ _ hx hT => rootTail_pres F (generated_tm hx) (generated_tel hT)
   | .pathTailMap _ _ hx hT hs =>
-      pathTailMap_pres F (generatedTm hx) (generatedTel hT) (generatedSub hs)
-  | .pair ha hs hx => pair_pres F (generatedTy ha) (generatedSub hs) (generatedTm hx)
+      pathTailMap_pres F (generated_tm hx) (generated_tel hT) (generated_sub hs)
+  | .pair ha hs hx => pair_pres F (generated_ty ha) (generated_sub hs) (generated_tm hx)
 termination_by sizeOf h
 end
 
@@ -299,25 +299,25 @@ end
 theorem interpretCtx (h : CtxDeriv Γ γ) :
     F.context (Typed.interpretCtx M h) = Typed.interpretCtx N h := by
   rw [interpretCtx_agrees, interpretCtx_agrees]
-  exact generatedCtx F h
+  exact generated_ctx F h
 
 /-- Heterogeneous equality retains the generated family over its mapped context. -/
 theorem interpretTy (h : TyDeriv Γ γ A a) :
     HEq (F.family (Typed.interpretTy M h)) (Typed.interpretTy N h) := by
   rw [interpretTy_agrees, interpretTy_agrees]
-  exact (generatedTy F h).2
+  exact (generated_ty F h).2
 
 /-- Preservation of the existing recursive interpreter, including dependent J. -/
 theorem interpretTm (h : TmDeriv Γ γ A a t x) :
     HEq (F.mapTm (Typed.interpretTm M h)) (Typed.interpretTm N h) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact (generatedTm F h).2
+  exact (generated_tm F h).2
 
 /-- Preservation of the existing substitution interpreter at both endpoints. -/
 theorem interpretSub (h : SubDeriv Δ δ Γ γ σ s) :
     HEq (F.substitution (Typed.interpretSub M h)) (Typed.interpretSub N h) := by
   rw [interpretSub_agrees, interpretSub_agrees]
-  exact (generatedSub F h).2.2
+  exact (generated_sub F h).2.2
 
 /-- Identity maps provide a usable signature-preserving instance in every model. -/
 def identityMap (M : Model.{u}) : SignatureMap M M where

@@ -18,7 +18,7 @@ abbrev existential (R : A → B → Prop) (S : B → C → Prop) : RelRep.{u} :=
 /-- The ordinary associativity law is the interpreted internal proof. -/
 theorem compRel_assoc (R : A → B → Prop) (S : B → C → Prop) (T : C → D → Prop)
     (a : A) (d : D) : CompRel (CompRel R S) T a d ↔ CompRel R (CompRel S T) a d :=
-  SquareKit.Internal.Associativity.inSet R S T a d
+  SquareKit.Internal.Associativity.in_set R S T a d
 
 /-- Map the middle witness; agreement need only be pointwise. -/
 def existentialSquare {R : A → B → Prop} {S : B → C → Prop}

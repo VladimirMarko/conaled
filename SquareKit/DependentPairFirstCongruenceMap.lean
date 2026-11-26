@@ -118,28 +118,28 @@ def gFirstCongruence (Γ : Context projectionSignature V) (A A' : PExpr V)
     (B B' : PExpr (Fin 1 ⊕ V)) (p p' : PExpr V) :
     GCongruenceCertificate (.first Γ A A' B B' p p') := by
   let premise := gCongruencePremises (.first Γ A A' B B' p p')
-  have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map G)) := .hyp (0 : Fin 10)
-  have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A)) := .hyp (1 : Fin 10)
-  have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map G) (G.act A')) := .hyp (2 : Fin 10)
-  have hB : EFullCertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A)) (G.act B)) := .hyp (3 : Fin 10)
-  have hB' : EFullCertificate.Cert (premise := premise) (type ((Γ.map G).extend (G.act A')) (G.act B')) := .hyp (4 : Fin 10)
-  have hAA' : EFullCertificate.Cert (premise := premise) (typeEq (Γ.map G) (G.act A) (G.act A')) := .hyp (5 : Fin 10)
-  have hBB' : EFullCertificate.Cert (premise := premise) (typeEq ((Γ.map G).extend (G.act A)) (G.act B) (G.act B')) := .hyp (6 : Fin 10)
-  have hpp' : EFullCertificate.Cert (premise := premise) (termEq (Γ.map G) (G.act p) (G.act p') (S (G.act A) (G.act B))) := by
+  have hΓ : EFullCertificate.Cert (premise := premise) (ctx (Γ.map projectionToElimination)) := .hyp (0 : Fin 10)
+  have hA : EFullCertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A)) := .hyp (1 : Fin 10)
+  have hA' : EFullCertificate.Cert (premise := premise) (type (Γ.map projectionToElimination) (projectionToElimination.act A')) := .hyp (2 : Fin 10)
+  have hB : EFullCertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B)) := .hyp (3 : Fin 10)
+  have hB' : EFullCertificate.Cert (premise := premise) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A')) (projectionToElimination.act B')) := .hyp (4 : Fin 10)
+  have hAA' : EFullCertificate.Cert (premise := premise) (typeEq (Γ.map projectionToElimination) (projectionToElimination.act A) (projectionToElimination.act A')) := .hyp (5 : Fin 10)
+  have hBB' : EFullCertificate.Cert (premise := premise) (typeEq ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B) (projectionToElimination.act B')) := .hyp (6 : Fin 10)
+  have hpp' : EFullCertificate.Cert (premise := premise) (termEq (Γ.map projectionToElimination) (projectionToElimination.act p) (projectionToElimination.act p') (S (projectionToElimination.act A) (projectionToElimination.act B))) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (7 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (termEq Γ p p' (Projection.P A B))) at h
-    simpa only [map, mapForm, termEq, G_P] using h
-  have hp : EFullCertificate.Cert (premise := premise) (term (Γ.map G) (Elimination.first (G.act A) (G.act B) (G.act p)) (G.act A)) := by
+    change EFullCertificate.Cert (map projectionToElimination (termEq Γ p p' (Projection.P A B))) at h
+    simpa only [map, mapForm, termEq, projectionToElimination_P] using h
+  have hp : EFullCertificate.Cert (premise := premise) (term (Γ.map projectionToElimination) (Elimination.first (projectionToElimination.act A) (projectionToElimination.act B) (projectionToElimination.act p)) (projectionToElimination.act A)) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (8 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (term Γ (Projection.fst A B p) A)) at h
-    simpa only [map, mapForm, term, G_first] using h
-  have hp' : EFullCertificate.Cert (premise := premise) (term (Γ.map G) (Elimination.first (G.act A') (G.act B') (G.act p')) (G.act A)) := by
+    change EFullCertificate.Cert (map projectionToElimination (term Γ (Projection.fst A B p) A)) at h
+    simpa only [map, mapForm, term, projectionToElimination_first] using h
+  have hp' : EFullCertificate.Cert (premise := premise) (term (Γ.map projectionToElimination) (Elimination.first (projectionToElimination.act A') (projectionToElimination.act B') (projectionToElimination.act p')) (projectionToElimination.act A)) := by
     have h : EFullCertificate.Cert (premise := premise) (premise (9 : Fin 10)) := .hyp _
-    change EFullCertificate.Cert (map G (term Γ (Projection.fst A' B' p') A)) at h
-    simpa only [map, mapForm, term, G_first] using h
+    change EFullCertificate.Cert (map projectionToElimination (term Γ (Projection.fst A' B' p') A)) at h
+    simpa only [map, mapForm, term, projectionToElimination_first] using h
   change EFullCertificate.Cert (premise := premise)
-    (map G (termEq Γ (Projection.fst A B p) (Projection.fst A' B' p') A))
-  simpa only [map, mapForm, termEq, G_first] using
+    (map projectionToElimination (termEq Γ (Projection.fst A B p) (Projection.fst A' B' p') A))
+  simpa only [map, mapForm, termEq, projectionToElimination_first] using
     EFullCertificate.firstCong hΓ hA hA' hB hB' hAA' hBB' hpp' hp hp'
 
 end SquareKit.DependentPairJudgments

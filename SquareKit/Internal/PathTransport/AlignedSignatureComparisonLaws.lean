@@ -156,7 +156,7 @@ structure AlignedTriangle where
 namespace AlignedTriangle
 variable {P Q} (T : AlignedTriangle P Q)
 
-theorem generatedCocycle (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
+theorem generated_cocycle (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
     alignedContextComparison T.η P Q T.α T.β T.squareη hΓ ≪≫
       eqToIso (alignedGenerated_eq P Q T.hm T.hb hΓ) ≪≫
       alignedContextComparison T.θ P Q T.β' T.δ T.squareθ hΓ =
@@ -178,7 +178,7 @@ theorem alignedGenerated_comp (α : P ⟶ F ⋙ Q) (κ : Q ⟶ L ⋙ R)
     generatedContextMap (alignedUniverseSignature (F ⋙ L) P R
       (α ≫ whiskerLeft F κ)) hΓ :=
   Context.relabel_composition
-    (GeneratedComposition.generatedCtx (alignedUniverseSignature F P Q α)
+    (GeneratedComposition.generated_ctx (alignedUniverseSignature F P Q α)
       (alignedUniverseSignature L Q R κ) rfl HEq.rfl hΓ) _ _ _ _ _ _
 
 theorem alignedContextComparison_postcompose (η : F ≅ G)

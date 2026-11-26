@@ -123,7 +123,7 @@ arbitrary core declarations.
 [`Examples.GraphEmission`](../../Examples/GraphEmission.lean) retains the
 installed forward/backward clients, the numeric witness 3 and output 6,
 distinct Nat/Option/product carriers, and Type 1 specialization. New cases
-exercise `elimWith` while retaining an outer equality, simultaneous
+exercise `elim_with` while retaining an outer equality, simultaneous
 substitution by reversed function applications, and substitution beneath an
 existential binder. They use the universal typing and denotation results and
 the composed source/emission square.

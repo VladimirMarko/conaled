@@ -84,8 +84,8 @@ theorem closedReflexivity_reindex_heq (s : Section F) :
   apply Section.hext_thin_fibers _ (closedId_reindex F σ s s)
   · intro γ
     have hb : σ.obj ((s.reindex F σ).lift.obj γ).base = (s.lift.obj (σ.obj γ)).base :=
-      (congrArg σ.obj ((s.reindex F σ).objBase (reindex σ F) γ)).trans
-        (s.objBase F (σ.obj γ)).symm
+      (congrArg σ.obj ((s.reindex F σ).obj_base (reindex σ F) γ)).trans
+        (s.obj_base F (σ.obj γ)).symm
     have h1 := (closedReflexivity F s).reindex_obj_fiber (closedId F s s) σ γ
     have h2 := closedReflexivity_obj F s (σ.obj γ)
     have h3 := (closedReflexivity_obj (reindex σ F) (s.reindex F σ) γ).symm
@@ -109,8 +109,8 @@ theorem closedReflexivity_reindex_heq (s : Section F) :
       Lean.Elab.Tactic.closeMainGoal `exact proof
   · intro x y p
     have hb : σ.obj ((s.reindex F σ).lift.obj y).base = (s.lift.obj (σ.obj y)).base :=
-      (congrArg σ.obj ((s.reindex F σ).objBase (reindex σ F) y)).trans
-        (s.objBase F (σ.obj y)).symm
+      (congrArg σ.obj ((s.reindex F σ).obj_base (reindex σ F) y)).trans
+        (s.obj_base F (σ.obj y)).symm
     have h1 := (closedReflexivity F s).reindex_map_fiber (closedId F s s) σ p
     have h2 := closedReflexivity_map_fiber F s (σ.map p)
     have h3 := (closedReflexivity_map_fiber (reindex σ F) (s.reindex F σ) p).symm

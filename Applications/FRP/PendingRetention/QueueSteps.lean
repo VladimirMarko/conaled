@@ -52,7 +52,7 @@ theorem QueuesSafe.nonprogress_step {cfg : Config} {s : System} {history : Peer}
       · exact safe.congr rfl rfl rfl rfl rfl rfl
       · rename_i target pending
         apply QueuesSafe.pushRequest cfg safe
-        exact Nat.le_of_eq (related.localPending target (by simp [pending]))
+        exact Nat.le_of_eq (related.local_pending target (by simp [pending]))
   | resumeDeletion =>
     simp only [step]
     split

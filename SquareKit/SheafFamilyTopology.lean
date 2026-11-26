@@ -39,7 +39,7 @@ def topology : GrothendieckTopology (Sheaf J (Type (max u v))) where
   pullback_stable' {_ _ R} g := by
     rintro ⟨I,Y,f,hf,hR⟩
     refine ⟨I, fun i => SplitSheaf.extension (pullbackFamily f g i), pullbackMaps f g,
-      baseChange f hf g, ?_⟩
+      jointlyLocallySurjective_pullbackMaps f hf g, ?_⟩
     intro i
     change R (pullbackMaps f g i ≫ g)
     rw [← (pullback_square f g i).w]
@@ -74,7 +74,7 @@ def overCoverage (S : Sheaf J (Type (max u v))) : Coverage (Over S) where
     let p' : ∀ i, W i ⟶ Y := fun i => Over.homMk (p i)
     let q' : ∀ i, W i ⟶ Z i := fun i => Over.homMk (q i) (by
       dsimp [W]; rw [← Over.w (f i), ← Category.assoc, eq, Category.assoc, Over.w g])
-    refine ⟨Presieve.ofArrows W p', ⟨I,W,p',rfl,baseChange _ hf g.left⟩, ?_⟩
+    refine ⟨Presieve.ofArrows W p', ⟨I,W,p',rfl,jointlyLocallySurjective_pullbackMaps _ hf g.left⟩, ?_⟩
     intro V a ha
     obtain ⟨i⟩ := ha
     exact ⟨Z i, q' i, f i, ⟨i⟩, by apply Over.OverMorphism.ext; exact eq i⟩

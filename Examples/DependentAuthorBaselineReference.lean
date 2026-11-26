@@ -44,18 +44,18 @@ def certificateComparison := TmEqDeriv.subComp (certificate hΓ hA hx hT hQ hp) 
 def certificateAligned := (certificateTwice hΓ hA hx hT hQ hp hσ hτ).convert
   (certificateTypeComparison hQ hp hσ hτ)
 
-theorem valueValidity (M : Model.{u}) :
+theorem value_validity (M : Model.{u}) :
     interpretTm M (valueTwice hp hσ hτ) = subTmCode (subTmCode π s) t M :=
   interpretTm_agrees M _
 
-theorem interpretedCertificateType (M : Model.{u}) :
+theorem interpreted_certificate_type (M : Model.{u}) :
     interpretTy M (TyDeriv.sub (TyDeriv.sub (TyDeriv.identity hQ hp hp) hσ) hτ) =
       subTyCode (subTyCode (identityCode q π π) s) t M :=
   interpretTy_agrees M _
 
 -- A stable extension carries this exact underlying full model; interpretation
 -- of old Typed source uses its reduct and does not invent a Sigma source rule.
-theorem extensionSelected (M : Model.{u})
+theorem extension_selected (M : Model.{u})
     (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (certificateTwice hΓ hA hx hT hQ hp hσ hτ) =
     subTmCode (subTmCode
@@ -63,30 +63,30 @@ theorem extensionSelected (M : Model.{u})
         (certificateCommand hΓ hA hx hT hQ hp).motive.branchCode) s) t M :=
   interpretTm_agrees M _
 
-theorem certificateValidity (M : Model.{u}) :
+theorem certificate_validity (M : Model.{u}) :
     interpretTm M (certificateTwice hΓ hA hx hT hQ hp hσ hτ) =
     subTmCode (subTmCode
       (jCode a ξ T (certificateCommand hΓ hA hx hT hQ hp).motive.code
         (certificateCommand hΓ hA hx hT hQ hp).motive.branchCode) s) t M :=
   interpretTm_agrees M _
 
-theorem extensionValue (M : Model.{u})
+theorem extension_value (M : Model.{u})
     (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (valueTwice hp hσ hτ) = subTmCode (subTmCode π s) t M :=
-  valueValidity hp hσ hτ M
+  value_validity hp hσ hτ M
 
 include hQ hp hσ hτ in
-theorem certificateTypeValidity (M : Model.{u}) :
+theorem certificate_type_validity (M : Model.{u}) :
     subTyCode (subTyCode (identityCode q π π) s) t M =
       subTyCode (identityCode q π π) (compCode s t) M :=
-  congrFun (typeSound (certificateTypeComparison hQ hp hσ hτ)) M
+  congrFun (type_sound (certificateTypeComparison hQ hp hσ hτ)) M
 
 include hQ hp hσ hτ in
-theorem extensionType (M : Model.{u})
+theorem extension_type (M : Model.{u})
     (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
     subTyCode (subTyCode (identityCode q π π) s) t M =
       subTyCode (identityCode q π π) (compCode s t) M :=
-  congrFun (typeSound (certificateTypeComparison hQ hp hσ hτ)) M
+  congrFun (type_sound (certificateTypeComparison hQ hp hσ hτ)) M
 
 def resultContext := CtxDeriv.telescope (CtxDeriv.path hΓ hA hx) hT
 def firstWeakening := SubDeriv.weaken (resultContext hΓ hA hx hT) (TyDeriv.identity hQ hp hp)

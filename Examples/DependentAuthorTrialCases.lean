@@ -46,25 +46,25 @@ private def selectedCode {Γ : RawCtx} {γ : CtxCode.{1}} {A t : Expr} {a : TyCo
 /-- Specialize the reference's exact selected-certificate validity at the
 inhabited native model and the named dependent three-binder caller. -/
 theorem certificate_valid : interpretTm native twice = selectedCode twice :=
-  DependentAuthorReference.Baseline.certificateValidity
+  DependentAuthorReference.Baseline.certificate_validity
     earlier base x.deriv generalized qAtBType qAtB first second native
 
 theorem extension_selected : interpretTm native twice = selectedCode twice :=
-  DependentAuthorReference.Baseline.extensionSelected
+  DependentAuthorReference.Baseline.extension_selected
     earlier base x.deriv generalized qAtBType qAtB first second native stable
 
 /-- The full named three-binder tail supports the reference's dependent
 weakening comparison, including the conversion to its composite result type. -/
 theorem comparison_sound : interpretTm native aligned = interpretTm native composite := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound comparison) native
+  exact congrFun (term_sound comparison) native
 
 /-- The accepted baseline submission reuses its generic result at the actual
 three-binder tail and two certificate-dependent weakenings. -/
 theorem author_certificate_valid :
     interpretTm native DependentAuthorTrial.Baseline.workedDependentWeakening =
       selectedCode DependentAuthorTrial.Baseline.workedDependentWeakening :=
-  DependentAuthorTrial.Baseline.certificateValidity
+  DependentAuthorTrial.Baseline.certificate_validity
     earlier base x.deriv generalized qAtBType qAtB
     (DependentAuthorTrial.Baseline.firstWeakening earlier base x.deriv generalized qAtBType qAtB)
     (DependentAuthorTrial.Baseline.secondWeakening earlier base x.deriv generalized qAtBType qAtB)
@@ -80,7 +80,7 @@ theorem author_comparison_sound :
       (DependentAuthorTrial.Baseline.certificateComposite earlier base x.deriv generalized qAtBType qAtB
         (DependentAuthorTrial.Baseline.firstWeakening earlier base x.deriv generalized qAtBType qAtB)
         (DependentAuthorTrial.Baseline.secondWeakening earlier base x.deriv generalized qAtBType qAtB)) :=
-  DependentAuthorTrial.Baseline.interpretedCertificateComparison
+  DependentAuthorTrial.Baseline.interpreted_certificateComparison
     earlier base x.deriv generalized qAtBType qAtB _ _ native
 
 end Baseline
@@ -194,7 +194,7 @@ private abbrev certificateJudgment := term finalContext
 /-- The actual reference certificate judgment is valid after both dependent
 weakenings, under satisfied concrete assumptions. -/
 theorem certificate_valid : certificateJudgment.Eval (Contextual.algebra native) environment :=
-  DependentAuthorReference.Candidate.certificateValidity point tail value first second
+  DependentAuthorReference.Candidate.certificate_validity point tail value first second
     native environment assumptions_valid
 
 /-- Constructor admission preserves this full typing judgment in the native
@@ -202,7 +202,7 @@ stable Sigma model, beyond equality of an erased old expression. -/
 theorem extended_certificate_valid :
     (certificateJudgment.inl Sigma.extraSignature).Eval
       (Sigma.algebra native stable.toCapability) environment :=
-  DependentAuthorReference.Candidate.extendedValidity point tail value first second
+  DependentAuthorReference.Candidate.extended_validity point tail value first second
     native stable environment assumptions_valid
 
 /-- This comparison consumes the reference derivation, with the same concrete
@@ -259,7 +259,7 @@ theorem extended_selected_certificate :
       Sigma.extraSignature).eval (Sigma.algebra native stable.toCapability) environment =
     .term nativeFinalContext (native.subTy (native.subTy nativeMotive nativeFirst) nativeSecond)
       (native.subTm (native.subTm nativeCertificate nativeFirst) nativeSecond) := by
-  rw [DependentAuthorReference.Candidate.extensionSelected point tail value
+  rw [DependentAuthorReference.Candidate.extension_selected point tail value
     (σ := firstArrow) (τ := secondArrow) native stable environment]
   have selected := selected_certificate
   simp only [Term.eval, Contextual.algebra, environment] at selected
@@ -274,7 +274,7 @@ theorem author_recipe : DependentAuthorTrial.Candidate.selected point tail value
 
 /-- Actual author validity under the inhabited three-binder environment. -/
 theorem author_certificate_valid : certificateJudgment.Eval (Contextual.algebra native) environment :=
-  DependentAuthorTrial.Candidate.certificateValidity point tail value
+  DependentAuthorTrial.Candidate.certificate_validity point tail value
     (DependentAuthorTrial.Candidate.firstWeakening value)
     (DependentAuthorTrial.Candidate.secondWeakening value) native environment assumptions_valid
 
@@ -282,7 +282,7 @@ theorem author_certificate_valid : certificateJudgment.Eval (Contextual.algebra 
 theorem author_extended_certificate_valid :
     (certificateJudgment.inl Sigma.extraSignature).Eval
       (Sigma.algebra native stable.toCapability) environment :=
-  DependentAuthorTrial.Candidate.extendedTwiceValidity point tail value
+  DependentAuthorTrial.Candidate.extended_twice_validity point tail value
     (DependentAuthorTrial.Candidate.firstWeakening value)
     (DependentAuthorTrial.Candidate.secondWeakening value)
     native stable environment assumptions_valid
@@ -311,7 +311,7 @@ theorem author_extended_selected_certificate :
         (Sigma.algebra native stable.toCapability) environment =
     .term nativeFinalContext (native.subTy (native.subTy nativeMotive nativeFirst) nativeSecond)
       (native.subTm (native.subTm nativeCertificate nativeFirst) nativeSecond) := by
-  rw [(DependentAuthorTrial.Candidate.extensionSelectedTwice point tail value
+  rw [(DependentAuthorTrial.Candidate.extension_selected_twice point tail value
     (DependentAuthorTrial.Candidate.firstWeakening value)
     (DependentAuthorTrial.Candidate.secondWeakening value)
     native stable environment assumptions_valid).2]

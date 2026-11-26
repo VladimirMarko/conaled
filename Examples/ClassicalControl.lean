@@ -23,8 +23,8 @@ theorem multiple_witnesses :
     Runs (.run (search [1,2,4]) (.out [1,2,4])) (.deliver [1,2,4] (.found 1 2 1 [0])) ∧
     First [1,2,4] (.found 1 2 1 [0]) := by
   simpa [direct, prependOdd] using
-    (show Runs (.run (search L₀) (.out L₀)) (.deliver L₀ (direct L₀)) ∧ First L₀ (direct L₀) from
-      ⟨search_runs_direct L₀, direct_first L₀⟩)
+    (show Runs (.run (search poleList) (.out poleList)) (.deliver poleList (direct poleList)) ∧ First poleList (direct poleList) from
+      ⟨search_runs_direct poleList, direct_first poleList⟩)
 
 theorem all_odd :
     Target.Runs (.run (frameSearch [1,3,5]) (.out [1,3,5])) (.deliver [1,3,5] (.none [0,1,2])) ∧
@@ -66,16 +66,16 @@ theorem discard_suffix (L : List Nat) (j n h : Nat) (O : List Nat) (ρ : Stack) 
       (.arg (.ret (.found j n h O)) (.cb (callback (.saved (.out L)) L j O) ρ)))
       (.run (.ret (.found j n h O)) (.out L)) := .restore
 
-theorem no_prefix_for_later_even (O : List Nat) : ¬ First L₀ (.found 2 4 2 O) := by
+theorem no_prefix_for_later_even (O : List Nat) : ¬ First poleList (.found 2 4 2 O) := by
   intro h
   have he := first_eq_direct h
   simp [direct, prependOdd] at he
 
-example : goodPole.Holds (.run (search L₀) (.out L₀)) := search_good
-example : goodPole.Holds (.run (.last L₀ 0 none []) (.out L₀)) := changed_policy_good
-example : ¬ First L₀ (.found 2 4 2 []) := later_even_not_first
-example : ¬ goodPole.Holds (.deliver L₀ (.found 0 1 0 [])) := invalid_terminal
-example : universalPole.Holds (.deliver L₀ (.found 0 1 0 [])) := universal_accepts_invalid
+example : goodPole.Holds (.run (search poleList) (.out poleList)) := search_good
+example : goodPole.Holds (.run (.last poleList 0 none []) (.out poleList)) := changed_policy_good
+example : ¬ First poleList (.found 2 4 2 []) := later_even_not_first
+example : ¬ goodPole.Holds (.deliver poleList (.found 0 1 0 [])) := invalid_terminal
+example : universalPole.Holds (.deliver poleList (.found 0 1 0 [])) := universal_accepts_invalid
 
 /-- The same pole interprets Peirce independently of the search theorem. -/
 example (atoms : Nat → Set Stack) (A B : Formula) :

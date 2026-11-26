@@ -33,7 +33,7 @@ def outer := PathCommand.make hΓ hA hx hT
 private def rawTerm {Γ : RawCtx} {γ : CtxCode.{u}} {A t : Expr}
     {a : TyCode γ} {ξ : TmCode γ a} (_h : TmDeriv Γ γ A a t ξ) : Expr := t
 
-theorem selectedRecipe : rawTerm (outer hΓ hA hx hT hQ hp).genericTerm =
+theorem selected_recipe : rawTerm (outer hΓ hA hx hT hQ hp).genericTerm =
     genericJRaw n A x
       (.identity (Expr.identity Q p p)
         (rawTerm (inner hΓ hA hx hT hQ hp).genericTerm)
@@ -64,20 +64,20 @@ def workedLeft := substitutedLeft hΓ hA hx hT hQ hp (dependentWeakening hΓ hA 
 def workedRight := substitutedRight hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp)
 def workedBeta := substitutedBeta hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp)
 
-theorem comparisonSound (M : Model.{u}) :
+theorem comparison_sound (M : Model.{u}) :
     interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
       interpretTm M (substitutedRight hΓ hA hx hT hQ hp hσ) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound (substitutedBeta hΓ hA hx hT hQ hp hσ)) M
+  exact congrFun (term_sound (substitutedBeta hΓ hA hx hT hQ hp hσ)) M
 
 /-- Exact root restriction of the selected outer section computes to its branch.
 The typed source computation also retains the generated identity argument map. -/
-theorem selectedRoot (M : Model.{u}) :
+theorem selected_root (M : Model.{u}) :
     HEq (M.subTm ((outer hΓ hA hx hT hQ hp).interpret M) (rootTailCode a ξ T M))
       ((outer hΓ hA hx hT hQ hp).motive.branchCode M) :=
   (outer hΓ hA hx hT hQ hp).beta M
 
-theorem extensionSelected (M : Model.{u}) (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
+theorem extension_selected (M : Model.{u}) (_S : DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
     subTmCode (subTmCode
       (jCode a ξ T (outer hΓ hA hx hT hQ hp).motive.code
@@ -105,7 +105,7 @@ def rootLeft := (outer hx hT hp).typing.substitute (rootMap hx hT)
 def rootRight := (inner hx hT hp).typing.reflexivitySub (rootMap hx hT)
 def rootBeta := hx.jBeta hT (outer hx hT hp).motiveTyping (rootRight hx hT hp)
 
-theorem selectedRecipe : (outer hx hT hp).expression =
+theorem selected_recipe : (outer hx hT hp).expression =
     j A x T (identity (identity Q p p) (inner hx hT hp).expression (inner hx hT hp).expression)
       (reflexivity (subTy (identity Q p p) (rootTail A x T))
         (subTm (inner hx hT hp).expression (rootTail A x T))) := rfl
@@ -136,20 +136,20 @@ variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
   (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
   (hΩ : ∀ a ∈ Ω, a.Eval (algebra M) ρ)
 include hσ hΩ in
-theorem comparisonSound :
+theorem comparison_sound :
     (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ =
     (subTm (outer hx hT hp).branch σ).eval (algebra M) ρ :=
   interpret (substitutedBeta hx hT hp hσ) M ρ hΩ
 
 include hΩ in
-theorem extendedAssumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
+theorem extended_assumptions : ∀ a ∈ Ω.map (Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature),
     a.Eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ := by
   intro a ha
   obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
   simpa only [SquareKit.Internal.DependentJudgments.Sigma.eval_old_judgment] using hΩ b hb
 
 include hσ hΩ in
-theorem extensionSelected :
+theorem extension_selected :
     ((term Δ (subTy (subTy (outer hx hT hp).motive (rootTail A x T)) σ)
       (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ)).inl
       SquareKit.Internal.DependentJudgments.Sigma.extraSignature).Eval
@@ -160,7 +160,7 @@ theorem extensionSelected :
       (subTm (subTm (outer hx hT hp).expression (rootTail A x T)) σ).eval (algebra M) ρ :=
   ⟨SquareKit.Internal.DependentJudgments.Sigma.interpret
     (SquareKit.Internal.DependentJudgments.Sigma.retain (substitutedLeft hx hT hp hσ))
-    M S.toCapability ρ (extendedAssumptions M S ρ hΩ),
+    M S.toCapability ρ (extended_assumptions M S ρ hΩ),
     SquareKit.Internal.DependentJudgments.Sigma.eval_old M S.toCapability _ ρ⟩
 end GuardedJRetest.CandidateReference
 
@@ -181,18 +181,18 @@ abbrev rootLeft := GuardedJRetest.BaselineReference.workedLeft
 abbrev rootRight := GuardedJRetest.BaselineReference.workedRight
   earlier base x.deriv generalized qAtBType qAtB
 
-theorem comparisonSound : interpretTm native rootLeft = interpretTm native rootRight :=
-  GuardedJRetest.BaselineReference.comparisonSound
+theorem comparison_sound : interpretTm native rootLeft = interpretTm native rootRight :=
+  GuardedJRetest.BaselineReference.comparison_sound
     earlier base x.deriv generalized qAtBType qAtB
     (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
     native
 
-theorem retainedSelected :
-    type_of% (GuardedJRetest.BaselineReference.extensionSelected
+theorem retained_selected :
+    type_of% (GuardedJRetest.BaselineReference.extension_selected
       earlier base x.deriv generalized qAtBType qAtB
       (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
       native stable) :=
-  GuardedJRetest.BaselineReference.extensionSelected
+  GuardedJRetest.BaselineReference.extension_selected
     earlier base x.deriv generalized qAtBType qAtB
     (GuardedJRetest.BaselineReference.dependentWeakening earlier base x.deriv generalized qAtBType qAtB)
     native stable
@@ -319,7 +319,7 @@ theorem assumptions_valid : ∀ j ∈ assumptions, j.Eval (Contextual.algebra na
 private abbrev cmd := GuardedJRetest.CandidateReference.outer point tail value
 private abbrev arrow := GuardedJRetest.CandidateReference.dependentWeakening point tail value
 
-theorem interpretedLeft :
+theorem interpreted_left :
     type_of% (Contextual.interpret
       (GuardedJRetest.CandidateReference.workedLeft point tail value)
       native environment assumptions_valid) :=
@@ -327,7 +327,7 @@ theorem interpretedLeft :
     (GuardedJRetest.CandidateReference.workedLeft point tail value)
     native environment assumptions_valid
 
-theorem interpretedRight :
+theorem interpreted_right :
     type_of% (Contextual.interpret
       (GuardedJRetest.CandidateReference.workedRight point tail value)
       native environment assumptions_valid) :=
@@ -335,25 +335,25 @@ theorem interpretedRight :
     (GuardedJRetest.CandidateReference.workedRight point tail value)
     native environment assumptions_valid
 
-theorem comparisonSound :
-    type_of% (GuardedJRetest.CandidateReference.comparisonSound
+theorem comparison_sound :
+    type_of% (GuardedJRetest.CandidateReference.comparison_sound
       point tail value arrow native environment assumptions_valid) :=
-  GuardedJRetest.CandidateReference.comparisonSound
+  GuardedJRetest.CandidateReference.comparison_sound
     point tail value arrow native environment assumptions_valid
 
-theorem retainedSelected :
-    type_of% (GuardedJRetest.CandidateReference.extensionSelected
+theorem retained_selected :
+    type_of% (GuardedJRetest.CandidateReference.extension_selected
       point tail value arrow native stable environment assumptions_valid) :=
-  GuardedJRetest.CandidateReference.extensionSelected
+  GuardedJRetest.CandidateReference.extension_selected
     point tail value arrow native stable environment assumptions_valid
 
-theorem exactRecipe : cmd.expression =
+theorem exact_recipe : cmd.expression =
     j a x t (identity (identity q p p)
       (GuardedJRetest.CandidateReference.inner point tail value).expression
       (GuardedJRetest.CandidateReference.inner point tail value).expression)
       (reflexivity (subTy (identity q p p) (rootTail a x t))
         (subTm (GuardedJRetest.CandidateReference.inner point tail value).expression (rootTail a x t))) :=
-  GuardedJRetest.CandidateReference.selectedRecipe point tail value
+  GuardedJRetest.CandidateReference.selected_recipe point tail value
 
 end Candidate
 end GuardedJRetest.NativeCases

@@ -85,7 +85,7 @@ that actual source; they do not reconstruct theorems from a textbook picture.
 |---|---|
 | `Vertices`, `PathCategory` | Mathlib `Quiver.SchreierGraph`, `Symmetrify`, `CategoryTheory.Paths`; aliases only |
 | `edgeInterpretation`, `interpretation` | Labelled subtype edges from `Combinatorics/Quiver/Schreier.lean`; Mathlib `ActionCategory` and `Paths.lift`; local bridge retaining forward/inverse labels |
-| `rawMap`, `rawMap_laws`, `semanticEquiv`, `semantic_laws`, `reflects_semantics` | Existing `SquareKit.RawMap.ofFunctor`, `ofFunctor_laws`, `induced`, `inducedLaws`, `induced_reflects`; no parallel map hierarchy |
+| `rawMap`, `rawMap_laws`, `semanticEquiv`, `semantic_laws`, `reflects_semantics` | Existing `SquareKit.RawMap.ofFunctor`, `ofFunctor_laws`, `induced`, `induced_laws`, `induced_reflects`; no parallel map hierarchy |
 | `label`, `label_nil`, both `label_cons_*`, `label_comp`, `label_cast`, `semantic_iff_label` | Action-arrow label projection, native functor composition and elements-hom extensionality; local observation lemmas |
 | `label_pathFromWord`, `chronologicalPath`, `label_chronologicalPath` | Pinned `SchreierGraph.pathFromWord`/`evalWord` definitions and their tail-first convention; local comparison and adapter |
 | `label_reverse`, `interpretation_reverse` | Mathlib `Quiver.Path.reverse` and action-groupoid inversion; local compatibility proofs |

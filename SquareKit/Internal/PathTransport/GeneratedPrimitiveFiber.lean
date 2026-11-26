@@ -55,12 +55,12 @@ theorem generatedFamilyMap_fiber (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
   apply eq_of_heq
   apply (Family.relabelMap_heq _ _ _ _ _).trans
   exact Family.reindex_map_heq S.primitive (S.baseSubstitution (ξ M)) rfl rfl
-    ((leftSignatureMap S).generatedCtx hΓ) ((rightSignatureMap S).generatedCtx hΓ)
+    ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
     HEq.rfl HEq.rfl
-    (baseFunctor_up_heq _ ((leftSignatureMap S).generatedCtx hΓ)
-      ((leftSignatureMap S).generatedTm hx).2)
-    (baseFunctor_up_heq _ ((rightSignatureMap S).generatedCtx hΓ)
-      ((rightSignatureMap S).generatedTm hx).2)
+    (baseFunctor_up_heq _ ((leftSignatureMap S).generated_ctx hΓ)
+      ((leftSignatureMap S).generated_tm hx).2)
+    (baseFunctor_up_heq _ ((rightSignatureMap S).generated_ctx hΓ)
+      ((rightSignatureMap S).generated_tm hx).2)
     (generatedBaseTerm_commutes S hΓ hx)
 
 /-- Underlying set-valued restriction for a generated primitive fiber. -/

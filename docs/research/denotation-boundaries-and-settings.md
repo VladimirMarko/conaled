@@ -65,8 +65,8 @@ all clients from accessing implementation data.
 Locally, [Squares](../../Squares.lean) likewise exposes `Rep.R`, `Rep.S`,
 `decode`, `Square.impl`, and `Square.spec`.
 [CategoryMap](../../SquareKit/CategoryMap.lean) provides the semantic mechanism:
-`RawMap.induced` pulls back the target equivalence; `inducedLaws` derives map
-laws; `transportLaws` transfers category laws; `comp_laws` composes certified
+`RawMap.induced` pulls back the target equivalence; `induced_laws` derives map
+laws; `transport_laws` transfers category laws; `comp_laws` composes certified
 maps. Equality of meanings does not imply equality of representations.
 
 **Recommendation:** distinguish representation-aware compiler clients from

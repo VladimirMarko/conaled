@@ -163,7 +163,7 @@ abbrev amplitudeOps : SquareKit.CategoryOps Type where
   ident := LinearMap.id
   comp := LinearMap.comp
 
-theorem amplitudeLaws : SquareKit.CategoryLaws amplitudeOps (SquareKit.equality amplitudeOps) where
+theorem amplitude_laws : SquareKit.CategoryLaws amplitudeOps (SquareKit.equality amplitudeOps) where
   id_comp f := LinearMap.id_comp f
   comp_id f := LinearMap.comp_id f
   assoc h g f := LinearMap.comp_assoc f g h

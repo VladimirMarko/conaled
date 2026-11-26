@@ -27,7 +27,7 @@ theorem termDiagram_asSubstitution :
   · exact (Typed.sectionCode_universeLift (Object a (SplitSheaf.Cech.triple A))
       (SmoothQuotientDeformations.family a (SplitSheaf.Cech.triple A)) b ξ).symm
 
-theorem sectionMatchingEvaluation :
+theorem section_matchingEvaluation :
     (ξ (model a A)).down.lift ⋙ matchingEvaluation a A (.ext hΓ hB) =
       matchingEvaluation a A hΓ ⋙ (termDiagram a hΓ hB hx A).functor ⋙
         (relativeToGenerated a hΓ hB A).functor := by
@@ -42,11 +42,11 @@ theorem sectionMatchingEvaluation :
   rw [hs] at hh
   exact hh.symm
 
-theorem sectionTotalMatchingEvaluation :
+theorem section_totalMatchingEvaluation :
     (ξ (model a A)).down.lift ⋙ totalMatchingEvaluation a A hΓ hB =
       matchingEvaluation a A hΓ ⋙ (termDiagram a hΓ hB hx A).functor := by
   have hh := congrArg (fun F => F ⋙ (generatedToRelative a hΓ hB A).functor)
-    (sectionMatchingEvaluation a A hΓ hB hx)
+    (section_matchingEvaluation a A hΓ hB hx)
   have hi : (relativeToGenerated a hΓ hB A).functor ⋙
       (generatedToRelative a hΓ hB A).functor = 𝟭 _ := by
     rw [← CechMatching.StrictMap.functor_comp]
@@ -59,20 +59,20 @@ theorem sectionTotalMatchingEvaluation :
 specializing the dependent equality to concrete model expressions. -/
 def familyEvaluationTermComparison :=
   CechMatching.Comprehension.termEvaluationComparison
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation_projection a A hΓ hB) (ξ (model a A)).down
     (termDiagram a hΓ hB hx A).functor (termMatching_projection a hΓ hB hx A)
-    (sectionTotalMatchingEvaluation a A hΓ hB hx)
+    (section_totalMatchingEvaluation a A hΓ hB hx)
 
 /-- The section endpoint expressed in the actual fixed-base total functor. -/
-theorem sectionFiberEndpoint (c : (show Grpd.{1,1} from γ (model a A))) :
+theorem section_fiber_endpoint (c : (show Grpd.{1,1} from γ (model a A))) :
     (fiberTotalEvaluation a A hΓ hB c).obj ((ξ (model a A)).down.obj c) =
       (termDiagram a hΓ hB hx A).functor.obj ((matchingEvaluation a A hΓ).obj c) :=
-  CechMatching.Comprehension.sectionFiberEndpoint
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+  CechMatching.Comprehension.section_fiber_endpoint
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)
     (ξ (model a A)).down (termDiagram a hΓ hB hx A).functor
-    (sectionTotalMatchingEvaluation a A hΓ hB hx) c
+    (section_totalMatchingEvaluation a A hΓ hB hx) c
 
 end SquareKit.SmoothQuotientCechLocal

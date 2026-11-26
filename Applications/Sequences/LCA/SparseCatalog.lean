@@ -211,7 +211,7 @@ private def small : Input 3 where
   cells := #v[(0,1),(0,0),(0,1)]
   positive := by decide
   bounded i := by fin_cases i <;> decide
-  identityBound i := by fin_cases i <;> decide
+  identity_bound i := by fin_cases i <;> decide
   unit i hi := by
     have hh : i < 2 := by omega
     interval_cases i <;> simp [Dijkstra.Store.lookup]

@@ -80,12 +80,12 @@ theorem ordinary_history_contract [LinearOrder α]
           (execute Search.OrderedList.ops updates (payloads t))) ∧
       (∀ x, Search.OrderedMap.containsKey x (execute AVL.deleteOps updates t) = true ↔
         (updates.foldl meaningStep (Trees.setTree (Cached.erase t))) x) :=
-  ⟨AVL.inorderRefinement.execute Search.OrderedList.laws updates ht,
-    AVL.setLaws.execute_valid updates ht,
-    fun n => AVL.setLaws.prefix_valid updates n ht,
-    AVL.setLaws.execute_observe updates ht,
-    fun x => AVL.inorderRefinement.member_execute Search.OrderedList.laws updates ht x,
-    fun x => AVL.setLaws.member_execute updates ht x⟩
+  ⟨AVL.inorder_refinement.execute Search.OrderedList.laws updates ht,
+    AVL.set_laws.execute_valid updates ht,
+    fun n => AVL.set_laws.prefix_valid updates n ht,
+    AVL.set_laws.execute_observe updates ht,
+    fun x => AVL.inorder_refinement.member_execute Search.OrderedList.laws updates ht x,
+    fun x => AVL.set_laws.member_execute updates ht x⟩
 
 /-- Symbolic mixed histories preserve full validity and both independent observations. -/
 theorem generic_history_contract [LinearOrder α]
@@ -106,13 +106,13 @@ theorem generic_history_contract [LinearOrder α]
       (∀ x, Search.OrderedMap.containsKey x
           (execute (HeightBalance.deleteOps ann d) updates t) = true ↔
         (updates.foldl meaningStep (Trees.setTree (Cached.erase t))) x) :=
-  ⟨(HeightBalance.inorderRefinement ann d hd).execute Search.OrderedList.laws updates ht,
-    (HeightBalance.setLaws ann d hd).execute_valid updates ht,
-    fun n => (HeightBalance.setLaws ann d hd).prefix_valid updates n ht,
-    (HeightBalance.setLaws ann d hd).execute_observe updates ht,
-    fun x => (HeightBalance.inorderRefinement ann d hd).member_execute
+  ⟨(HeightBalance.inorder_refinement ann d hd).execute Search.OrderedList.laws updates ht,
+    (HeightBalance.set_laws ann d hd).execute_valid updates ht,
+    fun n => (HeightBalance.set_laws ann d hd).prefix_valid updates n ht,
+    (HeightBalance.set_laws ann d hd).execute_observe updates ht,
+    fun x => (HeightBalance.inorder_refinement ann d hd).member_execute
       Search.OrderedList.laws updates ht x,
-    fun x => (HeightBalance.setLaws ann d hd).member_execute updates ht x⟩
+    fun x => (HeightBalance.set_laws ann d hd).member_execute updates ht x⟩
 
 /-- Different annotation universes and tolerances share exact ordered observations. -/
 theorem independent_representations [LinearOrder α]
@@ -150,11 +150,11 @@ theorem integer_history_contract [LinearOrder α]
           (execute Search.OrderedList.ops updates (payloads t))) := by
   have hd := (HeightBalance.int_tolerance_toNat D hD).1
   exact ⟨(HeightBalance.int_tolerance_toNat D hD).2,
-    (HeightBalance.setLaws ann D.toNat hd).execute_valid updates ht,
-    fun n => (HeightBalance.setLaws ann D.toNat hd).prefix_valid updates n ht,
-    (HeightBalance.inorderRefinement ann D.toNat hd).execute
+    (HeightBalance.set_laws ann D.toNat hd).execute_valid updates ht,
+    fun n => (HeightBalance.set_laws ann D.toNat hd).prefix_valid updates n ht,
+    (HeightBalance.inorder_refinement ann D.toNat hd).execute
       Search.OrderedList.laws updates ht,
-    fun x => (HeightBalance.inorderRefinement ann D.toNat hd).member_execute
+    fun x => (HeightBalance.inorder_refinement ann D.toNat hd).member_execute
       Search.OrderedList.laws updates ht x⟩
 
 /-! S01: the actual mixed word, including duplicate insertion and absent deletion. -/
@@ -202,22 +202,22 @@ theorem mixed_target_prefix (n : Nat) :
 
 theorem ordinary_prefix_inorder (n : Nat) :
     payloads (execute AVL.deleteOps (mixedWord.take n) (.nil : HTree)) = mixedExpected n :=
-  (AVL.inorderRefinement.execute_from_empty Search.OrderedList.laws
+  (AVL.inorder_refinement.execute_from_empty Search.OrderedList.laws
     (mixedWord.take n)).trans (mixed_target_prefix n)
 
 theorem ordinary_prefix_valid (n : Nat) :
     AVL.SetValid (execute AVL.deleteOps (mixedWord.take n) (.nil : HTree)) :=
-  AVL.setLaws.prefix_valid mixedWord n AVL.setLaws.empty_valid
+  AVL.set_laws.prefix_valid mixedWord n AVL.set_laws.empty_valid
 
 theorem ordinary_final_inorder : payloads ordinaryRun = [2, 3] :=
-  (AVL.inorderRefinement.execute_from_empty Search.OrderedList.laws mixedWord).trans rfl
+  (AVL.inorder_refinement.execute_from_empty Search.OrderedList.laws mixedWord).trans rfl
 
 theorem ordinary_final_valid : AVL.SetValid ordinaryRun :=
-  AVL.setLaws.execute_valid mixedWord AVL.setLaws.empty_valid
+  AVL.set_laws.execute_valid mixedWord AVL.set_laws.empty_valid
 
 theorem ordinary_final_query (x : Nat) :
     Search.OrderedMap.containsKey x ordinaryRun = decide (x ∈ [2, 3]) := by
-  have h := AVL.inorderRefinement.member_execute Search.OrderedList.laws mixedWord
+  have h := AVL.inorder_refinement.member_execute Search.OrderedList.laws mixedWord
     (s := (.nil : HTree)) AVL.setValid_nil x
   exact h
 
@@ -233,7 +233,7 @@ theorem ordinary_final_queries :
 
 theorem ordinary_final_set (x : Nat) :
     x ∈ Trees.setTree (Cached.erase ordinaryRun) ↔ x = 2 ∨ x = 3 := by
-  have h := AVL.setLaws.execute_from_empty mixedWord
+  have h := AVL.set_laws.execute_from_empty mixedWord
   change Trees.setTree (Cached.erase ordinaryRun) =
     mixedWord.foldl meaningStep (fun _ => False) at h
   rw [h]
@@ -268,8 +268,8 @@ theorem first_three_validity_separator :
         (execute (HeightBalance.deleteOps AVL.heightAnnotation 2) firstThree .nil) ∧
       ¬ AVL.SetValid
         (execute (HeightBalance.deleteOps AVL.heightAnnotation 2) firstThree .nil) := by
-  refine ⟨AVL.setLaws.execute_valid firstThree AVL.setLaws.empty_valid,
-    (HeightBalance.setLaws AVL.heightAnnotation 2 (by decide)).execute_valid firstThree
+  refine ⟨AVL.set_laws.execute_valid firstThree AVL.set_laws.empty_valid,
+    (HeightBalance.set_laws AVL.heightAnnotation 2 (by decide)).execute_valid firstThree
       (HeightBalance.setValid_nil _ 2), ?_⟩
   intro h
   exact (by decide : ¬ AVL.Valid
@@ -282,12 +282,12 @@ theorem mixed_distinct_shapes :
 
 theorem generic_mixed_valid (d : Nat) (hd : 1 ≤ d) :
     HeightBalance.SetValid AVL.heightAnnotation d (genericRun d) :=
-  (HeightBalance.setLaws AVL.heightAnnotation d hd).execute_valid mixedWord
+  (HeightBalance.set_laws AVL.heightAnnotation d hd).execute_valid mixedWord
     (HeightBalance.setValid_nil AVL.heightAnnotation d)
 
 theorem generic_mixed_inorder (d : Nat) (hd : 1 ≤ d) :
     payloads (genericRun d) = [2, 3] :=
-  ((HeightBalance.inorderRefinement AVL.heightAnnotation d hd).execute_from_empty
+  ((HeightBalance.inorder_refinement AVL.heightAnnotation d hd).execute_from_empty
     Search.OrderedList.laws mixedWord).trans rfl
 
 theorem mixed_representations_agree :
@@ -315,9 +315,9 @@ theorem descending_valid_and_agree :
         (execute (HeightBalance.deleteOps AVL.heightAnnotation 2) descendingWord .nil) ∧
       payloads (execute (HeightBalance.deleteOps AVL.heightAnnotation 3) descendingWord .nil) =
         payloads (execute (HeightBalance.deleteOps AVL.heightAnnotation 2) descendingWord .nil) :=
-  ⟨(HeightBalance.setLaws AVL.heightAnnotation 3 (by decide)).execute_valid descendingWord
+  ⟨(HeightBalance.set_laws AVL.heightAnnotation 3 (by decide)).execute_valid descendingWord
       (HeightBalance.setValid_nil _ 3),
-    (HeightBalance.setLaws AVL.heightAnnotation 2 (by decide)).execute_valid descendingWord
+    (HeightBalance.set_laws AVL.heightAnnotation 2 (by decide)).execute_valid descendingWord
       (HeightBalance.setValid_nil _ 2),
     HeightBalance.inorder_execute_eq AVL.heightAnnotation AVL.heightAnnotation 3 2
       (by decide) (by decide) descendingWord
@@ -424,12 +424,12 @@ theorem word_base_set_valid :
 theorem maximum_update_full_validity :
     HeightBalance.SetValid HeightUpdates.maximumAnnotation 1 HeightUpdates.maximumWithSeven ∧
       HeightBalance.SetValid HeightUpdates.maximumAnnotation 1 HeightUpdates.maximumBase := by
-  have hi := (HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).insert_valid
+  have hi := (HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).insert_valid
     7 HeightUpdates.maximumBase maximum_base_set_valid
   change HeightBalance.SetValid HeightUpdates.maximumAnnotation 1
     (HeightBalance.insert HeightUpdates.maximumAnnotation 1 7 HeightUpdates.maximumBase) at hi
   rw [HeightUpdates.same_height_maximum_insert.1] at hi
-  have hd := (HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).delete_valid
+  have hd := (HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).delete_valid
     7 HeightUpdates.maximumWithSeven hi
   change HeightBalance.SetValid HeightUpdates.maximumAnnotation 1
     (HeightBalance.delete HeightUpdates.maximumAnnotation 1 7 HeightUpdates.maximumWithSeven) at hd
@@ -439,12 +439,12 @@ theorem maximum_update_full_validity :
 theorem word_update_full_validity :
     HeightBalance.SetValid (HeightUpdates.wordAnnotation Nat) 1 HeightUpdates.wordWithSeven ∧
       HeightBalance.SetValid (HeightUpdates.wordAnnotation Nat) 1 HeightUpdates.wordBase := by
-  have hi := (HeightBalance.setLaws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).insert_valid
+  have hi := (HeightBalance.set_laws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).insert_valid
     7 HeightUpdates.wordBase word_base_set_valid
   change HeightBalance.SetValid (HeightUpdates.wordAnnotation Nat) 1
     (HeightBalance.insert (HeightUpdates.wordAnnotation Nat) 1 7 HeightUpdates.wordBase) at hi
   rw [HeightUpdates.same_height_word_insert.1] at hi
-  have hd := (HeightBalance.setLaws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).delete_valid
+  have hd := (HeightBalance.set_laws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).delete_valid
     7 HeightUpdates.wordWithSeven hi
   change HeightBalance.SetValid (HeightUpdates.wordAnnotation Nat) 1
     (HeightBalance.delete (HeightUpdates.wordAnnotation Nat) 1 7 HeightUpdates.wordWithSeven) at hd
@@ -458,9 +458,9 @@ theorem annotation_prefixes (n : Nat) :
       HeightBalance.SetValid (HeightUpdates.wordAnnotation Nat) 1
         (execute (HeightBalance.deleteOps (HeightUpdates.wordAnnotation Nat) 1)
           (annotationWord.take n) HeightUpdates.wordBase) :=
-  ⟨(HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).prefix_valid
+  ⟨(HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).prefix_valid
       annotationWord n maximum_base_set_valid,
-    (HeightBalance.setLaws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).prefix_valid
+    (HeightBalance.set_laws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).prefix_valid
       annotationWord n word_base_set_valid⟩
 
 theorem annotation_round_trip :
@@ -485,7 +485,7 @@ theorem maximum_history_reader (updates : List (Update Nat)) (n : Nat) :
       (payloads (execute (HeightBalance.deleteOps HeightUpdates.maximumAnnotation 1)
         (updates.take n) HeightUpdates.maximumBase)).max? :=
   HeightRebalance.maximum_reader_eq_list_maximum _
-    ((HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).prefix_valid
+    ((HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).prefix_valid
       updates n maximum_base_set_valid).1.2
 
 theorem word_history_reader [LinearOrder α] (d : Nat) (hd : 1 ≤ d)
@@ -498,7 +498,7 @@ theorem word_history_reader [LinearOrder α] (d : Nat) (hd : 1 ≤ d)
       payloads (execute (HeightBalance.deleteOps (HeightUpdates.wordAnnotation α) d)
         (updates.take n) t) :=
   HeightRebalance.word_reader_eq_inorder _
-    ((HeightBalance.setLaws (HeightUpdates.wordAnnotation α) d hd).prefix_valid
+    ((HeightBalance.set_laws (HeightUpdates.wordAnnotation α) d hd).prefix_valid
       updates n ht).1.2
 
 theorem annotation_insert_set (x : Nat) :
@@ -506,9 +506,9 @@ theorem annotation_insert_set (x : Nat) :
         x = 7 ∨ x ∈ Trees.setTree (Cached.erase HeightUpdates.maximumBase)) ∧
       (x ∈ Trees.setTree (Cached.erase HeightUpdates.wordWithSeven) ↔
         x = 7 ∨ x ∈ Trees.setTree (Cached.erase HeightUpdates.wordBase)) := by
-  have hm := (HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).insert
+  have hm := (HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).insert
     7 HeightUpdates.maximumBase maximum_base_set_valid x
-  have hw := (HeightBalance.setLaws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).insert
+  have hw := (HeightBalance.set_laws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).insert
     7 HeightUpdates.wordBase word_base_set_valid x
   change (x ∈ Trees.setTree (Cached.erase
     (HeightBalance.insert HeightUpdates.maximumAnnotation 1 7 HeightUpdates.maximumBase)) ↔
@@ -525,9 +525,9 @@ theorem annotation_delete_set (x : Nat) :
         x ≠ 7 ∧ x ∈ Trees.setTree (Cached.erase HeightUpdates.maximumWithSeven)) ∧
       (x ∈ Trees.setTree (Cached.erase HeightUpdates.wordBase) ↔
         x ≠ 7 ∧ x ∈ Trees.setTree (Cached.erase HeightUpdates.wordWithSeven)) := by
-  have hm := (HeightBalance.setLaws HeightUpdates.maximumAnnotation 1 (by decide)).delete
+  have hm := (HeightBalance.set_laws HeightUpdates.maximumAnnotation 1 (by decide)).delete
     7 HeightUpdates.maximumWithSeven maximum_update_full_validity.1 x
-  have hw := (HeightBalance.setLaws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).delete
+  have hw := (HeightBalance.set_laws (HeightUpdates.wordAnnotation Nat) 1 (by decide)).delete
     7 HeightUpdates.wordWithSeven word_update_full_validity.1 x
   change (x ∈ Trees.setTree (Cached.erase
     (HeightBalance.delete HeightUpdates.maximumAnnotation 1 7 HeightUpdates.maximumWithSeven)) ↔
@@ -587,14 +587,14 @@ theorem empty_independent_annotation_refinement
       Refinement (HeightBalance.deleteOps ann d) Search.OrderedList.ops
         (fun t => Trees.inorder (Cached.erase t)) (HeightBalance.ValidD ann d)
         Search.OrderedList.Strict :=
-  ⟨rfl, HeightBalance.setValid_nil ann d, HeightBalance.inorderRefinement ann d hd⟩
+  ⟨rfl, HeightBalance.setValid_nil ann d, HeightBalance.inorder_refinement ann d hd⟩
 
 theorem empty_carrier_prefixes
     (ann : HeightBalance.HeightAnnotation PEmpty.{u + 1} σ) (d : Nat) (hd : 1 ≤ d)
     (updates : List (Update PEmpty.{u + 1})) (n : Nat) :
     HeightBalance.SetValid ann d
       (execute (HeightBalance.deleteOps ann d) (updates.take n) .nil) :=
-  (HeightBalance.setLaws ann d hd).prefix_valid updates n (HeightBalance.setValid_nil ann d)
+  (HeightBalance.set_laws ann d hd).prefix_valid updates n (HeightBalance.setValid_nil ann d)
 
 theorem ordinary_empty_carrier :
     (AVL.deleteOps : DeleteOps PEmpty.{u + 1}
@@ -603,6 +603,6 @@ theorem ordinary_empty_carrier :
       Refinement (AVL.deleteOps : DeleteOps PEmpty.{u + 1}
         (BinaryTree (PEmpty.{u + 1} × Nat))) Search.OrderedList.ops
         (fun t => Trees.inorder (Cached.erase t)) AVL.Valid Search.OrderedList.Strict :=
-  ⟨rfl, AVL.setLaws.empty_valid, AVL.inorderRefinement⟩
+  ⟨rfl, AVL.set_laws.empty_valid, AVL.inorder_refinement⟩
 
 end Examples.HeightSetRefinement

@@ -14,7 +14,7 @@ abbrev singleAtlas (U : Domain) : Atlas (Points U) where
   Index := Unit
   domain _ := U
   coordinate _ := id
-  openEmbedding _ := Topology.IsOpenEmbedding.id
+  isOpenEmbedding _ := Topology.IsOpenEmbedding.id
   covers x := ⟨(),x,rfl⟩
   transition _ _ x _ _ := ⟨1, by simp, subInclusion U 1, fun _ => rfl⟩
 
@@ -53,7 +53,7 @@ abbrev coverAtlas (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension) 
   Index := ι
   domain i := subdomain U (g i)
   coordinate i := (show Map _ _ from subInclusion U (g i))
-  openEmbedding i := subInclusion_openEmbedding U (g i)
+  isOpenEmbedding i := subInclusion_openEmbedding U (g i)
   covers x := by
     obtain ⟨i,hi⟩ := hc x
     exact ⟨i, localPoint U g x hi, rfl⟩

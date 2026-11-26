@@ -83,13 +83,13 @@ def lamAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub B (
 def unlamAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub (pi A B) σ)) :
     Tm (tySub B (lift A σ)) := unlam (tySub A σ) (transport (substitution A B σ) t)
 
-@[simp] theorem betaAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub B (lift A σ))) :
+@[simp] theorem unlamAt_lamAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub B (lift A σ))) :
     unlamAt A B σ (lamAt A B σ t) = t := by
   unfold unlamAt lamAt
   rw [transport_trans]
   exact beta _ t
 
-@[simp] theorem etaAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub (pi A B) σ)) :
+@[simp] theorem lamAt_unlamAt (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (t : Tm (tySub (pi A B) σ)) :
     lamAt A B σ (unlamAt A B σ t) = t := by
   unfold unlamAt lamAt
   rw [eta, transport_trans]
@@ -111,7 +111,7 @@ theorem unlamAt_natural (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (τ 
     unlamAt A B (τ ≫ σ) (tmSub t τ) =
       tmSub (unlamAt A B σ t) (lift (tySub A σ) τ) := by
   have h := congrArg (unlamAt A B (τ ≫ σ)) (lamAt_natural A B σ τ (unlamAt A B σ t))
-  simp only [etaAt] at h
-  exact h.trans (betaAt A B (τ ≫ σ) _)
+  simp only [lamAt_unlamAt] at h
+  exact h.trans (unlamAt_lamAt A B (τ ≫ σ) _)
 
 end SquareKit.SplitSheafPi

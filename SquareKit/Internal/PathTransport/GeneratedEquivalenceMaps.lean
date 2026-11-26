@@ -27,13 +27,13 @@ include hF
 
 theorem generatedContextMap_equivalence (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     (generatedContextMap S hΓ).IsEquivalence := by
-  let : (γ (fullModel S)).map.IsEquivalence := GeneratedEquivalence.generatedCtx S hF hΓ
+  let : (γ (fullModel S)).map.IsEquivalence := GeneratedEquivalence.generated_ctx S hF hΓ
   exact relabel_equivalence _ _ _
 
 theorem generatedFamilyMap_equivalences (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) :
     ∀ c, ((generatedFamilyMap S hΓ hA).app c).IsEquivalence :=
-  relabel_fiber_equivalences _ (GeneratedEquivalence.generatedTy S hF hA) _ _ _ _
+  relabel_fiber_equivalences _ (GeneratedEquivalence.generated_ty S hF hA) _ _ _ _
 
 def generatedContextEquivalence (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     (show Grpd.{u,u} from γ (Instance.fullModel S.base.left S.leftFiber)) ≌

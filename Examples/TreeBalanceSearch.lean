@@ -91,7 +91,7 @@ def rebalanceSquare [Preorder α] :
 def insertRebalanceSquare [LinearOrder α] (x : α) :
     Relational.RelSquare (AbstractSet.representation (setTree (α := α)) Ordered)
       (AbstractSet.representation (setTree (α := α)) Ordered) :=
-  Relational.compose rebalanceSquare (candidateSetLaws.insertSquare x)
+  Relational.compose rebalanceSquare (candidate_set_laws.insertSquare x)
 
 theorem insert_rebalance_contract [LinearOrder α] (x : α) {t : BinaryTree α}
     (ht : Ordered t) :
@@ -105,7 +105,7 @@ theorem member_insert_rebalance [LinearOrder α] (x y : α) {t : BinaryTree α}
     memberCandidate y (balanceTree (insertCandidate x t)) = true ↔
       y = x ∨ y ∈ setTree t := by
   have hc := insert_rebalance_contract x ht
-  exact (candidateSetLaws.member y _ hc.1).trans (hc.2 y)
+  exact (candidate_set_laws.member y _ hc.1).trans (hc.2 y)
 
 theorem figure_ordered : Ordered TreeBalance.figureTree := by
   rw [← TreeBalance.figure_shape, ordered_balanceList_iff]

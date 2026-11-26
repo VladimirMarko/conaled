@@ -85,7 +85,7 @@ specialization retains `Decision (P word)`, rather than a success bit. Its
 `cut` operation changes available depth without consuming a symbol, which is
 the extra operation needed by retained concat/star operands. The
 [source](../../Applications/Languages/IndexedCompositional.lean) supplies native
-`sourceCompatible` and `targetCompatible`, then derives `recovered_tree` and
+`source_compatible` and `target_compatible`, then derives `recovered_tree` and
 the direct concat/star results. This is demonstrated reuse without a new
 whole-term induction or a shared-core redesign.
 

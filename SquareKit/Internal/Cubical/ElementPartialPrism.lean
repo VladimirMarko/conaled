@@ -8,7 +8,7 @@ open CategoryTheory Presheaf
 abbrev tubeFace {Γ : Context.{0}} (φ : Cofibration Γ) := φ.reindex (projection (interval Γ))
 abbrev tubeSieve {Γ : Context.{0}} (φ : Cofibration Γ) := faceSieve (tubeFace φ)
 
-theorem freshPreservesTube {Γ : Context.{0}} (φ : Cofibration Γ)
+theorem fresh_preserves_tube {Γ : Context.{0}} (φ : Cofibration Γ)
     (X : (total (interval Γ)).Elementsᵒᵖ) (p : (tubeSieve φ).Contains X) :
     (tubeSieve φ).Contains ((freshenElements Γ).op.obj X) :=
   φ.full_natural (Functor.Elements.homMk (dropOpp X.unop.obj) rfl :
@@ -16,8 +16,8 @@ theorem freshPreservesTube {Γ : Context.{0}} (φ : Cofibration Γ)
 
 def tubePrimitive {Γ : Context.{0}} (φ : Cofibration Γ) (z : PartialCocycle2 (tubeSieve φ)) :
     PartialCochain1 (tubeSieve φ) := fun f p =>
-  partialPrism z (NatTrans.op (freshToCap Γ false)) (freshPreservesTube φ) f p -
-    partialPrism z (NatTrans.op (freshToElement Γ)) (freshPreservesTube φ) f p
+  partialPrism z (NatTrans.op (freshToCap Γ false)) (fresh_preserves_tube φ) f p -
+    partialPrism z (NatTrans.op (freshToElement Γ)) (fresh_preserves_tube φ) f p
 
 theorem tubePrimitive_boundary {Γ : Context.{0}} (φ : Cofibration Γ)
     (z : PartialCocycle2 (tubeSieve φ))
@@ -27,8 +27,8 @@ theorem tubePrimitive_boundary {Γ : Context.{0}} (φ : Cofibration Γ)
       tubePrimitive φ z f ((tubeSieve φ).downward g p) =
       z.cochain f g p - z.cochain ((intervalCap Γ false).mapElements.op.map f)
         ((intervalCap Γ false).mapElements.op.map g) p := by
-  have h₁ := partialPrism_boundary z (NatTrans.op (freshToCap Γ false)) (freshPreservesTube φ) f g p
-  have h₂ := partialPrism_boundary z (NatTrans.op (freshToElement Γ)) (freshPreservesTube φ) f g p
+  have h₁ := partialPrism_boundary z (NatTrans.op (freshToCap Γ false)) (fresh_preserves_tube φ) f g p
+  have h₂ := partialPrism_boundary z (NatTrans.op (freshToElement Γ)) (fresh_preserves_tube φ) f g p
   change _ = z.cochain ((freshenElements Γ).op.map f) ((freshenElements Γ).op.map g) _ -
     z.cochain f g p at h₂
   dsimp only [tubePrimitive]

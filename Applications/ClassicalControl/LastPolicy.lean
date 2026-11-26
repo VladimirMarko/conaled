@@ -15,31 +15,31 @@ theorem last_terminates (rest pre : List Nat) (c : Option (Nat × Nat × Nat)) (
   induction rest generalizing pre c O with
   | nil =>
     simpa [lastResult] using
-      (Relation.ReflTransGen.single (Step.lastEnd (L := pre) (π := .out pre) (c := c) (O := O))).trans
+      (Relation.ReflTransGen.single (Step.last_end (L := pre) (π := .out pre) (c := c) (O := O))).trans
         (Relation.ReflTransGen.single Step.output)
   | cons n ns ih =>
     simp only [lastResult]
     split_ifs with hn
     · have he : (pre ++ n::ns)[pre.length]? = some (2*(n/2)) := by
         simp [← parity_even n hn]
-      apply (Relation.ReflTransGen.single (Step.lastEven he)).trans
+      apply (Relation.ReflTransGen.single (Step.last_even he)).trans
       have heq := parity_even n hn
       convert ih (pre++[n]) (some (pre.length,n,n/2)) O using 1 <;>
         simp only [List.length_append, List.length_singleton, List.append_assoc, List.singleton_append]
       rw [← heq]
     · have ho : (pre ++ n::ns)[pre.length]? = some (2*(n/2)+1) := by
         simp [← parity_odd n hn]
-      apply (Relation.ReflTransGen.single (Step.lastOdd ho)).trans
+      apply (Relation.ReflTransGen.single (Step.last_odd ho)).trans
       simpa [List.append_assoc] using ih (pre++[n]) c (O++[n/2])
 
 theorem changed_policy_runs :
-    Runs (.run (.last L₀ 0 none []) (.out L₀)) (.deliver L₀ (.found 2 4 2 [])) := by
-  simpa [lastResult, finish] using last_terminates L₀ [] none []
+    Runs (.run (.last poleList 0 none []) (.out poleList)) (.deliver poleList (.found 2 4 2 [])) := by
+  simpa [lastResult, finish] using last_terminates poleList [] none []
 
-theorem changed_policy_good : goodPole.Holds (.run (.last L₀ 0 none []) (.out L₀)) :=
+theorem changed_policy_good : goodPole.Holds (.run (.last poleList 0 none []) (.out poleList)) :=
   ⟨.found 2 4 2 [], by simp [Weak], changed_policy_runs⟩
 
-theorem changed_policy_differs : direct L₀ ≠ Value.found 2 4 2 [] := by
+theorem changed_policy_differs : direct poleList ≠ Value.found 2 4 2 [] := by
   simp [direct, prependOdd]
 
 end ClassicalControl.Source

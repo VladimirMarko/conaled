@@ -39,11 +39,11 @@ theorem interpretation_preserves_coproducts : CoproductMapLaws (equality _) copr
   copair _ _ := rfl
 
 theorem coproducts_congr : CoproductCongr ops.{u} (equality _) coproducts :=
-  CoproductMap.transportCongr (RawMap.id_laws _) (fun h => h) (equalityCongr _)
+  CoproductMap.transport_congr (RawMap.id_laws _) (fun h => h) (equality_congr _)
     interpretation_preserves_coproducts FunctionCategory.coproductCongr
 
 theorem coproducts_laws : CoproductLaws ops.{u} (equality _) coproducts :=
-  CoproductMap.transportLaws (RawMap.id_laws _) (fun h => h) (equalityCongr _)
+  CoproductMap.transport_laws (RawMap.id_laws _) (fun h => h) (equality_congr _)
     FunctionCategory.laws coproductComparison_laws interpretation_preserves_coproducts
     FunctionCategory.coproductCongr FunctionCategory.coproductLaws
 
@@ -55,7 +55,7 @@ theorem interpretation_preserves_distribution : DistributionMapLaws (equality op
     rcases x with ⟨x, ⟨y | y⟩⟩ <;> rfl
 
 theorem distribution_laws : DistributionLaws ops.{u} (equality _) products coproducts distribution :=
-  DistributionMap.transportLaws (equalityCongr _) FunctionCategory.laws
+  DistributionMap.transport_laws (equality_congr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws
     FunctionCategory.coproductCongr FunctionCategory.coproductLaws
     (RawMap.id_laws _) (fun h => h) interpretation_preserves_products interpretation_preserves_coproducts
@@ -102,28 +102,28 @@ theorem composedInterpretation_laws : MapLaws (composedInterpretation meaning) (
 
 theorem composedProductComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (composedProductComparison meaning a b) :=
-  Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
+  Comparison.comp_laws (equality_congr _) FunctionCategory.laws
     (Comparison.map_laws (RawMap.id_laws _) (CodeCategory.productComparison_laws meaning a b))
     (Wrapped.wrapProducts_laws _ _)
 
 theorem composedCoproductComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (composedCoproductComparison meaning a b) :=
-  CoproductMap.comp_inverse (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  CoproductMap.comp_inverse (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     (CodeCategory.coproductComparison_laws meaning) Wrapped.wrapCoproducts_laws a b
 
 theorem composedInterpretation_preserves_products : ProductMapLaws (equality _) (composedProductComparison meaning) :=
-  ProductMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  ProductMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     (CodeCategory.evaluation_preserves_products meaning) Wrapped.wrapProducts_preserves_products
 
 theorem composedInterpretation_preserves_coproducts : CoproductMapLaws (equality _) (composedCoproductComparison meaning) :=
-  CoproductMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  CoproductMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     (CodeCategory.evaluation_preserves_coproducts meaning) Wrapped.wrapCoproducts_preserves_coproducts
 
 /-- Compose the two operation-preservation contracts before transporting source laws. -/
 theorem composedInterpretation_preserves_distribution : DistributionMapLaws (equality _)
     (composedProductComparison meaning) (composedCoproductComparison meaning)
     (CodeCategory.distribution Prim) Wrapped.distribution :=
-  DistributionMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  DistributionMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     Wrapped.products_congr Wrapped.products_laws Wrapped.coproducts_congr Wrapped.coproducts_laws
     Wrapped.wrapProducts_preserves_products Wrapped.wrapCoproducts_preserves_coproducts
     (fun a b => (Wrapped.wrapProducts_laws a b).hom_inv)
@@ -152,7 +152,7 @@ theorem raw_preservation_without_inverse_laws :
 theorem composedInterpretation_distribution_laws : DistributionLaws (CodeCategory.ops Prim)
     (CodeCategory.equiv meaning) (CodeCategory.products Prim) (CodeCategory.coproducts Prim)
     (CodeCategory.distribution Prim) :=
-  DistributionMap.transportLaws (equalityCongr _) FunctionCategory.laws
+  DistributionMap.transport_laws (equality_congr _) FunctionCategory.laws
     Wrapped.products_congr Wrapped.products_laws Wrapped.coproducts_congr Wrapped.coproducts_laws
     (composedInterpretation_laws meaning) (CodeCategory.evaluation_reflects meaning)
     (composedInterpretation_preserves_products meaning) (composedInterpretation_preserves_coproducts meaning)
@@ -165,7 +165,7 @@ example : CoproductMapLaws (equality FunctionCategory.ops)
 example : DistributionMapLaws (equality FunctionCategory.ops)
     (ProductMap.id Wrapped.products) (CoproductMap.id Wrapped.coproducts)
     Wrapped.distribution Wrapped.distribution :=
-  DistributionMap.id_laws (equalityCongr _) FunctionCategory.laws
+  DistributionMap.id_laws (equality_congr _) FunctionCategory.laws
     Wrapped.products_congr Wrapped.products_laws Wrapped.coproducts_congr Wrapped.coproducts_laws _
 
 /-- Arbitrary code arrows recover coproduct eta through shared law transport. -/
@@ -176,10 +176,10 @@ example {a b c : Ty} (f : Code Prim (.sum a b) c) :
 /-- Evaluation induces laws without being injective on raw code. -/
 example : CoproductLaws (CodeCategory.ops Prim)
     ((CodeCategory.evaluation meaning).induced (equality _)) (CodeCategory.coproducts Prim) :=
-  CoproductMap.transportLaws
-    ((CodeCategory.evaluation meaning).inducedLaws (equality _) rfl (fun _ _ => rfl))
+  CoproductMap.transport_laws
+    ((CodeCategory.evaluation meaning).induced_laws (equality _) rfl (fun _ _ => rfl))
     ((CodeCategory.evaluation meaning).induced_reflects _)
-    (equalityCongr _) FunctionCategory.laws (CodeCategory.coproductComparison_laws meaning)
+    (equality_congr _) FunctionCategory.laws (CodeCategory.coproductComparison_laws meaning)
     (CodeCategory.evaluation_preserves_coproducts meaning) FunctionCategory.coproductCongr
     FunctionCategory.coproductLaws
 

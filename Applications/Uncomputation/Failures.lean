@@ -24,7 +24,7 @@ theorem phaseZ_unitary (v w : Bool → ℂ) :
 theorem phase_cleanup (v : Bool → ℂ) :
     coherent cnot.symm (scratchZ (coherent cnot (initZero false v))) =
       initZero false (phaseZ v) := by
-  have h := cleanup_correct amplitudeOps amplitudeLaws
+  have h := cleanup_correct amplitudeOps amplitude_laws
     (coherent cnot) scratchZ (coherent cnot.symm) (initZero false) phaseZ
     (by ext v p; simp [LinearMap.comp_apply])
     (by

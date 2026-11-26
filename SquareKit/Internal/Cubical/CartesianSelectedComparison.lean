@@ -377,11 +377,11 @@ def raisedConstantIso (Γ : Presheaf.Context.{u}) (S : Type u) :
   hom := { app := fun _ => 𝟙 _, naturality := fun _ _ _ => rfl }
   inv := { app := fun _ => 𝟙 _, naturality := fun _ _ _ => rfl }
 
-theorem loopTransport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
+theorem loop_transport (S : FiniteCode.{u}) (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (realizedLoop S e))
       (Raising.raiseTerm (loopInput S s)) = Raising.raiseTerm (loopInput S (e s)) :=
   SmallUniverse.NativeUnivalence.pathToMap_of_smallSection (realizedLoop S e)
-    (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
+    (PathDiscrete.of_iso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
       (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _))
     (loopSection S e s) (loopInput S s) (loopInput S (e s))
     (loopSection_zero S e s) (loopSection_one S e s)
@@ -392,12 +392,12 @@ noncomputable def sourceInput (S : FiniteCode.{u})
     Presheaf.Term (SmallUniverse.liftedDecode a) :=
   Raising.raiseTerm (Presheaf.Term.map ea.inv ⟨fun _ => s, fun _ => rfl⟩)
 
-theorem endpointTransport (S : FiniteCode.{u})
+theorem endpoint_transport (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
     (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (endpointPath S a ea))
       (sourceInput S a ea s) = Raising.raiseTerm (loopInput S s) := by
-  have h := (PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
+  have h := (PathDiscrete.of_iso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _)) (𝟙 _)
       (SmallUniverse.NativeUnivalence.uaComparison a (realizedConstant S)
         (Raising.iso (endpointIso S a ea)).hom (HomotopyEquivalence.ofIso (Raising.iso (endpointIso S a ea)))
@@ -410,23 +410,23 @@ theorem endpointTransport (S : FiniteCode.{u})
   rw [ea.inv_hom_id_app_apply]
   rfl
 
-theorem whiskeredTransport (S : FiniteCode.{u})
+theorem whiskered_transport (S : FiniteCode.{u})
     (a : raisedContext terminal.{u} ⟶ smallFamilyCodes.{u})
     (ea : Presheaf.decode a ≅ Presheaf.constantFamily terminal S.Carrier)
     (e : S.Carrier ≃ S.Carrier) (s : S.Carrier) :
     Presheaf.Term.map (SmallUniverse.NativeUnivalence.pathToMap (whiskeredLoop S a ea e))
       (sourceInput S a ea s) = sourceInput S a ea (e s) := by
-  have hA : PathDiscrete (SmallUniverse.liftedDecode a) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
+  have hA : PathDiscrete (SmallUniverse.liftedDecode a) := PathDiscrete.of_iso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso ea ≪≫ raisedConstantIso _ _)
-  have hB : PathDiscrete (SmallUniverse.liftedDecode (realizedConstant S)) := PathDiscrete.ofIso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
+  have hB : PathDiscrete (SmallUniverse.liftedDecode (realizedConstant S)) := PathDiscrete.of_iso (constant_pathDiscrete (ULift.{u+1} S.Carrier))
     (Raising.iso (constantDecodePresentation S) ≪≫ raisedConstantIso _ _)
   have first := hB (𝟙 _) (SmallUniverse.NativeUnivalence.concatTransportComparison a
     (realizedConstant S) (realizedConstant S) (endpointPath S a ea) (realizedLoop S e)
       (sourceInput S a ea s))
-  rw [endpointTransport, loopTransport] at first
+  rw [endpoint_transport, loop_transport] at first
   have last := hA (𝟙 _) (SmallUniverse.NativeUnivalence.reverseTransportLeft a
     (realizedConstant S) (endpointPath S a ea) (sourceInput S a ea (e s)))
-  rw [endpointTransport] at last
+  rw [endpoint_transport] at last
   have both := hA (𝟙 _) (SmallUniverse.NativeUnivalence.concatTransportComparison a
     (realizedConstant S) a
     (homogeneousConcat (SmallUniverse.filling _) (SmallUniverse.filling_lawful _)

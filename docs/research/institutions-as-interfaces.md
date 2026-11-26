@@ -315,7 +315,7 @@ inhabitation remains useful for recognition, but does not meet this contract.
 
 Construction and observation still supply the induction principle. In
 [`IndexedCompositional.lean`](../../Applications/Languages/IndexedCompositional.lean),
-local `sourceCompatible`/`targetCompatible` laws and the leaf morphism feed
+local `source_compatible`/`target_compatible` laws and the leaf morphism feed
 `recovered`, retaining full finite-depth parser observations in arbitrary
 constructor terms. A satisfaction interface does not derive these local laws
 or the recursion over constructors by itself. An enriched framework could
@@ -392,7 +392,7 @@ homomorphism preservation and the equivalence induced by the meaning map.
 It does not require literal source-arrow equality.
 [MakeLawful.agda][felix]. Locally,
 [`CategoryMap.lean`](../../SquareKit/CategoryMap.lean) separates operations,
-equivalence and laws: `inducedLaws`, `transportLaws` and `comp_laws` derive
+equivalence and laws: `induced_laws`, `transport_laws` and `comp_laws` derive
 congruence/law transport and composition under their stated assumptions.
 Reflection is needed for an independently chosen source equivalence; for the
 induced equivalence it is immediate. This remains useful inside categorical

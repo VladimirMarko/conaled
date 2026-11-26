@@ -69,7 +69,7 @@ example : (Term.fold targetAlgebra LanguageWitnesses.IndexedCompositional.unfold
 example : behavior.observe ((compileRows rows meaning).lift LanguageWitnesses.IndexedCompositional.source)
     (.step true .stop) mixed = Decision.yes (.inl (7, ⟨rfl⟩)) := by
   erw [← observations equations meaning sourceAlgebra LanguageWitnesses.IndexedCompositional.source
-    sourceCompatible LanguageWitnesses.IndexedCompositional.source (fun _ x => x)
+    source_compatible LanguageWitnesses.IndexedCompositional.source (fun _ x => x)
     ⟨fun _ _ => rfl, fun _ _ _ => rfl⟩]
   rfl
 end Parsing

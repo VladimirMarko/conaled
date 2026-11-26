@@ -10,7 +10,7 @@ abbrev fiber := discreteFamily index (fun n => Fin (n+1))
 abbrev original := discreteFilling index (fun n => Fin (n+1))
 abbrev composition := original.toComposition
 noncomputable abbrev reconstructed := composition.toFilling
-abbrev reconstructedLawful :=
+abbrev reconstructed_lawful :=
   Composition.toFilling_lawful (Filling.toComposition_lawful (discreteFilling_lawful index (fun n => Fin (n+1))))
 abbrev emptyBox := OpenBox.empty (reindex fiber (projection (interval naturals))) finiteLast
 noncomputable abbrev filled := reconstructed.fill (projection (interval naturals))
@@ -25,7 +25,7 @@ theorem empty_tube_retains_cap : filled = finiteLast.reindex (projection (interv
     (φ := Cofibration.top naturals) (PartialSection.ofTerm _ filled)
     y rfl r ((endpoint naturals false).val y)
   exact h.trans (congrArg (fun t => t.val y)
-    (reconstructedLawful.fills (projection (interval naturals)) _ emptyBox).1)
+    (reconstructed_lawful.fills (projection (interval naturals)) _ emptyBox).1)
 
 theorem two_substitutions :
     ((reconstructed.reindex successor).reindex twice).fill
@@ -34,10 +34,10 @@ theorem two_substitutions :
       ((emptyBox.reindex successor).reindex twice) =
       (filled.reindex (liftSub (interval naturals) successor)).reindex
         (liftSub (interval naturals) twice) := by
-  exact ((reconstructedLawful.reindex successor).uniform
+  exact ((reconstructed_lawful.reindex successor).uniform
     (projection (interval naturals)) _ (emptyBox.reindex successor) twice).trans
       (congrArg (fun t => t.reindex (liftSub (interval naturals) twice))
-        (reconstructedLawful.uniform (projection (interval naturals)) _ emptyBox successor))
+        (reconstructed_lawful.uniform (projection (interval naturals)) _ emptyBox successor))
 
 theorem retained_value :
     (filled.reindex (liftSub (interval naturals) (twice ≫ successor))).val

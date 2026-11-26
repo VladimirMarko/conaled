@@ -126,7 +126,7 @@ def mappedProductIsLimit {F : RawMap C D} (L : MapLaws F E H)
     (productMap_laws CC CL DC DL L SC TC M) (productLaws DC DL T TC TL) a b
 
 /-- Strong comparisons give an ordinary Mathlib product-preserving functor. -/
-theorem preservesBinaryProduct {F : RawMap C D} (L : MapLaws F E H)
+theorem preserves_binary_product {F : RawMap C D} (L : MapLaws F E H)
     {S : ProductOps C} {T : ProductOps D} (SC : ProductCongr E S) (TC : ProductCongr H T)
     (SL : ProductLaws E S) (TL : ProductLaws H T)
     {i : ProductMap F S T} (I : ∀ a b, ComparisonLaws H (i a b))
@@ -153,7 +153,7 @@ def mappedTerminalIsTerminal {F : RawMap C D} (L : MapLaws F E H)
   exact (SquareKit.terminalIsTerminal (terminal DC DL U) (terminalLaws DC DL U UL)).ofIso
     (comparisonIso DC DL i I).symm
 
-theorem preservesTerminal {F : RawMap C D} (L : MapLaws F E H)
+theorem preserves_terminal {F : RawMap C D} (L : MapLaws F E H)
     {T : TerminalOps C} {U : TerminalOps D} {i : TerminalMap F T U}
     (I : ComparisonLaws H i) (TL : TerminalLaws E T) (UL : TerminalLaws H U) :
     letI := category CC CL

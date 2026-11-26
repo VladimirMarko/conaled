@@ -26,14 +26,14 @@ noncomputable def codeUnglue : decode (code φ a t e E) ⟶ decode a :=
     (Datum.smallFamilyIso (Datum.mk φ (decode a) (decode t) e)).hom ≫
     compatibleUnglue φ (decode a) (decode t) e
 
-private theorem cancelIso {Ξ : Context.{u}} {W X Y Z : Family Ξ}
+private theorem cancel_iso {Ξ : Context.{u}} {W X Y Z : Family Ξ}
     (h : W ⟶ Y) (i : X ≅ Y) (k : Y ⟶ Z) :
     h ≫ k = (h ≫ i.inv) ≫ i.hom ≫ k := by
   simp only [Category.assoc, Iso.inv_hom_id_assoc]
 
 theorem codeUnglue_native : codeUnglue φ a t e E =
     (codeNativeIso φ a t e E).hom ≫ unglue φ (decode a) (decode t) e :=
-  cancelIso
+  cancel_iso
     (eqToHom (LocalFamily.decodeCode_family_eq
       (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)) ≫
       (Datum.smallFamilyIso (Datum.mk φ (decode a) (decode t) e)).hom)

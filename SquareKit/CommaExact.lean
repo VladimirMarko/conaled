@@ -8,7 +8,7 @@ universe u
 abbrev interpretation : RawMap (FunctionCategory.ops : CategoryOps (Type u)) FunctionCategory.ops := RawMap.id FunctionCategory.ops
 abbrev Object := Obj (interpretation.{u}) interpretation
 abbrev Arrow (a b : Object.{u}) := Hom (equality FunctionCategory.ops) a b
-abbrev categoryOps : CategoryOps Object.{u} := Comma.ops (equalityCongr FunctionCategory.ops)
+abbrev categoryOps : CategoryOps Object.{u} := Comma.ops (equality_congr FunctionCategory.ops)
   FunctionCategory.laws (RawMap.id_laws (equality FunctionCategory.ops)) (RawMap.id_laws (equality FunctionCategory.ops))
 
 def ofRep (a : Squares.Rep.{u}) : Object := ⟨a.R, a.S, a.decode⟩
@@ -51,7 +51,7 @@ def toSquare {a b : Object.{u}} (f : Arrow a b) : Squares.Square (toRep a) (toRe
 
 /-- Both horizontal arrows must agree, including for a noninjective decoder. -/
 theorem equiv_iff {a b : Object.{u}} (f g : Arrow a b) :
-    (Comma.equiv (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    (Comma.equiv (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (RawMap.id_laws (equality FunctionCategory.ops)) (RawMap.id_laws (equality FunctionCategory.ops))).Rel f g ↔ f = g :=
   ⟨fun h => Hom.ext h.1 h.2, fun h => by subst g; exact ⟨rfl, rfl⟩⟩
 end SquareKit.Comma.Exact

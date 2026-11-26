@@ -548,7 +548,7 @@ arbitrary dependent families and sections from those premises. Semantic
 validity is not a premise of the source rules.
 
 `interpret` handles arbitrary derivations of this fragment. `typed_result`
-recovers a coherent section in the declared family. `familyEquality` extracts
+recovers a coherent section in the declared family. `family_equality` extracts
 literal family equality from a derived source equality, and
 `conversion_independent` proves that two such derivations transport every
 section identically. Schematic substitution of raw names is separate from
@@ -1117,9 +1117,9 @@ observation is invariant under every actual third identity, by the cubical
 Stokes equation. This establishes more than inequality of raw square data.
 
 `CubicalFrozenAssignment.assignInput` supplies all eight original input
-binders. `retainedHomotopy` compares the entire interpreted selected source
+binders. `retained_homotopy` compares the entire interpreted selected source
 section with the constructed second identity, including its dependent family
-transport. `frozenHigherObservation` reads one; `frozenHigher_no_erasure` rejects
+transport. `frozen_higher_observation` reads one; `frozenHigher_no_erasure` rejects
 reflexivity. The original displayed `sigmaHomotopy` and `tauHomotopy` equations
 retain this binder under the actual frozen substitutions. No replacement maps
 or rewritten source client are used.

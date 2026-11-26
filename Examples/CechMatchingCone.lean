@@ -11,13 +11,13 @@ abbrev Loops := SingleObj (Multiplicative ℤ)
 abbrev loopObject := SingleObj.star (Multiplicative ℤ)
 abbrev oneLoop : loopObject ⟶ loopObject := Multiplicative.ofAdd 1
 
-theorem identityLaws : CechMatching.ConeLaws
+theorem identity_laws : CechMatching.ConeLaws
     (D := CechMatching.constant (Grpd.of Loops)) (𝟭 Loops) (Iso.refl _) where
   diagonal := by ext x; change (𝟙 x) = (𝟙 x) ≫ (𝟙 x); simp
   cocycle := by ext x; rfl
 
 def identityCone : Loops ⥤ CechMatching.Datum (CechMatching.constant (Grpd.of Loops)) :=
-  CechMatching.coneFunctor (𝟭 Loops) (Iso.refl _) identityLaws
+  CechMatching.coneFunctor (𝟭 Loops) (Iso.refl _) identity_laws
 
 example : (identityCone.map
     oneLoop).localArrow = oneLoop := rfl

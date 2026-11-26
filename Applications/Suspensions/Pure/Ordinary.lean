@@ -316,7 +316,7 @@ private theorem eval_step (rawParameters : Core.Machine.Parameters Primitive)
       exact keep_step state frames histories (.value (.primitive operation)) (fun _ => rfl)
   | constructor tag =>
       exact keep_step state frames histories (.value (.constructor .none)) (fun _ => rfl)
-  | @constructorArgument tag body allowed =>
+  | @constructor_argument tag body allowed =>
       exact push_step state frames histories (.eval body captured) (.constructor tag)
         (by intro address env inner same; cases same) (fun _ => rfl)
   | @record fields allowed =>
@@ -390,7 +390,7 @@ private theorem argument_step {operations : Primitive → Prop}
   case closure captured =>
     exact replace_step state frames histories (.clauses _ captured operand) .applicationResult
       (by intro address env inner same; cases same) (fun _ => rfl)
-  case recursiveClosure captured members =>
+  case recursive_closure captured members =>
     exact replace_step state frames histories (.clauses _ (GroupRep.bodyEnvironment members captured) operand)
       .applicationResult (by intro address env inner same; cases same) (fun _ => rfl)
   case primitive operation =>
@@ -479,7 +479,7 @@ private theorem constructor_pattern_step (rawParameters : Core.Machine.Parameter
   | exception payload => exact keep_step state frames histories .mismatch (fun _ => rfl)
   | address found => exact keep_step state frames histories .mismatch (fun _ => rfl)
   | closure capture => exact keep_step state frames histories .mismatch (fun _ => rfl)
-  | recursiveClosure capture members => exact keep_step state frames histories .mismatch (fun _ => rfl)
+  | recursive_closure capture members => exact keep_step state frames histories .mismatch (fun _ => rfl)
   | @constructor actual rawArgument pureArgument payload =>
       cases argument with
       | none =>
@@ -652,11 +652,11 @@ private theorem pattern_step (rawParameters : Core.Machine.Parameters Primitive)
             Machine.transition, same] using result
   | constructor tag =>
       exact constructor_pattern_step rawParameters tag none state captured represented frames histories
-  | @constructorArgument tag inner allowed =>
+  | @constructor_argument tag inner allowed =>
       exact constructor_pattern_step rawParameters tag (some inner) state captured represented frames histories
   | exception name =>
       exact exception_pattern_step rawParameters name none state captured represented frames histories
-  | @exceptionArgument name inner allowed =>
+  | @exception_argument name inner allowed =>
       exact exception_pattern_step rawParameters name (some inner) state captured represented frames histories
   | @record patterns allowed =>
       exact record_pattern_step rawParameters patterns state captured represented frames histories

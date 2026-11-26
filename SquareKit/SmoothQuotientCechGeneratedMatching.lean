@@ -28,17 +28,17 @@ theorem generatedOverlap_restrict (hΓ : Typed.CtxDeriv.{2} Γ γ)
       restrictedComparison a A hΓ f ≪≫
       (eqToIso (localMap_twice a A hΓ (SplitSheaf.Cech.second A) f)).symm := by
   rw [restrictedComparison_formula]
-  exact whiskerRelabel _ (localMap_restriction a A hΓ (SplitSheaf.Cech.first A))
+  exact whisker_relabel _ (localMap_restriction a A hΓ (SplitSheaf.Cech.first A))
     (localMap_restriction a A hΓ (SplitSheaf.Cech.second A)) _ _ _ _ _
 
 theorem generatedOverlap_diagonal (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     isoWhiskerRight (generatedOverlap a A hΓ)
       (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.diagonal A)) =
     isoWhiskerLeft (localMap a A hΓ)
-      (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).diagonalFirst) ≪≫
+      (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).diagonal_first) ≪≫
     (isoWhiskerLeft (localMap a A hΓ)
-      (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).diagonalSecond)).symm := by
+      (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).diagonal_second)).symm := by
   rw [generatedOverlap_restrict, restrictedComparison_diagonal]
-  exact diagonalRelabel _ _ _ _ _ _
+  exact diagonal_relabel _ _ _ _ _ _
 
 end SquareKit.SmoothQuotientCechLocal

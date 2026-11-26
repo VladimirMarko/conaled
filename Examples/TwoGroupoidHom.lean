@@ -14,9 +14,9 @@ abbrev A := DoubleDelooping.Space (Multiplicative ℤ)
 abbrev x : A := DoubleDelooping.point (Multiplicative ℤ)
 abbrev f : x ⟶ x := DoubleDelooping.arrow (Multiplicative ℤ)
 
-def E : Discrete Unit ⥤ A := (Functor.const _).obj x
+def pointFunctor : Discrete Unit ⥤ A := (Functor.const _).obj x
 
-def a : TwoGroupoidHom.Total E x := TwoGroupoidHom.arrow E x ⟨()⟩ f
+def a : TwoGroupoidHom.Total pointFunctor x := TwoGroupoidHom.arrow pointFunctor x ⟨()⟩ f
 
 /-- The base component is reflexivity, but the fiber cell is the supplied integer. -/
 def fiberLoop (n : ℤ) : a ⟶ a :=
@@ -85,8 +85,8 @@ theorem integerTrans_component (m : ℤ) :
     Multiplicative.toAdd ((integerTrans m).toStrong.app pathTarget).as = m := rfl
 
 theorem double_reindex_preserves_fiber (n : ℤ) :
-    ((TwoGroupoidHom.reindex (𝟭 (Discrete Unit)) E x) ⋙
-      TwoGroupoidHom.reindex (𝟭 (Discrete Unit)) E x).map (fiberLoop n) = fiberLoop n := by
+    ((TwoGroupoidHom.reindex (𝟭 (Discrete Unit)) pointFunctor x) ⋙
+      TwoGroupoidHom.reindex (𝟭 (Discrete Unit)) pointFunctor x).map (fiberLoop n) = fiberLoop n := by
   rw [TwoGroupoidHom.reindex_id]
   rfl
 

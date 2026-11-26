@@ -4,7 +4,7 @@ namespace Uncomputation
 
 abbrev functionOps := SquareKit.FunctionCategory.ops
 
-abbrev functionLaws := SquareKit.FunctionCategory.laws
+abbrev function_laws := SquareKit.FunctionCategory.laws
 
 /-- The state order is (retained input, caller output), scratch. -/
 def computeBit {X : Type} (f : X → Bool) : ((X × Bool) × Bool) ≃ ((X × Bool) × Bool) :=
@@ -23,7 +23,7 @@ def oracle {X : Type} (f : X → Bool) :=
 is controlled XOR of `f`, independent of the scratch implementation. -/
 theorem oracle_clean {X : Type} (f : X → Bool) (p : X × Bool) :
     oracle f (p, false) = (controlled f p, false) := by
-  have h := cleanup_correct functionOps functionLaws
+  have h := cleanup_correct functionOps function_laws
     (fun p => computeBit f p) (fun p => useBit p) (fun p => (computeBit f).symm p)
     (fun p : X × Bool => (p, false)) (fun p => controlled f p)
     (by funext p; exact (computeBit f).symm_apply_apply _)

@@ -21,15 +21,15 @@ inductive StorageStep {P : Type} : List StorageEvent → Machine P → Machine P
       StorageStep [.persist] s (persistState s i c)
   | publish {s p} : s.pending = some p → Extends p.writes s.disk →
       StorageStep [.installRoot] s (publishState s p)
-  | readFlat {s a as seen tip e} : s.cache = none →
+  | read_flat {s a as seen tip e} : s.cache = none →
       s.cursor = some (.prefixCells (a :: as) seen tip) → s.disk a = some (.flat e) →
       StorageStep [.readRecord] s { s with cursor := some (.prefixCells as (seen ++ [e]) tip) }
-  | readNode {s a prev e pre suffix} : s.cache = none →
+  | read_node {s a prev e pre suffix} : s.cache = none →
       s.cursor = some (.tailCells (some a) pre suffix) → s.disk a = some (.node prev e) →
       StorageStep [.readRecord, .followLink] s { s with cursor := some (.tailCells prev pre (e :: suffix)) }
-  | readLogRoot {s} : s.cache = none → s.cursor = none → s.root.checkpoint = none →
+  | read_log_root {s} : s.cache = none → s.cursor = none → s.root.checkpoint = none →
       StorageStep [.readRoot] s { s with cursor := some (.tailCells s.root.tail [] []) }
-  | readCheckpointRoot {s a as} : s.cache = none → s.cursor = none →
+  | read_checkpoint_root {s a as} : s.cache = none → s.cursor = none →
       s.root.checkpoint = some a → s.disk a = some (.index as) →
       StorageStep [.readRoot, .readDescriptor] s { s with cursor := some (.prefixCells as [] s.root.tail) }
   | reclaim {s h i} : s.cache = some h → s.active = none → s.pending = none →
@@ -45,10 +45,10 @@ theorem StorageStep.sound {P : Type} {events s t} (step : @StorageStep P events 
   | write hp hw => exact ⟨_, .write hp hw⟩
   | persist hp hw hb compatible => exact ⟨_, .persist hp hw hb compatible⟩
   | publish hp persisted => exact ⟨_, .publish hp persisted⟩
-  | readFlat hc cur lookup => exact ⟨_, .read hc cur (.flat lookup)⟩
-  | readNode hc cur lookup => exact ⟨_, .read hc cur (.node lookup)⟩
-  | readLogRoot hc cur empty => exact ⟨_, .startRead hc cur (.log empty)⟩
-  | readCheckpointRoot hc cur ptr lookup => exact ⟨_, .startRead hc cur (.checkpoint ptr lookup)⟩
+  | read_flat hc cur lookup => exact ⟨_, .read hc cur (.flat lookup)⟩
+  | read_node hc cur lookup => exact ⟨_, .read hc cur (.node lookup)⟩
+  | read_log_root hc cur empty => exact ⟨_, .startRead hc cur (.log empty)⟩
+  | read_checkpoint_root hc cur ptr lookup => exact ⟨_, .startRead hc cur (.checkpoint ptr lookup)⟩
   | @reclaim s h i hc ha hp allocated unreachable =>
     refine ⟨_, Step.reclaim hc ha hp ?_ ?_⟩
     · intro a c needed found

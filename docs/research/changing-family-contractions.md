@@ -24,7 +24,7 @@ merely an objectwise equality or an unspecified natural isomorphism. The result
 requires no invertibility, fullness or faithfulness of `α` or `K`. Both base
 categories have `IsGroupoid` instances for the path contraction.
 
-`PathComparison.baseFamilySquare` constructs the actual coherent square between
+`PathComparison.base_family_square` constructs the actual coherent square between
 the two normalized path contractions. Its path functor sends the endpoint and
 chosen identity arrow through the family transformation and base functor. It
 does not discard the chosen arrow by replacing every path with reflexivity.
@@ -48,10 +48,10 @@ square with the existing substitution square. The explicit section equation
 above supplies the endpoint relabeling. This gives the general base/family
 square without assuming that elimination commutes.
 
-For a dependent extension, `familyLiftSquare` proves compatibility of the two
+For a dependent extension, `family_lift_square` proves compatibility of the two
 Grothendieck contractions under a changing family. Its inverse equation follows
 from naturality at the original inverse counit; its counit equation retains the
-fiber arrow and equality transports. `liftChangingSquare` combines this result
+fiber arrow and equality transports. `lift_changing_square` combines this result
 with the existing pullback lift. The two dependent families are independently
 specified and related by a natural transformation; one need not be definitionally
 the pullback of the other.
@@ -77,7 +77,7 @@ values. `ChangingTail.propagate` constructs a branch functor and the coherent
 square between their existing reindexed contractions by structural recursion.
 It does not take the final square as an assumption.
 
-`PathComparison.eliminateChangingTail` starts from the general base/family data,
+`PathComparison.changingTail_eliminate` starts from the general base/family data,
 constructs the root square, propagates it through the finite changing tail, and
 passes that proof to `eliminate_familyMap`. Its remaining section hypothesis is
 the ordinary mapped-branch equation. It does not assume the conclusion that

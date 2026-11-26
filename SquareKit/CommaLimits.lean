@@ -47,7 +47,7 @@ noncomputable def lawfulConeComparison {F : I ⥤ CategoryTheory.Comma L R} (c :
   (lawfulConeIsLimit c ha hb).conePointUniqueUpToIso (lawfulLimitIsLimit F ha hb)
 /-- Convert the chosen raw projections, retaining their actual connector. -/
 def rawBinaryFan
-    (p : ProductOps (ops (equalityCongr _) (ofCategoryLaws T)
+    (p : ProductOps (ops (equality_congr _) (ofCategory_laws T)
       (RawMap.ofFunctor_laws L) (RawMap.ofFunctor_laws R)))
     (a b : Obj (RawMap.ofFunctor L) (RawMap.ofFunctor R)) :
     BinaryFan (toMathlib L R a) (toMathlib L R b) :=
@@ -57,7 +57,7 @@ def rawBinaryFan
 /-- In particular, take `p = Comma.productOps ...`. Source limit proofs and
 right preservation identify that raw connector with the lawful lifted limit. -/
 def rawBinaryFanIsLimit
-    (p : ProductOps (ops (equalityCongr _) (ofCategoryLaws T)
+    (p : ProductOps (ops (equality_congr _) (ofCategory_laws T)
       (RawMap.ofFunctor_laws L) (RawMap.ofFunctor_laws R)))
     (a b : Obj (RawMap.ofFunctor L) (RawMap.ofFunctor R))
     [PreservesLimit ((pair (toMathlib L R a) (toMathlib L R b)) ⋙ CategoryTheory.Comma.snd L R) R]

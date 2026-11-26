@@ -21,7 +21,7 @@ the target initial arrow after the forward comparison. Comparisons and their
 inverse equations are separate. `id_laws`, `comp_laws` and `comp_inverse` support
 identity and sequential interpretations.
 
-`InitialMap.transportLaws` derives source uniqueness from target uniqueness,
+`InitialMap.transport_laws` derives source uniqueness from target uniqueness,
 preservation and explicit reflection. It uses only `inv ∘ hom ≈ id` at the
 interpreted source initial object. It does not assume source uniqueness,
 injectivity of an interpretation, or map preservation of unrelated operations.
@@ -98,7 +98,7 @@ consume those public interfaces and their laws:
 
 - [`InitialTransport`](../../Examples/InitialTransport.lean) interprets the
   compiler's base type as `Empty`, with explicit elimination primitives.
-  `codeInitialLaws` derives uniqueness for every code arrow out of that base
+  `codeInitial_laws` derives uniqueness for every code arrow out of that base
   through shared transport. `raw_initial_not_unique` rejects constructor
   equality as the law relation: an identity code and elimination primitive are
   different trees. Targets include the inhabited unit type; the example does
@@ -113,11 +113,11 @@ consume those public interfaces and their laws:
   tags for ordinary and wrapped products/sums, canonical collection after
   distribution, and an empty factor. `selected_agrees` compares a directly
   defined function with the swap-derived construction through `right_unique`.
-- `codeLaws` gives both inverse laws for arbitrary raw compiler code under its
-  semantic equivalence. `evaluationPreserves` and `composedPreserves` connect
+- `code_laws` gives both inverse laws for arbitrary raw compiler code under its
+  semantic equivalence. `evaluation_preserves` and `composed_preserves` connect
   that interpretation to wrapped products/sums; the latter composes the two
   preservation contracts through `DistributionMap.comp_laws`.
-- `paddedLaws` establishes a separately selected right inverse with an extra
+- `padded_laws` establishes a separately selected right inverse with an extra
   identity instruction. `padded_agrees` uses generic uniqueness, while
   `padded_not_equal` checks that the constructor trees remain distinct. Another
   checked rejection shows right inverse laws fail under raw constructor

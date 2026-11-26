@@ -93,7 +93,7 @@ theorem sigmaRegroup_right_fiber {x y z : Total (sigmaFamily F B)}
   apply HEq.trans (mapped_component_right_heq _ _ _ _ _)
   apply HEq.trans _ (mapped_postcast_right_heq _ _ _ _).symm
   apply HEq.trans _ (mapped_boundary_right_heq _ _ _ _).symm
-  exact (map_right_paste_heq _ _ (sigmaRegroupTransport F B r) α.fiber.fiber r.fiber.fiber).symm
+  exact (map_right_paste_heq _ _ (sigma_regroup_transport F B r) α.fiber.fiber r.fiber.fiber).symm
 set_option maxHeartbeats 400000 in
 theorem sigmaRegroupCell_whiskerRight {x y z : Total (sigmaFamily F B)}
     {p q : x ⟶ y} (α : p ⟶ q) (r : y ⟶ z) :

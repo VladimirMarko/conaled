@@ -38,16 +38,16 @@ def SoundHyp (H : Hypotheses) : Prop := ∀ e p P, H e p P → P
 inductive ProofDenotes (M : Interpretation Graph.Arrow) :
     Frame M → Hypotheses → E → E → Prop → Prop where
   | hyp : H e p P → ProofDenotes M f H e p P
-  | mapHyp : (∀ e p P, H e p P → H' e p P) →
+  | map_hyp : (∀ e p P, H e p P → H' e p P) →
       ProofDenotes M f H e p P → ProofDenotes M f H' e p P
   | reindex : f.model = g.model →
       (∀ {s} (i : Var f.context s), g.Term (f.assignment i) (f.values i)) →
       ProofDenotes M f H e p P → ProofDenotes M g H e p P
-  | cutHyp : ProofDenotes M f H e p P →
+  | cut_hyp : ProofDenotes M f H e p P →
       ProofDenotes M f (addHyp H e p P) d q Q → ProofDenotes M f H d q Q
-  | weakenProof : ProofDenotes M f H e p P →
+  | weaken_proof : ProofDenotes M f H e p P →
       ProofDenotes M f.proofBinder (shiftHyp H) e.shift p.shift P
-  | weakenData (x : M.Carrier s) : ProofDenotes M f H e p P →
+  | weaken_data (x : M.Carrier s) : ProofDenotes M f H e p P →
       ProofDenotes M (f.dataBinder x) (shiftHyp H) e.shift p.shift P
   | left : f.Prop p P → f.Prop q Q → ProofDenotes M f H e (conj p q) (P ∧ Q) →
       ProofDenotes M f H (.apps (.const ``And.left []) [p, q, e]) p P
@@ -100,15 +100,15 @@ its emitter. Typing syntax remains an index throughout this argument. -/
 theorem ProofDenotes.sound (d : ProofDenotes M f H e p P) (h : SoundHyp H) : P := by
   induction d with
   | hyp hd => exact h _ _ _ hd
-  | mapHyp hm _ ih => exact ih (fun e p P hp => h e p P (hm e p P hp))
+  | map_hyp hm _ ih => exact ih (fun e p P hp => h e p P (hm e p P hp))
   | reindex _ _ _ ih => exact ih h
-  | cutHyp _ _ ih ij =>
+  | cut_hyp _ _ ih ij =>
     apply ij
     intro e p P hp
     rcases hp with ⟨_, _, rfl⟩ | hp
     · exact ih h
     · exact h e p P hp
-  | weakenProof _ ih | weakenData _ _ ih =>
+  | weaken_proof _ ih | weaken_data _ _ ih =>
     exact ih (fun e p P hp => h e.shift p.shift P ⟨e, p, hp, rfl, rfl⟩)
   | left _ _ _ ih => exact (ih h).1
   | right _ _ _ ih => exact (ih h).2
@@ -155,7 +155,7 @@ theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula
     simpa only [formula_instantiate, GraphTarget.formula_instantiate] using hp
   | @subst Γ Δ p q σ d ih =>
     simp only [code, formula_subst, GraphTarget.formula_subst] at hp ⊢
-    apply ProofDenotes.cutHyp hp
+    apply ProofDenotes.cut_hyp hp
     apply ProofDenotes.reindex (g := ⟨Δ, m, a, ρ⟩) (f := ⟨Γ, m, (fun i => term m a (σ i)),
       (fun i => (σ i).eval M ρ)⟩) rfl
     · intro s i; exact term_denotes M m a ρ (σ i)
@@ -182,9 +182,9 @@ theorem code_denotes (M : Interpretation Graph.Arrow) {p q : GraphTarget.Formula
     intro x
     let B := formula m.shift (extend (shift a) (.bvar 0)) p
     let H' := addHyp (shiftHyp (shiftHyp H)) (.bvar 0) B.shift (p.Eval M (ρ.extend x))
-    have hh := ProofDenotes.weakenProof (ProofDenotes.weakenData x
+    have hh := ProofDenotes.weaken_proof (ProofDenotes.weaken_data x
       (ProofDenotes.left (f := ⟨_, m, a, ρ⟩) (formula_denotes M m a ρ b) (formula_denotes M m a ρ (.ex p)) hp))
-    have hh' := ProofDenotes.mapHyp (H' := H') (fun _ _ _ hx => Or.inr hx) hh
+    have hh' := ProofDenotes.map_hyp (H' := H') (fun _ _ _ hx => Or.inr hx) hh
     have hw : ProofDenotes M
         ⟨s :: Γ, m.shift.shift, shift (extend (shift a) (.bvar 0)), ρ.extend x⟩ H'
         (.bvar 0) (formula m.shift.shift (shift (extend (shift a) (.bvar 0))) p)

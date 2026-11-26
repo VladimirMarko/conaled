@@ -98,8 +98,8 @@ def targetSubstituted := compiledTwiceTyped
 /-- Genuine G syntax and the actual two object substitutions agree with the
 program quotation. The type alignment is checked by nativeSubstituted above. -/
 theorem substituted_target_quote :
-    Expr.subst (fun v => DependentPairPresentations.G.act (tauRaw v))
-      (Expr.subst (fun v => DependentPairPresentations.G.act
+    Expr.subst (fun v => DependentPairPresentations.projectionToElimination.act (tauRaw v))
+      (Expr.subst (fun v => DependentPairPresentations.projectionToElimination.act
         (DependentPairComputedTyping.successorSub v)) (targetTerm (.second (.var m)))) =
       targetCode.targetQuote := by
   rw [targetCode_quote]

@@ -52,7 +52,7 @@ theorem native_translate {p q s} (d : DependentPairSharedFragment.Proof p s) :
 certificates. Its semantic interface retains the bounded source provenance;
 it is not an interpreter for arbitrary elimination-calculus proofs. -/
 def targetProof {s} (d : DependentPairSharedFragment.Proof .target s) :
-    Derivation eliminationPresentation (fun _ => Empty) (Judgment.map G (sourceJudgment s)) :=
+    Derivation eliminationPresentation (fun _ => Empty) (Judgment.map projectionToElimination (sourceJudgment s)) :=
   compile (nativeProof d)
 
 theorem translation_is_fullG {p s} (d : DependentPairSharedFragment.Proof p s) :
@@ -111,15 +111,15 @@ def sourceTerm : Shape → PExpr SingleV
   | .packet e => pairRaw e
   | .second e => secondRaw e
 
-def targetTerm (s : Shape) : EExpr SingleV := G.act (sourceTerm s)
+def targetTerm (s : Shape) : EExpr SingleV := projectionToElimination.act (sourceTerm s)
 
 theorem target_pair (e : IndexTerm SingleV) : targetTerm (.packet e) =
-    Elimination.pack (G.act N) (G.act familyB) (G.act (s e.expression)) (G.act (t e.expression)) :=
-  G_pair _ _ _ _
+    Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB) (projectionToElimination.act (s e.expression)) (projectionToElimination.act (t e.expression)) :=
+  projectionToElimination_pair _ _ _ _
 
 theorem target_second (e : IndexTerm SingleV) : targetTerm (.second e) =
-    Elimination.second (G.act N) (G.act familyB) (G.act (pairRaw e)) :=
-  G_second _ _ _
+    Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB) (projectionToElimination.act (pairRaw e)) :=
+  projectionToElimination_second _ _ _
 
 def firstIndex : IndexTerm SingleV := .successor (.var m)
 def finalIndex : IndexTerm SingleV := .successor (.double (.var m))
@@ -141,11 +141,11 @@ theorem selected_second_substitution :
   rw [first_substitution, second_substitution]
 
 theorem target_second_substitution :
-    Expr.subst (fun v => G.act (tauRaw v))
-      (Expr.subst (fun v => G.act (successorSub v)) (targetTerm (.second (.var m)))) =
+    Expr.subst (fun v => projectionToElimination.act (tauRaw v))
+      (Expr.subst (fun v => projectionToElimination.act (successorSub v)) (targetTerm (.second (.var m)))) =
         targetTerm (.second finalIndex) := by
   unfold targetTerm sourceTerm
-  rw [← G.substitution, ← G.substitution, selected_second_substitution]
+  rw [← projectionToElimination.substitution, ← projectionToElimination.substitution, selected_second_substitution]
 
 /-- The final term and dependent type are obtained by the actual two typed
 substitutions, not merely by constructing another derivation at the final index. -/
@@ -162,6 +162,6 @@ def twiceTyped : DependentPairTypedClient.Proof (sourceJudgment (.second finalIn
     Expr.lift, successorSub, tauRaw, m] using h
 
 def compiledTwiceTyped : Derivation eliminationPresentation (fun _ => Empty)
-    (Judgment.map G (sourceJudgment (.second finalIndex))) := compile twiceTyped
+    (Judgment.map projectionToElimination (sourceJudgment (.second finalIndex))) := compile twiceTyped
 
 end SquareKit.DependentPairSharedTyping

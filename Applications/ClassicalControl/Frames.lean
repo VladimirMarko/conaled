@@ -146,7 +146,7 @@ theorem forward {s s' : Source.State} {t : Target.State}
   | even he =>
     cases hr with | run ht hp =>
       cases ht with | test hk => exact ⟨_, .even he, .run hk (.arg .ret hp)⟩
-  | lastOdd | lastEven | lastEnd => cases hr with | run ht _ => cases ht
+  | last_odd | last_even | last_end => cases hr with | run ht _ => cases ht
 
 /-- The reverse simulation is restricted by the same generated-family relation. -/
 theorem backward {s : Source.State} {t t' : Target.State}

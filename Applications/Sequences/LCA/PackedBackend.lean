@@ -244,18 +244,18 @@ private def singletonInput : Input 1 where
   cells := #v[(0,0)]
   positive := by decide
   bounded i := by have : i=0 := Fin.eq_zero i; subst i; decide
-  identityBound i := by have : i=0 := Fin.eq_zero i; subst i; decide
+  identity_bound i := by have : i=0 := Fin.eq_zero i; subst i; decide
   unit i hi := by omega
 
-private theorem singletonMachine : MachineCapacity.Eligible 1 8 128 2 64 := by
+private theorem singleton_machine : MachineCapacity.Eligible 1 8 128 2 64 := by
   constructor
   · constructor <;> decide
   · decide
 
-example : ((realize singletonInput singletonMachine).depths[0]).val = 0 := by
+example : ((realize singletonInput singleton_machine).depths[0]).val = 0 := by
   simp [realize, depthWords, prepared_depth, singletonInput, Input.depth, paddedDepth, lookup]
 
-example : ((realize singletonInput singletonMachine).spans[0]).val = 1 := by
+example : ((realize singletonInput singleton_machine).spans[0]).val = 1 := by
   simp [realize, spanWords, prepared_span]
 
 end Sequences.LCA.PackedBackend

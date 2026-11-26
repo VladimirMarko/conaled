@@ -67,12 +67,12 @@ variable {Γ Δ : Context.{u}} {φ ψ : Cofibration Γ}
 
 theorem disjointGlue_reindex :
     Functor.whiskerLeft (restrictSubstitution (φ.join ψ) σ).mapElements
-      (glue a b (disjointCompatible a b disjoint)) =
+      (glue a b (disjoint_compatible a b disjoint)) =
     glue (φ := φ.reindex σ) (ψ := ψ.reindex σ)
       (A := reindex A (restrictSubstitution (φ.join ψ) σ))
       (B := reindex B (restrictSubstitution (φ.join ψ) σ)) (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements a)
       (Functor.whiskerLeft (restrictSubstitution ψ σ).mapElements b)
-      (disjointCompatible _ _ (fun x => disjoint (σ.mapElements.obj x))) := rfl
+      (disjoint_compatible _ _ (fun x => disjoint (σ.mapElements.obj x))) := rfl
 
 private theorem equivalenceCast_reindex {Ξ Ω : Context.{u}} {C D : Family Ξ}
     {f g : C ⟶ D} (h : f = g) (E : HomotopyEquivalence f) (τ : Ω ⟶ Ξ) :
@@ -93,7 +93,7 @@ theorem leftEquivalence_reindex (ea : HomotopyEquivalence a) :
   exact equivalenceCast_reindex
     (C := reindex A (includeLeft φ ψ))
     (D := reindex B (includeLeft φ ψ))
-    (glue_left a b (disjointCompatible a b disjoint)).symm ea
+    (glue_left a b (disjoint_compatible a b disjoint)).symm ea
     (restrictSubstitution φ σ)
 
 theorem rightEquivalence_reindex (eb : HomotopyEquivalence b) :
@@ -108,7 +108,7 @@ theorem rightEquivalence_reindex (eb : HomotopyEquivalence b) :
   exact equivalenceCast_reindex
     (C := reindex A (includeRight φ ψ))
     (D := reindex B (includeRight φ ψ))
-    (glue_right a b (disjointCompatible a b disjoint)).symm eb
+    (glue_right a b (disjoint_compatible a b disjoint)).symm eb
     (restrictSubstitution ψ σ)
 
 private noncomputable def branchFibers {Ξ : Context.{u}} (α β : Cofibration Ξ)
@@ -674,7 +674,7 @@ theorem disjointEquivalence_reindex (ea : HomotopyEquivalence a)
   have hL := leftEquivalence_reindex (A := A) (B := B) a b disjoint σ ea
   have hR := rightEquivalence_reindex (A := A) (B := B) a b disjoint σ eb
   let f' := Functor.whiskerLeft (restrictSubstitution (φ.join ψ) σ).mapElements
-    (glue a b (disjointCompatible a b disjoint))
+    (glue a b (disjoint_compatible a b disjoint))
   have hk := congrArg₂
     (branchFibers (φ.reindex σ) (ψ.reindex σ)
       (C := reindex A (restrictSubstitution (φ.join ψ) σ))
@@ -682,7 +682,7 @@ theorem disjointEquivalence_reindex (ea : HomotopyEquivalence a)
       (fun x => disjoint (σ.mapElements.obj x)) f') hL hR
   apply HomotopyEquivalence.ext
   exact (branchFibers_reindex (φ := φ) (ψ := ψ) (A := A) (B := B) disjoint σ
-    (glue a b (disjointCompatible a b disjoint))
+    (glue a b (disjoint_compatible a b disjoint))
     (leftEquivalence a b disjoint ea) (rightEquivalence a b disjoint eb)).trans hk
 
 end CodeSystem.Maps
@@ -802,13 +802,13 @@ theorem boundaryMap_reindex (f : decode a ⟶ decode b) :
       (restrictSubstitution face (liftSub (interval Γ) σ)))
     (decode (CodeSystem.boundary (raisedSub σ ≫ a) (raisedSub σ ≫ b)))
     (reindex (decode (ambient (raisedSub σ ≫ b))) (restrictInclusion face))
-    hC l r l' r' (CodeSystem.Maps.disjointCompatible
+    hC l r l' r' (CodeSystem.Maps.disjoint_compatible
       (φ := intervalFace Δ false) (ψ := intervalFace Δ true)
       (A := reindex (decode (CodeSystem.boundary a b))
         (restrictSubstitution face (liftSub (interval Γ) σ)))
       (B := reindex (decode (ambient (raisedSub σ ≫ b))) (restrictInclusion face))
       l r intervalFace_disjoint)
-    (CodeSystem.Maps.disjointCompatible l' r' intervalFace_disjoint)
+    (CodeSystem.Maps.disjoint_compatible l' r' intervalFace_disjoint)
     (boundaryLeft_reindex a b σ f) (boundaryRight_reindex a b σ)
 
 private def sourceEquivalence {Ξ : Context.{u}} {A B C : Family Ξ}

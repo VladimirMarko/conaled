@@ -9,7 +9,7 @@ open Sequences.LCA TreeReduction PreparationBounds PackedBackend WordSummary
 open LCABackend LCAPhases
 
 -- A singleton still follows the physical log/descriptor/span/payload path.
-example : (run 1 (arena singletonInput (BackendBounds.machine_arena singletonMachine)) 0 0).1.val = 0 := by
+example : (run 1 (arena singletonInput (BackendBounds.machine_arena singleton_machine)) 0 0).1.val = 0 := by
   rw [run_value singletonInput _ 0 0 (by decide)]
   decide
 

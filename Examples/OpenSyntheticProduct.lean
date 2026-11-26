@@ -35,7 +35,7 @@ theorem infinite_locality (x : Carrier ArbitrarySmoothCovers.line) :
     SmoothGeometricLocality.gluedSlope (increment expProduct) ArbitrarySmoothCovers.line x
       (principalSieve ArbitrarySmoothCovers.line ArbitrarySmoothCovers.opens) ArbitrarySmoothCovers.covering =
       (SmoothOpenSite.derivative expProduct).hom.app (atStage ArbitrarySmoothCovers.line) x :=
-  SmoothGeometricLocality.gluedDerivative _ _ _ _ _
+  SmoothGeometricLocality.glued_derivative _ _ _ _ _
 
 theorem no_finite_cover (S : Finset ℕ) :
     ¬ SmoothAlgebra.OpenCover.Covers (fun i : S => ArbitrarySmoothCovers.opens i.val) :=

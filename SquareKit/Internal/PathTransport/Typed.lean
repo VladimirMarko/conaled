@@ -497,16 +497,16 @@ end
 
 mutual
 /-- Every generated type conversion has its required semantic coherence. -/
-theorem typeSound (e : TyEqDeriv Γ γ A a B b) : a = b :=
+theorem type_sound (e : TyEqDeriv Γ γ A a B b) : a = b :=
   match e with
   | .refl _ => rfl
-  | .symm e => (typeSound e).symm
-  | .trans e f => (typeSound e).trans (typeSound f)
-  | .fiber e => congrArg fiberCode (termSound e)
-  | .identity _ e f => by rw [termSound e, termSound f]
+  | .symm e => (type_sound e).symm
+  | .trans e f => (type_sound e).trans (type_sound f)
+  | .fiber e => congrArg fiberCode (term_sound e)
+  | .identity _ e f => by rw [term_sound e, term_sound f]
   | .identityType _ h _ _ => by cases h; rfl
-  | .subCongr _ e => by rw [subSound e]
-  | .sub e _ => by rw [typeSound e]
+  | .subCongr _ e => by rw [sub_sound e]
+  | .sub e _ => by rw [type_sound e]
   | .subId _ => subTyId_code _
   | .subComp _ _ _ => subTyComp_code _ _ _
   | .baseSub _ => baseSub_code _
@@ -514,13 +514,13 @@ theorem typeSound (e : TyEqDeriv Γ γ A a B b) : a = b :=
   | .identitySub _ _ _ _ => identitySub_code _ _ _ _
 termination_by sizeOf e
 
-theorem termSound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
+theorem term_sound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
   match e with
   | .refl _ => rfl
-  | .symm e => (termSound e).symm
-  | .trans e f => (termSound e).trans (termSound f)
-  | .conv e _ _ => by rw [termSound e]
-  | .sub e _ => by rw [termSound e]
+  | .symm e => (term_sound e).symm
+  | .trans e f => (term_sound e).trans (term_sound f)
+  | .conv e _ _ => by rw [term_sound e]
+  | .sub e _ => by rw [term_sound e]
   | .subId _ => subTmId_code _
   | .subComp _ _ _ => subTmComp_code _ _ _
   | .reflSub _ _ _ => reflSub_code _ _ _
@@ -528,12 +528,12 @@ theorem termSound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
   | .subCongr _ _ h => by cases h; rfl
   | .variablePair _ _ _ => variablePair_code _ _ _
   | .jCongr _ _ _ _ _ h e => by
-    have he := termSound e
+    have he := term_sound e
     cases h
     simp only [castCode] at he ⊢
     rw [he]
   | .jCongrAt _ h e _ k _ _ => by
-    have he := termSound e
+    have he := term_sound e
     cases h
     cases k
     simp only [castCode] at he ⊢
@@ -543,14 +543,14 @@ theorem termSound (e : TmEqDeriv Γ γ A a t ξ v ν) : ξ = ν :=
   | .jSub _ _ _ _ _ _ _ => jSub_code _ _ _ _ _ _
 termination_by sizeOf e
 
-theorem subSound (e : SubEqDeriv Δ δ Γ γ σ s τ t) : s = t :=
+theorem sub_sound (e : SubEqDeriv Δ δ Γ γ σ s τ t) : s = t :=
   match e with
   | .refl _ => rfl
-  | .symm e => (subSound e).symm
-  | .trans e f => (subSound e).trans (subSound f)
-  | .comp e f => by rw [subSound e, subSound f]
+  | .symm e => (sub_sound e).symm
+  | .trans e f => (sub_sound e).trans (sub_sound f)
+  | .comp e f => by rw [sub_sound e, sub_sound f]
   | .pairCongr _ _ h e => by
-    have he := termSound e
+    have he := term_sound e
     cases h
     simp only [castCode] at he ⊢
     rw [he]
@@ -564,36 +564,36 @@ end
 
 /-- The public conversion operation derives coherence from the source rule. -/
 def TmDeriv.convert (t : TmDeriv Γ γ A a x ξ) (e : TyEqDeriv Γ γ A a B b) :
-    TmDeriv Γ γ B b x (castCode (typeSound e) ξ) := .conv t e (typeSound e)
+    TmDeriv Γ γ B b x (castCode (type_sound e) ξ) := .conv t e (type_sound e)
 
 def TmEqDeriv.convert (t : TmEqDeriv Γ γ A a x ξ y η) (e : TyEqDeriv Γ γ A a B b) :
-    TmEqDeriv Γ γ B b x (castCode (typeSound e) ξ) y (castCode (typeSound e) η) :=
-  .conv t e (typeSound e)
+    TmEqDeriv Γ γ B b x (castCode (type_sound e) ξ) y (castCode (type_sound e) η) :=
+  .conv t e (type_sound e)
 
 def TyEqDeriv.identityCongr (e : TyEqDeriv Γ γ A a B b)
     (hx : TmDeriv Γ γ A a x ξ) (hy : TmDeriv Γ γ A a y η) :
     TyEqDeriv Γ γ (.identity A x y) (identityCode a ξ η)
-      (.identity B x y) (identityCode b (castCode (typeSound e) ξ) (castCode (typeSound e) η)) :=
-  .identityType e (typeSound e) hx hy
+      (.identity B x y) (identityCode b (castCode (type_sound e) ξ) (castCode (type_sound e) η)) :=
+  .identityType e (type_sound e) hx hy
 
 def TmEqDeriv.reflexivityCongr (e : TmEqDeriv Γ γ A a x ξ y η) :
     TmEqDeriv Γ γ (.identity A x x) (identityCode a ξ ξ)
       (.refl x) (reflCode a ξ) (.refl y)
-      (castCode (by rw [termSound e]) (reflCode a η)) :=
-  .reflCongr e (termSound e)
+      (castCode (by rw [term_sound e]) (reflCode a η)) :=
+  .reflCongr e (term_sound e)
 
 def TmEqDeriv.substitutionCongr (hx : TmDeriv Γ γ A a x ξ)
     (e : SubEqDeriv Δ δ Γ γ σ s τ t) :
     TmEqDeriv Δ δ (A.sub σ) (subTyCode a s) (x.sub σ) (subTmCode ξ s)
-      (x.sub τ) (castCode (congrArg (subTyCode a) (subSound e).symm) (subTmCode ξ t)) :=
-  .subCongr hx e (subSound e)
+      (x.sub τ) (castCode (congrArg (subTyCode a) (sub_sound e).symm) (subTmCode ξ t)) :=
+  .subCongr hx e (sub_sound e)
 
 /-- Public dependent pairing congruence obtains coherence from source equality. -/
 def SubEqDeriv.pairingCongr (hA : TyDeriv Γ γ A a)
     (e : SubEqDeriv Δ δ Γ γ σ s τ t)
     (f : TmEqDeriv Δ δ (A.sub σ) (subTyCode a s) x ξ y
-      (castCode (congrArg (subTyCode a) (subSound e).symm) η)) :=
-  SubEqDeriv.pairCongr hA e (subSound e) f
+      (castCode (congrArg (subTyCode a) (sub_sound e).symm) η)) :=
+  SubEqDeriv.pairCongr hA e (sub_sound e) f
 
 /-- Replacing a term in a fixed substitution is the common nondependent case. -/
 def SubEqDeriv.pairingTerm (hA : TyDeriv Γ γ A a) (hs : SubDeriv Δ δ Γ γ σ s)
@@ -608,8 +608,8 @@ def TmEqDeriv.pathInductionCongr
     (f : TmEqDeriv (subTail (reflexiveSub x) Δ ++ Γ) (branchCode a ξ T)
       (C.sub (Expr.liftSubN n (reflexiveSub x))) (subTyCode c (rootTailCode a ξ T))
       d η d' (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T))
-        (typeSound e).symm) η')) :=
-  TmEqDeriv.jCongr hΓ hA hx hT e (typeSound e) f
+        (type_sound e).symm) η')) :=
+  TmEqDeriv.jCongr hΓ hA hx hT e (type_sound e) f
 
 /-- Changing only a motive transports its existing branch by the generated
 motive conversion; no branch equality or semantic certificate is an input. -/
@@ -622,12 +622,12 @@ def TmEqDeriv.pathInductionMotiveCongr
     TmEqDeriv (Δ ++ pathCtx Γ A x) (telTotal T) C c
       (genericJRaw n A x C d) (jCode a ξ T c η)
       (genericJRaw n A x D d)
-      (castCode (typeSound e).symm (jCode a ξ T c'
-        (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (typeSound e)) η))) := by
+      (castCode (type_sound e).symm (jCode a ξ T c'
+        (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (type_sound e)) η))) := by
   apply pathInductionCongr hΓ hA hx hT e
-  have hc : castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (typeSound e).symm)
-      (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (typeSound e)) η) = η := by
-    generalize typeSound e = h
+  have hc : castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (type_sound e).symm)
+      (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T)) (type_sound e)) η) = η := by
+    generalize type_sound e = h
     cases h
     rfl
   rw [hc]
@@ -647,7 +647,7 @@ def TmEqDeriv.pathInductionAtCongr
     (f : TmEqDeriv (subTail (reflexiveSub x) Δ ++ Γ) (branchCode a ξ T)
       (C.sub (Expr.liftSubN n (reflexiveSub x))) (subTyCode c (rootTailCode a ξ T))
       d η d' (castCode (congrArg (fun c => subTyCode c (rootTailCode a ξ T))
-        (typeSound e).symm) η'))
+        (type_sound e).symm) η'))
     (es : SubEqDeriv Ω ω (Δ ++ pathCtx Γ A x) (telTotal T)
       (argsSub args (consSub p (consSub y ρ))) s
       (argsSub args' (consSub p' (consSub y' ρ'))) s')
@@ -657,7 +657,7 @@ def TmEqDeriv.pathInductionAtCongr
     (right : TmDeriv Ω ω (D.sub (argsSub args' (consSub p' (consSub y' ρ')))) (subTyCode c' s')
       (.pathInduction n (A.sub ρ') (x.sub ρ') (D.sub (Expr.liftSubN (n+2) ρ'))
         (d'.sub (Expr.liftSubN n ρ')) y' p' args') (subTmCode (jCode a ξ T c' η') s')) :=
-  TmEqDeriv.jCongrAt e (typeSound e) f es (subSound es) left right
+  TmEqDeriv.jCongrAt e (type_sound e) f es (sub_sound es) left right
 
 theorem castCode_proof_independent {a b : TyCode γ} (h k : a = b) (ξ : TmCode γ a) :
     castCode h ξ = castCode k ξ := rfl

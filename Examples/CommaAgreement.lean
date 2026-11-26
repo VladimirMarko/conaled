@@ -50,18 +50,18 @@ abbrev doubledStep : Squares.Square (plain.after (fun n : Nat => n * 2))
 
 /-- Arbitrary tagged inputs retain their state through the general vertical operation. -/
 theorem vertical_execution (n : Nat) (b : Bool) :
-    let pasted := vertical (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    let pasted := vertical (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (ofSquare stepTagged) (ofSquare doubledStep) rfl
     (pasted.left (n, b), (after (I := interpretation) (ofRep tagged) Nat
       (fun n : Nat => n * 2)).connector (n, b)) = ((n + 1, !b), n * 2) := rfl
 
 /-- The pasted square's contract recovers the expected doubled output. -/
 theorem vertical_output (n : Nat) (b : Bool) :
-    let pasted := vertical (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+    let pasted := vertical (equality_congr FunctionCategory.ops) FunctionCategory.laws
       (ofSquare stepTagged) (ofSquare doubledStep) rfl
     (after (I := interpretation) (ofRep tagged) Nat (fun n : Nat => n * 2)).connector
       (pasted.left (n, b)) = n * 2 + 2 :=
-  congrFun (vertical (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+  congrFun (vertical (equality_congr FunctionCategory.ops) FunctionCategory.laws
     (ofSquare stepTagged) (ofSquare doubledStep) rfl).commutes (n, b)
 
 end Examples.CommaAgreement

@@ -31,9 +31,9 @@ noncomputable def liftMap {n} (tail : FiniteDependentTail Γ n Θ)
     let d₀ := (tail.reindexTail σ).tail.liftSplit d
     let σ₁ := (tail.reindexTail σ).substitution
     letI : IsGroupoid Θ := tail.groupoid
-    letI : IsLocallyGroupoid Θ := tail.locallyGroupoid
+    letI : IsLocallyGroupoid Θ := tail.isLocallyGroupoid
     letI : IsGroupoid (tail.reindexTail σ).target := (tail.reindexTail σ).tail.groupoid
-    letI : IsLocallyGroupoid (tail.reindexTail σ).target := (tail.reindexTail σ).tail.locallyGroupoid
+    letI : IsLocallyGroupoid (tail.reindexTail σ).target := (tail.reindexTail σ).tail.isLocallyGroupoid
     letI : ∀x, IsGroupoid (E.obj x) := objects
     letI : ∀x, IsLocallyGroupoid (E.obj x) := cells
     letI : ∀x, IsIso (c₀.homotopy.app x) := fun _ => IsGroupoid.all_isIso _

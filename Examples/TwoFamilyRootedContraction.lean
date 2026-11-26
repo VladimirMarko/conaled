@@ -17,10 +17,10 @@ noncomputable def retraction := rootedRetraction displayed selected
 noncomputable def contraction := rootedContraction displayed selected
 noncomputable def motive := reindex retraction displayed
 
-theorem branchFamily : reindex inclusion motive = displayed := by
+theorem branch_family : reindex inclusion motive = displayed := by
   unfold motive inclusion retraction
   rw [reindex_comp, rootedReflexivity_retraction, reindex_id]
-noncomputable def branch : Section (reindex inclusion motive) := Section.cast branchFamily.symm selected
+noncomputable def branch : Section (reindex inclusion motive) := Section.cast branch_family.symm selected
 noncomputable def result : Section motive := retractionJ inclusion retraction contraction motive branch
 example : result.reindex motive inclusion = branch :=
   retractionJ_beta inclusion retraction contraction

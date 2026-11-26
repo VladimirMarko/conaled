@@ -355,7 +355,7 @@ theorem rectangleSides_right (x : (total (interval Δ)).Elements)
     (eq_of_heq (endpointSection_val (rectangleFamily (X := X) σ) true
       (pathApp (totalPath f σ s cA FA hFA cB FB hFB)) z hz))
 
-theorem rectangleCompatible (hGA : GA.Lawful) :
+theorem rectangle_compatible (hGA : GA.Lawful) :
     (rectangleOld f σ s cA FA hFA).Compatible
       (rectangleSides f σ s cA FA hFA cB FB hFB GA) := by
   intro z hz hs
@@ -418,7 +418,7 @@ noncomputable def rectangleTube (hGA : GA.Lawful) :
       ((rectangleFace φ).reindex (projection (interval (total (interval Δ))))) :=
   (rectangleOld f σ s cA FA hFA).glue
     (rectangleSides f σ s cA FA hFA cB FB hFB GA)
-    (rectangleCompatible f σ s cA FA hFA cB FB hFB GA hGA)
+    (rectangle_compatible f σ s cA FA hFA cB FB hFB GA hGA)
 
 noncomputable def rectangleBox (hGA : GA.Lawful) :
     OpenBox (rectangleFamily (X := X) σ) (rectangleFace φ) where
@@ -432,7 +432,7 @@ noncomputable def rectangleBox (hGA : GA.Lawful) :
         (rectangleOld_zero f σ s cA FA hFA x h)
     · exact (glueValue_right (rectangleOld f σ s cA FA hFA)
         (rectangleSides f σ s cA FA hFA cB FB hFB GA)
-        (rectangleCompatible f σ s cA FA hFA cB FB hFB GA hGA)
+        (rectangle_compatible f σ s cA FA hFA cB FB hFB GA hGA)
         ((endpointSub (total (interval Δ)) false).mapElements.obj x) hx h).trans
         (rectangleSides_zero f σ s cA FA hFA cB FB hFB GA hGA x h)
 
@@ -484,7 +484,7 @@ theorem rectangleBase_fills (hGA : GA.Lawful) :
       exact (hb.trans hp.symm).trans (congrArg Sigma.fst hg).symm
     · have hg := glueValue_right (rectangleOld f σ s cA FA hFA)
         (rectangleSides f σ s cA FA hFA cB FB hFB GA)
-        (rectangleCompatible f σ s cA FA hFA cB FB hFB GA hGA) z hz h
+        (rectangle_compatible f σ s cA FA hFA cB FB hFB GA hGA) z hz h
       exact (rectangleSides_base f σ s cA FA hFA cB FB hFB GA z h).symm.trans
         (congrArg Sigma.fst hg).symm
 
@@ -528,7 +528,7 @@ theorem rectangle_left :
   exact ((rectangle_fills f σ s cA FA hFA cB FB hFB GA hGA GB hGB).2 z hf).trans
     ((glueValue_right (rectangleOld f σ s cA FA hFA)
       (rectangleSides f σ s cA FA hFA cB FB hFB GA)
-      (rectangleCompatible f σ s cA FA hFA cB FB hFB GA hGA) z hf hs).trans
+      (rectangle_compatible f σ s cA FA hFA cB FB hFB GA hGA) z hf hs).trans
       (rectangleSides_left f σ s cA FA hFA cB FB hFB GA x hs))
 
 include hGB in
@@ -547,7 +547,7 @@ theorem rectangle_right :
   exact ((rectangle_fills f σ s cA FA hFA cB FB hFB GA hGA GB hGB).2 z hf).trans
     ((glueValue_right (rectangleOld f σ s cA FA hFA)
       (rectangleSides f σ s cA FA hFA cB FB hFB GA)
-      (rectangleCompatible f σ s cA FA hFA cB FB hFB GA hGA) z hf hs).trans
+      (rectangle_compatible f σ s cA FA hFA cB FB hFB GA hGA) z hf hs).trans
       (rectangleSides_right f σ s cA FA hFA cB FB hFB GA x hs))
 
 include hGB in

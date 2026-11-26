@@ -101,7 +101,7 @@ proves validity for every derivation and environment. Carriers need not be
 inhabited. There is no rule admitting arbitrary Lean validity as a derivation.
 
 `SquareKit.Internal.Graph.forward` and `backward` derive the two graph sequents
-for arbitrary sorts and composable arrow symbols. `Graph.inSet` interprets
+for arbitrary sorts and composable arrow symbols. `Graph.in_set` interprets
 those proofs for arbitrary `A → B → C`. `SquareKit.Internal.Squares` then
 connects this theorem to the existing library:
 
@@ -109,7 +109,7 @@ connects this theorem to the existing library:
   the original squares and their pointwise middle-map equality. In #45 it
   specializes `Relational.existentialSquare`, sharing preservation machinery
   with arbitrary relations.
-- `composedGraph_iff` consumes `inSet`, reversing equalities to match the
+- `composedGraph_iff` consumes `in_set`, reversing equalities to match the
   `decode r = s` convention of `Relational.graph`.
 - `vertical_comparison` transports both endpoint predicates with those
   equivalences and uses `RelSquare.ext` to compare both horizontal maps with
@@ -123,7 +123,7 @@ Internal authors choose a signature, typed variables and formulas, then apply
 named rules with explicit existential witnesses. The graph proof still exposes
 variable positions; there is no custom elaborator. A Set adapter supplies only
 carriers and arrow interpretations, and reuses `sound`. Applications of
-`Graph.inSet` provide ordinary functions and values. Applications of
+`Graph.in_set` provide ordinary functions and values. Applications of
 `vertical_comparison` provide the same decoders, squares and pointwise middle
 agreement as `Squares.vertical`; neither middle-map identity nor closed
 structure is required.
@@ -205,7 +205,7 @@ environment. No Set-validity constructor is admitted.
 `Associativity.left` means `∃ c, (∃ b, R a b ∧ S b c) ∧ T c d`;
 `Associativity.right` means `∃ b, R a b ∧ ∃ c, S b c ∧ T c d`.
 `forward` and `backward` are derivations in the context of an A endpoint and a
-D endpoint. `Associativity.inSet` applies `sound` to those derivations for
+D endpoint. `Associativity.in_set` applies `sound` to those derivations for
 arbitrary carriers and relations. It supplies the ordinary
 `Relational.compRel_assoc` theorem. The witness order changes, while all three
 relation hypotheses and both free endpoints remain fixed.
@@ -317,7 +317,7 @@ field. The adapter supplies no soundness proof, substitution law fields, or
 pullback bookkeeping. An external application supplies its natural
 transformations, two commuting squares, and pointwise middle-map agreement.
 It supplies no syntax induction. Existing ordinary clients keep their imports
-and direct calls; the mixed example also calls `Graph.inSet` directly.
+and direct calls; the mixed example also calls `Graph.in_set` directly.
 Environment presheaves and local witnesses are opt-in mathematical semantics,
 not additional runtime representations on the ordinary path.
 
@@ -617,7 +617,7 @@ Felix's
 proves `LawfulCategoryᶠ` and `LawfulCartesianᶠ` under equivalence induced by the
 interpretation. The pinned upstream file does not supply closed-law proofs.
 The local [#37 implementation](felix-parity-implementation.md#closed-law-transport-37)
-provides `ClosedMap.transportCongr` and `ClosedMap.transportLaws` in
+provides `ClosedMap.transport_congr` and `ClosedMap.transport_laws` in
 [`ClosedMap.lean`](../../SquareKit/ClosedMap.lean). They derive source currying
 congruence, beta, eta and currying naturality. Full law transport requires target
 congruence and laws, category/product/closed preservation, inverse laws for the
@@ -958,7 +958,7 @@ Frobenius sequents interpreted in Set and the constructed presheaf model, and
 an ordinary interval application with two intermediate witnesses. It preserves
 checked direct and helper variants for graph, associativity, Frobenius, and
 nested composition. Its recommendation is to retain the named-rule interface
-with the bounded `Rules.existsHere` helper. The report records caller
+with the bounded `Rules.exists_here` helper. The report records caller
 obligations, statement review, run commands, and the limits of this Stage A
 evidence; it does not claim completion of Stage B.
 

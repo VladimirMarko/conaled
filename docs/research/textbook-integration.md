@@ -164,7 +164,7 @@ separate predicate on actual shape. The
 [set refinement](../../Applications/Trees/HeightBalance/SetRefinement.lean)
 supplies primitive operational equations and auxiliary closure to
 [AbstractSet.Refinement](../../Applications/Search/AbstractSet/Refinement.lean),
-which derives set laws and mixed-history transport. `setLaws` changes the
+which derives set laws and mixed-history transport. `set_laws` changes the
 observer through `mem_inorder_iff_mem_setTree`; it does not repeat the update
 induction. `member_inorder` needs a linear key order and strict inorder but no
 cache or balance premise. Full update closure additionally needs `1 ≤ d` and
@@ -194,7 +194,7 @@ whereas the selected balanced implementation uses a predecessor.
 
 `search_sound` requires no validity premise. Completeness in `search_correct`
 requires valid maxima and weak low-endpoint order, without height validity or
-strict key order. Full `intervalSetLaws` uses linear keys, linear endpoints with
+strict key order. Full `intervalSet_laws` uses linear keys, linear endpoints with
 bottom, complete validity and the explicit compatibility
 `a < b → (iv a).low ≤ (iv b).low`. The interval map need not be injective.
 [BalancedIntervalTrees](../../Examples/BalancedIntervalTrees.lean) connects

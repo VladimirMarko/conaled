@@ -48,7 +48,7 @@ def identityDatumArrowEquiv (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
     (identitySetData a hΓ hB hx hy A).MatchingSet d ≃
       {p : (termDiagram a hΓ hB hx A).functor.obj d ⟶
           (termDiagram a hΓ hB hy A).functor.obj d //
-        ((relativeFamilyData a hΓ hB A).projection (relativeFamilyCoherence a hΓ hB A)).functor.map p ≫
+        ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)).functor.map p ≫
           eqToHom (Functor.congr_obj (termMatching_projection a hΓ hB hy A) d) =
             eqToHom (Functor.congr_obj (termMatching_projection a hΓ hB hx A) d)} where
   toFun p := ⟨⟨(Grothendieck.ι

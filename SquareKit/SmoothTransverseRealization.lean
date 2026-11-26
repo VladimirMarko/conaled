@@ -424,7 +424,7 @@ theorem normalStage_factor (q : Pullback f g) (B : Code)
     ∃! v : Hom (Principal (chartDomain (localModel hf hg ht q).chart).defining) (Carrier B),
       v.comp (Localization.pullback (localModel hf hg ht q).normalParameterMap) = w := by
   let A := localModel hf hg ht q
-  apply A.normalFactorization hf hg B w
+  apply A.normal_factorization hf hg B w
   have hfirst := ((ChartFamily.preferred (n := m) (M := M)).localMap
     (ChartFamily.preferred (n := p) (M := P)) f hf).test q.val.1 (f q.val.1)
       (SmoothNormalFormPrincipal.sourceDomain A.finiteChart) A.ambientFirst

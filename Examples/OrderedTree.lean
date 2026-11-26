@@ -103,7 +103,7 @@ theorem insertion_word_membership (x : Nat) :
     (candidateOps : Search.AbstractSet.Ops Nat (BinaryTree Nat)).member x
       (Search.AbstractSet.insertMany candidateOps [3, 1, 3, 2] candidateOps.empty) = true ↔
         x ∈ [3, 1, 3, 2] :=
-  Search.AbstractSet.Laws.member_from_empty candidateLaws [3, 1, 3, 2] x
+  Search.AbstractSet.Laws.member_from_empty candidate_laws [3, 1, 3, 2] x
 
 theorem insertion_word_contains_two :
     (candidateOps : Search.AbstractSet.Ops Nat (BinaryTree Nat)).member 2

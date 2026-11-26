@@ -237,7 +237,7 @@ variable (u : X' ⟶ X) (v : Y' ⟶ Y) (square : v ≫ f = k ≫ u)
 omit [TopologicalSpace G] [DiscreteTopology G]
   [Presheaf.IsLocallySurjective topology f.hom] [Presheaf.IsLocallySurjective topology k.hom] in
 /-- Matching naturality for the constructed action retains whole functors. -/
-theorem matchingNaturality :
+theorem matching_naturality :
     (matchingEquivalence (representation smoothAction).action hΓ f).functor ⋙
         (splitSquareMap (representation smoothAction).action hΓ u v square).functor =
       squareFunctor (representation smoothAction).action hΓ u v square ⋙
@@ -247,7 +247,7 @@ theorem matchingNaturality :
 omit [TopologicalSpace G] [DiscreteTopology G]
   [Presheaf.IsLocallySurjective topology f.hom] [Presheaf.IsLocallySurjective topology k.hom] in
 /-- Family naturality retains selected base transports and matching arrows. -/
-theorem familyNaturality :
+theorem family_naturality :
     (relativeMatchingEquivalence (representation smoothAction).action hΓ hB f).functor ⋙
         squareFunctor (representation smoothAction).action (.ext hΓ hB) u v square =
       relativeSquareFunctor (representation smoothAction).action hΓ hB u v square ⋙

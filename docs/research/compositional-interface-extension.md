@@ -19,7 +19,7 @@ The operation-preservation example is
 [CategoryMap](../../SquareKit/CategoryMap.lean). `RawMap` supplies object and
 arrow action; `MapLaws` adds congruence, identity and composition preservation.
 Raw maps compose strictly without either model satisfying category laws.
-`induced` pulls back a target relation, and `transportLaws` derives source laws
+`induced` pulls back a target relation, and `transport_laws` derives source laws
 when supplied preservation, reflection, target congruence and target laws.
 Reflection is not a consequence of preservation. `quotientFunctor` needs source
 and target congruence/category laws plus map laws; it forgets representatives

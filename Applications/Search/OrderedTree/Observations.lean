@@ -71,15 +71,15 @@ theorem orderedBy_iff_inorder_pairwise [Preorder κ] (key : α → κ) (t : Bina
     Trees.inorder_map, List.pairwise_map]
 
 /-- The same baseline operations and validity laws use the independent FDSA set. -/
-theorem baselineSetLaws [LinearOrder α] :
+theorem baseline_set_laws [LinearOrder α] :
     AbstractSet.Laws (baselineOps : AbstractSet.Ops α (BinaryTree α))
       Trees.setTree Ordered :=
-  baselineLaws.congr_observe (fun t _ x => contains_iff_mem_setTree x t)
+  baseline_laws.congr_observe (fun t _ x => contains_iff_mem_setTree x t)
 
 /-- Candidate/abort operations satisfy that same observation contract. -/
-theorem candidateSetLaws [LinearOrder α] :
+theorem candidate_set_laws [LinearOrder α] :
     AbstractSet.Laws (candidateOps : AbstractSet.Ops α (BinaryTree α))
       Trees.setTree Ordered :=
-  candidateLaws.congr_observe (fun t _ x => contains_iff_mem_setTree x t)
+  candidate_laws.congr_observe (fun t _ x => contains_iff_mem_setTree x t)
 
 end Search.OrderedTree

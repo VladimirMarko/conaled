@@ -90,8 +90,8 @@ theorem search_full_result (L : List Nat) :
   ⟨direct L, search_runs_direct L, direct_first L⟩
 
 /-- Actual search membership is derived from its execution, not postulated. -/
-theorem search_good : goodPole.Holds (.run (search L₀) (.out L₀)) :=
-  ⟨direct L₀, by simp [direct, prependOdd, Weak], search_runs_direct L₀⟩
+theorem search_good : goodPole.Holds (.run (search poleList) (.out poleList)) :=
+  ⟨direct poleList, by simp [direct, prependOdd, Weak], search_runs_direct poleList⟩
 
 /-- Every possible delivered observation agrees with direct recursion. -/
 theorem search_delivery_eq {L K : List Nat} {z : Value}

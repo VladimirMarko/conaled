@@ -45,7 +45,7 @@ theorem chosen_ne_identity :
 example : SectionCoherence (𝟭 C) before selected before alpha alpha square
     Typed.Authoring.UniversalTransfer.context Typed.Authoring.UniversalTransfer.type
     Typed.Authoring.UniversalTransfer.proof :=
-  universalTransferComparison _ _ _ _ _ _ _
+  universalTransfer_comparison _ _ _ _ _ _ _
 
 /-- A nonfaithful C4 base map and a noninjective fiber map still support the
 same dependent J caller and its two-binder tail. -/

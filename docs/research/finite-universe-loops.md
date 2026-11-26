@@ -32,7 +32,7 @@ cube makes each section constant. `closedSections` identifies these sections
 with their values. No premise equating arbitrary native paths with host
 identity is added.
 
-`permutationMap` recovers the entire transport map of a closed loop from the
+`permutation_map` recovers the entire transport map of a closed loop from the
 resulting permutation. `classifyLoop` then applies the existing transport
 homotopy comparison to connect the permutation's ua loop to the original
 loop. The implication in the other direction uses `transportTwoPath`: a native

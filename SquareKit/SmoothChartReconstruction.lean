@@ -15,7 +15,7 @@ hypotheses on the sheaf arrow. -/
 def reconstructLocalMap : LocalMap A B (A.realMap B ha hb h) where
   Cover i := Points (A.domain i)
   defining i x := (B.localLift _ (A.chart i ≫ h) x).defining
-  covers i x := ⟨x, (B.localLift _ (A.chart i ≫ h) x).atPoint⟩
+  covers i x := ⟨x, (B.localLift _ (A.chart i ≫ h) x).at_point⟩
   index i x := (B.localLift _ (A.chart i ≫ h) x).index
   coordinate i x := (B.localLift _ (A.chart i ≫ h) x).coordinate
   agreement i x z :=

@@ -174,7 +174,7 @@ theorem pullback_square {Z : Sheaf J (Type (max u v))} (g : Z ⟶ X) (i : I) :
   · simp
 
 /-- Joint local lifting is stable under arbitrary change of context. -/
-theorem baseChange (hf : JointlyLocallySurjective f)
+theorem jointlyLocallySurjective_pullbackMaps (hf : JointlyLocallySurjective f)
     {Z : Sheaf J (Type (max u v))} (g : Z ⟶ X) :
     JointlyLocallySurjective (pullbackMaps f g) := by
   intro U z

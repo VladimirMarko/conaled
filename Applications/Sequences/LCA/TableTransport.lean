@@ -111,14 +111,14 @@ theorem sparsePrepare_transport (f : α → β) (hf : ∀ a b, f (min a b) = min
 
 /-- Finite-word specialization, covering every intermediate initialized row
 and preserving the complete preparation's primitive-event count. -/
-theorem wordSparsePrepare (seed : WordKey.Cell offset heights stride)
+theorem word_sparse_prepare (seed : WordKey.Cell offset heights stride)
     (input : Vector (WordKey.Cell offset heights stride) n) (levels : Nat) :
     SparseExecution.prepare (WordKey.cellWord seed) (WordKey.encodeStore input) levels =
       transport (fun pair => (rowsMap WordKey.cellWord pair.1,pair.2))
         (SparseExecution.prepare seed input levels) :=
   sparsePrepare_transport WordKey.cellWord WordKey.cellWord_min seed input levels
 
-theorem wordBuildRow (seed : WordKey.Cell offset heights stride)
+theorem word_buildRow (seed : WordKey.Cell offset heights stride)
     (source : Nat → Measured (WordKey.Cell offset heights stride) Nat) (n : Nat) :
     MicroExecution.buildRow (WordKey.cellWord seed) (fun i => transport WordKey.cellWord (source i)) n =
       transport (Vector.map WordKey.cellWord) (MicroExecution.buildRow seed source n) :=
@@ -131,13 +131,13 @@ private def late : WordKey.Cell 2 4 4 := ⟨toLex (-1,3),by decide⟩
 its bounded-key source, including a comparison between equal-depth keys. -/
 example :
     (SparseExecution.prepare (WordKey.cellWord early) (WordKey.encodeStore #v[late,early]) 1).2 = 57 := by
-  rw [wordSparsePrepare]
+  rw [word_sparse_prepare]
   decide
 
 example :
     (MicroExecution.buildRow (WordKey.cellWord early)
       (fun i => transport WordKey.cellWord ((if i=0 then late else early),1)) 2).2 = 18 := by
-  rw [wordBuildRow]
+  rw [word_buildRow]
   decide
 
 /-- Even an expensive, unrelated tail cannot affect a bounded row run. -/

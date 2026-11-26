@@ -133,7 +133,7 @@ four, final one-bit potential one and work seven; the real boundary gives
 `7 + 1 = 0 + 8`. The zero-start specialization still retains final potential.
 
 The PFDS counter client uses `reweight_run` to identify both the actual final
-state and the mapped work of the same measured execution. Its `realBudget`
+state and the mapped work of the same measured execution. Its `real_budget`
 uses `budget_congr_state` and `budget_map`, and its `realRun_potential` uses the
 same-carrier exact theorem. The mapped observation and reweighted execution
 therefore connect through the existing workload transport, while both

@@ -310,7 +310,7 @@ theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
     (selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ r b) x hx
 
 
-theorem reindexEqualityIso {Ξ Ω : Context.{u}} (B C : Family Ξ) (h : B = C) (σ : Ω ⟶ Ξ) :
+theorem reindex_eqToIso {Ξ Ω : Context.{u}} (B C : Family Ξ) (h : B = C) (σ : Ω ⟶ Ξ) :
     eqToIso (congrArg (fun D => reindex D σ) h) = Functor.isoWhiskerLeft σ.mapElements (eqToIso h) := by
   cases h
   rfl
@@ -320,8 +320,8 @@ theorem wholeFaceIsoOn_reindex {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
       (fun x hx r => hδ (σ.mapElements.obj x) hx r) =
     Functor.isoWhiskerLeft (intervalSub (restrictSubstitution δ σ)).mapElements
       (wholeFaceIsoOn φ A T e p δ hδ) := by
-  have ho := reindexEqualityIso _ _ (family_full φ A T e) (wholeFaceLineOn φ p δ hδ)
-  have hn := reindexEqualityIso _ _ (family_full φ A T e)
+  have ho := reindex_eqToIso _ _ (family_full φ A T e) (wholeFaceLineOn φ p δ hδ)
+  have hn := reindex_eqToIso _ _ (family_full φ A T e)
     (wholeFaceLineOn φ (intervalSub σ ≫ p) (δ.reindex σ)
       (fun x hx r => hδ (σ.mapElements.obj x) hx r))
   exact hn.trans (congrArg
@@ -472,7 +472,7 @@ theorem fullLineSection_iso (q : total (interval Δ) ⟶ restrictContext φ) :
   congrArg (Functor.isoWhiskerLeft
     (intervalSub
       (fullLineSection φ q)).mapElements)
-      (reindexEqualityIso _ _ (family_full φ A T e) (wholeFaceLine φ (q ≫ restrictInclusion φ)))
+      (reindex_eqToIso _ _ (family_full φ A T e) (wholeFaceLine φ (q ≫ restrictInclusion φ)))
 
 theorem selectedFaceFill_full (F : Filling T) (hF : F.Lawful)
     (q : total (interval Δ) ⟶ restrictContext φ) (ψ : Subcontext Δ) (r : Term (interval Δ))
@@ -920,7 +920,7 @@ variable (E : HomotopyEquivalence f) (F : Filling U) (hF : F.Lawful)
   (h : s.map (compatibleUnglue (θ.reindex p) (reindex B p) (reindex U (restrictSubstitution θ p))
     (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)) = PartialSection.ofTerm χ a)
 
-theorem correctionCompatible :
+theorem correction_compatible :
     (restrictedPathTube (θ.reindex p) a
       (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
         (extendedFace θ B U f p E F hF G hG s a h))
@@ -938,7 +938,7 @@ noncomputable def corrected : Term (reindex B p) :=
     (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
       (extendedFace θ B U f p E F hF G hG s a h))
     (extensionPath θ B U f p E F hF G hG s a h)
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
 
 theorem corrected_face :
     Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
@@ -947,7 +947,7 @@ theorem corrected_face :
   apply Term.ext
   intro x
   exact (correctAmbient_face (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
       ((restrictInclusion (θ.reindex p)).mapElements.obj x) x.val.property).symm
 
 noncomputable def extendSection : Term (pulledCompatible θ B U f p) :=
@@ -961,7 +961,7 @@ theorem extendSection_boundary (x : Ω.Elements) (hx : χ.Holds x) :
     (extendSection θ B U f p E F hF G hG s a h).val x = s.val x hx := by
   apply CompatibleElement.ext
   · exact (correctAmbient_fixed (G.reindex p) (hG.reindex p) (θ.reindex p) χ a _ _
-      (correctionCompatible θ B U f p E F hF G hG s a h) x hx).trans
+      (correction_compatible θ B U f p E F hF G hG s a h) x hx).trans
         (congrArg (fun t => t.val x hx) h).symm
   · intro y k hy
     have he := extendedFace_boundary θ B U f p E F hF G hG s a h
@@ -1006,7 +1006,7 @@ noncomputable def correctionInput :
     (Term.map (Functor.whiskerLeft (restrictSubstitution θ p).mapElements f)
       (extendedFace θ B U f p E F hF G hG s a h))
     (extensionPath θ B U f p E F hF G hG s a h)
-    (correctionCompatible θ B U f p E F hF G hG s a h)
+    (correction_compatible θ B U f p E F hF G hG s a h)
 
 theorem correctionInput_reindex {Λ : Context.{u}} (τ : Λ ⟶ Ω) :
     correctionInput θ B U f (τ ≫ p) E F hF G hG (substitutePartial θ B U f p τ s) (Term.reindex a τ)
@@ -1568,10 +1568,10 @@ theorem wholeFaceIso_input_reindex :
     (wholeFaceIso φ A T e (q ≫ σ)).hom := by
   let l := wholeFaceLine (φ.reindex σ) q
   let r := intervalSub (restrictInclusion (intervalAll (φ.reindex (q ≫ σ)))) ≫ q
-  have hn := congrArg Iso.hom (reindexEqualityIso _ _
+  have hn := congrArg Iso.hom (reindex_eqToIso _ _
     (family_full (φ.reindex σ) (reindex A σ) (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)) l)
-  have ho := congrArg Iso.hom (reindexEqualityIso _ _
+  have ho := congrArg Iso.hom (reindex_eqToIso _ _
     (family_full φ A T e) (wholeFaceLine φ (q ≫ σ)))
   exact (congrArg (fun η => Functor.whiskerLeft r.mapElements (reindexIso φ A T e σ).hom ≫ η) hn).trans
     ((congrArg (Functor.whiskerLeft l.mapElements) (reindexIso_full φ A T e σ)).trans ho.symm)
@@ -1826,7 +1826,7 @@ variable {Γ Δ : Context.{u}} (φ : Subcontext Γ) (A : Family Γ)
   (T : Family (restrictContext φ)) (e : T ⟶ reindex A (restrictInclusion φ))
   (σ : Δ ⟶ total A)
 
-abbrev C := family φ A T e
+abbrev glueFamily := family φ A T e
 abbrev f := unglue φ A T e
 abbrev fiber := Homotopy.fiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
   (generic A)

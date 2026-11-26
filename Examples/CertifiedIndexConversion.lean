@@ -9,7 +9,7 @@ def target (n : Expr) := add n n
 
 /-- The named explicit proof recipe, before invoking any conversion checker. -/
 theorem explicit (n : Expr) : Converts (source n) (target n) :=
-  .trans (.step (.underDouble (.addZero n))) (.step (.double n))
+  .trans (.step (.under_double (.add_zero n))) (.step (.double n))
 
 def clientCert (n : Expr) : Certificate := ⟨normalize (target n)⟩
 
@@ -55,8 +55,8 @@ theorem mixed_peak (n : Expr) :
     Reduces (add (add zero n) (add zero n)) (target n) ∧
       Reduces (double n) (target n) := by
   constructor
-  · exact (Relation.ReflTransGen.single (.left _ (.addZero _))).trans
-      (Relation.ReflTransGen.single (.right _ (.addZero _)))
+  · exact (Relation.ReflTransGen.single (.left _ (.add_zero _))).trans
+      (Relation.ReflTransGen.single (.right _ (.add_zero _)))
   · exact Relation.ReflTransGen.single (.double _)
 
 theorem commutes_semantically (ρ : Nat → Nat) :

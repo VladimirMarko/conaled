@@ -27,7 +27,7 @@ def identityAtlas (U : Domain) : Atlas (embedding.obj U) Unit where
   triple _ _ _ := U
   firstSecond _ _ _ := 𝟙 _
   third _ _ _ := 𝟙 _
-  tripleSquare _ _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 (embedding.obj U)))
+  triple_isPullback _ _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 (embedding.obj U)))
 
 variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
   [TopologicalSpace G] [DiscreteTopology G]
@@ -598,7 +598,7 @@ def threeAtlas : Atlas lineSheaf (Fin 3) where
   triple _ _ _ := line
   firstSecond _ _ _ := 𝟙 _
   third _ _ _ := 𝟙 _
-  tripleSquare _ _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 lineSheaf))
+  triple_isPullback _ _ _ := by simpa using (IsPullback.of_id_snd (f := 𝟙 lineSheaf))
 
 def badCocycle (i j : Fin 3) : LocallyConstant (Points line) S3 :=
   LocallyConstant.const _ (if i = j then 1 else SmoothManifoldAction.g)

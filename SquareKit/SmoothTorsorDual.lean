@@ -62,7 +62,7 @@ def dualTorsor (P : Torsor G X) : Torsor G (dualSheaf X) where
     · intro k hk
       apply e.injective
       exact (hu (e k) hk).trans (e.apply_symm_apply g).symm
-  locallySurjective := by
+  isLocallySurjective := by
     constructor
     intro A x
     have h := dualParameterSieve_cover

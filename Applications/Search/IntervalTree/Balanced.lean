@@ -99,10 +99,10 @@ abbrev Valid [LT κ] (iv : κ → IntervalKey α) (t : BinaryTree (κ × (Nat ×
   Trees.HeightBalance.SetValid (annotation iv) 1 t
 
 /-- All seven ordinary set laws are inherited without re-proving rotations. -/
-theorem setLaws [LinearOrder κ] (iv : κ → IntervalKey α) :
+theorem set_laws [LinearOrder κ] (iv : κ → IntervalKey α) :
     AbstractSet.DeleteLaws (deleteOps iv)
       (fun t => Trees.setTree (Trees.Cached.erase t)) (Valid iv) :=
-  Trees.HeightBalance.setLaws (annotation iv) 1 (by decide)
+  Trees.HeightBalance.set_laws (annotation iv) 1 (by decide)
 
 end Annotation
 
@@ -190,11 +190,11 @@ theorem search_correct_of_strict [LT κ] (iv : κ → IntervalKey α)
   search_correct iv valid (strict.imp (fun h => compatible _ _ h)) query
 
 /-- Complete balanced set semantics, including overlap of noninjective images. -/
-theorem intervalSetLaws [LinearOrder κ] (iv : κ → IntervalKey α)
+theorem intervalSet_laws [LinearOrder κ] (iv : κ → IntervalKey α)
     (compatible : ∀ a b, a < b → (iv a).low ≤ (iv b).low) :
     IntervalSet.Laws (deleteOps iv) (search iv) iv
       (fun t => Trees.setTree (Trees.Cached.erase t)) (Valid iv) where
-  toDeleteLaws := setLaws iv
+  toDeleteLaws := set_laws iv
   overlap t valid query :=
     (search_correct_of_strict iv compatible (cacheValid_maximumTree iv valid.1.2)
       valid.2 query).trans

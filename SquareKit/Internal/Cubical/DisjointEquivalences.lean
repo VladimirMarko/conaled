@@ -153,7 +153,7 @@ variable {Γ : Context.{u}} {φ ψ : Cofibration Γ}
   (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
 
 include disjoint in
-theorem disjointCompatible : Compatible a b := fun x h k _ => (disjoint (original x) h k).elim
+theorem disjoint_compatible : Compatible a b := fun x h k _ => (disjoint (original x) h k).elim
 
 abbrev targetBase (B : Family (restrictContext (φ.join ψ))) :=
   projection B ≫ restrictInclusion (φ.join ψ)
@@ -170,32 +170,32 @@ def rightTarget (B : Family (restrictContext (φ.join ψ))) :
 
 def leftEquivalence (ea : HomotopyEquivalence a) :
     HomotopyEquivalence (Functor.whiskerLeft (includeLeft φ ψ).mapElements
-      (glue a b (disjointCompatible a b disjoint))) :=
-  (glue_left a b (disjointCompatible a b disjoint)).symm ▸ ea
+      (glue a b (disjoint_compatible a b disjoint))) :=
+  (glue_left a b (disjoint_compatible a b disjoint)).symm ▸ ea
 
 def rightEquivalence (eb : HomotopyEquivalence b) :
     HomotopyEquivalence (Functor.whiskerLeft (includeRight φ ψ).mapElements
-      (glue a b (disjointCompatible a b disjoint))) :=
-  (glue_right a b (disjointCompatible a b disjoint)).symm ▸ eb
+      (glue a b (disjoint_compatible a b disjoint))) :=
+  (glue_right a b (disjoint_compatible a b disjoint)).symm ▸ eb
 
 /-- Each branch contributes its existing selected native fiber contraction. -/
 noncomputable def disjointEquivalence (ea : HomotopyEquivalence a) (eb : HomotopyEquivalence b) :
-    HomotopyEquivalence (glue a b (disjointCompatible a b disjoint)) where
+    HomotopyEquivalence (glue a b (disjoint_compatible a b disjoint)) where
   fibers := DisjointCover.contractible (φ.reindex (targetBase B)) (ψ.reindex (targetBase B))
     (fun x => (Cofibration.full_join φ ψ ((targetBase B).mapElements.obj x)).mp x.val.1.property)
     (fun x => disjoint ((targetBase B).mapElements.obj x))
     (((leftEquivalence a b disjoint ea).fibers.transport
-      (genericFiberReindexIso (glue a b (disjointCompatible a b disjoint)) (includeLeft φ ψ)).symm).reindex
+      (genericFiberReindexIso (glue a b (disjoint_compatible a b disjoint)) (includeLeft φ ψ)).symm).reindex
         (leftTarget B))
     (((rightEquivalence a b disjoint eb).fibers.transport
-      (genericFiberReindexIso (glue a b (disjointCompatible a b disjoint)) (includeRight φ ψ)).symm).reindex
+      (genericFiberReindexIso (glue a b (disjoint_compatible a b disjoint)) (includeRight φ ψ)).symm).reindex
         (rightTarget B))
 
 theorem disjointEquivalence_left_fibers (ea : HomotopyEquivalence a) (eb : HomotopyEquivalence b) :
     (disjointEquivalence a b disjoint ea eb).fibers.reindex
       (restrictInclusion (φ.reindex (targetBase B))) =
     ((leftEquivalence a b disjoint ea).fibers.transport
-      (genericFiberReindexIso (glue a b (disjointCompatible a b disjoint)) (includeLeft φ ψ)).symm).reindex
+      (genericFiberReindexIso (glue a b (disjoint_compatible a b disjoint)) (includeLeft φ ψ)).symm).reindex
         (leftTarget B) :=
   DisjointCover.contractible_left _ _ _ _ _ _
 
@@ -203,7 +203,7 @@ theorem disjointEquivalence_right_fibers (ea : HomotopyEquivalence a) (eb : Homo
     (disjointEquivalence a b disjoint ea eb).fibers.reindex
       (restrictInclusion (ψ.reindex (targetBase B))) =
     ((rightEquivalence a b disjoint eb).fibers.transport
-      (genericFiberReindexIso (glue a b (disjointCompatible a b disjoint)) (includeRight φ ψ)).symm).reindex
+      (genericFiberReindexIso (glue a b (disjoint_compatible a b disjoint)) (includeRight φ ψ)).symm).reindex
         (rightTarget B) :=
   DisjointCover.contractible_right _ _ _ _ _ _
 

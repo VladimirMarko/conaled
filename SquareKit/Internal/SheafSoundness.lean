@@ -47,7 +47,7 @@ theorem sound
     rw [formula_substitution, formula_substitution]
     intro j ρ h
     exact ih j h
-  | @elimWith Γ s p h q _ ih =>
+  | @elim_with Γ s p h q _ ih =>
     unfold Valid at *
     change formula M hM h ⊓ SquareKit.SheafImage.localImage (formula M hM p)
       (projection M hM) ≤ formula M hM q

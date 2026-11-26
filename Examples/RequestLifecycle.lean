@@ -93,7 +93,7 @@ example (cs : List (Lifecycle.Command ℚ Nat)) :
 example (cs : List (Lifecycle.Command ℚ Nat)) :
     Lifecycle.Pipeline.run jointConsumer (Lifecycle.Pipeline.init FRPTrace.start jointConsumer) cs =
       Lifecycle.Pipeline.run (batches jointSpec) (Lifecycle.Pipeline.init FRPTrace.start (batches jointSpec)) cs :=
-  Lifecycle.Pipeline.compiled_run K sound jointSeed jointBody List.sum FRPTrace.start cs
+  Lifecycle.Pipeline.compiled_run scalarCompiler sound jointSeed jointBody List.sum FRPTrace.start cs
 
 example : normal =
     let a := Lifecycle.Pipeline.run jointConsumer (Lifecycle.Pipeline.init FRPTrace.start jointConsumer) first

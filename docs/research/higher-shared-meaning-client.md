@@ -30,7 +30,7 @@ cannot supply this higher witness.
 builds an assignment into the actual twice-reindexed display, including the
 selected higher identity and dependent q/u entries. Its two explicit chains of
 lifted substitutions keep the original sigma/tau families. Only proved family
-equalities are normalized; `retainedU` also retains the rooted-family section.
+equalities are normalized; `assignedU_heq` also retains the rooted-family section.
 [`HigherSharedObservation`](../../Examples/HigherSharedObservation.lean)
 reads the witness from the shared compiler's actual target, assigns that final
 context and obtains `some 1`. It rejects `some 0` and reflexive replacement.

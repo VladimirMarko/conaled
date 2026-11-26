@@ -192,40 +192,40 @@ end EDerivation
 /-- Local hypotheses retain their occurrence in the source rule table. -/
 abbrev GRuleHyp (r : ProjectionRule true) (j : Judgment eliminationSignature) :=
   {i : Fin (ProjectionRule.schema r).premises.length //
-    Judgment.map DependentPairPresentations.G ((ProjectionRule.schema r).premises.get i) = j}
+    Judgment.map DependentPairPresentations.projectionToElimination ((ProjectionRule.schema r).premises.get i) = j}
 
 def gHyp (r : ProjectionRule true) (i : Fin (ProjectionRule.schema r).premises.length) :
     Derivation Eη (GRuleHyp r)
-      (Judgment.map DependentPairPresentations.G ((ProjectionRule.schema r).premises.get i)) :=
+      (Judgment.map DependentPairPresentations.projectionToElimination ((ProjectionRule.schema r).premises.get i)) :=
   .hyp ⟨i, rfl⟩
 
 namespace GCertificates
 open Judgment
 
 @[simp] theorem map_instantiate (B : PExpr (Fin 1 ⊕ V)) (a : PExpr V) :
-    G.act (instantiate B a) = instantiate (G.act B) (G.act a) := by
-  rw [instantiate, G.substitution]
+    projectionToElimination.act (instantiate B a) = instantiate (projectionToElimination.act B) (projectionToElimination.act a) := by
+  rw [instantiate, projectionToElimination.substitution]
   congr 1
   funext v
   cases v <;> rfl
 
 def formation (Γ : Context projectionSignature V) (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) :
-    Derivation Eη (GRuleHyp (.formation Γ A B)) (map G (type Γ (Projection.P A B))) := by
-  have hΓ : Derivation Eη (GRuleHyp (.formation Γ A B)) (ctx (Γ.map G)) := .hyp ⟨(0 : Fin 3), rfl⟩
-  have hA : Derivation Eη (GRuleHyp (.formation Γ A B)) (type (Γ.map G) (G.act A)) := .hyp ⟨(1 : Fin 3), rfl⟩
-  have hB : Derivation Eη (GRuleHyp (.formation Γ A B)) (type ((Γ.map G).extend (G.act A)) (G.act B)) := .hyp ⟨(2 : Fin 3), rfl⟩
-  simpa only [map, mapForm, type, G_P] using EDerivation.formation hΓ hA hB
+    Derivation Eη (GRuleHyp (.formation Γ A B)) (map projectionToElimination (type Γ (Projection.P A B))) := by
+  have hΓ : Derivation Eη (GRuleHyp (.formation Γ A B)) (ctx (Γ.map projectionToElimination)) := .hyp ⟨(0 : Fin 3), rfl⟩
+  have hA : Derivation Eη (GRuleHyp (.formation Γ A B)) (type (Γ.map projectionToElimination) (projectionToElimination.act A)) := .hyp ⟨(1 : Fin 3), rfl⟩
+  have hB : Derivation Eη (GRuleHyp (.formation Γ A B)) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B)) := .hyp ⟨(2 : Fin 3), rfl⟩
+  simpa only [map, mapForm, type, projectionToElimination_P] using EDerivation.formation hΓ hA hB
 
 def first (Γ : Context projectionSignature V) (A : PExpr V) (B : PExpr (Fin 1 ⊕ V))
     (p : PExpr V) :
-    Derivation Eη (GRuleHyp (.first Γ A B p)) (map G (term Γ (Projection.fst A B p) A)) := by
-  have hΓ : Derivation Eη (GRuleHyp (.first Γ A B p)) (ctx (Γ.map G)) := .hyp ⟨(0 : Fin 4), rfl⟩
-  have hA : Derivation Eη (GRuleHyp (.first Γ A B p)) (type (Γ.map G) (G.act A)) := .hyp ⟨(1 : Fin 4), rfl⟩
-  have hB : Derivation Eη (GRuleHyp (.first Γ A B p)) (type ((Γ.map G).extend (G.act A)) (G.act B)) := .hyp ⟨(2 : Fin 4), rfl⟩
+    Derivation Eη (GRuleHyp (.first Γ A B p)) (map projectionToElimination (term Γ (Projection.fst A B p) A)) := by
+  have hΓ : Derivation Eη (GRuleHyp (.first Γ A B p)) (ctx (Γ.map projectionToElimination)) := .hyp ⟨(0 : Fin 4), rfl⟩
+  have hA : Derivation Eη (GRuleHyp (.first Γ A B p)) (type (Γ.map projectionToElimination) (projectionToElimination.act A)) := .hyp ⟨(1 : Fin 4), rfl⟩
+  have hB : Derivation Eη (GRuleHyp (.first Γ A B p)) (type ((Γ.map projectionToElimination).extend (projectionToElimination.act A)) (projectionToElimination.act B)) := .hyp ⟨(2 : Fin 4), rfl⟩
   have hp : Derivation Eη (GRuleHyp (.first Γ A B p))
-      (term (Γ.map G) (G.act p) (S (G.act A) (G.act B))) :=
-    .hyp ⟨(3 : Fin 4), by change map G (term Γ p (Projection.P A B)) = _; simp [map, mapForm, term]⟩
-  simpa only [map, mapForm, term, G_first] using EDerivation.first hΓ hA hB (G.act p) hp
+      (term (Γ.map projectionToElimination) (projectionToElimination.act p) (S (projectionToElimination.act A) (projectionToElimination.act B))) :=
+    .hyp ⟨(3 : Fin 4), by change map projectionToElimination (term Γ p (Projection.P A B)) = _; simp [map, mapForm, term]⟩
+  simpa only [map, mapForm, term, projectionToElimination_first] using EDerivation.first hΓ hA hB (projectionToElimination.act p) hp
 end GCertificates
 
 end SquareKit.DependentPairJudgments

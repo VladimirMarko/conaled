@@ -17,8 +17,8 @@ variable {Γ γ} (hΓ : Typed.CtxDeriv.{2} Γ γ)
 def baseCoefficientProjection :=
   CechMatching.Comprehension.Constant.projectionOfEq
     (SmoothQuotientGeneratedMatching.relativeFamilyData_base a hΓ A)
-    (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ (.base hΓ) A)
-    (SmoothQuotientGeneratedMatching.baseCoherence a hΓ A)
+    (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ (.base hΓ) A)
+    (SmoothQuotientGeneratedMatching.base_coherence a hΓ A)
 
 def baseEvaluationComparison (c : (show Grpd.{1,1} from γ (model a A))) :
     familyEvaluation a A hΓ (.base hΓ) c ⋙

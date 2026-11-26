@@ -110,7 +110,7 @@ theorem recomputedLoop_permutation : loopPermutation recomputedLoop = swap01.tra
   apply Equiv.ext
   intro s
   rw [loopPermutation_apply (S := Fin 3)]
-  have h := Cartesian.RealizedNerve.whiskeredTransport finiteThree sourceCode sourcePresentation
+  have h := Cartesian.RealizedNerve.whiskered_transport finiteThree sourceCode sourcePresentation
     (swap01.trans swap12) s
   change Term.map (pathToMap recomputedLoop) (nativeInput s) = nativeInput ((swap01.trans swap12) s) at h
   exact congrArg (fun t => t.val DiscreteEquivalences.point)

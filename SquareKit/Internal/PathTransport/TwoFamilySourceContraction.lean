@@ -17,8 +17,8 @@ namespace SourceContraction
 variable {Γ Δ : Context.{u}} {i : StrictPseudofunctor Δ Γ}
 def presentation (c : SourceContraction i) : ContractionPresentation Γ.toStrictTwoCategory where
   source := Δ.toStrictTwoCategory
-  sourceObjects := Δ.groupoid
-  sourceCells := Δ.locallyGroupoid
+  source_isGroupoid := Δ.groupoid
+  source_isLocallyGroupoid := Δ.locallyGroupoid
   inclusion := i
   retraction := c.retraction
   homotopy := c.homotopy

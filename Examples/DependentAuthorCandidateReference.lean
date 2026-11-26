@@ -59,7 +59,7 @@ def certificateAligned := (certificateTwice hx hT hp hσ hτ).convert
 
 noncomputable def extendedCertificate := Sigma.retain (certificateTwice hx hT hp hσ hτ)
 
-theorem extensionSelected (M : PathTransport.Typed.Model)
+theorem extension_selected (M : PathTransport.Typed.Model)
     (S : Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel) :
     ((subTm (subTm (certificateCommand hx hT hp).expression σ) τ).inl Sigma.extraSignature).eval
       (Sigma.algebra M S.toCapability) ρ =
@@ -86,20 +86,20 @@ variable (M : PathTransport.Typed.Model) (S : Sigma.Stable M.toStructuralModel)
   (hΩ : ∀ j ∈ Ω, j.Eval (Contextual.algebra M) ρ)
 
 include hσ hτ hΩ in
-theorem certificateValidity :
+theorem certificate_validity :
     (Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
       (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).Eval
       (Contextual.algebra M) ρ :=
   Contextual.interpret (certificateTwice hx hT hp hσ hτ) M ρ hΩ
 
 include hp hσ hτ hΩ in
-theorem valueValidity :
+theorem value_validity :
     (Contextual.term Θ (Contextual.subTy (Contextual.subTy Q σ) τ)
       (Contextual.subTm (Contextual.subTm p σ) τ)).Eval (Contextual.algebra M) ρ :=
   Contextual.interpret (valueTwice hp hσ hτ) M ρ hΩ
 
 include hσ hτ hΩ in
-theorem extendedValidity :
+theorem extended_validity :
     ((Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
       (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).inl
       Sigma.extraSignature).Eval (Sigma.algebra M S.toCapability) ρ := by
@@ -109,18 +109,18 @@ theorem extendedValidity :
   simpa only [Sigma.eval_old_judgment] using hΩ k hk
 
 include hp hσ hτ hΩ in
-theorem certificateTypeValidity :
+theorem certificate_type_validity :
     (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).eval (Contextual.algebra M) ρ =
       (Contextual.subTy (identity Q p p) (Contextual.comp σ τ)).eval (Contextual.algebra M) ρ :=
   Contextual.interpret (certificateTypeComparison hp hσ hτ) M ρ hΩ
 
-theorem extensionValue :
+theorem extension_value :
     ((Contextual.subTm (Contextual.subTm p σ) τ).inl Sigma.extraSignature).eval
       (Sigma.algebra M S.toCapability) ρ =
     (Contextual.subTm (Contextual.subTm p σ) τ).eval (Contextual.algebra M) ρ :=
   Sigma.eval_old M S.toCapability _ ρ
 
-theorem extensionType :
+theorem extension_type :
     ((Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).inl Sigma.extraSignature).eval
       (Sigma.algebra M S.toCapability) ρ =
     (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).eval (Contextual.algebra M) ρ :=

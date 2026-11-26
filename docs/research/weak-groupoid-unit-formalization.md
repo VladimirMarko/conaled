@@ -48,11 +48,11 @@ identifies it with the direct formula for the same lifts.
 | Claims | Intended content and checks |
 |---|---|
 | `constructor`, `conjugate`, `Lift`, `NormalizedLifts` | Actual functors and selected targets, with map laws and image equations. No stability field or split-composition field. |
-| `branchEq`, `branch_map`, `outgoing`, `selected`, `directObj`, `directIso`, zero lemmas | Exact branch equality supplies transports. False uses identity; true uses the supplied lift. Both object and arrow branch equations are retained. |
-| `directOver`, `leg_natural`, `directIso_image`, `direct_projection`, `direct_beta` | Projection transport cancels along every arrow, rather than checking only objects. Beta is equality of functors. |
-| `constructor_natural`, `reindexBranch`, outgoing/selected substitution, `direct_substitution`, `direct_composite_substitution` | Arbitrary functors between arbitrary groupoids; fixed p and lifts. Reindexing carries the native branch equation. Whole arrow maps participate in extensionality. |
+| `branch_eq`, `branch_map`, `outgoing`, `selected`, `directObj`, `directIso`, zero lemmas | Exact branch equality supplies transports. False uses identity; true uses the supplied lift. Both object and arrow branch equations are retained. |
+| `direct_over`, `leg_natural`, `directIso_image`, `direct_projection`, `direct_beta` | Projection transport cancels along every arrow, rather than checking only objects. Beta is equality of functors. |
+| `constructor_natural`, `reindex_branch`, outgoing/selected substitution, `direct_substitution`, `direct_composite_substitution` | Arbitrary functors between arbitrary groupoids; fixed p and lifts. Reindexing carries the native branch equation. Whole arrow maps participate in extensionality. |
 | `functorGroupoid`, `Parameter.Hom`, category/groupoid instances and projection lemmas | Invertible natural-transformation components; strict object equality; commuting arrow pair. Composition and inverses preserve the equation. |
-| `evaluation`, `genericBranch`, `functor_ext`, `name`, naming equations, `curry_substitution`, `name_substitution` | Currying on whole functors with the E component preserved. Parameter extensionality requires both projections. |
+| `evaluation`, `generic_branch`, `functor_ext`, `name`, naming equations, `curry_substitution`, `name_substitution` | Currying on whole functors with the E component preserved. Parameter extensionality requires both projections. |
 | `Family`, `represent`, `realize`, both inverse theorems, `representation` | Native input family includes its actual equation. Both representation inverses are equalities, not object bijections alone. |
 | `generic`, its projection/beta, `instantiated_agreement` | Generic filler is constructed from the same supplied lifts. Agreement does not quantify over unrelated generic choices. |
 | `parameterEliminator`, parameter beta/projection/single/composite substitution | Independent parameter-route laws use naming naturality and the fixed generic construction. No final eliminator is reselected during substitution. |

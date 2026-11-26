@@ -288,8 +288,8 @@ theorem execution_workspace (cfg : Config) (commands : List Command) :
         ((peerStep s.peer.selected.entries identity command).peer.take cut)) := by
   dsimp only
   have h := execution_resourceBound cfg commands
-  exact ⟨h,fun _ _ done cut => local_helper_cut h.localBanks.selected done cut,
-    fun i c small cut => peer_helper_cut h.peerBanks.selected i c small cut⟩
+  exact ⟨h,fun _ _ done cut => local_helper_cut h.localBanksBound.selected done cut,
+    fun i c small cut => peer_helper_cut h.peerBanksBound.selected i c small cut⟩
 
 def localHelperCodec (cfg : Config) :=
   Encoding.snapshot (Encoding.localHeader cfg.lifetime) (Encoding.outcome cfg.lifetime) cfg.outcomeCapacity
@@ -336,8 +336,8 @@ theorem execution_peak (cfg : Config) (commands : List Command) (c : FrameComman
           (peerStep (execute cfg initial commands).system.peer.selected.entries identity command).peer.take peerCut} := by
   let state := (execute cfg initial commands).system
   have bound := execution_resourceBound cfg commands
-  have localOK := local_helper_encodes bound.localBanks.selected done localCut
-  have peerOK := peer_helper_encodes bound.peerBanks.selected identity command small peerCut
+  have localOK := local_helper_encodes bound.localBanksBound.selected done localCut
+  have peerOK := peer_helper_encodes bound.peerBanksBound.selected identity command small peerCut
   let localCode := ((localHelperCodec cfg).encode {target.encode with items := target.outcomes.take localCut}).get
     (Option.isSome_iff_ne_none.mpr localOK)
   let peerCode := ((peerHelperCodec cfg).encode {state.peer.selected.encode with
@@ -367,7 +367,7 @@ theorem execution_peer_peak (cfg : Config) (commands : List Command)
   have bound := execution_resourceBound cfg commands
   have localOK := local_payload_encodes
     (cfg := cfg) (payload := ⟨localSeed,[]⟩) ⟨local_seed_bound cfg,by simp,by simp⟩
-  have peerOK := peer_helper_encodes bound.peerBanks.selected identity command small cut
+  have peerOK := peer_helper_encodes bound.peerBanksBound.selected identity command small cut
   let localCode := ((localHelperCodec cfg).encode ⟨localSeed,[]⟩).get (Option.isSome_iff_ne_none.mpr localOK)
   let peerCode := ((peerHelperCodec cfg).encode {state.peer.selected.encode with
     items := (peerStep state.peer.selected.entries identity command).peer.take cut}).get
@@ -385,7 +385,7 @@ theorem execution_local_peak (cfg : Config) (commands : List Command) (c : Frame
       (localHelperCodec cfg).decode code.2.1 = {target.encode with items := target.outcomes.take cut} := by
   let state := (execute cfg initial commands).system
   have bound := execution_resourceBound cfg commands
-  have localOK := local_helper_encodes bound.localBanks.selected done cut
+  have localOK := local_helper_encodes bound.localBanksBound.selected done cut
   have peerOK : (peerHelperCodec cfg).encode ⟨peerSeed,[]⟩ ≠ none := by
     apply (Encoding.snapshot_success _ _ _ _).mpr
     exact ⟨(peer_seed_bound cfg).encodes,by simp,by simp⟩

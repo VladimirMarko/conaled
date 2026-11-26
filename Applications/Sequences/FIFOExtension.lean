@@ -127,7 +127,7 @@ theorem composed_interpretation (ops : Ops α Q) (rel : Q → List α → Prop)
   apply funext
   intro ρ
   have ht := STLCNaturality.naturality
-    (STLCRelations.interpretation_laws _ (primitives ops rel h)) (equalityCongr _)
+    (STLCRelations.interpretation_laws _ (primitives ops rel h)) (equality_congr _)
     (show STLCNaturality.ModelCongr (equality _)
       (STLCNaturality.semantics (List α) (meaning (lists α))) from
       ⟨by intros; subst_vars; rfl, by intros; subst_vars; rfl, by intros; subst_vars; rfl⟩)

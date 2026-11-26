@@ -237,7 +237,7 @@ example : (fun {t} (i : Var [ValueSort.value, .value] t) =>
 -- soundness directly; no model-specific induction is supplied by this client.
 example (h : Formula FunctionSymbol [.value] Relation) :
     relationalModel.Valid (.conj h (.ex orderedPair)) h :=
-  relationalModel.sound (Rules.existsElimWith Rules.andLeft)
+  relationalModel.sound (Rules.exists_elim_with Rules.and_left)
 
 example : relationalModel.Valid (orderedPair.subst swap) (orderedPair.subst swap) :=
   relationalModel.sound (Rules.substitute swap Rules.hypothesis)
@@ -247,6 +247,6 @@ example (j : Stageᵒᵖ) (ρ η : (relationalModel.context []).obj j) : @ρ = @
 
 -- Ordinary direct calls coexist with the presheaf model in this module.
 example (n : Nat) : (∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m) :=
-  (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.PresheafInternal

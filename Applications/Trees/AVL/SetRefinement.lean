@@ -49,29 +49,29 @@ theorem setValid_iff_generic [LT α] (t : BinaryTree (α × Nat)) :
   and_congr (validD_one_iff t).symm Iff.rfl
 
 /-- All seven fields use the actual ordinary updates and comparison search. -/
-theorem inorderRefinement [LinearOrder α] : Search.AbstractSet.Refinement
+theorem inorder_refinement [LinearOrder α] : Search.AbstractSet.Refinement
     (deleteOps : Search.AbstractSet.DeleteOps α (BinaryTree (α × Nat)))
     Search.OrderedList.ops (fun t => Trees.inorder (Cached.erase t))
     Valid Search.OrderedList.Strict where
   empty := rfl
   auxiliary_empty := valid_nil
   insert x t hv hs :=
-    (HeightBalance.inorderRefinement heightAnnotation 1 (by decide)).insert x t
+    (HeightBalance.inorder_refinement heightAnnotation 1 (by decide)).insert x t
       ((validD_one_iff t).mpr hv) hs
   auxiliary_insert x t hv _ := (valid_insert x t hv).1
   delete x t hv hs :=
-    (HeightBalance.inorderRefinement heightAnnotation 1 (by decide)).delete x t
+    (HeightBalance.inorder_refinement heightAnnotation 1 (by decide)).delete x t
       ((validD_one_iff t).mpr hv) hs
   auxiliary_delete x t hv _ := (valid_delete x t hv).1
   member x t hv hs :=
-    (HeightBalance.inorderRefinement heightAnnotation 1 (by decide)).member x t
+    (HeightBalance.inorder_refinement heightAnnotation 1 (by decide)).member x t
       ((validD_one_iff t).mpr hv) hs
 
 /-- Full Set laws use the independent structural observer, not search as an oracle. -/
-theorem setLaws [LinearOrder α] : Search.AbstractSet.DeleteLaws
+theorem set_laws [LinearOrder α] : Search.AbstractSet.DeleteLaws
     (deleteOps : Search.AbstractSet.DeleteOps α (BinaryTree (α × Nat)))
     (fun t => Trees.setTree (Cached.erase t)) SetValid :=
-  (inorderRefinement.laws Search.OrderedList.laws).congr_observe
+  (inorder_refinement.laws Search.OrderedList.laws).congr_observe
     (fun t _ x => Trees.mem_inorder_iff_mem_setTree x (Cached.erase t))
 
 end Trees.AVL

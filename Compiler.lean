@@ -303,29 +303,29 @@ def arithmeticMeaning : Arithmetic a b → Val Nat a → Val Nat b
   | .add, (x, y) => x + y
   | .mul, (x, y) => x * y
 
-abbrev N : Ty := .base
+abbrev natType : Ty := .base
 
-def square : Term Arithmetic [N] N :=
+def square : Term Arithmetic [natType] natType :=
   .prim .mul (.pair (.var .here) (.var .here))
 
-def magSqr : Term Arithmetic [.prod N N] N :=
-  let x : Term Arithmetic [.prod N N] N := .fst (.var .here)
-  let y : Term Arithmetic [.prod N N] N := .snd (.var .here)
+def magSqr : Term Arithmetic [.prod natType natType] natType :=
+  let x : Term Arithmetic [.prod natType natType] natType := .fst (.var .here)
+  let y : Term Arithmetic [.prod natType natType] natType := .snd (.var .here)
   .prim .add (.pair (.prim .mul (.pair x x)) (.prim .mul (.pair y y)))
 
-def higherOrder : Term Arithmetic [.arr N N, N] N :=
+def higherOrder : Term Arithmetic [.arr natType natType, natType] natType :=
   .app (.var .here) (.var (.there .here))
 
-def lambdaExample : Term Arithmetic [N] (.arr N N) :=
+def lambdaExample : Term Arithmetic [natType] (.arr natType natType) :=
   .lam (.prim .add (.pair (.var (.there .here)) (.var .here)))
 
 /-- A sum elimination whose branches both capture the outer numeric value. -/
-def capturedCase : Term Arithmetic [.sum N N, N] N :=
+def capturedCase : Term Arithmetic [.sum natType natType, natType] natType :=
   .caseE (.var .here)
     (.prim .add (.pair (.var (.there (.there .here))) (.var .here)))
     (.prim .mul (.pair (.var (.there (.there .here))) (.var .here)))
 
-def letExample : Term Arithmetic [N] N :=
+def letExample : Term Arithmetic [natType] natType :=
   .letE square (.prim .add (.pair (.var .here) (.var .here)))
 
 example : run arithmeticMeaning (compile (rawTarget Arithmetic) square) ((), 7) = 49 := rfl

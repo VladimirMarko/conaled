@@ -25,37 +25,37 @@ def Code.targetQuote : {p : Phase} → {t : Tag} → Code p t → EExpr SingleV
   | _, _, .load v => .var v
   | _, _, .successor c => DependentPairDeclarations.Elimination.s c.targetQuote
   | _, _, .double c => DependentPairDeclarations.Elimination.d c.targetQuote
-  | _, _, .pair c => Elimination.pack (G.act N) (G.act familyB)
+  | _, _, .pair c => Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB)
       (DependentPairDeclarations.Elimination.s c.targetQuote) (DependentPairDeclarations.Elimination.t c.targetQuote)
-  | _, _, .etaPair c => Elimination.pack (G.act N) (G.act familyB)
+  | _, _, .etaPair c => Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB)
       (DependentPairDeclarations.Elimination.s c.targetQuote) (DependentPairDeclarations.Elimination.t c.targetQuote)
-  | _, _, .pack c => Elimination.pack (G.act N) (G.act familyB)
+  | _, _, .pack c => Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB)
       (DependentPairDeclarations.Elimination.s c.targetQuote) (DependentPairDeclarations.Elimination.t c.targetQuote)
-  | _, _, .project c => Elimination.second (G.act N) (G.act familyB) c.targetQuote
-  | _, _, .etaProject c => Elimination.second (G.act N) (G.act familyB) c.targetQuote
-  | _, _, .split c => Elimination.second (G.act N) (G.act familyB) c.targetQuote
+  | _, _, .project c => Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB) c.targetQuote
+  | _, _, .etaProject c => Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB) c.targetQuote
+  | _, _, .split c => Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB) c.targetQuote
 
 /-- Real syntax preservation for every code tree, including the dependent
 second-projection motive hidden in `Elimination.second`. -/
-theorem Code.quote_G {p k} (c : Code p k) : G.act c.sourceQuote = c.targetQuote := by
+theorem Code.quote_projectionToElimination {p k} (c : Code p k) : projectionToElimination.act c.sourceQuote = c.targetQuote := by
   induction c with
-  | load v => exact G.on_var v
+  | load v => exact projectionToElimination.on_var v
   | successor c ih =>
-    change G.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection c.sourceQuote) = _
-    rw [DependentPairDeclarations.G_s, ih]
+    change projectionToElimination.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection c.sourceQuote) = _
+    rw [DependentPairDeclarations.projectionToElimination_s, ih]
     rfl
   | double c ih =>
-    change G.act (DependentPairDeclarations.Terms.d DependentPairDeclarations.projection c.sourceQuote) = _
-    rw [DependentPairDeclarations.G_d, ih]
+    change projectionToElimination.act (DependentPairDeclarations.Terms.d DependentPairDeclarations.projection c.sourceQuote) = _
+    rw [DependentPairDeclarations.projectionToElimination_d, ih]
     rfl
   | pair c ih | etaPair c ih | pack c ih =>
-    simp only [Code.sourceQuote, Code.targetQuote, G_pair]
+    simp only [Code.sourceQuote, Code.targetQuote, projectionToElimination_pair]
     change Elimination.pack _ _
-      (G.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection c.sourceQuote))
-      (G.act (DependentPairDeclarations.Terms.t DependentPairDeclarations.projection c.sourceQuote)) = _
-    rw [DependentPairDeclarations.G_s, DependentPairDeclarations.G_t, ih]
+      (projectionToElimination.act (DependentPairDeclarations.Terms.s DependentPairDeclarations.projection c.sourceQuote))
+      (projectionToElimination.act (DependentPairDeclarations.Terms.t DependentPairDeclarations.projection c.sourceQuote)) = _
+    rw [DependentPairDeclarations.projectionToElimination_s, DependentPairDeclarations.projectionToElimination_t, ih]
   | project c ih | etaProject c ih | split c ih =>
-    simp only [Code.sourceQuote, Code.targetQuote, G_second, ih]
+    simp only [Code.sourceQuote, Code.targetQuote, projectionToElimination_second, ih]
 
 @[simp] theorem packetCode_quote (p) (c : Code p .index) :
     (packetCode p c).sourceQuote = Projection.pair N familyB (s c.sourceQuote) (t c.sourceQuote) := by
@@ -91,7 +91,7 @@ theorem compiled_source_quote {p s} (d : Proof p s) :
 
 theorem compiled_target_quote {s} (d : Proof .target s) :
     (compileCode d).targetQuote = targetTerm s := by
-  rw [← Code.quote_G, compiled_source_quote]
+  rw [← Code.quote_projectionToElimination, compiled_source_quote]
   rfl
 
 end SquareKit.DependentPairSharedFragment

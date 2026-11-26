@@ -100,7 +100,7 @@ theorem wordSparse_refines (seed : Cell offset heights stride) (input : Vector K
       transport (fun pair => (rowsMap (encodeKey (offset := offset) (stride := stride)) pair.1,pair.2))
         (SparseExecution.prepare seed.val input levels) := by
   unfold wordSparse
-  rw [wordSparsePrepare,← liftedSparse_erases seed input hi levels]
+  rw [word_sparse_prepare,← liftedSparse_erases seed input hi levels]
   simp [transport,rowsMap,Vector.map_map,Function.comp_def,WordKey.cellWord,encodeKey]
 
 theorem wordSparse_cost (seed : Cell offset heights stride) (input : Vector Key n)

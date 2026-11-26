@@ -39,9 +39,9 @@ theorem cellWithBase_eq {x y : Total F} {p q : Hom F x y} (α : p ⟶ q)
 
 namespace Section
 variable (s : Section F)
-theorem objBase (x : Γ) : (s.lift.obj x).base = x := congrArg (fun H => H.obj x) s.over
+theorem obj_base (x : Γ) : (s.lift.obj x).base = x := congrArg (fun H => H.obj x) s.over
 
-def normalObj (x : Γ) : Total F := (s.lift.obj x).withBase F x (s.objBase F x)
+def normalObj (x : Γ) : Total F := (s.lift.obj x).withBase F x (s.obj_base F x)
 theorem normalObj_eq (x : Γ) : s.normalObj F x = s.lift.obj x := Total.withBase_eq _ _ _ _
 
 def castMap {x y : Γ} (p : x ⟶ y) : s.normalObj F x ⟶ s.normalObj F y :=

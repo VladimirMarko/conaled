@@ -27,7 +27,7 @@ theorem ghost_history_prefix {c : Config} {a b : Service (List Bool)} {event : L
   cases step with
   | internal => exact List.prefix_refl _
   | command => exact command_history_prefix _ _ _
-  | pendingBusy _ _ _ => exact List.prefix_refl _
+  | pending_busy _ _ _ => exact List.prefix_refl _
 
 theorem execution_history_prefix {c : Config} {a b : Service (List Bool)} {events : List Label}
     (steps : Execution (GhostStep c) events a b) : a.store <+: b.store := by

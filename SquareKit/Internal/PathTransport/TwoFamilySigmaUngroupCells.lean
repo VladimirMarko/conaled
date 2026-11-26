@@ -12,12 +12,12 @@ variable (B : Family.{max uΓ u,max vΓ v,max wΓ w,uB,vB,wB} (Total F))
 def sigmaUngroupCell {x y : Total B} {p q : x ⟶ y} (α : p ⟶ q) :
     sigmaUngroupMap F B p ⟶ sigmaUngroupMap F B q := by
   refine ⟨α.base.base,⟨α.base.fiber,
-    eqToHom (sigmaRegroupBoundary F B (x := sigmaUngroupObj F B x)
+    eqToHom (sigma_regroup_boundary F B (x := sigmaUngroupObj F B x)
       (y := sigmaUngroupObj F B y) p.base.base p.base.fiber).symm ◁ α.fiber ≫ eqToHom ?_⟩⟩
-  have h := sigmaRegroupPrefix F B (p := sigmaUngroupMap F B p)
+  have h := sigma_regroup_prefix F B (p := sigmaUngroupMap F B p)
     (q := sigmaUngroupMap F B q) α.base
   have h' := congrArg (fun k =>
-    eqToHom (sigmaRegroupBoundary F B (x := sigmaUngroupObj F B x)
+    eqToHom (sigma_regroup_boundary F B (x := sigmaUngroupObj F B x)
       (y := sigmaUngroupObj F B y) p.base.base p.base.fiber).symm ≫ k ≫
       (sigmaUngroupMap F B q).fiber.fiber) h
   change eqToHom _ ≫ (B.map₂ α.base).app x.fiber ≫ q.fiber =

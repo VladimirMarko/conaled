@@ -22,7 +22,7 @@ structure Atlas (X : Sheaf topology Type) (I : Type) where
   triple : I → I → I → Domain
   firstSecond : ∀ i j k, triple i j k ⟶ pair i j
   third : ∀ i j k, triple i j k ⟶ domain k
-  tripleSquare : ∀ i j k, IsPullback (embedding.map (firstSecond i j k))
+  triple_isPullback : ∀ i j k, IsPullback (embedding.map (firstSecond i j k))
     (embedding.map (third i j k)) (embedding.map (left i j) ≫ chart i) (chart k)
 
 namespace Atlas
@@ -82,27 +82,27 @@ def firstThird (i j k : I) : A.triple i j k ⟶ A.pair i k :=
   (homEquiv _ _).symm ((A.square i k).lift
     (embedding.map (A.firstSecond i j k) ≫ embedding.map (A.left i j))
     (embedding.map (A.third i j k)) (by
-      simpa only [Category.assoc] using (A.tripleSquare i j k).w))
+      simpa only [Category.assoc] using (A.triple_isPullback i j k).w))
 
 def secondThird (i j k : I) : A.triple i j k ⟶ A.pair j k :=
   (homEquiv _ _).symm ((A.square j k).lift
     (embedding.map (A.firstSecond i j k) ≫ embedding.map (A.right i j))
     (embedding.map (A.third i j k)) (by
       rw [Category.assoc, ← (A.square i j).w]
-      exact (A.tripleSquare i j k).w))
+      exact (A.triple_isPullback i j k).w))
 
 theorem firstThird_map (i j k : I) : embedding.map (A.firstThird i j k) =
     (A.square i k).lift
       (embedding.map (A.firstSecond i j k) ≫ embedding.map (A.left i j))
       (embedding.map (A.third i j k)) (by
-        simpa only [Category.assoc] using (A.tripleSquare i j k).w) := forward_inverse _
+        simpa only [Category.assoc] using (A.triple_isPullback i j k).w) := forward_inverse _
 
 theorem secondThird_map (i j k : I) : embedding.map (A.secondThird i j k) =
     (A.square j k).lift
       (embedding.map (A.firstSecond i j k) ≫ embedding.map (A.right i j))
       (embedding.map (A.third i j k)) (by
         rw [Category.assoc, ← (A.square i j).w]
-        exact (A.tripleSquare i j k).w) := forward_inverse _
+        exact (A.triple_isPullback i j k).w) := forward_inverse _
 
 @[simp, reassoc] theorem firstThird_left (i j k : I) :
     A.firstThird i j k ≫ A.left i k = A.firstSecond i j k ≫ A.left i j := by
@@ -298,7 +298,7 @@ def tripleMap (i j k : I) : embedding.obj (A.triple i j k) ⟶ SheafCoverCech.tr
   pullback.lift (embedding.map (A.firstSecond i j k) ≫ A.pairMap i j)
     (embedding.map (A.third i j k) ≫ A.inclusion k) (by
       simp only [Category.assoc, pairMap_first_assoc, inclusion_cover]
-      exact (A.tripleSquare i j k).w)
+      exact (A.triple_isPullback i j k).w)
 
 @[simp, reassoc] theorem tripleMap_firstSecond (i j k : I) :
     A.tripleMap i j k ≫ SheafCoverCech.firstSecond A.cover =
@@ -359,7 +359,7 @@ theorem tripleMap_cover (V : SmoothPresentationSite.Site)
       f.hom.app (op W) ((SheafCoverCech.triple A.cover).obj.map r.op z))
       (pullback.condition (f := SheafCoverCech.first A.cover ≫ A.cover) (g := A.cover))
   obtain ⟨w,hw₁,hw₂⟩ := Types.exists_of_isPullback
-    ((A.tripleSquare i j k).map (sheafToPresheaf topology Type ⋙ (evaluation _ _).obj (op W))) x y hxy
+    ((A.triple_isPullback i j k).map (sheafToPresheaf topology Type ⋙ (evaluation _ _).obj (op W))) x y hxy
   change (embedding.map (A.firstSecond i j k)).hom.app (op W) w = x at hw₁
   change (embedding.map (A.third i j k)).hom.app (op W) w = y at hw₂
   refine ⟨((i,j),k),w,?_⟩

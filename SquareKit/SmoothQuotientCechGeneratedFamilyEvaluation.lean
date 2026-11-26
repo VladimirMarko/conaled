@@ -22,11 +22,11 @@ def totalMatchingEvaluation :=
 theorem totalMatchingEvaluation_projection :
     totalMatchingEvaluation a A hΓ hB ⋙
       ((SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A).projection
-        (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)).functor =
+        (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)).functor =
     Grothendieck.forget (b (model a A) ⋙ Grpd.forgetToCat) ⋙ matchingEvaluation a A hΓ := by
   have hp : (SmoothQuotientGeneratedMatching.generatedToRelative a hΓ hB A).functor ⋙
       ((SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A).projection
-        (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)).functor =
+        (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)).functor =
       SmoothQuotientGeneratedMatching.projection a hΓ hB A := by
     rw [← CechMatching.StrictMap.functor_comp]
     congr 1
@@ -41,7 +41,7 @@ def fiberTotalEvaluation (c : (show Grpd.{1,1} from γ (model a A))) :=
 theorem fiberTotalEvaluation_projection (c : (show Grpd.{1,1} from γ (model a A))) :
     fiberTotalEvaluation a A hΓ hB c ⋙
       ((SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A).projection
-        (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)).functor =
+        (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)).functor =
     (Functor.const ((b (model a A)).obj c)).obj ((matchingEvaluation a A hΓ).obj c) := by
   dsimp only [fiberTotalEvaluation]
   rw [Functor.assoc, totalMatchingEvaluation_projection]

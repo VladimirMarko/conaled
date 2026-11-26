@@ -17,29 +17,29 @@ theorem generatedOverlap_cocycle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     isoWhiskerRight (generatedOverlap a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.firstSecond A)) ≪≫
       isoWhiskerLeft (localMap a A hΓ)
-        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleMiddle) ≪≫
+        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_middle) ≪≫
       isoWhiskerRight (generatedOverlap a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.secondThird A)) =
     isoWhiskerLeft (localMap a A hΓ)
-        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleFirst) ≪≫
+        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_first) ≪≫
       isoWhiskerRight (generatedOverlap a A hΓ)
         (SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.Cech.firstThird A)) ≪≫
       isoWhiskerLeft (localMap a A hΓ)
-        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleLast) := by
+        (eqToIso (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_last) := by
   rw [generatedOverlap_restrict, generatedOverlap_restrict, generatedOverlap_restrict]
-  rw [leftEq (localMap a A hΓ)
-    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleMiddle
+  rw [isoWhiskerLeft_eqToIso (localMap a A hΓ)
+    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_middle
     (congrArg (fun F => localMap a A hΓ ⋙ F)
-      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleMiddle)]
-  rw [leftEq (localMap a A hΓ)
-    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleFirst
+      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_middle)]
+  rw [isoWhiskerLeft_eqToIso (localMap a A hΓ)
+    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_first
     (congrArg (fun F => localMap a A hΓ ⋙ F)
-      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleFirst)]
-  rw [leftEq (localMap a A hΓ)
-    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleLast
+      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_first)]
+  rw [isoWhiskerLeft_eqToIso (localMap a A hΓ)
+    (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_last
     (congrArg (fun F => localMap a A hΓ ⋙ F)
-      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).tripleLast)]
-  exact tripleRelabelForward
+      (SmoothQuotientGeneratedMatching.strictDiagram a hΓ A).triple_last)]
+  exact triple_relabel_forward
     (restrictedComparison a A hΓ (SplitSheaf.Cech.firstSecond A))
     (restrictedComparison a A hΓ (SplitSheaf.Cech.secondThird A))
     (restrictedComparison a A hΓ (SplitSheaf.Cech.firstThird A))
@@ -49,10 +49,10 @@ theorem generatedOverlap_cocycle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (localMap_twice a A hΓ (SplitSheaf.Cech.second A) (SplitSheaf.Cech.secondThird A))
     (localMap_twice a A hΓ (SplitSheaf.Cech.first A) (SplitSheaf.Cech.firstThird A))
     (localMap_twice a A hΓ (SplitSheaf.Cech.second A) (SplitSheaf.Cech.firstThird A))
-    (tripleMiddleMap a A hΓ) (tripleFirstMap a A hΓ) (tripleLastMap a A hΓ)
+    (triple_middle_map a A hΓ) (triple_first_map a A hΓ) (triple_last_map a A hΓ)
     _ _ _ (restrictedComparison_cocycle a A hΓ)
 
-theorem generatedConeLaws (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem generated_coneLaws (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     CechMatching.ConeLaws (D := SmoothQuotientGeneratedMatching.diagram a hΓ A)
       (localMap a A hΓ) (generatedOverlap a A hΓ) where
   diagonal := generatedOverlap_diagonal a A hΓ
@@ -61,7 +61,7 @@ theorem generatedConeLaws (hΓ : Typed.CtxDeriv.{2} Γ γ) :
 def matchingEvaluation (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (show Grpd.{1,1} from γ (model a A)) ⥤ SmoothQuotientGeneratedMatching.Datum a hΓ A :=
   CechMatching.coneFunctor (localMap a A hΓ) (generatedOverlap a A hΓ)
-    (generatedConeLaws a A hΓ)
+    (generated_coneLaws a A hΓ)
 
 @[simp] theorem matchingEvaluation_local (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     matchingEvaluation a A hΓ ⋙ CechMatching.Datum.localFunctor = localMap a A hΓ := rfl

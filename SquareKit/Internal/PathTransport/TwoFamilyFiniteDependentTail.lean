@@ -15,7 +15,7 @@ inductive FiniteDependentTail (Γ : StrictTwoCategory.{u,v,w}) :
 
 namespace FiniteDependentTail
 variable {Γ Δ : StrictTwoCategory.{u,v,w}} [IsLocallyGroupoid Γ]
-theorem locallyGroupoid {n} (tail : FiniteDependentTail Γ n Δ) : IsLocallyGroupoid Δ := by
+theorem isLocallyGroupoid {n} (tail : FiniteDependentTail Γ n Δ) : IsLocallyGroupoid Δ := by
   induction tail with
   | nil => infer_instance
   | @snoc n Δ tail E objects cells ih =>
@@ -36,8 +36,8 @@ theorem groupoid [IsGroupoid Γ] {n} (tail : FiniteDependentTail Γ n Δ) : IsGr
 /-- Chosen branch domain and coherent contraction; reflexive normalization is a separate property. -/
 structure ContractionPresentation (C : StrictTwoCategory.{u,v,w}) where
   source : StrictTwoCategory.{u,v,w}
-  sourceObjects : IsGroupoid source
-  sourceCells : IsLocallyGroupoid source
+  source_isGroupoid : IsGroupoid source
+  source_isLocallyGroupoid : IsLocallyGroupoid source
   inclusion : StrictPseudofunctor source C
   retraction : StrictPseudofunctor C source
   homotopy : Pseudofunctor.StrongTrans (retraction.comp inclusion).toPseudofunctor
@@ -48,21 +48,21 @@ noncomputable def liftSplit [IsGroupoid Γ] {n} (tail : FiniteDependentTail Γ n
   induction tail with
   | nil => exact c
   | @snoc n Δ tail E objects cells ih =>
-    letI : IsLocallyGroupoid Δ := tail.locallyGroupoid
+    letI : IsLocallyGroupoid Δ := tail.isLocallyGroupoid
     letI : IsGroupoid Δ := tail.groupoid
     letI : ∀x, IsGroupoid (E.obj x) := objects
     letI : ∀x, IsLocallyGroupoid (E.obj x) := cells
     letI : ∀x, IsIso (ih.homotopy.app x) := fun x => IsGroupoid.all_isIso _
-    letI : IsGroupoid ih.source := ih.sourceObjects
-    letI : IsLocallyGroupoid ih.source := ih.sourceCells
+    letI : IsGroupoid ih.source := ih.source_isGroupoid
+    letI : IsLocallyGroupoid ih.source := ih.source_isLocallyGroupoid
     letI : ∀x, IsGroupoid ((reindex ih.inclusion E).obj x) :=
       fun x => objects (ih.inclusion.obj x)
     letI : ∀x, IsLocallyGroupoid ((reindex ih.inclusion E).obj x) :=
       fun x => cells (ih.inclusion.obj x)
     exact {
       source := ⟨Total (reindex ih.inclusion E)⟩
-      sourceObjects := inferInstance
-      sourceCells := inferInstance
+      source_isGroupoid := inferInstance
+      source_isLocallyGroupoid := inferInstance
       inclusion := reindexHigher E ih.inclusion
       retraction := contractionRetraction ih.inclusion ih.retraction ih.homotopy E
       homotopy := contractionRetractionHomotopy ih.inclusion ih.retraction ih.homotopy E }

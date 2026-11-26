@@ -9,31 +9,31 @@ open Examples.CubicalGlue Examples.CubicalUnivalenceTransport
 
 private abbrev a := (constantLocal terminal Bool).code
 private def f := (codeIso booleanTransposition).hom
-private def E := HomotopyEquivalence.ofIso (codeIso booleanTransposition)
+private def transpositionEquivalence := HomotopyEquivalence.ofIso (codeIso booleanTransposition)
 
 /-- Rebuild the eliminator from the restricted complete Glue code. -/
 noncomputable def restrictedElimination {Δ : Context.{0}} (σ : Δ ⟶ total (interval terminal.{0})) :=
   eqToHom (congrArg decode (Glue.code_substitution Univalence.face (Univalence.ambient a)
     (CodeSystem.boundary a a) (Univalence.boundaryMap a a f)
-    (Univalence.boundaryEquivalence a a f E) σ)) ≫
+    (Univalence.boundaryEquivalence a a f transpositionEquivalence) σ)) ≫
   Glue.codeUnglue (Univalence.face.reindex σ) (raisedSub σ ≫ Univalence.ambient a)
     (raisedSub (restrictSubstitution Univalence.face σ) ≫ CodeSystem.boundary a a)
     (Functor.whiskerLeft (restrictSubstitution Univalence.face σ).mapElements
       (Univalence.boundaryMap a a f))
-    ((Univalence.boundaryEquivalence a a f E).reindex (restrictSubstitution Univalence.face σ))
+    ((Univalence.boundaryEquivalence a a f transpositionEquivalence).reindex (restrictSubstitution Univalence.face σ))
 
 theorem restrictedElimination_eq {Δ : Context.{0}} (σ : Δ ⟶ total (interval terminal.{0})) :
-    restrictedElimination σ = Functor.whiskerLeft σ.mapElements (Univalence.unglueLine a a f E) :=
+    restrictedElimination σ = Functor.whiskerLeft σ.mapElements (Univalence.unglueLine a a f transpositionEquivalence) :=
   (Glue.codeUnglue_substitution Univalence.face (Univalence.ambient a)
     (CodeSystem.boundary a a) (Univalence.boundaryMap a a f)
-    (Univalence.boundaryEquivalence a a f E) σ).symm
+    (Univalence.boundaryEquivalence a a f transpositionEquivalence) σ).symm
 
 /-- Restricting and rebuilding the whole Boolean ua eliminator still returns
 its supplied transposition at the zero endpoint. -/
 theorem restrictedElimination_zero :
     restrictedElimination (endpointSub terminal false) =
-      eqToHom (congrArg decode (Univalence.uaCode_zero a a f E)) ≫ f :=
+      eqToHom (congrArg decode (Univalence.uaCode_zero a a f transpositionEquivalence)) ≫ f :=
   (restrictedElimination_eq (endpointSub terminal false)).trans
-    (Univalence.unglueLine_zero a a f E)
+    (Univalence.unglueLine_zero a a f transpositionEquivalence)
 
 end Examples.CubicalGlueElimination

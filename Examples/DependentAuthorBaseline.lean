@@ -90,11 +90,11 @@ def dependentWeakeningCertificate := certificateTwice hΓ hA hx hT hQ hp
 def dependentWeakeningComparison := certificateComparison hΓ hA hx hT hQ hp
   (firstWeakening hΓ hA hx hT hQ hp) (secondWeakening hΓ hA hx hT hQ hp)
 
-theorem valueValidity (M : Model.{u}) :
+theorem value_validity (M : Model.{u}) :
     interpretTm M (valueTwice hp hσ hτ) = subTmCode (subTmCode π s) t M :=
   interpretTm_agrees M _
 
-theorem certificateValidity (M : Model.{u}) :
+theorem certificate_validity (M : Model.{u}) :
     interpretTm M (certificateTwice hΓ hA hx hT hQ hp hσ hτ) =
       subTmCode (subTmCode
         (jCode a ξ T (certificateCommand hΓ hA hx hT hQ hp).motive.code
@@ -102,30 +102,30 @@ theorem certificateValidity (M : Model.{u}) :
   interpretTm_agrees M _
 
 include hQ hp hσ hτ in
-theorem certificateTypeValidity (M : Model.{u}) :
+theorem certificate_type_validity (M : Model.{u}) :
     subTyCode (subTyCode (identityCode q π π) s) t M =
       subTyCode (identityCode q π π) (compCode s t) M :=
-  congrFun (typeSound (certificateTypeComparison hQ hp hσ hτ)) M
+  congrFun (type_sound (certificateTypeComparison hQ hp hσ hτ)) M
 
-theorem extensionSelected (M : Model.{u})
+theorem extension_selected (M : Model.{u})
     (_S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (certificateTwice hΓ hA hx hT hQ hp hσ hτ) =
       subTmCode (subTmCode
         (jCode a ξ T (certificateCommand hΓ hA hx hT hQ hp).motive.code
           (certificateCommand hΓ hA hx hT hQ hp).motive.branchCode) s) t M :=
-  certificateValidity hΓ hA hx hT hQ hp hσ hτ M
+  certificate_validity hΓ hA hx hT hQ hp hσ hτ M
 
-theorem extensionValue (M : Model.{u})
+theorem extension_value (M : Model.{u})
     (_S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (valueTwice hp hσ hτ) = subTmCode (subTmCode π s) t M :=
-  valueValidity hp hσ hτ M
+  value_validity hp hσ hτ M
 
 include hQ hp hσ hτ in
-theorem extensionType (M : Model.{u})
+theorem extension_type (M : Model.{u})
     (_S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :
     subTyCode (subTyCode (identityCode q π π) s) t M =
       subTyCode (identityCode q π π) (compCode s t) M :=
-  certificateTypeValidity hQ hp hσ hτ M
+  certificate_type_validity hQ hp hσ hτ M
 
 
 -- The extension supplies a full Typed model. Its old-language reduct is exact,
@@ -134,7 +134,7 @@ def extendedCertificate (M : Model.{u})
     (_S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :=
   certificate hΓ hA hx hT hQ hp
 
-theorem extendedValidity (M : Model.{u})
+theorem extended_validity (M : Model.{u})
     (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (extendedCertificate hΓ hA hx hT hQ hp M S) =
       jCode a ξ T (identityCode q π π)
@@ -146,17 +146,17 @@ def valueComposite := TmDeriv.sub hp (SubDeriv.comp hσ hτ)
 def certificateComposite := TmDeriv.sub (certificate hΓ hA hx hT hQ hp)
   (SubDeriv.comp hσ hτ)
 
-theorem interpretedCertificateComparison (M : Model.{u}) :
+theorem interpreted_certificateComparison (M : Model.{u}) :
     interpretTm M (certificateAligned hΓ hA hx hT hQ hp hσ hτ) =
       interpretTm M (certificateComposite hΓ hA hx hT hQ hp hσ hτ) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound (certificateComparison hΓ hA hx hT hQ hp hσ hτ)) M
+  exact congrFun (term_sound (certificateComparison hΓ hA hx hT hQ hp hσ hτ)) M
 
-theorem interpretedCertificateTypeComparison (M : Model.{u}) :
+theorem interpreted_certificate_type_comparison (M : Model.{u}) :
     interpretTy M (TyDeriv.sub (TyDeriv.sub (certificateFamily hQ hp) hσ) hτ) =
       interpretTy M (TyDeriv.sub (certificateFamily hQ hp) (SubDeriv.comp hσ hτ)) := by
   rw [interpretTy_agrees, interpretTy_agrees]
-  exact certificateTypeValidity hQ hp hσ hτ M
+  exact certificate_type_validity hQ hp hσ hτ M
 
 end HeldOut
 -- A disclosed concrete source instance retains the z, q and fiber tail.

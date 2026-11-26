@@ -1084,7 +1084,7 @@ private theorem eqToHom_value_heq {Δ : Context.{u}} {A B : Family Δ}
   cases h
   rfl
 
-theorem mapsCompatibleOfDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
+theorem maps_compatible_of_diagonal {Δ : Context.{u}} {α β : Subcontext Δ}
     {A B : Family (restrictContext (α.join β))}
     (hleft : Cartesian.reindex A (includeLeft α β) = Cartesian.reindex B (includeLeft α β))
     (m : Cartesian.reindex A (includeRight α β) ⟶ Cartesian.reindex B (includeRight α β))
@@ -1095,7 +1095,7 @@ theorem mapsCompatibleOfDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
   have hl := eqToHom_value_heq hleft (Maps.left x h) z
   exact eq_of_heq (hl.trans (hm x h k z).symm)
 
-theorem mapsCompatibleOfCodeDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
+theorem maps_compatible_of_code_diagonal {Δ : Context.{u}} {α β : Subcontext Δ}
     {A B : Family (restrictContext (α.join β))}
     (hleft : Cartesian.reindex A (includeLeft α β) = Cartesian.reindex B (includeLeft α β))
     (a : raisedContext (total (interval (restrictContext β))) ⟶ smallFamilyCodes.{u})
@@ -1106,11 +1106,11 @@ theorem mapsCompatibleOfCodeDiagonal {Δ : Context.{u}} {α β : Subcontext Δ}
       (_h : α.Holds (Maps.original x)) (k : β.Holds (Maps.original x)),
       r.val (Maps.right x k) = s.val (Maps.right x k)) :
     Maps.Compatible (eqToHom hleft) (UniversalTransport.mapTo a r s _ _ hr hs) :=
-  mapsCompatibleOfDiagonal hleft _
+  maps_compatible_of_diagonal hleft _
     (fun x h k z => UniversalTransport.mapTo_at_equal a r s _ _ hr hs (Maps.right x k) (hdiag x h k) z)
 
 theorem faceMaps_compatible : Maps.Compatible b.capMap b.tubeMap :=
-  mapsCompatibleOfCodeDiagonal (A := b.faceFamily.family) (B := b.targetFamily)
+  maps_compatible_of_code_diagonal (A := b.faceFamily.family) (B := b.targetFamily)
     (congrArg LocalFamily.family b.faceFamily_left) (raisedSub (tubeEvaluation φ) ≫ b.tube)
     (tubeVariable φ) (tubeSourceTerm φ r) _ _ (fun _ h _ => h)
 
@@ -2278,7 +2278,7 @@ theorem inputMap_sections_reindex
   rw [inputMap_encoded_reindex, fiberContractible_input]
   rfl
 
-theorem partialPiInput {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (total X))
+theorem partial_pi_input {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (total X))
     (μ : Ψ ⟶ Ξ) (ν : Ω ⟶ Ψ) {Z : Family (total (reindex X μ))}
     (k : reindex Y (liftSub X μ) ⟶ Z) {φ : Subcontext Ω}
     (s : PartialSection (reindex (pi X Y) (ν ≫ μ)) φ) :
@@ -2287,7 +2287,7 @@ theorem partialPiInput {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (tot
     ((s.map (piReindex X Y (ν ≫ μ))).app).map
       (Functor.whiskerLeft (liftSub (reindex X μ) ν).mapElements k) := rfl
 
-theorem partialPiInput_map {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (total X))
+theorem partial_pi_input_map {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (total X))
     (μ : Ψ ⟶ Ξ) (ν : Ω ⟶ Ψ) {Z : Family (total (reindex X μ))}
     {V W : Family (total (reindex X (ν ≫ μ)))}
     (k : reindex Y (liftSub X μ) ⟶ Z)
@@ -2298,7 +2298,7 @@ theorem partialPiInput_map {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family 
     ((((s.map (Functor.whiskerLeft ν.mapElements (piReindex X Y μ ≫ piBodyMap (reindex X μ) k))).map
       (piReindex (reindex X μ) Z ν)).app).map j) =
     ((((s.map (piReindex X Y (ν ≫ μ))).app).map k₀).map j₀) := by
-  exact (congrArg (fun z => z.map j) (partialPiInput X Y μ ν k s)).trans
+  exact (congrArg (fun z => z.map j) (partial_pi_input X Y μ ν k s)).trans
     (congrArg (fun m => (((s.map (piReindex X Y (ν ≫ μ))).app).map m)) h)
 
 theorem contrPiInput_partial {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Family (total X))
@@ -2322,7 +2322,7 @@ theorem contrPiInput_partial {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Famil
       (Functor.whiskerLeft ρ.mapElements (contrMap e) ≫ (contrReindexIso D ρ).hom) = _
     rw [contrMap_reindex_square, ← Category.assoc, contrReindex_hom_comp]
     rfl
-  exact partialPiInput_map X (contr C) μ ν k (contrReindexIso D ρ).hom
+  exact partial_pi_input_map X (contr C) μ ν k (contrReindexIso D ρ).hom
     (contrReindexIso C (liftSub X (ν ≫ μ))).hom
     (contrMap (Functor.isoWhiskerLeft ρ.mapElements e)) hm s
 

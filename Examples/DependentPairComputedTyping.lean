@@ -74,7 +74,7 @@ def successorSub : SingleV → PExpr SingleV
   | .inl _ => s (.var m)
   | .inr e => e.elim
 
-def successorSubTyped : TypedSubstitution.Typed (R := R) (H := fun _ => Empty)
+def successorSubTyped : TypedSubstitution.Typed (R := projectionRules) (H := fun _ => Empty)
     Γn Γn successorSub where
   context := contextN
   component v := by

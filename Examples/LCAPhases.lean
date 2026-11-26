@@ -37,7 +37,7 @@ example (input : Input 17) (q : Nat × Nat) (c : StrategySelection.Strategy)
 def singletonInput : Input 1 :=
   ((TreeReduction.reduction 1).convert ⟨.singleton,rfl⟩).1.2
 
-theorem singletonMachine : Machine singletonInput 16 512 where
+theorem singleton_machine : Machine singletonInput 16 512 where
   words := by constructor <;> decide
   preparation := preparationPeak_le singletonInput
   query := (BackendBounds.bounds 1).queryPeak singletonInput _ (prepare_valid singletonInput)
@@ -53,7 +53,7 @@ example : ¬ Machine singletonInput 16 1 := by
 
 -- The retained reservation certified by the profile is exactly the flattened
 -- finite-word representation's length, including its reserved minima gap.
-example : (PackedBackend.realize singletonInput (machine_arena singletonMachine)).flatten.toArray.size =
+example : (PackedBackend.realize singletonInput (machine_arena singleton_machine)).flatten.toArray.size =
     retainedWords ((ops 1).prepare singletonInput).1 := by
   rw [PackedBackend.flattened_size, retainedWords_eq]
 

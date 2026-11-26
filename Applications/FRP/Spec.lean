@@ -233,18 +233,18 @@ def Eqv {α β : Type} (f g : H α β) : Prop := D.semanticEquality.Rel f g
 
 theorem mapLaws : SquareKit.MapLaws D.semanticMap D.semanticEquality
     (SquareKit.equality _) :=
-  D.semanticMap.inducedLaws _ D.ident_hom D.comp_hom
+  D.semanticMap.induced_laws _ D.ident_hom D.comp_hom
 
 theorem categoryCongr : SquareKit.CategoryCongr (categoryOps (r := r))
     D.semanticEquality :=
-  SquareKit.RawMap.transportCongr D.mapLaws (D.semanticMap.induced_reflects _)
-    (SquareKit.equalityCongr _)
+  SquareKit.RawMap.transport_congr D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equality_congr _)
 
 /-- All category laws follow without injectivity or structural equality of programs. -/
 theorem categoryLaws : SquareKit.CategoryLaws (categoryOps (r := r))
     D.semanticEquality :=
-  SquareKit.RawMap.transportLaws D.mapLaws (D.semanticMap.induced_reflects _)
-    (SquareKit.equalityCongr _) SquareKit.FunctionCategory.laws
+  SquareKit.RawMap.transport_laws D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equality_congr _) SquareKit.FunctionCategory.laws
 
 def productComparison : SquareKit.ProductMap D.semanticMap
     (productOps (r := r)) SquareKit.FunctionCategory.products :=
@@ -257,8 +257,8 @@ theorem productMapLaws : SquareKit.ProductMapLaws (SquareKit.equality _)
   pair := D.pair_hom
 
 theorem productLaws : SquareKit.ProductLaws D.semanticEquality (productOps (r := r)) :=
-  SquareKit.ProductMap.transportLaws (i := D.productComparison) D.mapLaws (D.semanticMap.induced_reflects _)
-    (SquareKit.equalityCongr _) SquareKit.FunctionCategory.laws
+  SquareKit.ProductMap.transport_laws (i := D.productComparison) D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equality_congr _) SquareKit.FunctionCategory.laws
     (fun _ _ => ⟨rfl, rfl⟩) D.productMapLaws
     SquareKit.FunctionCategory.productCongr SquareKit.FunctionCategory.productLaws
 

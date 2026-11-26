@@ -140,7 +140,7 @@ def torsorOfReindex (f : Y ⟶ X)
     Torsor G X where
   toAction := Q
   principal := Q.principal_of_reindex f hp
-  locallySurjective := Q.locallySurjective_of_reindex f
+  isLocallySurjective := Q.locallySurjective_of_reindex f
 
 end Action
 end SquareKit.SheafTorsor

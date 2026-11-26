@@ -20,7 +20,7 @@ noncomputable def sourceTail : StructuralModel.Telescope M
     ((M).pathContext (sourceArgument Base Fiber) ⟨chosen⟩) 2 :=
   .cons sourceFirst (.cons sourceSecond .nil)
 noncomputable def sourceMotive : (M).Family (sourceTail Base Fiber).total :=
-  ⟨⟨motive,motiveFiller⟩,motiveLawful⟩
+  ⟨⟨motive,motiveFiller⟩,motiveFilling_lawful⟩
 noncomputable abbrev sourceRoot := ((M).rootTail (sourceArgument Base Fiber) ⟨chosen⟩ (sourceTail Base Fiber)).down
 noncomputable abbrev sourceBranch := (generic second).reindex (sourceRoot Base Fiber)
 noncomputable def eliminated : Term motive :=

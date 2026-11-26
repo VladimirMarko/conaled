@@ -45,7 +45,7 @@ theorem naturalTransformation_ext
       rw [← α.naturality, ← β.naturality, ed X]
   apply NatTrans.ext
   funext a
-  apply (ArrowReconstruction.presentationPushout k a).hom_ext
+  apply (ArrowReconstruction.presentation_pushout k a).hom_ext
   · rw [α.naturality, β.naturality, ed a.left]
   · rw [α.naturality, β.naturality, eb a.right]
 

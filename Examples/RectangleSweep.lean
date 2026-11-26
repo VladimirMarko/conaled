@@ -25,9 +25,9 @@ def listOps : AbstractSet.DeleteOps (Key Int) (List (Key Int)) := OrderedList.op
 def listQuery : List (Key Int) → IntervalKey Int → Bool :=
   IntervalSet.orderedListSearch keyInterval
 
-theorem listLaws : IntervalSet.Laws listOps listQuery keyInterval
+theorem list_laws : IntervalSet.Laws listOps listQuery keyInterval
     (fun xs key => key ∈ xs) OrderedList.Strict :=
-  IntervalSet.orderedListLaws keyInterval
+  IntervalSet.orderedList_laws keyInterval
 
 theorem empty_scan : scan listOps listQuery [] ([] : List (Event Int Int)) = false :=
   scan_nil _ _ _
@@ -40,7 +40,7 @@ def listSweep (rs : List (Rectangle Int Int)) : Bool := sweep listOps listQuery 
 
 theorem listSweep_correct (rs : List (Rectangle Int Int)) :
     listSweep rs = true ↔ Rectangle.HasIntersection rs :=
-  sweep_eq_true_iff_hasIntersection listLaws rs
+  sweep_eq_true_iff_hasIntersection list_laws rs
 
 theorem empty_sweep : listSweep [] = false := by
   apply Bool.eq_false_iff.mpr
@@ -164,11 +164,11 @@ def prefixIds (rs : List (Rectangle Int Int)) (k : Nat) : List Nat :=
 
 theorem prefix_valid (rs : List (Rectangle Int Int)) (k : Nat) :
     OrderedList.Strict (prefixState rs k) :=
-  stateAfter_take_valid listLaws.toDeleteLaws rs k
+  stateAfter_take_valid list_laws.toDeleteLaws rs k
 
 theorem prefix_contents (rs : List (Rectangle Int Int)) (k : Nat) :
     {key | key ∈ prefixState rs k} = activeKeys rs k :=
-  stateAfter_take_observe listLaws.toDeleteLaws rs k
+  stateAfter_take_observe list_laws.toDeleteLaws rs k
 
 theorem active_iff_key_mem (rs : List (Rectangle Int Int)) (k : Nat)
     (i : Fin rs.length) : Active rs k i ↔ occurrenceKey rs i ∈ prefixState rs k := by
@@ -217,7 +217,7 @@ theorem empty_prefix_contents (k : Nat) :
       (∅ : Set (Key Int)) := by
   calc
     _ = activeKeys ([] : List (Rectangle Int Int)) k :=
-      stateAfter_take_observe listLaws.toDeleteLaws [] k
+      stateAfter_take_observe list_laws.toDeleteLaws [] k
     _ = ∅ := activeKeys_empty_of_length_le [] (by simp)
 
 theorem exhausted_prefix_contents (rs : List (Rectangle Int Int)) {k : Nat}
@@ -406,25 +406,25 @@ def liftedOps : AbstractSet.DeleteOps (Key Int) (ULift.{2} (List (Key Int))) whe
 def liftedQuery (s : ULift.{2} (List (Key Int))) (q : IntervalKey Int) : Bool :=
   listQuery s.down q
 
-theorem liftedLaws : IntervalSet.Laws liftedOps liftedQuery keyInterval
+theorem lifted_laws : IntervalSet.Laws liftedOps liftedQuery keyInterval
     (fun s key => key ∈ s.down) (fun s => OrderedList.Strict s.down) where
-  empty_valid := listLaws.empty_valid
-  empty key := listLaws.empty key
-  insert_valid key s h := listLaws.insert_valid key s.down h
-  insert key s h other := listLaws.insert key s.down h other
-  member key s h := listLaws.member key s.down h
-  delete_valid key s h := listLaws.delete_valid key s.down h
-  delete key s h other := listLaws.delete key s.down h other
-  overlap s h q := listLaws.overlap s.down h q
+  empty_valid := list_laws.empty_valid
+  empty key := list_laws.empty key
+  insert_valid key s h := list_laws.insert_valid key s.down h
+  insert key s h other := list_laws.insert key s.down h other
+  member key s h := list_laws.member key s.down h
+  delete_valid key s h := list_laws.delete_valid key s.down h
+  delete key s h other := list_laws.delete key s.down h other
+  overlap s h q := list_laws.overlap s.down h q
 
 theorem lifted_singleton_sweep : sweep liftedOps liftedQuery [liftedPoint] = false := by
   apply Bool.eq_false_iff.mpr
   intro hit
   exact Rectangle.not_hasIntersection_singleton liftedPoint
-    ((sweep_eq_true_iff_hasIntersection liftedLaws _).mp hit)
+    ((sweep_eq_true_iff_hasIntersection lifted_laws _).mp hit)
 
 theorem lifted_duplicate_sweep : sweep liftedOps liftedQuery [liftedPoint, liftedPoint] = true :=
-  (sweep_eq_true_iff_hasIntersection liftedLaws _).mpr
+  (sweep_eq_true_iff_hasIntersection lifted_laws _).mpr
     ((Rectangle.hasIntersection_pair_iff _ _).mpr (Rectangle.intersects_self _))
 
 /-! A noncomputable semantic model exercises bare LE x, without claiming common points. -/
@@ -443,7 +443,7 @@ noncomputable def semanticQuery {α : Type u} [LE α]
   classical
   exact decide (IntervalSet.HasOverlap (keyInterval '' s) q)
 
-theorem semanticLaws {α : Type u} [LE α] :
+theorem semantic_laws {α : Type u} [LE α] :
     IntervalSet.Laws (semanticOps (α := α)) semanticQuery keyInterval id (fun _ => True) where
   empty_valid := trivial
   empty key := Set.notMem_empty key
@@ -462,7 +462,7 @@ theorem semanticLaws {α : Type u} [LE α] :
     simp [semanticQuery]
 
 theorem raw_duplicate_sweep : sweep semanticOps semanticQuery [rawPoint, rawPoint] = true :=
-  (sweep_eq_true_iff_overlap semanticLaws _).mpr
+  (sweep_eq_true_iff_overlap semantic_laws _).mpr
     ⟨0, 1, by decide, Rectangle.overlap_self rawPoint⟩
 
 theorem raw_detection_without_between :
@@ -477,7 +477,7 @@ theorem tree_sweep_correct {α : Type u} {β : Type v}
     sweep (IntervalTree.deleteOps keyInterval) (IntervalTree.search keyInterval) rs = true ↔
       Rectangle.HasIntersection rs :=
   sweep_eq_true_iff_hasIntersection
-    (IntervalTree.intervalSetLaws keyInterval keyInterval_low_le_of_lt) rs
+    (IntervalTree.intervalSet_laws keyInterval keyInterval_low_le_of_lt) rs
 
 def natSquare : Rectangle Nat Int :=
   ⟨IntervalKey.ofBounds 0 1 (by decide), IntervalKey.ofBounds 0 1 (by decide)⟩

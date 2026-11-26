@@ -26,7 +26,7 @@ def sectionTotalEquivalence :
   exact (totalMatchingEvaluation a A hΓ hB).asEquivalence.trans
     (CechMatching.Comprehension.equivalence
       (SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A)
-      (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)).symm
+      (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)).symm
 
 def sectionTotalProjection :
     (sectionTotalEquivalence a A hΓ hB families).functor ⋙
@@ -35,7 +35,7 @@ def sectionTotalProjection :
   isoWhiskerLeft (totalMatchingEvaluation a A hΓ hB)
     (CechMatching.Comprehension.inverseProjectionComparison
       (SmoothQuotientGeneratedMatching.relativeFamilyData a hΓ hB A)
-      (SmoothQuotientGeneratedMatching.relativeFamilyCoherence a hΓ hB A)) ≪≫
+      (SmoothQuotientGeneratedMatching.relativeFamilyData_coherence a hΓ hB A)) ≪≫
       eqToIso (totalMatchingEvaluation_projection a A hΓ hB)
 
 /-- The selected reconstruction, recovery and uniqueness laws are retained together. -/

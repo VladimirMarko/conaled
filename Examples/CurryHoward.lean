@@ -21,9 +21,9 @@ example : eval meaning swap.term ((), ((7 : Nat), ())) = ordinarySwap (7, ()) :=
 example : toProof (toProgram swap) = swap := proof_roundtrip swap
 example : Program [] .truth := Proof.truth
 example (p : Proof Γ a) (q : Proof Γ b) : Detour (p.andIntro q).andLeft p :=
-  .conjunctionLeft p q
+  .conjunction_left p q
 example (p : Proof Γ a) (q : Proof Γ b) : Term.Step (p.andIntro q).andRight.term q.term :=
-  detour_simulates (.conjunctionRight p q)
+  detour_simulates (.conjunction_right p q)
 
 /-- Simultaneous substitution may duplicate an argument. -/
 def duplicate (Γ : List Formula) : Proof (.atom :: Γ) (.and .atom .atom) :=
@@ -95,7 +95,7 @@ theorem function_congr : STLCNaturality.ModelCongr (equality _) functionModel wh
 theorem two_models (p : Proof Γ a) :
     interpretation.map (STLCNaturality.compile codeModel p.term) =
       STLCNaturality.compile functionModel p.term :=
-  STLCNaturality.naturality (STLCNaturality.soundMap_laws _ _) (equalityCongr _)
+  STLCNaturality.naturality (STLCNaturality.soundMap_laws _ _) (equality_congr _)
     function_congr interpretation_preserves p.term
 
 /-- Compose raw-code interpretation with the existing bundled-function adapter;
@@ -104,7 +104,7 @@ theorem composed (p : Proof Γ a) :
     FunctionCategory.toTypes.map (interpretation.map (STLCNaturality.compile codeModel p.term)) =
       STLCNaturality.compile (FullSourceNaturality.bundle functionModel) p.term :=
   STLCNaturality.naturality_comp (STLCNaturality.soundMap_laws _ _)
-    FunctionCategory.toTypes_laws (equalityCongr _)
+    FunctionCategory.toTypes_laws (equality_congr _)
     (FullSourceNaturality.bundle_congr functionModel) interpretation_preserves
     (FullSourceNaturality.bundle_preserves functionModel) p.term
 

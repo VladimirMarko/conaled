@@ -18,8 +18,8 @@ abbrev motive := TwoFamilyPathJBeta.motive
 
 def initial : ContractionPresentation ⟨PathContext integerFamily⟩ where
   source := ⟨Total integerFamily⟩
-  sourceObjects := inferInstance
-  sourceCells := inferInstance
+  source_isGroupoid := inferInstance
+  source_isLocallyGroupoid := inferInstance
   inclusion := pathReflexivity integerFamily
   retraction := pathFirst integerFamily
   homotopy := pathContraction integerFamily

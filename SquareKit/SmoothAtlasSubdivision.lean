@@ -19,7 +19,7 @@ variable {M : Type} [TopologicalSpace M] (A : Atlas M)
 
 def subdivision : Atlas M where
   toCharts := A.toCharts.subdivision K g
-  openEmbedding p := (A.openEmbedding p.1).comp (subInclusion_openEmbedding _ _)
+  isOpenEmbedding p := (A.isOpenEmbedding p.1).comp (subInclusion_openEmbedding _ _)
   covers x := by
     obtain ⟨i,y,hy⟩ := A.covers x
     obtain ⟨k,hk⟩ := hc i y
@@ -30,7 +30,7 @@ def subdivision : Atlas M where
     obtain ⟨s,hs,t,ht⟩ := A.transition p.1 q.1 xi yj he
     let z : Points (subdomain (A.domain p.1) s) := ⟨x.val,mul_ne_zero xi.property hs⟩
     have hz : (show Map _ _ from t) z = yj :=
-      (A.openEmbedding q.1).injective ((ht z).symm.trans he)
+      (A.isOpenEmbedding q.1).injective ((ht z).symm.trans he)
     let v := inverseDefining t (g q.1 q.2)
     have hv : v.val x.val ≠ 0 := by
       apply (inverseDefining_iff t (g q.1 q.2) z).mpr

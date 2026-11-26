@@ -17,7 +17,7 @@ namespace Numerals.Floating
 open Numerals.FloatingError
 open _root_.Floating.Observation
 
-theorem stepLaws64 : StepLaws operations64 decode64 ((2 : ℚ) ^ (-50 : Int))
+theorem stepLaws_64 : StepLaws operations64 decode64 ((2 : ℚ) ^ (-50 : Int))
     ((2 : ℚ) ^ (-53 : Int)) where
   addition_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
   division_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
@@ -25,7 +25,7 @@ theorem stepLaws64 : StepLaws operations64 decode64 ((2 : ℚ) ^ (-50 : Int))
   addition := _root_.Floating.Operations.add64_bounds
   division := _root_.Floating.Operations.divideTen64_bounds
 
-theorem stepLaws32 : StepLaws operations32 decode32 ((2 : ℚ) ^ (-21 : Int))
+theorem stepLaws_32 : StepLaws operations32 decode32 ((2 : ℚ) ^ (-21 : Int))
     ((2 : ℚ) ^ (-24 : Int)) where
   addition_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
   division_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
@@ -41,22 +41,22 @@ theorem uniform_constant32 :
     (10 / 9 : ℚ) * ((2 : ℚ) ^ (-21 : Int) / 10 + (2 : ℚ) ^ (-24 : Int)) =
       (2 : ℚ) ^ (-23 : Int) := by decide +kernel
 
-theorem finiteRun64 (digits : List Nat) (proper : Decimal.Digits digits) :
+theorem finiteRun_64 (digits : List Nat) (proper : Decimal.Digits digits) :
     FiniteRun operations64 decode64 digits :=
-  proper_finite_run operations64 decode64 decode64_zero _ _ stepLaws64 digits proper
+  proper_finite_run operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper
 
-theorem finiteRun32 (digits : List Nat) (proper : Decimal.Digits digits) :
+theorem finiteRun_32 (digits : List Nat) (proper : Decimal.Digits digits) :
     FiniteRun operations32 decode32 digits :=
-  proper_finite_run operations32 decode32 decode32_zero _ _ stepLaws32 digits proper
+  proper_finite_run operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper
 
 /-- Every recorded conversion, addition and quotient is finite in the actual format. -/
-theorem stagesFinite64 (digits : List Nat) (proper : Decimal.Digits digits) :
+theorem stagesFinite_64 (digits : List Nat) (proper : Decimal.Digits digits) :
     StagesFinite operations64 Float.isFinite digits := by
-  simpa only [FiniteRun, decode64_isFinite] using finiteRun64 digits proper
+  simpa only [FiniteRun, decode64_isFinite] using finiteRun_64 digits proper
 
-theorem stagesFinite32 (digits : List Nat) (proper : Decimal.Digits digits) :
+theorem stagesFinite_32 (digits : List Nat) (proper : Decimal.Digits digits) :
     StagesFinite operations32 Float32.isFinite digits := by
-  simpa only [FiniteRun, decode32_isFinite] using finiteRun32 digits proper
+  simpa only [FiniteRun, decode32_isFinite] using finiteRun_32 digits proper
 
 theorem analyze64_complete (digits : List Nat) (proper : Decimal.Digits digits) :
     ∃ c, analyze64 digits = some c ∧ decode64 (fraction64 digits) = some c.value ∧
@@ -64,12 +64,12 @@ theorem analyze64_complete (digits : List Nat) (proper : Decimal.Digits digits) 
       operationBound c.steps ≤ (2 : ℚ) ^ (-52 : Int) *
         (1 - 1 / (10 : ℚ) ^ digits.length) := by
   obtain ⟨c, produced, observed, lower, upper, _⟩ :=
-    proper_run operations64 decode64 decode64_zero _ _ stepLaws64 digits proper
+    proper_run operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper
   refine ⟨c, produced, ?_, lower, upper, run_length operations64 decode64 digits c produced, ?_⟩
   · simpa only [fraction_operations64] using observed
   · simpa only [uniform_constant64] using
       proper_operation_bound_length operations64 decode64 decode64_zero _ _
-        stepLaws64 digits proper c produced
+        stepLaws_64 digits proper c produced
 
 theorem analyze32_complete (digits : List Nat) (proper : Decimal.Digits digits) :
     ∃ c, analyze32 digits = some c ∧ decode32 (fraction32 digits) = some c.value ∧
@@ -77,22 +77,22 @@ theorem analyze32_complete (digits : List Nat) (proper : Decimal.Digits digits) 
       operationBound c.steps ≤ (2 : ℚ) ^ (-23 : Int) *
         (1 - 1 / (10 : ℚ) ^ digits.length) := by
   obtain ⟨c, produced, observed, lower, upper, _⟩ :=
-    proper_run operations32 decode32 decode32_zero _ _ stepLaws32 digits proper
+    proper_run operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper
   refine ⟨c, produced, ?_, lower, upper, run_length operations32 decode32 digits c produced, ?_⟩
   · simpa only [fraction_operations32] using observed
   · simpa only [uniform_constant32] using
       proper_operation_bound_length operations32 decode32 decode32_zero _ _
-        stepLaws32 digits proper c produced
+        stepLaws_32 digits proper c produced
 
 theorem observations64_bounds (digits : List Nat) (proper : Decimal.Digits digits)
     (c : Certificate) (produced : analyze64 digits = some c) :
     ∀ s ∈ c.steps, StepBounds ((2 : ℚ) ^ (-50 : Int)) ((2 : ℚ) ^ (-53 : Int)) s :=
-  (proper_certificate operations64 decode64 decode64_zero _ _ stepLaws64 digits proper c produced).2.2
+  (proper_certificate operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper c produced).2.2
 
 theorem observations32_bounds (digits : List Nat) (proper : Decimal.Digits digits)
     (c : Certificate) (produced : analyze32 digits = some c) :
     ∀ s ∈ c.steps, StepBounds ((2 : ℚ) ^ (-21 : Int)) ((2 : ℚ) ^ (-24 : Int)) s :=
-  (proper_certificate operations32 decode32 decode32_zero _ _ stepLaws32 digits proper c produced).2.2
+  (proper_certificate operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper c produced).2.2
 
 /-- The independent decimal error retains the finite-length factor and coarse envelope. -/
 theorem fraction64_range_error (digits : List Nat) (proper : Decimal.Digits digits) :
@@ -101,13 +101,13 @@ theorem fraction64_range_error (digits : List Nat) (proper : Decimal.Digits digi
         (1 - 1 / (10 : ℚ) ^ digits.length) ∧
       |value - Decimal.fractionRat digits| ≤ (2 : ℚ) ^ (-52 : Int) := by
   obtain ⟨c, produced, observed, lower, upper, _⟩ :=
-    proper_run operations64 decode64 decode64_zero _ _ stepLaws64 digits proper
+    proper_run operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper
   refine ⟨c.value, ?_, lower, upper, ?_, ?_⟩
   · simpa only [fraction_operations64] using observed
   · simpa only [uniform_constant64] using
-      proper_error_length operations64 decode64 decode64_zero _ _ stepLaws64 digits proper c produced
+      proper_error_length operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper c produced
   · simpa only [uniform_constant64] using
-      proper_error operations64 decode64 decode64_zero _ _ stepLaws64 digits proper c produced
+      proper_error operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper c produced
 
 theorem fraction32_range_error (digits : List Nat) (proper : Decimal.Digits digits) :
     ∃ value, decode32 (fraction32 digits) = some value ∧ 0 ≤ value ∧ value ≤ 1 ∧
@@ -115,13 +115,13 @@ theorem fraction32_range_error (digits : List Nat) (proper : Decimal.Digits digi
         (1 - 1 / (10 : ℚ) ^ digits.length) ∧
       |value - Decimal.fractionRat digits| ≤ (2 : ℚ) ^ (-23 : Int) := by
   obtain ⟨c, produced, observed, lower, upper, _⟩ :=
-    proper_run operations32 decode32 decode32_zero _ _ stepLaws32 digits proper
+    proper_run operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper
   refine ⟨c.value, ?_, lower, upper, ?_, ?_⟩
   · simpa only [fraction_operations32] using observed
   · simpa only [uniform_constant32] using
-      proper_error_length operations32 decode32 decode32_zero _ _ stepLaws32 digits proper c produced
+      proper_error_length operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper c produced
   · simpa only [uniform_constant32] using
-      proper_error operations32 decode32 decode32_zero _ _ stepLaws32 digits proper c produced
+      proper_error operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper c produced
 
 theorem fraction64_isFinite (digits : List Nat) (proper : Decimal.Digits digits) :
     (fraction64 digits).isFinite = true := by
@@ -166,11 +166,11 @@ theorem fraction32_exact_fold_error_length (digits : List Nat) (proper : Decimal
 theorem certify64_all_digits (digits : List Nat) (proper : Decimal.Digits digits) :
     certify64 digits ((2 : ℚ) ^ (-52 : Int)) = true := by
   simpa only [certify64, uniform_constant64] using
-    proper_certify operations64 decode64 decode64_zero _ _ stepLaws64 digits proper
+    proper_certify operations64 decode64 decode64_zero _ _ stepLaws_64 digits proper
 
 theorem certify32_all_digits (digits : List Nat) (proper : Decimal.Digits digits) :
     certify32 digits ((2 : ℚ) ^ (-23 : Int)) = true := by
   simpa only [certify32, uniform_constant32] using
-    proper_certify operations32 decode32 decode32_zero _ _ stepLaws32 digits proper
+    proper_certify operations32 decode32 decode32_zero _ _ stepLaws_32 digits proper
 
 end Numerals.Floating

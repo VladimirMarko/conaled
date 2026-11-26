@@ -107,7 +107,7 @@ theorem genericArguments_id (n : Nat) :
   · rfl
   · simp only [Nat.sub_add_cancel (by omega : n ≤ i)]
 
-theorem reflexiveCompose (n : Nat) (x : Expr) (ρ : RawSub) (args : Fin n → Expr) :
+theorem reflexive_compose (n : Nat) (x : Expr) (ρ : RawSub) (args : Fin n → Expr) :
     (fun i => (Expr.liftSubN n (reflexiveSub x) i).sub (argsSub args ρ)) =
       argsSub args (consSub (.refl (x.sub ρ)) (consSub (x.sub ρ) ρ)) := by
   rw [liftSubN_argsSub]
@@ -133,7 +133,7 @@ def PathCommand.branchArguments (cmd : @PathCommand Γ γ A x a ξ n Δ T) :=
   SubDeriv.rawTransport (genericArguments_id n).symm (SubDeriv.id cmd.branchContext)
 
 def PathCommand.reflexiveEndpoint (cmd : @PathCommand Γ γ A x a ξ n Δ T) :=
-  SubDeriv.rawTransport (reflexiveCompose n x (fun i => .var (i+n)) (genericArguments n))
+  SubDeriv.rawTransport (reflexive_compose n x (fun i => .var (i+n)) (genericArguments n))
     (SubDeriv.comp (SubDeriv.rootTail cmd.context cmd.type cmd.point cmd.telescope)
       cmd.branchArguments)
 
@@ -158,7 +158,7 @@ theorem PathCommand.interpreted_reflexiveBeta
       castCode (subTyComp_code cmd.motive.code (rootTailCode a ξ T)
         (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T)))
         (subTmCode cmd.motive.branchCode (idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))) M :=
-  congrFun (termSound cmd.reflexiveBeta) M
+  congrFun (term_sound cmd.reflexiveBeta) M
 
 /-- The generic source Expr J term over its complete path-and-tail context. -/
 def PathCommand.genericTerm (cmd : @PathCommand Γ γ A x a ξ n Δ T) :=
@@ -202,7 +202,7 @@ theorem PathCommand.interpreted_rebuild (cmd : @PathCommand Γ γ A x a ξ n Δ 
     interpretTm M (cmd.substitutedTerm hσ) =
       interpretTm M (cmd.rebuild hΩ hσ).genericTerm := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound (cmd.rebuildConversion hσ)) M
+  exact congrFun (term_sound (cmd.rebuildConversion hσ)) M
 
 
 namespace NamedCaller
@@ -386,27 +386,27 @@ def dependentPairedRight := SubDeriv.pair dependentType pairedRight substitutedR
 theorem dependentPairedBeta_sound (M : Model) :
     interpretSub M dependentPairedLeft = interpretSub M dependentPairedRight := by
   rw [interpretSub_agrees, interpretSub_agrees]
-  exact congrFun (subSound dependentPairedBeta) M
+  exact congrFun (sub_sound dependentPairedBeta) M
 
 theorem motiveBeta_sound (M : Model) :
     HEq (interpretTm M changedMotiveLeft) (interpretTm M changedMotiveRight) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact (heq_of_eq (congrFun (termSound motiveBeta) M)).trans (castCode_eval _ _ M)
+  exact (heq_of_eq (congrFun (term_sound motiveBeta) M)).trans (castCode_eval _ _ M)
 
 theorem nestedAtBeta_sound (M : Model) :
     interpretTm M outerLeft.reflexiveTerm = interpretTm M outerRight.reflexiveTerm := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound nestedAtBeta) M
+  exact congrFun (term_sound nestedAtBeta) M
 
 theorem substitutedBeta_sound (M : Model) :
     HEq (interpretTm M substitutedLeft) (interpretTm M substitutedRight) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact (heq_of_eq (congrFun (termSound substitutedBeta) M)).trans (castCode_eval _ _ M)
+  exact (heq_of_eq (congrFun (term_sound substitutedBeta) M)).trans (castCode_eval _ _ M)
 
 theorem nestedBeta_sound (M : Model) :
     interpretTm M nestedLeft = interpretTm M nestedRight := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound nestedBeta) M
+  exact congrFun (term_sound nestedBeta) M
 
 end CongruenceCaller
 end SquareKit.Internal.PathTransport.Typed.Authoring

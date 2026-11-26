@@ -41,7 +41,7 @@ def reversedAtlas : Atlas (Points line) where
   Index := Bool
   domain _ := line
   coordinate i := (show Map _ _ from coordinate i)
-  openEmbedding i := by
+  isOpenEmbedding i := by
     cases i
     · exact Topology.IsOpenEmbedding.id
     · exact negHomeomorph.isOpenEmbedding
@@ -115,7 +115,7 @@ def emptyAtlas : Atlas Empty where
   Index := Empty
   domain := Empty.elim
   coordinate i := i.elim
-  openEmbedding i := i.elim
+  isOpenEmbedding i := i.elim
   covers x := x.elim
   transition i := i.elim
 

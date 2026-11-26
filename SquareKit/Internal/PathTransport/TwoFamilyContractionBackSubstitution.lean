@@ -17,7 +17,7 @@ variable (hη : HEq (strongPostcomp η' σ) (strongPrecomp η σ))
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 include hR in
 omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
-theorem contractionReindexFamily : reindex R' (reindex σ E) = reindex σ (reindex R E) :=
+theorem contraction_reindex_family : reindex R' (reindex σ E) = reindex σ (reindex R E) :=
   (reindex_comp E σ R').trans ((congrArg (fun K => reindex K E) hR).trans (reindex_comp E R σ).symm)
 
 include hR hη in
@@ -45,7 +45,7 @@ theorem inverseFamilyContraction_reindex :
   have h1 := strongInverse_heq
     (iη := fun x => forwardFamilyContraction_isIso R' η' (reindex σ E) x)
     (iθ := fun x => forwardFamilyContraction_isIso R η E (σ.obj x))
-    (contractionReindexFamily R R' σ hR E) rfl β (strongPrecomp α σ)
+    (contraction_reindex_family R R' σ hR E) rfl β (strongPrecomp α σ)
     (forwardFamilyContraction_reindex R R' σ hR η η' hη E)
   have h2 := heq_of_eq (strongInverse_precomp α σ)
   exact h1.trans h2
@@ -65,13 +65,13 @@ include hR hη in
 omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] in
 theorem contractionBack_reindex :
     (contractionBack R' η' (reindex σ E)).comp
-      (familySubstitution (reindex R E) σ (contractionReindexFamily R R' σ hR E)) =
+      (familySubstitution (reindex R E) σ (contraction_reindex_family R R' σ hR E)) =
         (reindexHigher E σ).comp (contractionBack R η E) := by
   unfold familySubstitution
   rw [← strictFunctor_comp_assoc]
   change ((StrongMap.toHigher (inverseFamilyContraction R' η' (reindex σ E))).comp
-    (familyCast (contractionReindexFamily R R' σ hR E))).comp _ = _
-  have k := strongMap_codomain_cast (contractionReindexFamily R R' σ hR E)
+    (familyCast (contraction_reindex_family R R' σ hR E))).comp _ = _
+  have k := strongMap_codomain_cast (contraction_reindex_family R R' σ hR E)
     (inverseFamilyContraction R' η' (reindex σ E))
     (strongPrecomp (inverseFamilyContraction R η E) σ)
     (inverseFamilyContraction_reindex R R' σ hR η η' hη E)

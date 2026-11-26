@@ -181,7 +181,7 @@ theorem rebuild_eq_of_equation (h : product D X ⟶ R)
   exact (he A.unop.unop p.1 p.2).symm
 
 /-- KL with arbitrary sheaf parameters and unique natural coefficients. -/
-theorem allParameters (h : product D X ⟶ R) :
+theorem existsUnique_affineEquation (h : product D X ⟶ R) :
     ∃! p : (X ⟶ R) × (X ⟶ R), AffineEquation h p.1 p.2 := by
   refine ⟨(coefficients h ≫ fst _ _, coefficients h ≫ snd _ _), ?_, ?_⟩
   · exact universal_reconstruction h

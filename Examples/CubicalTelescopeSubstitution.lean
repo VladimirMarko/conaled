@@ -20,7 +20,7 @@ noncomputable abbrev newEliminated : Term newMotive :=
 
 theorem two_substitutions : newEliminated = eliminated.reindex (tail.map singletonMap) :=
   TelescopeIdentityElimination.eliminate_reindex argument chosen tail motive branch substitution
-    fillers fillers_lawful motiveFiller motiveLawful
+    fillers fillers_lawful motiveFiller motiveFilling_lawful
 
 theorem evaluation_reindex (t : Term motive) :
     ((t.reindex (tail.map singletonMap)).reindex (newTail.map newRoot)).val

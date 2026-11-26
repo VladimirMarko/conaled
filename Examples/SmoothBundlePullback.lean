@@ -120,7 +120,7 @@ end Examples.SmoothBundlePullback.TargetControl
 namespace Examples.SmoothBundleAtlas
 open SquareKit SquareKit.SmoothPrincipalBundle.Pullback
 /-- The exact categorical equality for two nonidentity real-line base changes. -/
-theorem scaleCompositeCoherence :
+theorem scale_composite_coherence :
     let := chartedSpace (m := 1) realLineBundle (scale 2) (scale_smooth 2).continuous
     let := isManifold (m := 1) realLineBundle (scale 2) (scale_smooth 2).continuous
     let := chartedSpace (m := 1) (bundle (m := 1) realLineBundle (scale 2) (scale_smooth 2).continuous) (scale 3) (scale_smooth 3).continuous

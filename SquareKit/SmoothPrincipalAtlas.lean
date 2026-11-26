@@ -59,7 +59,7 @@ def atlas {I : Type} (f : I → freeAlgebra U.dimension) (hf : Covers U f) :
   triple i j k := subdomain U ((f i * f j) * f k)
   firstSecond i j k := left U (f i * f j) (f k)
   third i j k := right U (f i * f j) (f k)
-  tripleSquare i j k := by
+  triple_isPullback i j k := by
     have h : left U (f i) (f j) ≫ subInclusion U (f i) =
         subInclusion U (f i * f j) := OpenFunctions.Map.ext (fun _ => rfl)
     rw [← Functor.map_comp, h]

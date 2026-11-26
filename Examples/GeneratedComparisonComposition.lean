@@ -17,7 +17,7 @@ theorem j_composition (S T : Comparison.Signature.{0})
       (interpretTm (Comparison.fullModel T) generic)
       (interpretTm (Comparison.fullModel (S.horizontal T h hB)) generic) := by
   rw [interpretTm_agrees, interpretTm_agrees, interpretTm_agrees]
-  exact GeneratedComposition.generatedTm S T h hB generic
+  exact GeneratedComposition.generated_tm S T h hB generic
 
 theorem branch_composition (S T : Comparison.Signature.{0})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber) :
@@ -25,7 +25,7 @@ theorem branch_composition (S T : Comparison.Signature.{0})
       (interpretTm (Comparison.fullModel T) reindexedBranch)
       (interpretTm (Comparison.fullModel (S.horizontal T h hB)) reindexedBranch) := by
   rw [interpretTm_agrees, interpretTm_agrees, interpretTm_agrees]
-  exact GeneratedComposition.generatedTm S T h hB reindexedBranch
+  exact GeneratedComposition.generated_tm S T h hB reindexedBranch
 
 theorem tail_map_composition (S T : Comparison.Signature.{0})
     (h : S.base.right = T.base.left) (hB : HEq S.rightFiber T.leftFiber) :
@@ -33,12 +33,12 @@ theorem tail_map_composition (S T : Comparison.Signature.{0})
       (interpretSub (Comparison.fullModel T) tailMap)
       (interpretSub (Comparison.fullModel (S.horizontal T h hB)) tailMap) := by
   rw [interpretSub_agrees, interpretSub_agrees, interpretSub_agrees]
-  exact GeneratedComposition.generatedSub S T h hB tailMap
+  exact GeneratedComposition.generated_sub S T h hB tailMap
 
 example := j_composition GroupoidComparison.signature HorizontalComparison.remainingSignature rfl HEq.rfl
 example := branch_composition GroupoidComparison.signature HorizontalComparison.remainingSignature rfl HEq.rfl
 example := tail_map_composition GroupoidComparison.signature HorizontalComparison.remainingSignature rfl HEq.rfl
-example := GeneratedComposition.generatedTel GroupoidComparison.signature
+example := GeneratedComposition.generated_tel GroupoidComparison.signature
   HorizontalComparison.remainingSignature rfl HEq.rfl tail
 
 open SmoothOpenSite SheafActionQuotient

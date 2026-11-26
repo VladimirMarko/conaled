@@ -164,7 +164,7 @@ def pullbackComparison {Z : Sheaf topology Type} (u : Z ⟶ X) :
       rw [Category.assoc, SplitSheaf.displayIso_projection, SplitSheaf.lift_p])
 
 /-- The same comparison is an isomorphism, with both projections retained. -/
-theorem originalPullbackSquare {Z : Sheaf topology Type} (u : Z ⟶ X) :
+theorem original_pullback_square {Z : Sheaf topology Type} (u : Z ⟶ X) :
     IsPullback
       (SplitSheaf.lift (SplitSheaf.ofDisplay f) u ≫ (SplitSheaf.displayIso f).hom)
       (SplitSheaf.p (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u)) f u := by
@@ -177,15 +177,15 @@ theorem originalPullbackSquare {Z : Sheaf topology Type} (u : Z ⟶ X) :
 
 def originalPullbackIso {Z : Sheaf topology Type} (u : Z ⟶ X) :
     SplitSheaf.extension (SplitSheaf.tySub (SplitSheaf.ofDisplay f) u) ≅ Limits.pullback f u :=
-  (originalPullbackSquare (f := f) u).isoPullback
+  (original_pullback_square (f := f) u).isoPullback
 
 theorem originalPullbackIso_hom {Z : Sheaf topology Type} (u : Z ⟶ X) :
     (originalPullbackIso (f := f) u).hom = pullbackComparison (f := f) u := by
   apply Limits.pullback.hom_ext
   · simpa only [originalPullbackIso, pullbackComparison, Limits.pullback.lift_fst] using
-      (originalPullbackSquare (f := f) u).isoPullback_hom_fst
+      (original_pullback_square (f := f) u).isoPullback_hom_fst
   · simpa only [originalPullbackIso, pullbackComparison, Limits.pullback.lift_snd] using
-      (originalPullbackSquare (f := f) u).isoPullback_hom_snd
+      (original_pullback_square (f := f) u).isoPullback_hom_snd
 
 variable [Presheaf.IsLocallySurjective topology f.hom]
 

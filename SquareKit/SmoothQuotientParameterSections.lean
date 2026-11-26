@@ -68,7 +68,7 @@ theorem overlap (d : Descent.Datum (a := a) A) :
 
 /-- Parameter-compatible overlap matching implies the actual local cocycle
 matching equation needed by the section assembly theorem. -/
-theorem cocycleMatching :
+theorem cocycle_matching :
     LocalSection.Matching (s.sections (𝟙 (SplitSheaf.extension A))) := by
   intro d x b c t p
   have h := congrArg (fun k : Deformation
@@ -105,7 +105,7 @@ variable [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
 /-- Assemble the global section from the supplied parameter-local sections;
 cocycle matching is proved from their local overlap contract. -/
 def glue : Section (setFamily (family a X)) :=
-  LocalSection.glue (s.sections (𝟙 (SplitSheaf.extension A))) s.cocycleMatching
+  LocalSection.glue (s.sections (𝟙 (SplitSheaf.extension A))) s.cocycle_matching
 
 /-- The resulting section recovers the supplied local value at each cocycle. -/
 theorem recover (d : Descent.Datum (a := a) A) :

@@ -8,7 +8,7 @@ open DependentTheoryMaps DependentPairPresentations TypedSubstitution
 
 def pairF := inclusion projectionInclusion
 
-def pairG := lift G fullG
+def pairG := lift projectionToElimination fullG
 
 /-- Composition substitutes the entire G certificate into every F instruction.
 It uses the generic operation available for two arbitrary administrative maps. -/
@@ -16,7 +16,7 @@ def pairFG := pairF.comp pairG
 
 theorem pair_composition {H : Judgment projectionSignature → Type}
     {K : Judgment projectionSignature → Type} {L : Judgment eliminationSignature → Type}
-    (h : ∀ j, H j → K j) (k : ∀ j, K j → L (Judgment.map G j))
+    (h : ∀ j, H j → K j) (k : ∀ j, K j → L (Judgment.map projectionToElimination j))
     {j : Judgment projectionSignature} (d : Proof (projectionPresentation false) H j) :
     pairFG.transport (fun j p => k j (h j p)) d =
       pairG.transport k (pairF.transport h d) :=

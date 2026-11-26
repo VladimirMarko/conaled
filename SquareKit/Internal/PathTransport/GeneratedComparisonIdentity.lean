@@ -28,11 +28,11 @@ local notation "S" => Signature.diagonal C B
 /-- The entire generated comparison context is diagonal, not only its objects. -/
 theorem generated_diagonal_context (h : Typed.CtxDeriv.{u+1} Γ γ) :
     Context.diagonal (show Grpd.{u,u} from γ M) = γ (fullModel S) :=
-  (diagonalSignatureMap C B).generatedCtx h
+  (diagonalSignatureMap C B).generated_ctx h
 
 theorem generated_diagonal_family (h : Typed.TyDeriv.{u+1} Γ γ A a) :
     HEq (Family.diagonal (show (show Grpd.{u,u} from γ M) ⥤ Grpd.{u,u} from a M))
-      (a (fullModel S)) := (diagonalSignatureMap C B).generatedTy h |>.2
+      (a (fullModel S)) := (diagonalSignatureMap C B).generated_ty h |>.2
 
 theorem generatedContextMap_identity (h : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap S h = 𝟭 (show Grpd.{u,u} from γ M) :=

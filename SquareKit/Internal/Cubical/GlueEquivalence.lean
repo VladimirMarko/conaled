@@ -50,7 +50,7 @@ variable {Γ Δ : Context.{u}} (φ : Cofibration Γ) (A : Family Γ)
   (T : Family (restrictContext φ)) (e : T ⟶ reindex A (restrictInclusion φ))
   (σ : Δ ⟶ total A)
 
-abbrev C := family φ A T e
+abbrev glueFamily := family φ A T e
 abbrev f := unglue φ A T e
 abbrev fiber := homotopyFiber (Functor.whiskerLeft (projection A).mapElements (f φ A T e))
   (generic A)

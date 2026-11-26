@@ -151,7 +151,7 @@ theorem compile_spec (base : RelRep) {Prim : Ty → Ty → Type}
     (P : Primitives base Prim meaning) (t : Term Prim Γ a)
     (ρ : Val base.S (context Γ)) :
     (compile (target base P) t).spec ρ = eval meaning t ρ := by
-  have h := STLCNaturality.naturality (interpretation_laws base P) (equalityCongr _)
+  have h := STLCNaturality.naturality (interpretation_laws base P) (equality_congr _)
     (show STLCNaturality.ModelCongr (equality _) (STLCNaturality.semantics base.S meaning) from
       ⟨by intros; subst_vars; rfl, by intros; subst_vars; rfl, by intros; subst_vars; rfl⟩)
     (interpretation_preserves base P) t

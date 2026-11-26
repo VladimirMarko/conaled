@@ -42,7 +42,7 @@ variable {M N : Model.{u}} (F : SignatureMap M N)
 
 /-- The entire two-binder telescope is mapped, retaining the second dependency. -/
 theorem tail_preserved : F.TelPres tailCode :=
-  F.generatedTel tail
+  F.generated_tel tail
 
 /-- Mapping also identifies the full context and its dependent fiber family. -/
 theorem context_preserved : F.context (interpretCtx M withFiber) = interpretCtx N withFiber :=
@@ -91,7 +91,7 @@ def structural : StructuralMap inhabited.toStructuralModel uninhabited.toStructu
   subTy _ _ := rfl
   subTm _ _ := HEq.rfl
   weaken _ := HEq.rfl
-  mapVariable _ := HEq.rfl
+  genericVariable_preserved _ := HEq.rfl
   identity _ _ _ := rfl
   reflexivity _ _ := HEq.rfl
 

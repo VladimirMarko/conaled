@@ -101,17 +101,17 @@ theorem lastRestrictionFiber_triple :
   apply Deformation.ext
   rfl
 
-theorem tripleFirstMap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem triple_first_map (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     parameterMap a A hΓ (SplitSheaf.Cech.firstSecond A ≫ SplitSheaf.Cech.first A) =
       parameterMap a A hΓ (SplitSheaf.Cech.firstThird A ≫ SplitSheaf.Cech.first A) :=
   congrArg (parameterMap a A hΓ) (SplitSheaf.Cech.firstSecond_first A)
 
-theorem tripleMiddleMap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem triple_middle_map (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     parameterMap a A hΓ (SplitSheaf.Cech.firstSecond A ≫ SplitSheaf.Cech.second A) =
       parameterMap a A hΓ (SplitSheaf.Cech.secondThird A ≫ SplitSheaf.Cech.first A) :=
   congrArg (parameterMap a A hΓ) (SplitSheaf.Cech.firstSecond_second A)
 
-theorem tripleLastMap (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+theorem triple_last_map (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     parameterMap a A hΓ (SplitSheaf.Cech.secondThird A ≫ SplitSheaf.Cech.second A) =
       parameterMap a A hΓ (SplitSheaf.Cech.firstThird A ≫ SplitSheaf.Cech.second A) :=
   congrArg (parameterMap a A hΓ) (SplitSheaf.Cech.firstThird_second A).symm

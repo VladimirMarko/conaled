@@ -42,7 +42,7 @@ theorem locallySurjective_principal {E X : Sheaf topology Type} (p : E ⟶ X)
 structure PrincipalLift {E X : Sheaf topology Type} (p : E ⟶ X)
     (U : Domain) (k : embedding.obj U ⟶ X) (x : Points U) where
   defining : freeAlgebra U.dimension
-  atPoint : defining.val x.val ≠ 0
+  at_point : defining.val x.val ≠ 0
   lift : embedding.obj (subdomain U defining) ⟶ E
   equation : lift ≫ p = embedding.map (subInclusion U defining) ≫ k
 
@@ -56,7 +56,7 @@ def principalLift {E X : Sheaf topology Type} (p : E ⟶ X)
 theorem principalLift_covers {E X : Sheaf topology Type} (p : E ⟶ X)
     [Presheaf.IsLocallySurjective topology p.hom] (U : Domain) (k : embedding.obj U ⟶ X) :
     Covers U (fun x => (principalLift p U k x).defining) :=
-  fun x => ⟨x,(principalLift p U k x).atPoint⟩
+  fun x => ⟨x,(principalLift p U k x).at_point⟩
 end SquareKit.EuclideanOpen
 
 namespace SquareKit.EuclideanOpen.TorsorAtlas
@@ -192,7 +192,7 @@ theorem covers (i : A.Index) : Covers (A.charts.domain i) (defining A P i) := by
   rw [map_prod]
   apply Finset.prod_ne_zero_iff.mpr
   intro j _
-  exact (principalLift (SplitSheaf.p (P j).family) (A.charts.domain i) (A.charts.chart i) x).atPoint
+  exact (principalLift (SplitSheaf.p (P j).family) (A.charts.domain i) (A.charts.chart i) x).at_point
 
 def atlas := A.subdivisionAtlas (fun i => J → Points (A.charts.domain i)) (defining A P) (covers A P)
 

@@ -149,7 +149,7 @@ private theorem castCode_cancel {γ : CtxCode} {a b : TyCode γ}
 theorem original_guarantee : interpretSub M CongruenceCaller.dependentPairedLeft =
     interpretSub M CongruenceCaller.dependentPairedRight := by
   rw [interpretSub_agrees, interpretSub_agrees]
-  have h := subSound Examples.DependentCongruence.DependentArguments.dependentPair
+  have h := sub_sound Examples.DependentCongruence.DependentArguments.dependentPair
   simp only [castCode_cancel] at h
   exact congrFun h M
 

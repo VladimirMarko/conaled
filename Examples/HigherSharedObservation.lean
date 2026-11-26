@@ -33,7 +33,7 @@ theorem recovered_eq : recovered = some (tauHomotopy cocycleModel cocycleBase co
 /-- The cast normalizes a proved family equality. The selected value comes
 from decoding the compiled expression, not from the normalization proof. -/
 def observation : Option Int := recovered.map (fun h =>
-  secondObservation (cast (type_eq_of_heq retainedTauHomotopy) (h.down.reindex assignFinal)))
+  secondObservation (cast (type_eq_of_heq retained_tauHomotopy) (h.down.reindex assignFinal)))
 
 theorem observation_one : observation = some 1 := by
   unfold observation

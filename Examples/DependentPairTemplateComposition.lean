@@ -13,7 +13,7 @@ def fgTemplate : TemplateMap projectionSignature eliminationSignature :=
   TemplateMap.comp (TemplateMap.identity projectionSignature) gTemplate
 
 theorem fgTemplate_act (e : PExpr V) :
-    (TemplateMap.toSyntax fgTemplate).act e = G.act e := by
+    (TemplateMap.toSyntax fgTemplate).act e = projectionToElimination.act e := by
   rw [fgTemplate, TemplateMap.identity_comp_act, gTemplate_act]
 
 /-- The selected expression after both substitutions uses that same composed

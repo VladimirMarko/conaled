@@ -247,12 +247,12 @@ theorem eligibleRun_work_le {bits : Nat} {g : Graph} (valid : GraphValid bits g)
     dsimp only [step]
     rw [subsetStep_value, lowDegreeRun_value]
     split_ifs
-    · exact initial.add entry.1 (valid.keyBits entry.1 entry.2 input)
+    · exact initial.add entry.1 (valid.bitLength_le entry.1 entry.2 input)
     · exact initial
   have bounded (entry : Node × NodeSet) (state : NodeSet) (input : allowed entry)
       (_initial : SetValid bits state) : work (step entry state).2 ≤ weight entry := by
     have low := lowDegreeRun_unit_work_le (valid.payload entry.1 entry.2 input) positive bound entry.1
-    have key := valid.keyBits entry.1 entry.2 input
+    have key := valid.bitLength_le entry.1 entry.2 input
     dsimp only [step]
     rw [subsetStep_work, lowDegreeRun_value]
     calc
@@ -265,7 +265,7 @@ theorem eligibleRun_work_le {bits : Nat} {g : Graph} (valid : GraphValid bits g)
       4 * bits * degreeMass g + SparseMap.cardinal g * (2 * bits + 3) :=
     sum_degree_weight (4 * bits) (2 * bits + 3) g
   rw [sum] at bill
-  have prefixes := Traversal.map_prefixMass_one_le valid.normal bits valid.keyBits
+  have prefixes := Traversal.map_prefixMass_one_le valid.normal bits valid.bitLength_le
   calc
     _ = 2 + (4 * Traversal.prefixMass g .one + SparseMap.cardinal g + 1 +
         work (Resources.run step (SparseMap.elements g) .nil).2) := by
@@ -296,11 +296,11 @@ theorem nodesRun_work_le {bits : Nat} {g : Graph} (valid : GraphValid bits g) :
     (fun _ => True) (fun _ => 2 * bits) (fun _ _ _ _ => trivial)
     (fun entry state found _ => by
       rw [insertSet_work]
-      exact Nat.mul_le_mul_left 2 (valid.keyBits entry.1 entry.2 found))
+      exact Nat.mul_le_mul_left 2 (valid.bitLength_le entry.1 entry.2 found))
     (SparseMap.elements g) (fun entry member => (SparseMap.mem_elements entry.1 entry.2 g).mp member)
     .nil trivial
   simp only [List.map_const', List.sum_replicate_nat, SparseMap.elements_length] at h
-  have mass := Traversal.map_prefixMass_one_le valid.normal bits valid.keyBits
+  have mass := Traversal.map_prefixMass_one_le valid.normal bits valid.bitLength_le
   simp only [nodesRun, enter_work, mapFold_cost, work_add, work_structural]
   nlinarith
 

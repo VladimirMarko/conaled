@@ -6,7 +6,7 @@ noncomputable section
 namespace Examples.LawvereEncoding
 open SquareKit SquareKit.Lawvere SquareKit.Lawvere.Operations Examples.Lawvere
 
-abbrev interpretation := pointedInvolution.interpretation smoothSymbol smoothEquation
+abbrev interpretation := pointedInvolution.interpretation smoothSymbol smooth_equation
 abbrev smoothAction : Action smoothOperations ℝ := (smoothAlgebra ℝ).action
 abbrev realAction : Action pointedInvolution.operations ℝ :=
   smoothAction.restrict interpretation

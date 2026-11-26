@@ -408,8 +408,8 @@ theorem concurrent_cycle : (¬ ∃ a b c, EdgeAB a b ∧ EdgeAB b c) ∧
 example : StorageStep [.write] copying copied := .write rfl (by decide)
 example : StorageStep [.persist] copied partlyRetained := .persist rfl (by decide) rfl (Or.inl rfl)
 example : StorageStep [.readRoot, .readDescriptor] restart reading :=
-  .readCheckpointRoot rfl rfl rfl (by decide)
-example : StorageStep [.readRecord] reading readRecord := .readFlat (s := reading) (a := 10) (e := first) rfl rfl (by decide)
+  .read_checkpoint_root rfl rfl rfl (by decide)
+example : StorageStep [.readRecord] reading readRecord := .read_flat (s := reading) (a := 10) (e := first) rfl rfl (by decide)
 
 example (weight : StorageEvent → Nat) :
     weighted weight [.write, .persist, .write, .persist, .installRoot] =

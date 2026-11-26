@@ -39,11 +39,11 @@ structure StrictDiagram where
   firstSecond : doubleCategory ⥤ tripleCategory
   firstThird : doubleCategory ⥤ tripleCategory
   secondThird : doubleCategory ⥤ tripleCategory
-  diagonalFirst : first ⋙ diagonal = 𝟭 localCategory
-  diagonalSecond : second ⋙ diagonal = 𝟭 localCategory
-  tripleFirst : first ⋙ firstSecond = first ⋙ firstThird
-  tripleMiddle : second ⋙ firstSecond = first ⋙ secondThird
-  tripleLast : second ⋙ firstThird = second ⋙ secondThird
+  diagonal_first : first ⋙ diagonal = 𝟭 localCategory
+  diagonal_second : second ⋙ diagonal = 𝟭 localCategory
+  triple_first : first ⋙ firstSecond = first ⋙ firstThird
+  triple_middle : second ⋙ firstSecond = first ⋙ secondThird
+  triple_last : second ⋙ firstThird = second ⋙ secondThird
 
 def StrictDiagram.toDiagram (D : StrictDiagram.{u,v}) : Diagram.{u,v} where
   localCategory := D.localCategory
@@ -55,11 +55,11 @@ def StrictDiagram.toDiagram (D : StrictDiagram.{u,v}) : Diagram.{u,v} where
   firstSecond := D.firstSecond
   firstThird := D.firstThird
   secondThird := D.secondThird
-  diagonalFirst := eqToIso D.diagonalFirst
-  diagonalSecond := eqToIso D.diagonalSecond
-  tripleFirst := eqToIso D.tripleFirst
-  tripleMiddle := eqToIso D.tripleMiddle
-  tripleLast := eqToIso D.tripleLast
+  diagonalFirst := eqToIso D.diagonal_first
+  diagonalSecond := eqToIso D.diagonal_second
+  tripleFirst := eqToIso D.triple_first
+  tripleMiddle := eqToIso D.triple_middle
+  tripleLast := eqToIso D.triple_last
 
 variable (D : Diagram.{u,v})
 

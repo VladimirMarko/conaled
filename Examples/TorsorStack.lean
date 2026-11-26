@@ -15,7 +15,7 @@ example : (Stack.pseudofunctor group).IsStack
 abbrev cover := nontrivialTorsor.family
 instance cover_locallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p cover).hom :=
-  nontrivialTorsor.locallySurjective
+  nontrivialTorsor.isLocallySurjective
 
 abbrev coverSieve := Sieve.ofArrows _ (Stack.singleton cover)
 

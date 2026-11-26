@@ -177,7 +177,7 @@ theorem recovered (c : Coalgebra A R X) (M : X → Convolution.Series A R)
       rw [embed_next]; exact ih _
   rw [← he, correct c M h, embed_meaning]
 
-theorem recoveredExtended (c : Coalgebra A R X) (M : X → Convolution.Series A R)
+theorem recovered_extended (c : Coalgebra A R X) (M : X → Convolution.Series A R)
     (h : Morphism c final (fun x => (M x).coeff)) (t : Weighted.Extended R X) (w : List A) :
     run (Weighted.extended c) t w = Weighted.extMeaning M t w := by
   have he : ∀ t w, run ((rule true).lift c) (embedExtended t) w = run (Weighted.extended c) t w := by

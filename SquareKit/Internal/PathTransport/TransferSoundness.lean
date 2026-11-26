@@ -33,7 +33,7 @@ theorem basePathEquiv_concat (hΓ : CtxDeriv Γ γ) {x y z : BasePoint Γ γ}
 
 /-- Consume any generated source identity derivation through the all-rule
 interpreter; no target equation is supplied as a premise. -/
-theorem fiberIdentity {z : BasePoint Γ γ} (l r : FiberElement z)
+theorem fiber_identity {z : BasePoint Γ γ} (l r : FiberElement z)
     {t : Expr} {ξ : TmCode γ (identityCode (fiberCode z.code) l.code r.code)}
     (proof : TmDeriv Γ γ (.identity (.fiber z.raw) l.raw r.raw)
       (identityCode (fiberCode z.code) l.code r.code) t ξ)

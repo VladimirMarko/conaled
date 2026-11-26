@@ -12,7 +12,7 @@ noncomputable section
 abbrev M := fullModel integerContext integerContext
 def paths := inputPaths M.toStructuralModel emptyA emptyB
 def pathType := SelectedOrdinaryAction.pathType M paths
-def T := SelectedOrdinaryAction.transport M paths
+def selectedTransport := SelectedOrdinaryAction.transport M paths
 def sourceAction := SelectedOrdinaryAction.action M paths
 set_option linter.defProp false
 def action_formula := TwoFamilySelectedOrdinaryAction.action_formula integerContext integerContext paths

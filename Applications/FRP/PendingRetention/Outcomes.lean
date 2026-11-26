@@ -87,7 +87,7 @@ theorem PoolSafe.released_not_live {frame : Frame} {history : Peer} {outcomes : 
     (hr : request ∈ frame.requests.get slot) : request.identity ≠ o.identity :=
   (h.safe o ho).released released slot request hr
 
-theorem PoolSafe.mapAnswer {frame : Frame} {history : Peer} {outcomes : List Outcome}
+theorem PoolSafe.map_answer {frame : Frame} {history : Peer} {outcomes : List Outcome}
     (h : PoolSafe frame history outcomes) (predicate : Outcome → Bool) (answer : Answer)
     (terminal : terminalAnswer answer = true)
     (auth : ∀ o ∈ outcomes, predicate o = true → ReceiptAuthentic history ⟨o.identity,answer⟩) :
@@ -116,7 +116,7 @@ theorem PoolSafe.remember {s : LocalSnapshot} {history : Peer}
   rcases receipt with ⟨identity,answer⟩
   cases answer <;> dsimp [FRPSpec.PendingRetention.remember,terminalAnswer] <;> try exact h
   all_goals
-    apply h.mapAnswer
+    apply h.map_answer
     · rfl
     · intro o ho hp
       have hi : o.identity = identity := by

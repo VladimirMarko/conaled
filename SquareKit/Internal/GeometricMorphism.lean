@@ -16,9 +16,9 @@ structure GeometricMorphism (F : Type u₁) (B : Type u₂)
   inverseImage : B ⥤ F
   directImage : F ⥤ B
   adjunction : inverseImage ⊣ directImage
-  leftExact : PreservesFiniteLimits inverseImage
+  preservesFiniteLimits : PreservesFiniteLimits inverseImage
 
-attribute [instance] GeometricMorphism.leftExact
+attribute [instance] GeometricMorphism.preservesFiniteLimits
 namespace GeometricMorphism
 variable {F : Type u₁} {B : Type u₂} {C : Type u₃}
 variable [Category.{v₁} F] [Category.{v₂} B] [Category.{v₃} C]
@@ -37,7 +37,7 @@ def identity (F : Type u₁) [Category.{v₁} F] : GeometricMorphism F F where
   inverseImage := 𝟭 F
   directImage := 𝟭 F
   adjunction := Adjunction.id
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- Composition reverses the order of inverse images. -/
 def comp (h : GeometricMorphism F B) (g : GeometricMorphism B C) :
@@ -45,7 +45,7 @@ def comp (h : GeometricMorphism F B) (g : GeometricMorphism B C) :
   inverseImage := g.inverseImage ⋙ h.inverseImage
   directImage := h.directImage ⋙ g.directImage
   adjunction := g.adjunction.comp h.adjunction
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- Precomposition on the full category of geometric morphisms. -/
 def precompose (h : GeometricMorphism F B) :

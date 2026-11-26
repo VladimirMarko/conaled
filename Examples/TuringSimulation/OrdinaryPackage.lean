@@ -39,7 +39,7 @@ def cell (a : Option Bool) : OrdinaryPackage.Alphabet fixture :=
 def nativeInput (raw : List (Option Bool)) : List (OrdinaryPackage.Alphabet fixture) :=
   raw.map cell
 
-def M : @TM0.Machine (OrdinaryPackage.Alphabet fixture) (OrdinaryPackage.Control fixture)
+def fixtureMachine : @TM0.Machine (OrdinaryPackage.Alphabet fixture) (OrdinaryPackage.Control fixture)
     (OrdinaryPackage.controlInhabited fixture) :=
   OrdinaryPackage.machine fixture outputLetter true
 
@@ -108,13 +108,13 @@ theorem empty_input_ne_delimiter : nativeInput [] ≠ nativeInput [none] := by
   cases impossible
 
 theorem empty_prelude_one_step :
-    (flip Bind.bind (TM0.step M))^[1] (some (TM0.init (nativeInput []))) =
+    (flip Bind.bind (TM0.step fixtureMachine))^[1] (some (TM0.init (nativeInput []))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture),
         Tape.mk (true, fun _ => none) ∅ ∅⟩ :=
   OrdinaryPackage.prelude_exact fixture outputLetter true []
 
 private theorem singleton_prelude_three_steps (a : Option Bool) :
-    (flip Bind.bind (TM0.step M))^[3] (some (TM0.init (nativeInput [a]))) =
+    (flip Bind.bind (TM0.step fixtureMachine))^[3] (some (TM0.init (nativeInput [a]))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture), Tape.mk (true, (cell a).2) ∅ ∅⟩ := by
   have boundary : TapeReflection.tape
       (Tape.mk₁ (TM2to1.trInit (Γ := fixture.Γ) fixture.k₀ [a])) =
@@ -127,18 +127,18 @@ private theorem singleton_prelude_three_steps (a : Option Bool) :
       boundary)
 
 theorem delimiter_prelude_three_steps :
-    (flip Bind.bind (TM0.step M))^[3] (some (TM0.init (nativeInput [none]))) =
+    (flip Bind.bind (TM0.step fixtureMachine))^[3] (some (TM0.init (nativeInput [none]))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture), Tape.mk (true, (cell none).2) ∅ ∅⟩ :=
   singleton_prelude_three_steps none
 
 theorem present_false_prelude_three_steps :
-    (flip Bind.bind (TM0.step M))^[3] (some (TM0.init (nativeInput [some false]))) =
+    (flip Bind.bind (TM0.step fixtureMachine))^[3] (some (TM0.init (nativeInput [some false]))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture),
         Tape.mk (true, (cell (some false)).2) ∅ ∅⟩ :=
   singleton_prelude_three_steps (some false)
 
 theorem present_true_prelude_three_steps :
-    (flip Bind.bind (TM0.step M))^[3] (some (TM0.init (nativeInput [some true]))) =
+    (flip Bind.bind (TM0.step fixtureMachine))^[3] (some (TM0.init (nativeInput [some true]))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture),
         Tape.mk (true, (cell (some true)).2) ∅ ∅⟩ :=
   singleton_prelude_three_steps (some true)
@@ -146,7 +146,7 @@ theorem present_true_prelude_three_steps :
 /-- The left list is nearest first. The final input letter is marked, and
 the two preceding letters remain in their actual reversed physical order. -/
 theorem orientation_prelude_five_steps :
-    (flip Bind.bind (TM0.step M))^[5]
+    (flip Bind.bind (TM0.step fixtureMachine))^[5]
       (some (TM0.init (nativeInput [some false, none, some true]))) =
       some ⟨.run (OrdinaryPackage.sourceDefault fixture),
         Tape.mk (true, (cell (some true)).2)
@@ -206,7 +206,7 @@ private theorem native_output_one_step (fallback answer : Bool) :
       (OrdinaryPackage.emitter_halt_row fixture outputLetter fallback answer))
 
 theorem false_output_one_step :
-    TM0.step M
+    TM0.step fixtureMachine
       ⟨.run haltedControl, Tape.mk₁ [(true, SingletonOutput.haltRow fixture false)]⟩ =
       some ⟨.done, Tape.mk₁ [cell (some false)]⟩ :=
   native_output_one_step true false
@@ -218,15 +218,15 @@ theorem true_output_one_step :
   native_output_one_step false true
 
 theorem false_output_next_step_is_none :
-    TM0.step M ⟨.done, Tape.mk₁ [cell (some false)]⟩ = none := rfl
+    TM0.step fixtureMachine ⟨.done, Tape.mk₁ [cell (some false)]⟩ = none := rfl
 
 theorem false_output_outer_none_at_two :
-    (flip Bind.bind (TM0.step M))^[2]
+    (flip Bind.bind (TM0.step fixtureMachine))^[2]
       (some ⟨.run haltedControl, Tape.mk₁ [(true, SingletonOutput.haltRow fixture false)]⟩) =
       none := by
   change Bind.bind
-    (TM0.step M ⟨.run haltedControl, Tape.mk₁ [(true, SingletonOutput.haltRow fixture false)]⟩)
-    (TM0.step M) = none
+    (TM0.step fixtureMachine ⟨.run haltedControl, Tape.mk₁ [(true, SingletonOutput.haltRow fixture false)]⟩)
+    (TM0.step fixtureMachine) = none
   rw [false_output_one_step]
   rfl
 

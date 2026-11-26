@@ -14,7 +14,7 @@ def base := object 1 (Space 1)
 def group := locallyConstantGroup S3
 def cover := (SheafTorsor.trivial group base).family
 instance : Presheaf.IsLocallySurjective topology (SplitSheaf.p cover).hom :=
-  (SheafTorsor.trivial group base).locallySurjective
+  (SheafTorsor.trivial group base).isLocallySurjective
 
 def datum : Datum group cover := trivial
 

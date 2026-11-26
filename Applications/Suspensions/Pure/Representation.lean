@@ -53,7 +53,7 @@ mutual
         {raw : Core.Env Primitive} {view : Env Primitive}
         (captured : EnvRep world raw view) :
         ValueRep world (.closure clauses raw []) (.closure clauses view none)
-    | recursiveClosure {clauses : List (Core.Pattern × Core.Expr Primitive)}
+    | recursive_closure {clauses : List (Core.Pattern × Core.Expr Primitive)}
         {raw : Core.Env Primitive} {view : Env Primitive}
         {created : Core.Env Primitive} {group : Suspensions.Pure.Group Primitive}
         (captured : EnvRep world raw view)
@@ -115,7 +115,7 @@ theorem ValueRep.mono {Primitive : Type} {before after : World Primitive}
     (fun _ argument => .exception argument)
     (fun found => .address (extension _ _ found))
     (fun _ captured => .closure captured)
-    (fun _ _ captured members => .recursiveClosure captured members)
+    (fun _ _ captured members => .recursive_closure captured members)
     .nil
     (fun _ _ head tail => .cons head tail)
     .none
@@ -209,7 +209,7 @@ private theorem GroupMembersRep.unroll_each {group : Suspensions.Pure.Group Prim
   | nil => cases represented; exact .nil
   | cons binding rest ih =>
       cases represented with
-      | function captured tail => exact .cons (.recursiveClosure captured whole) (ih tail)
+      | function captured tail => exact .cons (.recursive_closure captured whole) (ih tail)
       | delay found tail => exact .cons (.address found) (ih tail)
 
 /-- One actual `Rec` unrolling uses the same finite descriptor for every

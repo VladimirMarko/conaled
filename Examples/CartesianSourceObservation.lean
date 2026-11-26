@@ -73,7 +73,7 @@ abbrev L := Term (Presheaf.decode (code (Fin 3)))
 def carrierEquiv : L ≃ Fin 3 :=
   Cartesian.SourceObservation.closedSectionsPresentation (constantLocal terminal (Fin 3)).decodeCodeIso
 
-noncomputable def Q := Cartesian.SourceObservation.system (squareFamily H) (vertices H)
+noncomputable def sourceSystem := Cartesian.SourceObservation.system (squareFamily H) (vertices H)
 
 
 def horizontal (b : Bool) : (⟨1⟩ : SquareKit.Cubical.Cube) ⟶ ⟨2⟩ :=
@@ -221,7 +221,7 @@ theorem smallSection_permutation (p : Term (loops (Fin 3)))
     (hd : HEq (s.reindex (endpointSub terminal true)) d) :
     carrierEquiv d = loopPermutation p (carrierEquiv c) := by
   have hB : PathDiscrete (liftedDecode (code (Fin 3))) :=
-    PathDiscrete.ofIso (constant_pathDiscrete (ULift.{1} (Fin 3)))
+    PathDiscrete.of_iso (constant_pathDiscrete (ULift.{1} (Fin 3)))
       (Raising.iso (Examples.CubicalGlue.constantLocal terminal (Fin 3)).decodeCodeIso)
   have h := pathToMap_of_smallSection p hB s c d hc hd
   have hi : Raising.raiseTerm c = nativeInput (carrierEquiv c) :=
@@ -319,7 +319,7 @@ def onSections (e : Fin 3 ≃ Fin 3) : L ≃ L :=
   carrierEquiv.trans (e.trans carrierEquiv.symm)
 
 noncomputable def sectionSquare : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
-  (Q H).conjugate (fun _ => finiteL) (vertexSection H)
+  (sourceSystem H).conjugate (fun _ => finiteL) (vertexSection H)
 
 private theorem section_cast_heq {Γ : Context.{0}} {B C : Family Γ} (h : B = C) :
     HEq (Cartesian.SourceObservation.sectionEquiv (eqToIso h)) (Equiv.refl (Term B)) := by
@@ -333,7 +333,7 @@ private theorem finiteCode_ext {A B : Cartesian.FiniteCode.{0}}
   cases h
   rfl
 
-theorem sectionSquare_eq_Q : sectionSquare H = Q H := by
+theorem sectionSquare_eq_sourceSystem : sectionSquare H = sourceSystem H := by
   apply Cartesian.VertexSystem.conjugate_eq
   · funext v
     apply finiteCode_ext
@@ -365,21 +365,21 @@ theorem sectionSquare_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p
   cases hv : v 1 <;> cases hw : w 1 <;>
     simp [gauge, hv, hw, onSections]
 
-theorem Q_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans d) :
-    Q H = Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d) :=
-  (sectionSquare_eq_Q H).symm.trans (sectionSquare_composition H e d h)
+theorem sourceSystem_composition (e d : Fin 3 ≃ Fin 3) (h : loopPermutation p = e.trans d) :
+    sourceSystem H = Cartesian.VertexSystem.compositionSquare finiteL (onSections e) (onSections d) :=
+  (sectionSquare_eq_sourceSystem H).symm.trans (sectionSquare_composition H e d h)
 
 
 def sectionCompositionSquare : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
   Cartesian.VertexSystem.compositionSquare finiteL (onSections swap01) (onSections swap12)
 
-def T : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
+def permutationCompositionSquare : Cartesian.VertexSystem (Cartesian.Vertex 2) :=
   Cartesian.VertexSystem.compositionSquare ⟨Fin 3, inferInstance⟩ swap01 swap12
 
-noncomputable def exactQ : Cartesian.VertexSystem (Cartesian.Vertex 2) := Q swapComposition
+noncomputable def exactQ : Cartesian.VertexSystem (Cartesian.Vertex 2) := sourceSystem swapComposition
 
 theorem exact_observation : exactQ = sectionCompositionSquare :=
-  Q_composition swapComposition swap01 swap12
+  sourceSystem_composition swapComposition swap01 swap12
     ((twoPath_permutation swapComposition).trans (loopPermutation_concat swap01 swap12))
 
 theorem exact_horizontal (b : Bool) :
@@ -428,7 +428,7 @@ theorem liftedCarrierEquiv_observe (s : LiftedL) :
     liftedCarrierEquiv s = (observe s).val DiscreteEquivalences.point := rfl
 
 theorem target_naturality (v w : Cartesian.Vertex 2) (a : L) :
-    carrierEquiv (sectionCompositionSquare.arrow v w a) = T.arrow v w (carrierEquiv a) := by
+    carrierEquiv (sectionCompositionSquare.arrow v w a) = permutationCompositionSquare.arrow v w (carrierEquiv a) := by
   change carrierEquiv
     ((if w 1 then (onSections swap01).trans (onSections swap12) else Equiv.refl L)
       ((if v 1 then (onSections swap01).trans (onSections swap12) else Equiv.refl L).symm a)) =
@@ -437,26 +437,26 @@ theorem target_naturality (v w : Cartesian.Vertex 2) (a : L) :
   cases v 1 <;> cases w 1 <;> simp [onSections]
 
 theorem target_conjugation :
-    sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv) = T := by
+    sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv) = permutationCompositionSquare := by
   apply Cartesian.VertexSystem.ext
-    (B := sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv)) (C := T) rfl
+    (B := sectionCompositionSquare.conjugate (fun _ => ⟨Fin 3, inferInstance⟩) (fun _ => carrierEquiv)) (C := permutationCompositionSquare) rfl
   apply heq_of_eq
   funext v w
   apply Equiv.ext
   intro a
   change Fin 3 at a
-  change carrierEquiv (sectionCompositionSquare.arrow v w (carrierEquiv.symm a)) = T.arrow v w a
+  change carrierEquiv (sectionCompositionSquare.arrow v w (carrierEquiv.symm a)) = permutationCompositionSquare.arrow v w a
   rw [target_naturality, Equiv.apply_symm_apply]
 
 theorem target_naturality_substitution {V : Type} (f : V → Cartesian.Vertex 2)
     (v w : V) (a : L) :
     carrierEquiv ((sectionCompositionSquare.reindex f).arrow v w a) =
-      (T.reindex f).arrow v w (carrierEquiv a) := target_naturality (f v) (f w) a
+      (permutationCompositionSquare.reindex f).arrow v w (carrierEquiv a) := target_naturality (f v) (f w) a
 
 theorem target_naturality_successive {V W : Type} (f : V → Cartesian.Vertex 2) (g : W → V)
     (v w : W) (a : L) :
     carrierEquiv (((sectionCompositionSquare.reindex f).reindex g).arrow v w a) =
-      (T.reindex (f ∘ g)).arrow v w (carrierEquiv a) := target_naturality (f (g v)) (f (g w)) a
+      (permutationCompositionSquare.reindex (f ∘ g)).arrow v w (carrierEquiv a) := target_naturality (f (g v)) (f (g w)) a
 
 theorem lower_arrow : HEq (exactQ.arrow (vertex false false) (vertex false true))
     ((onSections swap01).trans (onSections swap12)) := by

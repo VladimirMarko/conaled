@@ -430,7 +430,7 @@ theorem preserveSelectedFace_wholeOn (F : Filling T) (hF : F.Lawful)
     (selectedFaceTube_zeroOn φ A T e p δ hδ F hF ψ b) x hx
 
 
-theorem reindexEqualityIso {Ξ Ω : Context.{u}} (B C : Family Ξ) (h : B = C) (σ : Ω ⟶ Ξ) :
+theorem reindex_eqToIso {Ξ Ω : Context.{u}} (B C : Family Ξ) (h : B = C) (σ : Ω ⟶ Ξ) :
     eqToIso (congrArg (fun D => reindex D σ) h) = Functor.isoWhiskerLeft σ.mapElements (eqToIso h) := by
   cases h
   rfl
@@ -440,8 +440,8 @@ theorem wholeFaceIsoOn_reindex {Θ : Context.{u}} (σ : Θ ⟶ Δ) :
       (fun x hx r => hδ (σ.mapElements.obj x) hx r) =
     Functor.isoWhiskerLeft (liftSub (interval (restrictContext δ)) (restrictSubstitution δ σ)).mapElements
       (wholeFaceIsoOn φ A T e p δ hδ) := by
-  have ho := reindexEqualityIso _ _ (family_full φ A T e) (wholeFaceLineOn φ p δ hδ)
-  have hn := reindexEqualityIso _ _ (family_full φ A T e)
+  have ho := reindex_eqToIso _ _ (family_full φ A T e) (wholeFaceLineOn φ p δ hδ)
+  have hn := reindex_eqToIso _ _ (family_full φ A T e)
     (wholeFaceLineOn φ (liftSub (interval Δ) σ ≫ p) (δ.reindex σ)
       (fun x hx r => hδ (σ.mapElements.obj x) hx r))
   exact hn.trans (congrArg
@@ -601,7 +601,7 @@ theorem fullLineSection_iso (q : total (interval Δ) ⟶ restrictContext φ) :
   congrArg (Functor.isoWhiskerLeft
     (liftSub (interval (restrictContext (intervalAll (φ.reindex (q ≫ restrictInclusion φ)))))
       (fullLineSection φ q)).mapElements)
-      (reindexEqualityIso _ _ (family_full φ A T e) (wholeFaceLine φ (q ≫ restrictInclusion φ)))
+      (reindex_eqToIso _ _ (family_full φ A T e) (wholeFaceLine φ (q ≫ restrictInclusion φ)))
 
 theorem selectedFaceFill_full (F : Filling T) (hF : F.Lawful)
     (q : total (interval Δ) ⟶ restrictContext φ) (ψ : Cofibration Δ)
@@ -770,10 +770,10 @@ theorem wholeFaceIso_input_reindex :
     (wholeFaceIso φ A T e (q ≫ σ)).hom := by
   let l := wholeFaceLine (φ.reindex σ) q
   let r := liftSub (interval Δ) (restrictInclusion (intervalAll (φ.reindex (q ≫ σ)))) ≫ q
-  have hn := congrArg Iso.hom (reindexEqualityIso _ _
+  have hn := congrArg Iso.hom (reindex_eqToIso _ _
     (family_full (φ.reindex σ) (reindex A σ) (reindex T (restrictSubstitution φ σ))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)) l)
-  have ho := congrArg Iso.hom (reindexEqualityIso _ _
+  have ho := congrArg Iso.hom (reindex_eqToIso _ _
     (family_full φ A T e) (wholeFaceLine φ (q ≫ σ)))
   exact (congrArg (fun η => Functor.whiskerLeft r.mapElements (reindexIso φ A T e σ).hom ≫ η) hn).trans
     ((congrArg (Functor.whiskerLeft l.mapElements) (reindexIso_full φ A T e σ)).trans ho.symm)

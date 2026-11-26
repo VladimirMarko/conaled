@@ -50,11 +50,11 @@ def assignedU : Term (reindex (uFamily cocycleStructuralModel cocycleBase cocycl
 def assignInput : terminal.{0} ⟶ inputContext cocycleStructuralModel cocycleBase cocycleRootedFamily := pair assignQ assignedU
 
 /-- The semantic interpretation evaluates the actual source context and higher binder. -/
-theorem sourceContext :
+theorem source_context :
     type_of% (inputContext_eval cocycleModel cocycleBase cocycleRootedFamily) :=
   inputContext_eval cocycleModel cocycleBase cocycleRootedFamily
 
-theorem sourceHomotopy :
+theorem source_homotopy :
     type_of% (selectedHomotopy_eval cocycleModel cocycleBase cocycleRootedFamily) :=
   selectedHomotopy_eval cocycleModel cocycleBase cocycleRootedFamily
 

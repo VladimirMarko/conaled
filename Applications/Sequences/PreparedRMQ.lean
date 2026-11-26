@@ -102,11 +102,11 @@ def sparse : Ops (Input α) Query α (Table α) where
   prepare := buildM
   answer t q := (lookup t q, if q.hi.val-q.lo.val = 2 then 3 else 1)
 
-theorem directLaws : Laws spec (direct (α := α)) (fun s r => r = s) where
+theorem direct_laws : Laws spec (direct (α := α)) (fun s r => r = s) where
   prepare _ := rfl
   answer s r h q := by subst r; simp [direct,rangeMinM_exact,spec]
 
-theorem sparseLaws : Laws spec (sparse (α := α)) (fun s r => r = build s) where
+theorem sparse_laws : Laws spec (sparse (α := α)) (fun s r => r = build s) where
   prepare _ := rfl
   answer s r h q := by subst r; exact lookup_build s q
 
@@ -121,7 +121,7 @@ def directStorage : Storage (Input α) (Input α) := ⟨fun xs => xs.size,fun xs
 def sparseStorage : Storage (Input α) (Table α) := ⟨fun t => t.singles.size+t.pairs.size+1,fun xs => xs.size+3+1+2,
   fun t => t.singles.size+t.pairs.size+1+2⟩
 
-theorem directBounds : Bounds (direct (α := α)) (fun s r => r = s) directStorage directProfile where
+theorem direct_bounds : Bounds (direct (α := α)) (fun s r => r = s) directStorage directProfile where
   preparation _ := le_rfl
   query s r _ q := by
     simp only [direct,rangeMinM_exact,directProfile]
@@ -131,7 +131,7 @@ theorem directBounds : Bounds (direct (α := α)) (fun s r => r = s) directStora
   preparePeak _ := by change 4 ≤ 6; omega
   queryPeak _ _ _ := le_rfl
 
-theorem sparseBounds : Bounds (sparse (α := α)) (fun s r => r = build s) sparseStorage sparseProfile where
+theorem sparse_bounds : Bounds (sparse (α := α)) (fun s r => r = build s) sparseStorage sparseProfile where
   preparation _ := le_rfl
   query _ _ _ q := by change (if q.hi.val-q.lo.val = 2 then 3 else 1) ≤ 3; split <;> decide
   retained _ _ _ := le_rfl

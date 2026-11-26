@@ -9,13 +9,13 @@ open CategoryTheory SquareKit.Cubical.Presheaf CubicalPresheaf CubicalDiscreteFi
 abbrev endpointProjection := projection (IdentitySingleton.fiber argument chosen)
 abbrev motive := reindex result endpointProjection
 abbrev motiveFilling := secondFilling.reindex endpointProjection
-abbrev motiveLawful := (discreteFilling_lawful secondIndex (fun n => Fin (n+1))).reindex endpointProjection
+abbrev motiveFilling_lawful := (discreteFilling_lawful secondIndex (fun n => Fin (n+1))).reindex endpointProjection
 abbrev eliminated : Term motive := IdentityElimination.eliminate argument chosen motive chosenResult
   motiveFilling.toComposition
 
 theorem strict_branch : eliminated.reindex (IdentitySingleton.reflexivity argument chosen) = chosenResult :=
   IdentityElimination.eliminate_beta argument chosen motive chosenResult _
-    (Filling.toComposition_lawful motiveLawful)
+    (Filling.toComposition_lawful motiveFilling_lawful)
 
 theorem two_substitutions :
     ((eliminated.reindex (IdentitySingleton.reflexivity argument chosen)).reindex successor).reindex twice =

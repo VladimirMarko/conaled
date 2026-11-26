@@ -114,23 +114,23 @@ theorem coordinateFunctionProducts_laws :
 
 omit [CommSemiring R] in
 theorem coordinate_laws : CategoryLaws (coordinates R) (equality _) :=
-  RawMap.transportLaws (coordinateFunctions_laws R) (fun h => h)
-    (equalityCongr _) FunctionCategory.laws
+  RawMap.transport_laws (coordinateFunctions_laws R) (fun h => h)
+    (equality_congr _) FunctionCategory.laws
 
 omit [CommSemiring R] in
 theorem coordinateTerminal_laws : TerminalLaws (equality _) (coordinateTerminal R) :=
-  TerminalMap.transportLaws (fun h => h) (equalityCongr _) FunctionCategory.laws
+  TerminalMap.transport_laws (fun h => h) (equality_congr _) FunctionCategory.laws
     (coordinateFunctionTerminal_inverse R) (coordinateFunctionTerminal_laws R)
     FunctionCategory.terminalLaws
 
 omit [CommSemiring R] in
 theorem coordinateProducts_congr : ProductCongr (equality _) (coordinateProducts R) :=
-  ProductMap.transportCongr (coordinateFunctions_laws R) (fun h => h) (equalityCongr _)
+  ProductMap.transport_congr (coordinateFunctions_laws R) (fun h => h) (equality_congr _)
     (coordinateFunctionProducts_laws R) FunctionCategory.productCongr
 
 omit [CommSemiring R] in
 theorem coordinateProducts_laws : ProductLaws (equality _) (coordinateProducts R) :=
-  ProductMap.transportLaws (coordinateFunctions_laws R) (fun h => h) (equalityCongr _)
+  ProductMap.transport_laws (coordinateFunctions_laws R) (fun h => h) (equality_congr _)
     FunctionCategory.laws (coordinateFunctionProducts_inverse R)
     (coordinateFunctionProducts_laws R) FunctionCategory.productCongr FunctionCategory.productLaws
 
@@ -185,12 +185,12 @@ theorem matrixFunctions_laws : MapLaws (matrixFunctions R) (equality _) (equalit
   RawMap.comp_laws (evaluate_laws R) (coordinateFunctions_laws R)
 
 theorem matrixFunctionProducts_laws : ProductMapLaws (equality _) (matrixFunctionProducts R) :=
-  ProductMap.comp_laws (coordinateFunctions_laws R) (equalityCongr _) FunctionCategory.laws
+  ProductMap.comp_laws (coordinateFunctions_laws R) (equality_congr _) FunctionCategory.laws
     (evaluateProducts_laws R) (coordinateFunctionProducts_laws R)
 
 theorem matrixFunctionProducts_inverse (a b : Ty) :
     ComparisonLaws (equality _) (matrixFunctionProducts R a b) :=
-  Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
+  Comparison.comp_laws (equality_congr _) FunctionCategory.laws
     (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (coordinateFunctionProducts_inverse R a b)
 
@@ -212,7 +212,7 @@ def matrixValueProducts : ProductMap (matrixValues R) (matrixProducts R) Functio
   ProductMap.comp (evaluateProducts R) (valueProducts R)
 
 theorem matrixValueProducts_laws : ProductMapLaws (equality _) (matrixValueProducts R) :=
-  ProductMap.comp_laws (values_laws R) (equalityCongr _) FunctionCategory.laws
+  ProductMap.comp_laws (values_laws R) (equality_congr _) FunctionCategory.laws
     (evaluateProducts_laws R) (valueProducts_laws R)
 
 theorem matrixValues_denote {a b : Ty} (M : Code R a b) (x : Val R a) :
@@ -229,7 +229,7 @@ theorem matrixProducts_laws :
     congr := fun h => h
     ident := (matrixFunctions_laws R).ident
     comp := (matrixFunctions_laws R).comp }
-  exact ProductMap.transportLaws L ((matrixFunctions R).induced_reflects _) (equalityCongr _)
+  exact ProductMap.transport_laws L ((matrixFunctions R).induced_reflects _) (equality_congr _)
     FunctionCategory.laws (matrixFunctionProducts_inverse R)
     (matrixFunctionProducts_laws R) FunctionCategory.productCongr FunctionCategory.productLaws
 
@@ -237,23 +237,23 @@ def matrixFunctionTerminal : TerminalMap (matrixFunctions R) (matrixTerminal R) 
   TerminalMap.comp (evaluateTerminal R) (coordinateFunctionTerminal R)
 
 theorem matrixFunctionTerminal_laws : TerminalMapLaws (equality _) (matrixFunctionTerminal R) :=
-  TerminalMap.comp_laws (coordinateFunctions_laws R) (equalityCongr _) FunctionCategory.laws
+  TerminalMap.comp_laws (coordinateFunctions_laws R) (equality_congr _) FunctionCategory.laws
     (evaluateTerminal_laws R) (coordinateFunctionTerminal_laws R)
 
 theorem matrixFunctionTerminal_inverse : ComparisonLaws (equality _) (matrixFunctionTerminal R) :=
-  Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
+  Comparison.comp_laws (equality_congr _) FunctionCategory.laws
     (Comparison.map_laws (coordinateFunctions_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (coordinateFunctionTerminal_inverse R)
 
 theorem matrixTerminal_laws :
     TerminalLaws ((matrixFunctions R).induced (equality _)) (matrixTerminal R) :=
-  TerminalMap.transportLaws ((matrixFunctions R).induced_reflects _) (equalityCongr _)
+  TerminalMap.transport_laws ((matrixFunctions R).induced_reflects _) (equality_congr _)
     FunctionCategory.laws (matrixFunctionTerminal_inverse R)
     (matrixFunctionTerminal_laws R) FunctionCategory.terminalLaws
 
 theorem matrixValueProducts_inverse (a b : Ty) :
     ComparisonLaws (equality _) (matrixValueProducts R a b) :=
-  Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
+  Comparison.comp_laws (equality_congr _) FunctionCategory.laws
     (Comparison.map_laws (values_laws R) (Comparison.id_laws (coordinate_laws R) _))
     (valueProducts_inverse R a b)
 

@@ -16,7 +16,7 @@ These are diagram laws, not an assumed matching equivalence.
 
 `SmoothQuotientGeneratedRelativeSubstitution.relativeFamilyData_sub` identifies
 this construction with the actual interpreted substituted family. Its coherence
-comes from `relativeFamilyCoherence`. The relative total substitution is the
+comes from `relativeFamilyData_coherence`. The relative total substitution is the
 actual typed lifted substitution, expressed through the independently checked
 relative/generated diagram comparisons. Its projection square holds strictly.
 

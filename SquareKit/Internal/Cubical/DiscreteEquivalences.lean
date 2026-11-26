@@ -21,12 +21,12 @@ variable {Γ : Context.{u}} {S T : Type u}
 noncomputable def inverseSection (b : Term (constantFamily Γ T)) : Term (constantFamily Γ S) :=
   genericFiberFst f (pair (𝟙 Γ) b) (E.fibers.center.reindex (pair (𝟙 Γ) b))
 
-theorem rightInverse (b : Term (constantFamily Γ T)) :
+theorem map_inverseSection (b : Term (constantFamily Γ T)) :
     Term.map f (inverseSection f E b) = b :=
   discretePath_endpoints (genericFiberPath f (pair (𝟙 Γ) b)
     (E.fibers.center.reindex (pair (𝟙 Γ) b)))
 
-theorem leftInverse (a : Term (constantFamily Γ S)) :
+theorem inverseSection_map (a : Term (constantFamily Γ S)) :
     inverseSection f E (Term.map f a) = a := by
   let τ := pair (A := constantFamily Γ T) (𝟙 Γ) (Term.map f a)
   let c := E.fibers.reindex τ
@@ -39,8 +39,8 @@ theorem leftInverse (a : Term (constantFamily Γ S)) :
 noncomputable def sectionsEquiv : Term (constantFamily Γ S) ≃ Term (constantFamily Γ T) where
   toFun := Term.map f
   invFun := inverseSection f E
-  left_inv := leftInverse f E
-  right_inv := rightInverse f E
+  left_inv := inverseSection_map f E
+  right_inv := map_inverseSection f E
 
 def constant (s : S) : Term (constantFamily Γ S) where
   val _ := s
@@ -88,7 +88,7 @@ def PathDiscrete {Γ : Context.{u}} (A : Family Γ) : Prop :=
 theorem constant_pathDiscrete {Γ : Context.{u}} (S : Type u) :
     PathDiscrete (constantFamily Γ S) := fun _ _ => discretePath_endpoints
 
-theorem PathDiscrete.ofIso {Γ : Context.{u}} {A B : Family Γ}
+theorem PathDiscrete.of_iso {Γ : Context.{u}} {A B : Family Γ}
     (h : PathDiscrete B) (e : A ≅ B) : PathDiscrete A := by
   intro Δ σ a b p
   apply Term.map_injective_of_iso (Functor.isoWhiskerLeft σ.mapElements e)

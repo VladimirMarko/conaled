@@ -101,7 +101,7 @@ not a context-conversion API. The [#104 design record](contextual-j-design.md)
 documents that boundary and the generated structural J forms.
 
 The all-rule interpreter recursively interprets these derivations.
-`typeSound`, `termSound` and `subSound` validate conversion; interpreter
+`type_sound`, `term_sound` and `sub_sound` validate conversion; interpreter
 agreement proves that the recursive result agrees with the indexed code.
 A guarded conversion constructor carries a semantic coherence certificate
 only alongside a genuine source type-conversion derivation. The public

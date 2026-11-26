@@ -15,10 +15,10 @@ theorem boxPrimitive_value {Γ : Context.{0}} {φ : Cofibration Γ}
     {X Y : (total (interval Γ)).Elementsᵒᵖ} (f : X ⟶ Y) (p : (tubeSieve φ).Contains Y) :
     boxPrimitive b f p =
       primitiveValue f.unop.hom.unop X.unop.val.2.down Y.unop.val.2.down
-        (b.tube.val (freshExtension (intervalBaseElement Y.unop)) (freshPreservesTube φ Y p)) -
+        (b.tube.val (freshExtension (intervalBaseElement Y.unop)) (fresh_preserves_tube φ Y p)) -
       primitiveValue f.unop.hom.unop X.unop.val.2.down Y.unop.val.2.down
         (b.base.val (intervalBaseElement (freshExtension (intervalBaseElement Y.unop)))) := by
-  let z := b.tube.val (freshExtension (intervalBaseElement Y.unop)) (freshPreservesTube φ Y p)
+  let z := b.tube.val (freshExtension (intervalBaseElement Y.unop)) (fresh_preserves_tube φ Y p)
   let a := b.base.val (intervalBaseElement (freshExtension (intervalBaseElement Y.unop)))
   let g := f.unop.hom.unop
   let rz := X.unop.val.2.down

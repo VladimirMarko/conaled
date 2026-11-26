@@ -20,7 +20,7 @@ theorem sections_isPullback {g' : A' ⟶ A} {f' : A' ⟶ B'} {f : A ⟶ B} {g : 
 
 /-- Local existential images commute with substitution along a sheaf pullback.
 Q is unrestricted and the witnesses on the covering sieve need not agree. -/
-theorem beckChevalley (Q : Subfunctor A.obj)
+theorem beck_chevalley (Q : Subfunctor A.obj)
     {g' : A' ⟶ A} {f' : A' ⟶ B'} {f : A ⟶ B} {g : B' ⟶ B}
     (h : IsPullback g' f' f g) :
     (localImage Q f).preimage g.hom = localImage (Q.preimage g'.hom) f' := by
@@ -45,7 +45,7 @@ theorem beckChevalley (Q : Subfunctor A.obj)
     rw [hw, he, NatTrans.naturality_apply]
 
 /-- Both predicates in Beck–Chevalley are closed, without closure of Q. -/
-theorem beckChevalley_isSheaf (Q : Subfunctor A.obj)
+theorem beck_chevalley_isSheaf (Q : Subfunctor A.obj)
     (g' : A' ⟶ A) (f' : A' ⟶ B') (f : A ⟶ B) (g : B' ⟶ B) :
     Presieve.IsSheaf J ((localImage Q f).preimage g.hom).toFunctor ∧
     Presieve.IsSheaf J (localImage (Q.preimage g'.hom) f').toFunctor :=

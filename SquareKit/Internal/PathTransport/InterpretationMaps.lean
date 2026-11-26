@@ -26,7 +26,7 @@ structure StructuralMap (M : StructuralModel.{u}) (N : StructuralModel.{v}) wher
     HEq (mapTm (M.subTm t σ)) (N.subTm (mapTm t) (substitution σ))
   weaken : ∀ {Γ} (A : M.Family Γ),
     HEq (substitution (M.weaken Γ A)) (N.weaken (context Γ) (family A))
-  mapVariable : ∀ {Γ} (A : M.Family Γ),
+  genericVariable_preserved : ∀ {Γ} (A : M.Family Γ),
     HEq (mapTm (M.genericVariable Γ A)) (N.genericVariable (context Γ) (family A))
   identity : ∀ {Γ} (A : M.Family Γ) (x y : M.Section Γ A),
     family (M.identity A x y) = N.identity (family A) (mapTm x) (mapTm y)
@@ -214,7 +214,7 @@ def identityMap (M : StructuralModel.{u}) : StructuralMap M M where
   subTy _ _ := rfl
   subTm _ _ := HEq.rfl
   weaken _ := HEq.rfl
-  mapVariable _ := HEq.rfl
+  genericVariable_preserved _ := HEq.rfl
   identity _ _ _ := rfl
   reflexivity _ _ := HEq.rfl
 
@@ -238,7 +238,7 @@ theorem pair (F : StructuralMap M N) {Γ Δ} (A : M.Family Γ)
       (cast_heq _ _)).trans
     exact (heq_of_eq (F.comp _ _).symm).trans (heq_of_eq (congrArg F.substitution (M.weaken_pair A σ t)))
   · apply (N.subTm_heq (F.extend A).symm rfl (F.variable_type A).symm
-      (F.mapVariable A).symm (cast_heq _ _)).trans
+      (F.genericVariable_preserved A).symm (cast_heq _ _)).trans
     apply (F.subTm _ _).symm.trans
     apply HEq.trans _ (cast_heq _ _).symm
     exact F.section_heq rfl
@@ -268,7 +268,7 @@ theorem lift (F : StructuralMap M N) {Γ Δ} (A : M.Family Γ)
   apply (cast_heq _ _).trans
   apply HEq.trans _ (cast_heq _ _).symm
   apply (F.section_heq rfl (heq_of_eq (M.subTy_comp _ _ _).symm) (cast_heq _ _)).trans
-  exact (F.mapVariable _).trans (N.variable_heq rfl (heq_of_eq (F.subTy A σ)))
+  exact (F.genericVariable_preserved _).trans (N.variable_heq rfl (heq_of_eq (F.subTy A σ)))
 
 variable {P : StructuralModel.{w}}
 
@@ -286,8 +286,8 @@ def compose (G : StructuralMap N P) (F : StructuralMap M N) : StructuralMap M P 
     (G.section_heq rfl (heq_of_eq (F.subTy _ _)) (F.subTm t σ)).trans (G.subTm _ _)
   weaken A :=
     (G.substitution_heq rfl (F.extend A) (F.weaken A)).trans (G.weaken _)
-  mapVariable A :=
-    (G.section_heq (F.extend A) (F.variable_type A) (F.mapVariable A)).trans (G.mapVariable _)
+  genericVariable_preserved A :=
+    (G.section_heq (F.extend A) (F.variable_type A) (F.genericVariable_preserved A)).trans (G.genericVariable_preserved _)
   identity A x y := (congrArg G.family (F.identity A x y)).trans (G.identity _ _ _)
   reflexivity A x :=
     (G.section_heq rfl (heq_of_eq (F.identity A x x)) (F.reflexivity A x)).trans
@@ -372,7 +372,7 @@ theorem pathFamily (F : StructuralMap M N) {Γ} (A : M.Family Γ)
     (x : M.Section Γ A) :
     HEq (F.family (M.pathFamily A x)) (N.pathFamily (F.family A) (F.mapTm x)) := by
   apply (heq_of_eq (F.identity _ _ _)).trans
-  apply N.identity_heq (F.extend A) (F.variable_type A) _ (F.mapVariable A)
+  apply N.identity_heq (F.extend A) (F.variable_type A) _ (F.genericVariable_preserved A)
   exact (F.subTm _ _).trans (N.subTm_heq rfl (F.extend A) HEq.rfl HEq.rfl (F.weaken A))
 
 theorem pathContext (F : StructuralMap M N) {Γ} (A : M.Family Γ)
@@ -401,7 +401,7 @@ theorem pathTelescope_total (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     F.context T.total = (F.pathTelescope A x T).total :=
   (F.telescope_total T).trans (total_cast (F.pathContext A x) (F.telescope T)).symm
 
-theorem rootTelescope (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
+theorem root_telescope (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n) :
     F.telescope (Telescope.pullback M T (M.rootSub A x)) =
       Telescope.pullback N (F.pathTelescope A x T) (N.rootSub (F.family A) (F.mapTm x)) := by
@@ -440,7 +440,7 @@ theorem pathSub (F : StructuralMap M N) {Γ Δ} (A : M.Family Γ)
   · apply (cast_heq _ _).trans
     apply HEq.trans _ (cast_heq _ _).symm
     apply (F.section_heq rfl (heq_of_eq (M.pathSub_type A x σ)) (cast_heq _ _)).trans
-    exact (F.mapVariable _).trans (N.variable_heq he hf)
+    exact (F.genericVariable_preserved _).trans (N.variable_heq he hf)
 
 theorem pathTail (F : StructuralMap M N) {Γ Δ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n)
@@ -494,7 +494,7 @@ theorem squareLift (F : StructuralMap M N) {Γ Γ' Δ Δ'}
     apply HEq.trans _ (cast_heq _ _).symm
     apply (F.section_heq rfl (heq_of_eq (M.square_variable_type S S' K L h A))
       (cast_heq _ _)).trans
-    exact (F.mapVariable _).trans (N.variable_heq rfl (heq_of_eq ht))
+    exact (F.genericVariable_preserved _).trans (N.variable_heq rfl (heq_of_eq ht))
 
 theorem telescope_square (F : StructuralMap M N) {Γ Γ' Δ Δ'}
     (S : M.Substitution Δ Γ) (S' : M.Substitution Δ' Γ')
@@ -533,12 +533,12 @@ def jMotive (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     (C : M.Family T.total) : N.Family (F.pathTelescope A x T).total :=
   cast (congrArg N.Family (F.pathTelescope_total A x T)) (F.family C)
 
-theorem rootTelescope_total (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
+theorem root_telescope_total (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n) :
     F.context (Telescope.total M (Telescope.pullback M T (M.rootSub A x))) =
       Telescope.total N (Telescope.pullback N (F.pathTelescope A x T)
         (N.rootSub (F.family A) (F.mapTm x))) :=
-  (F.telescope_total _).trans (congrArg (Telescope.total N) (F.rootTelescope A x T))
+  (F.telescope_total _).trans (congrArg (Telescope.total N) (F.root_telescope A x T))
 
 theorem jBranch_type (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n)
@@ -546,7 +546,7 @@ theorem jBranch_type (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     HEq (F.family (M.subTy C (M.rootTail A x T)))
       (N.subTy (F.jMotive A x T C) (N.rootTail (F.family A) (F.mapTm x) (F.pathTelescope A x T))) :=
   (heq_of_eq (F.subTy C _)).trans
-    (N.subTy_heq (F.pathTelescope_total A x T) (F.rootTelescope_total A x T)
+    (N.subTy_heq (F.pathTelescope_total A x T) (F.root_telescope_total A x T)
       (cast_heq _ _).symm (F.rootTail A x T))
 
 def jBranch (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
@@ -557,7 +557,7 @@ def jBranch (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     N.Section (Telescope.total N (Telescope.pullback N (F.pathTelescope A x T)
       (N.rootSub (F.family A) (F.mapTm x))))
       (N.subTy (F.jMotive A x T C) (N.rootTail (F.family A) (F.mapTm x) (F.pathTelescope A x T))) :=
-  N.castSection (F.rootTelescope_total A x T) (F.jBranch_type A x T C) (F.mapTm d)
+  N.castSection (F.root_telescope_total A x T) (F.jBranch_type A x T C) (F.mapTm d)
 
 theorem jBranch_heq (F : StructuralMap M N) {Γ n} (A : M.Family Γ)
     (x : M.Section Γ A) (T : Telescope M (M.pathContext A x) n)
@@ -595,7 +595,7 @@ theorem reindexBranch (F : StructuralMap M N) {Γ Δ n} (A : M.Family Γ)
   apply (F.section_heq rfl (heq_of_eq (M.branchMap_type A x T σ C)) (cast_heq _ _)).trans
   apply (F.subTm _ _).trans
   apply HEq.trans _ (cast_heq _ _).symm
-  exact N.subTm_heq (F.rootTelescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
+  exact N.subTm_heq (F.root_telescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
     (F.jBranch_type A x T C) (F.jBranch_heq A x T C d).symm (F.branchMap A x T σ)
 
 
@@ -639,7 +639,7 @@ All telescope, motive and branch comparisons used in this law are constructed
 from its structural map. No derived client theorem is a field. -/
 structure ModelMap (M : Model.{u}) (N : Model.{v}) extends
     StructuralMap M.toStructuralModel N.toStructuralModel where
-  mapJ : ∀ {Γ n} (A : M.Family Γ) (x : M.Section Γ A)
+  j_preserved : ∀ {Γ n} (A : M.Family Γ) (x : M.Section Γ A)
     (T : StructuralModel.Telescope M.toStructuralModel (M.toStructuralModel.pathContext A x) n)
     (C : M.Family (StructuralModel.Telescope.total M.toStructuralModel T))
     (d : M.Section
@@ -657,7 +657,7 @@ variable {M : Model.{u}} {N : Model.{v}} {P : Model.{w}}
 
 def identityMap (M : Model.{u}) : ModelMap M M where
   toStructuralMap := StructuralMap.identityMap M.toStructuralModel
-  mapJ A x T C d := by
+  j_preserved A x T C d := by
     apply M.j_heq rfl HEq.rfl HEq.rfl
       (heq_of_eq (StructuralMap.pathTelescope_identity A x T).symm)
       (cast_heq _ _).symm
@@ -665,9 +665,9 @@ def identityMap (M : Model.{u}) : ModelMap M M where
 
 def compose (G : ModelMap N P) (F : ModelMap M N) : ModelMap M P where
   toStructuralMap := StructuralMap.compose G.toStructuralMap F.toStructuralMap
-  mapJ A x T C d := by
-    apply (G.section_heq (F.pathTelescope_total A x T) (cast_heq _ _).symm (F.mapJ A x T C d)).trans
-    apply (G.mapJ _ _ _ _ _).trans
+  j_preserved A x T C d := by
+    apply (G.section_heq (F.pathTelescope_total A x T) (cast_heq _ _).symm (F.j_preserved A x T C d)).trans
+    apply (G.j_preserved _ _ _ _ _).trans
     apply P.j_heq rfl HEq.rfl HEq.rfl
       (heq_of_eq (StructuralMap.pathTelescope_compose G.toStructuralMap F.toStructuralMap A x T).symm)
     · apply (cast_heq _ _).trans
@@ -675,7 +675,7 @@ def compose (G : ModelMap N P) (F : ModelMap M N) : ModelMap M P where
       exact G.family_heq (F.pathTelescope_total A x T).symm (cast_heq _ _)
     · apply (G.jBranch_heq _ _ _ _ _).trans
       apply HEq.trans _ (StructuralMap.jBranch_heq _ A x T C d).symm
-      exact G.section_heq (F.rootTelescope_total A x T).symm (F.jBranch_type A x T C).symm
+      exact G.section_heq (F.root_telescope_total A x T).symm (F.jBranch_type A x T C).symm
         (F.jBranch_heq A x T C d)
 
 @[simp] theorem compose_identity (F : ModelMap M N) : compose (identityMap N) F = F := by
@@ -717,7 +717,7 @@ theorem j_substitution (F : ModelMap M N) {Γ Δ n} (A : M.Family Γ)
     ((F.telescope_total _).trans (Telescope.total_heq N.toStructuralModel
       ((F.pathContext _ _).trans (N.toStructuralModel.pathContext_heq rfl
         (heq_of_eq (F.subTy A σ)) (F.subTm x σ))) (F.pathTail A x T σ)))
-    (cast_heq _ _).symm (F.mapJ A x T C d) (F.pathTailMap A x T σ)
+    (cast_heq _ _).symm (F.j_preserved A x T C d) (F.pathTailMap A x T σ)
 
 end ModelMap
 

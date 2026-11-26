@@ -46,19 +46,19 @@ theorem interpretation_preserves_closed : ClosedMapLaws (equality _) productComp
 theorem interpretation_reflects : interpretation.{u}.Reflects (equality _) (equality _) := fun h => h
 
 theorem products_congr : ProductCongr (equality ops.{u}) products :=
-  ProductMap.transportCongr (RawMap.id_laws _) interpretation_reflects (equalityCongr _)
+  ProductMap.transport_congr (RawMap.id_laws _) interpretation_reflects (equality_congr _)
     interpretation_preserves_products FunctionCategory.productCongr
 
 theorem products_laws : ProductLaws (equality ops.{u}) products :=
-  ProductMap.transportLaws (RawMap.id_laws _) interpretation_reflects (equalityCongr _) FunctionCategory.laws
+  ProductMap.transport_laws (RawMap.id_laws _) interpretation_reflects (equality_congr _) FunctionCategory.laws
     productComparison_laws interpretation_preserves_products FunctionCategory.productCongr FunctionCategory.productLaws
 
 theorem closed_congr : ClosedCongr (equality ops.{u}) products closed :=
-  ClosedMap.transportCongr (RawMap.id_laws _) interpretation_reflects (equalityCongr _)
+  ClosedMap.transport_congr (RawMap.id_laws _) interpretation_reflects (equality_congr _)
     FunctionCategory.closedCongr interpretation_preserves_closed
 
 theorem closed_laws : ClosedLaws (equality ops.{u}) products closed :=
-  ClosedMap.transportLaws (RawMap.id_laws _) interpretation_reflects (equalityCongr _) FunctionCategory.laws
+  ClosedMap.transport_laws (RawMap.id_laws _) interpretation_reflects (equality_congr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws
     FunctionCategory.closedCongr FunctionCategory.closedLaws
     productComparison_laws closedComparison_laws interpretation_preserves_products interpretation_preserves_closed
@@ -88,7 +88,7 @@ theorem captured_offset (x a : Nat) :
 
 /-- Identity preservation is checked for the wrapped operations as well. -/
 example : ClosedMapLaws (equality ops.{u}) (ProductMap.id products) (ClosedMap.id closed) :=
-  ClosedMap.id_laws (equalityCongr _) FunctionCategory.laws products_congr products_laws closed_congr
+  ClosedMap.id_laws (equality_congr _) FunctionCategory.laws products_congr products_laws closed_congr
 end Wrapped
 
 open CategoricalCompiler
@@ -103,27 +103,27 @@ def composedClosedComparison := (CodeCategory.closedComparison meaning).comp Wra
 theorem composedInterpretation_laws : MapLaws (composedInterpretation meaning)
     ((composedInterpretation meaning).induced (equality _)) (equality _) :=
   RawMap.comp_laws
-    ((CodeCategory.evaluation meaning).inducedLaws (equality _) rfl (fun _ _ => rfl))
+    ((CodeCategory.evaluation meaning).induced_laws (equality _) rfl (fun _ _ => rfl))
     (RawMap.id_laws _)
 
 theorem composedProductComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (composedProductComparison meaning a b) :=
-  Comparison.comp_laws (equalityCongr _) FunctionCategory.laws
+  Comparison.comp_laws (equality_congr _) FunctionCategory.laws
     (Comparison.map_laws (RawMap.id_laws _) (CodeCategory.productComparison_laws meaning a b))
     (Wrapped.wrapProducts_laws _ _)
 
 theorem composedClosedComparison_laws (a b : Ty) :
     ComparisonLaws (equality _) (composedClosedComparison meaning a b) :=
-  ClosedMap.comp_inverse (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  ClosedMap.comp_inverse (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     (CodeCategory.closedComparison_laws meaning) Wrapped.wrapClosed_laws a b
 
 theorem composedInterpretation_preserves_products : ProductMapLaws (equality _) (composedProductComparison meaning) :=
-  ProductMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  ProductMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     (CodeCategory.evaluation_preserves_products meaning) Wrapped.wrapProducts_preserves_products
 
 theorem composedInterpretation_preserves_closed : ClosedMapLaws (equality _)
     (composedProductComparison meaning) (composedClosedComparison meaning) :=
-  ClosedMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
+  ClosedMap.comp_laws (RawMap.id_laws _) (equality_congr _) FunctionCategory.laws
     Wrapped.products_congr Wrapped.products_laws Wrapped.closed_congr
     Wrapped.wrapProducts_laws Wrapped.wrapProducts_preserves_products
     (CodeCategory.evaluation_preserves_closed meaning) Wrapped.wrapClosed_preserves_closed
@@ -131,8 +131,8 @@ theorem composedInterpretation_preserves_closed : ClosedMapLaws (equality _)
 /-- All source laws follow after composition, under the induced relation. -/
 theorem composedInterpretation_closed_laws : ClosedLaws ((composedInterpretation meaning).induced (equality _))
     (CodeCategory.products Prim) (CodeCategory.closed Prim) :=
-  ClosedMap.transportLaws (composedInterpretation_laws meaning) ((composedInterpretation meaning).induced_reflects _)
-    (equalityCongr _) FunctionCategory.laws Wrapped.products_congr Wrapped.products_laws
+  ClosedMap.transport_laws (composedInterpretation_laws meaning) ((composedInterpretation meaning).induced_reflects _)
+    (equality_congr _) FunctionCategory.laws Wrapped.products_congr Wrapped.products_laws
     Wrapped.closed_congr Wrapped.closed_laws (composedProductComparison_laws meaning)
     (composedClosedComparison_laws meaning) (composedInterpretation_preserves_products meaning) (composedInterpretation_preserves_closed meaning)
 

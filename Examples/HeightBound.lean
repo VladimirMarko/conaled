@@ -230,7 +230,7 @@ theorem mixed_history_node_bound [LinearOrder α]
       ((d : ℝ) + 1) * Real.logb 2
         (((Search.AbstractSet.execute (deleteOps ann d) updates t).numNodes : ℝ) + 1) :=
   ht_le_mul_logb_numNodes_add_one ann d _
-    ((setLaws ann d hd).execute_valid updates valid).1
+    ((set_laws ann d hd).execute_valid updates valid).1
 
 /-- Prefix length is unrestricted, including lengths beyond the complete mixed word. -/
 theorem mixed_prefix_log_bounds [LinearOrder α]
@@ -243,7 +243,7 @@ theorem mixed_prefix_log_bounds [LinearOrder α]
       (ht ann (Search.AbstractSet.execute (deleteOps ann d) (updates.take n) t) : ℝ) ≤
         ((d : ℝ) + 1) * Real.logb 2
           ((Search.AbstractSet.execute (deleteOps ann d) (updates.take n) t).numLeaves : ℝ) := by
-  have next := ((setLaws ann d hd).prefix_valid updates n valid).1
+  have next := ((set_laws ann d hd).prefix_valid updates n valid).1
   exact ⟨height_le_mul_logb_numLeaves_of_valid ann d _ next,
     ht_le_mul_logb_numLeaves ann d _ next⟩
 

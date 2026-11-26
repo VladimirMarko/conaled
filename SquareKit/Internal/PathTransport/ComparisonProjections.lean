@@ -23,7 +23,7 @@ def leftProjection : Typed.StructuralMap (structuralModel S)
   subTy _ _ := rfl
   subTm _ _ := HEq.rfl
   weaken _ := HEq.rfl
-  mapVariable _ := HEq.rfl
+  genericVariable_preserved _ := HEq.rfl
   identity _ _ _ := rfl
   reflexivity _ _ := HEq.rfl
 
@@ -40,7 +40,7 @@ def rightProjection : Typed.StructuralMap (structuralModel S)
   subTy _ _ := rfl
   subTm _ _ := HEq.rfl
   weaken _ := HEq.rfl
-  mapVariable _ := HEq.rfl
+  genericVariable_preserved _ := HEq.rfl
   identity _ _ _ := rfl
   reflexivity _ _ := HEq.rfl
 

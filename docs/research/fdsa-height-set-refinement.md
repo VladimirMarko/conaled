@@ -68,7 +68,7 @@ or fabricated payload witness is introduced.
 
 ## The seven fields and their proof owners
 
-`HeightBalance.inorderRefinement ann d hd` targets the existing
+`HeightBalance.inorder_refinement ann d hd` targets the existing
 `Search.OrderedList.ops`, with the erased inorder view, auxiliary invariant
 `ValidD ann d`, and target invariant `OrderedList.Strict`.
 
@@ -88,7 +88,7 @@ they need. No eventual source Set law is assumed in constructing the record.
 Target closure follows from the actual commuting equations and existing
 ordered-list laws through `Refinement.laws`.
 
-`HeightBalance.setLaws` then changes only the observer. The equivalence
+`HeightBalance.set_laws` then changes only the observer. The equivalence
 `Trees.mem_inorder_iff_mem_setTree` transports ordered-list membership to the
 independent structural Set observer through `DeleteLaws.congr_observe`. Thus
 empty, insertion, membership, deletion and all validity-preservation fields are

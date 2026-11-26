@@ -79,7 +79,7 @@ example := Comparison.SignatureCylinder.contextComparison_rootTail_counit
 
 /-- The actual generic contextual-J section commutes with the selected
 comparison; the term is produced by the existing path-command authoring API. -/
-theorem dependentJ : Comparison.SignatureCylinder.SectionCoherence
+theorem dependent_j : Comparison.SignatureCylinder.SectionCoherence
     left before comparison after alpha beta rfl
     SignatureInterpretationMaps.DependentTail.withFiber
     SignatureInterpretationMaps.DependentTail.command.motive.typing

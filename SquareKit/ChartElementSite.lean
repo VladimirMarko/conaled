@@ -48,7 +48,7 @@ theorem down_coverByImage (x : ElementSite.Site X.obj) :
     exact ⟨_, g.unop.map_val, Presieve.in_coverByImage (inclusion f) g⟩
 
 /-- The density hypothesis is equivalent to joint local surjectivity of the charts. -/
-theorem coverDense_iff :
+theorem cover_dense_iff :
     (inclusion f).IsCoverDense (ElementSite.topology X.obj J) ↔
       SheafFamilyCover.JointlyLocallySurjective f := by
   constructor
@@ -65,16 +65,16 @@ theorem coverDense_iff :
     exact h x.unop.val
 
 /-- Jointly covering charts generate a cover-dense subsite. -/
-theorem coverDense (h : SheafFamilyCover.JointlyLocallySurjective f) :
+theorem cover_dense (h : SheafFamilyCover.JointlyLocallySurjective f) :
     (inclusion f).IsCoverDense (ElementSite.topology X.obj J) :=
-  (coverDense_iff f).2 h
+  (cover_dense_iff f).2 h
 
 /-- A chart sieve covers exactly when its image covers in the base element site. -/
 theorem covering_iff (h : SheafFamilyCover.JointlyLocallySurjective f)
     {a : Site f} (S : Sieve a) :
     S ∈ topology f a ↔
       S.functorPushforward (inclusion f) ∈ ElementSite.topology X.obj J _ := by
-  have := coverDense f h
+  have := cover_dense f h
   exact (inclusion f).mem_inducedTopology_iff_of_isCoverDense _ S
 
 end SquareKit.ChartElementSite

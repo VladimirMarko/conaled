@@ -484,7 +484,7 @@ existing interfaces:
 | Obligation | Existing interface and application |
 |---|---|
 | Operations before laws | [`CategoryOps`, `HomEquiv`](../../SquareKit/Category.lean); view global motions as a one-object category, or endpoint-indexed paths as a category after choosing reparametrization semantics. |
-| Semantic composition and law transport | [`RawMap`, `MapLaws`, `induced`, `transportLaws`](../../SquareKit/CategoryMap.lean). Use action equality as induced equivalence; separately prove reflection if requesting raw pose equality. |
+| Semantic composition and law transport | [`RawMap`, `MapLaws`, `induced`, `transport_laws`](../../SquareKit/CategoryMap.lean). Use action equality as induced equivalence; separately prove reflection if requesting raw pose equality. |
 | Implementation of a prescribed right increment `h` | [`Squares.Square`](../../Squares.lean), with `δ(I_h p)=δ(p)∘δ(h)`. Composition of squares handles finite sequences. |
 | Agreement of independent realizations | [`synchronized`, `synchronize`](../../SquareKit/Combinators.lean), or [`Comma.Exact.agreement`, `agree_comp`](../../SquareKit/CommaAgreement.lean), with the same semantic operation on both sides. |
 | Explicit identification arrows | Mathlib action groupoids and functors, adapted through `RawMap.ofFunctor`; retain labels rather than inducing arrow equivalence from coarse position observations. |

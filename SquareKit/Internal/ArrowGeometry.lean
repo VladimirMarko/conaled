@@ -58,7 +58,7 @@ def projection : GeometricMorphism (Arrow C) C where
   inverseImage := diagonal C
   directImage := Arrow.leftFunc
   adjunction := diagonalAdjunction C
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- The terminal-arrow right adjoint to domain evaluation. -/
 @[simps] noncomputable def terminalArrow [HasTerminal C] : C ⥤ Arrow C where
@@ -101,14 +101,14 @@ noncomputable def falsePoint [HasTerminal C] : GeometricMorphism C (Arrow C) whe
   inverseImage := Arrow.leftFunc
   directImage := terminalArrow C
   adjunction := domainAdjunction C
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- Codomain evaluation is the true point. -/
 def truePoint [HasInitial C] : GeometricMorphism C (Arrow C) where
   inverseImage := Arrow.rightFunc
   directImage := diagonal C
   adjunction := codomainAdjunction C
-  leftExact := inferInstance
+  preservesFiniteLimits := inferInstance
 
 /-- The structure arrow is a geometric transformation from false to true. -/
 def falseToTrue [HasInitial C] [HasTerminal C] : falsePoint C ⟶ truePoint C :=

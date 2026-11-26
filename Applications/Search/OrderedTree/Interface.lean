@@ -24,7 +24,7 @@ def candidateOps : AbstractSet.Ops α (BinaryTree α) where
   insert := insertCandidate
   member := memberCandidate
 
-theorem baselineLaws : AbstractSet.Laws (baselineOps : AbstractSet.Ops α (BinaryTree α))
+theorem baseline_laws : AbstractSet.Laws (baselineOps : AbstractSet.Ops α (BinaryTree α))
     (fun t x => Contains x t) Ordered where
   empty_valid := ordered_nil
   empty _ := id
@@ -32,7 +32,7 @@ theorem baselineLaws : AbstractSet.Laws (baselineOps : AbstractSet.Ops α (Binar
   insert x t _ z := contains_insert x z t
   member x _ h := member_correct h x
 
-theorem candidateLaws : AbstractSet.Laws (candidateOps : AbstractSet.Ops α (BinaryTree α))
+theorem candidate_laws : AbstractSet.Laws (candidateOps : AbstractSet.Ops α (BinaryTree α))
     (fun t x => Contains x t) Ordered where
   empty_valid := ordered_nil
   empty _ := id

@@ -21,11 +21,11 @@ private def two : StrictDiagram.{0} where
   firstSecond := 𝟭 _
   firstThird := 𝟭 _
   secondThird := 𝟭 _
-  diagonalFirst := rfl
-  diagonalSecond := rfl
-  tripleFirst := rfl
-  tripleMiddle := rfl
-  tripleLast := rfl
+  diagonal_first := rfl
+  diagonal_second := rfl
+  triple_first := rfl
+  triple_middle := rfl
+  triple_last := rfl
 
 private def swap : Discrete Bool ⥤ Discrete Bool :=
   Discrete.functor (fun b => Discrete.mk (!b))

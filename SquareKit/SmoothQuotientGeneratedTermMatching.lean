@@ -16,7 +16,7 @@ variable (hB : Typed.TyDeriv.{2} Γ γ B b)
 variable (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
 
 def termDiagram (A : SplitSheaf.Ty X) :
-    CechMatching.StrictMap (strictDiagram a hΓ A) ((relativeFamilyData a hΓ hB A).total (relativeFamilyCoherence a hΓ hB A)) where
+    CechMatching.StrictMap (strictDiagram a hΓ A) ((relativeFamilyData a hΓ hB A).total (relativeFamilyData_coherence a hΓ hB A)) where
   localMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.extension A))).down.lift
   doubleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.double A))).down.lift
   tripleMap := (ξ (SmoothQuotientSource.model a (SplitSheaf.Cech.triple A))).down.lift
@@ -29,13 +29,13 @@ def termDiagram (A : SplitSheaf.Ty X) :
 
 theorem termDiagram_projection (A : SplitSheaf.Ty X) :
     (termDiagram a hΓ hB hx A).comp
-      ((relativeFamilyData a hΓ hB A).projection (relativeFamilyCoherence a hΓ hB A)) =
+      ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)) =
         CechMatching.StrictMap.id (strictDiagram a hΓ A) :=
   CechMatching.StrictMap.ext _ _ rfl rfl rfl
 
 theorem termMatching_projection (A : SplitSheaf.Ty X) :
     (termDiagram a hΓ hB hx A).functor ⋙
-      ((relativeFamilyData a hΓ hB A).projection (relativeFamilyCoherence a hΓ hB A)).functor =
+      ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)).functor =
         𝟭 (Datum a hΓ A) := by
   rw [← CechMatching.StrictMap.functor_comp, termDiagram_projection, CechMatching.StrictMap.functor_id]
   rfl
@@ -43,7 +43,7 @@ theorem termMatching_projection (A : SplitSheaf.Ty X) :
 /-- A generated section descends over every independently supplied matching base. -/
 def termFiber (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
     CechMatching.Comprehension.Fiber (relativeFamilyData a hΓ hB A)
-      (relativeFamilyCoherence a hΓ hB A) d :=
+      (relativeFamilyData_coherence a hΓ hB A) d :=
   CechMatching.Comprehension.Fiber.ofDatum ((termDiagram a hΓ hB hx A).functor.obj d)
     (Functor.congr_obj (termMatching_projection a hΓ hB hx A) d)
 

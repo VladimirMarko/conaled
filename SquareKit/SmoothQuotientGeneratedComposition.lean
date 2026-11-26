@@ -16,7 +16,7 @@ theorem generatedContextMap_comp (f : Y ⟶ X) (g : Z ⟶ Y) (hΓ : Typed.CtxDer
     generatedContextMap (signature (a := a) f) hΓ ⋙ generatedContextMap (signature (a := a) g) hΓ =
       generatedContextMap (signature (a := a) (g ≫ f)) hΓ :=
   Context.relabel_composition
-    (GeneratedComposition.generatedCtx (signature (a := a) f) (signature (a := a) g) rfl HEq.rfl hΓ)
+    (GeneratedComposition.generated_ctx (signature (a := a) f) (signature (a := a) g) rfl HEq.rfl hΓ)
     _ _ _ _ _ _
 
 /-- The family law is HEq because the target functor is indexed by the context
@@ -28,7 +28,7 @@ theorem generatedFamilyMap_comp (f : Y ⟶ X) (g : Z ⟶ Y) (hΓ : Typed.CtxDeri
         (generatedFamilyMap (signature (a := a) g) hΓ hA))
       (generatedFamilyMap (signature (a := a) (g ≫ f)) hΓ hA) :=
   Family.relabel_composition
-    (GeneratedComposition.generatedTy (signature (a := a) f) (signature (a := a) g) rfl HEq.rfl hA)
+    (GeneratedComposition.generated_ty (signature (a := a) f) (signature (a := a) g) rfl HEq.rfl hA)
     _ _ _ _ _ _ _ _ _ _ _ _
 
 end SquareKit.SmoothQuotientComparison

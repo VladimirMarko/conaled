@@ -31,7 +31,7 @@ private theorem sigmaPack_reindex {Γ Δ : Context.{u}} (A : Family Γ)
   subst κ
   exact (TwoFamily.sigmaUngroup_reindex A.data σ B.data).symm
 
-private theorem modelSigmaPack {Γ Δ : Context.{u}} (A : Family Γ)
+private theorem model_sigma_pack {Γ Δ : Context.{u}} (A : Family Γ)
     (B : Family A.total) (σ : ULift.{u+1} (StrictPseudofunctor Δ Γ)) :
 (TwoFamily.sigmaUngroup (A.reindex σ.down).data
       (B.reindex (((M).lift A σ).down)).data).comp
@@ -56,5 +56,5 @@ private theorem modelSigmaPack {Γ Δ : Context.{u}} (A : Family Γ)
 noncomputable def sigmaStable : DependentJudgments.Sigma.Stable M where
   toCapability := sigmaCapability C D
   sigma_sub A B σ := sigmaFormation_reindex C D A B σ
-  pack_sub A B σ := ULift.ext (modelSigmaPack C D A B σ)
+  pack_sub A B σ := ULift.ext (model_sigma_pack C D A B σ)
 end SquareKit.Internal.PathTransport.HigherInterpretation

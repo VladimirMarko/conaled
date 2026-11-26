@@ -40,44 +40,44 @@ private theorem branch_pres {γ : CtxCode.{u+1}} {a : TyCode γ} {x : TmCode γ 
     CtxPres S (branchCode a x Ts) := by
   exact (ht.pullback (rootCode a x M)).total hg
 
--- Contexts and telescopes use both primitive premises through generatedTy.
+-- Contexts and telescopes use both primitive premises through generated_ty.
 omit [S.base.map.IsEquivalence] hF in
 mutual
 
-theorem generatedCtx [S.base.map.IsEquivalence]
+theorem generated_ctx [S.base.map.IsEquivalence]
     (hF : ∀ c, Function.Bijective (S.fiberMap.app c))
     {Γ : RawCtx} {γ : CtxCode.{u+1}} (deriv : CtxDeriv Γ γ) : CtxPres S γ :=
   match deriv with
   | .empty => inferInstanceAs (Functor.IsEquivalence (𝟭 _))
   | .ext (γ := γ) hΓ ha => by
-    let : (γ M).map.IsEquivalence := generatedCtx hF hΓ
-    exact Family.extend_equivalence _ (generatedTy hF ha)
-  | .path hΓ ha _ => path_pres S (generatedCtx hF hΓ) (generatedTy hF ha)
+    let : (γ M).map.IsEquivalence := generated_ctx hF hΓ
+    exact Family.extend_equivalence _ (generated_ty hF ha)
+  | .path hΓ ha _ => path_pres S (generated_ctx hF hΓ) (generated_ty hF ha)
   | .telescope hΓ ht => by
-    exact (generatedTel hF ht).total (generatedCtx hF hΓ)
-  | .branch hΓ _ _ ht => branch_pres S (generatedCtx hF hΓ) (generatedTel hF ht)
+    exact (generated_tel hF ht).total (generated_ctx hF hΓ)
+  | .branch hΓ _ _ ht => branch_pres S (generated_ctx hF hΓ) (generated_tel hF ht)
 termination_by sizeOf deriv
 
-theorem generatedTel [S.base.map.IsEquivalence]
+theorem generated_tel [S.base.map.IsEquivalence]
     (hF : ∀ c, Function.Bijective (S.fiberMap.app c))
     {Γ : RawCtx} {γ : CtxCode.{u+1}} {n : Nat} {Δ : RawCtx} {Ts : TelCode γ n}
     (deriv : TelDeriv Γ γ n Δ Ts) : TelPres S Ts :=
   match deriv with
   | .nil _ => .nil
-  | .cons ha ht => .cons (generatedTy hF ha) (generatedTel hF ht)
-  | .pullback ht hs => (generatedTel hF ht).pullback _
-  | .pathReindex _ _ _ ht hs => (generatedTel hF ht).pullback _
+  | .cons ha ht => .cons (generated_ty hF ha) (generated_tel hF ht)
+  | .pullback ht hs => (generated_tel hF ht).pullback _
+  | .pathReindex _ _ _ ht hs => (generated_tel hF ht).pullback _
 termination_by sizeOf deriv
 
-theorem generatedTy [S.base.map.IsEquivalence]
+theorem generated_ty [S.base.map.IsEquivalence]
     (hF : ∀ c, Function.Bijective (S.fiberMap.app c))
     {Γ : RawCtx} {γ : CtxCode.{u+1}} {A : Expr} {a : TyCode γ}
     (deriv : TyDeriv Γ γ A a) : TyPres S a :=
   match deriv with
   | .base _ => base_pres S
   | .fiber hx => fiber_pres S hF _
-  | .identity ha hx hy => Family.identity_equivalences _ (generatedTy hF ha) _ _
-  | .sub ha hs => Family.reindex_equivalences _ (generatedTy hF ha) _
+  | .identity ha hx hy => Family.identity_equivalences _ (generated_ty hF ha) _ _
+  | .sub ha hs => Family.reindex_equivalences _ (generated_ty hF ha) _
 termination_by sizeOf deriv
 end
 

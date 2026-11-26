@@ -58,11 +58,11 @@ variable (p : E ⥤ V) (L : NormalizedLifts p)
 variable (c : Γ × I ⥤ V) (d : Γ ⥤ E) (h : d ⋙ p = constructor Γ ⋙ c)
 
 include h in
-theorem branchEq (x : Γ) : p.obj (d.obj x) = c.obj (x,zero) :=
+theorem branch_eq (x : Γ) : p.obj (d.obj x) = c.obj (x,zero) :=
   congrArg (fun F : Γ ⥤ V => F.obj x) h
 
 def outgoing (x : Γ) : p.obj (d.obj x) ⟶ c.obj (x,one) :=
-  eqToHom (branchEq p c d h x) ≫ c.map (𝟙 x ×ₘ (Codiscrete.iso zero one).hom)
+  eqToHom (branch_eq p c d h x) ≫ c.map (𝟙 x ×ₘ (Codiscrete.iso zero one).hom)
 
 def selected (x : Γ) := L.lift (d.obj x) (c.obj (x,one)) (outgoing p c d h x)
 
@@ -86,10 +86,10 @@ def direct : Γ × I ⥤ E :=
 theorem direct_beta : constructor Γ ⋙ direct p L c d h = d := by
   apply Functor.ext (F := constructor Γ ⋙ direct p L c d h) (G := d) (fun _ => rfl)
 
-theorem directOver (x : Γ × I) : p.obj (directObj p L c d h x) = c.obj x := by
+theorem direct_over (x : Γ × I) : p.obj (directObj p L c d h x) = c.obj x := by
   rcases x with ⟨x,⟨i⟩⟩
   cases i
-  · exact branchEq p c d h x
+  · exact branch_eq p c d h x
   · exact (selected p L c d h x).over
 
 def leg (x : Γ × I) : (x.1,zero) ⟶ x := 𝟙 x.1 ×ₘ (Codiscrete.iso zero x.2).hom
@@ -101,8 +101,8 @@ theorem leg_natural {x y : Γ × I} (f : x ⟶ y) :
   · exact Subsingleton.elim _ _
 
 theorem directIso_image (x : Γ × I) :
-    p.map (directIso p L c d h x).hom ≫ eqToHom (directOver p L c d h x) =
-      eqToHom (branchEq p c d h x.1) ≫ c.map (leg x) := by
+    p.map (directIso p L c d h x).hom ≫ eqToHom (direct_over p L c d h x) =
+      eqToHom (branch_eq p c d h x.1) ≫ c.map (leg x) := by
   rcases x with ⟨x,⟨i⟩⟩
   cases i
   · have hi : leg (x,zero) = 𝟙 (x,zero) := by rfl
@@ -112,27 +112,27 @@ theorem directIso_image (x : Γ × I) :
   · exact L.image _ _ _
 
 theorem branch_map {x y : Γ} (f : x ⟶ y) :
-    p.map (d.map f) ≫ eqToHom (branchEq p c d h y) =
-      eqToHom (branchEq p c d h x) ≫ c.map (f ×ₘ 𝟙 zero) := by
+    p.map (d.map f) ≫ eqToHom (branch_eq p c d h y) =
+      eqToHom (branch_eq p c d h x) ≫ c.map (f ×ₘ 𝟙 zero) := by
   have hh := Functor.congr_hom h f
-  change p.map (d.map f) = eqToHom (branchEq p c d h x) ≫
-    c.map (f ×ₘ 𝟙 zero) ≫ eqToHom (branchEq p c d h y).symm at hh
+  change p.map (d.map f) = eqToHom (branch_eq p c d h x) ≫
+    c.map (f ×ₘ 𝟙 zero) ≫ eqToHom (branch_eq p c d h y).symm at hh
   simpa [Category.assoc] using congrArg
-    (fun k => k ≫ eqToHom (branchEq p c d h y)) hh
+    (fun k => k ≫ eqToHom (branch_eq p c d h y)) hh
 
 theorem direct_projection : direct p L c d h ⋙ p = c := by
   refine Functor.ext (F := direct p L c d h ⋙ p) (G := c)
-    (directOver p L c d h) ?_
+    (direct_over p L c d h) ?_
   intro x y f
   change p.map ((directIso p L c d h x).inv ≫ d.map f.1 ≫
     (directIso p L c d h y).hom) =
-      eqToHom (directOver p L c d h x) ≫ c.map f ≫ eqToHom (directOver p L c d h y).symm
-  apply (cancel_mono (eqToHom (directOver p L c d h y))).1
+      eqToHom (direct_over p L c d h x) ≫ c.map f ≫ eqToHom (direct_over p L c d h y).symm
+  apply (cancel_mono (eqToHom (direct_over p L c d h y))).1
   simp only [Functor.map_comp, Category.assoc]
   rw [directIso_image p L c d h y]
   rw [← Category.assoc (p.map (d.map f.1)), branch_map p c d h f.1]
   rw [Category.assoc, ← c.map_comp, leg_natural, c.map_comp]
-  rw [← Category.assoc (eqToHom (branchEq p c d h x.1)), ← directIso_image p L c d h x]
+  rw [← Category.assoc (eqToHom (branch_eq p c d h x.1)), ← directIso_image p L c d h x]
   simp
 
 variable {Δ : Type u₃} [Groupoid.{v₃} Δ]
@@ -142,7 +142,7 @@ theorem constructor_natural (σ : Δ ⥤ Γ) :
   rfl
 
 include h in
-theorem reindexBranch (σ : Δ ⥤ Γ) :
+theorem reindex_branch (σ : Δ ⥤ Γ) :
     (σ ⋙ d) ⋙ p = constructor Δ ⋙ (σ.prod (𝟭 I) ⋙ c) := by
   calc
     _ = σ ⋙ (d ⋙ p) := rfl
@@ -150,21 +150,21 @@ theorem reindexBranch (σ : Δ ⥤ Γ) :
     _ = _ := by rw [← Functor.assoc, ← constructor_natural]; rfl
 
 theorem outgoing_substitution (σ : Δ ⥤ Γ) (x : Δ) :
-    outgoing p (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindexBranch p c d h σ) x =
+    outgoing p (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindex_branch p c d h σ) x =
       outgoing p c d h (σ.obj x) := by
   change eqToHom _ ≫ c.map (σ.map (𝟙 x) ×ₘ (Codiscrete.iso zero one).hom) = _
   rw [σ.map_id]
   rfl
 
 theorem selected_substitution (σ : Δ ⥤ Γ) (x : Δ) :
-    selected p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindexBranch p c d h σ) x =
+    selected p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindex_branch p c d h σ) x =
       selected p L c d h (σ.obj x) := by
   unfold selected
   rw [outgoing_substitution]
   rfl
 
 theorem direct_substitution (σ : Δ ⥤ Γ) :
-    direct p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindexBranch p c d h σ) =
+    direct p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindex_branch p c d h σ) =
       σ.prod (𝟭 I) ⋙ direct p L c d h := by
   apply Functor.hext
   · rintro ⟨x,⟨i⟩⟩
@@ -251,7 +251,7 @@ def branchFunctor : Parameter p ⥤ E where
 
 def evaluation : Parameter p × I ⥤ V := Functor.uncurry.obj (motiveFunctor (p := p))
 
-theorem genericBranch : branchFunctor (p := p) ⋙ p = constructor (Parameter p) ⋙ evaluation := by
+theorem generic_branch : branchFunctor (p := p) ⋙ p = constructor (Parameter p) ⋙ evaluation := by
   refine Functor.ext (fun a => a.over) ?_
   intro a b f
   change p.map f.branch = eqToHom a.over ≫
@@ -282,7 +282,7 @@ theorem functor_ext {C : Type*} [Category* C] {F G : C ⥤ Parameter p}
 end Parameter
 
 def name : Γ ⥤ Parameter p where
-  obj x := ⟨(Functor.curry.obj c).obj x, d.obj x, branchEq p c d h x⟩
+  obj x := ⟨(Functor.curry.obj c).obj x, d.obj x, branch_eq p c d h x⟩
   map f := ⟨(Functor.curry.obj c).map f, d.map f, branch_map p c d h f⟩
   map_id x := by apply Parameter.Hom.ext <;> simp
   map_comp f g := by apply Parameter.Hom.ext <;> simp
@@ -294,7 +294,7 @@ theorem name_motive : (name p c d h).prod (𝟭 I) ⋙ Parameter.evaluation = c 
 
 theorem name_evaluation (n : Γ ⥤ Parameter p) :
     name p (n.prod (𝟭 I) ⋙ Parameter.evaluation) (n ⋙ Parameter.branchFunctor)
-      (reindexBranch p Parameter.evaluation Parameter.branchFunctor Parameter.genericBranch n) = n := by
+      (reindex_branch p Parameter.evaluation Parameter.branchFunctor Parameter.generic_branch n) = n := by
   apply Parameter.functor_ext
   · exact Functor.curry_obj_uncurry_obj (n ⋙ Parameter.motiveFunctor)
   · rfl
@@ -312,13 +312,13 @@ theorem curry_substitution (σ : Δ ⥤ Γ) :
     simp [Functor.curry, Functor.curryObj, eqToHom_app]
 
 theorem name_substitution (σ : Δ ⥤ Γ) :
-    name p (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindexBranch p c d h σ) = σ ⋙ name p c d h := by
+    name p (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindex_branch p c d h σ) = σ ⋙ name p c d h := by
   apply Parameter.functor_ext
   · exact curry_substitution c σ
   · rfl
 
 noncomputable def generic : Parameter p × I ⥤ E :=
-  direct p L Parameter.evaluation Parameter.branchFunctor Parameter.genericBranch
+  direct p L Parameter.evaluation Parameter.branchFunctor Parameter.generic_branch
 
 theorem generic_beta : constructor (Parameter p) ⋙ generic p L = Parameter.branchFunctor :=
   direct_beta p L _ _ _
@@ -330,7 +330,7 @@ theorem generic_projection : generic p L ⋙ p = Parameter.evaluation :=
 theorem instantiated_agreement :
     (name p c d h).prod (𝟭 I) ⋙ generic p L = direct p L c d h := by
   have hs := direct_substitution p L Parameter.evaluation Parameter.branchFunctor
-    Parameter.genericBranch (name p c d h)
+    Parameter.generic_branch (name p c d h)
   simp only [name_motive, name_branch] at hs
   exact hs.symm
 
@@ -339,7 +339,7 @@ noncomputable def parameterEliminator : Γ × I ⥤ E :=
   (name p c d h).prod (𝟭 I) ⋙ generic p L
 
 theorem parameter_substitution (σ : Δ ⥤ Γ) :
-    parameterEliminator p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindexBranch p c d h σ) =
+    parameterEliminator p L (σ.prod (𝟭 I) ⋙ c) (σ ⋙ d) (reindex_branch p c d h σ) =
       σ.prod (𝟭 I) ⋙ parameterEliminator p L c d h := by
   unfold parameterEliminator
   rw [name_substitution p c d h σ]
@@ -364,7 +364,7 @@ def represent (a : Family Γ p) : Γ ⥤ Parameter p := name p a.motive a.branch
 def realize (n : Γ ⥤ Parameter p) : Family Γ p where
   motive := n.prod (𝟭 I) ⋙ Parameter.evaluation
   branch := n ⋙ Parameter.branchFunctor
-  equation := reindexBranch p _ _ Parameter.genericBranch n
+  equation := reindex_branch p _ _ Parameter.generic_branch n
 
 theorem realize_represent (a : Family Γ p) : realize p (represent p a) = a := by
   apply Family.ext
@@ -385,13 +385,13 @@ variable {Θ : Type u₄} [Groupoid.{v₄} Θ]
 
 theorem direct_composite_substitution (σ : Δ ⥤ Γ) (τ : Θ ⥤ Δ) :
     direct p L ((τ ⋙ σ).prod (𝟭 I) ⋙ c) ((τ ⋙ σ) ⋙ d)
-      (reindexBranch p c d h (τ ⋙ σ)) =
+      (reindex_branch p c d h (τ ⋙ σ)) =
     τ.prod (𝟭 I) ⋙ σ.prod (𝟭 I) ⋙ direct p L c d h := by
   exact direct_substitution p L c d h (τ ⋙ σ)
 
 theorem parameter_composite_substitution (σ : Δ ⥤ Γ) (τ : Θ ⥤ Δ) :
     parameterEliminator p L ((τ ⋙ σ).prod (𝟭 I) ⋙ c) ((τ ⋙ σ) ⋙ d)
-      (reindexBranch p c d h (τ ⋙ σ)) =
+      (reindex_branch p c d h (τ ⋙ σ)) =
     τ.prod (𝟭 I) ⋙ σ.prod (𝟭 I) ⋙ parameterEliminator p L c d h :=
   parameter_substitution p L c d h (τ ⋙ σ)
 

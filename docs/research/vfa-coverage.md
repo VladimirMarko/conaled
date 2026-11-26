@@ -879,7 +879,7 @@ recursion. It sends positions 0, 2, 4, ... to the left and positions 1, 3, 5,
 requires `1 < n` before claiming that both sides decrease. `split_perm`,
 `split_sublists` and `split_map` preserve occurrences, internal order and mapping
 without an order or equality test on elements. The constructive
-`listInductionTwo` proves the two-step induction schema used by the split proofs.
+`list_induction_two` proves the two-step induction schema used by the split proofs.
 `halve_eq_reverse_split` relates the distinct FDSA splitter at arbitrary supplied
 accumulators: its two results are the reversed VFA subsequences followed by
 those respective accumulators. `split_accumulator_bridge` checks this law with

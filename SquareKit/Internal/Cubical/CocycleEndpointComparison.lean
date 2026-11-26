@@ -40,25 +40,25 @@ private theorem comparisonCube_face (h : Term (secondIdentityFamily terminal.{0}
 theorem comparisonCube_root (h : Term (secondIdentityFamily terminal.{0})) (e : Bool) :
     (comparisonCube β h).pullback (Over.map (face3 0 e)) = comparisonRootSquare β := by
   have q := comparisonCube_face β h 0 e
-  simp only [faceAxis00,faceAxis01,faceAxis02] at q
+  simp only [faceAxis_zero_zero,faceAxis_zero_one,faceAxis_zero_two] at q
   exact q.trans (comparisonValue_root β h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 theorem comparisonCube_start (h : Term (secondIdentityFamily terminal.{0})) :
     (comparisonCube β h).pullback (Over.map (face3 1 false)) = actionSquare (t := t) h := by
   have q := comparisonCube_face β h 1 false
-  simp only [faceAxis10,faceAxis11,faceAxis12] at q
+  simp only [faceAxis_one_zero,faceAxis_one_one,faceAxis_one_two] at q
   exact q.trans (comparisonValue_start β h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem comparisonCube_finish (h : Term (secondIdentityFamily terminal.{0})) :
     (comparisonCube β h).pullback (Over.map (face3 1 true)) = secondSquare h := by
   have q := comparisonCube_face β h 1 true
-  simp only [faceAxis10,faceAxis11,faceAxis12] at q
+  simp only [faceAxis_one_zero,faceAxis_one_one,faceAxis_one_two] at q
   exact q.trans (comparisonValue_finish β h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem comparisonCube_side (h : Term (secondIdentityFamily terminal.{0})) (e : Bool) :
     (comparisonCube β h).pullback (Over.map (face3 2 e)) = zeroCocycle (Over (⟨2⟩ : Cube)) := by
   have q := comparisonCube_face β h 2 e
-  simp only [faceAxis20,faceAxis21,faceAxis22] at q
+  simp only [faceAxis_two_zero,faceAxis_two_one,faceAxis_two_two] at q
   exact q.trans (comparisonValue_side β h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 include β in

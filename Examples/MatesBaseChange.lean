@@ -103,14 +103,14 @@ abbrev sigma : Nat ⟶ PUnit := toUnit Nat
 def tau : Nat ⟶ Nat := ↾fun n => n + 1
 abbrev f₁ := pullback.snd f sigma
 abbrev g₁ := pullback.fst f sigma
-abbrev firstSquare := (IsPullback.of_hasPullback f sigma).flip
-abbrev secondSquare := (IsPullback.of_hasPullback f₁ tau).flip
-def firstPi := ExponentiablePullback.squareRightAdjoint f sigma oldAdj firstSquare
-def firstAdj : Over.pullback f₁ ⊣ firstPi := ExponentiablePullback.squareAdjunction f sigma oldAdj firstSquare
-def secondPi := ExponentiablePullback.squareRightAdjoint f₁ tau firstAdj secondSquare
-def secondAdj : Over.pullback (pullback.snd f₁ tau) ⊣ secondPi := ExponentiablePullback.squareAdjunction f₁ tau firstAdj secondSquare
-abbrev firstMate := DependentBaseChange.WithAdjunction.mate firstSquare oldAdj firstAdj
-abbrev secondMate := DependentBaseChange.WithAdjunction.mate secondSquare firstAdj secondAdj
+abbrev first_isPullback := (IsPullback.of_hasPullback f sigma).flip
+abbrev second_isPullback := (IsPullback.of_hasPullback f₁ tau).flip
+def firstPi := ExponentiablePullback.squareRightAdjoint f sigma oldAdj first_isPullback
+def firstAdj : Over.pullback f₁ ⊣ firstPi := ExponentiablePullback.squareAdjunction f sigma oldAdj first_isPullback
+def secondPi := ExponentiablePullback.squareRightAdjoint f₁ tau firstAdj second_isPullback
+def secondAdj : Over.pullback (pullback.snd f₁ tau) ⊣ secondPi := ExponentiablePullback.squareAdjunction f₁ tau firstAdj second_isPullback
+abbrev firstMate := DependentBaseChange.WithAdjunction.mate first_isPullback oldAdj firstAdj
+abbrev secondMate := DependentBaseChange.WithAdjunction.mate second_isPullback firstAdj secondAdj
 
 /-- The starting product contains an actual choice in each different Fin(n+1). -/
 theorem selected_value (n : Nat) :
@@ -139,14 +139,14 @@ def twice := (Over.pullback tau).map
 base-changed original body, with both pullback comparison witnesses retained. -/
 abbrev twice_evaluation :=
   AdjointSquareTransport.uncurry_paste oldAdj firstAdj
-    (DependentBaseChange.pullbackComparison firstSquare) secondAdj
-    (DependentBaseChange.pullbackComparison secondSquare) point
+    (DependentBaseChange.pullbackComparison first_isPullback) secondAdj
+    (DependentBaseChange.pullbackComparison second_isPullback) point
 
 /-- The two canonical transformations equal the mate of the pasted input square. -/
 theorem pasted_mate : mateEquiv oldAdj secondAdj
-    (DependentBaseChange.pullbackComparison firstSquare ≫ₕ
-      DependentBaseChange.pullbackComparison secondSquare) = firstMate ≫ᵥ secondMate :=
-  DependentBaseChange.mate_paste firstSquare secondSquare oldAdj firstAdj secondAdj
+    (DependentBaseChange.pullbackComparison first_isPullback ≫ₕ
+      DependentBaseChange.pullbackComparison second_isPullback) = firstMate ≫ᵥ secondMate :=
+  DependentBaseChange.mate_paste first_isPullback second_isPullback oldAdj firstAdj secondAdj
 
 theorem tau_not_identity : tau ≠ 𝟙 Nat := by
   intro h

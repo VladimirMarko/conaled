@@ -309,6 +309,6 @@ example (s : Store F O) (c : Circuit a b) (x : Val Bool a) (caller : Frame)
         (values (ABI.encode x) ++ [.invoke s.funcs.length]))]
       caller [.frame 2 dummyFrame ((Context.seq [.i64 91] (.label 7 continuation .hole) suffix).fill
         (values (ABI.encode (c.execute x))))] :=
-  ((invoke_compiled s c x).context (.seq [.i64 91] (.label 7 continuation .hole) suffix)).inFrame caller 2
+  ((invoke_compiled s c x).context (.seq [.i64 91] (.label 7 continuation .hole) suffix)).in_frame caller 2
 
 end Examples.WasmCircuit

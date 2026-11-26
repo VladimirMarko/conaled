@@ -12,7 +12,7 @@ variable {Γ S T : Sheaf J (Type (max u v))}
 def presentation (d : S ⟶ Γ) : Over.mk (p (ofDisplay d)) ≅ Over.mk d :=
   Over.isoMk (SplitSheaf.displayIso d) (SplitSheaf.displayIso_projection d)
 
-theorem presentationSquare (d : S ⟶ Γ) :
+theorem presentation_square (d : S ⟶ Γ) :
     IsPullback (p (ofDisplay d)) (SplitSheaf.displayIso d).hom (𝟙 Γ) d :=
   IsPullback.of_vert_isIso ⟨by rw [Category.comp_id, SplitSheaf.displayIso_projection]⟩
 
@@ -27,7 +27,7 @@ def ordinaryPresentation (d : S ⟶ Γ) (e : T ⟶ S) :
   displayIso (ofDisplay d) (resultPresentation d e) ≪≫
     (SheafDependentProduct.pi (p (ofDisplay d))).mapIso
       (presentation (Family.reindex e (SplitSheaf.displayIso d).hom)) ≪≫
-    ((SheafDependentProduct.baseChange d (presentationSquare d)).app (Over.mk e)).symm ≪≫
+    ((SheafDependentProduct.baseChange d (presentation_square d)).app (Over.mk e)).symm ≪≫
     Over.pullbackId.app _
 
 /-- The iso acts on actual split fibers, not arbitrary functions of stage fibers. -/

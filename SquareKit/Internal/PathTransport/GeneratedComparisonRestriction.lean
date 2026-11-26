@@ -72,7 +72,7 @@ local notation "R" => Instance.fullModel S.base.right S.rightFiber
 
 /-- Restriction between the two interpretations of the very same context code. -/
 def generatedContextMap (h : Typed.CtxDeriv.{u+1} Γ γ) : (show Grpd.{u,u} from γ L) ⥤ (show Grpd.{u,u} from γ R) :=
-  (γ M).relabel ((leftSignatureMap S).generatedCtx h) ((rightSignatureMap S).generatedCtx h)
+  (γ M).relabel ((leftSignatureMap S).generated_ctx h) ((rightSignatureMap S).generated_ctx h)
 
 /-- The corresponding family comparison uses the very same generated family
 code; no choice of a new endpoint interpretation is involved. -/
@@ -80,9 +80,9 @@ def generatedFamilyMap (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (h : Typed.TyDeriv.{u+1} Γ γ A a) :
     (show (show Grpd.{u,u} from γ L) ⥤ Grpd.{u,u} from a L) ⟶
       generatedContextMap S hΓ ⋙ (show (show Grpd.{u,u} from γ R) ⥤ Grpd.{u,u} from a R) :=
-  (a M).relabelMap ((leftSignatureMap S).generatedCtx hΓ)
-    ((rightSignatureMap S).generatedCtx hΓ)
-    ((leftSignatureMap S).generatedTy h).2 ((rightSignatureMap S).generatedTy h).2
+  (a M).relabelMap ((leftSignatureMap S).generated_ctx hΓ)
+    ((rightSignatureMap S).generated_ctx hΓ)
+    ((leftSignatureMap S).generated_ty h).2 ((rightSignatureMap S).generated_ty h).2
 
 /-- Every generated term respects the extracted restriction on whole sections.
 This includes contextual J and conversion through generic preservation. -/
@@ -90,18 +90,18 @@ theorem generatedTerm_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hA : Typed.TyDeriv.{u+1} Γ γ A a) (h : Typed.TmDeriv.{u+1} Γ γ A a t x) :
     (x L).down.familyImage (generatedFamilyMap S hΓ hA) =
       (x R).down.reindex (generatedContextMap S hΓ) :=
-  (x M).relabel_commutes ((leftSignatureMap S).generatedCtx hΓ)
-    ((rightSignatureMap S).generatedCtx hΓ)
-    ((leftSignatureMap S).generatedTy hA).2 ((rightSignatureMap S).generatedTy hA).2
-    ((leftSignatureMap S).generatedTm h).2 ((rightSignatureMap S).generatedTm h).2
+  (x M).relabel_commutes ((leftSignatureMap S).generated_ctx hΓ)
+    ((rightSignatureMap S).generated_ctx hΓ)
+    ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2
+    ((leftSignatureMap S).generated_tm h).2 ((rightSignatureMap S).generated_tm h).2
 
 /-- Every generated substitution gives a commuting square of whole functors. -/
 theorem generatedSubstitution_commutes (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (hΔ : Typed.CtxDeriv.{u+1} Δ δ) (h : Typed.SubDeriv.{u+1} Δ δ Γ γ σ s) :
     (s L).down ⋙ generatedContextMap S hΓ = generatedContextMap S hΔ ⋙ (s R).down :=
-  (s M).relabel_commutes ((leftSignatureMap S).generatedCtx hΓ)
-    ((rightSignatureMap S).generatedCtx hΓ) ((leftSignatureMap S).generatedCtx hΔ)
-    ((rightSignatureMap S).generatedCtx hΔ)
-    ((leftSignatureMap S).generatedSub h).2.2 ((rightSignatureMap S).generatedSub h).2.2
+  (s M).relabel_commutes ((leftSignatureMap S).generated_ctx hΓ)
+    ((rightSignatureMap S).generated_ctx hΓ) ((leftSignatureMap S).generated_ctx hΔ)
+    ((rightSignatureMap S).generated_ctx hΔ)
+    ((leftSignatureMap S).generated_sub h).2.2 ((rightSignatureMap S).generated_sub h).2.2
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

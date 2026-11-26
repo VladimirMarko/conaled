@@ -78,7 +78,7 @@ theorem generatedComparison_baseTerm (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (generatedBaseTerm_commutes (endpointSignature F P η) hΓ hx)
     _ _ (generatedEndpointIso_baseTerm F P η hΓ hx) _ _
 
-theorem normalizedEndpointIso :
+theorem normalized_endpointIso :
     (eqToIso (inclusion_evaluation F)).symm ≪≫
       isoWhiskerRight (endpointIso F η) (evaluation F) ≪≫
         eqToIso (endpoint_evaluation F η) = η := by
@@ -106,7 +106,7 @@ theorem contextComparison_baseTerm (β : P ⟶ G ⋙ Q)
     _ _ (generatedBaseTerm_commutes ⟨⟨C, D, F⟩, P, Q, α⟩ hΓ hx)
     (generatedBaseTerm_commutes ⟨⟨C, D, G⟩, P, Q, α ≫ whiskerRight η.hom Q⟩ hΓ hx)
     (generatedComparison_baseTerm F P η Q α hΓ hx)
-  rw [normalizedEndpointIso] at hh
+  rw [normalized_endpointIso] at hh
   exact hh
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison.SignatureCylinder

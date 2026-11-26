@@ -91,8 +91,8 @@ theorem rootedContraction_compatibility :
     HEq (strongPostcomp (rootedBaseContraction F x) (rootedEndpoint F x))
       (strongPostcomp (rootedContractionMapped F x) (projectionHigher (openIdHigher F))) := by
   apply endpointStrong_hext F
-    (reindexStrongBoundary (openIdHigher F) (rootedEndpoint F x) (rootedDirectRetract F x))
-    (reindexStrongBoundary (openIdHigher F) (rootedEndpoint F x) (StrictPseudofunctor.id _))
+    (reindex_strong_boundary (openIdHigher F) (rootedEndpoint F x) (rootedDirectRetract F x))
+    (reindex_strong_boundary (openIdHigher F) (rootedEndpoint F x) (StrictPseudofunctor.id _))
   · have h1 := strongPostcomp_comp (rootedBaseContraction F x) (rootedEndpoint F x) (endpointProjection F true)
     have h2 := strongPostcomp_functor_heq (rootedBaseContraction F x) (rootedEndpoint_first F x)
     have h3 := rootedBaseContraction_first F x

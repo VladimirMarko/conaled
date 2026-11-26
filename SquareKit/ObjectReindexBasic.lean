@@ -15,7 +15,7 @@ def equiv {C : CategoryOps.{u,v} O} (F : J → O) (E : HomEquiv C) : HomEquiv (o
 
 theorem forget_laws {C : CategoryOps.{u,v} O} (F : J → O) (E : HomEquiv C) :
     MapLaws (forget C F) (equiv F E) E :=
-  (forget C F).inducedLaws E (E.refl _) (fun _ _ => E.refl _)
+  (forget C F).induced_laws E (E.refl _) (fun _ _ => E.refl _)
 theorem congr {C : CategoryOps.{u,v} O} (F : J → O) {E : HomEquiv C} (CC : CategoryCongr C E) :
     CategoryCongr (ops C F) (equiv F E) := ⟨CC.comp⟩
 theorem laws {C : CategoryOps.{u,v} O} (F : J → O) {E : HomEquiv C} (CL : CategoryLaws C E) :

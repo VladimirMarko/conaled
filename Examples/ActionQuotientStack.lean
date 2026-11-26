@@ -83,7 +83,7 @@ theorem stabilizers_distinct : stabilizer quarterTurn ≠ stabilizer 1 :=
 abbrev regularCover := regular.torsor.family
 instance regularCover_locallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p regularCover).hom :=
-  regular.torsor.locallySurjective
+  regular.torsor.isLocallySurjective
 
 abbrev regularData := ((Stack.pseudofunctor ineffective).toDescentData
   (SheafTorsor.Stack.singleton regularCover)).obj regular

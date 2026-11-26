@@ -14,14 +14,14 @@ def body (r : P a b) (s : P b c) (t : P c d) : Formula F [b, a, d] P :=
 
 theorem forward (h : Formula F [a, d] P) (r : P a b) (s : P b c) (t : P c d) :
     Derives (.conj h (Associativity.left r s t)) (.ex (.conj h.shift (body r s t))) :=
-  Rules.cut (Rules.andIntro Rules.andLeft
-    (Rules.cut Rules.andRight (Associativity.forward r s t)))
+  Rules.cut (Rules.and_intro Rules.and_left
+    (Rules.cut Rules.and_right (Associativity.forward r s t)))
     (Frobenius.forward h (body r s t))
 
 theorem backward (h : Formula F [a, d] P) (r : P a b) (s : P b c) (t : P c d) :
     Derives (.ex (.conj h.shift (body r s t))) (.conj h (Associativity.left r s t)) :=
   Rules.cut (Frobenius.backward h (body r s t))
-    (Rules.andIntro Rules.andLeft (Rules.cut Rules.andRight (Associativity.backward r s t)))
+    (Rules.and_intro Rules.and_left (Rules.cut Rules.and_right (Associativity.backward r s t)))
 
 open Associativity (RelSort Arrow)
 inductive Relation : RelSort → RelSort → Type where
@@ -40,7 +40,7 @@ def condition : Formula Arrow [.input, .output] Relation :=
   .atom .condition (.var (.succ .zero)) (.var (.succ .zero))
 
 /-- Ordinary predicates, no new caller-side model obligations. -/
-theorem inSet {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
+theorem in_set {A B C D : Type v} (R : A → B → Prop) (S : B → C → Prop)
     (T : C → D → Prop) (H : D → Prop) (a : A) (d : D) :
     (H d ∧ ∃ c, (∃ b, R a b ∧ S b c) ∧ T c d) ↔
       ∃ b, H d ∧ R a b ∧ ∃ c, S b c ∧ T c d := by

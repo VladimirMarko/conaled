@@ -39,7 +39,7 @@ example (xs ys : List Nat) :
 /-- Every finite input, not just the displayed sample, uses compiler correctness. -/
 example (xs : List Nat) : run jointMachine.mealy jointMachine.initial xs =
     run jointSpec.mealy jointSpec.initial xs :=
-  ReactiveCompiler.run_sound K sound jointSeed jointBody xs
+  ReactiveCompiler.run_sound scalarCompiler sound jointSeed jointBody xs
 
 example (xs : List Nat) :
     (run wired.mealy wired.initial xs).1 = (run wiredSpec.mealy wiredSpec.initial xs).1 ∧

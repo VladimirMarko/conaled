@@ -40,7 +40,7 @@ theorem LocalFamily.decodeCodeMap_heq {Γ : Context.{u}} (A : LocalFamily Γ)
   cast_heq _ _
 
 /-- The native decoder satisfies the shared local evaluation equations. -/
-theorem LocalFamily.decodeCodeEvaluation {Γ : Context.{u}} (A : LocalFamily Γ) :
+theorem LocalFamily.decode_code_evaluation {Γ : Context.{u}} (A : LocalFamily Γ) :
     RepresentableClassification.Evaluation A.family (decode A.code) :=
   ⟨fun _ => rfl, fun _ _ => cast_heq _ _⟩
 
@@ -48,7 +48,7 @@ theorem LocalFamily.decodeCodeEvaluation {Γ : Context.{u}} (A : LocalFamily Γ)
 def LocalFamily.decodeCodeIso {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code ≅ A.family :=
   NatIso.ofComponents A.decodeCodeComponent (by
     intro x y f
-    exact A.decodeCodeEvaluation.iso.hom.naturality f)
+    exact A.decode_code_evaluation.iso.hom.naturality f)
 
 theorem decode_reindex {Γ Δ : Context.{u}} (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
     (σ : Δ ⟶ Γ) : decode (raisedSub σ ≫ a) = Cartesian.reindex (decode a) σ :=

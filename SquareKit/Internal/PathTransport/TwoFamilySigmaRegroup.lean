@@ -22,7 +22,7 @@ def sigmaRegroupBase {x y : Total (sigmaFamily F B)} (p : x ⟶ y) :
     (sigmaRegroupObj F B x).base ⟶ (sigmaRegroupObj F B y).base :=
   ⟨p.base,p.fiber.base⟩
 
-theorem sigmaRegroupBoundary {x y : Total (sigmaFamily F B)}
+theorem sigma_regroup_boundary {x y : Total (sigmaFamily F B)}
     (f : x.base ⟶ y.base) (u : (F.map f).obj x.fiber.base ⟶ y.fiber.base) :
     (B.map (show (sigmaRegroupObj F B x).base ⟶ (sigmaRegroupObj F B y).base from
       ⟨f,u⟩)).obj x.fiber.fiber =
@@ -37,11 +37,11 @@ theorem sigmaRegroupBoundary {x y : Total (sigmaFamily F B)}
 
 def sigmaRegroupMap {x y : Total (sigmaFamily F B)} (p : x ⟶ y) :
     sigmaRegroupObj F B x ⟶ sigmaRegroupObj F B y :=
-  ⟨sigmaRegroupBase F B p,eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ≫ p.fiber.fiber⟩
+  ⟨sigmaRegroupBase F B p,eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ≫ p.fiber.fiber⟩
 
 def sigmaUngroupMap {x y : Total B} (p : x ⟶ y) :
     sigmaUngroupObj F B x ⟶ sigmaUngroupObj F B y :=
-  ⟨p.base.base,⟨p.base.fiber,eqToHom (sigmaRegroupBoundary F B
+  ⟨p.base.base,⟨p.base.fiber,eqToHom (sigma_regroup_boundary F B
     (x := sigmaUngroupObj F B x) (y := sigmaUngroupObj F B y)
     p.base.base p.base.fiber).symm ≫ p.fiber⟩⟩
 

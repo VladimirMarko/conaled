@@ -10,7 +10,7 @@ set_option backward.isDefEq.respectTransparency false
 
 abbrev loopFamily := constant (Γ := Loops) Loops
 
-theorem loopEquivalences : ∀ x : Loops, Functor.IsEquivalence ((𝟙 loopFamily : loopFamily ⟶ loopFamily).app x) :=
+theorem loop_equivalences : ∀ x : Loops, Functor.IsEquivalence ((𝟙 loopFamily : loopFamily ⟶ loopFamily).app x) :=
   fun _ => inferInstanceAs (𝟭 Loops).IsEquivalence
 
 def moving : Section loopFamily := constantSection (𝟭 Loops)
@@ -55,31 +55,31 @@ theorem selectedTurn_ne_identity : selectedTurn ≠ selectedIdentity := by
 /-- The inverse transport retains the chosen nonidentity loop, not just its
 endpoints or existence of a transformation. -/
 example :
-    (SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops))
+    (SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops))
       stationary (𝟙 loopFamily) stationary).symm selectedTurn ≠
-    (SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops))
+    (SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops))
       stationary (𝟙 loopFamily) stationary).symm selectedIdentity :=
   fun h => selectedTurn_ne_identity
-    ((SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops))
+    ((SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops))
       stationary (𝟙 loopFamily) stationary).symm.injective h)
 
 /-- The identity comparison still reconstructs the complete section, with
 vertical recovery. It never replaces the supplied loop action by a constant. -/
 example (s : Section loopFamily) (x : Loops) :
-    ((SectionDescent.recoverFibers (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily)).hom.app x).base =
+    ((SectionDescent.recoverFibers (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily)).hom.app x).base =
       𝟙 x :=
-  SectionDescent.recoverFibers_base (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) x
+  SectionDescent.recoverFibers_base (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) x
 
 /-- Selected vertical transformations survive transport injectively. -/
 example (s t : Section loopFamily)
-    (η θ : {η : (SectionDescent.descendFibers (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s
+    (η θ : {η : (SectionDescent.descendFibers (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s
         (𝟙 loopFamily)).lift ⟶
-      (SectionDescent.descendFibers (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) t (𝟙 loopFamily)).lift //
+      (SectionDescent.descendFibers (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) t (𝟙 loopFamily)).lift //
         ∀ x, (η.app x).base = 𝟙 x})
-    (h : SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t η =
-      SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t θ) :
+    (h : SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t η =
+      SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t θ) :
     η = θ :=
-  (SectionDescent.sectionVerticalEquiv (hβ := loopEquivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t).injective h
+  (SectionDescent.sectionVerticalEquiv (hβ := loop_equivalences) (CategoryTheory.Equivalence.refl (C := Loops)) s (𝟙 loopFamily) t).injective h
 
 /-- Section transport also admits a base equivalence that collapses distinct
 object representatives. The loop-valued fiber still carries its whole groupoid. -/
@@ -88,15 +88,15 @@ def baseCollapseComparison : constant (Γ := Two) Loops ⟶
   app _ := 𝟭 Loops
   naturality {_ _} _ := rfl
 
-theorem baseCollapseFibers : ∀ x : Two,
+theorem baseCollapseComparison_isEquivalence : ∀ x : Two,
     Functor.IsEquivalence (baseCollapseComparison.app x) :=
   fun _ => inferInstanceAs (𝟭 Loops).IsEquivalence
 
 example (s : Section (constant (Γ := Discrete PUnit.{1}) Loops)) (x : Two) :
-    ((SectionDescent.recoverFibers (hβ := baseCollapseFibers)
+    ((SectionDescent.recoverFibers (hβ := baseCollapseComparison_isEquivalence)
       collapse.{0,0}.asEquivalence s baseCollapseComparison).hom.app x).base =
       𝟙 (collapse.{0,0}.obj x) :=
-  SectionDescent.recoverFibers_base (hβ := baseCollapseFibers)
+  SectionDescent.recoverFibers_base (hβ := baseCollapseComparison_isEquivalence)
     collapse.{0,0}.asEquivalence s baseCollapseComparison x
 
 end Examples.SectionDescent

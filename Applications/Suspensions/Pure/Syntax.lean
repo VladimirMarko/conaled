@@ -24,11 +24,11 @@ mutual
     | variable (name : Nat) : PatternAllowed (.variable name)
     | atom (value : Core.Atom) : PatternAllowed (.atom value)
     | constructor (tag : Nat) : PatternAllowed (.constructor tag none)
-    | constructorArgument {tag : Nat} {inner : Core.Pattern}
+    | constructor_argument {tag : Nat} {inner : Core.Pattern}
         (argument : PatternAllowed inner) :
         PatternAllowed (.constructor tag (some inner))
     | exception (name : Nat) : PatternAllowed (.exception name none)
-    | exceptionArgument {name : Nat} {inner : Core.Pattern}
+    | exception_argument {name : Nat} {inner : Core.Pattern}
         (argument : PatternAllowed inner) :
         PatternAllowed (.exception name (some inner))
     | record {fields : List (Nat × Core.Pattern)}
@@ -53,7 +53,7 @@ mutual
     | primitive {operation : Primitive} (allowed : operations operation) :
         ExpressionAllowed operations (.primitive operation)
     | constructor (tag : Nat) : ExpressionAllowed operations (.constructor tag none)
-    | constructorArgument {tag : Nat} {body : Core.Expr Primitive}
+    | constructor_argument {tag : Nat} {body : Core.Expr Primitive}
         (allowed : ExpressionAllowed operations body) :
         ExpressionAllowed operations (.constructor tag (some body))
     | record {fields : List (Nat × Core.Expr Primitive)}

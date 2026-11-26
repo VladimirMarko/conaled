@@ -236,7 +236,7 @@ theorem book_contract :
     IntervalSet.Laws (IntervalTree.deleteOps (id : NKey → NKey))
       (IntervalTree.search id) id (fun t => Trees.setTree (Trees.Cached.erase t))
       (IntervalTree.Valid id) :=
-  IntervalTree.intervalSetLaws id (fun _ _ h => IntervalKey.low_le_of_le h.le)
+  IntervalTree.intervalSet_laws id (fun _ _ h => IntervalKey.low_le_of_le h.le)
 
 def absentKey : NKey := IntervalKey.ofBounds 42 42 (by decide)
 def eighteenPoint : NKey := IntervalKey.ofBounds 18 18 (by decide)
@@ -286,12 +286,12 @@ theorem mixed_prefix_contents (n : Nat) :
 theorem mixed_prefix_inorder (n : Nat) :
     Trees.inorder (Trees.Cached.erase (mixedPrefix n)) =
       AbstractSet.execute OrderedList.ops (mixedWord.take n) [] :=
-  (IntervalTree.inorderRefinement id).execute_from_empty OrderedList.laws (mixedWord.take n)
+  (IntervalTree.inorder_refinement id).execute_from_empty OrderedList.laws (mixedWord.take n)
 
 theorem mixed_member_refines_list (n : Nat) (key : NKey) :
     OrderedMap.containsKey key (mixedPrefix n) =
       OrderedList.ops.member key (AbstractSet.execute OrderedList.ops (mixedWord.take n) []) :=
-  (IntervalTree.inorderRefinement id).member_execute OrderedList.laws (mixedWord.take n)
+  (IntervalTree.inorder_refinement id).member_execute OrderedList.laws (mixedWord.take n)
     book_contract.empty_valid key
 
 theorem mixed_member_semantics (n : Nat) (key : NKey) :
@@ -303,7 +303,7 @@ theorem mixed_from_main_refines_list :
     Trees.inorder (Trees.Cached.erase
       (AbstractSet.execute (IntervalTree.deleteOps id) mixedWord mainTree)) =
       AbstractSet.execute OrderedList.ops mixedWord [a, b, c, d, e, f, g] :=
-  (IntervalTree.inorderRefinement id).execute OrderedList.laws mixedWord
+  (IntervalTree.inorder_refinement id).execute OrderedList.laws mixedWord
     ⟨mainTree_valid, mainTree_strict⟩
 
 theorem mixed_from_main_overlap (query : NKey) :
@@ -474,7 +474,7 @@ theorem reversed_bad_lows : ¬IntervalTree.LowOrdered reversedInterval reversedT
   decide
 
 theorem reversed_exact_membership : OrderedMap.containsKey 2 reversedTree = true :=
-  ((IntervalTree.setLaws reversedInterval).member 2 reversedTree reversed_valid).mpr
+  ((IntervalTree.set_laws reversedInterval).member 2 reversedTree reversed_valid).mpr
     (by change (2 : Fin 3) ∈ Trees.setTree (Trees.Cached.erase reversedTree); simp [reversedTree])
 
 theorem reversed_false_negative :
@@ -512,7 +512,7 @@ theorem indexed_contract :
     IntervalSet.Laws (IntervalTree.deleteOps indexedInterval)
       (IntervalTree.search indexedInterval) indexedInterval
       (fun t => Trees.setTree (Trees.Cached.erase t)) (IntervalTree.Valid indexedInterval) :=
-  IntervalTree.intervalSetLaws indexedInterval indexed_compatible
+  IntervalTree.intervalSet_laws indexedInterval indexed_compatible
 
 def indexedWord : List (AbstractSet.Update IndexedKey) :=
   [.insert indexedZero, .insert indexedOne, .insert indexedZero, .delete indexedZero, .delete indexedOne]
@@ -525,7 +525,7 @@ theorem indexed_prefix_valid (n : Nat) : IntervalTree.Valid indexedInterval (ind
 theorem indexed_prefix_inorder (n : Nat) :
     Trees.inorder (Trees.Cached.erase (indexedPrefix n)) =
       AbstractSet.execute OrderedList.ops (indexedWord.take n) [] :=
-  (IntervalTree.inorderRefinement indexedInterval).execute_from_empty OrderedList.laws
+  (IntervalTree.inorder_refinement indexedInterval).execute_from_empty OrderedList.laws
     (indexedWord.take n)
 
 theorem indexed_member_semantics (n : Nat) (key : IndexedKey) :
@@ -625,7 +625,7 @@ theorem lifted_contract :
     IntervalSet.Laws (IntervalTree.deleteOps liftedInterval)
       (IntervalTree.search liftedInterval) liftedInterval
       (fun t => Trees.setTree (Trees.Cached.erase t)) (IntervalTree.Valid liftedInterval) :=
-  IntervalTree.intervalSetLaws liftedInterval lifted_compatible
+  IntervalTree.intervalSet_laws liftedInterval lifted_compatible
 
 def liftedQuery (point : Nat) : IntervalKey (ULift.{1} Nat) :=
   IntervalKey.ofBounds ⟨point⟩ ⟨point⟩ le_rfl
@@ -664,7 +664,7 @@ theorem negative_state_valid {t : ZTree} (member : t ∈ negativeStates) : Inter
   rcases member with rfl | rfl | rfl
   · exact ⟨negativeMaximum_valid, negative_source_strict⟩
   · exact ⟨negative_updates_valid.1, negative_updated_strict⟩
-  · exact (IntervalTree.setLaws id).delete_valid negativeNew negativeInserted
+  · exact (IntervalTree.set_laws id).delete_valid negativeNew negativeInserted
       ⟨negative_updates_valid.1, negative_updated_strict⟩
 
 theorem negative_overlap_semantics {t : ZTree} (member : t ∈ negativeStates) (query : ZKey) :

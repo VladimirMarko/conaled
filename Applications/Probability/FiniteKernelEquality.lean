@@ -66,21 +66,21 @@ theorem tableMeaning_reflects :
   fun h => tableMeaning_injective h
 
 /-- Actual table laws use the same generic transport as the semantic facade. -/
-theorem tableEqualityLaws : SquareKit.CategoryLaws tableOps (SquareKit.equality tableOps) :=
-  SquareKit.RawMap.transportLaws tableMeaning_equality_laws tableMeaning_reflects
-    (SquareKit.equalityCongr _) (SquareKit.ofCategoryLaws Stoch)
+theorem table_equality_laws : SquareKit.CategoryLaws tableOps (SquareKit.equality tableOps) :=
+  SquareKit.RawMap.transport_laws tableMeaning_equality_laws tableMeaning_reflects
+    (SquareKit.equality_congr _) (SquareKit.ofCategory_laws Stoch)
 
 namespace Table
 variable {W X Y Z : FiniteSpace}
 
 theorem deterministic_id_comp (f : Table X Y) : comp (deterministic id) f = f :=
-  tableEqualityLaws.id_comp f
+  table_equality_laws.id_comp f
 
 theorem comp_deterministic_id (f : Table X Y) : comp f (deterministic id) = f :=
-  tableEqualityLaws.comp_id f
+  table_equality_laws.comp_id f
 
 theorem comp_assoc (h : Table Y Z) (g : Table X Y) (f : Table W X) :
-    comp (comp h g) f = comp h (comp g f) := tableEqualityLaws.assoc h g f
+    comp (comp h g) f = comp h (comp g f) := table_equality_laws.assoc h g f
 
 /-- Concatenating iteration retains exact tables, not only their kernels. -/
 theorem steps_add (t : Table X X) (n m : ℕ) :

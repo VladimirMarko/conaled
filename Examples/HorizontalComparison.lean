@@ -106,20 +106,20 @@ example : Function.Injective (fun g : p ⟶ p =>
   exact congrArg Discrete.as ((identity_selected g).symm.trans (e.trans (identity_selected h)))
 
 /-- The induction relation includes the actual noninvertible family map. -/
-theorem familyComposition : family.Composes remaining (family.horizontal remaining rfl HEq.rfl) :=
+theorem family_composition : family.Composes remaining (family.horizontal remaining rfl HEq.rfl) :=
   ⟨⟨rfl, rfl⟩, HEq.rfl, HEq.rfl⟩
 
-theorem sectionComposition : chosenSection.Composes remainingSection compositeSection :=
-  Section.Composes.of_endpoints familyComposition chosenSection remainingSection compositeSection
+theorem section_composition : chosenSection.Composes remainingSection compositeSection :=
+  Section.Composes.of_endpoints family_composition chosenSection remainingSection compositeSection
     HEq.rfl HEq.rfl HEq.rfl
 
 example : family.extend.Composes remaining.extend
-    (family.horizontal remaining rfl HEq.rfl).extend := familyComposition.extend
+    (family.horizontal remaining rfl HEq.rfl).extend := family_composition.extend
 
 example : (family.identity chosenSection chosenSection).Composes
     (remaining.identity remainingSection remainingSection)
     ((family.horizontal remaining rfl HEq.rfl).identity compositeSection compositeSection) :=
-  sectionComposition.identity sectionComposition
+  section_composition.identity section_composition
 
 example : (signature.fiber basePoint).Composes (remainingSignature.fiber remainingPoint)
     ((signature.horizontal remainingSignature rfl HEq.rfl).fiber compositePoint) :=
@@ -133,7 +133,7 @@ def identityTail {Γ : Comparison.Context.{0}} (A : Comparison.Family Γ) :
     Comparison.Family A.extend :=
   (A.reindex A.weaken).identity A.variable A.variable
 
-theorem dependentTailComposition :
+theorem dependent_tail_composition :
     TelescopeComposes signature remainingSignature (signature.horizontal remainingSignature rfl HEq.rfl)
       (SquareKit.Internal.PathTransport.Typed.StructuralModel.Telescope.cons family
         (.cons (identityTail family) .nil))
@@ -141,15 +141,15 @@ theorem dependentTailComposition :
         (.cons (identityTail remaining) .nil))
       (SquareKit.Internal.PathTransport.Typed.StructuralModel.Telescope.cons (family.horizontal remaining rfl HEq.rfl)
         (.cons (identityTail (family.horizontal remaining rfl HEq.rfl)) .nil)) := by
-  have hsecond := familyComposition.variable.identity familyComposition.variable
-  exact .cons familyComposition (.cons hsecond (.nil hsecond.extend))
+  have hsecond := family_composition.variable.identity family_composition.variable
+  exact .cons family_composition (.cons hsecond (.nil hsecond.extend))
 
-theorem identityComposition : (Substitution.id context).Composes (Substitution.id middle)
+theorem identity_composition : (Substitution.id context).Composes (Substitution.id middle)
     (Substitution.id (context.horizontal middle rfl)) :=
   Substitution.Composes.of_endpoints ⟨rfl, rfl⟩ ⟨rfl, rfl⟩ _ _ _ HEq.rfl HEq.rfl HEq.rfl
 
-example := dependentTailComposition.total
-example := dependentTailComposition.pullback identityComposition
-example := dependentTailComposition.liftSub identityComposition
+example := dependent_tail_composition.total
+example := dependent_tail_composition.pullback identity_composition
+example := dependent_tail_composition.liftSub identity_composition
 
 end Examples.HorizontalComparison

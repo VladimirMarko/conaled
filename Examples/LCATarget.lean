@@ -8,85 +8,85 @@ namespace Examples.LCATarget
 open Resources.Prepared Sequences.LCA TreeReduction
 open LCABackend
 
-theorem treeMachine : TargetBackend.Config (tourSize 4) 14 := by constructor <;> decide
+theorem tree_machine : TargetBackend.Config (tourSize 4) 14 := by constructor <;> decide
 
 def singletonSource : Source 1 := ⟨.singleton,rfl⟩
-theorem singletonMachine : TargetBackend.Config (tourSize 1) 12 := by constructor <;> decide
+theorem singleton_machine : TargetBackend.Config (tourSize 1) 12 := by constructor <;> decide
 
-example : ((TargetBackend.lcaOps singletonMachine).answer
-    ((TargetBackend.lcaOps singletonMachine).prepare singletonSource).1 (0,0)).1 = 0 := by
-  rw [(TargetBackend.lca_reusable singletonMachine singletonSource _).1]
+example : ((TargetBackend.lcaOps singleton_machine).answer
+    ((TargetBackend.lcaOps singleton_machine).prepare singletonSource).1 (0,0)).1 = 0 := by
+  rw [(TargetBackend.lca_reusable singleton_machine singletonSource _).1]
   decide
 
 def singletonInput : Input 1 := ((reduction 1).convert singletonSource).1.2
 
-theorem singletonRMQMachine : TargetBackend.Config 1 12 := by constructor <;> decide
+theorem singleton_rmq_machine : TargetBackend.Config 1 12 := by constructor <;> decide
 
-def singletonArena := (TargetPreparation.prepare singletonInput singletonRMQMachine).1
+def singletonArena := (TargetPreparation.prepare singletonInput singleton_rmq_machine).1
 
 -- Regression for the reviewed placement mismatch: these words are read from
 -- the executed installation, at the compact query addresses.
 example : (WordMachine.load singletonArena 2 0).1.val = 3 := by
   unfold singletonArena
-  rw [TargetPreparation.prepare_value singletonInput singletonRMQMachine]
+  rw [TargetPreparation.prepare_value singletonInput singleton_rmq_machine]
   exact WordLoads.load_sharedDescriptor _ _ ⟨0,by decide⟩
 
 example : (WordMachine.load singletonArena 3 0).1.val = 4 := by
   unfold singletonArena
-  rw [TargetPreparation.prepare_value singletonInput singletonRMQMachine]
+  rw [TargetPreparation.prepare_value singletonInput singleton_rmq_machine]
   exact WordLoads.load_sharedRowDescriptor _ _ ⟨0,by decide⟩ ⟨0,by decide⟩
 
 example : (WordMachine.load singletonArena 4 0).1.val = 0 := by
   unfold singletonArena
-  rw [TargetPreparation.prepare_value singletonInput singletonRMQMachine]
+  rw [TargetPreparation.prepare_value singletonInput singleton_rmq_machine]
   have h := WordLoads.load_sharedPayload singletonInput
-    (BackendBounds.machine_arena (TargetPreparation.machine singletonInput singletonRMQMachine))
+    (BackendBounds.machine_arena (TargetPreparation.machine singletonInput singleton_rmq_machine))
     ⟨0,by decide⟩ ⟨0,by decide⟩ ⟨0,by decide⟩
   rw [PackedBackend.prepared_shared] at h
   exact h
 
-def prepared := ((TargetBackend.lcaOps treeMachine).prepare branchedSource).1
+def prepared := ((TargetBackend.lcaOps tree_machine).prepare branchedSource).1
 
 -- The actual preparation includes compact installation. Online behavior still
 -- agrees with independent tree ancestry for every future finite-node query.
 example (q : Query 4) :
-    ((TargetBackend.lcaOps treeMachine).answer prepared q).1 = sourceLCA branchedSource q ∧
-      ((TargetBackend.lcaOps treeMachine).answer prepared q).2 ≤ 62 :=
-  TargetBackend.lca_reusable treeMachine branchedSource q
+    ((TargetBackend.lcaOps tree_machine).answer prepared q).1 = sourceLCA branchedSource q ∧
+      ((TargetBackend.lcaOps tree_machine).answer prepared q).2 ≤ 62 :=
+  TargetBackend.lca_reusable tree_machine branchedSource q
 
-example : ((TargetBackend.lcaOps treeMachine).answer prepared (⟨1,by decide⟩,⟨2,by decide⟩)).1 = 1 := by
+example : ((TargetBackend.lcaOps tree_machine).answer prepared (⟨1,by decide⟩,⟨2,by decide⟩)).1 = 1 := by
   unfold prepared
-  rw [(TargetBackend.lca_reusable treeMachine branchedSource _).1]
+  rw [(TargetBackend.lca_reusable tree_machine branchedSource _).1]
   decide
 
 example (qs : List (Query 4)) :
-    (queries (TargetBackend.lcaOps treeMachine) prepared qs).1 = qs.map (sourceLCA branchedSource) :=
-  queries_meaning (TargetBackend.lca_laws treeMachine) branchedSource prepared
-    ((TargetBackend.lca_laws treeMachine).prepare branchedSource) qs
+    (queries (TargetBackend.lcaOps tree_machine) prepared qs).1 = qs.map (sourceLCA branchedSource) :=
+  queries_meaning (TargetBackend.lca_laws tree_machine) branchedSource prepared
+    ((TargetBackend.lca_laws tree_machine).prepare branchedSource) qs
 
-example : (queries (TargetBackend.lcaOps treeMachine) prepared
+example : (queries (TargetBackend.lcaOps tree_machine) prepared
     [(⟨2,by decide⟩,⟨3,by decide⟩),(⟨1,by decide⟩,⟨2,by decide⟩),(⟨2,by decide⟩,⟨3,by decide⟩)]).1 = [0,1,0] := by
-  rw [queries_meaning (TargetBackend.lca_laws treeMachine) branchedSource prepared
-    ((TargetBackend.lca_laws treeMachine).prepare branchedSource)]
+  rw [queries_meaning (TargetBackend.lca_laws tree_machine) branchedSource prepared
+    ((TargetBackend.lca_laws tree_machine).prepare branchedSource)]
   decide
 
-theorem deepMachine : TargetBackend.Config 17 16 := by constructor <;> decide
+theorem deep_machine : TargetBackend.Config 17 16 := by constructor <;> decide
 
 def changedInput : Input 17 :=
   ((TreeReduction.reduction 9).convert ⟨.attach (chain 7) .singleton,rfl⟩).1.2
 
-example : ¬ TargetBackend.Valid deepMachine changedInput
-    ((TargetBackend.ops deepMachine).prepare deepInput).1 := by
-  apply TargetBackend.stale_rejected deepMachine deepInput changedInput (7,8)
+example : ¬ TargetBackend.Valid deep_machine changedInput
+    ((TargetBackend.ops deep_machine).prepare deepInput).1 := by
+  apply TargetBackend.stale_rejected deep_machine deepInput changedInput (7,8)
   decide
 
-example : ((TargetBackend.ops deepMachine).answer
-    ((TargetBackend.ops deepMachine).prepare deepInput).1 (15,16)).1 = 16 := by
-  rw [(TargetBackend.reusable deepMachine deepInput _).1]
+example : ((TargetBackend.ops deep_machine).answer
+    ((TargetBackend.ops deep_machine).prepare deepInput).1 (15,16)).1 = 16 := by
+  rw [(TargetBackend.reusable deep_machine deepInput _).1]
   decide
 
-example : ((TargetBackend.storage deepMachine).retained
-    ((TargetBackend.ops deepMachine).prepare deepInput).1) = 512*17 := by
+example : ((TargetBackend.storage deep_machine).retained
+    ((TargetBackend.ops deep_machine).prepare deepInput).1) = 512*17 := by
   simp [TargetBackend.storage]
 
 example : ¬ TargetBackend.Config 17 14 := by

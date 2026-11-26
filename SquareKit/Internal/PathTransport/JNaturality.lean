@@ -54,7 +54,7 @@ variable (e : D ≌ C) (e' : D' ≌ C') (K : C' ⥤ C) (L : D' ⥤ D)
 structure Square where
   forward : e'.functor ⋙ K = L ⋙ e.functor
   inverse : K ⋙ e.inverse = e'.inverse ⋙ L
-  counitInv :
+  counitInv_compatibility :
     whiskerRight e'.counitInv K ≫ eqToHom (congrArg (e'.inverse ⋙ ·) forward) =
       whiskerLeft K e.counitInv ≫ eqToHom (congrArg (· ⋙ e.functor) inverse)
 variable (s : Square e e' K L) (T : C ⥤ Cat)
@@ -78,7 +78,7 @@ theorem inverse_lift :
         eqToHom (congrArg (· ⋙ e.functor ⋙ T) s.inverse) := by
     apply NatTrans.ext
     funext a
-    have h := congrArg (fun q => T.map (q.app a)) s.counitInv
+    have h := congrArg (fun q => T.map (q.app a)) s.counitInv_compatibility
     simpa [Functor.map_comp, eqToHom_map] using h
   have h := GrothSquare.retraction_square (e.functor ⋙ T) T e.inverse e'.inverse K L
     (whiskerRight e.counitInv T)
@@ -88,19 +88,19 @@ theorem inverse_lift :
   simpa [Grothendieck.map_comp_eq, Functor.assoc, Grothendieck.pre_comp_map_assoc] using h
 
 set_option maxHeartbeats 1000000 in
-theorem liftSquare : Square (Grothendieck.preEquivalence T e)
+theorem lift_square : Square (Grothendieck.preEquivalence T e)
     (Grothendieck.preEquivalence (K ⋙ T) e') (Grothendieck.pre T K)
     (branchMap e e' K L s T) where
   forward := forward_lift e e' K L s T
   inverse := inverse_lift e e' K L s T
-  counitInv := by
+  counitInv_compatibility := by
     apply NatTrans.ext
     funext a
     simp only [NatTrans.comp_app, whiskerRight_app, whiskerLeft_app, eqToHom_app]
     fapply Grothendieck.ext
     · simp [Grothendieck.preEquivalence, Grothendieck.preNatIso,
         Grothendieck.transportIso, Grothendieck.isoMk, branchMap]
-      have h := congrArg (fun α => α.app a.base) s.counitInv
+      have h := congrArg (fun α => α.app a.base) s.counitInv_compatibility
       simpa using h
     · simp [Grothendieck.preEquivalence, Grothendieck.preNatIso,
         Grothendieck.transportIso, Grothendieck.isoMk, branchMap]
@@ -168,7 +168,7 @@ theorem extend_square :
   apply Iso.ext
   apply NatTrans.ext
   funext a
-  have h₀ := congrArg (fun q => q.app a) sq.counitInv
+  have h₀ := congrArg (fun q => q.app a) sq.counitInv_compatibility
   have h := IsIso.inv_eq_inv.mpr h₀
   simp [IsIso.inv_comp, inv_eqToHom, ← Functor.map_inv] at h
   dsimp
@@ -191,11 +191,11 @@ variable {Γ : Type*} [Category* Γ] [IsGroupoid Γ]
 variable {Δ : Type*} [Category* Δ] [IsGroupoid Δ]
 variable (A : Γ ⥤ Grpd) (x : Section A) (σ : Δ ⥤ Γ)
 
-theorem rootSquare : Square (pathEquivalence A x)
+theorem root_square : Square (pathEquivalence A x)
     (pathEquivalence (σ ⋙ A) (x.reindex σ)) (substitution A x σ) σ where
   forward := rfl
   inverse := rfl
-  counitInv := by
+  counitInv_compatibility := by
     simpa [pathEquivalence] using congrArg Iso.inv (substitution_contraction A x σ)
 end SquareKit.Internal.PathTransport.GroupoidModel.EquivalenceSquare
 
@@ -212,7 +212,7 @@ variable (K : C' ⥤ C) (L : D' ⥤ D)
 variable (sq : Square e.equiv e'.equiv K L)
 
 include sq in
-theorem changeFunctorSquare (F : D ⥤ C) (F' : D' ⥤ C')
+theorem changeFunctor_square (F : D ⥤ C) (F' : D' ⥤ C')
     (h : e.equiv.functor = F) (h' : e'.equiv.functor = F') :
     Square (e.changeFunctor F h).equiv (e'.changeFunctor F' h').equiv K L := by
   subst F

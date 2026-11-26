@@ -56,7 +56,7 @@ theorem split_len' (IP : TwoStepListInduction.{u}) {α : Type u}
 /-- The source's explicit recursive proof term is constructive in Lean too. -/
 theorem list_ind2 : TwoStepListInduction.{u} := by
   intro α P h0 h1 hs xs
-  exact SourceMergeSort.listInductionTwo P h0 h1 hs xs
+  exact SourceMergeSort.list_induction_two P h0 h1 hs xs
 
 /-- This also covers the true statement of the source's aborted first attempt. -/
 theorem split_len {α : Type u} (l l1 l2 : List α) (h : split l = (l1, l2)) :

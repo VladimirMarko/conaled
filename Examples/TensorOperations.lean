@@ -52,7 +52,7 @@ theorem resource_tensor_laws :
 
 theorem function_tensor_laws :
     TensorLaws (equality FunctionCategory.ops) functionTensor :=
-  TensorLaws.ofProducts (equalityCongr _) FunctionCategory.laws
+  TensorLaws.ofProducts (equality_congr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws
 
 /-- An arbitrary operation of conditional's type need not commute with maps. -/

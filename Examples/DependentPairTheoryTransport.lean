@@ -57,15 +57,15 @@ def tauRaw : SingleV → PExpr SingleV
 
 /-- Generic template substitution supplies the second transport step. -/
 theorem translated_selected_twice :
-    Expr.subst (fun v => G.act (tauRaw v)) (G.act (Expr.subst sigmaRaw selectedRaw)) =
-      G.act (u (d (.var m))) := by
-  rw [← G.substitution, selected_twice]
+    Expr.subst (fun v => projectionToElimination.act (tauRaw v)) (projectionToElimination.act (Expr.subst sigmaRaw selectedRaw)) =
+      projectionToElimination.act (u (d (.var m))) := by
+  rw [← projectionToElimination.substitution, selected_twice]
 
 /-- The translated dependent type follows the same two substitutions. -/
 theorem translated_type_twice :
-    Expr.subst (fun v => G.act (tauRaw v)) (G.act (Expr.subst sigmaRaw clientType)) =
-      G.act (Expr.subst (fun v => Expr.subst tauRaw (sigmaRaw v)) clientType) :=
-  G_two_substitutions clientType sigmaRaw tauRaw
+    Expr.subst (fun v => projectionToElimination.act (tauRaw v)) (projectionToElimination.act (Expr.subst sigmaRaw clientType)) =
+      projectionToElimination.act (Expr.subst (fun v => Expr.subst tauRaw (sigmaRaw v)) clientType) :=
+  projectionToElimination_two_substitutions clientType sigmaRaw tauRaw
 
 /-- A typed declaration fragment fixes the selected semantic value independently
 of the proof engine or the pair templates. -/

@@ -491,7 +491,7 @@ lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     eqToIso.inv, eqToHom_trans, Cat.eqToHom_app]
 
 /-- Extension commutes with the canonical descent transition on every sheaf test. -/
-lemma extendCanonicalHom (P : Torsor G (J.yoneda.obj S))
+lemma extend_canonical_hom (P : Torsor G (J.yoneda.obj S))
     {Z : Sheaf J (Type u)} (q : Z ⟶ J.yoneda.obj S) {i j : I}
     (a : Z ⟶ J.yoneda.obj (V i)) (b : Z ⟶ J.yoneda.obj (V j))
     (ha : a ≫ J.yoneda.map (f i) = q) (hb : b ≫ J.yoneda.map (f j) = q) :
@@ -528,7 +528,7 @@ def canonicalIso : (torsorPseudofunctor G).toDescentData f ⋙ extendFunctor ≅
       intro Z q i j a b ha hb
       change 𝟙 _ ≫ _ = _ ≫ 𝟙 _
       rw [Category.id_comp, Category.comp_id]
-      exact (extendCanonicalHom P q a b ha hb).symm))
+      exact (extend_canonical_hom P q a b ha hb).symm))
     (by
       intro P Q h
       apply Pseudofunctor.DescentData.hom_ext
@@ -710,7 +710,7 @@ lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     PrelaxFunctor.map₂Iso_eqToIso, Iso.trans_hom, Iso.trans_inv, eqToIso.hom,
     eqToIso.inv, eqToHom_trans, Cat.eqToHom_app]
 
-lemma extendCanonicalHom (P : Object act (J.yoneda.obj S))
+lemma extend_canonical_hom (P : Object act (J.yoneda.obj S))
     {Z : Sheaf J (Type u)} (q : Z ⟶ J.yoneda.obj S) {i j : I}
     (a : Z ⟶ J.yoneda.obj (V i)) (b : Z ⟶ J.yoneda.obj (V j))
     (ha : a ≫ J.yoneda.map (f i) = q) (hb : b ≫ J.yoneda.map (f j) = q) :
@@ -752,7 +752,7 @@ def canonicalIso : (quotientPseudofunctor act).toDescentData f ⋙ extendFunctor
       intro Z q i j a b ha hb
       change 𝟙 _ ≫ _ = _ ≫ 𝟙 _
       rw [Category.id_comp, Category.comp_id]
-      exact (extendCanonicalHom P q a b ha hb).symm))
+      exact (extend_canonical_hom P q a b ha hb).symm))
     (by
       intro P Q h
       apply Pseudofunctor.DescentData.hom_ext

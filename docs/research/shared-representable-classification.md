@@ -87,7 +87,7 @@ checks both adapters. Each model supplies `localFamilySystem` from its native
 `smallFamilyCodes`, `LocalFamily.code`, lifted contexts/elements and `decode`
 now specialize the shared constructions. The generic code presheaf, coding
 map, context lift, lifted elements and decoder pullback recover the native
-objects by `rfl`. Each native `LocalFamily.decodeCodeEvaluation` proves the
+objects by `rfl`. Each native `LocalFamily.decode_code_evaluation` proves the
 object formula by `rfl` and the arrow formula by `cast_heq`; `decodeCodeIso`
 uses its shared naturality proof. The old `decodeCodeComponent` formula remains
 available. The example's `comparison_components` checks equality of every

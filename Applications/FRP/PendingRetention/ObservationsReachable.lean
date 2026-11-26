@@ -17,8 +17,8 @@ theorem LocalEdit.observed {cfg : Config} {before after : LocalSnapshot}
     PoolObserved after.frame after.floor after.outcomes := by
   cases edit with
   | frame changed => exact observed.localChange safe.pool safe.valid safe.coupled _ changed
-  | relinquish target => exact observed.raiseLocal (authorized target rfl)
-  | finish changed => exact observed.finishRetirement safe.localPending changed
+  | relinquish target => exact observed.raise_local (authorized target rfl)
+  | finish changed => exact observed.finishRetirement safe.local_pending changed
 
 theorem Observed.scan {s : System} (h : Observed s) (target cursor : Nat) :
     Observed (scanRetirement s target cursor).system := by

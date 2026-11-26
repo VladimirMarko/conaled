@@ -90,7 +90,7 @@ receive the appropriate new height and maximum.
 The inherited cache and `ValidD` theorems prove recursive annotation and balance
 preservation. The inherited inorder theorems and strict-order closure prove the
 ordinary key semantics independently of those auxiliary facts. Together they
-give the seven fields of `Balanced.setLaws`: empty validity and observation,
+give the seven fields of `Balanced.set_laws`: empty validity and observation,
 insertion validity and observation, membership, deletion validity and observation.
 The interface does not assume the set laws it is meant to establish.
 
@@ -148,7 +148,7 @@ The public statements retain different useful hypothesis levels:
 | `maxHi_spec` | Recursive maximum validity and nonemptiness; no height or order requirement. |
 | `search_correct` | Recursive maximum validity and pairwise nondecreasing projected lows; no correct heights, balance, strict key order or uniqueness requirement. |
 | `search_correct_of_strict` | Maximum validity, strict key inorder, and the implication that key order preserves weak low order. |
-| `intervalSetLaws` | The complete balanced set invariant, with that global low-order implication for all keys. |
+| `intervalSet_laws` | The complete balanced set invariant, with that global low-order implication for all keys. |
 
 Weak low order is enough for overlap search. An implementation may therefore
 search a maximum-correct tree even when stored heights are wrong, its shape is

@@ -36,7 +36,7 @@ variable {O : Type u₁} {C : CategoryOps.{u₁,v₁} O} {E : HomEquiv C}
 variable {P : ProductOps C} {H : ClosedOps C P}
 
 /-- Beta and eta imply currying naturality; callers need no separate structural proof. -/
-theorem ofBetaEta (CC : CategoryCongr C E) (CL : CategoryLaws C E)
+theorem of_beta_eta (CC : CategoryCongr C E) (CL : CategoryLaws C E)
     (PC : ProductCongr E P) (PL : ProductLaws E P) (HC : ClosedCongr E P H)
     (beta : ∀ {x a b} (f : C.Hom (P.prod x a) b), E.Rel (H.uncurry (H.curry f)) f)
     (eta : ∀ {x a b} (f : C.Hom x (H.exp a b)), E.Rel (H.curry (H.uncurry f)) f) :
@@ -79,7 +79,7 @@ def uncurry (i : ProductMap F P T) (j : ClosedMap F H J) {x a b}
     (f : D.Hom (F.obj x) (F.obj (H.exp a b))) :=
   D.comp (J.uncurry (D.comp (j a b).hom f)) (i x a).hom
 
-theorem transportCongr (L : MapLaws F E V) (R : F.Reflects E V)
+theorem transport_congr (L : MapLaws F E V) (R : F.Reflects E V)
     (DC : CategoryCongr D V) (JC : ClosedCongr V T J) (M : ClosedMapLaws V i j) :
     ClosedCongr E P H where
   curry h := R (V.trans (M.curry _) (V.trans
@@ -176,16 +176,16 @@ theorem curry_uncurry (DC : CategoryCongr D V) (DL : CategoryLaws D V)
       (DC.comp (V.refl _) (I _ _).hom_inv) (DL.comp_id _)))))
   exact V.trans (DC.comp (V.refl _) (JL.eta _)) (DL.cancel_left DC (JJ _ _).inv_hom _)
 
-theorem transportLaws (L : MapLaws F E V) (R : F.Reflects E V)
+theorem transport_laws (L : MapLaws F E V) (R : F.Reflects E V)
     (DC : CategoryCongr D V) (DL : CategoryLaws D V)
     (TC : ProductCongr V T) (TL : ProductLaws V T)
     (JC : ClosedCongr V T J) (JL : ClosedLaws V T J)
     (I : ∀ a b, ComparisonLaws V (i a b)) (JJ : ∀ a b, ComparisonLaws V (j a b))
     (PM : ProductMapLaws V i) (M : ClosedMapLaws V i j) : ClosedLaws E P H := by
-  apply ClosedLaws.ofBetaEta
-    (RawMap.transportCongr L R DC) (RawMap.transportLaws L R DC DL)
-    (ProductMap.transportCongr L R DC PM TC)
-    (ProductMap.transportLaws L R DC DL I PM TC TL) (transportCongr L R DC JC M)
+  apply ClosedLaws.of_beta_eta
+    (RawMap.transport_congr L R DC) (RawMap.transport_laws L R DC DL)
+    (ProductMap.transport_congr L R DC PM TC)
+    (ProductMap.transport_laws L R DC DL I PM TC TL) (transport_congr L R DC JC M)
   · intro x a b f
     apply R
     apply V.trans (map_uncurry L DC DL TC TL I PM M _)

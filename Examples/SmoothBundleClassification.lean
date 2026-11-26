@@ -54,7 +54,7 @@ def ineffectiveTarget : Ordinary.WithTarget 0 0 C4 PUnit PUnit where
   smooth := contMDiff_const
   equivariant _ _ := rfl
 
-theorem ineffectiveAction (g : C4) :
+theorem ineffective_action (g : C4) :
     ContMDiff (modelWithCorners 0) (modelWithCorners 0) ∞ (fun x : PUnit => g • x) := contMDiff_const
 
 def targetRotation (g : C4) : ineffectiveTarget ⟶ ineffectiveTarget where
@@ -62,11 +62,11 @@ def targetRotation (g : C4) : ineffectiveTarget ⟶ ineffectiveTarget where
   target _ := rfl
 
 theorem ineffective_target_distinguishes {g : C4} (hg : g ≠ 1) :
-    (Ordinary.WithTarget.realization ineffectiveAction).map (targetRotation g) ≠
-      𝟙 ((Ordinary.WithTarget.realization ineffectiveAction).obj ineffectiveTarget) := by
+    (Ordinary.WithTarget.realization ineffective_action).map (targetRotation g) ≠
+      𝟙 ((Ordinary.WithTarget.realization ineffective_action).obj ineffectiveTarget) := by
   intro h
-  have he := (Ordinary.WithTarget.realization ineffectiveAction).map_injective
-    (h.trans ((Ordinary.WithTarget.realization ineffectiveAction).map_id ineffectiveTarget).symm)
+  have he := (Ordinary.WithTarget.realization ineffective_action).map_injective
+    (h.trans ((Ordinary.WithTarget.realization ineffective_action).map_id ineffectiveTarget).symm)
   exact SmoothBundleMorphisms.rotation_nonidentity hg (congrArg TargetMap.toMap he)
 
 theorem quarterTurn_ne_one : quarterTurn ≠ 1 := by
@@ -76,8 +76,8 @@ theorem quarterTurn_ne_one : quarterTurn ≠ 1 := by
   norm_num [quarterTurn] at hi
 
 theorem concrete_nonidentity :
-    (Ordinary.WithTarget.realization ineffectiveAction).map (targetRotation quarterTurn) ≠
-      𝟙 ((Ordinary.WithTarget.realization ineffectiveAction).obj ineffectiveTarget) :=
+    (Ordinary.WithTarget.realization ineffective_action).map (targetRotation quarterTurn) ≠
+      𝟙 ((Ordinary.WithTarget.realization ineffective_action).obj ineffectiveTarget) :=
   ineffective_target_distinguishes quarterTurn_ne_one
 
 end Finite
@@ -202,37 +202,37 @@ def target : Ordinary.WithTarget 1 2 PUnit (Space 1) (Space 2) where
   smooth := nonlinear_smooth
   equivariant _ _ := rfl
 
-theorem targetAction (g : PUnit) :
+theorem target_action_smooth (g : PUnit) :
     ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ (fun x : Space 2 => g • x) := contMDiff_id
 
-abbrev quotient := (Ordinary.WithTarget.realization targetAction).obj target
-abbrev recoveredTarget := Ordinary.WithTarget.reconstructed targetAction quotient
+abbrev quotient := (Ordinary.WithTarget.realization target_action_smooth).obj target
+abbrev recoveredTarget := Ordinary.WithTarget.reconstructed target_action_smooth quotient
 local instance : MulAction PUnit recoveredTarget.ordinary.Total := recoveredTarget.ordinary.action
 
 theorem recovered_target_value (x : Space 1) :
-    recoveredTarget.target (Ordinary.WithTarget.unitTotal targetAction target x) =
-      nonlinear x := Ordinary.WithTarget.unit_target targetAction target x
+    recoveredTarget.target (Ordinary.WithTarget.unitTotal target_action_smooth target x) =
+      nonlinear x := Ordinary.WithTarget.unit_target target_action_smooth target x
 
 theorem recovered_target_square :
-    recoveredTarget.target (Ordinary.WithTarget.unitTotal targetAction target (fun _ => 2)) 1 = 4 := by
+    recoveredTarget.target (Ordinary.WithTarget.unitTotal target_action_smooth target (fun _ => 2)) 1 = 4 := by
   rw [recovered_target_value]
   norm_num [nonlinear]
 
 theorem recovered_target_nonconstant :
-    recoveredTarget.target (Ordinary.WithTarget.unitTotal targetAction target (fun _ => 2)) ≠
-      recoveredTarget.target (Ordinary.WithTarget.unitTotal targetAction target (fun _ => 0)) := by
+    recoveredTarget.target (Ordinary.WithTarget.unitTotal target_action_smooth target (fun _ => 2)) ≠
+      recoveredTarget.target (Ordinary.WithTarget.unitTotal target_action_smooth target (fun _ => 0)) := by
   intro h
   have he := congrFun h 1
   rw [recovered_target_value, recovered_target_value] at he
   norm_num [nonlinear] at he
 
 /-- A full independent target comparison, usable before forming any associated quotient. -/
-theorem target_composite : type_of% (Ordinary.WithTarget.pullbackRealization_comp targetAction
+theorem target_composite : type_of% (Ordinary.WithTarget.pullbackRealization_comp target_action_smooth
     (scale 2) (scale_smooth 2) (scale 3) (scale_smooth 3) target) :=
-  Ordinary.WithTarget.pullbackRealization_comp targetAction
+  Ordinary.WithTarget.pullbackRealization_comp target_action_smooth
     (scale 2) (scale_smooth 2) (scale 3) (scale_smooth 3) target
 
-def targetDimensionChanging := Ordinary.WithTarget.reconstructionPullbackComponent targetAction
+def targetDimensionChanging := Ordinary.WithTarget.reconstructionPullbackComponent target_action_smooth
   SmoothBundlePullback.coordinate SmoothBundlePullback.coordinate_smooth quotient
 
 end BaseChange

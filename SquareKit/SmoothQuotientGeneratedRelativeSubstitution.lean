@@ -26,8 +26,8 @@ theorem relativeFamilyData_sub (A : SplitSheaf.Ty X) :
 
 def relativeSubstitution (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap
-      ((relativeFamilyData a hΔ (.sub hB hs) A).total (relativeFamilyCoherence a hΔ (.sub hB hs) A))
-      ((relativeFamilyData a hΓ hB A).total (relativeFamilyCoherence a hΓ hB A)) :=
+      ((relativeFamilyData a hΔ (.sub hB hs) A).total (relativeFamilyData_coherence a hΔ (.sub hB hs) A))
+      ((relativeFamilyData a hΓ hB A).total (relativeFamilyData_coherence a hΓ hB A)) :=
   ((relativeToGenerated a hΔ (.sub hB hs) A).comp
     (substitutionDiagram a (.ext hΓ hB) (.ext hΔ (.sub hB hs))
       (Typed.Authoring.liftSubstitution hΔ hB hs) A)).comp
@@ -35,9 +35,9 @@ def relativeSubstitution (A : SplitSheaf.Ty X) :
 
 theorem relativeSubstitution_projection (A : SplitSheaf.Ty X) :
     (relativeSubstitution a hΓ hΔ hB hs A).comp
-        ((relativeFamilyData a hΓ hB A).projection (relativeFamilyCoherence a hΓ hB A)) =
+        ((relativeFamilyData a hΓ hB A).projection (relativeFamilyData_coherence a hΓ hB A)) =
       ((relativeFamilyData a hΔ (.sub hB hs) A).projection
-        (relativeFamilyCoherence a hΔ (.sub hB hs) A)).comp
+        (relativeFamilyData_coherence a hΔ (.sub hB hs) A)).comp
           (substitutionDiagram a hΓ hΔ hs A) :=
   CechMatching.StrictMap.ext _ _ rfl rfl rfl
 

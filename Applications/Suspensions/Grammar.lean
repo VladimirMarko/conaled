@@ -31,14 +31,14 @@ inductive Role where
 structure Identifier (inheritedIdentifier : String → Prop) where
   spelling : String
   inherited : inheritedIdentifier spelling
-  notDollar : spelling ≠ "$"
+  ne_dollar : spelling ≠ "$"
   role : Role
 
 /-- There is no identifier token whose spelling is the newly reserved word. -/
 theorem dollar_not_identifier (inheritedIdentifier : String → Prop) :
     ¬ ∃ name : Identifier inheritedIdentifier, name.spelling = "$" := by
   rintro ⟨name, spelling⟩
-  exact name.notDollar spelling
+  exact name.ne_dollar spelling
 
 namespace Role
 

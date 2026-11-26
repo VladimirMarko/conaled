@@ -102,7 +102,7 @@ theorem translate_derivation (d : Internal.Derives p q) :
   | subst σ _ ih =>
     rw [translate_formula_subst, translate_formula_subst]
     rcases ih with ⟨ih⟩; exact ⟨.subst (translateSub σ) ih⟩
-  | elimWith _ ih =>
+  | elim_with _ ih =>
     simp only [translateFormula, translate_shift] at ih ⊢
     rcases ih with ⟨ih⟩; exact ⟨.elimWith ih⟩
   | elim _ ih =>
@@ -145,13 +145,13 @@ theorem graph_equivalence {A B C : Type v} (f : A → B) (g : B → C) (x : A) (
 
 theorem forward_comparison {A B C : Type v} (f : A → B) (g : B → C)
     (x : A) (z : C) (h : ∃ y, y = f x ∧ z = g y) :
-    (graph_equivalence f g x z).mp h = (Graph.inSet f g x z).mp h :=
+    (graph_equivalence f g x z).mp h = (Graph.in_set f g x z).mp h :=
   proof_comparison (Graph.model f g) (Graph.environment f g x z)
     (Graph.forward Graph.Arrow.first Graph.Arrow.second) forward h
 
 theorem backward_comparison {A B C : Type v} (f : A → B) (g : B → C)
     (x : A) (z : C) (h : z = g (f x)) :
-    (graph_equivalence f g x z).mpr h = (Graph.inSet f g x z).mpr h :=
+    (graph_equivalence f g x z).mpr h = (Graph.in_set f g x z).mpr h :=
   proof_comparison (Graph.model f g) (Graph.environment f g x z)
     (Graph.backward Graph.Arrow.first Graph.Arrow.second) backward h
 

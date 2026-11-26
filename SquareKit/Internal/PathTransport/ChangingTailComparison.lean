@@ -50,7 +50,7 @@ def propagate {E E' : Cat.{u,u}} {R : E' ⥤ E} (T : ChangingTail K R) {D D' : C
     ⟨Grothendieck.map (whiskerLeft (previous.source.reindex e').2.2.equiv.functor α) ⋙
         EquivalenceSquare.branchMap (previous.target.reindex e).2.2.equiv
           (previous.source.reindex e').2.2.equiv _ p.val p.property A,
-      EquivalenceSquare.liftChangingSquare (previous.target.reindex e).2.2.equiv
+      EquivalenceSquare.lift_changing_square (previous.target.reindex e).2.2.equiv
         (previous.source.reindex e').2.2.equiv _ p.val p.property A B α⟩
 termination_by structural T
 
@@ -94,7 +94,7 @@ theorem normalized_eq_instance (C : Type u) [Groupoid.{u} C] (F : C ⥤ Type u)
 
 /-- The root square and every dependent-extension square are constructed from
 the base/family data. Only the ordinary mapped-branch equation remains an input. -/
-theorem eliminateChangingTail {Γ Δ : Type u} [Category.{u} Γ] [IsGroupoid Γ]
+theorem changingTail_eliminate {Γ Δ : Type u} [Category.{u} Γ] [IsGroupoid Γ]
     [Category.{u} Δ] [IsGroupoid Δ]
     (A : Γ ⥤ Grpd.{u,u}) (B : Δ ⥤ Grpd.{u,u}) (K : Δ ⥤ Γ)
     (α : B ⟶ K ⋙ A) (x : Section A) (y : Section B)
@@ -108,10 +108,10 @@ theorem eliminateChangingTail {Γ Δ : Type u} [Category.{u} Γ] [IsGroupoid Γ]
     (s' : (T.source.reindex (normalized B y)).1 ⥤ Grothendieck Q)
     (hs' : s' ⋙ Grothendieck.forget Q = (T.source.reindex (normalized B y)).2.2.equiv.functor)
     (hb : s' ⋙ Grothendieck.map β ⋙ Grothendieck.pre P R =
-      (T.propagate (normalized A x) (normalized B y) K (baseFamilySquare A B K α x y h)).val ⋙ s) :
+      (T.propagate (normalized A x) (normalized B y) K (base_family_square A B K α x y h)).val ⋙ s) :
     (T.source.reindex (normalized B y)).2.2.eliminate s' hs' ⋙ Grothendieck.map β ⋙
       Grothendieck.pre P R = R ⋙ (T.target.reindex (normalized A x)).2.2.eliminate s hs :=
-  T.eliminate (normalized A x) (normalized B y) K (baseFamilySquare A B K α x y h)
+  T.eliminate (normalized A x) (normalized B y) K (base_family_square A B K α x y h)
     P Q β s hs s' hs' hb
 
 end SquareKit.Internal.PathTransport.GroupoidModel.PathComparison

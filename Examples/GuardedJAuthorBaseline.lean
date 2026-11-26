@@ -39,7 +39,7 @@ def outerTerm := (outer hΓ hA hx hT hQ hp).genericTerm
 
 def rawTerm {Γ γ A a t ξ} (_h : TmDeriv Γ γ A a t ξ) : Expr := t
 
-theorem selectedRecipe : rawTerm (outerTerm hΓ hA hx hT hQ hp) =
+theorem selected_recipe : rawTerm (outerTerm hΓ hA hx hT hQ hp) =
     genericJRaw n A x
       (.identity (.identity Q p p)
         (genericJRaw n A x (.identity Q p p)
@@ -61,7 +61,7 @@ def rootRight := by
     (castCode (subTyComp_code cmd.motive.code (rootTailCode a ξ T)
       (idCode (branchCode a ξ T)))
       (subTmCode cmd.motive.branchCode (idCode (branchCode a ξ T)))) at result
-  rw [reflexiveCompose] at result
+  rw [reflexive_compose] at result
   exact result
 
 def typedEquation {Γ γ A a t ξ v ν}
@@ -93,26 +93,26 @@ def workedRight := substitutedRight hΓ hA hx hT hQ hp
 def workedBeta := substitutedBeta hΓ hA hx hT hQ hp
   (dependentWeakening hΓ hA hx hT hQ hp)
 
-theorem comparisonSound (M : Model.{u}) :
+theorem comparison_sound (M : Model.{u}) :
     interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
       interpretTm M (substitutedRight hΓ hA hx hT hQ hp hσ) := by
   rw [interpretTm_agrees, interpretTm_agrees]
-  exact congrFun (termSound (substitutedBeta hΓ hA hx hT hQ hp hσ)) M
+  exact congrFun (term_sound (substitutedBeta hΓ hA hx hT hQ hp hσ)) M
 
-theorem selectedRoot (M : Model.{u}) :
+theorem selected_root (M : Model.{u}) :
     HEq (M.subTm ((outer hΓ hA hx hT hQ hp).interpret M)
       (rootTailCode a ξ T M))
       ((outer hΓ hA hx hT hQ hp).motive.branchCode M) :=
   (outer hΓ hA hx hT hQ hp).beta M
 
-theorem workedSound (M : Model.{u}) :
+theorem worked_sound (M : Model.{u}) :
     interpretTm M (workedLeft hΓ hA hx hT hQ hp) =
       interpretTm M (workedRight hΓ hA hx hT hQ hp) :=
-  comparisonSound hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp) M
+  comparison_sound hΓ hA hx hT hQ hp (dependentWeakening hΓ hA hx hT hQ hp) M
 
 /-- The two J selections and the root, identity and arbitrary substitutions
 remain in the exact full model underlying the stable Sigma capability. -/
-theorem extensionSelected (M : Model.{u})
+theorem extension_selected (M : Model.{u})
     (_S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel) :
     interpretTm M (substitutedLeft hΓ hA hx hT hQ hp hσ) =
       subTmCode

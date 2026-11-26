@@ -108,11 +108,11 @@ def fullModel : Typed.Model.{u+1} where
 def leftModelMap : Typed.ModelMap (fullModel S)
     (Instance.fullModel S.base.left S.leftFiber) where
   toStructuralMap := leftProjection S
-  mapJ := contextualJ_left S
+  j_preserved := contextualJ_left S
 
 def rightModelMap : Typed.ModelMap (fullModel S)
     (Instance.fullModel S.base.right S.rightFiber) where
   toStructuralMap := rightProjection S
-  mapJ := contextualJ_right S
+  j_preserved := contextualJ_right S
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

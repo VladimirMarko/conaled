@@ -50,10 +50,10 @@ theorem relativeFamilyData_identity (A : SplitSheaf.Ty X) :
   simp only [generatedFamilyMap_identity_set]
   rfl
 
-theorem identitySetCoherence (A : SplitSheaf.Ty X) :
+theorem identitySetData_coherence (A : SplitSheaf.Ty X) :
     (identitySetData a hΓ hB hx hy A).toFamilyData.Coherence := by
   rw [← relativeFamilyData_identity a hΓ hB hx hy A]
-  exact relativeFamilyCoherence a hΓ (.identity hB hx hy) A
+  exact relativeFamilyData_coherence a hΓ (.identity hB hx hy) A
 
 /-- Identity relative matching is exactly the discrete set of local values
 satisfying the actual overlap equation over the supplied base datum. -/
@@ -62,8 +62,8 @@ def identityMatchingEquivalence (A : SplitSheaf.Ty X) (d : Datum a hΓ A) :
       Discrete ((identitySetData a hΓ hB hx hy A).MatchingSet d) :=
   (CechMatching.Comprehension.Constant.equivalenceOfGrpdIso
     ((CechMatching.Comprehension.Constant.familyIsoOfEq (relativeFamilyData_identity a hΓ hB hx hy A)
-      (relativeFamilyCoherence a hΓ (.identity hB hx hy) A) (identitySetCoherence a hΓ hB hx hy A)).app d)).trans
-    ((identitySetData a hΓ hB hx hy A).discreteEquivalence (identitySetCoherence a hΓ hB hx hy A) d)
+      (relativeFamilyData_coherence a hΓ (.identity hB hx hy) A) (identitySetData_coherence a hΓ hB hx hy A)).app d)).trans
+    ((identitySetData a hΓ hB hx hy A).discreteEquivalence (identitySetData_coherence a hΓ hB hx hy A) d)
 
 theorem identityMatchingEquivalence_value (A : SplitSheaf.Ty X) (d : Datum a hΓ A)
     (z : (relativeMatchingFamily a hΓ (.identity hB hx hy) A).obj d) :
@@ -71,7 +71,7 @@ theorem identityMatchingEquivalence_value (A : SplitSheaf.Ty X) (d : Datum a hΓ
       z.localFiber.as := by
   have hh := CechMatching.Comprehension.Constant.familyIsoOfEq_localFiber
     (relativeFamilyData_identity a hΓ hB hx hy A)
-    (relativeFamilyCoherence a hΓ (.identity hB hx hy) A) (identitySetCoherence a hΓ hB hx hy A) d z
+    (relativeFamilyData_coherence a hΓ (.identity hB hx hy) A) (identitySetData_coherence a hΓ hB hx hy A) d z
   exact heq_of_eq (congrArg Discrete.as (eq_of_heq hh))
 
 end SquareKit.SmoothQuotientGeneratedMatching

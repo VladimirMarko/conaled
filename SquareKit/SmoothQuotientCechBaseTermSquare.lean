@@ -47,7 +47,7 @@ def primitiveOverlap : primitiveLocalMap a A ⋙
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a (SplitSheaf.Cech.double A)) (firstFiber a A) (secondFiber a A)
 
-theorem primitiveConeLaws : CechMatching.ConeLaws
+theorem primitive_coneLaws : CechMatching.ConeLaws
     (D := (SmoothQuotientGeneratedMatching.baseDiagram a A).toDiagram)
     (primitiveLocalMap a A) (primitiveOverlap a A) where
   diagonal := by
@@ -110,7 +110,7 @@ def primitiveCoefficientFunctor :
     AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A) ⥤
       CechMatching.Datum (SmoothQuotientGeneratedMatching.baseDiagram a A).toDiagram :=
   CechMatching.coneFunctor (primitiveLocalMap a A) (primitiveOverlap a A)
-    (primitiveConeLaws a A)
+    (primitive_coneLaws a A)
 
 theorem matchingEvaluation_baseTerm :
     matchingEvaluation a A hΓ ⋙
@@ -120,7 +120,7 @@ theorem matchingEvaluation_baseTerm :
     (SmoothQuotientGeneratedMatching.baseTermDiagram a hΓ hx A)
     (localMap a A hΓ) (primitiveLocalMap a A) (baseFunctor (ξ (model a A)).down)
     (generatedOverlap a A hΓ) (primitiveOverlap a A)
-    (generatedConeLaws a A hΓ) (primitiveConeLaws a A)
+    (generated_coneLaws a A hΓ) (primitive_coneLaws a A)
     (generatedBaseTerm_commutes (signature a A) hΓ hx).symm
   exact CechMatching.ConeMap.transportedOverlap_of_square
     (SmoothQuotientGeneratedMatching.baseTermDiagram a hΓ hx A)

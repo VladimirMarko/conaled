@@ -27,7 +27,7 @@ noncomputable def guardedBranchCongruence : Target (Ω := declarations.map Decla
     (.eq (j A x (tail.code P) D branch') (j A x (tail.code P) D branch)) :=
   translate branchCongruence
 
-theorem interpretedBranchCongruence : (Claim.eq (.tm ΓC D)
+theorem interpreted_branchCongruence : (Claim.eq (.tm ΓC D)
     (j A x (tail.code P) D branch') (j A x (tail.code P) D branch)).Valid Native.M Native.environment :=
   sound Native.M Native.environment Native.declarations_valid branchCongruence
 
@@ -44,7 +44,7 @@ noncomputable def guardedMotiveCongruence : Target (Ω := declarations.map Decla
     (.eq (j A x (tail.code P) D branch) (j A x (tail.code P) D' branch)) :=
   translate motiveCongruence
 
-theorem interpretedMotiveCongruence : (Claim.eq (.tm ΓC D')
+theorem interpreted_motiveCongruence : (Claim.eq (.tm ΓC D')
     (j A x (tail.code P) D branch) (j A x (tail.code P) D' branch)).Valid Native.M Native.environment :=
   sound Native.M Native.environment Native.declarations_valid motiveCongruence
 
@@ -68,7 +68,7 @@ noncomputable def tailCongruence : Derives declarations
 noncomputable def guardedTailCongruence : Target (Ω := declarations.map Declaration.encode)
     (.eq (tail.code P) (tail'.code P)) := translate tailCongruence
 
-theorem interpretedTailCongruence : (Claim.eq (.tel 2 P)
+theorem interpreted_tailCongruence : (Claim.eq (.tel 2 P)
     (tail.code P) (tail'.code P)).Valid Native.M Native.environment :=
   sound Native.M Native.environment Native.declarations_valid tailCongruence
 

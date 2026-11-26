@@ -232,11 +232,11 @@ finite cases are supplementary evidence.
 | FDSA-5-8 | Actual successor deletion: OT.`deleteBy`, `delete`, `deleteBy_node`, `deleteBy_eq_root_nil`, `deleteBy_eq_root_extract` | Equality callback uses only proved nonempty extraction calls; G03/G04/G07 |
 | FDSA-5-9 | Literal two-branch source join: T.`join`, `join_nil_left`, `join_nil_right`, `join_node_node` | Both returned-middle branches retained; G04/G05 |
 | FDSA-5-10 | Raw inorder join and consequences: T.`inorder_join`, `numNodes_join`, `setTree_join`; OT.`orderedBy_join` | Raw structural union and ordered strict cross bounds; G04/G05 |
-| FDSA-5-11 | Actual join deletion and refinement: OT.`deleteJoinBy`, `deleteJoin`, `deleteJoinBy_node`, `inorder_deleteJoin`, `deleteJoinSetLaws`, `refinedDeleteJoinSetLaws` | Distinct shape, same exact valid observation; G03/G04/G14 |
+| FDSA-5-11 | Actual join deletion and refinement: OT.`deleteJoinBy`, `deleteJoin`, `deleteJoinBy_node`, `inorder_deleteJoin`, `deleteJoin_set_laws`, `refined_deleteJoin_set_laws` | Distinct shape, same exact valid observation; G03/G04/G14 |
 | FDSA-5-12 | Literal simpler join: T.`join0`, nil identities and `join0_node_node` | Separate raw inorder/contents/size and OT.`orderedBy_join0`; G04/G05 |
 | FDSA-5-13 | Raw deletion height nonincrease: T.`extractLeftmost_height_le`, `height_joinLeftmost_le`; OT.`height_deleteWith_le`, `height_delete_le`, `height_deleteJoin_le` | No BST premise, actual chosen callbacks; G02/G03/G07 |
-| FDSA-5-14 | Four set semantics: OT.`deleteSetLaws`, `deleteJoinSetLaws` | Structural observer, exact removal; separate composed contracts below; G01/G03/G14 |
-| FDSA-5-15 | Three validity laws for each client: OT.`deleteLaws`, `deleteJoinLaws`, `ordered_delete`, `ordered_deleteJoin` | Uses raw All preservation before exact semantics; G03/G14 |
+| FDSA-5-14 | Four set semantics: OT.`delete_set_laws`, `deleteJoin_set_laws` | Structural observer, exact removal; separate composed contracts below; G01/G03/G14 |
+| FDSA-5-15 | Three validity laws for each client: OT.`deleteLaws`, `deleteJoin_laws`, `ordered_delete`, `ordered_deleteJoin` | Uses raw All preservation before exact semantics; G03/G14 |
 | FDSA-5-16 | Arbitrary mixed updates and every prefix: AS.`Update`, `execute`, `DeleteLaws.execute_valid`, `prefix_valid`, `execute_observe`, `execute_from_empty` | Existing reachable fold fusion; actual direct/refined/lifted consumers G14/G17 |
 | FDSA-5-17 | Independent node triples and both full-child bounds: OT.`nodes`, `nodes_node`, `OrderedNodesBy`, `orderedNodesBy_iff`, `orderedNodes_iff` | Rooted subtree induction, LT-only; child-root counterexample G08 |
 | FDSA-5-18 | Exact join bound: T.`height_join_le` | All raw trees, additive constant 1; G04/G05 |
@@ -262,7 +262,7 @@ finite cases are supplementary evidence.
 | FDSA-5-38 | Strict-list deletion difference: OL.`mem_delete`, stronger uniqueness helper `mem_delete_of_nodup` | Raw duplicate counterexample retained; G09 |
 | FDSA-5-39 | Insertion preserves strictness: OL.`strict_insert` | Actual source operation, existing Pairwise infrastructure; G09/G11 |
 | FDSA-5-40 | Deletion preserves strictness: OL.`strict_delete` | Checked erase bridge and Pairwise erase; G09/G12 |
-| FDSA-5-41 | One reusable composition: AS.`Refinement`, `Refinement.Valid`, `.laws`, `.execute`; OT.`inorderRefinement`, `inorderJoinRefinement`, both `refinedDelete...SetLaws` | Aux ∧ target validity, actual primitive commutation, both real algorithms; flag and mixed consumers G14/G15/G17 |
+| FDSA-5-41 | One reusable composition: AS.`Refinement`, `Refinement.Valid`, `.laws`, `.execute`; OT.`inorder_refinement`, `inorder_join_refinement`, both `refinedDelete...SetLaws` | Aux ∧ target validity, actual primitive commutation, both real algorithms; flag and mixed consumers G14/G15/G17 |
 
 ## Concrete-case ownership
 

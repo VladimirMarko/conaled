@@ -28,9 +28,9 @@ required separately and permits nontrivial torsors. -/
 structure Torsor (G : Sheaf J GrpCat.{w}) (X : Sheaf J (Type w)) extends Action G X where
   principal (x : X.obj.Elements) (p q : family.family.obj x) :
     ∃! g : G.obj.obj x.obj, act x g p = q
-  locallySurjective : Presheaf.IsLocallySurjective J (SplitSheaf.p family).hom
+  isLocallySurjective : Presheaf.IsLocallySurjective J (SplitSheaf.p family).hom
 
-attribute [instance] Torsor.locallySurjective
+attribute [instance] Torsor.isLocallySurjective
 variable {G : Sheaf J GrpCat.{w}} {X Y Z : Sheaf J (Type w)}
 
 /-- Equivariant isomorphisms of the actual slice families. -/
@@ -118,7 +118,7 @@ theorem reindex_locallySurjective (P : Torsor G X) (f : Y ⟶ X) :
 def reindex (P : Torsor G X) (f : Y ⟶ X) : Torsor G Y where
   toAction := P.toAction.reindex f
   principal x := P.principal (f.hom.mapElements.obj x)
-  locallySurjective := reindex_locallySurjective P f
+  isLocallySurjective := reindex_locallySurjective P f
 
 def Arrow.reindex {P Q : Torsor G X} (h : Arrow P Q) (f : Y ⟶ X) :
     Arrow (reindex P f) (reindex Q f) where
@@ -156,7 +156,7 @@ def trivial (G : Sheaf J GrpCat.{w}) (X : Sheaf J (Type w)) : Torsor G X where
     · exact inv_mul_cancel_right q p
     · intro g hg
       exact (eq_mul_inv_iff_mul_eq).mpr hg
-  locallySurjective := Presheaf.isLocallySurjective_of_surjective J _ (fun U y =>
+  isLocallySurjective := Presheaf.isLocallySurjective_of_surjective J _ (fun U y =>
     ⟨⟨y, (1 : G.obj.obj U)⟩, rfl⟩)
 
 @[simp] theorem trivial_reindex (f : Y ⟶ X) : reindex (trivial G X) f = trivial G Y := rfl

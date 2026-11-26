@@ -208,42 +208,42 @@ def gOperations : OperationMap projectionSignature eliminationSignature where
     intro V W f s a
     cases s <;> simp [gOperation, Expr.subst]
 
-def G : SyntaxMap projectionSignature eliminationSignature := .ofOperations gOperations
+def projectionToElimination : SyntaxMap projectionSignature eliminationSignature := .ofOperations gOperations
 
-theorem G_two_substitutions (e : PExpr V) (σ : V → PExpr W) (τ : W → PExpr X) :
-    Expr.subst (fun w => G.act (τ w)) (G.act (Expr.subst σ e)) =
-      G.act (Expr.subst (fun v => Expr.subst τ (σ v)) e) := by
-  rw [G.substitution, Expr.subst_comp, G.substitution]
-  simp only [G.substitution]
+theorem projectionToElimination_two_substitutions (e : PExpr V) (σ : V → PExpr W) (τ : W → PExpr X) :
+    Expr.subst (fun w => projectionToElimination.act (τ w)) (projectionToElimination.act (Expr.subst σ e)) =
+      projectionToElimination.act (Expr.subst (fun v => Expr.subst τ (σ v)) e) := by
+  rw [projectionToElimination.substitution, Expr.subst_comp, projectionToElimination.substitution]
+  simp only [projectionToElimination.substitution]
 
-@[simp] theorem G_P (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) :
-    G.act (Projection.P A B) = Elimination.S (G.act A) (G.act B) := by
-  change Elimination.S (unzero (G.act (zero A))) (G.act B) = _
-  simp [zero, G.rename, unzero]
+@[simp] theorem projectionToElimination_P (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) :
+    projectionToElimination.act (Projection.P A B) = Elimination.S (projectionToElimination.act A) (projectionToElimination.act B) := by
+  change Elimination.S (unzero (projectionToElimination.act (zero A))) (projectionToElimination.act B) = _
+  simp [zero, projectionToElimination.rename, unzero]
 
-@[simp] theorem G_pair (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (a b : PExpr V) :
-    G.act (Projection.pair A B a b) =
-      Elimination.pack (G.act A) (G.act B) (G.act a) (G.act b) := by
-  change Elimination.pack (unzero (G.act (zero A))) (G.act B)
-    (unzero (G.act (zero a))) (unzero (G.act (zero b))) = _
-  simp [zero, G.rename, unzero]
+@[simp] theorem projectionToElimination_pair (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (a b : PExpr V) :
+    projectionToElimination.act (Projection.pair A B a b) =
+      Elimination.pack (projectionToElimination.act A) (projectionToElimination.act B) (projectionToElimination.act a) (projectionToElimination.act b) := by
+  change Elimination.pack (unzero (projectionToElimination.act (zero A))) (projectionToElimination.act B)
+    (unzero (projectionToElimination.act (zero a))) (unzero (projectionToElimination.act (zero b))) = _
+  simp [zero, projectionToElimination.rename, unzero]
 
-@[simp] theorem G_first (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (p : PExpr V) :
-    G.act (Projection.fst A B p) = Elimination.first (G.act A) (G.act B) (G.act p) := by
-  change Elimination.first (unzero (G.act (zero A))) (G.act B)
-    (unzero (G.act (zero p))) = _
-  simp [zero, G.rename, unzero]
+@[simp] theorem projectionToElimination_first (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (p : PExpr V) :
+    projectionToElimination.act (Projection.fst A B p) = Elimination.first (projectionToElimination.act A) (projectionToElimination.act B) (projectionToElimination.act p) := by
+  change Elimination.first (unzero (projectionToElimination.act (zero A))) (projectionToElimination.act B)
+    (unzero (projectionToElimination.act (zero p))) = _
+  simp [zero, projectionToElimination.rename, unzero]
 
-@[simp] theorem G_second (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (p : PExpr V) :
-    G.act (Projection.snd A B p) = Elimination.second (G.act A) (G.act B) (G.act p) := by
-  change Elimination.second (unzero (G.act (zero A))) (G.act B)
-    (unzero (G.act (zero p))) = _
-  simp [zero, G.rename, unzero]
+@[simp] theorem projectionToElimination_second (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (p : PExpr V) :
+    projectionToElimination.act (Projection.snd A B p) = Elimination.second (projectionToElimination.act A) (projectionToElimination.act B) (projectionToElimination.act p) := by
+  change Elimination.second (unzero (projectionToElimination.act (zero A))) (projectionToElimination.act B)
+    (unzero (projectionToElimination.act (zero p))) = _
+  simp [zero, projectionToElimination.rename, unzero]
 
 /-- The selected source component remains the same raw variable, including after
 both substitutions; the family expression is translated independently. -/
 theorem selected_variable (z : V) (σ : V → PExpr W) (τ : W → PExpr X) :
-    Expr.subst (fun w => G.act (τ w)) (G.act (Expr.subst σ (.var z))) =
-      G.act (Expr.subst τ (σ z)) := G_two_substitutions (.var z) σ τ
+    Expr.subst (fun w => projectionToElimination.act (τ w)) (projectionToElimination.act (Expr.subst σ (.var z))) =
+      projectionToElimination.act (Expr.subst τ (σ z)) := projectionToElimination_two_substitutions (.var z) σ τ
 
 end SquareKit.DependentPairPresentations

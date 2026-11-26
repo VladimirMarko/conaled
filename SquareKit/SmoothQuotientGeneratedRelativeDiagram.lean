@@ -40,43 +40,43 @@ theorem restriction_extend (f : Y ⟶ X) :
   generatedContextMap_extend (SmoothQuotientComparison.signature (a := a) f) hΓ hB
 
 /-- Strict coherence comes from actual context restriction, including extensions. -/
-theorem relativeFamilyCoherence (A : SplitSheaf.Ty X) :
+theorem relativeFamilyData_coherence (A : SplitSheaf.Ty X) :
     (relativeFamilyData a hΓ hB A).Coherence where
-  diagonalFirst := by
+  diagonal_first := by
     change totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.first A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.diagonal A)) = _
     rw [← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) A).diagonalFirst
-  diagonalSecond := by
+    exact (strictDiagram a (.ext hΓ hB) A).diagonal_first
+  diagonal_second := by
     change totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.second A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.diagonal A)) = _
     rw [← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) A).diagonalSecond
-  tripleFirst := by
+    exact (strictDiagram a (.ext hΓ hB) A).diagonal_second
+  triple_first := by
     change totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.first A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.firstSecond A)) =
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.first A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.firstThird A))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) A).tripleFirst
-  tripleMiddle := by
+    exact (strictDiagram a (.ext hΓ hB) A).triple_first
+  triple_middle := by
     change totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.second A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.firstSecond A)) =
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.first A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.secondThird A))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) A).tripleMiddle
-  tripleLast := by
+    exact (strictDiagram a (.ext hΓ hB) A).triple_middle
+  triple_last := by
     change totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.second A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.firstThird A)) =
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.second A)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SplitSheaf.Cech.secondThird A))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) A).tripleLast
+    exact (strictDiagram a (.ext hΓ hB) A).triple_last
 
 def relativeToGenerated (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap ((relativeFamilyData a hΓ hB A).total
-      (relativeFamilyCoherence a hΓ hB A)) (strictDiagram a (.ext hΓ hB) A) where
+      (relativeFamilyData_coherence a hΓ hB A)) (strictDiagram a (.ext hΓ hB) A) where
   localMap := 𝟭 _
   doubleMap := 𝟭 _
   tripleMap := 𝟭 _
@@ -89,7 +89,7 @@ def relativeToGenerated (A : SplitSheaf.Ty X) :
 
 def generatedToRelative (A : SplitSheaf.Ty X) :
     CechMatching.StrictMap (strictDiagram a (.ext hΓ hB) A)
-      ((relativeFamilyData a hΓ hB A).total (relativeFamilyCoherence a hΓ hB A)) where
+      ((relativeFamilyData a hΓ hB A).total (relativeFamilyData_coherence a hΓ hB A)) where
   localMap := 𝟭 _
   doubleMap := 𝟭 _
   tripleMap := 𝟭 _
@@ -103,7 +103,7 @@ def generatedToRelative (A : SplitSheaf.Ty X) :
 /-- The relative total diagram is the actual generated extended-context diagram. -/
 def relativeMatchingEquivalence (A : SplitSheaf.Ty X) :
     CechMatching.Datum ((relativeFamilyData a hΓ hB A).total
-      (relativeFamilyCoherence a hΓ hB A)).toDiagram ≌ Datum a (.ext hΓ hB) A :=
+      (relativeFamilyData_coherence a hΓ hB A)).toDiagram ≌ Datum a (.ext hΓ hB) A :=
   (relativeToGenerated a hΓ hB A).equivalence (generatedToRelative a hΓ hB A)
     (CechMatching.StrictMap.ext _ _ rfl rfl rfl)
     (CechMatching.StrictMap.ext _ _ rfl rfl rfl)

@@ -45,7 +45,7 @@ theorem contractionEndpointSquare_action {x y : PathContext F} (p : x ⟶ y) :
   apply HEq.trans (TwoIdentityTransport.homComparison_identity_path (F.map p.base.base) u σ)
   exact TwoIdentityTransport.pathSquare_cancel u _ _ _ p.fiber.as
 /-- The normalized left endpoint sends reflexivity to the target path. -/
-theorem contractionLeftBoundary {x y : PathContext F} (p : x ⟶ y) :
+theorem contraction_left_boundary {x y : PathContext F} (p : x ⟶ y) :
     (openIdMap F (contractionLeftEndpoint F p)).obj (𝟙 x.base.fiber.1) = y.fiber.as := by
   let u : (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 := p.base.fiber.1
   let : IsIso u := IsGroupoid.all_isIso _
@@ -54,7 +54,7 @@ theorem contractionLeftBoundary {x y : PathContext F} (p : x ⟶ y) :
   simp
 
 /-- The normalized right endpoint sends reflexivity to the transported source path. -/
-theorem contractionRightBoundary {x y : PathContext F} (p : x ⟶ y) :
+theorem contraction_right_boundary {x y : PathContext F} (p : x ⟶ y) :
     (openIdMap F (contractionRightEndpoint F p)).obj (𝟙 x.base.fiber.1) =
       (openIdMap F p.base).obj x.fiber.as := by
   let u : (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 := p.base.fiber.1
@@ -68,12 +68,12 @@ theorem contractionRightBoundary {x y : PathContext F} (p : x ⟶ y) :
 /-- The normalized left composite lifted into the actual total path context. -/
 noncomputable def contractionLeftArrow {x y : PathContext F} (p : x ⟶ y) :
     pathReflexivityObj F ((pathFirst F).obj x) ⟶ y :=
-  ⟨contractionLeftEndpoint F p, Discrete.mk (eqToHom (contractionLeftBoundary F p))⟩
+  ⟨contractionLeftEndpoint F p, Discrete.mk (eqToHom (contraction_left_boundary F p))⟩
 /-- The normalized right composite retains the original path-family cell. -/
 noncomputable def contractionRightArrow {x y : PathContext F} (p : x ⟶ y) :
     pathReflexivityObj F ((pathFirst F).obj x) ⟶ y :=
   ⟨contractionRightEndpoint F p,
-    Discrete.mk (eqToHom (contractionRightBoundary F p) ≫ p.fiber.as)⟩
+    Discrete.mk (eqToHom (contraction_right_boundary F p) ≫ p.fiber.as)⟩
 /-- The normalized endpoint comparison lifts to a genuine cell in the actual total path context. -/
 noncomputable def contractionLiftCell {x y : PathContext F} (p : x ⟶ y) :
     contractionLeftArrow F p ⟶ contractionRightArrow F p :=
@@ -82,11 +82,11 @@ noncomputable def contractionLiftCell {x y : PathContext F} (p : x ⟶ y) :
     (f := (contractionLeftArrow F p).fiber) (g := (contractionRightArrow F p).fiber)
     (contractionEndpointSquare F p) (eqToHom (by
       apply Discrete.ext
-      change eqToHom (contractionLeftBoundary F p) =
+      change eqToHom (contraction_left_boundary F p) =
         (openIdCell F (contractionEndpointSquare F p)).app (𝟙 x.base.fiber.1) ≫
-          (eqToHom (contractionRightBoundary F p) ≫ p.fiber.as)
-      have h := (conj_eqToHom_iff_heq' _ _ (contractionLeftBoundary F p)
-        (contractionRightBoundary F p).symm).2 (contractionEndpointSquare_action F p)
+          (eqToHom (contraction_right_boundary F p) ≫ p.fiber.as)
+      have h := (conj_eqToHom_iff_heq' _ _ (contraction_left_boundary F p)
+        (contraction_right_boundary F p).symm).2 (contractionEndpointSquare_action F p)
       rw [h]
       simp only [Category.assoc, eqToHom_trans_assoc, eqToHom_refl, Category.id_comp]
       rw [IsIso.inv_hom_id, Category.comp_id]))

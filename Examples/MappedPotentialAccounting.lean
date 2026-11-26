@@ -107,7 +107,7 @@ private theorem closed (i : Unit) (s : Nat) (hs : Valid s) : Valid (step i s).1 
   have small : s = 0 ∨ s = 1 := by unfold Valid at hs; omega
   rcases small with rfl | rfl <;> norm_num [step, Valid]
 
-private theorem localLaw (i : Unit) (s : Nat) (hs : Valid s) :
+private theorem local_law (i : Unit) (s : Nat) (hs : Valid s) :
     (Nat.castAddMonoidHom ℝ) (step i s).2 + potential (step i s).1 =
       potential s + charge i s := by
   have small : s = 0 ∨ s = 1 := by unfold Valid at hs; omega
@@ -121,12 +121,12 @@ private theorem boundary (is : List Unit) (s : Nat) (hs : Valid s) :
     ((run step is s).2 : ℝ) + potential (run step is s).1 =
       potential s + budget step charge is s :=
   run_potential_map_exact_of_invariant step charge potential (Nat.castAddMonoidHom ℝ)
-    Valid closed localLaw is s hs
+    Valid closed local_law is s hs
 
 private theorem work_bound (is : List Unit) (s : Nat) (hs : Valid s) :
     ((run step is s).2 : ℝ) ≤ potential s + budget step charge is s :=
   run_cost_le_map_of_invariant step charge potential (Nat.castAddMonoidHom ℝ)
-    Valid closed (fun i s hs => (localLaw i s hs).le) nonneg is s hs
+    Valid closed (fun i s hs => (local_law i s hs).le) nonneg is s hs
 
 example : Valid 0 := by norm_num [Valid]
 

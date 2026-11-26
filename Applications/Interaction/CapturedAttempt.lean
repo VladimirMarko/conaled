@@ -22,19 +22,19 @@ The histories can describe nonatomic reads; the fixture uses stable read windows
 structure CaptureChain {A : Type u} {B : Type v} {H : Type w}
     (readA : H → A → Prop) (readB : H → B → Prop)
     (ha hb : H) (captured sealed consumed : A × B) : Prop where
-  returnedA : readA ha captured.1
-  returnedB : readB hb captured.2
-  wroteA : sealed.1 = captured.1
-  wroteB : sealed.2 = captured.2
-  childReadA : consumed.1 = sealed.1
-  childReadB : consumed.2 = sealed.2
+  readA_holds : readA ha captured.1
+  readB_holds : readB hb captured.2
+  wrote_a : sealed.1 = captured.1
+  wrote_b : sealed.2 = captured.2
+  child_read_a : consumed.1 = sealed.1
+  child_read_b : consumed.2 = sealed.2
 
 theorem capture_chain {A : Type u} {B : Type v} {H : Type w}
     {ra : H → A → Prop} {rb : H → B → Prop} {ha hb : H}
     {c s x : A × B} (h : CaptureChain ra rb ha hb c s x) :
     CapturedExecution ra rb ha hb c x := by
-  exact ⟨h.returnedA, h.returnedB,
-    Prod.ext (h.childReadA.trans h.wroteA) (h.childReadB.trans h.wroteB)⟩
+  exact ⟨h.readA_holds, h.readB_holds,
+    Prod.ext (h.child_read_a.trans h.wrote_a) (h.child_read_b.trans h.wrote_b)⟩
 
 /-- The child-read premise supplies the snapshot consumer's execution relation. -/
 theorem captured_step {A : Type u} {B : Type v} {H : Type w}

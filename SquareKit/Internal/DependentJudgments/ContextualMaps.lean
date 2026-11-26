@@ -122,7 +122,7 @@ theorem problem_map (F : StructuralMap M N) {a x t c d : Value M} {p : Problem M
   have hC := Value.family_heq_eq (F.pathTelescope_total p.family p.term p.telescope)
     (show HEq (F.family p.motive) (F.jMotive p.family p.term p.telescope p.motive) from
       (cast_heq _ _).symm)
-  have hD := Value.term_heq_eq (F.rootTelescope_total p.family p.term p.telescope)
+  have hD := Value.term_heq_eq (F.root_telescope_total p.family p.term p.telescope)
     (F.jBranch_type p.family p.term p.telescope p.motive)
     (F.jBranch_heq p.family p.term p.telescope p.motive p.branch).symm
   simp only [problem, tail_map F hp]
@@ -202,7 +202,7 @@ private theorem reindex_branch_type (F : StructuralMap M N) {Γ Δ n}
   apply (heq_of_eq (F.subTy _ _)).trans
   apply HEq.trans _ (heq_of_eq (N.branchMap_type (F.family A) (F.mapTm x)
     (F.pathTelescope A x T) (F.substitution σ) (F.jMotive A x T C))).symm
-  exact N.subTy_heq (F.rootTelescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
+  exact N.subTy_heq (F.root_telescope_total A x T) (F.reindexedRootTelescope_total A x T σ)
     (F.jBranch_type A x T C) (F.branchMap A x T σ)
 
 theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
@@ -311,7 +311,7 @@ theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
       simp only [operation, Function.comp_apply, hp, hm]
       simpa [operation, hp, hm, Function.comp_def, Value.map, Tail.map, Point.map] using
         Value.substitution_heq_eq (f.pathTelescope_total p.family p.term p.telescope)
-          (f.rootTelescope_total p.family p.term p.telescope) (f.rootTail p.family p.term p.telescope)
+          (f.root_telescope_total p.family p.term p.telescope) (f.rootTail p.family p.term p.telescope)
   | pathSub =>
     cases hp : point M.toStructuralModel (args 0) (args 1) with
     | none => simp [operation, hp] at h
@@ -374,7 +374,7 @@ theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
         have hm := tail_map f hp
         simp only [operation, Function.comp_apply, hp, hm]
         simpa [operation, hp, hm, hs', Function.comp_def, Value.map, Tail.map, Point.map] using
-          Value.substitution_heq_eq (f.rootTelescope_total p.family p.term p.telescope)
+          Value.substitution_heq_eq (f.root_telescope_total p.family p.term p.telescope)
             (f.reindexedRootTelescope_total p.family p.term p.telescope τ)
             (f.branchMap p.family p.term p.telescope τ)
   | reindexBranch =>
@@ -404,7 +404,7 @@ theorem operation_map {M : Model.{u}} {N : Model.{v}} (F : ModelMap M N)
         Value.term_heq_eq (f.pathTelescope_total p.family p.term p.telescope)
           (show HEq (f.family p.motive) (f.jMotive p.family p.term p.telescope p.motive) from
             (cast_heq _ _).symm)
-          (F.mapJ p.family p.term p.telescope p.motive p.branch)
+          (F.j_preserved p.family p.term p.telescope p.motive p.branch)
 
 /-- The combined structural/contextual interpreter is strict in failure. -/
 noncomputable def partialAlgebra (M : Model.{u}) : PartialAlgebra signature where

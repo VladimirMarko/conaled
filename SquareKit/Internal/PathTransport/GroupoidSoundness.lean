@@ -181,7 +181,7 @@ local instance (Γ : Grpd.{u,u}) : IsGroupoid (Cat.of Γ) := inferInstanceAs (Is
 theorem model_lift_eq {Γ Δ : Grpd.{u,u}} (A : Γ ⥤ Grpd.{u,u}) (σ : Δ ⥤ Γ) :
     StructuralModel.lift M A ⟨σ⟩ = ⟨Grothendieck.pre (A ⋙ Grpd.forgetToCat) σ⟩ := rfl
 
-theorem telescopeModelSquare {Γ Δ Γ' Δ' : Grpd.{u,u}} {n}
+theorem telescope_model_square {Γ Δ Γ' Δ' : Grpd.{u,u}} {n}
     (T : StructuralModel.Telescope M Γ n)
     (e : NormalizedEquivalence (Cat.of Δ) (Cat.of Γ))
     (e' : NormalizedEquivalence (Cat.of Δ') (Cat.of Γ'))
@@ -203,9 +203,9 @@ theorem telescopeModelSquare {Γ Δ Γ' Δ' : Grpd.{u,u}} {n}
         (StructuralModel.squareLift M ⟨e.equiv.functor⟩ ⟨e'.equiv.functor⟩ ⟨K⟩ ⟨L⟩
           (congrArg ULift.up sq.forward) A).down := by
       rw [squareLift_eq C B _ _ _ _ sq.forward A]
-      exact EquivalenceSquare.liftSquare e.equiv e'.equiv K L sq (A ⋙ Grpd.forgetToCat)
+      exact EquivalenceSquare.lift_square e.equiv e'.equiv K L sq (A ⋙ Grpd.forgetToCat)
     rw [StructuralModel.Telescope.square]
-    exact telescopeModelSquare
+    exact telescope_model_square
       (Γ := @Grpd.of (Extend A) Groupoid.ofIsGroupoid)
       (Δ := @Grpd.of (Extend (e.equiv.functor ⋙ A)) Groupoid.ofIsGroupoid)
       (Γ' := @Grpd.of (Extend (K ⋙ A)) Groupoid.ofIsGroupoid)
@@ -226,7 +226,7 @@ variable (C : Type u) [Groupoid.{u} C] (B : C ⥤ Type u)
 local notation "M" => structuralModel C B
 local instance (Γ : Grpd.{u,u}) : IsGroupoid (Cat.of Γ) := inferInstanceAs (IsGroupoid Γ)
 
-theorem rootTailModelSquare {Γ Δ : Grpd.{u,u}} {n}
+theorem rootTail_model_square {Γ Δ : Grpd.{u,u}} {n}
     (A : Γ ⥤ Grpd.{u,u}) (x : Section A) (σ : Δ ⥤ Γ)
     (T : StructuralModel.Telescope M (StructuralModel.pathContext M A ⟨x⟩) n) :
     EquivalenceSquare.Square (rootTailEquivalence C B A x T).equiv
@@ -234,17 +234,17 @@ theorem rootTailModelSquare {Γ Δ : Grpd.{u,u}} {n}
         (StructuralModel.pathTail M A ⟨x⟩ T ⟨σ⟩)).equiv
       (StructuralModel.pathTailMap M A ⟨x⟩ T ⟨σ⟩).down
       (StructuralModel.branchMap M A ⟨x⟩ T ⟨σ⟩).down := by
-  let sq := EquivalenceSquare.changeFunctorSquare
+  let sq := EquivalenceSquare.changeFunctor_square
     (pathEquivalence C B A x) (pathEquivalence C B (σ ⋙ A) (x.reindex σ))
-    (PathComparison.substitution A x σ) σ (EquivalenceSquare.rootSquare A x σ)
+    (PathComparison.substitution A x σ) σ (EquivalenceSquare.root_square A x σ)
     (StructuralModel.rootSub M A ⟨x⟩).down
     (StructuralModel.rootSub M (σ ⋙ A) ⟨x.reindex σ⟩).down
     (pathEquivalence_functor C B A x)
     (pathEquivalence_functor C B (σ ⋙ A) (x.reindex σ))
-  have t := telescopeModelSquare C B T (rootEquivalence C B A x)
+  have t := telescope_model_square C B T (rootEquivalence C B A x)
     (rootEquivalence C B (σ ⋙ A) (x.reindex σ))
     (PathComparison.substitution A x σ) σ sq
-  exact EquivalenceSquare.changeFunctorSquare
+  exact EquivalenceSquare.changeFunctor_square
     (telescopeEquivalence C B T (rootEquivalence C B A x))
     (telescopeEquivalence C B (StructuralModel.pathTail M A ⟨x⟩ T ⟨σ⟩)
       (rootEquivalence C B (σ ⋙ A) (x.reindex σ)))
@@ -289,7 +289,7 @@ theorem contextualJ_sub {Γ Δ : (M).Context} {n}
   unfold StructuralModel.reindexBranch
   rw [down_cast]
   exact (EquivalenceSquare.eliminateSection_substitution _ _ _ _
-    (rootTailModelSquare C B A x.down σ.down T) D d.down).symm
+    (rootTail_model_square C B A x.down σ.down T) D d.down).symm
 end SquareKit.Internal.PathTransport.GroupoidModel.Instance
 
 namespace SquareKit.Internal.PathTransport.GroupoidModel.Instance

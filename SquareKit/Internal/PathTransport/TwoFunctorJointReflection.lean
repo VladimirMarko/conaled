@@ -109,7 +109,7 @@ private theorem reflect_cell_heq
   exact heq_of_eq (rc α β (eq_of_heq hP) (eq_of_heq hQ))
 
 omit [Strict A] [Strict B] [Strict C] [Strict E] in
-theorem strictFunctorJointExt
+theorem strictPseudofunctor_joint_ext
     (P : StrictPseudofunctor B C) (Q : StrictPseudofunctor B E)
     (ro : ∀ x y, P.obj x = P.obj y → Q.obj x = Q.obj y → x = y)
     (rh : ∀ {x y : B} (p q : x ⟶ y), P.map p = P.map q → Q.map p = Q.map q → p = q)

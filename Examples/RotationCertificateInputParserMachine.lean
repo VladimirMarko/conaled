@@ -887,7 +887,7 @@ theorem actual_nil_eof_rollback_has_source15_and_machine26
 
 end Context
 
-private theorem nodesOpenPrefix (count : Nat) :
+private theorem openPrefix_replicate_nodeTag (count : Nat) :
     TreeParserMachine.OpenPrefix (List.replicate count nodeTag) (count + 1) := by
   induction count with
   | zero => exact .nil
@@ -908,7 +908,7 @@ theorem all_node_inputs_have_the_exact_full_failure_time
         (List.replicate count nodeTag) [] [] (treeOutputs [] []) [] [] ctx) := by
   have source : (parseTreeRun (List.replicate count nodeTag)).1 = none := by
     simpa only [List.append_nil] using
-      TreeParserMachine.parseTreeRun_none_of_openPrefix (nodesOpenPrefix count)
+      TreeParserMachine.parseTreeRun_none_of_openPrefix (openPrefix_replicate_nodeTag count)
         (show TreeParserMachine.Blocked [] from True.intro)
   have executed := (run_tree_failure_trace caller (List.replicate count nodeTag) regs ctx source).iterate caller
   rwa [TreeParserMachine.runSteps_nodes] at executed

@@ -21,12 +21,12 @@ def T (m : Diagnostic) (o : Nat) : Prop := o = m.1.toAdd
 theorem cached_set (r : FineCache) (o : Nat) :
     (∃ m, (∃ xs, R r xs ∧ S xs m) ∧ T m o) ↔
       (∃ xs, R r xs ∧ ∃ m, S xs m ∧ T m o) :=
-  Associativity.inSet R S T r o
+  Associativity.in_set R S T r o
 
 theorem plain_set (r : FineSequence) (o : Nat) :
     (∃ m, (∃ xs, xs = r ∧ S xs m) ∧ T m o) ↔
       (∃ xs, xs = r ∧ ∃ m, S xs m ∧ T m o) :=
-  Associativity.inSet (fun r xs => xs = r) S T r o
+  Associativity.in_set (fun r xs => xs = r) S T r o
 
 /-- A two-stage diagram uses the existing walking-arrow category. -/
 abbrev Sections (C F : Type) : Stage → Type

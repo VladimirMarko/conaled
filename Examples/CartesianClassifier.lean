@@ -256,9 +256,9 @@ theorem native_noncommuting_orders :
   exact (by decide : (2 : Fin 3) ≠ 1) h₀
 
 namespace FiniteSpan
-noncomputable abbrev nativeH := NativeComparison.H finiteThree
+noncomputable abbrev nativeH := NativeComparison.selectedPath finiteThree
   Examples.FiniteUniverseLoops.swap01 Examples.FiniteUniverseLoops.swap12
-noncomputable abbrev nativeReverseH := NativeComparison.H finiteThree
+noncomputable abbrev nativeReverseH := NativeComparison.selectedPath finiteThree
   Examples.FiniteUniverseLoops.swap12 Examples.FiniteUniverseLoops.swap01
 noncomputable abbrev alignmentL := NativeComparison.alignmentL finiteThree
   Examples.FiniteUniverseLoops.swap01 Examples.FiniteUniverseLoops.swap12

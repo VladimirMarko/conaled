@@ -30,8 +30,8 @@ theorem generatedContextMap_extend (hΓ : CtxDeriv.{u+1} Γ γ)
   apply eq_of_heq
   apply (Context.relabel_heq _ _ _).trans
   exact ((a (fullModel S)).relabel_totalMap_heq
-    ((leftSignatureMap S).generatedCtx hΓ) ((rightSignatureMap S).generatedCtx hΓ)
-    ((leftSignatureMap S).generatedTy hA).2 ((rightSignatureMap S).generatedTy hA).2).symm
+    ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
+    ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2).symm
 
 theorem Signature.baseFamily_relabel (S : Signature.{u}) (Γ : Context.{u})
     {C D : Grpd.{u,u}} (hC : Γ.left = C) (hD : Γ.right = D) :
@@ -48,6 +48,6 @@ theorem generatedFamilyMap_base (hΓ : CtxDeriv.{u+1} Γ γ) :
       (show constant S.base.left ⟶ generatedContextMap S hΓ ⋙ constant S.base.right from
         { app := fun _ => S.base.map, naturality := fun {_ _} _ => rfl }) :=
   S.baseFamily_relabel (γ (fullModel S))
-    ((leftSignatureMap S).generatedCtx hΓ) ((rightSignatureMap S).generatedCtx hΓ)
+    ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

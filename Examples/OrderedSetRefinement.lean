@@ -131,23 +131,23 @@ theorem mixed_prefix_observations :
 theorem every_mixed_prefix_valid (updates : List (AbstractSet.Update Nat)) (n : Nat) :
     Ordered (AbstractSet.execute deleteOps (updates.take n) .nil) ∧
     Ordered (AbstractSet.execute deleteJoinOps (updates.take n) .nil) :=
-  ⟨deleteSetLaws.prefix_valid updates n ordered_nil,
-    refinedDeleteJoinSetLaws.prefix_valid updates n ordered_nil⟩
+  ⟨delete_set_laws.prefix_valid updates n ordered_nil,
+    refined_deleteJoin_set_laws.prefix_valid updates n ordered_nil⟩
 
 theorem every_mixed_word_meaning (updates : List (AbstractSet.Update Nat)) :
     Trees.setTree (AbstractSet.execute deleteOps updates .nil) =
       updates.foldl AbstractSet.meaningStep (fun _ => False) ∧
     Trees.setTree (AbstractSet.execute deleteJoinOps updates .nil) =
       updates.foldl AbstractSet.meaningStep (fun _ => False) :=
-  ⟨deleteSetLaws.execute_from_empty updates, refinedDeleteJoinSetLaws.execute_from_empty updates⟩
+  ⟨delete_set_laws.execute_from_empty updates, refined_deleteJoin_set_laws.execute_from_empty updates⟩
 
 theorem every_mixed_word_refines (updates : List (AbstractSet.Update Nat)) :
     Trees.inorder (AbstractSet.execute deleteOps updates .nil) =
       AbstractSet.execute OrderedList.ops updates [] ∧
     Trees.inorder (AbstractSet.execute deleteJoinOps updates .nil) =
       AbstractSet.execute OrderedList.ops updates [] :=
-  ⟨inorderRefinement.execute_from_empty OrderedList.laws updates,
-    inorderJoinRefinement.execute_from_empty OrderedList.laws updates⟩
+  ⟨inorder_refinement.execute_from_empty OrderedList.laws updates,
+    inorder_join_refinement.execute_from_empty OrderedList.laws updates⟩
 
 theorem shape_and_work_loss :
     aTree ≠ rightThree ∧ Trees.inorder aTree = Trees.inorder rightThree ∧
@@ -201,12 +201,12 @@ def liftedSetObserve (s : LiftedSet) : Nat → Prop := Trees.setTree s.down.1
 
 theorem liftedSetOps_laws : AbstractSet.DeleteLaws liftedSetOps liftedSetObserve (fun _ => True) where
   empty_valid := trivial
-  empty x := validDeleteLaws.empty x
+  empty x := validDeleteOps_laws.empty x
   insert_valid _ _ _ := trivial
-  insert x s _ y := validDeleteLaws.insert x s.down trivial y
-  member x s _ := validDeleteLaws.member x s.down trivial
+  insert x s _ y := validDeleteOps_laws.insert x s.down trivial y
+  member x s _ := validDeleteOps_laws.member x s.down trivial
   delete_valid _ _ _ := trivial
-  delete x s _ y := validDeleteLaws.delete x s.down trivial y
+  delete x s _ y := validDeleteOps_laws.delete x s.down trivial y
 
 theorem lifted_set_recovery (x : Nat) (s : LiftedSet) :
     liftedSetOps.empty.down = validDeleteOps.empty ∧

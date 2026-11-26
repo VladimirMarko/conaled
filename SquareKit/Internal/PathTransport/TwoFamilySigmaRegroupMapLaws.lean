@@ -41,7 +41,7 @@ private theorem map_paste_heq {C D : Type*} [Bicategory C] [Strict C]
   cases h
   simp
 
-theorem sigmaRegroupTransport {x y : Total (sigmaFamily F B)} (p : x ⟶ y) :
+theorem sigma_regroup_transport {x y : Total (sigmaFamily F B)} (p : x ⟶ y) :
     B.map (sigmaRegroupBase F B p) =
       (B.map (cartesianLift F p.base x.fiber.base)).comp
         (B.map ((fiberInclusion F y.base).map p.fiber.base)) := by
@@ -73,7 +73,7 @@ theorem sigmaRegroupMap_comp {x y z : Total (sigmaFamily F B)} (p : x ⟶ y) (q 
     (B.map (sigmaRegroupBase F B q)).map_comp]
   simp only [StrongMap.map_eqToHom, Category.assoc, eqToHom_trans_assoc,
     eqToHom_comp_heq_iff, heq_eqToHom_comp_iff]
-  exact (map_paste_heq _ _ (sigmaRegroupTransport F B q) p.fiber.fiber q.fiber.fiber).symm
+  exact (map_paste_heq _ _ (sigma_regroup_transport F B q) p.fiber.fiber q.fiber.fiber).symm
 def sigmaRegroupFunctor : Total (sigmaFamily F B) ⥤ Total B where
   obj := sigmaRegroupObj F B
   map := sigmaRegroupMap F B

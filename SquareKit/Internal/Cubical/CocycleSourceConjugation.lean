@@ -41,25 +41,25 @@ private theorem sourceConjugationCube_face (j : Fin 3) (e : Bool) :
 theorem sourceConjugationCube_root (e : Bool) :
     (sourceConjugationCube β h a H).pullback (Over.map (face3 0 e)) = comparisonRootSquare β := by
   have q := sourceConjugationCube_face β h a H 0 e
-  simp only [faceAxis00,faceAxis01,faceAxis02] at q
+  simp only [faceAxis_zero_zero,faceAxis_zero_one,faceAxis_zero_two] at q
   exact q.trans (sourceConjugationValue_root β h a H (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 theorem sourceConjugationCube_start :
     (sourceConjugationCube β h a H).pullback (Over.map (face3 1 false)) = sourceActionSquare a := by
   have q := sourceConjugationCube_face β h a H 1 false
-  simp only [faceAxis10,faceAxis11,faceAxis12] at q
+  simp only [faceAxis_one_zero,faceAxis_one_one,faceAxis_one_two] at q
   exact q.trans (sourceConjugationValue_start β h a H (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem sourceConjugationCube_finish :
     (sourceConjugationCube β h a H).pullback (Over.map (face3 1 true)) = secondSquare h := by
   have q := sourceConjugationCube_face β h a H 1 true
-  simp only [faceAxis10,faceAxis11,faceAxis12] at q
+  simp only [faceAxis_one_zero,faceAxis_one_one,faceAxis_one_two] at q
   exact q.trans (sourceConjugationValue_finish β h a H (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem sourceConjugationCube_side (e : Bool) :
     (sourceConjugationCube β h a H).pullback (Over.map (face3 2 e)) = zeroCocycle (Over (⟨2⟩ : Cube)) := by
   have q := sourceConjugationCube_face β h a H 2 e
-  simp only [faceAxis20,faceAxis21,faceAxis22] at q
+  simp only [faceAxis_two_zero,faceAxis_two_one,faceAxis_two_two] at q
   exact q.trans (sourceConjugationValue_side β h a H (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 include β H in

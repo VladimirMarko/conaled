@@ -92,10 +92,10 @@ set_option linter.defProp false
 def normalizedPathOperands_retained (k : ℤ) :=
  inputPaths_normalValue integerContext integerContext emptyA emptyB (assignedPoint k)
 /-- The selected normalized two-cell has multiplicative integer label `k`. -/
-def normalizedPathObservation (k : ℤ) :=
+def normalized_path_observation (k : ℤ) :=
  congrArg (fun t : LocallyDiscrete (Discrete (Multiplicative ℤ)) => t.as.as)
   (@eq_of_heq (LocallyDiscrete (Discrete (Multiplicative ℤ))) _ _ (normalizedPathOperands_retained k))
 /-- The additive integer observation of the same selected normalized value is `k`. -/
-def normalizedIntegerObservation (k : ℤ) :=
- congrArg Multiplicative.toAdd (normalizedPathObservation k)
+def normalized_integer_observation (k : ℤ) :=
+ congrArg Multiplicative.toAdd (normalized_path_observation k)
 end Examples.TwoFamilyFrozenPoint

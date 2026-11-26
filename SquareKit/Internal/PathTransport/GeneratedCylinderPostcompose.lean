@@ -14,30 +14,30 @@ theorem generatedPostcompose_inclusion  (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (inclusionSignature F P) hΓ ⋙ generatedContextMap (postcomposeSignature F K P) hΓ =
       generatedContextMap (inclusionSignature (F ⋙ K) P) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (inclusionSignature F P) (postcomposeSignature F K P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (inclusionSignature F P) (postcomposeSignature F K P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (inclusion_postcompose_signature F K P) hΓ))
 
 theorem generatedPostcompose_endpoint {G : C ⥤ D} (η : F ≅ G) (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (endpointSignature F P η) hΓ ⋙ generatedContextMap (postcomposeSignature F K P) hΓ =
       generatedContextMap (endpointSignature (F ⋙ K) P (isoWhiskerRight η K)) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (endpointSignature F P η) (postcomposeSignature F K P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (endpointSignature F P η) (postcomposeSignature F K P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (endpoint_postcompose_signature F K P η) hΓ))
 
 theorem generatedPostcompose_projection  (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (postcomposeSignature F K P) hΓ ⋙ generatedContextMap (projectionSignature (F ⋙ K) P) hΓ =
       generatedContextMap (projectionSignature F P) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (postcomposeSignature F K P) (projectionSignature (F ⋙ K) P) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (postcomposeSignature F K P) (projectionSignature (F ⋙ K) P) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans (generatedContextMap_heq (postcompose_projection_signature F K P) hΓ))
 
 theorem generatedEndpointIso_postcompose {G : C ⥤ D} (η : F ≅ G)
@@ -67,15 +67,15 @@ theorem generatedPostcompose_evaluation (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (postcomposeSignature F K P) hΓ ⋙ generatedContextMap (evaluationSignature (F ⋙ K) P R (α ≫ whiskerLeft F κ)) hΓ =
       generatedContextMap (evaluationSignature F P Q α) hΓ ⋙ generatedContextMap (Signature.mk (Context.mk D E K) Q R κ) hΓ := by
   have hc := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (postcomposeSignature F K P) (evaluationSignature (F ⋙ K) P R (α ≫ whiskerLeft F κ)) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (postcomposeSignature F K P) (evaluationSignature (F ⋙ K) P R (α ≫ whiskerLeft F κ)) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   have hd := Context.relabel_composition
-    (GeneratedComposition.generatedCtx (evaluationSignature F P Q α) (Signature.mk (Context.mk D E K) Q R κ) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    (GeneratedComposition.generated_ctx (evaluationSignature F P Q α) (Signature.mk (Context.mk D E K) Q R κ) rfl HEq.rfl hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
   exact eq_of_heq ((heq_of_eq hc).trans
     ((generatedContextMap_heq (postcompose_evaluation_signature F K P Q R α κ) hΓ).trans
       (heq_of_eq hd.symm)))
@@ -86,11 +86,11 @@ theorem generatedPostcompose_signature (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     generatedContextMap (Signature.mk (Context.mk C E (F ⋙ K)) P R
       (α ≫ whiskerLeft F κ)) hΓ :=
   Context.relabel_composition
-    (GeneratedComposition.generatedCtx (Signature.mk (Context.mk C D F) P Q α)
+    (GeneratedComposition.generated_ctx (Signature.mk (Context.mk C D F) P Q α)
       (Signature.mk (Context.mk D E K) Q R κ) rfl HEq.rfl hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
-    ((leftSignatureMap _).generatedCtx hΓ) ((rightSignatureMap _).generatedCtx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
+    ((leftSignatureMap _).generated_ctx hΓ) ((rightSignatureMap _).generated_ctx hΓ)
 
 theorem contextComparison_postcompose {G : C ⥤ D} (η : F ≅ G)
     (β : P ⟶ G ⋙ Q) (h : α ≫ whiskerRight η.hom Q = β)

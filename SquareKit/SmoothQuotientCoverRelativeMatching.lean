@@ -18,19 +18,19 @@ variable (f : Y ⟶ X)
 its Čech laws, and its prescribed base overlap. Morphisms retain vertical arrows. -/
 def relativeMatchingFamily : Datum a hΓ f ⥤ Grpd.{1,1} :=
   CechMatching.Comprehension.family (relativeFamilyData a hΓ hB f)
-    (relativeFamilyCoherence a hΓ hB f)
+    (relativeFamilyData_coherence a hΓ hB f)
 
 /-- Independent family matching reconstructs all extended-context matching. -/
 def dependentComprehensionEquivalence :
     Grothendieck (relativeMatchingFamily a hΓ hB f ⋙ Grpd.forgetToCat) ≌
       Datum a (.ext hΓ hB) f :=
   (CechMatching.Comprehension.equivalence (relativeFamilyData a hΓ hB f)
-    (relativeFamilyCoherence a hΓ hB f)).trans (relativeMatchingEquivalence a hΓ hB f)
+    (relativeFamilyData_coherence a hΓ hB f)).trans (relativeMatchingEquivalence a hΓ hB f)
 
 theorem relativeProjection_eq :
     (relativeToGenerated a hΓ hB f).functor ⋙ projection a hΓ hB f =
       ((relativeFamilyData a hΓ hB f).projection
-        (relativeFamilyCoherence a hΓ hB f)).functor := by
+        (relativeFamilyData_coherence a hΓ hB f)).functor := by
   change (relativeToGenerated a hΓ hB f).functor ⋙
     (substitutionDiagram a hΓ (.ext hΓ hB) (.weaken hΓ hB) f).functor = _
   rw [← CechMatching.StrictMap.functor_comp]

@@ -87,7 +87,7 @@ theorem sigmaRegroup_left_fiber {x y z : Total (sigmaFamily F B)}
   apply HEq.trans _ (mapped_source_cast_left_heq _ _ _ _).symm
   apply HEq.trans _ (whisker_postcast_heq _ _ _).symm
   apply HEq.trans _ (nested_left_heq _ _ _).symm
-  exact (map_cell_paste_heq _ _ (sigmaRegroupTransport F B q) p.fiber.fiber α.fiber.fiber).symm
+  exact (map_cell_paste_heq _ _ (sigma_regroup_transport F B q) p.fiber.fiber α.fiber.fiber).symm
 theorem sigmaRegroupCell_whiskerLeft {x y z : Total (sigmaFamily F B)}
     (p : x ⟶ y) {q r : y ⟶ z} (α : q ⟶ r) :
     sigmaRegroupCell F B (p ◁ α) =

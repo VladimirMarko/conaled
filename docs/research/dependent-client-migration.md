@@ -81,7 +81,7 @@ extracting an untyped value from the tagged interpreter.
 `Original.first_right_selected` removes the original computation's annotation
 casts using their heterogeneous equality laws and identity substitution.
 `Original.right_selected` then identifies the whole old substitution with that
-same selected pair. `Original.original_guarantee` consumes `subSound` of the
+same selected pair. `Original.original_guarantee` consumes `sub_sound` of the
 exact inventory client `DependentArguments.dependentPair`; inverse annotation
 casts cancel explicitly. The auxiliary `dependentPairedLeft` and
 `dependentPairedRight` supply its two typed endpoints.

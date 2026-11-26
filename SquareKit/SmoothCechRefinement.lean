@@ -58,15 +58,15 @@ private theorem triple_w (i j k : J) :
       Functor.map_comp, Category.assoc, r.commutes]
   simp only [Functor.map_comp, Category.assoc]
   rw [h, r.commutes]
-  simpa only [Category.assoc] using congrArg (fun h => h ≫ f) (B.tripleSquare i j k).w
+  simpa only [Category.assoc] using congrArg (fun h => h ≫ f) (B.triple_isPullback i j k).w
 
 def triple (i j k : J) : B.triple i j k ⟶ A.triple (r.index i) (r.index j) (r.index k) :=
-  (homEquiv _ _).symm ((A.tripleSquare (r.index i) (r.index j) (r.index k)).lift
+  (homEquiv _ _).symm ((A.triple_isPullback (r.index i) (r.index j) (r.index k)).lift
     (embedding.map (B.firstSecond i j k ≫ r.pair i j))
     (embedding.map (B.third i j k ≫ r.chart k)) (r.triple_w i j k))
 
 theorem triple_map (i j k : J) : embedding.map (r.triple i j k) =
-    (A.tripleSquare (r.index i) (r.index j) (r.index k)).lift
+    (A.triple_isPullback (r.index i) (r.index j) (r.index k)).lift
       (embedding.map (B.firstSecond i j k ≫ r.pair i j))
       (embedding.map (B.third i j k ≫ r.chart k)) (r.triple_w i j k) := forward_inverse _
 

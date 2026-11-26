@@ -98,7 +98,7 @@ theorem local_chart_principal (U : Domain) (h : embedding.obj U ⟶ A.realizatio
 /-- A chart lift near one specified ordinary source point. -/
 structure LocalLift (U : Domain) (h : embedding.obj U ⟶ A.realization) (x : Points U) where
   defining : SmoothAlgebra.freeAlgebra U.dimension
-  atPoint : defining.val x.val ≠ 0
+  at_point : defining.val x.val ≠ 0
   index : A.Index
   coordinate : subdomain U defining ⟶ A.domain index
   factorization : embedding.map (subInclusion U defining) ≫ h =

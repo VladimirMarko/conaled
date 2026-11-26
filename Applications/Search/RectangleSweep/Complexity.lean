@@ -52,9 +52,9 @@ def Admitted (rs : List (Rectangle α β)) (t : Tree α) : Prop :=
     Trees.setTree (Trees.Cached.erase t) ⊆ inputKeys rs
 
 theorem admitted_nil (rs : List (Rectangle α β)) : Admitted rs .nil := by
-  refine ⟨(IntervalTree.Balanced.setLaws keyInterval).empty_valid, ?_⟩
+  refine ⟨(IntervalTree.Balanced.set_laws keyInterval).empty_valid, ?_⟩
   intro key mem
-  exact ((IntervalTree.Balanced.setLaws keyInterval).empty key mem).elim
+  exact ((IntervalTree.Balanced.set_laws keyInterval).empty key mem).elim
 
 theorem insertRun_admitted (rs : List (Rectangle α β)) (key : Key α) (t : Tree α)
     (allowed : key ∈ inputKeys rs) (admitted : Admitted rs t) :
@@ -62,7 +62,7 @@ theorem insertRun_admitted (rs : List (Rectangle α β)) (key : Key α) (t : Tre
   refine ⟨insertRun_valid key t admitted.1, ?_⟩
   intro x mem
   rw [insertRun_value] at mem
-  rcases ((IntervalTree.Balanced.setLaws keyInterval).insert key t admitted.1 x).mp mem with
+  rcases ((IntervalTree.Balanced.set_laws keyInterval).insert key t admitted.1 x).mp mem with
     equal | old
   · exact equal.symm ▸ allowed
   · exact admitted.2 old
@@ -73,7 +73,7 @@ theorem deleteRun_admitted (rs : List (Rectangle α β)) (key : Key α) (t : Tre
   refine ⟨deleteRun_valid key t admitted.1, ?_⟩
   intro x mem
   rw [deleteRun_value] at mem
-  exact admitted.2 (((IntervalTree.Balanced.setLaws keyInterval).delete key t admitted.1 x).mp mem).2
+  exact admitted.2 (((IntervalTree.Balanced.set_laws keyInterval).delete key t admitted.1 x).mp mem).2
 
 theorem admitted_numNodes_le (rs : List (Rectangle α β)) (t : Tree α)
     (admitted : Admitted rs t) : t.numNodes ≤ rs.length := by

@@ -67,7 +67,7 @@ theorem identityEvaluation_conjugateLocal
   generatedIdentity_conjugate (signature a A) hΓ hB hx hy
     (localMap a A (.ext hΓ hB)) (localMap_extend a A hΓ hB) c ex ey p
 
-theorem identityValuesEffectivityAt
+theorem identity_values_effectivity_at
     (ex : (fiberTotalEvaluation a A hΓ hB c).obj ((ξ (model a A)).down.obj c) =
       (termDiagram a hΓ hB hx A).functor.obj ((matchingEvaluation a A hΓ).obj c))
     (ey : (fiberTotalEvaluation a A hΓ hB c).obj ((η (model a A)).down.obj c) =
@@ -75,17 +75,17 @@ theorem identityValuesEffectivityAt
     [ (familyEvaluation a A hΓ hB c).Full] [ (familyEvaluation a A hΓ hB c).Faithful] :
     (identityEvaluationValues a A hΓ hB hx hy c).IsEquivalence :=
   letI : (CechMatching.Comprehension.fixedBaseFunctor
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (fiberTotalEvaluation a A hΓ hB c) ((matchingEvaluation a A hΓ).obj c)
     (fiberTotalEvaluation_projection a A hΓ hB c)).Full :=
       inferInstanceAs (familyEvaluation a A hΓ hB c).Full
   letI : (CechMatching.Comprehension.fixedBaseFunctor
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (fiberTotalEvaluation a A hΓ hB c) ((matchingEvaluation a A hΓ).obj c)
     (fiberTotalEvaluation_projection a A hΓ hB c)).Faithful :=
       inferInstanceAs (familyEvaluation a A hΓ hB c).Faithful
   CechMatching.Comprehension.identityValues_isEquivalence
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (fiberTotalEvaluation a A hΓ hB c) ((matchingEvaluation a A hΓ).obj c)
     (fiberTotalEvaluation_projection a A hΓ hB c)
     ((ξ (model a A)).down.obj c) ((η (model a A)).down.obj c)
@@ -122,7 +122,7 @@ theorem identityEvaluation_isEquivalenceAt
   let G := identityMatchingEquivalence a hΓ hB hx hy A ((matchingEvaluation a A hΓ).obj c)
   let : G.functor.IsEquivalence := G.isEquivalence_functor
   let : (familyEvaluation a A hΓ (.identity hB hx hy) c ⋙ G.functor).IsEquivalence :=
-    identityValuesEffectivityAt a A hΓ hB hx hy c
+    identity_values_effectivity_at a A hΓ hB hx hy c
       ex ey
   exact Functor.isEquivalence_of_comp_right _ G.functor
 
@@ -130,7 +130,7 @@ theorem identityEvaluation_isEquivalence
     [ (familyEvaluation a A hΓ hB c).Full] [ (familyEvaluation a A hΓ hB c).Faithful] :
     (familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
   identityEvaluation_isEquivalenceAt a A hΓ hB hx hy c
-    (sectionFiberEndpoint a A hΓ hB hx c)
-    (sectionFiberEndpoint a A hΓ hB hy c)
+    (section_fiber_endpoint a A hΓ hB hx c)
+    (section_fiber_endpoint a A hΓ hB hy c)
 
 end SquareKit.SmoothQuotientCechLocal

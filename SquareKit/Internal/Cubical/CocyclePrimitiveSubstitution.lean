@@ -13,8 +13,8 @@ theorem boxPrimitive_reindex {Γ Δ : Context.{0}} {φ : Cofibration Γ}
       boxPrimitive b ((liftSub (interval Γ) σ).mapElements.op.map f) p := by
   let L := liftSub (interval Γ) σ
   have e := freshExtension_substitution σ (intervalBaseElement Y.unop)
-  have ht := b.tube.val_heq e (freshPreservesTube (φ.reindex σ) Y p)
-    (freshPreservesTube φ (L.mapElements.op.obj Y) p)
+  have ht := b.tube.val_heq e (fresh_preserves_tube (φ.reindex σ) Y p)
+    (fresh_preserves_tube φ (L.mapElements.op.obj Y) p)
   have hb := b.base.val_heq (congrArg (projection (interval Γ)).mapElements.obj e)
   have h₁ := boxPrimitive_value (b.reindex σ) f p
   have h₂ := boxPrimitive_value b (L.mapElements.op.map f) p

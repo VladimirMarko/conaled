@@ -121,7 +121,7 @@ rule. No reflection theorem or full sheaf-language soundness follows.
 ## Substitution along sheaf pullbacks
 
 [SquareKit/SheafBaseChange.lean](../../SquareKit/SheafBaseChange.lean) proves
-`beckChevalley` for a Mathlib `IsPullback g' f' f g` square:
+`beck_chevalley` for a Mathlib `IsPullback g' f' f g` square:
 
 ```text
 A' --g'--> A
@@ -144,7 +144,7 @@ preservation instances. It introduces no sectionwise lifting assumption.
 On each arrow of a witnessing covering sieve, the sectionwise pullback pairs
 a Q witness with the restricted B' section. The reverse inclusion projects
 that witness and uses commutativity and naturality. Neither direction asks
-local witnesses to agree on overlaps. `beckChevalley_isSheaf` proves closure
+local witnesses to agree on overlaps. `beck_chevalley_isSheaf` proves closure
 of both predicates using existing image and inverse-image closure; it does
 not even need the square to be a pullback. All three universes remain
 independent, and Q need not be closed.
@@ -296,7 +296,7 @@ There are no new source rules or model fields.
 interpreted term. Introduction uses that actual term as a pointwise witness
 and includes its image into the local image. Arbitrary source substitution
 uses uniform formula substitution. Elimination uses the local-image adjunction
-against the closed conclusion predicate. For `elimWith`, Frobenius first moves
+against the closed conclusion predicate. For `elim_with`, Frobenius first moves
 the closed ambient hypothesis inside the existential. Formula closure
 discharges these obligations. No local E witnesses are glued or turned into
 a global source section.
@@ -311,7 +311,7 @@ Source derivability, semantic inclusion and this comparison remain distinct.
 `elim` derivation to infer `b=b` from local E-reflexivity existence at X.
 `local_premise` and `no_global_premise` check that the antecedent holds locally
 without any pointwise E witness. `frobenius_at_X` applies the source forward
-derivation, which uses `elimWith`, with the inhabited condition `b=b`.
+derivation, which uses `elim_with`, with the inhabited condition `b=b`.
 The selective source instance then connects to the earlier combined-formula
 calculation; its U/V/X consequences retain the W/U support. Introduction uses
 the actual Bool negation term, and a `Derives.subst` instance substitutes

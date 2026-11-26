@@ -26,7 +26,7 @@ variable (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q) (β : P ⟶ G ⋙ Q)
 variable (h : α ≫ whiskerRight η.hom Q = β)
 
 /-- The original authoring wrapper is consumed as a generated source derivation. -/
-theorem universalTransferComparison :
+theorem universalTransfer_comparison :
     SectionCoherence F P η Q α β h Typed.Authoring.UniversalTransfer.context
       Typed.Authoring.UniversalTransfer.type Typed.Authoring.UniversalTransfer.proof :=
   sectionCoherence F P η Q α β h Typed.Authoring.UniversalTransfer.context

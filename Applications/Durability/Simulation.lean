@@ -29,7 +29,7 @@ theorem Step.simulation {P : Type} {s t : Machine P} {a : Abstract P} {ev}
   | @persist _ p i c hp hw hb compat =>
     obtain ⟨before, appended, source, fresh, online⟩ := rel.pending p hp
     have ext := put_compatible compat
-    have noCursor := rel.noCursor online
+    have noCursor := rel.no_cursor online
     refine ⟨a, .internal, { root := rel.root.mono ext, cache := rel.cache, active := rel.active, pending := ?_, cursor := ?_, cursor_offline := ?_, offline_pending := ?_, offline_active := rel.offline_active }⟩
     · intro q eq
       have equal : q = p := Option.some.inj (eq.symm.trans hp)
@@ -40,7 +40,7 @@ theorem Step.simulation {P : Type} {s t : Machine P} {a : Abstract P} {ev}
     · simp [online]
   | @publish _ p hp persisted =>
     obtain ⟨before, appended, source, fresh, online⟩ := rel.pending p hp
-    have noCursor := rel.noCursor online
+    have noCursor := rel.no_cursor online
     have valid := p.valid.mono (overlay_extends persisted source)
     have shape := p.shape
     cases eq : p.appended with
@@ -108,7 +108,7 @@ theorem Step.simulation {P : Type} {s t : Machine P} {a : Abstract P} {ev}
     · simp
   | reclaim hc ha hp keep subset =>
     obtain ⟨online, rfl⟩ := rel.ready hc
-    have noCursor := rel.noCursor online
+    have noCursor := rel.no_cursor online
     refine ⟨a, .internal, { root := rel.root.keep keep, cache := rel.cache, active := rel.active, pending := ?_, cursor := ?_, cursor_offline := ?_, offline_pending := ?_, offline_active := rel.offline_active }⟩
     · simp [hp]
     · simp [noCursor]

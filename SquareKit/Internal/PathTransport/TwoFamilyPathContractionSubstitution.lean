@@ -40,6 +40,6 @@ theorem contractionComponent_reindex (x : PathContext (reindex σ F)) :
   exact canonicalArrow_eq (evaluation (openIdHigher F)
     (pathReflexivityObj F ((pathFirst F).obj ((pathReindex F σ).obj x))).fiber)
     ((pathReindex F σ).obj x).fiber (contractionEndpoint_reindex F σ x)
-      (congrArg LocallyDiscrete.mk (contractionBoundary (reindex σ F) x))
-      (congrArg LocallyDiscrete.mk (contractionBoundary F ((pathReindex F σ).obj x)))
+      (congrArg LocallyDiscrete.mk (contraction_boundary (reindex σ F) x))
+      (congrArg LocallyDiscrete.mk (contraction_boundary F ((pathReindex F σ).obj x)))
 end SquareKit.Internal.PathTransport.TwoFamily

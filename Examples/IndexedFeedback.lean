@@ -11,9 +11,9 @@ def second : Cursor seed := ⟨1,by decide⟩
 def reverseSecond : Cursor seed := ⟨0,by decide⟩
 def inputs : Stream Nat := fun n => n+3
 
-theorem initialRelated : Repr seed seed := rfl
-theorem firstRelated : CursorRel seed seed initialRelated first reverseFirst := rfl
-theorem secondRelated : CursorRel seed seed initialRelated second reverseSecond := rfl
+theorem initial_related : Repr seed seed := rfl
+theorem first_related : CursorRel seed seed initial_related first reverseFirst := rfl
+theorem second_related : CursorRel seed seed initial_related second reverseSecond := rfl
 
 example : state (forward seed) inputs 2 = [7,7,3,4] := rfl
 example : state (backward seed) inputs 2 = [4,3,7,7] := rfl
@@ -35,28 +35,28 @@ example (a : Stream Nat) (n : Nat) : backwardCursor seed reverseFirst a (n+1) =
 example (a : Stream Nat) (n : Nat) :
     ∃ h : Repr (state (forward seed) a n) (state (backward seed) a n),
       CursorRel _ _ h (forwardCursor seed first a n) (backwardCursor seed reverseFirst a n) :=
-  cursors_related seed seed initialRelated first reverseFirst firstRelated a n
+  cursors_related seed seed initial_related first reverseFirst first_related a n
 example (a : Stream Nat) (n : Nat) :
     (state (forward seed) a n)[(forwardCursor seed first a n).val] =
       (state (backward seed) a n)[(backwardCursor seed reverseFirst a n).val] :=
-  cursor_lookup seed seed initialRelated first reverseFirst firstRelated a n
+  cursor_lookup seed seed initial_related first reverseFirst first_related a n
 example (a : Stream Nat) (n : Nat) :
     (state (forward seed) a n)[(forwardCursor seed first a n).val] = 7 :=
   selected_value seed first a n
 example (a : Stream Nat) (n : Nat) :
     (state (backward seed) a n)[(backwardCursor seed reverseFirst a n).val] = 7 :=
-  (cursor_lookup seed seed initialRelated first reverseFirst firstRelated a n).symm.trans
+  (cursor_lookup seed seed initial_related first reverseFirst first_related a n).symm.trans
     (selected_value seed first a n)
-example : encode (seed++[3]) (3::seed) (repr_step 3 seed seed initialRelated) (keep 3 seed first) =
-    move 3 seed (encode seed seed initialRelated first) :=
-  encode_advance 3 seed seed initialRelated first
+example : encode (seed++[3]) (3::seed) (repr_step 3 seed seed initial_related) (keep 3 seed first) =
+    move 3 seed (encode seed seed initial_related first) :=
+  encode_advance 3 seed seed initial_related first
 
 /-- Actual related sections are reindexed, not replaced by pointwise existence. -/
-theorem laterRelated : SubRelated (Eq : Parameters Nat → Parameters Nat → Prop) Eq later later := by
+theorem later_related : SubRelated (Eq : Parameters Nat → Parameters Nat → Prop) Eq later later := by
   intro p q h; cases h; rfl
-example : TermRelated Eq (reindexedRel (sectionRel seed seed initialRelated) laterRelated)
+example : TermRelated Eq (reindexedRel (sectionRel seed seed initial_related) later_related)
     (tmSub (forwardSection seed first) later) (tmSub (backwardSection seed reverseFirst) later) :=
-  term_sub_related (sections_related seed seed initialRelated first reverseFirst firstRelated) laterRelated
+  term_sub_related (sections_related seed seed initial_related first reverseFirst first_related) later_related
 example : tmSub (forwardSection seed first) idSub = forwardSection seed first := tmSub_id _
 example : tmSub (tmSub (forwardSection seed first) later) later =
     tmSub (forwardSection seed first) (compSub later later) := tmSub_comp _ _ _
@@ -69,17 +69,17 @@ example : (tmSub (tmSub (backwardSection seed reverseFirst) later) later (inputs
 def delayed : Temporal.Until (fun _ => PUnit) (fun n => ForwardFamily seed (inputs,n)) 0 :=
   .wait PUnit.unit (.wait PUnit.unit (.now (forwardCursor seed first inputs 2)))
 
-def reversed := mapUntil seed seed initialRelated inputs delayed
+def reversed := mapUntil seed seed initial_related inputs delayed
 example : delayed.horizon = 2 := rfl
 example : reversed.horizon = delayed.horizon := Temporal.Until.horizon_map _ _ _
 example : reversed.window.2.2.val = 3 := rfl
 example : (state (backward seed) inputs (0+reversed.horizon))[reversed.window.2.2.val] = 7 := rfl
 example : Temporal.Until.Rel (fun _ => Eq)
-    (fun n => CursorRel _ _ (history_related seed seed initialRelated inputs n)) delayed reversed :=
-  until_related seed seed initialRelated inputs delayed
+    (fun n => CursorRel _ _ (history_related seed seed initial_related inputs n)) delayed reversed :=
+  until_related seed seed initial_related inputs delayed
 example : reversed.map (fun _ => id) (fun _ i => i.val) =
     delayed.map (fun _ => id)
-      (fun n i => (encode _ _ (history_related seed seed initialRelated inputs n) i).val) :=
+      (fun n i => (encode _ _ (history_related seed seed initial_related inputs n) i).val) :=
   Temporal.Until.map_comp _ _ _ _ _
 
 /-- Equal payloads cannot reconstruct which occurrence was selected. -/
@@ -97,7 +97,7 @@ example : ¬ Nonempty (Cursor ([] : List Nat)) := by
 /-- A fixed reverse index breaks occurrence coherence; index0 also exposes wrong lookup. -/
 def wrong (a : Nat) (s : List Nat) (i : Cursor s) : Cursor (a::s) :=
   ⟨i.val,by have := i.isLt; simp only [List.length_cons]; omega⟩
-example : encode (seed++[3]) (3::seed) (repr_step 3 seed seed initialRelated) (keep 3 seed second) ≠
+example : encode (seed++[3]) (3::seed) (repr_step 3 seed seed initial_related) (keep 3 seed second) ≠
     wrong 3 seed reverseSecond := by decide
 example : (3::seed)[(wrong 3 seed reverseSecond).val] = 3 ∧
     (3::seed)[(move 3 seed reverseSecond).val] = 7 := by decide

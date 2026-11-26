@@ -40,7 +40,7 @@ def contextEquivalence (hΓ : Typed.CtxDeriv.{2} Γ γ) :
   GroupoidModel.Comparison.generatedContextEquivalence (signature a A)
     (signature_fiber_bijective a A) hΓ
 
-theorem familyEquivalences (hΓ : Typed.CtxDeriv.{2} Γ γ)
+theorem family_equivalences (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (hB : Typed.TyDeriv.{2} Γ γ B b) :
     ∀ c, ((GroupoidModel.Comparison.generatedFamilyMap (signature a A) hΓ hB).app c).IsEquivalence :=
   GroupoidModel.Comparison.generatedFamilyMap_equivalences (signature a A)

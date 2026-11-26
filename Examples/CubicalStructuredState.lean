@@ -117,7 +117,7 @@ noncomputable abbrev StructuredPath :=
     ((pullPackage A j (p.conjugate e)).reindex (endpointSub terminal false))
     ((pullPackage A j q).reindex (endpointSub terminal true)))
 
-theorem pathPreserves (r : StructuredPath A j e p q) : Preserves e p q := by
+theorem path_preserves (r : StructuredPath A j e p q) : Preserves e p q := by
   apply Preserves.of_eq
   let z₀ := endpointPoint false
   let z₁ := endpointPoint true
@@ -140,8 +140,8 @@ noncomputable def preservesPath (h : Preserves e p q) : StructuredPath A j e p q
 
 /-- Recovery compares actual native path bodies. It does not apply host proof
 irrelevance to the Type-valued native path or its dependent proof fields. -/
-theorem preservesPath_pathPreserves (r : StructuredPath A j e p q) :
-    preservesPath A j e p q (pathPreserves A j e p q r) = r := by
+theorem preservesPath_path_preserves (r : StructuredPath A j e p q) :
+    preservesPath A j e p q (path_preserves A j e p q r) = r := by
   apply pathApp_injective
   apply section_initial_injective A j
   exact (pathApp_zero _).trans (pathApp_zero r).symm
@@ -149,9 +149,9 @@ theorem preservesPath_pathPreserves (r : StructuredPath A j e p q) :
 /-- A fixed-equivalence structure identity correspondence, with exact recovery
 of native six-field path sections in the discrete presentation fragment. -/
 noncomputable def structureIdentity : StructuredPath A j e p q ≃ Preserves e p q where
-  toFun := pathPreserves A j e p q
+  toFun := path_preserves A j e p q
   invFun := preservesPath A j e p q
-  left_inv := preservesPath_pathPreserves A j e p q
+  left_inv := preservesPath_path_preserves A j e p q
   right_inv _ := Subsingleton.elim _ _
 
 end Examples.CubicalStructuredState
@@ -193,10 +193,10 @@ noncomputable def admittedIso
     (E : HomotopyEquivalence f) :
     decode (constantLocal terminal S).code ≅ decode (constantLocal terminal T).code :=
   E.discreteIso
-    (PathDiscrete.ofIso (constant_pathDiscrete S) (constantLocal terminal S).decodeCodeIso)
+    (PathDiscrete.of_iso (constant_pathDiscrete S) (constantLocal terminal S).decodeCodeIso)
     (decodedLocalFamily (constantLocal terminal S).code).toNative.filling
     (decodedLocalFamily (constantLocal terminal S).code).toNative.lawful
-    (PathDiscrete.ofIso (constant_pathDiscrete T) (constantLocal terminal T).decodeCodeIso)
+    (PathDiscrete.of_iso (constant_pathDiscrete T) (constantLocal terminal T).decodeCodeIso)
 
 noncomputable def admittedCarrier
     (f : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code)

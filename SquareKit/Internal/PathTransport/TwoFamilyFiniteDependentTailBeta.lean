@@ -15,13 +15,13 @@ theorem liftSplit_normalized {n} (tail : FiniteDependentTail Γ n Δ)
   induction tail with
   | nil => exact hc
   | @snoc n Δ tail E objects cells ih =>
-    let : IsLocallyGroupoid Δ := tail.locallyGroupoid
+    let : IsLocallyGroupoid Δ := tail.isLocallyGroupoid
     let : IsGroupoid Δ := tail.groupoid
     let : ∀x, IsGroupoid (E.obj x) := objects
     let : ∀x, IsLocallyGroupoid (E.obj x) := cells
     let d := tail.liftSplit c
-    let : IsGroupoid d.source := d.sourceObjects
-    let : IsLocallyGroupoid d.source := d.sourceCells
+    let : IsGroupoid d.source := d.source_isGroupoid
+    let : IsLocallyGroupoid d.source := d.source_isLocallyGroupoid
     let : ∀x, IsIso (d.homotopy.app x) := fun x => IsGroupoid.all_isIso _
     exact ⟨contractionRetraction_reflexive d.inclusion d.retraction d.homotopy ih.1 ih.2 E,
       contractionRetractionHomotopy_reflexive E d.inclusion d.retraction d.homotopy ih.1 ih.2⟩

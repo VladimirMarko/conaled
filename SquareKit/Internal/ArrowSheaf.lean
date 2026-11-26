@@ -41,7 +41,7 @@ def geometric [∀ X, Subsingleton (P.obj.obj X)] : GeometricMorphism (Sheaf J (
     inverseImage := ArrowPushout.interpretation P
     directImage := ArrowPushout.rightAdjoint P
     adjunction := ArrowPushout.adjunction P
-    leftExact := inferInstance }
+    preservesFiniteLimits := inferInstance }
 
 /-- An actual subterminal sheaf has subsingleton sections at every stage. -/
 instance subterminalSections (Q : MonoOver (⊤_ (Sheaf J (Type (max u v))))) (X : Cᵒᵖ) :

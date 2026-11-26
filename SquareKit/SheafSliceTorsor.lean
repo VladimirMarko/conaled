@@ -47,7 +47,7 @@ structure Torsor (G : Sheaf J GrpCat.{u}) where
   natural {X Y} (f : X ⟶ Y) (g) (p) :
     sheaf.obj.map f (act X g p) = act Y ((restrictedGroup J U G).obj.map f g) (sheaf.obj.map f p)
   principal (X) (p q : sheaf.obj.obj X) : ∃! g, act X g p = q
-  locallyInhabited (X : Over U) : inhabitedSieve J U sheaf X ∈ (J.over U) X
+  locally_inhabited (X : Over U) : inhabitedSieve J U sheaf X ∈ (J.over U) X
 
 variable {J U} {G : Sheaf J GrpCat.{u}}
 
@@ -120,7 +120,7 @@ def forwardObject (P : SheafTorsor.Torsor G ((J.yoneda).obj U)) : Torsor J U G w
   mul_act X g h p := P.mul_act ((yoneda.obj U).elementsMk (op X.unop.left) X.unop.hom) g h p
   natural f g p := P.natural ((toElements U).map f.unop).unop g p
   principal _X := P.principal _
-  locallyInhabited X := by
+  locally_inhabited X := by
     change Sieve.overEquiv X (inhabitedSieve J U (forwardSheaf J U P) X) ∈ J X.left
     apply J.superset_covering _ (Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom (U := op X.left) X.hom)
     intro V f hf
@@ -146,9 +146,9 @@ def backwardObject (Q : Torsor J U G) : SheafTorsor.Torsor G ((J.yoneda).obj U) 
   mul_act x g h p := Q.mul_act (op (Over.mk x.val)) g h p
   natural f g p := Q.natural ((fromElements U).map f.op).op g p
   principal x := Q.principal _
-  locallySurjective := ⟨by
+  isLocallySurjective := ⟨by
     intro V x
-    apply J.superset_covering _ (Q.locallyInhabited (Over.mk x))
+    apply J.superset_covering _ (Q.locally_inhabited (Over.mk x))
     intro W f hf
     rw [Sieve.overEquiv_iff] at hf
     obtain ⟨p⟩ := hf
@@ -225,8 +225,8 @@ def restrictObject (f : V ⟶ U) (P : Torsor J U G) : Torsor J V G where
   mul_act X g h p := P.mul_act (op ((Over.map f).obj X.unop)) g h p
   natural k g p := P.natural ((Over.map f).map k.unop).op g p
   principal _X := P.principal _
-  locallyInhabited X := (Over.map f).cover_lift (J.over V) (J.over U)
-    (P.locallyInhabited ((Over.map f).obj X))
+  locally_inhabited X := (Over.map f).cover_lift (J.over V) (J.over U)
+    (P.locally_inhabited ((Over.map f).obj X))
 
 def restriction (f : V ⟶ U) : Torsor J U G ⥤ Torsor J V G where
   obj := restrictObject J f

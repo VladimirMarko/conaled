@@ -21,7 +21,7 @@ def mixed (Prim : Ty → Ty → Type) := CategoryProduct.ops (CodeCategory.ops P
 theorem mixed_laws {Prim : Ty → Ty → Type} {B : Type}
     (meaning : {a b : Ty} → Prim a b → Val B a → Val B b) :
     CategoryLaws (mixed Prim) (CategoryProduct.equiv _ _ (CodeCategory.equiv meaning) (equality _)) :=
-  CategoryProduct.laws (CodeCategory.laws meaning) (ofCategoryLaws _)
+  CategoryProduct.laws (CodeCategory.laws meaning) (ofCategory_laws _)
 
 def one : MatrixCategory.Object Nat := ⟨⟨Fin 1,inferInstance,inferInstance⟩⟩
 
@@ -54,7 +54,7 @@ theorem shuffle_not_identity :
 theorem shuffle_recovers (x : (Nat × Nat) × (Nat × Nat)) :
     (Squared.productMap (P := FunctionCategory.products) (Nat,Nat) (Nat,Nat)).inv
       ((Squared.productMap (P := FunctionCategory.products) (Nat,Nat) (Nat,Nat)).hom x) = x :=
-  congrFun (Squared.productMap_inverse (equalityCongr _) FunctionCategory.laws
+  congrFun (Squared.productMap_inverse (equality_congr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws (Nat,Nat) (Nat,Nat)).inv_hom x
 
 /-- Noncommutative lists distinguish the chosen composition order. -/
@@ -82,7 +82,7 @@ theorem composed_object (n : Nat) :
       ⟨Nat,Nat,fun n : Nat => n+1⟩ rfl).connector n = 2*(n+1) := rfl
 
 theorem embedded_arrow (n : Nat) :
-    ((RawArrow.identityMap (equalityCongr _) FunctionCategory.laws).map (fun n : Nat => n+7)).left n = n+7 := rfl
+    ((RawArrow.identityMap (equality_congr _) FunctionCategory.laws).map (fun n : Nat => n+7)).left n = n+7 := rfl
 
 /-- Empty-arrow quivers are CAT objects, although their nonempty carrier cannot have identities. -/
 def discreteWithoutLoops : RawQuiv.Obj := ⟨Bool,⟨fun _ _ => Empty⟩⟩
@@ -102,7 +102,7 @@ theorem lifted_tensor {A B C D : Type u} (f : A → C) (g : B → D) :
         (FunctionCategory.ops.comp
           (Cartesian.tensor FunctionCategory.products (FunctionLift.map.map f) (FunctionLift.map.map g))
           (FunctionLift.products A B).hom)) :=
-  CartesianPreservation.tensor_conjugate (equalityCongr _) FunctionCategory.laws
+  CartesianPreservation.tensor_conjugate (equality_congr _) FunctionCategory.laws
     FunctionCategory.productCongr FunctionCategory.productLaws FunctionLift.map_laws FunctionLift.products_laws f g
 
 /-- Unsquaring can forget a component when the other input factor is empty. -/
@@ -135,7 +135,7 @@ theorem words_length_laws : SetoidMonoid.Laws words lengthSetoid := by
 theorem words_length_semantics : (SetoidMonoid.equiv words lengthSetoid).Rel
     (a := ()) (b := ()) [1] [2] := rfl
 
-def pastedSquare := RawArrow.vertical (equalityCongr _) FunctionCategory.laws
+def pastedSquare := RawArrow.vertical (equality_congr _) FunctionCategory.laws
   sampleSquare sampleSquare (rfl : sampleSquare.right = sampleSquare.left)
 theorem pasted_connector (n : Nat) :
     (RawArrow.compose (⟨Nat,Nat,fun n : Nat => n+1⟩ : RawArrow.Obj FunctionCategory.ops)

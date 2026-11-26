@@ -25,7 +25,7 @@ SHA-256 `f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad`.
 
 | Canonical row | Source correspondence | Lean owners and public results |
 | --- | --- | --- |
-| FDSA-5-79 | Combined cache/strict-inorder invariant and the full interval-set interpretation. The four displayed update corollaries are only part of this contract. | `IntervalTree.Valid`, `deleteOps`, `inorderRefinement_of_singleton`, `setLaws_of_singleton`, their canonical specializations, `IntervalSet.Laws`, `IntervalTree.intervalSetLaws` and shared mixed-history APIs. |
+| FDSA-5-79 | Combined cache/strict-inorder invariant and the full interval-set interpretation. The four displayed update corollaries are only part of this contract. | `IntervalTree.Valid`, `deleteOps`, `inorder_refinement_of_singleton`, `set_laws_of_singleton`, their canonical specializations, `IntervalSet.Laws`, `IntervalTree.intervalSet_laws` and shared mixed-history APIs. |
 | FDSA-5-80 | Empty false; root overlap true; otherwise choose exactly one child, retaining the nonempty-left guard. | `IntervalTree.search`, `search_nil`, the four node branch equations and `search_sound`. |
 | FDSA-5-81 | A selected nonempty left subtree with no overlap excludes the right through an attained left maximum and ordered lows. | `high_lt_low_of_left_no_overlap` and `not_overlap_right_of_left`, using the existing `maxHi_attained`. |
 | FDSA-5-82 | Empty left, or a failed maximum threshold, excludes overlap in the left subtree. | `not_overlap_nil` and `not_overlap_of_maxHi_lt`, using the existing `high_le_maxHi`. |
@@ -91,7 +91,7 @@ constant-100 maximum countermodel explains why the singleton premise cannot
 simply be omitted. The canonical `LinearOrder`/`OrderBot` endpoint corollary
 discharges it using the ordinary maximum/bottom laws.
 
-`inorderRefinement_of_singleton` instantiates `AbstractSet.Refinement` with
+`inorder_refinement_of_singleton` instantiates `AbstractSet.Refinement` with
 view `I`, auxiliary invariant `CacheValid iv`, target `OrderedList.ops` and
 target invariant `OrderedList.Strict`. Its primitive obligations use the
 following existing proofs:
@@ -113,14 +113,14 @@ equality-membership correctness, delete validity and delete observation.
 The source set laws are derived conclusions, not primitive refinement premises.
 
 No compatibility of projected lows, injectivity, or disjointness of stored
-intervals belongs to these ordinary laws. `setLaws` remains available for the
+intervals belongs to these ordinary laws. `set_laws` remains available for the
 reversed-projection countermodel where overlap completeness fails.
 
 The generic `IntervalSet.Laws` extends `AbstractSet.DeleteLaws` by one overlap
 law. It takes the existing operation record and a separate Boolean search
 parameter; it does not duplicate seven fields or introduce a second update
 framework. Its only endpoint requirement is `LE`. The concrete
-`intervalSetLaws` combines the derived ordinary laws with the independently
+`intervalSet_laws` combines the derived ordinary laws with the independently
 proved search theorem, using global weak low compatibility for the latter.
 
 ## Mixed words and all prefixes

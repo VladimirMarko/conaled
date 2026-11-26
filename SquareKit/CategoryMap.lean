@@ -41,7 +41,7 @@ def induced (F : RawMap C D) (H : HomEquiv D) : HomEquiv C where
     iseqv := ⟨fun _ => H.refl _, H.symm, H.trans⟩ }
 
 /-- Local operation preservation suffices for the relation induced by a map. -/
-theorem inducedLaws (F : RawMap C D) (H : HomEquiv D)
+theorem induced_laws (F : RawMap C D) (H : HomEquiv D)
     (hi : ∀ {a}, H.Rel (F.map (C.ident (a := a))) D.ident)
     (hc : ∀ {a b c} (g : C.Hom b c) (f : C.Hom a b),
       H.Rel (F.map (C.comp g f)) (D.comp (F.map g) (F.map f))) :
@@ -66,13 +66,13 @@ def Reflects (F : RawMap C D) (E : HomEquiv C) (H : HomEquiv D) : Prop :=
 theorem induced_reflects (F : RawMap C D) (H : HomEquiv D) :
     F.Reflects (F.induced H) H := fun h => h
 
-theorem transportCongr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_congr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H) (HC : CategoryCongr D H) :
     CategoryCongr C E where
   comp hg hf := R (H.trans (L.comp _ _) (H.trans (HC.comp (L.congr hg) (L.congr hf))
     (H.symm (L.comp _ _))))
 
-theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_laws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H)
     (HC : CategoryCongr D H) (HL : CategoryLaws D H) : CategoryLaws C E where
   id_comp _f := R (H.trans (L.comp _ _) (H.trans (HC.comp L.ident (H.refl _)) (HL.id_comp _)))

@@ -6,7 +6,7 @@ compiler has a separate syntax and its own substitution implementation. -/
 namespace FirstOrderCompiler
 namespace Term
 
-private theorem binaryCongr (f : α → β → γ) {a a' : α} {b b' : β}
+private theorem binary_congr (f : α → β → γ) {a a' : α} {b b' : β}
     (h : a = a') (k : b = b') : f a b = f a' b' := by cases h; cases k; rfl
 
 abbrev Ren (Γ Δ : Ctx) := {a : Ty} → Var Γ a → Var Δ a
@@ -59,7 +59,7 @@ theorem eval_rename {B : Type} (m : {a b : Ty} → P a b → Val B a → Val B b
   induction t generalizing Δ with
   | var v => exact h v
   | unit => rfl
-  | pair t u it iu => exact binaryCongr Prod.mk (it r ρ τ h) (iu r ρ τ h)
+  | pair t u it iu => exact binary_congr Prod.mk (it r ρ τ h) (iu r ρ τ h)
   | fst t it => exact congrArg Prod.fst (it r ρ τ h)
   | snd t it => exact congrArg Prod.snd (it r ρ τ h)
   | letE t u it iu =>
@@ -83,7 +83,7 @@ theorem eval_subst {B : Type} (m : {a b : Ty} → P a b → Val B a → Val B b)
   induction t generalizing Δ with
   | var v => exact h v
   | unit => rfl
-  | pair t u it iu => exact binaryCongr Prod.mk (it s ρ τ h) (iu s ρ τ h)
+  | pair t u it iu => exact binary_congr Prod.mk (it s ρ τ h) (iu s ρ τ h)
   | fst t it => exact congrArg Prod.fst (it s ρ τ h)
   | snd t it => exact congrArg Prod.snd (it s ρ τ h)
   | letE t u it iu =>

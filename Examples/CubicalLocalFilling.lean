@@ -10,13 +10,13 @@ open CategoryTheory SquareKit.Cubical SquareKit.Cubical.Presheaf
 open CubicalPresheaf CubicalDiscreteFilling CubicalDependentFilling
 
 abbrev localProvider := filling.toLocal
-abbrev localLawful := Filling.toLocal_lawful (discreteFilling_lawful index (fun n => Fin (n+1)))
-abbrev recovered := localProvider.toFilling localLawful
+abbrev localProvider_lawful := Filling.toLocal_lawful (discreteFilling_lawful index (fun n => Fin (n+1)))
+abbrev recovered := localProvider.toFilling localProvider_lawful
 
 theorem selected_filler_recovered : recovered = filling :=
   Filling.toLocal_toFilling filling (discreteFilling_lawful index (fun n => Fin (n+1)))
 
-theorem recovered_lawful : recovered.Lawful := localProvider.toFilling_lawful localLawful
+theorem recovered_lawful : recovered.Lawful := localProvider.toFilling_lawful localProvider_lawful
 
 theorem two_substitutions :
     (recovered.comp (liftSub (interval naturals) successor ≫ projection (interval naturals))

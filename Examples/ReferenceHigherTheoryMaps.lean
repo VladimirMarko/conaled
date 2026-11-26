@@ -337,13 +337,13 @@ theorem recovered_eq : recovered = some (selectedHomotopy cocycleStructuralModel
 
 /-- Normalize only the known family equality, then observe the recovered cell. -/
 def observation : Option Int := recovered.map (fun h =>
-  secondObservation (cast (type_eq_of_heq retainedHomotopy) (h.down.reindex assignInput)))
+  secondObservation (cast (type_eq_of_heq retained_homotopy) (h.down.reindex assignInput)))
 
 theorem observation_one : observation = some 1 := by
   unfold observation
   rw [recovered_eq]
   change some (secondObservation selectedNormalizedHomotopy) = some 1
-  rw [frozenHigherObservation]
+  rw [frozen_higher_observation]
 
 /-- Endpoint-only/reflexive replacement would yield zero, so this observation
 rejects it for the very witness used by the compiled dependent action. -/

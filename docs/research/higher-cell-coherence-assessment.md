@@ -54,7 +54,7 @@ A new constructor requesting those three observed equations would require
 callers to supply the current normalization blocks unchanged. Requesting the
 unobserved equations would merely rename the desired laws.
 
-`RawMap.transportLaws` treats ordinary category operations. Its use here would
+`RawMap.transport_laws` treats ordinary category operations. Its use here would
 still require a hom-category adapter and separate proofs about horizontal
 composition, whiskering, object boundaries, and arrow boundaries. It therefore
 does not replace the higher obligations.

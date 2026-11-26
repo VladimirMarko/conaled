@@ -50,7 +50,7 @@ def semanticEquiv (ι : S → G) := (rawMap (X := X) ι).induced (SquareKit.equa
 
 theorem semantic_laws (ι : S → G) :
     SquareKit.MapLaws (rawMap (X := X) ι) (semanticEquiv ι) (SquareKit.equality _) :=
-  SquareKit.RawMap.inducedLaws _ _ (rawMap_laws ι).ident (rawMap_laws ι).comp
+  SquareKit.RawMap.induced_laws _ _ (rawMap_laws ι).ident (rawMap_laws ι).comp
 
 /-- This reflects the induced relation, not literal equality of paths. -/
 theorem reflects_semantics (ι : S → G) :

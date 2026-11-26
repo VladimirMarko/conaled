@@ -18,8 +18,8 @@ theorem selectedCounit_square (s : Square e e' K L) (t : Square e e' K' L')
         whiskerLeft e'.inverse (whiskerRight θ.hom e.functor) =
       η.hom ≫ whiskerLeft K' e.counitInv ≫
         eqToHom (congrArg (· ⋙ e.functor) t.inverse) := by
-  rw [← Category.assoc, ← s.counitInv]
-  rw [← t.counitInv]
+  rw [← Category.assoc, ← s.counitInv_compatibility]
+  rw [← t.counitInv_compatibility]
   apply NatTrans.ext
   funext x
   have hh := congrArg (fun i => i.hom.app (e'.inverse.obj x)) h

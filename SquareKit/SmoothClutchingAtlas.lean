@@ -56,7 +56,7 @@ def third : (i j k : Bool) → triple i j k ⟶ line
   | true, false, _ => subInclusion line (generator 0)
   | true, true, false => subInclusion line (generator 0)
 
-theorem tripleSquare (i j k : Bool) : IsPullback (embedding.map (firstSecond i j k))
+theorem triple_isPullback (i j k : Bool) : IsPullback (embedding.map (firstSecond i j k))
     (embedding.map (third i j k)) (embedding.map (projection i j) ≫ chart i) (chart k) := by
   cases i <;> cases j <;> cases k
   · simpa [firstSecond, third, projection, chart, pair, triple, embedding.map_id] using square false false
@@ -92,7 +92,7 @@ def atlas : Atlas base Bool where
   triple := triple
   firstSecond := firstSecond
   third := third
-  tripleSquare := tripleSquare
+  triple_isPullback := triple_isPullback
 
 variable (G : Type) [Group G] (c : G)
 
@@ -119,9 +119,9 @@ def localTrivialization (i : Bool) :
       (SheafTorsor.reindex (torsor G c) (chart i)) :=
   match i with
   | false => SheafTorsor.ofSection _
-      (chartSection G c left (totalChartLeft G c) (localTrivial G c).1.w)
+      (chartSection G c left (totalChartLeft G c) (local_trivial G c).1.w)
   | true => SheafTorsor.ofSection _
-      (chartSection G c right (totalChartRight G c) (localTrivial G c).2.w)
+      (chartSection G c right (totalChartRight G c) (local_trivial G c).2.w)
 
 theorem localTrivialization_left_apply (x : lineSheaf.obj.Elements)
     (g : (locallyConstantGroup G).obj.obj x.obj) :

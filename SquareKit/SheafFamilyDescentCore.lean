@@ -65,7 +65,7 @@ def aggregateEquivalence
     F.DescentData (fun _ : Unit => Sigma.desc f) ≌ F.DescentData f := by
   let c := colimit.cocone (Discrete.functor Y)
   have := CoproductDescent.aggregateRestriction_isEquivalence c
-    (SheafCoproductGeometry.total_isVanKampen Y) hF (Sigma.desc f)
+    (SheafCoproductGeometry.total_isVanKampenColimit Y) hF (Sigma.desc f)
   let e := (CoproductDescent.aggregateRestriction (F := F) c (Sigma.desc f)).asEquivalence
   change F.DescentData (fun _ : Unit => Sigma.desc f) ≌
     F.DescentData (fun i => Sigma.ι Y i ≫ Sigma.desc f) at e
@@ -86,7 +86,7 @@ theorem isStackFor_joint
   rw [Pseudofunctor.isStackFor_ofArrows_iff]
   let c := colimit.cocone (Discrete.functor Y)
   have := CoproductDescent.aggregateRestriction_isEquivalence c
-    (SheafCoproductGeometry.total_isVanKampen Y) hF (Sigma.desc f)
+    (SheafCoproductGeometry.total_isVanKampenColimit Y) hF (Sigma.desc f)
   have := (F.isStackFor_ofArrows_iff _).mp
     (hSingle (Sigma.desc f) ((SheafFamilyCover.jointlyLocallySurjective_iff_sigmaDesc f).mp hf))
   have h := Functor.isEquivalence_of_iso

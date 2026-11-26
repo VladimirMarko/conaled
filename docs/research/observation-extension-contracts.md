@@ -16,7 +16,7 @@ The implementation audit found different useful contracts already in place:
 | `Parser.parse`, `Decision.test_correct`, `ParserBridge.recognizers_agree` | A decision carries an actual witness or its refutation. Boolean recognition forgets the chosen witness. The bridge compares independently constructed recognizers after that forgetting. |
 | `Simulation`, `Simulation.representation_independent` | A relation connects valid queue representations to abstract sequences. Client observations agree for inputs related to the same abstract state; the relation need not be a function. |
 | `FIFOExtension.observe`, `old_observe` | Rotation is admitted by its local simulation proof. The public compiler contract reuses the old syntax proof and logical-relation theorem. |
-| `STLCSignature.preserves_extend`, `ClosedMap.transportLaws` | Operation compatibility and the stated congruence/reflection assumptions govern interpretation and law transport. Observer extension does not supply those assumptions automatically. |
+| `STLCSignature.preserves_extend`, `ClosedMap.transport_laws` | Operation compatibility and the stated congruence/reflection assumptions govern interpretation and law transport. Observer extension does not supply those assumptions automatically. |
 | `RelationTransport.requirement`, `HomQuotient` | Universal partial correctness and categorical quotient operations remain separate. This task uses Lean's `Setoid`, `Quotient.lift` and `Quotient.sound` for value observations, without recreating categorical law transport. |
 
 The bounded shared interface fixes a representation type `X`, observer indices

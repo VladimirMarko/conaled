@@ -50,10 +50,10 @@ theorem generatedRootTail_left (hΓ : CtxDeriv.{u+1} Γ γ)
       (Instance.rootTailEquivalence S.base.left S.leftFiber (a L) (x L).down (T L)) :=
   (rootTail_left S _ _ _).trans
     (rootTailEquivalence_heq S.base.left S.leftFiber
-      ((leftSignatureMap S).generatedCtx hΓ)
-      ((leftSignatureMap S).generatedTy hA).2
-      ((leftSignatureMap S).generatedTm hx).2
-      ((cast_heq _ _).trans ((leftSignatureMap S).generatedTel hT).2))
+      ((leftSignatureMap S).generated_ctx hΓ)
+      ((leftSignatureMap S).generated_ty hA).2
+      ((leftSignatureMap S).generated_tm hx).2
+      ((cast_heq _ _).trans ((leftSignatureMap S).generated_tel hT).2))
 
 theorem generatedRootTail_right (hΓ : CtxDeriv.{u+1} Γ γ)
     (hA : TyDeriv.{u+1} Γ γ A a) (hx : TmDeriv.{u+1} Γ γ A a t x)
@@ -62,10 +62,10 @@ theorem generatedRootTail_right (hΓ : CtxDeriv.{u+1} Γ γ)
       (Instance.rootTailEquivalence S.base.right S.rightFiber (a R) (x R).down (T R)) :=
   (rootTail_right S _ _ _).trans
     (rootTailEquivalence_heq S.base.right S.rightFiber
-      ((rightSignatureMap S).generatedCtx hΓ)
-      ((rightSignatureMap S).generatedTy hA).2
-      ((rightSignatureMap S).generatedTm hx).2
-      ((cast_heq _ _).trans ((rightSignatureMap S).generatedTel hT).2))
+      ((rightSignatureMap S).generated_ctx hΓ)
+      ((rightSignatureMap S).generated_ty hA).2
+      ((rightSignatureMap S).generated_tm hx).2
+      ((cast_heq _ _).trans ((rightSignatureMap S).generated_tel hT).2))
 
 /-- Both native contractions, inverse functors and chosen counits are retained
 through the same extracted generated comparison maps. -/
@@ -78,10 +78,10 @@ theorem generatedRootTail_square (hΓ : CtxDeriv.{u+1} Γ γ)
       (generatedContextMap S (.telescope (.path hΓ hA hx) hT))
       (generatedContextMap S (.branch hΓ hA hx hT)) :=
   (rootTail S (a M) (x M) (T M)).square_relabel
-    ((leftSignatureMap S).generatedCtx (.telescope (.path hΓ hA hx) hT))
-    ((rightSignatureMap S).generatedCtx (.telescope (.path hΓ hA hx) hT))
-    ((leftSignatureMap S).generatedCtx (.branch hΓ hA hx hT))
-    ((rightSignatureMap S).generatedCtx (.branch hΓ hA hx hT)) _ _
+    ((leftSignatureMap S).generated_ctx (.telescope (.path hΓ hA hx) hT))
+    ((rightSignatureMap S).generated_ctx (.telescope (.path hΓ hA hx) hT))
+    ((leftSignatureMap S).generated_ctx (.branch hΓ hA hx hT))
+    ((rightSignatureMap S).generated_ctx (.branch hΓ hA hx hT)) _ _
     (generatedRootTail_left S hΓ hA hx hT) (generatedRootTail_right S hΓ hA hx hT)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

@@ -64,7 +64,7 @@ Statement review checked these boundaries:
   function merely because it has a `CtxCode`, `TyCode` or `TmCode` type.
 - The recursive invariants retain context and family comparisons. Every J case
   compares the complete telescope, motive and branch before using primitive
-  `mapJ`. Conversion transports an already established result along its code
+  `j_preserved`. Conversion transports an already established result along its code
   equality; it adds no interpretation hypothesis.
 - Heterogeneous equality here compares mapped semantic data. It does not identify
   distinct object-language identity witnesses or assert reflection of source

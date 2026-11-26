@@ -92,7 +92,7 @@ def pastedSquare := Squares.vertical id observeRelay wireSquare relaySquare (fun
 
 theorem comma_pasting : SquareKit.Comma.Exact.ofSquare pastedSquare =
     SquareKit.Comma.vertical
-      (SquareKit.equalityCongr SquareKit.FunctionCategory.ops)
+      (SquareKit.equality_congr SquareKit.FunctionCategory.ops)
       SquareKit.FunctionCategory.laws
       (SquareKit.Comma.Exact.ofSquare wireSquare)
       (SquareKit.Comma.Exact.ofSquare relaySquare) (funext (fun _ => rfl)) :=

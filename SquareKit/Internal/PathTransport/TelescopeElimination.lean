@@ -17,7 +17,7 @@ variable (e : D ≌ C) (hobj : ∀ d, d = e.inverse.obj (e.functor.obj d))
 variable (hhom : ∀ d, e.unitIso.hom.app d = eqToHom (hobj d))
 
 include hhom in
-lemma counitInv (d : D) : e.counitIso.inv.app (e.functor.obj d) =
+lemma counit_inv (d : D) : e.counitIso.inv.app (e.functor.obj d) =
     e.functor.map (eqToHom (hobj d)) := by
   apply (cancel_mono (e.counitIso.hom.app (e.functor.obj d))).mp
   rw [← hhom]
@@ -37,16 +37,16 @@ lemma lifted_unit_obj (a : Grothendieck (e.functor ⋙ T)) :
       ((Grothendieck.preEquivalence T e).functor.obj a) := by
   dsimp [Grothendieck.preEquivalence, Grothendieck.preInv,
     Grothendieck.map, Grothendieck.pre]
-  rw [counitInv e hobj hhom]
+  rw [counit_inv e hobj hhom]
   change a = a.transport (eqToHom (hobj a.base))
   exact (transport_eqToHom e T a (hobj a.base)).symm
 include hobj hhom in
-lemma counitHom (d : D) : e.counitIso.hom.app (e.functor.obj d) =
+lemma counit_hom (d : D) : e.counitIso.hom.app (e.functor.obj d) =
     eqToHom (congrArg e.functor.obj (hobj d).symm) := by
   apply (cancel_epi (e.counitIso.inv.app (e.functor.obj d))).mp
   calc
     _ = 𝟙 _ := (e.counitIso.app (e.functor.obj d)).inv_hom_id
-    _ = _ := by rw [counitInv e hobj hhom]; simp [eqToHom_map]
+    _ = _ := by rw [counit_inv e hobj hhom]; simp [eqToHom_map]
 
 include hobj hhom in
 lemma lifted_counit_hom (a : Grothendieck (e.functor ⋙ T)) :
@@ -56,7 +56,7 @@ lemma lifted_counit_hom (a : Grothendieck (e.functor ⋙ T)) :
         (lifted_unit_obj e hobj hhom T a).symm) := by
   fapply Grothendieck.ext
   · simp [Grothendieck.preEquivalence, Grothendieck.preNatIso,
-      Grothendieck.transportIso, Grothendieck.isoMk, counitHom e hobj hhom]
+      Grothendieck.transportIso, Grothendieck.isoMk, counit_hom e hobj hhom]
   · simp [Grothendieck.preEquivalence, Grothendieck.preNatIso,
       Grothendieck.transportIso, Grothendieck.isoMk]
 
@@ -96,7 +96,7 @@ theorem extend_beta {F : C ⥤ Cat}
   have hα : isoWhiskerLeft e.functor α = eqToIso h := by
     ext a
     dsimp [α]
-    rw [RepeatedTail.counitHom e hobj hhom]
+    rw [RepeatedTail.counit_hom e hobj hhom]
     simp
   exact (normalize_restriction (e.inverse ⋙ s) α e.functor h hα).trans hr
 end SquareKit.Internal.PathTransport.GroupoidModel.ContextualElimination

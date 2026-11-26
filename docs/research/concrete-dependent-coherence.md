@@ -93,7 +93,7 @@ Its objects are `(Γ,A)` from the existing `StructuralModel`; an arrow is an
 arbitrary commuting square between the two context projections. In
 [`DisplayCategory`](../../SquareKit/Internal/PathTransport/DisplayCategory.lean),
 `comprehensionFullyFaithful` constructs the inverse on homs,
-`displayPullback` proves the chosen square is a pullback, and
+`display_pullback` proves the chosen square is a pullback, and
 `display_cartesian` proves unique factorization over each chosen reindexing.
 Fullness is therefore a checked result for those arrows. It does not require
 another fullness field in the generic model.

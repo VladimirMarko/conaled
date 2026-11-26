@@ -57,7 +57,7 @@ theorem comp_inverse {F : RawMap C D} {G : RawMap D K}
 
 /-- Reflection is needed only for the separately selected source relation.
 Only the inverse equation at the interpreted source initial object is used. -/
-theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_laws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (R : F.Reflects E H) (DC : CategoryCongr D H) (DL : CategoryLaws D H)
     {T : InitialOps C} {U : InitialOps D} {i : InitialMap F T U}
     (I : H.Rel (D.comp i.inv i.hom) D.ident)

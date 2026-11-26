@@ -29,43 +29,43 @@ def relativeFamilyData (f : Y ⟶ X) :
   secondThird := familyRestriction a hΓ hB (SheafCoverCech.secondThird f)
 
 /-- Strict coherence comes from actual context restriction, including extensions. -/
-theorem relativeFamilyCoherence (f : Y ⟶ X) :
+theorem relativeFamilyData_coherence (f : Y ⟶ X) :
     (relativeFamilyData a hΓ hB f).Coherence where
-  diagonalFirst := by
+  diagonal_first := by
     change totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.first f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.diagonal f)) = _
     rw [← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) f).diagonalFirst
-  diagonalSecond := by
+    exact (strictDiagram a (.ext hΓ hB) f).diagonal_first
+  diagonal_second := by
     change totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.second f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.diagonal f)) = _
     rw [← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) f).diagonalSecond
-  tripleFirst := by
+    exact (strictDiagram a (.ext hΓ hB) f).diagonal_second
+  triple_first := by
     change totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.first f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.firstSecond f)) =
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.first f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.firstThird f))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) f).tripleFirst
-  tripleMiddle := by
+    exact (strictDiagram a (.ext hΓ hB) f).triple_first
+  triple_middle := by
     change totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.second f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.firstSecond f)) =
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.first f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.secondThird f))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) f).tripleMiddle
-  tripleLast := by
+    exact (strictDiagram a (.ext hΓ hB) f).triple_middle
+  triple_last := by
     change totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.second f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.firstThird f)) =
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.second f)) ⋙
       totalMap _ (familyRestriction a hΓ hB (SheafCoverCech.secondThird f))
     rw [← restriction_extend, ← restriction_extend, ← restriction_extend]
-    exact (strictDiagram a (.ext hΓ hB) f).tripleLast
+    exact (strictDiagram a (.ext hΓ hB) f).triple_last
 
 def relativeToGenerated (f : Y ⟶ X) :
     CechMatching.StrictMap ((relativeFamilyData a hΓ hB f).total
-      (relativeFamilyCoherence a hΓ hB f)) (strictDiagram a (.ext hΓ hB) f) where
+      (relativeFamilyData_coherence a hΓ hB f)) (strictDiagram a (.ext hΓ hB) f) where
   localMap := 𝟭 _
   doubleMap := 𝟭 _
   tripleMap := 𝟭 _
@@ -78,7 +78,7 @@ def relativeToGenerated (f : Y ⟶ X) :
 
 def generatedToRelative (f : Y ⟶ X) :
     CechMatching.StrictMap (strictDiagram a (.ext hΓ hB) f)
-      ((relativeFamilyData a hΓ hB f).total (relativeFamilyCoherence a hΓ hB f)) where
+      ((relativeFamilyData a hΓ hB f).total (relativeFamilyData_coherence a hΓ hB f)) where
   localMap := 𝟭 _
   doubleMap := 𝟭 _
   tripleMap := 𝟭 _
@@ -92,7 +92,7 @@ def generatedToRelative (f : Y ⟶ X) :
 /-- The relative total diagram is the actual generated extended-context diagram. -/
 def relativeMatchingEquivalence (f : Y ⟶ X) :
     CechMatching.Datum ((relativeFamilyData a hΓ hB f).total
-      (relativeFamilyCoherence a hΓ hB f)).toDiagram ≌ Datum a (.ext hΓ hB) f :=
+      (relativeFamilyData_coherence a hΓ hB f)).toDiagram ≌ Datum a (.ext hΓ hB) f :=
   (relativeToGenerated a hΓ hB f).equivalence (generatedToRelative a hΓ hB f)
     (CechMatching.StrictMap.ext _ _ rfl rfl rfl)
     (CechMatching.StrictMap.ext _ _ rfl rfl rfl)

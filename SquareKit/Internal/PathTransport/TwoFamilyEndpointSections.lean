@@ -163,7 +163,7 @@ theorem endpoint_functor_ext {Δ : Type*} [Bicategory Δ] [Strict Δ]
     (H K : StrictPseudofunctor Δ (Total (endpointFamily F)))
     (h1 : H.comp (endpointProjection F true) = K.comp (endpointProjection F true))
     (h2 : H.comp (endpointProjection F false) = K.comp (endpointProjection F false)) : H = K :=
-  strictFunctorJointExt _ _ (endpoint_obj_ext F) (endpoint_hom_ext F) (endpoint_cell_ext F) H K h1 h2
+  strictPseudofunctor_joint_ext _ _ (endpoint_obj_ext F) (endpoint_hom_ext F) (endpoint_cell_ext F) H K h1 h2
 
 theorem diagonal_endpoint (side : Bool) :
     (diagonalTotal F).comp (endpointProjection F side) = StrictPseudofunctor.id (Total F) := by

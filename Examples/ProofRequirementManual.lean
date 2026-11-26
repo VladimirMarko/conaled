@@ -14,7 +14,7 @@ structure OriginalReversalRequirements {A : Type u} (m : A → A → A) (f : A �
   involutive : ∀ x, f (f x) = x
 
 /-- Replay includes the unused source ambient law as a separate parameter. -/
-theorem reverseBlocks_original {A : Type u} (m : A → A → A) (f : A → A)
+theorem reverse_blocks_original {A : Type u} (m : A → A → A) (f : A → A)
     (e : A) (_ambient : ∀ t, m t e = t) (h : OriginalReversalRequirements m f)
     (x y z : A) : f (m x (m y z)) = m (m (f z) (f y)) (f x) := by
   calc
@@ -27,7 +27,7 @@ theorem reverseBlocks_original {A : Type u} (m : A → A → A) (f : A → A)
       congrArg (fun t => m t (f x)) (h.reverse_op y z)
 
 /-- Removing the canceling involution steps removes that requirement. -/
-theorem reverseBlocks {A : Type u} {m : A → A → A} {f : A → A}
+theorem reverse_blocks {A : Type u} {m : A → A → A} {f : A → A}
     (h : ReversalRequirements m f) (x y z : A) :
     f (m x (m y z)) = m (m (f z) (f y)) (f x) := by
   calc
@@ -35,56 +35,56 @@ theorem reverseBlocks {A : Type u} {m : A → A → A} {f : A → A}
     _ = m (m (f z) (f y)) (f x) :=
       congrArg (fun t => m t (f x)) (h.reverse_op y z)
 
-theorem listReversal : ReversalRequirements Targets.listOp Targets.listFlip where
+theorem list_reversal : ReversalRequirements Targets.listOp Targets.listFlip where
   reverse_op := fun _ _ => List.reverse_append
 
-theorem listOriginalReversal : OriginalReversalRequirements Targets.listOp Targets.listFlip where
-  toReversalRequirements := listReversal
+theorem list_original_reversal : OriginalReversalRequirements Targets.listOp Targets.listFlip where
+  toReversalRequirements := list_reversal
   involutive := List.reverse_reverse
 
-theorem boolReversal : ReversalRequirements Targets.boolOp Targets.boolFlip where
+theorem bool_reversal : ReversalRequirements Targets.boolOp Targets.boolFlip where
   reverse_op := by intro x y; cases x <;> cases y <;> rfl
 
-theorem boolOriginalReversal : OriginalReversalRequirements Targets.boolOp Targets.boolFlip where
-  toReversalRequirements := boolReversal
+theorem bool_original_reversal : OriginalReversalRequirements Targets.boolOp Targets.boolFlip where
+  toReversalRequirements := bool_reversal
   involutive := by intro x; rfl
 
 theorem list_original_replay (x y z : List Nat) :
     Targets.listFlip (Targets.listOp x (Targets.listOp y z)) =
       Targets.listOp (Targets.listOp (Targets.listFlip z) (Targets.listFlip y))
         (Targets.listFlip x) :=
-  reverseBlocks_original _ _ [] List.append_nil listOriginalReversal x y z
+  reverse_blocks_original _ _ [] List.append_nil list_original_reversal x y z
 
 theorem bool_original_replay (x y z : Bool) :
     Targets.boolFlip (Targets.boolOp x (Targets.boolOp y z)) =
       Targets.boolOp (Targets.boolOp (Targets.boolFlip z) (Targets.boolFlip y))
         (Targets.boolFlip x) :=
-  reverseBlocks_original _ _ false (by intro t; cases t <;> rfl) boolOriginalReversal x y z
+  reverse_blocks_original _ _ false (by intro t; cases t <;> rfl) bool_original_reversal x y z
 
-theorem list_reverseBlocks (x y z : List Nat) :
+theorem list_reverse_blocks (x y z : List Nat) :
     Targets.listFlip (Targets.listOp x (Targets.listOp y z)) =
       Targets.listOp (Targets.listOp (Targets.listFlip z) (Targets.listFlip y))
-        (Targets.listFlip x) := reverseBlocks listReversal x y z
+        (Targets.listFlip x) := reverse_blocks list_reversal x y z
 
-theorem bool_reverseBlocks (x y z : Bool) :
+theorem bool_reverse_blocks (x y z : Bool) :
     Targets.boolFlip (Targets.boolOp x (Targets.boolOp y z)) =
       Targets.boolOp (Targets.boolOp (Targets.boolFlip z) (Targets.boolFlip y))
-        (Targets.boolFlip x) := reverseBlocks boolReversal x y z
+        (Targets.boolFlip x) := reverse_blocks bool_reversal x y z
 
 theorem list_empty :
     Targets.listFlip (Targets.listOp [] (Targets.listOp [] [])) = [] := by
-  exact list_reverseBlocks [] [] []
+  exact list_reverse_blocks [] [] []
 
 theorem list_nonempty :
     Targets.listFlip (Targets.listOp [1,2] (Targets.listOp [3] [4,5])) = [5,4,3,2,1] := by
   calc
     _ = Targets.listOp (Targets.listOp (Targets.listFlip [4,5]) (Targets.listFlip [3]))
-      (Targets.listFlip [1,2]) := list_reverseBlocks [1,2] [3] [4,5]
+      (Targets.listFlip [1,2]) := list_reverse_blocks [1,2] [3] [4,5]
     _ = [5,4,3,2,1] := rfl
 
 theorem bool_application :
     Targets.boolFlip (Targets.boolOp true (Targets.boolOp false true)) = false := by
-  exact bool_reverseBlocks true false true
+  exact bool_reverse_blocks true false true
 
 theorem bad_target_failure :
     Targets.boolFlip (Targets.badOp true (Targets.badOp false false)) ≠
@@ -141,38 +141,38 @@ theorem selected_agrees_original {A : Type u} {B : Type v}
   apply Subtype.ext
   rfl
 
-theorem listRightUnit : RightUnit Targets.listOp Targets.listUnit := List.append_nil
+theorem list_rightUnit : RightUnit Targets.listOp Targets.listUnit := List.append_nil
 
-theorem boolRightUnit : RightUnit Targets.boolOp Targets.boolUnit := by
+theorem bool_rightUnit : RightUnit Targets.boolOp Targets.boolUnit := by
   intro x
   cases x <;> rfl
 
-theorem listObservedRightUnit :
+theorem list_observedRightUnit :
     ObservedRightUnit Targets.listOp Targets.listUnit Targets.listObserve :=
-  observedRightUnit_of_rightUnit Targets.listObserve listRightUnit
+  observedRightUnit_of_rightUnit Targets.listObserve list_rightUnit
 
-theorem boolObservedRightUnit :
+theorem bool_observedRightUnit :
     ObservedRightUnit Targets.boolOp Targets.boolUnit Targets.boolObserve :=
-  observedRightUnit_of_rightUnit Targets.boolObserve boolRightUnit
+  observedRightUnit_of_rightUnit Targets.boolObserve bool_rightUnit
 
 def selectedList (x : List Nat) :
     {y : List Nat // Targets.listObserve y =
       Targets.listObserve (Targets.listOp x Targets.listUnit)} :=
-  selected listObservedRightUnit x
+  selected list_observedRightUnit x
 
 def selectedBool (x : Bool) :
     {y : Bool // Targets.boolObserve y =
       Targets.boolObserve (Targets.boolOp x Targets.boolUnit)} :=
-  selected boolObservedRightUnit x
+  selected bool_observedRightUnit x
 
 theorem selectedList_value (x : List Nat) : (selectedList x).val = x :=
-  selected_value listObservedRightUnit x
+  selected_value list_observedRightUnit x
 
 theorem selectedBool_value (x : Bool) : (selectedBool x).val = x :=
-  selected_value boolObservedRightUnit x
+  selected_value bool_observedRightUnit x
 
 theorem list_selectedOriginal_replay (x : List Nat) :
-    selectedOriginal Targets.listObserve listRightUnit x = Source.selected x := by
+    selectedOriginal Targets.listObserve list_rightUnit x = Source.selected x := by
   apply Subtype.ext
   rfl
 
@@ -181,8 +181,8 @@ theorem selectedList_eq_source (x : List Nat) : selectedList x = Source.selected
   exact selectedList_value x
 
 theorem bool_selectedOriginal_replay (x : Bool) :
-    (selectedOriginal Targets.boolObserve boolRightUnit x).val = x :=
-  selectedOriginal_value Targets.boolObserve boolRightUnit x
+    (selectedOriginal Targets.boolObserve bool_rightUnit x).val = x :=
+  selectedOriginal_value Targets.boolObserve bool_rightUnit x
 
 theorem selectedList_empty : (selectedList []).val = [] := selectedList_value []
 theorem selectedList_nonempty : (selectedList [1,2]).val = [1,2] := selectedList_value [1,2]

@@ -14,7 +14,7 @@ variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
 variable (θ : Pseudofunctor.StrongTrans G.toPseudofunctor H.toPseudofunctor)
 namespace StrongMap
 omit [Strict Γ] in
-theorem vcompComparison {x y : Γ} (f : x ⟶ y) (a : F.obj x) :
+theorem vcomp_comparison {x y : Γ} (f : x ⟶ y) (a : F.obj x) :
     ((Pseudofunctor.StrongTrans.vcomp η θ).naturality f).inv.app a =
       (θ.naturality f).inv.app ((η.app x).obj a) ≫
         (θ.app y).map ((η.naturality f).inv.app a) := by
@@ -61,7 +61,7 @@ private theorem comp_cell {x y : Total F} {p q : x ⟶ y} (α : p ⟶ q) :
     refine HEq.trans (eqToHom_comp_heq _ _) ?_
     refine HEq.trans (comp_eqToHom_heq _ _) ?_
     apply HEq.trans _ (comp_eqToHom_heq _ _).symm
-    rw [vcompComparison]
+    rw [vcomp_comparison]
     simp only [nested_whiskerLeft]
     refine HEq.trans (eqToHom_comp_heq _ _) ?_
     refine HEq.trans (comp_eqToHom_heq _ _) ?_

@@ -101,14 +101,14 @@ def negation : constant Bool ⟶ constant Bool :=
   ⟨{ app := fun _ => ↾Bool.not }⟩
 
 example : JointlyLocallySurjective (pullbackMaps inclusion negation) :=
-  baseChange inclusion twoPoints_joint negation
+  jointlyLocallySurjective_pullbackMaps inclusion twoPoints_joint negation
 
 example : JointlyLocallySurjective (pullbackMaps (pullbackMaps inclusion negation) negation) :=
-  baseChange _ (baseChange inclusion twoPoints_joint negation) negation
+  jointlyLocallySurjective_pullbackMaps _ (jointlyLocallySurjective_pullbackMaps inclusion twoPoints_joint negation) negation
 
 example : Presheaf.IsLocallySurjective topology
     (Sigma.desc (pullbackMaps inclusion negation)).hom :=
-  (jointlyLocallySurjective_iff_sigmaDesc _).mp (baseChange inclusion twoPoints_joint negation)
+  (jointlyLocallySurjective_iff_sigmaDesc _).mp (jointlyLocallySurjective_pullbackMaps inclusion twoPoints_joint negation)
 
 /-- Empty covering sieves are allowed in the general theorem. -/
 def topPoint : Sheaf (⊤ : GrothendieckTopology Site) Type :=

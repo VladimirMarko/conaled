@@ -33,7 +33,7 @@ def compileProofParser (p : Regex α) : LanguageWitnesses.Parser (witnessLanguag
   | .comp p q => .concat (compileProofParser p) (compileProofParser q)
   | .star p => .star (compileProofParser p)
 
-private theorem witnessesForWords (P : LanguageWitnesses.Language α)
+private theorem witnesses_for_words (P : LanguageWitnesses.Language α)
     (ws : List (List α)) (h : ∀ w ∈ ws, Nonempty (P w)) :
     ∃ ps : List (LanguageWitnesses.ParsedWord P), ps.map Sigma.fst = ws := by
   induction ws with
@@ -43,7 +43,7 @@ private theorem witnessesForWords (P : LanguageWitnesses.Language α)
     obtain ⟨ps, hps⟩ := ih (fun v hv => h v (by simp [hv]))
     exact ⟨⟨w, p⟩ :: ps, by simp [hps]⟩
 
-private theorem flattenWitnessWords {P : LanguageWitnesses.Language α}
+private theorem flatten_witness_words {P : LanguageWitnesses.Language α}
     (ps : List (LanguageWitnesses.ParsedWord P)) :
     (ps.map Sigma.fst).flatten = LanguageWitnesses.flattenParses ps := by
   induction ps <;> simp [LanguageWitnesses.flattenParses, *]
@@ -85,15 +85,15 @@ theorem witnessLanguage_correct (p : Regex α) (w : List α) :
     constructor
     · rintro ⟨⟨ps, hps⟩⟩
       refine ⟨ps.map Sigma.fst, ?_, ?_⟩
-      · rw [flattenWitnessWords]; exact hps.symm
+      · rw [flatten_witness_words]; exact hps.symm
       · intro v hv
         obtain ⟨⟨u, x⟩, _, rfl⟩ := List.mem_map.mp hv
         exact (hp u).mp ⟨x⟩
     · rintro ⟨ws, hw, hws⟩
-      obtain ⟨ps, hps⟩ := witnessesForWords (witnessLanguage p) ws
+      obtain ⟨ps, hps⟩ := witnesses_for_words (witnessLanguage p) ws
         (fun v hv => (hp v).mpr (hws v hv))
       refine ⟨⟨ps, ?_⟩⟩
-      rw [← flattenWitnessWords, hps, ← hw]
+      rw [← flatten_witness_words, hps, ← hw]
 
 /-- No finite test set: the two independently constructed recognizers agree universally. -/
 theorem recognizers_agree [DecidableEq α] (p : Regex α) (w : List α) :

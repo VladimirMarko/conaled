@@ -27,14 +27,14 @@ theorem endpoint_faces (e : Bool) : conjugationCube.pullback (Over.map (face3 0 
 theorem remaining_faces (e : Bool) : conjugationCube.pullback (Over.map (face3 2 e)) =
     zeroCocycle (Over (⟨2⟩ : Cube)) := comparisonCube_side betaLoop selectedNormalizedHomotopy e
 
-theorem transportedHigherObservation :
+theorem transported_higher_observation :
     observeSquare (actionSquare (t := transportedLoop) selectedNormalizedHomotopy) = 1 :=
-  (actionSquare_observation betaLoop selectedNormalizedHomotopy).trans frozenHigherObservation
+  (actionSquare_observation betaLoop selectedNormalizedHomotopy).trans frozen_higher_observation
 
 theorem transportedHigher_no_erasure :
     actionSquare (t := transportedLoop) selectedNormalizedHomotopy ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by
   intro h
-  exact Int.one_ne_zero (transportedHigherObservation.symm.trans
+  exact Int.one_ne_zero (transported_higher_observation.symm.trans
     ((congrArg observeSquare h).trans observeSquare_zero))
 
 end Examples.CubicalFrozenConjugation

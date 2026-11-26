@@ -10,17 +10,17 @@ open Sequences.PreparedRMQ
 
 def data : Input Nat := #v[5,2,2,7]
 example : (sparse.answer (sparse.prepare data).1 .q02).1 = 2 := by
-  rw [agreement sparseLaws]
+  rw [agreement sparse_laws]
   rfl
 example : (direct.answer (direct.prepare data).1 .q33).1 = 7 := by
-  rw [agreement directLaws]
+  rw [agreement direct_laws]
   rfl
 example : (queries sparse (sparse.prepare data).1 [.q02,.q02]).1 = [2,2] := by
-  rw [queries_meaning sparseLaws data _ (sparseLaws.prepare data)]
+  rw [queries_meaning sparse_laws data _ (sparse_laws.prepare data)]
   rfl
 example : (queries sparse (sparse.prepare data).1 []).2 = 0 := rfl
 example : (queries sparse (sparse.prepare data).1 [.q02,.q02]).2 ≤ 6 :=
-  queries_bound sparseBounds data _ (sparseLaws.prepare data) [.q02,.q02]
+  queries_bound sparse_bounds data _ (sparse_laws.prepare data) [.q02,.q02]
 
 def catalog : List Bool := [false,true]
 def profile : Bool → Profile (Input Nat) | false => directProfile | true => sparseProfile
@@ -52,8 +52,8 @@ def Valid : (c : Bool) → Input Nat → Rep c → Prop
 
 theorem laws (c : Bool) : Laws Sequences.PreparedRMQ.spec (realization c) (Valid c) := by
   cases c
-  · exact directLaws
-  · exact sparseLaws
+  · exact direct_laws
+  · exact sparse_laws
 
 theorem selected_semantics (deadline capacity k : Nat) (c : Bool)
     (h : select catalog profile (req deadline capacity) data (objective k) = some c) (q : Query) :
@@ -61,8 +61,8 @@ theorem selected_semantics (deadline capacity k : Nat) (c : Bool)
   selected_agreement realization Valid (fun c _ => laws c) h q
 
 example : (sparse.answer (sparse.prepare data).1 .q13).2 ≤ 3 :=
-  response_deadline sparseBounds (by decide : Feasible (req 3 8) sparseProfile data)
-    (sparseLaws.prepare data) .q13
+  response_deadline sparse_bounds (by decide : Feasible (req 3 8) sparseProfile data)
+    (sparse_laws.prepare data) .q13
 /-- A two-cell source is expanded to four cells before the backend prepares
 its sparse table. Encoding and decoding each cost one declared operation. -/
 def expand (xs : Vector Nat 2) : Input Nat := #v[xs[0],xs[1],xs[0],xs[1]]
@@ -72,14 +72,14 @@ def expanded : Reduction (Vector Nat 2) Query Nat (Input Nat) Query Nat Unit whe
   decode _ n := (n+1,1)
 theorem expanded_laws : Laws (fun xs q => spec (expand xs) q + 1)
     (expanded.apply sparse) (expanded.Valid (fun s r => r=build s)) :=
-  expanded.laws sparseLaws (fun _ _ => rfl)
+  expanded.laws sparse_laws (fun _ _ => rfl)
 example : ((expanded.apply sparse).answer ((expanded.apply sparse).prepare #v[5,2]).1 .q02).1 = 3 := by
   rw [agreement expanded_laws]
   rfl
 example : ((expanded.apply sparse).prepare #v[5,2]).2 ≤ 20 :=
-  expanded.preparation_bound sparseBounds #v[5,2]
+  expanded.preparation_bound sparse_bounds #v[5,2]
 example : ((expanded.apply sparse).answer ((expanded.apply sparse).prepare #v[5,2]).1 .q02).2 ≤ 5 :=
-  expanded.query_bound_of_bounds sparseBounds #v[5,2] _ (expanded_laws.prepare _) .q02 1 1 le_rfl le_rfl
+  expanded.query_bound_of_bounds sparse_bounds #v[5,2] _ (expanded_laws.prepare _) .q02 1 1 le_rfl le_rfl
 /-- The finite arena counts abstract values; Unit translator state takes no
 cells. The four converted values overlap the backend's ten-cell setup peak. -/
 def expandedArena : Reduction.Arena (Vector Nat 2) Unit (Input Nat) Query Nat where
@@ -109,7 +109,7 @@ theorem expanded_bounds : Bounds (expanded.apply sparse)
     (expanded.Valid (fun s r => r = build s))
     (expanded.storage sparse expandedArena sparseStorage)
     (expanded.profile sparseProfile expandedCapacity) :=
-  expanded.bounds sparseBounds expanded_capacities
+  expanded.bounds sparse_bounds expanded_capacities
 
 example : (expanded.storage sparse expandedArena sparseStorage).preparePeak #v[5,2] ≤ 14 :=
   expanded_bounds.preparePeak #v[5,2]

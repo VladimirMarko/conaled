@@ -47,7 +47,7 @@ def extend (e : Contraction Δ Γ) (A : Family Γ) :
   left := e.left.extend (A.left ⋙ Grpd.forgetToCat)
   right := e.right.extend (A.right ⋙ Grpd.forgetToCat)
   square := by
-    have h := EquivalenceSquare.liftChangingSquare e.right.equiv e.left.equiv
+    have h := EquivalenceSquare.lift_changing_square e.right.equiv e.left.equiv
       Γ.map Δ.map e.square (A.right ⋙ Grpd.forgetToCat)
       (A.left ⋙ Grpd.forgetToCat) (whiskerRight A.map Grpd.forgetToCat)
     have hb : (A.reindex e.forward).extend.map =
@@ -69,7 +69,7 @@ def changeForward (e : Contraction Δ Γ) (σ : Substitution Δ Γ) (h : e.forwa
     Contraction Δ Γ where
   left := e.left.changeFunctor σ.left (congrArg Substitution.left h)
   right := e.right.changeFunctor σ.right (congrArg Substitution.right h)
-  square := EquivalenceSquare.changeFunctorSquare _ _ _ _ e.square _ _
+  square := EquivalenceSquare.changeFunctor_square _ _ _ _ e.square _ _
     (congrArg Substitution.right h) (congrArg Substitution.left h)
 
 @[simp] theorem changeForward_forward (e : Contraction Δ Γ) (σ : Substitution Δ Γ)

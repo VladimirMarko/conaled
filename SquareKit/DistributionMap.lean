@@ -98,7 +98,7 @@ theorem collect_preserved (L : MapLaws F E H) (M : ProductMapLaws H i)
   exact DL.assoc _ _ _
 
 include DC DL TC TL UC UL in
-theorem transportLaws (L : MapLaws F E H) (R : F.Reflects E H)
+theorem transport_laws (L : MapLaws F E H) (R : F.Reflects E H)
     (M : ProductMapLaws H i) (N : CoproductMapLaws H j)
     (I : ∀ a b, ComparisonLaws H (i a b)) (J : ∀ a b, ComparisonLaws H (j a b))
     {d : DistributionOps C P S} {e : DistributionOps D T U}
@@ -106,7 +106,7 @@ theorem transportLaws (L : MapLaws F E H) (R : F.Reflects E H)
     DistributionLaws C E P S d := by
   have h (a b c : O) : ComparisonLaws E
       (⟨d.distribute (a := a) (b := b) (c := c), collect C P S⟩ : Comparison C _ _) :=
-    F.transportComparisonLaws L R DC DL (domainComparison i j a b c)
+    F.transport_comparisonLaws L R DC DL (domainComparison i j a b c)
       (codomainComparison i j a b c)
       (domainComparison_laws DC DL TC TL I J a b c)
       (codomainComparison_laws DC DL UC UL I J a b c)

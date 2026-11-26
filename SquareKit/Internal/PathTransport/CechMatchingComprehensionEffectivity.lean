@@ -20,7 +20,7 @@ variable (square : E ⋙ (A.projection h).functor =
   Grothendieck.forget (F ⋙ Grpd.forgetToCat) ⋙ R)
 
 include square in
-theorem fiberProjection (c : C) :
+theorem fiber_projection (c : C) :
     (Grothendieck.ι (F ⋙ Grpd.forgetToCat) c ⋙ E) ⋙ (A.projection h).functor =
       (Functor.const (F.obj c)).obj (R.obj c) := by
   rw [Functor.assoc, square]
@@ -28,7 +28,7 @@ theorem fiberProjection (c : C) :
 
 def fiber (c : C) : F.obj c ⥤ Fiber A h (R.obj c) :=
   fixedBaseFunctor A h (Grothendieck.ι (F ⋙ Grpd.forgetToCat) c ⋙ E) (R.obj c)
-    (fiberProjection A h F E R square c)
+    (fiber_projection A h F E R square c)
 
 def comparison (c : C) : fiber A h F E R square c ⋙ Fiber.forget ≅
     Grothendieck.ι (F ⋙ Grpd.forgetToCat) c ⋙ E :=
@@ -66,8 +66,8 @@ theorem full [R.Full]
   subst d
   have := fibers c
   have hp' : (A.projection h).functor.map p ≫
-      eqToHom (Functor.congr_obj (fiberProjection A h F E R square c) y) =
-      eqToHom (Functor.congr_obj (fiberProjection A h F E R square c) x) := by
+      eqToHom (Functor.congr_obj (fiber_projection A h F E R square c) y) =
+      eqToHom (Functor.congr_obj (fiber_projection A h F E R square c) x) := by
     simp only [eqToIso.hom, eqToHom_app, eqToHom_refl] at hp
     change (A.projection h).functor.map p ≫ eqToHom _ = eqToHom _ ≫ R.map (𝟙 c) at hp
     rw [R.map_id] at hp

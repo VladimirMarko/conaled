@@ -5,7 +5,7 @@ The reference transition was frozen before the lowering implementation. -/
 namespace Examples.FiniteSumReactive
 open FRPSpec.FiniteSum Applications.Circuits Progress.Feedback
 
-abbrev S := Ty.sum .bool (.prod .bool .bool)
+abbrev stateType := Ty.sum .bool (.prod .bool .bool)
 abbrev NativeState := Sum Bool (Bool × Bool)
 
 def referenceStep (input : Bool) (state : NativeState) : Bool × NativeState :=
@@ -15,15 +15,15 @@ def referenceStep (input : Bool) (state : NativeState) : Bool × NativeState :=
 
 def reference : Initialized Bool Bool NativeState := ⟨fun (x,s) => referenceStep x s,.inl false⟩
 
-def observation (s : Term Γ S) : Term Γ .bool :=
+def observation (s : Term Γ stateType) : Term Γ .bool :=
   .caseE s (.var .here) (.not (.fst (.var .here)))
 
-def toggle (s : Term Γ S) : Term Γ S :=
+def toggle (s : Term Γ stateType) : Term Γ stateType :=
   .caseE s (.inr (.pair (.not (.var .here)) (.var .here)))
     (.inl (.fst (.var .here)))
 
 /-- The output let binder and both case binders retain the old state correctly. -/
-def source : Source .bool .bool S where
+def source : Source .bool .bool stateType where
   seed := .inl (.constant false)
   body := .letE (observation (.var (.there .here)))
     (.pair (.var .here)
@@ -50,7 +50,7 @@ theorem lowered_run (xs : List Bool) :
     List.Forall₂ (fun y bits => decode .bool bits = some y)
       (run reference.mealy reference.initial xs).1
       (run source.program.machine.mealy source.program.initial xs).1 ∧
-    decode S (run source.program.machine.mealy source.program.initial xs).2 =
+    decode stateType (run source.program.machine.mealy source.program.initial xs).2 =
       some (run reference.mealy reference.initial xs).2 := by
   have hi : List.Forall₂ (fun x bits => decode .bool bits = some x) xs xs := by
     induction xs with
@@ -67,16 +67,16 @@ example : (inputs.map fun x => (referenceStep x (.inl false)).1) ≠
     (run source.program.machine.mealy source.program.initial inputs).1 := by decide
 example : (!false) ≠ (source.program.body.execute (false,source.program.initial)).1 := by decide
 
-example : decode S (false,(true,(false,false))) = some (.inl true) := by decide
-example : decode S (true,(false,(true,false))) = some (.inr (true,false)) := by decide
-example : decode S (false,(true,(true,false))) = none := by decide
-example : decode S (true,(true,(true,false))) = none := by decide
+example : decode stateType (false,(true,(false,false))) = some (.inl true) := by decide
+example : decode stateType (true,(false,(true,false))) = some (.inr (true,false)) := by decide
+example : decode stateType (false,(true,(true,false))) = none := by decide
+example : decode stateType (true,(true,(true,false))) = none := by decide
 -- Invalid active nested sum is rejected even when the outer inactive slot is canonical.
-example : decode (.sum S .bool) (false,((false,(true,(true,false))),false)) = none := by decide
+example : decode (.sum stateType .bool) (false,((false,(true,(true,false))),false)) = none := by decide
 example : source.tick false (true,(true,(true,false))) = none := by decide
 
 /-- Invalid external sum inputs are rejected before a stateless regional body. -/
-def sumInputSource : Source S .bool .unit where
+def sumInputSource : Source stateType .bool .unit where
   seed := .unit
   body := .pair (observation (.var .here)) .unit
 
@@ -116,27 +116,27 @@ theorem pipeline_run (xs : List Bool) :
 
 /-- A sum-valued boundary adapter converts a canonical four-cell payload into
 one Boolean. The second region still compiles against the original target. -/
-def regionTerm : Term [S] .bool := observation (.var .here)
-def region : Circuit S.storage .base :=
+def regionTerm : Term [stateType] .bool := observation (.var .here)
+def region : Circuit stateType.storage .base :=
   .compose (lower regionTerm) (.pair .terminate .identity)
-def regions : Circuit S.storage .base := .compose downstream region
+def regions : Circuit stateType.storage .base := .compose downstream region
 
-theorem region_correct (st : NativeState) : region.execute (encode (a := S) st) =
+theorem region_correct (st : NativeState) : region.execute (encode (a := stateType) st) =
     (referenceStep false st).1 := by
-  change (lower regionTerm).execute (encodeEnv (Γ := [S]) ((),st)) = _
+  change (lower regionTerm).execute (encodeEnv (Γ := [stateType]) ((),st)) = _
   rw [lower_correct]
   cases st <;> rfl
 
-theorem regions_admitted (raw : Bits S) (st : NativeState) (h : decode S raw = some st) :
+theorem regions_admitted (raw : Bits stateType) (st : NativeState) (h : decode stateType raw = some st) :
     regions.execute raw = !(referenceStep false st).1 := by
-  rw [(decode_iff S raw st).mp h]
+  rw [(decode_iff stateType raw st).mp h]
   change downstream.execute (region.execute (encode st)) = _
   rw [region_correct, downstream_correct]
 
 theorem regions_work : regions.work = region.work + downstream.work + 1 := rfl
 
-example : (validator S).execute (false,(true,(true,false))) = false := by decide
-example : (validator S).execute (true,(false,(true,false))) = true := by decide
+example : (validator stateType).execute (false,(true,(true,false))) = false := by decide
+example : (validator stateType).execute (true,(false,(true,false))) = true := by decide
 example : regions.execute (false,(true,(false,false))) = false := by decide
 example : regions.execute (true,(false,(false,true))) = false := by decide
 
@@ -157,7 +157,7 @@ theorem pipeline_space (input : Progress.Stream Bool) (n k : Nat) :
 canonical admission is total; the downstream target needs only cartesian gates. -/
 example : cells Ty.bool.storage = 1 ∧ ∀ b : Bool, decode .bool b = some b :=
   ⟨rfl,decode_encode .bool⟩
-example : cells S.storage = 4 := rfl
+example : cells stateType.storage = 4 := rfl
 example : downstream.work = 7 := rfl
 
 /-- An inactive arm still has work. Both nontrivial arms are present in the actual block. -/
@@ -177,7 +177,7 @@ example : (caseCircuit leftArm rightArm).execute ((),(false,(false,(true,false))
 -- Concrete resource values are checked against actual generated code.
 example : source.program.body.work = 543 ∧ source.program.body.arena = 4272 := ⟨rfl,rfl⟩
 example : source.tickWork = 641 ∧ 4 + source.tickArena = 4736 := ⟨rfl,rfl⟩
-example : (validator S).work = 85 ∧ (validator S).arena = 395 := ⟨rfl,rfl⟩
+example : (validator stateType).work = 85 ∧ (validator stateType).arena = 395 := ⟨rfl,rfl⟩
 example : region.work = 61 ∧ region.arena = 454 := ⟨rfl,rfl⟩
 example : regions.work = 69 ∧ regions.arena = 480 := ⟨rfl,rfl⟩
 example : pipeline.body.work = 619 ∧ 5 + pipeline.body.arena = 4891 := ⟨rfl,rfl⟩

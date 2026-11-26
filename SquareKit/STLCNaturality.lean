@@ -243,7 +243,7 @@ theorem sound_preserves (K : Target Prim) (S : Sound B K meaning) :
 theorem compile_sound (K : Target Prim) (S : Sound B K meaning)
     (t : Term Prim Γ a) (ρ : Val B (context Γ)) :
     S.denote (CategoricalCompiler.compile K t) ρ = eval meaning t ρ := by
-  have h := naturality (soundMap_laws K S) (equalityCongr _)
+  have h := naturality (soundMap_laws K S) (equality_congr _)
     (show ModelCongr (equality _) (semantics B meaning) from
       ⟨by intros; subst_vars; rfl, by intros; subst_vars; rfl, by intros; subst_vars; rfl⟩) (sound_preserves K S) t
   have hp := congrFun h ρ

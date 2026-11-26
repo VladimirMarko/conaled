@@ -20,7 +20,7 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 theorem familyEvaluation_isEquivalence (hB : Typed.TyDeriv.{2} Γ γ B b)
     (hΓ : Typed.CtxDeriv.{2} Γ γ) (c : (show Grpd.{1,1} from γ (model a A))) :
     (familyEvaluation a A hΓ hB c).IsEquivalence := by
-  apply Typed.TyDeriv.familyInduction
+  apply Typed.TyDeriv.family_induction
     (fun {Γ γ B b} hB => ∀ (hΓ : Typed.CtxDeriv.{2} Γ γ)
       (c : (show Grpd.{1,1} from γ (model a A))),
       (familyEvaluation a A hΓ hB c).IsEquivalence) (hB := hB) _ _ _ _ hΓ c

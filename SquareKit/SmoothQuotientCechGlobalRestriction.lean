@@ -23,7 +23,7 @@ theorem context_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) :
       SmoothQuotientGeneratedMatching.restriction a hΓ (SplitSheaf.p A) =
         generatedContextMap (restrictedSignature a A) hΓ :=
   Context.relabel_composition
-    (GeneratedComposition.generatedCtx (signature a A)
+    (GeneratedComposition.generated_ctx (signature a A)
       (SmoothQuotientComparison.signature (a := a) (SplitSheaf.p A)) rfl HEq.rfl hΓ)
     _ _ _ _ _ _
 

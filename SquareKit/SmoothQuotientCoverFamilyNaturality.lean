@@ -19,15 +19,15 @@ variable (u : X' ⟶ X) (v : Y' ⟶ Y) (square : v ≫ f = k ≫ u)
 
 /-- The total family map is the actual extended-context parameter restriction. -/
 def relativeSquareMap : CechMatching.StrictMap
-    ((relativeFamilyData a hΓ hB f).total (relativeFamilyCoherence a hΓ hB f))
-    ((relativeFamilyData a hΓ hB k).total (relativeFamilyCoherence a hΓ hB k)) :=
+    ((relativeFamilyData a hΓ hB f).total (relativeFamilyData_coherence a hΓ hB f))
+    ((relativeFamilyData a hΓ hB k).total (relativeFamilyData_coherence a hΓ hB k)) :=
   ((relativeToGenerated a hΓ hB f).comp (squareMap a (.ext hΓ hB) u v square)).comp
     (generatedToRelative a hΓ hB k)
 
 theorem relativeSquare_projection :
     (relativeSquareMap a hΓ hB u v square).comp
-      ((relativeFamilyData a hΓ hB k).projection (relativeFamilyCoherence a hΓ hB k)) =
-    ((relativeFamilyData a hΓ hB f).projection (relativeFamilyCoherence a hΓ hB f)).comp
+      ((relativeFamilyData a hΓ hB k).projection (relativeFamilyData_coherence a hΓ hB k)) =
+    ((relativeFamilyData a hΓ hB f).projection (relativeFamilyData_coherence a hΓ hB f)).comp
       (squareMap a hΓ u v square) := by
   apply CechMatching.StrictMap.ext
   · change SmoothQuotientGeneratedMatching.restriction a (.ext hΓ hB) v ⋙
@@ -50,7 +50,7 @@ def relativeSquareFunctor := (relativeSquareMap a hΓ hB u v square).functor
 
 /-- Every independently supplied local total arrow is restricted as supplied. -/
 theorem relativeSquareFunctor_localArrow {d e : CechMatching.Datum
-    ((relativeFamilyData a hΓ hB f).total (relativeFamilyCoherence a hΓ hB f)).toDiagram}
+    ((relativeFamilyData a hΓ hB f).total (relativeFamilyData_coherence a hΓ hB f)).toDiagram}
     (p : d ⟶ e) :
     ((relativeSquareFunctor a hΓ hB u v square).map p).localArrow =
       (SmoothQuotientGeneratedMatching.restriction a (.ext hΓ hB) v).map p.localArrow := rfl

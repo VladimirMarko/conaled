@@ -13,13 +13,13 @@ variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 
 theorem restrictedComparison_cocycle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     restrictedComparison a A hΓ (SplitSheaf.Cech.firstSecond A) ≪≫
-      eqToIso (tripleMiddleMap a A hΓ) ≪≫
+      eqToIso (triple_middle_map a A hΓ) ≪≫
       restrictedComparison a A hΓ (SplitSheaf.Cech.secondThird A) =
-    eqToIso (tripleFirstMap a A hΓ) ≪≫
+    eqToIso (triple_first_map a A hΓ) ≪≫
       restrictedComparison a A hΓ (SplitSheaf.Cech.firstThird A) ≪≫
-      (eqToIso (tripleLastMap a A hΓ)).symm := by
+      (eqToIso (triple_last_map a A hΓ)).symm := by
   rw [firstSecondComparison_triangle, secondThirdComparison_triangle, firstThirdComparison_triangle,
     tripleMiddleIso_triangle, tripleFirstIso_triangle, tripleLastIso_triangle]
-  exact (primitiveTriangle a A).generatedCocycle hΓ
+  exact (primitiveTriangle a A).generated_cocycle hΓ
 
 end SquareKit.SmoothQuotientCechLocal

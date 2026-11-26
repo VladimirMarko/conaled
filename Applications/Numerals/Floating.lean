@@ -81,10 +81,10 @@ theorem fraction32_model (digits : List Nat) :
       (d.toFloat32.toModel + fractionModel32 ds) / (10 : Float32).toModel
     rw [ih]
 
-private theorem zeroStep64 : (((0 : Nat).toFloat + (0 : Float)) / 10) = 0 := by
+private theorem zero_step_64 : (((0 : Nat).toFloat + (0 : Float)) / 10) = 0 := by
   decide +kernel
 
-private theorem zeroStep32 : (((0 : Nat).toFloat32 + (0 : Float32)) / 10) = 0 := by
+private theorem zero_step_32 : (((0 : Nat).toFloat32 + (0 : Float32)) / 10) = 0 := by
   decide +kernel
 
 theorem fraction64_replicate_zero (n : Nat) : fraction64 (List.replicate n 0) = 0 := by
@@ -92,13 +92,13 @@ theorem fraction64_replicate_zero (n : Nat) : fraction64 (List.replicate n 0) = 
   | zero => rfl
   | succ n ih =>
     rw [List.replicate_succ, fraction64_cons, ih]
-    exact zeroStep64
+    exact zero_step_64
 
 theorem fraction32_replicate_zero (n : Nat) : fraction32 (List.replicate n 0) = 0 := by
   induction n with
   | zero => rfl
   | succ n ih =>
     rw [List.replicate_succ, fraction32_cons, ih]
-    exact zeroStep32
+    exact zero_step_32
 
 end Numerals.Floating

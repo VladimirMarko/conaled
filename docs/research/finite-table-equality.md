@@ -23,7 +23,7 @@ whole table. It does not claim reflection for arbitrary measures or observations
 
 `tableMeaning_equality_laws` exposes operation preservation with actual table
 equality as the source relation. `tableMeaning_reflects` supplies reflection.
-`tableEqualityLaws` applies the existing `RawMap.transportLaws` to Mathlib's
+`table_equality_laws` applies the existing `RawMap.transport_laws` to Mathlib's
 stochastic category, exactly as the semantic-equivalence facade does. No
 independent matrix-sum associativity proof is added.
 

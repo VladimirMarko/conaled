@@ -25,7 +25,7 @@ structure Structure (G : Sheaf J GrpCat.{w}) (Q : Sheaf J (Type w)) where
   natural {X Y} (f : X ⟶ Y) (g) (p) :
     Q.obj.map f (act X g p) = act Y (G.obj.map f g) (Q.obj.map f p)
   principal (X) (p q : Q.obj.obj X) : ∃! g, act X g p = q
-  locallyInhabited (X : C) : inhabitedSieve Q X ∈ J X
+  locally_inhabited (X : C) : inhabitedSieve Q X ∈ J X
 
 @[ext] theorem Structure.ext {G : Sheaf J GrpCat.{w}} {Q : Sheaf J (Type w)}
     {A B : Structure G Q} (h : ∀ X g p, A.act X g p = B.act X g p) : A = B := by
@@ -84,8 +84,8 @@ def transport (A : Structure G Q) (e : R ≅ Q) : Structure G R where
       have he := congrArg (fun f : Q ⟶ Q => f.hom.app X
         (A.act X h (e.hom.hom.app X p))) e.inv_hom_id
       exact he.symm.trans hh
-  locallyInhabited X := by
-    apply J.superset_covering ?_ (A.locallyInhabited X)
+  locally_inhabited X := by
+    apply J.superset_covering ?_ (A.locally_inhabited X)
     rintro Y f ⟨s⟩
     exact ⟨e.inv.hom.app (op Y) s⟩
 

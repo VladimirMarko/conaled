@@ -263,11 +263,11 @@ theorem reindex_principal (d : Datum A P) (x : (SplitSheaf.extension A).obj.Elem
     apply hu h
     exact (evaluation_equivariant d x h s).symm.trans (congrArg e hh)
 
-theorem reindex_locallySurjective (d : Datum A P) :
+theorem reindex_isLocallySurjective (d : Datum A P) :
     Presheaf.IsLocallySurjective J
       (SplitSheaf.p ((action d).reindex (SplitSheaf.p A)).family).hom where
   imageSieve_mem {U} x := by
-    let := P.locallySurjective
+    let := P.isLocallySurjective
     have h := Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom x
     apply J.superset_covering _ h
     intro V k hk
@@ -281,7 +281,7 @@ theorem reindex_locallySurjective (d : Datum A P) :
 Both local axioms are proved through the explicit evaluation comparison. -/
 def torsor (d : Datum A P)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] : Torsor G X := by
-  letI := reindex_locallySurjective d
+  letI := reindex_isLocallySurjective d
   exact (action d).torsorOfReindex (SplitSheaf.p A) (reindex_principal d)
 
 /-- Effective object descent: restriction of the constructed torsor is the

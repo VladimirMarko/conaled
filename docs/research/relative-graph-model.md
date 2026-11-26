@@ -292,7 +292,7 @@ and chooses `f(x)` backward. It is a checked application to the graph
 composition identity, not an independently reproved native formula detached
 from the adapter. There is no equality of proof-relevant witnesses, no recovery
 of source derivability from validity and no formal link to the local
-`Graph.inSet` declaration. Both formulas have the same explicit mathematical
+`Graph.in_set` declaration. Both formulas have the same explicit mathematical
 meaning as the graph source after choosing these member carriers.
 
 Statement review checked the binder shift under Exists, the orientation

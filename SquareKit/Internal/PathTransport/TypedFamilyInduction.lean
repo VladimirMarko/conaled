@@ -13,11 +13,11 @@ variable (hsub : ∀ {Γ γ B b Δ δ σ s} (hB : TyDeriv.{u} Γ γ B b)
   (hs : SubDeriv.{u} Δ δ Γ γ σ s), P hB → P (.sub hB hs))
 
 include hbase hfiber hidentity hsub in
-theorem TyDeriv.familyInduction (hB : TyDeriv.{u} Γ γ B b) : P hB :=
+theorem TyDeriv.family_induction (hB : TyDeriv.{u} Γ γ B b) : P hB :=
   match hB with
   | .base hΓ => hbase hΓ
   | .fiber hx => hfiber hx
-  | .identity hB hx hy => hidentity hB hx hy (hB.familyInduction)
-  | .sub hB hs => hsub hB hs (hB.familyInduction)
+  | .identity hB hx hy => hidentity hB hx hy (hB.family_induction)
+  | .sub hB hs => hsub hB hs (hB.family_induction)
 termination_by sizeOf hB
 end SquareKit.Internal.PathTransport.Typed

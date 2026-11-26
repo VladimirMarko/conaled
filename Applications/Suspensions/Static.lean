@@ -504,7 +504,7 @@ mutual
         (found : signature.constructors tag = some scheme)
         (instanceType : scheme.Instantiates signature.equalityNames (.named name arguments)) :
         PatternHasType signature context (.constructor tag none) (.named name arguments) ∅
-    | constructorArgument {context : Context} {tag : Nat} {p : Pattern} {input output : Ty}
+    | constructor_argument {context : Context} {tag : Nat} {p : Pattern} {input output : Ty}
         {scheme : Scheme} {bindings : Bindings}
         (found : signature.constructors tag = some scheme)
         (instanceType : scheme.Instantiates signature.equalityNames (.arrow input output))
@@ -513,7 +513,7 @@ mutual
     | exception {context : Context} {name : Nat}
         (found : context.values.lookup name = some (.exception none)) :
         PatternHasType signature context (.exception name none) .exception ∅
-    | exceptionArgument {context : Context} {name : Nat} {p : Pattern} {t : Ty}
+    | exception_argument {context : Context} {name : Nat} {p : Pattern} {t : Ty}
         {bindings : Bindings}
         (found : context.values.lookup name = some (.exception (some t)))
         (imperative : t.Imperative)
@@ -562,7 +562,7 @@ mutual
     | exception {context : Context} {name : Nat}
         (found : context.values.lookup name = some (.exception none)) :
         HasType signature context (.variable name) .exception
-    | exceptionFunction {context : Context} {name : Nat} {t : Ty}
+    | exception_function {context : Context} {name : Nat} {t : Ty}
         (found : context.values.lookup name = some (.exception (some t)))
         (imperative : t.Imperative) :
         HasType signature context (.variable name) (.arrow t .exception)
@@ -573,7 +573,7 @@ mutual
         (found : signature.constructors tag = some scheme)
         (instanceType : scheme.Instantiates signature.equalityNames t) :
         HasType signature context (.constructor tag none) t
-    | constructorArgument {context : Context} {tag : Nat} {e : Expr Primitive}
+    | constructor_argument {context : Context} {tag : Nat} {e : Expr Primitive}
         {scheme : Scheme} {input output : Ty}
         (found : signature.constructors tag = some scheme)
         (instanceType : scheme.Instantiates signature.equalityNames (.arrow input output))
@@ -784,10 +784,10 @@ mutual
     | «variable» => simp [Names.patternNames]
     | atom => simp
     | constructor => simp
-    | constructorArgument _ _ inner =>
+    | constructor_argument _ _ inner =>
       simpa only [Names.patternNames, Names.optionalPatternNames] using inner.bound_names
     | exception => simp
-    | exceptionArgument _ _ inner =>
+    | exception_argument _ _ inner =>
       rw [Names.patternNames, Names.optionalPatternNames]
       exact Finset.Subset.trans inner.bound_names Finset.subset_union_right
     | record _ fields => simpa only [Names.patternNames] using fields.bound_names
@@ -829,17 +829,17 @@ mutual
       exact .variable (context.variableAllowed_bindVariable fresh name addedType allowed)
     | atom value => exact .atom value
     | constructor found instanceType => exact .constructor found instanceType
-    | constructorArgument found instanceType inner =>
-      exact .constructorArgument found instanceType (inner.weaken fresh addedType
+    | constructor_argument found instanceType inner =>
+      exact .constructor_argument found instanceType (inner.weaken fresh addedType
         (by simpa only [Names.patternNames, Names.optionalPatternNames] using avoids))
     | @exception name found =>
       have different : name ≠ fresh := by
         simpa [Names.patternNames, Names.optionalPatternNames, eq_comm] using avoids
       exact .exception ((context.lookup_bindVariable_ne fresh name addedType different).trans found)
-    | @exceptionArgument name p t bindings found imperative inner =>
+    | @exception_argument name p t bindings found imperative inner =>
       have parts : fresh ≠ name ∧ fresh ∉ Names.patternNames p := by
         simpa [Names.patternNames, Names.optionalPatternNames] using avoids
-      exact .exceptionArgument
+      exact .exception_argument
         ((context.lookup_bindVariable_ne fresh name addedType parts.1.symm).trans found)
         imperative (inner.weaken fresh addedType parts.2)
     | record labels fields => exact .record labels (fields.weaken fresh addedType
@@ -918,15 +918,15 @@ mutual
       have different : name ≠ fresh := by
         simpa only [Names.expressionNames, Finset.mem_singleton, ne_eq, eq_comm] using avoids
       exact .exception ((context.lookup_bindVariable_ne fresh name addedType different).trans found)
-    | @exceptionFunction context name t found imperative =>
+    | @exception_function context name t found imperative =>
       have different : name ≠ fresh := by
         simpa only [Names.expressionNames, Finset.mem_singleton, ne_eq, eq_comm] using avoids
-      exact .exceptionFunction
+      exact .exception_function
         ((context.lookup_bindVariable_ne fresh name addedType different).trans found) imperative
     | primitive instanceType => exact .primitive instanceType
     | constructor found instanceType => exact .constructor found instanceType
-    | constructorArgument found instanceType argument =>
-      exact .constructorArgument found instanceType
+    | constructor_argument found instanceType argument =>
+      exact .constructor_argument found instanceType
         (argument.weaken fresh addedType freshContext support
           (by simpa only [Names.expressionNames, Names.optionalExpressionNames] using avoids))
     | record labels fields =>

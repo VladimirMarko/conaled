@@ -187,11 +187,11 @@ theorem frame_read {width capacity : Nat} (m : Nat)
 addition to the packed retained arena. -/
 structure Machine {m : Nat} (input : TreeReduction.Input m) (width capacity : Nat)
     : Prop extends BackendBounds.Machine input width capacity where
-  frameCapacity : retainedSlots m+64 ≤ capacity
+  frame_capacity : retainedSlots m+64 ≤ capacity
 
 def frameAddress {m width capacity : Nat} {input : TreeReduction.Input m}
     (h : Machine input width capacity) (i : Fin 64) : Fin capacity :=
-  ⟨retainedSlots m+i.val,by have := h.frameCapacity; have := i.isLt; omega⟩
+  ⟨retainedSlots m+i.val,by have := h.frame_capacity; have := i.isLt; omega⟩
 
 theorem frameAddress_after_retained {m width capacity : Nat}
     {input : TreeReduction.Input m} (h : Machine input width capacity)
@@ -234,7 +234,7 @@ theorem install_preserves_retained {m width capacity : Nat}
 theorem machine_of_linear_capacity {m width : Nat} {input : TreeReduction.Input m}
     (h : BackendBounds.Machine input width (512*m)) : Machine input width (512*m) where
   toMachine := h
-  frameCapacity := by
+  frame_capacity := by
     have hh := retainedSlots_le input.positive
     have hn := input.positive
     omega

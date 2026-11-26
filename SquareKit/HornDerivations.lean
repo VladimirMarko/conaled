@@ -74,7 +74,7 @@ variable [DecidableEq Atom]
 
 theorem base_mono (i : L ⊆ M) : base table L ⊆ base table M := Finset.image_subset_image i
 
-theorem eraseTree (t : Tree table L a) : Derivable (base table L) a := by
+theorem erase_tree (t : Tree table L a) : Derivable (base table L) a := by
   induction t with
   | hyp h => exact nomatch h
   | rule l ds ih =>
@@ -86,13 +86,13 @@ theorem eraseTree (t : Tree table L a) : Derivable (base table L) a := by
 
 /-- The square compares proofs of the same atomic proposition, not trees. -/
 theorem erase_map (i : L ⊆ M) (t : Tree table L a) :
-    eraseTree (map i t) = (eraseTree t).weaken (base_mono i) := rfl
+    erase_tree (map i t) = (erase_tree t).weaken (base_mono i) := rfl
 
 /-- No function of a support proof can recover every selected trace when two
 actual trees at that fixed base have different traces. Canonical choice remains possible. -/
 theorem no_trace_recovery (s t : Tree table L a) (hne : trace s ≠ trace t) :
     ¬ ∃ recover : Derivable (base table L) a → List Label,
-      ∀ d : Tree table L a, recover (eraseTree d) = trace d := by
+      ∀ d : Tree table L a, recover (erase_tree d) = trace d := by
   rintro ⟨recover, h⟩
   apply hne
   exact (h s).symm.trans (h t)

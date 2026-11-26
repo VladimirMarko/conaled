@@ -33,28 +33,28 @@ theorem thirdCube_start {a b : Term (secondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (secondIdentityFamily terminal.{0}) a b)) :
     (thirdCube h).pullback (Over.map (face3 0 false)) = secondSquare a := by
   have e := thirdCube_face h 0 false
-  simp only [faceAxis00,faceAxis01,faceAxis02,] at e
+  simp only [faceAxis_zero_zero,faceAxis_zero_one,faceAxis_zero_two,] at e
   exact e.trans (thirdValue_zero h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem thirdCube_finish {a b : Term (secondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (secondIdentityFamily terminal.{0}) a b)) :
     (thirdCube h).pullback (Over.map (face3 0 true)) = secondSquare b := by
   have e := thirdCube_face h 0 true
-  simp only [faceAxis00,faceAxis01,faceAxis02,] at e
+  simp only [faceAxis_zero_zero,faceAxis_zero_one,faceAxis_zero_two,] at e
   exact e.trans (thirdValue_one h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩)
 
 theorem thirdCube_side₁ {a b : Term (secondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (secondIdentityFamily terminal.{0}) a b)) (e : Bool) :
     (thirdCube h).pullback (Over.map (face3 1 e)) = zeroCocycle (Over (⟨2⟩ : Cube)) := by
   have q := thirdCube_face h 1 e
-  simp only [faceAxis10,faceAxis11,faceAxis12,] at q
+  simp only [faceAxis_one_zero,faceAxis_one_one,faceAxis_one_two,] at q
   exact q.trans (thirdValue_middle h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 theorem thirdCube_side₂ {a b : Term (secondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (secondIdentityFamily terminal.{0}) a b)) (e : Bool) :
     (thirdCube h).pullback (Over.map (face3 2 e)) = zeroCocycle (Over (⟨2⟩ : Cube)) := by
   have q := thirdCube_face h 2 e
-  simp only [faceAxis20,faceAxis21,faceAxis22] at q
+  simp only [faceAxis_two_zero,faceAxis_two_one,faceAxis_two_two] at q
   exact q.trans (thirdValue_right h (terminalPoint ⟨2⟩) ⟨squareAxis 0⟩ ⟨squareAxis 1⟩ e)
 
 def identitySquareHomotopy {a b : Term (secondIdentityFamily terminal.{0})}

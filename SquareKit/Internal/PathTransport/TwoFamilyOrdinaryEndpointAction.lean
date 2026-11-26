@@ -17,7 +17,7 @@ def IdentityEndpointActionFormula : Prop :=
    (F.data.map (c.homotopy.app (σ.obj z))).map
     (d.normalObj (reindex i (closedId F.data s t)) (c.retraction.obj (σ.obj z))).fiber.as ≫
    (t.normalMap F.data (c.homotopy.app (σ.obj z))).fiber⟩)
-theorem ReindexedValueFormula.identityAction
+theorem ReindexedValueFormula.identity_action
  (h : c.ReindexedValueFormula (F.identity s t) d σ G p) :
  c.IdentityEndpointActionFormula F s t d σ G p := by
  intro z
@@ -38,7 +38,7 @@ def OrdinaryApEndpointActionFormula : Prop :=
   ((M).identity B (ordinaryApply M A B t x) (ordinaryApply M A B t y))
   (ordinaryApValue M A B t x y p).down
 theorem ordinaryApValue_action : OrdinaryApEndpointActionFormula C D A B t x y p :=
- SourceContraction.ReindexedValueFormula.identityAction (rootContraction C D A x).val
+ SourceContraction.ReindexedValueFormula.identity_action (rootContraction C D A x).val
   (motive M A ((M).subTy B ((M).weaken Γ A)) x) _ _ _ _ _ _
   (ordinaryApValue_objects C D A B t x y p)
 end SquareKit.Internal.PathTransport.HigherInterpretation

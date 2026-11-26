@@ -180,7 +180,7 @@ theorem onInteger_compatible (operation : Int → Core.Atom) :
   | exception _ => exact .stuck rfl
   | address _ => exact .stuck rfl
   | closure _ => exact .stuck rfl
-  | recursiveClosure _ _ => exact .stuck rfl
+  | recursive_closure _ _ => exact .stuck rfl
 
 def onBooleanRaw (operation : Bool → Core.Atom) :
     Core.Value Primitive → Core.Machine.PrimitiveResult Primitive
@@ -205,7 +205,7 @@ theorem onBoolean_compatible (operation : Bool → Core.Atom) :
   | exception _ => exact .stuck rfl
   | address _ => exact .stuck rfl
   | closure _ => exact .stuck rfl
-  | recursiveClosure _ _ => exact .stuck rfl
+  | recursive_closure _ _ => exact .stuck rfl
 
 /-- A usable small basis, without any claim to be the complete SML basis. -/
 inductive BasicOperation where

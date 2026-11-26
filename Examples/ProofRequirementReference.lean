@@ -106,20 +106,20 @@ theorem selectedOriginal_eq {A : Type u} {B : Type v} {m : A → A → A} {e : A
     selected (observed_of_right_unit (observe := observe) rightUnit) x =
       selectedOriginal rightUnit x := rfl
 
-theorem listObserved : ObservedUnit (List Nat) Nat Targets.listOp Targets.listUnit
+theorem list_observed : ObservedUnit (List Nat) Nat Targets.listOp Targets.listUnit
     Targets.listObserve := ⟨fun x => congrArg List.length (List.append_nil x)⟩
 
-theorem boolObserved : ObservedUnit Bool Bool Targets.boolOp Targets.boolUnit
+theorem bool_observed : ObservedUnit Bool Bool Targets.boolOp Targets.boolUnit
     Targets.boolObserve := by
   constructor
   intro x
   cases x <;> rfl
 
-example : (selected listObserved [1, 2]).val = [1, 2] := selected_value _ _
-example : (selected listObserved []).val = [] := selected_value _ _
-example : (selected boolObserved true).val = true := selected_value _ _
+example : (selected list_observed [1, 2]).val = [1, 2] := selected_value _ _
+example : (selected list_observed []).val = [] := selected_value _ _
+example : (selected bool_observed true).val = true := selected_value _ _
 
-theorem selected_recovers_source (x : List Nat) : selected listObserved x = Source.selected x := rfl
+theorem selected_recovers_source (x : List Nat) : selected list_observed x = Source.selected x := rfl
 
 theorem missing_observed_unit : ¬ ObservedUnit Nat Nat Nat.add 1 id := by
   intro h
@@ -136,11 +136,11 @@ example : Nonempty { y : Nat // y = 0 + 1 } := ⟨⟨1, rfl⟩⟩
 
 def alternative : { y : List Nat // y.length = ([1] ++ []).length } := ⟨[2], rfl⟩
 
-theorem selected_distinguishable : (selected listObserved [1]).val ≠ alternative.val := by decide
+theorem selected_distinguishable : (selected list_observed [1]).val ≠ alternative.val := by decide
 
 theorem erase {A : Type u} {p : A → Prop} (w : Subtype p) : Nonempty (Subtype p) := ⟨w⟩
 
-theorem erasure_equal : erase (selected listObserved [1]) = erase alternative :=
+theorem erasure_equal : erase (selected list_observed [1]) = erase alternative :=
   Subsingleton.elim _ _
 
 theorem erasure_cannot_recover :
@@ -148,7 +148,7 @@ theorem erasure_cannot_recover :
       (∀ w, recover (erase w) = w.val) := by
   rintro ⟨recover, law⟩
   apply selected_distinguishable
-  exact (law (selected listObserved [1])).symm.trans
+  exact (law (selected list_observed [1])).symm.trans
     ((congrArg recover erasure_equal).trans (law alternative))
 
 end ProofRequirementTrial.Reference

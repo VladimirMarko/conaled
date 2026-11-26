@@ -32,7 +32,7 @@ def termEvaluationComparison (naturality : s.lift ⋙ E = R ⋙ T) :
     exact Functor.congr_obj naturality c
 
 /-- Section evaluation expressed with the literal fixed-base inclusion. -/
-theorem sectionFiberEndpoint (naturality : s.lift ⋙ E = R ⋙ T) (c : C) :
+theorem section_fiber_endpoint (naturality : s.lift ⋙ E = R ⋙ T) (c : C) :
     (Grothendieck.ι (F ⋙ Grpd.forgetToCat) c ⋙ E).obj (s.obj c) = T.obj (R.obj c) :=
   Functor.congr_obj naturality c
 

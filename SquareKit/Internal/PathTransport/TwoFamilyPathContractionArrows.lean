@@ -61,15 +61,15 @@ theorem contractionLeftArrow_composite {x y : PathContext F} (p : x ⟶ y) :
   rw [reflexivity_canonical]
   let e := contractionLeftEndpoint_composite F p
   let h := congrArg (fun r => (openIdMap F r).obj (𝟙 x.base.fiber.1)) e
-  let k := congrArg LocallyDiscrete.mk (h.trans (contractionLeftBoundary F p))
+  let k := congrArg LocallyDiscrete.mk (h.trans (contraction_left_boundary F p))
   change compose (openIdHigher F) _ _ = _
   erw [canonical_comp (openIdHigher F)
     (x := pathReflexivityObj F ((pathFirst F).obj x))
     (y := pathReflexivityObj F ((pathFirst F).obj y)) (z := y)
     ((diagonalTotal F).map ((pathFirst F).map p)) (contractionEndpoint F y)
     (congrArg LocallyDiscrete.mk (diagonal_identity F ((pathFirst F).map p)))
-    (congrArg LocallyDiscrete.mk (contractionBoundary F y)) k]
-  change _ = (⟨_, Discrete.mk (eqToHom (contractionLeftBoundary F p))⟩ : Hom (openIdHigher F) _ _)
+    (congrArg LocallyDiscrete.mk (contraction_boundary F y)) k]
+  change _ = (⟨_, Discrete.mk (eqToHom (contraction_left_boundary F p))⟩ : Hom (openIdHigher F) _ _)
   rw [discrete_mk_eqToHom]
   exact canonical_eq (openIdHigher F) e _ _
 /-- The actual right path composite retains the supplied path-family cell. -/
@@ -78,18 +78,18 @@ theorem contractionRightArrow_composite {x y : PathContext F} (p : x ⟶ y) :
   have h := canonical_prefix (openIdHigher F)
     (x := pathReflexivityObj F ((pathFirst F).obj x)) (y := x) (z := y)
     (contractionEndpoint F x) p
-    (congrArg LocallyDiscrete.mk (contractionBoundary F x)) (contractionRightEndpoint F p)
+    (congrArg LocallyDiscrete.mk (contraction_boundary F x)) (contractionRightEndpoint F p)
     (contractionRightEndpoint_composite F p)
-    (congrArg LocallyDiscrete.mk (contractionRightBoundary F p))
+    (congrArg LocallyDiscrete.mk (contraction_right_boundary F p))
   change compose (openIdHigher F) (⟨contractionEndpoint F x,
-    eqToHom (congrArg LocallyDiscrete.mk (contractionBoundary F x))⟩) p = _
+    eqToHom (congrArg LocallyDiscrete.mk (contraction_boundary F x))⟩) p = _
   refine h.trans ?_
   apply Pseudofunctor.CoGrothendieck.ext
   · rfl
   · apply heq_of_eq
-    change eqToHom (congrArg LocallyDiscrete.mk (contractionRightBoundary F p)) ≫ p.fiber =
-      Discrete.mk (eqToHom (contractionRightBoundary F p) ≫ p.fiber.as)
-    rw [← discrete_mk_eqToHom (contractionRightBoundary F p)]
+    change eqToHom (congrArg LocallyDiscrete.mk (contraction_right_boundary F p)) ≫ p.fiber =
+      Discrete.mk (eqToHom (contraction_right_boundary F p) ≫ p.fiber.as)
+    rw [← discrete_mk_eqToHom (contraction_right_boundary F p)]
     rfl
 /-- The genuine comparison between the actual contraction composites. -/
 noncomputable def contractionNaturalityCell {x y : PathContext F} (p : x ⟶ y) :

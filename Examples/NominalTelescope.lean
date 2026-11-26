@@ -7,8 +7,8 @@ namespace Examples.NominalTelescope
 open SquareKit.Internal.NominalTelescope
 
 /-- Source atoms 0,1 are n,z. Bound atoms initially have spellings 2,3,4. -/
-def N : Expr := .var 0
-def Z : Expr := .var 1
+def nExpr : Expr := .var 0
+def zExpr : Expr := .var 1
 
 def σ : Nat → Expr
   | 0 => .add (.var 0) (.lit 1)
@@ -24,19 +24,19 @@ def ρ : Nat → Nat
   | 0 => 1
   | _ => 0
 
-def finalN : Expr := (N.subst σ).subst τ
-def finalZ : Expr := (Z.subst σ).subst τ
+def finalN : Expr := (nExpr.subst σ).subst τ
+def finalZ : Expr := (zExpr.subst σ).subst τ
 
 def selectedA : First finalN ρ := ⟨2, by decide⟩
 def selectedB : Second selectedA := ⟨1, by decide⟩
 def selectedR : Third selectedB := ⟨1, by decide⟩
 
-def initialFrame : Frame (support N Z) := Frame.canonical _
+def initialFrame : Frame (support nExpr zExpr) := Frame.canonical _
 
 /-- After σ, preserve the second spelling 3, freshen the first to 5.
 The permutation also moves the third annotation and binder consistently. -/
 def firstPerm : FinitePerm := (FinitePerm.swap 3 4).comp (FinitePerm.swap 3 5)
-def firstFrame : Frame (support (N.subst σ) (Z.subst σ)) :=
+def firstFrame : Frame (support (nExpr.subst σ) (zExpr.subst σ)) :=
   Frame.act firstPerm (by
     intro x hx
     have hx' : x < 3 := hx
@@ -60,28 +60,28 @@ example : firstFrame.name 0 = 5 ∧ firstFrame.name 1 = 3 := by decide
 example : finalFrame.name 0 = 5 ∧ finalFrame.name 1 = 6 := by decide
 
 /-- Both routes are the same alpha class, for every program in the fragment. -/
-example : substitute τ (substitute σ (program N Z)) =
-    substitute (fun x => (σ x).subst τ) (program N Z) := substitute_comp σ τ _
+example : substitute τ (substitute σ (program nExpr zExpr)) =
+    substitute (fun x => (σ x).subst τ) (program nExpr zExpr) := substitute_comp σ τ _
 
-example : substitute .var (program N Z) = program N Z := substitute_id _
+example : substitute .var (program nExpr zExpr) = program nExpr zExpr := substitute_id _
 
 /-- The named result is compared with the independently specified contextual
 family before evaluating the expected numerical observation. -/
 theorem selected_two : nominalObserve finalFrame selectedA selectedB =
     (⟨7, ⟨1, by decide⟩⟩ : Observation) := by
-  exact (two_substitutions N Z σ τ ρ finalFrame selectedA selectedB).trans rfl
+  exact (two_substitutions nExpr zExpr σ τ ρ finalFrame selectedA selectedB).trans rfl
 
 theorem selected_three : nominalTail finalFrame selectedA selectedB selectedR =
     (⟨7, ⟨1, by decide⟩, ⟨1, by decide⟩⟩ : TailObservation) := by
-  exact (tail_two_substitutions N Z σ τ ρ finalFrame selectedA selectedB selectedR).trans rfl
+  exact (tail_two_substitutions nExpr zExpr σ τ ρ finalFrame selectedA selectedB selectedR).trans rfl
 
 /-- The quotient-level substitution, rather than only a raw-frame evaluation,
 retains the complete dependent observation through both stages. -/
-example : abstractTail (substitute τ (substitute σ (program N Z))).2.2
+example : abstractTail (substitute τ (substitute σ (program nExpr zExpr))).2.2
     selectedA selectedB selectedR = (⟨7, ⟨1, by decide⟩, ⟨1, by decide⟩⟩ : TailObservation) := by
-  exact (tail_substitute_preserves (substitute σ (program N Z)) τ ρ
+  exact (tail_substitute_preserves (substitute σ (program nExpr zExpr)) τ ρ
     selectedA selectedB selectedR).trans
-    ((tail_substitute_preserves (program N Z) σ (fun x => (τ x).eval ρ) _ _ _).trans
+    ((tail_substitute_preserves (program nExpr zExpr) σ (fun x => (τ x).eval ρ) _ _ _).trans
       ((abstractTail_comparison _ _ _ _).trans rfl))
 
 /-- Alpha abstraction hides bound spelling, but does not collapse free syntax. -/
@@ -102,10 +102,10 @@ example : nominalTail (Z := finalZ) (Frame.canonical _) selectedA selectedB sele
 /-- Omitting the first freshening captures free atom 2 in σ(z).
 The independent calculation expects index 3, whereas capture gives 4. -/
 theorem first_capture :
-    (Expr.add (Z.subst σ) (.var (initialFrame.name 0))).eval
+    (Expr.add (zExpr.subst σ) (.var (initialFrame.name 0))).eval
       (initialFrame.env (fun x => if x = 0 then 1 else 0) 1 1 0) = 4 ∧
     (nominalObserve firstFrame
-      (⟨1, by decide⟩ : First (N.subst σ) (fun x => if x = 0 then 1 else 0))
+      (⟨1, by decide⟩ : First (nExpr.subst σ) (fun x => if x = 0 then 1 else 0))
       ⟨1, by decide⟩).1 = 3 := by decide
 
 /-- Omitting the second freshening captures free atom 3 in τ(a).
@@ -133,7 +133,7 @@ theorem resetting_third_fails :
   have := congrArg (fun o : TailObservation => o.2.2.val) h
   contradiction
 
-example : ¬ ∃ get : Abstraction N Z → Nat, ∀ f, get ⟦f⟧ = f.name 0 :=
-  no_bound_name_observer N Z
+example : ¬ ∃ get : Abstraction nExpr zExpr → Nat, ∀ f, get ⟦f⟧ = f.name 0 :=
+  no_bound_name_observer nExpr zExpr
 
 end Examples.NominalTelescope

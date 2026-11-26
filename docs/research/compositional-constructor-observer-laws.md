@@ -179,7 +179,7 @@ finite-word finality theorem.
 
 `embed_output`, `embed_next` and `embed_meaning` identify the old weighted
 syntax with its generic encoding. The `embedExtended_*` counterparts do the
-same for the extended syntax. `recovered` and `recoveredExtended` obtain the
+same for the extended syntax. `recovered` and `recovered_extended` obtain the
 old all-word correctness statements from the new generic proof under the
 original seed-morphism premise. `old_in_extended` retains the old meanings
 when pointwise multiplication is available. These embeddings preserve the

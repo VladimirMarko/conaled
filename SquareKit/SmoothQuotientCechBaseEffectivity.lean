@@ -114,7 +114,7 @@ theorem baseVariable_fiber (c : (show Grpd.{1,1} from γ (model a A))) :
 
 /-- A whole-functor base-term identity determines the actual fixed-base
 coefficient evaluation, with the existing fixed-base comparison retained. -/
-theorem fiberCoefficientEvaluationOfTerm
+theorem fiber_coefficient_evaluation_of_term
     (F : AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A) ⥤
       CechMatching.Datum (baseDiagram a A).toDiagram)
     (hF : matchingEvaluation a A (.ext hΓ (.base hΓ)) ⋙
@@ -141,7 +141,7 @@ def baseEvaluationComparisonOfTerm
     familyEvaluation a A hΓ (.base hΓ) c ⋙
       ((baseFamilyIso a hΓ A).hom.app ((matchingEvaluation a A hΓ).obj c)) ≅ F :=
   baseEvaluationComparison a A hΓ c ≪≫
-    eqToIso (fiberCoefficientEvaluationOfTerm a A hΓ F hF c)
+    eqToIso (fiber_coefficient_evaluation_of_term a A hΓ F hF c)
 
 /-- Equivalence of the independently supplied coefficient functor transfers
 through the checked whole-functor identity to the actual base evaluation. -/

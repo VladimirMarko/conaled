@@ -73,12 +73,12 @@ def SourceCode.quote : SourceCode → PExpr SingleV
   | .snd p => Projection.snd N familyB p.quote
 
 def TargetPair.quote : TargetPair → EExpr SingleV
-  | .pack e => Elimination.pack (G.act N) (G.act familyB)
-      (G.act (s e.quote)) (G.act (t e.quote))
+  | .pack e => Elimination.pack (projectionToElimination.act N) (projectionToElimination.act familyB)
+      (projectionToElimination.act (s e.quote)) (projectionToElimination.act (t e.quote))
 def TargetCode.quote : TargetCode → EExpr SingleV
-  | .splitSecond p => Elimination.second (G.act N) (G.act familyB) p.quote
+  | .splitSecond p => Elimination.second (projectionToElimination.act N) (projectionToElimination.act familyB) p.quote
 
-theorem quotation (c : SourceCode) : (translate c).quote = G.act c.quote := by
+theorem quotation (c : SourceCode) : (translate c).quote = projectionToElimination.act c.quote := by
   cases c with | snd p => cases p; simp [translate, translatePair,
     SourceCode.quote, SourcePair.quote, TargetCode.quote, TargetPair.quote]
 theorem execution (c : SourceCode) (n : Nat) :
@@ -145,7 +145,7 @@ def rawTyped (e : Ix) : Proof (Judgment.term Γn (raw e) (resultType e)) := by
 def afterF (e : Ix) : Derivation (projectionPresentation true) (fun _ => Empty)
     (Judgment.term Γn (raw e) (resultType e)) := projectionInclusion.transport (fun _ h => Empty.elim h) (rawTyped e)
 def afterG (e : Ix) := compile (rawTyped e)
-theorem twoStage (e : Ix) : afterG e =
+theorem two_stage (e : Ix) : afterG e =
     fullG.transportClosed (TypedSubstitution.fullEliminationLocal _) (afterF e) := rfl
 
 
@@ -184,7 +184,7 @@ theorem type_replace (e b : Ix) : Expr.subst (envSub b) (resultType e) = resultT
   simp only [resultType, B, s, DependentPairDeclarations.Terms.subst_B,
     DependentPairDeclarations.Terms.subst_s, quote_replace]
 
-def envTyped (b : Ix) : TypedSubstitution.Typed (R := R) (H := fun _ => Empty) Γn Γn (envSub b) where
+def envTyped (b : Ix) : TypedSubstitution.Typed (R := projectionRules) (H := fun _ => Empty) Γn Γn (envSub b) where
   context := contextN
   component v := by
     cases v with
@@ -223,10 +223,10 @@ theorem twice_type (ops : List Spec.Op) :
   rfl
 
 theorem twice_target_quote (ops : List Spec.Op) :
-    Expr.subst (fun v => G.act (envSub tauIndex v))
-      (G.act (Expr.subst (envSub sigmaIndex) (raw (generate ops)))) =
+    Expr.subst (fun v => projectionToElimination.act (envSub tauIndex v))
+      (projectionToElimination.act (Expr.subst (envSub sigmaIndex) (raw (generate ops)))) =
       (translate (program ops twiceIndex)).quote := by
-  rw [← G.substitution, twice_raw, quotation]
+  rw [← projectionToElimination.substitution, twice_raw, quotation]
 
 theorem twice_selected (ops : List Spec.Op) (n : Nat) :
     (translate (program ops twiceIndex)).exec n = Spec.selected ops (Spec.sigma (Spec.tau n)) :=

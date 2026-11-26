@@ -20,7 +20,7 @@ def familyEvaluationTransportIso {c d : (show Grpd.{1,1} from γ (model a A))}
       familyEvaluation a A hΓ hB c ⋙
         (relativeMatchingFamily a hΓ hB A).map ((matchingEvaluation a A hΓ).map f) :=
   CechMatching.Comprehension.Evaluation.transportComparison
-    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
     (b (model a A)) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation a A hΓ hB) (totalMatchingEvaluation_projection a A hΓ hB) f
 
@@ -28,21 +28,21 @@ theorem familyEvaluationTransportIso_id (c : (show Grpd.{1,1} from γ (model a A
     (x : (b (model a A)).obj c) :
     (familyEvaluationTransportIso a A hΓ hB (𝟙 c)).inv.app x ≫
       (familyEvaluation a A hΓ hB c).map
-        (eqToHom (CechMatching.Comprehension.Evaluation.sourceId (b (model a A)) c x)) =
+        (eqToHom (CechMatching.Comprehension.Evaluation.source_id (b (model a A)) c x)) =
     eqToHom (by
       change CechMatching.Comprehension.Fiber.transport
         ((matchingEvaluation a A hΓ).map (𝟙 c)) _ = _
       rw [(matchingEvaluation a A hΓ).map_id, CechMatching.Comprehension.Fiber.transport_id]) :=
   CechMatching.Comprehension.Evaluation.transportComparison_id
     (b (model a A)) (relativeFamilyData a hΓ hB A)
-    (relativeFamilyCoherence a hΓ hB A) (matchingEvaluation a A hΓ)
+    (relativeFamilyData_coherence a hΓ hB A) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation a A hΓ hB) (totalMatchingEvaluation_projection a A hΓ hB) c x
 
 theorem familyEvaluationTransportIso_comp {c d e : (show Grpd.{1,1} from γ (model a A))}
     (f : c ⟶ d) (g : d ⟶ e) (x : (b (model a A)).obj c) :
     (familyEvaluationTransportIso a A hΓ hB (f ≫ g)).inv.app x ≫
       (familyEvaluation a A hΓ hB e).map
-        (eqToHom (CechMatching.Comprehension.Evaluation.sourceComp (b (model a A)) f g x)) =
+        (eqToHom (CechMatching.Comprehension.Evaluation.source_comp (b (model a A)) f g x)) =
     eqToHom (by
       change CechMatching.Comprehension.Fiber.transport
         ((matchingEvaluation a A hΓ).map (f ≫ g)) _ = _
@@ -53,7 +53,7 @@ theorem familyEvaluationTransportIso_comp {c d e : (show Grpd.{1,1} from γ (mod
       (familyEvaluationTransportIso a A hΓ hB g).inv.app (((b (model a A)).map f).obj x) :=
   CechMatching.Comprehension.Evaluation.transportComparison_comp
     (b (model a A)) (relativeFamilyData a hΓ hB A)
-    (relativeFamilyCoherence a hΓ hB A) (matchingEvaluation a A hΓ)
+    (relativeFamilyData_coherence a hΓ hB A) (matchingEvaluation a A hΓ)
     (totalMatchingEvaluation a A hΓ hB) (totalMatchingEvaluation_projection a A hΓ hB) f g x
 
 end SquareKit.SmoothQuotientCechLocal

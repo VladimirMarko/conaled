@@ -29,9 +29,9 @@ theorem coordinate_preserves : FirstOrderNaturality.Preserves (matrixFunctions R
 Its preservation proof uses shared composition laws, with no further induction. -/
 theorem compile_coordinates (t : Term (Prim R) Γ a) (x : Slots (context Γ) → R) :
     (FirstOrderCompiler.compile (target R) t).mulVec x = FirstOrderNaturality.compile (coordinateModel R) t x := by
-  have h := FirstOrderNaturality.naturality (matrixFunctions_laws R) (equalityCongr _)
+  have h := FirstOrderNaturality.naturality (matrixFunctions_laws R) (equality_congr _)
     (FirstOrderNaturality.targetImage_congr (target R) (matrixFunctions R) _ _ _ _ _
-      (equalityCongr _) FunctionCategory.productCongr) (coordinate_preserves R) t
+      (equality_congr _) FunctionCategory.productCongr) (coordinate_preserves R) t
   have hp := congrFun h x
   change (FirstOrderNaturality.compile (FirstOrderNaturality.ofTarget (target R)) t).mulVec x = _ at hp
   rw [FirstOrderNaturality.compile_ofTarget] at hp

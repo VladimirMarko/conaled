@@ -63,7 +63,7 @@ theorem member_inorder [LinearOrder α] (x : α) (t : BinaryTree (α × σ))
   exact Search.OrderedMap.containsKey_eq_true_iff_of_inorder_pairwise hs x
 
 /-- All seven operational obligations, with positivity used for auxiliary closure. -/
-theorem inorderRefinement [LinearOrder α]
+theorem inorder_refinement [LinearOrder α]
     (ann : HeightAnnotation α σ) (d : Nat) (hd : 1 ≤ d) :
     Search.AbstractSet.Refinement (deleteOps ann d) Search.OrderedList.ops
       (fun t => Trees.inorder (Cached.erase t))
@@ -77,11 +77,11 @@ theorem inorderRefinement [LinearOrder α]
   member x t _ hs := member_inorder x t hs
 
 /-- The independent structural Set observer inherits complete insertion/deletion laws. -/
-theorem setLaws [LinearOrder α]
+theorem set_laws [LinearOrder α]
     (ann : HeightAnnotation α σ) (d : Nat) (hd : 1 ≤ d) :
     Search.AbstractSet.DeleteLaws (deleteOps ann d)
       (fun t => Trees.setTree (Cached.erase t)) (SetValid ann d) :=
-  ((inorderRefinement ann d hd).laws Search.OrderedList.laws).congr_observe
+  ((inorder_refinement ann d hd).laws Search.OrderedList.laws).congr_observe
     (fun t _ x => Trees.mem_inorder_iff_mem_setTree x (Cached.erase t))
 
 /-- Different tolerances and annotation carriers preserve a common list history.
@@ -102,13 +102,13 @@ theorem inorder_execute_eq [LinearOrder α]
         (Search.AbstractSet.execute (deleteOps leftAnn d) updates left)) =
         Search.AbstractSet.execute Search.OrderedList.ops updates
           (Trees.inorder (Cached.erase left)) :=
-      (inorderRefinement leftAnn d hd).execute Search.OrderedList.laws updates hl
+      (inorder_refinement leftAnn d hd).execute Search.OrderedList.laws updates hl
     _ = Search.AbstractSet.execute Search.OrderedList.ops updates
           (Trees.inorder (Cached.erase right)) :=
       congrArg (Search.AbstractSet.execute Search.OrderedList.ops updates) same
     _ = Trees.inorder (Cached.erase
           (Search.AbstractSet.execute (deleteOps rightAnn e) updates right)) :=
-      ((inorderRefinement rightAnn e he).execute Search.OrderedList.laws updates hr).symm
+      ((inorder_refinement rightAnn e he).execute Search.OrderedList.laws updates hr).symm
 
 /-- Actual path-query answers agree after the common word in valid representations. -/
 theorem member_execute_eq [LinearOrder α]
@@ -128,7 +128,7 @@ theorem member_execute_eq [LinearOrder α]
         Search.OrderedList.ops.member x
           (Search.AbstractSet.execute Search.OrderedList.ops updates
             (Trees.inorder (Cached.erase left))) :=
-      (inorderRefinement leftAnn d hd).member_execute
+      (inorder_refinement leftAnn d hd).member_execute
         Search.OrderedList.laws updates hl x
     _ = Search.OrderedList.ops.member x
           (Search.AbstractSet.execute Search.OrderedList.ops updates
@@ -137,7 +137,7 @@ theorem member_execute_eq [LinearOrder α]
         (Search.AbstractSet.execute Search.OrderedList.ops updates xs)) same
     _ = Search.OrderedMap.containsKey x
           (Search.AbstractSet.execute (deleteOps rightAnn e) updates right) :=
-      ((inorderRefinement rightAnn e he).member_execute
+      ((inorder_refinement rightAnn e he).member_execute
         Search.OrderedList.laws updates hr x).symm
 
 end Trees.HeightBalance

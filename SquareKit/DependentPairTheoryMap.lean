@@ -16,17 +16,17 @@ def gCongruence : ∀ r, GCongruenceCertificate r
   | .second Γ A A' B B' p p' => gSecondCongruence Γ A A' B B' p p'
 
 /-- The full map has no remaining certificate parameters. -/
-def fullG : MetavariableTheoryMap (projectionPresentation true) eliminationPresentation (map G) :=
+def fullG : MetavariableTheoryMap (projectionPresentation true) eliminationPresentation (map projectionToElimination) :=
   fullGWithCongruence gCongruence
 
-def pairPipeline : CertificatePipeline (projectionPresentation false) eliminationPresentation (map G ∘ id) :=
+def pairPipeline : CertificatePipeline (projectionPresentation false) eliminationPresentation (map projectionToElimination ∘ id) :=
   pairPipelineWithCongruence gCongruence
 
 /-- Forward compilation of closed derivations checks typed metavariable uses
 through the target's proved substitution theorem. -/
 def compile {j : Judgment projectionSignature}
     (d : Derivation (projectionPresentation false) (fun _ => Empty) j) :
-    Derivation eliminationPresentation (fun _ => Empty) (map G j) :=
+    Derivation eliminationPresentation (fun _ => Empty) (map projectionToElimination j) :=
   fullG.transportClosed (fullEliminationLocal _)
     (projectionInclusion.transport (fun _ h => Empty.elim h) d)
 
@@ -39,7 +39,7 @@ theorem pipeline_compiles {j : Judgment projectionSignature}
   rfl
 
 /-- A single local certificate per beta rule, obtained by composing F with G. -/
-def fullFG : MetavariableTheoryMap (projectionPresentation false) eliminationPresentation (map G ∘ id) :=
+def fullFG : MetavariableTheoryMap (projectionPresentation false) eliminationPresentation (map projectionToElimination ∘ id) :=
   fullG.precompReplay projectionReplay
 
 theorem compressed_compiles {j : Judgment projectionSignature}

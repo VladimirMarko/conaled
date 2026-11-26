@@ -5,13 +5,13 @@ namespace SquareKit.Comma.Exact
 universe u
 open FunctionCategory
 abbrev products : ProductOps categoryOps.{u} := Comma.productOps
-  (equalityCongr FunctionCategory.ops) FunctionCategory.laws (RawMap.id_laws _) (RawMap.id_laws _)
+  (equality_congr FunctionCategory.ops) FunctionCategory.laws (RawMap.id_laws _) (RawMap.id_laws _)
   (ProductMap.id FunctionCategory.products) (ProductMap.id FunctionCategory.products)
   (fun _a _b => Comparison.id_laws FunctionCategory.laws _) (fun _a _b => Comparison.id_laws FunctionCategory.laws _)
   (ProductMap.id_laws FunctionCategory.laws _) (ProductMap.id_laws FunctionCategory.laws _)
   FunctionCategory.productCongr FunctionCategory.productLaws
 abbrev terminal : TerminalOps categoryOps.{u} := Comma.terminalOps
-  (equalityCongr FunctionCategory.ops) FunctionCategory.laws (RawMap.id_laws _) (RawMap.id_laws _)
+  (equality_congr FunctionCategory.ops) FunctionCategory.laws (RawMap.id_laws _) (RawMap.id_laws _)
   (TerminalMap.id FunctionCategory.terminal) (TerminalMap.id FunctionCategory.terminal)
   (Comparison.id_laws FunctionCategory.laws _) (TerminalMap.id_laws FunctionCategory.laws _) (TerminalMap.id_laws FunctionCategory.laws _)
   FunctionCategory.terminalLaws
@@ -27,11 +27,11 @@ abbrev terminal : TerminalOps categoryOps.{u} := Comma.terminalOps
 @[simp] theorem ofSquare_terminate (a : Squares.Rep.{u}) :
     ofSquare (Squares.terminate a) = terminal.terminal (a := ofRep a) := rfl
 
-theorem products_laws : ProductLaws (Comma.equiv (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+theorem products_laws : ProductLaws (Comma.equiv (equality_congr FunctionCategory.ops) FunctionCategory.laws
     (RawMap.id_laws (equality FunctionCategory.ops)) (RawMap.id_laws (equality FunctionCategory.ops))) products.{u} :=
   Comma.productLaws _ _ _ _ _ _ _ _ _ _ _ _ FunctionCategory.productLaws FunctionCategory.productLaws
 
-theorem terminal_laws : TerminalLaws (Comma.equiv (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+theorem terminal_laws : TerminalLaws (Comma.equiv (equality_congr FunctionCategory.ops) FunctionCategory.laws
     (RawMap.id_laws (equality FunctionCategory.ops)) (RawMap.id_laws (equality FunctionCategory.ops))) terminal.{u} :=
   Comma.terminalLaws _ _ _ _ _ _ _ _ _ _ FunctionCategory.terminalLaws FunctionCategory.terminalLaws
 /-- The existing square beta law follows from the shared comma law. -/

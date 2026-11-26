@@ -13,7 +13,7 @@ variable {Γ Δ : Context.{u}} {i : StrictPseudofunctor Δ Γ} (c : SourceContra
 variable (F : Family Γ) (s t : TwoFamily.Section F.data)
 variable (d : TwoFamily.Section (reindex i (closedId F.data s t)))
 variable (p : TwoFamily.Section (closedId F.data s t))
-theorem ValueFormula.identityAction (h : c.ValueFormula (F.identity s t) d p) :
+theorem ValueFormula.identity_action (h : c.ValueFormula (F.identity s t) d p) :
  IdentityActionFormula i c.retraction c.homotopy F.data s t d p := by
  intro z
  exact (congrArg LocallyDiscrete.as (h z)).trans (closedId_map_obj F.data s t (c.homotopy.app z) _)
@@ -29,6 +29,6 @@ def ApdSectionActionFormula : Prop :=
   ((M).subTm t ((M).weaken _ ((M).toStructuralModel.pathFamily A x))).down
   (apdBranchValue M A B x t).down (apdSectionValue M A B x t).down
 theorem apdSection_action : ApdSectionActionFormula C D A B x t :=
- SourceContraction.ValueFormula.identityAction (rootContraction C D A x).val
+ SourceContraction.ValueFormula.identity_action (rootContraction C D A x).val
   (motive M A B x) _ _ _ _ (apdSection_objects C D A B x t)
 end SquareKit.Internal.PathTransport.HigherInterpretation

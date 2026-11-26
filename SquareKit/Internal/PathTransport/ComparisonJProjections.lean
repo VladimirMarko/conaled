@@ -124,9 +124,9 @@ theorem contextualJ_left {Γ : Context.{u}} {n} (A : Family Γ) (x : Section A)
   apply up_heq
   exact eliminateSection_heq
     ((leftProjection S).pathTelescope_total A x T)
-    ((leftProjection S).rootTelescope_total A x T)
+    ((leftProjection S).root_telescope_total A x T)
     (rootTail_left S A x T) (cast_heq _ _).symm
-    (section_down_heq ((leftProjection S).rootTelescope_total A x T)
+    (section_down_heq ((leftProjection S).root_telescope_total A x T)
       ((leftProjection S).jBranch_type A x T D)
       ((leftProjection S).jBranch_heq A x T D d).symm)
 
@@ -144,9 +144,9 @@ theorem contextualJ_right {Γ : Context.{u}} {n} (A : Family Γ) (x : Section A)
   apply up_heq
   exact eliminateSection_heq
     ((rightProjection S).pathTelescope_total A x T)
-    ((rightProjection S).rootTelescope_total A x T)
+    ((rightProjection S).root_telescope_total A x T)
     (rootTail_right S A x T) (cast_heq _ _).symm
-    (section_down_heq ((rightProjection S).rootTelescope_total A x T)
+    (section_down_heq ((rightProjection S).root_telescope_total A x T)
       ((rightProjection S).jBranch_type A x T D)
       ((rightProjection S).jBranch_heq A x T D d).symm)
 

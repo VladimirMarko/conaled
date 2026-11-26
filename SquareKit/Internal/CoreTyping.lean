@@ -27,27 +27,27 @@ inductive HasType : Context → Expr → Expr → Prop where
   | lam : HasType Γ a (.sort u) → HasType (a :: Γ) b t →
       HasType Γ (.lam a b) (.all a t)
   | app : HasType Γ f (.all a b) → HasType Γ x a → HasType Γ (.app f x) (instantiate b x)
-  | eqType : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a →
+  | eq_type : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a →
       HasType Γ (equality u a x y) (.sort .zero)
-  | andType : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
+  | and_type : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
       HasType Γ (conjunction p q) (.sort .zero)
-  | existsType : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
+  | exists_type : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
       HasType Γ (existential u a p) (.sort .zero)
-  | andLeft : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
+  | and_left : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
       HasType Γ h (conjunction p q) →
       HasType Γ (.apps (.const ``And.left []) [p, q, h]) p
-  | andRight : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
+  | and_right : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
       HasType Γ h (conjunction p q) →
       HasType Γ (.apps (.const ``And.right []) [p, q, h]) q
-  | andIntro : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
+  | and_intro : HasType Γ p (.sort .zero) → HasType Γ q (.sort .zero) →
       HasType Γ h p → HasType Γ k q →
       HasType Γ (.apps (.const ``And.intro []) [p, q, h, k]) (conjunction p q)
-  | eqRefl : HasType Γ a (.sort u) → HasType Γ x a →
+  | eq_refl : HasType Γ a (.sort u) → HasType Γ x a →
       HasType Γ (.apps (.const ``Eq.refl [u]) [a, x]) (equality u a x x)
-  | eqSymm : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a →
+  | eq_symm : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a →
       HasType Γ h (equality u a x y) →
       HasType Γ (.apps (.const ``Eq.symm [u]) [a, x, y, h]) (equality u a y x)
-  | eqTrans : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a → HasType Γ z a →
+  | eq_trans : HasType Γ a (.sort u) → HasType Γ x a → HasType Γ y a → HasType Γ z a →
       HasType Γ h (equality u a x y) → HasType Γ k (equality u a y z) →
       HasType Γ (.apps (.const ``Eq.trans [u]) [a, x, y, z, h, k]) (equality u a x z)
   | congrArg : HasType Γ a (.sort u) → HasType Γ b (.sort v) →
@@ -55,10 +55,10 @@ inductive HasType : Context → Expr → Expr → Prop where
       HasType Γ h (equality u a x y) →
       HasType Γ (.apps (.const ``congrArg [u, v]) [a, b, x, y, f, h])
         (equality v b (.app f x) (.app f y))
-  | existsIntro : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
+  | exists_intro : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
       HasType Γ x a → HasType Γ h (instantiate p x) →
       HasType Γ (.apps (.const ``Exists.intro [u]) [a, .lam a p, x, h]) (existential u a p)
-  | existsElim : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
+  | exists_elim : HasType Γ a (.sort u) → HasType (a :: Γ) p (.sort .zero) →
       HasType Γ q (.sort .zero) → HasType Γ h (existential u a p) →
       HasType (p :: a :: Γ) branch q.shift.shift →
       HasType Γ (.apps (.const ``Exists.elim [u]) [a, .lam a p, q, h, .lam a (.lam p branch)]) q

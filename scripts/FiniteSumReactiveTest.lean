@@ -26,8 +26,8 @@ def main : IO Unit := do
           let raw := (tag,(l,(u,v)))
           -- This policy is the frozen plain representation oracle.
           let expected := if tag then l == false else (u == false && v == false)
-          ensure ((validator S).execute raw == expected) "validator differs from independent policy"
-          ensure ((checkedDecode S raw).isSome == expected) "decoder accepted malformed bits"
+          ensure ((validator stateType).execute raw == expected) "validator differs from independent policy"
+          ensure ((checkedDecode stateType raw).isSome == expected) "decoder accepted malformed bits"
           for x in [false,true] do
             ensure ((source.tick x raw).isSome == expected) "checked tick bypassed state admission"
           ensure ((sumInputSource.tick raw ()).isSome == expected) "checked tick bypassed input admission"
@@ -36,16 +36,16 @@ def main : IO Unit := do
   let trials := (List.range 6).flatMap booleanInputSequences
   for st in states do
     for xs in trials do
-      let actual := run source.program.machine.mealy (encode (a := S) st) xs
+      let actual := run source.program.machine.mealy (encode (a := stateType) st) xs
       let expected := run reference.mealy st xs
       ensure (actual.1 == expected.1) "lowered output order differs from oracle"
-      ensure (actual.2 == encode (a := S) expected.2) "lowered final state differs from oracle"
+      ensure (actual.2 == encode (a := stateType) expected.2) "lowered final state differs from oracle"
   for xs in trials do
     let actual := run pipeline.machine.mealy pipeline.initial xs
     let expected := delayedNotOutputs false (run reference.mealy reference.initial xs).1
     ensure (actual.1 == expected) "compiled first-order region/delay changed output order"
   ensure ((source.tick false (true,(true,(true,false)))).isNone) "invalid inactive payload admitted"
-  ensure ((checkedDecode (.sum S .bool) (false,((false,(true,(true,false))),false))).isNone)
+  ensure ((checkedDecode (.sum stateType .bool) (false,((false,(true,(true,false))),false))).isNone)
     "malformed nested active payload admitted"
   ensure ((caseCircuit leftArm rightArm).work == 55) "eager branch/mux work changed"
   IO.println s!"PASS: 16 raw encodings; 6 states x {trials.length} traces; {trials.length} downstream traces"

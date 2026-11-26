@@ -153,7 +153,7 @@ theorem successor_excluded : ¬ Nonempty (PreservesZero (a := ()) (b := ()) Nat.
 example {A B : Type} [Category A] [Category B] {F G H : A ⥤ B} (α : F ⟶ G) (β : G ⟶ H) :
     RawTransformation.toNatTrans (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws H)
       ((RawTransformation.ofNatTrans α).comp (RawTransformation.ofNatTrans β))
-      (RawTransformation.comp_natural (equalityCongr _) (ofCategoryLaws B)
+      (RawTransformation.comp_natural (equality_congr _) (ofCategory_laws B)
         (RawTransformation.ofNatTrans_natural α) (RawTransformation.ofNatTrans_natural β)) = α ≫ β := rfl
 
 /-- The family-side comparison retains complete modifications, beyond component observations. -/

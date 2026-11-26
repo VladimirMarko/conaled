@@ -45,7 +45,7 @@ theorem mutual_body_environment :
 theorem mutual_function_retains_template :
     ValueRep mutualWorld (.closure mutualClauses [] mutualTemplate)
       (.closure mutualClauses [] (some mutualGroup)) :=
-  .recursiveClosure .nil mutual_template_represented
+  .recursive_closure .nil mutual_template_represented
 
 def laterMeaning : Meaning Empty := ⟨.atom (.integer 99), [], none⟩
 

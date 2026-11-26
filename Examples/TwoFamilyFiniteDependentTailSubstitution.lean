@@ -21,8 +21,8 @@ def presentation (F : Family.{0,0,0,0,0,0} B)
     [∀x, IsGroupoid (F.obj x)] [∀x, IsLocallyGroupoid (F.obj x)] :
     ContractionPresentation ⟨PathContext F⟩ where
   source := ⟨Total F⟩
-  sourceObjects := inferInstance
-  sourceCells := inferInstance
+  source_isGroupoid := inferInstance
+  source_isLocallyGroupoid := inferInstance
   inclusion := pathReflexivity F
   retraction := pathFirst F
   homotopy := pathContraction F

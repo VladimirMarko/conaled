@@ -54,18 +54,18 @@ theorem sigmaRegroupCell_comp {x y : Total (sigmaFamily F B)} {p q r : x ⟶ y}
   apply HEq.trans _ (comp_eqToHom_heq _ _).symm
   simp only [Category.assoc]
   change HEq
-    ((eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ◁ α.fiber.fiber) ≫ eqToHom _ ≫
-      (eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ≫
+    ((eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ◁ α.fiber.fiber) ≫ eqToHom _ ≫
+      (eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ≫
         ((fiberRestriction F y.base B).map₂ α.fiber.base).app
           ((sigmaMap F B p.base).obj x.fiber).fiber ≫
         compBoundary (fiberRestriction F y.base B) ((F.map₂ α.base).app x.fiber.base)
           q.fiber.base ((sigmaMap F B p.base).obj x.fiber).fiber ≫
         ((fiberRestriction F y.base B).map q.fiber.base).map
           (sigmaCellComponent F B α.base x.fiber).fiber) ◁ β.fiber.fiber)
-    ((eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ◁ α.fiber.fiber) ≫ eqToHom _ ≫
+    ((eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ◁ α.fiber.fiber) ≫ eqToHom _ ≫
       ((B.map₂ (sigmaRegroupBaseCell F B α)).app x.fiber.fiber ≫
-        eqToHom (sigmaRegroupBoundary F B q.base q.fiber.base)) ◁ β.fiber.fiber)
-  exact prefix_paste_heq (sigmaRegroupPrefix F B (sigmaRegroupBaseCell F B α))
-    β.fiber.fiber (eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ◁ α.fiber.fiber) _ _
+        eqToHom (sigma_regroup_boundary F B q.base q.fiber.base)) ◁ β.fiber.fiber)
+  exact prefix_paste_heq (sigma_regroup_prefix F B (sigmaRegroupBaseCell F B α))
+    β.fiber.fiber (eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ◁ α.fiber.fiber) _ _
 
 end SquareKit.Internal.PathTransport.TwoFamily

@@ -42,7 +42,7 @@ variable {I : Type u} {Y : I → Sheaf K (Type u)}
 variable (f : ∀ i, Y i ⟶ X) (hf : SheafFamilyCover.JointlyLocallySurjective f)
 
 omit [F.Full] [F.Faithful] [F.IsDenseSubsite J K] in
-private theorem torsorCanonicalTransition (P : SheafTorsor.Torsor G X)
+private theorem torsor_canonical_transition (P : SheafTorsor.Torsor G X)
     {W : Sheaf K (Type u)} (q : W ⟶ X) {i j : I} (l : W ⟶ Y i) (r : W ⟶ Y j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (((SheafTorsor.Stack.pseudofunctor G).toDescentData f).obj P).hom q l r hl hr =
@@ -55,7 +55,7 @@ private theorem torsorCanonicalTransition (P : SheafTorsor.Torsor G X)
   exact Category.id_comp _
 
 omit [F.Full] [F.Faithful] in
-private theorem torsorCanonicalTransition_map (P : SheafTorsor.Torsor G X)
+private theorem torsor_canonical_transition_map (P : SheafTorsor.Torsor G X)
     {W : Sheaf K (Type u)} (q : W ⟶ X) {i j : I} (l : W ⟶ Y i) (r : W ⟶ Y j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (torsorFunctor J K F).map
@@ -64,7 +64,7 @@ private theorem torsorCanonicalTransition_map (P : SheafTorsor.Torsor G X)
         (fun i => map J K F (f i))).obj (torsor J K F P)).hom
         (map J K F q) (map J K F l) (map J K F r)
         (congrArg (map J K F) hl) (congrArg (map J K F) hr) := by
-  rw [torsorCanonicalTransition, torsorCanonicalTransition, eqToHom_map]
+  rw [torsor_canonical_transition, torsor_canonical_transition, eqToHom_map]
 
 /-- Compare all descent objects and all compatible arrows using effective recovery.
 The local comparison below identifies this with componentwise site restriction. -/
@@ -118,7 +118,7 @@ theorem torsorDescentLocalComparison_natural
   exact congrArg (fun k => k.iso.hom.app ((elements K F (Y i)).obj x) p) hh
 
 omit [F.Full] [F.Faithful] in
-private theorem torsorLocalTransition
+private theorem torsor_local_transition
     (P : SheafTorsor.Torsor G X)
     (d : (SheafTorsor.Stack.pseudofunctor G).DescentData f)
     (t : ((SheafTorsor.Stack.pseudofunctor G).toDescentData f).obj P ⟶ d)
@@ -134,7 +134,7 @@ private theorem torsorLocalTransition
       (SheafTorsor.restriction (map J K F r)).map
         ((torsorFunctor J K F).map (t.hom j)) := by
   have hc := congrArg (fun k => (torsorFunctor J K F).map k) (t.comm q l r hl hr)
-  rw [Functor.map_comp, Functor.map_comp, torsorCanonicalTransition_map] at hc
+  rw [Functor.map_comp, Functor.map_comp, torsor_canonical_transition_map] at hc
   exact hc
 
 /-- Local recovery comparisons commute with every overlap transition. -/
@@ -150,13 +150,13 @@ theorem torsorDescentLocalComparison_transition
         (congrArg (map J K F) hl) (congrArg (map J K F) hr) ≫
       (SheafTorsor.restriction (map J K F r)).map
         (torsorDescentLocalComparison J K F G f hf d j).hom :=
-  torsorLocalTransition J K F G f _ d
+  torsor_local_transition J K F G f _ d
     ((SheafFamilyDescent.torsorEquivalence G f hf).counitIso.app d).hom q l r hl hr
 
 variable {G} (a : SheafActionQuotient.Action G M)
 
 omit [F.Full] [F.Faithful] [F.IsDenseSubsite J K] in
-private theorem quotientCanonicalTransition (P : SheafActionQuotient.Object a X)
+private theorem quotient_canonical_transition (P : SheafActionQuotient.Object a X)
     {W : Sheaf K (Type u)} (q : W ⟶ X) {i j : I} (l : W ⟶ Y i) (r : W ⟶ Y j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (((SheafActionQuotient.Stack.pseudofunctor a).toDescentData f).obj P).hom q l r hl hr =
@@ -169,7 +169,7 @@ private theorem quotientCanonicalTransition (P : SheafActionQuotient.Object a X)
   exact Category.id_comp _
 
 omit [F.Full] [F.Faithful] in
-private theorem quotientCanonicalTransition_map (P : SheafActionQuotient.Object a X)
+private theorem quotient_canonical_transition_map (P : SheafActionQuotient.Object a X)
     {W : Sheaf K (Type u)} (q : W ⟶ X) {i j : I} (l : W ⟶ Y i) (r : W ⟶ Y j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (quotientFunctor J K F a).map
@@ -178,7 +178,7 @@ private theorem quotientCanonicalTransition_map (P : SheafActionQuotient.Object 
         (fun i => map J K F (f i))).obj (quotientObject J K F a P)).hom
         (map J K F q) (map J K F l) (map J K F r)
         (congrArg (map J K F) hl) (congrArg (map J K F) hr) := by
-  rw [quotientCanonicalTransition, quotientCanonicalTransition, eqToHom_map]
+  rw [quotient_canonical_transition, quotient_canonical_transition, eqToHom_map]
 
 /-- Quotient descent comparison retains the equivariant target and stabilizers. -/
 def quotientDescentEquivalence :
@@ -230,7 +230,7 @@ theorem quotientDescentLocalComparison_natural
   exact congrArg (fun k => k.torsorArrow.iso.hom.app ((elements K F (Y i)).obj x) p) hh
 
 omit [F.Full] [F.Faithful] in
-private theorem quotientLocalTransition
+private theorem quotient_local_transition
     (P : SheafActionQuotient.Object a X)
     (d : (SheafActionQuotient.Stack.pseudofunctor a).DescentData f)
     (t : ((SheafActionQuotient.Stack.pseudofunctor a).toDescentData f).obj P ⟶ d)
@@ -246,7 +246,7 @@ private theorem quotientLocalTransition
       (SheafActionQuotient.restriction (map J K F r)).map
         ((quotientFunctor J K F a).map (t.hom j)) := by
   have hc := congrArg (fun k => (quotientFunctor J K F a).map k) (t.comm q l r hl hr)
-  rw [Functor.map_comp, Functor.map_comp, quotientCanonicalTransition_map] at hc
+  rw [Functor.map_comp, Functor.map_comp, quotient_canonical_transition_map] at hc
   exact hc
 
 theorem quotientDescentLocalComparison_transition
@@ -261,7 +261,7 @@ theorem quotientDescentLocalComparison_transition
         (congrArg (map J K F) hl) (congrArg (map J K F) hr) ≫
       (SheafActionQuotient.restriction (map J K F r)).map
         (quotientDescentLocalComparison J K F f hf a d j).hom :=
-  quotientLocalTransition J K F f a _ d
+  quotient_local_transition J K F f a _ d
     ((SheafFamilyDescent.quotientEquivalence a f hf).counitIso.app d).hom q l r hl hr
 
 end SquareKit.SheafSiteComparison

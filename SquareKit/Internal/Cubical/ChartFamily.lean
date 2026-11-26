@@ -44,10 +44,10 @@ theorem label_selected (n : Count Ξ) :
 /-- Only count, codes and actual sections are inputs. -/
 structure Inputs (Ξ : Context.{u+1}) where
   count : Count Ξ
-  Y : Ξ ⟶ smallFamilyCodes.{u}
-  D : labelContext count ⟶ smallFamilyCodes.{u}
-  target : Term (liftedDecode (projection (liftedDecode D) ≫ labelProjection count ≫ Y))
-  endpoint : Term (liftedDecode Y)
+  targetCode : Ξ ⟶ smallFamilyCodes.{u}
+  domainCode : labelContext count ⟶ smallFamilyCodes.{u}
+  target : Term (liftedDecode (projection (liftedDecode domainCode) ≫ labelProjection count ≫ targetCode))
+  endpoint : Term (liftedDecode targetCode)
 
 /-- Extend by Y and use its actual generic variable as endpoint. -/
 def genericEndpoint (n : Count Ξ) (Y : Ξ ⟶ smallFamilyCodes.{u})
@@ -55,19 +55,19 @@ def genericEndpoint (n : Count Ξ) (Y : Ξ ⟶ smallFamilyCodes.{u})
     (s : Term (liftedDecode (projection (liftedDecode D) ≫ labelProjection n ≫ Y))) :
     Inputs (total (liftedDecode Y)) where
   count := n.reindex (projection (liftedDecode Y))
-  Y := projection (liftedDecode Y) ≫ Y
-  D := liftSub (labels n) (projection (liftedDecode Y)) ≫ D
+  targetCode := projection (liftedDecode Y) ≫ Y
+  domainCode := liftSub (labels n) (projection (liftedDecode Y)) ≫ D
   target := s.reindex (liftSub (liftedDecode D) (liftSub (labels n) (projection (liftedDecode Y))))
   endpoint := generic (liftedDecode Y)
 
 namespace Inputs
 variable (I : Inputs Ξ)
 
-abbrev domain := liftedDecode I.D
+abbrev domain := liftedDecode I.domainCode
 abbrev display := projection I.domain ≫ labelProjection I.count
 abbrev weakenedEndpoint := I.endpoint.reindex I.display
-abbrev pathBody := projection (interval (total I.domain)) ≫ I.display ≫ I.Y
-abbrev paths := homogeneousPath (liftedDecode (I.display ≫ I.Y)) I.target I.weakenedEndpoint
+abbrev pathBody := projection (interval (total I.domain)) ≫ I.display ≫ I.targetCode
+abbrev paths := homogeneousPath (liftedDecode (I.display ≫ I.targetCode)) I.target I.weakenedEndpoint
 abbrev inner := Presheaf.sigma I.domain I.paths
 abbrev outer := Presheaf.sigma (labels I.count) I.inner
 
@@ -83,7 +83,7 @@ def selectedPath (z : Term I.outer) : Term (reindex I.paths (I.selectedDisplay z
     (B := reindex I.paths (liftSub I.domain (pair (𝟙 Ξ) (I.selectedLabel z)))) (sigmaSnd z)
 
 def selectedNativePath (z : Term I.outer) :
-    Term (homogeneousPath (reindex (liftedDecode (I.display ≫ I.Y)) (I.selectedDisplay z))
+    Term (homogeneousPath (reindex (liftedDecode (I.display ≫ I.targetCode)) (I.selectedDisplay z))
       (I.target.reindex (I.selectedDisplay z)) (I.weakenedEndpoint.reindex (I.selectedDisplay z))) :=
   Term.map (pathReindexIso (liftedDecode I.pathBody) I.target I.weakenedEndpoint
     (I.selectedDisplay z)).hom (I.selectedPath z)
@@ -100,9 +100,9 @@ noncomputable def pathFiller : Filling I.paths :=
 theorem pathFiller_lawful : I.pathFiller.Lawful := pathFilling_lawful _ (NativeDecode.filling_lawful _) _ _
 
 noncomputable def innerPresentation : SmallPresentation.Data I.inner :=
-  (decodePresentation I.D).sigma I.pathPresentation
+  (decodePresentation I.domainCode).sigma I.pathPresentation
 noncomputable def innerFiller : Filling I.inner :=
-  sigmaFilling (NativeDecode.filling I.D) (NativeDecode.filling_lawful _) I.pathFiller
+  sigmaFilling (NativeDecode.filling I.domainCode) (NativeDecode.filling_lawful _) I.pathFiller
 
 theorem innerFiller_lawful : I.innerFiller.Lawful :=
   sigmaFilling_lawful _ (NativeDecode.filling_lawful _) _ I.pathFiller_lawful
@@ -112,14 +112,14 @@ noncomputable def innerResult : LargeConstructors.Result I.inner :=
 
 /-- The stock code constructor also composes, with its own selected filler.
 Its second provider is the universal decoder of the returned Path code. -/
-noncomputable def encodedInner := LargeConstructors.sigma I.D I.pathResult.code
+noncomputable def encodedInner := LargeConstructors.sigma I.domainCode I.pathResult.code
 
 noncomputable def encodedInnerDecoding : liftedDecode I.encodedInner.code ≅ I.inner :=
   I.encodedInner.decoding ≪≫ sigmaSecondIso _ I.pathResult.decoding
 
 theorem encodedInner_selected :
     I.encodedInner.filling.transport I.encodedInnerDecoding =
-      sigmaFilling (NativeDecode.filling I.D) (NativeDecode.filling_lawful _)
+      sigmaFilling (NativeDecode.filling I.domainCode) (NativeDecode.filling_lawful _)
         ((NativeDecode.filling I.pathResult.code).transport I.pathResult.decoding) := by
   rw [encodedInnerDecoding, ← Filling.transport_trans]
   change ((LargeConstructors.construct _ _ _).filling.transport
@@ -148,8 +148,8 @@ abbrev domainLift (σ : Ω ⟶ Ξ) := liftSub I.domain (I.labelLift σ)
 
 def substitute (σ : Ω ⟶ Ξ) : Inputs Ω where
   count := I.count.reindex σ
-  Y := σ ≫ I.Y
-  D := I.labelLift σ ≫ I.D
+  targetCode := σ ≫ I.targetCode
+  domainCode := I.labelLift σ ≫ I.domainCode
   target := I.target.reindex (I.domainLift σ)
   endpoint := I.endpoint.reindex σ
 
@@ -172,8 +172,8 @@ set_option backward.isDefEq.respectTransparency false in
 theorem innerFiller_substitution (σ : Ω ⟶ Ξ) :
     (I.innerFiller.reindex (I.labelLift σ)).transport (I.innerSubstitution σ) =
       (I.substitute σ).innerFiller := by
-  change (sigmaFilling ((NativeDecode.filling I.D).reindex (I.labelLift σ))
-    ((NativeDecode.filling_lawful I.D).reindex (I.labelLift σ))
+  change (sigmaFilling ((NativeDecode.filling I.domainCode).reindex (I.labelLift σ))
+    ((NativeDecode.filling_lawful I.domainCode).reindex (I.labelLift σ))
     (I.pathFiller.reindex (I.domainLift σ))).transport
     (sigmaSecondIso _ (I.pathSubstitution σ)) = _
   rw [sigmaFilling_transport_second, pathFiller_substitution]
@@ -202,7 +202,7 @@ noncomputable def outerComparison (σ : Ω ⟶ Ξ) :
     I.outerSubstitution σ ≪≫ (I.substitute σ).outerResult.decoding.symm
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem selectedComparison {Γ Δ : Context.{u+1}} {A : Family Γ} {B : Family Δ}
+private theorem selected_comparison {Γ Δ : Context.{u+1}} {A : Family Γ} {B : Family Δ}
     (P : SmallPresentation.Data A) (F : Filling A) (hF : F.Lawful)
     (Q : SmallPresentation.Data B) (G : Filling B) (hG : G.Lawful)
     (σ : Δ ⟶ Γ) (e : reindex A σ ≅ B) (h : (F.reindex σ).transport e = G) :
@@ -224,12 +224,12 @@ private theorem selectedComparison {Γ Δ : Context.{u+1}} {A : Family Γ} {B : 
 theorem innerComparison_filling (σ : Ω ⟶ Ξ) :
     (I.innerResult.filling.reindex (I.labelLift σ)).transport (I.innerComparison σ) =
       (I.substitute σ).innerResult.filling :=
-  selectedComparison _ _ _ _ _ _ _ _ (I.innerFiller_substitution σ)
+  selected_comparison _ _ _ _ _ _ _ _ (I.innerFiller_substitution σ)
 
 theorem outerComparison_filling (σ : Ω ⟶ Ξ) :
     (I.outerResult.filling.reindex σ).transport (I.outerComparison σ) =
       (I.substitute σ).outerResult.filling :=
-  selectedComparison _ _ _ _ _ _ _ _ (I.outerFiller_substitution σ)
+  selected_comparison _ _ _ _ _ _ _ _ (I.outerFiller_substitution σ)
 
 end Inputs
 end SquareKit.Cubical.Presheaf.SmallUniverse.ChartFamily

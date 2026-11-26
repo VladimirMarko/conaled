@@ -62,21 +62,21 @@ theorem arbitrary_sections_glue (a : ∀ i, Carrier r (p i)) (ha : Compatible r 
 namespace Nilpotent
 open SmoothFormalLocalization
 abbrev rel := SmoothFormalLocalization.relations
-abbrev E := SmoothFormalLocalization.epsilon
+abbrev nilpotentElement := SmoothFormalLocalization.epsilon
 
-def s : Fin 2 → SmoothFormalLocalization.A := ![1+E,E]
+def s : Fin 2 → SmoothFormalLocalization.A := ![1+nilpotentElement,nilpotentElement]
 
 theorem cover : Covers s := by
-  refine ⟨![1-E,E],?_⟩
+  refine ⟨![1-nilpotentElement,nilpotentElement],?_⟩
   simp only [Fin.sum_univ_two,s,Matrix.cons_val_zero,Matrix.cons_val_one]
   calc
-    (1-E)*(1+E)+E*E = 1 := by ring
+    (1-nilpotentElement)*(1+nilpotentElement)+nilpotentElement*nilpotentElement = 1 := by ring
 
 /-- Glue in the finite dual presentation, then observe the nonzero actual dual coefficient. -/
-def localE : AtSections rel s := atDescentEquiv rel s cover E
+def localE : AtSections rel s := atDescentEquiv rel s cover nilpotentElement
 def gluedE : SmoothFormalLocalization.A := (atDescentEquiv rel s cover).symm localE
 
-theorem glued_eq : gluedE=E := (atDescentEquiv rel s cover).symm_apply_apply E
+theorem glued_eq : gluedE=nilpotentElement := (atDescentEquiv rel s cover).symm_apply_apply nilpotentElement
 
 theorem glued_nonzero : gluedE ≠ 0 := by rw [glued_eq]; exact epsilon_nonzero
 

@@ -24,7 +24,7 @@ theorem choices_related :
 theorem inherited_category :
     CategoryLaws (SquareKit.MorphismRestriction.ops closure)
       (SquareKit.MorphismRestriction.equiv closure (equality FunctionCategory.ops)) :=
-  SquareKit.MorphismRestriction.laws closure (equalityCongr _) FunctionCategory.laws
+  SquareKit.MorphismRestriction.laws closure (equality_congr _) FunctionCategory.laws
 
 theorem forgotten_composition (m n : Bool) (x : Nat) :
     (SquareKit.MorphismRestriction.forget closure).map

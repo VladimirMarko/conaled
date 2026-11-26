@@ -18,12 +18,12 @@ universe u v w
 variable {α : Type u} {κ : Type v} {β : Type w}
 
 /-- A two-step list induction principle, with separate empty and singleton cases. -/
-theorem listInductionTwo (P : List α → Prop) (h0 : P [])
+theorem list_induction_two (P : List α → Prop) (h0 : P [])
     (h1 : ∀ x, P [x]) (hs : ∀ x y xs, P xs → P (x :: y :: xs)) :
     ∀ xs, P xs
   | [] => h0
   | [x] => h1 x
-  | x :: y :: xs => hs x y xs (listInductionTwo P h0 h1 hs xs)
+  | x :: y :: xs => hs x y xs (list_induction_two P h0 h1 hs xs)
 
 /-- The source splitter preserves the order within both alternating halves. -/
 def split : List α → List α × List α
@@ -42,7 +42,7 @@ theorem split_cons_cons (x y : α) (xs : List α) :
 theorem split_lengths (xs : List α) :
     (split xs).1.length = (xs.length + 1) / 2 ∧
       (split xs).2.length = xs.length / 2 := by
-  refine listInductionTwo (fun xs : List α =>
+  refine list_induction_two (fun xs : List α =>
     (split xs).1.length = (xs.length + 1) / 2 ∧
       (split xs).2.length = xs.length / 2) ?_ ?_ ?_ xs
   · simp [split]
@@ -68,7 +68,7 @@ theorem split_length_lt (xs : List α) (h : 1 < xs.length) :
   omega
 
 theorem split_perm (xs : List α) : xs.Perm ((split xs).1 ++ (split xs).2) := by
-  refine listInductionTwo (fun xs : List α =>
+  refine list_induction_two (fun xs : List α =>
     xs.Perm ((split xs).1 ++ (split xs).2)) ?_ ?_ ?_ xs
   · simp [split]
   · intro x; simp [split]
@@ -79,7 +79,7 @@ theorem split_perm (xs : List α) : xs.Perm ((split xs).1 ++ (split xs).2) := by
 /-- Each half retains the relative order of its occurrences from the input. -/
 theorem split_sublists (xs : List α) :
     (split xs).1.Sublist xs ∧ (split xs).2.Sublist xs := by
-  refine listInductionTwo (fun xs : List α =>
+  refine list_induction_two (fun xs : List α =>
     (split xs).1.Sublist xs ∧ (split xs).2.Sublist xs) ?_ ?_ ?_ xs
   · simp [split]
   · intro x; simp [split]
@@ -88,7 +88,7 @@ theorem split_sublists (xs : List α) :
 
 theorem split_map (f : α → β) (xs : List α) :
     split (xs.map f) = ((split xs).1.map f, (split xs).2.map f) := by
-  refine listInductionTwo (fun xs : List α =>
+  refine list_induction_two (fun xs : List α =>
     split (xs.map f) = ((split xs).1.map f, (split xs).2.map f)) ?_ ?_ ?_ xs
   · rfl
   · intro x; rfl
@@ -101,7 +101,7 @@ intermediate lists; this theorem relates the actual splitting recurrences. -/
 theorem halve_eq_reverse_split (xs left right : List α) :
     halve xs (left, right) =
       ((split xs).1.reverse ++ left, (split xs).2.reverse ++ right) := by
-  refine listInductionTwo (fun xs : List α => ∀ left right,
+  refine list_induction_two (fun xs : List α => ∀ left right,
     halve xs (left, right) =
       ((split xs).1.reverse ++ left, (split xs).2.reverse ++ right)) ?_ ?_ ?_ xs left right
   · intro left right; rfl

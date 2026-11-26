@@ -114,7 +114,7 @@ example : (forgetIntermediate Both Shifted).impl
 -- The same relation theorem is available to ordinary and internal clients.
 example : (∃ c, (∃ b, Both () b ∧ Small b c) ∧ Integer c 1) ↔
     (∃ b, Both () b ∧ ∃ c, Small b c ∧ Integer c 1) :=
-  Associativity.inSet Both Small Integer () 1
+  Associativity.in_set Both Small Integer () 1
 
 example {S : Type} {F P : S → S → Type} {a b c d : S} {Δ : List S}
     (r : P a b) (s : P b c) (t : P c d) (σ : Sub F [a, d] Δ) :

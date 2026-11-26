@@ -26,10 +26,10 @@ private def pathIsoOfEq {Γ : Context.{u}} {F G : Family (total (interval Γ))}
 
 private theorem fields_evaluation {Γ : Context.{u}} {A : Family Γ} {S : Family (total A)}
     (z₀ z₁ : Term (sigma A S)) (p : Term (SigmaPaths.base z₀ z₁)) :
-    liftSub (interval (total (StructuredPaths.P z₀ z₁))) (pair (𝟙 Γ) p) ≫
+    liftSub (interval (total (StructuredPaths.basePathFamily z₀ z₁))) (pair (𝟙 Γ) p) ≫
       FieldsAlong.evaluation (StructuredPaths.liftedZero z₀ z₁)
         (StructuredPaths.liftedOne z₀ z₁) (StructuredPaths.genericBase z₀ z₁) ≫
-      liftSub A (projection (StructuredPaths.P z₀ z₁)) = FieldsAlong.evaluation z₀ z₁ p := by
+      liftSub A (projection (StructuredPaths.basePathFamily z₀ z₁)) = FieldsAlong.evaluation z₀ z₁ p := by
   ext I z
   apply congrArg (Sigma.mk _)
   exact congrArg (fun f => (p.val (Γ.elementsMk I z.1)).val.val f z.2)
@@ -444,27 +444,27 @@ noncomputable section
 variable {Γ : Context.{u+1}} (D : Description.{u}) (a : Γ ⟶ smallFamilyCodes.{u})
   (s : Term (family D (SmallUniverse.liftedDecode a)))
 
-abbrev R := SIP.relation D a s
-abbrev Ω := total (R D a s)
-abbrev base : Ω D a s ⟶ Γ := projection (R D a s) ≫ projection (objects D Γ)
-abbrev E := SIP.Exchange.witnesses (SmallUniverse.NativeUnivalence.basedEquivalences a) (SIP.objectFields D)
-abbrev P := reindex (SIP.exchangedWitnesses D a s)
+abbrev structureRelation := SIP.relation D a s
+abbrev Ω := total (structureRelation D a s)
+abbrev base : Ω D a s ⟶ Γ := projection (structureRelation D a s) ≫ projection (objects D Γ)
+abbrev exchangedWitnessFamily := SIP.Exchange.witnesses (SmallUniverse.NativeUnivalence.basedEquivalences a) (SIP.objectFields D)
+abbrev reorderedWitnessFamily := reindex (SIP.exchangedWitnesses D a s)
   (SIP.Exchange.swap (SmallUniverse.NativeUnivalence.basedEquivalences a) (SIP.objectFields D))
-noncomputable def equivalenceIndex : Ω D a s ⟶ total (E D a) :=
-  PiDomain.baseMap (SIP.Exchange.first (P D a s))
+noncomputable def equivalenceIndex : Ω D a s ⟶ total (exchangedWitnessFamily D a) :=
+  PiDomain.baseMap (SIP.Exchange.first (reorderedWitnessFamily D a s))
 noncomputable def dataIndex : Ω D a s ⟶ total (SIP.targetData D a) :=
   equivalenceIndex D a s ≫
     SIP.Exchange.swap (SmallUniverse.NativeUnivalence.basedEquivalences a) (SIP.objectFields D) ≫
     PiDomain.baseMap (SIP.targetDataIso D a).hom
 noncomputable def witness : Term (reindex (SIP.preservationWitnesses D a s) (dataIndex D a s)) :=
-  (generic (P D a s)).reindex FiberwiseHomotopyRetracts.totalPoint
+  (generic (reorderedWitnessFamily D a s)).reindex FiberwiseHomotopyRetracts.totalPoint
 
 noncomputable def source : Term (objects D (Ω D a s)) :=
   Term.map (objectsReindexIso D (base D a s)).hom
     ((objectOf D a s).reindex (base D a s))
 noncomputable def target : Term (objects D (Ω D a s)) :=
   Term.map (objectsReindexIso D (base D a s)).hom
-    ((generic (objects D Γ)).reindex (projection (R D a s)))
+    ((generic (objects D Γ)).reindex (projection (structureRelation D a s)))
 
 theorem source_eq :
     Term.map (objectsReindexIso D (dataIndex D a s)).hom
@@ -530,24 +530,24 @@ noncomputable def normalizedPath : Term (homogeneousPath (objects D (Ω D a s))
     ((pathApp_one _).trans (target_eq D a s))
 
 noncomputable def basedPathIso :
-    reindex (IdentitySystem.paths (objects D Γ) (objectOf D a s)) (projection (R D a s)) ≅
+    reindex (IdentitySystem.paths (objects D Γ) (objectOf D a s)) (projection (structureRelation D a s)) ≅
       homogeneousPath (objects D (Ω D a s)) (source D a s) (target D a s) :=
   EquivalenceFamilies.homogeneousReindexIso
     (reindex (objects D Γ) (projection (objects D Γ)))
     ((objectOf D a s).reindex (projection (objects D Γ)))
-    (generic (objects D Γ)) (projection (R D a s)) ≪≫
+    (generic (objects D Γ)) (projection (structureRelation D a s)) ≪≫
   HomotopyLevels.pathCongr (objectsReindexIso D (base D a s))
     ((objectOf D a s).reindex (base D a s))
-    ((generic (objects D Γ)).reindex (projection (R D a s)))
+    ((generic (objects D Γ)).reindex (projection (structureRelation D a s)))
 
-noncomputable def map : R D a s ⟶ IdentitySystem.paths (objects D Γ) (objectOf D a s) :=
+noncomputable def map : structureRelation D a s ⟶ IdentitySystem.paths (objects D Γ) (objectOf D a s) :=
   IntervalTransport.mapOfSection
     (Term.map (basedPathIso D a s).inv (normalizedPath D a s f))
 
 theorem map_body :
     pathApp (Term.map (basedPathIso D a s).hom
-      (Term.map (Functor.whiskerLeft (projection (R D a s)).mapElements (map D a s f))
-        (generic (R D a s)))) = pathApp (rawPath D a s f) := by
+      (Term.map (Functor.whiskerLeft (projection (structureRelation D a s)).mapElements (map D a s f))
+        (generic (structureRelation D a s)))) = pathApp (rawPath D a s f) := by
   change pathApp (Term.map (basedPathIso D a s).hom
     (Term.map (basedPathIso D a s).inv (normalizedPath D a s f))) = _
   exact congrArg pathApp
@@ -556,14 +556,14 @@ theorem map_body :
 
 theorem map_values {x y : (Ω D a s).Elements} (h : x ⟶ y) (r : (interval (Ω D a s)).obj y) :
     (objectsReindexIso D (base D a s)).hom.app y
-      (((map D a s f).app ((projection (R D a s)).mapElements.obj x) x.val.2).val.val
-        ((projection (R D a s)).mapElements.map h) r) =
+      (((map D a s f).app ((projection (structureRelation D a s)).mapElements.obj x) x.val.2).val.val
+        ((projection (structureRelation D a s)).mapElements.map h) r) =
     (objectsReindexIso D (dataIndex D a s)).hom.app y
       ((f.app ((dataIndex D a s).mapElements.obj x) ((witness D a s).val x)).val.val
         ((dataIndex D a s).mapElements.map h) r) := by
   let p := Term.map (basedPathIso D a s).hom
-    (Term.map (Functor.whiskerLeft (projection (R D a s)).mapElements (map D a s f))
-      (generic (R D a s)))
+    (Term.map (Functor.whiskerLeft (projection (structureRelation D a s)).mapElements (map D a s f))
+      (generic (structureRelation D a s)))
   have h₀ := congrArg (fun t => (t.val x).val.val h r) (pathLam_app p)
   have h₁ := congrArg (fun t => (t.val x).val.val h r) (pathLam_app (rawPath D a s f))
   have hb := congrArg (fun t => t.val (extendObj (interval (Ω D a s)) y r)) (map_body D a s f)
@@ -571,8 +571,8 @@ theorem map_values {x y : (Ω D a s).Elements} (h : x ⟶ y) (r : (interval (Ω 
 
 theorem map_carrier_values {x y : (Ω D a s).Elements} (h : x ⟶ y)
     (r : (interval (Ω D a s)).obj y) :
-    ((((map D a s f).app ((projection (R D a s)).mapElements.obj x) x.val.2).val.val
-      ((projection (R D a s)).mapElements.map h) r)).1 =
+    ((((map D a s f).app ((projection (structureRelation D a s)).mapElements.obj x) x.val.2).val.val
+      ((projection (structureRelation D a s)).mapElements.map h) r)).1 =
     (((f.app ((dataIndex D a s).mapElements.obj x) ((witness D a s).val x)).val.val
       ((dataIndex D a s).mapElements.map h) r)).1 :=
   congrArg Sigma.fst (map_values D a s f h r)

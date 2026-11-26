@@ -6,21 +6,21 @@ open SquareKit.Internal
 
 -- Expected heterogeneous path: (3,true) ↦ 3 ↦ (3 : Int).
 example : ∃ n : Nat, n = (3, true).1 ∧ (3 : Int) = Int.ofNat n :=
-  (Graph.inSet (Prod.fst : Nat × Bool → Nat) Int.ofNat (3, true) 3).mpr rfl
+  (Graph.in_set (Prod.fst : Nat × Bool → Nat) Int.ofNat (3, true) 3).mpr rfl
 
 -- Increment then double gives 8, whereas reversing the order gives 7.
 example : ∃ n : Nat, n = 3 + 1 ∧ 8 = n * 2 :=
-  (Graph.inSet (fun n : Nat => n + 1) (fun n => n * 2) 3 8).mpr rfl
+  (Graph.in_set (fun n : Nat => n + 1) (fun n => n * 2) 3 8).mpr rfl
 
 example : ¬ ∃ n : Nat, n = 3 + 1 ∧ 7 = n * 2 := by
   intro h
-  have impossible := (Graph.inSet (fun n : Nat => n + 1) (fun n => n * 2) 3 7).mp h
+  have impossible := (Graph.in_set (fun n : Nat => n + 1) (fun n => n * 2) 3 7).mp h
   contradiction
 
 -- Set soundness can be specialized to an empty carrier without an instance.
 example (f : Empty → Nat) (a : Empty) (c : Int) :
     (∃ n, n = f a ∧ c = Int.ofNat n) ↔ c = Int.ofNat (f a) :=
-  Graph.inSet f Int.ofNat a c
+  Graph.in_set f Int.ofNat a c
 
 /-- Replace the free variable with an arbitrary term, including a free variable
 of the same sort as the binder. Its value must remain outside that binder. -/

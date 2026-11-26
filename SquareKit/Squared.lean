@@ -65,8 +65,8 @@ theorem terminalMap_laws (TL : TerminalLaws E T) : TerminalMapLaws E (terminalMa
 include CC CL PC PL in
 /-- Law transport uses the induced relation, with reflection supplied by its definition. -/
 theorem induced_laws : CategoryLaws (CategoryProduct.ops C C) ((unsquare P).induced E) :=
-  RawMap.transportLaws
-    ((unsquare P).inducedLaws E (tensor_ident CL PC PL _ _)
+  RawMap.transport_laws
+    ((unsquare P).induced_laws E (tensor_ident CL PC PL _ _)
       (fun g f => E.symm (tensor_comp CC CL PC PL g.1 g.2 f.1 f.2)))
     ((unsquare P).induced_reflects E) CC CL
 end SquareKit.Squared

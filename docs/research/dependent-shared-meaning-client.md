@@ -52,14 +52,14 @@ The client applies that fold in three ways:
    `compileCode_translate`.
 
 A bounded phase pass replays the bounded proof skeleton. The actual raw
-translation is **G**, which changes pair into `pack` and dependent projection
+translation is **G** (`projectionToElimination`), which changes pair into `pack` and dependent projection
 into a `split` expression with its dependent motive. `targetProof` calls the
 existing `fullG` compiler on the native proof retained as provenance.
 `two_stages_native_certificates` identifies the result with the existing genuine
 F/G administrative certificate composition followed by erasure. Thus bounded
 phase replay is not being presented as a nonidentity raw syntax transformation.
 
-`Code.quote_G` checks the raw syntax change on the independently executable
+`Code.quote_projectionToElimination` checks the raw syntax change on the independently executable
 code. `compiled_target_quote` proves that compiled code quotes exactly the
 term in the translated judgment. The general `compiled_image` theorem combines:
 

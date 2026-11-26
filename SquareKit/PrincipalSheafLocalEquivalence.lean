@@ -41,7 +41,7 @@ def restrict {G : Sheaf K GrpCat.{u}} {Q : Sheaf K (Type u)} (A : Structure G Q)
   mul_act X := A.mul_act (F.op.obj X)
   natural f := A.natural (F.op.map f)
   principal X := A.principal (F.op.obj X)
-  locallyInhabited X := F.cover_lift J K (A.locallyInhabited (F.obj X))
+  locally_inhabited X := F.cover_lift J K (A.locally_inhabited (F.obj X))
 
 abbrev groupSheaf (G : Sheaf K GrpCat.{u}) : Sheaf K (Type u) :=
   (sheafCompose K (forget GrpCat.{u})).obj G
@@ -129,14 +129,14 @@ theorem extendedDivision_unique (X : Dᵒᵖ) (p q : Q.obj.obj X) (g : G.obj.obj
   exact hh
 
 include A in
-theorem extended_locallyInhabited (X : D) : inhabitedSieve Q X ∈ K X := by
+theorem extended_locally_inhabited (X : D) : inhabitedSieve Q X ∈ K X := by
   let := Functor.IsDenseSubsite.isCoverDense J K F
   apply K.transitive (F.is_cover_of_isCoverDense K X)
   rintro Y g ⟨⟨Z, l, m, rfl⟩⟩
   rw [Sieve.pullback_comp]
   apply K.pullback_stable
   apply K.superset_covering ?_
-    ((Functor.IsDenseSubsite.coverPreserving J K F).cover_preserve (A.locallyInhabited Z))
+    ((Functor.IsDenseSubsite.coverPreserving J K F).cover_preserve (A.locally_inhabited Z))
   rintro W q ⟨V, h, t, ⟨s⟩, heq⟩
   exact ⟨Q.obj.map t.op s⟩
 
@@ -148,7 +148,7 @@ def extend : Structure G Q where
   natural := extendedAct_natural A
   principal X p q := ⟨extendedDivision A X p q, extendedDivision_act A X p q,
     fun g h => extendedDivision_unique A X p q g h⟩
-  locallyInhabited := extended_locallyInhabited A
+  locally_inhabited := extended_locally_inhabited A
 
 /-- Extension recovers the specified section action on every source-site object. -/
 theorem extend_act_image (X : C) (g : G.obj.obj (op (F.obj X)))

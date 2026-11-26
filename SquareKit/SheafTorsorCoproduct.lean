@@ -183,7 +183,7 @@ lemma projection_locallySurjective : Presheaf.IsLocallySurjective J (projection 
 def torsor : Torsor G (base (Y := Y)) where
   toAction := action P
   principal := principal P
-  locallySurjective := by
+  isLocallySurjective := by
     have := projection_locallySurjective P
     change Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.ofDisplay (projection P))).hom
     have h := Presheaf.isLocallySurjective_iff_of_fac J

@@ -76,7 +76,7 @@ end Charts
 space, with locally smooth chart transitions. No separation or fixed dimension
 is required; these can be imposed on applications independently. -/
 structure Atlas (M : Type) [TopologicalSpace M] extends Charts M where
-  openEmbedding : ∀ i, Topology.IsOpenEmbedding (coordinate i)
+  isOpenEmbedding : ∀ i, Topology.IsOpenEmbedding (coordinate i)
   covers : ∀ x, ∃ i y, coordinate i y = x
   transition : ∀ i j x y, coordinate i x = coordinate j y →
     ∃ q : SmoothAlgebra.freeAlgebra (domain i).dimension, q.val x.val ≠ 0 ∧

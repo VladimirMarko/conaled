@@ -71,11 +71,11 @@ def identityDisplay (C : Grpd.{0,0}) : StrictDiagram.{0,0} where
   firstSecond := 𝟭 C
   firstThird := 𝟭 C
   secondThird := 𝟭 C
-  diagonalFirst := rfl
-  diagonalSecond := rfl
-  tripleFirst := rfl
-  tripleMiddle := rfl
-  tripleLast := rfl
+  diagonal_first := rfl
+  diagonal_second := rfl
+  triple_first := rfl
+  triple_middle := rfl
+  triple_last := rfl
 
 abbrev Point := Discrete Unit
 abbrev pointCategory := @Grpd.of Point Groupoid.ofIsGroupoid
@@ -108,24 +108,24 @@ private theorem twoPatch_arrow {C : Grpd.{0,0}} (F : C ⥤ Grpd.{0,0})
     {x y : Extend F} (f g : x ⟶ y) : f = g :=
   Grothendieck.ext f g (Subsingleton.elim _ _) (Subsingleton.elim _ _)
 
-theorem twoPatchCoherence : twoPatch.toFamilyData.Coherence where
-  diagonalFirst := by
+theorem twoPatch_coherence : twoPatch.toFamilyData.Coherence where
+  diagonal_first := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
     exact twoPatch_arrow twoPatch.toFamilyData.localFamily _ _
-  diagonalSecond := by
+  diagonal_second := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
     exact twoPatch_arrow twoPatch.toFamilyData.localFamily _ _
-  tripleFirst := by
+  triple_first := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
     exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
-  tripleMiddle := by
+  triple_middle := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
     exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
-  tripleLast := by
+  triple_last := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
     exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
@@ -134,15 +134,15 @@ def pointDatum : Datum pointDisplay.toDiagram := constantDatum pointCategory poi
 
 def agreeingValues : twoPatch.MatchingSet pointDatum := ⟨fun _ => false, rfl⟩
 
-def agreeingRelative : Fiber twoPatch.toFamilyData twoPatchCoherence pointDatum :=
-  twoPatch.fromSet twoPatchCoherence pointDatum agreeingValues
+def agreeingRelative : Fiber twoPatch.toFamilyData twoPatch_coherence pointDatum :=
+  twoPatch.fromSet twoPatch_coherence pointDatum agreeingValues
 
-example : twoPatch.setEquiv twoPatchCoherence pointDatum agreeingRelative = agreeingValues :=
+example : twoPatch.setEquiv twoPatch_coherence pointDatum agreeingRelative = agreeingValues :=
   twoPatch.toSet_fromSet _ _ _
 
 /-- The categorical equivalence recovers the same supplied coherent patch values. -/
 example :
-    ((twoPatch.discreteEquivalence twoPatchCoherence pointDatum).functor.obj
+    ((twoPatch.discreteEquivalence twoPatch_coherence pointDatum).functor.obj
       agreeingRelative).as = agreeingValues :=
   twoPatch.toSet_fromSet _ _ _
 
@@ -154,10 +154,10 @@ example :
 
 /-- Unequal local patch values fail the actual overlap equation. -/
 theorem mismatched_values_rejected :
-    ¬ ∃ x : Fiber twoPatch.toFamilyData twoPatchCoherence pointDatum,
+    ¬ ∃ x : Fiber twoPatch.toFamilyData twoPatch_coherence pointDatum,
       x.localFiber.as = id := by
   rintro ⟨x, hx⟩
-  have hp := (twoPatch.toSet twoPatchCoherence pointDatum x).property
+  have hp := (twoPatch.toSet twoPatch_coherence pointDatum x).property
   change (fun ij : Bool × Bool => x.localFiber.as ij.1) =
     (fun ij : Bool × Bool => x.localFiber.as ij.2) at hp
   have hb := congrFun hp (false,true)
@@ -188,7 +188,7 @@ def identityFamilyData (C : Grpd.{0,0}) (F : C ⥤ Grpd.{0,0}) : FamilyData (ide
   firstThird := 𝟙 F
   secondThird := 𝟙 F
 
-theorem identityFamilyCoherence (C : Grpd.{0,0}) (F : C ⥤ Grpd.{0,0}) :
+theorem identityFamilyData_coherence (C : Grpd.{0,0}) (F : C ⥤ Grpd.{0,0}) :
     (identityFamilyData C F).Coherence := by
   constructor <;>
     simp [identityFamilyData, FamilyData.firstMap, FamilyData.secondMap,
@@ -199,10 +199,10 @@ abbrev loopCategory := Grpd.of Loops
 abbrev loopFamily : loopCategory ⥤ Grpd.{0,0} :=
   (CategoryTheory.Functor.const loopCategory).obj loopCategory
 abbrev loopFamilyData := identityFamilyData loopCategory loopFamily
-abbrev loopCoherence := identityFamilyCoherence loopCategory loopFamily
+abbrev loop_coherence := identityFamilyData_coherence loopCategory loopFamily
 abbrev loopBase : Datum (identityDisplay loopCategory).toDiagram := constantDatum loopCategory star
 
-def loopRelative : Fiber loopFamilyData loopCoherence loopBase where
+def loopRelative : Fiber loopFamilyData loop_coherence loopBase where
   localFiber := star
   overlap := Iso.refl _
   diagonal := by simp [FamilyData.diagonalMap, eqToHom_app]
@@ -233,16 +233,16 @@ theorem relativeIdentity_nontrivial :
   exact relativeLoop_nonidentity
     ((Comprehension.Identity.arrowEquiv loopRelative loopRelative).symm.injective hh)
 
-def loopTotal : Comprehension.Total loopFamilyData loopCoherence := ⟨loopBase,loopRelative⟩
+def loopTotal : Comprehension.Total loopFamilyData loop_coherence := ⟨loopBase,loopRelative⟩
 
 def loopTotalArrow : loopTotal ⟶ loopTotal :=
   ⟨𝟙 loopBase, eqToHom (Fiber.transport_id loopRelative) ≫ relativeLoop⟩
 
 /-- The general comprehension equivalence retains the integer-labelled vertical loop. -/
 theorem relativeLoop_survives_total :
-    (Comprehension.equivalence loopFamilyData loopCoherence).functor.map loopTotalArrow ≠
+    (Comprehension.equivalence loopFamilyData loop_coherence).functor.map loopTotalArrow ≠
       𝟙 loopRelative.datum := by
-  have hm : (Comprehension.equivalence loopFamilyData loopCoherence).functor.map loopTotalArrow =
+  have hm : (Comprehension.equivalence loopFamilyData loop_coherence).functor.map loopTotalArrow =
       relativeLoop.matchingArrow := by
     change Fiber.lift (𝟙 loopBase) loopRelative ≫
       ((eqToHom (Fiber.transport_id loopRelative)).matchingArrow ≫ relativeLoop.matchingArrow) = _
@@ -266,8 +266,8 @@ example {D : StrictDiagram.{0,0}} {A : FamilyData D} {h : A.Coherence}
   congrArg Datum.Hom.localArrow (Fiber.lift_naturality f g)
 
 /-- The generic constant comparison admits a non-discrete coefficient groupoid. -/
-theorem constantLoopCoherence : (Comprehension.Constant.data
-    (identityDisplay loopCategory) (identityDisplay loopCategory)).Coherence := loopCoherence
+theorem constant_loop_coherence : (Comprehension.Constant.data
+    (identityDisplay loopCategory) (identityDisplay loopCategory)).Coherence := loop_coherence
 
 def independentLoopDatum : Datum (identityDisplay loopCategory).toDiagram :=
   constantDatum loopCategory star
@@ -275,8 +275,8 @@ def independentLoopDatum : Datum (identityDisplay loopCategory).toDiagram :=
 /-- An independently supplied coefficient loop is recovered exactly, for every
 base datum; no choice of global extension is involved. -/
 example (d : Datum (identityDisplay loopCategory).toDiagram) :
-    ((Comprehension.Constant.toFunctor _ _ constantLoopCoherence d).map
-      (Comprehension.Constant.fromArrow _ _ constantLoopCoherence d
+    ((Comprehension.Constant.toFunctor _ _ constant_loop_coherence d).map
+      (Comprehension.Constant.fromArrow _ _ constant_loop_coherence d
         ((constantFunctor loopCategory).map loop))).localArrow = loop := rfl
 
 example {D E : StrictDiagram.{0,0}} (h : (Comprehension.Constant.data D E).Coherence)

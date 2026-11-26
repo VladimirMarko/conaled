@@ -159,7 +159,7 @@ def restrictedIsColimit (S : SplitSheaf.Ty (base (Y := Y))) :
     IsColimit (Cofan.mk (SplitSheaf.extension S)
       (fun i => SplitSheaf.lift S (Sigma.ι Y i))) := by
   apply Nonempty.some
-  apply (SheafCoproductGeometry.total_isVanKampen Y).isUniversal _
+  apply (SheafCoproductGeometry.total_isVanKampenColimit Y).isUniversal _
     (Discrete.natTrans fun i => SplitSheaf.p (SplitSheaf.tySub S (Sigma.ι Y i.as)))
     (SplitSheaf.p S) ?_ (.of_discrete _) ?_
   · apply NatTrans.ext

@@ -41,22 +41,22 @@ checked too, so an unused sum hypothesis cannot sneak in via abstraction. -/
 inductive Admissible : Term NoPrim Γ a → Prop where
   | hyp (v : Var Γ a) : Admissible (.var v)
   | truth : Admissible .unit
-  | andIntro : Admissible t → Admissible u → Admissible (.pair t u)
-  | andLeft : Admissible t → Admissible (.fst t)
-  | andRight : Admissible t → Admissible (.snd t)
-  | impliesIntro : Pure a → Admissible t → Admissible (.lam (a := a) t)
-  | impliesElim : Admissible t → Admissible u → Admissible (.app t u)
+  | and_intro : Admissible t → Admissible u → Admissible (.pair t u)
+  | and_left : Admissible t → Admissible (.fst t)
+  | and_right : Admissible t → Admissible (.snd t)
+  | implies_intro : Pure a → Admissible t → Admissible (.lam (a := a) t)
+  | implies_elim : Admissible t → Admissible u → Admissible (.app t u)
 
 theorem Admissible.rename {t : Term NoPrim Γ a} (h : Admissible t) (r : Term.Ren Γ Δ) :
     Admissible (Term.rename r t) := by
   induction h generalizing Δ with
   | hyp v => exact .hyp _
   | truth => exact .truth
-  | andIntro _ _ ih ik => exact .andIntro (ih r) (ik r)
-  | andLeft _ ih => exact .andLeft (ih r)
-  | andRight _ ih => exact .andRight (ih r)
-  | impliesIntro ha _ ih => exact .impliesIntro ha (ih _)
-  | impliesElim _ _ ih ik => exact .impliesElim (ih r) (ik r)
+  | and_intro _ _ ih ik => exact .and_intro (ih r) (ik r)
+  | and_left _ ih => exact .and_left (ih r)
+  | and_right _ ih => exact .and_right (ih r)
+  | implies_intro ha _ ih => exact .implies_intro ha (ih _)
+  | implies_elim _ _ ih ik => exact .implies_elim (ih r) (ik r)
 
 private theorem lift_admissible (s : Term.Sub NoPrim Γ Δ)
     (h : ∀ {a} (v : Var Γ a), Admissible (s v)) :
@@ -69,11 +69,11 @@ theorem Admissible.subst {t : Term NoPrim Γ a} (h : Admissible t) (s : Term.Sub
   induction h generalizing Δ with
   | hyp v => exact hs v
   | truth => exact .truth
-  | andIntro _ _ ih ik => exact .andIntro (ih s hs) (ik s hs)
-  | andLeft _ ih => exact .andLeft (ih s hs)
-  | andRight _ ih => exact .andRight (ih s hs)
-  | impliesIntro ha _ ih => exact .impliesIntro ha (ih _ (lift_admissible s hs))
-  | impliesElim _ _ ih ik => exact .impliesElim (ih s hs) (ik s hs)
+  | and_intro _ _ ih ik => exact .and_intro (ih s hs) (ik s hs)
+  | and_left _ ih => exact .and_left (ih s hs)
+  | and_right _ ih => exact .and_right (ih s hs)
+  | implies_intro ha _ ih => exact .implies_intro ha (ih _ (lift_admissible s hs))
+  | implies_elim _ _ ih ik => exact .implies_elim (ih s hs) (ik s hs)
 
 /-- A proof object is an inspectable term and an erased admissibility certificate.
 All external assumptions and the conclusion are formulas in the stated fragment. -/
@@ -86,13 +86,13 @@ namespace Proof
 def hyp (v : Var (context Γ) a.type) : Proof Γ a := ⟨.var v, .hyp v⟩
 def truth : Proof Γ .truth := ⟨.unit, .truth⟩
 def andIntro (p : Proof Γ a) (q : Proof Γ b) : Proof Γ (.and a b) :=
-  ⟨.pair p.term q.term, .andIntro p.admissible q.admissible⟩
-def andLeft (p : Proof Γ (.and a b)) : Proof Γ a := ⟨.fst p.term, .andLeft p.admissible⟩
-def andRight (p : Proof Γ (.and a b)) : Proof Γ b := ⟨.snd p.term, .andRight p.admissible⟩
+  ⟨.pair p.term q.term, .and_intro p.admissible q.admissible⟩
+def andLeft (p : Proof Γ (.and a b)) : Proof Γ a := ⟨.fst p.term, .and_left p.admissible⟩
+def andRight (p : Proof Γ (.and a b)) : Proof Γ b := ⟨.snd p.term, .and_right p.admissible⟩
 def impliesIntro (p : Proof (a :: Γ) b) : Proof Γ (.implies a b) :=
-  ⟨.lam p.term, .impliesIntro a.pure p.admissible⟩
+  ⟨.lam p.term, .implies_intro a.pure p.admissible⟩
 def impliesElim (p : Proof Γ (.implies a b)) (q : Proof Γ a) : Proof Γ b :=
-  ⟨.app p.term q.term, .impliesElim p.admissible q.admissible⟩
+  ⟨.app p.term q.term, .implies_elim p.admissible q.admissible⟩
 
 /-- Cut substitutes the argument for the newest hypothesis, lifting beneath binders. -/
 def cut (p : Proof (a :: Γ) b) (q : Proof Γ a) : Proof Γ b :=
@@ -124,29 +124,29 @@ This relation is specified by intro/elimination rules, independently of Term.Ste
 inductive Detour : Proof Γ a → Proof Γ a → Prop where
   | implication (p : Proof (a :: Γ) b) (q : Proof Γ a) :
       Detour (p.impliesIntro.impliesElim q) (p.cut q)
-  | conjunctionLeft (p : Proof Γ a) (q : Proof Γ b) : Detour (p.andIntro q).andLeft p
-  | conjunctionRight (p : Proof Γ a) (q : Proof Γ b) : Detour (p.andIntro q).andRight q
-  | andIntroLeft : Detour p p' → Detour (p.andIntro q) (p'.andIntro q)
-  | andIntroRight {p : Proof Γ a} {q q' : Proof Γ b} : Detour q q' → Detour (p.andIntro q) (p.andIntro q')
+  | conjunction_left (p : Proof Γ a) (q : Proof Γ b) : Detour (p.andIntro q).andLeft p
+  | conjunction_right (p : Proof Γ a) (q : Proof Γ b) : Detour (p.andIntro q).andRight q
+  | andIntro_left : Detour p p' → Detour (p.andIntro q) (p'.andIntro q)
+  | andIntro_right {p : Proof Γ a} {q q' : Proof Γ b} : Detour q q' → Detour (p.andIntro q) (p.andIntro q')
   | andLeft : Detour p p' → Detour p.andLeft p'.andLeft
   | andRight : Detour p p' → Detour p.andRight p'.andRight
   | impliesIntro : Detour p p' → Detour p.impliesIntro p'.impliesIntro
-  | impliesElimLeft : Detour p p' → Detour (p.impliesElim q) (p'.impliesElim q)
-  | impliesElimRight {p : Proof Γ (.implies a b)} {q q' : Proof Γ a} : Detour q q' → Detour (p.impliesElim q) (p.impliesElim q')
+  | impliesElim_left : Detour p p' → Detour (p.impliesElim q) (p'.impliesElim q)
+  | impliesElim_right {p : Proof Γ (.implies a b)} {q q' : Proof Γ a} : Detour q q' → Detour (p.impliesElim q) (p.impliesElim q')
 
 /-- Each proof detour takes one actual compiler-syntax reduction step. -/
 theorem detour_simulates {p q : Proof Γ a} (h : Detour p q) : Term.Step (typedCompilation p) (typedCompilation q) := by
   induction h with
   | implication p q => exact .beta p.term q.term
-  | conjunctionLeft p q => exact .fstPair p.term q.term
-  | conjunctionRight p q => exact .sndPair p.term q.term
-  | andIntroLeft _ ih => exact .pairLeft ih
-  | andIntroRight _ ih => exact .pairRight ih
+  | conjunction_left p q => exact .fst_pair p.term q.term
+  | conjunction_right p q => exact .snd_pair p.term q.term
+  | andIntro_left _ ih => exact .pair_left ih
+  | andIntro_right _ ih => exact .pair_right ih
   | andLeft _ ih => exact .fst ih
   | andRight _ ih => exact .snd ih
   | impliesIntro _ ih => exact .lam ih
-  | impliesElimLeft _ ih => exact .appLeft ih
-  | impliesElimRight _ ih => exact .appRight ih
+  | impliesElim_left _ ih => exact .app_left ih
+  | impliesElim_right _ ih => exact .app_right ih
 
 def meaning {B : Type} : {a b : Ty} → NoPrim a b → Val B a → Val B b := fun p => nomatch p
 

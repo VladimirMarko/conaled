@@ -33,7 +33,7 @@ example (cs : List (Retention.Command Nat Nat)) :
     Retention.Pipeline.run consumer (Retention.Pipeline.init 0 sources consumer) cs =
       Retention.Pipeline.run (batches jointSpec)
         (Retention.Pipeline.init 0 sources (batches jointSpec)) cs :=
-  Retention.Pipeline.compiled_run K sound jointSeed jointBody List.sum 0 sources cs
+  Retention.Pipeline.compiled_run scalarCompiler sound jointSeed jointBody List.sum 0 sources cs
 
 example (cs : List (Retention.Command Nat Nat)) :
     (Retention.Pipeline.run consumer (Retention.Pipeline.init 0 sources consumer) cs).1.consumer =

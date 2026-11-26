@@ -295,7 +295,7 @@ theorem rebuild_eq_of_equation (h : product infinitesimal X ⟶ scalar)
   exact (he A.unop.unop p.1 p.2).symm
 
 /-- KL with arbitrary sheaf parameters and unique natural coefficients. -/
-theorem allParameters (h : product infinitesimal X ⟶ scalar) :
+theorem existsUnique_affineEquation (h : product infinitesimal X ⟶ scalar) :
     ∃! p : (X ⟶ scalar) × (X ⟶ scalar), AffineEquation h p.1 p.2 := by
   refine ⟨(coefficients h ≫ fst _ _, coefficients h ≫ snd _ _), ?_, ?_⟩
   · exact universal_reconstruction h

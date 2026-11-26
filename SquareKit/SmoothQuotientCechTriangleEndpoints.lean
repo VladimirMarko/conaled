@@ -36,14 +36,14 @@ theorem firstThirdComparison_triangle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
         (primitiveTriangle a A).squareζ hΓ := rfl
 
 theorem tripleMiddleIso_triangle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
-    eqToIso (tripleMiddleMap a A hΓ) =
+    eqToIso (triple_middle_map a A hΓ) =
       eqToIso (alignedGenerated_eq
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.Cech.triple A))
         (primitiveTriangle a A).hm (primitiveTriangle a A).hb hΓ) := rfl
 
 theorem tripleFirstIso_triangle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
-    eqToIso (tripleFirstMap a A hΓ) =
+    eqToIso (triple_first_map a A hΓ) =
       eqToIso (alignedGenerated_eq
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.Cech.triple A))
@@ -51,7 +51,7 @@ theorem tripleFirstIso_triangle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
 
 set_option backward.isDefEq.respectTransparency.types true in
 theorem tripleLastIso_triangle (hΓ : Typed.CtxDeriv.{2} Γ γ) :
-    eqToIso (tripleLastMap a A hΓ) =
+    eqToIso (triple_last_map a A hΓ) =
       eqToIso (alignedGenerated_eq
         (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
         (family a (SplitSheaf.Cech.triple A))

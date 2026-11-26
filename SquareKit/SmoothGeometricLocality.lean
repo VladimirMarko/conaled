@@ -35,7 +35,7 @@ theorem gluedSlope_eq (hS : S ∈ J (op A)) :
     (slope_amalgamation h A x S)
 
 /-- Actual cover gluing computes the inverse-defined derivative. -/
-theorem gluedDerivative (f : (PresentationGeometry.scalar J) ⟶ (PresentationGeometry.scalar J)) (A : Code) (x : Carrier A)
+theorem glued_derivative (f : (PresentationGeometry.scalar J) ⟶ (PresentationGeometry.scalar J)) (A : Code) (x : Carrier A)
     (S : Sieve (op A)) (hS : S ∈ J (op A)) :
     gluedSlope (SmoothGeometricDerivative.increment f) A x S hS =
       (SmoothGeometricDerivative.derivative f).hom.app (atStage A) x := by

@@ -29,7 +29,7 @@ theorem pathSub_eq {Γ Δ : (M).Context} (A : (M).Family Γ) (a : (M).Section Γ
   apply eq_of_heq
   exact (cast_section_heq ((M).pathSub_type A a σ).symm
     ⟨generic (NormalizedIdentitySingleton.fiber (reindex A.family σ.down) (a.down.reindex σ.down))⟩).trans
-      (map_eqToHom_heq (NormalizedIdentitySingleton.familyEquality A.family a.down σ.down).symm
+      (map_eqToHom_heq (NormalizedIdentitySingleton.family_equality A.family a.down σ.down).symm
         (projection (NormalizedIdentitySingleton.fiber (reindex A.family σ.down) (a.down.reindex σ.down)))
         (generic (NormalizedIdentitySingleton.fiber (reindex A.family σ.down) (a.down.reindex σ.down)))).symm
 

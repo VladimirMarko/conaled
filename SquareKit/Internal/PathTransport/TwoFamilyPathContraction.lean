@@ -16,7 +16,7 @@ noncomputable def contractionEndpoint (x : PathContext F) :
     (identity F ((pathFirst F).obj x)).fiber ≫ x.fiber.as)⟩
 
 /-- The canonical endpoint arrow sends the identity path to the supplied path. -/
-theorem contractionBoundary (x : PathContext F) :
+theorem contraction_boundary (x : PathContext F) :
     (openIdMap F (contractionEndpoint F x)).obj (𝟙 x.base.fiber.1) = x.fiber.as := by
   let c : (F.map (𝟙 x.base.base)).obj x.base.fiber.1 ⟶ x.base.fiber.1 :=
     (identity F (⟨x.base.base, x.base.fiber.1⟩ : Total F)).fiber
@@ -29,7 +29,7 @@ theorem contractionBoundary (x : PathContext F) :
 /-- A component in the actual total path context, with its required fiber boundary. -/
 noncomputable def contractionComponent (x : PathContext F) :
     pathReflexivityObj F ((pathFirst F).obj x) ⟶ x :=
-  ⟨contractionEndpoint F x, eqToHom (congrArg LocallyDiscrete.mk (contractionBoundary F x))⟩
+  ⟨contractionEndpoint F x, eqToHom (congrArg LocallyDiscrete.mk (contraction_boundary F x))⟩
 /-- At reflexivity the endpoint contraction is exactly the identity. -/
 theorem contractionEndpoint_refl (x : Total F) :
     contractionEndpoint F (pathReflexivityObj F x) = 𝟙 (pathReflexivityObj F x).base := by

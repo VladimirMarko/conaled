@@ -53,7 +53,7 @@ has `[middle,input,output]`, interpreted by `y,x,z`.
 | `refl`, `symm`, `trans`, `congr` | Lambda using reflexivity or equality-eliminator helper bodies |
 | `intro` | Lambda introducing the evaluated witness term and instantiated premise proof |
 | `subst` | Simultaneous substitution of data terms before generating the body |
-| `elim`, `elimWith` | Lambda eliminating Exists into the conclusion proposition, with the witness binder and optional retained premise |
+| `elim`, `elim_with` | Lambda eliminating Exists into the conclusion proposition, with the witness binder and optional retained premise |
 
 The declaration telescope is `A B C : Type v`, `f : A → B`, `g : B → C`,
 the data variables specified by `context`, then the premise proof. The external

@@ -91,7 +91,7 @@ example (cs : List (Command ℚ Nat)) :
 example (cs : List (Command ℚ Nat)) :
     Exclusive.Pipeline.run jointConsumer (Exclusive.Pipeline.init FRPTrace.start jointConsumer) cs =
       Exclusive.Pipeline.run (batches jointSpec) (Exclusive.Pipeline.init FRPTrace.start (batches jointSpec)) cs :=
-  Exclusive.Pipeline.compiled_run K sound jointSeed jointBody List.sum FRPTrace.start cs
+  Exclusive.Pipeline.compiled_run scalarCompiler sound jointSeed jointBody List.sum FRPTrace.start cs
 example : normal =
     let a := Exclusive.Pipeline.run jointConsumer (Exclusive.Pipeline.init FRPTrace.start jointConsumer) first
     let b := Exclusive.Pipeline.run jointConsumer a.1 again

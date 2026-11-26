@@ -113,7 +113,7 @@ private theorem eval_preserves (parameters : Parameters Primitive) {environment 
       cases argument with
       | none => exact ⟨.constructor .none, frames⟩
       | some body =>
-          exact ⟨⟨capture, (CodeAllowed.constructorArgument_iff tag body).mp code⟩,
+          exact ⟨⟨capture, (CodeAllowed.constructor_argument_iff tag body).mp code⟩,
             frames_cons trivial frames⟩
   | record fields =>
       have allowed := (CodeAllowed.record_iff fields).mp code
@@ -266,7 +266,7 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
                 ConfigAllowed, ControlAllowed] using And.intro (EnvAllowed.nil (operations := operations)) frames
             · simpa only [step, transition, same, ite_false, proceed, OutcomeAllowed,
                 ConfigAllowed, ControlAllowed] using And.intro True.intro frames
-  | @constructorArgument tag innerPattern inner =>
+  | @constructor_argument tag innerPattern inner =>
       cases value <;> try exact ⟨trivial, frames⟩
       case constructor actual argument =>
         cases argument with
@@ -303,7 +303,7 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
                             And.intro (EnvAllowed.nil (operations := operations)) frames
                       · simpa only [step, transition, found, same, ite_false, proceed, OutcomeAllowed,
                           ConfigAllowed, ControlAllowed] using And.intro True.intro frames
-  | @exceptionArgument name innerPattern inner =>
+  | @exception_argument name innerPattern inner =>
       cases found : Env.lookup environment name with
       | none => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
       | some binding =>

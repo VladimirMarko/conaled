@@ -94,7 +94,7 @@ macro rows. The final constructor observes all six output fields. -/
 def packRun (r : Resident m width)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords) : Run (Representation m width) :=
   let : NeZero (blocks m) := ⟨Nat.ne_of_gt (blocks_pos m)⟩
-  scope [.ref r] (seq (tensorRun r.shared (sharedFits h) h.addresses) fun shared =>
+  scope [.ref r] (seq (tensorRun r.shared (shared_fits h) h.addresses) fun shared =>
     scope [.ref shared] (seq (packControl r.macroRows (macro_fit h) h.addresses) fun packedMacro =>
       note ⟨r.depths,r.classes,shared,packedMacro,r.spans,r.logs⟩
         [.ref r.depths,.ref r.classes,.ref shared,.ref packedMacro,.ref r.spans,.ref r.logs]))
@@ -109,7 +109,7 @@ theorem packRun_peak (r : Resident m width)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords) :
     (packRun r h).peak ≤ 128 := by
   let : NeZero (blocks m) := ⟨Nat.ne_of_gt (blocks_pos m)⟩
-  have hs := tensorRun_peak r.shared (sharedFits h) h.addresses
+  have hs := tensorRun_peak r.shared (shared_fits h) h.addresses
   have hm := packControl_peak r.macroRows (macro_fit h) h.addresses
   simp only [packRun,scope,seq,note,List.length_cons,List.length_nil]
   omega

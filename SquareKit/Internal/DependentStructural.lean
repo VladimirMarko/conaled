@@ -234,13 +234,13 @@ theorem SubEq.literal {m n} {Δ : Ctx m} {Γ : Ctx n} {σ τ : Sub Δ Γ} (h : S
   | trans _ _ ih ik => exact ih.trans ik
   | assignments hb hd => exact Sub.ext (funext fun i => (hb i).literal) (funext fun v => (hd v).literal)
 
-theorem SubEq.ofLiteral {m n} {Δ : Ctx m} {Γ : Ctx n} {σ τ : Sub Δ Γ} (h : σ = τ) : SubEq σ τ := by
+theorem SubEq.of_literal {m n} {Δ : Ctx m} {Γ : Ctx n} {σ τ : Sub Δ Γ} (h : σ = τ) : SubEq σ τ := by
   cases h
   exact .refl _
 
 theorem SubEq.comp_congr {l m n} {Γ : Ctx n} {Δ : Ctx m} {Ξ : Ctx l}
     {σ σ' : Sub Δ Γ} {τ τ' : Sub Ξ Δ} (h : SubEq σ σ') (k : SubEq τ τ') :
-    SubEq (Sub.comp σ τ) (Sub.comp σ' τ') := ofLiteral (by rw [h.literal, k.literal])
+    SubEq (Sub.comp σ τ) (Sub.comp σ' τ') := of_literal (by rw [h.literal, k.literal])
 
 /-- Derived pairing naturality: only assignment congruence and reflexivity are
 used after source substitution normalization; it is not a primitive rule. -/

@@ -131,7 +131,7 @@ variable {Q : Type u₂} {D : CategoryOps.{u₂,v₂} Q}
 
 /-- Reflect inverse laws after comparing the source objects with the target
 objects. The premises preserve the two arrows, not their final inverse laws. -/
-theorem transportComparisonLaws {F : RawMap C D} {H : HomEquiv D}
+theorem transport_comparisonLaws {F : RawMap C D} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H)
     (DC : CategoryCongr D H) (DL : CategoryLaws D H)
     {a b : O} {a' b' : Q} (p : Comparison D (F.obj a) a')

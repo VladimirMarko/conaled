@@ -46,7 +46,7 @@ constructions from #673, #674 and #675:
    full-algebra universal property. The normal-form ambient maps recover both
    ordinary coordinates. `normalDifference_zero` converts equality of full
    target algebra maps into the zero-fiber equation;
-   `normalFactorization` then gives a unique full-algebra factor at every
+   `normal_factorization` then gives a unique full-algebra factor at every
    presentation code.
 3. [`SmoothManifoldChartMono`](../../SquareKit/SmoothManifoldChartMono.lean)
    derives chart monomorphisms from the actual overlap pullbacks. If all real

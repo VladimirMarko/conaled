@@ -112,15 +112,15 @@ theorem CodeAllowed.primitive_iff (operation : Primitive) :
 theorem CodeAllowed.constructor (tag : Nat) : CodeAllowed operations (.constructor tag none) :=
   ⟨.constructor tag, by simp [RecursiveForm, OptionalRecursiveForm]⟩
 
-theorem CodeAllowed.constructorArgument_iff (tag : Nat) (body : Core.Expr Primitive) :
+theorem CodeAllowed.constructor_argument_iff (tag : Nat) (body : Core.Expr Primitive) :
     CodeAllowed operations (.constructor tag (some body)) ↔ CodeAllowed operations body := by
   simp only [CodeAllowed, RecursiveForm, OptionalRecursiveForm]
   constructor
   · rintro ⟨effects, form⟩
     cases effects with
-    | constructorArgument inner => exact ⟨inner, form⟩
+    | constructor_argument inner => exact ⟨inner, form⟩
   · rintro ⟨effects, form⟩
-    exact ⟨.constructorArgument effects, form⟩
+    exact ⟨.constructor_argument effects, form⟩
 
 theorem NamedCodeAllowed.nil : NamedCodeAllowed operations [] :=
   ⟨.nil, by simp [NamedRecursiveForms]⟩

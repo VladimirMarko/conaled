@@ -10,7 +10,7 @@ open CategoryTheory CategoryTheory.Limits
 universe u v w
 
 /-- Coproducts of sets, with no finiteness assumption on the index, are van Kampen. -/
-theorem types_isVanKampen {I : Type w} {F : Discrete I ⥤ Type w}
+theorem types_isVanKampenColimit {I : Type w} {F : Discrete I ⥤ Type w}
     (c : Cocone F) (hc : IsColimit c) : IsVanKampenColimit c := by
   let X : I → Type w := fun i => F.obj ⟨i⟩
   have hF : F = Discrete.functor X := by
@@ -71,12 +71,12 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {I : Type (max u v)}
 
 /-- Every categorical coproduct of sheaves in the supported universes is van Kampen. -/
-theorem isVanKampen {F : Discrete I ⥤ Sheaf J (Type (max u v))}
+theorem isVanKampenColimit {F : Discrete I ⥤ Sheaf J (Type (max u v))}
     (c : Cocone F) (hc : IsColimit c) : IsVanKampenColimit c := by
   let raw := colimit.cocone (F ⋙ sheafToPresheaf J (Type (max u v)))
   have hr : IsVanKampenColimit raw :=
     isVanKampenColimit_of_evaluation _ raw (fun V =>
-      types_isVanKampen _ (isColimitOfPreserves ((evaluation _ _).obj V) (colimit.isColimit _)))
+      types_isVanKampenColimit _ (isColimitOfPreserves ((evaluation _ _).obj V) (colimit.isColimit _)))
   have hs : IsVanKampenColimit (Sheaf.sheafifyCocone raw) := by
     exact IsVanKampenColimit.precompose_isIso _
       (hr.map_reflective (sheafificationAdjunction J (Type (max u v))))
@@ -88,8 +88,8 @@ open SheafCoproductLocal
 variable (Y : I → Sheaf J (Type (max u v)))
 
 /-- The chosen actual sheaf coproduct has the van Kampen property. -/
-theorem total_isVanKampen : IsVanKampenColimit (colimit.cocone (diagram Y)) :=
-  isVanKampen _ (colimit.isColimit _)
+theorem total_isVanKampenColimit : IsVanKampenColimit (colimit.cocone (diagram Y)) :=
+  isVanKampenColimit _ (colimit.isColimit _)
 
 /-- A family of component maps induces a map of the actual sheaf coproducts. -/
 def map {E : I → Sheaf J (Type (max u v))} (p : ∀ i, E i ⟶ Y i) :
@@ -103,7 +103,7 @@ def map {E : I → Sheaf J (Type (max u v))} (p : ∀ i, E i ⟶ Y i) :
 theorem isPullback_inclusion_map {E : I → Sheaf J (Type (max u v))}
     (p : ∀ i, E i ⟶ Y i) (i : I) :
     IsPullback (inclusion E i) (p i) (map Y p) (inclusion Y i) := by
-  apply ((total_isVanKampen Y) (colimit.cocone (diagram E))
+  apply ((total_isVanKampenColimit Y) (colimit.cocone (diagram E))
     (Discrete.natTrans fun i => p i.as) (map Y p) ?_ (.of_discrete _)).mp
       ⟨colimit.isColimit _⟩ ⟨i⟩
   apply NatTrans.ext
@@ -112,12 +112,12 @@ theorem isPullback_inclusion_map {E : I → Sheaf J (Type (max u v))}
 
 /-- Injections into an arbitrary sheaf coproduct are monomorphisms. -/
 theorem mono_inclusion (i : I) : Mono (inclusion Y i) :=
-  mono_of_cofan_isVanKampen (total_isVanKampen Y) ⟨i⟩
+  mono_of_cofan_isVanKampen (total_isVanKampenColimit Y) ⟨i⟩
 
 /-- Distinct summands meet in the initial sheaf, including on sites with empty covers. -/
 theorem isPullback_initial (i j : I) (h : i ≠ j) :
     IsPullback (initial.to (Y i)) (initial.to (Y j)) (inclusion Y i) (inclusion Y j) :=
-  isPullback_initial_to_of_cofan_isVanKampen (total_isVanKampen Y) ⟨i⟩ ⟨j⟩
+  isPullback_initial_to_of_cofan_isVanKampen (total_isVanKampenColimit Y) ⟨i⟩ ⟨j⟩
     (fun e => h (Discrete.mk.inj e))
 
 /-- Coproducts preserve a family of pullback squares with a common base-change map. -/
@@ -127,7 +127,7 @@ theorem isPullback_desc {X Z : Sheaf J (Type (max u v))}
     (a : ∀ i, P i ⟶ Y i) (b : ∀ i, P i ⟶ Z)
     (h : ∀ i, IsPullback (a i) (b i) (f i) g) :
     IsPullback (map Y a) (desc P b) (desc Y f) g := by
-  exact (total_isVanKampen Y).isUniversal.isPullback_of_isColimit_right f
+  exact (total_isVanKampenColimit Y).isUniversal.isPullback_of_isColimit_right f
     (desc Y f) g a b h (colimit.isColimit _) (fun i => inclusion_desc _ _ _)
 
 /-- The comparison between the coproduct of pullbacks and the pullback of a coproduct. -/
@@ -206,7 +206,7 @@ def fiberEquiv {E : I → Sheaf J (Type (max u v))}
 def pullbackInclusionsIsColimit {A : Sheaf J (Type (max u v))} (f : A ⟶ total Y) :
     IsColimit (Cofan.mk A (fun i => pullback.snd (inclusion Y i) f)) := by
   apply Nonempty.some
-  refine (total_isVanKampen Y).isUniversal _
+  refine (total_isVanKampenColimit Y).isUniversal _
     (Discrete.natTrans fun i => pullback.fst (inclusion Y i.as) f) f
     ?_ (.of_discrete _) ?_
   · apply NatTrans.ext

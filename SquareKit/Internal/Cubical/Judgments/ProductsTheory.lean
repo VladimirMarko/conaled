@@ -72,7 +72,7 @@ theorem interpret_substitute {V W : Type} {Ω : List (Judgment V)} {a : Judgment
   rw [Atom.eval_subst]
   exact interpret d _ h
 
-theorem familyEquality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
+theorem family_equality {V : Type} {Ω : List (Judgment V)} {a b : Expression V}
     (d : Derivation theory Ω (.eq a b)) (ρ : V → Value.{u})
     (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
     (ha : a.eval algebra ρ = .family Γ A) (hb : b.eval algebra ρ = .family Γ B) : A = B := by
@@ -89,8 +89,8 @@ theorem conversion_independent {V : Type} {Ω : List (Judgment V)} {a b : Expres
     (h : ∀ p ∈ Ω, p.Eval algebra ρ) (Γ : Context.{u}) (A B : Family Γ)
     (ha : a.eval algebra ρ = .family Γ A) (hb : b.eval algebra ρ = .family Γ B)
     (t : Presheaf.Term A) :
-    t.convert (familyEquality d ρ h Γ A B ha hb) =
-      t.convert (familyEquality e ρ h Γ A B ha hb) :=
+    t.convert (family_equality d ρ h Γ A B ha hb) =
+      t.convert (family_equality e ρ h Γ A B ha hb) :=
   Presheaf.Term.convert_independent _ _ t
 
 end SquareKit.Cubical.Source.Products

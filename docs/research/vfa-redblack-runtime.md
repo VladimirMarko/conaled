@@ -145,12 +145,12 @@ All definitions except global `main` are private. For this table only, `Cfg` mea
 | `generatedKeys` | `Cfg → Nat → StdGen → Except String (List Int × StdGen)` | Existing source index fold; explicit state threading and chronological list recovery |
 | `orderedWithin` | `{W : Type} → (W → Int) → Option Int → Option Int → B W → Bool` | Both ancestor bounds, independently recursive through all descendants |
 | `ordinaryPreorder` | `{W : Type} → (W → Int) → B W → List Json → List Json` | Actual node/null preorder with preserved suffix; no state mutation or insertion |
-| `redblackPreorder` | `{W : Type} → (W → Int) → R W → List Json → List Json` | Same raw observation, preserving actual root colors |
+| `redBlackPreorder` | `{W : Type} → (W → Int) → R W → List Json → List Json` | Same raw observation, preserving actual root colors |
 | `rootBlack` | `{W : Type} → R W → Bool` | Nil/black true, red false |
 | `noRedRed` | `{W : Type} → R W → Bool` | Red nodes require both child roots black/nil; recursively checks both subtrees |
 | `blackHeight?` | `{W : Type} → R W → Option Nat` | Nil 0; recursively equal child heights; increments only black nodes |
 | `ordinaryTreeObservation` | `{W : Type} → (W → Int) → B W → Except String Json` | Rejects false all-descendant ordering; reports actual size/height and complete shape |
-| `redblackTreeObservation` | `{W : Type} → Bool → (W → Int) → R W → Except String Json` | Separates ordering, public root, local color, common black height and logarithmic check; required-valid mode rejects any failure |
+| `redBlackTreeObservation` | `{W : Type} → Bool → (W → Int) → R W → Except String Json` | Separates ordering, public root, local color, common black height and logarithmic check; required-valid mode rejects any failure |
 | `sourceQueries` | `{W T : Type} → Cfg → (Int → Bool) → (Int → W) → (W → Int) → Ops W T → T → StdGen → Except String (StdGen × Nat)` | Fresh query generation, checked representation, selected actual optional lookup/default/hit count within the source region |
 | `workloadSampleFor` | `{W T : Type} → Cfg → Option (List Int × List Int) → String → Nat → (Int → Bool) → (Int → W) → (W → Int) → Ops W T → (T → List (W × Nat)) → (T → Except String Json) → IO Json` | Shared build/clock/query/clock pipeline, then source replay, independent HashMap check, structural observer and report |
 | `workloadFor` | `{W : Type} → Cfg → (Int → Bool) → (Int → W) → (W → Int) → (W → W → Bool) → IO Json` | Reads replay inputs once; selects actual Ops and observers; sequential warmups and repetitions; schema-2 configuration |
@@ -163,8 +163,8 @@ All definitions except global `main` are private. For this table only, `Cfg` mea
 | `finiteSortCase` | `{W : Type} → String → Nat → Int → Int → (Int → W) → (W → Int) → (W → W → Bool) → IO Json` | Unchanged signed finite range/round trip and actual sorted extreme-key output |
 | `natSortCase` | `List Nat → List Nat → IO Json` | Unchanged actual Nat sort checked against independent finite expectations |
 | `examples` | `IO Json` | Retains complete schema-1 ordinary examples; discards only the new private table pair's shape component |
-| `redblackInvariantCases` | `IO (List Json)` | Four raw literal fixtures; observes their separate failures and checks actual required-valid rejection |
-| `redblackExamples` | `IO Json` | Actual Redblack Ops and traversal for all three carriers, plus the four raw counterexamples |
+| `redBlackInvariantCases` | `IO (List Json)` | Four raw literal fixtures; observes their separate failures and checks actual required-valid rejection |
+| `redBlackExamples` | `IO Json` | Actual Redblack Ops and traversal for all three carriers, plus the four raw counterexamples |
 | `main` | `List String → IO UInt32` | Exact three-command dispatch, checked compressed JSON and established stderr/exit protocol |
 
 Nine unchanged declaration chunks (`readKeyFile`, `generatedKey`, `workload`, `wordAdditionCase`, `wordBoundaries`, `comparisonCases`, `stableSortCase`, `finiteSortCase`, `natSortCase`) were also byte-compared against the preceding driver. The complete current source, including the shared generic sample/table bodies and new private observers, was read as current code. Record constructors, projections, pattern matchers and compiler closures are generated declarations; they are not extra authored algorithms. A retained no-output probe imported the freshly built `ExtractSearchTree.olean` and used `Lean.getConstInfo` for every authored row, plus the configuration constructor and twelve projections. Record `18b-current-types/result.json` completed with exit 0 in 3.621 seconds and unchanged watched inputs. Every authored declaration has an empty universe-parameter list, matching the universe-zero executable binders above. The private-name prefix is `_private.ExtractSearchTree.0.ExtractSearchTree.`. The earlier probe `18-current-types` returned exit 1 because its optional `pp.width` display setting is unsupported; its actual output is retained. Removing only that probe setting resolved the failure without changing the driver or imported module.
@@ -254,7 +254,7 @@ Read-only `file` and `readelf -h` inspection identifies the actual binary as a d
 
 ### Selected generated computational closure
 
-The generated `workloadFor` sample loops select actual `Search_RedBlack_ops` when the realization string is `redblack`, supply the actual provider `toList` closure, and supply `redblackTreeObservation` with required-valid true. The alternate branch supplies `DecodedKeys_ops`, the existing ordinary traversal and its ordinary observer. Both call the same generated `workloadSampleFor` function.
+The generated `workloadFor` sample loops select actual `Search_RedBlack_ops` when the realization string is `redblack`, supply the actual provider `toList` closure, and supply `redBlackTreeObservation` with required-valid true. The alternate branch supplies `DecodedKeys_ops`, the existing ordinary traversal and its ordinary observer. Both call the same generated `workloadSampleFor` function.
 
 `RedBlack.Models.c` constructs the Ops record with nil, a closure over `Search_RedBlack_insert`, and a closure over `Search_RedBlack_lookup?`. In `RedBlack.Basic.c`, the compiled optional search tests query/pivot first, pivot/query only after failure, then returns the stored binding or descends into the selected child. The inspected `ins` branches recursively obtain the actual child result and pass it to the full source `balance`; equality replaces the original key and payload. `insert` calls that `ins` and then the provider's `setBlack`. The complete generated `balance` body retains the red bypass and LL/LR/RL/RR/fallback priority. Its compiler factoring is not a statement that source-level pattern-attempt counts equal machine instructions or physical allocations.
 

@@ -44,7 +44,7 @@ def displayReindex {Γ Δ : M.Context} (A : M.Family Γ) (σ : M.Substitution Δ
   Arrow.homMk (M.lift A σ) σ (M.weaken_lift A σ)
 
 /-- The chosen reindexing square is a categorical pullback. -/
-theorem displayPullback {Γ Δ : M.Context} (A : M.Family Γ) (σ : M.Substitution Δ Γ) :
+theorem display_pullback {Γ Δ : M.Context} (A : M.Family Γ) (σ : M.Substitution Δ Γ) :
     IsPullback (C := M.ContextCat) (M.weaken Δ (M.subTy A σ))
       (M.lift A σ) σ (M.weaken Γ A) where
   w := (M.weaken_lift A σ).symm

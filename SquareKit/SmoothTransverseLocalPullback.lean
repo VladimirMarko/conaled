@@ -457,7 +457,7 @@ theorem normalParameterMap_cancel {B : SmoothPresentationSite.Code}
     (y₁ := (show code (chartDomain A.chart) ⟶ B from b).op) (congrArg Quiver.Hom.op h) (congrArg Quiver.Hom.op hpoint)
   exact congrArg Quiver.Hom.unop hh
 
-theorem normalFactorization (B : SmoothPresentationSite.Code)
+theorem normal_factorization (B : SmoothPresentationSite.Code)
     (w : Hom (Localization.Principal (sourceDomain A.finiteChart).defining)
       (SmoothPresentationSite.Carrier B))
     (hc : w.comp (Localization.pullback (A.ambientTargetFirst hf)) =

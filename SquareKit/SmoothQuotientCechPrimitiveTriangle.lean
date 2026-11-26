@@ -10,19 +10,19 @@ set_option backward.defeqAttrib.useBackward true
 variable {H : Type} [Group H] {M X : Sheaf topology Type}
 variable (a : Action (locallyConstantGroup H) M) (A : SplitSheaf.Ty X)
 
-theorem tripleMiddlePrimitive :
+theorem triple_middle_primitive :
     (SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) (SplitSheaf.Cech.second A)) ⋙
         restriction (SplitSheaf.Cech.firstSecond A) =
       (SheafActionQuotient.Cech.localFunctor ⋙ restriction (SplitSheaf.Cech.first A)) ⋙
         restriction (SplitSheaf.Cech.secondThird A) := rfl
 
-theorem tripleFirstPrimitive :
+theorem triple_first_primitive :
     (SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) (SplitSheaf.Cech.first A)) ⋙
         restriction (SplitSheaf.Cech.firstSecond A) =
       (SheafActionQuotient.Cech.localFunctor ⋙ restriction (SplitSheaf.Cech.first A)) ⋙
         restriction (SplitSheaf.Cech.firstThird A) := rfl
 
-theorem tripleLastPrimitive :
+theorem triple_last_primitive :
     (SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) (SplitSheaf.Cech.second A)) ⋙
         restriction (SplitSheaf.Cech.secondThird A) =
       (SheafActionQuotient.Cech.localFunctor ⋙ restriction (SplitSheaf.Cech.second A)) ⋙
@@ -30,25 +30,25 @@ theorem tripleLastPrimitive :
 
 theorem triplePrimitive_cocycle :
     isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstSecond A)) ≪≫
-      eqToIso (tripleMiddlePrimitive a A) ≪≫
+      eqToIso (triple_middle_primitive a A) ≪≫
       isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.secondThird A)) =
-    eqToIso (tripleFirstPrimitive a A) ≪≫
+    eqToIso (triple_first_primitive a A) ≪≫
       isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstThird A)) ≪≫
-      (eqToIso (tripleLastPrimitive a A)).symm := by
+      (eqToIso (triple_last_primitive a A)).symm := by
   simp only [eqToIso_refl, Iso.refl_symm, Iso.refl_trans]
   exact (overlap_cocycle a A).trans (Iso.trans_refl _).symm
 
-theorem firstTripleFiberHEq :
+theorem first_triple_fiber_heq :
     HEq (firstRestrictionFiber a A (SplitSheaf.Cech.firstSecond A))
       (firstRestrictionFiber a A (SplitSheaf.Cech.firstThird A)) :=
   heq_of_eq (firstRestrictionFiber_triple a A)
 
-theorem middleTripleFiberHEq :
+theorem middle_triple_fiber_heq :
     HEq (secondRestrictionFiber a A (SplitSheaf.Cech.firstSecond A))
       (firstRestrictionFiber a A (SplitSheaf.Cech.secondThird A)) :=
   heq_of_eq (middleRestrictionFiber_triple a A)
 
-theorem lastTripleFiberHEq :
+theorem last_triple_fiber_heq :
     HEq (secondRestrictionFiber a A (SplitSheaf.Cech.secondThird A))
       (secondRestrictionFiber a A (SplitSheaf.Cech.firstThird A)) :=
   heq_of_eq (lastRestrictionFiber_triple a A)

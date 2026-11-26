@@ -72,33 +72,33 @@ inductive Derives : {Γ : List S} → Formula F Γ P → Formula F Γ P → Prop
   | intro (p : Formula F (s :: Γ) P) (t : Term F Γ s) :
       Derives (p.instantiate t) (.ex p)
   | subst (σ : Sub F Γ Δ) : Derives p q → Derives (p.subst σ) (q.subst σ)
-  | elimWith : Derives (.conj h.shift p) q.shift → Derives (.conj h (.ex p)) q
+  | elim_with : Derives (.conj h.shift p) q.shift → Derives (.conj h (.ex p)) q
   | elim : Derives p q.shift → Derives (.ex p) q
 
 /- Named author-facing rules produce explicit derivations. -/
 namespace Rules
 theorem hypothesis : Derives p p := .ident
 theorem cut (h : Derives p q) (k : Derives q r) : Derives p r := .cut h k
-theorem andLeft : Derives (.conj p q) p := .left
-theorem andRight : Derives (.conj p q) q := .right
-theorem andIntro (h : Derives p q) (k : Derives p r) : Derives p (.conj q r) := .pair h k
-theorem eqRefl : Derives p (.eq t t) := .refl
-theorem eqSymm (h : Derives p (.eq a b)) : Derives p (.eq b a) := .symm h
-theorem eqTrans (h : Derives p (.eq a b)) (k : Derives p (.eq b c)) :
+theorem and_left : Derives (.conj p q) p := .left
+theorem and_right : Derives (.conj p q) q := .right
+theorem and_intro (h : Derives p q) (k : Derives p r) : Derives p (.conj q r) := .pair h k
+theorem eq_refl : Derives p (.eq t t) := .refl
+theorem eq_symm (h : Derives p (.eq a b)) : Derives p (.eq b a) := .symm h
+theorem eq_trans (h : Derives p (.eq a b)) (k : Derives p (.eq b c)) :
      Derives p (.eq a c) := .trans h k
-theorem eqCongr (f : F s t) (h : Derives p (.eq a b)) :
+theorem eq_congr (f : F s t) (h : Derives p (.eq a b)) :
      Derives p (.eq (.app f a) (.app f b)) := .congr h
-theorem existsIntro (p : Formula F (s :: Γ) P) (t : Term F Γ s) :
+theorem exists_intro (p : Formula F (s :: Γ) P) (t : Term F Γ s) :
      Derives (p.instantiate t) (.ex p) := .intro p t
-theorem existsWitness (t : Term F Γ s) (h : Derives q (p.instantiate t)) :
+theorem exists_witness (t : Term F Γ s) (h : Derives q (p.instantiate t)) :
     Derives q (.ex p) := .cut h (.intro p t)
-theorem existsElim (h : Derives p q.shift) : Derives (.ex p) q := .elim h
+theorem exists_elim (h : Derives p q.shift) : Derives (.ex p) q := .elim h
 theorem substitute (σ : Sub F Γ Δ) (h : Derives p q) :
     Derives (p.subst σ) (q.subst σ) := .subst σ h
 theorem weaken (h : Derives p q) : Derives (p.shift (s := s)) q.shift :=
   substitute (fun x => .var (.succ x)) h
-theorem existsElimWith (d : Derives (.conj h.shift p) q.shift) :
-    Derives (.conj h (.ex p)) q := .elimWith d
+theorem exists_elim_with (d : Derives (.conj h.shift p) q.shift) :
+    Derives (.conj h (.ex p)) q := .elim_with d
 end Rules
 
 structure Interpretation (F : S → S → Type u)
@@ -186,7 +186,7 @@ theorem sound (M : Interpretation F P) (d : Derives p q) : Valid M p q := by
   | subst σ _ ih =>
     intro ρ h
     exact (formula_subst M _ σ ρ).mpr (ih _ ((formula_subst M _ σ ρ).mp h))
-  | elimWith _ ih =>
+  | elim_with _ ih =>
     intro ρ ⟨hh, x, hx⟩
     exact (formula_shift M _ ρ x).mp
       (ih (ρ.extend x) ⟨(formula_shift M _ ρ x).mpr hh, hx⟩)

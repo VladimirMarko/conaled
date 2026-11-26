@@ -55,7 +55,7 @@ def falsity : Term (constantFamily terminal.{0} Bool) where
 def falseSub : terminal.{0} ⟶ total (carrier (Γ := terminal)) := pair (𝟙 terminal) falsity
 
 /-- Contractibility of the total does not make every base fiber inhabited. -/
-theorem noForwardAtFalse (p : Term (reindex (forwardPaths (Γ := terminal)) falseSub)) : False := by
+theorem no_forward_at_false (p : Term (reindex (forwardPaths (Γ := terminal)) falseSub)) : False := by
   let q := Term.map (pathReindexIso
     (reindex (carrier (Γ := terminal))
       (projection (interval (total carrier)) ≫ projection carrier))

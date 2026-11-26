@@ -57,6 +57,6 @@ set_option linter.defProp false
 def retained (k : ℤ) :=
   selectedHomotopy_payload integerContext integerContext emptyA emptyB (assignedPoint k)
 
-def sourceContext := inputContext_eval (fullModel integerContext integerContext) emptyA emptyB
-def sourceHomotopy := selectedHomotopy_eval (fullModel integerContext integerContext) emptyA emptyB
+def source_context := inputContext_eval (fullModel integerContext integerContext) emptyA emptyB
+def source_homotopy := selectedHomotopy_eval (fullModel integerContext integerContext) emptyA emptyB
 end Examples.TwoFamilyFrozenPoint

@@ -40,7 +40,7 @@ namespace Exact
     (g : Squares.Square ⟨a.S, AS, da⟩ ⟨b.S, BS, db⟩)
     (middle : ∀ x, f.spec x = g.impl x) :
     ofSquare (Squares.vertical da db f g middle) =
-      vertical (equalityCongr FunctionCategory.ops) FunctionCategory.laws
+      vertical (equality_congr FunctionCategory.ops) FunctionCategory.laws
         (ofSquare f) (ofSquare g) (funext middle) := rfl
 end Exact
 end SquareKit.Comma

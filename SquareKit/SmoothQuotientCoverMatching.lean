@@ -28,15 +28,15 @@ def strictDiagram : CechMatching.StrictDiagram.{1} where
   firstSecond := restriction a hΓ (SheafCoverCech.firstSecond f)
   firstThird := restriction a hΓ (SheafCoverCech.firstThird f)
   secondThird := restriction a hΓ (SheafCoverCech.secondThird f)
-  diagonalFirst := by
+  diagonal_first := by
     rw [restriction_comp, SheafCoverCech.diagonal_first, restriction_id]
-  diagonalSecond := by
+  diagonal_second := by
     rw [restriction_comp, SheafCoverCech.diagonal_second, restriction_id]
-  tripleFirst := by
+  triple_first := by
     rw [restriction_comp, restriction_comp, SheafCoverCech.firstThird_first]
-  tripleMiddle := by
+  triple_middle := by
     rw [restriction_comp, restriction_comp, SheafCoverCech.secondThird_first]
-  tripleLast := by
+  triple_last := by
     rw [restriction_comp, restriction_comp, SheafCoverCech.firstThird_second,
       SheafCoverCech.secondThird_second]
 

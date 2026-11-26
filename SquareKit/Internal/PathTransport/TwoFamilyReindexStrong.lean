@@ -14,7 +14,7 @@ variable (E : Family.{u,v,w,uE,vE,wE} Γ) (σ : StrictPseudofunctor Δ Γ)
 variable {A : Type*} [Bicategory A] [Strict A]
 variable {F G : StrictPseudofunctor A (Total (reindex σ E))}
 omit [Strict A] in
-theorem reindexStrongBoundary (K : StrictPseudofunctor A (Total (reindex σ E))) :
+theorem reindex_strong_boundary (K : StrictPseudofunctor A (Total (reindex σ E))) :
     (K.comp (projectionHigher (reindex σ E))).comp σ =
       (K.comp (reindexHigher E σ)).comp (projectionHigher E) := by
   rw [strictFunctor_comp_assoc, strictFunctor_comp_assoc, reindexHigher_projection]
@@ -26,7 +26,7 @@ variable (h : HEq (strongPostcomp β σ) (strongPostcomp θ (projectionHigher E)
 include h in
 omit [Strict A] in
 theorem reindexStrongApp_base (x : A) : σ.map (β.app x) = (θ.app x).base :=
-  eq_of_heq (strongTrans_app_heq (reindexStrongBoundary E σ F) (reindexStrongBoundary E σ G)
+  eq_of_heq (strongTrans_app_heq (reindex_strong_boundary E σ F) (reindex_strong_boundary E σ G)
     _ _ h x)
 def reindexStrongApp (x : A) : F.obj x ⟶ G.obj x :=
   reindexLiftHom E σ (θ.app x) (β.app x) (reindexStrongApp_base E σ β θ h x)
@@ -59,7 +59,7 @@ omit [Strict A] in
 theorem reindexStrongCell_base {x y : A} (p : x ⟶ y) :
     σ.map₂ (β.naturality p).hom = (reindexStrongCellImage E σ β θ h p).base := by
   have h1 := (strongPostcomp_naturality_heq β σ p).symm
-  have h2 := strongTrans_naturality_heq (reindexStrongBoundary E σ F) (reindexStrongBoundary E σ G)
+  have h2 := strongTrans_naturality_heq (reindex_strong_boundary E σ F) (reindex_strong_boundary E σ G)
     _ _ h p
   have h3 := strongPostcomp_naturality_heq θ (projectionHigher E) p
   have h4 := (cast_cell_base_heq E (reindexStrongCell_source E σ β θ h p)

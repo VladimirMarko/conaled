@@ -65,7 +65,7 @@ theorem substitutionEvaluation_isEquivalence
   have : (CechMatching.Comprehension.fiberMap S F sq
       ((matchingEvaluation a A hΔ).obj c)).Faithful := hf.2
   have : (CechMatching.Comprehension.fixedBaseFunctor
-      (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+      (relativeFamilyData a hΓ hB A) (relativeFamilyData_coherence a hΓ hB A)
       (fiberTotalEvaluation a A hΓ hB ((s (model a A)).down.obj c))
       ((matchingEvaluation a A hΓ).obj ((s (model a A)).down.obj c))
       (fiberTotalEvaluation_projection a A hΓ hB ((s (model a A)).down.obj c))).IsEquivalence :=

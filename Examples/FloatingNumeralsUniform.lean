@@ -35,7 +35,7 @@ theorem consume64_proper (digits : List Nat) (proper : Numerals.Decimal.Digits d
       IntervalAnalysis.Contains interval (consumer.spec (Numerals.Decimal.fractionRat digits)) := by
   simpa only [uniform_constant64, fraction_operations64] using
     Examples.FloatingNumeralBounds.proper_consume operations64 decode64 decode64_zero _ _
-      stepLaws64 digits proper consumer
+      stepLaws_64 digits proper consumer
 
 theorem consume32_proper (digits : List Nat) (proper : Numerals.Decimal.Digits digits)
     (consumer : Relational.RelSquare IntervalAnalysis.representation IntervalAnalysis.representation) :
@@ -44,7 +44,7 @@ theorem consume32_proper (digits : List Nat) (proper : Numerals.Decimal.Digits d
       IntervalAnalysis.Contains interval (consumer.spec (Numerals.Decimal.fractionRat digits)) := by
   simpa only [uniform_constant32, fraction_operations32] using
     Examples.FloatingNumeralBounds.proper_consume operations32 decode32 decode32_zero _ _
-      stepLaws32 digits proper consumer
+      stepLaws_32 digits proper consumer
 
 /-- Acceptance constructs an actual result; soundness targets the original exact decimal. -/
 theorem decimalSquare64_all_digits (digits : List Nat) (proper : Numerals.Decimal.Digits digits) :

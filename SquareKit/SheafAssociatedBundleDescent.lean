@@ -299,7 +299,7 @@ def associatedDataFunctor : (SheafTorsor.Stack.pseudofunctor G).DescentData f �
     exact (functor a (B i)).map_comp (h.hom i) (k.hom i)
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem torsorCanonicalTransition (P : SheafTorsor.Torsor G X)
+private theorem torsor_canonical_transition (P : SheafTorsor.Torsor G X)
     {W : Sheaf J (Type (max u v))} (q : W ⟶ X) {i j : I} (l : W ⟶ B i) (r : W ⟶ B j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (((SheafTorsor.Stack.pseudofunctor G).toDescentData f).obj P).hom q l r hl hr =
@@ -312,7 +312,7 @@ private theorem torsorCanonicalTransition (P : SheafTorsor.Torsor G X)
   exact Category.id_comp _
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem displayCanonicalTransition (T : SplitSheaf.Ty X)
+private theorem display_canonical_transition (T : SplitSheaf.Ty X)
     {W : Sheaf J (Type (max u v))} (q : W ⟶ X) {i j : I} (l : W ⟶ B i) (r : W ⟶ B j)
     (hl : l ≫ f i = q) (hr : r ≫ f j = q) :
     (((SplitSheaf.pseudofunctor (J := J)).toDescentData f).obj T).hom q l r hl hr =
@@ -347,7 +347,7 @@ def associatedDataOfGlobal (P : SheafTorsor.Torsor G X) :
           (reindexIso (SheafTorsor.reindex P (f j)) a r).inv) =
       (((SplitSheaf.pseudofunctor (J := J)).toDescentData f).obj (associated P a)).hom q l r hl hr ≫
         (SplitSheaf.restriction r).map (reindexIso P a (f j)).hom
-    rw [torsorCanonicalTransition f P q l r hl hr, displayCanonicalTransition f (associated P a) q l r hl hr]
+    rw [torsor_canonical_transition f P q l r hl hr, display_canonical_transition f (associated P a) q l r hl hr]
     have hc := congrArg Iso.hom (reindexIso_comp P a (f i) l)
     change (reindexIso P a (l ≫ f i)).hom =
       (SplitSheaf.restriction l).map (reindexIso P a (f i)).hom ≫

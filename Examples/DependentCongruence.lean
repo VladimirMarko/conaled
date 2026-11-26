@@ -46,12 +46,12 @@ open CongruenceCaller
 /-- The argument operation acts on a reflexivity term depending on the
 converted component of a substitution. The input conversion is actual J beta. -/
 def identityAtConvertedArgument := boundIdentity.substitutionCongrAt pairedBeta
-  rfl rfl (congrArg (subTyCode _) (subSound pairedBeta).symm)
+  rfl rfl (congrArg (subTyCode _) (sub_sound pairedBeta).symm)
 
 /-- Extend that converted substitution by a component whose type depends on
 its preceding component. The generic helper owns the nested annotation casts. -/
 def dependentPair := SubEqDeriv.pairingConverted dependentType pairedBeta rfl
-  rfl (congrArg (subTyCode _) (subSound pairedBeta).symm) identityAtConvertedArgument
+  rfl (congrArg (subTyCode _) (sub_sound pairedBeta).symm) identityAtConvertedArgument
 
 end DependentArguments
 end Examples.DependentCongruence

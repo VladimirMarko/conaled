@@ -389,7 +389,7 @@ Several architectural results already justify retention:
   boundary without first designing a new global hierarchy.
 - [InterpretationMaps.lean](../../SquareKit/Internal/PathTransport/InterpretationMaps.lean)
   retains strict family/substitution equations and dependent term comparisons;
-  `ModelMap.mapJ` names the transported telescope, motive and branch. A coherent
+  `ModelMap.j_preserved` names the transported telescope, motive and branch. A coherent
   comparison in #325 must construct corresponding family and section transport,
   chosen-J compatibility and composition. Equivalence of contexts alone does
   not supply them. The strict maps should remain a specialization.

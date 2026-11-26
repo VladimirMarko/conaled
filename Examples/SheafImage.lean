@@ -403,6 +403,6 @@ theorem unclosed_frobenius_fails :
 
 -- Ordinary graph calls and the opt-in presheaf syntax coexist with local images.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
-  (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
+  (Graph.in_set (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl
 
 end Examples.SheafImage

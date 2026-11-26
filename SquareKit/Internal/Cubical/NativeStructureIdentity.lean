@@ -329,19 +329,19 @@ end FieldsAlong
 namespace StructuredPaths
 variable {Γ : Context.{u}} {A : Family Γ} {B : Family (total A)}
   (z₀ z₁ : Term (sigma A B))
-abbrev P := SigmaPaths.base z₀ z₁
-abbrev liftedB := reindex B (liftSub A (projection (P z₀ z₁)))
-def liftedZero : Term (sigma (reindex A (projection (P z₀ z₁))) (liftedB z₀ z₁)) :=
-  Term.reindex z₀ (projection (P z₀ z₁))
-def liftedOne : Term (sigma (reindex A (projection (P z₀ z₁))) (liftedB z₀ z₁)) :=
-  Term.reindex z₁ (projection (P z₀ z₁))
+abbrev basePathFamily := SigmaPaths.base z₀ z₁
+abbrev liftedB := reindex B (liftSub A (projection (basePathFamily z₀ z₁)))
+def liftedZero : Term (sigma (reindex A (projection (basePathFamily z₀ z₁))) (liftedB z₀ z₁)) :=
+  Term.reindex z₀ (projection (basePathFamily z₀ z₁))
+def liftedOne : Term (sigma (reindex A (projection (basePathFamily z₀ z₁))) (liftedB z₀ z₁)) :=
+  Term.reindex z₁ (projection (basePathFamily z₀ z₁))
 def genericBase : Term (SigmaPaths.base (liftedZero z₀ z₁) (liftedOne z₀ z₁)) :=
   Term.map (pathReindexIso (reindex A (projection (interval Γ)))
-    (sigmaFst z₀) (sigmaFst z₁) (projection (P z₀ z₁))).hom (generic (P z₀ z₁))
-noncomputable def fields : Family (total (P z₀ z₁)) :=
+    (sigmaFst z₀) (sigmaFst z₁) (projection (basePathFamily z₀ z₁))).hom (generic (basePathFamily z₀ z₁))
+noncomputable def fields : Family (total (basePathFamily z₀ z₁)) :=
   FieldsAlong.family (liftedZero z₀ z₁) (liftedOne z₀ z₁) (genericBase z₀ z₁)
 noncomputable def fieldsFilling (FB : Filling B) (hFB : FB.Lawful) : Filling (fields z₀ z₁) :=
-  FieldsAlong.filling _ _ _ (FB.reindex (liftSub A (projection (P z₀ z₁)))) (hFB.reindex _)
+  FieldsAlong.filling _ _ _ (FB.reindex (liftSub A (projection (basePathFamily z₀ z₁)))) (hFB.reindex _)
 theorem fieldsFilling_lawful (FB : Filling B) (hFB : FB.Lawful) :
     (fieldsFilling z₀ z₁ FB hFB).Lawful := FieldsAlong.filling_lawful _ _ _ _ _
 
@@ -366,144 +366,144 @@ private theorem pi_value_heq {Ξ : Context.{u}} {D : Family Ξ} {E : Family (tot
   cases hr
   rfl
 
-noncomputable def fieldValue {x y : Γ.Elements} (p : (P z₀ z₁).obj x)
-    (q : (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p)) (f : x ⟶ y) (r : (interval Γ).obj y) :
+noncomputable def fieldValue {x y : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    (q : (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p)) (f : x ⟶ y) (r : (interval Γ).obj y) :
     B.obj (extendObj A y (p.val.val f r)) :=
   cast (congrArg (fun h : x ⟶ y => B.obj (extendObj A y (p.val.val h r))) (Category.comp_id f))
-    (q.val.val (extendHom (P z₀ z₁) f p) r)
+    (q.val.val (extendHom (basePathFamily z₀ z₁) f p) r)
 
-theorem fieldValue_heq {x y : Γ.Elements} (p : (P z₀ z₁).obj x)
-    (q : (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p)) (f : x ⟶ y) (r : (interval Γ).obj y) :
-    HEq (fieldValue z₀ z₁ p q f r) (q.val.val (extendHom (P z₀ z₁) f p) r) := cast_heq _ _
+theorem fieldValue_heq {x y : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    (q : (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p)) (f : x ⟶ y) (r : (interval Γ).obj y) :
+    HEq (fieldValue z₀ z₁ p q f r) (q.val.val (extendHom (basePathFamily z₀ z₁) f p) r) := cast_heq _ _
 
-noncomputable def fieldToDependent {x : Γ.Elements} (p : (P z₀ z₁).obj x)
-    (q : (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p)) : SigmaPaths.DependentPath z₀ z₁ p where
+noncomputable def fieldToDependent {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    (q : (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p)) : SigmaPaths.DependentPath z₀ z₁ p where
   val f r := fieldValue z₀ z₁ p q f r
   naturality {y w} f g r := by
     apply eq_of_heq
-    have hn := q.val.naturality (extendHom (P z₀ z₁) f p)
-      (extendHom (P z₀ z₁) g ((P z₀ z₁).map f p)) r
-    let k := (liftSub A (projection (P z₀ z₁))).mapElements.map
+    have hn := q.val.naturality (extendHom (basePathFamily z₀ z₁) f p)
+      (extendHom (basePathFamily z₀ z₁) g ((basePathFamily z₀ z₁).map f p)) r
+    let k := (liftSub A (projection (basePathFamily z₀ z₁))).mapElements.map
       ((FieldsAlong.evaluation (liftedZero z₀ z₁) (liftedOne z₀ z₁) (genericBase z₀ z₁)).mapElements.map
-        (extendHom (interval (total (P z₀ z₁)))
-          (extendHom (P z₀ z₁) g ((P z₀ z₁).map f p)) r))
+        (extendHom (interval (total (basePathFamily z₀ z₁)))
+          (extendHom (basePathFamily z₀ z₁) g ((basePathFamily z₀ z₁).map f p)) r))
     refine (map_value_heq B ?_ ?_ (extendAlong A g (p.val.naturality f g r)) k HEq.rfl (fieldValue_heq z₀ z₁ p q f r)).trans
       ((heq_of_eq hn).trans ?_)
     · exact congrArg (fun h : x ⟶ y => extendObj A y (p.val.val h r)) (Category.comp_id f).symm
     · exact congrArg (fun h : x ⟶ w => extendObj A w (p.val.val h ((interval Γ).map g r)))
         (congrArg (fun k => f ≫ k) (Category.comp_id g)).symm
     · refine (pi_value_heq q.val ?_
-        (extendHom (P z₀ z₁) f p ≫ extendHom (P z₀ z₁) g ((P z₀ z₁).map f p))
-        (extendHom (P z₀ z₁) (f ≫ g) p) HEq.rfl HEq.rfl).trans
+        (extendHom (basePathFamily z₀ z₁) f p ≫ extendHom (basePathFamily z₀ z₁) g ((basePathFamily z₀ z₁).map f p))
+        (extendHom (basePathFamily z₀ z₁) (f ≫ g) p) HEq.rfl HEq.rfl).trans
         (fieldValue_heq z₀ z₁ p q (f ≫ g) ((interval Γ).map g r)).symm
-      exact congrArg (extendObj (P z₀ z₁) w)
-        ((ConcreteCategory.congr_hom ((P z₀ z₁).map_comp f g) p).symm)
+      exact congrArg (extendObj (basePathFamily z₀ z₁) w)
+        ((ConcreteCategory.congr_hom ((basePathFamily z₀ z₁).map_comp f g) p).symm)
   zero f := by
     apply Sigma.ext
     · exact (p.property f).1
     · exact (fieldValue_heq z₀ z₁ p q f _).trans
-        ((heq_of_eq (q.property (extendHom (P z₀ z₁) f p)).1).trans
+        ((heq_of_eq (q.property (extendHom (basePathFamily z₀ z₁) f p)).1).trans
           (Term.sigmaSndOver_val _ _ _ _))
   one f := by
     apply Sigma.ext
     · exact (p.property f).2
     · exact (fieldValue_heq z₀ z₁ p q f _).trans
-        ((heq_of_eq (q.property (extendHom (P z₀ z₁) f p)).2).trans
+        ((heq_of_eq (q.property (extendHom (basePathFamily z₀ z₁) f p)).2).trans
           (Term.sigmaSndOver_val _ _ _ _))
 
-private theorem restricted_base {x : Γ.Elements} (p : (P z₀ z₁).obj x)
-    {y : (total (P z₀ z₁)).Elements} (h : extendObj (P z₀ z₁) x p ⟶ y) :
-    (P z₀ z₁).map ((projection (P z₀ z₁)).mapElements.map h) p = y.val.2 := by
-  exact (generic (P z₀ z₁)).property h
+private theorem restricted_base {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    {y : (total (basePathFamily z₀ z₁)).Elements} (h : extendObj (basePathFamily z₀ z₁) x p ⟶ y) :
+    (basePathFamily z₀ z₁).map ((projection (basePathFamily z₀ z₁)).mapElements.map h) p = y.val.2 := by
+  exact (generic (basePathFamily z₀ z₁)).property h
 
-private theorem restricted_value {x : Γ.Elements} (p : (P z₀ z₁).obj x)
-    {y : (total (P z₀ z₁)).Elements} (h : extendObj (P z₀ z₁) x p ⟶ y)
-    (r : (interval (total (P z₀ z₁))).obj y) :
-    p.val.val ((projection (P z₀ z₁)).mapElements.map h) r = y.val.2.val.val (𝟙 _) r := by
+private theorem restricted_value {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    {y : (total (basePathFamily z₀ z₁)).Elements} (h : extendObj (basePathFamily z₀ z₁) x p ⟶ y)
+    (r : (interval (total (basePathFamily z₀ z₁))).obj y) :
+    p.val.val ((projection (basePathFamily z₀ z₁)).mapElements.map h) r = y.val.2.val.val (𝟙 _) r := by
   have hp := restricted_base z₀ z₁ p h
-  have hv := congrArg (fun q : (P z₀ z₁).obj ((projection (P z₀ z₁)).mapElements.obj y) =>
+  have hv := congrArg (fun q : (basePathFamily z₀ z₁).obj ((projection (basePathFamily z₀ z₁)).mapElements.obj y) =>
     q.val.val (𝟙 _) r) hp
-  exact (congrArg (fun k : x ⟶ (projection (P z₀ z₁)).mapElements.obj y => p.val.val k r) (Category.comp_id _)).symm.trans hv
+  exact (congrArg (fun k : x ⟶ (projection (basePathFamily z₀ z₁)).mapElements.obj y => p.val.val k r) (Category.comp_id _)).symm.trans hv
 
-noncomputable def dependentValue {x : Γ.Elements} (p : (P z₀ z₁).obj x)
+noncomputable def dependentValue {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
     (q : SigmaPaths.DependentPath z₀ z₁ p)
-    {y : (total (P z₀ z₁)).Elements} (h : extendObj (P z₀ z₁) x p ⟶ y)
-    (r : (interval (total (P z₀ z₁))).obj y) :
-    B.obj (extendObj A ((projection (P z₀ z₁)).mapElements.obj y) (y.val.2.val.val (𝟙 _) r)) :=
+    {y : (total (basePathFamily z₀ z₁)).Elements} (h : extendObj (basePathFamily z₀ z₁) x p ⟶ y)
+    (r : (interval (total (basePathFamily z₀ z₁))).obj y) :
+    B.obj (extendObj A ((projection (basePathFamily z₀ z₁)).mapElements.obj y) (y.val.2.val.val (𝟙 _) r)) :=
   cast (congrArg (fun a => B.obj (extendObj A _ a)) (restricted_value z₀ z₁ p h r))
-    (q.val ((projection (P z₀ z₁)).mapElements.map h) r)
+    (q.val ((projection (basePathFamily z₀ z₁)).mapElements.map h) r)
 
-theorem dependentValue_heq {x : Γ.Elements} (p : (P z₀ z₁).obj x)
+theorem dependentValue_heq {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
     (q : SigmaPaths.DependentPath z₀ z₁ p)
-    {y : (total (P z₀ z₁)).Elements} (h : extendObj (P z₀ z₁) x p ⟶ y)
-    (r : (interval (total (P z₀ z₁))).obj y) :
+    {y : (total (basePathFamily z₀ z₁)).Elements} (h : extendObj (basePathFamily z₀ z₁) x p ⟶ y)
+    (r : (interval (total (basePathFamily z₀ z₁))).obj y) :
     HEq (dependentValue z₀ z₁ p q h r)
-      (q.val ((projection (P z₀ z₁)).mapElements.map h) r) := cast_heq _ _
+      (q.val ((projection (basePathFamily z₀ z₁)).mapElements.map h) r) := cast_heq _ _
 
-noncomputable def dependentToField {x : Γ.Elements} (p : (P z₀ z₁).obj x)
+noncomputable def dependentToField {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
     (q : SigmaPaths.DependentPath z₀ z₁ p) :
-    (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p) := by
+    (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p) := by
   refine ⟨{ val := fun h r => dependentValue z₀ z₁ p q h r
             naturality := ?_ }, ?_⟩
   · intro y w f g r
     apply eq_of_heq
-    let f' := (projection (P z₀ z₁)).mapElements.map f
-    let g' := (projection (P z₀ z₁)).mapElements.map g
-    let k := (liftSub A (projection (P z₀ z₁))).mapElements.map
+    let f' := (projection (basePathFamily z₀ z₁)).mapElements.map f
+    let g' := (projection (basePathFamily z₀ z₁)).mapElements.map g
+    let k := (liftSub A (projection (basePathFamily z₀ z₁))).mapElements.map
       ((FieldsAlong.evaluation (liftedZero z₀ z₁) (liftedOne z₀ z₁) (genericBase z₀ z₁)).mapElements.map
-        (extendHom (interval (total (P z₀ z₁))) g r))
+        (extendHom (interval (total (basePathFamily z₀ z₁))) g r))
     refine (map_value_heq B ?_ ?_ k (extendAlong A g' (p.val.naturality f' g' r))
       HEq.rfl (dependentValue_heq z₀ z₁ p q f r)).trans
       ((heq_of_eq (q.naturality f' g' r)).trans ?_)
     · exact congrArg (extendObj A _) (restricted_value z₀ z₁ p f r).symm
-    · exact congrArg (extendObj A _) (restricted_value z₀ z₁ p (f ≫ g) ((interval (total (P z₀ z₁))).map g r)).symm
-    · exact (dependentValue_heq z₀ z₁ p q (f ≫ g) ((interval (total (P z₀ z₁))).map g r)).symm
+    · exact congrArg (extendObj A _) (restricted_value z₀ z₁ p (f ≫ g) ((interval (total (basePathFamily z₀ z₁))).map g r)).symm
+    · exact (dependentValue_heq z₀ z₁ p q (f ≫ g) ((interval (total (basePathFamily z₀ z₁))).map g r)).symm
   · intro y f
     constructor
     · apply eq_of_heq
       exact (dependentValue_heq z₀ z₁ p q f _).trans
-        ((Sigma.mk.inj (q.zero ((projection (P z₀ z₁)).mapElements.map f))).2.trans
+        ((Sigma.mk.inj (q.zero ((projection (basePathFamily z₀ z₁)).mapElements.map f))).2.trans
           (Term.sigmaSndOver_val (liftedZero z₀ z₁) _ _ y).symm)
     · apply eq_of_heq
       exact (dependentValue_heq z₀ z₁ p q f _).trans
-        ((Sigma.mk.inj (q.one ((projection (P z₀ z₁)).mapElements.map f))).2.trans
+        ((Sigma.mk.inj (q.one ((projection (basePathFamily z₀ z₁)).mapElements.map f))).2.trans
           (Term.sigmaSndOver_val (liftedOne z₀ z₁) _ _ y).symm)
 
-theorem fieldToDependent_dependentToField {x : Γ.Elements} (p : (P z₀ z₁).obj x)
+theorem fieldToDependent_dependentToField {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
     (q : SigmaPaths.DependentPath z₀ z₁ p) :
     fieldToDependent z₀ z₁ p (dependentToField z₀ z₁ p q) = q := by
   apply SigmaPaths.DependentPath.ext
   intro y f r
   apply eq_of_heq
   exact (fieldValue_heq z₀ z₁ p _ f r).trans
-    (dependentValue_heq z₀ z₁ p q (extendHom (P z₀ z₁) f p) r)
+    (dependentValue_heq z₀ z₁ p q (extendHom (basePathFamily z₀ z₁) f p) r)
 
-theorem dependentToField_fieldToDependent {x : Γ.Elements} (p : (P z₀ z₁).obj x)
-    (q : (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p)) :
+theorem dependentToField_fieldToDependent {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x)
+    (q : (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p)) :
     dependentToField z₀ z₁ p (fieldToDependent z₀ z₁ p q) = q := by
   apply Subtype.ext
   apply PiElement.ext
   intro y h r
   apply eq_of_heq
   refine (dependentValue_heq z₀ z₁ p _ h r).trans
-    ((fieldValue_heq z₀ z₁ p q ((projection (P z₀ z₁)).mapElements.map h) r).trans ?_)
+    ((fieldValue_heq z₀ z₁ p q ((projection (basePathFamily z₀ z₁)).mapElements.map h) r).trans ?_)
   exact pi_value_heq q.val
-    (congrArg (extendObj (P z₀ z₁) _) (restricted_base z₀ z₁ p h))
-    (extendHom (P z₀ z₁) ((projection (P z₀ z₁)).mapElements.map h) p) h HEq.rfl HEq.rfl
+    (congrArg (extendObj (basePathFamily z₀ z₁) _) (restricted_base z₀ z₁ p h))
+    (extendHom (basePathFamily z₀ z₁) ((projection (basePathFamily z₀ z₁)).mapElements.map h) p) h HEq.rfl HEq.rfl
 
-noncomputable def fieldEquiv {x : Γ.Elements} (p : (P z₀ z₁).obj x) :
-    (fields z₀ z₁).obj (extendObj (P z₀ z₁) x p) ≃ SigmaPaths.DependentPath z₀ z₁ p where
+noncomputable def fieldEquiv {x : Γ.Elements} (p : (basePathFamily z₀ z₁).obj x) :
+    (fields z₀ z₁).obj (extendObj (basePathFamily z₀ z₁) x p) ≃ SigmaPaths.DependentPath z₀ z₁ p where
   toFun := fieldToDependent z₀ z₁ p
   invFun := dependentToField z₀ z₁ p
   left_inv := dependentToField_fieldToDependent z₀ z₁ p
   right_inv := fieldToDependent_dependentToField z₀ z₁ p
 
 noncomputable def componentsEquiv (x : Γ.Elements) :
-    (sigma (P z₀ z₁) (fields z₀ z₁)).obj x ≃ (SigmaPaths.components z₀ z₁).obj x :=
+    (sigma (basePathFamily z₀ z₁) (fields z₀ z₁)).obj x ≃ (SigmaPaths.components z₀ z₁).obj x :=
   Equiv.sigmaCongrRight (fieldEquiv z₀ z₁)
 
 noncomputable def decomposition :
-    sigma (P z₀ z₁) (fields z₀ z₁) ≅ SigmaPaths.components z₀ z₁ :=
+    sigma (basePathFamily z₀ z₁) (fields z₀ z₁) ≅ SigmaPaths.components z₀ z₁ :=
   NatIso.ofComponents (fun x => (componentsEquiv z₀ z₁ x).toIso) (by
     intro x y f
     apply ConcreteCategory.hom_ext
@@ -514,19 +514,19 @@ noncomputable def decomposition :
       apply SigmaPaths.DependentPath.ext
       intro w g r
       apply eq_of_heq
-      exact (fieldValue_heq z₀ z₁ ((P z₀ z₁).map f q.1)
-        ((fields z₀ z₁).map (extendHom (P z₀ z₁) f q.1) q.2) g r).trans
+      exact (fieldValue_heq z₀ z₁ ((basePathFamily z₀ z₁).map f q.1)
+        ((fields z₀ z₁).map (extendHom (basePathFamily z₀ z₁) f q.1) q.2) g r).trans
         ((pi_value_heq q.2.val
-          (congrArg (extendObj (P z₀ z₁) w)
-            (ConcreteCategory.congr_hom ((P z₀ z₁).map_comp f g) q.1).symm)
-          (extendHom (P z₀ z₁) f q.1 ≫ extendHom (P z₀ z₁) g ((P z₀ z₁).map f q.1))
-          (extendHom (P z₀ z₁) (f ≫ g) q.1) HEq.rfl HEq.rfl).trans
+          (congrArg (extendObj (basePathFamily z₀ z₁) w)
+            (ConcreteCategory.congr_hom ((basePathFamily z₀ z₁).map_comp f g) q.1).symm)
+          (extendHom (basePathFamily z₀ z₁) f q.1 ≫ extendHom (basePathFamily z₀ z₁) g ((basePathFamily z₀ z₁).map f q.1))
+          (extendHom (basePathFamily z₀ z₁) (f ≫ g) q.1) HEq.rfl HEq.rfl).trans
             (fieldValue_heq z₀ z₁ q.1 q.2 (f ≫ g) r).symm))
 
-noncomputable def wholeIso : SigmaPaths.whole z₀ z₁ ≅ sigma (P z₀ z₁) (fields z₀ z₁) :=
+noncomputable def wholeIso : SigmaPaths.whole z₀ z₁ ≅ sigma (basePathFamily z₀ z₁) (fields z₀ z₁) :=
   SigmaPaths.decomposition z₀ z₁ ≪≫ (decomposition z₀ z₁).symm
 
-theorem wholeIso_inv_fields (x : Γ.Elements) (q : (sigma (P z₀ z₁) (fields z₀ z₁)).obj x) :
+theorem wholeIso_inv_fields (x : Γ.Elements) (q : (sigma (basePathFamily z₀ z₁) (fields z₀ z₁)).obj x) :
     SigmaPaths.second z₀ z₁ ((wholeIso z₀ z₁).inv.app x q) =
       fieldToDependent z₀ z₁ q.1 q.2 := rfl
 

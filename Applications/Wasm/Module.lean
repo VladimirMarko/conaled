@@ -70,9 +70,9 @@ theorem invoke_of_body (s : ExtendedStore F O) (address : Nat) (f : Function)
     Steps (I := I) s dummyFrame (values args ++ [.invoke address]) dummyFrame (values result) := by
   apply Steps.cons (.invoke _ _ _ _ lookup inputs)
   have inLabel := body.context (.label f.type.results.length [] .hole)
-  have inFrame := inLabel.inFrame dummyFrame f.type.results.length
+  have inFrame := inLabel.in_frame dummyFrame f.type.results.length
   apply inFrame.trans
-  apply Steps.cons (.inFrame _ _ _ _ _ _ (.label _ _ _ _))
+  apply Steps.cons (.in_frame _ _ _ _ _ _ (.label _ _ _ _))
   exact Steps.single (.frame _ _ _ _ outputs)
 
 /-- Stack-height validation for the uniform i32 signature used by generated

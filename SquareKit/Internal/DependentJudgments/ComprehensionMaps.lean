@@ -267,7 +267,7 @@ theorem Inputs.operation_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
       Value.substitution_heq_eq rfl (F.extend A) (F.weaken A)
   | generic Γ A =>
     simpa [operation, Value.map, Function.comp_def] using
-      Value.term_heq_eq (F.extend A) (F.variable_type A) (F.mapVariable A)
+      Value.term_heq_eq (F.extend A) (F.variable_type A) (F.genericVariable_preserved A)
   | @pair Γ Δ A σ t =>
     let t' := cast (congrArg (N.Section _) (F.subTy A σ)) (F.mapTm t)
     have ht : Value.term (F.context Δ) (F.family (M.subTy A σ)) (F.mapTm t) =

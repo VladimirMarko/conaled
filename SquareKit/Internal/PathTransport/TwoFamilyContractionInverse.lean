@@ -84,7 +84,7 @@ theorem contractionLift_obj (x : Total E) :
 
 omit [IsLocallyGroupoid Γ] in
 /-- Forward transport recovers the element transported backwards, for every family. -/
-theorem contractionLiftBoundary (x : Total E) :
+theorem contractionLift_boundary (x : Total E) :
     (E.map (η.app x.base)).obj ((E.map (inv (η.app x.base))).obj x.fiber) = x.fiber := by
   have h : E.map (inv (η.app x.base)) ≫ E.map (η.app x.base) = 𝟙 (E.obj x.base) := by
     calc
@@ -96,7 +96,7 @@ theorem contractionLiftBoundary (x : Total E) :
 noncomputable def contractionLiftComponent (x : Total E) :
     (contractionLift R η E).obj x ⟶ x :=
   eqToHom (contractionLift_obj R η E x) ≫
-    (⟨η.app x.base, eqToHom (contractionLiftBoundary R η E x)⟩ :
+    (⟨η.app x.base, eqToHom (contractionLift_boundary R η E x)⟩ :
       (⟨R.obj x.base, (E.map (inv (η.app x.base))).obj x.fiber⟩ : Total E) ⟶ x)
 
 end SquareKit.Internal.PathTransport.TwoFamily

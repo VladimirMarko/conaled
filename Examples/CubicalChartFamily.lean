@@ -14,8 +14,8 @@ def count : Count context :=
 
 def data (e : Nat) : Inputs context where
   count := count
-  Y := naturalsCode
-  D := labelProjection count ≫ countCode
+  targetCode := naturalsCode
+  domainCode := labelProjection count ≫ countCode
   target := (naturalSection 0).reindex
     (projection (liftedDecode (labelProjection count ≫ countCode)) ≫ labelProjection count)
   endpoint := naturalSection e
@@ -102,8 +102,8 @@ theorem positive_label :
 /-- Empty D is rejected even at a nonempty label fiber. -/
 def emptyData : Inputs context where
   count := count
-  Y := naturalsCode
-  D := labelProjection count ≫ emptyCode
+  targetCode := naturalsCode
+  domainCode := labelProjection count ≫ emptyCode
   target := (naturalSection 0).reindex
     (projection (liftedDecode (labelProjection count ≫ emptyCode)) ≫ labelProjection count)
   endpoint := naturalSection 0

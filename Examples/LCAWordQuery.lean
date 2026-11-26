@@ -38,7 +38,7 @@ example {width capacity inputWords frameWords : Nat}
 
 -- The concrete one-node machine instantiates the complete execution theorem.
 example : (answer 1 (arena singletonInput
-    (BackendBounds.machine_arena singletonMachine)) 0 0).1.val = 0 := by
+    (BackendBounds.machine_arena singleton_machine)) 0 0).1.val = 0 := by
   rw [answer_spec]
   decide
 

@@ -369,25 +369,25 @@ theorem deleteRun_valid [LT α] [DecidableLT α] (x : α) (t : BinaryTree (α ×
 theorem insertRun_setValid [LinearOrder α] (x : α) (t : BinaryTree (α × Nat))
     (hv : Trees.AVL.SetValid t) : Trees.AVL.SetValid (insertRun x t).1 := by
   rw [insertRun_value]
-  exact Trees.AVL.setLaws.insert_valid x t hv
+  exact Trees.AVL.set_laws.insert_valid x t hv
 
 theorem deleteRun_setValid [LinearOrder α] (x : α) (t : BinaryTree (α × Nat))
     (hv : Trees.AVL.SetValid t) : Trees.AVL.SetValid (deleteRun x t).1 := by
   rw [deleteRun_value]
-  exact Trees.AVL.setLaws.delete_valid x t hv
+  exact Trees.AVL.set_laws.delete_valid x t hv
 
 theorem insertRun_mem [LinearOrder α] (x : α) (t : BinaryTree (α × Nat))
     (hv : Trees.AVL.SetValid t) (y : α) :
     y ∈ Trees.setTree (Trees.Cached.erase (insertRun x t).1) ↔
       y = x ∨ y ∈ Trees.setTree (Trees.Cached.erase t) := by
   rw [insertRun_value]
-  exact Trees.AVL.setLaws.insert x t hv y
+  exact Trees.AVL.set_laws.insert x t hv y
 
 theorem deleteRun_mem [LinearOrder α] (x : α) (t : BinaryTree (α × Nat))
     (hv : Trees.AVL.SetValid t) (y : α) :
     y ∈ Trees.setTree (Trees.Cached.erase (deleteRun x t).1) ↔
       y ≠ x ∧ y ∈ Trees.setTree (Trees.Cached.erase t) := by
   rw [deleteRun_value]
-  exact Trees.AVL.setLaws.delete x t hv y
+  exact Trees.AVL.set_laws.delete x t hv y
 
 end Resources.AVL

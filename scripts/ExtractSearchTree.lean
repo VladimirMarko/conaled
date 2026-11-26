@@ -134,13 +134,13 @@ private def ordinaryPreorder {W : Type} (decode : W → Int) :
       Lean.Json.arr #[Lean.Json.null, Lean.toJson (toString (decode binding.1)),
         Lean.toJson binding.2] :: ordinaryPreorder decode left (ordinaryPreorder decode right suffix)
 
-private def redblackPreorder {W : Type} (decode : W → Int) :
+private def redBlackPreorder {W : Type} (decode : W → Int) :
     Search.RedBlack.Tree W Nat → List Lean.Json → List Lean.Json
   | .nil, suffix => Lean.Json.null :: suffix
   | .node color left binding right, suffix =>
       let name := match color with | .red => "red" | .black => "black"
       Lean.Json.arr #[Lean.toJson name, Lean.toJson (toString (decode binding.1)),
-        Lean.toJson binding.2] :: redblackPreorder decode left (redblackPreorder decode right suffix)
+        Lean.toJson binding.2] :: redBlackPreorder decode left (redBlackPreorder decode right suffix)
 
 private def rootBlack {W : Type} : Search.RedBlack.Tree W Nat → Bool
   | .nil => true
@@ -172,7 +172,7 @@ private def ordinaryTreeObservation {W : Type} (decode : W → Int)
     ("bst", Lean.toJson bst), ("redblack", Lean.Json.null),
     ("preorder", Lean.Json.arr (ordinaryPreorder decode tree []).toArray)]
 
-private def redblackTreeObservation {W : Type} (requireValid : Bool) (decode : W → Int)
+private def redBlackTreeObservation {W : Type} (requireValid : Bool) (decode : W → Int)
     (tree : Search.RedBlack.Tree W Nat) : Except String Lean.Json := do
   let bst := orderedWithin decode none none (Search.RedBlack.eraseColors tree)
   let blackRoot := rootBlack tree
@@ -189,7 +189,7 @@ private def redblackTreeObservation {W : Type} (requireValid : Bool) (decode : W
       ("rootBlack", Lean.toJson blackRoot), ("noRedRed", Lean.toJson localInvariant),
       ("equalBlackHeight", Lean.toJson commonBlackHeight.isSome),
       ("blackHeight", Lean.toJson commonBlackHeight), ("logHeightBound", Lean.toJson logBound)]),
-    ("preorder", Lean.Json.arr (redblackPreorder decode tree []).toArray)]
+    ("preorder", Lean.Json.arr (redBlackPreorder decode tree []).toArray)]
 
 private def sourceQueries {W T : Type} (config : WorkloadConfig) (inRange : Int → Bool)
     (encode : Int → W) (decode : W → Int) (ops : Search.OrderedMap.Ops W Nat T)
@@ -317,7 +317,7 @@ private def workloadFor {W : Type} (config : WorkloadConfig)
   let sampleFor := fun phase index =>
     if config.realization == "redblack" then
       workloadSampleFor config replayInputs phase index inRange encode decode
-        (Search.RedBlack.ops ltb) Search.RedBlack.elements (redblackTreeObservation true decode)
+        (Search.RedBlack.ops ltb) Search.RedBlack.elements (redBlackTreeObservation true decode)
     else
       workloadSampleFor config replayInputs phase index inRange encode decode
         (Search.OrderedMap.DecodedKeys.ops ltb) Examples.ExtractedTrees.elements
@@ -614,7 +614,7 @@ private def examples : IO Lean.Json := do
     ("tables", Lean.Json.arr #[intTable.1, wordTable.1, int64Table.1]),
     ("wordBoundaries", boundaries)]
 
-private def redblackInvariantCases : IO (List Lean.Json) := do
+private def redBlackInvariantCases : IO (List Lean.Json) := do
   -- Raw finite fixtures independently separate the four executable checks.
   -- The red singleton satisfies the general shape invariant under a black
   -- parent; it violates only the black-root convention of the public history.
@@ -627,9 +627,9 @@ private def redblackInvariantCases : IO (List Lean.Json) := do
     ("unequal-black-height", .node .black (.node .black .nil (-1, 1) .nil) (0, 1) .nil),
     ("red-root", .node .red .nil (0, 1) .nil)]
   fixtures.mapM fun (name, tree) => do
-    let observation ← IO.lazyPure fun _ => redblackTreeObservation false id tree
+    let observation ← IO.lazyPure fun _ => redBlackTreeObservation false id tree
     let observation ← IO.ofExcept observation
-    let validity ← IO.lazyPure fun _ => redblackTreeObservation true id tree
+    let validity ← IO.lazyPure fun _ => redBlackTreeObservation true id tree
     let accepted := match validity with | .ok _ => true | .error _ => false
     if accepted then throw (IO.userError s!"invalid public-tree fixture was accepted: {name}")
     let entries ← IO.lazyPure fun _ => Search.RedBlack.elements tree
@@ -638,23 +638,23 @@ private def redblackInvariantCases : IO (List Lean.Json) := do
       ("entries", Lean.toJson (entries.map (fun (key, value) => (toString key, value)))),
       ("tree", observation)]
 
-private def redblackExamples : IO Lean.Json := do
+private def redBlackExamples : IO Lean.Json := do
   let intTable ← tableCase "int" (fun _ => true) id id
     (Search.RedBlack.ops Representations.SignedComparison.intLtb)
-    Search.RedBlack.elements Search.RedBlack.elementsAux (redblackTreeObservation true id)
+    Search.RedBlack.elements Search.RedBlack.elementsAux (redBlackTreeObservation true id)
   let wordTable ← tableCase "word63"
     (fun key => decide (-(2 : Int)^62 ≤ key ∧ key < (2 : Int)^62))
     (BitVec.ofInt 63) BitVec.toInt
     (Search.RedBlack.ops Representations.SignedComparison.wordLtb)
-    Search.RedBlack.elements Search.RedBlack.elementsAux (redblackTreeObservation true BitVec.toInt)
+    Search.RedBlack.elements Search.RedBlack.elementsAux (redBlackTreeObservation true BitVec.toInt)
   let int64Table ← tableCase "int64"
     (fun key => decide (-(2 : Int)^63 ≤ key ∧ key < (2 : Int)^63))
     Int64.ofInt Int64.toInt
     (Search.RedBlack.ops Representations.SignedComparison.int64Ltb)
-    Search.RedBlack.elements Search.RedBlack.elementsAux (redblackTreeObservation true Int64.toInt)
+    Search.RedBlack.elements Search.RedBlack.elementsAux (redBlackTreeObservation true Int64.toInt)
   let package := fun (result : Lean.Json × Lean.Json) =>
     Lean.Json.mkObj [("observations", result.1), ("tree", result.2)]
-  let invariantCases ← redblackInvariantCases
+  let invariantCases ← redBlackInvariantCases
   return Lean.Json.mkObj [
     ("schema", Lean.toJson (2 : Nat)), ("kind", Lean.toJson "redblack-examples"),
     ("tables", Lean.Json.arr #[package intTable, package wordTable, package int64Table]),
@@ -1007,7 +1007,7 @@ def main (args : List String) : IO UInt32 := do
       IO.println (← ExtractSearchTree.examples).compress
       return 0
     | ["redblack-examples"] =>
-      IO.println (← ExtractSearchTree.redblackExamples).compress
+      IO.println (← ExtractSearchTree.redBlackExamples).compress
       return 0
     | ["binom-examples"] =>
       IO.println ExtractSearchTree.binomialExamples.compress

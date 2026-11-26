@@ -42,11 +42,11 @@ theorem generatedFamilyMap_sub (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
   apply eq_of_heq
   apply (Family.relabelMap_heq _ _ _ _ _).trans
   exact Family.reindex_map_heq (a M) (s M)
-    ((leftSignatureMap S).generatedCtx hΓ) ((rightSignatureMap S).generatedCtx hΓ)
-    ((leftSignatureMap S).generatedCtx hΔ) ((rightSignatureMap S).generatedCtx hΔ)
-    ((leftSignatureMap S).generatedTy hA).2 ((rightSignatureMap S).generatedTy hA).2
-    (by exact ((leftSignatureMap S).generatedSub hs).2.2)
-    (by exact ((rightSignatureMap S).generatedSub hs).2.2)
+    ((leftSignatureMap S).generated_ctx hΓ) ((rightSignatureMap S).generated_ctx hΓ)
+    ((leftSignatureMap S).generated_ctx hΔ) ((rightSignatureMap S).generated_ctx hΔ)
+    ((leftSignatureMap S).generated_ty hA).2 ((rightSignatureMap S).generated_ty hA).2
+    (by exact ((leftSignatureMap S).generated_sub hs).2.2)
+    (by exact ((rightSignatureMap S).generated_sub hs).2.2)
     (generatedSubstitution_commutes S hΓ hΔ hs)
 
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

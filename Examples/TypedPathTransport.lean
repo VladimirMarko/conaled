@@ -28,7 +28,7 @@ theorem conversion_in_groupoids (C : Type u) [Groupoid.{u} C] (B : C ⥤ Type u)
     (e : TmEqDeriv Γ γ A a t ξ s ν) :
     interpretTm (GroupoidModel.Instance.fullModel C B) ht =
       interpretTm (GroupoidModel.Instance.fullModel C B) hs := by
-  rw [interpretTm_agrees, interpretTm_agrees, termSound e]
+  rw [interpretTm_agrees, interpretTm_agrees, term_sound e]
 
 /-- Reindexing the actual two-comprehension path context agrees with the
 structural map used in the model's source rules. -/

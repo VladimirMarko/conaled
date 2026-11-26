@@ -105,7 +105,7 @@ theorem comp_laws {F : RawMap C D} {G : RawMap D K}
   terminal := J.trans (LG.congr I.terminal) (J.trans (LG.comp _ _)
     (J.trans (KC.comp (J.refl _) JJ.terminal) (J.symm (KL.assoc _ _ _))))
 
-theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_laws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (R : F.Reflects E H) (DC : CategoryCongr D H) (DL : CategoryLaws D H)
     {T : TerminalOps C} {U : TerminalOps D} {i : TerminalMap F T U}
     (I : ComparisonLaws H i) (M : TerminalMapLaws H i) (UL : TerminalLaws H U) :
@@ -163,14 +163,14 @@ theorem comp_laws {F : RawMap C D} {G : RawMap D K}
   pair f g := J.trans (LG.congr (I.pair f g)) (J.trans (LG.comp _ _)
     (J.trans (KC.comp (J.refl _) (JJ.pair _ _)) (J.symm (KL.assoc _ _ _))))
 
-theorem transportCongr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_congr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H) (DC : CategoryCongr D H)
     {S : ProductOps C} {T : ProductOps D} {i : ProductMap F S T}
     (M : ProductMapLaws H i) (TC : ProductCongr H T) : ProductCongr E S where
   pair hf hg := R (H.trans (M.pair _ _) (H.trans
     (DC.comp (H.refl _) (TC.pair (L.congr hf) (L.congr hg))) (H.symm (M.pair _ _))))
 
-theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_laws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H)
     (DC : CategoryCongr D H) (DL : CategoryLaws D H)
     {S : ProductOps C} {T : ProductOps D} {i : ProductMap F S T}

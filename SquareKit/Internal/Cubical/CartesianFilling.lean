@@ -59,14 +59,14 @@ def Subcontext.reindex {Γ Δ : Context.{u}} (φ : Subcontext Γ) (σ : Δ ⟶ �
 
 /-- A locally finite positive formula in dimension equations. -/
 structure Cofibration (Γ : Context.{u}) extends Subcontext Γ where
-  localFormula : ∀ x : Γ.Elements, ∃ p : Face x.obj.unop.dimension,
+  local_formula : ∀ x : Γ.Elements, ∃ p : Face x.obj.unop.dimension,
     ∀ {y : Γ.Elements} (f : x ⟶ y), Holds y ↔ (p.subst f.hom.unop).Holds
 
 def Cofibration.reindex {Γ Δ : Context.{u}} (φ : Cofibration Γ) (σ : Δ ⟶ Γ) :
     Cofibration Δ where
   toSubcontext := φ.toSubcontext.reindex σ
-  localFormula x := by
-    obtain ⟨p, hp⟩ := φ.localFormula (σ.mapElements.obj x)
+  local_formula x := by
+    obtain ⟨p, hp⟩ := φ.local_formula (σ.mapElements.obj x)
     exact ⟨p, fun f => hp (σ.mapElements.map f)⟩
 
 def representable (I : Cube) : Context.{u} :=
@@ -81,7 +81,7 @@ def Face.cofibration {I : Cube} (p : Face I.dimension) : Cofibration (representa
     change Cube.comp f.hom.unop _ = _ at hf
     rw [← hf]
     exact hh
-  localFormula x := ⟨p.subst x.val.down, fun f => by
+  local_formula x := ⟨p.subst x.val.down, fun f => by
     rw [Face.subst_comp]
     have hf := congrArg ULift.down f.map_val
     change Cube.comp f.hom.unop _ = _ at hf

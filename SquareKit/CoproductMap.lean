@@ -65,14 +65,14 @@ theorem comp_inverse {F : RawMap C D} {G : RawMap D K}
     ComparisonLaws J (comp i j a b) :=
   Comparison.comp_laws KC KL (Comparison.map_laws LG (I a b)) (JJ _ _)
 
-theorem transportCongr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_congr {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H) (DC : CategoryCongr D H)
     {S : CoproductOps C} {T : CoproductOps D} {i : CoproductMap F S T}
     (M : CoproductMapLaws H i) (TC : CoproductCongr D H T) : CoproductCongr C E S where
   copair hf hg := R (H.trans (M.copair _ _) (H.trans
     (DC.comp (TC.copair (L.congr hf) (L.congr hg)) (H.refl _)) (H.symm (M.copair _ _))))
 
-theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
+theorem transport_laws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (L : MapLaws F E H) (R : F.Reflects E H)
     (DC : CategoryCongr D H) (DL : CategoryLaws D H)
     {S : CoproductOps C} {T : CoproductOps D} {i : CoproductMap F S T}

@@ -28,7 +28,7 @@ def structureOf (P : SheafTorsor.Torsor G X) :
   mul_act x g h p := P.mul_act x.unop.unop g h p
   natural f := P.natural f.unop.unop
   principal _ := P.principal _
-  locallyInhabited x := by
+  locally_inhabited x := by
     apply J.superset_covering ?_
       (Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom x.unop.val)
     rintro V f ⟨⟨y,p⟩, hp⟩
@@ -48,9 +48,9 @@ def torsor (Q : Sheaf (ElementSite.topology X.obj J) (Type u))
   mul_act x g h p := A.mul_act (op (op x)) g h p
   natural f := A.natural f.op.op
   principal _ := A.principal _
-  locallySurjective := ⟨by
+  isLocallySurjective := ⟨by
     intro V x
-    apply J.superset_covering ?_ (A.locallyInhabited (ElementSite.point X.obj V x))
+    apply J.superset_covering ?_ (A.locally_inhabited (ElementSite.point X.obj V x))
     rintro W f ⟨y, hy, ⟨p⟩⟩
     exact ⟨⟨y,p⟩, hy.symm⟩⟩
 
@@ -78,9 +78,9 @@ def overTerminal {G : Sheaf J GrpCat.{u}} {Q : Sheaf J (Type u)}
   mul_act x := A.mul_act x.obj
   natural f := A.natural f.hom
   principal x := A.principal x.obj
-  locallySurjective := ⟨by
+  isLocallySurjective := ⟨by
     intro U x
-    apply J.superset_covering ?_ (A.locallyInhabited U)
+    apply J.superset_covering ?_ (A.locally_inhabited U)
     rintro V f ⟨p⟩
     refine ⟨⟨PUnit.unit,p⟩, ?_⟩
     change PUnit.unit = _

@@ -153,7 +153,7 @@ theorem recoveredClutching_not_trivializable :
 abbrev regular := trivial SmoothTorsors.group SmoothTorsors.point
 instance regular_locallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p regular.family).hom :=
-  regular.locallySurjective
+  regular.isLocallySurjective
 
 abbrev regularDatum := Descent.canonicalDatum regular.family regular
 

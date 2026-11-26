@@ -14,12 +14,12 @@ private theorem iso_square_inverse {C : Type*} [Category C] {A B D E : C}
 namespace NormalizedIdentitySingleton
 variable {Γ Δ : Context.{u}} (A : Family Γ) (a : Term A) (σ : Δ ⟶ Γ)
 
-abbrev familyEquality : reindex (fiber A a) (liftSub A σ) = fiber (reindex A σ) (a.reindex σ) :=
+abbrev family_equality : reindex (fiber A a) (liftSub A σ) = fiber (reindex A σ) (a.reindex σ) :=
   normalizedIdentity_reindex (reindex A (projection A)) (a.reindex (projection A)) (generic A) (liftSub A σ)
 
 def directMap : context (reindex A σ) (a.reindex σ) ⟶ context A a :=
   familyReindexMap (fiber A a) (fiber (reindex A σ) (a.reindex σ)) (liftSub A σ)
-    (eqToHom (familyEquality A a σ).symm)
+    (eqToHom (family_equality A a σ).symm)
 
 theorem rawMap_eq :
     familyReindexMap (IdentitySingleton.fiber A a) (IdentitySingleton.fiber (reindex A σ) (a.reindex σ))
@@ -32,7 +32,7 @@ theorem presentation_directMap :
   have h := iso_square_inverse
     (Functor.isoWhiskerLeft (liftSub A σ).mapElements
       (normalizedIdentityIso (reindex A (projection A)) (a.reindex (projection A)) (generic A)))
-    (eqToIso (familyEquality A a σ))
+    (eqToIso (family_equality A a σ))
     (identityReindexIso (reindex A (projection A)) (a.reindex (projection A)) (generic A) (liftSub A σ))
     (normalizedIdentityIso (reindex (reindex A (projection A)) (liftSub A σ))
       ((a.reindex (projection A)).reindex (liftSub A σ)) ((generic A).reindex (liftSub A σ)))

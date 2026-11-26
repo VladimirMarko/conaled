@@ -141,7 +141,7 @@ recovers the original transport value. `FrozenMemoSelectedPaths` supplies the
 original eight-binder path operands and their source evaluations.
 `TwoFamilySelectedPathObservation.inputPaths_normalValue` retains the entire
 normalized selected witness through both weakenings. Its concrete
-`normalizedIntegerObservation` computes the integer label of that same
+`normalized_integer_observation` computes the integer label of that same
 original witness.
 `FrozenOrdinaryActionEvaluation.source_action` identifies the ordinary action
 expression on those exact operands with its semantic J construction.

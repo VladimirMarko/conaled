@@ -31,11 +31,11 @@ def homFromMathlib {a b : CategoryTheory.Comma F G} (f : a ⟶ b) :
     homToMathlib F G (homFromMathlib F G f) = f := rfl
 
 def mathlibMap : RawMap
-    (ops (equalityCongr _) (ofCategoryLaws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
+    (ops (equality_congr _) (ofCategory_laws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
     (ofCategory (CategoryTheory.Comma F G)) := ⟨toMathlib F G, homToMathlib F G⟩
 
 theorem mathlibMap_laws : MapLaws (mathlibMap F G)
-    (equiv (equalityCongr _) (ofCategoryLaws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
+    (equiv (equality_congr _) (ofCategory_laws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
     (equality _) where
   congr h := CategoryTheory.CommaMorphism.ext h.1 h.2
   ident := rfl
@@ -43,7 +43,7 @@ theorem mathlibMap_laws : MapLaws (mathlibMap F G)
 
 /-- This includes equality of both components, not merely equal interpreted arrows. -/
 theorem mathlibMap_reflects : (mathlibMap F G).Reflects
-    (equiv (equalityCongr _) (ofCategoryLaws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
+    (equiv (equality_congr _) (ofCategory_laws T) (RawMap.ofFunctor_laws F) (RawMap.ofFunctor_laws G))
     (equality _) := fun h => ⟨congrArg CategoryTheory.CommaMorphism.left h,
       congrArg CategoryTheory.CommaMorphism.right h⟩
 end Lawful

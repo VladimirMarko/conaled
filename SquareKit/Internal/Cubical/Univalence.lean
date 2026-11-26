@@ -121,7 +121,7 @@ noncomputable def boundaryPath :
 def boundaryMap (f : decode a ⟶ decode b) : decode (CodeSystem.boundary a b) ⟶
     reindex (decode (ambient b)) (restrictInclusion face) :=
   CodeSystem.Maps.glue (boundaryLeft a b f) (boundaryRight a b)
-    (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint)
+    (CodeSystem.Maps.disjoint_compatible _ _ intervalFace_disjoint)
 
 private theorem reindex_eqToHom {Ξ Ω : Context.{u}} {A B : Family Ξ}
     (h : A = B) (σ : Ω ⟶ Ξ) :
@@ -135,7 +135,7 @@ theorem boundaryMap_zero (f : decode a ⟶ decode b) :
       eqToHom (congrArg decode (CodeSystem.boundary_zero a b)) ≫ f := by
   have h := congrArg (Functor.whiskerLeft (CodeSystem.endpointFace Γ false).mapElements)
     (CodeSystem.Maps.glue_left (boundaryLeft a b f) (boundaryRight a b)
-      (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint))
+      (CodeSystem.Maps.disjoint_compatible _ _ intervalFace_disjoint))
   refine h.trans ?_
   change Functor.whiskerLeft (CodeSystem.endpointFace Γ false).mapElements
     (eqToHom (boundary_left a b)) ≫ f = _
@@ -147,7 +147,7 @@ theorem boundaryMap_one (f : decode a ⟶ decode b) :
       eqToHom (congrArg decode (CodeSystem.boundary_one a b)) := by
   have h := congrArg (Functor.whiskerLeft (CodeSystem.endpointFace Γ true).mapElements)
     (CodeSystem.Maps.glue_right (boundaryLeft a b f) (boundaryRight a b)
-      (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint))
+      (CodeSystem.Maps.disjoint_compatible _ _ intervalFace_disjoint))
   exact h.trans (reindex_eqToHom (boundary_right a b) (CodeSystem.endpointFace Γ true))
 
 noncomputable def boundaryEquivalence (f : decode a ⟶ decode b)

@@ -73,9 +73,9 @@ def rootContraction {Γ : Context.{u}} (A : Family Γ) (x : Section A) :
   left := Instance.rootEquivalence S.base.left S.leftFiber A.left x.left
   right := Instance.rootEquivalence S.base.right S.rightFiber A.right x.right
   square := by
-    have hs := PathComparison.baseFamilySquare A.right A.left Γ.map A.map x.right x.left x.commutes
+    have hs := PathComparison.base_family_square A.right A.left Γ.map A.map x.right x.left x.commutes
     rw [← path_map S A x] at hs
-    exact EquivalenceSquare.changeFunctorSquare
+    exact EquivalenceSquare.changeFunctor_square
       (Instance.pathEquivalence S.base.right S.rightFiber A.right x.right)
       (Instance.pathEquivalence S.base.left S.leftFiber A.left x.left)
       _ _ hs _ _ (Instance.pathEquivalence_functor _ _ _ _) (Instance.pathEquivalence_functor _ _ _ _)

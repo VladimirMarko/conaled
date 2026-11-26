@@ -17,7 +17,7 @@ def composedGraph (A : Rep.{u}) {T : Type u} (d : A.S → T) : RelRep.{u} :=
 /-- Equality orientation follows `Relational.graph`, not the internal sequent. -/
 theorem composedGraph_iff (A : Rep.{u}) {T : Type u} (d : A.S → T) (r : A.R) (t : T) :
     (composedGraph A d).Rel r t ↔ (graph (A.after d)).Rel r t := by
-  have interpreted := inSet A.decode d r t
+  have interpreted := in_set A.decode d r t
   constructor
   · rintro ⟨s, hs, ht⟩
     exact (interpreted.mp ⟨s, hs.symm, ht.symm⟩).symm

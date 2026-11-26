@@ -62,7 +62,7 @@ def sieveAt (φ : Subcontext Γ) (x : Γ.Elements) : Sieve x.obj.unop where
       exact (Γ.map_comp_apply (Quiver.Hom.op f) (Quiver.Hom.op g) x.val).symm)
     exact φ.natural k h
 
-theorem localFormula (φ : Subcontext Γ) (x : Γ.Elements) :
+theorem local_formula (φ : Subcontext Γ) (x : Γ.Elements) :
     ∃ p : Face x.obj.unop.dimension, ∀ {y : Γ.Elements} (f : x ⟶ y),
       φ.Holds y ↔ (p.subst f.hom.unop).Holds := by
   refine ⟨Face.ofSieve (φ.sieveAt x), fun {y} f => ?_⟩
@@ -73,7 +73,7 @@ theorem localFormula (φ : Subcontext Γ) (x : Γ.Elements) :
 /-- The certificate is a proposition, not a choice of raw formula exposed to fillers. -/
 noncomputable def toCofibration (φ : Subcontext Γ) : Cofibration Γ where
   toSubcontext := φ
-  localFormula := φ.localFormula
+  local_formula := φ.local_formula
 
 @[simp] theorem toCofibration_subcontext (φ : Subcontext Γ) :
     φ.toCofibration.toSubcontext = φ := rfl

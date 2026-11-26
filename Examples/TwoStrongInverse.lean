@@ -56,7 +56,7 @@ theorem recovered_nonzero :
 example (x : TwoFamily.Total TwoFamilyPathJBeta.motive) :
     (TwoFamilyPathJBeta.motive.map (contraction.app x.base)).obj
       ((TwoFamilyPathJBeta.motive.map (inv (contraction.app x.base))).obj x.fiber) = x.fiber :=
-  TwoFamily.contractionLiftBoundary _ contraction TwoFamilyPathJBeta.motive x
+  TwoFamily.contractionLift_boundary _ contraction TwoFamilyPathJBeta.motive x
 
 /-- The actual higher path contraction cancels with its constructed inverse. -/
 example : Pseudofunctor.StrongTrans.vcomp (strongInverse contraction) contraction =

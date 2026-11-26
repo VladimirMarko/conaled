@@ -79,7 +79,7 @@ def targetAlgebra : {j : IndexedCompositional.Index α} → (op : signature.Op j
   | _, .union _ _ _, xs => WitnessTrie.union (xs 0) (xs 1)
   | _, .scale _ _ d, xs => WitnessTrie.scale d (xs 0)
 
-theorem sourceCompatible [DecidableEq α] :
+theorem source_compatible [DecidableEq α] :
     (rule (α := α)).Compatible sourceAlgebra IndexedCompositional.source where
   output j op xs := by
     cases op with
@@ -94,7 +94,7 @@ theorem sourceCompatible [DecidableEq α] :
       | zero => exact nomatch a
       | succ n => rfl
 
-theorem targetCompatible :
+theorem target_compatible :
     (rule (α := α)).Compatible targetAlgebra IndexedCompositional.target where
   output j op xs := by
     cases op with
@@ -162,10 +162,10 @@ theorem recovered [DecidableEq α] {P : Language α} {n}
     (Term.fold targetAlgebra IndexedCompositional.unfold t).lookup word bound =
       (Term.fold sourceAlgebra (fun _ x => x) t).parse word := by
   have ht := (rule (α := α)).fold_morphism targetAlgebra IndexedCompositional.target
-    targetCompatible IndexedCompositional.source IndexedCompositional.unfold
+    target_compatible IndexedCompositional.source IndexedCompositional.unfold
     IndexedCompositional.unfold_morphism
   have hs := (rule (α := α)).fold_morphism sourceAlgebra IndexedCompositional.source
-    sourceCompatible IndexedCompositional.source (fun _ x => x)
+    source_compatible IndexedCompositional.source (fun _ x => x)
     ⟨fun _ _ => rfl, fun _ _ _ => rfl⟩
   rw [← IndexedCompositional.read_target, IndexedCompositional.read_morphism _ _ _ ht]
   rw [← IndexedCompositional.read_morphism _ _ _ hs, IndexedCompositional.read_source]

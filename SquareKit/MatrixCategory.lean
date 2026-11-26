@@ -73,7 +73,7 @@ theorem productLaws : ProductLaws (equality (ops R)) (products R) where
 theorem association {a b c d : Object.{u} R}
     (h : (ops R).Hom c d) (g : (ops R).Hom b c) (f : (ops R).Hom a b) :
     (ops R).comp ((ops R).comp h g) f = (ops R).comp h ((ops R).comp g f) :=
-  (ofCategoryLaws (Object R)).assoc h g f
+  (ofCategory_laws (Object R)).assoc h g f
 
 /-- The matrix product universal property holds on concrete matrix entries. -/
 theorem pair_recover {a b c : Object.{u} R} (f : (ops R).Hom a ((products R).prod b c)) :

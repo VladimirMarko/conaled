@@ -13,9 +13,9 @@ private theorem classifier_comp_app {A C : StrictTwoCategory.{uB,vB,wB}}
     {H I J : A ⟶ C} (α : H ⟶ I) (β : I ⟶ J) (x : A) :
     (α ≫ β).app x = α.app x ≫ β.app x := rfl
 
-theorem sigmaRegroupPrefix {x y : Total (sigmaFamily F B)} {p q : x ⟶ y}
+theorem sigma_regroup_prefix {x y : Total (sigmaFamily F B)} {p q : x ⟶ y}
     (θ : sigmaRegroupBase F B p ⟶ sigmaRegroupBase F B q) :
-    eqToHom (sigmaRegroupBoundary F B p.base p.fiber.base) ≫
+    eqToHom (sigma_regroup_boundary F B p.base p.fiber.base) ≫
       ((fiberRestriction F y.base B).map₂ θ.fiber).app
         ((sigmaMap F B p.base).obj x.fiber).fiber ≫
       compBoundary (fiberRestriction F y.base B)
@@ -24,7 +24,7 @@ theorem sigmaRegroupPrefix {x y : Total (sigmaFamily F B)} {p q : x ⟶ y}
       ((fiberRestriction F y.base B).map q.fiber.base).map
         (sigmaCellComponent F B θ.base x.fiber).fiber =
     (B.map₂ θ).app x.fiber.fiber ≫
-      eqToHom (sigmaRegroupBoundary F B q.base q.fiber.base) := by
+      eqToHom (sigma_regroup_boundary F B q.base q.fiber.base) := by
   conv_rhs => rw [← cartesianCellFactorization_eq F θ]
   simp only [cartesianCellFactorization, B.map₂_comp, B.map₂_eqToHom,
     classifier_comp_app, StrongMap.classifier_eqToHom_app]
