@@ -27,13 +27,13 @@ variable [∀x, IsIso (η.app x)] [∀x, IsIso (η'.app x)]
 variable [∀x, IsLocallyGroupoid (E.obj x)]
 
 
-private theorem strongApp_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
+private theorem strongTrans_app_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
     {F G F' G' : StrictPseudofunctor X Y} (eF : F = F') (eG : G = G')
     (α : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (β : Pseudofunctor.StrongTrans F'.toPseudofunctor G'.toPseudofunctor)
     (h : HEq α β) (x : X) : HEq (α.app x) (β.app x) := by
   cases eF; cases eG; cases eq_of_heq h; rfl
-private theorem strongCell_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
+private theorem strongTrans_naturality_hom_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
     {F G F' G' : StrictPseudofunctor X Y} (eF : F = F') (eG : G = G')
     (α : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (β : Pseudofunctor.StrongTrans F'.toPseudofunctor G'.toPseudofunctor)
@@ -41,7 +41,7 @@ private theorem strongCell_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
     HEq (α.naturality p).hom (β.naturality p).hom := by
   cases eF; cases eG; cases eq_of_heq h; rfl
 include hi hr hη in
-theorem rawContraction_reindex :
+theorem coherentLift_contractionBack_reindex :
     HEq (strongPostcomp
       (strongPrecomp (coherentLift η' (reindex σ E)) (contractionBack (r'.comp i') η' (reindex σ E)))
       (reindexHigher E σ))
@@ -55,18 +55,18 @@ theorem rawContraction_reindex :
     change (contractionLift (r'.comp i') η' (reindex σ E)).comp k = k.comp (contractionLift (r.comp i) η E)
     rw [← contractionRetraction_inclusion i' r' η' (reindex σ E),
       ← contractionRetraction_inclusion i r η E, strictPseudofunctor_comp_assoc,
-      contractionInclusion_reindex i i' σ σ₀ hi E, ← strictPseudofunctor_comp_assoc,
+      reindexHigher_comp_eq_contractionBranchSubstitution_comp i i' σ σ₀ hi E, ← strictPseudofunctor_comp_assoc,
       contractionRetraction_reindex i r i' r' σ σ₀ hi hr η η' hη E,
       strictPseudofunctor_comp_assoc]
   have eG : (b'.comp (coherentLiftRight η' (reindex σ E))).comp k =
       k.comp (b.comp (coherentLiftRight η E)) := by
-    rw [contractionLift_target, contractionLift_target]
+    rw [liftedContraction_target, liftedContraction_target]
     exact (StrictTwoTransformation.functor_id_comp k).trans
       (StrictTwoTransformation.functor_comp_id k).symm
   apply cartesianStrong_hext E eF eG
   · intro x
     change HEq (σ.map (η'.app x.base)) (η.app (σ.obj x.base))
-    exact strongApp_heq (retractionSource_square i r i' r' σ σ₀ hi hr)
+    exact strongTrans_app_heq (retraction_source_square i r i' r' σ σ₀ hi hr)
       ((StrictTwoTransformation.functor_id_comp σ).trans (StrictTwoTransformation.functor_comp_id σ).symm)
       _ _ hη x.base
   · intro x
@@ -77,7 +77,7 @@ theorem rawContraction_reindex :
     have h1 := postcompReindex_comparison_base E σ
       (strongPrecomp (coherentLift η' (reindex σ E)) b') p
     have h2 := (strongPostcomp_naturality_heq η' σ p.base).symm
-    have h3 := strongCell_heq (retractionSource_square i r i' r' σ σ₀ hi hr)
+    have h3 := strongTrans_naturality_hom_heq (retraction_source_square i r i' r' σ σ₀ hi hr)
       ((StrictTwoTransformation.functor_id_comp σ).trans (StrictTwoTransformation.functor_comp_id σ).symm)
       _ _ hη p.base
     exact h1.trans (h2.trans h3)
@@ -92,16 +92,16 @@ theorem contractionRetractionHomotopy_reindex :
   have h0' := (contractionRetractionHomotopy_heq i' r' η' (reindex σ E)).trans
     (liftedContraction_heq (reindex σ E) (r'.comp i') η')
   have h1 := strongPostcomp_heq (contractionRetraction_inclusion i' r' η' (reindex σ E))
-    (contractionLift_target (reindex σ E) (r'.comp i') η').symm
+    (liftedContraction_target (reindex σ E) (r'.comp i') η').symm
     (contractionRetractionHomotopy i' r' η' (reindex σ E))
     (strongPrecomp (coherentLift η' (reindex σ E)) (contractionBack (r'.comp i') η' (reindex σ E)))
     h0' (reindexHigher E σ)
   have h0 := (contractionRetractionHomotopy_heq i r η E).trans
     (liftedContraction_heq E (r.comp i) η)
   have h2 := strongPrecomp_heq (contractionRetraction_inclusion i r η E)
-    (contractionLift_target E (r.comp i) η).symm
+    (liftedContraction_target E (r.comp i) η).symm
     (contractionRetractionHomotopy i r η E)
     (strongPrecomp (coherentLift η E) (contractionBack (r.comp i) η E))
     h0 (reindexHigher E σ)
-  exact h1.trans ((rawContraction_reindex i r i' r' σ σ₀ hi hr η η' hη E).trans h2.symm)
+  exact h1.trans ((coherentLift_contractionBack_reindex i r i' r' σ σ₀ hi hr η η' hη E).trans h2.symm)
 end SquareKit.Internal.PathTransport.TwoFamily

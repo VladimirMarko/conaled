@@ -708,7 +708,7 @@ theorem normalizedEquivalence_reindex {Γ Δ : Context.{u+1}}
     (classify (intervalSub σ ≫ a) (Term.reindex r σ) (Term.reindex s σ))
     (classify_reindex a r s σ).symm _ _ _ _ _ _
 
-theorem actualMap_cast {Γ : Context.{u+1}}
+theorem castMap_interval_map {Γ : Context.{u+1}}
     (a b : total (interval Γ) ⟶ smallFamilyCodes.{u}) (h : a = b) (r s : Term (interval Γ)) :
     HomotopyEquivalence.castMap (IntervalTransport.map (SmallUniverse.NativeDecode.filling a) r s)
       (SmallUniverse.liftedDecode (graph r ≫ b)) (SmallUniverse.liftedDecode (graph s ≫ b))
@@ -726,7 +726,7 @@ theorem selectedMap_eq {Γ : Context.{u+1}}
     (SmallUniverse.liftedDecode (graph r ≫ a)) (SmallUniverse.liftedDecode (graph s ≫ a))
     (congrArg SmallUniverse.liftedDecode (classify_source_code a r s))
     (congrArg SmallUniverse.liftedDecode (classify_target_code a r s))) h.symm).trans
-      (actualMap_cast _ a (classify_evaluation a r s) r s)
+      (castMap_interval_map _ a (classify_evaluation a r s) r s)
 
 theorem selectedMap_diagonal {Γ : Context.{u+1}}
     (a : total (interval Γ) ⟶ smallFamilyCodes.{u}) (r : Term (interval Γ)) :

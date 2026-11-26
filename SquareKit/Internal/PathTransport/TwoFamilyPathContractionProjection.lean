@@ -15,18 +15,18 @@ theorem pathFirst_contractionComponent (x : PathContext F) :
   apply Pseudofunctor.CoGrothendieck.ext
   · rfl
   · exact heq_of_eq (pathFirst_map_fiber F (contractionComponent F x))
-private theorem projectionFiber_cast_right {x y : PathContext F} {p q r : x ⟶ y}
+private theorem pathFirst_map₂_fiber_comp_eqToHom_heq {x y : PathContext F} {p q r : x ⟶ y}
     (α : p ⟶ q) (h : q = r) :
     HEq ((pathFirst F).map₂ (α ≫ eqToHom h)).fiber ((pathFirst F).map₂ α).fiber := by
   cases h
   rw [eqToHom_refl, Category.comp_id]
-private theorem projectionFiber_cast_left {x y : PathContext F} {p q r : x ⟶ y}
+private theorem pathFirst_map₂_fiber_eqToHom_comp_heq {x y : PathContext F} {p q r : x ⟶ y}
     (h : p = q) (α : q ⟶ r) :
     HEq ((pathFirst F).map₂ (eqToHom h ≫ α)).fiber ((pathFirst F).map₂ α).fiber := by
   cases h
   rw [eqToHom_refl, Category.id_comp]
 /-- The endpoint comparison has identity first fiber cell up to its canonical boundary. -/
-theorem contractionEndpointSquare_firstFiber {x y : PathContext F} (p : x ⟶ y) :
+theorem contractionEndpointSquare_fiber_fst {x y : PathContext F} (p : x ⟶ y) :
     HEq (contractionEndpointSquare F p).fiber.1
       (𝟙 (show (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 from p.base.fiber.1)) := by
   let u : (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 := p.base.fiber.1
@@ -39,16 +39,16 @@ theorem contractionEndpointSquare_firstFiber {x y : PathContext F} (p : x ⟶ y)
   rw [CategoryTheory.eqToHom_fst]
   exact comp_eqToHom_heq _ _
 /-- The actual comparison retains that identity first fiber cell through both boundary casts. -/
-theorem contractionNaturalityCell_firstFiber {x y : PathContext F} (p : x ⟶ y) :
+theorem pathFirst_map₂_contractionNaturalityCell_fiber {x y : PathContext F} (p : x ⟶ y) :
     HEq ((pathFirst F).map₂ (contractionNaturalityCell F p)).fiber
       (𝟙 (show (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 from p.base.fiber.1)) := by
   have h0 : HEq (contractionLiftCell F p).base.fiber.1
       (𝟙 (show (F.map p.base.base).obj x.base.fiber.1 ⟶ y.base.fiber.1 from p.base.fiber.1)) := by
     change HEq (contractionEndpointSquare F p).fiber.1 _
-    exact contractionEndpointSquare_firstFiber F p
-  have h1 := projectionFiber_cast_left F (contractionLeftArrow_composite F p)
+    exact contractionEndpointSquare_fiber_fst F p
+  have h1 := pathFirst_map₂_fiber_eqToHom_comp_heq F (contractionLeftArrow_composite F p)
     (contractionLiftCell F p ≫ eqToHom (contractionRightArrow_composite F p).symm)
-  have h2 := projectionFiber_cast_right F (contractionLiftCell F p)
+  have h2 := pathFirst_map₂_fiber_comp_eqToHom_heq F (contractionLiftCell F p)
     (contractionRightArrow_composite F p).symm
   have h3 := pathFirst_cell_fiber_heq F (contractionLiftCell F p)
   -- Explicitly construct the HEq chain to avoid repeatedly inferring nested
@@ -73,21 +73,21 @@ theorem contractionNaturalityCell_firstFiber {x y : PathContext F} (p : x ⟶ y)
     let t234 := Lean.mkAppN trans #[b[0]!,b[2]!,d[2]!,b[1]!,b[3]!,d[3]!,h2.toExpr,t34]
     let proof := Lean.mkAppN trans #[a[0]!,a[2]!,d[2]!,a[1]!,a[3]!,d[3]!,h1.toExpr,t234]
     Lean.Elab.Tactic.closeMainGoal `exact proof
-private theorem projectionBase_cast_right {x y : PathContext F} {p q r : x ⟶ y}
+private theorem pathFirst_map₂_base_comp_eqToHom_heq {x y : PathContext F} {p q r : x ⟶ y}
     (α : p ⟶ q) (h : q = r) :
     HEq ((pathFirst F).map₂ (α ≫ eqToHom h)).base ((pathFirst F).map₂ α).base := by
   cases h
   rw [eqToHom_refl, Category.comp_id]
-private theorem projectionBase_cast_left {x y : PathContext F} {p q r : x ⟶ y}
+private theorem pathFirst_map₂_base_eqToHom_comp_heq {x y : PathContext F} {p q r : x ⟶ y}
     (h : p = q) (α : q ⟶ r) :
     HEq ((pathFirst F).map₂ (eqToHom h ≫ α)).base ((pathFirst F).map₂ α).base := by
   cases h
   rw [eqToHom_refl, Category.id_comp]
 /-- The first projection of the actual comparison has identity base cell up to boundary casts. -/
-theorem contractionNaturalityCell_firstBase {x y : PathContext F} (p : x ⟶ y) :
+theorem pathFirst_map₂_contractionNaturalityCell_base {x y : PathContext F} (p : x ⟶ y) :
     HEq ((pathFirst F).map₂ (contractionNaturalityCell F p)).base (𝟙 p.base.base) := by
-  apply HEq.trans (projectionBase_cast_left F _ _)
-  exact projectionBase_cast_right F _ _
+  apply HEq.trans (pathFirst_map₂_base_eqToHom_comp_heq F _ _)
+  exact pathFirst_map₂_base_comp_eqToHom_heq F _ _
 /-- Reflexivity followed by first projection retains every dependent arrow. -/
 theorem pathFirst_reflexivity_map {x y : Total F} (p : x ⟶ y) :
     (pathFirst F).map ((pathReflexivity F).map p) = p := by
@@ -96,13 +96,13 @@ theorem pathFirst_reflexivity_map {x y : Total F} (p : x ⟶ y) :
   · apply HEq.trans (heq_of_eq (pathFirst_map_fiber F ((pathReflexivity F).map p)))
     exact heq_of_eq (diagonal_fiber_fst F p)
 /-- The left contraction composite projects to the supplied first-endpoint arrow. -/
-theorem contractionLeft_projection {x y : PathContext F} (p : x ⟶ y) :
+theorem pathFirst_map_comp_contractionComponent {x y : PathContext F} (p : x ⟶ y) :
     (pathFirst F).map ((pathReflexivity F).map ((pathFirst F).map p) ≫ contractionComponent F y) =
       (pathFirst F).map p := by
   rw [(pathFirst F).map_comp, pathFirst_reflexivity_map, pathFirst_contractionComponent]
   exact Category.comp_id _
 /-- The right contraction composite projects to the supplied first-endpoint arrow. -/
-theorem contractionRight_projection {x y : PathContext F} (p : x ⟶ y) :
+theorem pathFirst_map_contractionComponent_comp {x y : PathContext F} (p : x ⟶ y) :
     (pathFirst F).map (contractionComponent F x ≫ p) = (pathFirst F).map p := by
   rw [(pathFirst F).map_comp, pathFirst_contractionComponent]
   exact Category.id_comp _
@@ -121,9 +121,9 @@ private theorem casts_heq {C : Type*} [Category C] {a b a' b' : C}
 /-- The projected actual comparison is heterogeneously the identity cell. -/
 theorem contractionNaturalityCell_first_heq {x y : PathContext F} (p : x ⟶ y) :
     HEq ((pathFirst F).map₂ (contractionNaturalityCell F p)) (𝟙 ((pathFirst F).map p)) := by
-  apply total_cell_heq F (contractionLeft_projection F p) (contractionRight_projection F p)
-  · exact contractionNaturalityCell_firstBase F p
-  · apply HEq.trans (contractionNaturalityCell_firstFiber F p)
+  apply total_cell_heq F (pathFirst_map_comp_contractionComponent F p) (pathFirst_map_contractionComponent_comp F p)
+  · exact pathFirst_map₂_contractionNaturalityCell_base F p
+  · apply HEq.trans (pathFirst_map₂_contractionNaturalityCell_fiber F p)
     symm
     change HEq ((eqToHom (rfl : (pathFirst F).map p = (pathFirst F).map p)).fiber) _
     rw [total_eqToHom_fiber]
@@ -137,7 +137,7 @@ private theorem canonical_from_heq {C : Type*} [Category C] {a b c : C}
 /-- The projected actual comparison is the canonical equality cell between its boundaries. -/
 theorem contractionNaturalityCell_first {x y : PathContext F} (p : x ⟶ y) :
     (pathFirst F).map₂ (contractionNaturalityCell F p) =
-      eqToHom ((contractionLeft_projection F p).trans (contractionRight_projection F p).symm) :=
-  canonical_from_heq (contractionLeft_projection F p) (contractionRight_projection F p)
+      eqToHom ((pathFirst_map_comp_contractionComponent F p).trans (pathFirst_map_contractionComponent_comp F p).symm) :=
+  canonical_from_heq (pathFirst_map_comp_contractionComponent F p) (pathFirst_map_contractionComponent_comp F p)
     _ (contractionNaturalityCell_first_heq F p)
 end SquareKit.Internal.PathTransport.TwoFamily

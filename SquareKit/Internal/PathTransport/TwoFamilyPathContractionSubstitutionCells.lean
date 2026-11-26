@@ -28,7 +28,7 @@ theorem pathReindex_retract :
       congrArg (fun H => H.comp (pathReflexivity F)) (pathReindex_first F σ).symm
     _ = (pathReindex F σ).comp (contractionRetract F) := strictPseudofunctor_comp_assoc _ _ _
 /-- The left boundary of the contraction comparison is preserved by substitution. -/
-theorem contractionLeft_reindex {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
+theorem pathReindex_map_comp_contractionComponent {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
     (pathReindex F σ).map ((contractionRetract (reindex σ F)).map p ≫
       contractionComponent (reindex σ F) y) =
     (contractionRetract F).map ((pathReindex F σ).map p) ≫
@@ -37,7 +37,7 @@ theorem contractionLeft_reindex {x y : PathContext (reindex σ F)} (p : x ⟶ y)
   exact ((pathReindex F σ).map_comp _ _).trans
     (congrArg₂ (fun a b => a ≫ b) (eq_of_heq h) (contractionComponent_reindex F σ y))
 /-- The right boundary of the contraction comparison is preserved by substitution. -/
-theorem contractionRight_reindex {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
+theorem pathReindex_map_contractionComponent_comp {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
     (pathReindex F σ).map (contractionComponent (reindex σ F) x ≫ p) =
       contractionComponent F ((pathReindex F σ).obj x) ≫ (pathReindex F σ).map p := by
   exact ((pathReindex F σ).map_comp _ _).trans

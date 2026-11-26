@@ -192,7 +192,7 @@ theorem step_value (cmp : κ → κ → Measured Bool Nat) (key : κ) (state : N
           ((state.1 : Nat) + 1, state.2)
         else ((state.1 : Nat), Search.RedBlack.insert (fun a b => (cmp a b).1) key true state.2)
       rw [readRun_value] at seen
-      rw [seen, PositiveCounter.numAddOneRun_toNat]
+      rw [seen, PositiveCounter.castNum_numAddOneRun]
       rfl
 
 /-- Raw value erasure has no BST or balance hypothesis. Those hypotheses are

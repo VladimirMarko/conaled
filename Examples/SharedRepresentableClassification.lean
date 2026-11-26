@@ -86,7 +86,7 @@ theorem selected {I : SquareKit.Cubical.Cube}
       Term.map (Functor.whiskerLeft p.mapElements (comparison A).hom)
         ((decodedLocalFilling A.code).fill p φ b) := by
   rw [comparison_native]
-  exact A.decodeCode_filling p φ b
+  exact A.decodeCodeIso_fill p φ b
 
 theorem record_recovery : decodedLocalFamily A.code = A := A.decoded_code
 end Original
@@ -166,9 +166,9 @@ theorem selected {I : Cartesian.Cube}
       Term.map (Functor.whiskerLeft p.mapElements (comparison A).hom)
         ((decodedLocalFilling A.code).fill p φ r b) := by
   rw [comparison_native]
-  exact A.decodeCode_filling p φ r b
+  exact A.decodeCodeIso_fill p φ r b
 
-theorem record_recovery : decodedLocalFamily A.code = A := A.decodeCode_record
+theorem record_recovery : decodedLocalFamily A.code = A := A.decodedLocalFamily_code
 end Target
 
 namespace OriginalDependent

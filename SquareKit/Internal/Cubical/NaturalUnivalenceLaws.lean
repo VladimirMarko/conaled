@@ -36,20 +36,20 @@ noncomputable def identity {Γ : Context.{u+1}} (a : Γ ⟶ smallFamilyCodes.{u}
   let p := reindexComparison (uaIdentity (𝟙 smallFamilyCodes.{u})) a
   exact relabelComparison p (identity_start a) rfl
 
-private theorem uaData_congr {Γ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
+private theorem ua_data_congr {Γ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
     (v w : Σ k : liftedDecode a ⟶ liftedDecode b, HomotopyEquivalence k) (h : v = w) :
     ua a b v.1 v.2 = ua a b w.1 w.2 := by
   cases h
   rfl
 
-private theorem inverseUaData_congr {Γ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
+private theorem ua_inverseEquivalence_data_congr {Γ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
     (v w : Σ k : liftedDecode a ⟶ liftedDecode b, HomotopyEquivalence k) (h : v = w) :
     ua b a (inverseMap a b v.1 v.2) (inverseEquivalence a b v.1 v.2) =
       ua b a (inverseMap a b w.1 w.2) (inverseEquivalence a b w.1 w.2) := by
   cases h
   rfl
 
-private theorem inverseUa_reindex {Γ Δ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
+private theorem ua_inverseEquivalence_reindex {Γ Δ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
     (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f) (σ : Δ ⟶ Γ) :
     reindexPath (ua b a (inverseMap a b f E) (inverseEquivalence a b f E)) σ =
       ua (σ ≫ b) (σ ≫ a)
@@ -62,7 +62,7 @@ private theorem inverseUa_reindex {Γ Δ : Context.{u+1}} (a b : Γ ⟶ smallFam
       inverseEquivalence (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ)⟩ :=
     Sigma.ext (inverseMap_reindex a b f E σ) (inverseEquivalence_reindex a b f E σ)
   exact (ua_reindex b a (inverseMap a b f E) (inverseEquivalence a b f E) σ).trans
-    (uaData_congr (σ ≫ b) (σ ≫ a)
+    (ua_data_congr (σ ≫ b) (σ ≫ a)
       ⟨Functor.whiskerLeft σ.mapElements (inverseMap a b f E), (inverseEquivalence a b f E).reindex σ⟩
       ⟨inverseMap (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ),
         inverseEquivalence (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ)⟩ hd)
@@ -76,9 +76,9 @@ private theorem inverse_start {Γ : Context.{u+1}} (a b : Γ ⟶ codes)
       (inverseEquivalence sourceCode targetCode universalEquivalence.1 universalEquivalence.2))
       (classifyEquivalence a b f E) =
       ua b a (inverseMap a b f E) (inverseEquivalence a b f E) :=
-  (inverseUa_reindex sourceCode targetCode universalEquivalence.1 universalEquivalence.2
+  (ua_inverseEquivalence_reindex sourceCode targetCode universalEquivalence.1 universalEquivalence.2
     (classifyEquivalence a b f E)).trans
-    (inverseUaData_congr a b
+    (ua_inverseEquivalence_data_congr a b
       ⟨Functor.whiskerLeft (classifyEquivalence a b f E).mapElements universalEquivalence.1,
         universalEquivalence.2.reindex (classifyEquivalence a b f E)⟩ ⟨f,E⟩
       (universalEquivalence_beta a b f E))
@@ -91,7 +91,7 @@ private theorem inverse_finish {Γ : Context.{u+1}} (a b : Γ ⟶ codes)
     (classifyEquivalence a b f E)).trans
     (congrArg homogeneousReverse ((ua_reindex sourceCode targetCode universalEquivalence.1
       universalEquivalence.2 (classifyEquivalence a b f E)).trans
-      (uaData_congr a b
+      (ua_data_congr a b
         ⟨Functor.whiskerLeft (classifyEquivalence a b f E).mapElements universalEquivalence.1,
           universalEquivalence.2.reindex (classifyEquivalence a b f E)⟩ ⟨f,E⟩
         (universalEquivalence_beta a b f E))))
@@ -118,7 +118,7 @@ private theorem compositeEquivalence_reindex {Γ Δ : Context.{u+1}} (a b c : Γ
     (NativeDecode.filling b) (NativeDecode.filling_lawful b)
     (NativeDecode.filling c) (NativeDecode.filling_lawful c) σ
 
-private theorem compositeUaData_congr {Γ : Context.{u+1}} (a b c : Γ ⟶ codes)
+private theorem ua_compositeEquivalence_data_congr {Γ : Context.{u+1}} (a b c : Γ ⟶ codes)
     (v v' : Σ k : liftedDecode a ⟶ liftedDecode b, HomotopyEquivalence k)
     (w w' : Σ k : liftedDecode b ⟶ liftedDecode c, HomotopyEquivalence k)
     (hv : v = v') (hw : w = w') :
@@ -128,7 +128,7 @@ private theorem compositeUaData_congr {Γ : Context.{u+1}} (a b c : Γ ⟶ codes
   cases hw
   rfl
 
-private theorem compositeUa_reindex {Γ Δ : Context.{u+1}} (a b c : Γ ⟶ codes)
+private theorem ua_compositeEquivalence_reindex {Γ Δ : Context.{u+1}} (a b c : Γ ⟶ codes)
     (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f)
     (g : liftedDecode b ⟶ liftedDecode c) (D : HomotopyEquivalence g) (σ : Δ ⟶ Γ) :
     reindexPath (ua a c (f ≫ g) (compositeEquivalence a b c f E g D)) σ =
@@ -150,10 +150,10 @@ private theorem composition_start {Γ : Context.{u+1}} (a b c : Γ ⟶ codes)
         firstEquivalence.1 firstEquivalence.2 secondEquivalence.1 secondEquivalence.2))
       (classifyComposition a b c f E g D) =
       ua a c (f ≫ g) (compositeEquivalence a b c f E g D) :=
-  (compositeUa_reindex compositionSource compositionMiddle compositionTarget
+  (ua_compositeEquivalence_reindex compositionSource compositionMiddle compositionTarget
     firstEquivalence.1 firstEquivalence.2 secondEquivalence.1 secondEquivalence.2
     (classifyComposition a b c f E g D)).trans
-    (compositeUaData_congr a b c
+    (ua_compositeEquivalence_data_congr a b c
       ⟨Functor.whiskerLeft (classifyComposition a b c f E g D).mapElements firstEquivalence.1,
         firstEquivalence.2.reindex (classifyComposition a b c f E g D)⟩ ⟨f,E⟩
       ⟨Functor.whiskerLeft (classifyComposition a b c f E g D).mapElements secondEquivalence.1,
@@ -168,15 +168,15 @@ private theorem composition_finish {Γ : Context.{u+1}} (a b c : Γ ⟶ codes)
       (ua compositionMiddle compositionTarget secondEquivalence.1 secondEquivalence.2))
       (classifyComposition a b c f E g D) =
       homogeneousConcat (filling Γ) (filling_lawful Γ) (ua a b f E) (ua b c g D) :=
-  (uaConcat_reindex compositionSource compositionMiddle compositionTarget
+  (homogeneousConcat_ua_reindex compositionSource compositionMiddle compositionTarget
     firstEquivalence.1 firstEquivalence.2 secondEquivalence.1 secondEquivalence.2
     (classifyComposition a b c f E g D)).trans
     (congrArg₂ (homogeneousConcat (filling Γ) (filling_lawful Γ))
-      (uaData_congr a b
+      (ua_data_congr a b
         ⟨Functor.whiskerLeft (classifyComposition a b c f E g D).mapElements firstEquivalence.1,
           firstEquivalence.2.reindex (classifyComposition a b c f E g D)⟩ ⟨f,E⟩
         (firstEquivalence_beta a b c f E g D))
-      (uaData_congr b c
+      (ua_data_congr b c
         ⟨Functor.whiskerLeft (classifyComposition a b c f E g D).mapElements secondEquivalence.1,
           secondEquivalence.2.reindex (classifyComposition a b c f E g D)⟩ ⟨g,D⟩
         (secondEquivalence_beta a b c f E g D)))

@@ -69,7 +69,7 @@ theorem macro_fits {m : Nat} (input : Input m) (level : Fin (levels m+1)) (i : F
     KeyBounds.Fits 0 (2*m) (paddedCapacity m) ((state input).macroRows[level.val]).1[i.val] := by
   rw [state_eq]
   simpa only [BlockedRMQ.buildPadded,dimension,paddedCapacity,blocks,levels] using
-    KeyBounds.macroCell_fits (fun j => (input.depth j : Int)) input.positive (blocks_pos m)
+    KeyBounds.macroRows_cell_fits (fun j => (input.depth j : Int)) input.positive (blocks_pos m)
       (Backend.input_steps input) (depth_bounds input) (padded_le input) level i
 
 /-- Admitted inclusive macro intervals select a prepared logarithm and its two

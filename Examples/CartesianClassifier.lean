@@ -172,7 +172,7 @@ theorem original_package (x : (total (interval (restrict Presheaf.terminal))).El
     (Term.map adapter.hom classified).val x = cartesianPackage x :=
   (congrArg (fun t => t.val x) full_package).trans (recomputedSelected_eq x)
 
-theorem selected_operation : decodedLocalFamily carrier.code = carrier := carrier.decodeCode_record
+theorem selected_operation : decodedLocalFamily carrier.code = carrier := carrier.decodedLocalFamily_code
 
 theorem full_package_reindex {Δ : Context} (σ : Δ ⟶ total (interval (restrict Presheaf.terminal))) :
     Term.reindex (Term.map adapter.hom classified) σ = Term.reindex recomputedSelected σ :=

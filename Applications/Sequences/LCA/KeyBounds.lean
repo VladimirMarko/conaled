@@ -42,7 +42,7 @@ theorem canonical_bounds (steps code i : Nat) :
   have hm : min (min i steps) steps ≤ steps := Nat.min_le_right _ _
   omega
 
-theorem classCell_fits (steps code : Nat) (start len : Fin (steps+1)) :
+theorem buildClass_cell_fits (steps code : Nat) (start len : Fin (steps+1)) :
     Fits (steps : Int) (2*steps+1) (2*(steps+1))
       (((buildClass (canonicalHeights steps code)).get start).get len) := by
   simp only [buildClass, vectorGet_ofFn, prefixRow_get]
@@ -57,15 +57,15 @@ theorem classCell_fits (steps code : Nat) (start len : Fin (steps+1)) :
   · omega
   · have := start.isLt; have := len.isLt; omega
 
-theorem sharedCell_fits (code : Fin (2^steps)) (start len : Fin (steps+1)) :
+theorem prepareShared_cell_fits (code : Fin (2^steps)) (start len : Fin (steps+1)) :
     Fits (steps : Int) (2*steps+1) (2*(steps+1))
       ((((prepareShared steps).get code).get start).get len) := by
-  simpa only [prepareShared, vectorGet_ofFn] using classCell_fits steps code.val start len
+  simpa only [prepareShared, vectorGet_ofFn] using buildClass_cell_fits steps code.val start len
 
 def microCells (code : Fin (2^steps)) (start : Fin (steps+1)) :
     Vector (WordKey.Cell (steps : Int) (2*steps+1) (2*(steps+1))) (steps+1) :=
   Vector.ofFn fun len =>
-    ⟨((((prepareShared steps).get code).get start).get len), sharedCell_fits code start len⟩
+    ⟨((((prepareShared steps).get code).get start).get len), prepareShared_cell_fits code start len⟩
 
 def encodedMicroRow (code : Fin (2^steps)) (start : Fin (steps+1)) :
     Vector (Fin ((2*steps+1)*(2*(steps+1)))) (steps+1) :=
@@ -90,7 +90,7 @@ theorem paddedDepth_bounds (depth : Nat → Int) (hn : 0 < n)
     simp only [paddedDepth, hin, ite_false]
     omega
 
-theorem paddedKey_fits (depth : Nat → Int) (hn : 0 < n)
+theorem depthKey_paddedDepth_fits (depth : Nat → Int) (hn : 0 < n)
     (hdepth : ∀ i, i < n → 0 ≤ depth i ∧ depth i < (n : Int))
     (hcap : capacity ≤ 2*n) (hi : i < capacity) :
     Fits 0 (2*n) capacity (depthKey (paddedDepth depth n) i) := by
@@ -128,7 +128,7 @@ theorem finiteRow_fits (input : Vector Key n)
     simp only [finiteRow, nextSparseRow, Vector.getElem_ofFn]
     exact fits_min (ih i) (ih ⟨(i.val+2^level)%n, Nat.mod_lt _ (Nat.zero_lt_of_lt i.isLt)⟩)
 
-theorem sparseCell_fits (input : Vector Key n)
+theorem buildSparse_cell_fits (input : Vector Key n)
     (hinput : ∀ i : Fin n, Fits offset heights stride input[i.val])
     (level : Fin (levels+1)) (i : Fin n) :
     Fits offset heights stride ((buildSparse input levels)[level.val])[i.val] := by
@@ -139,7 +139,7 @@ def sparseCells (input : Vector Key n)
     (hinput : ∀ i : Fin n, Fits offset heights stride input[i.val])
     (level : Fin (levels+1)) : Vector (WordKey.Cell offset heights stride) n :=
   Vector.ofFn fun i => ⟨((buildSparse input levels)[level.val])[i.val],
-    sparseCell_fits input hinput level i⟩
+    buildSparse_cell_fits input hinput level i⟩
 
 def encodedSparseRow (input : Vector Key n)
     (hinput : ∀ i : Fin n, Fits offset heights stride input[i.val])
@@ -154,7 +154,7 @@ theorem encodedSparseRow_read (input : Vector Key n)
         (ofLex ((buildSparse input levels)[level.val])[i.val]).2 := by
   simp [encodedSparseRow, WordKey.encodeStore, sparseCells, WordKey.cellWord]
 
-theorem paddedDepths_bounds (depth : Nat → Int) (hn : 0 < n)
+theorem buildMicro_paddedDepth_bounds (depth : Nat → Int) (hn : 0 < n)
     (hdepth : ∀ i, i < n → 0 ≤ depth i ∧ depth i < (n : Int))
     (hcap : blocks*(steps+1) ≤ 2*n) (i : Fin (blocks*(steps+1))) :
     0 ≤ (BlockedRMQ.buildMicro (paddedDepth depth n) steps blocks).depths[i.val] ∧
@@ -162,7 +162,7 @@ theorem paddedDepths_bounds (depth : Nat → Int) (hn : 0 < n)
   simp only [BlockedRMQ.buildMicro, Vector.getElem_ofFn]
   exact paddedDepth_bounds depth hn hdepth hcap i.isLt
 
-theorem paddedBlockMinima_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
+theorem blockMinima_paddedDepth_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     (hsteps : UnitSteps (n-1) depth)
     (hdepth : ∀ i, i < n → 0 ≤ depth i ∧ depth i < (n : Int))
     (hcap : blocks*(steps+1) ≤ 2*n) (block : Fin blocks) :
@@ -172,11 +172,11 @@ theorem paddedBlockMinima_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < bloc
   · intro block _
     simpa only [Nat.add_sub_cancel] using padded_block_steps depth hn hsteps block (steps+1)
   · intro i hi
-    exact paddedKey_fits depth hn hdepth hcap hi
+    exact depthKey_paddedDepth_fits depth hn hdepth hcap hi
 
 /-- This covers every retained macro row cell, including wrapped tail cells
 that are never read by a valid sparse-table query. -/
-theorem macroCell_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
+theorem macroRows_cell_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     (hsteps : UnitSteps (n-1) depth)
     (hdepth : ∀ i, i < n → 0 ≤ depth i ∧ depth i < (n : Int))
     (hcap : blocks*(steps+1) ≤ 2*n) (level : Fin (levels+1)) (i : Fin blocks) :
@@ -184,7 +184,7 @@ theorem macroCell_fits (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
       (((BlockedRMQ.build (paddedDepth depth n) steps blocks hb levels).macroRows[level.val]).1)[i.val] := by
   simp only [BlockedRMQ.build, SparseExecution.prepare, Resources.bind, Resources.pure]
   simp only [SparseExecution.build_get _ _ levels level]
-  exact finiteRow_fits _ (paddedBlockMinima_fits depth hn hb hsteps hdepth hcap) level.val i
+  exact finiteRow_fits _ (blockMinima_paddedDepth_fits depth hn hb hsteps hdepth hcap) level.val i
 
 def macroCells (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     (hsteps : UnitSteps (n-1) depth)
@@ -193,7 +193,7 @@ def macroCells (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     Vector (WordKey.Cell 0 (2*n) (blocks*(steps+1))) blocks :=
   Vector.ofFn fun i =>
     ⟨(((BlockedRMQ.build (paddedDepth depth n) steps blocks hb levels).macroRows[level.val]).1)[i.val],
-      macroCell_fits depth hn hb hsteps hdepth hcap level i⟩
+      macroRows_cell_fits depth hn hb hsteps hdepth hcap level i⟩
 
 def encodedMacroRow (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     (hsteps : UnitSteps (n-1) depth)
@@ -247,7 +247,7 @@ theorem encodedMicroRow_index (code : Fin (2^steps)) (start len : Fin (steps+1))
     (encodedMicroRow code start)[len.val].val % (2*(steps+1)) =
       (ofLex ((((prepareShared steps).get code).get start).get len)).2 := by
   rw [encodedMicroRow_read]
-  exact WordKey.pack_mod (sharedCell_fits code start len).2.2
+  exact WordKey.pack_mod (prepareShared_cell_fits code start len).2.2
 
 theorem encodedMacroRow_index (depth : Nat → Int) (hn : 0 < n) (hb : 0 < blocks)
     (hsteps : UnitSteps (n-1) depth)
@@ -256,7 +256,7 @@ theorem encodedMacroRow_index (depth : Nat → Int) (hn : 0 < n) (hb : 0 < block
     (encodedMacroRow depth hn hb hsteps hdepth hcap level)[i.val].val % (blocks*(steps+1)) =
       (ofLex (((BlockedRMQ.build (paddedDepth depth n) steps blocks hb levels).macroRows[level.val]).1)[i.val]).2 := by
   rw [encodedMacroRow_read]
-  exact WordKey.pack_mod (macroCell_fits depth hn hb hsteps hdepth hcap level i).2.2
+  exact WordKey.pack_mod (macroRows_cell_fits depth hn hb hsteps hdepth hcap level i).2.2
 
 /-- Store reads and minimum reuse the word interpretation's local law. -/
 theorem encodedMicroRow_min (code : Fin (2^steps)) (start i j : Fin (steps+1)) :

@@ -41,7 +41,7 @@ noncomputable def liftMap {n} (tail : FiniteDependentTail Γ n Θ)
     refine ⟨⟨contractionBranchSubstitution c₀.inclusion d₀.inclusion σ₁ ih.val.branch
       ih.property.inclusion E⟩, ?_⟩
     constructor
-    · exact contractionInclusion_reindex c₀.inclusion d₀.inclusion σ₁ ih.val.branch ih.property.inclusion E
+    · exact reindexHigher_comp_eq_contractionBranchSubstitution_comp c₀.inclusion d₀.inclusion σ₁ ih.val.branch ih.property.inclusion E
     · exact contractionRetraction_reindex c₀.inclusion c₀.retraction d₀.inclusion d₀.retraction
         σ₁ ih.val.branch ih.property.inclusion ih.property.retraction
         c₀.homotopy d₀.homotopy ih.property.homotopy E

@@ -152,7 +152,7 @@ noncomputable def classified (g : Two) : LocalFamily point :=
 
 /-- Classification recovers this non-discrete family and its exact selected operation. -/
 theorem decode_classified (g : Two) : decodedLocalFamily (classified g).code = classified g :=
-  LocalFamily.decodeCode_record _
+  LocalFamily.decodedLocalFamily_code _
 
 theorem classified_filling (g : Two) :
     (classified g).toFilling = GroupNerve.chosenFilling g point :=

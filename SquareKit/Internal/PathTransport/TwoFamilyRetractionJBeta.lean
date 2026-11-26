@@ -23,16 +23,16 @@ omit [Strict Γ] [Strict A] in
 theorem contraction_reflexive_source : i.comp (r.comp i) = i := by
   rw [← strictPseudofunctor_comp_assoc, hi, StrictTwoTransformation.functor_id_comp]
 
-theorem retractionJSource_beta : reindex i (reindex (r.comp i) E) = reindex i E :=
+theorem retractionJ_source_beta : reindex i (reindex (r.comp i) E) = reindex i E :=
   (reindex_comp E (r.comp i) i).trans
     (congrArg (fun K => reindex K E) (contraction_reflexive_source i r hi))
 
 omit hi in
-theorem retractionJTarget_beta : reindex i (reindex (StrictPseudofunctor.id Γ) E) = reindex i E :=
+theorem retractionJ_target_beta : reindex i (reindex (StrictPseudofunctor.id Γ) E) = reindex i E :=
   congrArg (reindex i) (reindex_id E)
 
 include hη in
-theorem retractionJMotive_beta :
+theorem retractionJ_motive_beta :
     HEq (strongPrecomp (strongPostcomp η E) i)
       (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor) := by
   have h1 := (strongPostcomp_precomp η i E).symm
@@ -42,7 +42,7 @@ theorem retractionJMotive_beta :
   have h3 := heq_of_eq (strongPostcomp_id i E)
   exact h1.trans (h2.trans h3)
 
-theorem retractionJInput_beta (d : Section (reindex i E)) :
+theorem retractionJ_input_beta (d : Section (reindex i E)) :
     HEq ((Section.cast (reindex_comp E i r) (d.reindex _ r)).reindex _ i) d := by
   have h1 := (Section.reindex_heq (reindex_comp E i r) (d.reindex _ r)
     (Section.cast (reindex_comp E i r) (d.reindex _ r))
@@ -62,10 +62,10 @@ theorem retractionJ_beta (d : Section (reindex i E)) :
   have h1 := (Section.reindex_heq (reindex_id E) (s.map θ) (retractionJ i r η E d)
     (Section.cast_heq (reindex_id E) (s.map θ)).symm i).symm
   have h2 := heq_of_eq (Section.map_reindex θ i s)
-  have h3 := Section.map_heq (retractionJSource_beta i r hi E) (retractionJTarget_beta i E)
+  have h3 := Section.map_heq (retractionJ_source_beta i r hi E) (retractionJ_target_beta i E)
     (strongPrecomp θ i) (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor)
-    (retractionJMotive_beta i r η hi hη E) (s.reindex _ i) d
-    (retractionJInput_beta i r hi E d)
+    (retractionJ_motive_beta i r η hi hη E) (s.reindex _ i) d
+    (retractionJ_input_beta i r hi E d)
   have h4 := heq_of_eq (Section.map_identity (reindex i E) d)
   exact eq_of_heq (h1.trans (h2.trans (h3.trans h4)))
 

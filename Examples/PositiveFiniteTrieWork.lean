@@ -328,14 +328,14 @@ theorem sourceGraph_normalized : SparseMap.Normalized sourceGraph := by
     List.foldr_nil, Graphs.Coloring.addEdge]
   repeat first | apply SparseMap.normalized_add | exact SparseMap.normalized_nil
 
-theorem sourcePalette_normalized : KeySet.Normalized palette := by
+theorem palette_normalized : KeySet.Normalized palette := by
   simp only [palette, List.foldr_cons, List.foldr_nil]
   repeat first | apply KeySet.normalized_add | exact KeySet.normalized_nil
 
 theorem sourceGraph_sizes : SparseMap.cardinal sourceGraph = 5 ∧ sourceGraph.numNodes = 6 ∧
     SparseMap.keyMass sourceGraph = 12 ∧ sourceGraph.height = 3 := by decide
 
-theorem sourcePalette_sizes : KeySet.cardinal palette = 3 ∧ palette.numNodes = 3 ∧
+theorem palette_sizes : KeySet.cardinal palette = 3 ∧ palette.numNodes = 3 ∧
     KeySet.keyMass palette = 5 ∧ palette.height = 2 := by decide
 
 theorem sourceGraph_bit_bound (key : PosNum) (value : KeySet)
@@ -346,7 +346,7 @@ theorem sourceGraph_bit_bound (key : PosNum) (value : KeySet)
   simp only [List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl <;> decide
 
-theorem sourcePalette_bit_bound (key : PosNum) (present : KeySet.mem key palette = true) :
+theorem palette_bit_bound (key : PosNum) (present : KeySet.mem key palette = true) :
     bitLength key ≤ 2 := by
   have member := (KeySet.mem_elements key palette).mpr present
   have entries : KeySet.elements palette = [2, 1, 3] := by decide
@@ -359,15 +359,15 @@ theorem sourceGraph_mass_bounds : sourceGraph.numNodes ≤ SparseMap.keyMass sou
   ⟨SparseMap.numNodes_le_keyMass sourceGraph_normalized,
     SparseMap.keyMass_le_cardinal_mul sourceGraph 3 sourceGraph_bit_bound⟩
 
-theorem sourcePalette_mass_bounds : palette.numNodes ≤ KeySet.keyMass palette ∧
+theorem palette_mass_bounds : palette.numNodes ≤ KeySet.keyMass palette ∧
     KeySet.keyMass palette ≤ 3 * 2 :=
-  ⟨KeySet.numNodes_le_keyMass sourcePalette_normalized,
-    KeySet.keyMass_le_cardinal_mul palette 2 sourcePalette_bit_bound⟩
+  ⟨KeySet.numNodes_le_keyMass palette_normalized,
+    KeySet.keyMass_le_cardinal_mul palette 2 palette_bit_bound⟩
 
 theorem sourceGraph_height_bound : sourceGraph.height ≤ 3 :=
   SparseMap.height_le_of_bitLength sourceGraph_normalized 3 sourceGraph_bit_bound
 
-theorem sourcePalette_height_bound : palette.height ≤ 2 :=
-  KeySet.height_le_of_bitLength sourcePalette_normalized 2 sourcePalette_bit_bound
+theorem palette_height_bound : palette.height ≤ 2 :=
+  KeySet.height_le_of_bitLength palette_normalized 2 palette_bit_bound
 
 end Examples.PositiveFiniteTrieWork

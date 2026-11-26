@@ -154,10 +154,10 @@ reduce by computation; positive case conclusions consume the general theorem.
 | --- | --- |
 | D01 | `empty_observations`, `empty_bounds`, `empty_logarithm`: height zero, one external leaf, zero logarithm, both direct powers. |
 | D02 | `singleton_observations`, `singleton_bounds`: the floor power is one and ceiling power is two; the bounds consume the universal results. |
-| D03 | `heightThree_observations`, `heightThree_bounds`, `heightThree_strict_bound`, `repeated_payload_observation`: height three, five leaves, powers two/four, repeated labels. |
+| D03 | `fibTree_three_observations`, `fibTree_three_bounds`, `fibTree_three_strict_bound`, `repeated_payload_observation`: height three, five leaves, powers two/four, repeated labels. |
 | D04 | `arithmetic_floor_gap`: the exact non-tree pair `n=3,L=2`, with no weakened conclusion. |
-| D05 | `chainSix_power_failures`, `chainSix_logarithm_fails`, `chainSix_not_balanced`; `chainFour_not_balanced`, `chainFour_power_bounds`, `chainFour_logarithm_bound`: six nodes refute both bounds, while an unbalanced four-node chain satisfies them. |
-| D06 | `fibFour_observations`, `fibFour_not_almostComplete`, `children_and_local_balance_do_not_supply_global_condition`: balanced does not imply global almost-completeness, even with almost-complete children. |
+| D05 | `chain_six_power_failures`, `chain_six_logarithm_fails`, `chain_six_not_balanced`; `chain_four_not_balanced`, `chain_four_power_bounds`, `chain_four_logarithm_bound`: six nodes refute both bounds, while an unbalanced four-node chain satisfies them. |
+| D06 | `fibTree_four_observations`, `fibTree_four_not_almostComplete`, `children_and_local_balance_do_not_supply_global_condition`: balanced does not imply global almost-completeness, even with almost-complete children. |
 | D07 | `rightHeavy_observations`, `rightHeavy_almostComplete`, `rightHeavy_balanced`, `rightHeavy_children_almostComplete`, `rightHeavy_valid_annotation`, `rightHeavy_bounds`: no left-packing or order assumption. |
 | D08 | `bad_cache_observations`, `same_erased_shape`, `badThree_actual_height_bound`, the distinct stored-bound failures and cache-invalidity proofs, `repaired_valid`, `repaired_erasure`, `repaired_bounds`: raw and repaired caches are kept distinct. |
 | D09 | `empty_payload_bounds`, the empty-type global/cached consequences, and `empty_payload_no_positive_height`: arbitrary universes without an inhabitance assumption; generic payload/cached/indexed wrappers retain the exact intended premises. |

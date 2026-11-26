@@ -2363,7 +2363,7 @@ from the comparison of formal work.
 
 For the linear realization, `Resources.SourceQueue.linearStep` measures
 the existing enqueue/delete command type and
-`Resources.SourceQueue.linearRun_potential` proves, for every raw initial
+`Resources.SourceQueue.run_linearStep_potential` proves, for every raw initial
 pair and command list,
 `work + final back length ≤ initial back length + 2 * command count`.
 The empty-start specialization gives zero initial credit.

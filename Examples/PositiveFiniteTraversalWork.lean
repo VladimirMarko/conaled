@@ -620,7 +620,7 @@ theorem normalized_map_fold_bound_client : MapFold.outerWork (MapFold.run decima
 
 theorem normalized_set_fold_bound_client :
     SetFold.outerWork (SetFold.run decimalSet Examples.ColoringSelection.palette 0).2.1 ≤ 37 :=
-  SetFold.run_outer_work_le decimalSet sourcePalette_normalized 2 sourcePalette_bit_bound 0
+  SetFold.run_outer_work_le decimalSet palette_normalized 2 palette_bit_bound 0
 
 theorem normalized_key_map_bound_client : KeyMap.outerWork (KeyMap.run keyPayload twoValues).2.1 ≤ 39 :=
   KeyMap.run_outer_work_le keyPayload twoValues_normalized 2 twoValues_bit_bound
@@ -630,6 +630,6 @@ theorem normalized_map_enumeration_bound_client : Enumeration.Map.outerWork (Enu
 
 theorem normalized_set_enumeration_bound_client :
     Enumeration.Set.outerWork (Enumeration.Set.run Examples.ColoringSelection.palette).2 ≤ 37 :=
-  Enumeration.Set.run_outer_work_le sourcePalette_normalized 2 sourcePalette_bit_bound
+  Enumeration.Set.run_outer_work_le palette_normalized 2 palette_bit_bound
 
 end Examples.PositiveFiniteTraversalWork

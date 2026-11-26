@@ -16,12 +16,12 @@ variable {Γ : Context.{u}} (φ : Cofibration Γ)
 /-- The supplied-code Glue family retains the native compatible presentation. -/
 noncomputable def codeNativeIso :
     decode (code φ a t e E) ≅ family φ (decode a) (decode t) e :=
-  eqToIso (LocalFamily.decodeCode_family_eq
+  eqToIso (LocalFamily.decode_code_family_eq
     (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)) ≪≫
     (Datum.nativeIso (Datum.mk φ (decode a) (decode t) e)).symm
 
 noncomputable def codeUnglue : decode (code φ a t e E) ⟶ decode a :=
-  eqToHom (LocalFamily.decodeCode_family_eq
+  eqToHom (LocalFamily.decode_code_family_eq
     (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)) ≫
     (Datum.smallFamilyIso (Datum.mk φ (decode a) (decode t) e)).hom ≫
     compatibleUnglue φ (decode a) (decode t) e
@@ -34,7 +34,7 @@ private theorem cancel_iso {Ξ : Context.{u}} {W X Y Z : Family Ξ}
 theorem codeUnglue_native : codeUnglue φ a t e E =
     (codeNativeIso φ a t e E).hom ≫ unglue φ (decode a) (decode t) e :=
   cancel_iso
-    (eqToHom (LocalFamily.decodeCode_family_eq
+    (eqToHom (LocalFamily.decode_code_family_eq
       (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)) ≫
       (Datum.smallFamilyIso (Datum.mk φ (decode a) (decode t) e)).hom)
     (familyIso φ (decode a) (decode t) e) (compatibleUnglue φ (decode a) (decode t) e)
@@ -45,7 +45,7 @@ theorem codeUnglue_full :
       eqToHom (congrArg decode (code_full φ a t e E)) ≫ e := by
   ext x z
   let D := Datum.mk φ (decode a) (decode t) e
-  let h := LocalFamily.decodeCode_family_eq
+  let h := LocalFamily.decode_code_family_eq
     (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)
   let w := (eqToHom (congrArg decode (code_full φ a t e E))).app x z
   have hz : HEq ((eqToHom h).app ((restrictInclusion φ).mapElements.obj x) z) w :=

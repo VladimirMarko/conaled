@@ -19,7 +19,7 @@ theorem Datum.smallUnglue_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
   let w := (eqToHom (D.smallFamily_substitution σ)).app x z
   let s := D.smallFiberEquiv (σ.mapElements.obj x) z
   have hw : HEq z w := (family_eqToIso_hom_heq (D.smallFamily_substitution σ) x z).symm
-  have ht := D.smallToLocal_substitution σ x s
+  have ht := D.smallFiberEquiv_symm_substitution σ x s
   have hz : HEq z (((D.reindex σ).smallFiberEquiv x).symm
       ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x s)) :=
     (heq_of_eq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm_apply_apply z).symm).trans ht
@@ -57,9 +57,9 @@ theorem codeUnglue_substitution {Γ Δ : Context.{u}} (φ : Cofibration Γ)
           (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)
           (E.reindex (restrictSubstitution φ σ)) := by
   let D := Datum.mk φ (decode a) (decode t) e
-  let h₀ := LocalFamily.decodeCode_family_eq
+  let h₀ := LocalFamily.decode_code_family_eq
     (LocalFamily.normalizedGlue φ (decodedLocalFamily a) (decodedLocalFamily t) e E)
-  let h₁ := LocalFamily.decodeCode_family_eq
+  let h₁ := LocalFamily.decode_code_family_eq
     (LocalFamily.normalizedGlue (φ.reindex σ) (decodedLocalFamily (raisedSub σ ≫ a))
       (decodedLocalFamily (raisedSub (restrictSubstitution φ σ) ≫ t))
       (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)

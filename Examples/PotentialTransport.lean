@@ -24,7 +24,7 @@ theorem realStep_potential (i : Unit) (bs : Bits) :
     congrArg (fun k : Nat => (k : ℝ)) (flipCost_potential bs)
 
 /-- Both projections refer to the original measured run. -/
-theorem realRun_transport (n : Nat) (bs : Bits) :
+theorem run_realStep_transport (n : Nat) (bs : Bits) :
     run realStep (List.replicate n ()) bs =
       ((advanceWithCost n bs).1, ((advanceWithCost n bs).2 : ℝ)) := by
   exact (reweight_run (Nat.castAddMonoidHom ℝ)
@@ -49,7 +49,7 @@ theorem real_budget (n : Nat) (bs : Bits) :
       simp only [List.length_replicate, Nat.cast_mul, Nat.cast_ofNat]
 
 /-- Apply the exact telescope to the lifted local law, for every initial state. -/
-theorem realRun_potential (n : Nat) (bs : Bits) :
+theorem run_realStep_potential (n : Nat) (bs : Bits) :
     (run realStep (List.replicate n ()) bs).2 +
         (ones (run realStep (List.replicate n ()) bs).1 : ℝ) =
       (ones bs : ℝ) + 2 * (n : ℝ) := by
@@ -57,7 +57,7 @@ theorem realRun_potential (n : Nat) (bs : Bits) :
     run_potential_exact realStep (fun _ _ => (2 : ℝ))
       (fun bs => (ones bs : ℝ)) realStep_potential (List.replicate n ()) bs
 
-theorem realRun_bound (n : Nat) (bs : Bits) :
+theorem run_realStep_bound (n : Nat) (bs : Bits) :
     (run realStep (List.replicate n ()) bs).2 ≤ (ones bs : ℝ) + 2 * (n : ℝ) := by
   have hfinal : 0 ≤ (ones (run realStep (List.replicate n ()) bs).1 : ℝ) :=
     Nat.cast_nonneg _
@@ -67,20 +67,20 @@ theorem realRun_bound (n : Nat) (bs : Bits) :
       (List.replicate n ()) bs hfinal
 
 example (n : Nat) : (run realStep (List.replicate n ()) []).2 ≤ 2 * (n : ℝ) := by
-  simpa only [ones, Nat.cast_zero, zero_add] using realRun_bound n []
+  simpa only [ones, Nat.cast_zero, zero_add] using run_realStep_bound n []
 
 /-- The independent write calculation is 1 + 2 + 1 + 3 = 7. -/
-theorem realRun_four :
+theorem run_realStep_four :
     run realStep (List.replicate 4 ()) [] = ([false, false, true], (7 : ℝ)) := by
   have observed : advanceWithCost 4 [] = ([false, false, true], 7) := rfl
-  simpa only [observed, Nat.cast_ofNat] using realRun_transport 4 []
+  simpa only [observed, Nat.cast_ofNat] using run_realStep_transport 4 []
 
 /-- The four-step run retains one final one bit: its account is 7 + 1 = 8. -/
-theorem realRun_four_balance :
+theorem run_realStep_four_balance :
     (run realStep (List.replicate 4 ()) []).2 +
       (ones (run realStep (List.replicate 4 ()) []).1 : ℝ) = 8 := by
   calc
-    _ = (ones ([] : Bits) : ℝ) + 2 * (4 : ℝ) := realRun_potential 4 []
+    _ = (ones ([] : Bits) : ℝ) + 2 * (4 : ℝ) := run_realStep_potential 4 []
     _ = 8 := by norm_num [ones]
 
 end Counter

@@ -18,7 +18,7 @@ noncomputable def transportEvaluation (x : Term (liftedDecode a)) :
 
 theorem transportEvaluation_beta (x : Term (liftedDecode a)) (p : Term (paths a b)) :
     Term.map (transportEvaluation a b x) p = Term.map (pathToMap p) x := by
-  have h := congrArg Sigma.fst (pathEquivalence_generic p)
+  have h := congrArg Sigma.fst (pathToEquivalence_record_generic p)
   exact (EquivalenceFamilies.decodeMap_lam_apply _ p).trans
     (congrArg (fun k => Term.map k x) h)
 

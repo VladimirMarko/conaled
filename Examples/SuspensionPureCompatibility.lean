@@ -97,7 +97,7 @@ theorem missing_address_has_no_image (view : Pure.Machine.Fault) :
     ¬ FaultRep (.missingAddress 0) view := missingAddress_unrelated 0 view
 
 theorem reference_kind_has_no_image (view : Pure.Machine.Fault) :
-    ¬ FaultRep .expectedReferenceValue view := referenceValue_unrelated view
+    ¬ FaultRep .expectedReferenceValue view := expectedReferenceValue_unrelated view
 
 theorem raised_case :
     ResultRep emptyWorld (.raised (.exception 10 none)) (.raised (.exception 10 none)) :=

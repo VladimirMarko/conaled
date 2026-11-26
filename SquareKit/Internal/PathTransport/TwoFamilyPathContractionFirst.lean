@@ -8,7 +8,7 @@ set_option backward.defeqAttrib.useBackward true
 set_option maxHeartbeats 200000
 private theorem identity_boundary_heq {C : Type*} [Category C] {a b c : C}
     (e : a = b) (h : a = c) : HEq (eqToHom e) (𝟙 c) := by cases h; cases e; rfl
-theorem strongId_naturality_heq {A B : Type*} [Bicategory A] [Bicategory B] [Strict B]
+theorem strongTrans_id_naturality_heq {A B : Type*} [Bicategory A] [Bicategory B] [Strict B]
     (F : StrictPseudofunctor A B) {x y : A} (p : x ⟶ y) :
     HEq ((Pseudofunctor.StrongTrans.id F.toPseudofunctor).naturality p).hom (𝟙 (F.map p)) := by
   simp only [Pseudofunctor.StrongTrans.id, Strict.rightUnitor_eqToIso,
@@ -32,7 +32,7 @@ theorem pathContraction_first :
   · intro x y p
     have h1 := strongPostcomp_naturality_heq (pathContraction F) (pathFirst F) p
     have h2 := contractionNaturalityCell_first_heq F p
-    have h3 := (strongId_naturality_heq (pathFirst F) p).symm
+    have h3 := (strongTrans_id_naturality_heq (pathFirst F) p).symm
     exact h1.trans (h2.trans h3)
 end TwoFamily
 end SquareKit.Internal.PathTransport

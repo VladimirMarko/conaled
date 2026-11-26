@@ -25,11 +25,11 @@ variable [∀x, IsIso (η.app x)] [∀x, IsIso (η'.app x)]
 variable [∀x, IsLocallyGroupoid (E.obj x)]
 
 def contractionBranchSubstitution := familySubstitution (reindex i E) σ₀
-  (retractionBranch_family i i' σ σ₀ hi E).symm
+  (retractionBranchReindex_family i i' σ σ₀ hi E).symm
 
 include hi in
 omit [IsLocallyGroupoid Γ] [IsLocallyGroupoid Δ] [∀ (x : Γ), IsLocallyGroupoid (E.obj x).Carrier] in
-theorem contractionInclusion_reindex :
+theorem reindexHigher_comp_eq_contractionBranchSubstitution_comp :
     (reindexHigher (reindex σ E) i').comp (reindexHigher E σ) =
       (contractionBranchSubstitution i i' σ σ₀ hi E).comp (reindexHigher E i) := by
   unfold contractionBranchSubstitution
@@ -43,11 +43,11 @@ theorem contractionRetraction_reindex :
     (contractionRetraction i' r' η' (reindex σ E)).comp
       (contractionBranchSubstitution i i' σ σ₀ hi E) =
       (reindexHigher E σ).comp (contractionRetraction i r η E) := by
-  let hR := retractionSource_square i r i' r' σ σ₀ hi hr
+  let hR := retraction_source_square i r i' r' σ σ₀ hi hr
   have hb := contractionBack_reindex (r.comp i) (r'.comp i') σ hR η η' hη E
   change ((contractionBack (r'.comp i') η' (reindex σ E)).comp
     (familySubstitution (reindex i' (reindex σ E)) r' (reindex_comp (reindex σ E) i' r').symm)).comp
-    (familySubstitution (reindex i E) σ₀ (retractionBranch_family i i' σ σ₀ hi E).symm) =
+    (familySubstitution (reindex i E) σ₀ (retractionBranchReindex_family i i' σ σ₀ hi E).symm) =
     (reindexHigher E σ).comp ((contractionBack (r.comp i) η E).comp
       (familySubstitution (reindex i E) r (reindex_comp E i r).symm))
   rw [strictPseudofunctor_comp_assoc, familySubstitution_comp,

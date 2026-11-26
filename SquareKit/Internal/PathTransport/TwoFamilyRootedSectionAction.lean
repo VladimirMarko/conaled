@@ -16,7 +16,7 @@ def RootedSectionActionFormula {H K : StrictPseudofunctor (Total (rootedPathFami
    (reindex (projectionHigher (rootedPathFamily F x)) (reindex (projectionHigher F) B)) (η.app z)).fiber)
   (𝟙 (s.normalObj B z.base.base).fiber)
 omit [IsLocallyGroupoid Γ] in
-theorem rootedSection_action_of_base
+theorem rootedSectionActionFormula_of_rootedBaseFormula
  {H K : StrictPseudofunctor (Total (rootedPathFamily F x)) (Total (rootedPathFamily F x))}
  (η : Pseudofunctor.StrongTrans H.toPseudofunctor K.toPseudofunctor)
  (hs : H.comp (rootedRetraction F x) = rootedRetraction F x)
@@ -25,8 +25,8 @@ theorem rootedSection_action_of_base
  intro z
  exact s.doubleReindex_normalMap_vertical B (projectionHigher F) (projectionHigher (rootedPathFamily F x))
   (η.app z) z.base.base (congrArg (fun L => L.obj z) hs) (congrArg (fun L => L.obj z) ht) (hb z)
-theorem rootedSection_action : RootedSectionActionFormula F B x s (rootedContraction F x) := by
- apply rootedSection_action_of_base F B x s (rootedContraction F x)
+theorem rootedSectionActionFormula_rootedContraction : RootedSectionActionFormula F B x s (rootedContraction F x) := by
+ apply rootedSectionActionFormula_of_rootedBaseFormula F B x s (rootedContraction F x)
  · rw [strictPseudofunctor_comp_assoc, rootedReflexivity_retraction, strictPseudofunctor_comp_id]
  · exact strictPseudofunctor_id_comp _
  · exact rootedContraction_base F x
@@ -52,5 +52,5 @@ theorem rootContraction_section_action :
  have hH := congrArg₂ StrictPseudofunctor.comp (rootContraction_retraction C D A x) (rootSub_down_eq C D A x)
  exact RootedSectionActionFormula.congr A.data B.data x.down s hH rfl
   (rootContraction C D A x).val.homotopy (rootedContraction A.data x.down)
-  (rootContraction_homotopy C D A x) (rootedSection_action A.data B.data x.down s)
+  (rootContraction_homotopy C D A x) (rootedSectionActionFormula_rootedContraction A.data B.data x.down s)
 end SquareKit.Internal.PathTransport.HigherInterpretation

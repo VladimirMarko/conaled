@@ -25,16 +25,16 @@ namespace LocalFamily
 
 
 /-- Decoding a native code recovers its family by equality of the indexed types. -/
-theorem decodeCode_family_eq {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code = A.family :=
+theorem decode_code_family_eq {Γ : Context.{u}} (A : LocalFamily Γ) : decode A.code = A.family :=
   family_eq_of_iso_heq A.decodeCodeIso
     (fun x => congrArg A.family.obj (represented_generic_source x)) A.decodeCodeIso_hom_heq
 
 theorem decodeCodeIso_eq {Γ : Context.{u}} (A : LocalFamily Γ) :
-    A.decodeCodeIso = eqToIso A.decodeCode_family_eq := by
+    A.decodeCodeIso = eqToIso A.decode_code_family_eq := by
   apply Iso.ext
   ext x a
   exact eq_of_heq ((A.decodeCodeIso_hom_heq x a).trans
-    (family_eqToIso_hom_heq A.decodeCode_family_eq x a).symm)
+    (family_eqToIso_hom_heq A.decode_code_family_eq x a).symm)
 
 
 private theorem eq_of_local_operations {Γ : Context.{u}} (A B : LocalFamily Γ)
@@ -62,9 +62,9 @@ private theorem eq_of_local_operations {Γ : Context.{u}} (A B : LocalFamily Γ)
 
 /-- Recovery includes the selected local operation, not just the underlying family. -/
 theorem decoded_code {Γ : Context.{u}} (A : LocalFamily Γ) : decodedLocalFamily A.code = A := by
-  apply eq_of_local_operations _ _ A.decodeCode_family_eq
+  apply eq_of_local_operations _ _ A.decode_code_family_eq
   intro I p φ b
-  have h := A.decodeCode_filling p φ b
+  have h := A.decodeCodeIso_fill p φ b
   exact (congrArg (fun i : decode A.code ≅ A.family =>
     A.filling.fill p φ (b.map (Functor.whiskerLeft p.mapElements i.hom))) A.decodeCodeIso_eq).symm.trans
       (h.trans (congrArg (fun i : decode A.code ≅ A.family =>
@@ -239,7 +239,7 @@ theorem Datum.localCarrierEquiv_symm {Γ : Context.{u}} (D : Datum Γ) (x : Γ.E
     (s : D.compatible.obj x) :
     (D.localCarrierEquiv x).symm s = D.chartMap (represented x) x (represented_generic_source x) s := rfl
 
-theorem Datum.toLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
+theorem Datum.localCarrierEquiv_symm_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) (s : D.compatible.obj (σ.mapElements.obj x)) :
     HEq ((D.localCarrierEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).localCarrierEquiv x).symm
@@ -249,7 +249,7 @@ theorem Datum.toLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (congrArg σ.mapElements.obj (represented_generic_source x)) s).trans
       (heq_of_eq (D.chartMap_substitution σ (represented x) x (represented_generic_source x) s).symm)
 
-theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
+theorem Datum.smallFiberEquiv_symm_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     (σ : Δ ⟶ Γ) (x : Δ.Elements) (s : D.compatible.obj (σ.mapElements.obj x)) :
     HEq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm s)
       (((D.reindex σ).smallFiberEquiv x).symm
@@ -260,7 +260,7 @@ theorem Datum.smallToLocal_substitution {Γ Δ : Context.{u}} (D : Datum Γ)
     exact (cast_heq _ _).trans (cast_heq _ _).symm
   · have h' : ¬(D.reindex σ).face.Full x := h
     simp only [smallFiberEquiv, dite_eq_right h, dite_eq_right h']
-    exact (cast_heq _ _).trans ((D.toLocal_substitution σ x s).trans (cast_heq _ _).symm)
+    exact (cast_heq _ _).trans ((D.localCarrierEquiv_symm_substitution σ x s).trans (cast_heq _ _).symm)
 
 theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ : Δ ⟶ Γ) :
     Presheaf.reindex D.smallFamily σ = (D.reindex σ).smallFamily := by
@@ -275,7 +275,7 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
         (D.smallFiberEquiv (σ.mapElements.obj x) s)) :=
     eq_of_heq (hst.symm.trans
       ((heq_of_eq ((D.smallFiberEquiv (σ.mapElements.obj x)).symm_apply_apply s)).symm.trans
-        (D.smallToLocal_substitution σ x (D.smallFiberEquiv (σ.mapElements.obj x) s))))
+        (D.smallFiberEquiv_symm_substitution σ x (D.smallFiberEquiv (σ.mapElements.obj x) s))))
   subst t
   change HEq ((D.smallFiberEquiv (σ.mapElements.obj y)).symm
     (D.compatible.map (σ.mapElements.map f) (D.smallFiberEquiv (σ.mapElements.obj x) s)))
@@ -284,7 +284,7 @@ theorem Datum.smallFamily_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ 
         (((D.reindex σ).smallFiberEquiv x).symm
           ((compatibleReindexMap D.face D.ambient D.faceFamily D.map σ).app x
             (D.smallFiberEquiv (σ.mapElements.obj x) s))))))
-  exact (D.smallToLocal_substitution σ y
+  exact (D.smallFiberEquiv_symm_substitution σ y
     (D.compatible.map (σ.mapElements.map f) (D.smallFiberEquiv (σ.mapElements.obj x) s))).trans
       (heq_of_eq (congrArg (fun a => ((D.reindex σ).smallFiberEquiv y).symm
         ((D.reindex σ).compatible.map f a))
@@ -341,7 +341,7 @@ theorem Datum.nativeIso_substitution {Γ Δ : Context.{u}} (D : Datum Γ) (σ : 
       (Presheaf.reindex D.faceFamily (restrictSubstitution D.face σ))
       (Functor.whiskerLeft (restrictSubstitution D.face σ).mapElements D.map)).inv_hom_id
   exact eq_of_heq ((family_eqToIso_hom_heq (D.smallFamily_substitution σ) x _).trans
-    ((D.smallToLocal_substitution σ x ((familyIso D.face D.ambient D.faceFamily D.map).hom.app
+    ((D.smallFiberEquiv_symm_substitution σ x ((familyIso D.face D.ambient D.faceFamily D.map).hom.app
       (σ.mapElements.obj x) z)).trans
         (heq_of_eq (congrArg ((D.reindex σ).smallFiberEquiv x).symm hnew).symm)))
 

@@ -58,7 +58,7 @@ theorem scale_directional (z u : ℂ) :
     ring
 
 /-- Quarter-turn covariance is a coefficient law for this actual connection. -/
-theorem gamma_quarterTurn (z u v : ℂ) :
+theorem gamma_I_mul (z u v : ℂ) :
     gamma (I*z) (I*u) (I*v) = I * gamma z u v := by
   simp [gamma, map_mul, mul_assoc]
   ring_nf

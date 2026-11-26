@@ -21,7 +21,7 @@ def raisedIntervalIso (Γ : Context.{u}) :
   hom_inv_id := rfl
   inv_hom_id := rfl
 
-theorem raisedInterval_endpoint (Γ : Context.{u}) (ε : Bool) :
+theorem raisedIntervalIso_endpoint (Γ : Context.{u}) (ε : Bool) :
     endpointSub (raisedContext Γ) ε ≫ (raisedIntervalIso Γ).inv =
       raisedSub (endpointSub Γ ε) := rfl
 

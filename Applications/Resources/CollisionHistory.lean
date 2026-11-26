@@ -700,7 +700,7 @@ theorem signed_loop_source (xs : List ZNum) (counter : Num) (history : History Z
   rw [Search.Collisions.RatherSlow.loop_common]
   simp only [Num.cast_toZNum, ← Num.to_nat_to_int]
   rw [run_function_value signedEqRun (by intro x y; exact signedEqRun_value x y)
-    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.numAddOneRun_toNat]
+    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.castNum_numAddOneRun]
   have offset := Search.Collisions.loop_add (Search.TotalTable.functions false) xs
     (counter : Nat) 0 (decode history)
   simp only [Nat.add_zero] at offset
@@ -723,7 +723,7 @@ theorem unaryRun_count (xs : List Nat) : (unaryRun xs).1.1 = Search.Collisions.c
 
 theorem signedRun_count (xs : List ZNum) : ((signedRun xs).1.1 : Nat) = Search.Collisions.count xs := by
   simpa [signedRun] using run_count_from_empty signedEqRun (fun x y => signedEqRun_value x y)
-    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.numAddOneRun_toNat xs .zero
+    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.castNum_numAddOneRun xs .zero
 
 theorem unaryRun_cells (xs : List Nat) : (unaryRun xs).2 .historyCells = xs.toFinset.card :=
   run_historyCells_exact unaryEqRun unaryEqRun_value (fun c => CollisionWork.unaryAddRun c 1)
@@ -731,7 +731,7 @@ theorem unaryRun_cells (xs : List Nat) : (unaryRun xs).2 .historyCells = xs.toFi
 
 theorem signedRun_cells (xs : List ZNum) : (signedRun xs).2 .historyCells = xs.toFinset.card :=
   run_historyCells_exact signedEqRun (fun x y => signedEqRun_value x y)
-    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.numAddOneRun_toNat xs .zero
+    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.castNum_numAddOneRun xs .zero
 
 theorem unaryRun_counter_exact (xs : List Nat) :
     2 * (unaryRun xs).2 .counterWork = Search.Collisions.count xs * (Search.Collisions.count xs + 1) := by
@@ -745,7 +745,7 @@ theorem signedRun_counter_exact (xs : List ZNum) :
       2 * Search.Collisions.count xs := by
   have accounting := run_binary_counter_exact signedEqRun xs (.zero, [])
   have calls := run_counterCalls_exact signedEqRun (fun x y => signedEqRun_value x y)
-    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.numAddOneRun_toNat xs .zero
+    PositiveCounter.numAddOneRun (fun c : Num => (c : Nat)) PositiveCounter.castNum_numAddOneRun xs .zero
   simpa [signedRun, calls, PositiveCounter.numDigits_zero, BinaryCounter.ones] using accounting
 
 /-- All equality, history, counter, wrapper, loop and terminal work is included. -/

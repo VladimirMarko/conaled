@@ -64,7 +64,7 @@ private theorem selectedFill_congr {L M : LawfulFamily (total (interval Γ))}
   cases hc
   rfl
 
-theorem chartNative_reindex (σ : raisedContext Γ ⟶ Ξ) (τ : Θ ⟶ Γ) :
+theorem toNative_chartInterval_reindex (σ : raisedContext Γ ⟶ Ξ) (τ : Θ ⟶ Γ) :
     (decodedLocalFamily (chartInterval σ ≫ a)).toNative.reindex (liftSub (interval Γ) τ) =
       (decodedLocalFamily (chartInterval (raisedSub τ ≫ σ) ≫ a)).toNative :=
   (LocalFamily.toNative_reindex _ _).symm.trans
@@ -83,7 +83,7 @@ theorem chartFilled_reindex (σ : raisedContext Γ ⟶ Ξ) (τ : Θ ⟶ Γ) :
     (chartFilled a b σ).reindex (liftSub (interval Γ) τ) =
       chartFilled a b (raisedSub τ ≫ σ) :=
   (selectedFill_reindex _ _ _ τ).trans (eq_of_heq
-    (selectedFill_congr (chartNative_reindex a σ τ) (chartFace φ (raisedSub τ ≫ σ))
+    (selectedFill_congr (toNative_chartInterval_reindex a σ τ) (chartFace φ (raisedSub τ ≫ σ))
       _ _ HEq.rfl))
 
 /-- Raising a small represented chart has the same cube points as the native

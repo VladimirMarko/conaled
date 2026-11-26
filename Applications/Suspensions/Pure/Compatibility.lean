@@ -53,7 +53,7 @@ theorem missingAddress_unrelated (address : Nat) (view : Machine.Fault) :
     ¬ FaultRep (.missingAddress address) view := by
   simp [FaultRep, faultView]
 
-theorem referenceValue_unrelated (view : Machine.Fault) :
+theorem expectedReferenceValue_unrelated (view : Machine.Fault) :
     ¬ FaultRep .expectedReferenceValue view := by
   simp [FaultRep, faultView]
 
@@ -166,7 +166,7 @@ def onIntegerPure (operation : Int → Core.Atom) : Value Primitive → Machine.
   | .atom (.integer value) => .value (.atom (operation value))
   | _ => .stuck .primitive
 
-theorem onInteger_compatible (operation : Int → Core.Atom) :
+theorem onIntegerRaw_onIntegerPure_compatible (operation : Int → Core.Atom) :
     OperationCompatible (onIntegerRaw (Primitive := Primitive) operation) (onIntegerPure operation) := by
   intro world raw view represented
   cases represented with
@@ -191,7 +191,7 @@ def onBooleanPure (operation : Bool → Core.Atom) : Value Primitive → Machine
   | .atom (.boolean value) => .value (.atom (operation value))
   | _ => .stuck .primitive
 
-theorem onBoolean_compatible (operation : Bool → Core.Atom) :
+theorem onBooleanRaw_onBooleanPure_compatible (operation : Bool → Core.Atom) :
     OperationCompatible (onBooleanRaw (Primitive := Primitive) operation) (onBooleanPure operation) := by
   intro world raw view represented
   cases represented with
@@ -231,11 +231,11 @@ theorem basic_operation_compatible (operation : BasicOperation) :
     OperationCompatible (basicRaw operation) (basicPure operation) := by
   cases operation with
   | identity => exact identity_compatible
-  | successor => exact onInteger_compatible _
-  | isZero => exact onInteger_compatible _
-  | negateBoolean => exact onBoolean_compatible _
+  | successor => exact onIntegerRaw_onIntegerPure_compatible _
+  | isZero => exact onIntegerRaw_onIntegerPure_compatible _
+  | negateBoolean => exact onBooleanRaw_onBooleanPure_compatible _
 
-private theorem integerRaw_origin (operation : Int → Core.Atom) (input : Core.Value Primitive) :
+private theorem onIntegerRaw_origin (operation : Int → Core.Atom) (input : Core.Value Primitive) :
     (∃ atom, onIntegerRaw operation input = .value (.atom atom)) ∨
       onIntegerRaw operation input = .stuck .primitive := by
   cases input
@@ -245,7 +245,7 @@ private theorem integerRaw_origin (operation : Int → Core.Atom) (input : Core.
     | integer value => exact .inl ⟨operation value, rfl⟩
   all_goals exact .inr rfl
 
-private theorem integerPure_origin (operation : Int → Core.Atom) (input : Value Primitive) :
+private theorem onIntegerPure_origin (operation : Int → Core.Atom) (input : Value Primitive) :
     (∃ atom, onIntegerPure operation input = .value (.atom atom)) ∨
       onIntegerPure operation input = .stuck .primitive := by
   cases input
@@ -255,7 +255,7 @@ private theorem integerPure_origin (operation : Int → Core.Atom) (input : Valu
     | integer value => exact .inl ⟨operation value, rfl⟩
   all_goals exact .inr rfl
 
-private theorem booleanRaw_origin (operation : Bool → Core.Atom) (input : Core.Value Primitive) :
+private theorem onBooleanRaw_origin (operation : Bool → Core.Atom) (input : Core.Value Primitive) :
     (∃ atom, onBooleanRaw operation input = .value (.atom atom)) ∨
       onBooleanRaw operation input = .stuck .primitive := by
   cases input
@@ -265,7 +265,7 @@ private theorem booleanRaw_origin (operation : Bool → Core.Atom) (input : Core
     | integer value => exact .inr rfl
   all_goals exact .inr rfl
 
-private theorem booleanPure_origin (operation : Bool → Core.Atom) (input : Value Primitive) :
+private theorem onBooleanPure_origin (operation : Bool → Core.Atom) (input : Value Primitive) :
     (∃ atom, onBooleanPure operation input = .value (.atom atom)) ∨
       onBooleanPure operation input = .stuck .primitive := by
   cases input
@@ -283,9 +283,9 @@ theorem basicRaw_output_origin (operation : BasicOperation) (input : Core.Value 
       basicRaw operation input = .stuck .primitive := by
   cases operation with
   | identity => exact .inl rfl
-  | successor => exact .inr (integerRaw_origin _ input)
-  | isZero => exact .inr (integerRaw_origin _ input)
-  | negateBoolean => exact .inr (booleanRaw_origin _ input)
+  | successor => exact .inr (onIntegerRaw_origin _ input)
+  | isZero => exact .inr (onIntegerRaw_origin _ input)
+  | negateBoolean => exact .inr (onBooleanRaw_origin _ input)
 
 theorem basicPure_output_origin (operation : BasicOperation) (input : Value BasicOperation) :
     basicPure operation input = .value input ∨
@@ -293,9 +293,9 @@ theorem basicPure_output_origin (operation : BasicOperation) (input : Value Basi
       basicPure operation input = .stuck .primitive := by
   cases operation with
   | identity => exact .inl rfl
-  | successor => exact .inr (integerPure_origin _ input)
-  | isZero => exact .inr (integerPure_origin _ input)
-  | negateBoolean => exact .inr (booleanPure_origin _ input)
+  | successor => exact .inr (onIntegerPure_origin _ input)
+  | isZero => exact .inr (onIntegerPure_origin _ input)
+  | negateBoolean => exact .inr (onBooleanPure_origin _ input)
 
 def basicRawParameters (matchTag bindTag : Nat) : Core.Machine.Parameters BasicOperation :=
   ⟨basicRaw, matchTag, bindTag⟩

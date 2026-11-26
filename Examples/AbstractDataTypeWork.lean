@@ -191,7 +191,7 @@ theorem arbitrary_raw_history_bound (commands : List (Command α)) (front back :
     (Resources.run linearStep commands (front, back)).2 +
         backPotential (Resources.run linearStep commands (front, back)).1 ≤
       back.length + 2 * commands.length :=
-  linearRun_potential commands (front, back)
+  run_linearStep_potential commands (front, back)
 
 theorem sequential_history_bound (first second : List (Command α)) (queue : TwoList α) :
     (bind (Resources.run linearStep first queue) (Resources.run linearStep second)).2 ≤
@@ -390,7 +390,7 @@ theorem source_history_peek (default : Nat) (commands : List (Command Nat)) (que
     (peekRun default (Resources.run linearStep commands queue).1).1 =
       AbstractDataTypes.TwoListQueue.peek default
         (Sequences.AbstractFIFO.run (twoListFIFO Nat) commands queue) := by
-  rw [linearRun_value, source_pair_peek]
+  rw [run_linearStep_value, source_pair_peek]
 
 theorem source_unique_update (key : Nat) (value : α) (bindings : AbstractDataTypes.UniqueListTable.Carrier α) :
     (ListErase.setRun key value bindings).1 = AbstractDataTypes.UniqueListTable.set key value bindings :=

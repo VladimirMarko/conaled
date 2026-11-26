@@ -316,30 +316,30 @@ theorem linearStep_potential (command : Command α) (queue : TwoList α) :
       | cons value front => simp [linearStep, linearDequeueRun, backPotential]; omega
 
 /-- Final credit is retained; arbitrary raw initial pairs carry their back length. -/
-theorem linearRun_potential (commands : List (Command α)) (queue : TwoList α) :
+theorem run_linearStep_potential (commands : List (Command α)) (queue : TwoList α) :
     (Resources.run linearStep commands queue).2 +
         backPotential (Resources.run linearStep commands queue).1 ≤
       backPotential queue + 2 * commands.length :=
   run_constant_charge linearStep backPotential 2 linearStep_potential commands queue
 
-theorem linearRun_cost_le (commands : List (Command α)) (queue : TwoList α) :
+theorem run_linearStep_cost_le (commands : List (Command α)) (queue : TwoList α) :
     (Resources.run linearStep commands queue).2 ≤ backPotential queue + 2 * commands.length := by
-  have bound := linearRun_potential commands queue
+  have bound := run_linearStep_potential commands queue
   omega
 
-theorem linearRun_empty_cost_le (commands : List (Command α)) :
+theorem run_linearStep_twoListEmpty_cost_le (commands : List (Command α)) :
     (Resources.run linearStep commands (twoListEmpty : TwoList α)).2 ≤ 2 * commands.length := by
-  simpa [backPotential, twoListEmpty] using linearRun_cost_le commands twoListEmpty
+  simpa [backPotential, twoListEmpty] using run_linearStep_cost_le commands twoListEmpty
 
-theorem linearRun_value (commands : List (Command α)) (queue : TwoList α) :
+theorem run_linearStep_value (commands : List (Command α)) (queue : TwoList α) :
     (Resources.run linearStep commands queue).1 =
       Sequences.AbstractFIFO.run (twoListFIFO α) commands queue :=
   FIFOContracts.run_erases linearInstrumentation commands queue
 
-theorem linearRun_decode (commands : List (Command α)) (queue : TwoList α) :
+theorem run_linearStep_decode (commands : List (Command α)) (queue : TwoList α) :
     twoListDecode (Resources.run linearStep commands queue).1 =
       Sequences.AbstractFIFO.run (Sequences.AbstractFIFO.lists α) commands (twoListDecode queue) := by
-  rw [linearRun_value, twoList_run_decode]
+  rw [run_linearStep_value, twoList_run_decode]
 
 theorem linear_accounting :
     FIFOContracts.Accounting (twoListFIFO α) linearInstrumentation twoListDecode
@@ -359,7 +359,7 @@ theorem linear_sequential_bound (first second : List (Command α)) (queue : TwoL
     (bind (Resources.run linearStep first queue) (Resources.run linearStep second)).2 ≤
       backPotential queue + 2 * (first.length + second.length) := by
   rw [← Resources.run_append]
-  simpa only [List.length_append] using linearRun_cost_le (first ++ second) queue
+  simpa only [List.length_append] using run_linearStep_cost_le (first ++ second) queue
 
 /-! ## Observing peeks cannot spend unchanged-state potential -/
 

@@ -64,7 +64,7 @@ theorem positive_four_average_exact : ((positiveAdvanceRun 4 .one).2 : ℚ) / 4 
 
 theorem four_before_states :
     (List.iterate PosNum.succ .one 4).map numeric = [1, 2, 3, 4] := by
-  rw [positivePrefix_one_values]
+  rw [map_numeric_iterate_succ_one]
   rfl
 
 theorem four_transitions_finish_at_five : numeric (positiveAdvanceRun 4 .one).1 = 5 :=
@@ -121,14 +121,14 @@ theorem numeric_and_signed_step :
     ((numAddOneRun (7 : Num)).1 : Nat) = 8 ∧
       (numAddOneRun (7 : Num)).1.toZNum = (8 : ZNum) := by
   constructor
-  · rw [numAddOneRun_toNat]
+  · rw [castNum_numAddOneRun]
     rfl
   · rw [numAddOneRun_toZNum]
     rfl
 
 theorem num_four_final : (numAdvanceRun 4 .zero).1 = (4 : Num) := by
   apply Num.to_nat_inj.mp
-  rw [numAdvanceRun_zero_toNat]
+  rw [castNum_numAdvanceRun_zero]
   rfl
 
 theorem num_four_writes : (numAdvanceRun 4 .zero).2 = 7 := by
@@ -149,7 +149,7 @@ theorem signed_four_successors : (fun z : ZNum => z + 1)^[4] 0 = (4 : ZNum) := b
 theorem signed_zero_start_nonnegative (n : Nat) :
     0 ≤ ((numAdvanceRun n .zero).1.toZNum : Int) ∧
       ((numAdvanceRun n .zero).1.toZNum : Int) = n :=
-  ⟨numAdvanceRun_nonnegative n .zero, numAdvanceRun_zero_toInt n⟩
+  ⟨numAdvanceRun_nonnegative n .zero, castZNum_toZNum_numAdvanceRun_zero n⟩
 
 /-- A duplicate flag increments; a fresh flag leaves the same binary counter.
 This is only a transition supplied to the existing `Resources.run`. -/
@@ -161,7 +161,7 @@ theorem optionalIncrement_toNat (duplicate : Bool) (c : Num) :
       if duplicate then (c : Nat) + 1 else (c : Nat) := by
   cases duplicate with
   | false => rfl
-  | true => exact numAddOneRun_toNat c
+  | true => exact castNum_numAddOneRun c
 
 theorem optionalIncrement_potential (duplicate : Bool) (c : Num) :
     (optionalIncrement duplicate c).2 +

@@ -97,17 +97,17 @@ noncomputable def contractionNaturalityCell {x y : PathContext F} (p : x ⟶ y) 
       contractionComponent F x ≫ p :=
   eqToHom (contractionLeftArrow_composite F p) ≫ contractionLiftCell F p ≫
     eqToHom (contractionRightArrow_composite F p).symm
-private theorem endpointFiber_cast_right {x y : PathContext F} {p q r : x ⟶ y}
+private theorem base_fiber_comp_eqToHom_heq {x y : PathContext F} {p q r : x ⟶ y}
     (α : p ⟶ q) (h : q = r) : HEq (α ≫ eqToHom h).base.fiber α.base.fiber := by
   cases h
   rw [eqToHom_refl, Category.comp_id]
-private theorem endpointFiber_cast_left {x y : PathContext F} {p q r : x ⟶ y}
+private theorem base_fiber_eqToHom_comp_heq {x y : PathContext F} {p q r : x ⟶ y}
     (h : p = q) (α : q ⟶ r) : HEq (eqToHom h ≫ α).base.fiber α.base.fiber := by
   cases h
   rw [eqToHom_refl, Category.id_comp]
 /-- Boundary casts retain the genuine endpoint comparison fiber cells. -/
 theorem contractionNaturalityCell_endpoint_heq {x y : PathContext F} (p : x ⟶ y) :
     HEq (contractionNaturalityCell F p).base.fiber (contractionEndpointSquare F p).fiber := by
-  apply HEq.trans (endpointFiber_cast_left F _ _)
-  exact endpointFiber_cast_right F _ _
+  apply HEq.trans (base_fiber_eqToHom_comp_heq F _ _)
+  exact base_fiber_comp_eqToHom_heq F _ _
 end SquareKit.Internal.PathTransport.TwoFamily

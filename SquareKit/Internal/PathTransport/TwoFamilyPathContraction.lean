@@ -45,7 +45,7 @@ theorem contractionEndpoint_refl (x : Total F) :
       simp only [identity, TwoGroupoidHom.arrow]
       rw [CategoryTheory.eqToHom_snd]
 
-private theorem canonicalArrow_eq {C D : Type*} [Category C] [Bicategory D] [Strict D]
+private theorem arrow_eqToHom_congr {C D : Type*} [Category C] [Bicategory D] [Strict D]
     (E : C ⥤ D) (b : D) {p q : C} (e : p = q) (h : E.obj p = b) (k : E.obj q = b) :
     TwoGroupoidHom.arrow E b p (eqToHom h) = TwoGroupoidHom.arrow E b q (eqToHom k) := by
   cases e
@@ -54,6 +54,6 @@ private theorem canonicalArrow_eq {C D : Type*} [Category C] [Bicategory D] [Str
 /-- The actual total contraction component is normalized at reflexivity. -/
 theorem contractionComponent_refl (x : Total F) :
     contractionComponent F (pathReflexivityObj F x) = 𝟙 (pathReflexivityObj F x) := by
-  exact canonicalArrow_eq (evaluation (openIdHigher F) (pathReflexivityObj F x).fiber)
+  exact arrow_eqToHom_congr (evaluation (openIdHigher F) (pathReflexivityObj F x).fiber)
     (pathReflexivityObj F x).fiber (contractionEndpoint_refl F x) _ _
 end SquareKit.Internal.PathTransport.TwoFamily

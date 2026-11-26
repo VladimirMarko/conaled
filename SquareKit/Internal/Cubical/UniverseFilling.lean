@@ -110,7 +110,7 @@ theorem map_reindex (F : Filling A) (hF : F.Lawful) (σ : Δ ⟶ Γ) :
   exact congrArg (fun t => t.val
     ((endpointSub (total (reindex B σ)) true).mapElements.obj (extendObj (reindex B σ) x a))) h
 
-private theorem nativePath_inverse_reindex {Ξ Ω Θ : Context.{u}}
+private theorem pathReindexIso_inv_reindex {Ξ Ω Θ : Context.{u}}
     (B : Family (total (interval Ξ)))
     (a₀ : Term (reindex B (endpointSub Ξ false))) (a₁ : Term (reindex B (endpointSub Ξ true)))
     (σ : Ω ⟶ Ξ) (τ : Θ ⟶ Ω)
@@ -204,7 +204,7 @@ theorem endpointInitial_reindex {Θ : Context.{u}} (σ : Θ ⟶ Γ) :
     (pathLam (forward (F.reindex L) (𝟙 Θ) (a.reindex σ))
       (forward_zero (F.reindex L) (hF.reindex _) (𝟙 Θ) (a.reindex σ))
       ((map_section (F.reindex L) (hF.reindex _) (a.reindex σ)).symm.trans (pathApp_zero q').symm))
-  have hr := nativePath_inverse_reindex (endpointBody (A := A)) (a.reindex (projection (interval Γ)))
+  have hr := pathReindexIso_inv_reindex (endpointBody (A := A)) (a.reindex (projection (interval Γ)))
     (pathApp q) (endpointSub Γ false) σ
     (pathLam (forward F (𝟙 Γ) a) (forward_zero F hF (𝟙 Γ) a)
       ((map_section F hF a).symm.trans (pathApp_zero q).symm))
@@ -487,10 +487,10 @@ theorem comparison_initial_restricted :
     (restrictInclusion φ ≫ endpointSub Δ false)
   apply Term.map_injective_of_iso i
   apply pathApp_injective
-  have hl := nativePath_inverse_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
+  have hl := pathReindexIso_inv_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
     (restrictInclusion χ) (restrictSubstitution χ (endpointSub Δ false))
       (homogeneousReindex (localComparison F hF f hf ρ z) (restrictedInterval φ))
-  have hr := nativePath_inverse_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
+  have hr := pathReindexIso_inv_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
     (endpointSub Δ false) (restrictInclusion φ)
     (pathLam ((fullSource F hF f hf ρ z).reindex (projection (interval Δ)))
       (forward_zero (F.reindex (liftSub (interval Γ) (base ρ))) (hF.reindex _) (𝟙 Δ)
@@ -545,7 +545,7 @@ theorem comparisonFilled_on_face :
         ((restrictInclusion (φ.reindex (projection (interval Δ)))).mapElements.obj x) x.val.property
 
 
-theorem finalPathApp_on_face :
+theorem pathApp_finalPath_on_face :
     pathApp (homogeneousReindex (finalPath F hF f hf ρ z) (restrictInclusion φ)) =
       pathApp (genericFiberPath f (restrictInclusion φ ≫ ρ) z.toRestricted) := by
   let χ := φ.reindex (projection (interval Δ))
@@ -553,7 +553,7 @@ theorem finalPathApp_on_face :
   let i := pathReindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
     (restrictInclusion φ ≫ endpointSub Δ true)
   have hb := congrArg (fun t => Term.map i (t.reindex τ)) (comparisonFilled_on_face F hF f hf ρ z)
-  have hi := nativePath_inverse_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
+  have hi := pathReindexIso_inv_reindex (comparisonBody ρ) (fullForward F hF f hf ρ z) (fullPath F hF f hf ρ z)
     (restrictInclusion χ) τ (homogeneousReindex (localComparison F hF f hf ρ z) (restrictedInterval φ))
   exact (congrArg pathApp hb).trans ((congrArg pathApp hi).trans
     (endpointSquare_right (F.reindex (liftSub (interval Γ) (localBase (φ := φ) ρ))) (hF.reindex _)
@@ -563,7 +563,7 @@ theorem extend_on_face : (extend F hF f hf ρ z).reindex (restrictInclusion φ) 
   (genericFiberIntro_reindex f ρ (fullSource F hF f hf ρ z) (finalPath F hF f hf ρ z)
     (restrictInclusion φ)).symm.trans
     ((genericFiberIntro_congr f (restrictInclusion φ ≫ ρ) _ _ (fullSource_on_face F hF f hf ρ z)
-      _ _ (pathTerm_hext _ _ (finalPathApp_on_face F hF f hf ρ z))).trans
+      _ _ (pathTerm_hext _ _ (pathApp_finalPath_on_face F hF f hf ρ z))).trans
         (genericFiberIntro_eta f (restrictInclusion φ ≫ ρ) z.toRestricted))
 
 theorem extend_boundary (x : Δ.Elements) (hx : φ.Full x) :
@@ -742,7 +742,7 @@ theorem extend_reindex {Θ : Context.{u}} (τ : Θ ⟶ Δ) :
 end FiberExtension
 
 
-private theorem fiberIntro_input {Γ Ξ Δ : Context.{u}} {C D : Family Γ}
+private theorem genericFiberIntro_input {Γ Ξ Δ : Context.{u}} {C D : Family Γ}
     (f : C ⟶ D) (σ : Ξ ⟶ Γ) (ρ : Δ ⟶ total (reindex D σ))
     (a : Term (reindex C (ρ ≫ liftSub D σ ≫ projection D)))
     (p : Term (homogeneousPath (reindex D (ρ ≫ liftSub D σ ≫ projection D))
@@ -820,7 +820,7 @@ theorem FiberExtension.extend_input_reindex :
     (fullPath_input_reindex F hF f hf σ ρ z)
   exact (genericFiberIntro_congr (Functor.whiskerLeft σ.mapElements f) ρ _ _ hs
     _ _ (pathTerm_hext _ _ (finalPath_body_input_reindex F hF f hf σ ρ z))).trans
-    (fiberIntro_input f σ ρ (fullSource F hF f hf (ρ ≫ liftSub (reindex A (endpointSub Γ true)) σ) z)
+    (genericFiberIntro_input f σ ρ (fullSource F hF f hf (ρ ≫ liftSub (reindex A (endpointSub Γ true)) σ) z)
       (finalPath F hF f hf (ρ ≫ liftSub (reindex A (endpointSub Γ true)) σ) z))
 
 end SourceInput

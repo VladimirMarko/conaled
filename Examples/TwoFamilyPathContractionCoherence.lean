@@ -20,7 +20,7 @@ theorem projected_comparison_zero (k : ℤ) :
     ((TwoFamily.pathFirst integerFamily).map₂
       (TwoFamily.contractionNaturalityCell integerFamily (pathArrow k))).fiber =
         Multiplicative.ofAdd 0 := by
-  exact eq_of_heq (TwoFamily.contractionNaturalityCell_firstFiber integerFamily (pathArrow k))
+  exact eq_of_heq (TwoFamily.pathFirst_map₂_contractionNaturalityCell_fiber integerFamily (pathArrow k))
 /-- Strong composition coherence specializes to arbitrary integer path-context arrows. -/
 example (k l : ℤ) :
     TwoFamily.contractionNaturalityCell integerFamily (pathArrow k ≫ pathArrow l) ≫
@@ -31,5 +31,5 @@ example (k l : ℤ) :
       (α_ _ _ _).hom ≫ (TwoFamily.contractionRetract integerFamily).map (pathArrow k) ◁
         TwoFamily.contractionNaturalityCell integerFamily (pathArrow l) ≫ (α_ _ _ _).inv ≫
       TwoFamily.contractionNaturalityCell integerFamily (pathArrow k) ▷ pathArrow l ≫ (α_ _ _ _).hom := by
-  with_reducible exact TwoFamily.contractionNaturality_comp integerFamily (pathArrow k) (pathArrow l)
+  with_reducible exact TwoFamily.contractionNaturalityCell_comp integerFamily (pathArrow k) (pathArrow l)
 end Examples.TwoFamilyPathContractionCoherence

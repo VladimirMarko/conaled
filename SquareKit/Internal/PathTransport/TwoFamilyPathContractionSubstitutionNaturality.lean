@@ -29,12 +29,12 @@ private theorem pathFirst_reflects_heq {x y : PathContext F}
 theorem contractionNaturalityCell_reindex {x y : PathContext (reindex σ F)} (p : x ⟶ y) :
     HEq ((pathReindex F σ).map₂ (contractionNaturalityCell (reindex σ F) p))
       (contractionNaturalityCell F ((pathReindex F σ).map p)) := by
-  apply pathFirst_reflects_heq F (contractionLeft_reindex F σ p)
-    (contractionRight_reindex F σ p)
+  apply pathFirst_reflects_heq F (pathReindex_map_comp_contractionComponent F σ p)
+    (pathReindex_map_contractionComponent_comp F σ p)
   have h1 := congr_arg_heq (fun H => H.map₂ (contractionNaturalityCell (reindex σ F) p))
     (pathReindex_first F σ)
   have h2 := map₂_heq (reindexHigher F σ).toPrelaxFunctor
-    (contractionLeft_projection (reindex σ F) p) (contractionRight_projection (reindex σ F) p)
+    (pathFirst_map_comp_contractionComponent (reindex σ F) p) (pathFirst_map_contractionComponent_comp (reindex σ F) p)
     _ _ (contractionNaturalityCell_first_heq (reindex σ F) p)
   have h3 := heq_of_eq ((reindexHigher F σ).map₂_id ((pathFirst (reindex σ F)).map p))
   have h4 := (congr_arg_heq (fun H => 𝟙 (H.map p)) (pathReindex_first F σ)).symm

@@ -240,7 +240,7 @@ noncomputable def evaluatePath (v : X) :
 omit [Lattice X] [Lattice Y] in
 theorem evaluatePath_beta (v : X) (p : Term (SmallUniverse.NativeUnivalence.paths a.code b.code)) :
     Term.map (evaluatePath a b v) p = Term.map (SmallUniverse.NativeUnivalence.pathToMap p) (point a v) := by
-  have h := congrArg Sigma.fst (SmallUniverse.NativeUnivalence.pathEquivalence_generic p)
+  have h := congrArg Sigma.fst (SmallUniverse.NativeUnivalence.pathToEquivalence_record_generic p)
   exact (EquivalenceFamilies.decodeMap_lam_apply _ p).trans
     (congrArg (fun k => Term.map k (point a v)) h)
 

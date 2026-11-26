@@ -52,7 +52,7 @@ theorem inverseFamilyContraction_reindex :
 
 section CastMap
 omit [IsLocallyGroupoid Γ] in
-theorem strongMap_codomain_cast {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
+theorem toHigher_comp_familyCast {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
     (e : G = G') (α : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (β : Pseudofunctor.StrongTrans F.toPseudofunctor G'.toPseudofunctor) (h : HEq α β) :
     (StrongMap.toHigher α).comp (familyCast e) = StrongMap.toHigher β := by
@@ -71,7 +71,7 @@ theorem contractionBack_reindex :
   rw [← strictPseudofunctor_comp_assoc]
   change ((StrongMap.toHigher (inverseFamilyContraction R' η' (reindex σ E))).comp
     (familyCast (contraction_reindex_family R R' σ hR E))).comp _ = _
-  have k := strongMap_codomain_cast (contraction_reindex_family R R' σ hR E)
+  have k := toHigher_comp_familyCast (contraction_reindex_family R R' σ hR E)
     (inverseFamilyContraction R' η' (reindex σ E))
     (strongPrecomp (inverseFamilyContraction R η E) σ)
     (inverseFamilyContraction_reindex R R' σ hR η η' hη E)

@@ -32,7 +32,7 @@ theorem contractionEndpoint_inclusion (x : PathContext F) :
       rfl
 
 /-- The first projection followed by reflexivity duplicates the original first endpoint arrow. -/
-theorem reflexivityEndpoint_normal {x y : PathContext F} (p : x ⟶ y) :
+theorem pathReflexivity_map_pathFirst_base {x y : PathContext F} (p : x ⟶ y) :
     ((pathReflexivity F).map ((pathFirst F).map p)).base =
       (⟨p.base.base, (p.base.fiber.1,p.base.fiber.1)⟩ :
         Hom (endpointFamily F) (pathReflexivityObj F ((pathFirst F).obj x)).base
@@ -47,7 +47,7 @@ theorem reflexivityEndpoint_normal {x y : PathContext F} (p : x ⟶ y) :
 theorem contractionLeftEndpoint_composite {x y : PathContext F} (p : x ⟶ y) :
     ((pathReflexivity F).map ((pathFirst F).map p)).base ≫ contractionEndpoint F y =
       contractionLeftEndpoint F p := by
-  rw [reflexivityEndpoint_normal, contractionEndpoint_inclusion]
+  rw [pathReflexivity_map_pathFirst_base, contractionEndpoint_inclusion]
   let d : (pathReflexivityObj F ((pathFirst F).obj x)).base ⟶
       (pathReflexivityObj F ((pathFirst F).obj y)).base :=
     ⟨p.base.base,(p.base.fiber.1,p.base.fiber.1)⟩

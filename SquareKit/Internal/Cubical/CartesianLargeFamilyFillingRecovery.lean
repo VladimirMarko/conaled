@@ -24,7 +24,7 @@ theorem localFamily_code {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
 theorem decoded_localFamily {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
     decodedLocalFamily (σ ≫ P.code F hF) = P.localFamily F hF σ := by
   rw [← P.localFamily_code F hF σ]
-  exact LocalFamily.decodeCode_record _
+  exact LocalFamily.decodedLocalFamily_code _
 
 def localDecodeIso {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
     Cartesian.decode (σ ≫ P.code F hF) ≅ P.chartFamily σ :=

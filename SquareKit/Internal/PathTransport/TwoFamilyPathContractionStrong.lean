@@ -16,13 +16,13 @@ noncomputable def pathContraction [IsLocallyGroupoid Γ] :
   naturality p := asIso (contractionNaturalityCell F p)
   naturality_naturality α := by
     simp only [asIso_hom, StrictPseudofunctor.id_map₂, StrictPseudofunctor.id_map]
-    with_reducible exact contractionNaturality_naturality F α
+    with_reducible exact contractionNaturalityCell_naturality F α
   naturality_id x := by
     simp only [asIso_hom, StrictPseudofunctor.id_map]
-    with_reducible exact contractionNaturality_id F x
+    with_reducible exact contractionNaturalityCell_id F x
   naturality_comp p q := by
     simp only [asIso_hom, StrictPseudofunctor.id_map]
-    with_reducible exact contractionNaturality_comp F p q
+    with_reducible exact contractionNaturalityCell_comp F p q
 
 /-- The assembled contraction has identity component at every reflexive object. -/
 theorem pathContraction_app_refl [IsLocallyGroupoid Γ] (x : Total F) :

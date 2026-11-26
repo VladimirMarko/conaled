@@ -251,7 +251,7 @@ theorem macroMinima_fits (input : Input m) (i : Fin (blocks m)) :
     Fits 0 (2*m) (paddedCapacity m)
       (BlockedRMQ.blockMinima (state input).micro (blocks_pos m))[i.val] := by
   rw [state_eq]
-  have hh := paddedBlockMinima_fits (fun j => (input.depth j : Int)) input.positive (blocks_pos m)
+  have hh := blockMinima_paddedDepth_fits (fun j => (input.depth j : Int)) input.positive (blocks_pos m)
     (Backend.input_steps input) (depth_bounds input) (padded_le input) i
   simpa only [dimension,paddedCapacity,BlockedRMQ.buildPadded,BlockedRMQ.build,blocks] using hh
 
@@ -320,7 +320,7 @@ theorem sharedProgram_index (steps : Nat) (code : Fin (2^steps)) (start len : Fi
   rw [hh]
   unfold WordKey.encode
   have hf : (ofLex (prepareShared steps)[code.val][start.val][len.val]).2 < 2*(steps+1) :=
-    (sharedCell_fits code start len).2.2
+    (prepareShared_cell_fits code start len).2.2
   exact WordKey.pack_mod hf
 
 theorem macro_rows (input : Input m) :

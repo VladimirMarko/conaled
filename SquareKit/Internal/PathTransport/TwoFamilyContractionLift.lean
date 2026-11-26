@@ -15,7 +15,7 @@ variable {Γ : Type u} [Bicategory.{w,v} Γ] [Strict Γ]
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 
 variable {F G F' G' : Family.{u,v,w,uE,vE,wE} Γ}
-theorem strongMap_heq (e : F = F') (e' : G = G')
+theorem toHigher_heq (e : F = F') (e' : G = G')
     (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (θ : Pseudofunctor.StrongTrans F'.toPseudofunctor G'.toPseudofunctor)
     (h : HEq η θ) : HEq (StrongMap.toHigher η) (StrongMap.toHigher θ) := by
@@ -45,7 +45,7 @@ theorem coherentLiftRight_normalize : coherentLiftRight η E =
     (StrongMap.toHigher (strongPostcomp η E))
     (StrongMap.toHigher (forwardFamilyContraction R η E))
     (reindexHigher E (StrictPseudofunctor.id Γ)) (StrictPseudofunctor.id (Total E))
-    (strongMap_heq rfl (StrictTwoTransformation.functor_id_comp E) _ _ h)
+    (toHigher_heq rfl (StrictTwoTransformation.functor_id_comp E) _ _ h)
     (reindexHigher_id_heq E)
   exact hc.trans (StrictTwoTransformation.functor_comp_id _)
 
@@ -66,7 +66,7 @@ def castStrongFunctorTarget {A B : Type*} [Bicategory A] [Bicategory B]
   exact θ
 
 omit [∀ γ, IsLocallyGroupoid (E.obj γ).Carrier] [IsLocallyGroupoid Γ] in
-theorem contractionLift_target :
+theorem liftedContraction_target :
     (contractionBack R η E).comp (coherentLiftRight η E) =
       StrictPseudofunctor.id (Total E) := by
   rw [coherentLiftRight_normalize E R η]
@@ -75,7 +75,7 @@ theorem contractionLift_target :
 noncomputable def liftedContraction :
     Pseudofunctor.StrongTrans (contractionLift R η E).toPseudofunctor
       (StrictPseudofunctor.id (Total E)).toPseudofunctor :=
-  castStrongFunctorTarget (contractionLift_target E R η)
+  castStrongFunctorTarget (liftedContraction_target E R η)
     (strongPrecomp (coherentLift η E) (contractionBack R η E))
 
 
@@ -85,7 +85,7 @@ private theorem castStrongFunctorTarget_heq {A B : Type*} [Bicategory A] [Bicate
     HEq (castStrongFunctorTarget e θ) θ := by cases e; rfl
 theorem liftedContraction_heq : HEq (liftedContraction E R η)
     (strongPrecomp (coherentLift η E) (contractionBack R η E)) :=
-  castStrongFunctorTarget_heq (contractionLift_target E R η)
+  castStrongFunctorTarget_heq (liftedContraction_target E R η)
     (strongPrecomp (coherentLift η E) (contractionBack R η E))
 
 end SquareKit.Internal.PathTransport.TwoFamily

@@ -36,7 +36,7 @@ private theorem pathToEquivalence_congr {p q : Term (paths a b)} (h : p = q) :
   rfl
 
 /-- Evaluation after any substitution recovers all selected equivalence data. -/
-theorem pathEquivalence_pair (σ : Δ ⟶ Γ) (p : Term (reindex (paths a b) σ)) :
+theorem pathToEquivalence_record_pair (σ : Δ ⟶ Γ) (p : Term (reindex (paths a b) σ)) :
     let q : Term (paths (σ ≫ a) (σ ≫ b)) := Term.map (pathReindex (reindex (family Γ) (projection (interval Γ)))
       (term a) (term b) σ) p
     (⟨Functor.whiskerLeft (pair (A := paths a b) σ p).mapElements
@@ -51,7 +51,7 @@ theorem pathEquivalence_pair (σ : Δ ⟶ Γ) (p : Term (reindex (paths a b) σ)
     (pathToEquivalence_congr (genericPath_pair σ p))
   exact Sigma.ext hm hE
 
-theorem pathSection_reindex_pair {C : Family Γ}
+theorem reindexPath_section_reindex_pair {C : Family Γ}
     (s : Term (reindex (paths a b) (projection C))) (σ : Δ ⟶ Γ)
     (c : Term (reindex C σ)) :
     reindexPath (a := projection C ≫ a) (b := projection C ≫ b)
@@ -76,7 +76,7 @@ theorem equivalencePathSection_reindex_pair (σ : Δ ⟶ Γ)
       (term a) (term b) (projection (equivalences a b))).symm
     (ua (projection (equivalences a b) ≫ a) (projection (equivalences a b) ≫ b)
       (genericEquivalence a b).1 (genericEquivalence a b).2)
-  exact (pathSection_reindex_pair (equivalencePathSection a b) σ c).symm.trans
+  exact (reindexPath_section_reindex_pair (equivalencePathSection a b) σ c).symm.trans
     ((congrArg (fun p => reindexPath p (pair (A := equivalences a b) σ c)) h).trans
       (ua_reindex _ _ _ _ (pair (A := equivalences a b) σ c)))
 
@@ -95,7 +95,7 @@ theorem pathToEquiv_reindex_beta (σ : Δ ⟶ Γ) (p : Term (reindex (paths a b)
   exact (EquivalenceFamilies.decodeMap_lam_reindex_apply (pathEquivalenceSection a b) σ p).trans
     (h.symm.trans (congrArg
       (EquivalenceFamilies.equivReindexSections (liftedDecode a) (liftedDecode b) σ)
-      (pathEquivalence_pair σ p)))
+      (pathToEquivalence_record_pair σ p)))
 
 /-- Generic evaluation recovers the supplied internal section's full decoded data. -/
 theorem genericEquivalence_reindex_pair (σ : Δ ⟶ Γ)

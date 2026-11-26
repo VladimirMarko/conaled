@@ -28,7 +28,7 @@ private theorem left_identity_heq {C : Type*} [Bicategory C] [Strict C]
     eqToHom_comp_heq_iff, comp_eqToHom_heq_iff]
   rfl
 /-- The actual contraction comparison is natural at every genuine path-context 2-cell. -/
-theorem contractionNaturality_naturality {x y : PathContext F} {p q : x ⟶ y} (α : p ⟶ q) :
+theorem contractionNaturalityCell_naturality {x y : PathContext F} {p q : x ⟶ y} (α : p ⟶ q) :
     (contractionRetract F).map₂ α ▷ contractionComponent F y ≫ contractionNaturalityCell F q =
       contractionNaturalityCell F p ≫ contractionComponent F x ◁ α := by
   apply pathFirst_cell_injective F

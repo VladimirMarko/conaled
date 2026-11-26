@@ -52,14 +52,14 @@ theorem finThree_variable_fill
       (b.map (Functor.whiskerLeft p.mapElements (finThree (representable ⟨1⟩)).decodeCodeIso.hom)) =
     Term.map (Functor.whiskerLeft p.mapElements (finThree (representable ⟨1⟩)).decodeCodeIso.hom)
       ((decodedLocalFilling (finThree (representable ⟨1⟩)).code).fill p φ variableSource b) :=
-  (finThree (representable ⟨1⟩)).decodeCode_filling p φ variableSource b
+  (finThree (representable ⟨1⟩)).decodeCodeIso_fill p φ variableSource b
 
 /-- This client classifies the existing global tuple decoder with its actual filler. -/
 noncomputable def tupleDecoder : LocalFamily finiteNerve.{u} :=
   LocalFamily.ofFilling TupleDecoder.family TupleDecoder.filling TupleDecoder.filling_lawful
 
 theorem tupleDecoder_roundtrip : decodedLocalFamily tupleDecoder.{u}.code = tupleDecoder :=
-  tupleDecoder.decodeCode_record
+  tupleDecoder.decodedLocalFamily_code
 
 /-- In this global client the raised decoder lives in Type (u+1).
 Small represented charts supply the separate U_u overlap construction. -/

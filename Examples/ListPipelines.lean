@@ -34,7 +34,7 @@ theorem map_fusion (f : β → γ) (g : α → β) :
   funext xs
   exact List.map_map
 
-theorem concatMap_definition (f : α → List β) :
+theorem flatten_comp_map_eq_flatMap (f : α → List β) :
     List.flatten ∘ List.map f = List.flatMap f := rfl
 
 /-- Preserve the intermediate equalities of the source point-free calculation. -/
@@ -49,7 +49,7 @@ theorem map_filter_concat_derivation (f : α → β) (p : α → Bool) :
           exact congrArg (fun k => k ∘ List.map (List.filter p)) (map_concat f)
     _ = List.flatten ∘ List.map (List.map f ∘ List.filter p) := by
           rw [map_fusion]
-    _ = List.flatMap (List.map f ∘ List.filter p) := concatMap_definition _
+    _ = List.flatMap (List.map f ∘ List.filter p) := flatten_comp_map_eq_flatMap _
 
 /-- Derive nested folding through the existing master fusion rule. The step
 need not be associative, and its accumulator type can differ from the element. -/

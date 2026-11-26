@@ -10,7 +10,7 @@ open CategoryTheory
 universe u
 variable {Γ Δ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
 
-private theorem pathPair_congr {a b : Δ ⟶ smallFamilyCodes.{u}}
+private theorem pathToEquivalence_record_congr {a b : Δ ⟶ smallFamilyCodes.{u}}
     {p q : Term (paths a b)} (h : p = q) :
     (⟨pathToMap p,pathToEquivalence p⟩ : Σ f, HomotopyEquivalence f) =
       ⟨pathToMap q,pathToEquivalence q⟩ := by
@@ -56,7 +56,7 @@ noncomputable def rightInverseAt (σ : Δ ⟶ Γ)
   have hp := equivToPath_reindex_beta (a := a) (b := b) σ s
   have ht : t = S ⟨pathToMap q,pathToEquivalence q⟩ :=
     (pathToEquiv_reindex_beta (a := a) (b := b) σ p).trans
-      (congrArg S (pathPair_congr hp))
+      (congrArg S (pathToEquivalence_record_congr hp))
   let r := encodedRoundtripAt a b σ s
   exact pathLam (pathApp r) ((pathApp_zero r).trans ht.symm) (pathApp_one r)
 

@@ -229,11 +229,11 @@ theorem faceBackwardCode_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
   congrArg (fun a => raisedSub (faceBackwardScale (φ := φ.reindex σ)) ≫ a)
     (b.partial_reindex σ)
 
-theorem faceBackwardFamily_zero :
+theorem decode_faceBackwardCode_zero :
     Presheaf.reindex (decode b.faceBackwardCode) (endpointSub _ false) = decode b.partialCode :=
   congrArg decode b.faceBackwardCode_zero
 
-theorem faceBackwardFamily_one :
+theorem decode_faceBackwardCode_one :
     Presheaf.reindex (decode b.faceBackwardCode) (endpointSub _ true) =
       Presheaf.reindex (decode b.base) faceProjection :=
   congrArg decode b.faceBackwardCode_one
@@ -242,12 +242,12 @@ theorem faceBackwardFamily_one :
 noncomputable def faceMap : decode b.partialCode ⟶
     Presheaf.reindex (decode (raisedSub (projection (interval Γ)) ≫ b.base)) (restrictInclusion face) :=
   IntervalTransport.mapTo (decodedLocalFamily b.faceBackwardCode).toNative.filling
-    _ _ b.faceBackwardFamily_zero b.faceBackwardFamily_one
+    _ _ b.decode_faceBackwardCode_zero b.decode_faceBackwardCode_one
 
 noncomputable def faceEquivalence : HomotopyEquivalence b.faceMap :=
   IntervalTransport.equivalenceTo (decodedLocalFamily b.faceBackwardCode).toNative.filling
     (decodedLocalFamily b.faceBackwardCode).toNative.lawful
-    _ _ b.faceBackwardFamily_zero b.faceBackwardFamily_one
+    _ _ b.decode_faceBackwardCode_zero b.decode_faceBackwardCode_one
 
 /-- Small-context universe filling is built by Glue from the contracted whole
 face. Both cap and tube are recovered as the original supplied codes. -/
@@ -268,16 +268,16 @@ theorem fillCode_tube :
     b.fillCode_face).trans b.partial_tube
 
 /-- Recover the whole decoded family and its selected filling, not just its carrier. -/
-theorem filledLocal_face :
+theorem decodedLocalFamily_fillCode_face :
     (decodedLocalFamily b.fillCode).reindex (restrictInclusion face) =
       decodedLocalFamily b.partialCode :=
   (decodedLocalFamily_reindex _ _).symm.trans (congrArg decodedLocalFamily b.fillCode_face)
 
-theorem filledLocal_cap :
+theorem decodedLocalFamily_fillCode_cap :
     (decodedLocalFamily b.fillCode).reindex (endpointSub Γ false) = decodedLocalFamily b.base :=
   (decodedLocalFamily_reindex _ _).symm.trans (congrArg decodedLocalFamily b.fillCode_cap)
 
-theorem faceBackwardLocal_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
+theorem decodedLocalFamily_faceBackwardCode_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
     (decodedLocalFamily b.faceBackwardCode).reindex
       (liftSub (interval (restrictContext (face (φ := φ))))
         (restrictSubstitution face (liftSub (interval Γ) σ))) =
@@ -294,11 +294,11 @@ theorem faceMap_reindex :
   (heq_of_eq (IntervalTransport.mapTo_reindex
     (decodedLocalFamily b.faceBackwardCode).toNative.filling
     (decodedLocalFamily b.faceBackwardCode).toNative.lawful _ _
-    b.faceBackwardFamily_zero b.faceBackwardFamily_one
+    b.decode_faceBackwardCode_zero b.decode_faceBackwardCode_one
     (restrictSubstitution face (liftSub (interval Γ) σ)))).trans
       (IntervalTransport.mapTo_native_congr
         ((LocalFamily.toNative_reindex _ _).symm.trans
-          (congrArg LocalFamily.toNative (b.faceBackwardLocal_reindex σ)))
+          (congrArg LocalFamily.toNative (b.decodedLocalFamily_faceBackwardCode_reindex σ)))
         (congrArg decode (b.partial_reindex σ)) rfl _ _ _ _)
 
 theorem faceEquivalence_reindex :
@@ -309,18 +309,18 @@ theorem faceEquivalence_reindex :
   let L' := (decodedLocalFamily (b.reindex σ).faceBackwardCode).toNative
   have hL : L.reindex (liftSub (interval (restrictContext (face (φ := φ)))) τ) = L' :=
     (LocalFamily.toNative_reindex _ _).symm.trans
-      (congrArg LocalFamily.toNative (b.faceBackwardLocal_reindex σ))
+      (congrArg LocalFamily.toNative (b.decodedLocalFamily_faceBackwardCode_reindex σ))
   have hB : Presheaf.reindex (decode b.partialCode) τ = decode (b.reindex σ).partialCode :=
     congrArg decode (b.partial_reindex σ)
   have h := IntervalTransport.equivalenceTo_reindex L.filling L.lawful
     (decode b.partialCode) (Presheaf.reindex (decode b.base) faceProjection)
-    b.faceBackwardFamily_zero b.faceBackwardFamily_one τ
+    b.decode_faceBackwardCode_zero b.decode_faceBackwardCode_one τ
   have k := IntervalTransport.equivalenceTo_native_congr hL hB rfl
-    (congrArg (fun X => Presheaf.reindex X τ) b.faceBackwardFamily_zero)
-    (congrArg (fun X => Presheaf.reindex X τ) b.faceBackwardFamily_one)
-    (b.reindex σ).faceBackwardFamily_zero (b.reindex σ).faceBackwardFamily_one
+    (congrArg (fun X => Presheaf.reindex X τ) b.decode_faceBackwardCode_zero)
+    (congrArg (fun X => Presheaf.reindex X τ) b.decode_faceBackwardCode_one)
+    (b.reindex σ).decode_faceBackwardCode_zero (b.reindex σ).decode_faceBackwardCode_one
   exact h.trans k
-private theorem glueCode_congr {Ξ : Context.{u}} {ψ : Cofibration Ξ}
+private theorem glue_code_congr {Ξ : Context.{u}} {ψ : Cofibration Ξ}
     (a : raisedContext Ξ ⟶ smallFamilyCodes.{u})
     {t t' : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}}
     (ht : t = t')
@@ -338,7 +338,7 @@ theorem fillCode_reindex :
     raisedSub (liftSub (interval Γ) σ) ≫ b.fillCode = (b.reindex σ).fillCode :=
   (Glue.code_substitution face (raisedSub (projection (interval Γ)) ≫ b.base)
     b.partialCode b.faceMap b.faceEquivalence (liftSub (interval Γ) σ)).trans
-      (glueCode_congr _ (b.partial_reindex σ) _ _ _ _
+      (glue_code_congr _ (b.partial_reindex σ) _ _ _ _
         (b.faceMap_reindex σ) (b.faceEquivalence_reindex σ))
 
 

@@ -107,7 +107,7 @@ noncomputable def compositeTransportComparison
     (sequentialTransportComparison a b c f E g D x)
     (homogeneousReverse (concatTransportComparison a b c (ua a b f E) (ua b c g D) x))
 
-theorem uaConcat_reindex {Δ : Context.{u+1}}
+theorem homogeneousConcat_ua_reindex {Δ : Context.{u+1}}
     (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f)
     (g : liftedDecode b ⟶ liftedDecode c) (D : HomotopyEquivalence g) (σ : Δ ⟶ Γ) :
     homogeneousReindex (homogeneousConcat (filling Γ) (filling_lawful Γ)
@@ -134,7 +134,7 @@ noncomputable def compositeMapHomotopy
     (Functor.whiskerLeft σ.mapElements f) (E.reindex σ)
     (Functor.whiskerLeft σ.mapElements g) (D.reindex σ) (generic (liftedDecode a))
   have hm := (pathToMap_reindex p σ).trans
-    (congrArg pathToMap (uaConcat_reindex a b c f E g D σ))
+    (congrArg pathToMap (homogeneousConcat_ua_reindex a b c f E g D σ))
   exact pathLam (pathApp h) (pathApp_zero h)
     ((pathApp_one h).trans (congrArg (fun k => Term.map k (generic (liftedDecode a))) hm.symm))
 
@@ -193,7 +193,7 @@ noncomputable def reverseTransportRight (p : Term (paths a b)) (x : Term (lifted
     (pathToMap_along b a (homogeneousReverse p))
   exact pathLam (pathApp h) ((pathApp_zero h).trans (h₀.trans h₁)) (pathApp_one h)
 
-theorem reverseMap_reindex {Δ : Context.{u+1}} (p : Term (paths a b)) (σ : Δ ⟶ Γ) :
+theorem pathToMap_homogeneousReverse_reindex {Δ : Context.{u+1}} (p : Term (paths a b)) (σ : Δ ⟶ Γ) :
     Functor.whiskerLeft σ.mapElements (pathToMap (homogeneousReverse p)) =
       pathToMap (homogeneousReverse (reindexPath p σ)) :=
   (pathToMap_reindex (homogeneousReverse p) σ).trans
@@ -233,7 +233,7 @@ noncomputable def inverseRight (x : Term (liftedDecode b)) :
 theorem inverseMap_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) :
     Functor.whiskerLeft σ.mapElements (inverseMap a b f E) =
       inverseMap (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ) :=
-  (reverseMap_reindex a b (ua a b f E) σ).trans
+  (pathToMap_homogeneousReverse_reindex a b (ua a b f E) σ).trans
     (congrArg (fun p => pathToMap (homogeneousReverse p)) (ua_reindex a b f E σ))
 
 theorem inverseEquivalence_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) :
@@ -311,7 +311,7 @@ theorem leftTriplePath_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) :
     (homogeneousConcat (filling Γ) (filling_lawful Γ) (ua a b f E) (ua b c g D))
     (ua c d h K) σ).trans
     (congrArg₂ (homogeneousConcat (filling Δ) (filling_lawful Δ))
-      (uaConcat_reindex a b c f E g D σ) (ua_reindex c d h K σ))
+      (homogeneousConcat_ua_reindex a b c f E g D σ) (ua_reindex c d h K σ))
 
 theorem rightTriplePath_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) :
     homogeneousReindex (rightTriplePath a b c d f E g D h K) σ =
@@ -322,7 +322,7 @@ theorem rightTriplePath_reindex {Δ : Context.{u+1}} (σ : Δ ⟶ Γ) :
   (homogeneousConcat_reindex (filling Γ) (filling_lawful Γ) (ua a b f E)
     (homogeneousConcat (filling Γ) (filling_lawful Γ) (ua b c g D) (ua c d h K)) σ).trans
     (congrArg₂ (homogeneousConcat (filling Δ) (filling_lawful Δ))
-      (ua_reindex a b f E σ) (uaConcat_reindex b c d g D h K σ))
+      (ua_reindex a b f E σ) (homogeneousConcat_ua_reindex b c d g D h K σ))
 
 noncomputable def leftTripleMapHomotopy :
     Term (homogeneousPath (reindex (liftedDecode d) (projection (liftedDecode a)))

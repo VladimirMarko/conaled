@@ -394,7 +394,7 @@ theorem cached_selected (blocks : List (List Int)) :
   simpa only [cached_used_eq_plain, values_equal] using h
 
 /-- All-zero singleton blocks reach every test, including the terminal one. -/
-theorem plainAux_zeroBlocks_work (n : Nat) (acc : List Int) (h : acc.sum ≤ 0) :
+theorem plainAux_replicate_singleton_zero_work (n : Nat) (acc : List Int) (h : acc.sum ≤ 0) :
     (plainAux acc (List.replicate n [0])).sumWork =
       (n + 1) * (2 * acc.length + n + 1) := by
   induction n generalizing acc with
@@ -412,11 +412,11 @@ theorem plainAux_zeroBlocks_work (n : Nat) (acc : List Int) (h : acc.sum ≤ 0) 
         Nat.mul_zero] at *
       omega
 
-theorem plain_zeroBlocks_work (n : Nat) :
+theorem plain_replicate_singleton_zero_work (n : Nat) :
     (plain (List.replicate n [0])).sumWork = (n + 1) * (n + 1) := by
-  simpa [plain] using plainAux_zeroBlocks_work n [] (by simp)
+  simpa [plain] using plainAux_replicate_singleton_zero_work n [] (by simp)
 
-theorem cachedAux_zeroBlocks_used (n : Nat) (acc : List Int) (h : acc.sum ≤ 0) :
+theorem cachedAux_replicate_singleton_zero_used (n : Nat) (acc : List Int) (h : acc.sum ≤ 0) :
     (cachedAux acc.sum acc (lazyLabels (List.replicate n [0]))).used =
       List.replicate n [0] := by
   induction n generalizing acc with
@@ -430,10 +430,10 @@ theorem cachedAux_zeroBlocks_used (n : Nat) (acc : List Int) (h : acc.sum ≤ 0)
         List.sum_nil, Int.add_zero]
       simpa [lazyLabels_eq_map] using congrArg (List.cons [0]) hu
 
-theorem cached_zeroBlocks_work (n : Nat) :
+theorem cached_replicate_singleton_zero_work (n : Nat) :
     (cached (List.replicate n [0])).sumWork = 3 * n := by
   rw [cached_sumWork]
-  have hu := cachedAux_zeroBlocks_used n [] (by simp)
+  have hu := cachedAux_replicate_singleton_zero_used n [] (by simp)
   change (cached (List.replicate n [0])).used = List.replicate n [0] at hu
   have hf : (List.replicate n [(0 : Int)]).flatten.length = n := by
     induction n <;> simp_all [List.replicate_succ]
@@ -443,9 +443,9 @@ theorem cached_zeroBlocks_work (n : Nat) :
 theorem quadratic_sum_work_witness (n : Nat) :
     ∃ blocks : List (List Int), blocks.length = n ∧ blocks.flatten.length = n ∧
       n * n ≤ (plain blocks).sumWork ∧ (cached blocks).sumWork = 3 * n := by
-  refine ⟨List.replicate n [0], by simp, ?_, ?_, cached_zeroBlocks_work n⟩
+  refine ⟨List.replicate n [0], by simp, ?_, ?_, cached_replicate_singleton_zero_work n⟩
   · induction n <;> simp_all [List.replicate_succ]
-  · rw [plain_zeroBlocks_work]
+  · rw [plain_replicate_singleton_zero_work]
     simp only [Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
     omega
 

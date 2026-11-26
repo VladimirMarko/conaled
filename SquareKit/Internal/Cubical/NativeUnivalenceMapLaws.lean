@@ -64,7 +64,7 @@ theorem reindexPath_generic (p : Term (paths a b)) :
   apply pathTerm_hext
   rfl
 
-theorem pathSection_pair {C : Family Γ}
+theorem reindexPath_section_pair {C : Family Γ}
     (s : Term (reindex (paths a b) (projection C))) (c : Term C) :
     reindexPath (a := projection C ≫ a) (b := projection C ≫ b)
       (Term.map (pathReindex (reindex (family Γ) (projection (interval Γ)))
@@ -80,7 +80,7 @@ private theorem pathToEquivalence_congr {p q : Term (paths a b)} (h : p = q) :
   rfl
 
 /-- Evaluation recovers the full selected equivalence, including its contraction. -/
-theorem pathEquivalence_generic (p : Term (paths a b)) :
+theorem pathToEquivalence_record_generic (p : Term (paths a b)) :
     (⟨Functor.whiskerLeft (pair (A := paths a b) (𝟙 Γ) p).mapElements
         (pathToMap (genericPath a b)),
       (pathToEquivalence (genericPath a b)).reindex (pair (A := paths a b) (𝟙 Γ) p)⟩ :
@@ -143,7 +143,7 @@ theorem equivalencePathSection_pair (c : Term (equivalences a b)) :
       (term a) (term b) (projection (equivalences a b))).symm
     (ua (projection (equivalences a b) ≫ a) (projection (equivalences a b) ≫ b)
       (genericEquivalence a b).1 (genericEquivalence a b).2)
-  exact (pathSection_pair (equivalencePathSection a b) c).symm.trans
+  exact (reindexPath_section_pair (equivalencePathSection a b) c).symm.trans
     ((congrArg (fun p => reindexPath p (pair (A := equivalences a b) (𝟙 Γ) c)) h).trans
       (ua_reindex _ _ _ _ (pair (A := equivalences a b) (𝟙 Γ) c)))
 

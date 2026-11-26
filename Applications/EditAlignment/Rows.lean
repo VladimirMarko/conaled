@@ -78,20 +78,20 @@ theorem modelRow_cons [DecidableEq α] (x : α) (xs ys : List α) :
   simp [modelRow]
 
 theorem modelRow_ne_nil [DecidableEq α] (xs ys : List α) : modelRow xs ys ≠ [] :=
-  DynamicProgramming.suffixRow_ne_nil _ _
+  DynamicProgramming.map_tails_ne_nil _ _
 
 theorem modelRow_length [DecidableEq α] (xs ys : List α) :
     (modelRow xs ys).length = xs.length + 1 :=
-  DynamicProgramming.suffixRow_length _ _
+  DynamicProgramming.length_map_tails _ _
 
 theorem modelRow_head [DecidableEq α] (xs ys : List α) :
     (modelRow xs ys).headD [] = mce xs ys :=
-  DynamicProgramming.suffixRow_head _ _ _
+  DynamicProgramming.headD_map_tails _ _ _
 
 theorem modelRow_last [DecidableEq α] (xs ys : List α) :
     (modelRow xs ys).getLastD [] = ys.map Op.insert := by
   simpa only [modelRow, mce_nil_left] using
-    DynamicProgramming.suffixRow_last (fun suffix => mce suffix ys) xs []
+    DynamicProgramming.getLastD_map_tails (fun suffix => mce suffix ys) xs []
 
 theorem firstrow_eq_model [DecidableEq α] (xs : List α) :
     firstrow xs = modelRow xs [] := by
@@ -147,7 +147,7 @@ theorem editTable_ne_nil [DecidableEq α] (xs ys : List α) : editTable xs ys �
 
 theorem modelRow_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (modelRow xs ys)[i]? = some (mce (xs.drop i) ys) :=
-  DynamicProgramming.suffixRow_entry _ _ _ h
+  DynamicProgramming.getElem?_map_tails _ _ _ h
 
 theorem editTable_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (editTable xs ys)[i]? = some (mce (xs.drop i) ys) := by

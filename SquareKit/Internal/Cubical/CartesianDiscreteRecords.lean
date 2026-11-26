@@ -317,7 +317,7 @@ noncomputable def finThreeIso (Γ : Context) :
       constantFamily Γ (Fin 3 ≃ Fin 3) :=
   constantPresentationIso (Iso.refl _) (Iso.refl _)
 
-theorem finThree_encoded_apply {Γ Δ : Context} (σ : Δ ⟶ Γ)
+theorem finThreeIso_encoded_apply {Γ Δ : Context} (σ : Δ ⟶ Γ)
     (e : Fin 3 ≃ Fin 3) (x : Δ.Elements) (s : Fin 3) :
     Equiv.toFun ((Term.map (Functor.whiskerLeft σ.mapElements (finThreeIso Γ).hom)
       (EquivalenceFamilies.equivReindexSections
@@ -330,7 +330,7 @@ theorem finThree_encoded_apply {Γ Δ : Context} (σ : Δ ⟶ Γ)
   exact presentedSections_encoded_apply _ _ _ _ _ _ _ _ _
 
 /-- The fiber-center recipe selects the inverse of the actual presented map. -/
-theorem centerInverse_eq {Γ : Context.{u}} {A B : Family Γ} {T : Type u}
+theorem discreteInverse_eq_inv {Γ : Context.{u}} {A B : Family Γ} {T : Type u}
     (j : B ≅ constantFamily Γ T) (k : A ≅ B) (E : HomotopyEquivalence k.hom) :
     E.discreteInverse = k.inv := by
   have h := E.discrete_right (PathDiscrete.of_iso (constant_pathDiscrete T) j)
@@ -348,7 +348,7 @@ variable {Γ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
 include i in
 /-- The universe-selected inverse retains its reversed-ua transport recipe. Its
 left homotopy at the generic element proves equality of all map components. -/
-theorem universeInverse_eq : inverseMap a b k.hom E = k.inv := by
+theorem inverseMap_eq_inv : inverseMap a b k.hom E = k.inv := by
   let σ := projection (liftedDecode a)
   have h := inverseLeft (σ ≫ a) (σ ≫ b)
     (Functor.whiskerLeft σ.mapElements k.hom) (E.reindex σ) (generic (liftedDecode a))
@@ -366,22 +366,22 @@ theorem universeInverse_eq : inverseMap a b k.hom E = k.inv := by
 
 include i j in
 /-- Equality includes the chosen inverse's entire native fiber contraction. -/
-theorem universeInverse_record :
+theorem inverseEquivalence_record :
     (⟨inverseMap a b k.hom E, inverseEquivalence a b k.hom E⟩ :
       Σ f : liftedDecode b ⟶ liftedDecode a, HomotopyEquivalence f) =
     ⟨k.inv, HomotopyEquivalence.ofIso k.symm⟩ := by
   apply record_ext j i ((constantFilling Γ T).transport j.symm)
     (Filling.transport_lawful j.symm _ (constantFilling_lawful Γ T))
-  exact universeInverse_eq a b i k E
+  exact inverseMap_eq_inv a b i k E
 
 include i j in
 /-- Both chosen inverse recipes agree as maps, without replacing either recipe. -/
-theorem inverseRecipes_eq : E.discreteInverse = inverseMap a b k.hom E :=
-  (centerInverse_eq j k E).trans (universeInverse_eq a b i k E).symm
+theorem discreteInverse_eq_inverseMap : E.discreteInverse = inverseMap a b k.hom E :=
+  (discreteInverse_eq_inv j k E).trans (inverseMap_eq_inv a b i k E).symm
 
 include i in
 /-- Every generalized argument of the selected left-inverse witness is retained. -/
-theorem universeInverse_left_value (t : Term (liftedDecode a))
+theorem inverseLeft_value (t : Term (liftedDecode a))
     {x y : Γ.Elements} (f : x ⟶ y) (r : (interval Γ).obj y) :
     ((inverseLeft a b k.hom E t).val x).val.val f r = t.val y :=
   (presented_path_value i _ f r).trans
@@ -389,7 +389,7 @@ theorem universeInverse_left_value (t : Term (liftedDecode a))
 
 include j in
 /-- The right-inverse witness has the same full generalized-value guarantee. -/
-theorem universeInverse_right_value (t : Term (liftedDecode b))
+theorem inverseRight_value (t : Term (liftedDecode b))
     {x y : Γ.Elements} (f : x ⟶ y) (r : (interval Γ).obj y) :
     ((inverseRight a b k.hom E t).val x).val.val f r = t.val y :=
   (presented_path_value j _ f r).trans
@@ -399,7 +399,7 @@ end SelectedUniverseRecords
 
 /-- The actual source composite, including its fiber contractions, agrees with
 recomputation from the composed isomorphism. -/
-theorem universeComposite_record {Γ : Context.{u+1}}
+theorem compositeEquivalence_record {Γ : Context.{u+1}}
     (a b c : Γ ⟶ smallFamilyCodes.{u}) {S T : Type (u+1)}
     (i : SmallUniverse.liftedDecode a ≅ constantFamily Γ S)
     (j : SmallUniverse.liftedDecode c ≅ constantFamily Γ T)

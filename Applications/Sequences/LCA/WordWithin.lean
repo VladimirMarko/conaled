@@ -44,7 +44,7 @@ theorem within_fits (input : TreeReduction.Input m) (hblock : block < blocks m)
   rw [within_semantic input hblock hinterval]
   apply KeyBounds.rangeMin_fits
   intro i hi
-  apply KeyBounds.paddedKey_fits _ input.positive (depth_bounds input) (paddedCapacity_le input.positive)
+  apply KeyBounds.depthKey_paddedDepth_fits _ input.positive (depth_bounds input) (paddedCapacity_le input.positive)
   have hm := Nat.mul_le_mul_right (blockSize m) (show block+1 ≤ blocks m by omega)
   unfold paddedCapacity
   nlinarith
@@ -108,7 +108,7 @@ theorem within_value_of_reads (input : TreeReduction.Input m)
     rw [hs] at hf
     simpa only [KeyBounds.Fits,depthKey,ofLex_toLex,Int.add_zero,hd] using And.intro hf.1 hf.2.1
   have hlocal : relativeIndex < 2*blockSize m := by
-    have hk := KeyBounds.sharedCell_fits code oi li
+    have hk := KeyBounds.prepareShared_cell_fits code oi li
     rw [← prepared_shared input] at hk
     simpa only [dimension] using hk.2.2
   have hdecode : WordKey.encode ((blockSize m-1 : Nat) : Int) (2*(blockSize m-1+1))

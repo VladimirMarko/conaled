@@ -30,7 +30,7 @@ theorem booleanGeneric_complete :
       Σ f : SmallUniverse.liftedDecode (constantLocal terminal Bool).code ⟶
         SmallUniverse.liftedDecode (constantLocal terminal Bool).code, HomotopyEquivalence f) =
       ⟨pathToMap booleanUniverseLoop, booleanUniversalTransportEquivalence⟩ :=
-  pathEquivalence_generic booleanUniverseLoop
+  pathToEquivalence_record_generic booleanUniverseLoop
 
 /-- The chosen Boolean Glue path is stable under an additional interval parameter. -/
 theorem booleanUa_interval :

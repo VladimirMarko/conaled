@@ -15,12 +15,12 @@ noncomputable def chartUnglue {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) 
   Univalence.unglueLine (σ ≫ a) (σ ≫ b) (lowerChartMap a b σ f)
     (lowerChartEquivalence a b σ f E)
 
-private theorem sourceCast_heq {Γ : Context.{u}} {A A' B : Family Γ}
+private theorem family_eqToHom_comp_heq {Γ : Context.{u}} {A A' B : Family Γ}
     (h : A = A') (g : A' ⟶ B) : HEq (eqToHom h ≫ g) g := by
   cases h
   rfl
 
-private theorem unglueChosen_congr {Γ : Context.{u}}
+private theorem unglueLine_congr {Γ : Context.{u}}
     (a b : raisedContext Γ ⟶ smallFamilyCodes.{u}) (f : Presheaf.decode a ⟶ Presheaf.decode b)
     (E E' : HomotopyEquivalence f) (h : E = E') :
     HEq (Univalence.unglueLine a b f E) (Univalence.unglueLine a b f E') := by
@@ -32,8 +32,8 @@ theorem chartUnglue_reindex {Γ Δ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ)
       (chartUnglue a b f E (raisedSub τ ≫ σ)) := by
   have h := Univalence.unglueLine_reindex (σ ≫ a) (σ ≫ b)
     (lowerChartMap a b σ f) (lowerChartEquivalence a b σ f E) τ
-  exact (heq_of_eq h).trans ((sourceCast_heq _ _).trans
-    (unglueChosen_congr (raisedSub τ ≫ σ ≫ a) (raisedSub τ ≫ σ ≫ b)
+  exact (heq_of_eq h).trans ((family_eqToHom_comp_heq _ _).trans
+    (unglueLine_congr (raisedSub τ ≫ σ ≫ a) (raisedSub τ ≫ σ ≫ b)
       (lowerChartMap a b (raisedSub τ ≫ σ) f) _ _
       (lowerChartEquivalence_reindex a b σ f E τ).symm))
 

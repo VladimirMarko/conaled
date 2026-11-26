@@ -84,13 +84,13 @@ theorem boundary_left : (boundary A B).reindex (CodeSystem.includeLeft _ _) =
     A.reindex (faceProjection (Γ := Γ) false) :=
   (CodeSystem.decoded_glue_left _ _ (CodeSystem.endpoints_compatible A.code B.code)).trans
     ((decodedLocalFamily_reindex A.code _).trans
-      (congrArg (fun C : LocalFamily Γ => C.reindex (faceProjection (Γ := Γ) false)) A.decodeCode_record))
+      (congrArg (fun C : LocalFamily Γ => C.reindex (faceProjection (Γ := Γ) false)) A.decodedLocalFamily_code))
 
 theorem boundary_right : (boundary A B).reindex (CodeSystem.includeRight _ _) =
     B.reindex (faceProjection (Γ := Γ) true) :=
   (CodeSystem.decoded_glue_right _ _ (CodeSystem.endpoints_compatible A.code B.code)).trans
     ((decodedLocalFamily_reindex B.code _).trans
-      (congrArg (fun C : LocalFamily Γ => C.reindex (faceProjection (Γ := Γ) true)) B.decodeCode_record))
+      (congrArg (fun C : LocalFamily Γ => C.reindex (faceProjection (Γ := Γ) true)) B.decodedLocalFamily_code))
 
 variable (f : A.family ⟶ B.family)
 def leftMap : reindex (boundary A B).family (CodeSystem.includeLeft _ _) ⟶
@@ -137,13 +137,13 @@ theorem line_zero (E : HomotopyEquivalence f) : (line A B f E).reindex (endpoint
   have h := congrArg (fun C : LocalFamily (restrictContext (face (Γ := Γ))) =>
     C.reindex (CodeSystem.boundaryZero Γ)) (line_face A B f E)
   exact h.trans ((decodedLocalFamily_reindex _ _).symm.trans
-    ((congrArg decodedLocalFamily (CodeSystem.boundary_zero A.code B.code)).trans A.decodeCode_record))
+    ((congrArg decodedLocalFamily (CodeSystem.boundary_zero A.code B.code)).trans A.decodedLocalFamily_code))
 
 theorem line_one (E : HomotopyEquivalence f) : (line A B f E).reindex (endpointSub Γ true) = B := by
   have h := congrArg (fun C : LocalFamily (restrictContext (face (Γ := Γ))) =>
     C.reindex (CodeSystem.boundaryOne Γ)) (line_face A B f E)
   exact h.trans ((decodedLocalFamily_reindex _ _).symm.trans
-    ((congrArg decodedLocalFamily (CodeSystem.boundary_one A.code B.code)).trans B.decodeCode_record))
+    ((congrArg decodedLocalFamily (CodeSystem.boundary_one A.code B.code)).trans B.decodedLocalFamily_code))
 
 noncomputable def codeLine (E : HomotopyEquivalence f) : total (interval (raisedContext Γ)) ⟶ smallFamilyCodes.{u} :=
   (SmallUniverse.raisedIntervalIso Γ).inv ≫ (line A B f E).code
@@ -192,7 +192,7 @@ namespace SquareKit.Cubical.Cartesian.NativeUa
 open CategoryTheory
 universe u
 variable {Γ Δ : Context.{u}} (A B : LocalFamily Γ) (σ : Δ ⟶ Γ)
-theorem boundaryCode_reindex :
+theorem code_boundary_reindex :
     raisedSub (restrictSubstitution (face (Γ := Γ)) (intervalSub σ)) ≫ CodeSystem.boundary A.code B.code =
       CodeSystem.boundary (A.reindex σ).code (B.reindex σ).code := by
   rw [LocalFamily.code_reindex, LocalFamily.code_reindex]
@@ -202,7 +202,7 @@ theorem boundary_reindex :
     (boundary A B).reindex (restrictSubstitution (face (Γ := Γ)) (intervalSub σ)) =
       boundary (A.reindex σ) (B.reindex σ) :=
   (decodedLocalFamily_reindex _ _).symm.trans
-    (congrArg decodedLocalFamily (boundaryCode_reindex A B σ))
+    (congrArg decodedLocalFamily (code_boundary_reindex A B σ))
 
 theorem whisker_eqToHom {Ξ Ω : Context.{u}} {C D : Family Ξ} (h : C = D) (τ : Ω ⟶ Ξ) :
     Functor.whiskerLeft τ.mapElements (eqToHom h) =
@@ -421,7 +421,7 @@ theorem line_reindex (f : A.family ⟶ B.family) (E : HomotopyEquivalence f) :
     (boundary_reindex A B σ) _ _ _ _ (boundaryMap_reindex A B σ f) (boundaryEquivalence_reindex A B σ f E)
 
 
-theorem lineCode_reindex (f : A.family ⟶ B.family) (E : HomotopyEquivalence f) :
+theorem line_code_reindex (f : A.family ⟶ B.family) (E : HomotopyEquivalence f) :
     raisedSub (intervalSub σ) ≫ (line A B f E).code =
       (line (A.reindex σ) (B.reindex σ) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ)).code :=
   (LocalFamily.code_reindex (line A B f E) (intervalSub σ)).symm.trans
@@ -512,7 +512,7 @@ private theorem pathToEquivalence_congr {p q : Term (paths a b)} (h : p = q) :
   rfl
 
 /-- Evaluation after any substitution recovers all selected equivalence data. -/
-theorem pathEquivalence_pair (σ : Δ ⟶ Γ) (p : Term (Cartesian.reindex (paths a b) σ)) :
+theorem pathToEquivalence_record_pair (σ : Δ ⟶ Γ) (p : Term (Cartesian.reindex (paths a b) σ)) :
     let q : Term (paths (σ ≫ a) (σ ≫ b)) := Term.map (pathReindex (Cartesian.reindex (family Γ) (projection (interval Γ)))
       (term a) (term b) σ) p
     (⟨Functor.whiskerLeft (pair (A := paths a b) σ p).mapElements
@@ -542,7 +542,7 @@ theorem pathToEquiv_reindex_beta (σ : Δ ⟶ Γ) (p : Term (Cartesian.reindex (
   exact (EquivalenceFamilies.decodeMap_lam_reindex_apply (pathEquivalenceSection a b) σ p).trans
     (h.trans (congrArg
       (EquivalenceFamilies.equivReindexSections (liftedDecode a) (liftedDecode b) σ)
-      (pathEquivalence_pair σ p)))
+      (pathToEquivalence_record_pair σ p)))
 
 
 end SmallUniverse.NativeUnivalence
@@ -584,7 +584,7 @@ noncomputable def chartCode {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
 theorem chartCode_reindex {Γ Δ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) (τ : Δ ⟶ Γ) :
     raisedSub (intervalSub τ) ≫ chartCode a b f E σ =
       chartCode a b f E (raisedSub τ ≫ σ) := by
-  apply (NativeUa.lineCode_reindex (decodedLocalFamily (σ ≫ a))
+  apply (NativeUa.line_code_reindex (decodedLocalFamily (σ ≫ a))
     (decodedLocalFamily (σ ≫ b)) τ (lowerChartMap a b σ f)
     (lowerChartEquivalence a b σ f E)).trans
   apply congrArg LocalFamily.code
@@ -689,7 +689,7 @@ theorem chartCode_comp {Θ : Context.{u}}
   congrArg (fun H => (NativeUa.line (decodedLocalFamily (ρ ≫ σ ≫ a))
     (decodedLocalFamily (ρ ≫ σ ≫ b)) (lowerChartMap a b (ρ ≫ σ) f) H).code) (lowerChartEquivalence_comp a b f E σ ρ)
 
-theorem uaLine_reindex (a b : Γ ⟶ smallFamilyCodes.{u})
+theorem coherentLine_reindex (a b : Γ ⟶ smallFamilyCodes.{u})
     (f : liftedDecode a ⟶ liftedDecode b) (E : HomotopyEquivalence f) (σ : Δ ⟶ Γ) :
     Term.reindex (coherentLine a b f E) (intervalSub σ) =
       coherentLine (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ) := by
@@ -707,10 +707,10 @@ theorem ua_reindex (a b : Γ ⟶ smallFamilyCodes.{u})
       ua (σ ≫ a) (σ ≫ b) (Functor.whiskerLeft σ.mapElements f) (E.reindex σ) := by
   apply eq_of_heq
   apply pathTerm_hext
-  exact uaLine_reindex a b f E σ
+  exact coherentLine_reindex a b f E σ
 
 
-theorem pathSection_reindex_pair {C : Family Γ}
+theorem reindexPath_section_reindex_pair {C : Family Γ}
     (s : Term (Cartesian.reindex (paths a b) (projection C))) (σ : Δ ⟶ Γ)
     (c : Term (reindex C σ)) :
     reindexPath (a := projection C ≫ a) (b := projection C ≫ b)
@@ -735,7 +735,7 @@ theorem equivalencePathSection_reindex_pair (σ : Δ ⟶ Γ)
       (term a) (term b) (projection (equivalences a b))).symm
     (ua (projection (equivalences a b) ≫ a) (projection (equivalences a b) ≫ b)
       (genericEquivalence a b).1 (genericEquivalence a b).2)
-  exact (pathSection_reindex_pair (equivalencePathSection a b) σ c).symm.trans
+  exact (reindexPath_section_reindex_pair (equivalencePathSection a b) σ c).symm.trans
     ((congrArg (fun p => reindexPath p (pair (A := equivalences a b) σ c)) h).trans
       (ua_reindex _ _ _ _ (pair (A := equivalences a b) σ c)))
 
@@ -1189,7 +1189,7 @@ theorem smallUnglue_source_congr {Ξ : Context.{u}} (φ : Subcontext Ξ)
   simp only [eqToHom_refl, Category.id_comp] at hf
   subst f'; rfl
 
-theorem castDomain_heq {Ξ : Context.{u}} {X Y Z : Family Ξ} (h : X = Y) (f : Y ⟶ Z) :
+theorem family_eqToHom_comp_heq {Ξ : Context.{u}} {X Y Z : Family Ξ} (h : X = Y) (f : Y ⟶ Z) :
     HEq (eqToHom h ≫ f) f := by
   subst Y
   rfl
@@ -1204,7 +1204,7 @@ theorem unglueLine_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ)
   have hh : HEq (Functor.whiskerLeft (intervalSub σ).mapElements D.smallUnglue)
       (D.reindex (intervalSub σ)).smallUnglue := by
     rw [h]
-    exact castDomain_heq _ _
+    exact family_eqToHom_comp_heq _ _
   exact hh.trans (smallUnglue_source_congr (face (Γ := Δ)) (ambient (B.reindex σ)).family _ _
     (congrArg LocalFamily.family (boundary_reindex A B σ)) _ _ (boundaryMap_reindex A B σ f))
 end SquareKit.Cubical.Cartesian.NativeUa
@@ -1218,7 +1218,7 @@ variable {Ξ : Context.{u+1}} (a b : Ξ ⟶ smallFamilyCodes.{u})
 noncomputable def chartUnglue {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
     Cartesian.decode (chartCode a b f E σ) ⟶
       reindex (Cartesian.decode (σ ≫ b)) (projection (interval Γ)) :=
-  eqToHom (LocalFamily.decodeCode_eq _) ≫
+  eqToHom (LocalFamily.decode_code_eq _) ≫
     NativeUa.unglueLine (decodedLocalFamily (σ ≫ a)) (decodedLocalFamily (σ ≫ b))
       (lowerChartMap a b σ f) (lowerChartEquivalence a b σ f E)
 
@@ -1231,12 +1231,12 @@ private theorem unglueLine_congr {Γ : Context.{u}} (A B A' B' : LocalFamily Γ)
   have hg' := eq_of_heq hg; subst g'
   have hH' := eq_of_heq hH; subst H'; rfl
 
-private theorem whisker_sourceCast_heq {Γ Δ : Context.{u}} {A A' B : Family Γ}
+private theorem whiskerLeft_eqToHom_comp_heq {Γ Δ : Context.{u}} {A A' B : Family Γ}
     (h : A = A') (g : A' ⟶ B) (σ : Δ ⟶ Γ) :
     HEq (Functor.whiskerLeft σ.mapElements (eqToHom h ≫ g))
       (Functor.whiskerLeft σ.mapElements g) := by
   cases h; rfl
-private theorem sourceCast_heq {Γ : Context.{u}} {A A' B : Family Γ}
+private theorem family_eqToHom_comp_heq {Γ : Context.{u}} {A A' B : Family Γ}
     (h : A = A') (g : A' ⟶ B) : HEq (eqToHom h ≫ g) g := by
   cases h; rfl
 
@@ -1254,7 +1254,7 @@ theorem chartUnglue_reindex {Γ Δ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ)
     ((lowerChartEquivalence a b σ f E).reindex τ)
     (lowerChartEquivalence a b (raisedSub τ ≫ σ) f E)
     (heq_of_eq (lowerChartEquivalence_reindex a b σ f E τ).symm)
-  exact (whisker_sourceCast_heq _ _ _).trans (hn.trans (hc.trans (sourceCast_heq _ _).symm))
+  exact (whiskerLeft_eqToHom_comp_heq _ _ _).trans (hn.trans (hc.trans (family_eqToHom_comp_heq _ _).symm))
 
 theorem chartUnglue_zero {Γ : Context.{u}} (σ : raisedContext Γ ⟶ Ξ) :
     Functor.whiskerLeft (endpointSub Γ false).mapElements (chartUnglue a b f E σ) =
@@ -1492,7 +1492,7 @@ namespace SquareKit.Cubical.Cartesian.SmallUniverse.NativeUnivalence
 open CategoryTheory
 universe u
 variable {Γ Δ : Context.{u+1}} (a b : Γ ⟶ smallFamilyCodes.{u})
-private theorem pathPair_congr {a b : Δ ⟶ smallFamilyCodes.{u}}
+private theorem pathToEquivalence_record_congr {a b : Δ ⟶ smallFamilyCodes.{u}}
     {p q : Term (paths a b)} (h : p = q) :
     (⟨pathToMap p,pathToEquivalence p⟩ : Σ f, HomotopyEquivalence f) =
       ⟨pathToMap q,pathToEquivalence q⟩ := by
@@ -1543,7 +1543,7 @@ noncomputable def rightInverseAt (σ : Δ ⟶ Γ)
   have hp := equivToPath_reindex_beta (a := a) (b := b) σ s
   have ht : t = S ⟨pathToMap q,pathToEquivalence q⟩ :=
     (pathToEquiv_reindex_beta (a := a) (b := b) σ p).trans
-      (congrArg S (pathPair_congr hp))
+      (congrArg S (pathToEquivalence_record_congr hp))
   let r := encodedRoundtripAt a b σ s
   exact pathLam (pathApp r) ((pathApp_zero r).trans ht.symm) (pathApp_one r)
 

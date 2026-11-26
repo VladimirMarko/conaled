@@ -47,12 +47,12 @@ theorem singleton_bounds :
     height_le_two_mul_logb_numLeaves _ (balanced_fibTree 1)⟩
 
 /-! D03: the direct ceiling estimate need not attain the exact minimum. -/
-theorem heightThree_observations :
+theorem fibTree_three_observations :
     (fibTree 3).height = 3 ∧ (fibTree 3).numLeaves = 5 ∧
       2 ^ ((fibTree 3).height / 2) = 2 ∧
       2 ^ (((fibTree 3).height + 1) / 2) = 4 := ⟨rfl, rfl, rfl, rfl⟩
 
-theorem heightThree_bounds :
+theorem fibTree_three_bounds :
     2 ^ (((fibTree 3).height + 1) / 2) ≤ (fibTree 3).numLeaves ∧
       2 ^ ((fibTree 3).height / 2) ≤ (fibTree 3).numLeaves ∧
       ((fibTree 3).height : ℝ) ≤ 2 * Real.logb 2 ((fibTree 3).numLeaves : ℝ) :=
@@ -60,7 +60,7 @@ theorem heightThree_bounds :
     two_pow_half_height_le_numLeaves _ (balanced_fibTree 3),
     height_le_two_mul_logb_numLeaves _ (balanced_fibTree 3)⟩
 
-theorem heightThree_strict_bound :
+theorem fibTree_three_strict_bound :
     2 ^ (((fibTree 3).height + 1) / 2) < (fibTree 3).numLeaves := by decide
 
 theorem repeated_payload_observation :
@@ -86,7 +86,7 @@ def chain : Nat → BinaryTree Unit
   | zero => rfl
   | succ n ih => simp [chain, BinaryTree.numLeaves, ih]
 
-theorem chainSix_power_failures :
+theorem chain_six_power_failures :
     ¬2 ^ (((chain 6).height + 1) / 2) ≤ (chain 6).numLeaves ∧
       ¬2 ^ ((chain 6).height / 2) ≤ (chain 6).numLeaves := by
   norm_num [height_chain, numLeaves_chain]
@@ -97,21 +97,21 @@ private theorem logb_seven_lt_three : Real.logb 2 (7 : ℝ) < 3 := by
   rw [Real.logb_pow, Real.logb_self_eq_one (by norm_num)] at h
   simpa using h
 
-theorem chainSix_logarithm_fails :
+theorem chain_six_logarithm_fails :
     ¬((chain 6).height : ℝ) ≤ 2 * Real.logb 2 ((chain 6).numLeaves : ℝ) := by
   have h := logb_seven_lt_three
   simp only [height_chain, numLeaves_chain]
   norm_num only [Nat.reduceAdd, Nat.cast_ofNat]
   linarith
 
-theorem chainSix_not_balanced : ¬Balanced (chain 6) := by
+theorem chain_six_not_balanced : ¬Balanced (chain 6) := by
   intro h
-  exact chainSix_power_failures.1 (two_pow_ceil_half_height_le_numLeaves _ h)
+  exact chain_six_power_failures.1 (two_pow_ceil_half_height_le_numLeaves _ h)
 
-theorem chainFour_not_balanced : ¬Balanced (chain 4) := by
+theorem chain_four_not_balanced : ¬Balanced (chain 4) := by
   norm_num [chain, balanced_node, BinaryTree.height]
 
-theorem chainFour_power_bounds :
+theorem chain_four_power_bounds :
     2 ^ (((chain 4).height + 1) / 2) ≤ (chain 4).numLeaves ∧
       2 ^ ((chain 4).height / 2) ≤ (chain 4).numLeaves := by
   norm_num [height_chain, numLeaves_chain]
@@ -123,7 +123,7 @@ private theorem two_le_logb_five : (2 : ℝ) ≤ Real.logb 2 (5 : ℝ) := by
   rw [Real.logb_pow, Real.logb_self_eq_one (by norm_num)] at h
   simpa using h
 
-theorem chainFour_logarithm_bound :
+theorem chain_four_logarithm_bound :
     ((chain 4).height : ℝ) ≤ 2 * Real.logb 2 ((chain 4).numLeaves : ℝ) := by
   have h := two_le_logb_five
   simp only [height_chain, numLeaves_chain]
@@ -131,12 +131,12 @@ theorem chainFour_logarithm_bound :
   linarith
 
 /-! D06: global almost-completeness is stronger than recursive AVL balance. -/
-theorem fibFour_observations :
+theorem fibTree_four_observations :
     Balanced (fibTree 4) ∧ (fibTree 4).height = 4 ∧
       Trees.minHeight (fibTree 4) = 2 ∧ (fibTree 4).numLeaves = 8 :=
   ⟨balanced_fibTree 4, height_fibTree 4, rfl, rfl⟩
 
-theorem fibFour_not_almostComplete : ¬Trees.AlmostComplete (fibTree 4) := by
+theorem fibTree_four_not_almostComplete : ¬Trees.AlmostComplete (fibTree 4) := by
   change ¬4 ≤ 2 + 1
   decide
 
@@ -145,7 +145,7 @@ theorem children_and_local_balance_do_not_supply_global_condition :
       (fibTree 3).height ≤ (fibTree 2).height + 1 ∧
       (fibTree 2).height ≤ (fibTree 3).height + 1 ∧
       ¬Trees.AlmostComplete (fibTree 4) := by
-  refine ⟨?_, ?_, by decide, by decide, fibFour_not_almostComplete⟩
+  refine ⟨?_, ?_, by decide, by decide, fibTree_four_not_almostComplete⟩
   · change 3 ≤ 2 + 1
     decide
   · change 2 ≤ 1 + 1

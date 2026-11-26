@@ -12,7 +12,7 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
-private theorem strongId_heq {A B : Type*} [Bicategory A] [Bicategory B]
+private theorem strongTrans_id_heq {A B : Type*} [Bicategory A] [Bicategory B]
     {H K : StrictPseudofunctor A B} (e : H = K) :
     HEq (Pseudofunctor.StrongTrans.id H.toPseudofunctor) (Pseudofunctor.StrongTrans.id K.toPseudofunctor) := by cases e; rfl
 
@@ -46,7 +46,7 @@ theorem rootedContraction_reflexive_mapped :
     (StrictTwoTransformation.functor_comp_id (pathReflexivity F))
     _ _ (pathContraction_reflexive F) x.lift
   have h7 := heq_of_eq (strongPrecomp_id (pathReflexivity F) x.lift)
-  have h8 := strongId_heq (rootedReflexivity_embedding F x).symm
+  have h8 := strongTrans_id_heq (rootedReflexivity_embedding F x).symm
   have h9 := (heq_of_eq (strongPostcomp_id (rootedReflexivity F x) (rootedPathEmbedding F x))).symm
   exact h1.trans (h2.trans (h3.trans (h4.trans (h5.trans (h6.trans (h7.trans (h8.trans h9)))))))
 

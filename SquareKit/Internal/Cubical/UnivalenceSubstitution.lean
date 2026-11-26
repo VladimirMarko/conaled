@@ -65,7 +65,7 @@ variable {Γ Δ : Context.{u}} {φ ψ : Cofibration Γ}
   (disjoint : ∀ x : Γ.Elements, φ.Full x → ψ.Full x → False)
   (σ : Δ ⟶ Γ)
 
-theorem disjointGlue_reindex :
+theorem glue_reindex_of_disjoint :
     Functor.whiskerLeft (restrictSubstitution (φ.join ψ) σ).mapElements
       (glue a b (disjoint_compatible a b disjoint)) =
     glue (φ := φ.reindex σ) (ψ := ψ.reindex σ)
@@ -74,7 +74,7 @@ theorem disjointGlue_reindex :
       (Functor.whiskerLeft (restrictSubstitution ψ σ).mapElements b)
       (disjoint_compatible _ _ (fun x => disjoint (σ.mapElements.obj x))) := rfl
 
-private theorem equivalenceCast_reindex {Ξ Ω : Context.{u}} {C D : Family Ξ}
+private theorem homotopyEquivalence_cast_reindex {Ξ Ω : Context.{u}} {C D : Family Ξ}
     {f g : C ⟶ D} (h : f = g) (E : HomotopyEquivalence f) (τ : Ω ⟶ Ξ) :
     (h ▸ E).reindex τ =
       (congrArg (Functor.whiskerLeft τ.mapElements) h ▸ E.reindex τ) := by
@@ -90,7 +90,7 @@ theorem leftEquivalence_reindex (ea : HomotopyEquivalence a) :
         (Functor.whiskerLeft (restrictSubstitution ψ σ).mapElements b)
         (fun x => disjoint (σ.mapElements.obj x))
         (ea.reindex (restrictSubstitution φ σ)) := by
-  exact equivalenceCast_reindex
+  exact homotopyEquivalence_cast_reindex
     (C := reindex A (includeLeft φ ψ))
     (D := reindex B (includeLeft φ ψ))
     (glue_left a b (disjoint_compatible a b disjoint)).symm ea
@@ -105,7 +105,7 @@ theorem rightEquivalence_reindex (eb : HomotopyEquivalence b) :
         (Functor.whiskerLeft (restrictSubstitution ψ σ).mapElements b)
         (fun x => disjoint (σ.mapElements.obj x))
         (eb.reindex (restrictSubstitution ψ σ)) := by
-  exact equivalenceCast_reindex
+  exact homotopyEquivalence_cast_reindex
     (C := reindex A (includeRight φ ψ))
     (D := reindex B (includeRight φ ψ))
     (glue_right a b (disjoint_compatible a b disjoint)).symm eb
@@ -144,7 +144,7 @@ private theorem iso_heq_of_hom {Ξ : Context.{u}} {A A' B B' : Family Ξ}
   cases hB
   exact heq_of_eq (Iso.ext (eq_of_heq h))
 
-private theorem leftFiber_forward (f : A ⟶ B) :
+private theorem left_fiber_forward (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution φ σ;
     let ι := includeLeft φ ψ;
@@ -242,7 +242,7 @@ private theorem pull_transport_inverse {Ξ Ω Ζ : Context.{u}} {C : Family Ξ}
 
 -- The native fiber types need this bounded kernel-checking budget; see the #420 handoff.
 set_option maxHeartbeats 400000 in
-private theorem leftFiber_inverse_hom (f : A ⟶ B) :
+private theorem left_fiber_inverse_hom (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution φ σ;
     let ι := includeLeft φ ψ;
@@ -283,10 +283,10 @@ private theorem leftFiber_inverse_hom (f : A ⟶ B) :
   let k := Functor.isoWhiskerLeft ν.mapElements Q
   let l := Functor.isoWhiskerLeft ν.mapElements R
   have square : i ≪≫ k = j ≪≫ l :=
-    leftFiber_forward (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+    left_fiber_forward (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   exact inverse_square_hom i k j l square
 
-private theorem leftFiber_inverse_heq (f : A ⟶ B) :
+private theorem left_fiber_inverse_heq (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution φ σ;
     let ι := includeLeft φ ψ;
@@ -326,7 +326,7 @@ private theorem leftFiber_inverse_heq (f : A ⟶ B) :
     (genericFiberReindexIso f τ)
   let k := Functor.isoWhiskerLeft ν.mapElements Q
   let l := Functor.isoWhiskerLeft ν.mapElements R
-  have hom := leftFiber_inverse_hom (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+  have hom := left_fiber_inverse_hom (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   have hbase : μ ≫ κ = ν ≫ liftSub (reindex B ι) ρ := rfl
   have hD : reindex
       (homotopyFiber (Functor.whiskerLeft (projection (reindex B τ)).mapElements
@@ -346,7 +346,7 @@ private theorem leftFiber_inverse_heq (f : A ⟶ B) :
       (heq_of_eq hom)
   exact he
 
-private theorem leftFiber_reindex (f : A ⟶ B)
+private theorem left_fiber_reindex (f : A ⟶ B)
     (L : HomotopyEquivalence (Functor.whiskerLeft (includeLeft φ ψ).mapElements f)) :
     (((L.fibers.transport (genericFiberReindexIso f (includeLeft φ ψ)).symm).reindex
       (leftTarget B)).reindex
@@ -395,7 +395,7 @@ private theorem leftFiber_reindex (f : A ⟶ B)
         (Functor.whiskerLeft τ.mapElements f)) (generic (reindex B τ)))
       (liftSub (reindex B τ) ι')) ν := rfl
   have he : HEq (i.symm ≪≫ j) (k ≪≫ l.symm) :=
-    leftFiber_inverse_heq (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+    left_fiber_inverse_heq (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   have hBase := @reindex_transport_heq
     (total (reindex B ι))
     (restrictContext ((φ.reindex σ).reindex
@@ -416,7 +416,7 @@ private theorem leftFiber_reindex (f : A ⟶ B)
   have hWhole := (heq_of_eq hL).trans hFinish
   exact eq_of_heq hWhole
 
-private theorem rightFiber_forward (f : A ⟶ B) :
+private theorem right_fiber_forward (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution ψ σ;
     let ι := includeRight φ ψ;
@@ -453,7 +453,7 @@ private theorem rightFiber_forward (f : A ⟶ B) :
 
 -- The native fiber types need this bounded kernel-checking budget; see the #420 handoff.
 set_option maxHeartbeats 400000 in
-private theorem rightFiber_inverse_hom (f : A ⟶ B) :
+private theorem right_fiber_inverse_hom (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution ψ σ;
     let ι := includeRight φ ψ;
@@ -494,10 +494,10 @@ private theorem rightFiber_inverse_hom (f : A ⟶ B) :
   let k := Functor.isoWhiskerLeft ν.mapElements Q
   let l := Functor.isoWhiskerLeft ν.mapElements R
   have square : i ≪≫ k = j ≪≫ l :=
-    rightFiber_forward (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+    right_fiber_forward (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   exact inverse_square_hom i k j l square
 
-private theorem rightFiber_inverse_heq (f : A ⟶ B) :
+private theorem right_fiber_inverse_heq (f : A ⟶ B) :
     let τ := restrictSubstitution (φ.join ψ) σ;
     let ρ := restrictSubstitution ψ σ;
     let ι := includeRight φ ψ;
@@ -537,7 +537,7 @@ private theorem rightFiber_inverse_heq (f : A ⟶ B) :
     (genericFiberReindexIso f τ)
   let k := Functor.isoWhiskerLeft ν.mapElements Q
   let l := Functor.isoWhiskerLeft ν.mapElements R
-  have hom := rightFiber_inverse_hom (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+  have hom := right_fiber_inverse_hom (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   have hbase : μ ≫ κ = ν ≫ liftSub (reindex B ι) ρ := rfl
   have hD : reindex
       (homotopyFiber (Functor.whiskerLeft (projection (reindex B τ)).mapElements
@@ -557,7 +557,7 @@ private theorem rightFiber_inverse_heq (f : A ⟶ B) :
       (heq_of_eq hom)
   exact he
 
-private theorem rightFiber_reindex (f : A ⟶ B)
+private theorem right_fiber_reindex (f : A ⟶ B)
     (L : HomotopyEquivalence (Functor.whiskerLeft (includeRight φ ψ).mapElements f)) :
     (((L.fibers.transport (genericFiberReindexIso f (includeRight φ ψ)).symm).reindex
       (rightTarget B)).reindex
@@ -606,7 +606,7 @@ private theorem rightFiber_reindex (f : A ⟶ B)
         (Functor.whiskerLeft τ.mapElements f)) (generic (reindex B τ)))
       (liftSub (reindex B τ) ι')) ν := rfl
   have he : HEq (i.symm ≪≫ j) (k ≪≫ l.symm) :=
-    rightFiber_inverse_heq (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
+    right_fiber_inverse_heq (φ := φ) (ψ := ψ) (A := A) (B := B) σ f
   have hBase := @reindex_transport_heq
     (total (reindex B ι))
     (restrictContext ((ψ.reindex σ).reindex
@@ -657,8 +657,8 @@ private theorem branchFibers_reindex (f : A ⟶ B)
   have h3 := congrArg₂
     (DisjointCover.contractible (α.reindex π) (β.reindex π)
       (fun x => cover (π.mapElements.obj x)) (fun x => d (π.mapElements.obj x)))
-    (leftFiber_reindex (φ := φ) (ψ := ψ) (A := A) (B := B) σ f L)
-    (rightFiber_reindex (φ := φ) (ψ := ψ) (A := A) (B := B) σ f R)
+    (left_fiber_reindex (φ := φ) (ψ := ψ) (A := A) (B := B) σ f L)
+    (right_fiber_reindex (φ := φ) (ψ := ψ) (A := A) (B := B) σ f R)
   exact (h1.trans h2).trans h3
 
 theorem disjointEquivalence_reindex (ea : HomotopyEquivalence a)
@@ -703,7 +703,7 @@ private theorem reindex_eqToHom {Ξ Ω : Context.{u}} {A B : Family Ξ}
   cases h
   rfl
 
-private theorem sourceCast_heq {Ξ : Context.{u}} {A A' B C : Family Ξ}
+private theorem eqToHom_comp_heq_of_source_eq {Ξ : Context.{u}} {A A' B C : Family Ξ}
     (h : A = A') (q : A = B) (q' : A' = B) (f : B ⟶ C) :
     HEq (eqToHom q ≫ f) (eqToHom q' ≫ f) := by
   cases h
@@ -733,7 +733,7 @@ theorem boundaryLeft_reindex (f : decode a ⟶ decode b) :
   have hS := congrArg
     (fun C : Family (restrictContext (face (Γ := Δ))) =>
       reindex C (CodeSystem.includeLeft (intervalFace Δ false) (intervalFace Δ true))) hC
-  exact sourceCast_heq hS
+  exact eqToHom_comp_heq_of_source_eq hS
     (congrArg (fun C => reindex C τ) (boundary_left a b))
     (boundary_left (raisedSub σ ≫ a) (raisedSub σ ≫ b))
     (Functor.whiskerLeft
@@ -860,14 +860,14 @@ theorem boundaryLeftEquivalence_reindex (f : decode a ⟶ decode b)
       (congrArg (fun C => reindex C τ) (boundary_left a b))
       (boundary_left (raisedSub σ ≫ a) (raisedSub σ ≫ b)) f' ((H.reindex σ).reindex q)))
 
-private theorem identityEquivalence_reindex {Ξ Ω : Context.{u}} {A B : Family Ξ}
+private theorem ofIso_eqToIso_reindex {Ξ Ω : Context.{u}} {A B : Family Ξ}
     (h : A = B) (τ : Ω ⟶ Ξ) :
     HEq ((HomotopyEquivalence.ofIso (eqToIso h)).reindex τ)
       (HomotopyEquivalence.ofIso (eqToIso (congrArg (fun C => reindex C τ) h))) := by
   cases h
   exact heq_of_eq (HomotopyEquivalence.ofIso_reindex (Iso.refl A) τ)
 
-private theorem identityEquivalence_congr {Ξ : Context.{u}} {A A' B : Family Ξ}
+private theorem ofIso_eqToIso_heq {Ξ : Context.{u}} {A A' B : Family Ξ}
     (h : A = A') (q : A = B) (q' : A' = B) :
     HEq (HomotopyEquivalence.ofIso (eqToIso q)) (HomotopyEquivalence.ofIso (eqToIso q')) := by
   cases h
@@ -887,8 +887,8 @@ theorem boundaryRightEquivalence_reindex :
   have hS := congrArg
     (fun C : Family (restrictContext (face (Γ := Δ))) =>
       reindex C (CodeSystem.includeRight (intervalFace Δ false) (intervalFace Δ true))) hC
-  exact (identityEquivalence_reindex (boundary_right a b) τ).trans
-    (identityEquivalence_congr hS
+  exact (ofIso_eqToIso_reindex (boundary_right a b) τ).trans
+    (ofIso_eqToIso_heq hS
       (congrArg (fun C => reindex C τ) (boundary_right a b))
       (boundary_right (raisedSub σ ≫ a) (raisedSub σ ≫ b)))
 

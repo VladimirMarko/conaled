@@ -710,7 +710,7 @@ end SquareKit.Cubical.Cartesian.CodeSystem.Box
 namespace SquareKit.Cubical.Cartesian.EquivalenceFamilies
 open CategoryTheory
 universe u
-theorem partialSigmaSnd_reindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
+theorem sigmaSnd_reindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Family (total A)}
     {φ : Subcontext Γ} (s : PartialSection (sigma A B) φ) (a : Term A)
     (ha : ∀ x h, a.val x = (s.val x h).1) (σ : Δ ⟶ Γ) :
     (s.sigmaSnd a ha).reindex σ =
@@ -722,7 +722,7 @@ theorem partialSigmaSnd_reindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Famil
     (PartialSection.sigmaSnd_val (B := reindex B (liftSub A σ)) (s.reindex σ)
       (Term.reindex a σ) (fun x h => ha (σ.mapElements.obj x) h) x h).symm)
 
-theorem partialSigmaSnd_map {Γ : Context.{u}} {A : Family Γ} {B C : Family (total A)}
+theorem sigmaSnd_map {Γ : Context.{u}} {A : Family Γ} {B C : Family (total A)}
     {φ : Subcontext Γ} (s : PartialSection (sigma A B) φ) (a : Term A)
     (ha : ∀ x h, a.val x = (s.val x h).1) (i : B ≅ C) :
     (s.map (Homotopy.sigmaSecondIso A i).hom).sigmaSnd a ha =
@@ -791,7 +791,7 @@ theorem partialAt_reindex (a : Term A) (ha : ∀ x h, a.val x = (s.val x h).1) :
     (Term.reindex a σ) (fun x h => ha (σ.mapElements.obj x) h) |>.map
       (contractionsAtIso (reindex A σ) (Term.reindex a σ)).hom).app
   unfold contrReindexIso
-  erw [partialSigmaSnd_map, ← partialSigmaSnd_reindex]
+  erw [sigmaSnd_map, ← sigmaSnd_reindex]
   apply PartialSection.ext
   intro x hx
   apply Subtype.ext
@@ -847,7 +847,7 @@ def partialPiContr {Γ Δ : Context.{u}} (B : Family Γ) (C : Family (total B))
     PartialSection (contr (reindex C (liftSub B σ))) (φ.reindex (projection (reindex B σ))) :=
   ((s.map (piReindex B (contr C) σ)).app).map (contrReindexIso C (liftSub B σ)).hom
 
-theorem contrReindex_hom_comp {Γ Δ Θ : Context.{u}} (A : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) :
+theorem contrReindexIso_hom_comp {Γ Δ Θ : Context.{u}} (A : Family Γ) (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) :
     Functor.whiskerLeft τ.mapElements (contrReindexIso A σ).hom ≫
       (contrReindexIso (reindex A σ) τ).hom = (contrReindexIso A (τ ≫ σ)).hom := by
   ext x z
@@ -864,7 +864,7 @@ theorem partialPiContr_reindex {Γ Δ Θ : Context.{u}} (B : Family Γ) (C : Fam
   let ρ := liftSub (reindex B σ) τ
   let p := ((s.map (piReindex B (contr C) σ)).app).reindex ρ
   have hi := congrArg (fun m => m.app x (p.val x hx))
-    (contrReindex_hom_comp C (liftSub B σ) ρ)
+    (contrReindexIso_hom_comp C (liftSub B σ) ρ)
   refine hi.trans ?_
   apply congrArg ((contrReindexIso C (liftSub B (τ ≫ σ))).hom.app x)
   change ((s.map (piReindex B (contr C) σ)).app).val (ρ.mapElements.obj x) hx =
@@ -1109,13 +1109,13 @@ theorem maps_compatible_of_code_diagonal {Δ : Context.{u}} {α β : Subcontext 
   maps_compatible_of_diagonal hleft _
     (fun x h k z => UniversalTransport.mapTo_at_equal a r s _ _ hr hs (Maps.right x k) (hdiag x h k) z)
 
-theorem faceMaps_compatible : Maps.Compatible b.capMap b.tubeMap :=
+theorem capMap_tubeMap_compatible : Maps.Compatible b.capMap b.tubeMap :=
   maps_compatible_of_code_diagonal (A := b.faceFamily.family) (B := b.targetFamily)
     (congrArg LocalFamily.family b.faceFamily_left) (raisedSub (tubeEvaluation φ) ≫ b.tube)
     (tubeVariable φ) (tubeSourceTerm φ r) _ _ (fun _ h _ => h)
 
 def faceMap : b.faceFamily.family ⟶ b.targetFamily :=
-  Maps.glue b.capMap b.tubeMap b.faceMaps_compatible
+  Maps.glue b.capMap b.tubeMap b.capMap_tubeMap_compatible
 
 def capEquivalence : HomotopyEquivalence b.capMap :=
   HomotopyEquivalence.ofIso (eqToIso (congrArg LocalFamily.family b.faceFamily_left))
@@ -1124,7 +1124,7 @@ def capEquivalence : HomotopyEquivalence b.capMap :=
 
 def faceEquivalence : HomotopyEquivalence b.faceMap :=
   Equivalences.glueMaps b.faceFamily (b.ambientFamily.reindex (restrictInclusion face))
-    b.capMap b.tubeMap b.faceMaps_compatible b.capEquivalence b.tubeEquivalence
+    b.capMap b.tubeMap b.capMap_tubeMap_compatible b.capEquivalence b.tubeEquivalence
 
 /-- Fill the small code box with the actual arbitrary-source transport equivalence. -/
 def fillCode : raisedContext (total (interval Γ)) ⟶ smallFamilyCodes.{u} :=
@@ -1221,7 +1221,7 @@ theorem map_decodeMap_lam {Γ : Context.{u}} {A B : Family Γ}
     (t : Term (reindex B (projection A))) (s : Term A) :
     Term.map (decodeMap (lam t)) s = Term.reindex t (pair (𝟙 Γ) s) := rfl
 
-theorem contrReindex_hom_id {Γ : Context.{u}} (B : Family Γ) :
+theorem contrReindexIso_hom_id {Γ : Context.{u}} (B : Family Γ) :
     (contrReindexIso B (𝟙 Γ)).hom = 𝟙 (contr B) := by
   ext x a
   apply Sigma.ext
@@ -1234,10 +1234,10 @@ theorem contrReindex_hom_id {Γ : Context.{u}} (B : Family Γ) :
     intro z g r
     rfl
 
-theorem contrReindex_inv_id {Γ : Context.{u}} (B : Family Γ) :
+theorem contrReindexIso_inv_id {Γ : Context.{u}} (B : Family Γ) :
     (contrReindexIso B (𝟙 Γ)).inv = 𝟙 (contr B) := by
   have h := (contrReindexIso B (𝟙 Γ)).hom_inv_id
-  rw [contrReindex_hom_id] at h
+  rw [contrReindexIso_hom_id] at h
   ext x a
   exact congrArg (fun m => m.app x a) h
 
@@ -1266,7 +1266,7 @@ theorem contrMap_encode {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B) (c : 
   rw [hc]
   erw [decode_encodeContr]
   change Term.map (contrReindexIso B (𝟙 Γ)).inv (encodeContr (Contractible.map e c)) = _
-  rw [contrReindex_inv_id]
+  rw [contrReindexIso_inv_id]
   rfl
 end SquareKit.Cubical.Cartesian.EquivalenceFamilies
 
@@ -1357,7 +1357,7 @@ theorem contrEval_map {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B)
     e.hom.app x (contrEval x p (A.map (𝟙 x) (e.inv.app x b)) r) at out
   rw [A.map_id_apply] at out
   exact out
-theorem contractionAt_eval {Γ : Context.{u}} {A : Family Γ} (a : Term A)
+theorem contractionsAtIso_eval {Γ : Context.{u}} {A : Family Γ} (a : Term A)
     (x : Γ.Elements) (p : (reindex (contractions A) (pair (𝟙 Γ) a)).obj x)
     (q : (contr A).obj x) (h : a.val x = q.1) (hp : HEq p q.2)
     (b : A.obj x) (r : (interval Γ).obj x) :
@@ -1413,7 +1413,7 @@ theorem partialAt_eval (a : Term A) (ha : ∀ x h, a.val x = (s.val x h).1)
   erw [PartialSection.pathApp_val]
   unfold partialAt
   erw [PartialSection.app_val]
-  exact contractionAt_eval a _ _ _ (ha _ hx) (s.sigmaSnd_val a ha _ hx) _ _
+  exact contractionsAtIso_eval a _ _ _ (ha _ hx) (s.sigmaSnd_val a ha _ hx) _ _
 
 theorem partialAt_boundary_transport (a : Term A) (ha : ∀ x h, a.val x = (s.val x h).1) :
     (partialAt (s.map (contrMap e)) (Term.map e.hom a)
@@ -1605,7 +1605,7 @@ theorem tubeSourceTerm_reindex :
     Term.reindex (tubeSourceTerm φ r) (restrictSubstitution (φ.reindex (projection (interval Γ))) (intervalSub σ)) =
       tubeSourceTerm (φ.reindex σ) (Term.reindex r σ) := rfl
 
-theorem tubeCode_reindex :
+theorem tubeEvaluation_tube_reindex :
     raisedSub (intervalSub (restrictSubstitution (φ.reindex (projection (interval Γ))) (intervalSub σ))) ≫
       (raisedSub (tubeEvaluation φ) ≫ b.tube) =
     raisedSub (tubeEvaluation (φ.reindex σ)) ≫ (b.reindex σ).tube := rfl
@@ -1709,7 +1709,7 @@ end SquareKit.Cubical.Cartesian.CodeSystem.Maps
 namespace SquareKit.Cubical.Cartesian.CodeSystem.Box
 open CategoryTheory
 universe u
-private theorem eqMap_congr {Γ Δ : Context.{u}} {A B : Family Γ}
+private theorem whiskerLeft_eqToHom_heq {Γ Δ : Context.{u}} {A B : Family Γ}
     (q : A = B) (σ : Δ ⟶ Γ) {A' B' : Family Δ}
     (hB : Cartesian.reindex B σ = B') (q' : A' = B') :
     HEq (Functor.whiskerLeft σ.mapElements (eqToHom q)) (eqToHom q') := by
@@ -1722,7 +1722,7 @@ theorem capMap_reindex :
     HEq (Functor.whiskerLeft (restrictSubstitution (Glue.sourceFace r) (intervalSub σ)).mapElements b.capMap)
       (b.reindex σ).capMap := by
   unfold capMap
-  apply eqMap_congr
+  apply whiskerLeft_eqToHom_heq
   exact congrArg (fun A => (A.reindex (restrictInclusion (Glue.sourceFace (Term.reindex r σ)))).family)
     (ambientFamily_reindex b σ)
 end SquareKit.Cubical.Cartesian.CodeSystem.Box
@@ -1768,7 +1768,7 @@ end SquareKit.Cubical.Cartesian.CodeSystem.Sections
 namespace SquareKit.Cubical.Cartesian.CodeSystem.Box
 open CategoryTheory
 universe u
-private theorem ofEqLocalFamily_congr {Γ : Context.{u}}
+private theorem ofIso_eqToIso_localFamily_heq {Γ : Context.{u}}
     (A A' : Family Γ) (B B' : LocalFamily Γ) (hB : B = B')
     (q : A = B.family) (q' : A' = B'.family) :
     HEq (HomotopyEquivalence.ofIso (eqToIso q) B.toFilling B.toFilling_lawful)
@@ -1799,7 +1799,7 @@ theorem capEquivalence_reindex :
     (restrictSubstitution (Glue.sourceFace r) (intervalSub σ)))).trans ?_
   refine (ofIso_whisker_eq _ _
     (b.ambientFamily.reindex (restrictInclusion (Glue.sourceFace r))).toFilling_lawful _).trans ?_
-  exact ofEqLocalFamily_congr _ _
+  exact ofIso_eqToIso_localFamily_heq _ _
     ((b.ambientFamily.reindex (restrictInclusion (Glue.sourceFace r))).reindex
       (restrictSubstitution (Glue.sourceFace r) (intervalSub σ)))
     ((b.reindex σ).ambientFamily.reindex (restrictInclusion (Glue.sourceFace (Term.reindex r σ))))
@@ -1842,7 +1842,7 @@ theorem piBodyMap_lam {Γ : Context.{u}} (A : Family Γ) {B C : Family (total A)
 variable {Γ Δ : Context.{u}} {A B : Family Γ} (f : A ⟶ B)
   (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful) (σ : Δ ⟶ Γ)
 
-theorem fiberWitness_input_reindex
+theorem witness_genericFiberReindexIso_reindex
     (c : Contractible (reindex (fiber f) (liftSub B σ)))
     {φ : Subcontext (total (reindex B σ))}
     (s : PartialSection (contr (reindex (fiber f) (liftSub B σ))) φ) :
@@ -1898,7 +1898,7 @@ theorem partialBody_input {φ : Subcontext Δ}
   apply PartialSection.ext
   intro x hx
   change (contrReindexIso (fiber (Functor.whiskerLeft σ.mapElements f)) (𝟙 _)).hom.app x _ = _
-  rw [contrReindex_hom_id]
+  rw [contrReindexIso_hom_id]
   rfl
 
 end
@@ -1962,7 +1962,7 @@ private theorem contrMap_square_sections {Γ Δ Θ : Context.{u}} {A B : Family 
   change Term.map (Functor.whiskerLeft τ.mapElements (contrReindexIso B σ).hom ≫
     (contrReindexIso (reindex B σ) τ).hom)
     (Term.map (Functor.whiskerLeft (τ ≫ σ).mapElements (contrMap e)) s) = _
-  rw [CodeSystem.IsEquivSections.contrReindex_hom_comp]
+  rw [CodeSystem.IsEquivSections.contrReindexIso_hom_comp]
   rw [hl, hr]
   congr 3
 
@@ -2171,7 +2171,7 @@ namespace SquareKit.Cubical.Cartesian.CodeSystem.IsEquivSections
 open CategoryTheory EquivalenceFamilies
 universe u
 noncomputable section
-theorem contrHom_inverse_comp {Ξ Ψ Ω : Context.{u}} (C : Family Ξ)
+theorem contrReindexIso_hom_inv_comp {Ξ Ψ Ω : Context.{u}} (C : Family Ξ)
     (μ : Ψ ⟶ Ξ) (ν : Ω ⟶ Ψ) (c : Term (contr (reindex C (ν ≫ μ)))) :
     Term.map (Functor.whiskerLeft ν.mapElements (contrReindexIso C μ).hom)
       (Term.map (contrReindexIso C (ν ≫ μ)).inv c) =
@@ -2181,7 +2181,7 @@ theorem contrHom_inverse_comp {Ξ Ψ Ω : Context.{u}} (C : Family Ξ)
   apply Term.map_injective_of_iso d
   apply Term.ext
   intro x
-  have h := congrArg (fun k => k.app x (e.inv.app x (c.val x))) (contrReindex_hom_comp C μ ν)
+  have h := congrArg (fun k => k.app x (e.inv.app x (c.val x))) (contrReindexIso_hom_comp C μ ν)
   exact h.trans ((e.inv_hom_id_app_apply x (c.val x)).trans
     (d.inv_hom_id_app_apply x (c.val x)).symm)
 
@@ -2195,7 +2195,7 @@ theorem piReindex_comp {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Family (tot
     Functor.whiskerLeft ν.mapElements (piReindex X Y μ) ≫
       piReindex (reindex X μ) (reindex Y (liftSub X μ)) ν = piReindex X Y (ν ≫ μ) := rfl
 
-theorem piInput_section {Γ Δ Θ : Context.{u}} (B : Family Γ) (C : Family (total B))
+theorem pi_input_section {Γ Δ Θ : Context.{u}} (B : Family Γ) (C : Family (total B))
     (σ : Δ ⟶ Γ) (θ : Θ ⟶ Δ) {D : Family (total (reindex B σ))}
     (k : reindex C (liftSub B σ) ⟶ D)
     (c : Term (reindex C (liftSub B (θ ≫ σ)))) :
@@ -2221,7 +2221,7 @@ theorem piInput_section {Γ Δ Θ : Context.{u}} (B : Family Γ) (C : Family (to
 
 variable {Γ Δ Θ : Context.{u}} {A B : Family Γ} (f : A ⟶ B) (σ : Δ ⟶ Γ) (θ : Θ ⟶ Δ)
 
-theorem contrPiInput_section {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Family (total X))
+theorem contr_pi_input_section {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Family (total X))
     (μ : Ψ ⟶ Ξ) (ν : Ω ⟶ Ψ) {D : Family (total (reindex X μ))}
     (e : reindex C (liftSub X μ) ≅ D)
     (c : Contractible (reindex C (liftSub X (ν ≫ μ)))) :
@@ -2236,10 +2236,10 @@ theorem contrPiInput_section {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Famil
           (Functor.isoWhiskerLeft (liftSub (reindex X μ) ν).mapElements e) c)))) := by
   let ρ := liftSub (reindex X μ) ν
   let k := (contrReindexIso C (liftSub X μ)).hom ≫ contrMap e
-  have hb := contrHom_inverse_comp C (liftSub X μ) ρ (encodeContr c)
+  have hb := contrReindexIso_hom_inv_comp C (liftSub X μ) ρ (encodeContr c)
   have he := contrMap_reindexed_encode e ρ c
   have he' := (congrArg (Term.map (Functor.whiskerLeft ρ.mapElements (contrMap e))) hb).trans he
-  exact (piInput_section X (contr C) μ ν k
+  exact (pi_input_section X (contr C) μ ν k
     (Term.map (contrReindexIso C (liftSub X (ν ≫ μ))).inv (encodeContr c))).trans
     (congrArg (fun z => Term.map (piReindexIso (reindex X μ) (contr D) ν).inv (lam z)) he')
 
@@ -2250,7 +2250,7 @@ theorem inputMap_encoded_reindex
     reindexedIsEquivSections (Functor.whiskerLeft σ.mapElements f) θ
       (Contractible.map (Functor.isoWhiskerLeft (liftSub (reindex B σ) θ).mapElements
         (genericFiberReindexIso f σ)) c) := by
-  exact contrPiInput_section B (fiber f) σ θ (genericFiberReindexIso f σ) c
+  exact contr_pi_input_section B (fiber f) σ θ (genericFiberReindexIso f σ) c
 
 theorem fiberContractible_input
     (E : HomotopyEquivalence (Functor.whiskerLeft (θ ≫ σ).mapElements f)) :
@@ -2301,7 +2301,7 @@ theorem partial_pi_input_map {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (Y : Famil
   exact (congrArg (fun z => z.map j) (partial_pi_input X Y μ ν k s)).trans
     (congrArg (fun m => (((s.map (piReindex X Y (ν ≫ μ))).app).map m)) h)
 
-theorem contrPiInput_partial {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Family (total X))
+theorem contr_pi_input_partial {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Family (total X))
     (μ : Ψ ⟶ Ξ) (ν : Ω ⟶ Ψ) {D : Family (total (reindex X μ))}
     (e : reindex C (liftSub X μ) ≅ D) {φ : Subcontext Ω}
     (s : PartialSection (reindex (pi X (contr C)) (ν ≫ μ)) φ) :
@@ -2320,7 +2320,7 @@ theorem contrPiInput_partial {Ξ Ψ Ω : Context.{u}} (X : Family Ξ) (C : Famil
         contrMap (Functor.isoWhiskerLeft ρ.mapElements e) := by
     change Functor.whiskerLeft ρ.mapElements (contrReindexIso C (liftSub X μ)).hom ≫
       (Functor.whiskerLeft ρ.mapElements (contrMap e) ≫ (contrReindexIso D ρ).hom) = _
-    rw [contrMap_reindex_square, ← Category.assoc, contrReindex_hom_comp]
+    rw [contrMap_reindex_square, ← Category.assoc, contrReindexIso_hom_comp]
     rfl
   exact partial_pi_input_map X (contr C) μ ν k (contrReindexIso D ρ).hom
     (contrReindexIso C (liftSub X (ν ≫ μ))).hom
@@ -2333,11 +2333,11 @@ theorem partialBody_input_reindex {φ : Subcontext Θ}
       (s.map (Functor.whiskerLeft θ.mapElements (inputMap f σ))) =
     (partialBody f (θ ≫ σ) φ s).map
       (contrMap (Functor.isoWhiskerLeft (liftSub (reindex B σ) θ).mapElements (genericFiberReindexIso f σ))) := by
-  exact contrPiInput_partial B (fiber f) σ θ (genericFiberReindexIso f σ) s
+  exact contr_pi_input_partial B (fiber f) σ θ (genericFiberReindexIso f σ) s
 
 variable (F : Filling A) (hF : F.Lawful) (G : Filling B) (hG : G.Lawful)
 
-theorem fiberWitness_input
+theorem witness_genericFiberReindexIso_input
     (c : Contractible (reindex (fiber f) (liftSub B (θ ≫ σ))))
     {φ : Subcontext (total (reindex B (θ ≫ σ)))}
     (s : PartialSection (contr (reindex (fiber f) (liftSub B (θ ≫ σ)))) φ) :
@@ -2373,7 +2373,7 @@ theorem extend_input_reindex
     extend (Functor.whiskerLeft σ.mapElements f) (F.reindex σ) (hF.reindex _)
       (G.reindex σ) (hG.reindex _) θ E φ
       (s.map (Functor.whiskerLeft θ.mapElements (inputMap f σ))) := by
-  have h := fiberWitness_input f σ θ F hF G hG (fiberContractible f (θ ≫ σ) E)
+  have h := witness_genericFiberReindexIso_input f σ θ F hF G hG (fiberContractible f (θ ≫ σ) E)
     (partialBody f (θ ≫ σ) φ s)
   rw [fiberContractible_input, ← partialBody_input_reindex] at h
   change Term.map _ (reindexedIsEquivSections f (θ ≫ σ)

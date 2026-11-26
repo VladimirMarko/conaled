@@ -46,7 +46,7 @@ theorem forwardFamilyContraction_reflexive :
   have h1 := strongPrecomp_heq rfl (StrictTwoTransformation.functor_id_comp E).symm
     (forwardFamilyContraction (r.comp i) η E) (strongPostcomp η E)
     (forwardFamilyContraction_heq (r.comp i) η E) i
-  exact h1.trans (retractionJMotive_beta i r η hi hη E)
+  exact h1.trans (retractionJ_motive_beta i r η hi hη E)
 
 omit [IsLocallyGroupoid Γ] in
 theorem inverseFamilyContraction_reflexive :
@@ -56,7 +56,7 @@ theorem inverseFamilyContraction_reflexive :
   let iα : ∀x, IsIso ((strongPrecomp α i).app x) := fun x =>
     inferInstanceAs (IsIso (α.app (i.obj x)))
   have h1 := strongInverse_precomp α i
-  have h2 := strongInverse_heq (iη := iα) (iθ := fun x => strongId_isIso x) (retractionJSource_beta i r hi E) rfl
+  have h2 := strongInverse_heq (iη := iα) (iθ := fun x => strongId_isIso x) (retractionJ_source_beta i r hi E) rfl
     (strongPrecomp α i) (Pseudofunctor.StrongTrans.id (reindex i E).toPseudofunctor)
     (forwardFamilyContraction_reflexive i r η hi hη E)
   have h3 := heq_of_eq (strongInverse_id (F := reindex i E))
@@ -74,7 +74,7 @@ theorem familyCast_reindex_square (e : F = G) (σ : StrictPseudofunctor Δ' Γ')
   exact (StrictTwoTransformation.functor_comp_id _).trans
     (StrictTwoTransformation.functor_id_comp _).symm
 
-theorem strongMap_eq_familyCast (e : F = G)
+theorem toHigher_eq_familyCast (e : F = G)
     (α : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
     (h : HEq α (Pseudofunctor.StrongTrans.id F.toPseudofunctor)) :
     StrongMap.toHigher α = familyCast e := by
@@ -89,26 +89,26 @@ theorem contractionRetraction_reflexive [∀x, IsLocallyGroupoid (E.obj x)] :
     (reindexHigher E i).comp (contractionRetraction i r η E) =
       StrictPseudofunctor.id (Total (reindex i E)) := by
   let α := inverseFamilyContraction (r.comp i) η E
-  have hs := strongMap_eq_familyCast (retractionJSource_beta i r hi E).symm
+  have hs := toHigher_eq_familyCast (retractionJ_source_beta i r hi E).symm
     (strongPrecomp α i) (inverseFamilyContraction_reflexive i r η hi hη E)
   have hsquare := StrongMap.reindex_square α i
   have hc := familyCast_reindex_square (reindex_comp E i r).symm i
   have hform : (reindexHigher E i).comp (contractionRetraction i r η E) =
-      (familyCast (retractionJSource_beta i r hi E).symm).comp
+      (familyCast (retractionJ_source_beta i r hi E).symm).comp
         ((familyCast (congrArg (reindex i) (reindex_comp E i r).symm)).comp
           ((reindexHigher (reindex r (reindex i E)) i).comp (reindexHigher (reindex i E) r))) := by
     unfold contractionRetraction
     change (reindexHigher E i).comp ((StrongMap.toHigher α).comp _) = _
     rw [← strictPseudofunctor_comp_assoc, ← hsquare]
     erw [hs]
-    change ((familyCast (retractionJSource_beta i r hi E).symm).comp
+    change ((familyCast (retractionJ_source_beta i r hi E).symm).comp
       (reindexHigher (reindex (r.comp i) E) i)).comp
         ((familyCast (reindex_comp E i r).symm).comp (reindexHigher (reindex i E) r)) = _
     simp only [strictPseudofunctor_comp_assoc]
     rw [← strictPseudofunctor_comp_assoc (reindexHigher (reindex (r.comp i) E) i), hc]
     simp only [strictPseudofunctor_comp_assoc]
   rw [hform]
-  have h1 := familyCast_precomp_heq (retractionJSource_beta i r hi E).symm
+  have h1 := familyCast_precomp_heq (retractionJ_source_beta i r hi E).symm
     ((familyCast (congrArg (reindex i) (reindex_comp E i r).symm)).comp
       ((reindexHigher (reindex r (reindex i E)) i).comp (reindexHigher (reindex i E) r)))
   have h2 := familyCast_precomp_heq (congrArg (reindex i) (reindex_comp E i r).symm)

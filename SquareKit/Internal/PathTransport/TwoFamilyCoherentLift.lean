@@ -66,16 +66,16 @@ def coherentLiftCell {x y : Total (reindex F E)} (p : x ⟶ y) :
       coherentLiftApp η E x ≫ (coherentLiftRight η E).map p :=
   ⟨(η.naturality p.base).hom, eqToHom (coherentLift_boundary η E p)⟩
 
-private theorem totalCellComp_base {x y : Total E} {p q r : x ⟶ y}
+private theorem total_cell_comp_base {x y : Total E} {p q r : x ⟶ y}
     (α : p ⟶ q) (β : q ⟶ r) : (α ≫ β).base = α.base ≫ β.base := rfl
 
-private theorem totalCellCast_base {x y : Total E} {p q : x ⟶ y} (h : p = q) :
+private theorem total_cell_eqToHom_base {x y : Total E} {p q : x ⟶ y} (h : p = q) :
     (eqToHom h).base = eqToHom (congrArg (fun r : x ⟶ y => r.base) h) := by
   cases h
   rfl
-private theorem totalWhiskerLeft_base {x y z : Total E} (p : x ⟶ y)
+private theorem total_whiskerLeft_base {x y z : Total E} (p : x ⟶ y)
     {q r : y ⟶ z} (α : q ⟶ r) : (p ◁ α).base = p.base ◁ α.base := rfl
-private theorem totalWhiskerRight_base {x y z : Total E} {p q : x ⟶ y}
+private theorem total_whiskerRight_base {x y z : Total E} {p q : x ⟶ y}
     (α : p ⟶ q) (r : y ⟶ z) : (α ▷ r).base = α.base ▷ r.base := rfl
 
 theorem coherentLiftCell_base {x y : Total (reindex F E)} (p : x ⟶ y) :
@@ -93,8 +93,8 @@ theorem coherentLiftCell_id (x : Total (reindex F E)) :
     (coherentLiftLeft (F := F) E).mapId_eq_eqToIso,
     Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv]
   apply equalityFiber_ext E
-  · simp only [totalCellComp_base,
-      totalWhiskerLeft_base, totalWhiskerRight_base, totalCellCast_base,
+  · simp only [total_cell_comp_base,
+      total_whiskerLeft_base, total_whiskerRight_base, total_cell_eqToHom_base,
       coherentLiftCell_base]
     have h := η.naturality_id x.base
     simp only [F.mapId_eq_eqToIso, G.mapId_eq_eqToIso, Strict.leftUnitor_eqToIso,
@@ -115,8 +115,8 @@ theorem coherentLiftCell_comp {x y z : Total (reindex F E)} (p : x ⟶ y) (q : y
     (coherentLiftLeft (F := F) E).mapComp_eq_eqToIso,
     Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv]
   apply equalityFiber_ext E
-  · simp only [totalCellComp_base, totalWhiskerLeft_base, totalWhiskerRight_base,
-      totalCellCast_base, coherentLiftCell_base]
+  · simp only [total_cell_comp_base, total_whiskerLeft_base, total_whiskerRight_base,
+      total_cell_eqToHom_base, coherentLiftCell_base]
     have h := η.naturality_comp p.base q.base
     simp only [F.mapComp_eq_eqToIso, G.mapComp_eq_eqToIso,
       Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv] at h

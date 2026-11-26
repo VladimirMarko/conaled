@@ -12,7 +12,7 @@ variable [∀ γ, IsGroupoid (F.obj γ)] [∀ γ, IsLocallyGroupoid (F.obj γ)]
 noncomputable def contractionRetract : StrictPseudofunctor (PathContext F) (PathContext F) :=
   (pathFirst F).comp (pathReflexivity F)
 /-- The constructed contraction comparison satisfies the strong-transformation unit law. -/
-theorem contractionNaturality_id (x : PathContext F) :
+theorem contractionNaturalityCell_id (x : PathContext F) :
     contractionNaturalityCell F (𝟙 x) ≫ contractionComponent F x ◁
       ((StrictPseudofunctor.id (PathContext F)).mapId x).hom =
     ((contractionRetract F).mapId x).hom ▷ contractionComponent F x ≫
@@ -25,7 +25,7 @@ theorem contractionNaturality_id (x : PathContext F) :
     Bicategory.eqToHom_whiskerRight, PrelaxFunctor.map₂_eqToHom,
     contractionNaturalityCell_first, eqToHom_trans]
 /-- The constructed contraction comparison satisfies the strong-transformation composition law. -/
-theorem contractionNaturality_comp {x y z : PathContext F} (p : x ⟶ y) (q : y ⟶ z) :
+theorem contractionNaturalityCell_comp {x y z : PathContext F} (p : x ⟶ y) (q : y ⟶ z) :
     contractionNaturalityCell F (p ≫ q) ≫ contractionComponent F x ◁
       ((StrictPseudofunctor.id (PathContext F)).mapComp p q).hom =
     ((contractionRetract F).mapComp p q).hom ▷ contractionComponent F z ≫

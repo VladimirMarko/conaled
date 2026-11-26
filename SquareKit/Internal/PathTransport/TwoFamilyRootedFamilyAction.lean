@@ -19,7 +19,7 @@ private theorem map_heq_id {a b γ : Γ} (ha : a = γ) (hb : b = γ)
  cases ha; cases hb; cases eq_of_heq hf
  exact heq_of_eq (B.map_id _)
 omit [IsLocallyGroupoid Γ] in
-theorem rootedFamily_action_of_base
+theorem rootedFamilyActionFormula_of_rootedBaseFormula
  {H K : StrictPseudofunctor (Total (rootedPathFamily F x)) (Total (rootedPathFamily F x))}
  (η : Pseudofunctor.StrongTrans H.toPseudofunctor K.toPseudofunctor)
  (hs : H.comp (rootedRetraction F x) = rootedRetraction F x)
@@ -28,8 +28,8 @@ theorem rootedFamily_action_of_base
  intro z
  exact map_heq_id B (congrArg (fun L => L.obj z) hs) (congrArg (fun L => L.obj z) ht)
   _ (hb z)
-theorem rootedFamily_action : RootedFamilyActionFormula F B x (rootedContraction F x) := by
- apply rootedFamily_action_of_base F B x (rootedContraction F x)
+theorem rootedFamilyActionFormula_rootedContraction : RootedFamilyActionFormula F B x (rootedContraction F x) := by
+ apply rootedFamilyActionFormula_of_rootedBaseFormula F B x (rootedContraction F x)
  · rw [strictPseudofunctor_comp_assoc, rootedReflexivity_retraction, strictPseudofunctor_comp_id]
  · exact strictPseudofunctor_id_comp _
  · exact rootedContraction_base F x
@@ -55,5 +55,5 @@ theorem rootContraction_family_action :
  have hH := congrArg₂ StrictPseudofunctor.comp (rootContraction_retraction C D A x) (rootSub_down_eq C D A x)
  exact RootedFamilyActionFormula.congr A.data B.data x.down hH rfl
   (rootContraction C D A x).val.homotopy (rootedContraction A.data x.down)
-  (rootContraction_homotopy C D A x) (rootedFamily_action A.data B.data x.down)
+  (rootContraction_homotopy C D A x) (rootedFamilyActionFormula_rootedContraction A.data B.data x.down)
 end SquareKit.Internal.PathTransport.HigherInterpretation

@@ -80,7 +80,7 @@ The underlying family and the whole decoded local-family package commute
 strictly with arbitrary native context substitution. Coding native family
 reindexing is also a strict equality. `decodeCodeIso` is a natural isomorphism
 from decoding a coded family to the original family;
-`LocalFamily.decodeCode_filling` proves recovery of its chosen local filler
+`LocalFamily.decodeCodeIso_fill` proves recovery of its chosen local filler
 through that isomorphism. `codeDecodedComparison` supplies the other fiber
 comparison. `decoded_represented_family` identifies the entire decoded local
 family over each represented element with decoding the corresponding code,

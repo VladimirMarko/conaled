@@ -480,7 +480,7 @@ theorem isolatedLong_adj (height : Nat) (key : Node) : adj (isolatedLong height)
 theorem isolatedLong_degreeMass (height : Nat) : degreeMass (isolatedLong height) = 0 := by
   simp [degreeMass, degree, isolatedLong_adj, KeySet.cardinal]
 
-theorem isolatedLong_palette_valid : SetValid 1 oneColor := (SetValid.nil 1).add 1 (by decide)
+theorem oneColor_valid : SetValid 1 oneColor := (SetValid.nil 1).add 1 (by decide)
 
 theorem isolatedLong_polynomial (height : Nat) :
     colorPolynomial 1 0 (height + 1) 1 1 = (height + 1) ^ 2 + 4 := by
@@ -498,7 +498,7 @@ theorem isolatedLong_polynomial_le (height : Nat) :
 def isolatedLongWork (height : Nat) : Nat := work (colorRun unitPrices oneColor (isolatedLong height)).2
 
 theorem isolatedLong_work_le (height : Nat) : isolatedLongWork height ≤ 320 * (height + 1) ^ 2 := by
-  have bill := colorRun_work_le (isolatedLong_valid height) isolatedLong_palette_valid (by omega) (by decide)
+  have bill := colorRun_work_le (isolatedLong_valid height) oneColor_valid (by omega) (by decide)
   rw [isolatedLong_cardinal, isolatedLong_degreeMass, show KeySet.cardinal oneColor = 1 from rfl] at bill
   calc
     isolatedLongWork height ≤ 64 * colorPolynomial 1 0 (height + 1) 1 1 := bill

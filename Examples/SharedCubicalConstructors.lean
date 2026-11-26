@@ -38,7 +38,7 @@ theorem sigma_selected {I : Cube}
       (b.map (Functor.whiskerLeft p.mapElements (A.sigma B).decodeCodeIso.hom)) =
     Term.map (Functor.whiskerLeft p.mapElements (A.sigma B).decodeCodeIso.hom)
       ((decodedLocalFilling (A.sigma B).code).fill p φ b) :=
-  (A.sigma B).decodeCode_filling p φ b
+  (A.sigma B).decodeCodeIso_fill p φ b
 end Original
 
 namespace Target
@@ -52,7 +52,7 @@ def sigmaFamily : LocalFamily Γ :=
     (sigmaFilling_lawful A.toFilling A.toFilling_lawful B.toFilling B.toFilling_lawful)
 
 theorem sigma_record : decodedLocalFamily (sigmaFamily A B).code = sigmaFamily A B :=
-  (sigmaFamily A B).decodeCode_record
+  (sigmaFamily A B).decodedLocalFamily_code
 
 /-- Global recovery retains the chosen dependent algorithm, not just its laws. -/
 theorem sigma_global : HEq (decodedLocalFamily (sigmaFamily A B).code).toFilling
@@ -70,7 +70,7 @@ theorem sigma_selected {I : Cartesian.Cube}
       (b.map (Functor.whiskerLeft p.mapElements (sigmaFamily A B).decodeCodeIso.hom)) =
     Term.map (Functor.whiskerLeft p.mapElements (sigmaFamily A B).decodeCodeIso.hom)
       ((decodedLocalFilling (sigmaFamily A B).code).fill p φ r b) :=
-  (sigmaFamily A B).decodeCode_filling p φ r b
+  (sigmaFamily A B).decodeCodeIso_fill p φ r b
 
 /-- Classification commutes with two successive substitutions as complete codes. -/
 theorem sigma_code_comp {Δ Θ : Context.{u}} (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) :

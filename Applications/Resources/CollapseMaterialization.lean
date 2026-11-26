@@ -486,15 +486,15 @@ theorem leftMaterialize_singleton_work (history : List (List Int))
       simp only [Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
       omega
 
-theorem build_zeroBlocks_used (n : Nat) :
+theorem build_replicate_singleton_zero_used (n : Nat) :
     (build (List.replicate n [0])).used = List.replicate n [0] := by
   rw [build_used]
-  exact CollapseDemand.cachedAux_zeroBlocks_used n [] (by simp)
+  exact CollapseDemand.cachedAux_replicate_singleton_zero_used n [] (by simp)
 
-theorem left_zeroBlocks_materialization (n : Nat) :
+theorem leftMaterialize_build_replicate_singleton_zero_work (n : Nat) :
     (leftMaterialize (build (List.replicate n [0])).history).2 = n * n := by
   have hb : (build (List.replicate n [0])).history.reverse = List.replicate n [0] := by
-    rw [build_history_blocks, build_zeroBlocks_used]
+    rw [build_history_blocks, build_replicate_singleton_zero_used]
   have hl : (build (List.replicate n [0])).history.length = n := by
     simpa using congrArg List.length hb
   have h := leftMaterialize_singleton_work (build (List.replicate n [0])).history
@@ -511,7 +511,7 @@ theorem left_quadratic_work_witness (n : Nat) :
   have hn : (List.replicate n [(0 : Int)]).flatten.length = n := by
     induction n <;> simp_all [List.replicate_succ]
   refine ⟨List.replicate n [0], by simp, hn, ?_, ?_⟩
-  · simp only [leftCollapse, left_zeroBlocks_materialization]
+  · simp only [leftCollapse, leftMaterialize_build_replicate_singleton_zero_work]
     omega
   · have h := differenceCollapse_work_le (List.replicate n [0])
     simp only [hn, List.length_replicate] at h

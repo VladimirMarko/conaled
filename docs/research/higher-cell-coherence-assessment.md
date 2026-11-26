@@ -25,9 +25,9 @@ The three contraction consumers have different normalization obligations:
 
 | Consumer | Reflection | Remaining work after reflection |
 |---|---|---|
-| `contractionNaturality_id` | One application of `pathFirst_cell_injective` | Normalize mapped unit comparisons, unitors, whiskering of equality boundaries, and the observed contraction cell. |
-| `contractionNaturality_comp` | The same application | Normalize mapped composition comparisons, associators, both whiskering directions, and the observed contraction cells. |
-| `contractionNaturality_naturality` | The same application | Normalize whiskering comparisons, retain the arbitrary observed 2-cell, and use `pathFirst_reflexivity_cell_heq` plus identity-whiskering boundary comparisons. |
+| `contractionNaturalityCell_id` | One application of `pathFirst_cell_injective` | Normalize mapped unit comparisons, unitors, whiskering of equality boundaries, and the observed contraction cell. |
+| `contractionNaturalityCell_comp` | The same application | Normalize mapped composition comparisons, associators, both whiskering directions, and the observed contraction cells. |
+| `contractionNaturalityCell_naturality` | The same application | Normalize whiskering comparisons, retain the arbitrary observed 2-cell, and use `pathFirst_reflexivity_cell_heq` plus identity-whiskering boundary comparisons. |
 
 The unit and composition proofs each have one normalization block. The cell
 naturality proof needs two identity-whiskering lemmas and the exact reflexivity
@@ -70,7 +70,7 @@ it.
 `Examples.TwoFamilyPathContractionStrong.strong_comparison_retains_integer`
 connects the assembled transformation to the actual integer comparison `-k`.
 `strong_comparison_nonzero` rejects the strict zero shortcut at `k = 1`.
-`pathFirst_reflexivity_cell_heq` and `contractionNaturality_naturality` quantify
+`pathFirst_reflexivity_cell_heq` and `contractionNaturalityCell_naturality` quantify
 over genuine path-context cells, with their endpoints retained. The existing
 higher-erasure observer remains part of #322's validation. This assessment
 changes none of those statements or their assumptions.

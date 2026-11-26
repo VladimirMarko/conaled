@@ -21,7 +21,7 @@ def RootedRightTargetEndpoint (K : StrictPseudofunctor (Total (rootedPathFamily 
  ∀ z, (projectionHigher (rootedPathFamily F x)).obj (K.obj z) =
  (fiberInclusion F z.base.base).obj ((variableSection F).normalObj (reindex (projectionHigher F) F) z.base).fiber
 omit [IsLocallyGroupoid Γ] in
-theorem rootedRightSection_of_vertical
+theorem rootedRightSectionFormula_of_rootedVerticalFormula
  {H K : StrictPseudofunctor (Total (rootedPathFamily F x)) (Total (rootedPathFamily F x))}
  (η : Pseudofunctor.StrongTrans H.toPseudofunctor K.toPseudofunctor)
  (hs : RootedRightSourceEndpoint F x H) (ht : RootedRightTargetEndpoint F x K)
@@ -33,17 +33,17 @@ theorem rootedRightSection_of_vertical
  exact s.reindex_normalMap_heq _ (projectionHigher (rootedPathFamily F x)) (η.app z)
   ((fiberInclusion F z.base.base).map z.fiber.as) hs3 (ht z) (hv z)
 omit [IsLocallyGroupoid Γ] in
-theorem rootedRight_source_endpoint : RootedRightSourceEndpoint F x
+theorem rootedRightSourceEndpoint_comp : RootedRightSourceEndpoint F x
  ((rootedRetraction F x).comp (rootedReflexivity F x)) := by
  unfold RootedRightSourceEndpoint
  rw [strictPseudofunctor_comp_assoc, rootedReflexivity_projection]
 omit [IsLocallyGroupoid Γ] in
-theorem rootedRight_target_endpoint : RootedRightTargetEndpoint F x (StrictPseudofunctor.id _) := by
+theorem rootedRightTargetEndpoint_id : RootedRightTargetEndpoint F x (StrictPseudofunctor.id _) := by
  intro z
  exact (variableNormalObj_total F z.base).symm
-theorem rootedRightSection_action : RootedRightSectionFormula F x s (rootedContraction F x) :=
- rootedRightSection_of_vertical F x s (rootedContraction F x)
-  (rootedRight_source_endpoint F x) (rootedRight_target_endpoint F x) (rootedContraction_vertical F x)
+theorem rootedRightSectionFormula_rootedContraction : RootedRightSectionFormula F x s (rootedContraction F x) :=
+ rootedRightSectionFormula_of_rootedVerticalFormula F x s (rootedContraction F x)
+  (rootedRightSourceEndpoint_comp F x) (rootedRightTargetEndpoint_id F x) (rootedContraction_vertical F x)
 omit [IsLocallyGroupoid Γ] in
 theorem RootedRightSectionFormula.congr
  {H K H' K' : StrictPseudofunctor (Total (rootedPathFamily F x)) (Total (rootedPathFamily F x))}
@@ -67,5 +67,5 @@ theorem rootContraction_right_section_action :
  have hH := congrArg₂ StrictPseudofunctor.comp (rootContraction_retraction C D A x) (rootSub_down_eq C D A x)
  exact RootedRightSectionFormula.congr A.data x.down s hH rfl
   (rootContraction C D A x).val.homotopy (rootedContraction A.data x.down)
-  (rootContraction_homotopy C D A x) (rootedRightSection_action A.data x.down s)
+  (rootContraction_homotopy C D A x) (rootedRightSectionFormula_rootedContraction A.data x.down s)
 end SquareKit.Internal.PathTransport.HigherInterpretation

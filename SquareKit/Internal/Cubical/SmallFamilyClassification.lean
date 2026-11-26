@@ -33,7 +33,7 @@ def LocalFamily.decodeCodeComponent {Γ : Context.{u}} (A : LocalFamily Γ) (x :
     (decode A.code).obj x ≅ A.family.obj x :=
   A.family.mapIso (eqToIso (represented_generic_source x))
 
-theorem LocalFamily.decodeCodeMap_heq {Γ : Context.{u}} (A : LocalFamily Γ)
+theorem LocalFamily.decode_code_map_heq {Γ : Context.{u}} (A : LocalFamily Γ)
     {x y : Γ.Elements} (f : x ⟶ y) (a : (decode A.code).obj x) :
     HEq ((decode A.code).map f a)
       (A.family.map ((represented x).mapElements.map (representableGenericHom f.hom.unop)) a) :=
@@ -110,7 +110,7 @@ theorem decodedLocalFilling_fills {Γ : Context.{u}} (a : raisedContext Γ ⟶ s
       (congrArg (fun q => q.app x (b.tube.val x hx)) (chartDecodeIso a p).hom_inv_id)
 
 
-theorem representableInterval_naturality {I J : Cube} (f : J ⟶ I) :
+theorem representableIntervalIso_hom_naturality {I J : Cube} (f : J ⟶ I) :
     liftSub (interval (representable.{u} I)) (representableMap f) ≫
       (representableIntervalIso I).hom =
     (representableIntervalIso J).hom ≫ representableMap (Cube.extensionMap f) := by
@@ -122,7 +122,7 @@ theorem representableInterval_naturality {I J : Cube} (f : J ⟶ I) :
     rw [← Category.assoc, Cube.pair_drop_cat]
   · simp [Category.assoc]
 
-theorem representableInterval_inv_naturality {I J : Cube} (f : J ⟶ I) :
+theorem representableIntervalIso_inv_naturality {I J : Cube} (f : J ⟶ I) :
     (representableIntervalIso J).inv ≫
       liftSub (interval (representable.{u} I)) (representableMap f) =
     representableMap (Cube.extensionMap f) ≫ (representableIntervalIso I).inv := by
@@ -141,7 +141,7 @@ theorem chartElement_reindex {Γ : Context.{u}} {I J : Cube}
     (chartElement (liftSub (interval (representable I)) (representableMap f) ≫ p)).val =
       Γ.map (Cube.extensionMap f).op (chartElement p).val := by
   have e := congrArg (fun σ => σ.app (Opposite.op (Cube.extend J))
-    (ULift.up (𝟙 (Cube.extend J)))) (representableInterval_inv_naturality.{u} f)
+    (ULift.up (𝟙 (Cube.extend J)))) (representableIntervalIso_inv_naturality.{u} f)
   have n := ConcreteCategory.congr_hom
     (((representableIntervalIso I).inv ≫ p).naturality (Cube.extensionMap f).op)
     (representableGeneric.{u} (Cube.extend I)).val
@@ -210,7 +210,7 @@ theorem chartDecodeIso_inv_heq {Γ : Context.{u}}
   have e := congrArg (fun η => η.app x v) (chartDecodeIso a p).inv_hom_id
   exact h.symm.trans (heq_of_eq e)
 
-theorem localFill_heq {Γ : Context.{u}} {A B : Family Γ}
+theorem localFilling_fill_heq {Γ : Context.{u}} {A B : Family Γ}
     (F : LocalFilling A) (G : LocalFilling B) (e : A = B) (h : HEq F G)
     {I : Cube} {p q : total (interval (representable.{u} I)) ⟶ Γ} (ep : p = q)
     (φ : Cofibration (representable.{u} I))
@@ -273,7 +273,7 @@ theorem decodedLocalFilling_uniform {Γ : Context.{u}}
   let d := (b.map (chartDecodeIso a p).hom).reindex (representableMap f)
   have eC : C = D.reindex (representableMap (Cube.extensionMap f)) := chartCode_reindex a p f
   have ep : (representableIntervalIso J).hom ≫ representableMap (Cube.extensionMap f) =
-      l ≫ (representableIntervalIso I).hom := (representableInterval_naturality f).symm
+      l ≫ (representableIntervalIso I).hom := (representableIntervalIso_hom_naturality f).symm
   have eA : Presheaf.reindex C.family (representableIntervalIso J).hom =
       Presheaf.reindex D.family (l ≫ (representableIntervalIso I).hom) :=
     (congrArg (fun E : SmallFamilyCode.{u} (Cube.extend J) =>
@@ -341,7 +341,7 @@ theorem decodedLocalFamily_reindex {Γ Δ : Context.{u}}
   exact decodedLocalFilling_reindex a σ
 
 
-theorem LocalFamily.decodeCode_filling {Γ : Context.{u}} (A : LocalFamily Γ)
+theorem LocalFamily.decodeCodeIso_fill {Γ : Context.{u}} (A : LocalFamily Γ)
     {I : Cube} (p : total (interval (representable.{u} I)) ⟶ Γ)
     (φ : Cofibration (representable.{u} I)) (b : OpenBox (Presheaf.reindex (decode A.code) p) φ) :
     A.filling.fill p φ (b.map (Functor.whiskerLeft p.mapElements A.decodeCodeIso.hom)) =
@@ -361,7 +361,7 @@ theorem LocalFamily.decodeCode_filling {Γ : Context.{u}} (A : LocalFamily Γ)
     · intro x
       exact (chartDecodeIso_hom_heq A.code p ((endpointSub _ false).mapElements.obj x) _).trans
         (A.decodeCodeIso_hom_heq (p.mapElements.obj ((endpointSub _ false).mapElements.obj x)) _).symm
-  have hf := localFill_heq A.filling A.filling rfl HEq.rfl ep φ c d hb
+  have hf := localFilling_fill_heq A.filling A.filling rfl HEq.rfl ep φ c d hb
   apply Term.ext
   intro x
   exact eq_of_heq ((term_value_heq eA _ _ hf x).symm.trans

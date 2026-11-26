@@ -221,7 +221,7 @@ theorem cardinality_palette_bound_client :
     (Cardinality.setRun Cardinality.unitPrice palette).2.1.1 +
         (Cardinality.setRun Cardinality.unitPrice palette).2.2 ≤
       3 * (KeySet.cardinal palette * 2) + KeySet.cardinal palette + 1 :=
-  Cardinality.setRun_unit_work_le sourcePalette_normalized 2 sourcePalette_bit_bound
+  Cardinality.setRun_unit_work_le palette_normalized 2 palette_bit_bound
 
 theorem cardinality_graph_calls_client :
     (Cardinality.mapRun Cardinality.unitPrice sourceGraph).2.1.1 ≤
@@ -233,7 +233,7 @@ theorem cardinality_palette_calls_client :
     (Cardinality.setRun Cardinality.unitPrice palette).2.1.1 ≤
       2 * (KeySet.cardinal palette * 2) + 1 :=
   Cardinality.setRun_calls_le_of_bitLength Cardinality.unitPrice
-    sourcePalette_normalized 2 sourcePalette_bit_bound
+    palette_normalized 2 palette_bit_bound
 
 def firstOperandPrice (left _ : Nat) : Nat := left + 1
 
@@ -514,6 +514,6 @@ theorem empty_cardinality_zero_bound :
 theorem palette_choice : Choice.run palette = (some 1, (1, 0)) := by decide
 
 theorem palette_choice_bound_client : (Choice.run palette).2.1 ≤ 2 * 2 + 1 :=
-  Choice.run_calls_le_of_bitLength sourcePalette_normalized 2 sourcePalette_bit_bound
+  Choice.run_calls_le_of_bitLength palette_normalized 2 palette_bit_bound
 
 end Examples.PositiveFinitePrimitiveWork

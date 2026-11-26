@@ -146,23 +146,23 @@ theorem positiveAdvanceRun_one_average (n : Nat) (hn : 0 < n) :
 
 /-- The input states before n transitions are exactly the consecutive numeric
 values starting at the arbitrary positive initial value. -/
-theorem positivePrefix_values (n : Nat) (p : PosNum) :
+theorem map_numeric_iterate_succ (n : Nat) (p : PosNum) :
     (List.iterate PosNum.succ p n).map numeric = List.range' (numeric p) n := by
   induction n generalizing p with
   | zero => rfl
   | succ n ih =>
     simp only [List.iterate, List.map_cons, ih, succ_correct, List.range'_succ]
 
-theorem positivePrefix_one_values (n : Nat) :
+theorem map_numeric_iterate_succ_one (n : Nat) :
     (List.iterate PosNum.succ .one n).map numeric = List.range' 1 n :=
-  positivePrefix_values n .one
+  map_numeric_iterate_succ n .one
 
 theorem positiveAdvanceRun_one_numeric (n : Nat) :
     numeric (positiveAdvanceRun n .one).1 = n + 1 := by
   rw [positiveAdvanceRun_numeric, numeric_one, Nat.add_comm]
 
 /-- Observing n states without incrementing the last needs n-1 transitions. -/
-theorem positivePrefix_transition_bound (n : Nat) :
+theorem positiveAdvanceRun_pred_one_bound (n : Nat) :
     (positiveAdvanceRun (n - 1) .one).2 ≤ 2 * (n - 1) :=
   positiveAdvanceRun_one_bound (n - 1)
 
@@ -211,7 +211,7 @@ theorem numAddOneRun_value (c : Num) : (numAddOneRun c).1 = c + 1 := by
   | pos p => change Num.pos (succWriteRun p).1 = Num.pos (PosNum.succ p)
              rw [succWriteRun_value]
 
-theorem numAddOneRun_toNat (c : Num) :
+theorem castNum_numAddOneRun (c : Num) :
     ((numAddOneRun c).1 : Nat) = (c : Nat) + 1 := by
   rw [numAddOneRun_value, Num.add_to_nat, Num.cast_one]
 
@@ -281,7 +281,7 @@ theorem numAdvanceRun_digits (n : Nat) (c : Num) :
       congrArg (fun result : Measured (List Bool) Nat =>
         (result.1, (numAddOneRun c).2 + result.2)) (ih (numAddOneRun c).1)
 
-theorem numAdvanceRun_toNat (n : Nat) (c : Num) :
+theorem castNum_numAdvanceRun (n : Nat) (c : Num) :
     ((numAdvanceRun n c).1 : Nat) = (c : Nat) + n := by
   have h := congrArg (fun result : Measured (List Bool) Nat => BinaryCounter.value result.1)
     (numAdvanceRun_digits n c)
@@ -318,10 +318,10 @@ theorem numAdvanceRun_bound (n : Nat) (c : Num) :
 theorem numAdvanceRun_zero_bound (n : Nat) : (numAdvanceRun n .zero).2 ≤ 2 * n := by
   simpa only [numDigits_zero, BinaryCounter.ones, Nat.add_zero] using numAdvanceRun_bound n .zero
 
-theorem numAdvanceRun_zero_toNat (n : Nat) : ((numAdvanceRun n .zero).1 : Nat) = n := by
-  exact (numAdvanceRun_toNat n .zero).trans (Nat.zero_add n)
+theorem castNum_numAdvanceRun_zero (n : Nat) : ((numAdvanceRun n .zero).1 : Nat) = n := by
+  exact (castNum_numAdvanceRun n .zero).trans (Nat.zero_add n)
 
-theorem numAdvanceRun_zero_toInt (n : Nat) : ((numAdvanceRun n .zero).1.toZNum : Int) = n := by
-  rw [Num.cast_toZNum, ← Num.to_nat_to_int, numAdvanceRun_zero_toNat]
+theorem castZNum_toZNum_numAdvanceRun_zero (n : Nat) : ((numAdvanceRun n .zero).1.toZNum : Int) = n := by
+  rw [Num.cast_toZNum, ← Num.to_nat_to_int, castNum_numAdvanceRun_zero]
 
 end Resources.PositiveCounter

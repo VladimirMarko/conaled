@@ -78,14 +78,14 @@ theorem empty_blocks_materialize : differenceCollapse [[], [], []] = ([], 49) :=
 
 theorem left_zero_materialization :
     (leftMaterialize (build [[0], [0], [0]]).history).2 = 9 :=
-  left_zeroBlocks_materialization 3
+  leftMaterialize_build_replicate_singleton_zero_work 3
 
 theorem function_zero_materialization :
     (applyFunction (build [[0], [0], [0]]).history []).2 = 9 := by
   rw [difference_materialization_work]
   change 2 * (build (List.replicate 3 [0])).used.flatten.length +
     (build (List.replicate 3 [0])).used.length = 9
-  rw [build_zeroBlocks_used]
+  rw [build_replicate_singleton_zero_used]
   decide
 
 theorem arbitrary_tail (blocks : List (List Int)) :

@@ -28,6 +28,6 @@ theorem squareLift_down_eq {Γ Δ Γ' Δ' : Context.{u}}
   have hp := congrArg (fun t => TwoFamily.pairLift (A.reindex F.down).data
     ((TwoFamily.projectionHigher ((A.reindex K.down).reindex F'.down).data).comp L.down) t) hc
   exact hp.trans (TwoFamily.pairLift_familySubstitution (A.reindex F.down).data L.down
-    (TwoFamily.retractionBranch_family F.down F'.down K.down L.down
+    (TwoFamily.retractionBranchReindex_family F.down F'.down K.down L.down
       (congrArg ULift.down h) A.data).symm _)
 end SquareKit.Internal.PathTransport.HigherInterpretation

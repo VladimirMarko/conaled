@@ -76,7 +76,7 @@ example : reconstruct answerD = ("abca".toList, "bac".toList) ∧
 -- The shared row laws also apply to an evaluator with no edit semantics.
 example {α : Type} (xs : List α) (i : Nat) (hi : i ≤ xs.length) :
     (xs.tails.map List.length)[i]? = some (xs.length - i) := by
-  simpa using DynamicProgramming.suffixRow_entry List.length xs i hi
+  simpa using DynamicProgramming.getElem?_map_tails List.length xs i hi
 
 -- Every suffix entry is exposed, including the terminal insertion-only column.
 theorem all_uncached_entries :

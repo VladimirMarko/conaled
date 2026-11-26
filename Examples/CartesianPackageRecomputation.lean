@@ -326,13 +326,13 @@ theorem inverse_record {S T : Type} (e : S ≃ T) :
       Σ f : liftedDecode (code T) ⟶ liftedDecode (code S), HomotopyEquivalence f) =
     ⟨(Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e)).inv,
       HomotopyEquivalence.ofIso (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e)).symm⟩ :=
-  DiscreteRecords.universeInverse_record (code S) (code T) (presentation S) (presentation T)
+  DiscreteRecords.inverseEquivalence_record (code S) (code T) (presentation S) (presentation T)
     (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e)) (nativeEquivalence e)
 
 theorem inverse_recipes {S T : Type} (e : S ≃ T) :
     (nativeEquivalence e).discreteInverse = inverseMap (code S) (code T) (nativeMap e)
       (nativeEquivalence e) :=
-  DiscreteRecords.inverseRecipes_eq (code S) (code T) (presentation S) (presentation T)
+  DiscreteRecords.discreteInverse_eq_inverseMap (code S) (code T) (presentation S) (presentation T)
     (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e)) (nativeEquivalence e)
 
 theorem composite_record {S T V : Type} (e : S ≃ T) (d : T ≃ V) :
@@ -344,7 +344,7 @@ theorem composite_record {S T V : Type} (e : S ≃ T) (d : T ≃ V) :
       Raising.iso (Examples.CubicalUnivalenceTransport.codeIso d)).hom,
       HomotopyEquivalence.ofIso (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e) ≪≫
         Raising.iso (Examples.CubicalUnivalenceTransport.codeIso d))⟩ :=
-  DiscreteRecords.universeComposite_record (code S) (code T) (code V) (presentation S) (presentation V)
+  DiscreteRecords.compositeEquivalence_record (code S) (code T) (code V) (presentation S) (presentation V)
     (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso e))
     (Raising.iso (Examples.CubicalUnivalenceTransport.codeIso d))
     (nativeEquivalence e) (nativeEquivalence d)

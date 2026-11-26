@@ -38,7 +38,7 @@ theorem Square.extendRaw {c : SourceContraction i} {d : SourceContraction i'}
       (contractionBranchSubstitution i i' σ τ h.inclusion A.data) := by
   let : ∀x, IsIso (c.homotopy.app x) := fun _ => IsGroupoid.all_isIso _
   let : ∀x, IsIso (d.homotopy.app x) := fun _ => IsGroupoid.all_isIso _
-  have h1 := contractionInclusion_reindex i i' σ τ h.inclusion A.data
+  have h1 := reindexHigher_comp_eq_contractionBranchSubstitution_comp i i' σ τ h.inclusion A.data
   have h2 := contractionRetraction_reindex i c.retraction i' d.retraction σ τ h.inclusion
       h.retraction c.homotopy d.homotopy h.homotopy A.data
   have h3 := contractionRetractionHomotopy_reindex i c.retraction i' d.retraction σ τ h.inclusion

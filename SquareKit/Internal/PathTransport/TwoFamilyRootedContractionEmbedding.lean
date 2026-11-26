@@ -11,7 +11,7 @@ variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
 omit [IsLocallyGroupoid Γ] in
-theorem rootedEmbedding_cancel :
+theorem familyCast_comp_rootedPathEmbedding :
     (familyCast (rootedPathFamily_direct F x).symm).comp (rootedPathEmbedding F x) = rootedDirectEmbedding F x := by
   rw [← rootedPathEmbedding_direct, ← strictPseudofunctor_comp_assoc, familyCast_comp]
   exact strictPseudofunctor_id_comp _
@@ -19,7 +19,7 @@ omit [IsLocallyGroupoid Γ] in
 theorem rootedReflexivity_embedding :
     (rootedReflexivity F x).comp (rootedPathEmbedding F x) = x.lift.comp (pathReflexivity F) := by
   unfold rootedReflexivity
-  rw [strictPseudofunctor_comp_assoc, rootedEmbedding_cancel, rootedReflexivityDirect_embedding]
+  rw [strictPseudofunctor_comp_assoc, familyCast_comp_rootedPathEmbedding, rootedReflexivityDirect_embedding]
 theorem rootedContraction_embedding :
     HEq (strongPostcomp (rootedContraction F x) (rootedPathEmbedding F x))
       (strongPrecomp (pathContraction F) (rootedPathEmbedding F x)) := by
@@ -28,7 +28,7 @@ theorem rootedContraction_embedding :
     _ _ (rootedContraction_heq F x) (rootedPathEmbedding F x)
   have h2 := strongPostcomp_comp (strongPrecomp (rootedContractionDirect F x) (familyCast e))
     (familyCast e.symm) (rootedPathEmbedding F x)
-  have h3 := strongPostcomp_functor_heq (strongPrecomp (rootedContractionDirect F x) (familyCast e)) (rootedEmbedding_cancel F x)
+  have h3 := strongPostcomp_functor_heq (strongPrecomp (rootedContractionDirect F x) (familyCast e)) (familyCast_comp_rootedPathEmbedding F x)
   have h4 := strongPostcomp_precomp (rootedContractionDirect F x) (familyCast e) (rootedDirectEmbedding F x)
   have h5 := heq_of_eq (congrArg (fun θ => strongPrecomp θ (familyCast e)) (rootedContractionDirect_embedding F x))
   have h6 := strongPrecomp_heq (rootedContractionMapped_source F x).symm

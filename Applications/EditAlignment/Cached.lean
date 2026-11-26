@@ -176,20 +176,20 @@ theorem modelRow3_cons [DecidableEq α] (x : α) (xs ys : List α) :
   simp [modelRow3]
 
 theorem modelRow3_ne_nil [DecidableEq α] (xs ys : List α) : modelRow3 xs ys ≠ [] :=
-  DynamicProgramming.suffixRow_ne_nil _ _
+  DynamicProgramming.map_tails_ne_nil _ _
 
 theorem modelRow3_length [DecidableEq α] (xs ys : List α) :
     (modelRow3 xs ys).length = xs.length + 1 :=
-  DynamicProgramming.suffixRow_length _ _
+  DynamicProgramming.length_map_tails _ _
 
 theorem modelRow3_head [DecidableEq α] (xs ys : List α) :
     (modelRow3 xs ys).headD (0, []) = cache (mceIRD xs ys) :=
-  DynamicProgramming.suffixRow_head _ _ _
+  DynamicProgramming.headD_map_tails _ _ _
 
 theorem modelRow3_last [DecidableEq α] (xs ys : List α) :
     (modelRow3 xs ys).getLastD (0, []) = cache (ys.map Op.insert) := by
   simpa only [modelRow3, mceIRD_nil_left] using
-    DynamicProgramming.suffixRow_last (fun suffix => cache (mceIRD suffix ys)) xs (0, [])
+    DynamicProgramming.getLastD_map_tails (fun suffix => cache (mceIRD suffix ys)) xs (0, [])
 
 theorem modelRow3_valid [DecidableEq α] (xs ys : List α) :
     ∀ p ∈ modelRow3 xs ys, CacheValid p := by
@@ -251,7 +251,7 @@ theorem editTable3_cache_valid [DecidableEq α] (xs ys : List α) :
 
 theorem modelRow3_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (modelRow3 xs ys)[i]? = some (cache (mceIRD (xs.drop i) ys)) :=
-  DynamicProgramming.suffixRow_entry _ _ _ h
+  DynamicProgramming.getElem?_map_tails _ _ _ h
 
 theorem editTable3_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (editTable3 xs ys)[i]? = some (cache (mceIRD (xs.drop i) ys)) := by

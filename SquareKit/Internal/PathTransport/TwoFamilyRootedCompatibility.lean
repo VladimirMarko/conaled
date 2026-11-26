@@ -13,7 +13,7 @@ variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Strict Γ] [IsLocallyGroupoi
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable [∀γ, IsGroupoid (F.obj γ)] [∀γ, IsLocallyGroupoid (F.obj γ)]
 variable (x : Section F)
-private theorem strongId_heq {A B : Type*} [Bicategory A] [Bicategory B]
+private theorem strongTrans_id_heq {A B : Type*} [Bicategory A] [Bicategory B]
     {H K : StrictPseudofunctor A B} (e : H = K) :
     HEq (Pseudofunctor.StrongTrans.id H.toPseudofunctor) (Pseudofunctor.StrongTrans.id K.toPseudofunctor) := by cases e; rfl
 
@@ -23,12 +23,12 @@ theorem pathContraction_first_source : (contractionRetract F).comp (pathFirst F)
   rw [strictPseudofunctor_comp_assoc, pathReflexivity_first, strictPseudofunctor_comp_id]
 
 omit [IsLocallyGroupoid Γ] in
-theorem rootedMappedFirst_source :
+theorem rootedContractionMapped_first_source :
     ((rootedDirectRetract F x).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
   rw [← rootedContractionMapped_source, strictPseudofunctor_comp_assoc, pathContraction_first_source]
 omit [IsLocallyGroupoid Γ] in
-theorem rootedMappedFirst_target :
+theorem rootedContractionMapped_first_target :
     ((StrictPseudofunctor.id (Total (rootedDirectFamily F x))).comp (rootedDirectEmbedding F x)).comp (pathFirst F) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
   rw [strictPseudofunctor_id_comp]
@@ -53,7 +53,7 @@ theorem pathEndpoints_same_base :
     StrongMap.toHigher_projection, StrongMap.toHigher_projection]
 
 omit [IsLocallyGroupoid Γ] in
-theorem rootedMappedFirst_section :
+theorem rootedContractionMapped_first_section :
     ((rootedDirectEmbedding F x).comp (pathFirst F)).comp ((projectionHigher F).comp x.lift) =
       (rootedDirectEmbedding F x).comp (pathFirst F) := by
   rw [rootedDirectEmbedding_first, strictPseudofunctor_comp_assoc, ← strictPseudofunctor_comp_assoc x.lift,
@@ -72,10 +72,10 @@ theorem rootedBaseContraction_first :
     rw [← strictPseudofunctor_comp_assoc, pathEndpoints_same_base, strictPseudofunctor_comp_assoc]
   have h3 := strongPostcomp_functor_heq (rootedContractionMapped F x) e
   have h4 := (strongPostcomp_comp (rootedContractionMapped F x) (pathFirst F) M).symm
-  have h5 := strongPostcomp_heq (rootedMappedFirst_source F x) (rootedMappedFirst_target F x)
+  have h5 := strongPostcomp_heq (rootedContractionMapped_first_source F x) (rootedContractionMapped_first_target F x)
     _ _ (rootedContractionMapped_first F x) M
   have h6 := heq_of_eq (strongPostcomp_id K M)
-  have h7 := strongId_heq (rootedMappedFirst_section F x)
+  have h7 := strongTrans_id_heq (rootedContractionMapped_first_section F x)
   exact h1.trans (h2.trans (h3.trans (h4.trans (h5.trans (h6.trans (h7.trans (rootedContractionMapped_first F x).symm))))))
 
 private theorem strongPostcomp_right_id {A B : Type*} [Bicategory A] [Bicategory B] [Strict A] [Strict B]
