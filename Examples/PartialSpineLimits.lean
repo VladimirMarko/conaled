@@ -22,7 +22,7 @@ open scoped SquareKit.DirectedLimits
 universe u v
 variable {α S : Type u}
 
-private theorem cutInterpreter_monotone (n : Nat) :
+private theorem cut_interpreter_monotone (n : Nat) :
     Monotone (fun s : PartialSpine α => Ideal.principal (cut n s)) :=
   IdealCompletion.principal_monotone.comp (cut_monotone n)
 
@@ -32,20 +32,20 @@ def truncate (n : Nat) (I : Observations α) : Observations α :=
 
 theorem truncate_principal (n : Nat) (s : PartialSpine α) :
     truncate n (Ideal.principal s) = Ideal.principal (cut n s) :=
-  IdealCompletion.extend_principal (cutInterpreter_monotone n) s
+  IdealCompletion.extend_principal (cut_interpreter_monotone n) s
 
 theorem truncate_stream (n : Nat) (σ : Stream' α) :
     truncate n (stream σ) = Ideal.principal (openPrefix (σ.take n)) := by
   apply le_antisymm
-  · apply IdealCompletion.extend_le (cutInterpreter_monotone n)
+  · apply IdealCompletion.extend_le (cut_interpreter_monotone n)
     intro s hs
     obtain ⟨m, hs⟩ := hs
     apply IdealCompletion.principal_monotone
     calc
       cut n s ≤ cut n (openPrefix (σ.take m)) := cut_monotone n hs
       _ = openPrefix (σ.take (min m n)) := by rw [cut_openPrefix, Stream'.take_take]
-      _ ≤ openPrefix (σ.take n) := streamPrefix_mono σ (Nat.min_le_right m n)
-  · have known := IdealCompletion.le_extend (cutInterpreter_monotone n) (stream σ)
+      _ ≤ openPrefix (σ.take n) := openPrefix_take_mono σ (Nat.min_le_right m n)
+  · have known := IdealCompletion.le_extend (cut_interpreter_monotone n) (stream σ)
       (stream_observes_prefix σ n)
     simpa only [truncate, cut_openPrefix, Stream'.take_take, Nat.min_self] using known
 
@@ -225,19 +225,19 @@ theorem nonstrict_total_finite_fusion (xs : List Unit) :
 def allCuts (I : Observations α) : Nat → Observations α :=
   IdealCompletion.extend (fun s n => Ideal.principal (cut n s)) I
 
-private theorem allCutsInterpreter_monotone :
+private theorem allCuts_interpreter_monotone :
     Monotone (fun s : PartialSpine α => fun n => Ideal.principal (cut n s)) := by
   intro s t h n
-  exact cutInterpreter_monotone n h
+  exact cut_interpreter_monotone n h
 
 /-- This function-valued least-upper-bound law consumes the full Pi CPO instance. -/
 theorem allCuts_isLUB (I : Observations α) :
     IsLUB ((fun s : PartialSpine α => fun n => Ideal.principal (cut n s)) '' (I : Set _))
       (allCuts I) :=
-  IdealCompletion.extend_isLUB allCutsInterpreter_monotone I
+  IdealCompletion.extend_isLUB allCuts_interpreter_monotone I
 
 theorem allCuts_continuous : ScottContinuous (allCuts (α := α)) :=
-  IdealCompletion.extend_scottContinuous allCutsInterpreter_monotone
+  IdealCompletion.extend_scottContinuous allCuts_interpreter_monotone
 
 theorem allCuts_apply (I : Observations α) (n : Nat) : allCuts I n = truncate n I :=
   IdealCompletion.extend_apply (fun s n => Ideal.principal (cut n s)) I n

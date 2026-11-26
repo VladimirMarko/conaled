@@ -21,7 +21,7 @@ universe u
 
 def SameModTen (a b : Nat) : Prop := a % 10 = b % 10
 
-theorem related_twentySeven : RelatedMem SameModTen 27 [3, 17, 2] := by
+theorem related_twenty_seven : RelatedMem SameModTen 27 [3, 17, 2] := by
   exact ⟨17, by decide, rfl⟩
 
 theorem same_mod_members : SameRelatedMembers SameModTen [3, 17] [7, 3, 27] := by
@@ -66,7 +66,7 @@ theorem modulo_filter_member :
     RelatedMem SameModTen 27 ([3, 17, 2].filter (fun n => decide (n % 10 = 7))) := by
   apply (relatedMem_filter _ (fun {a b} (same : SameModTen a b) => ?_)
     27 [3, 17, 2]).mpr
-  · exact ⟨related_twentySeven, by decide⟩
+  · exact ⟨related_twenty_seven, by decide⟩
   · rw [same]
 
 theorem modulo_filter_entries :

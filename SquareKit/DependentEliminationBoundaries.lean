@@ -19,7 +19,7 @@ private theorem branchType_arguments (A : EExpr V) (B D : EExpr (Fin 1 ⊕ V)) (
   rw [h, k, Expr.subst_id, Expr.subst_id, Expr.subst_id]
   rfl
 
-private theorem branchTerm_arguments (e : EExpr (Fin 2 ⊕ V)) (a b : EExpr V) :
+private theorem subst_branchArguments_rename_flattenToNested (e : EExpr (Fin 2 ⊕ V)) (a b : EExpr V) :
     Expr.subst (branchArguments a b) (Expr.rename flattenToNested e) = branchAt e a b := by
   rw [Expr.subst_rename]
   congr 1
@@ -115,7 +115,7 @@ def eliminationPrimitive
       change Proof Γ (.term
         (Expr.subst (branchArguments a b) (Expr.rename flattenToNested e))
         (Expr.subst (branchArguments a b) (branchType A B D))) at right
-      rw [branchTerm_arguments, branchType_arguments] at right
+      rw [subst_branchArguments_rename_flattenToNested, branchType_arguments] at right
       exact ⟨ps 0, familyAt stable (ps 0) (ps 3) packed, left, right⟩
   | eta Γ A B p =>
       dsimp [EliminationRule.schema, EliminationRule.family] at ps

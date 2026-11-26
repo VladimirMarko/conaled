@@ -151,7 +151,7 @@ def dualMeaning : PrimitiveMeaning Dual RealPrim
   | _, _, .add, p => (p.1.1 + p.2.1, p.1.2 + p.2.2)
   | _, _, .mul, p => (p.1.1 * p.2.1, p.1.2 * p.2.1 + p.1.1 * p.2.2)
 
-theorem realPrimitives_related : PrimitivesRelated realMeaning dualMeaning := by
+theorem realMeaning_dualMeaning_related : PrimitivesRelated realMeaning dualMeaning := by
   intro a b p x d f h
   cases p with
   | constant c => exact ⟨rfl, hasDerivAt_const x c⟩
@@ -179,10 +179,10 @@ def capturedFunction : Term RealPrim [.base] (.arr .base .base) :=
 def higherOrderExample : Term RealPrim [.base] .base :=
   .app (.app (twice [.base]) capturedFunction) (.var .here)
 
-theorem higherOrder_primal (x : ℝ) :
+theorem higherOrderExample_primal (x : ℝ) :
     eval realMeaning higherOrderExample ((), x) = x * (x * x + x) + x := rfl
 
-theorem higherOrder_dual (x v : ℝ) :
+theorem higherOrderExample_dual (x v : ℝ) :
     eval dualMeaning higherOrderExample ((), (x, v)) =
       (x * (x * x + x) + x, (3 * x * x + 2 * x + 1) * v) := by
   apply Prod.ext
@@ -190,13 +190,13 @@ theorem higherOrder_dual (x v : ℝ) :
   · change v * (x * x + x) + x * (v * x + x * v + v) + v = _
     ring
 
-theorem higherOrder_hasDerivAt (x : ℝ) :
+theorem higherOrderExample_hasDerivAt (x : ℝ) :
     HasDerivAt (fun s : ℝ => s * (s * s + s) + s) (3 * x * x + 2 * x + 1) x := by
   have henv : Related x (context [.base]) ((), (x, 1)) (fun s => ((), s)) :=
     ⟨trivial, rfl, hasDerivAt_id x⟩
-  have h := (eval_related realMeaning dualMeaning realPrimitives_related
+  have h := (eval_related realMeaning dualMeaning realMeaning_dualMeaning_related
     higherOrderExample x henv).2
-  rw [higherOrder_dual] at h
+  rw [higherOrderExample_dual] at h
   change HasDerivAt (fun s : ℝ => s * (s * s + s) + s)
     ((3 * x * x + 2 * x + 1) * 1) x at h
   simpa only [mul_one] using h

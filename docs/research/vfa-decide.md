@@ -124,7 +124,7 @@ correspondences, not assertions that the acceptance gates have passed.
 | Exercise | Implementation and retained lesson |
 |---|---|
 | `insert_sorted_le_dec`, source 267–285; two stars, standard | `Examples.DecisionProcedures.ScratchPad2.insert_sorted` preserves the accepted sortedness of the actual inserted list. `insert_sorted_decision_cases` matches `leDecision a h`; the true branch receives `a ≤ h` and uses `insert_sorted_true_branch`, while the false branch receives `¬ a ≤ h` and uses `insert_sorted_false_branch`. The latter specializes the reused general insertion theorem to the selected recursive output; it is not presented as an independent reconstruction of the full sorting proof. |
-| `list_nat_in`, source 460–472; two stars, standard | `Examples.DecisionProcedures.listNatIn` uses standard membership decidability. `in_four_pi` checks the exact source computation; `four_mem_pi` derives membership through its law. `absent_from_pi`, `eight_notMem_pi`, `listNatIn_nil` and `listNatIn_duplicate` preserve negative, empty and repeated-value boundaries. |
+| `list_nat_in`, source 460–472; two stars, standard | `Examples.DecisionProcedures.listNatIn` uses standard membership decidability. `in_four_pi` checks the exact source computation; `four_mem_pi` derives membership through its law. `absent_from_pi`, `eight_not_mem_pi`, `listNatIn_nil` and `listNatIn_duplicate` preserve negative, empty and repeated-value boundaries. |
 
 Neither exercise is optional or advanced. The first source exercise has one
 admitted theorem; the second contains the admitted function and admitted
@@ -203,8 +203,8 @@ specializations using the accepted order laws.
 result to the independently implemented `OrderCertificate.adjacent` and
 consumes `adjacent_correct` with the accepted `leb_reflect`. This adjacency
 contract describes `IsChain` without requiring transitivity. The stronger
-`Examples.DecisionProcedures.sorted_checkedLength` uses
-`OrderCertificate.checkedLength_correct` and the Nat chain/pairwise bridge;
+`Examples.DecisionProcedures.sorted_checkedLengthSquare` uses
+`OrderCertificate.checkedLengthSquare_correct` and the Nat chain/pairwise bridge;
 the underlying generic consumer requires `IsTrans`, supplied here by Nat's
 non-strict order. The proved result is exactly
 

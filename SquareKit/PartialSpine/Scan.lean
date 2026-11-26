@@ -94,7 +94,7 @@ theorem scanStates_take_dropLast (f : β → α → β) (e : β) (σ : Stream' �
   rw [← scanStates_take f e σ n, Stream'.dropLast_take, Nat.add_one_sub_one]
 
 /-- A finite open input prefix and its scan expose equally many labels. -/
-theorem scanl_streamPrefix (f : β → α → β) (e : β) (σ : Stream' α) (n : Nat) :
+theorem scanl_openPrefix_take (f : β → α → β) (e : β) (σ : Stream' α) (n : Nat) :
     scanl f e (openPrefix (σ.take n)) = openPrefix ((scanStates f e σ).take n) := by
   rw [scanl_openPrefix, scanStates_take_dropLast]
 
@@ -103,7 +103,7 @@ namespace Observations
 open Order
 noncomputable section
 
-private theorem principalScan_monotone (f : β → α → β) (e : β) :
+private theorem principal_scanl_monotone (f : β → α → β) (e : β) :
     Monotone (fun s => Ideal.principal (PartialSpine.scanl f e s)) :=
   IdealCompletion.principal_monotone.comp (PartialSpine.scanl_monotone f e)
 
@@ -112,7 +112,7 @@ def scanl (f : β → α → β) (e : β) (I : Observations α) : Observations �
   IdealCompletion.extend (fun s => Ideal.principal (PartialSpine.scanl f e s)) I
 
 theorem scanl_continuous (f : β → α → β) (e : β) : ScottContinuous (scanl f e) :=
-  IdealCompletion.extend_scottContinuous (principalScan_monotone f e)
+  IdealCompletion.extend_scottContinuous (principal_scanl_monotone f e)
 
 theorem mem_scanl (f : β → α → β) (e : β) (I : Observations α) (q : PartialSpine β) :
     q ∈ scanl f e I ↔ ∃ s ∈ I, q ≤ PartialSpine.scanl f e s :=
@@ -120,7 +120,7 @@ theorem mem_scanl (f : β → α → β) (e : β) (I : Observations α) (q : Par
 
 theorem scanl_principal (f : β → α → β) (e : β) (s : PartialSpine α) :
     scanl f e (Ideal.principal s) = Ideal.principal (PartialSpine.scanl f e s) :=
-  IdealCompletion.extend_principal (principalScan_monotone f e) s
+  IdealCompletion.extend_principal (principal_scanl_monotone f e) s
 
 @[simp] theorem scanl_bottom (f : β → α → β) (e : β) : scanl f e ⊥ = ⊥ :=
   scanl_principal f e .bottom
@@ -159,10 +159,10 @@ theorem scanl_stream (f : β → α → β) (e : β) (σ : Stream' α) :
       q ≤ PartialSpine.scanl f e s := hq
       _ ≤ PartialSpine.scanl f e (openPrefix (σ.take n)) :=
         PartialSpine.scanl_monotone f e hs
-      _ = openPrefix ((scanStates f e σ).take n) := scanl_streamPrefix f e σ n
+      _ = openPrefix ((scanStates f e σ).take n) := scanl_openPrefix_take f e σ n
   · rintro ⟨n, hq⟩
     refine ⟨openPrefix (σ.take n), stream_observes_prefix σ n, ?_⟩
-    rw [scanl_streamPrefix]
+    rw [scanl_openPrefix_take]
     exact hq
 
 theorem scanl_stream_prefix (f : β → α → β) (e : β) (σ : Stream' α) (n : Nat) :

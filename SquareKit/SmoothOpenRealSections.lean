@@ -46,7 +46,7 @@ theorem realSectionEquiv_naturality {U V : Domain} (f : U ⟶ V)
     Hom.comp realEvaluation (show Hom (Localization.Principal U.defining) (Carrier (free 0)) from a.unop)
   have he (b : Localization.Principal U.defining) :
       h b = (Localization.toOpen U.defining b).val (Localization.realPoints U.defining h) := by
-    exact ((Localization.toOpen_realPoint U.defining
+    exact ((Localization.toOpen_realPoints U.defining
       (Localization.realPoints U.defining h) b).trans
         (congrArg (fun k : Hom (Localization.Principal U.defining) ℝ => k b)
           ((Localization.realPoints U.defining).symm_apply_apply h))).symm

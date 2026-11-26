@@ -5,7 +5,7 @@ namespace Realizability.Assembly
 open Encodable Denumerable
 open Nat.Partrec (Code)
 
-theorem liftNat_realizes_iff {e : Nat} {x : Option Nat} :
+theorem programLift_encoded_nat_realizes_iff {e : Nat} {x : Option Nat} :
     (programLift (encoded Nat)).Realizes e x ↔ ∀ v, v ∈ run e ↔ x = some v := by
   cases x with
   | none =>
@@ -40,8 +40,8 @@ theorem liftObserver_mem {Γ A : Assembly} {h : Hom (prod Γ A) (programLift (en
   · rintro ⟨k, hk, hv⟩
     have hkm := Part.mem_unique hk hm
     subst k
-    exact (liftNat_realizes_iff.mp hx v).mp hv
+    exact (programLift_encoded_nat_realizes_iff.mp hx v).mp hv
   · intro hv
-    exact ⟨m, hm, (liftNat_realizes_iff.mp hx v).mpr hv⟩
+    exact ⟨m, hm, (programLift_encoded_nat_realizes_iff.mp hx v).mpr hv⟩
 
 end Realizability.Assembly

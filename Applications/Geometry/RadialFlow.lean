@@ -100,7 +100,7 @@ theorem boundedFlow_mem (p : Initial) (t : ℝ) :
 theorem boundedFlow_continuous (p : Initial) : Continuous (boundedFlow p) :=
   (boundedCurve p).continuous_compProj
 
-theorem boundedFlow_derivWithin (p : Initial) {t : ℝ} (ht : t ∈ Icc (-5/4 : ℝ) (5/4)) :
+theorem boundedFlow_hasDerivWithinAt (p : Initial) {t : ℝ} (ht : t ∈ Icc (-5/4 : ℝ) (5/4)) :
     HasDerivWithinAt (boundedFlow p) (weightedField (boundedFlow p t))
       (Icc (-5/4 : ℝ) (5/4)) t := by
   apply ODE.hasDerivWithinAt_picard_Icc initialTime.property picard.continuousOn_uncurry
@@ -114,7 +114,7 @@ theorem boundedFlow_derivWithin (p : Initial) {t : ℝ} (ht : t ∈ Icc (-5/4 : 
 
 theorem boundedFlow_deriv (p : Initial) {t : ℝ} (ht : t ∈ Ioo (-5/4 : ℝ) (5/4)) :
     HasDerivAt (boundedFlow p) (weightedField (boundedFlow p t)) t :=
-  (boundedFlow_derivWithin p ⟨ht.1.le,ht.2.le⟩).hasDerivAt
+  (boundedFlow_hasDerivWithinAt p ⟨ht.1.le,ht.2.le⟩).hasDerivAt
     (Icc_mem_nhds ht.1 ht.2)
 
 /-- Time one is inside the admitted derivative interval, not only its endpoint. -/

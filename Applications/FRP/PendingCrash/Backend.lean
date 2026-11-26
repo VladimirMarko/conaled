@@ -480,7 +480,7 @@ theorem SelectionConsistent.storage {s : System} (consistent : SelectionConsiste
   unfold FRPSpec.PendingCrash.storage
   split
   · exact consistent
-  · exact consistent.applyJournal _ (fun result done record => journalStorage_notInvoke s.adapter.journal command record result done)
+  · exact consistent.applyJournal _ (fun result done record => journalStep_storageCommand_ne_invoke s.adapter.journal command record result done)
 
 theorem SelectionConsistent.crash {s : System} (consistent : SelectionConsistent s) :
     SelectionConsistent (crash s).system := by

@@ -35,7 +35,7 @@ theorem LocalEdit.extension {cfg : Config} {before after : LocalSnapshot}
     · intro slot r present phase _; exact ⟨r,present,rfl,rfl,rfl,phase,rfl⟩
   cases edit with
   | frame changed =>
-    exact ⟨propose_liveExtension _ _ _ _ coupled (authentic _ rfl)
+    exact ⟨propose_liveFrameExtension _ _ _ _ coupled (authentic _ rfl)
       (localChange_proposed changed), by rw [(localChange_metadata changed).1]⟩
   | relinquish target => exact ⟨reflExtension _,authorized _ rfl⟩
   | finish changed =>

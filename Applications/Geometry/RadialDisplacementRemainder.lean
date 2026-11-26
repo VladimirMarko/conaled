@@ -109,7 +109,7 @@ theorem displacement_remainder :
     have h := ((complexConjugate_isBigO first_isBigO).mul velocity_deviation).mul
       (velocity_isBigO.add second_isBigO)
     convert h using 1 <;> (funext p; ring)
-  have hc := complexCube_difference velocity_isBigO second_isBigO velocity_deviation
+  have hc := conj_mul_sq_difference_isBigO velocity_isBigO second_isBigO velocity_deviation
   apply (((he.add velocity_remainder).sub hm).sub (hc.const_mul_left (1/3 : ℂ))).congr_left
   intro p
   change (displacement p-(p.1+displacementVelocity p)+conj p.1*(displacementVelocity p)^2+

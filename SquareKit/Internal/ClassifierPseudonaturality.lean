@@ -51,7 +51,7 @@ def classifiedLiftIdentityIso :
 
 omit [HasPullbacks F] [Mono u] in
 /-- The source comparison satisfies the identity pseudonaturality diagram. -/
-theorem classifierSource_identity :
+theorem classifierSourceIso_identity :
     (classifierSourceIso (identity F) h u).hom ≫ (classifiedLiftIdentityIso h u).hom =
       whiskerLeft (modelFunctor (h := h) u) (sourceModelIdentityIso h u).hom ≫
         (Functor.rightUnitor (modelFunctor (h := h) u)).hom := by
@@ -61,7 +61,7 @@ theorem classifierSource_identity :
 
 omit [HasPullbacks F] [HasPullbacks G] [HasBinaryProducts H] [HasPullbacks H] [Mono u] in
 /-- The direct composite comparison equals the pasted source-comparison squares. -/
-theorem classifierSource_composition :
+theorem classifierSourceIso_composition :
     (Functor.associator (modelFunctor (h := h) u) (sourceModelFunctor f h u)
       (sourceModelFunctor g (f.comp h) u)).hom ≫
       whiskerLeft (modelFunctor (h := h) u) (sourceModelCompIso g f h u).hom ≫

@@ -17,7 +17,7 @@ variable [Closed (U ⨿ ⊤_ B)] (e : h.inverseImage ≅ h'.inverseImage)
 
 omit [HasBinaryProducts F] [HasPullbacks F] [Mono u] in
 /-- Rebase normalization commutes with the actual classifier section. -/
-theorem classifierRebase_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
+theorem classifier_rebase_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     ((PartitionSection.changeParameter (parameterPullback h u) (parameterPullback h' u) (e.app U)).obj
       (k.model u)).toSection = ((k.rebase e).model u).toSection := by
   rw [PartitionSection.changeParameter_section, Lift.model_section, Lift.model_section, Lift.rebase_section]
@@ -30,8 +30,8 @@ def classifierRebaseIso :
     modelFunctor (h := h) u ⋙ PartitionSection.changeParameter (parameterPullback h u)
       (parameterPullback h' u) (e.app U) ≅ Lift.rebaseFunctor e ⋙ modelFunctor (h := h') u :=
   NatIso.ofComponents (fun k => {
-    hom := PartitionSection.Model.homOfSection (classifierRebase_section u e k)
-    inv := PartitionSection.Model.homOfSection (classifierRebase_section u e k).symm
+    hom := PartitionSection.Model.homOfSection (classifier_rebase_section u e k)
+    inv := PartitionSection.Model.homOfSection (classifier_rebase_section u e k).symm
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }) (by intros; apply Subsingleton.elim)
 end SquareKit.Internal.GeometricMorphism

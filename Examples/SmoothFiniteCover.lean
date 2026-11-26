@@ -75,7 +75,7 @@ local instance : MulAction Orbifolds.QuarterTurn.C4 (Space 1) :=
   Examples.SmoothCechDescent.Clutching.trivialAction _
 
 /-- The non-Hausdorff C4 example remains a separate no-section control. -/
-theorem doubledOrigin_no_section :
+theorem quarterTurnDatum_no_section :
     ¬ Nonempty (SplitSheaf.Tm
       (Examples.SmoothCechDescent.Clutching.quarterTurnDatum.interpreted
         (Examples.SmoothCechDescent.Clutching.smooth Orbifolds.QuarterTurn.C4)).torsor.family) :=
@@ -318,7 +318,7 @@ theorem ambient_smooth (F : ℂ → ℂ) (hF : ContDiff ℝ ∞ F) (f : E → E)
 
 theorem square_smooth : ContMDiff (modelWithCorners 2) (modelWithCorners 2) ∞ Examples.SmoothFiniteCover.square :=
   ambient_smooth (fun z => z^2) (contDiff_id.pow 2) _ (fun _ => rfl)
-theorem ambient_smoothAt (F : ℂ → ℂ) (f : E → E)
+theorem ambient_contMDiffAt (F : ℂ → ℂ) (f : E → E)
     (he : ∀ z, (f z).val = F z.val) (z : E) (hF : ContDiffAt ℝ ∞ F z.val) :
     ContMDiffAt (modelWithCorners 2) (modelWithCorners 2) ∞ f z := by
   have hF' : ContDiffAt ℝ ∞ F (coordEquiv.symm (coord z)) := by simpa [coord] using hF
@@ -447,11 +447,11 @@ theorem negativeSlit_open : IsOpen negativeSlit := Complex.isOpen_slitPlane.prei
 
 theorem positiveRoot_smooth : ContMDiffOn (modelWithCorners 2) (modelWithCorners 2) ∞ positiveRoot positiveSlit := by
   intro b hb
-  exact (ambient_smoothAt root positiveRoot (fun _ => rfl) b (root_smooth hb)).contMDiffWithinAt
+  exact (ambient_contMDiffAt root positiveRoot (fun _ => rfl) b (root_smooth hb)).contMDiffWithinAt
 
 theorem negativeRoot_smooth : ContMDiffOn (modelWithCorners 2) (modelWithCorners 2) ∞ negativeRoot negativeSlit := by
   intro b hb
-  exact (ambient_smoothAt (fun z => Complex.I * root (-z)) negativeRoot (fun _ => rfl) b
+  exact (ambient_contMDiffAt (fun z => Complex.I * root (-z)) negativeRoot (fun _ => rfl) b
     (opposite_root_smooth hb)).contMDiffWithinAt
 
 theorem positiveRoot_projection (b : E) (_ : b ∈ positiveSlit) : square (positiveRoot b) = b :=

@@ -378,7 +378,7 @@ theorem ambientTargetSecond_agreement (x : Points (sourceDomain A.finiteChart)) 
     ((show EuclideanOpen.Map _ _ from A.ambientSecondRestriction hg) x)
 
 /-- The difference coordinate is an equality in the full principal algebra. -/
-theorem normalDifference_base (i : Fin p) :
+theorem normalDifferenceMap_base (i : Fin p) :
     Localization.pullback A.normalDifferenceMap (Localization.principalBase 1 (generator i)) =
       Localization.pullback (A.ambientTargetFirst hf)
           (Localization.principalBase (chartDomain (chartAt (Space p) (f q.val.1))).defining (generator i)) -
@@ -400,19 +400,19 @@ theorem normalDifference_base (i : Fin p) :
   rw [A.normalDifferenceMap_apply]
   rfl
 
-theorem normalDifference_zero_coordinates {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
+theorem normalDifferenceMap_zero_coordinates {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
     (w : Hom (Localization.Principal (sourceDomain A.finiteChart).defining) B)
     (hc : w.comp (Localization.pullback (A.ambientTargetFirst hf)) =
       w.comp (Localization.pullback (A.ambientTargetSecond hg))) (i : Fin p) :
     w (Localization.pullback A.normalDifferenceMap (Localization.principalBase 1 (generator i))) = 0 := by
-  rw [A.normalDifference_base hf hg]
+  rw [A.normalDifferenceMap_base hf hg]
   change w.toAlgHom (_ - _) = 0
   rw [map_sub, sub_eq_zero]
   exact congrArg (fun k : Hom (Localization.Principal
     (chartDomain (chartAt (Space p) (f q.val.1))).defining) B =>
       k (Localization.principalBase _ (generator i))) hc
 
-theorem normalDifference_zero {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
+theorem normalDifferenceMap_zero {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
     (w : Hom (Localization.Principal (sourceDomain A.finiteChart).defining) B)
     (hc : w.comp (Localization.pullback (A.ambientTargetFirst hf)) =
       w.comp (Localization.pullback (A.ambientTargetSecond hg))) :
@@ -423,7 +423,7 @@ theorem normalDifference_zero {B : Type*} [CommRing B] [Algebra ℝ B] [Structur
   apply hom_ext_generators
   intro i
   change w (Localization.pullback A.normalDifferenceMap (Localization.principalBase 1 (generator i))) = _
-  rw [A.normalDifference_zero_coordinates hf hg w hc i]
+  rw [A.normalDifferenceMap_zero_coordinates hf hg w hc i]
   have hz : Localization.pullback (Coordinates.zero p)
       (Localization.principalBase 1 (generator i)) = 0 := by
     apply (Localization.toOpen_bijective _).injective
@@ -471,7 +471,7 @@ theorem normal_factorization (B : SmoothPresentationSite.Code)
     (show code (sourceDomain A.finiteChart) ⟶ B from w).op
     (show code (full 0) ⟶ B from
       w.comp (Localization.pullback (Product.toPoint (sourceDomain A.finiteChart)))).op
-    (congrArg Quiver.Hom.op (A.normalDifference_zero hf hg w hc))
+    (congrArg Quiver.Hom.op (A.normalDifferenceMap_zero hf hg w hc))
   refine ⟨v.unop, congrArg Quiver.Hom.unop hv, ?_⟩
   intro y hy
   exact A.normalParameterMap_cancel y v.unop (hy.trans (congrArg Quiver.Hom.unop hv).symm)

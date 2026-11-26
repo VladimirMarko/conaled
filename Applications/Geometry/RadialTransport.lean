@@ -116,7 +116,7 @@ theorem circleTransport_nontrivial {r : ℝ} (hr : 0 < r) (hs : r^2 < 1/2) :
   omega
 
 /-- Holding at the same endpoint solves the zero-speed connection equation. -/
-theorem holdTransport_derivative (x v : ℂ) (t : ℝ) :
+theorem constant_hasDerivAt_neg_gamma_zero (x v : ℂ) (t : ℝ) :
     HasDerivAt (fun _ : ℝ => v) (-gamma x 0 v) t := by
   simpa [gamma] using hasDerivAt_const t v
 

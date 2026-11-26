@@ -30,7 +30,7 @@ noncomputable def cutStrictAlgebra : Monad.Algebra programLiftMonad.{u} where
       change cutStrictMap.toFun t = cutStrictMap.toFun (some (cutStrictMap.toFun t))
       exact (cutStrictMap_some _).symm
 
-theorem strictAlgebra_some (X : Monad.Algebra programLiftMonad.{u}) (x : X.A.Carrier) :
+theorem programLift_algebra_some (X : Monad.Algebra programLiftMonad.{u}) (x : X.A.Carrier) :
     X.a.toFun (some x) = x := congrArg (fun h => h.toFun x) X.unit
 
 /-- Iteration remains a single tracked arrow over the explicit context. -/
@@ -46,7 +46,7 @@ theorem strictIteration_succ {Γ : Assembly.{u}} (X : Monad.Algebra programLiftM
     (g : Hom (prod Γ X.A) X.A) (γ : Γ.Carrier) (n : Nat) :
     (strictIteration X g).toFun (γ, ⟨n + 1⟩) =
       g.toFun (γ, (strictIteration X g).toFun (γ, ⟨n⟩)) :=
-  strictAlgebra_some X _
+  programLift_algebra_some X _
 
 noncomputable def strictIter (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X.A X.A) :
     Hom iterationCuts X.A := cutIter ((programLiftMap g).comp X.a)
@@ -58,7 +58,7 @@ theorem strictIter_succ (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X.A X.
     (n : iterationCuts.Carrier) :
     (strictIter X g).toFun (cutSuccessor.toFun n) = g.toFun ((strictIter X g).toFun n) := by
   have h := congrArg (fun f => f.toFun (some n)) (cutIter_square ((programLiftMap g).comp X.a))
-  exact h.trans (strictAlgebra_some X _)
+  exact h.trans (programLift_algebra_some X _)
 
 noncomputable def strictIterHom (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X.A X.A) :
     Monad.Algebra.Hom cutStrictAlgebra X where
@@ -71,7 +71,7 @@ noncomputable def strictIterHom (X : Monad.Algebra programLiftMonad.{u}) (g : Ho
     | some n =>
       change X.a.toFun (some ((strictIter X g).toFun n)) =
         (strictIter X g).toFun (cutStrictMap.toFun (some n))
-      exact (strictAlgebra_some X _).trans (congrArg (strictIter X g).toFun (cutStrictMap_some n)).symm
+      exact (programLift_algebra_some X _).trans (congrArg (strictIter X g).toFun (cutStrictMap_some n)).symm
 
 theorem strictIterHom_unique (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X.A X.A)
     (h : Monad.Algebra.Hom cutStrictAlgebra X)
@@ -83,7 +83,7 @@ theorem strictIterHom_unique (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X
   cases t with
   | none => exact (congrArg (fun f => f.toFun none) h.h).symm
   | some n =>
-    exact (congrArg (fun f => f.toFun n) hs).trans (strictAlgebra_some X _).symm
+    exact (congrArg (fun f => f.toFun n) hs).trans (programLift_algebra_some X _).symm
 
 /-- Initial among strict algebras equipped with an arbitrary successor. -/
 theorem strict_successor_initial (X : Monad.Algebra programLiftMonad.{u}) (g : Hom X.A X.A) :

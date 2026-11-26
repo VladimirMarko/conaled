@@ -69,7 +69,7 @@ theorem successive :
 
 example : Pseudofunctor.StrongTrans (SpanAction.pseudofunctor (C := Over Bool))
     ((pseudofunctor second).comp (SpanAction.pseudofunctor (C := Type))) := transformation second
-example : ¬ PreservesFiniteLimits second := MatesBaseChange.forget_not_leftExact
+example : ¬ PreservesFiniteLimits second := MatesBaseChange.forget_not_preservesFiniteLimits
 
 /-- This is the actual span-action/Beck–Chevalley compatibility after two interpretations. -/
 example := beckChevalley_transport both

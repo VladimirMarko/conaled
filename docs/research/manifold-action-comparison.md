@@ -41,7 +41,7 @@ translation label. A forward label `g` followed by `h` composes as `h * g`.
 | Construction | Source and use |
 | --- | --- |
 | Interpreted group action | `SmoothConstantAction.Representation` and `ManifoldRealization.map_id/map_comp` |
-| Equation reflection | `SmoothManifoldFullFaithfulness`, `SmoothManifoldPrincipalMaps`, and `SmoothOrdinaryQuotient.homLabel_point` |
+| Equation reflection | `SmoothManifoldFullFaithfulness`, `SmoothManifoldPrincipalMaps`, and `SmoothOrdinaryQuotient.ordinaryHomLabelEquiv_point` |
 | Independent external arrows | `Applications/Orbifolds/FiniteActionPresentation.lean`: `Arrow`, `source`, `target`, product model and operations |
 | Complete quotient-arrow equivalence | `SheafActionQuotient.chartArrowEquiv` and `ordinaryHomLabelEquiv` |
 | Operation preservation | Generic `SmoothDiskPresentation.ForwardLabel` laws |

@@ -59,7 +59,7 @@ theorem map_snd_zipStream (σ : Stream' β) (s : PartialSpine α) :
   change (((σ.take (view s).1.length).zip (view s).1).map Prod.snd, (view s).2) = view s
   rw [List.map_snd_zip (by simp)]
 
-theorem zipStream_streamPrefix (σ : Stream' β) (τ : Stream' α) (n : Nat) :
+theorem zipStream_openPrefix_take (σ : Stream' β) (τ : Stream' α) (n : Nat) :
     zipStream σ (openPrefix (τ.take n)) =
       openPrefix ((Stream'.zip Prod.mk σ τ).take n) := by
   induction n generalizing σ τ with
@@ -69,36 +69,36 @@ theorem zipStream_streamPrefix (σ : Stream' β) (τ : Stream' α) (n : Nat) :
       cons (σ 0, τ 0) (openPrefix ((Stream'.zip Prod.mk σ.tail τ.tail).take n))
     exact congrArg (cons (σ 0, τ 0)) (ih σ.tail τ.tail)
 
-private theorem indexStream_tail (n : Nat) :
+private theorem index_stream_tail (n : Nat) :
     Stream'.tail (fun k => n + k) = fun k => (n + 1) + k := by
   funext k
   change n + (k + 1) = (n + 1) + k
   rw [Nat.add_assoc, Nat.add_comm 1 k]
 
-private theorem take_indexStream (n m : Nat) :
+private theorem take_index_stream (n m : Nat) :
     Stream'.take m (fun k => n + k) = List.range' n m := by
   induction m generalizing n with
   | zero => rfl
   | succ m ih =>
     change n :: (Stream'.tail (fun k => n + k)).take m = n :: List.range' (n + 1) m
-    rw [indexStream_tail, ih]
+    rw [index_stream_tail, ih]
 
 theorem zipStream_index_ofList (n : Nat) (xs : List α) :
     zipStream (fun k => n + k) (ofList xs) =
       ofList ((List.range' n xs.length).zip xs) := by
-  erw [zipStream_ofList, take_indexStream]
+  erw [zipStream_ofList, take_index_stream]
 
 theorem zipStream_index_openPrefix (n : Nat) (xs : List α) :
     zipStream (fun k => n + k) (openPrefix xs) =
       openPrefix ((List.range' n xs.length).zip xs) := by
-  erw [zipStream_openPrefix, take_indexStream]
+  erw [zipStream_openPrefix, take_index_stream]
 
 namespace Observations
 
 open Order
 noncomputable section
 
-private theorem principalZip_monotone (σ : Stream' β) :
+private theorem principal_zipStream_monotone (σ : Stream' β) :
     Monotone (fun s : PartialSpine α => Ideal.principal (PartialSpine.zipStream σ s)) :=
   IdealCompletion.principal_monotone.comp (PartialSpine.zipStream_monotone σ)
 
@@ -108,7 +108,7 @@ def zipStream (σ : Stream' β) (I : Observations α) : Observations (β × α) 
 
 theorem zipStream_continuous (σ : Stream' β) :
     ScottContinuous (zipStream (α := α) σ) :=
-  IdealCompletion.extend_scottContinuous (principalZip_monotone σ)
+  IdealCompletion.extend_scottContinuous (principal_zipStream_monotone σ)
 
 theorem mem_zipStream (σ : Stream' β) (I : Observations α) (q : PartialSpine (β × α)) :
     q ∈ zipStream σ I ↔ ∃ s ∈ I, q ≤ PartialSpine.zipStream σ s :=
@@ -116,7 +116,7 @@ theorem mem_zipStream (σ : Stream' β) (I : Observations α) (q : PartialSpine 
 
 theorem zipStream_principal (σ : Stream' β) (s : PartialSpine α) :
     zipStream σ (Ideal.principal s) = Ideal.principal (PartialSpine.zipStream σ s) :=
-  IdealCompletion.extend_principal (principalZip_monotone σ) s
+  IdealCompletion.extend_principal (principal_zipStream_monotone σ) s
 
 @[simp] theorem zipStream_bottom (σ : Stream' β) : zipStream (α := α) σ ⊥ = ⊥ :=
   zipStream_principal σ .bottom
@@ -154,7 +154,7 @@ theorem zipStream_stream (σ : Stream' β) (τ : Stream' α) :
       Set.range (fun n => Ideal.principal
         (openPrefix ((Stream'.zip Prod.mk σ τ).take n))) := by
     rw [← Set.range_comp']
-    simp only [zipStream_principal, PartialSpine.zipStream_streamPrefix]
+    simp only [zipStream_principal, PartialSpine.zipStream_openPrefix_take]
   have lub := zipStream_continuous σ (Set.range_nonempty _)
     (stream_prefixes_directed τ) (stream_prefixes_isLUB τ)
   rw [mapped] at lub
@@ -181,7 +181,7 @@ theorem labelFrom_continuous (n : Nat) : ScottContinuous (labelFrom (α := α) n
 theorem labelFrom_cons (n : Nat) (a : α) (I : Observations α) :
     labelFrom n (cons a I) = cons (n, a) (labelFrom (n + 1) I) := by
   unfold labelFrom
-  erw [zipStream_cons, indexStream_tail, Nat.add_zero]
+  erw [zipStream_cons, index_stream_tail, Nat.add_zero]
 
 theorem labelFrom_ofList (n : Nat) (xs : List α) :
     labelFrom n (Ideal.principal (ofList xs)) =

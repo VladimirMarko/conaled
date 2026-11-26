@@ -37,7 +37,7 @@ noncomputable def familyFromStates {Γ : Assembly} (capacity : Hom Γ (encoded N
     change r = k at hr
     subst r
     obtain ⟨c, hc, hs⟩ := he.2 k
-    refine ⟨c, hc, liftNat_realizes_iff.mpr ?_⟩
+    refine ⟨c, hc, programLift_encoded_nat_realizes_iff.mpr ?_⟩
     intro v
     exact (hs v).trans (coordinate_eq_some q.2.val k v).symm
 

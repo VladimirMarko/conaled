@@ -322,7 +322,7 @@ def rawStep (a : Assignment G n) (v : Values G n) : Measured (Values G n) Nat :=
   write v a.1 a.2
 
 omit [AddCommGroup G] in
-theorem rawPatch_value (v : Values G n) (p : Patch G n) :
+theorem run_rawStep_value (v : Values G n) (p : Patch G n) :
     (run rawStep p v).1 = applyPatch v p := by rw [run_state]; rfl
 
 def recomputeBatch (g h : Scalar G) (p : Patch G n) (s : Values G n × G) :
@@ -343,7 +343,7 @@ theorem recomputeInit_value (g h : Scalar G) (v : Values G n) :
 theorem recomputeBatch_value (g h : Scalar G) (p : Patch G n) (s : Values G n × G) :
     (recomputeBatch g h p s).1 =
       (applyPatch s.1 p, h.eval (specification g.eval (applyPatch s.1 p))) := by
-  simp [recomputeBatch, Resources.bind, Resources.pure, rawPatch_value, scan_value, store, emit, sub]
+  simp [recomputeBatch, Resources.bind, Resources.pure, run_rawStep_value, scan_value, store, emit, sub]
 
 theorem recompute_output (g h : Scalar G) (v : Values G n) (ps : List (Patch G n)) :
     (recompute g h v ps).1 = (ps.foldl applyPatch v,

@@ -48,7 +48,7 @@ def piSubSource : Derivation theory (List.ofFn piSubRule.premise) piSubRule.conc
     (fun i => Derivation.hypothesis (List.mem_ofFn.mpr ⟨i,rfl⟩))
   simpa only [theory, Theory.extend, Products.rule, Atom.subst_id] using d
 
-theorem source_piSub (Γ Δ : Presheaf.Context) (A : Presheaf.Family Γ)
+theorem source_normalizedPi_reindex (Γ Δ : Presheaf.Context) (A : Presheaf.Family Γ)
     (B : Presheaf.Family (Presheaf.total A)) (σ : Δ ⟶ Γ) :
     Presheaf.reindex (Presheaf.normalizedPi A B) σ =
       Presheaf.normalizedPi (Presheaf.reindex A σ) (Presheaf.reindex B (Presheaf.liftSub A σ)) := by
@@ -79,11 +79,11 @@ theorem source_piSub (Γ Δ : Presheaf.Context) (A : Presheaf.Family Γ)
 /-- The equality used for conversion is obtained from a source derivation. -/
 theorem source_conversion_at_two :
     (Presheaf.normalizedApp ((chooseLast.reindex successor).convert
-      (source_piSub naturals naturals finiteFiber argumentFiber successor))).val
+      (source_normalizedPi_reindex naturals naturals finiteFiber argumentFiber successor))).val
         ((Presheaf.total (Presheaf.reindex finiteFiber successor)).elementsMk (Opposite.op ⟨0⟩)
           ⟨(2 : ℕ),(2 : Fin 4)⟩) = (2 : Fin 3) := by
   have h := Presheaf.Term.convert_independent
-    (source_piSub naturals naturals finiteFiber argumentFiber successor)
+    (source_normalizedPi_reindex naturals naturals finiteFiber argumentFiber successor)
     successor_formation (chooseLast.reindex successor)
   exact (congrArg (fun t => (Presheaf.normalizedApp t).val
     ((Presheaf.total (Presheaf.reindex finiteFiber successor)).elementsMk (Opposite.op ⟨0⟩)

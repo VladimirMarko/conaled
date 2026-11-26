@@ -21,7 +21,7 @@ def freeValue (n : ℕ) : Hom (Presentation.Carrier (noRelations n)) (freeAlgebr
 theorem freeValue_projection (n : ℕ) : Hom.comp (freeValue n) (Presentation.projection (noRelations n)) = Hom.ident :=
   Quotient.lift_projection _ _ _
 
-theorem free_projectionValue (n : ℕ) : Hom.comp (Presentation.projection (noRelations n)) (freeValue n) = Hom.ident := by
+theorem projection_freeValue (n : ℕ) : Hom.comp (Presentation.projection (noRelations n)) (freeValue n) = Hom.ident := by
   apply Quotient.unique (Presentation.ideal (noRelations n))
   change Hom.comp (Hom.comp (Presentation.projection (noRelations n)) (freeValue n)) (Presentation.projection (noRelations n)) = _
   rw [← Hom.comp_assoc,freeValue_projection]
@@ -47,7 +47,7 @@ theorem oldToFree_base (p : freeAlgebra n) :
 theorem free_old_inverse (p : freeAlgebra n) : Hom.comp (oldToFree p) (freeToOld p) = Hom.ident := by
   apply unique (noRelations n) p
   rw [← Hom.comp_assoc,freeToOld_base,Hom.comp_assoc,
-    oldToFree_base,← Hom.comp_assoc,free_projectionValue]
+    oldToFree_base,← Hom.comp_assoc,projection_freeValue]
   rfl
 
 theorem old_free_inverse (p : freeAlgebra n) : Hom.comp (freeToOld p) (oldToFree p) = Hom.ident := by

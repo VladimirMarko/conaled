@@ -6,7 +6,7 @@ import Mathlib.CategoryTheory.Pi.Basic
 # Descent and coproducts
 
 `EffectiveCoproducts` requires product restriction to be an equivalence for every colimit
-cofan. `effectiveCoproducts_of_chosen` transfers this property from chosen coproducts.
+cofan. `restriction_isEquivalence_of_chosen_coproducts` transfers this property from chosen coproducts.
 For a van Kampen cofan, `aggregateRestriction_isEquivalence` compares descent for a
 family with singleton descent along its aggregate map. Its inverse objects are built
 by gluing transition arrows over pairs of pullback coproduct charts; the identity and
@@ -59,7 +59,7 @@ def mapEquivalence {S T : C} (e : S ≅ T) :
       F.mapId (.mk (op S))))
 
 /-- Chosen coproduct restriction suffices for every isomorphic colimit cofan. -/
-theorem effectiveCoproducts_of_chosen [HasCoproducts.{w} C]
+theorem restriction_isEquivalence_of_chosen_coproducts [HasCoproducts.{w} C]
     (hF : ∀ (X : I → C), (restriction F (Sigma.ι X)).IsEquivalence)
     (c : Cofan X) (hc : IsColimit c) :
     (restriction F (Cofan.inj c)).IsEquivalence := by

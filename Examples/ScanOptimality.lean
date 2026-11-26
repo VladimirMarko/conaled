@@ -59,19 +59,19 @@ theorem sequentialFour_work_optimal :
   intro q hq
   exact SharedCircuit.prefix_work_lower hq
 
-theorem rightTree_prefixes : (ScanPlan.pair.rightPow 4).sharedCircuit.ComputesPrefixes 16 := by
+theorem rightPow_four_prefixes : (ScanPlan.pair.rightPow 4).sharedCircuit.ComputesPrefixes 16 := by
   rw [SharedCircuit.computesPrefixes_iff]
   decide
 
 /-- Four binary levels are necessary for sixteen inputs and attained by this tree. -/
-theorem rightTree_depth_optimal :
+theorem rightPow_four_depth_optimal :
     (ScanPlan.pair.rightPow 4).sharedCircuit ∈ Optimization.minimizers
       {c | c.ComputesPrefixes 16} SharedCircuit.depth := by
-  refine ⟨rightTree_prefixes, ?_⟩
+  refine ⟨rightPow_four_prefixes, ?_⟩
   intro q hq
   have hb := SharedCircuit.prefix_depth_lower hq
   have hd : (ScanPlan.pair.rightPow 4).sharedCircuit.depth = 4 :=
-    congrArg Prod.snd rightTree_cost
+    congrArg Prod.snd rightPow_four_cost
   change (ScanPlan.pair.rightPow 4).sharedCircuit.depth ≤ q.depth
   rw [hd]
   by_contra h
@@ -87,11 +87,11 @@ theorem scan_dominance_comparisons :
     fourBlocks.work < (ScanPlan.pair.leftPow 4).work ∧
     fourBlocks.depth = (ScanPlan.pair.leftPow 4).depth := by
   have hm := mixed_cost
-  have hr := rightTree_cost
+  have hr := rightPow_four_cost
   have hp := pairBlocks_cost
   have hb := bush_cost
   have hf := fourBlocks_cost
-  have hl := leftTree_cost
+  have hl := leftPow_four_cost
   simp only [Prod.mk.injEq] at *
   omega
 

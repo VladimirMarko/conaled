@@ -18,7 +18,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 theorem torsor_effectiveCoproducts (G : Sheaf J GrpCat.{max u v}) :
     CoproductDescent.EffectiveCoproducts.{max u v} (SheafTorsor.Stack.pseudofunctor G) := by
   intro I Y c hc
-  apply CoproductDescent.effectiveCoproducts_of_chosen _ _ c hc
+  apply CoproductDescent.restriction_isEquivalence_of_chosen_coproducts _ _ c hc
   intro Y
   change (SheafTorsor.Coproduct.restrict (G := G) (Y := Y)).IsEquivalence
   infer_instance
@@ -28,7 +28,7 @@ theorem quotient_effectiveCoproducts {G : Sheaf J GrpCat.{max u v}}
     {M : Sheaf J (Type (max u v))} (a : SheafActionQuotient.Action G M) :
     CoproductDescent.EffectiveCoproducts.{max u v} (SheafActionQuotient.Stack.pseudofunctor a) := by
   intro I Y c hc
-  apply CoproductDescent.effectiveCoproducts_of_chosen _ _ c hc
+  apply CoproductDescent.restriction_isEquivalence_of_chosen_coproducts _ _ c hc
   intro Y
   change (SheafActionQuotient.Coproduct.restrict (a := a) (Y := Y)).IsEquivalence
   infer_instance

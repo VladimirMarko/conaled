@@ -87,7 +87,7 @@ def contractionIso (A : Code) (P : Torsor G (Y (dual A))) :
     SheafTorsor.Arrow.toIso (show reindex (dualTorsor P) (universalPath A) ⟶ P from
       (evaluationTorsorMap A P).toArrow)
 
-theorem evaluationTorsor_natural (A : Code) {P Q : Torsor G (Y (dual A))} (f : P ⟶ Q) :
+theorem evaluationTorsorMap_natural (A : Code) {P Q : Torsor G (Y (dual A))} (f : P ⟶ Q) :
     (restriction (universalPath A)).map ((dualTorsorFunctor _).map f) ≫
       (evaluationTorsorMap A Q).toArrow = (evaluationTorsorMap A P).toArrow ≫ f := by
   apply SheafTorsor.Arrow.ext
@@ -107,7 +107,7 @@ theorem contraction_natural (A : Code) {P Q : Torsor G (Y (dual A))} (f : P ⟶ 
   have ha : k ≫ aQ = aP ≫ (restriction (contractionBase A)).map f := by
     exact congrArg (fun h => (restriction (universalPath A)).map h) (dualTorsorZero_natural f)
   have ha' := congrArg (fun h => h.iso.hom) ha
-  have he := congrArg (fun h => h.iso.hom) (evaluationTorsor_natural A f)
+  have he := congrArg (fun h => h.iso.hom) (evaluationTorsorMap_natural A f)
   apply SheafTorsor.Arrow.ext
   change ((restriction (contractionBase A)).map f).iso.hom ≫
     (aQ.iso.inv ≫ (evaluationTorsorMap A Q).toArrow.iso.hom) =

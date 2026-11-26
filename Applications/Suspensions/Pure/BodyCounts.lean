@@ -51,7 +51,7 @@ theorem source_bodyEntries_le_one
       (start_allowed environmentAllowed code) evaluation) noUnwind budget
 
 /-- The same derived bound on the actual ordered event list. -/
-theorem source_bodyEntry_count_le_one
+theorem source_body_entry_count_le_one
     {memory : Core.Machine.Memory Primitive} {rawEnvironment : Core.Env Primitive}
     {environment : Env Primitive} {expression : Core.Expr Primitive}
     {answer : Core.Machine.Answer Primitive} {count : Nat}

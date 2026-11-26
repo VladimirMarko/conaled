@@ -674,7 +674,7 @@ end
 /-- Every representable payload has the derived force function's expected type.
 The name condition is automatic in the checked even-variable/odd-exception
 source embedding: generated name0 is a variable, never an exception identifier. -/
-theorem forceFunction_type {Primitive : Type} (signature : Signature Primitive)
+theorem force_function_type {Primitive : Type} (signature : Signature Primitive)
     (context : Context) (t : Ty) (allowed : context.VariableAllowed 0) :
     HasType signature context
       (.function [(.suspended (.variable 0), .variable 0)]) (.arrow (.suspension t) t) := by
@@ -690,7 +690,7 @@ theorem force_type {Primitive : Type} (signature : Signature Primitive)
     {context : Context} {e : Expr Primitive} {t : Ty}
     (allowed : context.VariableAllowed 0) (typed : HasType signature context e (.suspension t)) :
     HasType signature context (force e) t := by
-  exact .apply (forceFunction_type signature context t allowed) typed
+  exact .apply (force_function_type signature context t allowed) typed
 
 
 namespace Context

@@ -14,7 +14,7 @@ open Applications.Selection Applications.Sequences.Chunks
 /-- A computable reference for the concrete cases, connected through the
 public occurrence-rank and sorting correspondence. Nonemptiness ensures that
 the fallback value is never used for a chunk's payload median. -/
-private theorem lowerMedianValue_eq_insertionLookup (xs : List Nat) (hx : xs ≠ []) :
+private theorem lowerMedianValue_eq_insertionSort_lookup (xs : List Nat) (hx : xs ≠ []) :
     lowerMedianValue xs hx =
       ((List.insertionSort (· ≤ ·) xs)[(xs.length - 1) / 2]?).getD 0 := by
   have hs : ordered xs = List.insertionSort (· ≤ ·) xs :=
@@ -23,11 +23,11 @@ private theorem lowerMedianValue_eq_insertionLookup (xs : List Nat) (hx : xs ≠
   rw [hs] at hv
   exact congrArg (fun result : Option Nat => result.getD 0) hv.symm
 
-private theorem chunkMedians_eq_insertionLookups (d : Nat) (xs : List Nat) :
+private theorem chunkMedians_eq_insertionSort_lookups (d : Nat) (xs : List Nat) :
     chunkMedians d xs = (chop d xs).map (fun ys : List Nat =>
       ((List.insertionSort (· ≤ ·) ys)[(ys.length - 1) / 2]?).getD 0) := by
   unfold chunkMedians
-  simp only [lowerMedianValue_eq_insertionLookup]
+  simp only [lowerMedianValue_eq_insertionSort_lookup]
   exact List.attach_map_val (f := fun ys : List Nat =>
     ((List.insertionSort (· ≤ ·) ys)[(ys.length - 1) / 2]?).getD 0)
 
@@ -41,7 +41,7 @@ theorem lower_even_adapter : lowerMedianWith lastPivot ([2, 7] : List Nat) = som
 /-- The p.37 strict-half assertion fails for the greater-than orientation:
 two chunks have medians 2 and 7, and exactly one exceeds their lower median. -/
 theorem two_full_chunk_medians : chunkMedians 5 (List.range 10) = [2, 7] := by
-  exact (chunkMedians_eq_insertionLookups 5 (List.range 10)).trans (by decide)
+  exact (chunkMedians_eq_insertionSort_lookups 5 (List.range 10)).trans (by decide)
 
 theorem two_full_chunk_pivot : medianOfMedians 5 (List.range 10) = some 2 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 2).mpr
@@ -78,7 +78,7 @@ theorem complementary_group_is_one :
 
 /-- The final chunk [5,6] is retained, and its lower median is 5. -/
 theorem short_final_chunk_medians : chunkMedians 5 (List.range 7) = [2, 5] := by
-  exact (chunkMedians_eq_insertionLookups 5 (List.range 7)).trans (by decide)
+  exact (chunkMedians_eq_insertionSort_lookups 5 (List.range 7)).trans (by decide)
 
 theorem short_final_chunk_pivot : medianOfMedians 5 (List.range 7) = some 2 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 2).mpr
@@ -93,7 +93,7 @@ theorem short_final_chunk_balance :
 
 /-- Equal medians are kept as two occurrences, including the singleton chunk. -/
 theorem duplicate_chunk_medians : chunkMedians 5 (List.replicate 6 4) = [4, 4] := by
-  exact (chunkMedians_eq_insertionLookups 5 (List.replicate 6 4)).trans (by decide)
+  exact (chunkMedians_eq_insertionSort_lookups 5 (List.replicate 6 4)).trans (by decide)
 
 theorem duplicate_pivot : medianOfMedians 5 (List.replicate 6 4) = some 4 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 4).mpr

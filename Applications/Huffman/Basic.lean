@@ -186,7 +186,7 @@ theorem forestFeasible_fringe {ts : List (Tree α)} {t : Tree α}
   rw [fringe_flatten]
   exact hp.flatMap_right fringeSpec
 
-theorem forestOptimal_of_atomOptimal (w : α → Nat) (ts : List (Tree α))
+theorem forestOptimal_of_optimal (w : α → Nat) (ts : List (Tree α))
     (shape : Tree (Tree α)) (h : Optimal (weight w) ts shape) :
     ForestOptimal w ts (flatten shape) := by
   obtain ⟨hf,hm⟩ := (optimal_iff _ _ _).mp h

@@ -86,7 +86,7 @@ theorem sign_recovery (m n : SmoothClutching.punctured ⟶ diskDomain)
     smoothChartEquiv _ m n (Descent.canonicalArrowEquiv refinedSignFamily _ _
       (Descent.recoveryArrowComparison signFamily refinedSignFamily _ _ f)) =
     smoothChartEquiv _ m n (Descent.canonicalArrowEquiv signFamily _ _ f) :=
-  canonicalRecovery_comparison _ m n signFamily refinedSignFamily f
+  canonicalArrowEquiv_recoveryArrowComparison _ m n signFamily refinedSignFamily f
 
 /-- Recovery of the actual varying origin arrow retains its smooth family. -/
 theorem sign_varying_recovery :

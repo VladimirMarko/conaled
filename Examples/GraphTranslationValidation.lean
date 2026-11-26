@@ -65,7 +65,7 @@ example : ArtifactTyped (emit backwardSource.target) := emit_typed _
 
 example : check 10000 forwardSource `GraphValidated.direct
     GraphPrimitiveEnvironment.declarations wrongConclusion (.original forwardSource) = .error .type := by
-  simp only [check, Certificate.original, approvedEnvironment_checked]
+  simp only [check, Certificate.original, graphPrimitiveEnvironment_declarations_checked]
   rfl
 
 /-- Both identities are well typed. Interchanging same-sort object binders
@@ -82,7 +82,7 @@ example : ArtifactTyped (emit (identitySource true).target) := emit_typed _
 
 example : check 10000 (identitySource false) `GraphValidated.identity
     GraphPrimitiveEnvironment.declarations permuted (.original (identitySource false)) = .error .type := by
-  simp only [check, Certificate.original, approvedEnvironment_checked]
+  simp only [check, Certificate.original, graphPrimitiveEnvironment_declarations_checked]
   rfl
 
 example : check 10000 forwardSource `GraphValidated.direct
@@ -93,12 +93,12 @@ example : check 10000 forwardSource `GraphValidated.direct
 
 example : check 10000 forwardSource `GraphValidated.direct
     GraphPrimitiveEnvironment.declarations direct doubleCertificate = .error .body := by
-  simp only [check, doubleCertificate, approvedEnvironment_checked]
+  simp only [check, doubleCertificate, graphPrimitiveEnvironment_declarations_checked]
   rfl
 
 example : check 0 forwardSource `GraphValidated.direct
     GraphPrimitiveEnvironment.declarations direct (.original forwardSource) = .error .limit := by
-  simp only [check, Certificate.original, approvedEnvironment_checked]
+  simp only [check, Certificate.original, graphPrimitiveEnvironment_declarations_checked]
   rfl
 
 
@@ -121,7 +121,7 @@ example : check 10000 forwardSource `GraphValidated.direct changedRecursor direc
 
 example : check 10000 forwardSource `AnotherName GraphPrimitiveEnvironment.declarations direct
     (.original forwardSource) = .error .name := by
-  simp only [check, Certificate.original, approvedEnvironment_checked]
+  simp only [check, Certificate.original, graphPrimitiveEnvironment_declarations_checked]
   rfl
 
 def backwardArtifact : ConstantInfo := payload `GraphValidated.backward (.original backwardSource)

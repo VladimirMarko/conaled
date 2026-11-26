@@ -13,7 +13,7 @@ private abbrev booleanCarrier :=
 
 /-- Adding two interval parameters commutes with encoding the actual Boolean
 universe-loop transport, including every selected fiber contraction. -/
-theorem booleanEquivalence_two_intervals :
+theorem boolean_equivReindexSections_two_intervals :
     let σ := projection (interval (raisedContext terminal))
     let τ := projection (interval (total (interval (raisedContext terminal))))
     equivReindexSections booleanCarrier booleanCarrier (τ ≫ σ)
@@ -27,7 +27,7 @@ theorem booleanEquivalence_two_intervals :
 
 /-- The identity substitution bridge agrees on the full chosen equivalence,
 not only its Boolean function. -/
-theorem booleanEquivalence_identity :
+theorem boolean_equivReindexSections_id :
     equivReindexSections booleanCarrier booleanCarrier (𝟙 (raisedContext terminal))
       ⟨pathToMap booleanUniverseLoop, booleanUniversalTransportEquivalence⟩ =
       equivSections booleanCarrier booleanCarrier ⟨pathToMap booleanUniverseLoop, booleanUniversalTransportEquivalence⟩ :=

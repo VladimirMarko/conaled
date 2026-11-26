@@ -43,7 +43,7 @@ def trivialActionQuotient [DiffeologicalSpace X] (ht : ∀ (g : G) (x : X), g �
   smooth := dSmooth_quotient_lift dSmooth_id _
   smooth_symm := dSmooth_quotient_mk _
 
-theorem trivialAction_stabilizer (ht : ∀ (g : G) (x : X), g • x = x) (x : X) :
+theorem stabilizer_eq_top_of_trivial_action (ht : ∀ (g : G) (x : X), g • x = x) (x : X) :
     stabilizer G x = ⊤ := by
   ext g
   simp [mem_stabilizer_iff, ht]

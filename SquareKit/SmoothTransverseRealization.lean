@@ -410,7 +410,7 @@ theorem comparison_injective (V : Site) : Function.Injective ((comparison hf hg 
 
 
 set_option backward.isDefEq.respectTransparency false in
-theorem normalStage_factor (q : Pullback f g) (B : Code)
+theorem normalParameterMap_unique_factor (q : Pullback f g) (B : Code)
     (w : Hom (Principal (SmoothNormalFormPrincipal.sourceDomain
       (localModel hf hg ht q).finiteChart).defining) (Carrier B))
     (hc : (ManifoldRealization.map f hf).hom.app (op (op B))
@@ -514,7 +514,7 @@ theorem lift_in_normalOpen (i : M) (j : N) (q : Pullback f g) (B : Code)
     dsimp only [w]
     rw [A.ambientStage_first, A.ambientStage_second, hea, heb]
     exact hc
-  obtain ⟨v,hv,_⟩ := normalStage_factor hf hg ht q B w hwc
+  obtain ⟨v,hv,_⟩ := normalParameterMap_unique_factor hf hg ht q B w hwc
   refine ⟨(sourceChart hf hg ht q).hom.app _ (show code _ ⟶ B from v).op, ?_, ?_⟩
   · change (sourceChart hf hg ht q ≫ first hf hg ht).hom.app _
       (show code _ ⟶ B from v).op = _

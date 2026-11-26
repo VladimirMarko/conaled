@@ -25,9 +25,9 @@ def homToMathlib {a b : Obj (RawMap.ofFunctor F) (RawMap.ofFunctor G)}
   ⟨f.left, f.right, f.commutes⟩
 def homFromMathlib {a b : CategoryTheory.Comma F G} (f : a ⟶ b) :
     Hom (equality _) (fromMathlib F G a) (fromMathlib F G b) := ⟨f.left, f.right, f.w⟩
-@[simp] theorem homFrom_toMathlib {a b : Obj (RawMap.ofFunctor F) (RawMap.ofFunctor G)}
+@[simp] theorem homFromMathlib_homToMathlib {a b : Obj (RawMap.ofFunctor F) (RawMap.ofFunctor G)}
     (f : Hom (equality _) a b) : homFromMathlib F G (homToMathlib F G f) = f := rfl
-@[simp] theorem homTo_fromMathlib {a b : CategoryTheory.Comma F G} (f : a ⟶ b) :
+@[simp] theorem homToMathlib_homFromMathlib {a b : CategoryTheory.Comma F G} (f : a ⟶ b) :
     homToMathlib F G (homFromMathlib F G f) = f := rfl
 
 def mathlibMap : RawMap

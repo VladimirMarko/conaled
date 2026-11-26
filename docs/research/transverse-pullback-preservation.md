@@ -44,7 +44,7 @@ constructions from #673, #674 and #675:
 2. [`SmoothTransverseLocalPullback`](../../SquareKit/SmoothTransverseLocalPullback.lean)
    constructs products of arbitrary principal domains and proves their
    full-algebra universal property. The normal-form ambient maps recover both
-   ordinary coordinates. `normalDifference_zero` converts equality of full
+   ordinary coordinates. `normalDifferenceMap_zero` converts equality of full
    target algebra maps into the zero-fiber equation;
    `normal_factorization` then gives a unique full-algebra factor at every
    presentation code.

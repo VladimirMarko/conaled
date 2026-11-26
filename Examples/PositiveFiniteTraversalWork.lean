@@ -197,7 +197,7 @@ theorem reversed_prefix_value_client :
 abbrev GeneratedSetAllowed (key : PosNum) : Prop := key = 10 ∨ key = 6
 abbrev GeneratedSetInvariant (keys : List PosNum) : Prop := ∀ key ∈ keys, GeneratedSetAllowed key
 
-theorem generatedSet_closed (key : PosNum) (state : List PosNum)
+theorem generatedSetInvariant_collectKey (key : PosNum) (state : List PosNum)
     (input : GeneratedSetAllowed key) (initial : GeneratedSetInvariant state) :
     GeneratedSetInvariant (collectKey key state).1 := by
   intro query member
@@ -207,7 +207,7 @@ theorem generatedSet_closed (key : PosNum) (state : List PosNum)
   · rw [List.mem_singleton.mp fresh]
     exact input
 
-theorem generatedSet_inputs :
+theorem generatedSetAllowed_inputs :
     ∀ key ∈ (KeySet.rawKeys leftSet).map (Numerals.PositivePaths.reverseAppend 5), GeneratedSetAllowed key := by
   intro key member
   change key ∈ [(10 : PosNum), 6] at member
@@ -215,12 +215,12 @@ theorem generatedSet_inputs :
 
 theorem set_restricted_invariant_client : GeneratedSetInvariant (SetFold.runFrom collectKey leftSet [] 5).1 :=
   SetFold.runFrom_invariant_on collectKey GeneratedSetAllowed GeneratedSetInvariant
-    generatedSet_closed leftSet 5 generatedSet_inputs []
+    generatedSetInvariant_collectKey leftSet 5 generatedSetAllowed_inputs []
     (fun _ member => by simp only [List.not_mem_nil] at member)
 
 theorem set_restricted_work_client : (SetFold.runFrom collectKey leftSet [] 5).2.2 ≤ 0 :=
   SetFold.runFrom_callback_work_le collectKey GeneratedSetAllowed GeneratedSetInvariant 0
-    generatedSet_closed (fun _ _ _ _ => Nat.le_refl 0) leftSet 5 generatedSet_inputs []
+    generatedSetInvariant_collectKey (fun _ _ _ _ => Nat.le_refl 0) leftSet 5 generatedSetAllowed_inputs []
     (fun _ member => by simp only [List.not_mem_nil] at member)
 
 def keyPayload (key : PosNum) (value : Nat) :

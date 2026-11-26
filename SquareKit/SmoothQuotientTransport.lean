@@ -73,7 +73,7 @@ theorem parameterCoefficients_base (U : Domain) {X : Sheaf SmoothOpenSite.topolo
   change h.hom.app A (⟨0, by simp⟩,x) =
     (SmoothOpenArcs.stageCoefficients U A.unop.unop
       (dualSectionsEquiv _ A.unop.unop ((SheafFunction.curry h).hom.app A x)).unop).1.op
-  rw [SmoothOpenArcs.dualSections_curry, SmoothOpenArcs.stageCoefficients_zero]
+  rw [SmoothOpenArcs.dualSectionsEquiv_curry, SmoothOpenArcs.stageCoefficients_zero]
   have hn := congrArg (fun k : (product D X).obj.obj (atStage (dual A.unop.unop)) ⟶
       (embedding.obj U).obj.obj A =>
     k (eps A.unop.unop, X.obj.map (stageMap (inl A.unop.unop)) x))

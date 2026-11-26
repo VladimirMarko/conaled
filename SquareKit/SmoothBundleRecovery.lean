@@ -110,12 +110,12 @@ def derivedArrowEquiv :
   (commonTrivializedLeft smoothAction A P Q).arrowEquiv (commonTrivializedRight smoothAction A P Q)
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
-theorem derivedArrow_roundtrip (f : SheafActionQuotient.Arrow P Q) :
+theorem derivedArrowEquiv_apply_symm_apply (f : SheafActionQuotient.Arrow P Q) :
     derivedArrowEquiv smoothAction A P Q ((derivedArrowEquiv smoothAction A P Q).symm f) = f :=
   (derivedArrowEquiv smoothAction A P Q).apply_symm_apply f
 
 omit [TopologicalSpace G] [DiscreteTopology G] in
-theorem derivedExternalArrow_roundtrip
+theorem derivedArrowEquiv_symm_apply_apply
     (f : Hom (commonTrivializedLeft smoothAction A P Q).extractedDatum
       (commonTrivializedRight smoothAction A P Q).extractedDatum) :
     (derivedArrowEquiv smoothAction A P Q).symm (derivedArrowEquiv smoothAction A P Q f) = f :=
@@ -651,7 +651,7 @@ variable (A : ChartFamily n N) (p : Datum (d := d) (G := G) (M := M) A.represent
 descents, without identifying the selected objects by definitional equality. -/
 def chartChoiceComparison := p.commonComparison (A.inverseSource A id contMDiff_id) A.selfCommonRight smoothAction
 
-theorem chartChoice_naturality {q : Datum (d := d) (G := G) (M := M) A.representedAtlas} (h : Hom p q) :
+theorem chartChoiceComparison_naturality {q : Datum (d := d) (G := G) (M := M) A.representedAtlas} (h : Hom p q) :
     ((h.restrict (A.inverseSource A id contMDiff_id)).interpreted smoothAction).comp
       (chartChoiceComparison smoothAction A q) =
     (chartChoiceComparison smoothAction A p).comp ((h.restrict A.selfCommonRight).interpreted smoothAction) :=

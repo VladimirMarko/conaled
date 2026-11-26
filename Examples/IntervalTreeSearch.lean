@@ -366,7 +366,7 @@ def leftPrunedTree : NTree := .node (fivePoint, 9) pruneLeft (leaf pruneRightKey
 def rightPrunedTree : NTree := .node (fivePoint, 9) (leaf a 2) (leaf pruneRightKey 9)
 def sevenPoint : NKey := IntervalKey.ofBounds 7 7 (by decide)
 
-theorem leftPruned_valid : IntervalTree.Valid id leftPrunedTree := by
+theorem leftPrunedTree_valid : IntervalTree.Valid id leftPrunedTree := by
   constructor
   · simp only [leftPrunedTree, pruneLeft, leaf,
       IntervalTree.cacheValid_node, IntervalTree.cacheValid_nil]
@@ -374,7 +374,7 @@ theorem leftPruned_valid : IntervalTree.Valid id leftPrunedTree := by
   · change [pruneLeftKey, fivePoint, pruneRightKey].Pairwise (· < ·)
     decide
 
-theorem rightPruned_valid : IntervalTree.Valid id rightPrunedTree := by
+theorem rightPrunedTree_valid : IntervalTree.Valid id rightPrunedTree := by
   constructor
   · simp only [rightPrunedTree, leaf, IntervalTree.cacheValid_node, IntervalTree.cacheValid_nil]
     decide
@@ -389,12 +389,12 @@ theorem left_pruned_choice :
 theorem left_pruned_semantics :
     ¬IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase leftPrunedTree)) a := by
   intro h
-  have bad := (IntervalTree.search_correct_book leftPruned_valid.1 leftPruned_valid.2 a).mpr h
+  have bad := (IntervalTree.search_correct_book leftPrunedTree_valid.1 leftPrunedTree_valid.2 a).mpr h
   cases bad
 
 theorem right_pruned_left_absent :
     ¬∃ key ∈ Trees.setTree (Trees.Cached.erase (leaf a 2)), IntervalKey.Overlap key sevenPoint :=
-  IntervalTree.not_overlap_of_maxHi_lt id rightPruned_valid.1.1 (by decide)
+  IntervalTree.not_overlap_of_maxHi_lt id rightPrunedTree_valid.1.1 (by decide)
 
 theorem right_pruned_choice :
     IntervalTree.search id rightPrunedTree sevenPoint =
@@ -404,7 +404,7 @@ theorem right_pruned_choice :
 
 theorem right_pruned_semantics :
     IntervalSet.HasOverlap (Trees.setTree (Trees.Cached.erase rightPrunedTree)) sevenPoint :=
-  (IntervalTree.search_correct_book rightPruned_valid.1 rightPruned_valid.2 sevenPoint).mp rfl
+  (IntervalTree.search_correct_book rightPrunedTree_valid.1 rightPrunedTree_valid.2 sevenPoint).mp rfl
 
 /-! O14: deleting only the nonempty-left guard changes raw behavior. -/
 def searchWithoutGuard : NTree → NKey → Bool
@@ -591,23 +591,23 @@ def indexedLater : IndexedKey := ⟨toLex (maxRight, 0)⟩
 def indexedSearchTree : BinaryTree (IndexedKey × Nat) :=
   .node (indexedOne, 10) (.node (indexedZero, 8) .nil .nil) (.node (indexedLater, 10) .nil .nil)
 
-theorem indexedSearch_valid : IntervalTree.Valid indexedInterval indexedSearchTree := by
+theorem indexedSearchTree_valid : IntervalTree.Valid indexedInterval indexedSearchTree := by
   constructor
   · simp only [indexedSearchTree, IntervalTree.cacheValid_node, IntervalTree.cacheValid_nil]
     decide
   · change [indexedZero, indexedOne, indexedLater].Pairwise (· < ·)
     decide
 
-theorem indexedSearch_lowOrdered : IntervalTree.LowOrdered indexedInterval indexedSearchTree :=
-  IntervalTree.lowOrdered_of_strict indexedInterval indexed_compatible indexedSearch_valid.2
+theorem indexedSearchTree_lowOrdered : IntervalTree.LowOrdered indexedInterval indexedSearchTree :=
+  IntervalTree.lowOrdered_of_strict indexedInterval indexed_compatible indexedSearchTree_valid.2
 
-theorem indexedSearch_semantics (query : NKey) :
+theorem indexedSearchTree_semantics (query : NKey) :
     IntervalTree.search indexedInterval indexedSearchTree query = true ↔
       IntervalSet.HasOverlap
         (indexedInterval '' Trees.setTree (Trees.Cached.erase indexedSearchTree)) query :=
-  indexed_contract.overlap indexedSearchTree indexedSearch_valid query
+  indexed_contract.overlap indexedSearchTree indexedSearchTree_valid query
 
-theorem indexedSearch_answers :
+theorem indexedSearchTree_answers :
     [eightPoint, tenPoint, ninePoint].map (IntervalTree.search indexedInterval indexedSearchTree) =
       [true, true, true] := rfl
 

@@ -16,7 +16,7 @@ theorem source_action :
  signature.input.pathAction.eval (Contextual.algebra M) (Examples.FrozenMemoSignature.environment M A B) =
  .term (paths M A B).context _ (action M A B) := by
  let e := inputPaths_eval M A B
- have ht := Examples.FixedPathTransportEvaluation.fixedPathTransport_eval M
+ have ht := Examples.FixedPathTransportEvaluation.fixedPathTransportTerm_eval M
   (Examples.FrozenMemoSignature.environment M A B) signature.input.Γ signature.input.A
   signature.input.x signature.input.y (paths M A B).context (paths M A B).family
   (paths M A B).x (paths M A B).y e.context_eval e.family_eval e.x_eval e.y_eval

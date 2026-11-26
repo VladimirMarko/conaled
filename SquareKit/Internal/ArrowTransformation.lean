@@ -25,7 +25,7 @@ theorem transformation_diagonal (X : B) :
     (congrArg (fun η => η.app X) β.over).symm
 
 /-- Agreement on the constant arrows and generic carrier determines a natural transformation. -/
-theorem naturalTransformation_ext
+theorem natTrans_ext
     {h' : GeometricMorphism F B} {l' : GeometricMorphism.Lift h' (ArrowGeometry.projection B)}
     (α β : k.morphism.inverseImage ⟶ l'.morphism.inverseImage)
     (ed : ∀ X, α.app ((ArrowGeometry.diagonal B).obj X) =
@@ -52,7 +52,7 @@ theorem naturalTransformation_ext
 /-- Its component on the generic carrier determines the whole transformation over a fixed base. -/
 theorem transformation_ext
     (e : α.transformation.app (generic B) = β.transformation.app (generic B)) : α = β :=
-  GeometricMorphism.Lift.Hom.ext (naturalTransformation_ext α.transformation β.transformation
+  GeometricMorphism.Lift.Hom.ext (natTrans_ext α.transformation β.transformation
     (transformation_diagonal α β) e)
 
 variable [HasFiniteLimits F]

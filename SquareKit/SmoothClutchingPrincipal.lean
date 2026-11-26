@@ -38,7 +38,7 @@ theorem chart_principal (j : lineSheaf ⟶ base) (k : totalLine G ⟶ total G c)
     rw [← ha₁, sectionAction_chart G c k ha]
     have he : pairSection lineSheaf (locallyConstantGroupSheaf G) U
         ((lineProjection G).hom.app U a) ((gb * ga⁻¹) * ga) = b := by
-      apply productSection_ext
+      apply product_section_ext
       · simpa only [pairSection_fst] using ha₂.trans hb₂.symm
       · simpa only [pairSection_snd] using inv_mul_cancel_right gb ga
     exact (congrArg (k.hom.app U) he).trans hb₁

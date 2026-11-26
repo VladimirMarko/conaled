@@ -215,12 +215,12 @@ def sortBottomUpBy (cmp : α → α → Bool) (xs : List α) : List α :=
     sortBottomUpBy cmp [x] = [x] := by
   simp only [sortBottomUpBy, List.map_singleton, mergeAllBy_singleton]
 
-private theorem singletonRuns_flatten (xs : List α) :
+private theorem flatten_map_singleton (xs : List α) :
     (xs.map fun x => [x]).flatten = xs := List.flatMap_singleton' xs
 
 theorem sortBottomUpBy_perm (cmp : α → α → Bool) (xs : List α) :
     (sortBottomUpBy cmp xs).Perm xs := by
-  simpa only [sortBottomUpBy, singletonRuns_flatten] using
+  simpa only [sortBottomUpBy, flatten_map_singleton] using
     mergeAllBy_perm cmp (xs.map fun x => [x])
 
 theorem sortBottomUpBy_length (cmp : α → α → Bool) (xs : List α) :
@@ -236,7 +236,7 @@ theorem sortBottomUpBy_sorted_compatible_on [LE κ] [Std.IsPreorder κ]
       (cmp a b = true → key a ≤ key b) ∧ (cmp a b = false → key b ≤ key a)) :
     KeySorted key (sortBottomUpBy cmp xs) := by
   apply mergeAllBy_sorted_compatible_on key cmp
-  · simpa only [singletonRuns_flatten] using hc
+  · simpa only [flatten_map_singleton] using hc
   · intro ys hy
     rcases List.mem_map.mp hy with ⟨x, _, rfl⟩
     simp [KeySorted]
@@ -409,7 +409,7 @@ def sortBottomUpRevBy (cmp : α → α → Bool) (xs : List α) : List α :=
 
 theorem sortBottomUpRevBy_perm (cmp : α → α → Bool) (xs : List α) :
     (sortBottomUpRevBy cmp xs).Perm xs := by
-  simpa only [sortBottomUpRevBy, singletonRuns_flatten] using
+  simpa only [sortBottomUpRevBy, flatten_map_singleton] using
     mergeAllRevBy_perm cmp (xs.map fun x => [x])
 
 theorem sortBottomUpRevBy_length (cmp : α → α → Bool) (xs : List α) :
@@ -425,7 +425,7 @@ theorem sortBottomUpRevBy_sorted_compatible_on [LE κ] [Std.IsPreorder κ]
       (cmp a b = true → key a ≤ key b) ∧ (cmp a b = false → key b ≤ key a)) :
     KeySorted key (sortBottomUpRevBy cmp xs) := by
   apply mergeAllRevBy_sorted_compatible_on key cmp
-  · simpa only [singletonRuns_flatten] using hc
+  · simpa only [flatten_map_singleton] using hc
   · intro ys hy
     rcases List.mem_map.mp hy with ⟨x, _, rfl⟩
     simp [KeySorted]

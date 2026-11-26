@@ -11,7 +11,7 @@ open EuclideanOpen SmoothAlgebra
 /-- An ordinary smooth map of principal opens is smooth for the inherited
 Mathlib manifold structures. Its ambient representative need only be smooth
 on the source open. -/
-theorem openMap_contMDiff {U V : Domain} (f : U ⟶ V) :
+theorem euclideanOpenMap_contMDiff {U V : Domain} (f : U ⟶ V) :
     ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞
       (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x) := by
   apply (ContMDiff.subtypeVal_comp_iff (ordinaryOpen V) _).mp
@@ -48,12 +48,12 @@ theorem chart_principalIso (U : Domain) (i : ordinaryOpen U) :
 /-- Transporting a principal-open map through the manifold comparison gives
 the existing algebraic pullback interpretation. -/
 theorem principalIso_naturality {U V : Domain} (f : U ⟶ V) :
-    map (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x) (openMap_contMDiff f) ≫
+    map (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x) (euclideanOpenMap_contMDiff f) ≫
       (principalIso V).hom = (principalIso U).hom ≫ embedding.map f := by
   let A := openFamily U
   let B := openFamily V
   let l := A.localMap B (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x)
-    (openMap_contMDiff f)
+    (euclideanOpenMap_contMDiff f)
   apply A.charts.hom_ext
   intro i
   apply cover_jointly_epic (A.charts.domain i) (l.defining i) (l.covers i) (embedding.obj V)
@@ -98,7 +98,7 @@ def openMapOfContMDiff {U V : Domain} (f : ordinaryOpen U → ordinaryOpen V)
 def openSmoothEquiv (U V : Domain) :
     (U ⟶ V) ≃ {f : ordinaryOpen U → ordinaryOpen V //
       ContMDiff (modelWithCorners U.dimension) (modelWithCorners V.dimension) ∞ f} where
-  toFun f := ⟨(show EuclideanOpen.Map U V from f).toFun, openMap_contMDiff f⟩
+  toFun f := ⟨(show EuclideanOpen.Map U V from f).toFun, euclideanOpenMap_contMDiff f⟩
   invFun f := openMapOfContMDiff f.val f.property
   left_inv _ := OpenFunctions.Map.ext (fun _ => rfl)
   right_inv _ := Subtype.ext rfl

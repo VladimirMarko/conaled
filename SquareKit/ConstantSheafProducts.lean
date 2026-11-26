@@ -44,10 +44,10 @@ def finiteIso [Finite I] : obj X (I → A) ≅ power X I A where
   hom_inv_id := by ext U s; rfl
   inv_hom_id := by ext U s; rfl
 
-instance finiteComparison_isIso [Finite I] : IsIso (comparison X I A) :=
+instance comparison_isIso_of_finite [Finite I] : IsIso (comparison X I A) :=
   (finiteIso X I A).isIso_hom
 
-instance finiteCanonical_isIso [Finite I] : IsIso (canonicalComparison X I A) := by
+instance canonicalComparison_isIso_of_finite [Finite I] : IsIso (canonicalComparison X I A) := by
   unfold canonicalComparison
   infer_instance
 

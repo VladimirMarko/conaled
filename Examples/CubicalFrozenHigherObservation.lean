@@ -24,7 +24,7 @@ theorem frozen_higher_observation : secondObservation selectedNormalizedHomotopy
   (congrArg secondObservation selectedNormalizedHomotopy_eq).trans secondObservation_selected
 
 /-- Replacing the selected source homotopy by reflexivity changes its observation. -/
-theorem frozenHigher_no_erasure : selectedNormalizedHomotopy ≠ secondZero terminal.{0} := by
+theorem selectedNormalizedHomotopy_ne_secondZero : selectedNormalizedHomotopy ≠ secondZero terminal.{0} := by
   intro h
   have e := (congrArg secondObservation h).trans secondObservation_zero
   exact Int.one_ne_zero (frozen_higher_observation.symm.trans e)

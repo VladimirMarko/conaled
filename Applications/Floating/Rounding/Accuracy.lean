@@ -30,7 +30,7 @@ def AccuracyRep (mantissa : Nat) (accuracy : Accuracy) (value : Rat) : Prop :=
 def ExtendedRep (extended : ExtendedMantissa) (value : Rat) : Prop :=
   AccuracyRep extended.mantissa extended.accuracy value
 
-theorem nearestEven_adjacent (mantissa : Nat) (accuracy : Accuracy) :
+theorem roundToNearestEven_adjacent (mantissa : Nat) (accuracy : Accuracy) :
     mantissa ≤ accuracy.roundToNearestEven mantissa ∧
       accuracy.roundToNearestEven mantissa ≤ mantissa + 1 := by
   cases accuracy with
@@ -41,7 +41,7 @@ theorem nearestEven_adjacent (mantissa : Nat) (accuracy : Accuracy) :
     | eq => simp only [Accuracy.roundToNearestEven]; omega
     | gt => simp [Accuracy.roundToNearestEven]
 
-theorem nearestEven_tie_even (mantissa : Nat) :
+theorem roundToNearestEven_tie_even (mantissa : Nat) :
     ((Accuracy.inexact .eq).roundToNearestEven mantissa) % 2 = 0 := by
   simp only [Accuracy.roundToNearestEven]
   omega
@@ -92,7 +92,7 @@ theorem AccuracyRep.round_scaled {m : Nat} {a : Accuracy} {x : Rat}
 theorem AccuracyRep.round_lower {m : Nat} {a : Accuracy} {x : Rat} (k : Nat)
     (h : AccuracyRep m a x) (lower : (k : Rat) ≤ x) : k ≤ a.roundToNearestEven m := by
   have interval := h.bounds
-  have adjacent := nearestEven_adjacent m a
+  have adjacent := roundToNearestEven_adjacent m a
   have km : k ≤ m := by
     have hk : (k : Rat) < ((m + 1 : Nat) : Rat) := by
       simpa only [Nat.cast_add, Nat.cast_one] using lower.trans_lt interval.2
@@ -104,7 +104,7 @@ theorem AccuracyRep.round_upper {m : Nat} {a : Accuracy} {x : Rat} (k : Nat)
     (h : AccuracyRep m a x) (upper : x ≤ (k : Rat)) : a.roundToNearestEven m ≤ k := by
   have interval := h.bounds
   have mk : m ≤ k := Rat.natCast_le_natCast.mp (interval.1.trans upper)
-  have adjacent := nearestEven_adjacent m a
+  have adjacent := roundToNearestEven_adjacent m a
   by_cases equal : m = k
   · subst m
     have value : x = (k : Rat) := le_antisymm upper interval.1

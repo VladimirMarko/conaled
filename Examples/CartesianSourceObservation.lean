@@ -214,7 +214,7 @@ theorem horizontalSection_endpoint (s : Term (squareFamily H).family) (b z : Boo
     (by rw [Cartesian.SourceObservation.lineMap_endpoint, horizontal_vertices])
   exact hcast.trans (hsub.trans (value_heq H s _).symm)
 
-theorem smallSection_permutation (p : Term (loops (Fin 3)))
+theorem small_section_permutation (p : Term (loops (Fin 3)))
     (s : Term (Presheaf.decode ((raisedIntervalIso terminal).hom ≫ codeOfPath p)))
     (c d : Term (Presheaf.decode (code (Fin 3))))
     (hc : HEq (s.reindex (endpointSub terminal false)) c)
@@ -233,7 +233,7 @@ theorem smallSection_permutation (p : Term (loops (Fin 3)))
 theorem horizontal_value (s : Term (squareFamily H).family) (b : Bool) :
     carrierEquiv (value H s (vertex b true)) =
       loopPermutation (if b then q else p) (carrierEquiv (value H s (vertex b false))) :=
-  smallSection_permutation _ (horizontalSection H s b) _ _
+  small_section_permutation _ (horizontalSection H s b) _ _
     (horizontalSection_endpoint H s b false) (horizontalSection_endpoint H s b true)
 
 

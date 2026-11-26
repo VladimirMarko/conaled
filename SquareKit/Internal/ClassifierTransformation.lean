@@ -46,7 +46,7 @@ def classifiedSourceTransformation (k : Lift h (slice (U ⨿ ⊤_ B))) :
 
 omit [HasPullbacks F] [HasBinaryProducts G] [HasPullbacks G] [Mono u] in
 /-- The classifier's source comparison square commutes for noninvertible transformations too. -/
-theorem classifierSource_transformation (k : Lift h (slice (U ⨿ ⊤_ B))) :
+theorem classifierSourceIso_transformation (k : Lift h (slice (U ⨿ ⊤_ B))) :
     (PartitionSection.mapParameter (parameterPullback (f.comp h) u) (parameterPullback (g.comp h) u)
       (α.app (h.inverseImage.obj U))).map ((classifierSourceIso f h u).hom.app k) ≫
         classifiedSourceTransformation α h u k =

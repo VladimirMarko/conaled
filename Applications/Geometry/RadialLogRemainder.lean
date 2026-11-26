@@ -17,7 +17,7 @@ theorem complexCube_isBigO {E : Type*} [NormedAddCommGroup E] {f : E → ℂ}
   convert (complexConjugate_isBigO h).mul (h.pow 2) using 1
   funext p; ring
 
-theorem complexCube_difference {E : Type*} [NormedAddCommGroup E] {f g : E → ℂ}
+theorem conj_mul_sq_difference_isBigO {E : Type*} [NormedAddCommGroup E] {f g : E → ℂ}
     (hf : f =O[𝓝 0] (fun p => ‖p‖)) (hg : g =O[𝓝 0] (fun p => ‖p‖))
     (hd : (fun p => f p-g p) =O[𝓝 0] (fun p => ‖p‖^3)) :
     (fun p => conj (f p)*(f p)^2-conj (g p)*(g p)^2) =O[𝓝 0] (fun p => ‖p‖^5) := by
@@ -64,7 +64,7 @@ theorem originLog_deviation : (fun y => originLog y-y)
 
 theorem originLog_remainder : (fun y => originLog y-y-conj y*y^2/3)
     =O[𝓝 (0 : ℂ)] (fun y => ‖y‖^5) := by
-  have hd := complexCube_difference originLog_isBigO
+  have hd := conj_mul_sq_difference_isBigO originLog_isBigO
     ((isBigO_refl (fun y : ℂ => y) (𝓝 0)).norm_right) originLog_deviation
   apply ((hd.const_mul_left (1/3 : ℂ)).sub originLog_exp_error).congr_left
   intro y

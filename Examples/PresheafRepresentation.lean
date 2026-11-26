@@ -57,7 +57,7 @@ theorem labelledClass_unique (f : ClassifyingMap parameter forget)
     f = labelledClass := represented_injective _ _ (h.trans labelledClass_model.symm)
 
 /-- The generic model also tests a left point, absent from the constant right model. -/
-theorem genericClass_left :
+theorem classify_generic_left :
     (classify parameter (projection parameter) (genericModel parameter)).left.app
       coarse coarseLeft = coarseLeft := by rw [classify_generic]; rfl
 
@@ -84,7 +84,7 @@ theorem labelledLift_graph :
   exact graph_comparison parameter forget coarse labelledLeft true
 
 /-- Source graph soundness over the generic represented model observes its left predicate. -/
-theorem genericClass_graph :
+theorem classify_generic_graph :
     (∃ a : (total parameter).obj coarse,
       a = (classify parameter (projection parameter) (genericModel parameter)).left.app
         coarse coarseLeft ∧ true = (tag parameter).app coarse a) :=

@@ -112,7 +112,7 @@ theorem repeated_layout :
   exact ⟨he, h⟩
 
 theorem repeated_count : (lineCountSquare.impl repeatedProblem).2 = 2 := by
-  apply selected_lineCount_eq repeatedProblem [[wordOfLength 1, wordOfLength 1], [wordOfLength 1]]
+  apply selected_lineCountSquare_eq repeatedProblem [[wordOfLength 1, wordOfLength 1], [wordOfLength 1]]
   exact ⟨repeated_layout.2.1, fun q hq => costLE_count _ q (repeated_layout.2.2 q hq)⟩
 
 def bookProblem : Problem := ⟨(10, bookWords), by decide⟩
@@ -134,7 +134,7 @@ theorem tied_layouts : bookGreedy ≠ bookAlternative ∧
     cost1Prime bookGreedy = (4, 7) ∧ cost1Prime bookAlternative = (4, 7) ∧
     (lineCountSquare.impl bookProblem).2 = 4 := by
   refine ⟨by decide, by decide, by decide, ?_⟩
-  apply selected_lineCount_eq bookProblem bookAlternative
+  apply selected_lineCountSquare_eq bookProblem bookAlternative
   exact ⟨alternative_optimum.1, fun q hq => costLE_count _ q (alternative_optimum.2 q hq)⟩
 
 /-- Mathematical correctness permits an empty word; the source-word domain does not. -/

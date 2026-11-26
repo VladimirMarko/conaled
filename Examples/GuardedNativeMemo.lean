@@ -114,14 +114,14 @@ theorem directCertificate_eval :
 
 /-- The selected contextual package is interpreted through its generated
 normalization, retaining the exact chosen certificate. -/
-theorem selectedValue_eval :
+theorem parameters_value_eval :
     (parameters.value loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (M.subTy B (M.toStructuralModel.sectionSub A x)) b := by
   have he := Contextual.interpret (parameters.valueAtPath pointTyping.reflexivity)
     M (environment M Γ A B x b) (inputs M Γ A B x b)
   exact he.trans (directValue_eval M Γ A B x b)
 
-theorem selectedCertificate_eval :
+theorem parameters_certificate_eval :
     (parameters.certificate loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (semanticCertificateType M Γ A B x b)
         (etaValue M A B x x x (M.reflexivity A x) (M.reflexivity A x) b) := by
@@ -217,7 +217,7 @@ theorem selected_certificate_comparison :
       (((parameters.certificate loop).eval (Contextual.algebra M₀) targetEnvironment).termAt FiniteOption.Base
         (semanticCertificateType M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput)) := by
   unfold sourceEnvironment targetEnvironment
-  rw [selectedCertificate_eval, selectedCertificate_eval]
+  rw [parameters_certificate_eval, parameters_certificate_eval]
   simp only [Value.termAt_term, Option.map_some]
   exact congrArg some (eta_compare FiniteOption.comparison comparison selected selected selected
     ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩)

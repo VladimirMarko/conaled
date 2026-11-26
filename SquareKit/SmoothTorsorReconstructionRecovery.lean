@@ -72,7 +72,7 @@ theorem reconstructionChartLift_point (i : (sectionCharts P).Index) (g : G)
     (x : Points (chartDomain (reconstructionChart P i g))) :
     realSections.map (reconstructionChartLift P i g) (ordinaryPoint _ x) =
       totalPointEquiv P (chartPoint (reconstructionChart P i g) x) := by
-  exact (pointLift_shift_comp P (reconstructionDomainMap P i g)
+  exact (realSections_map_totalShift_comp P (reconstructionDomainMap P i g)
     (ChartFamily.TorsorAtlas.localLift .preferred P i) g x).trans
       (congrArg (totalPointEquiv P) (reconstructionChart_point P i g x).symm)
 

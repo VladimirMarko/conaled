@@ -156,7 +156,7 @@ theorem coordinateDifference_contDiffOn
 
 /-- Smooth maps transverse at an equal-image pair give a smooth regular-level normal form
 for their actual common-chart equality equation. -/
-theorem nonempty_coordinateNormalForm
+theorem nonempty_normalForm_coordinateDifference
     [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N] [IsManifold (modelWithCorners p) ∞ P]
     {f : M → P} {g : N → P}
     (hf : ContMDiff (modelWithCorners m) (modelWithCorners p) ∞ f)

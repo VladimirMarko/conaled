@@ -125,7 +125,7 @@ theorem overlapLabel_cocycle :
     SheafCoverCech.firstThird A.cover ≫ p.overlapLabel smoothAction =
       labelMul (SheafCoverCech.firstSecond A.cover ≫ p.overlapLabel smoothAction)
         (SheafCoverCech.secondThird A.cover ≫ p.overlapLabel smoothAction) := by
-  apply A.tripleHom_ext
+  apply A.tripleMap_hom_ext
   intro i j k
   rw [labelMul_precomp]
   simp only [A.tripleMap_firstThird_assoc, A.tripleMap_firstSecond_assoc,

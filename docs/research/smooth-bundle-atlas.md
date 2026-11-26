@@ -47,7 +47,7 @@ a discrete principal bundle; a target manifold may have a different dimension.
 | `SmoothOpenPullback`: `unit_of_real_points`, `inverse_site_pullback`, `inverse_sheaf_pullback` | Inverse images of ordinary open restrictions are actual pullbacks at every finite-presentation stage. Real points detect units in the stated algebra argument, not general smooth-map equality. |
 | `SmoothChartOverlap`: `pair`, `factor`, `compose` | Pair domains are defined by ordinary chart intersections; every relation in the existing chart diagram factors through them. Composition uses the derived inverse-open pullback. |
 | `SmoothChartPullback`: `stageSetoid`, `raw_chart_eq`, `raw_pullback`, `chart_pullback` | A quotient-valued cocone detects raw chart equality at every stage. Left-exact sheafification transports the proved pullbacks to the existing realization. This is not a proof by equality on real points. |
-| `SmoothManifoldRepresentedAtlas`: `representedAtlas`, `subdivisionAtlas`, `inverseTarget`, `commonRepresentedLeft`, `commonRepresentedRight` | Ordinary charts produce cover, pairs and triples. Ordinary chart restrictions and coordinate maps produce actual refinement and base-change maps. `inverseSecond_base` and `inverseComposite_base` retain the map equations for successive changes of base. |
+| `SmoothManifoldRepresentedAtlas`: `representedAtlas`, `subdivisionAtlas`, `inverseTarget`, `commonRepresentedLeft`, `commonRepresentedRight` | Ordinary charts produce cover, pairs and triples. Ordinary chart restrictions and coordinate maps produce actual refinement and base-change maps. `inverseSecond_base` and `inverseSecond_base_comp` retain the map equations for successive changes of base. |
 | `SmoothPrincipalBundle`: `LocalTrivialization`, `Bundle`, `productHomeomorph`, `action_free` | The independent sheet contract gives local products and ordinary freeness. No global trivialization follows. |
 | `SmoothBundleRealization`: `baseCharts`, `totalCharts`, `realizedProjection`, `transitionLabel` | Base charts are restricted inside local trivializing neighborhoods. Total charts are the inverse sheets over those charts. Labels are continuous because their fibers are open sheets, hence locally constant for a discrete group. |
 | `SmoothBundleRecovery`: `ordinaryDatum`, `descendedObject`, `totalSpaceIso` | The ordinary local sections and transition labels give the forward cocycle. Existing effective descent constructs the torsor. Its target map to the ordinary total-space realization is locally surjective, by the actual total-chart lifts, and monic, by projection preservation, torsor principality and freeness. Its inverse is constructed with `asIso`. |
@@ -59,7 +59,7 @@ a discrete principal bundle; a target manifold may have a different dimension.
 
 `Examples.SmoothBundleAtlas.composite_comparison` displays the `eqToHom` transport
 of the complete restricted datum in a composite comparison. The two ordinary base
-maps scale by 2 and 3; `scaleTwo_nonidentity` proves that the first interpreted map
+maps scale by 2 and 3; `interpret_scale_two_ne_id` proves that the first interpreted map
 is not the identity. `composite_base` identifies their actual composite. The
 chart-choice comparison uses the explicit equality transport in `selfCommonRight`.
 

@@ -48,12 +48,12 @@ that all choices of contraction are definitionally equal.
 
 ## Boolean separation and noncommuting permutations
 
-`booleanPermutation_cases` proves that a Boolean permutation is identity or
-negation. `booleanLoop_cases` therefore gives a native two-path from every
+`boolean_equiv_cases` proves that a Boolean permutation is identity or
+negation. `boolean_loop_cases` therefore gives a native two-path from every
 closed Boolean loop to one of those two representatives.
 `booleanLoops_no_two_path` separates the representatives: identity transports
 `true` to `true`, while negation transports it to `false`.
-`booleanLoops_not_path_unique` states precisely the resulting failure of
+`boolean_loops_not_path_unique` states precisely the resulting failure of
 native path uniqueness for this closed Boolean loop family.
 
 For `Fin 3`, `swap01` exchanges 0 and 1, and `swap12` exchanges 1 and 2.
@@ -80,7 +80,7 @@ parameter.
 substitution, using the full map-and-fiber-witness substitution laws.
 `recoverLoopPathReindex` restricts the whole recovery path and corrects its
 endpoints to those recomputed expressions. The client specializes this to the
-interval projection in `intervalLoopRecovery` and `intervalRecovery_endpoint`.
+interval projection in `intervalLoopRecovery` and `recoverLoop_reindex_interval`.
 This is a transported recovery witness; no claim identifies it with a
 separately recomputed choice of `leftInverseAt`.
 

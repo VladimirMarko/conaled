@@ -175,7 +175,7 @@ noncomputable def uaPresentation
       Functor.isoWhiskerLeft (restrictInclusion (intervalFace Γ false) ≫ projection (interval Γ)).mapElements e).isIso_hom
   haveI : IsIso (Univalence.boundaryRight a b) := by
     exact (eqToIso (Univalence.boundary_right a b)).isIso_hom
-  haveI : IsIso (Univalence.boundaryMap a b e.hom) := gluedMap_isIso _ _ _
+  haveI : IsIso (Univalence.boundaryMap a b e.hom) := glue_isIso _ _ _
   exact Glue.codeNativeIso Univalence.face (Univalence.ambient b) (CodeSystem.boundary a b)
     (Univalence.boundaryMap a b e.hom) (Univalence.boundaryEquivalence a b e.hom E) ≪≫
     Glue.familyIso _ _ _ _ ≪≫ compatibleUnglueIso _ _ _ (asIso (Univalence.boundaryMap a b e.hom))

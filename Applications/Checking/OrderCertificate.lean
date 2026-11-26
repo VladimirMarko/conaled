@@ -77,7 +77,7 @@ def checkedLengthSquare [IsTrans α R]
     (Squares.pair (Squares.identity _) (checkerSquare law))
 
 /-- The composed consumer has no acceptance hypothesis hidden in its interface. -/
-theorem checkedLength_correct [IsTrans α R]
+theorem checkedLengthSquare_correct [IsTrans α R]
     (law : ∀ x y, cmp x y = true ↔ R x y) (xs : List α) :
     (checkedLengthSquare law).impl xs = some xs.length ↔ xs.Pairwise R := by
   have h := (checkedLengthSquare law).commutes xs

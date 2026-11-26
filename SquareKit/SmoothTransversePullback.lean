@@ -197,7 +197,7 @@ def localModel
     (hg : ContMDiff (modelWithCorners n) (modelWithCorners p) ∞ g)
     (ht : Transverse (m := m) (n := n) (p := p) f g) (q : Pullback f g) :
     LocalModel (m := m) (n := n) (p := p) q where
-  normal := Classical.choice (nonempty_coordinateNormalForm hf hg q.property (ht q))
+  normal := Classical.choice (nonempty_normalForm_coordinateDifference hf hg q.property (ht q))
   coordinates := ContinuousLinearEquiv.ofFinrankEq (by
     rw [kernel_finrank (derivative q) (derivative_surjective hf hg ht q)]
     simp [Space])

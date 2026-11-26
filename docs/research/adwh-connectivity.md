@@ -25,7 +25,7 @@ invalid vertex. `request_merged_iff` recovers the successful distinct-name call
 premise exactly.
 
 `Realizations.lean` supplies `arrayOps` and `listOps`, and proves their query laws
-from actual source histories. `sourceConnected_iff` identifies the retained
+from actual source histories. `listPartition_connected_iff` identifies the retained
 source closure with the Mathlib partition. `joint_request` extends a successful
 synchronized history from actual executable results. `joint_request_realized`
 constructs the list step from a successful array step, using the list's own
@@ -54,7 +54,7 @@ finite sets, setoids and equivalence closure supply the semantic foundation;
 Lean's lists and arrays supply storage. The source's independent `RootSteps`
 and concrete list partition proofs are retained to establish the actual
 executors' laws. The source closure is kept behind the proved
-`sourceConnected_iff` bridge so its existing induction proofs remain useful.
+`listPartition_connected_iff` bridge so its existing induction proofs remain useful.
 
 ## Two consumers and composition
 

@@ -112,7 +112,7 @@ variable {U V W : Domain}
 
 def SmoothMap.restrict (m : SmoothMap U d M) (r : V ⟶ U) : SmoothMap V d M :=
   ⟨fun x => m.val ((show EuclideanOpen.Map V U from r) x),
-    m.property.comp (openMap_contMDiff r)⟩
+    m.property.comp (euclideanOpenMap_contMDiff r)⟩
 
 theorem hat_restrict (m : SmoothMap U d M) (r : V ⟶ U) :
     embedding.map r ≫ hat m.val m.property = hat (m.restrict r).val (m.restrict r).property := by
@@ -120,12 +120,12 @@ theorem hat_restrict (m : SmoothMap U d M) (r : V ⟶ U) :
   simp only [hat, ← Category.assoc, Iso.hom_inv_id, Category.id_comp]
   rw [← principalIso_naturality r]
   simp only [Category.assoc, Iso.hom_inv_id_assoc]
-  exact (map_comp _ _ (openMap_contMDiff r) m.property).symm
+  exact (map_comp _ _ (euclideanOpenMap_contMDiff r) m.property).symm
 
 def Family.restrict {m n : SmoothMap U d M} (a : Family (G := G) U m n) (r : V ⟶ U) :
     Family (G := G) V (m.restrict r) (n.restrict r) :=
   ⟨fun x => a.val ((show EuclideanOpen.Map V U from r) x),
-    a.property.1.comp (openMap_contMDiff r),
+    a.property.1.comp (euclideanOpenMap_contMDiff r),
     fun _ => a.property.2.1 _, fun _ => a.property.2.2 _⟩
 
 omit [IsManifold (modelWithCorners d) ∞ M] in
@@ -193,7 +193,7 @@ theorem restrictArrow_comp (f : ChartArrow smoothAction m n) (r : V ⟶ U) (s : 
 
 /-- Canonical global-chart descent only; arbitrary nontrivial torsors need no
 chosen global trivialization and are outside this comparison's scope. -/
-theorem canonicalRecovery_comparison
+theorem canonicalArrowEquiv_recoveryArrowComparison
     (A B : SplitSheaf.Ty (embedding.obj U))
     [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
     [Presheaf.IsLocallySurjective topology (SplitSheaf.p B).hom]
@@ -288,10 +288,10 @@ local instance coordinateAction : MulAction C4 (ordinaryOpen diskDomain) where
 local instance : MulAction C4 (Points diskDomain) := coordinateAction
 
 theorem smooth (g : C4) : ContMDiff (modelWithCorners diskDomain.dimension) (modelWithCorners diskDomain.dimension) ∞
-    (fun x : ordinaryOpen diskDomain => g • x) := openMap_contMDiff (diskMap g)
+    (fun x : ordinaryOpen diskDomain => g • x) := euclideanOpenMap_contMDiff (diskMap g)
 
 abbrev endpoint {U : Domain} (m : U ⟶ diskDomain) : External.SmoothMap U diskDomain.dimension (ordinaryOpen diskDomain) :=
-  ⟨(show EuclideanOpen.Map _ _ from m).toFun, openMap_contMDiff m⟩
+  ⟨(show EuclideanOpen.Map _ _ from m).toFun, euclideanOpenMap_contMDiff m⟩
 
 theorem equivariant (g : C4) :
     (representation smooth).map g ≫ (principalIso diskDomain).hom =

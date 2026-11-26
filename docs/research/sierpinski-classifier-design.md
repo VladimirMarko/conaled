@@ -237,7 +237,7 @@ rename a slice classifier as the Sierpiński classifier.
 
 The implementation separates arrow operations, adjunctions, exactness,
 transport, presentation, reconstruction, and coherence. In particular
-`ArrowTransformation.naturalTransformation_ext` treats different base legs;
+`Sierpinski.natTrans_ext` treats different base legs;
 only the fixed-base specialization derives thinness. `coneModels` retains
 both the geometric base-map component and the model-map component, and its
 fullness constructs their upstairs transformation. `pseudopullback` uses the

@@ -157,7 +157,7 @@ def fixedStageCoefficients (U : Domain) (A : Code) (x : code U ⟶ A) :
     · rfl
   right_inv v := congrArg Prod.snd ((stageCoefficients U A).apply_symm_apply (x,v))
 
-theorem openCoefficients_zero (U : Domain) :
+theorem openCoefficientsIso_zero (U : Domain) :
     (openCoefficientsIso U).hom ≫ SheafRelation.fst _ _ =
       SmoothOpenSite.dualSheafZero (embedding.obj U) := by
   ext A h
@@ -165,7 +165,7 @@ theorem openCoefficients_zero (U : Domain) :
 
 /-- Exponential extraction is evaluation at the universal infinitesimal, with
 the arbitrary parameter extended to the dual stage. -/
-theorem dualSections_curry {X F : Sheaf SmoothOpenSite.topology Type}
+theorem dualSectionsEquiv_curry {X F : Sheaf SmoothOpenSite.topology Type}
     (h : SheafRelation.product SmoothOpenSite.infinitesimal X ⟶ F)
     (A : Code) (x : X.obj.obj (atStage A)) :
     SmoothOpenSite.dualSectionsEquiv F A ((SheafFunction.curry h).hom.app (atStage A) x) =
@@ -192,6 +192,6 @@ theorem parameterCoefficients_apply (U : Domain) {X : Sheaf SmoothOpenSite.topol
         (h.hom.app (atStage (dual A)) (eps A, X.obj.map (stageMap (inl A)) x)).unop).2 := by
   change (stageCoefficients U A
     (SmoothOpenSite.dualSectionsEquiv _ A ((SheafFunction.curry h).hom.app (atStage A) x)).unop).2 = _
-  rw [dualSections_curry]
+  rw [dualSectionsEquiv_curry]
 
 end SquareKit.SmoothOpenArcs

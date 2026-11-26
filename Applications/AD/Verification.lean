@@ -20,7 +20,7 @@ import Applications.AD.Jets
 #print axioms Applications.AD.HigherOrder.eval_related
 #print axioms Applications.AD.HigherOrder.compileDual_hasDerivAt
 #print axioms Applications.AD.HigherOrder.compileCurveSquare
-#print axioms Applications.AD.HigherOrder.higherOrder_hasDerivAt
+#print axioms Applications.AD.HigherOrder.higherOrderExample_hasDerivAt
 #print axioms Applications.AD.Jets.jet_correct
 #print axioms Applications.AD.Jets.jet_leibniz
 #print axioms Applications.AD.Jets.towerMulSquare

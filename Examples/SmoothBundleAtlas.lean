@@ -11,7 +11,7 @@ open scoped Manifold ContDiff
 def realLineAtlas := (ChartFamily.preferred (n := 1) (M := Space 1)).representedAtlas
 
 /-- Its intersections are actual sheaf pullbacks, including at nonreduced stages. -/
-theorem realLine_pair (i j : Space 1) :
+theorem realLineAtlas_isPullback (i j : Space 1) :
     IsPullback (embedding.map (realLineAtlas.left i j)) (embedding.map (realLineAtlas.right i j))
       (realLineAtlas.chart i) (realLineAtlas.chart j) :=
   realLineAtlas.square i j
@@ -31,7 +31,7 @@ def realLineTotalComparison := realLineBundle.totalSpaceIso
 def realLineCompleteArrows := derivedArrowEquiv realLineBundle.smooth_action realLineBundle.baseCharts
   realLineObject realLineObject
 
-theorem realLine_arrow_roundtrip (f : SheafActionQuotient.Arrow realLineObject realLineObject) :
+theorem realLineCompleteArrows_apply_symm_apply (f : SheafActionQuotient.Arrow realLineObject realLineObject) :
     realLineCompleteArrows (realLineCompleteArrows.symm f) = f :=
   realLineCompleteArrows.apply_symm_apply f
 
@@ -46,7 +46,7 @@ def firstRestriction := realLineBundle.baseCharts.inverseTarget realLineBundle.b
 def secondRestriction := realLineBundle.baseCharts.inverseSecond realLineBundle.baseCharts realLineBundle.baseCharts
   (scale 2) (scale_smooth 2) (scale 3) (scale_smooth 3)
 
-theorem scaleTwo_nonidentity :
+theorem interpret_scale_two_ne_id :
     realLineBundle.baseCharts.interpret realLineBundle.baseCharts (scale 2) (scale_smooth 2) ≠ 𝟙 _ := by
   intro h
   have he := congrArg (realLineBundle.baseCharts.reconstruct realLineBundle.baseCharts) h
@@ -63,7 +63,7 @@ theorem composite_base :
       realLineBundle.baseCharts.interpret realLineBundle.baseCharts (scale 2) (scale_smooth 2) =
     realLineBundle.baseCharts.interpret realLineBundle.baseCharts (scale 2 ∘ scale 3)
       ((scale_smooth 2).comp (scale_smooth 3)) :=
-  realLineBundle.baseCharts.inverseComposite_base realLineBundle.baseCharts realLineBundle.baseCharts
+  realLineBundle.baseCharts.inverseSecond_base_comp realLineBundle.baseCharts realLineBundle.baseCharts
     (scale 2) (scale_smooth 2) (scale 3) (scale_smooth 3)
 
 /-- Sequential nonidentity restrictions retain the complete datum equality. -/

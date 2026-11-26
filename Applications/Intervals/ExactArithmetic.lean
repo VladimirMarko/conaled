@@ -203,7 +203,7 @@ theorem logarithmInterval_related (q n : ℕ) (hq : 0 < q) :
 
 theorem squareRootInterval_related (q n : ℕ) (hq : 0 < q) :
     Rel (squareRootInterval q n) (squareRootValue n) :=
-  rel_some_of_rawBounds (SquareKit.NonnegativeArithmetic.rel_squareRoot n)
+  rel_some_of_rawBounds (SquareKit.NonnegativeArithmetic.rel_squareRootValue n)
     (SquareKit.NonnegativeArithmetic.rootApprox_precision_bounds n q hq)
 
 theorem exponentiatedLogarithmInterval_related (q n : ℕ) (hq : 0 < q) :
@@ -216,7 +216,7 @@ theorem exponentiatedLogarithmInterval_related (q n : ℕ) (hq : 0 < q) :
     have hnum : n * q - 1 < n * q := Nat.sub_lt hprod (by decide)
     simp only [exponentiatedLogarithmInterval, ite_eq_right hn]
     apply rel_some_of_rawBounds
-      (SquareKit.NonnegativeArithmetic.rel_exponentiatedLogarithm n)
+      (SquareKit.NonnegativeArithmetic.rel_exponentiatedLogarithmValue n)
     exact ⟨SquareKit.NonnegativeArithmetic.expLogApprox_fraction_lt n (n * q - 1) q hq hnum,
       fun _ ha => SquareKit.NonnegativeArithmetic.expLogApprox_upper n ha⟩
 

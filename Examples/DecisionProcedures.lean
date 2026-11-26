@@ -325,7 +325,7 @@ theorem four_mem_pi : 4 ∈ ([3, 1, 4, 1, 5, 9, 2, 6] : List Nat) :=
   (listNatIn_correct _ _).mp in_four_pi
 
 theorem absent_from_pi : (listNatIn 8 [3, 1, 4, 1, 5, 9, 2, 6]).decide = false := rfl
-theorem eight_notMem_pi : 8 ∉ ([3, 1, 4, 1, 5, 9, 2, 6] : List Nat) :=
+theorem eight_not_mem_pi : 8 ∉ ([3, 1, 4, 1, 5, 9, 2, 6] : List Nat) :=
   (listNatIn_false_iff _ _).mp absent_from_pi
 
 theorem listNatIn_nil (i : Nat) : (listNatIn i []).decide = false := rfl
@@ -344,19 +344,19 @@ theorem sort_adjacent_checked (xs : List Nat) :
 
 /-- The checker composition consumes the real sorting proof and retains the
 length justified by occurrence-preserving permutation. -/
-theorem sorted_checkedLength (xs : List Nat) :
+theorem sorted_checkedLengthSquare (xs : List Nat) :
     (OrderCertificate.checkedLengthSquare leb_reflect).impl (ScratchPad2.sort xs) =
       some xs.length := by
-  have h := (OrderCertificate.checkedLength_correct leb_reflect (ScratchPad2.sort xs)).mpr
+  have h := (OrderCertificate.checkedLengthSquare_correct leb_reflect (ScratchPad2.sort xs)).mpr
     (List.isChain_iff_pairwise.mp (ScratchPad2.sort_sorted xs))
   simpa only [ScratchPad2.sort_length] using h
 
 theorem sort_checked_calculation :
     (OrderCertificate.checkedLengthSquare leb_reflect).impl
-      (ScratchPad2.sort [3, 1, 2, 1]) = some 4 := sorted_checkedLength [3, 1, 2, 1]
+      (ScratchPad2.sort [3, 1, 2, 1]) = some 4 := sorted_checkedLengthSquare [3, 1, 2, 1]
 
 theorem empty_checked :
     (OrderCertificate.checkedLengthSquare leb_reflect).impl (ScratchPad2.sort []) =
-      some 0 := sorted_checkedLength []
+      some 0 := sorted_checkedLengthSquare []
 
 end Examples.DecisionProcedures

@@ -180,7 +180,7 @@ theorem rightMap_preserved {a b c : Q} (f : D.Hom b c) :
 
 include LG KC KL XC XL N in
 /-- The derived coproduct map is preserved. -/
-theorem sumMap_preserved {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
+theorem coproduct_map_preserved {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
     V.Rel (G.map (U.map f g))
       (K.comp (l c d).inv (K.comp (X.map (G.map f) (G.map g)) (l a b).hom)) := by
   apply V.trans (N.copair _ _)
@@ -198,10 +198,10 @@ theorem rightMap_natural {a b c : Q} (f : D.Hom b c) :
     (KL.cancel_left KC (I a c) _)
 
 include LG KC KL XC XL N J in
-theorem sumMap_natural_inv {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
+theorem coproduct_map_natural_inv {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
     V.Rel (K.comp (G.map (U.map f g)) (l a b).inv)
       (K.comp (l c d).inv (X.map (G.map f) (G.map g))) := by
-  apply V.trans (KC.comp (sumMap_preserved LG KC KL XC XL N f g) (V.refl _))
+  apply V.trans (KC.comp (coproduct_map_preserved LG KC KL XC XL N f g) (V.refl _))
   apply V.trans (KL.assoc _ _ _)
   apply KC.comp (V.refl _)
   exact V.trans (KL.assoc _ _ _) (V.trans (KC.comp (V.refl _) (J a b)) (KL.comp_id _))
@@ -231,7 +231,7 @@ theorem codomainComparison_comp_inv (a b c : O) :
   apply V.trans (KC.comp (LG.comp _ _) (V.refl _))
   apply V.trans (KL.assoc _ _ _)
   apply V.trans (KC.comp (V.refl _) (V.symm (KL.assoc _ _ _)))
-  apply V.trans (KC.comp (V.refl _) (KC.comp (sumMap_natural_inv LG KC KL XC XL N J _ _) (V.refl _)))
+  apply V.trans (KC.comp (V.refl _) (KC.comp (coproduct_map_natural_inv LG KC KL XC XL N J _ _) (V.refl _)))
   apply V.trans (KC.comp (V.refl _) (KL.assoc _ _ _))
   apply V.trans (V.symm (KL.assoc _ _ _))
   exact KC.comp (V.refl _) (X.map_comp KC KL XC XL _ _ _ _)

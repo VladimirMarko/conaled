@@ -1119,7 +1119,7 @@ Stokes equation. This establishes more than inequality of raw square data.
 `CubicalFrozenAssignment.assignInput` supplies all eight original input
 binders. `retained_homotopy` compares the entire interpreted selected source
 section with the constructed second identity, including its dependent family
-transport. `frozen_higher_observation` reads one; `frozenHigher_no_erasure` rejects
+transport. `frozen_higher_observation` reads one; `selectedNormalizedHomotopy_ne_secondZero` rejects
 reflexivity. The original displayed `sigmaHomotopy` and `tauHomotopy` equations
 retain this binder under the actual frozen substitutions. No replacement maps
 or rewritten source client are used.

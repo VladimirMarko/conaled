@@ -211,7 +211,7 @@ theorem classifiedT_body : RelativeComparison.squareBody classifiedT =
     SmallUniverse.term (NativeNerve.compositionNerve _ finiteThree swap01 swap12 ≫ classifyFinite) :=
   NativeNerve.realizedComposition_body _ _ _
 
-theorem sourceT_body :
+theorem comparisonSquare_realizedComposition :
     Presheaf.SmallUniverse.NativeUnivalence.comparisonSquare
       (RealizedNerve.realizedComposition finiteThree swap01 swap12) =
       Presheaf.SmallUniverse.term (compositionNerve _ finiteThree swap01 swap12 ≫ realizeDM) :=
@@ -273,7 +273,7 @@ theorem nativeH_target : Term.reindex (pathApp nativeH) (endpointSub _ true) =
     NativeNerve.uaConcatenation finiteThree Examples.FiniteUniverseLoops.swap01 Examples.FiniteUniverseLoops.swap12 :=
   pathApp_one _
 theorem omegaU_independent : Term.reindex (pathApp omegaU) (endpointSub _ false) = nativeH := pathApp_zero _
-theorem alignment_commonT : Term.reindex alignmentL (endpointSub (total (interval (raisedContext NativeNerve.point))) false) =
+theorem alignmentL_zero : Term.reindex alignmentL (endpointSub (total (interval (raisedContext NativeNerve.point))) false) =
     pathApp classifiedT := NativeComparison.alignment_original _ _ _
 example : RelativeComparison.SquareSubstitutionLaw omegaU
     (𝟙 (raisedContext NativeNerve.point)) (𝟙 (raisedContext NativeNerve.point)) :=

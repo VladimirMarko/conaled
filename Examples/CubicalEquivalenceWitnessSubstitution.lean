@@ -10,7 +10,7 @@ open SmallUniverse.NativeUnivalence EquivalenceFamilies
 
 /-- Two added interval parameters preserve the encoded Boolean transport witness,
 including the chosen center and contraction of every fiber. -/
-theorem booleanWitness_two_intervals :
+theorem boolean_isEquivReindexSections_two_intervals :
     let σ := projection (interval (raisedContext terminal))
     let τ := projection (interval (total (interval (raisedContext terminal))))
     isEquivReindexSections (pathToMap booleanUniverseLoop) (τ ≫ σ)
@@ -20,7 +20,7 @@ theorem booleanWitness_two_intervals :
   isEquivReindexSections_comp _ _ _ _
 
 /-- Decoding the substituted internal witness recovers the same full selected data. -/
-theorem booleanDecodedWitness_two_intervals :
+theorem boolean_isEquivReindexSections_decode_two_intervals :
     let σ := projection (interval (raisedContext terminal))
     let τ := projection (interval (total (interval (raisedContext terminal))))
     let s := (encodeIsEquiv booleanUniversalTransportEquivalence).reindex σ

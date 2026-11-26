@@ -15,7 +15,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 theorem effectiveCoproducts :
     CoproductDescent.EffectiveCoproducts.{max u v} (SplitSheaf.pseudofunctor.{u,v,max u v} (J := J)) := by
   intro I Y c hc
-  apply CoproductDescent.effectiveCoproducts_of_chosen _ _ c hc
+  apply CoproductDescent.restriction_isEquivalence_of_chosen_coproducts _ _ c hc
   intro Y
   change (SplitSheafCoproduct.restrict (Y := Y)).IsEquivalence
   infer_instance

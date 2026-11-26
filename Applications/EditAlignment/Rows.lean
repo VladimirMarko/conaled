@@ -9,7 +9,7 @@ namespace EditAlignment
 universe u
 variable {α : Type u}
 
-theorem lastD_cons_of_ne_nil {β : Type*} (fallback x : β) (xs : List β) (h : xs ≠ []) :
+theorem getLastD_cons_of_ne_nil {β : Type*} (fallback x : β) (xs : List β) (h : xs ≠ []) :
     (x :: xs).getLastD fallback = xs.getLastD fallback := by
   cases xs with
   | nil => contradiction

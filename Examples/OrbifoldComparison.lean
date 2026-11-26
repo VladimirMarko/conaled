@@ -88,7 +88,7 @@ example : ActionCategory Unit ℝ ≌ ActionCategory Unit ℝ :=
 def trivialGroupQuotient : SmoothEquiv (Quotient (orbitRel Unit ℝ)) ℝ :=
   trivialActionQuotient (fun _ _ => rfl)
 
-example (x : ℝ) : stabilizer Unit x = ⊤ := trivialAction_stabilizer (fun _ _ => rfl) x
+example (x : ℝ) : stabilizer Unit x = ⊤ := stabilizer_eq_top_of_trivial_action (fun _ _ => rfl) x
 end TrivialGroup
 
 section Ineffective
@@ -108,7 +108,7 @@ def ineffectiveQuotient : SmoothEquiv (Quotient (orbitRel C4 ℝ)) ℝ :=
   trivialActionQuotient (fun _ _ => rfl)
 
 theorem ineffective_isotropy (x : ℝ) : stabilizer C4 x = ⊤ :=
-  trivialAction_stabilizer (fun _ _ => rfl) x
+  stabilizer_eq_top_of_trivial_action (fun _ _ => rfl) x
 
 /-- The quotient has forgotten isotropy that the action category retains. -/
 example (x : ℝ) : Nat.card (stabilizer C4 x) = 4 := by

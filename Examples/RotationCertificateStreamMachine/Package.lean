@@ -310,7 +310,7 @@ theorem installedCfg_owned_prefix
       ((next caller)^[n] (some start)).map (installedCfg names symbols registers labels) :=
   installed_owned_prefix names symbols registers labels caller ambient installed start n bound
 
-theorem installedCfg_firstRun_iff
+theorem installedCfg_first_run_iff
     (installed : ∀ label, Owned (some label) →
       ambient (labels label) =
         FrontEndMachine.Transport.statement names symbols registers labels (program caller label))

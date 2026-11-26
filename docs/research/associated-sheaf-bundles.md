@@ -83,7 +83,7 @@ that map. The one-point trivial fiber recovers the realized ordinary base.
 These results retain the ordinary bundle's existing assumptions and add no
 Hausdorff or countability premise. For an ordinary right action, the existing
 `RightBundle.toLeft` adapter uses the inverse action and inverse sheet labels
-(`LocalTrivialization.toLeft_sheet`). Applying the regular comparison to that
+(`LocalTrivialization.changeGroup_inv'_sheet`). Applying the regular comparison to that
 left bundle retains this convention; extension along an arbitrary group
 homomorphism is supplied separately by the sheaf construction above.
 

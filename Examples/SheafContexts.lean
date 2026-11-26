@@ -20,16 +20,16 @@ def model : Presheaf.Model (J := Diamond) Op where
   arrow
     | .neg => { app _ := ↾Bool.not }
 
-theorem carriers_areSheaves (s : Kind) : Presieve.IsSheaf topology (model.carrier s) := by
+theorem carrier_isSheaf (s : Kind) : Presieve.IsSheaf topology (model.carrier s) := by
   cases s
   · exact data_isSheaf
   · exact bool_isSheaf
 
-abbrev ctx := SquareKit.Internal.SheafContexts.context model carriers_areSheaves
+abbrev ctx := SquareKit.Internal.SheafContexts.context model carrier_isSheaf
 abbrev sub {Γ Δ : List Kind} (σ : Sub Op Γ Δ) :=
-  SquareKit.Internal.SheafContexts.substitution model carriers_areSheaves σ
+  SquareKit.Internal.SheafContexts.substitution model carrier_isSheaf σ
 abbrev proj {s : Kind} {Γ : List Kind} :=
-  SquareKit.Internal.SheafContexts.projection model carriers_areSheaves (s := s) (Γ := Γ)
+  SquareKit.Internal.SheafContexts.projection model carrier_isSheaf (s := s) (Γ := Γ)
 
 def empty (j : Diamondᵒᵖ) : Env (model.fiber j) [] := fun {_} i => nomatch i
 
@@ -40,7 +40,7 @@ def emptyIso : ctx [] ≅ terminal where
   hom_inv_id := by ext j ρ s i; nomatch i
   inv_hom_id := rfl
 
-def singletonIso (s : Kind) : ctx [s] ≅ SquareKit.Internal.SheafContexts.sort model carriers_areSheaves s where
+def singletonIso (s : Kind) : ctx [s] ≅ SquareKit.Internal.SheafContexts.sort model carrier_isSheaf s where
   hom := ⟨{ app _ := ↾fun ρ => ρ .zero }⟩
   inv := ⟨{ app j := ↾fun x => Env.extend x (empty j)
             naturality := by
@@ -76,7 +76,7 @@ theorem projection_comparison : (proj (s := e) (Γ := [])) ≫ emptyIso.hom =
 theorem forget_comparison : sub forget ≫ emptyIso.hom = (singletonIso b).hom ≫ base := rfl
 
 def headE : ctx [e,b] ⟶ E :=
-  SquareKit.Internal.SheafContexts.term model carriers_areSheaves (.var .zero)
+  SquareKit.Internal.SheafContexts.term model carrier_isSheaf (.var .zero)
 
 def tailBool : ctx [e,b] ⟶ D := proj ≫ (singletonIso b).hom
 
@@ -137,7 +137,7 @@ theorem lift_comparison : sub (forget.lift (b := e)) ≫ (singletonIso e).hom =
 
 /-- The empty substitution, extended by E, is the required context pullback. -/
 theorem finite_square : IsPullback (sub (forget.lift (b := e))) proj proj (sub forget) :=
-  SquareKit.Internal.SheafContexts.context_pullback model carriers_areSheaves forget e
+  SquareKit.Internal.SheafContexts.context_pullback model carrier_isSheaf forget e
 
 /-- Transport E → 1 along the checked context isomorphisms. -/
 theorem context_top : localImage ⊤ (proj (s := e) (Γ := [])) = ⊤ := by
@@ -150,7 +150,7 @@ theorem context_top : localImage ⊤ (proj (s := e) (Γ := [])) = ⊤ := by
 
 /-- Contextual Beck–Chevalley proves local existence over every Bool environment. -/
 theorem extended_top : localImage ⊤ (proj (s := e) (Γ := [b])) = ⊤ := by
-  have h := SquareKit.Internal.SheafContexts.exists_substitution model carriers_areSheaves
+  have h := SquareKit.Internal.SheafContexts.exists_substitution model carrier_isSheaf
     (⊤ : Subfunctor (model.context [e])) forget
   have ht : (⊤ : Subfunctor (model.context [e])).preimage (sub forget.lift).hom = ⊤ := rfl
   rw [ht, context_top] at h
@@ -178,7 +178,7 @@ theorem selected_image :
 theorem extended_selected :
     localImage ((selected.preimage (proj (s := e)).hom).preimage (sub forget.lift).hom) proj =
       selected.preimage (sub forget).hom := by
-  rw [← SquareKit.Internal.SheafContexts.exists_substitution model carriers_areSheaves _ forget, selected_image]
+  rw [← SquareKit.Internal.SheafContexts.exists_substitution model carrier_isSheaf _ forget, selected_image]
 
 theorem selected_at_U (x : Bool) :
     (localImage ((selected.preimage (proj (s := e)).hom).preimage (sub forget.lift).hom) proj).obj
@@ -201,15 +201,15 @@ def negate : Sub Op [b] [b] := fun {_} i => match i with
   | .succ i => nomatch i
 
 theorem neg_substitution :
-    SquareKit.Internal.SheafContexts.term model carriers_areSheaves (neg.subst negate) =
-      sub negate ≫ SquareKit.Internal.SheafContexts.term model carriers_areSheaves neg :=
-  SquareKit.Internal.SheafContexts.term_substitution model carriers_areSheaves negate neg
+    SquareKit.Internal.SheafContexts.term model carrier_isSheaf (neg.subst negate) =
+      sub negate ≫ SquareKit.Internal.SheafContexts.term model carrier_isSheaf neg :=
+  SquareKit.Internal.SheafContexts.term_substitution model carrier_isSheaf negate neg
 
 theorem neg_value (x : Bool) :
-    (SquareKit.Internal.SheafContexts.term model carriers_areSheaves neg).hom.app (op X) (boolEnv (op X) x) = !x := rfl
+    (SquareKit.Internal.SheafContexts.term model carrier_isSheaf neg).hom.app (op X) (boolEnv (op X) x) = !x := rfl
 
 theorem twice_neg_value (x : Bool) :
-    (SquareKit.Internal.SheafContexts.term model carriers_areSheaves (neg.subst negate)).hom.app (op X) (boolEnv (op X) x) = x := by
+    (SquareKit.Internal.SheafContexts.term model carrier_isSheaf (neg.subst negate)).hom.app (op X) (boolEnv (op X) x) = x := by
   rw [neg_substitution]
   change (!(!x)) = x
   cases x <;> rfl

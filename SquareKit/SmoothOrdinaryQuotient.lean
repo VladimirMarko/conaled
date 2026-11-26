@@ -32,7 +32,7 @@ open SmoothOpenSite SmoothPresentationSite EuclideanOpen SheafActionQuotient
 open SmoothQuarterTurnQuotient SmoothQuarterTurnArcs Orbifolds.QuarterTurn
 
 /-- Evaluation of the actual Yoneda/section comparison at an ordinary point. -/
-theorem homLabel_point {G : Type} [Group G] (U : Domain)
+theorem ordinaryHomLabelEquiv_point {G : Type} [Group G] (U : Domain)
     (g : embedding.obj U ⟶ locallyConstantGroupSheaf G) (x : Points U) :
     (constantLabelRealEquiv G) (ordinaryHomLabelEquiv G U g x) =
       g.hom.app (op (op (free 0))) (ordinaryPoint U x) := by
@@ -51,7 +51,7 @@ theorem disk_onMap_iff (U : Domain) (g : embedding.obj U ⟶ locallyConstantGrou
         ((diskRepresentation.action.onMap g (embedding.map n)).hom.app (op (op (free 0))) (ordinaryPoint U x)) =
       (show Map _ _ from diskMap (ordinaryHomLabelEquiv C4 U g x)) ((show Map _ _ from n) x) := by
     change realSectionEquiv diskDomain (diskRepresentation.act _ (g.hom.app _ _) _) = _
-    rw [← homLabel_point U g x]
+    rw [← ordinaryHomLabelEquiv_point U g x]
     change realSectionEquiv diskDomain (diskRepresentation.act _ ((constantLabel C4).app _ _) _) = _
     rw [diskRepresentation.act_constant]
     change realSectionEquiv diskDomain
@@ -100,16 +100,16 @@ theorem ordinaryArrowLabel_comp {G : Type} [Group G] {M : Sheaf SmoothOpenSite.t
   apply (constantLabelRealEquiv G).injective
   change (constantLabelRealEquiv G) (ordinaryHomLabelEquiv G U (arrowLabel (Arrow.comp f g)) x) =
     (constantLabel G).app _ (ordinaryArrowLabel f x * ordinaryArrowLabel g x)
-  rw [homLabel_point, ((constantLabel G).app _).hom.map_mul]
+  rw [ordinaryHomLabelEquiv_point, ((constantLabel G).app _).hom.map_mul]
   exact (arrowLabel_comp_apply f g _ _).trans
     (congrArg₂ (fun a b : (locallyConstantGroup G).obj.obj (op (op (free 0))) => a * b)
-      (homLabel_point U (arrowLabel f) x).symm (homLabel_point U (arrowLabel g) x).symm)
+      (ordinaryHomLabelEquiv_point U (arrowLabel f) x).symm (ordinaryHomLabelEquiv_point U (arrowLabel g) x).symm)
 
 theorem ordinaryArrowLabel_ident {G : Type} [Group G] {M : Sheaf SmoothOpenSite.topology Type}
     (a : Action (locallyConstantGroup G) M) {U : Domain} (m : embedding.obj U ⟶ M) (x : Points U) :
     ordinaryArrowLabel (Arrow.ident (chart a m)) x = (1 : G) := by
   apply (constantLabelRealEquiv G).injective
-  exact (homLabel_point U (arrowLabel (Arrow.ident (chart a m))) x).trans
+  exact (ordinaryHomLabelEquiv_point U (arrowLabel (Arrow.ident (chart a m))) x).trans
     (((constantLabel G).app _).hom.map_one.symm)
 
 theorem ordinaryArrowLabel_reindex {G : Type} [Group G] {M : Sheaf SmoothOpenSite.topology Type}
@@ -129,9 +129,9 @@ theorem ordinaryArrowLabel_inverse {G : Type} [Group G] {M : Sheaf SmoothOpenSit
   apply (constantLabelRealEquiv G).injective
   change (constantLabelRealEquiv G) (ordinaryHomLabelEquiv G U (arrowLabel f.inverse) x) =
     (constantLabel G).app _ ((ordinaryArrowLabel f x)⁻¹)
-  rw [homLabel_point, ((constantLabel G).app _).hom.map_inv]
+  rw [ordinaryHomLabelEquiv_point, ((constantLabel G).app _).hom.map_inv]
   exact (arrowLabel_inverse_apply f _ _).trans (congrArg (fun z : (locallyConstantGroup G).obj.obj (op (op (free 0))) => z⁻¹)
-    (homLabel_point U (arrowLabel f) x).symm)
+    (ordinaryHomLabelEquiv_point U (arrowLabel f) x).symm)
 
 theorem diskChartArrowEquiv_label (U : Domain) (m n : U ⟶ diskDomain)
     (f : Arrow (chart diskRepresentation.action (embedding.map m))

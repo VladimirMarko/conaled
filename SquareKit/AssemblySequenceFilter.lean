@@ -42,7 +42,7 @@ noncomputable def filterBound : Hom (prod (encoded Nat) (programLift (encoded Na
     change Nat at b
     change Option Nat at x
     refine ⟨encode (boundCode z), by simp, ?_⟩
-    apply liftNat_realizes_iff.mpr
+    apply programLift_encoded_nat_realizes_iff.mpr
     intro v
     have hz := Nat.pair_unpair z
     rw [← hz, boundCode_run]
@@ -51,7 +51,7 @@ noncomputable def filterBound : Hom (prod (encoded Nat) (programLift (encoded Na
     change (v ∈ (run z.unpair.2).bind (fun w => Part.ofOption (if w < b then some w else none))) ↔
       x.filter (fun w => w < b) = some v
     rw [Part.mem_bind_iff]
-    simp_rw [liftNat_realizes_iff.mp hx]
+    simp_rw [programLift_encoded_nat_realizes_iff.mp hx]
     cases x <;> simp
     aesop
 
@@ -59,7 +59,7 @@ noncomputable def filterBound : Hom (prod (encoded Nat) (programLift (encoded Na
 abbrev partialSequences := function (encoded Nat) (programLift (encoded Nat))
 
 theorem partialSequences_complete : CutComplete partialSequences :=
-  function_cutComplete liftNat_cutComplete _
+  function_cutComplete programLift_encoded_nat_cutComplete _
 
 private def natBound : Hom (prod (encoded Nat) (encoded Nat)) (encoded Nat) where
   toFun := fun (x : Nat × Nat) => x.1 + x.2 + 1

@@ -51,7 +51,7 @@ def overlapRefinementIso : A.refinedRealization K g ≅ A.realization where
     intro i
     rw [← Category.assoc, chart_descend, Multicoequalizer.π_desc, Category.comp_id]
 
-theorem overlapRefinement_chart (i : A.Index) :
+theorem overlapRefinementIso_chart (i : A.Index) :
     Multicoequalizer.π (A.refinedDiagram K g) i ≫ (A.overlapRefinementIso K g hc).hom = A.chart i :=
   Multicoequalizer.π_desc (A.refinedDiagram K g) A.realization A.chart _ i
 

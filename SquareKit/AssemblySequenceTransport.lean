@@ -27,11 +27,11 @@ noncomputable def boundedShift {n m : Nat} (d : Nat) (hd : n+d ≤ m) :
   factor _ ((inclusion _ _).comp (sequenceShift d))
     (fun q => sequenceShift_bounded d hd q.property)
 
-private theorem shiftOption_comp (q : Option Nat) (d e : Nat) :
+private theorem map_add_comp (q : Option Nat) (d e : Nat) :
     (q.map (fun v => v+d)).map (fun v => v+e) = q.map (fun v => v+(d+e)) := by
   simp [Option.map_map]
 
-private theorem shiftOption_zero (q : Option Nat) : q.map (fun v => v+0) = q := by simp
+private theorem map_add_zero (q : Option Nat) : q.map (fun v => v+0) = q := by simp
 
 theorem boundedShift_comp {n m r : Nat} (d e : Nat) (hd : n+d ≤ m) (he : m+e ≤ r) :
     (boundedShift d hd).comp (boundedShift e he) = boundedShift (d+e) (by omega) := by
@@ -44,7 +44,7 @@ theorem boundedShift_comp {n m r : Nat} (d e : Nat) (hd : n+d ≤ m) (he : m+e �
   have h₁ := sequenceShift_apply e ((sequenceShift d).toFun q.val) k
   have h₂ := sequenceShift_apply d q.val k
   have h₃ := sequenceShift_apply (d+e) q.val k
-  have hadd := shiftOption_comp (q.val.toFun k) d e
+  have hadd := map_add_comp (q.val.toFun k) d e
   exact h₁.trans ((congrArg (Option.map (fun v : Nat => v+e)) h₂).trans
     (hadd.trans h₃.symm))
 
@@ -64,7 +64,7 @@ theorem boundedShift_first_proper (n : Nat) :
   have hv := congrArg (fun q => q.val.toFun (0 : Nat)) hq
   have he := (sequenceShift_apply 0 q.val 0).symm.trans hv
   change (q.val.toFun (0 : Nat)).map (fun v : Nat => v+0) = some (n+1) at he
-  have hz : q.val.toFun (0 : Nat) = some (n+1) := (shiftOption_zero _).symm.trans he
+  have hz : q.val.toFun (0 : Nat) = some (n+1) := (map_add_zero _).symm.trans he
   have hb := q.property 0 (n+1) hz
   omega
 

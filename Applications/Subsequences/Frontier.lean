@@ -110,7 +110,7 @@ theorem upBefore_incomparable (p q : List Int) (h : UpBefore p q) :
 
 /-- On length-sorted input, the ACTUAL adjacent bump produces strict frontier order.
 This proof uses its first/second guard priority, not the generic insertion algorithm. -/
-theorem upThin_ordered (ps : List (List Int))
+theorem thinBy_upDominates_ordered (ps : List (List Int))
     (hs : ps.Pairwise (fun p q => p.length ≤ q.length)) :
     (thinBy UpDominates ps).Pairwise UpBefore := by
   induction ps with
@@ -160,7 +160,7 @@ theorem lusStep_eq (x : Int) (ps : List (List Int)) :
   rw [lusStep, sourceMergeBy_pair]
 
 /-- The selected merge specializes the shared source recurrence by length. -/
-theorem lengthMerge_source (ps qs : List (List Int)) :
+theorem sourceMerge_lengthLE (ps qs : List (List Int)) :
     letI : LE (List Int) := ⟨fun p q => p.length ≤ q.length⟩
     letI : DecidableLE (List Int) := fun p q => inferInstanceAs (Decidable (p.length ≤ q.length))
     Applications.Sorting.sourceMerge ps qs = sourceMerge lengthLE ps qs :=
@@ -264,7 +264,7 @@ theorem sourceMerge_length_sorted (ps qs : List (List α))
 theorem lusStep_ordered (x : Int) (ps : List (List Int)) (hs : ps.Pairwise UpBefore) :
     (lusStep x ps).Pairwise UpBefore := by
   rw [lusStep_eq]
-  apply upThin_ordered
+  apply thinBy_upDominates_ordered
   have hp := hs.imp (fun h => Nat.le_of_lt h.1)
   apply sourceMerge_length_sorted _ _ hp
   apply List.pairwise_map.mpr

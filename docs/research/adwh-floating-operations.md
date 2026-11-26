@@ -12,7 +12,7 @@ The exact declaration locations, block hashes and owners are recorded in
 and addition. They take a proper decimal digit and a tail successfully decoded
 in closed `[0,1]`, and return an actual successful observation in `[0,10]`.
 Their absolute errors are bounded by `2^-50` and `2^-21`, respectively.
-`divideTen64_bounds` and `divideTen32_bounds` take a successfully decoded input
+`float_div_ten_bounds` and `float32_div_ten_bounds` take a successfully decoded input
 in `[0,10]` and return an observation of the actual division in `[0,1]`, with
 error bounds `2^-53` and `2^-24`.
 

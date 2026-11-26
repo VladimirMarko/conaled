@@ -199,7 +199,7 @@ theorem changeBasis_matrix (A : Certified β H) :
   rw [← LinearMap.toMatrix_comp, ← LinearMap.toMatrix_comp]
   simp
 
-theorem changeBasis_form : formMatrix γ H =
+theorem formMatrix_change_basis : formMatrix γ H =
     (basisMatrix β γ).valᴴ * formMatrix β H * (basisMatrix β γ).val := by
   ext i j
   rw [show formMatrix γ H i j = H (γ i) (γ j) from LinearMap.toMatrix₂_apply γ γ H i j,

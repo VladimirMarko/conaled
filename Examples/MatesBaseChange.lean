@@ -82,7 +82,7 @@ def forgetComparisonIso {X Y : Over Bool} (σ : X ⟶ Y) :=
 
 /-- The new client cannot be packaged with this inverse image as a geometric
 morphism: forgetting the terminal display over Bool leaves a nonterminal type. -/
-theorem forget_not_leftExact : ¬ PreservesFiniteLimits (Over.forget Bool) := by
+theorem forget_not_preservesFiniteLimits : ¬ PreservesFiniteLimits (Over.forget Bool) := by
   intro h
   let := h
   have ht := Limits.IsTerminal.isTerminalObj (Over.forget Bool) _ (Over.mkIdTerminal (X := Bool))

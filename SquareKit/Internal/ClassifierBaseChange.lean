@@ -42,7 +42,7 @@ def classifierBaseChangeGenericIso :
 
 omit [Mono u] in
 /-- The generic comparison retains the diagonal section with the explicit coproduct/terminal normalization. -/
-theorem classifierBaseChangeGeneric_section :
+theorem classifierBaseChangeLift_pullGeneric_section :
     ((classifierBaseChangeLift h (U := U)).pullGeneric u).toSection =
       (identityLift (slice (h.inverseImage.obj (U ⨿ ⊤_ B)))).section ≫
         (classifierObjectComparison ((slice (h.inverseImage.obj (U ⨿ ⊤_ B))).comp h) (U := U)).hom := by
@@ -70,7 +70,7 @@ def normalizedGenericModel :
 
 omit [Mono u] in
 /-- The normalized square classifies the new generic model, including its diagonal. -/
-theorem normalizedClassifier_model_section :
+theorem normalizedClassifierLift_model_section :
     ((normalizedClassifierLift h).model u).toSection = (normalizedGenericModel h u).toSection := by
   rw [Lift.model_section]
   unfold normalizedGenericModel
@@ -90,8 +90,8 @@ The right endpoint is explicitly the transported `genericModel (parameterPullbac
 def normalizedClassifierGenericIso :
     (normalizedClassifierLift h).pullGeneric u ≅ normalizedGenericModel h u :=
   (normalizedClassifierLift h).pullGenericIso u ≪≫ {
-    hom := PartitionSection.Model.homOfSection (normalizedClassifier_model_section h u)
-    inv := PartitionSection.Model.homOfSection (normalizedClassifier_model_section h u).symm
+    hom := PartitionSection.Model.homOfSection (normalizedClassifierLift_model_section h u)
+    inv := PartitionSection.Model.homOfSection (normalizedClassifierLift_model_section h u).symm
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }
 end SquareKit.Internal.GeometricMorphism

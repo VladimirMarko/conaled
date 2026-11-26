@@ -146,7 +146,7 @@ noncomputable def cartesianPackage (x : (Cartesian.total (Cartesian.interval
       (Cartesian.intervalContextInclusion Presheaf.terminal) x
 
 /-- Recovery uses the actual Cartesian interval section before forward Pi comparison. -/
-theorem cartesianPackageSection_recovers {s}
+theorem relativeTerm_frozenPackage_injective {s}
     (h : Cartesian.relativeTerm s = Cartesian.relativeTerm frozenPackage) : s = frozenPackage :=
   Cartesian.relativeTerm_injective h
 

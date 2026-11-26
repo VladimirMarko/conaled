@@ -129,7 +129,7 @@ theorem arrow_smooth (f : Family U m n) :
       (show ManifoldRealization.ordinaryOpen diskDomain → Disk from diskPoints) := by
     apply (ContMDiff.subtypeVal_comp_iff disk _).mp
     exact complexCoordinates.contDiff.contMDiff.comp contMDiff_subtype_val
-  exact hl.prodMk (hd.comp (ManifoldRealization.openMap_contMDiff m))
+  exact hl.prodMk (hd.comp (ManifoldRealization.euclideanOpenMap_contMDiff m))
 
 def restrict {V : Domain} (f : Family U m n) (r : V ⟶ U) :
     Family V (r ≫ m) (r ≫ n) :=
@@ -231,7 +231,7 @@ def smoothChartEquiv (U : Domain) (m n : U ⟶ diskDomain) :
 
 /-- Canonical recovery through either split cover has the same external family.
 This concerns canonical data of global chart objects, not arbitrary descent data. -/
-theorem canonicalRecovery_comparison (U : Domain) (m n : U ⟶ diskDomain)
+theorem canonicalArrowEquiv_recoveryArrowComparison (U : Domain) (m n : U ⟶ diskDomain)
     (A B : SplitSheaf.Ty (embedding.obj U))
     [Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p A).hom]
     [Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p B).hom]

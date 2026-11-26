@@ -462,7 +462,7 @@ theorem PoolSafe.finishRetirement {s t : LocalSnapshot} {history : Peer}
   · contradiction
 
 
-theorem propose_liveAbove (before after : Frame) (command : FrameCommand) (floor : Nat)
+theorem propose_live_above (before after : Frame) (command : FrameCommand) (floor : Nat)
     (live : ∀ slot request, request ∈ before.requests.get slot → floor ≤ request.identity)
     (counter : floor ≤ before.nextIdentity) (changed : propose before command = .changed after) :
     ∀ slot request, request ∈ after.requests.get slot → floor ≤ request.identity := by
@@ -500,16 +500,16 @@ theorem propose_liveAbove (before after : Frame) (command : FrameCommand) (floor
       rw [←hi]
       exact live slot old (by simp [ho])
 
-theorem localChange_liveAbove {cfg : Config} {s t : LocalSnapshot} {command : FrameCommand}
+theorem localChange_live_above {cfg : Config} {s t : LocalSnapshot} {command : FrameCommand}
     (floor : Nat)
     (live : ∀ slot request, request ∈ s.frame.requests.get slot → floor ≤ request.identity)
     (counter : floor ≤ s.frame.nextIdentity) (changed : localChange cfg s command = .ok t) :
     ∀ slot request, request ∈ t.frame.requests.get slot → floor ≤ request.identity :=
-  propose_liveAbove _ _ _ floor live counter (localChange_proposed changed)
+  propose_live_above _ _ _ floor live counter (localChange_proposed changed)
 
 /-- This form consumes a cursor's already checked prefix without materializing
 an interval list in the runtime. -/
-theorem PoolSafe.checkedPrefix_live {s : LocalSnapshot} {history : Peer}
+theorem PoolSafe.checked_prefix_live {s : LocalSnapshot} {history : Peer}
     (h : PoolSafe s.frame history s.outcomes) (target : Nat)
     (checked : ∀ identity, s.floor ≤ identity → identity < target →
       ∃ o ∈ s.outcomes, o.identity = identity ∧ o.released = true)

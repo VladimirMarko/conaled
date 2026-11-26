@@ -131,14 +131,14 @@ def parameterContractionIso (X : Sheaf topology Type) (P : Torsor G (product D X
     SheafTorsor.Arrow.toIso (show reindex (dualTorsor P) (productPath X) ⟶ P from
       (productEvaluationTorsorMap P).toArrow)
 
-theorem productEvaluationTorsor_natural (X : Sheaf topology Type) {P Q : Torsor G (product D X)} (f : P ⟶ Q) :
+theorem productEvaluationTorsorMap_natural (X : Sheaf topology Type) {P Q : Torsor G (product D X)} (f : P ⟶ Q) :
     (restriction (productPath X)).map ((dualTorsorFunctor _).map f) ≫
       (productEvaluationTorsorMap Q).toArrow = (productEvaluationTorsorMap P).toArrow ≫ f := by
   apply SheafTorsor.Arrow.ext
   ext x p
   exact (NatTrans.naturality_apply f.iso.hom (productEvaluationElement x) p).symm
 
-theorem parameterContraction_natural (X : Sheaf topology Type) {P Q : Torsor G (product D X)} (f : P ⟶ Q) :
+theorem parameterContractionIso_natural (X : Sheaf topology Type) {P Q : Torsor G (product D X)} (f : P ⟶ Q) :
     (restriction ((productPath X ≫ dualSheafZero (product D X)))).map f ≫ (parameterContractionIso X Q).hom =
       (parameterContractionIso X P).hom ≫ f := by
   let aP : reindex (dualTorsor P) (productPath X) ⟶ reindex P ((productPath X ≫ dualSheafZero (product D X))) :=
@@ -151,7 +151,7 @@ theorem parameterContraction_natural (X : Sheaf topology Type) {P Q : Torsor G (
   have ha : k ≫ aQ = aP ≫ (restriction ((productPath X ≫ dualSheafZero (product D X)))).map f := by
     exact congrArg (fun h => (restriction (productPath X)).map h) (dualTorsorZero_natural f)
   have ha' := congrArg (fun h => h.iso.hom) ha
-  have he := congrArg (fun h => h.iso.hom) (productEvaluationTorsor_natural X f)
+  have he := congrArg (fun h => h.iso.hom) (productEvaluationTorsorMap_natural X f)
   apply SheafTorsor.Arrow.ext
   change ((restriction ((productPath X ≫ dualSheafZero (product D X)))).map f).iso.hom ≫
     (aQ.iso.inv ≫ (productEvaluationTorsorMap Q).toArrow.iso.hom) =
@@ -167,7 +167,7 @@ theorem parameterContraction_natural (X : Sheaf topology Type) {P Q : Torsor G (
 def parameterContractionNatIso (X : Sheaf topology Type) :
     (restriction ((productPath X ≫ dualSheafZero (product D X))) :
       Torsor G (product D X) ⥤ Torsor G (product D X)) ≅ 𝟭 _ :=
-  NatIso.ofComponents (parameterContractionIso X) (fun {_ _} f => parameterContraction_natural X f)
+  NatIso.ofComponents (parameterContractionIso X) (fun {_ _} f => parameterContractionIso_natural X f)
 
 
 /-- Projection is an equivalence over every sheaf parameter. The inverse is

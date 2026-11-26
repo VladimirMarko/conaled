@@ -110,7 +110,7 @@ theorem growing_insert_unit_family :
 private def varyingComparator (i : Nat) (a b : Int) : Measured Bool Nat :=
   (intLtb a b, i + 1)
 
-private theorem varying_localBound (i : Nat) :
+private theorem varyingComparator_local_bound (i : Nat) :
     Search.RedBlack.ForallT
       (fun old _ => (varyingComparator i (i : Int) old).2 ≤ i + 1 ∧
         (varyingComparator i old (i : Int)).2 ≤ i + 1) (integerPrefix i) := by
@@ -125,7 +125,7 @@ theorem growing_lookup_varying_family :
         (lookupRun (varyingComparator i) (i : Int) (integerPrefix i)).2 : ℝ))
       (fun i : Nat => (((1 + (i + 1)) * (1 + ((integerPrefix i).size + 1).log2) : Nat) : ℝ)) :=
   lookup_variable_family_isBigO prices varyingComparator (fun i => (i : Int)) integerPrefix
-    (fun i => i + 1) varying_localBound integerPrefix_shape
+    (fun i => i + 1) varyingComparator_local_bound integerPrefix_shape
 
 theorem growing_insert_varying_family :
     Asymptotics.IsBigO Filter.atTop
@@ -133,7 +133,7 @@ theorem growing_insert_varying_family :
         (insertRun (varyingComparator i) (i : Int) (i + 1) (integerPrefix i)).2 : ℝ))
       (fun i : Nat => (((1 + (i + 1)) * (1 + ((integerPrefix i).size + 1).log2) : Nat) : ℝ)) :=
   insert_variable_family_isBigO prices varyingComparator (fun i => (i : Int)) (fun i => i + 1)
-    integerPrefix (fun i => i + 1) varying_localBound integerPrefix_shape
+    integerPrefix (fun i => i + 1) varyingComparator_local_bound integerPrefix_shape
 
 /-- Nonzero comparator pricing retains its varying work even on a fixed shape. -/
 theorem varying_singleton_lookup (i : Nat) :

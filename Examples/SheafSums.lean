@@ -17,7 +17,7 @@ def falseFiber (U : Diamondᵒᵖ) : Fiber sumDisplay U false ≃ Bool where
   left_inv _ := rfl
   right_inv _ := rfl
 
-theorem trueFiber_empty (U : Diamondᵒᵖ) : IsEmpty (Fiber sumDisplay U true) :=
+theorem sumDisplay_true_fiber_empty (U : Diamondᵒᵖ) : IsEmpty (Fiber sumDisplay U true) :=
   ⟨fun x => Bool.noConfusion x.property⟩
 
 abbrev tower := pullback base (comparison falsePoint negation)
@@ -53,7 +53,7 @@ def trueFiber (U : Diamondᵒᵖ) : Fiber towerDisplay U true ≃ Bool where
     · exact (towerSections_base U x.val).trans x.property |>.symm
   right_inv b := by simp
 
-theorem falseFiber_empty (U : Diamondᵒᵖ) : IsEmpty (Fiber towerDisplay U false) := by
+theorem towerDisplay_false_fiber_empty (U : Diamondᵒᵖ) : IsEmpty (Fiber towerDisplay U false) := by
   refine ⟨fun x => ?_⟩
   have h := (towerSections U x.val).property
   have hb := (towerSections_base U x.val).trans x.property

@@ -127,7 +127,7 @@ theorem triple_successor_three :
   ⟨observedLeftTriple_eq _ _ _ _, observedRightTriple_eq _ _ _ _⟩
 
 /-- The Boolean loop and reflexive path are unequal as host path terms. -/
-theorem booleanLoop_ne_reflexive : equivalencePath booleanTransposition ≠ homogeneousRefl (term (code Bool)) := by
+theorem equivalencePath_booleanTransposition_ne_homogeneousRefl : equivalencePath booleanTransposition ≠ homogeneousRefl (term (code Bool)) := by
   intro h
   have ht := observe_path (uaComparison (code Bool) (code Bool) (nativeMap booleanTransposition)
     (nativeEquivalence booleanTransposition) (nativeInput true))
@@ -141,7 +141,7 @@ theorem booleanLoop_ne_reflexive : equivalencePath booleanTransposition ≠ homo
 
 /-- Existing cubical contraction supplies a native path whose observed endpoints
 are distinct in Lean equality. It therefore rejects host equality reflection. -/
-theorem nativePath_does_not_reflect_host_equality :
+theorem path_does_not_reflect_host_equality :
     ¬ ∀ {Γ : Context.{0}} (B : Family (total (interval Γ)))
       (a : Term (reindex B (endpointSub Γ false)))
       (b : Term (reindex B (endpointSub Γ true))),
@@ -155,7 +155,7 @@ theorem nativePath_does_not_reflect_host_equality :
       (terminal.elementsMk (Opposite.op ⟨1⟩) PUnit.unit)) he)
 
 /-- The reused decoded finite family has non-equivalent fibers at parameters zero and one. -/
-theorem finiteFiber_not_equivalent :
+theorem decoded_fibers_not_equivalent :
     ¬ Nonempty ((Presheaf.decode CubicalSmallFamilies.dependentCode).obj (CubicalSmallFamilies.atArgument 0) ≃
       (Presheaf.decode CubicalSmallFamilies.dependentCode).obj (CubicalSmallFamilies.atArgument 1)) :=
   CubicalSmallFamilies.nonconstant_decoded_fibers

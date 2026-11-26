@@ -101,7 +101,7 @@ def RawFixture.PackageExpected (fixture : RawFixture) : Prop :=
   (fun state : Option (Cfg Γ Λ R) => state.bind (machine caller initial).step)^[fixture.ticks + 1]
       (some (Turing.initList (machine caller initial) fixture.raw)) = none
 
-theorem a_connected_literal_run_connects_to_actual_initList_and_haltList
+theorem packageExpected_of_expected
     (fixture : RawFixture)
     (output : fixture.after = ({ fuel := [fixture.result] } : LocalData))
     (connected : fixture.Expected (step caller) (initialRegisters initial) (fun _ => [])) :
@@ -149,7 +149,7 @@ theorem all_36_literal_rows_use_the_real_finite_package
     fixture.PackageExpected caller initial := by
   have connected := all_original_raw_rows_execute_with_their_complete_endpoints_and_peaks
     caller (initialRegisters initial) (fun _ => []) fixture member
-  apply a_connected_literal_run_connects_to_actual_initList_and_haltList caller initial
+  apply packageExpected_of_expected caller initial
     fixture ?_ connected
   simp only [rawCases, List.mem_cons, List.not_mem_nil, or_false] at member
   rcases member with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl

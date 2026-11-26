@@ -214,7 +214,7 @@ theorem bitWork_of_divergence (p : α → PreparedRow α) (n : ℕ) (x : α) (s 
 theorem lintegral_bitWork [Countable α] (p : α → PreparedRow α) (n : ℕ) (x : α) (s : ℕ) :
     (∫⁻ ω,bitWork p n x s ω ∂law)=∑' b,law (deadline p n x s b) := by
   have hm (b : ℕ) : MeasurableSet (deadline p n x s b) :=
-    ProbabilityProgress.measurable_prefixTimeout _ (TableProducer.measurableSteps p) _ _ _
+    ProbabilityProgress.measurableSet_compl_prefixDelivered _ (TableProducer.measurableSteps p) _ _ _
   simp only [bitWork]
   rw [lintegral_tsum (fun b => (measurable_const.indicator (hm b)).aemeasurable)]
   congr 1

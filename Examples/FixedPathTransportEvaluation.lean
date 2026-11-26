@@ -26,7 +26,7 @@ private theorem reindex_endomap_value {Γ Δ : M.Context} (F : M.Family Γ)
  Value.term (M.extend Δ (M.subTy F σ))
   (M.subTy (M.subTy F σ) (M.weaken Δ (M.subTy F σ))) (reindexEndomap M F s σ) :=
  Value.term_eq (M.toStructuralModel.weaken_lift_type F σ) (cast_heq _ _).symm
-theorem fixedPathTransport_eval (g a sx sy : Contextual.Expression V)
+theorem fixedPathTransportTerm_eval (g a sx sy : Contextual.Expression V)
  (Γ : M.Context) (A : M.Family Γ) (x y : M.Section Γ A)
  (hg : g.eval (Contextual.algebra M) ρ = .context Γ)
  (ha : a.eval (Contextual.algebra M) ρ = .family Γ A)

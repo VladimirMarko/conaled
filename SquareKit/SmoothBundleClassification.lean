@@ -177,7 +177,7 @@ def chartChoiceComparison (A : ChartFamily n B)
     (f : (chartRealization A).obj R ≅ P) : Q ≅ R :=
   (chartRealization A).preimageIso (e ≪≫ f.symm)
 
-@[simp] theorem chartRealization_choiceComparison (A : ChartFamily n B)
+@[simp] theorem chartRealization_chartChoiceComparison (A : ChartFamily n B)
     {P : SheafTorsor.Torsor (locallyConstantGroup G) A.realization}
     {Q R : Ordinary n G B} (e : (chartRealization A).obj Q ≅ P)
     (f : (chartRealization A).obj R ≅ P) :
@@ -211,7 +211,7 @@ theorem chartChoiceComparison_unique (A : ChartFamily n B)
     (ha : (chartRealization A).map a ≫ f.hom = e.hom) :
     a = (chartChoiceComparison A e f).hom := by
   apply (chartRealization A).map_injective
-  rw [chartRealization_choiceComparison]
+  rw [chartRealization_chartChoiceComparison]
   exact (Iso.eq_comp_inv f).mpr ha
 
 set_option backward.isDefEq.respectTransparency false in
@@ -224,7 +224,7 @@ theorem chartChoiceComparison_of_global (A : ChartFamily n B)
       choiceComparison e f := by
   apply Iso.ext
   apply (chartRealization A).map_injective
-  rw [chartRealization_choiceComparison]
+  rw [chartRealization_chartChoiceComparison]
   change (torsorBaseEquivalence (H := G) (atlasIso A)).functor.map e.hom ≫
     (torsorBaseEquivalence (H := G) (atlasIso A)).functor.map f.inv =
     (torsorBaseEquivalence (H := G) (atlasIso A)).functor.map

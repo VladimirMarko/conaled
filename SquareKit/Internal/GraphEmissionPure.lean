@@ -224,7 +224,7 @@ theorem formula_shift (m : Model) (ρ : Assignment Γ) (x : E) (p : GraphTarget.
   simp only [GraphTarget.Formula.shift, formula_subst, term, extend]
 
 
-theorem term_coreSubst (m : Model) (a : Assignment Γ) (σ : Nat → E)
+theorem term_core_subst (m : Model) (a : Assignment Γ) (σ : Nat → E)
     (t : GraphTarget.Term Γ s) :
     term (m.map (·.subst σ)) (fun i => (a i).subst σ) t = (term m a t).subst σ := by
   induction t with
@@ -236,12 +236,12 @@ theorem model_subst_shift (m : Model) (σ : Nat → E) :
   cases m
   simp only [Model.shift, Model.map, CoreSyntax.Expr.subst_shift]
 
-theorem formula_coreSubst (m : Model) (a : Assignment Γ) (σ : Nat → E)
+theorem formula_core_subst (m : Model) (a : Assignment Γ) (σ : Nat → E)
     (p : GraphTarget.Formula Γ) :
     formula (m.map (·.subst σ)) (fun i => (a i).subst σ) p =
       (formula m a p).subst σ := by
   induction p generalizing m σ with
-  | eq x y => simp only [formula, term_coreSubst]; rfl
+  | eq x y => simp only [formula, term_core_subst]; rfl
   | conj p q hp hq => simp only [formula, conj, hp, hq,
       CoreSyntax.Expr.app2, CoreSyntax.Expr.subst]
   | @ex s Γ p ih =>
@@ -273,7 +273,7 @@ theorem formula_instantiate (m : Model) (a : Assignment Γ)
     (p : GraphTarget.Formula (s :: Γ)) (t : GraphTarget.Term Γ s) :
     formula m a (p.instantiate t) =
       (formula m.shift (extend (shift a) (.bvar 0)) p).subst (singleCore (term m a t)) := by
-  rw [← formula_coreSubst, model_shift_single]
+  rw [← formula_core_subst, model_shift_single]
   simp only [GraphTarget.Formula.instantiate, formula_subst]
   apply congrArg (fun a : Assignment (s :: Γ) => formula m a p)
   funext b i

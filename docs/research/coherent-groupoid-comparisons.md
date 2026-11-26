@@ -80,8 +80,8 @@ strict natural family transformation and any normalized root. It therefore
 applies to normalized dependent telescope roots as well as the empty tail.
 The worked example uses an actual based-path context, a C₄-valued motive,
 and its `ULift C₄` presentation. `chosenJComparison` comes from this generic
-construction. `chosenJ_arrow` proves its naturality for every arrow of the
-path context. `chosenJ_selected_loop` observes the selected integer residue
+construction. `chosenJComparison_naturality` proves its naturality for every arrow of the
+path context. `mappedJ_reindex_label` observes the selected integer residue
 on the reflexive branch, using the public substitution and beta equations.
 
 The required root and branch comparisons delimit the admitted J fragment.

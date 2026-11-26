@@ -22,7 +22,7 @@ variable {α : Type u} {κ : Type v}
 def sortNaturalBy (lt cmp : α → α → Bool) (xs : List α) : List α :=
   mergeAllBy cmp (runsBy lt xs)
 
-theorem sortNaturalBy_eq_mergeAll (lt cmp : α → α → Bool) (xs : List α) :
+theorem sortNaturalBy_eq_mergeAllBy (lt cmp : α → α → Bool) (xs : List α) :
     sortNaturalBy lt cmp xs = mergeAllBy cmp (runsBy lt xs) := rfl
 
 @[simp] theorem sortNaturalBy_nil (lt cmp : α → α → Bool) :

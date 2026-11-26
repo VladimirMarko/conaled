@@ -162,7 +162,7 @@ that independently chosen model objects be definitionally identical.
 
 For indexed models, substitution may commute only through specified
 isomorphisms. Retain their naturality, associativity and unit diagrams.
-`sourceModelCompIso` and `sourceModel_associativity` are an existing bounded
+`sourceModelCompIso` and `sourceModelCompIso_associativity` are an existing bounded
 example. By contrast, the chosen `GroupoidTransport.Route` composition is
 strict in its present representation. Neither fact settles all future models.
 A noninvertible refinement comparison cannot be passed to an adapter requiring

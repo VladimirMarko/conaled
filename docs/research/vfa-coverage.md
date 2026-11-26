@@ -99,7 +99,7 @@ runtime-cost assumption is introduced by these generic contracts.
 the operation along any comparison-preserving map. It needs neither injectivity
 nor ordered payloads. The record specialization maps string payloads to lengths.
 The generic owner remains independent of checking: the composition theorem
-`Examples.ComparisonPermutations.compareSwap_checkedPrefix` belongs with the
+`Examples.ComparisonPermutations.compareSwap_checked_prefix` belongs with the
 examples and consumes the existing checker through the precise prefix bridge.
 
 ### All source records
@@ -202,7 +202,7 @@ exactly `[1,0]` after dropping the two-entry prefix. `not_whole_list_sorted`
 refutes whole-list ordering of `[2,3,1]`. These distinguish the precise positive
 contract from an invalid stronger one.
 
-`certified_prefix` uses `compareSwap_checkedPrefix`,
+`certified_prefix` uses `compareSwap_checked_prefix`,
 `OrderCertificate.adjacent_correct` and
 `Applications.Sorting.firstPair_iff_chain_take_two` to certify exactly `take 2`.
 No transitivity or suffix order is required. `positive_after_swap` composes

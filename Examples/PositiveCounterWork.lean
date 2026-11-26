@@ -156,7 +156,7 @@ This is only a transition supplied to the existing `Resources.run`. -/
 def optionalIncrement (duplicate : Bool) (c : Num) : Measured Num Nat :=
   if duplicate then numAddOneRun c else Resources.pure c
 
-theorem optionalIncrement_toNat (duplicate : Bool) (c : Num) :
+theorem castNum_optionalIncrement (duplicate : Bool) (c : Num) :
     ((optionalIncrement duplicate c).1 : Nat) =
       if duplicate then (c : Nat) + 1 else (c : Nat) := by
   cases duplicate with
@@ -188,7 +188,7 @@ theorem sparse_numeric :
   have h := run_value_fusion optionalIncrement
     (fun duplicate (n : Nat) => if duplicate then n + 1 else n) (fun c : Num => (c : Nat))
     (fun _ => True) (fun _ _ _ => True.intro)
-    (fun duplicate c _ => optionalIncrement_toNat duplicate c)
+    (fun duplicate c _ => castNum_optionalIncrement duplicate c)
     [true, false, true, true, false, true] .zero True.intro
   exact h
 

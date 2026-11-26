@@ -58,7 +58,7 @@ theorem measurable_prefixDelivered [Countable S] [Countable A]
     MeasurableSet.iUnion fun k => (MeasurableSet.const (xs.length = length)).inter
       ((MeasurableSet.const (k ≤ deadline)).inter (measurable_delivers step hm s xs t k))
 
-theorem measurable_prefixTimeout [Countable S] [Countable A]
+theorem measurableSet_compl_prefixDelivered [Countable S] [Countable A]
     (step : Ω → Progress.Producer S A) (hm : MeasurableSteps step)
     (s : S) (length deadline : Nat) :
     MeasurableSet (prefixDelivered step s length deadline)ᶜ :=

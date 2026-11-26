@@ -81,7 +81,7 @@ theorem radius_covers (U : Domain) (hU : U.dimension = 1) :
     norm_num
   · exact ⟨true, by change (hU ▸ x.val) 0 - 1 ≠ 0; exact sub_ne_zero.mpr h⟩
 
-theorem refinedSign_covers : Covers punctured refinedSignDefining := by
+theorem refinedSignDefining_covers : Covers punctured refinedSignDefining := by
   intro x
   obtain ⟨b, hb⟩ := sign_covers x
   obtain ⟨r, hr⟩ := radius_covers punctured rfl x
@@ -111,7 +111,7 @@ theorem refined_gluing_recovers (G : Type) [Group G] (c : G)
     (t : embedding.obj punctured ⟶ locallyConstantGroupSheaf G)
     (ht : ∀ i, embedding.map (subInclusion punctured (refinedSignDefining i)) ≫ t =
       constantSection _ (if i.1 then c else 1)) : t = transition G c := by
-  apply cover_jointly_epic punctured refinedSignDefining refinedSign_covers _
+  apply cover_jointly_epic punctured refinedSignDefining refinedSignDefining_covers _
   exact fun i => (ht i).trans (transition_refined G c i).symm
 
 /-- The chosen refinement is a map of the actual covering objects. -/
@@ -129,7 +129,7 @@ theorem signCoverRefinement_square :
     Sigma.ι_comp_desc, Category.assoc]
   rw [← embedding.map_comp, signRefinement_square]
 
-theorem refinedLabels_compatible (G : Type) [Group G] (c : G) (i j : Bool × Bool) :
+theorem refinedSignDefining_labels_compatible (G : Type) [Group G] (c : G) (i j : Bool × Bool) :
     embedding.map (overlapLeft punctured (refinedSignDefining i) (refinedSignDefining j)) ≫
         constantSection _ (if i.1 then c else 1) =
       embedding.map (overlapRight punctured (refinedSignDefining i) (refinedSignDefining j)) ≫
@@ -140,21 +140,21 @@ theorem refinedLabels_compatible (G : Type) [Group G] (c : G) (i j : Bool × Boo
 /-- The new matching family is constructed by restriction along the named refinement. -/
 def refinedTransition (G : Type) [Group G] (c : G) :
     embedding.obj punctured ⟶ locallyConstantGroupSheaf G :=
-  (sheaf_exists_unique punctured refinedSignDefining refinedSign_covers _
-    (fun i => constantSection _ (if i.1 then c else 1)) (refinedLabels_compatible G c)).choose
+  (sheaf_exists_unique punctured refinedSignDefining refinedSignDefining_covers _
+    (fun i => constantSection _ (if i.1 then c else 1)) (refinedSignDefining_labels_compatible G c)).choose
 
 theorem refinedTransition_recovers (G : Type) [Group G] (c : G) :
     refinedTransition G c = transition G c := by
   apply refined_gluing_recovers G c
-  exact (sheaf_exists_unique punctured refinedSignDefining refinedSign_covers _
-    (fun i => constantSection _ (if i.1 then c else 1)) (refinedLabels_compatible G c)).choose_spec.1
+  exact (sheaf_exists_unique punctured refinedSignDefining refinedSignDefining_covers _
+    (fun i => constantSection _ (if i.1 then c else 1)) (refinedSignDefining_labels_compatible G c)).choose_spec.1
 
 abbrev signFamily := ordinaryCoverFamily punctured signDefining
 abbrev refinedSignFamily := ordinaryCoverFamily punctured refinedSignDefining
 instance : Presheaf.IsLocallySurjective SquareKit.SmoothOpenSite.topology (SplitSheaf.p signFamily).hom :=
   ordinaryCoverFamily_isLocallySurjective punctured signDefining sign_covers
 instance : Presheaf.IsLocallySurjective SquareKit.SmoothOpenSite.topology (SplitSheaf.p refinedSignFamily).hom :=
-  ordinaryCoverFamily_isLocallySurjective punctured refinedSignDefining refinedSign_covers
+  ordinaryCoverFamily_isLocallySurjective punctured refinedSignDefining refinedSignDefining_covers
 
 /-- The refinement on the actual split cover displays. -/
 def signSplitRefinement : SplitSheaf.extension refinedSignFamily ⟶ SplitSheaf.extension signFamily :=

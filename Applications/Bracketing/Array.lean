@@ -328,7 +328,7 @@ theorem tableCell_congr (weights : Array α) (a b : Array (Option (Triple α)))
 def SourceTableEquations (ws : List α) (a : Array (Option (Triple α))) : Prop :=
   ∀ i j, i ≤ j → j < ws.length →
     tableRead ws.length a i j = tableCell hcost fcost ws.toArray a i j
-theorem fullTable_sourceEquations (ws : List α) :
+theorem fullTable_sourceTableEquations (ws : List α) :
     SourceTableEquations hcost fcost ws (fullTable hcost fcost ws) := by
   intro i j hij hj
   rw [fullTable_read hcost fcost ws i j hij hj]
@@ -359,9 +359,9 @@ theorem fullTable_unique_solution (ws : List α) :
     SourceTableEquations hcost fcost ws (fullTable hcost fcost ws) ∧
       ∀ a, SourceTableEquations hcost fcost ws a → ∀ i j, i ≤ j → j < ws.length →
         tableRead ws.length a i j = tableRead ws.length (fullTable hcost fcost ws) i j := by
-  refine ⟨fullTable_sourceEquations hcost fcost ws, ?_⟩
+  refine ⟨fullTable_sourceTableEquations hcost fcost ws, ?_⟩
   intro a ha i j hij hj
-  exact sourceTableEquations_unique hcost fcost ws a _ ha (fullTable_sourceEquations hcost fcost ws) i j hij hj
+  exact sourceTableEquations_unique hcost fcost ws a _ ha (fullTable_sourceTableEquations hcost fcost ws) i j hij hj
 theorem mct3Tuple_eq_triple (ws : List α) (hn : ws ≠ []) :
     mct3Tuple hcost fcost ws = some (triple hcost fcost ws hn) := by
   have hp : 0 < ws.length := List.length_pos_iff.mpr hn
@@ -375,7 +375,7 @@ theorem mct3Tuple_eq_triple (ws : List α) (hn : ws ≠ []) :
 theorem mct3Tuple_eq_root_read (ws : List α) (hn : ws ≠ []) :
     mct3Tuple hcost fcost ws = tableRead ws.length (fullTable hcost fcost ws) 0 (ws.length-1) := by
   have hp : 0 < ws.length := List.length_pos_iff.mpr hn
-  exact (fullTable_sourceEquations hcost fcost ws 0 (ws.length-1) (by omega) (by omega)).symm
+  exact (fullTable_sourceTableEquations hcost fcost ws 0 (ws.length-1) (by omega) (by omega)).symm
 
 theorem mct3Option_eq_some_mct2 (ws : List α) (hn : ws ≠ []) :
     mct3Option hcost fcost ws = some (mct2 hcost fcost ws hn) := by

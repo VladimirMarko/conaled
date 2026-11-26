@@ -39,7 +39,7 @@ theorem observation_one : observation = some 1 := by
   unfold observation
   rw [recovered_eq]
   change some (secondObservation normalizedTauHomotopy) = some 1
-  rw [tauObservation_one]
+  rw [secondObservation_normalizedTauHomotopy]
 
 theorem rejects_truncation : observation ≠ some 0 := by
   rw [observation_one]

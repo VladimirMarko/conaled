@@ -41,7 +41,7 @@ noncomputable def cutWait : Hom (prod finalCuts (encoded Nat)) (programLift (enc
     change Nat at k
     change z.unpair.2 = k at hk
     refine ⟨encode (waitCode z), by simp, ?_⟩
-    apply liftNat_realizes_iff.mpr
+    apply programLift_encoded_nat_realizes_iff.mpr
     intro v
     have hz := Nat.pair_unpair z
     rw [← hz, waitCode_run, hk]

@@ -31,7 +31,7 @@ theorem transported_higher_observation :
     observeSquare (actionSquare (t := transportedLoop) selectedNormalizedHomotopy) = 1 :=
   (actionSquare_observation betaLoop selectedNormalizedHomotopy).trans frozen_higher_observation
 
-theorem transportedHigher_no_erasure :
+theorem actionSquare_selectedNormalizedHomotopy_ne_zeroCocycle :
     actionSquare (t := transportedLoop) selectedNormalizedHomotopy ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by
   intro h
   exact Int.one_ne_zero (transported_higher_observation.symm.trans

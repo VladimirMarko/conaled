@@ -25,7 +25,7 @@ theorem point_base (h : Hom (Principal U.defining) ℝ) (a : freeAlgebra U.dimen
     h (principalBase U.defining a) = a.val (realPoints U.defining h).val := by
   exact (congrArg (fun e : Hom (Principal U.defining) ℝ => e (principalBase U.defining a))
     ((realPoints U.defining).symm_apply_apply h)).symm.trans
-    ((toOpen_realPoint U.defining (realPoints U.defining h) (principalBase U.defining a)).symm.trans
+    ((toOpen_realPoints U.defining (realPoints U.defining h) (principalBase U.defining a)).symm.trans
       (toOpen_base U.defining a (realPoints U.defining h)))
 
 theorem covers_iff_algebra : Covers U g ↔ OpenCover.Covers (fun i => element U (g i)) := by

@@ -69,7 +69,7 @@ theorem target_execution (ops) (n) : (targetCode ops).run (env n) = Examples.Inc
   rw [index_meaning]
   rfl
 
-theorem native_fullG (ops) : targetNative ops = DependentPairJudgments.compile (native ops) :=
+theorem targetNative_eq_compile (ops) : targetNative ops = DependentPairJudgments.compile (native ops) :=
   (DependentPairSharedClient.compiled_image (sourceProof ops) (env 0)).1
 
 theorem native_pairFG (ops) : targetNative ops =
@@ -290,16 +290,16 @@ theorem substituted_target_type (ops) :
     projectionToElimination.act (resultType (afterTwice ops)) := by
   rw [← projectionToElimination.substitution, ← projectionToElimination.substitution, type_twice]
 
-theorem sourceCode_index (e) : compileCode (indexProof .source e) = Code.index .source e := by
+theorem compileCode_indexProof_source (e) : compileCode (indexProof .source e) = Code.index .source e := by
   induction e with
   | var v => rfl
   | successor e ih => exact congrArg Code.successor ih
   | double e ih => exact congrArg Code.double ih
 
-theorem sourceCode_second (e) : compileCode (secondProof .source e) =
+theorem compileCode_secondProof_source (e) : compileCode (secondProof .source e) =
     Code.project (Code.pair (Code.index .source e)) := by
   change Code.project (Code.pair (compileCode (indexProof .source e))) = _
-  rw [sourceCode_index]
+  rw [compileCode_indexProof_source]
 
 theorem substitute_index_code (σ) (e) : (Code.index .source e).substitute σ =
     Code.index .source (replace σ e) := by
@@ -311,7 +311,7 @@ theorem substitute_index_code (σ) (e) : (Code.index .source e).substitute σ =
 theorem substituted_code_is_actual (ops) :
     ((sourceCode ops).substitute sigmaIndex).substitute tauIndex = substitutedSourceCode ops := by
   unfold sourceCode sourceProof substitutedSourceCode
-  rw [sourceCode_second, sourceCode_second]
+  rw [compileCode_secondProof_source, compileCode_secondProof_source]
   change Code.project (Code.pair (((Code.index .source (index ops)).substitute sigmaIndex).substitute tauIndex)) = _
   rw [substitute_index_code, substitute_index_code]
   rfl

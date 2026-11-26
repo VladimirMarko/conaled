@@ -17,7 +17,7 @@ namespace SquareKit.EuclideanOpen
 open CategoryTheory SmoothAlgebra SmoothAlgebra.Localization SmoothPresentationSite
 theorem real_apply (U : Domain) (h : Hom (Principal U.defining) ℝ) (a : Principal U.defining) :
    h a = (toOpen U.defining a).val (realPoints U.defining h) := by
- exact ((toOpen_realPoint U.defining (realPoints U.defining h) a).trans
+ exact ((toOpen_realPoints U.defining (realPoints U.defining h) a).trans
    (congrArg (fun k : Hom (Principal U.defining) ℝ => k a)
      ((realPoints U.defining).symm_apply_apply h))).symm
 theorem real_map {U V : Domain} (f : U ⟶ V) (h : Hom (Principal U.defining) ℝ) :

@@ -213,7 +213,7 @@ def transitionLabel (i j : B) : LocallyConstant (Points (P.baseCharts.pair i j))
   ⟨fun x => (P.localAt i).label
      (P.ordinarySheet j 1 ((show Map _ _ from P.baseCharts.right i j) x)) (P.overlap_base i j x),
    (IsLocallyConstant.iff_continuous _).mpr ((P.localAt i).continuous_label.comp
-     (((P.ordinarySheet_smooth j 1).comp (openMap_contMDiff (P.baseCharts.right i j))).continuous.subtype_mk (P.overlap_base i j)))⟩
+     (((P.ordinarySheet_smooth j 1).comp (euclideanOpenMap_contMDiff (P.baseCharts.right i j))).continuous.subtype_mk (P.overlap_base i j)))⟩
 
 omit [IsManifold (modelWithCorners n) ∞ E] in
 theorem transitionLabel_action (i j : B) (x : Points (P.baseCharts.pair i j)) :

@@ -41,13 +41,13 @@ theorem three_boundary_runs : runsBy natLT [3, 1, 2] = [[1, 3], [2]] := by
   simp [natLT, runsBy_cons_cons, descBy_cons]
 
 theorem three_boundary : sortNaturalBy natLT natCompare [3, 1, 2] = [1, 2, 3] := by
-  rw [sortNaturalBy_eq_mergeAll, three_boundary_runs, mergeAllBy_step,
+  rw [sortNaturalBy_eq_mergeAllBy, three_boundary_runs, mergeAllBy_step,
     mergePairsBy_step, mergePairsBy_nil]
   simp [natCompare]
 
 theorem restart_boundary :
     sortNaturalBy natLT natCompare [1, 3, 2, 4] = [1, 2, 3, 4] := by
-  rw [sortNaturalBy_eq_mergeAll, NaturalRuns.restart_boundary, mergeAllBy_step,
+  rw [sortNaturalBy_eq_mergeAllBy, NaturalRuns.restart_boundary, mergeAllBy_step,
     mergePairsBy_step, mergePairsBy_nil]
   simp [natCompare]
 

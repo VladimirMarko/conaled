@@ -41,7 +41,7 @@ theorem uniqueObservation_uniform {n : Nat} (q : (boundedSequences n).Carrier) :
   refine ⟨e,?_⟩
   intro k
   obtain ⟨c,hc,hr⟩ := he k k rfl
-  exact ⟨c,hc,fun v => (liftNat_realizes_iff.mp hr v).trans (uniqueObservation_graph q k v)⟩
+  exact ⟨c,hc,fun v => (programLift_encoded_nat_realizes_iff.mp hr v).trans (uniqueObservation_graph q k v)⟩
 
 theorem solver_unique {Γ : Assembly} (n : Nat) (enabled : Hom Γ (encoded Bool))
     (seed : Hom Γ (encoded Nat)) (hs : ∀ γ, Nat.le (seed.toFun γ) n) :

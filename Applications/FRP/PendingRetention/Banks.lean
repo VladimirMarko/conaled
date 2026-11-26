@@ -144,7 +144,7 @@ def directLocalCut (cells : Bool → LocalSnapshot) (selector : Bool)
     (target : LocalSnapshot) (n : Nat) : DirectLocal :=
   ((SnapshotBanks.replacement target.encode).take n).foldl directLocalPrimitive ⟨cells,selector,{}⟩
 
-theorem directLocal_cut (cells : Bool → LocalSnapshot) (selector : Bool)
+theorem directLocalCut_encode (cells : Bool → LocalSnapshot) (selector : Bool)
     (target : LocalSnapshot) (n : Nat) :
     (directLocalCut cells selector target n).encode =
       SnapshotBanks.cut ⟨fun b => (cells b).encode,selector⟩ target.encode localSeed n := by
@@ -156,7 +156,7 @@ theorem directLocal_old_or_new (cells : Bool → LocalSnapshot) (selector : Bool
     let result := directLocalCut cells selector target n
     result.cells result.selector = cells selector ∨ result.cells result.selector = target := by
   have eq := congrArg (fun s : SnapshotBanks.CopyState LocalHeader (Outcome) => s.disk.root)
-    (directLocal_cut cells selector target n)
+    (directLocalCut_encode cells selector target n)
   rcases SnapshotBanks.cut_old_or_new ⟨fun b => (cells b).encode,selector⟩ target.encode localSeed n with h | h
   · exact Or.inl (congrArg LocalSnapshot.decode (eq.trans h))
   · exact Or.inr (congrArg LocalSnapshot.decode (eq.trans h))
@@ -196,7 +196,7 @@ def directPeerCut (cells : Bool → PeerSnapshot) (selector : Bool)
     (target : PeerSnapshot) (n : Nat) : DirectPeer :=
   ((SnapshotBanks.replacement target.encode).take n).foldl directPeerPrimitive ⟨cells,selector,{}⟩
 
-theorem directPeer_cut (cells : Bool → PeerSnapshot) (selector : Bool)
+theorem directPeerCut_encode (cells : Bool → PeerSnapshot) (selector : Bool)
     (target : PeerSnapshot) (n : Nat) :
     (directPeerCut cells selector target n).encode =
       SnapshotBanks.cut ⟨fun b => (cells b).encode,selector⟩ target.encode peerSeed n := by
@@ -208,7 +208,7 @@ theorem directPeer_old_or_new (cells : Bool → PeerSnapshot) (selector : Bool)
     let result := directPeerCut cells selector target n
     result.cells result.selector = cells selector ∨ result.cells result.selector = target := by
   have eq := congrArg (fun s : SnapshotBanks.CopyState PeerHeader (Nat × PendingMigration.Ledger) => s.disk.root)
-    (directPeer_cut cells selector target n)
+    (directPeerCut_encode cells selector target n)
   rcases SnapshotBanks.cut_old_or_new ⟨fun b => (cells b).encode,selector⟩ target.encode peerSeed n with h | h
   · exact Or.inl (congrArg PeerSnapshot.decode (eq.trans h))
   · exact Or.inr (congrArg PeerSnapshot.decode (eq.trans h))

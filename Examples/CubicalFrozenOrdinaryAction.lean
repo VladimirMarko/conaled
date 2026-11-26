@@ -34,7 +34,7 @@ theorem source_higher_observation : observeSquare (sourceActionSquare (t := assi
   (cocycleOrdinaryAction_observation cocycleBase cocycleRootedFamily assignedType.filling assignedType.lawful assignedTransport assignedBeta selectedNormalizedHomotopy).trans
     frozen_higher_observation
 
-theorem sourceHigher_no_erasure : sourceActionSquare (t := assignedTransport) sourceHigherAction ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by
+theorem sourceActionSquare_sourceHigherAction_ne_zeroCocycle : sourceActionSquare (t := assignedTransport) sourceHigherAction ≠ zeroCocycle (Over (⟨2⟩ : Cube)) := by
   intro h
   exact Int.one_ne_zero (source_higher_observation.symm.trans ((congrArg observeSquare h).trans observeSquare_zero))
 

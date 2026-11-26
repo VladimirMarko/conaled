@@ -13,7 +13,7 @@ private abbrev booleanCarrier :=
 
 /-- Move the actual Boolean universe-loop equivalence through the native
 reindex isomorphism and decode it: its selected contractions are recovered too. -/
-theorem booleanSelectedData_recovered :
+theorem boolean_equivReindexIso_recovery :
     let σ := projection (interval (raisedContext terminal))
     let f := Functor.whiskerLeft σ.mapElements (pathToMap booleanUniverseLoop)
     let E := booleanUniversalTransportEquivalence.reindex σ

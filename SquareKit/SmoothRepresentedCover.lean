@@ -384,7 +384,7 @@ theorem tripleMap_cover (V : SmoothPresentationSite.Site)
     exact (NatTrans.naturality_apply (SheafCoverCech.third A.cover).hom r.op z).symm
 
 /-- Represented triples jointly detect complete maps from the actual triple overlap. -/
-theorem tripleHom_ext {N : Sheaf topology Type}
+theorem tripleMap_hom_ext {N : Sheaf topology Type}
     (f g : SheafCoverCech.triple A.cover ⟶ N)
     (h : ∀ i j k, A.tripleMap i j k ≫ f = A.tripleMap i j k ≫ g) : f = g := by
   let F := fun ijk : (I × I) × I => embedding.obj (A.triple ijk.1.1 ijk.1.2 ijk.2)

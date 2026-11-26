@@ -57,7 +57,7 @@ omit [HasPullbacks A]
     [HasPullbacks E]
     [FinitaryExtensive E] [Mono u] in
 /-- The source composition comparisons satisfy the associativity diagram. -/
-theorem sourceModel_associativity :
+theorem sourceModelCompIso_associativity :
     whiskerRight (sourceModelCompIso g f h u).hom (sourceModelFunctor k (g.comp (f.comp h)) u) ≫
       (sourceModelCompIso k (g.comp f) h u).hom =
         (Functor.associator (sourceModelFunctor f h u) (sourceModelFunctor g (f.comp h) u)
@@ -70,7 +70,7 @@ theorem sourceModel_associativity :
 
 omit [HasPullbacks A] [HasPullbacks B] [HasPullbacks E] [FinitaryExtensive E] [Mono u] in
 /-- The right unit comparison is compatible with source composition. -/
-theorem sourceModel_right_unit :
+theorem sourceModelCompIso_right_unit :
     (sourceModelCompIso (identity B) f h u).hom =
       whiskerLeft (sourceModelFunctor f h u) (sourceModelIdentityIso (f.comp h) u).hom ≫
         (Functor.rightUnitor (sourceModelFunctor f h u)).hom := by
@@ -80,7 +80,7 @@ theorem sourceModel_right_unit :
 
 omit [HasPullbacks A] [HasPullbacks B] [HasPullbacks E] [FinitaryExtensive E] [Mono u] in
 /-- The left unit comparison is compatible with source composition. -/
-theorem sourceModel_left_unit :
+theorem sourceModelCompIso_left_unit :
     (sourceModelCompIso f (identity A) h u).hom =
       whiskerRight (sourceModelIdentityIso h u).hom (sourceModelFunctor f h u) ≫
         (Functor.leftUnitor (sourceModelFunctor f h u)).hom := by

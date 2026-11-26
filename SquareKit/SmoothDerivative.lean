@@ -87,12 +87,12 @@ def interpret (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) : scalar ⟶ scalar :=
       ext x
       exact ((smoothMap g.unop.unop).map_act (unaryOperation f hf) (fun _ => x)).symm}⟩
 
-theorem analyticDerivative_smooth (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) : ContDiff ℝ ∞ (deriv f) :=
+theorem deriv_smooth (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) : ContDiff ℝ ∞ (deriv f) :=
   (hf.fderiv_right (m := ∞) (by simp)).clm_apply contDiff_const
 
 theorem unary_derivative (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) :
     SmoothAlgebra.derivative (unaryOperation f hf) 0 =
-      unaryOperation (deriv f) (analyticDerivative_smooth f hf) := by
+      unaryOperation (deriv f) (deriv_smooth f hf) := by
   apply Subtype.ext
   funext x
   have h := (hf.differentiable (by simp) (x 0)).hasFDerivAt.comp x
@@ -105,14 +105,14 @@ theorem unary_derivative (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) :
 /-- Extraction at the actual universal dual stage gives the analytic derivative.
 The left side is defined by the categorical KL inverse, not by this formula. -/
 theorem derivative_interpret (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) :
-    derivative (interpret f hf) = interpret (deriv f) (analyticDerivative_smooth f hf) := by
+    derivative (interpret f hf) = interpret (deriv f) (deriv_smooth f hf) := by
   rw [derivative_coefficients]
   apply ObjectProperty.hom_ext
   apply NatTrans.ext
   funext A
   ext x
   change (∑ i : Fin 1, act (SmoothAlgebra.derivative (unaryOperation f hf) i)
-    (fun _ => x + 0) * (0 + 1)) = act (unaryOperation (deriv f) (analyticDerivative_smooth f hf)) (fun _ => x)
+    (fun _ => x + 0) * (0 + 1)) = act (unaryOperation (deriv f) (deriv_smooth f hf)) (fun _ => x)
   simp only [add_zero, zero_add, Fin.sum_univ_one, mul_one, unary_derivative]
 
 /-- At the real stage the extracted component is an ordinary analytic derivative. -/

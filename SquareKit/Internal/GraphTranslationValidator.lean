@@ -105,7 +105,7 @@ theorem Validated.source (h : Validated.{v} s name environment actual) : s.Denot
   obtain ⟨t, _, _, _, _, _, _, hd⟩ := h.theorem_record
   exact hd.sound
 
-theorem approvedEnvironment_checked :
+theorem graphPrimitiveEnvironment_declarations_checked :
     listEq constantEq GraphPrimitiveEnvironment.declarations GraphPrimitiveEnvironment.declarations = true := by
   decide
 
@@ -116,7 +116,7 @@ theorem check_payload (c : Certificate s) (hv : c.version = 1)
     check limit s name GraphPrimitiveEnvironment.declarations (payload name c) c = .ok () := by
   have hl' := hl
   rw [c.type_eq] at hl'
-  simp [check, hv, approvedEnvironment_checked, payload, constantInfo, emit,
+  simp [check, hv, graphPrimitiveEnvironment_declarations_checked, payload, constantInfo, emit,
     CoreSyntax.Expr.ofLean_toLean, c.type_eq, Nat.not_lt.mpr hl']
 
 /-- Both checked stages use the repository's shared relational square interface. -/

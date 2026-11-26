@@ -47,7 +47,7 @@ variable (i j : A.Index) (B : Code)
 
 include hb in
 /-- Real reductions detect the unit needed to enter the ordinary chart overlap. -/
-theorem chartOverlap_unit :
+theorem overlapDefining_unit :
     IsUnit (b (principalBase (A.charts.domain j).defining (A.overlapDefining j i))) := by
   apply unit_of_real_points B
   intro h
@@ -60,7 +60,7 @@ theorem chartOverlap_unit :
 
 def chartOverlapLift : Hom (Principal (A.pair j i).defining) (Carrier B) :=
   subLift (A.charts.domain j).defining (A.overlapDefining j i) b
-    (A.chartOverlap_unit i j B b hb)
+    (A.overlapDefining_unit i j B b hb)
 
 theorem chartOverlapLift_left :
     (A.chartOverlapLift i j B b hb).comp (Localization.pullback (A.left j i)) = b := by

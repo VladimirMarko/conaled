@@ -46,7 +46,7 @@ def compatibleUnglueIso (φ : Cofibration Γ) (A : Family Γ)
   inv_hom_id := rfl
 
 set_option backward.isDefEq.respectTransparency false in
-theorem gluedMap_isIso {φ ψ : Cofibration Γ}
+theorem glue_isIso {φ ψ : Cofibration Γ}
     {A B : Family (restrictContext (φ.join ψ))}
     (a : reindex A (CodeSystem.includeLeft φ ψ) ⟶ reindex B (CodeSystem.includeLeft φ ψ))
     (b : reindex A (CodeSystem.includeRight φ ψ) ⟶ reindex B (CodeSystem.includeRight φ ψ))
@@ -81,7 +81,7 @@ noncomputable def uaUnglueIso
   haveI : IsIso (Univalence.boundaryRight a b) := by
     exact (eqToIso (Univalence.boundary_right a b)).isIso_hom
   haveI : IsIso (Univalence.boundaryMap a b e.hom) :=
-    gluedMap_isIso _ _ _
+    glue_isIso _ _ _
   exact Glue.codeNativeIso Univalence.face (Univalence.ambient b) (CodeSystem.boundary a b)
       (Univalence.boundaryMap a b e.hom) (Univalence.boundaryEquivalence a b e.hom (HomotopyEquivalence.ofIso e)) ≪≫
     Glue.familyIso _ _ _ _ ≪≫ compatibleUnglueIso _ _ _ (asIso (Univalence.boundaryMap a b e.hom))

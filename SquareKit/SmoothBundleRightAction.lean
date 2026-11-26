@@ -167,12 +167,12 @@ theorem LocalTrivialization.right_sheet {p : E → B}
   t.equivariant (op g) (op h) b hb
 
 /-- Conversion inverts sheet labels as well as the action. -/
-theorem LocalTrivialization.toLeft_sheet {p : E → B}
+theorem LocalTrivialization.changeGroup_inv'_sheet {p : E → B}
     (t : LocalTrivialization (n := n) (G := Gᵐᵒᵖ) p) (g : G) :
     letI := inverseAction (G := G) (E := E)
     (t.changeGroup (MulEquiv.inv' G)).sheet g = t.sheet (op g⁻¹) := rfl
 
-theorem LocalTrivialization.toLeft_sheet_recover {p : E → B}
+theorem LocalTrivialization.changeGroup_inv'_sheet_recover {p : E → B}
     (t : LocalTrivialization (n := n) (G := Gᵐᵒᵖ) p) (g : G) :
     letI := inverseAction (G := G) (E := E)
     (t.changeGroup (MulEquiv.inv' G)).sheet g⁻¹ = t.sheet (op g) := by

@@ -9,7 +9,7 @@ open Examples.CubicalGlue Examples.CubicalUnivalenceTransport
 open SmallUniverse.NativeUnivalence
 
 /-- The native Boolean result contains exactly the chosen actual transport witness. -/
-theorem booleanForward_full :
+theorem equivSections_booleanUniversalTransportEquivalence :
     EquivalenceFamilies.equivSections
       (SmallUniverse.liftedDecode (constantLocal terminal Bool).code)
       (SmallUniverse.liftedDecode (constantLocal terminal Bool).code)
@@ -19,16 +19,16 @@ theorem booleanForward_full :
 
 /-- Applying the native reverse map to that internal Boolean equivalence gives
 its actual constructed Glue path. -/
-theorem booleanReverse_full :
+theorem equivToPath_booleanInternalEquivalence :
     Term.map (equivToPath (constantLocal terminal Bool).code (constantLocal terminal Bool).code)
       booleanInternalEquivalence =
       CubicalNativeUnivalenceUa.recoveredBooleanLoop := by
   exact (congrArg (Term.map (equivToPath (constantLocal terminal Bool).code
-    (constantLocal terminal Bool).code)) booleanForward_full.symm).trans
+    (constantLocal terminal Bool).code)) equivSections_booleanUniversalTransportEquivalence.symm).trans
     (equivToPath_beta (pathToMap booleanUniverseLoop) booleanUniversalTransportEquivalence)
 
 /-- The same forward equality holds after adding an interval parameter. -/
-theorem booleanForward_interval :
+theorem boolean_pathToEquiv_interval :
     let a := (constantLocal terminal Bool).code
     let σ := projection (interval (raisedContext terminal))
     let p := booleanUniverseLoop.reindex σ

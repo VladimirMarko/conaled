@@ -256,7 +256,7 @@ theorem targetJ_branch : targetJ.reindex root.equiv.functor =
     (DisplayMap.reindex motiveMap root.equiv.functor).term branch :=
   eliminateSection_beta _ _ _
 
-theorem chosenJ_selected_loop (n : ZMod 4) :
+theorem mappedJ_reindex_label (n : ZMod 4) :
     Multiplicative.toAdd ((mappedJ.reindex root.equiv.functor).map (label n)) = n := by
   rw [mappedJ_branch]
   simp [DisplayMap.term, Section.ofOver, Section.lift,
@@ -268,7 +268,7 @@ theorem chosenJ_selected_loop (n : ZMod 4) :
 
 
 /-- The comparison of chosen J terms is natural on every path-context arrow. -/
-theorem chosenJ_arrow {a b : pathBase} (p : a ⟶ b) :
+theorem chosenJComparison_naturality {a b : pathBase} (p : a ⟶ b) :
     mappedJ.lift.map p ≫ chosenJComparison.hom.app b =
       chosenJComparison.hom.app a ≫ targetJ.lift.map p :=
   chosenJComparison.hom.naturality p

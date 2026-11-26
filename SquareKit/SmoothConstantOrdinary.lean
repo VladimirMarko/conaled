@@ -121,7 +121,7 @@ theorem continuous_realLinePoint : Continuous realLinePoint :=
 
 /-- Every sheafified group section over the real line has one global point
 label, derived from actual local covering witnesses. -/
-theorem realLineLabel_constant
+theorem ordinaryLabel_realLinePoint_constant
     (g : (locallyConstantGroupSheaf G).obj.obj (op (toSite.obj (full 1)))) (r s : ℝ) :
     ordinaryLabel G (full 1) g (realLinePoint r) =
       ordinaryLabel G (full 1) g (realLinePoint s) :=
@@ -132,7 +132,7 @@ theorem realLineLabel_constant
 its negative component, cannot come from two global trivializing sections.
 This consumes the smooth-site comparison, rather than assuming locally
 constant functions as input. -/
-theorem realLine_clutching_obstruction (c : G) (hc : c ≠ 1)
+theorem realLinePoint_clutching_obstruction (c : G) (hc : c ≠ 1)
     (a b : (locallyConstantGroupSheaf G).obj.obj (op (toSite.obj (full 1))))
     (hneg : ordinaryLabel G (full 1) a (realLinePoint (-1)) =
       ordinaryLabel G (full 1) b (realLinePoint (-1)))
@@ -140,8 +140,8 @@ theorem realLine_clutching_obstruction (c : G) (hc : c ≠ 1)
       c * ordinaryLabel G (full 1) b (realLinePoint 1)) : False := by
   have he : c * ordinaryLabel G (full 1) b (realLinePoint 1) =
       1 * ordinaryLabel G (full 1) b (realLinePoint 1) := by
-    rw [one_mul, ← hpos, realLineLabel_constant G a 1 (-1), hneg,
-      realLineLabel_constant G b (-1) 1]
+    rw [one_mul, ← hpos, ordinaryLabel_realLinePoint_constant G a 1 (-1), hneg,
+      ordinaryLabel_realLinePoint_constant G b (-1) 1]
   exact hc (mul_right_cancel he)
 
 end SquareKit.SmoothOpenSite

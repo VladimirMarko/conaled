@@ -31,13 +31,13 @@ theorem recover_realizer_iff {n e : Nat} (q : (boundedSequences n).Carrier) :
     change r = k at hk
     subst r
     obtain ⟨c, hc, hs⟩ := hr k
-    refine ⟨c, hc, liftNat_realizes_iff.mpr ?_⟩
+    refine ⟨c, hc, programLift_encoded_nat_realizes_iff.mpr ?_⟩
     intro v
     exact (hs v).trans (recover_graph q k v)
   · intro hr k
     obtain ⟨c, hc, hs⟩ := hr k k rfl
     refine ⟨c, hc, fun v => ?_⟩
-    exact (liftNat_realizes_iff.mp hs v).trans (recover_graph q k v).symm
+    exact (programLift_encoded_nat_realizes_iff.mp hs v).trans (recover_graph q k v).symm
 
 noncomputable def toStates (n : Nat) : Hom (boundedSequences n) (stateAssembly n) where
   toFun q := ⟨recover q, by
@@ -57,7 +57,7 @@ noncomputable def stateSequence {n : Nat} (q : State n) (hq : UniformRealizable 
     change r = k at hr
     subst r
     obtain ⟨c, hc, hs⟩ := he k
-    refine ⟨c, hc, liftNat_realizes_iff.mpr ?_⟩
+    refine ⟨c, hc, programLift_encoded_nat_realizes_iff.mpr ?_⟩
     intro v
     exact (hs v).trans (coordinate_eq_some q k v).symm
 
@@ -77,7 +77,7 @@ noncomputable def fromStates (n : Nat) : Hom (stateAssembly n) (boundedSequences
     change r = k at hr
     subst r
     obtain ⟨c, hc, hs⟩ := he k
-    refine ⟨c, hc, liftNat_realizes_iff.mpr ?_⟩
+    refine ⟨c, hc, programLift_encoded_nat_realizes_iff.mpr ?_⟩
     intro v
     exact (hs v).trans (coordinate_eq_some q.val k v).symm
 

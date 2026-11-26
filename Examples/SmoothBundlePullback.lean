@@ -20,9 +20,9 @@ local instance : IsManifold (modelWithCorners 1) ∞ (Pullback P f) := Pullback.
 
 abbrev scaleTwoBundle := Pullback.bundle (m := 1) P f hf
 
-theorem scaleTwo_projection (z : Pullback P f) : scaleTwoBundle.projection z = z.val.1 := rfl
+theorem scaleTwoBundle_projection (z : Pullback P f) : scaleTwoBundle.projection z = z.val.1 := rfl
 
-theorem scaleTwo_total_smooth :
+theorem scale_two_pullback_snd_smooth :
     ContMDiff (modelWithCorners 1) (modelWithCorners 1) ∞ (Pullback.snd P f) :=
   Pullback.smooth_snd P f hf (scale_smooth 2)
 

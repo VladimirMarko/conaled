@@ -20,7 +20,7 @@ noncomputable def recoveredBooleanLoopPath : Term (homogeneousPath
   let a := (constantLocal terminal Bool).code
   let p := leftInverseAt a a booleanUniverseLoop
   exact pathLam (pathApp p)
-    ((pathApp_zero p).trans booleanReverse_full) (pathApp_one p)
+    ((pathApp_zero p).trans equivToPath_booleanInternalEquivalence) (pathApp_one p)
 
 /-- The right inverse retains the entire chosen internal transport witness. -/
 noncomputable def booleanEquivalenceRoundtrip :=

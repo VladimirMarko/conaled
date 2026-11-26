@@ -124,7 +124,7 @@ theorem extension_independent (f : freeAlgebra n) (A B : freeAlgebra (n+1))
   exact SmoothInverseGraph.graph_last _ _
 
 /-- The algebra comparison agrees with the previously constructed real-point UP. -/
-theorem toOpen_realPoint (f : freeAlgebra n) (x : locus f) (q : Principal f) :
+theorem toOpen_realPoints (f : freeAlgebra n) (x : locus f) (q : Principal f) :
     (toOpen f q).val x = (realPoints f).symm x q := by
   let ev : Hom (functionAlgebra f) ℝ := {toFun := fun g => g.val x, map_act := fun _ _ => rfl}
   have he : Hom.comp ev (toOpen f) = (realPoints f).symm x := by

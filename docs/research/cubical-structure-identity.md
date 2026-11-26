@@ -380,7 +380,7 @@ carrier `Phase` presents these as idle, ready and failed. The selected state
 is idle and the numeric observer reads ready as 1. `machinePath` consumes
 `uaStructureIdentity`; `transported_observation` and `transported_invariant`
 read the transported package. The existing even/odd client is recovered by
-`evenOddPath` and `evenOdd_recovery` through the same API.
+`evenOddPath` and `targetPackage_evenPackage` through the same API.
 
 `wrongPresentation` swaps states 1 and 2 while fixing 0. It is a carrier
 bijection preserving the chosen point, but its image of the transition out

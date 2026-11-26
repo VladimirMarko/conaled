@@ -111,7 +111,7 @@ theorem loopPermutation_concat {S : Type} (e d : S ≃ S) :
   rw [loopPermutation_apply]
   exact congrArg (fun t => t.val DiscreteEquivalences.point) (observedConcat_eq e d s)
 
-theorem booleanPermutation_cases (e : Bool ≃ Bool) :
+theorem boolean_equiv_cases (e : Bool ≃ Bool) :
     e = Equiv.refl Bool ∨ e = booleanTransposition := by
   have hne : e false ≠ e true := fun h => Bool.false_ne_true (e.injective h)
   cases hf : e false <;> cases ht : e true
@@ -130,10 +130,10 @@ noncomputable def booleanIdentityLoop : Term (loops Bool) := homogeneousRefl (te
 noncomputable def booleanNegationLoop : Term (loops Bool) := equivalencePath booleanTransposition
 
 /-- Exactly the two Boolean permutation components occur among closed loops. -/
-theorem booleanLoop_cases (p : Term (loops Bool)) :
+theorem boolean_loop_cases (p : Term (loops Bool)) :
     Nonempty (Term (homogeneousPath (loops Bool) p booleanIdentityLoop)) ∨
     Nonempty (Term (homogeneousPath (loops Bool) p booleanNegationLoop)) := by
-  rcases booleanPermutation_cases (loopPermutation p) with h | h
+  rcases boolean_equiv_cases (loopPermutation p) with h | h
   · exact Or.inl ⟨samePermutationPath p booleanIdentityLoop (h.trans (loopPermutation_refl Bool).symm)⟩
   · exact Or.inr ⟨samePermutationPath p booleanNegationLoop (h.trans (loopPermutation_ua booleanTransposition).symm)⟩
 
@@ -149,7 +149,7 @@ theorem booleanLoops_no_two_path :
 
 /-- Scoped rejection: this universe's closed Boolean loop family does not
 connect every pair of points by a native path. -/
-theorem booleanLoops_not_path_unique :
+theorem boolean_loops_not_path_unique :
     ¬ ∀ p q : Term (loops Bool), Nonempty (Term (homogeneousPath (loops Bool) p q)) :=
   fun h => booleanLoops_no_two_path (h booleanIdentityLoop booleanNegationLoop)
 
@@ -207,7 +207,7 @@ noncomputable def originalLoopRecovery {S : Type} (p : Term (loops S)) := recove
 noncomputable def intervalLoopRecovery {S : Type} (p : Term (loops S)) :=
   recoverLoopPathReindex (code S) p (projection (interval (raisedContext terminal)))
 
-theorem intervalRecovery_endpoint {S : Type} (p : Term (loops S)) :
+theorem recoverLoop_reindex_interval {S : Type} (p : Term (loops S)) :
     reindexPath (recoverLoop (code S) p) (projection (interval (raisedContext terminal))) =
       recoverLoop (projection (interval (raisedContext terminal)) ≫ code S)
         (reindexPath p (projection (interval (raisedContext terminal)))) :=

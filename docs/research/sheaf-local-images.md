@@ -159,12 +159,12 @@ E → 1 along this map is a sheaf by the existing sheaf limit machinery.
 the projection and naturality theorems connect this explicit representation
 to the categorical square.
 
-`baseChanged_top` uses the general Beck–Chevalley theorem and the original
+`localImage_top_down` uses the general Beck–Chevalley theorem and the original
 top image calculation. Hence every Bool section at X belongs locally to the
 base-changed image (`locally_at_X`). `no_pointwise_at_X` projects any alleged
 global witness to the forbidden original E section and reuses
 `no_pointwise_witness`. For the source predicate pulled back from `selective`
-along E → 1, `baseChanged_selective` combines Beck–Chevalley with the earlier
+along E → 1, `localImage_preimage_selective` combines Beck–Chevalley with the earlier
 Frobenius computation. Its checked consequences admit both Bool values at U
 and exclude both at V and X. These computations use the public laws rather
 than proving a separate finite version of local existential image.

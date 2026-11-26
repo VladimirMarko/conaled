@@ -19,7 +19,7 @@ open Applications.Sorting
 
 /-- Compose the sorting contract with the independently implemented ordering
 checker. No transitivity or ordering of the remaining suffix is assumed. -/
-theorem compareSwap_checkedPrefix {α : Type} (swap check : α → α → Bool)
+theorem compareSwap_checked_prefix {α : Type} (swap check : α → α → Bool)
     (R : α → α → Prop)
     (swapLaw : ∀ a b, (swap a b = true → R b a) ∧ (swap a b = false → R a b))
     (checkLaw : ∀ a b, check a b = true ↔ R a b) (xs : List α) :
@@ -119,7 +119,7 @@ theorem not_whole_list_sorted : ¬ (maybeSwap [3, 2, 1]).Pairwise (· ≤ ·) :=
 theorem certified_prefix (xs : List Nat) :
     OrderCertificate.adjacent (fun a b => decide (a ≤ b))
       ((maybeSwap xs).take 2) = true :=
-  compareSwap_checkedPrefix gtb _ (· ≤ ·) gtb_order_law leb_reflect xs
+  compareSwap_checked_prefix gtb _ (· ≤ ·) gtb_order_law leb_reflect xs
 
 /-- The arithmetic reflection lemma also describes the false comparison branch. -/
 theorem false_branch_reflect (a b : Nat) : gtb a b = false ↔ a ≤ b := by

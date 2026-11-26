@@ -99,6 +99,6 @@ example : tripleComparisonLeft outer first second = tripleComparisonRight outer 
 example := composition_left_unit both
 example := composition_right_unit both
 
-example : ¬ PreservesFiniteLimits second := MatesBaseChange.forget_not_leftExact
+example : ¬ PreservesFiniteLimits second := MatesBaseChange.forget_not_preservesFiniteLimits
 example : ¬ PreservesLimitsOfShape WalkingCospan truncation := truncation_not_preserving
 end Examples.SpanInterpretationComposition

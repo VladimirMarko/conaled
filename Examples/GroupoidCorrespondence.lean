@@ -154,7 +154,7 @@ theorem output_recovery :
   rw [Examples.SpanInterpretation.output]
   exact (congrArg Discrete.as (IsDiscrete.eq_of_hom
     ((discretePullback interpretedValues.hom interpreted.l).counitIso.hom.app ⟨nativeInput⟩))).symm
-example : ¬ PreservesFiniteLimits second := Examples.MatesBaseChange.forget_not_leftExact
+example : ¬ PreservesFiniteLimits second := Examples.MatesBaseChange.forget_not_preservesFiniteLimits
 example : ¬ PreservesLimitsOfShape WalkingCospan truncation := truncation_not_preserving
 end Interpreted
 end Examples.GroupoidCorrespondence

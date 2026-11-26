@@ -36,7 +36,7 @@ def reconstruct (h : Hom (Principal g) (Principal f)) : OpenMap f g where
 
 theorem reconstruct_value (h : Hom (Principal g) (Principal f)) (a : Principal g) (x : locus f) :
     (toOpen g a).val (reconstruct h x) = (toOpen f (h a)).val x := by
-  rw [toOpen_realPoint]
+  rw [toOpen_realPoints]
   exact congrArg (fun e : Hom (Principal g) ℝ => e a) ((realPoints g).symm_apply_apply _)
 
 theorem reconstruct_pullback (h : OpenMap f g) : reconstruct (pullback h) = h := by

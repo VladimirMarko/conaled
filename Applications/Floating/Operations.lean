@@ -65,7 +65,7 @@ theorem unpacked_add_bounds (format : Format) (left right : UnpackedFloat) (qa q
       exact result
 
 /-- Division constructs its own alignment; operand canonicality is unnecessary. -/
-theorem unpacked_divTen_bounds (format : Format) (numerator denominator : UnpackedFloat)
+theorem unpacked_div_ten_bounds (format : Format) (numerator denominator : UnpackedFloat)
     (q : Rat) (observedNumerator : Observation.unpack numerator = some q)
     (observedTen : Observation.unpack denominator = some 10) (nonnegative : 0 ≤ q)
     (upper : q ≤ 10) (E : Int)
@@ -143,12 +143,12 @@ theorem add32_bounds (digit : Nat) (tail : Float32) (q : Rat) (proper : digit < 
   rwa [halfUnit] at error
 
 /-- Actual binary64 division by exact ten, including zero and subnormal results. -/
-theorem divideTen64_bounds (value : Float) (q : Rat)
+theorem float_div_ten_bounds (value : Float) (q : Rat)
     (observed : Observation.decode64 value = some q) (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     ∃ result, Observation.decode64 (value / 10) = some result ∧
       0 ≤ result ∧ result ≤ 1 ∧ |result - q / 10| ≤ (2 : Rat) ^ (-53 : Int) := by
   obtain ⟨result, resultObserved, resultNonnegative, resultUpper, error, canonical⟩ :=
-    unpacked_divTen_bounds Format.binary64 value.toModel.unpack (10 : Float).toModel.unpack
+    unpacked_div_ten_bounds Format.binary64 value.toModel.unpack (10 : Float).toModel.unpack
       q observed Observation.decode64_ten nonnegative upper (-52) (by decide +kernel) (by decide)
   refine ⟨result, model64_pack_numeric _ result canonical resultObserved resultNonnegative
     (by linarith), resultNonnegative, resultUpper, ?_⟩
@@ -156,12 +156,12 @@ theorem divideTen64_bounds (value : Float) (q : Rat)
   rwa [halfUnit] at error
 
 /-- Actual binary32 division by exact ten, including zero and subnormal results. -/
-theorem divideTen32_bounds (value : Float32) (q : Rat)
+theorem float32_div_ten_bounds (value : Float32) (q : Rat)
     (observed : Observation.decode32 value = some q) (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     ∃ result, Observation.decode32 (value / 10) = some result ∧
       0 ≤ result ∧ result ≤ 1 ∧ |result - q / 10| ≤ (2 : Rat) ^ (-24 : Int) := by
   obtain ⟨result, resultObserved, resultNonnegative, resultUpper, error, canonical⟩ :=
-    unpacked_divTen_bounds Format.binary32 value.toModel.unpack (10 : Float32).toModel.unpack
+    unpacked_div_ten_bounds Format.binary32 value.toModel.unpack (10 : Float32).toModel.unpack
       q observed Observation.decode32_ten nonnegative upper (-23) (by decide +kernel) (by decide)
   refine ⟨result, model32_pack_numeric _ result canonical resultObserved resultNonnegative
     (by linarith), resultNonnegative, resultUpper, ?_⟩

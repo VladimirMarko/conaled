@@ -103,7 +103,7 @@ def twoPatch : SetData pointDisplay where
   firstThird := constantMap (fun f ijk => f (ijk.1,ijk.2.2))
   secondThird := constantMap (fun f ijk => f (ijk.2.1,ijk.2.2))
 
-private theorem twoPatch_arrow {C : Grpd.{0,0}} (F : C ⥤ Grpd.{0,0})
+private theorem extend_hom_ext {C : Grpd.{0,0}} (F : C ⥤ Grpd.{0,0})
     [Quiver.IsThin C] [∀ c, Quiver.IsThin (F.obj c)]
     {x y : Extend F} (f g : x ⟶ y) : f = g :=
   Grothendieck.ext f g (Subsingleton.elim _ _) (Subsingleton.elim _ _)
@@ -112,23 +112,23 @@ theorem twoPatch_coherence : twoPatch.toFamilyData.Coherence where
   diagonal_first := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
-    exact twoPatch_arrow twoPatch.toFamilyData.localFamily _ _
+    exact extend_hom_ext twoPatch.toFamilyData.localFamily _ _
   diagonal_second := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
-    exact twoPatch_arrow twoPatch.toFamilyData.localFamily _ _
+    exact extend_hom_ext twoPatch.toFamilyData.localFamily _ _
   triple_first := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
-    exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
+    exact extend_hom_ext twoPatch.toFamilyData.tripleFamily _ _
   triple_middle := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
-    exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
+    exact extend_hom_ext twoPatch.toFamilyData.tripleFamily _ _
   triple_last := by
     refine CategoryTheory.Functor.ext (fun _ => rfl) ?_
     intro x y f
-    exact twoPatch_arrow twoPatch.toFamilyData.tripleFamily _ _
+    exact extend_hom_ext twoPatch.toFamilyData.tripleFamily _ _
 
 def pointDatum : Datum pointDisplay.toDiagram := constantDatum pointCategory point
 
@@ -226,7 +226,7 @@ theorem relativeLoop_nonidentity : relativeLoop ≠ 𝟙 loopRelative := by
   exact (by decide : (1 : ℤ) ≠ 0) hf
 
 /-- Equal endpoints do not collapse selected relative identity paths. -/
-theorem relativeIdentity_nontrivial :
+theorem relative_identity_nontrivial :
     (Comprehension.Identity.arrowEquiv loopRelative loopRelative).symm relativeLoop ≠
       (Comprehension.Identity.arrowEquiv loopRelative loopRelative).symm (𝟙 loopRelative) := by
   intro hh

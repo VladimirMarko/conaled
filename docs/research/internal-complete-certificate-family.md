@@ -45,9 +45,9 @@ complete-implies-well-complete theorem is assumed.
 |---|---|
 | Uniform function objects and beta/eta | [AssemblyFunction](../../SquareKit/AssemblyFunction.lean): `function`, `evaluation`, `curry`, `uncurry` |
 | Standard categorical packaging | [AssemblyCartesian](../../SquareKit/AssemblyCartesian.lean): chosen terminal/products, `CartesianMonoidalCategory`, `functionAdjunction`, `MonoidalClosed` |
-| All-context and exponential completeness agree | [AssemblyFunctionComplete](../../SquareKit/AssemblyFunctionComplete.lean): `cutRestrictionIso`, `cutComplete_iff_restrictionIso` |
-| Finite-observation continuity | [AssemblyCutObservation](../../SquareKit/AssemblyCutObservation.lean): `cut_growth`, `cut_finite_witness`; [AssemblyCutContinuity](../../SquareKit/AssemblyCutContinuity.lean): `cutArrow_mono`, `cutArrow_infinity_iff` |
-| Concrete completeness | [AssemblyNatComplete](../../SquareKit/AssemblyNatComplete.lean): `nat_cutComplete`; [AssemblyLiftNatComplete](../../SquareKit/AssemblyLiftNatComplete.lean): `liftNatExtension`, `liftNat_cutComplete` |
+| All-context and exponential completeness agree | [AssemblyFunctionComplete](../../SquareKit/AssemblyFunctionComplete.lean): `cutRestrictionIso`, `cutComplete_iff_restriction_iso` |
+| Finite-observation continuity | [AssemblyCutObservation](../../SquareKit/AssemblyCutObservation.lean): `cut_growth`, `cut_finite_witness`; [AssemblyCutContinuity](../../SquareKit/AssemblyCutContinuity.lean): `iterationCuts_hom_mono`, `finalCuts_hom_infinity_iff` |
+| Concrete completeness | [AssemblyNatComplete](../../SquareKit/AssemblyNatComplete.lean): `nat_cutComplete`; [AssemblyLiftNatComplete](../../SquareKit/AssemblyLiftNatComplete.lean): `liftNatExtension`, `programLift_encoded_nat_cutComplete` |
 | Exponential/retract closure | [AssemblyCompleteClosure](../../SquareKit/AssemblyCompleteClosure.lean): `function_cutComplete`, `retract_cutComplete` |
 | Bound filter and complete fibers | [AssemblyBoundedSequences](../../SquareKit/AssemblyBoundedSequences.lean): `sequenceFilter_fixed_iff`, `boundedSequences_complete`, `bounded_extension` |
 | Relative extension and substitution | [AssemblyBoundedFamily](../../SquareKit/AssemblyBoundedFamily.lean): `boundedFamily_complete`; [AssemblyFamilySubstitution](../../SquareKit/AssemblyFamilySubstitution.lean): `extendFamily_reindex`, `reindexFamilySection_comp` |

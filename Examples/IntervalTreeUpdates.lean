@@ -219,13 +219,13 @@ theorem corruptSibling_strict :
   change [pointOne, pointThree, pointFive].Pairwise (· < ·)
   decide
 
-theorem corruptSibling_insert_contents :
+theorem corruptSiblingInserted_contents :
     Trees.inorder (Trees.Cached.erase corruptSiblingInserted) =
       [pointOne, pointThree, pointFive, pointSix] := by
   rw [← unvisited_corruption_remains]
   exact (IntervalTree.inorder_insert id pointSix corruptSibling_strict).trans rfl
 
-theorem corruptSibling_insert_strict :
+theorem corruptSiblingInserted_strict :
     OrderedList.Strict (Trees.inorder (Trees.Cached.erase corruptSiblingInserted)) := by
   rw [← unvisited_corruption_remains]
   exact IntervalTree.strict_inorder_insert id pointSix corruptSibling_strict
@@ -319,7 +319,7 @@ def corruptTiesInserted : NTree :=
   .node (lowFive, 99) (.node (lowTwo, 4) .nil (leaf lowFour 4)) (leaf lowEight 99)
 def corruptTiesDeleted : NTree := .node (lowFive, 99) (leaf lowTwo 99) .nil
 
-theorem corruptTies_strict :
+theorem corruptedEqualLows_strict :
     OrderedList.Strict (Trees.inorder (Trees.Cached.erase corruptedEqualLows)) := by
   change [lowTwo, lowFive, lowEight].Pairwise (· < ·)
   decide
@@ -332,19 +332,19 @@ theorem corrupt_ties_delete_shape :
 theorem corrupt_ties_insert_contents :
     Trees.inorder (Trees.Cached.erase corruptTiesInserted) = [lowTwo, lowFour, lowFive, lowEight] := by
   rw [← corrupt_ties_insert_shape]
-  exact (IntervalTree.inorder_insert id lowFour corruptTies_strict).trans rfl
+  exact (IntervalTree.inorder_insert id lowFour corruptedEqualLows_strict).trans rfl
 
 theorem corrupt_ties_delete_contents :
     Trees.inorder (Trees.Cached.erase corruptTiesDeleted) = [lowTwo, lowFive] := by
   rw [← corrupt_ties_delete_shape]
-  exact (IntervalTree.inorder_delete id lowEight corruptTies_strict).trans rfl
+  exact (IntervalTree.inorder_delete id lowEight corruptedEqualLows_strict).trans rfl
 
 theorem corrupt_ties_outputs_strict :
     OrderedList.Strict (Trees.inorder (Trees.Cached.erase corruptTiesInserted)) ∧
     OrderedList.Strict (Trees.inorder (Trees.Cached.erase corruptTiesDeleted)) := by
   rw [← corrupt_ties_insert_shape, ← corrupt_ties_delete_shape]
-  exact ⟨IntervalTree.strict_inorder_insert id lowFour corruptTies_strict,
-    IntervalTree.strict_inorder_delete id lowEight corruptTies_strict⟩
+  exact ⟨IntervalTree.strict_inorder_insert id lowFour corruptedEqualLows_strict,
+    IntervalTree.strict_inorder_delete id lowEight corruptedEqualLows_strict⟩
 
 theorem corrupt_ties_outputs_invalid :
     ¬IntervalTree.CacheValid id corruptTiesInserted ∧

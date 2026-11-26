@@ -107,7 +107,7 @@ def modelPartitionEquivalence : Model T ≌ PartitionSection.Model (parameterTer
       (PartitionSection.sectionEquivalence (parameterTerminal T)).symm)
 
 /-- The comparison retains the previous graph/classifying map, with only the explicit object isomorphism. -/
-theorem modelClassifierSection_graph (M : Model T) :
+theorem modelClassifierSectionEquiv_graph (M : Model T) :
     modelClassifierSectionEquiv T M =
       (Over.mkIdTerminal.uniqueUpToIso terminalIsTerminal).inv ≫
         classify T (𝟙 X) M ≫ (formedClassifierIso T).hom := rfl

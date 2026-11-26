@@ -133,7 +133,7 @@ theorem carry_shift_value (format : Format) (m : Nat) (e : Int)
       rw [Nat.shiftLeft_eq, ← Nat.pow_add]
       congr 1
       omega
-    have value := dyadic_shiftLeft (2 ^ (format.mantissaBits - 1)) (e + 1) 1
+    have value := dyadicValue_shiftLeft (2 ^ (format.mantissaBits - 1)) (e + 1) 1
     have exponent : e + 1 - (1 : Nat) = e := by omega
     rw [shift, exponent] at value
     exact value.symm
@@ -177,7 +177,7 @@ theorem carry_shift_canonical (format : Format) (m : Nat) (e : Int)
 theorem rounded_shift_width (format : Format) (m : Nat) (e : Int) (a : Accuracy) :
     (shiftToTargetExponent format m e a).1.roundedMantissa ≤ 2 ^ format.mantissaBits := by
   have width := target_shift_width format m e a
-  have rounded := nearestEven_adjacent (shiftToTargetExponent format m e a).1.mantissa
+  have rounded := roundToNearestEven_adjacent (shiftToTargetExponent format m e a).1.mantissa
     (shiftToTargetExponent format m e a).1.accuracy
   change _ ≤ _ ∧ (shiftToTargetExponent format m e a).1.roundedMantissa ≤ _ at rounded
   omega
@@ -187,7 +187,7 @@ theorem rounded_shift_normal_lower (format : Format) (m : Nat) (e : Int) (a : Ac
     (aboveFloor : format.minExponent < (shiftToTargetExponent format m e a).2) :
     2 ^ (format.mantissaBits - 1) ≤ (shiftToTargetExponent format m e a).1.roundedMantissa := by
   have lower := target_shift_normal_lower format m e a aligned aboveFloor
-  have rounded := nearestEven_adjacent (shiftToTargetExponent format m e a).1.mantissa
+  have rounded := roundToNearestEven_adjacent (shiftToTargetExponent format m e a).1.mantissa
     (shiftToTargetExponent format m e a).1.accuracy
   change (shiftToTargetExponent format m e a).1.mantissa ≤
     (shiftToTargetExponent format m e a).1.roundedMantissa ∧ _ at rounded

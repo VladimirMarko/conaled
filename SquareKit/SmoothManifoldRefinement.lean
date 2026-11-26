@@ -67,7 +67,7 @@ theorem comparison_common : A.comparison B =
   apply (cancel_epi (A.commonLeft B).iso.hom).mp
   change (A.commonLeft B).map.realize ≫ (A.comparison B).hom =
     (A.commonLeft B).map.realize ≫ _
-  rw [Charts.commonRefinement_commutes]
+  rw [Charts.commonRefinementIso_commutes]
   apply (A.commonAtlas B).toCharts.hom_ext
   intro p
   rw [← Category.assoc,Charts.Map.chart_realize,Category.assoc,Charts.Map.chart_realize]

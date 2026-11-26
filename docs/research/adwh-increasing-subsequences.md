@@ -35,7 +35,7 @@ part of the earlier #161 reconstruction.
 `Applications/Subsequences/Frontier.lean` keeps the actual source step: filter
 by `canPrepend`, prepend, merge by non-strict length order, and apply
 `Optimization.Thinning.thinBy`. Merging uses standard `List.merge`;
-`lengthMerge_source` specializes the existing `Applications.Sorting.sourceMerge`
+`sourceMerge_lengthLE` specializes the existing `Applications.Sorting.sourceMerge`
 recurrence to length keys. `sourceMerge_length_sorted` reuses the sorting
 library's key-order theorem. The first list wins a merge tie. There is no new
 recursive merge implementation.

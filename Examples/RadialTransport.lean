@@ -30,7 +30,7 @@ theorem actual_circle_transport (v : ℂ) :
   ⟨circleTransport_initial _ _, fun _t => circleTransport_derivative _ _ _⟩
 
 theorem actual_hold_transport (v : ℂ) (t : ℝ) :
-    HasDerivAt (fun _ : ℝ => v) (-gamma (1/4 : ℂ) 0 v) t := holdTransport_derivative _ _ _
+    HasDerivAt (fun _ : ℝ => v) (-gamma (1/4 : ℂ) 0 v) t := constant_hasDerivAt_neg_gamma_zero _ _ _
 
 /-- At the singular point, a closing symmetry may fix position and rotate tangent. -/
 theorem singular_closing_control : (quarterTurn.val : ℂ)*0 = 0 ∧

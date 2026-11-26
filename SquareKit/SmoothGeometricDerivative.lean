@@ -86,7 +86,7 @@ open SmoothAlgebra
 open scoped ContDiff
 
 abbrev unaryOperation := SmoothDerivative.unaryOperation
-abbrev analyticDerivative_smooth := SmoothDerivative.analyticDerivative_smooth
+abbrev deriv_smooth := SmoothDerivative.deriv_smooth
 abbrev unary_derivative := SmoothDerivative.unary_derivative
 
 /-- Every ordinary globally smooth unary function acts naturally on the scalar. -/
@@ -99,12 +99,12 @@ def interpret (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) : R ⟶ R :=
 /-- Extraction at the actual universal dual stage gives the analytic derivative.
 The left side is defined by the categorical KL inverse, not by this formula. -/
 theorem derivative_interpret (f : ℝ → ℝ) (hf : ContDiff ℝ ∞ f) :
-    derivative (interpret (J := J) f hf) = interpret (deriv f) (analyticDerivative_smooth f hf) := by
+    derivative (interpret (J := J) f hf) = interpret (deriv f) (deriv_smooth f hf) := by
   apply derivative_unique
   intro A x d
   change act (unaryOperation f hf) (fun _ => x+d.val) =
     act (unaryOperation f hf) (fun _ => x) +
-    act (unaryOperation (deriv f) (analyticDerivative_smooth f hf)) (fun _ => x) * d.val
+    act (unaryOperation (deriv f) (deriv_smooth f hf)) (fun _ => x) * d.val
   have h := nilsquare_taylor (unaryOperation f hf) (fun _ => x) (fun _ => (1 : Carrier A)) d.val d.property
   simpa only [one_mul, mul_one, Fin.sum_univ_one, unary_derivative, mul_comm] using h
 

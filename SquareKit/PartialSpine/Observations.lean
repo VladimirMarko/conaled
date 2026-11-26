@@ -34,12 +34,12 @@ theorem principal_injective :
       exact Order.Ideal.mem_principal_self
     exact ht
 
-theorem streamPrefix_mono (σ : Stream' α) {m n : Nat} (h : m ≤ n) :
+theorem openPrefix_take_mono (σ : Stream' α) {m n : Nat} (h : m ≤ n) :
     openPrefix (σ.take m) ≤ openPrefix (σ.take n) := by
   rw [openPrefix_le_iff, view_openPrefix]
   exact Stream'.take_prefix_take_left m n σ h
 
-@[simp] theorem knownLength_streamPrefix (σ : Stream' α) (n : Nat) :
+@[simp] theorem knownLength_openPrefix_take (σ : Stream' α) (n : Nat) :
     knownLength (openPrefix (σ.take n)) = n := by
   rw [knownLength_openPrefix, Stream'.length_take]
 
@@ -53,8 +53,8 @@ def stream (σ : Stream' α) : Observations α where
   directed' := by
     rintro s ⟨m, hm⟩ t ⟨n, hn⟩
     exact ⟨openPrefix (σ.take (max m n)), ⟨max m n, le_rfl⟩,
-      le_trans hm (streamPrefix_mono σ (Nat.le_max_left m n)),
-      le_trans hn (streamPrefix_mono σ (Nat.le_max_right m n))⟩
+      le_trans hm (openPrefix_take_mono σ (Nat.le_max_left m n)),
+      le_trans hn (openPrefix_take_mono σ (Nat.le_max_right m n))⟩
 
 @[simp] theorem mem_stream (σ : Stream' α) (s : PartialSpine α) :
     s ∈ stream σ ↔ ∃ n, s ≤ openPrefix (σ.take n) := Iff.rfl
@@ -69,7 +69,7 @@ theorem stream_ne_principal (σ : Stream' α) (s : PartialSpine α) :
   have hp := stream_observes_prefix σ (knownLength s + 1)
   rw [h] at hp
   have hn := knownLength_mono hp
-  rw [knownLength_streamPrefix] at hn
+  rw [knownLength_openPrefix_take] at hn
   exact Nat.not_succ_le_self _ hn
 
 end SquareKit.PartialSpine

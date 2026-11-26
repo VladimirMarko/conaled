@@ -185,7 +185,7 @@ def fullSpacePrincipalIso (n : ℕ) : object n (Space n) ≅ embedding.obj (full
 def fullSpaceIso (n : ℕ) : object n (Space n) ≅ SmoothOpenSite.scalarPower n :=
   fullSpacePrincipalIso n ≪≫ fullPowerIso n
 
-theorem fullSpacePrincipal_naturality {n m : ℕ} (f : Space n → Space m)
+theorem fullSpacePrincipalIso_naturality {n m : ℕ} (f : Space n → Space m)
     (hf : ContMDiff (modelWithCorners n) (modelWithCorners m) ∞ f) (g : full n ⟶ full m)
     (h : ∀ x, ((show EuclideanOpen.Map _ _ from g) (toFull n x)).val = f x) :
     ManifoldRealization.map f hf ≫ (fullSpacePrincipalIso m).hom =
@@ -200,7 +200,7 @@ theorem fullSpacePrincipal_naturality {n m : ℕ} (f : Space n → Space m)
   simp only [he]
   rw [ManifoldRealization.map_comp (toFull n)
     (fun y : ordinaryOpen (full n) => (show ordinaryOpen (full m) from (show EuclideanOpen.Map _ _ from g) y))
-    (toFull_smooth n) (openMap_contMDiff g)]
+    (toFull_smooth n) (euclideanOpenMap_contMDiff g)]
   rw [Category.assoc, principalIso_naturality, Category.assoc]
 
 /-- A translated infinitesimal exhibits the nonconstant square coordinate. -/
@@ -208,7 +208,7 @@ def shiftedGraphParameter : Hom (freeAlgebra 1) (Carrier stage) := evaluate ![1+
 
 def shiftedGraphPoint : Hom (freeAlgebra 2) (Carrier stage) := evaluate ![1+d, 1+(d+d)]
 
-theorem shiftedGraph_recovers : shiftedGraphParameter.comp graph = shiftedGraphPoint := by
+theorem shiftedGraphParameter_comp_graph : shiftedGraphParameter.comp graph = shiftedGraphPoint := by
   apply hom_ext_generators
   intro i
   fin_cases i
@@ -220,7 +220,7 @@ theorem shiftedGraph_recovers : shiftedGraphParameter.comp graph = shiftedGraphP
     simpa [shiftedGraphParameter, shiftedGraphPoint, graph, Hom.comp,
       evaluate_generator, Hom.map_mul] using hs
 
-theorem shiftedGraph_second_nonconstant : shiftedGraphPoint (generator 1) ≠ 1 := by
+theorem shiftedGraphPoint_second_nonconstant : shiftedGraphPoint (generator 1) ≠ 1 := by
   simp only [shiftedGraphPoint, evaluate_generator, Matrix.cons_val_one, Matrix.cons_val_zero, ne_eq, add_eq_left]
   intro h
   have hs : (2 : ℝ) • d = 0 := by simpa only [two_smul] using h
@@ -301,7 +301,7 @@ theorem squareMap_smooth : ContMDiff (modelWithCorners 1) (modelWithCorners 1) �
 theorem squareMap_comparison :
     ManifoldRealization.map squareMap squareMap_smooth ≫ (fullSpaceIso 1).hom =
       (fullSpaceIso 1).hom ≫ squareSheaf := by
-  have h := fullSpacePrincipal_naturality squareMap squareMap_smooth
+  have h := fullSpacePrincipalIso_naturality squareMap squareMap_smooth
     (EuclideanOpen.Coordinates.coordinateMap (fun _ : Fin 1 => squareOp)) (by
       intro x
       ext i
@@ -357,7 +357,7 @@ theorem realizedNilpotent_second_nonconstant :
     readSecond.hom.app (atStage stage) realizedNilpotent 0 ≠ 1 := by
   rw [realizedNilpotent_second]
   simpa only [shiftedGraphPoint, evaluate_generator, Matrix.cons_val_one, Matrix.cons_val_zero] using
-    shiftedGraph_second_nonconstant
+    shiftedGraphPoint_second_nonconstant
 
 theorem realizedNilpotent_double :
     readParameter.hom.app (atStage stage)

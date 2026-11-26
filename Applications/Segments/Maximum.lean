@@ -96,7 +96,7 @@ theorem thinnedPrefixes_scan (bound : Nat) (xs : List Int) :
   scanrTotal_eq _ _ _
 
 /-- Every row used by map last is nonempty, so its total fallback is unused. -/
-theorem thinnedScan_rows_ne_nil (bound : Nat) (xs : List Int) :
+theorem scanrTotal_op2_rows_ne_nil (bound : Nat) (xs : List Int) :
     ∀ ps ∈ scanrTotal (op2 bound) [[]] xs, ps ≠ [] := by
   rw [thinnedPrefixes_scan]
   intro ps hp
@@ -109,7 +109,7 @@ theorem maxSegmentThinScan_eq (bound : Nat) (xs : List Int) :
   rw [maxSegmentThinScan, thinnedPrefixes_scan, List.map_map]
   rfl
 
-theorem prefixOptima_ne_nil (bound : Nat) (xs : List Int) :
+theorem map_msp1_tails_ne_nil (bound : Nat) (xs : List Int) :
     (tails xs).map (msp1 bound) ≠ [] := by
   have hm : msp1 bound xs ∈ (tails xs).map (msp1 bound) :=
     List.mem_map.mpr ⟨xs, self_mem_tails xs, rfl⟩
@@ -118,7 +118,7 @@ theorem prefixOptima_ne_nil (bound : Nat) (xs : List Int) :
 
 theorem maxSegmentThinByPrefixes_firstMaximum (bound : Nat) (xs : List Int) :
     FirstMaximum List.sum ((tails xs).map (msp1 bound)) (maxSegmentThinByPrefixes bound xs) :=
-  maxWith_firstMaximum _ _ _ (prefixOptima_ne_nil bound xs)
+  maxWith_firstMaximum _ _ _ (map_msp1_tails_ne_nil bound xs)
 
 theorem maxSegmentThinScan_firstMaximum (bound : Nat) (xs : List Int) :
     FirstMaximum List.sum ((tails xs).map (msp1 bound)) (maxSegmentThinScan bound xs) := by

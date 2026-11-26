@@ -122,7 +122,7 @@ def subsetNodes (predicate : Node → NodeSet → Bool) (g : Graph) : NodeSet :=
   SparseMap.fold (fun node value acc => if predicate node value then KeySet.add node acc else acc)
     g .nil
 
-theorem mem_subsetFold (predicate : Node → NodeSet → Bool)
+theorem mem_subset_fold (predicate : Node → NodeSet → Bool)
     (entries : List (Node × NodeSet)) (seed : NodeSet) (query : Node) :
     KeySet.mem query (entries.foldl
       (fun acc entry => if predicate entry.1 entry.2 then KeySet.add entry.1 acc else acc) seed) =
@@ -138,7 +138,7 @@ theorem mem_subsetFold (predicate : Node → NodeSet → Bool)
 theorem mem_subsetNodes (predicate : Node → NodeSet → Bool) (g : Graph) (query : Node) :
     KeySet.mem query (subsetNodes predicate g) = true ↔
       ∃ value, SparseMap.find query g = some value ∧ predicate query value = true := by
-  rw [subsetNodes, SparseMap.fold_eq, mem_subsetFold]
+  rw [subsetNodes, SparseMap.fold_eq, mem_subset_fold]
   simp only [KeySet.mem_nil, Bool.false_eq_true, false_or]
   constructor
   · rintro ⟨⟨key, value⟩, present, same, accepted⟩

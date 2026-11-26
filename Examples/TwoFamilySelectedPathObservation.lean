@@ -71,16 +71,16 @@ theorem selectedPaths_two_weaken (P : Parallel M)
     Lean.Elab.Tactic.closeMainGoal `exact proof
 variable (A : Family Context.empty) (B : Family A.total)
 set_option linter.defProp false
-def inputPaths_normalPayload (z : higherInputContext C D A B) :=
+def inputPaths_normal_payload (z : higherInputContext C D A B) :=
   selectedPaths_two_weaken C D (parallel M A B) (qFamily M A B) (uFamily M A B) z
 /-- The normalized value of the original selected input homotopy is its assigned payload. -/
-theorem inputPaths_normalValue (z : higherInputContext C D A B) :
+theorem inputPaths_normal_value (z : higherInputContext C D A B) :
  HEq (sectionValue (inputPaths M A B).toParallel.identity (inputPaths M A B).h z)
    z.base.base.fiber := by
   run_tac Lean.Elab.Tactic.withMainContext do
     let args ← #[`C, `D, `A, `B, `z].mapM fun n => return (← Lean.Meta.getLocalDeclFromUserName n).toExpr
     Lean.Elab.Tactic.closeMainGoal `exact
-      (Lean.mkAppN (Lean.mkConst ``inputPaths_normalPayload [Lean.Level.param `u]) args)
+      (Lean.mkAppN (Lean.mkConst ``inputPaths_normal_payload [Lean.Level.param `u]) args)
 end Examples.FrozenMemoStages
 namespace Examples.TwoFamilyFrozenPoint
 open CategoryTheory Bicategory SquareKit
@@ -89,12 +89,12 @@ open Examples.TwoFamilyModelData Examples.FrozenMemoStages
 set_option maxRecDepth 2000
 set_option linter.defProp false
 /-- Retain the entire normalized selected witness at the concrete integer assignment. -/
-def normalizedPathOperands_retained (k : ℤ) :=
- inputPaths_normalValue integerContext integerContext emptyA emptyB (assignedPoint k)
+def normalized_path_operands_retained (k : ℤ) :=
+ inputPaths_normal_value integerContext integerContext emptyA emptyB (assignedPoint k)
 /-- The selected normalized two-cell has multiplicative integer label `k`. -/
 def normalized_path_observation (k : ℤ) :=
  congrArg (fun t : LocallyDiscrete (Discrete (Multiplicative ℤ)) => t.as.as)
-  (@eq_of_heq (LocallyDiscrete (Discrete (Multiplicative ℤ))) _ _ (normalizedPathOperands_retained k))
+  (@eq_of_heq (LocallyDiscrete (Discrete (Multiplicative ℤ))) _ _ (normalized_path_operands_retained k))
 /-- The additive integer observation of the same selected normalized value is `k`. -/
 def normalized_integer_observation (k : ℤ) :=
  congrArg Multiplicative.toAdd (normalized_path_observation k)

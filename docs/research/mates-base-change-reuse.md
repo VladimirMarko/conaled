@@ -81,7 +81,7 @@ compares a composite functor with the pasted comparison maps in the original ord
 It changes the setting from displayed types over Bool to their underlying types.
 It retains the underlying maps of arbitrary displayed values and substitutions.
 `forgetComparisonIso` also constructs its invertible comparison.
-`forget_not_leftExact` proves that this functor cannot be the inverse image of a
+`forget_not_preservesFiniteLimits` proves that this functor cannot be the inverse image of a
 geometric morphism: the terminal display over Bool forgets to Bool, which is
 not terminal in Type. Thus this client is outside the original finite-limit
 contract while satisfying the weaker pullback-preserving one. This is not a

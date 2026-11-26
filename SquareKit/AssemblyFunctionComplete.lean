@@ -48,7 +48,7 @@ noncomputable def cutRestrictionIso {X : Assembly.{u}} (hc : CutComplete X) :
     exact (curry_apply _ _ _).trans (cutExtend_value hc (evaluation iterationCuts X) f n)
 
 /-- Conversely, the tracked inverse extends every context by currying. -/
-theorem cutComplete_of_restrictionIso {X : Assembly.{u}}
+theorem cutComplete_of_restriction_iso {X : Assembly.{u}}
     (e : function finalCuts X ≅ function iterationCuts X)
     (he : e.hom = cutRestriction X) : CutComplete X := by
   intro Γ
@@ -81,10 +81,10 @@ theorem cutComplete_of_restrictionIso {X : Assembly.{u}}
     exact (functionPrecompose_apply cutInclusion _ _).symm.trans
       (hv.trans (curry_apply h γ ⟨n⟩))
 
-theorem cutComplete_iff_restrictionIso (X : Assembly.{u}) :
+theorem cutComplete_iff_restriction_iso (X : Assembly.{u}) :
     CutComplete X ↔ ∃ e : function finalCuts X ≅ function iterationCuts X,
       e.hom = cutRestriction X :=
   ⟨fun hc => ⟨cutRestrictionIso hc, rfl⟩,
-    fun ⟨e, he⟩ => cutComplete_of_restrictionIso e he⟩
+    fun ⟨e, he⟩ => cutComplete_of_restriction_iso e he⟩
 
 end Realizability.Assembly

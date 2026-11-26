@@ -133,9 +133,9 @@ theorem compatible (shiftSum : Nat → Nat → Nat → Nat) (h : ShiftSumLaw shi
       | zero => funext k; exact Fin.elim0 k
       | succ n => rfl
 
-theorem constructorFirst_compatible : constructorThenObserver.Compatible algebra native :=
+theorem constructorThenObserver_compatible : constructorThenObserver.Compatible algebra native :=
   compatible _ (fun _ _ _ => rfl)
-theorem observerFirst_compatible : observerThenConstructor.Compatible algebra native :=
+theorem observerThenConstructor_compatible : observerThenConstructor.Compatible algebra native :=
   compatible _ (fun _ _ _ => Nat.add_comm _ _)
 
 /-- All mixed finite terms, not only old constructors, use the shared law. -/

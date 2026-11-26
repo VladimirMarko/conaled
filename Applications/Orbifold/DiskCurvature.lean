@@ -80,7 +80,7 @@ theorem metric_compatible {c : ℝ → ℂ} {u : ℂ} {t : ℝ}
 /-- The torsion-free, metric-compatible coefficient is unique in the disk chart.
 Compatibility is stated with the actual derivative of the metric, so this
 characterizes the selected Levi-Civita connection without assuming its formula. -/
-theorem leviCivita_unique (z : ℂ) (hz : gap z ≠ 0) (B : ℂ → ℂ → ℂ)
+theorem christoffel_unique (z : ℂ) (hz : gap z ≠ 0) (B : ℂ → ℂ → ℂ)
     (hs : ∀ u v, B u v = B v u)
     (hm : ∀ u v w, HasDerivAt (fun t : ℝ => metric (z + t * u) v w)
       (metric z (B u v) w + metric z v (B u w)) 0) :

@@ -241,6 +241,6 @@ end NativeRecovery
 
 /-- The comparison control needs only pullbacks; finite-limit preservation is false. -/
 example {X Y : Over Bool} (σ : X ⟶ Y) := MatesBaseChange.forgetComparisonIso σ
-example : ¬ PreservesFiniteLimits (Over.forget Bool) := MatesBaseChange.forget_not_leftExact
+example : ¬ PreservesFiniteLimits (Over.forget Bool) := MatesBaseChange.forget_not_preservesFiniteLimits
 example := MatesBaseChange.noninvertible_inverse_mate
 end Examples.SpanAction

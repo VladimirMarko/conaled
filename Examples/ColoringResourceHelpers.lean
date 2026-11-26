@@ -113,13 +113,13 @@ theorem nodes_value_client : (nodesRun sourceGraph).1 = nodes sourceGraph := nod
 
 theorem nodes_work : work (nodesRun sourceGraph).2 = 87 := by decide
 
-theorem source_lowDegree :
+theorem source_lowDegreeRun :
     (lowDegreeRun unitPrices 3 1 (adj sourceGraph 1)).1 = false ∧
       work (lowDegreeRun unitPrices 3 1 (adj sourceGraph 1)).2 = 21 := by
   rw [lowDegreeRun_value, lowDegreeRun_unit_work]
   decide
 
-theorem residual_lowDegree :
+theorem residual_lowDegreeRun :
     (lowDegreeRun unitPrices 3 1 (adj (removeNode 4 sourceGraph) 1)).1 = true ∧
       work (lowDegreeRun unitPrices 3 1 (adj (removeNode 4 sourceGraph) 1)).2 = 17 := by
   rw [lowDegreeRun_value, lowDegreeRun_unit_work]

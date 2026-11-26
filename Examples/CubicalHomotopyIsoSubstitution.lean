@@ -9,7 +9,7 @@ open Examples.CubicalGlue Examples.CubicalUnivalenceTransport
 
 /-- Restricting the Boolean transposition preserves the chosen center and
 whole contraction in every native homotopy fiber. -/
-theorem booleanChosenEquivalence_reindex {Δ : Context.{0}} (σ : Δ ⟶ terminal.{0}) :
+theorem boolean_ofIso_reindex {Δ : Context.{0}} (σ : Δ ⟶ terminal.{0}) :
     (HomotopyEquivalence.ofIso (codeIso booleanTransposition)).reindex σ =
       HomotopyEquivalence.ofIso (Functor.isoWhiskerLeft σ.mapElements (codeIso booleanTransposition)) :=
   HomotopyEquivalence.ofIso_reindex (codeIso booleanTransposition) σ

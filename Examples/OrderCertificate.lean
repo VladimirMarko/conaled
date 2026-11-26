@@ -10,7 +10,7 @@ theorem lt_law (x y : Nat) : ltCmp x y = true ↔ x < y := by simp [ltCmp]
 
 /-- The worked certificate has three increasing entries, not consecutive ranks. -/
 theorem increasing : (checkedLengthSquare lt_law).impl [2, 5, 9] = some 3 := by
-  apply (checkedLength_correct lt_law _).mpr
+  apply (checkedLengthSquare_correct lt_law _).mpr
   decide
 
 /-- A rejected duplicate cannot release a length. -/
@@ -19,10 +19,10 @@ theorem duplicate : (checkedLengthSquare lt_law).impl [2, 5, 5] = none := by rfl
 theorem decreasing : adjacent ltCmp [9, 5, 2] = false := by decide
 
 theorem empty : (checkedLengthSquare lt_law).impl [] = some 0 := by
-  exact (checkedLength_correct lt_law []).mpr List.Pairwise.nil
+  exact (checkedLengthSquare_correct lt_law []).mpr List.Pairwise.nil
 
 theorem singleton : (checkedLengthSquare lt_law).impl [7] = some 1 := by
-  apply (checkedLength_correct lt_law _).mpr
+  apply (checkedLengthSquare_correct lt_law _).mpr
   decide
 
 /-- Reusing the contract at a different relation permits equal neighboring entries. -/

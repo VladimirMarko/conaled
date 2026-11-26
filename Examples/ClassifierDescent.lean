@@ -122,7 +122,7 @@ theorem matching_glues : ∃! a, matching.IsAmalgamation a :=
 /-- The proper local image has sections on the cover and none at X. -/
 abbrev bad := ((⊤ : Subfunctor E.obj).image toTerminal.hom).toFunctor
 
-theorem badCodes_not_sheaf : ¬ Presheaf.IsSheaf topology (HomSystem.system bad).codes := by
+theorem bad_codes_not_sheaf : ¬ Presheaf.IsSheaf topology (HomSystem.system bad).codes := by
   intro h
   exact pointwise_not_sheaf ((isSheaf_iff_isSheaf_of_type _ _).1
     ((HomSystem.codes_isSheaf_iff bad topology).1 h))

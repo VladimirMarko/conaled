@@ -188,7 +188,7 @@ theorem valueMap_sectionValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSh
   simp only [valueMap_sectionValue]
   rfl
 
-theorem homApp_heq (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
+theorem app_heq (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     {x y y' : Γ.obj.Elements} (h : (functions A B).obj.obj (op (op x)))
     (hy : y = y') {f : x ⟶ y} {g : x ⟶ y'} (hf : HEq f g) :
     HEq (h.app (op (op y)) f.op.op) (h.app (op (op y')) g.op.op) := by
@@ -205,8 +205,8 @@ theorem valueMap_injective (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf
   have hf := elements_hom_hext (F := Γ.obj) rfl hy (f := along Γ.obj f.unop.unop.hom x.val)
     (g := f.unop.unop) HEq.rfl
   have hh := congrArg (fun m => m.app (Under.mk f.unop.unop.hom)) hk
-  exact eq_of_heq ((homApp_heq A B h.val hy hf).symm.trans
-    ((heq_of_eq hh).trans (homApp_heq A B k.val hy hf)))
+  exact eq_of_heq ((app_heq A B h.val hy hf).symm.trans
+    ((heq_of_eq hh).trans (app_heq A B k.val hy hf)))
 
 @[simp] theorem sectionValue_diagramValue (A : SplitSheaf.Ty Γ) (B : SplitSheaf.Ty (SplitSheaf.extension A))
     (x : Γ.obj.Elements) (h : (sections A B).obj.obj (op (op x))) :

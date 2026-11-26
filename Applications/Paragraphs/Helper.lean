@@ -113,12 +113,12 @@ theorem greedy2_minimumLines (maximum : Nat) (ws : Text) (hw : AllWordsFit maxim
   rw [greedy2_eq_greedy maximum ws hw]
   exact greedy_minimumLines maximum ws hw
 
-theorem greedy2_minimumLastWidth (maximum : Nat) (ws : Text) (hw : AllWordsFit maximum ws)
+theorem greedy2_minimum_lastWidth (maximum : Nat) (ws : Text) (hw : AllWordsFit maximum ws)
     (q : Para) (hq : FitPartition maximum ws q)
     (hc : cost1 (greedy2 maximum ws) = cost1 q) :
     lastWidth (greedy2 maximum ws) ≤ lastWidth q := by
   rw [greedy2_eq_greedy maximum ws hw] at hc ⊢
-  exact greedy_minimumLastWidth maximum ws hw q hq hc
+  exact greedy_minimum_lastWidth maximum ws hw q hq hc
 
 theorem greedy_sourceInput_output (maximum : Nat) (ws : Text) (h : SourceInput maximum ws) :
     FitPartition maximum ws (greedy maximum ws) ∧ FoldDomain maximum [] ws ∧

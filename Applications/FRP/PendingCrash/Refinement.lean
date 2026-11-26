@@ -324,7 +324,7 @@ theorem FrameConsistent.beginChange {s : System} (consistent : FrameConsistent s
             cases Option.some.inj same
             exact Or.inr ⟨command,rfl,changed⟩
 
-theorem journalStorage_permitted (journal : Journal) (command : StorageCommand) (stable : Frame)
+theorem journalStep_storageCommand_permitted (journal : Journal) (command : StorageCommand) (stable : Frame)
     (result : JournalResult journal)
     (done : journalStep journal (storageCommand command) = .done result) :
     PermittedInvocation stable result.event := by
@@ -335,7 +335,7 @@ theorem journalStorage_permitted (journal : Journal) (command : StorageCommand) 
   all_goals split <;> trivial
 
 
-theorem journalStorage_notInvoke (journal : Journal) (command : StorageCommand) (record : Durability.Record Frame)
+theorem journalStep_storageCommand_ne_invoke (journal : Journal) (command : StorageCommand) (record : Durability.Record Frame)
     (result : JournalResult journal)
     (done : journalStep journal (storageCommand command) = .done result) :
     result.event ≠ .invoke record := by
@@ -353,9 +353,9 @@ theorem FrameConsistent.storage {s : System} (consistent : FrameConsistent s)
   · exact consistent
   · apply consistent.applyJournal
     · intro a stable related frames current result done
-      exact journalStorage_permitted s.adapter.journal command stable result done
+      exact journalStep_storageCommand_permitted s.adapter.journal command stable result done
     · intro result done record
-      exact journalStorage_notInvoke s.adapter.journal command record result done
+      exact journalStep_storageCommand_ne_invoke s.adapter.journal command record result done
 
 theorem FrameConsistent.crash {s : System} (consistent : FrameConsistent s) :
     FrameConsistent (crash s).system := by
@@ -916,7 +916,7 @@ theorem peerStep_sourceView_stutter (frame : Frame) (peer : Peer) (identity : Na
     rw [installed]
     exact sourceView_reserve frame peer identity input absent
 
-theorem pendingSlots_install_other (frame : Frame) (peer : Peer) (identity : Nat)
+theorem pending_slots_install_other (frame : Frame) (peer : Peer) (identity : Nat)
     (entry : Ledger) (slots : List Bool)
     (separate : ∀ slot ∈ slots, ∀ request ∈ frame.requests.get slot, request.identity ≠ identity) :
     (slots.filterMap fun slot => (frame.requests.get slot).bind
@@ -949,7 +949,7 @@ theorem peerStep_sourceView_publish (frame : Frame) (peer : Peer) (slot : Bool)
   have before : sourceView frame peer =
       ⟨frame.logical, (request.identity,request.input) :: remaining⟩ := by
     simp [sourceView, Frame.head, order, present, pendingEntry, reserved, remaining]
-  have restEq := pendingSlots_install_other frame peer request.identity
+  have restEq := pending_slots_install_other frame peer request.identity
     (.published request.input frame.logical) tail separate
   have after : sourceView frame (peerStep peer request.identity
       (.publish request.input frame.logical)).peer = ⟨request.input,remaining⟩ := by
@@ -1014,9 +1014,9 @@ theorem peerStep_sourceView_cancel (frame : Frame) (peer : Peer) (slot : Bool)
     apply congrArg₂ DelaySource.mk
     · rfl
     · simp [order, present, pendingEntry, reserved, beforePending, afterPending]
-  have beforeEq := pendingSlots_install_other frame peer request.identity
+  have beforeEq := pending_slots_install_other frame peer request.identity
     (.cancelled request.input) pre separatePre
-  have afterEq := pendingSlots_install_other frame peer request.identity
+  have afterEq := pending_slots_install_other frame peer request.identity
     (.cancelled request.input) post separatePost
   have after : sourceView frame (peerStep peer request.identity (.cancel request.input)).peer =
       ⟨(sourceView frame peer).state, beforePending ++ afterPending⟩ := by
@@ -2025,7 +2025,7 @@ theorem LiveFrameExtension.update (before : Frame) (peer : Peer) (slot : Bool)
         cases slot <;> cases other <;> simp_all [Frame.update,Slots.put,Slots.get]
       cases slot <;> cases other <;> simp_all [Frame.head,Frame.update,Slots.get,Slots.put]
 
-theorem receive_liveExtension (before after : Frame) (peer : Peer) (receipt : Receipt)
+theorem receive_liveFrameExtension (before after : Frame) (peer : Peer) (receipt : Receipt)
     (authentic : ReceiptAuthentic peer receipt)
     (changed : receive before receipt = .changed after) : LiveFrameExtension before after peer := by
   rcases receipt with ⟨identity,answer⟩
@@ -2098,11 +2098,11 @@ theorem LiveFrameExtension.accept (before : Frame) (peer : Peer) (slot : Bool)
     cases slot <;> cases other <;> simp_all [Frame.head,Slots.get,Slots.put]
 
 
-theorem propose_liveExtension (before after : Frame) (peer : Peer) (command : FrameCommand)
+theorem propose_liveFrameExtension (before after : Frame) (peer : Peer) (command : FrameCommand)
     (coupled : FramePeer before peer) (authentic : CommandAuthentic peer command)
     (changed : propose before command = .changed after) : LiveFrameExtension before after peer := by
   cases command with
-  | receive receipt => exact receive_liveExtension before after peer receipt authentic changed
+  | receive receipt => exact receive_liveFrameExtension before after peer receipt authentic changed
   | migrate kind =>
     cases changed
     constructor
@@ -2151,7 +2151,7 @@ theorem propose_traffic (before after : Frame) (system : System) (command : Fram
     (coupled : FramePeer before system.peer) (authentic : CommandAuthentic system.peer command)
     (valid : after.Valid) (changed : propose before command = .changed after)
     (safe : TrafficSafe before system) : TrafficSafe after system :=
-  TrafficSafe.extension before after system valid (propose_liveExtension before after system.peer command coupled authentic changed) safe
+  TrafficSafe.extension before after system valid (propose_liveFrameExtension before after system.peer command coupled authentic changed) safe
 
 
 theorem sourceView_update (frame : Frame) (peer : Peer) (slot : Bool)

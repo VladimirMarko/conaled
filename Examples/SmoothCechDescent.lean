@@ -512,7 +512,7 @@ def gaugedQuarterTurnDatum := quarterTurnDatum.gauge quarterTurnDatum.localMap q
 theorem quarterGauge_nonidentity : (quarterGauge false).val (realLinePoint 0) ≠ 1 :=
   SquareKit.SmoothQuarterTurnArcs.quarterTurn_ne_one
 
-theorem gaugedQuarterTurn_forward (x : Points punctured) :
+theorem gaugedQuarterTurnDatum_forward (x : Points punctured) :
     (gaugedQuarterTurnDatum.transition false true).val x =
       (quarterTurnDatum.transition false true).val x * quarterTurn⁻¹ := by
   change (1 * (quarterTurnDatum.transition false true).val x) * quarterTurn⁻¹ = _

@@ -18,7 +18,7 @@ def selectedEq : Subfunctor (Presheaf.product (model.carrier b) (model.carrier b
 
 theorem selectedEq_isSheaf : Presieve.IsSheaf topology selectedEq.toFunctor := by
   apply (Subfunctor.isSheaf_iff _
-    (SquareKit.Internal.SheafContexts.product_isSheaf model carriers_areSheaves b b)).mpr
+    (SquareKit.Internal.SheafContexts.product_isSheaf model carrier_isSheaf b b)).mpr
   intro a p hp
   rcases a with ⟨a⟩
   have hw := hp W (Examples.SheafBaseChange.fromW a) (by decide)
@@ -33,7 +33,7 @@ def relModel : Presheaf.Model (J := Diamond) Op Relation where
     | .selectedEq => selectedEq
 
 theorem sort_sheaves (s : Kind) : Presieve.IsSheaf topology (relModel.carrier s) :=
-  carriers_areSheaves s
+  carrier_isSheaf s
 
 theorem relation_sheaves {s t} (r : Relation s t) :
     Presieve.IsSheaf topology (relModel.relation r).toFunctor := by

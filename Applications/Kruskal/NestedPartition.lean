@@ -59,7 +59,7 @@ theorem name_eq_iff {vs : List Vertex} {ts : Forest} (h : Partition vs ts)
   exact name_member (h.2.2 u hu)
 
 /-- Answer9.8's head-name comparison agrees on valid component trees. -/
-theorem notEqual_head {vs : List Vertex} {ts : Forest} (h : Partition vs ts)
+theorem decide_name_ne_eq_decide_ne {vs : List Vertex} {ts : Forest} (h : Partition vs ts)
     {t u : Tree} (ht : t∈ts) (hu : u∈ts) :
     decide (name t≠name u)=decide (t≠u) := by
   simp only [ne_eq,(name_eq_iff h ht hu)]

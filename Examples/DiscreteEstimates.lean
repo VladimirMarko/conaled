@@ -239,7 +239,7 @@ theorem negative_band_zero :
   simp [halfOffsetLog, halfOffsetRoot]
 
 /-- Both positive-index bounds consume the public arbitrary-band estimates. -/
-theorem halfOffset_bounds (logZero rootZero : ℚ) {n : ℕ} (hn : 2 ≤ n) :
+theorem halfOffsetLog_halfOffsetRoot_bounds (logZero rootZero : ℚ) {n : ℕ} (hn : 2 ≤ n) :
     ((Nat.log2 n : ℚ) ≤ halfOffsetLog logZero n ∧
       halfOffsetLog logZero n ≤ 2 * (Nat.log2 n : ℚ)) ∧
     ((Nat.sqrt n : ℚ) ≤ halfOffsetRoot rootZero n ∧
@@ -248,13 +248,13 @@ theorem halfOffset_bounds (logZero rootZero : ℚ) {n : ℕ} (hn : 2 ≤ n) :
     root_band_bounds (halfOffsetRoot_mem rootZero) (by omega)⟩
 
 /-- The finite coefficient-two comparison uses the same two offset bands. -/
-theorem halfOffset_interpolation (logZero rootZero : ℚ) {n : ℕ} (hn : 16 ≤ n) :
+theorem halfOffsetLog_halfOffsetRoot_interpolation (logZero rootZero : ℚ) {n : ℕ} (hn : 16 ≤ n) :
     (n : ℚ) * halfOffsetLog logZero n ≤ 2 * ((n : ℚ) * halfOffsetRoot rootZero n) :=
   mul_log_band_le_two_mul_root_band
     (halfOffsetLog_mem logZero) (halfOffsetRoot_mem rootZero) hn
 
 /-- Arbitrary zero values do not obstruct the universal strict counterfamily. -/
-theorem halfOffset_counterfamily (logZero rootZero C : ℚ) (hC : 0 < C) (N : ℕ) :
+theorem halfOffsetLog_halfOffsetRoot_counterfamily (logZero rootZero C : ℚ) (hC : 0 < C) (N : ℕ) :
     ∃ n : ℕ, N ≤ n ∧
       C * (halfOffsetRoot rootZero n * halfOffsetLog logZero n) <
         (n : ℚ) + halfOffsetRoot rootZero n :=

@@ -7,22 +7,22 @@ namespace CompleteAssemblyFunctions
 open Realizability Realizability.Assembly InternalIteration
 
 /-- The formerly conditional selection now uses the constructed complete object. -/
-example : (cutSelected liftedNaturals liftNat_cutComplete chooseParameter).toFun (17 : Nat) =
-    some (17 : Nat) := parameter_selected_keeps_seventeen liftNat_cutComplete
+example : (cutSelected liftedNaturals programLift_encoded_nat_cutComplete chooseParameter).toFun (17 : Nat) =
+    some (17 : Nat) := parameter_selected_keeps_seventeen programLift_encoded_nat_cutComplete
 
-example : (cutSelected liftedNaturals liftNat_cutComplete (snd unitAssembly (programLift natAssembly))).toFun () = none :=
-  identity_selection_is_bottom liftNat_cutComplete
+example : (cutSelected liftedNaturals programLift_encoded_nat_cutComplete (snd unitAssembly (programLift natAssembly))).toFun () = none :=
+  identity_selection_is_bottom programLift_encoded_nat_cutComplete
 
-example : (cutSelected liftedNaturals liftNat_cutComplete chooseParameter).comp successorLiftHom.f =
-    cutSelected liftedNaturals liftNat_cutComplete chooseNextParameter :=
-  cutSelected_transport _ _ liftNat_cutComplete liftNat_cutComplete successorLiftHom _ _ parameter_intertwines
+example : (cutSelected liftedNaturals programLift_encoded_nat_cutComplete chooseParameter).comp successorLiftHom.f =
+    cutSelected liftedNaturals programLift_encoded_nat_cutComplete chooseNextParameter :=
+  cutSelected_transport _ _ programLift_encoded_nat_cutComplete programLift_encoded_nat_cutComplete successorLiftHom _ _ parameter_intertwines
 
-example : CutComplete (function natAssembly (programLift natAssembly)) := function_cutComplete liftNat_cutComplete natAssembly
+example : CutComplete (function natAssembly (programLift natAssembly)) := function_cutComplete programLift_encoded_nat_cutComplete natAssembly
 
 /-- The isomorphism inverse really reconstructs each selected coordinate. -/
 example (f : Hom iterationCuts.{0} (programLift natAssembly)) (n : Nat) :
-    (((cutRestrictionIso liftNat_cutComplete).inv.toFun f).toFun ⟨some n⟩) = f.toFun ⟨n⟩ :=
-  (curry_apply _ _ _).trans (cutExtend_value liftNat_cutComplete (evaluation _ _) f n)
+    (((cutRestrictionIso programLift_encoded_nat_cutComplete).inv.toFun f).toFun ⟨some n⟩) = f.toFun ⟨n⟩ :=
+  (curry_apply _ _ _).trans (cutExtend_value programLift_encoded_nat_cutComplete (evaluation _ _) f n)
 
 example : (cutExtend nat_cutComplete ((fst natAssembly iterationCuts).comp successor)).toFun
     ((17 : Nat), ⟨none⟩) = (18 : Nat) := by

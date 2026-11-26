@@ -16,7 +16,7 @@ def arrayOps : Ops DSA Int Int := ⟨findDSA, unionDSA⟩
 def listOps : Ops ListPartition.DS Int Int := ⟨ListPartition.findDS, ListPartition.unionDS⟩
 
 /-- Bridge the retained source closure to the independent Mathlib partition. -/
-theorem sourceConnected_iff (vs : List Int) (edges : List (Int × Int)) (u v : Int) :
+theorem listPartition_connected_iff (vs : List Int) (edges : List (Int × Int)) (u v : Int) :
     ListPartition.Connected vs edges u v ↔ Connected vs.toFinset edges u v := by
   constructor
   · intro h
@@ -45,7 +45,7 @@ theorem array_queryLaws {n : Int} {edges : List (Int × Int)} {a : DSA}
     rw [List.mem_toFinset, ListPartition.mem_vertices_iff]
     omega
   connectivity u v :=
-    (requestHistory_common_find_iff_connected h u v).trans (sourceConnected_iff ..)
+    (requestHistory_common_find_iff_connected h u v).trans (listPartition_connected_iff ..)
 
 theorem list_queryLaws {n : Int} {edges : List (Int × Int)} {a : DSA} {l : ListPartition.DS}
     (h : JointHistory n edges a l) : QueryLaws listOps l (ListPartition.vertices n).toFinset edges where
@@ -55,7 +55,7 @@ theorem list_queryLaws {n : Int} {edges : List (Int × Int)} {a : DSA} {l : List
     simpa using (jointHistory_partition h).2.1.mem_iff
   connectivity u v := by
     change (∃ r, ListPartition.findDS l u = some r ∧ ListPartition.findDS l v = some r) ↔ _
-    rw [← sourceConnected_iff, ← jointHistory_list_connected h]
+    rw [← listPartition_connected_iff, ← jointHistory_list_connected h]
     constructor
     · rintro ⟨r, hu, hv⟩
       obtain ⟨xs, hx, hux⟩ := (ListPartition.findDS_partition_iff (jointHistory_partition h) u r).mp hu
@@ -140,7 +140,7 @@ theorem array_request_success_iff {n : Int} {edges : List (Int × Int)} {a : DSA
       u ∈ (ListPartition.vertices n).toFinset ∧ v ∈ (ListPartition.vertices n).toFinset ∧
         ¬ Connected (ListPartition.vertices n).toFinset edges u v := by
   simp only [array_request_merged, requestStep_exists_iff h, List.mem_toFinset,
-    ← sourceConnected_iff]
+    ← listPartition_connected_iff]
 
 /-- Rejected requests do not extend the successful-only source history. -/
 theorem no_joint_extension_of_already {n : Int} {edges : List (Int × Int)} {a : DSA}
@@ -151,6 +151,6 @@ theorem no_joint_extension_of_already {n : Int} {edges : List (Int × Int)} {a :
   have conn := (array_queryLaws (jointHistory_array h)).request_already u v |>.mp hc
   have invalidExtension := (requestHistory_extension_iff (jointHistory_array h) u v).mp
     ⟨a', jointHistory_array extension⟩
-  exact invalidExtension.2.2 ((sourceConnected_iff ..).mpr conn)
+  exact invalidExtension.2.2 ((listPartition_connected_iff ..).mpr conn)
 
 end Connectivity

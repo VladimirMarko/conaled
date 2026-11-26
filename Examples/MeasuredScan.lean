@@ -11,8 +11,8 @@ def mixed : ScanPlan := .prod (pair.leftPow 3) (pair.rightPow 3)
 def pairBlocks : ScanPlan := .comp (pair.rightPow 3) pair
 def fourBlocks : ScanPlan := .comp sequentialFour sequentialFour
 
-theorem rightTree_cost : ((pair.rightPow 4).work, (pair.rightPow 4).depth) = (32, 4) := by decide
-theorem leftTree_cost : ((pair.leftPow 4).work, (pair.leftPow 4).depth) = (26, 6) := by decide
+theorem rightPow_four_cost : ((pair.rightPow 4).work, (pair.rightPow 4).depth) = (32, 4) := by decide
+theorem leftPow_four_cost : ((pair.leftPow 4).work, (pair.leftPow 4).depth) = (26, 6) := by decide
 theorem bush_cost : ((bush 2).work, (bush 2).depth) = (29, 5) := by decide
 theorem mixed_cost : (mixed.work, mixed.depth) = (31, 4) := by decide
 theorem pairBlocks_cost : (pairBlocks.work, pairBlocks.depth) = (27, 5) := by decide
@@ -20,7 +20,7 @@ theorem fourBlocks_cost : (fourBlocks.work, fourBlocks.depth) = (24, 6) := by de
 
 theorem early_total : ((pair.leftPow 3).work, (pair.leftPow 3).depth,
     (pair.leftPow 3).totalArrival (fun _ => 0)) = (11, 4, 3) := by decide
-theorem rightEight_cost : ((pair.rightPow 3).work, (pair.rightPow 3).depth) = (12, 3) := by decide
+theorem rightPow_three_cost : ((pair.rightPow 3).work, (pair.rightPow 3).depth) = (12, 3) := by decide
 theorem mixed_adjustments : mixed.work = (pair.leftPow 3).work + (pair.rightPow 3).work + 8 := by decide
 
 example : (ScanPlan.empty.work, ScanPlan.empty.depth) = (0, 0) := by decide

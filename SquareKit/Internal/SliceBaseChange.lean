@@ -19,7 +19,7 @@ def genericPostIso (f : GeometricMorphism F B) (a : B) :
   Over.isoMk (Iso.refl _) (by simp)
 
 /-- The square comparison carries the actual generic diagonal to the new generic diagonal. -/
-theorem genericPost_diagonal (f : GeometricMorphism F B) (a : B) :
+theorem genericPostIso_diagonal (f : GeometricMorphism F B) (a : B) :
     (Over.post f.inverseImage).map (genericSection a) ≫ (starPost f a).hom.app a =
       (genericPostIso f a).hom ≫ genericSection (f.inverseImage.obj a) := by
   apply Over.OverMorphism.ext
@@ -53,7 +53,7 @@ theorem Lift.postSlice_section (k : Lift h (slice (f.inverseImage.obj a))) :
       (𝟙 _ ≫ k.morphism.inverseImage.map ((starPost f a).hom.app a) ≫ 𝟙 _ ≫
         k.comparison.hom.app (f.inverseImage.obj a)) = _
   simp only [Category.id_comp]
-  rw [← k.morphism.inverseImage.map_comp_assoc, genericPost_diagonal f a,
+  rw [← k.morphism.inverseImage.map_comp_assoc, genericPostIso_diagonal f a,
     k.morphism.inverseImage.map_comp]
   simp only [← Category.assoc, ht]
 /-- The square comparison acts on transformations by whiskering with inverse image on slices. -/

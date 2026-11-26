@@ -122,10 +122,10 @@ theorem transitionLabel_smul_sectionPoint (i j : (sectionCharts P).Index)
     (embedding.map ((sectionAtlas P).left i j) ≫ ChartFamily.TorsorAtlas.localLift .preferred P i)
     (embedding.map ((sectionAtlas P).right i j) ≫ ChartFamily.TorsorAtlas.localLift .preferred P j)
     (SplitSheaf.pair_read _ _ _) (SplitSheaf.pair_read _ _ _) (ordinaryPoint _ x)
-    (transitionLabel P i j x) (SmoothOrdinaryQuotient.homLabel_point _ _ x)
+    (transitionLabel P i j x) (SmoothOrdinaryQuotient.ordinaryHomLabelEquiv_point _ _ x)
   exact (congrArg (fun z : Total P => transitionLabel P i j x • z)
-    (pointLift_comp P ((sectionAtlas P).left i j) (ChartFamily.TorsorAtlas.localLift .preferred P i) x)).trans
-    (h.trans (pointLift_comp P ((sectionAtlas P).right i j)
+    (totalPointEquiv_symm_map_comp P ((sectionAtlas P).left i j) (ChartFamily.TorsorAtlas.localLift .preferred P i) x)).trans
+    (h.trans (totalPointEquiv_symm_map_comp P ((sectionAtlas P).right i j)
       (ChartFamily.TorsorAtlas.localLift .preferred P j) x).symm)
 theorem transitionLabel_smul_sectionValue (i j : (sectionCharts P).Index) (b : B)
     (hi : b ∈ ((sectionCharts P).chart i).source)

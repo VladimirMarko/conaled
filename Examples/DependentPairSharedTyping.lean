@@ -55,14 +55,14 @@ def targetProof {s} (d : DependentPairSharedFragment.Proof .target s) :
     Derivation eliminationPresentation (fun _ => Empty) (Judgment.map projectionToElimination (sourceJudgment s)) :=
   compile (nativeProof d)
 
-theorem translation_is_fullG {p s} (d : DependentPairSharedFragment.Proof p s) :
+theorem targetProof_translate {p s} (d : DependentPairSharedFragment.Proof p s) :
     targetProof (translate d) = compile (nativeProof d) := by
   unfold targetProof
   rw [native_translate]
 
-theorem two_stages_is_fullG {s} (d : DependentPairSharedFragment.Proof .source s) :
+theorem targetProof_translate_translate {s} (d : DependentPairSharedFragment.Proof .source s) :
     targetProof (translate (translate (q := .extended) d)) = compile (nativeProof d) := by
-  rw [translation_is_fullG, native_translate]
+  rw [targetProof_translate, native_translate]
 
 /-- The native route uses the retained F inclusion and genuine G certificates,
 including their administrative typed substitutions, before final erasure. -/
@@ -71,7 +71,7 @@ theorem two_stages_native_certificates {s} (d : DependentPairSharedFragment.Proo
       Administrative.erase (TypedSubstitution.fullEliminationLocal _) (fun _ h => Empty.elim h)
         (Administrative.pairFG.transport (fun _ h => Empty.elim h)
           (Administrative.embed (nativeProof d))) := by
-  rw [two_stages_is_fullG]
+  rw [targetProof_translate_translate]
   exact (Administrative.pair_erases _).symm
 
 theorem native_index (p : Phase) (e : IndexTerm SingleV) :
@@ -103,7 +103,7 @@ theorem native_second (p : Phase) (e : IndexTerm SingleV) :
 
 theorem compiled_second (e : IndexTerm SingleV) :
     targetProof (translate (secondProof .source e)) = compiledSecond e := by
-  rw [translation_is_fullG, native_second]
+  rw [targetProof_translate, native_second]
   rfl
 
 def sourceTerm : Shape → PExpr SingleV

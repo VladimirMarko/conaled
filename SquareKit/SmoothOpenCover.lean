@@ -26,7 +26,7 @@ theorem trivial_covers [Subsingleton A] (s : ι → A) : Covers s := by
 
 variable {n m : ℕ}
 
-theorem realPoint_coordinates (r : Fin m → freeAlgebra n) (h : Hom (Presentation.Carrier r) ℝ)
+theorem real_point_coordinates (r : Fin m → freeAlgebra n) (h : Hom (Presentation.Carrier r) ℝ)
     (f : freeAlgebra n) : h (Presentation.projection r f) =
       f.val (fun i => h (Presentation.projection r (generator i))) := by
   have he := evaluate_unique (Hom.comp h (Presentation.projection r))
@@ -41,10 +41,10 @@ theorem covers_iff_zero_locus (r : Fin m → freeAlgebra n) (p : ι → freeAlge
   · intro hc h
     let x := fun i => h (Presentation.projection r (generator i))
     have hr (j : Fin m) : (r j).val x=0 := by
-      rw [← realPoint_coordinates r h,Presentation.relation_zero]
+      rw [← real_point_coordinates r h,Presentation.relation_zero]
       exact map_zero h.toAlgHom
     obtain ⟨i,hi⟩ := hc x hr
-    exact ⟨i,by rwa [realPoint_coordinates]⟩
+    exact ⟨i,by rwa [real_point_coordinates]⟩
 
 theorem finite_iff {k : ℕ} (r : Fin m → freeAlgebra n) (s : Fin k → Presentation.Carrier r) :
     Covers s ↔ PrincipalCover.Covers s := by

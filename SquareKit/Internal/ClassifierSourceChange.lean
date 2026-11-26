@@ -37,7 +37,7 @@ variable [Closed (U ⨿ ⊤_ B)]
 
 omit [HasPullbacks F] [HasBinaryProducts G] [HasPullbacks G] [Mono u] in
 /-- Classification commutes with source substitution on the interpreted sections. -/
-theorem sourceModel_classifier_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
+theorem sourceModelFunctor_classifier_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
     ((sourceModelFunctor f h u).obj (k.model u)).toSection = ((k.precomp f).model u).toSection := by
   rw [sourceModelFunctor_section, Lift.model_section, Lift.model_section, Lift.precomp_section]
   dsimp only [pullSection]
@@ -49,8 +49,8 @@ theorem sourceModel_classifier_section (k : Lift h (slice (U ⨿ ⊤_ B))) :
 def classifierSourceIso : modelFunctor (h := h) u ⋙ sourceModelFunctor f h u ≅
     Lift.precompFunctor f ⋙ modelFunctor (h := f.comp h) u :=
   NatIso.ofComponents (fun k => {
-    hom := PartitionSection.Model.homOfSection (sourceModel_classifier_section f h u k)
-    inv := PartitionSection.Model.homOfSection (sourceModel_classifier_section f h u k).symm
+    hom := PartitionSection.Model.homOfSection (sourceModelFunctor_classifier_section f h u k)
+    inv := PartitionSection.Model.homOfSection (sourceModelFunctor_classifier_section f h u k).symm
     hom_inv_id := Subsingleton.elim _ _
     inv_hom_id := Subsingleton.elim _ _ }) (by intros; apply Subsingleton.elim)
 end SquareKit.Internal.GeometricMorphism

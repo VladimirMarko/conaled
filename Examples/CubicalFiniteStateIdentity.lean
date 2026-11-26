@@ -120,7 +120,7 @@ noncomputable def evenOddPath :=
       rw [admittedCarrier_of_iso]
       exact Preserves.of_eq rfl)
 
-theorem evenOdd_recovery :
+theorem targetPackage_evenPackage :
     targetPackage (codeIso successor).hom (HomotopyEquivalence.ofIso (codeIso successor)) evenPackage = oddPackage := by
   rw [targetPackage_eq, admittedCarrier_of_iso]
   rfl

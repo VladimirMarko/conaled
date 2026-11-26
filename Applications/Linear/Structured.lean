@@ -167,7 +167,7 @@ theorem Realization.repeat_correct (r : Realization R n n) (a : r.Storage)
     rw [Realization.repeat, r.correct, ih, Matrix.mulVec_mulVec, pow_succ']
 
 /-- Different storage formats compose without a shared universal operation class. -/
-theorem Realization.twoStage_correct (first : Realization R m n) (second : Realization R p m)
+theorem Realization.apply_apply_eq_mulVec_mul (first : Realization R m n) (second : Realization R p m)
     (a : first.Storage) (b : second.Storage) (x : Vector R n) :
     observe (second.apply b (first.apply a x)) =
       (second.matrix b * first.matrix a).mulVec (observe x) := by
@@ -236,7 +236,7 @@ theorem composeDense_correct (first : Realization R m n) (second : Realization R
     (a : first.Storage) (b : second.Storage) (x : Vector R n) :
     observe (denseApply (composeDense first second a b) x) =
       observe (second.apply b (first.apply a x)) := by
-  rw [denseApply_correct, composeDense, materialize_correct, Realization.twoStage_correct]
+  rw [denseApply_correct, composeDense, materialize_correct, Realization.apply_apply_eq_mulVec_mul]
 
 /-- Accumulate one coordinate into a dense destination, preserving duplicates. -/
 def scatterDenseStep (y : Dense R m n) (e : Entry R m n) : Dense R m n :=

@@ -739,7 +739,7 @@ noncomputable def nativeUaLoop (g : Two) :=
     (classified 1).code (classified 1).code) (decodedCompleteEquivLoop g)
 
 /-- The two actual ua images have no relative three-path in the constructed universe. -/
-theorem no_relativeThreePath :
+theorem no_relative_three_path :
     IsEmpty (Term (homogeneousPath _ (nativeUaLoop 1) (nativeUaLoop nontrivial))) :=
   no_decoded_retract_comparison
     (SmallUniverse.NativeUnivalence.equivToPath (classified 1).code (classified 1).code)

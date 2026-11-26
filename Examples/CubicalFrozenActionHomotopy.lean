@@ -23,7 +23,7 @@ private theorem cast_down {Γ : Context.{0}} {A B : LawfulFamily Γ}
 theorem assigned_h : HEq (reindexedH cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩).down
     selectedNormalizedHomotopy := by
   apply HEq.trans _ (heq_of_eq selectedNormalizedHomotopy_eq.symm)
-  apply (cast_down (reindexedHType_eq cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩) _).trans
+  apply (cast_down (reindexed_identity_eq cocycleModel cocycleBase cocycleRootedFamily ⟨assignInput⟩) _).trans
   have h₁ := cast_section_reindex
     ((parallelPoints.addH.reindex (cocycleStructuralModel.weaken afterHomotopy.context (qFamily cocycleStructuralModel cocycleBase cocycleRootedFamily))).toParallel.identity_reindex
       (cocycleStructuralModel.weaken afterQ.context (uFamily cocycleStructuralModel cocycleBase cocycleRootedFamily)))

@@ -114,13 +114,13 @@ def normalizedTauHomotopy : Term (secondIdentityFamily terminal.{0}) :=
 theorem normalizedTauHomotopy_eq : normalizedTauHomotopy = secondIdentity terminal.{0} :=
  eq_of_heq ((cast_heq _ _).trans retained_tauHomotopy)
 
-theorem tauObservation_one : secondObservation normalizedTauHomotopy = 1 :=
+theorem secondObservation_normalizedTauHomotopy : secondObservation normalizedTauHomotopy = 1 :=
  (congrArg secondObservation normalizedTauHomotopy_eq).trans secondObservation_selected
 
-theorem tauObservation_no_erasure : normalizedTauHomotopy ≠ secondZero terminal.{0} := by
+theorem normalizedTauHomotopy_ne_secondZero : normalizedTauHomotopy ≠ secondZero terminal.{0} := by
  intro h
  have e := (congrArg secondObservation h).trans secondObservation_zero
- exact Int.one_ne_zero (tauObservation_one.symm.trans e)
+ exact Int.one_ne_zero (secondObservation_normalizedTauHomotopy.symm.trans e)
 
 /-- The later dependent tail retains the same rooted-family section. -/
 theorem assignedU_heq : HEq assignedU Examples.CubicalCocycleAssignment.assignedU :=
@@ -130,6 +130,6 @@ theorem assignedU_heq : HEq assignedU Examples.CubicalCocycleAssignment.assigned
 
 example : secondObservation normalizedTauHomotopy = 1 ∧
  secondObservation (secondZero terminal.{0}) = 0 :=
- ⟨tauObservation_one, secondObservation_zero⟩
+ ⟨secondObservation_normalizedTauHomotopy, secondObservation_zero⟩
 
 end Examples.CubicalSharedAssignment

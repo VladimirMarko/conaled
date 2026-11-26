@@ -138,7 +138,7 @@ theorem witnessTerminal_inverse : ComparisonLaws (equality _) witnessTerminal.{u
 theorem witnessTerminal_laws : TerminalMapLaws (equality _) witnessTerminal.{u} := ⟨rfl⟩
 
 /-- Shared composition of interpretation maps needs no new preservation proof. -/
-theorem graphWitness_laws : MapLaws (graphMap.{u}.comp witnessMap) (equality _) (equality _) :=
+theorem graphMap_comp_witnessMap_laws : MapLaws (graphMap.{u}.comp witnessMap) (equality _) (equality _) :=
   RawMap.comp_laws graphMap_laws witnessMap_laws
 
 /-- Function witnesses give compatible functions on witness spaces. This is

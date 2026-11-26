@@ -10,7 +10,7 @@ open CategoryTheory CategoryTheory.Limits EuclideanOpen SmoothAlgebra
 /-- The actual manifold realization of an ordinary principal-open map. -/
 abbrev realize {U V : Domain} (f : U ⟶ V) :=
   map (show ordinaryOpen U → ordinaryOpen V from fun x => (show EuclideanOpen.Map U V from f) x)
-    (openMap_contMDiff f)
+    (euclideanOpenMap_contMDiff f)
 
 def ordinaryPowerIso (n : ℕ) : object n (ordinaryOpen (full n)) ≅ SmoothOpenSite.scalarPower n :=
   principalIso (full n) ≪≫ fullPowerIso n

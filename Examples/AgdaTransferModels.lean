@@ -24,18 +24,18 @@ theorem sourceLabel_eq (B : C4 ⥤ Type) (b : B.obj point) (n : ZMod 4) :
   exact congrArg Discrete.as (eq_of_heq (GroupoidModel.UniversalTransfer.first_obj C4 B point point point (label n) (𝟙 point) b))
 
 /-- Identity interpretation retains all four labels even when the action is trivial. -/
-theorem sourceLabels_injective (B : C4 ⥤ Type) (b : B.obj point) :
+theorem sourceLabel_injective (B : C4 ⥤ Type) (b : B.obj point) :
     Function.Injective (sourceLabel B b) := by
   intro a c h
   apply labels_injective
   simpa only [sourceLabel_eq] using h
 
-example : Function.Injective (sourceLabel faithful (0 : ZMod 4)) := sourceLabels_injective _ _
+example : Function.Injective (sourceLabel faithful (0 : ZMod 4)) := sourceLabel_injective _ _
 
-example : Function.Injective (sourceLabel ineffective (0 : Fin 2)) := sourceLabels_injective _ _
+example : Function.Injective (sourceLabel ineffective (0 : Fin 2)) := sourceLabel_injective _ _
 example : sourceLabel ineffective (0 : Fin 2) 1 ≠ sourceLabel ineffective (0 : Fin 2) 0 := by
   intro h
-  exact (by decide : (1 : ZMod 4) ≠ 0) (sourceLabels_injective _ _ h)
+  exact (by decide : (1 : ZMod 4) ≠ 0) (sourceLabel_injective _ _ h)
 
 local notation "MF" => GroupoidModel.Instance.fullModel C4 faithful
 local notation "MI" => GroupoidModel.Instance.fullModel C4 ineffective

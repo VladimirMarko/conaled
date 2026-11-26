@@ -282,7 +282,7 @@ theorem exponent_le_three (m : Nat) (e : Int) (positive : 0 < m)
     change (n : Int) ≤ 3
     omega
 
-theorem noOverflow64_of_decode (value : UnpackedFloat) (q : Rat)
+theorem noOverflow_binary64_of_decode (value : UnpackedFloat) (q : Rat)
     (decoded : Observation.unpack value = some q) (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     NoOverflow Format.binary64 value := by
   rcases ArithmeticCore.nonnegative_unpacked_cases value q decoded nonnegative with
@@ -292,7 +292,7 @@ theorem noOverflow64_of_decode (value : UnpackedFloat) (q : Rat)
     change e + 1023 + 52 + 1 < 2048
     omega
 
-theorem noOverflow32_of_decode (value : UnpackedFloat) (q : Rat)
+theorem noOverflow_binary32_of_decode (value : UnpackedFloat) (q : Rat)
     (decoded : Observation.unpack value = some q) (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     NoOverflow Format.binary32 value := by
   rcases ArithmeticCore.nonnegative_unpacked_cases value q decoded nonnegative with
@@ -322,13 +322,13 @@ theorem model64_pack_numeric (value : UnpackedFloat) (q : Rat)
     (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     Observation.unpack (Float.Model.pack value).unpack = some q := by
   change Observation.unpack (UnpackedFloat.unpack Format.binary64 (pack Format.binary64 value)) = _
-  rw [pack_numeric _ _ canonical (noOverflow64_of_decode value q decoded nonnegative upper), decoded]
+  rw [pack_numeric _ _ canonical (noOverflow_binary64_of_decode value q decoded nonnegative upper), decoded]
 
 theorem model32_pack_numeric (value : UnpackedFloat) (q : Rat)
     (canonical : Canonical Format.binary32 value) (decoded : Observation.unpack value = some q)
     (nonnegative : 0 ≤ q) (upper : q ≤ 10) :
     Observation.unpack (Float32.Model.pack value).unpack = some q := by
   change Observation.unpack (UnpackedFloat.unpack Format.binary32 (pack Format.binary32 value)) = _
-  rw [pack_numeric _ _ canonical (noOverflow32_of_decode value q decoded nonnegative upper), decoded]
+  rw [pack_numeric _ _ canonical (noOverflow_binary32_of_decode value q decoded nonnegative upper), decoded]
 
 end Floating.Packing

@@ -42,7 +42,7 @@ theorem uncurry_parameter {X Y F : Sheaf topology Type} (h : X ⟶ exponential D
     Function.LeftInverse.injective beta)
   rw [eta, curry_parameter, eta]
 
-theorem dualSections_natural (F : Sheaf topology Type) {A B : Code} (f : A ⟶ B)
+theorem dualSectionsEquiv_natural (F : Sheaf topology Type) {A B : Code} (f : A ⟶ B)
     (x : (exponential D F).obj.obj (atStage A)) :
     dualSectionsEquiv F B ((exponential D F).obj.map (stageMap f) x) =
       F.obj.map (stageMap (dualMap f)) (dualSectionsEquiv F A x) := by
@@ -69,7 +69,7 @@ def dualSectionsIso (F : Sheaf topology Type) :
   NatIso.ofComponents (fun A => (dualSectionsEquiv F A.unop.unop).toIso) (by
     intro A B f
     ext x
-    exact dualSections_natural F f.unop.unop x)
+    exact dualSectionsEquiv_natural F f.unop.unop x)
 
 abbrev dualSheaf (F : Sheaf topology Type) : Sheaf topology Type :=
   ⟨dualStages ⋙ F.obj,

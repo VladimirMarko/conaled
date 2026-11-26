@@ -55,7 +55,7 @@ theorem repeated_result : observe (diagonalRealization.repeat diagonal 2 input) 
 
 theorem composed_result :
     observe (denseRealization.apply swap (sparseRealization.apply sparse input)) = ![15, 8] := by
-  rw [Realization.twoStage_correct]
+  rw [Realization.apply_apply_eq_mulVec_mul]
   funext i; fin_cases i <;>
     norm_num [denseRealization, sparseRealization, denseMatrix, sparseMatrix, entryMatrix,
       swap, sparse, input, observe, Matrix.mul_apply, Matrix.mulVec, dotProduct, Fin.sum_univ_two]

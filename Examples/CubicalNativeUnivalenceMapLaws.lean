@@ -10,7 +10,7 @@ open SmallUniverse.NativeUnivalence
 
 /-- Adding an interval parameter preserves the entire Boolean transport equivalence,
 including its selected fiber contractions. -/
-theorem booleanTransport_interval :
+theorem booleanUniversalTransportEquivalence_reindex_interval :
     HEq (booleanUniversalTransportEquivalence.reindex
       (projection (interval (raisedContext terminal))))
       (pathToEquivalence (reindexPath booleanUniverseLoop
@@ -18,7 +18,7 @@ theorem booleanTransport_interval :
   pathToEquivalence_reindex booleanUniverseLoop _
 
 /-- Evaluating the generic native construction recovers the full chosen Boolean data. -/
-theorem booleanGeneric_complete :
+theorem boolean_generic_pathToEquivalence_complete :
     (⟨Functor.whiskerLeft
         (pair (A := paths (constantLocal terminal Bool).code (constantLocal terminal Bool).code)
           (𝟙 (raisedContext terminal)) booleanUniverseLoop).mapElements
@@ -33,7 +33,7 @@ theorem booleanGeneric_complete :
   pathToEquivalence_record_generic booleanUniverseLoop
 
 /-- The chosen Boolean Glue path is stable under an additional interval parameter. -/
-theorem booleanUa_interval :
+theorem boolean_ua_reindex_interval :
     reindexPath (ua (constantLocal terminal Bool).code (constantLocal terminal Bool).code
       (pathToMap booleanUniverseLoop) booleanUniversalTransportEquivalence)
         (projection (interval (raisedContext terminal))) =

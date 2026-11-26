@@ -166,7 +166,7 @@ The same example proves the site subcanonical by checking its Yoneda
 presheaves. Nevertheless, the existing proper pointwise image of `E → 1`
 has local sections over the cover and no section at `X`. Its previously proved
 failure of sheafness, transported by `codes_isSheaf_iff`, gives
-`badCodes_not_sheaf` on this subcanonical site. This is an explicit alternative
+`bad_codes_not_sheaf` on this subcanonical site. This is an explicit alternative
 to the two-point-open-space control described below. The earlier
 constant-Boolean empty-cover rejection remains checked.
 
@@ -419,7 +419,7 @@ its own arrow-descent proof when it is not full. [Stacks, stacks and subcategori
 
 The following controls delimit the wider library. The first is now formalized
 as `codes_not_sheaf`. The second has a checked diamond-site counterpart
-`badCodes_not_sheaf` above; the two-point presentation below remains a paper example.
+`bad_codes_not_sheaf` above; the two-point presentation below remains a paper example.
 
 1. **Restriction laws do not imply code sheafness.** Take constant `Bool` data
    (lifted to the data universe) and identity restriction. All strict `System`

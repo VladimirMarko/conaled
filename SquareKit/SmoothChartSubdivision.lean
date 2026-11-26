@@ -39,16 +39,16 @@ variable {A} {B C D : Charts M}
 def commonRefinementIso (r : Refinement C A) (s : Refinement C B) :
     A.realization ≅ B.realization := r.iso.symm ≪≫ s.iso
 
-theorem commonRefinement_commutes (r : Refinement C A) (s : Refinement C B) :
+theorem commonRefinementIso_commutes (r : Refinement C A) (s : Refinement C B) :
     r.map.realize ≫ (commonRefinementIso r s).hom = s.map.realize := by
   change r.iso.hom ≫ (r.iso.inv ≫ s.iso.hom) = s.iso.hom
   simp
 
-theorem commonRefinement_refl (r : Refinement C A) : commonRefinementIso r r = Iso.refl _ := by
+theorem commonRefinementIso_refl (r : Refinement C A) : commonRefinementIso r r = Iso.refl _ := by
   apply Iso.ext
   simp [commonRefinementIso]
 
-theorem commonRefinement_trans (r : Refinement D A) (s : Refinement D B) (t : Refinement D C) :
+theorem commonRefinementIso_trans (r : Refinement D A) (s : Refinement D B) (t : Refinement D C) :
     commonRefinementIso r s ≪≫ commonRefinementIso s t = commonRefinementIso r t := by
   apply Iso.ext
   simp [commonRefinementIso]
@@ -72,7 +72,7 @@ theorem refinementIso_eq (r s : Refinement B A) : r.iso = s.iso := by
   exact Map.realize_eq r.map s.map (r.point_identity.trans s.point_identity.symm)
 
 /-- A further common refinement leaves the comparison unchanged. -/
-theorem commonRefinement_further (r : Refinement C A) (s : Refinement C B)
+theorem commonRefinementIso_further (r : Refinement C A) (s : Refinement C B)
     (r' : Refinement D A) (s' : Refinement D B) (t : Refinement D C) :
     commonRefinementIso r s = commonRefinementIso r' s' := by
   have hr : t.map.realize ≫ r.map.realize = r'.map.realize := by
@@ -92,6 +92,6 @@ theorem commonRefinement_further (r : Refinement C A) (s : Refinement C B)
   apply Iso.ext
   apply (cancel_epi r'.iso.hom).mp
   change r'.map.realize ≫ _ = r'.map.realize ≫ _
-  rw [commonRefinement_commutes, ← hr, Category.assoc, commonRefinement_commutes, hs]
+  rw [commonRefinementIso_commutes, ← hr, Category.assoc, commonRefinementIso_commutes, hs]
 
 end SquareKit.EuclideanOpen.Charts

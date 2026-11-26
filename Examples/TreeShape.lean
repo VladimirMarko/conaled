@@ -70,7 +70,7 @@ theorem rightTwo_children :
 theorem rightTwo_sub : rightTwo.height - Trees.minHeight rightTwo ≤ 1 :=
   (Trees.almostComplete_iff_sub rightTwo).1 rightTwo_almostComplete
 
-theorem chainThree_power_not_complete :
+theorem chain_three_power_not_complete :
     (TreeCacheExamples.chain 3).numLeaves = 2 ^ (2 : Nat) ∧
       ¬ Trees.Complete (TreeCacheExamples.chain 3) := by
   constructor

@@ -23,7 +23,7 @@ theorem stepLaws_64 : StepLaws operations64 decode64 ((2 : ℚ) ^ (-50 : Int))
   division_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
   digit_exact := decode64_digit
   addition := _root_.Floating.Operations.add64_bounds
-  division := _root_.Floating.Operations.divideTen64_bounds
+  division := _root_.Floating.Operations.float_div_ten_bounds
 
 theorem stepLaws_32 : StepLaws operations32 decode32 ((2 : ℚ) ^ (-21 : Int))
     ((2 : ℚ) ^ (-24 : Int)) where
@@ -31,7 +31,7 @@ theorem stepLaws_32 : StepLaws operations32 decode32 ((2 : ℚ) ^ (-21 : Int))
   division_nonneg := le_of_lt (zpow_pos (by norm_num : (0 : ℚ) < 2) _)
   digit_exact := decode32_digit
   addition := _root_.Floating.Operations.add32_bounds
-  division := _root_.Floating.Operations.divideTen32_bounds
+  division := _root_.Floating.Operations.float32_div_ten_bounds
 
 theorem uniform_constant64 :
     (10 / 9 : ℚ) * ((2 : ℚ) ^ (-50 : Int) / 10 + (2 : ℚ) ^ (-53 : Int)) =

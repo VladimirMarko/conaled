@@ -195,7 +195,7 @@ reduct instead drops arbitrary transformation components or apex observations,
 it needs its own loss/recovery contract; this study does not assert one.
 
 The hypothesis controls remain concrete. `second` preserves pullbacks but
-`forget_not_leftExact` rejects finite-limit preservation using the terminal
+`forget_not_preservesFiniteLimits` rejects finite-limit preservation using the terminal
 object. Conversely, `truncation_not_preserving` exhibits a target pullback
 match absent from the source and rejects dropping pullback preservation.
 Neither the ordinary raw layer nor an object-level family Equiv discharges

@@ -97,7 +97,7 @@ theorem stream_prefixes_directed (σ : Stream' α) :
     DirectedOn (· ≤ ·) (Set.range fun n => Ideal.principal (openPrefix (σ.take n))) := by
   have monotone : Monotone (fun n => Ideal.principal (openPrefix (σ.take n))) := by
     intro m n h
-    exact IdealCompletion.principal_monotone (streamPrefix_mono σ h)
+    exact IdealCompletion.principal_monotone (openPrefix_take_mono σ h)
   exact monotone.directed_le.directedOn_range
 
 theorem stream_prefixes_isLUB (σ : Stream' α) :
@@ -138,7 +138,7 @@ section FiniteOrder
 
 variable [Preorder B]
 
-theorem finiteFold_seed_monotone (bottom : B) (f : α → B → B)
+theorem partialSpineFoldr_seed_monotone (bottom : B) (f : α → B → B)
     (monotone : ∀ a, Monotone (f a)) (s : PartialSpine α) :
     Monotone (fun e => PartialSpine.foldr bottom f e s) := by
   intro e e' he
@@ -147,7 +147,7 @@ theorem finiteFold_seed_monotone (bottom : B) (f : α → B → B)
   | nil => exact he
   | cons a s ih => exact monotone a ih
 
-theorem finiteFold_seed_continuous (bottom : B) (f : α → B → B)
+theorem partialSpineFoldr_seed_continuous (bottom : B) (f : α → B → B)
     (continuous : ∀ a, ScottContinuous (f a)) (s : PartialSpine α) :
     ScottContinuous (fun e => PartialSpine.foldr bottom f e s) := by
   induction s with
@@ -157,7 +157,7 @@ theorem finiteFold_seed_continuous (bottom : B) (f : α → B → B)
 
 variable [OrderBot B]
 
-theorem finiteFold_monotone (f : α → B → B) (e : B)
+theorem partialSpineFoldr_monotone (f : α → B → B) (e : B)
     (monotone : ∀ a, Monotone (f a)) : Monotone (PartialSpine.foldr ⊥ f e) := by
   intro s t h
   induction h with
@@ -175,27 +175,27 @@ variable [CompletePartialOrder B]
 def foldr (f : α → B → B) (e : B) (I : Observations α) : B :=
   IdealCompletion.extend (PartialSpine.foldr ⊥ f e) I
 
-theorem finiteFold_le_foldr (f : α → B → B) (e : B)
+theorem partialSpineFoldr_le_foldr (f : α → B → B) (e : B)
     (monotone : ∀ a, Monotone (f a)) (I : Observations α) {s : PartialSpine α} (hs : s ∈ I) :
     PartialSpine.foldr ⊥ f e s ≤ foldr f e I :=
-  IdealCompletion.le_extend (finiteFold_monotone f e monotone) I hs
+  IdealCompletion.le_extend (partialSpineFoldr_monotone f e monotone) I hs
 
 theorem foldr_le (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a))
     (I : Observations α) {b : B} (upper : ∀ s ∈ I, PartialSpine.foldr ⊥ f e s ≤ b) :
     foldr f e I ≤ b :=
-  IdealCompletion.extend_le (finiteFold_monotone f e monotone) I upper
+  IdealCompletion.extend_le (partialSpineFoldr_monotone f e monotone) I upper
 
 theorem foldr_monotone (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a)) :
     Monotone (foldr f e) :=
-  IdealCompletion.extend_monotone (finiteFold_monotone f e monotone)
+  IdealCompletion.extend_monotone (partialSpineFoldr_monotone f e monotone)
 
 theorem foldr_continuous (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a)) :
     ScottContinuous (foldr f e) :=
-  IdealCompletion.extend_scottContinuous (finiteFold_monotone f e monotone)
+  IdealCompletion.extend_scottContinuous (partialSpineFoldr_monotone f e monotone)
 
 theorem foldr_principal (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a))
     (s : PartialSpine α) : foldr f e (Ideal.principal s) = PartialSpine.foldr ⊥ f e s :=
-  IdealCompletion.extend_principal (finiteFold_monotone f e monotone) s
+  IdealCompletion.extend_principal (partialSpineFoldr_monotone f e monotone) s
 
 @[simp] theorem foldr_bottom (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a)) :
     foldr f e ⊥ = ⊥ :=
@@ -224,15 +224,15 @@ theorem foldr_cons (f : α → B → B) (e : B) (monotone : ∀ a, Monotone (f a
 theorem foldr_seed_monotone (f : α → B → B) (monotone : ∀ a, Monotone (f a))
     (I : Observations α) : Monotone (fun e => foldr f e I) := by
   intro e e' he
-  exact IdealCompletion.extend_mono_interpreter (finiteFold_monotone f e monotone)
-    (finiteFold_monotone f e' monotone)
-    (fun s => finiteFold_seed_monotone ⊥ f monotone s he) I
+  exact IdealCompletion.extend_mono_interpreter (partialSpineFoldr_monotone f e monotone)
+    (partialSpineFoldr_monotone f e' monotone)
+    (fun s => partialSpineFoldr_seed_monotone ⊥ f monotone s he) I
 
 theorem foldr_seed_continuous (f : α → B → B) (continuous : ∀ a, ScottContinuous (f a))
     (I : Observations α) : ScottContinuous (fun e => foldr f e I) :=
   IdealCompletion.extend_param_scottContinuous (fun e s => PartialSpine.foldr ⊥ f e s)
-    (fun e => finiteFold_monotone f e (fun a => (continuous a).monotone))
-    (fun s => finiteFold_seed_continuous ⊥ f continuous s) I
+    (fun e => partialSpineFoldr_monotone f e (fun a => (continuous a).monotone))
+    (fun s => partialSpineFoldr_seed_continuous ⊥ f continuous s) I
 
 end Fold
 
@@ -255,8 +255,8 @@ theorem foldr_fusion (f : α → B → B) (g : α → C → C) (e : B)
     (h : B → C) (continuous : ScottContinuous h) (strict : h ⊥ = ⊥)
     (commute : ∀ a b, h (f a b) = g a (h b)) (I : Observations α) :
     h (foldr f e I) = foldr g (h e) I :=
-  IdealCompletion.extend_fusion (finiteFold_monotone f e fMonotone)
-    (finiteFold_monotone g (h e) gMonotone) continuous
+  IdealCompletion.extend_fusion (partialSpineFoldr_monotone f e fMonotone)
+    (partialSpineFoldr_monotone g (h e) gMonotone) continuous
     (fun s => PartialSpine.foldr_fusion ⊥ ⊥ f g h e strict commute s) I
 
 theorem foldr_fusion_continuous (f : α → B → B) (g : α → C → C) (e : B)

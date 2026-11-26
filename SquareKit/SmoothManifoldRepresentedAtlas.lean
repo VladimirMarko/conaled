@@ -267,7 +267,7 @@ theorem inverseSecond_base :
   rw [← C.interpret_comp]
   rfl
 
-theorem inverseComposite_base :
+theorem inverseSecond_base_comp :
     (C.interpret (A.inverseCharts B f hf) g hg ≫ ((A.inverseCharts B f hf).comparison A).hom) ≫
       A.interpret B f hf = C.interpret B (f ∘ g) (hf.comp hg) := by
   rw [A.inverseSecond_base B C f hf g hg]

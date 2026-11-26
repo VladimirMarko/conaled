@@ -151,7 +151,7 @@ theorem source_scan_balance : scanVisits 5 5 + triangle 5 = 30 ∧
   ⟨scanVisits_add_triangle 5 5 (by decide), eraseVisits_add_triangle 5 5 (by decide),
     scanVisits_eq_add_eraseVisits 5 5 (by decide), twice_triangle 5⟩
 
-theorem source_colorList_work : work (colorListRun palette sourceGraph [4, 1, 2, 6, 5]).2 = 313 := by
+theorem source_colorListRun_work : work (colorListRun palette sourceGraph [4, 1, 2, 6, 5]).2 = 313 := by
   decide
 
 theorem source_paint_callbacks :
@@ -174,7 +174,7 @@ theorem source_selected_writes : count .assignmentWrite (colorRun unitPrices pal
   rfl
 
 theorem source_program_work : work (colorRun unitPrices palette sourceGraph).2 = 1058 := by
-  rw [colorRun_work, palette_cardinal, source_selection_work, sourceGraph_selection, source_colorList_work]
+  rw [colorRun_work, palette_cardinal, source_selection_work, sourceGraph_selection, source_colorListRun_work]
   rfl
 
 theorem source_program_arithmetic : (colorRun unitPrices palette sourceGraph).2.1.2 = 107 := by

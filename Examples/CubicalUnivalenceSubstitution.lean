@@ -12,7 +12,7 @@ abbrev flip := (codeIso booleanTransposition).hom
 abbrev flipEquivalence := HomotopyEquivalence.ofIso (codeIso booleanTransposition)
 
 /-- The nonidentity Boolean loop retains its entire chosen code when pulled to an interval context. -/
-theorem booleanLoop_interval_substitution :
+theorem boolean_uaCode_interval_substitution :
     raisedSub (liftSub (interval terminal) (projection (interval terminal))) ≫
       Univalence.uaCode boolCode boolCode flip flipEquivalence =
     Univalence.uaCode

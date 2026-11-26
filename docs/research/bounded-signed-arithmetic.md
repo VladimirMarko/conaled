@@ -45,9 +45,9 @@ those intervals; a selected center alone is insufficient evidence of admission.
 The repository pins Lean `v4.35.0` in [lean-toolchain](../../lean-toolchain).
 [Floating.Operations](../../Applications/Floating/Operations.lean) proves
 `unpacked_add_bounds` for nonnegative operands whose sum is at most 10, and
-`unpacked_divTen_bounds` for a nonnegative numerator at most 10 and denominator
-exactly 10. Its `add64_bounds`, `add32_bounds`, `divideTen64_bounds`, and
-`divideTen32_bounds` discharge the actual pinned Float/Float32 model obligations
+`unpacked_div_ten_bounds` for a nonnegative numerator at most 10 and denominator
+exactly 10. Its `add64_bounds`, `add32_bounds`, `float_div_ten_bounds`, and
+`float32_div_ten_bounds` discharge the actual pinned Float/Float32 model obligations
 for those decimal consumers, including their zero and subnormal cases.
 
 Extending that route to this workload would need signed cancellation, signed

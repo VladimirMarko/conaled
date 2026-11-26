@@ -38,7 +38,7 @@ theorem fourier_correct (s : Factor) (x : s.Data ℂ) :
       directDFT s.fourierRoot (s.decode x) :=
   s.fft_decode s.fourierRoot s.fourierRoot_pow x
 
-theorem radixTwo_correct (depth : Nat) (x : (rightPow depth).Data ℂ) :
+theorem rightPow_fft_correct (depth : Nat) (x : (rightPow depth).Data ℂ) :
     (rightPow depth).reverse.decode
       ((rightPow depth).fft (rightPow depth).fourierRoot x) =
       directDFT (rightPow depth).fourierRoot ((rightPow depth).decode x) :=

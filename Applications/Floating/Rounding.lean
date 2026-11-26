@@ -118,7 +118,7 @@ theorem quotientMantissa_exact (num den : Nat) (divides : num % den = 0) :
 
 theorem quotientMantissa_adjacent (num den : Nat) :
     num / den ≤ quotientMantissa num den ∧ quotientMantissa num den ≤ num / den + 1 :=
-  nearestEven_adjacent _ _
+  roundToNearestEven_adjacent _ _
 
 theorem divCore_rounding (format : Format) (m₁ : Nat) (e₁ : Int) (m₂ : Nat) (e₂ : Int) :
     let target := min (e₁ - e₂)
@@ -149,7 +149,7 @@ theorem divCore_rounding_error (format : Format) (m₁ : Nat) (e₁ : Int)
     |(rounded : Rat) * unit - (numerator : Rat) / (m₂ : Rat) * unit| ≤ unit / 2 :=
   quotientMantissa_scaled_error _ _ positive _ (Rat.le_of_lt (Rat.zpow_pos (by decide)))
 
-theorem dyadic_shiftLeft (m : Nat) (e : Int) (n : Nat) :
+theorem dyadicValue_shiftLeft (m : Nat) (e : Int) (n : Nat) :
     dyadicValue (m <<< n) (e - (n : Int)) = dyadicValue m e := by
   rw [dyadicValue_eq, dyadicValue_eq, Nat.shiftLeft_eq]
   simp only [Rat.natCast_mul, Rat.natCast_pow, Rat.natCast_ofNat]
@@ -160,7 +160,7 @@ theorem dyadic_shiftLeft (m : Nat) (e : Int) (n : Nat) :
 
 theorem decreaseExponent_value (m : Nat) (e target : Int) :
     dyadicValue (decreaseExponent m e target).1 (decreaseExponent m e target).2 = dyadicValue m e :=
-  dyadic_shiftLeft m e (e - target).toNat
+  dyadicValue_shiftLeft m e (e - target).toNat
 
 private theorem dyadic_div (m₁ m₂ : Nat) (e₁ e₂ : Int) (positive : 0 < m₂) :
     dyadicValue m₁ (e₁ - e₂) / (m₂ : Rat) = dyadicValue m₁ e₁ / dyadicValue m₂ e₂ := by
@@ -184,7 +184,7 @@ theorem divCore_unrounded_value (format : Format) (m₁ : Nat) (e₁ : Int)
   have target_le : target ≤ e₁ - e₂ := Int.min_le_left _ _
   have shift : ((e₁ - e₂ - target).toNat : Int) = e₁ - e₂ - target := by omega
   have exponent : e₁ - e₂ - ((e₁ - e₂ - target).toNat : Int) = target := by omega
-  have shifted := dyadic_shiftLeft m₁ (e₁ - e₂) (e₁ - e₂ - target).toNat
+  have shifted := dyadicValue_shiftLeft m₁ (e₁ - e₂) (e₁ - e₂ - target).toNat
   rw [exponent] at shifted
   have quotient := dyadic_div m₁ m₂ e₁ e₂ positive
   rw [dyadicValue_eq] at shifted

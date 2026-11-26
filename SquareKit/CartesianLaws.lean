@@ -342,7 +342,7 @@ theorem first_first {a b c d : O} (f : C.Hom a d) :
     | grw [CL.id_comp]
 
 include CC CL PC PL in
-theorem fstTensor_transpose (a b c d : O) :
+theorem tensor_fst_transpose (a b c d : O) :
     E.Rel (C.comp (tensor P P.fst P.fst) (transpose P (a := a) (b := b) (c := c) (d := d))) (P.fst) := by
   simp only [tensor, transpose]
   repeat first
@@ -354,7 +354,7 @@ theorem fstTensor_transpose (a b c d : O) :
     | grw [PL.pair_eta]
 
 include CC CL PC PL in
-theorem sndTensor_transpose (a b c d : O) :
+theorem tensor_snd_transpose (a b c d : O) :
     E.Rel (C.comp (tensor P P.snd P.snd) (transpose P (a := a) (b := b) (c := c) (d := d))) (P.snd) := by
   simp only [tensor, transpose]
   repeat first
@@ -376,7 +376,7 @@ theorem transpose_pairs {a b c d x : O} (f : C.Hom x a) (g : C.Hom x b) (h : C.H
     | grw [PL.snd_pair]
 
 include CC CL PC PL in
-theorem transpose_pairTensor {a b c d x y : O} (f : C.Hom x a) (g : C.Hom x b) (h : C.Hom y c) (k : C.Hom y d) :
+theorem transpose_tensor_pair {a b c d x y : O} (f : C.Hom x a) (g : C.Hom x b) (h : C.Hom y c) (k : C.Hom y d) :
     E.Rel (C.comp (transpose P) (tensor P (P.pair f g) (P.pair h k))) (P.pair (tensor P f h) (tensor P g k)) := by
   simp only [tensor, transpose]
   repeat first
@@ -466,7 +466,7 @@ include CC PC in
 theorem tensor_congr_right {a b c d : O} (f : C.Hom a c) {g g' : C.Hom b d}
     (h : E.Rel g g') : E.Rel (tensor P f g) (tensor P f g') := tensor_congr CC PC (E.refl _) h
 include CC CL PC PL in
-theorem transpose_tensorPairs {a b c d x y : O}
+theorem transpose_pair_tensor {a b c d x y : O}
     (f : C.Hom x a) (g : C.Hom y b) (h : C.Hom x c) (k : C.Hom y d) :
     E.Rel (C.comp (transpose P) (P.pair (tensor P f g) (tensor P h k)))
       (tensor P (P.pair f h) (P.pair g k)) := by

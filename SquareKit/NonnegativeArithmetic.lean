@@ -925,7 +925,7 @@ theorem rel_logarithm (n : ℕ) : Rel (logApprox n) (logarithmValue n) := by
     exact mem_logApprox_iff n hn1 q
 
 /-- Square root is valid for every natural input, including zero. -/
-theorem rel_squareRoot (n : ℕ) : Rel (rootApprox n) (squareRootValue n) := by
+theorem rel_squareRootValue (n : ℕ) : Rel (rootApprox n) (squareRootValue n) := by
   unfold squareRootValue
   apply rel_of_mem_iff
   intro q
@@ -933,7 +933,7 @@ theorem rel_squareRoot (n : ℕ) : Rel (rootApprox n) (squareRootValue n) := by
 
 /-- ExpLog's cofinal raw observations represent n on the positive domain.
 The proof does not identify the raw set with an interval or attain its endpoint. -/
-theorem rel_exponentiatedLogarithm (n : ℕ) :
+theorem rel_exponentiatedLogarithmValue (n : ℕ) :
     Rel (expLogApprox n) (exponentiatedLogarithmValue n) := by
   by_cases hn : n = 0
   · subst n
@@ -975,8 +975,8 @@ def rawPrimitives :
     cases p with
     | rational q => exact rel_rational q
     | logarithm n => exact rel_logarithm n
-    | squareRoot n => exact rel_squareRoot n
-    | exponentiatedLogarithm n => exact rel_exponentiatedLogarithm n
+    | squareRoot n => exact rel_squareRootValue n
+    | exponentiatedLogarithm n => exact rel_exponentiatedLogarithmValue n
     | add => exact rel_image2_add h.1 h.2
     | mul => exact rel_image2_mul h.1 h.2
 
@@ -1331,7 +1331,7 @@ theorem logarithm_section_fraction_iff (n p q : ℕ) (hn : 1 ≤ n) (hq : 0 < q)
 
 theorem squareRoot_section_fraction_iff (n p q : ℕ) (hq : 0 < q) :
     (p : ℚ) / (q : ℚ) ∈ sectionOf (squareRoot n) ↔ p * p ≤ n * q * q := by
-  have hrel : Rel (rootApprox n) (NNReal.sqrt (n : ℝ≥0) : Value) := rel_squareRoot n
+  have hrel : Rel (rootApprox n) (NNReal.sqrt (n : ℝ≥0) : Value) := rel_squareRootValue n
   have hcut : (p : ℚ) / (q : ℚ) ∈ closedSection (rootApprox n) ↔
       (((p : ℚ) / (q : ℚ) : ℚ) : ℝ) ≤ Real.sqrt (n : ℝ) := by
     simpa only [Real.coe_sqrt, NNReal.coe_natCast] using hrel.2 ((p : ℚ) / (q : ℚ))
@@ -1344,7 +1344,7 @@ theorem exponentiatedLogarithm_section_iff (n : ℕ) (hn : 1 ≤ n) (x : ℚ) :
     x ∈ sectionOf (exponentiatedLogarithm n) ↔ x ≤ (n : ℚ) := by
   have hn0 : n ≠ 0 := by omega
   have hrel : Rel (expLogApprox n) ((n : ℝ≥0) : Value) := by
-    simpa only [exponentiatedLogarithmValue, ite_eq_right hn0] using rel_exponentiatedLogarithm n
+    simpa only [exponentiatedLogarithmValue, ite_eq_right hn0] using rel_exponentiatedLogarithmValue n
   simpa only [sectionOf, raw_exponentiatedLogarithm, NNReal.coe_natCast,
     Rat.cast_le_natCast] using hrel.2 x
 

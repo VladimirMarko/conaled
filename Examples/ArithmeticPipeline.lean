@@ -36,7 +36,7 @@ noncomputable def realADPrimitives : Applications.AD.FirstOrder.PrimitiveD Arith
   | _, _, .mul => DMap.mul DMap.fst DMap.snd
   | _, _, .neg => DMap.neg DMap.ident
 
-theorem realAD_meaning :
+theorem realADPrimitives_meaning :
     @Applications.AD.FirstOrder.meaning Arithmetic.Prim realADPrimitives =
       @Arithmetic.meaning ℝ _ := by
   funext a b p x
@@ -47,14 +47,14 @@ theorem compile_hasFDerivAt (t : Term Arithmetic.Prim Γ a)
     (ρ : Val ℝ (context Γ)) :
     HasFDerivAt (eval Arithmetic.meaning t)
       ((Applications.AD.FirstOrder.compile realADPrimitives t).derivative ρ) ρ := by
-  simpa only [realAD_meaning] using
+  simpa only [realADPrimitives_meaning] using
     Applications.AD.FirstOrder.compile_hasFDerivAt realADPrimitives t ρ
 
 theorem compile_real_forward (t : Term Arithmetic.Prim Γ a)
     (ρ v : Val ℝ (context Γ)) :
     tangent (Applications.AD.FirstOrder.compile realADPrimitives t) (ρ, v) =
       (eval Arithmetic.meaning t ρ, fderiv ℝ (eval Arithmetic.meaning t) ρ v) := by
-  simpa only [realAD_meaning] using
+  simpa only [realADPrimitives_meaning] using
     Applications.AD.FirstOrder.compile_forward realADPrimitives t ρ v
 
 /-! ## Exact rational backends -/

@@ -269,7 +269,7 @@ theorem greedy_minimumLines (maximum : Nat) (ws : Text) (hw : AllWordsFit maximu
   ⟨greedy_fitPartition maximum ws hw,
     fun q hq => costLE_count _ q (greedy_cost_le maximum ws hw q hq)⟩
 
-theorem greedy_minimumLastWidth (maximum : Nat) (ws : Text) (hw : AllWordsFit maximum ws)
+theorem greedy_minimum_lastWidth (maximum : Nat) (ws : Text) (hw : AllWordsFit maximum ws)
     (q : Para) (hq : FitPartition maximum ws q)
     (hc : cost1 (greedy maximum ws) = cost1 q) :
     lastWidth (greedy maximum ws) ≤ lastWidth q :=

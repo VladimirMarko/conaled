@@ -53,7 +53,7 @@ Both inverse laws retain exact arrows, not isomorphism classes.
 
 `smoothChartEquiv` further identifies those quotient arrows with **all** smooth
 maps `ordinaryOpen U → C4 × Disk` having source m and target n. In one direction,
-local constancy makes the discrete component smooth, and `openMap_contMDiff`
+local constancy makes the discrete component smooth, and `euclideanOpenMap_contMDiff`
 and the smooth complex coordinate identification make the disk component smooth.
 In the other direction, continuity into discrete C4 recovers local constancy;
 the specified source determines the second component. The construction therefore
@@ -75,7 +75,7 @@ equalities. No use of C4 commutativity enters the generic label-order argument.
 
 ## Descent and controls
 
-`canonicalRecovery_comparison` composes the new equivalence with the existing
+`canonicalArrowEquiv_recoveryArrowComparison` composes the new equivalence with the existing
 `canonicalArrowEquiv` and `recoveryArrowComparison`. For two admitted locally
 surjective split covers of an ordinary domain and canonical data of global
 chart objects, either recovery route gives the same smooth external family.

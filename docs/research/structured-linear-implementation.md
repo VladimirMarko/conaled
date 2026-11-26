@@ -27,7 +27,7 @@ storage can be assessed when row access or repeated conversion warrants it.
 
 `Realization` asks for a storage carrier, matrix observation, vector application
 and its observation law. `applicationSquare` exposes this law as an ordinary
-`Squares.Square`. `batch_correct`, `repeat_correct` and `twoStage_correct` prove
+`Squares.Square`. `batch_correct`, `repeat_correct` and `apply_apply_eq_mulVec_mul` prove
 the clients once. The last result uses Mathlib's matrix composition law and
 allows the two stages to use different storage formats. Mathematical structure
 and coordinate storage remain local to each realization.

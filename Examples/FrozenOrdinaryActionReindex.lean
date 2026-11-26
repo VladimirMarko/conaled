@@ -32,12 +32,12 @@ def reindexedBeta : M.Section (M.extend Δ (reindexedType M A B σ))
 def reindexedP := cast (congrArg (M.Section Δ) (reindexedType_eq M A B σ)) (M.subTm (paths M A B).p σ)
 def reindexedP' := cast (congrArg (M.Section Δ) (reindexedType_eq M A B σ)) (M.subTm (paths M A B).p' σ)
 
-theorem reindexedHType_eq : M.subTy (M.identity (pathType M A B) (paths M A B).p (paths M A B).p') σ =
+theorem reindexed_identity_eq : M.subTy (M.identity (pathType M A B) (paths M A B).p (paths M A B).p') σ =
     M.identity (reindexedType M A B σ) (reindexedP M A B σ) (reindexedP' M A B σ) :=
   (M.identity_sub _ _ _ σ).trans (M.toStructuralModel.identity_congr (reindexedType_eq M A B σ)
     (cast_heq _ _).symm (cast_heq _ _).symm)
 
-def reindexedH := cast (congrArg (M.Section Δ) (reindexedHType_eq M A B σ)) (M.subTm (paths M A B).h σ)
+def reindexedH := cast (congrArg (M.Section Δ) (reindexed_identity_eq M A B σ)) (M.subTm (paths M A B).h σ)
 
 theorem action_reindex : HEq (M.subTm (action M A B) σ)
     (ordinaryApValue M (reindexedType M A B σ) (reindexedType M A B σ) (reindexedTransport M A B σ)

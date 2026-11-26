@@ -153,7 +153,7 @@ theorem sectionDifference_point_action {Y : Sheaf SmoothOpenSite.topology Type}
   rw [hl, hr] at h
   exact h
 
-theorem pointLift_comp {U V : Domain} (f : U ⟶ V) (l : embedding.obj V ⟶ SplitSheaf.extension P.family)
+theorem totalPointEquiv_symm_map_comp {U V : Domain} (f : U ⟶ V) (l : embedding.obj V ⟶ SplitSheaf.extension P.family)
     (x : Points U) :
     (totalPointEquiv P).symm (realSections.map l (ordinaryPoint V ((show EuclideanOpen.Map U V from f) x))) =
       (totalPointEquiv P).symm (realSections.map (embedding.map f ≫ l) (ordinaryPoint U x)) :=
@@ -166,7 +166,7 @@ theorem total_smul_eq_self (a : G) (z : Total P) (h : a • z = z) : a = 1 :=
 theorem ordinaryHomLabelEquiv_one (U : Domain) (x : Points U) :
     ordinaryHomLabelEquiv G U (SheafTorsor.labelOne (G := locallyConstantGroup G) (embedding.obj U)) x = 1 := by
   apply (constantLabelRealEquiv G).injective
-  exact (SmoothOrdinaryQuotient.homLabel_point U _ x).trans
+  exact (SmoothOrdinaryQuotient.ordinaryHomLabelEquiv_point U _ x).trans
     (((constantLabel G).app _).hom.map_one).symm
 
 theorem sections_eq_of_difference_one {Y : Sheaf SmoothOpenSite.topology Type}
@@ -196,7 +196,7 @@ theorem pair_hom_ext {U : Domain} (b : embedding.obj U ⟶ object n B)
   apply total_smul_eq_self P _ ((totalPointEquiv P).symm
     (realSections.map (SplitSheaf.pair P.family b s) (ordinaryPoint U x)))
   exact (sectionDifference_point_action P b s t _ _ rfl rfl (ordinaryPoint U x) _
-    (SmoothOrdinaryQuotient.homLabel_point U _ x)).trans
+    (SmoothOrdinaryQuotient.ordinaryHomLabelEquiv_point U _ x)).trans
       (congrArg (totalPointEquiv P).symm (h x).symm)
 
 theorem total_hom_ext {U : Domain} (f g : embedding.obj U ⟶ SplitSheaf.extension P.family)
@@ -231,12 +231,12 @@ theorem totalShift_point (g : G) (z : Total P) :
     realSections.map (totalShift P g) (totalPointEquiv P z) = totalPointEquiv P (g • z) := rfl
 theorem totalShift_projection (g : G) :
     totalShift P g ≫ SplitSheaf.p P.family = SplitSheaf.p P.family := rfl
-theorem pointLift_shift_comp {U V : Domain} (f : U ⟶ V)
+theorem realSections_map_totalShift_comp {U V : Domain} (f : U ⟶ V)
     (l : embedding.obj V ⟶ SplitSheaf.extension P.family) (g : G) (x : Points U) :
     realSections.map (embedding.map f ≫ l ≫ totalShift P g) (ordinaryPoint U x) =
       totalPointEquiv P (g • (totalPointEquiv P).symm
         (realSections.map l (ordinaryPoint V ((show EuclideanOpen.Map U V from f) x)))) := by
-  have he := (congrArg (totalPointEquiv P) (pointLift_comp P f l x)).symm
+  have he := (congrArg (totalPointEquiv P) (totalPointEquiv_symm_map_comp P f l x)).symm
   have hh := ((totalPointEquiv P).apply_symm_apply _).symm.trans he
   exact (congrArg (realSections.map (totalShift P g)) hh).trans (totalShift_point P g _)
 

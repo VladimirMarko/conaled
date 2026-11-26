@@ -16,7 +16,7 @@ noncomputable def loweredBooleanTransportEquivalence :
   SmallUniverse.lowerChartEquivalence _ _ (𝟙 _) _ booleanUniversalTransportEquivalence
 
 /-- Restricting the actual Boolean transport keeps its complete chosen fiber data. -/
-theorem loweredBoolean_substitution {Δ : Context.{0}} (σ : Δ ⟶ terminal.{0}) :
+theorem loweredBooleanTransportEquivalence_reindex {Δ : Context.{0}} (σ : Δ ⟶ terminal.{0}) :
     SmallUniverse.lowerChartEquivalence
       (constantLocal terminal Bool).code (constantLocal terminal Bool).code (raisedSub σ ≫ 𝟙 _)
       (SmallUniverse.NativeUnivalence.pathToMap booleanUniverseLoop)

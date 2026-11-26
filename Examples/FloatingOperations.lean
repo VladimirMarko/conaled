@@ -50,7 +50,7 @@ theorem step64_bounds (digit : Nat) (tail : Float) (q : Rat) (proper : digit < 1
   obtain ⟨sum, sumObserved, sumNonnegative, sumUpper, addition⟩ :=
     add64_bounds digit tail q proper observed nonnegative upper
   obtain ⟨value, valueObserved, valueNonnegative, valueUpper, division⟩ :=
-    divideTen64_bounds (digit.toFloat + tail) sum sumObserved sumNonnegative sumUpper
+    float_div_ten_bounds (digit.toFloat + tail) sum sumObserved sumNonnegative sumUpper
   have error := step_error ⟨digit, q, (digit : Rat), sum, value⟩
     ((2 : Rat) ^ (-50 : Int)) ((2 : Rat) ^ (-53 : Int)) rfl addition division
   exact ⟨sum, value, sumObserved, valueObserved, sumNonnegative, sumUpper,
@@ -64,7 +64,7 @@ theorem step32_bounds (digit : Nat) (tail : Float32) (q : Rat) (proper : digit <
   obtain ⟨sum, sumObserved, sumNonnegative, sumUpper, addition⟩ :=
     add32_bounds digit tail q proper observed nonnegative upper
   obtain ⟨value, valueObserved, valueNonnegative, valueUpper, division⟩ :=
-    divideTen32_bounds (digit.toFloat32 + tail) sum sumObserved sumNonnegative sumUpper
+    float32_div_ten_bounds (digit.toFloat32 + tail) sum sumObserved sumNonnegative sumUpper
   have error := step_error ⟨digit, q, (digit : Rat), sum, value⟩
     ((2 : Rat) ^ (-21 : Int)) ((2 : Rat) ^ (-24 : Int)) rfl addition division
   exact ⟨sum, value, sumObserved, valueObserved, sumNonnegative, sumUpper,
@@ -187,7 +187,7 @@ theorem least_subnormal64_error :
   have upper : (2 : Rat) ^ (-1074 : Int) ≤ 10 :=
     (zpow_le_one_of_nonpos₀ (by norm_num : (1 : Rat) ≤ 2) (by decide : (-1074 : Int) ≤ 0)).trans
       (by norm_num)
-  obtain ⟨value, observed, lower, bound, error⟩ := divideTen64_bounds (Float.ofBits 1)
+  obtain ⟨value, observed, lower, bound, error⟩ := float_div_ten_bounds (Float.ofBits 1)
     ((2 : Rat) ^ (-1074 : Int)) least_subnormal_inputs.1 (le_of_lt positive) upper
   have same : value = 0 := Option.some.inj (observed.symm.trans least_subnormal_division.1)
   simpa only [same, zero_sub, abs_neg] using error
@@ -198,7 +198,7 @@ theorem least_subnormal32_error :
   have upper : (2 : Rat) ^ (-149 : Int) ≤ 10 :=
     (zpow_le_one_of_nonpos₀ (by norm_num : (1 : Rat) ≤ 2) (by decide : (-149 : Int) ≤ 0)).trans
       (by norm_num)
-  obtain ⟨value, observed, lower, bound, error⟩ := divideTen32_bounds (Float32.ofBits 1)
+  obtain ⟨value, observed, lower, bound, error⟩ := float32_div_ten_bounds (Float32.ofBits 1)
     ((2 : Rat) ^ (-149 : Int)) least_subnormal_inputs.2 (le_of_lt positive) upper
   have same : value = 0 := Option.some.inj (observed.symm.trans least_subnormal_division.2)
   simpa only [same, zero_sub, abs_neg] using error
@@ -212,13 +212,13 @@ theorem negative_zero64_bound :
     ∃ value, decode64 ((-(0 : Float)) / 10) = some value ∧
       0 ≤ value ∧ value ≤ 1 ∧ |value| ≤ (2 : Rat) ^ (-53 : Int) := by
   simpa only [zero_div, sub_zero] using
-    divideTen64_bounds (-(0 : Float)) 0 (by decide +kernel) (by norm_num) (by norm_num)
+    float_div_ten_bounds (-(0 : Float)) 0 (by decide +kernel) (by norm_num) (by norm_num)
 
 theorem negative_zero32_bound :
     ∃ value, decode32 ((-(0 : Float32)) / 10) = some value ∧
       0 ≤ value ∧ value ≤ 1 ∧ |value| ≤ (2 : Rat) ^ (-24 : Int) := by
   simpa only [zero_div, sub_zero] using
-    divideTen32_bounds (-(0 : Float32)) 0 (by decide +kernel) (by norm_num) (by norm_num)
+    float32_div_ten_bounds (-(0 : Float32)) 0 (by decide +kernel) (by norm_num) (by norm_num)
 
 theorem tenth64_observation :
     decode64 (step64 1 0) = some (3602879701896397 / 36028797018963968 : Rat) ∧

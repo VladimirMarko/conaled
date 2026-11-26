@@ -446,7 +446,7 @@ are separately connected to their general laws.
 `Graphs.Coloring.Assignment` is the existing optional sparse map of positive
 colors. There is no color for an absent binding. `colorsOf f s` runs the actual
 ordered set fold, looking up each visited node and inserting only a successful
-color. The seed-general `mem_colorsFold` proves the exact invariant; its empty
+color. The seed-general `mem_colors_fold` proves the exact invariant; its empty
 seed specialization gives
 
 ```
@@ -739,7 +739,7 @@ Every one of the53 inventory IDs occurs once below, in source order.
 | `Color.example_map@139` | Foundation: `Examples.PositiveFiniteTries.sourceMap`; exact three nested writes of empty sets. |
 | `Color.domain_example_map@144` | Foundation: `sourceMap_domain_elements`: `[2,9,3]`. |
 | `Color.same_mod_10@166` | Preliminary: `Examples.ColoringRelations.SameModTen`; exactly equality of residues modulo10. |
-| `Color.InA_example@167` | Preliminary: `related_twentySeven`, with actual witness17. |
+| `Color.InA_example@167` | Preliminary: `related_twenty_seven`, with actual witness17. |
 | `Color.equivlistA_example@173` | Preliminary: `same_mod_members`, plus explicit unequal-length/non-permutation/non-Forall₂ boundaries. |
 | `Color.goal_at_line_226@226` | Preliminary: `Relations.key_eq_posNum`; the source view introduces no new key representation. |
 | `Color.goal_at_line_227@227` | Preliminary: `Relations.keyEq_eq`; ordinary literal equality. |

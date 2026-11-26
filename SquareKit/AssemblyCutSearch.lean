@@ -28,7 +28,7 @@ private theorem searchT_primrec : Primrec searchT :=
   Primrec.snd.comp (Primrec.unpair.comp
     (Primrec.snd.comp (Primrec.unpair.comp Primrec.snd)))
 
-private theorem accessEval_primrec : Primrec (fun x : (Nat × Nat) × Nat =>
+private theorem access_eval_primrec : Primrec (fun x : (Nat × Nat) × Nat =>
     Code.evaln (searchS x) (ofNat Code x.1.2) (searchN x-1)) :=
   Code.primrec_evaln.comp
     ((searchS_primrec.pair ((Primrec.ofNat Code).comp (Primrec.snd.comp Primrec.fst))).pair
@@ -37,21 +37,21 @@ private theorem accessEval_primrec : Primrec (fun x : (Nat × Nat) × Nat =>
 private theorem accessible_primrec : PrimrecPred (fun x : (Nat × Nat) × Nat =>
     searchN x = 0 ∨ (Code.evaln (searchS x) (ofNat Code x.1.2) (searchN x-1)).isSome) :=
   (Primrec.eq.comp searchN_primrec (Primrec.const 0)).or
-    (Primrec.eq.comp (Primrec.option_isSome.comp accessEval_primrec) (Primrec.const true))
+    (Primrec.eq.comp (Primrec.option_isSome.comp access_eval_primrec) (Primrec.const true))
 
-private theorem valueInput_computable : Computable (fun x : (Nat × Nat) × Nat =>
+private theorem value_input_computable : Computable (fun x : (Nat × Nat) × Nat =>
     ((searchT x, ofNat Code x.1.1), encode (cutCode (searchN x)))) :=
   (searchT_primrec.to_comp.pair
     ((Computable.ofNat Code).comp (Computable.fst.comp Computable.fst))).pair
     (Computable.encode.comp (cutCode_computable.comp searchN_primrec.to_comp))
 
-private theorem valueEval_computable : Computable (fun x : (Nat × Nat) × Nat =>
+private theorem value_eval_computable : Computable (fun x : (Nat × Nat) × Nat =>
     Code.evaln (searchT x) (ofNat Code x.1.1) (encode (cutCode (searchN x)))) :=
-  (Computable.comp Code.primrec_evaln.to_comp valueInput_computable).of_eq (fun _ => rfl)
+  (Computable.comp Code.primrec_evaln.to_comp value_input_computable).of_eq (fun _ => rfl)
 
 theorem cutSearchStep_computable : Computable (fun x : (Nat × Nat) × Nat =>
     cutSearchStep x.1.1 x.1.2 x.2) :=
-  (Computable.cond accessible_primrec.decide.to_comp valueEval_computable
+  (Computable.cond accessible_primrec.decide.to_comp value_eval_computable
     (Computable.const none)).of_eq (fun x => by simp only [Bool.cond_decide]; rfl)
 
 /-- No monotonicity of the scheduling order is assumed: all successful stages

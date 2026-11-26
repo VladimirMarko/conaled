@@ -59,7 +59,7 @@ instance : (coneModels J H).Faithful where
   map_injective {k l} α β e := by
     have eb : α.base = β.base := congrArg Prod.fst e
     apply GeometricMorphism.Cone.Hom.ext eb
-    apply naturalTransformation_ext α.top β.top
+    apply natTrans_ext α.top β.top
     · intro X
       apply (cancel_mono (l.lift.comparison.hom.app X)).mp
       have ea := congrArg (fun η => η.app X) α.over

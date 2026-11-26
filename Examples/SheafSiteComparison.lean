@@ -23,7 +23,7 @@ abbrev comparison := ChartElementSite.inclusion charts
 instance comparison_dense : comparison.IsCoverDense baseTopology :=
   ChartElementSite.cover_dense charts SheafFamilyDescent.charts_joint
 
-instance comparison_denseSubsite : comparison.IsDenseSubsite chartTopology baseTopology :=
+instance comparison_isDenseSubsite : comparison.IsDenseSubsite chartTopology baseTopology :=
   inferInstanceAs (comparison.IsDenseSubsite (comparison.inducedTopology baseTopology) baseTopology)
 
 example : comparison.IsContinuous chartTopology baseTopology := inferInstance
@@ -75,7 +75,7 @@ theorem changed_stabilizers_distinct :
     stabilizerFunctor.map (SheafFamilyDescent.baseStabilizer quarterTurn) ≠
       stabilizerFunctor.map (SheafFamilyDescent.baseStabilizer 1) := by
   intro h
-  exact SheafFamilyDescent.baseStabilizers_distinct (stabilizerFunctor.map_injective h)
+  exact SheafFamilyDescent.baseStabilizer_quarterTurn_ne_one (stabilizerFunctor.map_injective h)
 
 /-- The two original display fibers cover the terminal sheaf of the base element site. -/
 abbrev liftedChart (i : Bool) := SplitSheaf.elementSheaf (SplitSheaf.ofDisplay (charts i))
@@ -345,7 +345,7 @@ theorem recovered_stabilizers_distinct :
     stabilizerDescent.map (SheafFamilyDescent.baseStabilizer quarterTurn) ≠
       stabilizerDescent.map (SheafFamilyDescent.baseStabilizer 1) := by
   intro h
-  exact SheafFamilyDescent.baseStabilizers_distinct (stabilizerDescent.map_injective h)
+  exact SheafFamilyDescent.baseStabilizer_quarterTurn_ne_one (stabilizerDescent.map_injective h)
 
 /-- The same constructor with no charts removes density. -/
 def emptyCharts : ∀ _ : Empty, SmoothClutching.lineSheaf ⟶ base := fun i => nomatch i
@@ -373,7 +373,7 @@ theorem empty_identifies_stabilizers :
 
 theorem empty_not_faithful : ¬ emptyRestriction.Faithful := by
   intro h
-  exact SheafFamilyDescent.baseStabilizers_distinct
+  exact SheafFamilyDescent.baseStabilizer_quarterTurn_ne_one
     (emptyContext.map_injective (emptyRestriction.map_injective empty_identifies_stabilizers))
 
 theorem empty_not_dense : ¬ emptyComparison.IsCoverDense baseTopology := by

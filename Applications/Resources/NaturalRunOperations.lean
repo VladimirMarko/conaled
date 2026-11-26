@@ -645,7 +645,7 @@ theorem singleRunOpsBy_of_ascending_chain (lt : α → α → Bool) (xs : List �
     (chain : xs.IsChain (fun x y => lt y x = false)) :
     singleRunOpsBy lt xs h = (xs, 6 * xs.length - 4) := by
   apply Prod.ext
-  · rw [singleRunOpsBy_value lt lt, sortNaturalBy_eq_mergeAll,
+  · rw [singleRunOpsBy_value lt lt, sortNaturalBy_eq_mergeAllBy,
       runsBy_of_ascending_chain lt xs (by intro hz; subst xs; simp at hlen) chain,
       mergeAllBy_singleton]
   · rw [singleRunOpsBy_work]
@@ -656,7 +656,7 @@ theorem singleRunOpsBy_of_descending_chain (lt : α → α → Bool) (xs : List 
     (h : (runsBy lt xs).length ≤ 1) (hne : xs ≠ [])
     (chain : xs.IsChain (fun x y => lt y x = true)) :
     singleRunOpsBy lt xs h = (xs.reverse, 3 * xs.length + 1) := by
-  rw [singleRunOpsBy_spec lt lt, sortNaturalBy_eq_mergeAll,
+  rw [singleRunOpsBy_spec lt lt, sortNaturalBy_eq_mergeAllBy,
     runsBy_of_descending_chain lt xs hne chain, mergeAllBy_singleton,
     runsOpsBy_work_descending lt xs hne chain]
 

@@ -14,7 +14,7 @@ variable {d : ℕ} {G M : Type} [Group G] [MulAction G M]
 def restrictLabel {U V : Domain} (a : LocallyConstant (Points U) G) (r : V ⟶ U) :
     LocallyConstant (Points V) G :=
   LocallyConstant.comap ⟨(show EuclideanOpen.Map V U from r),
-    (openMap_contMDiff r).continuous⟩ a
+    (euclideanOpenMap_contMDiff r).continuous⟩ a
 
 namespace Datum
 variable (p : Datum (d := d) (G := G) (M := M) A)

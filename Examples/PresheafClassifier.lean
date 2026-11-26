@@ -10,7 +10,7 @@ open CategoryTheory CategoryTheory.Limits SquareKit.Internal SquareKit.Internal.
 set_option backward.isDefEq.respectTransparency false
 
 /-- The labelled substitution still classifies the old actual model after the new comparison. -/
-theorem labelledClassifier_section :
+theorem modelPartitionEquivalence_subst_section :
     ((modelPartitionEquivalence (subst parameter forget)).functor.obj
       (valid.toModel.subst forget)).toSection =
       modelClassifierSectionEquiv (subst parameter forget) (valid.toModel.subst forget) :=

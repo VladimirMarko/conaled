@@ -348,7 +348,7 @@ theorem transition_not_constant (hc : c ≠ 1) (k : G) :
 theorem labelAt_line_constant (a : lineSheaf ⟶ locallyConstantGroupSheaf G) (r s : ℝ) :
     labelAt G a (realLinePoint r) = labelAt G a (realLinePoint s) := by
   rw [labelAt_eq_ordinary, labelAt_eq_ordinary]
-  exact realLineLabel_constant G _ r s
+  exact ordinaryLabel_realLinePoint_constant G _ r s
 
 /-- The effectively glued display has no global section for any nonidentity
 clutching label. Nontriviality is proved inside the actual smooth sheaf model. -/
@@ -448,7 +448,7 @@ def pairSection (X Y : Sheaf SmoothOpenSite.topology Type) (U : Siteᵒᵖ)
   congrArg (fun k : SheafRelation.product X Y ⟶ Y => k.hom.app U (x, y))
     (SheafRelation.productIso_snd X Y)
 
-theorem productSection_ext (X Y : Sheaf SmoothOpenSite.topology Type) (U : Siteᵒᵖ)
+theorem product_section_ext (X Y : Sheaf SmoothOpenSite.topology Type) (U : Siteᵒᵖ)
     (p q : (prod X Y).obj.obj U)
     (hf : (prod.fst : prod X Y ⟶ X).hom.app U p = (prod.fst : prod X Y ⟶ X).hom.app U q)
     (hs : (prod.snd : prod X Y ⟶ Y).hom.app U p = (prod.snd : prod X Y ⟶ Y).hom.app U q) : p = q := by
@@ -465,7 +465,7 @@ theorem productSection_ext (X Y : Sheaf SmoothOpenSite.topology Type) (U : Site�
     (f : X ⟶ X') (g : Y ⟶ Y') (U : Siteᵒᵖ) (x : X.obj.obj U) (y : Y.obj.obj U) :
     (prod.map f g).hom.app U (pairSection X Y U x y) =
       pairSection X' Y' U (f.hom.app U x) (g.hom.app U y) := by
-  apply productSection_ext
+  apply product_section_ext
   · have h := congrArg (fun k : prod X Y ⟶ X' => k.hom.app U (pairSection X Y U x y))
       (prod.map_fst f g)
     change (prod.fst : prod X' Y' ⟶ X').hom.app U
@@ -488,7 +488,7 @@ def sectionAction (U : Siteᵒᵖ) (g : (locallyConstantGroup G).obj.obj U)
 @[simp] theorem pairSection_lift {X Y Z : Sheaf SmoothOpenSite.topology Type}
     (f : Z ⟶ X) (g : Z ⟶ Y) (U : Siteᵒᵖ) (z : Z.obj.obj U) :
     (prod.lift f g).hom.app U z = pairSection X Y U (f.hom.app U z) (g.hom.app U z) := by
-  apply productSection_ext
+  apply product_section_ext
   · rw [pairSection_fst]
     exact congrArg (fun k : Z ⟶ X => k.hom.app U z)
       (prod.lift_fst f g)
@@ -548,7 +548,7 @@ theorem sectionAction_natural {U V : Siteᵒᵖ} (f : U ⟶ V)
     (p : (prod X Y).obj.obj U) :
     pairSection X Y U ((prod.fst : prod X Y ⟶ X).hom.app U p)
       ((prod.snd : prod X Y ⟶ Y).hom.app U p) = p := by
-  apply productSection_ext <;> simp
+  apply product_section_ext <;> simp
 
 theorem actionMap_projection : actionMap G c ≫ projection G c = prod.snd ≫ projection G c := by
   apply ((IsPushout.of_hasPushout (totalLeft G) (totalRight G c)).map

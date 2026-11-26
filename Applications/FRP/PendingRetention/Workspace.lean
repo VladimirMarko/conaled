@@ -125,7 +125,7 @@ theorem remember_records {cfg : Config} {s : LocalSnapshot}
 @[simp] theorem remember_pending (s : LocalSnapshot) (r : Receipt) :
     (remember s r).pending = s.pending := (remember_header s r).2.2
 
-theorem localCore_header {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
+theorem localChangeCore_header {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
     (h : LocalBound cfg s) (done : localChangeCore cfg s c = .ok t) :
     t.frame.Valid ∧ t.frame.nextIdentity ≤ cfg.lifetime ∧
       t.floor = s.floor ∧ t.pending = s.pending := by
@@ -148,7 +148,7 @@ theorem localCore_header {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
     all_goals simp_all only [decide_eq_true_eq,not_le]
     all_goals omega
 
-theorem localCore_records {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
+theorem localChangeCore_records {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
     (h : LocalBound cfg s) (done : localChangeCore cfg s c = .ok t) :
     RecordsBound cfg.lifetime cfg.outcomeCapacity Outcome.identity t.outcomes := by
   have old : RecordsBound cfg.lifetime cfg.outcomeCapacity Outcome.identity s.outcomes :=
@@ -180,10 +180,10 @@ theorem localCore_records {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand
 
 /-- Raw helper results fit before the final finite-representation guard, so a
 failed guard cannot hide an oversized temporary local snapshot. -/
-theorem localCore_bound {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
+theorem localChangeCore_bound {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
     (h : LocalBound cfg s) (done : localChangeCore cfg s c = .ok t) : LocalBound cfg t := by
-  obtain ⟨valid,names,floor,pending⟩ := localCore_header h done
-  have records := localCore_records h done
+  obtain ⟨valid,names,floor,pending⟩ := localChangeCore_header h done
+  have records := localChangeCore_records h done
   exact ⟨valid,names, floor ▸ h.2.2.1, pending ▸ h.2.2.2.1, records.1,records.2⟩
 
 /-- Every materialized prefix of the actual local helper result is encodable
@@ -192,8 +192,8 @@ theorem local_helper_cut {cfg : Config} {s t : LocalSnapshot} {c : FrameCommand}
     (h : LocalBound cfg s) (done : localChangeCore cfg s c = .ok t) (cut : Nat) :
     ({t.encode with items := t.outcomes.take cut}).Bounded
       (LocalHeaderBound cfg) (fun r : Outcome => r.identity ≤ cfg.lifetime) cfg.outcomeCapacity := by
-  have full := (local_payload_bound cfg t).mpr (localCore_bound h done)
-  exact ⟨full.1, by exact (localCore_records h done).take cut⟩
+  have full := (local_payload_bound cfg t).mpr (localChangeCore_bound h done)
+  exact ⟨full.1, by exact (localChangeCore_records h done).take cut⟩
 
 /-- The actual peer dispatch is evaluated only after its lifetime guard. Its
 result fits U+1 even when the subsequent capacity test rejects it. -/

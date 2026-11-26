@@ -52,7 +52,7 @@ theorem charts_proper :
 
 /-- The family topology contains genuinely new covers: no locally surjective
 singleton lies in the sieve of the two disjoint points. -/
-theorem twoPoints_not_singleton_cover :
+theorem inclusion_not_singleton_cover :
     Sieve.ofArrows (fun _ : Bool => SheafFamilyCover.constant PUnit)
       SheafFamilyCover.inclusion ∉
         SquareKit.SheafCover.topology (SheafFamilyCover.constant Bool) := by
@@ -65,7 +65,7 @@ theorem twoPoints_not_singleton_cover :
 example : Sieve.ofArrows (fun _ : Bool => SheafFamilyCover.constant PUnit)
     SheafFamilyCover.inclusion ∈
       SquareKit.SheafFamilyCover.topology (SheafFamilyCover.constant Bool) :=
-  SquareKit.SheafFamilyCover.covering SheafFamilyCover.twoPoints_joint
+  SquareKit.SheafFamilyCover.covering SheafFamilyCover.inclusion_jointlyLocallySurjective
 
 def baseLoop (g : C4) :
     SheafTorsor.trivial group SmoothClutching.base ⟶
@@ -94,7 +94,7 @@ def baseStabilizer (g : C4) : regularBase ⟶ regularBase where
   torsorArrow := baseLoop g
   preserves _ _ := rfl
 
-theorem baseStabilizers_distinct : baseStabilizer quarterTurn ≠ baseStabilizer 1 := by
+theorem baseStabilizer_quarterTurn_ne_one : baseStabilizer quarterTurn ≠ baseStabilizer 1 := by
   intro h
   exact quarterTurn_ne_one (baseLoop_injective (congrArg SheafActionQuotient.Arrow.torsorArrow h))
 
@@ -125,7 +125,7 @@ def finiteAction : SquareKit.SheafActionQuotient.Action finiteGroup
   mul_act _ _ _ _ := rfl
   natural _ _ _ := rfl
 
-theorem emptyTarget_joint : SquareKit.SheafFamilyCover.JointlyLocallySurjective
+theorem emptyTargetFamily_jointlyLocallySurjective : SquareKit.SheafFamilyCover.JointlyLocallySurjective
     SheafFamilyCover.emptyTargetFamily := by
   rw [SquareKit.SheafFamilyCover.empty_iff]
   intro U x
@@ -184,7 +184,7 @@ theorem descended_stabilizers_distinct :
     stabilizerE.inverse.map (stabilizerE.functor.map (baseStabilizer quarterTurn)) ≠
       stabilizerE.inverse.map (stabilizerE.functor.map (baseStabilizer 1)) := by
   intro h
-  exact baseStabilizers_distinct
+  exact baseStabilizer_quarterTurn_ne_one
     (stabilizerE.functor.map_injective (stabilizerE.inverse.map_injective h))
 
 example : (SheafTorsor.Stack.pseudofunctor group).IsStack
@@ -197,11 +197,11 @@ example : (SheafActionQuotient.Stack.pseudofunctor ActionQuotientStack.targetAct
 nontrivial group and a nonterminal target. -/
 example : SheafTorsor.Torsor finiteGroup (SheafFamilyCover.constant Empty) ≌
     (SheafTorsor.Stack.pseudofunctor finiteGroup).DescentData SheafFamilyCover.emptyTargetFamily :=
-  torsorEquivalence finiteGroup _ emptyTarget_joint
+  torsorEquivalence finiteGroup _ emptyTargetFamily_jointlyLocallySurjective
 
 example : SheafActionQuotient.Object finiteAction (SheafFamilyCover.constant Empty) ≌
     (SheafActionQuotient.Stack.pseudofunctor finiteAction).DescentData
-      SheafFamilyCover.emptyTargetFamily := quotientEquivalence finiteAction _ emptyTarget_joint
+      SheafFamilyCover.emptyTargetFamily := quotientEquivalence finiteAction _ emptyTargetFamily_jointlyLocallySurjective
 
 /-- Without coverage, the empty family loses the previously distinct arrows. -/
 example : ¬ ((SheafTorsor.Stack.pseudofunctor group).toDescentData

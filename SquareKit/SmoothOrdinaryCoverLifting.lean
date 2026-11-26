@@ -59,7 +59,7 @@ theorem covering_local_inclusion {X : Site} (S : Sieve X)
     obtain ⟨i, hi⟩ := hs (Hom.comp point f.unop)
     let a : Localization.Principal U.defining := (smoothMap f.unop) (s i)
     have ha : (Localization.toOpen U.defining a).val x ≠ 0 := by
-      exact (Localization.toOpen_realPoint U.defining x a) ▸ hi
+      exact (Localization.toOpen_realPoints U.defining x a) ▸ hi
     obtain ⟨q, hq, hu⟩ := local_unit U a x ha
     let g : X.unop ⟶ code (subdomain U q) := f.unop ≫ Localization.pullback (subInclusion U q)
     let l : localization X.unop (s i) ⟶ code (subdomain U q) :=

@@ -70,7 +70,7 @@ theorem productSections_naturality {a b : Diamondᵒᵖ} (f : a ⟶ b) (p : P.ob
   · exact NatTrans.naturality_apply down.hom f p
 
 /-- The public substitution law computes the base-changed top image. -/
-theorem baseChanged_top : localImage ⊤ down = ⊤ := by
+theorem localImage_top_down : localImage ⊤ down = ⊤ := by
   have h := beck_chevalley (⊤ : Subfunctor E.obj) square
   have htop : (⊤ : Subfunctor E.obj).preimage left.hom = ⊤ := rfl
   rw [htop, Examples.SheafImage.localImage_top] at h
@@ -78,7 +78,7 @@ theorem baseChanged_top : localImage ⊤ down = ⊤ := by
 
 /-- Both Bool sections have local lifts over X. -/
 theorem locally_at_X (b : Bool) : (localImage ⊤ down).obj (op X) b := by
-  rw [baseChanged_top]
+  rw [localImage_top_down]
   trivial
 
 /-- A global lift would give the forbidden E section through the first projection. -/
@@ -91,7 +91,7 @@ example : (localImage ⊤ down).obj (op X) false ∧ (localImage ⊤ down).obj (
   ⟨locally_at_X false, locally_at_X true⟩
 
 /-- Source selection is first pulled back along E → 1, then along the square. -/
-theorem baseChanged_selective :
+theorem localImage_preimage_selective :
     localImage ((selective.preimage toTerminal.hom).preimage left.hom) down =
       selective.preimage base.hom := by
   have hs : localImage (selective.preimage toTerminal.hom) toTerminal = selective := by
@@ -100,18 +100,18 @@ theorem baseChanged_selective :
 
 theorem selective_at_U (b : Bool) :
     (localImage ((selective.preimage toTerminal.hom).preimage left.hom) down).obj (op U) b := by
-  rw [baseChanged_selective]
+  rw [localImage_preimage_selective]
   exact Or.inr rfl
 
 theorem selective_not_V (b : Bool) :
     ¬ (localImage ((selective.preimage toTerminal.hom).preimage left.hom) down).obj (op V) b := by
-  rw [baseChanged_selective]
+  rw [localImage_preimage_selective]
   change ¬ (V = W ∨ V = U)
   decide
 
 theorem selective_not_X (b : Bool) :
     ¬ (localImage ((selective.preimage toTerminal.hom).preimage left.hom) down).obj (op X) b := by
-  rw [baseChanged_selective]
+  rw [localImage_preimage_selective]
   change ¬ (X = W ∨ X = U)
   decide
 

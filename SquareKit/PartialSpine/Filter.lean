@@ -200,7 +200,7 @@ theorem filter_stream_all_false (p : α → Option Bool) (σ : Stream' α)
   · apply foldr_le (filterStep p) (Ideal.principal .nil)
       (fun a => (filterStep_continuous p a).monotone)
     rintro s ⟨n, hn⟩
-    have bound := finiteFold_monotone (filterStep p) (Ideal.principal .nil)
+    have bound := partialSpineFoldr_monotone (filterStep p) (Ideal.principal .nil)
       (fun a => (filterStep_continuous p a).monotone) hn
     rw [finite σ rejected n] at bound
     exact bound

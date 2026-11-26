@@ -83,7 +83,7 @@ theorem point_transverse : TransverseAt (m := 1) (n := 0) (p := 1)
   simp [tangentDifference, mfderiv_id, mfderiv_const]
 
 /-- This exercises the entire tangent-to-chart-to-smooth-inverse construction. -/
-def pointCoordinateNormal := Classical.choice (nonempty_coordinateNormalForm
+def pointCoordinateNormal := Classical.choice (nonempty_normalForm_coordinateDifference
   (m := 1) (n := 0) (p := 1)
   (f := (id : Space 1 → Space 1)) (g := fun _ : Space 0 => (0 : Space 1))
   contMDiff_id contMDiff_const (x := 0) (y := 0) rfl point_transverse)

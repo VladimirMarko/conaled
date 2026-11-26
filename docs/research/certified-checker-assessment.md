@@ -93,7 +93,7 @@ with categorical syntax is required.
 
 The actual shared contract is `checkerSquare`, with exact runtime/reference
 Boolean equality. `checkedLengthSquare` pairs that square with the unchanged
-certificate and composes it with `releaseSquare`. `checkedLength_correct`
+certificate and composes it with `releaseSquare`. `checkedLengthSquare_correct`
 establishes that the consumer releases its length exactly when the declarative
 pairwise judgment holds. Ordinary Lean users can call `reference_correct`,
 `adjacent_correct` and `refinement` directly. `accepted_nodup` demonstrates a
@@ -114,8 +114,8 @@ empty and singleton certificates, decreasing entries, and a nonstrict relation.
 | `reference_correct` | Universally quantifies over finite lists and comparator laws; concludes an iff with all-pairs semantics, without transitivity. |
 | `adjacent_correct` | Concludes chain semantics for any relation. It does not claim all-pairs soundness without a law. |
 | `refinement`, `checkerSquare` | Require `IsTrans α R`, and conclude Boolean equality for all lists, including rejected lists. The successor relation on `[0,1,2]` provides a checked counterexample to dropping transitivity. |
-| `releaseSquare`, `checkedLengthSquare`, `checkedLength_correct` | Preserve the input through shared pairing/composition; release is exactly acceptance, including `some 0` for the empty list. No certificate correctness premise is smuggled into construction. |
-| `lt_law`, increasing/empty/singleton | Natural strict order satisfies the comparator law; positive length cases use `checkedLength_correct`, with hypotheses independently discharged by arithmetic decision or `Pairwise.nil`. |
+| `releaseSquare`, `checkedLengthSquare`, `checkedLengthSquare_correct` | Preserve the input through shared pairing/composition; release is exactly acceptance, including `some 0` for the empty list. No certificate correctness premise is smuggled into construction. |
+| `lt_law`, increasing/empty/singleton | Natural strict order satisfies the comparator law; positive length cases use `checkedLengthSquare_correct`, with hypotheses independently discharged by arithmetic decision or `Pairwise.nil`. |
 | duplicate/decreasing/nonstrict/nontransitive | A duplicate and a decrease reject under strict order; nonstrict comparison instantiates refinement at a different relation; successor adjacency accepts while reference rejects. These concrete arithmetic expectations are independent of the general proof. |
 | `accepted_nodup` | Uses refinement and reference correctness before transporting `<` to `≠`. It assumes successful strict-order checking, not uniqueness itself. The increasing case shows that premise is satisfiable. |
 

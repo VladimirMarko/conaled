@@ -102,7 +102,7 @@ theorem source_witness_retained (k : ℤ) (flag : Bool) :
       (inputPaths (structuralModel integerContext integerContext) emptyA emptyB).toParallel.identity
       (inputPaths (structuralModel integerContext integerContext) emptyA emptyB).h (assignedPoint k))
       (meaning (handle k flag)) := by
-  exact normalizedPathOperands_retained k
+  exact normalized_path_operands_retained k
 
 example : handle 0 false ≠ handle 1 false := by
   intro h

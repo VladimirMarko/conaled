@@ -87,7 +87,7 @@ theorem compiled_image {s} (d : DependentPairSharedFragment.Proof .source s) (ρ
     (compileCode (translate (q := .target) (translate (q := .extended) d))).targetQuote =
       targetTerm s ∧
     (compileCode (translate (q := .target) (translate (q := .extended) d))).run ρ = meaning ρ d := by
-  refine ⟨two_stages_is_fullG d, compiled_target_quote _, ?_⟩
+  refine ⟨targetProof_translate_translate d, compiled_target_quote _, ?_⟩
   rw [compileCode_sound, translate_meaning, translate_meaning]
 
 /-- The independently constructed native substitution proof and canonical

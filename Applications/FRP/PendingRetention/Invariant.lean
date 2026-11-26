@@ -384,7 +384,7 @@ theorem RetainedRelation.localChange {cfg : Config} {s t : LocalSnapshot} {p : P
   · simpa only [metadata.1] using related.floors
   · simpa only [metadata.1] using related.counter.trans grows
   · rw [metadata.1]
-    exact localChange_liveAbove s.floor related.live related.counter changed
+    exact localChange_live_above s.floor related.live related.counter changed
   · intro target member
     rw [metadata.1]
     exact related.local_pending target (metadata.2 ▸ member)

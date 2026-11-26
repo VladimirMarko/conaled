@@ -15,14 +15,14 @@ noncomputable def recoveredBooleanLoop :=
   ua (constantLocal terminal Bool).code (constantLocal terminal Bool).code
     (pathToMap booleanUniverseLoop) booleanUniversalTransportEquivalence
 
-theorem recoveredBooleanLine_zero :
+theorem boolean_uaLine_zero :
     (uaLine (constantLocal terminal Bool).code (constantLocal terminal Bool).code
       (pathToMap booleanUniverseLoop) booleanUniversalTransportEquivalence).reindex
         (endpointSub (raisedContext terminal) false) =
     SmallUniverse.term (constantLocal terminal Bool).code :=
   uaLine_zero _ _ _ _
 
-theorem recoveredBooleanLine_one :
+theorem boolean_uaLine_one :
     (uaLine (constantLocal terminal Bool).code (constantLocal terminal Bool).code
       (pathToMap booleanUniverseLoop) booleanUniversalTransportEquivalence).reindex
         (endpointSub (raisedContext terminal) true) =
@@ -31,7 +31,7 @@ theorem recoveredBooleanLine_one :
 
 open Examples.CubicalUnivalenceSubstitution in
 /-- The actual Boolean Glue eliminator commutes with pulling the complete chosen loop to an interval. -/
-theorem booleanUnglue_interval_substitution :
+theorem boolean_unglueLine_interval_substitution :
     Functor.whiskerLeft (liftSub (interval terminal) (projection (interval terminal))).mapElements
       (Univalence.unglueLine boolCode boolCode flip flipEquivalence) =
     eqToHom (congrArg decode (Univalence.uaCode_reindex boolCode boolCode

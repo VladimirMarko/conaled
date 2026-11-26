@@ -63,7 +63,7 @@ theorem recover_nonextendable_reciprocal :
       (map (show ordinaryOpen EuclideanOpenEmbedding.punctured →
           ordinaryOpen (EuclideanOpen.full 1) from
           (show EuclideanOpen.Map _ _ from EuclideanOpenEmbedding.reciprocal).toFun)
-        (openMap_contMDiff EuclideanOpenEmbedding.reciprocal)) =
+        (euclideanOpenMap_contMDiff EuclideanOpenEmbedding.reciprocal)) =
       (show EuclideanOpen.Map _ _ from EuclideanOpenEmbedding.reciprocal).toFun :=
   reconstruct_map _ _
 

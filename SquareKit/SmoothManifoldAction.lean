@@ -94,7 +94,7 @@ theorem onMap_iff
       (((representation smoothAction).action.onMap k (hat n hn)).hom.app _ (ordinaryPoint U x)) =
       ordinaryHomLabelEquiv G U k x • n x := by
     change pointEquiv ((representation smoothAction).act _ (k.hom.app _ _) _) = _
-    rw [← homLabel_point U k x]
+    rw [← ordinaryHomLabelEquiv_point U k x]
     change pointEquiv ((representation smoothAction).act _ ((constantLabel G).app _ _) _) = _
     rw [SmoothConstantAction.Representation.act_constant]
     change pointEquiv ((ManifoldRealization.map _ (smoothAction _)).hom.app _ _) = _

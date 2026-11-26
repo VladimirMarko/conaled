@@ -39,7 +39,7 @@ noncomputable def cutSelected {Γ : Assembly.{u}} (X : Monad.Algebra programLift
     (hc : CutComplete X.A) (g : Hom (prod Γ X.A) X.A) : Hom Γ X.A :=
   (pair (Hom.id Γ) (cutInfinity Γ)).comp (cutExtend hc (strictIteration X g))
 
-theorem cutExtension_successor {Γ : Assembly.{u}} (X : Monad.Algebra programLiftMonad.{u})
+theorem cutExtend_successor {Γ : Assembly.{u}} (X : Monad.Algebra programLiftMonad.{u})
     (hc : CutComplete X.A) (g : Hom (prod Γ X.A) X.A) :
     (pair (fst Γ finalCuts) ((snd Γ finalCuts).comp finalSuccessor)).comp
         (cutExtend hc (strictIteration X g)) =
@@ -56,7 +56,7 @@ theorem cutSelected_fixed {Γ : Assembly.{u}} (X : Monad.Algebra programLiftMona
     (pair (Hom.id Γ) (cutSelected X hc g)).comp g = cutSelected X hc g := by
   apply Hom.ext
   intro γ
-  exact (congrArg (fun f => f.toFun (γ, ⟨none⟩)) (cutExtension_successor X hc g)).symm
+  exact (congrArg (fun f => f.toFun (γ, ⟨none⟩)) (cutExtend_successor X hc g)).symm
 
 /-- Uniform iteration commutes with a strict algebra morphism that intertwines
 both context-dependent endomaps. -/

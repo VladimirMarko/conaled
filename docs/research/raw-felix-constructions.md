@@ -189,10 +189,10 @@ transport. `jam` is the copair of two raw identities.
 | [`inAssocˡ-inverse`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L436) | `Cartesian.inAssocLeft_inverse` |
 | [`inAssocʳ-inverse`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L447) | `Cartesian.inAssocRight_inverse` |
 | [`!⊗!`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L458) | `Cartesian.terminal_tensor` |
-| [`[exl⊗exl]∘transpose`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L474) | `Cartesian.fstTensor_transpose` |
-| [`[exr⊗exr]∘transpose`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L491) | `Cartesian.sndTensor_transpose` |
+| [`[exl⊗exl]∘transpose`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L474) | `Cartesian.tensor_fst_transpose` |
+| [`[exr⊗exr]∘transpose`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L491) | `Cartesian.tensor_snd_transpose` |
 | [`transpose∘▵▵▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L508) | `Cartesian.transpose_pairs` |
-| [`transpose∘▵⊗▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L536) | `Cartesian.transpose_tensorPairs` |
+| [`transpose∘▵⊗▵`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L536) | `Cartesian.transpose_pair_tensor` |
 | [`transpose∘transpose`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Reasoning.agda#L552) | `Cartesian.transpose_transpose` |
 
 ## Derived preservation equations

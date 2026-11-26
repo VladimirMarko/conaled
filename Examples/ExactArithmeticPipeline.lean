@@ -288,7 +288,7 @@ open FirstOrderCompiler
 open SquareKit.NonnegativeArithmetic
 open IntervalAnalysis.Exact
 
-theorem rootInterval_ten_two :
+theorem squareRootInterval_ten_two :
     squareRootInterval 10 2 = some ⟨7 / 5, 3 / 2⟩ := by
   have hfloor : Nat.sqrt (2 * 10 * 10) = 14 := by
     symm
@@ -296,12 +296,12 @@ theorem rootInterval_ten_two :
     norm_num
   norm_num [squareRootInterval, hfloor]
 
-theorem logInterval_ten_three :
+theorem logarithmInterval_ten_three :
     logarithmInterval 10 3 = some ⟨3 / 2, 8 / 5⟩ := by
   have hfloor : Nat.log2 (3 ^ 10) = 15 := by decide
   norm_num [logarithmInterval, hfloor]
 
-theorem expLogInterval_ten_three :
+theorem exponentiatedLogarithmInterval_ten_three :
     exponentiatedLogarithmInterval 10 3 = some ⟨29 / 10, 3⟩ := by
   norm_num [exponentiatedLogarithmInterval]
 
@@ -309,19 +309,19 @@ theorem interval_root_two :
     ((IntervalAnalysis.Exact.compile 10 (by decide) (squareRoot 2 : ClosedTerm)).impl ()) =
       some ⟨7 / 5, 3 / 2⟩ := by
   change squareRootInterval 10 2 = some ⟨7 / 5, 3 / 2⟩
-  exact rootInterval_ten_two
+  exact squareRootInterval_ten_two
 
 theorem interval_log_three :
     ((IntervalAnalysis.Exact.compile 10 (by decide) (logarithm 3 : ClosedTerm)).impl ()) =
       some ⟨3 / 2, 8 / 5⟩ := by
   change logarithmInterval 10 3 = some ⟨3 / 2, 8 / 5⟩
-  exact logInterval_ten_three
+  exact logarithmInterval_ten_three
 
 theorem interval_exponentiatedLogarithm_three :
     ((IntervalAnalysis.Exact.compile 10 (by decide)
       (exponentiatedLogarithm 3 : ClosedTerm)).impl ()) = some ⟨29 / 10, 3⟩ := by
   change exponentiatedLogarithmInterval 10 3 = some ⟨29 / 10, 3⟩
-  exact expLogInterval_ten_three
+  exact exponentiatedLogarithmInterval_ten_three
 
 theorem interval_root_two_squared :
     ((IntervalAnalysis.Exact.compile 10 (by decide)
@@ -329,7 +329,7 @@ theorem interval_root_two_squared :
       some ⟨49 / 25, 9 / 4⟩ := by
   change Option.map₂ IntervalAnalysis.mul
       (squareRootInterval 10 2) (squareRootInterval 10 2) = some ⟨49 / 25, 9 / 4⟩
-  rw [rootInterval_ten_two]
+  rw [squareRootInterval_ten_two]
   norm_num [Option.map₂, IntervalAnalysis.mul]
 
 theorem interval_shared_explicit :
@@ -340,7 +340,7 @@ theorem interval_shared_explicit :
   change Option.map₂ IntervalAnalysis.add
       (Option.map₂ IntervalAnalysis.mul (squareRootInterval 10 2) (squareRootInterval 10 2))
       (squareRootInterval 10 2) = some ⟨84 / 25, 15 / 4⟩
-  rw [rootInterval_ten_two]
+  rw [squareRootInterval_ten_two]
   norm_num [Option.map₂, IntervalAnalysis.mul, IntervalAnalysis.add]
 
 theorem interval_zero_log_zero (q : ℕ) (hq : 0 < q) :

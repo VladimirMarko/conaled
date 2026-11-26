@@ -464,7 +464,7 @@ def extendFullyFaithful : (extendFunctor (G := G) (f := f)).FullyFaithful where
   preimage_map _ := by apply Pseudofunctor.DescentData.hom_ext; intro i; rfl
 
 /-- Canonical original-site transitions are the transport of the equality of base maps. -/
-lemma canonicalHom_eq (P : Torsor G (J.yoneda.obj S))
+lemma toDescentData_obj_hom_eq (P : Torsor G (J.yoneda.obj S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
     (((torsorPseudofunctor G).toDescentData f).obj P).hom q a b ha hb =
@@ -479,7 +479,7 @@ lemma canonicalHom_eq (P : Torsor G (J.yoneda.obj S))
 
 omit [J.Subcanonical] in
 /-- Canonical sheaf-context transitions use the same equality transport. -/
-lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
+lemma sheaf_toDescentData_obj_hom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     (f : ∀ i, Y i ⟶ X) (P : Torsor G X)
     {Z : Sheaf J (Type u)} (q : Z ⟶ X) {i j : I} (a : Z ⟶ Y i) (b : Z ⟶ Y j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
@@ -502,7 +502,7 @@ lemma extend_canonical_hom (P : Torsor G (J.yoneda.obj S))
   ext x p
   change evaluate ((((torsorPseudofunctor G).toDescentData f).obj P).hom
       (q.hom.app x.obj x.val) (a.hom.app x.obj x.val) (b.hom.app x.obj x.val) _ _) p = _
-  rw [canonicalHom_eq, sheafCanonicalHom_eq]
+  rw [toDescentData_obj_hom_eq, sheaf_toDescentData_obj_hom_eq]
   dsimp only [evaluate]
   have he : J.yoneda.map (a.hom.app x.obj x.val) ≫ J.yoneda.map (f i) =
       J.yoneda.map (b.hom.app x.obj x.val) ≫ J.yoneda.map (f j) := by
@@ -685,7 +685,7 @@ def extendFullyFaithful : (extendFunctor (act := act) (f := f)).FullyFaithful wh
   map_preimage _ := by apply Pseudofunctor.DescentData.hom_ext; intro i; rfl
   preimage_map _ := by apply Pseudofunctor.DescentData.hom_ext; intro i; rfl
 
-lemma canonicalHom_eq (P : Object act (J.yoneda.obj S))
+lemma toDescentData_obj_hom_eq (P : Object act (J.yoneda.obj S))
     {U : C} (q : U ⟶ S) {i j : I} (a : U ⟶ V i) (b : U ⟶ V j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
     (((quotientPseudofunctor act).toDescentData f).obj P).hom q a b ha hb =
@@ -699,7 +699,7 @@ lemma canonicalHom_eq (P : Object act (J.yoneda.obj S))
     eqToIso.inv, eqToHom_trans, Cat.eqToHom_app]
 
 omit [J.Subcanonical] in
-lemma sheafCanonicalHom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
+lemma sheaf_toDescentData_obj_hom_eq {X : Sheaf J (Type u)} {Y : I → Sheaf J (Type u)}
     (f : ∀ i, Y i ⟶ X) (P : Object act X)
     {Z : Sheaf J (Type u)} (q : Z ⟶ X) {i j : I} (a : Z ⟶ Y i) (b : Z ⟶ Y j)
     (ha : a ≫ f i = q) (hb : b ≫ f j = q) :
@@ -725,7 +725,7 @@ lemma extend_canonical_hom (P : Object act (J.yoneda.obj S))
         (q.hom.app x.obj x.val) (a.hom.app x.obj x.val) (b.hom.app x.obj x.val)
         (congrArg (fun m : Z ⟶ J.yoneda.obj S => m.hom.app x.obj x.val) ha)
         (congrArg (fun m : Z ⟶ J.yoneda.obj S => m.hom.app x.obj x.val) hb)).torsorArrow) p = _
-  rw [canonicalHom_eq, sheafCanonicalHom_eq, eqToHom_torsorArrow, eqToHom_torsorArrow]
+  rw [toDescentData_obj_hom_eq, sheaf_toDescentData_obj_hom_eq, eqToHom_torsorArrow, eqToHom_torsorArrow]
   dsimp only [TorsorExtension.evaluate]
   have he : J.yoneda.map (a.hom.app x.obj x.val) ≫ J.yoneda.map (f i) =
       J.yoneda.map (b.hom.app x.obj x.val) ≫ J.yoneda.map (f j) := by

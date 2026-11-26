@@ -19,20 +19,20 @@ theorem liftNatExtension_graph {Γ : Assembly}
     {e : Nat} {t : Option Nat} (he : finalCuts.{0}.Realizes e ⟨t⟩) (v : Nat) :
     v ∈ run (encode (searchCode (encode (observerCode p r)) e)) ↔
       liftNatExtensionValue h γ t = some v := by
-  rw [cutSearch_mem hp hr]
+  rw [searchCode_observerCode_mem hp hr]
   cases t with
   | some m =>
     change (∃ n, CutAccessible e n ∧ h.toFun (γ, ⟨n⟩) = some v) ↔
       h.toFun (γ, ⟨m⟩) = some v
     constructor
     · rintro ⟨n, hn, hv⟩
-      exact cutArrow_mono h γ ((accessible_final he).mp hn) hv
+      exact iterationCuts_hom_mono h γ ((accessible_final he).mp hn) hv
     · intro hv
       exact ⟨m, (accessible_final he).mpr (Nat.le_refl m), hv⟩
   | none =>
     change (∃ n, CutAccessible e n ∧ h.toFun (γ, ⟨n⟩) = some v) ↔
       cutLimitValue (fun n => h.toFun (γ, ⟨n⟩)) = some v
-    rw [cutLimitValue_eq_some _ (fun _ _ _ _ => cutArrow_values_agree h γ)]
+    rw [cutLimitValue_eq_some _ (fun _ _ _ _ => iterationCuts_hom_values_agree h γ)]
     exact exists_congr fun n => and_iff_right ((accessible_final he).mpr trivial)
 
 noncomputable def liftNatExtensionProgram (p : Code) (z : Nat) : Code :=
@@ -57,11 +57,11 @@ noncomputable def liftNatExtension {Γ : Assembly}
         (liftNatExtensionProgram_computable.comp (Computable.const p) Computable.id))
     · rintro ⟨γ, ⟨t⟩⟩ z ⟨hr, he⟩
       refine ⟨encode (liftNatExtensionProgram p z), by simp, ?_⟩
-      apply liftNat_realizes_iff.mpr
+      apply programLift_encoded_nat_realizes_iff.mpr
       exact liftNatExtension_graph hp hr he
 
 /-- Concrete completeness includes extension tracking and uniqueness in every context. -/
-theorem liftNat_cutComplete : CutComplete (programLift (encoded Nat)) := by
+theorem programLift_encoded_nat_cutComplete : CutComplete (programLift (encoded Nat)) := by
   intro Γ
   constructor
   · intro h k hk
@@ -73,10 +73,10 @@ theorem liftNat_cutComplete : CutComplete (programLift (encoded Nat)) := by
       apply Option.ext
       intro v
       change (h.toFun (γ, ⟨none⟩) = some v) ↔ (k.toFun (γ, ⟨none⟩) = some v)
-      exact (cutArrow_infinity_iff h γ v).trans
+      exact (finalCuts_hom_infinity_iff h γ v).trans
         ((exists_congr fun n => Iff.of_eq
           (congrArg (fun x => x = some v) (congrArg (fun f => f.toFun (γ, ⟨n⟩)) hk))).trans
-          (cutArrow_infinity_iff k γ v).symm)
+          (finalCuts_hom_infinity_iff k γ v).symm)
   · intro h
     exact ⟨liftNatExtension h, Hom.ext fun _ => rfl⟩
 

@@ -82,7 +82,7 @@ private theorem eval_reassociate (ρ : X → EExpr V) (a : Assignment eliminatio
     funext v
     cases v <;> rfl
 
-private theorem eval_doubleShift (ρ : X → EExpr V) (a : Assignment eliminationSignature M V)
+private theorem instantiate_double_shift (ρ : X → EExpr V) (a : Assignment eliminationSignature M V)
     (B : Raw M (Fin 1 ⊕ X)) :
     instantiate (Expr.lift (Expr.lift (Expr.lift ρ))) (((a.weaken 1).weaken 1).weaken 1)
       (Expr.rename (Sum.map id (Sum.inr ∘ Sum.inr)) B) =
@@ -107,7 +107,7 @@ private theorem eval_branchType (a : Assignment eliminationSignature M V)
   dsimp only [expression, boundVariables, assignment, Scope]
   unfold branchType branchPair Elimination.instantiate
   dsimp only [Scope]
-  rw [instantiate_bound, eval_doubleShift]
+  rw [instantiate_bound, instantiate_double_shift]
   simp only [eval_pack, instantiate]
   change Elimination.instantiate
     (Expr.rename (Sum.map id (Sum.inr ∘ Sum.inr)) (instantiate (Expr.lift Empty.elim) (a.weaken 1) D))
@@ -115,7 +115,7 @@ private theorem eval_branchType (a : Assignment eliminationSignature M V)
       (instantiate (Expr.lift (Expr.lift (Expr.lift Empty.elim))) (((a.weaken 1).weaken 1).weaken 1)
         (Expr.rename (Sum.map id (Sum.inr ∘ Sum.inr)) B))
       (.var (.inr (.inl 0))) (.var (.inl 0))) = _
-  rw [eval_doubleShift]
+  rw [instantiate_double_shift]
   have ha : instantiate (Expr.lift (Expr.lift Empty.elim)) ((a.weaken 1).weaken 1)
       (Expr.rename (Sum.inr ∘ Sum.inr) A) = Expr.rename (Sum.inr ∘ Sum.inr) (instantiate Empty.elim a A) := by
     rw [← Expr.rename_comp, instantiate_weaken, instantiate_weaken, Expr.rename_comp]
@@ -146,7 +146,7 @@ private theorem eval_instantiate (ρ : X → EExpr V) (a : Assignment eliminatio
       Elimination.instantiate (instantiate (Expr.lift ρ) (a.weaken 1) B) (instantiate ρ a x) :=
   instantiate_bound ρ a B (fun _ => x)
 
-private theorem eval_branchSubst (ρ : X → EExpr V) (a : Assignment eliminationSignature M V)
+private theorem instantiate_branch_subst (ρ : X → EExpr V) (a : Assignment eliminationSignature M V)
     (e : Raw M (Fin 2 ⊕ X)) (x y : Raw M X) :
     instantiate ρ a (Expr.subst (Sum.elim (fun i : Fin 2 => if i.val = 0 then x else y) Expr.var) e) =
       DependentPairJudgments.branchAt (instantiate (Expr.lift ρ) (a.weaken 2) e) (instantiate ρ a x) (instantiate ρ a y) := by
@@ -240,7 +240,7 @@ theorem beta_instance (Γ : Context eliminationSignature V) (A : EExpr V) (B : E
     List.cons_append, List.nil_append, RelativeJudgment.instantiate, Telescope.instantiate, form]
   simp only [eval_branchType]
   dsimp only [expression, assignment, boundVariables, Scope]
-  simp only [eval_S, eval_pack, eval_split, eval_instantiate, eval_branchSubst, eval_reassociate, h0, h1, h2, h3, h4, h5]
+  simp only [eval_S, eval_pack, eval_split, eval_instantiate, instantiate_branch_subst, eval_reassociate, h0, h1, h2, h3, h4, h5]
   rfl
 
 def etaAssignment (A : EExpr V) (B : EExpr (Fin 1 ⊕ V)) (p : EExpr V) :

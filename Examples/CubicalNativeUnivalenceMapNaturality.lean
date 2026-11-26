@@ -10,7 +10,7 @@ open SmallUniverse.NativeUnivalence
 
 /-- The native Boolean forward map commutes with adding an interval parameter
 through the actual path and full-equivalence family isomorphisms. -/
-theorem booleanForward_conjugate_interval :
+theorem boolean_pathToEquiv_conjugate_interval :
     let a := (constantLocal terminal Bool).code
     let σ := projection (interval (raisedContext terminal))
     (pathReindexIso
@@ -24,7 +24,7 @@ theorem booleanForward_conjugate_interval :
 
 /-- Evaluating that conjugated map on the actual Boolean loop retains its
 chosen universal-El transport map and all selected fiber contractions. -/
-theorem booleanLoop_conjugated_full :
+theorem booleanUniverseLoop_conjugated_full :
     let a := (constantLocal terminal Bool).code
     let σ := projection (interval (raisedContext terminal))
     let p := reindexPath booleanUniverseLoop σ
@@ -42,6 +42,6 @@ theorem booleanLoop_conjugated_full :
   let σ := projection (interval (raisedContext terminal))
   let p := reindexPath booleanUniverseLoop σ
   exact (congrArg (fun f : paths (σ ≫ a) (σ ≫ a) ⟶ equivalences (σ ≫ a) (σ ≫ a) =>
-    Term.map f p) booleanForward_conjugate_interval).trans (pathToEquiv_beta p).symm
+    Term.map f p) boolean_pathToEquiv_conjugate_interval).trans (pathToEquiv_beta p).symm
 
 end Examples.CubicalNativeUnivalenceMapNaturality

@@ -150,7 +150,7 @@ theorem paddedIsolated_observation : observe paddedIsolated = observe isolated :
 
 def rawShapePredicate (_node : Node) (value : NodeSet) : Bool := decide (0 < value.numNodes)
 
-theorem rawShape_distinguishes :
+theorem rawShapePredicate_distinguishes :
     KeySet.mem 1 (subsetNodes rawShapePredicate paddedIsolated) = true ∧
       KeySet.mem 1 (subsetNodes rawShapePredicate isolated) = false := by
   exact ⟨rfl, rfl⟩

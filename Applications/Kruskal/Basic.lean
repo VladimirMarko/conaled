@@ -149,7 +149,7 @@ def ExchangeInv (g : Graph) (fs : List Edge) : Prop :=
 theorem reach_partition_iff (vs : List Vertex) (es : List Edge) (u v : Vertex) :
     Reach vs es u v ↔ Connectivity.Connected vs.toFinset
       (es.map (fun e => (source e, target e))) u v :=
-  Connectivity.sourceConnected_iff vs _ u v
+  Connectivity.listPartition_connected_iff vs _ u v
 
 theorem reach_observe_iff (vs : List Vertex) (es : List Edge) (u v : Vertex) :
     Connectivity.observe vs.toFinset (es.map (fun e => (source e, target e))) u v = some true ↔

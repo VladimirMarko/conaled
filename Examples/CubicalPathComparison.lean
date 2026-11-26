@@ -15,35 +15,35 @@ abbrev loopContext := total loops.family
 
 def loopBase : loopContext ⟶ total cocycleBase.family := pair (terminalSub _) (zeroTerm _)
 
-theorem loopFamily_eq : reindex cocycleRootedFamily.family loopBase =
+theorem reindex_cocycleRootedFamily_family : reindex cocycleRootedFamily.family loopBase =
     reindex loops.family (projection loops.family) :=
   (normalizedIdentity_reindex (reindex cocycleBase.family (projection cocycleBase.family))
     ((zeroTerm terminal).reindex (projection cocycleBase.family)) (generic cocycleBase.family) loopBase).trans
   (normalizedIdentity_reindex cocycleBase.family (zeroTerm terminal) (zeroTerm terminal) (projection loops.family)).symm
 
 def loopWitness : Term (reindex cocycleRootedFamily.family loopBase) :=
-  (generic loops.family).convert loopFamily_eq.symm
+  (generic loops.family).convert reindex_cocycleRootedFamily_family.symm
 
 def loopInclusion : loopContext ⟶ M.toStructuralModel.pathContext cocycleBase point := pair loopBase loopWitness
 
 def transportedLoop : Term (reindex loops.family (projection loops.family)) :=
-  ((pathTransportSection M cocycleBase point).down.reindex loopInclusion).convert loopFamily_eq
+  ((pathTransportSection M cocycleBase point).down.reindex loopInclusion).convert reindex_cocycleRootedFamily_family
 
 private theorem identity_congr {Γ : Context.{0}} {A B : Family Γ} (e : A = B)
     {a b : Term A} {c d : Term B} (ha : HEq a c) (hb : HEq b d) :
     normalizedIdentity A a b = normalizedIdentity B c d := by cases e; cases ha; cases hb; rfl
 
-theorem comparisonFamily_eq :
+theorem reindex_pathBetaMotive_family :
     reindex (pathBetaMotive M cocycleBase point).family loopInclusion =
       normalizedIdentity (reindex loops.family (projection loops.family)) transportedLoop (generic loops.family) := by
   have e := normalizedIdentity_reindex (motive M cocycleBase cocycleRootedFamily point).family
     (pathTransportSection M cocycleBase point).down (pathWitnessSection M cocycleBase point).down loopInclusion
-  exact e.trans (identity_congr loopFamily_eq
-    (Term.convert_heq loopFamily_eq ((pathTransportSection M cocycleBase point).down.reindex loopInclusion)).symm
-    (Term.convert_heq loopFamily_eq.symm (generic loops.family)))
+  exact e.trans (identity_congr reindex_cocycleRootedFamily_family
+    (Term.convert_heq reindex_cocycleRootedFamily_family ((pathTransportSection M cocycleBase point).down.reindex loopInclusion)).symm
+    (Term.convert_heq reindex_cocycleRootedFamily_family.symm (generic loops.family)))
 
 def betaLoop : Term (normalizedIdentity (reindex loops.family (projection loops.family))
     transportedLoop (generic loops.family)) :=
-  ((pathBetaSection M cocycleBase point).down.reindex loopInclusion).convert comparisonFamily_eq
+  ((pathBetaSection M cocycleBase point).down.reindex loopInclusion).convert reindex_pathBetaMotive_family
 
 end Examples.CubicalPathComparison

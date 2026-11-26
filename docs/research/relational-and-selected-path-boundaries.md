@@ -97,7 +97,7 @@ the action, and distinguishes labels even when their actions agree.
 There is also a connection to the current higher model, rather than a claim
 that the C₄ example alone exercises higher identity.
 `SelectedTwoCellBoundary.source_witness_retained` uses the existing
-`normalizedPathOperands_retained` theorem to connect the full normalized
+`normalized_path_operands_retained` theorem to connect the full normalized
 selected two-cell of the original source context, after its two weakenings,
 to the handle's meaning. The cell carries its integer value; handles for 0
 and 1 remain distinct. This reuses a proved source comparison, rather than

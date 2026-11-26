@@ -23,7 +23,7 @@ def colorsOf (f : Assignment) (vertices : NodeSet) : NodeSet :=
     | some color => KeySet.add color acc
     | none => acc) vertices .nil
 
-theorem mem_colorsFold (f : Assignment) (vertices : List Node) (seed : NodeSet) (color : Node) :
+theorem mem_colors_fold (f : Assignment) (vertices : List Node) (seed : NodeSet) (color : Node) :
     KeySet.mem color (vertices.foldl (fun acc node =>
       match SparseMap.find node f with
       | some value => KeySet.add value acc
@@ -54,7 +54,7 @@ theorem mem_colorsFold (f : Assignment) (vertices : List Node) (seed : NodeSet) 
 theorem mem_colorsOf (f : Assignment) (vertices : NodeSet) (color : Node) :
     KeySet.mem color (colorsOf f vertices) = true ↔
       ∃ node, KeySet.mem node vertices = true ∧ SparseMap.find node f = some color := by
-  rw [colorsOf, KeySet.fold_eq, mem_colorsFold]
+  rw [colorsOf, KeySet.fold_eq, mem_colors_fold]
   simp only [KeySet.mem_nil, Bool.false_eq_true, false_or, KeySet.mem_elements]
 
 theorem in_colorsOf {f : Assignment} {vertices : NodeSet} {node color : Node}

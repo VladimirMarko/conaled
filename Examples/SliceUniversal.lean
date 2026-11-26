@@ -54,7 +54,7 @@ theorem boolLift_extract (b : Bool) :
   exact congrArg (fun f => f.hom.app (op X) terminalPoint) e
 
 /-- There is no compatible geometric transformation between the two distinct lifts. -/
-theorem boolLifts_no_transformation : ¬ Nonempty (boolLift false ⟶ boolLift true) := by
+theorem boolLift_no_transformation : ¬ Nonempty (boolLift false ⟶ boolLift true) := by
   rintro ⟨α⟩
   have h := Lift.section_natural α
   have e := congrArg (fun f => f.hom.app (op X) terminalPoint) h
@@ -82,7 +82,7 @@ theorem diamondPseudopullback_base_map
       Functor.whiskerLeft (slice ((slice D).inverseImage.obj D)).inverseImage α := rfl
 
 /-- Ambient change along the Boolean slice retains the displayed witness projection. -/
-theorem diamondMixed_witness (Z : Over D) :
+theorem slice_pullbackPost_fst (Z : Over D) :
     ((pullbackPost (slice D) (boolSection true)).hom.app Z).left ≫
         pullback.fst ((slice D).inverseImage.map Z.hom)
           ((slice D).inverseImage.map (boolSection true)) =
@@ -90,7 +90,7 @@ theorem diamondMixed_witness (Z : Over D) :
   pullbackPost_fst _ _ _
 
 /-- The same comparison retains the substituted terminal context separately. -/
-theorem diamondMixed_context (Z : Over D) :
+theorem slice_pullbackPost_snd (Z : Over D) :
     ((pullbackPost (slice D) (boolSection true)).hom.app Z).left ≫
         pullback.snd ((slice D).inverseImage.map Z.hom)
           ((slice D).inverseImage.map (boolSection true)) =
@@ -98,7 +98,7 @@ theorem diamondMixed_context (Z : Over D) :
   pullbackPost_snd _ _ _
 
 /-- The mixed square for two successive Boolean slice projections pastes on carriers. -/
-theorem diamondMixed_pasting (Z : Over D) :
+theorem slice_pullbackPost_pasting (Z : Over D) :
     ((pullbackPost ((slice ((slice D).inverseImage.obj D)).comp (slice D))
       (boolSection true)).hom.app Z).left =
       (slice ((slice D).inverseImage.obj D)).inverseImage.map
@@ -112,7 +112,7 @@ def diamondGenericBaseChange :=
   classifierBaseChangeGenericIso (slice D) (𝟙 (⊤_ Source))
 
 /-- Context composition and the Boolean ambient change give the same witness-preserving route. -/
-theorem diamondMixed_context_pasting (Z : Over D) :
+theorem slice_pullbackPost_context_pasting (Z : Over D) :
     (slice D).inverseImage.map
       (SquareKit.Family.compositionIso Z.hom (boolSection true) (𝟙 (⊤_ Source))).hom ≫
         pullbackComparison (slice D).inverseImage Z.hom (𝟙 (⊤_ Source) ≫ boolSection true) =

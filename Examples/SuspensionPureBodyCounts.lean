@@ -330,7 +330,7 @@ theorem no_unwind_fails :
   obtain ⟨answer, run, _⟩ := execution
   have captured : EnvRep (fun _ => none) rawCapture capture := .cons (.exception .none) .nil
   have captureAllowed : EnvAllowed Operations capture := .cons (.exception .none) .nil
-  have bound := source_bodyEntry_count_le_one compatible preserve WorldAllowed.empty
+  have bound := source_body_entry_count_le_one compatible preserve WorldAllowed.empty
     (Memory.StateRep.empty pureParameters) captured captureAllowed allowed run 0 safe 50
   have counted : (FreeAddMonoid.toList (Core.Observation.observe rawParameters 50
       (Core.Machine.start Suspensions.empty rawCapture program)).2).count (.body 0) = 2 :=

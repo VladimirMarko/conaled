@@ -61,8 +61,8 @@ theorem quotient_eight_thirds : quotientMantissa 8 3 = 3 := by decide +kernel
 
 theorem opposite_ties_even : quotientMantissa 5 2 % 2 = 0 ∧ quotientMantissa 7 2 % 2 = 0 := by
   constructor
-  · exact nearestEven_tie_even 2
-  · exact nearestEven_tie_even 3
+  · exact roundToNearestEven_tie_even 2
+  · exact roundToNearestEven_tie_even 3
 
 theorem quotient_five_halves_error : |(quotientMantissa 5 2 : Rat) - 5 / 2| ≤ 1 / 2 :=
   quotientMantissa_error 5 2 (by decide)

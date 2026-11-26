@@ -36,7 +36,7 @@ theorem collapse_not_iso : ¬ IsIso collapse := by
   have he : (𝟙 boolFamily) ≫ collapse = flip ≫ collapse := rfl
   exact identity_ne_flip ((cancel_mono collapse).mp he)
 
-abbrev descentEquivalence := SheafDisplayFamilyDescent.equivalence inclusion twoPoints_joint
+abbrev descentEquivalence := SheafDisplayFamilyDescent.equivalence inclusion inclusion_jointlyLocallySurjective
 abbrev datum := descentEquivalence.functor.obj boolFamily
 abbrev localCollapse := descentEquivalence.functor.map collapse
 
@@ -114,7 +114,7 @@ example :
   repeatedRecoveryIso.hom.naturality localCollapse
 
 /-- The same local collapse is recovered through coherent element-site codes. -/
-abbrev coherentE := CoherentDisplayDescent.equivalence inclusion twoPoints_joint
+abbrev coherentE := CoherentDisplayDescent.equivalence inclusion inclusion_jointlyLocallySurjective
 
 example :
     coherentE.functor.map (coherentE.inverse.map localCollapse) ≫

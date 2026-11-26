@@ -70,11 +70,11 @@ theorem readTerm_lift (B : Ty Γ) (σ : Δ ⟶ Γ) {τ : Ξ ⟶ Δ}
   rfl
 
 
-@[simp, reassoc] theorem displaySub_value (A : Ty Γ) (σ : Δ ⟶ Γ) :
+@[simp, reassoc] theorem displaySubIso_value (A : Ty Γ) (σ : Δ ⟶ Γ) :
     (displaySubIso A σ).hom.left ≫ pullback.fst (p A) σ = lift A σ := substitution_value A σ
-@[simp, reassoc] theorem displaySub_display (A : Ty Γ) (σ : Δ ⟶ Γ) :
+@[simp, reassoc] theorem displaySubIso_display (A : Ty Γ) (σ : Δ ⟶ Γ) :
     (displaySubIso A σ).hom.left ≫ pullback.snd (p A) σ = p (tySub A σ) := substitution_display A σ
-@[simp, reassoc] theorem displaySub_inv_value (A : Ty Γ) (σ : Δ ⟶ Γ) :
+@[simp, reassoc] theorem displaySubIso_inv_value (A : Ty Γ) (σ : Δ ⟶ Γ) :
     (displaySubIso A σ).inv.left ≫ lift A σ = pullback.fst (p A) σ := by
   change (substitutionIso A σ).inv ≫ lift A σ = _
   rw [Iso.inv_comp_eq]
@@ -87,10 +87,10 @@ def changedEvaluation (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     (DependentBaseChange.pullbackComparison (square A σ)).app (Over.mk (p (pi A B))) ≫
     (Over.pullback (lift A σ)).map (evaluation A B) ≫ (displaySubIso B (lift A σ)).inv
 
-@[reassoc] theorem pullbackMap_fst (f : Δ ⟶ Γ) {X Y : Over Γ} (k : X ⟶ Y) :
+@[reassoc] theorem pullback_map_fst (f : Δ ⟶ Γ) {X Y : Over Γ} (k : X ⟶ Y) :
     ((Over.pullback f).map k).left ≫ pullback.fst Y.hom f = pullback.fst X.hom f ≫ k.left :=
   pullback.lift_fst _ _ _
-@[reassoc] theorem pullbackMap_snd (f : Δ ⟶ Γ) {X Y : Over Γ} (k : X ⟶ Y) :
+@[reassoc] theorem pullback_map_snd (f : Δ ⟶ Γ) {X Y : Over Γ} (k : X ⟶ Y) :
     ((Over.pullback f).map k).left ≫ pullback.snd Y.hom f = pullback.snd X.hom f :=
   pullback.lift_snd _ _ _
 
@@ -103,12 +103,12 @@ theorem argument_change (A S : Ty Γ) (σ : Δ ⟶ Γ) :
   apply pullback.hom_ext
   · simp only [Category.assoc]
     erw [DependentBaseChange.comparison_value (square A σ) (Over.mk (p S)),
-      pullbackMap_fst_assoc (p (tySub A σ)) (displaySubIso S σ).hom,
-      displaySub_value S σ, argument_fst_assoc, Category.assoc, argument_fst, lift_p]
+      pullback_map_fst_assoc (p (tySub A σ)) (displaySubIso S σ).hom,
+      displaySubIso_value S σ, argument_fst_assoc, Category.assoc, argument_fst, lift_p]
     rfl
   · simp only [Category.assoc]
     erw [DependentBaseChange.comparison_argument (square A σ) (Over.mk (p S)),
-      pullbackMap_snd_assoc (p (tySub A σ)) (displaySubIso S σ).hom,
+      pullback_map_snd_assoc (p (tySub A σ)) (displaySubIso S σ).hom,
       argument_snd_assoc, Category.assoc, argument_snd]
     rfl
 
@@ -118,8 +118,8 @@ theorem changedEvaluation_value (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ 
     lift (tySub A (p (pi A B))) (lift (pi A B) σ) ≫
       (argumentIso A (p (pi A B))).hom.left ≫ (evaluation A B).left := by
   change _ ≫ (_ ≫ _ ≫ _ ≫ _) ≫ _ = _
-  simp only [Category.assoc, displaySub_inv_value]
-  erw [pullbackMap_fst (lift A σ) (evaluation A B)]
+  simp only [Category.assoc, displaySubIso_inv_value]
+  erw [pullback_map_fst (lift A σ) (evaluation A B)]
   have h := congrArg (fun k => k ≫ (evaluation A B).left) (argument_change A (pi A B) σ)
   exact h
 

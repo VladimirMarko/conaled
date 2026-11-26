@@ -5,7 +5,7 @@ namespace Realizability.Assembly
 open Encodable Denumerable
 open Nat.Partrec (Code)
 
-theorem cutArrow_mono {Γ : Assembly}
+theorem iterationCuts_hom_mono {Γ : Assembly}
     (h : Hom (prod Γ iterationCuts) (programLift (encoded Nat))) (γ : Γ.Carrier)
     {n m v : Nat} (hnm : n ≤ m) (hv : h.toFun (γ, ⟨n⟩) = some v) :
     h.toFun (γ, ⟨m⟩) = some v := by
@@ -18,7 +18,7 @@ theorem cutArrow_mono {Γ : Assembly}
     (fun e he => (liftObserver_mem hp hr he v).mpr hv)
   exact (liftObserver_mem hp hr he v).mp hev
 
-theorem cutArrow_infinity_iff {Γ : Assembly}
+theorem finalCuts_hom_infinity_iff {Γ : Assembly}
     (h : Hom (prod Γ finalCuts) (programLift (encoded Nat))) (γ : Γ.Carrier) (v : Nat) :
     h.toFun (γ, ⟨none⟩) = some v ↔ ∃ n, h.toFun (γ, ⟨some n⟩) = some v := by
   obtain ⟨p, hp⟩ := h.has_code

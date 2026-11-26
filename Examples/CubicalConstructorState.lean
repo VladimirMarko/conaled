@@ -44,7 +44,7 @@ private theorem cast_numericValue (n m : Int) (h : n = m) :
     cast (congrArg (fun k : Int => Fin (k.natAbs + 1)) h) (numericValue n) = numericValue m := by
   cases h
   rfl
-private theorem cast_numericVal (n m : Int) (h : n = m) (z : Fin (n.natAbs + 1)) :
+private theorem cast_numeric_val (n m : Int) (h : n = m) (z : Fin (n.natAbs + 1)) :
     (cast (congrArg (fun k : Int => Fin (k.natAbs + 1)) h) z).val = z.val := by
   cases h
   rfl
@@ -75,7 +75,7 @@ noncomputable def smallObserve : smallField.family ⟶ constantFamily (total suc
   naturality x y f := by
     apply ConcreteCategory.hom_ext
     intro z
-    exact cast_numericVal _ _ (smallIndex.property f) z
+    exact cast_numeric_val _ _ (smallIndex.property f) z
 
 noncomputable def fieldObserve : B ⟶ constantFamily (total A) (ULift.{1} Nat) :=
   fieldPresentation.hom ≫ Functor.whiskerLeft display.mapElements (Raising.map smallObserve)
