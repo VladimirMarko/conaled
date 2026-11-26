@@ -9,14 +9,14 @@ namespace Realizability.Assembly
 
 /-- Coherence of the inverse comparison with the identity-base pullback.
 Since comparisons are isomorphisms, this also determines forward coherence. -/
-theorem baseChange_identity {A B : Assembly.{u}} (p : Hom A B) :
+theorem baseChangeUnlift_identity {A B : Assembly.{u}} (p : Hom A B) :
     (baseChangeUnlift p (Hom.id B)).comp (pullbackIdentity (sliceBase p)) =
       sliceMap (pullbackFst (Hom.id B) p) p (pullbackIdentity p)
         (pullback_square (Hom.id B) p).symm := Hom.ext fun _ => rfl
 
 /-- Coherence for two arbitrary tracked changes of base. Both sides retain
 the outer base and remove the same redundant coordinates in defined values. -/
-theorem baseChange_comp {A B C D : Assembly.{u}}
+theorem baseChangeUnlift_comp {A B C D : Assembly.{u}}
     (p : Hom A B) (f : Hom C B) (g : Hom D C) :
     ((baseChangeUnlift (pullbackFst f p) g).comp
       (pullbackMap (sliceBase (pullbackFst f p)) (pullbackFst f (sliceBase p)) g
@@ -41,7 +41,7 @@ theorem baseChange_comp {A B C D : Assembly.{u}}
 
 /-- Comparison naturality for an arbitrary map over the original base,
 expressed on inverse arrows to keep both routes computationally explicit. -/
-theorem baseChange_natural {A A' B C : Assembly.{u}}
+theorem baseChangeUnlift_natural {A A' B C : Assembly.{u}}
     (p : Hom A B) (q : Hom A' B) (f : Hom C B) (k : Hom A A') (hk : k.comp q = p) :
     (baseChangeUnlift p f).comp
       (pullbackMap (sliceBase p) (sliceBase q) f (sliceMap p q k hk) (Hom.ext fun _ => rfl)) =
@@ -61,7 +61,7 @@ theorem baseChange_natural {A A' B C : Assembly.{u}}
       cases d.val.2 <;> rfl
 
 /-- Unit compatibility of base change, retaining its actual chosen fiber. -/
-theorem baseChange_unit {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
+theorem baseChangeUnlift_unit {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
     (sliceUnit (pullbackFst f p)).comp (baseChangeUnlift p f) =
       pullbackMap p (sliceBase p) f (sliceUnit p) (sliceUnit_base p) := by
   apply Hom.ext
@@ -73,7 +73,7 @@ theorem baseChange_unit {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
 
 /-- Multiplication compatibility. The two-level comparison retains the same
 base and flattens the same selected value, including either bottom case. -/
-theorem baseChange_mul {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
+theorem baseChangeUnlift_mul {A B C : Assembly.{u}} (p : Hom A B) (f : Hom C B) :
     (sliceMul (pullbackFst f p)).comp (baseChangeUnlift p f) =
     ((sliceMap (sliceBase (pullbackFst f p)) (pullbackFst f (sliceBase p))
       (baseChangeUnlift p f) (baseChangeUnlift_base p f)).comp
@@ -98,7 +98,7 @@ noncomputable def baseChangeNatIso {B C : Assembly.{u}} (f : Hom C B) :
       sliceLiftFunctor B ⋙ assemblyPullbackFunctor f :=
     NatIso.ofComponents (fun X => (baseChangeIso X.hom f).symm)
       (fun {X Y : Over B} (k : X ⟶ Y) =>
-        Over.OverMorphism.ext (baseChange_natural X.hom Y.hom f k.left (Over.w k)).symm)
+        Over.OverMorphism.ext (baseChangeUnlift_natural X.hom Y.hom f k.left (Over.w k)).symm)
   exact e.symm
 
 end Realizability.Assembly

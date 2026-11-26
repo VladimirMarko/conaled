@@ -84,7 +84,7 @@ theorem comparison_inverse_recovers :
 
 example : (baseChangeUnlift family (Hom.id natAssembly)).comp (pullbackIdentity (sliceBase family)) =
     sliceMap (pullbackFst (Hom.id natAssembly) family) family (pullbackIdentity family)
-      (pullback_square (Hom.id natAssembly) family).symm := baseChange_identity family
+      (pullback_square (Hom.id natAssembly) family).symm := baseChangeUnlift_identity family
 
 /-- The two-step coherence theorem applies to two nonidentity changes and
 therefore preserves the chosen 17 through the iterated pullback route. -/
@@ -96,7 +96,7 @@ example :
     (sliceMap (pullbackFst successor (pullbackFst successor family))
       (pullbackFst (successor.comp successor) family)
       (pullbackUnassoc family successor successor) (Hom.ext fun _ => rfl)).comp
-      (baseChangeUnlift family (successor.comp successor)) := baseChange_comp _ _ _
+      (baseChangeUnlift family (successor.comp successor)) := baseChangeUnlift_comp _ _ _
 
 /-- A slice classifier handles the undecidable halting domain from P1,
 retaining its selected input index and total base. -/

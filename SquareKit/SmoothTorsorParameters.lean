@@ -181,7 +181,7 @@ def parameterTorsorEquivalence (X : Sheaf topology Type) :
 theorem parameterZero_natural {X Y : Sheaf topology Type} (f : X ⟶ Y) :
     f ≫ parameterZero Y = parameterZero X ≫ SheafFunction.parameterMap D f := rfl
 
-theorem parameterTorsor_baseChange {X Y : Sheaf topology Type} (f : X ⟶ Y) :
+theorem parameterTorsorEquivalence_functor_base_change {X Y : Sheaf topology Type} (f : X ⟶ Y) :
     restriction f ⋙ (parameterTorsorEquivalence (H := H) X).functor =
       (parameterTorsorEquivalence (H := H) Y).functor ⋙
         restriction (SheafFunction.parameterMap D f) := by
@@ -189,7 +189,7 @@ theorem parameterTorsor_baseChange {X Y : Sheaf topology Type} (f : X ⟶ Y) :
   rw [restriction_comp, restriction_comp]
   rfl
 
-theorem parameterTorsorZero_baseChange {X Y : Sheaf topology Type} (f : X ⟶ Y) :
+theorem parameterTorsorEquivalence_inverse_base_change {X Y : Sheaf topology Type} (f : X ⟶ Y) :
     restriction (SheafFunction.parameterMap D f) ⋙
         (parameterTorsorEquivalence (H := H) X).inverse =
       (parameterTorsorEquivalence (H := H) Y).inverse ⋙ restriction f := by

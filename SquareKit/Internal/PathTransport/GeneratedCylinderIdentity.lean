@@ -16,7 +16,7 @@ theorem generatedEndpointIso_refl (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
   let := generatedContextMap_equivalence (projectionSignature F P)
     (fun _ => Function.bijective_id) hΓ
   unfold generatedEndpointIso
-  apply selectedLift_unique
+  apply fullyFaithfulCancelRight_unique
   ext x
   simp
 

@@ -163,7 +163,7 @@ def torsorProjectionEquivalence (A : Code) :
   CategoryTheory.Equivalence.mk (restriction (torsorProjection A)) (restriction (torsorZero A))
     (torsorProjectionUnit A) (torsorProjectionCounit A)
 
-theorem projection_baseChange {A B : Code} (f : A ⟶ B) :
+theorem torsorProjection_natural {A B : Code} (f : A ⟶ B) :
     representableMap (dualMap f) ≫ torsorProjection A =
       torsorProjection B ≫ representableMap f := by
   ext T h
@@ -171,7 +171,7 @@ theorem projection_baseChange {A B : Code} (f : A ⟶ B) :
   change inl A ≫ (dualMap f ≫ h.unop) = f ≫ (inl B ≫ h.unop)
   rw [← Category.assoc, dualMap_inl, Category.assoc]
 
-theorem zero_baseChange {A B : Code} (f : A ⟶ B) :
+theorem torsorZero_natural {A B : Code} (f : A ⟶ B) :
     representableMap f ≫ torsorZero A =
       torsorZero B ≫ representableMap (dualMap f) := by
   ext T h
@@ -181,20 +181,20 @@ theorem zero_baseChange {A B : Code} (f : A ⟶ B) :
 
 /-- Pullback equivalences commute with every presentation map, on objects
 and equivariant arrows. -/
-theorem torsorProjection_baseChange {A B : Code} (f : A ⟶ B) :
+theorem torsorProjectionEquivalence_functor_base_change {A B : Code} (f : A ⟶ B) :
     (restriction (representableMap f) ⋙ (torsorProjectionEquivalence B).functor :
       Torsor G (Y A) ⥤ Torsor G (Y (dual B))) =
       (torsorProjectionEquivalence A).functor ⋙ restriction (representableMap (dualMap f)) := by
   change restriction _ ⋙ restriction _ = restriction _ ⋙ restriction _
-  rw [restriction_comp, restriction_comp, projection_baseChange]
+  rw [restriction_comp, restriction_comp, torsorProjection_natural]
 
 /-- The prescribed inverse commutes with those same maps. -/
-theorem torsorZero_baseChange {A B : Code} (f : A ⟶ B) :
+theorem torsorProjectionEquivalence_inverse_base_change {A B : Code} (f : A ⟶ B) :
     (restriction (representableMap (dualMap f)) ⋙ (torsorProjectionEquivalence B).inverse :
       Torsor G (Y (dual A)) ⥤ Torsor G (Y B)) =
       (torsorProjectionEquivalence A).inverse ⋙ restriction (representableMap f) := by
   change restriction _ ⋙ restriction _ = restriction _ ⋙ restriction _
-  rw [restriction_comp, restriction_comp, zero_baseChange]
+  rw [restriction_comp, restriction_comp, torsorZero_natural]
 
 /-- Change a torsor's base along an actual sheaf isomorphism. -/
 def torsorBaseEquivalence {X Z : Sheaf topology Type} (e : X ≅ Z) :
@@ -243,7 +243,7 @@ theorem infinitesimalTorsorEquivalence_inverse (A : Code) :
     (infinitesimalTorsorEquivalence (H := H) A).inverse =
       restriction (torsorProductZero A) := rfl
 
-theorem infinitesimalTorsor_baseChange {A B : Code} (f : A ⟶ B) :
+theorem infinitesimalTorsorEquivalence_functor_base_change {A B : Code} (f : A ⟶ B) :
     restriction (representableMap f) ⋙ (infinitesimalTorsorEquivalence (H := H) B).functor =
       (infinitesimalTorsorEquivalence (H := H) A).functor ⋙
         restriction (SheafFunction.parameterMap D (representableMap f)) := by
@@ -251,7 +251,7 @@ theorem infinitesimalTorsor_baseChange {A B : Code} (f : A ⟶ B) :
     restriction_comp, restriction_comp]
   rfl
 
-theorem torsorProductZero_baseChange {A B : Code} (f : A ⟶ B) :
+theorem torsorProductZero_natural {A B : Code} (f : A ⟶ B) :
     representableMap f ≫ torsorProductZero A =
       torsorProductZero B ≫ SheafFunction.parameterMap D (representableMap f) := by
   ext T x
@@ -261,13 +261,13 @@ theorem torsorProductZero_baseChange {A B : Code} (f : A ⟶ B) :
   rw [torsorProductZero_apply, torsorProductZero_apply]
   rfl
 
-theorem infinitesimalTorsorZero_baseChange {A B : Code} (f : A ⟶ B) :
+theorem infinitesimalTorsorEquivalence_inverse_base_change {A B : Code} (f : A ⟶ B) :
     restriction (SheafFunction.parameterMap D (representableMap f)) ⋙
         (infinitesimalTorsorEquivalence (H := H) B).inverse =
       (infinitesimalTorsorEquivalence (H := H) A).inverse ⋙
         restriction (representableMap f) := by
   rw [infinitesimalTorsorEquivalence_inverse, infinitesimalTorsorEquivalence_inverse,
-    restriction_comp, restriction_comp, torsorProductZero_baseChange]
+    restriction_comp, restriction_comp, torsorProductZero_natural]
 
 /-- An empty real locus admits the empty principal cover, so every sheaf has
 exactly one section there. Infinitesimal equivalence includes these stages. -/

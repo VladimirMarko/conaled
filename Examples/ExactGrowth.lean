@@ -116,7 +116,7 @@ theorem value_growth_iff_isBigO {ι : Type u} {l : Filter ι}
     (∃ C : ℕ, 0 < C ∧ ∀ᶠ n in l,
       value (f n) ≤ WithBot.map (fun x : ℝ≥0 => (C : ℝ≥0) * x) (value (g n))) ↔
     (fun n => (F n : ℝ)) =O[l] (fun n => (G n : ℝ)) := by
-  rw [Resources.isBigO_nnrealCast_iff]
+  rw [Resources.isBigO_toReal_iff]
   constructor
   · rintro ⟨C, hC, h⟩
     refine ⟨C, hC, ?_⟩
@@ -160,7 +160,7 @@ theorem default_zero_counterexample :
         value (rational 0) ≤
           WithBot.map (fun x : ℝ≥0 => (C : ℝ≥0) * x) (value (logarithm 0))) := by
   refine ⟨?_, valid_zero_not_growth_invalid⟩
-  exact (Resources.isBigO_nnrealCast_iff (fun _ : ℕ => (0 : ℝ≥0))
+  exact (Resources.isBigO_toReal_iff (fun _ : ℕ => (0 : ℝ≥0))
     (fun _ : ℕ => (0 : ℝ≥0))).mpr ⟨1, by decide, Filter.Eventually.of_forall (by simp)⟩
 
 /-- An irrational positive coefficient has actual raw, attained bounds. -/

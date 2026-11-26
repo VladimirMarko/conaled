@@ -87,7 +87,7 @@ variable (h : IsPullback f' g' g f)
 abbrev baseChange : pi f ⋙ Over.pullback g ≅ Over.pullback g' ⋙ pi f' :=
   DependentBaseChange.WithAdjunction.iso h (adjunction f) (adjunction f')
 abbrev baseChange_evaluation := DependentBaseChange.WithAdjunction.evaluation h (adjunction f) (adjunction f')
-abbrev baseChange_curry := DependentBaseChange.WithAdjunction.curry_baseChange h (adjunction f) (adjunction f')
+abbrev baseChange_curry := DependentBaseChange.WithAdjunction.curry_base_change h (adjunction f) (adjunction f')
 
 /-- Canonical base change commutes with replacement by any previous right
 adjoints, hence with terminal/projection base change in particular. -/

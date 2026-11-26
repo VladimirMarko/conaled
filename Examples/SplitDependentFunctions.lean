@@ -88,7 +88,7 @@ def reversedTrue (M : Diamond) : reversedFunctions.family.obj (D.obj.elementsMk 
   (negationFiber M true).trans (falseFiber M)
 
 /-- The negation comparison is the canonical mate, not just some fiber iso. -/
-abbrev negation_mate := SplitSheafPi.baseChange_eq argument result SheafFunctions.negation
+abbrev negation_mate := SplitSheafPi.canonicalBaseChange_eq_splitBaseChange argument result SheafFunctions.negation
 
 /-- Two substitutions carry a genuine lambda term through the same transport. -/
 theorem double_negation_transport (b : Bool) :
@@ -100,6 +100,6 @@ theorem double_negation_transport (b : Bool) :
   SplitSheafPi.substitution_comp argument result _ _ _
 
 abbrev negation_mate_composition :=
-  SplitSheafPi.baseChange_composition argument result SheafFunctions.negation SheafFunctions.negation
+  SplitSheafPi.canonicalBaseChange_composition argument result SheafFunctions.negation SheafFunctions.negation
 
 end Examples.SplitDependentFunctions

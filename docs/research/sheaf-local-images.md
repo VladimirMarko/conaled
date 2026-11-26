@@ -1207,7 +1207,7 @@ actual evaluation and display equations agree through this iso. The comparison
 is natural in the parameter and in maps of dependent result displays.
 `SplitPiBaseChange` constructs one map from the proved formation equality and
 another by conjugating the canonical Beck–Chevalley mate with the existing
-split/display adapters. `baseChange_eq` proves these are the same iso by
+split/display adapters. `canonicalBaseChange_eq_splitBaseChange` proves these are the same iso by
 comparing their transposes. Identity and composition coherence are equalities
 of actual slice maps after the stated ordinary pullback adapters. The triple
 term-transport theorem handles repeated equality transport. No ordinary

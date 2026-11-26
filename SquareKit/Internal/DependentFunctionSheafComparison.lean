@@ -91,7 +91,7 @@ function substitution. The remaining index adapter is the proved result_sub. -/
 theorem substitution_mate {X Y : Sh J} (ρ : Fin n → (X ⟶ M.B)) (b : Base (n+1)) (s : Y ⟶ X) :
     SplitSheafPi.canonicalBaseChange (baseType M X) (result M ρ b) s =
       SplitSheafPi.splitBaseChange (baseType M X) (result M ρ b) s :=
-  SplitSheafPi.baseChange_eq _ _ _
+  SplitSheafPi.canonicalBaseChange_eq_splitBaseChange _ _ _
 
 
 theorem typeIso_trans {X : Sh J} {A B D : SplitSheaf.Ty X} (h : A = B) (k : B = D) :
@@ -106,7 +106,7 @@ theorem source_substitution_mate {X Y : Sh J} {ρ : Fin n → (X ⟶ M.B)} {τ :
       SplitSheafPi.typeIso (congrArg (SplitSheafPi.pi (baseType M Y)) (result_sub M h b)) =
     (SplitSheafPi.displaySubIso (function M ρ b) s).symm ≪≫
       SplitSheafPi.typeIso (function_sub M h b) := by
-  rw [SplitSheafPi.baseChange_eq]
+  rw [SplitSheafPi.canonicalBaseChange_eq_splitBaseChange]
   change ((_ ≪≫ SplitSheafPi.typeIso (SplitSheafPi.substitution (baseType M X) (result M ρ b) s)) ≪≫ _) = _
   rw [Iso.trans_assoc]
   exact congrArg (fun i => (SplitSheafPi.displaySubIso (function M ρ b) s).symm ≪≫ i)

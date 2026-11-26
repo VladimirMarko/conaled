@@ -65,7 +65,7 @@ abbrev evaluation := DependentBaseChange.WithAdjunction.evaluation (square A Γ)
   (SheafTerminalProduct.adjunction A) (SheafProjectionProduct.adjunction A Γ)
 
 /-- Transposed family maps commute with this base change. -/
-abbrev curry_baseChange := DependentBaseChange.WithAdjunction.curry_baseChange (square A Γ)
+abbrev curry_base_change := DependentBaseChange.WithAdjunction.curry_base_change (square A Γ)
   (SheafTerminalProduct.adjunction A) (SheafProjectionProduct.adjunction A Γ)
 
 end SquareKit.SheafProductBaseChange

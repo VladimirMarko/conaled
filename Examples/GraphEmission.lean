@@ -179,9 +179,9 @@ def expectedWith : TermElabM Expr := Term.withLevelNames [`v] do
 
 run_elab do
   checkExactEnvironment
-  for (name, d) in [(`GraphEmitted.withOuter, withDeclaration),
+  for (name, d) in [(`GraphEmitted.with_outer, withDeclaration),
       (`GraphEmitted.substituted, substitutionDeclaration),
-      (`GraphEmitted.underBinder, underBinderDeclaration)] do
+      (`GraphEmitted.under_binder, underBinderDeclaration)] do
     installProduced name d
   compareType (GraphEmissionPure.emit withDeclaration).1 (← expectedWith)
   expectFailure "graph exact environment mismatch: Eq" <|
@@ -196,12 +196,12 @@ run_elab do
       | _ => ci)
 
 example (x y : Nat) (h : x = y) : some x = some y :=
-  GraphEmitted.withOuter Nat (Option Nat) Bool some (fun _ => true) y x ⟨h, some x, rfl⟩
+  GraphEmitted.with_outer Nat (Option Nat) Bool some (fun _ => true) y x ⟨h, some x, rfl⟩
 
 example (f : Nat → Option Nat) (x y : Nat) (h : f y = f x) : f x = f y :=
   GraphEmitted.substituted Nat (Option Nat) Bool f (fun _ => true) y x h
 
 example (f : Nat → Option Nat) (old new : Nat) (h : ∃ w, w = f old) : ∃ w, w = f old :=
-  GraphEmitted.underBinder Nat (Option Nat) Bool f (fun _ => true) old new h
+  GraphEmitted.under_binder Nat (Option Nat) Bool f (fun _ => true) old new h
 
 end GraphEmissionChecked

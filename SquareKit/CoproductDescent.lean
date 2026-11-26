@@ -166,7 +166,7 @@ def baseChangeIsColimit {Z : C} (a : Z ⟶ c.pt) :
 
 omit [HasInitial C] [HasStrictInitialObjects C] in
 /-- Morphisms can be tested after any base change of the coproduct injections. -/
-theorem baseChange_hom_ext (hF : EffectiveCoproducts.{w} F)
+theorem baseChangeCofan_hom_ext (hF : EffectiveCoproducts.{w} F)
     {Z : C} (a : Z ⟶ c.pt) {M N : F.obj (.mk (op Z))} (φ ψ : M ⟶ N)
     (h : ∀ i, (F.map (pullback.snd (c.inj i) a).op.toLoc).toFunctor.map φ =
       (F.map (pullback.snd (c.inj i) a).op.toLoc).toFunctor.map ψ) : φ = ψ := by
@@ -280,13 +280,13 @@ def aggregateRestrictionFullyFaithful (hF : EffectiveCoproducts.{w} F)
     · intro Z q i j a b ha hb
       cases i
       cases j
-      apply baseChange_hom_ext c hC hF a
+      apply baseChangeCofan_hom_ext c hC hF a
       intro i
       let r := pullback.snd (c.inj i) a
       let x := pullback.fst (c.inj i) a
       apply map_comm_of_pull_comm c ψ q a b ha hb r (x ≫ c.inj i) (r ≫ b)
         pullback.condition.symm rfl
-      apply baseChange_hom_ext c hC hF (r ≫ b)
+      apply baseChangeCofan_hom_ext c hC hF (r ≫ b)
       intro j
       let t := pullback.snd (c.inj j) (r ≫ b)
       let y := pullback.fst (c.inj j) (r ≫ b)
@@ -479,12 +479,12 @@ lemma pair_hom_ext (hF : EffectiveCoproducts.{w} F) {Z : C}
       (hx : k ≫ a = x ≫ c.inj i) (hy : k ≫ b = y ≫ c.inj j),
       pullHom φ k (x ≫ c.inj i) (y ≫ c.inj j) hx hy =
       pullHom ψ k (x ≫ c.inj i) (y ≫ c.inj j) hx hy) : φ = ψ := by
-  apply baseChange_hom_ext c hC hF a
+  apply baseChangeCofan_hom_ext c hC hF a
   intro i
   let r := pullback.snd (c.inj i) a
   let x := pullback.fst (c.inj i) a
   apply map_eq_of_pullHom_eq φ ψ r (x ≫ c.inj i) (r ≫ b) pullback.condition.symm rfl
-  apply baseChange_hom_ext c hC hF (r ≫ b)
+  apply baseChangeCofan_hom_ext c hC hF (r ≫ b)
   intro j
   let t := pullback.snd (c.inj j) (r ≫ b)
   let y := pullback.fst (c.inj j) (r ≫ b)
@@ -589,7 +589,7 @@ lemma aggregateHom_naturality (hF : EffectiveCoproducts.{w} F) {Z W : C}
 lemma aggregateHom_identity (hF : EffectiveCoproducts.{w} F) {Z : C}
     (q : Z ⟶ S) (a : Z ⟶ c.pt) (ha : a ≫ p = q) :
     D.aggregateHom c hC hF q a a ha ha = 𝟙 _ := by
-  apply baseChange_hom_ext c hC hF a
+  apply baseChangeCofan_hom_ext c hC hF a
   intro i
   apply map_eq_of_pullHom_eq _ _ (pullback.snd (c.inj i) a)
     (pullback.fst (c.inj i) a ≫ c.inj i) (pullback.fst (c.inj i) a ≫ c.inj i)
@@ -606,7 +606,7 @@ lemma aggregateHom_cocycle (hF : EffectiveCoproducts.{w} F) {Z : C}
       D.aggregateHom c hC hF q a d ha hd := by
   apply pair_hom_ext c hC hF a d
   intro W k i l x z hx hz
-  apply baseChange_hom_ext c hC hF (k ≫ b)
+  apply baseChangeCofan_hom_ext c hC hF (k ≫ b)
   intro j
   let t := pullback.snd (c.inj j) (k ≫ b)
   let y := pullback.fst (c.inj j) (k ≫ b)

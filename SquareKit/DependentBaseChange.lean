@@ -170,7 +170,7 @@ theorem transpose_map (Y : Over A) (Z : Over A') (j : (Over.pullback g').obj Y �
   rw [← Category.assoc, adj'.homEquiv_naturality_right, ← transpose]
 
 /-- Transport any transposed family map; the inverse law recovers its evaluation. -/
-theorem curry_baseChange (X : Over B) (Y : Over A) (k : (Over.pullback f).obj X ⟶ Y) :
+theorem curry_base_change (X : Over B) (Y : Over A) (k : (Over.pullback f).obj X ⟶ Y) :
     (Over.pullback g).map (adj.homEquiv X Y k) ≫ (mate h adj adj').app Y =
       adj'.homEquiv _ _
         ((pullbackComparison h).app X ≫ (Over.pullback g').map k) := by
@@ -189,6 +189,6 @@ abbrev mate_conjugate := WithAdjunction.mate_conjugate h adj (ExponentiablePullb
 abbrev iso := WithAdjunction.iso h adj (ExponentiablePullback.squareAdjunction f g adj h)
 abbrev evaluation := WithAdjunction.evaluation h adj (ExponentiablePullback.squareAdjunction f g adj h)
 abbrev transpose := WithAdjunction.transpose h adj (ExponentiablePullback.squareAdjunction f g adj h)
-abbrev curry_baseChange := WithAdjunction.curry_baseChange h adj (ExponentiablePullback.squareAdjunction f g adj h)
+abbrev curry_base_change := WithAdjunction.curry_base_change h adj (ExponentiablePullback.squareAdjunction f g adj h)
 
 end SquareKit.DependentBaseChange

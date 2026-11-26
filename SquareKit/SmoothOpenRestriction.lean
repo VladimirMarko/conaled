@@ -12,7 +12,7 @@ variable {U V : Domain} (a : U ⟶ V) (p : freeAlgebra U.dimension) (q : freeAlg
 def baseChangeMap : code (subdomain V q) ⟶ localization (code U) (Localization.pullback a (element V q)) :=
   fromSubdomain V q ≫ localizationMap (show code V ⟶ code U from Localization.pullback a) (element V q)
 
-theorem baseChange_square :
+theorem baseChangeMap_square :
     (show code V ⟶ code (subdomain V q) from Localization.pullback (subInclusion V q)) ≫ baseChangeMap a q =
       (show code V ⟶ code U from Localization.pullback a) ≫
         localizationBase (code U) (Localization.pullback a (element V q)) := by

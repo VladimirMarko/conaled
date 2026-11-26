@@ -176,7 +176,7 @@ propositional existence into recovery of those pairs.
 |---|---|---|
 | Geometric mixed square and projections | Preserved-pullback iso and naturality, both projections. | Same universal pair; exact recovery. Generic users need only F and pullbacks, with preservation for inversion. No reduction in the mathematics of constructing that square. |
 | Both mixed composition directions | Projection uniqueness and existing flattening laws. | Same derivations shared across arbitrary F; geometric specializations supply no new laws. |
-| Single curried base change | `WithAdjunction.curry_baseChange` proves the counit/naturality calculation. | `AdjointSquareTransport.curry` proves the same calculation once for arbitrary squares, not just slices. Users still supply the adjunctions and input cell. |
+| Single curried base change | `WithAdjunction.curry_base_change` proves the counit/naturality calculation. | `AdjointSquareTransport.curry` proves the same calculation once for arbitrary squares, not just slices. Users still supply the adjunctions and input cell. |
 | Twice-curried transport | Apply the single-square result twice; rewrite composition and associators. | `curry_paste` and `uncurry_paste` discharge that repeated calculation. The concrete client supplies actual squares, right adjoints and its selected input. |
 | Whole comparison pasting | Could expand mate units/counits and prove their cancellation. | Direct application of Mathlib `mateEquiv_vcomp`; no new mate engine. |
 | Chosen-adjoint replacement | Existing `AdjointComparison.mate` and curry/uncurry laws. | Remains available unchanged; replacement is not assumed definitionally invisible. |

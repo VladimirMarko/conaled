@@ -122,7 +122,7 @@ example :
         (torsorProjectionEquivalence (H := C4) (dual (free 0))).functor =
       (torsorProjectionEquivalence (H := C4) (dual (free 0))).functor ⋙
         restriction (representableMap (dualMap killEps)) :=
-  torsorProjection_baseChange killEps
+  torsorProjectionEquivalence_functor_base_change killEps
 
 /-- All locally trivial C4 torsors, including ones without sections, are covered
 by the theorem. No trivialization argument is an input to this equivalence. -/

@@ -34,10 +34,10 @@ Its functor is restriction along the product projection. Its inverse is
 restriction along the zero section. The corresponding equality theorems
 identify those functors, and `torsorProductZero_apply` checks the zero section
 on generalized points. The equivalence contains natural unit and counit and
-the triangle law. `torsorProjection_baseChange` and `torsorZero_baseChange`
+the triangle law. `torsorProjectionEquivalence_functor_base_change` and `torsorProjectionEquivalence_inverse_base_change`
 prove the represented versions commute with every presentation map, including
-maps involving nilpotent stages. `infinitesimalTorsor_baseChange` and
-`infinitesimalTorsorZero_baseChange` state both squares directly for the
+maps involving nilpotent stages. `infinitesimalTorsorEquivalence_functor_base_change` and
+`infinitesimalTorsorEquivalence_inverse_base_change` state both squares directly for the
 product presentation.
 
 The proof uses two existing constructions. `dualRepresentable` identifies

@@ -70,13 +70,13 @@ theorem model_overlap : IsPullback (embedding.map (overlapLeft line g h))
       (embedding.map (subInclusion line h)) := overlap_sheaf_pullback line g h
 
 /-- Actual base change also handles the reciprocal map without an ambient extension. -/
-theorem reciprocal_baseChange :
+theorem reciprocal_baseChangeMap :
     (show code line ⟶ code (subdomain line g) from Localization.pullback (subInclusion line g)) ≫
         baseChangeMap EuclideanOpenEmbedding.reciprocal g =
       (show code line ⟶ code EuclideanOpenEmbedding.punctured from Localization.pullback EuclideanOpenEmbedding.reciprocal) ≫
         localizationBase (code EuclideanOpenEmbedding.punctured)
           (Localization.pullback EuclideanOpenEmbedding.reciprocal (element line g)) :=
-  baseChange_square EuclideanOpenEmbedding.reciprocal g
+  baseChangeMap_square EuclideanOpenEmbedding.reciprocal g
 
 abbrev emptyDomain := EuclideanOpenEmbedding.emptyDomain
 abbrev emptyFamily : Fin 0 → freeAlgebra emptyDomain.dimension := Fin.elim0

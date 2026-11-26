@@ -44,7 +44,7 @@ theorem generatedEndpointIso_primitive :
   let := generatedContextMap_equivalence (projectionSignature F P)
     (fun _ => Function.bijective_id) primitiveContext
   unfold generatedEndpointIso
-  apply selectedLift_unique
+  apply fullyFaithfulCancelRight_unique
   ext x
   simp only [Iso.trans_hom, NatTrans.comp_app, isoWhiskerRight_hom,
     whiskerRight_app, eqToIso.hom, Iso.symm_hom, eqToIso.inv, eqToHom_app, Functor.map_comp, eqToHom_map]

@@ -92,7 +92,7 @@ theorem successor_square_bounds (n : ℕ) (hn : 1 ≤ n) :
 
 /-- Real-cast nonnegative functions admit a positive natural comparison
 coefficient at every filter. The comparator may vanish. -/
-theorem isBigO_nnrealCast_iff {ι : Type u} {l : Filter ι} (f g : ι → NNReal) :
+theorem isBigO_toReal_iff {ι : Type u} {l : Filter ι} (f g : ι → NNReal) :
     (fun x => (f x : ℝ)) =O[l] (fun x => (g x : ℝ)) ↔
       ∃ C : ℕ, 0 < C ∧ ∀ᶠ x in l, f x ≤ (C : NNReal) * g x := by
   constructor

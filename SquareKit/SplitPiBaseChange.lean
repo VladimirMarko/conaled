@@ -183,7 +183,7 @@ theorem canonical_transpose (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) 
       (Over.pullback (lift A σ)).map (evaluation A B) ≫ (displaySubIso B (lift A σ)).inv)).symm
 
 /-- Equality-level split substitution is the canonical Beck–Chevalley mate. -/
-theorem baseChange_eq (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
+theorem canonicalBaseChange_eq_splitBaseChange (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) :
     canonicalBaseChange A B σ = splitBaseChange A B σ := by
   apply Iso.ext
   apply (cancel_epi (displaySubIso (pi A B) σ).hom).mp
@@ -211,20 +211,20 @@ theorem transport_twice (P : Ty Γ) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ)
   exact (displaySubIso (tySub P σ) τ).hom_inv_id
 
 /-- Canonical base change obeys the identity coherence through the old adapter. -/
-theorem baseChange_identity (A : Ty Γ) (B : Ty (extension A)) :
+theorem canonicalBaseChange_identity (A : Ty Γ) (B : Ty (extension A)) :
     (displaySubIso (pi A B) (𝟙 Γ)).hom ≫ (canonicalBaseChange A B (𝟙 Γ)).hom = 𝟙 _ := by
-  rw [baseChange_eq]
+  rw [canonicalBaseChange_eq_splitBaseChange]
   change (displaySubIso (pi A B) (𝟙 Γ)).hom ≫ (displaySubIso (pi A B) (𝟙 Γ)).inv ≫ 𝟙 _ = 𝟙 _
   rw [Category.comp_id]
   exact (displaySubIso (pi A B) (𝟙 Γ)).hom_inv_id
 
 /-- Both canonical mates compose to the direct equality transport, after the
 existing ordinary pullback adapters. This is an equality of actual slice maps. -/
-theorem baseChange_composition (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
+theorem canonicalBaseChange_composition (A : Ty Γ) (B : Ty (extension A)) (σ : Δ ⟶ Γ) (τ : Ξ ⟶ Δ) :
     (doubleSub (pi A B) σ τ).hom ≫ (Over.pullback τ).map (canonicalBaseChange A B σ).hom ≫
       (canonicalBaseChange (tySub A σ) (tySub B (lift A σ)) τ).hom =
     (displaySubIso (pi A B) (τ ≫ σ)).hom ≫ (canonicalBaseChange A B (τ ≫ σ)).hom := by
-  rw [baseChange_eq, baseChange_eq, baseChange_eq]
+  rw [canonicalBaseChange_eq_splitBaseChange, canonicalBaseChange_eq_splitBaseChange, canonicalBaseChange_eq_splitBaseChange]
   change (doubleSub (pi A B) σ τ).hom ≫
     (Over.pullback τ).map ((displaySubIso (pi A B) σ).inv ≫ (typeIso (substitution A B σ)).hom) ≫
     ((displaySubIso (pi (tySub A σ) (tySub B (lift A σ))) τ).inv ≫
