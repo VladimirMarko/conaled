@@ -128,7 +128,7 @@ set_option backward.isDefEq.respectTransparency false in
   rcases hd with rfl | rfl | rfl | rfl
   all_goals simp [Reference.Declaration.encode, A, x, B, C, P, ΓB, environment,
     SquareKit.GuardedTheory.Atom.eval, SquareKit.GuardedTheory.Term.eval, Contextual.algebra, Contextual.operation,
-    SquareKit.Internal.DependentJudgments.operation, SquareKit.Internal.DependentJudgments.predicate,
+    SquareKit.Internal.DependentJudgments.operation, SquareKit.Internal.DependentJudgments.PredicateHolds,
     Contextual.empty, Contextual.path, Contextual.extend, M]
 
 /-- A concrete model satisfies the actual declarations used by the J proof.

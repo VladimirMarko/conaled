@@ -24,7 +24,7 @@ def reindexedTransport : M.Section (M.extend Δ (reindexedType M A B σ))
     (reindexEndomap M (pathType M A B) (transport M A B) σ)
 
 def reindexedBeta : M.Section (M.extend Δ (reindexedType M A B σ))
-    (EndomapBetaType M (reindexedType M A B σ) (reindexedTransport M A B σ)) :=
+    (endomapBetaFamily M (reindexedType M A B σ) (reindexedTransport M A B σ)) :=
   castEndomapBeta M (reindexedType_eq M A B σ) _
     (reindexEndomapBeta M (pathType M A B) (transport M A B)
       (fixedPathBetaSection M (paths M A B).family (paths M A B).x (paths M A B).y) σ)

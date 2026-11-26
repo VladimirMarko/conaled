@@ -57,7 +57,7 @@ theorem dependentAction_twice_map :
 
 /-- Reusing the complete target derivation transports typed equality premises;
 the resulting comparison is the generated fresh-action equation. -/
-theorem freshAction_target (typed : TypedAssumptions Ω) :
+theorem fresh_action_target (typed : TypedAssumptions Ω) :
     (subTm (subTm (S.input.parameters.dependentAction S.input.p S.input.p' S.input.h) S.sigma) S.tau).eval
       (algebra N) (Value.map map.toStructuralMap ∘ ρ) =
     (((S.input.reindex S.sigmaTyping).reindex S.tauTyping).parameters.dependentAction

@@ -416,8 +416,8 @@ noncomputable def partialAlgebra (M : Model.{u}) : PartialAlgebra signature wher
     | inr op => exact operands_defined M op args h
 
 theorem predicate_map (F : StructuralMap M N) (p : Predicate)
-    (args : Fin 2 → Value M) (h : predicate M p args) :
-    predicate N p (Value.map F ∘ args) := by
+    (args : Fin 2 → Value M) (h : PredicateHolds M p args) :
+    PredicateHolds N p (Value.map F ∘ args) := by
   cases p with
   | telescope n =>
     rcases h with ⟨Γ, T, hΓ, hT⟩

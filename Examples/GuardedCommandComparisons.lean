@@ -114,17 +114,17 @@ local notation "M₀" => NativeType.model Nat (fun n => Fin (n + 1))
 local notation "S₀" => NativeType.structuralModel Nat (fun n => Fin (n + 1))
 
 def shift (p : FiniteOption.Base) : FiniteOption.Base := (p.1 + 1, p.2)
-abbrev shiftedTail := (S₀).pathTail direct ⟨zero⟩ sourceTail ⟨shift⟩
+abbrev shiftedTail := (S₀).pathTail DirectFamily ⟨zero⟩ sourceTail ⟨shift⟩
 def shiftedBranchPoint :
     (Telescope.pullback S₀ shiftedTail
-      ((S₀).rootSub ((S₀).subTy direct ⟨shift⟩) ((S₀).subTm ⟨zero⟩ ⟨shift⟩))).total :=
+      ((S₀).rootSub ((S₀).subTy DirectFamily ⟨shift⟩) ((S₀).subTm ⟨zero⟩ ⟨shift⟩))).total :=
   ⟨⟨(2, false), (⟨2, by decide⟩ : Fin 4)⟩, (⟨1, by decide⟩ : Fin 3)⟩
 def shiftedPoint : shiftedTail.total :=
-  ((S₀).rootTail ((S₀).subTy direct ⟨shift⟩) ((S₀).subTm ⟨zero⟩ ⟨shift⟩) shiftedTail).down
+  ((S₀).rootTail ((S₀).subTy DirectFamily ⟨shift⟩) ((S₀).subTm ⟨zero⟩ ⟨shift⟩) shiftedTail).down
     shiftedBranchPoint
 
 theorem shifted_point_maps_to_sample :
-    ((S₀).pathTailMap direct ⟨zero⟩ sourceTail ⟨shift⟩).down shiftedPoint = sampleSource := rfl
+    ((S₀).pathTailMap DirectFamily ⟨zero⟩ sourceTail ⟨shift⟩).down shiftedPoint = sampleSource := rfl
 
 /-- A nonidentity base substitution, a fresh J command, and changed dependent
 presentations meet in one observed equality inherited from the builders. -/
@@ -133,7 +133,7 @@ theorem fresh_selected_code :
       (fun t => motives sampleSource (t.down shiftedPoint))
       ((evaluatedFresh M₀ CoherentGuardedJudgments.FiniteOptionExample.source
           FiniteOption.Base ⟨shift⟩).termAt shiftedTail.total
-        ((S₀).subTy sourceMotive ((S₀).pathTailMap direct ⟨zero⟩ sourceTail ⟨shift⟩))) =
+        ((S₀).subTy SourceMotive ((S₀).pathTailMap DirectFamily ⟨zero⟩ sourceTail ⟨shift⟩))) =
       some (some (⟨1, by decide⟩ : Fin 3)) := by
   have h := fresh_coherent_observation Nat (fun n => Fin (n + 1)) comparison zero tails motives
     sourceBranch.down shift shiftedPoint

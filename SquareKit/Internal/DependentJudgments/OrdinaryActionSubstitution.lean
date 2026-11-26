@@ -10,12 +10,12 @@ universe u
 variable (M : Model.{u})
 variable {Γ Δ : M.Context} (A C : M.Family Γ)
 variable (t : M.Section (M.extend Γ A) (M.subTy C (M.weaken Γ A)))
-theorem ordinaryFunction_type (σ : M.Substitution Δ Γ) :
+theorem ordinaryFunctionSub_type (σ : M.Substitution Δ Γ) :
  M.subTy (M.subTy C (M.weaken Γ A)) (M.toStructuralModel.lift A σ) =
  M.subTy (M.subTy C σ) (M.weaken Δ (M.subTy A σ)) := by
  rw [M.subTy_comp, M.toStructuralModel.weaken_lift, M.subTy_comp]
 def ordinaryFunctionSub (σ : M.Substitution Δ Γ) :=
- cast (congrArg (M.Section _) (ordinaryFunction_type M A C σ))
+ cast (congrArg (M.Section _) (ordinaryFunctionSub_type M A C σ))
   (M.subTm t (M.toStructuralModel.lift A σ))
 theorem ordinaryApply_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  HEq (M.subTm (ordinaryApply M A C t x) σ)
@@ -23,28 +23,28 @@ theorem ordinaryApply_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  apply (M.toStructuralModel.subTm_congr (M.toStructuralModel.weaken_section_type A x C).symm (cast_heq _ _) σ).trans
  apply (M.subTm_comp _ _ _).trans
  apply HEq.trans _ (cast_heq _ _).symm
- apply HEq.trans _ (M.toStructuralModel.subTm_congr (ordinaryFunction_type M A C σ).symm (cast_heq _ _) _).symm
+ apply HEq.trans _ (M.toStructuralModel.subTm_congr (ordinaryFunctionSub_type M A C σ).symm (cast_heq _ _) _).symm
  apply HEq.trans _ (M.subTm_comp _ _ _).symm
  rw [M.toStructuralModel.section_lift]
-theorem ordinaryApType_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
+theorem ordinaryAp_type_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  M.subTy (motive M A (M.subTy C (M.weaken Γ A)) x) (M.toStructuralModel.pathSub A x σ) =
  motive M (M.subTy A σ) (M.subTy (M.subTy C σ) (M.weaken Δ (M.subTy A σ))) (M.subTm x σ) := by
  unfold motive
- rw [M.subTy_comp, M.toStructuralModel.weaken_pathSub, ← M.subTy_comp, ordinaryFunction_type]
+ rw [M.subTy_comp, M.toStructuralModel.weaken_pathSub, ← M.subTy_comp, ordinaryFunctionSub_type]
 theorem ordinaryApRight_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  HEq (M.subTm (ordinaryApRight M A C t x) (M.toStructuralModel.pathSub A x σ))
  (ordinaryApRight M (M.subTy A σ) (M.subTy C σ) (ordinaryFunctionSub M A C t σ) (M.subTm x σ)) := by
  apply (M.subTm_comp _ _ _).trans
  rw [M.toStructuralModel.weaken_pathSub]
  apply (M.subTm_comp _ _ _).symm.trans
- exact (M.toStructuralModel.subTm_congr (ordinaryFunction_type M A C σ).symm (cast_heq _ _) _).symm
+ exact (M.toStructuralModel.subTm_congr (ordinaryFunctionSub_type M A C σ).symm (cast_heq _ _) _).symm
 theorem ordinaryApLeft_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  HEq (M.subTm (ordinaryApLeft M A C t x) (M.toStructuralModel.pathSub A x σ))
  (ordinaryApLeft M (M.subTy A σ) (M.subTy C σ) (ordinaryFunctionSub M A C t σ) (M.subTm x σ)) := by
  apply (M.subTm_comp _ _ _).trans
  rw [M.toStructuralModel.weaken_pathSub]
  apply (M.subTm_comp _ _ _).symm.trans
- apply M.toStructuralModel.subTm_congr (ordinaryFunction_type M A C σ)
+ apply M.toStructuralModel.subTm_congr (ordinaryFunctionSub_type M A C σ)
  apply (M.subTm_comp _ _ _).trans
  rw [M.toStructuralModel.weaken_lift]
  apply (M.subTm_comp _ _ _).symm.trans
@@ -53,7 +53,7 @@ theorem ordinaryApMotive_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  M.subTy (ordinaryApMotive M A C t x) (M.toStructuralModel.pathSub A x σ) =
  ordinaryApMotive M (M.subTy A σ) (M.subTy C σ) (ordinaryFunctionSub M A C t σ) (M.subTm x σ) := by
  rw [ordinaryApMotive, M.identity_sub]
- exact M.toStructuralModel.identity_congr (ordinaryApType_sub M A C x σ)
+ exact M.toStructuralModel.identity_congr (ordinaryAp_type_sub M A C x σ)
   (ordinaryApLeft_sub M A C t x σ) (ordinaryApRight_sub M A C t x σ)
 theorem ordinaryApBranch_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
  HEq (M.toStructuralModel.reindexBranch A x .nil σ (ordinaryApMotive M A C t x) (ordinaryApBranch M A C t x))
@@ -76,7 +76,7 @@ theorem ordinaryApSection_sub (x : M.Section Γ A) (σ : M.Substitution Δ Γ) :
 def ordinaryPathSub (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y))
  (σ : M.Substitution Δ Γ) :=
  cast (congrArg (M.Section Δ) (M.identity_sub A x y σ)) (M.subTm p σ)
-theorem ordinaryEndpoint_square (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y))
+theorem ordinary_endpoint_square (x y : M.Section Γ A) (p : M.Section Γ (M.identity A x y))
  (σ : M.Substitution Δ Γ) :
  M.compSub (M.toStructuralModel.pathSub A x σ)
   (M.toStructuralModel.endpointSub (M.subTy A σ) (M.subTm x σ) (M.subTm y σ) (ordinaryPathSub M A x y p σ)) =
@@ -107,5 +107,5 @@ theorem ordinaryApValue_sub (x y : M.Section Γ A) (p : M.Section Γ (M.identity
  apply HEq.trans _ (M.toStructuralModel.subTm_congr (ordinaryApMotive_sub M A C t x σ)
   (ordinaryApSection_sub M A C t x σ) _)
  apply HEq.trans _ (M.subTm_comp _ _ _).symm
- rw [ordinaryEndpoint_square]
+ rw [ordinary_endpoint_square]
 end SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics

@@ -833,7 +833,7 @@ theorem transportedCertificate_twice_eval :
     (thetaRealization.transportedCertificate_eval inputs)
 
 /-- The twice-substituted dependent-action type retains its transported source. -/
-theorem dependentActionType_twice_eval :
+theorem dependentAction_type_twice_eval :
     (Contextual.subTy (Contextual.subTy
       (Contextual.identity (signature.input.parameters.certificateType signature.input.p')
         (signature.input.parameters.transportedCertificate signature.input.p signature.input.p' signature.input.h)

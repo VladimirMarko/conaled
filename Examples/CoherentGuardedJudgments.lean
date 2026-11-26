@@ -69,23 +69,23 @@ local notation "N" => NativeType.model Nat (fun n => Fin (n + 1))
 local notation "S₀" => NativeType.structuralModel Nat (fun n => Fin (n + 1))
 
 def source : Problem S₀ :=
-  ⟨⟨⟨FiniteOption.Base, direct, ⟨zero⟩⟩, 2, sourceTail⟩, sourceMotive, sourceBranch⟩
+  ⟨⟨⟨FiniteOption.Base, DirectFamily, ⟨zero⟩⟩, 2, sourceTail⟩, SourceMotive, sourceBranch⟩
 def target : Problem S₀ :=
-  ⟨⟨⟨FiniteOption.Base, coded, ⟨comparison.term zero⟩⟩, 2, targetTail⟩, targetMotive, targetBranch⟩
+  ⟨⟨⟨FiniteOption.Base, CodedFamily, ⟨comparison.term zero⟩⟩, 2, targetTail⟩, TargetMotive, targetBranch⟩
 
 /-- The same source command at the two constructed assignments compares the
 retained dependent value; its two tail families and result family differ. -/
 theorem source_recipe_comparison :
     Option.map (fun t => motives.term t.down)
-      ((evaluated Nat (fun n => Fin (n + 1)) source).termAt sourceTail.total sourceMotive) =
+      ((evaluated Nat (fun n => Fin (n + 1)) source).termAt sourceTail.total SourceMotive) =
     Option.map (fun t => t.down)
-      ((evaluated Nat (fun n => Fin (n + 1)) target).termAt targetTail.total targetMotive) :=
+      ((evaluated Nat (fun n => Fin (n + 1)) target).termAt targetTail.total TargetMotive) :=
   interpreted_command_comparison Nat (fun n => Fin (n + 1)) comparison zero tails motives sourceBranch.down
 
 /-- The selected result is read from the interpreted source recipe. -/
 theorem source_recipe_selected :
     Option.map (fun t => (t.down sampleSource).val)
-      ((evaluated Nat (fun n => Fin (n + 1)) source).termAt sourceTail.total sourceMotive) = some 2 := by
+      ((evaluated Nat (fun n => Fin (n + 1)) source).termAt sourceTail.total SourceMotive) = some 2 := by
   rw [evaluated_value]
   simp only [source, Value.termAt_term, Option.map_some]
   exact congrArg some source_selected_two
@@ -94,7 +94,7 @@ theorem source_recipe_selected :
 2 as its specified code some 1. -/
 theorem target_recipe_selected :
     Option.map (fun t => t.down (tails.total sampleSource))
-      ((evaluated Nat (fun n => Fin (n + 1)) target).termAt targetTail.total targetMotive) =
+      ((evaluated Nat (fun n => Fin (n + 1)) target).termAt targetTail.total TargetMotive) =
       some (some (⟨1, by decide⟩ : Fin 3)) := by
   have h := congrArg (Option.map (fun t => t (tails.total sampleSource))) source_recipe_comparison
   rw [evaluated_value, evaluated_value] at h

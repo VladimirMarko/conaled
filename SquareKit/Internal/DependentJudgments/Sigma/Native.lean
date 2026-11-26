@@ -103,37 +103,37 @@ open CoherentTypePresentations
 local notation "M₀" => NativeType.structuralModel Nat (fun n => Fin (n + 1))
 local notation "S₀" => capability Nat (fun n => Fin (n + 1))
 
-abbrev firstSource := CoherentTypePresentations.FiniteOption.direct
-abbrev firstTarget := CoherentTypePresentations.FiniteOption.coded
+abbrev FirstSourceFamily := CoherentTypePresentations.FiniteOption.DirectFamily
+abbrev FirstTargetFamily := CoherentTypePresentations.FiniteOption.CodedFamily
 abbrev firstComparison := CoherentTypePresentations.FiniteOption.comparison
 
-def secondSource (p : _root_.Sigma firstSource) : Type := Fin (p.2.val + 1)
-def secondTarget (p : _root_.Sigma firstTarget) : Type :=
+def SecondSourceFamily (p : _root_.Sigma FirstSourceFamily) : Type := Fin (p.2.val + 1)
+def SecondTargetFamily (p : _root_.Sigma FirstTargetFamily) : Type :=
   Option (Fin ((finSuccEquiv p.1.1).symm p.2).val)
 
-def secondComparison : FamilyComparison firstComparison.total secondSource secondTarget := by
+def secondComparison : FamilyComparison firstComparison.total SecondSourceFamily SecondTargetFamily := by
   intro p
   change Fin (p.2.val + 1) ≃ Option (Fin ((finSuccEquiv p.1.1).symm (finSuccEquiv p.1.1 p.2)).val)
   simpa only [Equiv.symm_apply_apply] using finSuccEquiv p.2.val
 
 def sums := sigmaComparison Nat (fun n => Fin (n + 1)) firstComparison secondComparison
 
-def sourceMotive (p : _root_.Sigma ((S₀).sigma firstSource secondSource)) : Type :=
+def SourceMotive (p : _root_.Sigma ((S₀).sigma FirstSourceFamily SecondSourceFamily)) : Type :=
   Fin (p.2.1.val + 1)
-def targetMotive (p : _root_.Sigma ((S₀).sigma firstTarget secondTarget)) : Type :=
+def TargetMotive (p : _root_.Sigma ((S₀).sigma FirstTargetFamily SecondTargetFamily)) : Type :=
   Option (Fin ((finSuccEquiv p.1.1).symm p.2.1).val)
 
-def motives : FamilyComparison sums.total sourceMotive targetMotive := by
+def motives : FamilyComparison sums.total SourceMotive TargetMotive := by
   intro p
   change Fin (p.2.1.val + 1) ≃ Option (Fin ((finSuccEquiv p.1.1).symm
     (finSuccEquiv p.1.1 p.2.1)).val)
   simpa only [Equiv.symm_apply_apply] using finSuccEquiv p.2.1.val
 
-def sourceBranch : (M₀).Section (_root_.Sigma secondSource)
-    ((M₀).subTy sourceMotive ((S₀).pack firstSource secondSource)) := ⟨fun p => p.2⟩
+def sourceBranch : (M₀).Section (_root_.Sigma SecondSourceFamily)
+    ((M₀).subTy SourceMotive ((S₀).pack FirstSourceFamily SecondSourceFamily)) := ⟨fun p => p.2⟩
 
-def sourceResult := (S₀).split firstSource secondSource sourceMotive sourceBranch
-def targetResult := (S₀).split firstTarget secondTarget targetMotive
+def sourceResult := (S₀).split FirstSourceFamily SecondSourceFamily SourceMotive sourceBranch
+def targetResult := (S₀).split FirstTargetFamily SecondTargetFamily TargetMotive
   (comparedBranch Nat (fun n => Fin (n + 1)) firstComparison secondComparison motives sourceBranch)
 
 /-- Both Sigma components and the motive change presentation. Exact selected
@@ -141,7 +141,7 @@ values are transported by the supplied equivalences. -/
 theorem preserves_selected : motives.term sourceResult.down = targetResult.down :=
   split_compare Nat (fun n => Fin (n + 1)) firstComparison secondComparison motives sourceBranch
 
-def sample : _root_.Sigma ((S₀).sigma firstSource secondSource) :=
+def sample : _root_.Sigma ((S₀).sigma FirstSourceFamily SecondSourceFamily) :=
   ⟨(3, false), (⟨2, by decide⟩ : Fin 4), (⟨1, by decide⟩ : Fin 3)⟩
 
 theorem source_selected_one : sourceResult.down sample = (⟨1, by decide⟩ : Fin 3) := rfl
@@ -162,31 +162,31 @@ def shift : (M₀).Substitution CoherentTypePresentations.FiniteOption.Base
 
 theorem split_shift :
     (M₀).subTm sourceResult ((stable Nat (fun n => Fin (n + 1))).sumMap
-      firstSource secondSource shift) =
-    (S₀).split ((M₀).subTy firstSource shift)
-      ((M₀).subTy secondSource ((M₀).lift firstSource shift))
-      ((M₀).subTy sourceMotive ((stable Nat (fun n => Fin (n + 1))).sumMap
-        firstSource secondSource shift))
-      ((stable Nat (fun n => Fin (n + 1))).branch firstSource secondSource shift
-        sourceMotive sourceBranch) :=
+      FirstSourceFamily SecondSourceFamily shift) =
+    (S₀).split ((M₀).subTy FirstSourceFamily shift)
+      ((M₀).subTy SecondSourceFamily ((M₀).lift FirstSourceFamily shift))
+      ((M₀).subTy SourceMotive ((stable Nat (fun n => Fin (n + 1))).sumMap
+        FirstSourceFamily SecondSourceFamily shift))
+      ((stable Nat (fun n => Fin (n + 1))).branch FirstSourceFamily SecondSourceFamily shift
+        SourceMotive sourceBranch) :=
   (stable Nat (fun n => Fin (n + 1))).split_sub _ _ _ _ _
 
-def lastFirst : (M₀).Section CoherentTypePresentations.FiniteOption.Base firstSource :=
+def lastFirst : (M₀).Section CoherentTypePresentations.FiniteOption.Base FirstSourceFamily :=
   ⟨fun p => Fin.last p.1⟩
 
 def lastSecond : (M₀).Section CoherentTypePresentations.FiniteOption.Base
-    ((M₀).subTy secondSource ((M₀).sectionSub firstSource lastFirst)) :=
+    ((M₀).subTy SecondSourceFamily ((M₀).sectionSub FirstSourceFamily lastFirst)) :=
   ⟨fun p => Fin.last p.1⟩
 
 theorem pair_shift :
-    HEq ((M₀).subTm ((S₀).pair firstSource secondSource lastFirst lastSecond) shift)
-      ((S₀).pair ((M₀).subTy firstSource shift)
-        ((M₀).subTy secondSource ((M₀).lift firstSource shift))
+    HEq ((M₀).subTm ((S₀).pair FirstSourceFamily SecondSourceFamily lastFirst lastSecond) shift)
+      ((S₀).pair ((M₀).subTy FirstSourceFamily shift)
+        ((M₀).subTy SecondSourceFamily ((M₀).lift FirstSourceFamily shift))
         ((M₀).subTm lastFirst shift)
-        (Stable.pairSecond firstSource secondSource lastFirst lastSecond shift)) :=
+        (Stable.pairSecond FirstSourceFamily SecondSourceFamily lastFirst lastSecond shift)) :=
   (stable Nat (fun n => Fin (n + 1))).pair_sub _ _ _ _ _
 
-theorem pair_sample : ((S₀).pair firstSource secondSource lastFirst lastSecond).down (3, false) =
+theorem pair_sample : ((S₀).pair FirstSourceFamily SecondSourceFamily lastFirst lastSecond).down (3, false) =
     ⟨Fin.last 3, Fin.last 3⟩ := rfl
 
 end FiniteOption

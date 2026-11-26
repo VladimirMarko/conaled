@@ -55,16 +55,16 @@ def afterZData := (tailPData M A B).pullback
   (subTy_eval M env _ _ _ _ _ _ ((initial_eval M A B).addY).family_eval (duplicate_eval M A B)))
  (lift_eval M env _ _ _ _ _ _ _ (initial_eval M A B).context_eval
   ((initial_eval M A B).addY).family_eval (duplicate_eval M A B))
-theorem deltaZ_eq :
+theorem deltaZType_eq :
  M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B) =
   (Points.initial (M := S) A B).family :=
  (S).weaken_section_type (Points.initial (M := S) A B).family
   (Points.initial (M := S) A B).x (Points.initial (M := S) A B).family
 
-def deltaX := cast (congrArg (M.Section (Points.initial (M := S) A B).context) (deltaZ_eq M A B).symm)
+def deltaX := cast (congrArg (M.Section (Points.initial (M := S) A B).context) (deltaZType_eq M A B).symm)
  (Points.initial (M := S) A B).x
 
-theorem deltaZ_eval : signature.deltaZType.eval (Contextual.algebra M) env =
+theorem deltaZType_eval : signature.deltaZType.eval (Contextual.algebra M) env =
  .family (Points.initial (M := S) A B).context
   (M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B)) :=
  subTy_eval M env _ _ _ _ _ _ ((initial_eval M A B).addY).family_eval (duplicate_eval M A B)
@@ -74,5 +74,5 @@ def tauData := (afterZData M A B).display.pullback signature.point.hx.family.con
  ((S).sectionSub (M.subTy ((Points.initial (M := S) A B).addY).family (duplicate M A B)) (deltaX M A B))
  (initial_eval M A B).context_eval
  (sectionSub_eval M env _ _ _ _ _ _ (initial_eval M A B).context_eval
-  (deltaZ_eval M A B) ((initial_eval M A B).x_eval.trans (Value.term_eq (deltaZ_eq M A B).symm (cast_heq _ _).symm)))
+  (deltaZType_eval M A B) ((initial_eval M A B).x_eval.trans (Value.term_eq (deltaZType_eq M A B).symm (cast_heq _ _).symm)))
 end Examples.FrozenMemoStages

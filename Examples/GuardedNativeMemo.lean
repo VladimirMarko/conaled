@@ -21,9 +21,9 @@ abbrev premises : List (Contextual.Judgment (Fin 5)) :=
   [term gamma alpha point, family (extend gamma alpha) beta,
     term gamma (subTy beta (sectionSub gamma alpha point)) input]
 
-def point_typed : Tm (Ω := premises) gamma alpha point := .hypothesis (by simp [premises])
-def family_typed : Ty (Ω := premises) (extend gamma alpha) beta := .hypothesis (by simp [premises])
-def input_typed : Tm (Ω := premises) gamma (subTy beta (sectionSub gamma alpha point)) input :=
+def pointTyping : Tm (Ω := premises) gamma alpha point := .hypothesis (by simp [premises])
+def familyFormation : Ty (Ω := premises) (extend gamma alpha) beta := .hypothesis (by simp [premises])
+def inputTyping : Tm (Ω := premises) gamma (subTy beta (sectionSub gamma alpha point)) input :=
   .hypothesis (by simp [premises])
 
 def parameters : Memo.Parameters premises where
@@ -35,31 +35,31 @@ def parameters : Memo.Parameters premises where
   z := point
   q := Contextual.reflexivity alpha point
   u := input
-  xTyping := point_typed
-  yTyping := point_typed
-  zTyping := point_typed
-  familyFormation := family_typed
-  qTyping := point_typed.reflexivity
-  uTyping := input_typed
+  xTyping := pointTyping
+  yTyping := pointTyping
+  zTyping := pointTyping
+  familyFormation := familyFormation
+  qTyping := pointTyping.reflexivity
+  uTyping := inputTyping
 
 abbrev loop := Contextual.reflexivity alpha point
 abbrev directValue := Contextual.transport gamma alpha beta point point loop
   (Contextual.transport gamma alpha beta point point loop input)
 abbrev directCertificate := Contextual.eta gamma alpha beta point point point loop loop input
 
-def directValue_typed : Tm (Ω := premises) gamma (subTy beta (sectionSub gamma alpha point)) directValue :=
-  Tm.transport family_typed point_typed point_typed point_typed.reflexivity
-    (Tm.transport family_typed point_typed point_typed point_typed.reflexivity input_typed)
+def directValueTyping : Tm (Ω := premises) gamma (subTy beta (sectionSub gamma alpha point)) directValue :=
+  Tm.transport familyFormation pointTyping pointTyping pointTyping.reflexivity
+    (Tm.transport familyFormation pointTyping pointTyping pointTyping.reflexivity inputTyping)
 
-def directCertificate_typed : Tm (Ω := premises) gamma
+def directCertificateTyping : Tm (Ω := premises) gamma
     (Contextual.identity (subTy beta (sectionSub gamma alpha point)) directValue
       (Contextual.transport gamma alpha beta point point
         (Contextual.concat gamma alpha point point point loop loop) input)) directCertificate :=
-  Tm.eta family_typed point_typed point_typed point_typed.reflexivity input_typed
-    point_typed point_typed.reflexivity
+  Tm.eta familyFormation pointTyping pointTyping pointTyping.reflexivity inputTyping
+    pointTyping pointTyping.reflexivity
 
-def dependentAction_typed := parameters.dependentActionTyping
-  point_typed.reflexivity point_typed.reflexivity point_typed.reflexivity.reflexivity
+def dependentActionTyping := parameters.dependentActionTyping
+  pointTyping.reflexivity pointTyping.reflexivity pointTyping.reflexivity.reflexivity
 
 universe u
 variable (M : SquareKit.Internal.PathTransport.Typed.Model.{u})
@@ -117,7 +117,7 @@ normalization, retaining the exact chosen certificate. -/
 theorem selectedValue_eval :
     (parameters.value loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (M.subTy B (M.toStructuralModel.sectionSub A x)) b := by
-  have he := Contextual.interpret (parameters.valueAtPath point_typed.reflexivity)
+  have he := Contextual.interpret (parameters.valueAtPath pointTyping.reflexivity)
     M (environment M Γ A B x b) (inputs M Γ A B x b)
   exact he.trans (directValue_eval M Γ A B x b)
 
@@ -125,7 +125,7 @@ theorem selectedCertificate_eval :
     (parameters.certificate loop).eval (Contextual.algebra M) (environment M Γ A B x b) =
       .term Γ (semanticCertificateType M Γ A B x b)
         (etaValue M A B x x x (M.reflexivity A x) (M.reflexivity A x) b) := by
-  have he := Contextual.interpret (parameters.certificateAtPath point_typed.reflexivity)
+  have he := Contextual.interpret (parameters.certificateAtPath pointTyping.reflexivity)
     M (environment M Γ A B x b) (inputs M Γ A B x b)
   exact he.trans (directCertificate_eval M Γ A B x b)
 
@@ -134,61 +134,61 @@ open NativeDerivedComparisons
 local notation "M₀" => NativeType.model Nat (fun n => Fin (n + 1))
 local notation "S₀" => NativeType.structuralModel Nat (fun n => Fin (n + 1))
 
-def dependentFamily (z : Sigma FiniteOption.direct) : Type := Fin (z.2.val + 1)
-def codedDependentFamily (z : Sigma FiniteOption.coded) : Type :=
+def DependentFamily (z : Sigma FiniteOption.DirectFamily) : Type := Fin (z.2.val + 1)
+def CodedDependentFamily (z : Sigma FiniteOption.CodedFamily) : Type :=
   Option (Fin ((finSuccEquiv z.1.1).symm z.2).val)
-def comparison : FamilyComparison FiniteOption.comparison.total dependentFamily codedDependentFamily := by
+def comparison : FamilyComparison FiniteOption.comparison.total DependentFamily CodedDependentFamily := by
   intro z
   change Fin (z.2.val + 1) ≃ Option (Fin ((finSuccEquiv z.1.1).symm (finSuccEquiv z.1.1 z.2)).val)
   simpa only [Equiv.symm_apply_apply] using finSuccEquiv z.2.val
 
-def selected (γ : FiniteOption.Base) : FiniteOption.direct γ := ⟨γ.1, Nat.lt_succ_self _⟩
-def selectedValue (γ : FiniteOption.Base) : dependentFamily ⟨γ, selected γ⟩ := ⟨γ.1, Nat.lt_succ_self _⟩
+def selected (γ : FiniteOption.Base) : FiniteOption.DirectFamily γ := ⟨γ.1, Nat.lt_succ_self _⟩
+def selectedValue (γ : FiniteOption.Base) : DependentFamily ⟨γ, selected γ⟩ := ⟨γ.1, Nat.lt_succ_self _⟩
 def codedPoint := FiniteOption.comparison.term selected
 def codedValue := (atSection FiniteOption.comparison comparison selected).term selectedValue
 
 def sourceInput : (M₀).Section FiniteOption.Base
-    ((M₀).subTy dependentFamily ((M₀).toStructuralModel.sectionSub FiniteOption.direct ⟨selected⟩)) := by
-  change ULift ((γ : FiniteOption.Base) → dependentFamily ⟨γ, selected γ⟩)
+    ((M₀).subTy DependentFamily ((M₀).toStructuralModel.sectionSub FiniteOption.DirectFamily ⟨selected⟩)) := by
+  change ULift ((γ : FiniteOption.Base) → DependentFamily ⟨γ, selected γ⟩)
   exact ⟨selectedValue⟩
 def targetInput : (M₀).Section FiniteOption.Base
-    ((M₀).subTy codedDependentFamily ((M₀).toStructuralModel.sectionSub FiniteOption.coded ⟨codedPoint⟩)) := by
-  change ULift ((γ : FiniteOption.Base) → codedDependentFamily ⟨γ, codedPoint γ⟩)
+    ((M₀).subTy CodedDependentFamily ((M₀).toStructuralModel.sectionSub FiniteOption.CodedFamily ⟨codedPoint⟩)) := by
+  change ULift ((γ : FiniteOption.Base) → CodedDependentFamily ⟨γ, codedPoint γ⟩)
   exact ⟨codedValue⟩
 
-def sourceEnvironment := environment M₀ FiniteOption.Base FiniteOption.direct dependentFamily ⟨selected⟩ sourceInput
-def targetEnvironment := environment M₀ FiniteOption.Base FiniteOption.coded codedDependentFamily ⟨codedPoint⟩ targetInput
+def sourceEnvironment := environment M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput
+def targetEnvironment := environment M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput
 
 theorem source_inputs : ∀ a ∈ premises, a.eval (Contextual.algebra M₀) sourceEnvironment :=
-  inputs M₀ FiniteOption.Base FiniteOption.direct dependentFamily ⟨selected⟩ sourceInput
+  inputs M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput
 theorem target_inputs : ∀ a ∈ premises, a.eval (Contextual.algebra M₀) targetEnvironment :=
-  inputs M₀ FiniteOption.Base FiniteOption.coded codedDependentFamily ⟨codedPoint⟩ targetInput
+  inputs M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput
 
 def certificateComparison : FamilyComparison FiniteOption.flip
-    (semanticCertificateType M₀ FiniteOption.Base FiniteOption.direct dependentFamily ⟨selected⟩ sourceInput)
-    (semanticCertificateType M₀ FiniteOption.Base FiniteOption.coded codedDependentFamily ⟨codedPoint⟩ targetInput) :=
+    (semanticCertificateType M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput)
+    (semanticCertificateType M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput) :=
   etaFamily FiniteOption.comparison comparison selected selected selected
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩)
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩) sourceInput
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩)
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩) sourceInput
 
 theorem source_certificate_comparison :
     Option.map (fun t => certificateComparison.term t.down)
       ((directCertificate.eval (Contextual.algebra M₀) sourceEnvironment).termAt FiniteOption.Base
-        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.direct dependentFamily ⟨selected⟩ sourceInput)) =
+        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput)) =
     Option.map (fun t => t.down)
       ((directCertificate.eval (Contextual.algebra M₀) targetEnvironment).termAt FiniteOption.Base
-        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.coded codedDependentFamily ⟨codedPoint⟩ targetInput)) := by
+        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput)) := by
   unfold sourceEnvironment targetEnvironment
   rw [directCertificate_eval, directCertificate_eval]
   simp only [Value.termAt_term, Option.map_some]
   exact congrArg some (eta_compare FiniteOption.comparison comparison selected selected selected
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩)
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩) sourceInput)
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩)
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩) sourceInput)
 
 theorem source_selected_three :
     Option.map (fun t => (t.down (3, false)).val)
       ((directValue.eval (Contextual.algebra M₀) sourceEnvironment).termAt FiniteOption.Base
-        ((S₀).subTy dependentFamily ((S₀).sectionSub FiniteOption.direct ⟨selected⟩))) = some 3 := by
+        ((S₀).subTy DependentFamily ((S₀).sectionSub FiniteOption.DirectFamily ⟨selected⟩))) = some 3 := by
   unfold sourceEnvironment
   erw [directValue_eval]
   simp only [NativeType.model, Value.termAt_term, Option.map_some]
@@ -197,7 +197,7 @@ theorem source_selected_three :
 theorem target_selected_some_two :
     Option.map (fun t => t.down (FiniteOption.flip (3, false)))
       ((directValue.eval (Contextual.algebra M₀) targetEnvironment).termAt FiniteOption.Base
-        ((S₀).subTy codedDependentFamily ((S₀).sectionSub FiniteOption.coded ⟨codedPoint⟩))) =
+        ((S₀).subTy CodedDependentFamily ((S₀).sectionSub FiniteOption.CodedFamily ⟨codedPoint⟩))) =
       some (some (⟨2, by decide⟩ : Fin 3)) := by
   unfold targetEnvironment
   erw [directValue_eval]
@@ -212,28 +212,28 @@ its varying section, is compared in the two unequal dependent presentations. -/
 theorem selected_certificate_comparison :
     Option.map (fun t => certificateComparison.term t.down)
       (((parameters.certificate loop).eval (Contextual.algebra M₀) sourceEnvironment).termAt FiniteOption.Base
-        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.direct dependentFamily ⟨selected⟩ sourceInput)) =
+        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.DirectFamily DependentFamily ⟨selected⟩ sourceInput)) =
     Option.map (fun t => t.down)
       (((parameters.certificate loop).eval (Contextual.algebra M₀) targetEnvironment).termAt FiniteOption.Base
-        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.coded codedDependentFamily ⟨codedPoint⟩ targetInput)) := by
+        (semanticCertificateType M₀ FiniteOption.Base FiniteOption.CodedFamily CodedDependentFamily ⟨codedPoint⟩ targetInput)) := by
   unfold sourceEnvironment targetEnvironment
   rw [selectedCertificate_eval, selectedCertificate_eval]
   simp only [Value.termAt_term, Option.map_some]
   exact congrArg some (eta_compare FiniteOption.comparison comparison selected selected selected
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩)
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩) sourceInput)
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩)
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩) sourceInput)
 
 /-- A concrete application of the constructed varying-certificate and apd
 comparison, with both displayed dependent families changed. -/
 def etaPresentations := etaPresentation (Base := Nat) (Fiber := fun n => Fin (n + 1)) FiniteOption.comparison comparison selected selected selected
-  ((M₀).reflexivity FiniteOption.direct ⟨selected⟩) sourceInput
+  ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩) sourceInput
 
 theorem selected_dependent_action_comparison
     (p p' : (γ : FiniteOption.Base) → PathFamily selected selected γ)
     (h : (S₀).Section FiniteOption.Base ((S₀).identity (PathFamily selected selected) ⟨p⟩ ⟨p'⟩)) :
     etaPresentations.DependentActionCompared FiniteOption.comparison selected selected p p' h :=
-  apdEta_compare FiniteOption.comparison comparison selected selected selected
-    ((M₀).reflexivity FiniteOption.direct ⟨selected⟩) sourceInput p p' h
+  apd_eta_compare FiniteOption.comparison comparison selected selected selected
+    ((M₀).reflexivity FiniteOption.DirectFamily ⟨selected⟩) sourceInput p p' h
 
 end FinitePresentation
 end Examples.GuardedNativeMemo

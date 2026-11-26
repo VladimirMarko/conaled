@@ -19,11 +19,11 @@ abbrev splitEtaRule : Rule signature where
 namespace Separation
 abbrev M := ConstantFamilies.model PUnit
 abbrev S := (ConstantFamilies.stable PUnit).toCapability
-abbrev sumContext := M.extend PUnit (S.sigma (Γ := PUnit) PUnit PUnit)
-def observeFlag : M.Section sumContext Bool := ⟨fun p => p.2.2⟩
+abbrev SumContext := M.extend PUnit (S.sigma (Γ := PUnit) PUnit PUnit)
+def observeFlag : M.Section SumContext Bool := ⟨fun p => p.2.2⟩
 def valuation : Fin 5 → Value M.toStructuralModel :=
   ![.context PUnit, .family PUnit PUnit, .family (M.extend PUnit PUnit) PUnit,
-    .family sumContext Bool, .term sumContext Bool observeFlag]
+    .family SumContext Bool, .term SumContext Bool observeFlag]
 
 theorem premises : ∀ i, (splitEtaRule.premise i).eval (algebra M S) valuation := by
   intro i
@@ -31,9 +31,9 @@ theorem premises : ∀ i, (splitEtaRule.premise i).eval (algebra M S) valuation 
   · exact ⟨PUnit, PUnit, rfl, rfl⟩
   · refine ⟨M.extend PUnit PUnit, PUnit, ?_, rfl⟩
     simp [Term.eval, algebra, Contextual.algebra, DependentJudgments.operation, valuation]
-  · refine ⟨sumContext, Bool, ?_, rfl⟩
+  · refine ⟨SumContext, Bool, ?_, rfl⟩
     simp [Term.eval, algebra, operation, Contextual.algebra, DependentJudgments.operation, valuation]
-  · refine ⟨sumContext, Bool, observeFlag, ?_, rfl, rfl⟩
+  · refine ⟨SumContext, Bool, observeFlag, ?_, rfl, rfl⟩
     simp [Term.eval, algebra, operation, Contextual.algebra, DependentJudgments.operation, valuation]
 
 theorem conclusion_false : ¬ splitEtaRule.conclusion.eval (algebra M S) valuation := by

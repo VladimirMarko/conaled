@@ -40,7 +40,7 @@ def hFamily : Derives declarations (.has (.ty sectionContext) chosenFamily) :=
 def hSection : Derives declarations (.has (.tm sectionContext chosenFamily) chosenSection) :=
   .termDecl (by simp [declarations]) hFamily
 
-def signature_valid : WellFormedSignature declarations := by
+def signatureWellFormed : WellFormedSignature declarations := by
   have h0 : WellFormedSignature ([.family empty α] : List (Declaration (Fin 4))) :=
     .family 0 .nil .empty (by simp [Fresh])
   have ha : Derives [.family empty α] (.has (.ty empty) α) :=
@@ -64,34 +64,34 @@ abbrev actionType := identity (subTy chosenFamily (sectionSub input.Γ input.toP
   (transport input.Γ input.toPoints.pathType chosenFamily input.p input.p' input.h
     (subTm chosenSection (sectionSub input.Γ input.toPoints.pathType input.p)))
   (subTm chosenSection (sectionSub input.Γ input.toPoints.pathType input.p'))
-def action_typed : Derives declarations (.has (.tm input.Γ actionType) action) :=
+def actionTyping : Derives declarations (.has (.tm input.Γ actionType) action) :=
   Derives.apd hSection input.hp input.hp' input.hh
 
 abbrev sigma := FrozenInput.Substitutions.sigma hA hB
 abbrev tau := FrozenInput.Substitutions.tau hA hB
 abbrev delta := FrozenInput.Substitutions.delta hA hB
 abbrev theta := FrozenInput.Substitutions.theta hA hB
-abbrev sigma_typed := FrozenInput.Substitutions.sigmaTyping hA hB
-abbrev tau_typed := FrozenInput.Substitutions.tauTyping hA hB
+abbrev sigmaTyping := FrozenInput.Substitutions.sigmaTyping hA hB
+abbrev tauTyping := FrozenInput.Substitutions.tauTyping hA hB
 
-def action_once := Derives.subTm action_typed sigma_typed
-def action_twice := Derives.subTm action_once tau_typed
-def witness_twice := Derives.subTm (.subTm input.hh sigma_typed) tau_typed
+def actionOnceTyping := Derives.subTm actionTyping sigmaTyping
+def actionTwiceTyping := Derives.subTm actionOnceTyping tauTyping
+def witnessTwiceTyping := Derives.subTm (.subTm input.hh sigmaTyping) tauTyping
 
-def action_subComp := Derives.subTmComp action_typed sigma_typed tau_typed
+def actionSubCompEquality := Derives.subTmComp actionTyping sigmaTyping tauTyping
 
-def motive_typed := Derives.apdMotive hSection input.hp
-def branch_typed := Derives.apdBranch hSection input.hp
+def motiveFormation := Derives.apdMotive hSection input.hp
+def branchTyping := Derives.apdBranch hSection input.hp
 
 /-- Formation is retained both in the base context and in the lifted path context. -/
-def branch_twice := Derives.subTm (.subTm branch_typed sigma_typed) tau_typed
-def motive_once := Derives.subTy motive_typed (.pathSub input.hp sigma_typed)
-def motive_twice := Derives.subTy motive_once (.pathSub (.subTm input.hp sigma_typed) tau_typed)
-def branch_family_twice := branch_twice.termFamily
-def motive_context_twice := motive_twice.typeContext
-def action_context_twice := action_twice.termFamily.typeContext
-def substitution_contexts := (sigma_typed.subContexts, tau_typed.subContexts)
-def composition_operands := action_subComp.eqOperands
+def branchTwiceTyping := Derives.subTm (.subTm branchTyping sigmaTyping) tauTyping
+def motiveOnceFormation := Derives.subTy motiveFormation (.pathSub input.hp sigmaTyping)
+def motiveTwiceFormation := Derives.subTy motiveOnceFormation (.pathSub (.subTm input.hp sigmaTyping) tauTyping)
+def branchFamilyTwiceFormation := branchTwiceTyping.termFamily
+def motiveContextTwiceFormation := motiveTwiceFormation.typeContext
+def actionContextTwiceFormation := actionTwiceTyping.termFamily.typeContext
+def substitutionContexts := (sigmaTyping.subContexts, tauTyping.subContexts)
+def compositionOperandTypings := actionSubCompEquality.eqOperands
 
 /-- These are the original display maps, whose head constructors are pairs. -/
 theorem sigma_nonidentity : sigma ≠ identitySub delta := by
@@ -141,23 +141,23 @@ private theorem template_fusion (e : Contextual.Expression (Fin 4)) :
 def firstMap := RulePresentation.templateMap declarations firstTemplate
 def secondMap := RulePresentation.templateMap (declarations.map (Declaration.instantiate firstTemplate)) secondTemplate
 def compiledAction := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
-  (fun _ => id) (RulePresentation.encode action_twice)
+  (fun _ => id) (RulePresentation.encode actionTwiceTyping)
 def compiledWitness := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
-  (fun _ => id) (RulePresentation.encode witness_twice)
+  (fun _ => id) (RulePresentation.encode witnessTwiceTyping)
 
 def compiledSourceWitness := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
   (fun _ => id) (RulePresentation.encode input.hh)
 def compiledMotive := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
-  (fun _ => id) (RulePresentation.encode motive_twice)
+  (fun _ => id) (RulePresentation.encode motiveTwiceFormation)
 def compiledBranch := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
-  (fun _ => id) (RulePresentation.encode branch_twice)
+  (fun _ => id) (RulePresentation.encode branchTwiceTyping)
 def compiledComposition := (firstMap.comp secondMap).transport (H' := fun _ => Empty)
-  (fun _ => id) (RulePresentation.encode action_subComp)
+  (fun _ => id) (RulePresentation.encode actionSubCompEquality)
 def compiledCompositionOperands := (RulePresentation.decode compiledComposition).eqOperands
 
 theorem compilation_stages : compiledAction =
     RulePresentation.transport secondTemplate
-      (RulePresentation.transport firstTemplate (RulePresentation.encode action_twice)) :=
+      (RulePresentation.transport firstTemplate (RulePresentation.encode actionTwiceTyping)) :=
   RulePresentation.transport_comp firstTemplate secondTemplate _
 
 def compiledIndependent := RulePresentation.decode compiledAction

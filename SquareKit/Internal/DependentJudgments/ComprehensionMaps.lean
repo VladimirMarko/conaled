@@ -281,7 +281,7 @@ theorem Inputs.operation_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
 
 theorem predicate_map {M : StructuralModel.{u}} {N : StructuralModel.{v}}
     (F : StructuralMap M N) (p : Predicate) (args : Fin p.arity → Value M)
-    (h : predicate M p args) : predicate N p (Value.map F ∘ args) := by
+    (h : PredicateHolds M p args) : PredicateHolds N p (Value.map F ∘ args) := by
   cases p with
   | context =>
     rcases h with ⟨Γ, h⟩

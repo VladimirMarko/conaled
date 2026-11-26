@@ -264,10 +264,10 @@ def flip : Base ≃ Base where
   left_inv p := by cases p; simp
   right_inv p := by cases p; simp
 
-def direct (p : Base) : Type := Fin (p.1 + 1)
-def coded (p : Base) : Type := Option (Fin p.1)
-def comparison : FamilyComparison flip direct coded := fun p => finSuccEquiv p.1
-def zero : (p : Base) → direct p := fun p => (0 : Fin (p.1 + 1))
+def DirectFamily (p : Base) : Type := Fin (p.1 + 1)
+def CodedFamily (p : Base) : Type := Option (Fin p.1)
+def comparison : FamilyComparison flip DirectFamily CodedFamily := fun p => finSuccEquiv p.1
+def zero : (p : Base) → DirectFamily p := fun p => (0 : Fin (p.1 + 1))
 
 theorem flip_changes_context : flip (3, false) = (3, true) := rfl
 
@@ -279,59 +279,59 @@ theorem successor_is_some (p : Base) (i : Fin p.1) : comparison p i.succ = some 
   finSuccEquiv_succ i
 
 local notation "M₀" => NativeType.structuralModel Nat (fun n => Fin (n+1))
-abbrev SourcePath := (M₀).pathContext direct ⟨zero⟩
-abbrev TargetPath := (M₀).pathContext coded ⟨comparison.term zero⟩
+abbrev SourcePath := (M₀).pathContext DirectFamily ⟨zero⟩
+abbrev TargetPath := (M₀).pathContext CodedFamily ⟨comparison.term zero⟩
 def path : SourcePath ≃ TargetPath := comparison.path zero
 
-def firstSource (p : SourcePath) : Type := Fin (p.1.1.1 + 1)
-def firstTarget (p : TargetPath) : Type := Option (Fin p.1.1.1)
-def firstComparison : FamilyComparison path firstSource firstTarget := fun p => finSuccEquiv p.1.1.1
+def FirstSourceFamily (p : SourcePath) : Type := Fin (p.1.1.1 + 1)
+def FirstTargetFamily (p : TargetPath) : Type := Option (Fin p.1.1.1)
+def firstComparison : FamilyComparison path FirstSourceFamily FirstTargetFamily := fun p => finSuccEquiv p.1.1.1
 
-def secondSource (p : Sigma firstSource) : Type := Fin (p.2.val + 1)
-def secondTarget (p : Sigma firstTarget) : Type :=
+def SecondSourceFamily (p : Sigma FirstSourceFamily) : Type := Fin (p.2.val + 1)
+def SecondTargetFamily (p : Sigma FirstTargetFamily) : Type :=
   Option (Fin ((finSuccEquiv p.1.1.1.1).symm p.2).val)
 
-def secondComparison : FamilyComparison firstComparison.total secondSource secondTarget := by
+def secondComparison : FamilyComparison firstComparison.total SecondSourceFamily SecondTargetFamily := by
   intro p
   change Fin (p.2.val + 1) ≃ Option (Fin ((finSuccEquiv p.1.1.1.1).symm
     (finSuccEquiv p.1.1.1.1 p.2)).val)
   simpa only [Equiv.symm_apply_apply] using finSuccEquiv p.2.val
 
-def sourceTail : Telescope M₀ SourcePath 2 := .cons firstSource (.cons secondSource .nil)
-def targetTail : Telescope M₀ TargetPath 2 := .cons firstTarget (.cons secondTarget .nil)
+def sourceTail : Telescope M₀ SourcePath 2 := .cons FirstSourceFamily (.cons SecondSourceFamily .nil)
+def targetTail : Telescope M₀ TargetPath 2 := .cons FirstTargetFamily (.cons SecondTargetFamily .nil)
 def tails : TelescopeComparison Nat (fun n => Fin (n+1)) path sourceTail targetTail :=
   .cons firstComparison (.cons secondComparison (.nil secondComparison.total))
 
-def sourceMotive (z : sourceTail.total) : Type := Fin (z.1.1.1.1.1 + 1)
-def targetMotive (z : targetTail.total) : Type := Option (Fin z.1.1.1.1.1)
-def motives : FamilyComparison tails.total sourceMotive targetMotive :=
+def SourceMotive (z : sourceTail.total) : Type := Fin (z.1.1.1.1.1 + 1)
+def TargetMotive (z : targetTail.total) : Type := Option (Fin z.1.1.1.1.1)
+def motives : FamilyComparison tails.total SourceMotive TargetMotive :=
   fun z => finSuccEquiv z.1.1.1.1.1
 
 def sourceBranch : (M₀).Section
-    (Telescope.pullback M₀ sourceTail ((M₀).rootSub direct ⟨zero⟩)).total
-    ((M₀).subTy sourceMotive ((M₀).rootTail direct ⟨zero⟩ sourceTail)) :=
+    (Telescope.pullback M₀ sourceTail ((M₀).rootSub DirectFamily ⟨zero⟩)).total
+    ((M₀).subTy SourceMotive ((M₀).rootTail DirectFamily ⟨zero⟩ sourceTail)) :=
   ⟨fun z => z.1.2⟩
 
 def targetBranch := jBranch comparison zero tails motives sourceBranch
 
-def sourceResult := NativeType.contextualJ Nat (fun n => Fin (n+1)) direct ⟨zero⟩
-  sourceTail sourceMotive sourceBranch
+def sourceResult := NativeType.contextualJ Nat (fun n => Fin (n+1)) DirectFamily ⟨zero⟩
+  sourceTail SourceMotive sourceBranch
 
-def targetResult := NativeType.contextualJ Nat (fun n => Fin (n+1)) coded
-  ⟨comparison.term zero⟩ targetTail targetMotive targetBranch
+def targetResult := NativeType.contextualJ Nat (fun n => Fin (n+1)) CodedFamily
+  ⟨comparison.term zero⟩ targetTail TargetMotive targetBranch
 
 /-- Two dependent binders and the result family all change representation. -/
 theorem j_preserves_selected : motives.term sourceResult.down = targetResult.down :=
   contextualJ_compare comparison zero tails motives sourceBranch
 
-def sampleBranch : (Telescope.pullback M₀ sourceTail ((M₀).rootSub direct ⟨zero⟩)).total :=
+def sampleBranch : (Telescope.pullback M₀ sourceTail ((M₀).rootSub DirectFamily ⟨zero⟩)).total :=
   ⟨⟨(3, false), (⟨2, by decide⟩ : Fin 4)⟩, (⟨1, by decide⟩ : Fin 3)⟩
 
-def sampleSource : sourceTail.total := ((M₀).rootTail direct ⟨zero⟩ sourceTail).down sampleBranch
+def sampleSource : sourceTail.total := ((M₀).rootTail DirectFamily ⟨zero⟩ sourceTail).down sampleBranch
 
 theorem source_selected_two : (sourceResult.down sampleSource).val = 2 := by
-  have h := NativeType.contextualJ_beta Nat (fun n => Fin (n+1)) direct ⟨zero⟩
-    sourceTail sourceMotive sourceBranch
+  have h := NativeType.contextualJ_beta Nat (fun n => Fin (n+1)) DirectFamily ⟨zero⟩
+    sourceTail SourceMotive sourceBranch
   exact congrArg (fun t => (t.down sampleBranch).val) (eq_of_heq h)
 
 theorem target_selected_some_one : targetResult.down (tails.total sampleSource) = some ⟨1, by decide⟩ := by

@@ -73,15 +73,15 @@ def secondCompatible := SelectedMeaning.compatible M
 def shared := (secondCompatible M).comp (firstCompatible M)
 
 /-- This proof route uses the actual two local-certificate translations. -/
-def sharedAction := (shared M).proof.map actionJudgment ⟨RulePresentation.encode action_twice⟩
-def sharedWitness := (shared M).proof.map witnessJudgment ⟨RulePresentation.encode witness_twice⟩
+def sharedAction := (shared M).proof.map actionJudgment ⟨RulePresentation.encode actionTwiceTyping⟩
+def sharedWitness := (shared M).proof.map witnessJudgment ⟨RulePresentation.encode witnessTwiceTyping⟩
 
 /-- Joint comparison at the chosen client: both routes retain the full section,
 including its reindexed family and selected transport endpoint. -/
 theorem selected_joint :
     (SelectedMeaning.realization M (Fin 2)).decode env _
       ((shared M).realization.map env actionJudgment
-        (SelectedMeaning.quote (p := actionJudgment) action_twice)) =
+        (SelectedMeaning.quote (p := actionJudgment) actionTwiceTyping)) =
       .term (R).context (R).dependentActionFamily (R).dependentAction :=
   (compiledActionCode M A B).realizes
 
@@ -96,7 +96,7 @@ object substitutions; it shares compilation and realization composition. -/
 theorem selected_witness :
     (SelectedMeaning.realization M (Fin 2)).decode env _
       ((shared M).realization.map env witnessJudgment
-        (SelectedMeaning.quote (p := witnessJudgment) witness_twice)) =
+        (SelectedMeaning.quote (p := witnessJudgment) witnessTwiceTyping)) =
       .term (FrozenMemoStages.tauData M A B).display.total
         (FrozenMemoStages.tauHomotopy M A B).family
         (FrozenMemoStages.tauHomotopy M A B).value :=
@@ -110,7 +110,7 @@ theorem witness_joint :
       env _ (sharedWitness M) =
     (SelectedMeaning.realization M (Fin 2)).decode env _
       ((shared M).realization.map env witnessJudgment
-        (SelectedMeaning.quote (p := witnessJudgment) witness_twice)) := rfl
+        (SelectedMeaning.quote (p := witnessJudgment) witnessTwiceTyping)) := rfl
 
 /-- Realization composition is the existing square composition on the same
 selected data. No second observation comparison is supplied to the wrapper. -/
@@ -140,12 +140,12 @@ theorem source_selected :
         ((SelectedMeaning.connection M secondTemplate).reduct env)) =
       .term (R).context (R).dependentActionFamily (R).dependentAction :=
   ((shared M).realization.commutes env actionJudgment
-    (SelectedMeaning.quote (p := actionJudgment) action_twice)).symm.trans
+    (SelectedMeaning.quote (p := actionJudgment) actionTwiceTyping)).symm.trans
       (compiledActionCode M A B).realizes
 
 theorem proof_identity :
     (SquareKit.Institutions.ProofMap.identity (SelectedMeaning.proofs M declarations)).map
-      actionJudgment ⟨RulePresentation.encode action_twice⟩ =
-      ⟨RulePresentation.encode action_twice⟩ := rfl
+      actionJudgment ⟨RulePresentation.encode actionTwiceTyping⟩ =
+      ⟨RulePresentation.encode actionTwiceTyping⟩ := rfl
 
 end Examples.ReferenceHigherSharedMeaning

@@ -23,7 +23,7 @@ def recovered := readLike (tauHomotopy cocycleModel cocycleBase cocycleRootedFam
     (FrozenMemoSignature.environment cocycleModel cocycleBase cocycleRootedFamily) _
     ((shared cocycleModel).realization.map
       (FrozenMemoSignature.environment cocycleModel cocycleBase cocycleRootedFamily)
-      witnessJudgment (SelectedMeaning.quote (p := witnessJudgment) ReferenceHigherTheoryMaps.witness_twice)))
+      witnessJudgment (SelectedMeaning.quote (p := witnessJudgment) ReferenceHigherTheoryMaps.witnessTwiceTyping)))
 
 theorem recovered_eq : recovered = some (tauHomotopy cocycleModel cocycleBase cocycleRootedFamily).value := by
   unfold recovered

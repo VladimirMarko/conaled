@@ -12,8 +12,8 @@ variable {V : Type} {Ω : List (Judgment V)}
 /-- Primitive substitutions admitted in addition to structural generation. -/
 abbrev ArrowPolicy (V : Type) := Expression V → Expression V → Expression V → Prop
 
-def closedArrows : ArrowPolicy V := fun _ _ _ => False
-def hypothesisArrows (Ω : List (Judgment V)) : ArrowPolicy V :=
+def ClosedArrows : ArrowPolicy V := fun _ _ _ => False
+def HypothesisArrows (Ω : List (Judgment V)) : ArrowPolicy V :=
   fun Δ Γ σ => substitution Δ Γ σ ∈ Ω
 
 /-- Object witnesses fix the finite context presentations. Arbitrary typed
@@ -63,7 +63,7 @@ def compEquality {σ σ' τ τ' : Expression V}
 /-- The canonical projection to empty is stable under every closed generated
 arrow. This is a source derivation, not equality in one chosen model. -/
 def emptyNaturality {hΔ : GeneratedContext Ω Δ} {hΓ : GeneratedContext Ω Γ}
-    (f : GeneratedArrow closedArrows Ω hΔ hΓ σ) :
+    (f : GeneratedArrow ClosedArrows Ω hΔ hΓ σ) :
     Equal (Ω := Ω) (Contextual.comp hΓ.emptySubstitution σ) hΔ.emptySubstitution :=
   match f with
   | .identity hΓ => hΓ.emptySubstitutionTyping.idRight
@@ -80,7 +80,7 @@ def emptyNaturality {hΔ : GeneratedContext Ω Δ} {hΓ : GeneratedContext Ω Γ
 
 /-- A closed generated arrow to empty equals the constructed projection. -/
 def emptyUniqueness {hΔ : GeneratedContext Ω Δ}
-    (f : GeneratedArrow closedArrows Ω hΔ .empty σ) :
+    (f : GeneratedArrow ClosedArrows Ω hΔ .empty σ) :
     Equal (Ω := Ω) σ hΔ.emptySubstitution :=
   f.typing.idLeft.symmetric.transitive f.emptyNaturality
 
@@ -128,8 +128,8 @@ def emptyObject (P : ArrowPolicy V) (Ω : List (Judgment V)) : Object P Ω := �
 
 /-- Every hom-set into empty in the closed generated category has exactly one
 element. Equality is the quotient by source derivability at fixed boundaries. -/
-instance emptyUnique (Δ : Object closedArrows Ω) :
-    Unique (Δ ⟶ emptyObject closedArrows Ω) where
+instance emptyUnique (Δ : Object ClosedArrows Ω) :
+    Unique (Δ ⟶ emptyObject ClosedArrows Ω) where
   default := Quotient.mk _ ⟨Δ.2.emptySubstitution, GeneratedArrow.toEmpty Δ.2⟩
   uniq f := Quotient.inductionOn f fun f => Quotient.sound ⟨f.2.emptyUniqueness⟩
 

@@ -35,7 +35,7 @@ Every constructor has a source typing derivation, established by
 schematic substitution of raw variables nor arbitrary proof of the `Sub`
 predicate is silently counted as structural generation.
 
-`closedArrows` grants no primitive-arrow permissions. It still permits type and
+`ClosedArrows` grants no primitive-arrow permissions. It still permits type and
 term declarations, and the terms paired into a context can use the full source
 theory. The uniqueness theorem is valid for arbitrary Ω: restricting its
 declarations to a conventional well-formed type/term signature is not needed
@@ -43,7 +43,7 @@ for this implication. Such a restriction remains relevant to a correspondence
 with an independent calculus. An arrow hypothesis in Ω is insufficient to make
 that arrow structurally generated under this policy.
 
-`hypothesisArrows Ω` additionally permits each substitution judgment explicitly
+`HypothesisArrows Ω` additionally permits each substitution judgment explicitly
 listed in Ω. This changes the generated arrows, not the source rules or their
 equality. The example below compares these policies using the same Ω.
 
@@ -68,7 +68,7 @@ for every closed generated `σ : Δ → Γ`. Its induction uses identity and
 associativity for the identity/composition cases. Weakening is the definition
 of the canonical projection at an extension. Pairing uses the existing
 weakening-after-pairing equation. Equality conversion uses congruence and
-transitivity. The primitive case is impossible under `closedArrows`.
+transitivity. The primitive case is impossible under `ClosedArrows`.
 
 At Γ = empty, `eΓ` is identity, so `emptyUniqueness` gives `σ = eΔ` as a source
 derivation. The canonical projection itself belongs to this same grammar by
@@ -83,7 +83,7 @@ a source equality.
 ## A primitive hypothesis separates two generated arrows
 
 [`Examples.GeneratedEmptySubstitutions`](../../Examples/GeneratedEmptySubstitutions.lean)
-defines the single assumption `Sub empty empty s`. Under `hypothesisArrows`,
+defines the single assumption `Sub empty empty s`. Under `HypothesisArrows`,
 the hypothesis rule and the permission constructor make s a generated arrow.
 Identity is another generated arrow with the same boundaries.
 

@@ -41,7 +41,7 @@ theorem pair_eval :
     (R.resultFamily_eval hΩ) (R.composite_eval hΩ) (R.value_eval hΩ) (R.certificate_eval hΩ)
 
 /-- The source pair is typed using the retained original memo derivations. -/
-noncomputable def pair_typed :
+noncomputable def pairTyping :
     Sigma.Tm (Ω := Ω.map (Atom.inl Sigma.extraSignature)) (F.Γ.inl Sigma.extraSignature)
       (Sigma.sigma ((F.parameters.fiber F.p).inl Sigma.extraSignature)
         ((MemoPair.sourceCertificateFamily F.Γ (F.parameters.fiber F.p)

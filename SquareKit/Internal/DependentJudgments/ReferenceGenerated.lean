@@ -141,7 +141,7 @@ presentation on its exact original domain. This is not a landing theorem for
 all reference terms or all guarded substitution judgments. -/
 def originalGeneratedEmptyUniqueness {Ω : List (Judgment V)} {Δ σ : Expression V}
     {hΔ : Contextual.GeneratedContext Ω Δ}
-    (f : Contextual.GeneratedArrow Contextual.closedArrows Ω hΔ .empty σ) :
+    (f : Contextual.GeneratedArrow Contextual.ClosedArrows Ω hΔ .empty σ) :
     Target (Ω := Ω) (.eq σ hΔ.emptySubstitution) :=
   TelescopePresentation.embed f.emptyUniqueness
 

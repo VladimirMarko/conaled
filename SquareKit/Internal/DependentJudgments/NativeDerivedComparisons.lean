@@ -75,7 +75,7 @@ theorem concat_compare (x y z : (γ : Γ) → A γ)
       concatValue M A' ⟨f.term x⟩ ⟨f.term y⟩ ⟨f.term z⟩ (path f x y p) (path f y z q) :=
   identitySection_unique (f.term x) (f.term z) _ _
 
-theorem iteratedTransport_compare (x y z : (γ : Γ) → A γ)
+theorem iterated_transport_compare (x y z : (γ : Γ) → A γ)
     (p : (S).Section Γ ((S).identity A ⟨x⟩ ⟨y⟩))
     (q : (S).Section Γ ((S).identity A ⟨y⟩ ⟨z⟩))
     (b : (S).Section Γ ((S).subTy B ((S).sectionSub A ⟨x⟩))) :
@@ -89,7 +89,7 @@ theorem iteratedTransport_compare (x y z : (γ : Γ) → A γ)
   rw [hi] at h
   exact h
 
-theorem compositeTransport_compare (x y z : (γ : Γ) → A γ)
+theorem composite_transport_compare (x y z : (γ : Γ) → A γ)
     (p : (S).Section Γ ((S).identity A ⟨x⟩ ⟨y⟩))
     (q : (S).Section Γ ((S).identity A ⟨y⟩ ⟨z⟩))
     (b : (S).Section Γ ((S).subTy B ((S).sectionSub A ⟨x⟩))) :
@@ -127,8 +127,8 @@ def etaFamily (x y z : (γ : Γ) → A γ)
     (transportValue M A' B' ⟨f.term x⟩ ⟨f.term z⟩
       (concatValue M A' ⟨f.term x⟩ ⟨f.term y⟩ ⟨f.term z⟩ (path f x y p) (path f y z q))
       ⟨(atSection f g x).term b.down⟩).down
-    (iteratedTransport_compare f g x y z p q b)
-    (compositeTransport_compare f g x y z p q b)
+    (iterated_transport_compare f g x y z p q b)
+    (composite_transport_compare f g x y z p q b)
 
 theorem eta_compare (x y z : (γ : Γ) → A γ)
     (p : (S).Section Γ ((S).identity A ⟨x⟩ ⟨y⟩))
@@ -220,7 +220,7 @@ abbrev liftedInput : (S).Section (PathBase x y)
       ((S).sectionSub (fun s => A s.1) ⟨liftedPoint x y x⟩)) :=
   ⟨fun s => b.down s.1⟩
 
-def selectedEtaType := (M).identity
+def SelectedEtaFamily := (M).identity
   ((M).subTy (fun s : (v : PathBase x y) × A v.1 => B ⟨s.1.1, s.2⟩)
     ((S).sectionSub (fun s : PathBase x y => A s.1) ⟨liftedPoint x y z⟩))
   (transportValue M (fun s : PathBase x y => A s.1) (fun s => B ⟨s.1.1, s.2⟩)
@@ -260,16 +260,16 @@ theorem selectedEtaSection_compare :
     (liftedPoint x y x) (liftedPoint x y y) (liftedPoint x y z)
     (variablePath (Base := Base) (Fiber := Fiber) x y) (liftedLastPath (Base := Base) (Fiber := Fiber) x y z q) (liftedInput (Base := Base) (Fiber := Fiber) x y b)
 
-private def codomainFamily {X Y : Type u} {e : X ≃ Y} {C : X → Type u} {D : Y → Type u}
+private def CodomainFamily {X Y : Type u} {e : X ≃ Y} {C : X → Type u} {D : Y → Type u}
     (_ : FamilyComparison e C D) : Y → Type u := D
 
 /-- The target family is exactly the codomain of the constructed comparison. -/
-def targetEtaType : TargetPathBase f x y → Type u :=
-  codomainFamily (selectedEtaFamilyComparison (Base := Base) (Fiber := Fiber) f g x y z q b)
+def TargetEtaFamily : TargetPathBase f x y → Type u :=
+  CodomainFamily (selectedEtaFamilyComparison (Base := Base) (Fiber := Fiber) f g x y z q b)
 
 /-- The target section in that inherited apd comparison is the independently
 constructed eta section, by its derived comparison above. -/
-theorem apdEta_target_section :
+theorem apd_eta_target_section :
     (⟨(selectedEtaFamilyComparison (Base := Base) (Fiber := Fiber) f g x y z q b).term
       (selectedEtaSection (Base := Base) (Fiber := Fiber) x y z q b).down⟩ :
       (S).Section _ _) = targetEtaSection f g x y z q b := by
@@ -279,16 +279,16 @@ theorem apdEta_target_section :
 /-- Builder output: the families and actual selected eta sections with their
 constructed comparison. This is not an ordinary-author compatibility input. -/
 structure EtaPresentation (eP : PathBase x y ≃ TargetPathBase f x y) where
-  sourceFamily : PathBase x y → Type u
-  targetFamily : TargetPathBase f x y → Type u
-  families : FamilyComparison eP sourceFamily targetFamily
-  source : (S).Section (PathBase x y) sourceFamily
-  target : (S).Section (TargetPathBase f x y) targetFamily
+  SourceFamily : PathBase x y → Type u
+  TargetFamily : TargetPathBase f x y → Type u
+  families : FamilyComparison eP SourceFamily TargetFamily
+  source : (S).Section (PathBase x y) SourceFamily
+  target : (S).Section (TargetPathBase f x y) TargetFamily
   compared : families.term source.down = target.down
 
 def etaPresentation : EtaPresentation (Base := Base) (Fiber := Fiber) f x y (f.identityFamily x y).total where
-  sourceFamily := selectedEtaType (Base := Base) (Fiber := Fiber) x y z q b
-  targetFamily := targetEtaType f g x y z q b
+  SourceFamily := SelectedEtaFamily (Base := Base) (Fiber := Fiber) x y z q b
+  TargetFamily := TargetEtaFamily f g x y z q b
   families := selectedEtaFamilyComparison (Base := Base) (Fiber := Fiber) f g x y z q b
   source := selectedEtaSection (Base := Base) (Fiber := Fiber) x y z q b
   target := targetEtaSection f g x y z q b
@@ -301,8 +301,8 @@ def EtaPresentation.DependentActionCompared
     (p p' : (γ : Γ) → PathFamily x y γ)
     (h : (S).Section Γ ((S).identity (PathFamily x y) ⟨p⟩ ⟨p'⟩)) : Prop :=
     HEq (⟨(apdFamily (f.identityFamily x y) E.families p p' h E.source).term
-      (apdValue M (PathFamily x y) E.sourceFamily ⟨p⟩ ⟨p'⟩ h E.source).down⟩ : (S).Section Δ _)
-      (apdValue M (PathFamily (f.term x) (f.term y)) E.targetFamily
+      (apdValue M (PathFamily x y) E.SourceFamily ⟨p⟩ ⟨p'⟩ h E.source).down⟩ : (S).Section Δ _)
+      (apdValue M (PathFamily (f.term x) (f.term y)) E.TargetFamily
         ⟨(f.identityFamily x y).term p⟩ ⟨(f.identityFamily x y).term p'⟩
         (path (f.identityFamily x y) p p' h) E.target)
 
@@ -315,7 +315,7 @@ theorem EtaPresentation.dependentAction_compare
 
 /-- The selected eta section and its dependent action inherit the constructed
 presentation comparison. The source of apd still contains transport in K. -/
-theorem apdEta_compare
+theorem apd_eta_compare
     (p p' : (γ : Γ) → PathFamily x y γ)
     (h : (S).Section Γ ((S).identity (PathFamily x y) ⟨p⟩ ⟨p'⟩)) :
     (etaPresentation f g x y z q b).DependentActionCompared f x y p p' h :=

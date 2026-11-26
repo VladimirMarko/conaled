@@ -23,7 +23,7 @@ private def rawBeta (Base : LawfulFamily terminal.{0}) (Fiber : LawfulFamily (to
     (t : (Contextual.model Base Fiber).Section ((Contextual.model Base Fiber).extend terminal F)
       ((Contextual.model Base Fiber).subTy F ((Contextual.model Base Fiber).weaken terminal F)))
     (b : (Contextual.model Base Fiber).Section ((Contextual.model Base Fiber).extend terminal F)
-      (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.EndomapBetaType (Contextual.model Base Fiber) F t)) :
+      (SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics.endomapBetaFamily (Contextual.model Base Fiber) F t)) :
     Term (normalizedIdentity (reindex F.family (projection F.family)) t.down (generic F.family)) := b.down
 
 def assignedBeta : Term (normalizedIdentity (reindex (FirstIdentityFamily terminal.{0}) (projection (FirstIdentityFamily terminal)))

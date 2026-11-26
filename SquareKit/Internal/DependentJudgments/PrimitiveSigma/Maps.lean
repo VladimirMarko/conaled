@@ -7,9 +7,9 @@ open PathTransport.Typed StructuralModel
 universe u v w
 set_option backward.isDefEq.respectTransparency false
 
-open _root_.SquareKit.Internal.DependentJudgments.Sigma (displayFamily displayContext)
+open _root_.SquareKit.Internal.DependentJudgments.Sigma (displayFamily displayFamily_context)
 
-private theorem sectionType_eq {N : StructuralModel.{v}} {Γ Δ : N.Context}
+private theorem section_type_eq {N : StructuralModel.{v}} {Γ Δ : N.Context}
     {A : N.Family Γ} {B : N.Family Δ} (hΓ : Γ = Δ) (hA : HEq A B) :
     N.Section Γ A = N.Section Δ B := by
   cases hΓ
@@ -28,27 +28,27 @@ variable {M : StructuralModel.{u}} {N : StructuralModel.{v}}
   {S : Capability M} {T : Capability N} (F : FormationMap S T)
 variable {Γ : M.Context} (A : M.Family Γ) (B : M.Family (M.extend Γ A))
 
-theorem sumContext : F.context (M.extend Γ (S.sigma A B)) =
+theorem map_sigma_context : F.context (M.extend Γ (S.sigma A B)) =
     N.extend (F.context Γ) (T.sigma (F.family A) (displayFamily F.toStructuralMap A B)) :=
   (F.extend _).trans (congrArg (N.extend _) (F.sigma A B))
 
 /-- The mapped motive, including the comparison of its indexing context. -/
 def motive (C : M.Family (M.extend Γ (S.sigma A B))) :
     N.Family (N.extend (F.context Γ) (T.sigma (F.family A) (displayFamily F.toStructuralMap A B))) :=
-  cast (congrArg N.Family (F.sumContext A B)) (F.family C)
+  cast (congrArg N.Family (F.map_sigma_context A B)) (F.family C)
 
 theorem branch_type (C : M.Family (M.extend Γ (S.sigma A B))) :
     HEq (F.family (M.subTy C (S.pack A B)))
       (N.subTy (F.motive A B C) (T.pack (F.family A) (displayFamily F.toStructuralMap A B))) :=
   (heq_of_eq (F.subTy _ _)).trans
-    (N.subTy_heq (F.sumContext A B) (displayContext F.toStructuralMap A B)
+    (N.subTy_heq (F.map_sigma_context A B) (displayFamily_context F.toStructuralMap A B)
       (cast_heq _ _).symm (F.pack A B))
 
 def branch (C : M.Family (M.extend Γ (S.sigma A B)))
     (d : M.Section (M.extend (M.extend Γ A) B) (M.subTy C (S.pack A B))) :
     N.Section (N.extend (N.extend (F.context Γ) (F.family A)) (displayFamily F.toStructuralMap A B))
       (N.subTy (F.motive A B C) (T.pack (F.family A) (displayFamily F.toStructuralMap A B))) :=
-  cast (sectionType_eq (displayContext F.toStructuralMap A B)
+  cast (section_type_eq (displayFamily_context F.toStructuralMap A B)
     (F.branch_type A B C)) (F.mapTm d)
 
 def identityMap (S : Capability M) : FormationMap S S where
@@ -75,8 +75,8 @@ def compose (G : FormationMap T U) (F : FormationMap S T) : FormationMap S U whe
     rfl
   pack A B := by
     change HEq (G.substitution (F.substitution (S.pack A B))) _
-    apply (G.substitution_heq (F.sumContext A B)
-      (displayContext F.toStructuralMap A B) (F.pack A B)).trans
+    apply (G.substitution_heq (F.map_sigma_context A B)
+      (displayFamily_context F.toStructuralMap A B) (F.pack A B)).trans
     apply (G.pack _ _).trans
     rw [display_comp]
     rfl
@@ -126,16 +126,16 @@ variable {P : StructuralModel.{w}} {U : Capability P}
 def compose (G : Map T U) (F : Map S T) : Map S U where
   toFormationMap := G.toFormationMap.compose F.toFormationMap
   split A B C d := by
-    apply (G.section_heq (F.toFormationMap.sumContext A B)
+    apply (G.section_heq (F.toFormationMap.map_sigma_context A B)
       (cast_heq _ _).symm (F.split A B C d)).trans
     apply (G.split _ _ _ _).trans
     apply U.split_congr _ _ rfl HEq.rfl (heq_of_eq (FormationMap.display_comp _ _ _ _))
     · apply (cast_heq _ _).trans
       apply HEq.trans _ (cast_heq _ _).symm
-      exact G.family_heq (F.toFormationMap.sumContext A B).symm (cast_heq _ _)
+      exact G.family_heq (F.toFormationMap.map_sigma_context A B).symm (cast_heq _ _)
     · apply (cast_heq _ _).trans
       apply HEq.trans _ (cast_heq _ _).symm
-      exact G.section_heq (displayContext F.toStructuralMap A B).symm
+      exact G.section_heq (displayFamily_context F.toStructuralMap A B).symm
         (F.toFormationMap.branch_type A B C).symm (cast_heq _ _)
 
 end Map

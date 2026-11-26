@@ -38,7 +38,7 @@ theorem recover_dependentAction (p p' h : Contextual.Expression V) :
     ((F.dependentAction p p' h).inl extraSignature).eval (algebra M S) ρ =
       (F.dependentAction p p' h).eval (Contextual.algebra M) ρ := eval_old M S _ ρ
 
-theorem recover_transportedSource (p p' h : Contextual.Expression V) :
+theorem recover_transportedCertificate (p p' h : Contextual.Expression V) :
     ((F.transportedCertificate p p' h).inl extraSignature).eval (algebra M S) ρ =
       (F.transportedCertificate p p' h).eval (Contextual.algebra M) ρ := eval_old M S _ ρ
 

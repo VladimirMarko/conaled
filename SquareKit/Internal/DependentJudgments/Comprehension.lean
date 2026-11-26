@@ -152,7 +152,7 @@ noncomputable def operation (M : StructuralModel.{u}) (op : Operation)
       | none => .invalid
     | _, _ => .invalid
 
-def predicate (M : StructuralModel.{u}) (p : Predicate) (args : Fin p.arity → Value M) : Prop :=
+def PredicateHolds (M : StructuralModel.{u}) (p : Predicate) (args : Fin p.arity → Value M) : Prop :=
   match p with
   | .context => ∃ Γ, args 0 = .context Γ
   | .family => ∃ Γ A, args 0 = .context Γ ∧ args 1 = .family Γ A
@@ -163,7 +163,7 @@ def predicate (M : StructuralModel.{u}) (p : Predicate) (args : Fin p.arity → 
 noncomputable def algebra (M : StructuralModel.{u}) : Algebra signature where
   Carrier := Value M
   operation := operation M
-  predicate := predicate M
+  predicate := PredicateHolds M
 
 abbrev Expression (V : Type) := Term signature V
 abbrev Judgment (V : Type) := Atom signature V
@@ -221,10 +221,10 @@ theorem pairing_inputs (M : StructuralModel.{u}) :
   have h0 := h 0
   have h1 := h 1
   have h2 := h 2
-  change predicate M .family ![ρ 0, ρ 2] at h0
-  change predicate M .substitution ![ρ 1, ρ 0, ρ 3] at h1
-  change predicate M .term ![ρ 1, operation M .subTy ![ρ 2, ρ 3], ρ 4] at h2
-  simp only [predicate] at h0 h1 h2
+  change PredicateHolds M .family ![ρ 0, ρ 2] at h0
+  change PredicateHolds M .substitution ![ρ 1, ρ 0, ρ 3] at h1
+  change PredicateHolds M .term ![ρ 1, operation M .subTy ![ρ 2, ρ 3], ρ 4] at h2
+  simp only [PredicateHolds] at h0 h1 h2
   rcases h0 with ⟨Γ, A, hΓ, hA⟩
   change ρ 0 = .context Γ at hΓ
   change ρ 2 = .family Γ A at hA
@@ -307,7 +307,7 @@ theorem familySchema_valid (M : StructuralModel.{u}) (out : Judgment (Fin 2))
     Satisfies (algebra M) (familySchema out) := by
   intro ρ hp
   have h0 := hp 0
-  change predicate M .family ![ρ 0, ρ 1] at h0
+  change PredicateHolds M .family ![ρ 0, ρ 1] at h0
   rcases h0 with ⟨Γ, A, hΓ, hA⟩
   have e : ρ = ![.context Γ, .family Γ A] := by
     funext i

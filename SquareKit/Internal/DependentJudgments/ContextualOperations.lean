@@ -173,7 +173,7 @@ noncomputable def operation (M : PathTransport.Typed.Model.{u}) :
     let some p := problem M.toStructuralModel (args 0) (args 1) (args 2) (args 3) (args 4) | return .invalid
     return .term p.telescope.total p.motive (M.j p.family p.term p.telescope p.motive p.branch)
 
-def predicate (M : StructuralModel.{u}) (p : Predicate) (args : Fin 2 → Value M) : Prop :=
+def PredicateHolds (M : StructuralModel.{u}) (p : Predicate) (args : Fin 2 → Value M) : Prop :=
   match p with
   | .telescope n => ∃ (Γ : M.Context) (T : Telescope M Γ n),
       args 0 = .context Γ ∧ args 1 = .telescope Γ n T
@@ -184,8 +184,8 @@ noncomputable def algebra (M : PathTransport.Typed.Model.{u}) : Algebra signatur
     | .inl op => DependentJudgments.operation M.toStructuralModel op
     | .inr op => operation M op
   predicate
-    | .inl p => DependentJudgments.predicate M.toStructuralModel p
-    | .inr p => predicate M.toStructuralModel p
+    | .inl p => DependentJudgments.PredicateHolds M.toStructuralModel p
+    | .inr p => PredicateHolds M.toStructuralModel p
 
 
 variable {V : Type}

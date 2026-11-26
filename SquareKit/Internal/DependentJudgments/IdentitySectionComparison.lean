@@ -13,7 +13,7 @@ variable (M : Model.{u}) {Γ : M.Context} (A : M.Family Γ) (x : M.Section Γ A)
   (ht : HEq (M.subTm t (M.toStructuralModel.rootSub A x)) d)
 
 include hs ht in
-theorem sectionComparison_rootFamily :
+theorem sectionComparison_root_family :
     M.subTy (M.identity C s t) (M.toStructuralModel.rootSub A x) =
       M.identity (M.subTy C (M.toStructuralModel.rootSub A x)) d d :=
   (M.identity_sub C s t (M.toStructuralModel.rootSub A x)).trans
@@ -22,7 +22,7 @@ theorem sectionComparison_rootFamily :
 def sectionComparison :
     M.Section (M.toStructuralModel.pathContext A x) (M.identity C s t) :=
   M.j A x .nil (M.identity C s t)
-    (cast (congrArg (M.Section Γ) (sectionComparison_rootFamily M A x C s t d hs ht).symm)
+    (cast (congrArg (M.Section Γ) (sectionComparison_root_family M A x C s t d hs ht).symm)
       (M.reflexivity (M.subTy C (M.toStructuralModel.rootSub A x)) d))
 
 end SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics

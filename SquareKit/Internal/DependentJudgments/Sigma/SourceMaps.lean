@@ -96,12 +96,12 @@ theorem operation_map {S : Capability M} {T : Capability N} (F : Map S T)
         Value.family_heq_eq rfl (heq_of_eq (F.sigma p.first p.second))
     | pack =>
       exact
-        Value.substitution_heq_eq (F.sumContext p.first p.second)
-          (displayContext F.toStructuralMap p.first p.second) (F.pack p.first p.second)
+        Value.substitution_heq_eq (F.map_sigma_context p.first p.second)
+          (displayFamily_context F.toStructuralMap p.first p.second) (F.pack p.first p.second)
     | unpack =>
       exact
-        Value.substitution_heq_eq (displayContext F.toStructuralMap p.first p.second)
-          (F.sumContext p.first p.second) (F.unpack p.first p.second)
+        Value.substitution_heq_eq (displayFamily_context F.toStructuralMap p.first p.second)
+          (F.map_sigma_context p.first p.second) (F.unpack p.first p.second)
 
 theorem operands_defined (S : Capability M) (op : Operation) (args : Fin 2 → Value M)
     (h : operation M S op args ≠ .invalid) : ∀ i, args i ≠ .invalid := by
@@ -318,7 +318,7 @@ theorem Tm.split_map {Γ A B C d : Expression V}
       (Sigma.split A B d).eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
   (Tm.split hA hB hC hd).interpret_map F ρ hΩ
 
-theorem splitAssumptions_typed : TypedAssumptions (List.ofFn splitRule.premise) := by
+theorem splitRule_assumptions_typed : TypedAssumptions (List.ofFn splitRule.premise) := by
   intro s t h
   obtain ⟨i, hi⟩ := List.mem_ofFn.mp h
   fin_cases i <;> cases hi
@@ -331,6 +331,6 @@ theorem splitDerivation_target
     (F : SourceMap S T) (ρ : Fin 5 → Value M.toStructuralModel)
     (hΩ : ∀ p ∈ List.ofFn splitRule.premise, p.eval (algebra M S) ρ) :
     splitRule.conclusion.eval (algebra N T) (Value.map F.toStructuralMap ∘ ρ) :=
-  interpret_target splitDerivation F splitAssumptions_typed ρ hΩ
+  interpret_target splitDerivation F splitRule_assumptions_typed ρ hΩ
 
 end SquareKit.Internal.DependentJudgments.Sigma

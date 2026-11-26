@@ -43,7 +43,7 @@ four fresh leaves:
 3. A family over the frozen input's path-variable context.
 4. A section of that family.
 
-`signature_valid` constructs a `WellFormedSignature` in declaration order. The
+`signatureWellFormed` constructs a `WellFormedSignature` in declaration order. The
 last two declarations parameterize the section on which the source proves
 `apd`. They do **not** declare the resulting dependent action or its transport
 law. `ReferencePath` and `ReferenceApd` derive transport, the motive and branch
@@ -99,9 +99,9 @@ The main checked specialization is
 
 | Evidence | Exact contract |
 |---|---|
-| `action_typed`, `action_twice` | Independent typing of the J-derived action, then its two typed object substitutions. |
-| `motive_twice`, `branch_twice` | Formation of the substituted motive under both lifted path substitutions, and typing of the branch under both base substitutions. |
-| `branch_family_twice`, `motive_context_twice`, `substitution_contexts`, `composition_operands` | Required families, contexts and both operands at the common equality boundary, using the existing presupposition results. |
+| `actionTyping`, `actionTwiceTyping` | Independent typing of the J-derived action, then its two typed object substitutions. |
+| `motiveTwiceFormation`, `branchTwiceTyping` | Formation of the substituted motive under both lifted path substitutions, and typing of the branch under both base substitutions. |
+| `branchFamilyTwiceFormation`, `motiveContextTwiceFormation`, `substitutionContexts`, `compositionOperandTypings` | Required families, contexts and both operands at the common equality boundary, using the existing presupposition results. |
 | `compiledMotive`, `compiledBranch`, `compiledCompositionOperands` | Those dependent boundaries survive the same local-certificate compilation route. |
 | `Interpretation.compiled_typed`, `compiled_witness_typed`, `source_witness_typed` | Soundness consumes decoded generic translations with all instantiated declarations validated. |
 | `Interpretation.selected_action`, `recoveredAction_eq` | Evaluation and dependent extraction return the actual native chosen action after both original substitutions. |

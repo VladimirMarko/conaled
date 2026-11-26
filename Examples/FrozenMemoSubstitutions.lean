@@ -95,7 +95,7 @@ theorem transportedCertificate_twice_eval :
 
 /- The twice-substituted dependent-action type retains its transported source. -/
 include hΩ in
-theorem dependentActionType_twice_eval :
+theorem dependentAction_type_twice_eval :
     (Contextual.subTy (Contextual.subTy
       (Contextual.identity (S.input.parameters.certificateType S.input.p')
         (S.input.parameters.transportedCertificate S.input.p S.input.p' S.input.h)

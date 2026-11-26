@@ -37,7 +37,7 @@ theorem reindexEndomap_endpoint {Γ Δ : M.Context} (F : M.Family Γ)
    (cast_heq _ _) _).trans
  apply (M.subTm_comp _ _ _).trans
  rw [lift_section_any]
-theorem castEndomap_endpoint {Γ : M.Context} {F G : M.Family Γ} (e : F = G)
+theorem cast_endomap_endpoint {Γ : M.Context} {F G : M.Family Γ} (e : F = G)
  (s : M.Section (M.extend Γ F) (M.subTy F (M.weaken Γ F))) (p : M.Section Γ G) :
  HEq (M.subTm (cast (congrArg (fun H => M.Section (M.extend Γ H) (M.subTy H (M.weaken Γ H))) e) s)
    (M.toStructuralModel.sectionSub G p))
@@ -49,7 +49,7 @@ theorem fixedPathTransportSection_endpoint {Γ : M.Context} (A : M.Family Γ)
  HEq (M.subTm (fixedPathTransportSection M A x y)
    (M.toStructuralModel.sectionSub (M.identity A x y) p))
  (pathTransportValue M A x y p) :=
- (castEndomap_endpoint M (M.toStructuralModel.pathFamily_at A x y) _ p).trans
+ (cast_endomap_endpoint M (M.toStructuralModel.pathFamily_at A x y) _ p).trans
   ((reindexEndomap_endpoint M (M.toStructuralModel.pathFamily A x) (pathTransportSection M A x)
     (M.toStructuralModel.sectionSub A y) _).trans (pathTransportSection_endpoint M A x y p))
 end SquareKit.Internal.DependentJudgments.Contextual.DerivedSemantics

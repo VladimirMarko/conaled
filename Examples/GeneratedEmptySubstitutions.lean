@@ -15,11 +15,11 @@ variable {V : Type} {Ω : List (Judgment V)} {A t : Expression V}
 arrow is compared with the empty tuple by a source equality derivation. -/
 def pairThenForget (hA : Ty (Ω := Ω) empty A)
     (ht : Tm (Ω := Ω) empty (subTy A (identitySub empty)) t) :
-    GeneratedArrow closedArrows Ω .empty .empty
+    GeneratedArrow ClosedArrows Ω .empty .empty
       (comp (weaken empty A) (pair A (identitySub empty) t)) :=
   .comp (.weaken .empty hA) (.pair hA (.identity .empty) ht)
 
-def pairThenForget_eq (hA : Ty (Ω := Ω) empty A)
+def pairThenForgetEquality (hA : Ty (Ω := Ω) empty A)
     (ht : Tm (Ω := Ω) empty (subTy A (identitySub empty)) t) :
     Equal (Ω := Ω)
       (comp (weaken empty A) (pair A (identitySub empty) t))
@@ -27,9 +27,9 @@ def pairThenForget_eq (hA : Ty (Ω := Ω) empty A)
 
 /-- Two dependent extensions have the canonical iterated projection as the
 unique arrow to empty, including composites and equality conversions. -/
-def dependentTail_unique {B σ : Expression V}
+def dependentTailUniqueness {B σ : Expression V}
     (hA : Ty (Ω := Ω) empty A) (hB : Ty (Ω := Ω) (extend empty A) B)
-    (f : GeneratedArrow closedArrows Ω (GeneratedContext.twoExtensions hA hB) .empty σ) :
+    (f : GeneratedArrow ClosedArrows Ω (GeneratedContext.twoExtensions hA hB) .empty σ) :
     Equal (Ω := Ω) σ
       (comp (comp (identitySub empty) (weaken empty A))
         (weaken (extend empty A) B)) := f.emptyUniqueness
@@ -66,17 +66,17 @@ theorem satisfied : ∀ p ∈ assumptions, p.eval (algebra M) assignment := by
     simp [Term.eval, algebra, SquareKit.Internal.DependentJudgments.operation,
       assignment, A, subTy, identitySub, empty, M, DependentStructureBoundary.ReachableLoops.model]
 
-def discarded_pair := Closed.pairThenForget_eq typeDeclaration termDeclaration
+def discardedPairEquality := Closed.pairThenForgetEquality typeDeclaration termDeclaration
 
 /-- A second family mentions the preceding generic variable in both identity
 endpoints. Its typing is derived rather than a new raw assumption. -/
 def dependentFamily := typeDeclaration.generic.identity typeDeclaration.generic
 def dependentContext := GeneratedContext.twoExtensions typeDeclaration dependentFamily
 
-def dependentEmpty := GeneratedArrow.toEmpty (P := closedArrows) dependentContext
+def dependentEmpty := GeneratedArrow.toEmpty (P := ClosedArrows) dependentContext
 
-def dependentEmpty_unique :=
-  Closed.dependentTail_unique typeDeclaration dependentFamily dependentEmpty
+def dependentEmptyUniqueness :=
+  Closed.dependentTailUniqueness typeDeclaration dependentFamily dependentEmpty
 
 end Declarations
 
@@ -100,7 +100,7 @@ theorem typedAssumptions : TypedAssumptions assumptions := by
   have h' : Atom.eq s t = substitution empty empty arrow := List.mem_singleton.mp h
   cases h'
 
-def generated : GeneratedArrow (hypothesisArrows assumptions) assumptions .empty .empty arrow :=
+def generated : GeneratedArrow (HypothesisArrows assumptions) assumptions .empty .empty arrow :=
   .generator .empty .empty (by exact List.mem_singleton_self _)
     (.hypothesis (List.mem_singleton_self _))
 
@@ -116,11 +116,11 @@ theorem not_equal : ¬ Nonempty (Equal (Ω := assumptions) arrow (identitySub em
 
 /-- The same expression is excluded by the closed generated-arrow grammar. -/
 theorem not_closed :
-    ¬ Nonempty (GeneratedArrow closedArrows assumptions .empty .empty arrow) := by
+    ¬ Nonempty (GeneratedArrow ClosedArrows assumptions .empty .empty arrow) := by
   rintro ⟨f⟩
   exact not_equal ⟨f.emptyUniqueness⟩
 
-def object : GeneratedCategory.Object (hypothesisArrows assumptions) assumptions :=
+def object : GeneratedCategory.Object (HypothesisArrows assumptions) assumptions :=
   GeneratedCategory.emptyObject _ _
 
 def arrowClass : object ⟶ object := Quotient.mk _ ⟨arrow, generated⟩
