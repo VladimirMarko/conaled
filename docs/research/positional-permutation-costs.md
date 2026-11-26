@@ -92,7 +92,7 @@ connects both actual execution costs to `n*n!`; input-family specializations
 explicitly require length n. This premise has concrete witnesses, including
 replicated Unit inputs, so duplicates do not make the claims vacuous.
 
-`shifted_factorial_not_bigO` rejects an eventual upper bound of `(n+2)!` by
+`shifted_factorial_not_isBigO` rejects an eventual upper bound of `(n+2)!` by
 `n*n!` with arbitrary real coefficient, through the existing
 `Resources.isBigO_natCast_iff` bridge. Transitivity gives the rejection for
 construction and complete observation costs. This proves a model-relative

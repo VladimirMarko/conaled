@@ -19,7 +19,7 @@ measured_theorem rec_ok : checkBlockRec (fueledOps .verified 32) ctorEnv q.p (bl
   have hr := rules_ok
   rw [← ruleEnv_eq] at hr
   exact RecursorComposition.genRec_of_facts (fueledOps .verified 32) ctorEnv q.p.toBlockShape
-    (blockNestedBit q.p.toBlockShape q.kinds) q.params q.tbl.toList q.rd q.cls Ms q.cvTas
+    (blockNestedBit q.p.toBlockShape q.kinds) q.params q.tbl.toList q.rd q.cls targetMajors q.cvTas
     existsBlock [ExistsRecursorType.recCv] ctors formerTys pre [generated] out
     pins ExistsRecursorType.stream_ok hk hlarge nfs_ok ctors_ok hminor formers_ok prefix_ok types_ok hr
 end ExistsRecursorAcceptance

@@ -151,7 +151,7 @@ theorem recoveredClutching_not_trivializable :
   exact SmoothTorsors.nontrivialTorsor_not_trivializable ⟨h.comp clutchingRecovery⟩
 
 abbrev regular := trivial SmoothTorsors.group SmoothTorsors.point
-instance regular_locallySurjective :
+instance regular_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p regular.family).hom :=
   regular.isLocallySurjective
 

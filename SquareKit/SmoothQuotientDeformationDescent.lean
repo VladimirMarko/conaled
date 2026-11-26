@@ -11,7 +11,7 @@ variable {H : Type} [Group H] {M : Sheaf topology Type}
 variable {a : Action (locallyConstantGroup H) M} {X Y : Sheaf topology Type}
 local notation "D" => SmoothOpenSite.infinitesimal
 
-instance totalLift_locallySurjective (P : Object a X) (f : Y ⟶ X)
+instance totalLift_isLocallySurjective (P : Object a X) (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective topology f.hom] :
     Presheaf.IsLocallySurjective topology (SplitSheaf.lift P.torsor.family f).hom where
   imageSieve_mem {U} t := by
@@ -26,7 +26,7 @@ abbrev cover (P : Object a X) (f : Y ⟶ X) :=
   SheafFunction.parameterMap D (SplitSheaf.lift P.torsor.family f)
 
 
-instance productMap_locallySurjective (A : Sheaf topology Type) {B E : Sheaf topology Type}
+instance productMap_isLocallySurjective (A : Sheaf topology Type) {B E : Sheaf topology Type}
     (f : B ⟶ E) [Presheaf.IsLocallySurjective topology f.hom] :
     Presheaf.IsLocallySurjective topology (SheafFunction.parameterMap A f).hom where
   imageSieve_mem {U} x := by

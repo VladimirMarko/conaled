@@ -641,7 +641,7 @@ theorem projection_chart (j : lineSheaf ⟶ base) (k : totalLine G ⟶ total G c
 
 /-- The glued display is locally surjective because its two charts are
 products with an inhabited group sheaf and cover the actual base pushout. -/
-instance projection_locallySurjective :
+instance projection_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (projection G c).hom where
   imageSieve_mem {U} x := by
     apply SmoothOpenSite.topology.superset_covering _
@@ -655,7 +655,7 @@ instance projection_locallySurjective :
         (pairSection lineSheaf (locallyConstantGroupSheaf G) (op V) y (1 : (locallyConstantGroup G).obj.obj (op V))), ?_⟩
       exact (projection_chart G c right (totalChartRight G c) (local_trivial G c).2.w _ y 1).trans hy
 
-instance action_locallySurjective : Presheaf.IsLocallySurjective SmoothOpenSite.topology
+instance action_isLocallySurjective : Presheaf.IsLocallySurjective SmoothOpenSite.topology
     (SplitSheaf.p (action G c).family).hom := by
   change Presheaf.IsLocallySurjective SmoothOpenSite.topology
     (SplitSheaf.p (SplitSheaf.ofDisplay (projection G c))).hom

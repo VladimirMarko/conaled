@@ -14,15 +14,15 @@ theorem rational_exact_increments : Real.artanh (4/5) = 2*Real.artanh (1/2) := b
   norm_num at H
   linarith
 
-theorem rational_exact_DEL : exactD2 1 0 (1/2) + exactD1 1 (1/2) (4/5) = 0 := by
-  apply (exact_DEL_iff 1 0 (1/2) (4/5) (by norm_num) (by norm_num)).mpr
+theorem rational_exact_del : exactD2 1 0 (1/2) + exactD1 1 (1/2) (4/5) = 0 := by
+  apply (exact_del_iff 1 0 (1/2) (4/5) (by norm_num) (by norm_num)).mpr
   rw [rational_exact_increments,Real.artanh_zero]
   ring
 
-theorem native_exact_DEL (h s t : ℝ) (hh : 0 < h) :
+theorem native_exact_del (h s t : ℝ) (hh : 0 < h) :
     exactD2 h (DiskTransport.timedRadius s (t-h)) (DiskTransport.timedRadius s t) +
       exactD1 h (DiskTransport.timedRadius s t) (DiskTransport.timedRadius s (t+h)) = 0 := by
-  apply (exact_DEL_iff _ _ _ _ hh ?_).mpr
+  apply (exact_del_iff _ _ _ _ hh ?_).mpr
   · simp only [DiskTransport.timedRadius,Real.artanh_tanh]
     ring
   · have H := Real.tanh_sq_lt_one (s*t/2)

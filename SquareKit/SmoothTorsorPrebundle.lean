@@ -108,7 +108,7 @@ theorem overlapInput_right (i j : (sectionCharts P).Index)
     (b : { b : B // b ∈ ((sectionCharts P).chart i).source ∩ ((sectionCharts P).chart j).source }) :
     (show Map _ _ from (sectionAtlas P).right i j) (overlapInput P i j b) =
       sectionInput P j b.val b.property.2 := by
-  apply (chartPoint_openEmbedding ((sectionCharts P).chart j)).injective
+  apply (chartPoint_isOpenEmbedding ((sectionCharts P).chart j)).injective
   exact ((sectionCharts P).agreement i j (overlapInput P i j b)).symm.trans
     ((((sectionCharts P).chart i).left_inv b.property.1).trans
       (((sectionCharts P).chart j).left_inv b.property.2).symm)

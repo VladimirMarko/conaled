@@ -136,8 +136,8 @@ theorem requestHistory_rootCount {n : Int} {requests : List (Int × Int)} {ds : 
   | @snoc prior old out u v before step ih =>
       obtain ⟨a, b, ha, hb, hne, hu⟩ := step
       have forest := requestHistory_forest before
-      have h1 := ((forest.findDSA_iff_Root u a).mp ha).selfRoot
-      have h2 := ((forest.findDSA_iff_Root v b).mp hb).selfRoot
+      have h1 := ((forest.findDSA_iff_root u a).mp ha).selfRoot
+      have h2 := ((forest.findDSA_iff_root v b).mp hb).selfRoot
       have change := rootCount_union forest h1 h2 hne hu
       simp only [List.length_append, List.length_cons, List.length_nil]
       omega

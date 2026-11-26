@@ -94,8 +94,8 @@ private theorem history_invariants {n : Int} {requests : List (Int × Int)} {ds 
       exact ⟨startDSA_forest n, startDSA_weightedForest n, startDSA_rootSizesExact n⟩
   | snoc _ step ih =>
       obtain ⟨a, b, ha, hb, hne, hu⟩ := step
-      have h1 := ((ih.1.findDSA_iff_Root _ a).mp ha).selfRoot
-      have h2 := ((ih.1.findDSA_iff_Root _ b).mp hb).selfRoot
+      have h1 := ((ih.1.findDSA_iff_root _ a).mp ha).selfRoot
+      have h2 := ((ih.1.findDSA_iff_root _ b).mp hb).selfRoot
       exact ⟨union_forest ih.1 ih.2.2 h1 h2 hne hu,
         union_weightedForest ih.2.1 ih.2.2 h1 h2 hne hu,
         union_rootSizesExact ih.1 ih.2.2 h1 h2 hne hu⟩
@@ -124,14 +124,14 @@ theorem requestHistory_find_domain {n : Int} {requests : List (Int × Int)} {ds 
   constructor
   · rintro ⟨r, success⟩
     exact (requestHistory_valid_iff h v).mp
-      ((forest.findDSA_iff_Root v r).mp success).valid_start
+      ((forest.findDSA_iff_root v r).mp success).valid_start
   · intro valid
     exact forest.find_complete ((requestHistory_valid_iff h v).mpr valid)
 
 theorem requestHistory_find_root {n : Int} {requests : List (Int × Int)} {ds : DSA}
     (h : RequestHistory n requests ds) {v r : Int} (success : findDSA ds v = some r) :
     Root ds v r ∧ Valid ds r ∧ SelfRoot ds r := by
-  have root := ((requestHistory_forest h).findDSA_iff_Root v r).mp success
+  have root := ((requestHistory_forest h).findDSA_iff_root v r).mp success
   exact ⟨root, root.valid_root, root.selfRoot⟩
 
 theorem requestHistory_request_endpoints {n : Int} {requests : List (Int × Int)} {ds : DSA}

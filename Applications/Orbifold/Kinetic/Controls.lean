@@ -12,7 +12,7 @@ theorem midpoint_rational_residual :
   norm_num [d1,d2,midpoint,gap,Complex.normSq_apply,Complex.add_re,Complex.add_im,
     Complex.sub_re,Complex.sub_im,scalar_re,scalar_im]
 
-theorem midpoint_rational_not_DEL : ¬ DiscreteEL 1 0 (1/2) (4/5) := by
+theorem midpoint_rational_not_discreteEL : ¬ DiscreteEL 1 0 (1/2) (4/5) := by
   intro h
   have H := congrArg Complex.re h
   rw [midpoint_rational_residual] at H

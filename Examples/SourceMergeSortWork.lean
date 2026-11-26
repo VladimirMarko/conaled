@@ -335,7 +335,7 @@ theorem compare_equal_keys_different_payloads :
       eventCompareRun rawB rawA = (true, 6) ∧ rawA ≠ rawB :=
   ⟨rfl, rfl, raw_payloads_differ⟩
 
-theorem compare_raw_LE_x :
+theorem compare_raw_le_x :
     eventCompareRun (eventFor rawPoint .insert 7) (eventFor rawPoint .delete 0) =
       (true, 2) := rfl
 

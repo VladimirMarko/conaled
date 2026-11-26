@@ -30,7 +30,7 @@ example : GraphDeclarations.forwardType = telescope
       ((GraphAdapter.result GraphDeclarations.carrierLevel).liftLooseBVars 1 0)) := by rfl
 
 /-- Function membership is the full telescope obligation, stronger than closure. -/
-theorem specializeTelescope {body : Expr} {T f : V} (A B C F G x z : V)
+theorem specialize_telescope {body : Expr} {T f : V} (A B C F G x z : V)
     (ht : Denotes m.cval env φ (fun _ => A) (telescope body) T) (hf : f ∈ˢ T)
     (hA : A ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
@@ -70,7 +70,7 @@ theorem specializeTelescope {body : Expr} {T f : V} (A B C F G x z : V)
 open GraphAdapter
 variable {u : Level}
 
-theorem shiftedGraphDenotes (pr : GraphAdapter.Primitives m u φ) (proof : V) (A B C F G x z : V)
+theorem shifted_graph_denotes (pr : GraphAdapter.Primitives m u φ) (proof : V) (A B C F G x z : V)
     (hB : B ∈ˢ univ (Level.eval φ u)) (hC : C ∈ˢ univ (Level.eval φ u))
     (hf : ∀ a, a ∈ˢ A → app F a ∈ˢ B)
     (hg : ∀ b, b ∈ˢ B → app G b ∈ˢ C) (hx : x ∈ˢ A) (hz : z ∈ˢ C) :
@@ -82,7 +82,7 @@ theorem shiftedGraphDenotes (pr : GraphAdapter.Primitives m u φ) (proof : V) (A
     (push proof (assignment x z A B C F G))
     (fun i => by simp only [Nat.add_comm, push]) hB hC hf hg hx hz
 
-theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
+theorem closed_implication (c : ConstantInfo) (hc : c ∈ env.consts)
     (P Q : Expr) (p q : Prop)
     (hct : c.toConstantVal.type = telescope (.forallE P (Q.liftLooseBVars 1 0)))
     (A B C F G x z : V)
@@ -96,13 +96,13 @@ theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
       (Q.liftLooseBVars 1 0) (truthVal q)) : p → q := by
   obtain ⟨T, ht, hf⟩ := m.mem c hc φ (fun _ => A)
   rw [hct] at ht
-  obtain ⟨R, hr, hfr⟩ := specializeTelescope A B C F G x z ht hf hA hB hC hF hG hx hz
+  obtain ⟨R, hr, hfr⟩ := specialize_telescope A B C F G x z ht hf hA hB hC hF hG hx hz
   intro h
   obtain ⟨S, hs, hfs⟩ := specialize hr hfr hp (mem_truthVal.mpr ⟨h, rfl⟩)
   obtain rfl := Denotes_functional hs (hq pt)
   exact of_mem_truthVal hfs
 
-theorem forwardMembership
+theorem forward_membership
     (pr : Primitives m GraphDeclarations.carrierLevel φ)
     (hc : ConstantInfo.thmInfo ⟨GraphDeclarations.forwardName, [ConLeche.BasisDSL.vN],
       GraphDeclarations.forwardType⟩ ∈ env.consts)
@@ -115,11 +115,11 @@ theorem forwardMembership
     (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y) → z = app G (app F x) := by
   have hf := fun (a : V) (ha : a ∈ˢ A) => app_mem_piV (B := fun _ => B) hF ha
   have hg := fun (b : V) (hb : b ∈ˢ B) => app_mem_piV (B := fun _ => C) hG hb
-  exact closedImplication _ hc _ _ _ _ rfl A B C F G x z hA hB hC hF hG hx hz
+  exact closed_implication _ hc _ _ _ _ rfl A B C F G x z hA hB hC hF hG hx hz
     (graph_denotes pr A B C F G x z hB hC hf hg hx hz).1
-    (fun proof => (shiftedGraphDenotes pr proof A B C F G x z hB hC hf hg hx hz).2)
+    (fun proof => (shifted_graph_denotes pr proof A B C F G x z hB hC hf hg hx hz).2)
 
-theorem backwardMembership
+theorem backward_membership
     (pr : Primitives m GraphDeclarations.carrierLevel φ)
     (hc : ConstantInfo.thmInfo ⟨GraphDeclarations.backwardName, [ConLeche.BasisDSL.vN],
       GraphDeclarations.backwardType⟩ ∈ env.consts)
@@ -132,9 +132,9 @@ theorem backwardMembership
     z = app G (app F x) → (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y) := by
   have hf := fun (a : V) (ha : a ∈ˢ A) => app_mem_piV (B := fun _ => B) hF ha
   have hg := fun (b : V) (hb : b ∈ˢ B) => app_mem_piV (B := fun _ => C) hG hb
-  exact closedImplication _ hc _ _ _ _ rfl A B C F G x z hA hB hC hF hG hx hz
+  exact closed_implication _ hc _ _ _ _ rfl A B C F G x z hA hB hC hF hG hx hz
     (graph_denotes pr A B C F G x z hB hC hf hg hx hz).2
-    (fun proof => (shiftedGraphDenotes pr proof A B C F G x z hB hC hf hg hx hz).1)
+    (fun proof => (shifted_graph_denotes pr proof A B C F G x z hB hC hf hg hx hz).1)
 end ClosedGraph
 
 

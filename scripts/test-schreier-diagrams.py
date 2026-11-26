@@ -35,7 +35,7 @@ class Diagrams(unittest.TestCase):
 
     def test_lean_serialization_escapes_display_text(self):
         result = subprocess.run(
-            ["lake", "env", "lean", "--run", "tests/fixtures/schreier-escaping.lean"],
+            ["lake", "env", "lean", "--run", "tests/fixtures/SchreierEscaping.lean"],
             cwd=ROOT, capture_output=True, text=True, check=True)
         data = json.loads(result.stdout)
         self.assertEqual(data["name"], 'A < B & "C"')

@@ -17,11 +17,11 @@ def P : Expr := .fvar 1 (.forallE A (.sort .zero))
 def second : Expr := .app P (.fvar 3 A)
 def res : Expr := .fvar 2 (.sort .zero)
 attribute [local cbv_opaque] nestPos
-@[local cbv_eval] theorem posA (fuel dep kb : Nat) (st : NestState) :
+@[local cbv_eval] theorem nestPos_A (fuel dep kb : Nat) (st : NestState) :
     nestPos (fueledOps .verified 32) indsResult.1 ctx (fuel + 1) [] dep kb A st = .ok (.ordinary,A,st) := by
   rw [nestPos]
   cbv
-@[local cbv_eval] theorem posP (fuel dep kb : Nat) (st : NestState) :
+@[local cbv_eval] theorem nestPos_second (fuel dep kb : Nat) (st : NestState) :
     nestPos (fueledOps .verified 32) indsResult.1 ctx (fuel + 1) [] dep kb second st = .ok (.ordinary,second,st) := by
   rw [nestPos]
   cbv
@@ -33,11 +33,11 @@ theorem fields (err : CheckError) :
   change nestFields (nestPos (fueledOps .verified 32) indsResult.1 ctx 1028) [] 3 err 2 0
     (.forallE A (.forallE (.app P (.bvar 0)) res)) {} = _
   rw [nestFields]
-  rw [posA 1027 3 0 {}]
+  rw [nestPos_A 1027 3 0 {}]
   simp only [bind, Except.bind, pure]
   change nestFields (nestPos (fueledOps .verified 32) indsResult.1 ctx 1028) [] 3 err 1 1
     (.forallE second res) {} >>= _ = _
-  rw [nestFields, posP 1027 4 0 {}]
+  rw [nestFields, nestPos_second 1027 4 0 {}]
   rfl
 end ExistsPositivity
 #audit_graph_module

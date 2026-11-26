@@ -26,7 +26,7 @@ theorem closed_graph (φ : Name → Nat) (A B C F G : V)
   have hq := formula_denotes (primitives m carrierLevel φ) (em := openModel) rfl
     (compatible m φ A B C F G x.val z.val) (objects_compatible m φ A B C F G L x z)
     GraphTarget.forwardDeclaration.conclusion _ conclusion_encoded
-  have stored := EmittedClosed.closedTruth m φ A B C F G hA hB hC hF hG x z _ _ hp hq
+  have stored := EmittedClosed.closed_truth m φ A B C F G hA hB hC hF hG x z _ _ hp hq
   have comparison := environment_comparison m φ A B C F G hA hB hC hf hg x z _ _ hp hq
   exact comparison.1.symm.trans (stored.trans comparison.2)
 

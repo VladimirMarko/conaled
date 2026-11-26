@@ -190,7 +190,7 @@ theorem originalPullbackIso_hom {Z : Sheaf topology Type} (u : Z ⟶ X) :
 variable [Presheaf.IsLocallySurjective topology f.hom]
 
 /-- Arbitrary parameter pullbacks of the original cover are again covers. -/
-instance pullback_locallySurjective {Z : Sheaf topology Type} (u : Z ⟶ X) :
+instance pullback_isLocallySurjective {Z : Sheaf topology Type} (u : Z ⟶ X) :
     Presheaf.IsLocallySurjective topology (Limits.pullback.snd f u).hom := by
   apply Presheaf.isLocallySurjective_of_isLocallySurjective_fac (J := topology)
     (f₁ := (pullbackComparison (f := f) u).hom)

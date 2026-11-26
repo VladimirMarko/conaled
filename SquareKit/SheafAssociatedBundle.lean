@@ -92,7 +92,7 @@ def quotient : SplitSheaf.extension (localFamily P (M := M)) ⟶ SplitSheaf.exte
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Every associated section is locally represented by an actual pair. -/
-instance quotient_locallySurjective : Presheaf.IsLocallySurjective J (quotient P a).hom where
+instance quotient_isLocallySurjective : Presheaf.IsLocallySurjective J (quotient P a).hom where
   imageSieve_mem {U} z := by
     have h := Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom z.1
     apply J.superset_covering _ h

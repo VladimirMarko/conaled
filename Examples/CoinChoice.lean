@@ -13,14 +13,14 @@ theorem zero_amount {ds : List Nat} (h : Currency ds) :
     LexMaximumTuple ds 0 (List.replicate ds.length 0) ∧
       MinCoins ds 0 (List.replicate ds.length 0) := by
   constructor
-  · simpa only [mkchange3_zero h] using mkchange3_lexMaximum h 0
+  · simpa only [mkchange3_zero h] using mkchange3_lexMaximumTuple h 0
   · apply mkchange_spec h
     rw [mkchange, mktuples_zero h]
     rfl
 
 theorem unit_currency (n : Nat) : LexMaximumTuple [1] n [n] ∧ MinCoins [1] n [n] := by
   constructor
-  · simpa only [mkchange3_unit] using mkchange3_lexMaximum Currency.unit n
+  · simpa only [mkchange3_unit] using mkchange3_lexMaximumTuple Currency.unit n
   · apply mkchange_spec Currency.unit
     rw [mkchange, mktuples_unit]
     rfl
@@ -44,7 +44,7 @@ theorem repeated_positions :
   have h : Currency [2, 2, 1] := .cons (by decide) (.cons (by decide) .unit)
   constructor
   · have he : mkchange3 [2, 2, 1] 4 = [2, 0, 0] := by decide
-    exact he ▸ mkchange3_lexMaximum h 4
+    exact he ▸ mkchange3_lexMaximumTuple h 4
   · exact mkchange_spec h 4 _ (by decide)
 
 theorem nonmonotone_positions :
@@ -52,7 +52,7 @@ theorem nonmonotone_positions :
   have h : Currency [1, 5, 1] := .cons (by decide) (.cons (by decide) .unit)
   constructor
   · have he : mkchange3 [1, 5, 1] 6 = [6, 0, 0] := by decide
-    exact he ▸ mkchange3_lexMaximum h 6
+    exact he ▸ mkchange3_lexMaximumTuple h 6
   · exact mkchangeStrict_spec h 6 _ (by decide)
 
 theorem ordinary_change : LexMaximumTuple [5, 2, 1] 11 [2, 0, 1] ∧
@@ -60,14 +60,14 @@ theorem ordinary_change : LexMaximumTuple [5, 2, 1] 11 [2, 0, 1] ∧
   have h : Currency [5, 2, 1] := .cons (by decide) (.cons (by decide) .unit)
   constructor
   · have he : mkchange3 [5, 2, 1] 11 = [2, 0, 1] := by decide
-    exact he ▸ mkchange3_lexMaximum h 11
+    exact he ▸ mkchange3_lexMaximumTuple h 11
   · exact mkchange_spec h 11 _ (by decide)
 
 theorem different_objectives : LexMaximumTuple [4, 3, 1] 6 [1, 0, 2] ∧
     MinCoins [4, 3, 1] 6 [0, 2, 0] ∧ ¬ MinCoins [4, 3, 1] 6 [1, 0, 2] := by
   have greedy : mkchange3 [4, 3, 1] 6 = [1, 0, 2] := by decide
   have best := mkchange_spec currency431 6 [0, 2, 0] (by decide)
-  refine ⟨greedy ▸ mkchange3_lexMaximum currency431 6, best, ?_⟩
+  refine ⟨greedy ▸ mkchange3_lexMaximumTuple currency431 6, best, ?_⟩
   intro h
   have wrong := h.2 [0, 2, 0] best.1
   contradiction
@@ -102,10 +102,10 @@ theorem descending_tie : mkchangeDescending [7, 3, 1] 54 = some [7, 1, 2] := by
 theorem only_greatest_tie_is_lexical : LexMaximumTuple [7, 3, 1] 54 [7, 1, 2] ∧
     ¬ LexMaximumTuple [7, 3, 1] 54 [6, 4, 0] := by
   have he : mkchange3 [7, 3, 1] 54 = [7, 1, 2] := by decide
-  have hg := he ▸ mkchange3_lexMaximum currency731 54
+  have hg := he ▸ mkchange3_lexMaximumTuple currency731 54
   refine ⟨hg, ?_⟩
   intro h
-  have wrong := lexMaximum_unique h hg
+  have wrong := lexMaximumTuple_unique h hg
   contradiction
 
 theorem decreasing_bridge : IsTuple [4, 3, 1] 6 [1, 0, 2] := by

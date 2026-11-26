@@ -10,10 +10,10 @@ set_option pp.deepTerms.threshold 8
 attribute [local cbv_eval] Expr.bvarBRaw_bvar Expr.bvarBRaw_fvar Expr.bvarBRaw_sort Expr.bvarBRaw_const Expr.bvarBRaw_lit Expr.bvarBRaw_app Expr.bvarBRaw_lam Expr.bvarBRaw_forallE Expr.bvarBRaw_letE Expr.bvarBRaw_proj Expr.fvarBRaw_bvar Expr.fvarBRaw_fvar Expr.fvarBRaw_sort Expr.fvarBRaw_fvar Expr.fvarBRaw_const Expr.fvarBRaw_lit Expr.fvarBRaw_app Expr.fvarBRaw_lam Expr.fvarBRaw_forallE Expr.fvarBRaw_letE Expr.fvarBRaw_proj Expr.hasLP_bvar Expr.hasLP_fvar Expr.hasLP_sort Expr.hasLP_const Expr.hasLP_lit Expr.hasLP_app Expr.hasLP_lam Expr.hasLP_forallE Expr.hasLP_letE Expr.hasLP_proj CheckerReduction.depth_eq
 
 checked_normal_form absResult : Except CheckError Unit := checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx ctorResult.1 rootResult.1
-measured_theorem absSorts : checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx ctorResult.1 rootResult.1 = .ok () := absResult_eq
+measured_theorem checkAbsCtorSortsAll_eq : checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx ctorResult.1 rootResult.1 = .ok () := absResult_eq
 def posResult : List (List (List NestFieldKind)) × List (List Expr) × NestState := (rootResult.1.map (·.map (·.1)),rootResult.1.map (·.map (·.2)),rootResult.2)
 measured_theorem positivity : checkBlockPositivity (fueledOps .verified 32) indsResult.1 indsResult.1.find? completed indsResult.2.1 ctorResult.1 = .ok posResult := by
-  exact block_positivity (fueledOps .verified 32) indsResult.1 indsResult.1.find? completed indsResult.2.1 ctorResult.1 ctx holes rootResult.1 rootResult.2 context_ok uniform_ok root absSorts
+  exact block_positivity (fueledOps .verified 32) indsResult.1 indsResult.1.find? completed indsResult.2.1 ctorResult.1 ctx holes rootResult.1 rootResult.2 context_ok uniform_ok root checkAbsCtorSortsAll_eq
 checked_normal_form classesResult : Except CheckError (ClassRead × List TargetMajor) := checkBlockClasses (fueledOps .verified 32) (mkFEnv indsResult.1) completed.toBlockShape ctx.params ctorResult.1
 def classes := classesResult.toOption.getD default
 measured_theorem classes_ok : checkBlockClasses (fueledOps .verified 32) (mkFEnv indsResult.1) completed.toBlockShape ctx.params ctorResult.1 = .ok classes := classesResult_eq

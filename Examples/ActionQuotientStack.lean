@@ -56,10 +56,10 @@ example : ((Stack.pseudofunctor targetAction).toDescentData
     (SheafTorsor.Stack.singleton cover)).obj (Stack.glue localDatum) ≅ localDatum :=
   Stack.localComparison localDatum
 
-instance pulledCover_locallySurjective :
+instance pulledCover_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology
       (SplitSheaf.p (SplitSheaf.tySub cover (SplitSheaf.p cover))).hom :=
-  SheafCover.baseChangeCover_locallySurjective (A := cover) (SplitSheaf.p cover)
+  SheafCover.baseChangeCover_isLocallySurjective (A := cover) (SplitSheaf.p cover)
 
 example : Arrow (reindex (Stack.glue localDatum) (SplitSheaf.p cover))
     ((Stack.datum localDatum).baseChange (SplitSheaf.p cover)).object :=
@@ -81,7 +81,7 @@ theorem stabilizers_distinct : stabilizer quarterTurn ≠ stabilizer 1 :=
   fun h => nonidentity_loop (congrArg Arrow.torsorArrow h)
 
 abbrev regularCover := regular.torsor.family
-instance regularCover_locallySurjective :
+instance regularCover_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p regularCover).hom :=
   regular.torsor.isLocallySurjective
 

@@ -47,7 +47,7 @@ in Differential; the covector is identified with its Euclidean vector. -/
 def EulerLagrangeAt (c v : ℝ → ℂ) (t : ℝ) : Prop :=
   HasDerivAt (fun r => momentum (c r) (v r)) (force (c t) (v t)) t
 
-theorem eulerLagrange_iff {c v : ℝ → ℂ} {a : ℂ} {t : ℝ}
+theorem eulerLagrangeAt_iff {c v : ℝ → ℂ} {a : ℂ} {t : ℝ}
     (hc : HasDerivAt c (v t) t) (hv : HasDerivAt v a t) (hg : gap (c t) ≠ 0) :
     EulerLagrangeAt c v t ↔ a = -christoffel (c t) (v t) (v t) := by
   have hm := momentum_derivative hc hv hg
@@ -59,10 +59,10 @@ theorem eulerLagrange_iff {c v : ℝ → ℂ} {a : ℂ} {t : ℝ}
     rw [← (rate_eq_force_iff _ _ _ hg).mpr h]
     exact hm
 
-theorem native_eulerLagrange (p : Pose) (d : ℂ) (hd : Complex.normSq d = 1) (s t : ℝ) :
+theorem native_eulerLagrangeAt (p : Pose) (d : ℂ) (hd : Complex.normSq d = 1) (s t : ℝ) :
     EulerLagrangeAt (fun r => (DiskTransport.move p d hd s r).a)
       (fun r => (DiskTransport.move p d hd s r).frame (d*(s : ℂ))) t := by
-  apply (eulerLagrange_iff (DiskTransport.move_velocity p d hd s t)
+  apply (eulerLagrangeAt_iff (DiskTransport.move_velocity p d hd s t)
     (DiskTransport.move_geodesic p d hd s t)
     (ne_of_gt (sub_pos.mpr (DiskTransport.move p d hd s t).inside))).mpr
   rfl

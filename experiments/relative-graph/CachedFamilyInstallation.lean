@@ -93,7 +93,7 @@ measured_theorem run :
   unfold EmittedEnvironment.declarations
   rw [EmittedAcceptance.helper_list, EmittedAcceptance.graph_list]
   change InstallRun .verified [] (_ :: _ :: _ :: _) _ _
-  refine .cons AcceptanceStages.equalityInstall ?_
+  refine .cons AcceptanceStages.installDeclStep_eqBasis ?_
   refine .cons CachedAndInstaller.install ?_
   refine .cons CachedExistsInstaller.install ?_
   refine .cons (step0 _) ?_

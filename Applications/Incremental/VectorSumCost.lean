@@ -226,11 +226,11 @@ def composedRetainedSlots (n : Nat) : Nat := Fintype.card (Slot n)
 theorem retained_linear (n : Nat) : composedRetainedSlots n ≤ 2 * (n + 1) := by
   simp only [composedRetainedSlots, slot_count]; omega
 
-theorem initialization_bigO : Asymptotics.IsBigO Filter.atTop
+theorem initialization_isBigO : Asymptotics.IsBigO Filter.atTop
     (fun n => ((2 * n + 4 : Nat) : ℝ)) (fun n => (n : ℝ)) :=
   Resources.isBigO_of_nat_bound _ _ 6 1 (by intro n hn; omega)
 
-theorem repair_bigO : Asymptotics.IsBigO Filter.atTop
+theorem repair_isBigO : Asymptotics.IsBigO Filter.atTop
     (fun k => ((5 * k + 4 : Nat) : ℝ)) (fun k => (k : ℝ)) :=
   Resources.isBigO_of_nat_bound _ _ 9 1 (by intro k hk; omega)
 

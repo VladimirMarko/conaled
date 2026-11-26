@@ -137,8 +137,8 @@ def pairPoint (i : M) (j : N) (x : Points (pairDomain (m := m) (n := n) i j)) : 
 
 omit [IsManifold (modelWithCorners m) ∞ M] [IsManifold (modelWithCorners n) ∞ N] in
 theorem pairPoint_continuous (i : M) (j : N) : Continuous (pairPoint (m := m) (n := n) i j) :=
-  ((chartPoint_openEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.fst _ _))).prodMk
-    ((chartPoint_openEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.snd _ _)))
+  ((chartPoint_isOpenEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.fst _ _))).prodMk
+    ((chartPoint_isOpenEmbedding _).continuous.comp (map_continuous (EuclideanOpen.Product.snd _ _)))
 
 def normalOpen (q : Pullback f g) : Set (M × N) :=
   (localModel hf hg ht q).ambientChart.source ∩
@@ -551,11 +551,11 @@ theorem comparison_eq_of_projections (V : Site) (x : (source hf hg ht).obj.obj (
     rwa [comparison_second]
 
 set_option backward.isDefEq.respectTransparency false in
-theorem comparison_locallySurjective :
+theorem comparison_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (comparison hf hg ht).hom := by
   let CM := ChartFamily.preferred (n := m) (M := M)
   let CN := ChartFamily.preferred (n := n) (M := N)
-  apply CM.chartwise_locallySurjective CN (comparison hf hg ht)
+  apply CM.chartwise_isLocallySurjective CN (comparison hf hg ht)
     (pullback.fst (ManifoldRealization.map f hf) (ManifoldRealization.map g hg))
     (pullback.snd (ManifoldRealization.map f hf) (ManifoldRealization.map g hg))
   intro V z i j a b ha hb
@@ -610,7 +610,7 @@ theorem comparison_locallySurjective :
 instance comparison_isIso : IsIso (comparison hf hg ht) := by
   apply (Sheaf.isLocallyBijective_iff_isIso (comparison hf hg ht)).mp
   exact ⟨Presheaf.isLocallyInjective_of_injective _ _
-    (fun V => comparison_injective hf hg ht V.unop), comparison_locallySurjective hf hg ht⟩
+    (fun V => comparison_injective hf hg ht V.unop), comparison_isLocallySurjective hf hg ht⟩
 
 def comparisonIso : source hf hg ht ≅ target hf hg := asIso (comparison hf hg ht)
 

@@ -55,7 +55,7 @@ checked_normal_form absRun : Except CheckError (Unit × CState) :=
   checkAbsCtorSortsAll (sharedOpsC .verified (mkFEnv indsResult.1)) indsResult.1 ctx
     ctorResult.1 ExistsRoot.rootResult.1 fieldsMemo
 def posMemo := (absRun.toOption.map Prod.snd).getD {}
-measured_theorem absSorts :
+measured_theorem checkAbsCtorSortsAll_eq :
   checkAbsCtorSortsAll (sharedOpsC .verified (mkFEnv indsResult.1)) indsResult.1 ctx
     ctorResult.1 ExistsRoot.rootResult.1 fieldsMemo = .ok ((),posMemo) := by
   rw [absRun_eq]; rfl
@@ -69,7 +69,7 @@ measured_theorem positivity :
   · exact context ctorMemo
   · cbv
   · exact root
-  · exact absSorts
+  · exact checkAbsCtorSortsAll_eq
 measured_theorem seeds : ∀ s : CState,
   nestSeeds (sharedOpsC .verified (mkFEnv indsResult.1)) indsResult.1 ctx
     (classSeeds ctx holes ExistsInstallation.classes.2) ExistsInstallation.posResult.2.2 s =

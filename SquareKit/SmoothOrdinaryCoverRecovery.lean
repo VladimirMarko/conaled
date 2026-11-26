@@ -25,7 +25,7 @@ theorem ordinaryCoverMap_epi (hc : Covers U g) : Epi (ordinaryCoverMap U g) wher
 
 def ordinaryCoverFamily : SplitSheaf.Ty (embedding.obj U) := SplitSheaf.ofDisplay (ordinaryCoverMap U g)
 
-theorem ordinaryCoverFamily_locallySurjective (hc : Covers U g) :
+theorem ordinaryCoverFamily_isLocallySurjective (hc : Covers U g) :
     Presheaf.IsLocallySurjective topology (SplitSheaf.p (ordinaryCoverFamily U g)).hom := by
   let := ordinaryCoverMap_epi U g hc
   have : Sheaf.IsLocallySurjective (ordinaryCoverMap U g) :=

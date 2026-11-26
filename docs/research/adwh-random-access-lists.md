@@ -13,7 +13,7 @@ canonicality, tree construction, and existing-square consumers.
 requires equal child ranks and the exact power-of-two cache at each node.
 `Valid rank` assigns increasing ranks to digits and excludes trailing zero
 digits; `Inv` starts at rank zero. The executable source `invRA` checks only
-outer cached sizes. `invRA_of_Inv` proves validity implies that check. It does
+outer cached sizes. `invRA_of_inv` proves validity implies that check. It does
 not assert the converse.
 
 The cached carrier differs from the existing `Bracketing.Tree`, whose forks

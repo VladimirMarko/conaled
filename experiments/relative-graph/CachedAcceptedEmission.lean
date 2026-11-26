@@ -50,7 +50,7 @@ theorem emission_comparison {S : Setting V} {L : Laws S u φ} {ρ : Nat → V}
   EmissionSemantics.emission_comparison d em a η (EmittedComparison.primitives (model (V := V)) u φ)
     hu hm ha ty body rp rq P Q ht hb hep heq hp hq
 
-theorem closedTruth (φ : LevelParam → Nat)
+theorem closed_truth (φ : LevelParam → Nat)
     (A B C F G : V)
     (hA : A ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
@@ -62,7 +62,7 @@ theorem closedTruth (φ : LevelParam → Nat)
     (hq : Denotes (model (V := V)).cval EmittedEnvironment.environment φ
       (EmittedComparison.assignment x.val z.val A B C F G) EmittedComparison.conclusion Q) :
     (pt : V) ∈ˢ P ↔ (pt : V) ∈ˢ Q :=
-  EmittedClosed.closedTruth (model (V := V)) φ A B C F G hA hB hC hF hG x z P Q hp hq
+  EmittedClosed.closed_truth (model (V := V)) φ A B C F G hA hB hC hF hG x z P Q hp hq
 
 end CachedAcceptedEmission
 #audit_graph_module

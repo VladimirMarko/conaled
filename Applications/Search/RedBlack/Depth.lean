@@ -49,7 +49,7 @@ theorem mindepth_le_height (t : Tree κ ν) : mindepth t ≤ height t := by
           (Nat.le_trans ihl (Nat.le_max_left _ _))) 1
 
 /-- Every path contains at least the common black height. -/
-theorem RB.blackHeight_le_mindepth {t : Tree κ ν} {parent : RBColor} {n : Nat}
+theorem RB.black_height_le_mindepth {t : Tree κ ν} {parent : RBColor} {n : Nat}
     (h : RB t parent n) : n ≤ mindepth t := by
   obtain ⟨root, hb⟩ := h.balanced
   clear h
@@ -61,24 +61,24 @@ theorem RB.blackHeight_le_mindepth {t : Tree κ ν} {parent : RBColor} {n : Nat}
       exact Nat.add_le_add_right (Nat.le_min.2 ⟨ihl, ihr⟩) 1
 
 /-- Either root color permits at most one extra red node beyond twice the height. -/
-theorem RB.height_le_blackHeight {t : Tree κ ν} {parent : RBColor} {n : Nat}
+theorem RB.height_le_twice_black_height_add_one {t : Tree κ ν} {parent : RBColor} {n : Nat}
     (h : RB t parent n) : height t ≤ 2 * n + 1 := by
   obtain ⟨root, h⟩ := h.balanced
   exact Nat.le_trans h.depth_le (RBNode.depthUB_le root n)
 
 /-- A red hypothetical parent forces a black root or nil, removing the extra one. -/
-theorem RB.height_le_twice_blackHeight {t : Tree κ ν} {n : Nat}
+theorem RB.height_le_twice_black_height {t : Tree κ ν} {n : Nat}
     (h : RB t RBColor.red n) : height t ≤ 2 * n :=
   RBNode.Balanced.depth_le h
 
 /-- The source advanced exercise, for either hypothetical parent color. -/
 theorem redblack_balanced {t : Tree κ ν} {parent : RBColor} {n : Nat}
     (h : RB t parent n) : height t ≤ 2 * mindepth t + 1 :=
-  Nat.le_trans h.height_le_blackHeight
-    (Nat.add_le_add_right (Nat.mul_le_mul_left 2 h.blackHeight_le_mindepth) 1)
+  Nat.le_trans h.height_le_twice_black_height_add_one
+    (Nat.add_le_add_right (Nat.mul_le_mul_left 2 h.black_height_le_mindepth) 1)
 
 /-- The provider's root-color-sensitive lower bound implies the source one. -/
-theorem RB.power_blackHeight_le_size {t : Tree κ ν} {parent : RBColor} {n : Nat}
+theorem RB.two_pow_black_height_le_size_add_one {t : Tree κ ν} {parent : RBColor} {n : Nat}
     (h : RB t parent n) : 2 ^ n ≤ t.size + 1 := by
   obtain ⟨root, h⟩ := h.balanced
   exact Nat.le_trans

@@ -207,7 +207,7 @@ theorem LinkEffect.selfRoot_iff {ds out : DSA} {losing surviving : Int}
     simp [SelfRoot, effect.parent_reads, Ne.symm hne]
   · simp [SelfRoot, effect.parent_reads, hr]
 
-private theorem mem_component_iff_Root (ds : DSA) (v r : Int) :
+private theorem mem_component_iff_root (ds : DSA) (v r : Int) :
     v ∈ componentVertices ds r ↔ Root ds v r := by
   rw [mem_componentVertices]
   exact ⟨And.right, fun h => ⟨h.valid_start, h⟩⟩
@@ -217,7 +217,7 @@ theorem LinkEffect.component_winner {ds out : DSA} {losing surviving : Int}
     (hl : SelfRoot ds losing) (hw : SelfRoot ds surviving) (hne : losing ≠ surviving)
     (v : Int) : v ∈ componentVertices out surviving ↔
       v ∈ componentVertices ds losing ∨ v ∈ componentVertices ds surviving := by
-  simp only [mem_component_iff_Root]
+  simp only [mem_component_iff_root]
   rw [effect.root_iff hF hl hw hne]
   constructor
   · rintro ⟨q, hq, he⟩
@@ -236,7 +236,7 @@ theorem LinkEffect.component_other {ds out : DSA} {losing surviving r : Int}
     (hl : SelfRoot ds losing) (hw : SelfRoot ds surviving) (hne : losing ≠ surviving)
     (hrl : r ≠ losing) (hrw : r ≠ surviving) (v : Int) :
     v ∈ componentVertices out r ↔ v ∈ componentVertices ds r := by
-  simp only [mem_component_iff_Root]
+  simp only [mem_component_iff_root]
   rw [effect.root_iff hF hl hw hne]
   constructor
   · rintro ⟨q, hq, he⟩
@@ -389,9 +389,9 @@ theorem LinkEffect.find_map {ds out : DSA} {losing surviving : Int}
       have hvo : ¬ Valid out v := fun h => hv ((effect.valid_iff v).mp h)
       exact findDSA_invalid hvo
   | some r =>
-      have hr := (hF.findDSA_iff_Root v r).mp hf
+      have hr := (hF.findDSA_iff_root v r).mp hf
       have hr' := effect.root_forward hl hw hne hr
-      exact (hout.findDSA_iff_Root v (renameRoot losing surviving r)).mpr hr'
+      exact (hout.findDSA_iff_root v (renameRoot losing surviving r)).mpr hr'
 
 theorem union_forest {ds out : DSA} {n1 n2 : Int}
     (hF : Forest ds) (hexact : RootSizesExact ds)

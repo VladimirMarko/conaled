@@ -468,7 +468,7 @@ variable {n : ℕ} {G B E : Type} [Group G] [MulAction G E]
   [IsManifold (modelWithCorners n) ∞ B] [IsManifold (modelWithCorners n) ∞ E]
 variable (P : Bundle (n := n) (G := G) (B := B) (E := E))
 
-instance totalMap_locallySurjective : Presheaf.IsLocallySurjective topology P.descendedObject.totalMap.hom where
+instance totalMap_isLocallySurjective : Presheaf.IsLocallySurjective topology P.descendedObject.totalMap.hom where
   imageSieve_mem {U} x := by
     let A := P.totalCharts.representedAtlas.transport (atlasIso P.totalCharts).symm
     apply topology.superset_covering _ (A.covering U x)

@@ -23,7 +23,7 @@ open AndInstallationTail AndRecursorStages AndGeneratedType
 attribute [local cbv_eval] mkFEnv_env
 
 
-checked_normal_form ruleFe : FEnv := classFeROvl q.p.toBlockShape Ms [generated] q.rd.recCls (mkFEnv ctorEnv)
+checked_normal_form ruleFe : FEnv := classFeROvl q.p.toBlockShape targetMajors [generated] q.rd.recCls (mkFEnv ctorEnv)
 checked_normal_form gen : Expr := (classGenRule g (classRecOf q.rd.recCls [generated])
     (generated.levelParams.map .param) 0 ((ctors.headD []).headD default)).getD (.bvar 0)
 measured_theorem generated_rule : classGenRule g (classRecOf q.rd.recCls [generated])

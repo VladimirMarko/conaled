@@ -72,7 +72,7 @@ theorem target_execution (ops) (n) : (targetCode ops).run (env n) = Examples.Inc
 theorem native_fullG (ops) : targetNative ops = DependentPairJudgments.compile (native ops) :=
   (DependentPairSharedClient.compiled_image (sourceProof ops) (env 0)).1
 
-theorem native_FG (ops) : targetNative ops =
+theorem native_pairFG (ops) : targetNative ops =
     DependentPairJudgments.Administrative.erase
       (DependentPairJudgments.TypedSubstitution.fullEliminationLocal _)
       (fun _ h => Empty.elim h)

@@ -164,7 +164,7 @@ lemma principal (x : (base (Y := Y)).obj.Elements)
   intro h hh
   exact hu h (congrArg (Sigma.mk x.val) hh)
 
-lemma projection_locallySurjective : Presheaf.IsLocallySurjective J (projection P).hom where
+lemma projection_isLocallySurjective : Presheaf.IsLocallySurjective J (projection P).hom where
   imageSieve_mem {U} x := by
     apply J.transitive (SheafCoproductLocal.liftSieve_cover Y x)
     rintro V k ⟨i,y,hy⟩
@@ -184,7 +184,7 @@ def torsor : Torsor G (base (Y := Y)) where
   toAction := action P
   principal := principal P
   isLocallySurjective := by
-    have := projection_locallySurjective P
+    have := projection_isLocallySurjective P
     change Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.ofDisplay (projection P))).hom
     have h := Presheaf.isLocallySurjective_iff_of_fac J
       (congrArg (fun f => f.hom) (SplitSheaf.displayIso_projection (projection P)))

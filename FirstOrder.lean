@@ -283,7 +283,7 @@ def additiveSound : Sound Nat additiveTarget addMeaning where
 
 /-- Every source term in this signature denotes an additive map, in every
 context, for all valuations of its free variables. -/
-theorem everyTerm_additive (t : Term AddPrim Γ a)
+theorem eval_addMeaning_add (t : Term AddPrim Γ a)
     (ρ σ : Val Nat (context Γ)) :
     eval addMeaning t (add (context Γ) ρ σ) =
       add a (eval addMeaning t ρ) (eval addMeaning t σ) := by
@@ -297,7 +297,7 @@ theorem everyTerm_additive (t : Term AddPrim Γ a)
       (compile additiveTarget t).map_add ρ σ
     _ = add a (eval addMeaning t ρ) (eval addMeaning t σ) := by rw [h, h]
 
-theorem everyTerm_zero (t : Term AddPrim Γ a) :
+theorem eval_addMeaning_zero (t : Term AddPrim Γ a) :
     eval addMeaning t (zero (context Γ)) = zero a := by
   rw [← compile_sound additiveTarget additiveSound t (zero (context Γ))]
   exact (compile additiveTarget t).map_zero
@@ -349,7 +349,7 @@ theorem no_exponential (e : Ty)
   omega
 
 #print axioms compile_sound
-#print axioms everyTerm_additive
+#print axioms eval_addMeaning_add
 #print axioms letExample_all
 #print axioms no_exponential
 

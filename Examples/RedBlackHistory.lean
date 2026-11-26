@@ -88,7 +88,7 @@ theorem balanced_history_shape {κ : Type u} {ν : Type v} (ltb : κ → κ → 
   | nil => exact shape
   | cons binding rest ih =>
       obtain ⟨n, shape⟩ := shape
-      exact ih (Search.RedBlack.insert_RB ltb binding.1 binding.2 shape)
+      exact ih (Search.RedBlack.insert_rb ltb binding.1 binding.2 shape)
 
 /-- Both actual realizations implement the same arbitrary chronological history. -/
 theorem histories_meaning_agree {κ : Type u} {ν : Type v}

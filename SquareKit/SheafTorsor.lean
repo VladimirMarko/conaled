@@ -103,7 +103,7 @@ def Action.reindex (P : Action G X) (f : Y ⟶ X) : Action G Y where
 
 /-- Pullback preserves local existence; the covering witnesses are pulled
 back along the base section and retained in the new total space. -/
-theorem reindex_locallySurjective (P : Torsor G X) (f : Y ⟶ X) :
+theorem reindex_isLocallySurjective (P : Torsor G X) (f : Y ⟶ X) :
     Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.tySub P.family f)).hom where
   imageSieve_mem {U} y := by
     have h := Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom (f.hom.app (op U) y)
@@ -118,7 +118,7 @@ theorem reindex_locallySurjective (P : Torsor G X) (f : Y ⟶ X) :
 def reindex (P : Torsor G X) (f : Y ⟶ X) : Torsor G Y where
   toAction := P.toAction.reindex f
   principal x := P.principal (f.hom.mapElements.obj x)
-  isLocallySurjective := reindex_locallySurjective P f
+  isLocallySurjective := reindex_isLocallySurjective P f
 
 def Arrow.reindex {P Q : Torsor G X} (h : Arrow P Q) (f : Y ⟶ X) :
     Arrow (reindex P f) (reindex Q f) where
@@ -262,7 +262,7 @@ theorem totalMap_injective (U : Cᵒᵖ) : Function.Injective (f.totalMap.hom.ap
     eq_of_heq (Sigma.mk.inj_iff.mp he).2
   exact congrArg (fun p => Sigma.mk x p) (f.injective _ hv)
 
-theorem totalMap_locallySurjective : Presheaf.IsLocallySurjective J f.totalMap.hom where
+theorem totalMap_isLocallySurjective : Presheaf.IsLocallySurjective J f.totalMap.hom where
   imageSieve_mem {U} q := by
     have h := Presheaf.imageSieve_mem J (SplitSheaf.p P.family).hom q.1
     apply J.superset_covering _ h
@@ -281,7 +281,7 @@ theorem totalMap_locallySurjective : Presheaf.IsLocallySurjective J f.totalMap.h
 instance totalMap_isIso : IsIso f.totalMap :=
   (Sheaf.isLocallyBijective_iff_isIso f.totalMap).mp
     ⟨Presheaf.isLocallyInjective_of_injective J _ f.totalMap_injective,
-      f.totalMap_locallySurjective⟩
+      f.totalMap_isLocallySurjective⟩
 
 theorem bijective (x : X.obj.Elements) : Function.Bijective (f.hom.app x) := by
   refine ⟨f.injective x, ?_⟩

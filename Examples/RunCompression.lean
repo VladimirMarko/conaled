@@ -80,7 +80,7 @@ theorem membership_and_chain_insufficient :
     contradiction
 
 theorem signals_boundary : (build signals).IsChain (· ≠ ·) :=
-  build_equality_noAdjacent signals
+  build_equality_isChain_ne signals
 
 theorem signals_membership (s : Symbol) : s ∈ build signals ↔ s ∈ signals :=
   build_equality_membership signals s

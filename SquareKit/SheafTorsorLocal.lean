@@ -112,7 +112,7 @@ theorem principal_of_reindex (f : Y ⟶ X)
   intro h hh
   exact hu h (congrArg (Sigma.mk x.val) hh)
 
-theorem locallySurjective_of_reindex (f : Y ⟶ X)
+theorem isLocallySurjective_of_reindex (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective J f.hom]
     [Presheaf.IsLocallySurjective J (SplitSheaf.p (Q.reindex f).family).hom] :
     Presheaf.IsLocallySurjective J (SplitSheaf.p Q.family).hom where
@@ -140,7 +140,7 @@ def torsorOfReindex (f : Y ⟶ X)
     Torsor G X where
   toAction := Q
   principal := Q.principal_of_reindex f hp
-  isLocallySurjective := Q.locallySurjective_of_reindex f
+  isLocallySurjective := Q.isLocallySurjective_of_reindex f
 
 end Action
 end SquareKit.SheafTorsor

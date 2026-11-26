@@ -49,11 +49,11 @@ def constantLabel (G : Type) [Group G] :
       (locallyConstantGroup G).obj :=
   CategoryTheory.toSheafify topology _
 
-instance constantLabel_locallySurjective (G : Type) [Group G] :
+instance constantLabel_isLocallySurjective (G : Type) [Group G] :
     Presheaf.IsLocallySurjective topology (constantLabel G) := by
   exact Presheaf.isLocallySurjective_toSheafify' topology (D := GrpCat.{0}) _
 
-instance constantLabel_locallyInjective (G : Type) [Group G] :
+instance constantLabel_isLocallyInjective (G : Type) [Group G] :
     Presheaf.IsLocallyInjective topology (constantLabel G) := by
   exact Presheaf.isLocallyInjective_toSheafify' topology (D := GrpCat.{0}) _
 

@@ -381,7 +381,7 @@ theorem balanceRun_leftLeft (left : Tree κ ν) (key : κ) (value : ν)
     cases metric <;> simp [tick, leftPairRun_other]
 
 /-- Left-right is selected only after the complete left-left attempt fails. -/
-theorem balanceRun_leftRight (left : Tree κ ν) (key : κ) (value : ν)
+theorem balanceRun_left_right (left : Tree κ ν) (key : κ) (value : ν)
     (right : Tree κ ν) (parts : RedPair κ ν)
     (notLeftLeft : (leftPairRun left).1 = none)
     (selected : (rightPairRun left).1 = some parts) :
@@ -415,7 +415,7 @@ theorem balanceRun_rightLeft (left : Tree κ ν) (key : κ) (value : ν)
     cases metric <;> simp [tick, leftPairRun_other, rightPairRun_other, Nat.add_assoc]
 
 /-- Right-right retains all three earlier failures, including right-left. -/
-theorem balanceRun_rightRight (left : Tree κ ν) (key : κ) (value : ν)
+theorem balanceRun_right_right (left : Tree κ ν) (key : κ) (value : ν)
     (right : Tree κ ν) (parts : RedPair κ ν)
     (notLeftLeft : (leftPairRun left).1 = none)
     (notLeftRight : (rightPairRun left).1 = none)
@@ -484,7 +484,7 @@ theorem balanceRun_cost_form (color : RBTree.RBColor) (left : Tree κ ν)
           | some parts =>
               refine ⟨3, 1 + (leftPairRun left).2 .datatypeObservations +
                 (rightPairRun left).2 .datatypeObservations, 3,
-                congrArg Prod.snd (balanceRun_leftRight left key value right parts hll hlr),
+                congrArg Prod.snd (balanceRun_left_right left key value right parts hll hlr),
                 by decide, by decide, ?_, ?_, Or.inr rfl⟩ <;> omega
           | none =>
               cases hrl : (leftPairRun right).1 with
@@ -502,7 +502,7 @@ theorem balanceRun_cost_form (color : RBTree.RBColor) (left : Tree κ ν)
                         (leftPairRun right).2 .datatypeObservations +
                         (rightPairRun right).2 .datatypeObservations, 3,
                         congrArg Prod.snd
-                          (balanceRun_rightRight left key value right parts hll hlr hrl hrr),
+                          (balanceRun_right_right left key value right parts hll hlr hrl hrr),
                         by decide, by decide, ?_, ?_, Or.inr rfl⟩ <;> omega
                   | none =>
                       refine ⟨5, 1 + (leftPairRun left).2 .datatypeObservations +

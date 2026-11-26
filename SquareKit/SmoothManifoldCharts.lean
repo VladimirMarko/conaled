@@ -46,7 +46,7 @@ def chartPoint (x : Points (chartDomain e)) : M := e.symm x.val
 
 def chartTargetEquiv : Points (chartDomain e) ≃ₜ e.target := Homeomorph.setCongr (chartDomain_locus e)
 
-theorem chartPoint_openEmbedding : Topology.IsOpenEmbedding (chartPoint e) :=
+theorem chartPoint_isOpenEmbedding : Topology.IsOpenEmbedding (chartPoint e) :=
   e.symm.isOpenEmbedding_restrict.comp (chartTargetEquiv e).isOpenEmbedding
 
 theorem chartPoint_source (x : Points (chartDomain e)) : chartPoint e x ∈ e.source :=
@@ -106,7 +106,7 @@ abbrev charts : EuclideanOpen.Charts M where
 
 abbrev atlas : EuclideanOpen.Atlas M where
   toCharts := A.charts
-  isOpenEmbedding i := chartPoint_openEmbedding (A.chart i)
+  isOpenEmbedding i := chartPoint_isOpenEmbedding (A.chart i)
   covers x := by
     obtain ⟨i,hi⟩ := A.covers x
     refine ⟨i,⟨A.chart i x,?_⟩, (A.chart i).left_inv hi⟩

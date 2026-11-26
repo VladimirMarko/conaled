@@ -34,15 +34,15 @@ theorem solutionPaths_fixed : ∀ᶠ p in 𝓝 (0 : State),
     linear_combination (norm := module) hz
   · exact hw'
 
-theorem solutionPaths_bigO : solutionPaths =O[𝓝 (0 : State)] (fun p => ‖p‖) := by
+theorem solutionPaths_isBigO : solutionPaths =O[𝓝 (0 : State)] (fun p => ‖p‖) := by
   have h := solutionPaths_derivative.isBigO_sub
   simpa only [solutionPaths_zero,sub_zero] using h.norm_right
 
-theorem initialPaths_bigO : initialPaths =O[𝓝 (0 : State)] (fun p => ‖p‖) :=
+theorem initialPaths_isBigO : initialPaths =O[𝓝 (0 : State)] (fun p => ‖p‖) :=
   (initialPaths.isBigO_id _).norm_right
 
 /-- Cubic multiplication of bounded path families has a genuine cubic bound. -/
-theorem pathCubic_bigO {α : State → Paths}
+theorem pathCubic_isBigO {α : State → Paths}
     (h : α =O[𝓝 (0 : State)] (fun p => ‖p‖)) :
     (fun p => pathCubic (α p)) =O[𝓝 (0 : State)] (fun p => ‖p‖^3) := by
   have hz := (conjugate.isBigO_comp (fun p => (α p).1) _).trans h.prod_left_fst
@@ -54,7 +54,7 @@ theorem pathCubic_bigO {α : State → Paths}
 theorem path_deviation_cubic : (fun p => solutionPaths p - initialPaths p)
     =O[𝓝 (0 : State)] (fun p => ‖p‖^3) := by
   have hb := (cubicLift.isBigO_comp (fun p => pathCubic (solutionPaths p)) _).trans
-    (pathCubic_bigO solutionPaths_bigO)
+    (pathCubic_isBigO solutionPaths_isBigO)
   apply hb.congr' ?_ Filter.EventuallyEq.rfl
   filter_upwards [solutionPaths_fixed] with p hp
   conv_rhs => rw [hp]
@@ -90,7 +90,7 @@ theorem pathCubic_difference {α β : State → Paths}
 theorem solutionPaths_remainder :
     (fun p => solutionPaths p - initialPaths p - cubicLift (pathCubic (initialPaths p)))
       =O[𝓝 (0 : State)] (fun p => ‖p‖^5) := by
-  have hc := pathCubic_difference solutionPaths_bigO initialPaths_bigO path_deviation_cubic
+  have hc := pathCubic_difference solutionPaths_isBigO initialPaths_isBigO path_deviation_cubic
   have hb := (cubicLift.isBigO_comp
     (fun p => pathCubic (solutionPaths p) - pathCubic (initialPaths p)) _).trans hc
   apply hb.congr' ?_ Filter.EventuallyEq.rfl

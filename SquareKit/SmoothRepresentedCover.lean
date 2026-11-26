@@ -34,8 +34,8 @@ abbrev inclusion (i : I) : embedding.obj (A.domain i) ⟶ A.total :=
   SheafCoproductLocal.inclusion A.family i
 abbrev cover : A.total ⟶ X := SheafCoproductLocal.desc A.family A.chart
 
-instance cover_locallySurjective : Presheaf.IsLocallySurjective topology A.cover.hom :=
-  SheafCoproductLocal.locallySurjective_desc A.family A.chart A.covering
+instance cover_isLocallySurjective : Presheaf.IsLocallySurjective topology A.cover.hom :=
+  SheafCoproductLocal.isLocallySurjective_desc A.family A.chart A.covering
 
 @[simp, reassoc] theorem inclusion_cover (i : I) : A.inclusion i ≫ A.cover = A.chart i :=
   SheafCoproductLocal.inclusion_desc A.family A.chart i
@@ -197,8 +197,8 @@ abbrev pairFamily : (I × I) → Sheaf topology Type := fun ij => embedding.obj 
 abbrev pairCover : SheafCoproductLocal.total A.pairFamily ⟶ SheafCoverCech.double A.cover :=
   SheafCoproductLocal.desc A.pairFamily (fun ij => A.pairMap ij.1 ij.2)
 
-instance pairCover_locallySurjective : Presheaf.IsLocallySurjective topology A.pairCover.hom :=
-  SheafCoproductLocal.locallySurjective_desc A.pairFamily (fun ij => A.pairMap ij.1 ij.2) A.pairMap_cover
+instance pairCover_isLocallySurjective : Presheaf.IsLocallySurjective topology A.pairCover.hom :=
+  SheafCoproductLocal.isLocallySurjective_desc A.pairFamily (fun ij => A.pairMap ij.1 ij.2) A.pairMap_cover
 
 /-- Any family of maps from represented pair intersections agrees where its
 images in the actual double overlap agree. Summand indices are retained locally. -/
@@ -390,7 +390,7 @@ theorem tripleHom_ext {N : Sheaf topology Type}
   let F := fun ijk : (I × I) × I => embedding.obj (A.triple ijk.1.1 ijk.1.2 ijk.2)
   let j := fun ijk : (I × I) × I => A.tripleMap ijk.1.1 ijk.1.2 ijk.2
   have : Presheaf.IsLocallySurjective topology (SheafCoproductLocal.desc F j).hom :=
-    SheafCoproductLocal.locallySurjective_desc F j A.tripleMap_cover
+    SheafCoproductLocal.isLocallySurjective_desc F j A.tripleMap_cover
   apply (cancel_epi (SheafCoproductLocal.desc F j)).mp
   apply colimit.hom_ext
   intro ⟨⟨i,j⟩,k⟩

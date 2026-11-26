@@ -12,14 +12,14 @@ attribute [local cbv_eval] Expr.bvarBRaw_bvar Expr.bvarBRaw_fvar Expr.bvarBRaw_s
 
 
 checked_normal_form nfResult : Except CheckError (List TargetMajor) := classesNfs (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.tbl.toList q.cls
-def Ms : List TargetMajor := nfResult.toOption.getD []
-measured_theorem nfs_ok : classesNfs (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.tbl.toList q.cls = .ok Ms := nfResult_eq
-checked_normal_form ctorResult : Except CheckError (List (List ClassCtor)) := classesCtors (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.rd Ms 0 Ms
+def targetMajors : List TargetMajor := nfResult.toOption.getD []
+measured_theorem nfs_ok : classesNfs (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.tbl.toList q.cls = .ok targetMajors := nfResult_eq
+checked_normal_form ctorResult : Except CheckError (List (List ClassCtor)) := classesCtors (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.rd targetMajors 0 targetMajors
 def ctors : List (List ClassCtor) := ctorResult.toOption.getD []
-measured_theorem ctors_ok : classesCtors (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.rd Ms 0 Ms = .ok ctors := ctorResult_eq
-checked_normal_form formerTys : List Expr := (Ms.mapM (classFormerTy (m := Except CheckError) (mkFEnv ctorEnv) q.cvTas)).toOption.getD []
-measured_theorem formers_ok : Ms.mapM (classFormerTy (m := Except CheckError) (mkFEnv ctorEnv) q.cvTas) = .ok formerTys := by cbv
-def g0 : ClassGen := ⟨q.p.nP, q.params, Ms, formerTys, q.rd.slots, ctors, structElimLevel q.p.elim q.p.large, []⟩
+measured_theorem ctors_ok : classesCtors (fueledOps .verified 32) ctorEnv q.p.toBlockShape (q.cvTas.map (·.type)) q.rd targetMajors 0 targetMajors = .ok ctors := ctorResult_eq
+checked_normal_form formerTys : List Expr := (targetMajors.mapM (classFormerTy (m := Except CheckError) (mkFEnv ctorEnv) q.cvTas)).toOption.getD []
+measured_theorem formers_ok : targetMajors.mapM (classFormerTy (m := Except CheckError) (mkFEnv ctorEnv) q.cvTas) = .ok formerTys := by cbv
+def g0 : ClassGen := ⟨q.p.nP, q.params, targetMajors, formerTys, q.rd.slots, ctors, structElimLevel q.p.elim q.p.large, []⟩
 checked_normal_form pre : List Expr := g0.prefixBinders.getD []
 measured_theorem prefix_ok : g0.prefixBinders = some pre := by cbv
 def g : ClassGen := {g0 with pre := pre}

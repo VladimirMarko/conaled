@@ -12,7 +12,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {X Y : Sheaf J (Type (max u v))} {A : SplitSheaf.Ty X}
 
 /-- A split cover remains locally surjective after arbitrary parameter change. -/
-instance baseChangeCover_locallySurjective (f : Y ⟶ X)
+instance baseChangeCover_isLocallySurjective (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom] :
     Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.tySub A f)).hom where
   imageSieve_mem {U} y := by
@@ -28,7 +28,7 @@ instance baseChangeCover_locallySurjective (f : Y ⟶ X)
     rw [← hn] at b
     exact ⟨⟨Y.obj.map k.op y,b⟩, rfl⟩
 
-instance splitDisplay_locallySurjective {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X)
+instance splitDisplay_isLocallySurjective {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective J f.hom] :
     Presheaf.IsLocallySurjective J (SplitSheaf.p (SplitSheaf.ofDisplay f)).hom := by
   rw [← SplitSheaf.displayIso_projection]

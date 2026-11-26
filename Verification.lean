@@ -20,7 +20,7 @@ as "does not depend on any axioms". No result should mention `sorryAx`.
 #print axioms SquareCompiler.compile_apply_commutes
 #print axioms SquareCompiler.incrementTwice_correct
 #print axioms FirstOrderCompiler.compile_sound
-#print axioms FirstOrderCompiler.everyTerm_additive
+#print axioms FirstOrderCompiler.eval_addMeaning_add
 #print axioms FirstOrderCompiler.no_exponential
 #print axioms DependentSquares.TermCert.reindex
 #print axioms DependentSquares.sectionCert

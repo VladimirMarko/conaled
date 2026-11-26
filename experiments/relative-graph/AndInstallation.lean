@@ -28,14 +28,14 @@ theorem sort0 (env : Env) (hi : Nat) : (fueledOps .verified 32).ensureSort env h
   rfl
 
 def fvs : List Expr := [.fvar 3 (.fvar 0 (.sort .zero)),.fvar 4 (.fvar 1 (.sort .zero))]
-measured_theorem fieldSorts : checkStructFieldSortsI (fueledOps .verified 32) indsResult.1
+measured_theorem checkStructFieldSortsI_eq : checkStructFieldSortsI (fueledOps .verified 32) indsResult.1
     true false .zero 3 fvs [] 2 = .ok [.zero,.zero] := by
   simp only [checkStructFieldSortsI, fvs, List.getElem?_cons_zero,
     List.getElem?_cons_succ, unwrapOr, bind, Except.bind, pure, Except.pure]
   simp only [Expr.fvarTypeD, Bool.not_true, Bool.false_eq_true, ↓reduceIte,
     Nat.reduceAdd, infer1, infer0, sort0]
   rfl
-measured_theorem absSorts : checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx
+measured_theorem checkAbsCtorSortsAll_eq : checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx
     ctorResult.1 rootResult.1 = .ok () := by
   change checkAbsCtorSortsAll (fueledOps .verified 32) indsResult.1 ctx
     [[(andIntroRaw.toConstantVal,2)]] [[([.ordinary,.ordinary],crest)]] = .ok ()
@@ -46,7 +46,7 @@ measured_theorem absSorts : checkAbsCtorSortsAll (fueledOps .verified 32) indsRe
   rw [hsort]
   have heq : (Level.isEquiv .zero .zero == some true) = true := by cbv
   rw [heq]
-  have hf := fieldSorts
+  have hf := checkStructFieldSortsI_eq
   dsimp only [fvs] at hf
   rw [hf]
 def posResult : List (List (List NestFieldKind)) × List (List Expr) × NestState :=
@@ -56,7 +56,7 @@ measured_theorem positivity : checkBlockPositivity (fueledOps .verified 32) inds
     indsResult.1.find? completed indsResult.2.1 ctorResult.1 = .ok posResult := by
   exact AcceptanceComposition.block_positivity (fueledOps .verified 32) indsResult.1
     indsResult.1.find? completed indsResult.2.1 ctorResult.1 ctx holes rootResult.1 rootResult.2
-    context_accepted andUniformAccepted AndAcceptanceRoot.root absSorts
+    context_accepted and_uniform_accepted AndAcceptanceRoot.root checkAbsCtorSortsAll_eq
 -- Exact outputs are named by the operational expression until a structural
 -- equation supplies their success; getD is not used as an acceptance premise.
 checked_normal_form classes : ClassRead × List TargetMajor := (checkBlockClasses (fueledOps .verified 32) (mkFEnv indsResult.1)
@@ -74,7 +74,7 @@ measured_theorem pass_ok : checkBlockPass (fueledOps .verified 32) eqEnv parts f
   exact AcceptanceComposition.block_pass (fueledOps .verified 32) eqEnv indsResult.1 parts false
     indsResult.2.1 indsResult.2.2 ctorResult.1 ctorResult.2 ctx holes classes.1 classes.2
     posResult.1 posResult.2.1 posResult.2.2 posResult.2.2
-    inds_accepted andConstructorsAccepted context_accepted (classes_ok.trans (AcceptanceComposition.pair_ok classes)) positivity seeds_ok
+    inds_accepted and_constructors_accepted context_accepted (classes_ok.trans (AcceptanceComposition.pair_ok classes)) positivity seeds_ok
 
 def andEnv : Env := ⟨(andPin.map GraphEnvironment.storedProposition).reverse ++
   AcceptanceStages.equalityEnvironment.consts,[GraphEnvironment.andTable]⟩

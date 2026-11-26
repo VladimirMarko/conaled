@@ -57,7 +57,7 @@ theorem Map.baseChange_localArrow {d e : Datum (a := a) A} (h : Map d e) (f : Y 
 @[simp] theorem baseChange_comp (f : Y ⟶ X) (g : Z ⟶ Y) :
     baseChange (a := a) (A := A) f ⋙ baseChange g = baseChange (g ≫ f) := rfl
 
-export SheafCover (baseChangeCover_locallySurjective)
+export SheafCover (baseChangeCover_isLocallySurjective)
 
 variable [Presheaf.IsLocallySurjective J (SplitSheaf.p A).hom]
 

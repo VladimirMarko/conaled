@@ -58,8 +58,8 @@ theorem recolored_red_chain_bst : BST id (makeBlack redChain) :=
 theorem red_chain_not_rb (parent : RBTree.RBColor) (n : Nat) :
     ¬ RB redChain parent n := by
   intro valid
-  have child := (RB_red_node_iff.mp valid).2.1
-  have impossible := (RB_red_node_iff.mp child).1
+  have child := (rb_red_node_iff.mp valid).2.1
+  have impossible := (rb_red_node_iff.mp child).1
   cases impossible
 
 /-- BST balancing applies even though the input child violates red adjacency. -/

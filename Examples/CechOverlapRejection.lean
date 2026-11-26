@@ -47,7 +47,7 @@ theorem quarterTurn_overlap_rejected :
     have : Presheaf.IsLocallySurjective topology (𝟙 SmoothTorsors.point : SmoothTorsors.point ⟶ SmoothTorsors.point).hom := by
       change Presheaf.IsLocallySurjective topology (𝟙 SmoothTorsors.point.obj)
       infer_instance
-    have := Descent.splitCover_locallySurjective
+    have := Descent.splitCover_isLocallySurjective
       (f := (𝟙 SmoothTorsors.point : SmoothTorsors.point ⟶ SmoothTorsors.point))
     exact CechDeformationDescent.rejects_constant_loop object loop loop_ne_id
 

@@ -14,7 +14,7 @@ variable (A : ChartFamily n M)
 theorem self_left_eq_right (i : A.Index) : A.left i i = A.right i i := by
   apply OpenFunctions.Map.ext
   intro x
-  apply (chartPoint_openEmbedding (A.chart i)).injective
+  apply (chartPoint_isOpenEmbedding (A.chart i)).injective
   exact A.agreement i i x
 
 /-- The represented self-overlap proves cancellation against every sheaf test object. -/

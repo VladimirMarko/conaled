@@ -119,8 +119,8 @@ theorem requestStep_list_exists {array arrayOut : DSA} {list : ListPartition.DS}
     ∃ listOut, ListRequestStep list u v listOut ∧ ComponentRefines arrayOut listOut := by
   have step := arrayStep
   obtain ⟨r, s, hr, hs, hrs, _⟩ := step
-  have hu := ((hF.findDSA_iff_Root u r).mp hr).valid_start
-  have hv := ((hF.findDSA_iff_Root v s).mp hs).valid_start
+  have hu := ((hF.findDSA_iff_root u r).mp hr).valid_start
+  have hv := ((hF.findDSA_iff_root v s).mp hs).valid_start
   obtain ⟨a, ha⟩ := list_partition_find refines.1 ((mem_vertexUniverse array u).mpr hu)
   obtain ⟨b, hb⟩ := list_partition_find refines.1 ((mem_vertexUniverse array v).mpr hv)
   have hne : a ≠ b := by
@@ -143,8 +143,8 @@ theorem componentRefines_union {array arrayOut : DSA} {list : ListPartition.DS}
       ListPartition.IsName list a ∧ ListPartition.IsName list b ∧ a ≠ b ∧
       ListPartition.unionDS a b list = some listOut ∧ ComponentRefines arrayOut listOut := by
   have arrayStep : RequestStep array n1 n2 arrayOut :=
-    ⟨n1, n2, (hF.findDSA_iff_Root n1 n1).mpr (root_self h1),
-      (hF.findDSA_iff_Root n2 n2).mpr (root_self h2), hne, hunion⟩
+    ⟨n1, n2, (hF.findDSA_iff_root n1 n1).mpr (root_self h1),
+      (hF.findDSA_iff_root n2 n2).mpr (root_self h2), hne, hunion⟩
   obtain ⟨listOut, listStep, outRefines⟩ := requestStep_list_exists hF refines arrayStep
   obtain ⟨a, b, ha, hb, hab, hu⟩ := listStep
   exact ⟨a, b, listOut, ha, hb, list_find_isName refines.1 ha,

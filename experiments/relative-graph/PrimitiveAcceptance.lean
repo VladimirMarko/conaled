@@ -7,7 +7,7 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 1000000
 set_option pp.deepTerms.threshold 8
 measured_theorem equality : checkDecl .verified (fueledOps .verified 32) [] Env.empty (.indDecl eqBasis 2) = .ok AcceptanceStages.equalityEnvironment := by
-  simp only [checkDecl, AcceptanceStages.equalityPin]
+  simp only [checkDecl, AcceptanceStages.basisPinHit_eqBasis]
   cbv
 measured_theorem accepted : checkDeclsPure (mode := .verified) (fueledOps .verified 32) [] GraphEnvironment.declarations.toList = .ok GraphEnvironment.environment := by
   exact AcceptanceComposition.fold_three (checkDecl .verified (fueledOps .verified 32) [])

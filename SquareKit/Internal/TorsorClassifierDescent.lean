@@ -52,7 +52,7 @@ theorem decoded_principal (P : Torsor G X) (x : X.obj.Elements)
     simpa only [recovery_inv_hom] using he
 
 /-- Local existence is transported along the sheaf isomorphism over X. -/
-instance decoded_locallySurjective (P : Torsor G X) :
+instance decoded_isLocallySurjective (P : Torsor G X) :
     Presheaf.IsLocallySurjective J (SplitSheaf.p (decodedAction P).family).hom := by
   have h := congrArg (fun f => f.hom) (PresheafFamily.decodeSheafIso_projection.{u,u,v} P.family)
   change (PresheafFamily.decodeSheafIso.{u,u,v} P.family).hom.hom ≫ (SplitSheaf.p P.family).hom =
@@ -66,7 +66,7 @@ instance decoded_locallySurjective (P : Torsor G X) :
 def decoded (P : Torsor G X) : Torsor G X where
   toAction := decodedAction P
   principal := decoded_principal P
-  isLocallySurjective := decoded_locallySurjective P
+  isLocallySurjective := decoded_isLocallySurjective P
 
 def comparison (P : Torsor G X) : Arrow (decoded P) P where
   iso := recovery P

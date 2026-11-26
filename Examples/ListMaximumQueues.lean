@@ -143,7 +143,7 @@ theorem merged_every_query_count (query : Nat) :
   laws.merge_count [7, 2, 7] [7, 0] [7, 2, 7] [7, 0] (merge [7, 2, 7] [7, 0]) query
     (valid _) (valid _) (abs_intro _) (abs_intro _) (abs_intro _)
 
-theorem literal_successful_delete_Forall :
+theorem literal_successful_delete_forall :
     ([2, 7, 7, 4] : List Nat).Perm [7, 2, 7, 4] ∧
       List.Forall (fun key => key ≤ 7) [2, 7, 4] :=
   deleteMax_relate_forall [2, 7, 7, 4] [2, 7, 4] 7 [2, 7, 7, 4] [2, 7, 4]
@@ -167,7 +167,7 @@ theorem dual_queue_observation_law :
     [2, 7, 4] (valid [2, 7, 7, 4]) dual_queue_repeated_removals.1
   exact ⟨result.2.1, result.2.2⟩
 
-theorem dual_queue_law_returns_Nat_maximum :
+theorem dual_queue_law_returns_nat_maximum :
     ∀ key ∈ ([2, 7, 7, 4] : List Nat), key ≤ 7 := by
   intro key member
   exact dual_queue_observation_law.2 (Search.MaximumQueue.encode key)

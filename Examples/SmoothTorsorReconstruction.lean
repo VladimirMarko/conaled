@@ -53,7 +53,7 @@ theorem no_continuous_section :
 theorem total_hausdorff : T2Space (Total torsor) :=
   total_t2Space torsor
 
-theorem total_secondCountable : SecondCountableTopology (Total torsor) :=
+theorem secondCountableTopology_total : SecondCountableTopology (Total torsor) :=
   total_secondCountableTopology torsor
 
 theorem totalRecovery_equivariant (U : SmoothPresentationSite.Siteᵒᵖ)
@@ -149,7 +149,7 @@ def totalRecovery : object 0 (Total torsor) ≅ SplitSheaf.extension torsor.fami
 theorem total_card : Nat.card (Total torsor) = 4 :=
   (Nat.card_congr comparison.diffeomorph.toEquiv).trans card_C4
 
-theorem total_secondCountable : SecondCountableTopology (Total torsor) :=
+theorem secondCountableTopology_total : SecondCountableTopology (Total torsor) :=
   total_secondCountableTopology torsor
 
 end Finite
@@ -177,7 +177,7 @@ def recoveryArrow :
 theorem total_hausdorff : T2Space (Total torsor) :=
   total_t2Space torsor
 
-theorem total_secondCountable : SecondCountableTopology (Total torsor) :=
+theorem secondCountableTopology_total : SecondCountableTopology (Total torsor) :=
   total_secondCountableTopology torsor
 
 end EmptyBase

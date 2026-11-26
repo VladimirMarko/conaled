@@ -25,7 +25,7 @@ instance twoSheet_epi : Epi (twoSheet X) where
     have e := congrArg (fun k => (coprod.inl : X ⟶ X ⨿ X) ≫ k) he
     simpa only [← Category.assoc, left_sheet, Category.id_comp] using e
 
-instance twoSheet_locallySurjective :
+instance twoSheet_isLocallySurjective :
     Presheaf.IsLocallySurjective topology (twoSheet X).hom :=
   (Sheaf.isLocallySurjective_iff_epi (twoSheet X)).mpr inferInstance
 

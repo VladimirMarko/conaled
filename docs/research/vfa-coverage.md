@@ -3583,7 +3583,7 @@ The source predicate indexes a hypothetical parent, while the provider indexes
 the root. The exact bridge is red parent to black provider root, and black
 parent to an existential provider root color. Nil has black height zero.
 NearlyRB is exactly nonempty plus the provider's `RedRed True`; its temporary
-red-root case may have two red children. Both simultaneous `ins_RB`
+red-root case may have two red children. Both simultaneous `ins_rb`
 conclusions hold for arbitrary Boolean comparisons at the same black height.
 Logical parent weakening leaves the tree unchanged. Actual root blackening
 may change black height, so its result and final insertion quantify the new

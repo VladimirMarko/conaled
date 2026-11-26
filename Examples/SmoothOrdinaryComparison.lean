@@ -152,9 +152,9 @@ theorem refinedTransition_recovers (G : Type) [Group G] (c : G) :
 abbrev signFamily := ordinaryCoverFamily punctured signDefining
 abbrev refinedSignFamily := ordinaryCoverFamily punctured refinedSignDefining
 instance : Presheaf.IsLocallySurjective SquareKit.SmoothOpenSite.topology (SplitSheaf.p signFamily).hom :=
-  ordinaryCoverFamily_locallySurjective punctured signDefining sign_covers
+  ordinaryCoverFamily_isLocallySurjective punctured signDefining sign_covers
 instance : Presheaf.IsLocallySurjective SquareKit.SmoothOpenSite.topology (SplitSheaf.p refinedSignFamily).hom :=
-  ordinaryCoverFamily_locallySurjective punctured refinedSignDefining refinedSign_covers
+  ordinaryCoverFamily_isLocallySurjective punctured refinedSignDefining refinedSign_covers
 
 /-- The refinement on the actual split cover displays. -/
 def signSplitRefinement : SplitSheaf.extension refinedSignFamily ⟶ SplitSheaf.extension signFamily :=

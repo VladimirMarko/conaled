@@ -23,7 +23,7 @@ is represented by `4v/gap²` and the position partial by
 `8 normSq(v) z/gap³`. `EulerLagrange` differentiates the momentum along a
 curve with the specified velocity and acceleration. Its equation is equivalent
 to `a = −christoffel z v v` when the gap is nonzero. Applying the existing
-`move_velocity` and `move_geodesic` results gives `native_eulerLagrange`.
+`move_velocity` and `move_geodesic` results gives `native_eulerLagrangeAt`.
 The existing `move_speed` result supplies the kinetic energy `s²/2`.
 
 `Midpoint` proves the disk membership of midpoint positions and both actual

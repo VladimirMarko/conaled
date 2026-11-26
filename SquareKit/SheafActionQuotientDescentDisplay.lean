@@ -11,7 +11,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 variable {G : Sheaf J GrpCat.{max u v}} {M X Y : Sheaf J (Type (max u v))}
 variable (a : Action G M) (f : Y ⟶ X)
 
-abbrev splitCover_locallySurjective := @SheafCover.splitDisplay_locallySurjective
+abbrev splitCover_isLocallySurjective := @SheafCover.splitDisplay_isLocallySurjective
 
 /-- The arbitrary sheaf cover is represented by its actual fibers. The cover
 isomorphism remains explicit; this does not select a section of the cover. -/

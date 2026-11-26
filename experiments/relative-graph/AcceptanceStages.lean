@@ -9,24 +9,24 @@ open ConLeche ConLeche.Cached
 
 def equalityEnvironment : Env := ⟨[eqRecA, eqReflA, eqA], []⟩
 
-theorem equalityPin : basisPinHit eqBasis = some .eqK := by
+theorem basisPinHit_eqBasis : basisPinHit eqBasis = some .eqK := by
   simp [basisPinHit, BasisKind.decls, canonEqList]
 
-theorem equalityGuard : andPinOk (.indDecl eqBasis 2) = true := by
+theorem andPinOk_eqBasis : andPinOk (.indDecl eqBasis 2) = true := by
   decide +kernel
 
-theorem equalityInstall :
+theorem installDeclStep_eqBasis :
     installDeclStep .verified [] (0, mkFEnv Env.empty, #[]) (.indDecl eqBasis 2) =
       .ok (1, mkFEnv equalityEnvironment, #[]) := by
-  simp only [installDeclStep, equalityGuard, ↓reduceIte, installStepC,
-    checkDeclStepC, checkDeclC, equalityPin, checkBasisDeclC, reduceCtorEq,
+  simp only [installDeclStep, andPinOk_eqBasis, ↓reduceIte, installStepC,
+    checkDeclStepC, checkDeclC, basisPinHit_eqBasis, checkBasisDeclC, reduceCtorEq,
     installBasisFoldF_pushC]
   rfl
 
-theorem equalityAccepted :
+theorem checkDecls_eqBasis :
     checkDecls .verified [] #[.indDecl eqBasis 2] = .ok equalityEnvironment := by
   simp only [checkDecls, ← Array.foldlM_toList, List.foldlM_cons, List.foldlM_nil,
-    equalityInstall]
+    installDeclStep_eqBasis]
   rfl
 
 namespace Reference
@@ -47,12 +47,12 @@ def indsResult : Env × List ConstantVal × BlockShape :=
 def completed := parts.complete indsResult.2.2
 def ctorResult : List (List (ConstantVal × Nat)) × List (List (List Level)) :=
   ([[ (andIntroRaw.toConstantVal, 2) ]], [[[.zero, .zero]]])
-theorem andConstructorsAccepted : checkBlockCtors (fueledOps .verified 32) indsResult.1 indsResult.1 completed.toBlockShape (completed.members.zip indsResult.2.1) = .ok ctorResult := by cbv
+theorem and_constructors_accepted : checkBlockCtors (fueledOps .verified 32) indsResult.1 indsResult.1 completed.toBlockShape (completed.members.zip indsResult.2.1) = .ok ctorResult := by cbv
 
 def ctx : NestCtx := completed.toBlockShape.nestCtx [Expr.fvar 0 (.sort .zero), Expr.fvar 1 (.sort .zero)] indsResult.1.find?
 def holes := (nestHoles ctx).getD []
 @[local cbv_eval] theorem context_accepted : blockNestCtx (m := Except CheckError) completed.toBlockShape indsResult.2.1 indsResult.1.find? = .ok (ctx, holes) := by cbv
-theorem andUniformAccepted : nestUniform (m := Except CheckError) ctx ctorResult.1 = .ok () := by cbv
+theorem and_uniform_accepted : nestUniform (m := Except CheckError) ctx ctorResult.1 = .ok () := by cbv
 
 end Reference
 

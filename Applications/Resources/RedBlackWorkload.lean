@@ -396,7 +396,7 @@ theorem prefixTrees_shape (ltb : κ → κ → Bool) (writes : List (κ × ν))
   | cons binding rest ih =>
       simp only [prefixTrees, List.scanl_cons, List.forall_mem_cons]
       obtain ⟨n, shape⟩ := shape
-      exact ⟨⟨n, shape⟩, ih (Search.RedBlack.insert_RB ltb binding.1 binding.2 shape)⟩
+      exact ⟨⟨n, shape⟩, ih (Search.RedBlack.insert_rb ltb binding.1 binding.2 shape)⟩
 
 /-- The existing executor consumes actual measured insertion results in order. -/
 def buildRun (cmp : κ → κ → Measured Bool Nat) (writes : List (κ × ν))
@@ -447,7 +447,7 @@ theorem buildRun_shape (cmp : κ → κ → Measured Bool Nat) (writes : List (�
   intro binding state stateShape
   obtain ⟨n, h⟩ := stateShape
   rw [insertRun_value]
-  exact Search.RedBlack.insert_RB _ binding.1 binding.2 h
+  exact Search.RedBlack.insert_rb _ binding.1 binding.2 h
 
 /-- Repricing commutes with the established measured executor. -/
 theorem buildRun_reweight (prices : Metric → Nat) (cmp : κ → κ → Measured Bool Nat)

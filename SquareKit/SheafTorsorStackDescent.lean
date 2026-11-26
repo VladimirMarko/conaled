@@ -303,7 +303,7 @@ theorem localComparison_natural {D E : Data (G := G) A} (h : D ⟶ E)
   rcases x with @⟨U, ⟨x, a⟩⟩
   exact (datumMap h).evaluation (X.obj.elementsMk U x) a p
 
-export SheafCover (splitDisplay_locallySurjective display_sieve)
+export SheafCover (splitDisplay_isLocallySurjective display_sieve)
 
 theorem isStackFor_cover {Y : Sheaf J (Type (max u v))} (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective J f.hom] :

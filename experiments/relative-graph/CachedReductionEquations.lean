@@ -15,7 +15,7 @@ open ConLeche ConLeche.Cached
       memoEI (·.whnfC) (fun s mp => {s with whnfC := mp})
         (fun d e => whnfBodyI (coreKnotI mode fe fuel) fe d e) d e := rfl
 
-@[cbv_eval] theorem whnfCore (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (cheap : Bool) (e : Expr) :
+@[cbv_eval] theorem whnfCore_eq (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (cheap : Bool) (e : Expr) :
     (coreKnotI mode fe (fuel + 1)).whnfCore cheap d e =
       (if cheap then
         memoEI (·.whnfCoreCheapC) (fun s mp => {s with whnfCoreCheapC := mp})
@@ -27,12 +27,12 @@ open ConLeche ConLeche.Cached
     (coreKnotI mode fe (fuel + 1)).defeq d a b =
       memoBI (fun d a b => defeqBodyI mode (coreKnotI mode fe fuel) fe d a b) d a b := rfl
 
-@[cbv_eval] theorem defeqE (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (a b : Expr) :
+@[cbv_eval] theorem defeqE_eq (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (a b : Expr) :
     (coreKnotI mode fe (fuel + 1)).defeqE d a b =
       withEagerMemos mode
         (memoBI (fun d a b => defeqBodyI mode.toEager (coreKnotI mode.toEager fe fuel) fe d a b) d a b) := rfl
 
-@[cbv_eval] theorem inferIO (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (e : Expr) :
+@[cbv_eval] theorem inferIO_eq (mode : CheckMode) (fe : FEnv) (fuel d : Nat) (e : Expr) :
     (coreKnotI mode fe (fuel + 1)).inferIO d e =
       memoEI (·.inferIOC) (fun s mp => {s with inferIOC := mp})
         (fun d e => inferBodyIOI (coreKnotI mode fe fuel).ioView fe d e) d e := rfl

@@ -91,7 +91,7 @@ theorem principal (x : base.obj.Elements) (p q : (action G c).family.family.obj 
 def torsor : SheafTorsor.Torsor (locallyConstantGroup G) base where
   toAction := action G c
   principal := principal G c
-  isLocallySurjective := action_locallySurjective G c
+  isLocallySurjective := action_isLocallySurjective G c
 
 /-- A split global section would give a forbidden section of the actual glued display. -/
 theorem no_global_section (hc : c ≠ 1) : ¬ Nonempty (SplitSheaf.Tm (torsor G c).family) := by

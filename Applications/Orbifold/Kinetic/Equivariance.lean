@@ -50,7 +50,7 @@ theorem plus_rotate (u : ℂ) (hu : Complex.normSq u = 1) (p : ℂ × ℂ) :
     legendrePlus h (rotatePhase u p) = rotatePhase u (legendrePlus h p) := by
   simp [legendrePlus,rotatePhase,d2_rotate u _ _ hu]
 
-theorem DEL_rotate (u : ℂ) (hu : Complex.normSq u = 1) {x y z : ℂ}
+theorem discreteEL_rotate (u : ℂ) (hu : Complex.normSq u = 1) {x y z : ℂ}
     (he : DiscreteEL h x y z) : DiscreteEL h (u*x) (u*y) (u*z) := by
   unfold DiscreteEL at *
   rw [d1_rotate u _ _ hu,d2_rotate u _ _ hu,← mul_add,he,mul_zero]

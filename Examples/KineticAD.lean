@@ -151,21 +151,21 @@ theorem plusBranch_domain (h : ℝ) (x : ℂ) (hh : 0 < h)
   rw [plusBranch, OpenPartialHomeomorph.restr_source' _ _ endpointDomain_open] at hp
   exact hp.2
 
-theorem minusBranch_AD_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem minusBranch_ad_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) {p : ℂ × ℂ}
     (hp : p ∈ (minusBranch h x hh hx).source) :
     (minusBranch h x hh hx).symm (legendreMinusAD h p) = p := by
   rw [legendreMinusAD_eq h p (ne_of_gt hh) (minusBranch_domain h x hh hx hp)]
   exact minusBranch_inverse h x hh hx hp
 
-theorem plusBranch_AD_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem plusBranch_ad_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) {p : ℂ × ℂ}
     (hp : p ∈ (plusBranch h x hh hx).source) :
     (plusBranch h x hh hx).symm (legendrePlusAD h p) = p := by
   rw [legendrePlusAD_eq h p (ne_of_gt hh) (plusBranch_domain h x hh hx hp)]
   exact plusBranch_inverse h x hh hx hp
 
-theorem minusBranch_AD_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem minusBranch_ad_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) {p q : ℂ × ℂ}
     (hp : p ∈ (minusBranch h x hh hx).source)
     (hq : q ∈ (minusBranch h x hh hx).source)
@@ -174,7 +174,7 @@ theorem minusBranch_AD_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
     legendreMinusAD_eq h q (ne_of_gt hh) (minusBranch_domain h x hh hx hq)] at he
   exact minusBranch_unique h x hh hx hp hq he
 
-theorem plusBranch_AD_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem plusBranch_ad_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) {p q : ℂ × ℂ}
     (hp : p ∈ (plusBranch h x hh hx).source)
     (hq : q ∈ (plusBranch h x hh hx).source)
@@ -183,13 +183,13 @@ theorem plusBranch_AD_unique (h : ℝ) (x : ℂ) (hh : 0 < h)
     legendrePlusAD_eq h q (ne_of_gt hh) (plusBranch_domain h x hh hx hq)] at he
   exact plusBranch_unique h x hh hx hp hq he
 
-theorem minusBranch_AD_smooth_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem minusBranch_ad_smooth_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) :
     ContDiffAt ℝ ∞ (minusBranch h x hh hx).symm (legendreMinusAD h (x,x)) := by
   rw [legendreMinusAD_eq h (x,x) (ne_of_gt hh) ⟨hx,hx⟩]
   exact minus_inverse_smooth h x hh hx
 
-theorem plusBranch_AD_smooth_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
+theorem plusBranch_ad_smooth_inverse (h : ℝ) (x : ℂ) (hh : 0 < h)
     (hx : Complex.normSq x < 1) :
     ContDiffAt ℝ ∞ (plusBranch h x hh hx).symm (legendrePlusAD h (x,x)) := by
   rw [legendrePlusAD_eq h (x,x) (ne_of_gt hh) ⟨hx,hx⟩]
@@ -213,7 +213,7 @@ theorem quartic_directional_first (p : ℝ × ℝ) :
   rw [show fderiv ℝ quarticJoint p = _ from hd.fderiv]
   simp
 
-theorem quartic_AD_momenta (p : ℝ × ℝ) :
+theorem quartic_ad_momenta (p : ℝ × ℝ) :
     (SecondOrder.lift quarticJoint quarticJoint_smooth (p,(1,0))).2 =
         -4*(p.2-p.1)^3 ∧
     (SecondOrder.lift quarticJoint quarticJoint_smooth (p,(0,1))).2 =
@@ -288,7 +288,7 @@ example : (SecondOrder.twice quarticJoint quarticJoint_smooth
 /-- The selected branch is inhabited and recovers its AD-derived observation. -/
 example : (minusBranch 1 0 (by norm_num) (by norm_num)).symm
     (legendreMinusAD 1 (0,0)) = (0,0) :=
-  minusBranch_AD_inverse 1 0 (by norm_num) (by norm_num)
+  minusBranch_ad_inverse 1 0 (by norm_num) (by norm_num)
     (minusBranch_contains 1 0 (by norm_num) (by norm_num))
 
 end Examples.KineticAD

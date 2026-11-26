@@ -21,7 +21,7 @@ example : EmittedGraph.backwardType = telescope
     (.forallE EmittedComparison.conclusion (EmittedComparison.premise.liftLooseBVars 1 0)) := rfl
 
 /-- Function membership is the full telescope obligation, stronger than closure. -/
-theorem specializeTelescope {body : Expr} {T f : V} (A B C F G x z : V)
+theorem specialize_telescope {body : Expr} {T f : V} (A B C F G x z : V)
     (ht : Denotes m.cval env φ (fun _ => A) (telescope body) T) (hf : f ∈ˢ T)
     (hA : A ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
@@ -62,7 +62,7 @@ theorem specializeTelescope {body : Expr} {T f : V} (A B C F G x z : V)
 
 /-- Read an implication from the stored emitted declaration, specializing its
 actual telescope and transporting the conclusion across the proof binder. -/
-theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
+theorem closed_implication (c : ConstantInfo) (hc : c ∈ env.consts)
     (p q : Expr) (qCore : SquareKit.Internal.CoreSyntax.Expr) (P Q : V)
     (hct : c.toConstantVal.type = telescope (.forallE p (q.liftLooseBVars 1 0)))
     (he : EmissionEncoding.encode qCore = some q)
@@ -78,7 +78,7 @@ theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
     (pt : V) ∈ˢ P → ∃ witness : V, witness ∈ˢ Q := by
   obtain ⟨T, ht, hf⟩ := m.mem c hc φ (fun _ => A)
   rw [hct] at ht
-  obtain ⟨R, hr, hfr⟩ := specializeTelescope A B C F G x z ht hf hA hB hC hF hG hx hz
+  obtain ⟨R, hr, hfr⟩ := specialize_telescope A B C F G x z ht hf hA hB hC hF hG hx hz
   intro h
   obtain ⟨S, hs, hfs⟩ := specialize hr hfr hp h
   have hqCore : EmissionSemantics.Holds m φ (EmittedComparison.assignment x z A B C F G) qCore Q :=
@@ -89,7 +89,7 @@ theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
 
 
 /-- Both actual emitted theorem records induce the graph comparison. -/
-theorem closedTruth (m : Model V EmittedEnvironment.environment) (φ : LevelParam → Nat)
+theorem closed_truth (m : Model V EmittedEnvironment.environment) (φ : LevelParam → Nat)
     (A B C F G : V)
     (hA : A ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ EmittedComparison.carrierLevel))
@@ -116,11 +116,11 @@ theorem closedTruth (m : Model V EmittedEnvironment.environment) (φ : LevelPara
     (EmittedComparison.compatible m φ A B C F G x.val z.val)
     (EmittedComparison.objects_compatible m φ A B C F G L x z)
     SquareKit.Internal.GraphTarget.forwardDeclaration.conclusion _ EmittedComparison.conclusion_encoded
-  have forward := closedImplication (m := m)
+  have forward := closed_implication (m := m)
     (.thmInfo ⟨EmissionEncoding.N.encode `graph_forward, [EmissionEncoding.N.encode `v], EmittedGraph.forwardType⟩)
     (by decide) EmittedComparison.premise EmittedComparison.conclusion EmittedComparison.conclusionCore P Q
     rfl EmittedComparison.conclusion_encoded rfl A B C F G x.val z.val hA hB hC hF hG x.property z.property hp hq
-  have backward := closedImplication (m := m)
+  have backward := closed_implication (m := m)
     (.thmInfo ⟨EmissionEncoding.N.encode `graph_backward, [EmissionEncoding.N.encode `v], EmittedGraph.backwardType⟩)
     (by decide) EmittedComparison.conclusion EmittedComparison.premise EmittedComparison.premiseCore Q P
     rfl EmittedComparison.premise_encoded rfl A B C F G x.val z.val hA hB hC hF hG x.property z.property hq hp

@@ -26,7 +26,7 @@ def coordinates : (power space Nat Bool).obj.obj (op whole) := coordinate
 
 /-- A compact space has finite locally constant images; Cantor has infinitely
 many distinct points, so its identity cannot be locally constant. -/
-theorem identity_not_locallyConstant : ¬ IsLocallyConstant (id : Cantor → Cantor) := by
+theorem identity_not_isLocallyConstant : ¬ IsLocallyConstant (id : Cantor → Cantor) := by
   intro h
   have finiteAll : (Set.univ : Set Cantor).Finite := by
     simpa only [Set.range_id] using h.range_finite
@@ -50,7 +50,7 @@ theorem coordinates_not_image :
   have hf : (f : Cantor → Cantor) = id := by
     funext x n
     exact congrArg (fun k : Nat → LocallyConstant whole Bool => k n ⟨x, trivial⟩) hs
-  exact identity_not_locallyConstant (hf ▸ f.isLocallyConstant)
+  exact identity_not_isLocallyConstant (hf ▸ f.isLocallyConstant)
 
 theorem comparison_not_iso : ¬ IsIso (comparison space Nat Bool) := by
   intro h

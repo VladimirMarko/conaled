@@ -241,7 +241,7 @@ theorem step_valid (decode : κ → Int) (keys : Finset κ)
       rw [writeRun_value]
       obtain ⟨bst, ⟨blackHeight, shape⟩, stored⟩ := valid
       exact ⟨Search.RedBlack.insert_bst decode (fun a b => (cmp a b).1) order bst key true,
-        Search.RedBlack.insert_RB _ key true shape,
+        Search.RedBlack.insert_rb _ key true shape,
         Search.RedBlack.insert_forallT _ _ key true state.2 admitted stored⟩
   | true =>
       rw [step, CollisionWork.step_of_true _ _ _ _ _ _ seen]

@@ -36,8 +36,8 @@ measured_theorem constructors :
     [] 3 [] ctx.params ctx.names holes andIntroRaw.toConstantVal 2 {} {} crest
     (.sort (.imax .zero (.imax .zero .zero))) (.imax .zero (.imax .zero .zero))
     [.ordinary,.ordinary] [.fvar 0 (.sort .zero),.fvar 1 (.sort .zero)] (.fvar 2 (.sort .zero))
-    (by rfl) (by rw [inst_eq]; exact crest_ok) inferCrest sort_ok
-    (by intro err; rw [fuel_eq]; exact fieldsCrest err) hguard hres
+    (by rfl) (by rw [inst_eq]; exact crest_ok) inferType_crest sort_ok
+    (by intro err; rw [fuel_eq]; exact nestFields_crest err) hguard hres
   rw [hclose] at h
   exact h
 

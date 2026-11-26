@@ -56,7 +56,7 @@ def fourOutput : List Nat :=
 
 theorem fourOutput_value : fourOutput = [10, 7, 15, 6] := by decide
 
-theorem fourOutput_matches_DFT :
+theorem fourOutput_matches_directDFT :
     fourPoint.reverse.decode (fourPoint.fft (4 : ZMod 17) fourInput) =
       Factor.directDFT 4 (fourPoint.decode fourInput) :=
   fourPoint.fft_decode 4 fourth_root fourInput
@@ -73,7 +73,7 @@ def eightInput : eightPoint.Data (ZMod 17) :=
 def eightOutput : List Nat :=
   (List.ofFn (eightPoint.reverse.decode (eightPoint.fft (2 : ZMod 17) eightInput))).map ZMod.val
 
-theorem eightOutput_matches_DFT :
+theorem eightOutput_matches_directDFT :
     eightPoint.reverse.decode (eightPoint.fft (2 : ZMod 17) eightInput) =
       Factor.directDFT 2 (eightPoint.decode eightInput) :=
   eightPoint.fft_decode 2 eighth_root eightInput

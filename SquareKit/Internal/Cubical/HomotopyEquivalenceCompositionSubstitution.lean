@@ -174,7 +174,7 @@ private theorem fiberLine_congr {Ω Ξ : Context.{u}} {P Q : Family Ω} (k : P �
   cases h
   rfl
 
-private theorem extendAlong_Fst_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
+private theorem extendAlong_fst_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
     (FP : Filling P) (hFP : FP.Lawful) (FQ : Filling Q) (hFQ : FQ.Lawful)
     (τ : Ξ ⟶ Ω) (β : Λ ⟶ total (reindex Q τ)) {ψ : Cofibration Λ}
@@ -191,7 +191,7 @@ private theorem extendAlong_Fst_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
   exact (fiberFst_congr (pulled k τ) β hc).trans
     (fiberFst_input k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
 
-private theorem extendAlong_Line_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
+private theorem extendAlong_line_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
     (FP : Filling P) (hFP : FP.Lawful) (FQ : Filling Q) (hFQ : FQ.Lawful)
     (τ : Ξ ⟶ Ω) (β : Λ ⟶ total (reindex Q τ)) {ψ : Cofibration Λ}
@@ -208,7 +208,7 @@ private theorem extendAlong_Line_input {Ω Ξ Λ : Context.{u}} {P Q : Family Ω
   exact (fiberLine_congr (pulled k τ) β hc).trans
     (fiberLine_input k τ β (K.extendAlong FP hFP FQ hFQ (β ≫ liftSub Q τ) (genericFiberPartialIntro k (β ≫ liftSub Q τ) p h)))
 
-private theorem extendAlong_Fst_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
+private theorem extendAlong_fst_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
     (FP : Filling P) (hFP : FP.Lawful) (FQ : Filling Q) (hFQ : FQ.Lawful)
     (τ : Ξ ⟶ Ω) (ρ : Λ ⟶ Ξ) {ψ : Cofibration Λ}
@@ -221,10 +221,10 @@ private theorem extendAlong_Fst_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Fami
   have hn := extendAlong_fst_congr (pulled k τ) (K.reindex τ)
     (FP.reindex τ) (hFP.reindex _) (FQ.reindex τ) (hFQ.reindex _)
     ρ p p' hp b b' hb h h'
-  have hi := extendAlong_Fst_input k K FP hFP FQ hFQ τ (pair ρ b') p' h'
+  have hi := extendAlong_fst_input k K FP hFP FQ hFQ τ (pair ρ b') p' h'
   exact hn.trans hi
 
-private theorem extendAlong_Line_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
+private theorem extendAlong_line_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Family Ω}
     (k : P ⟶ Q) (K : HomotopyEquivalence k)
     (FP : Filling P) (hFP : FP.Lawful) (FQ : Filling Q) (hFQ : FQ.Lawful)
     (τ : Ξ ⟶ Ω) (ρ : Λ ⟶ Ξ) {ψ : Cofibration Λ}
@@ -237,7 +237,7 @@ private theorem extendAlong_Line_input_congr {Ω Ξ Λ : Context.{u}} {P Q : Fam
   have hn := extendAlong_line_congr (pulled k τ) (K.reindex τ)
     (FP.reindex τ) (hFP.reindex _) (FQ.reindex τ) (hFQ.reindex _)
     ρ p p' hp b b' hb h h'
-  have hi := extendAlong_Line_input k K FP hFP FQ hFQ τ (pair ρ b') p' h'
+  have hi := extendAlong_line_input k K FP hFP FQ hFQ τ (pair ρ b') p' h'
   exact hn.trans hi
 
 theorem source_input_reindex :
@@ -245,7 +245,7 @@ theorem source_input_reindex :
       (FA.reindex ν) (hFA.reindex _) (FB.reindex ν) (hFB.reindex _)
       (FC.reindex ν) (hFC.reindex _) ρ (s.map (inputMap (f ≫ g) ν ρ)) =
     source f g E D FA hFA FB hFB FC hFC (ρ ≫ liftSub C ν) s := by
-  exact extendAlong_Fst_input_congr f E FA hFA FB hFB ν
+  exact extendAlong_fst_input_congr f E FA hFA FB hFB ν
     (ρ ≫ projection (reindex C ν))
     (partialSource (pulled f ν) (pulled g ν) ρ (s.map (inputMap (f ≫ g) ν ρ)))
     (partialSource f g (ρ ≫ liftSub C ν) s) (partialSource_input_reindex f g ν ρ s)
@@ -264,7 +264,7 @@ theorem middleLine_input_reindex :
       (FA.reindex ν) (hFA.reindex _) (FB.reindex ν) (hFB.reindex _)
       (FC.reindex ν) (hFC.reindex _) ρ (s.map (inputMap (f ≫ g) ν ρ)) =
     middleLine f g E D FA hFA FB hFB FC hFC (ρ ≫ liftSub C ν) s := by
-  exact extendAlong_Line_input_congr f E FA hFA FB hFB ν
+  exact extendAlong_line_input_congr f E FA hFA FB hFB ν
     (ρ ≫ projection (reindex C ν))
     (partialSource (pulled f ν) (pulled g ν) ρ (s.map (inputMap (f ≫ g) ν ρ)))
     (partialSource f g (ρ ≫ liftSub C ν) s) (partialSource_input_reindex f g ν ρ s)

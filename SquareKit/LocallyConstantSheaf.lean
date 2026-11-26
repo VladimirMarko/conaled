@@ -52,14 +52,14 @@ def delta : Type ⥤ Sh X where
 def unit (A : Type) : (Functor.const (Opens X)ᵒᵖ).obj A ⟶ data X A where
   app U := ↾fun a => LocallyConstant.const U.unop a
 
-instance unit_locallyInjective (A : Type) : Presheaf.IsLocallyInjective (site X) (unit X A) where
+instance unit_isLocallyInjective (A : Type) : Presheaf.IsLocallyInjective (site X) (unit X A) where
   equalizerSieve_mem {U} a b h := by
     intro x hx
     refine ⟨U.unop, 𝟙 _, ?_, hx⟩
     change a = b
     exact congrArg (fun s : LocallyConstant U.unop A => s ⟨x, hx⟩) h
 
-instance unit_locallySurjective (A : Type) : Presheaf.IsLocallySurjective (site X) (unit X A) where
+instance unit_isLocallySurjective (A : Type) : Presheaf.IsLocallySurjective (site X) (unit X A) where
   imageSieve_mem {U} s := by
     change LocallyConstant U A at s
     intro x hx

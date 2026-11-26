@@ -109,7 +109,7 @@ theorem recovered_projection (x : E) :
 theorem recovered_hausdorff : T2Space recovered.Total :=
   Ordinary.reconstructed_t2Space (Ordinary.realization.obj ordinary)
 
-theorem recovered_secondCountable : SecondCountableTopology recovered.Total :=
+theorem secondCountableTopology_recovered : SecondCountableTopology recovered.Total :=
   Ordinary.reconstructed_secondCountableTopology (Ordinary.realization.obj ordinary)
 
 /-- Recovery may be compared on any covering chart family of the nontrivial base. -/

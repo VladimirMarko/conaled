@@ -32,10 +32,10 @@ def RB (t : Tree κ ν) : RBColor → Nat → Prop
 def NearlyRB (t : Tree κ ν) (n : Nat) : Prop :=
   t ≠ .nil ∧ t.RedRed True n
 
-@[simp] theorem RB_red_iff {t : Tree κ ν} {n : Nat} :
+@[simp] theorem rb_red_iff {t : Tree κ ν} {n : Nat} :
     RB t red n ↔ t.Balanced black n := Iff.rfl
 
-@[simp] theorem RB_black_iff {t : Tree κ ν} {n : Nat} :
+@[simp] theorem rb_black_iff {t : Tree κ ν} {n : Nat} :
     RB t black n ↔ ∃ root, t.Balanced root n := Iff.rfl
 
 theorem RB.balanced {t : Tree κ ν} {parent : RBColor} {n : Nat}
@@ -50,7 +50,7 @@ theorem RB.nil (parent : RBColor) : RB (.nil : Tree κ ν) parent 0 := by
   | red => exact RBNode.Balanced.nil
   | black => exact ⟨black, RBNode.Balanced.nil⟩
 
-@[simp] theorem RB_nil_iff (parent : RBColor) (n : Nat) :
+@[simp] theorem rb_nil_iff (parent : RBColor) (n : Nat) :
     RB (.nil : Tree κ ν) parent n ↔ n = 0 := by
   constructor
   · intro h
@@ -66,7 +66,7 @@ theorem RB.red {l r : Tree κ ν} {n : Nat} (key : κ) (value : ν)
     RB (.node red l (key, value) r) black n :=
   ⟨RBColor.red, RBNode.Balanced.red hl hr⟩
 
-@[simp] theorem RB_red_node_iff {l r : Tree κ ν} {key : κ} {value : ν}
+@[simp] theorem rb_red_node_iff {l r : Tree κ ν} {key : κ} {value : ν}
     {parent : RBColor} {n : Nat} :
     RB (.node red l (key, value) r) parent n ↔
       parent = black ∧ RB l red n ∧ RB r red n := by
@@ -91,7 +91,7 @@ theorem RB.black {l r : Tree κ ν} {n : Nat} (parent : RBColor)
   | red => exact RBNode.Balanced.black hl hr
   | black => exact ⟨RBColor.black, RBNode.Balanced.black hl hr⟩
 
-@[simp] theorem RB_black_node_iff {l r : Tree κ ν} {key : κ} {value : ν}
+@[simp] theorem rb_black_node_iff {l r : Tree κ ν} {key : κ} {value : ν}
     {parent : RBColor} {m : Nat} :
     RB (.node black l (key, value) r) parent m ↔
       ∃ n, m = n + 1 ∧ RB l black n ∧ RB r black n := by
@@ -104,7 +104,7 @@ theorem RB.black {l r : Tree κ ν} {n : Nat} (parent : RBColor)
     exact RB.black parent key value hl hr
 
 /-- Changing only the hypothetical parent leaves the tree and height unchanged. -/
-theorem RB_blacken_parent {t : Tree κ ν} {n : Nat} (h : RB t red n) :
+theorem rb_blacken_parent {t : Tree κ ν} {n : Nat} (h : RB t red n) :
     RB t black n := ⟨black, h⟩
 
 theorem nearlyRB_iff {t : Tree κ ν} {n : Nat} :
@@ -155,7 +155,7 @@ theorem NearlyRB.black {l r : Tree κ ν} {n : Nat} (key : κ) (value : ν)
   · rintro ⟨n, rfl, hl, hr⟩
     exact NearlyRB.black key value hl hr
 
-theorem NearlyRB.of_RB {t : Tree κ ν} {parent : RBColor} {n : Nat}
+theorem NearlyRB.of_rb {t : Tree κ ν} {parent : RBColor} {n : Nat}
     (h : RB t parent n) (nonempty : t ≠ .nil) : NearlyRB t n := by
   obtain ⟨root, h⟩ := h.balanced
   exact ⟨nonempty, .balanced h⟩
@@ -247,7 +247,7 @@ private theorem ins_redRed (ltb : κ → κ → Bool) (key : κ) (value : ν)
         · exact .balanced (.black hl hr)
 
 /-- The simultaneous source invariant, for arbitrary Boolean branch tests. -/
-theorem ins_RB (ltb : κ → κ → Bool) (key : κ) (value : ν) (t : Tree κ ν) (n : Nat) :
+theorem ins_rb (ltb : κ → κ → Bool) (key : κ) (value : ν) (t : Tree κ ν) (n : Nat) :
     (RB t black n → NearlyRB (ins ltb key value t) n) ∧
       (RB t red n → RB (ins ltb key value t) black n) := by
   constructor
@@ -260,19 +260,19 @@ theorem ins_RB (ltb : κ → κ → Bool) (key : κ) (value : ν) (t : Tree κ �
 
 theorem ins_red (ltb : κ → κ → Bool) (key : κ) (value : ν)
     {t : Tree κ ν} {n : Nat} (h : RB t red n) :
-    RB (ins ltb key value t) black n := (ins_RB ltb key value t n).2 h
+    RB (ins ltb key value t) black n := (ins_rb ltb key value t n).2 h
 
 /-- Root recoloring may increase black height; the source only promises a new one. -/
-theorem RB_blacken_root {t : Tree κ ν} {n : Nat} (h : RB t black n) :
+theorem rb_blacken_root {t : Tree κ ν} {n : Nat} (h : RB t black n) :
     ∃ n', RB (makeBlack t) red n' := by
   obtain ⟨root, h⟩ := h
   exact h.setBlack
 
 /-- Public source insertion restores a black root with some black height. -/
-theorem insert_RB (ltb : κ → κ → Bool) (key : κ) (value : ν)
+theorem insert_rb (ltb : κ → κ → Bool) (key : κ) (value : ν)
     {t : Tree κ ν} {n : Nat} (h : RB t red n) :
     ∃ n', RB (insert ltb key value t) red n' := by
   rw [insert_eq_makeBlack_ins]
-  exact RB_blacken_root (ins_red ltb key value h)
+  exact rb_blacken_root (ins_red ltb key value h)
 
 end Search.RedBlack

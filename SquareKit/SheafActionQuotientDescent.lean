@@ -57,7 +57,7 @@ abbrev descendedTorsor := SheafTorsor.Descent.torsor d.torsorDatum
 abbrev cover : SplitSheaf.extension (SplitSheaf.tySub d.descendedTorsor.family (SplitSheaf.p A)) ⟶
     SplitSheaf.extension d.descendedTorsor.family := SplitSheaf.lift _ (SplitSheaf.p A)
 
-instance cover_locallySurjective : Presheaf.IsLocallySurjective J d.cover.hom where
+instance cover_isLocallySurjective : Presheaf.IsLocallySurjective J d.cover.hom where
   imageSieve_mem {U} t := by
     have h := Presheaf.imageSieve_mem J (SplitSheaf.p A).hom t.1
     apply J.superset_covering _ h

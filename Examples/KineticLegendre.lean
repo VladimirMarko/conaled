@@ -24,8 +24,8 @@ theorem branch_solves_phase (h : ℝ) (x : ℂ) (hh : 0 < h) (hx : Complex.normS
 example : (0,0) ∈ (minusBranch 1 0 (by norm_num) (by norm_num)).source :=
   minusBranch_contains 1 0 (by norm_num) (by norm_num)
 
-example : ¬ DiscreteEL 1 0 (1/2) (4/5) := midpoint_rational_not_DEL
-example : exactD2 1 0 (1/2) + exactD1 1 (1/2) (4/5) = 0 := rational_exact_DEL
+example : ¬ DiscreteEL 1 0 (1/2) (4/5) := midpoint_rational_not_discreteEL
+example : exactD2 1 0 (1/2) + exactD1 1 (1/2) (4/5) = 0 := rational_exact_del
 
 /-- The native selected lift starts at the apex with a nonzero physical velocity. -/
 theorem apex_velocity (d : ℂ) (hd : Complex.normSq d = 1) (s : ℝ) (hs : s ≠ 0) :
@@ -46,7 +46,7 @@ theorem selected_frame_retained (p : Pose) (d : ℂ) (hd : Complex.normSq d = 1)
 
 example : EulerLagrangeAt (fun t => (DiskTransport.move Pose.identity 1 (by norm_num) 0 t).a)
     (fun t => (DiskTransport.move Pose.identity 1 (by norm_num) 0 t).frame 0) 0 := by
-  simpa using native_eulerLagrange Pose.identity 1 (by norm_num) 0 0
+  simpa using native_eulerLagrangeAt Pose.identity 1 (by norm_num) 0 0
 
 /-- The C4 label is retained as an input; it rotates the chosen incoming lift. -/
 theorem rotated_diameter (g : Orbifold.QuarterTurn.C4) (d : ℂ)
@@ -57,6 +57,6 @@ theorem rotated_diameter (g : Orbifold.QuarterTurn.C4) (d : ℂ)
       (fun r => (DiskTransport.move Pose.identity (Orbifold.LocalDisplacement.phase g*d)
         (by simpa [map_mul,Orbifold.LocalDisplacement.phase_norm] using hd) s r).frame
           ((Orbifold.LocalDisplacement.phase g*d)*(s : ℂ))) t :=
-  native_eulerLagrange _ _ _ _ _
+  native_eulerLagrangeAt _ _ _ _ _
 
 end Examples.KineticLegendre

@@ -58,8 +58,8 @@ theorem requestStep_sameComponent_iff {ds out : DSA} {u v : Int}
       (SameComponent ds x u ∧ SameComponent ds v y) ∨
       (SameComponent ds x v ∧ SameComponent ds u y) := by
   obtain ⟨a, b, ha, hb, hne, hu⟩ := h
-  have hru := (hF.findDSA_iff_Root u a).mp ha
-  have hrv := (hF.findDSA_iff_Root v b).mp hb
+  have hru := (hF.findDSA_iff_root u a).mp ha
+  have hrv := (hF.findDSA_iff_root v b).mp hb
   rw [union_sameComponent hF hru.selfRoot hrv.selfRoot hne hu,
     sameComponent_right_of_root hru x, sameComponent_left_of_root hrv y,
     sameComponent_right_of_root hrv x, sameComponent_left_of_root hru y]
@@ -88,8 +88,8 @@ theorem requestHistory_connected_iff {n : Int} {requests : List (Int × Int)}
       have hFo := requestHistory_forest ho
       have hstepCopy := hstep
       obtain ⟨r, s, ha, hb, _, _⟩ := hstepCopy
-      have hva := ((hF.findDSA_iff_Root a r).mp ha).valid_start
-      have hvb := ((hF.findDSA_iff_Root b s).mp hb).valid_start
+      have hva := ((hF.findDSA_iff_root a r).mp ha).valid_start
+      have hvb := ((hF.findDSA_iff_root b s).mp hb).valid_start
       have hlink : Connected (vertices n) (requests ++ [(a, b)]) a b :=
         .edge ((valid_iff_mem_vertices hh a).mp hva)
           ((valid_iff_mem_vertices hh b).mp hvb) (by simp)
@@ -141,7 +141,7 @@ theorem requestHistory_find_connected {n : Int} {requests : List (Int × Int)}
     {ds : DSA} (h : RequestHistory n requests ds) {v r : Int}
     (hf : findDSA ds v = some r) :
     r ∈ vertices n ∧ Connected (vertices n) requests v r := by
-  have hr := ((requestHistory_forest h).findDSA_iff_Root v r).mp hf
+  have hr := ((requestHistory_forest h).findDSA_iff_root v r).mp hf
   exact ⟨(valid_iff_mem_vertices h r).mp hr.valid_root,
     (requestHistory_connected_iff h v r).mp ⟨r, hr, root_self hr.selfRoot⟩⟩
 
@@ -152,8 +152,8 @@ theorem requestStep_exists_iff {n : Int} {requests : List (Int × Int)}
   have hF := requestHistory_forest h
   constructor
   · rintro ⟨out, a, b, ha, hb, hne, _⟩
-    have hu := (valid_iff_mem_vertices h u).mp ((hF.findDSA_iff_Root u a).mp ha).valid_start
-    have hv := (valid_iff_mem_vertices h v).mp ((hF.findDSA_iff_Root v b).mp hb).valid_start
+    have hu := (valid_iff_mem_vertices h u).mp ((hF.findDSA_iff_root u a).mp ha).valid_start
+    have hv := (valid_iff_mem_vertices h v).mp ((hF.findDSA_iff_root v b).mp hb).valid_start
     refine ⟨hu, hv, ?_⟩
     intro hc
     have he := (requestHistory_find_equal_iff_connected h hu hv).mpr hc
@@ -168,8 +168,8 @@ theorem requestStep_exists_iff {n : Int} {requests : List (Int × Int)}
       apply (requestHistory_find_equal_iff_connected h hu hv).mp
       rw [ha, hb, he]
     obtain ⟨out, hout⟩ := union_defined hF
-      ((hF.findDSA_iff_Root u a).mp ha).selfRoot
-      ((hF.findDSA_iff_Root v b).mp hb).selfRoot hne
+      ((hF.findDSA_iff_root u a).mp ha).selfRoot
+      ((hF.findDSA_iff_root v b).mp hb).selfRoot hne
     exact ⟨out, a, b, ha, hb, hne, hout⟩
 
 theorem requestHistory_extension_iff {n : Int} {requests : List (Int × Int)}

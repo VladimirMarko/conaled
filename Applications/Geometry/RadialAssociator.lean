@@ -30,10 +30,10 @@ private theorem triple_difference {E : Type*} [NormedAddCommGroup E]
   apply ((h1.add h2).add h3).congr_left
   intro p; ring
 
-theorem cubicCorrection_bigO {E : Type*} [NormedAddCommGroup E] {α : E → State}
+theorem cubicCorrection_isBigO {E : Type*} [NormedAddCommGroup E] {α : E → State}
     (h : α =O[𝓝 0] (fun p => ‖p‖)) :
     (fun p => cubicCorrection (α p)) =O[𝓝 0] (fun p => ‖p‖^3) := by
-  have hz := complexConjugate_bigO h.prod_left_fst
+  have hz := complexConjugate_isBigO h.prod_left_fst
   have h1 : (fun p => conj (α p).1*(α p).2^2) =O[𝓝 0] (fun p => ‖p‖^3) := by
     convert hz.mul (h.prod_left_snd.pow 2) using 1
     funext p; ring
@@ -47,12 +47,12 @@ theorem cubicCorrection_difference {E : Type*} [NormedAddCommGroup E] {α β : E
     (hd : (fun p => α p-β p) =O[𝓝 0] (fun p => ‖p‖^3)) :
     (fun p => cubicCorrection (α p)-cubicCorrection (β p)) =O[𝓝 0] (fun p => ‖p‖^5) := by
   have hdz : (fun p => conj (α p).1-conj (β p).1) =O[𝓝 0] (fun p => ‖p‖^3) := by
-    simpa only [Prod.fst_sub,map_sub] using complexConjugate_bigO hd.prod_left_fst
+    simpa only [Prod.fst_sub,map_sub] using complexConjugate_isBigO hd.prod_left_fst
   have h1 := triple_difference
-    ha.prod_left_snd ha.prod_left_snd (complexConjugate_bigO hb.prod_left_fst)
+    ha.prod_left_snd ha.prod_left_snd (complexConjugate_isBigO hb.prod_left_fst)
     hb.prod_left_snd hdz hd.prod_left_snd hd.prod_left_snd
   have h2 := triple_difference
-    ha.prod_left_fst ha.prod_left_snd (complexConjugate_bigO hb.prod_left_fst)
+    ha.prod_left_fst ha.prod_left_snd (complexConjugate_isBigO hb.prod_left_fst)
     hb.prod_left_fst hdz hd.prod_left_fst hd.prod_left_snd
   apply (h1.add h2).congr_left
   intro p
@@ -71,7 +71,7 @@ theorem displacement_deviation : (fun p : State => displacement p-(p.1+p.2))
     =O[𝓝 0] (fun p => ‖p‖^3) := by
   have he := displacement_cubic_error.trans
     (isLittleO_norm_pow_norm_pow (E' := State) (by norm_num : 3 < 5)).isBigO
-  have hc := cubicCorrection_bigO ((isBigO_refl (fun p : State => p) (𝓝 0)).norm_right)
+  have hc := cubicCorrection_isBigO ((isBigO_refl (fun p : State => p) (𝓝 0)).norm_right)
   apply (he.sub hc).congr_left
   intro p
   ring

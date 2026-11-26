@@ -37,7 +37,7 @@ theorem fields (err : CheckError) :
   rw [nestFields, pos1 1026 4 0 {}]
   rfl
 
-theorem inferCrest : (fueledOps .verified 32).inferType indsResult.1 3 crest = .ok (.sort (.imax .zero (.imax .zero .zero))) := by cbv
+theorem inferType_crest : (fueledOps .verified 32).inferType indsResult.1 3 crest = .ok (.sort (.imax .zero (.imax .zero .zero))) := by cbv
 theorem crest_ok : nestCrest ctx.names [] ctx.params holes andIntroRaw.toConstantVal.type = some crest := by cbv
 
 def rootResult : List (List (List NestFieldKind × Expr)) × NestState :=
@@ -46,7 +46,7 @@ def rootResult : List (List (List NestFieldKind × Expr)) × NestState :=
       [.fvar 0 (.sort .zero), .fvar 1 (.sort .zero)] (.fvar 2 (.sort .zero))) })
 theorem crest_eq : crest = Expr.forallE (.fvar 0 (.sort .zero)) (.forallE (.fvar 1 (.sort .zero)) (.fvar 2 (.sort .zero))) := by cbv
 
-theorem fieldsCrest (err : CheckError) :
+theorem nestFields_crest (err : CheckError) :
     nestFields (nestPos (fueledOps .verified 32) indsResult.1 ctx 1027) [] 3 err 2 0 crest {} =
     .ok ([.ordinary, .ordinary], [.fvar 0 (.sort .zero), .fvar 1 (.sort .zero)], .fvar 2 (.sort .zero), {}) := by
   rw [crest_eq]

@@ -11,7 +11,7 @@ noncomputable section
 namespace SquareKit.EuclideanOpen
 open CategoryTheory Opposite SmoothAlgebra SmoothOpenSite
 
-theorem locallySurjective_principal {E X : Sheaf topology Type} (p : E ⟶ X)
+theorem exists_principal_lift_of_isLocallySurjective {E X : Sheaf topology Type} (p : E ⟶ X)
     [Presheaf.IsLocallySurjective topology p.hom] (U : Domain)
     (k : embedding.obj U ⟶ X) (x : Points U) :
     ∃ q : freeAlgebra U.dimension, q.val x.val ≠ 0 ∧
@@ -50,7 +50,7 @@ def principalLift {E X : Sheaf topology Type} (p : E ⟶ X)
     [Presheaf.IsLocallySurjective topology p.hom] (U : Domain)
     (k : embedding.obj U ⟶ X) (x : Points U) : PrincipalLift p U k x :=
   Classical.choice (by
-    obtain ⟨q,hq,l,hl⟩ := locallySurjective_principal p U k x
+    obtain ⟨q,hq,l,hl⟩ := exists_principal_lift_of_isLocallySurjective p U k x
     exact ⟨⟨q,hq,l,hl⟩⟩)
 
 theorem principalLift_covers {E X : Sheaf topology Type} (p : E ⟶ X)

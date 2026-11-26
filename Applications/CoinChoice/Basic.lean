@@ -115,7 +115,7 @@ theorem lexLE_refl (cs : List Nat) : LexLE cs cs := le_rfl
 theorem lexLE_antisymm {cs xs : List Nat} (h : LexLE cs xs) (h' : LexLE xs cs) :
     cs = xs := le_antisymm h h'
 
-theorem lexMaximum_unique {ds cs xs : List Nat} {n : Nat}
+theorem lexMaximumTuple_unique {ds cs xs : List Nat} {n : Nat}
     (hc : LexMaximumTuple ds n cs) (hx : LexMaximumTuple ds n xs) : cs = xs :=
   lexLE_antisymm (hx.2 cs hc.1) (hc.2 xs hx.1)
 
@@ -287,20 +287,20 @@ theorem mkchange3_lex_upper {ds : List Nat} (hds : Currency ds) (n : Nat)
       · have hlt : c < n / d := by omega
         exact Or.inr (List.Lex.rel hlt)
 
-theorem mkchange3_lexMaximum {ds : List Nat} (hds : Currency ds) (n : Nat) :
+theorem mkchange3_lexMaximumTuple {ds : List Nat} (hds : Currency ds) (n : Nat) :
     LexMaximumTuple ds n (mkchange3 ds n) :=
   ⟨mkchange3_represents hds n, fun cs hr => mkchange3_lex_upper hds n cs hr⟩
 
-theorem eq_mkchange3_of_lexMaximum {ds cs : List Nat} {n : Nat} (hds : Currency ds)
+theorem eq_mkchange3_of_lexMaximumTuple {ds cs : List Nat} {n : Nat} (hds : Currency ds)
     (h : LexMaximumTuple ds n cs) : cs = mkchange3 ds n :=
-  lexMaximum_unique h (mkchange3_lexMaximum hds n)
+  lexMaximumTuple_unique h (mkchange3_lexMaximumTuple hds n)
 
-theorem lexMaximum_iff_eq_mkchange3 {ds : List Nat} (hds : Currency ds) (n : Nat)
+theorem lexMaximumTuple_iff_eq_mkchange3 {ds : List Nat} (hds : Currency ds) (n : Nat)
     (cs : List Nat) : LexMaximumTuple ds n cs ↔ cs = mkchange3 ds n := by
   constructor
-  · exact eq_mkchange3_of_lexMaximum hds
+  · exact eq_mkchange3_of_lexMaximumTuple hds
   · rintro rfl
-    exact mkchange3_lexMaximum hds n
+    exact mkchange3_lexMaximumTuple hds n
 
 theorem mkchange3_mem_mktuples {ds : List Nat} (hds : Currency ds) (n : Nat) :
     mkchange3 ds n ∈ mktuples ds n :=

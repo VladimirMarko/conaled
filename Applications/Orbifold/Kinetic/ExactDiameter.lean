@@ -44,7 +44,7 @@ theorem exact_d2 (h x y : ℝ) (hy : y ∈ Ioo (-1) 1) :
   · rfl
   · dsimp [exactD2]; simp only [div_mul_eq_div_div]; ring
 
-theorem exact_DEL_iff (h x y z : ℝ) (hh : 0 < h) (hy : y ∈ Ioo (-1) 1) :
+theorem exact_del_iff (h x y z : ℝ) (hh : 0 < h) (hy : y ∈ Ioo (-1) 1) :
     exactD2 h x y + exactD1 h y z = 0 ↔
       Real.artanh y-Real.artanh x = Real.artanh z-Real.artanh y := by
   have hd : h*(1-y^2) ≠ 0 := mul_ne_zero (ne_of_gt hh) (ne_of_gt (by nlinarith [hy.1,hy.2]))

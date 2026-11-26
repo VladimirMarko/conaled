@@ -23,7 +23,7 @@ theorem red_singleton_parent_colors :
     RB redSingleton .black 0 ∧ ¬ RB redSingleton .red 0 := by
   constructor
   · exact RB.red 4 40 (RB.nil .red) (RB.nil .red)
-  · rw [redSingleton, RB_red_node_iff]
+  · rw [redSingleton, rb_red_node_iff]
     rintro ⟨h, _, _⟩
     cases h
 
@@ -39,8 +39,8 @@ theorem black_singleton_parent_colors :
       ¬ RB blackSingleton .red 0 := by
   have h : RB blackSingleton .red 1 :=
     RB.black .red 4 40 (RB.nil .black) (RB.nil .black)
-  refine ⟨h, RB_blacken_parent h, ?_⟩
-  rw [blackSingleton, RB_black_node_iff]
+  refine ⟨h, rb_blacken_parent h, ?_⟩
+  rw [blackSingleton, rb_black_node_iff]
   rintro ⟨n, bad, _, _⟩
   exact Nat.noConfusion bad
 
@@ -52,18 +52,18 @@ theorem both_red_children_nearly : NearlyRB bothRedChildren 0 :=
   NearlyRB.red 2 20 (RB.red 1 10 (RB.nil .red) (RB.nil .red))
     (RB.red 3 30 (RB.nil .red) (RB.nil .red))
 
-theorem both_red_children_not_RB : ¬ RB bothRedChildren .black 0 := by
+theorem both_red_children_not_rb : ¬ RB bothRedChildren .black 0 := by
   intro h
-  have hl := (RB_red_node_iff.mp h).2.1
-  have bad := (RB_red_node_iff.mp hl).1
+  have hl := (rb_red_node_iff.mp h).2.1
+  have bad := (rb_red_node_iff.mp hl).1
   cases bad
 
 theorem root_blackening_changes_height : (∃ n, RB (makeBlack redSingleton) .red n) ∧
     RB (makeBlack redSingleton) .red 1 ∧ ¬ RB (makeBlack redSingleton) .red 0 := by
-  refine ⟨RB_blacken_root red_singleton_parent_colors.1, ?_, ?_⟩
+  refine ⟨rb_blacken_root red_singleton_parent_colors.1, ?_, ?_⟩
   · rw [redSingleton, makeBlack_node]
     exact RB.black .red 4 40 (RB.nil .black) (RB.nil .black)
-  · rw [redSingleton, makeBlack_node, RB_black_node_iff]
+  · rw [redSingleton, makeBlack_node, rb_black_node_iff]
     rintro ⟨n, bad, _, _⟩
     exact Nat.noConfusion bad
 
@@ -72,27 +72,27 @@ theorem root_blackening_nil : RB (makeBlack (.nil : Tree Nat Nat)) .red 0 ∧
   constructor
   · rw [makeBlack_nil]
     exact RB.nil .red
-  · exact RB_blacken_root (RB.nil .black)
+  · exact rb_blacken_root (RB.nil .black)
 
 theorem insertion_shape_components :
     NearlyRB (ins (fun _ _ => true) 7 70 redSingleton) 0 ∧
       RB (ins (fun _ _ => true) 7 70 blackSingleton) .black 1 :=
-  ⟨(ins_RB (fun _ _ => true) 7 70 redSingleton 0).1 red_singleton_parent_colors.1,
-    (ins_RB (fun _ _ => true) 7 70 blackSingleton 1).2 black_singleton_parent_colors.1⟩
+  ⟨(ins_rb (fun _ _ => true) 7 70 redSingleton 0).1 red_singleton_parent_colors.1,
+    (ins_rb (fun _ _ => true) 7 70 blackSingleton 1).2 black_singleton_parent_colors.1⟩
 
 theorem raw_insertion_can_need_root_repair :
     ¬ RB (ins (fun _ _ => true) 7 70 redSingleton) .black 0 := by
   intro h
   change RB (.node .red (.node .red .nil (7, 70) .nil) (4, 40) .nil : Tree Nat Nat)
     .black 0 at h
-  have bad := (RB_red_node_iff.mp (RB_red_node_iff.mp h).2.1).1
+  have bad := (rb_red_node_iff.mp (rb_red_node_iff.mp h).2.1).1
   cases bad
 
 theorem insertion_restores_black_root :
     (∃ n, RB (insert (fun _ _ => true) 7 70 blackSingleton) .red n) ∧
       ∃ n, RB (insert (fun _ _ => false) 7 70 (.nil : Tree Nat Nat)) .red n :=
-  ⟨insert_RB (fun _ _ => true) 7 70 black_singleton_parent_colors.1,
-    insert_RB (fun _ _ => false) 7 70 (RB.nil .red)⟩
+  ⟨insert_rb (fun _ _ => true) 7 70 black_singleton_parent_colors.1,
+    insert_rb (fun _ _ => false) 7 70 (RB.nil .red)⟩
 
 def duplicateLeft : Tree Int Nat :=
   .node .black (.node .red .nil (0, 10) .nil) (0, 20) .nil
@@ -100,7 +100,7 @@ def duplicateLeft : Tree Int Nat :=
 theorem duplicate_left_shape : RB duplicateLeft .red 1 :=
   RB.black .red 0 20 (RB.red 0 10 (RB.nil .red) (RB.nil .red)) (RB.nil .black)
 
-theorem duplicate_left_not_BST : ¬ BST (fun key : Int => key) duplicateLeft := by
+theorem duplicate_left_not_bst : ¬ BST (fun key : Int => key) duplicateLeft := by
   intro h
   have bounds := (bst_node_iff (fun key : Int => key) .black
     (.node .red .nil (0, 10) .nil) 0 20 .nil).mp h
@@ -110,7 +110,7 @@ theorem duplicate_left_not_BST : ¬ BST (fun key : Int => key) duplicateLeft := 
 
 theorem shape_does_not_imply_order :
     RB duplicateLeft .red 1 ∧ ¬ BST (fun key : Int => key) duplicateLeft :=
-  ⟨duplicate_left_shape, duplicate_left_not_BST⟩
+  ⟨duplicate_left_shape, duplicate_left_not_bst⟩
 
 theorem repair_right_overlap :
     RB (balance .black .nil 0 0 bothRedChildren) .black 1 :=
@@ -123,7 +123,7 @@ theorem repair_left_overlap :
 def shorterRight : Tree Nat Nat :=
   .node .black (.node .red .nil (1, 10) .nil) (2, 20) .nil
 
-theorem shorter_right_RB : RB shorterRight .red 1 :=
+theorem shorter_right_rb : RB shorterRight .red 1 :=
   RB.black .red 2 20 (RB.red 1 10 (RB.nil .red) (RB.nil .red)) (RB.nil .black)
 
 theorem shorter_right_depths : mindepth shorterRight = 1 ∧ height shorterRight = 2 := by
@@ -135,14 +135,14 @@ theorem shorter_right_depths : mindepth shorterRight = 1 ∧ height shorterRight
 
 theorem shorter_right_bounds : 1 ≤ mindepth shorterRight ∧ height shorterRight ≤ 2 * 1 ∧
     height shorterRight ≤ 2 * mindepth shorterRight + 1 :=
-  ⟨shorter_right_RB.blackHeight_le_mindepth, shorter_right_RB.height_le_twice_blackHeight,
-    redblack_balanced shorter_right_RB⟩
+  ⟨shorter_right_rb.black_height_le_mindepth, shorter_right_rb.height_le_twice_black_height,
+    redblack_balanced shorter_right_rb⟩
 
 theorem erased_shorter_right : BinaryTree.height (eraseColors shorterRight) = 2 ∧
     BinaryTree.numNodes (eraseColors shorterRight) = 2 ∧
     BinaryTree.height (eraseColors shorterRight) ≤
       2 * (BinaryTree.numNodes (eraseColors shorterRight) + 1).log2 := by
-  refine ⟨?_, ?_, shorter_right_RB.erased_height_log_bound⟩
+  refine ⟨?_, ?_, shorter_right_rb.erased_height_log_bound⟩
   · rw [eraseColors_height]
     exact shorter_right_depths.2
   · rw [eraseColors_numNodes]
@@ -152,7 +152,7 @@ theorem red_singleton_height : height redSingleton = 1 ∧ height redSingleton �
   constructor
   · rw [redSingleton, height_node, height_nil]
     rfl
-  · exact red_singleton_parent_colors.1.height_le_blackHeight
+  · exact red_singleton_parent_colors.1.height_le_twice_black_height_add_one
 
 theorem empty_depths : mindepth (.nil : Tree Nat Nat) = 0 ∧
     height (.nil : Tree Nat Nat) = 0 := ⟨mindepth_nil, height_nil⟩
@@ -178,6 +178,6 @@ theorem black_singleton_log_endpoint :
     height blackSingleton ≤ 2 * (blackSingleton.size + 1).log2 ∧
       2 ^ 1 ≤ blackSingleton.size + 1 :=
   ⟨black_singleton_parent_colors.1.height_log_bound,
-    black_singleton_parent_colors.1.power_blackHeight_le_size⟩
+    black_singleton_parent_colors.1.two_pow_black_height_le_size_add_one⟩
 
 end Examples.RedBlackShapes

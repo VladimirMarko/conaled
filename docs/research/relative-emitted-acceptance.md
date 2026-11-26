@@ -60,7 +60,7 @@ and the relative formula implication. It derives the primitive laws from the
 accepted environment's records. It does not claim checker acceptance for every
 other declaration in that general fragment.
 
-`EmittedApplications.closed_graph` uses `EmittedClosed.closedTruth` with the
+`EmittedApplications.closed_graph` uses `EmittedClosed.closed_truth` with the
 constructed model. That path reads the two actual stored theorem records through
 `Model.mem`, specializes their exact telescope, and observes their formulas.
 `three_step` applies the resulting comparison twice, with a composed function

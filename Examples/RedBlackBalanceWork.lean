@@ -38,7 +38,7 @@ theorem left_left_exact :
 theorem left_right_exact :
     balanceRun black (node red nil (0, 100) (r 1 101)) 2 102 nil =
       (node red (b 0 100) (1, 101) (b 2 102), expectedCost 3 8 3) :=
-  balanceRun_leftRight _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl rfl
+  balanceRun_left_right _ _ _ _ ⟨nil, (0, 100), nil, (1, 101), nil⟩ rfl rfl
 
 /-- Each left attempt stops at nil before the four-observation RL success. -/
 theorem right_left_exact :
@@ -50,7 +50,7 @@ theorem right_left_exact :
 theorem right_right_exact :
     balanceRun black nil 0 100 (node red nil (1, 101) (r 2 102)) =
       (node red (b 0 100) (1, 101) (b 2 102), expectedCost 5 10 3) :=
-  balanceRun_rightRight _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), nil⟩ rfl rfl rfl rfl
+  balanceRun_right_right _ _ _ _ ⟨nil, (1, 101), nil, (2, 102), nil⟩ rfl rfl rfl rfl
 
 /-- Red bypass preserves even a red-red child and does not examine it. -/
 theorem red_bypass_exact :
@@ -95,13 +95,13 @@ theorem right_overlap_both_recognizers :
   ⟨rfl, rfl⟩
 
 /-- Dropping the earlier-failure guard would give the wrong later-case charge. -/
-theorem right_overlap_not_rightRight_charge :
+theorem right_overlap_not_right_right_charge :
     (balanceRun black nil 0 100
       (node red (r 1 101) (2, 102) (r 3 103))).2 .patternAttempts ≠ 5 := by
   rw [right_overlap_exact]
   decide
 
-theorem left_overlap_not_leftRight_charge :
+theorem left_overlap_not_left_right_charge :
     (balanceRun black (node red (r 0 100) (1, 101) (r 2 102)) 3 103 nil).2
       .patternAttempts ≠ 3 := by
   rw [left_overlap_exact]

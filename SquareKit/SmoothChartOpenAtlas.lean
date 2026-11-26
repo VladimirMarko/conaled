@@ -5,7 +5,7 @@ noncomputable section
 open CategoryTheory SquareKit.SmoothAlgebra
 namespace SquareKit.EuclideanOpen
 
-theorem subInclusion_openEmbedding (U : Domain) (g : freeAlgebra U.dimension) :
+theorem subInclusion_isOpenEmbedding (U : Domain) (g : freeAlgebra U.dimension) :
     Topology.IsOpenEmbedding (show Map _ _ from subInclusion U g) := by
   apply Topology.IsOpenEmbedding.of_comp _ (domain_open U).isOpenEmbedding_subtypeVal
   exact (domain_open (subdomain U g)).isOpenEmbedding_subtypeVal
@@ -53,7 +53,7 @@ abbrev coverAtlas (U : Domain) {ι : Type} (g : ι → freeAlgebra U.dimension) 
   Index := ι
   domain i := subdomain U (g i)
   coordinate i := (show Map _ _ from subInclusion U (g i))
-  isOpenEmbedding i := subInclusion_openEmbedding U (g i)
+  isOpenEmbedding i := subInclusion_isOpenEmbedding U (g i)
   covers x := by
     obtain ⟨i,hi⟩ := hc x
     exact ⟨i, localPoint U g x hi, rfl⟩

@@ -65,7 +65,7 @@ constructions from #673, #674 and #675:
    the local factorization to lift both sections with exact projection laws.
 5. `comparison_injective` proves global section uniqueness by chart
    separatedness, chart saturation and local full-algebra cancellation.
-   `comparison_locallySurjective` proves local existence after simultaneous
+   `comparison_isLocallySurjective` proves local existence after simultaneous
    chart covers and the principal normal-form cover. The sheaf local
    bijectivity theorem gives `comparison_isIso` and hence `isPullback`.
 

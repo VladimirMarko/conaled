@@ -117,11 +117,11 @@ def pullbackUnit : pullback f g ⟶
       ((presheafToSheaf J (Type u)).map g)).obj :=
   toSheafify J (pullback f g) ≫ (PreservesPullback.iso (presheafToSheaf J (Type u)) f g).hom.hom
 
-instance pullbackUnit_locallyInjective : Presheaf.IsLocallyInjective J (pullbackUnit J f g) := by
+instance pullbackUnit_isLocallyInjective : Presheaf.IsLocallyInjective J (pullbackUnit J f g) := by
   unfold pullbackUnit
   infer_instance
 
-instance pullbackUnit_locallySurjective : Presheaf.IsLocallySurjective J (pullbackUnit J f g) := by
+instance pullbackUnit_isLocallySurjective : Presheaf.IsLocallySurjective J (pullbackUnit J f g) := by
   unfold pullbackUnit
   infer_instance
 

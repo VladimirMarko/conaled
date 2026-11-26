@@ -75,7 +75,7 @@ def desc {X : Sheaf J (Type (max u v))} (j : ∀ i, F i ⟶ X) : total F ⟶ X :
   colimit.ι_desc _ _
 
 /-- The admitted chart sieve proves that the coproduct map is a cover. -/
-theorem locallySurjective_desc {X : Sheaf J (Type (max u v))} (j : ∀ i, F i ⟶ X)
+theorem isLocallySurjective_desc {X : Sheaf J (Type (max u v))} (j : ∀ i, F i ⟶ X)
     (cover : ∀ (V : C) (x : X.obj.obj (op V)), liftSieve F j x ∈ J V) :
     Presheaf.IsLocallySurjective J (desc F j).hom where
   imageSieve_mem {V} x := by
@@ -146,7 +146,7 @@ theorem rawCoordinates_inclusion (i : I) :
     colimit.ι (rawDiagram F) ⟨i⟩ ≫ rawCoordinates F = coordinateInjection F i :=
   colimit.ι_desc _ _
 
-instance rawMap_locallyInjective : Presheaf.IsLocallyInjective J (rawMap F) := by
+instance rawMap_isLocallyInjective : Presheaf.IsLocallyInjective J (rawMap F) := by
   dsimp only [rawMap]
   infer_instance
 

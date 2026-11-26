@@ -38,17 +38,17 @@ checked_normal_form nfsRun : Except CheckError (List TargetMajor × CState) :=
 def nfsMemo := (nfsRun.toOption.getD default).2
 measured_theorem nfs_ok :
     classesNfs (sharedOpsC .verified (mkFEnv ctorEnv)) ctorEnv q.p.toBlockShape
-      (q.cvTas.map (·.type)) q.tbl.toList q.cls CachedExistsRecursorType.finalMemo = .ok (Ms,nfsMemo) := by
+      (q.cvTas.map (·.type)) q.tbl.toList q.cls CachedExistsRecursorType.finalMemo = .ok (targetMajors,nfsMemo) := by
   rw [nfsRun_eq]
   rfl
 
 checked_normal_form ctorsRun : Except CheckError (List (List ClassCtor) × CState) :=
     classesCtors (sharedOpsC .verified (mkFEnv ctorEnv)) ctorEnv q.p.toBlockShape
-      (q.cvTas.map (·.type)) q.rd Ms 0 Ms nfsMemo
+      (q.cvTas.map (·.type)) q.rd targetMajors 0 targetMajors nfsMemo
 def ctorsMemo := (ctorsRun.toOption.getD default).2
 measured_theorem ctors_ok :
     classesCtors (sharedOpsC .verified (mkFEnv ctorEnv)) ctorEnv q.p.toBlockShape
-      (q.cvTas.map (·.type)) q.rd Ms 0 Ms nfsMemo = .ok (ctors,ctorsMemo) := by
+      (q.cvTas.map (·.type)) q.rd targetMajors 0 targetMajors nfsMemo = .ok (ctors,ctorsMemo) := by
   rw [ctorsRun_eq]
   rfl
 

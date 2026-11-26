@@ -101,13 +101,13 @@ theorem generate_not_shifted_lower (inputs : Nat → List α)
     (fun n : Nat => (Nat.factorial (n+2) : ℝ))
     (fun n => ((generate (inputs n)).2 : ℝ)) := by
   intro hc
-  exact PositionalPermutations.shifted_factorial_not_bigO (hc.trans (generate_theta inputs h).1)
+  exact PositionalPermutations.shifted_factorial_not_isBigO (hc.trans (generate_theta inputs h).1)
 
 theorem observed_not_shifted_lower (inputs : Nat → List α)
     (h : ∀ n, (inputs n).length = n) : ¬ Asymptotics.IsBigO Filter.atTop
     (fun n : Nat => (Nat.factorial (n+2) : ℝ))
     (fun n => ((observed (inputs n)).2 : ℝ)) := by
   intro hc
-  exact PositionalPermutations.shifted_factorial_not_bigO (hc.trans (observed_theta inputs h).1)
+  exact PositionalPermutations.shifted_factorial_not_isBigO (hc.trans (observed_theta inputs h).1)
 
 end Resources.ErasurePermutations

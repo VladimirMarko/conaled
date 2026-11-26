@@ -19,7 +19,7 @@ variable {M : Type} [TopologicalSpace M] (A : Atlas M)
 
 def subdivision : Atlas M where
   toCharts := A.toCharts.subdivision K g
-  isOpenEmbedding p := (A.isOpenEmbedding p.1).comp (subInclusion_openEmbedding _ _)
+  isOpenEmbedding p := (A.isOpenEmbedding p.1).comp (subInclusion_isOpenEmbedding _ _)
   covers x := by
     obtain ⟨i,y,hy⟩ := A.covers x
     obtain ⟨k,hk⟩ := hc i y

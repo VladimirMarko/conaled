@@ -83,7 +83,7 @@ theorem lexicalChoice_eq_greedy {ds : List Nat} (hds : Currency ds) (n : Nat) :
     lexicalChoice ds n = some (mkchange3 ds n) := by
   cases he : lexicalChoice ds n with
   | none => exact False.elim (mktuples_nonempty hds n ((argmin_eq_none_iff _ _).mp he))
-  | some cs => exact congrArg some (eq_mkchange3_of_lexMaximum hds (lexicalChoice_spec hds n cs he))
+  | some cs => exact congrArg some (eq_mkchange3_of_lexMaximumTuple hds (lexicalChoice_spec hds n cs he))
 
 /-- Coin-count optima have equal scores; their tuples and tie positions can differ. -/
 theorem minCoins_count_unique {ds cs xs : List Nat} {n : Nat}

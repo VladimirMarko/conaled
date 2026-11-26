@@ -43,7 +43,7 @@ def labelMap (M : Sheaf topology Type) : labelParameters (G := G) M ⟶
     · exact NatTrans.naturality_apply (constantLabel G) f x.1
     · rfl
 
-instance labelMap_locallySurjective (M : Sheaf topology Type) :
+instance labelMap_isLocallySurjective (M : Sheaf topology Type) :
     Presheaf.IsLocallySurjective topology (labelMap (G := G) M) where
   imageSieve_mem {U} x := by
     apply topology.superset_covering _ (Presheaf.imageSieve_mem topology (constantLabel G) x.1)
@@ -51,7 +51,7 @@ instance labelMap_locallySurjective (M : Sheaf topology Type) :
     obtain ⟨g,hg⟩ := hf
     exact ⟨(g, M.obj.map f.op x.2), Prod.ext hg rfl⟩
 
-instance labelMap_locallyInjective (M : Sheaf topology Type) :
+instance labelMap_isLocallyInjective (M : Sheaf topology Type) :
     Presheaf.IsLocallyInjective topology (labelMap (G := G) M) where
   equalizerSieve_mem {U} x y h := by
     change ((constantLabel G).app U x.1, x.2) = ((constantLabel G).app U y.1, y.2) at h

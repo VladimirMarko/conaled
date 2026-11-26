@@ -103,7 +103,7 @@ theorem valid_checkSizes {rank : Nat} {ds : RAList α} (h : Valid rank ds) :
   | zero hne h ih => exact ih
   | one ht h ih => simp [checkSizes, size_eq_pow ht, ih]
 
-theorem invRA_of_Inv {ds : RAList α} (h : Inv ds) : invRA ds = true := valid_checkSizes h
+theorem invRA_of_inv {ds : RAList α} (h : Inv ds) : invRA ds = true := valid_checkSizes h
 
 theorem fromRA_ne_nil {rank : Nat} {ds : RAList α}
     (h : Valid rank ds) (hne : ds ≠ []) : fromRA ds ≠ [] := by

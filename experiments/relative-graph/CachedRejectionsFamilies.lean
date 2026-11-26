@@ -39,12 +39,12 @@ measured_theorem bodyLast_installed : ∀ pend : Array PendingCheck,
     .ok (14,mkFEnv bodyEnv,pend.push bodyLast) := by
   intro pend
   cbv
-measured_theorem bodyRun : InstallRun .verified [] bodyDeclarations (0,mkFEnv Env.empty,#[])
+measured_theorem installRun_bodyDeclarations : InstallRun .verified [] bodyDeclarations (0,mkFEnv Env.empty,#[])
     (14,mkFEnv bodyEnv,bodyPend) := by
   unfold bodyDeclarations
   rw [EmittedAcceptance.helper_list]
   change InstallRun .verified [] (_ :: _ :: _ :: _) _ _
-  refine .cons AcceptanceStages.equalityInstall ?_
+  refine .cons AcceptanceStages.installDeclStep_eqBasis ?_
   refine .cons CachedAndInstaller.install ?_
   refine .cons CachedExistsInstaller.install ?_
   refine .cons (step0 _) ?_
@@ -59,14 +59,14 @@ measured_theorem bodyRun : InstallRun .verified [] bodyDeclarations (0,mkFEnv En
   refine .cons (CachedRejectionsBody.installed _) ?_
   refine .cons (bodyLast_installed _) ?_
   exact .nil _
-measured_theorem bodyNames : NodupNames bodyEnv := by
+measured_theorem nodupNames_bodyEnv : NodupNames bodyEnv := by
   unfold NodupNames
   decide +kernel
 measured_theorem bodyRejected_final :
   checkPending .verified (mkFEnv bodyEnv) CachedRejectionsBody.pc {} =
     .error (.invalid s!"loose bound variable in value of {EmittedForwardAcceptance.cv.name}") := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv EmittedForwardAcceptance.before CachedRejectionsBody.pc
-    (bodyEnv.consts.take 2) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 2) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedRejectionsBody.rejected
 
 def typeDeclarations : List Declaration := GraphEnvironment.declarations.toList ++
@@ -79,12 +79,12 @@ measured_theorem typeLast_installed : ∀ pend : Array PendingCheck,
     .ok (14,mkFEnv typeEnv,pend.push typeLast) := by
   intro pend
   cbv
-measured_theorem typeRun : InstallRun .verified [] typeDeclarations (0,mkFEnv Env.empty,#[])
+measured_theorem installRun_typeDeclarations : InstallRun .verified [] typeDeclarations (0,mkFEnv Env.empty,#[])
     (14,mkFEnv typeEnv,typePend) := by
   unfold typeDeclarations
   rw [EmittedAcceptance.helper_list]
   change InstallRun .verified [] (_ :: _ :: _ :: _) _ _
-  refine .cons AcceptanceStages.equalityInstall ?_
+  refine .cons AcceptanceStages.installDeclStep_eqBasis ?_
   refine .cons CachedAndInstaller.install ?_
   refine .cons CachedExistsInstaller.install ?_
   refine .cons (step0 _) ?_
@@ -99,14 +99,14 @@ measured_theorem typeRun : InstallRun .verified [] typeDeclarations (0,mkFEnv En
   refine .cons (CachedRejectionsType.installed _) ?_
   refine .cons (typeLast_installed _) ?_
   exact .nil _
-measured_theorem typeNames : NodupNames typeEnv := by
+measured_theorem nodupNames_typeEnv : NodupNames typeEnv := by
   unfold NodupNames
   decide +kernel
 measured_theorem typeRejected_final :
   checkPending .verified (mkFEnv typeEnv) CachedRejectionsType.pc {} =
     .error (.invalid s!"type of theorem {CachedRejectionsType.cv.name} is not a proposition") := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv EmittedForwardAcceptance.before CachedRejectionsType.pc
-    (typeEnv.consts.take 2) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 2) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedRejectionsType.rejected
 
 def missingDeclarations : List Declaration := GraphEnvironment.declarations.toList ++
@@ -119,12 +119,12 @@ measured_theorem missingLast_installed : ∀ pend : Array PendingCheck,
     .ok (13,mkFEnv missingEnv,pend.push missingLast) := by
   intro pend
   cbv
-measured_theorem missingRun : InstallRun .verified [] missingDeclarations (0,mkFEnv Env.empty,#[])
+measured_theorem installRun_missingDeclarations : InstallRun .verified [] missingDeclarations (0,mkFEnv Env.empty,#[])
     (13,mkFEnv missingEnv,missingPend) := by
   unfold missingDeclarations
   rw [EmittedAcceptance.helper_list]
   change InstallRun .verified [] (_ :: _ :: _ :: _) _ _
-  refine .cons AcceptanceStages.equalityInstall ?_
+  refine .cons AcceptanceStages.installDeclStep_eqBasis ?_
   refine .cons CachedAndInstaller.install ?_
   refine .cons CachedExistsInstaller.install ?_
   refine .cons (step0 _) ?_
@@ -138,14 +138,14 @@ measured_theorem missingRun : InstallRun .verified [] missingDeclarations (0,mkF
   refine .cons (CachedRejectionsMissing.installed _) ?_
   refine .cons (missingLast_installed _) ?_
   exact .nil _
-measured_theorem missingNames : NodupNames missingEnv := by
+measured_theorem nodupNames_missingEnv : NodupNames missingEnv := by
   unfold NodupNames
   decide +kernel
 measured_theorem missingRejected_final :
   checkPending .verified (mkFEnv missingEnv) CachedRejectionsMissing.pc {} =
     .error CachedRejectionsMissing.error := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv CachedRejectionsMissing.before CachedRejectionsMissing.pc
-    (missingEnv.consts.take 2) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 2) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedRejectionsMissing.rejected
 measured_theorem body_source : bodyDeclarations = EmittedEnvironment.declarations.set 12 CachedRejectionsBody.decl := by cbv
 measured_theorem type_source : typeDeclarations = EmittedEnvironment.declarations.set 12 CachedRejectionsType.decl := by cbv

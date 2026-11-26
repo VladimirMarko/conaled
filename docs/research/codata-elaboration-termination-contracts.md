@@ -511,7 +511,7 @@ The coordinate projections give a global section of the product sheaf. Were
 it the image of a locally constant stream-valued section, assembling its
 coordinates would give the identity on Cantor space as a locally constant map.
 A locally constant map from a compact space has finite image, whereas the
-identity here has infinite image. `identity_not_locallyConstant` checks that
+identity here has infinite image. `identity_not_isLocallyConstant` checks that
 contradiction, using the injection sending n to the bit stream supported only
 at n. `categoricalCoordinates_not_image` retains the specified global section
 in the actual categorical product. `canonical_not_iso` and

@@ -15,7 +15,7 @@ open Segments (LengthOrdered)
 abbrev sourceMerge (cmp : α → α → Bool) (xs ys : List α) : List α :=
   List.merge xs ys cmp
 
-theorem sourceMerge_eq_List_merge (cmp : α → α → Bool) (xs ys : List α) :
+theorem sourceMerge_eq_list_merge (cmp : α → α → Bool) (xs ys : List α) :
     sourceMerge cmp xs ys = List.merge xs ys cmp := rfl
 
 theorem sourceMerge_perm (cmp : α → α → Bool) (xs ys : List α) :

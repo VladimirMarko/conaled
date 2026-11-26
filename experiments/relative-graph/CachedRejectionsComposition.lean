@@ -43,56 +43,56 @@ theorem run_error (ds : List Declaration) (n : Nat) (fe : FEnv) (pend : Array Pe
 measured_theorem body_checked0 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc0 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper0.before pc0
-    (bodyEnv.consts.take 11) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 11) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact ⟨CachedPending0.memo,CachedPending0.accepted⟩
 
 measured_theorem body_checked1 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc1 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper1.before pc1
-    (bodyEnv.consts.take 10) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 10) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending1.accepted
 
 measured_theorem body_checked2 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc2 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper2.before pc2
-    (bodyEnv.consts.take 9) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 9) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending2.accepted
 
 measured_theorem body_checked3 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc3 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper3.before pc3
-    (bodyEnv.consts.take 8) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 8) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending3.accepted
 
 measured_theorem body_checked4 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc4 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper4.before pc4
-    (bodyEnv.consts.take 7) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 7) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending4.accepted
 
 measured_theorem body_checked5 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc5 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper5.before pc5
-    (bodyEnv.consts.take 6) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 6) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending5.accepted
 
 measured_theorem body_checked6 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc6 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper6.before pc6
-    (bodyEnv.consts.take 5) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 5) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending6.accepted
 
 measured_theorem body_checked7 : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc7 {} = .ok ((),memo) := by
   intro h7
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper7.before pc7
-    (bodyEnv.consts.take 4) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 4) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact h7
 
 measured_theorem body_checked8 : ∃ memo : CState,
     checkPending .verified (mkFEnv bodyEnv) pc8 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view bodyEnv NativeHelper8.before pc8
-    (bodyEnv.consts.take 3) bodyNames (by cbv) (by rfl) (by rfl)]
+    (bodyEnv.consts.take 3) nodupNames_bodyEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending8.accepted
 
 measured_theorem body_pending : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkPendingList .verified (mkFEnv bodyEnv) bodyPend.toList =
@@ -112,61 +112,61 @@ measured_theorem body_pending : ∀ (_ : ∃ memo : CState, checkPending .verifi
 measured_theorem body_rejected : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkDecls .verified [] bodyDeclarations.toArray =
     .error ((.invalid s!"loose bound variable in value of {EmittedForwardAcceptance.cv.name}"),12) := by
   intro h7
-  exact run_error _ _ _ _ _ bodyRun (body_pending h7)
+  exact run_error _ _ _ _ _ installRun_bodyDeclarations (body_pending h7)
 
 measured_theorem type_checked0 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc0 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper0.before pc0
-    (typeEnv.consts.take 11) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 11) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact ⟨CachedPending0.memo,CachedPending0.accepted⟩
 
 measured_theorem type_checked1 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc1 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper1.before pc1
-    (typeEnv.consts.take 10) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 10) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending1.accepted
 
 measured_theorem type_checked2 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc2 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper2.before pc2
-    (typeEnv.consts.take 9) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 9) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending2.accepted
 
 measured_theorem type_checked3 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc3 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper3.before pc3
-    (typeEnv.consts.take 8) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 8) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending3.accepted
 
 measured_theorem type_checked4 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc4 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper4.before pc4
-    (typeEnv.consts.take 7) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 7) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending4.accepted
 
 measured_theorem type_checked5 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc5 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper5.before pc5
-    (typeEnv.consts.take 6) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 6) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending5.accepted
 
 measured_theorem type_checked6 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc6 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper6.before pc6
-    (typeEnv.consts.take 5) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 5) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending6.accepted
 
 measured_theorem type_checked7 : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc7 {} = .ok ((),memo) := by
   intro h7
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper7.before pc7
-    (typeEnv.consts.take 4) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 4) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact h7
 
 measured_theorem type_checked8 : ∃ memo : CState,
     checkPending .verified (mkFEnv typeEnv) pc8 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view typeEnv NativeHelper8.before pc8
-    (typeEnv.consts.take 3) typeNames (by cbv) (by rfl) (by rfl)]
+    (typeEnv.consts.take 3) nodupNames_typeEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending8.accepted
 
 measured_theorem type_pending : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkPendingList .verified (mkFEnv typeEnv) typePend.toList =
@@ -186,55 +186,55 @@ measured_theorem type_pending : ∀ (_ : ∃ memo : CState, checkPending .verifi
 measured_theorem type_rejected : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkDecls .verified [] typeDeclarations.toArray =
     .error ((.invalid s!"type of theorem {CachedRejectionsType.cv.name} is not a proposition"),12) := by
   intro h7
-  exact run_error _ _ _ _ _ typeRun (type_pending h7)
+  exact run_error _ _ _ _ _ installRun_typeDeclarations (type_pending h7)
 
 measured_theorem missing_checked0 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc0 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper0.before pc0
-    (missingEnv.consts.take 10) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 10) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact ⟨CachedPending0.memo,CachedPending0.accepted⟩
 
 measured_theorem missing_checked1 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc1 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper1.before pc1
-    (missingEnv.consts.take 9) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 9) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending1.accepted
 
 measured_theorem missing_checked2 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc2 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper2.before pc2
-    (missingEnv.consts.take 8) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 8) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending2.accepted
 
 measured_theorem missing_checked3 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc3 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper3.before pc3
-    (missingEnv.consts.take 7) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 7) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending3.accepted
 
 measured_theorem missing_checked4 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc4 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper4.before pc4
-    (missingEnv.consts.take 6) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 6) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending4.accepted
 
 measured_theorem missing_checked5 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc5 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper5.before pc5
-    (missingEnv.consts.take 5) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 5) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending5.accepted
 
 measured_theorem missing_checked6 : ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc6 {} = .ok ((),memo) := by
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper6.before pc6
-    (missingEnv.consts.take 4) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 4) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact CachedPending6.accepted
 
 measured_theorem missing_checked7 : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), ∃ memo : CState,
     checkPending .verified (mkFEnv missingEnv) pc7 {} = .ok ((),memo) := by
   intro h7
   rw [CachedRejectionsPrefix.prefix_view missingEnv NativeHelper7.before pc7
-    (missingEnv.consts.take 3) missingNames (by cbv) (by rfl) (by rfl)]
+    (missingEnv.consts.take 3) nodupNames_missingEnv (by cbv) (by rfl) (by rfl)]
   exact h7
 
 measured_theorem missing_pending : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkPendingList .verified (mkFEnv missingEnv) missingPend.toList =
@@ -253,6 +253,6 @@ measured_theorem missing_pending : ∀ (_ : ∃ memo : CState, checkPending .ver
 measured_theorem missing_rejected : ∀ (_ : ∃ memo : CState, checkPending .verified (mkFEnv NativeHelper7.before) pc7 {} = .ok ((),memo)), checkDecls .verified [] missingDeclarations.toArray =
     .error (CachedRejectionsMissing.error,11) := by
   intro h7
-  exact run_error _ _ _ _ _ missingRun (missing_pending h7)
+  exact run_error _ _ _ _ _ installRun_missingDeclarations (missing_pending h7)
 end CachedRejectionsComposition
 #audit_graph_module

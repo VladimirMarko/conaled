@@ -206,13 +206,13 @@ statement inventory and validation identify the accepted candidate separately.
 | `Redblack.lookup_insert_eq@556` | `lookup_insert_eq` and `lookup?_insert_eq`. |
 | `Redblack.lookup_insert_neq@563` | `lookup_insert_neq` and `lookup?_insert_neq`. |
 | `Redblack.RB@642` | `RB`, `RB.nil`, `RB.red`, `RB.black` and exact nil/red/black iff characterizations. |
-| `Redblack.RB_blacken_parent@658` | `RB_blacken_parent`, unchanged tree and black height. |
+| `Redblack.RB_blacken_parent@658` | `rb_blacken_parent`, unchanged tree and black height. |
 | `Redblack.NearlyRB@669` | `NearlyRB`, its nonemptiness theorem and exact red/black characterizations. |
 | `Redblack.prove_RB@692` | Actual private source-case repair proofs and structural insertion induction discharge the tactic admission. |
-| `Redblack.ins_RB@694` | `ins_RB` retains both simultaneous conclusions at the same black height. |
+| `Redblack.ins_RB@694` | `ins_rb` retains both simultaneous conclusions at the same black height. |
 | `Redblack.ins_red@725` | `ins_red`, the red-parent projection. |
-| `Redblack.RB_blacken_root@738` | `RB_blacken_root`, with existential new black height. |
-| `Redblack.insert_RB@751` | `insert_RB` preserves black-root RB existence. |
+| `Redblack.RB_blacken_root@738` | `rb_blacken_root`, with existential new black height. |
+| `Redblack.insert_RB@751` | `insert_rb` preserves black-root RB existence. |
 | `Redblack.height@777` | `height`, its constructor equations and actual provider/erasure bridges. |
 | `Redblack.mindepth@780` | `mindepth`, `mindepth_nil` and `mindepth_node`. |
 | `Redblack.redblack_balanced@783` | `redblack_balanced` uses the black-height path bounds for arbitrary parent color. |

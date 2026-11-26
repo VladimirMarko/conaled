@@ -345,7 +345,7 @@ theorem unique_update_erases [DecidableEq κ] (key : κ) (value : α) (bindings 
       Search.OrderedMap.AssociationListEnumeration.set key value bindings :=
   ListErase.setRun_value key value bindings
 
-theorem unique_update_AList_bridge [DecidableEq κ] (key : κ) (value : α)
+theorem unique_update_toAList_bridge [DecidableEq κ] (key : κ) (value : α)
     (bindings : UniqueList κ α) :
     Search.OrderedMap.AssociationListEnumeration.toAList (ListErase.setRun key value bindings).1 =
       AList.insert key value (Search.OrderedMap.AssociationListEnumeration.toAList bindings) :=

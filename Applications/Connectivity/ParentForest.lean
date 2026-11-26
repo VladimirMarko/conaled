@@ -172,7 +172,7 @@ theorem Forest.valid_root_exists {ds : DSA} (hF : Forest ds) {v : Int}
   obtain ⟨r, k, hk, _⟩ := hF.valid_path hv
   exact ⟨r, k, hk⟩
 
-theorem Forest.findDSA_iff_Root {ds : DSA} (hF : Forest ds) (v r : Int) :
+theorem Forest.findDSA_iff_root {ds : DSA} (hF : Forest ds) (v r : Int) :
     findDSA ds v = some r ↔ Root ds v r := by
   constructor
   · intro h
@@ -184,7 +184,7 @@ theorem Forest.findDSA_iff_Root {ds : DSA} (hF : Forest ds) (v r : Int) :
 theorem Forest.find_complete {ds : DSA} (hF : Forest ds) {v : Int}
     (hv : Valid ds v) : ∃ r, findDSA ds v = some r := by
   obtain ⟨r, hr⟩ := hF.valid_root_exists hv
-  exact ⟨r, (hF.findDSA_iff_Root v r).mpr hr⟩
+  exact ⟨r, (hF.findDSA_iff_root v r).mpr hr⟩
 
 theorem Forest.find_none_iff_invalid {ds : DSA} (hF : Forest ds) (v : Int) :
     findDSA ds v = none ↔ ¬ Valid ds v := by

@@ -132,7 +132,7 @@ assessment; no extra canonical source rows are created.
 | `finite-zero-obstruction` | `finite_zero_factorization`, `finite_zero_no_global_factorization` |
 | `signed-factor-witness` | `signed_factor_witness`, `zero_product_from_signed_witness` |
 | `additive-context` | `additive_context_counterexample` |
-| `zero-one-source-cases` | `zero_upper_one`, `zero_isBigO_one`, `zero_not_twoSided_one`, `zero_not_isTheta_one`; anonymous source connections at lines325–327. |
+| `zero-one-source-cases` | `zero_upper_one`, `zero_isBigO_one`, `zero_not_two_sided_one`, `zero_not_isTheta_one`; anonymous source connections at lines325–327. |
 | `successor-square-source-case` | `successor_square_theta`, `successor_square_rat_theta`, `successor_square_zero_upper_false`, `successor_square_one_sharp`, `successor_square_ne`, `successor_square_not_eventuallyEq`; native paired witnesses at lines328–334. |
 | `actual-recursive-init` | `recursive_fold_value/work/bounds/theta`, `direct_fold_value/work/bounds/theta`, `fold_values_agree`, `fold_nil_costs`, `fold_singleton_costs`, `fold_three_costs` |
 | `actual-rational-reverse` | `half_reverse_value/work/bounds/theta`, `half_reverse_nil`, `half_reverse_three`, `half_reverse_no_global_linear_bound` |

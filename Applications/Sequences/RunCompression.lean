@@ -67,7 +67,7 @@ theorem compress_head [DecidableEq α] (x : α) (xs : List α) :
     · subst y; simpa [compress_step] using ih x
     · simp [compress_step, h]
 
-theorem compress_noAdjacent [DecidableEq α] (xs : List α) :
+theorem compress_isChain_ne [DecidableEq α] (xs : List α) :
     (compress xs).IsChain (· ≠ ·) := List.isChain_destutter _ _
 
 theorem compress_membership [DecidableEq α] (xs : List α) (a : α) :
@@ -115,11 +115,11 @@ theorem build_equality_head [BEq α] [LawfulBEq α] (x : α) (xs : List α) :
   classical
   rw [build_equality_eq_compress, compress_head]
 
-theorem build_equality_noAdjacent [BEq α] [LawfulBEq α]
+theorem build_equality_isChain_ne [BEq α] [LawfulBEq α]
     (xs : List α) : (build xs).IsChain (· ≠ ·) := by
   classical
   rw [build_equality_eq_compress]
-  exact compress_noAdjacent xs
+  exact compress_isChain_ne xs
 
 theorem build_equality_membership [BEq α] [LawfulBEq α]
     (xs : List α) (a : α) : a ∈ build xs ↔ a ∈ xs := by

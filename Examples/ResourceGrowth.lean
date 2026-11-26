@@ -184,7 +184,7 @@ theorem nat_upper_to_rat_upper {f g : ℕ → ℕ}
 
 /-- The lower rational coefficient is the reciprocal of the actual reverse
 natural coefficient; a natural lower coefficient is not required. -/
-theorem nat_twoSided_to_rat_twoSided {f g : ℕ → ℕ}
+theorem nat_two_sided_to_rat_two_sided {f g : ℕ → ℕ}
     (hfg : ∃ C N : ℕ, 0 < C ∧ ∀ n, N ≤ n → f n ≤ C * g n)
     (hgf : ∃ D M : ℕ, 0 < D ∧ ∀ n, M ≤ n → g n ≤ D * f n) :
     ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
@@ -300,7 +300,7 @@ theorem zero_isBigO_one :
     (Eventually.of_forall fun _ => by norm_num)).mpr
   exact zero_upper_one
 
-theorem zero_not_twoSided_one :
+theorem zero_not_two_sided_one :
     ¬ ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ _n : ℕ in atTop, c * 1 ≤ 0 ∧ (0 : ℚ) ≤ C * 1 := by
   rintro ⟨c, C, hc, _, hbound⟩
@@ -324,7 +324,7 @@ theorem old_nat_adapter_zero (g : ℕ → ℕ) :
 -- The three supplied source cases now use the native order/norm contracts.
 example : ∃ C : ℚ, 0 < C ∧ ∀ᶠ _n : ℕ in atTop, (0 : ℚ) ≤ C * 1 := zero_upper_one
 example : ¬ ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
-    ∀ᶠ _n : ℕ in atTop, c * 1 ≤ 0 ∧ (0 : ℚ) ≤ C * 1 := zero_not_twoSided_one
+    ∀ᶠ _n : ℕ in atTop, c * 1 ≤ 0 ∧ (0 : ℚ) ≤ C * 1 := zero_not_two_sided_one
 example :
     (∃ C N : ℕ, 0 < C ∧ ∀ n, N ≤ n → (n + 1) * (n + 1) ≤ C * (n * n)) ∧
     (∃ C N : ℕ, 0 < C ∧ ∀ n, N ≤ n → n * n ≤ C * ((n + 1) * (n + 1))) :=
@@ -438,7 +438,7 @@ theorem rat_lower_refl (f : ι → ℚ) :
     ∃ c : ℚ, 0 < c ∧ ∀ᶠ x in l, c * f x ≤ f x :=
   ⟨1, by norm_num, Eventually.of_forall fun _ => by simp⟩
 
-theorem rat_twoSided_iff (f g : ι → ℚ) :
+theorem rat_two_sided_iff (f g : ι → ℚ) :
     (∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * g x ≤ f x ∧ f x ≤ C * g x) ↔
       (∃ C : ℚ, 0 < C ∧ ∀ᶠ x in l, f x ≤ C * g x) ∧
@@ -450,10 +450,10 @@ theorem rat_twoSided_iff (f g : ι → ℚ) :
   · rintro ⟨⟨C, hC, hupper⟩, ⟨c, hc, hlower⟩⟩
     exact ⟨c, C, hc, hC, hlower.and hupper⟩
 
-theorem rat_twoSided_refl (f : ι → ℚ) :
+theorem rat_two_sided_refl (f : ι → ℚ) :
     ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * f x ≤ f x ∧ f x ≤ C * f x :=
-  (rat_twoSided_iff f f).mpr ⟨rat_upper_refl f, rat_lower_refl f⟩
+  (rat_two_sided_iff f f).mpr ⟨rat_upper_refl f, rat_lower_refl f⟩
 
 theorem rat_upper_trans {f g h : ι → ℚ}
     (hfg : ∃ C : ℚ, 0 < C ∧ ∀ᶠ x in l, f x ≤ C * g x)
@@ -483,26 +483,26 @@ theorem rat_lower_iff_reverse_upper (f g : ι → ℚ) :
     have hm := mul_le_mul_of_nonneg_left hx (inv_pos.mpr hC).le
     simpa only [← mul_assoc, inv_mul_cancel₀ (ne_of_gt hC), one_mul] using hm
 
-theorem rat_twoSided_symm {f g : ι → ℚ}
+theorem rat_two_sided_symm {f g : ι → ℚ}
     (h : ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * g x ≤ f x ∧ f x ≤ C * g x) :
     ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * f x ≤ g x ∧ g x ≤ C * f x := by
-  obtain ⟨hupper, hlower⟩ := (rat_twoSided_iff f g).mp h
-  exact (rat_twoSided_iff g f).mpr
+  obtain ⟨hupper, hlower⟩ := (rat_two_sided_iff f g).mp h
+  exact (rat_two_sided_iff g f).mpr
     ⟨(rat_lower_iff_reverse_upper f g).mp hlower,
       (rat_lower_iff_reverse_upper g f).mpr hupper⟩
 
-theorem rat_twoSided_trans {f g h : ι → ℚ}
+theorem rat_two_sided_trans {f g h : ι → ℚ}
     (hfg : ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * g x ≤ f x ∧ f x ≤ C * g x)
     (hgh : ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * h x ≤ g x ∧ g x ≤ C * h x) :
     ∃ c C : ℚ, 0 < c ∧ 0 < C ∧
       ∀ᶠ x in l, c * h x ≤ f x ∧ f x ≤ C * h x := by
-  obtain ⟨hfgU, hfgL⟩ := (rat_twoSided_iff f g).mp hfg
-  obtain ⟨hghU, hghL⟩ := (rat_twoSided_iff g h).mp hgh
-  apply (rat_twoSided_iff f h).mpr
+  obtain ⟨hfgU, hfgL⟩ := (rat_two_sided_iff f g).mp hfg
+  obtain ⟨hghU, hghL⟩ := (rat_two_sided_iff g h).mp hgh
+  apply (rat_two_sided_iff f h).mpr
   exact ⟨rat_upper_trans hfgU hghU,
     (rat_lower_iff_reverse_upper f h).mpr
       (rat_upper_trans ((rat_lower_iff_reverse_upper g h).mp hghL)

@@ -33,7 +33,7 @@ theorem chartwise_injective {X : Sheaf topology Type} (c : A.realization ⟶ X)
 
 /-- Two independent manifold chart covers suffice to test local existence of
 preimages. The local condition still concerns the complete target section. -/
-theorem chartwise_locallySurjective {E T : Sheaf topology Type} (c : E ⟶ T)
+theorem chartwise_isLocallySurjective {E T : Sheaf topology Type} (c : E ⟶ T)
     (first : T ⟶ A.realization) (second : T ⟶ B.realization)
     (hc : ∀ (V : Site) (z : T.obj.obj (op V)) (i : A.Index) (j : B.Index)
       (a : (embedding.obj (A.charts.domain i)).obj.obj (op V))

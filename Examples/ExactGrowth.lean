@@ -724,14 +724,14 @@ theorem cubic_section_bounds (n : ℕ) (hn : 1 ≤ n) :
     (cubic_rational_value_real n) (cubicLowerTerms_value_real n hn)
   simpa only [Nat.cast_one, one_mul] using hb.2
 
-theorem exact_n_log_bigO_n_sqrt :
+theorem exact_n_log_big_o_n_sqrt :
     ∃ C : ℕ, 0 < C ∧ ∀ᶠ n in atTop,
       sectionOf (nLog n) ⊆ sectionOf (scale C (nRoot n)) :=
   ⟨2, by decide, eventually_atTop.mpr ⟨16, n_log_n_root_section_bound⟩⟩
 
 /-- Every proposed natural coefficient fails beyond every proposed threshold.
 The witness comes from the symbolic discrete power-square counterfamily. -/
-theorem exact_linear_plus_sqrt_not_bigO :
+theorem exact_linear_plus_sqrt_not_big_o :
     ¬ (∃ C : ℕ, 0 < C ∧ ∀ᶠ n in atTop,
       sectionOf (nPlusRoot n) ⊆ sectionOf (scale C (rootLog n))) := by
   rintro ⟨C, hC, h⟩
@@ -749,13 +749,13 @@ theorem exact_linear_plus_sqrt_not_bigO :
   exact (not_le_of_gt hcounter) hreal
 
 /-- The exact coefficient and its finite positive bounds are fixed before N. -/
-theorem exact_linear_plus_sqrt_not_bigO_any_finite_coefficient :
+theorem exact_linear_plus_sqrt_not_big_o_any_finite_coefficient :
     ¬ (∃ c : ClosedTerm, ∃ lo hi : ℚ, Bounded c lo hi ∧ 0 < lo ∧
       ∃ N : ℕ, ∀ n, N ≤ n →
         value (nPlusRoot n) ≤ strictMul (value c) (value (rootLog n))) := by
   intro h
   have hnat := (growth_iff_exact_coefficient nPlusRoot rootLog).mpr h
-  exact exact_linear_plus_sqrt_not_bigO
+  exact exact_linear_plus_sqrt_not_big_o
     ((section_growth_iff_value_growth nPlusRoot rootLog).mpr hnat)
 
 /-- The same unrestricted fixed-coefficient refutation stated directly for cuts. -/
@@ -764,7 +764,7 @@ theorem exact_linear_plus_sqrt_not_section_coefficient :
       ∃ N : ℕ, ∀ n, N ≤ n →
         sectionOf (nPlusRoot n) ⊆ sectionOf (mul c (rootLog n))) := by
   rintro ⟨c, lo, hi, hc, hlo, N, hN⟩
-  apply exact_linear_plus_sqrt_not_bigO_any_finite_coefficient
+  apply exact_linear_plus_sqrt_not_big_o_any_finite_coefficient
   refine ⟨c, lo, hi, hc, hlo, N, ?_⟩
   intro n hn
   have h := (sectionOf_subset_iff _ _).mp (hN n hn)
@@ -790,7 +790,7 @@ theorem exact_n_harmonic_theta_n_log :
     ⟨4, by decide, eventually_atTop.mpr ⟨2, fun n hn =>
       (n_harmonic_n_log_section_bounds n hn).2⟩⟩⟩
 
-theorem exact_exponentiated_log_bigO_linear :
+theorem exact_exponentiated_log_big_o_linear :
     ∃ C : ℕ, 0 < C ∧ ∀ᶠ n in atTop,
       sectionOf (exponentiatedLogarithm n) ⊆ sectionOf (scale C (rational (n : ℚ))) :=
   ⟨1, by decide, eventually_atTop.mpr ⟨1, exponentiated_log_linear_section_bound⟩⟩
@@ -829,10 +829,10 @@ theorem exact_cubic_lower_terms_theta :
 
 /-! Five selected source cases remain explicit consumers of the general claims. -/
 
-theorem source_case_n_log_bigO_n_root :
+theorem source_case_n_log_big_o_n_root :
     ∃ C : ℕ, 0 < C ∧ ∀ᶠ n in atTop,
       sectionOf (nLog n) ⊆ sectionOf (scale C (nRoot n)) :=
-  exact_n_log_bigO_n_sqrt
+  exact_n_log_big_o_n_sqrt
 
 theorem source_case_no_fixed_exact_coefficient :
     ¬ (∃ c : ClosedTerm, ∃ lo hi : ℚ, Bounded c lo hi ∧ 0 < lo ∧
@@ -894,7 +894,7 @@ theorem real_n_log_isBigO_n_sqrt :
       (fun n : ℕ => (n : ℝ) * Real.sqrt (n : ℝ)) :=
   (section_growth_iff_real_isBigO nLog nRoot _ _
     (eventually_atTop.mpr ⟨1, nLog_value_real⟩)
-    (Eventually.of_forall nRoot_value_real)).mp exact_n_log_bigO_n_sqrt
+    (Eventually.of_forall nRoot_value_real)).mp exact_n_log_big_o_n_sqrt
 
 /-- Norm Big-O allows arbitrary real constants; the accepted cofinality bridge
 reduces any such bound to a natural coefficient contradicted by the source claim. -/
@@ -902,7 +902,7 @@ theorem real_linear_plus_sqrt_not_isBigO :
     ¬ ((fun n : ℕ => (n : ℝ) + Real.sqrt (n : ℝ)) =O[atTop]
       (fun n : ℕ => Real.sqrt (n : ℝ) * Real.logb 2 (n : ℝ))) := by
   intro h
-  apply exact_linear_plus_sqrt_not_bigO
+  apply exact_linear_plus_sqrt_not_big_o
   exact (section_growth_iff_real_isBigO nPlusRoot rootLog _ _
     (Eventually.of_forall nPlusRoot_value_real)
     (eventually_atTop.mpr ⟨1, rootLog_value_real⟩)).mpr h
@@ -926,7 +926,7 @@ theorem real_exponentiated_log_isBigO_linear :
       (fun n : ℕ => (n : ℝ)) :=
   (section_growth_iff_real_isBigO exponentiatedLogarithm (fun n => rational (n : ℚ)) _ _
     (eventually_atTop.mpr ⟨1, exponentiatedLogarithm_value_rpow⟩)
-    (Eventually.of_forall rational_nat_value_real)).mp exact_exponentiated_log_bigO_linear
+    (Eventually.of_forall rational_nat_value_real)).mp exact_exponentiated_log_big_o_linear
 
 theorem real_factorial_log_isTheta_n_log :
     (fun n : ℕ => Real.logb 2 (Nat.factorial n : ℝ)) =Θ[atTop]

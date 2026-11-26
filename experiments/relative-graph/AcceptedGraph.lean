@@ -44,7 +44,7 @@ theorem comparison (u : Level) (A B C F G : V)
     ((pt : V) ∈ˢ Q ↔ z = arrow B C G hg (arrow A B F hf x)) :=
   graph_comparison (primitives m u φ) A B C F G hB hC hf hg x z P Q hP hQ
 
-theorem formulaTruth (u : Level) (A B C F G : V)
+theorem formula_truth (u : Level) (A B C F G : V)
     (hB : B ∈ˢ univ (Level.eval φ u)) (hC : C ∈ˢ univ (Level.eval φ u))
     (hf : ∀ a, a ∈ˢ A → app F a ∈ˢ B) (hg : ∀ b, b ∈ˢ B → app G b ∈ˢ C)
     (x : Member A) (z : Member C) (P Q : V)
@@ -56,7 +56,7 @@ theorem formulaTruth (u : Level) (A B C F G : V)
 include m
 /-- Both implications are recovered from the stored closed theorem memberships.
 The stronger carrier and function memberships discharge the full telescope. -/
-theorem closedMembership (A B C F G x z : V)
+theorem closed_membership (A B C F G x z : V)
     (hA : A ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
     (hC : C ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
@@ -64,14 +64,14 @@ theorem closedMembership (A B C F G x z : V)
     (hx : x ∈ˢ A) (hz : z ∈ˢ C) :
     (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y) ↔ z = app G (app F x) := by
   constructor
-  · exact ClosedGraph.forwardMembership (primitives m GraphDeclarations.carrierLevel φ)
+  · exact ClosedGraph.forward_membership (primitives m GraphDeclarations.carrierLevel φ)
       (by decide) A B C F G x z hA hB hC hF hG hx hz
-  · exact ClosedGraph.backwardMembership (primitives m GraphDeclarations.carrierLevel φ)
+  · exact ClosedGraph.backward_membership (primitives m GraphDeclarations.carrierLevel φ)
       (by decide) A B C F G x z hA hB hC hF hG hx hz
 
 /-- Composition with a third function, using the derived closed comparison
 for both pairs. The intermediate function is built as a member of its Pi set. -/
-theorem threeStep (A B C D F G H x w : V)
+theorem three_step_membership (A B C D F G H x w : V)
     (hA : A ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
     (hB : B ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
     (hC : C ∈ˢ univ (Level.eval φ GraphDeclarations.carrierLevel))
@@ -87,8 +87,8 @@ theorem threeStep (A B C D F G H x w : V)
   have hinner (y : V) (hy : y ∈ˢ B) :
       (∃ z, z ∈ˢ C ∧ z = app G y ∧ w = app H z) ↔ w = app GH y := by
     rw [show app GH y = app H (app G y) from app_lamV hy]
-    exact closedMembership m φ B C D G H y w hB hC hD hG hH hy hw
-  have houter := closedMembership m φ A B D F GH x w hA hB hD hF hGH hx hw
+    exact closed_membership m φ B C D G H y w hB hC hD hG hH hy hw
+  have houter := closed_membership m φ A B D F GH x w hA hB hD hF hGH hx hw
   have hfx : app F x ∈ˢ B := app_mem_piV (B := fun _ => B) hF hx
   rw [show app GH (app F x) = app H (app G (app F x)) from app_lamV hfx] at houter
   apply Iff.trans ?_ houter

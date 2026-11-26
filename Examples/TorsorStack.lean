@@ -13,7 +13,7 @@ example : (Stack.pseudofunctor group).IsStack
     (Stack.topology (J := SmoothOpenSite.topology)) := inferInstance
 
 abbrev cover := nontrivialTorsor.family
-instance cover_locallySurjective :
+instance cover_isLocallySurjective :
     Presheaf.IsLocallySurjective SmoothOpenSite.topology (SplitSheaf.p cover).hom :=
   nontrivialTorsor.isLocallySurjective
 

@@ -40,7 +40,7 @@ theorem factor_left (r : A.charts.Relation) : A.factor r ≫ A.left r.first r.se
 theorem factor_right (r : A.charts.Relation) : A.factor r ≫ A.right r.first r.second = r.right := by
   apply OpenFunctions.Map.ext
   intro x
-  apply (chartPoint_openEmbedding (A.chart r.second)).injective
+  apply (chartPoint_isOpenEmbedding (A.chart r.second)).injective
   exact (A.agreement r.first r.second ((show Map _ _ from A.factor r) x)).symm.trans (r.agreement x)
 end SquareKit.ManifoldRealization.ChartFamily
 namespace SquareKit.ManifoldRealization.ChartFamily

@@ -166,7 +166,7 @@ theorem unit_generation_tariffs (rs : List (Rectangle Int Int)) :
     (rawEventsRunConst 1 1 1 1 rs).2 = 8 * rs.length + 4 :=
   congrArg Prod.snd (rawEventsRunConst_exact 1 1 1 1 rs)
 
-theorem raw_LE_generation : generate [rawPoint] =
+theorem raw_le_generation : generate [rawPoint] =
     ([eventFor rawPoint .insert 0, eventFor rawPoint .delete 0], 25) := by
   rw [generate_exact]
   rfl

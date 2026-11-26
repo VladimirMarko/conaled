@@ -95,7 +95,7 @@ theorem observed_theta (inputs : Nat → List α) (h : ∀ n, (inputs n).length 
     simpa only [h n, Nat.one_mul] using (observed_bounds (inputs n) (by rw [h]; exact hn)).1
 
 /-- A quantified obstruction, not an extrapolation from finite fixtures. -/
-theorem shifted_factorial_not_bigO : ¬ Asymptotics.IsBigO Filter.atTop
+theorem shifted_factorial_not_isBigO : ¬ Asymptotics.IsBigO Filter.atTop
     (fun n : Nat => (Nat.factorial (n+2) : ℝ))
     (fun n : Nat => ((n * Nat.factorial n : Nat) : ℝ)) := by
   intro h
@@ -115,13 +115,13 @@ theorem construction_not_shifted_lower : ¬ Asymptotics.IsBigO Filter.atTop
     (fun n : Nat => (Nat.factorial (n+2) : ℝ))
     (fun n : Nat => (constructionWork n : ℝ)) := by
   intro h
-  exact shifted_factorial_not_bigO (h.trans construction_theta.1)
+  exact shifted_factorial_not_isBigO (h.trans construction_theta.1)
 
 theorem observed_not_shifted_lower (inputs : Nat → List α)
     (h : ∀ n, (inputs n).length = n) : ¬ Asymptotics.IsBigO Filter.atTop
     (fun n : Nat => (Nat.factorial (n+2) : ℝ))
     (fun n => ((observed (inputs n)).2 : ℝ)) := by
   intro hc
-  exact shifted_factorial_not_bigO (hc.trans (observed_theta inputs h).1)
+  exact shifted_factorial_not_isBigO (hc.trans (observed_theta inputs h).1)
 
 end Resources.PositionalPermutations

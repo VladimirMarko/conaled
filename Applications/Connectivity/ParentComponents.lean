@@ -176,9 +176,9 @@ theorem sameComponent_iff_common_find {ds : DSA} (hF : Forest ds) (u v : Int) :
       ∃ r, findDSA ds u = some r ∧ findDSA ds v = some r := by
   constructor
   · rintro ⟨r, hu, hv⟩
-    exact ⟨r, (hF.findDSA_iff_Root u r).mpr hu, (hF.findDSA_iff_Root v r).mpr hv⟩
+    exact ⟨r, (hF.findDSA_iff_root u r).mpr hu, (hF.findDSA_iff_root v r).mpr hv⟩
   · rintro ⟨r, hu, hv⟩
-    exact ⟨r, (hF.findDSA_iff_Root u r).mp hu, (hF.findDSA_iff_Root v r).mp hv⟩
+    exact ⟨r, (hF.findDSA_iff_root u r).mp hu, (hF.findDSA_iff_root v r).mp hv⟩
 
 theorem sameComponent_iff_find_eq {ds : DSA} (hF : Forest ds) {u v : Int}
     (hu : Valid ds u) (hv : Valid ds v) :
@@ -190,8 +190,8 @@ theorem sameComponent_iff_find_eq {ds : DSA} (hF : Forest ds) {u v : Int}
   · intro he
     obtain ⟨r, hr⟩ := hF.valid_root_exists hu
     obtain ⟨s, hs⟩ := hF.valid_root_exists hv
-    have hru := (hF.findDSA_iff_Root u r).mpr hr
-    have hsv := (hF.findDSA_iff_Root v s).mpr hs
+    have hru := (hF.findDSA_iff_root u r).mpr hr
+    have hsv := (hF.findDSA_iff_root v s).mpr hs
     have hrs : r = s := Option.some.inj (hru.symm.trans (he.trans hsv))
     subst s
     exact ⟨r, hr, hs⟩

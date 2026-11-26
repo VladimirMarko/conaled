@@ -22,7 +22,7 @@ instance zeroRestriction_faithful (X : Sheaf topology Type) :
 
 /-- Mapping parameters preserve covering maps, so effective quotient descent
 also applies to maps out of D over arbitrary parameter covers. -/
-instance parameterMap_locallySurjective {X Y : Sheaf topology Type} (f : Y ⟶ X)
+instance parameterMap_isLocallySurjective {X Y : Sheaf topology Type} (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective topology f.hom] :
     Presheaf.IsLocallySurjective topology (parameterMap D f).hom where
   imageSieve_mem {U} x := by
